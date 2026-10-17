@@ -26,6 +26,32 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 20:27 — FINDING: iterating the normalized return speeds up typical roots, not the slowest ones
+
+This tests what happens if the R26 return is iterated. That means running the quotient map `q ↦ ν(S(q))` of R25 until it drops to `≤ N`.
+
+**2-adic random model** (60,000 random 200-bit starts):
+
+| map | mean drift per step | P(stay ≥ start), 15 steps | P(stay ≥ start), 30 steps | decay per step, 15→30 |
+|---|---:|---:|---:|---:|
+| `S` | -0.41 bits | 0.0348 | 0.0074 | 0.902 |
+| `ν∘S` | -1.41 bits | 0.0177 | 0.0038 | 0.903 |
+
+The quotient's mean drift is about 3.5 times stronger. The decay rate of staying high is the same within noise; only the constant changes. Its extra drops (F-chain `÷4`, halving `÷2`) matter only near the starting level.
+
+**Actual R26 remainder at `N = 98304`** (1775 roots, after removing those certified by `ν(f(x)) ≤ N`):
+
+- steps to reach `≤ N` under raw `S`: median 10, 90th percentile 25, maximum 81;
+- steps under the quotient, started from `ν(f(x))`: median 5, 90th percentile 17, maximum 66.
+
+The slowest roots are the same under both maps. For example `134379` needs 66 quotient steps against 72 raw.
+
+Finite data and model estimates; no termination claim.
+
+`python3 sidekick/probes/quotient_iteration_probe.py` (about 1 min; receipt alongside)
+
+---
+
 ## 2026-10-17 20:26 — VERIFIED: R26 run bridges and coverage (main `541101a`, `complementary_bridge/RUN_BLOCK_BRIDGES.md`)
 
 Return formulas were rebuilt from the statement. For a complementary root `x = 2^a t − 1`, put `z = 3^(a−1)t − 1`, `d = v2(z)` and `w = z/2^d`. Then `f(x) = 3^((d−1)/2)·w` when `d` is odd, and `f(x) = 2·3^(d/2)·w + 1` when `d` is even.
