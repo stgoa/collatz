@@ -21,7 +21,10 @@
 - Exact valuation cylinders use modulus `2^(A+1)`, including the extra bit.
 - Keep the original left-aligned/deeper packet families distinct from the revised right-aligned depth-one family. Existing stored currents certify only their stated family and cutoff.
 - The right-aligned remainder is supported on `{5,7,11,13}`. This fixed-core fact is what supplies all-horizon control.
-- The revised qualitative criterion requires every integer `N >= 8`. No uniform current-cost bound is needed, but universal existence or termination of a constructor remains unproved.
+- The original revised criterion used every integer `N >= 8`. The proved refinement now suffices on five rays: `N=a*2^b`, `a in {12,14,16,18,21}`, `b>=3`. Preserve all five rays and the finite base; powers of two alone are not covered. No uniform current-cost bound is needed, but universal existence or termination remains unproved.
+- For `8|N`, `Pi_right_(64N)=Pi_right_N+A_N` has disjoint supports and six explicit residue bands. This is a measure identity, not a current construction. The 30 starting measures are covered by verified finite absorption; their full current tables are not stored.
+- For a fixed measure, current existence tests each nonabsorbing orbit component; bounded work tests their combined mass. Do not infer a current from bounded work for an arbitrary single measure.
+- Uniformly bounded per-packet current catalogues are ruled out by the persisted delayed-separation family. This permits cross-packet cancellation and recursive constructions with unbounded expansion.
 - Incomplete currents may discard an everywhere nonpositive residual for an upper bound. Small positive mass alone is not affordable for all future horizons.
 - A finite certificate checker does not prove a search always terminates. Use caps/cycle detection for exploratory searches and report unresolved cases honestly.
 - Keep the inverse-Syracuse/PCP project separate from ordinary Collatz convergence or undecidability claims.

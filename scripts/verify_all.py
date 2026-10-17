@@ -60,6 +60,28 @@ def main():
         right = json.loads((work / "right_aligned_audit.json").read_text())
         receipt = json.loads((RESEARCH / "right_aligned_audit.json").read_text())
         require(right == receipt, "Right-aligned audit differs from persisted receipt")
+
+        # Preserve the repository-relative imports used by the new experiments.
+        revised = work / "collatz_research_20261017"
+        revised.mkdir()
+        shutil.copy2(RESEARCH / "right_aligned_packets.py", revised)
+        source_experiments = ROOT / "experiments" / "current_construction"
+        experiments = work / "experiments" / "current_construction"
+        shutil.copytree(source_experiments, experiments,
+                        ignore=shutil.ignore_patterns("__pycache__"))
+        new_audits = (
+            ("frontier", "check_sparse_criteria.py", "sparse_criteria_audit.json"),
+            ("recursive", "check_annular_recursion.py", "annular_audit.json"),
+            ("obstructions", "verify_obstructions.py", "audit.json"),
+        )
+        for directory, script, receipt_name in new_audits:
+            actual = json.loads(run([sys.executable, "-B", script], experiments / directory))
+            expected = json.loads((source_experiments / directory / receipt_name).read_text())
+            require(actual == expected, f"New audit receipt differs: {script}")
+        run([sys.executable, "-B", "check_five_rays_independent.py"],
+            experiments / "obstructions")
+        # The demo independently checks stored table rows and its full receipt.
+        run([sys.executable, "-B", "whole_packet_demo.py"], experiments / "obstructions")
         cpp = "not requested"
         if args.cpp:
             compiler = shutil.which(os.environ.get("CXX", "c++"))
@@ -76,6 +98,10 @@ def main():
     print(json.dumps(dict(status="PASS", archive_sha256=ARCHIVE_SHA,
                          manifest_entries=len(entries), stored_python="PASS",
                          right_aligned="PASS: matches persisted receipt", independent_cpp=cpp,
+                         sparse_rays="PASS: five-ray proof arithmetic and finite bases",
+                         annular_recursion="PASS: 66 finite full-measure cases",
+                         current_obstructions="PASS: finite graphs and delayed separation",
+                         revised_currents="PASS: 10 samples and both stored new tables",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
 
 

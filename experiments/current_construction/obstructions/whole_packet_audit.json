@@ -1,0 +1,659 @@
+{
+  "status": "PASS",
+  "ray_constants": {
+    "rays": 21,
+    "maximum_gap": "10668/10321",
+    "mesh_upper": "10337/10000",
+    "comparison_power": "7/5",
+    "contraction_upper": "399928193/400000000",
+    "finite_base_check": "delegated to frontier/check_sparse_criteria.py"
+  },
+  "caps": {
+    "historical_depth": 96,
+    "synchronous_depth": 512,
+    "per_source_hitting_time": 1000
+  },
+  "samples": [
+    {
+      "N": 120,
+      "packet_atoms": 63,
+      "historical_exact": {
+        "status": "certificate",
+        "depth": 12,
+        "current_rows": 99,
+        "positive_current_cost": 207,
+        "residual_rows": 0,
+        "residual_mass": 0,
+        "exposure": {
+          "sources_linked_to_1": 63,
+          "sources_not_linked_to_1": 0,
+          "unresolved_components": []
+        }
+      },
+      "historical_one_sided": {
+        "status": "certificate",
+        "depth": 12,
+        "current_rows": 99,
+        "positive_current_cost": 207,
+        "residual_rows": 0,
+        "residual_mass": 0,
+        "exposure": {
+          "sources_linked_to_1": 63,
+          "sources_not_linked_to_1": 0,
+          "unresolved_components": []
+        }
+      },
+      "synchronous": {
+        "status": "certificate",
+        "depth": 44,
+        "first_nonpositive_depth": 39
+      },
+      "source_hitting_times": {
+        "status": "all_absorbed",
+        "maximum_time": 44
+      },
+      "historical_and_synchronous_exact_currents_identical": true
+    },
+    {
+      "N": 236,
+      "packet_atoms": 125,
+      "historical_exact": {
+        "status": "certificate",
+        "depth": 12,
+        "current_rows": 175,
+        "positive_current_cost": 375,
+        "residual_rows": 0,
+        "residual_mass": 0,
+        "exposure": {
+          "sources_linked_to_1": 125,
+          "sources_not_linked_to_1": 0,
+          "unresolved_components": []
+        }
+      },
+      "historical_one_sided": {
+        "status": "certificate",
+        "depth": 8,
+        "current_rows": 165,
+        "positive_current_cost": 409,
+        "residual_rows": 1,
+        "residual_mass": -1,
+        "exposure": {
+          "sources_linked_to_1": 124,
+          "sources_not_linked_to_1": 1,
+          "unresolved_components": [
+            {
+              "minimum_state": 415,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                491
+              ]
+            }
+          ]
+        }
+      },
+      "synchronous": {
+        "status": "certificate",
+        "depth": 51,
+        "first_nonpositive_depth": 41
+      },
+      "source_hitting_times": {
+        "status": "all_absorbed",
+        "maximum_time": 51
+      },
+      "historical_and_synchronous_exact_currents_identical": true
+    },
+    {
+      "N": 480,
+      "packet_atoms": 254,
+      "historical_exact": {
+        "status": "certificate",
+        "depth": 50,
+        "current_rows": 428,
+        "positive_current_cost": 599,
+        "residual_rows": 0,
+        "residual_mass": 0,
+        "exposure": {
+          "sources_linked_to_1": 254,
+          "sources_not_linked_to_1": 0,
+          "unresolved_components": []
+        }
+      },
+      "historical_one_sided": {
+        "status": "certificate",
+        "depth": 13,
+        "current_rows": 352,
+        "positive_current_cost": 657,
+        "residual_rows": 3,
+        "residual_mass": -3,
+        "exposure": {
+          "sources_linked_to_1": 251,
+          "sources_not_linked_to_1": 3,
+          "unresolved_components": [
+            {
+              "minimum_state": 743,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                743
+              ]
+            },
+            {
+              "minimum_state": 751,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                1001
+              ]
+            },
+            {
+              "minimum_state": 1055,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                1055
+              ]
+            }
+          ]
+        }
+      },
+      "synchronous": {
+        "status": "certificate",
+        "depth": 61,
+        "first_nonpositive_depth": 50
+      },
+      "source_hitting_times": {
+        "status": "all_absorbed",
+        "maximum_time": 61
+      },
+      "historical_and_synchronous_exact_currents_identical": true
+    },
+    {
+      "N": 517,
+      "packet_atoms": 273,
+      "historical_exact": {
+        "status": "certificate",
+        "depth": 50,
+        "current_rows": 461,
+        "positive_current_cost": 613,
+        "residual_rows": 0,
+        "residual_mass": 0,
+        "exposure": {
+          "sources_linked_to_1": 273,
+          "sources_not_linked_to_1": 0,
+          "unresolved_components": []
+        }
+      },
+      "historical_one_sided": {
+        "status": "certificate",
+        "depth": 15,
+        "current_rows": 408,
+        "positive_current_cost": 615,
+        "residual_rows": 1,
+        "residual_mass": -1,
+        "exposure": {
+          "sources_linked_to_1": 272,
+          "sources_not_linked_to_1": 1,
+          "unresolved_components": [
+            {
+              "minimum_state": 1055,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                1055
+              ]
+            }
+          ]
+        }
+      },
+      "synchronous": {
+        "status": "certificate",
+        "depth": 61,
+        "first_nonpositive_depth": 50
+      },
+      "source_hitting_times": {
+        "status": "all_absorbed",
+        "maximum_time": 61
+      },
+      "historical_and_synchronous_exact_currents_identical": true
+    },
+    {
+      "N": 1984,
+      "packet_atoms": 1048,
+      "historical_exact": {
+        "status": "certificate",
+        "depth": 31,
+        "current_rows": 1658,
+        "positive_current_cost": 1799,
+        "residual_rows": 0,
+        "residual_mass": 0,
+        "exposure": {
+          "sources_linked_to_1": 1048,
+          "sources_not_linked_to_1": 0,
+          "unresolved_components": []
+        }
+      },
+      "historical_one_sided": {
+        "status": "certificate",
+        "depth": 28,
+        "current_rows": 1625,
+        "positive_current_cost": 1825,
+        "residual_rows": 1,
+        "residual_mass": -2,
+        "exposure": {
+          "sources_linked_to_1": 1040,
+          "sources_not_linked_to_1": 8,
+          "unresolved_components": [
+            {
+              "minimum_state": 1819,
+              "source_count": 8,
+              "signed_source_mass": -2,
+              "source_states": [
+                1819,
+                1915,
+                2047,
+                2155,
+                2729,
+                2873,
+                3071,
+                3233
+              ]
+            }
+          ]
+        }
+      },
+      "synchronous": {
+        "status": "certificate",
+        "depth": 78,
+        "first_nonpositive_depth": 62
+      },
+      "source_hitting_times": {
+        "status": "all_absorbed",
+        "maximum_time": 78
+      },
+      "historical_and_synchronous_exact_currents_identical": true
+    },
+    {
+      "N": 2053,
+      "packet_atoms": 1086,
+      "historical_exact": {
+        "status": "certificate",
+        "depth": 26,
+        "current_rows": 1636,
+        "positive_current_cost": 1887,
+        "residual_rows": 0,
+        "residual_mass": 0,
+        "exposure": {
+          "sources_linked_to_1": 1059,
+          "sources_not_linked_to_1": 27,
+          "unresolved_components": [
+            {
+              "minimum_state": 703,
+              "source_count": 18,
+              "signed_source_mass": 0,
+              "source_states": [
+                703,
+                937,
+                1055,
+                1249,
+                1583,
+                2111,
+                2287,
+                2375,
+                2813,
+                3167,
+                3335,
+                3431,
+                3563,
+                3695,
+                3749,
+                3947,
+                4379,
+                4511
+              ]
+            },
+            {
+              "minimum_state": 1819,
+              "source_count": 9,
+              "signed_source_mass": 0,
+              "source_states": [
+                1819,
+                1915,
+                2047,
+                2155,
+                2729,
+                2873,
+                3071,
+                3233,
+                4607
+              ]
+            }
+          ]
+        }
+      },
+      "historical_one_sided": {
+        "status": "certificate",
+        "depth": 17,
+        "current_rows": 1532,
+        "positive_current_cost": 1950,
+        "residual_rows": 4,
+        "residual_mass": -5,
+        "exposure": {
+          "sources_linked_to_1": 1054,
+          "sources_not_linked_to_1": 32,
+          "unresolved_components": [
+            {
+              "minimum_state": 703,
+              "source_count": 18,
+              "signed_source_mass": 0,
+              "source_states": [
+                703,
+                937,
+                1055,
+                1249,
+                1583,
+                2111,
+                2287,
+                2375,
+                2813,
+                3167,
+                3335,
+                3431,
+                3563,
+                3695,
+                3749,
+                3947,
+                4379,
+                4511
+              ]
+            },
+            {
+              "minimum_state": 1819,
+              "source_count": 9,
+              "signed_source_mass": 0,
+              "source_states": [
+                1819,
+                1915,
+                2047,
+                2155,
+                2729,
+                2873,
+                3071,
+                3233,
+                4607
+              ]
+            },
+            {
+              "minimum_state": 2215,
+              "source_count": 2,
+              "signed_source_mass": -2,
+              "source_states": [
+                2215,
+                3323
+              ]
+            },
+            {
+              "minimum_state": 3227,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                3227
+              ]
+            },
+            {
+              "minimum_state": 3839,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                3839
+              ]
+            },
+            {
+              "minimum_state": 4127,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                4127
+              ]
+            }
+          ]
+        }
+      },
+      "synchronous": {
+        "status": "certificate",
+        "depth": 78,
+        "first_nonpositive_depth": 62
+      },
+      "source_hitting_times": {
+        "status": "all_absorbed",
+        "maximum_time": 78
+      },
+      "historical_and_synchronous_exact_currents_identical": true
+    },
+    {
+      "N": 3008,
+      "packet_atoms": 1591,
+      "historical_exact": {
+        "status": "certificate",
+        "depth": 43,
+        "current_rows": 2508,
+        "positive_current_cost": 3775,
+        "residual_rows": 0,
+        "residual_mass": 0,
+        "exposure": {
+          "sources_linked_to_1": 1591,
+          "sources_not_linked_to_1": 0,
+          "unresolved_components": []
+        }
+      },
+      "historical_one_sided": {
+        "status": "certificate",
+        "depth": 30,
+        "current_rows": 2435,
+        "positive_current_cost": 3807,
+        "residual_rows": 2,
+        "residual_mass": -2,
+        "exposure": {
+          "sources_linked_to_1": 1589,
+          "sources_not_linked_to_1": 2,
+          "unresolved_components": [
+            {
+              "minimum_state": 6383,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                6383
+              ]
+            },
+            {
+              "minimum_state": 6395,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                6395
+              ]
+            }
+          ]
+        }
+      },
+      "synchronous": {
+        "status": "certificate",
+        "depth": 86,
+        "first_nonpositive_depth": 77
+      },
+      "source_hitting_times": {
+        "status": "all_absorbed",
+        "maximum_time": 86
+      },
+      "historical_and_synchronous_exact_currents_identical": true
+    },
+    {
+      "N": 8197,
+      "packet_atoms": 4342,
+      "historical_exact": {
+        "status": "certificate",
+        "depth": 45,
+        "current_rows": 6706,
+        "positive_current_cost": 9741,
+        "residual_rows": 0,
+        "residual_mass": 0,
+        "exposure": {
+          "sources_linked_to_1": 4342,
+          "sources_not_linked_to_1": 0,
+          "unresolved_components": []
+        }
+      },
+      "historical_one_sided": {
+        "status": "certificate",
+        "depth": 44,
+        "current_rows": 6661,
+        "positive_current_cost": 9773,
+        "residual_rows": 1,
+        "residual_mass": -1,
+        "exposure": {
+          "sources_linked_to_1": 4341,
+          "sources_not_linked_to_1": 1,
+          "unresolved_components": [
+            {
+              "minimum_state": 15131,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                15131
+              ]
+            }
+          ]
+        }
+      },
+      "synchronous": {
+        "status": "certificate",
+        "depth": 97,
+        "first_nonpositive_depth": 94
+      },
+      "source_hitting_times": {
+        "status": "all_absorbed",
+        "maximum_time": 97
+      },
+      "historical_and_synchronous_exact_currents_identical": true
+    },
+    {
+      "N": 15104,
+      "packet_atoms": 8001,
+      "historical_exact": {
+        "status": "certificate",
+        "depth": 44,
+        "current_rows": 12245,
+        "positive_current_cost": 17153,
+        "residual_rows": 0,
+        "residual_mass": 0,
+        "exposure": {
+          "sources_linked_to_1": 8001,
+          "sources_not_linked_to_1": 0,
+          "unresolved_components": []
+        }
+      },
+      "historical_one_sided": {
+        "status": "certificate",
+        "depth": 37,
+        "current_rows": 12121,
+        "positive_current_cost": 17186,
+        "residual_rows": 3,
+        "residual_mass": -3,
+        "exposure": {
+          "sources_linked_to_1": 7993,
+          "sources_not_linked_to_1": 8,
+          "unresolved_components": [
+            {
+              "minimum_state": 10087,
+              "source_count": 5,
+              "signed_source_mass": 0,
+              "source_states": [
+                10087,
+                15131,
+                22697,
+                25535,
+                30263
+              ]
+            },
+            {
+              "minimum_state": 26471,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                26471
+              ]
+            },
+            {
+              "minimum_state": 31343,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                31343
+              ]
+            },
+            {
+              "minimum_state": 31847,
+              "source_count": 1,
+              "signed_source_mass": -1,
+              "source_states": [
+                31847
+              ]
+            }
+          ]
+        }
+      },
+      "synchronous": {
+        "status": "certificate",
+        "depth": 101,
+        "first_nonpositive_depth": 99
+      },
+      "source_hitting_times": {
+        "status": "all_absorbed",
+        "maximum_time": 101
+      },
+      "historical_and_synchronous_exact_currents_identical": true
+    },
+    {
+      "N": 65536,
+      "packet_atoms": 34716,
+      "historical_exact": {
+        "status": "certificate",
+        "depth": 72,
+        "current_rows": 53621,
+        "positive_current_cost": 74725,
+        "residual_rows": 0,
+        "residual_mass": 0,
+        "exposure": {
+          "sources_linked_to_1": 34716,
+          "sources_not_linked_to_1": 0,
+          "unresolved_components": []
+        }
+      },
+      "historical_one_sided": {
+        "status": "certificate",
+        "depth": 72,
+        "current_rows": 53621,
+        "positive_current_cost": 74725,
+        "residual_rows": 0,
+        "residual_mass": 0,
+        "exposure": {
+          "sources_linked_to_1": 34716,
+          "sources_not_linked_to_1": 0,
+          "unresolved_components": []
+        }
+      },
+      "synchronous": {
+        "status": "certificate",
+        "depth": 128,
+        "first_nonpositive_depth": 123
+      },
+      "source_hitting_times": {
+        "status": "all_absorbed",
+        "maximum_time": 128
+      },
+      "historical_and_synchronous_exact_currents_identical": true
+    }
+  ],
+  "universal_current_existence_proved": false,
+  "uniform_exposure_depth_proved": false
+}

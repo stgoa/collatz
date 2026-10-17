@@ -1,0 +1,172 @@
+{
+  "status": "PASS",
+  "five_ray_criterion": {
+    "mantissas": [
+      12,
+      14,
+      16,
+      18,
+      21
+    ],
+    "exponents": "all integers b>=3 (conditional theorem)",
+    "comparison": "f(a_i*2^b)=2^((5b+i)/3), i=0,...,4",
+    "comparison_growth_exponent": "5/3",
+    "strict_contraction_upper": "89/90",
+    "finite_base_odd_seeds": [
+      1,
+      95
+    ],
+    "base_max_syracuse_time": 42,
+    "successor_edges": [
+      {
+        "from_mantissa": 12,
+        "to_mantissa": 18,
+        "dyadic_shift": 0
+      },
+      {
+        "from_mantissa": 14,
+        "to_mantissa": 21,
+        "dyadic_shift": 0
+      },
+      {
+        "from_mantissa": 16,
+        "to_mantissa": 12,
+        "dyadic_shift": 1
+      },
+      {
+        "from_mantissa": 18,
+        "to_mantissa": 14,
+        "dyadic_shift": 1
+      },
+      {
+        "from_mantissa": 21,
+        "to_mantissa": 16,
+        "dyadic_shift": 1
+      }
+    ],
+    "base64_ladders": {
+      "count": 30,
+      "initial_cutoffs": [
+        96,
+        112,
+        128,
+        144,
+        168,
+        192,
+        224,
+        256,
+        288,
+        336,
+        384,
+        448,
+        512,
+        576,
+        672,
+        768,
+        896,
+        1024,
+        1152,
+        1344,
+        1536,
+        1792,
+        2048,
+        2304,
+        2688,
+        3072,
+        3584,
+        4096,
+        4608,
+        5376
+      ],
+      "largest_initial_cutoff": 5376,
+      "all_initial_packet_endpoints_below": 12096,
+      "odd_endpoint_seeds_verified": 6048,
+      "max_endpoint_syracuse_time": 98,
+      "exact_base_currents_exist_by_finite_absorption": true,
+      "full_current_tables_stored": false
+    }
+  },
+  "twenty_one_ray_criterion": {
+    "mantissas": [
+      8192,
+      8467,
+      8751,
+      9045,
+      9348,
+      9662,
+      9986,
+      10321,
+      10668,
+      11026,
+      11396,
+      11778,
+      12173,
+      12582,
+      13004,
+      13440,
+      13891,
+      14358,
+      14839,
+      15337,
+      15852
+    ],
+    "exponents": "all integers b>=3 (conditional theorem)",
+    "finite_base_odd_seeds": [
+      1,
+      65535
+    ],
+    "base_max_syracuse_time": 125,
+    "base_maximizers": [
+      52527
+    ],
+    "mesh_ratio_upper": "10337/10000",
+    "maximum_actual_mesh_ratio": "10668/10321",
+    "comparison_power": "7/5",
+    "strict_contraction_upper": "399928193/400000000",
+    "finite_grid_exponents_checked": [
+      3,
+      64
+    ],
+    "grid_probes_checked": 3905
+  },
+  "thirty_ray_criterion": {
+    "mantissas": [
+      30,
+      59
+    ],
+    "exponents": "all integers b>=2 (conditional theorem)",
+    "finite_base_odd_seeds": [
+      1,
+      119
+    ],
+    "base_max_syracuse_time": 43,
+    "mesh_ratio": "31/30",
+    "comparison_power": "4/3",
+    "strict_contraction_upper": "1199731/1200000",
+    "finite_grid_exponents_checked": [
+      2,
+      15
+    ]
+  },
+  "paired_exact_criterion": {
+    "source_differences_checked": 249,
+    "N_checked": {
+      "first": 10,
+      "last": 1002,
+      "step": 4
+    },
+    "inverse_lifts_checked": 1665,
+    "inverse_parameters": {
+      "d": [
+        1,
+        5
+      ],
+      "odd_y": [
+        1,
+        999
+      ],
+      "exclude_multiples_of_3": true
+    }
+  },
+  "universal_current_existence_proved": false
+}

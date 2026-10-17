@@ -2,19 +2,26 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-17): Collatz remains unproved.** We have a written reduction that removes the uniform current-cost requirement for a revised packet family. We do not have a universal current construction, a proof of its termination, human peer review, or formal verification of the new reduction.
+**Current standing (2026-10-17): Collatz remains unproved.** The written reduction now requires finite current certificates along only **five dyadic rays**, with no uniform cost bound. An exact recurrence under multiplication by 64 gives explicit measures to certify. Universal construction and termination remain open. The new arguments have computational and model-assisted checks; they have not received human peer review or formal verification.
 
 ## Our current understanding
 
 The programme converts an exact stopping-work discrepancy into a finite signed measure on actual Collatz states. Balanced source packets allow positive and negative contributions to cancel, including contributions that arrive at a common state at different times. A finite current certificate can be checked using one-step arithmetic without resolving the future of its exits.
 
-The latest change is to group **depth-one source triples from the right**. The leftover endpoints then lie only in `{5, 7, 11, 13}`, all of which reach 1 within five odd-only steps. The remainder is therefore controlled at every time horizon.
+Grouping **depth-one source triples from the right** leaves endpoints only in `{5, 7, 11, 13}`, all of which reach 1 within five odd-only steps. The remainder is therefore controlled at every time horizon.
 
 For this revised family, a written maximum-principle proof shows:
 
-> If every integer cutoff `N >= 8` admits some finite current certificate, then Collatz follows. Certificate size and positive cost may depend arbitrarily on N. A finite current with an everywhere nonpositive residual also suffices.
+> It suffices to give finite current certificates at every cutoff
+> `N = a * 2^b`, where `a ∈ {12, 14, 16, 18, 21}` and `b >= 3`.
+> Certificate size and positive cost may depend arbitrarily on N.
+> A finite current with an everywhere nonpositive residual also suffices.
 
-This criterion is equivalent to Collatz. It removes a quantitative proof obligation but does not prove that the required certificates exist. The original handoff's left-aligned packets and stored currents are a different family; their finite checks do not establish the revised universal criterion.
+The proof compares the exceptional-seed count using a weight that depends on the ray and scale. Its contraction factor is strictly below `89/90`. This supersedes the earlier requirement to certify every integer cutoff; all five rays still contain infinitely many cutoffs.
+
+For every multiple of 8, `Pi_right_(64N) = Pi_right_N + A_N`. The added measure occupies six bands above the old support, with known coefficients periodic modulo 18. The five rays split into **30 sequences under multiplication by 64**. Their finite starting cases have been discharged by verified absorption. Constructing currents for all their annular increments is therefore a concrete sufficient target.
+
+These criteria are equivalent to Collatz; they do not prove the universal certificates exist. The original handoff's packets and current tables are a different family. A proved obstruction also rules out uniformly bounded certificates for individual raw packets, while allowing cancellation between packets and constructions of unbounded size.
 
 ## Where to start
 
@@ -31,7 +38,7 @@ Requires Python 3.10+ and its standard library. The independent check additional
 python3 scripts/verify_all.py --cpp
 ```
 
-Without a compiler, omit `--cpp`; the report explicitly records that the independent C++ check was not run. The runner verifies the archive and all 31 manifest entries, reruns the stored Python certificates, and reproduces the right-aligned audit. It uses a temporary directory so the preserved inputs and receipts stay unchanged. With `--cpp`, it also builds and runs the independent verifier at both stored cutoffs.
+Without a compiler, omit `--cpp`; the report explicitly records that the independent C++ check was not run. The runner verifies the archive and all 31 manifest entries, the stored Python certificates, the right-aligned audit, and the new sparse-ray, annular, graph, and current checks. It uses temporary storage so preserved inputs and receipts stay unchanged. With `--cpp`, it also builds and runs the independent verifier at both original stored cutoffs.
 
 The checks establish finite arithmetic identities. They do not establish universal current existence or replace the written proof. Never use Python optimization flags for these assertion-based verifiers.
 
@@ -46,9 +53,15 @@ The checks establish finite arithmetic identities. They do not establish univers
 - `docs/RESULTS.md`: claim ledger and next proof obligations.
 - `docs/RESEARCH_LOG.md`: dated record of durable changes and validation.
 - `scripts/verify_all.py`: unified verification entry point.
+- `experiments/current_construction/REPORT.md`: investigation handoff, proved results, failed directions, and remaining obligations.
+- `experiments/current_construction/frontier/`: five-ray proof and finite base checks.
+- `experiments/current_construction/recursive/`: annular coefficient table, proof, and checker.
+- `experiments/current_construction/obstructions/`: component criterion, capped search, packet obstruction, and new finite current tables.
 
 ## Next research target
 
-Find an arithmetic construction that produces a finite current, possibly with an everywhere nonpositive residual, for **every integer cutoff** in the right-aligned family. Prove that the construction terminates. Larger collections of successful searches do not discharge this obligation; neither does a small unresolved positive residual over an unbounded time horizon.
+Find an arithmetic construction that produces a finite current, possibly with an everywhere nonpositive residual, along **all five rays**. The annular formulation reduces this to six-band increments on the 30 sequences above. Prove termination; arbitrarily large finite certificates are allowed.
+
+Retain historical orbit intersections: equal futures may cancel at unequal times. A complete capped search is implemented, but universal termination is open. The source recurrence still contains an expanding `3N/2` term, so the measure identity alone does not give a decreasing induction. Larger scans and a small unresolved positive residual do not discharge this obligation.
 
 Update this README and the result ledger whenever the standing changes. Preserve counterexamples and explain which earlier claim a new result supersedes.
