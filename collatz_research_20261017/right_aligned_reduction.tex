@@ -29,6 +29,9 @@ Explicit arithmetic families now supply partial currents for every annulus.
 A separate coalescence current reduces its norm to at most $19/22$ of
 its original value in one pass. Neither construction has a proved closure
 rule for its residual.
+A finite rational cone also converts supplied packet certificates and their
+boundary terms into integer absorption certificates, using a strict gap
+below one unit of positive residual mass.
 No complete universal current construction, Collatz proof, or novelty claim
 is supplied.
 \end{abstract}
@@ -757,6 +760,180 @@ the outer coefficient profile instead requires growing ternary moduli.
 Neither observation rules out arithmetic rewrites, additional state
 information, or historical cancellation.
 
+\subsection{Why interleaving collapse and transport does not close the gap}
+The operator relations $R^2=R$ and $PR=P$ reduce every word in $P,R$
+to $I$, $R$, $P^t$, or $RP^t$. In particular,
+\[
+(RP)^tR\mu=RP^t\mu,\qquad
+\|RP^t\mu\|_1=\|P^{t+1}\mu\|_1.
+\]
+On root states greater than $1$, the bijection $\phi(x)=S(x)$ to odd
+states greater than $1$ coprime to $3$ conjugates the killed map
+$x\mapsto\rho(S(x))$ to killed Syracuse. The inverse is
+$(2y-1)/3$ for $y\equiv2\pmod3$ and $(4y-1)/3$ for
+$y\equiv1\pmod3$. If the new root is $1$, both conjugate maps are killed.
+Thus these operations only change the representatives of the same dynamics.
+
+There is also an explicit surviving family. For fixed $t\ge0$, every
+\[
+72N<x<144N,\qquad x\equiv-1\pmod{9\cdot2^{t+2}}
+\]
+has, for $0\le j\le t$, the positive coefficient $2$ in both
+$P^jA_N$ and $RP^jA_N$ at $y_j=3^j(x+1)/2^j-1$.
+There are exactly
+$\lfloor4N/2^t\rfloor-\lfloor2N/2^t\rfloor$ such sources.
+All their first branches have valuation $1$. Any endpoint involving a
+larger valuation lies below $(3/2)^j(72N+1/3)-1$, whereas the selected
+points lie above this bound. Thus no other synchronous history cancels
+them. They are already roots, and their next $4y+1$ representatives
+exceed the entire transported support.
+
+For $N=a2^b$, the top source $144N-1$ consequently survives through
+$b+2$ transports at $324a3^b-1$. Hence no fixed transport depth or
+uniform linear state-height bound closes this particular process.
+These conclusions permit cancellation at unequal times. The proposed
+repeated $19/22$ norm bound already fails at $N=96$:
+$\|P^2A_{96}\|_1=3533$ and $\|P^3A_{96}\|_1=3124$.
+A later reachable residual even has unchanged norm $13$ and positive
+mass $4$ after one more transport and collapse.
+
+An independently checked \emph{aggregate} example goes beyond synchronous
+transport. At $N=12\cdot2^{27}$, the complete component of the top source
+in the depth-$32$ historical exposure graph has $35$ vertices and exactly
+the source atoms $(64N-1,-2)$, $(96N-1,2)$, $(144N-1,2)$.
+Its mass is $2$, so no current supported on that entire graph has
+nonpositive residual. A bounded inverse enumeration checks every possible
+incoming exposed edge without materializing the full annulus.
+This is a fixed finite-depth obstruction, not an arbitrary-depth theorem.
+At $N=10368$, the depth-$2$ top component instead has $27$ source atoms
+of total zero, illustrating why a lone growing orbit is insufficient.
+
+\section{A finite compiler using the integer component gap}
+The boundary problem can be handled conditionally across finitely many
+scales. The next result converts supplied packet certificates into
+ordinary absorption paths. It does not provide those inputs universally.
+
+\begin{lemma}[Strict integer gap]\label{lem:integergap}
+Let $\mu$ be a finite signed integer measure. If a finite rational current
+satisfies
+\[
+\mu=(I-P)J+Z,\qquad \|Z^+\|_1<1,
+\]
+then the finite graph of its nonzero current arrows supports an integer
+current for $\mu$ with nonpositive residual. Include all source states
+and the absorber as vertices. If $\mu\ge0$, every nonzero source is in
+the absorbing component, and the same graph supplies exact absorption
+paths and an exact nonnegative integer current.
+\end{lemma}
+\begin{proof}
+On a component $C$ not containing $1$, the divergence sums to zero.
+Thus $\sum_C\mu=\sum_C Z\le\|Z^+\|_1<1$. The left side is an integer,
+so it is nonpositive. Routing integer source masses to component anchors
+gives the claimed current. If $\mu\ge0$, no unabsorbed component contains
+a source. A finite functional component containing the sink $1$ cannot
+contain another sink or directed cycle, so every source follows its
+existing arrows to $1$.
+\end{proof}
+The strict threshold and source integrality are essential. In a general
+functional graph, a unit source at a nonabsorbing fixed point has residual
+mass $1$ and fails the conclusion; this supplies no positive Syracuse
+fixed point. The lemma replaces a rational certificate by a different
+integer one; it does not simply discard a positive residual in a work bound.
+
+Enumerate the five-ray grid by $N_k=a_i2^b$, $k=5b+i\ge15$.
+Use the same formula for the lower-boundary indices $5\le k<15$.
+The rounded recurrence uses indices $k-10,k+3,k-2$. A rational comparison
+weight is $f_k=r^k$, where
+\[
+r=\frac{35}{27},\qquad
+\lambda=r^{-10}+\frac{r^3+r^{-2}}3
+=\frac{162742333796706147551}{162889462677744140625}<1.
+\]
+Here $r^5>2$ and $a_i/r^i\le12$ for all $i$.
+For a target integer $m\ge1$, let $k_*$ be the first grid index with
+$g=N_{k_*}\ge m$. Choose the least integer $B\ge4$, $k_*<5B$, with
+\[
+6r^{k_*}(2/r^5)^B<1.
+\]
+This is a finite exact rational search. It specifies $5(B-3)$ packet
+cutoffs, all $N_k$ with $15\le k\le K=5B-1$.
+
+On these indices define a matrix $A$ with row transitions of weights
+$1,1/3,1/3$ to $k-10,k+3,k-2$, omitting targets outside the block.
+The weighted norm bound $Af\le\lambda f$ proves that $I-A$ has a
+nonnegative inverse. The finite rational vector
+\[
+w=(I-A)^{-T}e_{k_*}\ge0
+\]
+is computed by Gaussian elimination. For every omitted target $\ell$,
+let $c_\ell\ge0$ be the sum of its incoming weights multiplied by $w_k$.
+Define
+\[
+\widetilde D_k=3U_{N_k}-3U_{N_{k-10}}-U_{N_{k+3}}-U_{N_{k-2}}.
+\]
+The transpose equation gives the exact finite measure identity
+\[
+U_g=\sum_{k=15}^{K}\frac{w_k}{3}\widetilde D_k
+       +\sum_{\ell\notin[15,K]}c_\ell U_{N_\ell}.
+\]
+All lower-boundary cutoffs are below $96$. The upper-boundary mass is
+\[
+T=\sum_{\ell>K}c_\ell(N_\ell/2-1)<1.
+\]
+Indeed, the corresponding solution $h=Ah+b$ with zero lower boundary
+and upper values $N_\ell/2-1$ satisfies the finite maximum principle for
+$h_k/r^k$. Therefore
+$T\le r^{k_*}\max_{\ell>K}(N_\ell/2-1)/r^\ell
+<6r^{k_*}(2/r^5)^B$.
+An exact solve can also establish $T<1$ for a smaller block.
+
+\begin{theorem}[Conditional finite certificate compiler]\label{thm:finitecompiler}
+Suppose finite currents with nonpositive residual are supplied for all
+the selected $\PiR_{N_k}$. If the finite rational solve above has $T<1$,
+their arrows, together with explicit source-scale currents and the known
+finite base/core paths, construct an exact integer current for $U_g$.
+Every odd seed at most $g$ is thereby certified to reach $1$.
+\end{theorem}
+\begin{proof}
+For $8\mid N$, put
+$D_N=3U_N-3U_{N/4}-U_{3N/2}-U_{3N/4}$ and
+$K_N=\nu_N+3(U_N-U_{N/4})$. The exact source transport gives
+\[
+D_N=\PiR_N+\eta_N+(I-P)K_N.
+\]
+The rounding shell
+$W_k=(U_{N_{k+3}}-U_{3N_k/2})+
+      (U_{N_{k-2}}-U_{3N_k/4})$ is nonnegative, and
+$\widetilde D_k=D_{N_k}-W_k$.
+Substitute the supplied identities
+$\PiR_{N_k}=(I-P)J_k+\zeta_k$, $\zeta_k\le0$.
+Absorb the lower-boundary measures and the signed core remainders by
+their known finite path currents. The result is
+$U_g=(I-P)J_*+Z$, where
+\[
+Z=\sum_k\frac{w_k}{3}\zeta_k-\sum_k\frac{w_k}{3}W_k
+        +\sum_{\ell>K}c_\ell U_{N_\ell}.
+\]
+Thus $\|Z^+\|_1\le T<1$. Lemma \ref{lem:integergap} extracts the
+integer current and actual paths without exposing further arrows.
+All source-scale boundary terms have been retained as currents.
+\end{proof}
+With $p=5\log_2(35/27)\simeq1.87198$, the sufficient block contains
+$O(\log m)$ cutoffs, the largest being $O(m^{p/(p-1)})$,
+where $p/(p-1)\simeq2.14682$. This bounds which input certificates suffice,
+not their size, cost, search time, or universal availability.
+
+For $m=97$, $g=112$, the exact solve already works at $B=9$, using the
+30 starting cutoffs through $5376$. Actual checked one-sided input
+currents combine into a rational current with denominator $46422343855805$
+and positive residual numerator $29145292346068$. The strict gap
+extracts a stored $95$-row nonnegative integer current for $U_{112}$,
+with no new arrows. Twenty input certificates still had sources unlinked
+to $1$ in their individual discovery graphs.
+This is a verified finite conversion. Using it for arbitrary residuals
+can require certificates at larger cutoffs, so a decreasing induction
+cannot assume those inputs without a separate construction.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -772,6 +949,9 @@ A proof of termination of that construction is essential.
 Theorem \ref{thm:partial} now supplies actual infinite families of
 partial certificates, and Theorem \ref{thm:norm} supplies a separate
 one-pass contraction. Their residuals still need a closed construction.
+Theorem \ref{thm:finitecompiler} converts a finite collection of supplied
+packet certificates into ordinary absorption paths, but leaves the
+universal supply of those certificates open.
 Its running time, number of rows, and positive cost may be arbitrarily large
 functions of $N$. A small unresolved \emph{positive} residual is insufficient
 for this all-horizon criterion unless its own future contribution is bounded.
@@ -823,4 +1003,11 @@ includes all vertices and contributing rows. A separately labeled
 negative-integer example certifies the failure of scalar work to
 control component masses; it makes no positive Collatz claim.
 These checks are integrated into the same unified command.
+The continuation in \texttt{experiments/residual\_progress/} checks the
+root/transport normal form and surviving atoms, exact finite-cone weights
+and all retained boundary terms, and the actual rational-to-integer
+certificate conversion. Its finite integer-gap audit covers $216000$
+map/current/source cases. The final $U_{112}$ current is stored in full.
+The inverse exposure checker agrees with $48$ independently materialized
+graphs and stores the complete depth-$32$ aggregate obstruction.
 \end{document}

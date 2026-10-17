@@ -2,7 +2,7 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-17): Collatz remains unproved.** Finite currents along **five dyadic rays** would suffice, with no uniform cost bound. We now have explicit partial currents for every annular increment, including an infinite family compiled from a finite cancellation tree. A separate exact compression reduces an annulus's norm to at most **19/22** of its original value. Completing the residuals and proving termination remain open. The arguments have computational and model-assisted checks; they have not received human peer review or formal verification.
+**Current standing (2026-10-17): Collatz remains unproved.** Finite currents along **five dyadic rays** would suffice, with no uniform cost bound. We have explicit partial annular currents and an exact **19/22** one-pass compression. A new finite compiler converts supplied packet certificates into ordinary absorption paths, using a strict integer-component gap. Universal supply of the input certificates and termination remain open. The arguments have computational and model-assisted checks; they have not received human peer review or formal verification.
 
 ## Our current understanding
 
@@ -29,8 +29,10 @@ These criteria are equivalent to Collatz; they do not prove the universal certif
 - **A combined partial constructor.** Five short-chain families and the packed tree have disjoint sources. Their currents remove positive mass `D(N)+3C(N) = 73N/48+O(1)` from an initial `99N/4`. The code returns the full current and the exact remaining measure; its positive coefficients are retained.
 - **Exact compression.** Merging states with the same successor gives `||P A_N||_1 = 171N/4 - |c_N|`, with `|c_N| <= 3`. This yields the `19/22` bound. The compressed measure is a different family, so repeating that bound is not justified.
 - **A precise remaining obstruction.** On a finite exposed graph, the sum of positive component masses is a nonincreasing integer. A complete constructor must prove that every positive plateau ends. A checked example shows that closing all scale-recurrence boundary edges can still leave positive mass.
+- **A finite certificate compiler.** Exact rational weights combine finitely many packet certificates and all boundary terms. If the positive residual mass is below 1, integer component masses force an exact integer certificate. An actual demonstration combines 30 packet inputs into a 95-row certificate for every odd seed through 111, without exposing new arrows during extraction. For a target m, an explicit sufficient set uses O(log m) cutoffs, the largest O(m^2.14682); this bounds the required inputs, not the cost of constructing them.
+- **A rejected shortcut.** Alternating root collapse and transport is conjugate to ordinary Syracuse evolution. Explicit positive atoms survive any fixed number of these operations, and their heights exceed every fixed multiple of N along the rays. This rules out that proposed closure mechanism while permitting other arithmetic rewrites and unequal-time cancellation.
 
-Full proofs, failed candidates, and the next obligation are in the [annular construction report](experiments/annular_construction/REPORT.md).
+Full proofs and failed candidates are in the [annular construction report](experiments/annular_construction/REPORT.md) and the newer [residual progress report](experiments/residual_progress/REPORT.md).
 
 ## Where to start
 
@@ -70,6 +72,7 @@ The checks establish finite arithmetic identities. They do not establish univers
 - `experiments/annular_construction/components/`: affine current compiler, disjoint packing, incremental graph search, and annular certificates.
 - `experiments/annular_construction/arithmetic/`: short-chain catalogue, norm proof, outer-profile obstruction, and reusable combined constructor.
 - `experiments/annular_construction/duality/`: component potential, exact boundary flux, residue information loss, and scoped counterexamples.
+- `experiments/residual_progress/`: finite rational cone and integer-gap compiler, actual certificate conversion, and scoped residual-transport obstructions.
 
 ## Next research target
 
@@ -78,5 +81,7 @@ Find an arithmetic construction that produces a finite current, possibly with an
 Retain historical orbit intersections: equal futures may cancel at unequal times. A complete capped search is implemented, but universal termination is open. The source recurrence still contains an expanding `3N/2` term, so the measure identity alone does not give a decreasing induction. Larger scans and a small unresolved positive residual do not discharge this obligation.
 
 The next concrete lemma is **finite progress for every positive component plateau**. One route would close the residuals of the proved partial currents in a family with a decreasing integer parameter. Another would prove that a finite arithmetic extension must connect an unresolved positive component to enough negative source mass or to 1. Repeating the same root compression, dropping a boundary flux, or treating a zero residue projection as an integer certificate does not supply that lemma.
+
+The finite compiler now resolves the boundary terms conditionally across a finite set of scales. It still requires packet certificates that may lie above the target scale. Assuming those larger inputs during a decreasing induction would be circular. A successful construction must supply them independently or establish a different closed recursion.
 
 Update this README and the result ledger whenever the standing changes. Preserve counterexamples and explain which earlier claim a new result supersedes.

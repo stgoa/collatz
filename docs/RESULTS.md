@@ -185,11 +185,56 @@ A separately labeled **negative-integer** reflected annulus has identically zero
 
 See [aggregate duality proof](../experiments/annular_construction/duality/aggregate_duality.md), [checker](../experiments/annular_construction/duality/check_duality.py), and [receipt](../experiments/annular_construction/duality/duality_audit.json), including every state and boundary row of the positive flux example.
 
+## R11 — Finite rational cone and integer certificate conversion
+
+**Status: written conditional constructive theorem; exact finite demonstration. Required packet inputs remain unproved universally.**
+
+If a finite integer source satisfies `mu=(I-P)J+Z` with a finite rational current and `||Z^+||_1<1`, each unabsorbed exposed component has integer source mass below 1, hence at most zero. The same graph therefore supports an integer current with nonpositive residual. For a nonnegative source every source already belongs to the absorbing component, so the existing arrows give actual finite absorption paths and an exact nonnegative integer current. The strict threshold and source integrality are essential.
+
+Enumerate the five rays by `N_k=a_i*2^b`, `k=5b+i`. The rounded recurrence uses shifts `-10,+3,-2` with weights `1,1/3,1/3`. The rational comparison `r=35/27` has `r^(-10)+(r^3+r^(-2))/3<1`. On a finite index block, the inverse `(I-A)^(-1)` is nonnegative. Solving `(I-A)^T w=e_target` supplies exact nonnegative rational weights for an identity among finite counting measures.
+
+Restore the actual source-scale current `K_N=nu_N+3(U_N-U_(N/4))`, the signed core current, lower boundary absorption, and both nonnegative rounding shells with their negative signs. Given checked nonpositive-residual packet certificates at every selected cutoff, the weighted identity leaves positive residual bounded by the exact upper boundary mass T. If T<1, the integer-gap lemma extracts an integer current for the counting measure U_g, where g is the first grid cutoff at least the target m. No global-invariance assumption or further orbit exposure is used during extraction.
+
+An explicit sufficient block has `O(log m)` input cutoffs and largest cutoff `O(m^(p/(p-1)))`, where `p=5 log_2(35/27)` and `p/(p-1)≈2.14682`. This is a bound on which input certificates suffice, not their cost, size, search time, or availability. The block can require inputs above the target scale, so it does not supply a decreasing induction.
+
+For m=97, a sharper exact solve at B=9 uses the 30 starting cutoffs through 5376. Actual one-sided input currents compile to a 6217-row rational current with denominator `46422343855805` and positive residual numerator `29145292346068`. The strict gap extracts a stored 95-row nonnegative integer current for U_112, using only already present arrows. Twenty input searches completed with some sources still unlinked to 1 in their separate graphs.
+
+Proof: [finite cone](../experiments/residual_progress/duality/FINITE_CONE.md). Reusable plan: [finite_cone.py](../experiments/residual_progress/duality/finite_cone.py). Actual implementation and evidence: [compiler note](../experiments/residual_progress/forcing/ACTUAL_COMPILER.md), [compiler](../experiments/residual_progress/forcing/actual_graph_compiler.py), [stored U_112 current](../experiments/residual_progress/forcing/forced_U112_current.csv). Checks include four exact cone plans, four full source identities, seven rational tail bounds, 216000 finite integer-gap cases, and the complete actual conversion. Independent model review checked the proof and all signs in the compiler.
+
+## R12 — Root transport normal form and explicit surviving atoms
+
+**Status: written operator identities and scoped obstructions; finite checks.**
+
+Since `R^2=R` and `PR=P`, every finite sequence of the root collapse and transport operators has residual `I`, `R`, `P^t`, or `RP^t`. On roots, `RP` is conjugate to ordinary killed Syracuse on odd states coprime to 3. This supplies no independent descent mechanism.
+
+For each `8|N` and integer t>=0, the actual top-band sources
+`72N<x<144N`, `x=-1 mod(9*2^(t+2))`, number exactly
+`floor(4N/2^t)-floor(2N/2^t)`. Every one retains coefficient +2 through all j<=t at `3^j*(x+1)/2^j-1` in both `P^j A_N` and `RP^j A_N`. The proof excludes all competing larger-valuation histories by a strict outer-height bound and excludes further root representatives above the support.
+
+Thus no fixed number of those operations makes every annulus nonpositive. For N=a*2^b the top source survives b+2 transports at `324*a*3^b-1`, ruling out a uniform O(N) state-height closure of that process. Neither result excludes growing-depth constructions, affine rewrites, or historical intersections.
+
+Exact N=96 counterexamples refute repeating the 19/22 contraction (`3533 -> 3124`) and any strict one-step norm decrease on every unresolved reachable residual (norm13 and positive mass4 remain unchanged). These finite plateaus do not establish infinite plateaus.
+
+See [proof](../experiments/residual_progress/transport/ROOT_TRANSPORT.md), [checker and bounded current constructor](../experiments/residual_progress/transport/check_root_transport.py), and [receipt](../experiments/residual_progress/transport/root_transport_audit.json). Independent review checked the root-1 absorption convention, surviving count, and height inequalities.
+
+## R13 — Complete aggregate exposure obstruction at a required cutoff
+
+**Status: exact finite obstruction with a proved bounded inverse algorithm. No arbitrary-depth aggregate obstruction.**
+
+An inverse reachability oracle decides whether a state is an origin among the first D exposed arrows from any actual annular source, under exact forward height bounds. Exhausting its incoming and outgoing neighbors recovers a complete exposed component without materializing the full O(N) annulus. State/query caps return unresolved.
+
+At `N=1610612736=12*2^27`, the depth-32 component of the top source has 35 vertices, 34 arrows, and exactly three source atoms `(64N-1,-2)`, `(96N-1,+2)`, `(144N-1,+2)`. Its total is +2 and it is unlinked to 1. The exact finite component closure excludes every other incoming exposed edge. Therefore no current supported on the **entire** depth-32 exposure graph can have a nonpositive residual for that annulus. This rules out a packed source cover by common-tail trees of source-to-anchor depth at most 32; it does not rule out deeper or recursive constructions.
+
+The tempting always-positive top-chain claim fails: at N=10368, depth2, the complete top component contains 27 sources whose coefficients total zero. Unequal-time intersections attach negative mass that the bare growing orbit omits.
+
+The inverse graph matches independent full forward graphs on 48 small cases; inverse branches are separately compared with brute-force predecessors through state2047. Both complete finite witnesses and explicit cap outcomes are persisted. See [proof and scope](../experiments/residual_progress/templates/AGGREGATE_EXPOSURE.md), [checker](../experiments/residual_progress/templates/check_inverse_exposure.py), and [full component receipt](../experiments/residual_progress/templates/inverse_exposure_audit.json).
+
 ## Open obligations and priorities
 
 - **Primary:** construct a finite current (or one with nonpositive residual) at every cutoff on R5's five rays, and prove termination. R6's annular increments give an explicit sufficient target with its finite bases discharged. Arbitrarily large finite cost is permitted.
 - Find an arithmetic recursion or another structural mechanism that controls unresolved positive contributions. Finite successful trajectory searches alone do not prove universal existence.
 - Prove finite progress for every positive exposed-component plateau, or close R8/R9's residuals in a family with a decreasing integer parameter. R8 deletes only certified source coefficients; R9 contracts only one pass. Neither handles its full residual.
+- R11 gives a finite conditional compiler that retains boundary terms and can end a plateau if its packet inputs are supplied. Develop a noncircular source of those inputs. R12 rules out obtaining a new descent merely by alternating the existing P and R operators.
 - Independently audit cutoffs, absorption, the five-ray transition, finite bases, annular table, and maximum principle. Current review is computational and model-assisted; there is no human peer review or proof-assistant verification.
 - Treat the earlier analytic mixing extension as a separate candidate with its own external dependencies. It is not needed for R2–R4.
 - Keep historical failures and scoped results in the master handoff available. No Collatz proof, logarithmic mean-work theorem, or general cheap-current theorem is established here.

@@ -96,6 +96,17 @@ def main():
             ("duality", "check_duality.py"),
         ):
             run([sys.executable, "-B", script], annular_work / directory)
+        residual_source = ROOT / "experiments" / "residual_progress"
+        residual_work = work / "experiments" / "residual_progress"
+        shutil.copytree(residual_source, residual_work,
+                        ignore=shutil.ignore_patterns("__pycache__"))
+        for directory, script in (
+            ("transport", "check_root_transport.py"),
+            ("duality", "check_finite_cone.py"),
+            ("forcing", "actual_graph_compiler.py"),
+            ("templates", "check_inverse_exposure.py"),
+        ):
+            run([sys.executable, "-B", script], residual_work / directory)
         cpp = "not requested"
         if args.cpp:
             compiler = shutil.which(os.environ.get("CXX", "c++"))
@@ -121,6 +132,10 @@ def main():
                          arithmetic_reductions="PASS: 66 cases, norm and outer profiles",
                          combined_partial_current="PASS: 8 cases through 6144",
                          component_duality="PASS: potentials, boundary flux, projections, reflected certificate",
+                         residual_transport="PASS: normal form, surviving atoms, exact plateaus",
+                         finite_cone="PASS: rational identities and 216000 integer-gap cases",
+                         finite_forcing="PASS: 30 actual packet inputs and stored U_112 current",
+                         inverse_exposure="PASS: 48 full-graph comparisons and complete depth-32 obstruction",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
 
 
