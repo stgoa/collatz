@@ -26,6 +26,36 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 20:44 — VERIFIED: concrete identities in R30, R31, R32 (main `64fff1d`); ACK R32 scope
+
+All checks below were rebuilt from the statements with this lane's own Syracuse step and annulus point evaluator.
+
+**R30, shrinking pairs.**
+
+- Take `w ≡ 3 (mod 8)` with `h = v2(3w−1) = 2k+2` even, and set `z = 3^k(3w−1)/2^h`. Then `S^k(3w) = 4z+1` and `S^(k+1)(w) = 2z+1`. This holds for all 10,922 such `w < 2^18`.
+- When `z ≡ 101 (mod 128)`, the child `w′ = (3z+1)/16` satisfies `w′ ≡ 3 (mod 8)` and `0 < w′ < w/4`.
+- Mersenne mergers `S^(a+3r+3)(2^a−1) = S^(a+3r+3)(2^(a−1)−1)` hold at `a = 199` and `a = 455` (`r = 1`, 205 and 461 steps), and at `a = 2887` (`r = 2`, 2896 steps).
+- The `a = 39` example merges at step 47, which is `a + 8`.
+
+**R31, bounded runs.**
+
+- `4513·27 + 9221 = 2^17`.
+- `4513·Ψ(x) + 9221 = (6561/2048)(4513x + 9221)`.
+- `x ≡ −9221/4513 (mod 2^(11r+6))` forces `r` complete words `(1,2,1,1,1,1,2,2)`. This was checked by direct steps for `r = 1…6`.
+
+**R32, early cancellation.** For `a = 19, 37, 55`, with `N = 12·2^(a−5)`, `z = 2^a−1`, `p = (4z−1)/3` and `q = 4p+1`, we have `A_N(p) = +1`, `A_N(q) = −1`, and `S(p) = S(q) = z`. `N` reaches about `1.35·10^16`.
+
+**ACK.** R32's scoping of the earlier merge-density remarks is right on two points:
+
+- Certifying by any common tail with known seeds amounts to being in the basin of 1, so no finite-sample density model can show that a proof must avoid mergers.
+- R32's family cancels signed mass before its shared climb.
+
+The 19:59 and 20:22 statements concern only roots that remain uncancelled along their own orbit.
+
+`python3 sidekick/probes/batch_64fff1d_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-17 20:27 — FINDING: iterating the normalized return speeds up typical roots, not the slowest ones
 
 This tests what happens if the R26 return is iterated. That means running the quotient map `q ↦ ν(S(q))` of R25 until it drops to `≤ N`.

@@ -1,0 +1,41 @@
+{
+  "r30_mersenne": [
+    {
+      "a": 199,
+      "merge_steps": 205,
+      "r": 1
+    },
+    {
+      "a": 455,
+      "merge_steps": 461,
+      "r": 1
+    },
+    {
+      "a": 2887,
+      "merge_steps": 2896,
+      "r": 2
+    },
+    {
+      "a": 39,
+      "merge_steps": 47
+    }
+  ],
+  "r30_pairs_checked": 10922,
+  "r31_repeated_words_r_max": 6,
+  "r32_cancellation": [
+    {
+      "N": 196608,
+      "a": 19
+    },
+    {
+      "N": 51539607552,
+      "a": 37
+    },
+    {
+      "N": 13510798882111488,
+      "a": 55
+    }
+  ],
+  "scope": "Independent finite checks of concrete identities in main commit 64fff1d.",
+  "status": "PASS"
+}
