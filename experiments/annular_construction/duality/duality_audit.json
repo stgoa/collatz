@@ -1,0 +1,607 @@
+{
+  "annular_scale_identity_checks": [
+    {
+      "N": 8,
+      "boundary_current_rows": 383,
+      "source_scale_measure_atoms": 383
+    },
+    {
+      "N": 16,
+      "boundary_current_rows": 766,
+      "source_scale_measure_atoms": 766
+    },
+    {
+      "N": 96,
+      "boundary_current_rows": 4596,
+      "source_scale_measure_atoms": 4596
+    },
+    {
+      "N": 112,
+      "boundary_current_rows": 5362,
+      "source_scale_measure_atoms": 5362
+    },
+    {
+      "N": 128,
+      "boundary_current_rows": 6128,
+      "source_scale_measure_atoms": 6128
+    },
+    {
+      "N": 144,
+      "boundary_current_rows": 6894,
+      "source_scale_measure_atoms": 6894
+    },
+    {
+      "N": 168,
+      "boundary_current_rows": 8043,
+      "source_scale_measure_atoms": 8043
+    }
+  ],
+  "independent_19_over_22_collapse_checks": [
+    {
+      "N": 8,
+      "absorbed_signed_mass": 1,
+      "certified_positive_outer_atoms": 16,
+      "collapsed_norm": 341
+    },
+    {
+      "N": 16,
+      "absorbed_signed_mass": -1,
+      "certified_positive_outer_atoms": 32,
+      "collapsed_norm": 683
+    },
+    {
+      "N": 24,
+      "absorbed_signed_mass": -3,
+      "certified_positive_outer_atoms": 48,
+      "collapsed_norm": 1023
+    },
+    {
+      "N": 96,
+      "absorbed_signed_mass": -1,
+      "certified_positive_outer_atoms": 192,
+      "collapsed_norm": 4103
+    },
+    {
+      "N": 112,
+      "absorbed_signed_mass": -1,
+      "certified_positive_outer_atoms": 224,
+      "collapsed_norm": 4787
+    },
+    {
+      "N": 128,
+      "absorbed_signed_mass": -1,
+      "certified_positive_outer_atoms": 256,
+      "collapsed_norm": 5471
+    },
+    {
+      "N": 144,
+      "absorbed_signed_mass": -1,
+      "certified_positive_outer_atoms": 288,
+      "collapsed_norm": 6155
+    },
+    {
+      "N": 168,
+      "absorbed_signed_mass": -3,
+      "certified_positive_outer_atoms": 336,
+      "collapsed_norm": 7179
+    },
+    {
+      "N": 512,
+      "absorbed_signed_mass": -2,
+      "certified_positive_outer_atoms": 1024,
+      "collapsed_norm": 21886
+    }
+  ],
+  "modular_projection_checks": [
+    {
+      "K": 1,
+      "N": 96,
+      "atoms": 3204
+    },
+    {
+      "K": 2,
+      "N": 96,
+      "atoms": 3204
+    },
+    {
+      "K": 3,
+      "N": 96,
+      "atoms": 3204
+    },
+    {
+      "K": 4,
+      "N": 192,
+      "atoms": 6408
+    },
+    {
+      "K": 5,
+      "N": 384,
+      "atoms": 12816
+    },
+    {
+      "K": 6,
+      "N": 768,
+      "atoms": 25632
+    },
+    {
+      "K": 7,
+      "N": 1536,
+      "atoms": 51264
+    },
+    {
+      "K": 8,
+      "N": 3072,
+      "atoms": 102528
+    }
+  ],
+  "negative_reflected_annulus": {
+    "all_horizon_work": 0,
+    "current_rows": 5868,
+    "cycle_component_masses": {
+      "-17": 93,
+      "-5": -73,
+      "-1": -20
+    },
+    "cycle_component_source_counts": {
+      "-17": 1123,
+      "-5": 1027,
+      "-1": 1054
+    },
+    "domain": "negative odd integers; NOT ordinary positive Collatz",
+    "exact_current_exists": false,
+    "maximum_steps_to_anchor": 86,
+    "nonpositive_residual_current_exists": false,
+    "positive_component_mass_potential": 93,
+    "reflected_positive_annulus_cutoff": 96,
+    "source_atoms": 3204
+  },
+  "positive_annulus_exposure": {
+    "N": 96,
+    "depth": 28,
+    "edge_count": 5513,
+    "status": "one_sided_feasible_on_exposed_graph",
+    "trace": [
+      {
+        "depth": 0,
+        "dual_witness_pairing": 3,
+        "dual_witness_source_count": 1,
+        "positive_component_mass": 2376,
+        "positive_components": 1440,
+        "scale_identity_pairing": -2,
+        "unexposed_boundary_flux": -5
+      },
+      {
+        "depth": 1,
+        "dual_witness_pairing": 21,
+        "dual_witness_source_count": 25,
+        "positive_component_mass": 787,
+        "positive_components": 228,
+        "scale_identity_pairing": 12,
+        "unexposed_boundary_flux": -9
+      },
+      {
+        "depth": 2,
+        "dual_witness_pairing": 22,
+        "dual_witness_source_count": 39,
+        "positive_component_mass": 314,
+        "positive_components": 99,
+        "scale_identity_pairing": 21,
+        "unexposed_boundary_flux": -1
+      },
+      {
+        "depth": 3,
+        "dual_witness_pairing": 21,
+        "dual_witness_source_count": 40,
+        "positive_component_mass": 185,
+        "positive_components": 65,
+        "scale_identity_pairing": 20,
+        "unexposed_boundary_flux": -1
+      },
+      {
+        "depth": 4,
+        "dual_witness_pairing": 18,
+        "dual_witness_source_count": 49,
+        "positive_component_mass": 143,
+        "positive_components": 47,
+        "scale_identity_pairing": 16,
+        "unexposed_boundary_flux": -2
+      },
+      {
+        "depth": 5,
+        "dual_witness_pairing": 20,
+        "dual_witness_source_count": 52,
+        "positive_component_mass": 126,
+        "positive_components": 36,
+        "scale_identity_pairing": 17,
+        "unexposed_boundary_flux": -3
+      },
+      {
+        "depth": 6,
+        "dual_witness_pairing": 14,
+        "dual_witness_source_count": 55,
+        "positive_component_mass": 85,
+        "positive_components": 28,
+        "scale_identity_pairing": 18,
+        "unexposed_boundary_flux": 4
+      },
+      {
+        "depth": 7,
+        "dual_witness_pairing": 15,
+        "dual_witness_source_count": 28,
+        "positive_component_mass": 76,
+        "positive_components": 23,
+        "scale_identity_pairing": 9,
+        "unexposed_boundary_flux": -6
+      },
+      {
+        "depth": 8,
+        "dual_witness_pairing": 15,
+        "dual_witness_source_count": 28,
+        "positive_component_mass": 68,
+        "positive_components": 17,
+        "scale_identity_pairing": 9,
+        "unexposed_boundary_flux": -6
+      },
+      {
+        "depth": 9,
+        "dual_witness_pairing": 19,
+        "dual_witness_source_count": 68,
+        "positive_component_mass": 52,
+        "positive_components": 12,
+        "scale_identity_pairing": 20,
+        "unexposed_boundary_flux": 1
+      },
+      {
+        "depth": 10,
+        "dual_witness_pairing": 19,
+        "dual_witness_source_count": 68,
+        "positive_component_mass": 48,
+        "positive_components": 9,
+        "scale_identity_pairing": 20,
+        "unexposed_boundary_flux": 1
+      },
+      {
+        "depth": 11,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 29,
+        "positive_components": 8,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 12,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 24,
+        "positive_components": 7,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 13,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 24,
+        "positive_components": 7,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 14,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 24,
+        "positive_components": 7,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 15,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 22,
+        "positive_components": 5,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 16,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 20,
+        "positive_components": 3,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 17,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 20,
+        "positive_components": 3,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 18,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 19,
+        "positive_components": 2,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 19,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 19,
+        "positive_components": 2,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 20,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 17,
+        "positive_components": 1,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 21,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 17,
+        "positive_components": 1,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 22,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 17,
+        "positive_components": 1,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 23,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 17,
+        "positive_components": 1,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 24,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 17,
+        "positive_components": 1,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 25,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 17,
+        "positive_components": 1,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 26,
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "positive_component_mass": 17,
+        "positive_components": 1,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "after_exposing_all_source_scale_current_rows": {
+          "boundary_flux": 0,
+          "largest_positive_mass": 17,
+          "positive_component_mass": 17,
+          "positive_components": 1
+        },
+        "depth": 27,
+        "dual_component_source_states": [
+          1819,
+          1915,
+          2047,
+          2155,
+          2425,
+          2729,
+          2873,
+          3071,
+          3233,
+          4543,
+          4607,
+          5107,
+          5459,
+          5747,
+          6143,
+          6467,
+          6809,
+          6815,
+          6911,
+          7277,
+          7661,
+          8189,
+          8621,
+          9215,
+          9563,
+          9701,
+          10223,
+          10367,
+          13619,
+          13631,
+          13823
+        ],
+        "dual_component_vertices": [
+          1819,
+          1915,
+          2047,
+          2155,
+          2425,
+          2729,
+          2873,
+          3071,
+          3233,
+          4543,
+          4607,
+          5107,
+          5459,
+          5747,
+          6143,
+          6467,
+          6809,
+          6815,
+          6911,
+          7277,
+          7661,
+          8189,
+          8621,
+          9215,
+          9563,
+          9701,
+          10223,
+          10367,
+          10759,
+          13619,
+          13631,
+          13823,
+          14345,
+          15335,
+          15551,
+          16139,
+          18157,
+          20429,
+          20447,
+          20735,
+          21307,
+          23003,
+          23327,
+          23971,
+          24209,
+          25879,
+          28409,
+          30671,
+          31103,
+          31961,
+          33215,
+          34505,
+          34991,
+          35957,
+          38819,
+          46007,
+          46655,
+          49823,
+          52487,
+          58229,
+          67339,
+          69011,
+          69983,
+          74735,
+          75757,
+          78731,
+          88573,
+          89785,
+          101009,
+          103517,
+          104975,
+          112103,
+          118097,
+          119713,
+          157463,
+          159617,
+          168155,
+          189175,
+          236195,
+          252233,
+          283763,
+          354293,
+          425645
+        ],
+        "dual_witness_pairing": 17,
+        "dual_witness_source_count": 31,
+        "nonzero_flux_rows": [
+          {
+            "current_weight": 1,
+            "indicator_difference": -1,
+            "state": 2553
+          },
+          {
+            "current_weight": 1,
+            "indicator_difference": -1,
+            "state": 3639
+          },
+          {
+            "current_weight": 1,
+            "indicator_difference": -1,
+            "state": 3831
+          },
+          {
+            "current_weight": 1,
+            "indicator_difference": -1,
+            "state": 4095
+          },
+          {
+            "current_weight": 1,
+            "indicator_difference": -1,
+            "state": 4311
+          },
+          {
+            "current_weight": 1,
+            "indicator_difference": -1,
+            "state": 4539
+          },
+          {
+            "current_weight": 2,
+            "indicator_difference": -1,
+            "state": 4851
+          },
+          {
+            "current_weight": 2,
+            "indicator_difference": -1,
+            "state": 6057
+          },
+          {
+            "current_weight": -1,
+            "indicator_difference": -1,
+            "state": 6375
+          },
+          {
+            "current_weight": -1,
+            "indicator_difference": -1,
+            "state": 9079
+          },
+          {
+            "current_weight": -1,
+            "indicator_difference": -1,
+            "state": 9087
+          }
+        ],
+        "positive_component_mass": 17,
+        "positive_components": 1,
+        "scale_identity_pairing": 10,
+        "unexposed_boundary_flux": -7
+      },
+      {
+        "depth": 28,
+        "positive_component_mass": 0,
+        "positive_components": 0
+      }
+    ]
+  },
+  "status": "PASS",
+  "unbounded_aggregate_depth_proved": false,
+  "universal_positive_current_construction_proved": false
+}

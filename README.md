@@ -2,7 +2,7 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-17): Collatz remains unproved.** The written reduction now requires finite current certificates along only **five dyadic rays**, with no uniform cost bound. An exact recurrence under multiplication by 64 gives explicit measures to certify. Universal construction and termination remain open. The new arguments have computational and model-assisted checks; they have not received human peer review or formal verification.
+**Current standing (2026-10-17): Collatz remains unproved.** Finite currents along **five dyadic rays** would suffice, with no uniform cost bound. We now have explicit partial currents for every annular increment, including an infinite family compiled from a finite cancellation tree. A separate exact compression reduces an annulus's norm to at most **19/22** of its original value. Completing the residuals and proving termination remain open. The arguments have computational and model-assisted checks; they have not received human peer review or formal verification.
 
 ## Our current understanding
 
@@ -23,6 +23,15 @@ For every multiple of 8, `Pi_right_(64N) = Pi_right_N + A_N`. The added measure 
 
 These criteria are equivalent to Collatz; they do not prove the universal certificates exist. The original handoff's packets and current tables are a different family. A proved obstruction also rules out uniformly bounded certificates for individual raw packets, while allowing cancellation between packets and constructions of unbounded size.
 
+## Constructive progress
+
+- **From one finite tree to infinitely many identities.** Exact affine lifts preserve every branch of a checked common-tail tree. A five-source example can be packed into every sufficiently large allowed annulus, with a proof that no source coefficient is reused.
+- **A combined partial constructor.** Five short-chain families and the packed tree have disjoint sources. Their currents remove positive mass `D(N)+3C(N) = 73N/48+O(1)` from an initial `99N/4`. The code returns the full current and the exact remaining measure; its positive coefficients are retained.
+- **Exact compression.** Merging states with the same successor gives `||P A_N||_1 = 171N/4 - |c_N|`, with `|c_N| <= 3`. This yields the `19/22` bound. The compressed measure is a different family, so repeating that bound is not justified.
+- **A precise remaining obstruction.** On a finite exposed graph, the sum of positive component masses is a nonincreasing integer. A complete constructor must prove that every positive plateau ends. A checked example shows that closing all scale-recurrence boundary edges can still leave positive mass.
+
+Full proofs, failed candidates, and the next obligation are in the [annular construction report](experiments/annular_construction/REPORT.md).
+
 ## Where to start
 
 1. Read [AGENTS.md](AGENTS.md) for working rules and claim standards.
@@ -38,7 +47,7 @@ Requires Python 3.10+ and its standard library. The independent check additional
 python3 scripts/verify_all.py --cpp
 ```
 
-Without a compiler, omit `--cpp`; the report explicitly records that the independent C++ check was not run. The runner verifies the archive and all 31 manifest entries, the stored Python certificates, the right-aligned audit, and the new sparse-ray, annular, graph, and current checks. It uses temporary storage so preserved inputs and receipts stay unchanged. With `--cpp`, it also builds and runs the independent verifier at both original stored cutoffs.
+Without a compiler, omit `--cpp`; the report explicitly records that the independent C++ check was not run. The runner verifies the archive and all 31 manifest entries, stored certificates, the right-aligned and five-ray audits, annular identities, partial constructions, norm formula, and component diagnostics. It uses temporary storage so preserved inputs and receipts stay unchanged. With `--cpp`, it also builds and runs the independent verifier at both original stored cutoffs.
 
 The checks establish finite arithmetic identities. They do not establish universal current existence or replace the written proof. Never use Python optimization flags for these assertion-based verifiers.
 
@@ -57,11 +66,17 @@ The checks establish finite arithmetic identities. They do not establish univers
 - `experiments/current_construction/frontier/`: five-ray proof and finite base checks.
 - `experiments/current_construction/recursive/`: annular coefficient table, proof, and checker.
 - `experiments/current_construction/obstructions/`: component criterion, capped search, packet obstruction, and new finite current tables.
+- `experiments/annular_construction/REPORT.md`: constructive continuation, exact results, failed candidates, and next proof obligation.
+- `experiments/annular_construction/components/`: affine current compiler, disjoint packing, incremental graph search, and annular certificates.
+- `experiments/annular_construction/arithmetic/`: short-chain catalogue, norm proof, outer-profile obstruction, and reusable combined constructor.
+- `experiments/annular_construction/duality/`: component potential, exact boundary flux, residue information loss, and scoped counterexamples.
 
 ## Next research target
 
 Find an arithmetic construction that produces a finite current, possibly with an everywhere nonpositive residual, along **all five rays**. The annular formulation reduces this to six-band increments on the 30 sequences above. Prove termination; arbitrarily large finite certificates are allowed.
 
 Retain historical orbit intersections: equal futures may cancel at unequal times. A complete capped search is implemented, but universal termination is open. The source recurrence still contains an expanding `3N/2` term, so the measure identity alone does not give a decreasing induction. Larger scans and a small unresolved positive residual do not discharge this obligation.
+
+The next concrete lemma is **finite progress for every positive component plateau**. One route would close the residuals of the proved partial currents in a family with a decreasing integer parameter. Another would prove that a finite arithmetic extension must connect an unresolved positive component to enough negative source mass or to 1. Repeating the same root compression, dropping a boundary flux, or treating a zero residue projection as an integer certificate does not supply that lemma.
 
 Update this README and the result ledger whenever the standing changes. Preserve counterexamples and explain which earlier claim a new result supersedes.

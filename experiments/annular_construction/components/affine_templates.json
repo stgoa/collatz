@@ -1,0 +1,385 @@
+{
+  "status": "PASS",
+  "templates": [
+    {
+      "name": "five_source_cross_band",
+      "template": {
+        "status": "compiled",
+        "source_mass": 0,
+        "meeting": 17435,
+        "maximum_depth": 6,
+        "rows": [
+          {
+            "state": 4591,
+            "distance": 5,
+            "accumulated_valuation": 6,
+            "slope": 384,
+            "source_coefficient": -1,
+            "current_coefficient": -2
+          },
+          {
+            "state": 6121,
+            "distance": 6,
+            "accumulated_valuation": 8,
+            "slope": 512,
+            "source_coefficient": -1,
+            "current_coefficient": -1
+          },
+          {
+            "state": 6887,
+            "distance": 4,
+            "accumulated_valuation": 5,
+            "slope": 576,
+            "source_coefficient": 1,
+            "current_coefficient": -1
+          },
+          {
+            "state": 10331,
+            "distance": 3,
+            "accumulated_valuation": 4,
+            "slope": 864,
+            "source_coefficient": 2,
+            "current_coefficient": 1
+          },
+          {
+            "state": 11623,
+            "distance": 1,
+            "accumulated_valuation": 1,
+            "slope": 972,
+            "source_coefficient": 0,
+            "current_coefficient": 1
+          },
+          {
+            "state": 13775,
+            "distance": 4,
+            "accumulated_valuation": 6,
+            "slope": 1152,
+            "source_coefficient": -1,
+            "current_coefficient": -1
+          },
+          {
+            "state": 15497,
+            "distance": 2,
+            "accumulated_valuation": 3,
+            "slope": 1296,
+            "source_coefficient": 0,
+            "current_coefficient": 1
+          },
+          {
+            "state": 17435,
+            "distance": 0,
+            "accumulated_valuation": 0,
+            "slope": 1458,
+            "source_coefficient": 0,
+            "current_coefficient": 0
+          },
+          {
+            "state": 20663,
+            "distance": 3,
+            "accumulated_valuation": 5,
+            "slope": 1728,
+            "source_coefficient": 0,
+            "current_coefficient": -1
+          },
+          {
+            "state": 30995,
+            "distance": 2,
+            "accumulated_valuation": 4,
+            "slope": 2592,
+            "source_coefficient": 0,
+            "current_coefficient": -1
+          },
+          {
+            "state": 46493,
+            "distance": 1,
+            "accumulated_valuation": 3,
+            "slope": 3888,
+            "source_coefficient": 0,
+            "current_coefficient": -1
+          }
+        ],
+        "generic_positive_current_cost": 3
+      },
+      "coverage": {
+        "status": "proved_linear_band_conditions",
+        "base_cutoff": 96,
+        "scale_parameter": "N=N0*(1+s), t=T*s, integer s>=0",
+        "T": 9,
+        "allowed_T_interval": [
+          "9",
+          "12"
+        ],
+        "residue_modulus": 9,
+        "source_conditions": [
+          {
+            "state": 4591,
+            "slope": 384,
+            "band": 4,
+            "coefficient": -1,
+            "base_lower": 3456,
+            "base_upper": 6912
+          },
+          {
+            "state": 6121,
+            "slope": 512,
+            "band": 4,
+            "coefficient": -1,
+            "base_lower": 3456,
+            "base_upper": 6912
+          },
+          {
+            "state": 6887,
+            "slope": 576,
+            "band": 4,
+            "coefficient": 1,
+            "base_lower": 3456,
+            "base_upper": 6912
+          },
+          {
+            "state": 10331,
+            "slope": 864,
+            "band": 5,
+            "coefficient": 2,
+            "base_lower": 6912,
+            "base_upper": 13824
+          },
+          {
+            "state": 13775,
+            "slope": 1152,
+            "band": 5,
+            "coefficient": -1,
+            "base_lower": 6912,
+            "base_upper": 13824
+          }
+        ],
+        "whole_annulus_covered": false
+      },
+      "finite_generic_parameters_checked": 34,
+      "finite_scale_parameters_checked": 52
+    },
+    {
+      "name": "three_source_cross_band",
+      "template": {
+        "status": "compiled",
+        "source_mass": 0,
+        "meeting": 22697,
+        "maximum_depth": 2,
+        "rows": [
+          {
+            "state": 10087,
+            "distance": 2,
+            "accumulated_valuation": 2,
+            "slope": 8,
+            "source_coefficient": -1,
+            "current_coefficient": -1
+          },
+          {
+            "state": 15131,
+            "distance": 1,
+            "accumulated_valuation": 1,
+            "slope": 12,
+            "source_coefficient": -1,
+            "current_coefficient": -2
+          },
+          {
+            "state": 22697,
+            "distance": 0,
+            "accumulated_valuation": 0,
+            "slope": 18,
+            "source_coefficient": 2,
+            "current_coefficient": 0
+          }
+        ],
+        "generic_positive_current_cost": 0
+      },
+      "coverage": {
+        "status": "proved_linear_band_conditions",
+        "base_cutoff": 168,
+        "scale_parameter": "N=N0*(1+s), t=T*s, integer s>=0",
+        "T": 1008,
+        "allowed_T_interval": [
+          "1008",
+          "1344"
+        ],
+        "residue_modulus": 9,
+        "source_conditions": [
+          {
+            "state": 10087,
+            "slope": 8,
+            "band": 4,
+            "coefficient": -1,
+            "base_lower": 6048,
+            "base_upper": 12096
+          },
+          {
+            "state": 15131,
+            "slope": 12,
+            "band": 5,
+            "coefficient": -1,
+            "base_lower": 12096,
+            "base_upper": 24192
+          },
+          {
+            "state": 22697,
+            "slope": 18,
+            "band": 5,
+            "coefficient": 2,
+            "base_lower": 12096,
+            "base_upper": 24192
+          }
+        ],
+        "whole_annulus_covered": false
+      },
+      "finite_generic_parameters_checked": 34,
+      "finite_scale_parameters_checked": 52
+    }
+  ],
+  "two_class_family": {
+    "source_progressions": [
+      {
+        "state": 4591,
+        "period": 3456,
+        "residue": 0,
+        "original_state": 4591
+      },
+      {
+        "state": 6121,
+        "period": 4608,
+        "residue": 0,
+        "original_state": 6121
+      },
+      {
+        "state": 6887,
+        "period": 5184,
+        "residue": 0,
+        "original_state": 6887
+      },
+      {
+        "state": 10331,
+        "period": 7776,
+        "residue": 0,
+        "original_state": 10331
+      },
+      {
+        "state": 13775,
+        "period": 10368,
+        "residue": 0,
+        "original_state": 13775
+      },
+      {
+        "state": 5743,
+        "period": 3456,
+        "residue": 3,
+        "original_state": 4591
+      },
+      {
+        "state": 7657,
+        "period": 4608,
+        "residue": 3,
+        "original_state": 6121
+      },
+      {
+        "state": 8615,
+        "period": 5184,
+        "residue": 3,
+        "original_state": 6887
+      },
+      {
+        "state": 12923,
+        "period": 7776,
+        "residue": 3,
+        "original_state": 10331
+      },
+      {
+        "state": 17231,
+        "period": 10368,
+        "residue": 3,
+        "original_state": 13775
+      }
+    ],
+    "disjoint_progression_pairs": 45,
+    "residue_classes_mod9": [
+      0,
+      3
+    ],
+    "admissibility": {
+      "0": "96+72s<=N<=120+96s",
+      "3": "120+72s<=N<=152+96s"
+    },
+    "copy_count_asymptotic": "N/144+O(1)",
+    "nonempty_for": "8|N and (96<=N<=152 or N>=168)",
+    "full_cutoffs_checked": {
+      "first": 8,
+      "last": 4096,
+      "step": 8
+    },
+    "short_catalogue_capacity": "disjoint from E,D,B,C,A; independently checked by inverse membership",
+    "examples": [
+      {
+        "N": 96,
+        "copies": 1,
+        "source_atoms": 5,
+        "removed_positive_mass": 3,
+        "positive_current_cost": 3
+      },
+      {
+        "N": 112,
+        "copies": 1,
+        "source_atoms": 5,
+        "removed_positive_mass": 3,
+        "positive_current_cost": 3
+      },
+      {
+        "N": 128,
+        "copies": 1,
+        "source_atoms": 5,
+        "removed_positive_mass": 3,
+        "positive_current_cost": 3
+      },
+      {
+        "N": 144,
+        "copies": 1,
+        "source_atoms": 5,
+        "removed_positive_mass": 3,
+        "positive_current_cost": 3
+      },
+      {
+        "N": 160,
+        "copies": 0,
+        "source_atoms": 0,
+        "removed_positive_mass": 0,
+        "positive_current_cost": 0
+      },
+      {
+        "N": 168,
+        "copies": 1,
+        "source_atoms": 5,
+        "removed_positive_mass": 3,
+        "positive_current_cost": 3
+      },
+      {
+        "N": 384,
+        "copies": 3,
+        "source_atoms": 15,
+        "removed_positive_mass": 9,
+        "positive_current_cost": 9
+      },
+      {
+        "N": 768,
+        "copies": 6,
+        "source_atoms": 30,
+        "removed_positive_mass": 18,
+        "positive_current_cost": 18
+      },
+      {
+        "N": 4096,
+        "copies": 28,
+        "source_atoms": 140,
+        "removed_positive_mass": 84,
+        "positive_current_cost": 84
+      }
+    ]
+  },
+  "universal_identities_proved": true,
+  "whole_annular_current_construction_proved": false
+}

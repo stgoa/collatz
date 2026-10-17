@@ -24,8 +24,13 @@ exact reformulation of the remaining problem. A further sampling argument
 reduces the universal target to five explicit dyadic rays. A disjoint annular
 recursion describes the added measure when a cutoff is multiplied by 64.
 We also characterize finite-current existence by orbit components and prove
-that uniformly bounded certificates for individual packets cannot suffice;
-no universal current construction, Collatz proof, or novelty claim is supplied.
+that uniformly bounded certificates for individual packets cannot suffice.
+Explicit arithmetic families now supply partial currents for every annulus.
+A separate coalescence current reduces its norm to at most $19/22$ of
+its original value in one pass. Neither construction has a proved closure
+rule for its residual.
+No complete universal current construction, Collatz proof, or novelty claim
+is supplied.
 \end{abstract}
 
 \section{Definitions and the change in grouping}
@@ -471,6 +476,287 @@ contradicting the established separation.
 The obstruction concerns individual packets. It leaves open cancellation
 between packets and recursively expanded certificates of unbounded size.
 
+\section{Universal partial currents for the annuli}
+Throughout this section $8\mid N$ and $Q=9N/4$. All coefficient claims
+refer to the actual six-band measure $A_N$ of Theorem \ref{thm:annular}.
+
+\begin{lemma}[Affine lifting of a finite current tree]\label{lem:affine}
+Let a finite directed tree of positive odd Syracuse states have common
+sink $w$. For a vertex $x$, let $d_x$ and $A_x$ be the path length and
+accumulated valuation to $w$, and put $D=\max_x d_x$. For integer $t\ge0$
+define
+\[
+x(t)=x+2^{A_x+1}3^{D-d_x}t.
+\]
+Every tree edge remains an exact Syracuse edge after this substitution.
+If integer source weights $\mu$ have total $m\le0$, route them to $w$,
+obtaining a finite current $J$. The same coefficients at the lifted
+vertices satisfy
+\[
+\mu_t=(I-P)J_t+m\delta_{w(t)},
+\]
+where the last term is discarded when $w(t)=1$. In particular, $m=0$
+gives an exact current for all $t$, with positive cost at most
+$\sum_x\max(J(x),0)$.
+\end{lemma}
+\begin{proof}
+For an edge $x\to y$ of valuation $a$,
+$d_x=d_y+1$ and $A_x=a+A_y$. The slopes $v_x$ therefore satisfy
+$3v_x=2^av_y$, whence $3x(t)+1=2^ay(t)$. Every lifted state is odd,
+so the valuation remains exactly $a$. Summing the path currents proves
+the divergence identity. Coincident lifted states are combined by
+linearity, which cannot increase positive cost. No continuation from the
+lifted sink is needed, even if the original sink was $1$.
+\end{proof}
+The lemma proves an identity. Its source coefficients must separately be
+shown to occur in $A_N$ without reuse.
+
+\subsection{A short-chain catalogue}
+Put $x_1=(3x+1)/2$ and $x_2=(9x+5)/4$. For each row below, take every
+integer $x$ in the strict interval and listed classes modulo $72$.
+These classes are all $7\bmod8$, so the first two valuations equal $1$.
+\[
+\begin{array}{c|c|c|c|c}
+ &x/N&x\bmod72&
+ (\mu(x),\mu(x_1),\mu(x_2))&(J(x),J(x_1))\\ \hline
+E&(12,16)&7&(-3,3,0)&(-3,0)\\
+D&(16,18)&23,71&(-1,0,1)&(-1,-1)\\
+B&(24,32)&7&(-2,1,1)&(-2,-1)\\
+C&(32,36)&23&(-3,1,2)&(-3,-2)\\
+A&(48,64)&7,55&(-1,-1,2)&(-1,-2)
+\end{array}
+\]
+Every nonzero source coefficient in this table is the whole coefficient
+of $A_N$ at that state. The chains' nonzero sources are disjoint.
+To check this directly, their state intervals in units of $N$, with
+residues modulo $18$, are
+\[
+\begin{array}{c|c|c|c}
+ &x&x_1&x_2\\ \hline
+E&(12,16):7&(18,24):11&--\\
+D&(16,18):5,17&\text{zero}&(36,81/2):17\\
+B&(24,32):7&(36,48):11&(54,72):17\\
+C&(32,36):5&(48,54):17&(72,81):17\\
+A&(48,64):7,1&(72,96):11&(108,144):17
+\end{array}
+\]
+Intervals or residues separate the columns, and each affine map is
+injective. The strict endpoints are valid since $8\mid N$ and the
+permitted residues exclude boundary crossings from the affine offsets.
+For weights $(c_0,c_1,c_2)$ summing to zero the current is
+$c_0\delta_x+(c_0+c_1)\delta_{x_1}$. Thus their summed measure
+$M_N^{\rm cat}$ and current $J_N^{\rm cat}$ satisfy
+\[
+M_N^{\rm cat}=(I-P)J_N^{\rm cat},\qquad J_N^{\rm cat}\le0.
+\]
+Define the exact counts
+\[
+C(a,b;r)=\left\lfloor\frac{bN-1-r}{72}\right\rfloor
+          -\left\lfloor\frac{aN-r}{72}\right\rfloor .
+\]
+The removed positive mass is
+\begin{align*}
+D(N)={}&3C(12,16;7)+C(16,18;23)+C(16,18;71)\\
+ &+2C(24,32;7)+3C(32,36;23)\\
+ &+2C(48,64;7)+2C(48,64;55).
+\end{align*}
+In particular $D(N)=3N/2$ when $72\mid N$. In general
+$D(N)-3N/2$ is periodic modulo $72$ on the allowed cutoffs. The remaining
+positive mass is $99N/4-D(N)$, so this is a partial certificate.
+
+\subsection{Packing an unequal-time cancellation tree}
+An actual balanced component found in $A_{96}$ has paths
+\[
+6121\to4591\to6887\to10331\to15497\to11623\to17435,
+\]
+\[
+13775\to20663\to30995\to46493\to17435.
+\]
+Its source coefficients at $(4591,6121,6887,10331,13775)$ are
+$(-1,-1,1,2,-1)$. Lemma \ref{lem:affine} gives the exact current family
+with source
+\[
+\begin{split}
+\mu_t={}&-\delta_{4591+384t}-\delta_{6121+512t}
+ +\delta_{6887+576t}\\
+ &+2\delta_{10331+864t}-\delta_{13775+1152t}.
+\end{split}
+\]
+The current coefficients on the ten non-sink tree vertices, in increasing
+order, are $(-2,-1,-1,1,1,-1,1,-1,-1,-1)$; its positive cost is $3$.
+
+Take $t=9s+r$, $s\ge0$, $r\in\{0,3\}$. For $8\mid N$, all five source
+coefficients occur in $A_N$ exactly under the conditions
+\[
+\begin{array}{c|c|c}
+r&\text{admissible cutoff}&
+ \text{source residues modulo }18\\ \hline
+0&96+72s\le N\le120+96s&(1,1,11,17,5)\\
+3&120+72s\le N\le152+96s&(1,7,11,17,5).
+\end{array}
+\]
+The first three sources lie in $(36N,72N)$ and the last two in
+$(72N,144N)$. Substituting the affine formulas into these ten strict
+inequalities gives the stated integer bounds; the first and last
+sources give the tight upper and lower bounds.
+Let $I_r(N)$ be the set of admissible $s$ in row $r$, and put
+$C(N)=|I_0(N)|+|I_3(N)|$. All admissible copies can be packed together:
+their ten arithmetic source progressions have offsets $x_i+rv_i$
+and steps $9v_i$, and for each of the 45 pairs the gcd of the steps
+does not divide the offset difference. Thus distinct copies use
+disjoint source states. In particular,
+\[
+C(N)=N/144+O(1).
+\]
+There is at least one copy for $96\le N\le152$ and for every $N\ge168$
+with $8\mid N$; at $N=160$ this particular packing is empty.
+
+These sources are also disjoint from the short-chain catalogue.
+The first source is below $48N$ and has residue $1\bmod18$;
+the second has residue $1$ or $25\bmod72$, excluding catalogue
+inputs $7,55\bmod72$; the third has residue $11\bmod18$ and is
+above $48N$. The fourth lies in the unused residue-$17$ gap
+$(81N,108N)$, and the fifth has the unused top-band residue $5$.
+These statements follow directly from the admissibility intervals.
+Consequently both partial constructions may be added.
+
+\begin{theorem}[A universal combined partial current]\label{thm:partial}
+For every $8\mid N$, the two preceding constructions give explicit
+finite integer measures $J_N,Z_N$ with
+\[
+A_N=(I-P)J_N+Z_N,\qquad
+\|J_N^+\|_1\le3C(N),\qquad
+\|Z_N^+\|_1=\frac{99N}{4}-D(N)-3C(N).
+\]
+Here $Z_N$ is exactly $A_N$ with the disjoint certified source atoms
+deleted. The removed positive mass is $73N/48+O(1)$.
+The remaining positive mass has no general certificate yet.
+\end{theorem}
+\begin{proof}
+Sum the exact currents over all the disjoint sources proved above.
+The catalogue current is nonpositive and the packed current has positive
+cost at most $3C(N)$. Exact deletion gives the residual formula.
+\end{proof}
+Zero positive cost cannot be the complete target: direct exact iteration
+gives $H_{53}(A_{96})=699$ and $H_9(A_{384})=42$. Hence a complete
+current with nonpositive residual for $A_{96}$ has positive cost at least
+$699$.
+
+\section{An exact one-pass compression}
+Let $F(x)=4x+1$, so $S(F(x))=S(x)$. Reduce an odd $x$ repeatedly by
+$x\mapsto(x-1)/4$ while $x\equiv5\pmod8$, obtaining its root $\rho(x)$.
+This procedure terminates by strict decrease. Let $R\mu$ collect the
+coefficients at these roots and discard the root $1$.
+Then $PR\mu=P\mu$, and
+\[
+\mu=(I-P)(\mu-R\mu)+R\mu.                              \tag{11}
+\]
+Different roots have different successors: the root preceding $y$ is
+$(2y-1)/3$ if $y\equiv2\pmod3$, or $(4y-1)/3$ if
+$y\equiv1\pmod3$. Root $1$ is the only discarded class.
+
+\begin{theorem}[Annular norm formula]\label{thm:norm}
+Let $c_N$ be the signed annular mass on the $F$-chain rooted at $1$.
+For every $8\mid N$,
+\[
+\|RA_N\|_1=\|PA_N\|_1=\frac{171N}{4}-|c_N|,
+\qquad |c_N|\le3.
+\]
+Thus $\|RA_N\|_1\le(19/22)\|A_N\|_1$. Formula (11) gives an explicit
+finite current realizing this compression.
+\end{theorem}
+\begin{proof}
+Let $f_j$ denote row $j$ of the annular residue table. Each $F$-chain
+has a first point in the annulus, its entry. All odd points in bands
+$0,1$ are entries; in bands $2,\ldots,5$ the entries are precisely those
+not congruent to $5\bmod8$. Successive annular points from an entry in
+band $j$ lie in bands $j,j+2,\ldots$. Their signed sums
+$g_j(x)=\sum_{0\le k\le(5-j)/2}f_{j+2k}(F^k(x)\bmod18)$ are
+\[
+\begin{array}{c|rrrrrrrrr}
+j\backslash r&1&3&5&7&9&11&13&15&17\\ \hline
+0&0&1&2&3&1&-1&-3&-2&-1\\
+1&-1&3&1&2&0&1&-1&-3&-2\\
+2&1&2&-1&-2&-1&2&1&-1&-1\\
+3&0&0&-3&-3&0&3&3&0&0\\
+4&-1&0&-2&-1&0&1&2&0&1\\
+5&0&0&-1&0&0&-1&0&0&2
+\end{array}
+\]
+The absolute sums in one period $18$ for bands $0,1$ are $14,14$.
+Including the entry condition gives absolute sums $36,36,24,12$
+in each period $72$ for bands $2,\ldots,5$. The relevant band boundaries
+are exact multiples of their periods. The six contributions are therefore
+$N(7/4,7/2,9/2,9,12,12)$, summing to $171N/4$.
+The root-$1$ chain enters band $0$ or $1$, so the first two rows bound
+its coefficient by $3$. Removing it subtracts $|c_N|$.
+Injectivity of the successor on the remaining roots proves the equality
+with $\|PA_N\|_1$.
+\end{proof}
+The correction can vanish: $c_{80000}=0$. More importantly, the residual
+is not another annulus, and $R^2=R$, so the contraction cannot be iterated
+as stated. It leaves coefficient $+2$ at each
+$32Q<p<64Q$ with $p\equiv-1\pmod{36}$: these are roots and have no
+further $F$-point in the annulus. There are exactly $2N$ of them, retaining
+positive mass at least $4N$.
+
+\section{The remaining component progress problem}
+For a finite graph $E$ of exposed Syracuse arrows, with all source
+vertices and the absorber included, put
+\[
+\Phi(E)=\sum_{\substack{C\ {\rm component\ of}\ E\\1\notin C}}
+ \max\left(\sum_{x\in C}A_N(x),0\right).
+\]
+This nonnegative integer never increases as arrows are added:
+components merge and $\max(u+v,0)\le\max(u,0)+\max(v,0)$.
+It is zero exactly when a current supported on $E$ can have
+nonpositive residual. An indicator $q$ of a positive component is an
+exact obstruction on this graph, since $q(x)=q(Sx)$ on every exposed
+arrow while $\langle q,A_N\rangle>0$.
+
+The missing arithmetic statement is that every positive plateau of
+$\Phi$ ends after finitely many permitted extensions. Monotonicity alone
+does not imply this. For the actual $A_{96}$, exposing the first $d$
+arrows from every source gives $\Phi(E_0)=2376$,
+$\Phi(E_d)=17$ for $20\le d\le27$, and $\Phi(E_{28})=0$.
+These are finite certificates, not a bound for arbitrary $N$.
+
+There is also a precise boundary term in attempts to lift the scalar
+scale recurrence. Let $U_t$ count odd states $1<x\le t$,
+$F_t=U_{64t}-U_t$, and set
+\[
+\begin{split}
+V_N&=\nu_{64N}-\nu_N,\qquad K_N=V_N+3(F_N-F_{N/4}),\\
+D_N&=3F_N-3F_{N/4}-F_{3N/2}-F_{3N/4}.
+\end{split}
+\]
+The exact source identity
+$\nu_N=3P(U_N-U_{N/4})-U_{3N/2}-U_{3N/4}$, valid for $8\mid N$,
+and $A_N=PV_N$ give
+\[
+D_N=A_N+(I-P)K_N.
+\]
+Thus a finite-component indicator $q$ with $q(1)=0$ satisfies
+\[
+\langle q,D_N\rangle=\langle q,A_N\rangle+
+ \sum_x K_N(x)\bigl(q(x)-q(Sx)\bigr).                    \tag{12}
+\]
+The last sum is supported on unexposed arrows. Global invariance kills
+it; invariance on a finite exposed graph does not.
+At depth $27$ for $A_{96}$, the component containing $1819$ has
+$83$ vertices and $31$ source atoms. Its pairings and flux are
+$10=17-7$ in (12). Even exposing every row of $K_{96}$ leaves a
+positive component of mass $17$, now with zero flux. Hence boundary
+closure at one cutoff also needs a progress proof.
+
+Two further scoped obstructions are proved in the companion notes.
+For fixed $k\ge1$ and $2^{k+2}\mid N$, the source in each band projects
+to zero modulo $2^k$ and modulo $3\cdot2^k$; these projections lose
+the integer matching information. Under literal forward iteration,
+the outer coefficient profile instead requires growing ternary moduli.
+Neither observation rules out arithmetic rewrites, additional state
+information, or historical cancellation.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -483,6 +769,9 @@ possibly with an everywhere nonpositive residual, along the five rays in
 Theorem \ref{thm:rays}. Alternatively, handle their annular increments in
 Theorem \ref{thm:annular}; the 30 finite base cases have been discharged.
 A proof of termination of that construction is essential.
+Theorem \ref{thm:partial} now supplies actual infinite families of
+partial certificates, and Theorem \ref{thm:norm} supplies a separate
+one-pass contraction. Their residuals still need a closed construction.
 Its running time, number of rows, and positive cost may be arbitrarily large
 functions of $N$. A small unresolved \emph{positive} residual is insufficient
 for this all-horizon criterion unless its own future contribution is bounded.
@@ -523,4 +812,15 @@ $N=65536$ (exact). At $2053$, some cancelling source components have not
 been linked to $1$ in the exposed graph; their unknown common future is
 therefore eliminated by the certificate. These remain finite examples.
 The unified command is \texttt{python3 scripts/verify\_all.py --cpp}.
+
+The continuation in \texttt{experiments/annular\_construction/} contains
+full proofs of the affine compiler, its annular coverage and capacity
+checks, the short-chain catalogue, the norm identity, and the finite
+component duals. Reproducible receipts check the two-class packing at
+every multiple of eight through $4096$, 66 arithmetic cases, and stored
+actual annular currents at $N=96$ and $168$. The boundary-flux witness
+includes all vertices and contributing rows. A separately labeled
+negative-integer example certifies the failure of scalar work to
+control component masses; it makes no positive Collatz claim.
+These checks are integrated into the same unified command.
 \end{document}

@@ -22,4 +22,19 @@
 
 The remaining obligation is universal construction and termination on the five rays, or a sufficient construction for all annular increments on the 30 sequences with verified bases. Collatz remains open in this repository.
 
+## 2026-10-17 — Universal partial currents, exact compression, and finite component progress
+
+- Proved an affine lifting lemma for finite common-tail trees. Exact branch valuations and current coefficients survive at every nonnegative integer parameter. Separated generic identity validity from actual annular coverage.
+- Compiled a balanced five-source component into two arithmetic parameter classes with exact cutoff intervals. Proved all admissible copies have disjoint source support using 45 gcd obstructions. The packing is available for every allowed N>=168, plus N=96..152.
+- Proved five short-chain cancellation families with nonpositive currents, exact floor counts, and disjoint source support. Independently proved these families disjoint from the five-source packing. Their combined partial constructor returns full current/residual dictionaries and deletes positive mass `73N/48+O(1)`; the general residual remains unresolved.
+- Proved `||P A_N||_1=171N/4-|c_N|`, `|c_N|<=3`, and the resulting one-pass `19/22` contraction. Supplied the finite root-collapse current. Proved its idempotence and a surviving positive mass of at least 4N, preventing an unsupported repeated-contraction argument.
+- Proved a growing ternary-period obstruction to a fixed-modulus profile catalogue under literal forward transport. This is scoped to synchronous transport and does not exclude arithmetic rewrites or historical cancellation.
+- Stored actual A_96 and A_168 current certificates and full component diagnostics. Cross-band cancellation can precede exposed absorption. Exact positive-work witnesses refute the stronger everywhere-nonpositive-current target.
+- Proved the positive-component integer potential and an exact scale boundary-flux identity. Stored a positive A_96 component with source mass 17 and flux -7; exposing every boundary row still leaves positive mass 17. Identified finite termination of every positive plateau as the next constructive obligation.
+- Proved eventual vanishing of each band's projections modulo fixed powers of two and three times those powers. Stored a separate negative-domain reflected-annulus certificate with component masses -20, -73, +93; this tests an overgeneralized inference and makes no positive Collatz counterexample claim.
+- Updated the existing LaTeX note, README, ledger, agent guards, and investigation report. Independent model reviews checked the capacity proofs, norm proof, and main-note transcription. The source compiled successfully in the built-in editor; human review and formal verification remain outstanding.
+- Ran `python3 scripts/verify_all.py --cpp`: PASS for all earlier checks and five new integrated checkers. New checks cover packing at every 8|N through 4096, 66 arithmetic cases, eight combined-constructor cases through 6144, six graph diagnostics, stored annular currents, exact boundary flux, projections, and the reflected certificate. All 31 checked local Markdown links resolved; `git diff --check` passed.
+
+The universal goal remains open. The next step is a finite progress lemma for positive component plateaus, or a closed residual family with a proved decreasing parameter. The partial constructor and one-pass contraction do not establish either.
+
 Subsequent entries should name the result changed, proof status, actual validation, and outstanding obligation. Do not record prospective checks as completed.

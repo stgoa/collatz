@@ -82,6 +82,20 @@ def main():
             experiments / "obstructions")
         # The demo independently checks stored table rows and its full receipt.
         run([sys.executable, "-B", "whole_packet_demo.py"], experiments / "obstructions")
+        # The constructive-annulus checks compare their own persisted receipts
+        # and tables. Keep both experiment trees for repository-relative imports.
+        annular_source = ROOT / "experiments" / "annular_construction"
+        annular_work = work / "experiments" / "annular_construction"
+        shutil.copytree(annular_source, annular_work,
+                        ignore=shutil.ignore_patterns("__pycache__"))
+        for directory, script in (
+            ("components", "affine_template_compiler.py"),
+            ("components", "check_annular_components.py"),
+            ("arithmetic", "check_arithmetic_reductions.py"),
+            ("arithmetic", "combined_partial_current.py"),
+            ("duality", "check_duality.py"),
+        ):
+            run([sys.executable, "-B", script], annular_work / directory)
         cpp = "not requested"
         if args.cpp:
             compiler = shutil.which(os.environ.get("CXX", "c++"))
@@ -102,6 +116,11 @@ def main():
                          annular_recursion="PASS: 66 finite full-measure cases",
                          current_obstructions="PASS: finite graphs and delayed separation",
                          revised_currents="PASS: 10 samples and both stored new tables",
+                         affine_packing="PASS: exact lifts, capacity, cutoffs 8..4096 by 8",
+                         annular_currents="PASS: 6 diagnostics and stored A_96/A_168 tables",
+                         arithmetic_reductions="PASS: 66 cases, norm and outer profiles",
+                         combined_partial_current="PASS: 8 cases through 6144",
+                         component_duality="PASS: potentials, boundary flux, projections, reflected certificate",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
 
 
