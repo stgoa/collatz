@@ -1,0 +1,115 @@
+{
+  "calibration": "recovers main's delayed-release v (5) and u (7) exactly",
+  "new_depth7_examples_h2": {
+    "124": [
+      [
+        6,
+        -1,
+        "111223->y1"
+      ],
+      [
+        7,
+        -1,
+        "1111223->y1"
+      ]
+    ],
+    "610": [
+      [
+        6,
+        -1,
+        "111223->y1"
+      ],
+      [
+        7,
+        -1,
+        "1111223->y1"
+      ]
+    ],
+    "691": [
+      [
+        7,
+        -2,
+        "1111223->y1"
+      ],
+      [
+        7,
+        -1,
+        "1111143->y1"
+      ]
+    ]
+  },
+  "scans": [
+    {
+      "admissible": 486,
+      "cancel_in_all_reps": 11,
+      "classes_mod": 729,
+      "depth_L": 16,
+      "h": 2,
+      "mixed": 34,
+      "never": 441,
+      "r": 2,
+      "representatives": 4,
+      "uniform_classes": [
+        37,
+        70,
+        124,
+        205,
+        313,
+        367,
+        410,
+        448,
+        556,
+        610,
+        691
+      ],
+      "worst_depth_histogram": {
+        "13": 1,
+        "15": 1,
+        "7": 5,
+        "9": 4
+      }
+    },
+    {
+      "admissible": 1458,
+      "cancel_in_all_reps": 20,
+      "classes_mod": 2187,
+      "depth_L": 16,
+      "h": 3,
+      "mixed": 24,
+      "never": 1414,
+      "r": 3,
+      "representatives": 2,
+      "uniform_classes": [
+        37,
+        112,
+        139,
+        274,
+        355,
+        535,
+        556,
+        598,
+        760,
+        841,
+        1003,
+        1264,
+        1327,
+        1495,
+        1570,
+        1597,
+        1732,
+        1894,
+        2014,
+        2056
+      ],
+      "worst_depth_histogram": {
+        "10": 5,
+        "11": 5,
+        "12": 4,
+        "13": 1,
+        "9": 5
+      }
+    }
+  ],
+  "scope": "Bounded backward search from main's isolated chain; finite data, no proof.",
+  "status": "PASS"
+}

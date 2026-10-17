@@ -22,6 +22,41 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 20:05 — FINDING (Q3): zero-cost cancellation of the isolated chain is rare; three further depth-7 classes at h = 2
+
+**Setting.** The setting is that of main's `DELAYED_RELEASE.md`:
+
+- `v3(X−1) = h`, `2^max(h+5,10) | X`, `U = (X−1)/3^h`;
+- chain block `y1 (−2)`, `y2 (+2)`, `y3 (+2)`.
+
+**Method.** A bounded backward search from `{y1, y2, y3}`. It covers every inverse branch that a source below `144N` reaches within 16 forward steps, with any valuation word. It looks for negative annular sources with total coefficient `≤ −2`; such a set gives an everywhere nonpositive current for the block plus those sources.
+
+**Calibration.** On main's two families (`U ≡ 70, 313 mod 729`), the search recovers exactly `v` at distance 5 and `u` at distance 7.
+
+| h | admissible classes of `U` | cancel in every representative | depends on representative | none within depth 16 | depths seen |
+|---:|---:|---:|---:|---:|---|
+| 2 | 486 (mod 729), 4 reps each | 11 | 34 | 441 | 7–15 |
+| 3 | 1458 (mod 2187), 2 reps each | 20 | 24 | 1414 | 9–13 |
+
+**New depth-7 classes at `h = 2`.** These are in addition to main's 70 and 313.
+
+- `U ≡ 124, 610`: two `−1` sources enter `y1`, with forward valuation words `(1,1,1,2,2,3)` and `(1,1,1,1,2,2,3)`.
+- `U ≡ 691`: one `−2` source enters `y1` with word `(1,1,1,1,2,2,3)`, which suffices alone. There is also a `−1` source on `(1,1,1,1,1,4,3)`.
+
+**Structure.** These words lie on the ladder above `y1` used in main's proof:
+
+- inverse valuation 3 to `4X−3`;
+- then `h` inverse valuation-2 steps to `w_h = 4^(h+1)U + 1`;
+- then `l` inverse valuation-1 rungs `z_l = 2^l(w_h+1)/3^l − 1`.
+
+Rung `l` is an integer exactly when `3^l | 4^(h+1)U + 2`. For example, at `U = 124` this is `7938 = 2·3^4·49`, so rungs exist up to `l = 4`, matching the sources found at `l = 3` and `l = 4`.
+
+**Reading (finite, bounded).** For about 95–97% of classes, the chain's backward tree does not re-enter the annulus within 16 steps. In those classes, any cancellation of the `+2` has to happen further along the chain's forward orbit, at positive current cost. Absence within depth 16 is not absence at every depth.
+
+`python3 sidekick/probes/chain_cancellation_scan.py` (about 1 s; receipt alongside)
+
+---
+
 ## 2026-10-17 19:40 — VERIFIED: delayed-release cancellation and the sharpened isolation lemma (main `65093c4`, `DELAYED_RELEASE.md`)
 
 Everything was rebuilt from the statement with this branch's own `A_N`.
@@ -128,5 +163,6 @@ For this family, then, a progress argument in which negative mass joins and canc
 These are not claims.
 
 - **Q1 — absorption as a giant component.** Probes so far resolve plateaus by merging with the component of 1. By some depth `c·log N`, is all but a vanishing fraction of the positive mass of `A_N` inside the component of 1? If so, almost-all descent estimates, which apply to unions of residue classes over long intervals, might reduce the problem to an explicitly thin remainder.
-- **Q3 — complete coverage of chain obstructions.** For small `h`, do the residue classes of `U` outside the two delayed-release families admit any short cancellation of the chain block? Here "short" means negative top-band sources on paths of length about `2h+1`, using any valuation word. If every class admits one, the chain obstruction would have a uniform finite catalogue at each `h`. Otherwise the uncovered classes are the hard cases.
+- **Q3 — answered for `h = 2, 3` within depth 16** (entry of 20:05).
+- **Q4 — positive-cost cancellation.** For the classes with no zero-cost cancellation, where along the chain's forward orbit does the cumulative negative arrival first reach 2? Is that point bounded in terms of `h`?
 - **Q2 — what sets the end depth.** For the protected chains, compare the end depth with the length of the all-valuation-1 climb plus the stopping time of the climb's top.
