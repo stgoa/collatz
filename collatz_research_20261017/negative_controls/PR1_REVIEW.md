@@ -276,3 +276,37 @@ show that all structural construction methods are exhausted, and the
 current batch does not complete Collatz. A successful next step must
 close the complementary family or supply a decreasing parameter that
 survives every one of its branches.
+
+## 9. Reassessment after the exact quotient and normalized run construction
+
+The user's latest PR question prompted another fetch and merged-PR read.
+PR1 remains the only merged PR in that read; it is already incorporated.
+The more recent side-feed work was reviewed at
+491d26d766971bdf7fdce9bba288540423fd58c8. This is a separate branch,
+not an additional merged PR.
+
+The constructive pivot now has further results. The
+[complete elementary normal form](../../experiments/residual_progress/bridge_normal_form/BRIDGE_NORMAL_FORM.md)
+gives a genuine quotient and exhausts what sibling and halving identities
+alone can do. The
+[normalized run construction](../../experiments/residual_progress/complementary_bridge/RUN_BLOCK_BRIDGES.md)
+certifies about55.2788% of the previous complementary leading mass, with
+uniform exact counting and full weights. It also gives explicit
+counterfamilies to the resulting height and two-label rank candidates.
+
+The new feed's proposed merger barrier is narrower than its synthesis
+suggests. The [audit](../../experiments/residual_progress/cylinder_barrier/CYLINDER_RATES.md)
+proves equal exponential rates for the specified symbolic D/M/H rules,
+corrects a finite-bit H omission, and distinguishes those rates from
+constant-factor comparisons and actual growing-interval counts.
+The finite known-forward-set experiment does not exhaust available
+targets: the [infinite known-set theorem](../../experiments/residual_progress/absorbed_fibers/ABSORBED_FIBERS.md)
+supplies N/4+O(log N) certifiable states in every band[X,2X), uniformly
+at arbitrary height X>=N. That count alone is not an orbit hitting proof.
+
+**Decision:** continue the focused pivot toward exact bridges and
+termination of the remaining canonical branches. Keep the control maps
+as tests of universal claims. The merged PR does not justify abandoning
+structural certificate search, and the newer feed does not establish a
+barrier to the enlarged bridge class. Neither our added coverage nor
+the target-set theorem supplies universal convergence.

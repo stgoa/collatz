@@ -1,0 +1,197 @@
+{
+  "ref": "491d26d766971bdf7fdce9bba288540423fd58c8",
+  "source_sha256": {
+    "residual_vs_induction.py": "facc0be4149bdc9f4fd8b5585610731b9926bbf4fd54d32474dbdd787e3ef7ff",
+    "residual_cylinder_core.py": "e8458061e4e36ca5c015b2db4f15d8f45ff767429edc0b377517773544d70b4b",
+    "coalescence_check.py": "37a3eab9294b9a014ec84ada68686ab6d0d9c8a31810301b2a6a94b9e9792e93",
+    "excursion_merge_probe.py": "2e65f0bd59dc727847613c107cec9d7b54b70ffcf1cfef529c6360d179d32557"
+  },
+  "reproduced": {
+    "coalescence_check": {
+      "coverage": [
+        {
+          "N": 96,
+          "R_mass": 7,
+          "remaining_mass": 5,
+          "remaining_over_25N_576": 1.2,
+          "selected_mass": 2
+        },
+        {
+          "N": 768,
+          "R_mass": 66,
+          "remaining_mass": 32,
+          "remaining_over_25N_576": 0.96,
+          "selected_mass": 34
+        },
+        {
+          "N": 6144,
+          "R_mass": 532,
+          "remaining_mass": 269,
+          "remaining_over_25N_576": 1.0088,
+          "selected_mass": 263
+        },
+        {
+          "N": 49152,
+          "R_mass": 4266,
+          "remaining_mass": 2132,
+          "remaining_over_25N_576": 0.9994,
+          "selected_mass": 2134
+        },
+        {
+          "N": 98304,
+          "R_mass": 8532,
+          "remaining_mass": 4269,
+          "remaining_over_25N_576": 1.0005,
+          "selected_mass": 4263
+        }
+      ],
+      "identity_checked_random_200bit": 2000,
+      "identity_checked_small": 262144,
+      "rate_per_bit_64_to_96": {
+        "D": 0.9513765130329213,
+        "DM": 0.9508813196433785,
+        "DMH": 0.9508154310972886
+      },
+      "scope": "Independent check of main's halving coalescence and its effect on the 2-adic undecided core; no termination claim.",
+      "status": "PASS",
+      "undecided_D_DM_DMH": {
+        "16": [
+          0.24761962890625,
+          0.211669921875,
+          0.15594482421875
+        ],
+        "32": [
+          0.07043071370571852,
+          0.05758746713399887,
+          0.04177128616720438
+        ],
+        "64": [
+          0.010551268331994105,
+          0.008434418498056276,
+          0.006113630620170168
+        ],
+        "96": [
+          0.00214083052327265,
+          0.0016830508838729665,
+          0.0012172457895956994
+        ]
+      }
+    },
+    "excursion_merge_probe": {
+      "F_max_over_N": 820.6710001627604,
+      "F_size": 38912,
+      "N": 49152,
+      "density_by_height": {
+        "1": {
+          "density": 0.3009847005208333,
+          "times_H2": 0.3009847005208333
+        },
+        "1024": {
+          "density": 0.0,
+          "times_H2": 0.0
+        },
+        "128": {
+          "density": 9.854634602864584e-06,
+          "times_H2": 0.16145833333333334
+        },
+        "16": {
+          "density": 0.00091552734375,
+          "times_H2": 0.234375
+        },
+        "2": {
+          "density": 0.07568359375,
+          "times_H2": 0.302734375
+        },
+        "256": {
+          "density": 2.384185791015625e-06,
+          "times_H2": 0.15625
+        },
+        "32": {
+          "density": 0.00020345052083333334,
+          "times_H2": 0.20833333333333334
+        },
+        "4": {
+          "density": 0.018025716145833332,
+          "times_H2": 0.2884114583333333
+        },
+        "512": {
+          "density": 3.178914388020833e-07,
+          "times_H2": 0.08333333333333333
+        },
+        "64": {
+          "density": 4.57763671875e-05,
+          "times_H2": 0.1875
+        },
+        "8": {
+          "density": 0.004094441731770833,
+          "times_H2": 0.2620442708333333
+        }
+      },
+      "descent_median_p99_max": [
+        4,
+        36,
+        96
+      ],
+      "merge_before_descent_fraction": 0.2970700636942675,
+      "merge_median_p99_max": [
+        3,
+        28,
+        96
+      ],
+      "roots": 3925,
+      "scope": "Finite data at N=49152; no termination claim.",
+      "slowest": [
+        {
+          "descent": 96,
+          "merge": 96,
+          "merge_height_over_N": 0.346,
+          "x": 60975
+        },
+        {
+          "descent": 82,
+          "merge": 82,
+          "merge_height_over_N": 0.346,
+          "x": 69535
+        },
+        {
+          "descent": 77,
+          "merge": 1,
+          "merge_height_over_N": 1.743,
+          "x": 57115
+        },
+        {
+          "descent": 75,
+          "merge": 1,
+          "merge_height_over_N": 1.961,
+          "x": 64255
+        },
+        {
+          "descent": 64,
+          "merge": 64,
+          "merge_height_over_N": 0.956,
+          "x": 69375
+        },
+        {
+          "descent": 58,
+          "merge": 58,
+          "merge_height_over_N": 0.356,
+          "x": 73575
+        }
+      ],
+      "status": "PASS"
+    }
+  },
+  "reproduction_metadata": {
+    "main_at_batch_start": "8e2b5eb8913a1a56e1e2d5621398a9d18b5fa67b",
+    "unmodified_entry_points": [
+      "sidekick/probes/coalescence_check.py",
+      "sidekick/probes/excursion_merge_probe.py"
+    ],
+    "process_timeout_seconds_each": 45,
+    "receipt_comparison": "both reproduced reports equal pinned branch reports exactly",
+    "dependency": "collatz_research_20261017/negative_controls/affine_controls.py",
+    "dependency_sha256": "9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c",
+    "feed_branch_modified": false,
+    "review_note": "CYLINDER_RATES.md"
+  }
+}

@@ -133,6 +133,10 @@ def main():
             ("window_components", "check_window_components.py"),
             ("phase_depth", "check_fixed_h.py"),
             ("residual_return", "check_halving_return.py"),
+            ("bridge_normal_form", "check_normal_form.py"),
+            ("complementary_bridge", "check_run_bridge.py"),
+            ("absorbed_fibers", "check_fibers.py"),
+            ("cylinder_barrier", "check_cylinder_barrier.py"),
         ):
             run([sys.executable, "-B", script], residual_work / directory)
         # The review checker imports the annular arithmetic implementation;
@@ -182,6 +186,10 @@ def main():
                          bounded_source_clusters="PASS: complete local clusters, sharp63 span and forbidden-exit scope",
                          fixed_ternary_depth="PASS: finite barrier and complete obstructions at fixed h=2",
                          shrinking_coalescence="PASS: full binary family, exact residual counts and supplied-current conversion",
+                         elementary_bridge_normal_form="PASS: complete components, quotient map, all inverse branches and exact counts",
+                         complementary_run_bridges="PASS: full run branches, normalized counts, signed conversion and remaining obstructions",
+                         infinite_absorbed_fibers="PASS: exact high-band counts and finite supplied-current conversions",
+                         prefix_cylinder_rates="PASS: direct residues, four exact DPs, rotation bounds and high common states",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
 
 

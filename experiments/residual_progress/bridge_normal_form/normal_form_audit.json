@@ -1,0 +1,279 @@
+{
+  "ascent_cases": [
+    {
+      "a": 3,
+      "peak_bits": 5,
+      "seed_bits": 3
+    },
+    {
+      "a": 5,
+      "peak_bits": 8,
+      "seed_bits": 5
+    },
+    {
+      "a": 7,
+      "peak_bits": 11,
+      "seed_bits": 7
+    },
+    {
+      "a": 9,
+      "peak_bits": 14,
+      "seed_bits": 9
+    },
+    {
+      "a": 11,
+      "peak_bits": 17,
+      "seed_bits": 11
+    },
+    {
+      "a": 13,
+      "peak_bits": 21,
+      "seed_bits": 13
+    },
+    {
+      "a": 15,
+      "peak_bits": 24,
+      "seed_bits": 15
+    },
+    {
+      "a": 17,
+      "peak_bits": 27,
+      "seed_bits": 17
+    },
+    {
+      "a": 19,
+      "peak_bits": 30,
+      "seed_bits": 19
+    },
+    {
+      "a": 21,
+      "peak_bits": 33,
+      "seed_bits": 21
+    },
+    {
+      "a": 23,
+      "peak_bits": 36,
+      "seed_bits": 23
+    },
+    {
+      "a": 25,
+      "peak_bits": 40,
+      "seed_bits": 25
+    },
+    {
+      "a": 27,
+      "peak_bits": 43,
+      "seed_bits": 27
+    },
+    {
+      "a": 29,
+      "peak_bits": 46,
+      "seed_bits": 29
+    },
+    {
+      "a": 31,
+      "peak_bits": 49,
+      "seed_bits": 31
+    },
+    {
+      "a": 33,
+      "peak_bits": 52,
+      "seed_bits": 33
+    },
+    {
+      "a": 35,
+      "peak_bits": 55,
+      "seed_bits": 35
+    },
+    {
+      "a": 37,
+      "peak_bits": 59,
+      "seed_bits": 37
+    },
+    {
+      "a": 39,
+      "peak_bits": 62,
+      "seed_bits": 39
+    },
+    {
+      "a": 41,
+      "peak_bits": 65,
+      "seed_bits": 41
+    },
+    {
+      "a": 43,
+      "peak_bits": 68,
+      "seed_bits": 43
+    },
+    {
+      "a": 45,
+      "peak_bits": 71,
+      "seed_bits": 45
+    },
+    {
+      "a": 47,
+      "peak_bits": 74,
+      "seed_bits": 47
+    },
+    {
+      "a": 49,
+      "peak_bits": 78,
+      "seed_bits": 49
+    },
+    {
+      "a": 51,
+      "peak_bits": 81,
+      "seed_bits": 51
+    },
+    {
+      "a": 53,
+      "peak_bits": 84,
+      "seed_bits": 53
+    },
+    {
+      "a": 55,
+      "peak_bits": 87,
+      "seed_bits": 55
+    },
+    {
+      "a": 57,
+      "peak_bits": 90,
+      "seed_bits": 57
+    },
+    {
+      "a": 59,
+      "peak_bits": 93,
+      "seed_bits": 59
+    },
+    {
+      "a": 61,
+      "peak_bits": 97,
+      "seed_bits": 61
+    },
+    {
+      "a": 63,
+      "peak_bits": 100,
+      "seed_bits": 63
+    },
+    {
+      "a": 65,
+      "peak_bits": 103,
+      "seed_bits": 65
+    },
+    {
+      "a": 129,
+      "peak_bits": 204,
+      "seed_bits": 129
+    },
+    {
+      "a": 257,
+      "peak_bits": 407,
+      "seed_bits": 257
+    },
+    {
+      "a": 513,
+      "peak_bits": 813,
+      "seed_bits": 513
+    },
+    {
+      "a": 1025,
+      "peak_bits": 1625,
+      "seed_bits": 1025
+    }
+  ],
+  "counting_cases": 14476,
+  "current_hash": "6571e1922eb7244f10856489652c1d309b499d122c9061e6bbb87b31ca4e6dee",
+  "current_seeds": 2048,
+  "first_greedy_counterexample": [
+    0,
+    57,
+    203,
+    409
+  ],
+  "greedy_counterexample_count": 129,
+  "greedy_counterexample_hash": "df8415dd93e210006decdbd75441dca5edf95d52fbd22b71a6beb01162143375",
+  "inverse_height_bound": 16383,
+  "inverse_targets": 6143,
+  "normal_form_hash": "fe542b2f2b37a2e9133b00d1f0517d5fed65f47631543daefed821e27701b8b5",
+  "scope": "Exact identities and bounded checks; quotient termination remains open",
+  "seed_bound": 32767,
+  "seeds": 16384,
+  "status": "PASS",
+  "strata": [
+    {
+      "count": 8192,
+      "k": 0,
+      "selected_partner": false
+    },
+    {
+      "count": 4096,
+      "k": 0,
+      "selected_partner": true
+    },
+    {
+      "count": 2048,
+      "k": 1,
+      "selected_partner": false
+    },
+    {
+      "count": 1024,
+      "k": 1,
+      "selected_partner": true
+    },
+    {
+      "count": 512,
+      "k": 2,
+      "selected_partner": false
+    },
+    {
+      "count": 256,
+      "k": 2,
+      "selected_partner": true
+    },
+    {
+      "count": 128,
+      "k": 3,
+      "selected_partner": false
+    },
+    {
+      "count": 64,
+      "k": 3,
+      "selected_partner": true
+    },
+    {
+      "count": 32,
+      "k": 4,
+      "selected_partner": false
+    },
+    {
+      "count": 16,
+      "k": 4,
+      "selected_partner": true
+    },
+    {
+      "count": 8,
+      "k": 5,
+      "selected_partner": false
+    },
+    {
+      "count": 4,
+      "k": 5,
+      "selected_partner": true
+    },
+    {
+      "count": 2,
+      "k": 6,
+      "selected_partner": false
+    },
+    {
+      "count": 1,
+      "k": 6,
+      "selected_partner": true
+    },
+    {
+      "count": 1,
+      "k": 7,
+      "selected_partner": false
+    }
+  ]
+}
