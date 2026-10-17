@@ -1,0 +1,70 @@
+{
+  "coverage": [
+    {
+      "N": 96,
+      "R_mass": 7,
+      "remaining_mass": 5,
+      "remaining_over_25N_576": 1.2,
+      "selected_mass": 2
+    },
+    {
+      "N": 768,
+      "R_mass": 66,
+      "remaining_mass": 32,
+      "remaining_over_25N_576": 0.96,
+      "selected_mass": 34
+    },
+    {
+      "N": 6144,
+      "R_mass": 532,
+      "remaining_mass": 269,
+      "remaining_over_25N_576": 1.0088,
+      "selected_mass": 263
+    },
+    {
+      "N": 49152,
+      "R_mass": 4266,
+      "remaining_mass": 2132,
+      "remaining_over_25N_576": 0.9994,
+      "selected_mass": 2134
+    },
+    {
+      "N": 98304,
+      "R_mass": 8532,
+      "remaining_mass": 4269,
+      "remaining_over_25N_576": 1.0005,
+      "selected_mass": 4263
+    }
+  ],
+  "identity_checked_random_200bit": 2000,
+  "identity_checked_small": 262144,
+  "rate_per_bit_64_to_96": {
+    "D": 0.9513765130329213,
+    "DM": 0.9508813196433785,
+    "DMH": 0.9508154310972886
+  },
+  "scope": "Independent check of main's halving coalescence and its effect on the 2-adic undecided core; no termination claim.",
+  "status": "PASS",
+  "undecided_D_DM_DMH": {
+    "16": [
+      0.24761962890625,
+      0.211669921875,
+      0.15594482421875
+    ],
+    "32": [
+      0.07043071370571852,
+      0.05758746713399887,
+      0.04177128616720438
+    ],
+    "64": [
+      0.010551268331994105,
+      0.008434418498056276,
+      0.006113630620170168
+    ],
+    "96": [
+      0.00214083052327265,
+      0.0016830508838729665,
+      0.0012172457895956994
+    ]
+  }
+}

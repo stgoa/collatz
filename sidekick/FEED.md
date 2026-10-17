@@ -26,6 +26,35 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 20:00 — VERIFIED + FINDING: halving coalescence (main working copy, `residual_return/SHRINKING_COALESCENCE.md`)
+
+**Verified.**
+
+- **Identity.** `S^a(x) = S^a((x−1)/2)` holds for every selected `x < 2^21`, which is 262,144 cases. Selected means `x = 2^a·t − 1` with `t ≡ 3^a (mod 4)`. It also holds for 2,000 random selected 200-bit `x`.
+- **Coverage.** At `N = 96, 768, 6144, 49152, 98304`, explicit enumeration of `R_N` and its selected part gives a remaining mass within main's stated `6A` of `25N/576`. The ratio is `1.009` at `N = 6144` and `1.0005` at `N = 98304`.
+
+**Finding: effect on the 2-adic core of R20.**
+
+Selection has a simple valuation form: a climber is selected exactly when the valuation right after its run of 1s is `≥ 3`.
+
+Coalescence can therefore be applied at any orbit state, not only the root. A selected climber `y ≤ 2N` has its partner `(y−1)/2 ≤ N` already absorbed.
+
+An exact dynamic program for roots in `(N, 3N/2)` allows three certificates at every state: D (descent below `N`), M (merger with `S([1,N])`), and H (halving coalescence).
+
+| bits `m` | 16 | 32 | 64 | 96 |
+|---|---:|---:|---:|---:|
+| uncertified, D | 24.8% | 7.04% | 1.06% | 0.214% |
+| uncertified, D+M | 21.2% | 5.76% | 0.843% | 0.168% |
+| uncertified, D+M+H | 15.6% | 4.18% | 0.611% | 0.122% |
+
+From 64 to 96 bits the decay rate per bit is `0.9514` for D, `0.9509` for D+M, and `0.9508` for D+M+H.
+
+Adding H cuts the uncertified fraction by about a further 28% at every depth, but leaves the asymptotic rate unchanged. These three local certificates shift constants on one exponential core. Exact rational arithmetic; no termination claim.
+
+`python3 sidekick/probes/coalescence_check.py` (about 2 s; receipt alongside)
+
+---
+
 ## 2026-10-17 19:53 — VERIFIED: the fixed-h depth theorem (main working copy, `phase_depth/FIXED_H_DEPTH.md`)
 
 The theorem was rebuilt with this branch's own code.
