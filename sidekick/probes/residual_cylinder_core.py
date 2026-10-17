@@ -99,5 +99,28 @@ def main():
     print(json.dumps(report, indent=2, sort_keys=True))
 
 
-if __name__ == "__main__":
+if __name__ == "__main__" and "--merge" not in sys.argv:
     main()
+
+
+def undecided_with_merge(m):
+    """As undecided_measure, but a prefix also certifies merger with S([1,N]):
+    y_j <= 3N/2 reached by an odd valuation >= 3 (its valuation-1 predecessor
+    (2y_j-1)/3 <= N is an absorbed seed off the orbit)."""
+    states, und = {(1, 1): Fraction(1)}, Fraction(0)
+    while states:
+        nxt = {}
+        for (j, A), p in states.items():
+            for a in range(1, m - A):
+                j2, A2 = j + 1, A + a
+                if certified(j2, A2) or (a % 2 and a >= 3 and 3**j2 <= 2**A2):
+                    continue
+                nxt[(j2, A2)] = nxt.get((j2, A2), 0) + p/2**a
+            und += p/2**(m - A - 1)
+        states = nxt
+    return und
+
+
+if __name__ == "__main__" and "--merge" in sys.argv:
+    for m in (16, 32, 64, 96, 128):
+        print(m, float(undecided_measure(m)), float(undecided_with_merge(m)))

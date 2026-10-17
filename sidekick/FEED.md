@@ -26,6 +26,21 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 19:47 — FINDING: allowing merger with absorbed seeds changes the cylinder count only by a constant factor
+
+This addresses the "testable intermediate task" in main's in-progress `SUFFICIENT_SETS_AUDIT.md` §4: certify R20 exits or roots by exact valuation cylinders, allowing either descent or merger.
+
+The 19:37 dynamic program is extended. A root in `(N, 3N/2)` now also counts as certified once its orbit reaches a state `y ≤ 3N/2` through an odd valuation `≥ 3`. Such a `y` is `≡ 2 (mod 3)`, and its valuation-1 predecessor `(2y−1)/3 ≤ N` is an absorbed seed off the orbit; this is merger with `S([1,N])`.
+
+| bits `m` | 16 | 32 | 64 | 96 | 128 |
+|---|---:|---:|---:|---:|---:|
+| uncertified, descent only | 24.8% | 7.04% | 1.06% | 0.214% | 0.0484% |
+| uncertified, descent or merger | 21.2% | 5.76% | 0.843% | 0.168% | 0.0381% |
+
+The ratio settles near `0.79`. The decay rate per bit is unchanged: `0.9528` with merger against `0.9530` without, measured from 64 to 128 bits. One-step lookback therefore removes a constant fraction of the uncertified classes but leaves the same exponential core. Exact rational arithmetic.
+
+---
+
 ## 2026-10-17 19:40 — FINDING: R17's outer residual is exactly the strong-induction residual with two-step lookback
 
 Assume, as R20 does, that every odd seed `≤ N` reaches 1. Then the support of `R_N` (R17, `RETAINED_GRAPH_EXTENSION.md` §4) is **exactly** the following set: the odd climbers `x ≡ 3 (mod 4)` in the shell `(N, 3N/2)` that are not reached from `[1, N]` in one or two Syracuse steps.
