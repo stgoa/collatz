@@ -1,11 +1,11 @@
 # Residual progress and finite forcing
 
-**Latest standing:** complete aggregate exposure depth is now proved unbounded,
-already on the ladder `N=96*64^k`. A terminating auxiliary normalization and
-an exact local input conversion sharpen the constructive target but leave
-positive residuals. The merged independent lane adds valuable negative
-controls; its broader claim excluding alternative one-sided currents was
-corrected with exact counterexamples. Collatz remains open.
+**Latest standing:** selected delayed annular blocks now cancel exactly,
+and retained arrows give a conditional outer-interval extension. This batch
+tests their actual coverage and whether they supply a recursion to already
+absorbed smaller seeds. The merged independent lane's negative controls
+motivate that stricter progress test; its corrected minimality lemma does
+not rule out alternative certificate constructions. Collatz remains open.
 
 Started 2026-10-17 from clean pushed commit `ce56699`.
 The preceding goal turn made progress: universal partial currents, an exact
@@ -352,3 +352,134 @@ the new exact cancellation family and do not establish that absorption is
 the only way every such cluster can resolve. The side lane's larger-scale
 questions remain untested leads. The fetch/read/verify rule is now in
 AGENTS.md for subsequent batches.
+
+## Continuation from `65093c4`: coverage and a descent interface
+
+The user requested another assessment of Claude's merged PR. A fresh remote
+read identifies PR1, merged at `ba6b337`, as the only merged PR; it is already
+integrated in this checkout. Its valid negative controls and corrected
+minimality statement stand. The concrete same-cost counterexample checker
+was rerun successfully. No later merge was found in that remote read.
+
+**Research decision:** retain the current framework, but prioritize an
+explicit reduction of remaining seeds to an already absorbed interval.
+Extra cancelled mass alone does not establish that the hard residual is
+being covered. Bounded local catalogues can serve as preprocessing; a
+complete construction still needs unbounded excursions and a termination
+argument using arithmetic that the `3x+61` control lacks.
+
+### Batch checklist
+
+- [x] Refresh the remote, identify the merged PR, and read the side feed.
+- [x] Reproduce the new delayed-release and depth16 backward-search receipts.
+- [x] Resolve the all-phase `2h+1` coverage candidate with complete components.
+- [x] Prove and check a transfer from partial annular currents to the outer residual.
+- [x] Bound complete source clusters in the restricted path graph and audit exit scope.
+- [x] Integrate the results, reproduce all checks, and compile the existing source.
+- [x] Review the final diff and prepare the authorized Git delivery.
+
+### Latest external evidence and its limits
+
+Reviewed `claude/sidekick` at `f12da944dc68cfaff0884d874e11bc6c2cb98d34`.
+After reading the new scripts and checking that their dependencies were
+unchanged from the previously inspected snapshot, both new receipts were
+reproduced in temporary storage. Replacing the backward search's floating
+height bounds by exact integer bounds reproduced the same complete receipt.
+The [review receipt](side_lane_review_20261017_2005.json) retains the source
+hashes, parameters, and results; the external branch was not modified.
+
+For h2 the depth16 scan finds sufficient negative capacity in every tested
+representative of11 classes, in some representatives of34 classes, and in
+none of the four representatives of441 classes (486 classes total). For h3
+the corresponding counts are20,24,1414, with two representatives per class
+(1458 total). These are finite representative counts, not uniform statements
+over all members of a congruence class or asymptotic densities.
+
+Two limitations matter for strategy. Lack of two negative units within
+depth16 does not exclude a deeper zero-cost backward attachment. It also
+does not imply that the whole inverse tree never re-enters the annulus:
+it may contain a positive source or just one negative unit. No universal
+positive-cost requirement is imported from those observations.
+
+### R19: a precise failure of the all-phase short-delay candidate
+
+The [phase proof](release_coverage/PHASE_COVERAGE.md) establishes complete
+mass2 isolation at depth5 on17 of18 coarse unit phases with h2, and at
+depth7 on53 of54 phases with h3, under its explicit binary and size
+conditions. Each infinite phase is proved by a finite symbolic inverse
+decision tree whose arithmetic branches survive an additive translation.
+The exceptional phase really adds a source; its total component need not
+be resolved.
+
+On `N=96*64^k`, every `k=2 mod27` is an infinite required-ladder witness
+with h2 and positive complete depth5 component. This refutes the proposed
+all-phase bound2h+1 without restricting candidate valuation words. A
+separate finite1944-representative scan supplies21 complete partial-current
+tables, with actual source capacities and attachment positions checked.
+Deeper or phase-sensitive constructions remain possible.
+
+### R20: a noncircular interface from cancellation to outer descent
+
+The [transfer theorem](complement_recursion/ANNULAR_COMPLEMENT_TRANSFER.md)
+uses known absorption through N and an exact partial annular block at
+M=N/64. Every positive atom of A_M has an explicit ancestor at most N.
+Subtracting the block's current from the certified positive-source current
+therefore certifies its negative sources. Their appropriate valuation1
+predecessors are actual unresolved R_N roots.
+
+This argument validates full multiplicity: after a path is established,
+it can be multiplied by2 for a coefficient2 residual root. It does not
+reuse the annular source capacity. Every uncovered coefficient remains in
+the exact profile. The old packed-tree catalogue covers only
+`N/9216+O(1)` roots, although the overall catalogue cancels much more
+annular mass. The short release pair/triple adds no further R_N coverage.
+
+The delayed family supplies exact first descents from genuine remaining
+roots to N-1 in h+r+2 arrows. All intermediate states exceed N, and the
+peak exceeds `(4/3)^h N`. These are constructive branches after unbounded
+excursions, including required-ladder cases. The checker validates170
+branches and a coefficient2 example, plus five actual current transfers.
+A full61-row current for seed9183 is stored and upgrades the N6144 packet
+residual by one unit.
+
+### R21: finite local source processing, with an explicit closure failure
+
+The [source-cluster theorem](window_components/WINDOW_COMPONENTS.md)
+proves a sharp63-arrow span for all nonzero annular sources on one complete
+E0 path. An adjusted height uses the empty source half-bands and allows
+single-step dips. A fixed-radius guard now recovers every source and an
+exact frontier current without walking to the potentially distant root
+or exit. All current rows lie below192N, with a bound on partial positive
+cost. The full positive frontier residual remains present.
+
+This finite arithmetic template scheme is not closed under continuation.
+The Mersenne examples exit into components containing no original annular
+source at all, so the outgoing positive mass becomes an auxiliary source.
+The quarter-height bound at a high-valuation exit compares with that exit's
+origin, not with the last annular source. It supplies no missing global
+decrease.
+
+### Next proof obligation after the pivot
+
+For every remaining R_N root, construct a finite path or exact current
+whose positive dependencies are already absorbed, or give another finite
+progress rule with a well-founded parameter. R20 specifies a concrete
+input/output interface for this task. R19 requires more than the previous
+short delay formula, and R21 requires handling components without original
+sources. Additional successful local templates are useful only with an
+explicit account of which unresolved roots they cover. Universal coverage
+and termination remain open.
+
+### Batch validation
+
+`python3 scripts/verify_all.py --cpp` passed, including all three new
+checkers and all prior archive, certificate, negative-control, and C++
+checks. Independent model reviews passed the complete phase proof,
+annular-to-complement transfer, and bounded source-cluster proof.
+The existing LaTeX source compiled successfully after integration review
+clarified the source-cluster cutoff domain and the convention root(1)=1.
+The external review reproduced both pinned new side-lane receipts,
+including a second scan with exact integer height bounds. No complete
+universal certificate or Collatz proof is claimed.
+All122 checked local Markdown links resolve, and the staged diff passes
+whitespace validation. Git history records delivery of this batch.

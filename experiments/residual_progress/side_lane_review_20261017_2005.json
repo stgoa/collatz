@@ -1,0 +1,243 @@
+{
+  "branch_modified": false,
+  "checks": [
+    {
+      "receipt": {
+        "families_checked": 16,
+        "isolation_brute_force": [
+          {
+            "N": 96,
+            "X": 4096,
+            "chain_exact_at_h_plus_1": true,
+            "chain_exact_at_h_plus_2": true,
+            "h": 2
+          },
+          {
+            "N": 312,
+            "X": 13312,
+            "chain_exact_at_h_plus_1": true,
+            "chain_exact_at_h_plus_2": true,
+            "h": 3
+          },
+          {
+            "N": 1608,
+            "X": 68608,
+            "chain_exact_at_h_plus_1": true,
+            "chain_exact_at_h_plus_2": true,
+            "h": 4
+          },
+          {
+            "N": 5496,
+            "X": 234496,
+            "chain_exact_at_h_plus_1": true,
+            "chain_exact_at_h_plus_2": false,
+            "h": 5
+          },
+          {
+            "N": 11328,
+            "X": 483328,
+            "chain_exact_at_h_plus_1": true,
+            "chain_exact_at_h_plus_2": true,
+            "h": 7
+          },
+          {
+            "N": 6144,
+            "X": 262144,
+            "chain_exact_at_h_plus_1": true,
+            "chain_exact_at_h_plus_2": true,
+            "h": 3
+          }
+        ],
+        "ladder_example": {
+          "N": "96*64^89",
+          "X": "2^546",
+          "current_rows": 9
+        },
+        "qualifying_h_through_64": [
+          2,
+          3,
+          5,
+          6,
+          7,
+          9,
+          10,
+          12,
+          13,
+          14,
+          16,
+          17,
+          19,
+          20,
+          21,
+          23,
+          24,
+          26,
+          27,
+          29,
+          30,
+          31,
+          33,
+          34,
+          36,
+          37,
+          38,
+          40,
+          41,
+          43,
+          44,
+          45,
+          47,
+          48,
+          50,
+          51,
+          52,
+          54,
+          55,
+          57,
+          58,
+          60,
+          61,
+          62,
+          64
+        ],
+        "scope": "Independent finite checks of main's delayed-release construction and sharpened isolation lemma; the universal statements rest on main's written proof.",
+        "status": "PASS"
+      },
+      "script": "sidekick/probes/delayed_release_check.py",
+      "status": "PASS"
+    },
+    {
+      "receipt": {
+        "calibration": "recovers main's delayed-release v (5) and u (7) exactly",
+        "new_depth7_examples_h2": {
+          "124": [
+            [
+              6,
+              -1,
+              "111223->y1"
+            ],
+            [
+              7,
+              -1,
+              "1111223->y1"
+            ]
+          ],
+          "610": [
+            [
+              6,
+              -1,
+              "111223->y1"
+            ],
+            [
+              7,
+              -1,
+              "1111223->y1"
+            ]
+          ],
+          "691": [
+            [
+              7,
+              -2,
+              "1111223->y1"
+            ],
+            [
+              7,
+              -1,
+              "1111143->y1"
+            ]
+          ]
+        },
+        "scans": [
+          {
+            "admissible": 486,
+            "cancel_in_all_reps": 11,
+            "classes_mod": 729,
+            "depth_L": 16,
+            "h": 2,
+            "mixed": 34,
+            "never": 441,
+            "r": 2,
+            "representatives": 4,
+            "uniform_classes": [
+              37,
+              70,
+              124,
+              205,
+              313,
+              367,
+              410,
+              448,
+              556,
+              610,
+              691
+            ],
+            "worst_depth_histogram": {
+              "13": 1,
+              "15": 1,
+              "7": 5,
+              "9": 4
+            }
+          },
+          {
+            "admissible": 1458,
+            "cancel_in_all_reps": 20,
+            "classes_mod": 2187,
+            "depth_L": 16,
+            "h": 3,
+            "mixed": 24,
+            "never": 1414,
+            "r": 3,
+            "representatives": 2,
+            "uniform_classes": [
+              37,
+              112,
+              139,
+              274,
+              355,
+              535,
+              556,
+              598,
+              760,
+              841,
+              1003,
+              1264,
+              1327,
+              1495,
+              1570,
+              1597,
+              1732,
+              1894,
+              2014,
+              2056
+            ],
+            "worst_depth_histogram": {
+              "10": 5,
+              "11": 5,
+              "12": 4,
+              "13": 1,
+              "9": 5
+            }
+          }
+        ],
+        "scope": "Bounded backward search from main's isolated chain; finite data, no proof.",
+        "status": "PASS"
+      },
+      "script": "sidekick/probes/chain_cancellation_scan.py",
+      "status": "PASS"
+    }
+  ],
+  "integer_height_cap_cross_check": "Same complete receipt after replacing floating height bounds with exact integer arithmetic in temporary copy",
+  "scope": "Finite checks only. Lack of two negative units within depth16 does not exclude deeper zero-cost backward attachments, nor imply that the whole backward tree never enters the annulus.",
+  "source_branch": "claude/sidekick",
+  "source_commit": "f12da944dc68cfaff0884d874e11bc6c2cb98d34",
+  "source_sha256": {
+    "collatz_research_20261017/negative_controls/affine_controls.py": "9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c",
+    "collatz_research_20261017/negative_controls/progress_measures_audit.py": "6929d1f04ad8647610c61bf9d12946f431899c775fb238c9bcbf0f7b5dc1b467",
+    "sidekick/probes/chain_cancellation_scan.json": "a2066361f124bb2d658e296b7d6de7ae6142035441f693eebdbfdfb3aac7d026",
+    "sidekick/probes/chain_cancellation_scan.py": "b13ae88a596c0b688ceabc51e27377b728d4080a29f9f64297f87e746445af6c",
+    "sidekick/probes/delayed_release_check.json": "2f39e2022a32518f119b9848d3539261729b8298ea6bbfdb00188f5bc9888395",
+    "sidekick/probes/delayed_release_check.py": "2729b2f36675f4b8b7c1ef1328344c63e0c0fdde1607ab47e8dd409f5a32bed7",
+    "sidekick/probes/depth_probe.py": "98e0e36d9b9d7d3ceb5bb907b589df59fc60dda0178f194a3a45f66ebb7f0d6e"
+  },
+  "status": "PASS"
+}

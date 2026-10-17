@@ -297,6 +297,48 @@ For every `N=96*64^k`, set `L=12+6k` and `x_j=3^j2^(L-j)-1`, j=0,...,L-1. This i
 
 See [proof](../experiments/residual_progress/alternating/ALTERNATING_PATHS.md), [constructors/checker](../experiments/residual_progress/alternating/check_alternating_paths.py), and [receipt](../experiments/residual_progress/alternating/alternating_paths_audit.json). The finite audit checks20 annuli, states through4097, and11 growing-depth examples. At N96 the old normalizer leaves positive mass1859, the intermediate-capacity version1414, and signed collapse1337. These numbers are not uniform contraction constants. A retained frontier or equivalent history is needed to advance beyond an E0 component; its eventual cancellation remains open.
 
+## R19 — Phase coverage and a fixed-order obstruction to depth2h+1
+
+**Status: written arithmetic proof with exact finite symbolic verification; the all-phase completion candidate is refuted.**
+
+Write `X=128N/3` and `U=(X-1)/3^h`. For h=2, `2^10|X`, and `X>=497664`, every unit phase `U mod27` except16 has the same complete depth5 component: eight vertices, source coefficients(-2,+2,+2), and mass2. For h=3, `2^11|X`, and `X>=8957952`, every unit phase `U mod81` except31 has the analogous complete depth7 component. These give17 of18 and53 of54 coarse unit phases. Each exceptional phase supplies an explicit additional source; this does not imply that its full component is resolved.
+
+The proof enumerates complete inverse decisions with affine inequalities valid on a half-line. Translation checks preserve every queried state's integrality, parity, inverse branch, and actual source coefficient. The full modulo18 residue may change while its coefficient remains fixed. These symbolic checks establish the infinite classes; separate representative scans do not establish them.
+
+On the required ladder `N=96*64^k`, every `k=2 mod27` has exact h=2 yet an isolated mass2 component at depth5. A separate135-comparison symbolic lift proves this family starting at N393216. Thus the proposed completion bound `2h+1` fails even with arbitrary source-covered valuation words. This does not rule out a different growing bound or eventual completion.
+
+The old two delayed families cover a fraction `1/3^(r+3)` of unit-U classes at their stated modulus. A separate finite scan of1944 representatives at h2/h3 yields21 exact zero-cost partial currents with source capacity and attachment placement checked. No universal class coverage is inferred from those21 successes.
+
+See [proof](../experiments/residual_progress/release_coverage/PHASE_COVERAGE.md), [checker](../experiments/residual_progress/release_coverage/check_coverage.py), and [receipt](../experiments/residual_progress/release_coverage/coverage_audit.json). Latest side-lane depth16 counts were independently reproduced at commit `f12da944dc68cfaff0884d874e11bc6c2cb98d34`; a bounded absence of negative capacity does not exclude deeper zero-cost attachments.
+
+## R20 — Transfer annular cancellation to exact outer-seed descent
+
+**Status: written conditional transfer theorem, explicit infinite descent families, and finite current certificates. Full residual coverage remains open.**
+
+Let `8|M`, `N=64M`, and suppose an exact absorption current for U_N is supplied. Every positive atom of A_M has an ancestor at most N within two Syracuse arrows. Consequently, for a supplied exact capacity-checked block `P-Q=div J` with `P<=A_M^+`, `Q<=A_M^-`, the known graph absorbs P, and `Q=div(H_P-J)` gives a finite exact absorption certificate for Q. The current may be signed; nonnegative Q forces its sources into the absorbing finite component. Unrelated zero-source cycle components do not affect this conclusion.
+
+Every R17 residual root x has a valuation1 exit `t=(3x+1)/2` in `(3N/2,9N/4)`, residue5 or11 modulo18, with `A_M(t)=-1`. If Q includes t, its certified path absorbs the entire R_N coefficient at x, either1 or2. Reusing an established path with multiplicity2 is valid; the annular block's source capacity was spent once. If `R_N=div T+R_remaining`, the upgraded packet current is `J_packet-T`, with residual `-R_remaining`.
+
+The old packed trees cover exactly the roots `9183+768j` for their valid indices `j=9s` or `9s+3`. There are `C_old(M)=N/9216+O(1)` such roots. The other existing catalogue families add no remaining root: their exits lie too low or correspond to seeds already removed by R17. This distinguishes actual residual coverage from total cancelled annular mass.
+
+For every R16 delayed family, the root `t=(2v-1)/3` is a remaining R_N atom of weight1, and has exact first descent to N-1 with valuation word `1^(r+1),2^h,3`, length `h+r+2<=2h+2`. All intermediate states exceed N, and the peak exceeds `(4/3)^h N`. These are genuine shrinking branches with unbounded excursions, including branches on the required ladder. A companion example at h=r3, X24315904, N36473856 has root40480795 of residual weight2 and an exact ten-arrow descent to36473855.
+
+The [proof](../experiments/residual_progress/complement_recursion/ANNULAR_COMPLEMENT_TRANSFER.md), [constructor](../experiments/residual_progress/complement_recursion/transfer.py), and [checker](../experiments/residual_progress/complement_recursion/check_transfer.py) retain every uncovered coefficient. The [receipt](../experiments/residual_progress/complement_recursion/transfer_audit.json) checks66 cutoffs,353280 positive atoms,164 catalogue roots,five supplied-current conversions,and170 explicit descent branches. A full61-row [current for seed9183](../experiments/residual_progress/complement_recursion/outer_9183_current.csv) is stored; it improves the N6144 packet residual by exactly one unit.
+
+## R21 — Sharp bounded source clusters within the restricted path graph
+
+**Status: written universal local bound and finite preprocessing constructor; no universal exit or plateau termination claim.**
+
+In the R18 graph E0, define adjusted height `h(x)=x` for x1 modulo3 and `h(x)=x/2` for x2 modulo3. Every nonzero A_N source satisfies `Q<h(x)<32Q`, with Q9N/4. An allowed step from type1 multiplies h by more than3/4; from type2 by more than3/2. Shrinking steps cannot be consecutive. Thus two sources in the same complete E0 component have even separation at most58 or odd separation at most63.
+
+The63 bound is sharp: `x=3*2^95*t-5`, `Q=18*floor(x/18)`, t>=1, realizes `(1,2)^31,1` with nonzero source endpoints. The exact cylinder uses the extra bit: total valuation94, modulus2^95. Its complete source cluster has mass38 when3 does not divide t and35 otherwise.
+
+At most63 predecessor and63 successor queries from a source recover every source in that component. Prefix sums give an exact current placing the whole cluster mass at its last source. All current rows lie below192N, and positive cost is at most `63||A_N^+||=6237N/4`. These are bounds for this partial preprocessing. A finite arithmetic guard scheme has sufficient period `2^96*3^65`; no practically enumerated catalogue or closure under continuation is claimed.
+
+For a forbidden E0 edge `x->y`, valuation2 sends directly to an inactive smaller root. Valuation at least3 sends to a component root below x/4. The comparison uses the originating exit vertex x, which may be far above the last annular source. Moreover, for the old Mersenne family with odd k, the first exit enters a component containing no original annular source. Positive transported mass then becomes an auxiliary source. A complete continuation must handle such components rather than assume each exit finds negative capacity.
+
+See [proof](../experiments/residual_progress/window_components/WINDOW_COMPONENTS.md), [constructor/checker](../experiments/residual_progress/window_components/check_window_components.py), and [receipt](../experiments/residual_progress/window_components/window_components_audit.json). Eight complete annuli agree with independent full-ancestry grouping; sharpness phases, exact affine guards, forbidden exits through8193, and four source-empty targets are checked.
+
 ## C1 — Independent audit of R2–R4 and of main's R5, R6, R9, R10
 
 **Status: finite checks and model-assisted re-derivation; no discrepancy found.**
@@ -376,6 +418,7 @@ See the [note](../collatz_research_20261017/negative_controls/NOTE.md), Section 
 
 - **Primary:** construct a finite current (or one with nonpositive residual) at every cutoff on R5's five rays, and prove termination. R6's annular increments give an explicit sufficient target with its finite bases discharged. Arbitrarily large finite cost is permitted.
 - Find an arithmetic recursion or another structural mechanism that controls unresolved positive contributions. R13 proves its total exposure depth cannot be uniformly bounded, even on one ladder. Finite successful searches alone do not prove universal existence. C3 provides a conditional cost floor, while allowing one-sided alternatives. C2/C4 require a general termination argument to use hypotheses that fail for T_61; candidate methods that extend to those maps must respect the certified failures at `(d,N)=(61,213)` and `(-1,16)`.
+- Prioritize R20's explicit outer residual: prove a noncircular rule reducing every remaining root to already absorbed seeds. R19 refutes all-phase depth2h+1 completion. R21 supplies bounded local preprocessing but requires continuation through source-empty auxiliary components. Neither cancelled mass nor a local template count proves residual coverage.
 - Prove finite progress for every positive exposed-component plateau, or close R8/R9's residuals in a family with a decreasing integer parameter. R8 deletes only certified source coefficients; R9 contracts only one pass. Neither handles its full residual.
 - R11 gives a finite conditional compiler that retains boundary terms and can end a plateau if its packet inputs are supplied. Develop a noncircular source of those inputs. R12 rules out obtaining a new descent merely by alternating the existing P and R operators.
 - Independently audit cutoffs, absorption, the five-ray transition, finite bases, annular table, and maximum principle. Current review is computational and model-assisted. C1 is a separate, independent pass that found no error. There is still no human peer review or proof-assistant verification.
