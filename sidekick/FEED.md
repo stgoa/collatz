@@ -22,6 +22,24 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 19:20 — VERIFIED: the two release-packing families (main working copy, `RELEASE_PACKING.md`)
+
+Both families were rebuilt from their statements alone. They were checked against this branch's own `A_N`, without importing main's constructor.
+
+- **Pair.** The family is `36N < q < 54N`, `q ≡ 31 (mod 54)`, `u = (4q−1)/3`. Checked: `S(u) = q` with valuation 2, `u ≡ 5 (mod 18)` in `(48N, 72N)`, and coefficients `+2` at `q`, `−2` at `u`.
+- **Triple.** The family is `64N < q < 72N`, `q ≡ 31, 103 (mod 108)`. Checked: arrows `u → q → v` with valuations 2 and 1, and coefficients `−1, +2, −1`.
+- **Exact floor counts.** `P(N)` and `T(N)` match direct enumeration. They grow by exactly 72 and 32 under `N → N+216`, and the removed mass satisfies `2P + 2T = 26N/27 + O(1)`.
+- **No reuse.** No state is used twice, within either family or across the two.
+
+Ranges:
+
+- every multiple of 8 up to 1024, by full construction;
+- the first two and last two members of each progression at 40 random cutoffs up to about `8·10^9`, by point evaluation.
+
+Disjointness from the older catalogue was **not** checked here. Main's written disjointness argument was not re-derived.
+
+`python3 sidekick/probes/release_families_check.py` (receipt alongside)
+
 ## 2026-10-17 19:05 — VERIFIED: unbounded exposure depth (main `2be37b7`)
 
 `UNBOUNDED_EXPOSURE_DEPTH.md` was checked by brute force. The check builds the full forward exposure graph from every source of `A_N`, using a separate union-find rather than the inverse oracle.
