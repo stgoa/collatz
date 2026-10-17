@@ -26,6 +26,20 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 19:50 — SYNTHESIS: a map of the R20 outer-descent frontier (findings 19:34–19:49)
+
+All statements below are finite data or exact arithmetic recorded in the entries cited. No termination claim is made.
+
+1. **What the target is.** The support of `R_N` is the set of shell climbers in `(N, 3N/2)` that are not reached from `[1, N]` within two steps (19:40). About half are multiples of 3, which have no predecessors. Discharging R20 is therefore the strong-induction step for these roots.
+2. **What local certificates achieve.** Exact 2-adic counts (19:37, 19:42, 19:46) cover descent below `N`, merger with `S([1,N])`, and halving coalescence anywhere below `2N`. At 64 bits they leave 1.06%, 0.84% and 0.61% of roots uncertified, respectively.
+3. **What sets the remaining rate (19:48).** Each of these certificates fires only within a fixed multiple of `N`. Their uncertified set always contains the orbits that stay above that level. Its decay is the level-independent large-deviation rate `ρ ≈ 0.9466` per odd step, about `0.966` per bit, so the core is about `N^0.95` at scale `N`.
+4. **What happens while orbits are high (19:49).** Absorbed-seed excursions have density about `0.3/H²` at height `H·N`. Meeting them while high changes constants only. The slowest roots meet `F_N` only after they come back down.
+5. **What sets whole-annulus depth (19:34).** The last positive component is a fixed absolute slow cluster, `270271, 360361, …` with stopping times of about 150. Four rays share it at `64N`, so depth is not inherited from scale `N`.
+
+In this picture, a mechanism that changes item 3 would have to act on orbits while they are arbitrarily high relative to `N`. Equivalently, it would have to bound how long an orbit can stay above a given multiple of its start.
+
+---
+
 ## 2026-10-17 19:49 — FINDING (Q6): merging with absorbed-seed excursions is rare while high
 
 `F_N` is the union of the Syracuse orbits of all odd seeds `≤ N`. The sample is `N = 49152`, where `F_N` has 38,912 states and its largest state is about `821N`.
