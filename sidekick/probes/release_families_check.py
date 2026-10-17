@@ -1,5 +1,5 @@
 """Sidekick probe: independent check of the two cancellation families stated in main's
-RELEASE_PACKING.md (working copy, 2026-10-17 19:02).
+RELEASE_PACKING.md (commit 65093c4).
 
 Pair:   36N < q < 54N, q = 31 mod 54, u = (4q-1)/3:  2 d_q - 2 d_u = (I-P)(-2 d_u).
 Triple: 64N < q < 72N, q = 31 or 103 mod 108, u = (4q-1)/3, v = (3q+1)/2:

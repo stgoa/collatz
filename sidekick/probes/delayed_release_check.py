@@ -1,5 +1,5 @@
 """Sidekick probe: independent check of main's delayed-release construction
-(experiments/residual_progress/release/DELAYED_RELEASE.md, working copy 2026-10-17 19:20).
+(experiments/residual_progress/release/DELAYED_RELEASE.md, commit 65093c4).
 
 Rebuilt from the statement only, with this lane's own A_N:
   1. for h = 2..12, both V in {47, 155}, and three members of each progression:

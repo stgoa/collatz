@@ -22,7 +22,7 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-17 19:40 — VERIFIED: delayed-release cancellation and the sharpened isolation lemma (main working copy, `DELAYED_RELEASE.md`)
+## 2026-10-17 19:40 — VERIFIED: delayed-release cancellation and the sharpened isolation lemma (main `65093c4`, `DELAYED_RELEASE.md`)
 
 Everything was rebuilt from the statement with this branch's own `A_N`.
 
@@ -47,7 +47,7 @@ Everything was rebuilt from the statement with this branch's own `A_N`.
 
 ---
 
-## 2026-10-17 19:20 — VERIFIED: the two release-packing families (main working copy, `RELEASE_PACKING.md`)
+## 2026-10-17 19:20 — VERIFIED: the two release-packing families (main `65093c4`, `RELEASE_PACKING.md`)
 
 Both families were rebuilt from their statements alone. They were checked against this branch's own `A_N`, without importing main's constructor.
 
