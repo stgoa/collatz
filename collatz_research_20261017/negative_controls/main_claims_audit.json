@@ -1,0 +1,58 @@
+{
+  "annular": {
+    "N": [
+      8,
+      4096
+    ],
+    "cases": 68,
+    "largest_expanded_cutoff": 262144,
+    "status": "PASS"
+  },
+  "controls_on_five_ray_grid": {
+    "-1": {
+      "failing": 24,
+      "failing_cutoffs": [
+        96,
+        448,
+        512,
+        576,
+        672,
+        768,
+        896,
+        1024,
+        1152,
+        1344,
+        1536,
+        1792
+      ],
+      "grid_points": 39
+    },
+    "61": {
+      "failing": 23,
+      "failing_cutoffs": [
+        224,
+        448,
+        512,
+        576,
+        672,
+        768,
+        896,
+        1024,
+        1152,
+        1344,
+        1536,
+        1792
+      ],
+      "grid_points": 39
+    }
+  },
+  "five_rays": {
+    "exponents_b": [
+      3,
+      400
+    ],
+    "status": "PASS"
+  },
+  "scope": "Independent finite checks of main's R5 arithmetic and R6 identities; neither result supplies universal currents.",
+  "status": "PASS"
+}

@@ -1,0 +1,1851 @@
+{
+  "certificate_monotonicity_spot_checks": {
+    "N": [
+      32,
+      100,
+      513
+    ],
+    "trials": 60
+  },
+  "dyadic_table": {
+    "b": [
+      3,
+      1500
+    ]
+  },
+  "least_exception": {
+    "note": "r = 2 mod 3 is never a least counterexample, so this route yields -1",
+    "odd_r": [
+      3,
+      1000000
+    ]
+  },
+  "lemma2": {
+    "constant": "505/512",
+    "max_ratio_16_to_2e4": "0.9675111024",
+    "ratio_bounds_N_ge_16": "algebraic, rechecked to 2*10^4"
+  },
+  "partition_nonvacuous": {
+    "cutoffs": [
+      8,
+      4000
+    ],
+    "orbit_targets": [
+      27,
+      31,
+      41,
+      47,
+      91,
+      103
+    ]
+  },
+  "scope": "Independent finite audit of R2-R4 at d=1; universal current existence is not tested.",
+  "status": "PASS",
+  "stored_currents_equal_forward_aggregate": {
+    "4096": 2736,
+    "262144": 132998
+  },
+  "sup_work_lower_bounds": [
+    {
+      "N": 8,
+      "extinction": 4,
+      "forward_current_J_plus": 2,
+      "max_atom_tau": 4,
+      "sup_work": 2
+    },
+    {
+      "N": 9,
+      "extinction": 4,
+      "forward_current_J_plus": 2,
+      "max_atom_tau": 4,
+      "sup_work": 2
+    },
+    {
+      "N": 10,
+      "extinction": 4,
+      "forward_current_J_plus": 2,
+      "max_atom_tau": 4,
+      "sup_work": 0
+    },
+    {
+      "N": 11,
+      "extinction": 4,
+      "forward_current_J_plus": 2,
+      "max_atom_tau": 4,
+      "sup_work": 0
+    },
+    {
+      "N": 12,
+      "extinction": 4,
+      "forward_current_J_plus": 2,
+      "max_atom_tau": 4,
+      "sup_work": 0
+    },
+    {
+      "N": 13,
+      "extinction": 5,
+      "forward_current_J_plus": 2,
+      "max_atom_tau": 5,
+      "sup_work": 0
+    },
+    {
+      "N": 14,
+      "extinction": 5,
+      "forward_current_J_plus": 2,
+      "max_atom_tau": 5,
+      "sup_work": 0
+    },
+    {
+      "N": 15,
+      "extinction": 5,
+      "forward_current_J_plus": 4,
+      "max_atom_tau": 5,
+      "sup_work": 4
+    },
+    {
+      "N": 16,
+      "extinction": 5,
+      "forward_current_J_plus": 4,
+      "max_atom_tau": 5,
+      "sup_work": 4
+    },
+    {
+      "N": 17,
+      "extinction": 6,
+      "forward_current_J_plus": 3,
+      "max_atom_tau": 6,
+      "sup_work": 2
+    },
+    {
+      "N": 18,
+      "extinction": 40,
+      "forward_current_J_plus": 1,
+      "max_atom_tau": 40,
+      "sup_work": 1
+    },
+    {
+      "N": 19,
+      "extinction": 40,
+      "forward_current_J_plus": 1,
+      "max_atom_tau": 40,
+      "sup_work": 1
+    },
+    {
+      "N": 20,
+      "extinction": 40,
+      "forward_current_J_plus": 1,
+      "max_atom_tau": 40,
+      "sup_work": 0
+    },
+    {
+      "N": 21,
+      "extinction": 40,
+      "forward_current_J_plus": 2,
+      "max_atom_tau": 40,
+      "sup_work": 0
+    },
+    {
+      "N": 22,
+      "extinction": 40,
+      "forward_current_J_plus": 2,
+      "max_atom_tau": 40,
+      "sup_work": 0
+    },
+    {
+      "N": 23,
+      "extinction": 40,
+      "forward_current_J_plus": 1,
+      "max_atom_tau": 40,
+      "sup_work": 1
+    },
+    {
+      "N": 24,
+      "extinction": 40,
+      "forward_current_J_plus": 1,
+      "max_atom_tau": 40,
+      "sup_work": 1
+    },
+    {
+      "N": 25,
+      "extinction": 40,
+      "forward_current_J_plus": 1,
+      "max_atom_tau": 40,
+      "sup_work": 1
+    },
+    {
+      "N": 26,
+      "extinction": 40,
+      "forward_current_J_plus": 0,
+      "max_atom_tau": 40,
+      "sup_work": 0
+    },
+    {
+      "N": 27,
+      "extinction": 40,
+      "forward_current_J_plus": 3,
+      "max_atom_tau": 40,
+      "sup_work": 0
+    },
+    {
+      "N": 28,
+      "extinction": 40,
+      "forward_current_J_plus": 3,
+      "max_atom_tau": 40,
+      "sup_work": 0
+    },
+    {
+      "N": 29,
+      "extinction": 40,
+      "forward_current_J_plus": 3,
+      "max_atom_tau": 40,
+      "sup_work": 0
+    },
+    {
+      "N": 30,
+      "extinction": 40,
+      "forward_current_J_plus": 3,
+      "max_atom_tau": 40,
+      "sup_work": 1
+    },
+    {
+      "N": 31,
+      "extinction": 40,
+      "forward_current_J_plus": 71,
+      "max_atom_tau": 40,
+      "sup_work": 57
+    },
+    {
+      "N": 32,
+      "extinction": 40,
+      "forward_current_J_plus": 71,
+      "max_atom_tau": 40,
+      "sup_work": 57
+    },
+    {
+      "N": 33,
+      "extinction": 40,
+      "forward_current_J_plus": 71,
+      "max_atom_tau": 40,
+      "sup_work": 55
+    },
+    {
+      "N": 34,
+      "extinction": 40,
+      "forward_current_J_plus": 71,
+      "max_atom_tau": 40,
+      "sup_work": 50
+    },
+    {
+      "N": 35,
+      "extinction": 40,
+      "forward_current_J_plus": 71,
+      "max_atom_tau": 40,
+      "sup_work": 50
+    },
+    {
+      "N": 36,
+      "extinction": 40,
+      "forward_current_J_plus": 35,
+      "max_atom_tau": 40,
+      "sup_work": 13
+    },
+    {
+      "N": 37,
+      "extinction": 40,
+      "forward_current_J_plus": 1,
+      "max_atom_tau": 40,
+      "sup_work": 1
+    },
+    {
+      "N": 38,
+      "extinction": 40,
+      "forward_current_J_plus": 1,
+      "max_atom_tau": 40,
+      "sup_work": 1
+    },
+    {
+      "N": 39,
+      "extinction": 40,
+      "forward_current_J_plus": 7,
+      "max_atom_tau": 40,
+      "sup_work": 2
+    },
+    {
+      "N": 40,
+      "extinction": 40,
+      "forward_current_J_plus": 7,
+      "max_atom_tau": 40,
+      "sup_work": 2
+    },
+    {
+      "N": 41,
+      "extinction": 40,
+      "forward_current_J_plus": 73,
+      "max_atom_tau": 40,
+      "sup_work": 52
+    },
+    {
+      "N": 42,
+      "extinction": 40,
+      "forward_current_J_plus": 43,
+      "max_atom_tau": 40,
+      "sup_work": 16
+    },
+    {
+      "N": 43,
+      "extinction": 40,
+      "forward_current_J_plus": 43,
+      "max_atom_tau": 40,
+      "sup_work": 26
+    },
+    {
+      "N": 44,
+      "extinction": 40,
+      "forward_current_J_plus": 41,
+      "max_atom_tau": 40,
+      "sup_work": 24
+    },
+    {
+      "N": 45,
+      "extinction": 40,
+      "forward_current_J_plus": 40,
+      "max_atom_tau": 40,
+      "sup_work": 21
+    },
+    {
+      "N": 46,
+      "extinction": 40,
+      "forward_current_J_plus": 40,
+      "max_atom_tau": 40,
+      "sup_work": 21
+    },
+    {
+      "N": 47,
+      "extinction": 40,
+      "forward_current_J_plus": 108,
+      "max_atom_tau": 40,
+      "sup_work": 93
+    },
+    {
+      "N": 48,
+      "extinction": 40,
+      "forward_current_J_plus": 108,
+      "max_atom_tau": 40,
+      "sup_work": 93
+    },
+    {
+      "N": 49,
+      "extinction": 41,
+      "forward_current_J_plus": 72,
+      "max_atom_tau": 41,
+      "sup_work": 55
+    },
+    {
+      "N": 50,
+      "extinction": 41,
+      "forward_current_J_plus": 73,
+      "max_atom_tau": 41,
+      "sup_work": 54
+    },
+    {
+      "N": 51,
+      "extinction": 41,
+      "forward_current_J_plus": 74,
+      "max_atom_tau": 41,
+      "sup_work": 56
+    },
+    {
+      "N": 52,
+      "extinction": 41,
+      "forward_current_J_plus": 70,
+      "max_atom_tau": 41,
+      "sup_work": 47
+    },
+    {
+      "N": 53,
+      "extinction": 41,
+      "forward_current_J_plus": 70,
+      "max_atom_tau": 41,
+      "sup_work": 41
+    },
+    {
+      "N": 54,
+      "extinction": 41,
+      "forward_current_J_plus": 69,
+      "max_atom_tau": 41,
+      "sup_work": 41
+    },
+    {
+      "N": 55,
+      "extinction": 41,
+      "forward_current_J_plus": 103,
+      "max_atom_tau": 41,
+      "sup_work": 75
+    },
+    {
+      "N": 56,
+      "extinction": 41,
+      "forward_current_J_plus": 103,
+      "max_atom_tau": 41,
+      "sup_work": 75
+    },
+    {
+      "N": 57,
+      "extinction": 41,
+      "forward_current_J_plus": 107,
+      "max_atom_tau": 41,
+      "sup_work": 83
+    },
+    {
+      "N": 58,
+      "extinction": 41,
+      "forward_current_J_plus": 104,
+      "max_atom_tau": 41,
+      "sup_work": 76
+    },
+    {
+      "N": 59,
+      "extinction": 41,
+      "forward_current_J_plus": 107,
+      "max_atom_tau": 41,
+      "sup_work": 88
+    },
+    {
+      "N": 60,
+      "extinction": 41,
+      "forward_current_J_plus": 107,
+      "max_atom_tau": 41,
+      "sup_work": 83
+    },
+    {
+      "N": 61,
+      "extinction": 41,
+      "forward_current_J_plus": 78,
+      "max_atom_tau": 41,
+      "sup_work": 55
+    },
+    {
+      "N": 62,
+      "extinction": 41,
+      "forward_current_J_plus": 82,
+      "max_atom_tau": 41,
+      "sup_work": 59
+    },
+    {
+      "N": 63,
+      "extinction": 41,
+      "forward_current_J_plus": 114,
+      "max_atom_tau": 41,
+      "sup_work": 98
+    },
+    {
+      "N": 64,
+      "extinction": 41,
+      "forward_current_J_plus": 114,
+      "max_atom_tau": 41,
+      "sup_work": 98
+    },
+    {
+      "N": 65,
+      "extinction": 42,
+      "forward_current_J_plus": 84,
+      "max_atom_tau": 42,
+      "sup_work": 65
+    },
+    {
+      "N": 66,
+      "extinction": 42,
+      "forward_current_J_plus": 81,
+      "max_atom_tau": 42,
+      "sup_work": 60
+    },
+    {
+      "N": 67,
+      "extinction": 42,
+      "forward_current_J_plus": 86,
+      "max_atom_tau": 42,
+      "sup_work": 65
+    },
+    {
+      "N": 68,
+      "extinction": 42,
+      "forward_current_J_plus": 82,
+      "max_atom_tau": 42,
+      "sup_work": 60
+    },
+    {
+      "N": 69,
+      "extinction": 42,
+      "forward_current_J_plus": 59,
+      "max_atom_tau": 42,
+      "sup_work": 34
+    },
+    {
+      "N": 70,
+      "extinction": 42,
+      "forward_current_J_plus": 57,
+      "max_atom_tau": 42,
+      "sup_work": 28
+    },
+    {
+      "N": 71,
+      "extinction": 42,
+      "forward_current_J_plus": 116,
+      "max_atom_tau": 42,
+      "sup_work": 93
+    },
+    {
+      "N": 72,
+      "extinction": 42,
+      "forward_current_J_plus": 116,
+      "max_atom_tau": 42,
+      "sup_work": 93
+    },
+    {
+      "N": 73,
+      "extinction": 42,
+      "forward_current_J_plus": 147,
+      "max_atom_tau": 42,
+      "sup_work": 123
+    },
+    {
+      "N": 74,
+      "extinction": 42,
+      "forward_current_J_plus": 127,
+      "max_atom_tau": 42,
+      "sup_work": 101
+    },
+    {
+      "N": 75,
+      "extinction": 42,
+      "forward_current_J_plus": 127,
+      "max_atom_tau": 42,
+      "sup_work": 99
+    },
+    {
+      "N": 76,
+      "extinction": 42,
+      "forward_current_J_plus": 125,
+      "max_atom_tau": 42,
+      "sup_work": 95
+    },
+    {
+      "N": 77,
+      "extinction": 42,
+      "forward_current_J_plus": 123,
+      "max_atom_tau": 42,
+      "sup_work": 90
+    },
+    {
+      "N": 78,
+      "extinction": 42,
+      "forward_current_J_plus": 123,
+      "max_atom_tau": 42,
+      "sup_work": 90
+    },
+    {
+      "N": 79,
+      "extinction": 42,
+      "forward_current_J_plus": 127,
+      "max_atom_tau": 42,
+      "sup_work": 101
+    },
+    {
+      "N": 80,
+      "extinction": 42,
+      "forward_current_J_plus": 127,
+      "max_atom_tau": 42,
+      "sup_work": 101
+    },
+    {
+      "N": 81,
+      "extinction": 42,
+      "forward_current_J_plus": 97,
+      "max_atom_tau": 42,
+      "sup_work": 73
+    },
+    {
+      "N": 82,
+      "extinction": 42,
+      "forward_current_J_plus": 93,
+      "max_atom_tau": 42,
+      "sup_work": 60
+    },
+    {
+      "N": 83,
+      "extinction": 42,
+      "forward_current_J_plus": 167,
+      "max_atom_tau": 42,
+      "sup_work": 127
+    },
+    {
+      "N": 84,
+      "extinction": 42,
+      "forward_current_J_plus": 131,
+      "max_atom_tau": 42,
+      "sup_work": 90
+    },
+    {
+      "N": 85,
+      "extinction": 42,
+      "forward_current_J_plus": 130,
+      "max_atom_tau": 42,
+      "sup_work": 80
+    },
+    {
+      "N": 86,
+      "extinction": 43,
+      "forward_current_J_plus": 92,
+      "max_atom_tau": 43,
+      "sup_work": 48
+    },
+    {
+      "N": 87,
+      "extinction": 43,
+      "forward_current_J_plus": 94,
+      "max_atom_tau": 43,
+      "sup_work": 52
+    },
+    {
+      "N": 88,
+      "extinction": 43,
+      "forward_current_J_plus": 94,
+      "max_atom_tau": 43,
+      "sup_work": 52
+    },
+    {
+      "N": 89,
+      "extinction": 43,
+      "forward_current_J_plus": 97,
+      "max_atom_tau": 43,
+      "sup_work": 56
+    },
+    {
+      "N": 90,
+      "extinction": 43,
+      "forward_current_J_plus": 96,
+      "max_atom_tau": 43,
+      "sup_work": 45
+    },
+    {
+      "N": 91,
+      "extinction": 43,
+      "forward_current_J_plus": 156,
+      "max_atom_tau": 43,
+      "sup_work": 103
+    },
+    {
+      "N": 92,
+      "extinction": 43,
+      "forward_current_J_plus": 156,
+      "max_atom_tau": 43,
+      "sup_work": 103
+    },
+    {
+      "N": 93,
+      "extinction": 43,
+      "forward_current_J_plus": 153,
+      "max_atom_tau": 43,
+      "sup_work": 95
+    },
+    {
+      "N": 94,
+      "extinction": 43,
+      "forward_current_J_plus": 152,
+      "max_atom_tau": 43,
+      "sup_work": 100
+    },
+    {
+      "N": 95,
+      "extinction": 43,
+      "forward_current_J_plus": 188,
+      "max_atom_tau": 43,
+      "sup_work": 138
+    },
+    {
+      "N": 96,
+      "extinction": 43,
+      "forward_current_J_plus": 188,
+      "max_atom_tau": 43,
+      "sup_work": 138
+    },
+    {
+      "N": 97,
+      "extinction": 43,
+      "forward_current_J_plus": 226,
+      "max_atom_tau": 43,
+      "sup_work": 167
+    },
+    {
+      "N": 98,
+      "extinction": 43,
+      "forward_current_J_plus": 188,
+      "max_atom_tau": 43,
+      "sup_work": 131
+    },
+    {
+      "N": 99,
+      "extinction": 43,
+      "forward_current_J_plus": 188,
+      "max_atom_tau": 43,
+      "sup_work": 131
+    },
+    {
+      "N": 100,
+      "extinction": 43,
+      "forward_current_J_plus": 187,
+      "max_atom_tau": 43,
+      "sup_work": 130
+    },
+    {
+      "N": 101,
+      "extinction": 43,
+      "forward_current_J_plus": 188,
+      "max_atom_tau": 43,
+      "sup_work": 132
+    },
+    {
+      "N": 102,
+      "extinction": 43,
+      "forward_current_J_plus": 188,
+      "max_atom_tau": 43,
+      "sup_work": 127
+    },
+    {
+      "N": 103,
+      "extinction": 43,
+      "forward_current_J_plus": 244,
+      "max_atom_tau": 43,
+      "sup_work": 179
+    },
+    {
+      "N": 104,
+      "extinction": 43,
+      "forward_current_J_plus": 244,
+      "max_atom_tau": 43,
+      "sup_work": 179
+    },
+    {
+      "N": 105,
+      "extinction": 43,
+      "forward_current_J_plus": 250,
+      "max_atom_tau": 43,
+      "sup_work": 182
+    },
+    {
+      "N": 106,
+      "extinction": 43,
+      "forward_current_J_plus": 239,
+      "max_atom_tau": 43,
+      "sup_work": 166
+    },
+    {
+      "N": 107,
+      "extinction": 43,
+      "forward_current_J_plus": 305,
+      "max_atom_tau": 43,
+      "sup_work": 230
+    },
+    {
+      "N": 108,
+      "extinction": 43,
+      "forward_current_J_plus": 301,
+      "max_atom_tau": 43,
+      "sup_work": 230
+    },
+    {
+      "N": 109,
+      "extinction": 43,
+      "forward_current_J_plus": 298,
+      "max_atom_tau": 43,
+      "sup_work": 229
+    },
+    {
+      "N": 110,
+      "extinction": 43,
+      "forward_current_J_plus": 261,
+      "max_atom_tau": 43,
+      "sup_work": 194
+    },
+    {
+      "N": 111,
+      "extinction": 43,
+      "forward_current_J_plus": 267,
+      "max_atom_tau": 43,
+      "sup_work": 203
+    },
+    {
+      "N": 112,
+      "extinction": 43,
+      "forward_current_J_plus": 267,
+      "max_atom_tau": 43,
+      "sup_work": 203
+    },
+    {
+      "N": 113,
+      "extinction": 43,
+      "forward_current_J_plus": 266,
+      "max_atom_tau": 43,
+      "sup_work": 187
+    },
+    {
+      "N": 114,
+      "extinction": 44,
+      "forward_current_J_plus": 231,
+      "max_atom_tau": 44,
+      "sup_work": 152
+    },
+    {
+      "N": 115,
+      "extinction": 44,
+      "forward_current_J_plus": 232,
+      "max_atom_tau": 44,
+      "sup_work": 160
+    },
+    {
+      "N": 116,
+      "extinction": 44,
+      "forward_current_J_plus": 230,
+      "max_atom_tau": 44,
+      "sup_work": 153
+    },
+    {
+      "N": 117,
+      "extinction": 44,
+      "forward_current_J_plus": 204,
+      "max_atom_tau": 44,
+      "sup_work": 130
+    },
+    {
+      "N": 118,
+      "extinction": 44,
+      "forward_current_J_plus": 203,
+      "max_atom_tau": 44,
+      "sup_work": 127
+    },
+    {
+      "N": 119,
+      "extinction": 44,
+      "forward_current_J_plus": 207,
+      "max_atom_tau": 44,
+      "sup_work": 132
+    },
+    {
+      "N": 120,
+      "extinction": 44,
+      "forward_current_J_plus": 207,
+      "max_atom_tau": 44,
+      "sup_work": 132
+    },
+    {
+      "N": 121,
+      "extinction": 44,
+      "forward_current_J_plus": 269,
+      "max_atom_tau": 44,
+      "sup_work": 183
+    },
+    {
+      "N": 122,
+      "extinction": 44,
+      "forward_current_J_plus": 240,
+      "max_atom_tau": 44,
+      "sup_work": 152
+    },
+    {
+      "N": 123,
+      "extinction": 44,
+      "forward_current_J_plus": 246,
+      "max_atom_tau": 44,
+      "sup_work": 174
+    },
+    {
+      "N": 124,
+      "extinction": 44,
+      "forward_current_J_plus": 244,
+      "max_atom_tau": 44,
+      "sup_work": 169
+    },
+    {
+      "N": 125,
+      "extinction": 44,
+      "forward_current_J_plus": 239,
+      "max_atom_tau": 44,
+      "sup_work": 160
+    },
+    {
+      "N": 126,
+      "extinction": 44,
+      "forward_current_J_plus": 205,
+      "max_atom_tau": 44,
+      "sup_work": 131
+    },
+    {
+      "N": 127,
+      "extinction": 44,
+      "forward_current_J_plus": 174,
+      "max_atom_tau": 44,
+      "sup_work": 123
+    },
+    {
+      "N": 128,
+      "extinction": 44,
+      "forward_current_J_plus": 174,
+      "max_atom_tau": 44,
+      "sup_work": 123
+    },
+    {
+      "N": 129,
+      "extinction": 44,
+      "forward_current_J_plus": 210,
+      "max_atom_tau": 44,
+      "sup_work": 151
+    },
+    {
+      "N": 130,
+      "extinction": 44,
+      "forward_current_J_plus": 173,
+      "max_atom_tau": 44,
+      "sup_work": 116
+    },
+    {
+      "N": 131,
+      "extinction": 44,
+      "forward_current_J_plus": 176,
+      "max_atom_tau": 44,
+      "sup_work": 121
+    },
+    {
+      "N": 132,
+      "extinction": 44,
+      "forward_current_J_plus": 175,
+      "max_atom_tau": 44,
+      "sup_work": 116
+    },
+    {
+      "N": 133,
+      "extinction": 44,
+      "forward_current_J_plus": 143,
+      "max_atom_tau": 44,
+      "sup_work": 85
+    },
+    {
+      "N": 134,
+      "extinction": 44,
+      "forward_current_J_plus": 145,
+      "max_atom_tau": 44,
+      "sup_work": 87
+    },
+    {
+      "N": 135,
+      "extinction": 44,
+      "forward_current_J_plus": 155,
+      "max_atom_tau": 44,
+      "sup_work": 106
+    },
+    {
+      "N": 136,
+      "extinction": 44,
+      "forward_current_J_plus": 155,
+      "max_atom_tau": 44,
+      "sup_work": 106
+    },
+    {
+      "N": 137,
+      "extinction": 44,
+      "forward_current_J_plus": 204,
+      "max_atom_tau": 44,
+      "sup_work": 153
+    },
+    {
+      "N": 138,
+      "extinction": 44,
+      "forward_current_J_plus": 178,
+      "max_atom_tau": 44,
+      "sup_work": 124
+    },
+    {
+      "N": 139,
+      "extinction": 44,
+      "forward_current_J_plus": 190,
+      "max_atom_tau": 44,
+      "sup_work": 142
+    },
+    {
+      "N": 140,
+      "extinction": 44,
+      "forward_current_J_plus": 186,
+      "max_atom_tau": 44,
+      "sup_work": 136
+    },
+    {
+      "N": 141,
+      "extinction": 44,
+      "forward_current_J_plus": 182,
+      "max_atom_tau": 44,
+      "sup_work": 129
+    },
+    {
+      "N": 142,
+      "extinction": 44,
+      "forward_current_J_plus": 182,
+      "max_atom_tau": 44,
+      "sup_work": 129
+    },
+    {
+      "N": 143,
+      "extinction": 44,
+      "forward_current_J_plus": 218,
+      "max_atom_tau": 44,
+      "sup_work": 166
+    },
+    {
+      "N": 144,
+      "extinction": 44,
+      "forward_current_J_plus": 218,
+      "max_atom_tau": 44,
+      "sup_work": 166
+    },
+    {
+      "N": 145,
+      "extinction": 44,
+      "forward_current_J_plus": 281,
+      "max_atom_tau": 44,
+      "sup_work": 228
+    },
+    {
+      "N": 146,
+      "extinction": 44,
+      "forward_current_J_plus": 275,
+      "max_atom_tau": 44,
+      "sup_work": 213
+    },
+    {
+      "N": 147,
+      "extinction": 44,
+      "forward_current_J_plus": 351,
+      "max_atom_tau": 44,
+      "sup_work": 277
+    },
+    {
+      "N": 148,
+      "extinction": 44,
+      "forward_current_J_plus": 329,
+      "max_atom_tau": 44,
+      "sup_work": 255
+    },
+    {
+      "N": 149,
+      "extinction": 44,
+      "forward_current_J_plus": 312,
+      "max_atom_tau": 44,
+      "sup_work": 236
+    },
+    {
+      "N": 150,
+      "extinction": 44,
+      "forward_current_J_plus": 313,
+      "max_atom_tau": 44,
+      "sup_work": 225
+    },
+    {
+      "N": 151,
+      "extinction": 44,
+      "forward_current_J_plus": 311,
+      "max_atom_tau": 44,
+      "sup_work": 223
+    },
+    {
+      "N": 152,
+      "extinction": 44,
+      "forward_current_J_plus": 311,
+      "max_atom_tau": 44,
+      "sup_work": 223
+    },
+    {
+      "N": 153,
+      "extinction": 44,
+      "forward_current_J_plus": 316,
+      "max_atom_tau": 44,
+      "sup_work": 229
+    },
+    {
+      "N": 154,
+      "extinction": 45,
+      "forward_current_J_plus": 279,
+      "max_atom_tau": 45,
+      "sup_work": 194
+    },
+    {
+      "N": 155,
+      "extinction": 45,
+      "forward_current_J_plus": 333,
+      "max_atom_tau": 45,
+      "sup_work": 246
+    },
+    {
+      "N": 156,
+      "extinction": 45,
+      "forward_current_J_plus": 333,
+      "max_atom_tau": 45,
+      "sup_work": 246
+    },
+    {
+      "N": 157,
+      "extinction": 45,
+      "forward_current_J_plus": 300,
+      "max_atom_tau": 45,
+      "sup_work": 214
+    },
+    {
+      "N": 158,
+      "extinction": 45,
+      "forward_current_J_plus": 300,
+      "max_atom_tau": 45,
+      "sup_work": 212
+    },
+    {
+      "N": 159,
+      "extinction": 45,
+      "forward_current_J_plus": 324,
+      "max_atom_tau": 45,
+      "sup_work": 237
+    },
+    {
+      "N": 160,
+      "extinction": 45,
+      "forward_current_J_plus": 324,
+      "max_atom_tau": 45,
+      "sup_work": 237
+    },
+    {
+      "N": 161,
+      "extinction": 45,
+      "forward_current_J_plus": 384,
+      "max_atom_tau": 45,
+      "sup_work": 291
+    },
+    {
+      "N": 162,
+      "extinction": 45,
+      "forward_current_J_plus": 353,
+      "max_atom_tau": 45,
+      "sup_work": 259
+    },
+    {
+      "N": 163,
+      "extinction": 45,
+      "forward_current_J_plus": 359,
+      "max_atom_tau": 45,
+      "sup_work": 265
+    },
+    {
+      "N": 164,
+      "extinction": 45,
+      "forward_current_J_plus": 357,
+      "max_atom_tau": 45,
+      "sup_work": 252
+    },
+    {
+      "N": 165,
+      "extinction": 45,
+      "forward_current_J_plus": 357,
+      "max_atom_tau": 45,
+      "sup_work": 242
+    },
+    {
+      "N": 166,
+      "extinction": 45,
+      "forward_current_J_plus": 358,
+      "max_atom_tau": 45,
+      "sup_work": 233
+    },
+    {
+      "N": 167,
+      "extinction": 45,
+      "forward_current_J_plus": 361,
+      "max_atom_tau": 45,
+      "sup_work": 238
+    },
+    {
+      "N": 168,
+      "extinction": 45,
+      "forward_current_J_plus": 361,
+      "max_atom_tau": 45,
+      "sup_work": 238
+    },
+    {
+      "N": 169,
+      "extinction": 45,
+      "forward_current_J_plus": 334,
+      "max_atom_tau": 45,
+      "sup_work": 224
+    },
+    {
+      "N": 170,
+      "extinction": 45,
+      "forward_current_J_plus": 333,
+      "max_atom_tau": 45,
+      "sup_work": 211
+    },
+    {
+      "N": 171,
+      "extinction": 45,
+      "forward_current_J_plus": 408,
+      "max_atom_tau": 45,
+      "sup_work": 278
+    },
+    {
+      "N": 172,
+      "extinction": 45,
+      "forward_current_J_plus": 370,
+      "max_atom_tau": 45,
+      "sup_work": 247
+    },
+    {
+      "N": 173,
+      "extinction": 45,
+      "forward_current_J_plus": 331,
+      "max_atom_tau": 45,
+      "sup_work": 216
+    },
+    {
+      "N": 174,
+      "extinction": 45,
+      "forward_current_J_plus": 328,
+      "max_atom_tau": 45,
+      "sup_work": 211
+    },
+    {
+      "N": 175,
+      "extinction": 45,
+      "forward_current_J_plus": 376,
+      "max_atom_tau": 45,
+      "sup_work": 258
+    },
+    {
+      "N": 176,
+      "extinction": 45,
+      "forward_current_J_plus": 376,
+      "max_atom_tau": 45,
+      "sup_work": 258
+    },
+    {
+      "N": 177,
+      "extinction": 45,
+      "forward_current_J_plus": 341,
+      "max_atom_tau": 45,
+      "sup_work": 226
+    },
+    {
+      "N": 178,
+      "extinction": 45,
+      "forward_current_J_plus": 342,
+      "max_atom_tau": 45,
+      "sup_work": 223
+    },
+    {
+      "N": 179,
+      "extinction": 45,
+      "forward_current_J_plus": 342,
+      "max_atom_tau": 45,
+      "sup_work": 229
+    },
+    {
+      "N": 180,
+      "extinction": 45,
+      "forward_current_J_plus": 337,
+      "max_atom_tau": 45,
+      "sup_work": 218
+    },
+    {
+      "N": 181,
+      "extinction": 45,
+      "forward_current_J_plus": 336,
+      "max_atom_tau": 45,
+      "sup_work": 210
+    },
+    {
+      "N": 182,
+      "extinction": 45,
+      "forward_current_J_plus": 336,
+      "max_atom_tau": 45,
+      "sup_work": 208
+    },
+    {
+      "N": 183,
+      "extinction": 45,
+      "forward_current_J_plus": 365,
+      "max_atom_tau": 45,
+      "sup_work": 236
+    },
+    {
+      "N": 184,
+      "extinction": 45,
+      "forward_current_J_plus": 365,
+      "max_atom_tau": 45,
+      "sup_work": 236
+    },
+    {
+      "N": 185,
+      "extinction": 45,
+      "forward_current_J_plus": 368,
+      "max_atom_tau": 45,
+      "sup_work": 252
+    },
+    {
+      "N": 186,
+      "extinction": 45,
+      "forward_current_J_plus": 366,
+      "max_atom_tau": 45,
+      "sup_work": 241
+    },
+    {
+      "N": 187,
+      "extinction": 45,
+      "forward_current_J_plus": 371,
+      "max_atom_tau": 45,
+      "sup_work": 261
+    },
+    {
+      "N": 188,
+      "extinction": 45,
+      "forward_current_J_plus": 370,
+      "max_atom_tau": 45,
+      "sup_work": 257
+    },
+    {
+      "N": 189,
+      "extinction": 45,
+      "forward_current_J_plus": 352,
+      "max_atom_tau": 45,
+      "sup_work": 242
+    },
+    {
+      "N": 190,
+      "extinction": 45,
+      "forward_current_J_plus": 317,
+      "max_atom_tau": 45,
+      "sup_work": 214
+    },
+    {
+      "N": 191,
+      "extinction": 45,
+      "forward_current_J_plus": 300,
+      "max_atom_tau": 45,
+      "sup_work": 206
+    },
+    {
+      "N": 192,
+      "extinction": 45,
+      "forward_current_J_plus": 300,
+      "max_atom_tau": 45,
+      "sup_work": 206
+    },
+    {
+      "N": 193,
+      "extinction": 45,
+      "forward_current_J_plus": 370,
+      "max_atom_tau": 45,
+      "sup_work": 260
+    },
+    {
+      "N": 194,
+      "extinction": 45,
+      "forward_current_J_plus": 333,
+      "max_atom_tau": 45,
+      "sup_work": 226
+    },
+    {
+      "N": 195,
+      "extinction": 45,
+      "forward_current_J_plus": 411,
+      "max_atom_tau": 45,
+      "sup_work": 289
+    },
+    {
+      "N": 196,
+      "extinction": 45,
+      "forward_current_J_plus": 372,
+      "max_atom_tau": 45,
+      "sup_work": 255
+    },
+    {
+      "N": 197,
+      "extinction": 45,
+      "forward_current_J_plus": 368,
+      "max_atom_tau": 45,
+      "sup_work": 242
+    },
+    {
+      "N": 198,
+      "extinction": 45,
+      "forward_current_J_plus": 350,
+      "max_atom_tau": 45,
+      "sup_work": 223
+    },
+    {
+      "N": 199,
+      "extinction": 45,
+      "forward_current_J_plus": 414,
+      "max_atom_tau": 45,
+      "sup_work": 288
+    },
+    {
+      "N": 200,
+      "extinction": 45,
+      "forward_current_J_plus": 414,
+      "max_atom_tau": 45,
+      "sup_work": 288
+    },
+    {
+      "N": 201,
+      "extinction": 45,
+      "forward_current_J_plus": 415,
+      "max_atom_tau": 45,
+      "sup_work": 283
+    },
+    {
+      "N": 202,
+      "extinction": 45,
+      "forward_current_J_plus": 408,
+      "max_atom_tau": 45,
+      "sup_work": 272
+    },
+    {
+      "N": 203,
+      "extinction": 45,
+      "forward_current_J_plus": 414,
+      "max_atom_tau": 45,
+      "sup_work": 288
+    },
+    {
+      "N": 204,
+      "extinction": 45,
+      "forward_current_J_plus": 411,
+      "max_atom_tau": 45,
+      "sup_work": 283
+    },
+    {
+      "N": 205,
+      "extinction": 45,
+      "forward_current_J_plus": 410,
+      "max_atom_tau": 45,
+      "sup_work": 277
+    },
+    {
+      "N": 206,
+      "extinction": 45,
+      "forward_current_J_plus": 409,
+      "max_atom_tau": 45,
+      "sup_work": 276
+    },
+    {
+      "N": 207,
+      "extinction": 45,
+      "forward_current_J_plus": 435,
+      "max_atom_tau": 45,
+      "sup_work": 307
+    },
+    {
+      "N": 208,
+      "extinction": 45,
+      "forward_current_J_plus": 435,
+      "max_atom_tau": 45,
+      "sup_work": 307
+    },
+    {
+      "N": 209,
+      "extinction": 46,
+      "forward_current_J_plus": 410,
+      "max_atom_tau": 46,
+      "sup_work": 289
+    },
+    {
+      "N": 210,
+      "extinction": 46,
+      "forward_current_J_plus": 407,
+      "max_atom_tau": 46,
+      "sup_work": 280
+    },
+    {
+      "N": 211,
+      "extinction": 46,
+      "forward_current_J_plus": 415,
+      "max_atom_tau": 46,
+      "sup_work": 292
+    },
+    {
+      "N": 212,
+      "extinction": 46,
+      "forward_current_J_plus": 400,
+      "max_atom_tau": 46,
+      "sup_work": 276
+    },
+    {
+      "N": 213,
+      "extinction": 46,
+      "forward_current_J_plus": 385,
+      "max_atom_tau": 46,
+      "sup_work": 263
+    },
+    {
+      "N": 214,
+      "extinction": 46,
+      "forward_current_J_plus": 386,
+      "max_atom_tau": 46,
+      "sup_work": 263
+    },
+    {
+      "N": 215,
+      "extinction": 46,
+      "forward_current_J_plus": 417,
+      "max_atom_tau": 46,
+      "sup_work": 294
+    },
+    {
+      "N": 216,
+      "extinction": 46,
+      "forward_current_J_plus": 417,
+      "max_atom_tau": 46,
+      "sup_work": 294
+    },
+    {
+      "N": 217,
+      "extinction": 46,
+      "forward_current_J_plus": 418,
+      "max_atom_tau": 46,
+      "sup_work": 296
+    },
+    {
+      "N": 218,
+      "extinction": 51,
+      "forward_current_J_plus": 380,
+      "max_atom_tau": 51,
+      "sup_work": 262
+    },
+    {
+      "N": 219,
+      "extinction": 51,
+      "forward_current_J_plus": 396,
+      "max_atom_tau": 51,
+      "sup_work": 288
+    },
+    {
+      "N": 220,
+      "extinction": 51,
+      "forward_current_J_plus": 359,
+      "max_atom_tau": 51,
+      "sup_work": 255
+    },
+    {
+      "N": 221,
+      "extinction": 51,
+      "forward_current_J_plus": 358,
+      "max_atom_tau": 51,
+      "sup_work": 254
+    },
+    {
+      "N": 222,
+      "extinction": 51,
+      "forward_current_J_plus": 326,
+      "max_atom_tau": 51,
+      "sup_work": 227
+    },
+    {
+      "N": 223,
+      "extinction": 51,
+      "forward_current_J_plus": 344,
+      "max_atom_tau": 51,
+      "sup_work": 251
+    },
+    {
+      "N": 224,
+      "extinction": 51,
+      "forward_current_J_plus": 344,
+      "max_atom_tau": 51,
+      "sup_work": 251
+    },
+    {
+      "N": 225,
+      "extinction": 51,
+      "forward_current_J_plus": 329,
+      "max_atom_tau": 51,
+      "sup_work": 239
+    },
+    {
+      "N": 226,
+      "extinction": 51,
+      "forward_current_J_plus": 317,
+      "max_atom_tau": 51,
+      "sup_work": 225
+    },
+    {
+      "N": 227,
+      "extinction": 51,
+      "forward_current_J_plus": 317,
+      "max_atom_tau": 51,
+      "sup_work": 225
+    },
+    {
+      "N": 228,
+      "extinction": 51,
+      "forward_current_J_plus": 282,
+      "max_atom_tau": 51,
+      "sup_work": 192
+    },
+    {
+      "N": 229,
+      "extinction": 51,
+      "forward_current_J_plus": 253,
+      "max_atom_tau": 51,
+      "sup_work": 165
+    },
+    {
+      "N": 230,
+      "extinction": 51,
+      "forward_current_J_plus": 226,
+      "max_atom_tau": 51,
+      "sup_work": 139
+    },
+    {
+      "N": 231,
+      "extinction": 51,
+      "forward_current_J_plus": 288,
+      "max_atom_tau": 51,
+      "sup_work": 192
+    },
+    {
+      "N": 232,
+      "extinction": 51,
+      "forward_current_J_plus": 288,
+      "max_atom_tau": 51,
+      "sup_work": 192
+    },
+    {
+      "N": 233,
+      "extinction": 51,
+      "forward_current_J_plus": 333,
+      "max_atom_tau": 51,
+      "sup_work": 231
+    },
+    {
+      "N": 234,
+      "extinction": 51,
+      "forward_current_J_plus": 311,
+      "max_atom_tau": 51,
+      "sup_work": 205
+    },
+    {
+      "N": 235,
+      "extinction": 51,
+      "forward_current_J_plus": 377,
+      "max_atom_tau": 51,
+      "sup_work": 269
+    },
+    {
+      "N": 236,
+      "extinction": 51,
+      "forward_current_J_plus": 375,
+      "max_atom_tau": 51,
+      "sup_work": 266
+    },
+    {
+      "N": 237,
+      "extinction": 51,
+      "forward_current_J_plus": 373,
+      "max_atom_tau": 51,
+      "sup_work": 262
+    },
+    {
+      "N": 238,
+      "extinction": 51,
+      "forward_current_J_plus": 368,
+      "max_atom_tau": 51,
+      "sup_work": 256
+    },
+    {
+      "N": 239,
+      "extinction": 51,
+      "forward_current_J_plus": 392,
+      "max_atom_tau": 51,
+      "sup_work": 280
+    },
+    {
+      "N": 240,
+      "extinction": 51,
+      "forward_current_J_plus": 392,
+      "max_atom_tau": 51,
+      "sup_work": 280
+    },
+    {
+      "N": 241,
+      "extinction": 51,
+      "forward_current_J_plus": 390,
+      "max_atom_tau": 51,
+      "sup_work": 267
+    },
+    {
+      "N": 242,
+      "extinction": 51,
+      "forward_current_J_plus": 390,
+      "max_atom_tau": 51,
+      "sup_work": 255
+    },
+    {
+      "N": 243,
+      "extinction": 51,
+      "forward_current_J_plus": 452,
+      "max_atom_tau": 51,
+      "sup_work": 311
+    },
+    {
+      "N": 244,
+      "extinction": 51,
+      "forward_current_J_plus": 422,
+      "max_atom_tau": 51,
+      "sup_work": 280
+    },
+    {
+      "N": 245,
+      "extinction": 51,
+      "forward_current_J_plus": 422,
+      "max_atom_tau": 51,
+      "sup_work": 271
+    },
+    {
+      "N": 246,
+      "extinction": 51,
+      "forward_current_J_plus": 422,
+      "max_atom_tau": 51,
+      "sup_work": 273
+    },
+    {
+      "N": 247,
+      "extinction": 51,
+      "forward_current_J_plus": 432,
+      "max_atom_tau": 51,
+      "sup_work": 283
+    },
+    {
+      "N": 248,
+      "extinction": 51,
+      "forward_current_J_plus": 432,
+      "max_atom_tau": 51,
+      "sup_work": 283
+    },
+    {
+      "N": 249,
+      "extinction": 51,
+      "forward_current_J_plus": 442,
+      "max_atom_tau": 51,
+      "sup_work": 296
+    },
+    {
+      "N": 250,
+      "extinction": 51,
+      "forward_current_J_plus": 436,
+      "max_atom_tau": 51,
+      "sup_work": 284
+    },
+    {
+      "N": 251,
+      "extinction": 51,
+      "forward_current_J_plus": 474,
+      "max_atom_tau": 51,
+      "sup_work": 320
+    },
+    {
+      "N": 252,
+      "extinction": 51,
+      "forward_current_J_plus": 442,
+      "max_atom_tau": 51,
+      "sup_work": 284
+    },
+    {
+      "N": 253,
+      "extinction": 51,
+      "forward_current_J_plus": 442,
+      "max_atom_tau": 51,
+      "sup_work": 270
+    },
+    {
+      "N": 254,
+      "extinction": 51,
+      "forward_current_J_plus": 409,
+      "max_atom_tau": 51,
+      "sup_work": 243
+    },
+    {
+      "N": 255,
+      "extinction": 51,
+      "forward_current_J_plus": 411,
+      "max_atom_tau": 51,
+      "sup_work": 258
+    },
+    {
+      "N": 256,
+      "extinction": 51,
+      "forward_current_J_plus": 411,
+      "max_atom_tau": 51,
+      "sup_work": 258
+    },
+    {
+      "N": 384,
+      "extinction": 51,
+      "forward_current_J_plus": 643,
+      "max_atom_tau": 51,
+      "sup_work": 338
+    },
+    {
+      "N": 512,
+      "extinction": 61,
+      "forward_current_J_plus": 619,
+      "max_atom_tau": 61,
+      "sup_work": 193
+    },
+    {
+      "N": 768,
+      "extinction": 64,
+      "forward_current_J_plus": 551,
+      "max_atom_tau": 64,
+      "sup_work": 65
+    },
+    {
+      "N": 1024,
+      "extinction": 65,
+      "forward_current_J_plus": 851,
+      "max_atom_tau": 65,
+      "sup_work": 8
+    },
+    {
+      "N": 1536,
+      "extinction": 65,
+      "forward_current_J_plus": 1710,
+      "max_atom_tau": 65,
+      "sup_work": 76
+    },
+    {
+      "N": 2048,
+      "extinction": 78,
+      "forward_current_J_plus": 1909,
+      "max_atom_tau": 78,
+      "sup_work": 12
+    }
+  ],
+  "theorem1_core_remainder": {
+    "every_N": [
+      8,
+      100000
+    ],
+    "sampled": 3132,
+    "sampled_up_to": "1e18"
+  },
+  "theorem1_transfer": {
+    "all_T_to_extinction": true,
+    "cutoffs": [
+      8,
+      160
+    ],
+    "largest_gap": 17
+  }
+}

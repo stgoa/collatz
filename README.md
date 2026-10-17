@@ -31,7 +31,7 @@ Requires Python 3.10+ and its standard library. The independent check additional
 python3 scripts/verify_all.py --cpp
 ```
 
-Without a compiler, omit `--cpp`; the report explicitly records that the independent C++ check was not run. The runner verifies the archive and all 31 manifest entries, reruns the stored Python certificates, and reproduces the right-aligned audit. It uses a temporary directory so the preserved inputs and receipts stay unchanged. With `--cpp`, it also builds and runs the independent verifier at both stored cutoffs.
+Without a compiler, omit `--cpp`; the report explicitly records that the independent C++ check was not run. The runner verifies the archive and all 31 manifest entries, reruns the stored Python certificates, and reproduces the right-aligned, negative-control, and independent-audit receipts. It uses a temporary directory so the preserved inputs and receipts stay unchanged. With `--cpp`, it also builds and runs the independent verifier at both stored cutoffs.
 
 The checks establish finite arithmetic identities. They do not establish universal current existence or replace the written proof. Never use Python optimization flags for these assertion-based verifiers.
 
@@ -43,6 +43,13 @@ The checks establish finite arithmetic identities. They do not establish univers
 - `collatz_research_20261017/right_aligned_reduction.tex`: current written reduction; maintain this existing document in place.
 - `collatz_research_20261017/right_aligned_packets.py`: construction and finite regression checks for the revised family.
 - `collatz_research_20261017/right_aligned_audit.json`: reproducible finite audit receipt.
+- `collatz_research_20261017/negative_controls/`: the independent lane. It contains:
+  - audits of R2–R4 and of later main claims;
+  - negative controls on `3x+d` maps with real cycles;
+  - certificate minimality, and progress-measure controls;
+  - a certificate checker (`affine_controls.py --check`).
+
+  The ledger entries are C1–C4.
 - `docs/RESULTS.md`: claim ledger and next proof obligations.
 - `docs/RESEARCH_LOG.md`: dated record of durable changes and validation.
 - `scripts/verify_all.py`: unified verification entry point.
@@ -50,5 +57,7 @@ The checks establish finite arithmetic identities. They do not establish univers
 ## Next research target
 
 Find an arithmetic construction that produces a finite current, possibly with an everywhere nonpositive residual, for **every integer cutoff** in the right-aligned family. Prove that the construction terminates. Larger collections of successful searches do not discharge this obligation; neither does a small unresolved positive residual over an unbounded time horizon.
+
+Two constraints from the negative-controls note bear on this target. First, the certificate for each cutoff is forced: the exact current is unique and cost-minimal, so a constructor must describe it uniformly rather than search for it. Second, any argument that also applies to the map `3x+61` fails: that map has a 41-cycle, and its criterion breaks at `N=213`.
 
 Update this README and the result ledger whenever the standing changes. Preserve counterexamples and explain which earlier claim a new result supersedes.
