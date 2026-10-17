@@ -1,0 +1,49 @@
+{
+  "actual_roots": [
+    {
+      "N": 6144,
+      "max_descent_steps": 48,
+      "median_descent_steps": 4,
+      "roots": 490,
+      "slowest_roots": [
+        7279,
+        7527,
+        7963,
+        8511,
+        8959
+      ]
+    },
+    {
+      "N": 98304,
+      "max_descent_steps": 81,
+      "median_descent_steps": 4,
+      "roots": 7850,
+      "slowest_roots": [
+        140479,
+        128511,
+        134379,
+        113383,
+        129183
+      ]
+    }
+  ],
+  "asymptotic_rate_per_bit": 0.9529917869559819,
+  "brute_force_agreement_m": [
+    8,
+    10,
+    12,
+    14
+  ],
+  "core_exponent": 0.930535685912143,
+  "scope": "Exact 2-adic cylinder measure for main's outer residual roots; no termination claim.",
+  "status": "PASS",
+  "undecided_fraction": {
+    "16": 0.24761962890625,
+    "24": 0.12783598899841309,
+    "32": 0.07043071370571852,
+    "48": 0.025174950594831103,
+    "64": 0.010551268331994105,
+    "96": 0.00214083052327265,
+    "128": 0.0004841843735718903
+  }
+}

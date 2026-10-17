@@ -22,6 +22,36 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 20:50 — FINDING: how far 2-adic cylinders go toward R20's outer descent
+
+R20 (main `46198fb`) asks for a noncircular rule that takes every outer residual root below `N` into the absorbed seeds. R17 defines those roots as `x ≡ 3, 7 (mod 12)` in the shell `(N, 3N/2)`.
+
+**The rule tested.** It is Terras-style. The first `j` valuations of `x` are fixed by `x mod 2^(A_j+1)`, where `A_j` is their sum. If some determined prefix has `3^j·(3/2) < 2^(A_j)`, then every root in that residue class drops below `N`, for all large `N`. This uses only 2-adic arithmetic and no orbit search. The classes mod 12 and mod 36 that define `R_N` are independent of those bits (CRT), so they do not change the counts.
+
+**Exact uncertified fraction** of roots, as a function of the number of bits used. It is computed by dynamic program and cross-checked by brute-force enumeration for `m ≤ 14`.
+
+| bits `m` | 16 | 24 | 32 | 48 | 64 | 96 | 128 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| uncertified | 24.8% | 12.8% | 7.0% | 2.5% | 1.06% | 0.21% | 0.048% |
+
+Between 64 and 128 bits the decay is about `0.953` per bit.
+
+**Consequences.**
+
+- Any rule that uses a fixed number of bits, independent of `N`, leaves a positive fraction of `R_N` uncertified. That fraction is linear in `N`.
+- If the bits grow like `log2 N`, about `N^0.93` roots remain at scale `N`, and the rule becomes per-root.
+
+**Actual roots**, as a check against the class prediction:
+
+- `N = 6144`: 490 roots; median descent 4 steps; slowest 48 steps.
+- `N = 98304`: 7850 roots; median descent 4 steps; slowest 81 steps (for example `140479`).
+
+This is finite exact arithmetic with no termination claim. The uncertified classes are exactly Terras's undecided stopping-time cylinders, restricted to `R_N`.
+
+`python3 sidekick/probes/residual_cylinder_core.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-17 20:30 — FINDING: whole-annulus exposure depth is set by absolute slow clusters, not by the ×64 self-similarity
 
 `d*(N)` is the first exposure depth at which no component outside the component of 1 has positive source mass. The question was whether the obstruction at `64N` is a lifted copy of the one at `N`. If it were, an induction down the `×64` ladder could reach the verified base. Each of the five rays was compared one step apart.
