@@ -1,4 +1,4 @@
-"""Sidekick probe: main's halving coalescence (working copy, 2026-10-17 19:42,
+"""Sidekick probe: main's halving coalescence (commit 8e2b5eb,
 residual_return/SHRINKING_COALESCENCE.md). Two parts: an independent check, and
 its effect on the hard core.
 

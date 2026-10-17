@@ -1,5 +1,5 @@
 """Sidekick probe: independent check of main's fixed-h depth theorem
-(experiments/residual_progress/phase_depth/FIXED_H_DEPTH.md, working copy, 2026-10-17 19:50).
+(experiments/residual_progress/phase_depth/FIXED_H_DEPTH.md, commit 8e2b5eb).
 
 Claim: for every D >= 1 and X with 2^max(D+4,10) | X and X = 10 (mod 3^(D+2)),
 N = 3X/128 has h = v3(X-1) = 2. The whole depth-D component of 144N-1 is the

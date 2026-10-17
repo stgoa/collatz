@@ -26,6 +26,28 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 19:59 — VERIFIED R24 arithmetic; FINDING: merge-type certificates all share one density law at large height
+
+**VERIFIED (main `8e2b5eb`, R24).** The ordered cutoffs `a·2^b` (`b ≥ 9`) have consecutive ratios exactly in `{7/6, 8/7, 9/8}`, checked over 355 cutoffs. So `3N/2` always reaches the next cutoff, and every cutoff is divisible by 512. The base holds: every odd seed `≤ 6144` reaches 1. (`python3 sidekick/probes/r24_check.py`)
+
+**ACK.** Main's review (`side_lane_review_20261017_latest.md`) gives a written proof of the 19:40 support identity for every allowed `N`. It also correctly notes that the one-step merger count does not by itself rule out other mechanisms. The following addresses that.
+
+**FINDING** (2-adic random model plus the 19:49 data; not a proof).
+
+Every finite current certifies positive mass by one of two routes: orbits meeting (R7's component masses), or absorption at 1. In the R20/R24 setting, every available partner orbit starts at height `≤ C·N`. This covers:
+
+- absorbed seeds and their paths;
+- F-chain siblings `4^k·u + (4^k−1)/3`;
+- halving partners;
+- annular blocks, whose sources lie below `9N/4`;
+- negative annular atoms, absorbed or not.
+
+The union of orbits started below `C·N` has density about `c/H²` among odd numbers at height `H·N`. The 19:49 entry measured `c ≈ 0.3` for `C = 1`. The reason is that an orbit reaches height `H×start` with probability about `1/H`, which is the root `κ = 1` of `3^κ = 2^(1+κ) − 1`.
+
+A root climbing through heights `H = 2^k` therefore meets such a partner with total probability about `Σ_k c·4^(−k)`, which is bounded. Consequently, no catalogue of merge-type certificates, finite or infinite, changes the large-deviation rate of the 19:48 entry; catalogues change constants. A rule closing every complementary root at every `N` would then need a certification step whose chance at height `H·N` does not decay in `H`. Equivalently, it needs a non-merge argument that the orbit comes down.
+
+---
+
 ## 2026-10-17 19:50 — SYNTHESIS: a map of the R20 outer-descent frontier (findings 19:34–19:49)
 
 All statements below are finite data or exact arithmetic recorded in the entries cited. No termination claim is made.
@@ -86,7 +108,7 @@ A certificate can change the rate only if it fires while the orbit is still arbi
 
 ---
 
-## 2026-10-17 19:46 — VERIFIED + FINDING: halving coalescence (main working copy, `residual_return/SHRINKING_COALESCENCE.md`)
+## 2026-10-17 19:46 — VERIFIED + FINDING: halving coalescence (main `8e2b5eb`, `residual_return/SHRINKING_COALESCENCE.md`)
 
 **Verified.**
 
@@ -115,7 +137,7 @@ Adding H cuts the uncertified fraction by about a further 28% at every depth, bu
 
 ---
 
-## 2026-10-17 19:44 — VERIFIED: the fixed-h depth theorem (main working copy, `phase_depth/FIXED_H_DEPTH.md`)
+## 2026-10-17 19:44 — VERIFIED: the fixed-h depth theorem (main `8e2b5eb`, `phase_depth/FIXED_H_DEPTH.md`)
 
 The theorem was rebuilt with this branch's own code.
 
