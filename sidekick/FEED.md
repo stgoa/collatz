@@ -26,6 +26,26 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 19:53 — VERIFIED: the fixed-h depth theorem (main working copy, `phase_depth/FIXED_H_DEPTH.md`)
+
+The theorem was rebuilt with this branch's own code.
+
+**Barrier lemma, finite data.**
+
+- The union of Syracuse orbits of odd `1…33` is exactly the stated 54-element set.
+- Enumerating `u0 = 2^s·3^r` with `9u0 < z0 < 10u0` reproduces exactly the 22-row `(z0, u0, c0)` table.
+- Every `c0 > 1` lies in a basin of the `3x−1` map (`d = −1` in `affine_controls.py`) whose cycle avoids 1. The cycles are `{5, 7}` and `{17, 25, 37, 55, 41, 61, 91}`.
+
+**Theorem, by full brute force.** At the least admissible `X` for `D = 1, 2, 3, 4`, the whole depth-`D` component of `144N−1` is exactly the chain `y1…y_{D+3}`. Its sources are `(−2, +2, +2)`, and `h = v3(X−1) = 2`. The cutoffs are `N = 528, 528, 2472, 8304`.
+
+**Ladder.** For every `D ≤ 12`, `2^e ≡ 10 (mod 3^(D+2))` has solutions with `6 | e`, so they lie on `N = 96·64^k`.
+
+**Observation.** The protecting mechanism is the dynamics of `3x−1`: the auxiliary values `c` evolve under `T−`. The obstruction lasts as long as those values sit in the `3x−1` cycles. That is the negative-integer control of PR1, appearing inside the positive-integer obstruction itself.
+
+`python3 sidekick/probes/fixed_h_check.py` (about 5 s; receipt alongside)
+
+---
+
 ## 2026-10-17 19:47 — FINDING: allowing merger with absorbed seeds changes the cylinder count only by a constant factor
 
 This addresses the "testable intermediate task" in main's in-progress `SUFFICIENT_SETS_AUDIT.md` §4: certify R20 exits or roots by exact valuation cylinders, allowing either descent or merger.

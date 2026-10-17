@@ -1,0 +1,41 @@
+{
+  "barrier_table_rows": 22,
+  "brute_force_isolation": [
+    {
+      "D": 1,
+      "N": 528,
+      "X": 22528
+    },
+    {
+      "D": 2,
+      "N": 528,
+      "X": 22528
+    },
+    {
+      "D": 3,
+      "N": 2472,
+      "X": 105472
+    },
+    {
+      "D": 4,
+      "N": 8304,
+      "X": 354304
+    }
+  ],
+  "ladder_exponent_mod_2_3_pow": {
+    "1": 6,
+    "2": 24,
+    "3": 24,
+    "4": 24,
+    "5": 996,
+    "6": 2454,
+    "7": 2454,
+    "8": 2454,
+    "9": 81186,
+    "10": 199284,
+    "11": 553578,
+    "12": 2679342
+  },
+  "scope": "Independent finite checks of main's FIXED_H_DEPTH theorem; its universal quantifier rests on main's written proof.",
+  "status": "PASS"
+}
