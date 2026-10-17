@@ -1,0 +1,103 @@
+{
+  "F_max_over_N": 820.6710001627604,
+  "F_size": 38912,
+  "N": 49152,
+  "density_by_height": {
+    "1": {
+      "density": 0.3009847005208333,
+      "times_H2": 0.3009847005208333
+    },
+    "1024": {
+      "density": 0.0,
+      "times_H2": 0.0
+    },
+    "128": {
+      "density": 9.854634602864584e-06,
+      "times_H2": 0.16145833333333334
+    },
+    "16": {
+      "density": 0.00091552734375,
+      "times_H2": 0.234375
+    },
+    "2": {
+      "density": 0.07568359375,
+      "times_H2": 0.302734375
+    },
+    "256": {
+      "density": 2.384185791015625e-06,
+      "times_H2": 0.15625
+    },
+    "32": {
+      "density": 0.00020345052083333334,
+      "times_H2": 0.20833333333333334
+    },
+    "4": {
+      "density": 0.018025716145833332,
+      "times_H2": 0.2884114583333333
+    },
+    "512": {
+      "density": 3.178914388020833e-07,
+      "times_H2": 0.08333333333333333
+    },
+    "64": {
+      "density": 4.57763671875e-05,
+      "times_H2": 0.1875
+    },
+    "8": {
+      "density": 0.004094441731770833,
+      "times_H2": 0.2620442708333333
+    }
+  },
+  "descent_median_p99_max": [
+    4,
+    36,
+    96
+  ],
+  "merge_before_descent_fraction": 0.2970700636942675,
+  "merge_median_p99_max": [
+    3,
+    28,
+    96
+  ],
+  "roots": 3925,
+  "scope": "Finite data at N=49152; no termination claim.",
+  "slowest": [
+    {
+      "descent": 96,
+      "merge": 96,
+      "merge_height_over_N": 0.346,
+      "x": 60975
+    },
+    {
+      "descent": 82,
+      "merge": 82,
+      "merge_height_over_N": 0.346,
+      "x": 69535
+    },
+    {
+      "descent": 77,
+      "merge": 1,
+      "merge_height_over_N": 1.743,
+      "x": 57115
+    },
+    {
+      "descent": 75,
+      "merge": 1,
+      "merge_height_over_N": 1.961,
+      "x": 64255
+    },
+    {
+      "descent": 64,
+      "merge": 64,
+      "merge_height_over_N": 0.956,
+      "x": 69375
+    },
+    {
+      "descent": 58,
+      "merge": 58,
+      "merge_height_over_N": 0.356,
+      "x": 73575
+    }
+  ],
+  "status": "PASS"
+}

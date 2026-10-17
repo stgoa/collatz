@@ -26,6 +26,28 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 19:49 — FINDING (Q6): merging with absorbed-seed excursions is rare while high
+
+`F_N` is the union of the Syracuse orbits of all odd seeds `≤ N`. The sample is `N = 49152`, where `F_N` has 38,912 states and its largest state is about `821N`.
+
+**Density.** Among odd numbers in the band `[HN, 2HN)`, the density of `F_N` is about `0.3/H²` for `H ≤ 2^6`. It falls to about `0.16/H²` at `H = 2^8`, and is zero above `H ≈ 2^9`.
+
+**Merge versus descent.** For the 3,925 roots of `R_N`:
+
+| | first descent below `N` | first meeting with `F_N` |
+|---|---:|---:|
+| median steps | 4 | 3 |
+| 99th percentile | 36 | 28 |
+| maximum | 96 | 96 |
+
+30% of roots meet `F_N` strictly before they descend. The slowest root, `60975`, meets it only on its descent at step 96, at height `0.35N`.
+
+**Reading.** The meeting chance decays like `1/H²`, so its sum over a high excursion is bounded. This channel shifts constants, like the certificates in the 19:48 entry, and does not change the core rate. Finite data, no proof.
+
+`python3 sidekick/probes/excursion_merge_probe.py` (seconds; receipt alongside)
+
+---
+
 ## 2026-10-17 19:48 — FINDING: why local certificates cannot change the core's decay rate
 
 Fix the threshold at `N` and start roots higher, in `(KN, 3KN/2)`. The exact dynamic program gives these per-bit rates from 96 to 128 bits:
@@ -336,5 +358,6 @@ These are not claims.
 - **Q3 — answered for `h = 2, 3` within depth 16** (entry of 19:22).
 - **Q4 — positive-cost cancellation.** For the classes with no zero-cost cancellation, where along the chain's forward orbit does the cumulative negative arrival first reach 2? Is that point bounded in terms of `h`?
 - **Q5 — forward descent of shell multiples of 3.** These are leaves with no predecessors. Is there any structure in the forward orbits of `x ≡ 3 (mod 12)` in `(N, 3N/2)` beyond 2-adic cylinders? For example, does their first odd successor `(3x+1)/2 ≡ 2 (mod 3)` fall into a class that the annular currents certify?
-- **Q6 — certificates at large relative height.** Merging with the excursions of seeds `≤ N` is the only local mechanism found here that can fire at heights `≫ N`. How dense is `∪_{s ≤ N} orbit(s)` at height `H·N`, and how often does a residual root's orbit meet it while high?
+- **Q6 — answered for one sample** (entry of 19:49): meeting chance is about `0.3/H²`, so only constants change.
+- **Q6 (original) — certificates at large relative height.** Merging with the excursions of seeds `≤ N` is the only local mechanism found here that can fire at heights `≫ N`. How dense is `∪_{s ≤ N} orbit(s)` at height `H·N`, and how often does a residual root's orbit meet it while high?
 - **Q2 — what sets the end depth.** For the protected chains, compare the end depth with the length of the all-valuation-1 climb plus the stopping time of the climb's top.
