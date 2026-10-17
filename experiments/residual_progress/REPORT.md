@@ -483,3 +483,107 @@ including a second scan with exact integer height bounds. No complete
 universal certificate or Collatz proof is claimed.
 All122 checked local Markdown links resolve, and the staged diff passes
 whitespace validation. Git history records delivery of this batch.
+
+## Continuation from `46198fb`: half-size bridges and a stronger depth obstruction
+
+The user asked to continue deeply, then requested another assessment of
+Claude's merged work. A fresh remote fetch and GitHub read identify PR1
+(`ba6b337`) as the only merged PR; main already includes it and the prior
+scope corrections. The optional side branch has advanced independently.
+The batch started from feed `f12da944` and reviewed its newer state at
+`9a0c28d` before integration. No external branch was modified.
+
+### Batch checklist
+
+- [x] Refresh remote state and distinguish the merged PR from later feed work.
+- [x] Prove or refute a depth bound depending only on the initial ternary order.
+- [x] Construct a full shrinking family with exact residual coverage.
+- [x] Audit the literature interface, sparse induction, and source reuse.
+- [x] Integrate the proofs and compile the existing LaTeX source.
+- [x] Complete the unified finite checks and final independent review.
+- [x] Inspect the final staged changes for the authorized Git delivery.
+
+### R22: the one-parameter depth programme fails
+
+The [fixed-h proof](phase_depth/FIXED_H_DEPTH.md) supplies complete
+positive components at every prescribed depth while h remains exactly2.
+The binary precision and congruence `X=10 mod3^(D+2)` exclude all incoming
+source histories, using a bounded22-case arithmetic barrier. Infinite
+required-ladder realizations follow by lifting powers of2 modulo powers
+of3. Thus every candidate exposure bound f(h) alone fails.
+
+This is a stronger strategic restriction than failure of2h+1. A successful
+constructor needs additional arithmetic state or a different mechanism.
+It is not a permanent obstruction at any fixed integer: X varies with D.
+The auxiliary3x-1 cycles exclude hypothetical small shadows; actual
+first-integral offsets reach1 under that map.
+
+### R23: a complete shrinking family, rather than another isolated template
+
+For `x=2^a*t-1`, the condition `t=3^a mod4` gives
+`S^a(x)=S^a((x-1)/2)`. The
+[halving construction](residual_return/SHRINKING_COALESCENCE.md) provides
+the exact finite bridge and preserves all residual multiplicities.
+It uses supplied absorption below N, with no larger absorption assumption.
+The first climb may have arbitrarily many steps and unbounded height
+relative to N. The proof specifies the bridge before any future search.
+
+The selected classes remove `25N/576+O(log N)` weighted units. The exact
+remaining profile has the same leading mass, with the opposite binary
+condition. At N6144 the construction certifies263 of532 units. It
+subsumes the old packed-tree root class, while applying to complete
+binary classes and both coefficient1 and coefficient2 roots. The stored
+root79 example keeps both units throughout its current.
+
+On the complementary branch, the exact relation is
+`S^a(x)=3*2^(d-1)*w+1`, where `w=S^(a-1)((x-1)/2)` and d>=2.
+Knowing the smaller partner terminates does not establish a connection
+from this larger state. The simple equal-step extension already fails
+at x27. Repeating a numerical half-mass reduction has no justification.
+
+### R24: the precise completion would support induction
+
+The [sufficient-set audit](sufficient_sets/SUFFICIENT_SETS_AUDIT.md)
+distinguishes qualitative arithmetic-progression mergers from the needed
+finite certified inputs. The primary sources reviewed do not supply the
+missing height-controlled witness. The halving identity uses precedented
+common-tail arithmetic; no novelty claim is made.
+
+The union of all five dyadic rays has consecutive ratio at most7/6.
+Starting at6144, every cutoff is divisible by512, so both the direct
+bridge interface and R20's annular transfer are available. If every
+complementary root can be certified from U_N at each cutoff, extension
+to3N/2 supplies the next U input. This is a genuine conditional induction,
+not a circular appeal to larger absorbed seeds. A draft confusion between
+one factor64 ladder and the interleaved union was caught and corrected
+during review.
+
+Source reuse also has a useful distinction: two independent proofs may
+use the same already absorbed seed. Combining blocks into a single
+submeasure of A_M needs joint capacity bounds. Each block still needs
+valid signs, coefficients, and divergence. This avoids imposing an
+unnecessary packing constraint on independent root certificates.
+
+### Direction after the independent input
+
+Keep the exact current formulation and Claude's negative controls.
+Stop treating cancellation totals, a short fixed catalogue, or the old
+ternary parameter as a proposed universal progress measure. The next
+positive target is the explicit complementary profile from R23, with
+every proposed rule judged by a finite bridge to an already certified
+input or a proved decrease on every branch. The
+[latest feed review](side_lane_review_20261017_latest.md) retains the
+finite stopping-cylinder checks and their limits; measured density decay
+does not establish universal closure or a rate for growing bit depth.
+
+### Batch validation
+
+`python3 scripts/verify_all.py --cpp` passed, including both new checkers,
+all prior stored evidence, the merged negative controls and review
+counterexamples, and both independent C++ cutoffs. The two focused checks
+also passed separately. Independent model audits passed the fixed-h proof,
+halving construction, count, and sparse induction. The existing LaTeX
+source compiled successfully in place. All152 checked local Markdown
+links across25 programme files resolve. No universal completion is claimed.
+The staged file list and diff were reviewed; whitespace validation passed.
+Git history records the authorized commit and push of this batch.

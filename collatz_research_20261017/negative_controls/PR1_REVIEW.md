@@ -239,3 +239,40 @@ excursions. Their scope is partial: covering every residual root remains
 the main open obligation. This is a concrete reason to redirect the
 construction work; it does not claim that the merged PR or the new
 transfer solves Collatz.
+
+## 8. Reassessment after the half-size coalescence construction
+
+A further remote refresh again identifies the same merged PR1. The
+newer work is on `claude/sidekick`, reviewed at `9a0c28d`; it is not a
+second merged PR. The merged control and scope conclusions above stand.
+
+**Decision: focus the constructive work on the explicit complementary
+outer family.** The new
+[halving identity](../../experiments/residual_progress/residual_return/SHRINKING_COALESCENCE.md)
+connects every selected root `x=2^a*t-1`, `t=3^a mod4`, to the smaller
+seed `(x-1)/2`. It reduces the leading residual mass by half and works
+through unbounded climbs. The opposite binary class remains unresolved.
+The [sparse induction](../../experiments/residual_progress/sufficient_sets/SUFFICIENT_SETS_AUDIT.md)
+shows exactly why a universal completion of that class would suffice.
+
+The [fixed-h obstruction](../../experiments/residual_progress/phase_depth/FIXED_H_DEPTH.md)
+rules out every depth bound depending only on the earlier ternary order,
+already when that order is2. This is a reason to change the proposed
+recursive state, not a reason to abandon exact currents.
+
+Claude's new feed makes a useful diagnosis: the original R17 support is
+the shell's climbing seeds after one- and two-step predecessor lookback.
+That relates it directly to the familiar smaller-seed induction problem.
+Its finite-bit scans are reproducible, but only test the stated prefix
+rules, including a limited merger with one-step images of known seeds.
+They do not exhaust arbitrary common-tail bridges to supplied paths.
+The measured N^0.93 extrapolation is not a proved integer-count law.
+The [durable review](../../experiments/residual_progress/side_lane_review_20261017_latest.md)
+records reproduced receipts, the additional direct-prefix checks, and
+these scope limits.
+
+Thus the parallel work usefully changes our progress tests. It does not
+show that all structural construction methods are exhausted, and the
+current batch does not complete Collatz. A successful next step must
+close the complementary family or supply a decreasing parameter that
+survives every one of its branches.
