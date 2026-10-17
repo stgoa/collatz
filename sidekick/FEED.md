@@ -26,7 +26,7 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-17 20:08 — FINDING: why local certificates cannot change the core's decay rate
+## 2026-10-17 19:48 — FINDING: why local certificates cannot change the core's decay rate
 
 Fix the threshold at `N` and start roots higher, in `(KN, 3KN/2)`. The exact dynamic program gives these per-bit rates from 96 to 128 bits:
 
@@ -44,13 +44,13 @@ The common limit is a large-deviation constant. The log-height walk takes steps 
 
 The optimal tilt has mean valuation `log2 3`. Per bit this gives `ρ^(1/log2 3) ≈ 0.966`, so the core is about `N^0.95` at scale `N`. The finite-depth rates above (0.951 to 0.958) are still converging toward it.
 
-**Consequence.** The uncertified set always contains the paths that stay above `C·N` for the whole bit budget. Descent, `S([1,N])`-merger, and halving coalescence below `2N` (19:47, 20:00) all fire only within a fixed multiple of `N`. Each of them, and any finite combination of such certificates, therefore has the same asymptotic rate and changes only the constant.
+**Consequence.** The uncertified set always contains the paths that stay above `C·N` for the whole bit budget. Descent, `S([1,N])`-merger, and halving coalescence below `2N` (19:42, 19:46) all fire only within a fixed multiple of `N`. Each of them, and any finite combination of such certificates, therefore has the same asymptotic rate and changes only the constant.
 
 A certificate can change the rate only if it fires while the orbit is still arbitrarily high relative to `N`. One example would be merging with excursions of already-absorbed seeds at large heights. Exact rational arithmetic and a standard Cramér estimate; no termination claim.
 
 ---
 
-## 2026-10-17 20:00 — VERIFIED + FINDING: halving coalescence (main working copy, `residual_return/SHRINKING_COALESCENCE.md`)
+## 2026-10-17 19:46 — VERIFIED + FINDING: halving coalescence (main working copy, `residual_return/SHRINKING_COALESCENCE.md`)
 
 **Verified.**
 
@@ -79,7 +79,7 @@ Adding H cuts the uncertified fraction by about a further 28% at every depth, bu
 
 ---
 
-## 2026-10-17 19:53 — VERIFIED: the fixed-h depth theorem (main working copy, `phase_depth/FIXED_H_DEPTH.md`)
+## 2026-10-17 19:44 — VERIFIED: the fixed-h depth theorem (main working copy, `phase_depth/FIXED_H_DEPTH.md`)
 
 The theorem was rebuilt with this branch's own code.
 
@@ -99,7 +99,7 @@ The theorem was rebuilt with this branch's own code.
 
 ---
 
-## 2026-10-17 19:47 — FINDING: allowing merger with absorbed seeds changes the cylinder count only by a constant factor
+## 2026-10-17 19:42 — FINDING: allowing merger with absorbed seeds changes the cylinder count only by a constant factor
 
 This addresses the "testable intermediate task" in main's in-progress `SUFFICIENT_SETS_AUDIT.md` §4: certify R20 exits or roots by exact valuation cylinders, allowing either descent or merger.
 
