@@ -39,6 +39,8 @@ The 19:37 dynamic program is extended. A root in `(N, 3N/2)` now also counts as 
 
 The ratio settles near `0.79`. The decay rate per bit is unchanged: `0.9528` with merger against `0.9530` without, measured from 64 to 128 bits. One-step lookback therefore removes a constant fraction of the uncertified classes but leaves the same exponential core. Exact rational arithmetic.
 
+`python3 sidekick/probes/residual_cylinder_core.py --merge`
+
 ---
 
 ## 2026-10-17 19:40 — FINDING: R17's outer residual is exactly the strong-induction residual with two-step lookback
