@@ -1,0 +1,33 @@
+{
+  "brute_force_X_up_to": "N*2^14",
+  "checked": [
+    {
+      "N": 8,
+      "bound": 9
+    },
+    {
+      "N": 13,
+      "bound": 9
+    },
+    {
+      "N": 64,
+      "bound": 15
+    },
+    {
+      "N": 100,
+      "bound": 15
+    },
+    {
+      "N": 257,
+      "bound": 19
+    },
+    {
+      "N": 1000,
+      "bound": 21
+    }
+  ],
+  "component_count_X_up_to": "N*2^512",
+  "max_error_over_bound": 0.1944,
+  "scope": "Independent finite checks of main's R27 count; no orbit-hitting claim.",
+  "status": "PASS"
+}
