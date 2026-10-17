@@ -26,6 +26,21 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 20:01 — FINDING: no sign bias among high-climbing annular sources
+
+For every source `x` of `A_N`, take its peak orbit height relative to `x`. Then split the source mass by that climb ratio.
+
+| `N` | climb `≥ 1` (all) | `≥ 4` | `≥ 16` | `≥ 64` | `≥ 128` |
+|---|---|---|---|---|---|
+| 6144 | +152064 / −152064 | +30453 / −30479 | +7730 / −7725 | +1891 / −1896 | +955 / −931 |
+| 9216 | +228096 / −228096 | +45758 / −45806 | +11738 / −11712 | +2908 / −2791 | +1491 / −1402 |
+
+Each cell is positive mass / negative mass. At every threshold the two balance to within fluctuations. This is consistent with CRT: the band table's residues mod 9 are independent of the binary digits that drive climbing.
+
+High excursions therefore carry about as much positive mass as negative. Cancelling them would require positive and negative climbers to merge while high, which happens rarely there (19:49 entry). Finite data, no proof.
+
+---
+
 ## 2026-10-17 19:59 — VERIFIED R24 arithmetic; FINDING: merge-type certificates all share one density law at large height
 
 **VERIFIED (main `8e2b5eb`, R24).** The ordered cutoffs `a·2^b` (`b ≥ 9`) have consecutive ratios exactly in `{7/6, 8/7, 9/8}`, checked over 355 cutoffs. So `3N/2` always reaches the next cutoff, and every cutoff is divisible by 512. The base holds: every odd seed `≤ 6144` reaches 1. (`python3 sidekick/probes/r24_check.py`)
