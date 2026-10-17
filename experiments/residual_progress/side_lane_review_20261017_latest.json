@@ -1,0 +1,233 @@
+{
+  "exact_cylinder_fractions": [
+    {
+      "bits": 16,
+      "descent_only_decimal": 0.24761962890625,
+      "descent_only_fraction": "4057/16384",
+      "descent_or_merger_decimal": 0.211669921875,
+      "descent_or_merger_fraction": "867/4096",
+      "finite_ratio": 0.8548188316490017
+    },
+    {
+      "bits": 24,
+      "descent_only_decimal": 0.12783598899841309,
+      "descent_only_fraction": "536183/4194304",
+      "descent_or_merger_decimal": 0.10655045509338379,
+      "descent_or_merger_fraction": "446905/4194304",
+      "finite_ratio": 0.8334934154943369
+    },
+    {
+      "bits": 32,
+      "descent_only_decimal": 0.07043071370571852,
+      "descent_only_fraction": "75624403/1073741824",
+      "descent_or_merger_decimal": 0.05758746713399887,
+      "descent_or_merger_fraction": "7729259/134217728",
+      "finite_ratio": 0.8176470761693153
+    },
+    {
+      "bits": 48,
+      "descent_only_decimal": 0.025174950594831103,
+      "descent_only_fraction": "1771529658093/70368744177664",
+      "descent_or_merger_decimal": 0.020322003257419397,
+      "descent_or_merger_fraction": "1430033848399/70368744177664",
+      "finite_ratio": 0.8072311077977603
+    },
+    {
+      "bits": 64,
+      "descent_only_decimal": 0.010551268331994105,
+      "descent_only_fraction": "24329568321666439/2305843009213693952",
+      "descent_or_merger_decimal": 0.008434418498056276,
+      "descent_or_merger_fraction": "19448444930525727/2305843009213693952",
+      "finite_ratio": 0.7993748460060477
+    },
+    {
+      "bits": 96,
+      "descent_only_decimal": 0.00214083052327265,
+      "descent_only_fraction": "10600879288333941509338681/4951760157141521099596496896",
+      "descent_or_merger_decimal": 0.0016830508838729665,
+      "descent_or_merger_fraction": "16668128618407954310104699/9903520314283042199192993792",
+      "finite_ratio": 0.7861672680657208
+    },
+    {
+      "bits": 128,
+      "descent_only_decimal": 0.0004841843735718903,
+      "descent_only_fraction": "41189851166293676483926938222613293/85070591730234615865843651857942052864",
+      "descent_or_merger_decimal": 0.0003808344218601906,
+      "descent_or_merger_fraction": "4049726202361026160796584299235739/10633823966279326983230456482242756608",
+      "finite_ratio": 0.7865483535759863
+    }
+  ],
+  "finite_64_to_128_bit_fits": {
+    "asymptotic_theorem": false,
+    "descent_rate": 0.9529917869559819,
+    "heuristic_descent_core_exponent": 0.930535685912143,
+    "merger_rate": 0.9527509519993922
+  },
+  "fixed_bit_undecided_lower_bound": "2^(-(m-2)) for this prefix rule, from x=-1 mod2^m",
+  "fixed_h_cross_check": {
+    "actual_first_integer_c_reaches_1": true,
+    "barrier_candidate_triples": 22,
+    "cycle_basins_are_exclusion_witnesses_not_actual_protecting_histories": true,
+    "cycle_vertex_sets": [
+      [
+        5,
+        7
+      ],
+      [
+        17,
+        25,
+        37,
+        41,
+        55,
+        61,
+        91
+      ]
+    ],
+    "excluded_nontrivial_c_values": 12,
+    "positive_orbit_states": 54
+  },
+  "global_termination_claim": false,
+  "independent_brute_force_bits": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "independent_main_residual_comparison_N": [
+    96,
+    768,
+    6144,
+    9216,
+    49152,
+    98304
+  ],
+  "main_affine_controls_sha256": "9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c",
+  "main_head": "46198fbb6963d07f0c3d82668cb316f50bc23b9c",
+  "reproduced_stored_receipts": {
+    "residual_cylinder_core": {
+      "actual_roots": [
+        {
+          "N": 6144,
+          "max_descent_steps": 48,
+          "median_descent_steps": 4,
+          "roots": 490,
+          "slowest_roots": [
+            7279,
+            7527,
+            7963,
+            8511,
+            8959
+          ]
+        },
+        {
+          "N": 98304,
+          "max_descent_steps": 81,
+          "median_descent_steps": 4,
+          "roots": 7850,
+          "slowest_roots": [
+            140479,
+            128511,
+            134379,
+            113383,
+            129183
+          ]
+        }
+      ],
+      "asymptotic_rate_per_bit": 0.9529917869559819,
+      "brute_force_agreement_m": [
+        8,
+        10,
+        12,
+        14
+      ],
+      "core_exponent": 0.930535685912143,
+      "scope": "Exact 2-adic cylinder measure for main's outer residual roots; no termination claim.",
+      "status": "PASS",
+      "undecided_fraction": {
+        "128": 0.0004841843735718903,
+        "16": 0.24761962890625,
+        "24": 0.12783598899841309,
+        "32": 0.07043071370571852,
+        "48": 0.025174950594831103,
+        "64": 0.010551268331994105,
+        "96": 0.00214083052327265
+      }
+    },
+    "residual_vs_induction": {
+      "identity": "supp R_N = shell climbers not in S([1,N]) or S^2([1,N])",
+      "rows": [
+        {
+          "N": 96,
+          "R_mass": 7,
+          "multiples_of_3": 4,
+          "support": 7
+        },
+        {
+          "N": 768,
+          "R_mass": 66,
+          "multiples_of_3": 32,
+          "support": 61
+        },
+        {
+          "N": 6144,
+          "R_mass": 532,
+          "multiples_of_3": 256,
+          "support": 490
+        },
+        {
+          "N": 9216,
+          "R_mass": 800,
+          "multiples_of_3": 384,
+          "support": 736
+        },
+        {
+          "N": 49152,
+          "R_mass": 4266,
+          "multiples_of_3": 2048,
+          "support": 3925
+        },
+        {
+          "N": 98304,
+          "R_mass": 8532,
+          "multiples_of_3": 4096,
+          "support": 7850
+        }
+      ],
+      "scope": "Finite exact identification of main's R_N support; no termination claim.",
+      "status": "PASS"
+    }
+  },
+  "reproduction_process_timeout_seconds": 30,
+  "reviewed_commit": "9a0c28d90e1554cfa967e7e0ea785a86dd1af04c",
+  "scope_corrections": [
+    "Finite64-to128-bit rate and0.79ratio are observations, not asymptotic constants.",
+    "N^0.93 is an extrapolation; no growing-bit interval-count or affine-threshold control is proved.",
+    "Fixed-bit positive residual applies to the tested prefix rules, not every theorem described by fixed residues.",
+    "The shell-descent factor3/2 makes this stricter than descent below the starting seed.",
+    "The R_N support identity does not identify its coefficient2 weights with an unweighted induction set.",
+    "A cylinder merger with an already absorbed seed is a valid conditional absorption proof; it does not terminate all residual roots.",
+    "The merger DP covers one-step absorbed predecessors only; it does not exhaust longer common-tail or halving comparisons."
+  ],
+  "source_sha256": {
+    "fixed_h_check.py": "0eb708f43cb2699ad82d9e8efb6d4ade2e430b05f104098801006d824923c745",
+    "residual_cylinder_core.py": "e8458061e4e36ca5c015b2db4f15d8f45ff767429edc0b377517773544d70b4b",
+    "residual_vs_induction.py": "facc0be4149bdc9f4fd8b5585610731b9926bbf4fd54d32474dbdd787e3ef7ff"
+  },
+  "status": "PASS_WITH_SCOPE_CORRECTIONS",
+  "sufficient_sets_sections_3_4_review": "PASS: five interleaved rays close the induction; separate absorption proofs may reuse certified sources",
+  "written_arithmetic_findings": {
+    "actual_phase_interpretation": "Finite valuation words and conditional merger with already absorbed seeds provide partial strong-induction certificates.",
+    "coefficient_warning": "R_N mass is25N/288+O(1), while its unweighted support is23N/288+O(1).",
+    "fixed_bit_support_count": "For fixedm>=2 and sufficiently largeN, this rule leaves (23/288)*d(m)*N+O_m(1) root support undecided.",
+    "universal_support_identity": "For every8|N>=8, supp R_N equals outer climbers absent from S([1,N]) union S^2([1,N])."
+  }
+}

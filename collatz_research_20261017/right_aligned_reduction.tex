@@ -35,6 +35,11 @@ below one unit of positive residual mass.
 An inverse-history argument now proves that no fixed historical exposure
 depth can certify every actual annulus, even on the single ladder
 $N=96\cdot64^k$. Termination with growing depth remains open.
+The obstruction persists at every prescribed depth even with the initial
+ternary order fixed at two. In a constructive direction, an exact
+half-size coalescence identity removes half the leading outer residual.
+Completing its complementary family on the interleaved rays would supply
+a decreasing-input induction; this completion is not yet proved.
 No complete universal current construction, Collatz proof, or novelty claim
 is supplied.
 \end{abstract}
@@ -1741,6 +1746,216 @@ annular source. The transported positive mass is then an auxiliary
 source there. A recursion must handle such components and prove eventual
 progress; bounded source preprocessing does not establish termination.
 
+\section{The ternary order alone cannot bound the depth}
+\begin{theorem}[Arbitrary depth at fixed ternary order]\label{thm:fixedh}
+For every $D\ge1$, suppose
+\[
+2^{\max(D+4,10)}\mid X,\qquad X\equiv10\pmod{3^{D+2}},
+\qquad N=3X/128.
+\]
+Then $8\mid N$ and $v_3(X-1)=2$. The complete component of $144N-1$
+in $G_D(N)$ is
+\[
+y_1\longrightarrow\cdots\longrightarrow y_{D+3},
+\qquad y_j=3^jX/2^j-1.
+\]
+Its only source coefficients are $-2,+2,+2$ at $y_1,y_2,y_3$.
+It has mass two and excludes a one-sided current supported on $G_D(N)$.
+For every $D$ there are infinitely many examples on $N=96\cdot64^k$.
+Consequently no finite-valued bound depending only on $h=v_3(X-1)$
+can bound sufficient exposure depth.
+\end{theorem}
+\begin{proof}
+We give the incoming-history argument and specify its finite arithmetic
+certificate. Write
+\[
+T_-(c)=(3c-1)/2^{v_2(3c-1)}
+\]
+on positive odd integers. The following finite barrier is used:
+if $u_0=2^s3^r\ge4$, $r,s\ge0$, $1<c_0<u_0$ is odd, and
+$T_-^\ell(c_0)=1$ for some finite $\ell$, then every positive odd
+Syracuse ancestor of $z_0=10u_0-c_0$ is at least $35$.
+Indeed the orbits of the odd integers through $33$ have exactly $54$
+states, with maximum $3077$. A counterexample would satisfy
+$9u_0<z_0<10u_0$ within this finite set. Exhausting all $2,3$-smooth
+$u_0$ in those intervals gives $22$ pairs. Six have $c_0=1$.
+The remaining twelve distinct offsets all enter either
+\[
+5\to7\to5
+\quad\hbox{or}\quad
+17\to25\to37\to55\to41\to61\to91\to17
+\]
+under $T_-$, contradicting the assumed hit at $1$.
+The full $54$-state set, $22$-row table, and connecting paths are
+listed and checked in
+\texttt{phase\_depth/FIXED\_H\_DEPTH.md} and its adjacent checker.
+This is a bounded exhaustive certificate, not an asymptotic inference.
+
+Remove any initial on-chain part of an inverse history from $y_k$.
+Its first departing valuation is odd and at least three.
+At inverse length $\ell\le D$, with valuation sum $A$, write
+\[
+x=uX-c,\qquad u=3^{k-\ell}2^{A-k},\qquad c>0.
+\]
+An inverse step of valuation $a$ updates
+$u'=2^a u/3$, $c'=(2^ac+1)/3$.
+Before the first crossing $A\ge k$, actual admissibility makes $c$
+a positive odd integer, including at the crossing. Comparing the
+same inverse maps at $X=1$ with the all-valuation-one history gives
+$c<u$ through that crossing: its length is at most $k$, the comparison
+value $(3/2)^{k-\ell}-1$ is nonnegative, and the first departure
+strictly raises it. Before the crossing,
+\[
+u=3^{A-\ell}(3/2)^{k-A}\ge9,\qquad x>9(X-1)>144N-1.
+\]
+At the crossing $u_0=3^{k-\ell}2^{A-k}\ge4$ and
+$1<c_0<u_0$. Reversing the offset updates gives
+$T_-^\ell(c_0)=1$, since $3c'-1=2^ac$ with $c$ odd.
+The finite barrier applies.
+
+After the crossing set $z=10u-c$. The difference
+$x-z=u(X-10)$ is an even integer divisible by $3$ throughout every
+history of length at most $D$: its ternary valuation is at least
+$D+2+k-\ell\ge3$, and $u$ has no binary denominator.
+Thus the actual inverse word also defines a positive odd inverse
+word from $z_0$. The barrier gives $z\ge35$ and
+\[
+x=u(X-10)+z>\frac{zX}{10}\ge\frac72X>\frac{27}{8}X-1.
+\]
+Every off-chain incoming source is excluded. The bottom predecessor
+$X-1$ is a multiple of three, has zero source coefficient, and has
+no odd predecessor. The top vertex has no exposed outgoing edge,
+by the same forward height bound as in
+Theorem~\ref{thm:unboundeddepth}. The displayed chain is therefore
+the entire component.
+
+Finally, the elementary lifting order of $2$ modulo $3^{D+2}$ is
+$2\cdot3^{D+1}$. There is an exponent $e$ with
+$2^e\equiv10\pmod{3^{D+2}}$; reduction modulo nine forces $6\mid e$.
+Adding multiples of the order makes $e\ge\max(D+4,12)$.
+Then $X=2^e$ gives $N=96\cdot64^{e/6-2}$, and infinitely many
+such exponents remain in that class.
+\end{proof}
+The offsets that actually occur reach $1$ under $T_-$. The nontrivial
+cycles above exclude hypothetical small shadows; they do not trap the
+actual offsets. Also, $X$ changes with $D$. No fixed integer is proved
+to remain isolated forever.
+
+\section{A complete half-size coalescence family}
+\begin{theorem}[Conditional halving of the outer residual]\label{thm:halving}
+Write an odd $x\equiv3\pmod4$ uniquely as $x=2^at-1$ with
+$a\ge2$ and $t$ odd. If $t\equiv3^a\pmod4$, then
+\[
+S^a(x)=S^a(q),\qquad q=(x-1)/2.
+\]
+For $8\mid N$, let $G_N$ be the full-weight restriction of $R_N$
+to this family. A supplied exact current for $U_N$ gives a finite
+exact current $T$ for $G_N$ using only its existing absorption paths
+and the first $a$ arrows from each selected root. The remaining profile
+$R'_N=R_N-G_N$ satisfies
+\[
+|R'_N|=\frac{25N}{576}+O(\log N),\qquad
+\left||R'_N|-\frac{25N}{576}\right|
+\le6\left\lfloor\log_2(3N/2)\right\rfloor.
+\]
+It consists precisely of the roots with $t\equiv-3^a\pmod4$.
+\end{theorem}
+\begin{proof}
+The first $a-1$ valuations of $x$ and first $a-2$ valuations of $q$
+are one. With $z=3^{a-1}t\equiv3\pmod4$, their next states are
+\[
+S^{a-1}(q)=(z-1)/2,\qquad
+S^{a-1}(x)=2z-1=4S^{a-1}(q)+1.
+\]
+Now $S(4v+1)=S(v)$ proves the merger. The difference
+\[
+D_x=\sum_{j=0}^{a-1}\delta_{S^j(x)}
+       -\sum_{j=0}^{a-1}\delta_{S^j(q)}
+\]
+has divergence $\delta_x-\delta_q$, with rows and mass at $1$ killed.
+Every selected residual root lies below $3N/2$, so $q<3N/4<N$.
+Add the supplied absorption current for $q$, multiplied by the
+coefficient $R_N(x)$, to this bridge. Summing certifies all of $G_N$.
+A nonnegative current can be extracted on the same finite graph by
+the nonnegative-source argument used in the annular transfer.
+No unknown larger absorption input is used. In particular
+\[
+\PiR_N=(I-P)(J_{\rm old}-T)-R'_N.
+\]
+
+For the count, the selected class for each $a$ has residue
+$b_a=2^a(1\text{ if }a\text{ is even, else }3)-1$
+modulo $p_a=2^{a+2}$. It has valuation $v_2(x+1)=a$ exactly.
+Intersect each of the four weighted R17 progressions with this class
+by the Chinese remainder theorem. For a progression modulo
+$m\in\{12,36\}$ the intersection has period $p_a(m/4)$.
+Its count on a strict interval differs from interval length divided
+by this period by at most one. The weighted widths divided by $m/4$
+sum to $25N/72$, while the four weights sum to six.
+Writing $A=\lfloor\log_2(3N/2)\rfloor$, there are no roots with
+$a>A$, and
+\[
+\sum_{a=2}^A2^{-a-2}=\frac18-2^{-A-2}.
+\]
+Hence
+\[
+\left||G_N|-\frac{25N}{576}\right|
+\le6(A-1)+\frac{25}{216}.
+\]
+Combining this with the earlier exact bounds on
+$|R_N|-25N/288$ gives the stated $6A$ bound.
+The exact CRT floor formula is recorded in
+\texttt{residual\_return/SHRINKING\_COALESCENCE.md}.
+\end{proof}
+
+This family includes arbitrarily long excursions on a required ray:
+for even $a\ge8$, take $x=2^a-1$ and $N=12\cdot2^{a-4}$.
+Then $R_N(x)=1$, and $S^{a-1}(x)=2\cdot3^{a-1}-1$ has
+unbounded ratio to $N$. The bridge has a prescribed finite endpoint
+even though the common state need not be below $N$.
+
+The complementary branch is explicit but not resolved. Put
+\[
+d=v_2(3^{a-1}t-1)\ge2,\qquad
+w=(3^{a-1}t-1)/2^d.
+\]
+Then
+\[
+S^{a-1}(q)=w,\qquad S^a(x)=3\cdot2^{d-1}w+1.
+\]
+For $a\ge3$, $q$ itself belongs to the selected family. This fact
+does not connect $x$ to it. For example $x=27$ is an actual residual
+root at $N=24$, but $S^2(27)=31$ and $S^2(13)=1$.
+The half-mass improvement cannot be iterated without a new closure theorem.
+
+\section{The residual target admits a noncircular sparse induction}
+\begin{corollary}[Conditional completion on interleaved rays]\label{cor:residualrays}
+Suppose that at every $N=a2^b$ with
+$a\in\{12,14,16,18,21\}$ and $b\ge9$, a rule constructs finite
+exact absorption currents for every atom of $R'_N$, using only a
+supplied exact current for $U_N$ as its absorption input.
+Then Collatz holds.
+\end{corollary}
+\begin{proof}
+The retained-graph construction and Theorem~\ref{thm:halving},
+together with the assumed rule, extend $U_N$ to $U_{3N/2}$.
+In increasing order the five rays have consecutive ratios
+\[
+7/6,\quad8/7,\quad9/8,\quad7/6,\quad8/7,
+\]
+repeated on doubling the scale. Each next cutoff is below $3N/2$,
+so extracting its paths supplies its input current. The finite base
+$U_{6144}$ is reconstructed and checked by the halving audit.
+Induction reaches an unbounded increasing sequence of absorbed
+intervals, hence every positive seed. All these cutoffs are divisible
+by $512$, so the annular transfer at $M=N/64$ is also available.
+\end{proof}
+A single factor-$64$ ladder would not support this extension; the
+interleaved union does. The hypothesis is still an unproved universal
+construction. Separate root certificates may reuse an already
+certified positive input path. If their source blocks are instead
+summed as one annular submeasure, their capacities must be checked jointly.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -1774,6 +1989,12 @@ retained graph. Theorem~\ref{thm:pathcollapse} preserves intermediate
 source capacity and exposes the needed frontier information.
 None covers every remaining component or proves a closed terminating
 recursion.
+Theorem~\ref{thm:fixedh} further rules out any exposure bound depending
+only on the initial ternary order. Theorem~\ref{thm:halving} removes
+half the leading outer residual with explicit smaller-seed bridges.
+Corollary~\ref{cor:residualrays} gives the exact conditional induction
+for its complementary family. Completing that family is the current
+constructive target; finite-bit coverage estimates do not settle it.
 The packet work itself need not be nonpositive: direct finite iteration gives
 $H_{39}(\PiR_{32})=57$. The target is a finite upper bound for each cutoff.
 
@@ -1849,4 +2070,8 @@ current conversions, and $170$ explicit first-descent branches, with a
 full current for seed $9183$ stored. The source-cluster checker compares
 eight complete annuli with full-ancestry grouping and verifies the sharp
 span examples, affine guards, and source-empty exit targets.
+The fixed-order checker verifies the finite barrier and eight complete
+components. The halving checker covers $8192$ selected seeds, $1016$
+parameterized prefix cases, $512$ cutoff profiles, and eight
+supplied-current conversions, including the finite base $U_{6144}$.
 \end{document}

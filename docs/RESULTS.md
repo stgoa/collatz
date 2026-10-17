@@ -339,6 +339,34 @@ For a forbidden E0 edge `x->y`, valuation2 sends directly to an inactive smaller
 
 See [proof](../experiments/residual_progress/window_components/WINDOW_COMPONENTS.md), [constructor/checker](../experiments/residual_progress/window_components/check_window_components.py), and [receipt](../experiments/residual_progress/window_components/window_components_audit.json). Eight complete annuli agree with independent full-ancestry grouping; sharpness phases, exact affine guards, forbidden exits through8193, and four source-empty targets are checked.
 
+## R22 — Arbitrarily large exposure depth with the ternary order fixed at2
+
+**Status: written complete-component proof with a finite arithmetic certificate.**
+
+For every integer D>=1, if `2^max(D+4,10)|X` and `X=10 mod3^(D+2)`, then N=3X/128 is an allowed cutoff, `v_3(X-1)=2`, and the entire depth-D component of144N-1 is the chain `y_j=3^j X/2^j-1`, j=1,...,D+3. Its only sources have coefficients(-2,+2,+2); its mass2 excludes a one-sided certificate on that graph. Every depth has infinitely many examples on `N=96*64^k`. Thus no finite-valued bound depending only on h can control sufficient exposure depth.
+
+The proof exhausts incoming histories. Before the affine inverse slope becomes integral, height excludes every source. At the first integral slope, an offset c reaches1 under the auxiliary3x-1 map. A complete22-case finite barrier excludes any positive3x+1 shadow ancestor at most33; ternary precision propagates the shadow through every remaining inverse branch. The nontrivial3x-1 cycles exclude hypothetical barrier counterexamples; the actual offsets are in the basin of1.
+
+See [full proof](../experiments/residual_progress/phase_depth/FIXED_H_DEPTH.md), [checker](../experiments/residual_progress/phase_depth/check_fixed_h.py), and [receipt](../experiments/residual_progress/phase_depth/fixed_h_audit.json). Eight complete finite components and modular ladder cases are checked. X varies with D: no permanent positive component or Collatz counterexample is asserted.
+
+## R23 — A halving identity removes half the leading outer residual
+
+**Status: written conditional construction, exact count, and checked finite currents.**
+
+Let `x=2^a*t-1`, a>=2, t odd. If `t=3^a mod4`, then `S^a(x)=S^a((x-1)/2)`. The difference of the two finite prefix currents has divergence `delta_x-delta_((x-1)/2)`. Applying this identity to every selected R17 root uses only supplied absorption through N, since `(x-1)/2<3N/4`. All source weights, including coefficient2, are preserved. The upgraded packet identity is `Pi_N=div(J_0-T)-R'_N`, where T certifies the selected roots exactly.
+
+The remaining profile is R_N restricted to `t=-3^a mod4`, with mass `25N/576+O(log N)`. An exact CRT floor formula proves this for every8|N; the absolute leading-term error is at most `6 floor(log2(3N/2))`. Combined with R17, this certifies asymptotically119/144 of the original outer shell. It is a single partial extension, not an iterable contraction. On the complementary branch, putting `d=v_2(3^(a-1)t-1)>=2` and `w=(3^(a-1)t-1)/2^d` gives `S^a(x)=3*2^(d-1)*w+1`; the smaller partner being known does not certify this larger state. The attempted same-identity extension fails at x27.
+
+Selected required-ray roots `x=2^a-1`, even a>=8, have unbounded prefix length and height relative to N. The bridge still ends after a arrows on each side without an assumed larger absorption interval. The full [proof](../experiments/residual_progress/residual_return/SHRINKING_COALESCENCE.md), [constructor](../experiments/residual_progress/residual_return/halving_return.py), [checker](../experiments/residual_progress/residual_return/check_halving_return.py), and [receipt](../experiments/residual_progress/residual_return/halving_return_audit.json) include8192 selected seeds,1016 parameterized cases,512 cutoffs, and eight supplied-input conversions. At N6144,263 of532 residual units are certified. A coefficient2 current at root79 is stored in full.
+
+## R24 — Completing the complementary profile on the five rays suffices by induction
+
+**Status: elementary written conditional sufficiency, with a checked finite base; universal completion remains open.**
+
+Order all cutoffs `a*2^b`, a in{12,14,16,18,21}, b>=9. Consecutive ratios are7/6,8/7,9/8,7/6,8/7. Suppose a rule certifies every remaining R23 root from a supplied exact U_N current at each such cutoff. R17 and R23 then extend absorption to3N/2, which includes the next cutoff. The checked baseU6144 and induction supply every positive seed. All cutoffs are divisible by512, so R20's annular-block alternative is available throughout. No larger absorption assumption is needed, but the universal completion rule has not been constructed.
+
+A single factor64 ladder is too sparse for this step; the union of all five dyadic rays is sufficiently dense. Independent per-root certificates may reuse already certified input paths. Combining their source blocks into one annular submeasure instead requires joint capacity accounting. The [quantifier and literature audit](../experiments/residual_progress/sufficient_sets/SUFFICIENT_SETS_AUDIT.md) proves these distinctions and records why the cited sufficient-set/inverse-count results do not supply the missing bounded-height witnesses.
+
 ## C1 — Independent audit of R2–R4 and of main's R5, R6, R9, R10
 
 **Status: finite checks and model-assisted re-derivation; no discrepancy found.**
@@ -418,7 +446,7 @@ See the [note](../collatz_research_20261017/negative_controls/NOTE.md), Section 
 
 - **Primary:** construct a finite current (or one with nonpositive residual) at every cutoff on R5's five rays, and prove termination. R6's annular increments give an explicit sufficient target with its finite bases discharged. Arbitrarily large finite cost is permitted.
 - Find an arithmetic recursion or another structural mechanism that controls unresolved positive contributions. R13 proves its total exposure depth cannot be uniformly bounded, even on one ladder. Finite successful searches alone do not prove universal existence. C3 provides a conditional cost floor, while allowing one-sided alternatives. C2/C4 require a general termination argument to use hypotheses that fail for T_61; candidate methods that extend to those maps must respect the certified failures at `(d,N)=(61,213)` and `(-1,16)`.
-- Prioritize R20's explicit outer residual: prove a noncircular rule reducing every remaining root to already absorbed seeds. R19 refutes all-phase depth2h+1 completion. R21 supplies bounded local preprocessing but requires continuation through source-empty auxiliary components. Neither cancelled mass nor a local template count proves residual coverage.
+- Prioritize the complementary R23 profile: prove a finite bridge from every remaining root to already absorbed seeds, or another well-founded recursion covering all branches. R24 makes the five-ray induction noncircular once this rule exists. R22 rules out any depth bound depending only on h. R21 supplies bounded local preprocessing but requires continuation through source-empty auxiliary components. Neither cancelled mass nor a local template count proves residual coverage.
 - Prove finite progress for every positive exposed-component plateau, or close R8/R9's residuals in a family with a decreasing integer parameter. R8 deletes only certified source coefficients; R9 contracts only one pass. Neither handles its full residual.
 - R11 gives a finite conditional compiler that retains boundary terms and can end a plateau if its packet inputs are supplied. Develop a noncircular source of those inputs. R12 rules out obtaining a new descent merely by alternating the existing P and R operators.
 - Independently audit cutoffs, absorption, the five-ray transition, finite bases, annular table, and maximum principle. Current review is computational and model-assisted. C1 is a separate, independent pass that found no error. There is still no human peer review or proof-assistant verification.

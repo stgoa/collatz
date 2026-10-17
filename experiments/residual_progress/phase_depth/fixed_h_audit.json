@@ -1,0 +1,1274 @@
+{
+  "status": "PASS",
+  "proof": "FIXED_H_DEPTH.md",
+  "exact_h": 2,
+  "arbitrary_depth_theorem": true,
+  "complete_annular_source_accounting": true,
+  "finite_barrier_certificate": {
+    "shadow_reference": 10,
+    "forbidden_odd_shadow_maximum": 33,
+    "allowed_shadow_minimum": 35,
+    "slope_lower_bound": "7/2",
+    "annular_top_slope": "27/8",
+    "positive_paths": [
+      {
+        "initial": 1,
+        "path": [
+          1
+        ]
+      },
+      {
+        "initial": 3,
+        "path": [
+          3,
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 5,
+        "path": [
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 7,
+        "path": [
+          7,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 9,
+        "path": [
+          9,
+          7,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 11,
+        "path": [
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 13,
+        "path": [
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 15,
+        "path": [
+          15,
+          23,
+          35,
+          53,
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 17,
+        "path": [
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 19,
+        "path": [
+          19,
+          29,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 21,
+        "path": [
+          21,
+          1
+        ]
+      },
+      {
+        "initial": 23,
+        "path": [
+          23,
+          35,
+          53,
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 25,
+        "path": [
+          25,
+          19,
+          29,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 27,
+        "path": [
+          27,
+          41,
+          31,
+          47,
+          71,
+          107,
+          161,
+          121,
+          91,
+          137,
+          103,
+          155,
+          233,
+          175,
+          263,
+          395,
+          593,
+          445,
+          167,
+          251,
+          377,
+          283,
+          425,
+          319,
+          479,
+          719,
+          1079,
+          1619,
+          2429,
+          911,
+          1367,
+          2051,
+          3077,
+          577,
+          433,
+          325,
+          61,
+          23,
+          35,
+          53,
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 29,
+        "path": [
+          29,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 31,
+        "path": [
+          31,
+          47,
+          71,
+          107,
+          161,
+          121,
+          91,
+          137,
+          103,
+          155,
+          233,
+          175,
+          263,
+          395,
+          593,
+          445,
+          167,
+          251,
+          377,
+          283,
+          425,
+          319,
+          479,
+          719,
+          1079,
+          1619,
+          2429,
+          911,
+          1367,
+          2051,
+          3077,
+          577,
+          433,
+          325,
+          61,
+          23,
+          35,
+          53,
+          5,
+          1
+        ]
+      },
+      {
+        "initial": 33,
+        "path": [
+          33,
+          25,
+          19,
+          29,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      }
+    ],
+    "positive_orbit_union": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15,
+      17,
+      19,
+      21,
+      23,
+      25,
+      27,
+      29,
+      31,
+      33,
+      35,
+      41,
+      47,
+      53,
+      61,
+      71,
+      91,
+      103,
+      107,
+      121,
+      137,
+      155,
+      161,
+      167,
+      175,
+      233,
+      251,
+      263,
+      283,
+      319,
+      325,
+      377,
+      395,
+      425,
+      433,
+      445,
+      479,
+      577,
+      593,
+      719,
+      911,
+      1079,
+      1367,
+      1619,
+      2051,
+      2429,
+      3077
+    ],
+    "candidates": [
+      {
+        "z": 155,
+        "u": 16,
+        "c": 5,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 167,
+        "u": 18,
+        "c": 13,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 175,
+        "u": 18,
+        "c": 5,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 233,
+        "u": 24,
+        "c": 7,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 251,
+        "u": 27,
+        "c": 19,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 263,
+        "u": 27,
+        "c": 7,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 319,
+        "u": 32,
+        "c": 1,
+        "outcome": "excluded: every inverse valuation would equal1"
+      },
+      {
+        "z": 325,
+        "u": 36,
+        "c": 35,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 433,
+        "u": 48,
+        "c": 47,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 445,
+        "u": 48,
+        "c": 35,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 479,
+        "u": 48,
+        "c": 1,
+        "outcome": "excluded: every inverse valuation would equal1"
+      },
+      {
+        "z": 577,
+        "u": 64,
+        "c": 63,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 593,
+        "u": 64,
+        "c": 47,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 719,
+        "u": 72,
+        "c": 1,
+        "outcome": "excluded: every inverse valuation would equal1"
+      },
+      {
+        "z": 911,
+        "u": 96,
+        "c": 49,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 1079,
+        "u": 108,
+        "c": 1,
+        "outcome": "excluded: every inverse valuation would equal1"
+      },
+      {
+        "z": 1367,
+        "u": 144,
+        "c": 73,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 1619,
+        "u": 162,
+        "c": 1,
+        "outcome": "excluded: every inverse valuation would equal1"
+      },
+      {
+        "z": 2051,
+        "u": 216,
+        "c": 109,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 2429,
+        "u": 243,
+        "c": 1,
+        "outcome": "excluded: every inverse valuation would equal1"
+      },
+      {
+        "z": 2429,
+        "u": 256,
+        "c": 131,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      },
+      {
+        "z": 3077,
+        "u": 324,
+        "c": 163,
+        "outcome": "excluded: negative-map orbit cycles away from1"
+      }
+    ],
+    "negative_orbits": [
+      {
+        "c": 5,
+        "path": [
+          5,
+          7
+        ],
+        "repeat": 5,
+        "cycle": [
+          5,
+          7
+        ]
+      },
+      {
+        "c": 7,
+        "path": [
+          7,
+          5
+        ],
+        "repeat": 7,
+        "cycle": [
+          7,
+          5
+        ]
+      },
+      {
+        "c": 13,
+        "path": [
+          13,
+          19,
+          7,
+          5
+        ],
+        "repeat": 7,
+        "cycle": [
+          7,
+          5
+        ]
+      },
+      {
+        "c": 19,
+        "path": [
+          19,
+          7,
+          5
+        ],
+        "repeat": 7,
+        "cycle": [
+          7,
+          5
+        ]
+      },
+      {
+        "c": 35,
+        "path": [
+          35,
+          13,
+          19,
+          7,
+          5
+        ],
+        "repeat": 7,
+        "cycle": [
+          7,
+          5
+        ]
+      },
+      {
+        "c": 47,
+        "path": [
+          47,
+          35,
+          13,
+          19,
+          7,
+          5
+        ],
+        "repeat": 7,
+        "cycle": [
+          7,
+          5
+        ]
+      },
+      {
+        "c": 49,
+        "path": [
+          49,
+          73,
+          109,
+          163,
+          61,
+          91,
+          17,
+          25,
+          37,
+          55,
+          41
+        ],
+        "repeat": 61,
+        "cycle": [
+          61,
+          91,
+          17,
+          25,
+          37,
+          55,
+          41
+        ]
+      },
+      {
+        "c": 63,
+        "path": [
+          63,
+          47,
+          35,
+          13,
+          19,
+          7,
+          5
+        ],
+        "repeat": 7,
+        "cycle": [
+          7,
+          5
+        ]
+      },
+      {
+        "c": 73,
+        "path": [
+          73,
+          109,
+          163,
+          61,
+          91,
+          17,
+          25,
+          37,
+          55,
+          41
+        ],
+        "repeat": 61,
+        "cycle": [
+          61,
+          91,
+          17,
+          25,
+          37,
+          55,
+          41
+        ]
+      },
+      {
+        "c": 109,
+        "path": [
+          109,
+          163,
+          61,
+          91,
+          17,
+          25,
+          37,
+          55,
+          41
+        ],
+        "repeat": 61,
+        "cycle": [
+          61,
+          91,
+          17,
+          25,
+          37,
+          55,
+          41
+        ]
+      },
+      {
+        "c": 131,
+        "path": [
+          131,
+          49,
+          73,
+          109,
+          163,
+          61,
+          91,
+          17,
+          25,
+          37,
+          55,
+          41
+        ],
+        "repeat": 61,
+        "cycle": [
+          61,
+          91,
+          17,
+          25,
+          37,
+          55,
+          41
+        ]
+      },
+      {
+        "c": 163,
+        "path": [
+          163,
+          61,
+          91,
+          17,
+          25,
+          37,
+          55,
+          41
+        ],
+        "repeat": 61,
+        "cycle": [
+          61,
+          91,
+          17,
+          25,
+          37,
+          55,
+          41
+        ]
+      }
+    ]
+  },
+  "numerical_complete_components": [
+    {
+      "label": "CRT representative",
+      "X": 50176,
+      "report": {
+        "status": "complete_component",
+        "N": 1176,
+        "depth": 1,
+        "seed": 169343,
+        "vertices": 4,
+        "arrows": 3,
+        "source_atoms": 3,
+        "signed_source_mass": 2,
+        "linked_to_1": false,
+        "reachability_queries": 5,
+        "positive_component_obstruction": true,
+        "sources": [
+          [
+            75263,
+            -2
+          ],
+          [
+            112895,
+            2
+          ],
+          [
+            169343,
+            2
+          ]
+        ]
+      },
+      "vertices": [
+        75263,
+        112895,
+        169343,
+        254015
+      ],
+      "arrows": [
+        [
+          75263,
+          112895
+        ],
+        [
+          112895,
+          169343
+        ],
+        [
+          169343,
+          254015
+        ]
+      ]
+    },
+    {
+      "label": "CRT representative",
+      "X": 105472,
+      "report": {
+        "status": "complete_component",
+        "N": 2472,
+        "depth": 2,
+        "seed": 355967,
+        "vertices": 5,
+        "arrows": 4,
+        "source_atoms": 3,
+        "signed_source_mass": 2,
+        "linked_to_1": false,
+        "reachability_queries": 8,
+        "positive_component_obstruction": true,
+        "sources": [
+          [
+            158207,
+            -2
+          ],
+          [
+            237311,
+            2
+          ],
+          [
+            355967,
+            2
+          ]
+        ]
+      },
+      "vertices": [
+        158207,
+        237311,
+        355967,
+        533951,
+        800927
+      ],
+      "arrows": [
+        [
+          158207,
+          237311
+        ],
+        [
+          237311,
+          355967
+        ],
+        [
+          355967,
+          533951
+        ],
+        [
+          533951,
+          800927
+        ]
+      ]
+    },
+    {
+      "label": "CRT representative",
+      "X": 2593792,
+      "report": {
+        "status": "complete_component",
+        "N": 60792,
+        "depth": 5,
+        "seed": 8754047,
+        "vertices": 8,
+        "arrows": 7,
+        "source_atoms": 3,
+        "signed_source_mass": 2,
+        "linked_to_1": false,
+        "reachability_queries": 28,
+        "positive_component_obstruction": true,
+        "sources": [
+          [
+            3890687,
+            -2
+          ],
+          [
+            5836031,
+            2
+          ],
+          [
+            8754047,
+            2
+          ]
+        ]
+      },
+      "vertices": [
+        3890687,
+        5836031,
+        8754047,
+        13131071,
+        19696607,
+        29544911,
+        44317367,
+        66476051
+      ],
+      "arrows": [
+        [
+          3890687,
+          5836031
+        ],
+        [
+          5836031,
+          8754047
+        ],
+        [
+          8754047,
+          13131071
+        ],
+        [
+          13131071,
+          19696607
+        ],
+        [
+          19696607,
+          29544911
+        ],
+        [
+          29544911,
+          44317367
+        ],
+        [
+          44317367,
+          66476051
+        ]
+      ]
+    },
+    {
+      "label": "CRT representative",
+      "X": 363151360,
+      "report": {
+        "status": "complete_component",
+        "N": 8511360,
+        "depth": 8,
+        "seed": 1225635839,
+        "vertices": 11,
+        "arrows": 10,
+        "source_atoms": 3,
+        "signed_source_mass": 2,
+        "linked_to_1": false,
+        "reachability_queries": 62,
+        "positive_component_obstruction": true,
+        "sources": [
+          [
+            544727039,
+            -2
+          ],
+          [
+            817090559,
+            2
+          ],
+          [
+            1225635839,
+            2
+          ]
+        ]
+      },
+      "vertices": [
+        544727039,
+        817090559,
+        1225635839,
+        1838453759,
+        2757680639,
+        4136520959,
+        6204781439,
+        9307172159,
+        13960758239,
+        20941137359,
+        31411706039
+      ],
+      "arrows": [
+        [
+          544727039,
+          817090559
+        ],
+        [
+          817090559,
+          1225635839
+        ],
+        [
+          1225635839,
+          1838453759
+        ],
+        [
+          1838453759,
+          2757680639
+        ],
+        [
+          2757680639,
+          4136520959
+        ],
+        [
+          4136520959,
+          6204781439
+        ],
+        [
+          6204781439,
+          9307172159
+        ],
+        [
+          9307172159,
+          13960758239
+        ],
+        [
+          13960758239,
+          20941137359
+        ],
+        [
+          20941137359,
+          31411706039
+        ]
+      ]
+    },
+    {
+      "label": "CRT representative",
+      "X": 328331689984,
+      "report": {
+        "status": "complete_component",
+        "N": 7695273984,
+        "depth": 12,
+        "seed": 1108119453695,
+        "vertices": 15,
+        "arrows": 14,
+        "source_atoms": 3,
+        "signed_source_mass": 2,
+        "linked_to_1": false,
+        "reachability_queries": 156,
+        "positive_component_obstruction": true,
+        "sources": [
+          [
+            492497534975,
+            -2
+          ],
+          [
+            738746302463,
+            2
+          ],
+          [
+            1108119453695,
+            2
+          ]
+        ]
+      },
+      "vertices": [
+        492497534975,
+        738746302463,
+        1108119453695,
+        1662179180543,
+        2493268770815,
+        3739903156223,
+        5609854734335,
+        8414782101503,
+        12622173152255,
+        18933259728383,
+        28399889592575,
+        42599834388863,
+        63899751583295,
+        95849627374943,
+        143774441062415
+      ],
+      "arrows": [
+        [
+          492497534975,
+          738746302463
+        ],
+        [
+          738746302463,
+          1108119453695
+        ],
+        [
+          1108119453695,
+          1662179180543
+        ],
+        [
+          1662179180543,
+          2493268770815
+        ],
+        [
+          2493268770815,
+          3739903156223
+        ],
+        [
+          3739903156223,
+          5609854734335
+        ],
+        [
+          5609854734335,
+          8414782101503
+        ],
+        [
+          8414782101503,
+          12622173152255
+        ],
+        [
+          12622173152255,
+          18933259728383
+        ],
+        [
+          18933259728383,
+          28399889592575
+        ],
+        [
+          28399889592575,
+          42599834388863
+        ],
+        [
+          42599834388863,
+          63899751583295
+        ],
+        [
+          63899751583295,
+          95849627374943
+        ],
+        [
+          95849627374943,
+          143774441062415
+        ]
+      ]
+    },
+    {
+      "label": "required ladder representative",
+      "X": 16777216,
+      "report": {
+        "status": "complete_component",
+        "N": 393216,
+        "depth": 1,
+        "seed": 56623103,
+        "vertices": 4,
+        "arrows": 3,
+        "source_atoms": 3,
+        "signed_source_mass": 2,
+        "linked_to_1": false,
+        "reachability_queries": 5,
+        "positive_component_obstruction": true,
+        "sources": [
+          [
+            25165823,
+            -2
+          ],
+          [
+            37748735,
+            2
+          ],
+          [
+            56623103,
+            2
+          ]
+        ]
+      },
+      "vertices": [
+        25165823,
+        37748735,
+        56623103,
+        84934655
+      ],
+      "arrows": [
+        [
+          25165823,
+          37748735
+        ],
+        [
+          37748735,
+          56623103
+        ],
+        [
+          56623103,
+          84934655
+        ]
+      ]
+    },
+    {
+      "label": "required ladder representative",
+      "X": 16777216,
+      "report": {
+        "status": "complete_component",
+        "N": 393216,
+        "depth": 2,
+        "seed": 56623103,
+        "vertices": 5,
+        "arrows": 4,
+        "source_atoms": 3,
+        "signed_source_mass": 2,
+        "linked_to_1": false,
+        "reachability_queries": 8,
+        "positive_component_obstruction": true,
+        "sources": [
+          [
+            25165823,
+            -2
+          ],
+          [
+            37748735,
+            2
+          ],
+          [
+            56623103,
+            2
+          ]
+        ]
+      },
+      "vertices": [
+        25165823,
+        37748735,
+        56623103,
+        84934655,
+        127401983
+      ],
+      "arrows": [
+        [
+          25165823,
+          37748735
+        ],
+        [
+          37748735,
+          56623103
+        ],
+        [
+          56623103,
+          84934655
+        ],
+        [
+          84934655,
+          127401983
+        ]
+      ]
+    },
+    {
+      "label": "required ladder representative",
+      "X": 16777216,
+      "report": {
+        "status": "complete_component",
+        "N": 393216,
+        "depth": 3,
+        "seed": 56623103,
+        "vertices": 6,
+        "arrows": 5,
+        "source_atoms": 3,
+        "signed_source_mass": 2,
+        "linked_to_1": false,
+        "reachability_queries": 12,
+        "positive_component_obstruction": true,
+        "sources": [
+          [
+            25165823,
+            -2
+          ],
+          [
+            37748735,
+            2
+          ],
+          [
+            56623103,
+            2
+          ]
+        ]
+      },
+      "vertices": [
+        25165823,
+        37748735,
+        56623103,
+        84934655,
+        127401983,
+        191102975
+      ],
+      "arrows": [
+        [
+          25165823,
+          37748735
+        ],
+        [
+          37748735,
+          56623103
+        ],
+        [
+          56623103,
+          84934655
+        ],
+        [
+          84934655,
+          127401983
+        ],
+        [
+          127401983,
+          191102975
+        ]
+      ]
+    }
+  ],
+  "symbolic_required_ray_exponents": [
+    {
+      "depth": 1,
+      "ternary_modulus": 27,
+      "exponent": 24,
+      "exponent_period": 18,
+      "ladder_index": 2,
+      "ladder_index_period": 3
+    },
+    {
+      "depth": 2,
+      "ternary_modulus": 81,
+      "exponent": 24,
+      "exponent_period": 54,
+      "ladder_index": 2,
+      "ladder_index_period": 9
+    },
+    {
+      "depth": 3,
+      "ternary_modulus": 243,
+      "exponent": 24,
+      "exponent_period": 162,
+      "ladder_index": 2,
+      "ladder_index_period": 27
+    },
+    {
+      "depth": 5,
+      "ternary_modulus": 2187,
+      "exponent": 996,
+      "exponent_period": 1458,
+      "ladder_index": 164,
+      "ladder_index_period": 243
+    },
+    {
+      "depth": 12,
+      "ternary_modulus": 4782969,
+      "exponent": 2679342,
+      "exponent_period": 3188646,
+      "ladder_index": 446555,
+      "ladder_index_period": 531441
+    },
+    {
+      "depth": 32,
+      "ternary_modulus": 16677181699666569,
+      "exponent": 10872640557772332,
+      "exponent_period": 11118121133111046,
+      "ladder_index": 1812106759628720,
+      "ladder_index_period": 1853020188851841
+    },
+    {
+      "depth": 64,
+      "ternary_modulus": 30903154382632612361920641803529,
+      "exponent": 908105189157494411198159555952,
+      "exponent_period": 20602102921755074907947094535686,
+      "ladder_index": 151350864859582401866359925990,
+      "ladder_index_period": 3433683820292512484657849089281
+    }
+  ],
+  "bounded_depth_function_of_h_refuted": true,
+  "universal_annular_completion_proved": false,
+  "collatz_proved": false
+}

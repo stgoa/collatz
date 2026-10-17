@@ -131,6 +131,8 @@ def main():
             ("release_coverage", "check_coverage.py"),
             ("complement_recursion", "check_transfer.py"),
             ("window_components", "check_window_components.py"),
+            ("phase_depth", "check_fixed_h.py"),
+            ("residual_return", "check_halving_return.py"),
         ):
             run([sys.executable, "-B", script], residual_work / directory)
         # The review checker imports the annular arithmetic implementation;
@@ -178,6 +180,8 @@ def main():
                          release_phase_coverage="PASS: symbolic phase isolation and fixed-h required-ladder obstruction",
                          annular_complement_transfer="PASS: smaller ancestors, exact outer currents and delayed descents",
                          bounded_source_clusters="PASS: complete local clusters, sharp63 span and forbidden-exit scope",
+                         fixed_ternary_depth="PASS: finite barrier and complete obstructions at fixed h=2",
+                         shrinking_coalescence="PASS: full binary family, exact residual counts and supplied-current conversion",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
 
 
