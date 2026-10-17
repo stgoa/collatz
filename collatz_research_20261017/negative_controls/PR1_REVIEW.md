@@ -310,3 +310,34 @@ as tests of universal claims. The merged PR does not justify abandoning
 structural certificate search, and the newer feed does not establish a
 barrier to the enlarged bridge class. Neither our added coverage nor
 the target-set theorem supplies universal convergence.
+
+## 10. Focused pivot after shrinking paired returns
+
+The latest remote read again reports PR1 as the only merged PR, already
+on main. Its useful negative controls remain part of the full gate.
+The separate feed was initially audited at ceb94fc372533e6fdc196595a817e8c01bc62d51;
+a later read at d2d85e1e49f0018a648c6daadc4fc93290c0d107 records its
+withdrawal of the broad universal-merger claim. The later numerical
+probes were read but were not independently rerun in this batch.
+
+**Recommendation: pursue shrinking arithmetic comparisons with supplied
+smaller-seed paths.** The new
+[paired construction](../../experiments/residual_progress/second_return/SHRINKING_PAIRS.md)
+reduces its parameter to less than one quarter on recursive branches,
+and gives exact smaller-seed mergers for infinite families at every
+recursive depth. Those families had unbounded normalized return height.
+This is a concrete partial advance, while odd-h and other branches
+remain unresolved. It supplies no new global coverage or termination
+theorem.
+
+The [complete supplied-path table](../../experiments/residual_progress/known_saturation/KNOWN_SATURATION.md)
+makes known history reusable without discarding larger known targets.
+Its finite examples were already in that history, which is explicitly
+recorded. The [repeated bounded-run proof](../../experiments/residual_progress/bounded_run_cycles/BOUNDED_RUN_GROWTH.md)
+rules out finite-label, height-monotone strict progress on every return,
+so the next proof needs richer arithmetic or intermediate increases.
+The [scope audit](../../experiments/residual_progress/merger_scope/MERGER_SCOPE.md)
+retains the valid fixed-rule rate statements and refutes the inference
+that high future climbers must cancel while high. These results support
+the focused constructive pivot; they do not justify abandoning finite
+current certificates.

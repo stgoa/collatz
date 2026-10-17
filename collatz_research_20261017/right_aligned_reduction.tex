@@ -46,6 +46,11 @@ $55.28\%$ of that residual's leading mass. The remaining return heights
 are unbounded. The same normal form supplies infinitely many known targets
 with a height-uniform counting theorem; density alone does not prove that
 every remaining orbit meets them.
+A shrinking signed-pair recursion now resolves explicit infinite families
+of those growing returns, with arbitrarily deep recursion. Its positive
+integer parameter decreases by more than a factor of four, but some
+arithmetic branches remain unresolved. Conversely, repeated bounded run
+patterns rule out strict height-monotone progress with any finite label set.
 No complete universal current construction, Collatz proof, or novelty claim
 is supplied.
 \end{abstract}
@@ -2182,6 +2187,257 @@ bit budget: affine constants and increasing-modulus discrepancies need
 separate control. They do not rule out arbitrary bridges to
 $\mathcal I_N$, whose membership is explicitly arithmetic.
 
+\section{Saturating all supplied paths into a finite ordinary graph}
+Let $Y_N$ be the union of the actual absorbing paths supplied by a finite
+exact $U_N$ current, including1, and set $Q_N=\nu(Y_N)$.
+The exact closure under the elementary identities and forward $S$ arrows is
+\[
+\mathcal E_N=\nu^{-1}(Q_N),\qquad T(Q_N)\subseteq Q_N.
+\]
+Indeed elementary identities preserve $\nu$, and taking a successor
+advances its value by $T$. Conversely $S$ followed by normalization
+generates every quotient successor, then inverse elementary identities
+generate its whole fibre. The supplied paths make $Q_N$ finite and absorbing.
+
+\begin{theorem}[A finite core for the infinite saturation]\label{thm:saturation}
+For every nonempty finite canonical set $Q$ with $T(Q)\subseteq Q$, let
+\[
+W_Q=\{S(q),3q+2:q\in Q\}.
+\]
+Then $S(\nu^{-1}(Q))=W_Q$, $S(W_Q)\subseteq W_Q$,
+$|W_Q|=2|Q|$, and $\max W_Q=3\max Q+2$.
+If $Q$ absorbs under $T$, its finite ordinary $S$ table certifies every
+member of $\nu^{-1}(Q)$ in at most $2|Q|$ arrows.
+\end{theorem}
+\begin{proof}
+The two rays in each canonical class have constant successors $S(q)$
+and $S(2q+1)=3q+2$, and these normalize to $T(q)\in Q$.
+Their $2|Q|$ bases are distinct $F$-roots; equality of two successors
+would place those bases on one $F$-ray, a contradiction.
+This proves the identities and closure. The semiconjugacy proves absorption
+of the finite table from absorption of $Q$. One initial arrow enters
+$W_Q$, followed by at most $2|Q|-1$ arrows to1.
+\end{proof}
+The pointwise consequence $S(x)\le3\nu(x)+2$ shows why high elementary
+representatives return immediately to a bounded region. The set
+$\mathcal I_N$ and finite union $Y_N$ need not contain one another:
+$41\in Y_{32}$ but $\nu(41)>32$. Their common closure is $\mathcal E_N$.
+The new compiler accepts any finite bridge with target normalizing into
+$Q_N$. At $N=384$, root415 of weight2 has normalized return1579,
+which is above $N$ but equals $S^9(327)$. A stored48-row current certifies
+both units using this known history. These are conditional constructions,
+not a universal target-entry theorem.
+In this example415 itself equals $S^4(327)$, so it demonstrates reuse of
+supplied history rather than a new merger mechanism.
+For any finite canonical $Q$ with $M=\max Q$, the same exact telescope
+as in Theorem~\ref{thm:knownfibres} gives
+\[
+\left|\#(\nu^{-1}(Q)\cap[X,2X))-|Q|\right|
+\le\lfloor\log_2 M\rfloor+1\qquad(X\in\mathbb Z,\ X\ge M).
+\]
+This additive bound alone gives no relative asymptotic for sparse $Q$.
+Details and the finite compiler are in
+\path{experiments/residual_progress/known_saturation/KNOWN_SATURATION.md}.
+
+\section{A shrinking paired recursion beyond growing normalized returns}
+The unbounded-return family in Theorem~\ref{thm:runbridge} supplies a
+specific comparison path. For $a\ge7$, $a\equiv7\pmod{16}$, put
+\[
+x=2^a-1,\quad N=12\cdot2^{a-4},\quad q=2^{a-1}-1<N,
+\quad w=\frac{3^{a-1}-1}{8}.
+\]
+Here $x$ is a complementary coefficient1 root at a required-ray cutoff.
+Its normalized return is $3w\equiv1\pmod8$, with $3w/x$ unbounded,
+while prescribed prefixes give
+\[
+S^{a-1}(q)=w,\qquad S^a(x)=4(3w)+1.
+\]
+Thus $w$ is certified by the supplied smaller seed $q$. It remains useful
+to compare $3w$ with $w$, even when both lie far above $N$.
+
+\begin{theorem}[A partial shrinking pair construction]\label{thm:pairedreturn}
+Let $w>0$, $w\equiv3\pmod8$, and suppose
+$h=v_2(3w-1)=2k+2$ is even, $k\ge1$. Set
+\[
+z=3^k\frac{3w-1}{2^h}.
+\]
+If $z$ is canonical, there is an explicit finite current with divergence
+$\delta_{3w}-\delta_w$. If $z\equiv101\pmod{128}$, put
+\[
+w'=\frac{3z+1}{16}.
+\]
+Then $w'\equiv3\pmod8$, $0<w'<w/4$, and a finite current for
+$\delta_{3w'}-\delta_{w'}$ explicitly supplies one for
+$\delta_{3w}-\delta_w$. Repeated recognition terminates, returning
+either a certificate or an unresolved arithmetic branch.
+\end{theorem}
+\begin{proof}
+The identity $S(1+2^e c)=1+3\cdot2^{e-2}c$ for odd $c$ and
+$e\ge3$ gives the exact paired prefixes
+\[
+S^k(3w)=4z+1,\qquad S^{k+1}(w)=2z+1.
+\]
+For canonical $z$, the two endpoints have elementary minimum $z$,
+so appending their finite elementary bridges and subtracting the
+prefixes gives the desired current. More precisely, if
+$A=v_2(2z+2)$, their merger clock is
+$S^{k+A}(3w)=S^{k+A+1}(w)$.
+
+In the recursive case write $z=4u+1$, $u\equiv25\pmod{32}$.
+Then $S(u)=w'$ and direct arithmetic gives
+\[
+S^{k+1}(3w)=w',\qquad S^{k+4}(w)=S(3w').
+\]
+The left prefix minus the right prefix, plus the current row at $3w'$,
+has divergence
+\[
+\delta_{3w}-\delta_w+\delta_{3w'}-\delta_{w'}.
+\]
+The child current must therefore be subtracted. Finally
+$z<(3/4)^{k+1}w<w$ and $(3z+1)/16<w/4$, giving the strict
+integer decrease. Odd $h$ and other noncanonical $z$ are explicitly
+unresolved; the theorem does not assert that every branch succeeds.
+If a child merger has clock $l$, the parent has clock $k+l+2$.
+\end{proof}
+
+There are complete infinite families of every recursive depth. With
+$k=1$, the recursive map is $R(w)=(27w+7)/256$. For $r\ge0$, the
+unique binary cylinder
+\[
+27^r(229w-7)\equiv256^r(229\cdot59-7)
+\pmod{2^{8r+7}}
+\]
+has exactly $r$ recursive transitions and then the terminal class
+$w\equiv59\pmod{128}$. This follows from
+$229R^r(w)-7=(27/256)^r(229w-7)$; the congruence enforces integrality
+at every step. A child $v\equiv3\pmod8$ gives
+$z=(16v-1)/3\equiv101\pmod{128}$ and exact $h=4$.
+Consequently
+\[
+S^{3r+3}(3w)=S^{3r+4}(w).
+\]
+Elementary binary lifting of $3^{a-1}=1+8w$ produces a unique exponent
+class $a=a_r\pmod{2^{8r+8}}$, with $a\equiv7\pmod{16}$,
+for this cylinder. The lifting uses
+$3^{2^j}\equiv1+2^{j+2}\pmod{2^{j+3}}$ for $j\ge1$.
+The first classes are $a\equiv199\pmod{256}$ and
+$a\equiv2887\pmod{65536}$. For every exponent in the relevant class,
+\[
+S^{a+3r+3}(2^a-1)=S^{a+3r+3}(2^{a-1}-1).
+\]
+These are actual smaller-seed mergers through the old unbounded returns.
+The variable-$k$ branch also supplies $a\equiv39\pmod{2^{20}}$,
+with one recursive $k=3$ step, a terminal $k=1$ step, and clock $a+8$.
+
+Let $D_x$ be the old bridge from $x$ to $3w$, $J_w$ the accepted pair
+current, and $H_{q,w}$ the prescribed smaller-seed prefix. Then
+\[
+\operatorname{div}(D_x+J_w-H_{q,w})=\delta_x-\delta_q.
+\]
+Adding a supplied exact current for $q$ certifies $x$, with all signed
+rows retained. A nonnegative current is extracted using only this finite
+graph, and any source weight is preserved by scaling the whole identity.
+The stored example at $a=39$ gives a191-row current for
+$x=549755813887$. The full proof, cylinders and checker are in
+\path{experiments/residual_progress/second_return/SHRINKING_PAIRS.md}.
+
+\section{Arbitrarily long growth with bounded run labels}
+The normalized return of Theorem~\ref{thm:runbridge} is exactly
+$T^{k(x)}(x)$ with $k(x)=a+\lfloor d/2\rfloor-1$.
+For even $d$, $S^{k(x)}x=f(x)$; for odd $d$ it is $F(f(x))$.
+Normalization and the semiconjugacy prove the statement in both cases.
+Thus the formula supplies an exact positive variable clock, whose
+iteration still requires a progress argument.
+
+\begin{theorem}[Repeated bounded-run growth]\label{thm:boundedruns}
+For every $r\ge1$, every positive seed satisfying
+\[
+x\equiv-9221\cdot4513^{-1}\pmod{2^{11r+6}}
+\]
+has $r$ repetitions of the ordinary valuation word
+$(1,2,1,1,1,1,2,2)$. All these states are canonical, and its $2r$
+normalized run returns alternate labels $(2,2),(5,4)$ and strictly
+increase. Every noninitial ordinary prefix exceeds $x$.
+For each $r$ there are such coefficient1 roots on infinitely many
+required-ray cutoffs.
+\end{theorem}
+\begin{proof}
+At27 the word gives
+$27,41,31,47,71,107,161,121,91$. These canonical phases and labels
+persist modulo $2^{17}$ by the exact affine prefix formulas.
+Their slopes all exceed1. The paired return is
+\[
+\Psi(x)=\frac{6561x+9221}{2048},\quad
+4513\Psi(x)+9221=\frac{6561}{2048}(4513x+9221),\quad
+4513\cdot27+9221=2^{17}.
+\]
+The stated initial precision loses eleven bits per pair, leaving at
+least17 bits before each of the first $r$ pairs. Each pair is therefore
+integral, has the required phases and increases both return heights.
+Every intermediate slope exceeds1 and has positive offset, so the
+ordinary prefix also stays above the pair's starting value.
+
+For the required rays, impose $x\equiv0\pmod3$ as well by CRT,
+giving period $P=3\cdot2^{11r+6}$. At any $N=12\cdot2^b$ with
+$b\ge11r+6$, its first representative above $N$ lies in
+$(N,N+P]\subseteq(N,5N/4]$ and is $3\pmod{12}$.
+It is a complementary coefficient1 root, and every displayed return
+remains canonical and above $N$.
+\end{proof}
+The seed changes with $r$; the negative rational affine fixed point
+$-9221/4513$ is not a positive divergent integer orbit.
+
+There can be no potential $G(\ell(x),x)$ with a fixed finite label set,
+nondecreasing in height for each label, that strictly decreases at every
+normalized run return. A sufficiently long growing sequence repeats a
+label at a larger height, contradicting strict decrease. This excludes
+finite residue/height candidates of that form while allowing unbounded
+state, nonmonotone potentials, intermediate increases and additional
+mergers into supplied paths. The full prefix table and finite checks are in
+\path{experiments/residual_progress/bounded_run_cycles/BOUNDED_RUN_GROWTH.md}.
+
+\section{Merger scope and cancellation before high excursions}
+The elementary successor identity proves, for every odd $x$,
+\[
+S(x)\in\{S(\nu(x)),3\nu(x)+2\}.
+\]
+Thus if $\nu(S^j x)\le N$ for some $j\le L$, an ordinary successor
+at most $3N+2$ occurs within $L+1$ steps. For the saturated set
+$\mathcal E_N$, the bound instead involves $\max Q_N$; no uniform
+constant multiple of $N$ has been established as a bound for that maximum.
+For the precisely defined symbolic recognizer testing normalized slopes
+below $2/3$, with all needed binary bits charged, both rate factors of
+the preceding prefix theorem persist for every fixed lookahead.
+The escape cylinder $x\equiv191\pmod{256}$ has valuation word
+$(1,1,1,1,1,2)$, canonical initial states, and final slope $729/128>3$.
+Appending positive-barrier compositions and a final valuation1 gives
+the matching lower rates via the bound
+$\lambda_{j+1}\le3\sigma_j$ between ordinary and normalized slopes.
+The bit-clock proof also retains the undetermined final normalization
+branch. This result concerns the specified slope test, not arbitrary
+bridges or integer counts with bit depth growing with $N$.
+
+High future peaks need not be cancelled while high. For every
+$a\ge19$, $a\equiv1\pmod{18}$, define
+\[
+N=12\cdot2^{a-5},\quad z=2^a-1,\quad
+p=\frac{4z-1}{3},\quad q=4p+1.
+\]
+The annular table gives coefficient $+1$ at $p$ and $-1$ at $q$.
+Since $S(p)=S(q)=z<p<q$, the current $\delta_p-\delta_q$ has
+that same divergence and cancels these source units immediately.
+Their shared future has $a-1$ valuation1 arrows and reaches
+$2\cdot3^{a-1}-1$, whose ratio to either source is unbounded.
+This identity assumes no future absorption.
+
+Finally, allowing arbitrary common-tail comparisons with known absorbing
+seeds gives exactly the basin of1: a common future with an absorbed seed
+absorbs, and every absorbed seed meets the known seed1. This equivalence
+provides no universal method to find a finite witness. It also means that
+finite target-density samples cannot rule out every merger construction.
+The full scoped rate proof and externally reproduced peak tables are in
+\path{experiments/residual_progress/merger_scope/MERGER_SCOPE.md}.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -2226,6 +2482,13 @@ supplies a closed quotient and all inverse branches, while
 Theorem~\ref{thm:knownfibres} expands the known target set to arbitrary
 heights. Neither target density nor the symbolic prefix rates establish
 that every remaining branch reaches it.
+Theorem~\ref{thm:saturation} now compiles all supplied history into an
+exact finite core. Theorem~\ref{thm:pairedreturn} provides a genuinely
+decreasing recursion for explicit infinite subfamilies of the growing
+returns. Its odd-$h$ and remaining $z$ branches are the next concrete
+obligation. Theorem~\ref{thm:boundedruns} rules out strict decrease on
+every run return for height-monotone potentials with finitely many labels;
+it leaves other arithmetic state and paired mergers available.
 The packet work itself need not be nonpositive: direct finite iteration gives
 $H_{39}(\PiR_{32})=57$. The target is a finite upper bound for each cutoff.
 
@@ -2313,5 +2576,15 @@ The known-fibre checker compares $912$ small and $18$ high bands,
 including height multiplier $2^{512}$, and $56$ exact current conversions.
 The cylinder checker compares four dynamic programs with direct residues
 through14 bits, then checks exact counts through128 bits and finite
-rotation bounds. These audits remain finite evidence for the implementations.
+rotation bounds. The supplied-saturation checker verifies nine cutoffs,
+minimum-origin labels, high-band counts and224 exact currents.
+The paired recursion checks4096 pairs,72 terminal cylinders,56 recursive
+integer cases through depth64,65 exact exponent lifts,eight actual
+Mersenne bridges and one supplied-current conversion.
+The repeated-word checker covers57 cylinders through128 word repetitions,
+21 required-ray witnesses and six finite-label examples.
+The merger-scope checker verifies16384 successor bounds,128 escape
+representatives,six ray escapes,six early-cancellation family members,
+and both reproduced sign/climb tables.
+These audits remain finite evidence for the implementations.
 \end{document}

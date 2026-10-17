@@ -415,9 +415,61 @@ For the D/M/H slope recognizers defined in the [proof](../experiments/residual_p
 
 The external exact-closing H dynamic program omitted cases where the unfinished closing valuation is already known to be at least3. For four bits x=3 modulo16 is selected; correcting the tail changes undecided measure from1 to3/4. Direct residue enumeration checks all four variants for bits2..14; exact dynamic programs run through128 bits. The correction changes finite coverage but not the proved rate.
 
-The optional feed at commit491d26d766971bdf7fdce9bba288540423fd58c8 was reproduced and scoped. Its two new receipts match, while its finite forward-union density and merger timing do not exhaust arbitrary certifiable targets or prove an orbit hitting bound. An actual R23 family has a smaller partner below N and common state(3^a−1)/8 at unbounded relative height before any descent. R27 supplies an infinite larger target set. The rate theorem is about symbolic slope prefixes, with no uniform finite-integer count when bits grow with log N; affine constants and increasing-modulus discrepancies remain separate obligations.
+The optional feed at commit491d26d766971bdf7fdce9bba288540423fd58c8 was reproduced and scoped. Its two new receipts match, while its finite forward-union density and merger timing do not exhaust arbitrary certifiable targets or prove an orbit hitting bound. An actual R23 family has a smaller partner below N and common state(3^a−1)/8 at unbounded relative height before any descent. R27 supplies an infinite additional target set; it can be incomparable with the finite forward union (R29/R32). The rate theorem is about symbolic slope prefixes, with no uniform finite-integer count when bits grow with log N; affine constants and increasing-modulus discrepancies remain separate obligations.
 
 See [checker](../experiments/residual_progress/cylinder_barrier/check_cylinder_barrier.py), [finite receipt](../experiments/residual_progress/cylinder_barrier/cylinder_audit.json), and [pinned external review](../experiments/residual_progress/cylinder_barrier/external_review.json). No arbitrary-bridge obstruction or Collatz termination claim follows.
+
+## R29 — Exact supplied-path saturation and a finite ordinary certificate core
+
+**Status: written closure theorem and finite compiler; universal entry remains open.**
+
+Let Y_N be the actual forward paths supplied by an exact U_N current and Q_N=nu(Y_N). The exact closure of the seeds through N under the R25 elementary identities and forward S arrows is E_N=nu^(-1)(Q_N). The quotient Q_N is finite and T-forward-closed. Its least-origin labels give the minimum canonical input seed reaching each target and determine every smaller-cutoff table. This minimum is for the specified operations, not all possible independent proofs.
+
+For every finite T-closed canonical set Q, define W_Q={S(q),3q+2:q in Q}. Then S(nu^(-1)Q)=W_Q, S(W_Q) is contained in W_Q, |W_Q|=2|Q| and max W_Q=3maxQ+2. If Q absorbs, the finite ordinary S table absorbs and certifies any member of its infinite preimage set in at most2|Q| arrows. All construction after the supplied input follows finite tables. The pointwise corollary S(x)<=3nu(x)+2 shows that high elementary targets immediately return to a bounded region.
+
+The compiler accepts any checked signed bridge whose target normalizes into Q_N. This improves R26's cutoff-only test: at N384, the full weight2 root415 returns to1579>N, but1579=S^9(327) is known. A stored48-row current certifies both units. At that cutoff saturation increases the accepted complementary mass from9 to11 of17. In this example415 itself already equals S^4(327), so the example demonstrates complete reuse of supplied history, not a new merger mechanism. These are finite examples, with no universal coverage claim.
+
+For an arbitrary finite canonical Q with M=maxQ and integer X>=M, its high-band count differs from |Q| by at most floor(log2 M)+1. Signed weights have the same bound multiplied by their maximum magnitude. This additive estimate need not become a relative asymptotic: Q={1} has persistent counts0 and2 along two height sequences. No uniform relation between |Q_N|, maxQ_N and N is supplied.
+
+The cutoff-only set I_N and known-forward union Y_N can be incomparable:41 lies in Y_32 but not I_32; I_N has arbitrarily high members while Y_N is finite. E_N contains both. Allowing arbitrary incoming arrows enlarges this closure and is a separate operation. See [proof](../experiments/residual_progress/known_saturation/KNOWN_SATURATION.md), [compiler](../experiments/residual_progress/known_saturation/saturation.py), [receipt](../experiments/residual_progress/known_saturation/saturation_audit.json), and [weight2 certificate](../experiments/residual_progress/known_saturation/root415_current.json).
+
+## R30 — A shrinking paired recursion resolves infinite growing-return families
+
+**Status: written partial construction with decreasing parameter, complete infinite cylinders, and finite currents.**
+
+For positive w=3 modulo8 put h=v2(3w-1). If h=2k+2 is even, k>=1, set z=3^k(3w-1)/2^h. Exact prefixes give S^k(3w)=4z+1 and S^(k+1)(w)=2z+1. Canonical z gives an elementary terminal bridge between3w and w. If z=101 modulo128, put w'=(3z+1)/16. Then w'=3 modulo8, 0<w'<w/4, and an explicit local current has divergence delta_(3w)-delta_w+delta_(3w')-delta_w'. Subtracting a child bridge gives the required parent bridge. The recognizer always terminates, but returns unresolved for odd h and other noncanonical z classes.
+
+With k=1 the child is R(w)=(27w+7)/256. For every r>=0, the complete cylinder `27^r(229w-7)=256^r(229*59-7) mod2^(8r+7)` gives exactly r recursive transitions followed by the terminal class w=59 modulo128. It has the prescribed merger `S^(3r+3)(3w)=S^(3r+4)(w)`. Binary exponent lifting yields an explicit class a=a_r modulo2^(8r+8) with a=7 modulo16 and w=(3^(a-1)-1)/8 in that cylinder. The first classes are199 modulo256 and2887 modulo65536.
+
+For every such a, x=2^a-1 is an actual weight1 complementary R_N root at N=12*2^(a-4), q=2^(a-1)-1<N, and `S^(a+3r+3)(x)=S^(a+3r+3)(q)`. The old normalized return3w is already canonical and grows without bound relative to x along each class. These exact smaller-seed mergers resolve infinite subfamilies of R26's obstruction at every recursive depth. A second class a=39 modulo2^20 uses k=3 recursively then k=1 terminally, with merger time a+8.
+
+Given a supplied exact signed current for q, add the R26 bridge x→3w, the pair bridge3w→w, and the negative of q's prescribed prefix to w. This gives an exact absorption current for x; a nonnegative current is extracted from the existing finite graph. The stored a39 example has191 rows and source549755813887. Coefficients may be scaled with their full weight. This does not assume absorption at an unknown larger cutoff.
+
+See [proof](../experiments/residual_progress/second_return/SHRINKING_PAIRS.md), [constructor](../experiments/residual_progress/second_return/paired_return.py), [receipt](../experiments/residual_progress/second_return/paired_return_audit.json), and [actual current](../experiments/residual_progress/second_return/mersenne_39_current.csv). Checks cover4096 pairs,72 terminal cylinders,56 recursive integer cases through depth64,65 exponent lifts,eight actual Mersenne bridges,and one supplied-current conversion. Independent proof/code review passed. Universal coverage and any revised global residual fraction remain unproved.
+
+## R31 — Repeated bounded runs exclude finite-label height potentials
+
+**Status: written finite-cylinder theorem and scoped obstruction; no divergent positive orbit is exhibited.**
+
+R26's normalized return is exactly T^k(x), with k=a+floor(d/2)−1. The eight-step valuation word(1,2,1,1,1,1,2,2) pairs run labels(2,2),(5,4). Its affine map is Psi(x)=(6561x+9221)/2048. All intermediate states are canonical and exceed the pair's starting seed whenever x=27 modulo2^17.
+
+For every r>=1 choose any positive x congruent to−9221/4513 modulo2^(11r+6). The exact identity4513Psi(x)+9221=(6561/2048)(4513x+9221), together with4513*27+9221=2^17, forces r complete repeated words. All2r normalized returns strictly increase. Thus arbitrarily long growth occurs with a<=5,d<=4 and all ordinary valuations at most2. CRT supplies actual coefficient1 roots on infinitely many required cutoffs N=12*2^b for each r; the initial seed varies with r.
+
+No potential of the form G(label(x),x), with a fixed finite label set and G nondecreasing in height for each label, can strictly decrease at every normalized return. A sufficiently long growing sequence repeats a label at a larger height, contradicting strict decrease. This covers finite residue augmentations and finite-rank/height lexicographic candidates. It permits unbounded arithmetic state, nonmonotone potentials, arguments allowing intermediate increases, and extra known-path mergers.
+
+See [proof](../experiments/residual_progress/bounded_run_cycles/BOUNDED_RUN_GROWTH.md), [constructor](../experiments/residual_progress/bounded_run_cycles/bounded_runs.py), and [receipt](../experiments/residual_progress/bounded_run_cycles/bounded_runs_audit.json). Checks cover57 parameter cylinders through128 repeated words,21 required-ray witnesses and six finite-modulus examples, retaining the complete finite divergence. No uniform obstruction at a fixed seed is asserted.
+
+## R32 — Exact merger scope, normalized prefix rates, and early cancellation
+
+**Status: written scope results and an infinite actual-source cancellation family, with finite external reproductions.**
+
+The known forward union F_N and elementary fibre set I_N can be incomparable:11 belongs to F_8 but not I_8, while21 belongs to I_8 but not F_8. Their elementary-plus-forward saturation is R29. Allowing arbitrary common-tail comparisons with known seeds gives exactly the basin of1, so universal common-tail certification is equivalent to absorption. A finite-sample density model cannot show that a successful proof must avoid mergers.
+
+For every odd x, `S(x) in {S(nu(x)),3nu(x)+2}`, hence S(x)<=3nu(x)+2. Therefore a test nu(S^j x)<=N at some j<=L forces an ordinary state at most3N+2 within L+1 successors. For forward-saturated targets the bound uses maxQ_N instead; no uniform constant-factor bound by N has been established. The precise symbolic slope recognizer accepting nu(S^j x) with slope<2/3 has the R28 rates rho and beta for every fixed lookahead, with all normalization bits charged. The escape prefix(1,1,1,1,1,2), x191 modulo256, and positive-barrier composition counts prove the matching lower rates. This is not a moving-modulus integer-count theorem or an arbitrary-catalogue barrier.
+
+For every a=1 modulo18, a>=19, put N=12*2^(a-5), z=2^a-1, p=(4z-1)/3 and q=4p+1. The actual annular coefficients provide +1 at p and -1 at q; S(p)=S(q)=z<p<q, so the one-row-pair current cancels these units before their shared future run. That run reaches2*3^(a-1)-1, whose ratio to both sources is unbounded. High future peaks therefore do not force merger while high. No future absorption is assumed for this identity.
+
+The original feed pin ceb94fc372533e6fdc196595a817e8c01bc62d51 was audited: its R24 script/receipt was reproduced and all ten published sign/climb cells were independently rebuilt with capped paths. A later read at d2d85e1e49f0018a648c6daadc4fc93290c0d107 records the external withdrawal of the universal merger claim; the newer probes were not rerun in this batch. See [proof and review](../experiments/residual_progress/merger_scope/MERGER_SCOPE.md), [finite receipt](../experiments/residual_progress/merger_scope/merger_scope_audit.json), and [pinned reproduction](../experiments/residual_progress/merger_scope/external_review.json). Independent proof audit passed. Collatz remains open.
 
 ## C1 — Independent audit of R2–R4 and of main's R5, R6, R9, R10
 

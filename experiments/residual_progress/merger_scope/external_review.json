@@ -1,0 +1,21 @@
+{
+  "external_commit": "ceb94fc372533e6fdc196595a817e8c01bc62d51",
+  "main_at_batch_start": "541101a8788367248695ff139cad510e15ea45f5",
+  "r24_source_sha256": "3e7e619f323963827bdbf78c8bfa6c6cdb3e2dff0c1a6c445c6240fce1adcf31",
+  "dependency_sha256": "9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c",
+  "r24_report": {
+    "base": "all odd seeds <= 6144 reach 1",
+    "cutoffs_checked": 355,
+    "ratios": [
+      "7/6",
+      "8/7",
+      "9/8"
+    ],
+    "scope": "Finite arithmetic of main's R24 step and base; the completion rule is open.",
+    "status": "PASS"
+  },
+  "source_executed_unmodified": true,
+  "process_timeout_seconds": 45,
+  "report_matches_pinned_receipt": true,
+  "sign_climb_probe_present_in_pinned_tree": false
+}
