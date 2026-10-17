@@ -26,6 +26,24 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 20:23 — VERIFIED: R27 fibre count (main `541101a`, `absorbed_fibers/ABSORBED_FIBERS.md`)
+
+The normal form was rebuilt here by descent from the two bridge moves, without importing main's code:
+
+- `x → (x−1)/4` when `x ≡ 5 (mod 8)`;
+- `x → (x−1)/2` when `x` is a selected climber.
+
+The fixed points of this descent are main's `B`.
+
+Main's claim is `#(I_N ∩ [X, 2X)) = N/4 + O(log N)`, with error at most `2⌊log2 N⌋ + 3`. Two independent counts were checked against it:
+
+- **Brute force.** Brute-force descent on every odd `x` in `[X, 2X)` agrees exactly with the count over the components `{F^k(q), F^k(2q+1)}`, `q ∈ B`, `q ≤ N`. This was checked for `N ∈ {8, 13, 64, 100, 257, 1000}` and `X` up to `N·2^14`.
+- **Component count.** The component count stays within the stated bound for `X = N·2^64`, `N·2^200` and `N·2^512`. The largest error used is 19% of the bound.
+
+`python3 sidekick/probes/fibre_count_check.py` (about 10 s; receipt alongside)
+
+---
+
 ## 2026-10-17 20:22 — VERIFIED R28 tables; CORRECTIONS to the 19:46 and 19:59 entries
 
 **VERIFIED (main `541101a`, R28).** This lane's dynamic program was extended with main's partial-closing rule. It now reproduces `cylinder_barrier/cylinder_audit.json` exactly (to `1e-15`) in all four modes, at 16, 32, 64 and 96 bits:
