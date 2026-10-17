@@ -53,6 +53,182 @@ The proof uses `q_(a+6)=64 q_a+21` and cancellation of the six new valuation cla
 
 Do not infer that all packet work is nonpositive: the exact finite witness is `H_39(Pi_right_32)=57`. The criterion is boundedness above for each cutoff, not a universal zero upper bound.
 
+## R5 — Five dyadic rays suffice
+
+**Status: written equivalence, independently model-audited, with exact finite base checks.**
+
+R3 remains valid, but its every-integer hypothesis can be replaced by
+`N=a*2^b`, `a in {12,14,16,18,21}`, `b>=3`. Each of bounded packet work,
+exact finite currents, and finite currents with nonpositive residual on this
+grid is equivalent to Collatz.
+
+At the five ordered mantissas, rounding `3N/2` upward advances three positions
+with a dyadic carry. The comparison `F(a_i*2^b)=2^((5b+i)/3)` gives
+`F(rounded 3N/2)=2F(N)`. The exceptional-count recurrence contracts by
+`2^(-10/3)+(2/3)(1+2^(-5/3)) < 89/90`. Its positive maximum on the grid is
+impossible. The small target points lie below 96, where all odd seeds terminate.
+
+See [main proof note](../collatz_research_20261017/right_aligned_reduction.tex),
+Theorem 4, and the [sparse-criteria note](../experiments/current_construction/frontier/sparse_current_criteria.md).
+The [checker](../experiments/current_construction/frontier/check_sparse_criteria.py)
+verifies the transition inequalities, contraction, and all odd seeds below
+65536 (more than required); their largest odd-only hitting time is 125.
+Earlier 21-ray and 30-ray arguments remain as scoped alternatives. No infinite
+ray has been certified. No minimality or novelty claim is made.
+
+## R6 — Disjoint annular recursion
+
+**Status: written identity and finite arithmetic checks; no universal current constructor.**
+
+For every `8|N`, put `Q=9N/4`. Then
+`Pi_right_(64N)=Pi_right_N+A_N`, `eta_(64N)=eta_N`,
+`supp(Pi_right_N) ⊂ (1,Q)`, and `supp(A_N) ⊂ (Q,64Q)`.
+The increment has six bands with tabulated coefficients modulo 18.
+Each band has total zero. Exact identities include
+`||A_N||_1=99N/2`, `|supp(A_N)|=267N/8`, and
+`sum_y y*A_N(y)=63Q`. These describe source size, not current cost.
+
+R5's rays split into 30 sequences `N=a*2^(r+6k)`, `r=3..8`.
+Their initial cutoffs are at most 5376 and packet endpoints below 12096.
+Verified convergence of all these endpoint seeds within 98 odd steps proves
+exact currents exist for the 30 starting measures; their full tables are not
+stored. Currents with nonpositive residual for **all increments on these
+sequences** therefore suffice for Collatz. This universal obligation is open.
+
+The recurrence does not produce those currents: modulo finite divergences,
+`[A_N]=3[F_N]-3[F_(N/4)]-[F_(3N/2)]-[F_(3N/4)]`, with
+`F_t=U_(64t)-U_t`. The expanding `3N/2` scale remains.
+See the [annular proof](../experiments/current_construction/recursive/annular_recursion.md).
+The [checker](../experiments/current_construction/recursive/check_annular_recursion.py)
+passed 66 full-measure cases, through expanded cutoff 262144, without trajectory search.
+
+## R7 — What currents detect and a scoped obstruction
+
+**Status: written graph theorem, complete semidecision algorithm, and finite checks.**
+
+A finite exact current exists precisely when every nonabsorbing orbit component
+has total mass zero. A current with nonpositive residual exists precisely when
+each such mass is nonpositive. Bounded work for a single measure only tests
+their sum. Negative-integer Syracuse cycles give a separation example;
+no positive nonterminating orbit is claimed.
+
+Exposing longer paths from every source while retaining historical intersections
+is complete for finding an existing certificate. Finite depth caps return
+unresolved. The implementation was checked on all 1728 three-vertex map/measure
+cases in both modes; this does not establish universal termination.
+
+For every `H>=0`, let `K=2H+7`, `y=9*2^K-1`, and `N=4*2^K+5`.
+An actual individual packet is `2 delta_y-delta_(y+6)-delta_(y+12)`.
+Every current for it, including one with nonpositive residual and arbitrary
+auxiliary states, needs more than H nonzero rows. The proof separates orbit
+segments modulo 32. This rules out uniformly bounded per-packet catalogues;
+unbounded recursive constructions and cancellation between packets remain possible.
+
+See [proof and search specification](../experiments/current_construction/obstructions/functional_graph_currents.md),
+[checker](../experiments/current_construction/obstructions/verify_obstructions.py),
+and [whole-packet findings](../experiments/current_construction/obstructions/whole_packet_findings.md).
+Stored new tables include an exact current at 65536 and a one-sided current at
+2053. At 2053, certificates cancel components not yet linked to 1 in the
+exposed graph. At 65536, the exposed graph already proves source absorption.
+These certify only named finite revised measures.
+
+## R8 — Affine lifting and a universal partial current
+
+**Status: written constructive proofs; exact capacity and divergence checks. Complete residual construction remains open.**
+
+A finite directed common-tail tree lifts to exact Syracuse trees for every integer `t>=0`: at vertex x use `x(t)=x+2^(A_x+1)*3^(D-d_x)*t`, where `d_x,A_x` are the remaining path length and valuation sum, and `D=max d_x`. This preserves every exact valuation. A zero-mass source therefore gives a finite exact current for every parameter, without following the lifted common sink. Actual annular coverage requires a separate check.
+
+The checked five-source component from `A_96` supplies such a family. Its sources have weights `(-1,-1,1,2,-1)` and slopes `(384,512,576,864,1152)`. For `t=9s` its actual annular coverage is `96+72s<=N<=120+96s`; for `t=9s+3` it is `120+72s<=N<=152+96s`, always with `8|N` and `s>=0`. All ten source progressions are pairwise disjoint, by 45 exact gcd tests. Thus every admissible copy can be used together. The count is `C(N)=N/144+O(1)` and positive current cost is at most `3C(N)`.
+
+Five further short-chain families have an everywhere nonpositive current and delete positive mass `D(N)=3N/2+O(1)`, with an explicit floor formula and correction periodic modulo 72. Their sources are pairwise disjoint and also disjoint from the entire five-source packing. Combining them gives a finite explicit current and an exact residual obtained by deleting the certified atoms:
+
+`A_N=(I-P)J_N+Z_N`, `||J_N^+||_1<=3C(N)`,
+`||Z_N^+||_1=99N/4-D(N)-3C(N)`.
+
+The removed positive mass is `73N/48+O(1)`; the remaining positive mass is still unhandled in general. The construction terminates for each N by bounded arithmetic loops, but it is a **partial** constructor. No complete universal current or coverage claim follows.
+
+Proofs: [affine components](../experiments/annular_construction/components/AFFINE_COMPONENTS.md), [arithmetic reductions](../experiments/annular_construction/arithmetic/ARITHMETIC_RESULTS.md), and the main LaTeX note. The [combined constructor](../experiments/annular_construction/arithmetic/combined_partial_current.py) returns the full current and residual and audits eight cutoffs through 6144. The packing checker validates every allowed cutoff through 4096 and exact identities at large integer parameters; the catalogue checker validates 66 cases. Independent model reviews checked both capacity proofs.
+
+Stored actual annular certificates include a nonpositive-residual current for `A_96` and an exact current for `A_168`. At N=168 the graph cancels a balanced cross-band component before its sources are linked to 1. Exact witnesses `H_53(A_96)=699` and `H_9(A_384)=42` rule out a complete universally nonpositive current; positive cost must be allowed.
+
+## R9 — Exact one-pass annular compression and its limits
+
+**Status: written identity and finite arithmetic checks. No iterated contraction theorem.**
+
+For `F(x)=4x+1`, states in the same F-chain have the same Syracuse successor. Map each state down to its unique root by `(x-1)/4` while `x=5 mod8`, discarding root 1, and call this operation R. Then `PRmu=Pmu`, and `mu=(I-P)(mu-Rmu)+Rmu` is an explicit finite partial current. For every `8|N`,
+
+`||R A_N||_1 = ||P A_N||_1 = 171N/4-|c_N| <= (19/22)||A_N||_1`,
+
+where c_N is the signed source mass in the root-1 chain and `|c_N|<=3`. Its correction can vanish: `c_80000=0`. A six-row entry-profile proof gives the exact formula. All 66 arithmetic cases passed, with a separate implementation checking nine cutoffs.
+
+R is idempotent and its residual is not another annulus, so the contraction cannot be applied repeatedly as stated. In fact the compressed residual retains coefficient +2 at exactly 2N specified outer roots, leaving positive mass at least 4N.
+
+Literal forward transport also has a specific closure obstruction. In the outer strip after t steps, the profile is `3*1_(3^(t+2)|y+1)-1_(3^(t+1)|y+1)` on odd y. Its least even period is `2*3^(t+2)`. Thus a finite fixed-modulus list with a bounded number of interval pieces cannot represent all such profiles. This concerns literal synchronous pushforward; it permits rewrites, growing moduli, and unequal-time cancellation. It does not prove aggregate historical exposure depths are unbounded.
+
+See [full proof and checker description](../experiments/annular_construction/arithmetic/ARITHMETIC_RESULTS.md).
+
+## R10 — Component progress, boundary flux, and information loss
+
+**Status: written graph/arithmetic identities and exact scoped counterexamples. The progress lemma remains open.**
+
+For exposed arrows E, `Phi(E)` is the sum of positive source masses of components not containing 1. It is a nonincreasing integer, and zero is equivalent to a nonpositive-residual current supported on E. Each positive component indicator is an exact dual obstruction restricted to that graph. Universal termination needs a proof that every positive plateau ends after finitely many extensions. For actual `A_96`, Phi stays 17 through exposure depths 20–27 and becomes zero at depth 28.
+
+The scale quotient has an exact finite representative. Put `F_t=U_(64t)-U_t`, `V_N=nu_(64N)-nu_N`, `K_N=V_N+3(F_N-F_(N/4))`, and `D_N=3F_N-3F_(N/4)-F_(3N/2)-F_(3N/4)`. Then
+
+`D_N=A_N+(I-P)K_N`.
+
+For a finite-component indicator q, the extra pairing is the boundary flux `sum_x K_N(x)(q(x)-q(Sx))`. At depth 27 for A_96, a stored 83-vertex component has source mass 17 and flux -7, giving scale pairing 10. Adding every K_96 arrow makes the flux zero but still leaves positive mass 17. Neither omitting the flux nor closing it at one cutoff proves progress.
+
+For fixed `k>=1` and `2^(k+2)|N`, each annular band projects to zero modulo `2^k` and `3*2^k`. Those data alone lose the distinction from an empty source. This does not exclude methods with richer arithmetic information.
+
+A separately labeled **negative-integer** reflected annulus has identically zero work but component masses `-20,-73,+93` at three known cycles. A stored 5868-row current and residual verify these masses. It refutes an overgeneralized scalar-to-current inference; it is not a positive Collatz counterexample.
+
+See [aggregate duality proof](../experiments/annular_construction/duality/aggregate_duality.md), [checker](../experiments/annular_construction/duality/check_duality.py), and [receipt](../experiments/annular_construction/duality/duality_audit.json), including every state and boundary row of the positive flux example.
+
+## R11 — Finite rational cone and integer certificate conversion
+
+**Status: written conditional constructive theorem; exact finite demonstration. Required packet inputs remain unproved universally.**
+
+If a finite integer source satisfies `mu=(I-P)J+Z` with a finite rational current and `||Z^+||_1<1`, each unabsorbed exposed component has integer source mass below 1, hence at most zero. The same graph therefore supports an integer current with nonpositive residual. For a nonnegative source every source already belongs to the absorbing component, so the existing arrows give actual finite absorption paths and an exact nonnegative integer current. The strict threshold and source integrality are essential.
+
+Enumerate the five rays by `N_k=a_i*2^b`, `k=5b+i`. The rounded recurrence uses shifts `-10,+3,-2` with weights `1,1/3,1/3`. The rational comparison `r=35/27` has `r^(-10)+(r^3+r^(-2))/3<1`. On a finite index block, the inverse `(I-A)^(-1)` is nonnegative. Solving `(I-A)^T w=e_target` supplies exact nonnegative rational weights for an identity among finite counting measures.
+
+Restore the actual source-scale current `K_N=nu_N+3(U_N-U_(N/4))`, the signed core current, lower boundary absorption, and both nonnegative rounding shells with their negative signs. Given checked nonpositive-residual packet certificates at every selected cutoff, the weighted identity leaves positive residual bounded by the exact upper boundary mass T. If T<1, the integer-gap lemma extracts an integer current for the counting measure U_g, where g is the first grid cutoff at least the target m. No global-invariance assumption or further orbit exposure is used during extraction.
+
+An explicit sufficient block has `O(log m)` input cutoffs and largest cutoff `O(m^(p/(p-1)))`, where `p=5 log_2(35/27)` and `p/(p-1)≈2.14682`. This is a bound on which input certificates suffice, not their cost, size, search time, or availability. The block can require inputs above the target scale, so it does not supply a decreasing induction.
+
+For m=97, a sharper exact solve at B=9 uses the 30 starting cutoffs through 5376. Actual one-sided input currents compile to a 6217-row rational current with denominator `46422343855805` and positive residual numerator `29145292346068`. The strict gap extracts a stored 95-row nonnegative integer current for U_112, using only already present arrows. Twenty input searches completed with some sources still unlinked to 1 in their separate graphs.
+
+Proof: [finite cone](../experiments/residual_progress/duality/FINITE_CONE.md). Reusable plan: [finite_cone.py](../experiments/residual_progress/duality/finite_cone.py). Actual implementation and evidence: [compiler note](../experiments/residual_progress/forcing/ACTUAL_COMPILER.md), [compiler](../experiments/residual_progress/forcing/actual_graph_compiler.py), [stored U_112 current](../experiments/residual_progress/forcing/forced_U112_current.csv). Checks include four exact cone plans, four full source identities, seven rational tail bounds, 216000 finite integer-gap cases, and the complete actual conversion. Independent model review checked the proof and all signs in the compiler.
+
+## R12 — Root transport normal form and explicit surviving atoms
+
+**Status: written operator identities and scoped obstructions; finite checks.**
+
+Since `R^2=R` and `PR=P`, every finite sequence of the root collapse and transport operators has residual `I`, `R`, `P^t`, or `RP^t`. On roots, `RP` is conjugate to ordinary killed Syracuse on odd states coprime to 3. This supplies no independent descent mechanism.
+
+For each `8|N` and integer t>=0, the actual top-band sources
+`72N<x<144N`, `x=-1 mod(9*2^(t+2))`, number exactly
+`floor(4N/2^t)-floor(2N/2^t)`. Every one retains coefficient +2 through all j<=t at `3^j*(x+1)/2^j-1` in both `P^j A_N` and `RP^j A_N`. The proof excludes all competing larger-valuation histories by a strict outer-height bound and excludes further root representatives above the support.
+
+Thus no fixed number of those operations makes every annulus nonpositive. For N=a*2^b the top source survives b+2 transports at `324*a*3^b-1`, ruling out a uniform O(N) state-height closure of that process. Neither result excludes growing-depth constructions, affine rewrites, or historical intersections.
+
+Exact N=96 counterexamples refute repeating the 19/22 contraction (`3533 -> 3124`) and any strict one-step norm decrease on every unresolved reachable residual (norm13 and positive mass4 remain unchanged). These finite plateaus do not establish infinite plateaus.
+
+See [proof](../experiments/residual_progress/transport/ROOT_TRANSPORT.md), [checker and bounded current constructor](../experiments/residual_progress/transport/check_root_transport.py), and [receipt](../experiments/residual_progress/transport/root_transport_audit.json). Independent review checked the root-1 absorption convention, surviving count, and height inequalities.
+
+## R13 — Complete aggregate exposure obstruction at a required cutoff
+
+**Status: exact finite obstruction with a proved bounded inverse algorithm. No arbitrary-depth aggregate obstruction.**
+
+An inverse reachability oracle decides whether a state is an origin among the first D exposed arrows from any actual annular source, under exact forward height bounds. Exhausting its incoming and outgoing neighbors recovers a complete exposed component without materializing the full O(N) annulus. State/query caps return unresolved.
+
+At `N=1610612736=12*2^27`, the depth-32 component of the top source has 35 vertices, 34 arrows, and exactly three source atoms `(64N-1,-2)`, `(96N-1,+2)`, `(144N-1,+2)`. Its total is +2 and it is unlinked to 1. The exact finite component closure excludes every other incoming exposed edge. Therefore no current supported on the **entire** depth-32 exposure graph can have a nonpositive residual for that annulus. This rules out a packed source cover by common-tail trees of source-to-anchor depth at most 32; it does not rule out deeper or recursive constructions.
+
+The tempting always-positive top-chain claim fails: at N=10368, depth2, the complete top component contains 27 sources whose coefficients total zero. Unequal-time intersections attach negative mass that the bare growing orbit omits.
+
+The inverse graph matches independent full forward graphs on 48 small cases; inverse branches are separately compared with brute-force predecessors through state2047. Both complete finite witnesses and explicit cap outcomes are persisted. See [proof and scope](../experiments/residual_progress/templates/AGGREGATE_EXPOSURE.md), [checker](../experiments/residual_progress/templates/check_inverse_exposure.py), and [full component receipt](../experiments/residual_progress/templates/inverse_exposure_audit.json).
+
 ## C1 — Independent audit of R2–R4 and of main's R5, R6, R9, R10
 
 **Status: finite checks and model-assisted re-derivation; no discrepancy found.**
@@ -120,8 +296,10 @@ Hence neither one-pass contraction nor early `Phi` decay is evidence that `3x+1`
 
 ## Open obligations and priorities
 
-- **Primary:** construct a finite current (or one with nonpositive residual) for every integer cutoff in the revised family, and prove termination. Arbitrarily large finite cost is permitted.
+- **Primary:** construct a finite current (or one with nonpositive residual) at every cutoff on R5's five rays, and prove termination. R6's annular increments give an explicit sufficient target with its finite bases discharged. Arbitrarily large finite cost is permitted.
 - Find an arithmetic recursion or another structural mechanism that controls unresolved positive contributions. Finite successful trajectory searches alone do not prove universal existence. By C3, the per-cutoff certificate is forced, so the mechanism must describe `J_N=sum_j P^j Pi_N` uniformly. By C2 and C4, it must use arithmetic false for `T_61`. Run any candidate constructor or checker on the C2 controls; it must fail at `(d,N)=(61,213)` and `(-1,16)`.
-- Independently audit the written reduction, including the cutoffs, absorption, every-integer quantifier, and maximum principle. C1 is a second, independent model-assisted pass that found no error; there is still no human peer review or proof-assistant verification.
+- Prove finite progress for every positive exposed-component plateau, or close R8/R9's residuals in a family with a decreasing integer parameter. R8 deletes only certified source coefficients; R9 contracts only one pass. Neither handles its full residual.
+- R11 gives a finite conditional compiler that retains boundary terms and can end a plateau if its packet inputs are supplied. Develop a noncircular source of those inputs. R12 rules out obtaining a new descent merely by alternating the existing P and R operators.
+- Independently audit cutoffs, absorption, the five-ray transition, finite bases, annular table, and maximum principle. Current review is computational and model-assisted. C1 is a separate, independent pass that found no error. There is still no human peer review or proof-assistant verification.
 - Treat the earlier analytic mixing extension as a separate candidate with its own external dependencies. It is not needed for R2–R4.
 - Keep historical failures and scoped results in the master handoff available. No Collatz proof, logarithmic mean-work theorem, or general cheap-current theorem is established here.

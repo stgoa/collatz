@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "finite_graph_measure_cases": 1728,
+  "certificate_modes_per_case": 2,
+  "coalescence_parameter_range": [
+    0,
+    9999
+  ],
+  "bounded_template_obstructions": [
+    {
+      "H": 0,
+      "K": 7,
+      "source_bits": 11,
+      "minimum_certificate_rows": 1
+    },
+    {
+      "H": 1,
+      "K": 9,
+      "source_bits": 13,
+      "minimum_certificate_rows": 2
+    },
+    {
+      "H": 2,
+      "K": 11,
+      "source_bits": 15,
+      "minimum_certificate_rows": 3
+    },
+    {
+      "H": 4,
+      "K": 15,
+      "source_bits": 19,
+      "minimum_certificate_rows": 5
+    },
+    {
+      "H": 8,
+      "K": 23,
+      "source_bits": 27,
+      "minimum_certificate_rows": 9
+    },
+    {
+      "H": 16,
+      "K": 39,
+      "source_bits": 43,
+      "minimum_certificate_rows": 17
+    },
+    {
+      "H": 32,
+      "K": 71,
+      "source_bits": 75,
+      "minimum_certificate_rows": 33
+    },
+    {
+      "H": 64,
+      "K": 135,
+      "source_bits": 139,
+      "minimum_certificate_rows": 65
+    },
+    {
+      "H": 128,
+      "K": 263,
+      "source_bits": 267,
+      "minimum_certificate_rows": 129
+    }
+  ],
+  "universal_current_existence_proved": false
+}

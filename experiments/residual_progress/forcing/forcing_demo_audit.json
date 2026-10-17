@@ -1,0 +1,325 @@
+{
+  "status": "PASS",
+  "finite_demo": {
+    "m": 97,
+    "target_cutoff": 112,
+    "B": 9,
+    "input_packet_count": 30,
+    "largest_input_cutoff": 5376,
+    "exact_upper_boundary_mass": "31562113241597/46422343855805",
+    "rational_denominator": 46422343855805,
+    "rational_current_rows": 6217,
+    "rational_current_numerator_sha256": "83e6e3fdadddefed476ebbf4657af11d77f56ec45176f9a4e4692b6481d3de14",
+    "rational_residual_atoms": 4034,
+    "rational_residual_numerator_sha256": "fb686ce7ed20c42cd35a386e7953eaf512dc50e3e39cec63ac2290f56eb94281",
+    "positive_residual_numerator": 29145292346068,
+    "exact_positive_residual_mass": "29145292346068/46422343855805",
+    "integer_target_mass": 55,
+    "integral_current_rows": 95,
+    "integral_current_sha256": "526bc7ae11501d4c1731428456fd56adefa7a92e267cd8df65c2a75d26696a5b",
+    "no_new_arrows_during_extraction": true,
+    "inputs": [
+      {
+        "N": 96,
+        "exposure_depth": 18,
+        "source_atoms": 50,
+        "current_rows": 82,
+        "residual_atoms": 0,
+        "sources_not_linked_to_1": 0,
+        "current_sha256": "a52b7a64976924053bf91309e74a87fdfc06ca6e3f3b09b604d98ef42e359ff5",
+        "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "N": 112,
+        "exposure_depth": 12,
+        "source_atoms": 58,
+        "current_rows": 95,
+        "residual_atoms": 0,
+        "sources_not_linked_to_1": 0,
+        "current_sha256": "d00bc0f4a5d8aef9741edf5d93eb115c985d3457b3ffd07cf8a3b3fe430cd875",
+        "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "N": 128,
+        "exposure_depth": 12,
+        "source_atoms": 66,
+        "current_rows": 95,
+        "residual_atoms": 0,
+        "sources_not_linked_to_1": 0,
+        "current_sha256": "fcd0f6f4cc27028a4ebef05a94d4c97dc76230cfc9c16593a037dac14d493711",
+        "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "N": 144,
+        "exposure_depth": 12,
+        "source_atoms": 77,
+        "current_rows": 103,
+        "residual_atoms": 0,
+        "sources_not_linked_to_1": 0,
+        "current_sha256": "bec5bdcc4d06971290b03cf77631ae49f5d1a973949a56f6d87bafcab606ed79",
+        "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "N": 168,
+        "exposure_depth": 11,
+        "source_atoms": 90,
+        "current_rows": 135,
+        "residual_atoms": 0,
+        "sources_not_linked_to_1": 0,
+        "current_sha256": "9d427430d229e87d6fdf9a9500d3469627dac90ea1349070fa39df268ee38a3c",
+        "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "N": 192,
+        "exposure_depth": 11,
+        "source_atoms": 101,
+        "current_rows": 147,
+        "residual_atoms": 0,
+        "sources_not_linked_to_1": 0,
+        "current_sha256": "6b3775283a50a0046299b82395f9854bc0d5182822315052606f1c57c2669111",
+        "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "N": 224,
+        "exposure_depth": 8,
+        "source_atoms": 119,
+        "current_rows": 162,
+        "residual_atoms": 1,
+        "sources_not_linked_to_1": 1,
+        "current_sha256": "2b14a97d6ed7e394fbf48b4fd3d6ccc03ca7d71ed60d1095163f93ac405666ef",
+        "residual_sha256": "0d73a42314cc476331b5d1a8177c6fcf0bb294efc959417552014d7d58abc34c"
+      },
+      {
+        "N": 256,
+        "exposure_depth": 7,
+        "source_atoms": 132,
+        "current_rows": 186,
+        "residual_atoms": 1,
+        "sources_not_linked_to_1": 1,
+        "current_sha256": "5269e0d0e15d2bfda8312424e6d10778a20eea464c1248513189acdb48daee4d",
+        "residual_sha256": "0d73a42314cc476331b5d1a8177c6fcf0bb294efc959417552014d7d58abc34c"
+      },
+      {
+        "N": 288,
+        "exposure_depth": 7,
+        "source_atoms": 152,
+        "current_rows": 205,
+        "residual_atoms": 1,
+        "sources_not_linked_to_1": 2,
+        "current_sha256": "a0e686c65bd82b02a043c624628c7e0fe880a3cee9e57d756c028e93f0d7c04a",
+        "residual_sha256": "20d9c13c27e9385a6fe271c8960f3f7034555183c402d6beb93ed1d192e057c5"
+      },
+      {
+        "N": 336,
+        "exposure_depth": 7,
+        "source_atoms": 177,
+        "current_rows": 226,
+        "residual_atoms": 2,
+        "sources_not_linked_to_1": 5,
+        "current_sha256": "2561d228646f34b7622df1723bac92c9c1d7a39f5b91e0cc8323527b0ba94aa7",
+        "residual_sha256": "312bcc1261cb73dc3541bf390ba5c5a1d370388cd2ef2775c57c0bc445aed360"
+      },
+      {
+        "N": 384,
+        "exposure_depth": 6,
+        "source_atoms": 202,
+        "current_rows": 245,
+        "residual_atoms": 5,
+        "sources_not_linked_to_1": 8,
+        "current_sha256": "ad501420bc8e0fb7f41564703886942666aada5aee87933f08042cb3d0e38a44",
+        "residual_sha256": "341d18b17bc33eabeb65f7eab874f5ad719cf584e69c20da1c9c875e18e517a3"
+      },
+      {
+        "N": 448,
+        "exposure_depth": 13,
+        "source_atoms": 236,
+        "current_rows": 330,
+        "residual_atoms": 2,
+        "sources_not_linked_to_1": 2,
+        "current_sha256": "d2ed3ea2692a45feff773532d3643b0adb21a30ab0a5823bd44be86d1ffbbe11",
+        "residual_sha256": "ca1d9a39508e8d52ce5c654db61c32664ff5afb516a76d1e05a981d885bd4aa6"
+      },
+      {
+        "N": 512,
+        "exposure_depth": 15,
+        "source_atoms": 270,
+        "current_rows": 409,
+        "residual_atoms": 1,
+        "sources_not_linked_to_1": 1,
+        "current_sha256": "06d3f69eba1e77f82c35fa8d31790f303505eded58a65826f3745b91d97e780a",
+        "residual_sha256": "399b6829b6fdc368b4f6a4d0d63257febeb0ab1fba128175d471b8db30ad68a9"
+      },
+      {
+        "N": 576,
+        "exposure_depth": 14,
+        "source_atoms": 304,
+        "current_rows": 437,
+        "residual_atoms": 1,
+        "sources_not_linked_to_1": 1,
+        "current_sha256": "61f9e83e9b7c0ea681abae508e8a66dcf664904272e4676a719f1f79cc82b1dc",
+        "residual_sha256": "399b6829b6fdc368b4f6a4d0d63257febeb0ab1fba128175d471b8db30ad68a9"
+      },
+      {
+        "N": 672,
+        "exposure_depth": 12,
+        "source_atoms": 355,
+        "current_rows": 487,
+        "residual_atoms": 3,
+        "sources_not_linked_to_1": 7,
+        "current_sha256": "598a408b176bb0d6605e7993492e96cdd9d39dbe84715660d3461fe3b57dd530",
+        "residual_sha256": "bb60ab83ee5aab8b4f3efe752ca641d5bcdf4bbb8eb376c530ec5b972c2e973b"
+      },
+      {
+        "N": 768,
+        "exposure_depth": 12,
+        "source_atoms": 404,
+        "current_rows": 564,
+        "residual_atoms": 1,
+        "sources_not_linked_to_1": 9,
+        "current_sha256": "5795edaf7b4376728117cd0a12e29a1a8854d09cc4d2aa57903394ca9e42138a",
+        "residual_sha256": "c17b010351cdf2f25a19fcc6b91ad2a24e26ae92ede400b720d3aa5877b4df64"
+      },
+      {
+        "N": 896,
+        "exposure_depth": 11,
+        "source_atoms": 472,
+        "current_rows": 661,
+        "residual_atoms": 3,
+        "sources_not_linked_to_1": 11,
+        "current_sha256": "8b79eca4d74e435ede19bf533b66c3495df0386455aa41acb41ea3d505e15059",
+        "residual_sha256": "c1d82816ee79796082c08fa47f96ab983f8c574ab6fd7f75cfd9f8dec5ea21c3"
+      },
+      {
+        "N": 1024,
+        "exposure_depth": 11,
+        "source_atoms": 540,
+        "current_rows": 768,
+        "residual_atoms": 3,
+        "sources_not_linked_to_1": 11,
+        "current_sha256": "f6dc05c5d5881b0b4506519a26421e159e1b263c1f4f16fbad492e07afe1a287",
+        "residual_sha256": "a6e780ea18ef5b1ea700a70e16deccf6f1f66b2013dcfff76f7f6a1fdc9bad8a"
+      },
+      {
+        "N": 1152,
+        "exposure_depth": 46,
+        "source_atoms": 610,
+        "current_rows": 923,
+        "residual_atoms": 0,
+        "sources_not_linked_to_1": 0,
+        "current_sha256": "8556f43872498f9e8a0783dda3a7745670323f59f33382c0ec57c84ac1def154",
+        "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "N": 1344,
+        "exposure_depth": 46,
+        "source_atoms": 712,
+        "current_rows": 1121,
+        "residual_atoms": 0,
+        "sources_not_linked_to_1": 0,
+        "current_sha256": "4247715f4e6097e251770f46a4d82e4958d2dd87874c2715924787f1e34d0d48",
+        "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "N": 1536,
+        "exposure_depth": 28,
+        "source_atoms": 813,
+        "current_rows": 1263,
+        "residual_atoms": 1,
+        "sources_not_linked_to_1": 4,
+        "current_sha256": "25f24720457c86707577a597c01f74c8c77f126406c13389c4495ce550ceff14",
+        "residual_sha256": "2e4ab50ad238ad62224bb85b968002500af1f67311d944093fdbb50697debd87"
+      },
+      {
+        "N": 1792,
+        "exposure_depth": 28,
+        "source_atoms": 947,
+        "current_rows": 1429,
+        "residual_atoms": 1,
+        "sources_not_linked_to_1": 6,
+        "current_sha256": "31c716ca100989dd500ef8378ca663bc8a53b8a95c299c35fb03c6ab1836131f",
+        "residual_sha256": "8730865dd2561b9a0da802165b8194820d891533fe9e4431c02493b9cbe28e5c"
+      },
+      {
+        "N": 2048,
+        "exposure_depth": 17,
+        "source_atoms": 1082,
+        "current_rows": 1531,
+        "residual_atoms": 4,
+        "sources_not_linked_to_1": 32,
+        "current_sha256": "78fed99248d002df1c8ca4b1df9a257707cd785e863f90654c3261983f2dd261",
+        "residual_sha256": "8e88522ac42d32ba1c68cef8fb748faa1c8295f97bd49a5664f50f4ab544ca47"
+      },
+      {
+        "N": 2304,
+        "exposure_depth": 30,
+        "source_atoms": 1219,
+        "current_rows": 1832,
+        "residual_atoms": 0,
+        "sources_not_linked_to_1": 0,
+        "current_sha256": "0653e4f2d502e04745223e918a588d74e62d0405f2cf4027a9e9f33fb3174197",
+        "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "N": 2688,
+        "exposure_depth": 30,
+        "source_atoms": 1422,
+        "current_rows": 2222,
+        "residual_atoms": 0,
+        "sources_not_linked_to_1": 0,
+        "current_sha256": "96e2cae2298a1b42e8e6745193675f1f6df0385e8f5c1ea746ae4997ac270aa2",
+        "residual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "N": 3072,
+        "exposure_depth": 29,
+        "source_atoms": 1626,
+        "current_rows": 2473,
+        "residual_atoms": 3,
+        "sources_not_linked_to_1": 3,
+        "current_sha256": "8eb5ca899315c0745ebb0bb111d52450a603a7bec5b8b7ee9280bf95b603762a",
+        "residual_sha256": "6512b9d8807d953cb505d8f2339ec246892aeecc17fcdedc598d3fe15a4f8591"
+      },
+      {
+        "N": 3584,
+        "exposure_depth": 29,
+        "source_atoms": 1898,
+        "current_rows": 2854,
+        "residual_atoms": 2,
+        "sources_not_linked_to_1": 2,
+        "current_sha256": "cd0617568be9adc95c4a9de32525039757269beb43e6953d8e978b0ada51097b",
+        "residual_sha256": "180f44d5b965b24b345e0dfbbab591c4ff41930993615ea59c0d3c48e258d5ae"
+      },
+      {
+        "N": 4096,
+        "exposure_depth": 29,
+        "source_atoms": 2168,
+        "current_rows": 3207,
+        "residual_atoms": 2,
+        "sources_not_linked_to_1": 4,
+        "current_sha256": "289bc4ae915070e81792ff9e02b65e8a64638bc5d8268dbc3813a62a07a81b9f",
+        "residual_sha256": "3e0b487ec156cded21d2d42602fa19527ee19486ca86ffd95da6d3716cb1cd51"
+      },
+      {
+        "N": 4608,
+        "exposure_depth": 28,
+        "source_atoms": 2440,
+        "current_rows": 3638,
+        "residual_atoms": 1,
+        "sources_not_linked_to_1": 7,
+        "current_sha256": "863347b86632b4b5bfbae4f2e0dcfbd97e5b0df95bdc92cc1083d6ec2df5e8d6",
+        "residual_sha256": "c59aebeff3767756af99382d01158d4840e8a87ababd8c1b637f5a1aa33197f8"
+      },
+      {
+        "N": 5376,
+        "exposure_depth": 28,
+        "source_atoms": 2847,
+        "current_rows": 4202,
+        "residual_atoms": 4,
+        "sources_not_linked_to_1": 10,
+        "current_sha256": "3fe1e42c4c0a2b36c11e298f6816b27fd2ce1b89866c722adae52da1b22d9930",
+        "residual_sha256": "9cc6ad26b6cad868fdd9917f44baaeed993c8055896ec31d00d7c569dd4c0e63"
+      }
+    ]
+  },
+  "universal_input_certificate_construction_proved": false
+}

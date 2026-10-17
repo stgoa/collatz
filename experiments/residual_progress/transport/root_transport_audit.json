@@ -1,0 +1,571 @@
+{
+  "status": "PASS",
+  "claim_scope": "written operator identities and scoped counterexamples",
+  "root_states_checked": 1536,
+  "survivor_cases": [
+    {
+      "N": 8,
+      "depth_cap": 12,
+      "profiles": [
+        {
+          "depth": 0,
+          "forced_positive_atoms": 16,
+          "transport_norm": 396,
+          "collapsed_norm": 341,
+          "collapsed_positive_mass": 170
+        },
+        {
+          "depth": 1,
+          "forced_positive_atoms": 8,
+          "transport_norm": 341,
+          "collapsed_norm": 293,
+          "collapsed_positive_mass": 146
+        },
+        {
+          "depth": 2,
+          "forced_positive_atoms": 4,
+          "transport_norm": 293,
+          "collapsed_norm": 264,
+          "collapsed_positive_mass": 134
+        },
+        {
+          "depth": 3,
+          "forced_positive_atoms": 2,
+          "transport_norm": 264,
+          "collapsed_norm": 228,
+          "collapsed_positive_mass": 117
+        },
+        {
+          "depth": 4,
+          "forced_positive_atoms": 1,
+          "transport_norm": 228,
+          "collapsed_norm": 201,
+          "collapsed_positive_mass": 104
+        },
+        {
+          "depth": 5,
+          "forced_positive_atoms": 1,
+          "transport_norm": 201,
+          "collapsed_norm": 191,
+          "collapsed_positive_mass": 101
+        },
+        {
+          "depth": 6,
+          "forced_positive_atoms": 0,
+          "transport_norm": 191,
+          "collapsed_norm": 172,
+          "collapsed_positive_mass": 94
+        },
+        {
+          "depth": 7,
+          "forced_positive_atoms": 0,
+          "transport_norm": 172,
+          "collapsed_norm": 165,
+          "collapsed_positive_mass": 93
+        },
+        {
+          "depth": 8,
+          "forced_positive_atoms": 0,
+          "transport_norm": 165,
+          "collapsed_norm": 155,
+          "collapsed_positive_mass": 88
+        },
+        {
+          "depth": 9,
+          "forced_positive_atoms": 0,
+          "transport_norm": 155,
+          "collapsed_norm": 151,
+          "collapsed_positive_mass": 84
+        },
+        {
+          "depth": 10,
+          "forced_positive_atoms": 0,
+          "transport_norm": 151,
+          "collapsed_norm": 136,
+          "collapsed_positive_mass": 73
+        },
+        {
+          "depth": 11,
+          "forced_positive_atoms": 0,
+          "transport_norm": 136,
+          "collapsed_norm": 129,
+          "collapsed_positive_mass": 67
+        },
+        {
+          "depth": 12,
+          "forced_positive_atoms": 0,
+          "transport_norm": 129,
+          "collapsed_norm": 119,
+          "collapsed_positive_mass": 63
+        }
+      ],
+      "capped_current_rows": 420
+    },
+    {
+      "N": 96,
+      "depth_cap": 12,
+      "profiles": [
+        {
+          "depth": 0,
+          "forced_positive_atoms": 192,
+          "transport_norm": 4752,
+          "collapsed_norm": 4103,
+          "collapsed_positive_mass": 2052
+        },
+        {
+          "depth": 1,
+          "forced_positive_atoms": 96,
+          "transport_norm": 4103,
+          "collapsed_norm": 3533,
+          "collapsed_positive_mass": 1765
+        },
+        {
+          "depth": 2,
+          "forced_positive_atoms": 48,
+          "transport_norm": 3533,
+          "collapsed_norm": 3124,
+          "collapsed_positive_mass": 1561
+        },
+        {
+          "depth": 3,
+          "forced_positive_atoms": 24,
+          "transport_norm": 3124,
+          "collapsed_norm": 2814,
+          "collapsed_positive_mass": 1405
+        },
+        {
+          "depth": 4,
+          "forced_positive_atoms": 12,
+          "transport_norm": 2814,
+          "collapsed_norm": 2554,
+          "collapsed_positive_mass": 1279
+        },
+        {
+          "depth": 5,
+          "forced_positive_atoms": 6,
+          "transport_norm": 2554,
+          "collapsed_norm": 2326,
+          "collapsed_positive_mass": 1168
+        },
+        {
+          "depth": 6,
+          "forced_positive_atoms": 3,
+          "transport_norm": 2326,
+          "collapsed_norm": 2116,
+          "collapsed_positive_mass": 1060
+        },
+        {
+          "depth": 7,
+          "forced_positive_atoms": 2,
+          "transport_norm": 2116,
+          "collapsed_norm": 1933,
+          "collapsed_positive_mass": 960
+        },
+        {
+          "depth": 8,
+          "forced_positive_atoms": 1,
+          "transport_norm": 1933,
+          "collapsed_norm": 1793,
+          "collapsed_positive_mass": 893
+        },
+        {
+          "depth": 9,
+          "forced_positive_atoms": 0,
+          "transport_norm": 1793,
+          "collapsed_norm": 1673,
+          "collapsed_positive_mass": 835
+        },
+        {
+          "depth": 10,
+          "forced_positive_atoms": 0,
+          "transport_norm": 1673,
+          "collapsed_norm": 1498,
+          "collapsed_positive_mass": 757
+        },
+        {
+          "depth": 11,
+          "forced_positive_atoms": 0,
+          "transport_norm": 1498,
+          "collapsed_norm": 1402,
+          "collapsed_positive_mass": 707
+        },
+        {
+          "depth": 12,
+          "forced_positive_atoms": 0,
+          "transport_norm": 1402,
+          "collapsed_norm": 1316,
+          "collapsed_positive_mass": 665
+        }
+      ],
+      "capped_current_rows": 4880
+    },
+    {
+      "N": 168,
+      "depth_cap": 12,
+      "profiles": [
+        {
+          "depth": 0,
+          "forced_positive_atoms": 336,
+          "transport_norm": 8316,
+          "collapsed_norm": 7179,
+          "collapsed_positive_mass": 3591
+        },
+        {
+          "depth": 1,
+          "forced_positive_atoms": 168,
+          "transport_norm": 7179,
+          "collapsed_norm": 6180,
+          "collapsed_positive_mass": 3090
+        },
+        {
+          "depth": 2,
+          "forced_positive_atoms": 84,
+          "transport_norm": 6180,
+          "collapsed_norm": 5455,
+          "collapsed_positive_mass": 2727
+        },
+        {
+          "depth": 3,
+          "forced_positive_atoms": 42,
+          "transport_norm": 5455,
+          "collapsed_norm": 4905,
+          "collapsed_positive_mass": 2451
+        },
+        {
+          "depth": 4,
+          "forced_positive_atoms": 21,
+          "transport_norm": 4905,
+          "collapsed_norm": 4439,
+          "collapsed_positive_mass": 2223
+        },
+        {
+          "depth": 5,
+          "forced_positive_atoms": 11,
+          "transport_norm": 4439,
+          "collapsed_norm": 4045,
+          "collapsed_positive_mass": 2032
+        },
+        {
+          "depth": 6,
+          "forced_positive_atoms": 5,
+          "transport_norm": 4045,
+          "collapsed_norm": 3741,
+          "collapsed_positive_mass": 1878
+        },
+        {
+          "depth": 7,
+          "forced_positive_atoms": 3,
+          "transport_norm": 3741,
+          "collapsed_norm": 3394,
+          "collapsed_positive_mass": 1707
+        },
+        {
+          "depth": 8,
+          "forced_positive_atoms": 1,
+          "transport_norm": 3394,
+          "collapsed_norm": 3120,
+          "collapsed_positive_mass": 1566
+        },
+        {
+          "depth": 9,
+          "forced_positive_atoms": 1,
+          "transport_norm": 3120,
+          "collapsed_norm": 2851,
+          "collapsed_positive_mass": 1438
+        },
+        {
+          "depth": 10,
+          "forced_positive_atoms": 0,
+          "transport_norm": 2851,
+          "collapsed_norm": 2618,
+          "collapsed_positive_mass": 1322
+        },
+        {
+          "depth": 11,
+          "forced_positive_atoms": 0,
+          "transport_norm": 2618,
+          "collapsed_norm": 2443,
+          "collapsed_positive_mass": 1232
+        },
+        {
+          "depth": 12,
+          "forced_positive_atoms": 0,
+          "transport_norm": 2443,
+          "collapsed_norm": 2296,
+          "collapsed_positive_mass": 1152
+        }
+      ],
+      "capped_current_rows": 8496
+    },
+    {
+      "N": 384,
+      "depth_cap": 12,
+      "profiles": [
+        {
+          "depth": 0,
+          "forced_positive_atoms": 768,
+          "transport_norm": 19008,
+          "collapsed_norm": 16414,
+          "collapsed_positive_mass": 8208
+        },
+        {
+          "depth": 1,
+          "forced_positive_atoms": 384,
+          "transport_norm": 16414,
+          "collapsed_norm": 14134,
+          "collapsed_positive_mass": 7068
+        },
+        {
+          "depth": 2,
+          "forced_positive_atoms": 192,
+          "transport_norm": 14134,
+          "collapsed_norm": 12505,
+          "collapsed_positive_mass": 6251
+        },
+        {
+          "depth": 3,
+          "forced_positive_atoms": 96,
+          "transport_norm": 12505,
+          "collapsed_norm": 11196,
+          "collapsed_positive_mass": 5598
+        },
+        {
+          "depth": 4,
+          "forced_positive_atoms": 48,
+          "transport_norm": 11196,
+          "collapsed_norm": 10181,
+          "collapsed_positive_mass": 5090
+        },
+        {
+          "depth": 5,
+          "forced_positive_atoms": 24,
+          "transport_norm": 10181,
+          "collapsed_norm": 9319,
+          "collapsed_positive_mass": 4664
+        },
+        {
+          "depth": 6,
+          "forced_positive_atoms": 12,
+          "transport_norm": 9319,
+          "collapsed_norm": 8568,
+          "collapsed_positive_mass": 4287
+        },
+        {
+          "depth": 7,
+          "forced_positive_atoms": 6,
+          "transport_norm": 8568,
+          "collapsed_norm": 7845,
+          "collapsed_positive_mass": 3936
+        },
+        {
+          "depth": 8,
+          "forced_positive_atoms": 3,
+          "transport_norm": 7845,
+          "collapsed_norm": 7192,
+          "collapsed_positive_mass": 3587
+        },
+        {
+          "depth": 9,
+          "forced_positive_atoms": 2,
+          "transport_norm": 7192,
+          "collapsed_norm": 6751,
+          "collapsed_positive_mass": 3371
+        },
+        {
+          "depth": 10,
+          "forced_positive_atoms": 1,
+          "transport_norm": 6751,
+          "collapsed_norm": 6206,
+          "collapsed_positive_mass": 3089
+        },
+        {
+          "depth": 11,
+          "forced_positive_atoms": 0,
+          "transport_norm": 6206,
+          "collapsed_norm": 5762,
+          "collapsed_positive_mass": 2874
+        },
+        {
+          "depth": 12,
+          "forced_positive_atoms": 0,
+          "transport_norm": 5762,
+          "collapsed_norm": 5332,
+          "collapsed_positive_mass": 2643
+        }
+      ],
+      "capped_current_rows": 19328
+    }
+  ],
+  "counterexamples": {
+    "N": 96,
+    "initial_norms": [
+      4752,
+      4103,
+      3533,
+      3124
+    ],
+    "repeated_19_over_22_fails_from_depth": 2,
+    "plateau_transport_depths": [
+      79,
+      80
+    ],
+    "plateau_norm": 13,
+    "plateau_positive_mass": 4,
+    "raw_before_rows": [
+      [
+        13,
+        -1
+      ],
+      [
+        61,
+        2
+      ],
+      [
+        325,
+        2
+      ],
+      [
+        433,
+        -3
+      ],
+      [
+        719,
+        -1
+      ],
+      [
+        911,
+        -1
+      ],
+      [
+        1619,
+        -1
+      ],
+      [
+        2051,
+        -1
+      ],
+      [
+        3077,
+        -1
+      ]
+    ],
+    "raw_after_rows": [
+      [
+        5,
+        -1
+      ],
+      [
+        23,
+        2
+      ],
+      [
+        61,
+        2
+      ],
+      [
+        325,
+        -3
+      ],
+      [
+        577,
+        -1
+      ],
+      [
+        1079,
+        -1
+      ],
+      [
+        1367,
+        -1
+      ],
+      [
+        2429,
+        -1
+      ],
+      [
+        3077,
+        -1
+      ]
+    ],
+    "collapsed_before_depth": 78,
+    "collapsed_after_depth": 79,
+    "collapsed_before_rows": [
+      [
+        17,
+        -1
+      ],
+      [
+        81,
+        2
+      ],
+      [
+        433,
+        2
+      ],
+      [
+        479,
+        -1
+      ],
+      [
+        577,
+        -3
+      ],
+      [
+        607,
+        -1
+      ],
+      [
+        1079,
+        -1
+      ],
+      [
+        1367,
+        -1
+      ],
+      [
+        2051,
+        -1
+      ]
+    ],
+    "collapsed_after_rows": [
+      [
+        3,
+        -1
+      ],
+      [
+        15,
+        2
+      ],
+      [
+        81,
+        2
+      ],
+      [
+        433,
+        -3
+      ],
+      [
+        719,
+        -1
+      ],
+      [
+        769,
+        -1
+      ],
+      [
+        911,
+        -1
+      ],
+      [
+        1619,
+        -1
+      ],
+      [
+        2051,
+        -1
+      ]
+    ]
+  },
+  "universal_termination_proved": false,
+  "unbounded_search_used": false
+}
