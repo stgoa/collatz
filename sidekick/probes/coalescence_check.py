@@ -73,7 +73,10 @@ def check_coverage(N):
                 remaining_over_25N_576=round(rest/(25*N/576), 4))
 
 
-def undecided(m, use_M=True, use_H=True):
+def undecided(m, use_M=True, use_H=True, partial_closing=False):
+    """partial_closing: certify H as soon as the available bits show the run's
+    closing valuation is >= 3. The exact value need not be known. This is the
+    correction main's R28 review (commit 541101a) identified."""
     states, und = {(1, 1, True): Fraction(1)}, Fraction(0)
     while states:
         nxt = {}
@@ -91,7 +94,8 @@ def undecided(m, use_M=True, use_H=True):
                     continue                                              # H
                 else:
                     nxt[(j2, A2, None)] = nxt.get((j2, A2, None), 0) + q
-            und += p/2**(m - A - 1)
+            if not (partial_closing and use_H and run_ok and m - A >= 3):
+                und += p/2**(m - A - 1)
         states = nxt
     return und
 
@@ -103,13 +107,17 @@ def main():
     table = {}
     for m in (16, 32, 64, 96):
         table[m] = [float(undecided(m, False, False)), float(undecided(m, True, False)),
-                    float(undecided(m))]
-    rates = [(table[96][k]/table[64][k])**(1/32) for k in range(3)]
+                    float(undecided(m)), float(undecided(m, partial_closing=True))]
+    assert undecided(4, partial_closing=True) == Fraction(3, 4)     # main's R28 example
+    rates = [(table[96][k]/table[64][k])**(1/32) for k in range(4)]
     report = dict(scope="Independent check of main's halving coalescence and its effect on the "
                   "2-adic undecided core; no termination claim.",
                   identity_checked_small=identities, identity_checked_random_200bit=2000,
                   coverage=coverage, undecided_D_DM_DMH=table,
-                  rate_per_bit_64_to_96=dict(D=rates[0], DM=rates[1], DMH=rates[2]), status="PASS")
+                  rate_per_bit_64_to_96=dict(D=rates[0], DM=rates[1], DMH_exact_closing=rates[2],
+                                                    DMH_partial_closing=rates[3]),
+                  modes=["D", "D+M", "D+M+H exact closing", "D+M+H partial closing (corrected)"],
+                  status="PASS")
     Path(__file__).with_suffix(".json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
     print(json.dumps(report, indent=2, sort_keys=True))
 

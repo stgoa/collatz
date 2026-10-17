@@ -26,6 +26,41 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 20:22 — VERIFIED R28 tables; CORRECTIONS to the 19:46 and 19:59 entries
+
+**VERIFIED (main `541101a`, R28).** This lane's dynamic program was extended with main's partial-closing rule. It now reproduces `cylinder_barrier/cylinder_audit.json` exactly (to `1e-15`) in all four modes, at 16, 32, 64 and 96 bits:
+
+- D;
+- D+M;
+- D+M+H with exact closing;
+- D+M+H with partial closing.
+
+It also reproduces main's example, `3/4` at 4 bits. Main's exact rates `ρ = c^c/(2^c(c−1)^(c−1)) ≈ 0.946505` per odd step and `β = 2^H(1/c)/2 ≈ 0.965907` per bit, with `c = log2 3` and `H` the binary entropy, agree with the 19:48 closed form.
+
+**CORRECTION to 19:46.** The D+M+H column there used exact closing. That is valid but conservative. The partial-closing rule certifies a selected run as soon as the bits show its closing valuation is `≥ 3`; this is main's fix. Under it, the uncertified fractions are:
+
+| bits | 16 | 32 | 64 | 96 |
+|---|---:|---:|---:|---:|
+| uncertified | 14.8% | 4.08% | 0.598% | 0.120% |
+
+The rate is unchanged.
+
+**CORRECTION to 19:59.** The claim that all merge-type certificates share one `c/H²` law was wrong as stated, for two reasons:
+
+- `c/H²` describes only the forward-orbit union `F_N`. Main's R27 fibres `I_N` are a larger certifiable set with density about `1/(2H)` at height `H·N`.
+- R23 merges occur at unbounded relative height.
+
+Revised statement (2-adic random model, not a proof):
+
+- An orbit conditioned to stay above a level spends about `ℓ` steps near log-height `ℓ`. With target density `2^(−ℓ)`, the expected number of hits, `Σ ℓ·2^(−ℓ)`, is finite. Density `1/(2H)` therefore still leaves the rate unchanged in the model.
+- In the model, a rate change needs certifiable targets whose density at height `H·N` decays more slowly than every power of `H`.
+
+Main's R28 already scopes this: no obstruction to arbitrary bridges follows.
+
+`python3 sidekick/probes/coalescence_check.py`. The receipt now carries all four modes.
+
+---
+
 ## 2026-10-17 20:01 — FINDING: no sign bias among high-climbing annular sources
 
 For every source `x` of `A_N`, take its peak orbit height relative to `x`. Then split the source mass by that climb ratio.
@@ -41,7 +76,7 @@ High excursions therefore carry about as much positive mass as negative. Cancell
 
 ---
 
-## 2026-10-17 19:59 — VERIFIED R24 arithmetic; FINDING: merge-type certificates all share one density law at large height
+## 2026-10-17 19:59 — VERIFIED R24 arithmetic; FINDING: merge-type certificates all share one density law at large height  [density claim corrected at 20:22]
 
 **VERIFIED (main `8e2b5eb`, R24).** The ordered cutoffs `a·2^b` (`b ≥ 9`) have consecutive ratios exactly in `{7/6, 8/7, 9/8}`, checked over 355 cutoffs. So `3N/2` always reaches the next cutoff, and every cutoff is divisible by 512. The base holds: every odd seed `≤ 6144` reaches 1. (`python3 sidekick/probes/r24_check.py`)
 
@@ -123,7 +158,7 @@ A certificate can change the rate only if it fires while the orbit is still arbi
 
 ---
 
-## 2026-10-17 19:46 — VERIFIED + FINDING: halving coalescence (main `8e2b5eb`, `residual_return/SHRINKING_COALESCENCE.md`)
+## 2026-10-17 19:46 — VERIFIED + FINDING: halving coalescence  [D+M+H numbers corrected at 20:22] (main `8e2b5eb`, `residual_return/SHRINKING_COALESCENCE.md`)
 
 **Verified.**
 
