@@ -1,0 +1,286 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\PiR}{\Pi^{\mathrm R}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Lip}{\mathcal L}
+\title{Right-aligned packets and a qualitative current criterion for Collatz}
+\author{Research continuation of the supplied Collatz programme handoff}
+\date{17 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+At depth one, grouping exact source lifts from the right moves every ungrouped
+endpoint into the fixed set $\{5,7,11,13\}$. This gives an error bound valid at
+every time horizon. A maximum principle then proves that finite current
+certificates for these revised packets at every integer cutoff imply Collatz,
+with no uniform bound on certificate size or positive cost. More generally,
+finite currents with everywhere nonpositive residual suffice. This is an
+unconditional reduction and an exact reformulation of the remaining problem;
+no universal current construction, Collatz proof, or novelty claim is supplied.
+\end{abstract}
+
+\section{Definitions and the change in grouping}
+Let $S(x)=(3x+1)/2^{v_2(3x+1)}$ on positive odd integers, with $S(1)=1$.
+Let $\tau(x)$ be the first hitting time of $1$, possibly infinite, and
+$h_L(x)=\min(L,\tau(x))$. Measures below are finite signed integer measures on
+odd states greater than $1$. Pushforward $P$ discards mass arriving at $1$.
+Write $H_L(\mu)=\langle\mu,h_L\rangle$.
+
+For an integer $N\ge8$, set
+\[
+b=\lceil\log_2N\rceil,\qquad
+n_0=\left\lfloor\frac{N-1}{4}\right\rfloor,\quad
+n_1=\left\lfloor\frac{3N+1}{2}\right\rfloor,\quad
+n_2=\left\lfloor\frac{3N+1}{4}\right\rfloor,
+\]
+and retain the handoff's source measure
+\[
+\nu_N(x)=\mathbf1_{x\le n_1}(3\mathbf1_{x\equiv2\ (3)}-1)
+ +\mathbf1_{x\le n_2}(3\mathbf1_{x\equiv1\ (3)}-1).
+\]
+Its signed total has absolute value at most $8$. For
+$Q_T(u)=\sum_{1\le x\le u,\ x\text{ odd}}h_T(x)$ and the corresponding
+residue sums $R_{r,T}$, the discrepancy is
+\[
+\mathcal E_T(N)=R_{5,T}(n_1)-\tfrac13Q_T(n_1)
+ +R_{1,T}(n_2)-\tfrac13Q_T(n_2),\qquad
+3\mathcal E_T(N)=H_T(\nu_N).
+\]
+
+For a single exact valuation $a$, put $M_a=2^{a+1}$. The source and endpoint
+lifts are $x_t=q_a+M_at$ and $y_t=e_a+6t$, where
+\[
+(q_a,e_a,t_0)=
+\begin{cases}
+((2^a-1)/3,\ 1,\ 1),&a\text{ even},\\
+((5\cdot2^a-1)/3,\ 5,\ 0),&a\text{ odd}.
+\end{cases}                                                    \tag{1}
+\]
+The start $t_0$ excludes source $1$ and endpoints already absorbed at $1$.
+In component $i\in\{1,2\}$ retain $t_0\le t\le\ell_{a,i}$, where
+$\ell_{a,i}=\lfloor(n_i-q_a)/M_a\rfloor$. Set
+\[
+s_{a,i}=\max(0,\ell_{a,i}-t_0+1),\qquad r_{a,i}=s_{a,i}\bmod3.
+\]
+Leave the first $r_{a,i}$ lifts ungrouped and partition all remaining lifts
+into consecutive triples. Thus the final triple ends at the upper cutoff.
+The packet sum over $1\le a\le b$ and both components is denoted $\PiR_N$.
+This is a new grouping, distinct from the handoff's left-aligned packets.
+
+\begin{theorem}[Fixed-core remainder]
+For every integer $N\ge8$,
+\[
+P\nu_N=\PiR_N+\eta_N,\qquad
+\supp\eta_N\subseteq\{5,7,11,13\},\qquad
+\|\eta_N\|_1\le6b.                                           \tag{2}
+\]
+Every raw packet has the form
+$c_0\delta_y+c_1\delta_{y+6}+c_2\delta_{y+12}$ with coefficients a
+permutation of $(2,-1,-1)$. In particular, $\langle1,\PiR_N\rangle=0$.
+Moreover, for every integer $T\ge1$,
+\[
+\left|3\mathcal E_T(N)-H_{T-1}(\PiR_N)\right|\le8+30b.       \tag{3}
+\]
+\end{theorem}
+\begin{proof}
+Formula (1) solves $3x+1=2^ay$ with odd $y$, using its least positive source
+representative modulo $2^{a+1}$. As $M_a$ is a unit modulo $3$, three
+consecutive sources visit all three residues and their coefficients sum to
+zero. At most two left lifts remain in each component. They have endpoints
+$5,11$ for odd $a$ and $7,13$ for even $a$, and their absolute coefficients
+sum to at most $3$ per component.
+
+There is no unaccounted large-valuation tail: $x\le n_1<2^{b+1}$ and
+$a(x)>b$ imply
+\[
+0<S(x)=\frac{3x+1}{2^{a(x)}}<3.
+\]
+The endpoint is odd, so it equals $1$ and is discarded by $P$. Summing the
+leftovers proves (2). The four core hitting times are
+\[
+\tau(5)=1,\quad\tau(7)=5,\quad\tau(11)=4,\quad\tau(13)=2.
+\]
+Hence $|H_L(\eta_N)|\le30b$ for every $L$. Finally,
+\[
+H_T(\nu_N)=\langle1,\nu_N\rangle+H_{T-1}(P\nu_N)
+=\langle1,\nu_N\rangle+H_{T-1}(\PiR_N)+H_{T-1}(\eta_N),
+\]
+which proves (3).
+\end{proof}
+
+\section{The qualitative criterion: no uniform current cost is needed}
+For functions on nonnegative integers define
+\[
+(\Lip f)(N)=f(n_0)+\tfrac13f(n_1)+\tfrac13f(n_2).
+\]
+\begin{lemma}[A strict comparison function]
+For every integer $N\ge16$,
+\[
+\Lip(N^{3/2})<\frac{505}{512}N^{3/2}.                         \tag{4}
+\]
+\end{lemma}
+\begin{proof}
+The three ratios are at most $1/4$, $49/32$, and $49/64$, respectively.
+Consequently
+\[
+\frac{\Lip(N^{3/2})}{N^{3/2}}
+\le\frac18+\frac{343}{384\sqrt2}+\frac{343}{1536}
+<\frac18+\frac{245}{384}+\frac{343}{1536}
+=\frac{505}{512}<1,
+\]
+using $1/\sqrt2<5/7$.
+\end{proof}
+
+\begin{theorem}[Equivalent qualitative targets]
+The following four statements are equivalent.
+\begin{enumerate}
+\item Every positive integer reaches $1$ under Collatz.
+\item For every integer $N\ge8$, $\sup_{L\ge0}H_L(\PiR_N)<\infty$.
+      The bound may depend arbitrarily on $N$.
+\item For every integer $N\ge8$, there is a finite signed current $J_N$
+      such that $\PiR_N=(I-P)J_N$.
+\item For every integer $N\ge8$, there are finite signed measures $J_N,\zeta_N$
+      such that $\PiR_N=(I-P)J_N+\zeta_N$ and $\zeta_N\le0$ pointwise.
+\end{enumerate}
+Neither a uniform cost bound nor an inverse-basin theorem is required.
+\end{theorem}
+\begin{proof}
+Statement 1 implies 3: a finite packet has finitely many sources, so under
+Collatz all are absorbed by some finite time $M$. Then
+$J_N=\sum_{j=0}^{M-1}P^j\PiR_N$ is finite and telescopes to $\PiR_N$.
+Statement 3 implies 4 by taking $\zeta_N=0$. For a finite current,
+\[
+H_L((I-P)J)=\langle1,J-P^LJ\rangle
+=\sum_yJ(y)\mathbf1_{\tau(y)\le L}\le\|J^+\|_1.
+\]
+Since $h_L\ge0$, a nonpositive residual contributes at most zero. Thus 4
+implies 2 without any bound uniform in $N$.
+
+It remains to prove 2 implies 1. Define the exceptional indicator
+$e(x)=\mathbf1_{\tau(x)=\infty}$, with $e(1)=0$, and let
+\[
+B(u)=\sum_{1\le x\le u,\ x\text{ odd}}e(x),\qquad
+B_r(u)=\sum_{1\le x\le u,\ x\equiv r\ (6)}e(x).
+\]
+The indicator is invariant under $S$. Finite support and (2) give
+\[
+\lim_{L\to\infty}\frac{H_L(\PiR_N)}L
+=\langle e,\PiR_N\rangle
+=\langle e,P\nu_N\rangle
+=\langle e,\nu_N\rangle,                                  \tag{5}
+\]
+because $e$ vanishes on the fixed core. Statement 2 makes (5) nonpositive.
+
+Partitioning sources by first valuation gives the exact exceptional-count
+identity
+\[
+B(N)=B(n_0)+B_5(n_1)+B_1(n_2)
+=\Lip B(N)+\tfrac13\langle e,\nu_N\rangle
+\le\Lip B(N).                                               \tag{6}
+\]
+For completeness, valuation $1$ maps $4j+3$ bijectively to $6j+5$;
+valuation $2$ maps $8j+1>1$ to $6j+1\ge7$; and valuation at least $3$
+has sources $4z+1$ with $z$ odd and $S(4z+1)=S(z)$. The exceptional small
+cases $1$ and $5$ both have $e=0$, so (6) has no additive constant.
+
+The odd seeds $1,3,5,7,9,11,13,15$ all terminate, so $B(N)=0$ for $N<16$.
+Also $B(N)\le N$, hence $B(N)/N^{3/2}\to0$. If $B$ were nonzero, this
+ratio would attain a positive global maximum $M$ at some integer $N\ge16$.
+Using (6) and (4) at that maximizer yields
+\[
+B(N)\le\Lip B(N)\le M\Lip(N^{3/2})
+<M N^{3/2}=B(N),
+\]
+a contradiction. Thus all odd seeds terminate, and removing initial powers
+of two gives Statement 1.
+\end{proof}
+
+\paragraph{A second check for exact currents.}
+There is a short independent proof of $3\Rightarrow1$. If $r$ is the least
+nonterminating odd seed, take $N=\lceil(2r-1)/3\rceil$. Then $n_1$ is $r$
+or $r+1$, and $n_2<r$. Therefore
+\[
+\langle e,\nu_N\rangle=3\mathbf1_{r\equiv2\ (3)}-1\in\{-1,2\}.
+\]
+The core has zero $e$-pairing, whereas every finite divergence has zero
+$e$-pairing by invariance. This is impossible. This short proof uses exact
+currents; the maximum principle above is what also permits nonpositive residuals.
+
+\section{An exact constant error on dyadic cutoffs}
+For $N=2^b$, $b\ge3$, the core remainder depends only on $b\bmod6$:
+\[
+\begin{array}{c|rrr}
+b\bmod6&\eta_N(5)&\eta_N(7)&\eta_N(13)\\\hline
+0&2&-1&0\\
+1&-1&1&-1\\
+2&-1&0&-2\\
+3&-1&-1&0\\
+4&-1&-2&2\\
+5&2&-3&1
+\end{array}                                                   \tag{7}
+\]
+There is no mass at $11$. To prove periodicity, increase $b$ and $a$ by $6$.
+The cutoffs multiply by $64$, while $q_{a+6}=64q_a+21$ and
+$M_{a+6}=64M_a$. Since $n_i-q_a$ is odd, the subtraction of
+$21/(64M_a)$ does not change its quotient's floor. Also the shifted sources
+are $64x_t+21\equiv x_t\pmod3$, so their coefficients are unchanged.
+Thus each old valuation has the same lift count and residual coefficients
+at the shifted valuation.
+The six new valuations $a=1,\ldots,6$ contribute zero in total: odd $a$ have
+no leftovers, and even $a$ contribute the vectors $(-2,1),(1,-2),(1,1)$
+on $(7,13)$, which sum to zero. Direct arithmetic at $b=3,\ldots,8$ gives (7).
+
+Since $\langle1,\nu_{2^b}\rangle=-1$, substitution of the four core hitting
+times into (7) gives the sharper transfer bound
+\[
+\boxed{\quad
+H_{T-1}(\PiR_{2^b})-12\le3\mathcal E_T(2^b)
+\le H_{T-1}(\PiR_{2^b})+1,\quad T\ge1.
+\quad}                                                       \tag{8}
+\]
+The main equivalence requires \emph{every integer cutoff} $N\ge8$;
+the dyadic computation alone does not establish that hypothesis.
+
+\section{What this changes, and what remains open}
+The handoff's left-aligned remainder was paid for by a time horizon. That
+created a source/time-domain issue and motivated a uniform positive current
+cost target. The revised depth-one grouping places the remainder inside a
+verified finite core. Theorems 1--3 consequently remove both requirements
+from the logical route to Collatz.
+
+The remaining target is precise: construct, for every integer cutoff, a
+finite current for $\PiR_N$, or a finite current whose residual is everywhere
+nonpositive. A proof of termination of that construction is essential.
+Its running time, number of rows, and positive cost may be arbitrarily large
+functions of $N$. A small unresolved \emph{positive} residual is insufficient
+for this all-horizon criterion unless its own future contribution is bounded.
+The packet work itself need not be nonpositive: direct finite iteration gives
+$H_{39}(\PiR_{32})=57$. The target is a finite upper bound for each cutoff.
+
+This is an equivalence with Collatz, so it does not establish that the
+remaining construction is easy. The archive's currents refer to different
+packet groupings and named finite cutoffs; they cannot be substituted for a
+universal construction of $\PiR_N$.
+
+\section{Audit and reproducibility}
+The uploaded archive's SHA-256 matched the handoff:
+\begin{center}\small\texttt{025c8fafe25940951fe408b32b1ec806259725a6b4f8855d9f2b022911fe5447}\end{center}
+All 31 manifest entries matched. The Python stored-certificate verifier and
+freshly compiled independent C++ verifier both passed for $N=4096$ and
+$N=262144$, reconstructing packets, divergences, exit profiles, and the
+reported finite bounds. Those are checks of the original grouping.
+
+The companion \texttt{right\_aligned\_packets.py} independently constructs the
+new packets and compares them with direct one-step pushforward for every
+$8\le N\le2048$ and selected larger cutoffs. It also checks the dyadic core
+formula through $b=1000$, the core hitting times, and the exact rational
+comparison constant. Results are saved in \texttt{right\_aligned\_audit.json}.
+These computations check the implementation and examples. The general
+claims above rest on the written proofs and have not received human peer
+review or formal proof-assistant verification.
+\end{document}

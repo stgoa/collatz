@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "source_cutoffs": [
+    4096,
+    262144
+  ],
+  "complete_packet_measures_match": true,
+  "complete_current_divergences_match": true,
+  "profile_and_full_window_fields_compared": 16,
+  "unresolved_exit_continuations_followed_by_verifier": false,
+  "same_assistant_author": true
+}

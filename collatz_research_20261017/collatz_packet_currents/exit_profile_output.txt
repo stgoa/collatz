@@ -1,0 +1,14 @@
+{"N": 512, "depth": 2, "exit_count": 18, "exit_profile_upper": 180, "exit_profile_lower": -71, "exit_upper_over_N": 0.3515625}
+{"N": 1024, "depth": 2, "exit_count": 45, "exit_profile_upper": 167, "exit_profile_lower": -360, "exit_upper_over_N": 0.1630859375}
+{"N": 2048, "depth": 2, "exit_count": 90, "exit_profile_upper": 520, "exit_profile_lower": -501, "exit_upper_over_N": 0.25390625}
+{"N": 4096, "depth": 2, "exit_count": 176, "exit_profile_upper": 2364, "exit_profile_lower": -1406, "exit_upper_over_N": 0.5771484375}
+{"N": 8192, "depth": 2, "exit_count": 370, "exit_profile_upper": 3573, "exit_profile_lower": -2203, "exit_upper_over_N": 0.4361572265625}
+{"N": 16384, "depth": 3, "exit_count": 542, "exit_profile_upper": 4085, "exit_profile_lower": -3957, "exit_upper_over_N": 0.24932861328125}
+{"N": 32768, "depth": 3, "exit_count": 1061, "exit_profile_upper": 4191, "exit_profile_lower": -10071, "exit_upper_over_N": 0.127899169921875}
+{"N": 65536, "depth": 3, "exit_count": 2167, "exit_profile_upper": 6902, "exit_profile_lower": -16698, "exit_upper_over_N": 0.105316162109375}
+{"N": 131072, "depth": 3, "exit_count": 4312, "exit_profile_upper": 30863, "exit_profile_lower": -32329, "exit_upper_over_N": 0.23546600341796875}
+{"N": 262144, "depth": 4, "exit_count": 7045, "exit_profile_upper": 63824, "exit_profile_lower": -57661, "exit_upper_over_N": 0.24346923828125}
+{"N": 513, "depth": 2, "exit_count": 23, "exit_profile_upper": 204, "exit_profile_lower": -154, "exit_upper_over_N": 0.39766081871345027}
+{"N": 999, "depth": 2, "exit_count": 48, "exit_profile_upper": 125, "exit_profile_lower": -306, "exit_upper_over_N": 0.12512512512512514}
+{"N": 4097, "depth": 2, "exit_count": 177, "exit_profile_upper": 2386, "exit_profile_lower": -1371, "exit_upper_over_N": 0.582377349279961}
+{"N": 10001, "depth": 3, "exit_count": 315, "exit_profile_upper": 4982, "exit_profile_lower": -2084, "exit_upper_over_N": 0.4981501849815019}

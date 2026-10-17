@@ -1,0 +1,44 @@
+[
+  {
+    "N": 4096,
+    "b": 12,
+    "anchor": 2,
+    "target_horizon": 69,
+    "early_signed_totals": [
+      -1,
+      1
+    ],
+    "eta_positive": 22,
+    "eta_negative": 20,
+    "eta_norm": 42,
+    "packet_all_horizons_lower": -1406,
+    "packet_all_horizons_upper": 2364,
+    "full_3E_target_window_lower": -2746,
+    "full_3E_target_window_upper": 3838,
+    "full_E_target_window_lower": "-2746/3",
+    "full_E_target_window_upper": "3838/3",
+    "proof": "finite current identity + exit-prefix bounds + exact anchor residual; future residual is bounded without iteration"
+  },
+  {
+    "N": 262144,
+    "b": 18,
+    "anchor": 4,
+    "target_horizon": 231,
+    "early_signed_totals": [
+      -1,
+      1,
+      1,
+      2
+    ],
+    "eta_positive": 209,
+    "eta_negative": 202,
+    "eta_norm": 411,
+    "packet_all_horizons_lower": -57661,
+    "packet_all_horizons_upper": 63824,
+    "full_3E_target_window_lower": -103512,
+    "full_3E_target_window_upper": 111270,
+    "full_E_target_window_lower": "-34504",
+    "full_E_target_window_upper": "37090",
+    "proof": "finite current identity + exit-prefix bounds + exact anchor residual; future residual is bounded without iteration"
+  }
+]

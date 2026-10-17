@@ -1,0 +1,9 @@
+{
+  "uploaded_bundle_sha256": "ecc108d74d925f761e06ddf1f34f36582e90ae86309689e554106e6d3e2b5f57",
+  "prior_certificate_sha256": "a33d63ed92f084f73a7071eb02f20ec719a75a06ad463a8441ac4d668b14b5d4",
+  "rerun_source_unchanged": true,
+  "rerun_scope": "The uploaded finite certificate passed. No historical analytic mixing argument is newly certified.",
+  "new_proofs_depend_on_analytic_bulk_decay": false,
+  "independent_authorship": false,
+  "Lean_verified": false
+}

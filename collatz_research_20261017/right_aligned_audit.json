@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "consecutive_cutoffs": [
+    8,
+    2048
+  ],
+  "selected": [
+    {
+      "N": 4096,
+      "packet_atoms": 2168,
+      "raw_triples": 1525,
+      "core_remainder": {
+        "7": -1,
+        "5": 2
+      },
+      "core_norm": 3
+    },
+    {
+      "N": 10001,
+      "packet_atoms": 5300,
+      "raw_triples": 3740,
+      "core_remainder": {
+        "7": -3,
+        "5": -2,
+        "11": 4,
+        "13": 1
+      },
+      "core_norm": 10
+    },
+    {
+      "N": 262144,
+      "packet_atoms": 138872,
+      "raw_triples": 98287,
+      "core_remainder": {
+        "7": -1,
+        "5": 2
+      },
+      "core_norm": 3
+    }
+  ],
+  "dyadic_exponents": [
+    3,
+    1000
+  ],
+  "all_horizon_dyadic_correction": [
+    -12,
+    1
+  ],
+  "positive_work_witness": {
+    "N": 32,
+    "L": 39,
+    "H": 57
+  },
+  "universal_current_existence_proved": false
+}

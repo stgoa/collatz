@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "no_unverified_tail_followed": true,
+  "independent_fields_agree": true,
+  "results": [
+    {
+      "N": 4096,
+      "depth": 2,
+      "packet_atoms": 1752,
+      "current_atoms": 2736,
+      "uniform_upper": 4352,
+      "uniform_lower": -3551,
+      "exit_count": 176,
+      "exit_profile_upper": 2364,
+      "exit_profile_lower": -1406,
+      "anchor_remainder_positive": 22,
+      "anchor_remainder_negative": 20,
+      "target_horizon": 69,
+      "full_3E_lower": -2746,
+      "full_3E_upper": 3838
+    },
+    {
+      "N": 262144,
+      "depth": 4,
+      "packet_atoms": 79516,
+      "current_atoms": 132998,
+      "uniform_upper": 226776,
+      "uniform_lower": -225781,
+      "exit_count": 7045,
+      "exit_profile_upper": 63824,
+      "exit_profile_lower": -57661,
+      "anchor_remainder_positive": 209,
+      "anchor_remainder_negative": 202,
+      "target_horizon": 231,
+      "full_3E_lower": -103512,
+      "full_3E_upper": 111270
+    }
+  ]
+}
