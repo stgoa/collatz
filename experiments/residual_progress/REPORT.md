@@ -241,3 +241,114 @@ resolved, and the staged diff passed whitespace validation. Independent
 reviews checked the new inverse-history proof, its main-note transcription,
 the local conversion, and the auxiliary bounds. Git history records delivery;
 the universal construction and termination goal remains open.
+
+## Continuation from `2be37b7`: resolving selected positive clusters
+
+This batch follows the first failure of the isolated-chain congruence,
+retains graph arrows canceled by the scalar compiler, and uses signed
+intermediate coefficients in the auxiliary rewrite.
+
+### Working checklist
+
+- [x] Read the clean repository, current invariants, and prior failure cases.
+- [x] Find an actual negative attachment that resolves a positive cluster.
+- [x] Derive a growing-depth arithmetic family and inspect every source sign.
+- [x] Construct a partial extension from the retained input graph.
+- [x] Extend the disjoint annular source catalogue with exact counts.
+- [x] Audit the signed path collapse and the growing-depth family independently.
+- [x] Integrate proofs, reproduce checks, and compile the existing source.
+- [x] Review the integrated result and prepare the authorized Git delivery.
+
+The candidate cancellation family is an exact identity for five actual source
+atoms. A complete component is resolved in a finite example; a universal
+statement about every full exposed component would be stronger and remains
+open. The retained-graph extension is conditional on supplied inner absorption.
+Neither construction closes its full residual.
+
+### Result: selected arbitrarily long isolations have exact cancellations
+
+The [release proof](release/DELAYED_RELEASE.md) constructs two negative
+sources around the old mass2 chain. Its full five-source current is
+nonpositive, has norm at most4h+10, and is supported in exposure at most
+2h+1. The chain remains a complete positive component through h+1.
+Qualifying h are unbounded, and each family occurs infinitely often on
+the required ladder N=96*64^k. This supplies an explicit finite resolution
+of the designated sources after a proved growing delay.
+
+The refined inverse precision also strengthens the general ladder bound
+to `d_*(96*64^k)>=v_3(k+2)+4`. Complete finite witnesses distinguish a
+neutral first attachment, mass2→2, from a resolving one, mass2→0. The
+general family is a five-source submeasure identity; other sources in a
+larger exposed component remain to be accounted for.
+
+The [new packing](release_packing/RELEASE_PACKING.md) separately adds
+disjoint pairs and triples to the earlier source catalogue at every allowed
+N. Total removed positive mass becomes1073N/432+O(1), with a full returned
+current and residual. There is no assumed simultaneous packing with the
+general delayed family.
+
+### Result: retained arrows improve the conditional input
+
+The [retained-graph theorem](complement/RETAINED_GRAPH_EXTENSION.md)
+uses every K_N arrow below3N/2. Supplied inner absorption gives all lower
+seeds and asymptotically47/72 of the outer shell. The improved packet
+residual is a specific negative profile of mass25N/288+O(1), concentrated
+at outer roots3 or7 modulo12. The proof classifies all K-only components
+missing the known lower interval, including their possible second source.
+Additional supplied-path intersections can help further; they are not
+presumed in the arithmetic guarantee.
+
+### Result: signed path capacity and the necessary frontier memory
+
+The [path construction](alternating/ALTERNATING_PATHS.md) keeps each
+intermediate coefficient in the restricted valuation1/valuation2 graph.
+Backward ancestry terminates, yielding both a linear signed collapse and
+a nonpositive-current normalizer. The latter's root residual is the exact
+maximum initial prefix sum and improves the old shortcut normalization.
+
+One-step forward/old-normalize iteration stabilizes but retains at least N
+positive mass for every annulus. Explicit complete path components have a
+known forbidden exit after growing depth, yet their new root heights can
+grow without bound. Thus the next construction must retain the exposed
+frontier and use additional cancellation or a different decreasing parameter.
+
+### Validation and next obligation
+
+`python3 scripts/verify_all.py --cpp` passed with all prior checks and four
+new checkers. The new receipts cover69 delayed currents,36 refined complete
+components, both first-attachment witnesses,129 extended-packing cutoffs,
+131 entire cutoff graphs,36 mass phases,eight supplied-input conversions,
+20 signed-path annuli,and11 growing-depth component examples.
+
+The existing LaTeX source compiled successfully after an independent review
+caught a missing `0<=i<m` restriction on the frontier-current formula.
+It is now explicit, with zero current elsewhere. The release theorem,
+precision refinement, packing capacity, and signed path arguments received
+independent model reviews. All97 checked local Markdown links resolved.
+
+**Next:** turn the delayed negative-source attachments into a capacity-safe
+recursion for a complete specified residual family. Track the frontier and
+every extra source that joins it. The retained input profile offers another
+explicit target, but its smaller mass cannot be iterated without proving
+closure. Neither successful examples nor the new partial identities prove
+that every positive component eventually resolves.
+
+### Independent side-lane review
+
+The user added a start-of-batch feed instruction during final review.
+Fetched and read `origin/claude/sidekick:sidekick/FEED.md` at
+`f2af9452892887703cf5865b9ef4150faf6bafba`. The branch was not modified.
+After inspecting the scripts, reproduced `sidekick/probes/depth_probe.py`
+and `sidekick/probes/release_families_check.py` in a temporary snapshot of
+that exact commit; both outputs matched their stored receipts. The
+[review receipt](side_lane_review.json) records source hashes and outputs.
+
+The independent packing check confirms the new pair/triple identities and
+their mutual capacity, while expressly leaving the older-catalogue capacity
+to the main proof. The forward-graph probe confirms five older isolation
+examples. At their first reported resolving depth, all five components
+contain1; four still have positive source mass. Those samples complement
+the new exact cancellation family and do not establish that absorption is
+the only way every such cluster can resolve. The side lane's larger-scale
+questions remain untested leads. The fetch/read/verify rule is now in
+AGENTS.md for subsequent batches.

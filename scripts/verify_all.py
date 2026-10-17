@@ -124,6 +124,10 @@ def main():
             ("templates", "check_unbounded_exposure.py"),
             ("closure", "check_local_extension.py"),
             ("auxiliary", "check_auxiliary_normal_form.py"),
+            ("release", "check_release.py"),
+            ("release_packing", "release_packing.py"),
+            ("complement", "check_complement.py"),
+            ("alternating", "check_alternating_paths.py"),
         ):
             run([sys.executable, "-B", script], residual_work / directory)
         # The review checker imports the annular arithmetic implementation;
@@ -164,6 +168,10 @@ def main():
                          unbounded_exposure="PASS: inverse invariants and complete CRT/ray components",
                          local_extension="PASS: 64 identities, 16640 coefficients, stored outer current",
                          auxiliary_normalization="PASS: 66 annuli, order independence, residual lower bound",
+                         delayed_release="PASS: 69 currents, refined complete components, neutral and resolving witnesses",
+                         extended_packing="PASS: 129 annuli, disjoint source capacity and floor counts",
+                         retained_graph_extension="PASS: 131 cutoff graphs, 36 phases, supplied-input conversions",
+                         signed_path_collapse="PASS: exact currents, intermediate capacity, retained frontiers and exits",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
 
 
