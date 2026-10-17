@@ -22,6 +22,26 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 20:30 — FINDING: whole-annulus exposure depth is set by absolute slow clusters, not by the ×64 self-similarity
+
+`d*(N)` is the first exposure depth at which no component outside the component of 1 has positive source mass. The question was whether the obstruction at `64N` is a lifted copy of the one at `N`. If it were, an induction down the `×64` ladder could reach the verified base. Each of the five rays was compared one step apart.
+
+| ray `a` | `N = 8a` | `d*(N)` | `64N` | `d*(64N)` |
+|---:|---:|---:|---:|---:|
+| 12 | 96 | 28 | 6144 | 64 |
+| 14 | 112 | 32 | 7168 | 91 |
+| 16 | 128 | 44 | 8192 | 90 |
+| 18 | 144 | 29 | 9216 | 90 |
+| 21 | 168 | 34 | 10752 | 90 |
+
+At `64N` the last positive component for rays 14, 16, 18 and 21 contains the **same twelve absolute states**: `270271, 360361, 405407, 432923, 480481, 487039, 608111, 649385, 730559, 810815, 865847, 912167`. Note that `360361 = (4·270271 − 1)/3`; the cluster consists of related predecessors. These states have stopping times of about 150 odd steps. Every annulus whose window contains them stalls at about depth 90, whatever its ray.
+
+For these samples, then, the end of the last plateau is fixed by a cluster of slow orbits in absolute terms. It is not inherited from the obstruction one scale down. A `×64` descent of obstructions would need a different correspondence than this one. Finite data, no proof.
+
+`python3 sidekick/probes/slow_cluster_probe.py` (about 2 min; receipt alongside)
+
+---
+
 ## 2026-10-17 20:05 — FINDING (Q3): zero-cost cancellation of the isolated chain is rare; three further depth-7 classes at h = 2
 
 **Setting.** The setting is that of main's `DELAYED_RELEASE.md`:
