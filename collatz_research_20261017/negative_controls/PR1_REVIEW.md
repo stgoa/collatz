@@ -204,3 +204,38 @@ compares with `review_scope_audit.json`. The small example is checked by
 its three exact arrows. The current tables are reconstructed rather than
 duplicated in another stored CSV. `--write-receipt` intentionally refreshes
 the compact receipt. No universal Collatz claim is made.
+
+## 7. Reassessment after the delayed-release results
+
+The user requested a fresh opinion on the merged parallel work. A remote
+refresh on17 October2026 identifies this same PR1 as the only merged PR;
+main already contains both it and the scope corrections. The concrete
+counterexample checker above was rerun and passed.
+
+**Decision: a tactical pivot toward recursive descent, while retaining the
+current formulation.** C2/C4 make numerical compression an inadequate
+progress test. C3 does not prohibit alternative constructions. The useful
+next question is whether an exact cancellation supplies an explicit path
+from a remaining outer seed to an already absorbed smaller seed, with all
+input dependencies accounted for.
+
+The latest optional side feed, reviewed at
+`f12da944dc68cfaff0884d874e11bc6c2cb98d34`, independently reproduces the
+delayed-release identities and reports sparse negative-source attachment
+in a depth16 search. Both new receipts were reproduced in temporary
+storage; exact integer height bounds give the same results. See the
+[review receipt](../../experiments/residual_progress/side_lane_review_20261017_2005.json).
+These observations motivate testing coverage. They do not prove that
+later zero-cost attachment is impossible: a bounded search can miss a
+deeper backward source. Insufficient negative capacity also does not mean
+there are no source attachments at all.
+
+The next batch's [annular-to-complement transfer](../../experiments/residual_progress/complement_recursion/ANNULAR_COMPLEMENT_TRANSFER.md)
+makes the proposed progress test precise. Its positive annular atoms are
+already certified by smaller ancestors; a capacity-checked cancellation
+then certifies selected negative atoms and their outer predecessors.
+The delayed family provides actual shrinking branches after unbounded
+excursions. Their scope is partial: covering every residual root remains
+the main open obligation. This is a concrete reason to redirect the
+construction work; it does not claim that the merged PR or the new
+transfer solves Collatz.

@@ -128,6 +128,9 @@ def main():
             ("release_packing", "release_packing.py"),
             ("complement", "check_complement.py"),
             ("alternating", "check_alternating_paths.py"),
+            ("release_coverage", "check_coverage.py"),
+            ("complement_recursion", "check_transfer.py"),
+            ("window_components", "check_window_components.py"),
         ):
             run([sys.executable, "-B", script], residual_work / directory)
         # The review checker imports the annular arithmetic implementation;
@@ -172,6 +175,9 @@ def main():
                          extended_packing="PASS: 129 annuli, disjoint source capacity and floor counts",
                          retained_graph_extension="PASS: 131 cutoff graphs, 36 phases, supplied-input conversions",
                          signed_path_collapse="PASS: exact currents, intermediate capacity, retained frontiers and exits",
+                         release_phase_coverage="PASS: symbolic phase isolation and fixed-h required-ladder obstruction",
+                         annular_complement_transfer="PASS: smaller ancestors, exact outer currents and delayed descents",
+                         bounded_source_clusters="PASS: complete local clusters, sharp63 span and forbidden-exit scope",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
 
 

@@ -1552,6 +1552,195 @@ exit with growing depth, but retains positive mass at a potentially
 much larger root. A further cancellation or decreasing parameter
 is still needed.
 
+\section{Phase coverage does not follow from the delay order}
+The delayed construction does not extend to every phase with the same
+exposure bound. Write $X=128N/3$ and $U=(X-1)/3^h$.
+The following complete-component classifications have finite symbolic
+arithmetic proofs:
+\[
+\begin{array}{c|c|c|c|c}
+h&D&\text{binary condition}&\text{size condition}&
+ \text{exceptional phase}\\ \hline
+2&5&2^{10}\mid X&X\ge497664&U\equiv16\pmod{27}\\
+3&7&2^{11}\mid X&X\ge8957952&U\equiv31\pmod{81}
+\end{array}
+\]
+In each row assume $v_3(X-1)=h$. Every nonexceptional unit phase has
+exactly the complete component
+\[
+\{(3/2)^jX-1:1\le j\le D+3\},
+\]
+with only the three source weights $(-2,2,2)$, hence mass $2$.
+The exceptional phase has an explicit additional source, without an
+assertion that its whole component is resolved.
+
+The arithmetic proof enumerates every bounded inverse reachability
+decision for one affine base in each phase. Its sign comparisons hold
+for every real scale parameter at least one. For additive translation
+of $X$ by $2^{10}3^5$ or $2^{11}3^7$, respectively, every queried
+state changes by an integer multiple of six. Thus parity and inverse
+admissibility persist. The three possible residues modulo $18$ are
+checked to have the same coefficient in their fixed band; preservation
+of the entire residue is unnecessary. This proves all $17$ or $53$
+nonexceptional unit phases, rather than extrapolating from samples.
+The complete proof and exact decision checker are in
+\texttt{release\_coverage/PHASE\_COVERAGE.md}.
+
+In particular, on the required ladder, every
+\[
+N=96\cdot64^k,\qquad k\equiv2\pmod{27},
+\]
+has $v_3(X-1)=2$ but a complete positive component at depth $5$.
+An independent affine proof starts at $N_0=393216$ and verifies all
+$135$ comparisons for $N=N_0q$, $q\ge1$, $q\equiv1\pmod{243}$.
+Since $64^{27}\equiv1\pmod{243}$, this includes the displayed ladder.
+Thus completion by depth $2h+1$ for every phase is false, even allowing
+arbitrary valuation words in that exposure graph. A different growing
+bound or eventual completion is not excluded.
+
+\section{From annular cancellation to smaller-seed descent}
+This section gives a conditional interface to the outer profile $R_N$.
+Fix $8\mid M$, set $N=64M$, and supply a finite exact current $H$ for
+$U_N$. Every positive source $y$ of $A_M$ has an ancestor at most $N$
+within two arrows. For $y\le N$ this is immediate. For
+$N<y<9N/8$, residues $11,17$ modulo $18$ use $(2y-1)/3$; residue $13$
+uses
+\[
+(8y-5)/9\longrightarrow(4y-1)/3\longrightarrow y.
+\]
+For $9N/8<y<9N/4$, the only positive residue is $17$, and the path is
+\[
+(4y-5)/9\longrightarrow(2y-1)/3\longrightarrow y.
+\]
+The initial states lie below $N$, and all displayed valuations are exact.
+The graph of $H$ therefore contains the absorption paths of these positive
+sources.
+
+\begin{theorem}[Conditional annular-to-complement transfer]
+Suppose a supplied finite exact block satisfies
+\[
+\nu^+-\nu^-=(I-P)J,\qquad
+0\le\nu^+\le A_M^+,\quad 0\le\nu^-\le A_M^-,
+\]
+with disjoint positive and negative supports. Known absorption through
+$N$ supplies an exact current $H_+$ for $\nu^+$ on its existing graph,
+and hence
+\[
+\nu^-=(I-P)(H_+-J).
+\]
+Every residual root $x$ of $R_N$ whose exit
+$t=(3x+1)/2$ lies in $\supp\nu^-$ can be absorbed with its full
+coefficient, either one or two.
+\end{theorem}
+\begin{proof}
+The ancestor formulas give $H_+$. A finite exact signed current with a
+nonnegative source forces every source into the component containing
+the absorber: summing divergence over any other finite component gives
+zero, contradicting positive source mass there. On a functional graph,
+connection to the absorber supplies a directed path to it. Unrelated
+zero-source cycle components do not change this argument.
+
+Each $R_N$ root is $3$ or $7$ modulo $12$. Its valuation-one exit lies
+in $(3N/2,9N/4)$, is $5$ or $11$ modulo $18$, and has coefficient
+$A_M(t)=-1$. If $t$ is certified by the displayed identity, append
+$x\to t$. A proved path may be multiplied by two when $R_N(x)=2$;
+this does not spend the original annular coefficient twice.
+\end{proof}
+Writing $R_N=(I-P)T+R_{\rm rem}$ gives the upgraded identity
+\[
+\PiR_N=(I-P)(J_{\rm old}-T)-R_{\rm rem},
+\qquad R_{\rm rem}\ge0.
+\]
+Every uncovered coefficient remains explicit.
+
+The old packed five-source trees cover precisely the roots
+$9183+768j$ for their admissible indices $j=9s$ or $9s+3$.
+Their number is $C_{\rm old}(M)=N/9216+O(1)$.
+The other existing short families have exits below the relevant range
+or certify roots already removed by the retained-graph construction.
+Thus cancelled annular mass and coverage of $R_N$ are distinct quantities.
+
+The delayed family supplies a more demanding branch. Using its
+$h,r,X,v$ at cutoff $M=3X/128$, put $N=3X/2$ and $t=(2v-1)/3$.
+Then
+\[
+9N/8<t<3N/2,\quad t\equiv31\pmod{36},\quad R_N(t)=1,
+\]
+and its exact first descent to the known interval is
+\[
+t\longrightarrow N-1,\qquad
+\text{valuation word }1^{r+1},2^h,3.
+\]
+The path has $h+r+2\le2h+2$ arrows, every state before its endpoint
+exceeds $N$, and its peak exceeds $(4/3)^hN$. This gives infinitely
+many explicit shrinking branches with unbounded excursions, including
+branches on the required ladder. It assumes no absorption above $N$.
+A companion example has $h=r=3$, $X=24315904$, $N=36473856$,
+and residual coefficient two at $40480795$; its ten-arrow path ends
+at $N-1$. Its current has coefficient two on every origin.
+These branches and the transfer do not cover all of $R_N$.
+
+\section{Sharp bounded source clusters in the restricted graph}
+Let $N\ge8$ with $8\mid N$. Keep the graph $E_0$ of valuation-one edges and valuation-two edges
+with source $2$ modulo $3$. A source cluster comprises all nonzero
+$A_N$ sources in one complete $E_0$ component; the unrestricted
+exposure graph is different. Put $Q=9N/4$ and define
+\[
+\widehat h(x)=
+\begin{cases}x,&x\equiv1\pmod3,\\x/2,&x\equiv2\pmod3.\end{cases}
+\]
+The empty half-bands in the annular table give
+$Q<\widehat h(x)<32Q$ at every nonzero source.
+
+\begin{theorem}[Sharp source-span bound]
+Two annular sources on one $E_0$ path have even separation at most
+$58$ or odd separation at most $63$. The bound $63$ is attained.
+\end{theorem}
+\begin{proof}
+An allowed step from type one multiplies adjusted height by more than
+$3/4$; from type two it multiplies it by more than $3/2$.
+Type-one steps cannot be consecutive. A segment of length $2m$ thus
+has ratio greater than $(9/8)^m$, and one of length $2m+1$ has ratio
+greater than $(3/4)(9/8)^m$. The source endpoints have ratio below $32$,
+while
+\[
+(9/8)^{30}>32,\qquad
+(3/4)(9/8)^{32}>32.
+\]
+For sharpness take $x=3\cdot2^{95}t-5$, $t\ge1$,
+$Q=18\lfloor x/18\rfloor$, and $N=8\lfloor x/18\rfloor$.
+The exact word $(1,2)^{31},1$ ends at
+$2\cdot3^{64}t-7$. Its endpoints are nonzero sources in bands zero
+and five. Total valuation is $94$; the exact cylinder includes the
+extra bit and has modulus $2^{95}$. The bound already proved excludes
+any other source outside this segment.
+\end{proof}
+At most $63$ predecessor and $63$ successor queries from a source
+therefore recover its entire cluster. If its retained segment is
+$x_0,\ldots,x_d$, with $a_i=A_N(x_i)$, put
+\[
+J(x_i)=\sum_{j=0}^i a_j\quad(0\le i<d),\qquad J=0
+\text{ elsewhere}.
+\]
+Its residual is $(\sum_i a_i)\delta_{x_d}$. Summing these disjoint
+source clusters yields exact finite preprocessing, with current rows
+below $192N$ and positive cost at most
+$63\|A_N^+\|_1=6237N/4$. Every positive frontier is retained.
+A sufficient period for all bounded forward and backward guards is
+$2^{96}3^{65}$; the full arithmetic description is in
+\texttt{window\_components/WINDOW\_COMPONENTS.md}.
+
+These bounds do not control the future exit distance. If a forbidden
+edge $x\to y$ has valuation at least three, the root of the target
+component (with root$(1)=1$) is below $x/4$; the comparison is with the originating exit
+vertex, which may be far above the last source. Valuation-two forbidden
+edges instead land directly at a smaller inactive root.
+For the Mersenne family with odd $k$, the first exit is already a root
+$w=(3^L-1)/8>144N$, and its entire target component has no original
+annular source. The transported positive mass is then an auxiliary
+source there. A recursion must handle such components and prove eventual
+progress; bounded source preprocessing does not establish termination.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -1653,4 +1842,11 @@ The retained-graph checker exhausts $131$ cutoff graphs and all $36$
 residual mass phases. The extended packing checks full source capacity
 and divergence on $129$ cutoffs. The signed path checks include the
 capacity recurrences and explicit growing-depth component exits.
+The phase-coverage checker proves $70$ infinite additive phase classes
+by complete symbolic inverse decisions and independently checks $1944$
+representatives. The transfer checker covers $66$ cutoffs, five supplied
+current conversions, and $170$ explicit first-descent branches, with a
+full current for seed $9183$ stored. The source-cluster checker compares
+eight complete annuli with full-ancestry grouping and verifies the sharp
+span examples, affine guards, and source-empty exit targets.
 \end{document}
