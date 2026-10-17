@@ -1232,6 +1232,326 @@ $144N$. The positive-height bound does not improve the existing
 source-scale absorption cutoff $64N$. This is a terminating partial
 normalization, not a complete annular descent.
 
+\section{Explicit cancellation after growing delay}
+
+\begin{theorem}[A delayed five-source partial current]\label{thm:release}
+Let $h\ge2$, and choose the least $r\ge0$ for which
+\[
+ \lambda=4(4/3)^h(2/3)^r\le27/8.
+\]
+Retain $h$ when $\lambda>81/32$. Choose $V\in\{47,155\}$ and impose
+\[
+ U_0\equiv4^{-h-1}\bigl(3^r2^{-r}(V+1)-2\bigr)
+       \pmod{3^{r+4}},\qquad
+ X\equiv1+3^hU_0\pmod{3^{h+r+4}},
+\]
+where the inverses are taken in the displayed ternary modulus. Also require
+\[
+ 2^{\max(h+5,10)}\mid X,\quad X\ge1024,\quad
+ X>\frac{c+1/2}{\lambda-81/32},\qquad
+ c=\lambda+1-2(2/3)^r.
+\]
+Put $N=3X/128$, $U=(X-1)/3^h$, and
+\[
+ v=\frac{2^r(4^{h+1}U+2)}{3^r}-1,\quad
+ t=\frac{2v-1}{3},\quad u=\frac{4t-1}{3}.
+\]
+With $y_j=(3/2)^jX-1$ for $j=1,2,3$, the actual annular submeasure
+\[
+ \mu=-\delta_u-\delta_v-2\delta_{y_1}
+                   +2\delta_{y_2}+2\delta_{y_3}
+\]
+has an exact finite current $J\le0$ supported in $G_{h+r+1}(N)$.
+There are unboundedly many qualifying $h$, and for each one infinitely
+many parameter choices on the ladder $N=96\cdot64^k$.
+\end{theorem}
+\begin{proof}
+Minimality gives $r\ge1$ and $9/4<\lambda\le27/8$. If
+$\lambda\le81/32$, replacing $h$ by $h+1$ with the same $r$ gives the
+least admissible value $3<(4/3)\lambda\le27/8$. Thus consecutive $h$
+cannot both fail the lower bound.
+
+The congruence gives $U\equiv1\pmod3$, so $v_3(X-1)=h$ exactly.
+It also makes $v$ an odd integer congruent to $V$ modulo162.
+The identity $v=\lambda X-c$ and the size condition give
+\[
+ 81X/32+1/2<v<27X/8-1,\qquad
+ y_1<72N<t<y_2<u<v<y_3.
+\]
+The source coefficients at $y_1,y_2,y_3$ are $(-2,2,2)$.
+The residues of $(v,t,u)$ modulo18 are $(11,13,5)$ or
+$(11,13,11)$, all in the top band. Their coefficients are therefore
+$(-1,0,-1)$. The arrows $u\to t\to v$ have valuations $(2,1)$.
+
+The path from $v$ to $y_1$ has word $(1^r,2^h,3)$. Indeed, reverse
+the valuation3 step from $y_1$ to $4X-3$, then the $h$ valuation2 steps:
+\[
+ w_j=4(4/3)^j(X-1)+1,\quad 0\le j\le h.
+\]
+These are odd integers. The subsequent reversed valuation1 steps are
+$z_l=2^l(w_h+1)/3^l-1$, $0\le l\le r$; the congruence makes each
+integral and $z_r=v$. All intermediates other than $v,y_1$ exceed $y_3$:
+the $w_j$ increase from $4X-3$, and
+$z_{r-1}=(3v+1)/2>y_3$. Thus the indicated sources are distinct and
+every valuation is exact.
+
+Writing $L=h+r+1$ and $p_0=v,\ldots,p_L=y_1$ for that path, take
+\[
+ J=-\delta_u-\delta_t-2\sum_{j=0}^{L-1}\delta_{p_j}
+                         -4\delta_{y_1}-2\delta_{y_2}.
+\]
+Telescoping gives $(I-P)J=\mu$. Every coefficient is nonpositive.
+The long path starts at the actual source $v$, while $u,y_1,y_2$
+independently expose the other arrows, so all rows belong to $G_L(N)$.
+This removes four positive units, with $L+4$ current rows and norm
+$2L+8$, without an assumption about any subsequent orbit.
+
+The congruences have arbitrarily large solutions by coprimality of their
+moduli. They also have power-of2 solutions: cubing
+$4^{3^n}=1+3^{n+1}b_n$, with $3\nmid b_n$, proves
+$v_3(4^{3^n}-1)=n+1$. Hence 2 has order $2\cdot3^{M-1}$ modulo
+$3^M$ and generates all its units. Every required ternary residue is
+therefore $2^e$ for an unbounded progression of exponents. As
+$X\equiv1\pmod9$, $6\mid e$, and for sufficiently large $e$ the binary
+and size requirements hold, with $N=96\cdot64^{e/6-2}$.
+\end{proof}
+
+The isolation precision can be sharpened. With $v_3(X-1)\ge h$ and
+the binary divisibility required for depth $D$, the same complete-chain
+proof works for $D\le h+1$. Indeed, at inverse step $l$, the
+\emph{previous} shadow difference $u(X-1)$ has ternary valuation
+\[
+ h+k-(l-1)\ge h-D+2\ge1.
+\]
+This is exactly what is needed to transfer admissibility to the next
+integral auxiliary state. At the final step its difference need only
+be integral. Before the first integral auxiliary state, the old binary
+argument is unchanged. The coefficient invariant and both endpoint
+closure arguments therefore apply without alteration.
+For the preceding family the original sources consequently form a
+complete mass2 component through depth $h+1$. Also $r\le h$, since
+$4(8/9)^h\le256/81<27/8$ for $h\ge2$, so $L\le2h+1$.
+Thus the construction resolves a designated block after arbitrarily
+long initial isolation, with a linear exposure bound in $h$. It is an exact
+\emph{submeasure} certificate, not a claim that the whole component
+at depth $L$ has no additional positive sources.
+
+On $N=96\cdot64^k$, take $X=2^{6(k+2)}$.
+The elementary valuation formula gives
+$h=v_3(X-1)=2+v_3(k+2)$, and its binary exponent exceeds $h+5$.
+The least sufficient exposure depth, allowing infinity, therefore obeys
+the stronger bound
+\[
+ d_*(96\cdot64^k)\ge v_3(k+2)+4.
+\]
+
+For $h=r=2$ the ladder indices include $k\equiv89,575\pmod{729}$.
+A complete finite example at $N=340131840$ changes from mass2 at
+depth4 to mass0 at depth5, with precisely the five displayed sources.
+At $N=60555264$, by contrast, the first new attachment at depth9
+adds a balanced triple and leaves mass2. The complete inverse oracle
+checks every incoming source in both examples.
+
+\paragraph{Additional disjoint packing.}
+There are also two short families at every $8\mid N$:
+\[
+ \begin{array}{ll}
+ 36N<q<54N,\ q\equiv31\pmod{54}:&
+ 2\delta_q-2\delta_{(4q-1)/3}
+       =(I-P)(-2\delta_{(4q-1)/3}),\\[2pt]
+ 64N<q<72N,\ q\equiv31,103\pmod{108}:&
+ -\delta_u+2\delta_q-\delta_v=(I-P)(-\delta_u+\delta_q),
+ \end{array}
+\]
+where $u=(4q-1)/3$ and $v=(3q+1)/2$ in the second line.
+Each coefficient is the whole actual annular coefficient. Their
+sources are mutually disjoint and disjoint from the earlier short
+catalogue and five-source packing. The only overlapping band/residue
+comparisons reduce to incompatible classes modulo72 or144; the full
+capacity proof and exact floor formulas are in
+\texttt{release\_packing/RELEASE\_PACKING.md}.
+The added removed positive mass is $26N/27+O(1)$.
+The extended constructor consequently removes
+$1073N/432+O(1)$ positive mass, with positive current cost at most
+$73N/432+O(1)$. Its remaining positive coefficients are retained.
+This packing is separate from Theorem~\ref{thm:release}; no simultaneous
+capacity for that delayed family is presumed.
+
+\section{A partial extension from retained input arrows}
+
+\begin{theorem}[Retained-graph extension]\label{thm:retained}
+For $8\mid N$, let $H$ be a supplied finite exact current for
+$I_N=2U_N-U_{N/4}-U_{3N/4}$. Retain every arrow in $H$, the explicit
+$K_N$ of Theorem~\ref{thm:localinput}, and the fixed-core current $E_N$,
+even when their coefficients cancel in a sum. This graph absorbs every
+odd seed at most $N$ and a specified subset of $(N,3N/2)$.
+It yields a packet current
+\[
+ \PiR_N=(I-P)J_{\rm imp}-R_N,\qquad R_N\ge0,
+ \qquad |R_N|=25N/288+O(1),
+\]
+without exposing any new arrow. The guaranteed absorbed outer subset
+has size $47N/288+O(1)$, a fraction tending to $47/72$ of that shell.
+\end{theorem}
+\begin{proof}
+Put $B=3N/2$. The identity
+\[
+ K_N=3P(U_N-U_{N/4})+3(U_N-U_{N/4})-U_{3N/2}-U_{3N/4}
+\]
+shows that its support is exactly the odd states $1<x<B$:
+its coefficient is $-2$ modulo3 below $3N/4$, and $-1$ modulo3 above.
+All summands are supported below $B$.
+
+The exact current for the nonnegative inner source supplies paths to1
+from each inner seed. For $y\le N/4$, iterate $F(x)=4x+1$ to the first
+$z>N/4$. Then $z\le N-3$ and $S(z)=S(y)$. The row at $y$ and the
+supplied suffix from $S(z)$ give a path to1 from $y$. Thus every seed
+through $N$ is absorbed on the retained graph.
+
+Here is the full list of components of the $K_N$-only graph missing
+every state at most $N$, including1. They have root $N<x<B$ and
+boundary successor $s=(3x+1)/2>B$:
+\[
+ \begin{array}{c|c}
+ x\equiv3\pmod{12}&\{x,s\}\\
+ x\equiv7\pmod{12},\ x>9N/8&\{x,s\}\\
+ x\equiv7,19\pmod{36},\ x<9N/8&
+   \{(4x-1)/3,x,s\}.
+ \end{array}
+\]
+To check completeness, an outer state $y\equiv5\pmod8$ has a smaller
+odd sibling $(y-1)/4<N$, and $y\equiv2\pmod3$ has predecessor
+$(2y-1)/3<N$. The remaining states have valuation1 or2.
+Valuation1 gives the roots in the table. At valuation2 the successor
+is below $9N/8$; if it has valuation at least2, the next state is at
+most $(9y+7)/16<N$. Otherwise it is a root in the table.
+Such a root has a predecessor below $B$ only when $x<9N/8$.
+That predecessor $p=(4x-1)/3$ has a further predecessor below $B$
+only when $x\equiv31\pmod{36}$, in which case
+$(2p-1)/3=(8x-5)/9<N$. All other predecessors are iterated
+$F$-lifts and exceed $B$. This proves the list.
+
+Give $R_N$ weight1 at each two-vertex component root and weight2 at
+each three-vertex component root. Let $Q_N$ put weight1 at the
+extra predecessors in the latter case. Then
+$W_{\rm bad}=(I-P)Q_N+R_N$ counts each uncovered outer seed once,
+and $W_{\rm good}=U_{3N/2}-U_N-W_{\rm bad}\ge0$ is absorbed.
+Extract on the supplied graph an exact current $T_N$ for
+$2U_{N/4}+W_{\rm good}$. The automatic input identity gives
+\[
+ J_{\rm imp}=H-K_N-E_N-T_N-Q_N,\qquad
+ \PiR_N=(I-P)J_{\rm imp}-R_N.
+\]
+Source multiplicities and every residual sign are explicit.
+
+Counting the displayed residue intervals gives
+$|R_{N+288}|=|R_N|+25$. The 36 initial phases give
+$-19/9\le |R_N|-25N/288\le5/4$. Since the outer shell contains
+$N/4$ odd seeds, the guaranteed absorbed count is
+$N/4-|R_N|=47N/288+O(1)$.
+\end{proof}
+
+The residual vanishes at $N=8$ and is nonzero at every allowed
+$N\ge16$. On $N=96\cdot64^k$ its mass is exactly $25N/288-4/3$.
+The construction is conditional on the supplied inner current.
+It does not prove a repeatable contraction of $R_N$. Further
+connections in the supplied paths may improve it, but are additional
+graph information.
+
+\section{Signed path collapse and retained frontiers}
+
+Let $E_0$ contain the valuation1 arrows and those valuation2 arrows
+whose source is2 modulo3. Its unique incoming predecessor, if present, is
+\[
+ p(y)=
+ \begin{cases}
+ (2y-1)/3,&y\equiv2\pmod3,\\
+ (4y-1)/3,&y\equiv13\pmod{18}.
+ \end{cases}
+\]
+Every vertex has in-degree and out-degree at most1. Two successive
+valuation2 arrows are impossible: the first ends at residue1 modulo3,
+which cannot start a second allowed valuation2 arrow.
+Every two backward steps therefore reduce the state by a factor
+strictly below $8/9$. Thus every vertex has a unique finite backward
+root, in the inactive classes $\{1,3,7,9,15\}$ modulo18.
+This proves no general statement about its forward path ending.
+
+\begin{theorem}[Two finite path constructions]\label{thm:pathcollapse}
+For any finite integer source $\mu$, there is a finite linear signed
+collapse $B\mu$ to its $E_0$ roots with
+$\mu=(I-P)J_B+B\mu$. It is idempotent. There is also a finite
+normalization with $J_{\rm cap}\le0$ and positive residual only at roots.
+On a path $x_0,\ldots,x_m$ rooted at $x_0$, with coefficients
+$a_i=\mu(x_i)$ and zeros inserted, its root coefficient is
+\[
+ \max_{0\le j\le m}\sum_{i=0}^j a_i.
+\]
+This is the minimum root residual among nonpositive $E_0$ currents
+whose residual away from that root is nonpositive.
+\end{theorem}
+\begin{proof}
+Take the finite union of all source ancestries. For the linear collapse,
+move each signed coefficient $c$ at $y$ back to its root with current
+$-c$ on every preceding path edge. Telescoping gives the identity.
+Its root coefficient is $\sum_i a_i$, and
+$J_B(x_i)=-\sum_{j>i}a_j$.
+
+For the capacity construction, put $c_{m+1}=0$ and process backwards:
+\[
+ c_i=\max(a_i+c_{i+1},0),\quad
+ J_{\rm cap}(x_{i-1})=-c_i,\quad
+ Z_{\rm cap}(x_i)=a_i+c_{i+1}-c_i.
+\]
+The root coefficient $a_0+c_1$ is the maximum displayed prefix sum.
+All nonroot residuals are nonpositive. For any competitor with
+nonpositive current, summing its divergence on a prefix gives
+$\sum_{i\le j}Z(x_i)=\sum_{i\le j}a_i-J(x_j)$.
+Since its other residuals and current are nonpositive, its root
+coefficient is at least every prefix sum. The constructed current
+attains this lower bound. The old two-edge shortcut normalizer is
+one such competitor, so retaining intermediate negative capacity
+cannot increase its root residual.
+\end{proof}
+
+The linear signed current need not be nonpositive. At $N=96$ the old
+normalizer leaves positive mass1859, the capacity version1414, and
+signed collapse1337. These finite values are not universal contraction
+constants. A literal positive-forward/old-normalize iteration stabilizes
+but retains at least $N$ positive mass on every annulus; its exact trap
+classes and floor counts are proved in
+\texttt{alternating/ALTERNATING\_PATHS.md}.
+
+Keeping a component's furthest exposed source $x_m$ instead of only its
+root gives another exact table:
+\[
+ J_F(x_i)=\sum_{j=0}^{i}a_j\quad(0\le i<m),\qquad
+ F\mu=\Bigl(\sum_j a_j\Bigr)\delta_{x_m}.
+\]
+The current is zero elsewhere. This retains the path and the frontier
+needed for further exposure.
+Pushing a root across an $E_0$ arrow and immediately collapsing it
+simply returns to that root.
+
+An explicit example shows the limit of height descent. For
+$N=96\cdot64^k$, put $L=12+6k$ and
+$x_j=3^j2^{L-j}-1$, $0\le j<L$.
+These form a complete $E_0$ component rooted at $2^L-1$, with exactly
+the source weights $(-2,2,2)$ at $x_1,x_2,x_3$.
+All preceding arrows have valuation1; the last has valuation
+$3+v_2(L)\ge4$ and exits $E_0$ to
+$w=(3^L-1)/2^{2+v_2(L)}$. Telescoping gives
+\[
+ -2\delta_{x_1}+2\delta_{x_2}+2\delta_{x_3}
+ =(I-P)\left(-2\delta_{x_1}
+       +2\sum_{j=3}^{L-1}\delta_{x_j}\right)+2\delta_w.
+\]
+For odd $k$, $w=(3^L-1)/8\equiv1\pmod{18}$ is already inactive,
+and $w/(2^L-1)\to\infty$. The formula crosses a known component
+exit with growing depth, but retains positive mass at a potentially
+much larger root. A further cancellation or decreasing parameter
+is still needed.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -1258,6 +1578,13 @@ finished by more nonpositive current alone.
 Its running time, number of rows, and positive cost may be arbitrarily large
 functions of $N$. A small unresolved \emph{positive} residual is insufficient
 for this all-horizon criterion unless its own future contribution is bounded.
+Theorem~\ref{thm:release} now crosses selected arbitrarily long
+isolations with exact nonpositive current, and
+Theorem~\ref{thm:retained} improves automatic inputs by using their
+retained graph. Theorem~\ref{thm:pathcollapse} preserves intermediate
+source capacity and exposes the needed frontier information.
+None covers every remaining component or proves a closed terminating
+recursion.
 The packet work itself need not be nonpositive: direct finite iteration gives
 $H_{39}(\PiR_{32})=57$. The target is a finite upper bound for each cutoff.
 
@@ -1320,4 +1647,10 @@ ray cutoffs. The local conversion checks $64$ scale identities and
 $16640$ pointwise coefficients and stores an exact $102$-row outer-shell
 current. The auxiliary normalization checks $66$ annuli and its exact
 terminal-mass obstruction.
+The subsequent release checks verify exact delayed currents, refined
+complete components, and both neutral and resolving first attachments.
+The retained-graph checker exhausts $131$ cutoff graphs and all $36$
+residual mass phases. The extended packing checks full source capacity
+and divergence on $129$ cutoffs. The signed path checks include the
+capacity recurrences and explicit growing-depth component exits.
 \end{document}

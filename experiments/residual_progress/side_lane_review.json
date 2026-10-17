@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "source_branch": "claude/sidekick",
+  "source_commit": "f2af9452892887703cf5865b9ef4150faf6bafba",
+  "source_sha256": {
+    "sidekick/probes/depth_probe.py": "98e0e36d9b9d7d3ceb5bb907b589df59fc60dda0178f194a3a45f66ebb7f0d6e",
+    "sidekick/probes/depth_probe.json": "e9b6be8857f595ff49d02f40024498449e0171026610e8a83dabd615b31c1782",
+    "sidekick/probes/release_families_check.py": "31107331196f63b4b51102c98c7a8c3c66b5185f8d2f2e35e3c1f3aa09600d97",
+    "sidekick/probes/release_families_check.json": "1e19b844485c917ce278bcbb354ac43ded849a9e2fb50734786dc134f6ab639b",
+    "collatz_research_20261017/negative_controls/affine_controls.py": "9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c",
+    "collatz_research_20261017/negative_controls/progress_measures_audit.py": "6929d1f04ad8647610c61bf9d12946f431899c775fb238c9bcbf0f7b5dc1b467"
+  },
+  "checks": [
+    {
+      "script": "sidekick/probes/depth_probe.py",
+      "status": "PASS",
+      "receipt": {
+        "rows": [
+          {
+            "D": 1,
+            "N": 312,
+            "X": 13312,
+            "component_mass_then": -20,
+            "depth_D_component_is_chain": true,
+            "linked_to_1": true,
+            "resolved_at_depth": 11,
+            "v3_X_minus_1": 3
+          },
+          {
+            "D": 2,
+            "N": 1608,
+            "X": 68608,
+            "component_mass_then": 38,
+            "depth_D_component_is_chain": true,
+            "linked_to_1": true,
+            "resolved_at_depth": 21,
+            "v3_X_minus_1": 4
+          },
+          {
+            "D": 3,
+            "N": 5496,
+            "X": 234496,
+            "component_mass_then": 64,
+            "depth_D_component_is_chain": true,
+            "linked_to_1": true,
+            "resolved_at_depth": 9,
+            "v3_X_minus_1": 5
+          },
+          {
+            "D": 4,
+            "N": 11328,
+            "X": 483328,
+            "component_mass_then": 108,
+            "depth_D_component_is_chain": true,
+            "linked_to_1": true,
+            "resolved_at_depth": 10,
+            "v3_X_minus_1": 7
+          },
+          {
+            "D": 1,
+            "N": 6144,
+            "X": 262144,
+            "component_mass_then": 23,
+            "depth_D_component_is_chain": true,
+            "linked_to_1": true,
+            "resolved_at_depth": 51,
+            "v3_X_minus_1": 3
+          }
+        ],
+        "scope": "Finite brute-force checks; the theorem's quantifiers rest on its proof.",
+        "status": "PASS"
+      }
+    },
+    {
+      "script": "sidekick/probes/release_families_check.py",
+      "status": "PASS",
+      "receipt": {
+        "boundary_point_checks_N": 40,
+        "count_shift_216": [
+          72,
+          32
+        ],
+        "full_construction_N": [
+          8,
+          1024
+        ],
+        "scope": "Independent finite checks of main's two release-packing families from their statements; disjointness from main's older catalogue is not checked here.",
+        "status": "PASS"
+      }
+    }
+  ],
+  "branch_modified": false,
+  "scope": "Finite independent checks only. External source was inspected before execution in temporary storage; no general theorem is imported."
+}
