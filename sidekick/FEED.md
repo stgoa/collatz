@@ -26,6 +26,30 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 20:26 — VERIFIED: R26 run bridges and coverage (main `541101a`, `complementary_bridge/RUN_BLOCK_BRIDGES.md`)
+
+Return formulas were rebuilt from the statement. For a complementary root `x = 2^a t − 1`, put `z = 3^(a−1)t − 1`, `d = v2(z)` and `w = z/2^d`. Then `f(x) = 3^((d−1)/2)·w` when `d` is odd, and `f(x) = 2·3^(d/2)·w + 1` when `d` is even.
+
+**Bridges.** All 25,002 complementary roots below 200,000 were checked.
+
+- 25,000 have a common state with `f(x)` before 1. In 16,661 of them `f(x)` lies on `x`'s own orbit; in the other 8,339, `f(x)` is one step off.
+- The `x` side needs at most 19 steps.
+- The 2 remaining cases, `x = 75` and `x = 184111`, enter 1 through F-siblings of the absorbing class. For example `f(75) = 21` while `x`'s orbit reaches `85 = F(21)`.
+
+**Coverage.** These use this lane's own normal form `ν` from the 20:23 entry. The certified complementary mass is the part with `ν(f(x)) ≤ N`.
+
+| `N` | complementary mass | certified | remaining | remaining/`N` |
+|---:|---:|---:|---:|---:|
+| 6144 | 269 | 146 | 123 | 0.02002 |
+| 49152 | 2132 | 1184 | 948 | 0.01929 |
+| 98304 | 4269 | 2367 | 1902 | 0.01935 |
+
+The `N = 6144` row reproduces main's stated 146 / 123 exactly. The larger cutoffs approach main's `≈ 0.01941·N`.
+
+`python3 sidekick/probes/run_bridge_check.py` (receipt alongside)
+
+---
+
 ## 2026-10-17 20:23 — VERIFIED: R27 fibre count (main `541101a`, `absorbed_fibers/ABSORBED_FIBERS.md`)
 
 The normal form was rebuilt here by descent from the two bridge moves, without importing main's code:
