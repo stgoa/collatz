@@ -8,6 +8,8 @@ Each entry stands alone and gives a command that reproduces it from this branch.
 git fetch origin claude/sidekick && git show origin/claude/sidekick:sidekick/FEED.md
 ```
 
+Entry times are the commit times (local, -0300).
+
 Entry labels:
 
 | Label | Meaning |
@@ -22,7 +24,7 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-17 21:00 — FINDING: R17's outer residual is exactly the strong-induction residual with two-step lookback
+## 2026-10-17 19:40 — FINDING: R17's outer residual is exactly the strong-induction residual with two-step lookback
 
 Assume, as R20 does, that every odd seed `≤ N` reaches 1. Then the support of `R_N` (R17, `RETAINED_GRAPH_EXTENSION.md` §4) is **exactly** the following set: the odd climbers `x ≡ 3 (mod 4)` in the shell `(N, 3N/2)` that are not reached from `[1, N]` in one or two Syracuse steps.
 
@@ -42,13 +44,13 @@ supp R_N = { odd x in (N, 3N/2) : x ≡ 3 (mod 4), x ∉ S([1,N]) ∪ S²([1,N])
 
 - R20's outer-descent obligation for `R_N` is the classical strong-induction step on this set.
 - About half the support (for example 256 of 490 at `N = 6144`) is multiples of 3. These have no Syracuse predecessors, so no backward lookback of any depth can reach them. Only their own forward orbits can bring them into the absorbed set.
-- Combined with the 20:50 entry, a fixed-bit residue rule leaves a positive fraction of them uncertified.
+- Combined with the 19:37 entry, a fixed-bit residue rule leaves a positive fraction of them uncertified.
 
 `python3 sidekick/probes/residual_vs_induction.py` (under 1 s; receipt alongside)
 
 ---
 
-## 2026-10-17 20:50 — FINDING: how far 2-adic cylinders go toward R20's outer descent
+## 2026-10-17 19:37 — FINDING: how far 2-adic cylinders go toward R20's outer descent
 
 R20 (main `46198fb`) asks for a noncircular rule that takes every outer residual root below `N` into the absorbed seeds. R17 defines those roots as `x ≡ 3, 7 (mod 12)` in the shell `(N, 3N/2)`.
 
@@ -78,7 +80,7 @@ This is finite exact arithmetic with no termination claim. The uncertified class
 
 ---
 
-## 2026-10-17 20:30 — FINDING: whole-annulus exposure depth is set by absolute slow clusters, not by the ×64 self-similarity
+## 2026-10-17 19:34 — FINDING: whole-annulus exposure depth is set by absolute slow clusters, not by the ×64 self-similarity
 
 `d*(N)` is the first exposure depth at which no component outside the component of 1 has positive source mass. The question was whether the obstruction at `64N` is a lifted copy of the one at `N`. If it were, an induction down the `×64` ladder could reach the verified base. Each of the five rays was compared one step apart.
 
@@ -98,7 +100,7 @@ For these samples, then, the end of the last plateau is fixed by a cluster of sl
 
 ---
 
-## 2026-10-17 20:05 — FINDING (Q3): zero-cost cancellation of the isolated chain is rare; three further depth-7 classes at h = 2
+## 2026-10-17 19:22 — FINDING (Q3): zero-cost cancellation of the isolated chain is rare; three further depth-7 classes at h = 2
 
 **Setting.** The setting is that of main's `DELAYED_RELEASE.md`:
 
@@ -133,7 +135,7 @@ Rung `l` is an integer exactly when `3^l | 4^(h+1)U + 2`. For example, at `U = 1
 
 ---
 
-## 2026-10-17 19:40 — VERIFIED: delayed-release cancellation and the sharpened isolation lemma (main `65093c4`, `DELAYED_RELEASE.md`)
+## 2026-10-17 19:13 — VERIFIED: delayed-release cancellation and the sharpened isolation lemma (main `65093c4`, `DELAYED_RELEASE.md`)
 
 Everything was rebuilt from the statement with this branch's own `A_N`.
 
@@ -150,15 +152,15 @@ Everything was rebuilt from the statement with this branch's own `A_N`.
 
 `python3 sidekick/probes/delayed_release_check.py` (receipt alongside)
 
-## 2026-10-17 19:40 — FINDING: how much of the chain obstruction the delayed-release families cover
+## 2026-10-17 19:13 — FINDING: how much of the chain obstruction the delayed-release families cover
 
-- **Consistency with the 19:05 finding.** The five cutoffs in the 19:05 finding are all outside the delayed-release families: `X = 13312, 68608, 234496, 483328, 2^18`. The two findings are consistent. Inside the families, the chain block cancels at zero cost. At those outside cutoffs, the full component stayed positive until it joined the component of 1.
+- **Consistency with the 19:03 finding.** The five cutoffs in the 19:03 finding are all outside the delayed-release families: `X = 13312, 68608, 234496, 483328, 2^18`. The two findings are consistent. Inside the families, the chain block cancels at zero cost. At those outside cutoffs, the full component stayed positive until it joined the component of 1.
 - **Coverage.** Among `X` with `v3(X−1) = h`, let `U = (X−1)/3^h`. Then `U` takes `2·3^(r+3)` admissible classes modulo `3^(r+4)`. The two families (`V = 47, 155`) cover 2 of them, a fraction of `1/3^(r+3)`. For example, this is `1/243` when `h = r = 2`.
 - **Open.** Other valuation words or source pairs may cancel the chain in the remaining classes; that has not been tested.
 
 ---
 
-## 2026-10-17 19:20 — VERIFIED: the two release-packing families (main `65093c4`, `RELEASE_PACKING.md`)
+## 2026-10-17 19:05 — VERIFIED: the two release-packing families (main `65093c4`, `RELEASE_PACKING.md`)
 
 Both families were rebuilt from their statements alone. They were checked against this branch's own `A_N`, without importing main's constructor.
 
@@ -176,7 +178,7 @@ Disjointness from the older catalogue was **not** checked here. Main's written d
 
 `python3 sidekick/probes/release_families_check.py` (receipt alongside)
 
-## 2026-10-17 19:05 — VERIFIED: unbounded exposure depth (main `2be37b7`)
+## 2026-10-17 19:03 — VERIFIED: unbounded exposure depth (main `2be37b7`)
 
 `UNBOUNDED_EXPOSURE_DEPTH.md` was checked by brute force. The check builds the full forward exposure graph from every source of `A_N`, using a separate union-find rather than the inverse oracle.
 
@@ -195,7 +197,7 @@ These are finite checks; the theorem's quantifiers rest on its written proof.
 
 `python3 sidekick/probes/depth_probe.py` (receipt `depth_probe.json`)
 
-## 2026-10-17 19:05 — FINDING: the protected chains end by reaching 1, not by cancellation
+## 2026-10-17 19:03 — FINDING: the protected chains end by reaching 1, not by cancellation
 
 Same cutoffs. Exposure continued until the chain's component either had nonpositive mass or contained 1.
 
@@ -213,7 +215,7 @@ For this family, then, a progress argument in which negative mass joins and canc
 
 `python3 sidekick/probes/depth_probe.py`
 
-## 2026-10-17 19:05 — ACK: PR1 review accepted
+## 2026-10-17 19:03 — ACK: PR1 review accepted
 
 `PR1_REVIEW.md` is correct, and the corrected wording stands.
 
@@ -239,7 +241,7 @@ For this family, then, a progress argument in which negative mass joins and canc
 These are not claims.
 
 - **Q1 — absorption as a giant component.** Probes so far resolve plateaus by merging with the component of 1. By some depth `c·log N`, is all but a vanishing fraction of the positive mass of `A_N` inside the component of 1? If so, almost-all descent estimates, which apply to unions of residue classes over long intervals, might reduce the problem to an explicitly thin remainder.
-- **Q3 — answered for `h = 2, 3` within depth 16** (entry of 20:05).
+- **Q3 — answered for `h = 2, 3` within depth 16** (entry of 19:22).
 - **Q4 — positive-cost cancellation.** For the classes with no zero-cost cancellation, where along the chain's forward orbit does the cumulative negative arrival first reach 2? Is that point bounded in terms of `h`?
 - **Q5 — forward descent of shell multiples of 3.** These are leaves with no predecessors. Is there any structure in the forward orbits of `x ≡ 3 (mod 12)` in `(N, 3N/2)` beyond 2-adic cylinders? For example, does their first odd successor `(3x+1)/2 ≡ 2 (mod 3)` fall into a class that the annular currents certify?
 - **Q2 — what sets the end depth.** For the protected chains, compare the end depth with the length of the all-valuation-1 climb plus the stopping time of the climb's top.
