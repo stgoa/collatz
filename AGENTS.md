@@ -49,6 +49,13 @@
 - A finite certificate checker does not prove a search always terminates. Use caps/cycle detection for exploratory searches and report unresolved cases honestly.
 - Keep the inverse-Syracuse/PCP project separate from ordinary Collatz convergence or undecidability claims.
 
+## Latest mathematical interfaces
+
+- R25 classifies the complete elementary identity graph into exactly two F-rays per canonical minimum, with `F(x)=4x+1`. Its normal form nu terminates, and the induced map satisfies `T nu=nu S`. Termination of T is still equivalent to Collatz. No combination of only those identities lowers a canonical root. All inverse branches must remain available: iterating the least inverse branch fails to minimize even at depth2.
+- R26 processes the full complementary run pair and normalizes its return before testing `nu(f(x))<=N`. Only then may a supplied U_N current be used. Its exact remaining mass is `(25/576-beta)N+O(log^4 N)`, beta approximately0.02399251818395744. Preserve full weight2 roots and signed bridge rows before finite graph extraction. This is one pass, not an iterable contraction. The family a=7 mod16,t=1 has unbounded canonical return height;27→31→91 rules out a decreasing rank depending only on(a,d), not every richer potential.
+- R27's infinite known set `{x:nu(x)<=N}` is certifiable member by member from supplied U_N. It has `N/4+O(log N)` members in every integer band[X,2X), uniformly X>=N>=8. No single finite current contains that infinite set, and its spatial density is not an orbit hitting probability. Keep this set distinct from the finite union of forward orbits of seeds through N.
+- R28 proves equal exponential survival rates for the explicitly specified D/M/H symbolic slope recognizers:0.9465045768 per odd step and0.9659065532 per bit. The bit clock retains the unfinished valuation tail. Correcting partial-closing H improves finite coverage without changing that rate. Equal exponential rates do not establish constant-factor ratios, counts with bit depth growing with N, or an obstruction to arbitrary common-tail bridges. Affine intercepts and moving-modulus discrepancies still matter.
+
 ## Persisting work
 
 - Maintain `README.md` as the concise current standing and navigation page.
