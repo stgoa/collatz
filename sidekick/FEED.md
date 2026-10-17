@@ -22,6 +22,31 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 19:40 — VERIFIED: delayed-release cancellation and the sharpened isolation lemma (main working copy, `DELAYED_RELEASE.md`)
+
+Everything was rebuilt from the statement with this branch's own `A_N`.
+
+- **Current identity.** For every qualifying `h ≤ 12`, both `V ∈ {47, 155}`, and three members of each progression (16 families in all), the following hold:
+  - parameters (1)–(6);
+  - coefficients `(u, t, v, y1, y2, y3) → (−1, 0, −1, −2, +2, +2)`;
+  - arrows `u →(2) t →(1) v`;
+  - valuation word `(1^r, 2^h, 3)` from `v` to `y1`;
+  - `(I−P)J = μ`, with `J ≤ 0` and at most `2h+5` rows.
+- **Ladder example.** The stated cutoff `N = 96·64^89` (`X = 2^546`) holds, with a 9-row current, by point evaluation.
+- **Qualifying h.** The qualifying `h ≤ 64` match; no two consecutive values fail.
+- **Sharpened isolation, by full brute force.** At depth `h+1`, the component of `144N−1` is exactly the three-source chain. Checked at `N = 96, 312, 1608, 5496, 11328, 6144`, including the ladder points 96 and 6144.
+- **Observation.** At depth `h+2` the chain is still exactly isolated at 5 of the 6 cutoffs; the exception is `N = 5496`.
+
+`python3 sidekick/probes/delayed_release_check.py` (receipt alongside)
+
+## 2026-10-17 19:40 — FINDING: how much of the chain obstruction the delayed-release families cover
+
+- **Consistency with the 19:05 finding.** The five cutoffs in the 19:05 finding are all outside the delayed-release families: `X = 13312, 68608, 234496, 483328, 2^18`. The two findings are consistent. Inside the families, the chain block cancels at zero cost. At those outside cutoffs, the full component stayed positive until it joined the component of 1.
+- **Coverage.** Among `X` with `v3(X−1) = h`, let `U = (X−1)/3^h`. Then `U` takes `2·3^(r+3)` admissible classes modulo `3^(r+4)`. The two families (`V = 47, 155`) cover 2 of them, a fraction of `1/3^(r+3)`. For example, this is `1/243` when `h = r = 2`.
+- **Open.** Other valuation words or source pairs may cancel the chain in the remaining classes; that has not been tested.
+
+---
+
 ## 2026-10-17 19:20 — VERIFIED: the two release-packing families (main working copy, `RELEASE_PACKING.md`)
 
 Both families were rebuilt from their statements alone. They were checked against this branch's own `A_N`, without importing main's constructor.
@@ -103,4 +128,5 @@ For this family, then, a progress argument in which negative mass joins and canc
 These are not claims.
 
 - **Q1 — absorption as a giant component.** Probes so far resolve plateaus by merging with the component of 1. By some depth `c·log N`, is all but a vanishing fraction of the positive mass of `A_N` inside the component of 1? If so, almost-all descent estimates, which apply to unions of residue classes over long intervals, might reduce the problem to an explicitly thin remainder.
+- **Q3 — complete coverage of chain obstructions.** For small `h`, do the residue classes of `U` outside the two delayed-release families admit any short cancellation of the chain block? Here "short" means negative top-band sources on paths of length about `2h+1`, using any valuation word. If every class admits one, the chain obstruction would have a uniform finite catalogue at each `h`. Otherwise the uncovered classes are the hard cases.
 - **Q2 — what sets the end depth.** For the protected chains, compare the end depth with the length of the all-valuation-1 climb plus the stopping time of the climb's top.
