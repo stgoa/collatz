@@ -1,0 +1,431 @@
+{
+  "checker_accepts_exact_d1_currents_at": [
+    8,
+    32,
+    100,
+    513
+  ],
+  "controls": {
+    "-1": {
+      "certified": [
+        {
+          "N": 16,
+          "packet_atoms": 6,
+          "pairing": 1,
+          "work_slope_from_L": 4
+        },
+        {
+          "N": 9973,
+          "packet_atoms": 5283,
+          "pairing": 24,
+          "work_slope_from_L": 92
+        },
+        {
+          "N": 13540,
+          "packet_atoms": 7172,
+          "pairing": 40,
+          "work_slope_from_L": 110
+        }
+      ],
+      "cutoffs_scanned": [
+        8,
+        20000
+      ],
+      "failing": 14474,
+      "first_failing": 16,
+      "largest_pairing": {
+        "N": 13540,
+        "value": 40
+      },
+      "nontrivial_cycles": {
+        "5": [
+          5,
+          7
+        ],
+        "17": [
+          17,
+          25,
+          37,
+          55,
+          41,
+          61,
+          91
+        ]
+      }
+    },
+    "61": {
+      "certified": [
+        {
+          "N": 213,
+          "packet_atoms": 126,
+          "pairing": 1,
+          "work_slope_from_L": 51
+        },
+        {
+          "N": 13528,
+          "packet_atoms": 7179,
+          "pairing": 15,
+          "work_slope_from_L": 142
+        },
+        {
+          "N": 15589,
+          "packet_atoms": 8273,
+          "pairing": 36,
+          "work_slope_from_L": 142
+        }
+      ],
+      "cutoffs_scanned": [
+        8,
+        20000
+      ],
+      "failing": 12945,
+      "first_failing": 213,
+      "largest_pairing": {
+        "N": 15589,
+        "value": 36
+      },
+      "nontrivial_cycles": {
+        "235": [
+          235,
+          383,
+          605,
+          469,
+          367,
+          581,
+          451,
+          707,
+          1091,
+          1667,
+          2531,
+          3827,
+          5771,
+          8687,
+          13061,
+          9811,
+          14747,
+          22151,
+          33257,
+          12479,
+          18749,
+          14077,
+          10573,
+          7945,
+          2987,
+          4511,
+          6797,
+          5113,
+          1925,
+          1459,
+          2219,
+          3359,
+          5069,
+          3817,
+          1439,
+          2189,
+          1657,
+          629,
+          487,
+          761,
+          293
+        ]
+      }
+    }
+  },
+  "d1_agreement": "packets and remainders equal the repository construction for N=8..3000 and N=4096; remainders also for 10001, 65537, 262144",
+  "scope": "Finite negative controls for maps 3x+d; not evidence for or against universal 3x+1 current existence.",
+  "status": "PASS",
+  "survey_N_8_3000": {
+    "-1": {
+      "core": [
+        5,
+        7,
+        11,
+        13
+      ],
+      "exceptional_core": [
+        5,
+        7,
+        13
+      ],
+      "exceptional_seeds_below_16": [
+        5,
+        7,
+        9,
+        13
+      ],
+      "failing_cutoffs_8_3000": 2668,
+      "first_failing_cutoff": 16,
+      "least_exceptional_seed": 5,
+      "nontrivial_cycles": {
+        "5": 2,
+        "17": 7
+      }
+    },
+    "5": {
+      "core": [
+        5,
+        7,
+        11,
+        13
+      ],
+      "exceptional_core": [
+        7,
+        11,
+        13
+      ],
+      "exceptional_seeds_below_16": [
+        3,
+        7,
+        11,
+        13
+      ],
+      "failing_cutoffs_8_3000": 679,
+      "first_failing_cutoff": 9,
+      "least_exceptional_seed": 3,
+      "nontrivial_cycles": {
+        "19": 3,
+        "23": 3,
+        "187": 17,
+        "347": 17
+      }
+    },
+    "13": {
+      "core": [
+        5,
+        7,
+        11,
+        13,
+        17
+      ],
+      "exceptional_core": [],
+      "exceptional_seeds_below_16": [],
+      "failing_cutoffs_8_3000": 2348,
+      "first_failing_cutoff": 21,
+      "least_exceptional_seed": 19,
+      "nontrivial_cycles": {
+        "131": 15,
+        "211": 5,
+        "227": 5,
+        "251": 5,
+        "259": 5,
+        "283": 5,
+        "287": 5,
+        "319": 5
+      }
+    },
+    "29": {
+      "core": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        25
+      ],
+      "exceptional_core": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        25
+      ],
+      "exceptional_seeds_below_16": [
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15
+      ],
+      "failing_cutoffs_8_3000": 2287,
+      "first_failing_cutoff": 10,
+      "least_exceptional_seed": 3,
+      "nontrivial_cycles": {
+        "11": 9,
+        "3811": 41,
+        "7055": 41
+      }
+    },
+    "61": {
+      "core": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        25,
+        35,
+        41
+      ],
+      "exceptional_core": [],
+      "exceptional_seeds_below_16": [],
+      "failing_cutoffs_8_3000": 2607,
+      "first_failing_cutoff": 213,
+      "least_exceptional_seed": 175,
+      "nontrivial_cycles": {
+        "235": 41
+      }
+    },
+    "125": {
+      "core": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        25,
+        35,
+        41,
+        67,
+        73
+      ],
+      "exceptional_core": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        25,
+        35,
+        41,
+        67,
+        73
+      ],
+      "exceptional_seeds_below_16": [
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15
+      ],
+      "failing_cutoffs_8_3000": 2375,
+      "first_failing_cutoff": 42,
+      "least_exceptional_seed": 3,
+      "nontrivial_cycles": {
+        "25": 1,
+        "35": 8,
+        "47": 19,
+        "85": 4,
+        "143": 19,
+        "475": 3,
+        "575": 3,
+        "899": 74,
+        "4675": 17,
+        "8675": 17
+      }
+    },
+    "253": {
+      "core": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        25,
+        35,
+        41,
+        67,
+        73,
+        131,
+        137
+      ],
+      "exceptional_core": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        25,
+        35,
+        41,
+        67,
+        73,
+        131,
+        137
+      ],
+      "exceptional_seeds_below_16": [
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15
+      ],
+      "failing_cutoffs_8_3000": 2930,
+      "first_failing_cutoff": 8,
+      "least_exceptional_seed": 3,
+      "nontrivial_cycles": {
+        "13": 89,
+        "17": 19,
+        "23": 2,
+        "55": 2,
+        "77": 2,
+        "299": 8,
+        "451": 26
+      }
+    },
+    "509": {
+      "core": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        25,
+        35,
+        41,
+        67,
+        73,
+        131,
+        137,
+        259,
+        265
+      ],
+      "exceptional_core": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        25,
+        35,
+        41,
+        67,
+        73,
+        131,
+        137,
+        259,
+        265
+      ],
+      "exceptional_seeds_below_16": [
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15
+      ],
+      "failing_cutoffs_8_3000": 1134,
+      "first_failing_cutoff": 170,
+      "least_exceptional_seed": 3,
+      "nontrivial_cycles": {
+        "5": 142
+      }
+    }
+  }
+}

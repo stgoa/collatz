@@ -60,6 +60,21 @@ def main():
         right = json.loads((work / "right_aligned_audit.json").read_text())
         receipt = json.loads((RESEARCH / "right_aligned_audit.json").read_text())
         require(right == receipt, "Right-aligned audit differs from persisted receipt")
+        controls = work / "research" / "negative_controls"
+        shutil.copytree(RESEARCH / "negative_controls", controls,
+                        ignore=shutil.ignore_patterns("__pycache__"))
+        shutil.copy2(RESEARCH / "right_aligned_packets.py", controls.parent)
+        shutil.copytree(BUNDLE / "data", controls.parent / "collatz_packet_currents" / "data")
+        for script, name in (("affine_controls.py", "negative_controls_audit.json"),
+                             ("reduction_audit.py", "reduction_audit.json"),
+                             ("main_claims_audit.py", "main_claims_audit.json"),
+                             ("progress_measures_audit.py", "progress_measures_audit.json"),
+                             ("attempt_probes.py", "attempt_probes.json")):
+            run([sys.executable, "-B", script], controls)
+            fresh = json.loads((controls / name).read_text())
+            persisted = json.loads((RESEARCH / "negative_controls" / name).read_text())
+            require(fresh == persisted, f"{name} differs from persisted receipt")
+
 
         # Preserve the repository-relative imports used by the new experiments.
         revised = work / "collatz_research_20261017"
@@ -123,6 +138,7 @@ def main():
     print(json.dumps(dict(status="PASS", archive_sha256=ARCHIVE_SHA,
                          manifest_entries=len(entries), stored_python="PASS",
                          right_aligned="PASS: matches persisted receipt", independent_cpp=cpp,
+                         negative_controls_and_audit="PASS: five receipts reproduced",
                          sparse_rays="PASS: five-ray proof arithmetic and finite bases",
                          annular_recursion="PASS: 66 finite full-measure cases",
                          current_obstructions="PASS: finite graphs and delayed separation",

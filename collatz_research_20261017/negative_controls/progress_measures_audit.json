@@ -1,0 +1,82 @@
+{
+  "part_a": {
+    "c_80000": 0,
+    "largest_N": 4096,
+    "norm_formula_cases": 68,
+    "phi_A96_depth_20_to_28": [
+      17,
+      17,
+      17,
+      17,
+      17,
+      17,
+      17,
+      17,
+      0
+    ]
+  },
+  "part_b": {
+    "d1_reference": {
+      "N": 96,
+      "one_pass_ratio": 0.8634,
+      "ratio_formula": "171/198 = 19/22 = 0.8636"
+    },
+    "increments": [
+      {
+        "N": 8,
+        "atoms": 291,
+        "cap": 400,
+        "e_pairing": 7,
+        "norm": 460,
+        "one_pass_ratio": 0.863,
+        "permanent_component_mass": 7,
+        "phi_at_cap": 7,
+        "phi_depth_0": 228,
+        "phi_depth_25": 7,
+        "positive_mass": 230
+      },
+      {
+        "N": 16,
+        "atoms": 569,
+        "cap": 400,
+        "e_pairing": 13,
+        "norm": 864,
+        "one_pass_ratio": 0.8553,
+        "permanent_component_mass": 13,
+        "phi_at_cap": 13,
+        "phi_depth_0": 431,
+        "phi_depth_25": 16,
+        "positive_mass": 432
+      },
+      {
+        "N": 24,
+        "atoms": 845,
+        "cap": 400,
+        "e_pairing": 13,
+        "norm": 1264,
+        "one_pass_ratio": 0.8489,
+        "permanent_component_mass": 13,
+        "phi_at_cap": 13,
+        "phi_depth_0": 630,
+        "phi_depth_25": 16,
+        "positive_mass": 632
+      },
+      {
+        "N": 32,
+        "atoms": 1121,
+        "cap": 400,
+        "e_pairing": 6,
+        "norm": 1660,
+        "one_pass_ratio": 0.853,
+        "permanent_component_mass": 6,
+        "phi_at_cap": 6,
+        "phi_depth_0": 829,
+        "phi_depth_25": 10,
+        "positive_mass": 830
+      }
+    ],
+    "map": 61
+  },
+  "scope": "Finite checks of ce56699's R9 norm formula and R10 exposure trace, and the same measures on T_61. No progress lemma is proved or refuted for 3x+1.",
+  "status": "PASS"
+}

@@ -52,3 +52,19 @@ The universal goal remains open. The next step is a finite progress lemma for po
 Next: supply the finite compiler's larger packet inputs without circular induction, or find a different residual family with proved finite progress. A parameterized aggregate obstruction would require lifting complete component closure, including every excluded incoming edge. Collatz and universal termination remain open.
 
 Subsequent entries should name the result changed, proof status, actual validation, and outstanding obligation. Do not record prospective checks as completed.
+
+## 2026-10-17 — Independent audit, negative controls, certificate minimality
+
+These entries come from a parallel lane on branch `claude/claude-vs-chatgpt-perf-8230f6`.
+
+- **Audit.** Added `collatz_research_20261017/negative_controls/`. Its independent implementation of right-aligned packets matches the repository construction exactly at `d=1`. `reduction_audit.py` rechecks R2–R4 from their definitions; see the ranges in RESULTS R5. No discrepancy was found. Lemma 3 shows why the maximum principle is necessary. `main_claims_audit.py` cross-checks the five-ray arithmetic and annular identities from main commit `8d62dcc`: PASS. The controls also fail on the five-ray grid, first at N=96 for d=-1 and N=224 for d=61. These results are recorded as C1.
+- **Negative controls.** `affine_controls.py` extends the construction to `T_d`, for `d in {-1,5,13,29,61,125,253,509}`. On every one of these maps, the criterion fails at some cutoff. Failures were certified with explicit orbit certificates and exact linear work slopes at `d=-1` and `d=61`. The locally Collatz-like `d=13` and `d=61` first fail at `ceil((4r-d)/3)`; this is an observation, asserted in the script. These results are recorded as C2.
+- **Certificate minimality.** Proved minimality and uniqueness of the exact current as C3. Checked that the archive's stored currents at `N=4096` and `N=262144` equal the forward aggregates row for row. Measured the true all-horizon work `W(N)` against the forced cost `||J_N^+||_1` for 255 cutoffs. In every case the extinction time equals the slowest atom's stopping time.
+- **Verification.** Ran `python3 scripts/verify_all.py --cpp`: PASS, including all four new receipts, reproduced in temporary storage, in about 41 s total. No LaTeX source was changed, and no compiler was available locally.
+- **Progress measures (C4).** `progress_measures_audit.py` reproduces main commit `ce56699`'s R9 norm formula for 68 cutoffs, `c_80000=0`, and R10's `Phi(A_96)` trace, using independent code. On `T_61` increments, the same measures show the same one-pass ratio and early `Phi` decay. There, though, a positive component containing the 41-cycle is permanent. Main's uncommitted transport numbers for `A_96` were also reproduced, as a working-copy observation outside the receipt.
+
+Subsequent entries should name the result changed, its proof status, actual validation performed, and any outstanding obligation. Do not record prospective tests as completed.
+- **Direct attempt (C5).** Tried to prove the annular obligation using main's R5–R13. No proof was found.
+  - `attempt_probes.py` refutes high-level annihilation: forced currents reach 1, with growing signed entry traffic.
+  - It also confirms on the controls that every nontrivial cycle class separately violates the criterion.
+  - The written class-wise corollary shows the obligation is equivalent to excluding cycles and divergence, each separately and at full strength.

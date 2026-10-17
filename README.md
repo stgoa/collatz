@@ -49,7 +49,7 @@ Requires Python 3.10+ and its standard library. The independent check additional
 python3 scripts/verify_all.py --cpp
 ```
 
-Without a compiler, omit `--cpp`; the report explicitly records that the independent C++ check was not run. The runner verifies the archive and all 31 manifest entries, stored certificates, the right-aligned and five-ray audits, annular identities, partial constructions, norm formula, and component diagnostics. It uses temporary storage so preserved inputs and receipts stay unchanged. With `--cpp`, it also builds and runs the independent verifier at both original stored cutoffs.
+Without a compiler, omit `--cpp`; the report explicitly records that the independent C++ check was not run. The runner verifies the archive and all 31 manifest entries, stored certificates, the right-aligned and five-ray audits, annular identities, partial constructions, norm formula, component diagnostics, and the independent lane's negative-control and audit receipts. It uses temporary storage so preserved inputs and receipts stay unchanged. With `--cpp`, it also builds and runs the independent verifier at both original stored cutoffs.
 
 The checks establish finite arithmetic identities. They do not establish universal current existence or replace the written proof. Never use Python optimization flags for these assertion-based verifiers.
 
@@ -61,6 +61,13 @@ The checks establish finite arithmetic identities. They do not establish univers
 - `collatz_research_20261017/right_aligned_reduction.tex`: current written reduction; maintain this existing document in place.
 - `collatz_research_20261017/right_aligned_packets.py`: construction and finite regression checks for the revised family.
 - `collatz_research_20261017/right_aligned_audit.json`: reproducible finite audit receipt.
+- `collatz_research_20261017/negative_controls/`: the independent lane. It contains:
+  - audits of R2–R4 and of later main claims;
+  - negative controls on `3x+d` maps with real cycles;
+  - certificate minimality, and progress-measure controls;
+  - a certificate checker (`affine_controls.py --check`).
+
+  The ledger entries are C1–C4.
 - `docs/RESULTS.md`: claim ledger and next proof obligations.
 - `docs/RESEARCH_LOG.md`: dated record of durable changes and validation.
 - `scripts/verify_all.py`: unified verification entry point.
@@ -83,5 +90,7 @@ Retain historical orbit intersections: equal futures may cancel at unequal times
 The next concrete lemma is **finite progress for every positive component plateau**. One route would close the residuals of the proved partial currents in a family with a decreasing integer parameter. Another would prove that a finite arithmetic extension must connect an unresolved positive component to enough negative source mass or to 1. Repeating the same root compression, dropping a boundary flux, or treating a zero residue projection as an integer certificate does not supply that lemma.
 
 The finite compiler now resolves the boundary terms conditionally across a finite set of scales. It still requires packet certificates that may lie above the target scale. Assuming those larger inputs during a decreasing induction would be circular. A successful construction must supply them independently or establish a different closed recursion.
+
+Two constraints from the negative-controls note bear on this target. First, the certificate for each cutoff is forced: the exact current is unique and cost-minimal, so a constructor must describe it uniformly rather than search for it. Second, any argument that also applies to the map `3x+61` fails: that map has a 41-cycle, and its criterion breaks at `N=213`.
 
 Update this README and the result ledger whenever the standing changes. Preserve counterexamples and explain which earlier claim a new result supersedes.

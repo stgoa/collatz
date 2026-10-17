@@ -1,0 +1,254 @@
+{
+  "classwise_controls": {
+    "-1": {
+      "17": {
+        "first_positive_cutoff": 21,
+        "least_seed": 17,
+        "pairing": 1
+      },
+      "5": {
+        "first_positive_cutoff": 12,
+        "least_seed": 5,
+        "pairing": 1
+      }
+    },
+    "13": {
+      "131": {
+        "first_positive_cutoff": 21,
+        "least_seed": 19,
+        "pairing": 2
+      },
+      "211": {
+        "first_positive_cutoff": 99,
+        "least_seed": 99,
+        "pairing": 1
+      },
+      "227": {
+        "first_positive_cutoff": 147,
+        "least_seed": 147,
+        "pairing": 1
+      },
+      "251": {
+        "first_positive_cutoff": 213,
+        "least_seed": 163,
+        "pairing": 2
+      },
+      "259": {
+        "first_positive_cutoff": 123,
+        "least_seed": 123,
+        "pairing": 1
+      },
+      "283": {
+        "first_positive_cutoff": 373,
+        "least_seed": 283,
+        "pairing": 1
+      },
+      "287": {
+        "first_positive_cutoff": 187,
+        "least_seed": 159,
+        "pairing": 2
+      },
+      "319": {
+        "first_positive_cutoff": 367,
+        "least_seed": 319,
+        "pairing": 1
+      }
+    },
+    "5": {
+      "187": {
+        "first_positive_cutoff": 123,
+        "least_seed": 123,
+        "pairing": 1
+      },
+      "19": {
+        "first_positive_cutoff": 9,
+        "least_seed": 3,
+        "pairing": 1
+      },
+      "23": {
+        "first_positive_cutoff": 29,
+        "least_seed": 23,
+        "pairing": 2
+      },
+      "347": {
+        "first_positive_cutoff": 171,
+        "least_seed": 171,
+        "pairing": 1
+      }
+    }
+  },
+  "high_level_annihilation": [
+    {
+      "J_plus": 7224,
+      "N": 96,
+      "Q": 216,
+      "current_rows": 5018,
+      "entry_traffic": [
+        [
+          5,
+          6
+        ],
+        [
+          85,
+          -3
+        ],
+        [
+          341,
+          -2
+        ],
+        [
+          5461,
+          -1
+        ]
+      ],
+      "source_positive": 2376
+    },
+    {
+      "J_plus": 13263,
+      "N": 168,
+      "Q": 378,
+      "current_rows": 8702,
+      "entry_traffic": [
+        [
+          5,
+          5
+        ],
+        [
+          85,
+          7
+        ],
+        [
+          341,
+          -9
+        ],
+        [
+          5461,
+          -2
+        ],
+        [
+          21845,
+          -1
+        ]
+      ],
+      "source_positive": 4158
+    },
+    {
+      "J_plus": 27238,
+      "N": 384,
+      "Q": 864,
+      "current_rows": 20221,
+      "entry_traffic": [
+        [
+          5,
+          10
+        ],
+        [
+          85,
+          11
+        ],
+        [
+          341,
+          -17
+        ],
+        [
+          5461,
+          -3
+        ],
+        [
+          21845,
+          -1
+        ]
+      ],
+      "source_positive": 9504
+    },
+    {
+      "J_plus": 53758,
+      "N": 768,
+      "Q": 1728,
+      "current_rows": 40106,
+      "entry_traffic": [
+        [
+          5,
+          -55
+        ],
+        [
+          85,
+          5
+        ],
+        [
+          341,
+          49
+        ],
+        [
+          5461,
+          -3
+        ],
+        [
+          21845,
+          4
+        ]
+      ],
+      "source_positive": 19008
+    },
+    {
+      "J_plus": 110734,
+      "N": 1536,
+      "Q": 3456,
+      "current_rows": 80236,
+      "entry_traffic": [
+        [
+          5,
+          -103
+        ],
+        [
+          85,
+          6
+        ],
+        [
+          341,
+          98
+        ],
+        [
+          5461,
+          -4
+        ],
+        [
+          21845,
+          3
+        ]
+      ],
+      "source_positive": 38016
+    },
+    {
+      "J_plus": 233437,
+      "N": 3072,
+      "Q": 6912,
+      "current_rows": 161092,
+      "entry_traffic": [
+        [
+          5,
+          -136
+        ],
+        [
+          85,
+          -14
+        ],
+        [
+          341,
+          146
+        ],
+        [
+          5461,
+          -1
+        ],
+        [
+          21845,
+          5
+        ]
+      ],
+      "source_positive": 76032
+    }
+  ],
+  "scope": "Negative results from a direct attempt; no universal statement is proved or refuted for 3x+1.",
+  "status": "PASS"
+}
