@@ -294,6 +294,16 @@ Consider the 64-fold increments `A'_N=Pi'_(64N)-Pi'_N` of `T_61`, at `N=8,16,24,
 
 Hence neither one-pass contraction nor early `Phi` decay is evidence that `3x+1` plateaus end. See [note](../collatz_research_20261017/negative_controls/NOTE.md), Section 11, and [receipt](../collatz_research_20261017/negative_controls/progress_measures_audit.json).
 
+## C5 — A direct attempt: negative results and class-wise equivalence
+
+**Status: written corollary plus finite certificates. No proof of the obligation.**
+
+- **No high-level cancellation.** For annuli `A_N` with `N<=3072` on the rays, the forced current carries nonzero signed traffic into 1 through several entries, and that traffic grows with N. Positive and negative annular mass do not cancel above the bottom. The cost `||J_N^+||_1 ≈ 75N` is linear.
+- **Class-wise equivalence.** Take any invariant class `K` with no members below 12096. Then all five-ray pairings `<1_K,Pi_M> <= 0` hold iff all annular pairings `<1_K,A_N> <= 0` hold, iff `K` is empty. The obligation therefore splits exactly into "no nontrivial cycles" and "no divergent orbits", each at full strength.
+- **Controls.** For `T_-1`, `T_5` and `T_13`, each of the 14 cycle basins individually has a positive pairing.
+
+See the [note](../collatz_research_20261017/negative_controls/NOTE.md), Section 12, and the [receipt](../collatz_research_20261017/negative_controls/attempt_probes.json).
+
 ## Open obligations and priorities
 
 - **Primary:** construct a finite current (or one with nonpositive residual) at every cutoff on R5's five rays, and prove termination. R6's annular increments give an explicit sufficient target with its finite bases discharged. Arbitrarily large finite cost is permitted.

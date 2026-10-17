@@ -62,3 +62,15 @@ Hence one-pass contraction and early `Φ` decay are not evidence that every posi
    The checker command is `python3 collatz_research_20261017/negative_controls/affine_controls.py --check CERT.json`. The file format is `{"d":1, "N":32, "J":{...}, "zeta":{...}}`. Exit status 0 means valid.
 2. When a step is claimed to make progress, name the d=1-specific fact it uses.
 3. Treat the remaining obligation as Collatz-equivalent at each reformulation. Report partial-mass percentages as data, not progress.
+
+## 6. The obligation splits class by class (C5) — written corollary
+
+Let `K` be an invariant orbit class with no members below 12096. The following are equivalent:
+
+- every five-ray pairing satisfies `⟨1_K, Π_M⟩ ≤ 0`;
+- every increment on the 30 sequences satisfies `⟨1_K, A_N⟩ ≤ 0`;
+- `K = ∅`.
+
+The proof is your R5 maximum principle applied to `1_K`. It needs only invariance, monotonicity, and vanishing below 96.
+
+So the obligation is exactly "no nontrivial cycles" together with "no divergent orbits", each at full strength. A direct attempt also found that forced annular currents always carry growing signed traffic into 1. At `N = 3072` this is −136 through state 5 and +146 through state 341. There is therefore no cancellation above the bottom to exploit.

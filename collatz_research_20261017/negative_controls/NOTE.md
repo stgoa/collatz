@@ -1,9 +1,9 @@
 # Negative controls, an independent audit, and certificate minimality
 
 17 October 2026. Companion to [`right_aligned_reduction.tex`](../right_aligned_reduction.tex).
-Executables: [`affine_controls.py`](affine_controls.py), [`reduction_audit.py`](reduction_audit.py), [`main_claims_audit.py`](main_claims_audit.py), [`progress_measures_audit.py`](progress_measures_audit.py).
+Executables: [`affine_controls.py`](affine_controls.py), [`reduction_audit.py`](reduction_audit.py), [`main_claims_audit.py`](main_claims_audit.py), [`progress_measures_audit.py`](progress_measures_audit.py), [`attempt_probes.py`](attempt_probes.py).
 Receipts: the matching `*.json` files in this directory.
-Ledger entries: C1–C4 in `docs/RESULTS.md`. The C-series is kept separate from the R-series used on main.
+Ledger entries: C1–C5 in `docs/RESULTS.md`. The C-series is kept separate from the R-series used on main.
 
 **Collatz remains unproved.** Nothing here constructs a universal current. This note:
 
@@ -291,3 +291,56 @@ In every case the surviving positive component contains the whole 41-cycle `235 
 - `‖P^k A_96‖_1 = 4752, 4103, 3533, 3124` for `k = 0…3`;
 - `P^79 A_96` and `P^80 A_96` both have norm 13 and positive mass 4;
 - `R P^78 A_96` equals their nine-row table.
+
+## 12. A direct attempt on the annular obligation, and why it stops
+
+This section records a time-boxed attempt to prove the five-ray obligation using main's results (R5–R13) together with C1–C4. **No proof was found.** The section records what the attempt rules out.
+
+### 12.1 High-level annihilation fails — finite certificates
+
+The plan was to show that the positive and negative mass of `A_N` cancel above some height `Q/C`. That would make the bottom of the dynamics irrelevant and leave an almost scale-free problem.
+
+By C3 the only candidate is the forced current `J_N = Σ_j P^j A_N`. For `N = 96, 168, 384, 768, 1536, 3072`:
+
+- `J_N` reaches state 5 in every case;
+- its signed traffic into 1 is nonzero through several entry states;
+- that traffic grows with N: at `N = 3072` it is `−136` through 5, `+146` through 341, plus smaller terms (receipt `attempt_probes.json`).
+
+So the annular mass does not cancel before the bottom, and any proof must control the complete descent.
+
+The certificate cost grows only linearly, `‖J_N⁺‖_1 ≈ 75N`, about 3× the source positive mass. Most mass cancels within a few steps, and a thin long-range residue reaches 1.
+
+### 12.2 Class-wise equivalence — written proof
+
+**Corollary.** Let `K` be a set of odd positive integers with `x ∈ K ⟺ S(x) ∈ K` for `x > 1`, `1 ∉ K`, and `K ∩ [1, 12096) = ∅`. Then the following are equivalent:
+
+- (a) `K = ∅`;
+- (b) `⟨1_K, Π_M⟩ ≤ 0` for every `M` in main's five-ray grid `G_5`;
+- (c) `⟨1_K, A_N⟩ ≤ 0` for every increment on main's 30 sequences `N = a·2^r·64^k`.
+
+*Proof.*
+
+- **(a) ⇒ (c)** is trivial.
+- **(c) ⇒ (b).** Along a sequence, `Π_{N_k} = Π_{N_0} + Σ_{i<k} A_{N_i}`. The pairing `⟨1_K, Π_{N_0}⟩ = ⟨1_K, ν_{N_0}⟩` vanishes, because `ν_{N_0}` lives below `3·5376/2 < 12096`. Here `1_K` is invariant and vanishes on the core and at 1. Every grid point lies on one of the 30 sequences.
+- **(b) ⇒ (a).** Main's five-ray maximum principle uses only three facts about the exceptional indicator: the counting identity (valid for any invariant indicator vanishing at 1 and on the core), monotonicity of the count, and vanishing below 96. All three hold for `1_K`. ∎
+
+If 3x+1 has a nontrivial cycle, the basin of that cycle is such a `K`, by the repository's finite base checks. If it has divergent orbits, the union of their basins is such a `K`. So the packet obligation is equivalent, class by class, to the two classical problems — no nontrivial cycles and no divergent orbits — each at full strength. It gives no separate leverage on either one.
+
+*Finite check on controls.* For `T_−1`, `T_5` and `T_13`, each of the 14 nontrivial cycle basins separately has a positive pairing at some cutoff. That cutoff is usually close to the basin's least seed (`attempt_probes.json`). This is a check on controls, not on 3x+1.
+
+### 12.3 Why the attempt stops
+
+Three facts together leave no room:
+
+1. **The certificate is forced (C3)** and carries traffic all the way into 1 (12.1).
+2. **Each orbit class must be excluded separately**, at full strength (12.2).
+3. **Generic arguments are ruled out (C2, C4).**
+
+Point 3 still leaves one shape of proof open: d=1-specific self-similarity (main's R6), plus generic dynamics, plus finite verification.
+
+- `T_61` has no exact `×64` recursion, so it does not satisfy the first ingredient.
+- The negative integers fail the third ingredient, since they have small cycles.
+
+But main's source recurrence contains the expanding `3N/2` term, and every exceptional status propagates upward along valuation-1 climbs. An induction on scale therefore never closes without controlling climbs, and controlling climbs is the classical problem.
+
+**Conclusion.** Proving the five-ray obligation is equivalent, with no change in strength, to proving the Collatz conjecture.

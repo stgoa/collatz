@@ -68,7 +68,8 @@ def main():
         for script, name in (("affine_controls.py", "negative_controls_audit.json"),
                              ("reduction_audit.py", "reduction_audit.json"),
                              ("main_claims_audit.py", "main_claims_audit.json"),
-                             ("progress_measures_audit.py", "progress_measures_audit.json")):
+                             ("progress_measures_audit.py", "progress_measures_audit.json"),
+                             ("attempt_probes.py", "attempt_probes.json")):
             run([sys.executable, "-B", script], controls)
             fresh = json.loads((controls / name).read_text())
             persisted = json.loads((RESEARCH / "negative_controls" / name).read_text())
@@ -137,7 +138,7 @@ def main():
     print(json.dumps(dict(status="PASS", archive_sha256=ARCHIVE_SHA,
                          manifest_entries=len(entries), stored_python="PASS",
                          right_aligned="PASS: matches persisted receipt", independent_cpp=cpp,
-                         negative_controls_and_audit="PASS: four receipts reproduced",
+                         negative_controls_and_audit="PASS: five receipts reproduced",
                          sparse_rays="PASS: five-ray proof arithmetic and finite bases",
                          annular_recursion="PASS: 66 finite full-measure cases",
                          current_obstructions="PASS: finite graphs and delayed separation",

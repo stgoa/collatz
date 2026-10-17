@@ -64,3 +64,7 @@ These entries come from a parallel lane on branch `claude/claude-vs-chatgpt-perf
 - **Progress measures (C4).** `progress_measures_audit.py` reproduces main commit `ce56699`'s R9 norm formula for 68 cutoffs, `c_80000=0`, and R10's `Phi(A_96)` trace, using independent code. On `T_61` increments, the same measures show the same one-pass ratio and early `Phi` decay. There, though, a positive component containing the 41-cycle is permanent. Main's uncommitted transport numbers for `A_96` were also reproduced, as a working-copy observation outside the receipt.
 
 Subsequent entries should name the result changed, its proof status, actual validation performed, and any outstanding obligation. Do not record prospective tests as completed.
+- **Direct attempt (C5).** Tried to prove the annular obligation using main's R5–R13. No proof was found.
+  - `attempt_probes.py` refutes high-level annihilation: forced currents reach 1, with growing signed entry traffic.
+  - It also confirms on the controls that every nontrivial cycle class separately violates the criterion.
+  - The written class-wise corollary shows the obligation is equivalent to excluding cycles and divergence, each separately and at full strength.
