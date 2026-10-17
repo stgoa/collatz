@@ -120,8 +120,15 @@ def main():
             ("duality", "check_finite_cone.py"),
             ("forcing", "actual_graph_compiler.py"),
             ("templates", "check_inverse_exposure.py"),
+            ("templates", "check_symbolic_lift.py"),
+            ("templates", "check_unbounded_exposure.py"),
+            ("closure", "check_local_extension.py"),
+            ("auxiliary", "check_auxiliary_normal_form.py"),
         ):
             run([sys.executable, "-B", script], residual_work / directory)
+        # The review checker imports the annular arithmetic implementation;
+        # its temporary copy and dependencies now exist at their usual paths.
+        run([sys.executable, "-B", "check_review_scope.py"], controls)
         cpp = "not requested"
         if args.cpp:
             compiler = shutil.which(os.environ.get("CXX", "c++"))
@@ -139,6 +146,7 @@ def main():
                          manifest_entries=len(entries), stored_python="PASS",
                          right_aligned="PASS: matches persisted receipt", independent_cpp=cpp,
                          negative_controls_and_audit="PASS: five receipts reproduced",
+                         review_scope="PASS: alternative minimum-cost one-sided certificates",
                          sparse_rays="PASS: five-ray proof arithmetic and finite bases",
                          annular_recursion="PASS: 66 finite full-measure cases",
                          current_obstructions="PASS: finite graphs and delayed separation",
@@ -152,6 +160,10 @@ def main():
                          finite_cone="PASS: rational identities and 216000 integer-gap cases",
                          finite_forcing="PASS: 30 actual packet inputs and stored U_112 current",
                          inverse_exposure="PASS: 48 full-graph comparisons and complete depth-32 obstruction",
+                         symbolic_component_lift="PASS: 9171 decisions and 42487 exact inequalities",
+                         unbounded_exposure="PASS: inverse invariants and complete CRT/ray components",
+                         local_extension="PASS: 64 identities, 16640 coefficients, stored outer current",
+                         auxiliary_normalization="PASS: 66 annuli, order independence, residual lower bound",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
 
 

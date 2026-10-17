@@ -200,3 +200,14 @@ A possible next step is to lift a *complete component closure*, including
 every exclusion of an additional inverse edge, across a parameter family.
 Lifting the positive chain alone is insufficient. No family of residuals
 closed under recursive template packing has been proved here.
+
+### Subsequent status
+
+The separate [infinite-family lift](INFINITE_COMPONENT_FAMILY.md) preserves
+the **whole** depth-32 component over an infinite congruence family. The
+later [unbounded-depth theorem](UNBOUNDED_EXPOSURE_DEPTH.md) answers the
+historical open question above: for every fixed `D`, there are infinitely
+many required-ray annuli with a complete positive component in `G_D(N)`.
+That proof exhausts all competing inverse histories with a preserved
+arithmetic inequality; it does not extrapolate the finite scans here.
+Unbounded-depth recursive current constructions remain open.

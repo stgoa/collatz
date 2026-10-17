@@ -1,0 +1,367 @@
+{
+  "status": "PASS",
+  "theorem": {
+    "N0": 1610612736,
+    "depth": 32,
+    "parameter": "N=N0*q; q>=1; q=1 mod 3^K",
+    "K": 22,
+    "maximal_denominator_power": 20,
+    "vertices": 35,
+    "arrows": 34,
+    "source_coefficients": [
+      -2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "signed_source_mass": 2,
+    "linked_to_1": false,
+    "queries": 9171,
+    "comparisons": 42487,
+    "constant_comparisons": 96,
+    "minimum_positive_slope": "10737418240",
+    "minimum_positive_margin": "1",
+    "chain": [
+      [
+        103079215104,
+        1,
+        -1,
+        1
+      ],
+      [
+        154618822656,
+        1,
+        -1,
+        1
+      ],
+      [
+        231928233984,
+        1,
+        -1,
+        1
+      ],
+      [
+        347892350976,
+        1,
+        -1,
+        1
+      ],
+      [
+        521838526464,
+        1,
+        -1,
+        1
+      ],
+      [
+        782757789696,
+        1,
+        -1,
+        1
+      ],
+      [
+        1174136684544,
+        1,
+        -1,
+        1
+      ],
+      [
+        1761205026816,
+        1,
+        -1,
+        1
+      ],
+      [
+        2641807540224,
+        1,
+        -1,
+        1
+      ],
+      [
+        3962711310336,
+        1,
+        -1,
+        1
+      ],
+      [
+        5944066965504,
+        1,
+        -1,
+        1
+      ],
+      [
+        8916100448256,
+        1,
+        -1,
+        1
+      ],
+      [
+        13374150672384,
+        1,
+        -1,
+        1
+      ],
+      [
+        20061226008576,
+        1,
+        -1,
+        1
+      ],
+      [
+        30091839012864,
+        1,
+        -1,
+        1
+      ],
+      [
+        45137758519296,
+        1,
+        -1,
+        1
+      ],
+      [
+        67706637778944,
+        1,
+        -1,
+        1
+      ],
+      [
+        101559956668416,
+        1,
+        -1,
+        1
+      ],
+      [
+        152339935002624,
+        1,
+        -1,
+        1
+      ],
+      [
+        228509902503936,
+        1,
+        -1,
+        1
+      ],
+      [
+        342764853755904,
+        1,
+        -1,
+        1
+      ],
+      [
+        514147280633856,
+        1,
+        -1,
+        1
+      ],
+      [
+        771220920950784,
+        1,
+        -1,
+        1
+      ],
+      [
+        1156831381426176,
+        1,
+        -1,
+        1
+      ],
+      [
+        1735247072139264,
+        1,
+        -1,
+        1
+      ],
+      [
+        2602870608208896,
+        1,
+        -1,
+        1
+      ],
+      [
+        3904305912313344,
+        1,
+        -1,
+        1
+      ],
+      [
+        5856458868470016,
+        1,
+        -1,
+        1
+      ],
+      [
+        8784688302705024,
+        1,
+        -1,
+        1
+      ],
+      [
+        13177032454057536,
+        1,
+        -1,
+        1
+      ],
+      [
+        19765548681086304,
+        1,
+        -1,
+        1
+      ],
+      [
+        29648323021629456,
+        1,
+        -1,
+        1
+      ],
+      [
+        44472484532444184,
+        1,
+        -1,
+        1
+      ],
+      [
+        66708726798666276,
+        1,
+        -1,
+        1
+      ],
+      [
+        100063090197999414,
+        1,
+        -1,
+        1
+      ]
+    ],
+    "dyadic_exponent_period": 20920706406,
+    "all_comparisons_proved_for_every_real_q_at_least_1": true
+  },
+  "query_table_sha256": "76803e9391f2b6a5734b823545793c83ed836305ca1fedeba4de8059a62172d0",
+  "comparison_table_sha256": "460d7ab8ca228c604a4afb0959cb27a030b0ebd0cd0e4d2b8aa9c5134e245e9b",
+  "exact_numeric_samples": [
+    {
+      "q": 1,
+      "N": 1610612736,
+      "depth": 32,
+      "vertices": 35,
+      "queries": 9171,
+      "signed_source_mass": 2
+    },
+    {
+      "q": 31381059610,
+      "N": 50542734277041192960,
+      "depth": 32,
+      "vertices": 35,
+      "queries": 9171,
+      "signed_source_mass": 2
+    },
+    {
+      "q": 62762119219,
+      "N": 101085468552471773184,
+      "depth": 32,
+      "vertices": 35,
+      "queries": 9171,
+      "signed_source_mass": 2
+    }
+  ],
+  "main_dyadic_congruence_verified_modulo": 31381059609,
+  "main_dyadic_nontrivial_multiplier_materialized": false,
+  "small_depth_symbolic_theorem": {
+    "N0": 384,
+    "depth": 2,
+    "parameter": "N=N0*q; q>=1; q=1 mod 3^K",
+    "K": 2,
+    "maximal_denominator_power": 0,
+    "vertices": 5,
+    "arrows": 4,
+    "source_coefficients": [
+      -2,
+      2,
+      2,
+      0,
+      0
+    ],
+    "signed_source_mass": 2,
+    "linked_to_1": false,
+    "queries": 8,
+    "comparisons": 45,
+    "constant_comparisons": 6,
+    "minimum_positive_slope": "2560",
+    "minimum_positive_margin": "1",
+    "chain": [
+      [
+        24576,
+        1,
+        -1,
+        1
+      ],
+      [
+        36864,
+        1,
+        -1,
+        1
+      ],
+      [
+        55296,
+        1,
+        -1,
+        1
+      ],
+      [
+        82944,
+        1,
+        -1,
+        1
+      ],
+      [
+        124416,
+        1,
+        -1,
+        1
+      ]
+    ],
+    "dyadic_exponent_period": 6,
+    "all_comparisons_proved_for_every_real_q_at_least_1": true
+  },
+  "nontrivial_small_depth_dyadic_sample": {
+    "q": 64,
+    "N": 24576,
+    "depth": 2,
+    "vertices": 5,
+    "queries": 8,
+    "signed_source_mass": 2
+  },
+  "obstruction_at_every_exposure_depth_proved": false,
+  "universal_current_construction_proved": false
+}

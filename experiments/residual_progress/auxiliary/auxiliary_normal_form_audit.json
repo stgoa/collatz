@@ -1,0 +1,294 @@
+{
+  "status": "PASS",
+  "cutoff_range": [
+    8,
+    512,
+    8
+  ],
+  "additional_cutoffs": [
+    768,
+    6144
+  ],
+  "cases": 66,
+  "short_ancestor_classification_checked_through": 4097,
+  "floor_phases": [
+    {
+      "N": 8,
+      "counts": [
+        2,
+        2,
+        6,
+        6,
+        10
+      ],
+      "sum": 42
+    },
+    {
+      "N": 16,
+      "counts": [
+        4,
+        6,
+        10,
+        10,
+        22
+      ],
+      "sum": 84
+    },
+    {
+      "N": 24,
+      "counts": [
+        6,
+        8,
+        16,
+        16,
+        32
+      ],
+      "sum": 126
+    }
+  ],
+  "selected_results": [
+    {
+      "N": 8,
+      "initial_positive_mass": 198,
+      "first_pass_positive_mass": 158,
+      "terminal_positive_mass": 157,
+      "first_pass_leaf_counts": [
+        2,
+        2,
+        6,
+        6,
+        10
+      ],
+      "first_pass_positive_mass_at_multiples_of_3": 42,
+      "terminal_positive_mass_at_multiples_of_3": 65,
+      "maximum_positive_state": 511,
+      "maximum_current_state": 767,
+      "current_rows": 147,
+      "terminal_positive_residues_mod18": [
+        1,
+        3,
+        7,
+        9,
+        15
+      ],
+      "literal_half_scale_recursion_obstruction_state": 279,
+      "visited_states": 300,
+      "proved_state_cap": 575,
+      "rewrite_vertices": 111,
+      "maximum_lineage_depth": 5
+    },
+    {
+      "N": 16,
+      "initial_positive_mass": 396,
+      "first_pass_positive_mass": 319,
+      "terminal_positive_mass": 312,
+      "first_pass_leaf_counts": [
+        4,
+        6,
+        10,
+        10,
+        22
+      ],
+      "first_pass_positive_mass_at_multiples_of_3": 84,
+      "terminal_positive_mass_at_multiples_of_3": 138,
+      "maximum_positive_state": 1023,
+      "maximum_current_state": 1535,
+      "current_rows": 297,
+      "terminal_positive_residues_mod18": [
+        1,
+        3,
+        7,
+        9,
+        15
+      ],
+      "literal_half_scale_recursion_obstruction_state": 519,
+      "visited_states": 602,
+      "proved_state_cap": 1151,
+      "rewrite_vertices": 225,
+      "maximum_lineage_depth": 5
+    },
+    {
+      "N": 24,
+      "initial_positive_mass": 594,
+      "first_pass_positive_mass": 473,
+      "terminal_positive_mass": 462,
+      "first_pass_leaf_counts": [
+        6,
+        8,
+        16,
+        16,
+        32
+      ],
+      "first_pass_positive_mass_at_multiples_of_3": 126,
+      "terminal_positive_mass_at_multiples_of_3": 204,
+      "maximum_positive_state": 1531,
+      "maximum_current_state": 2303,
+      "current_rows": 445,
+      "terminal_positive_residues_mod18": [
+        1,
+        3,
+        7,
+        9,
+        15
+      ],
+      "literal_half_scale_recursion_obstruction_state": 783,
+      "visited_states": 901,
+      "proved_state_cap": 1727,
+      "rewrite_vertices": 335,
+      "maximum_lineage_depth": 6
+    },
+    {
+      "N": 96,
+      "initial_positive_mass": 2376,
+      "first_pass_positive_mass": 1901,
+      "terminal_positive_mass": 1859,
+      "first_pass_leaf_counts": [
+        24,
+        32,
+        64,
+        64,
+        128
+      ],
+      "first_pass_positive_mass_at_multiples_of_3": 504,
+      "terminal_positive_mass_at_multiples_of_3": 805,
+      "maximum_positive_state": 6139,
+      "maximum_current_state": 9215,
+      "current_rows": 1776,
+      "terminal_positive_residues_mod18": [
+        1,
+        3,
+        7,
+        9,
+        15
+      ],
+      "literal_half_scale_recursion_obstruction_state": 3087,
+      "visited_states": 3604,
+      "proved_state_cap": 6911,
+      "rewrite_vertices": 1342,
+      "maximum_lineage_depth": 6
+    },
+    {
+      "N": 168,
+      "initial_positive_mass": 4158,
+      "first_pass_positive_mass": 3329,
+      "terminal_positive_mass": 3257,
+      "first_pass_leaf_counts": [
+        42,
+        56,
+        112,
+        112,
+        224
+      ],
+      "first_pass_positive_mass_at_multiples_of_3": 882,
+      "terminal_positive_mass_at_multiples_of_3": 1398,
+      "maximum_positive_state": 10747,
+      "maximum_current_state": 16127,
+      "current_rows": 3108,
+      "terminal_positive_residues_mod18": [
+        1,
+        3,
+        7,
+        9,
+        15
+      ],
+      "literal_half_scale_recursion_obstruction_state": 5391,
+      "visited_states": 6307,
+      "proved_state_cap": 12095,
+      "rewrite_vertices": 2344,
+      "maximum_lineage_depth": 7
+    },
+    {
+      "N": 384,
+      "initial_positive_mass": 9504,
+      "first_pass_positive_mass": 7613,
+      "terminal_positive_mass": 7453,
+      "first_pass_leaf_counts": [
+        96,
+        128,
+        256,
+        256,
+        512
+      ],
+      "first_pass_positive_mass_at_multiples_of_3": 2016,
+      "terminal_positive_mass_at_multiples_of_3": 3198,
+      "maximum_positive_state": 24571,
+      "maximum_current_state": 36863,
+      "current_rows": 7118,
+      "terminal_positive_residues_mod18": [
+        1,
+        3,
+        7,
+        9,
+        15
+      ],
+      "literal_half_scale_recursion_obstruction_state": 12303,
+      "visited_states": 14425,
+      "proved_state_cap": 27647,
+      "rewrite_vertices": 5369,
+      "maximum_lineage_depth": 8
+    },
+    {
+      "N": 768,
+      "initial_positive_mass": 19008,
+      "first_pass_positive_mass": 15232,
+      "terminal_positive_mass": 14917,
+      "first_pass_leaf_counts": [
+        192,
+        256,
+        512,
+        512,
+        1024
+      ],
+      "first_pass_positive_mass_at_multiples_of_3": 4032,
+      "terminal_positive_mass_at_multiples_of_3": 6414,
+      "maximum_positive_state": 49147,
+      "maximum_current_state": 73727,
+      "current_rows": 14221,
+      "terminal_positive_residues_mod18": [
+        1,
+        3,
+        7,
+        9,
+        15
+      ],
+      "literal_half_scale_recursion_obstruction_state": 24591,
+      "visited_states": 28843,
+      "proved_state_cap": 55295,
+      "rewrite_vertices": 10728,
+      "maximum_lineage_depth": 8
+    },
+    {
+      "N": 6144,
+      "initial_positive_mass": 152064,
+      "first_pass_positive_mass": 121853,
+      "terminal_positive_mass": 119310,
+      "first_pass_leaf_counts": [
+        1536,
+        2048,
+        4096,
+        4096,
+        8192
+      ],
+      "first_pass_positive_mass_at_multiples_of_3": 32256,
+      "terminal_positive_mass_at_multiples_of_3": 51434,
+      "maximum_positive_state": 393211,
+      "maximum_current_state": 589823,
+      "current_rows": 113810,
+      "terminal_positive_residues_mod18": [
+        1,
+        3,
+        7,
+        9,
+        15
+      ],
+      "literal_half_scale_recursion_obstruction_state": 196623,
+      "visited_states": 230761,
+      "proved_state_cap": 442367,
+      "rewrite_vertices": 85825,
+      "maximum_lineage_depth": 12
+    }
+  ],
+  "normalization_terminates_universally": true,
+  "universal_complete_annular_certificate": false,
+  "whole_annulus_absorption_threshold_improved": false
+}

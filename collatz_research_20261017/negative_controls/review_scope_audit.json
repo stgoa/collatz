@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "reviewed_remote_commit": "ba6b337",
+  "small_balanced_example": {
+    "source_rows": [
+      [
+        3,
+        -1
+      ],
+      [
+        21,
+        1
+      ]
+    ],
+    "exact_current_rows": [
+      [
+        3,
+        -1
+      ],
+      [
+        5,
+        -1
+      ],
+      [
+        21,
+        1
+      ]
+    ],
+    "alternative_current_rows": [
+      [
+        3,
+        -1
+      ],
+      [
+        21,
+        1
+      ]
+    ],
+    "alternative_residual_rows": [
+      [
+        5,
+        -1
+      ]
+    ],
+    "both_positive_costs": 1,
+    "minimality_argument": "The indicator of hitting21 forces every admissible J(21)>=1."
+  },
+  "actual_annular_example": {
+    "N": 768,
+    "transport_cap": 256,
+    "extinction_depth": 124,
+    "exact_current_at_5": -55,
+    "exact_current_rows": 40106,
+    "alternative_current_rows": 40105,
+    "alternative_residual_rows": [
+      [
+        5,
+        -55
+      ]
+    ],
+    "both_positive_costs": 53758,
+    "full_divergence_verified": true,
+    "full_source_support_absorption_verified": true,
+    "raw_support_absorption_depth": 124,
+    "scope": "Raw source absorption, signed extinction and the complete current identity are checked."
+  },
+  "minimality_lemma_refuted": false,
+  "unique_cheapest_one_sided_certificate_claim_refuted": true,
+  "universal_collatz_statement_proved": false
+}

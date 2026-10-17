@@ -1,0 +1,438 @@
+{
+  "status": "PASS",
+  "proof": "UNBOUNDED_EXPOSURE_DEPTH.md",
+  "induction_constants": {
+    "first_integer_slope_minimum": 4,
+    "even_arrival_slope_minimum": 9,
+    "even_to_odd_slope_minimum": 6,
+    "new_shadow_5_inverse": [
+      [
+        4,
+        1
+      ]
+    ],
+    "height_comparison_valid_from_X": 8
+  },
+  "bounded_shadow_word_audit": {
+    "depth_cap": 6,
+    "valuation_cap": 8,
+    "state_cap": 50000,
+    "X": 2722816,
+    "N": 63816,
+    "histories": 5715,
+    "histories_by_length": [
+      0,
+      27,
+      72,
+      184,
+      508,
+      1348,
+      3576
+    ],
+    "pre_integer_histories": 15,
+    "even_first_arrivals": 6,
+    "odd_first_arrivals": 34,
+    "smallest_slope": "4"
+  },
+  "exact_crt_components": [
+    {
+      "family": "CRT",
+      "depth": 1,
+      "X": 13312,
+      "N": 312,
+      "vertices": 4,
+      "arrows": 3,
+      "sources": [
+        [
+          19967,
+          -2
+        ],
+        [
+          29951,
+          2
+        ],
+        [
+          44927,
+          2
+        ]
+      ],
+      "signed_source_mass": 2,
+      "queries": 5,
+      "first_state": 19967,
+      "last_state": 67391,
+      "state_cap": 1000,
+      "query_cap": 100000
+    },
+    {
+      "family": "CRT",
+      "depth": 2,
+      "X": 68608,
+      "N": 1608,
+      "vertices": 5,
+      "arrows": 4,
+      "sources": [
+        [
+          102911,
+          -2
+        ],
+        [
+          154367,
+          2
+        ],
+        [
+          231551,
+          2
+        ]
+      ],
+      "signed_source_mass": 2,
+      "queries": 8,
+      "first_state": 102911,
+      "last_state": 520991,
+      "state_cap": 1000,
+      "query_cap": 100000
+    },
+    {
+      "family": "CRT",
+      "depth": 4,
+      "X": 483328,
+      "N": 11328,
+      "vertices": 7,
+      "arrows": 6,
+      "sources": [
+        [
+          724991,
+          -2
+        ],
+        [
+          1087487,
+          2
+        ],
+        [
+          1631231,
+          2
+        ]
+      ],
+      "signed_source_mass": 2,
+      "queries": 18,
+      "first_state": 724991,
+      "last_state": 8258111,
+      "state_cap": 1000,
+      "query_cap": 100000
+    },
+    {
+      "family": "CRT",
+      "depth": 8,
+      "X": 36315136,
+      "N": 851136,
+      "vertices": 11,
+      "arrows": 10,
+      "sources": [
+        [
+          54472703,
+          -2
+        ],
+        [
+          81709055,
+          2
+        ],
+        [
+          122563583,
+          2
+        ]
+      ],
+      "signed_source_mass": 2,
+      "queries": 60,
+      "first_state": 54472703,
+      "last_state": 3141170603,
+      "state_cap": 1000,
+      "query_cap": 100000
+    },
+    {
+      "family": "CRT",
+      "depth": 12,
+      "X": 158215831552,
+      "N": 3708183552,
+      "vertices": 15,
+      "arrows": 14,
+      "sources": [
+        [
+          237323747327,
+          -2
+        ],
+        [
+          355985620991,
+          2
+        ],
+        [
+          533978431487,
+          2
+        ]
+      ],
+      "signed_source_mass": 2,
+      "queries": 158,
+      "first_state": 237323747327,
+      "last_state": 69281745998147,
+      "state_cap": 1000,
+      "query_cap": 100000
+    },
+    {
+      "family": "CRT",
+      "depth": 16,
+      "X": 249042801000448,
+      "N": 5836940648448,
+      "vertices": 19,
+      "arrows": 18,
+      "sources": [
+        [
+          373564201500671,
+          -2
+        ],
+        [
+          560346302251007,
+          2
+        ],
+        [
+          840519453376511,
+          2
+        ]
+      ],
+      "signed_source_mass": 2,
+      "queries": 330,
+      "first_state": 373564201500671,
+      "last_state": 552087500069751281,
+      "state_cap": 1000,
+      "query_cap": 100000
+    },
+    {
+      "family": "CRT",
+      "depth": 24,
+      "X": 89241795446991486976,
+      "N": 2091604580788862976,
+      "vertices": 27,
+      "arrows": 26,
+      "sources": [
+        [
+          133862693170487230463,
+          -2
+        ],
+        [
+          200794039755730845695,
+          2
+        ],
+        [
+          301191059633596268543,
+          2
+        ]
+      ],
+      "signed_source_mass": 2,
+      "queries": 1697,
+      "first_state": 133862693170487230463,
+      "last_state": 5070284090312589634655303,
+      "state_cap": 1000,
+      "query_cap": 100000
+    },
+    {
+      "family": "CRT",
+      "depth": 32,
+      "X": 973241175159037266252267520,
+      "N": 22810340042789935927787520,
+      "vertices": 35,
+      "arrows": 34,
+      "sources": [
+        [
+          1459861762738555899378401279,
+          -2
+        ],
+        [
+          2189792644107833849067601919,
+          2
+        ],
+        [
+          3284688966161750773601402879,
+          2
+        ]
+      ],
+      "signed_source_mass": 2,
+      "queries": 9043,
+      "first_state": 1459861762738555899378401279,
+      "last_state": 1417145824152185998515274595119229,
+      "state_cap": 1000,
+      "query_cap": 100000
+    }
+  ],
+  "exact_required_ray_components": [
+    {
+      "family": "required_ray_12",
+      "depth": 1,
+      "X": 262144,
+      "N": 6144,
+      "vertices": 4,
+      "arrows": 3,
+      "sources": [
+        [
+          393215,
+          -2
+        ],
+        [
+          589823,
+          2
+        ],
+        [
+          884735,
+          2
+        ]
+      ],
+      "signed_source_mass": 2,
+      "queries": 5,
+      "first_state": 393215,
+      "last_state": 1327103,
+      "state_cap": 1000,
+      "query_cap": 100000,
+      "ray_exponent": 9,
+      "base64_ladder_index": 1
+    },
+    {
+      "family": "required_ray_12",
+      "depth": 2,
+      "X": 18014398509481984,
+      "N": 422212465065984,
+      "vertices": 5,
+      "arrows": 4,
+      "sources": [
+        [
+          27021597764222975,
+          -2
+        ],
+        [
+          40532396646334463,
+          2
+        ],
+        [
+          60798594969501695,
+          2
+        ]
+      ],
+      "signed_source_mass": 2,
+      "queries": 8,
+      "first_state": 27021597764222975,
+      "last_state": 136796838681378815,
+      "state_cap": 1000,
+      "query_cap": 100000,
+      "ray_exponent": 45,
+      "base64_ladder_index": 7
+    },
+    {
+      "family": "required_ray_12",
+      "depth": 3,
+      "X": 5846006549323611672814739330865132078623730171904,
+      "N": 137015778499772148581595453067151533092743675904,
+      "vertices": 6,
+      "arrows": 5,
+      "sources": [
+        [
+          8769009823985417509222108996297698117935595257855,
+          -2
+        ],
+        [
+          13153514735978126263833163494446547176903392886783,
+          2
+        ],
+        [
+          19730272103967189395749745241669820765355089330175,
+          2
+        ]
+      ],
+      "signed_source_mass": 2,
+      "queries": 12,
+      "first_state": 8769009823985417509222108996297698117935595257855,
+      "last_state": 66589668350889264210655390190635645083073426489343,
+      "state_cap": 1000,
+      "query_cap": 100000,
+      "ray_exponent": 153,
+      "base64_ladder_index": 25
+    },
+    {
+      "family": "required_ray_12",
+      "depth": 4,
+      "X": 199791907220223502808422222706762643567910281130558153654986045416023791284464999687699590596063486154228923591770023865308670443474450259602571264,
+      "N": 4682622825473988347072395844689749458622897213997456726288735439438057608229648430180459154595237956739740396682109934343171963518932427959435264,
+      "vertices": 7,
+      "arrows": 6,
+      "sources": [
+        [
+          299687860830335254212633334060143965351865421695837230482479068124035686926697499531549385894095229231343385387655035797963005665211675389403856895,
+          -2
+        ],
+        [
+          449531791245502881318950001090215948027798132543755845723718602186053530390046249297324078841142843847015078081482553696944508497817513084105785343,
+          2
+        ],
+        [
+          674297686868254321978425001635323922041697198815633768585577903279080295585069373945986118261714265770522617122223830545416762746726269626158678015,
+          2
+        ]
+      ],
+      "signed_source_mass": 2,
+      "queries": 18,
+      "first_state": 299687860830335254212633334060143965351865421695837230482479068124035686926697499531549385894095229231343385387655035797963005665211675389403856895,
+      "last_state": 3413632039770537505015776570778827355336092069004145953464488135350343996399413705601554723699928470463270749181258142136172361405301739982428307455,
+      "state_cap": 1000,
+      "query_cap": 100000,
+      "ray_exponent": 477,
+      "base64_ladder_index": 79
+    }
+  ],
+  "modular_ray_existence_checks": [
+    {
+      "depth": 1,
+      "binary_exponent": 18,
+      "ternary_modulus": 27,
+      "power_of_two_materialized": false
+    },
+    {
+      "depth": 2,
+      "binary_exponent": 54,
+      "ternary_modulus": 81,
+      "power_of_two_materialized": false
+    },
+    {
+      "depth": 4,
+      "binary_exponent": 486,
+      "ternary_modulus": 729,
+      "power_of_two_materialized": false
+    },
+    {
+      "depth": 8,
+      "binary_exponent": 39366,
+      "ternary_modulus": 59049,
+      "power_of_two_materialized": false
+    },
+    {
+      "depth": 16,
+      "binary_exponent": 258280326,
+      "ternary_modulus": 387420489,
+      "power_of_two_materialized": false
+    },
+    {
+      "depth": 32,
+      "binary_exponent": 11118121133111046,
+      "ternary_modulus": 16677181699666569,
+      "power_of_two_materialized": false
+    },
+    {
+      "depth": 64,
+      "binary_exponent": 20602102921755074907947094535686,
+      "ternary_modulus": 30903154382632612361920641803529,
+      "power_of_two_materialized": false
+    },
+    {
+      "depth": 128,
+      "binary_exponent": 70741107466431499029125237168475111994069269553655046654581766,
+      "ternary_modulus": 106111661199647248543687855752712667991103904330482569981872649,
+      "power_of_two_materialized": false
+    }
+  ],
+  "all_depth_claim_is_from_written_induction_not_finite_scan": true,
+  "universal_current_construction_proved": false,
+  "collatz_proved": false
+}

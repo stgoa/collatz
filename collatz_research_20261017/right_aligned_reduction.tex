@@ -32,6 +32,9 @@ rule for its residual.
 A finite rational cone also converts supplied packet certificates and their
 boundary terms into integer absorption certificates, using a strict gap
 below one unit of positive residual mass.
+An inverse-history argument now proves that no fixed historical exposure
+depth can certify every actual annulus, even on the single ladder
+$N=96\cdot64^k$. Termination with growing depth remains open.
 No complete universal current construction, Collatz proof, or novelty claim
 is supplied.
 \end{abstract}
@@ -934,6 +937,301 @@ This is a verified finite conversion. Using it for arbitrary residuals
 can require certificates at larger cutoffs, so a decreasing induction
 cannot assume those inputs without a separate construction.
 
+\section{An infinite family of complete depth-32 obstructions}
+The earlier finite obstruction extends to an infinite parameter family.
+Let $G_D(N)$ expose the first $D$ arrows from every nonzero source of
+$A_N$, retaining all historical intersections and stopping at $1$.
+
+\begin{theorem}[Complete symbolic component lift]\label{thm:symboliclift}
+Put $N_0=96\cdot2^{24}$. For every integer $q\ge1$ with
+$q\equiv1\pmod{3^{22}}$, set $N=N_0q$. The component of $144N-1$ in the
+entire graph $G_{32}(N)$ is precisely the chain
+\[
+ x_j=64N(3/2)^j-1,\qquad 0\le j\le34.
+\]
+Its only source coefficients are $(-2,2,2)$ at $j=0,1,2$.
+It has mass $2$ and does not contain $1$. Consequently it obstructs every
+current with nonpositive residual supported on this exposure graph.
+In particular this holds on the infinite required-ray subfamily
+\[
+ N=12\cdot2^{27+20920706406\,k},\qquad k\ge0.
+\]
+\end{theorem}
+\begin{proof}[Proof by exact finite symbolic certificate]
+Represent every inverse-query state as $x(q)=aq+b$, with
+$a,b\in\mathbb Z[1/3]$. All slopes are positive with even numerator.
+An inverse branch sends $(a,b)$ to $(2^v a/3,(2^v b-1)/3)$.
+The complete trace has largest denominator $3^{20}$, so
+$q\equiv1\pmod{3^{22}}$ preserves integrality and the full residue
+modulo $18$ of every queried state.
+
+All source-band boundaries and forward height bounds are affine in $q$;
+the latter are $3^r144N_0q/2^r-1$, $0\le r\le32$.
+Each required inequality is certified as $f(q)=f(1)+u(q-1)$,
+where $u\ge0$ and $f(1)$ has the required weak or strict sign.
+This includes the first excluded inverse predecessor, hence all larger
+predecessors of the same valuation parity. Induction on the remaining
+depth proves every inverse reachability decision for the whole family.
+
+The reproducible exact certificate checks $9171$ such decisions and
+$42487$ affine inequalities. At each displayed vertex its complete
+incoming exposed list is just the previous chain vertex, when present;
+its outgoing arrow is exposed exactly for $j<34$. Every edge has
+valuation one. All source-band and residue decisions give the stated
+three coefficients. Thus the certified chain is the entire component.
+The finite-component criterion proves the obstruction.
+Finally $2^{2\cdot3^{21}}\equiv1\pmod{3^{22}}$, by repeatedly cubing
+$4\equiv1\pmod3$, gives the dyadic subfamily.
+\end{proof}
+
+The proof trace, its exact hashes, independent integer comparisons, and
+the full lifting argument are in
+\texttt{experiments/residual\_progress/templates/}.
+This symbolic lift alone keeps the depth fixed at $32$.
+The next argument removes that limitation.
+
+\section{No fixed exposure depth handles all actual annuli}
+\begin{theorem}[Unbounded aggregate exposure depth]\label{thm:unboundeddepth}
+For each integer $D\ge1$, choose a positive integer $X$ such that
+\[
+ 2^{\max(D+4,10)}\mid X,\qquad X\equiv1\pmod{3^{D+2}},
+ \qquad N=3X/128.
+\]
+Then the complete component of $144N-1$ in $G_D(N)$ is
+\[
+ y_k=(3/2)^kX-1,\qquad 1\le k\le D+3,
+\]
+with consecutive arrows and only source coefficients $(-2,2,2)$
+at $k=1,2,3$. Its mass $2$ obstructs every one-sided current on $G_D(N)$.
+For every $D$ there are infinitely many such cutoffs on one required
+base-64 ladder:
+\[
+ N=12\cdot2^{(2\cdot3^{D+1})t-9}
+   =96\cdot64^{3^Dt-2},\qquad t\ge1.
+\]
+\end{theorem}
+\begin{proof}
+The divisibility makes all displayed states odd and all consecutive
+valuations equal to one. Their first three residues modulo $18$ are
+$5,17,17$, giving the stated coefficients; later vertices are above
+the annulus. Every displayed arrow is exposed from one of those three
+sources within $D$ steps. The final vertex exceeds the maximum height
+reachable from any source in $D-1$ steps, so its outgoing arrow is absent.
+
+We exclude all extra incoming histories. Reverse an extra incoming branch
+at $y_k$ through $l\le D$ steps with valuations $a_1,\ldots,a_l$, and put
+$A=\sum a_i$. Write its state and its auxiliary value at $X=1$ as
+\[
+ x=uX-c=u(X-1)+z,\qquad
+ u=3^{k-l}2^{A-k},\quad c>0,\quad z=u-c.
+\]
+An inverse step updates $u'=2^a u/3$, $c'=(2^a c+1)/3$,
+and $z'=(2^a z-1)/3$.
+The first extra inverse valuation is odd and at least $3$, so
+$E=A-l\ge2$ thereafter.
+
+Before the first integer auxiliary value, $A<k$, $l<k$, and $c$ stays
+a positive odd integer: actual integrality and the available power of
+$2$ in $X$ enforce $3\mid2^a c+1$ at each step. The auxiliary values
+are strictly greater than the all-ones comparison
+$(3/2)^{k-l}-1\ge0$. With $s=k-A>0$ one has
+$u=3^E(3/2)^s\ge9$.
+
+At first integer arrival, $r=k-l\ge0$ and $s=A-k\ge0$ satisfy
+$r+s=E\ge2$, hence $u=3^r2^s\ge4$ and $z$ is a positive integer.
+If $z$ is even, $s=0$, $r\ge2$, and $u\ge9$; the next admissible
+inverse gives an odd auxiliary value and $u'\ge6$.
+For odd auxiliary values maintain
+\[
+ c>0,\qquad u\ge4,\qquad z=5\Longrightarrow u\ge6.
+\]
+These hold at the first odd arrival. Throughout histories of length
+at most $D$, the congruence on $X$ makes $u(X-1)$ an integer divisible
+by $3$ after integer arrival. Thus actual inverse admissibility also
+enforces integer auxiliary updates. An inverse with $a\ge2$ increases
+$u$. For $a=1$, an admissible positive odd $z$ is $5$ or at least
+$11$: the special condition handles $5$, and $u>z$ handles the rest.
+A new auxiliary value $5$ can only come from $z=1$, $a=4$, giving
+$u'\ge64/3$. This proves the invariant.
+
+Every extra-branch ancestor therefore has $u\ge4$ and $z>0$, so
+\[
+ x>4(X-1)>(27/8)X-1=144N-1
+\]
+because $X\ge1024$. None can be an annular source. An extra incoming
+exposed arrow would require such a source within $D$ inverse steps,
+which is impossible. The remaining bottom predecessor $X-1$ is
+divisible by $3$, has zero annular coefficient, and has no predecessor.
+This exhausts all incoming edges and proves complete component closure.
+
+Finally choose $X=2^{(2\cdot3^{D+1})t}$. Repeated cubing of
+$4\equiv1\pmod3$ proves the ternary congruence, and its exponent
+supplies the required binary divisibility and ray exponent at least $3$.
+\end{proof}
+
+If $d_*(N)$ is the least sufficient exposure depth, with infinity allowed,
+this gives
+\[
+ d_*(96\cdot64^k)\ge v_3(k+2)+1,\qquad k\ge0.
+\]
+For $v_3(k+2)=0$ the bound follows from the positive source atoms in the
+graph with no arrows. A finite catalogue of source-covered common-tail
+trees has a finite maximum source-to-anchor depth, so the theorem
+excludes every such catalogue, even with cross-packet cancellation and
+fractional combinations. Recursive use with unbounded total depth remains
+possible. No nonexistence of a full finite current at a particular
+cutoff is asserted.
+
+\section{What packet inputs supply locally}
+The finite compiler's inputs have a precise relation to ordinary
+absorption on an inner interval. In this section $8\mid N$, and $U_t$
+counts odd states $1<x\le t$. Use the single-cutoff measures
+\[
+ D_N=3U_N-3U_{N/4}-U_{3N/2}-U_{3N/4},\qquad
+ K_N=\nu_N+3(U_N-U_{N/4}).
+\]
+The exact identity already used by the compiler is
+$D_N=\PiR_N+\eta_N+(I-P)K_N$.
+Write
+\[
+ \mathcal B_N=2U_N-U_{N/4}-U_{3N/4},\qquad
+ \mathcal L_N=2U_{N/4}+U_{3N/2}-U_N.
+\]
+Both are nonnegative, $D_N=\mathcal B_N-\mathcal L_N$,
+$\supp\mathcal B_N=(N/4,N]\cap(2\mathbb Z+1)$, and their masses are
+$N/2$ and $N/2-2$, respectively.
+
+\begin{theorem}[Local calibration and retained residual]\label{thm:localinput}
+Suppose a finite nonnegative absorption current $H$ is supplied for
+$\mathcal B_N$, and let $E$ be the fixed-core current
+$(I-P)E=\eta_N$. Then
+\[
+ \PiR_N=(I-P)(H-K_N-E)-\mathcal L_N
+\]
+is an automatic one-sided packet certificate.
+For any supplied $\PiR_N=(I-P)J+\zeta$, $\zeta\le0$, the converse
+conversion is
+\[
+ \mathcal L_N=(I-P)(H-K_N-E-J)-\zeta.
+\]
+If $\zeta=0$, the same finite graph supplies actual absorption paths
+for every odd seed in the low quarter and the outer shell $(N,3N/2]$.
+For a one-sided input the nonnegative residual $-\zeta$ is retained.
+On the graph of the converted current, with residual and source vertices
+included, one has exactly
+\[
+ 2\,\#\{\text{unabsorbed low-quarter seeds}\}
+ +\#\{\text{unabsorbed outer-shell seeds}\}
+ =-\sum_{\text{nonabsorbing components}}\zeta
+ \le\|\zeta^-\|_1.
+\]
+\end{theorem}
+\begin{proof}
+Substitute $(I-P)H=\mathcal B_N$ and $(I-P)E=\eta_N$ into the
+source-scale identity. For the counting statement, sum the converted
+identity over every nonabsorbing exposed component. Divergences cancel.
+If the residual vanishes, nonnegativity of $\mathcal L_N$ forces every
+source into the absorbing component; its actual paths already occur
+in that finite graph.
+\end{proof}
+
+Feeding the automatic input $J=H-K_N-E$, $\zeta=-\mathcal L_N$
+back into the converse gives zero current and the unchanged residual
+$\mathcal L_N$. This algebraic composition supplies no smaller residual.
+Useful extra paths in the retained union of input graphs would require
+a separate argument.
+The largest raw packet source is therefore not an intrinsic absorption
+dependency: the explicit $K_N$ removes it. The unknown inner interval
+is the relevant dependency of this particular construction.
+
+There is also an exact limit on adaptive positive source-scale cones.
+For an odd $x>1$,
+\[
+ D_N(x)>0\quad\Longleftrightarrow\quad x\le N<4x.
+\]
+Indeed its value is $2$ for $x\le N<4x/3$, $1$ for
+$4x/3\le N<4x$, and is nonpositive elsewhere.
+In any identity
+$U_g=\sum_N\alpha_ND_N+V-W+Z$, with $g\ge x$,
+$\alpha_N\ge0$, $\supp V\subset(1,x)$, $W\ge0$, and
+$\|Z^+\|_1<1$, evaluation at $x$ therefore requires a positive-weight
+cutoff $N\in[x,4x)$. Thus such a cone cannot supply a new seed using
+only the automatic inputs whose entire inner intervals are below that
+seed. This is a restriction on the stated cone and input construction;
+independent arithmetic, favorable supplied residuals, or orbit
+cancellations remain possible.
+
+\section{A terminating partial normalization with auxiliary sources}
+An explicit backward rewrite gives a decreasing parameter, but its
+terminal positive mass has a proved obstruction.
+For a positive coefficient $c$ at $y$, use the following ancestors:
+\[
+ q(y)=
+ \begin{cases}
+ (2y-1)/3,&y\equiv5,11\pmod{18},\\
+ (8y-5)/9,&y\equiv13\pmod{18},\\
+ (4y-5)/9,&y\equiv17\pmod{18}.
+ \end{cases}
+\]
+The latter two paths have intermediate vertices $(4y-1)/3$ and
+$(2y-1)/3$, and forward valuations $(1,2)$ and $(1,1)$.
+The first path has valuation one. Replacing $c\delta_y$ by
+$c\delta_{q(y)}$ adds the current $-c$ along that path.
+Every endpoint obeys $3\le q(y)<8y/9<y$.
+
+\begin{theorem}[Unique terminating partial normalization]\label{thm:auxnormal}
+For any finite integer source $\mu$, these positive-coefficient
+replacements terminate with an order-independent current and residual
+\[
+ \mu=(I-P)J(\mu)+Z(\mu),\qquad J(\mu)\le0.
+\]
+Every positive residual lies in residues $1,3,7,9,15$ modulo $18$,
+precisely the classes with no strictly smaller ancestor within two steps.
+For the actual annulus,
+\[
+ \supp Z(A_N)^+\subset(1,64N),\qquad
+ \supp J(A_N)\subset(1,96N),\qquad
+ \sum_{3\mid x}Z(A_N)(x)\ge21N/4.
+\]
+\end{theorem}
+\begin{proof}
+The integer potential $\sum_x x\max(\mu(x),0)$ decreases strictly at each
+replacement. All arrivals are nonnegative and move downwards, so the
+total departure at an active vertex is uniquely determined in descending
+order by
+$F(x)=\max(\mu(x)+\sum_{q(y)=x}F(y),0)$; at inactive vertices it is zero.
+This fixes both the residual and the sum of path currents.
+An ancestor smaller than $y$ at distance at most two can use only
+valuations $1$ and $2$; checking those four pairs gives exactly the
+listed active classes.
+
+Substituting the six annular bands into the three rules gives the
+positive-height and current-height bounds. In particular, the first
+pass puts positive mass at multiples of $3$ with the following intervals,
+residues, moduli and weights:
+\[
+ \begin{gathered}
+ (3N,6N;3,12;1),\quad (16N,32N;27,48;1),\\
+ (32N,64N;27,48;2),\quad (16N,32N;15,24;1),\quad
+ (32N,64N;15,24;2).
+ \end{gathered}
+\]
+Their weighted floor counts sum to $21N/4$: the sum is $42,84,126$
+at $N=8,16,24$, and increases by $126$ when $N$ increases by $24$.
+The original annulus vanishes at multiples of $3$, and these states
+have no predecessors. Subsequent arrivals cannot cancel their positive
+mass, so it remains in the terminal residual.
+\end{proof}
+
+Consequently any continuation current for this residual with nonpositive
+final remainder needs positive current mass at least $21N/4$ at these
+vertices. This bounds the \emph{continuation}, not the final summed
+annular current: its positive rows can cancel the negative rows of the
+normalization. The whole residual retains upper negative atoms below
+$144N$. The positive-height bound does not improve the existing
+source-scale absorption cutoff $64N$. This is a terminating partial
+normalization, not a complete annular descent.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -952,6 +1250,11 @@ one-pass contraction. Their residuals still need a closed construction.
 Theorem \ref{thm:finitecompiler} converts a finite collection of supplied
 packet certificates into ordinary absorption paths, but leaves the
 universal supply of those certificates open.
+Theorem \ref{thm:localinput} makes their local dependency explicit.
+Theorem \ref{thm:unboundeddepth} rules out every fixed exposure depth,
+even on one base-64 ladder. Theorem \ref{thm:auxnormal} supplies a
+terminating partial rewrite, but its positive remainder cannot be
+finished by more nonpositive current alone.
 Its running time, number of rows, and positive cost may be arbitrarily large
 functions of $N$. A small unresolved \emph{positive} residual is insufficient
 for this all-horizon criterion unless its own future contribution is bounded.
@@ -1010,4 +1313,11 @@ certificate conversion. Its finite integer-gap audit covers $216000$
 map/current/source cases. The final $U_{112}$ current is stored in full.
 The inverse exposure checker agrees with $48$ independently materialized
 graphs and stores the complete depth-$32$ aggregate obstruction.
+The symbolic lift checks $42487$ exact affine inequalities. The
+arbitrary-depth theorem is a separate written induction on inverse
+histories, with complete finite components checked at selected CRT and
+ray cutoffs. The local conversion checks $64$ scale identities and
+$16640$ pointwise coefficients and stores an exact $102$-row outer-shell
+current. The auxiliary normalization checks $66$ annuli and its exact
+terminal-mass obstruction.
 \end{document}

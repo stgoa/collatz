@@ -9,7 +9,7 @@ Ledger entries: C1–C5 in `docs/RESULTS.md`. The C-series is kept separate from
 
 1. tests the logic of R2–R4 on maps where the analogous conjecture is **false**;
 2. records a scoped barrier showing which arguments cannot discharge the primary obligation;
-3. proves that, for each cutoff, the valid certificate is essentially unique and cost-minimal, which changes what "constructing a current" can mean;
+3. proves conditional uniqueness and pointwise minimality for an exact comparison current; one-sided certificates need not be unique;
 4. reports an independent re-audit of R2–R4 (no discrepancy found).
 
 Status labels follow `AGENTS.md`: *written proof*, *finite certificate*, *observation* (finite data with no proof).
@@ -156,14 +156,9 @@ When every atom of `μ` terminates, `J_0 = Σ_j P^j μ` is the time-aggregated f
 
 *Finite checks.* The archive's stored currents equal this forward aggregate **row for row**: 2,736 rows at `N = 4096` and 132,998 rows at `N = 262144`. Pointwise monotonicity was spot-checked on 60 random nonnegative perturbations at `N = 32, 100, 513`.
 
-**Consequence for the primary obligation.** For each cutoff, the cheapest valid certificate is forced: it is `J_N = Σ_j P^j Π_N`. Searching for cheaper or alternative currents cannot succeed. Bounds on `H_L` derived from a certificate can still be sharpened (as the archive's exit profiles do), but no bound can beat the true value `W(N) = sup_L H_L(Π_N)`.
+**Corrected scope after review.** The lemma supplies a cost lower bound relative to a finite exact current under its stated hypothesis. It does not imply uniqueness of one-sided certificates or eliminate structural certificate searches. For example, `mu=delta21-delta3` has exact current `J_0=delta21-delta3-delta5`, while `J=delta21-delta3`, `zeta=-delta5` is a different one-sided certificate. Both attain minimum positive cost1. The actual annulus A_768 likewise has an alternative of the same minimum cost with the row at5 removed. Full identities and receipts are in [PR1_REVIEW.md](PR1_REVIEW.md).
 
-A universal constructor is therefore equivalent to two things:
-
-1. a uniform-in-`N` description of the single object `J_N`;
-2. a proof that `J_N` is finite.
-
-The problem is one of describing and proving, not of searching.
+When every source terminates, the finite canonical exact current is the forward aggregate. Without that hypothesis, a formal infinite sum is not automatically a finite current, and synchronous pushforwards need not extinguish after unequal-time cancellations. The programme permits one-sided certificates obtained before all source futures are known. Describing the canonical exact currents is a possible sufficient route; it is not a requirement on every allowed constructor. The no-cycle condition also remains necessary for the lemma's stated pointwise domination and exact uniqueness conclusion.
 
 ## 6. Independent audit of R2–R4 — finite checks; no discrepancy found
 
@@ -300,15 +295,15 @@ This section records a time-boxed attempt to prove the five-ray obligation using
 
 The plan was to show that the positive and negative mass of `A_N` cancel above some height `Q/C`. That would make the bottom of the dynamics irrelevant and leave an almost scale-free problem.
 
-By C3 the only candidate is the forced current `J_N = Σ_j P^j A_N`. For `N = 96, 168, 384, 768, 1536, 3072`:
+For the canonical exact current `J_N = Σ_j P^j A_N`, at the six sampled cutoffs `N = 96, 168, 384, 768, 1536, 3072`:
 
 - `J_N` reaches state 5 in every case;
 - its signed traffic into 1 is nonzero through several entry states;
 - that traffic grows with N: at `N = 3072` it is `−136` through 5, `+146` through 341, plus smaller terms (receipt `attempt_probes.json`).
 
-So the annular mass does not cancel before the bottom, and any proof must control the complete descent.
+These six exact currents do not cancel entirely before the bottom. This does not require every one-sided certificate to retain those rows: the A_768 counterexample in the PR review removes the row at5 with unchanged positive cost. It also does not exclude paying for a verified finite core in a different construction.
 
-The certificate cost grows only linearly, `‖J_N⁺‖_1 ≈ 75N`, about 3× the source positive mass. Most mass cancels within a few steps, and a thin long-range residue reaches 1.
+The six observed positive costs are approximately `75N`, about 3 times the source positive mass. This is finite data, not a proved universal linear bound. In these examples most mass cancels within a few steps and some signed traffic reaches1.
 
 ### 12.2 Class-wise equivalence — written proof
 
@@ -330,13 +325,13 @@ If 3x+1 has a nontrivial cycle, the basin of that cycle is such a `K`, by the re
 
 ### 12.3 Why the attempt stops
 
-Three facts together leave no room:
+The tested ingredients do not yet close the universal obligation:
 
-1. **The certificate is forced (C3)** and carries traffic all the way into 1 (12.1).
+1. **Exact-current minimality is conditional (C3)**, and the six sampled exact currents carry traffic into1 (12.1). One-sided alternatives remain available.
 2. **Each orbit class must be excluded separately**, at full strength (12.2).
 3. **Generic arguments are ruled out (C2, C4).**
 
-Point 3 still leaves one shape of proof open: d=1-specific self-similarity (main's R6), plus generic dynamics, plus finite verification.
+One possible direction is d=1-specific self-similarity (main's R6), together with a proved rule for continuing unresolved components. This is not an exhaustive classification of possible proofs.
 
 - `T_61` has no exact `×64` recursion, so it does not satisfy the first ingredient.
 - The negative integers fail the third ingredient, since they have small cycles.

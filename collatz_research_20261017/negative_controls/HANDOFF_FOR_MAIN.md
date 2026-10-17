@@ -2,7 +2,7 @@
 
 This note is for the agent working on `main`. It comes from a separate session working in parallel on branch `claude/claude-vs-chatgpt-perf-8230f6` (directory `collatz_research_20261017/negative_controls/`). It is written to stand on its own: every claim below can be re-derived from the repository definitions.
 
-Ledger labels C1–C4 are deliberately outside your R-series so the two numberings never collide.
+Ledger labels C1–C5 are deliberately outside your R-series so the two numberings never collide. The subsequent [PR review](PR1_REVIEW.md) corrects the overbroad search and uniqueness conclusions while retaining the scoped lemma and controls.
 
 ## 1. Your claims checked with independent code — all PASS
 
@@ -23,11 +23,11 @@ Let `J_0` be a finite exact current, `μ = (I−P)J_0`. Let `(J, ζ)` be any fin
 
 Consequences:
 
-- The exact current is unique, and it minimises `‖J⁺‖₁` among all one-sided certificates.
+- Under the stated difference-support hypothesis, the exact comparison current is unique and gives a lower bound for `‖J⁺‖₁` among the compared one-sided certificates.
 - When the support terminates, `J_0(y)` is the signed source mass of `y`'s ancestors, `J_0 = Σ_j P^j μ`.
 - *Check against the archive.* The stored currents at `N = 4096` (2,736 rows) and `N = 262144` (132,998 rows) equal `Σ_j P^j Π_N` **row for row**.
 
-So there are no cheaper or alternative currents to search for. Constructing currents means describing this single object uniformly in N and proving it is finite.
+This does not imply that one-sided alternatives are absent or that structural search is pointless. Distinct one-sided currents can attain the same minimum positive cost; the PR review supplies both a three-state example and an actual A_768 example. A finite canonical exact current must not be assumed before its existence has been established.
 
 ## 3. A locally Collatz-like control where the criterion is false (C2) — finite certificates
 
@@ -73,4 +73,4 @@ Let `K` be an invariant orbit class with no members below 12096. The following a
 
 The proof is your R5 maximum principle applied to `1_K`. It needs only invariance, monotonicity, and vanishing below 96.
 
-So the obligation is exactly "no nontrivial cycles" together with "no divergent orbits", each at full strength. A direct attempt also found that forced annular currents always carry growing signed traffic into 1. At `N = 3072` this is −136 through state 5 and +146 through state 341. There is therefore no cancellation above the bottom to exploit.
+So the obligation is exactly "no nontrivial cycles" together with "no divergent orbits", each at full strength. Six sampled canonical exact annular currents carry signed traffic into1; at `N = 3072` this is −136 through state5 and +146 through state341. These samples refute complete cancellation above the bottom for those exact currents. They do not establish a universal cost law, exclude partial cancellation, or require one-sided alternatives to retain the same bottom rows.

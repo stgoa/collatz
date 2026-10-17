@@ -2,7 +2,7 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-17): Collatz remains unproved.** Finite currents along **five dyadic rays** would suffice, with no uniform cost bound. We have explicit partial annular currents and an exact **19/22** one-pass compression. A new finite compiler converts supplied packet certificates into ordinary absorption paths, using a strict integer-component gap. Universal supply of the input certificates and termination remain open. The arguments have computational and model-assisted checks; they have not received human peer review or formal verification.
+**Current standing (2026-10-17): Collatz remains unproved.** Finite currents along **five dyadic rays** would suffice, with no uniform cost bound. We now prove that **every fixed exposure depth fails**, already on the single annular ladder `N=96*64^k`. Explicit partial currents, a terminating partial normalization, and a finite certificate compiler are available; a complete construction with proved termination remains open. The arguments have computational and model-assisted checks; they have not received human peer review or formal verification.
 
 ## Our current understanding
 
@@ -28,8 +28,10 @@ These criteria are equivalent to Collatz; they do not prove the universal certif
 - **From one finite tree to infinitely many identities.** Exact affine lifts preserve every branch of a checked common-tail tree. A five-source example can be packed into every sufficiently large allowed annulus, with a proof that no source coefficient is reused.
 - **A combined partial constructor.** Five short-chain families and the packed tree have disjoint sources. Their currents remove positive mass `D(N)+3C(N) = 73N/48+O(1)` from an initial `99N/4`. The code returns the full current and the exact remaining measure; its positive coefficients are retained.
 - **Exact compression.** Merging states with the same successor gives `||P A_N||_1 = 171N/4 - |c_N|`, with `|c_N| <= 3`. This yields the `19/22` bound. The compressed measure is a different family, so repeating that bound is not justified.
-- **A precise remaining obstruction.** On a finite exposed graph, the sum of positive component masses is a nonincreasing integer. A complete constructor must prove that every positive plateau ends. A checked example shows that closing all scale-recurrence boundary edges can still leave positive mass.
+- **Unbounded depth is necessary.** For every depth D>=1, the complete exposed component at `N=96*64^(3^D*t-2)`, `t>=1`, has source mass +2 and cannot be certified at depth D. The proof excludes every extra incoming history. On the ladder `N=96*64^k`, the least sufficient depth is at least `v_3(k+2)+1`. This rules out every finite catalogue with bounded source-to-anchor depth; recursive constructions with growing depth remain possible.
 - **A finite certificate compiler.** Exact rational weights combine finitely many packet certificates and all boundary terms. If the positive residual mass is below 1, integer component masses force an exact integer certificate. An actual demonstration combines 30 packet inputs into a 95-row certificate for every odd seed through 111, without exposing new arrows during extraction. For a target m, an explicit sufficient set uses O(log m) cutoffs, the largest O(m^2.14682); this bounds the required inputs, not the cost of constructing them.
+- **The input dependency is now explicit.** Absorption on the inner interval `(N/4,N]` supplies an automatic one-sided packet certificate. Feeding that same certificate back to extend the absorbed range leaves the unknown mass unchanged. An independently supplied exact packet current does extend absorption to `(N,3N/2]`; a one-sided current retains an exact residual budget. A positive scale cone cannot bypass a new seed using only these automatic smaller inputs.
+- **A terminating partial normalization.** Exact backward substitutions move positive mass downward with a strictly decreasing integer potential and give a unique residual. For every annulus the positive support ends below `64N`, but at least `21N/4` positive mass remains at multiples of 3. Continuing from this residual requires positive current; the normalization does not finish the proof.
 - **A rejected shortcut.** Alternating root collapse and transport is conjugate to ordinary Syracuse evolution. Explicit positive atoms survive any fixed number of these operations, and their heights exceed every fixed multiple of N along the rays. This rules out that proposed closure mechanism while permitting other arithmetic rewrites and unequal-time cancellation.
 
 Full proofs and failed candidates are in the [annular construction report](experiments/annular_construction/REPORT.md) and the newer [residual progress report](experiments/residual_progress/REPORT.md).
@@ -67,7 +69,7 @@ The checks establish finite arithmetic identities. They do not establish univers
   - certificate minimality, and progress-measure controls;
   - a certificate checker (`affine_controls.py --check`).
 
-  The ledger entries are C1–C4.
+  The ledger entries are C1–C5. The [PR review](collatz_research_20261017/negative_controls/PR1_REVIEW.md) records the retained conclusions and corrected scope.
 - `docs/RESULTS.md`: claim ledger and next proof obligations.
 - `docs/RESEARCH_LOG.md`: dated record of durable changes and validation.
 - `scripts/verify_all.py`: unified verification entry point.
@@ -89,8 +91,10 @@ Retain historical orbit intersections: equal futures may cancel at unequal times
 
 The next concrete lemma is **finite progress for every positive component plateau**. One route would close the residuals of the proved partial currents in a family with a decreasing integer parameter. Another would prove that a finite arithmetic extension must connect an unresolved positive component to enough negative source mass or to 1. Repeating the same root compression, dropping a boundary flux, or treating a zero residue projection as an integer certificate does not supply that lemma.
 
-The finite compiler now resolves the boundary terms conditionally across a finite set of scales. It still requires packet certificates that may lie above the target scale. Assuming those larger inputs during a decreasing induction would be circular. A successful construction must supply them independently or establish a different closed recursion.
+The finite compiler resolves the boundary terms conditionally across a finite set of scales. Its automatic input construction requires absorption of inner intervals that include the seed being sought. The explicit local conversion shows why feeding those inputs back makes no progress. A successful construction must supply independent cancellation or establish a different closed recursion; the raw outermost packet-source height alone is not an intrinsic obstacle.
 
-Two constraints from the negative-controls note bear on this target. First, the certificate for each cutoff is forced: the exact current is unique and cost-minimal, so a constructor must describe it uniformly rather than search for it. Second, any argument that also applies to the map `3x+61` fails: that map has a 41-cycle, and its criterion breaks at `N=213`.
+The merged independent audit adds useful negative controls: `3x+61` exhibits similar early compression but has a permanent positive cycle component. A universal progress proof must use assumptions that this control does not satisfy. Its conditional minimality lemma is also valid, but one-sided certificates can differ while attaining the same minimum cost; structural certificate searches remain legitimate.
+
+**Current direction:** pursue arithmetic specific to `3x+1` with unbounded historical depth, and prove that every positive component eventually connects to enough negative mass or to 1. The new depth theorem rules out a fixed catalogue. The controls rule out treating early compression as a termination argument.
 
 Update this README and the result ledger whenever the standing changes. Preserve counterexamples and explain which earlier claim a new result supersedes.

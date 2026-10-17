@@ -1,0 +1,112 @@
+{
+  "status": "PASS",
+  "full_scale_cutoffs": [
+    8,
+    512,
+    8
+  ],
+  "pointwise_checks": 16640,
+  "automatic_input_feedback": [
+    {
+      "N": 8,
+      "inner_source_mass": 4,
+      "packet_current_rows": 6,
+      "negative_residual_mass": 2,
+      "feedback_current_rows": 0,
+      "feedback_outer_mass": 2
+    },
+    {
+      "N": 24,
+      "inner_source_mass": 12,
+      "packet_current_rows": 12,
+      "negative_residual_mass": 10,
+      "feedback_current_rows": 0,
+      "feedback_outer_mass": 6
+    },
+    {
+      "N": 96,
+      "inner_source_mass": 48,
+      "packet_current_rows": 84,
+      "negative_residual_mass": 46,
+      "feedback_current_rows": 0,
+      "feedback_outer_mass": 24
+    }
+  ],
+  "actual_examples": [
+    {
+      "N": 24,
+      "input_discovery_depth": 1,
+      "input_current_sha256": "b9808fe9a9db1a9c5899ab0df5762ae84efbc51601843ce40567356654aa3179",
+      "input_residual": {
+        "31": -1,
+        "47": -1
+      },
+      "inner_current_rows": 13,
+      "inner_current_sha256": "1e6efa399d65c5a38ccb048dc1ec8efdd87bc39c1e525200d1f8539b7be21f94",
+      "extension_current_rows": 14,
+      "extension_current_sha256": "29d7afe95607e7f65766b4bf1b34d99df63fdd962f6d4fb70d0b134127ab41d7",
+      "complement_mass": 10,
+      "complement_positive_budget": 2,
+      "outer_positive_budget": 2,
+      "missed_low": [],
+      "missed_outer": [
+        27,
+        31
+      ],
+      "actual_weighted_unabsorbed": 2,
+      "unabsorbed_exit_mass": 2,
+      "no_outer_trajectory_search_during_conversion": true
+    },
+    {
+      "N": 96,
+      "input_discovery_depth": 18,
+      "input_current_sha256": "a52b7a64976924053bf91309e74a87fdfc06ca6e3f3b09b604d98ef42e359ff5",
+      "input_residual": {},
+      "inner_current_rows": 85,
+      "inner_current_sha256": "fd6a1dbc189974ac04b19796721698ec1c55a1c2d462c10d7d297afd74e84004",
+      "extension_current_rows": 106,
+      "extension_current_sha256": "05c805a901bcb39b2696bd95142acb1d7a71df7991963acd867d11db5ed7faa9",
+      "complement_mass": 46,
+      "complement_positive_budget": 0,
+      "outer_positive_budget": 0,
+      "missed_low": [],
+      "missed_outer": [],
+      "actual_weighted_unabsorbed": 0,
+      "unabsorbed_exit_mass": 0,
+      "no_outer_trajectory_search_during_conversion": true,
+      "extracted_outer_current_rows": 102,
+      "extracted_outer_current_sha256": "7de753f4a259ae37957f8103ae429bd573dc00e472225dc50edc26f3b0e88201"
+    },
+    {
+      "N": 384,
+      "input_discovery_depth": 6,
+      "input_current_sha256": "ad501420bc8e0fb7f41564703886942666aada5aee87933f08042cb3d0e38a44",
+      "input_residual": {
+        "415": -1,
+        "671": -1,
+        "743": -1,
+        "767": -1,
+        "839": -1
+      },
+      "inner_current_rows": 270,
+      "inner_current_sha256": "27f7c425fd16693b4522bbed33636e30eb8b2b7eb058f9aac16ebc4b11330e92",
+      "extension_current_rows": 325,
+      "extension_current_sha256": "e6e2d46a15d0d9c1e2f1def05385880b3192b3fe54c3601b683317ccb354f559",
+      "complement_mass": 190,
+      "complement_positive_budget": 5,
+      "outer_positive_budget": 5,
+      "missed_low": [],
+      "missed_outer": [
+        447,
+        495,
+        511,
+        559
+      ],
+      "actual_weighted_unabsorbed": 4,
+      "unabsorbed_exit_mass": 4,
+      "no_outer_trajectory_search_during_conversion": true
+    }
+  ],
+  "universal_inner_absorption_assumed": false,
+  "universal_packet_constructor_proved": false
+}
