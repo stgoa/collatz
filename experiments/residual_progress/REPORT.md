@@ -1,11 +1,13 @@
 # Residual progress and finite forcing
 
-**Latest standing:** selected delayed annular blocks now cancel exactly,
-and retained arrows give a conditional outer-interval extension. This batch
-tests their actual coverage and whether they supply a recursion to already
-absorbed smaller seeds. The merged independent lane's negative controls
-motivate that stricter progress test; its corrected minimality lemma does
-not rule out alternative certificate constructions. Collatz remains open.
+**Latest standing:** a shrinking paired recursion now certifies explicit
+infinite families of the previously growing complementary returns.
+It works at every prescribed recursive depth and supplies exact mergers
+with smaller seeds. Its arithmetic recognizer can still return unresolved;
+universal coverage remains open. A separate theorem rules out strict
+height-monotone progress with any finite label set on every normalized
+return. The current batch and evidence are recorded at the end of this
+report. Earlier sections remain the historical investigation record.
 
 Started 2026-10-17 from clean pushed commit `ce56699`.
 The preceding goal turn made progress: universal partial currents, an exact
@@ -692,3 +694,117 @@ use LF endings. Independent model audits passed the proofs, current
 conversion, count formulas and integrated mathematical statements.
 Whitespace and final file-scope reviews passed. Git history records the
 authorized commit and push of this batch.
+
+## Batch after541101a: shrinking pairs, saturation and bounded-run obstruction
+
+Previous goal turn: **progress**. Its four results and checks were committed
+and pushed as541101a. This batch started from a clean tree and fetched the
+optional side feed atceb94fc372533e6fdc196595a817e8c01bc62d51.
+
+Working hypotheses:
+
+1. Closing all supplied paths under the elementary identities may supply a
+   useful finite certificate core beyond the cutoff-only target test.
+2. The unresolved return family may admit richer arithmetic progress;
+   bounded run lengths alone might still permit arbitrarily long growth.
+3. The latest merger/sign heuristic may overstate what the sampled sets
+   and future peak heights imply.
+
+Checklist:
+
+- [x] Read current state and pin the optional feed.
+- [x] Prove and implement the exact saturation of supplied known paths.
+- [x] Test the growing return family against actual known partner history.
+- [x] Prove or refute long growth with bounded run labels.
+- [x] Independently audit new external claims and preserve scope corrections.
+- [x] Integrate durable results, run required checks and compile.
+
+### Findings and decision
+
+| Hypothesis | Outcome | Evidence |
+|---|---|---|
+| Complete supplied history has a finite useful representation | Proved exactly for elementary identities plus forward arrows | [R29 proof and compiler](known_saturation/KNOWN_SATURATION.md) |
+| Growing normalized returns may still have decreasing paired arithmetic | Proved on complete infinite subfamilies, at every recursive depth | [R30 shrinking pairs](second_return/SHRINKING_PAIRS.md) |
+| Bounded run lengths might restore a finite-label height rank | Refuted for all finite-label potentials nondecreasing in height | [R31 repeated words](bounded_run_cycles/BOUNDED_RUN_GROWTH.md) |
+| High future peaks force cancellation while high | Refuted by an infinite capacity-checked actual annular family | [R32 scope audit](merger_scope/MERGER_SCOPE.md) |
+
+**R29: finite representation of all supplied history.** The exact closure
+is E_N=nu^(-1)(Q_N), where Q_N normalizes the supplied forward paths.
+The ordinary core W_Q={S(q),3q+2:q in Q} is forward closed and has exactly
+2|Q| states. Every member of the infinite closure enters it in one arrow.
+Minimum-origin labels preserve the smallest canonical starting seed for
+each target, and exact high-band counts work for arbitrary finite Q.
+At N384 the stored weight2 certificate for415 uses the known state1579,
+above the cutoff. However415 itself was already S^4(327); all sampled
+extra R26 successes were already in the supplied closure. This is useful
+history reuse, not evidence for a new universal merger. The cutoff-only
+fibres and finite forward union are generally incomparable; E_N contains
+both. This clarifies earlier uses of the word "larger".
+
+**R30: the constructive advance.** For w=3 modulo8, even
+h=v2(3w-1)=2k+2 gives paired endpoints4z+1 and2z+1,
+z=3^k(3w-1)/2^h. Canonical z terminates. The class z101 modulo128
+reduces to w'=(3z+1)/16<w/4, with the child current subtracted.
+This gives a terminating partial recognizer. Exact infinite cylinders
+realize arbitrarily many recursive transitions followed by a terminal
+branch. Lifting them to w=(3^(a-1)-1)/8 yields actual required-ray
+roots2^a-1 and same-clock mergers with2^(a-1)-1 below N.
+The first exponent classes are199 modulo256 and2887 modulo65536.
+A separate39 modulo2^20 class has a stored191-row absorption current
+for549755813887 from the supplied path of274877906943. All bridge
+construction uses prescribed finite prefixes; only the finite input
+demonstration discovers a known lower-seed path under a stated cap.
+The old normalized return grows without bound along each accepted class.
+
+**R31: a stronger failed progress candidate.** The repeated word
+(1,2,1,1,1,1,2,2) has paired map(6561x+9221)/2048 and yields arbitrary
+numbers of growing returns using only(2,2),(5,4). Exact binary cylinders
+and CRT place these seeds in actual required-ray residuals. They remain
+above N and outside the cutoff-only known set for the prescribed duration.
+Repeating a finite label at a larger height contradicts any potential
+that strictly decreases every return but is nondecreasing in height
+within each label. The seed varies with the requested duration;
+no divergent positive integer is produced. Pair recursion uses different
+arithmetic information and remains compatible with this obstruction.
+
+**R32: external findings retained at their valid scope.** The pinned R24
+receipt was reproduced and all ten peak/sign cells rebuilt exactly.
+S(x)<=3nu(x)+2 gives an actual fixed-lookahead bound. A precisely defined
+normalized slope test, with all bits charged, retains R28's two rates;
+this does not bound arbitrary common-tail constructions. Actual positive
+and negative annular sources can cancel at a successor below both before
+a shared climb of arbitrarily large relative height. Allowing arbitrary
+common tails gives exactly the basin of1, leaving construction as the
+open issue. The later feed read at d2d85e1e49f0018a648c6daadc4fc93290c0d107
+withdraws the universal merger claim. Its newer R26/R27 checks and
+quotient probe were read, not rerun in this batch. Their T-step clock
+must remain distinct from R26's variable-length return clock.
+
+### Pivot and remaining obligation
+
+The remote read still shows only merged PR1, already incorporated. Keep
+its negative controls and the exact-current framework. Focus the next
+constructive batch on the odd-h and unhandled z branches of R30, retaining
+known smaller-seed history and every sign. Accepted recursive branches
+decrease; completeness of the branch system is the missing theorem.
+No improved global coverage fraction follows from the current examples.
+R29 supplies the exact target compiler, and the full inverse structure
+remains available for additional arithmetic comparisons. A possible next
+lead is inverse valuation1 ancestry for canonical q=2 modulo3; it requires
+its own complete proof and coverage accounting before use.
+
+### Validation
+
+All four focused checkers passed. Independent model proof/code audits
+passed all four results and the new paired merger clocks. Integration
+review clarified the supplied-history membership, conditional height
+bound and integer band endpoints. The existing LaTeX source compiled
+successfully after those corrections.
+
+`python3 scripts/verify_all.py --cpp` passed, including all four new
+checkers, every prior repository check, the31 archive manifest entries,
+and independent C++ verification at both stored cutoffs. All191 checked
+local links across ten integration/proof Markdown files resolve. New
+files use LF endings and whitespace review passed. Git history records
+the authorized commit and push of this batch. The research goal remains
+active: this batch is progress, and universal convergence is still open.

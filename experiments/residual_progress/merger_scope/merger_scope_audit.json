@@ -1,0 +1,473 @@
+{
+  "status": "PASS",
+  "proof": "MERGER_SCOPE.md",
+  "external_commit": "ceb94fc372533e6fdc196595a817e8c01bc62d51",
+  "normal_form_successor_bound_checks": 16384,
+  "exact_incomparable_sets": {
+    "N": 8,
+    "forward_union": [
+      1,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17
+    ],
+    "forward_only": 11,
+    "elementary_only": 21
+  },
+  "escape_prefix": {
+    "valuations": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "residue": 191,
+    "modulus": 256,
+    "iterate_slope": "729/128",
+    "iterate_intercept": "665/128",
+    "representatives": 128,
+    "prefix_rows_sha256": "affc28ec96a22d3bfcaddbbfbf055343c53920f626a44df27c23d510540ca9dc"
+  },
+  "actual_required_ray_escape_examples": [
+    {
+      "repeats": 1,
+      "N": 16384,
+      "seed": 17343,
+      "protected_ordinary_states": 9,
+      "word": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1
+      ],
+      "states_sha256": "e460236265cedc4d217bf12304863d07537fc37ecb89e604870bfaa4083041b8"
+    },
+    {
+      "repeats": 2,
+      "N": 147456,
+      "seed": 152511,
+      "protected_ordinary_states": 11,
+      "word": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1
+      ],
+      "states_sha256": "21cbec366f9f5ef787a0a6b521696e1c1c4868c902035609c8bafbe0faca8b70"
+    },
+    {
+      "repeats": 4,
+      "N": 8388608,
+      "seed": 9294783,
+      "protected_ordinary_states": 15,
+      "word": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1
+      ],
+      "states_sha256": "5499499c6fbb9cf8a68bb8da9a7bc1b34c48a95dfae06ffba0664c070d40b51e"
+    },
+    {
+      "repeats": 8,
+      "N": 30064771072,
+      "seed": 34253689791,
+      "protected_ordinary_states": 23,
+      "word": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1
+      ],
+      "states_sha256": "d2da50ab17838599ba1db515866cb61a1b098f10de9263c1643b7611c458045a"
+    },
+    {
+      "repeats": 16,
+      "N": 432345564227567616,
+      "seed": 446579163049874367,
+      "protected_ordinary_states": 39,
+      "word": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1
+      ],
+      "states_sha256": "e9403ae19f34b07b5ec7d33353b9af24ff7ed34b4f1b1be586b3f67697c4e0cb"
+    },
+    {
+      "repeats": 32,
+      "N": 162259276829213363391578010288128,
+      "seed": 175280082994520608602013282718655,
+      "protected_ordinary_states": 71,
+      "word": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1
+      ],
+      "states_sha256": "a9d2a25d435d6dbdfb683e6414f15447559d4f86f7d8a80f533e215389f63402"
+    }
+  ],
+  "universal_early_cancellation_examples": [
+    {
+      "a": 19,
+      "N": 196608,
+      "positive": 699049,
+      "negative": 2796197,
+      "common_successor": 524287,
+      "proved_later_height": 774840977,
+      "current_rows": [
+        [
+          699049,
+          1
+        ],
+        [
+          2796197,
+          -1
+        ]
+      ]
+    },
+    {
+      "a": 37,
+      "N": 51539607552,
+      "positive": 183251937961,
+      "negative": 733007751845,
+      "common_successor": 137438953471,
+      "proved_later_height": 300189270593998241,
+      "current_rows": [
+        [
+          183251937961,
+          1
+        ],
+        [
+          733007751845,
+          -1
+        ]
+      ]
+    },
+    {
+      "a": 55,
+      "N": 13510798882111488,
+      "positive": 48038396025285289,
+      "negative": 192153584101141157,
+      "common_successor": 36028797018963967,
+      "proved_later_height": 116299474006080119380780337,
+      "current_rows": [
+        [
+          48038396025285289,
+          1
+        ],
+        [
+          192153584101141157,
+          -1
+        ]
+      ]
+    },
+    {
+      "a": 73,
+      "N": 3541774862152233910272,
+      "positive": 12592977287652387236521,
+      "negative": 50371909150609548946085,
+      "common_successor": 9444732965739290427391,
+      "proved_later_height": 45056799089878348823680295749545281,
+      "current_rows": [
+        [
+          12592977287652387236521,
+          1
+        ],
+        [
+          50371909150609548946085,
+          -1
+        ]
+      ]
+    },
+    {
+      "a": 109,
+      "N": 243388915243820045087367015432192,
+      "positive": 865382809755804604755082721536681,
+      "negative": 3461531239023218419020330886146725,
+      "common_successor": 649037107316853453566312041152511,
+      "proved_later_height": 6762783827045452685860442944784482340397054903697121,
+      "current_rows": [
+        [
+          865382809755804604755082721536681,
+          1
+        ],
+        [
+          3461531239023218419020330886146725,
+          -1
+        ]
+      ]
+    },
+    {
+      "a": 199,
+      "N": 301300883298560676664117892313967987972913061334273656619008,
+      "positive": 1071292029505993517027974728227441735014801995855195223534249,
+      "negative": 4285168118023974068111898912909766940059207983420780894136997,
+      "common_successor": 803469022129495137770981046170581301261101496891396417650687,
+      "proved_later_height": 59025330861305504297506960452395472628718545034087665772127769275353886866956040665418822009777,
+      "current_rows": [
+        [
+          1071292029505993517027974728227441735014801995855195223534249,
+          1
+        ],
+        [
+          4285168118023974068111898912909766940059207983420780894136997,
+          -1
+        ]
+      ]
+    }
+  ],
+  "independent_sign_climb_checks": [
+    {
+      "N": 6144,
+      "source_atoms": 205056,
+      "peak_rows": 356332,
+      "longest_new_path": 109,
+      "cap_per_new_path": 1000,
+      "positive_negative_mass_by_climb": {
+        "1": [
+          152064,
+          152064
+        ],
+        "4": [
+          30453,
+          30479
+        ],
+        "16": [
+          7730,
+          7725
+        ],
+        "64": [
+          1891,
+          1896
+        ],
+        "128": [
+          955,
+          931
+        ]
+      },
+      "source_peaks_sha256": "b43817304ed74ebbaa47d128a032bdb58e53b19e0b58abb2fd3553ef0ed75b8e",
+      "early_merger_of_high_climbers": {
+        "positive": 35497,
+        "positive_capacity": 2,
+        "negative": 141989,
+        "negative_capacity": 3,
+        "common_successor": 26623,
+        "positive_peak": 35452673,
+        "negative_peak": 35452673,
+        "current_rows": [
+          [
+            35497,
+            1
+          ],
+          [
+            141989,
+            -1
+          ]
+        ]
+      }
+    },
+    {
+      "N": 9216,
+      "source_atoms": 307584,
+      "peak_rows": 534116,
+      "longest_new_path": 109,
+      "cap_per_new_path": 1000,
+      "positive_negative_mass_by_climb": {
+        "1": [
+          228096,
+          228096
+        ],
+        "4": [
+          45758,
+          45806
+        ],
+        "16": [
+          11738,
+          11712
+        ],
+        "64": [
+          2908,
+          2791
+        ],
+        "128": [
+          1491,
+          1402
+        ]
+      },
+      "source_peaks_sha256": "ec4de5077fceacce1a9aa0420e69b40d00cf4c1b65f2f96fda88e91511a99448",
+      "early_merger_of_high_climbers": {
+        "positive": 35497,
+        "positive_capacity": 1,
+        "negative": 141989,
+        "negative_capacity": 1,
+        "common_successor": 26623,
+        "positive_peak": 35452673,
+        "negative_peak": 35452673,
+        "current_rows": [
+          [
+            35497,
+            1
+          ],
+          [
+            141989,
+            -1
+          ]
+        ]
+      }
+    }
+  ],
+  "finite_integer_survival_rate_claim": false,
+  "arbitrary_catalogue_obstruction_proved": false,
+  "universal_termination_proved": false
+}

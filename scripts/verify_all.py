@@ -137,6 +137,10 @@ def main():
             ("complementary_bridge", "check_run_bridge.py"),
             ("absorbed_fibers", "check_fibers.py"),
             ("cylinder_barrier", "check_cylinder_barrier.py"),
+            ("known_saturation", "check_saturation.py"),
+            ("second_return", "check_paired_return.py"),
+            ("bounded_run_cycles", "check_bounded_runs.py"),
+            ("merger_scope", "check_merger_scope.py"),
         ):
             run([sys.executable, "-B", script], residual_work / directory)
         # The review checker imports the annular arithmetic implementation;
@@ -190,6 +194,10 @@ def main():
                          complementary_run_bridges="PASS: full run branches, normalized counts, signed conversion and remaining obstructions",
                          infinite_absorbed_fibers="PASS: exact high-band counts and finite supplied-current conversions",
                          prefix_cylinder_rates="PASS: direct residues, four exact DPs, rotation bounds and high common states",
+                         supplied_path_saturation="PASS: exact finite core, least origins, signed counts and additional weight2 certificate",
+                         shrinking_paired_returns="PASS: signed recursion, arbitrary-depth cylinders, exact merger clocks and supplied-current conversion",
+                         bounded_run_growth="PASS: repeated words, fixed run labels, required-ray witnesses and exact currents",
+                         merger_scope="PASS: exact successor bound, scoped escapes, early cancellation and external peak tables",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
 
 
