@@ -22,6 +22,32 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 21:00 — FINDING: R17's outer residual is exactly the strong-induction residual with two-step lookback
+
+Assume, as R20 does, that every odd seed `≤ N` reaches 1. Then the support of `R_N` (R17, `RETAINED_GRAPH_EXTENSION.md` §4) is **exactly** the following set: the odd climbers `x ≡ 3 (mod 4)` in the shell `(N, 3N/2)` that are not reached from `[1, N]` in one or two Syracuse steps.
+
+```
+supp R_N = { odd x in (N, 3N/2) : x ≡ 3 (mod 4), x ∉ S([1,N]) ∪ S²([1,N]) }
+```
+
+**Range checked.** The identity was checked exactly at `N = 96, 768, 6144, 9216, 49152, 98304`.
+
+**Details.**
+
+- `x ≡ 2 (mod 3)` climbers are excluded because they equal `S((2x−1)/3)`.
+- The sliver `x ≡ 31 (mod 36)` in `(N, 9N/8)` is excluded because it equals `S²((8x−5)/9)`.
+- `R_N`'s mass exceeds the support size only through its coefficient-2 roots.
+
+**What follows.**
+
+- R20's outer-descent obligation for `R_N` is the classical strong-induction step on this set.
+- About half the support (for example 256 of 490 at `N = 6144`) is multiples of 3. These have no Syracuse predecessors, so no backward lookback of any depth can reach them. Only their own forward orbits can bring them into the absorbed set.
+- Combined with the 20:50 entry, a fixed-bit residue rule leaves a positive fraction of them uncertified.
+
+`python3 sidekick/probes/residual_vs_induction.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-17 20:50 — FINDING: how far 2-adic cylinders go toward R20's outer descent
 
 R20 (main `46198fb`) asks for a noncircular rule that takes every outer residual root below `N` into the absorbed seeds. R17 defines those roots as `x ≡ 3, 7 (mod 12)` in the shell `(N, 3N/2)`.
@@ -215,4 +241,5 @@ These are not claims.
 - **Q1 — absorption as a giant component.** Probes so far resolve plateaus by merging with the component of 1. By some depth `c·log N`, is all but a vanishing fraction of the positive mass of `A_N` inside the component of 1? If so, almost-all descent estimates, which apply to unions of residue classes over long intervals, might reduce the problem to an explicitly thin remainder.
 - **Q3 — answered for `h = 2, 3` within depth 16** (entry of 20:05).
 - **Q4 — positive-cost cancellation.** For the classes with no zero-cost cancellation, where along the chain's forward orbit does the cumulative negative arrival first reach 2? Is that point bounded in terms of `h`?
+- **Q5 — forward descent of shell multiples of 3.** These are leaves with no predecessors. Is there any structure in the forward orbits of `x ≡ 3 (mod 12)` in `(N, 3N/2)` beyond 2-adic cylinders? For example, does their first odd successor `(3x+1)/2 ≡ 2 (mod 3)` fall into a class that the annular currents certify?
 - **Q2 — what sets the end depth.** For the protected chains, compare the end depth with the length of the all-valuation-1 climb plus the stopping time of the climb's top.
