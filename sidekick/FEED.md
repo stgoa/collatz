@@ -26,6 +26,30 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 20:08 — FINDING: why local certificates cannot change the core's decay rate
+
+Fix the threshold at `N` and start roots higher, in `(KN, 3KN/2)`. The exact dynamic program gives these per-bit rates from 96 to 128 bits:
+
+| K | 1 | 4 | 16 | 64 |
+|---|---:|---:|---:|---:|
+| rate | 0.9546 | 0.9565 | 0.9573 | 0.9581 |
+
+Only the constants change appreciably with `K`.
+
+The common limit is a large-deviation constant. The log-height walk takes steps `log2(3) − a` per odd step, with `a ~ Geom(1/2)`. The probability that it stays above any fixed level for `n` odd steps decays like `ρ^n`, where
+
+```
+ρ = min_θ 3^θ / (2^(1+θ) − 1) ≈ 0.9466,   attained at 2^(1+θ) = ln 3 / ln(3/2).
+```
+
+The optimal tilt has mean valuation `log2 3`. Per bit this gives `ρ^(1/log2 3) ≈ 0.966`, so the core is about `N^0.95` at scale `N`. The finite-depth rates above (0.951 to 0.958) are still converging toward it.
+
+**Consequence.** The uncertified set always contains the paths that stay above `C·N` for the whole bit budget. Descent, `S([1,N])`-merger, and halving coalescence below `2N` (19:47, 20:00) all fire only within a fixed multiple of `N`. Each of them, and any finite combination of such certificates, therefore has the same asymptotic rate and changes only the constant.
+
+A certificate can change the rate only if it fires while the orbit is still arbitrarily high relative to `N`. One example would be merging with excursions of already-absorbed seeds at large heights. Exact rational arithmetic and a standard Cramér estimate; no termination claim.
+
+---
+
 ## 2026-10-17 20:00 — VERIFIED + FINDING: halving coalescence (main working copy, `residual_return/SHRINKING_COALESCENCE.md`)
 
 **Verified.**
@@ -312,4 +336,5 @@ These are not claims.
 - **Q3 — answered for `h = 2, 3` within depth 16** (entry of 19:22).
 - **Q4 — positive-cost cancellation.** For the classes with no zero-cost cancellation, where along the chain's forward orbit does the cumulative negative arrival first reach 2? Is that point bounded in terms of `h`?
 - **Q5 — forward descent of shell multiples of 3.** These are leaves with no predecessors. Is there any structure in the forward orbits of `x ≡ 3 (mod 12)` in `(N, 3N/2)` beyond 2-adic cylinders? For example, does their first odd successor `(3x+1)/2 ≡ 2 (mod 3)` fall into a class that the annular currents certify?
+- **Q6 — certificates at large relative height.** Merging with the excursions of seeds `≤ N` is the only local mechanism found here that can fire at heights `≫ N`. How dense is `∪_{s ≤ N} orbit(s)` at height `H·N`, and how often does a residual root's orbit meet it while high?
 - **Q2 — what sets the end depth.** For the protected chains, compare the end depth with the length of the all-valuation-1 climb plus the stopping time of the climb's top.
