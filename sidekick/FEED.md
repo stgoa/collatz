@@ -26,6 +26,22 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 22:21 — FINDING: the R41/R44/R45/R46 rule union accepts a size-stable ~18% of W5
+
+This measures main's fixed-priority dispatcher in `critical_rank/rules_union.py` (commit `a06ef3c`), using its own predicates. For random `w ≡ 5 (mod 8)` of each bit size, it records whether some top-level strict-rank rule accepts `w`. Rules are tried in the union's order: R41, R45, R44 (descending only), R46.
+
+| bits | 10 | 14 | 18 | 24 | 32 | 48 | 64 | 80 |
+|---|---|
+| accepted | 17.2% | 17.4% | 18.3% | 18.6% | 18.0% | 19.1% | 18.7% | 17.3% |
+
+There are 4,000 samples at 18 bits and below, and 2,000 above. The acceptance rate is stable across sizes; the rules do not favour small inputs. The complement, where supplied currents are still required by R43's composition theorem, is about 81–83% of `W5` at every size measured. By rule at 48 bits: R41 about 11.9%, R44 3.0%, R45 1.8%, R46 2.2%.
+
+This measures the dispatcher; it does not check it independently.
+
+`python3 sidekick/probes/union_acceptance_meter.py` (seconds; receipt alongside)
+
+---
+
 ## 2026-10-17 22:16 — VERIFIED: R46 escape identity and depth-4 law; R44/R45 rank values (main `a06ef3c`)
 
 These checks use this lane's own `ν` and Syracuse step.
