@@ -1,6 +1,6 @@
 # Result ledger
 
-Last updated: 2026-10-17. This ledger summarizes scope; the linked proof notes and exact data contain the supporting arguments.
+Last updated: 2026-10-18. This ledger summarizes scope; the linked proof notes and exact data contain the supporting arguments.
 
 ## R1 — Exact source transport and original packets
 
@@ -737,6 +737,48 @@ An eleven-row table processes every exit e6 through16, retaining variable valuat
 
 See [proof](../experiments/residual_progress/selected_cycle_exit/SELECTED_CYCLE_EXIT.md), [constructor](../experiments/residual_progress/selected_cycle_exit/selected_exit.py), and [receipt](../experiments/residual_progress/selected_cycle_exit/selected_exit_audit.json). Checks cover352 complete exit cases,264 maximal-cycle cases,128 progression cases including64 exclusions from R55/R56, and three actual supplied-current conversions. All three completed outputs and their18 distinct supplied inputs are stored. The [twelve-family rho union](../experiments/residual_progress/selected_rules/SELECTED_RULES.md) composes R55–R57 after the old nine rules, preserving signed dependencies and priority. The separate sigma system is not included. A [finite mixing survey](../experiments/residual_progress/rank_mixing/RANK_MIXING.md) found acyclic completed graphs of2075 and16619 nodes; it proves neither a common global rank nor universal termination.
 
+## R58 — Exact classification of rank excess in formal absorption
+
+**Status: written classification and complete conditional forward domain.**
+
+For the unchanged fully W9-expanded `H_s`, put `n=nu(s)`. Every requested W5 rank is at most n, except precisely when canonical `n=27 mod48`, `v2(3n-1)=4`, and `3z` is noncanonical for `z=(3n-1)/16`. In that case exactly one request lies above n: `u=4z+1`, with coefficient+1 and `rho(u)=(9n+5)/8`; all others lie below n. At n1 there are no requests. If s is noncanonical, even this exceptional rank is strictly below s. The proof includes every recursive W9 branch and the small v9 case.
+
+For the full R51 fifth-exponent family `w=437+512m`, the unchanged forward current is strict in the original rho exactly unless `m=7 mod16` and `3(2147+4374j)` is noncanonical, where `j=(m-7)/16`. Ordinary clocks remain(6,1), quotient clock5. The full progression `w=4021 mod294912` passes and is outside all twelve earlier direct domains. The retained failure44981 still requests96069 with rank144103 above134943; rho and sigma remain distinct.
+
+The [proof](../experiments/residual_progress/exact_absorption_bound/EXACT_ABSORPTION_BOUND.md) and [receipt](../experiments/residual_progress/exact_absorption_bound/exact_bound_audit.json) record16384 odd seeds,2048 W9 plans,2048 fifth-family inputs (1983 descending,65 unresolved),69 new-progression examples through index2^128, three complete supplied-current outputs with12 distinct supplied pairs, and seven rejection checks. These audit the construction; the infinite classification rests on the written argument.
+
+## R59 — Deferred original-rank testing and exact larger-request cancellation
+
+**Status: written finite-rewriting theorem and two complete conditional domains.**
+
+Start with any finite exact signed plan for P(w). Expand remaining requests of rank at least rho(w), largest first, using only the fixed twelve-family strict-rho resolver. Protect the original source and retain unavailable requests. Without a resource cap the formal procedure terminates after at most `max(0,M-rho(w)+1)` examined high-rank vertices, where M is the maximum initial rank. Injectivity of rho and strict decrease of every resolver edge prevent a processed rank from reappearing. A cap retains an exact unfinished frontier. The final comparison is strict only if all remaining ranks are below the original; rewriting termination alone does not prove this.
+
+For every `w=245+1024n`, the exact R55 A4d2 plan already has smaller requests despite its rejected endpoint bound. Its subprogression245mod3072 is outside all twelve old domains. For `w=1301+32768l`, assume `g=3127+78732l` is selected. The first plan requests one larger pair `u=1853+46656l`; its accepted R55 rule cancels the intermediate normalization and absorption terms exactly. The composed q-to-g current is the eight ordinary valuations(1,1,1,1,2,1,3,2), with `T^8(q)=nu(g)` and ordinary normalized clocks `(8+a_g,a_g)`. The full progression1301mod786432 satisfies the hypothesis and is old-twelve-excluded. No unselected-g conclusion is asserted.
+
+The [proof](../experiments/residual_progress/deferred_rank/DEFERRED_RANK.md) and [receipt](../experiments/residual_progress/deferred_rank/deferred_rank_audit.json) check127 candidate plans from1024 W5 roots,23 new descending seeds and101 protected-source cases,68 examples per complete family,72 new-domain examples through2^128, negative multipliers, caps and seven rejections. Four actual substitutions use13 distinct supplied pairs; full245/1301 tables are stored. The internal resolver is fixed and never calls this new dispatcher recursively.
+
+## R60 — Maximal inverse-cycle continuation with a complete descent table
+
+**Status: written word-domain, maximality and complete conditional-plan classification.**
+
+On selected `w=3445 mod3456`, put `v=(16w-13)/27`, assume `3|v`, and set `b=8v+1`, `q=rho(w)`. Let `k=floor(v3(b+17)/7)`, `p=(2048/2187)^k(b+17)-17`, `j=v3(p+1)`, and `eta=2^j(p+1)/3^j-1`. For k>=1 the exact ordinary inverse comparison eta→q has word `1^j,(1,1,1,2,1,1,4)^k,2,1,1,4` and length j+7k+4. These are maximal repetitions of that specified cycle word and maximal valuation1 continuation, not maximality among all inverse choices.
+
+The full signed plan is descending exactly for k1–5 with j>=3, k6–11 with j>=2, k12–17 with j>=1, and every k>=18. Failed k>=1 rows retain a unique higher request of rank eta; k0 retains the R56 original self-request. Exact affine intercepts as well as slopes are included in the classification. Complete CRT families realize every permitted remainder. A fixed14-arrow comparison at k1,j3 has whole old-twelve-excluded families through every prescribed guarded forward depth L. Some overlap R59, so this is not an exclusion from the newly enlarged dispatcher;11432437 is an actual R60 priority winner there.
+
+The [proof](../experiments/residual_progress/cycle_inverse/CYCLE_INVERSE.md) and [receipt](../experiments/residual_progress/cycle_inverse/cycle_inverse_audit.json) retain512 affine checks, seven exact threshold boundaries,99 complete plans (57 descending,30 higher-leading failures,12 original self-requests), nine full old-twelve-exclusion families through L64, four long words, three actual substitutions with full first-two tables, and eight rejections. Supplied currents remain necessary for the surviving smaller inputs.
+
+## R61 — Entire exponent-eleven exit and a scoped exact continuation undo
+
+**Status: written exit identity and infinite-family limitation of a specified continuation procedure.**
+
+For every r>=0 and positive odd s, `q=81*2^(11r+11)s-17` has exactly r guarded cycles before exit exponent11, whose endpoint is `f=3^(7r+10)s-6`. Its ordinary clocks are(7r+7,1) and quotient clock7r+6; the raw endpoint satisfies f>q exactly for r>=16. This does not imply every such input fails after normalization.
+
+For every r>=16,A>=5,K>=0, a complete coprime CRT class makes f canonical with first complete block(A,2), followed by at least K growing(2,2) blocks. Both the original w and the unique leading input v=f/3 are outside the fixed twelve direct domains at7206f9c. Appending any of the prescribed full-block prefixes and applying the corresponding leading R41 inverses restores the original unfinished current and its entire signed request vector exactly. The surviving coefficient+1 at v has rank f>q; expansions of smaller requests cannot cancel it. The result excludes a uniform bound for that named procedure with the old twelve rules. It allows other inverse words, later rules, arbitrary comparisons and input-dependent longer continuation; the seed changes with K.
+
+The [proof](../experiments/residual_progress/exit_continuation/ELEVEN_EXIT_CONTINUATION.md) and [receipt](../experiments/residual_progress/exit_continuation/exit_continuation_audit.json) check200 full exit cases,19 CRT families,40 exact complete-current undos, eight rejections and one full unfinished fixture. No absorption discovery supplies its unresolved leading input.
+
+The [fifteen-family dispatcher](../experiments/residual_progress/refined_rules/REFINED_RULES.md) preserves the old twelve choices and appends R58/R59/R60 under rho. R61 supplies a scoped obstruction, not a new accepted rule. The finite1024-root replay preserves all722 earlier plans exactly and accepts747 in total, with277 unresolved. Explicit witnesses exercise all three added branches, including R60 after earlier priorities. Seven actual conversions use eight distinct supplied pairs, with full1301/11432437 tables;245 closes without any supplied pair. These finite figures do not imply an asymptotic coverage rate or universal closure.
+
 ## C1 — Independent audit of R2–R4 and of main's R5, R6, R9, R10
 
 **Status: finite checks and model-assisted re-derivation; no discrepancy found.**
@@ -816,7 +858,7 @@ See the [note](../collatz_research_20261017/negative_controls/NOTE.md), Section 
 
 - **Primary:** construct a finite current (or one with nonpositive residual) at every cutoff on R5's five rays, and prove termination. R6's annular increments give an explicit sufficient target with its finite bases discharged. Arbitrarily large finite cost is permitted.
 - Find an arithmetic recursion or another structural mechanism that controls unresolved positive contributions. R13 proves its total exposure depth cannot be uniformly bounded, even on one ladder. Finite successful searches alone do not prove universal existence. C3 provides a conditional cost floor, while allowing one-sided alternatives. C2/C4 require a general termination argument to use hypotheses that fail for T_61; candidate methods that extend to those maps must respect the certified failures at `(d,N)=(61,213)` and `(-1,16)`.
-- Prioritize the complement of the twelve accepted strict-rho families, adding R55/R56/R57 to R41/R44/R45/R46/R47/R48/R50/R52/R53. New complete selected forward tables, short inverse paths and delayed cycle exits resolve parts of R54's old untouched phase. Use the complete exit table to close a remaining class or obtain a decreasing comparison covering the rule complement. R54's fixed-lookahead limitation remains valid for its old operation set; it does not obstruct these new comparisons. R51 supplies a separate sigma order, and the finite mixing survey does not justify combining the systems. Preserve supplied history, signed dependencies and ordinary/quotient clocks; every unhandled leaf remains a premise.
+- Prioritize a complete recursion on the complement of the fifteen strict-rho families. R58 isolates the unique above-seed absorption defect; R59 permits exact expansion before the original-rank test, and R60 classifies a larger inverse-word family. Establish a compatible comparison for every blocked high request or a complete remaining type, including original self-requests. R59's formal termination is not success of its final rank test. Its internal resolver remains the old twelve. R61's continuation limitation is scoped to that old operation set and must be retested against later rules. R51 retains a separate sigma induction; the finite mixing survey gives no permission to mix them. Preserve supplied history, signed coefficients and both clocks; missing currents remain premises.
 - Prove finite progress for every positive exposed-component plateau, or close R8/R9's residuals in a family with a decreasing integer parameter. R8 deletes only certified source coefficients; R9 contracts only one pass. Neither handles its full residual.
 - R11 gives a finite conditional compiler that retains boundary terms and can end a plateau if its packet inputs are supplied. Develop a noncircular source of those inputs. R12 rules out obtaining a new descent merely by alternating the existing P and R operators.
 - Independently audit cutoffs, absorption, the five-ray transition, finite bases, annular table, and maximum principle. Current review is computational and model-assisted. C1 is a separate, independent pass that found no error. There is still no human peer review or proof-assistant verification.

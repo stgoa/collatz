@@ -10,7 +10,7 @@
 \newcommand{\Lip}{\mathcal L}
 \title{Right-aligned packets and a qualitative current criterion for Collatz}
 \author{Research continuation of the supplied Collatz programme handoff}
-\date{17 October 2026}
+\date{18 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -66,6 +66,15 @@ whole arithmetic domains. A controlled exit crosses any prescribed number
 of one previously obstructing growing cycle, with every remaining input
 strictly smaller in the original critical-image rank. The finite union
 still has unresolved inputs.
+An exact classification now identifies the sole possible above-seed
+request in formal absorption. Testing the complete signed request list,
+and resolving larger intermediate requests before testing the original
+rank, yields further whole arithmetic domains. This formal expansion
+terminates, but it can retain a missing source. A maximal cycle inverse
+also has a complete descent classification. Another full exit family
+returns exactly to its unresolved current after specified forward and
+inverse extensions, delimiting that procedure without excluding other
+comparisons.
 No complete universal current construction, Collatz proof, or novelty claim
 is supplied.
 \end{abstract}
@@ -4544,6 +4553,420 @@ finite histories. The complete exit table, a retained failed exit, and
 all supplied-current demonstration tables are in
 \path{experiments/residual_progress/selected_cycle_exit/SELECTED_CYCLE_EXIT.md}.
 
+\section{The unique excess in the complete absorption request vector}
+Write the unchanged formal absorption plan as
+\[
+ [s]=\operatorname{div}J_s+\sum_{u\in W_5}A_s(u)P(u),
+ \qquad n=\nu(s).
+\]
+The coefficients are signed integers after complete $W_9$ elimination;
+every nonzero request remains a premise.
+\begin{theorem}\label{thm:exactabsorption}
+For a canonical $n$, define the exceptional condition
+\[
+ n\equiv27\pmod{48},\qquad v_2(3n-1)=4,\qquad
+ z=(3n-1)/16,\qquad 3z\text{ noncanonical}.
+\]
+If this condition fails, every request of $H_s$ has rank at most $n$.
+If it holds, exactly one request has rank above $n$:
+\[
+ u_*=4z+1,\qquad A_s(u_*)=1,\qquad
+ \rho(u_*)=(9n+5)/8.
+\]
+Every other request has rank strictly below $n$. There are no requests
+at $n=1$. In particular, every request of a noncanonical $s$ has rank
+strictly below $s$, even when its minimum is exceptional.
+\end{theorem}
+\begin{proof}
+For a $W_9$ input $v$, the complete elimination of
+Theorem~\ref{thm:criticalnine} has one possible exceptional index
+$u_*=4z+1$ in its even-depth upper-noncanonical row. Every other local
+index, including recursive $W_9$ indices $c$, is at most
+$(27v+13)/32$. Ordinary $W_5$ requests below $v$ have rank below $3v$,
+and for $v\ge25$ a recursive request has rank at most
+\[
+ \frac{27c+5}{8}\le\frac{729v+511}{256}<3v.
+\]
+At the only smaller $W_9$ input, $v=9$, the exact vector is
+$P(21)-P(5)$, with ranks $31$ and $7$. The possible exceptional ranks
+at depths $4,6,8$ are
+\[
+ \frac{27v+5}{8},\qquad\frac{81v+23}{32},\qquad
+ \frac{243v+101}{128}.
+\]
+Only the first exceeds $3v$; at depths at least $10$ the exceptional
+index itself is below $v$. Thus a full $W_9$ plan exceeds $3v$ exactly
+in the stated depth4 row, with coefficient $+1$ immune to lower-rank
+cancellation.
+
+Normalize $s$ to $n$. For canonical $n\equiv1\pmod8$, $n>1$, the
+first arrow and Theorem~\ref{thm:criticalrank} bound all ranks by
+$(27n+29)/32<n$. Outside this row, a canonical $n\equiv2\pmod3$
+has the prescribed inverse $(2n-1)/3$, giving bound $(3n+1)/4<n$.
+A critical $W_5$ index gives rank $n$ and lower auxiliary requests.
+A critical $W_9$ index can only be $v=n/3\equiv9\pmod{16}$:
+the alternative $(2n+1)/3\in W_9$ would force noncanonical
+$n\equiv5\pmod8$. This is precisely $n\equiv27\pmod{48}$,
+and the preceding calculation supplies the claimed exception. Additional
+$H_v$ requests lie below $n$. Finally, for noncanonical $s$,
+$n\le(s-1)/2$, and even the exceptional bound is at most
+$(9s+1)/16<s$.
+\end{proof}
+
+For every $m\ge0$, set
+\[
+ w=437+512m,\quad t=41+48m,\quad q=3w=32t-1,
+ \quad f=(243t-3)/8=3(415+486m).
+\]
+The complete run has parameters $(5,3)$, ordinary common-tail clocks
+$(6,1)$, quotient clock $5$, and $q-f=(13t-5)/8>0$.
+The exact signed plan $D_q-N_w+H_f-H_{\nu(w)}$ is strictly
+$\rho$-decreasing if and only if the following condition fails:
+\[
+ m=7+16j\ (j\ge0),\qquad z=2147+4374j,
+ \qquad 3z\text{ noncanonical}.
+\]
+Indeed the theorem makes this exactly the exceptional case at $f$.
+Its single request has rank $(9f+5)/8>q$, since
+\[
+ (9f+5)/8-q=(139t+77)/64>0;
+\]
+all other upper and lower requests have rank below $q$.
+The whole progression $w\equiv4021\pmod{294912}$ passes and misses
+all twelve earlier direct predicates. Here $j=36k$ gives canonical
+$3z\equiv1\pmod8$; the old endpoint bound still rejects the parent.
+The retained failure $w=44981$, requesting $96069$ with ranks
+$134943<144103$, prevents identifying this order with the separate
+$\sigma$ order. Complete exclusions and the exact constructor are in
+\path{experiments/residual_progress/exact_absorption_bound/EXACT_ABSORPTION_BOUND.md}.
+
+\section{Deferred rank testing with exact signed expansion}
+\begin{theorem}\label{thm:deferredrank}
+Suppose a finite integer current has the exact boundary
+\[
+ \operatorname{div}J=P(w)-\sum_{u\in W_5}c(u)P(u),
+\]
+without an initial rank restriction. Fix a resolver whose accepted
+rules have finite signed request lists strictly decreasing $\rho$.
+Protect the original request $w$. Process an unprocessed request of
+largest rank at least $\rho(w)$: retain a protected or unrecognized
+request, or substitute its accepted rule with its full signed
+multiplier and combine equal coefficients.
+
+This procedure terminates for every such finite initial plan when
+the resource cap is omitted. If $M$ is its largest initial request
+rank, at most $\max(0,M-\rho(w)+1)$ high-rank vertices are examined.
+Its output is a new strict-rank rule exactly when all remaining
+requests have rank below the original $\rho(w)$. Otherwise the
+remaining requests are explicit missing premises.
+\end{theorem}
+\begin{proof}
+Substitution preserves the displayed boundary by signed linearity.
+The map $\rho:W_5\to\mathbb N$ is injective. After processing a rank,
+no accepted rule at any smaller rank can recreate it; largest-first
+processing has already combined every possible contribution from
+larger requests. The next unprocessed rank therefore strictly decreases.
+This proves the finite bound. It is a bound on examinations, not bit
+complexity or the supply of currents. A resource cap may stop with an
+exact unfinished vector, but cannot convert that vector into a
+certificate. Protecting $w$ prevents a self-request from supplying its
+own missing proof.
+\end{proof}
+
+This applies with the fixed twelve-rule resolver, without adding a
+recursive call to the new procedure. Two whole domains illustrate
+distinct improvements.
+First, for every $n\ge0$ put
+\[
+ w=245+1024n,\quad q=367+1536n,\quad
+ f=931+3888n,\quad m=465+1944n,\quad s=349+1458n.
+\]
+The selected parent has run $(4,2)$, selected endpoint $f=2m+1$,
+and canonical $m\equiv1\pmod8$. Its formal $H_m$ begins with
+$m\to s$, where $s\equiv1\pmod3$ and $q-s=18+78n>0$.
+The complete absorption bound at such an $s$ is at most $s$:
+the complementary canonical case has its $W_5$ critical index,
+the $1$-modulo-$8$ case has bound $(27s+29)/32\le s$, and
+normalization makes a noncanonical case smaller still. Hence the
+actual request vector already passes the original-rank test although
+the old piecewise endpoint test rejected it. Every
+$w\equiv245\pmod{3072}$ is outside all twelve previous direct domains.
+
+Second, for every $\ell\ge0$ define
+\[
+\begin{aligned}
+w&=1301+32768\ell,&q&=1951+49152\ell,\\
+f&=7411+186624\ell,&m&=3705+93312\ell,\\
+s&=2779+69984\ell,&u&=1853+46656\ell,\\
+g&=3127+78732\ell,&r&=(g-1)/2=1563+39366\ell.
+\end{aligned}
+\]
+Assume $g$ is selected. The parent run is $(5,2)$, with
+$\nu(f)=m$, $S(m)=s$, and unique high request $P(u)$ of coefficient
+$+1$ and rank $s>q$. The old resolver accepts the child's $(2,2)$
+run to the selected endpoint $g$. All other initial requests are
+below $q$: those in $H_u$ are bounded by $(9u+11)/32<q$.
+After the one substitution, the full upper bridge is precisely the
+ordinary eight-arrow path from $q$ to $g$, with valuation word
+\[
+ (1,1,1,1,2,1,3,2).
+\]
+To see the current equality, use the exact formal identities
+\[
+ H_m=\delta_m+H_s,\quad H_s=-N_{3u}+P(u)+H_u,
+ \quad H_u=N_u+H_{\nu(u)},
+\]
+where $\delta_m$ is the unit current row, and substitute the child
+current $N_{3u}+D_s+N_g-N_u+H_r-H_{\nu(u)}$.
+The normalizers and auxiliary $H_u$ terms cancel exactly. The selected
+normalizer at $f$ has two prefixes of length2, and its negative prefix
+cancels with the following arrows; this gives the stated ordinary
+path, not just its boundary. Its quotient clock is8 to $r$.
+With $a_g=v_2(g+1)$, the normalized ordinary merger clocks are
+$(8+a_g,a_g)$ from $(q,r)$; the upper $N_{3w}$ remains separate.
+Finally
+\[
+ q-(9r+5)/8=(1536+38922\ell)/8>0,
+\]
+so every final request is below the original rank. The condition
+$\ell=24j$ gives selected $g$ with exponent3 and the full new
+progression $w\equiv1301\pmod{786432}$, outside all twelve old
+predicates. The larger selected-$g$ domain retains that hypothesis.
+Finite termination of the general expansion does not prove that its
+output always passes the rank test or supply its remaining inputs.
+Proof details and retained failed plans are in
+\path{experiments/residual_progress/deferred_rank/DEFERRED_RANK.md}.
+
+\section{A maximal inverse cycle with complete point continuation}
+\begin{theorem}\label{thm:cycleinverse}
+Let $w>0$ satisfy $w\equiv3445\pmod{3456}$ and suppose
+\[
+ v=(16w-13)/27\equiv0\pmod3,
+ \quad q=\rho(w)=(81v+23)/32,\quad b=8v+1.
+\]
+Put $h=v_3(b+17)$ and $k=\lfloor h/7\rfloor$.
+For $k\ge1$, define
+\[
+ p=\left(\frac{2048}{2187}\right)^k(b+17)-17,
+ \quad j=v_3(p+1),\quad \eta=\frac{2^j(p+1)}{3^j}-1.
+\]
+There is an exact ordinary path from $\eta$ to $q$ with valuation word
+\[
+ 1^j,\ (1,1,1,2,1,1,4)^k,\ 2,1,1,4
+\]
+and length $j+7k+4$. Both inverse counts are maximal for their
+specified words. The signed plan
+\[
+ N_{3w}+I_{q,\eta}-N_w+H_\eta-H_{\nu(w)},
+ \qquad\operatorname{div}I_{q,\eta}=[q]-[\eta],
+\]
+strictly decreases every request's original rank if and only if
+\[
+\begin{array}{c|c}
+ k&\text{accepted point depths}\\\hline
+ 1\le k\le5&j\ge3\\
+ 6\le k\le11&j\ge2\\
+ 12\le k\le17&j\ge1\\
+ k\ge18&j\ge0.
+\end{array}
+\]
+Every failing $k\ge1$ plan retains a unique highest-rank request with
+coefficient $+1$ and rank $\eta>q$. For $k=0$, the original four-arrow
+plan is retained and has the original request $w$ with coefficient
+$+1$; all its other requests have rank below $q$.
+\end{theorem}
+\begin{proof}
+Here $v\equiv-7\pmod{2048}$ and $v\ge2041$. The tail from $b$
+has exact word $(2,1,1,4)$. For any positive odd $x$ with
+$3^7\mid x+17$, the inverse cycle is
+$y=2048(x+17)/2187-17>0$. Its quotient factor is positive even,
+so $y\equiv-17\pmod{4096}$, including the extra valuation bit
+for all seven ordinary arrows. Its ternary order drops by exactly7;
+this proves the maximal count $k$. Since $v_2(b+17)=1$, one has
+$v_2(p+17)=11k+1$ and $v_2(p+1)=4$ with unit $-1\pmod4$.
+The $j$ legal point inverses give canonical
+$\eta\equiv-1\pmod{16}$, $\eta\not\equiv2\pmod3$, with
+binary exponent $4+j$. A positive remainder $h-7k$ forces $j=0$.
+
+Writing $a=2048/2187$ and $t=(2/3)^j$ gives
+\[
+ \eta=\lambda q+\beta,\quad
+ \lambda=\frac{256}{81}a^kt,\qquad
+ \beta=t\left(\frac{1274}{81}a^k-16\right)-1<-1.
+\]
+The exact boundary comparisons are $(k,j)=(5,2),(11,1),(17,0)$
+on the failing side and $(1,3),(6,2),(12,1),(18,0)$ on the passing
+side. The failing slopes exceed1 and still give $\eta>q$ at
+$q=5167$; the passing slopes are below1. Monotonicity in $k,j$
+proves the entire table including the intercepts. Equivalently,
+\[
+\begin{split}
+32\,3^{7k+j}(\eta-q)
+={}&(256\,2^{11k+j}-81\,3^{7k+j})v\\
+ &+576\,2^{11k+j}-512\,2^j3^{7k}-55\,3^{7k+j}.
+\end{split}
+\]
+The first critical index at $\eta$ is $\eta/3$ or $(2\eta+1)/3$,
+in $W_5$, and has rank $\eta$ and coefficient1. Its other absorption
+requests have rank below $\eta$; the lower $H_{\nu(w)}$ requests
+are below $q$. This proves necessity as well as sufficiency for this
+particular complete signed plan. At $k=0$, exact $W_9$ elimination
+retains
+$A_b=A_q-A_{(q+2)/3}+A_v$ and $A_q=\{w:1\}+A_w$;
+all auxiliary ranks are below $q$. No failure vector is discarded.
+\end{proof}
+
+These accepted comparisons intersect every prescribed old growing
+depth $L\ge0$ while avoiding all twelve earlier direct predicates.
+For any passing $k,j$ with $j\ge1$, set
+\[
+ b+17=2\,3^{7k}U,\quad v=(3^{7k}U-9)/4,
+\]
+and impose the coprime congruences
+\[
+\begin{aligned}
+ U&\equiv2^{3-11k}(1+3^j e)\pmod{3^{j+1}},\quad e\in\{1,2\},\\
+ U&\equiv(2^{11L+20}c-19)3^{-7k}\pmod{2^{11L+22}},\quad
+ c=\begin{cases}1&L\text{ even},\\3&L\text{ odd}.\end{cases}
+\end{aligned}
+\]
+Negative powers here mean inverses in the indicated coprime modulus.
+Positive members give exact $h=7k,j$ and
+\[
+ v=2^{11L+18}s-7,\quad q=81\,2^{11L+13}s-17,
+ \quad s\equiv c\pmod4.
+\]
+The old nine rules fail on the entry phase; the selected-forward rule
+rejects $(4,2)$ and both previous inverse depths are zero. The guarded
+exit count is exactly $L$, with exponent13 and canonical endpoint
+$\Psi^{L+1}(q)>q$, so the previous exit test also fails. In particular
+$k=1,j=3$ supplies a fourteen-arrow inverse comparison for every $L$.
+The seed changes with $L$. Full remainder classes, failed currents and
+supplied finite examples are in
+\path{experiments/residual_progress/cycle_inverse/CYCLE_INVERSE.md}.
+
+\section{A complete exponent-eleven exit and an exact continuation undo}
+\begin{theorem}\label{thm:elevenexitundo}
+For every $r\ge0$ and positive odd $s$, set
+\[
+ q=81\,2^{11r+11}s-17,\quad w=(2q+1)/3,
+ \quad f=3^{7r+10}s-6.
+\]
+The guarded cycle count is exactly $r$, followed by the exponent11
+exit. Its current $D_{q,f}$ has boundary $[q]-[f]$, quotient clock
+$7r+6$ to $\nu(f)$, and exact ordinary common-tail equality
+\[
+ S^{7r+7}(q)=S(f).
+\]
+The raw endpoint exceeds the original rank exactly when $r\ge16$.
+
+More specifically, fix any $r\ge16$, $A\ge5$, $K\ge0$, and
+put $M=7r+10$ and $\epsilon=2^r\pmod3\in\{1,2\}$.
+Every positive solution of
+\[
+ t\equiv-9\,3^{-A}\pmod{2^{3K+6}},\qquad
+ t\equiv(3^M\epsilon-5)2^{-A}\pmod{3^{M+1}}
+\]
+defines a member of the preceding row by
+\[
+ s=(2^At+5)/3^M,\quad f=2^At-1,\quad v=f/3,
+ \quad g=(3^At-1)/2,\quad g_j=G^j(g),\quad G(x)=(9x+5)/8.
+\]
+It has $q<f<g_0<\cdots<g_K$. The first complete block from $f$
+has parameters $(A,2)$ and each of the next $K$ prescribed blocks
+has parameters $(2,2)$. Appending the first block and $j$ low blocks,
+$0\le j\le K$, yields an actual ordinary $q$-to-$g_j$ current of
+length $7r+A+6+2j$, also its quotient clock.
+
+Both $w$ and the exit's leading input $v$ fail the fixed twelve direct
+predicates at commit \texttt{7206f9c}. After conversion of $g_j$
+to its full formal absorption plan, exactly $j+1$ specified leading
+R41 inverse substitutions restore the original unfinished exit plan,
+including every current row and signed request. Its unique largest
+request is $P(v)$ with coefficient $+1$ and rank $f>q$; expanding
+only smaller-rank requests cannot cancel it.
+\end{theorem}
+\begin{proof}
+At the exit, $Q=2^{11}U-17$ with $U=81\,3^{7r}s$. The first
+$(4,2)$ block reaches selected $Y=5184U-41$, whose minimum is
+$V=2592U-21$, with $S^3(Y)=S^3(V)$. The second $(2,3)$ block
+has endpoint $729U-6=f$ and ordinary clocks $(3,1)$. Together with
+the preceding $7r$ ordinary arrows this proves the first clock and
+the exact current equality to that left path minus the row at $f$.
+Moreover
+\[
+ f-q=(3^{7r+10}-81\,2^{11r+11})s+11.
+\]
+The coefficient ratio increases by $2187/2048$. Exact inequalities
+$3^{111}<2^{176}$ and $3^{118}>2^{187}$ locate the change between
+$r=15$ and16. Its nonzero coefficient is a multiple of81, so the
+intercept11 cannot change the sign for $s\ge1$.
+
+The two congruences have coprime moduli. They make $s$ odd with
+$s\equiv\epsilon\pmod3$, give complementary canonical $f$ with
+exact $(A,2)$, and force $g+5\equiv0\pmod{2^{3K+5}}$.
+Thus $g_j+5=9^j(g+5)/8^j$ and every $g_j$, $0\le j\le K$,
+is $27\pmod{32}$ and canonical. The complete blocks are growing.
+Their first row at $f$ cancels the negative row in $D_{q,f}$,
+giving the claimed ordinary path and clock. This prescribes at least
+$K$ low blocks, not their maximal number. The full progression periods
+are
+\[
+ \Delta t=2^{3K+6}3^{M+1},\quad
+ \Delta s=3\,2^{A+3K+6},\quad
+ \Delta w=81\,2^{11r+A+3K+18}.
+\]
+
+At the original input, the old nine predicates fail on the entry phase;
+the selected-forward test rejects $(4,2)$; the inverse parameter
+$(32q-23)/81=2^{11r+16}s-7$ is divisible by3, so both old inverse
+depths vanish; and the canonical exit test retains $f>q$.
+At $v=3^{M-1}s-2\in W_5$, $v\equiv1\pmod3$, the selected
+and multiple-of-three rules do not apply. Its two base inverse depths
+are0 and1, the latter the self-return row. The two-phase inverse has
+next depth $v_3(2p+1)=0$ at $p=32\,3^{M-2}s-21$.
+Its forward $(A,2)$ endpoint has bound $g>f$, while the older
+continuation requires first exponent3 or4. These exhaust the twelve
+specified direct tests. Finally
+$A_f=\{v:1\}+A_v$, with all $A_v$ ranks at most $(3f+5)/8<f$;
+all requests from $H_{\nu(w)}$ are below $q$. The leading coefficient
+therefore cannot cancel.
+
+For the exact undo, a canonical critical $x\equiv1\pmod3$ has
+$a=(2x+1)/3$ and
+\[
+ J_x=-N_{3a}+J_a,\qquad A_x=\{a:1\}+A_a.
+\]
+At $x=g$, its leading R41 inverse has depth $A$ and endpoint $f$.
+At $x=g_j$, $j\ge1$, the identity
+$2g_j+1=9(g_{j-1}+1)/4$ gives depth2, unit2, and endpoint
+$g_{j-1}$. These are all strict R41 rows. Let $y$ be that predecessor
+and $b$ its $W_5$ critical index. The exact substituted current is
+\[
+ N_{3a}+I_{x,y}-N_{3b}-N_a+J_b-J_{\nu(a)},
+\]
+with request vector $\{b:1\}+A_b-A_{\nu(a)}$.
+Since $H_a=N_a+H_{\nu(a)}$ as current and request vector,
+substitution inside $H_x$ gives exactly $I_{x,y}+J_y,A_y$.
+The inverse path cancels the appended forward block row for row.
+Iterating $j+1$ times restores
+\[
+ N_{3w}+D_{q,f}-N_w+J_f-J_{\nu(w)},\qquad
+ A_f-A_{\nu(w)}.
+\]
+The surviving largest rank is $f$, and no rule applied at a smaller
+rank can introduce that index. This proves the stated limitation.
+\end{proof}
+
+This rules out a uniform number of these complete-block extensions
+followed by these inverses and smaller-request expansions as a closure
+of the entire exponent11 row. It does not rule out different comparisons,
+new direct rules, longer input-dependent continuations, arbitrary joint
+cancellation or eventual absorption. The seed varies with the prescribed
+$r,A,K$; there is no infinite positive growing-orbit claim.
+The full unfinished current and its exact inverse schedule are retained in
+\path{experiments/residual_progress/exit_continuation/ELEVEN_EXIT_CONTINUATION.md}.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -4637,11 +5060,26 @@ and remove whole subdomains of the old untouched phase.
 Theorem~\ref{thm:selectedexit} supplies exact exits after arbitrarily many
 maximal guarded repetitions, with additional full progressions outside
 both other new dispatchers. The old phase is therefore no longer wholly
-unrecognized by the current twelve-rule union. All these new comparisons
-use the same original $\rho$ order; their remaining signed premises still
-require exact currents. A closed progress argument on the complement,
-with every dependency checked in one coherent induction order, remains
-unproved.
+unrecognized by the twelve-rule union. Theorem~\ref{thm:exactabsorption}
+now identifies the unique possible excess in the full absorption vector,
+so some rejected endpoint bounds can be replaced by exact requests.
+Theorem~\ref{thm:deferredrank} crosses a genuinely larger intermediate
+request by a finite signed expansion before testing the original rank.
+Its termination is termination of a formal computation: a protected or
+unrecognized source can remain. Theorem~\ref{thm:cycleinverse} gives a
+complete inverse procedure with exact success and failure domains,
+including fourteen-arrow comparisons at every prescribed old growth
+depth. A fifteen-family dispatcher preserves the old twelve priorities
+and then applies these three rules in that order. The deferred resolver
+itself remains fixed to the old twelve, and no separate $\sigma$ rule
+is imported. All returned rules strictly decrease the original $\rho$;
+their remaining signed premises still require exact currents.
+Theorem~\ref{thm:elevenexitundo} preserves a full exponent11 family
+whose specified forward extensions and leading inverse substitutions
+restore the same missing current. Its twelve-rule exclusions do not
+claim failure of the enlarged dispatcher or of other comparisons.
+A closed progress argument on the complement, with every dependency
+checked in one coherent induction order, remains unproved.
 Completing the remaining $W_5$ currents is still the full-strength open
 obligation. Further isolated merger families alone would not discharge it.
 Theorem~\ref{thm:paircatalogue} gives the exact limitation of the named
@@ -4834,5 +5272,30 @@ exclusion of the other two new dispatchers. It stores three actual
 outputs with142,178,252 rows and all18 distinct supplied pair currents.
 The exact guarded-cycle maximum, ordinary-current cancellation and
 unbounded family quantifiers rely on the written proofs, not these scans.
+The exact-absorption checker adds16384 odd seeds,342 exceptional normalized
+minima,2048 complete $W_9$ eliminations and2048 fifth-family comparisons;
+1983 descend and65 retain their high request. It checks69 new progression
+members and stores three supplied-current outputs with30,105,119 rows
+and all12 distinct supplied pairs. The deferred-rank checker covers127
+initial plans among1024 candidate inputs,23 newly descending seeds and101
+protected-source cases. It checks68 examples of each complete family,
+72 new-domain examples through parameter $2^{128}$, signed multipliers
+and an exact capped frontier. Four actual substitutions use13 distinct
+supplied pairs, with complete tables for245 and1301.
+The cycle-inverse checker covers512 exact affine comparisons, seven
+threshold boundaries and99 signed plans:57 descend,30 retain a higher
+request and12 retain the original source. Nine CRT examples cross
+prescribed forward depths through64; four long words reach64 inverse
+cycles or64 point arrows. Three actual substitutions are reproduced,
+with two full supplied-input and output tables stored.
+The exponent11 checker covers200 complete exits,19 CRT families and40
+exact forward/inverse continuation identities, retaining one full
+unfinished current fixture. It discovers no absorption paths.
+The fifteen-family union checks1024 inputs, preserving all722 earlier
+accepted plans and reaching747, with277 unresolved. Seven actual
+substitutions use eight distinct supplied pairs; the245 closure needs
+no supplied pair and has17 rows. These are finite certificate counts,
+not a density or universal-recognition theorem. The explicit unresolved
+root21 retains its source request and no current rows.
 These audits remain finite evidence for the implementations.
 \end{document}

@@ -170,6 +170,11 @@ def main():
             ("selected_cycle_exit", "check_selected_exit.py"),
             ("rank_mixing", "probe_rank_mixing.py"),
             ("selected_rules", "check_selected_rules.py"),
+            ("exact_absorption_bound", "check_exact_bound.py"),
+            ("deferred_rank", "check_deferred_rank.py"),
+            ("cycle_inverse", "check_cycle_inverse.py"),
+            ("exit_continuation", "check_exit_continuation.py"),
+            ("refined_rules", "check_refined_rules.py"),
             ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
@@ -258,6 +263,11 @@ def main():
                          selected_cycle_exit="PASS: maximal guarded cycles, eleven exit phases, new unbounded progressions and supplied currents",
                          finite_rank_mixing="PASS: two completed finite dependency graphs; no universal compatibility claim",
                          selected_rule_composition="PASS: old nine-rule priority preserved; three selected families share rho and retain missing inputs",
+                         exact_absorption_excess="PASS: complete above-minimum request classification, fifth-family rho test and supplied currents",
+                         deferred_rank_expansion="PASS: protected-source signed rewriting, complete new domains and higher-request cancellation",
+                         maximal_cycle_inverse="PASS: complete cycle/point thresholds, failed frontiers, all-depth CRT escape and supplied currents",
+                         eleven_exit_continuation="PASS: whole exit interface, sharp original-rank threshold and exact scoped continuation undo",
+                         refined_rule_composition="PASS: old twelve-rule priority preserved; fifteen families share rho with explicit missing leaves",
                          external_sieve_gap="PASS: exact counterexample to the displayed set equality; no theorem refutation",
                          external_pair_controls="PASS: seven exact cycle witnesses, including three W5 pairs, and invariant-pairing obstructions",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
