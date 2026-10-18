@@ -1,0 +1,116 @@
+{
+  "dependency_python_files": 139,
+  "helper_sha256": "be010e694c057236f80473da60d4b6be9a2d47b8e913a058b45697c960aecb19",
+  "main_commit": "793e8357dabe251941bfbddd5af3d2471c07ee66",
+  "results": [
+    {
+      "expected_receipt_sha256": "59f3b1bd253d89f6a302c5ac80590c8181cb747ad24336f05fa3eca0817b1790",
+      "external_report": {
+        "all_inputs": {
+          "max": 79,
+          "n<=16": 0.924,
+          "n<=2": 0.13,
+          "n<=32": 0.987,
+          "n<=4": 0.491,
+          "n<=8": 0.761
+        },
+        "by_class": {
+          "3w non-selected, w=0 mod 3": {
+            "max": 76,
+            "n<=16": 0.908,
+            "n<=2": 0.0,
+            "n<=32": 0.987,
+            "n<=4": 0.371,
+            "n<=8": 0.673,
+            "samples": 620
+          },
+          "3w non-selected, w=1 mod 3": {
+            "max": 78,
+            "n<=16": 0.894,
+            "n<=2": 0.0,
+            "n<=32": 0.974,
+            "n<=4": 0.369,
+            "n<=8": 0.718,
+            "samples": 613
+          },
+          "3w non-selected, w=2 mod 3": {
+            "max": 56,
+            "n<=16": 0.932,
+            "n<=2": 0.0,
+            "n<=32": 0.994,
+            "n<=4": 0.414,
+            "n<=8": 0.747,
+            "samples": 643
+          },
+          "3w selected, w=0 mod 3": {
+            "max": 79,
+            "n<=16": 0.951,
+            "n<=2": 0.261,
+            "n<=32": 0.99,
+            "n<=4": 0.588,
+            "n<=8": 0.824,
+            "samples": 391
+          },
+          "3w selected, w=0 mod 3 (returning)": {
+            "max": 51,
+            "n<=16": 0.922,
+            "n<=2": 0.265,
+            "n<=32": 0.982,
+            "n<=4": 0.542,
+            "n<=8": 0.753,
+            "samples": 166
+          },
+          "3w selected, w=1 mod 3": {
+            "max": 62,
+            "n<=16": 0.932,
+            "n<=2": 0.267,
+            "n<=32": 0.987,
+            "n<=4": 0.621,
+            "n<=8": 0.827,
+            "samples": 544
+          },
+          "3w selected, w=2 mod 3": {
+            "max": 70,
+            "n<=16": 0.937,
+            "n<=2": 0.283,
+            "n<=32": 0.99,
+            "n<=4": 0.621,
+            "n<=8": 0.812,
+            "samples": 623
+          }
+        },
+        "scope": "Quotient-prefix plans with target (8 rho - 5)/9, checked with main's rho validator.",
+        "status": "PASS",
+        "validated_by_bits": {
+          "24": 1200,
+          "40": 1200,
+          "64": 1200
+        }
+      },
+      "probe_path": "sidekick/probes/rho_prefix_plans.py",
+      "probe_sha256": "c97a08d1fb096bd423d93b67c71e3e02a7c0d2e408485767ca49511fdaff7e1c",
+      "status": "PASS"
+    },
+    {
+      "expected_receipt_sha256": "e616acd31b6424d438e80fe51c58a6d08d02f81464de6738efccc964334c7b77",
+      "external_report": {
+        "e_identity_checked": 20000,
+        "plans": {
+          "E parent: rho-valid": 159,
+          "non-E parent": 2841,
+          "non-E parent: already rho-valid": 2836
+        },
+        "scope": "R62 compatibility identity and theorem on quotient-prefix sigma plans.",
+        "share_non_E_already_rho_valid": 0.998,
+        "status": "PASS"
+      },
+      "probe_path": "sidekick/probes/r62_compatibility_check.py",
+      "probe_sha256": "c7c56624f0b21c358254493fc4b6051d9b8d7df1be9048c31f6c328be64883eb",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Unchanged external probes reproduced using pinned main Python sources; finite evidence only. The stopping-time statement remains unproved.",
+  "side_commit": "33c3829702fe35d0b112a3abdd5255c95b7e6b00",
+  "status": "PASS",
+  "timeout_seconds_per_probe": 90
+}

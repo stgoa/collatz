@@ -829,6 +829,40 @@ Eliminating all returning requests from any formal H_s terminates and leaves non
 
 The [proof](../experiments/residual_progress/defect_normal_form/ADJACENT_DEFECT_INTERFACE.md) also records why maximal inverse(1,2) normalization adds no W5 domain and fails to define a quotient dynamics. Its static two-pair boundary obstruction does not exclude inspecting internal supplied-current rows. The [receipt](../experiments/residual_progress/defect_normal_form/adjacent_defect_audit.json) checks512 defect interfaces,1024 mixed absorption plans,4096 inverse-scope cases and three bidirectional supplied-current conversions with complete stored tables.
 
+## R66 — Complete ray-index decision and a uniform integer-count obstruction
+
+**Status: written theorem, conditional constructor and finite replay.**
+
+On the complete entry `v=4089+6144n`, `w=6901+10368n`, `q=10351+15552n`, the inverse ray is `b_L=64^L(8v+1)+49(64^L-1)/63`. Its four-arrow tail is(2,6L+1,1,4). Apply the named center17 or center25 seven-arrow rotation maximally, then all point inverses. The full signed plan passes exactly when its canonical endpoint eta is below q, except for the classified baseline self-returns, which never pass. Every failure retains its nondecreasing request with coefficient+1.
+
+Original-rank bounds on the binary divisibility of eta+1 and the cycle endpoint give an explicit finite upper bound for every successful L. Thus the procedure can exhaust all ray indices at any fixed entry; w6901 is a proved complete failure. Independently, `v3(b_L-b_M)=v3(L-M)` shows every ternary precision is attainable by changing L. That fact alone cannot overcome growth by64^L.
+
+For L>=1, success requires k>=10L or j>=8L. Counting the necessary ternary cylinders with the proved O(log N) ray cutoff gives, for every N>=1, `accepted(N)<=S*N+5T²+6T+1`, where `T=floor(log2(15552N))` and `S=1/729+3/((3^8-1)(1-3^-7))+3/(3^70-1)<1/500`. Hence limsup acceptance is below1/500 and liminf failure exceeds499/500. No existence of a natural density is asserted. This bounds only the specified two-rotation maximal-cycle/point procedure, not all inverse words, premature cycle stops, the existing dispatcher or other current constructions.
+
+See [proof](../experiments/residual_progress/all_ray_continuation/ALL_RAY_CONTINUATION.md), [constructor](../experiments/residual_progress/all_ray_continuation/all_rays.py), and [receipt](../experiments/residual_progress/all_ray_continuation/all_rays_audit.json). Accepted outputs retain every supplied smaller pair premise; no new rule is added to the frozen seventeen-family dispatcher.
+
+## R67 — Arbitrarily long growing blocks from actual mixed-rank comparisons
+
+**Status: written exact signed interface and scoped potential obstruction.**
+
+On `w=40529845 mod2^26`, an accepted sigma fifth-exponent plan followed by an accepted rho returning plan has leading child `V(w)=(531441w+311195)/524288>w`. The full combined current is `D_(3w,3V)+J_V-J_w`, and its request vector is `{V:1}+A_V-A_w`; all other ranks are below3w. The convenient absorption transport used in this derivation is restricted to its proved binary phase; f1371 is a retained counterexample to extending it universally.
+
+For every m, the full progression `w=-311195/7153 mod2^(26+19(m-1))` admits m growing copies. Their complete current and requests telescope, retaining the highest coefficient+1. Quotient length is12m and ordinary common-tail clocks are(12m+1,1). At any fixed positive input obeying the guard, the maximal guarded count is exactly `1+floor((v2(7153w+311195)-26)/19)`; the exit valuation is7..25 and the terminal current remains missing.
+
+The actual dependency edges rule out a common strictly decreasing potential with finitely many labels and nondecreasing dependence on height inside each label. They do not rule out unbounded arithmetic state, a different rule choice, richer cancellation or a potential outside that class. No infinite positive path or nontermination of fixed-priority dispatchers is asserted. Strict-rho expansions of the lower requests cannot cancel the retained highest request.
+
+See [proof](../experiments/residual_progress/mixed_rank_recursion/MIXED_GROWING_BLOCK.md), [constructor](../experiments/residual_progress/mixed_rank_recursion/mixed_growth.py), and [receipt](../experiments/residual_progress/mixed_rank_recursion/mixed_growth_audit.json), including complete unfinished one- and two-copy currents.
+
+## R68 — Native-height inverse obstruction with a fixed forward comparison
+
+**Status: written all-ray separation and conditional adjacent-current construction.**
+
+For every D>=3,t>=1, set `q=31+2^57*3^D*t` and `n=(8q-5)/9`. Every canonical ancestor of q at quotient depth1..D is either the unique two-arrow predecessor n or strictly above q. A six-state forward-closed certificate at the anchor31 and the complete affine inverse-gap recurrence prove this for all ray indices. The varying q prevents interpreting it as a permanent obstruction at one fixed input. It strengthens the height test: descent below q alone can return exactly the still-missing native seed n.
+
+The same family preserves the 35-arrow ordinary word from31 to23, with total valuation56. Its endpoint is `y=23+2*3^(D+35)*t`, and `8n-(9y+5)=4+2*3^(D-2)*t*(2^62-3^39)>0`. The positive source q+2 also has a one-arrow comparison with all helpers below n. Combining both full currents gives an exact conditional D(q) plan with every pair request strictly below n. At q31 the plan has no missing requests. The whole adjacent domain remains open; no new dispatcher coverage is claimed.
+
+The [proof](../experiments/residual_progress/adjacent_recursion/NATIVE_HEIGHT_SEPARATION.md) also derives the initial paired run and proves that transporting R44 through R65 is row-for-row the original forward endpoint comparison. The [constructor](../experiments/residual_progress/adjacent_recursion/native_height.py) and [receipt](../experiments/residual_progress/adjacent_recursion/native_height_audit.json) retain exact supplied-current demonstrations and the native-height tests.
+
 ## C1 — Independent audit of R2–R4 and of main's R5, R6, R9, R10
 
 **Status: finite checks and model-assisted re-derivation; no discrepancy found.**
@@ -908,7 +942,7 @@ See the [note](../collatz_research_20261017/negative_controls/NOTE.md), Section 
 
 - **Primary:** construct a finite current (or one with nonpositive residual) at every cutoff on R5's five rays, and prove termination. R6's annular increments give an explicit sufficient target with its finite bases discharged. Arbitrarily large finite cost is permitted.
 - Find an arithmetic recursion or another structural mechanism that controls unresolved positive contributions. R13 proves its total exposure depth cannot be uniformly bounded, even on one ladder. Finite successful searches alone do not prove universal existence. C3 provides a conditional cost floor, while allowing one-sided alternatives. C2/C4 require a general termination argument to use hypotheses that fail for T_61; candidate methods that extend to those maps must respect the certified failures at `(d,N)=(61,213)` and `(-1,16)`.
-- Prioritize a complete recursion on the complement of the seventeen strict-rho families. R62 classifies original-rank defect repair, R63 identifies exact circular inverses, and R64 crosses full parts of the old obstruction with another ray. R65 gives one complete remaining adjacent-source type with smaller helpers, but leaves its current unproved. Establish a compatible comparison for all its inputs or another complete blocked type. The fixed internal resolvers cannot assume later rules. R62's explicit rank-compatibility criterion is the only new permission to mix sigma-valid plans; the finite survey supplies none. Preserve supplied history, signed coefficients, original-rank comparisons and both clocks; missing currents remain premises.
+- Prioritize compatible progress through the exits of complete arithmetic blocks or a different joint comparison covering a whole remaining type. R66 proves that enlarging the specified inverse ray search cannot complete its entry row. R67 gives actual repeated mixed growth and a finite guard exit, whose new pair still needs supply. R68 shows why the original native height matters and why forward comparisons can succeed where complete bounded inverse search fails. These scoped results change the mechanisms worth pursuing; they supply no universal recursion. The fixed internal resolvers cannot assume later rules. Preserve supplied history, signed coefficients, original-rank comparisons and both clocks. The side lane's correctly sharpened quotient stopping threshold is still an unproved universal hitting assertion, as recorded in the [latest review](../experiments/residual_progress/side_lane_review_33c3829.md).
 - Prove finite progress for every positive exposed-component plateau, or close R8/R9's residuals in a family with a decreasing integer parameter. R8 deletes only certified source coefficients; R9 contracts only one pass. Neither handles its full residual.
 - R11 gives a finite conditional compiler that retains boundary terms and can end a plateau if its packet inputs are supplied. Develop a noncircular source of those inputs. R12 rules out obtaining a new descent merely by alternating the existing P and R operators.
 - Independently audit cutoffs, absorption, the five-ray transition, finite bases, annular table, and maximum principle. Current review is computational and model-assisted. C1 is a separate, independent pass that found no error. There is still no human peer review or proof-assistant verification.

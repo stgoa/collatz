@@ -82,6 +82,13 @@ comparison is proved to return exactly the original missing request.
 The full defect also admits an adjacent-source reformulation with strictly
 smaller helpers. Its adjacent current remains an unproved premise; changing
 the source basis does not itself give a decreasing induction.
+An exhaustive ray-index bound now proves that a specified maximal
+cycle/point inverse procedure accepts a fraction with limsup below
+$1/500$ on its entry progression. Actual choices from the two rank
+systems can also produce arbitrarily long growing blocks, with an exact
+finite guard exit that still needs a current. A separate complete family
+has deep native-height inverse obstructions and a fixed forward comparison
+with all helper ranks below that height.
 No complete universal current construction, Collatz proof, or novelty claim
 is supplied.
 \end{abstract}
@@ -5436,6 +5443,286 @@ The whole-domain proof, conditional converters and retained counterexamples
 are in
 \path{experiments/residual_progress/defect_normal_form/ADJACENT_DEFECT_INTERFACE.md}.
 
+\section{A finite all-ray decision with an integer-count obstruction}
+\begin{theorem}\label{thm:allrays}
+Consider the complete entry progression
+\[
+ v=4089+6144n,\quad w=6901+10368n,\quad
+ q=\rho(w)=10351+15552n,\qquad n\ge0.
+\]
+For every $L\ge0$ set
+\[
+ b_L=64^L(8v+1)+49\frac{64^L-1}{63}.
+\]
+Apply the maximal number $k$ of inverse copies of the named seven-arrow
+word with center $c=17$ when $L\equiv0\pmod3$, or $c=25$ when
+$L\equiv1\pmod3$, then all $j$ point inverses. At $L\equiv2\pmod3$
+take $k=j=0$. Explicitly, with $a=2048/2187$,
+\[
+ k=\left\lfloor v_3(b_L+c)/7\right\rfloor,\quad
+ p=a^k(b_L+c)-c,\quad j=v_3(p+1),\quad
+ \eta=(2/3)^j(p+1)-1.
+\]
+The words at centers17 and25 are respectively
+$(1,1,1,2,1,1,4)$ and $(1,1,2,1,1,4,1)$.
+The ordinary path from $\eta$ to $q$ has word
+\[
+ 1^j,C_c^k,2,6L+1,1,4,
+\]
+length $j+7k+4$ and total valuation $j+11k+6L+8$.
+The complete pair comparison with formal absorption at $\eta$ strictly
+decreases the original $\rho$ exactly when $\eta<q$, apart from the
+baseline cases $k=j=0$ and $k=0,j=1,\eta\equiv0\pmod3$, which never pass.
+Those cases retain the identical baseline current and original request
+with coefficient $+1$. Every other failure retains one highest
+nondecreasing request with coefficient $+1$.
+
+All successful ray indices have an explicit finite bound. Put
+\[
+ \begin{split}
+ J&=\lfloor\log_2(q-1)\rfloor-1,\qquad
+ P=\left\lfloor(3/2)^J(q-1)\right\rfloor,\\
+ K&=\left\lfloor\frac{\lfloor\log_2(P+24)\rfloor-1}{11}\right\rfloor,
+ \qquad
+ B=\left\lfloor(2187/2048)^K(P+24)\right\rfloor-17.
+ \end{split}
+\]
+Every success satisfies $j\le J$, $k\le K$ and
+\[
+ 64^L\le\left\lfloor\frac{9B+7}{9b_0+7}\right\rfloor.
+\]
+If $C(N)$ counts entries $0\le n<N$ accepted by some ray under this
+procedure, then, for every $N\ge1$,
+\[
+ C(N)\le S N+5T_N^2+6T_N+1,\qquad
+ T_N=\lfloor\log_2(15552N)\rfloor,
+\]
+\[
+ S=\frac1{729}
+   +\frac3{(3^8-1)(1-3^{-7})}
+   +\frac3{3^{70}-1}<\frac1{500}.
+\]
+In particular $\limsup C(N)/N\le S$. No existence of a natural density
+is asserted, and no other inverse words or current constructions are
+bounded by this theorem.
+\end{theorem}
+\begin{proof}
+The exact ray identity $9b_L+7=8\cdot64^L(9v+2)$ gives the four-arrow
+tail. Each inverse cycle has positive output with its required extra
+binary bit because its output plus $c$ is a positive multiple of4096.
+For positive $k$, the binary order of $p+c$ is $11k+1$; the binary
+order of $p+1$ is4 or3 for centers17 or25. The maximal point endpoint
+is canonical and not $2\pmod3$. Outside the two baseline cases its
+leading critical index is in $W_5$, of rank exactly $\eta$; all its
+other formal requests are lower. The lower partner $z=\nu(w)<w/4$
+has all requests below $q$. Combining the full signed vector proves
+the endpoint test, including necessity on failure. The baseline cases
+cancel through the complete $W_9$ interface back to the old zero-depth
+comparison, row for row.
+
+On success, oddness gives $\eta+1\le q-1$, and binary divisibility gives
+$2^{j+1}\mid\eta+1$. Thus $j\le J$ and $p+1\le P$. For $k\ge1$,
+$2^{11k+1}\mid p+c\le P+24$, yielding $k\le K$; the case $k=0$
+is immediate. Reversing the cycle formula gives $b_L\le B$ and the
+finite cutoff. A loose consequence is $L\le\lfloor\log_2q\rfloor$:
+$P+24\le q^2$, $B+17\le q^4$, and $b_L\ge64^Lb_0>64^Lq$.
+
+For $L\ge1$ a successful row must have $k\ge10L$ or $j\ge8L$.
+Indeed, writing $t=(2/3)^j$,
+\[
+ \eta=\lambda(q-5/32)
+       +t\bigl(a^k(c-7/9)-(c-1)\bigr)-1,
+ \quad \lambda=\frac{256}{81}64^La^kt.
+\]
+If both inequalities fail, $\lambda\ge(256/81)(2^{124}/3^{78})^L>3$.
+The intercept is at least $-25$, so $\eta>q$ for $q\ge10351$.
+At fixed $L$, the coefficient of $n$ in $b_L$ has ternary order1.
+The condition $k\ge10L$ therefore occupies at most one class modulo
+$3^{70L-1}$. For each $0\le k<10L$, the necessary condition $j\ge8L$
+occupies at most one class modulo $3^{7k+8L-1}$, since
+\[
+ 2^{11k}(b_L+c)-(c-1)3^{7k}\equiv0\pmod{3^{7k+8L}}.
+\]
+At $L=0$, success requires $k\ge1$, giving at most one class modulo
+$3^6$. Summing their geometric frequencies gives $S$. For the first
+$N$ entries, every successful ray has $L\le T_N$. There are at most
+$1+T_N+\sum_{L=1}^{T_N}10L=5T_N^2+6T_N+1$ counted classes, each with
+rounding error at most1. This proves the actual integer bound; an
+infinite sum of residue frequencies by itself would not suffice.
+\end{proof}
+
+At $w=6901$ the finite cutoff ratio is43, so only $L=0$ could pass;
+that row is a baseline self-return. Every ray therefore fails at this
+fixed input under the stated procedure. On the other hand,
+\[
+ v_3(b_L-b_M)=v_3(L-M)\qquad(L\ne M),
+\]
+so the ray indices attain every residue modulo every power of3.
+This follows from $v_3(64^d-1)=2+v_3(d)$ and the exact ray identity.
+High attainable ternary precision does not settle the height inequality.
+The full failure-current proof, integer bounds and finite checker are in
+\path{experiments/residual_progress/all_ray_continuation/ALL_RAY_CONTINUATION.md}.
+
+\section{Actual mixed-rank comparisons with growing leading requests}
+\begin{theorem}\label{thm:mixedgrowth}
+Set $A=3^{12}=531441$, $B=311195$, $M=2^{19}=524288$,
+$D=A-M=7153$ and $V(w)=(Aw+B)/M$. On the full cylinder
+\[
+ w\equiv40529845\equiv-BD^{-1}\pmod{2^{26}},\qquad w>0,
+\]
+the sigma fifth-exponent comparison followed by the rho returning
+comparison at $u=(2187w+1209)/1024$ consists of two individually valid
+steps. Their complete signed composite is
+\[
+ C_w=D_{3w,3V(w)}+J_{V(w)}-J_w,\qquad
+ c_w=\{V(w):1\}+A_{V(w)}-A_w,
+\]
+where $\operatorname{div}D_{3w,3V(w)}=[3w]-[3V(w)]$.
+Its unique highest request has coefficient $+1$ and rank
+$3V(w)>3w$; every other rank is below $3w$.
+
+For every $m\ge1$ the progression
+\[
+ w_0\equiv-BD^{-1}\pmod{2^{26+19(m-1)}},\qquad w_0>0,
+\]
+admits $m$ such growing copies, with $w_i=V^i(w_0)$. Their full current
+and requests telescope to
+\[
+ C^{(m)}=D_{3w_0,3w_m}+J_{w_m}-J_{w_0},\qquad
+ c^{(m)}=\{w_m:1\}+A_{w_m}-A_{w_0}.
+\]
+The quotient length is $12m$ and the ordinary common-tail clocks are
+$(12m+1,1)$. At any fixed positive input obeying the guard, its exact
+maximal guarded count is
+\[
+ 1+\left\lfloor\frac{v_2(Dw+B)-26}{19}\right\rfloor.
+\]
+The exit valuation is in $7,\ldots,25$. The retained terminal pair is
+still a premise; the statement does not establish mixed nontermination.
+\end{theorem}
+\begin{proof}
+Put $q=3w$, $f=(729w+147)/256$, $R=(3u-1)/2$,
+$t=(3u+1)/64$, $r=(243t-1)/2$ and $n=3V(w)=(r-1)/4$.
+The cylinder gives
+\[
+ f\equiv27\pmod{128},\quad 3\mid f,\quad
+ u\equiv21\pmod{512},\quad r\equiv125\pmod{512},
+ \quad n\equiv31\pmod{128},
+\]
+and $\sigma(u)=f<q<n<R=\rho(u)$. Thus the first chosen plan is
+sigma-valid and its sole above-$q$ rho request is $u$. The returning
+plan has exponent6 and is rho-valid, but its child $V(w)$ has sigma
+rank $n>f$.
+
+On this particular phase the complete absorption plans satisfy
+$J_f=\operatorname{path}(f\to R)+J_R$ and $A_f=A_R$.
+The depth4 $W_9$ lower terms cancel by their actual forward and point
+inverse arrows. This identity is phase-restricted: it fails at $f=1371$,
+where $A_f-A_{1543}=\{29:1\}$. Adding the two full plans cancels their
+intermediate normalizers and absorption terms. The remaining ordinary
+word from $q$ is
+\[
+ W=(1,1,1,1,2,3,2,1,1,1,1,2),\qquad S^{12}(q)=F(n).
+\]
+Its final sibling current gives $D_{q,n}$, proving the displayed
+row-for-row identity. All other requests have rank at most
+$\max((9V(w)+5)/8,(9w+5)/8)<3w$; the first inequality reduces to
+$7799943w>5422195$.
+
+The exact identity $DV(w)+B=(A/M)(Dw+B)$ consumes19 binary powers
+per guarded copy. This proves the complete progression, maximal count
+and exit range. Since $Dw+B>0$, that valuation is finite at each
+positive input. Currents and request vectors telescope, preserving
+the leading coefficient. Since $S(F(x))=S(x)$, after the initial word
+$W$, each further ordinary word replaces its first valuation1 by3.
+It ends at $F(3w_m)$ after $12m$ arrows, proving both clocks.
+\end{proof}
+
+No potential with finitely many labels, nondecreasing in critical height
+within each label, can strictly decrease on every one of these actual
+mixed edges. Taking more growing endpoints than labels forces a repeated
+label at a larger height, contradicting strict decrease. This excludes
+only that class of potentials; unbounded arithmetic state, different
+plan choices and richer cancellation remain available. Strict-rho
+expansions of the other requests cannot cancel the highest request.
+These are specified plan choices, not an assertion about fixed-priority
+dispatchers. The full proof and retained unfinished currents are in
+\path{experiments/residual_progress/mixed_rank_recursion/MIXED_GROWING_BLOCK.md}.
+
+\section{A native-height inverse barrier with a fixed forward comparison}
+\begin{theorem}\label{thm:nativeheight}
+For every $D\ge3$ and integer $t\ge1$, set
+\[
+ q=31+2^{57}3^Dt,\qquad
+ n=(8q-5)/9=27+2^{60}3^{D-2}t.
+\]
+These are canonical, and $q\equiv31\pmod{108}$. Every canonical
+predecessor $p$ with $T^d(p)=q$, $1\le d\le D$, is either
+$p=n,d=2$, or $p>q$. All inverse ray indices are included.
+Nevertheless a fixed ordinary forward word of length35 gives a
+conditional current for $D(q)=[q+2]-[q]$ with every missing pair
+rank strictly below the original native height $n$.
+\end{theorem}
+\begin{proof}
+The canonical states below27 form the complete forward-closed set
+\[
+ Q=\{1,7,9,11,17,25\},\quad
+ 7\to11\to17\to1,\quad25\to9\to7.
+\]
+The only canonical state in $[27,31)$ is27, and its quotient path is
+$27\to41\to31$. The ordinary length35, total-valuation56 word
+\[
+ \begin{split}
+ W={}&(1,1,1,1,2,2,1,2,1,1,2,1,1,1,2,3,1,1,\\
+      &2,1,2,1,1,1,1,1,3,1,1,1,4,2,2,4,3)
+ \end{split}
+\]
+takes31 to23, whose normal form11 belongs to $Q$. Thus31 absorbs,
+and27 reaches31 only at its second quotient step.
+
+Shadow any inverse word of depth at most $D$ at31. The ternary
+congruence preserves every branch, including arbitrary ray indices.
+Write $p_i=\lambda_i(q-31)+c_i$. Every positive shadow $c_i$ is
+either27 or at least31. For each affine inverse
+$y\mapsto\alpha_i y+\beta_i$, $\alpha_i-\beta_i\ge1$, with strict
+inequality on rays. The first inverse at31 is a ray. Consequently
+\[
+ G_i=\lambda_i-(c_i+1)/32
+     =\alpha_iG_{i-1}+(\alpha_i-\beta_i-1)/32>0.
+\]
+If $c_i\ge31$, then $\lambda_i>1$ and $p_i>q$. If $c_i=27$, the
+unique anchor path forces $i=2$, the base ray followed by a point
+inverse, and $\lambda_i=8/9$. Hence $p_i=n$.
+
+The exact binary cylinder modulus for $W$ is $2^{57}$. On the stated
+family its ordinary endpoint is
+\[
+ y=23+2\cdot3^{D+35}t,\qquad
+ 8n-(9y+5)=4+2\cdot3^{D-2}t(2^{62}-3^{39})>0.
+\]
+All formal requests of $H_y$ therefore have rho below $n$. The source
+$q+2$ takes one valuation2 arrow to $s=(3q+7)/4<n$.
+Since $s\equiv1\pmod3$, the unique exceptional above-minimum case
+cannot occur in its formal absorption; all its requests have rho at
+most $s$. With $E$ the one-row current at $q+2$ and $G_q$ the full
+35-arrow path current, put
+\[
+ J=E+J_s-G_q-J_y,\qquad c=A_s-A_y.
+\]
+Then $\operatorname{div}J=D(q)-\sum c(v)P(v)$ and every requested
+$\rho(v)<n$. Exact supplied currents complete the conversion; they
+remain premises. At the anchor31 the same formula has no remaining
+pair requests.
+\end{proof}
+
+The seed varies with $D$; no fixed-input permanent inverse obstruction
+follows. This is a separation at the original required height, not a
+new universal adjacent rule. Transporting the old returning rule through
+Theorem~\ref{thm:adjacentdefect} also gives exactly its old forward
+endpoint comparison, including the full signed current. The proof,
+paired-run audit and supplied-current fixtures are in
+\path{experiments/residual_progress/adjacent_recursion/NATIVE_HEIGHT_SEPARATION.md}.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -5565,6 +5852,26 @@ but its adjacent current is still unknown and has equal native height
 at the exceptional source. It contributes no additional accepted rule.
 A closed progress argument on the complement, with every dependency
 checked in one coherent induction order, remains unproved.
+Theorem~\ref{thm:allrays} now proves that increasing the ray-index
+search cap cannot complete its specified inverse procedure: its whole
+accepted fraction has limsup below $1/500$ on the entry progression.
+Theorem~\ref{thm:mixedgrowth} exhibits actual repeated growth under
+individually valid choices from the two rank systems. Its exact finite
+guard exit still retains a missing terminal pair.
+Theorem~\ref{thm:nativeheight} separates complete bounded inverse
+search from a fixed forward comparison at the required native height.
+These results motivate a compatible argument across full block exits
+or a different joint comparison, while preserving supplied history.
+
+The latest independent side note gives a correct conditional threshold:
+any quotient prefix from $q=\rho(w)$ to $x$ with $9x+5<8q$ supplies
+a strict-rho pair plan by the formal absorption bound. Universal finite
+hitting of that threshold would prove Collatz by induction, and Collatz
+would imply the hitting property. This equivalent stopping formulation
+does not prove universal hitting or restrict every possible current
+construction to that particular prefix. Its two finite probes were
+reproduced against pinned sources; their sample lengths are not universal
+bounds.
 Completing the remaining $W_5$ currents is still the full-strength open
 obligation. Further isolated merger families alone would not discharge it.
 Theorem~\ref{thm:paircatalogue} gives the exact limitation of the named
@@ -5804,5 +6111,20 @@ window. Separate witnesses53173 and36641534965 exercise the two new
 winning arms. Six supplied-current demonstrations use14 distinct pairs
 and produce41,92,65,59,133,102 rows. These finite counts are not a
 coverage estimate; the unresolved root21 is unchanged.
+The all-ray checker adds900 isometry cases,576 affine comparisons,
+66 complete signed plans,1024 exhaustive finite decisions and16
+rejections. Two supplied-current conversions give102 and443 rows from
+nine and16 input pairs; their full tables are stored.
+The mixed-block checker adds16 macros,12 complete prefixes through16
+copies,27 arithmetic families through256 copies,76 exact guard exits
+and seven rejections. Eight cases expand every intermediate formal plan
+through four copies; longer cases check the complete closed current.
+Stored one- and two-copy comparisons retain their higher missing inputs.
+The native-height checker adds2496 bounded inverse words, three words
+with large ray indices,120 paired runs,120 exact transported currents,
+48 complete families through depth128 and nine rejections. It stores
+an exact45-row adjacent current at31 and a345-row output with all15
+supplied input currents. The infinite quantifiers and integer-count
+bound rely on the written proofs, not these finite checks.
 These audits remain finite evidence for the implementations.
 \end{document}
