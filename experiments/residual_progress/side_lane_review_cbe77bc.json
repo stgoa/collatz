@@ -1,0 +1,710 @@
+{
+  "assessment": "The exact pinned R64 probe reproduces with a byte-identical receipt. It independently checks 85 constructed boundary representatives, not the universal theorem, full signed plans, dispatcher coverage, or supplied-current completion.",
+  "changed_side_files": [
+    "M\tsidekick/FEED.md",
+    "A\tsidekick/probes/r64_lifted_cycle_check.json",
+    "A\tsidekick/probes/r64_lifted_cycle_check.py",
+    "M\tsidekick/writeup/SYNTHESIS.md"
+  ],
+  "comparison_base": "64a598169be279de8551a1be9959c91eed865875",
+  "coverage": {
+    "accepted": 58,
+    "builder_cap": "At most 400 construction attempts per sampled cell; no skipped cell occurred.",
+    "cells": 85,
+    "checks": [
+      "Exact ordinary base word (2,7,1,4) from b to q",
+      "Exact ordinary word 1^j,C^k,(2,7,1,4) from eta to q",
+      "Maximal k and j for the constructed input",
+      "eta<q agrees with the stated threshold J(k) at every sampled boundary"
+    ],
+    "h_remainders": [
+      0,
+      1
+    ],
+    "max_ordinary_arrows": 600,
+    "not_checked": [
+      "Every interior k or unbounded k",
+      "Every seed in each sampled parameter cell",
+      "h-7*k remainders 2..6",
+      "j outside J(k)-1,J(k),J(k)+1",
+      "Full formal signed plans and W9 elimination",
+      "Supplied pair currents or universal completion"
+    ],
+    "receipt_guard": "The probe can print PASS with skipped cells; this independent review explicitly requires exactly 85 tests and an empty skipped list.",
+    "rejected": 27,
+    "sampled_cells": [
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 13,
+        "k": 0,
+        "ordinary_arrows": 17
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 14,
+        "k": 0,
+        "ordinary_arrows": 18
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 15,
+        "k": 0,
+        "ordinary_arrows": 19
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 12,
+        "k": 1,
+        "ordinary_arrows": 23
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 13,
+        "k": 1,
+        "ordinary_arrows": 24
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 14,
+        "k": 1,
+        "ordinary_arrows": 25
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 12,
+        "k": 6,
+        "ordinary_arrows": 58
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 13,
+        "k": 6,
+        "ordinary_arrows": 59
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 14,
+        "k": 6,
+        "ordinary_arrows": 60
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 11,
+        "k": 7,
+        "ordinary_arrows": 64
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 12,
+        "k": 7,
+        "ordinary_arrows": 65
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 13,
+        "k": 7,
+        "ordinary_arrows": 66
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 11,
+        "k": 12,
+        "ordinary_arrows": 99
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 12,
+        "k": 12,
+        "ordinary_arrows": 100
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 13,
+        "k": 12,
+        "ordinary_arrows": 101
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 10,
+        "k": 13,
+        "ordinary_arrows": 105
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 11,
+        "k": 13,
+        "ordinary_arrows": 106
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 12,
+        "k": 13,
+        "ordinary_arrows": 107
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 10,
+        "k": 19,
+        "ordinary_arrows": 147
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 11,
+        "k": 19,
+        "ordinary_arrows": 148
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 12,
+        "k": 19,
+        "ordinary_arrows": 149
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 9,
+        "k": 20,
+        "ordinary_arrows": 153
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 10,
+        "k": 20,
+        "ordinary_arrows": 154
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 11,
+        "k": 20,
+        "ordinary_arrows": 155
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 9,
+        "k": 25,
+        "ordinary_arrows": 188
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 10,
+        "k": 25,
+        "ordinary_arrows": 189
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 11,
+        "k": 25,
+        "ordinary_arrows": 190
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 8,
+        "k": 26,
+        "ordinary_arrows": 194
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 9,
+        "k": 26,
+        "ordinary_arrows": 195
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 10,
+        "k": 26,
+        "ordinary_arrows": 196
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 8,
+        "k": 31,
+        "ordinary_arrows": 229
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 9,
+        "k": 31,
+        "ordinary_arrows": 230
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 10,
+        "k": 31,
+        "ordinary_arrows": 231
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 7,
+        "k": 32,
+        "ordinary_arrows": 235
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 8,
+        "k": 32,
+        "ordinary_arrows": 236
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 9,
+        "k": 32,
+        "ordinary_arrows": 237
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 7,
+        "k": 37,
+        "ordinary_arrows": 270
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 8,
+        "k": 37,
+        "ordinary_arrows": 271
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 9,
+        "k": 37,
+        "ordinary_arrows": 272
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 6,
+        "k": 38,
+        "ordinary_arrows": 276
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 7,
+        "k": 38,
+        "ordinary_arrows": 277
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 8,
+        "k": 38,
+        "ordinary_arrows": 278
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 6,
+        "k": 43,
+        "ordinary_arrows": 311
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 7,
+        "k": 43,
+        "ordinary_arrows": 312
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 8,
+        "k": 43,
+        "ordinary_arrows": 313
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 5,
+        "k": 44,
+        "ordinary_arrows": 317
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 6,
+        "k": 44,
+        "ordinary_arrows": 318
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 7,
+        "k": 44,
+        "ordinary_arrows": 319
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 5,
+        "k": 49,
+        "ordinary_arrows": 352
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 6,
+        "k": 49,
+        "ordinary_arrows": 353
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 7,
+        "k": 49,
+        "ordinary_arrows": 354
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 4,
+        "k": 50,
+        "ordinary_arrows": 358
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 5,
+        "k": 50,
+        "ordinary_arrows": 359
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 6,
+        "k": 50,
+        "ordinary_arrows": 360
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 4,
+        "k": 56,
+        "ordinary_arrows": 400
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 5,
+        "k": 56,
+        "ordinary_arrows": 401
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 6,
+        "k": 56,
+        "ordinary_arrows": 402
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 3,
+        "k": 57,
+        "ordinary_arrows": 406
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 4,
+        "k": 57,
+        "ordinary_arrows": 407
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 5,
+        "k": 57,
+        "ordinary_arrows": 408
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 3,
+        "k": 62,
+        "ordinary_arrows": 441
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 4,
+        "k": 62,
+        "ordinary_arrows": 442
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 5,
+        "k": 62,
+        "ordinary_arrows": 443
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 2,
+        "k": 63,
+        "ordinary_arrows": 447
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 3,
+        "k": 63,
+        "ordinary_arrows": 448
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 4,
+        "k": 63,
+        "ordinary_arrows": 449
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 2,
+        "k": 68,
+        "ordinary_arrows": 482
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 3,
+        "k": 68,
+        "ordinary_arrows": 483
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 4,
+        "k": 68,
+        "ordinary_arrows": 484
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 1,
+        "k": 69,
+        "ordinary_arrows": 488
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 2,
+        "k": 69,
+        "ordinary_arrows": 489
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 3,
+        "k": 69,
+        "ordinary_arrows": 490
+      },
+      {
+        "accepted": false,
+        "h_remainder": 1,
+        "j": 1,
+        "k": 74,
+        "ordinary_arrows": 523
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 2,
+        "k": 74,
+        "ordinary_arrows": 524
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 3,
+        "k": 74,
+        "ordinary_arrows": 525
+      },
+      {
+        "accepted": false,
+        "h_remainder": 0,
+        "j": 0,
+        "k": 75,
+        "ordinary_arrows": 529
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 1,
+        "k": 75,
+        "ordinary_arrows": 530
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 2,
+        "k": 75,
+        "ordinary_arrows": 531
+      },
+      {
+        "accepted": false,
+        "h_remainder": 0,
+        "j": 0,
+        "k": 80,
+        "ordinary_arrows": 564
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 1,
+        "k": 80,
+        "ordinary_arrows": 565
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 2,
+        "k": 80,
+        "ordinary_arrows": 566
+      },
+      {
+        "accepted": true,
+        "h_remainder": 0,
+        "j": 0,
+        "k": 81,
+        "ordinary_arrows": 571
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 1,
+        "k": 81,
+        "ordinary_arrows": 572
+      },
+      {
+        "accepted": true,
+        "h_remainder": 0,
+        "j": 0,
+        "k": 85,
+        "ordinary_arrows": 599
+      },
+      {
+        "accepted": true,
+        "h_remainder": 1,
+        "j": 1,
+        "k": 85,
+        "ordinary_arrows": 600
+      }
+    ],
+    "sampled_k": [
+      0,
+      1,
+      6,
+      7,
+      12,
+      13,
+      19,
+      20,
+      25,
+      26,
+      31,
+      32,
+      37,
+      38,
+      43,
+      44,
+      49,
+      50,
+      56,
+      57,
+      62,
+      63,
+      68,
+      69,
+      74,
+      75,
+      80,
+      81,
+      85
+    ]
+  },
+  "files": {
+    "collatz_research_20261017/negative_controls/affine_controls.py": {
+      "bytes": 15888,
+      "sha256": "9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c"
+    },
+    "sidekick/FEED.md": {
+      "bytes": 89501,
+      "sha256": "b1545e64dfb687eb00eef20c3e178110a9a83540928cca725f853936dbbfaaae"
+    },
+    "sidekick/probes/r64_lifted_cycle_check.json": {
+      "bytes": 183,
+      "sha256": "cf9beff74c72c9b88ea812b6f7b5c2ca84a591538c697282b2e5546dcd5c678b"
+    },
+    "sidekick/probes/r64_lifted_cycle_check.py": {
+      "bytes": 4744,
+      "sha256": "4faa57f2beadae19d059937e5a01bb8ac650c82f5efaac28511c757b201f55e5"
+    },
+    "sidekick/writeup/SYNTHESIS.md": {
+      "bytes": 32786,
+      "sha256": "f543ca2ab4ac5a85650d0469fd73eab633b82e5261e05c8ee73edfcafe8d8fdd"
+    }
+  },
+  "isolated_directory": "/tmp/collatz_side_cbe77bc_2nssvngm",
+  "main_head": "7d86314672ac0ac8763843e329df3cfacaa85671",
+  "pin": "cbe77bce62d0a5ba2fbac1af3f686806cc7f6d4a",
+  "probes": [
+    {
+      "actual_receipt_sha256": "cf9beff74c72c9b88ea812b6f7b5c2ca84a591538c697282b2e5546dcd5c678b",
+      "byte_identical": true,
+      "cap_seconds": 90,
+      "elapsed_seconds": 0.063551,
+      "exit_code": 0,
+      "expected_receipt_sha256": "cf9beff74c72c9b88ea812b6f7b5c2ca84a591538c697282b2e5546dcd5c678b",
+      "receipt": "sidekick/probes/r64_lifted_cycle_check.json",
+      "report": {
+        "boundary_cells_tested": 85,
+        "infeasible_or_skipped": [],
+        "scope": "Independent check of R64's lifted ray words and acceptance table at every boundary.",
+        "status": "PASS"
+      },
+      "source": "sidekick/probes/r64_lifted_cycle_check.py",
+      "stderr": "",
+      "stdout": "{\n  \"boundary_cells_tested\": 85,\n  \"infeasible_or_skipped\": [],\n  \"scope\": \"Independent check of R64's lifted ray words and acceptance table at every boundary.\",\n  \"status\": \"PASS\"\n}\n"
+    }
+  ],
+  "source_mutations": false
+}
