@@ -63,3 +63,13 @@ Take 1(a) and 1(c) one level deeper, each with a test that could fail:
 - **1(c).** Measure how integer orbits renew growing patterns over long excursions, using records of slow orbits. Check whether renewal costs show an invariant that a proof could use.
 
 Expectation: a sharper map of why this half is hard is the most likely outcome.
+
+## 6. Literature check on the dual and rigidity lead (2026-10-18, 01:3x)
+
+The lead was this: the generating function of a Collatz-invariant sequence satisfies a mixed base-2/base-3 functional equation. A Mahler-function analogue of Cobham's theorem might then force rationality. The relevant work is already in the literature.
+
+- **Berg & Meinardus (1994–95)** wrote the invariant-sequence functional equation. They showed Collatz is equivalent to the statement that its solutions analytic in the unit disk are exactly `c0 + c1·z/(1−z)`. This is the "dual obstruction space is trivial" formulation, and our derivation matches it.
+- **Bell & Lagarias, *Acta Arith.* 170 (2015)** study inverse-orbit generating functions `f_{k,m}(z) = Σ z^n` over the `n` whose 3x+k orbit reaches `m`. Using Skolem–Mahler–Lech they prove the unit circle is a natural boundary for every `m` except possibly `m = 1, 2, 4, 8`. Collatz is equivalent to rationality of `f_{1,m}` for those four values. Jason Bell is also a coauthor of the Mahler rigidity theorem (Adamczewski–Bell). The rigidity route has therefore been examined from the right side. Natural boundaries rule out the finite Mahler systems that rigidity would need, and the remaining case is equivalent to Collatz.
+- **Siegel, "(p,q)-adic analysis and the Collatz conjecture" (2024, PhD thesis, arXiv:2412.02902)** builds a new language of functions from `Z_p` to `Z_q`. In it, a nonzero integer `x` is periodic exactly when `χ_H(z) = x` for a rational p-adic integer `z` that is not a nonnegative integer. It recasts periodicity as a density question of Wiener–Tauberian type. It addresses cycles, not divergence, and makes no claim of a proof. Its criterion draws exactly the integer versus non-integer distinction of C2 and C3.
+
+**Outcome.** The "rising sea" style formulations exist: functional equations, analytic rigidity and natural boundaries, (p,q)-adic Fourier analysis, and the ergodic route of Tao (2019). Each produces an elegant equivalent statement and partial results. None crosses the step from almost all orbits to all orbits, and for this lead the finiteness step fails as anticipated in §4.
