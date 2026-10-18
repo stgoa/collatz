@@ -1,19 +1,20 @@
 # Residual progress and finite forcing
 
 **Latest standing:** universal tripling currents on W5={5 mod8} suffice.
-The continued compiler preserves the seven earlier rule domains and adds
-two proved forward continuations under rho(w)=nu(3w), retaining all signed
-dependencies. Whole families permit arbitrarily many increasing blocks
-before a proved final rank decrease. A separate rank sigma sharpens every
-formal absorption bound, but cannot be substituted into all earlier rules.
-Universal completion remains open: the selected phase w=3445 mod3456
-supplies arbitrarily long growing prefixes whose exact lookahead plans
-retain a positive unresolved leading request after either permitted ranked
-expansion. The seed varies with the requested depth; this is no infinite
-positive-orbit claim. The tactical target is this selected, nonmultiple-of3
-phase and a comparison beyond the specified lookahead recipe. These are
-written reductions and partial constructions, with no novelty or Collatz
-proof claimed. The current batch and evidence are at the end of this report.
+Three new selected-input rules supplement the nine earlier strict-rho
+domains, retaining every signed dependency. Complete forward tables cover
+previously unrecognized selected unit classes. A seven- or nine-arrow
+inverse comparison crosses selected examples with any prescribed depth
+of R54 forward growth. A complete maximal-cycle exit interface also gives
+whole descending families after every repeat count, including families
+missed by the other two new rules. Thus w=3445 mod3456 is no longer a
+wholly unrecognized phase, but some members remain unresolved.
+The seed varies with the prescribed growing depth; no infinite positive
+orbit is asserted. The separate rank sigma remains incompatible with some
+rho rules; finite acyclicity of their joint request graphs does not prove
+global termination. Universal current supply and Collatz remain open.
+These are written reductions and partial constructions, with no novelty
+claim. Current integration and verification status are recorded at the end.
 
 Started 2026-10-17 from clean pushed commit `ce56699`.
 The preceding goal turn made progress: universal partial currents, an exact
@@ -1435,7 +1436,6 @@ Checklist:
 - [x] Finish the final integrated-document review.
 - [x] Review the final diff and prepare the verified batch for authorized commit and push; delivery is recorded in Git history.
 
-
 ## Active batch after bcde58e: forward continuation and an untouched phase
 
 Previous goal turn: **progress**. R47–R50, proofs, exact constructors,
@@ -1584,4 +1584,184 @@ Checklist:
 - [x] Finish independent review of the continued rho union.
 - [x] Complete the full Python/C++ verification gate.
 - [x] Integrate and compile the existing LaTeX source; finish combined-document review.
+- [x] Review the final diff and prepare the verified batch for authorized commit and push; delivery is recorded in Git history.
+
+## Active batch after 8764158: selected inputs and exits from growing words
+
+Previous goal turn: **progress**. R51–R54 and their exact constructors,
+certificates and shared records were committed and pushed after full checks.
+Revalidated clean main at8764158. The independent feed was fetched at
+75b60f4844bf8d096c125817aef2b840f247cecf. Its new entries measure the old
+seven-rule dispatcher and map sampled gaps; they are optional external data.
+Size-stable finite rates do not prove scale-uniform or asymptotic coverage.
+No new external theorem is being used as a premise.
+
+The user's subsequent remote-PR question prompted a fresh read. Main was
+still8764158 and PR1,ba6b337, was the only merged PR, already incorporated.
+The newer feed atbae3969e5b7f1fde6518586ca5386a1884f729cd contains a valid
+seven-arrow inverse formula. Its exact selected domain is R56's first
+class, so it adds an independent interpretation and check rather than
+coverage beyond this batch. The [pinned review](side_lane_review_bae3969.md)
+proves its rho bound, reproduces12 published family records and256 exact
+words, and distinguishes its random-residue heuristic from a theorem.
+The external branch remains unchanged.
+
+Working hypotheses:
+
+1. The full selected forward interface covers complete previously untouched
+   unit classes, including selected w2 modulo3.
+2. Maximal repetitions of the R54 growing word have an exact finite exit
+   classification that supports a comparison through input-dependent depth.
+3. Additional inverse branches at the selected phase's growing inverse
+   endpoint produce a complete new decreasing domain.
+4. Signed compositions may combine the two rank systems in specified cases,
+   but a common descent proof or a solved finite dependency system is needed.
+
+### Proved outcomes and scope
+
+1. **R55: complete forward interfaces for selected W5 inputs.** The
+   canonical upper seed is q=(3w-1)/2; the normalization of3w is retained
+   explicitly. The one-block endpoint test is completely classified for
+   first exponent A=2,3,4. After the failed A2d2 block, the second block
+   has a complete B=2,3,4 table tested against the original q. Complete
+   CRT families exist for every A>=2. Every selected w=2 mod3 is outside
+   all nine earlier predicates, and the new whole domains include
+   w=221 mod384 and the two-block w=2813 mod3072. The w=1 mod3 domain
+   w=10357 mod13824 lies inside the previous R54 phase. An early wrong
+   residue3445 was corrected; w=58741 and86389 refute that incorrect
+   entire-progression claim and remain stored counterexamples. This is a
+   classification of the stated endpoint-bound tests, not all possible
+   signed comparisons or a proof of universal supply.
+2. **R56: two inverse choices cross arbitrary prescribed forward depth.**
+   On the complete selected starting domain w=16 mod27, the first inverse
+   comparison reaches p=3v>q, with v=(16w-13)/27 in W9. Two further
+   choices have exact strict-rho thresholds h>=3 and h>=5. They accept
+   precisely the selected W5 inputs w=718 mod729 or w=4255 mod6561.
+   Every failed prescribed plan is classified: it retains either the
+   original request with coefficient+1 or a unique higher-rank request.
+   For every requested R54 repeat count L, complete CRT intersections
+   give a seed with7L growing forward steps but a strict inverse
+   comparison using only seven or nine ordinary arrows. This changes
+   the leading rule; it does not contradict the old-procedure obstruction
+   or construct one infinite growing orbit. Selected w=16 mod81 remains
+   a whole failure subdomain of these two inverse choices.
+3. **R57: maximal cycles have a complete exit interface and new descending
+   families.** The number of specified guarded cycles is exactly
+   r=floor((v2(q+17)-6)/11), leaving exit exponent e in6..16. Each cycle
+   is also the seven ordinary valuations(1,1,1,2,1,1,4), after exact
+   current cancellation. All eleven exit cases have a finite arithmetic
+   prescription, including their variable-depth branches. For every
+   r>=0 and odd d>=2r+5, a whole CRT family exits through e12 and satisfies
+   (9f+5)/8<q. Its quotient clock is7r+(d-1)/2+5 and its ordinary
+   common-tail clocks are(7r+(d-1)/2+6,1). An additional coprime ternary
+   condition makes v=0 mod3 at the R56 interface, so these families are
+   missed by both R55 and R56 direct dispatchers for every r. The complete
+   exit interface does not say that every exit passes its rank test;
+   an explicit e16,r10 failure is retained.
+4. **Rank mixing remains unproved.** A bounded probe expands both the
+   fixed old-nine rho dispatcher and the separate sigma dispatcher,
+   retaining all signed requests, including those beyond the starting
+   interval. Starting below16384 and131072 gives complete acyclic graphs
+   of2075 and16619 nodes under a20000-node cap. It found no finite cycle
+   to solve. These finite graphs supply neither a common global rank nor
+   a new pair certificate, and they do not remove the w4629 incompatibility.
+
+The former R54 phase is therefore partly resolved by comparisons outside
+its specified lookahead recipe. The R54 theorem remains valid for that
+old recipe. Neither a longer finite exposure nor an increased sampled
+acceptance rate is the mechanism of the new theorems: their quantifiers
+come from the exact arithmetic and signed-current identities.
+
+### Exact evidence and review
+
+- [R55 proof](selected_forward/SELECTED_FORWARD.md) and
+  [receipt](selected_forward/selected_forward_audit.json):2049 selected
+  inputs below32768,256 two-block cases,683 selected-unit2 old-nine
+  exclusions,905 newly recognized inputs in that finite window,78 CRT
+  examples through A128,128 explicit-phase points,256 exact inverse undo
+  checks, four actual substitutions using nine supplied pairs, and seven
+  invalid-call rejections. Every displayed affine difference and both
+  wrong-phase counterexamples are checked; two full current tables and
+  their inputs are stored. Root proof/code review and the owned default
+  replay pass.
+- [R56 proof](selected_inverse/SELECTED_INVERSE.md) and
+  [receipt](selected_inverse/selected_inverse_audit.json):300 eligible
+  inputs among16384 W5 candidates,600 two-choice plans,102 independent
+  affine checks,192 exact phase examples through h128,36 intersections
+  with growing prefixes through L128, four actual substitutions, and
+  eight designated rejections. The two middle demonstration currents and
+  all their inputs are stored. Root and independent peer proof/code reviews
+  pass; the independent default replay also passes.
+- [R57 proof](selected_cycle_exit/SELECTED_CYCLE_EXIT.md) and
+  [receipt](selected_cycle_exit/selected_exit_audit.json):352 complete exit
+  cases,264 maximal-cycle cases,128 progression examples through r64,
+  including64 direct-dispatcher exclusions, eight invalid-call rejections,
+  and three actual substitutions using18 distinct supplied pair currents.
+  All three output tables and inputs are stored. Root and peer proof/code
+  reviews and both owned and independent default replays pass.
+- The [rank-mixing note](rank_mixing/RANK_MIXING.md) and
+  [finite receipt](rank_mixing/rank_mixing_audit.json) retain both complete
+  graph sizes, signed dependencies, exact hashes and the20000-node cap.
+  An independent review and default replay passed. The conclusion is
+  finite acyclicity only.
+- The [twelve-family compiler](selected_rules/SELECTED_RULES.md) and
+  [receipt](selected_rules/selected_rules_audit.json) preserve all493 old
+  accepted plans among1024 W5 candidates below8192, including their exact
+  prior digest. There are722 accepted inputs,229 new direct acceptances
+  and302 unresolved inputs in this finite window. All new window choices
+  use R55 by priority; separate exact witnesses exercise R56 and R57.
+  Seven actual substitutions use12 distinct supplied pairs. Full plans,
+  inputs and outputs are retained at5821 (no remaining inputs,40 rows)
+  and1105909 (four signed inputs,142 rows). Five rejection checks pass.
+  Root and independent peer code reviews, and both owned and independent
+  default replays, pass.
+
+The old-nine priority is preserved and no sigma rule is imported. The
+existing LaTeX source has been updated in place and its built-in compiler
+passed. Independent integrated-document review passed after explicitly
+naming the h1,r1-mod3 failed leading case in the R56 TeX proof and scoping
+the old R54 ledger expansion to its nine rules. The final TeX compiled
+successfully. The full `python3 scripts/verify_all.py --cpp` gate passed
+with exit0, including all five added checks, all previous receipts, the31
+archive manifest entries and both independent C++ cutoffs. Run log:
+`/tmp/collatz_selected_full_gate.log`. Final mechanical checks passed for
+28 changed/new files,355 local links, LF endings,50 unique TeX labels,
+89 resolved references and staged whitespace/scope. The external broad
+acceptance surveys were not reproduced and are not proof premises.
+
+### Decision and next obligation
+
+This batch is **progress**: a short inverse comparison can bypass any
+prescribed depth of the former obstruction, and selected forward exits
+give complete new domains even where the two new inverse choices return
+the original request. Supply currents on the complement of the enlarged
+strict-rho domains, or prove eventual descent for a complete further
+comparison. In particular, the whole selected phase is still unresolved;
+its remaining rows must retain every signed leading and auxiliary request.
+The finite exit interface supplies a precise next state; a failed bound
+still needs another comparison. The merged audit's useful negative controls
+remain in the gate. Its corrected minimality lemma gives no reason to
+abandon current constructions, and the independently checked side-feed word
+supports the present forward/inverse direction. The next target is a full
+remaining exit class or the rule complement, rather than more isolated
+examples or finite acceptance percentages.
+
+Preserve the common-rank proof when composing the twelve rho rules.
+Mixing sigma with them still requires a separate global descent argument
+or a fully solved signed dependency system. Missing input currents remain
+premises; no universal current supply, convergence or novelty follows.
+The research goal remains active.
+
+Checklist for this batch:
+
+- [x] Revalidate the repository, prior progress and independent feed.
+- [x] Derive complete selected forward and inverse interfaces and domains.
+- [x] Classify maximal growing-word exits and retain their full dependencies.
+- [x] Audit the bounded joint-rank probe without assuming global compatibility.
+- [x] Obtain independent proof/code reviews of R55–R57.
+- [x] Persist scoped proofs, constructors, finite receipts and remaining obligations.
+- [x] Complete focused receipt replays; R56/R57 also have independent replays.
+- [x] Finish review and evidence for the new combined dispatcher.
+- [x] Complete the full Python/C++ gate and integrated-document review.
+- [x] Compile the existing LaTeX source and finish links/whitespace checks.
 - [x] Review the final diff and prepare the verified batch for authorized commit and push; delivery is recorded in Git history.

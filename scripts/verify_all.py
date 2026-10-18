@@ -165,6 +165,11 @@ def main():
             ("forward_continuation", "check_forward_continuation.py"),
             ("rule_avoidance", "check_rule_avoidance.py"),
             ("continued_rules", "check_continued_rules.py"),
+            ("selected_forward", "check_selected_forward.py"),
+            ("selected_inverse", "check_selected_inverse.py"),
+            ("selected_cycle_exit", "check_selected_exit.py"),
+            ("rank_mixing", "probe_rank_mixing.py"),
+            ("selected_rules", "check_selected_rules.py"),
             ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
@@ -248,6 +253,11 @@ def main():
                          forward_continuation="PASS: complete two-block table, maximal low runs, unbounded delayed descents and supplied currents",
                          rule_avoidance="PASS: positive growing prefixes, complete W9 accounting and separately ranked leading-leaf obstructions",
                          continued_rule_composition="PASS: preserved seven-rule priority plus both rho continuations; sigma kept separate",
+                         selected_forward="PASS: complete first/second block tables, new CRT domains, corrected phase and actual substitutions",
+                         selected_inverse="PASS: both inverse choices, exhaustive failed vectors, exact thresholds and arbitrary forward-depth intersections",
+                         selected_cycle_exit="PASS: maximal guarded cycles, eleven exit phases, new unbounded progressions and supplied currents",
+                         finite_rank_mixing="PASS: two completed finite dependency graphs; no universal compatibility claim",
+                         selected_rule_composition="PASS: old nine-rule priority preserved; three selected families share rho and retain missing inputs",
                          external_sieve_gap="PASS: exact counterexample to the displayed set equality; no theorem refutation",
                          external_pair_controls="PASS: seven exact cycle witnesses, including three W5 pairs, and invariant-pairing obstructions",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
