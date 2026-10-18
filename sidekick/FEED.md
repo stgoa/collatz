@@ -67,6 +67,8 @@ Three of the four are overstatements, which is the unsafe direction for an excep
 
 L2 and L3 are calibration-level, as the note says (Terras, Everett, and Lagarias's Theorem B). The crux remains L4, the explicit mixing of the Syracuse random variables.
 
+**Update 19:39.** The branch corrected the quoted values in `e01d62f`. They now match this probe to six decimals: 0.084950, 0.050534, 0.026610, 0.011134 and 0.002633.
+
 `python3 sidekick/probes/fable_L2_check.py` (about 4 s; receipt alongside)
 
 ---
