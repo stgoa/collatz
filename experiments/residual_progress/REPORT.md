@@ -2090,3 +2090,174 @@ The batch is reviewed and prepared for the authorized commit and push;
 Git history records delivery. The parallel branch and original archive
 were not changed. This is progress on the active research goal, not
 universal current supply or a completed Collatz proof.
+
+## Active batch after793e835: whole-type recursion and variable inverse rays
+
+Previous goal turn: **progress**. R62–R65, the seventeen-family union,
+reviewed standing and exact evidence were committed and pushed as
+793e8357dabe251941bfbddd5af3d2471c07ee66. The full Python/C++ gate and
+built-in compilation passed, and the new batch revalidated a clean main.
+The optional feed remains at552bf52236365c5f46522e7a2a3520b6704ce9f3;
+its finite closure survey adds no proof premise. The branch remains
+read-only external input.
+
+This batch tests three structural hypotheses:
+
+1. The entire adjacent-source type D(q) admits a joint recursion with
+   all requests below its original height n. Pulling q back along its
+   known two-arrow defect path only restores the missing absorption at n;
+   that exact undo is not a successful new recursion.
+2. Varying the inverse-ray index may remove phases left by one fixed ray.
+   The complete index/valuation/height tradeoff must be proved. Arbitrarily
+   high attainable valuations alone do not overcome the growing ray height.
+   A finite all-ray decision criterion must include a proved search bound,
+   rather than treating an experimental cap as exhaustion.
+3. Mixing the two existing rank systems may permit a joint argument, or
+   its full signed composites may expose a stronger structural obstruction.
+   The earlier finite acyclic dependency graphs prove neither outcome.
+   Every leading request and lower signed term must be retained.
+
+The success standard remains a theorem for a whole remaining type or a
+verified obstruction that changes the next research action. More isolated
+examples, renamed dependencies and higher finite coverage are insufficient.
+Universal current supply and the original research goal remain open.
+
+Checklist:
+
+- [x] Revalidate pushed state and inspect the independent feed.
+- [x] Derive complete adjacent or variable-ray interfaces and their limits.
+- [x] Test the full signed mixed-rank mechanism, including repeated phases.
+- [x] Persist proofs, executable constructions and bounded evidence.
+- [x] Obtain independent proof/code reviews and integrate the current standing.
+- [x] Run the required gate, compile changed TeX and prepare the authorized delivery.
+
+### R66: all ray indices, a finite decision, and a proved failure fraction
+
+The [all-ray theorem](all_ray_continuation/ALL_RAY_CONTINUATION.md) treats
+the entire entry progression w6901+10368n, retaining the condition3|v.
+It implements the two named maximal rotated cycles followed by maximal
+point ancestry at every inverse ray index L. Complete failed currents
+retain the baseline or one nondecreasing leading request with coefficient+1.
+
+Binary divisibility of a successful endpoint bounds j, then k, then L,
+giving an explicit exhaustive finite procedure for each input. This is a
+proved search limit, not an experimental cap. The first entry6901 fails
+at every L under this procedure. Conversely, the exact isometry
+v3(b_L-b_M)=v3(L-M) lets L attain every ternary precision; the exponentially
+growing starting height prevents interpreting that as sufficient descent.
+
+Success at L>=1 requires k>=10L or j>=8L, with every affine intercept
+included. Counting the necessary ternary classes and using the finite
+ray bound gives accepted(N)<=S*N+5T²+6T+1, T=floorlog2(15552N), S<1/500.
+Thus the limsup success fraction is below0.2% on this entry progression.
+There is no assertion that a density exists, and no bound on all inverse
+words, the old union, early cycle stops or forward/supplied-history methods.
+
+The focused receipt checks900 isometry cases,576 affine comparisons,
+66 complete signed plans (12 descending,22 nondecreasing and32 exact
+baseline returns),1024 complete finite decisions and16 rejections.
+Two supplied-current conversions retain all inputs and outputs:
+L1,w36641534965 uses9 pairs and gives102 rows; L3,w302362550859146911249525
+uses16 pairs and gives443 rows. Both default and independent replays pass.
+
+### R67: actual mixed growth, exact cancellation, and a finite guard exit
+
+The [mixed-block theorem](mixed_rank_recursion/MIXED_GROWING_BLOCK.md)
+uses two actual accepted comparisons, one sigma and one rho. On
+w40529845mod2^26 their full signed composite has leading
+V(w)=(3^12w+311195)/2^19>w with coefficient+1. All other requests have
+rho below the original3w. The entire current equals a direct ordinary
+prefix comparison plus H_V-H_w, row for row.
+
+For every m the binary progression w=-311195/7153 modulo2^(26+19(m-1))
+admits m growing copies. The full source and currents telescope, with
+ordinary clocks(12m+1,1) and quotient clock12m. Any fixed positive input
+has exact maximal guarded count1+floor((v2(7153w+311195)-26)/19) and exit
+valuation7..25. The terminal pair is still missing. The finite-label,
+height-monotone strict-potential obstruction follows from these actual
+edges, while richer arithmetic ranks and different choices remain open.
+
+The receipt checks16 full macros,12 complete prefixes through16 copies,
+27 arithmetic families through256 copies and76 exact guard exits, plus
+seven rejections. Eight cases expand all intermediate H plans explicitly
+through four copies; restricting that costly cross-check made the replay
+about four seconds without changing the theorem or constructor. Complete
+unfinished currents are stored: the first macro has62 rows/six requests,
+and a two-copy example has180 rows/16 requests. No unknown input discovery
+is used. Default and independent proof/code/replay reviews pass.
+
+### R68: a complete inverse obstruction at the actual native height
+
+The [native-height theorem](adjacent_recursion/NATIVE_HEIGHT_SEPARATION.md)
+uses a six-state finite forward-closed certificate at31. For every D>=3,
+t>=1 and q=31+2^57*3^D*t, the only canonical ancestor below q through
+depthD is n=(8q-5)/9 itself, at depth2. The all-ray affine gap proves
+that every other ancestor exceeds q. This forbids strict native-height
+inverse repair at that depth despite the existence of a smaller-than-q
+ancestor. The seed changes with D.
+
+The same full family preserves a fixed35-arrow word to
+y=23+2*3^(D+35)*t. Its exact inequality9y+5<8n gives a conditional
+adjacent current whose full signed helper vector lies below n. The
+positive source q+2 has a separately checked one-arrow reduction below n.
+At q31 the result is an exact45-row current with no missing pairs. A large
+example q3891110078048108575 gives345 rows after15 supplied pair currents,
+all retained in the receipt. There is no claim of previously uncovered
+dispatcher inputs or of a universal adjacent rule.
+
+The same note records the failed joint binary-run attempt and the exact
+R44-to-R65 current transport: it is the old endpoint comparison. The audit
+checks2496 bounded inverse words, three large-ray words with indices8/32/128,
+120 paired runs,120 exact transported currents,48 full families throughD128
+and nine rejections. Default and independent proof/code/replay reviews pass.
+
+### Updated parallel-work assessment and next obligation
+
+The user's merged-PR question prompted a fresh fetch and GitHub read.
+Only PR1 is merged and main remains793e835. The independent feed advanced
+to33c3829702fe35d0b112a3abdd5255c95b7e6b00. Both latest probes were inspected
+and reproduced unchanged against pinned main sources in temporary storage,
+with90-second process caps and matching receipts:3600 original-rho prefix
+plans,20000 compatibility identities and3000 sigma plans. See the
+[review](side_lane_review_33c3829.md) and its linked reproduction receipt.
+
+The sharpened stopping condition9x+5<8q is correct and useful for checking
+a supplied quotient prefix. Its universal hitting claim is still
+Collatz-equivalent. It does not explain why every input reaches the target
+or prove that other current constructions cannot help. Keep the merged
+negative controls and corrected minimality lemma; the side branch is
+unchanged.
+
+**Research decision:** pivot away from enlarging the named inverse-ray
+search and from unproved mixing of local ranks. Test compatible progress
+across the complete exits of arithmetic blocks, or a different joint
+comparison for an entire remaining type. The mixed block's decreasing
+binary guard controls one phase, but its exit can start another phase;
+finite termination of each separate guard does not prove termination of
+their composition. The finite19 exit valuations retain unbounded arithmetic
+parameters. Supplied history and full signed comparisons remain available.
+
+All three results are structural progress on the active goal. They do not
+supply universal currents, a Collatz proof, human review, formal verification
+or a novelty claim. The seventeen-family dispatcher is unchanged.
+
+### Final integrated verification and delivery
+
+`python3 scripts/verify_all.py --cpp` passed with exit0. All three new
+checkers, the historical and negative-control checks,31 archive manifest
+entries and both independent C++ cutoffs4096/262144 passed. The complete
+run log is `/tmp/collatz_whole_type_full_gate.log`. Mathematical source,
+receipts and the complete runner were frozen before this run; only shared
+prose and the TeX audit summary were finalized while it ran.
+
+The final existing TeX compiled successfully in the built-in editor.
+Independent review passed the three new TeX sections and shared standing,
+as well as the pinned side-lane review and all reproduced source hashes.
+The maximal-count wording now explicitly retains its positive guarded-input
+domain. Mechanical checks passed for21 scoped files,398 local Markdown
+links,61 unique TeX labels,109 resolved references, LF endings, JSON parsing
+and staged whitespace. A final remote refresh left main at793e835.
+
+The batch is prepared for the authorized commit and push; Git history
+records delivery. The side branch and original archive remain unchanged.
+This is progress on the active research goal, which remains open.

@@ -179,6 +179,9 @@ def main():
             ("refined_obstruction", "check_refined_obstruction.py"),
             ("defect_normal_form", "check_adjacent_defect.py"),
             ("resolved_rules", "check_resolved_rules.py"),
+            ("all_ray_continuation", "check_all_rays.py"),
+            ("mixed_rank_recursion", "check_mixed_growth.py"),
+            ("adjacent_recursion", "check_native_height.py"),
             ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
@@ -276,6 +279,9 @@ def main():
                          refined_exit_obstruction="PASS: whole fifteen-rule classification, exact inverse undo and lifted-ray descent thresholds",
                          adjacent_defect_interface="PASS: complete triangular source identity, smaller helpers and checked bidirectional conversion",
                          resolved_rule_composition="PASS: seventeen rho families preserve old priority and every missing signed input",
+                         all_ray_continuation="PASS: exhaustive ray cutoff, full failed vectors, exact integer-count bound and supplied currents",
+                         mixed_rank_growth="PASS: two actual accepted plans, full signed telescoping, guarded maximum and retained high requests",
+                         native_height_separation="PASS: all-ray shadow interface, fixed forward word, original-height helpers and supplied currents",
                          external_sieve_gap="PASS: exact counterexample to the displayed set equality; no theorem refutation",
                          external_pair_controls="PASS: seven exact cycle witnesses, including three W5 pairs, and invariant-pairing obstructions",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
