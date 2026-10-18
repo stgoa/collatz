@@ -182,6 +182,9 @@ def main():
             ("all_ray_continuation", "check_all_rays.py"),
             ("mixed_rank_recursion", "check_mixed_growth.py"),
             ("adjacent_recursion", "check_native_height.py"),
+            ("arithmetic_progress", "check_valuation_debt.py"),
+            ("mixed_exit", "check_mixed_exit.py"),
+            ("lattice_cycles", "check_balanced_cycles.py"),
             ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
@@ -282,6 +285,9 @@ def main():
                          all_ray_continuation="PASS: exhaustive ray cutoff, full failed vectors, exact integer-count bound and supplied currents",
                          mixed_rank_growth="PASS: two actual accepted plans, full signed telescoping, guarded maximum and retained high requests",
                          native_height_separation="PASS: all-ray shadow interface, fixed forward word, original-height helpers and supplied currents",
+                         valuation_debt="PASS: exact leading transport, full valid reset family and scoped monomial obstruction",
+                         mixed_exit_reentry="PASS: nineteen exits, conditional full re-entry currents, higher missing inputs and exact finite guards",
+                         mechanical_denominators="PASS: rational words, exact primitive/repeated denominators and varying-d high controls",
                          external_sieve_gap="PASS: exact counterexample to the displayed set equality; no theorem refutation",
                          external_pair_controls="PASS: seven exact cycle witnesses, including three W5 pairs, and invariant-pairing obstructions",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
