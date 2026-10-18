@@ -12,6 +12,14 @@ first-half transport cannot contract any power-growth norm with0<alpha<1.
 Its full gate passed with118 report fields. This closes
 the selected uniform-norm method; actual-B-specific estimates remain open.
 
+The side lane at `e4f82311a804ecd1befaaa5e255e41c6d5d0c44c` now confirms
+P6-003 as barrier; its probe was reproduced byte for byte in temporary
+storage ([receipt](side_lane_review_e4f8231.json)). The user-requested
+PR review supports the current counting-route pivot. PR1 is already merged;
+its original overstatement about alternative certificates has a persisted
+counterexample and correction. D7's independent formal audit is accepted
+before C.1a becomes a premise. P6-004 remains in progress.
+
 ## Mechanism and evidence
 
 Every claimed advance must be a demonstrated non-transfer step, a published
@@ -119,7 +127,7 @@ new proof premise in P6-002.
 - [x] Finish integrated exact replay and independent final-text review.
 - [x] Pass the full gate and persist its [report/source hashes](growth_norm_transport/verification.json).
 - [x] Prepare the verified batch for commit/push; delivery is recorded in Git history.
-- [ ] Start the next audit after the fresh side read.
+- [x] Pushed as2e619a2; started C.1a after reading side pin602386ca.
 
 The proof is in [GROWTH_NORM_TRANSPORT.md](growth_norm_transport/GROWTH_NORM_TRANSPORT.md).
 It uses the calibration in an actual S.2 attempt, satisfying accepted D6.
@@ -160,3 +168,14 @@ failure. It uses finite maxima rather than assuming a finite global norm.
 The inherited S.1 count supplies an explicit half-exception bound; the
 transport inequality itself remains missing. This preparation earns no
 additional batch label or non-transfer result.
+
+## P6-004 active checklist
+
+- [x] Fresh side read; record P6-002 confirmation and reaffirm all directions.
+- [x] Select the2026 linear predecessor-density input and pin exact statements.
+- [ ] Audit the weighted-path analytic dependencies and their source correspondence.
+- [ ] Decide and document what independent formal replay is feasible.
+- [ ] Re-derive a precise usable result or record a scoped unresolved audit.
+- [ ] Feed any calibration into a C.2a attempt, retaining the actual-B obligation.
+
+The completed P6-003 result is pushed. P6-004 has no accepted new theorem yet.

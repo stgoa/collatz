@@ -16,9 +16,9 @@ not replace written-proof / finite-certificate / open status.
 | P6-000, 2026-10-18: map and controls | MAP; baseline controls attached to S.2, C.2, Y.2 | **none** — setup and existing-obligation counterexamples | **Confirmed none** by the side lane at `b1785fb2dcf121586e99be95c90b94afcf1e9733`, feed 15:38; cycle fixtures independently replayed there | Exact raw cycles refute ordinary universal descent / absorption / no-cycle analogues; quotient-specific transfer unestablished | [L1–L5 audit](PHASE6_LITERATURE.md); no published theorem re-derived in this batch |
 | P6-001, 2026-10-18: explicit stopping calibration | S.1 | **calibration** — published half-descent corollary with explicit constants and W5 pullback | **Confirmed calibration** at side pin `0ed286c5e92f739f610f4aad2d460d0afc63eab6`, feed16:13, reviewing committed main546e891 | Ordinary estimate proved for each fixed positive odd d coprime to6; W5/nu/T pullback only at d=1 | Borovkov–Pfeifer Corollary2 finite-horizon half-descent limit, with conservative explicit errors; Korec fixed-half corollary; full power theorem not re-proved |
 | P6-001, secondary preparation | S.2 | **none** — bounded-prefix obstruction already follows from frozen R25/R31 | **Confirmed none** in the same feed16:13 review | No new transfer claim | Frozen growth examples; no new exclusion mechanism |
-| P6-002, 2026-10-18: first-half transport | S.2 | **barrier** — no uniform arbitrary-target constant-cardinality bound, even with sublinear error | Pending; no verdict at the batch-start pin | Main obstruction transfers to every fixed supported d; sparse refinements proved for d=1 | Tao §1.1 concentration issue; exact named inequality and elementary construction specified here, no novelty claim |
+| P6-002, 2026-10-18: first-half transport | S.2 | **barrier** — no uniform arbitrary-target constant-cardinality bound, even with sublinear error | **Confirmed barrier** at side pin `602386cac0070d673ff2d831102ae02ca2b0a439`, feed16:32, reviewing committedde32608 | Main obstruction transfers to every fixed supported d; sparse refinements proved for d=1 | Tao §1.1 concentration issue; exact named inequality and elementary construction specified here, no novelty claim |
 
-| P6-003, 2026-10-18: power-growth norm | S.2 | **barrier** — no arbitrary-target contraction for any real0<alpha<1 | Pending | Full obstruction transfers to each supported fixed d; one-arrow upper bound proved only for d1 | Finite-cylinder stopping in Borovkov–Pfeifer; Tao valuation lemma and concentration issue; exact norm statement proved directly, no novelty claim |
+| P6-003, 2026-10-18: power-growth norm | S.2 | **barrier** — no arbitrary-target contraction for any real0<alpha<1 | **Confirmed barrier** at side pin `e4f82311a804ecd1befaaa5e255e41c6d5d0c44c`, feed16:56, reviewing committed2e619a2; side probe independently reproduced | Full obstruction transfers to each supported fixed d; one-arrow upper bound proved only for d1 | Finite-cylinder stopping in Borovkov–Pfeifer; Tao valuation lemma and concentration issue; exact norm statement proved directly, no novelty claim |
 
 **Consecutive none counts:** MAP 1 (setup), S.1 0, S.2 0, C.1 0, C.2 0,
 C.3 0, Y.1 0, Y.2 0, H.1 0, H.2 0. A later mathematical attempt on a node
@@ -273,3 +273,67 @@ replayed here. C.1a remains an audit obligation rather than a supplied premise.
 actual-B truncated-norm inequality, conditional consequences and its d>1
 negative control. The inequality is unproved. Its finite maxima avoid
 assuming the desired global growth bound; none of this supplies C.2a.
+
+## P6-004 — C.1a input audit started
+
+**Main baseline:** P6-003 verified and pushed as `2e619a2`.
+**Reviewed side commit:** `602386cac0070d673ff2d831102ae02ca2b0a439`;
+fetched and both DIRECTIONS/FEED read at batch start. New feed16:32 confirms
+P6-002's barrier at committedde32608 with independent arithmetic. No P6-003
+verdict appears. Its heuristic comment about logarithmic weighting is not
+an additional uniform transport theorem and is not imported as one.
+
+| Direction | Decision | Reason |
+|---|---|---|
+| D1/D2 | **accept**, unchanged | Named routes and exact controls remain active. |
+| D3 | **reject** the historical blanket paragraph, unchanged | Stopping and fixed-target absorption have different transfer behavior. |
+| D4 | **defer**, unchanged | Audit the inputs needed by the selected node. |
+| D5 | **accept**, closed | Continue without waiting; the user retains steering authority. |
+| D6, still shown open in side file | **accept**, reaffirmed | Persisted in P6-003; C.1a's audit must feed a C.2a attempt. A source inspection alone is not a calibration. |
+
+**Work started:** audit the new linear predecessor-density premise and its
+explicit refinement at the pinned sources in L3a. Status is in progress;
+no result label is assigned yet. The route's next upper estimate is retained
+in NEXT_ATTEMPT.md with its missing transport inequality explicit. No Lean
+or Lake executable is presently on the command path; source inspection is
+not a substitute for independent formal replay. No installation or external
+source execution has occurred in this preparation.
+
+### User-requested PR review and mid-batch side refresh
+
+The remote PR listing again returns only [PR1](https://github.com/stgoa/collatz/pull/1),
+merged at `ba6b3371fabd7fcabebb442d7c89ea3ed5c02149` and already incorporated.
+Remote main remains `2e619a2`. The latest independent work is on the separate
+read-only side branch, now reviewed at
+`e4f82311a804ecd1befaaa5e255e41c6d5d0c44c`. Both direction and feed changes
+were read. Its feed confirms P6-003's barrier. The unmodified side probe
+was reproduced in temporary storage with a 45-second cap: 27,773 target
+cases and 120,000 exact count comparisons, with the stored JSON matching
+byte for byte. The [replay receipt](../experiments/phase6/side_lane_review_e4f8231.json)
+pins the source and receipt hashes. These finite checks support the separate
+written proof; they do not supply a new convergence theorem.
+
+**PR opinion:** retain C1/C2/C4's checks and negative controls, and C3's
+minimality lemma with its finite exact comparison and cycle hypothesis.
+The PR description's claim that alternative certificates cannot help is
+too broad. The existing [scope review](../collatz_research_20261017/negative_controls/PR1_REVIEW.md)
+has exact counterexamples; its bounded checker was rerun successfully.
+At `A_768`, 56 distinct integer one-sided certificates have the same minimum
+positive cost 53758. The working repository already contains this correction.
+
+**Pivot decision:** keep the current C.1a-to-C.2a pivot. C2/C4 disqualify
+early compression as a termination argument; the separately proved
+P6-002/003 barriers close two particular uniform transport methods. They
+do not exclude arbitrary signed-current constructions. Audit the claimed
+linear predecessor lower bound, then seek a bound specific to the actual
+nonabsorbing set. Both necessary inputs remain open in this repository.
+No additional batch label is earned by this review.
+
+| New direction | Decision | Reason |
+|---|---|---|
+| D7 — audit standard for external results | **accept** for promoting the C.1a formal result to a premise | Match the exact statement; independently build pinned sources in isolation; inspect theorem axioms and any native computation. Author/registry build reports and source reading alone do not satisfy independent replay. |
+
+D1/D2/D5/D6 remain accepted, D3's blanket transfer claim remains rejected,
+and D4 remains deferred for the reasons above. D6 is now marked accepted
+in the side file. The new D7 decision does not pause the parallel C.2a
+attempt, and no external theorem has been promoted to a verified premise.
