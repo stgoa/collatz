@@ -41,6 +41,46 @@ reach 1"). Report honestly how far `C(δ)` is from `V` and why.
 | L6 | Iteration across scales in logarithmic density, summable explicit errors; assembly of `C(δ)` | open | transfers |
 | L7 | Verified range: every `N <= V` reaches 1 (computational, published) | published; not re-run here | **d-specific** (false for d=5: 19→31→49) |
 
+## Post-mortem for Leg 1 (written at iteration 2, 2026-10-18 late evening)
+
+**What was attempted.** Make Tao 2019 explicit and read off `C(δ)`.
+
+**Why it cannot close the target.** Two independent readings (this lane
+and the side lane) of v7 agree on the printed parameter choices: the
+auxiliary scales of the proof are powers of `log x` — the first-passage
+window has half-width `log^0.8 x` around a centre that moves by only
+`(α−1) log x / log(4/3)` with `α = 1.001`, the 3-adic level is
+`m_0 = ⌊(α−1) log x / 100⌋`, the union bound needs
+`exp(−c log^0.2 x) <= log^(−10) x`. The finite certificate
+`check_L4_window.py` shows the window is empty unless
+`log x > 6.3 × 10^13`, and `m_0 = 0` unless `log x >= 10^5`. At the
+verified range `log x = 47`. So, as written, the method certifies no
+`C(δ) < exp(6 × 10^13)` for any `δ < 1`; the constants `c`, `C_A`, `ε`
+(none of which the paper gives numerically) never enter. The
+machine-checked AxiomMath variant (part 0) is worse still (`m >= 2^80000`).
+Re-optimising the free parameters inside the same architecture is judged
+(candidate, `lemmas/L4_tao_architecture.md`) unable to bring the vacuity
+threshold within many orders of magnitude of `log x = 47`.
+
+**What was learned that stays true.**
+1. With [A] machine-checked, Collatz ⇔ `B` has logarithmic density 0 ⇔
+   log-almost all orbits dip below the verified range. This is the
+   sharpest honest form of the remaining problem.
+2. The d-specific step of any such proof is the verified range itself
+   (L7); everything else in the averaging toolbox is d-blind.
+3. Explicit one-round descent (L2/L3) is cheap and exact; iteration is
+   what fails, and it fails for architectural reasons at fixed scale.
+4. A fixed-scale version would need mixing statements with no
+   `log x`-sized auxiliary windows. None is known; this is the precise
+   research gap, and it is not a constants problem.
+
+**Decision.** Leg 1 is closed as a scoped barrier (two units: L2/L3 proved;
+L4 parts 0–1 recorded). Leg 2 receives one bounded unit next: state
+exactly what dichotomy [A] already gives (it already yields "`B` empty or
+lower density `>= c(a)`") and what the needed converse would require; if
+that unit produces no proved lemma, move to Leg 3 (cycle exclusion), the
+one leg where explicit, checkable progress is realistic.
+
 ## Explicit-constant table (the progress metric)
 
 | δ | C(δ) | derivation | status |
@@ -51,9 +91,12 @@ reach 1"). Report honestly how far `C(δ)` is from `V` and why.
 | 0.01 | — | — | open |
 | `1 − 2^(−2^(2^87640))` | `1` (reaches 1), natural density, `N >= 2^2^2^2^87640` | [A], `Main.positive_density_collatz_reaches_one` | machine-checked; calibration only, useless for the target |
 
-Lower bound on what the AxiomMath mixing lemma can give: no `C(δ)` below
-about `3^(2^80000)` for any `δ`, because its mixing hypothesis is
-`m >= 2^80000` on the 3-adic level (`lemmas/L4_formal_constants.md`).
+Lower bounds on what the available methods can give (not upper-bound
+theorems): the AxiomMath mixing lemma, no `C(δ)` below about `3^(2^80000)`
+for any `δ` (`lemmas/L4_formal_constants.md`); Tao's architecture with its
+printed parameters, no `C(δ)` below `exp(6.3 × 10^13)` for any `δ`
+(`lemmas/L4_tao_architecture.md`, `check_L4_window.py`). The target
+`2^68 = e^47` is unreachable by both.
 
 What L2/L3 already give (iteration 1): a one-round statement at scale `X`
 with exceptional fraction `e^(−n I(θ)) + 2 C(⌊θn⌋,n)/X` and descent factor
@@ -78,6 +121,10 @@ needs L4–L6.
    clock before it is used in any theorem statement.
 
 ## Consecutive iterations without a new explicit constant or proved lemma: 0
+
+(Iteration 2 produced a finite certificate and a scoped barrier rather than
+a new `C(δ)`; the Leg-1 post-mortem was written immediately because the
+evidence was decisive, not because the counter reached three.)
 
 ## Legs
 

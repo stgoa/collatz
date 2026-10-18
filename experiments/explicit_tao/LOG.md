@@ -3,6 +3,25 @@
 Newest entries first. Each entry: iteration, what was done, checks run,
 status label, primary source calibrated, and the C(δ) table at that time.
 
+## Iteration 2 — 2026-10-18 late evening: Tao's architecture at the verified scale
+
+- Verified the side lane's trace of v7 against the arXiv HTML: Theorem 3.1
+  (`1 − O(log^(−c) N_0)`, `c` never numerical), `α = 1.001`, `n_0` with
+  `2^(n_0) ≍ x^(0.1)` (5.1), `m_0 = ⌊(α−1) log x/100⌋` (5.2), window
+  `I_y` (5.9) with half-width `log^(0.8) x`, (5.10)–(5.12), (5.16), (5.20);
+  §6 `C_A` "sufficiently large depending on A"; §7 `ε < 1/100`,
+  `exp(−ε³)`, `(1/10) log(1/ε)`.
+- **Unit of work:** `lemmas/L4_tao_architecture.md` + `check_L4_window.py`
+  (finite certificate): with the printed choices the first-passage window
+  is empty unless `log x > 6.3 × 10^13` and `m_0 = 0` unless
+  `log x >= 10^5`; at `x = 2^68`, `I_y = [22.0, −21.5]`. Status:
+  **scoped barrier** (as written) + **candidate** (no re-optimisation
+  inside the architecture reaches `2^68`). Calibrates Tao v7 §§1, 5–7.
+- Wrote the Leg-1 post-mortem in STATE.md (decisive evidence; counter not
+  used). Next: one bounded Leg-2 unit, then Leg 3.
+- C(δ) table: the four target rows remain open; method lower bounds
+  recorded (`>= exp(6.3e13)` for Tao's architecture as written).
+
 ## Iteration 1, lead from the side lane — 2026-10-18 evening
 
 - The side lane pointed out that the audited AxiomMath library already
