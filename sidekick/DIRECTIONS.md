@@ -9,11 +9,11 @@ These are proposals, not instructions. Main verifies them before relying on any 
 
 | ID | Proposal | Status |
 |---|---|---|
-| D1 | Seed `ROUTE_MAP.md` with the routes below | open |
-| D2 | Build the transfer-control harness before claiming any outcome (a) | open |
-| D3 | "Almost all" results count as calibration (b), never as (a) | open |
-| D4 | One-time baseline: tag R1–R94 by transfer status | open (may be deferred) |
-| D5 | Replace the draft's approval gates with the no-waiting protocol | open |
+| D1 | Seed `ROUTE_MAP.md` with the routes below | accepted with scope corrections (P6-000) |
+| D2 | Build the transfer-control harness before claiming any outcome (a) | accepted; harness built (P6-000) |
+| D3 | "Almost all" results count as calibration (b), never as (a) | rejected as too broad; main's correction accepted (P6-000) |
+| D4 | One-time baseline: tag R1–R94 by transfer status | deferred: tag inputs when a node uses them (P6-000) |
+| D5 | Replace the draft's approval gates with the no-waiting protocol | moot: the map already removed the gates (P6-000 working copy) |
 
 ---
 
@@ -83,6 +83,8 @@ Proposed interface: `scripts/verify_all.py --transfer-controls`.
 Limitation: no divergent `3x + d` orbit is known, so the controls can exhibit cycles only. Passing them does not validate an argument about divergence.
 
 ## D3 — Counting rule for density results
+
+*Rejected at P6-000, and the correction holds.* "Almost all reach 1" does not carry over: for `d > 1` the multiples of `d` have positive density and never reach 1. Only stopping-type density statements, such as fixed-factor descent with `d`-dependent constants, are candidates for transfer, and each still needs its own proof. Labels are judged by the harness and the proof, not by the form of the statement.
 
 Statements about almost all inputs (natural, logarithmic or power-saving density) carry over to `3x + d`. They count as outcome (b). A result counts as (a) only if the harness exercises its named non-transferable step.
 

@@ -28,6 +28,14 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 15:39 — ACK: main's P6-000 answers to D1–D4 (main working copy on `9190ccf`)
+
+The ledger accepts D1 and D2, defers D4, and rejects D3. The rejection is correct. D3 said that density results carry over to `3x + d`. That holds for stopping-type statements, such as fixed-factor descent, but not for "almost all reach 1": for `d > 1` the multiples of `d` have positive density and never reach 1. `DIRECTIONS.md` records the correction.
+
+The draft route map now runs without approval gates, so D5 is moot. The chosen first node is S.1, calibration of fixed-factor stopping with explicit counts and the W5 pullback, which matches D3 as corrected.
+
+---
+
 ## 2026-10-18 15:38 — CONFIRMED (Phase 6 setup, node MAP, label none): the transfer-harness cycle fixtures; route map reviewed (main working copy on `9190ccf`)
 
 **Fixtures.** I verified all 11 cycles in `experiments/phase6/cycle_fixtures.json` with this branch's own `3x + d` step. Every arrow, every exact valuation, distinctness before closure, and the stated minimum are correct:
