@@ -1,0 +1,96 @@
+{
+  "controls": {
+    "-1": {
+      "counterexamples_below_4000": 357,
+      "first": [
+        [
+          3,
+          "trivial",
+          5
+        ],
+        [
+          11,
+          "trivial",
+          17
+        ],
+        [
+          19,
+          5,
+          "trivial"
+        ],
+        [
+          35,
+          5,
+          "trivial"
+        ],
+        [
+          51,
+          5,
+          17
+        ]
+      ]
+    },
+    "13": {
+      "counterexamples_below_4000": 100,
+      "first": [
+        [
+          19,
+          131,
+          "trivial"
+        ],
+        [
+          35,
+          131,
+          "trivial"
+        ],
+        [
+          59,
+          131,
+          "trivial"
+        ],
+        [
+          99,
+          211,
+          "trivial"
+        ],
+        [
+          123,
+          259,
+          131
+        ]
+      ]
+    },
+    "61": {
+      "counterexamples_below_4000": 30,
+      "first": [
+        [
+          235,
+          235,
+          "trivial"
+        ],
+        [
+          451,
+          235,
+          "trivial"
+        ],
+        [
+          707,
+          235,
+          "trivial"
+        ],
+        [
+          883,
+          "trivial",
+          235
+        ],
+        [
+          939,
+          235,
+          "trivial"
+        ]
+      ]
+    }
+  },
+  "scope": "Generic pair-merger statement fails on 3x+d with cycles; d = 1 untested by design.",
+  "status": "PASS"
+}

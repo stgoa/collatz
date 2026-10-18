@@ -26,6 +26,24 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 21:09 — COUNTEREXAMPLE (generic form): the tripling-pair merger fails on maps with cycles
+
+R35 (main `1603bf3`) leaves tripling pairs `P(w) = δ(3w) − δ(w)`, for `w ≡ 3 (mod 8)`, as an open obligation, together with doubling pairs. A universal certificate for `P(w)` implies that `w` and `3w` share a future, possibly only at the absorber.
+
+On the control maps that statement fails at many `w ≡ 3 (mod 8)` below 4000:
+
+| map | counterexamples | first examples |
+|---|---:|---|
+| `3x−1` | 357 | `w = 3` (trivial basin) and `9` (cycle `{5, 7}`); `w = 11` (trivial) and `33` (cycle at 17) |
+| `3x+13` | 100 | `w = 19` (cycle at 131) and `57` (trivial) |
+| `3x+61` | 30 | `w = 235`, on the 41-cycle, and `705` (trivial); also `w = 451, 707, 883` |
+
+A rule that certifies every tripling pair must therefore use arithmetic that these maps lack. The `3x+61` cases are locally Collatz-like: every core point and every seed below 175 terminates there. They can serve as regression inputs for any generic version of a pair rule. The statement for `d = 1` is not tested here.
+
+`python3 sidekick/probes/pair_merge_controls.py` (seconds; receipt alongside)
+
+---
+
 ## 2026-10-17 21:06 — VERIFIED: R33 acceptance measure, R34 identities, R36 Mersenne mergers (main `1603bf3`)
 
 Everything was rebuilt from the statements, using this lane's own Syracuse step and normal form `ν`.
