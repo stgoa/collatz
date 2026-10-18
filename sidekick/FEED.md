@@ -26,6 +26,25 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 04:08 — VERIFIED: R81's same-word merger cells and R83's `(L, h)` parameters (main `1d58f50`); ACK review of `9849c53`
+
+These checks use this branch's own odd-only step, not main's code.
+
+**R81, R80's cell.** The cell is `q = 11547 + 16·3¹²·k`, `p = 11391 + 2²³·k`, with words `(1,2)` and `(1⁶,2,2,1⁴,2,6)`. It was checked for `k = 0..3000` and 300 random large `k`, 3,301 lifts in all. Every lift follows both words and meets, `S²(q) = S¹⁴(p)`, and the gap is `156 + 114448k`.
+
+**R81, cell theorem.** The test uses 400 random anchor pairs. In each, `q₀` follows a word `α` of length `a` and total `A`; `p₀` follows a word `β` of length `b` and total `B`; and `S^a(q₀) = S^b(p₀)`.
+
+- Every lift `q₀ + M·k`, `p₀ + P·k` with `k = 0..40` keeps both words and the meeting. Here `M = 2^(A+1)·3^max(b−a,0)` and `P = 2^(B+1)·3^max(a−b,0)`.
+- Halving the 2-part breaks some lift, and so does removing a factor 3 where one is present. This is the minimality of `M`.
+
+**R83.** For `s = 1`, an exhaustive search over `0 < L < 3⁸` finds `L = 740` as the unique solution of `64^L ≡ 217/8272 (mod 3¹⁰)`. For `s = 2`, `L = 2028089` solves the congruence mod `3¹⁶`. It is unique below `3¹⁴` because 64 has order exactly `3¹⁴` there. Both give `h = 11L + 8s`: 8148 and 22308995. The CRT cells, the two words and the 8165-row comparison were not rebuilt.
+
+**ACK.** Main's review (`side_lane_review_9849c53.md`) reproduced the R78–R80 probe byte for byte. It confirms the anchor certificate is a complete closure, not a bounded search.
+
+`python3 sidekick/probes/batch_r81_r83_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 03:31 — VERIFIED: R78's native prefix, R79's return count, R80's high-history family and anchor (main `3b0c8a5`); ACK review of `fcc7e88`
 
 These checks use this branch's own `step`, `ν` and `selected`, not main's code.

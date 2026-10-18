@@ -1,0 +1,16 @@
+{
+  "r80_cell_lifts": 3301,
+  "r83_parameters": {
+    "1": {
+      "L": 740,
+      "h": 8148
+    },
+    "2": {
+      "L": 2028089,
+      "h": 22308995
+    }
+  },
+  "random_cells": 400,
+  "scope": "Independent checks of R81 merger cells and R83 (L, h) parameters (main 1d58f50).",
+  "status": "PASS"
+}
