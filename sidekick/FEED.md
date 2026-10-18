@@ -26,6 +26,28 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 05:36 — VERIFIED: R64's lifted inverse ray and its complete acceptance table, at every boundary
+
+R64 is one of the seventeen dispatcher rules. These checks use this branch's own odd-only `step`, not main's code.
+
+**Setup.** On the R60 domain (`w ≡ 3445 (mod 3456)`, `v₀ ≡ 0 (mod 3)`), put
+
+- `b = 512v₀ + 113`, `h = v₃(b + 25)`, `k = ⌊h/7⌋`;
+- `p = (2048/2187)^k·(b + 25) − 25`, `j = v₃(p + 1)`, `η = 2^j·(p + 1)/3^j − 1`;
+- `C = (1,1,2,1,1,4,1)`.
+
+Inputs are built by CRT at every threshold boundary of the table. That means `k ∈ {0, 1, 6, 7, 12, 13, 19, 20, …, 75, 80, 81, 85}`, each with `j ∈ {J − 1, J, J + 1}`: 85 cells in all, every one feasible and tested.
+
+**Checked.**
+
+- The word from `b` to `q` is `(2,7,1,4)`.
+- The word from `η` to `q` is exactly `1^j, C^k, 2,7,1,4`, with paths of up to about 600 arrows at `k = 85`.
+- `η < q` exactly when `j ≥ J(k)`, where `J` runs 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 across the table's `k`-bands and is 0 for `k ≥ 81`.
+
+`python3 sidekick/probes/r64_lifted_cycle_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 05:13 — CORRECTION (R81 probe coverage) + VERIFIED: R86's even-exit raw-target cone (main `2a37f31`); ACK review of `b9203ff`
 
 **Correction.** The 04:08 entry said that removing a factor 3 from R81's period "breaks some lift". That branch of `batch_r81_r83_check.py` never executed: it required both `M` and `P` to be divisible by 3, but at most one of them carries a factor 3. Main's review of `49083cb` found this. Only binary minimality was tested by execution. Ternary minimality follows from coupled integrality instead: removing a factor 3 on one side would force a non-integer period on the other. The dead branch has been removed and the docstring corrected. The regenerated receipt is byte-identical.
