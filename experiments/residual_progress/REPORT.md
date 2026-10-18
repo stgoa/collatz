@@ -1,13 +1,16 @@
 # Residual progress and finite forcing
 
-**Latest standing:** a shrinking paired recursion now certifies explicit
-infinite families of the previously growing complementary returns.
-It works at every prescribed recursive depth and supplies exact mergers
-with smaller seeds. Its arithmetic recognizer can still return unresolved;
-universal coverage remains open. A separate theorem rules out strict
-height-monotone progress with any finite label set on every normalized
-return. The current batch and evidence are recorded at the end of this
-report. Earlier sections remain the historical investigation record.
+**Latest standing:** three shrinking pair branches now compose in arbitrary
+finite words with exact signs, merger clocks and complete cylinders. Two
+additional branches enter this recursion from its missing1-modulo8 domain.
+Complete decreasing inverse ancestry independently gives lower-seed bridges
+through arbitrarily high old returns, with exact weighted source counts.
+These constructions cover infinite actual residual families, but still
+return explicit unresolved outcomes. The general half-seed comparison
+identifies the remaining pair sources; its static-catalogue obstruction
+does not exclude further dynamic bridges. Universal coverage and Collatz
+remain open. The current batch and evidence are recorded at the end of
+this report; earlier sections remain the historical investigation record.
 
 Started 2026-10-17 from clean pushed commit `ce56699`.
 The preceding goal turn made progress: universal partial currents, an exact
@@ -808,3 +811,152 @@ local links across ten integration/proof Markdown files resolve. New
 files use LF endings and whitespace review passed. Git history records
 the authorized commit and push of this batch. The research goal remains
 active: this batch is progress, and universal convergence is still open.
+
+## Current batch after64fff1d: mixed pairs, inverse ancestry and missing domains
+
+Previous goal turn: **progress**. R29–R32 and all checks were committed
+and pushed as64fff1d. This batch begins from a clean tree. The optional
+feed was fetched and read atd2d85e1e49f0018a648c6daadc4fc93290c0d107,
+unchanged from the last read; its text remains optional external evidence.
+
+Working hypotheses:
+
+1. R30 odd-h and other even branches admit exact smaller-parameter pair
+   recursions that can be composed without losing signs or clocks.
+2. Complete decreasing inverse ancestry supplies a uniform arithmetic
+   extension of the cutoff-only return test on actual residual families.
+3. General complementary roots reduce to a finite collection of pair
+   types; identifying their full domains may reveal what universal closure
+   would actually require.
+
+Checklist:
+
+- [x] Revalidate the clean committed state and read the optional feed.
+- [x] Derive and test additional shrinking pair branches and complete mixed words.
+- [x] Prove the full decreasing inverse-ancestry rule and actual weighted coverage.
+- [x] Derive the general half-seed pair interface and audit its static scope.
+- [x] Construct two dynamic entries from the missing1-modulo8 pair domain.
+- [x] Independently review proofs, constructors and count formulas; persist evidence.
+- [x] Run the full `python3 scripts/verify_all.py --cpp` gate.
+- [x] Compile the integrated LaTeX source and verify local links and references.
+- [x] Prepare the verified batch for staged review and authorized Git delivery.
+
+### Outcomes and proof limits
+
+| Direction | Outcome | Durable evidence |
+|---|---|---|
+| Extend the paired recursion beyond R30's even branch | Three shrinking branches compose for every finite mixed word | [R33 mixed rules](paired_completion/MIXED_SHRINKING_RULES.md) |
+| Recognize useful lower ancestors of normalized returns | Complete local inverse formula and complete families with unbounded old return height | [R34 inverse ancestry](inverse_ancestry/INVERSE_ANCESTRY.md) |
+| Reduce every complementary root to pair comparisons | Exact two-type decomposition; a restricted static catalogue remains incomplete | [R35 pair scope](pair_scope/PAIR_SCOPE.md) |
+| Escape the missing1-modulo8 pair domain | Two dynamic entries into the mixed recursion, including new smaller-half mergers | [R36 missing-domain construction](pair_one/MISSING_PAIR_DOMAIN.md) |
+
+**R33: arbitrary finite mixtures of shrinking pair rules.** For P(w)=delta_(3w)-delta_w,
+w=3 modulo8, the new odd-h branch O adds its smaller child current. The new
+even branch E1 and retained E2 branch subtract theirs. Every child is less
+than w/2; E2 retains the stronger w/4 bound. Exact backward affine lifting
+gives a complete nonempty binary cylinder for any finite branch word followed
+by a terminal class, including all required valuation bits. The merger clock
+adds k+1 for O and k+2 for E1/E2. Every such cylinder lifts to actual
+Mersenne residual roots with a supplied smaller-half partner.
+
+The conditional binary-cylinder measure accepted by this particular
+recognizer is exactly32/157. This follows from its exact uniform child maps,
+not a model of orbit independence. It is neither a weighted R_N fraction
+nor a repeatable residual contraction. At a631 the new bridge's source and
+old return are absent from the elementary-plus-forward closure of the
+supplied single lower-seed path; the full U_N history was not constructed.
+Parent or child failures remain unresolved.
+
+**R34: full decreasing inverse ancestry with actual coverage.** For canonical
+q, h=v3(q+1) and eta(q)=2^h(q+1)/3^h-1 describe every strictly decreasing
+canonical inverse edge. They give a nonpositive bridge to the unique local
+minimum, not to a global ancestor minimum. Applying this to R26's canonical
+return recognizes supplied forward history through an explicit lower seed.
+The recognized target q lies in R29's known closure; the originating x still
+uses its separate R26 bridge and need not already lie there.
+
+The cylinder x19199 modulo65536 certifies the new root84735 at N65536,
+using p45243 below the cutoff although the old return67865 exceeds it.
+For every inverse depth h>=2, another complete cylinder has p<(2/3)x
+and old return q>x, with q/x unbounded across the families. Every actual
+R_N source in it therefore has p<N. Its exact
+weighted count has leading term25N/(72*2^K) and error at most6 for each
+fixed family. Both source weights occur on required rays; a full171-row
+weight2 certificate is stored. The whole extended rule also has an exact
+finite CRT count. It leaves every even-d return unchanged, and no leading
+coefficient for its full residual or uniform density for the family union
+is claimed.
+
+**R35: the missing comparison is explicit.** Every complementary root's
+smaller-half path reaches w after its prescribed first run. The remaining
+source is delta_f-delta_w, a finite sum of tripling pairs and, for even d,
+one doubling pair. The helper parameters can exceed the original source
+without bound. Universal doubling-pair currents are themselves equivalent
+to Collatz by strong induction, so the two formal types do not supply a
+decreasing universal construction.
+
+Even granting every tripling pair in the3-modulo8 domain, the static graph
+of those pairs plus elementary identities has an exact decreasing component
+label. It leaves an infinite actual a3-modulo16 Mersenne family unresolved
+after its first run. This is an operation-set obstruction only; arbitrary
+ordinary arrows and other proof methods are outside it.
+
+**R36: dynamic bridges cross that static boundary.** The complete domains
+w17 modulo128 and w105 modulo256 reduce to smaller3-modulo8 children,
+adding the child current in both cases. Their clock increments are1 and2.
+Every complete mixed child cylinder has a branch A parent; branch B
+requires the child origin to be11 modulo16. In the
+a3-modulo16 Mersenne family, the classes a1699 and a659 modulo4096 now
+merge with their smaller halves at times a+4 and a+5 respectively, despite
+unbounded old return heights. These are consistent with R35 because they
+use additional ordinary arrows. The a659 supplied-input conversion has3200
+rows; the small stored current for315 has11. The example a147 still returns
+an unresolved child, so the new entries do not complete that missing domain.
+
+### Verification and external state
+
+All four focused checkers and independent model proof/code audits passed.
+The full `python3 scripts/verify_all.py --cpp` gate also passed, including
+the four new checkers and all previous repository checks. The new checks
+include4096 mixed-pair inputs and510 mixed cylinders;4096 inverse targets,
+2048 return branches and eight exact full-profile counts; the complete
+bounded static pair graph and integrality-preserving parameter cases; and
+4096 missing-domain inputs,213 complete cylinders and71 exponent lifts.
+Current conversions retain all source weights and supplied-input boundaries.
+
+The full gate passed again after adding the external reproduction record.
+The existing LaTeX source compiled successfully in the desktop editor.
+All218 local Markdown links across ten integration and proof files resolve;
+the TeX has no undefined references or duplicate labels. All29 changed or
+new files use LF endings. Independent review of the integrated mathematics
+passed, including the explicit inverse-profile cutoff domain. Final staged
+review and authorized delivery are recorded by the accompanying Git history.
+The optional feed pin at batch start was unchanged
+`d2d85e1e49f0018a648c6daadc4fc93290c0d107` and was read only. A subsequent
+remote check after the user's PR report found origin/main still at64fff1d
+and only merged PR1, atba6b337, already an ancestor. The newer side-feed
+read at `e3111d3b74e410cd300b01b842c57bbc5e32d058` reports checks of R30–R32
+and accepts R32's scope correction. Its new source and both pinned dependencies
+were inspected and reproduced unmodified in temporary storage; the published
+receipt matches exactly. The [hashed reproduction record](side_lane_review_e3111d3.json)
+also records independent checks of the sharper main clocks.
+Its recursion index is shifted by one: the reported checks for
+199/455 use clock a+6 where the main prescribed clock is a+3, and2887
+uses a+9 instead of a+6. Equality at those later times is compatible with
+the earlier mergers; it is a weaker clock check, not a contradiction.
+
+### Decision and next obligation
+
+Extend the exact pair rules to their remaining domains, with a decreasing
+parameter or another finite progress argument on every accepted rewrite.
+Keep ordinary arrows available when a static identity component is exhausted.
+The general half-seed decomposition specifies which signed comparisons still
+need currents, but neither its finite number of formal types nor binary
+coverage measures supplies those currents. Inverse ancestry can recognize
+additional known targets while leaving the even-d obstruction explicit.
+
+The required next theorem is universal coverage of a sufficient complementary
+root family from already supplied smaller inputs, preserving signs, source
+weights and clocks. All present recognizers can terminate unresolved. This
+batch is constructive progress; it does not complete that theorem or prove
+Collatz, and no novelty claim is made.

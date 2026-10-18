@@ -1,0 +1,3630 @@
+{
+  "status": "PASS",
+  "scope": "Two partial 1-mod-8 pair branches; universal coverage open",
+  "direct_domains": {
+    "inputs": 4096,
+    "A": 256,
+    "B": 128,
+    "parent_unresolved": 3712,
+    "accepted": 95,
+    "child_unresolved": 289
+  },
+  "mixed_cylinders": [
+    {
+      "kind": "A",
+      "depth": 0,
+      "offset": 0,
+      "bits": 11,
+      "clock": 4,
+      "rows": 9,
+      "sha256": "cb7cee7ddce03c4b82ef9484f82bceb960ec142ce60a4174c8f58e08193b81b5"
+    },
+    {
+      "kind": "A",
+      "depth": 0,
+      "offset": 1,
+      "bits": 12,
+      "clock": 4,
+      "rows": 9,
+      "sha256": "ca46322488fec496791e83a134ee9099f90bffa1bf14825a9baaf21617f78631"
+    },
+    {
+      "kind": "A",
+      "depth": 0,
+      "offset": 7,
+      "bits": 14,
+      "clock": 4,
+      "rows": 9,
+      "sha256": "6bab52258b051ff8cbef3eadf723b82d0934a8d7018c231328375cbdcbf7ebcf"
+    },
+    {
+      "kind": "A",
+      "depth": 1,
+      "offset": 0,
+      "bits": 14,
+      "clock": 5,
+      "rows": 11,
+      "sha256": "152e6bfe88d81cd56523320cec225c4722bfd961de1aae7dae76d5f7bdb52ca7"
+    },
+    {
+      "kind": "A",
+      "depth": 1,
+      "offset": 1,
+      "bits": 15,
+      "clock": 5,
+      "rows": 11,
+      "sha256": "ffa1d5ec503f417b810685fc9373778e68b1b54ff4d575a9f68f02ab5aee2cbd"
+    },
+    {
+      "kind": "A",
+      "depth": 1,
+      "offset": 7,
+      "bits": 17,
+      "clock": 5,
+      "rows": 11,
+      "sha256": "538c4e4ee050ca4ce093e9ec86ecbe90d7c2d106e6ba170164fc41f3ba4c6b6f"
+    },
+    {
+      "kind": "A",
+      "depth": 1,
+      "offset": 0,
+      "bits": 18,
+      "clock": 7,
+      "rows": 15,
+      "sha256": "ad6f0e8c604b68511dcdf5384093a942466f55086ee00150734983876414b52e"
+    },
+    {
+      "kind": "A",
+      "depth": 1,
+      "offset": 1,
+      "bits": 19,
+      "clock": 7,
+      "rows": 15,
+      "sha256": "28cd08ab5a80978c31f3e08e4049c1e302deaaf86233d6c06b71d109b83f8654"
+    },
+    {
+      "kind": "A",
+      "depth": 1,
+      "offset": 7,
+      "bits": 21,
+      "clock": 7,
+      "rows": 15,
+      "sha256": "cde519513b025c8a1a9a03cd302d7c2dc8992bbdfc0ec43dfdb356e58ec1f797"
+    },
+    {
+      "kind": "A",
+      "depth": 1,
+      "offset": 0,
+      "bits": 19,
+      "clock": 7,
+      "rows": 15,
+      "sha256": "d22ff3f871ea62656e1ef247c188939d84081fa9b371f2e8882abbf071ab91c0"
+    },
+    {
+      "kind": "A",
+      "depth": 1,
+      "offset": 1,
+      "bits": 20,
+      "clock": 7,
+      "rows": 15,
+      "sha256": "391723ad9f1c4f2531d2260fa4fb63340fd3a5462c34c63db58e3a8bfc61a060"
+    },
+    {
+      "kind": "A",
+      "depth": 1,
+      "offset": 7,
+      "bits": 22,
+      "clock": 7,
+      "rows": 15,
+      "sha256": "3dbdbb4e29625ea97e3602f7154426f15684f8d3316225b9b5f3047d83156289"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 0,
+      "bits": 17,
+      "clock": 6,
+      "rows": 13,
+      "sha256": "fe9fc0b6db7086708b84538c8ab4e2cb9ef4638073634ca012d764cf6494212b"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 1,
+      "bits": 18,
+      "clock": 6,
+      "rows": 13,
+      "sha256": "38379057808fd7015cfd7ad9a55e3214684089fdc459f58edca6b17b9f5ef7b2"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 7,
+      "bits": 20,
+      "clock": 6,
+      "rows": 13,
+      "sha256": "c867e5275eb1506f2b1910190904b93b7019e5fef35eab1c014ed4339fe9ed30"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 0,
+      "bits": 20,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "3310fa2f4afa64474ff2d814850ebfb5d77284f0e447842abae4e49c54fe33b4"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 1,
+      "bits": 22,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "3978e02ffabea278e4c2ab540f43d9c17b8b9cd6d00882f62de2c6f1a2dd1953"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 7,
+      "bits": 24,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "09afc519988b72b2dbd574d69a10a2d39520522de1c33ccf3bb12613aed94a33"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 0,
+      "bits": 22,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "938f1983cb409ac83e608e62c4df1152c01a20616ceb57f50bcbe2417df8dfa0"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 1,
+      "bits": 23,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "2ac998d9ea015834afe51d2ce7d4762d5b8e9fff2b1d29f575238f84ba55d244"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 7,
+      "bits": 25,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "03183b68a455a2d2352e02965023257348293d1665ce060d345d031cf0405ee4"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 0,
+      "bits": 21,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "823eec647b7d196a0aa4c3ef6597aa2b9b749f12a2fdf066142ea7afa21a9be8"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 1,
+      "bits": 22,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "5b065f36580ba866f206c49dd02937511723b442ad44c2c788977c14bcf4d68b"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 7,
+      "bits": 24,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "6c035871d74b01483427180676f1f4df142b13ff7ba0e9e7b5b0f0e29c7b84dd"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 0,
+      "bits": 23,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "488bd1e6c0c704e26d9f82b83586efc1bed686dceb3c853c8af1ade19916a25b"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 1,
+      "bits": 26,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "6e5dfcc9518343fba48ec0fd0c87326eccc3648398304f057f9411b9f9c7a938"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 7,
+      "bits": 28,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "d318f1304a1d5a475c37e9215a5a5c0be7ff29191e79b9f9edf4ea2eb84489bb"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 0,
+      "bits": 26,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "cb4eae5b7c946f0333d8148e7c3cc8b7f3d1708164a8a1792bf320d15b3838c4"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 1,
+      "bits": 27,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "af3a6bc845f52b2d6259ddbc692fc6c9dfc1cb95f4f4bc3b919604b88fa18363"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 7,
+      "bits": 29,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "c671c60cfc936ca103174c13b72cc235c05f61cacb619416704d1ebfeef94bda"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 0,
+      "bits": 15,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "4db1dc1d14ee3a9277084164950eed6b90514ed53011351c72bc1fde8f086118"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 1,
+      "bits": 23,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "865613e4561cf873f69f0b619926deac1194b31ffe1e596a8beecb71b28576fc"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 7,
+      "bits": 25,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "3dfabf9ea69f86f229bd4b446104cce814d03351ac528c4eae18435512d1260e"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 0,
+      "bits": 26,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "6e95eb73219a210ec72d15de61a193705ef2da9f20c16c8549a9822884145bdf"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 1,
+      "bits": 27,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "db6fec4eef2dfda0c182aac1560e3e059e4f76e02f8ff6028228eb3b2cdbccf1"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 7,
+      "bits": 29,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "33d17fc403da61bb8406c30ca991e3a31da1379c0489a4b22ca60fded7b58cd9"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 0,
+      "bits": 23,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "4aa9b4a7eef79777d695737d8fb422c7653abd71fe4b0d8866bc397465125acd"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 1,
+      "bits": 28,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "69fd70d44fb77e6d83e065511999de6772a442b3806f248a75fe161c4a110093"
+    },
+    {
+      "kind": "A",
+      "depth": 2,
+      "offset": 7,
+      "bits": 30,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "5c0557e9746da01ebb4a94a350c959a45b7d35bb4680ce5a2d00660d7b9b5dd6"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 18,
+      "clock": 7,
+      "rows": 15,
+      "sha256": "9c183781ca776fa8ad7e0eb397c53517f1179807b4dab2a5aeb340d5ece01908"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 21,
+      "clock": 7,
+      "rows": 15,
+      "sha256": "85d6d29f46aa21936d85000b6fb9c96b76feb66c9832762670f221448e897deb"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 23,
+      "clock": 7,
+      "rows": 15,
+      "sha256": "9b5262b1daa0a64f95d618f05888010f66bdf7fc00b7644be17695db60e48e07"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 23,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "4144984aa07de88284160d05f4f4b9794c8c9e4704da19039e65a6578e7c6ce5"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 25,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "dd1cdfcdfba48b89c1424f44cc173f2f86e935d0c8560d7a0227f68f02a44991"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 27,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "5035943bfbed74efe654f0154b6a955c1945487450af0ae57e4d340c7b0d941f"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 24,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "ef759ab2532e7fbdc5402f31fbb992a12f334b1f31e9723c052cfce73489520a"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 26,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "09eb7a9c72fbde07c34622c70ab73bafde29636489d57d81963ecf9323357876"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 28,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "a7d277779bffa5199b5fe8916d47a513611199d698214ef1d2dc7a7ebe03e6d1"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 22,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "972af1f8501bc35b27cc3e86d93aae95df3584851f1c598a3e4cf81e3dffe53c"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 25,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "39129c32d257cd728470c136f92230d0b0c0d4bf6104743f4af814e58674e4a0"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 27,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "d9c8ea6decf6d1106c2983939dd6852aee42c689080662670ffd1422c33f59fa"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 27,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "c2b3ed95c0613cadc81c619d6070958aae3d54bbf5b9ed8a58299f290bd6571d"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 29,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "a31f8553584e97e7e6f5bf43f3b88bbece9dfe8b8092a0bdf7d5b234afa22897"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 31,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "747dcc2576d2893d1f95bc4e8544f98fb756030760b3831530d64c65ea93becd"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 29,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "d6b6eba7ecdcedef744f81eb9d0562bda9d5d68196ad4ead48a1be4f7c26d7b3"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 30,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "6e3cdd52003e53fbeb9757f78608c88facc6a114c73f9f58d2742b158095bbf5"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 32,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "75f1b60ddf075abebc7ee1e100e506ee72ab71f58cdca406b0dae941c845d2f9"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 24,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "b5be8d7e98870242d6ac87936a9bb2ecf2027d04eac215e8399724fb0153200d"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 26,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "fbeac48bddcf6c87baf4f8ae9933375601030e81f4f7a8b485d8e839ffc15f2a"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 28,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "1e40bbd4c2e0e67e891fcf493414ad99bfd7278ec1a65bb9241731bd6838b648"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 28,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "1e0eede94a5e0124553768f4e8da359423258229e811eacb4594c4e099237bcd"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 30,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "2eeaa025967e1bef60ab45eda7840d6c5bf5310b7d4f9d3a7296e0c709787146"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 32,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "9957289f661ff592a78b58c212381fb73865238e4e2b92e6c856e89c7c6ef9e4"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 30,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "8a3ff647e767ba9b3e547b5e5cceff6efd01bfff0ab35154217ad67148c50b7e"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 31,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "83436fc51201687eeae8c0d9fe6d163885dbd77c849adb0f16131084893c6568"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 33,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "5857e369f83fa19d566d02f834b9246b3d9c017b4870ad50dc2ce6177ed666fa"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 23,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "061c17b36b659f84127fc27caaa76e54a5158c2e990310e5e905c7e9fa8dda95"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 25,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "4e8e30fa22e59982188edafe63c43581e1f67e81868fa0476279c4aca275332c"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 27,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "d8ed1a279f91f1c224755261a54be96b30537aa82c2bca73289654ab7cdd9154"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 27,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "c5fd30e1ee588f009f450581eb02d5a558fa9190247ddfa81fa7390ea5afdb33"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 29,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "7a5db05bbae49c8f195a941a2cc533a95e183d8e98bc2027f065c3999e36f93a"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 31,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "41e44b26a8c869c32b12d77901261713ae84824eb9571e25efdccd6c27110f6a"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 29,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "dee1869a21cc1367d13e73c337dadca4aefa2b1508946c67d595bbea5cc71a06"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 30,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "c815a6bfd96c3bc2437134db33ea02fab3728759d00af03fa3b5853c10634d69"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 32,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "ded33c54f73ec287350674ba73a18007a9b44423105d43a4cded1c8841280fce"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 26,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "1ebb7393b15543e82c85295e0ecc18619afca66928df4bd9e9035520b69f70d5"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 29,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "0c03a6bc57cf9ef9292c34aa8a4e2998b1145c30f7a3079dd1099c673e1f6d05"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 31,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "54b27ab43aead52cb448d8e41e547ee70a9af3f2f4baa3a1bcdda2f9c736b3cd"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 31,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "f216d36fae83688f5d3ca7da450337ec26505403c679eb767e7ac9327cc53dc0"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 33,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "cba3c0f5b8fc938696da79217b473bee919b31cfbca4a91cf2d1bd9c534ff04b"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 35,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "e33c26aa1d66b05f0989657b5a80fcf77e3ebd75d148d90924d91f9d5c570dea"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 33,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "9617996e73584b6aa00d31a21fe1d2787d3acbfa70139673aa78b2351b1ed960"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 34,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "801d845cdcc78a791c18cffceb5c48f80357d049da1ef8350de8bd1c617b03f1"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 36,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "26650b67dab40db20545a829a9247fc805eb4451b97a0ca308546fe13f9fb97e"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 27,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "44b5c18a416ba37a5159b45b43d2a7ad3d9ea6a1018dc5d5408ef4e3e24c35c8"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 30,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "df95fda646f7f62ffab0c3c21818ac744c0e8d0ffd9172fae171cb3f330ba832"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 32,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "5fc847ab674d2b10b293c2fc85490e5a5619ca1872da3c670fcd15e1dd1dd611"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 32,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "5f605115fba823fc8cde383eae6600db9e2bd885831a418ba935bc8646ceb8ec"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 34,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "630c90671ab32c04ba2f832a8a3674baf09cbc881e7dc0d9a0ded061342c42cd"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 36,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "566a9ecbe0fb309d055c9a75f64de385fcfa2f792369f4ee6c8cb37157e7eb09"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 34,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "a2eef1a2cbcc90813ddda71b1637faf92b0564b1b5f076c21075ce96b86b77f1"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 35,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "a9188a0378f9ceab036920918e3cb1dc431334fa7e494c8e0b8dbff3ad400e19"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 37,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "9dc0fa9fab50189ba35a9a6c15d87905f150db2f26827f5c649f73fb023baa88"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 25,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "c1d3f53c4732c0c3801c2966920f43c608a5598147d4dcb0941ed5b53e0ca969"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 26,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "cb5faf8ff3a5258ecd6edbb625f7413a76ef755106e8b484ad640935139f378e"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 28,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "4300a57fa2ab5c9dbe668ac16e3ded16fb362ee19732c5ad93f9684063d4b1ee"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 29,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "a93a5d340841558add171a6f513f60a165c34d181d2b60145f2989ae1feda375"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 30,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "e73ce5bc1c7974557111baeea529eb84aca1dfb4187e5d42e4fc599a129873bb"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 32,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "cc581b94ba69988a30102006f2be10b54d4f45033e3b4fc6b6b4832202ce1768"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 30,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "21a816b62229a30c3fa69446b69790ce031ed514d8b4350a15070a5d944e2b32"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 31,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "2fa1da5d87a6f4214de9ddb1a239c211d963f00ca0909cc381331558abd221ca"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 33,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "a3bc87fc61886a2b116517bfd438cdef6920fc976a24e62e75778097e5514f56"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 29,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "4baae18fefbbc2050f3d6d88a91c2af7595c9d3a6a3982d41e12f50787cb0756"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 30,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "cc8aba5ccf34e7ca921d05686954f267640525489efc8be91ff9692581a6ccab"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 32,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "bc044178aced754bf5c01a81a6101b2aa1f4f612e4606120202d84b7ad348fe9"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 33,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "c6d68399bea2fa9a71c3c25881fbe9d10ca32d621b556fa17baa6af1f140b7e8"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 34,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "93317e99515568b8c477aefeb178691da2eae8d02d672f3f01a26b23995e2116"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 36,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "2c6120665f6e4386b5e7373daf8bda4bc5eabdfe7faa5e4bf6b046ea3b800181"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 30,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "40740850da2ed0e793c22121f4d9e62ffec855a1189a49cb8661f0b67a82d871"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 35,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "da22e638a95b2c6e965829ee692b31191eafda1deea8f9f3829484da90723b94"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 37,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "2f6cc6dd52fccfc02c78686badb43dad0a7a171178b6c556ff9bc147b67b98d0"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 29,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "89b5dec7bc1fccbd5c15cb6a117573b006fce8a6d39eb103aad4239e6ca7205b"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 31,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "aa4c145d4679fdb4eb113933849474ad59b23fb6ef6480766c80dfeb894323d0"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 33,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "2a778a3fcb5c284e752d4eceb67a79b0970af6079a3fe44ed2049eb7d1b27c7f"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 33,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "0800e2cb78319e0f864354e6ea48aef47a9c94867f57a3a1e81fbc3b074b013f"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 35,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "8844fd3fa5850f1bbf2e6252a60128b9345491b204ca347650f7e35f4c89db3d"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 37,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "cb04bfba084d826c050b72de85c0309ebde70de6fa47d080e44fa6bef914bf50"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 0,
+      "bits": 34,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "afe33a0cf54950d358ae9efa00648a1599d21014b4c812115b1cb1feb0036969"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 1,
+      "bits": 36,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "b1120620c2090c0acce745a95fb79ea85aa90ca8d4ae9f7431adc802cddb9a01"
+    },
+    {
+      "kind": "A",
+      "depth": 3,
+      "offset": 7,
+      "bits": 38,
+      "clock": 13,
+      "rows": 27,
+      "sha256": "c4d630959b6eee3e3c0a8ea601ae5062227f40da7851e0b3c6c856df93bf0bfe"
+    },
+    {
+      "kind": "A",
+      "depth": 8,
+      "offset": 0,
+      "bits": 57,
+      "clock": 22,
+      "rows": 45,
+      "sha256": "40ab2b32655cbb2e1d99379a999b46f36ac0b7a9782862b3dcd009c5a697cebc"
+    },
+    {
+      "kind": "A",
+      "depth": 8,
+      "offset": 1,
+      "bits": 58,
+      "clock": 22,
+      "rows": 45,
+      "sha256": "45d02c574bda1ac127709eb4a0d1217696e89e7798e0a8cd4c64a5d7b48e25f3"
+    },
+    {
+      "kind": "A",
+      "depth": 8,
+      "offset": 7,
+      "bits": 60,
+      "clock": 22,
+      "rows": 45,
+      "sha256": "5c27e2e2bba0359311957e5079a94b442676f6c6442865dd6d670b7987153c36"
+    },
+    {
+      "kind": "A",
+      "depth": 16,
+      "offset": 0,
+      "bits": 104,
+      "clock": 40,
+      "rows": 81,
+      "sha256": "83913c621055b9be43702cd8c7f36b0d951817adea7ce96a59cc4f19605af57a"
+    },
+    {
+      "kind": "A",
+      "depth": 16,
+      "offset": 1,
+      "bits": 105,
+      "clock": 40,
+      "rows": 81,
+      "sha256": "6908fc4b9423a17d2e7db7d97762823324146d93185e015ddfa073dbc242f0db"
+    },
+    {
+      "kind": "A",
+      "depth": 16,
+      "offset": 7,
+      "bits": 107,
+      "clock": 40,
+      "rows": 81,
+      "sha256": "3907b4559e76249bf73e7ba312810bc989f9eded9e08e567e45e4f691b8b4627"
+    },
+    {
+      "kind": "A",
+      "depth": 32,
+      "offset": 0,
+      "bits": 198,
+      "clock": 78,
+      "rows": 157,
+      "sha256": "296315ceb30876ed8404d077022556c64a3f6287e13eef9ab76b0a873a4de180"
+    },
+    {
+      "kind": "A",
+      "depth": 32,
+      "offset": 1,
+      "bits": 202,
+      "clock": 78,
+      "rows": 157,
+      "sha256": "4b44c2962604902d34cab608bc42af8e92313e5508ee5895feccb3a6fe7e6cf8"
+    },
+    {
+      "kind": "A",
+      "depth": 32,
+      "offset": 7,
+      "bits": 204,
+      "clock": 78,
+      "rows": 157,
+      "sha256": "0338c8a55088445280d35f43154fc1f639a030970043426c6da22e61f90f7aaf"
+    },
+    {
+      "kind": "A",
+      "depth": 64,
+      "offset": 0,
+      "bits": 390,
+      "clock": 152,
+      "rows": 305,
+      "sha256": "5bea2efd3b98e02bff6998b809b0aa9fac76bad2c765aeacdb1781c533d8d450"
+    },
+    {
+      "kind": "A",
+      "depth": 64,
+      "offset": 1,
+      "bits": 393,
+      "clock": 152,
+      "rows": 305,
+      "sha256": "2dd2d5e85a997c10307aa3213c75951573c98cb6065668deb10aa65207a3a792"
+    },
+    {
+      "kind": "A",
+      "depth": 64,
+      "offset": 7,
+      "bits": 395,
+      "clock": 152,
+      "rows": 305,
+      "sha256": "13816385cedf60d9aafc46c7a53aba4e0ad1d6aa370624f82fa47843ae8419cb"
+    },
+    {
+      "kind": "B",
+      "depth": 0,
+      "offset": 0,
+      "bits": 7,
+      "clock": 5,
+      "rows": 11,
+      "sha256": "13ecc7f8f3683a5525b56c7dfb0738f38acf30868ce0a8b4b36c289326ca26bf"
+    },
+    {
+      "kind": "B",
+      "depth": 0,
+      "offset": 1,
+      "bits": 12,
+      "clock": 5,
+      "rows": 11,
+      "sha256": "6042c23a973af58bfa9ea56864cfde2869dd565fdf91ef9ba3b6d09dbd19e845"
+    },
+    {
+      "kind": "B",
+      "depth": 0,
+      "offset": 7,
+      "bits": 14,
+      "clock": 5,
+      "rows": 11,
+      "sha256": "bc3f41dc18b1e11bdde187d221aba658ad112fbc6faf36777611a32ccd9c3236"
+    },
+    {
+      "kind": "B",
+      "depth": 1,
+      "offset": 0,
+      "bits": 17,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "5cb225f0bd70ba71c38d33f9801ef8ee8ca348a714a4f2b46a49e4776642e387"
+    },
+    {
+      "kind": "B",
+      "depth": 1,
+      "offset": 1,
+      "bits": 19,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "a2c4164f3fa7e4f0c88adfd0c43d71e9277a538066d5cec15ee99457748eb532"
+    },
+    {
+      "kind": "B",
+      "depth": 1,
+      "offset": 7,
+      "bits": 21,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "897b22e5d4300ba218e20959345fde15586afea76dfa4d2f5e4868f266faacb1"
+    },
+    {
+      "kind": "B",
+      "depth": 1,
+      "offset": 0,
+      "bits": 18,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "645da93dc843a8c321bdd2012d7434bcf195f23e73160899d44d46eed368dfc2"
+    },
+    {
+      "kind": "B",
+      "depth": 1,
+      "offset": 1,
+      "bits": 20,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "8265907c6011efe07070f35a2367748e13a99975a9351a91d5afc8707a8903f5"
+    },
+    {
+      "kind": "B",
+      "depth": 1,
+      "offset": 7,
+      "bits": 22,
+      "clock": 8,
+      "rows": 17,
+      "sha256": "992dd27e4b054cb22d7ae09e43c0b239ac10bd5b0d75a8e969a7c0bd806b4793"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 0,
+      "bits": 16,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "014e9b82d5a80d6f479bd0e236fb0f5fcbc9ae167bef9d2ab30b619af8999329"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 1,
+      "bits": 22,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "957a2e53cc8379fa211f287c02d34589f79d54dcbd3bbaed5b6f18117fa32591"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 7,
+      "bits": 24,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "bace720bb077c06c436ad7e32451ce89e17543d3259de98e61ba6d4158612440"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 0,
+      "bits": 25,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "3846c25c75d3f20a691ec8c095530b27158e54fb6b05efb42904545da33f6f3c"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 1,
+      "bits": 26,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "cf7be2b34efaef864853e4ef26a6ecbf47e36f8a56c196d2e41173a37fa1d0e9"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 7,
+      "bits": 28,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "b75dc7f13d9ea7c215f03d81464ab27c267906944d9207142ce13e80382c542f"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 0,
+      "bits": 26,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "b5a6fa6c33eb1acdfeee3945f082e7158bb7018a1624d7479dd5993a08eedaa7"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 1,
+      "bits": 27,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "917ad95fc05e531a39e977b9789c04f0a6b6193e4508c910a13103aa70e6301a"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 7,
+      "bits": 29,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "ace97bbf7ce5f1acb7ffb203ea79036ab2a70bf888014d5de6e60760999686c5"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 0,
+      "bits": 22,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "bf88efee42aeb9928b8bd627a645b1a13d72dfcc8c5a343fb6084cb69c3e7177"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 1,
+      "bits": 23,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "75c00b30dbd3506efd3363ebd160a71f8691e2e868da05c5b436830744812b6a"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 7,
+      "bits": 25,
+      "clock": 9,
+      "rows": 19,
+      "sha256": "7f22037434f159c9884f8bf9324ea3ae94defd310ac33659d397d550133247e0"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 0,
+      "bits": 24,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "ae8f2af6d8f9841a3f32c42f9028270e2a2cb154feb1d093bdaf3a56fab1c393"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 1,
+      "bits": 27,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "3de35499affbc9e950c416af7cc7d5e66d59ff8c77cf1231fdde567362ee05c0"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 7,
+      "bits": 29,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "c118adc85062b5995783569747521963f72ab7c0db9e614a100452759ae57a78"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 0,
+      "bits": 26,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "02da5089265f85873126d3ae3ba48436ba7bbfb4623470e0888671bef8c6f4df"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 1,
+      "bits": 28,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "69fa5197c280982f474c849f373fdcf11f9d1d27a8111853f098511768b150d3"
+    },
+    {
+      "kind": "B",
+      "depth": 2,
+      "offset": 7,
+      "bits": 30,
+      "clock": 11,
+      "rows": 23,
+      "sha256": "01c217d31a98b7ba7524cb0a0b175bcd012b7e209b0b9feb2032cd0b32dde74e"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 23,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "dd94ce557385d6da9b7521e901d195118812116c09b8de78626156a043b677d3"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 25,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "7a2ee71130a184b94700be279bd4596673c27b01b91e2ead5a159fec46bc951c"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 27,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "98af82eea1507b5d5edf398fc52ac86f095e5904c7ef9a82233903ee6c3aa873"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 28,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "cb75cb2243f64b987b5e65a5211345535169b145ddcfdf41d951ad34dd624da2"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 29,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "cf41c2cec792add11319670b06679c7b4ebda5c772d8dd0ebc6f3ea071046225"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 31,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "7c8a6f3fab6b186e671d36ed34c756fe2301b10144633644c674d131084a7c51"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 29,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "b8392621411c0de3a4f7ae474eadd3c2744b6dd08a63f60e1d56c3dfceb257e2"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 30,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "89bfb148085ff460fd36e3e865d6c17071b9d4e5d6d40817b8196b0f85aaa51f"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 32,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "d5669bdb0821b36c7cdccbce5ca406479d8ac1622094aad3de90a634c59b841d"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 27,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "ee2836b184bfc462cc702fb19d05dac76aeb98f2216681297bbe70d6d27c86b5"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 29,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "e6de9c665048968072ad6872d86c7e18fe133488221d153e7b2c8838cef2a591"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 31,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "2a4b675c008de46bd5353d93e2711dffeb655b898105855f9a345519479da7b3"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 31,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "9f7e332acd5d9268b9b03f0d42eb246a26639252690611a2cf97c10930791644"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 33,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "02be83d08a8897aa3800ebb059e9d3874c2e798fcab958d82ba33a794d902241"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 35,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "534df64d1a149b1a825d45b680945ebb7bffd9559b6e71f2b8ff5971313bffe2"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 32,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "187bbaa1eb0babc4813440981cddd26921c9c41a363b091b5ee499836069bb8d"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 34,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "f4c9e5c7d023341d3ef70ff281854ef09126f3fb433d0803ad1903f73eafb3d8"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 36,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "c61df894a9f85d4e5599157652b8007b0f2f569b9b436d7471d7062788a1ae94"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 29,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "3da8a4ab174c185d698a6207c00c67beb6efd432e61a550e5f74de35dd81f6e8"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 30,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "e700e8f5cda18f7ec7b03f00099e5ed787abc34c675167f8e6024e1ccf21c430"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 32,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "fca0d4442ac5ecc436298f252b3c6b7c354486e3d5b21ea7a82aacaeaa55520d"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 31,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "64c4d1e18fcbd6e284772fd4765c73ff9e8ccd50ae9bbbe0a8370e7bad38882b"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 34,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "a51d46b8a1c086d2567c9c95a4db6eb6203e86642c4ca291205e88d06da02c70"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 36,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "b897516d45d117749f5f38fdb949d38d9773d10fb9ced38d42517b6ac421f5f7"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 34,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "a507c0224b57979ca503ca4342eb9591f1b69c5b94a395818ba32f97b9225deb"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 35,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "701db638a43a26aa311787507cc43d8e99346dff3632fd814453855450e2f356"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 37,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "731c1e3fc4976af52c2232fb0c8b90ddf9d001f14dd3f42d01e90d52f93763f7"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 22,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "0ca4a0086b3b6b342308c74e9172382687e19e8ab706433d210b505554a281a1"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 26,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "9c4ce70a48ddde8502f2fc75f76cfb59c0ca8c5f5cda30b2c734706e03ad5b31"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 28,
+      "clock": 10,
+      "rows": 21,
+      "sha256": "347fa84b8be47c743a98ead2e9994c732421efd3cef9ac8c37942b0477dfd127"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 28,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "2c2b50cc855d39e20189d42bf1ef9e5bf7d658501fae44df23c029299b85cdd6"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 30,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "f91e19392fbaec1de76f17f5ae77981ec1dd593e145277388545260c829ab121"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 32,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "aa3c82f53720c2b17db9fdb1480534050ca88fbd94cd73063f4149c4af411df0"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 29,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "dc378cd2587253fa9aa3aef5e2f0a6196991732e0036b45f582ec3e5a5a219c7"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 31,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "e58d79897db7360a50a695706797e9d83311f3f055d2a35e87d395eb630077ab"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 33,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "d89f3106ba9cd9c330fdee0c95e06b6057010a9fa892f5a8315ceb6db9725f02"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 29,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "e81c79a2611b16c5ce022409e81971348ddf5ba7ea8a2251b6143f77026d9296"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 30,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "4356eadab37dd58d7131a56025793e50be1371681453522b9938592263d6a1bb"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 32,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "fe7c82938117b6562a419c741f6b5071a85913e6da492e18af8a76d61926868f"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 32,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "8cdc89f92c9babf60c21f377159e9ce0265828e6d836ed91548949b707ffedae"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 34,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "01651e8e36c12de7e52930f7d83eac98d80e24080c66024797eca82c26e8572d"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 36,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "b299eb6195a92b125700c9c16e6f3e151c4fbaa0eba3646971b40e0453b289c0"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 34,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "e972dd1dd6bf54247ba8f88efe5dd720bf752af5fdb994e0270645a3ac3a610c"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 35,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "cd4cbb253e78cb9905beccacf4599c4629e3c4437f5b4d74948b6fb5008d2e3e"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 37,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "083181157bd943171c4f36caca076140309e127cae37d34b101793672bbe5517"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 29,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "f1a2c7eff8884f97b9bd7369c7d3d2eaa1bf758563ce24aa457dabd8c9205e45"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 31,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "37d95a7a3ec9246ddfd807da56a8f9907f107d75dc94267ec17a3835b730b638"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 33,
+      "clock": 12,
+      "rows": 25,
+      "sha256": "1020b456f62d0dc12859293af964735a3e6244f6bb315bebd04fa6a38b40a36b"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 34,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "b4b69ebb527bdc17930d3bd2ab8042909250264a5656410e96cf9cdbb7ce9088"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 35,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "3594762473baf0bdae4a76e8dc0abb0855db02e301e04bce783d35da9ebab973"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 37,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "989ade9d19d1cc65180d33d8efc45c78ed0fe015909413b2e4bb13b12fb00394"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 0,
+      "bits": 35,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "8dbb65fae16ab4030330b61494fd58c93700f5af89194f506cf9e2a78f9fe398"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 1,
+      "bits": 36,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "9965b00e2cf5bd2001e996cbe00e787f478a50fd1b50addbd955d8b9e4043e87"
+    },
+    {
+      "kind": "B",
+      "depth": 3,
+      "offset": 7,
+      "bits": 38,
+      "clock": 14,
+      "rows": 29,
+      "sha256": "d8a715f7aad2019b32da934bf024ab22ef567d10aaaec18c0437e196a6df00df"
+    }
+  ],
+  "exponent_lifts": [
+    {
+      "kind": "A",
+      "word": [],
+      "a": 1699,
+      "period": 4096
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 28579,
+      "period": 32768
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 360099,
+      "period": 524288
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 28323,
+      "period": 1048576
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 100259,
+      "period": 262144
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 896931,
+      "period": 4194304
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 4206499,
+      "period": 8388608
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 3341987,
+      "period": 4194304
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 8486563,
+      "period": 67108864
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 74022563,
+      "period": 134217728
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 8089251,
+      "period": 8388608
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 60321443,
+      "period": 134217728
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 57175715,
+      "period": 268435456
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 1951651,
+      "period": 2097152
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 15959971,
+      "period": 33554432
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 13600675,
+      "period": 67108864
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 7450531,
+      "period": 33554432
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 32354211,
+      "period": 536870912
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 28159907,
+      "period": 1073741824
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 42479523,
+      "period": 67108864
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 763375523,
+      "period": 1073741824
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 754986915,
+      "period": 2147483648
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 14089891,
+      "period": 33554432
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 374537891,
+      "period": 536870912
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 907214499,
+      "period": 1073741824
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 348225187,
+      "period": 536870912
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 4806770339,
+      "period": 8589934592
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 981565091,
+      "period": 17179869184
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 350846627,
+      "period": 1073741824
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 15710387875,
+      "period": 17179869184
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 8059977379,
+      "period": 34359738368
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 4419235,
+      "period": 67108864
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 389770915,
+      "period": 1073741824
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 1455124131,
+      "period": 2147483648
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 337145507,
+      "period": 1073741824
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 16770428579,
+      "period": 17179869184
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 26299887267,
+      "period": 34359738368
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 1416130211,
+      "period": 2147483648
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 4217925283,
+      "period": 34359738368
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 57636581027,
+      "period": 68719476736
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 50765785134378915,
+      "period": 288230376151711744
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 25375240659664286243563546455971,
+      "period": 40564819207303340847894502572032
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 6424337274162198351445760770978298090877475235890968430227363,
+      "period": 6427752177035961102167848369364650410088811975131171341205504
+    },
+    {
+      "kind": "A",
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 3840322068483037397942559416244008922067404599063974153370128122566254112973286927873813787349408900531219259798171555,
+      "period": 20173827172553973356686868531273530268200826506478308693989526222973809547006571833044104322501076808092993531037089792
+    },
+    {
+      "kind": "B",
+      "word": [],
+      "a": 659,
+      "period": 4096
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 408211,
+      "period": 524288
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 35475,
+      "period": 1048576
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 178835,
+      "period": 4194304
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 59914899,
+      "period": 67108864
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 25836179,
+      "period": 134217728
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 6916755,
+      "period": 8388608
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 101223059,
+      "period": 134217728
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 167283347,
+      "period": 268435456
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 5159571,
+      "period": 33554432
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 19053203,
+      "period": 536870912
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 107133587,
+      "period": 1073741824
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 106052243,
+      "period": 536870912
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 2039626387,
+      "period": 8589934592
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 5059525267,
+      "period": 17179869184
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 118110867,
+      "period": 1073741824
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 12575193747,
+      "period": 17179869184
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 1435122323,
+      "period": 34359738368
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 58821267,
+      "period": 67108864
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 422152851,
+      "period": 1073741824
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 598313619,
+      "period": 2147483648
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 596150931,
+      "period": 1073741824
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 7684524691,
+      "period": 17179869184
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 30904191635,
+      "period": 34359738368
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 1694010003,
+      "period": 2147483648
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 28755659411,
+      "period": 34359738368
+    },
+    {
+      "kind": "B",
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "E2",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 40835254931,
+      "period": 68719476736
+    }
+  ],
+  "actual_mersenne_bridges": [
+    {
+      "a": 659,
+      "clock": 664,
+      "rows": 1328,
+      "sha256": "433614f9533a2310f0cacb4af58c281d04c5c5db01dc95d280db25eccbea3f13"
+    },
+    {
+      "a": 1699,
+      "clock": 1703,
+      "rows": 3406,
+      "sha256": "98fd930a496ada4256a449f789ebc6dcd3bf57ad9d79d8365f2350569c51db72"
+    },
+    {
+      "a": 4755,
+      "clock": 4760,
+      "rows": 9520,
+      "sha256": "3a466e10902f72b393d38aa2eafef5b1300730174bdce9a84b92ffd667b27422"
+    },
+    {
+      "a": 5795,
+      "clock": 5799,
+      "rows": 11598,
+      "sha256": "453960890a256bf47697e5532a81415aa376e86db84f0c524f7f8b9ee1005022"
+    }
+  ],
+  "unresolved_exponent": 147,
+  "supplied_conversion": {
+    "a": 659,
+    "input_cap": 10000,
+    "input_rows": 3200,
+    "input_sha256": "8a2f8d14324ba68633cc0fe480ad842b523b60f467a94586ad917af4bdefd6d8",
+    "output_rows": 3200,
+    "output_sha256": "acea4aae664c022f2a9823c9f5e12c82772d3ea8e8bd41bdaf6053b08fafb539",
+    "weight2_checked": true
+  },
+  "small_current": {
+    "root": 315,
+    "lower": 105,
+    "rows": 11,
+    "sha256": "c8ce8aacfced2dd5a330d6c5923689359552b8b429ff856a1f7c113985dea776"
+  }
+}

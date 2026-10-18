@@ -341,3 +341,43 @@ retains the valid fixed-rule rate statements and refutes the inference
 that high future climbers must cancel while high. These results support
 the focused constructive pivot; they do not justify abandoning finite
 current certificates.
+
+## 11. Reassessment after the mixed paired rules
+
+The latest remote review still identifies PR1 as the only merged PR.
+Its merge commit `ba6b337` is an ancestor of current main `64fff1d`. The new
+optional feed at e3111d3b74e410cd300b01b842c57bbc5e32d058 independently
+checks concrete R30–R32 identities and accepts the scope corrections to
+its earlier merger claims.
+
+Its new batch probe was inspected and reproduced unmodified in temporary
+storage with both exact pinned dependencies and a 45-second process cap.
+The published receipt matches exactly: 10,922 paired-prefix cases, six
+repeated-word depths, four Mersenne comparisons, and three actual annular
+cancellation examples. Source hashes, dependency comparisons and outputs
+are in the [reproduction receipt](../../experiments/residual_progress/side_lane_review_e3111d3.json).
+These are finite implementation checks; the infinite statements depend
+on their written proofs.
+
+One clock correction matters. The external probe calls the a=199/455
+examples recursion depth 1 and a=2887 depth 2, one above main's depth labels.
+It tests valid equalities three steps after main's prescribed merger
+times. The sharper times 202, 458 and 2893, together with 47 for a=39, were
+independently checked here. No earliest-merger assertion follows.
+
+**Recommendation: continue the shrinking-comparison programme and make
+universal branch coverage the next decisive test.** R33 now permits mixed
+recursive words with a strictly decreasing integer parameter; R34 supplies
+complete inverse-ancestry families whose larger return is recognized from
+supplied smaller-seed history. R35 records exactly what the restricted
+identity catalogue misses and why an unrestricted doubling-pair premise
+would already be equivalent to Collatz. R36 then resolves explicit parts
+of that missing domain by additional dynamic comparisons. See the
+[current result ledger](../../docs/RESULTS.md).
+
+The parallel work supports the checks and preserves useful negative
+controls. It gives no reason to abandon finite signed certificates.
+The remaining proof obligation is a well-founded construction covering
+every unresolved branch, with exact signs, weights and input dependencies.
+The accepted recursive families, finite checks and local inverse rule
+do not yet supply that universal coverage.

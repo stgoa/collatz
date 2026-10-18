@@ -1,0 +1,653 @@
+{
+  "status": "PASS",
+  "scope": "Three complete shrinking branch domains; universal pair coverage open",
+  "w_domain": {
+    "first": 3,
+    "last": 32767,
+    "step": 8,
+    "cases": 4096,
+    "accepted": 831,
+    "old_accepted": 684,
+    "new_accepted": 147,
+    "unresolved": 3265
+  },
+  "branch_uses": {
+    "O": 165,
+    "E1": 9,
+    "E2": 5
+  },
+  "short_word_cylinders": {
+    "alphabet": [
+      [
+        "O",
+        0
+      ],
+      [
+        "O",
+        1
+      ],
+      [
+        "E1",
+        1
+      ],
+      [
+        "E2",
+        1
+      ]
+    ],
+    "max_length": 3,
+    "words": 85,
+    "terminal_k": [
+      1,
+      2
+    ],
+    "offsets": [
+      0,
+      1,
+      7
+    ],
+    "cases": 510
+  },
+  "long_word_cases": [
+    {
+      "depth": 1,
+      "pattern": [
+        [
+          "O",
+          0
+        ]
+      ],
+      "seed_bits": 9,
+      "current_rows": 9,
+      "sha256": "a7bf1ef8c656bd73415f40a56e51e661f2d9d371c0cb412c87169931bbbd5c94"
+    },
+    {
+      "depth": 1,
+      "pattern": [
+        [
+          "E1",
+          1
+        ]
+      ],
+      "seed_bits": 14,
+      "current_rows": 13,
+      "sha256": "8a4315205034dc3d032c3d57ae6868e73127dc6ce156ad7fb486ff773bd0f46f"
+    },
+    {
+      "depth": 1,
+      "pattern": [
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 15,
+      "current_rows": 13,
+      "sha256": "4efe7d7e5af20172442dbbfd5f4e8f0eb66cac49f342119691c4fa5c5b143e74"
+    },
+    {
+      "depth": 1,
+      "pattern": [
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 9,
+      "current_rows": 9,
+      "sha256": "a7bf1ef8c656bd73415f40a56e51e661f2d9d371c0cb412c87169931bbbd5c94"
+    },
+    {
+      "depth": 2,
+      "pattern": [
+        [
+          "O",
+          0
+        ]
+      ],
+      "seed_bits": 11,
+      "current_rows": 11,
+      "sha256": "3c9ef5d56dc925da88adb975f3ee306422dd2c3544e69a873c8410fd852a4ca2"
+    },
+    {
+      "depth": 2,
+      "pattern": [
+        [
+          "E1",
+          1
+        ]
+      ],
+      "seed_bits": 21,
+      "current_rows": 19,
+      "sha256": "7f22f678714401d9d44b3ce4d76ab70c39ebea44d46ba767c2e1f69f8a8d495b"
+    },
+    {
+      "depth": 2,
+      "pattern": [
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 21,
+      "current_rows": 19,
+      "sha256": "9d1c2ed48c519e5c86339f6e3be1030fd66e0aff81e7fdadc8ba04f8cd9c6b69"
+    },
+    {
+      "depth": 2,
+      "pattern": [
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 15,
+      "current_rows": 13,
+      "sha256": "328319ba0ebb31c7c6bd00ae6338db85fb2ba419f3796b383e8066bdef81a10d"
+    },
+    {
+      "depth": 4,
+      "pattern": [
+        [
+          "O",
+          0
+        ]
+      ],
+      "seed_bits": 18,
+      "current_rows": 15,
+      "sha256": "1d25958e84169990911736eba32bcd443416c36ba5b3da019d4ea168959069cb"
+    },
+    {
+      "depth": 4,
+      "pattern": [
+        [
+          "E1",
+          1
+        ]
+      ],
+      "seed_bits": 35,
+      "current_rows": 31,
+      "sha256": "5ca1827d954f4ad6257c92562dba64fbf00c2a30e37a8ce633533d4bc3c92fdc"
+    },
+    {
+      "depth": 4,
+      "pattern": [
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 33,
+      "current_rows": 31,
+      "sha256": "b12da851bcf2c911608f7365ac1a50b162c8f305525a922001fbca8bbe675e8f"
+    },
+    {
+      "depth": 4,
+      "pattern": [
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 29,
+      "current_rows": 25,
+      "sha256": "46a519fed9b47aea5191d117ce770d139cdd3b0973ba24dbd84ff6364d8306f0"
+    },
+    {
+      "depth": 8,
+      "pattern": [
+        [
+          "O",
+          0
+        ]
+      ],
+      "seed_bits": 30,
+      "current_rows": 23,
+      "sha256": "5671986f128fa4fdaec615c3aabee72a21f7c04cabbb80b78b5a99c7dd433d07"
+    },
+    {
+      "depth": 8,
+      "pattern": [
+        [
+          "E1",
+          1
+        ]
+      ],
+      "seed_bits": 63,
+      "current_rows": 55,
+      "sha256": "4f3d4d380438d26dd4a26b74e5067ab6ef487601749f5700a32a86beaf038965"
+    },
+    {
+      "depth": 8,
+      "pattern": [
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 71,
+      "current_rows": 55,
+      "sha256": "507dfb1dcf80bc699b1b331fd44ebba60bb3125d283c31f0a2978c39119a76ae"
+    },
+    {
+      "depth": 8,
+      "pattern": [
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 52,
+      "current_rows": 43,
+      "sha256": "ef6ded411513527c1a07931c5502591cd58f7602341d98de59699c58f48b98c9"
+    },
+    {
+      "depth": 16,
+      "pattern": [
+        [
+          "O",
+          0
+        ]
+      ],
+      "seed_bits": 54,
+      "current_rows": 39,
+      "sha256": "96fe07186f0f5c3fdc232a21a2f881085a5c7734948282098dc9a8742eabe73d"
+    },
+    {
+      "depth": 16,
+      "pattern": [
+        [
+          "E1",
+          1
+        ]
+      ],
+      "seed_bits": 119,
+      "current_rows": 103,
+      "sha256": "c72a65e553433454b51dfb101b7eb1d6d21869b2949b9fcaf8991fed19384646"
+    },
+    {
+      "depth": 16,
+      "pattern": [
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 135,
+      "current_rows": 103,
+      "sha256": "05ca3f2373f685c4fb9d4220063c5d5eb5a45c7c5321a55e437f2b3551314a00"
+    },
+    {
+      "depth": 16,
+      "pattern": [
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 96,
+      "current_rows": 79,
+      "sha256": "d602bf152944ab9f8007a96c6e3e8b24a7edf438b68d3905ef2abbdafaf0bed2"
+    },
+    {
+      "depth": 32,
+      "pattern": [
+        [
+          "O",
+          0
+        ]
+      ],
+      "seed_bits": 102,
+      "current_rows": 71,
+      "sha256": "6965f9d947f88deaf76a0814d8a9bff9e0b37891dcdc76df000efef4fd432cd8"
+    },
+    {
+      "depth": 32,
+      "pattern": [
+        [
+          "E1",
+          1
+        ]
+      ],
+      "seed_bits": 230,
+      "current_rows": 199,
+      "sha256": "39e5237a7e448a93be3c86496925254f846f6347feb8060d5d2b143ad2962e49"
+    },
+    {
+      "depth": 32,
+      "pattern": [
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 263,
+      "current_rows": 199,
+      "sha256": "0d89a2b2c4b3844d09e72fb9e96206c20fd64ead19ad9d5ac4b42ac4e1860326"
+    },
+    {
+      "depth": 32,
+      "pattern": [
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 191,
+      "current_rows": 151,
+      "sha256": "beafce12fc3a99e5b9ee183575685101f814dfc2c5491f8fdd587631eaf40233"
+    },
+    {
+      "depth": 64,
+      "pattern": [
+        [
+          "O",
+          0
+        ]
+      ],
+      "seed_bits": 198,
+      "current_rows": 135,
+      "sha256": "af0153b7649760c1c105b8f99faa71cc60cc762f9ecf0ddcc42d77e6da3e0501"
+    },
+    {
+      "depth": 64,
+      "pattern": [
+        [
+          "E1",
+          1
+        ]
+      ],
+      "seed_bits": 455,
+      "current_rows": 391,
+      "sha256": "f3ae5607cdb39ff74f50e9a6b97265340f8d50967366b3b2cf8d89b63c7d29a8"
+    },
+    {
+      "depth": 64,
+      "pattern": [
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 516,
+      "current_rows": 391,
+      "sha256": "16f2de3e5fdb5610bd3f283362039e15b384da6d9f366375a4231b24775c79c9"
+    },
+    {
+      "depth": 64,
+      "pattern": [
+        [
+          "O",
+          0
+        ],
+        [
+          "O",
+          1
+        ],
+        [
+          "E1",
+          1
+        ],
+        [
+          "E2",
+          1
+        ]
+      ],
+      "seed_bits": 374,
+      "current_rows": 295,
+      "sha256": "c5871a0c613592d2f903e1e3c8f04213922d7fe1c228b607dac2a33f58409b04"
+    }
+  ],
+  "exact_relative_binary_measures": {
+    "terminal": "1/6",
+    "recursive": {
+      "O": "1/6",
+      "E1": "1/96",
+      "E2": "1/192"
+    },
+    "accepted": "32/157",
+    "unresolved": "125/157"
+  },
+  "exponent_examples": [
+    {
+      "word": [
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 631,
+      "period": 2048,
+      "additional_clock": 4
+    },
+    {
+      "word": [
+        [
+          "O",
+          1
+        ]
+      ],
+      "a": 7143,
+      "period": 8192,
+      "additional_clock": 5
+    },
+    {
+      "word": [
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 3655,
+      "period": 32768,
+      "additional_clock": 6
+    },
+    {
+      "word": [
+        [
+          "E2",
+          1
+        ]
+      ],
+      "a": 2887,
+      "period": 65536,
+      "additional_clock": 6
+    },
+    {
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "E1",
+          1
+        ]
+      ],
+      "a": 75383,
+      "period": 262144,
+      "additional_clock": 7
+    },
+    {
+      "word": [
+        [
+          "E2",
+          1
+        ],
+        [
+          "O",
+          0
+        ]
+      ],
+      "a": 334663,
+      "period": 524288,
+      "additional_clock": 7
+    }
+  ],
+  "actual_mersenne_bridges": [
+    {
+      "a": 39,
+      "clock": 47,
+      "word": [
+        [
+          "E2",
+          3
+        ],
+        [
+          "terminal",
+          1
+        ]
+      ],
+      "current_rows": 94,
+      "sha256": "78c5d2df0f8a388b3dce4d42d1c6cc79a524070e5219ddfd17f784d21e8e2361"
+    },
+    {
+      "a": 631,
+      "clock": 635,
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "terminal",
+          1
+        ]
+      ],
+      "current_rows": 1270,
+      "sha256": "fbc0d6936e3f4e82a94ca7c3df45eb549d8eaca54ff81ed4da4ee150a56a2170"
+    },
+    {
+      "a": 2679,
+      "clock": 2683,
+      "word": [
+        [
+          "O",
+          0
+        ],
+        [
+          "terminal",
+          1
+        ]
+      ],
+      "current_rows": 5366,
+      "sha256": "6107ac77f4ef57ac68cb93213997d53c24674c5c1ed2a3ba1b2949e231f0ccf4"
+    },
+    {
+      "a": 3655,
+      "clock": 3661,
+      "word": [
+        [
+          "E1",
+          1
+        ],
+        [
+          "terminal",
+          1
+        ]
+      ],
+      "current_rows": 7322,
+      "sha256": "706117d4f5a3c15751fb55845df9965443f0514c8bbc639d796678ac2e70caec"
+    }
+  ],
+  "supplied_conversion": {
+    "a": 631,
+    "lower_cap": 5000,
+    "input_rows": 2817,
+    "input_sha256": "5da5a3caeeddadb104bd03a98c39dfbd8fc4fc56eb35961b35ed1c90615ebfa0",
+    "bridge_rows": 1270,
+    "summed_rows": 2817,
+    "output_rows": 2817,
+    "output_sha256": "7eb05d65dd4c2d6b66be13a51761c39077f3f133980f357d3df5bb0d83ddd8af",
+    "root_and_old_return_absent_from_supplied_elementary_saturation": true,
+    "weight_two_scaling_checked": true,
+    "output_uses_only_summed_rows": true
+  },
+  "rejected_unrestricted_odd_rule": {
+    "w": 19,
+    "z": 7,
+    "left_normal": 43,
+    "right_normal": 1
+  },
+  "unresolved_exponents": [
+    7,
+    23
+  ],
+  "small_current": {
+    "w": 499,
+    "rows": 9,
+    "sha256": "a7bf1ef8c656bd73415f40a56e51e661f2d9d371c0cb412c87169931bbbd5c94"
+  }
+}

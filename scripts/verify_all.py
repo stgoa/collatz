@@ -141,6 +141,10 @@ def main():
             ("second_return", "check_paired_return.py"),
             ("bounded_run_cycles", "check_bounded_runs.py"),
             ("merger_scope", "check_merger_scope.py"),
+            ("paired_completion", "check_mixed_pairs.py"),
+            ("inverse_ancestry", "check_inverse_ancestry.py"),
+            ("pair_scope", "check_pair_scope.py"),
+            ("pair_one", "check_pair_one.py"),
         ):
             run([sys.executable, "-B", script], residual_work / directory)
         # The review checker imports the annular arithmetic implementation;
@@ -198,6 +202,10 @@ def main():
                          shrinking_paired_returns="PASS: signed recursion, arbitrary-depth cylinders, exact merger clocks and supplied-current conversion",
                          bounded_run_growth="PASS: repeated words, fixed run labels, required-ray witnesses and exact currents",
                          merger_scope="PASS: exact successor bound, scoped escapes, early cancellation and external peak tables",
+                         mixed_pair_recursion="PASS: three shrinking branches, mixed cylinders, clocks and supplied-current conversion",
+                         decreasing_inverse_ancestry="PASS: complete chains, exact counts and unbounded-return lower-seed families",
+                         general_pair_scope="PASS: half-seed comparison, formal pair types and complete static catalogue components",
+                         missing_pair_domain="PASS: two 1-mod-8 entry rules, mixed cylinders and actual Mersenne conversions",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
 
 
