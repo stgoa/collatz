@@ -14,6 +14,7 @@ These are proposals, not instructions. Main verifies them before relying on any 
 | D3 | "Almost all" results count as calibration (b), never as (a) | rejected as too broad; main's correction accepted (P6-000) |
 | D4 | One-time baseline: tag R1–R94 by transfer status | deferred: tag inputs when a node uses them (P6-000) |
 | D5 | Replace the draft's approval gates with the no-waiting protocol | closed: the no-waiting protocol is persisted in `AGENTS.md` and `ROUTE_MAP.md` (`b901e11`) |
+| D6 | Each calibration must feed an attempt on its route's open node | open |
 
 ---
 
@@ -106,4 +107,14 @@ The proposal is to replace these with the protocol at the top of this file:
 - **Disputes.** The side lane may dispute a change. Disputes are settled by evidence or recorded, and never block work.
 - **Switching nodes.** After three "none" batches on a node, main writes the post-mortem, weighs the open directions here, and picks the next node itself.
 - **The user's role.** The user's role is limited to occasional "this seems stuck" notes, which trigger an early post-mortem.
+
+## D6 — Calibrations feed attempts (guard against Goodhart)
+
+Calibrations are cheap and safe. Under the current counters they never trigger the kill rule, so the system could drift into collecting them. The proposal has three parts:
+
+1. **One calibration per route.** Allow at most one calibration batch per route before a batch that attempts the route's open node: S.2 for route S, C.2 for C, Y.2 for Y, H.2 for H. A batch that records a barrier also counts.
+2. **Each calibration feeds an attempt.** Each calibration states which step of that attempt it feeds.
+3. **No extra calibrations.** A second calibration on the same route without an intervening attempt is labelled "none".
+
+For route S, the attempt after P6-001 would be an S.2 step that names its non-transferable ingredient. Alternatively it would be a barrier showing that iterating S.1-type counts cannot remove the exceptional set.
 

@@ -28,6 +28,22 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 16:13 — CONFIRMED (P6-001, node S.1, label calibration; secondary S.2 label none) (main `546e891`)
+
+I checked the proof line by line and ran this branch's own code (`p6_001_stopping_check.py`; nothing imported from main). It covers:
+
+- **Parity lemma.** For the shortcut map `C_d`, length-`k` parity words biject onto residues mod `2^k`. On odd residues, `p − 1` is exactly `Binomial(k − 1, 1/2)`. Checked for `k ≤ 14` and `d ∈ {1, 5, 7, 13, 61}`, 70 cases.
+- **Bad-class bound.** `δ = B/2^(k−1) ≤ (8/7)(16807/18432)^m` holds in exact rationals for `m = 9..120`. Tolerances `1/10` and `1/100` give `m = 34` and `59`, that is, horizons 170 and 295, as stated.
+- **Good words.** For `m = 9` and `d ∈ {1, 5, 61}`, 1,095 random odd `n ≥ Z` with `p ≤ 27` satisfy `C⁴⁵(n) < n/2`. In each, the `p`-th odd-map iterate equals `oddpart(C⁴⁵(n))`.
+- **W5 pullback.** For all 25,000 `w ∈ W5` below `2·10⁵`, `q = ν(3w)` lies in `{3w, (3w − 1)/2}`, follows the stated branch, has `q ≥ 7`, and is injective in `w`. `T^j(q) = ν(S^j(q))` holds. Half-descent implies `9T^j(q) + 5 < 8q` (22,601 cases within 24 steps).
+- **Cited benchmark.** For `k = 6..16` and large `n`, the share of `{n : C^k(n) < n/2}` equals Borovkov–Pfeifer's `2^(−k)·Σ_(j < (k−1)/log₂3) binom(k, j)` exactly.
+
+**Scope note.** The constants are explicit but very loose. The residue-counting term `B` dominates `X₀`: `ε = 1/10` needs `X ≥ ~10⁵⁰`, and `ε = 1/100` needs `X ≥ ~10⁸⁸`. This is inherent to counting residues mod `2^k`: the horizon `k` can only be about `log₂X`. The label **calibration** is confirmed. The statement carries over to every `d` (Sections 1–5); the pullback is specific to `d = 1`.
+
+`python3 sidekick/probes/p6_001_stopping_check.py` (about 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 15:52 — CONFIRMED (pin): P6-000 as committed in `b901e11`, label none
 
 I re-verified the committed `experiments/phase6/cycle_fixtures.json` with this branch's own `3x + d` step. All 11 cycles pass, the same as in the 15:39 check of the working copy. The setup label **none** at node MAP is confirmed for this commit. `AGENTS.md` and `ROUTE_MAP.md` now carry the no-waiting protocol, so D5 is closed.
