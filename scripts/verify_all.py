@@ -151,6 +151,10 @@ def main():
             ("w9_closure", "check_w9_closure.py"),
             ("critical_inverse", "check_critical_inverse.py"),
             ("joint_frontier", "check_joint_frontier.py"),
+            ("critical_rank", "check_rank_closure.py"),
+            ("returning_phase", "check_returning_phase.py"),
+            ("nonselected_inverse", "check_inverse_phases.py"),
+            ("inverse_escape", "check_inverse_escape.py"),
             ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
@@ -220,6 +224,10 @@ def main():
                          critical_nine_elimination="PASS: complete local interfaces, signed W5-only plans, input bounds and finite substitutions",
                          critical_inverse_phase="PASS: whole shrinking phase, exact self-dependency and complete inverse-branch arithmetic",
                          joint_positive_frontier="PASS: complete interfaces, growing prefixes and full-weight actual required-ray roots",
+                         critical_image_rank="PASS: W9 and absorption bounds, mixed signed closure and supplied input checks",
+                         returning_forward_phase="PASS: complete interface, scoped undo loops, decreasing subdomains and unbounded-run families",
+                         nonselected_inverse_phases="PASS: both base rays, exact rank thresholds, self-returns and increasing-index descent",
+                         variable_inverse_escape="PASS: two-block slope criterion, full depth4 classification and fixed-precision all-ray barriers",
                          external_sieve_gap="PASS: exact counterexample to the displayed set equality; no theorem refutation",
                          external_pair_controls="PASS: seven exact cycle witnesses, including three W5 pairs, and invariant-pairing obstructions",
                          scope="Finite audits only; universal current existence remains open."), indent=2))

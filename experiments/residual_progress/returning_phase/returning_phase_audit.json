@@ -1,0 +1,2293 @@
+{
+  "actual_current_tables": [
+    {
+      "current": [
+        [
+          11,
+          1
+        ],
+        [
+          13,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          19,
+          1
+        ],
+        [
+          29,
+          1
+        ],
+        [
+          35,
+          -1
+        ],
+        [
+          53,
+          -1
+        ],
+        [
+          59,
+          1
+        ],
+        [
+          67,
+          1
+        ],
+        [
+          89,
+          1
+        ],
+        [
+          93,
+          -1
+        ],
+        [
+          101,
+          1
+        ],
+        [
+          279,
+          1
+        ],
+        [
+          419,
+          1
+        ],
+        [
+          629,
+          1
+        ]
+      ],
+      "seed": 93
+    },
+    {
+      "current": [
+        [
+          13,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          23,
+          -1
+        ],
+        [
+          35,
+          -1
+        ],
+        [
+          53,
+          -1
+        ],
+        [
+          61,
+          -1
+        ],
+        [
+          91,
+          -1
+        ],
+        [
+          103,
+          -1
+        ],
+        [
+          137,
+          -1
+        ],
+        [
+          143,
+          -1
+        ],
+        [
+          155,
+          -1
+        ],
+        [
+          167,
+          -1
+        ],
+        [
+          175,
+          -1
+        ],
+        [
+          181,
+          1
+        ],
+        [
+          215,
+          -1
+        ],
+        [
+          233,
+          -1
+        ],
+        [
+          251,
+          -1
+        ],
+        [
+          263,
+          -1
+        ],
+        [
+          283,
+          -1
+        ],
+        [
+          319,
+          -1
+        ],
+        [
+          323,
+          -1
+        ],
+        [
+          325,
+          -1
+        ],
+        [
+          377,
+          -1
+        ],
+        [
+          381,
+          -1
+        ],
+        [
+          395,
+          -1
+        ],
+        [
+          425,
+          -1
+        ],
+        [
+          433,
+          -1
+        ],
+        [
+          445,
+          -1
+        ],
+        [
+          479,
+          -1
+        ],
+        [
+          485,
+          -1
+        ],
+        [
+          577,
+          -1
+        ],
+        [
+          593,
+          -1
+        ],
+        [
+          719,
+          -1
+        ],
+        [
+          911,
+          -1
+        ],
+        [
+          965,
+          1
+        ],
+        [
+          1079,
+          -1
+        ],
+        [
+          1143,
+          1
+        ],
+        [
+          1367,
+          -1
+        ],
+        [
+          1619,
+          -1
+        ],
+        [
+          1715,
+          1
+        ],
+        [
+          2051,
+          -1
+        ],
+        [
+          2429,
+          -1
+        ],
+        [
+          2573,
+          1
+        ],
+        [
+          3077,
+          -1
+        ]
+      ],
+      "seed": 381
+    }
+  ],
+  "actual_demonstrations": [
+    {
+      "current_hash": "41c8e4757112e3ee6a1e6955c9efac944466a3e3d80193955cdae4bd1bd4f0de",
+      "rank": 139,
+      "requests": [
+        [
+          5,
+          -1
+        ],
+        [
+          13,
+          1
+        ]
+      ],
+      "rows": 15,
+      "seed": 93
+    },
+    {
+      "current_hash": "6edcee72a142ae366999d31d228d9dc5c8a6513d6a7463e68586646dc49934b6",
+      "rank": 571,
+      "requests": [
+        [
+          5,
+          1
+        ],
+        [
+          21,
+          -1
+        ]
+      ],
+      "rows": 44,
+      "seed": 381
+    },
+    {
+      "current_hash": "b6f5a54d4176bc108427e64980f9f2e59f67c9418d5d9a851151b088d68762ab",
+      "rank": 1003,
+      "requests": [
+        [
+          5,
+          -1
+        ],
+        [
+          37,
+          -1
+        ],
+        [
+          141,
+          1
+        ]
+      ],
+      "rows": 35,
+      "seed": 669
+    },
+    {
+      "current_hash": "de18eb48de3c142796213e5fa9d7e480d4ba52e3cc3fa3f5182cfcc30050f12f",
+      "rank": 1435,
+      "requests": [
+        [
+          5,
+          1
+        ],
+        [
+          53,
+          -1
+        ],
+        [
+          269,
+          1
+        ]
+      ],
+      "rows": 41,
+      "seed": 957
+    },
+    {
+      "current_hash": "a9c504bc9331cc25cb57029ce1eaeac8353691bfdde7c46f6f51c629a73f3e97",
+      "rank": 1543,
+      "requests": [
+        [
+          5,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          61,
+          1
+        ]
+      ],
+      "rows": 22,
+      "seed": 1029
+    },
+    {
+      "current_hash": "41959b44fcb17c6a4dc75ea2f2602a2f607068d0ce70dbbed3ceac3a6de3e964",
+      "rank": 1867,
+      "requests": [
+        [
+          5,
+          1
+        ],
+        [
+          69,
+          -1
+        ]
+      ],
+      "rows": 38,
+      "seed": 1245
+    },
+    {
+      "current_hash": "1c11405488a2f62af2a5d98bf4c9a31e335c2379d0c739f3bb58af53e2da8c7b",
+      "rank": 2407,
+      "requests": [
+        [
+          85,
+          1
+        ],
+        [
+          677,
+          1
+        ]
+      ],
+      "rows": 27,
+      "seed": 1605
+    },
+    {
+      "current_hash": "42795b3be75aabd2ca64792688d94d8db46e4f38c0bd9f8a8c2f8cb6e3f9e0ad",
+      "rank": 2731,
+      "requests": [
+        [
+          61,
+          1
+        ],
+        [
+          101,
+          -1
+        ]
+      ],
+      "rows": 36,
+      "seed": 1821
+    },
+    {
+      "current_hash": "d4b6d7e2f0de784a89e4d7d6a9cf6868db69a8fe3595ae4de452cd21cc7b68dd",
+      "rank": 3595,
+      "requests": [
+        [
+          5,
+          -1
+        ],
+        [
+          21,
+          1
+        ],
+        [
+          133,
+          -1
+        ],
+        [
+          253,
+          1
+        ]
+      ],
+      "rows": 62,
+      "seed": 2397
+    },
+    {
+      "current_hash": "549fea27858bb9c9d291f763699fe7edbb5988a8a6a13d81601aa15718faadc3",
+      "rank": 4027,
+      "requests": [
+        [
+          5,
+          -1
+        ],
+        [
+          53,
+          1
+        ],
+        [
+          149,
+          -1
+        ]
+      ],
+      "rows": 53,
+      "seed": 2685
+    },
+    {
+      "current_hash": "b0d981eff08946773a5acafcbdd379a14f160cba285ab2f02ed61a817e3948c2",
+      "rank": 4135,
+      "requests": [
+        [
+          109,
+          1
+        ],
+        [
+          1309,
+          1
+        ]
+      ],
+      "rows": 75,
+      "seed": 2757
+    },
+    {
+      "current_hash": "d6f29e04db38bc9689f25941bac329471a0b32925afecaddd5108d92eb65f975",
+      "rank": 4459,
+      "requests": [
+        [
+          5,
+          1
+        ],
+        [
+          21,
+          -1
+        ],
+        [
+          165,
+          -1
+        ]
+      ],
+      "rows": 44,
+      "seed": 2973
+    }
+  ],
+  "bounds_checked": 2048,
+  "bounds_hash": "452426ef82bae99fc710085365092edc932326083ec1f40c9a43152ed7567252",
+  "caps": {
+    "actual_demonstration_count": 12,
+    "bound_seeds_max": 4095,
+    "family_a_values": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      64,
+      128
+    ],
+    "family_indices": [
+      0,
+      1,
+      7
+    ],
+    "input_discovery_bits": 512,
+    "input_discovery_steps": 10000,
+    "returning_seed_max": 32767
+  },
+  "categories": {
+    "10:unresolved": 1,
+    "11:unresolved": 1,
+    "3:descending": 87,
+    "3:unresolved": 27,
+    "4:descending": 27,
+    "4:unresolved": 30,
+    "5:descending": 7,
+    "5:unresolved": 21,
+    "6:descending": 4,
+    "6:unresolved": 11,
+    "7:descending": 1,
+    "7:unresolved": 6,
+    "8:unresolved": 3,
+    "9:unresolved": 2
+  },
+  "crt_family_examples": [
+    {
+      "current_hash": "77744ff197fca3771e7c74418c752c9e9f54223c00bfcb678c932a320d84901c",
+      "family": {
+        "a": 3,
+        "depth": 1,
+        "endpoint": 157,
+        "lowered_endpoint": 39,
+        "seed": 93,
+        "seed_period": 1152,
+        "seed_residue": 93,
+        "t": 35,
+        "t_period": 432,
+        "t_residue": 35
+      },
+      "input_count": 2,
+      "max_input_rank": 39
+    },
+    {
+      "current_hash": "aed40f2baa0ecc7bbd6b3274c0f10720aeb768e3f5ee313876158e275f50a8be",
+      "family": {
+        "a": 3,
+        "depth": 1,
+        "endpoint": 2101,
+        "lowered_endpoint": 525,
+        "seed": 1245,
+        "seed_period": 1152,
+        "seed_residue": 93,
+        "t": 467,
+        "t_period": 432,
+        "t_residue": 35
+      },
+      "input_count": 2,
+      "max_input_rank": 103
+    },
+    {
+      "current_hash": "cf7c18c011e6cba24fe1a5654ce4e3360095c852844c35fbbcacaa1b1a00668c",
+      "family": {
+        "a": 3,
+        "depth": 1,
+        "endpoint": 13765,
+        "lowered_endpoint": 3441,
+        "seed": 8157,
+        "seed_period": 1152,
+        "seed_residue": 93,
+        "t": 3059,
+        "t_period": 432,
+        "t_residue": 35
+      },
+      "input_count": 3,
+      "max_input_rank": 679
+    },
+    {
+      "current_hash": "9ecc1a8a04f85bfda5fb5090f45e28747c65f5028eab4f746dbe832edbbebfeb",
+      "family": {
+        "a": 4,
+        "depth": 1,
+        "endpoint": 2605,
+        "lowered_endpoint": 651,
+        "seed": 1029,
+        "seed_period": 2304,
+        "seed_residue": 1029,
+        "t": 193,
+        "t_period": 432,
+        "t_residue": 193
+      },
+      "input_count": 3,
+      "max_input_rank": 91
+    },
+    {
+      "current_hash": "c9c9e7f413e748bf5058b15ca2a0471ccc01ff63cb109d96a0d5434c6efeefbe",
+      "family": {
+        "a": 4,
+        "depth": 1,
+        "endpoint": 8437,
+        "lowered_endpoint": 2109,
+        "seed": 3333,
+        "seed_period": 2304,
+        "seed_residue": 1029,
+        "t": 625,
+        "t_period": 432,
+        "t_residue": 193
+      },
+      "input_count": 1,
+      "max_input_rank": 175
+    },
+    {
+      "current_hash": "8657a772d57cd8a299ce30b74c74c5f738a95d5913d993da5a1abd870fd56a1f",
+      "family": {
+        "a": 4,
+        "depth": 1,
+        "endpoint": 43429,
+        "lowered_endpoint": 10857,
+        "seed": 17157,
+        "seed_period": 2304,
+        "seed_residue": 1029,
+        "t": 3217,
+        "t_period": 432,
+        "t_residue": 193
+      },
+      "input_count": 3,
+      "max_input_rank": 4071
+    },
+    {
+      "current_hash": "091d1fcb8217e7d0e55def218a112200f10aaed0f9090e39dd6e1107482778a7",
+      "family": {
+        "a": 5,
+        "depth": 1,
+        "endpoint": 12109,
+        "lowered_endpoint": 3027,
+        "seed": 3189,
+        "seed_period": 4608,
+        "seed_residue": 3189,
+        "t": 299,
+        "t_period": 432,
+        "t_residue": 299
+      },
+      "input_count": 4,
+      "max_input_rank": 1135
+    },
+    {
+      "current_hash": "2e23daad7096f840842ab29db333b5af8aa9ec0999fc4c7c713dcde88d9bf6b9",
+      "family": {
+        "a": 5,
+        "depth": 1,
+        "endpoint": 29605,
+        "lowered_endpoint": 7401,
+        "seed": 7797,
+        "seed_period": 4608,
+        "seed_residue": 3189,
+        "t": 731,
+        "t_period": 432,
+        "t_residue": 299
+      },
+      "input_count": 3,
+      "max_input_rank": 5551
+    },
+    {
+      "current_hash": "26bcda81f17669c6bab7f8d7aeaca84084141530ac3fcb3f9c6199d567796df5",
+      "family": {
+        "a": 5,
+        "depth": 1,
+        "endpoint": 134581,
+        "lowered_endpoint": 33645,
+        "seed": 35445,
+        "seed_period": 4608,
+        "seed_residue": 3189,
+        "t": 3323,
+        "t_period": 432,
+        "t_residue": 299
+      },
+      "input_count": 4,
+      "max_input_rank": 5607
+    },
+    {
+      "current_hash": "200447e6d56fcb4abccc6602d10d95ab519fb40fe65dc7852b55a0cfed66626d",
+      "family": {
+        "a": 6,
+        "depth": 2,
+        "endpoint": 183829,
+        "lowered_endpoint": 11489,
+        "seed": 32277,
+        "seed_period": 36864,
+        "seed_residue": 32277,
+        "t": 1513,
+        "t_period": 1728,
+        "t_residue": 1513
+      },
+      "input_count": 4,
+      "max_input_rank": 3231
+    },
+    {
+      "current_hash": "6e238dbe67ccf2515d0b97292cc1b31a0b1deee1d43a6a5a689fd0a896a899fb",
+      "family": {
+        "a": 6,
+        "depth": 2,
+        "endpoint": 393781,
+        "lowered_endpoint": 24611,
+        "seed": 69141,
+        "seed_period": 36864,
+        "seed_residue": 32277,
+        "t": 3241,
+        "t_period": 1728,
+        "t_residue": 1513
+      },
+      "input_count": 2,
+      "max_input_rank": 1215
+    },
+    {
+      "current_hash": "b86fbdbbcc1b7f85eff369f82d5b33a07a6e59fd2f58ef26fed3fce55809d00c",
+      "family": {
+        "a": 6,
+        "depth": 2,
+        "endpoint": 1653493,
+        "lowered_endpoint": 103343,
+        "seed": 290325,
+        "seed_period": 36864,
+        "seed_residue": 32277,
+        "t": 13609,
+        "t_period": 1728,
+        "t_residue": 1513
+      },
+      "input_count": 3,
+      "max_input_rank": 68895
+    },
+    {
+      "current_hash": "0fb242ca7b499b6fdbd3375c5e1c08b1c58eb449db09c5d5db46131f942effe9",
+      "family": {
+        "a": 7,
+        "depth": 2,
+        "endpoint": 152725,
+        "lowered_endpoint": 9545,
+        "seed": 17877,
+        "seed_period": 73728,
+        "seed_residue": 17877,
+        "t": 419,
+        "t_period": 1728,
+        "t_residue": 419
+      },
+      "input_count": 3,
+      "max_input_rank": 4027
+    },
+    {
+      "current_hash": "5c0962b8bf98945a4046fbdfa6c1cae274cb05fade4b8f9ed7b625b2bbd8432d",
+      "family": {
+        "a": 7,
+        "depth": 2,
+        "endpoint": 782581,
+        "lowered_endpoint": 48911,
+        "seed": 91605,
+        "seed_period": 73728,
+        "seed_residue": 17877,
+        "t": 2147,
+        "t_period": 1728,
+        "t_residue": 419
+      },
+      "input_count": 4,
+      "max_input_rank": 16303
+    },
+    {
+      "current_hash": "62d50332e28c7b044bb2194829ea6cdcbd0d608c71cf21a771d325f3f5bd93ae",
+      "family": {
+        "a": 7,
+        "depth": 2,
+        "endpoint": 4561717,
+        "lowered_endpoint": 285107,
+        "seed": 533973,
+        "seed_period": 73728,
+        "seed_residue": 17877,
+        "t": 12515,
+        "t_period": 1728,
+        "t_residue": 419
+      },
+      "input_count": 6,
+      "max_input_rank": 10023
+    },
+    {
+      "current_hash": "fb2cb6a071315cdfe3ca394054772e89443551e4826107ac49de0e2822658bda",
+      "family": {
+        "a": 8,
+        "depth": 2,
+        "endpoint": 1365781,
+        "lowered_endpoint": 85361,
+        "seed": 106581,
+        "seed_period": 147456,
+        "seed_residue": 106581,
+        "t": 1249,
+        "t_period": 1728,
+        "t_residue": 1249
+      },
+      "input_count": 5,
+      "max_input_rank": 2251
+    },
+    {
+      "current_hash": "6ad37b337d2a64b6c4c51d00885d7f7895de89a445559c2df0de2d0e2692190c",
+      "family": {
+        "a": 8,
+        "depth": 2,
+        "endpoint": 3255349,
+        "lowered_endpoint": 203459,
+        "seed": 254037,
+        "seed_period": 147456,
+        "seed_residue": 106581,
+        "t": 2977,
+        "t_period": 1728,
+        "t_residue": 1249
+      },
+      "input_count": 4,
+      "max_input_rank": 57223
+    },
+    {
+      "current_hash": "8e70a67fb193a96a772643b93c292210540314dac3c1cbea2e835975a3320d72",
+      "family": {
+        "a": 8,
+        "depth": 2,
+        "endpoint": 14592757,
+        "lowered_endpoint": 912047,
+        "seed": 1138773,
+        "seed_period": 147456,
+        "seed_residue": 106581,
+        "t": 13345,
+        "t_period": 1728,
+        "t_residue": 1249
+      },
+      "input_count": 4,
+      "max_input_rank": 608031
+    },
+    {
+      "current_hash": "bb74c370370d08315ac1d7e862c45b19e1a850a599374e230be1e4931b69406f",
+      "family": {
+        "a": 9,
+        "depth": 2,
+        "endpoint": 1295797,
+        "lowered_endpoint": 80987,
+        "seed": 67413,
+        "seed_period": 294912,
+        "seed_residue": 67413,
+        "t": 395,
+        "t_period": 1728,
+        "t_residue": 395
+      },
+      "input_count": 4,
+      "max_input_rank": 53991
+    },
+    {
+      "current_hash": "3dfffb0bbc98b4518c2e81d029b799b682cd7ff1ad9ba3a01961ad0ece8a1db9",
+      "family": {
+        "a": 9,
+        "depth": 2,
+        "endpoint": 6964501,
+        "lowered_endpoint": 435281,
+        "seed": 362325,
+        "seed_period": 294912,
+        "seed_residue": 67413,
+        "t": 2123,
+        "t_period": 1728,
+        "t_residue": 395
+      },
+      "input_count": 5,
+      "max_input_rank": 40807
+    },
+    {
+      "current_hash": "2babfd7712df783319eff028575e4c0c76a389733ec5a61459614f0ec6f0ac05",
+      "family": {
+        "a": 9,
+        "depth": 2,
+        "endpoint": 40976725,
+        "lowered_endpoint": 2561045,
+        "seed": 2131797,
+        "seed_period": 294912,
+        "seed_residue": 67413,
+        "t": 12491,
+        "t_period": 1728,
+        "t_residue": 395
+      },
+      "input_count": 3,
+      "max_input_rank": 5551
+    },
+    {
+      "current_hash": "6a84069d3985e85e0abc61253f9c55cf602eb84b21d4f2ba3592529d427558e1",
+      "family": {
+        "a": 10,
+        "depth": 3,
+        "endpoint": 49374805,
+        "lowered_endpoint": 771481,
+        "seed": 1712469,
+        "seed_period": 2359296,
+        "seed_residue": 1712469,
+        "t": 5017,
+        "t_period": 6912,
+        "t_residue": 5017
+      },
+      "input_count": 6,
+      "max_input_rank": 10171
+    },
+    {
+      "current_hash": "a3c9de1efafdf9cc60a37fad8c11361d45d114f4e4518724110ab3aed4be3c70",
+      "family": {
+        "a": 10,
+        "depth": 3,
+        "endpoint": 117399253,
+        "lowered_endpoint": 1834363,
+        "seed": 4071765,
+        "seed_period": 2359296,
+        "seed_residue": 1712469,
+        "t": 11929,
+        "t_period": 6912,
+        "t_residue": 5017
+      },
+      "input_count": 5,
+      "max_input_rank": 1834363
+    },
+    {
+      "current_hash": "30cbd04c9492e46d3f7357e865873e7d1f3b405c09fd85d05ebf2c599ff176a1",
+      "family": {
+        "a": 10,
+        "depth": 3,
+        "endpoint": 525545941,
+        "lowered_endpoint": 8211655,
+        "seed": 18227541,
+        "seed_period": 2359296,
+        "seed_residue": 1712469,
+        "t": 53401,
+        "t_period": 6912,
+        "t_residue": 5017
+      },
+      "input_count": 5,
+      "max_input_rank": 8211655
+    },
+    {
+      "current_hash": "53e731e2fa1def3b9ab42b8b7715af23cf20fa97e30b49b71719c99824b153f1",
+      "family": {
+        "a": 11,
+        "depth": 3,
+        "endpoint": 198020821,
+        "lowered_endpoint": 3094075,
+        "seed": 4578645,
+        "seed_period": 4718592,
+        "seed_residue": 4578645,
+        "t": 6707,
+        "t_period": 6912,
+        "t_residue": 6707
+      },
+      "input_count": 7,
+      "max_input_rank": 3094075
+    },
+    {
+      "current_hash": "924a01cccf25de97b4d80e82d24e4e927b7045e29ef5b5a606d8566c2825f092",
+      "family": {
+        "a": 11,
+        "depth": 3,
+        "endpoint": 402094165,
+        "lowered_endpoint": 6282721,
+        "seed": 9297237,
+        "seed_period": 4718592,
+        "seed_residue": 4578645,
+        "t": 13619,
+        "t_period": 6912,
+        "t_residue": 6707
+      },
+      "input_count": 5,
+      "max_input_rank": 1767015
+    },
+    {
+      "current_hash": "7e1bc916ff2ec36ca42de8102e3471af89b3779a9e312347b5f27f09591c5ed7",
+      "family": {
+        "a": 11,
+        "depth": 3,
+        "endpoint": 1626534229,
+        "lowered_endpoint": 25414597,
+        "seed": 37608789,
+        "seed_period": 4718592,
+        "seed_residue": 4578645,
+        "t": 55091,
+        "t_period": 6912,
+        "t_residue": 6707
+      },
+      "input_count": 5,
+      "max_input_rank": 1963
+    },
+    {
+      "current_hash": "f90f24fee8b2970c320a0187719ecfcc748a85330f3cf8accd21379032e38893",
+      "family": {
+        "a": 12,
+        "depth": 3,
+        "endpoint": 523026517,
+        "lowered_endpoint": 8172289,
+        "seed": 8062293,
+        "seed_period": 9437184,
+        "seed_residue": 8062293,
+        "t": 5905,
+        "t_period": 6912,
+        "t_residue": 5905
+      },
+      "input_count": 4,
+      "max_input_rank": 242415
+    },
+    {
+      "current_hash": "b7fea27dae78916901265615b54a0808f8bda07de3d648687572a55ee0afae40",
+      "family": {
+        "a": 12,
+        "depth": 3,
+        "endpoint": 1135246549,
+        "lowered_endpoint": 17738227,
+        "seed": 17499477,
+        "seed_period": 9437184,
+        "seed_residue": 8062293,
+        "t": 12817,
+        "t_period": 6912,
+        "t_residue": 5905
+      },
+      "input_count": 5,
+      "max_input_rank": 6651835
+    },
+    {
+      "current_hash": "c718f5d3e752d7d54170d442d1b73cd82fde6bc66f3877a3f983f964830c76a2",
+      "family": {
+        "a": 12,
+        "depth": 3,
+        "endpoint": 4808566741,
+        "lowered_endpoint": 75133855,
+        "seed": 74122581,
+        "seed_period": 9437184,
+        "seed_residue": 8062293,
+        "t": 54289,
+        "t_period": 6912,
+        "t_residue": 5905
+      },
+      "input_count": 6,
+      "max_input_rank": 75133855
+    },
+    {
+      "current_hash": "9a50bba10c3333849062d9bd2e764326b4f65a811877b321b2120aea4a7f36b7",
+      "family": {
+        "a": 13,
+        "depth": 4,
+        "endpoint": 1928865109,
+        "lowered_endpoint": 7534629,
+        "seed": 19821909,
+        "seed_period": 75497472,
+        "seed_residue": 19821909,
+        "t": 7259,
+        "t_period": 27648,
+        "t_residue": 7259
+      },
+      "input_count": 6,
+      "max_input_rank": 1412743
+    },
+    {
+      "current_hash": "a475c4065b5dd6b3b84d3f41db611d31d98f72a186229ec8742c052467b33cce",
+      "family": {
+        "a": 13,
+        "depth": 4,
+        "endpoint": 9275505493,
+        "lowered_endpoint": 36232443,
+        "seed": 95319381,
+        "seed_period": 75497472,
+        "seed_residue": 19821909,
+        "t": 34907,
+        "t_period": 27648,
+        "t_residue": 7259
+      },
+      "input_count": 8,
+      "max_input_rank": 40761499
+    },
+    {
+      "current_hash": "0e5971325da0868de880344319ec0a1a798c42f0d028c6a8025eea29d1c3fccf",
+      "family": {
+        "a": 13,
+        "depth": 4,
+        "endpoint": 53355347797,
+        "lowered_endpoint": 208419327,
+        "seed": 548304213,
+        "seed_period": 75497472,
+        "seed_residue": 19821909,
+        "t": 200795,
+        "t_period": 27648,
+        "t_residue": 7259
+      },
+      "input_count": 7,
+      "max_input_rank": 208419327
+    },
+    {
+      "current_hash": "f4b6e1f70eb9b13a36497b7091e99a30efb259af7673efb6891222a72c2e382a",
+      "family": {
+        "a": 14,
+        "depth": 4,
+        "endpoint": 16894243669,
+        "lowered_endpoint": 65993139,
+        "seed": 115742037,
+        "seed_period": 150994944,
+        "seed_residue": 115742037,
+        "t": 21193,
+        "t_period": 27648,
+        "t_residue": 21193
+      },
+      "input_count": 7,
+      "max_input_rank": 2320071
+    },
+    {
+      "current_hash": "0d0d750d7fe9f72e0917f34ef7cc5d782bdd5a5051571cef4b4b8230fcd5fcb1",
+      "family": {
+        "a": 14,
+        "depth": 4,
+        "endpoint": 38934164821,
+        "lowered_endpoint": 152086581,
+        "seed": 266736981,
+        "seed_period": 150994944,
+        "seed_residue": 115742037,
+        "t": 48841,
+        "t_period": 27648,
+        "t_residue": 21193
+      },
+      "input_count": 5,
+      "max_input_rank": 111391
+    },
+    {
+      "current_hash": "304fbef2c22853fb9ea18ef5532ed88e0e5be1ab2b5a3f7a860f4250cd90a318",
+      "family": {
+        "a": 14,
+        "depth": 4,
+        "endpoint": 171173691733,
+        "lowered_endpoint": 668647233,
+        "seed": 1172706645,
+        "seed_period": 150994944,
+        "seed_residue": 115742037,
+        "t": 214729,
+        "t_period": 27648,
+        "t_residue": 21193
+      },
+      "input_count": 8,
+      "max_input_rank": 17630347
+    },
+    {
+      "current_hash": "595227eb66662de2552e33f68bc5e8d077254f400e98aa75f9eb1b6fa2a5cf58",
+      "family": {
+        "a": 15,
+        "depth": 4,
+        "endpoint": 50362272085,
+        "lowered_endpoint": 196727625,
+        "seed": 230020437,
+        "seed_period": 301989888,
+        "seed_residue": 230020437,
+        "t": 21059,
+        "t_period": 27648,
+        "t_residue": 21059
+      },
+      "input_count": 9,
+      "max_input_rank": 8753323
+    },
+    {
+      "current_hash": "6a90ace1574cb688401e39b50bebcb6f4cccb8348d016b921a83ced6c9aacb6f",
+      "family": {
+        "a": 15,
+        "depth": 4,
+        "endpoint": 116482035541,
+        "lowered_endpoint": 455007951,
+        "seed": 532010325,
+        "seed_period": 301989888,
+        "seed_residue": 230020437,
+        "t": 48707,
+        "t_period": 27648,
+        "t_residue": 21059
+      },
+      "input_count": 8,
+      "max_input_rank": 227503975
+    },
+    {
+      "current_hash": "5426c9a63d49ac3a22223147644ba6196324019ad2fa0d981feaf228ba0dd0d9",
+      "family": {
+        "a": 15,
+        "depth": 4,
+        "endpoint": 513200616277,
+        "lowered_endpoint": 2004689907,
+        "seed": 2343949653,
+        "seed_period": 301989888,
+        "seed_residue": 230020437,
+        "t": 214595,
+        "t_period": 27648,
+        "t_residue": 21059
+      },
+      "input_count": 7,
+      "max_input_rank": 751758715
+    },
+    {
+      "current_hash": "151dfdd20ab4590c5b264c4e3dc4905d85e4e853e817cdc5fe2d23488d144bc1",
+      "family": {
+        "a": 16,
+        "depth": 4,
+        "endpoint": 67504432981,
+        "lowered_endpoint": 263689191,
+        "seed": 205542741,
+        "seed_period": 603979776,
+        "seed_residue": 205542741,
+        "t": 9409,
+        "t_period": 27648,
+        "t_residue": 9409
+      },
+      "input_count": 9,
+      "max_input_rank": 263689191
+    },
+    {
+      "current_hash": "e96cfc0c2e48618bb1f8fbba67a76e77192655373fe7276be6a44248517cc06d",
+      "family": {
+        "a": 16,
+        "depth": 4,
+        "endpoint": 265863723349,
+        "lowered_endpoint": 1038530169,
+        "seed": 809522517,
+        "seed_period": 603979776,
+        "seed_residue": 205542741,
+        "t": 37057,
+        "t_period": 27648,
+        "t_residue": 9409
+      },
+      "input_count": 8,
+      "max_input_rank": 778897627
+    },
+    {
+      "current_hash": "2dbcb5574b2eaba959c054fa74c9801ffc761e064d58b3a5040fc4bdf988f356",
+      "family": {
+        "a": 16,
+        "depth": 4,
+        "endpoint": 1456019465557,
+        "lowered_endpoint": 5687576037,
+        "seed": 4433401173,
+        "seed_period": 603979776,
+        "seed_residue": 205542741,
+        "t": 202945,
+        "t_period": 27648,
+        "t_residue": 9409
+      },
+      "input_count": 12,
+      "max_input_rank": 1066420507
+    },
+    {
+      "current_hash": "3ebc31a0d33ed73aef1670237255a3893489fb952e4a1110844b42fd0370d3b9",
+      "family": {
+        "a": 17,
+        "depth": 5,
+        "endpoint": 1779271642453,
+        "lowered_endpoint": 1737569963,
+        "seed": 3611776341,
+        "seed_period": 4831838208,
+        "seed_residue": 3611776341,
+        "t": 82667,
+        "t_period": 110592,
+        "t_residue": 82667
+      },
+      "input_count": 8,
+      "max_input_rank": 1158379975
+    },
+    {
+      "current_hash": "0e0b76d766ee201c710511819fdfbb3b9d4a9f049c60d70d39a32c0cbc906b23",
+      "family": {
+        "a": 17,
+        "depth": 5,
+        "endpoint": 4159583126869,
+        "lowered_endpoint": 4062092897,
+        "seed": 8443614549,
+        "seed_period": 4831838208,
+        "seed_residue": 3611776341,
+        "t": 193259,
+        "t_period": 110592,
+        "t_residue": 82667
+      },
+      "input_count": 15,
+      "max_input_rank": 321317895
+    },
+    {
+      "current_hash": "93153369aa13f1c49b4710e76a518214b50ae7310a907a7afb13766169b1ec61",
+      "family": {
+        "a": 17,
+        "depth": 5,
+        "endpoint": 18441452033365,
+        "lowered_endpoint": 18009230501,
+        "seed": 37434643797,
+        "seed_period": 4831838208,
+        "seed_residue": 3611776341,
+        "t": 856811,
+        "t_period": 110592,
+        "t_residue": 82667
+      },
+      "input_count": 9,
+      "max_input_rank": 1688365359
+    },
+    {
+      "current_hash": "4cfe222cdb04197aef461b03b2ee445ee097254c9ec65a77fb5f6ad47024701c",
+      "family": {
+        "a": 18,
+        "depth": 5,
+        "endpoint": 3454305650005,
+        "lowered_endpoint": 3373345361,
+        "seed": 4674639189,
+        "seed_period": 9663676416,
+        "seed_residue": 4674639189,
+        "t": 53497,
+        "t_period": 110592,
+        "t_residue": 53497
+      },
+      "input_count": 8,
+      "max_input_rank": 632502255
+    },
+    {
+      "current_hash": "43761be8887c228b074f5f1b20031401914b621393d25f910b3324d8e802bd9d",
+      "family": {
+        "a": 18,
+        "depth": 5,
+        "endpoint": 10595240103253,
+        "lowered_endpoint": 10346914163,
+        "seed": 14338315605,
+        "seed_period": 9663676416,
+        "seed_residue": 4674639189,
+        "t": 164089,
+        "t_period": 110592,
+        "t_residue": 53497
+      },
+      "input_count": 12,
+      "max_input_rank": 3880092811
+    },
+    {
+      "current_hash": "06efd836703da22b5c7fbc6d282cd790081e37484cb14f5f528e68c641c30d48",
+      "family": {
+        "a": 18,
+        "depth": 5,
+        "endpoint": 53440846822741,
+        "lowered_endpoint": 52188326975,
+        "seed": 72320374101,
+        "seed_period": 9663676416,
+        "seed_residue": 4674639189,
+        "t": 827641,
+        "t_period": 110592,
+        "t_residue": 53497
+      },
+      "input_count": 11,
+      "max_input_rank": 17396108991
+    },
+    {
+      "current_hash": "df10f76e6e58023ea026e6e31087c5525b19e1f6a81cda506dbc0b7e87f28504",
+      "family": {
+        "a": 19,
+        "depth": 5,
+        "endpoint": 2396389434709,
+        "lowered_endpoint": 2340224057,
+        "seed": 2161988949,
+        "seed_period": 19327352832,
+        "seed_residue": 2161988949,
+        "t": 12371,
+        "t_period": 110592,
+        "t_residue": 12371
+      },
+      "input_count": 9,
+      "max_input_rank": 1755168043
+    },
+    {
+      "current_hash": "90791ed600ad84a46362383582c114efc522d75c3164253088e1a384b26060d1",
+      "family": {
+        "a": 19,
+        "depth": 5,
+        "endpoint": 23819192794453,
+        "lowered_endpoint": 23260930463,
+        "seed": 21489341781,
+        "seed_period": 19327352832,
+        "seed_residue": 2161988949,
+        "t": 122963,
+        "t_period": 110592,
+        "t_residue": 12371
+      },
+      "input_count": 10,
+      "max_input_rank": 15507286975
+    },
+    {
+      "current_hash": "f3ee4304c4d04b7c40d6169aff05600095cebb39f957c8c6eff2e3eb4fca3c79",
+      "family": {
+        "a": 19,
+        "depth": 5,
+        "endpoint": 152356012952917,
+        "lowered_endpoint": 148785168899,
+        "seed": 137453458773,
+        "seed_period": 19327352832,
+        "seed_residue": 2161988949,
+        "t": 786515,
+        "t_period": 110592,
+        "t_residue": 12371
+      },
+      "input_count": 8,
+      "max_input_rank": 8826854503
+    },
+    {
+      "current_hash": "116b4ea6dbf3fba12d5949617bac1d352aa5c3549c08fe8f49c1f002eef952f5",
+      "family": {
+        "a": 20,
+        "depth": 6,
+        "endpoint": 809515111765,
+        "lowered_endpoint": 197635525,
+        "seed": 486888789,
+        "seed_period": 154618822656,
+        "seed_residue": 486888789,
+        "t": 1393,
+        "t_period": 442368,
+        "t_residue": 1393
+      },
+      "input_count": 5,
+      "max_input_rank": 1737031
+    },
+    {
+      "current_hash": "4ce888e553282bea101d5988bcf04a6aeafe4e1bc6659255e5a2efbb6ee427b3",
+      "family": {
+        "a": 20,
+        "depth": 6,
+        "endpoint": 257883155428693,
+        "lowered_endpoint": 62959754743,
+        "seed": 155105711445,
+        "seed_period": 154618822656,
+        "seed_residue": 486888789,
+        "t": 443761,
+        "t_period": 442368,
+        "t_residue": 1393
+      },
+      "input_count": 8,
+      "max_input_rank": 35414862043
+    },
+    {
+      "current_hash": "ea9590ca74125844136a47a7091a7bddcffe16d67f2e414ede10a121ce1c50d5",
+      "family": {
+        "a": 20,
+        "depth": 6,
+        "endpoint": 1800324997330261,
+        "lowered_endpoint": 439532470051,
+        "seed": 1082818647381,
+        "seed_period": 154618822656,
+        "seed_residue": 486888789,
+        "t": 3097969,
+        "t_period": 442368,
+        "t_residue": 1393
+      },
+      "input_count": 12,
+      "max_input_rank": 17383852575
+    },
+    {
+      "current_hash": "cff10521ff03016478469aada0a01758e2becc966fe5269b2bbfb54a8000cd1d",
+      "family": {
+        "a": 21,
+        "depth": 6,
+        "endpoint": 705381714498901,
+        "lowered_endpoint": 172212332641,
+        "seed": 282837996885,
+        "seed_period": 309237645312,
+        "seed_residue": 282837996885,
+        "t": 404603,
+        "t_period": 442368,
+        "t_residue": 404603
+      },
+      "input_count": 10,
+      "max_input_rank": 54489058375
+    },
+    {
+      "current_hash": "9deac2b68984c96d9fab1b2d1329ff647a991cd4ae60befe2ce677d4a7ffeb50",
+      "family": {
+        "a": 21,
+        "depth": 6,
+        "endpoint": 1476602635449685,
+        "lowered_endpoint": 360498690295,
+        "seed": 592075642197,
+        "seed_period": 309237645312,
+        "seed_residue": 282837996885,
+        "t": 846971,
+        "t_period": 442368,
+        "t_residue": 404603
+      },
+      "input_count": 12,
+      "max_input_rank": 202780513291
+    },
+    {
+      "current_hash": "4c95a0e99faecbf8e16bc6c65a9f1aef8b87e77ded2c47bbc70ec0c020d0a7a2",
+      "family": {
+        "a": 21,
+        "depth": 6,
+        "endpoint": 6103928161154389,
+        "lowered_endpoint": 1490216836219,
+        "seed": 2447501514069,
+        "seed_period": 309237645312,
+        "seed_residue": 282837996885,
+        "t": 3501179,
+        "t_period": 442368,
+        "t_residue": 404603
+      },
+      "input_count": 11,
+      "max_input_rank": 1490216836219
+    },
+    {
+      "current_hash": "7111f426d2c220f399c8811dd466d1a0cf6fecfe4219f4720e5bf220e85534e9",
+      "family": {
+        "a": 22,
+        "depth": 6,
+        "endpoint": 1762240013579605,
+        "lowered_endpoint": 430234378315,
+        "seed": 471072068949,
+        "seed_period": 618475290624,
+        "seed_residue": 471072068949,
+        "t": 336937,
+        "t_period": 442368,
+        "t_residue": 336937
+      },
+      "input_count": 16,
+      "max_input_rank": 430234378315
+    },
+    {
+      "current_hash": "b3ebb5979b2bc2a0854331153906b554a145f91a143f7fbcdcdbf4ee8ab02a42",
+      "family": {
+        "a": 22,
+        "depth": 6,
+        "endpoint": 4075902776431957,
+        "lowered_endpoint": 995093451277,
+        "seed": 1089547359573,
+        "seed_period": 618475290624,
+        "seed_residue": 471072068949,
+        "t": 779305,
+        "t_period": 442368,
+        "t_residue": 336937
+      },
+      "input_count": 8,
+      "max_input_rank": 3279726951
+    },
+    {
+      "current_hash": "d42acca2f98d60881a7853f7531d64cf14c5f11698b7e55dbaa47f75f1c75078",
+      "family": {
+        "a": 22,
+        "depth": 6,
+        "endpoint": 17957879353546069,
+        "lowered_endpoint": 4384247889049,
+        "seed": 4800399103317,
+        "seed_period": 618475290624,
+        "seed_residue": 471072068949,
+        "t": 3433513,
+        "t_period": 442368,
+        "t_residue": 336937
+      },
+      "input_count": 13,
+      "max_input_rank": 1233069718795
+    },
+    {
+      "current_hash": "3042cd73058e9de3d00ef1b3eb6810e2b321cc98d44926af371ba62b8b8af8f3",
+      "family": {
+        "a": 23,
+        "depth": 7,
+        "endpoint": 16072672657888597,
+        "lowered_endpoint": 980998087029,
+        "seed": 2864304182613,
+        "seed_period": 4947802324992,
+        "seed_residue": 2864304182613,
+        "t": 1024355,
+        "t_period": 1769472,
+        "t_residue": 1024355
+      },
+      "input_count": 9,
+      "max_input_rank": 9699810187
+    },
+    {
+      "current_hash": "cec7f430ce8883802bea5f6c9338a9d58e03b71f32ae7b11388899c79ecd6b32",
+      "family": {
+        "a": 23,
+        "depth": 7,
+        "endpoint": 43836625812116821,
+        "lowered_endpoint": 2675575305915,
+        "seed": 7812106507605,
+        "seed_period": 4947802324992,
+        "seed_residue": 2864304182613,
+        "t": 2793827,
+        "t_period": 1769472,
+        "t_residue": 1024355
+      },
+      "input_count": 10,
+      "max_input_rank": 79365820231
+    },
+    {
+      "current_hash": "892c1db94c8ea5c499bd4a101ef128499eb9002cee9bca8e5e94286388227ab5",
+      "family": {
+        "a": 23,
+        "depth": 7,
+        "endpoint": 210420344737486165,
+        "lowered_endpoint": 12843038619231,
+        "seed": 37498920457557,
+        "seed_period": 4947802324992,
+        "seed_residue": 2864304182613,
+        "t": 13410659,
+        "t_period": 1769472,
+        "t_residue": 1024355
+      },
+      "input_count": 12,
+      "max_input_rank": 6421519309615
+    },
+    {
+      "current_hash": "333fc0f83ce39817b375d19a17e132b154fe95951fdfd247a170fc1a84562b0a",
+      "family": {
+        "a": 24,
+        "depth": 7,
+        "endpoint": 47949804057187669,
+        "lowered_endpoint": 2926623782787,
+        "seed": 5696742839637,
+        "seed_period": 9895604649984,
+        "seed_residue": 5696742839637,
+        "t": 1018657,
+        "t_period": 1769472,
+        "t_residue": 1018657
+      },
+      "input_count": 10,
+      "max_input_rank": 205778234727
+    },
+    {
+      "current_hash": "fccc4a13cf1093310d90f276e6dcd89bfb780c6665b47fc57df031b36ffee5dc",
+      "family": {
+        "a": 24,
+        "depth": 7,
+        "endpoint": 131241663519872341,
+        "lowered_endpoint": 8010355439445,
+        "seed": 15592347489621,
+        "seed_period": 9895604649984,
+        "seed_residue": 5696742839637,
+        "t": 2788129,
+        "t_period": 1769472,
+        "t_residue": 1018657
+      },
+      "input_count": 9,
+      "max_input_rank": 10430150311
+    },
+    {
+      "current_hash": "50b221749155009cc9a9c674bb556dd3bcc69ae74dfd5d8e3b2231548d093894",
+      "family": {
+        "a": 24,
+        "depth": 7,
+        "endpoint": 630992820295980373,
+        "lowered_endpoint": 38512745379393,
+        "seed": 74965975389525,
+        "seed_period": 9895604649984,
+        "seed_residue": 5696742839637,
+        "t": 13404961,
+        "t_period": 1769472,
+        "t_residue": 1018657
+      },
+      "input_count": 9,
+      "max_input_rank": 3046418335675
+    },
+    {
+      "current_hash": "979872fd2a9ef847fb7338d4dd471a6ec00079edf8accd922605b5a1deb3cae6",
+      "family": {
+        "a": 25,
+        "depth": 7,
+        "endpoint": 137411430887478613,
+        "lowered_endpoint": 8386928154753,
+        "seed": 10883570160981,
+        "seed_period": 19791209299968,
+        "seed_residue": 10883570160981,
+        "t": 973067,
+        "t_period": 1769472,
+        "t_residue": 973067
+      },
+      "input_count": 14,
+      "max_input_rank": 442279414411
+    },
+    {
+      "current_hash": "be703f0d7b43becd6c810269b736921e1c011885e074b81b67746b2f33f1d324",
+      "family": {
+        "a": 25,
+        "depth": 7,
+        "endpoint": 387287009275532629,
+        "lowered_endpoint": 23638123124727,
+        "seed": 30674779460949,
+        "seed_period": 19791209299968,
+        "seed_residue": 10883570160981,
+        "t": 2742539,
+        "t_period": 1769472,
+        "t_residue": 973067
+      },
+      "input_count": 10,
+      "max_input_rank": 11819061562363
+    },
+    {
+      "current_hash": "8755dd71750f76154c969c227405885721143c66afd093256ba7ed02bc745e0b",
+      "family": {
+        "a": 25,
+        "depth": 7,
+        "endpoint": 1886540479603856725,
+        "lowered_endpoint": 115145292944571,
+        "seed": 149422035260757,
+        "seed_period": 19791209299968,
+        "seed_residue": 10883570160981,
+        "t": 13359371,
+        "t_period": 1769472,
+        "t_residue": 973067
+      },
+      "input_count": 10,
+      "max_input_rank": 48576920460991
+    },
+    {
+      "current_hash": "4fa9512bbf19207389b7f1acbc037e6684622e213187b6ce1a3c17c80b58bd43",
+      "family": {
+        "a": 26,
+        "depth": 7,
+        "endpoint": 146666081938888021,
+        "lowered_endpoint": 8951787227715,
+        "seed": 7744385275221,
+        "seed_period": 39582418599936,
+        "seed_residue": 7744385275221,
+        "t": 346201,
+        "t_period": 1769472,
+        "t_residue": 346201
+      },
+      "input_count": 9,
+      "max_input_rank": 172876063
+    },
+    {
+      "current_hash": "9a95a8a33138a17ca5d3041b883b1d8402f353f9ae3639eca7e46dbc284037ac",
+      "family": {
+        "a": 26,
+        "depth": 7,
+        "endpoint": 896292817103050069,
+        "lowered_endpoint": 54705372137637,
+        "seed": 47326803875157,
+        "seed_period": 39582418599936,
+        "seed_residue": 7744385275221,
+        "t": 2115673,
+        "t_period": 1769472,
+        "t_residue": 346201
+      },
+      "input_count": 9,
+      "max_input_rank": 10257257275807
+    },
+    {
+      "current_hash": "ffddd9353a14938d8f924e78ddff42e1220d4de8db4882d4b61c5d22b0c98a84",
+      "family": {
+        "a": 26,
+        "depth": 7,
+        "endpoint": 5394053228088022357,
+        "lowered_endpoint": 329226881597169,
+        "seed": 284821315474773,
+        "seed_period": 39582418599936,
+        "seed_residue": 7744385275221,
+        "t": 12732505,
+        "t_period": 1769472,
+        "t_residue": 346201
+      },
+      "input_count": 12,
+      "max_input_rank": 5787191278075
+    },
+    {
+      "current_hash": "3c69efaeb939de962f39d6ed313ba8effdf5cbf1343ea2be09d4c6f3badcc5f7",
+      "family": {
+        "a": 27,
+        "depth": 8,
+        "endpoint": 5782748572247217493,
+        "lowered_endpoint": 88237740665393,
+        "seed": 203563688351061,
+        "seed_period": 316659348799488,
+        "seed_residue": 203563688351061,
+        "t": 4550003,
+        "t_period": 7077888,
+        "t_residue": 4550003
+      },
+      "input_count": 14,
+      "max_input_rank": 12408432281071
+    },
+    {
+      "current_hash": "11fc0bf0733d3e05c3e5a977935736908fe4360f083fb546dfe204730268e325",
+      "family": {
+        "a": 27,
+        "depth": 8,
+        "endpoint": 14778269394217162069,
+        "lowered_endpoint": 225498495395159,
+        "seed": 520223037150549,
+        "seed_period": 316659348799488,
+        "seed_residue": 203563688351061,
+        "t": 11627891,
+        "t_period": 7077888,
+        "t_residue": 4550003
+      },
+      "input_count": 13,
+      "max_input_rank": 50110776754479
+    },
+    {
+      "current_hash": "1940af1e00b0a63424584ca4e638b41dce4ce79a6bb0bf491878b5bbd214fc17",
+      "family": {
+        "a": 27,
+        "depth": 8,
+        "endpoint": 68751394326036829525,
+        "lowered_endpoint": 1049063023773755,
+        "seed": 2420179129947477,
+        "seed_period": 316659348799488,
+        "seed_residue": 203563688351061,
+        "t": 54095219,
+        "t_period": 7077888,
+        "t_residue": 4550003
+      },
+      "input_count": 11,
+      "max_input_rank": 466250232788335
+    },
+    {
+      "current_hash": "a6393fae1d7d876e58e7aec66da24121c7002a87bf18aeff445807a7cde3c492",
+      "family": {
+        "a": 28,
+        "depth": 8,
+        "endpoint": 22107953026933413205,
+        "lowered_endpoint": 337340591841635,
+        "seed": 518827843867989,
+        "seed_period": 633318697598976,
+        "seed_residue": 518827843867989,
+        "t": 5798353,
+        "t_period": 7077888,
+        "t_residue": 5798353
+      },
+      "input_count": 12,
+      "max_input_rank": 5003281483003
+    },
+    {
+      "current_hash": "79635aa651be881c2b0f9a5a578d1b2e533afab82a9a235c21a71d249b4d38f0",
+      "family": {
+        "a": 28,
+        "depth": 8,
+        "endpoint": 49094515492843246933,
+        "lowered_endpoint": 749122856030933,
+        "seed": 1152146541466965,
+        "seed_period": 633318697598976,
+        "seed_residue": 518827843867989,
+        "t": 12876241,
+        "t_period": 7077888,
+        "t_residue": 5798353
+      },
+      "input_count": 13,
+      "max_input_rank": 7803363083655
+    },
+    {
+      "current_hash": "d10b2188711ff5babc39fafaee516a4d830fc5c4d377f511b66145645418d832",
+      "family": {
+        "a": 28,
+        "depth": 8,
+        "endpoint": 211013890288302249301,
+        "lowered_endpoint": 3219816441166721,
+        "seed": 4952058727060821,
+        "seed_period": 633318697598976,
+        "seed_residue": 518827843867989,
+        "t": 55343569,
+        "t_period": 7077888,
+        "t_residue": 5798353
+      },
+      "input_count": 12,
+      "max_input_rank": 1358360061117211
+    },
+    {
+      "current_hash": "a42cc57debc989dab7b584170ee516a260a70ae514e17478fd94f9b1786f17ca",
+      "family": {
+        "a": 29,
+        "depth": 8,
+        "endpoint": 33102478476007789909,
+        "lowered_endpoint": 505103736511349,
+        "seed": 517897715012949,
+        "seed_period": 1266637395197952,
+        "seed_residue": 517897715012949,
+        "t": 2893979,
+        "t_period": 7077888,
+        "t_residue": 2893979
+      },
+      "input_count": 12,
+      "max_input_rank": 15784491765979
+    },
+    {
+      "current_hash": "5dd14b1ee6c481970a6f5fad587f7995f4eb278197ce52b2db216b9fbf9aaaaa",
+      "family": {
+        "a": 29,
+        "depth": 8,
+        "endpoint": 114062165873737291093,
+        "lowered_endpoint": 1740450529079243,
+        "seed": 1784535110210901,
+        "seed_period": 1266637395197952,
+        "seed_residue": 517897715012949,
+        "t": 9971867,
+        "t_period": 7077888,
+        "t_residue": 2893979
+      },
+      "input_count": 12,
+      "max_input_rank": 773533568479663
+    },
+    {
+      "current_hash": "8cd716a053779e920813954ade206dd209d87a6b62eea3211d1f6023252d3ac4",
+      "family": {
+        "a": 29,
+        "depth": 8,
+        "endpoint": 599820290260114298197,
+        "lowered_endpoint": 9152531284486607,
+        "seed": 9384359481398613,
+        "seed_period": 1266637395197952,
+        "seed_residue": 517897715012949,
+        "t": 52439195,
+        "t_period": 7077888,
+        "t_residue": 2893979
+      },
+      "input_count": 13,
+      "max_input_rank": 2033895840997023
+    },
+    {
+      "current_hash": "be470d6553fe886e8947c2d2f6a38f74e88eed8df508849d969f9489a43f6d0c",
+      "family": {
+        "a": 30,
+        "depth": 9,
+        "endpoint": 332953172541672609109,
+        "lowered_endpoint": 1270115556875887,
+        "seed": 3472764884571477,
+        "seed_period": 10133099161583616,
+        "seed_residue": 3472764884571477,
+        "t": 9702793,
+        "t_period": 28311552,
+        "t_residue": 9702793
+      },
+      "input_count": 10,
+      "max_input_rank": 1270115556875887
+    },
+    {
+      "current_hash": "290339b7fed60d7c005c89a7324a6735517a74a992f43404006b1b6ee714dd70",
+      "family": {
+        "a": 30,
+        "depth": 9,
+        "endpoint": 1304469421314426623317,
+        "lowered_endpoint": 4976155934579569,
+        "seed": 13605864046155093,
+        "seed_period": 10133099161583616,
+        "seed_residue": 3472764884571477,
+        "t": 38014345,
+        "t_period": 28311552,
+        "t_residue": 9702793
+      },
+      "input_count": 14,
+      "max_input_rank": 98405427417223
+    },
+    {
+      "current_hash": "9478184a1cf52a9287d3fd4115e7a4c3b691fabd540ccabb6da99ef44e2de1d1",
+      "family": {
+        "a": 30,
+        "depth": 9,
+        "endpoint": 7133566913950950708565,
+        "lowered_endpoint": 27212398200801661,
+        "seed": 74404459015656789,
+        "seed_period": 10133099161583616,
+        "seed_residue": 3472764884571477,
+        "t": 207883657,
+        "t_period": 28311552,
+        "t_residue": 9702793
+      },
+      "input_count": 13,
+      "max_input_rank": 3401549775100207
+    },
+    {
+      "current_hash": "8a1b02466bb422c2c2fbc22cb5ec30adb14e80d5dbea3878a4d602931144d880",
+      "family": {
+        "a": 31,
+        "depth": 9,
+        "endpoint": 2240003586799300859221,
+        "lowered_endpoint": 8544935557553485,
+        "seed": 15575775492527445,
+        "seed_period": 20266198323167232,
+        "seed_residue": 15575775492527445,
+        "t": 21759107,
+        "t_period": 28311552,
+        "t_residue": 21759107
+      },
+      "input_count": 10,
+      "max_input_rank": 801087708520639
+    },
+    {
+      "current_hash": "ab9e4be79d1434c0651aeab2ba66c0da372aae8dfba8ad53fd056893384fcfdd",
+      "family": {
+        "a": 31,
+        "depth": 9,
+        "endpoint": 5154552333117562901845,
+        "lowered_endpoint": 19663056690664531,
+        "seed": 35841973815694677,
+        "seed_period": 20266198323167232,
+        "seed_residue": 15575775492527445,
+        "t": 50070659,
+        "t_period": 28311552,
+        "t_residue": 21759107
+      },
+      "input_count": 13,
+      "max_input_rank": 7373646258999199
+    },
+    {
+      "current_hash": "15ff13f3037b2c5329dfb3134ddbadc6e0bfb1cb4f494cd8a448ac4b081cfda7",
+      "family": {
+        "a": 31,
+        "depth": 9,
+        "endpoint": 22641844811027135157589,
+        "lowered_endpoint": 86371783489330807,
+        "seed": 157439163754698069,
+        "seed_period": 20266198323167232,
+        "seed_residue": 15575775492527445,
+        "t": 219939971,
+        "t_period": 28311552,
+        "t_residue": 21759107
+      },
+      "input_count": 15,
+      "max_input_rank": 1441155170373279
+    },
+    {
+      "current_hash": "ea21b0284195ad59875122da2d7c9689e2990313def9dc9496484568026bff06",
+      "family": {
+        "a": 32,
+        "depth": 9,
+        "endpoint": 3643304835026612213077,
+        "lowered_endpoint": 13898104992014359,
+        "seed": 16889049790109013,
+        "seed_period": 40532396646334464,
+        "seed_residue": 16889049790109013,
+        "t": 11796865,
+        "t_period": 28311552,
+        "t_residue": 11796865
+      },
+      "input_count": 12,
+      "max_input_rank": 11451685631847
+    },
+    {
+      "current_hash": "5a6ee00dd51a88bfb233fb80e84f289cb1cc27366b2804cc5d93dea336fca6fa",
+      "family": {
+        "a": 32,
+        "depth": 9,
+        "endpoint": 12386951073981398340949,
+        "lowered_endpoint": 47252468391347497,
+        "seed": 57421446436443477,
+        "seed_period": 40532396646334464,
+        "seed_residue": 16889049790109013,
+        "t": 40108417,
+        "t_period": 28311552,
+        "t_residue": 11796865
+      },
+      "input_count": 12,
+      "max_input_rank": 17719675646755311
+    },
+    {
+      "current_hash": "8178b2343d2a02c397e6b81f96c44d009c815d6c370c801566a968a14a9a2c58",
+      "family": {
+        "a": 32,
+        "depth": 9,
+        "endpoint": 64848828507710115108181,
+        "lowered_endpoint": 247378648787346325,
+        "seed": 300615826314450261,
+        "seed_period": 40532396646334464,
+        "seed_residue": 16889049790109013,
+        "t": 209977729,
+        "t_period": 28311552,
+        "t_residue": 11796865
+      },
+      "input_count": 9,
+      "max_input_rank": 11595874161906859
+    },
+    {
+      "current_hash": "79a22575c5c1e10ba6004c2355e7f42ce3888089354dd1a6f2dd1240957e00b2",
+      "family": {
+        "a": 64,
+        "depth": 19,
+        "endpoint": 16278781172424950746147189738196807420564821,
+        "lowered_endpoint": 59221860910565558683255184362485,
+        "seed": 174908655447526385236397398512981,
+        "seed_period": 182541686432865033815525261574144,
+        "seed_residue": 174908655447526385236397398512981,
+        "t": 28445451633409,
+        "t_period": 29686813949952,
+        "t_residue": 28445451633409
+      },
+      "input_count": 22,
+      "max_input_rank": 3701366306910347417703449022655
+    },
+    {
+      "current_hash": "011151f1b33c21d7a8e450a36b02413827874a34ee92e6deb0d3ea6a1ce348f4",
+      "family": {
+        "a": 64,
+        "depth": 19,
+        "endpoint": 33267969961755656727266482191763209006175573,
+        "lowered_endpoint": 121028169675830783407096467969543,
+        "seed": 357450341880391419051922660087125,
+        "seed_period": 182541686432865033815525261574144,
+        "seed_residue": 174908655447526385236397398512981,
+        "t": 58132265583361,
+        "t_period": 29686813949952,
+        "t_residue": 28445451633409
+      },
+      "input_count": 24,
+      "max_input_rank": 121028169675830783407096467969543
+    },
+    {
+      "current_hash": "0732dfcd3617c2064827b011553dcf4b13903d8f757b972358f19fd2427d7ca9",
+      "family": {
+        "a": 64,
+        "depth": 19,
+        "endpoint": 135203102697739892613982236913161618519840085,
+        "lowered_endpoint": 491866022267422131750144169611891,
+        "seed": 1452700460477581621945074229531989,
+        "seed_period": 182541686432865033815525261574144,
+        "seed_residue": 174908655447526385236397398512981,
+        "t": 236253149283073,
+        "t_period": 29686813949952,
+        "t_residue": 28445451633409
+      },
+      "input_count": 34,
+      "max_input_rank": 184449758350283299406304063604459
+    },
+    {
+      "current_hash": "66ef6310d54b234da06884179f0790932bfc8f31f7b8bf6be4abdb777473f866",
+      "family": {
+        "a": 128,
+        "depth": 37,
+        "endpoint": 3444640128072898333308128729723726278165431610345945689836076187566334108830048539989,
+        "lowered_endpoint": 182357729994501103664416276709839316513878522482481052182124367,
+        "seed": 198834935660746845892665791728680004710263950381641329087436117,
+        "seed_period": 231399078373294599678042541297127414763197231104722168283398144,
+        "seed_residue": 198834935660746845892665791728680004710263950381641329087436117,
+        "t": 1752970077114906884015617,
+        "t_period": 2040062320599686732316672,
+        "t_residue": 1752970077114906884015617
+      },
+      "input_count": 46,
+      "max_input_rank": 91178864997250551832208138354919658256939261241240526091062183
+    },
+    {
+      "current_hash": "e9bcf0901e349bc759feb3b7f6f590a8103c727861ba64bd7efa9a56e7075997",
+      "family": {
+        "a": 128,
+        "depth": 37,
+        "endpoint": 7453425346399566933514845736576966550213201074957268836044373784437051970316949345621,
+        "lowered_endpoint": 394581052393795600751791988215264652496086331143446192145869665,
+        "seed": 430234014034041445570708333025807419473461181486363497370834261,
+        "seed_period": 231399078373294599678042541297127414763197231104722168283398144,
+        "seed_residue": 198834935660746845892665791728680004710263950381641329087436117,
+        "t": 3793032397714593616332289,
+        "t_period": 2040062320599686732316672,
+        "t_residue": 1752970077114906884015617
+      },
+      "input_count": 53,
+      "max_input_rank": 221951841971510025422882993371086367029048561268188483082051687
+    },
+    {
+      "current_hash": "078ecc8e49733dc0d6072adfef0e6b9b5be5c6aa9140d8bcf72989e6f156b352",
+      "family": {
+        "a": 128,
+        "depth": 37,
+        "endpoint": 31506136656359578534755147777696408182499817862625207713294159365661359139238354179413,
+        "lowered_endpoint": 1667920986789562583276046257247816668389333183109237031928341453,
+        "seed": 1818628484273809043638963580808571908052644568114696507071223125,
+        "seed_period": 231399078373294599678042541297127414763197231104722168283398144,
+        "seed_residue": 198834935660746845892665791728680004710263950381641329087436117,
+        "t": 16033406321312714010232321,
+        "t_period": 2040062320599686732316672,
+        "t_residue": 1752970077114906884015617
+      },
+      "input_count": 47,
+      "max_input_rank": 156367592511521492182129336616982812661499985916490971743282011
+    }
+  ],
+  "low_valuation_complete_domain_samples": {
+    "3": 87,
+    "4": 27
+  },
+  "old_index_only_unresolved": [
+    [
+      6645,
+      9967,
+      [
+        [
+          5,
+          7,
+          1
+        ],
+        [
+          117,
+          175,
+          1
+        ],
+        [
+          277,
+          415,
+          -1
+        ],
+        [
+          701,
+          1051,
+          1
+        ],
+        [
+          4205,
+          12615,
+          1
+        ]
+      ]
+    ],
+    [
+      6933,
+      10399,
+      [
+        [
+          77,
+          231,
+          1
+        ],
+        [
+          6581,
+          19743,
+          1
+        ]
+      ]
+    ],
+    [
+      15861,
+      23791,
+      [
+        [
+          13,
+          39,
+          1
+        ],
+        [
+          21,
+          31,
+          -1
+        ],
+        [
+          157,
+          235,
+          1
+        ],
+        [
+          165,
+          495,
+          -1
+        ],
+        [
+          10037,
+          30111,
+          1
+        ]
+      ]
+    ],
+    [
+      25365,
+      38047,
+      [
+        [
+          5,
+          7,
+          -1
+        ],
+        [
+          37,
+          111,
+          -1
+        ],
+        [
+          141,
+          423,
+          1
+        ],
+        [
+          24077,
+          72231,
+          1
+        ]
+      ]
+    ]
+  ],
+  "plan_hash": "41e31005208ed986bda6fc31bf242c3465f25c4d8ce5a4b518e43fe1516d3a0e",
+  "rejected_invalid_requests": 6,
+  "returning_inputs": 228,
+  "scope": "Complete conditional returning interface; strict-rank subdomains; finite actual substitutions",
+  "source_hashes": {
+    "check_returning_phase.py": "949c06f4dafdcb4747cb8fff4060c58f73577aa38041f2179840beabd80bb0d8",
+    "returning_phase.py": "15b0ef6f646998e354a0e34fd272bc350747c05b47e8f50392a2cb8424ce244e"
+  },
+  "status": "PASS",
+  "supplied_pair_count": 18,
+  "supplied_pairs_hash": "6e430d1edefa6b0dc37d0d3b25f685612506e35157b910e0239610c92dbe4254",
+  "undo_checks": 456,
+  "undo_hash": "a93b9b2279cc4afa988969a98abc5f1d3741cfc9b28a8b3aca0cc66c7f1c3ed3"
+}

@@ -1,15 +1,14 @@
 # Residual progress and finite forcing
 
-**Latest standing:** the missing tripling domain is now exactly W={5 mod8}
-union {9 mod16}, bijecting to the remaining least-counterexample roots.
-Universal currents there remain equivalent to Collatz. Every odd-h comparison
-has a complete one-child interface; all h>=7 children shrink below7w/8,
-while the low-h expansions and actual ternary restriction are explicit.
-Keeping an even-return pair sum together gives a new shrinking recursion
-that escapes a proved obstruction to the split catalogue. These are written
-reductions and partial constructions, not a universal supply of their inputs.
-The current batch and evidence are recorded at the end of this report;
-earlier sections remain the historical investigation record.
+**Latest standing:** universal tripling currents on W5={5 mod8} suffice.
+The common rank rho(w)=nu(3w) now proves finite signed composition of four
+strictly decreasing rules, including cases where the pair index grows.
+New complete domains cover parts of the returning and nonselected phases,
+and a two-block inverse rule works through unbounded depth. The complement
+remains an explicit missing premise. A fixed ternary valuation cannot bound
+all inverse delays, even after the specified one/two forward arrows.
+These are written reductions and partial constructions; Collatz remains
+open. The current batch and evidence are at the end of this report.
 
 Started 2026-10-17 from clean pushed commit `ce56699`.
 The preceding goal turn made progress: universal partial currents, an exact
@@ -1187,3 +1186,102 @@ Checklist:
 - [x] Persist the changed understanding and exact evidence; update standing.
 - [x] Complete the full verification and final integrated-document review.
 - [x] Review and deliver the verified batch under existing authorization.
+
+## Batch after4a45eb0: common rank and further complete domains
+
+The previous goal turn was **progress**: R40–R42, proofs, code and evidence
+were committed and pushed as4a45eb0 after the full Python/C++ gate and
+LaTeX compiler passed. Revalidated clean main=origin/main. The independent
+feed was fetched and skimmed at unchanged1a2dfc5710c5e17a4f42355a3dce2d6984b2b09b;
+no new finding or branch mutation occurred at that initial read. A later
+user-requested remote refresh found the same already merged PR1 and new
+feed8c3f96f9b3da3df68ba49bfe2a5dfdd64e04abf1. Its additional finite checks
+were read, not reproduced or used as premises in this batch.
+
+Working hypotheses:
+
+1. An additional forward comparison breaks the entire returning E dependency,
+   or a complete further subdomain, without a hidden same-or-larger W5 input.
+2. The full W5 source has a paired valuation interface with a useful closed
+   affine state and a rank beyond the original input height.
+3. The complete inverse barrier admits an exact escape classification beyond
+   its ternary precision, or a forward/inverse combination yields new descent.
+
+### Outcomes and falsified candidates
+
+1. **Partial forward progress, not whole-row closure.** R44 proves the
+   returning interface and complete a3/a4 subdomains, with a nonempty
+   family at every initial exponent a. It also identifies exact undo
+   recipes. Review corrected the first undo endpoint from a-2 to a-3:
+   the next state is1 modulo8 and is where the prescribed forward step
+   can begin progress. Index-only acceptance was rejected for the common
+   rank, with w6645→4205 as a retained counterexample.
+2. **A successful common rank.** R43 proves the fully expanded W9 rank
+   bound and the absorption bound, then uses rho to combine exact rules.
+   R45 classifies both nonselected base inverse branches, with strict
+   descent on w20 modulo27 or91 modulo243. The1613→2549 dependency is
+   valid because its rank drops4839→3823. The failed h1,p0 rows are literal
+   self-requests; every other failed positive-h row retains a uniquely
+   largest expanding request. Repeating those same branches is not progress.
+3. **Variable-depth escape succeeds on complete families.** R46 proves an
+   exact two-block slope test, including integer endpoints, and a whole
+   four-step escape classification. It also proves that inverse delay is
+   unbounded even at fixed v3(q-1)=1, and persists after one/two forward
+   arrows. Thus fixed-depth or valuation-only preprocessing is abandoned
+   as a universal completion; longer comparisons remain available.
+
+### Durable evidence
+
+- [R43 proof and union](critical_rank/CRITICAL_IMAGE_RANK.md):2048 W9
+  bounds,4096 absorption bounds,195 accepted rules among1024 candidates,
+  58 mixed closures and seven actual substitutions. P749 stores its inputs
+  and output; P1029 closes without supplied currents by signed cancellation.
+- [R44 proof](returning_phase/RETURNING_FORWARD_INTERFACE.md):2048 endpoint
+  bounds,228 returning inputs,456 undo checks,96 CRT examples through a128,
+  12 actual substitutions and six rejection checks.
+- [R45 proof](nonselected_inverse/NONSELECTED_INVERSE_PHASES.md):4096
+  nonselected inputs,2731 complete positive-h plans,288 parameter cases,
+  911 exact self-returns and four actual substitutions, with a stored1613
+  fixture demonstrating index growth and rank decrease.
+- [R46 proof](inverse_escape/INVERSE_ESCAPE.md):2731 word cases,444 exact
+  parameter examples through D256/j182,317 strict plans,16 actual
+  substitutions,227 depth4 targets,3229 finite inverse words,48 long-ray
+  words and15 complete small-origin checks. Three current tables are saved.
+
+### Review and current validation
+
+Independent model proof/code audits passed all four results and the mixed
+compiler, after correcting the R44 undo endpoint. The focused checkers
+pass and deterministic receipts are retained. The existing TeX source was
+updated in place and the desktop compiler reports success. The full `python3 scripts/verify_all.py --cpp` gate passed, including all
+four new checks, all previous checks,31 archive manifest entries and both
+independent C++ cutoffs. Final integrated-document review passed after
+correcting a TeX reference, making the inverse slope hypothesis explicit,
+clarifying that run lengths grow as a varies, and splitting the two R45
+auxiliary rank bounds correctly. The existing TeX compiled successfully
+after those changes. All266 checked local links resolve;39 TeX labels are
+unique and every reference resolves. All29 changed/new files have LF
+endings and staged whitespace review passes. The accompanying Git history
+records the authorized delivery.
+
+### Decision and next obligation
+
+This batch meets the complete-subdomain progress test and is **progress**.
+Keep exact signed currents and use rho for mixed induction. Let A be the
+accepted union of R41,R44,R45,R46. Universal supply on W5 minus A remains
+the required premise. The nonselected multiples of3, failed base phases,
+and unaccepted returning inputs are concrete next domains. Find a complete
+new reduction or prove eventual rank decrease through a broader comparison.
+More isolated examples or sample percentages do not close that obligation.
+The goal stays active. Claude's controls remain useful; the fresh remote
+read gives no new merged result requiring abandonment of the programme.
+
+Checklist:
+
+- [x] Revalidate the authoritative state and independent feed.
+- [x] Derive and falsify candidate rules on complete remaining domains.
+- [x] Prove successful reductions and retain exact failed dependencies.
+- [x] Independently audit the mathematical and executable claims.
+- [x] Persist standing, proofs and reproducible evidence.
+- [x] Run the full verification gate and finish integration review.
+- [x] Review and prepare the verified batch for authorized commit and push; delivery is recorded by the accompanying Git history.

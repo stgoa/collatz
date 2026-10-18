@@ -3425,6 +3425,234 @@ these actual sources, without excluding other bridges or eventual descent.
 The full embedding, words and unfinished stored current are in
 \path{experiments/residual_progress/joint_frontier/JOINT_FRONTIER.md}.
 
+\section{A critical-image rank for mixed signed reductions}
+Keep $P(w)=\delta_{3w}-\delta_w$ and put $\rho(w)=\nu(3w)$ on
+$W_5\cup W_9$. The rank is $3w$ on $W_9$; on $W_5$ it is $3w$
+when $3w$ is canonical and $(3w-1)/2$ otherwise.
+
+\begin{theorem}\label{thm:criticalrank}
+Every $W_5$ request $u$ in the fully expanded critical-nine plan for
+$w\in W_9$ satisfies $8\rho(u)\le27w+5$. Consequently the formal
+absorption plan $H_s$ of any positive odd seed $s$ has
+\[
+ (I-P)H_s=\delta_s-\sum_u a_s(u)P(u),\qquad
+ a_s(u)\ne0\Longrightarrow\rho(u)\le(9s+5)/8.
+\]
+Suppose a domain $A\subseteq W_5$ has finite signed integer rules
+\[
+ (I-P)J_w=P(w)-\sum_u c_w(u)P(u),\qquad
+ c_w(u)\ne0\Longrightarrow u\in W_5,\ \rho(u)<\rho(w).
+\]
+Then universal finite exact currents on $W_5\setminus A$ suffice for
+Collatz. Any finite union of such rule domains uses the same induction,
+even if some pair indices increase.
+\end{theorem}
+\begin{proof}
+Every nonexceptional local critical-nine request has index below $w$
+and rank below $3w$. Its three possible exceptional ranks, for
+$d=4,6,8$, are respectively
+\[
+ \frac{27w+5}{8},\qquad\frac{81w+23}{32},\qquad
+ \frac{243w+101}{128}.
+\]
+The last two are below $3w$. Every recursive $W_9$ index decreases,
+so induction gives the first bound after all substitutions. An original
+absorption request has critical image at most $s$. If it lies in $W_9$,
+write it $b$ with $3b\le s$ and apply the first bound; otherwise its rank
+already is at most $s$. Signed cancellation cannot increase the support
+maximum. This proves the absorption bound.
+Strong induction on the positive integer $\rho$ now constructs every
+omitted input from its strictly smaller requests. Theorems
+\ref{thm:criticalnine} and \ref{thm:criticaltripling} finish the implication.
+The converse follows from absorption. Each individual formal expansion
+is finite by finite branching and strict integer descent, but its
+unhandled leaves remain premises.
+\end{proof}
+
+For a complementary canonical root $p>4$, its critical lower index
+$v\le(2p+1)/3$ has absorption requests bounded by
+$(9v+5)/8\le(3p+4)/4<p$. The free inverse lower seed $(2p-1)/3$
+has the same strict bound. This supplies the auxiliary inputs needed
+when a comparison reaches a smaller canonical root. R41's decreasing
+phase satisfies this common rank; its self-request does not.
+Full proofs and the mixed signed compiler are in
+\path{experiments/residual_progress/critical_rank/CRITICAL_IMAGE_RANK.md}.
+
+\section{Forward progress on part of the returning phase}
+For the whole returning domain $w\in W_5$, $w\equiv3\pmod9$, $3w$
+selected, write
+\[
+ 3w=2^at-1,\quad a\ge3,\quad t\equiv3^a\pmod4,\quad
+ 2^at\equiv10\pmod{27}.
+\]
+Then $q=\rho(w)=2^{a-1}t-1$ reaches
+$r=(3^{a-1}t-1)/2\equiv4\pmod9$ by the exact ordinary word
+$1^{a-2},2$. Let $G$ be that prefix current and $z=\nu(w)$.
+The current $N_{3w}+G-N_w+H_r-H_z$ has boundary
+\[
+ P(w)-\sum_u(a_r(u)-a_z(u))P(u).
+\]
+The lower requests have rank below $q$ because $z\le(w-1)/4$.
+The complete bound for the upper requests, with $n=\nu(r)$, is
+\[
+\begin{array}{c|c}
+ n&\text{rank bound}\\\hline
+ 1&0\\
+ n>1,\ n\equiv1\ (8)&(27n+29)/32\\
+ n\equiv3\ (4),\ n\equiv2\ (3)&(3n+1)/4\\
+ n\equiv3\ (4),\ n\equiv1\ (3)&n\\
+ n\equiv3\ (4),\ n\equiv0\ (3),\ n/3\in W_5&n\\
+ n\equiv3\ (4),\ n\equiv0\ (3),\ n/3\in W_9&(9n+5)/8.
+\end{array}
+\]
+These follow by one prescribed absorption step and
+Theorem~\ref{thm:criticalrank}. A bound below $q$ is a sufficient
+strict-rank rule; all other requests remain explicit.
+
+\begin{theorem}\label{thm:returningforward}
+The test succeeds for every returning input with $a=3$ and $r$
+noncanonical or $r\equiv1\pmod8$, and for every such input with $a=4$
+and $r$ noncanonical. For every $a\ge3$ there is a complete nonempty congruence family
+whose initial run has length $a-1$ and succeeds. These lengths are
+unbounded as $a$ varies.
+\end{theorem}
+\begin{proof}
+For noncanonical $r$, $n\le(r-1)/2$, giving bound $(9r+1)/16$.
+For canonical $r\equiv1\pmod8$ use $(27r+29)/32$.
+At $a=3$, $t\equiv35\pmod{108}$; the latter inequality reduces to
+$13t>95$. At $a=4$, $t\equiv85\pmod{108}$ and the noncanonical
+inequality reduces to $13t>25$. All positive allowed parameters satisfy
+these tests (the other $a=3$ test is weaker).
+For general $a$, choose $k\ge1$ with
+$4^k(2^{a+3}-20)>3^{a+1}-3$ and require $r=F^k(s)$ for odd positive $s$.
+Putting $L=4^k$, $B=(L-1)/3$, this is the compatible CRT condition
+\[
+ t\equiv(2B+2L+1)3^{1-a}\pmod{4L},\qquad
+ t\equiv10\,2^{-a}\pmod{27}.
+\]
+Substitution gives $(9s+5)/8<q$, and normalization only improves this
+bound. Thus every positive member succeeds.
+\end{proof}
+
+The old absorption plan undoes rising prefixes only through length
+$a-3$. The next state is canonical $1\pmod8$, where the prescribed
+rule moves forward. At the full endpoint $r$, the R41 inverse phase
+returns exactly to $q$ and cancels the entire prefix. These precise
+undo loops do not exclude the different endpoint comparison above.
+The full interface, stratum inequalities and proofs are in
+\path{experiments/residual_progress/returning_phase/RETURNING_FORWARD_INTERFACE.md}.
+
+\section{Complete base inverse phases with increasing pair indices}
+Take $w\in W_5$ with $3w$ nonselected. For $k\in\{4,8\}$ put
+\[
+ h=v_3(kw+1),\quad C=(kw+1)/3^h,\quad b=2kw+1,\quad
+ p=2^{h+1}C-1.
+\]
+There are $h$ valuation-one arrows $p\to b$, and a quotient bridge
+$b\to3w$. For $h>0$, $p$ is complementary canonical.
+
+\begin{theorem}\label{thm:nonselectedphase}
+These two base branches and their maximal valuation-one blocks give
+strict critical-rank descent exactly on
+\[
+ G=\{w\in W_5:3w\text{ nonselected},\quad
+ w\equiv20\pmod{27}\ \text{or}\ w\equiv91\pmod{243}\}.
+\]
+The corresponding exact signed rules have only smaller-rank $W_5$
+requests. Universal currents on $W_5\setminus G$ therefore suffice.
+\end{theorem}
+\begin{proof}
+The inequality $p<3w$ holds exactly for $h\ge3$ if $k=4$ and
+$h\ge5$ if $k=8$, by substitution in the displayed affine formula.
+The intervening equality and small-parameter cases are excluded by
+integrality and the exact residue of $C$; equivalently these are
+$v_3(4w+1)\ge3$ or $v_3(8w+1)\ge5$, the stated congruences.
+The critical child $v$ has rank $p$ and is in $W_5$ on these rows.
+If $A$ is the reverse $p$-to-$3w$ bridge, then
+\[
+ (I-P)(A-N_{3v}-N_w)=P(w)-P(v)-\delta_v+\delta_{\nu(w)}.
+\]
+Add $H_v-H_{\nu(w)}$ and use Theorem~\ref{thm:criticalrank}; all
+auxiliary requests have rank below $p$ or below $3w$.
+\end{proof}
+
+For example $w=1613$ requests $v=2549>w$ with
+$\rho(v)=3823<4839=\rho(w)$. Index descent would miss this case.
+For both base rays the row $h=1$, $p\equiv0\pmod3$ instead reduces
+literally to zero current and the sole request $P(w)$. Every other
+failed positive-$h$ row retains its larger $W_5$ child with coefficient
+$+1$ and unique largest rank, so it cannot cancel within that plan.
+This is a complete classification of these specified branches; other
+rays and words remain available. Exact threshold and cancellation proofs
+are in
+\path{experiments/residual_progress/nonselected_inverse/NONSELECTED_INVERSE_PHASES.md}.
+
+\section{Variable inverse depth and a fixed-precision obstruction}
+For canonical $q>1$, $q\equiv1\pmod3$, set
+\[
+ D=v_3(q-1),\quad u=(q-1)/3^D,\quad j=v_3(4^Du+2),\quad
+ p=2^j(4^Du+2)/3^j-1.
+\]
+The exact ordinary word $1^j,2^D$ takes $p$ to $q$. All predecessors
+are canonical. With $\lambda=2^{2D+j}/3^{D+j}$,
+\[
+ p-q=(\lambda-1)(q-1)+2(2/3)^j-2.
+\]
+If $\lambda<1$ this is negative. If $\lambda>1$ it is greater than
+$-2$ and even, hence nonnegative. Thus $p<q$ exactly when
+$2^{2D+j}<3^{D+j}$, with no small-input exceptions.
+
+For a selected $W_5$ input with $q=(3w-1)/2$, require both
+$j\ge2$ and $2^{2D+j}<3^{D+j}$. Then $p<q$ and $p\equiv7\pmod8$,
+so its critical child is in $W_5$.
+One critical step followed by the formal absorption of its lower seed
+and subtraction of $H_{\nu(w)}$ has only smaller indices and smaller
+ranks by Theorem~\ref{thm:criticalrank}. The new $D\ge2$ domain has
+$w\equiv1\pmod3$, disjoint from R41's eligible domain.
+Every prescribed $D,j\ge1$ has a full parameter family given by
+\[
+ 4^Du+2\equiv3^j\pmod{3^{j+1}},\qquad 3^Du\equiv6\pmod{32}.
+\]
+For each $D$, taking sufficiently large $j$ gives accepted examples.
+
+\begin{theorem}\label{thm:inverseescape}
+For canonical $q>1$, $q\equiv1\pmod9$, no smaller quotient ancestor
+exists through depth3. At depth4 one exists exactly when
+$q\equiv10\pmod{81}$, uniquely $p=(64q-73)/81$ with word $(1,1,2,2)$.
+For every $D\ge2$ and $t\ge1$, the different family
+$q=7+32\cdot3^Dt$ has $v_3(q-1)=1$ yet has no smaller canonical ancestor
+through $D$ quotient steps. After $k=1$ or2 forward steps, there is no
+inverse origin below $q$ through $D+k$ quotient steps; equality only
+retraces the original path.
+\end{theorem}
+\begin{proof}
+For the first assertion, all off-spine depth2 ancestors exceed $4q+3$
+by Theorem~\ref{thm:completeinversebarrier}; even two subsequent
+minimal point steps leave them above $q$. The sole spine state is
+$(16q-7)/9$. Its one-step lower bound exceeds $q$; any two-step
+continuation containing a ray also exceeds $q$. Two point steps are
+legal precisely in the stated residue class and give $(64q-73)/81$.
+For the second assertion shadow inverse branches at7. The congruence
+ensures matching residues for $D$ steps, including every ray index.
+Every shadow $c$ is canonical and at least7 since1 is fixed.
+Each inverse affine branch $y\mapsto ay+b$ satisfies $a-b\ge1$,
+strictly on rays. The gap $\lambda-(c+1)/8$ begins at zero and becomes
+strictly positive on the first required ray. Hence every actual inverse
+state $\lambda(q-7)+c$ exceeds $q$.
+After $k=1,2$ the shadows are11,17 and the effective initial slopes are
+$(3/2)^k$. The same gap argument gives effective slope at least
+$(c+1)/8\ge1$. Equality requires only point steps and shadow7,
+which occurs exactly by retracing the original $k$ steps.
+\end{proof}
+
+The complete proof also extends the earlier $D$-step barrier to $D+1$
+for $D\ge2$. The fixed-valuation family excludes a depth bound depending
+only on $v_3(q-1)$ and the stated short-forward repair, while leaving
+longer excursions and input-dependent inverse depth open. The seed
+changes with $D$; no permanent obstruction at a fixed seed is asserted.
+See
+\path{experiments/residual_progress/inverse_escape/INVERSE_ESCAPE.md}.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -3491,6 +3719,11 @@ phase from $W_5$. Its returning branch is an exact dependency loop.
 Theorem~\ref{thm:completeinversebarrier} excludes bounded ancestor descent
 as a complete repair, and Theorem~\ref{thm:jointfrontier} retains the
 positive frontier of a full joint block whose parameter can expand.
+Theorem~\ref{thm:criticalrank} now permits mixed rules whose pair indices
+increase while their critical images decrease. Theorems
+\ref{thm:returningforward}, \ref{thm:nonselectedphase} and
+\ref{thm:inverseescape} remove further complete arithmetic domains;
+their finite union still leaves explicit missing inputs.
 Completing the remaining $W_5$ currents is still the full-strength open
 obligation. Further isolated merger families alone would not discharge it.
 Theorem~\ref{thm:paircatalogue} gives the exact limitation of the named
@@ -3636,5 +3869,14 @@ The joint-frontier checker adds8192 complete interfaces,2048 full subdomain
 blocks,45 parameter pairs,11 expansion examples and four actual required-ray
 sources. It replays a119-row unfinished comparison with its four-row lower
 input, preserving the positive residual. All are in the unified command.
+The critical-rank checker adds2048 complete $W_9$ plans,4096 absorption
+bounds and58 mixed closures, with seven actual substitutions. The returning
+checker covers228 whole-interface inputs,456 undo checks and96 long-run
+CRT examples. The nonselected checker covers2731 positive-$h$ plans,
+288 parameter examples and911 exact self-returns. The inverse-escape
+checker covers2731 word cases,444 parameter examples,317 strict plans,
+227 depth4 targets and15 complete small-origin checks. Stored supplied
+inputs and exact outputs permit replay of finite certificates, including
+one mixed no-input closure. All four checkers join the unified gate.
 These audits remain finite evidence for the implementations.
 \end{document}

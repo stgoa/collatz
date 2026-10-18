@@ -1,0 +1,708 @@
+{
+  "status": "PASS",
+  "scope": "Finite rank and mixed-rule checks; universal leaf supply remains open",
+  "nine_plans": 2048,
+  "nine_hash": "b06876893f8027b118e0a5f47fb48a55728506ddc87664a1dfd480de95f0baa6",
+  "absorption_plans": 4096,
+  "absorption_hash": "bc724b4c98196b1925024c61277033358cafec65ecc2d03f13c563e24e5fbb76",
+  "exceptional_rows": [
+    {
+      "d": 4,
+      "w": 9,
+      "u": 21,
+      "rank": 27,
+      "child_rank": 31
+    },
+    {
+      "d": 6,
+      "w": 377,
+      "u": 637,
+      "rank": 1131,
+      "child_rank": 955
+    },
+    {
+      "d": 8,
+      "w": 825,
+      "u": 1045,
+      "rank": 2475,
+      "child_rank": 1567
+    }
+  ],
+  "union_candidates": 1024,
+  "union_recognized": 195,
+  "categories": {
+    "R41_inverse_phase": 115,
+    "R44_returning_forward": 33,
+    "R45_nonselected_base": 22,
+    "R46_inverse_escape": 25,
+    "unresolved": 829
+  },
+  "closed_without_inputs": [
+    1029
+  ],
+  "mixed_rule_examples": [
+    [
+      69,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      2,
+      1
+    ],
+    [
+      117,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      3,
+      2
+    ],
+    [
+      645,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      3,
+      3
+    ],
+    [
+      749,
+      [
+        "R41_inverse_phase",
+        "R45_nonselected_base",
+        "R46_inverse_escape"
+      ],
+      5,
+      2
+    ],
+    [
+      789,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      4,
+      3
+    ],
+    [
+      1029,
+      [
+        "R44_returning_forward",
+        "R46_inverse_escape"
+      ],
+      2,
+      0
+    ],
+    [
+      1053,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      5,
+      1
+    ],
+    [
+      1245,
+      [
+        "R41_inverse_phase",
+        "R44_returning_forward",
+        "R46_inverse_escape"
+      ],
+      3,
+      2
+    ],
+    [
+      1365,
+      [
+        "R41_inverse_phase",
+        "R45_nonselected_base"
+      ],
+      2,
+      2
+    ],
+    [
+      1653,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      3,
+      4
+    ],
+    [
+      1789,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      3,
+      4
+    ],
+    [
+      1821,
+      [
+        "R44_returning_forward",
+        "R45_nonselected_base",
+        "R46_inverse_escape"
+      ],
+      3,
+      2
+    ],
+    [
+      2013,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      4,
+      4
+    ],
+    [
+      2261,
+      [
+        "R41_inverse_phase",
+        "R45_nonselected_base"
+      ],
+      2,
+      2
+    ],
+    [
+      2373,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      4,
+      4
+    ],
+    [
+      2477,
+      [
+        "R41_inverse_phase",
+        "R45_nonselected_base",
+        "R46_inverse_escape"
+      ],
+      3,
+      5
+    ],
+    [
+      2493,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      2,
+      3
+    ],
+    [
+      2781,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      3,
+      4
+    ],
+    [
+      2805,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      6,
+      2
+    ],
+    [
+      2949,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      2,
+      1
+    ],
+    [
+      3133,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      3,
+      4
+    ],
+    [
+      3165,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      4,
+      4
+    ],
+    [
+      3333,
+      [
+        "R41_inverse_phase",
+        "R44_returning_forward",
+        "R46_inverse_escape"
+      ],
+      4,
+      2
+    ],
+    [
+      3525,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      4,
+      1
+    ],
+    [
+      3557,
+      [
+        "R41_inverse_phase",
+        "R45_nonselected_base",
+        "R46_inverse_escape"
+      ],
+      4,
+      5
+    ],
+    [
+      3645,
+      [
+        "R41_inverse_phase",
+        "R45_nonselected_base"
+      ],
+      2,
+      2
+    ],
+    [
+      3717,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      3,
+      5
+    ],
+    [
+      3957,
+      [
+        "R41_inverse_phase",
+        "R44_returning_forward",
+        "R46_inverse_escape"
+      ],
+      3,
+      4
+    ],
+    [
+      4101,
+      [
+        "R41_inverse_phase",
+        "R45_nonselected_base"
+      ],
+      3,
+      2
+    ],
+    [
+      4205,
+      [
+        "R41_inverse_phase",
+        "R45_nonselected_base",
+        "R46_inverse_escape"
+      ],
+      5,
+      3
+    ],
+    [
+      4437,
+      [
+        "R41_inverse_phase",
+        "R44_returning_forward"
+      ],
+      2,
+      2
+    ],
+    [
+      4597,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      2,
+      3
+    ],
+    [
+      4629,
+      [
+        "R41_inverse_phase",
+        "R44_returning_forward",
+        "R46_inverse_escape"
+      ],
+      3,
+      3
+    ],
+    [
+      4677,
+      [
+        "R41_inverse_phase",
+        "R44_returning_forward"
+      ],
+      2,
+      5
+    ],
+    [
+      4701,
+      [
+        "R41_inverse_phase",
+        "R44_returning_forward"
+      ],
+      2,
+      4
+    ],
+    [
+      4725,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      4,
+      4
+    ],
+    [
+      4989,
+      [
+        "R44_returning_forward",
+        "R46_inverse_escape"
+      ],
+      2,
+      3
+    ],
+    [
+      5069,
+      [
+        "R41_inverse_phase",
+        "R45_nonselected_base"
+      ],
+      2,
+      6
+    ],
+    [
+      5445,
+      [
+        "R41_inverse_phase",
+        "R45_nonselected_base"
+      ],
+      2,
+      3
+    ],
+    [
+      5469,
+      [
+        "R41_inverse_phase",
+        "R45_nonselected_base"
+      ],
+      2,
+      4
+    ],
+    [
+      5893,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      3,
+      1
+    ],
+    [
+      5933,
+      [
+        "R44_returning_forward",
+        "R45_nonselected_base"
+      ],
+      3,
+      5
+    ],
+    [
+      5949,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      5,
+      2
+    ],
+    [
+      6429,
+      [
+        "R41_inverse_phase",
+        "R44_returning_forward"
+      ],
+      2,
+      4
+    ],
+    [
+      6597,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      2,
+      3
+    ],
+    [
+      7005,
+      [
+        "R44_returning_forward",
+        "R46_inverse_escape"
+      ],
+      2,
+      2
+    ],
+    [
+      7013,
+      [
+        "R44_returning_forward",
+        "R45_nonselected_base"
+      ],
+      2,
+      5
+    ],
+    [
+      7029,
+      [
+        "R41_inverse_phase",
+        "R44_returning_forward",
+        "R46_inverse_escape"
+      ],
+      3,
+      4
+    ],
+    [
+      7101,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      8,
+      3
+    ],
+    [
+      7381,
+      [
+        "R41_inverse_phase",
+        "R45_nonselected_base"
+      ],
+      3,
+      4
+    ],
+    [
+      7413,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      3,
+      5
+    ],
+    [
+      7485,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      2,
+      4
+    ],
+    [
+      7557,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      2,
+      1
+    ],
+    [
+      7621,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      2,
+      2
+    ],
+    [
+      7701,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      2,
+      5
+    ],
+    [
+      7749,
+      [
+        "R41_inverse_phase",
+        "R46_inverse_escape"
+      ],
+      3,
+      4
+    ],
+    [
+      7869,
+      [
+        "R44_returning_forward",
+        "R46_inverse_escape"
+      ],
+      2,
+      3
+    ],
+    [
+      8157,
+      [
+        "R44_returning_forward",
+        "R46_inverse_escape"
+      ],
+      2,
+      2
+    ]
+  ],
+  "actual_substitutions": [
+    {
+      "w": 61,
+      "expanded": [
+        61
+      ],
+      "coefficients": {
+        "5": -1,
+        "21": 1
+      },
+      "rows": 28,
+      "sha256": "dddf5dc9d695d6d3eb66333ef148939ee91633c9eed8bc1b32612975a42e7495"
+    },
+    {
+      "w": 69,
+      "expanded": [
+        61,
+        69
+      ],
+      "coefficients": {
+        "21": 1
+      },
+      "rows": 32,
+      "sha256": "f6e7f9e0d39457af7aa680672f081cc7a191ae42a385188b006c2efc99f830ce"
+    },
+    {
+      "w": 749,
+      "expanded": [
+        61,
+        69,
+        117,
+        749,
+        789
+      ],
+      "coefficients": {
+        "125": -1,
+        "701": 1
+      },
+      "rows": 29,
+      "sha256": "14e573c38a93cec17db5d4d99a4f763f17cf0b2166d02281b7e8c23e868d7570"
+    },
+    {
+      "w": 1029,
+      "expanded": [
+        61,
+        1029
+      ],
+      "coefficients": {},
+      "rows": 22,
+      "sha256": "a9c504bc9331cc25cb57029ce1eaeac8353691bfdde7c46f6f51c629a73f3e97"
+    },
+    {
+      "w": 1245,
+      "expanded": [
+        61,
+        69,
+        1245
+      ],
+      "coefficients": {
+        "5": 1,
+        "21": -1
+      },
+      "rows": 38,
+      "sha256": "41959b44fcb17c6a4dc75ea2f2602a2f607068d0ce70dbbed3ceac3a6de3e964"
+    },
+    {
+      "w": 1613,
+      "expanded": [
+        1613
+      ],
+      "coefficients": {
+        "53": 1,
+        "2549": 1
+      },
+      "rows": 63,
+      "sha256": "d203911eece421bba1164713267089f6ee4f30c0062b2e4061fa83f42a6bbada"
+    },
+    {
+      "w": 1821,
+      "expanded": [
+        61,
+        101,
+        1821
+      ],
+      "coefficients": {
+        "21": 1,
+        "53": -1
+      },
+      "rows": 36,
+      "sha256": "42795b3be75aabd2ca64792688d94d8db46e4f38c0bd9f8a8c2f8cb6e3f9e0ad"
+    }
+  ],
+  "distinct_supplied_inputs": 6,
+  "closed_fixture": {
+    "seed": 1029,
+    "current": {
+      "31": -1,
+      "41": -1,
+      "47": -1,
+      "71": -1,
+      "91": -1,
+      "103": -1,
+      "107": -1,
+      "109": -1,
+      "121": -1,
+      "137": -1,
+      "145": -1,
+      "161": -1,
+      "193": -1,
+      "275": 1,
+      "413": 1,
+      "733": 1,
+      "977": 1,
+      "1029": -1,
+      "3087": 1,
+      "4631": 1,
+      "6947": 1,
+      "10421": 1
+    },
+    "expanded": [
+      61,
+      1029
+    ]
+  },
+  "rejection_checks": 7,
+  "caps": {
+    "union_bound": 8192,
+    "closure_nodes": 10000,
+    "absorption_steps": 10000,
+    "absorption_bits": 512
+  }
+}
