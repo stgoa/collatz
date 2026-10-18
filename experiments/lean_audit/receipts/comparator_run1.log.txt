@@ -1,0 +1,22 @@
+=== comparator, authors' config (Lean kernel + nanoda), no inner sandbox  2026-10-18 18:40:54 -0300 ===
+/opt/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/nanoda_bin
+/opt/.elan/toolchains/leanprover--lean4---v4.35.0-rc2/bin/leanexport
+WARNING: Sandbox disabled, this run is not trustworthy.
+Resolving dependencies
+Building Challenge.Basic
+⚠ [1959/1959] Replayed Challenge.Basic
+warning: Challenge/Basic.lean:35:8: declaration uses `sorry`
+warning: Challenge/Basic.lean:49:8: declaration uses `sorry`
+warning: Challenge/Basic.lean:72:8: declaration uses `sorry`
+warning: Challenge/Basic.lean:84:8: declaration uses `sorry`
+Build completed successfully (1959 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, positive_density_collatz_reaches_one, positive_density_collatz_and_collatzAccel_reaches_one, positive_density_collatz_and_collatzAccel_reaches_of_coprime_six, positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Challenge.Basic
+Building Solution.Basic
+Build completed successfully (4102 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, positive_density_collatz_reaches_one, positive_density_collatz_and_collatzAccel_reaches_one, positive_density_collatz_and_collatzAccel_reaches_of_coprime_six, positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Solution.Basic
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution
+Lean default kernel accepts the solution
+Your solution is okay!
+comparator exit=  18:44:13

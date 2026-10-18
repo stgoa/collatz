@@ -173,16 +173,35 @@ challenge's own `sorryAx` entries, as expected.
 **4. Kernel-fix containment: PASS** (see facts above): the toolchain
 contains lean4 #14577.
 
-**5. Independent kernel replay (`lake comparator` with the authors'
-`Comparator/comparator.json`, which enables nanoda; then `--paranoid`, which
-also runs `leanchecker-paranoid`, `lean4lean`, `con-leche`, `con-ron`; then
-`lake check --paranoid`): running at the time of this commit.** Note on
-scope: the comparator's own `bwrap` sandbox cannot create user namespaces
-inside an unprivileged Docker container, so it runs with
-`--inadvisably-no-sandbox`; the Docker container is the sandbox, and the
-source audit above found no code-executing construct in the project (its
-lakefile is TOML; the only metaprogram is a no-op attribute). Record this
-when citing the comparator result.
+**5. Independent kernel replay: PASS.** The toolchain's own `bin/` must be
+on `PATH` (it bundles `nanoda_bin`, `lean4lean`, `leanchecker`,
+`leanchecker-paranoid`, `con-leche`, `con-ron`, `leanexport`).
+
+- `lake comparator --config Comparator/comparator.json
+  --inadvisably-no-sandbox` (the authors' own certification; 18:40–18:44):
+  builds `Challenge.Basic` (1959 jobs, the four expected `sorry` warnings)
+  and `Solution.Basic` (4102 jobs), exports the four named theorems from
+  each, then reports `nanoda kernel accepts the solution`, `Lean default
+  kernel accepts the solution`, `Your solution is okay!`. Per Lake's
+  documentation this establishes that every named theorem in the solution
+  proves the same statement as the challenge, uses no axiom outside the
+  permitted list `propext`, `Quot.sound`, `Classical.choice`, and is
+  accepted by the kernel (`receipts/comparator_run1.log.txt`).
+- `--paranoid` (18:44–): `nanoda` accepts; `Lean paranoid kernel` accepts;
+  `lean4lean` accepts (`checked 39480 declarations`); `con-leche` accepts
+  (`accepted 39479 declarations (--verified)`); `con-ron` was still running
+  when this was committed, and `lake check --paranoid` on the default
+  targets was queued behind it. Their outcomes are appended below when
+  they finish (`receipts/comparator_run2_paranoid.log.txt`,
+  `receipts/lake_check_paranoid.log.txt`).
+
+Scope note: the comparator's own `bwrap` sandbox cannot create user
+namespaces inside an unprivileged Docker container, so it ran with
+`--inadvisably-no-sandbox` and printed `WARNING: Sandbox disabled, this run
+is not trustworthy`. Here the Docker container is the sandbox, and the
+source audit above found no code-executing construct in the project (TOML
+lakefile; the only metaprogram is a no-op attribute). Record this when
+citing the comparator result.
 
 ### Verdict so far
 
@@ -199,3 +218,21 @@ transfer of the statement to `3x+d`, or C.2a. Route C would still need
 density zero of the non-absorbing starts, which remains open. The theorem
 is d-sensitive in the right way (its `d=5` analogue is false), so it is the
 first input in this programme that is not a transferable local identity.
+
+## Receipt hashes (SHA-256 at the time of this commit; the paranoid/check logs were still growing)
+
+```
+476b66656c57fd4dbea0b1e3f41c313945ce09d1f7f595ff7ca7ef91d0fed7f9  audit_challenge.pp.txt
+79893261a86117c62200de0febadcd89f2f2de59707eab7bc715c157196f6f1a  audit_solution.pp.txt
+307ce0f9ed35358c343a44e9d78f1154b5562a03e576967aec24f01483b978a1  ci_run_38659218428.log.txt
+ec8cad678bc729c668c8210d803046fd97968f41609fbf346908a8924d2fa54f  comparator_run1.log.txt
+0f37fd757c966680d33bab0105515b0e6fd3aa08148604e08e59c43135896085  comparator_run2_paranoid.log.txt
+710661ea1a78560ffcfb88b1ffd89d194e0cf917470e14999c39d0cd59f14f49  container_prep.log.txt
+10194525ea9e764556334f48f6430d63631a95ff59213b20a4765b5ea07ef38a  grep_constructs.txt
+3f0f41c9982edbbd2e6c07c25c5dd4843e3795dbde9d1ce9b2cf6d6a54bd5541  host_setup.log.txt
+19195f8ce74ef0ea31c162bdb9dbfb3613fcc78f01d7942981bc9ec825992161  lake_build_solution.log.txt
+bb35c2bb12fec184e57e7498f63addbcd83255b7e990023bed4ee7a9c7bdc5ce  pinned_source_hashes.txt
+1beb6a721df068d9730dd49ff0b5fdc3324bff4bd60f4c508c122ba292ce154f  run_audit_driver.log.txt
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  statement_diff_clean.txt
+c736a5288702ff874f177e3024741e3cc1abee024963d81c2bbc7fd2b57cbeb7  statement_diff_raw.txt
+```
