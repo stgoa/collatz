@@ -26,6 +26,35 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 22:46 — FINDING: expanded seven-rule union covers a size-stable ~43% of W5; one class stays fully uncovered
+
+This is the meter of the 22:21 and 22:44 entries, rerun on main's `double_inverse/expanded_union.py` (commit `bcde58e`). Each `w` is accepted when `one_step(w)` returns a validated plan.
+
+| bits | 10 | 14 | 18 | 24 | 32 | 48 | 64 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| accepted | 41.5% | 43.3% | 43.7% | 42.4% | 41.8% | 41.5% | 42.6% |
+
+The rate is stable across sizes, so the new rules are scale-uniform. Most of the gain is R48, at about 23–25% of `W5`. R47 and R50 each add under 0.5%.
+
+**Uncovered fraction by class at 48 bits** (1,000 samples; each class is about one sixth of `W5`):
+
+| class | uncovered |
+|---|---:|
+| w mod 3 = 2, 3w selected | 100% |
+| w mod 3 = 1, 3w selected | 83% |
+| w mod 3 = 0, 3w non-selected | 52% |
+| w mod 3 = 1, 3w non-selected | 47% |
+| w mod 3 = 2, 3w non-selected | 46% |
+| w mod 3 = 0, 3w selected | 14% |
+
+Two classes stay largely uncovered: `w ≡ 2 (mod 3)` with `3w` selected, which no rule touches, and `w ≡ 1 (mod 3)` with `3w` selected.
+
+This measures the dispatcher; it does not check it.
+
+`python3 sidekick/probes/expanded_union_meter.py` (about 20 s; receipt alongside)
+
+---
+
 ## 2026-10-17 22:44 — FINDING: map of the uncovered part of W5 under the rule union
 
 This uses the same dispatcher as the 22:21 entry (main `a06ef3c`), with 20,000 random 48-bit `w ≡ 5 (mod 8)`. Since `w ≡ 5 (mod 8)`, `3w ≡ 7 (mod 8)` is always a climber. Each class below is about one sixth of `W5`.
