@@ -28,6 +28,46 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 20:55 — VERIFIED Lean V004-i (`claude/lean-lane` `d1e5b23`): the elementary half of V004 is now machine-checked
+
+**What is formalized.** `LeanLane.OddEP.odd_eventually_periodic_const` in `experiments/lean_lane/OddEventuallyPeriodic.lean`:
+
+- **Hypotheses.** `h : ℕ → α`, with `h(2n) = h(n)` for all `n` and `h(3n+1) = h(n)` for odd `n > 1`. In addition, `n ↦ h(2n+1)` is periodic with period `M > 0` from some index `N` on.
+- **Conclusion.** `h n = h 1` for every `n > 0`.
+
+**Checks, from source and receipts.** This machine has no Lean toolchain.
+
+- **Statement match.** It matches the finish of V004, from "`b` eventually periodic" to "constant". The hypotheses never constrain `h 0`, since doubling at `0` is trivial, so nothing is assumed beyond the informal statement. It holds for any colour type; finiteness is not needed for this half.
+- **Axioms.** `#print axioms` gives exactly `[propext, Classical.choice, Quot.sound]` for the main theorem and every lemma. `B1`, `B2` and `B4` need only `[propext, Quot.sound]`. There is no `sorryAx`.
+- **Source scan.** No `sorry`, `native_decide`, `admit`, `axiom`, `implemented_by`, `unsafe` or `opaque`.
+- **Hash.** The sha256 of the `.lean` file, `cc9bbbaa…`, matches the receipt.
+
+**The proof differs from main's prose, and I checked it by hand.**
+
+- **Integer identities.** It uses `b(4n+2) = b(n)`, `b(3n+2) = b(2n+1)` and `b(4n) = b(3n)`. I checked each as an explicit path relation.
+- **Period divisible by 3.** A period `3K` reduces to `K` by strong induction on `n mod 4`.
+- **Period coprime to 6.** For a period `L` coprime to 6, set `c = (L+1)/2`, which is `1/2 mod L`. Then `b(3y+2) = b(y) = b(3(y+c))` gives a translation by `1/2`. Main uses a translation by `1/4`. Both generate `Z/LZ`.
+
+**Scope.** This is stated honestly in the lane's `STATE.md`. V004 now rests on three pieces:
+
+- the K_+ ternary-closure identities (V004-ii, queued, elementary);
+- the assembly (V004-iii, queued);
+- the two classical inputs, Cobham's theorem and the finite-kernel characterization, which are not in Mathlib and will enter as named hypotheses.
+
+**Lean-audit close-out (C.1a, PR #2): status unchanged.**
+
+- **The relevant certificate passed.** The comparator export of the four theorems' dependency closure (39,480 declarations) is accepted by all six kernels: nanoda, Lean paranoid, lean4lean, con-leche, con-ron and Lean default. That export is the certification the C.1a authors specify.
+- **The whole-library run is different.** `lake check --paranoid` on the default targets exports about 441,790 declarations. Most of that bulk is Lean, Aesop and ProofWidgets elaborator code outside the theorems' dependency cone; con-leche reports modelling 52 inductive blocks of it. Lean paranoid, lean4lean and Lean default accept it. con-leche and con-ron reject without a reason, and nanoda is out of memory (exit 137 at a 7 GB limit).
+- **Reading.** These look like checker coverage limits on meta-level code, not a defect in the theorems' cone. Recording them as unresolved is the right label.
+- **Standing caveat.** The comparator ran without its sandbox (an unprivileged container), so the run is "not trustworthy" against an adversarial proof. Main's two independent replays already carry this caveat.
+
+```sh
+git show origin/claude/lean-lane:experiments/lean_lane/OddEventuallyPeriodic.lean | shasum -a 256   # cc9bbbaa…
+git show origin/claude/lean-lane:experiments/lean_lane/receipts/OddEventuallyPeriodic.axioms.txt
+```
+
+---
+
 ## 2026-10-18 20:40 — REFEREE V004 (main `f54b741` / `4f1704c`): confirmed; VERIFIED Lean PR #3; plus a d-uniform version of the theorem (written proof)
 
 **V004 verdict: confirmed as a written proof, modulo its two classical inputs.** The inputs are the finite-kernel characterization and Cobham's theorem. Checks run with this branch's own code, `v004_rigidity_check.py` parts (a)–(d):
