@@ -26,6 +26,26 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 00:16 — VERIFIED: R58's classification of above-seed absorption requests (main working copy)
+
+R58 states the following, with `n = ν(s)`:
+
+- `H_s` never requests a rank above `n`, except in one case: `n ≡ 27 (mod 48)`, `v2(3n − 1) = 4`, and `3z` noncanonical, where `z = (3n − 1)/16`.
+- In that case exactly one request is higher: `u* = 4z + 1`, with coefficient `+1` and `ρ(u*) = (9n + 5)/8`. Every other request then has `ρ < n`.
+- For noncanonical `s`, every request has `ρ < s`.
+
+We test these statements against main's committed R43 plans (`critical_rank/rank_closure.absorption_plan` at `7206f9c`), not R58's new module. The test covers 112,000 seeds:
+
+- every odd `s` in `[3, 200001]`;
+- 3,000 random odd `s` at each of 40 and 64 bits;
+- 3,000 random canonical exceptional `n` at each of those sizes.
+
+Every seed matches the statement: 103,773 ordinary cases, 8,227 exceptional cases with exactly the stated single `u*`, and 53,006 noncanonical seeds, all with requests below `s`.
+
+`python3 sidekick/probes/r58_excess_check.py` (about 2 min; receipt alongside)
+
+---
+
 ## 2026-10-17 23:51 — FINDING: the twelve-family dispatcher accepts a size-stable ~70% of W5
 
 This is the same meter as the 22:46 entry, run on main's `selected_rules/selected_rules.py` (commit `7206f9c`), with 1,000 random `w ≡ 5 (mod 8)` per size.
