@@ -1,7 +1,10 @@
 # V004 — Audit against the full global-rigidity goal
 
-**Mathematical completion: PASS.** The unchanged activated objective is
+**Mathematical completion: PASS; repository delivery completed.** The unchanged activated objective is
 saved in [GLOBAL_RIGIDITY_BRIEF.md](../../../docs/GLOBAL_RIGIDITY_BRIEF.md).
+The theorem, reviews and receipts were committed as `f54b741` and pushed
+to origin/main; the viewpoint log records the matching remote and clean
+working-tree check. This follow-up only records that delivery.
 It requires the full finite-valued binary-automatic classification;
 subclasses and finite experiments alone do not complete it.
 

@@ -1,6 +1,7 @@
 # Goal — Establish global rigidity of finite-state Collatz invariants
 
-**Activated 2026-10-18.** This records the active goal exactly. The earlier
+**Activated 2026-10-18; full theorem delivered in V004.** This records the
+accepted goal text exactly below. The earlier
 [proposal](NEXT_GOAL_PROPOSAL.md) and
 [partial-result brief](ARITHMETIC_REGULARITY_BRIEF.md) remain historical.
 The full-classification result and completion evidence are in

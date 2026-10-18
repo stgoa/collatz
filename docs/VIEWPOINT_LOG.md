@@ -73,7 +73,17 @@ the actual nonabsorbing set. Given this theorem, proving that set automatic
 would be equivalent to convergence and is not an intermediate milestone.
 The map records quantitative section complexity as a possible next target,
 alongside the separate statistical alternative. No follow-on goal is
-activated here. Delivery is recorded after the commit and push below.
+activated here.
+
+### Delivery
+
+Committed the completed batch as
+`f54b7416caac3b8d1bc3f76e8c4f572de07b830c` and pushed it to origin/main.
+Immediately after the push, local HEAD and origin/main matched that commit
+and the working tree was clean. The final scoped checks passed:17 Markdown
+files,501 local links,15 anchors, four frozen comparisons and the standalone
+arithmetic replay. This documentation follow-up records the completed
+delivery; it does not alter the mathematical result or activate another goal.
 
 ## 2026-10-18 — Recommendation after the user requests a higher target
 
