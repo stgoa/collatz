@@ -110,7 +110,23 @@ the batch baseline c47d91b and frozen baseline9190ccf byte for byte. Local
 link/fragment checks passed, as did `git diff --check`. No historical
 mathematical code or Phase6 infrastructure changed, so the full historical
 gate was not rerun. Fresh origin/main matched the batch baseline before
-the commit. Commit and push evidence follow after execution.
+the commit.
+
+### Delivered batch and completion audit
+
+The substantive batch was committed as
+`2ac44efffcf93d5c1d8d8807d4e7cd2492182946` and successfully pushed to
+`origin/main`. Immediately afterward, local main and origin/main both
+resolved to that commit and `git status --porcelain` was empty. The final
+integrity receipt records118 checked local links and17 local fragments.
+
+The unchanged-goal audit confirms all four research-approach requirements,
+the explicit infinite-class result, the kernel gain, the scoped obstruction,
+controls, references, recommendation and repository delivery. Full automatic
+classification remains open and is not substituted for the goal's expressly
+accepted demonstrated-gain outcome. This documentation follow-up records the
+observed delivery; it is also committed and pushed before the goal-status
+update. No research requirement is being waived to end the batch.
 
 ## V002 — Expanded survey and working-language recommendation, 2026-10-18
 
