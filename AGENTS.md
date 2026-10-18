@@ -18,6 +18,19 @@ It is not a proof of Collatz or permission to resume the previous deep search.
 - Persist substantive comparisons, examples, references, checks and decisions; update the README; commit and push completed batches to `origin/main` under the user's standing authorization. Do not wait for side-lane grading or for routine user approval.
 - Verification is proportional to the claim. For viewpoint prose, check formulas, source attribution, links, clock/domain conventions and known-cycle controls. Use the full finite gate for changes to existing mathematical code/evidence; do not rerun it for a prose-only survey with no changed historical mathematics.
 
+### Viewpoint selection after V002
+
+Fourteen views were compared. V13 (arithmetic regularity of component colorings)
+is the preferred working language for the next bounded investigation; V14 earns
+one complementary boundary test and V12 remains a separate statistical option.
+The initial relational and geometric portfolios were demoted after explicit
+tests. This selection is not evidence of a superior convergence method.
+
+- The finite-period coloring classification holds for positive odd d with 3 not dividing d, with absorber 1 retained. At d=1 all eventually periodic invariant colorings are constant. This supplies no periodicity or automaticity of an arbitrary component indicator.
+- The two-base-automatic case uses Cobham as a published input. The single-base target remains unproved here. Fixed-depth predecessor languages being regular does not imply their unbounded union is regular. A finite-state carry rule likewise does not imply a finite ternary kernel or a bounded frontier.
+- V14's cycle control is arithmetic; no d=5 version of its tile system was verified. Keep ordinary, shortcut and parallel-update clocks separate. V12 uses positive laws on actual integer seeds, preserving conditioning and failure mass; these are not signed currents.
+- Finishing language selection does not require proving the proposed subsequent milestones. Reassess after the bounded tests in VIEWPOINT_MAP.md before starting a deep proof campaign.
+
 ## Historical Phase 6 results and controls
 
 Phase6 grading and route-only selection no longer govern this exploration.

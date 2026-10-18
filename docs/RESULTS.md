@@ -11,6 +11,14 @@ The [route map](../ROUTE_MAP.md) and [Phase6 ledger](PHASE6_LEDGER.md)
 retain earlier obligations, grades and completed evidence. Viewpoint
 recommendations are not new mathematical results.
 
+V002 recommends arithmetic regularity of component colorings after comparing
+fourteen viewpoints and testing the first shortlist. Its
+[finite-period classification](../experiments/viewpoints/V002/invariant_colors.md)
+is a separate elementary written diagnostic, not a new R-series convergence
+result. Automaticity of an actual bad set is not supplied. Carry boundaries
+and integer-ensemble laws remain bounded follow-up candidates; the initial
+relational and geometric portfolios were demoted with recorded reasons.
+
 S.1 now has a [written stopping calibration](../experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md)
 with explicit finite horizons, integer cutoffs and a separate W5 pullback.
 Its ordinary estimate transfers to each fixed supported `3x+d` map and does

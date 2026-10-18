@@ -1,5 +1,29 @@
 # Research log
 
+## 2026-10-18 — V002: recommend arithmetic regularity after expanding the survey
+
+Tested both V001 shortlist entries and demoted them with explicit reasons:
+the relational summary was already present in R81/R93, and the geometric
+tail bound supplied no global average. Added occupation measures, actual
+integer-ensemble information, component-coloring regularity and carry
+diagrams, bringing the comparison to fourteen views.
+
+The [recommendation](../VIEWPOINT_MAP.md) prioritizes arithmetic regularity
+for the next bounded investigation. Its elementary all-period classification
+is independently reviewed and distinguishes d=1 from simple d=5/61 controls.
+It does not establish regularity of an actual bad set. The next target is
+the restricted one-base automatic class, after a primary-literature check;
+carry boundaries earn one complementary probe and statistics remain an
+alternative. The [selection review](../experiments/viewpoints/V002/SELECTION_REVIEW.md)
+maps the complete goal to evidence and preserves the limits.
+
+The [exploration log](VIEWPOINT_LOG.md) pins the read-only side input at
+`21ab2a031cee71454a84047ef406c1b99a5a87c2`, assesses its density proposal
+and records delivery checks. A bounded standalone example verifier makes
+the arithmetic examples reproducible. R1–R94, historical mathematical code,
+dispatcher and open LaTeX source remain unchanged. The language choice is
+an intermediate research deliverable, not a Collatz proof or novelty claim.
+
 ## 2026-10-18 — V001: the goal changes to breadth-first viewpoint exploration
 
 Persisted the exact new goal and updated README/AGENTS so the former Phase6

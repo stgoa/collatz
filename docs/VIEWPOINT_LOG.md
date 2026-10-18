@@ -1,5 +1,135 @@
 # Viewpoint exploration log
 
+## V002 — Expanded survey and working-language recommendation, 2026-10-18
+
+**Status:** substantive comparison completed; delivery checks and commit are
+recorded below. Recommend V13 arithmetic regularity of component colorings,
+with one V14 carry-boundary probe and V12 as a statistical alternative.
+The [selection review](../experiments/viewpoints/V002/SELECTION_REVIEW.md)
+audits the unchanged brief. This completes the language-selection deliverable
+once its delivery checks pass; it supplies no convergence theorem.
+
+### Progress and bounded scope
+
+The previous research batch V001 was **progress**: it changed authoritative
+files and supplied three discrimination probes, delivered at `77ce821` with
+delivery record `bff8938`. V002 continued from its two explicit tests, not
+from a new proof campaign. The intervening requested goal wording is retained
+as conversation context; the persisted brief is unchanged.
+
+Parallel follow-ups tested the relational and geometric shortlist, while a
+separate lane examined occupation measures and actual integer-ensemble
+information. Arithmetic regularity and two-dimensional base conversion
+expanded the survey to fourteen views. No frozen proof, existing mathematical
+code, dispatcher, receipt or open LaTeX source was edited. A small standalone
+example verifier was added for reproducibility; it uses no Phase6 machinery.
+
+### Findings and decisions
+
+- **Demote A: relational histories.** The R81 successful merger already
+  carries the proposed relation; R93 already has the compact asynchronous
+  invariant. Missing guards or a deleted coordinate defect create false
+  closure. No new accepted domain or simpler closure obligation resulted.
+- **Demote B: graph geometry.** An inverse-tail bound `4/(3n_0)` is useful
+  for approximation but transfers to known-cycle controls. Comparing the
+  height-13 domain with the supplied path of 7 exposes the unresolved
+  excursion. No weighted growing-domain estimate was obtained.
+- **V11: keep as a diagnostic.** Occupation measures distinguish cycle mass
+  from escape of mass. Small stationarity defect alone supplies no tightness;
+  tightness alone does not identify the absorbing cycle.
+- **V12: retain an alternative.** Integer endpoint laws retain conditioning
+  and actual merger information. The card states a quantitative first-passage
+  target; no estimate has been derived. Literature comparison comes first.
+- **V13: preferred working language.** For every finite period M and fixed
+  positive odd d coprime to3, invariant colorings factor through gcd(M,d)
+  and multiplication-by2/3 orbits. Eventual periodicity becomes global.
+  At d=1 all such colors are constant; d=5/61 divisibility colors survive.
+  This written proof is independently reviewed, not novel or formalized.
+  Classifying the single-base automatic class is a partial next target;
+  automaticity of an actual bad set is not supplied.
+- **V14: one complementary test.** Shared binary/ternary carry boundaries
+  preserve more than separate norms. Their finite alphabet does not bound
+  the growing frontier or imply finite kernel closure. The nonlocal bootstrap,
+  finite-input zero tail and all three clocks must be retained.
+
+The selected programme has specific tests and stop conditions in the map.
+Several deferred cards contain useful milestone templates but no selected
+family; they are not described as ready proof programmes. No extended
+automata search or new dispatcher catalogue is part of this batch.
+
+### Read-only independent lane
+
+The preparatory read used `8878d5f87f5336afc70724544771fc3e920856d8`.
+The final fresh fetch reviewed DIRECTIONS, FEED and VIEWPOINTS at
+`21ab2a031cee71454a84047ef406c1b99a5a87c2`. The latter reviews V001 at main
+`bff8938`. It supplies no review of the new V002 coloring proof. The side
+branch was neither edited nor pushed.
+
+Retain D1/D2/D5 as scoped in V001; D3 remains rejected as too broad; D4 is
+deferred; D6's former route sequence remains historical. D7's audit standard
+is retained, and our completed P6-004 replay remains the adopted evidence.
+The feed reports a separate Linux audit in draft PR2; no result from that
+uninspected build is imported. Its report about interruption of an old main
+gate does not invalidate the independently completed, retained retry.
+
+The side's new density proposal is **retained under historical C.2a, not
+adopted as a fifteenth independent language**. Independent assessment:
+
+1. For d=1, the audited predecessor theorem implies B is empty or has
+   positive lower density. This correct deduction and the target-dependent
+   comparison were already persisted in the
+   [matched-density note](../experiments/phase6/linear_density_audit/next_upper_attempt.md).
+   It is not a literal zero-or-one density theorem.
+2. The explicit lower constants `c(a)=1/(a^4 L)` have infimum zero over an
+   unbounded inverse-closed bad set. There is no positive minimum over all
+   unknown bad targets. A contradiction needs comparison at a particular
+   target, such as the successor of a hypothetical least bad seed.
+3. [Tao v7, Theorem 3.1](https://arxiv.org/html/1909.03562v7#S3) does give a
+   fixed-height tail bound of the form `C/(log V)^c`. Its unspecified
+   constants do not give the proposed numerical upper fraction at a verified
+   cutoff, or the missing target-matched inequality. This is a legitimate
+   quantitative question already on the historical route, not a new estimate.
+4. The audited qualitative transfer uses fixed positive odd d coprime to3
+   and eligible targets. It did not transfer Lau's explicit constants to
+   every d. Multiples-of-d controls are separate elementary facts.
+
+The side's “known dead end” label for V3 is too strong if read as an
+impossibility theorem: the inspected relaxation is solved, while arbitrary
+legal-path lifting remains unsupplied. Keep the scoped V001 verdict. Its
+V6 recommendation as measurement is consistent with our new local estimate,
+but the executed global-gain test gives no further geometry-only priority.
+
+### Verification and delivery
+
+The local delivery checks passed:
+
+- `python3 experiments/viewpoints/V002/verify_examples.py`: 480 exact
+  residue partitions for d in {1,5,7,13,61}, M=1..96; R81/R93 ordinary
+  histories and the missing-guard example; cycle/entropy examples; inverse
+  tail entries and the supplied path; the four-transition carry trace.
+  The deterministic receipt pins the verifier and preserves finite scope.
+- Root read the full verifier and replayed it independently. Its author
+  additionally checked rejection of a corrupted receipt and unknown options
+  without mutation. No mathematical discrepancy was found.
+- Independent review checked all fourteen cards against the seven fields,
+  the elementary proof and the recommendation. Its cautions about working
+  language versus convergence, untested carry closure and prior automata
+  work were incorporated.
+- Local documentation checks passed for 20 Markdown files, 473 links and
+  12 local anchors. `git diff --check` passed. The R1-onward ledger body,
+  exact goal brief and open LaTeX bytes match baseline `bff8938`. Tracked
+  changes are confined to the six current-standing documents and the new
+  V002 exploration directory; historical mathematical files are unchanged.
+
+The all-modulus result rests on the written proof; the 480-partition scan
+only illustrates it. The full historical finite gate is not rerun because
+this batch changes no existing mathematical code or evidence. Primary sources,
+formula/domain checks, bounded exact examples, independent skeptical review,
+links and preservation checks are proportionate to these claims.
+
+The actual commit/push receipt is recorded after delivery, before completing
+the goal. No independent external audit is being waited on.
+
 ## V001 — Breadth first, 2026-10-18
 
 **Status:** completed initial survey and bounded discrimination probes.
