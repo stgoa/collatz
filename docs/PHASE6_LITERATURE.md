@@ -46,6 +46,16 @@ bijection alone is not an all-integer stopping theorem. Pulling a density
 statement back through `w -> nu(3w)` is a separate obligation; many-to-one
 normalization must not silently preserve density.
 
+**Closer finite-horizon match for P6-001.** Borovkov–Pfeifer,
+[Corollary 2, equation (11)](https://doi.org/10.1137/S0040585X97978245),
+verified in the [author-uploaded text](https://www.researchgate.net/publication/251795632_Estimates_for_the_Syracuse_Problem_via_a_Probabilistic_Model),
+give, for k>=2, the natural density of `{n:C^k(n)<n/2}` as
+`2^(-k) sum_(0<=j<(k-1)/log_2(3)) binom(k,j)`. It tends to1 with k.
+This matches the order of quantifiers in S.1 more closely than eventual
+density alone. P6-001 proves a conservative finite-cutoff bound and the
+separate odd-clock/W5 conversions; it does not reproduce every exact
+fixed-k density in that paper.
+
 ## L2 — Tao: almost bounded values, logarithmic density
 
 [Tao's paper](https://arxiv.org/html/1909.03562v3), Theorem 1.3, proves that

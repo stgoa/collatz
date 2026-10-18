@@ -4,8 +4,9 @@
 
 Collatz is open. The programme has pivoted from expanding the frozen local
 dispatcher to named proof obligations in [ROUTE_MAP.md](../../ROUTE_MAP.md).
-The first batch builds the grading and control infrastructure; its label is
-**none**, not a new mathematical advance. Next node: S.1 calibration.
+The setup batch built the grading and control infrastructure and is confirmed
+**none**. S.1 now has a written quantitative stopping calibration with exact
+checks; its full gate passed with116 report fields. Next node after delivery: S.2.
 
 ## Mechanism and evidence
 
@@ -24,8 +25,8 @@ quantifiers, constants and publication corrections.
 
 ## Open work
 
-S.1 must turn a published stopping-time argument into an explicit finite
-count and justify the W5 pullback. S.2 still has every exceptional input to
+The [S.1 proof](stopping_calibration/STOPPING_CALIBRATION.md) now gives explicit
+finite counts and the W5 pullback. S.2 still has every exceptional input to
 eliminate. C.2 requires a power bound stronger than known density results.
 Y.2 would exclude cycles only. H.2 needs new rigidity beyond the analyticity
 already supplied by bounded coefficients. No route is complete.
@@ -39,4 +40,23 @@ already supplied by bounded coefficients. No route is complete.
 - [x] Persist Phase 6 rules and navigation.
 - [x] Complete full verification and independent review; [record](setup_verification.json).
 - [x] Prepare the verified batch for commit/push; delivery is recorded in Git history.
-- [ ] Begin S.1 after the push, without an approval wait.
+- [x] Pushed setup as b901e11; began S.1 after the required side-lane refresh.
+
+## P6-001 verification
+
+- [x] Read updated side directions/feed and record setup confirmation.
+- [x] Prove the explicit half-descent estimate for fixed d.
+- [x] Prove the separate W5 count and clock conversion.
+- [x] Independently review the argument and exact constructor/checker.
+- [x] Store parameter examples, finite arithmetic and rejection evidence.
+- [x] Finish the full gate; [verification record](stopping_calibration/verification.json).
+- [x] Prepare the verified calibration for commit/push; delivery is recorded in Git history.
+- [ ] Start S.2 after a fresh read-only side-lane review.
+
+Proposed label: calibration. The new statement is a known fixed-factor
+stopping limit with explicit constants; every-input stopping remains open.
+
+The secondary S.2 bounded-prefix idea was mathematically correct but
+redundant with frozen R25/R31. It is recorded as **none**, the first such
+attempt at S.2. Continue with methods allowing input-dependent unbounded
+histories; do not reopen the finite-catalogue obstruction as a new result.

@@ -1,7 +1,7 @@
 # Phase 6 route map
 
-**2026-10-18. Collatz remains open.** This is the first Phase 6 batch: a
-living research map, not a new convergence result. The user has authorized
+**2026-10-18. Collatz remains open.** This is a living research map.
+S.1 now has a written quantitative calibration; universal stopping is open. The user has authorized
 autonomous node selection and revision. R1–R94 and the seventeen-family
 dispatcher are frozen at main `9190ccf2519acc56446dd027c6cbf8d45dcceeb6`.
 
@@ -13,11 +13,10 @@ theorems from the additional work required here.
 
 ## Current research decision
 
-Start with **S.1, a calibration of fixed-factor
-stopping**, including explicit finite error terms and the separate pullback
-to W5. Its purpose is to establish exactly what the density machinery gives
-before attempting S.2 or the stronger counting obligation C.2. Reproducing
-a published result is calibration, even when useful to the programme.
+Proceed to **S.2 and its remaining exceptional inputs**. S.1 fixed-factor
+stopping with explicit finite errors and the separate W5 pullback has passed
+the full verification gate. S.1 calibrates a published corollary. It does not supply
+the universal stopping assertion or the stronger absorption count C.2.
 Do not add more dispatcher families during this phase.
 
 Routes S, C and H each have a stated path to full convergence. Route Y
@@ -99,33 +98,38 @@ difficulty, not a supplied proof of this universal assertion.
 
 ### S.1 — Calibrate fixed-factor stopping and its W5 pullback
 
-**Open obligations.** Re-derive the following published-result corollary
-with explicit errors: for each rational `0<epsilon<1`, exhibit an odd-arrow
+**Status:** written calibration in [P6-001](experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md),
+with exact executable checks; final verification is recorded in the ledger.
+
+**Statement:** the following published-result corollary now has explicit errors: for each rational `0<epsilon<1`, exhibit an odd-arrow
 horizon `K(epsilon)` and cutoff `X0(epsilon)` such that for all
 `X>=X0(epsilon)`, at most `epsilon` times the number of odd seeds through X
 have no `k<=K(epsilon)` with `S^k(n)<=n/2`. State finite small-seed exceptions
 explicitly. Then justify the separate passage to density-one W5 inputs
 satisfying R.2, controlling normal-form fibres and every cutoff error.
 
-**Dependencies:** exact parity/valuation cylinders, including their extra
-bit; clock conversion; an integer counting estimate for the pullback.
-An asymptotic cylinder rate with a modulus growing with X is insufficient.
+**Proof interface:** with k=5m, the bad raw shortcut parity fraction is at
+most `(8/7)(16807/18432)^m`. The proof retains the affine intercept and
+integer residue-counting error at every cutoff. It uses modulus `2^k` for
+shortcut parity words; exact odd-valuation cylinders still require their
+extra bit. R37 makes `w -> rho(w)` injective on W5, and R25 supplies the
+same-index semiconjugacy. No general density-preservation assumption is used.
 
-**Transfer:** ordinary fixed-factor stopping for each fixed `d` is a
-candidate for transfer of the parity argument, with `d`-dependent additive
-constants; the complete quantitative version must be checked. The W5/nu
-pullback has no supplied verbatim `d` analogue. This is not a statement of
-almost-all absorption at 1.
+**Transfer:** the ordinary theorem is proved for every fixed positive odd
+d coprime to 6, with the same horizon and d-dependent cutoff. The W5/nu
+pullback still has no supplied verbatim d analogue. The result is not
+almost-all absorption at 1 and coexists with the control cycles.
 
-**Closest published result:** the half-descent corollary of Korec's Theorem 1
-(take exponent 4/5 and n>=32), using the Terras/Everett method, L1.
+**Closest published result:** Borovkov–Pfeifer Corollary2, equation(11),
+whose finite-horizon half-descent densities tend to1; see L1. Korec's
+Theorem1 also gives eventual half-descent by taking exponent4/5 and n>=32.
 Tao's logarithmic-density
 almost-bounded theorem, L2, is a stronger but differently quantified
 benchmark; it cannot be substituted for a natural-density power bound.
 
-**Expected label:** calibration only after the proof and explicit constants
-are written and verified. This setup batch is none. Even successful
-calibration leaves S.2 open.
+**Proposed label:** calibration, subject to side-lane confirmation. The
+initial setup remains none. S.2 remains open; there is no iteration of this
+density estimate or conclusion that its exceptional set is empty.
 
 ### S.2 — Remove every exceptional input
 
@@ -309,7 +313,8 @@ the latest side-lane directions and switch to the most promising node. Run
 that post-mortem immediately if the user says the work seems stuck.
 
 Never wait for user approval between batches. Finish verification, commit
-and push each batch to origin/main, then begin the next. This first batch
-builds the map, ledger, transfer harness and rules. Setup is none at node
-MAP and does not consume an attempted S/C/Y/H-node batch. S.1 is selected
-for the next batch after the verified setup is pushed.
+and push each batch to origin/main, then begin the next. The setup batch
+built the map, ledger, transfer harness and rules and was pushed as b901e11.
+It is confirmed none at MAP. P6-001 supplies the verified S.1 calibration; S.2 is the next selected node.
+Its bounded-prefix preparation was redundant with frozen R25/R31 and is
+recorded as none. Continue with input-dependent unbounded histories.

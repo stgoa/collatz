@@ -2,6 +2,18 @@
 
 Last updated: 2026-10-18. This ledger summarizes scope; the linked proof notes and exact data contain the supporting arguments.
 
+## Phase 6 standing
+
+R1–R94 below are frozen infrastructure. The living [route map](../ROUTE_MAP.md)
+supersedes historical priority paragraphs in this file. New work and its
+grades are recorded in the [Phase 6 ledger](PHASE6_LEDGER.md).
+
+S.1 now has a [written stopping calibration](../experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md)
+with explicit finite horizons, integer cutoffs and a separate W5 pullback.
+Its ordinary estimate transfers to each fixed supported `3x+d` map and does
+not remove every exception. S.2 and universal current supply remain open.
+This is a re-derived published stopping limit, with no novelty claim.
+
 ## R1 — Exact source transport and original packets
 
 **Status: inherited written proofs and finite certificates.**
