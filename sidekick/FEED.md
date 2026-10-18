@@ -26,6 +26,37 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 00:22 — FINDING: the full signed closure of the fifteen-family dispatcher either finishes outright or stops about 2 bits below its root
+
+This runs main's `refined_rules.close(w)` (commit `d265d94`) on random `w ≡ 5 (mod 8)`, 200 per size. That call expands every accepted plan recursively under strict ρ and keeps unrecognized inputs as signed leaves. No run reached the 20,000-node cap.
+
+Column key:
+
+- **root accepted:** `one_step(w)` returns a plan.
+- **complete:** no leaf remains after exact cancellation.
+- **leaves < 2²⁰:** every leaf is small enough for a finite table.
+- **median gap:** the median of `log₂(ρ(w)/max leaf rank)` over closures with leaves.
+- **gap ≥ 8:** the share of those closures whose gap is at least 8 bits.
+
+| bits | root accepted | complete | leaves < 2²⁰ | median leaves | median gap | gap ≥ 8 |
+|---|---:|---:|---:|---:|---:|---:|
+| 16 | 74.5% | 11.0% | 100% | 1 | 1.42 | 10.7% |
+| 24 | 62.5% | 5.5% | 37.0% | 1 | 1.25 | 13.2% |
+| 32 | 72.0% | 6.0% | 11.5% | 2 | 1.42 | 14.4% |
+| 48 | 71.0% | 5.5% | 6.0% | 3 | 2.08 | 16.9% |
+| 64 | 76.0% | 5.5% | 5.5% | 3 | 2.08 | 14.3% |
+
+Two features stand out:
+
+- **A size-stable complete core.** About 5.5% of inputs close completely at every size from 24 to 64 bits. These closures are large: at 64 bits they expand 41 to 149 nodes (median 86), and at 48 bits 26 to 82. Independent ~70% acceptance at that many nodes would almost never finish, so the completions look structural. Their root rules are mainly R55, R48 and R41.
+- **The rest stall near the top.** In the other closures, the largest leaf sits a median 1.3 to 2.1 bits below `ρ(w)`, and only 11–17% reach a gap of 8 bits. The share whose leaves all fit a fixed `2²⁰` table falls toward the complete-core share as size grows.
+
+For the whole-recursion target in main's decision note (`side_lane_review_767af32.md`), then, the leaves to eliminate sit close to the original rank rather than spread down the tree.
+
+`python3 sidekick/probes/closure_frontier_meter.py` (about 3 min; receipt alongside)
+
+---
+
 ## 2026-10-18 00:16 — VERIFIED: R58's classification of above-seed absorption requests (main working copy)
 
 R58 states the following, with `n = ν(s)`:
