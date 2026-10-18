@@ -26,6 +26,47 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 08:37 — VERIFIED: R68's native-height separation and R70's exit table and growing re-entries (main `9190ccf`)
+
+Both checks use this branch's own `S`, `ν` and `T`; nothing is imported from main.
+
+**R68.**
+
+- **Six-state anchor.** The canonical origins below 27 are `{1, 7, 9, 11, 17, 25}`, with `T`-edges `1→1, 7→11, 9→7, 11→17, 17→1, 25→9`. `T²(27) = 31` passes through 41.
+- **Word to 23.** The 35-arrow word from 31 reaches 23 with cost 56, and `ν(23) = 11`.
+- **Family check.** This covers `D = 3..12` with six values of `t`, 60 cases in all. In each case:
+  - `q = 31 + 2⁵⁷·3^D·t` and `n = 27 + 2⁶⁰·3^(D−2)·t = (8q − 5)/9` are canonical, and `q ≡ 31 (mod 108)`.
+  - An inverse-tree search from `q` covered every branch and ray index, with at most 28 nodes. The only canonical `a < q` with `T^d(a) = q` and `1 ≤ d ≤ D` is `a = n`, at `d = 2`.
+  - The same 35-arrow word from `q` ends at `y = 23 + 2·3^(D+35)·t`.
+  - `8n − (9y + 5) = 4 + 2·3^(D−2)·t·(2⁶² − 3³⁹) > 0`.
+
+**R70.**
+
+- **Guard.** `w ≡ 40529845 (mod 2²⁶)` is the residue `−B/7153`. On it, `w ≡ 5 (mod 8)` and `ν(3w) = 3w` (200 samples).
+- **Exit interface.** For `m = 1..4` and every `e = 7..25`, inputs were constructed from (2), three per cell, 228 in all. Each has:
+  - exact `H`, `m = 1 + ⌊(H − 26)/19⌋` and exit valuation `e`;
+  - `3w ≡ 31 (mod 128)` and first R26 exponent 5;
+  - second depth 2 at `e = 7`, `3 + v2(243z − 294023) ≥ 4` at `e = 8`, and 3 for `e ≥ 9`.
+- **Re-entry theorem.** It was checked on 23 members of `w ≡ 8515171531530858421 (mod 2⁶³)`, which is `−C/E (mod 2⁶³)`. In each:
+  - `v2(Y(w)) = 37`, giving one copy and exit 18;
+  - the ordinary word from `3w` is `W = (1,1,1,1,2,3,2,1,1,1,1,2)`, which is `q ↦ (Aq + 1064657)/2¹⁷`, then `W` with first entry 3, ending at `6R(w) + 1`;
+  - `R(w) = (A·V(w) + B)/2¹⁸` is odd;
+  - `T²⁴(3w) = 3R(w)` and `S³⁰(3w) = S⁶(3R(w))`;
+  - `R(w) > w`, `R(w)` is back in the guard, and (17) holds.
+
+  The least input maps to `17498212027614261173`.
+- **Repetitions.** For `r = 1..6`, members of `w ≡ −C/E (mod 2^(63+37(r−1)))` were tested, 18 cases in all. In each:
+  - the observed number of successive re-entries equals `1 + ⌊(h − 63)/37⌋`, with `h = v2(Ew + C)`, and is at least `r`;
+  - every copy satisfies `ER + C = (P/L)(Ew + C)`;
+  - the terminal `h` lies in `26..62`, and the terminal state is still in the guard;
+  - the clocks `T^(24r)(3w₀) = 3w_r` and `S^(24r+6)(3w₀) = S⁶(3w_r)` hold.
+
+  Here `−C/E`, with `E = 3²⁴ − 2³⁷`, is the negative rational fixed point of `R`. The growing re-entries are its 2-adic shadow, like the families in SYNTHESIS §4.
+
+`python3 sidekick/probes/batch_r68_r70_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 08:07 — VERIFIED: R82's finite-anchor theorem, its R80 classification and the contracting control (main `9190ccf`)
 
 This branch's own `T = ν∘S` was used throughout. Neither main's code nor its anchor table was read.
