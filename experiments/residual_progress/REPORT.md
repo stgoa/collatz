@@ -34,6 +34,14 @@ depths on subfamilies. R78 classifies native and next-A2 continuations at
 the original rank; R79 gives exact growing returns and exit/inverse failures.
 The immediate-loop scope classification shows its surviving lower W9
 relations were already covered. Universal terminal supply remains missing.
+R81 now supplies the complete arithmetic domain of every prescribed paired
+history, including the exact smaller-origin slope boundary. R82 turns a
+supplied finite anchor into a complete all-ray history classification within
+ternary precision, and identifies a unique thirteen-step smaller origin for
+R80's one-step future. R83 crosses every prescribed native growth depth on
+two explicit CRT cells. It also exhibits an absorbed input at which the
+entire named two-ray/point procedure fails. These are conditional families
+and a complete scoped test; coverage of the full exit type is still missing.
 Rational scaling changes the integer lattice. The seventeen-family W5 dispatcher
 and frozen internal resolvers remain unchanged. Universal current supply
 and Collatz remain open.
@@ -2891,3 +2899,156 @@ LF endings, JSON parsing and staged whitespace. Remote main remained
 sources, proof notes, evidence and shared records. The authorized commit
 and push are recorded in Git history; the active universal-current goal
 remains open.
+
+## 2026-10-18 — Complete history cells and escape beyond prescribed growth
+
+Continued from pushed `3b0c8a5`. The previous batch made progress and its
+verified sources remain the baseline. The active goal still requires a
+universal current construction or a valid proof of Collatz. This batch
+develops the smaller-origin history direction and identifies its next
+unresolved coverage problem.
+
+### R81: maximal paired-word cells
+
+The [lifting theorem](history_lifting/HISTORY_LIFTING.md) starts from two
+known exact ordinary histories at q0,p0, with lengths a,b and valuation
+totals A,B. Their complete integer merger cell has increments
+
+    M=2^(A+1)*3^max(b-a,0), P=2^(B+1)*3^max(a-b,0).
+
+Every positive pair is q0+Mk,p0+Pk. The theorem gives all allowed integer
+indices, not just a sufficient progression. For k>=0, every origin is
+strictly smaller precisely when p0<q0 and P<=M. The equality case matters:
+q739,p725 both reach13 with equal slopes and fixed gap14. Conversely the
+q21,p19 comparison has expansive slope and only its anchor is smaller in
+the nonnegative cell. These controls retain the affine intercept.
+
+The exact prefix difference K has divergence[q]-[p]. At a critical input
+w with rho(w)=q, its full current is N_(3w)+K+J_p-J_w. All signed requests
+A_p-A_w have smaller rank; every terminal input is still mandatory. The
+general compiler changes no dispatcher.
+
+R80's exact fixed-word cell becomes q11547+16*3^12*k and
+p11391+2^23*k, k>=0. Its period is8192 times smaller than the previously
+sufficient cell. The high merger, clocks and peak survive. This enlarged
+cell is not all blocked: the proof gives its complete local phase test.
+The explicit blocked subprogression k3072mod4096 is disjoint from the old
+cell and has genuine higher R44/R52 requests, even in the native basis.
+Its new history current nevertheless passes the original-rank test.
+
+Frozen replay:18 specifications,189 lifts,592 memberships,191 native plans,
+62 old-phase records with38 verified high requests,19 rejections, and three
+supplied outputs of46/100/108 rows. Independent proof/source/default review
+passed. These finite counts establish no density or universal coverage.
+
+### R82: a complete finite-anchor history test
+
+The [frontier theorem](history_frontier/HISTORY_FRONTIER.md) assumes a
+supplied finite absorbing canonical graph covering every origin throughN.
+For y>=Y>1, y=Ymod3^K, it classifies all smaller a<q reachingy in0..K
+steps by shadowing to that graph. The exact cutoff is
+
+    n=ceil((q+1)(Y+1)/(y+1))-2.
+
+When n<=N, only the supplied origins c<=n whose unique path reachesY are
+eligible. Each gives at most one lifted partner. The proof covers every
+inverse ray with alpha-beta>=1, not a ray-index cutoff. The horizonK,
+the checked anchor coverage and Y>1 remain necessary hypotheses.
+
+For affine endpoint y=gq+h, the uniform cutoff is
+ceil(max(b+1,(Y+1)/g))-2 at anchorb. A canonical valuation1 prefix gives
+b-1 exactly. The contracting paths from465 and497 to11 instead show why
+that simplification fails in general: their lifts have smaller actual
+partnerp despite its larger anchor497. The valid safe cutoff there is538.
+
+The4892-state R80 certificate contains exactly one smaller origin reaching
+17321:11391, at quotient depth13. Therefore q11547+16*3^D*t has no smaller
+origin reaching its one-step future throughD+1 forD<=11, and exactly the
+prescribed p at depth13 within that horizon forD>=12. At t0 the result is
+all-depth; positive lifts have only the stated horizon. This is a sharp
+target-specific length, not a global optimum over later targets or currents.
+
+Frozen replay covers44 lifted histories,23 independent finite inverse
+trees,36 all-ray shadow samples including large indices,10 contracting
+controls,16 rejections and two supplied outputs reconstructed from R80.
+Independent proof/source/default review passed. No new unknown orbit
+search is required by the compiler.
+
+### R83: high history after any prescribed native return count
+
+The [growth escape](native_growth_escape/NATIVE_GROWTH_ESCAPE.md) completes
+the higher-ray candidate on explicit subfamilies. For r>=0,s=r+1 choose
+64^L=217/8272mod3^(6s+4), with0<L<3^(6s+2), and h=11L+8s.
+The cyclic unit subgroup1mod9 proves existence and uniqueness ofL.
+Independent exact binary and ternary residues then give two infinite
+positive CRT cells with exactlyr native returns, c137mod1024 and exact
+point orderh. The endpointp is strictly smaller thanb because its slope
+is9*(131072/177147)^L/18^s<=1/2 and the omitted affine term is negative.
+
+The upper word `(1,2,1),(1,1,2,1,1,3)^s,(1,1,3)` from3b and lower
+word `1^h,2,6L+3,1,2,1` fromp meet atM=(2187c+925)/512>3b. Thus
+p<b<3b<M, with ordinary clocks(6r+12,h+5). Their exact signed prefix
+difference plusH_p-H_b requests only original-rank-smaller inputs. The
+inputs remain supplied premises, including every negative coefficient.
+
+The theorem is deliberately paired with a complete limitation. For r>=1,
+the two quotient rays followed by point ancestry and deterministicH pass
+exactly whenh>=1 andp<3b. A proved all-ray bound reduces this to a finite
+decision. Atb96797577 it leaves onlyL0,1,2 on each ray and every plan fails.
+Supplied absorption at this same input confirms that the limitation belongs
+to the procedure. Other inverse words, cycles and later future histories
+remain outside the exclusion.
+
+Frozen replay covers20 symbolic depths through64,160 modular phases, four
+exact unit/index cells, six complete failure plans,21 rejections and one
+capped-decision control. The r0 family hasL740,h8148 and is fully materialized.
+Its comparison has8165 rows; complete supplied paths of31041/39181 arrows
+compile to a129-row actual pair current. Lossless valuation words and
+hexadecimal endpoints keep the receipt about97KB. Later cells grow rapidly:
+r1 already hasL2028089,h22308995. Symbolic tests do not expand those paths
+or establish their absorption. Independent proof/source/default review passed.
+
+### Parallel work and next obligation
+
+A fresh remote read still found only mergedPR1. The side branch advanced
+to9849c53 with independent R78–R80 checks and acknowledgement of the previous
+complexity-scope review. Its unmodified new probe reproduced byte for byte
+under a60-second cap. The [pinned review](side_lane_review_9849c53.md) retains
+its exact hashes, ranges and limits. No side-branch changes were made.
+
+Continue smaller-origin histories, retaining negative controls and the
+corrected conditional minimality theorem. The new work makes the history
+constructor exact and the finite-horizon search complete. It also shows
+that simply increasing a ray index cannot finish the entire H17 type.
+The next substantive target is a noncircular coverage argument over a
+whole remaining type, allowing other future targets or histories, with
+all signed premises smaller at the original rank. A list of additional
+CRT successes, finite high acceptance or a theorem conditional on unknown
+anchor supply does not meet that target. Universal terminal supply remains
+open, and the seventeen-family W5 dispatcher stays unchanged.
+
+An unpromoted continuation probe suggests a more specific next question:
+classify the normalization phase at the thirteenth quotient target of the
+11547 anchor, or select a genuinely different smaller history. Appending a
+common suffix to an already known pair of histories cancels from their
+current difference. The next batch should check whether a new target
+actually adds a new comparison before counting it as coverage. No additional
+all-target or infinite-family claim is imported from the temporary probe.
+
+### Verification and delivery
+
+All three source/proof/receipt sets were frozen after independent review.
+They were registered in `scripts/verify_all.py` before the full repository
+gate started. The existing TeX compiled successfully in the native editor;
+root and independent transcription reviews passed with no corrections.
+Shared README, agent rules and ledger received independent review; the
+stale R79 candidate sentence was updated to its new R83 scope. Mechanical
+checks passed for20 scoped files,489 local Markdown links,79 unique TeX
+labels,134 resolved references, unique new equation tags, LF endings,
+JSON parsing and whitespace. `python3 scripts/verify_all.py --cpp` passed
+with exit0, including all three new checkers, all historical and
+negative-control receipts,31 original manifest entries and independent
+C++ cutoffs4096 and262144. Log: `/tmp/collatz_history_lifting_full_gate.log`.
+The final remote refresh left main unchanged at3b0c8a5. The authorized
+commit and push are recorded in Git history. Universal current supply and
+the active research goal remain open.
