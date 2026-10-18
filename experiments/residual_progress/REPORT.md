@@ -3458,3 +3458,113 @@ and independent proof review is still required. A finite origin universe alone
 does not guarantee a terminating classification. The draft preserves the exact
 argument and missing certificate obligations so the next batch can start from
 the repository. No new dispatcher, supplied current or Collatz claim is added.
+
+## 2026-10-18 — Merged-PR refresh and deeper-window investigation
+
+The preceding batch is verified progress, delivered as `a94533a` and `b2731dd`.
+The universal research goal remains active. A fresh remote read starts this
+batch at clean main `b2731dd`; GitHub still lists only merged PR1 (`ba6b337`),
+already incorporated. The independent side feed has advanced to `86ead16d`.
+Its new arithmetic probes are external evidence to reproduce, not premises
+to accept without checking. The side branch remains unchanged.
+
+Working hypotheses:
+
+1. The next fourteen inverse steps may contain a strict smaller-source
+   comparison after the R91 precision horizon.
+2. That window may contain only the known original-source history, giving
+   a stronger exact limitation on this target.
+3. A finite selective boundary reduction may settle this question without
+   an unrestricted search at every positive source.
+
+The PR assessment retains the negative controls and conditional minimality
+lemma, and the explicit counterexamples to its broader uniqueness inference.
+The constructive direction remains whole-family supply with a proof of
+termination; additional acceptance counts alone do not meet that objective.
+
+### R92 outcome and exact evidence
+
+The [completed theorem](deeper_window/DEEPER_WINDOW.md) resolves the saved
+candidate: for every eligible original source and every r, the sole canonical
+p<=Q reaching3Phi^r(v0) through12r+19 quotient steps is Q itself, at12r+18.
+This strengthens the horizon exclusion and supplies no new terminal current.
+
+The decisive simplification is an exact selective congruence. A possible
+boundary first-hit tail has d0=12k0+5 and E0=19k0+m,m8..14. Therefore
+243u=899841*2^m modulo7153. Combining it with the individual strict numerator
+bound leaves67,992 odd candidates,33,995 canonical. The independent signed
+Python classifier resolves all of them, through275,892 memoized states,
+with sixteen target tails and no cap. The positive-numerator C++ classifier
+separately resolves all176,754,119 canonical origins in the original larger
+interval, with1,939 total hits and exactly the same sixteen relevant tails.
+Its largest intermediate numerator is23,508,760,799,607,151; no origin bound
+was imposed on intermediate states.
+
+Complete unpruned suffix enumeration takes7,036 states. The only two
+necessary-score endpoints are `(9Q+5)/8` and Q. The first always exceeds Q;
+the second is exactly the already known history. A separate closed-ray
+enumeration agrees. Every affine intercept and the original binary guard
+are retained, so this conclusion includes all finite source-size cases.
+
+The [new pinned side review](side_lane_review_86ead16.md) reproduces R90's
+2,000 word pairs,500 quotient identities and3,000 return counts; the earlier
+R61–R67 and85-cell R64 probes; and the full33,426,246-origin R88 anchor scan.
+Those checks have their stated finite scopes. They neither reproduce R91
+nor prove R92. The A768 minimality counterexample and d61 failure at213 were
+also replayed. PR1 remains useful independent scrutiny, with its previously
+corrected broad uniqueness inference kept separate from the valid lemma.
+
+### Research decision
+
+Hypothesis1 fails in the entire stated window; hypothesis2 is proved by the
+finite reduction and complete classification. Hypothesis3 supplied the useful
+implementation improvement: a small selective universe replaces the larger
+origin scan in the default verifier. The full larger computation remains an
+independent check.
+
+Prioritize later meeting targets or genuinely different retained signed
+history for the remaining positive W5 request. A candidate construction must
+keep every terminal premise below the ORIGINAL rank and cover a complete
+remaining type with a proof of termination. Longer histories are still
+available, but repeating a search in this now excluded window cannot help.
+No universal current construction, Collatz proof or novelty claim is supplied.
+
+The separate [next-target note](deeper_window/NEXT_TARGET.md) preserves an
+unpromoted lead from the verification interval: after fourteen inverse
+suffix steps, a fifteenth branch begins to depend on ell modulo3. It gives
+the exact affine branch update and a conditional comparison to a smaller
+original-cell source. No complete merger rule or closed recursion was found;
+the base and every signed helper remain explicit supply obligations. This
+note is outside the verified R92 certificate. A separately reviewed written
+observation also rules out one fixed pair of ordinary valuation words on
+each entire pure ternary branch: equal affine slopes require equal binary
+cost but unequal lengths, while the common45-bit cylinder forces the same
+prefix. Variable words and added binary refinements remain available. The
+parameter split alone is not a progress theorem.
+
+Independent proof and source reviews pass. A separate reviewer reproduced
+the complete C++ JSON and independently enumerated the unpruned suffixes.
+The frozen default and C++ R92 checks pass:224 first-hit arrows,21 positive
+guarded families through r128,303 boundary lifts,42 terminal histories,
+24 affine interval cases,24 invalid-input rejections and three explicit
+cap-abort checks. The existing TeX source compiled successfully in place.
+The full `python3 scripts/verify_all.py --cpp` gate passed with exit0,
+including the new selective and complete-interval checks, all prior checks,
+Claude's negative controls,31 archive manifest entries and both original
+independent C++ cutoffs. Log: `/tmp/collatz_deeper_window_full_gate.log`.
+Mechanical checks passed on18 scoped files,486 local links,88 unique TeX
+labels,154 resolved references, JSON parsing, LF endings and whitespace.
+The final remote refresh left origin/main at the baseline `b2731dd`.
+The reviewed batch is ready for the authorized commit and push; the
+accompanying Git history records delivery. The universal goal remains active.
+
+Batch checklist (verified; delivery recorded in Git history):
+
+- [x] Refresh remote main, merged-PR metadata and optional side-feed pin.
+- [x] Independently reproduce the new side probes and persist their scope.
+- [x] Independently audit the deeper-window reduction and exact bounds.
+- [x] Complete the relevant boundary classification with no unresolved paths.
+- [x] Enumerate the legal suffixes with full affine original-rank comparisons.
+- [x] Independently review, persist and reproduce any promoted conclusion.
+- [x] Run required checks.
+- [x] Prepare the reviewed changes for the authorized commit and push.

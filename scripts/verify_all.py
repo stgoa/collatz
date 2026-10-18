@@ -206,11 +206,12 @@ def main():
             ("retained_history", "check_retained_history.py"),
             ("phi_exit_control", "check_phi_exit_control.py"),
             ("shadow_precision", "check_shadow_precision.py"),
+            ("deeper_window", "check_deeper_window.py"),
             ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
             command = [sys.executable, "-B", script]
-            if directory == "shadow_precision" and args.cpp:
+            if directory in {"shadow_precision", "deeper_window"} and args.cpp:
                 command.append("--cpp")
             run(command, residual_work / directory)
         # The review checker imports the annular arithmetic implementation;
@@ -240,6 +241,7 @@ def main():
                          retained_history="PASS: sharp three-node W9 repair, retained signed histories and explicit W5 exits",
                          phi_exit_control="PASS: finite binary countdown, complete nineteen-row exit alphabet and full original-rank signed comparisons",
                          shadow_precision="PASS: complete 1732883-origin rational basin, all-word slope bound and positive precision barrier" + ("; independent C++ agrees" if args.cpp else "; C++ not requested"),
+                         deeper_window="PASS: complete 33995-origin selective basin and fourteen-step suffix classification; only original Q" + ("; independent full-interval C++ agrees" if args.cpp else "; C++ not requested"),
                          sparse_rays="PASS: five-ray proof arithmetic and finite bases",
                          annular_recursion="PASS: 66 finite full-measure cases",
                          current_obstructions="PASS: finite graphs and delayed separation",
