@@ -26,6 +26,16 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 01:31 — CORRECTION to the 01:04 transfer entry
+
+The 01:04 entry said that `d = 1` "can enter only through the finite base region". That conclusion holds only for arguments that use nothing but the transferred identities: valuation words, normal-form steps and rank comparisons.
+
+Under `x ↦ x/d`, the integers for `S_d` correspond to rationals in `d⁻¹Z` for `S_1`, not to integers. So exact integrality of states along a whole word does not transfer, and it can separate values of `d` at any height. Main's in-progress R71 note (`lattice_cycles/BALANCED_DENOMINATORS.md`) makes this point and gives an example. Every state of a mechanical valuation word's cycle has reduced denominator `2^(A₀) − 3^(k₀)`. Those cycles therefore sit above any prescribed constant and are never integral, apart from the all-2s word.
+
+The corrected statement: arguments that use only the transferred identities cannot detect `d` except through which classes hold the base and the cycles. A proof for `d = 1` therefore needs some input that does not transfer. Exact integrality along whole words is such an input.
+
+---
+
 ## 2026-10-18 01:20 — TOOL: catalogue of positive rational 3x+1 cycles, as control points; ACK main's review of the 00:53 entry
 
 **Catalogue.** Every periodic valuation word with `2^m > 3^k` has exactly one 2-adic point that follows it forever. That point is `x = B_W/(2^m − 3^k)`, a positive rational with odd denominator, and it is a cycle point of 3x+1. Multiplying by the reduced denominator `d` turns it into an integer cycle of 3x+d (01:0x entry).
@@ -44,7 +54,7 @@ The catalogue (receipt `rational_cycles.json`) gives control points for any whol
 
 ---
 
-## 2026-10-18 01:04 — FINDING: the framework's identities transfer verbatim to 3x+d (gcd(d, 6) = 1); a one-line form of the target
+## 2026-10-18 01:04 — FINDING: the framework's identities transfer verbatim to 3x+d (gcd(d, 6) = 1); a one-line form of the target  [one sentence corrected at 01:31]
 
 **Transfer.** For odd `d`, write `T_d(x) = (3x + d)/2^v2(3x + d)`. Then `T_d(dy) = d·T_1(y)` on 2-adic integers. So on `Z_2`, and on positive rationals with denominators prime to 6, 3x+d is 3x+1 rescaled by `d`. A finite word of valuations, an elementary normalization, a halving bridge or a cycle word for 3x+1 becomes the same object for 3x+d, with every `x` replaced by `x/d` and residue classes multiplied by `d` modulo `2^k·3^j`. Ratios of states, and hence rank comparisons, are unchanged.
 
@@ -53,7 +63,7 @@ We check this for `d ∈ {1, 5, 7, 13, 61}:
 - **R27 halving.** `x = 2^a t − d` with `t/d ≡ 3^a (mod 4)` gives `S_d^a(x) = S_d^a((x − d)/2)`, in about 1,000 cases per `d` with `a ≤ 11`.
 - **R54 family.** `n₀ = 81·2^(11r+6)s − 17d` follows `(1,1,1,2,1,1,4)` `r` times, with `Ψ_d(n) + 17d = (2187/2048)(n + 17d)`. Every state stays at least `n₀`. This holds in 16 cases per `d`.
 
-Consequently, any whole-type theorem built only from such identities and rank comparisons also holds for every 3x+d with `gcd(d, 6) = 1`. The specific value `d = 1` can enter only through the finite base region: the classes holding the absorbing point `d`, and, for `d ≠ 1`, the extra cycles. Several of those maps, such as 3x+5, 3x+13 and 3x+61, have several positive cycles.
+Consequently, any whole-type theorem built only from such identities and rank comparisons also holds for every 3x+d with `gcd(d, 6) = 1`. ~~The specific value `d = 1` can enter only through the finite base region: the classes holding the absorbing point `d`, and, for `d ≠ 1`, the extra cycles.~~ [corrected at 01:31: this holds only for arguments restricted to the transferred identities; see the 01:31 correction] Several of those maps, such as 3x+5, 3x+13 and 3x+61, have several positive cycles.
 
 **One-line form of the target.** For `w = 4u + 1 ∈ W5` we have `S(w) = S(u)` and `S(3w) = 18u + 5`. With R40, Collatz is therefore equivalent to this:
 
