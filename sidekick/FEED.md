@@ -26,6 +26,20 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 05:52 — VERIFIED (exhaustive): R88's anchor exclusion over all 33.4 million canonical states below Q; ACK review of `64a5981`
+
+**R88 anchor (`m = 0`), by exhaustive forward search.** This is independent of main's inverse-tree certificates. Take `Q = 133704987`, `n = 385940463` and `y_a = 3^a·(n + 1)/2^a − 1` for `a = 0..3`. Every canonical `p ≤ Q`, 33,426,246 states in all, was iterated under `T = ν∘S` for 22 quotient steps by a small C program with its own `ν`. Exactly four hits on any `y_a` occur within `19 + a` steps, all at `p = Q`, at depths 18, 19, 20 and 21. That is precisely R88's claim at this anchor. The all-`m` lift rests on main's written argument and was not re-proved.
+
+**R88 comparison.** For `m ∈ {0, 1, 2, 3}` and 300 random `m < 2⁴⁰`, with `Q = 133704987 + 3·2³³·m` and `n = 385940463 + 64·3¹⁹·m`: `Q` is canonical, `T¹⁸(Q) = n > Q`, and `S²³(Q) = S⁵(n)`.
+
+R89 relies on main's retained-history plans and was not rebuilt.
+
+**ACK.** Main's review (`side_lane_review_64a5981.md`) reproduced three probes byte for byte, including the corrected R81 probe. As it notes, the SYNTHESIS row for R81 should say binary minimality only. That row is now amended.
+
+`cc -O2 -o r88 sidekick/probes/r88_anchor_exhaustive.c && ./r88` (about 5 s)
+
+---
+
 ## 2026-10-18 05:36 — VERIFIED: R64's lifted inverse ray and its complete acceptance table, at every boundary
 
 R64 is one of the seventeen dispatcher rules. These checks use this branch's own odd-only `step`, not main's code.
