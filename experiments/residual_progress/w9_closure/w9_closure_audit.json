@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "claim_scope": "Finite exact checks of a conditional W9-to-W5 compiler; no universal W5 supply",
+  "command": "python3 experiments/residual_progress/w9_closure/check_w9_closure.py",
+  "local": {
+    "domain": "w=9 modulo16, 9<=w<65536",
+    "count": 4096,
+    "branches": {
+      "low_even_d_expansion": 1344,
+      "odd_d": 1365,
+      "even_d_canonical": 1365,
+      "high_even_d": 22
+    },
+    "maximum_nonzero_requests": 9
+  },
+  "low_valuation_affine_table": {
+    "formulas": {
+      "4": [
+        9,
+        3,
+        4
+      ],
+      "6": [
+        27,
+        13,
+        16
+      ],
+      "8": [
+        81,
+        55,
+        64
+      ]
+    },
+    "counts": {
+      "4": 2048,
+      "6": 512,
+      "8": 128
+    }
+  },
+  "tripling_bound": {
+    "domain": "all odd 1<=z<8192",
+    "count": 4096
+  },
+  "high_valuations": {
+    "domain": "4<=d<=80, eight admissible odd C phases each",
+    "count": 616,
+    "branches": {
+      "low_even_d_expansion": 11,
+      "even_d_canonical": 154,
+      "odd_d": 304,
+      "high_even_d": 147
+    }
+  },
+  "recursive": {
+    "domain": "w=9 modulo16, 9<=w<4096",
+    "count": 256,
+    "maximum_nine_nodes": 4,
+    "maximum_five_inputs": 6
+  },
+  "rejection_checks": 4,
+  "actual_substitutions": [
+    {
+      "seed": 9,
+      "nine_nodes": 1,
+      "inputs": 2,
+      "rows": 45,
+      "current_sha256": "520945656b68d06620b738138bf9ffdd99ee0ff32ccd35354ce2ea228be3c188"
+    },
+    {
+      "seed": 25,
+      "nine_nodes": 1,
+      "inputs": 1,
+      "rows": 10,
+      "current_sha256": "2f920953a1025f3e1d681b71b4b1f00bec70d08632ef861372bb0d1113480f92"
+    },
+    {
+      "seed": 57,
+      "nine_nodes": 2,
+      "inputs": 2,
+      "rows": 53,
+      "current_sha256": "a3b8a8093efed583038b8dc0331d3fa0b3d0ca9eb08cb221994e537becbd2803"
+    },
+    {
+      "seed": 121,
+      "nine_nodes": 1,
+      "inputs": 3,
+      "rows": 46,
+      "current_sha256": "2c6bd32ad1b4edb5b20c601912d208160a9ffaff468776a69a50bb161382d542"
+    },
+    {
+      "seed": 313,
+      "nine_nodes": 1,
+      "inputs": 2,
+      "rows": 38,
+      "current_sha256": "7485af37911a04d152e57bb40bc41b4a2a0fe2424348a1fd4da39ffbf8c09aef"
+    },
+    {
+      "seed": 569,
+      "nine_nodes": 1,
+      "inputs": 1,
+      "rows": 69,
+      "current_sha256": "40758743228e0aed34fc01191ee0f299dfb2afb182ac701def2c37ecaa607be1"
+    },
+    {
+      "seed": 1321,
+      "nine_nodes": 1,
+      "inputs": 1,
+      "rows": 48,
+      "current_sha256": "97fb367717b05614c88a7546e41521feacaa5c13fb0acc06b071e79fded93446"
+    },
+    {
+      "seed": 1561,
+      "nine_nodes": 4,
+      "inputs": 0,
+      "rows": 9,
+      "current_sha256": "21748edd55fc28edd5c6f3f9087dd93f6e3b7a6ad917ecbfad4d910a393712df"
+    },
+    {
+      "seed": 2041,
+      "nine_nodes": 1,
+      "inputs": 4,
+      "rows": 85,
+      "current_sha256": "3d24052ede4b05a31c3c057d2e70dac9d47c698bb91a025bae00a0f79e7580be"
+    },
+    {
+      "seed": 4073,
+      "nine_nodes": 1,
+      "inputs": 3,
+      "rows": 35,
+      "current_sha256": "ff9e1f9a8571b2e483639e1410478fdda128bec1f2d6b714266001ef1ec6c1c8"
+    }
+  ],
+  "actual_fixture_cap_per_seed": 10000,
+  "elapsed_seconds": 4.146
+}

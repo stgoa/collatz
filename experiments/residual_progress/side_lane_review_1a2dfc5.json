@@ -1,0 +1,245 @@
+{
+  "external_branch_modified": false,
+  "independent_W5_control_witnesses": [
+    {
+      "cycle_indicator_pairing": -1,
+      "d": -1,
+      "triple_orbit": {
+        "cycle": [
+          1
+        ],
+        "prefix": [
+          15,
+          11
+        ]
+      },
+      "w": 5,
+      "w_orbit": {
+        "cycle": [
+          5,
+          7
+        ],
+        "prefix": []
+      }
+    },
+    {
+      "cycle_indicator_pairing": 1,
+      "d": 13,
+      "triple_orbit": {
+        "cycle": [
+          287,
+          437,
+          331,
+          503,
+          761
+        ],
+        "prefix": [
+          159,
+          245,
+          187
+        ]
+      },
+      "w": 53,
+      "w_orbit": {
+        "cycle": [
+          1
+        ],
+        "prefix": [
+          53,
+          43,
+          71,
+          113,
+          11,
+          23,
+          41,
+          17
+        ]
+      }
+    },
+    {
+      "cycle_indicator_pairing": 1,
+      "d": 61,
+      "triple_orbit": {
+        "cycle": [
+          235,
+          383,
+          605,
+          469,
+          367,
+          581,
+          451,
+          707,
+          1091,
+          1667,
+          2531,
+          3827,
+          5771,
+          8687,
+          13061,
+          9811,
+          14747,
+          22151,
+          33257,
+          12479,
+          18749,
+          14077,
+          10573,
+          7945,
+          2987,
+          4511,
+          6797,
+          5113,
+          1925,
+          1459,
+          2219,
+          3359,
+          5069,
+          3817,
+          1439,
+          2189,
+          1657,
+          629,
+          487,
+          761,
+          293
+        ],
+        "prefix": [
+          399
+        ]
+      },
+      "w": 133,
+      "w_orbit": {
+        "cycle": [
+          1
+        ],
+        "prefix": [
+          133,
+          115,
+          203,
+          335,
+          533,
+          415,
+          653,
+          505,
+          197,
+          163,
+          275,
+          443,
+          695,
+          1073,
+          205,
+          169,
+          71,
+          137,
+          59,
+          119,
+          209,
+          43,
+          95,
+          173,
+          145,
+          31,
+          77,
+          73,
+          35,
+          83,
+          155,
+          263,
+          425,
+          167,
+          281,
+          113,
+          25,
+          17,
+          7,
+          41,
+          23,
+          65
+        ]
+      }
+    }
+  ],
+  "process_cap_seconds": 60,
+  "receipt": {
+    "controls_on_W": {
+      "-1": {
+        "count_below_4000": 336,
+        "first": [
+          [
+            5,
+            5,
+            "trivial"
+          ],
+          [
+            13,
+            5,
+            "trivial"
+          ],
+          [
+            21,
+            17,
+            5
+          ]
+        ]
+      },
+      "13": {
+        "count_below_4000": 285,
+        "first": [
+          [
+            41,
+            "trivial",
+            259
+          ],
+          [
+            53,
+            "trivial",
+            287
+          ],
+          [
+            57,
+            "trivial",
+            131
+          ]
+        ]
+      },
+      "61": {
+        "count_below_4000": 57,
+        "first": [
+          [
+            133,
+            "trivial",
+            235
+          ],
+          [
+            137,
+            "trivial",
+            235
+          ],
+          [
+            213,
+            235,
+            "trivial"
+          ]
+        ]
+      }
+    },
+    "r37_images_checked": 16668,
+    "r37_roots_checked": 16668,
+    "r38_z_checked": 100000,
+    "r39_max_meet_steps": 3,
+    "r39_v_checked": 6250,
+    "scope": "Independent finite checks of main 436f51f (R37-R39) and controls on W.",
+    "status": "PASS"
+  },
+  "scope": "Finite independent checks only; external findings are not universal proof premises.",
+  "source_commit": "1a2dfc5710c5e17a4f42355a3dce2d6984b2b09b",
+  "source_hashes": {
+    "collatz_research_20261017/negative_controls/affine_controls.py": "9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c",
+    "sidekick/probes/batch_436f51f_check.json": "b0d54258877cb05a0dcd949c146552479be25c923020928ecca01543361163e1",
+    "sidekick/probes/batch_436f51f_check.py": "bfcb1a8d5ab6e8bae18cf46bfdb15b344e54f2f6cb5727da8e0d404d7189b2d2",
+    "sidekick/probes/fibre_count_check.py": "071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a"
+  },
+  "status": "PASS",
+  "unmodified_probe_reproduced": true,
+  "witness_discovery_cap_per_seed": 10000
+}

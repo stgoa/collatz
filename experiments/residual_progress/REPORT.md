@@ -1079,3 +1079,111 @@ Do not replace this target with a larger finite scan or another isolated
 merger family. R38's restricted ternary domain is smaller than its finite
 compiler's universal input set, and R39 does not exhaust W. Universal
 completion remains open; no Collatz proof or novelty claim is made.
+
+## Batch after436f51f: complete critical-nine elimination and exact remaining dependencies
+
+Previous goal turn: **progress**, committed and pushed as436f51f. The
+working tree and main/origin-main agreement were rechecked. The optional
+side feed initially remained at dbb0dea5930ec667b70b5dfcbb595e5d566451b0.
+A later fetch advanced it to1a2dfc5710c5e17a4f42355a3dce2d6984b2b09b.
+The new R37–R39 probe and its two dependencies were inspected and reproduced
+unmodified in temporary storage under a60-second cap. The published receipt
+matched. No side-branch mutation was made. A fresh remote PR listing again
+found only merged PR1, already an ancestor of main.
+
+### Hypotheses and outcomes
+
+1. **Full W9 closure: proved as a domain elimination.** Every W9 request
+   reduces to a finite signed collection of W5 inputs, bounded by(9w+3)/4.
+   Every recursive W9 child strictly decreases. The complete low-even
+   exceptions request a larger W5 input, so a claim that the entire pair
+   parameter always decreases would be false. The W5-only equivalence
+   is the constructive progress in R40; it leaves universal input supply open.
+2. **Full W5 descent: partial, with an exact failed composition.** R41
+   gives a complete shrinking rule on E_good, defined in its proof note.
+   Universal currents on W5 minus E_good suffice. The other eligible row
+   returns P(w) with coefficient+1; P21 is an exact tautology. The infinite
+   w21 modulo2304 family preserves this defect. These are recipe loops,
+   not positive Collatz cycles. The failure is recorded rather than iterated
+   as if smaller intermediate parameters established a global rank.
+3. **Joint-state closure: the simple proposal fails.** R42 covers the
+   full two-arrow C interface and the whole missing v3 modulo32 block.
+   Consuming the binary exponent increases the ternary coefficient. An
+   actual required-ray family has an absorbed smaller half but a retained
+   positive frontier with unbounded ratio to the original root. A separate
+   R41 theorem exhausts all inverse rays and rules out fixed-depth ancestor
+   descent, including complete elementary normalization, as a general repair.
+
+### Durable evidence
+
+- [R40 proof and compiler](w9_closure/CRITICAL_NINE_ELIMINATION.md):4096
+  local cases,4096 sharper endpoint bounds,616 exact high-valuation cases,
+  2688 direct affine-table cases,256 recursive eliminations,10 actual input
+  substitutions and four rejection cases. P1561 has an explicit nine-row
+  current with no missing premises; this is a finite example.
+- [R41 proof and compiler](critical_inverse/CRITICAL_INVERSE.md):1820
+  phase currents,1024 W5 absorption plans,683 E plans (455 descending and
+  228 self-dependent),24 actual pair compilations,73 inverse-affine samples,
+  2478 finite inverse words,27 CRT samples throughdepth128 and six independent
+  all-origin checks throughdepth6. The exact whole-tree claim rests on its
+  shadow proof, not these bounded tests. P69/P117 tables are in the receipt.
+- [R42 proof and interface](joint_frontier/JOINT_FRONTIER.md):8192 complete
+  interface cases,2048 full subdomain blocks,45 parameter pairs,11 expansion
+  instances,five d4 embeddings and four actual required-ray roots. The
+  stored r27 comparison has119 rows and a four-row lower input; its positive
+  frontier is explicit and remains unresolved by this block.
+- [External reproduction](side_lane_review_1a2dfc5.json) retains source
+  hashes and the matched receipt:16668 critical roots/images,100000 odd
+  interfaces and6250 joint inputs. Three additional W5 control witnesses
+  were independently reconstructed and included in the exact cycle checker.
+  The updated [parallel-work assessment](PAIR_DOMAIN_REVIEW.md) answers the
+  user's pivot question and preserves the earlier PR scope corrections.
+- [External sieve audit](sufficient_sets/RECURSIVE_SIEVE_AUDIT.md) records
+  the exact witness11 to a displayed set equality in Ansari's Lemma3.1.
+  The primary PDF transcription was independently checked. This identifies
+  a proof gap; the paper's theorem is not claimed false or used as a premise.
+
+### Review and validation
+
+Independent model reviews checked R40's signed recursion and bounds, R41's
+whole phase and complete inverse theorem, and R42's full frontier and actual
+source embedding. A review caught a transcription error in R40's d8 table:
+its intercept is55, not175. The note and shared summaries were corrected,
+and2688 direct affine-row checks were added. The constructor already used
+the correct formula4z+1. Stored CSV files use LF endings. Default focused
+replays pass. The existing LaTeX source compiled successfully in the desktop
+editor. The full `python3 scripts/verify_all.py --cpp` gate passed, including all
+new and previous checks, all31 original manifest entries and both independent
+C++ cutoffs. The final integrated-document model review passed after
+clarifying that the ternary unit belongs to z and bounding the ordinary
+predecessor statement explicitly. Local links, LF endings, TeX references
+and whitespace/scope review passed. The accompanying Git history records
+the authorized delivery.
+
+### Decision and next obligation
+
+This batch meets the complete-subdomain progress test: W9 is no longer an
+independent universal premise, and E_good has a complete smaller-W5 rule.
+The remaining sufficient set is B5=W5 minus E_good. Resolve a complete
+part of B5, or prove a rank for a recursion that permits intermediate
+increases without returning an unresolved input unchanged. A useful test
+case is the entire returning E row, not only P21 or one more successful
+merger. Any proposed general argument must respect the W5 control cycles.
+
+Do not repeat the inverse/W9 composition on its returning row, infer
+progress from the shrinking lower joint parameter, or replace a missing
+current by a conditional formal plan. R41 excludes only fixed inverse
+preprocessing; additional forward moves, unbounded inverse depth, signed
+common-tail currents and supplied-history reuse remain available. No global
+residual fraction, novelty claim or Collatz proof follows. The goal remains
+active; the batch is classified as **progress**.
+
+Checklist:
+
+- [x] Revalidate the committed state and skim the independent feed.
+- [x] Derive complete critical-domain interfaces and retain scoped failures.
+- [x] Test combined-source closure and valid inverse reductions.
+- [x] Independently review the new proofs and executable constructions.
+- [x] Persist the changed understanding and exact evidence; update standing.
+- [x] Complete the full verification and final integrated-document review.
+- [x] Review and deliver the verified batch under existing authorization.
