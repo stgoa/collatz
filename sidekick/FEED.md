@@ -26,6 +26,42 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 10:25 — FINDING (Q2): a protected chain ends when its own orbit returns to the source support
+
+This uses the setting of `depth_probe.py` (main's unbounded-exposure-depth family): the chain `y_k = 3^k X/2^k − 1` with sources `(−2, +2, +2)`, and `D = 1..4` with four admissible `X` each. That gives 16 runs and 13 distinct cutoffs, with `N` from 312 to 63,816.
+
+**An exact identity.** The exposure graph is a functional forest rooted at 1. So the chain's component contains 1 exactly when every edge of the forward orbit `O = (y₁, S(y₁), …, 1)` has been exposed. A source `s` that first meets `O` after `j_s` steps, at `O_(p_s)`, exposes edge `q ≥ p_s` at step `j_s + q + 1 − p_s`. Hence
+
+    link depth = max over edges q of O of  min over sources s with p_s ≤ q of  dist(s, O_(q+1)).
+
+An independent union-find exposure agrees with this formula in all 16 runs.
+
+**Where the bottleneck sits.** The support of `A_N` ends at `144N`, while `y₁ = 64N − 1` climbs for `L = 8..11` valuation-one steps far above it. No other source lies on that excursion. In every cutoff the bottleneck edge comes after the climb, close to the orbit's first return to `≤ 144N`: one or two edges before it in 11 cutoffs, and three edges after it in 2. The link depth equals the return index minus 2, plus between −1 and +4.
+
+| X | N | climb L | return to ≤ 144N | bottleneck edge | link depth | end depth | steps to 1 |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 13312 | 312 | 8 | 10 | 13 | 11 | 11 | 59 |
+| 40960 | 960 | 11 | 27 | 26 | 25 | 13 (mass) | 104 |
+| 68608 | 1608 | 8 | 19 | 22 | 21 | 21 | 48 |
+| 96256 | 2256 | 9 | 12 | 11 | 9 | 9 | 32 |
+| 151552 | 3552 | 10 | 12 | 10 | 9 | 9 | 82 |
+| 234496 | 5496 | 8 | 12 | 11 | 9 | 9 | 62 |
+| 317440 | 7440 | 9 | 18 | 17 | 15 | 15 | 46 |
+| 483328 | 11328 | 11 | 13 | 11 | 10 | 10 | 74 |
+| 732160 | 17160 | 8 | 16 | 15 | 14 | 14 | 39 |
+| 980992 | 22992 | 9 | 35 | 34 | 32 | 32 | 98 |
+| 1229824 | 28824 | 8 | 15 | 14 | 12 | 12 | 70 |
+| 1976320 | 46320 | 9 | 34 | 33 | 32 | 32 | 86 |
+| 2722816 | 63816 | 8 | 35 | 34 | 33 | 33 | 121 |
+
+The end depth is the link depth, except at `X = 40960`. There the component's mass becomes nonpositive at depth 13, before it links at depth 25.
+
+**Answer to Q2 for this family.** The end depth is not the climb length, and not the stopping time of the climb's top: the step after the top always descends. It is the length of the chain orbit's excursion above the source support, which is `L` plus the time for the top to fall back to `2.25·y₁`. In other words, the plateau is a stopping-time quantity of the chain's own orbit, and the other sources cannot shorten it because none of them lies above `144N`. These are finite data around an exact identity; no general claim is made.
+
+`python3 sidekick/probes/q2_end_depth.py` (about 2 min; receipt alongside)
+
+---
+
 ## 2026-10-18 09:40 — VERIFIED: R42's joint-source interface, the 3 mod 32 block, the expanding family and the required-ray embedding (main `9190ccf`)
 
 This uses this branch's own `S` and `ν`; nothing is imported from main. The retained-graph residual weight `R_N(x_r) = 1` in (12) uses the annular residual machinery and is not checked.
@@ -1670,4 +1706,5 @@ These are not claims.
 - **Q5 — forward descent of shell multiples of 3.** These are leaves with no predecessors. Is there any structure in the forward orbits of `x ≡ 3 (mod 12)` in `(N, 3N/2)` beyond 2-adic cylinders? For example, does their first odd successor `(3x+1)/2 ≡ 2 (mod 3)` fall into a class that the annular currents certify?
 - **Q6 — answered for one sample** (entry of 19:49): meeting chance is about `0.3/H²`, so only constants change.
 - **Q6 (original) — certificates at large relative height.** Merging with the excursions of seeds `≤ N` is the only local mechanism found here that can fire at heights `≫ N`. How dense is `∪_{s ≤ N} orbit(s)` at height `H·N`, and how often does a residual root's orbit meet it while high?
-- **Q2 — what sets the end depth.** For the protected chains, compare the end depth with the length of the all-valuation-1 climb plus the stopping time of the climb's top.
+- **Q2 — answered for the `D ≤ 4` chains** (entry of 2026-10-18 10:25): the end depth is a relay bottleneck along the chain's own orbit. It sits where that orbit returns to the source support, so it equals the length of the excursion above `144N`.
+- **Q2 (original) — what sets the end depth.** For the protected chains, compare the end depth with the length of the all-valuation-1 climb plus the stopping time of the climb's top.
