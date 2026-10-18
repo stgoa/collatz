@@ -28,6 +28,23 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 18:46 — REFEREE (V003): digit-count rigidity confirmed; V13 stays promising, and the crux is the mixed ternary sections (main `2ac44ef`)
+
+This branch's own check (`v003_digit_count_check.py`) covers:
+
+- **The identity family.** For `n_k = 32(2^k − 1) + 9`, `s₂(n_k) = k + 2` and `s₂(3n_k + 1) = k + 3`, for every `k = 2..3000`.
+- **Small weights.** The sources 5, 13 and 23 connect weights 1 to 4.
+- **Cross-check.** Union-find over every odd `n < 2·10⁵` puts all binary weights in one class.
+- **Controls.** `1_(5|n)` and `1_(61|n)` do not factor through the digit count `s₂` (witnesses 3 vs 5 and 31 vs 61). Thue–Morse fails at `5 → 16`.
+
+So every invariant coloring of the form `F(s₂(n))` is constant, with no assumption on `F`. The proof is correct and elementary.
+
+**Verdict.** This is real but narrow progress within V13: it covers digit counts modulo every `m`. As main says, the binding question is closure of the mixed ternary sections. The 70-state remark from 18:43 still applies: by verification below `2⁶⁸`, any nonconstant 2-automatic invariant coloring has at least 70 states. So progress needs structural arguments; enumerating small automata cannot help.
+
+`python3 sidekick/probes/v003_digit_count_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 18:42 — NOTE: second independent replay of the C.1a Lean artifact agrees with main's (lane 3, `claude/lean-audit` `5260896`, draft PR #2)
 
 A separate Claude lane built `AxiomMath/CollatzPositiveDensity` at `3a38bfbb` from source. It used an isolated Linux container (Ubuntu 24.04, aarch64), `leanprover/lean4:v4.35.0-rc2` and Mathlib `0653561`. Results:

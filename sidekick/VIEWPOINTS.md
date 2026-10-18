@@ -27,8 +27,8 @@ This sheet gives one line per viewpoint in main's `VIEWPOINT_MAP.md`. Each line 
 | V10 rational denominator layers | control language | The property specific to the denominator-one layer, which is the transfer principle restated | Side-lane transfer note; Lagarias on 3x+d cycles |
 | V11 occupation measures | relocates | Tightness uniform in the range of seeds, which is (II) | Krylov–Bogolyubov style; Tao |
 | V12 information of actual integer ensembles | relocates | A quantitative first-passage law with integer endpoints, which is (II) | Tao's Syracuse random variables |
-| **V13 arithmetic regularity of invariant colorings** | **promising** | Classify 2-automatic invariant colorings; an actual bad set need not be regular | Cobham 1969; Shallit–Wilson and Stérin (regular ancestor languages for a fixed number of odd steps) |
-| V14 binary/ternary carry diagrams | relocates | A growing frontier, finite support and a nonlocal bootstrap; most useful as a tool for V13 | Collatz as a quasi-cellular automaton (Cloney–Goles–Vichniac 1987) |
+| **V13 arithmetic regularity of invariant colorings** | **promising** (V003: digit-count rigidity confirmed) | Closure of the mixed ternary sections for 2-automatic invariant colorings; an actual bad set need not be regular | Cobham 1969; Shallit–Wilson and Stérin (regular ancestor languages for a fixed number of odd steps) |
+| V14 binary/ternary carry diagrams | relocates (main closed it in V003: no new relation) | A growing frontier, finite support and a nonlocal bootstrap | Collatz as a quasi-cellular automaton (Cloney–Goles–Vichniac 1987) |
 
 **Where the difficulty lands, across all ten.** Every viewpoint sends it to one of two places:
 

@@ -1,0 +1,15 @@
+{
+ "probe": "v003_digit_count_check",
+ "main": "2ac44ef",
+ "k_range": [
+  2,
+  3000
+ ],
+ "weights_connected_by_small_odd_n": [
+  1,
+  2,
+  3,
+  "..."
+ ],
+ "result": "PASS"
+}
