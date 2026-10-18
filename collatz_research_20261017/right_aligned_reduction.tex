@@ -5,6 +5,7 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
 \newcommand{\PiR}{\Pi^{\mathrm R}}
 \newcommand{\supp}{\operatorname{supp}}
 \newcommand{\Lip}{\mathcal L}
@@ -8236,6 +8237,161 @@ This resolves the saved next-window candidate, but supplies no new
 terminal current. Histories longer than $12r+19$, later meeting targets
 and different signed comparisons remain outside the exclusion.
 
+\section{Both original histories and their first departures}
+
+Keep the original coupled source $Q$, put $b=Q/3$, and write
+\[
+ z=471104208005+2^{14}3^{16}\ell,\qquad v_0=144z-43,
+\]
+\[
+ Q=\frac{2^{31}z-665034679}{3^{15}},\qquad
+ Y(z)=864z-257.
+\]
+Let $I(x,t)$ denote the current of the first $t$ ordinary arrows from $x$.
+The exact upper word of length18 and cost26, and the lower word
+\[
+ (2,1,1,2,2,1,1,2,2,1,3,2,1,5,2,3)
+\]
+of length16 and cost31 give, for every $\ell\ge0$,
+\[
+ S^{18}(Q)=Y(z),\quad S^{16}(b)=z,\quad
+ P(b)=\operatorname{div}\bigl(I(Q,18)-I(b,16)\bigr)+[Y(z)]-[z].
+ \tag{TS1}
+\]
+The full source periods have binary order45, greater than both word
+costs, so the exact valuation cylinders establish these whole-cell
+identities. The two remaining atoms in (TS1) are not supplied inputs.
+
+\begin{theorem}[Complete first departure of the retained lower history]
+\label{thm:twosourcehistory}
+Set $D=7153$, $A=3^{12}$, $M=2^{19}$ and
+\[
+ \Psi(z)=\frac{Az-53}{M},\qquad n=v_2(Dz-53).
+\]
+Then $n\ge14$. One upper return into the broad guard is legal exactly
+when $n\ge33$; it sends $Y(z)$ to $Y(\Psi(z))$ in12 ordinary arrows
+of total cost19. The number of complete returns and final upper
+guard order satisfy
+\[
+ r=\left\lfloor\frac{n-14}{19}\right\rfloor,\qquad
+ n=19r+h-4,\qquad18\le h\le36.
+\]
+
+Let $N_i/D$ be the rational Syracuse itinerary starting at $53/D$,
+with cumulative costs $E_i$. Its exact finite certificate has a
+71-arrow preperiod of cost146 and a377-arrow cycle of cost739.
+Every rational state is less than115 and every prefix slope
+$3^i/2^{E_i}$ is at most1.
+For the unique $i$ with $E_i<n\le E_i+e$, where
+$e=v_2(3N_i+D)$, put $a=n-E_i$ and $t=(Dz-53)/2^n$.
+The actual lower path agrees through $i$ arrows from $z$. Its first
+differing valuation is exactly
+\[
+ \begin{cases}
+ a,&a<e,\\
+ e+j,\quad j=v_2(3^{i+1}t+N_{i+1})\ge1,&a=e.
+ \end{cases}
+ \tag{TS2}
+\]
+Every indicated exact order and free $j$ has a complete binary cylinder
+in the original parameter. From the last matching state $x_i=S^i(z)$,
+all states $S^s(x_i)$ for $0\le s\le12$ lie below the original $Q$.
+The count12 includes the first departing arrow.
+\end{theorem}
+
+\begin{proof}
+The identities
+\[
+ \Phi(144z-43)=144\Psi(z)-43,\quad
+ Dv_0+299947=144(Dz-53),\quad
+ D\Psi(z)-53=(A/M)(Dz-53)
+\]
+give the upper guard and count. The rational certificate contains448
+distinct states, with repeated entry numerator7817 and maximum
+numerator819533. Every stored prefix satisfies $3^i\le2^{E_i}$.
+Each additional cycle multiplies the slope by $3^{377}/2^{739}<1$,
+which extends the bound to all prefixes.
+Before the first departure, exact affine composition gives
+\[
+ x_i=\frac{3^i2^{n-E_i}t+N_i}{D}
+     =\frac{3^i}{2^{E_i}}\left(z-\frac{53}{D}\right)+\frac{N_i}{D}
+     <z+115.
+\]
+Factoring the two terms of $3x_i+1$ proves (TS2). In its second
+case the complete extra-bit condition is
+\[
+ t\equiv(2^j-N_{i+1})3^{-(i+1)}\pmod{2^{j+1}}.
+\]
+This is an odd residue. The odd factors $D$ and $3^{16}$ are
+invertible modulo powers of2, giving a full original-parameter
+cylinder of modulus $2^{n+j+1-14}$; the first case has modulus
+$2^{n+1-14}$.
+Finally,
+\[
+ S^s(x_i)<(3/2)^s(z+116)-1<Q\quad(0\le s\le12).
+\]
+At $s=12$ the numerator of the second strict inequality, after
+multiplication by $3^{15}2^{12}$, has slope
+$2^{43}-3^{27}=1170495537221>0$ in $z$, and its value at the least
+$z=471104208005$ is $551425372148651686473501>0$.
+\end{proof}
+
+The full finite certificate and exact unfinished current tables are in
+\texttt{two\_source\_history/}. For any $0\le k\le r$ and
+$0\le s\le12$, the signed path comparison has residual
+$+[Y(\Psi^k(z))]-[S^s(x_i)]$. Its positive source is above $Q$ and
+its negative source is below $Q$.
+Coordinate integrality does not provide an actual lower path to $\Psi(z)$:
+the upper return leaves the explicit additional defect
+$[\Psi(z)]-[z]$. No closure or terminal supply is asserted.
+
+\subsection{The proposed ternary child needs unbounded clocks}
+
+\begin{proposition}[Scope of the prescribed child comparison]
+\label{prop:prescribedchild}
+For every $c\in\{0,1,2\}$ and every pair of bounds $K,R\ge0$,
+there is an infinite positive binary progression of $j$ for which
+$Q(c+3j)$ has at least $R$ guarded returns and
+\[
+ S^a(Q(c+3j))\ne S^b(Q(j))\qquad(0\le a,b\le K).
+\]
+\end{proposition}
+\begin{proof}
+At the binary-integral rational center
+\[
+ q_*=-\frac{515908491727}{11404192419},\qquad
+ \ell_*=-\frac{22852975802}{34212577257},\qquad
+ j_*=\frac{\ell_*-c}{3},
+\]
+the upper orbit has an18-arrow prefix followed by the negative12-cycle
+above. The child centers $Q(j_*)$ for $c=0,1$ are positive. For $c=2$,
+the exact112-arrow certificate takes
+$-799360888748662478376301/34212577257$ to $1663/7153>0$;
+its preceding112 negative states are disjoint from the upper prefix
+and cycle. Thus the two rational center orbits are disjoint at all
+ordinary clocks.
+
+Fix $K$. Sufficiently precise binary approximation $j\equiv j_*
+\pmod{2^N}$ fixes both first-$K$ valuation words, including their
+extra bits. Each prospective endpoint equality is then an affine
+equation in $j$. It cannot vanish identically, because evaluation
+at $j_*$ would equate the disjoint center orbits. Exclude its finitely
+many nonnegative integer roots by further binary refinement. This
+is possible since $j_*<0$ is distinct from every such root.
+Taking also $N\ge19R$ gives
+$v_2(Dv_0+299947)\ge19R+18$, hence the required returns.
+The refined cylinder has infinitely many positive integers.
+\end{proof}
+
+The proof and complete cylinder constructor are in
+\texttt{child\_history\_scope/}. This excludes a bounded-clock
+catalogue for the particular child $Q(\lfloor\ell/3\rfloor)$,
+even with finite binary refinements. It does not exclude unbounded
+input-dependent clocks, other children or general signed currents.
+Separate complete ray/point probes at later targets retain their
+full high requests; an older forward rule repairs one of those
+examples. Method failure is not absence of a current comparison.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -8453,6 +8609,13 @@ different signed comparisons; still longer histories remain available.
 These results
 favor input-dependent whole-family closure over accumulating further
 bounded local rules alone.
+Theorem~\ref{thm:twosourcehistory} now retains both original histories
+and locates the lower path's first departure for every upper return count.
+Its negative source remains below the original rank throughout the
+proved window, while its positive source remains unresolved.
+Proposition~\ref{prop:prescribedchild} rules out uniformly bounded clocks
+for the specific ternary-child recursion; other children and unbounded
+histories remain possible.
 The next obligation is to supply every
 terminal current by such comparisons or another well-founded closure
 on a complete remaining type. The old $W_5$-only dispatcher is unchanged.
@@ -8854,4 +9017,11 @@ space with cost at most21. Independent C++ additionally resolves the
 entire176,754,119-origin interval. The universal positive-source statement
 uses the written selective reduction and full affine inequalities; it
 does not follow from finite positive-source examples alone.
+The retained two-source checker reconstructs the448-state rational
+certificate,64 initial identities,3520 departure cases,180 joint cases
+through $r=128$,739 periodic phases and three unfinished signed tables.
+The prescribed-child checker constructs39 complete affine-root cylinders
+and independently replays156 positive integer pairs. Their universal
+quantifiers follow from the written finite-certificate and cylinder
+arguments, not from the positive samples.
 \end{document}

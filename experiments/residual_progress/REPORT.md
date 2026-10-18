@@ -1,10 +1,27 @@
 # Residual progress and finite forcing
 
-**Latest standing:** universal tripling currents on W5={5 mod8} suffice, but their universal construction is missing. The retained W5/W9 compiler preserves a common integer rank and every signed dependency. R90 now controls every exit of the retained Phi growth pattern. R91 proves that its accumulated ternary precision cannot supply a smaller original history, even using arbitrary inverse words and ray indices. Its arbitrary-length rational-shadow theorem reduces to a finite basin of1,732,883 eligible origins, independently classified in Python and C++.
+**Latest standing:** universal tripling currents on W5={5 mod8} suffice, but
+universal construction remains missing. R93 retains both actual original
+histories, reducing the coupled pair to `[864z-257]-[z]`. It classifies the
+lower path's first departure for every repetition count of the upper Phi
+pattern. The negative residual remains below the original Q through its
+forced prefix and twelve arrows from the last matching state; the positive
+residual remains above Q. These are unfinished exact comparisons.
 
-For every original coupled source with at least r returns, no canonical origin p<=Q reaches the repeated target within12r+5 quotient steps; the original Q reaches it at18+12r. The rational theorem and this bounded positive consequence have different quantifiers. Deeper histories, later meeting targets and different signed comparisons remain open. R89's negative-history repair still leaves the positive W5 obligation. Both new packages are frozen and independently reviewed, focused Python/C++ replay passes, the existing TeX compiles, and the full repository Python/C++ gate passed.
+R94 proves that the proposed child Q(floor(ell/3)) requires unbounded ordinary
+clocks, in every digit and with any prescribed initial return count. It does
+not exclude other children, unbounded histories or general signed currents.
+R91/R92 still exclude smaller origins at the repeated target through12r+19
+quotient steps. The independent side lane now reproduces both complete basin
+classifications; the pinned review preserves the distinction between that
+arithmetic evidence and the full proofs or terminal supply.
 
-The strategy is to keep the finite-current framework and its negative controls, and prioritize terminal supply or a proved whole-family recursion. Further bounded catalogues are useful when they close a complete family or establish a decisive, precisely scoped obstruction. They do not substitute for a termination argument. The latest remote check identifies only the already integrated PR1; the pinned side-lane checks are independent arithmetic evidence, not a new merged solution. The W5 dispatcher and frozen resolvers remain unchanged. No universal supply, Collatz proof or novelty claim is made. Full historical findings follow; the latest integration record is at the end.
+Keep the finite-current framework and the merged negative controls. The next
+construction must cover a complete remaining type, retain original-rank and
+signed-input accounting, and prove termination with all terminal inputs
+supplied. A finite countdown or additional successful progressions alone
+cannot meet that objective. Full historical findings follow; the latest batch
+and verification status are at the end. Collatz and novelty remain open.
 
 Started 2026-10-17 from clean pushed commit `ce56699`.
 The preceding goal turn made progress: universal partial currents, an exact
@@ -3568,3 +3585,118 @@ Batch checklist (verified; delivery recorded in Git history):
 - [x] Independently review, persist and reproduce any promoted conclusion.
 - [x] Run required checks.
 - [x] Prepare the reviewed changes for the authorized commit and push.
+
+## 2026-10-18 — Constructive investigation after the completed window
+
+The preceding batch is verified progress, committed and pushed as `61fd041`.
+Main and origin/main agree and the initial working tree is clean. R92 settles
+the saved window through12r+19; further work must address later targets or a
+different comparison. The universal current-construction goal remains active.
+The optional side feed advanced to `8ed32bc45912c7621227280013f32ae1387ff386`.
+Its independent larger-basin calculation was reproduced from pinned sources
+in temporary storage; the side branch is unchanged.
+
+Working hypotheses:
+
+1. Retaining the actual lower source history, instead of immediately replacing
+   it by native absorption, exposes a closed two-source arithmetic family.
+2. A variable-word merger with a smaller original source gives a recursion
+   whose children and signed helpers all lie below the original rank.
+3. Later maximal-exit targets admit a whole-type comparison, beyond the
+   deliberately tuned subprogressions already supplied by R83.
+
+No hypothesis is an accepted theorem at this stage. Isolated successful CRT
+families, finite acceptance rates and another fixed inverse horizon do not
+meet the target. All parameter coverage, termination and terminal-current
+obligations must remain explicit.
+
+Batch checklist:
+
+- [x] Confirm the previous verified delivery and current repository state.
+- [x] Reproduce and assess the new independent basin evidence.
+- [x] Test whole-type lower-history and later-merger constructions.
+- [x] Independently review and persist any reusable conclusions with scope.
+- [x] Run required verification and prepare the authorized delivery.
+
+### Outcomes and scope of the constructive tests
+
+**R93** supplies an exact two-source normalization and a complete lower
+first-departure interface. The original ordinary clocks are18/16 and the
+remaining atoms are+[864z-257]-[z]. The upper Phi map becomes
+Psi(z)=(531441z-53)/524288; its legal integer coordinate does not imply a
+lower path to that coordinate. The missing defect [Psi(z)]-[z] is explicit.
+The positive rational lower shadow has71 preperiod steps and a377-step
+cycle. Its complete certificate proves every prefix slope<=1 and height<115.
+The first actual departure is then decided exactly from n=v2(7153z-53),
+including every free next valuation and its extra-bit cylinder. The relation
+n=19r+h-4 couples this lower interface to every R90 upper exit row.
+
+This resolves the arithmetic part of hypothesis1, but not its closure claim.
+The lower source stays below Q through the first departure and eleven further
+arrows; no high negative frontier has been produced in that window. The
+comparison's positive source remains unresolved. Three full unfinished
+current tables retain both atoms and every signed row. Independent proof,
+source and default replay passed:448 rational states,64 initial identities,
+3520 departures,180 joint cases through r128,739 phases and19 rejections.
+
+**R94** precisely limits hypothesis2's named child. For every ternary digit,
+clock cap K and return lower bound R, a complete positive binary progression
+has at least R Phi returns but no merger of Q(c+3j) with Q(j) at clocks<=K.
+The three child-center orbits are disjoint from the parent's negative orbit;
+one112-word certificate takes the third child into the positive rationals.
+Finite affine-root exclusion then proves each whole positive cylinder.
+Independent proof/source/default review passed:39 complete cylinders,156
+positive replay pairs and13 rejection controls. Unbounded words and different
+children remain available; the conditional signed identity still needs its
+merger and every helper supplied.
+
+Hypothesis3's proposed single-ray/point mechanism is incomplete at later
+targets too. The complete r4 control has23 ray candidates plus a distinct
+direct-point plan, all failing the stated original-rank test; its native W5
+leader is not recognized by the fixed17 dispatcher. The r8 control has37 ray
+failures, but an older R44 forward substitution already repairs its native
+leader at the original rank. The latter is not an unhandled broader input.
+The probe reuses R83's cutoff, preserves native priority and full signed
+requests, and has independent proof/source/default review. No whole-row
+construction or new accepted family is inferred from these examples.
+
+The [new independent review](side_lane_review_8ed32bc.md) reproduces the
+entire1,732,883-origin R91 and176,754,119-origin R92 basin calculations in
+5.71 seconds. The generated receipt is byte-identical to the pinned receipt,
+including the16 relevant boundary tails. The C program does not verify the
+positive suffix proof. Its floating minimum-slope diagnostic is not used as
+an exact inequality certificate. The merged PR assessment remains: preserve
+the valid controls, retain the corrected scope of minimality, and focus on
+whole-family supply rather than acceptance percentages.
+
+### Integration and remaining obligation
+
+R93/R94, the scoped later-target controls and the new pinned review are in
+the repository, with all three new checkers registered. The existing LaTeX
+source was edited in place; native compilation passed after defining the
+new proposition environment. Independent shared-transcription review passed after updating one stale
+NEXT_TARGET sentence to reflect R94. The full
+`python3 scripts/verify_all.py --cpp` gate passed with exit0 and114 reported
+fields, including all three new checks, all historical checks,31 archive
+manifest entries, both original C++ cutoffs and the R91/R92 independent
+basin classifications. Log: `/tmp/collatz_two_source_full_gate.log`.
+Final mechanical checks passed on20 scoped files,491 local Markdown links,
+90 unique TeX labels,156 resolved references,66 unique equation tags, JSON
+parsing, LF endings and staged whitespace. Remote main remained at the
+baseline61fd041 after the final refresh. The reviewed batch is ready for the
+authorized commit and push; the accompanying Git history records delivery.
+
+This batch is progress in exact arithmetic control and in eliminating a
+specific bounded-clock child strategy. It does not achieve the universal
+research goal. The next useful construction must connect the actual residual
+pair after the departure interface, or select a different smaller history
+whose complete parameter domain closes with supplied terminal inputs. A
+countdown for either rational itinerary alone is insufficient.
+
+A separate exact arithmetic observation was preserved in NEXT_TARGET outside
+the frozen R92 certificate: the proposed cycle scaling
+p=q*+gamma^s(q-q*) is nonintegral for every integer q and nonzero integer s,
+because q* has ternary order-13 and the constant term has strictly lower
+ternary order than the variable term. This prevents transfer of integer
+v/z-coordinate returns into an invalid original-Q child. It is a scoped
+constraint on that formula, not a general child-history obstruction.

@@ -1,0 +1,166 @@
+{
+  "classification": {
+    "candidate_universe": {
+      "U": 741545113,
+      "basin": 1939,
+      "eligible": 176754119,
+      "max_numerator": 23508760799607151,
+      "max_path": 235,
+      "min_weighted_slope": 1.0,
+      "not_basin": 176752180,
+      "relevant": 134,
+      "unknown": 0
+    },
+    "r91_validation": {
+      "U": 7277133,
+      "basin": 19,
+      "eligible": 1732883,
+      "max_numerator": 1049066989135,
+      "max_path": 235,
+      "min_weighted_slope": 1.0,
+      "unknown": 0
+    },
+    "relevant_cost_histogram": {
+      "10": 1,
+      "11": 1,
+      "12": 1,
+      "13": 3,
+      "14": 9,
+      "15": 18,
+      "16": 31,
+      "17": 69,
+      "8": 1
+    },
+    "scope": "Classification of the c0 basin of the signed canonical quotient on -u/7153; R91 universe (validation) and the deeper-window candidate universe (8).",
+    "status": "PASS",
+    "tails_with_cost_in_8_to_14": [
+      {
+        "E0": 8,
+        "d0": 5,
+        "k0": 0,
+        "m": 8,
+        "u": 952661
+      },
+      {
+        "E0": 10,
+        "d0": 5,
+        "k0": 0,
+        "m": 10,
+        "u": 3789185
+      },
+      {
+        "E0": 30,
+        "d0": 17,
+        "k0": 1,
+        "m": 11,
+        "u": 7499687
+      },
+      {
+        "E0": 12,
+        "d0": 5,
+        "k0": 0,
+        "m": 12,
+        "u": 15120975
+      },
+      {
+        "E0": 32,
+        "d0": 17,
+        "k0": 1,
+        "m": 13,
+        "u": 29977289
+      },
+      {
+        "E0": 13,
+        "d0": 5,
+        "k0": 0,
+        "m": 13,
+        "u": 30206185
+      },
+      {
+        "E0": 13,
+        "d0": 5,
+        "k0": 0,
+        "m": 13,
+        "u": 30363551
+      },
+      {
+        "E0": 90,
+        "d0": 53,
+        "k0": 4,
+        "m": 14,
+        "u": 57915973
+      },
+      {
+        "E0": 52,
+        "d0": 29,
+        "k0": 2,
+        "m": 14,
+        "u": 59646999
+      },
+      {
+        "E0": 33,
+        "d0": 17,
+        "k0": 1,
+        "m": 14,
+        "u": 59775753
+      },
+      {
+        "E0": 33,
+        "d0": 17,
+        "k0": 1,
+        "m": 14,
+        "u": 59933119
+      },
+      {
+        "E0": 33,
+        "d0": 17,
+        "k0": 1,
+        "m": 14,
+        "u": 60290769
+      },
+      {
+        "E0": 33,
+        "d0": 17,
+        "k0": 1,
+        "m": 14,
+        "u": 60433829
+      },
+      {
+        "E0": 14,
+        "d0": 5,
+        "k0": 0,
+        "m": 14,
+        "u": 60505359
+      },
+      {
+        "E0": 14,
+        "d0": 5,
+        "k0": 0,
+        "m": 14,
+        "u": 60562583
+      },
+      {
+        "E0": 14,
+        "d0": 5,
+        "k0": 0,
+        "m": 14,
+        "u": 60619807
+      }
+    ]
+  },
+  "command": "python3 c0_basin_receipt.py",
+  "elapsed_seconds": 5.708700959000001,
+  "exit_code": 0,
+  "main_baseline": "61fd041bf837a276a1cca5a37dec9749c2bb6cb6",
+  "pin": "8ed32bc45912c7621227280013f32ae1387ff386",
+  "process_timeout_seconds": 60,
+  "receipt_identical": true,
+  "scope": "Independent reproduction of two finite rational-basin classifications. Does not verify the fourteen-step suffix proof or universal current supply. Floating-point weighted slopes are diagnostic only.",
+  "sha256": {
+    "c0_basin_classify.c": "032c41e440d5702594bfc6fc1f16fdbdea43354f915cdaf6d80f1a844997977c",
+    "c0_basin_receipt.json": "996c5021c093c18a4b953899074c967e7efd0b36395e22c3ab30ff01980e0e6b",
+    "c0_basin_receipt.py": "19120d60fec4a4dfd13ee3ae584e088f00cfc423702164a9343bffdc6d4012d5"
+  },
+  "stderr": "",
+  "stdout": "{\n  \"r91_validation\": {\n    \"U\": 7277133,\n    \"eligible\": 1732883,\n    \"basin\": 19,\n    \"unknown\": 0,\n    \"max_numerator\": 1049066989135,\n    \"max_path\": 235,\n    \"min_weighted_slope\": 1.0\n  },\n  \"candidate_universe\": {\n    \"U\": 741545113,\n    \"eligible\": 176754119,\n    \"basin\": 1939,\n    \"not_basin\": 176752180,\n    \"unknown\": 0,\n    \"relevant\": 134,\n    \"max_numerator\": 23508760799607151,\n    \"max_path\": 235,\n    \"min_weighted_slope\": 1.0\n  },\n  \"relevant_cost_histogram\": {\n    \"8\": 1,\n    \"10\": 1,\n    \"11\": 1,\n    \"12\": 1,\n    \"13\": 3,\n    \"14\": 9,\n    \"15\": 18,\n    \"16\": 31,\n    \"17\": 69\n  }\n}\ntails with m in 8..14: 16\n"
+}

@@ -1175,6 +1175,32 @@ Independent positive-numerator C++ classification exhausts the larger interval71
 
 This supports a focused pivot to later meeting targets or genuinely different signed histories. Still longer histories remain possible. No termination mechanism, universal current supply, Collatz proof or novelty claim follows.
 
+## R93 — Actual two-source normalization and complete lower first departure
+
+**Status: written arithmetic proof with a finite rational-orbit certificate; unfinished comparison currents.**
+
+On the entire original coupled family, put z=471104208005+2^14*3^16*ell. Then v0=144z-43, Q=(2^31*z-665034679)/3^15, and the actual ordinary paths satisfy S^18(Q)=864z-257 and S^16(Q/3)=z. Their difference gives an exact two-atom residual `[864z-257]-[z]`, without assuming any helper current.
+
+The guarded upper return is conjugate to Psi(z)=(3^12*z-53)/2^19. With n=v2(7153z-53), one complete re-entry is legal exactly at n>=33, consumes19 binary digits and increases z. The maximum count is floor((n-14)/19); at upper exit n=19r+h-4, h18..36. Integrality of the new z does not give an actual lower-source path to it. The return leaves the explicit additional defect `[Psi(z)]-[z]`.
+
+The rational lower shadow starts at53/7153. Its complete448-state certificate has a71-step/cost146 preperiod and a377-step/cost739 cycle. Every state is below115 and every prefix slope is at most1; the cycle contraction extends that bound to all prefixes. If cumulative shadow costs satisfy E_i<n<=E_i+e, the actual lower path agrees through i arrows and then has valuation n-E_i when n-E_i<e, or e+j with explicit arbitrary j>=1 when equality holds. Exact extra-bit cylinders realize every row in the original parameter. This classifies the first lower departure for every upper repetition count; finite phase labels alone do not prove subsequent termination.
+
+Every matching lower state is below z+115. The last matching state and its next12 actual arrows, including the departing arrow and at most eleven further arrows, stay below the ORIGINAL Q. The full signed path comparisons retain an upper residual source above Q and a lower source below Q. They supply neither the residual current nor a new accepted dispatcher domain.
+
+See [proof](../experiments/residual_progress/two_source_history/TWO_SOURCE_HISTORY.md), [constructor](../experiments/residual_progress/two_source_history/two_source_history.py), and [receipt](../experiments/residual_progress/two_source_history/two_source_history_audit.json). Focused replay covers the complete rational certificate,64 initial identities,3520 exact departures,180 joint upper/lower cases through r128,739 periodic phases, three full unfinished tables and19 rejection controls. The next obligation is a comparison after this complete departure interface that supplies the positive residual with a proved original-rank decrease or other terminating construction.
+
+## R94 — The prescribed ternary child cannot use bounded clocks
+
+**Status: written scoped theorem with an exact finite rational-word certificate and complete cylinder constructor.**
+
+For every digit c0..2, every ordinary clock bound K>=0 and every prescribed initial Phi return lower bound R>=0, there is an infinite positive binary progression of j for which ell=c+3j>j, the parent has at least R returns, and S^a(Q(ell)) differs from S^b(Q(j)) for ALL a,b<=K. Thus the proposed child Q(floor(ell/3)) cannot be supplied on its whole domain by a finite catalogue of word pairs, even after arbitrary finite binary refinements. The witnesses may change with K and R. This says nothing against unbounded input-dependent clocks, other child families or arbitrary signed currents.
+
+All three digits use the same negative rational parent center q*=-515908491727/11404192419 and ell*=-22852975802/34212577257. The upper shadow follows an18-prefix and a negative12-cycle. The first two child shadows are positive. The third follows an exact112-word negative path disjoint from the entire upper orbit, then reaches1663/7153>0. Their rational orbits are therefore disjoint at every pair of clocks. Sufficient binary precision fixes both finite actual valuation words. Every prospective merger is a nonzero affine equation, whose finitely many nonnegative integer roots are excluded by further binary refinement. Precision at least19R also gives the prescribed returns. This proves whole progressions, not a finite-sample extrapolation.
+
+See [proof](../experiments/residual_progress/child_history_scope/CHILD_HISTORY_SCOPE.md), [complete cylinder constructor/checker](../experiments/residual_progress/child_history_scope/check_child_catalogue_scope.py), and [receipt](../experiments/residual_progress/child_history_scope/child_history_audit.json). Replay covers39 complete cylinders,156 positive integer pairs, the112-word certificate and13 rejected invalid inputs. The earlier conditional child identity remains valid if its missing merger and every signed helper are supplied; no such universal supply is established.
+
+The separate [later-target probe](../experiments/residual_progress/later_target_probe/LATER_TARGET_PROBE.md) reuses R83's exact finite cutoff to decide all rays followed by point inverses at two later exits. It preserves the direct-point/native-priority distinction and the full signed requests. The older R44 forward rule repairs the r8 example at the original rank, so a failed inverse method is not a missing-current theorem. These controls add no new accepted family or universal terminal supply.
+
 ## C1 — Independent audit of R2–R4 and of main's R5, R6, R9, R10
 
 **Status: finite checks and model-assisted re-derivation; no discrepancy found.**
