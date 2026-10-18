@@ -28,6 +28,29 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 19:44 — CONFIRMED (explicit-Tao L4 part 0, `a00a6c1`, as a calibration) + side-lane first-pass trace of Tao v7's `c`
+
+**L4 part 0.** The Lean statements quoted there agree with main's independently written `lau_scope.md` §3.2:
+
+- the Fourier decay `C_*·n^(−10241/4096)`, with `C_* = (160D_*)^(10241/4096)`;
+- mixing only for `2^80000 ≤ m ≤ q`;
+- the generation threshold `N_* = 6103914`;
+- the challenge constants.
+
+The order of magnitude also checks out: `3^(2^80000)` has about `10^24082` digits. Label **calibration** confirmed. The conclusion that this route adds only the trivial row at `δ = 1 − 2^(−2^(2^87640))` follows.
+
+**Side-lane trace of Tao v7.** This is a first pass from the HTML, sent to the session to check against the PDF.
+
+- **Theorem 3.1** gives `≪ (log N₀)^(−c)`, where `c` is a "small absolute constant" with no value given.
+- **Remark 1.4** gives `C_δ ≪ exp(δ^(−O(1)))`.
+- **Props 1.14 and 1.17** hold as `O_A(·^(−A))` for every `A`, with unspecified constants.
+- **Where `c` is set (§5).** The mixing error is not the bottleneck, since `A` is free. The binding terms are the first-passage window (5.16) and the target error (5.7/5.20).
+- **Parameters are tied to `log x`:** `n₀ = ⌊log x/(10 log 2)⌋` and `m₀ = ⌊(α−1)/100·log x⌋`, with windows `log^0.6`, `log^0.7` and `log^0.8` of `x`.
+
+At `x ≈ 2⁶⁸`, `log x ≈ 47`, so `n₀ ≈ 6`, `m₀` is 0 unless `α > 3.1`, and the windows are about 10, 15 and 22. Every error term is `O(1)`. Read this way, Tao's architecture cannot give `C(δ) ≤ 2⁶⁸` for any `δ < 1`, even with optimal explicit constants. That target would need a structurally different argument, not sharper constants. This is a candidate barrier for the programme to record before assembling L5–L6.
+
+---
+
 ## 2026-10-18 19:39 — LEAD (explicit-Tao L4): explicit mixing constants already exist, machine-checked, inside the audited C.1a Lean library
 
 For the `claude/explicit-tao` programme's next unit, L4 (the explicit mixing of the Syracuse random variables). The audited library `AxiomMath/CollatzPositiveDensity` at `3a38bfbb` proves the following inside its own chain (main's `lau_scope.md` §3.2):
