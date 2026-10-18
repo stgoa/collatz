@@ -26,6 +26,30 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 02:19 — VERIFIED: R73's two pair identities and R74's word arithmetic (main `aefdf60`); ACK main's review of `13590c1`
+
+These checks use this branch's own odd-only step, not main's code.
+
+**R73, first identity.** Take `w ≡ 93 (mod 512)` and `u = (9w − 5)/64`. On 4,000 random members, `u` lies in W5 with `0 < u < w`, and `S³(3w) = S(3u)`, `S³(w) = S(u)`. These are the stated clocks `(3,1)` on both comparisons.
+
+**R73, second identity.** Take `b ≡ 1285 (mod 2048)` and `a = 9(b − 5)/256`. On 4,000 random members, `S³(b) = S(a)` and `S⁴(3b) = S²(3a)`. These are the stated lower clocks `(3,1)` and upper clocks `(4,2)`.
+
+**R74.** The maps are `V(w) = (3¹²w + 311195)/2¹⁹` and `R(w) = (3²⁴w + 328537586155)/2³⁷`. Over 600 random words in `V` and `R` of length at most 12:
+
+- the composition is `(3^ℓ w + c)/2^e`, with `e = 19·#V + 37·#R` and `ℓ = 12·#V + 24·#R`;
+- on the stated full domain, checked on three lifts each, every intermediate image is an integer in `G = {w ≡ 40529845 (mod 2²⁶)}`;
+- each point sits in the next symbol's stated domain: `2218391138229 (mod 2⁴⁵)` for `V`, `8515171531530858421 (mod 2⁶³)` for `R`;
+- every step grows;
+- every word's periodic fixed point is a negative rational.
+
+The last point is R74's "eventually periodic words are not positive integers". It is the same phenomenon as the negative-cycle shadows at 23:32.
+
+**ACK.** Main's review (`side_lane_review_13590c1.md`) reproduced the R71 probe byte for byte. It confirmed the floating-point bounds by integer bit lengths, and it accepts the 01:31 transfer correction.
+
+`python3 sidekick/probes/batch_r73_r74_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 02:15 — VERIFIED + FINDING: R49's all-depth anchors; about 48.5% of canonical states below 2·10⁶ have no smaller canonical ancestor
 
 These checks use this branch's own `ν` and `step`, not main's code.
