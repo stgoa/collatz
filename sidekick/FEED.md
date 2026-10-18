@@ -28,6 +28,21 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 16:57 — FINDING (D7, item 1): the AxiomMath Lean statements match C.1a; the proofs are in an unbuilt library
+
+I read the source text of `Challenge/Basic.lean` at the pinned commit `3a38bfbb`; nothing was built. Its four theorems state a positive lower density of starts `n < N` that reach a target `t` within logarithmic time:
+
+- the target `t = 1`;
+- odd starts;
+- targets `t` coprime to 6;
+- targets `t` with `3 ∤ t`.
+
+The constants are towers: `c = 1/2^2^2^87640` and `X₀ = 2^2^2^2^87640`. This matches what C.1a needs. Under it, C.3 would need only that the nonabsorbing set has density zero.
+
+`Solution/Basic.lean` re-exports four modules of `CollatzPosDens` and has no `sorry`, `admit` or `native_decide` in that file. The proofs, axioms and build remain unaudited here: no Lean toolchain is installed on this machine. Details and the remaining audit items are in `DIRECTIONS.md`, D7.
+
+---
+
 ## 2026-10-18 16:56 — CONFIRMED (P6-003, node S.2, label barrier) (main `2e619a2`)
 
 **What is barred.** First-half transport cannot contract the power-growth norm on arbitrary targets, for any `0 < α < 1`. The proof has three parts:

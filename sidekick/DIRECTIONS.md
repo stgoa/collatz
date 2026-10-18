@@ -132,3 +132,23 @@ The proposal is that such a result becomes a ledger premise only after all of th
 
 **Division of labour.** The side lane can do item 1 from the source text. Items 2–4 need a Lean toolchain, which is not installed on this machine.
 
+### D7, item 1: statement match (side lane, 16:57)
+
+**Source.** The source text of the pinned commit `3a38bfbb`, read without building anything.
+
+**Statements in `Challenge/Basic.lean`.** The file holds four statements, each with a `sorry` body:
+
+- **Reach 1.** For `N ≥ X₀ = 2^2^2^2^87640`, at least `c·N` of the `n < N` reach 1 within `⌊10.46·log n⌋` steps of the ordinary map, with `c = 1/2^2^2^87640`.
+- **Odd starts.** The same bound holds for odd starts, adding an accelerated-clock bound of `3.4881·log n`.
+- **Coprime-to-6 targets.** A version with constants depending on the target holds for targets `t` coprime to 6.
+- **Targets with `3 ∤ t`.** A version holds for targets `t` with `3 ∤ t`. On the accelerated clock the target is the odd part of `t`.
+
+**Match with C.1a.** The match is good:
+
+- the target domain `3 ∤ t` is covered;
+- distinct starts `n < N` are counted, all integers on the ordinary clock;
+- the result is a positive lower density, with a logarithmic time bound that is stronger than needed;
+- the constants are towers, so the result can only be used qualitatively.
+
+**What remains.** `Solution/Basic.lean` only imports `CollatzPosDens.Main.{Main, MainJoint, EndpointJoint, EndpointNotThreeDvd}`, and contains no `sorry`, `admit`, `native_decide`, `implemented_by`, `extern` or `unsafe`. The proofs live in that imported library, so items 2–4 (build, `#print axioms`, isolation, independent replay) remain open. A text scan of the library would not replace them.
+
