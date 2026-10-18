@@ -160,6 +160,11 @@ def main():
             ("inverse_scope", "check_inverse_scope.py"),
             ("double_inverse", "check_double_inverse.py"),
             ("double_inverse", "check_expanded_union.py"),
+            ("phase_rank", "check_sigma_rank.py"),
+            ("returning_continuation", "check_returning_continuation.py"),
+            ("forward_continuation", "check_forward_continuation.py"),
+            ("rule_avoidance", "check_rule_avoidance.py"),
+            ("continued_rules", "check_continued_rules.py"),
             ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
@@ -238,6 +243,11 @@ def main():
                          permanent_inverse_scope="PASS: finite closed exclusion certificates, all-ray lifts and short forward resolutions",
                          double_inverse_phases="PASS: exact endpoint thresholds through intermediate growth and signed substitutions",
                          seven_rule_composition="PASS: preserved earlier rules, strict common rank, mixed closure and supplied inputs",
+                         phase_rank="PASS: uniform sigma absorption bound, complete forward class and explicit rank incompatibility",
+                         second_returning_block="PASS: full signed interface, exact low-run table, long CRT families and actual substitutions",
+                         forward_continuation="PASS: complete two-block table, maximal low runs, unbounded delayed descents and supplied currents",
+                         rule_avoidance="PASS: positive growing prefixes, complete W9 accounting and separately ranked leading-leaf obstructions",
+                         continued_rule_composition="PASS: preserved seven-rule priority plus both rho continuations; sigma kept separate",
                          external_sieve_gap="PASS: exact counterexample to the displayed set equality; no theorem refutation",
                          external_pair_controls="PASS: seven exact cycle witnesses, including three W5 pairs, and invariant-pairing obstructions",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
