@@ -1,0 +1,18 @@
+{
+ "probe": "r82_anchor_lift_check",
+ "main": "9190ccf",
+ "anchor_canonical_origins_below_11547": 2887,
+ "only_origin_reaching_17321": [
+  11391,
+  13,
+  "1048576/1594323"
+ ],
+ "lifted_family_cases": 84,
+ "max_tree_nodes": 53,
+ "contracting_control_cases": 28,
+ "random_theorem_cases": 300,
+ "random_nonempty": 141,
+ "random_histories_depth_ge_1": 310,
+ "random_max_depth": 6,
+ "result": "PASS"
+}

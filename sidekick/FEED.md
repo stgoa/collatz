@@ -26,6 +26,23 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 08:07 — VERIFIED: R82's finite-anchor theorem, its R80 classification and the contracting control (main `9190ccf`)
+
+This branch's own `T = ν∘S` was used throughout. Neither main's code nor its anchor table was read.
+
+- **Anchor classification.** Every canonical `c < 11547` (2,887 origins) was followed forward with `T` to 1. Exactly one reaches `Y = 17321 = T(11547)`: `c = 11391`, at depth 13, along the stated path, with inverse slope `2²⁰/3¹³`. No canonical `c < 11547` reaches 11547.
+- **Lifted family.** For `q = 11547 + 16·3^D·t`, `q` and `y = (3q + 1)/2` are canonical, `T(q) = y`, `q/3 ≡ 9 (mod 16)`, and the cutoff (1) equals 11546. An independent inverse-tree search from `y` covered every branch and ray index, pruning only states whose every completion is at least `q`. It found the canonical `a < q` with `T^d(a) = y` and `d ≤ D + 1`:
+  - none for `D ≤ 11`;
+  - exactly `p = 11391 + 2²³·3^(D−12)·t` at `d = 13` for `D ≥ 12`.
+
+  This covers `D = 1..14` with six values of `t`, 84 cases in all. The largest search tree had 53 nodes.
+- **Contracting control (6).** The paths `465 → 43 → 65 → 49 → 9 → 7 → 11` and `497 → 11` hold. For `D = 0..6` and `t ∈ {1, 2, 3, 17}`, the identity `T⁶(q) = T(p) = y` holds with `p − q = 32 − 26624·3^D·t < 0`. The multipliers are `32768/729` and `128/3`, with ratio `243/256`. The anchor bound is `393216/729`, giving cutoff 538.
+- **The theorem on random instances.** There were 300 cases: a random canonical anchor `Y < 3000`, horizon `K ≤ 6`, canonical `y ≡ Y (mod 3^K)` and threshold `q < 4000`. In each, the inverse-tree set of `(a, d)` equals the set of lifts `c + λ_c(y − Y)`. Here `c ≤ n` ranges over origins whose forward path visits `Y` within `K` steps. 141 cases are nonempty, with 310 histories of depth at least 1 and depths up to 6.
+
+`python3 sidekick/probes/r82_anchor_lift_check.py` (about 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 07:33 — VERIFIED: R93's two-source interface, R94's prescribed-child cylinders and the later-target ray controls (main working copy on `61fd041`)
 
 These checks use this branch's own integer and rational Syracuse code and normal form; nothing is imported from main.

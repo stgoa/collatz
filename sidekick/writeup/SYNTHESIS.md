@@ -321,7 +321,7 @@ Integrality does bound how long an integer can follow a contracting positive rat
 
 ## Appendix A. Verification ledger
 
-The appendix is pinned at main commit `9190ccf` and the side lane's feed through its 07:36 note. Times refer to `sidekick/FEED.md` entries, and probes live in `sidekick/probes/` unless noted. "PR1" means the merged negative-controls lane, `collatz_research_20261017/negative_controls/`.
+The appendix is pinned at main commit `9190ccf` and the side lane's feed through its 08:07 entry. Times refer to `sidekick/FEED.md` entries, and probes live in `sidekick/probes/` unless noted. "PR1" means the merged negative-controls lane, `collatz_research_20261017/negative_controls/`.
 
 ### A.1 Main results and independent side-lane checks
 
@@ -357,7 +357,8 @@ The appendix is pinned at main commit `9190ccf` and the side lane's feed through
 | R90 | 06:27 (`r90_phi_return_check`): both twelve-arrow return words (2,000), `T¹²(3v) = 3Φ(v)` on the re-entry cylinder (500), re-entry counts (3,000) | independently checked (finite) |
 | R61, R65, R66, R67 | 06:14 (`batch_r61_r67_check`): R61's exit and the `r ≥ 16` threshold (132), R65's triple bijection and arrows (10,000), R66's ternary identity (2,990), R67's count formula (3,000) | independently checked (finite) |
 | R93, R94 | 07:33, 07:36 (`r93_r94_check`): R93's identities, the 53/7153 shadow certificate, departures for every exact order `n = 14..1000` plus 1,584 prescribed long branches, 209 joint upper/lower cases; R94's centers, shadow words and all 39 cylinders with 156 replayed pairs; later-target paths, ray cutoffs and endpoints; NEXT_TARGET's scaling remark (840 exact cases) | independently checked (finite; dispatcher claims not rebuilt) |
-| R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R63, R68–R70, R72, R76, R82, R87, R89 | none | not touched |
+| R82 | 08:07 (`r82_anchor_lift_check`): the anchor classification over all 2,887 canonical origins below 11547 (only 11391, depth 13, slope `2²⁰/3¹³`), the lifted family by inverse-tree search for `D = 1..14` (84 cases), the contracting control and cutoff 538, and the finite-anchor theorem on 300 random instances | independently checked (finite) |
+| R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R63, R68–R70, R72, R76, R87, R89 | none | not touched |
 
 ### A.2 Main's reviews of side-lane claims
 
