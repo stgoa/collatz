@@ -7711,6 +7711,255 @@ leaders are retained in
 The high W5 request and every smaller terminal current remain premises;
 neither this bounded reduction nor (EH4) supplies them universally.
 
+\section{A complete four-target cell and the limit of a uniform history word}
+Consider the whole remaining cell
+\[
+ Q=133704987+3\cdot2^{33}m=Q_0+Q_Pm,\qquad
+ n=385940463+64\cdot3^{19}m=N_0+N_Pm,\quad m\ge0.
+\]
+Put $v=n/3$, $b=Q/3$ and $r=2n+1$. Then $v<Q<n$, both
+$Q,n$ are canonical, and $\nu(r)=n$ with selected exponent five.
+The ordinary eighteen-arrow word from $Q$ to $r$ is
+\[
+ (1,2,1,1,1,1,1,2,2,1,1,2,2,1,1,3,1,2).
+\]
+Its valuation sum is26 and its exact cylinder modulus is $2^{27}$,
+which divides $Q_P$. Complete symbolic normalization gives
+$T^{18}(Q)=n$. The selected identity gives the ordinary relation
+$S^{23}(Q)=S^5(n)$ and the full signed current
+\[
+ K=L_{18}(Q)+N_r=L_{23}(Q)-L_5(n),\qquad
+ \operatorname{div}K=[Q]-[n].
+\]
+Consequently $K+H_v-H_b$ compares $P(b)$ to $P(v)$, conditional
+on the displayed absorption inputs. The positive $P(v)$ premise has
+rank $n>Q$ and remains unresolved. The twenty-three valuations are
+not asserted to be constant over this cell.
+
+\begin{theorem}\label{thm:historycellscope}
+For $a=0,1,2,3$, let
+\[
+ y_a(m)=\frac{3^a(n(m)+1)}{2^a}-1,\quad
+ Y_a=y_a(0),\quad N_{P,a}=N_P3^a/2^a,\quad D_a=19+a.
+\]
+For every $m\ge0$, the canonical origins $p\le Q(m)$ and depths
+$0\le d\le D_a$ satisfying $T^d(p)=y_a(m)$ consist exactly of
+$p=Q(m)$ and $d=18+a$. In particular there is no strictly smaller
+ordinary origin reaching $y_a$ in this horizon, nor one reaching raw
+$r$ within nineteen ordinary arrows.
+No single fixed quotient inverse word, of any length, gives a strictly
+smaller origin at one of these four targets for every $m\ge0$.
+The same assertion holds for a fixed ordinary valuation word.
+\end{theorem}
+\begin{proof}
+The complete quotient inverse bases, according to the target residue
+modulo three, are
+\[
+\begin{array}{c|c|c}
+ y\bmod3&\text{point}&\text{two ray bases}\\ \hline
+ 0&\text{none}&(8y+3)/3,\ (16y+3)/3\\
+ 1&\text{none}&(4y-1)/3,\ (32y+19)/3\\
+ 2&(2y-1)/3&(64y+19)/3,\ (128y+83)/3.
+\end{array}
+\]
+Every ray continues by $x\mapsto64x+49$. Each inverse branch
+$x\mapsto\alpha x+\beta$ has $\alpha-\beta\ge1$. Thus a composed
+inverse word with multiplier $\lambda$ and anchor endpoint $c$ obeys
+$\lambda\ge(c+1)/(Y_a+1)$. Since $v_3(N_{P,a})=19+a$, every
+actual inverse word through $D_a$ lifts to a positive canonical word
+at $Y_a$: each step consumes one ternary digit, while the even
+actual-anchor difference preserves the required parity.
+If the actual origin is at most $Q$, this implies
+\[
+ c+1\le\frac{(Q+1)(Y_a+1)}{y_a+1}
+       =\frac{(Q+1)(N_0+1)}{n+1}.
+\]
+The last expression increases from $Q_0+1$ to
+\[
+ Q_0+2+\frac{1226171}{387420489}<Q_0+3.
+\]
+Since $c$ and $Q_0$ are odd, $c\le Q_0$.
+
+It remains to exhaust four finite anchor trees. An inverse child at
+depth $e\le D_a$ can reach an origin at most $Q_0$ only if
+\[
+ \text{child}\le
+ \left\lfloor\frac{(Q_0+1)3^{D_a-e}}{2^{D_a-e}}\right\rfloor-1.
+\]
+This follows from $T^j(c)+1\le(3/2)^j(c+1)$ and also covers
+shorter origin depths. Every point is tested, and each increasing ray
+is exhausted through its first excluded child. The complete stored
+trees have respectively64,78,89,101 vertices; their only origins
+at most $Q_0$ are $Q_0$ at depths18,19,20,21. The corresponding
+lift increment is exactly $Q_P$ in all four cases. These are complete
+finite certificates, independently rebuilt from the $F$-ray formulas,
+not sampled absence tests. The conjugacy $T\nu=\nu S$ proves the
+ordinary strict exclusions.
+
+Finally a fixed inverse word of length $d$ has multiplier $2^E/3^d$.
+Legality at both $m=0$ and $m=1$ requires $2^EN_{P,a}/3^d$ to
+be integral, hence $d\le19+a$. The preceding classification applies.
+Ordinary valuation words have the same denominator property.
+\end{proof}
+
+This result permits parameter-dependent words, partitions into deeper
+ternary cells, later targets, and fixed clocks with changing valuations.
+It is not an all-depth exclusion at a fixed source. Complete trees,
+proof and replay are in
+\texttt{history\_cell\_scope/HISTORY\_CELL\_SCOPE.md}.
+
+\section{Retained lower history enlarges the W9 repair window}
+Native formal absorption has the signed identity
+$[s]=\operatorname{div}\widehat J_s+\widehat A_s\cdot P$,
+with every requested rank at most $\nu(s)$. Retaining a previously
+strict lower history gives the following enlargement of
+Theorem~\ref{thm:w9historyrepair}.
+
+\begin{theorem}\label{thm:retainedhistoryrepair}
+Let $Q\ge11547$ be odd and $C\in W_9$ satisfy
+\[
+ Q\le3C,\qquad3C+1<4Q.
+\]
+Put $d=v_2(9C-1)$, $h=(d-5)/2$ for odd $d$ and $h=(d-4)/2$
+for even $d$, and $z=3^h(9C-1)/2^d$.
+Let $U$ be the actual $h+2$ ordinary arrows from $3C$ to $F$.
+Their endpoint is $F=12z+1$ for odd $d$ and $F=6z+1$ for even $d$.
+The conditional comparison
+\[
+ P(C)=\operatorname{div}(U+\widehat J_F-\widehat J_C)
+            +(\widehat A_F-\widehat A_C)\cdot P
+\]
+has at most one request of rank at least $Q$, with coefficient $+1$.
+If it is W9, its index is exactly $z$ and $16z<9C$, $4z<3Q$.
+Applying the old W9 repair to that request uses at most two further
+W9 substitutions. In total at most three W9 substitutions leave only
+strict requests and possibly one high W5 request with coefficient $+1$.
+The three-node bound is sharp for this specified procedure.
+\end{theorem}
+\begin{proof}
+The first arrow from $C\equiv1\pmod8$ reaches $(3C+1)/4<Q$,
+so every request in $\widehat A_C$ is strict. This supplies the
+original lower history directly, without assuming absorption of a
+later lower endpoint.
+
+For odd $d$, $z<9C/32$ and $3z<9Q/8$. Strip the sibling
+$F=4(3z)+1$ while preserving its current. If $3z$ is noncanonical,
+its minimum is at most $(3z-1)/2<Q$. If it is $1\bmod8$, its
+first arrow is $(9z+1)/4<Q$. Otherwise it is critical $0\bmod3$:
+its only possible high request is $P(z)$ and its subsequent helper
+$H_z$ is strict. The normalized ordinary common-tail clocks are
+$(h+3,1)$; the actual unnormalized prefix has clocks $(h+2,0)$.
+
+For even $d$,
+\[
+ z\le(9C-1)/16<(3Q-1)/4<Q.
+\]
+If $3z$ is noncanonical, $F=6z+1$ is critical $1\bmod3$,
+with leading $P(4z+1)$ and helper minimum $\nu(z)<Q$.
+If $3z$ is canonical complementary, $F$ normalizes to $3z$,
+with possible leading $P(z)$ and strict helper $H_z$.
+If $3z$ is canonical $1\bmod8$, take its free arrow to
+$f=(9z+1)/4$. Then
+\[
+ f<(27Q-5)/16<2Q.
+\]
+Every nontrivial normalization is strict. An above-threshold canonical
+state is $1\bmod3$; it is either critical or takes the free arrow
+$A(x)=(3x+1)/4$. At most two such arrows suffice, since
+\[
+ A^2(f)<(243Q+67)/256<Q.
+\]
+A critical state $x\ge Q$ has W5 index $(2x+1)/3$, whose helper
+minimum is at most $(x-1)/6<Q$. This proves uniqueness and sign of
+the high request. A high W9 is necessarily $z$, with
+$16z<9C$ and $4z<3Q$; hence $32z<33Q$ and the old repair applies.
+
+For sharpness take $C=585+4096j$, $Q=441+3072j$, $j\ge4$.
+The first two depth-four nodes leave high W9 indices
+$z_1=329+2304j$, $z_2=185+1296j$, with
+$3z_2-Q=114+816j>0$. Thus two nodes do not suffice.
+At $j=4$ the chain is $16969\to9545\to5369$ at $Q=12729$;
+the third node closes. This is not a minimum-current assertion.
+\end{proof}
+
+The strict $+1$ boundary is essential: $C=15401$, $Q=11551$
+satisfy $C<4Q/3$ but $S(C)=Q$, leaving a nonstrict lower history.
+The node bound does not bound ordinary clocks, since $h$ is unbounded.
+
+\subsection*{Application to the retained cell and its signed negative request}
+In the preceding cell set
+\[
+ E=(81v+11)/64=162818633+3^{22}m.
+\]
+The complete complementary block from $3v$ has first exponent four
+and second depth $d=2+v_2(E)$. For $b=\lfloor d/2\rfloor$ its raw
+target is $2(3/4)^bE$ for odd $d$ and $8(3/4)^bE+1$ for even $d$.
+Since $32E<39(Q-1)$, every odd $d\ge9$ and even $d\ge16$ has a
+strict target. At $d=2$ the lower history of $E$ is strict; on the
+entire progression $m\equiv0\pmod{16}$ its high W9 leader $E$
+satisfies Theorem~\ref{thm:retainedhistoryrepair}. Other phases retain
+their complete formal request vectors, without an assumed two-case list.
+
+For a precise signed example take $m=2736+4096\ell$, $\ell\ge0$, and put
+\[
+ C=E,\quad \beta=(9C-1)/64,\quad
+ a=12\beta+1,\quad b=4\beta+1,\quad
+ X=18\beta+1,\quad Y=6\beta+1.
+\]
+Here $C\equiv121\pmod{128}$ and $\beta\equiv5\pmod{64}$,
+$\beta\equiv8\pmod9$. The local W9 upper/lower paths $U,V$ have
+words $(1,2,2)$ and $(2,1,2)$ and endpoints $X,Y$.
+Let $K$ be the four-arrow path from $3v$ to $6C+1$ followed by its
+selected normalizer to $3C$. The usual complete substitution has
+current and request vector
+\[
+ K+U-V+\widehat J_X-\widehat J_Y+\widehat J_C-\widehat J_v,
+ \qquad\widehat A_X-\widehat A_Y+\widehat A_C-\widehat A_v.
+\]
+Its high part is exactly $+P(a)-P(b)$. Both high ranks exceed $Q$.
+However the strict known history of $C$ supplies $Y$ through $V$.
+Using $H_Y=-N_{3b}+P(b)+H_b$ gives the exact strict comparison
+\[
+ P(b)=\operatorname{div}(\widehat J_C-V+N_{3b}-\widehat J_b)
+               +(\widehat A_C-\widehat A_b)\cdot P.
+\]
+Substitute it with coefficient $-1$. All signed rows cancel to
+$K+U+\widehat J_X-\widehat J_v$, with vector
+$\widehat A_X-\widehat A_v$ and sole high request $+P(a)$.
+This supplies the negative request through strict premises; it does not
+discard a negative coefficient or supply the remaining positive input.
+
+The negative normalizer rows are exactly $U$, so $K+U$ is the actual
+seven-arrow path $3v\to X$. Combining with the earlier $23/5$
+comparison cancels five further rows and gives the actual twenty-five
+ordinary arrows $Q\to X$. Two more arrows reach
+$Z=(81\beta+7)/4$. To specify the inherited old compiler expression,
+put $w=135529161+16384\cdot3^{13}m$ and $z_0=(9w-1)/16$.
+It additionally retains the lower zero-source relations
+\[
+ D=\widehat J_w-V_0-\widehat J_{Y_0},\quad
+ E_0=\widehat J_{z_0}-\widehat J_{z_0}^{5},\quad
+ F_v=\widehat J_v^{5}-\widehat J_v,
+\]
+and their signed premise vectors. Superscript five denotes the older
+W5 absorption expansion; $V_0:w\to Y_0=2z_0+1$ is the earlier
+two-arrow lower path. All their requests are strict, but their current rows need
+not vanish. The fresh direct path and the inherited expression are
+compared with these terms explicitly present.
+
+The complete prescribed continuation from $Z$ still leaves at most one
+high W5 request. It does not close the whole coupled cell: explicit
+failures occur at $\ell=4,13$. In particular its canonical depth-two
+branch has
+\[
+ g=(2187\beta+265)/64=(3^{13}v+1161985)/2^{18}.
+\]
+Relative to the old raw $6v+1$, the slope is $3^{12}/2^{19}>1$.
+The inequality $g<6Q$ is a finite decision envelope, not a recurrent
+contraction. The named point inverse returns to $Z$ exactly.
+Complete phase proofs, signed rows and supplied finite demonstrations
+are in \texttt{retained\_history/RETAINED\_HISTORY.md}.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -7909,6 +8158,16 @@ to strict premises and at most one higher W5 request in two substitutions.
 That remaining request must still be resolved at the original rank;
 its named inverse repair can restore the earlier W9 request exactly.
 These are conditional constructions with all signed premises retained.
+Theorem~\ref{thm:historycellscope} exhausts the first four targets
+of a whole retained cell through their ternary horizons and excludes
+one fixed inverse word covering that cell at any depth.
+Theorem~\ref{thm:retainedhistoryrepair} enlarges the W9 window by
+retaining its strict lower history, with a sharp three-node bound.
+The explicit negative-history substitution removes one high negative
+pair, while leaving the positive W5 obligation. Its later raw comparison
+has slope greater than one relative to the old raw state; it is not a
+recurrent contraction. These results favor input-dependent whole-family
+closure over accumulating further bounded local rules alone.
 The next obligation is to supply every
 terminal current by such comparisons or another well-founded closure
 on a complete remaining type. The old $W_5$-only dispatcher is unchanged.
@@ -8281,5 +8540,16 @@ The F-only normalization at $k=8$ is retained. Three fully supplied
 outputs have166,49,61 rows; all final lower W9 and W5 premises remain
 explicit until supplied. Two substitutions bound high-W9 replacements,
 not the input-dependent ordinary clocks.
+The four-target history-cell replay rebuilds complete anchor trees of
+64,78,89,101 vertices and every excluded ray tail. It checks28 lifts,
+1024 independent canonical-arithmetic cases, three full signed23/5
+comparisons and20 rejection controls. Its universal scope uses the
+proved moving cutoff and lifting argument as well as those certificates.
+The retained-history replay covers656 generic cases,9 threshold cases,
+66 first runs,60 exact-depth cells,4 full inherited origins,68 coupled
+decisions,9 signed cancellations and35 rejections. Three fully supplied
+outputs contain43,154,232 rows. Every stored input and output is replayed;
+the retained lower relation is explicitly nonzero. These supplied finite
+examples do not supply all terminal currents in the proved domains.
 These audits remain finite evidence for the implementations.
 \end{document}
