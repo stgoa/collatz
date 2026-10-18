@@ -26,6 +26,66 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 06:34 — FINDING (exhaustive, independent C): the deeper-window candidate's basin universe (8) is fully classified; 16 boundary tails have cost in {8,…,14}. R91's counts are reproduced exactly.
+
+This addresses the first obligation in main's unpromoted `deeper_window/CANDIDATE.md` (commit `b2731dd`): "Classify every relevant canonical numerator in (8)". The implementation is `sidekick/probes/c0_basin_classify.c`, which follows R91's positive-magnitude conventions with its own code.
+
+**Classification rules.** The program iterates the signed canonical quotient on `−u/7153` and follows each orbit until one of these happens:
+
+- it hits `c₀ = −899841/7153`;
+- it enters `x > −1`;
+- it meets an already classified origin;
+- it closes another cycle (detected with Brent's method).
+
+It uses no height cap, the path cap was never reached, and 128-bit arithmetic is used in `3u − D`.
+
+**Validation on R91's universe** (`7153 < u < 7277133`). Every published figure matches exactly:
+
+- 1,732,883 eligible origins;
+- 19 in the c₀ basin;
+- largest intermediate numerator 1,049,066,989,135;
+- smallest weighted slope μ = 1.
+
+**Candidate universe (8)** (`7153 < u < 741545113`, `u` odd, `gcd(u, 7153) = 1`, `−u/D` canonical):
+
+- All 176,754,119 eligible origins are classified, with none left unknown.
+- 1,939 lie in the c₀ basin. Their smallest weighted first-hit slope is μ = 1, so R91's bound persists on this larger universe.
+- The largest intermediate numerator is about `2.35·10¹⁶`, and the longest new path segment has 235 steps.
+- Relevant tails have first-hit depth `d₀ ≡ 5 (mod 12)`; there are 134. Their costs `m = E₀ − 19k₀`, with `k₀ = (d₀ − 5)/12`, are distributed as follows.
+
+| m | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| tails | 1 | 0 | 1 | 1 | 1 | 3 | 9 | 18 | 31 | 69 |
+
+The 118 tails with `m ≥ 15` have `μ ≥ 2¹⁵/243 > 102`, so they are excluded by the candidate's (6).
+
+**The 16 tails with `m` in {8, …, 14}.** These are the only boundary origins left for the candidate's suffix step (§5, with `t ≤ 14` and `E_s ≤ 21`).
+
+| u | d₀ | E₀ | k₀ | m |
+|---:|---:|---:|---:|---:|
+| 952661 | 5 | 8 | 0 | 8 |
+| 3789185 | 5 | 10 | 0 | 10 |
+| 7499687 | 17 | 30 | 1 | 11 |
+| 15120975 | 5 | 12 | 0 | 12 |
+| 29977289 | 17 | 32 | 1 | 13 |
+| 30206185 | 5 | 13 | 0 | 13 |
+| 30363551 | 5 | 13 | 0 | 13 |
+| 57915973 | 53 | 90 | 4 | 14 |
+| 59646999 | 29 | 52 | 2 | 14 |
+| 59775753 | 17 | 33 | 1 | 14 |
+| 59933119 | 17 | 33 | 1 | 14 |
+| 60290769 | 17 | 33 | 1 | 14 |
+| 60433829 | 17 | 33 | 1 | 14 |
+| 60505359 | 5 | 14 | 0 | 14 |
+| 60562583 | 5 | 14 | 0 | 14 |
+| 60619807 | 5 | 14 | 0 | 14 |
+
+The first two tails (`u = 952661` and `3789185`) are the two relevant tails already present in R91's smaller universe. The suffix step, with its affine inequalities `p ≤ Q` and the source guards, has **not** been run here. Neither the candidate's reduction (§§2–5) nor the R91 theorem is re-proved; this entry supplies only the exhaustive finite table the candidate requires.
+
+`python3 sidekick/probes/c0_basin_receipt.py` (needs `cc`; about 6 s; receipt `c0_basin_receipt.json`)
+
+---
+
 ## 2026-10-18 06:27 — VERIFIED: R90's Φ return words, quotient identity and re-entry counts (main `a94533a`); R64 probe hardened; ACK review of `cbe77bc`
 
 These checks use this branch's own `step` and `ν`, not main's code. Throughout, `Φ(v) = (3¹²v + 299947)/2¹⁹`, `L(v) = 7153v + 299947`, and `7153 = 3¹² − 2¹⁹`.
