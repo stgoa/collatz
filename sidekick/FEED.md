@@ -26,6 +26,31 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 06:14 — VERIFIED: the arithmetic of R61, R65, R66 and R67 (earlier batches, previously unchecked here)
+
+These checks use this branch's own `step`, `ν` and `selected`, not main's code. They cover four results the ledger listed as not touched.
+
+**R61.** The test covers 132 cases, with `r = 0..21` and `q = 81·2^(11r+11)·s − 17` at exact binary order. In every case:
+
+- the orbit runs `r` guarded copies of `(1,1,1,2,1,1,4)` and arrives at `Q = 2¹¹·U − 17`, where `U = 81·3^(7r)·s`;
+- the exit gives `ν(S⁴(Q)) = 2592U − 21`, with `a = 2` and block depth 3;
+- the endpoint is `f = 3^(7r+10)·s − 6`;
+- `f > q` holds exactly when `r ≥ 16`.
+
+**R65.** The test covers all 10,000 canonical `q ≡ 31 (mod 108)` below about `2.16·10⁶`. Each satisfies the triple bijection `n = (8q − 5)/9`, `u = (2q + 1)/3`, `z = (q − 1)/6 = (3n − 1)/16 = (u − 1)/4`, together with:
+
+- `n ≡ 27 (mod 96)`, `z ≡ 5 (mod 18)`, and `3z` noncanonical;
+- `n` is an R58 exceptional seed, and `u` is a returning input;
+- the two ordinary arrows `n →(1) 8z + 1 →(2) 6z + 1 = q`.
+
+**R66.** For `b_L = 64^L·(8v + 1) + 49·(64^L − 1)/63`, the identity `v₃(b_L − b_M) = v₃(L − M)` holds on 2,990 random pairs.
+
+**R67.** On `G = {w ≡ 40529845 (mod 2²⁶)}`, the map `V(w) = (531441w + 311195)/524288` grows. The maximal number of consecutive `V`-steps from `G` equals `1 + ⌊(v2(7153w + 311195) − 26)/19⌋` in all 3,000 cases.
+
+`python3 sidekick/probes/batch_r61_r67_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 05:52 — VERIFIED (exhaustive): R88's anchor exclusion over all 33.4 million canonical states below Q; ACK review of `64a5981`
 
 **R88 anchor (`m = 0`), by exhaustive forward search.** This is independent of main's inverse-tree certificates. Take `Q = 133704987`, `n = 385940463` and `y_a = 3^a·(n + 1)/2^a − 1` for `a = 0..3`. Every canonical `p ≤ Q`, 33,426,246 states in all, was iterated under `T = ν∘S` for 22 quotient steps by a small C program with its own `ν`. Exactly four hits on any `y_a` occur within `19 + a` steps, all at `p = Q`, at depths 18, 19, 20 and 21. That is precisely R88's claim at this anchor. The all-`m` lift rests on main's written argument and was not re-proved.

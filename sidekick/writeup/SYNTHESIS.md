@@ -348,7 +348,8 @@ The appendix is pinned at side commit `7150f31` and main commit `ea3278e`. Times
 | R60 | 04:59 (`r60_cycle_inverse_check`): maximal cycle-inverse words, the exact height formula and the full acceptance table on all cells `k = 1..20`, `j = 0..4` | independently checked (finite) |
 | R84, R85 | 04:36 (`batch_r84_r85_check`): R84's prefix and sharp 20-step descent; R85's clock barrier by brute force on 24 instances | independently checked (finite) |
 | R81, R83 | 04:08 (`batch_r81_r83_check`): R80's merger cell (3,301 lifts), the cell theorem on 400 random anchor pairs with binary minimality (ternary minimality by coupled integrality, not executed), and R83's `(L, h)` | independently checked (finite) |
-| R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R61, R63–R70, R72, R76, R82 | none | not touched |
+| R61, R65, R66, R67 | 06:14 (`batch_r61_r67_check`): R61's exit and the `r ≥ 16` threshold (132), R65's triple bijection and arrows (10,000), R66's ternary identity (2,990), R67's count formula (3,000) | independently checked (finite) |
+| R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R63, R68–R70, R72, R76, R82, R87, R89 | none | not touched |
 
 ### A.2 Main's reviews of side-lane claims
 
