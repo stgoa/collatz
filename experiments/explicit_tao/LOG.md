@@ -3,6 +3,17 @@
 Newest entries first. Each entry: iteration, what was done, checks run,
 status label, primary source calibrated, and the C(δ) table at that time.
 
+## Iteration 2, review — side lane confirms the L4 barrier
+
+- Independent 50-digit decimal check (`sidekick/probes/fable_L4_window_check.py`,
+  `claude/sidekick` HEAD after a244490) reproduces every number of
+  `check_L4_window.py`: threshold `6.274e13`, `m_0 >= 1` only for
+  `log x >= 1e5`, `I_y = [21.97, −21.48]` at `2^68`, `α = 1.2185` to open
+  the window there. Scoped-barrier and candidate labels agreed; no dispute.
+  Pointers taken: for Leg 2, the dichotomy's converse (density 0 ⇒ empty)
+  is the whole problem; for Leg 3, read Hercher's 14 June 2026 corrigendum
+  before extending the `m <= 91` bound.
+
 ## Iteration 2 — 2026-10-18 late evening: Tao's architecture at the verified scale
 
 - Verified the side lane's trace of v7 against the arXiv HTML: Theorem 3.1
