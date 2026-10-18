@@ -17,23 +17,6 @@ nanoda kernel accepts the solution
 Running Lean paranoid kernel on solution
 Lean paranoid kernel accepts the solution
 Running lean4lean kernel on solution
-[anonymous]:thmDecl _private.CollatzPosDens.FirstCrossing.FcStartupProductCertC.0.CollatzPosDens.fcStartupProduct.prodGo_block_91._proof_1_1: lean4lean took 4989
-[anonymous]:thmDecl _private.CollatzPosDens.FirstCrossing.FcStartupProductCertJ.0.CollatzPosDens.fcStartupProduct.prodGo_block_41._proof_1_1: lean4lean took 6021
-[anonymous]:thmDecl _private.CollatzPosDens.FirstCrossing.FcStartupProductCertG.0.CollatzPosDens.fcStartupProduct.prodGo_block_38._proof_1_1: lean4lean took 3159
-[anonymous]:thmDecl _private.CollatzPosDens.FirstCrossing.FcStartupProductCertD.0.CollatzPosDens.fcStartupProduct.prodGo_block_30._proof_1_1: lean4lean took 2580
-[anonymous]:thmDecl _private.CollatzPosDens.FirstCrossing.FcStartupProductCertF.0.CollatzPosDens.fcStartupProduct.prodGo_block_37._proof_1_1: lean4lean took 2690
-[anonymous]:thmDecl _private.CollatzPosDens.FirstCrossing.FcStartupProductCertF.0.CollatzPosDens.fcStartupProduct.prodGo_block_36._proof_1_1: lean4lean took 2309
-[anonymous]:thmDecl _private.CollatzPosDens.FirstCrossing.FcStartupProductCertC.0.CollatzPosDens.fcStartupProduct.prodGo_block_42._proof_1_1: lean4lean took 2510
-[anonymous]:thmDecl _private.CollatzPosDens.FirstCrossing.FcStartupProductCertA.0.CollatzPosDens.fcStartupProduct.prodGo_block_18._proof_1_1: lean4lean took 1049
-[anonymous]:thmDecl _private.CollatzPosDens.FirstCrossing.FcStartupProductCertH.0.CollatzPosDens.fcStartupProduct.prodGo_block_39._proof_1_1: lean4lean took 3651
-[anonymous]:thmDecl _private.CollatzPosDens.FirstCrossing.FcStartupProductCertI.0.CollatzPosDens.fcStartupProduct.prodGo_block_40._proof_1_1: lean4lean took 4687
-[anonymous]:thmDecl _private.CollatzPosDens.FirstCrossing.FcStartupProductCertB.0.CollatzPosDens.fcStartupProduct.prodGo_block_24._proof_1_1: lean4lean took 2512
-[anonymous]:thmDecl _private.CollatzPosDens.FirstCrossing.FcStartupProductCertE.0.CollatzPosDens.fcStartupProduct.prodGo_block_33._proof_1_1: lean4lean took 4399
-[anonymous]:thmDecl _private.CollatzPosDens.StoppingTrace.TrDeltaRows.0.CollatzPosDens.rows_check._proof_1_1: lean4lean took 6399
-[anonymous]:thmDecl _private.CollatzPosDens.StoppingTrace.TrWRows.0.CollatzPosDens.rows_check._proof_1_1: lean4lean took 13022
-[anonymous]:thmDecl _private.CollatzPosDens.Renewal.RnP45Floor.0.CollatzPosDens.p45Num_ge._proof_1_1: lean4lean took 5597
-[anonymous]:thmDecl _private.CollatzPosDens.FirstCrossing.RbBounds.0.CollatzPosDens.rb_nonneg_of_lt_256._proof_1_1: lean4lean took 3943
-[anonymous]:thmDecl _private.CollatzPosDens.Seed.SelectedRatioCompute.0.CollatzPosDens.SelectedRatio.P01_eq._proof_1_1: lean4lean took 9035
 checked 39480 declarations
 lean4lean kernel accepts the solution
 Running nanoda kernel on solution
@@ -44,3 +27,9 @@ con-leche: accepted 39479 declarations (--verified)
 con-leche kernel accepts the solution
 Running con-ron kernel on solution
 con-ron: 1 inductive blocks modelled in-process: Lean.Syntax (30 generated records, checked by the fold as declarations and not counted as records of the file)
+con-ron: accepted 39479 declarations (--verified)
+con-ron kernel accepts the solution
+Running Lean default kernel on solution
+Lean default kernel accepts the solution
+Your solution is okay!
+comparator paranoid exit=  19:49:42

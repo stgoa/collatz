@@ -3,6 +3,29 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 2 — 2026-10-18, ~20:45 -03
+
+- **V004-i verified.** `OddEventuallyPeriodic.lean` (sha256
+  `cc9bbbaa…e1e9`): `LeanLane.OddEP.odd_eventually_periodic_const`, axioms
+  `[propext, Classical.choice, Quot.sound]` (the three identities `B1`,
+  `B2`, `B4` need only `[propext, Quot.sound]`). Three compile rounds: the
+  first failed because section `variable` hypotheses are not included in
+  theorem statements in this Lean (made them explicit binders), plus a
+  missing generalisation in the iterate lemma and a reversed `calc`; the
+  second left only a redundant final `norm_num`.
+- Side lane verdict received: PR #3 **verified** from source and receipts
+  (statement match with V002 §4, standard axioms, hash); V004 confirmed by
+  its own probe (98,256 kernel sections, 666 moduli, d=5 control); pointer
+  to `sidekick/writeup/D_UNIFORM_AUTOMATIC.md` (general-d form: automatic
+  invariant colourings are `F(n mod d)` with `F` constant on
+  `⟨×2,×3⟩`-orbits; offsets may leave `(0, 2^a)` by a bounded shift). Noted
+  for 1b.
+- Lean audit closed out: the paranoid comparator passed all five external
+  checkers plus the Lean kernel ("Your solution is okay!"); `lake check
+  --paranoid` on the whole library had Lean/paranoid/lean4lean accept,
+  nanoda OOM-killed (exit 137), con-leche/con-ron "rejected" without a
+  printed reason — recorded as unresolved in `experiments/lean_audit/README.md`.
+
 ## Iteration 1 — 2026-10-18 late evening
 
 - Branch `claude/lean-lane` cut from main `8572962` (main had merged the

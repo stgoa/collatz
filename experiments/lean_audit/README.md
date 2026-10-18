@@ -187,13 +187,25 @@ on `PATH` (it bundles `nanoda_bin`, `lean4lean`, `leanchecker`,
   proves the same statement as the challenge, uses no axiom outside the
   permitted list `propext`, `Quot.sound`, `Classical.choice`, and is
   accepted by the kernel (`receipts/comparator_run1.log.txt`).
-- `--paranoid` (18:44–): `nanoda` accepts; `Lean paranoid kernel` accepts;
-  `lean4lean` accepts (`checked 39480 declarations`); `con-leche` accepts
-  (`accepted 39479 declarations (--verified)`); `con-ron` was still running
-  when this was committed, and `lake check --paranoid` on the default
-  targets was queued behind it. Their outcomes are appended below when
-  they finish (`receipts/comparator_run2_paranoid.log.txt`,
-  `receipts/lake_check_paranoid.log.txt`).
+- `--paranoid` (18:44–19:49, **PASS**): on the four-theorem export,
+  `nanoda` accepts; `Lean paranoid kernel` accepts; `lean4lean` accepts
+  (`checked 39480 declarations`); `con-leche` accepts
+  (`accepted 39479 declarations (--verified)`); `con-ron` accepts
+  (`accepted 39479 declarations (--verified)`); `Lean default kernel`
+  accepts; `Your solution is okay!`
+  (`receipts/comparator_run2_paranoid.log.txt`).
+- `lake check --paranoid` (19:49–20:36) on the **default targets**, i.e.
+  the whole `CollatzPosDens` library exported in one piece (52 inductive
+  blocks of Lean's own types modelled in-process): `Lean paranoid kernel`
+  accepts, `lean4lean` accepts, `Lean default kernel` accepts; `nanoda` was
+  killed (`nanoda exited with 137`, the 7 GB container memory limit) and is
+  reported as "rejected"; `con-leche` and `con-ron` report "rejected" on
+  this larger export without a printed reason
+  (`receipts/lake_check_paranoid.log.txt`). This whole-library check is
+  not the certification the authors specify (that is the comparator above,
+  which all five external checkers pass); the two unexplained rejections
+  are recorded as unresolved and would need a rerun with more memory and
+  verbose output to be understood.
 
 Scope note: the comparator's own `bwrap` sandbox cannot create user
 namespaces inside an unprivileged Docker container, so it ran with

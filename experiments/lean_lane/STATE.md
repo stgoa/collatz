@@ -21,7 +21,7 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | # | Target | Prose source on main | Status | Axioms | Receipt |
 |---|---|---|---|---|---|
 | 1 | Periodic rigidity (d=1): every `M`-periodic `h` with `h(2n)=h(n)` and `h(3n+1)=h(n)` (odd `n>1`) is constant on `n>=1`; plus the `3x+5` control (indicator of `5∣n` is a nonconstant 5-periodic invariant) | `experiments/viewpoints/V002/invariant_colors.md` §4, Appendix | **verified** (iteration 1): `PeriodicRigidity.lean`, `LeanLane.periodic_invariant_const`, `LeanLane.control_three_x_plus_five` | `[propext, Classical.choice, Quot.sound]` | `receipts/PeriodicRigidity.{build,axioms,sha256}.txt`, `receipts/toolchain.txt` |
-| V004-i | Odd-eventually-periodic rigidity: if `h` satisfies (1) and `n ↦ h(2n+1)` is eventually periodic, `h` is constant on positives (V004 §5; strictly strengthens target 1) | `experiments/viewpoints/V004/GLOBAL_RIGIDITY.md` §5 | **next** (re-prioritised: main's newest major claim) | — | — |
+| V004-i | Odd-eventually-periodic rigidity: if `h` satisfies (1) and `n ↦ h(2n+1)` is eventually periodic, `h` is constant on positives (V004 §§2, 5; strictly strengthens target 1) | `experiments/viewpoints/V004/GLOBAL_RIGIDITY.md` §§2, 5 | **verified** (iteration 2): `OddEventuallyPeriodic.lean`, `LeanLane.OddEP.odd_eventually_periodic_const` | `[propext, Classical.choice, Quot.sound]` | `receipts/OddEventuallyPeriodic.{build,axioms,sha256}.txt` |
 | V004-ii | Ternary closure of the positive-offset kernel `K₊` (V004 §3), as pure identities of `h` | same, §3 | queued | — | — |
 | V004-iii | Assembly: binary-automatic invariant colourings are constant, with Cobham + finite-kernel characterisation as explicit named hypotheses (not in Mathlib) | same, §§1–5 | queued | — | — |
 | 1b | General form: components = `⟨×2,×3⟩`-orbits on `Z/gcd(M,d)Z` (both directions); eventual periodicity | V002 Appendix | queued (partly subsumed by V004-i) | — | — |
@@ -43,6 +43,16 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   *Eventual* periodicity (Appendix, last paragraph) and the general
   `gcd(M,d)` classification are not yet formalised (queued under 1b). The
   control matches §5's `3x+5` example with the indicator of `5 ∣ n`.
+
+- V004-i: V004 §5 assumes `b(n) = h(2n+1)` eventually periodic (from Cobham)
+  and proves `h` constant; the Lean theorem takes exactly that: `0 < M` and
+  `∀ n ≥ N, h(2(n+M)+1) = h(2n+1)`, with the two colouring rules as in
+  target 1, and concludes `∀ n > 0, h n = h 1`. The proof differs from the
+  prose in form (integer identities `b(4n+2)=b(n)`, `b(3n+2)=b(2n+1)`,
+  `b(4n)=b(3n)` instead of the residue map on `Z/LZ`; period `3K ⇒ K` by
+  strong induction instead of the `H^{e₃}` descent; translation by
+  `c = (L+1)/2` instead of by `1/4`), but it uses only consequences of (1)
+  and reaches the same statement. No finiteness of the colour set is needed.
 
 ## Insights sent to the feed
 
