@@ -1,0 +1,349 @@
+build	UNKNOWN STEP	﻿2026-10-15T00:17:59.1460210Z Current runner version: '2.337.0'
+build	UNKNOWN STEP	2026-10-15T00:17:59.1493773Z ##[group]Runner Image Provisioner
+build	UNKNOWN STEP	2026-10-15T00:17:59.1495154Z Hosted Compute Agent
+build	UNKNOWN STEP	2026-10-15T00:17:59.1496435Z Version: 20261012.601
+build	UNKNOWN STEP	2026-10-15T00:17:59.1497604Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+build	UNKNOWN STEP	2026-10-15T00:17:59.1498814Z Build Date: 2026-10-12T17:48:21Z
+build	UNKNOWN STEP	2026-10-15T00:17:59.1499937Z Worker ID: {70f90569-d8e4-4f86-9b99-485094c2a758}
+build	UNKNOWN STEP	2026-10-15T00:17:59.1501190Z Region: eastus
+build	UNKNOWN STEP	2026-10-15T00:17:59.1502232Z Cloud: Azure
+build	UNKNOWN STEP	2026-10-15T00:17:59.1503270Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:17:59.1505480Z ##[group]Operating System
+build	UNKNOWN STEP	2026-10-15T00:17:59.1506870Z Ubuntu
+build	UNKNOWN STEP	2026-10-15T00:17:59.1507737Z 24.04.5
+build	UNKNOWN STEP	2026-10-15T00:17:59.1508540Z LTS
+build	UNKNOWN STEP	2026-10-15T00:17:59.1509540Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:17:59.1510446Z ##[group]Runner Image
+build	UNKNOWN STEP	2026-10-15T00:17:59.1511411Z Image: ubuntu-24.04
+build	UNKNOWN STEP	2026-10-15T00:17:59.1512478Z Version: 20261012.334.1
+build	UNKNOWN STEP	2026-10-15T00:17:59.1514693Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+build	UNKNOWN STEP	2026-10-15T00:17:59.1517711Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+build	UNKNOWN STEP	2026-10-15T00:17:59.1519907Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:17:59.1521976Z ##[group]GITHUB_TOKEN Permissions
+build	UNKNOWN STEP	2026-10-15T00:17:59.1524728Z Contents: read
+build	UNKNOWN STEP	2026-10-15T00:17:59.1525657Z Metadata: read
+build	UNKNOWN STEP	2026-10-15T00:17:59.1527119Z Packages: read
+build	UNKNOWN STEP	2026-10-15T00:17:59.1528072Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:17:59.1531444Z Secret source: Actions
+build	UNKNOWN STEP	2026-10-15T00:17:59.1533084Z Cache mode: write
+build	UNKNOWN STEP	2026-10-15T00:17:59.1534480Z Prepare workflow directory
+build	UNKNOWN STEP	2026-10-15T00:17:59.1999774Z Prepare all required actions
+build	UNKNOWN STEP	2026-10-15T00:17:59.2070063Z Getting action download info
+build	UNKNOWN STEP	2026-10-15T00:17:59.3820999Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+build	UNKNOWN STEP	2026-10-15T00:17:59.4881068Z Download action repository 'leanprover/lean-action@v1' (SHA:24581d74d674803a25a81b10b059c5c0cdd344c6)
+build	UNKNOWN STEP	2026-10-15T00:17:59.7268617Z Getting action download info
+build	UNKNOWN STEP	2026-10-15T00:17:59.7838809Z Download action repository 'actions/cache@caa296126883cff596d87d8935842f9db880ef25' (SHA:caa296126883cff596d87d8935842f9db880ef25)
+build	UNKNOWN STEP	2026-10-15T00:17:59.9878461Z Complete job name: build
+build	UNKNOWN STEP	2026-10-15T00:18:00.0657082Z ##[group]Run actions/checkout@v4
+build	UNKNOWN STEP	2026-10-15T00:18:00.0658072Z with:
+build	UNKNOWN STEP	2026-10-15T00:18:00.0658642Z   repository: AxiomMath/CollatzPositiveDensity
+build	UNKNOWN STEP	2026-10-15T00:18:00.0663317Z   token: ***
+build	UNKNOWN STEP	2026-10-15T00:18:00.0663905Z   ssh-strict: true
+build	UNKNOWN STEP	2026-10-15T00:18:00.0664420Z   ssh-user: git
+build	UNKNOWN STEP	2026-10-15T00:18:00.0664937Z   persist-credentials: true
+build	UNKNOWN STEP	2026-10-15T00:18:00.0665543Z   clean: true
+build	UNKNOWN STEP	2026-10-15T00:18:00.0666255Z   sparse-checkout-cone-mode: true
+build	UNKNOWN STEP	2026-10-15T00:18:00.0666856Z   fetch-depth: 1
+build	UNKNOWN STEP	2026-10-15T00:18:00.0667352Z   fetch-tags: false
+build	UNKNOWN STEP	2026-10-15T00:18:00.0667859Z   show-progress: true
+build	UNKNOWN STEP	2026-10-15T00:18:00.0668370Z   lfs: false
+build	UNKNOWN STEP	2026-10-15T00:18:00.0668856Z   submodules: false
+build	UNKNOWN STEP	2026-10-15T00:18:00.0669415Z   set-safe-directory: true
+build	UNKNOWN STEP	2026-10-15T00:18:00.0669995Z   allow-unsafe-pr-checkout: false
+build	UNKNOWN STEP	2026-10-15T00:18:00.0670932Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:18:00.1808633Z Syncing repository: AxiomMath/CollatzPositiveDensity
+build	UNKNOWN STEP	2026-10-15T00:18:00.1812229Z ##[group]Getting Git version info
+build	UNKNOWN STEP	2026-10-15T00:18:00.1814013Z Working directory is '/home/runner/work/CollatzPositiveDensity/CollatzPositiveDensity'
+build	UNKNOWN STEP	2026-10-15T00:18:00.1816722Z [command]/usr/bin/git version
+build	UNKNOWN STEP	2026-10-15T00:18:00.1899837Z git version 2.55.0
+build	UNKNOWN STEP	2026-10-15T00:18:00.1925935Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:18:00.1941278Z Temporarily overriding HOME='/home/runner/work/_temp/41a08f35-09ad-4a7f-b3bb-cdda7ceda958' before making global git config changes
+build	UNKNOWN STEP	2026-10-15T00:18:00.1947542Z Adding repository directory to the temporary git global config as a safe directory
+build	UNKNOWN STEP	2026-10-15T00:18:00.1949549Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/CollatzPositiveDensity/CollatzPositiveDensity
+build	UNKNOWN STEP	2026-10-15T00:18:00.2001663Z Deleting the contents of '/home/runner/work/CollatzPositiveDensity/CollatzPositiveDensity'
+build	UNKNOWN STEP	2026-10-15T00:18:00.2005324Z ##[group]Initializing the repository
+build	UNKNOWN STEP	2026-10-15T00:18:00.2010593Z [command]/usr/bin/git init /home/runner/work/CollatzPositiveDensity/CollatzPositiveDensity
+build	UNKNOWN STEP	2026-10-15T00:18:00.2119143Z hint: Using 'master' as the name for the initial branch. This default branch name
+build	UNKNOWN STEP	2026-10-15T00:18:00.2121336Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build	UNKNOWN STEP	2026-10-15T00:18:00.2122876Z hint: to use in all of your new repositories, which will suppress this warning,
+build	UNKNOWN STEP	2026-10-15T00:18:00.2124560Z hint: call:
+build	UNKNOWN STEP	2026-10-15T00:18:00.2125484Z hint:
+build	UNKNOWN STEP	2026-10-15T00:18:00.2127359Z hint: 	git config --global init.defaultBranch <name>
+build	UNKNOWN STEP	2026-10-15T00:18:00.2129053Z hint:
+build	UNKNOWN STEP	2026-10-15T00:18:00.2130629Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build	UNKNOWN STEP	2026-10-15T00:18:00.2132980Z hint: 'development'. The just-created branch can be renamed via this command:
+build	UNKNOWN STEP	2026-10-15T00:18:00.2134764Z hint:
+build	UNKNOWN STEP	2026-10-15T00:18:00.2136230Z hint: 	git branch -m <name>
+build	UNKNOWN STEP	2026-10-15T00:18:00.2137778Z hint:
+build	UNKNOWN STEP	2026-10-15T00:18:00.2139399Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build	UNKNOWN STEP	2026-10-15T00:18:00.2142077Z Initialized empty Git repository in /home/runner/work/CollatzPositiveDensity/CollatzPositiveDensity/.git/
+build	UNKNOWN STEP	2026-10-15T00:18:00.2146365Z [command]/usr/bin/git remote add origin https://github.com/AxiomMath/CollatzPositiveDensity
+build	UNKNOWN STEP	2026-10-15T00:18:00.2195349Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:18:00.2197860Z ##[group]Disabling automatic garbage collection
+build	UNKNOWN STEP	2026-10-15T00:18:00.2200276Z [command]/usr/bin/git config --local gc.auto 0
+build	UNKNOWN STEP	2026-10-15T00:18:00.2233626Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:18:00.2234728Z ##[group]Setting up auth
+build	UNKNOWN STEP	2026-10-15T00:18:00.2239681Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build	UNKNOWN STEP	2026-10-15T00:18:00.2269827Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build	UNKNOWN STEP	2026-10-15T00:18:00.2614435Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build	UNKNOWN STEP	2026-10-15T00:18:00.2644335Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build	UNKNOWN STEP	2026-10-15T00:18:00.2858407Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build	UNKNOWN STEP	2026-10-15T00:18:00.2888405Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build	UNKNOWN STEP	2026-10-15T00:18:00.3103469Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build	UNKNOWN STEP	2026-10-15T00:18:00.3138441Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:18:00.3140076Z ##[group]Fetching the repository
+build	UNKNOWN STEP	2026-10-15T00:18:00.3148974Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +3a38bfbb70379e051b51155def1423846fab3a90:refs/remotes/origin/main
+build	UNKNOWN STEP	2026-10-15T00:18:00.7432899Z From https://github.com/AxiomMath/CollatzPositiveDensity
+build	UNKNOWN STEP	2026-10-15T00:18:00.7434596Z  * [new ref]         3a38bfbb70379e051b51155def1423846fab3a90 -> origin/main
+build	UNKNOWN STEP	2026-10-15T00:18:00.7450483Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:18:00.7451661Z ##[group]Determining the checkout info
+build	UNKNOWN STEP	2026-10-15T00:18:00.7452968Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:18:00.7453766Z [command]/usr/bin/git sparse-checkout disable
+build	UNKNOWN STEP	2026-10-15T00:18:00.7503479Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build	UNKNOWN STEP	2026-10-15T00:18:00.7532472Z ##[group]Checking out the ref
+build	UNKNOWN STEP	2026-10-15T00:18:00.7542243Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+build	UNKNOWN STEP	2026-10-15T00:18:00.7983845Z Switched to a new branch 'main'
+build	UNKNOWN STEP	2026-10-15T00:18:00.7990278Z branch 'main' set up to track 'origin/main'.
+build	UNKNOWN STEP	2026-10-15T00:18:00.7997764Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:18:00.8034491Z [command]/usr/bin/git log -1 --format=%H
+build	UNKNOWN STEP	2026-10-15T00:18:00.8104368Z 3a38bfbb70379e051b51155def1423846fab3a90
+build	UNKNOWN STEP	2026-10-15T00:18:00.8337610Z ##[group]Run df -h /
+build	UNKNOWN STEP	2026-10-15T00:18:00.8338781Z ^[[36;1mdf -h /^[[0m
+build	UNKNOWN STEP	2026-10-15T00:18:00.8339946Z ^[[36;1msudo rm -rf /usr/local/lib/android \^[[0m
+build	UNKNOWN STEP	2026-10-15T00:18:00.8341449Z ^[[36;1m            /usr/share/dotnet \^[[0m
+build	UNKNOWN STEP	2026-10-15T00:18:00.8342816Z ^[[36;1m            /usr/local/.ghcup \^[[0m
+build	UNKNOWN STEP	2026-10-15T00:18:00.8344173Z ^[[36;1m            /usr/share/swift \^[[0m
+build	UNKNOWN STEP	2026-10-15T00:18:00.8345610Z ^[[36;1m            /usr/local/share/powershell \^[[0m
+build	UNKNOWN STEP	2026-10-15T00:18:00.8347452Z ^[[36;1m            /usr/local/share/chromium || true^[[0m
+build	UNKNOWN STEP	2026-10-15T00:18:00.8348883Z ^[[36;1mdf -h /^[[0m
+build	UNKNOWN STEP	2026-10-15T00:18:00.8609088Z shell: /usr/bin/bash -e {0}
+build	UNKNOWN STEP	2026-10-15T00:18:00.8610312Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:18:00.8749209Z Filesystem      Size  Used Avail Use% Mounted on
+build	UNKNOWN STEP	2026-10-15T00:18:00.8750920Z /dev/root       145G   59G   86G  41% /
+build	UNKNOWN STEP	2026-10-15T00:18:47.3829724Z Filesystem      Size  Used Avail Use% Mounted on
+build	UNKNOWN STEP	2026-10-15T00:18:47.3830721Z /dev/root       145G   33G  112G  23% /
+build	UNKNOWN STEP	2026-10-15T00:18:47.4144594Z ##[group]Run leanprover/lean-action@v1
+build	UNKNOWN STEP	2026-10-15T00:18:47.4145011Z with:
+build	UNKNOWN STEP	2026-10-15T00:18:47.4145214Z   auto-config: true
+build	UNKNOWN STEP	2026-10-15T00:18:47.4145429Z   build: default
+build	UNKNOWN STEP	2026-10-15T00:18:47.4145626Z   test: default
+build	UNKNOWN STEP	2026-10-15T00:18:47.4146027Z   lint: default
+build	UNKNOWN STEP	2026-10-15T00:18:47.4146226Z   mk_all-check: false
+build	UNKNOWN STEP	2026-10-15T00:18:47.4146460Z   use-mathlib-cache: auto
+build	UNKNOWN STEP	2026-10-15T00:18:47.4146710Z   check-reservoir-eligibility: false
+build	UNKNOWN STEP	2026-10-15T00:18:47.4146985Z   leanchecker: false
+build	UNKNOWN STEP	2026-10-15T00:18:47.4147203Z   lean4checker: false
+build	UNKNOWN STEP	2026-10-15T00:18:47.4147412Z   nanoda: false
+build	UNKNOWN STEP	2026-10-15T00:18:47.4147623Z   nanoda-allow-sorry: true
+build	UNKNOWN STEP	2026-10-15T00:18:47.4147869Z   axiom-audit: false
+build	UNKNOWN STEP	2026-10-15T00:18:47.4148148Z   axiom-audit-allow: propext,Classical.choice,Quot.sound
+build	UNKNOWN STEP	2026-10-15T00:18:47.4148481Z   use-github-cache: true
+build	UNKNOWN STEP	2026-10-15T00:18:47.4148717Z   lake-package-directory: .
+build	UNKNOWN STEP	2026-10-15T00:18:47.4148980Z   reinstall-transient-toolchain: false
+build	UNKNOWN STEP	2026-10-15T00:18:47.4149253Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:18:47.4215036Z ##[start-action display=install elan;id=__leanprover_lean-action.__run]
+build	UNKNOWN STEP	2026-10-15T00:18:47.4247226Z ##[group]Run : Install Elan
+build	UNKNOWN STEP	2026-10-15T00:18:47.4247509Z ^[[36;1m: Install Elan^[[0m
+build	UNKNOWN STEP	2026-10-15T00:18:47.4247808Z ^[[36;1m${GITHUB_ACTION_PATH}/scripts/install_elan.sh^[[0m
+build	UNKNOWN STEP	2026-10-15T00:18:47.4307519Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build	UNKNOWN STEP	2026-10-15T00:18:47.4307898Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:18:47.4408064Z ##[group]Elan Installation Output
+build	UNKNOWN STEP	2026-10-15T00:18:47.4877076Z info: downloading installer
+build	UNKNOWN STEP	2026-10-15T00:18:48.3823143Z info: downloading https://releases.lean-lang.org/lean4/v4.35.0-rc2/lean-4.35.0-rc2-linux.tar.zst
+build	UNKNOWN STEP	2026-10-15T00:18:53.8880622Z info: installing /home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc2
+build	UNKNOWN STEP	2026-10-15T00:19:00.7707723Z Lean (version 4.35.0-rc2, x86_64-unknown-linux-gnu, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)
+build	UNKNOWN STEP	2026-10-15T00:19:00.8101374Z Lake version 5.0.0-src+11acb17 (Lean version 4.35.0-rc2)
+build	UNKNOWN STEP	2026-10-15T00:19:00.8135130Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:19:00.8135387Z 
+build	UNKNOWN STEP	2026-10-15T00:19:00.8153830Z ##[end-action id=__leanprover_lean-action.__run;outcome=success;conclusion=success;duration_ms=13393]
+build	UNKNOWN STEP	2026-10-15T00:19:00.8163277Z ##[start-action display=configure `lean-action`;id=__leanprover_lean-action.config]
+build	UNKNOWN STEP	2026-10-15T00:19:00.8490598Z ##[group]Run : Configure Lean Action
+build	UNKNOWN STEP	2026-10-15T00:19:00.8491096Z ^[[36;1m: Configure Lean Action^[[0m
+build	UNKNOWN STEP	2026-10-15T00:19:00.8491577Z ^[[36;1m${GITHUB_ACTION_PATH}/scripts/config.sh^[[0m
+build	UNKNOWN STEP	2026-10-15T00:19:00.8560779Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build	UNKNOWN STEP	2026-10-15T00:19:00.8561134Z env:
+build	UNKNOWN STEP	2026-10-15T00:19:00.8561328Z   AUTO_CONFIG: true
+build	UNKNOWN STEP	2026-10-15T00:19:00.8561540Z   BUILD: default
+build	UNKNOWN STEP	2026-10-15T00:19:00.8561741Z   TEST: default
+build	UNKNOWN STEP	2026-10-15T00:19:00.8561936Z   LINT: default
+build	UNKNOWN STEP	2026-10-15T00:19:00.8562129Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:19:00.8980554Z ##[group]Configure lean-action
+build	UNKNOWN STEP	2026-10-15T00:19:00.9004570Z auto-config: true
+build	UNKNOWN STEP	2026-10-15T00:19:00.9004944Z     -> will run lake build
+build	UNKNOWN STEP	2026-10-15T00:19:00.9422108Z lake check-test failed -> will not run lake test
+build	UNKNOWN STEP	2026-10-15T00:19:00.9831757Z lake check-lint failed -> will not run lake lint
+build	UNKNOWN STEP	2026-10-15T00:19:00.9861386Z ##[end-action id=__leanprover_lean-action.config;outcome=success;conclusion=success;duration_ms=169]
+build	UNKNOWN STEP	2026-10-15T00:19:00.9866406Z ##[start-action display=reinstall transient toolchain;id=__leanprover_lean-action.__run_2]
+build	UNKNOWN STEP	2026-10-15T00:19:00.9885394Z ##[end-action id=__leanprover_lean-action.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	UNKNOWN STEP	2026-10-15T00:19:00.9889248Z ##[start-action display=ensure all files are imported;id=__leanprover_lean-action.mk_all]
+build	UNKNOWN STEP	2026-10-15T00:19:00.9893250Z ##[end-action id=__leanprover_lean-action.mk_all;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	UNKNOWN STEP	2026-10-15T00:19:00.9895488Z ##[start-action display=Run actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25;id=__leanprover_lean-action.cache-restore]
+build	UNKNOWN STEP	2026-10-15T00:19:01.2572903Z ##[group]Run actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+build	UNKNOWN STEP	2026-10-15T00:19:01.2573365Z with:
+build	UNKNOWN STEP	2026-10-15T00:19:01.2573597Z   path: ./.lake
+build	UNKNOWN STEP	2026-10-15T00:19:01.2574471Z   key: lake-Linux-X64-e20ed64a20de27acb4238a4cdeb8a391151cfcc73275f80db7bc01a55f097d45-a496be835fc7c12eeda3185ce2ccda03056f7ae7451e24386888d9e000c39f5d-3a38bfbb70379e051b51155def1423846fab3a90
+build	UNKNOWN STEP	2026-10-15T00:19:01.2576202Z   restore-keys: lake-Linux-X64-e20ed64a20de27acb4238a4cdeb8a391151cfcc73275f80db7bc01a55f097d45-a496be835fc7c12eeda3185ce2ccda03056f7ae7451e24386888d9e000c39f5d
+build	UNKNOWN STEP	2026-10-15T00:19:01.2576975Z   enableCrossOsArchive: false
+build	UNKNOWN STEP	2026-10-15T00:19:01.2577232Z   fail-on-cache-miss: false
+build	UNKNOWN STEP	2026-10-15T00:19:01.2577473Z   lookup-only: false
+build	UNKNOWN STEP	2026-10-15T00:19:01.2577691Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:19:01.6084548Z Cache hit for restore-key: lake-Linux-X64-e20ed64a20de27acb4238a4cdeb8a391151cfcc73275f80db7bc01a55f097d45-a496be835fc7c12eeda3185ce2ccda03056f7ae7451e24386888d9e000c39f5d-a93b09c90797e03ed7d22f72193595a9bb2085a0
+build	UNKNOWN STEP	2026-10-15T00:19:02.6633623Z Received 268435456 of 2266933667 (11.8%), 255.5 MBs/sec
+build	UNKNOWN STEP	2026-10-15T00:19:03.6639597Z Received 536870912 of 2266933667 (23.7%), 255.7 MBs/sec
+build	UNKNOWN STEP	2026-10-15T00:19:04.6684814Z Received 830472192 of 2266933667 (36.6%), 263.5 MBs/sec
+build	UNKNOWN STEP	2026-10-15T00:19:05.6727028Z Received 1136656384 of 2266933667 (50.1%), 270.6 MBs/sec
+build	UNKNOWN STEP	2026-10-15T00:19:06.6766116Z Received 1430257664 of 2266933667 (63.1%), 272.0 MBs/sec
+build	UNKNOWN STEP	2026-10-15T00:19:07.6800812Z Received 1711276032 of 2266933667 (75.5%), 271.3 MBs/sec
+build	UNKNOWN STEP	2026-10-15T00:19:08.7146608Z Received 2013265920 of 2266933667 (88.8%), 272.3 MBs/sec
+build	UNKNOWN STEP	2026-10-15T00:19:09.6048281Z Received 2266933667 of 2266933667 (100.0%), 272.2 MBs/sec
+build	UNKNOWN STEP	2026-10-15T00:19:09.6050288Z Cache Size: ~2162 MB (2266933667 B)
+build	UNKNOWN STEP	2026-10-15T00:19:09.6191189Z [command]/usr/bin/tar -xf /home/runner/work/_temp/03802997-01fe-4e33-82ce-e7f496ebbe66/cache.tzst -P -C /home/runner/work/CollatzPositiveDensity/CollatzPositiveDensity --use-compress-program unzstd
+build	UNKNOWN STEP	2026-10-15T00:19:30.0489948Z Cache restored successfully
+build	UNKNOWN STEP	2026-10-15T00:19:30.2931560Z Cache restored from key: lake-Linux-X64-e20ed64a20de27acb4238a4cdeb8a391151cfcc73275f80db7bc01a55f097d45-a496be835fc7c12eeda3185ce2ccda03056f7ae7451e24386888d9e000c39f5d-a93b09c90797e03ed7d22f72193595a9bb2085a0
+build	UNKNOWN STEP	2026-10-15T00:19:30.3463254Z ##[end-action id=__leanprover_lean-action.cache-restore;outcome=success;conclusion=success;duration_ms=29356]
+build	UNKNOWN STEP	2026-10-15T00:19:30.3466434Z ##[start-action display=detect mathlib;id=__leanprover_lean-action.detect-mathlib]
+build	UNKNOWN STEP	2026-10-15T00:19:30.3820333Z ##[group]Run : Detect Mathlib
+build	UNKNOWN STEP	2026-10-15T00:19:30.3820699Z ^[[36;1m: Detect Mathlib^[[0m
+build	UNKNOWN STEP	2026-10-15T00:19:30.3821114Z ^[[36;1m${GITHUB_ACTION_PATH}/scripts/detect_mathlib.sh^[[0m
+build	UNKNOWN STEP	2026-10-15T00:19:30.5449878Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build	UNKNOWN STEP	2026-10-15T00:19:30.5450487Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:19:30.5944319Z ##[group]Detect Mathlib Output
+build	UNKNOWN STEP	2026-10-15T00:19:30.5945020Z Trying to detect if project is downstream of Mathlib.
+build	UNKNOWN STEP	2026-10-15T00:19:30.6362659Z Detected Mathlib dependency in lake-manifest.json. Using Mathlib cache.
+build	UNKNOWN STEP	2026-10-15T00:19:30.6364501Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:19:30.6365066Z 
+build	UNKNOWN STEP	2026-10-15T00:19:30.6375294Z ##[end-action id=__leanprover_lean-action.detect-mathlib;outcome=success;conclusion=success;duration_ms=290]
+build	UNKNOWN STEP	2026-10-15T00:19:30.6378206Z ##[start-action display=get mathlib cache;id=__leanprover_lean-action.__run_3]
+build	UNKNOWN STEP	2026-10-15T00:19:30.6416196Z ##[group]Run : Get Mathlib Cache
+build	UNKNOWN STEP	2026-10-15T00:19:30.6416499Z ^[[36;1m: Get Mathlib Cache^[[0m
+build	UNKNOWN STEP	2026-10-15T00:19:30.6416854Z ^[[36;1mecho "::group::Mathlib Cache"^[[0m
+build	UNKNOWN STEP	2026-10-15T00:19:30.6417239Z ^[[36;1mlake exe cache get^[[0m
+build	UNKNOWN STEP	2026-10-15T00:19:30.6417550Z ^[[36;1mecho "::endgroup::"^[[0m
+build	UNKNOWN STEP	2026-10-15T00:19:30.6417798Z ^[[36;1mecho^[[0m
+build	UNKNOWN STEP	2026-10-15T00:19:30.6475326Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build	UNKNOWN STEP	2026-10-15T00:19:30.6475831Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:19:30.6862513Z ##[group]Mathlib Cache
+build	UNKNOWN STEP	2026-10-15T00:19:38.7735050Z Current branch: HEAD
+build	UNKNOWN STEP	2026-10-15T00:19:38.7735962Z Using cache from origin: (some leanprover-community/mathlib4)
+build	UNKNOWN STEP	2026-10-15T00:19:38.7738254Z Attempting to download 8915 file(s) from leanprover-community/mathlib4 cache at https://cache.mathlib.org/mathlib4-master
+build	UNKNOWN STEP	2026-10-15T00:19:39.0495396Z 
+build	UNKNOWN STEP	2026-10-15T00:19:39.1578655Z Downloaded: 1 file(s) [attempted 1/8915 = 0%, 77 KB/s], Decompressed: 0
+build	UNKNOWN STEP	2026-10-15T00:19:39.2645079Z Downloaded: 90 file(s) [attempted 90/8915 = 1%, 792 KB/s], Decompressed: 88
+build	UNKNOWN STEP	2026-10-15T00:19:39.3666467Z Downloaded: 188 file(s) [attempted 188/8915 = 2%, 826 KB/s], Decompressed: 183
+build	UNKNOWN STEP	2026-10-15T00:19:39.4721959Z Downloaded: 300 file(s) [attempted 300/8915 = 3%, 553 KB/s], Decompressed: 290
+build	UNKNOWN STEP	2026-10-15T00:19:39.5719624Z Downloaded: 429 file(s) [attempted 429/8915 = 4%, 2289 KB/s], Decompressed: 422
+build	UNKNOWN STEP	2026-10-15T00:19:39.6961563Z Downloaded: 526 file(s) [attempted 526/8915 = 5%, 1191 KB/s], Decompressed: 524
+build	UNKNOWN STEP	2026-10-15T00:19:39.7973978Z Downloaded: 626 file(s) [attempted 626/8915 = 7%, 372 KB/s], Decompressed: 619
+build	UNKNOWN STEP	2026-10-15T00:19:39.9010765Z Downloaded: 699 file(s) [attempted 699/8915 = 7%, 237 KB/s], Decompressed: 695
+build	UNKNOWN STEP	2026-10-15T00:19:40.0016316Z Downloaded: 838 file(s) [attempted 838/8915 = 9%, 1229 KB/s], Decompressed: 836
+build	UNKNOWN STEP	2026-10-15T00:19:40.1029264Z Downloaded: 948 file(s) [attempted 948/8915 = 10%, 277 KB/s], Decompressed: 943
+build	UNKNOWN STEP	2026-10-15T00:19:40.2117177Z Downloaded: 1062 file(s) [attempted 1062/8915 = 11%, 323 KB/s], Decompressed: 1057
+build	UNKNOWN STEP	2026-10-15T00:19:40.3206142Z Downloaded: 1172 file(s) [attempted 1172/8915 = 13%, 232 KB/s], Decompressed: 1167
+build	UNKNOWN STEP	2026-10-15T00:19:40.4209449Z Downloaded: 1267 file(s) [attempted 1267/8915 = 14%, 1963 KB/s], Decompressed: 1264
+build	UNKNOWN STEP	2026-10-15T00:19:40.5220307Z Downloaded: 1410 file(s) [attempted 1410/8915 = 15%, 2777 KB/s], Decompressed: 1401
+build	UNKNOWN STEP	2026-10-15T00:19:40.6222606Z Downloaded: 1590 file(s) [attempted 1590/8915 = 17%, 1392 KB/s], Decompressed: 1583
+build	UNKNOWN STEP	2026-10-15T00:19:40.7221268Z Downloaded: 1707 file(s) [attempted 1707/8915 = 19%, 1224 KB/s], Decompressed: 1700
+build	UNKNOWN STEP	2026-10-15T00:19:40.8233558Z Downloaded: 1873 file(s) [attempted 1873/8915 = 21%, 4423 KB/s], Decompressed: 1865
+build	UNKNOWN STEP	2026-10-15T00:19:40.9221032Z Downloaded: 2049 file(s) [attempted 2049/8915 = 22%, 2070 KB/s], Decompressed: 2038
+build	UNKNOWN STEP	2026-10-15T00:19:41.0222310Z Downloaded: 2224 file(s) [attempted 2224/8915 = 24%, 4202 KB/s], Decompressed: 2218
+build	UNKNOWN STEP	2026-10-15T00:19:41.1223139Z Downloaded: 2419 file(s) [attempted 2419/8915 = 27%, 1721 KB/s], Decompressed: 2410
+build	UNKNOWN STEP	2026-10-15T00:19:41.2226736Z Downloaded: 2599 file(s) [attempted 2599/8915 = 29%, 1336 KB/s], Decompressed: 2593
+build	UNKNOWN STEP	2026-10-15T00:19:41.3221165Z Downloaded: 2747 file(s) [attempted 2747/8915 = 30%, 670 KB/s], Decompressed: 2741
+build	UNKNOWN STEP	2026-10-15T00:19:41.4375400Z Downloaded: 2869 file(s) [attempted 2869/8915 = 32%, 1168 KB/s], Decompressed: 2865
+build	UNKNOWN STEP	2026-10-15T00:19:41.5371230Z Downloaded: 3043 file(s) [attempted 3043/8915 = 34%, 2833 KB/s], Decompressed: 3036
+build	UNKNOWN STEP	2026-10-15T00:19:41.6376558Z Downloaded: 3221 file(s) [attempted 3221/8915 = 36%, 1098 KB/s], Decompressed: 3216
+build	UNKNOWN STEP	2026-10-15T00:19:41.7386804Z Downloaded: 3405 file(s) [attempted 3405/8915 = 38%, 252 KB/s], Decompressed: 3403
+build	UNKNOWN STEP	2026-10-15T00:19:41.8379089Z Downloaded: 3590 file(s) [attempted 3590/8915 = 40%, 1190 KB/s], Decompressed: 3581
+build	UNKNOWN STEP	2026-10-15T00:19:41.9544127Z Downloaded: 3765 file(s) [attempted 3765/8915 = 42%, 320 KB/s], Decompressed: 3758
+build	UNKNOWN STEP	2026-10-15T00:19:42.0541054Z Downloaded: 3890 file(s) [attempted 3890/8915 = 43%, 168 KB/s], Decompressed: 3887
+build	UNKNOWN STEP	2026-10-15T00:19:42.1561272Z Downloaded: 4038 file(s) [attempted 4038/8915 = 45%, 374 KB/s], Decompressed: 4028
+build	UNKNOWN STEP	2026-10-15T00:19:42.2558899Z Downloaded: 4199 file(s) [attempted 4199/8915 = 47%, 4623 KB/s], Decompressed: 4191
+build	UNKNOWN STEP	2026-10-15T00:19:42.3571124Z Downloaded: 4375 file(s) [attempted 4375/8915 = 49%, 1067 KB/s], Decompressed: 4371
+build	UNKNOWN STEP	2026-10-15T00:19:42.4568578Z Downloaded: 4551 file(s) [attempted 4551/8915 = 51%, 1076 KB/s], Decompressed: 4546
+build	UNKNOWN STEP	2026-10-15T00:19:42.5595430Z Downloaded: 4731 file(s) [attempted 4731/8915 = 53%, 1273 KB/s], Decompressed: 4727
+build	UNKNOWN STEP	2026-10-15T00:19:42.6596454Z Downloaded: 4899 file(s) [attempted 4899/8915 = 54%, 1920 KB/s], Decompressed: 4894
+build	UNKNOWN STEP	2026-10-15T00:19:42.7633150Z Downloaded: 5019 file(s) [attempted 5019/8915 = 56%, 998 KB/s], Decompressed: 5014
+build	UNKNOWN STEP	2026-10-15T00:19:42.8641224Z Downloaded: 5203 file(s) [attempted 5203/8915 = 58%, 1237 KB/s], Decompressed: 5198
+build	UNKNOWN STEP	2026-10-15T00:19:42.9638478Z Downloaded: 5400 file(s) [attempted 5400/8915 = 60%, 2851 KB/s], Decompressed: 5399
+build	UNKNOWN STEP	2026-10-15T00:19:43.0652062Z Downloaded: 5580 file(s) [attempted 5580/8915 = 62%, 373 KB/s], Decompressed: 5573
+build	UNKNOWN STEP	2026-10-15T00:19:43.1688173Z Downloaded: 5770 file(s) [attempted 5770/8915 = 64%, 1123 KB/s], Decompressed: 5769
+build	UNKNOWN STEP	2026-10-15T00:19:43.2695260Z Downloaded: 5979 file(s) [attempted 5979/8915 = 67%, 5857 KB/s], Decompressed: 5975
+build	UNKNOWN STEP	2026-10-15T00:19:43.3689376Z Downloaded: 6086 file(s) [attempted 6086/8915 = 68%, 141 KB/s], Decompressed: 6085
+build	UNKNOWN STEP	2026-10-15T00:19:43.4688753Z Downloaded: 6252 file(s) [attempted 6252/8915 = 70%, 3751 KB/s], Decompressed: 6247
+build	UNKNOWN STEP	2026-10-15T00:19:43.5690918Z Downloaded: 6429 file(s) [attempted 6429/8915 = 72%, 501 KB/s], Decompressed: 6422
+build	UNKNOWN STEP	2026-10-15T00:19:43.6712456Z Downloaded: 6621 file(s) [attempted 6621/8915 = 74%, 442 KB/s], Decompressed: 6612
+build	UNKNOWN STEP	2026-10-15T00:19:43.7702812Z Downloaded: 6811 file(s) [attempted 6811/8915 = 76%, 855 KB/s], Decompressed: 6804
+build	UNKNOWN STEP	2026-10-15T00:19:43.8701570Z Downloaded: 6985 file(s) [attempted 6985/8915 = 78%, 6345 KB/s], Decompressed: 6974
+build	UNKNOWN STEP	2026-10-15T00:19:43.9703741Z Downloaded: 7147 file(s) [attempted 7147/8915 = 80%, 439 KB/s], Decompressed: 7138
+build	UNKNOWN STEP	2026-10-15T00:19:44.0707561Z Downloaded: 7244 file(s) [attempted 7244/8915 = 81%, 1702 KB/s], Decompressed: 7230
+build	UNKNOWN STEP	2026-10-15T00:19:44.1727312Z Downloaded: 7432 file(s) [attempted 7432/8915 = 83%, 2203 KB/s], Decompressed: 7422
+build	UNKNOWN STEP	2026-10-15T00:19:44.2717483Z Downloaded: 7589 file(s) [attempted 7589/8915 = 85%, 747 KB/s], Decompressed: 7583
+build	UNKNOWN STEP	2026-10-15T00:19:44.3729136Z Downloaded: 7782 file(s) [attempted 7782/8915 = 87%, 805 KB/s], Decompressed: 7765
+build	UNKNOWN STEP	2026-10-15T00:19:44.4718645Z Downloaded: 7970 file(s) [attempted 7970/8915 = 89%, 9514 KB/s], Decompressed: 7963
+build	UNKNOWN STEP	2026-10-15T00:19:44.5720159Z Downloaded: 8137 file(s) [attempted 8137/8915 = 91%, 273 KB/s], Decompressed: 8123
+build	UNKNOWN STEP	2026-10-15T00:19:44.6730279Z Downloaded: 8260 file(s) [attempted 8260/8915 = 92%, 1601 KB/s], Decompressed: 8258
+build	UNKNOWN STEP	2026-10-15T00:19:44.7720241Z Downloaded: 8423 file(s) [attempted 8423/8915 = 94%, 1751 KB/s], Decompressed: 8410
+build	UNKNOWN STEP	2026-10-15T00:19:44.8726452Z Downloaded: 8600 file(s) [attempted 8600/8915 = 96%, 489 KB/s], Decompressed: 8583
+build	UNKNOWN STEP	2026-10-15T00:19:44.9398156Z Downloaded: 8787 file(s) [attempted 8787/8915 = 98%, 1581 KB/s], Decompressed: 8780
+build	UNKNOWN STEP	2026-10-15T00:19:44.9407045Z Downloaded: 8915 file(s) [attempted 8915/8915 = 100%, 1581 KB/s], Decompressed: 8911
+build	UNKNOWN STEP	2026-10-15T00:19:45.6748091Z Decompressed 8915 file(s)
+build	UNKNOWN STEP	2026-10-15T00:19:45.6748447Z Already decompressed 8915 file(s)
+build	UNKNOWN STEP	2026-10-15T00:19:45.7167961Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:19:45.7168238Z 
+build	UNKNOWN STEP	2026-10-15T00:19:45.7175400Z ##[end-action id=__leanprover_lean-action.__run_3;outcome=success;conclusion=success;duration_ms=15079]
+build	UNKNOWN STEP	2026-10-15T00:19:45.7189407Z ##[start-action display=build AxiomMath/CollatzPositiveDensity;id=__leanprover_lean-action.build]
+build	UNKNOWN STEP	2026-10-15T00:19:45.7215281Z ##[group]Run : Lake Build
+build	UNKNOWN STEP	2026-10-15T00:19:45.7216058Z ^[[36;1m: Lake Build^[[0m
+build	UNKNOWN STEP	2026-10-15T00:19:45.7216474Z ^[[36;1m${GITHUB_ACTION_PATH}/scripts/lake_build.sh^[[0m
+build	UNKNOWN STEP	2026-10-15T00:19:45.7276796Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+build	UNKNOWN STEP	2026-10-15T00:19:45.7277239Z env:
+build	UNKNOWN STEP	2026-10-15T00:19:45.7277504Z   BUILD_ARGS: 
+build	UNKNOWN STEP	2026-10-15T00:19:45.7277710Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:19:45.7373093Z ##[group]Lake Build Output
+build	UNKNOWN STEP	2026-10-15T00:19:48.2828286Z Build completed successfully (4104 jobs).
+build	UNKNOWN STEP	2026-10-15T00:19:48.3180981Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:19:48.3181258Z 
+build	UNKNOWN STEP	2026-10-15T00:19:48.3193971Z ##[end-action id=__leanprover_lean-action.build;outcome=success;conclusion=success;duration_ms=2600]
+build	UNKNOWN STEP	2026-10-15T00:19:48.3201984Z ##[start-action display=test AxiomMath/CollatzPositiveDensity;id=__leanprover_lean-action.test]
+build	UNKNOWN STEP	2026-10-15T00:19:48.3210084Z ##[end-action id=__leanprover_lean-action.test;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	UNKNOWN STEP	2026-10-15T00:19:48.3215017Z ##[start-action display=lint AxiomMath/CollatzPositiveDensity;id=__leanprover_lean-action.lint]
+build	UNKNOWN STEP	2026-10-15T00:19:48.3242878Z ##[end-action id=__leanprover_lean-action.lint;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	UNKNOWN STEP	2026-10-15T00:19:48.3247023Z ##[start-action display=Run actions/cache/save@caa296126883cff596d87d8935842f9db880ef25;id=__leanprover_lean-action.__actions_cache]
+build	UNKNOWN STEP	2026-10-15T00:19:48.5536412Z ##[group]Run actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
+build	UNKNOWN STEP	2026-10-15T00:19:48.5536789Z with:
+build	UNKNOWN STEP	2026-10-15T00:19:48.5536977Z   path: ./.lake
+build	UNKNOWN STEP	2026-10-15T00:19:48.5537839Z   key: lake-Linux-X64-e20ed64a20de27acb4238a4cdeb8a391151cfcc73275f80db7bc01a55f097d45-a496be835fc7c12eeda3185ce2ccda03056f7ae7451e24386888d9e000c39f5d-3a38bfbb70379e051b51155def1423846fab3a90
+build	UNKNOWN STEP	2026-10-15T00:19:48.5538772Z   enableCrossOsArchive: false
+build	UNKNOWN STEP	2026-10-15T00:19:48.5539025Z ##[endgroup]
+build	UNKNOWN STEP	2026-10-15T00:19:48.7009979Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/CollatzPositiveDensity/CollatzPositiveDensity --files-from manifest.txt --use-compress-program zstdmt
+build	UNKNOWN STEP	2026-10-15T00:20:11.2474003Z Sent 0 of 2266897884 (0.0%), 0.0 MBs/sec
+build	UNKNOWN STEP	2026-10-15T00:20:12.2482902Z Sent 671088640 of 2266897884 (29.6%), 319.8 MBs/sec
+build	UNKNOWN STEP	2026-10-15T00:20:13.2506736Z Sent 1275068416 of 2266897884 (56.2%), 405.1 MBs/sec
+build	UNKNOWN STEP	2026-10-15T00:20:14.2506776Z Sent 2013265920 of 2266897884 (88.8%), 479.8 MBs/sec
+build	UNKNOWN STEP	2026-10-15T00:20:14.9272526Z Sent 2266897884 of 2266897884 (100.0%), 461.8 MBs/sec
+build	UNKNOWN STEP	2026-10-15T00:20:15.2442694Z Cache saved with key: lake-Linux-X64-e20ed64a20de27acb4238a4cdeb8a391151cfcc73275f80db7bc01a55f097d45-a496be835fc7c12eeda3185ce2ccda03056f7ae7451e24386888d9e000c39f5d-3a38bfbb70379e051b51155def1423846fab3a90
+build	UNKNOWN STEP	2026-10-15T00:20:15.2528507Z ##[end-action id=__leanprover_lean-action.__actions_cache;outcome=success;conclusion=success;duration_ms=26927]
+build	UNKNOWN STEP	2026-10-15T00:20:15.2531575Z ##[start-action display=check reservoir eligibility;id=__leanprover_lean-action.__run_4]
+build	UNKNOWN STEP	2026-10-15T00:20:15.2537154Z ##[end-action id=__leanprover_lean-action.__run_4;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	UNKNOWN STEP	2026-10-15T00:20:15.2539832Z ##[start-action display=check environment with leanchecker;id=__leanprover_lean-action.__run_5]
+build	UNKNOWN STEP	2026-10-15T00:20:15.2544454Z ##[end-action id=__leanprover_lean-action.__run_5;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	UNKNOWN STEP	2026-10-15T00:20:15.2547037Z ##[start-action display=check environment with nanoda;id=__leanprover_lean-action.nanoda]
+build	UNKNOWN STEP	2026-10-15T00:20:15.2551051Z ##[end-action id=__leanprover_lean-action.nanoda;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	UNKNOWN STEP	2026-10-15T00:20:15.2554334Z ##[start-action display=audit axioms with axiom-audit;id=__leanprover_lean-action.axiom-audit]
+build	UNKNOWN STEP	2026-10-15T00:20:15.2616125Z ##[end-action id=__leanprover_lean-action.axiom-audit;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	UNKNOWN STEP	2026-10-15T00:20:15.2734907Z Post job cleanup.
+build	UNKNOWN STEP	2026-10-15T00:20:15.3641817Z [command]/usr/bin/git version
+build	UNKNOWN STEP	2026-10-15T00:20:15.3710174Z git version 2.55.0
+build	UNKNOWN STEP	2026-10-15T00:20:15.3748274Z Temporarily overriding HOME='/home/runner/work/_temp/4788526f-6658-4937-b0d2-e255f3cb619a' before making global git config changes
+build	UNKNOWN STEP	2026-10-15T00:20:15.3750299Z Adding repository directory to the temporary git global config as a safe directory
+build	UNKNOWN STEP	2026-10-15T00:20:15.3753147Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/CollatzPositiveDensity/CollatzPositiveDensity
+build	UNKNOWN STEP	2026-10-15T00:20:15.3787509Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build	UNKNOWN STEP	2026-10-15T00:20:15.3820312Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build	UNKNOWN STEP	2026-10-15T00:20:15.4063040Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build	UNKNOWN STEP	2026-10-15T00:20:15.4087424Z http.https://github.com/.extraheader
+build	UNKNOWN STEP	2026-10-15T00:20:15.4098266Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build	UNKNOWN STEP	2026-10-15T00:20:15.4129230Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build	UNKNOWN STEP	2026-10-15T00:20:15.4342811Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build	UNKNOWN STEP	2026-10-15T00:20:15.4372724Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build	UNKNOWN STEP	2026-10-15T00:20:15.4731911Z Cleaning up orphan processes
+build	UNKNOWN STEP	2026-10-15T00:20:15.5077928Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
