@@ -1,16 +1,19 @@
 # Residual progress and finite forcing
 
 **Latest standing:** universal tripling currents on W5={5 mod8} suffice.
-Seven proved rule domains now compose using the common rank rho(w)=nu(3w),
-with all signed dependencies retained. New complete arithmetic domains
-cover nonselected multiples of3 and allow a second inverse phase to cross
-an intermediate increase. Universal supply on the seven-rule complement
-remains open. Pure smaller-ancestor inverse search cannot cover even every
-absorbed critical root:39 and135 have permanent exclusions, yet enter
-known smaller history in three quotient steps. Their lifted families keep
-arbitrarily deep inverse obstructions alongside that short forward escape.
-These are written reductions and partial constructions; Collatz remains
-open. The current batch and evidence are at the end of this report.
+The continued compiler preserves the seven earlier rule domains and adds
+two proved forward continuations under rho(w)=nu(3w), retaining all signed
+dependencies. Whole families permit arbitrarily many increasing blocks
+before a proved final rank decrease. A separate rank sigma sharpens every
+formal absorption bound, but cannot be substituted into all earlier rules.
+Universal completion remains open: the selected phase w=3445 mod3456
+supplies arbitrarily long growing prefixes whose exact lookahead plans
+retain a positive unresolved leading request after either permitted ranked
+expansion. The seed varies with the requested depth; this is no infinite
+positive-orbit claim. The tactical target is this selected, nonmultiple-of3
+phase and a comparison beyond the specified lookahead recipe. These are
+written reductions and partial constructions, with no novelty or Collatz
+proof claimed. The current batch and evidence are at the end of this report.
 
 Started 2026-10-17 from clean pushed commit `ce56699`.
 The preceding goal turn made progress: universal partial currents, an exact
@@ -1430,4 +1433,155 @@ Checklist:
 - [x] Integrate standing, evidence and next open obligation.
 - [x] Complete the full Python/C++ gate and built-in LaTeX check.
 - [x] Finish the final integrated-document review.
+- [x] Review the final diff and prepare the verified batch for authorized commit and push; delivery is recorded in Git history.
+
+
+## Active batch after bcde58e: forward continuation and an untouched phase
+
+Previous goal turn: **progress**. R47–R50, proofs, exact constructors,
+certificates and the seven-rule compiler were committed and pushed after
+full verification. Revalidated clean main at bcde58e. The independent feed
+was fetched and skimmed at unchanged8bc27dfeeba7804d57964b68f6149eb1f6f6c247;
+its old-four-rule size survey remains external finite evidence, not a premise.
+
+The working hypotheses were:
+
+1. Whole forward blocks composed before absorption give a complete further
+   descending domain, including the returning phase's failed endpoints.
+2. The common-rank absorption bound can be tightened after exact signed
+   cancellation or known-rule expansion, removing an artificial obstruction.
+3. A complete description of paths avoiding the seven direct domains either
+   yields a new progress mechanism or sharply scopes finite-lookahead claims.
+
+### Proved outcomes and scope
+
+1. **R51: a uniform absorption bound under a separate rank.** Set
+   sigma(w)=4w/3-1 on the returning row E_return and sigma(w)=rho(w)
+   elsewhere. Every request u in the unchanged formal H_s obeys
+   sigma(u)<=nu(s)<=s. Retesting complete forward interfaces gives the
+   entire new domain w=437 mod512. The old rho rule at w=4629 requests
+   2197 with sigma=6591, exceeding its parent's sigma=6171. Thus sigma
+   supplies a separate valid induction, not a drop-in replacement or an
+   unrestricted union with rho rules.
+2. **R52: a second complete block on the returning row.** The exact
+   interface composes both forward blocks before requesting final
+   absorption. The first a=3 failure image is precisely r=157 mod243;
+   the second exponent A=2,3,4 has a complete endpoint-bound classification.
+   Every first a>=3 and second A>=2 has new full CRT families with a
+   sufficiently large odd second depth. Some old successes fail this
+   particular longer test, so the combined dispatcher preserves old-rule
+   priority. Every accepted request decreases the original rho.
+3. **R53: temporarily growing blocks can be retained together.** The
+   entire eight-row domain after a failed first a=3/4 block and a next
+   exponent2 has an exact second-block classification. A maximal sequence
+   of (2,2) blocks obeys G(x)+5=(9/8)(x+5). For every r>=1, complete CRT
+   families outside the old seven direct domains have r such growing
+   blocks, followed by an odd-depth block that decreases the original
+   rank; d=4r+3 suffices. Only the final endpoint is sent to H. These
+   unbounded families are partial constructions, not a termination proof
+   for arbitrary block sequences.
+4. **R54: a complete phase remains beyond the specified lookahead.** The
+   whole phase w=3445 mod3456 has selected3w, w=1 mod3 and fails every
+   old direct rule. For any r,s>=1, q_0=81*2^(11r+6)*s-17 gives r exact
+   seven-step quotient blocks, with return
+   q_(i+1)+17=(2187/2048)(q_i+17). Every noninitial state exceeds q_0.
+   Complete critical-nine substitution and every lookahead position leave
+   a unique largest-rank W5 request with coefficient+1 in the same
+   unaccepted phase. Expanding all lower requests cannot cancel it.
+   R52/R53 domains also exclude the leading request, as does the separate
+   sigma dispatcher. This rules out a uniform finite lookahead for the
+   specified forward-prefix/H/ranked-rule procedure. It does not rule out
+   another comparison, a supplied leading current, seed-dependent
+   unbounded lookahead or a separately supplied known-history certificate. Different
+   requested depths use different positive seeds.
+
+R54 also explains why earlier growing runs alone were inadequate:
+at a canonical even endpoint, an accepted maximal inverse block can
+literally restore the preceding original root. Acceptance at that larger
+endpoint is not necessarily progress relative to the original seed.
+The permanent inverse exclusions and short forward escapes from R49
+remain compatible with this need for broader forward comparisons.
+
+### Exact evidence and review
+
+- [R51 proof](phase_rank/PHASE_RANK.md) and
+  [receipt](phase_rank/sigma_rank_audit.json):1024 complete W9 plans,
+  4096 absorption plans,132 progression examples through index2^128,
+  five actual substitutions and six rejection checks. Among1024 W5
+  candidates, the separate sigma dispatcher accepts459 versus442 for the
+  old seven-rule rho dispatcher:441 shared,18 sigma-only,one old-only.
+  The w44981 supplied-current fixture is stored.
+- [R52 proof](returning_continuation/RETURNING_SECOND_BLOCK.md) and
+  [receipt](returning_continuation/returning_continuation_audit.json):910
+  returning inputs,768 exact low-A CRT cells,132 long families, eight actual
+  substitutions using18 distinct supplied inputs, and seven rejection
+  checks. The finite input range has184 newly accepted cases and23 old
+  successes rejected by the new standalone test. Three full output
+  current tables are retained.
+- [R53 proof](forward_continuation/FORWARD_CONTINUATION.md) and
+  [receipt](forward_continuation/forward_continuation_audit.json):8192 W5
+  candidates,570 complete table cases,224 maximal low runs,56 CRT family
+  members including r=64, three actual substitutions and five rejection
+  checks. The w4258701 input and output tables are stored. Review corrected
+  the odd-e=3 bound to (81n+133)/256 in the proof and algebra checker, and
+  clarified the normalizer's exact change of endpoint before final replay.
+- [R54 proof](rule_avoidance/RULE_AVOIDANCE.md) and
+  [receipt](rule_avoidance/rule_avoidance_audit.json):256 phase cases,48
+  long families through r=128,148 lookahead positions,20 complete W9
+  plans, eight repeated signed plans, six rejected invalid requests and
+  three stored unfinished current tables. Separate rho and sigma expansion
+  checks each finish after29 nodes under a2000-node cap and retain the
+  leading request. The complete-family conclusions use the written proof,
+  not extrapolation from these finite checks.
+- The [continued rho compiler](continued_rules/continued_rules.py) preserves
+  the old seven-rule priority and adds R52/R53. Its
+  [receipt](continued_rules/continued_rules_audit.json) checks1024 W5
+  candidates:493 accepted versus442 previously,531 unresolved, six actual
+  substitutions, two complete stored tables,64 untouched-phase examples
+  with four declared bounds on the candidate range, closure nodes and
+  demonstration-input steps/bits. These finite counts are not asymptotic
+  coverage.
+
+Independent model proof/code audits and focused default replays passed
+R51–R54. Independent review of the continued rho union passed. The
+full `python3 scripts/verify_all.py --cpp` gate passed with exit0; its run
+log is `/tmp/collatz_continuation_final_gate.log`. A final replay after
+correcting the printed W9 count from40 to20 and refreshing its source-hash
+receipt also passed; the stored mathematical count was already20.
+The existing LaTeX source was updated in place and the built-in compiler
+passed. Independent review of the shared records and root review of the
+integrated TeX passed, including explicit selected-endpoint logic in the
+returning table. No result here is asserted formally verified, human-reviewed
+or novel. Final checks cover29 changed/new files,310 local links, LF
+endings,47 unique TeX labels,85 resolved references and clean whitespace.
+The reviewed batch is prepared for authorized commit and push; the
+accompanying Git history records delivery.
+
+### Decision and next obligation
+
+This batch is **progress**: whole further domains now admit exact decreasing
+comparisons even after unbounded intermediate growth, and the remaining
+limitation is sharply scoped. Supply currents on the complement of the
+continued rho domains, or find a complete further comparison. The immediate
+target is selected3w with w=1 mod3, especially w=3445 mod3456 and its
+repeated-block descendants. A useful next theorem must resolve their
+retained positive request or prove a different terminating comparison;
+increasing a fixed lookahead or a sampled acceptance fraction is not enough.
+
+Keep sigma and rho inductions separate unless a common descent proof is
+provided. Keep all signed requests and the distinction between complete
+supplied history and a bounded prefix. No universal current supply,
+convergence or novelty claim follows. The research goal remains active.
+
+Checklist:
+
+- [x] Revalidate repository, prior turn and independent feed.
+- [x] Derive complete forward continuations and audit their dependencies.
+- [x] Prove the sharper separate absorption rank and preserve its incompatibility witness.
+- [x] Prove complete-phase avoidance with the full signed leading dependency retained.
+- [x] Independently review R51–R54 proofs and exact constructors.
+- [x] Persist standing, full evidence and the precise remaining obligation.
+- [x] Finish independent review of the continued rho union.
+- [x] Complete the full Python/C++ verification gate.
+- [x] Integrate and compile the existing LaTeX source; finish combined-document review.
 - [x] Review the final diff and prepare the verified batch for authorized commit and push; delivery is recorded in Git history.

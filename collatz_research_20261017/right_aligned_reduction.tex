@@ -3885,6 +3885,370 @@ The seven-rule compiler composes these and the earlier strict-rank domains,
 retaining every unhandled leaf. It does not supply the universal complement.
 See \path{experiments/residual_progress/double_inverse/DOUBLE_INVERSE_PHASES.md}.
 
+\section{A separate rank absorbs the critical-nine expansion}
+Let $E_{\rm ret}$ be the returning domain
+$\{w\in W_5:w\equiv3\pmod9,\ 3w\text{ selected}\}$. Define the positive
+integer rank
+\[
+ \sigma(w)=\begin{cases}
+ 4w/3-1=(8\rho(w)-5)/9,&w\in E_{\rm ret},\\
+ \rho(w),&w\notin E_{\rm ret}.
+ \end{cases}
+\]
+It satisfies $w<\sigma(w)\le\rho(w)$. The currents $H_s$ below remain
+the same deterministic formal absorption plans, with signed missing
+$W_5$ inputs; changing their rank supplies none of those inputs.
+
+\begin{theorem}\label{thm:sigmarank}
+Every request $u$ in $H_s$ satisfies $\sigma(u)\le\nu(s)$. Consequently
+a finite signed pair rule whose every request strictly decreases
+$\sigma$ admits conditional composition by strong induction on this rank.
+The complete nonselected forward domain with first exponent $a=5$ and
+odd second valuation $d\ge3$ has such a rule. In particular every
+$w\equiv437\pmod{512}$ is covered. The earlier $\rho$ rules cannot all
+be imported into this induction without checking their edges again.
+\end{theorem}
+\begin{proof}
+In the complete elimination of a $W_9$ input $b$, all nonexceptional
+local requests have index below $b$ and hence rank below $3b$. The
+exceptional rows with $d=6,8$ already have $\rho<3b$. At $d=4$ the
+exceptional index is $u=(9b+3)/4\in E_{\rm ret}$ and
+$\sigma(u)=3b$. Every recursive $W_9$ input $c<b$ has descendants
+bounded by $3c<3b$, by induction. Thus every resulting $W_5$ input has
+$\sigma\le3b$. In $H_s$, direct $W_5$ requests have critical image at
+most $\nu(s)$, while each $W_9$ input comes from a root
+$3b\le\nu(s)$. This proves the bound, including all signed cancellations.
+It is attained by the request $21$ in $H_{27}$.
+
+For a nonselected input $q=3w=32t-1$, the full odd-$d$ return at $d=3$
+is $f=(243t-3)/8$, and $q-f=(13t-5)/8>0$. Increasing odd $d$ by two
+multiplies the corresponding positive affine expression for $f$ by
+$3/4$, so the comparison remains strict whenever that exact valuation
+occurs. The lower absorption input $\nu(w)<w/4$ has smaller rank as well.
+For $d=3$, the exact binary and integrality conditions are
+$t\equiv9\pmod{16}$ and $t\equiv2\pmod3$, namely $t=41+48m$;
+this is $w=437+512m$, $m\ge0$.
+\end{proof}
+
+For a normalized endpoint $n$, useful sharper bounds on the requests
+are $0$ at $n=1$, $(3n+1)/4$ for $n>1$ with $n\equiv1\pmod8$,
+$(2n-1)/3$ for complementary $n\equiv2\pmod3$, $\sigma(v)$ for a
+direct critical $W_5$ input $v$, and $n$ for a critical $W_9$ input.
+They follow by applying the theorem after the first prescribed step.
+They are upper bounds, not asserted exact maxima.
+
+The rank distinction is substantive. The old accepted rule at $w=4629$
+requests $P(2197)$: its parent ranks are $\rho=6943$, $\sigma=6171$,
+but $\sigma(2197)=6591$. Conversely the new rule at $w=44981$ requests
+$P(96069)$, with parent rank $134943$ and child ranks
+$\rho=144103$, $\sigma=128091$. Every old $\rho$ rule outside
+$E_{\rm ret}$ remains $\sigma$-decreasing, since its parent ranks agree
+and every child rank can only decrease. Returning rules require a fresh
+check. No arbitrary mixture of the two inductive orders is licensed.
+See \path{experiments/residual_progress/phase_rank/PHASE_RANK.md}.
+
+\section{A second full block in the returning domain}
+Retain the original rank $\rho$. For $w\in E_{\rm ret}$ write
+\[
+ 3w=2^at-1,\quad a\ge3,\quad t\equiv3^a\pmod4,\quad
+ 2^at\equiv10\pmod{27},\qquad
+ q=\rho(w)=2^{a-1}t-1,\quad r=(3^{a-1}t-1)/2.
+\]
+The ordinary word $1^{a-2},2$ gives a current $G$ from $q$ to $r$.
+Normalize to $n=\nu(r)$ before choosing the next block. At $n=1$ use
+the empty block; at $n>1$, $n\equiv1\pmod8$, use its ordinary forward
+arrow. At a complementary canonical $n=2^Av-1$, use the full run
+current $D_n$, with
+\[
+ d=v_2(3^{A-1}v-1),\quad b=\lfloor d/2\rfloor,\quad
+ u=(3^{A-1}v-1)/2^d,\qquad
+ f=\begin{cases}3^bu,&d\text{ odd},\\2\cdot3^bu+1,&d\text{ even}.
+ \end{cases}
+\]
+Here $A\ge2$, $d\ge2$. The block's ordinary comparison clocks are
+$(A+b,1)$ for odd $d$ and $(A+b-1,0)$ for even $d$, while its exact
+quotient length is $A+b-1$. The first block has quotient length $a-1$;
+the normalized second block adds the stated quotient length, or zero
+or one in the first two cases. The intervening normalizer retains its
+signed ordinary prefixes.
+
+\begin{theorem}\label{thm:secondreturning}
+For every returning input the prescribed two-block construction is a
+finite signed interface. If its final endpoint bound $B(\nu(f))$ from
+the returning-phase section is below the original $q$, every remaining
+request strictly decreases $\rho$. For every pair of integers $a\ge3$
+and $A\ge2$, there is a complete nonempty congruence family whose first
+endpoint test fails but this second-block test succeeds.
+\end{theorem}
+\begin{proof}
+Let $D$ denote the chosen second block, and let $z=\nu(w)$. The current
+\[
+ J=N_{3w}+G+N_r+D-N_w+H_f-H_z
+\]
+has divergence
+\[
+ P(w)-\sum_v\bigl(A_f(v)-A_z(v)\bigr)P(v).
+\]
+This follows by telescoping, with no absorption request between blocks.
+Every lower request has rank below $q$ because $z\le(w-1)/4$; the
+upper requests satisfy the stated bound. Full signed substitution proves
+the conditional claim.
+
+For the family, choose any odd $d\ge3$ with
+\[
+ 7\cdot3^{a+A+\lfloor d/2\rfloor-3}\le2^{a+A+d-1}.
+\]
+Such $d$ exist, since its ratio improves by $3/4$ under $d\mapsto d+2$.
+Impose the coprime congruences
+\[
+ 2(2^Av-1)+1\equiv10\cdot3^{a-1}2^{-a}\pmod{3^{a+2}},\qquad
+ v\equiv(1+2^d)3^{1-A}\pmod{2^{d+1}}.
+\]
+Every positive member gives $r=2^Av-1$, $t=(2r+1)/3^{a-1}$ and
+$w=(2^at-1)/3$ in the original returning domain, with the exact second
+valuation $d$. In particular $r$ is complementary canonical and
+$r\equiv4\pmod9$. Put $c=(2/3)^{a-1}$ and
+$L=3^{A-1+\lfloor d/2\rfloor}/2^{A+d}$. Then
+$q=c(2r+1)-1<r$, so the old test $B(r)=r$ fails. Also $q>cr$, since
+$2r+1=3^{a-1}t$ with $t\ge1$. The final positive odd endpoint obeys
+\[
+ B(\nu(f))\le\frac{9f+5}{8}\le\frac{7f}{4}
+ <\frac{7Lr}{3}\le cr<q,
+\]
+where $f<L(r+1)\le4Lr/3$ and the chosen inequality gives $7L/3\le c$.
+This proves the entire family, including every positive progression
+member and all intercepts. Its $v$ period is $2^{d+1}3^{a+2}$ and
+its $w$ period is $9\cdot2^{a+A+d+2}$.
+\end{proof}
+
+At $a=3$ the whole first-test failure is exactly the image
+\[
+ r\equiv157\pmod{243},\quad r\text{ complementary canonical},
+ \qquad w=(16r-1)/27,\quad q=(8r-5)/9.
+\]
+The weaker congruence $r\equiv22\pmod{27}$ loses the returning phase.
+For second exponents $A=2,3,4$, every odd $d$ passes. For even $d$ the
+complete classifications, with $\mathcal E$ meaning that $f$ is selected,
+are
+\[
+\begin{aligned}
+ A=2:&\quad (d\ge4)\ \lor\ \mathcal E,\\
+ A=3:&\quad (d\ge8)\ \lor\
+  \bigl[\mathcal E\land(d\ge4\ \lor\ \nu(f)\not\equiv3\pmod8)\bigr],\\
+ A=4:&\quad (d\ge10)\ \lor\
+  \bigl[\mathcal E\land(d\ge6\ \lor\
+    (d=4\land\nu(f)\equiv1\pmod8))\bigr].
+\end{aligned}
+\]
+These are classifications of the endpoint
+bound test. The full intercept table is in the companion proof.
+
+The constructed families are outside the previous seven direct domains:
+the nonselected rules and good inverse phase do not apply, the first
+returning test fails, and the original selected inverse parameters are
+$D=j=1$. Other supplied histories may still certify individual inputs.
+Some old accepted returning inputs fail this alternate continuation, so
+existing accepted priorities should be retained. No $\sigma$ compatibility
+is assumed. See
+\path{experiments/residual_progress/returning_continuation/RETURNING_SECOND_BLOCK.md}.
+
+\section{Long increasing nonselected prefixes with a decreasing exit}
+Continue to use $\rho$. For a nonselected $q=3w$, concatenate any finite
+prescribed sequence of full run currents and intervening normalizers,
+ending at a raw endpoint $y$. If $D$ is their sum and $z=\nu(w)$, the
+single final formal plan
+\[
+ J=D-N_w+H_y-H_z
+\]
+has divergence $P(w)-\sum_v(A_y(v)-A_z(v))P(v)$. No intermediate
+endpoint has been assumed absorbed. The condition $B(\nu(y))<q$
+therefore gives strict decrease of every request in the original rank.
+
+The entire $(a,d)=(2,2)$ run domain is $x\equiv27\pmod{32}$, with
+\[
+ G(x)=(9x+5)/8,\qquad G(x)+5=9(x+5)/8.
+\]
+If $E=v_2(x+5)\ge5$, the maximal number of consecutive such raw blocks
+is $r=\lfloor(E-2)/3\rfloor$, with
+$G^r(x)=9^r(x+5)/8^r-5$. Indeed the valuation decreases by exactly
+three per block. Its remainder $E-3r$ is $2,3$ or $4$: respectively
+the exit is $7\pmod8$, selected $3\pmod{16}$, or canonical
+$11\pmod{32}$ with next $a=2,d\ge3$. This is a complete stopping
+formula for this repeated pattern, not for arbitrary run sequences.
+
+\begin{theorem}\label{thm:longforward}
+For every integer $r\ge1$ there is a complete infinite family of
+nonselected $W_5$ inputs outside the earlier seven direct domains whose
+first $r+1$ block endpoints increase above the original rank, but a final
+full block gives only requests of strictly smaller original rank.
+Their intermediate height ratio and prefix length are unbounded as
+$r$ varies.
+\end{theorem}
+\begin{proof}
+Choose odd $d\ge3$, $b=\lfloor d/2\rfloor$, satisfying
+\[
+ 2^{d-2}(2^{3r+11}-103)>3^{b+3}(3^{2r+3}-1).
+\]
+The explicit choice $d=4r+3$ suffices: the left side exceeds
+$2^{7r+11}$, the right side is below $3^{4r+7}$, and
+$2^{7r+11}>3^{4r+7}$ holds at $r=1$ and improves by $128/81$.
+Impose
+\[
+ s\equiv3^{-2r-3}(1+2^{d-2})\pmod{2^{d-1}},\qquad
+ 2^{3r+8}s\equiv416\pmod{729},
+\]
+and take any positive progression member. Then
+\[
+ w=\frac{2^{3r+8}s-11}{9},\quad q=3w,\quad
+ x_0=9\cdot2^{3r+4}s-5,\quad x_r=16\cdot9^{r+1}s-5.
+\]
+The first block at $q$ is exactly $(3,2)$ and reaches $x_0$; the next
+exactly $r$ blocks are $(2,2)$ and reach $x_r$. All their boundaries
+are canonical, $1\pmod3$, and above $q$, so each direct endpoint bound
+fails. The ordinary prefix word is $(1,1,2),(1,2)^r$, of length
+$3+2r$, also its quotient length.
+
+At $x_r$ the next exponent is $2$ and the exact next valuation is
+$d=2+v_2(3^{2r+3}s-1)$. The final odd-$d$ endpoint is
+\[
+ y=\frac{3^b(3^{2r+3}s-1)}{2^{d-2}}.
+\]
+The sufficient rank test $(9y+5)/8<q$ is exactly
+\[
+ (2^{3r+d+9}-3^{2r+b+6})s>
+ 103\cdot2^{d-2}-3^{b+3}.
+\]
+The right side is positive for odd $d\ge3$. The chosen inequality
+makes the slope exceed that right side, proving the test already at
+$s=1$ and hence at every positive member. The resulting ordinary
+comparison clocks from $q$ to raw $y$ are $(2r+b+5,1)$; the quotient
+length to $\nu(y)$ is $2r+b+4$. At $d=4r+3$ the ordinary clocks are
+$(4r+6,1)$.
+
+The congruences retain the extra binary valuation bit and give
+$w\equiv45\pmod{81}$, with $w$ period $81\cdot2^{3r+d+7}$.
+The selected rules do not apply and the nonselected unit rules exclude
+$3\mid w$. The first forward test fails. For the multiples-of-three
+inverse rule, $D=2$ and its unit is $5\pmod9$, giving active branch
+$k=4,j=1$ and other branch $j=0$, neither decreasing. Thus all seven
+earlier direct recognizers fail. Finally $x_r/q$ has leading ratio
+$(27/16)(9/8)^r$, proving the asserted unbounded intermediate growth.
+\end{proof}
+
+A separate complete eight-row table handles a failed first exponent
+$3$ or $4$ when its canonical endpoint has exponent $2$. All odd second
+valuations pass, and the exact even thresholds include their intercepts.
+The table and finite constructor are in
+\path{experiments/residual_progress/forward_continuation/FORWARD_CONTINUATION.md}.
+Both results concern specified finite sequences; no closure for arbitrary
+sequences of expanding blocks has been proved.
+The continued $\rho$ compiler first retains the earlier seven accepted
+rules, then tries the returning and nonselected continuations of
+Theorems~\ref{thm:secondreturning} and \ref{thm:longforward}. All chosen
+edges use the same original rank and missing leaves remain explicit.
+This compiler is separate from the $\sigma$ dispatcher and imports none
+of its additional rules without a new rank check.
+
+\section{A leading missing input survives bounded lookahead}
+Here the seven direct rules mean precisely the fixed domains used by
+the second-inverse compiler, before either new forward continuation.
+For every positive $w\equiv3445\pmod{3456}$, $3w$ is selected and
+\[
+ q=\rho(w)=(3w-1)/2\equiv-17\pmod{5184}.
+\]
+The selected inverse parameters are $D=2,j=1$, so that rule fails;
+the other direct domains require either $3\mid w$ or nonselected $3w$.
+Thus this entire phase is unrecognized by all seven.
+
+\begin{theorem}\label{thm:ruleavoidance}
+For every $R\ge1$ and $s\ge1$, put
+$q_0=81\cdot2^{11R+6}s-17$ and $w_0=(2q_0+1)/3$.
+For every quotient lookahead $0\le n\le7R$, the full deterministic
+$H$ conversion of that prefix, including complete $W_9$ elimination,
+has a unique largest-$\rho$ request with coefficient $+1$ and rank
+at least $q_0$. This request is outside the seven direct domains and
+survives arbitrary further expansion of the other requests by those
+strict-$\rho$ rules. The same conclusion holds separately for the
+$\sigma$ compiler. This is an obstruction to the specified procedure,
+not to other representations or to supplying the missing current.
+\end{theorem}
+\begin{proof}
+For $q\equiv-17\pmod{2^{17}}$ the exact seven quotient prefixes are
+\[
+ \begin{array}{c|c}
+ j&T^j(q)\\\hline
+ 0&q\\
+ 1&(3q+1)/2\\
+ 2&(9q+5)/4\\
+ 3&(27q+19)/8\\
+ 4&(81q+33)/64\\
+ 5&(243q+163)/128\\
+ 6&(729q+617)/512\\
+ 7&(2187q+2363)/2048
+ \end{array}
+\]
+At the displayed canonical states the ordinary valuations are
+$1,1,1,2,1,2,2$. At the fourth arrow the
+ordinary successor $(81q+65)/32$ is selected; normalizing it supplies
+row4 and retains the full signed ordinary bridge. The quotient steps
+therefore must not be counted as seven ordinary arrows. The negative
+residue shadows $-17,-25,-37,-55,-21,-31,-23,-17$ verify every exact
+binary phase, while all actual states are positive. Every noninitial
+prefix exceeds $q$, and the return $\Psi$ obeys
+\[
+ \Psi(q)=\frac{2187q+2363}{2048},\qquad
+ \Psi(q)+17=\frac{2187}{2048}(q+17).
+\]
+At cycle start $i$ one has
+$q_i+17=3^{7i}2^{11R+6-11i}81s$. For $i<R$ at least17 binary bits
+remain, so the table repeats exactly; at $i=R$ six bits remain, preserving
+the canonical endpoint. Every $q_i$ is still $-17\pmod{81}$.
+
+The only critical rows are0,4,7. Rows0 and7 give the unrecognized
+$W_5$ indices $w_i=(2q_i+1)/3$. Row4 gives the $W_9$ index
+$v=(27q_i+11)/64$. Its exact local valuation is6 and its complete
+elimination has upper endpoint $q'=\Psi(q_i)$ and lower endpoint
+\[
+ \ell=(729q_i+2153)/2048,\qquad q'=3\ell-2.
+\]
+The upper $H_{q'}$ requests $w_{i+1}$ with coefficient $+1$ and then
+$H_{w_{i+1}}$, whose ranks are at most $(3q'+4)/4<q'$. The lower
+ranks are at most $(3q'+11)/8<q'$. In $H_{T^4(q_i)}$ the additional
+$H_v$ requests have ranks at most $(243q_i+419)/512<q'$. Hence full
+$W_9$ elimination retains exactly this unique leading request.
+
+At rows1 and2 the prescribed inverse point steps return to row0 without
+new requests. At row3 the $1$-modulo-$8$ forward priority reaches row4;
+at rows5 and6 it reaches row7. Therefore if $n=7i+j$, $0\le j\le6$,
+the leading request after $H$ conversion is $w_i$ for $j=0,1,2$ and
+$w_{i+1}$ for $j=3,4,5,6$; at $n=7R$ it is $w_R$.
+The exact converted current is
+\[
+ N_{3w_0}+D_n-N_{w_0}+H_{T^n(q_0)}-H_{\nu(w_0)},
+\]
+where $D_n$ is the quotient-prefix current on actual ordinary rows.
+Its lower requests have ranks below $q_0$ and cannot cancel the lead.
+Every other request has strictly smaller rank than the lead. Further
+strict-$\rho$ expansion, with either sign, cannot create that index,
+and its direct recognizer fails. Its coefficient $+1$ thus survives.
+
+For the separate $\sigma$ argument, the same $H$ currents and coefficients
+are used, all other ranks can only decrease, and each leading input is
+outside $E_{\rm ret}$, so its $\sigma$ equals its $\rho$. Its direct
+$\sigma$ recognizer also fails. The identical maximal-rank argument
+applies with that rank alone.
+\end{proof}
+
+The leading inputs have selected $3w$ and $w\equiv1\pmod3$; neither
+the returning continuation nor the nonselected continuation recognizes
+them. Adding those strict-$\rho$ rules preserves the obstruction.
+No mixing of $\rho$-only and $\sigma$-only edges is assumed. The seed
+changes with $R$; there is no asserted positive orbit avoiding forever.
+Other absorption representations, independently supplied leading currents,
+different inverse words and joint comparisons remain possible. Full
+current formulas and the scoped operation set are in
+\path{experiments/residual_progress/rule_avoidance/RULE_AVOIDANCE.md}.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -3962,6 +4326,19 @@ Theorem~\ref{thm:doubleinverse} crosses some intermediate increases.
 Theorem~\ref{thm:permanentinverse} proves that inverse-only descent
 cannot be a universal completion even on absorbed critical inputs;
 forward or other comparisons remain necessary.
+Theorem~\ref{thm:sigmarank} supplies a separate integer rank with the
+sharper formal bound $\sigma(u)\le\nu(s)$, but explicit counterexamples
+prevent importing every old rule into that order. Theorems
+\ref{thm:secondreturning} and \ref{thm:longforward} instead retain the
+original rank and compose complete forward blocks before asking for
+inputs, crossing arbitrarily long specified increasing prefixes.
+Theorem~\ref{thm:ruleavoidance} shows why bounded lookahead followed by
+the fixed absorption converter and the named decreasing rules cannot
+complete the programme: a unique nondecreasing unhandled request survives
+for every prescribed lookahead. This is a restriction on that procedure;
+the next obligation is a new valid comparison or eventual progress argument
+for the remaining selected, nondivisible-by-three phase and other missing
+inputs, with every dependency checked in one coherent induction order.
 Completing the remaining $W_5$ currents is still the full-strength open
 obligation. Further isolated merger families alone would not discharge it.
 Theorem~\ref{thm:paircatalogue} gives the exact limitation of the named
@@ -4125,5 +4502,20 @@ checker verifies two complete all-depth exclusion certificates,197 short and
 inverse checker adds153 two-phase inputs,408 exact CRT cases and four actual
 substitutions; the expanded union checks1024 candidates and eight substituted
 outputs. Their unbounded statements rely on the corresponding written proofs.
+The separate-rank checker adds1024 complete $W_9$ plans,4096 absorption
+bounds,132 progression examples and five supplied-current substitutions;
+both explicit incompatibility witnesses are retained. The second-returning
+checker adds910 interfaces,768 exact low-exponent cells,132 long families
+and eight actual substitutions, with three complete stored outputs. Its
+184 newly accepted inputs and23 worsened old inputs are finite comparisons
+of two specified tests, not asymptotic coverage estimates. The nonselected
+continuation checks570 complete two-block cases,224 maximal low runs,
+56 long-family members and three actual constructions. The
+continued $\rho$ union checks1024 inputs, preserving all442 old acceptances
+and reaching493 accepted inputs, with six actual supplied-current
+substitutions. The rule-avoidance
+checker covers256 phase cases,48 repeated families,148 lookahead positions,
+20 complete $W_9$ plans and two separately ranked smaller-request expansions.
+Its stored unfinished currents preserve the leading missing input.
 These audits remain finite evidence for the implementations.
 \end{document}
