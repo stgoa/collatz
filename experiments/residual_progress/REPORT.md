@@ -3144,14 +3144,14 @@ The decisive next target is supply of the surviving higher W5 request at the ORI
 - [x] Freeze and cross-review both proof/source/receipt packages.
 - [x] Register default replay; run the complete Python/C++ gate.
 - [x] Update and compile the existing TeX; audit shared records and links.
-- [ ] Commit and push the reviewed batch, retaining the open universal goal.
+- [x] Commit and push the reviewed batch, retaining the open universal goal.
 
 
 ### Frozen validation evidence
 
 Both packages passed independent proof, implementation and default-replay review. R86 checks640 arithmetic cells,50 full plans,256 minimal-H cells,72 direct CRT memberships,34 old17 cases and28 explicit rejection controls; supplied outputs contain29/79/73 rows. R87 checks865 generic cases,72 threshold cases,72 depth cells through128,72 R84 repairs among517 examined indices,51 full undos and37 rejections; supplied outputs contain166/49/61 rows. The R87 proof's normalization explanation was corrected before freezing, and its F-only k8 control is included. The review also confirms that the two-substitution bound concerns high-W9 replacements, not ordinary clocks or elimination of all lower W9 premises.
 
-Both default checkers are registered. `python3 scripts/verify_all.py --cpp` passed with exit0 against the frozen mathematical packages, including both new checkers, all historical and negative-control receipts,31 manifest entries and independent C++ cutoffs4096/262144. Output is in `/tmp/collatz_even_exit_repair_full_gate.log`. Shared-record and TeX transcription review passed, and the existing TeX compiled successfully in the native editor. Mechanical checks cover16 scoped files,438 local Markdown links,83 unique TeX labels,141 resolved references,11 unique new equation tags, LF endings, JSON parsing and whitespace. The final remote refresh left main at355c173. The reviewed batch is prepared for authorized commit and push; Git history records delivery. The next-batch scratch work below is outside this gate's scope.
+Both default checkers are registered. `python3 scripts/verify_all.py --cpp` passed with exit0 against the frozen mathematical packages, including both new checkers, all historical and negative-control receipts,31 manifest entries and independent C++ cutoffs4096/262144. Output is in `/tmp/collatz_even_exit_repair_full_gate.log`. Shared-record and TeX transcription review passed, and the existing TeX compiled successfully in the native editor. Mechanical checks cover16 scoped files,438 local Markdown links,83 unique TeX labels,141 resolved references,11 unique new equation tags, LF endings, JSON parsing and whitespace. The final remote refresh left main at355c173. The reviewed batch was committed and pushed as `2a37f31`; local main and origin/main matched afterward and the working tree was clean. The next-batch scratch work below is outside this gate's scope.
 
 ### Next-batch leads, not premises of this batch
 
