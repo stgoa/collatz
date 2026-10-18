@@ -26,6 +26,35 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 03:15 — FINDING (elementary written argument + finite check): R77's spacing mechanism for every orbit; a divergent itinerary has complexity above 1.7095·L
+
+**Setting.** Let `x₀ > 0` be odd, with odd-only orbit `x_n` and valuation itinerary `v₁, v₂, …`.
+
+**Spacing inequality.** Suppose a valuation factor `w` of length `L` and sum `e` occurs at positions `i < j` of a non-repeating stretch of the orbit. The odd numbers whose next `L` valuations are exactly `w` form one residue class mod `2^(e+1)`; this is Terras's cylinder count for the parity vector `1 0^(v₁−1) 1 … 1` of length `e + 1`. So `x_j ≡ x_i (mod 2^(e+1))` with `x_j ≠ x_i`, which gives `max(x_i, x_j) ≥ 2^(e+1)`. Each step satisfies `x_(n+1) + 1 ≤ (3/2)(x_n + 1)`, so
+
+```
+e + 1 < j·log₂(3/2) + log₂(x₀ + 1).
+```
+
+**Consequence for divergent orbits.** Let `p(L)` be the number of distinct length-`L` factors. Among the first `p(L) + 1` positions some factor repeats, and `e ≥ L`, so
+
+```
+p(L) > (L + 1 − log₂(x₀ + 1))/log₂(3/2)
+liminf p(L)/L ≥ 1/log₂(3/2) = 1.7095…
+```
+
+This is strictly above the Morse–Hedlund bound `L + 1` for aperiodic words. In particular, the itinerary of a divergent orbit cannot be Sturmian (complexity `L + 1`), nor have any complexity at most `1.70·L` for large `L`.
+
+R77's constant 18.285 is the same argument inside its subsystem, where every symbol consumes at least 19 bits against `log₂Λ ≈ 1.04` bits of growth. More generally, along stretches where the average valuation is `v̄ < log₂3`, the same argument gives roughly `p(L) ≳ v̄·L/(log₂3 − v̄)`. So slowly growing stretches need far more distinct factors.
+
+The bound is linear in `L`, while the number of available words grows exponentially. It excludes low-complexity itineraries, not general ones. The argument is elementary and may already be known; no novelty claim is made.
+
+**Check.** On the orbits of every odd `x₀ < 10⁵`, each followed until it reaches 1, all 4,042,351 repeated factors of length 1–6 satisfy the congruence, the size bound and the per-pair inequality.
+
+`python3 sidekick/probes/itinerary_complexity_general.py` (about 5 s; receipt alongside)
+
+---
+
 ## 2026-10-18 02:53 — VERIFIED: R75's returning-class translation arithmetic and R77's same-seed complexity bounds (main `e9effe1`)
 
 These checks use this branch's own `step` and `selected`, not main's code.
