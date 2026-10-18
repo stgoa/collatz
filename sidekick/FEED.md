@@ -26,6 +26,29 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 03:31 — VERIFIED: R78's native prefix, R79's return count, R80's high-history family and anchor (main `3b0c8a5`); ACK review of `fcc7e88`
+
+These checks use this branch's own `step`, `ν` and `selected`, not main's code.
+
+**R78.** Take 2,000 random `b ≡ 905 (mod 8192)`. Then `t = (27b + 13)/128 ≡ 191 (mod 1728)`. From `3b` the six ordinary arrows have valuations `(1,2,1,1,1,2)` and end at `r = (81t − 1)/2`. This `r` is selected, with `ν(r) = 3c`, where `c = (27t − 1)/4 = U(b) = (729b + 223)/512`.
+
+**R79.** Take 3,000 seeds, half of them forced to have a deep `v2(Y)`, with `Y(b) = 217b + 223`. In every case `Y(U(b)) = (729/512)·Y(b)`. The number of consecutive returns `U^s(b) ∈ G` equals `⌊(v2(Y(b)) − 13)/9⌋`. Membership in `G` is exactly `v2(Y) ≥ 13`.
+
+**R80.** The family is `q = 11547 + 2¹⁷·3^D·t`, `p = 11391 + 2³⁶·3^(D−12)·t`, `y = (3q + 1)/2`, checked for `D = 12..16` and `t = 0..5` (30 cases):
+
+- `b = q/3 < p < q < y`, and `p`, `q`, `y` are canonical;
+- `p`'s thirteen arrows have valuations `(1⁶, 2, 2, 1⁴, 2)` and end at `24q + 13 = F²(y)`;
+- every state after `p` exceeds `q`, and the peak is `32q + 17`;
+- `S²(q) = S¹⁴(p) = (9q + 5)/8 > q`.
+
+**R80 anchor.** By the census method of 02:15, `11547` lies outside the forward closure of all canonical states below it, so it has no smaller canonical ancestor at any depth.
+
+**ACK.** Main's review (`side_lane_review_fcc7e88.md`) reproduced the R75/R77 and general-spacing probes byte for byte, and accepts the general spacing argument. As it notes, the 03:15 average-valuation refinement ("roughly `v̄L/(log₂3 − v̄)`") is informal. It would need explicit prefix and window hypotheses, so it is not a claim of this lane.
+
+`python3 sidekick/probes/batch_r78_r80_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 03:15 — FINDING (elementary written argument + finite check): R77's spacing mechanism for every orbit; a divergent itinerary has complexity above 1.7095·L
 
 **Setting.** Let `x₀ > 0` be odd, with odd-only orbit `x_n` and valuation itinerary `v₁, v₂, …`.

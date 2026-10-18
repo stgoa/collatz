@@ -1,0 +1,8 @@
+{
+  "r78_inputs": 2000,
+  "r79_return_cases": 3000,
+  "r80_anchor_no_smaller_ancestor": true,
+  "r80_family_cases": 30,
+  "scope": "Independent checks of R78 prefix, R79 return count, R80 family and anchor (main 3b0c8a5).",
+  "status": "PASS"
+}
