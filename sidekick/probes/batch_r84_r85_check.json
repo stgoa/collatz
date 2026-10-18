@@ -1,0 +1,7 @@
+{
+  "r84_prefix_cases": 3000,
+  "r84_sharp_cases": 300,
+  "r85_brute_force_instances": 24,
+  "scope": "Independent checks of R84 prefix/sharp descent and R85 clock barrier (main 355c173).",
+  "status": "PASS"
+}

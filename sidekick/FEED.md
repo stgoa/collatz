@@ -26,6 +26,22 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 04:36 — VERIFIED: R84's prefix and sharp twenty-step descent; R85's clock barrier by brute force (main `355c173`)
+
+These checks use this branch's own `step` and `ν`, not main's code.
+
+**R84, prefix.** On 3,000 random `k`, `q = 11547 + 3·2¹⁹·k` has first thirteen ordinary valuations exactly `(1,2,1,1,1,1,1,2,2,1,1,2,2)`. The raw endpoint is `R = 70237 + 2·3¹⁴·k`, and `4(R − 1) < 25(q − 1)`.
+
+**R84, sharp descent.** On 300 random `k ≡ 9954 (mod 16384)`, the first quotient step with `T^n(q) < q` is exactly `n = 20`.
+
+**R85.** These are brute-force finite instances of the all-ray statement. Each has canonical `q = 2^H·u − 1` with `3^D ∣ q`, a valuation-1 prefix of length `J` with canonical states, and `u ≡ −3^H (mod 4)`. There are two instances for each `D ∈ {1, 2, 3}` and `J ∈ {1, ..., 4}`, so 24 in all, with `q` from 39 to 100095. For every `a ≤ J`, every canonical `p ≤ q` was tested against `y_a = (3/2)^a·(q + 1) − 1`. The only one reaching `y_a` within `D + a` quotient steps is `q` itself, at depth `a`.
+
+R84's full decision procedure (the 14 templates and its success and failure classes) was not rebuilt.
+
+`python3 sidekick/probes/batch_r84_r85_check.py` (about 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 04:30 — VERIFIED: R56's two selected inverse words and their exact thresholds
 
 R56 is one of the seventeen dispatcher rules and had not been checked independently. These checks use this branch's own `step` and `selected`.
