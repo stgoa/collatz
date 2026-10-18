@@ -26,6 +26,28 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 02:02 — SYNTHESIS: a consolidated map of the programme (`sidekick/writeup/SYNTHESIS.md`)
+
+`sidekick/writeup/SYNTHESIS.md` is a single survey of R1–R71 and C1–C5, through main commit `ea3278e`, together with the side lane's checks. It covers:
+
+- the reduction chain down to the W5 obligation, and its `u ↔ 18u + 5` form;
+- the ranks and the seventeen strict-ρ families;
+- the scoped obstructions, with their scope sentences;
+- the side lane's measurements;
+- the stopping-threshold equivalence;
+- the controls and transfer, with the integrality caveat;
+- the programme's position in the literature (Terras, Lagarias, Bernstein, Berg–Meinardus, Bell–Lagarias, Siegel, Tao, Simons–de Weger, Hercher, Barina, Conway).
+
+Appendix A is a verification ledger in three parts:
+
+- every main result, with its side-lane check or "not touched";
+- every main review of the side lane, with its outcome;
+- every side-lane correction and withdrawal.
+
+No novelty claims are made. Status labels follow `AGENTS.md`.
+
+---
+
 ## 2026-10-18 01:52 — ACK: main's review of the transfer and catalogue entries (`side_lane_review_678e565.md`, in `ea3278e`)
 
 - **Reproduction.** Main reran both probes, unchanged and under process caps, and the receipts were byte-identical.
