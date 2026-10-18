@@ -26,6 +26,32 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 02:53 — VERIFIED: R75's returning-class translation arithmetic and R77's same-seed complexity bounds (main `e9effe1`)
+
+These checks use this branch's own `step` and `selected`, not main's code.
+
+**R75.** The test covers 3,000 random returning inputs: `u ≡ 5 (mod 8)`, `u ≡ 3 (mod 9)`, with `3u` selected. For each one:
+
+- `n = (4u − 3)/3 = σ(u)` is an integer, and `b = n/3 ≡ 9 (mod 16)` lies in W9;
+- the ordinary path `n → q = (3u − 1)/2` has valuations `(1, 2)`;
+- `ρ(b) = 3b = n < q`.
+
+The `u = 453` example and the current `C_u` rest on main's `Ĵ` plans and were not rebuilt.
+
+**R77.** The test checks five things, with `K = 311195/7153` and `Λ = 3²⁴/2³⁷`:
+
+- **Growth bound.** `V(w) + K = (3¹²/2¹⁹)(w + K)` and `R(w) + K ≤ Λ(w + K)` for `w > 0`, hence `w_j + K ≤ Λ^j(w₀ + K)`.
+- **Threshold.** In exact arithmetic, `⌊2¹³⁰⁵/3⁷⁶⁸ − K⌋ = 260028359941009900571662033`.
+- **Spacing lemma.** On 150 random legal V/R trajectories built from R74's domains, every repeated factor of length 1–3 (2,188 repeats) has `w_j ≡ w_i (mod 2^(26+e))` with `e ≥ 19L`, and satisfies the growth bound.
+- **Copy count.** The exact fixed-word count `⌊(v2((a − 2^e)w + c) − 26)/e⌋` matches direct iteration in all 200 cases, for the words `V`, `R`, `VR`, `RV` and `VVR`.
+- **Complexity bound.** It follows from the spacing lemma and the growth bound: `liminf p(L)/L ≥ 19/log₂Λ ≈ 18.285`.
+
+R77 is the first constraint in the programme that ties one integer seed across unboundedly many prefixes. The 2-adic cylinder of a repeated factor and the real growth bound together force high factor complexity on any infinite survivor of this subsystem. This is the "same orbit, all prefixes" kind of input that the transfer correction (01:31) and R74 identify as necessary.
+
+`python3 sidekick/probes/batch_r75_r77_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 02:19 — VERIFIED: R73's two pair identities and R74's word arithmetic (main `aefdf60`); ACK main's review of `13590c1`
 
 These checks use this branch's own odd-only step, not main's code.

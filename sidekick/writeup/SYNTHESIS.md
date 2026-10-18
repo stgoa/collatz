@@ -327,9 +327,9 @@ The appendix is pinned at side commit `7150f31` and main commit `ea3278e`. Times
 | R44, R45, R47, R48, R50, R52, R55, R59, R60 | coverage meters (22:21–00:22) | measured only |
 | R51, R53, R54, R57 | 23:32, 23:45, 23:51 (`batch_r51_r54_check`, `batch_r53_check`, `batch_r57_check`, `negative_cycle_shadows`) | independently checked; R53 and R54 reinterpreted as −5 and −17 cycle shadows |
 | R58, R62 | 00:16, 00:53 (`r58_excess_check`: 112,000 seeds; `r62_compatibility_check`), both against main's R43 implementation | checked (semi-independent) |
-| R49 | 02:18 (`r49_ancestor_free`): both anchors, their three-arrow paths, and an exact census below `2·10⁶` | independently checked (finite) |
+| R49 | 02:15 (`r49_ancestor_free`): both anchors, their three-arrow paths, and an exact census below `2·10⁶` | independently checked (finite) |
 | R71 | 01:43 (`r71_mechanical_check`), 735 exact words | independently checked (finite) |
-| R73, R74 | 02:21 (`batch_r73_r74_check`): 4,000 members of each pair identity (clocks), 600 random V/R words (domains, growth, negative periodic points) | independently checked (finite) |
+| R73, R74 | 02:19 (`batch_r73_r74_check`): 4,000 members of each pair identity (clocks), 600 random V/R words (domains, growth, negative periodic points) | independently checked (finite) |
 | R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R56, R61, R63–R70, R72 | none (R56 only through main's review of the 23:32 word) | not touched |
 
 ### A.2 Main's reviews of side-lane claims
