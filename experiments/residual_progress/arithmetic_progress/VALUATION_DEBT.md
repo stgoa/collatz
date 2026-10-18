@@ -117,6 +117,13 @@ exact. Combining them with A_r={u:1}+A_u proves(9a), including its minus
 sign. The checker retains the current equality as well as the coefficient
 cancellation. Negative helper coefficients remain mandatory exact inputs.
 
+That statement concerns this unchanged R44 compiler. The subsequent
+[R73 joint normalizer](../frontier_progress/SIGNED_FRONTIER_NORMAL_FORM.md)
+constructs an explicit current for P(b)-P(a) and proves that the entire
+three-request frontier reduces to P(u), with the full current equality
+J_44-C_II(b)=C_I(w). It removes both helper premises by exact cancellation;
+the positive P(u) remains required and still resets the valuation debt.
+
 Nevertheless, the proposed valuation debt resets:
 
     9L_E(w)=64L_W(u)-13975032,

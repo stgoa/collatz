@@ -96,6 +96,13 @@ height, with the higher input retained. Separately, exact reduced
 denominators exclude nontrivial integer cycles for the mechanical valuation
 words, a direction with published antecedents. It leaves other cycle
 patterns and aperiodic divergence open.
+A stronger obstruction now excludes any finite affine-valuation list in
+the two fixed phases under the stated monotone-height hypotheses.
+Two exact pair identities give a terminating normalization of whole signed
+request vectors and remove both reset helpers, but leave the mixed-growth
+leader. Every finite word of the specified exit18 returns has positive
+integer realizations. Periodic limits are negative; sparse possible
+aperiodic integer survivors remain unexcluded.
 No complete universal current construction, Collatz proof, or novelty claim
 is supplied.
 \end{abstract}
@@ -5958,6 +5965,316 @@ patterns and aperiodic divergence remain open. The self-contained proof,
 primary references and exact controls are in
 \path{experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md}.
 
+\section{A finite list of affine valuation centres cannot rank these rules}
+Keep the two fixed phases $W,E$ of the arithmetic-debt construction, with
+$D=7153$, $B_W=311195$, $B_E=656187$ and
+$\theta_p=-B_p/D$. Consider the class
+\[
+ \Phi_p(x)=C_p(c_px+d_p)^{\alpha_p}
+ 2^{\sum_{i=1}^{k_p}\beta_{p,i}v_2(a_{p,i}x+b_{p,i})}.
+\]
+Here $C_p,c_p>0$, the affine height is positive on its phase,
+$\alpha_p\ge0$, each list is finite, the affine valuation coefficients
+are rational, and the weights $\beta_{p,i}$ are arbitrary real numbers.
+Every retained form is nonzero at every input in its phase. Constant
+forms and repeated centres are allowed; $v_2$ is extended to rationals.
+
+\begin{theorem}\label{thm:finitecentres}
+No member of this class is nonincreasing on both leading edges of every
+R67 mixed block and on every returning comparison constructed below,
+while strictly decreasing across each completed mixed block.
+The obstruction is to these two fixed phases and these rule requirements.
+\end{theorem}
+\begin{proof}
+Let $b_p$ be the sum of weights at the centre $\theta_p$.
+All other affine orders stabilize once the input is sufficiently close
+to $\theta_p$ in the binary metric. The mixed block transports natural
+orders $H,H-10,H-19$. Fixing a sufficiently large exact $H$ and varying
+ordinary height along its full progression forces
+$\alpha_W=\alpha_E=\alpha$: the two edges impose the two opposite
+inequalities. Then letting $H$ grow forces $b_W=b_E=b$ in the same way.
+Across the block $w\mapsto v>w$, the off-centre orders are identical, and
+\[
+ \frac{\Phi_W(v)}{\Phi_W(w)}
+ =\left(\frac{c_Wv+d_W}{c_Ww+d_W}\right)^\alpha2^{-19b}.
+\]
+Strict decrease requires $b>0$.
+
+For $L\ge1$, $L\equiv1\pmod3$, set $p=4^L$ and choose the least $a\ge3$
+with $\lambda=6p(2/3)^a\le4$. Then $a>3$ and $8/3<\lambda\le4$.
+Put $d_L=(2p+1)/9$ and impose
+\[
+ 2pu+d_L\equiv3^{a-2}(10\,2^{-a}\bmod27)\pmod{3^{a+1}},
+ \qquad Du+B_W\equiv2^H\pmod{2^{H+1}},\quad H\ge26.
+\]
+These coprime conditions give a complete positive progression.
+Writing
+\[
+ r=F^L(3u),\qquad t=\frac{2r+1}{3^{a-1}},\qquad
+ w=\frac{2^at-1}{3}
+   =\lambda u+\frac{\lambda}{9}-\frac13+\frac{(2/3)^a}{3},
+\]
+the ternary condition gives $t\equiv10\,2^{-a}\pmod{27}$ and exact
+order $v_3(2r+1)=a-1$. Since $r\equiv5\pmod8$, $t$ is odd with
+$t\equiv3^a\pmod4$. Hence $w$ is an actual returning $W_5$ input;
+$u$ is in the mixed-block $W$ guard with canonical $3u$.
+The intercept lies in $(-1/27,1)$, so integrality gives
+$2u<w\le4u$ and $\rho(w)=(3w-1)/2>3u$.
+
+The full returning current has requests
+\[
+ \{u:1\}+A_u-A_{\nu(w)}.
+\]
+All helpers from $A_u$ have rank at most $(9u+5)/8<3u$.
+The lower helpers have rank at most
+$(9w+11)/32\le(36u+11)/32<3u$.
+Thus $P(u)$ is retained with coefficient $+1$ and is the unique highest
+request; every request is below the parent rank.
+The quotient comparison from $q=\rho(w)$ has length $a-1$ and the
+ordinary common-tail clocks are $(a,1)$, since
+$S^a(q)=S(3u)$.
+
+The parent centre $\gamma_L=g_L(\theta_W)$ equals
+\[
+ \frac{2^a(7153-5587204\,4^L)-7153\,3^a}{7153\,3^{a+1}}.
+\]
+On $L\equiv4\pmod9$, put $K_L=7153d_L-2pB_W\equiv2\pmod3$.
+Equivalently,
+\[
+ \gamma_L=\frac{3\,2^aK_L-7153\,3^{a-1}}{7153\,3^a}.
+\]
+Its numerator has exact ternary order $1$, so its reduced denominator
+has exact order $a-1$. The minimal $a$ strictly increases with $L$
+and satisfies $a\ge3L+2$. Consequently these centres are infinitely distinct.
+
+Choose a fixed $L$ whose centre is absent from the finite $E$ list.
+Along its CRT progressions with exact $H\to\infty$, all parent orders
+stabilize, all off-centre child orders stabilize, and the child centre
+contributes $2^{bH}$. The common affine-height power contributes a
+positive finite limiting ratio because $w/u\to\lambda$.
+Thus $\Phi_W(u)/\Phi_E(w)\to\infty$, contradicting nonincrease on
+the retained positive child.
+\end{proof}
+
+This does not exclude additional phase partitions, nonlinear forms,
+infinitely many centres, nonmonomial functions, signed-frontier
+amortization, or a rule selection omitting the tested comparisons.
+It adds no dispatcher domain and supplies no missing current.
+
+\section{Terminating exact normalization of a signed pair frontier}
+Two explicit pair identities simplify a whole signed request vector.
+If $w\equiv93\pmod{512}$ and $u=(9w-5)/64$, the ordinary paths are
+\[
+ w\longrightarrow(8u+1)/3\longrightarrow F(u),\qquad
+ 3w\longrightarrow32u+3\longrightarrow F^2(3u).
+\]
+Their valuation words are $(3,1)$ and $(1,1)$, so
+$S^3(w)=S(u)$ and $S^3(3w)=S(3u)$. The eight-row current
+\begin{align*}
+ C_{\rm I}(w)={}&\delta_{3w}+\delta_{32u+3}+\delta_{48u+5}+\delta_u\\
+ &-\delta_{3u}-\delta_w-\delta_{(8u+1)/3}-\delta_{4u+1}
+\end{align*}
+has divergence $P(w)-P(u)$.
+If $b\equiv1285\pmod{2048}$, write $b=256c+5$, $a=9c$, and
+$h=(81c+1)/2=S(3a)$. Then $c\equiv5\pmod8$, and
+\[
+ b\longrightarrow48c+1\longrightarrow F(a),\qquad
+ 3b\longrightarrow1152c+23\longrightarrow1728c+35
+       \longrightarrow F^3(h).
+\]
+The words are $(4,2)$ and $(1,1,1)$. Thus
+$S^3(b)=S(a)$ and $S^4(3b)=S^2(3a)$, with the ten-row current
+\begin{align*}
+ C_{\rm II}(b)={}&\delta_{3b}+\delta_{1152c+23}+\delta_{1728c+35}
+                  +\delta_{2592c+53}+\delta_a\\
+ &-\delta_{27c}-\delta_h-\delta_b-\delta_{48c+1}-\delta_{36c+1}
+\end{align*}
+of divergence $P(b)-P(a)$. Every child is positive and in $W_5$.
+Both comparisons strictly decrease $\rho$ and use no absorption premise.
+
+\begin{theorem}\label{thm:frontiernormal}
+On $W_5$, use exactly the disjoint partial rules
+\[
+ d(w)=
+ \begin{cases}
+ (9w-5)/64,&w\equiv93\pmod{512},\\
+ 9(w-5)/256,&w\equiv1285\pmod{2048}.
+ \end{cases}
+\]
+Every finite signed integer request vector has a terminating,
+order-independent terminal vector under these rules, with an explicit
+ordinary current for the difference of the two full sources.
+\end{theorem}
+\begin{proof}
+The guards have distinct residues93 and261 modulo512.
+Each child satisfies $0<d(w)\le9w/64<w$.
+Let $\tau(w)$ be the unique terminal and $C_w$ the sum along its finite
+chain; telescoping gives $\operatorname{div}C_w=P(w)-P(\tau(w))$.
+For a finite vector $\mathbf c$, set
+\[
+ N(\mathbf c)_t=\sum_{\tau(w)=t}c_w,\qquad
+ \Gamma(\mathbf c)=\sum_wc_wC_w.
+\]
+Then $N$ is integer linear and idempotent, and
+\[
+ \operatorname{div}\Gamma(\mathbf c)
+   =\sum_wc_wP(w)-\sum_tN(\mathbf c)_tP(t).
+\]
+Replacing a nonzero parent coefficient $k$ at $w$ by $k$ at $u=d(w)$
+strictly decreases the nonnegative integer potential
+$\sum_w|c_w|w$: its change is at most $|k|(u-w)<0$.
+Every rewrite preserves $N$, so every final vector equals $N(\mathbf c)$.
+Signs disappear only by exact coefficient addition at the same terminal.
+\end{proof}
+
+More precisely, in the free integer module on $W_5$, the submodule
+generated by these $e_w-e_{d(w)}$ is exactly $\ker N$. Each generator
+normalizes to zero, and finite-chain telescoping writes
+$\mathbf c-N(\mathbf c)$ in their span. Thus $N(\mathbf c)=0$ supplies a
+complete current without pair inputs. A nonzero terminal vector cannot
+be removed using just these two identities; other comparisons remain
+available. Every surviving signed terminal current must still be supplied.
+
+Both endpoint comparisons pad to ordinary clocks $(4,2)$.
+A chain of $r\ge1$ edges therefore has clocks $(2r+2,2)$ for both
+$w$ and $3w$, by successive common-tail composition.
+Every finite mixed inverse word also occurs: its composite has form
+$(Ax+B)/9^r$, where $A$ is a power of2.
+The conditions $Ax+B\equiv0\pmod{9^r}$ and $x\equiv5\pmod8$ give
+one complete positive progression modulo $8\cdot9^r$.
+Final integrality forces every inner integrality by backward reduction;
+each resulting step has precisely the required guard.
+The chosen small child need not itself be terminal.
+
+For R69 write $u=648c+13$, $c\equiv101\pmod{128}$.
+Its full frontier is $e_u+e_a-e_b$, with $a=9c$, $b=256c+5$.
+Rule II sends $b$ to $a$, while $u$ and $a$ are terminal, so
+\[
+ N(e_u+e_a-e_b)=e_u,\qquad
+ \Gamma(e_u+e_a-e_b)=-C_{\rm II}(b).
+\]
+In fact its original R44 current satisfies the row equality
+$J_{44}-C_{\rm II}(b)=C_{\rm I}(w)$.
+To verify it without dropping absorption terms, the fixed formal currents
+satisfy
+\begin{align*}
+ J_u&=\delta_u-\delta_h-\delta_{3a}+J_a,\\
+ J_b&=\delta_b+\delta_{48c+1}+\delta_{36c+1}-\delta_a+J_a,\\
+ J_w&=\delta_w-\delta_{3b}-\delta_{1152c+23}+J_b.
+\end{align*}
+Substitute these in $J_{44}=U+J_u-J_w$, where
+$U=\delta_{3w}+\delta_{32u+3}+\delta_{48u+5}-\delta_{3u}$.
+Using $2592c+53=4u+1$ and $1728c+35=(8u+1)/3$ gives the asserted
+equality. Only $P(u)$ remains a required input. This reduces premises
+of an already valid rule and adds no dispatcher coverage.
+
+For the R67 growing comparison, both its guarded input $w$ and final
+leading index $v$ are53 modulo128, hence terminal under these rules.
+Every index in $A_v$ is below $v$ and every index in $A_w$ below $w<v$.
+Normalization only lowers indices, so $N(e_v+A_v-A_w)$ still has unique
+coefficient $+1$ at $v$. Its absolute-height potential is at least
+$v>w$, including after any prescribed finite repetition.
+The terminating algebraic simplification therefore does not yet rank
+all the programme's comparisons.
+
+\section{Every finite mixed exit18 word has integer realizations}
+Write $A=531441$, $M=2^{19}$, $B=311195$, $D=A-M=7153$, and let
+$G=\{w>0:w\equiv b=40529845\pmod{2^{26}}\}$.
+Consider only returns to $G$ of
+\[
+ V(w)=\frac{Aw+B}{M},\qquad
+ R(w)=\frac{A^2w+B(A+M)}{2^{37}}=2V^2(w).
+\]
+Here $R$ is the re-entry map, not the earlier root-collapse operator.
+The complete return domains are respectively
+\[
+ w\equiv2218391138229\pmod{2^{45}},\qquad
+ w\equiv8515171531530858421\pmod{2^{63}}.
+\]
+Both are contained in $G$ and strictly increase positive inputs.
+For $Y(w)=Dw+B$,
+\[
+ Y(V(w))=(A/M)Y(w),\qquad
+ Y(R(w))+B=(A^2/2^{37})Y(w).
+\]
+The first domain has $v_2(Y(w))\ge45$; the second has exact order37,
+so they are disjoint. A general maximal-depth-$m$ exit18 re-entry is
+exactly the chronological word $V^{m-1}R$. This exhausts the previously
+constructed exit18 return class, not every possible exit comparison.
+
+\begin{theorem}\label{thm:integerprefix}
+For every nonempty finite word $\omega$ over $\{V,R\}$, put
+$e=19|\omega|_V+37|\omega|_R$ and
+$\ell=12|\omega|_V+24|\omega|_R$. Its affine composition is
+$(a_\omega w+c_\omega)/2^e$, with $a_\omega=3^\ell$ and $c_\omega>0$ odd.
+Its complete positive integer domain, including a terminal state in $G$, is
+\[
+ w\equiv(2^e b-c_\omega)a_\omega^{-1}\pmod{2^{26+e}}.
+\]
+Every such word has infinitely many positive realizations, also after
+any additional initial congruence modulo an odd integer.
+Every eventually periodic infinite itinerary has a negative rational
+starting point. Positive infinite survivors, if any, must be aperiodic.
+\end{theorem}
+\begin{proof}
+Appending a row $(\alpha w+\beta)/2^f$ updates
+$(a,c,e)$ to $(\alpha a,\alpha c+\beta2^e,e+f)$.
+The terminal congruence is necessary. Conversely, full divisibility
+implies each earlier numerator is divisible by its denominator, since
+the remaining multiplier is odd. The terminal state is in $G$;
+backward application of the complete single-return domains then gives
+every preceding guard. Positivity follows forward from both positive
+affine maps. Thus the displayed congruence is sufficient. Its residue is
+odd and positive, and CRT gives any additional odd-modulus condition.
+
+Infinite words give nested cylinders with increasing precision, hence
+one odd 2-adic limit per word. The disjoint domains give unique coding.
+For a nonempty cycle word, $a_\omega>2^e$ and $c_\omega>0$, so the
+unique fixed point is
+$-c_\omega/(a_\omega-2^e)<0$, with odd denominator.
+It lies in the repeated-word cylinders. Pulling it back through a finite
+prefix $(a_0w+c_0)/2^{e_0}$ gives
+$(2^{e_0}x-c_0)/a_0<0$.
+This proves the eventually periodic assertion without asserting eventual
+periodicity of arbitrary infinite words.
+\end{proof}
+
+For legal states $w_0,\ldots,w_k$, the full current telescopes to
+\[
+ K_\omega=D_{3w_0,3w_k}+J_{w_k}-J_{w_0},\qquad
+ \mathbf c_\omega=\{w_k:1\}+A_{w_k}-A_{w_0}.
+\]
+Its divergence is $P(w_0)-\sum_x\mathbf c_\omega(x)P(x)$.
+The coefficient at $w_k$ is $+1$; every other request has rank below
+$3w_{k-1}$, though it can exceed $3w_0$. The larger leading input remains
+unresolved. The quotient length is $\ell$. Ordinary common-tail clocks
+are $(\ell+1,1)$ if the last symbol is $V$, and $(\ell+6,6)$ if it is $R$.
+Each negative local common-tail prefix cancels the beginning of the next
+positive path, whose length is at least12; this proves the composed clocks
+and the row identity. Formal absorption terms have their own rows.
+
+Let $\mathcal E_m$ be the positive inputs making at least $m$ returns,
+with $\mathcal E_0=G$, and set $s=2^{-19}+2^{-37}$.
+Distinct length-$m$ words give disjoint cylinders, so
+\[
+ d(\mathcal E_m)=2^{-26}s^m,\qquad
+ \left|\#(\mathcal E_m\cap[1,X])-X2^{-26}s^m\right|<2^m.
+\]
+The density is for fixed $m$; the error estimate is uniform.
+The set of possible infinite positive survivors therefore has density zero.
+For $X\ge2^{26}$ its count is at most
+$3(X/2^{26})^\alpha$, where
+$\alpha=\log2/\log(2/s)$: choose
+$m=\lceil\log_{2/s}(X/2^{26})\rceil$ in the preceding bound.
+A sparse exceptional set can still be nonempty.
+
+This is an explicit restricted instance of 2-adic itinerary coding;
+the general shortcut-clock conjugacy is classical
+(\href{https://doi.org/10.4153/CJM-1996-060-x}{Bernstein--Lagarias, 1996}).
+The proof here includes its own guard and current data and imports no
+termination conclusion. Neither finite-prefix realizability nor exclusion
+of periodic limits decides whether one positive integer survives every prefix.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -6104,6 +6421,17 @@ guard; it does not add a rank-valid rule. Theorem~\ref{thm:balanceddenominator}
 instead illustrates a whole-word integer constraint. Its cycle exclusion
 is restricted to the mechanical class, so neither all periodic words nor
 aperiodic paths have been resolved.
+Theorem~\ref{thm:finitecentres} excludes a finite-list repair of the fixed
+two-phase valuation rank, under its precise monotone-height and rule
+requirements. Theorem~\ref{thm:frontiernormal} supplies a constructive
+whole-vector normalizer: the R69 helper pair cancels by an explicit current,
+leaving only its smaller positive input. The R67 higher leader remains
+terminal, so the normalizer's termination is not full-program progress.
+Theorem~\ref{thm:integerprefix} realizes every finite mixed exit18 return
+word on integers. Its periodic sign obstruction and sparse survivor bound
+still leave positive aperiodic survival unresolved. The next argument must
+resolve that leading obligation or constrain the same integer across
+unbounded prefixes. No additional dispatcher rule is inferred.
 
 An earlier independent side note gives a correct conditional threshold:
 any quotient prefix from $q=\rho(w)$ to $x$ with $9x+5<8q$ supplies
@@ -6383,5 +6711,17 @@ higher missing input remains explicit. The mechanical-word checker adds
 1320 arbitrary rational words,336 parameter families,8232 intercepts,
 130 high controls and11 domain rejections. The finite checks do not
 replace the all-length denominator proof or the quantified CRT arguments.
+The finite-centre checker adds192 CRT cases,48 full signed comparisons,
+24 distinct poles,12 rejection checks and two supplied-current outputs
+with158 and211 rows. The frontier normalizer checks512 bridges,4096
+singleton normalizations,28 mixed words,128 signed vectors,12 entire reset
+compressions and six retained mixed-growth leaders. An input-free output
+and a31-row supplied output are stored with their exact data.
+The mixed-prefix checker adds510 words with1530 positive lifts,20 long
+words through256 symbols,108 odd-CRT cases, nine maximal-count lists,
+310 eventually periodic points,32 density/count checks and30 complete
+signed compositions. Two full unfinished currents are stored, with
+missing-input, cap and invalid-domain checks. The written proofs establish
+the universal quantifiers and preserve the unresolved survivor question.
 These audits remain finite evidence for the implementations.
 \end{document}

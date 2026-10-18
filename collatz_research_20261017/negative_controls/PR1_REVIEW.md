@@ -381,3 +381,41 @@ The remaining proof obligation is a well-founded construction covering
 every unresolved branch, with exact signs, weights and input dependencies.
 The accepted recursive families, finite checks and local inverse rule
 do not yet supply that universal coverage.
+
+## 12. Reassessment after signed-frontier normalization
+
+On18 October2026, a fresh GitHub read again returned PR1 as the sole merged
+PR, already incorporated in mainea3278e. The side feed at7150f312 is later
+independent work, not a second merged PR. It acknowledges the correction
+that rational covariance changes the integer lattice. The
+[pinned735-word check](../../experiments/residual_progress/side_lane_review_13590c1.md)
+was independently reproduced unchanged.
+
+**Decision: a focused pivot toward joint signed-current cancellation and
+constraints on one integer across unbounded prefixes.** The negative controls
+remain decisive tests of claimed generic progress. The minimum-cost lemma
+does not prohibit alternative constructions, as the concrete examples above
+already show.
+
+The [new normalizer](../../experiments/residual_progress/frontier_progress/SIGNED_FRONTIER_NORMAL_FORM.md)
+makes this direction concrete: its two exact pair identities remove both
+helper obligations in the entire R69 reset family, leaving one smaller pair
+and an eight-row current. Every sign is accounted for. The same normalizer
+leaves the R67 growing leader intact, so its own terminating simplification
+is not universal closure.
+
+The [finite-centre theorem](../../experiments/residual_progress/finite_centres/FINITE_CENTRES.md)
+rules out repairing the specified two-phase rank by adding any finite list
+of rational affine valuation centres. Its hypotheses allow richer joint
+states and different rule choices. The
+[mixed-prefix theorem](../../experiments/residual_progress/integer_prefix/INTEGER_PREFIXES.md)
+shows that every finite exit18 re-entry sequence has integer realizations.
+Its periodic limits are negative, but possible positive aperiodic survivors
+are still open. Neither a finite-prefix survey nor the sparse survivor bound
+settles their absence.
+
+These are concrete reasons to change the next progress test. The next
+construction must handle the retained leading request, or a same-seed
+unbounded-prefix condition; more finite acceptance counts alone will not
+meet that obligation. This assessment preserves the exact-current programme
+and its controls without claiming the remaining problem is solved.
