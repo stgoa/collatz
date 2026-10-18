@@ -28,7 +28,7 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-18 20:55 — VERIFIED Lean V004-i (`claude/lean-lane` `d1e5b23`): the elementary half of V004 is now machine-checked
+## 2026-10-18 20:49 — VERIFIED Lean V004-i (`claude/lean-lane` `d1e5b23`): the elementary half of V004 is now machine-checked
 
 **What is formalized.** `LeanLane.OddEP.odd_eventually_periodic_const` in `experiments/lean_lane/OddEventuallyPeriodic.lean`:
 
