@@ -1,18 +1,20 @@
 # Residual progress and finite forcing
 
 **Latest standing:** universal tripling currents on W5={5 mod8} suffice.
-Fifteen conditional families now compose under the same strict-rho order,
-retaining every signed dependency. R58 classifies the unique possible
-above-seed absorption request. R59 expands larger intermediate requests
-under the fixed old twelve rules before testing the original rank; two
-complete new domains pass, while blocked inputs remain premises. R60
-classifies a maximal inverse-cycle comparison, including complete families
-through arbitrary prescribed forward-growth depth. R61 identifies a
-full-family exact undo for a named continuation procedure with the old
-twelve rules; it does not exclude newer rules or other comparisons.
-The focus is now a complete recursion for the remaining blocked inputs.
+Seventeen conditional families compose under the same strict-rho order,
+retaining every signed dependency. R62 gives exact original-parent defect
+interfaces and complete low-exponent decision tables. R63 classifies the
+whole earlier exponent-eleven family under the fixed fifteen rules and
+proves that a natural inverse repair is an exact circular dependency.
+R64 uses a lifted inverse ray to cross full subrows of that family below
+the original rank. R65 represents the entire returning defect by an
+adjacent-source comparison with strictly smaller helpers, but still
+requires that comparison's current. The focus remains a complete
+recursion for the unresolved types; neither a different basis nor
+formal rewriting termination supplies their missing currents.
 The seed varies with the prescribed growing depth; no infinite positive
-orbit is asserted. Sigma keeps its separate induction. Universal current
+orbit is asserted. Sigma rules require R62's explicit compatibility test.
+Universal current
 supply and Collatz remain open.
 These are written reductions and partial constructions, with no novelty
 claim. Current integration and verification status are recorded at the end.
@@ -1933,3 +1935,158 @@ Checklist:
 - [x] Obtain independent proof/code and shared-record reviews.
 - [x] Run the full gate, compile the existing TeX and verify links/scope.
 - [x] Review the final diff and prepare the authorized commit and push; retain the full open goal and record delivery in Git history.
+
+## Active batch after d265d94: resolve the complete retained defect
+
+Previous goal turn: **progress**. R58–R61, the refined fifteen-family
+dispatcher, the independent-work assessment and persistent records were
+committed and pushed as d265d94630719838ef9310b58f79eccdf00b0ad4 after the
+full Python/C++ gate and successful built-in TeX compilation. The new batch
+revalidated a clean main at that commit.
+
+The optional side feed was refreshed and read at
+c2319c93f33b9c4139215d83126037a92c426f56. Its newest entry reports112000
+finite R58 checks against the earlier R43 implementation. This external
+receipt is additional implementation evidence, not a premise of R58's
+proof. Its exact pinned probe was reproduced against unchanged earlier
+dependencies:112000 seeds,103773 ordinary cases,8227 exceptional cases,
+and53006 noncanonical seeds, with an identical receipt. The hashes and
+180-second subprocess cap are stored in
+[the reproduction record](side_lane_review_c2319c9.json). The side branch is
+read-only input and remains unchanged.
+
+Current hypotheses and tests:
+
+1. The unique larger input in the complete fifth-exponent domain can be
+   classified and resolved relative to the original parent rank, with
+   every signed auxiliary input retained. A local decrease at its child
+   is insufficient.
+2. The whole R61 obstruction must be reclassified under the refined
+   fifteen rules. An inverse descent from its higher exit that returns
+   the original parent is an exact undo, not a completed construction.
+3. A different lifted inverse ray and cycle rotation may end below the
+   original rank on complete remaining arithmetic subrows.
+4. The entire exceptional absorption branch may have a simpler joint
+   comparison type. Any proposed normalization must be checked for
+   dynamic compatibility and must not merely rename the existing sigma
+   order or import missing pair currents as helpers.
+
+The intended progress standard remains a complete structural comparison
+or classification of a blocked type, with a noncircular proof. Finite
+acceptance rates and individual successful examples do not meet it.
+The findings are exploratory until their complete proofs, code and
+independent reviews are persisted. Universal current supply remains open.
+
+### Parallel PR recheck and strategic decision
+
+The user's follow-up prompted another remote fetch and merged-PR listing.
+PR1 remains the only merged pull request; remote main remains d265d94.
+The earlier [review and focused-pivot decision](side_lane_review_767af32.md)
+therefore stands. The negative controls are retained, and the broad
+alternative-certificate exclusion remains corrected. No new remote main
+change needs integration.
+
+The side feed advanced to552bf52236365c5f46522e7a2a3520b6704ce9f3.
+Its new closure-frontier survey and low-modulus samples were read, not
+reproduced or used as proof premises. Its finite observations of unresolved
+leaves near the original rank support asking a structural question but do
+not supply a universal leaf-height, density, or termination theorem.
+The research priority remains resolving whole blocked types with an
+original-rank comparison. The side branch was not changed.
+
+### Results and exact remaining obligations
+
+1. [R62](defect_resolution/DEFECT_RESOLUTION.md) gives the exact
+   compatibility between sigma-valid plans and rho, and complete
+   original-parent interfaces for every fifth-family defect. Its closed
+   first/second tables cover a3 and second A2/A3, retaining all signed
+   terms and the quantitative nonexceptional W9 bound. Higher second exponents
+   have an exact interface without a universal success claim. The whole
+   fixed-fifteen surviving family remains recorded.
+2. [R63](refined_obstruction/REFINED_ELEVEN.md) completes the old R61
+   family's classification under all fifteen rules. The leading input
+   remains unrecognized; the original input succeeds exactly on R60's
+   accepted phases. The longer inverse to the original q composes to
+   current zero and request `{w:1}`. This is a proved exact undo.
+3. [R64](refined_obstruction/LIFTED_CYCLE.md) uses a nonzero ray lift.
+   Its zero-cycle point continuation passes at j14, and its positive
+   cycle counts have a complete14-row threshold table. Full18-arrow
+   and24-arrow subrows exist in every R61 parameter family and miss
+   the previous fifteen rules. These arrows compare an inverse ancestor
+   with q; the full pair proof retains normalizers and supplied helpers.
+4. [R65](defect_normal_form/ADJACENT_DEFECT_INTERFACE.md) identifies the
+   entire exceptional source with the adjacent comparison D(q), up to
+   helpers strictly below the original unexpanded height. Both directions
+   are exact current conversions. Eliminating returning inputs gives a
+   bounded-height mixed source basis, but the leading height is equal to
+   the starting height. It is not a descending rule or missing-current
+   supply. The transported4629 incompatibility is preserved.
+
+The [seventeen-family union](resolved_rules/RESOLVED_RULES.md) appends only
+R62 and R64, keeping the fixed fifteen priority. Its1024-input replay
+preserves all747 old plans and leaves277 unresolved; the new rules have
+their winning witnesses beyond this small window. Those witnesses are
+53173 and36641534965. Six actual conversions use14 distinct supplied
+pairs, with stored59-row and102-row outputs. These finite figures are
+implementation checks, not a density estimate.
+
+R62 evidence covers13 affine inequalities,76 sigma-valid plans,192 W9
+bounds,64 first-stage decisions,544 low-second-exponent cells, four large
+cells,90 higher-exponent interfaces,63 complete-family instances and16
+fixed-resolver expansions. Four actual conversions use21 distinct
+supplied pairs and produce92/52/65/59 rows. R65 checks512 full defects,
+1024 mixed plans,4096 inverse-scope cases and three bidirectional current
+conversions. Exact receipts preserve complete input/output tables and
+caps; no missing helper is discovered by a theorem's symbolic compiler.
+
+R63/R64 evidence covers3298 affine cases,43 complete signed plans
+(13 descending,29 higher failures and one exact original self-return),
+nine old-cycle phase rows,16 full CRT rows through r64,A32,K64, four
+complete dispatcher classifications and two row-for-row inverse undos.
+Three actual supplied-current conversions produce102,215,1746 rows
+from9,15,42 inputs respectively;15 negative checks preserve rejections.
+The first two complete output tables and their inputs are stored.
+
+Independent proof/code reviews passed all four results and the new
+dispatcher. All four focused default receipt replays passed. Shared
+record review found one overstatement: the quantitative W9 upper bound
+had been called sharp without an optimality theorem. That wording was
+corrected. Independent review of the integrated TeX also passed after
+clarifying that inverse-path endpoints, rather than all intermediate
+states, lie below q; only the first two R64 full input/output fixtures
+are stored, and sigma compatibility adds no implicit dispatcher arm.
+
+The next structural target is a compatible recursion for a whole remaining
+adjacent-source or inverse-phase class. Constant source separation does
+not bound search depth. The refined obstruction cannot be called a
+barrier to the new ray, and the new ray's successful subrows cannot be
+called coverage of its complement. The research goal remains active.
+
+Checklist:
+
+- [x] Revalidate the repository, prior progress and optional side feed.
+- [x] Classify complete retained-defect and refined-obstruction domains.
+- [x] Check proposed alternative comparisons against the original rank.
+- [x] Persist full proofs, exact current interfaces and bounded evidence.
+- [x] Obtain independent mathematical and code reviews.
+- [x] Integrate standing, run the full gate and compile the existing TeX.
+- [x] Review the authorized delivery scope; preserve the full open goal.
+
+### Final integrated verification and delivery
+
+`python3 scripts/verify_all.py --cpp` passed with exit0. The executed
+audit list included all four new checkers, all historical and negative
+control checks, the31 original manifest entries and both independent C++
+cutoffs4096/262144. Run log: `/tmp/collatz_defect_full_gate.log`.
+The final existing TeX source compiled successfully in the built-in editor.
+All25 changed/new files are in the intended scope; LF endings,395 local
+Markdown links,58 unique TeX labels,105 resolved references and staged
+whitespace passed. The final remote fetch still had main at d265d94.
+Only reporting labels in the verification script were added while its
+already complete audit list ran; the audit commands, mathematical source
+and receipts were frozen before the integrated run.
+
+The batch is reviewed and prepared for the authorized commit and push;
+Git history records delivery. The parallel branch and original archive
+were not changed. This is progress on the active research goal, not
+universal current supply or a completed Collatz proof.
