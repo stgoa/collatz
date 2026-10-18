@@ -56,7 +56,7 @@ global obligation. Expanding to V11–V14 was a response to those results.
 | Preserve frozen results and counterexamples | V002 delivery check restricts changes to exploration files and current-standing documentation; R1-onward ledger body compared with the batch baseline | Verification recorded in VIEWPOINT_LOG |
 | References, assumptions and claim types persisted | Source links and status labels in cards, logs and this review | Met; prior-work checks are scoped and no novelty claimed |
 | README and independent side lane | Updated top-level README; pinned DIRECTIONS/FEED and proposal assessment in VIEWPOINT_LOG | Met; side branch read only |
-| Commit, push and appropriate verification | Example receipt plus delivery entry in VIEWPOINT_LOG; remote equality and clean worktree checked after push | Must be checked at delivery before marking the goal complete |
+| Commit, push and appropriate verification | Example receipt plus delivery entry in VIEWPOINT_LOG; main and origin/main matched cdfb143 with a clean worktree after the successful push | Met for the substantive batch; this delivery-record follow-up is also pushed before completing the goal |
 
 ## Skeptical review and prior-work gates
 

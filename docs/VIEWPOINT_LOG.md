@@ -44,7 +44,7 @@ example verifier was added for reproducibility; it uses no Phase6 machinery.
   positive odd d coprime to3, invariant colorings factor through gcd(M,d)
   and multiplication-by2/3 orbits. Eventual periodicity becomes global.
   At d=1 all such colors are constant; d=5/61 divisibility colors survive.
-  This written proof is independently reviewed, not novel or formalized.
+  This written proof is independently reviewed, not claimed novel or formally verified.
   Classifying the single-base automatic class is a partial next target;
   automaticity of an actual bad set is not supplied.
 - **V14: one complementary test.** Shared binary/ternary carry boundaries
@@ -127,8 +127,19 @@ this batch changes no existing mathematical code or evidence. Primary sources,
 formula/domain checks, bounded exact examples, independent skeptical review,
 links and preservation checks are proportionate to these claims.
 
-The actual commit/push receipt is recorded after delivery, before completing
-the goal. No independent external audit is being waited on.
+The final independent delivery review passed after the map, README and
+selection audit were written. It requested only the novelty-wording correction
+above. The exploration batch was committed as
+`cdfb1434b26598067d1f2ec1a78f60bdebd1c388` and successfully pushed to
+`origin/main`. Local main and origin/main matched that commit and the working
+tree was clean immediately after the push. This documentation follow-up
+records that observed delivery and the review's wording correction. Its own
+push and clean-state check precede the goal-status update.
+
+All requirements of the language-selection brief have evidence in the
+selection review. The chosen subsequent tests are explicitly future work;
+none is a missing part of the comparative deliverable. No independent
+external audit is being waited on. Collatz convergence remains open.
 
 ## V001 — Breadth first, 2026-10-18
 
