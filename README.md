@@ -2,7 +2,13 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-18): Collatz remains unproved.** Universal finite tripling-pair currents on `w=5 mod8` suffice. Our conditional compiler retains auxiliary `w=9 mod16` pairs and keeps every missing input explicit. We now retain both actual source histories and classify the lower path's first departure across every repetition count of the upper growth pattern. The resulting comparison still has an unresolved positive source. A proposed recursion to `Q(floor(ell/3))` provably requires unbounded ordinary clocks. The priority remains a comparison that covers a whole remaining family, preserves the original rank and supplies every terminal input. These results have no human peer review or formal verification.
+**Current standing (2026-10-18): Collatz remains unproved. Phase 6 is active.**
+
+R1–R94 and the seventeen-family dispatcher are frozen at `9190ccf`. The living [route map](ROUTE_MAP.md) now controls research priorities. The [Phase 6 ledger](docs/PHASE6_LEDGER.md) records batch grades, side-lane decisions and disputes; the [literature audit](docs/PHASE6_LITERATURE.md) records primary references. The first batch is setup, labelled **none**. The next node is **S.1: fixed-factor stopping with explicit constants**.
+
+## Frozen mathematical standing
+
+Universal finite tripling-pair currents on `w=5 mod8` suffice. Our conditional compiler retains auxiliary `w=9 mod16` pairs and keeps every missing input explicit. We now retain both actual source histories and classify the lower path's first departure across every repetition count of the upper growth pattern. The resulting comparison still has an unresolved positive source. A proposed recursion to `Q(floor(ell/3))` provably requires unbounded ordinary clocks. Universal terminal supply remains unresolved; the route map now determines which proof obligations to pursue. These results have no human peer review or formal verification.
 
 ## Our current understanding
 
@@ -23,7 +29,7 @@ For every multiple of 8, `Pi_right_(64N) = Pi_right_N + A_N`. The added measure 
 
 These criteria are equivalent to Collatz; they do not prove the universal certificates exist. The original handoff's packets and current tables are a different family. A proved obstruction also rules out uniformly bounded certificates for individual raw packets, while allowing cancellation between packets and constructions of unbounded size.
 
-## Current research frontier
+## Frozen research frontier through R94
 
 - **Both actual source histories now have an exact exit interface.** The [two-source construction](experiments/residual_progress/two_source_history/TWO_SOURCE_HISTORY.md) reduces the original pair to `[864z-257]-[z]` after18 upper and16 lower ordinary arrows. A complete448-state rational certificate controls the lower path until its first departure, with exact cylinders for every upper repetition count. It stays below the original rank through that departure and eleven further arrows. The positive source remains above rank; this is an unfinished comparison, not terminal supply.
 - **The proposed ternary child needs genuinely unbounded clocks.** For every digit and every fixed bound on both ordinary clocks, the [child-history theorem](experiments/residual_progress/child_history_scope/CHILD_HISTORY_SCOPE.md) constructs a whole positive progression where `Q(ell)` and `Q(floor(ell/3))` cannot meet within that bound, even after any prescribed initial growth count. This excludes finite word catalogues for that particular child. Other children, unbounded histories and general signed currents remain available.
@@ -34,37 +40,45 @@ These criteria are equivalent to Collatz; they do not prove the universal certif
 - **The recursion uses one consistent rank.** The [critical-basis compiler](experiments/residual_progress/critical_basis/CRITICAL_BASIS.md) retains W5 and W9 pairs and translates the older rank rules before combining them. Every signed dependency is explicit. Each accepted expansion strictly lowers the positive integer rank. A finite conditional plan becomes an actual current only after every remaining signed input is supplied; universal supply is still open. The older seventeen-family W5 dispatcher remains unchanged.
 - **The parallel lane is useful independent scrutiny.** PR1's negative controls are incorporated. Its broad claim that alternative certificates cannot help has explicit counterexamples in our [review](collatz_research_20261017/negative_controls/PR1_REVIEW.md). The [latest pinned reproduction](experiments/residual_progress/side_lane_review_8ed32bc.md) now independently agrees with both R91's1,732,883-origin basin and R92's176,754,119-origin basin, including the16 boundary tails. It does not verify R92's suffix proof or supply a new current. The [previous review](experiments/residual_progress/side_lane_review_86ead16.md) covers the merged PR and older arithmetic probes. These checks support the tactical pivot toward whole-family supply and termination.
 
-## What would count as the next breakthrough
+## What counts in Phase 6
 
-Construct a procedure that covers a complete remaining type, prove that it finishes for every input of that type, and supply every terminal current it requests. Its depth may grow with the input. Preserve the original rank and all signed coefficients throughout.
+Every attempted result must attach to a named route-map node with one of three labels:
 
-A list of successful arithmetic progressions, a high finite acceptance rate, or a recursion conditional on unknown inputs does not establish that coverage. The [result ledger](docs/RESULTS.md) gives the full sequence of proofs, counterexamples and open obligations. The [residual progress report](experiments/residual_progress/REPORT.md) records the latest research decisions; the [annular report](experiments/annular_construction/REPORT.md) retains the earlier construction work.
+- **(a) Non-transfer step:** a proved step whose stated `3x+d` analogue fails on a known cycle, exercised by the transfer harness.
+- **Calibration:** a published result re-derived with explicit constants.
+- **Barrier:** a proof that a named method cannot close the node.
+
+Everything else is **none**. Finite acceptance rates and new conditional interfaces alone do not discharge a universal obligation. The side lane confirms or disputes proposed labels; main records the evidence and continues without waiting. After three none batches on one node, write a post-mortem and select another node. The stopping, counting and harmonic routes have stated paths to convergence; the cycle route alone does not.
 
 ## Where to start
 
 1. Read [AGENTS.md](AGENTS.md) for working rules and claim standards.
-2. Read the [result ledger](docs/RESULTS.md) for exact scope, evidence, and unresolved obligations.
+2. Read [ROUTE_MAP.md](ROUTE_MAP.md) and the [Phase 6 ledger](docs/PHASE6_LEDGER.md), then the [result ledger](docs/RESULTS.md) for exact scope, evidence, and unresolved obligations.
 3. Read the [current proof note](collatz_research_20261017/right_aligned_reduction.tex). Open this source in the document editor for its PDF preview.
 4. Consult the [master handoff](COLLATZ_PROGRAMME_MASTER_HANDOFF.md) for the wider programme and historical counterexamples. Its old active target is superseded only for the revised right-aligned family.
 
-At the start of each batch, also skim the independent `claude/sidekick`
-feed by fetching that branch and reading `sidekick/FEED.md` from its remote
-reference. It supplies optional checks, counterexamples, and questions.
-Verify findings before using them and leave that branch unchanged.
+Each batch fetches the read-only `claude/sidekick` branch and reads both `sidekick/DIRECTIONS.md` and `sidekick/FEED.md`. Answer every open direction in the Phase 6 ledger with accept/defer/reject and a reason. Verify findings before using them; never write to that branch. Verified batches are committed and pushed to origin/main without an approval wait.
 
 ## Reproduce the finite checks
 
 Requires Python 3.10+ and its standard library. The independent check additionally requires a C++17 compiler (`c++`, or set `CXX` to a compiler executable).
 
 ```sh
-python3 scripts/verify_all.py --cpp
+python3 scripts/verify_all.py --cpp --transfer-controls
 ```
 
 Without a compiler, omit `--cpp`; the report explicitly records that the independent C++ check was not run. The runner verifies the archive and all 31 manifest entries, stored certificates, the right-aligned and five-ray audits, annular identities, partial constructions, norm formula, component diagnostics, and the independent lane's negative-control and audit receipts. It uses temporary storage so preserved inputs and receipts stay unchanged. With `--cpp`, it also builds and runs the independent verifier at both original stored cutoffs.
 
+The added transfer flag replays [exact cycle controls](experiments/phase6/README.md), with declared domains, absorber conventions and fail-closed cap handling. It augments the historical gate. It does not automatically test an unregistered proof mechanism.
+
 Most checks establish finite arithmetic identities. R91 and R92 additionally use complete finite rational-basin classifications inside their computer-assisted proofs. R92's default replay checks the smaller congruence-selected universe; `--cpp` independently classifies the entire larger interval as well as reproducing R91 and the original stored cutoffs. None of these checks establishes universal current existence. Never use Python optimization flags for these assertion-based verifiers.
 
 ## Repository map
+
+- `ROUTE_MAP.md`: active living proof skeletons and selected node.
+- `docs/PHASE6_LEDGER.md`: batch grading, transfer status and side-lane decisions.
+- `docs/PHASE6_LITERATURE.md`: primary references and exact comparison scopes.
+- `experiments/phase6/`: controls, receipts and current report.
 
 - `COLLATZ_PROGRAMME_MASTER_HANDOFF.md`: inherited proof map and historical context.
 - `collatz_packet_currents_bundle.zip`: original supplied archive, retained for provenance.
@@ -94,12 +108,6 @@ Most checks establish finite arithmetic identities. R91 and R92 additionally use
 
 ## Next research target
 
-The overall target remains a finite current, possibly with an everywhere nonpositive residual, at every cutoff on **all five rays**, with a proof of construction and termination. The annular formulation gives six-band increments on thirty sequences; arbitrarily large finite certificates are allowed.
+Calibrate S.1 with explicit finite counting errors and an odd-arrow horizon, then justify the W5 pullback. This is a published-method benchmark, not removal of the exceptional set. S.2 remains the universal stopping obligation. C.2 asks for a stronger power bound; Y.2 addresses cycles only; H.2 needs rigidity beyond automatic analyticity.
 
-The active target is the remaining positive W5 request for one complete family, tested at the original rank. Retain the entire signed history and allow comparison depth to depend on the input. The growth pattern has slope `3^12/2^19 > 1`; its exact finite countdown does not prove progress across subsequent exits. R91 and R92 rule out a smaller origin at its repeated target through `12r+19` quotient steps, including every inverse ray and word. Prioritize later common targets or a signed comparison using genuinely different retained history. Any proposed recursion needs a closed domain, a decreasing quantity and supplied terminal currents. Further isolated residue classes or higher finite acceptance counts alone will not meet that target.
-
-The [saved next-window draft](experiments/residual_progress/deeper_window/CANDIDATE.md) is now resolved by R92. Its complete window yields only the known self-history and supplies no new terminal current. Increasing that same search budget is a lower priority than testing a different meeting target or comparison mechanism.
-
-R93 now gives an exact starting interface for both retained histories, including the lower path's departure and its original-rank bound. Seek a comparison after that interface or a different smaller child whose complete family closes. R94 proves that the particular ternary child in the saved template needs unbounded clocks; a finite catalogue for that child cannot finish the task.
-
-Preserve the merged lane's `3x+61` negative controls: early compression alone cannot prove progress. Keep every source coefficient and boundary term. Finite scans, a smaller positive residual, and the measure recurrence alone do not supply the missing construction. The [ledger's open obligations](docs/RESULTS.md#open-obligations-and-priorities) and [latest research report](experiments/residual_progress/REPORT.md) retain the exact scopes and alternatives.
+The overall goal remains a finite current, possibly with an everywhere nonpositive residual, at every cutoff on **all five rays**, or another proof of convergence. The [route map](ROUTE_MAP.md) supersedes old next-target paragraphs in historical reports. The [Phase 6 report](experiments/phase6/REPORT.md) records active work. No universal current construction, Collatz proof or novelty claim is supplied.
