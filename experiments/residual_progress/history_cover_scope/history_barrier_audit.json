@@ -1,0 +1,479 @@
+{
+  "CRT": {
+    "H17_cases": 60,
+    "H17_sha256": "b43eece9b261905be870ee0860e17fa6e03f62792a07ec8c08b93f921f7132c8",
+    "critical_cases": 196,
+    "critical_sha256": "f932c012409913f5323d2cb9448a359dd611e50c5757e7f87cef57ddf4dca838",
+    "first_H17": {
+      "clock": "quotient",
+      "conclusion": "The only origins at most q are q itself, at depth a for target a",
+      "future_horizon": 1,
+      "index": 0,
+      "inverse_horizons": [
+        1,
+        2
+      ],
+      "modulus": 262144,
+      "residue": 197513,
+      "returns": 0,
+      "seed": 197513,
+      "source": 592539,
+      "targets": [
+        592539,
+        888809
+      ],
+      "ternary_depth": 1
+    },
+    "first_critical": {
+      "binary_order": 3,
+      "clock": "quotient",
+      "conclusion": "The only origins at most q are q itself, at depth a for target a",
+      "future_horizon": 0,
+      "index": 0,
+      "inverse_horizons": [
+        1
+      ],
+      "modulus": 96,
+      "residue": 39,
+      "seed": 13,
+      "source": 39,
+      "targets": [
+        39
+      ],
+      "ternary_depth": 1
+    }
+  },
+  "inverse": {
+    "equality_spines": 15,
+    "largest_ray_index": 64,
+    "positive_integer_shadow_rows": 2636,
+    "positive_rational_shadow_rows": 24,
+    "sha256": "01a3799b32725b4a1df9be5a4996f80f742e3e4388d1cfa7ae64d351826d86fe",
+    "spine_sha256": "b698b68ad3cf516fb8b32e0608e5b33f6e85a59f4d6c99dfaab9fc32ed03f696",
+    "words": 200
+  },
+  "ordinary_origins": {
+    "cases": 126,
+    "examples": [
+      [
+        3,
+        1,
+        1,
+        [
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            3,
+            1,
+            1
+          ]
+        ]
+      ],
+      [
+        39,
+        1,
+        2,
+        [
+          [
+            39,
+            0,
+            0
+          ],
+          [
+            39,
+            1,
+            1
+          ],
+          [
+            39,
+            2,
+            2
+          ]
+        ]
+      ],
+      [
+        135,
+        1,
+        2,
+        [
+          [
+            135,
+            0,
+            0
+          ],
+          [
+            135,
+            1,
+            1
+          ],
+          [
+            135,
+            2,
+            2
+          ]
+        ]
+      ],
+      [
+        135,
+        2,
+        2,
+        [
+          [
+            135,
+            0,
+            0
+          ],
+          [
+            135,
+            1,
+            1
+          ],
+          [
+            135,
+            2,
+            2
+          ]
+        ]
+      ],
+      [
+        135,
+        3,
+        2,
+        [
+          [
+            135,
+            0,
+            0
+          ],
+          [
+            135,
+            1,
+            1
+          ],
+          [
+            135,
+            2,
+            2
+          ]
+        ]
+      ],
+      [
+        243,
+        1,
+        1,
+        [
+          [
+            243,
+            0,
+            0
+          ],
+          [
+            243,
+            1,
+            1
+          ]
+        ]
+      ],
+      [
+        243,
+        2,
+        1,
+        [
+          [
+            243,
+            0,
+            0
+          ],
+          [
+            243,
+            1,
+            1
+          ]
+        ]
+      ],
+      [
+        243,
+        3,
+        1,
+        [
+          [
+            243,
+            0,
+            0
+          ],
+          [
+            243,
+            1,
+            1
+          ]
+        ]
+      ],
+      [
+        243,
+        4,
+        1,
+        [
+          [
+            243,
+            0,
+            0
+          ],
+          [
+            243,
+            1,
+            1
+          ]
+        ]
+      ],
+      [
+        243,
+        5,
+        1,
+        [
+          [
+            243,
+            0,
+            0
+          ],
+          [
+            243,
+            1,
+            1
+          ]
+        ]
+      ]
+    ],
+    "noncanonical_sources": 64,
+    "origins": 16008,
+    "sha256": "0183b156118d13eaebdaed96ebb7c2c10a07abf224952af46fc9b61c2cdc4627",
+    "target_comparisons": 106220
+  },
+  "ordinary_words": {
+    "attempted_words": 1560,
+    "negative_shadow_control": [
+      [
+        -1,
+        1
+      ],
+      [
+        -1,
+        4
+      ],
+      [
+        1,
+        8
+      ]
+    ],
+    "sha256": "0aed9732200dd09348184fd5d2126c8931d196d988a8e892ac9011930af3c998",
+    "valid_words": 70
+  },
+  "quotient_origins": {
+    "cases": 62,
+    "examples": [
+      [
+        39,
+        1,
+        2,
+        [
+          [
+            39,
+            0,
+            0
+          ],
+          [
+            39,
+            1,
+            1
+          ],
+          [
+            39,
+            2,
+            2
+          ]
+        ]
+      ],
+      [
+        135,
+        1,
+        2,
+        [
+          [
+            135,
+            0,
+            0
+          ],
+          [
+            135,
+            1,
+            1
+          ],
+          [
+            135,
+            2,
+            2
+          ]
+        ]
+      ],
+      [
+        135,
+        2,
+        2,
+        [
+          [
+            135,
+            0,
+            0
+          ],
+          [
+            135,
+            1,
+            1
+          ],
+          [
+            135,
+            2,
+            2
+          ]
+        ]
+      ],
+      [
+        135,
+        3,
+        2,
+        [
+          [
+            135,
+            0,
+            0
+          ],
+          [
+            135,
+            1,
+            1
+          ],
+          [
+            135,
+            2,
+            2
+          ]
+        ]
+      ]
+    ],
+    "noncanonical_sources": 0,
+    "origins": 3911,
+    "sha256": "e963793c40bf83f64d79f11955c9b016c639a9b9d378560a471240045b9d0840",
+    "target_comparisons": 24903
+  },
+  "rejections": 23,
+  "scope": "Clock-bounded history exclusion; sources vary with precision; no all-current or fixed-source nontermination claim",
+  "source_hashes": {
+    "bridge_normal_form/normal_form.py": "5839bf55351711875ae80b95d34eb5ec9580d95a11c9fe1a87cca7c686a83567",
+    "history_cover_scope/HISTORY_CLOCK_BARRIER.md": "56d62dba56274fad9b3ae806f39c15bd4e4164903bee41a5d6571f231afc945e",
+    "history_cover_scope/check_history_barrier.py": "3526f5a8402ed48082fc4f7ad8324922ac4ad21bb5422c132a8dd96d0c5957ac",
+    "history_cover_scope/history_barrier.py": "ff40bc1d0873f4c2f9266fa22bc875aea2385e83926ffd40aa5fe35cc4e8d5ab"
+  },
+  "status": "PASS",
+  "supplied": {
+    "current": [
+      [
+        11,
+        1
+      ],
+      [
+        17,
+        1
+      ],
+      [
+        19,
+        1
+      ],
+      [
+        29,
+        1
+      ],
+      [
+        39,
+        1
+      ],
+      [
+        59,
+        1
+      ],
+      [
+        67,
+        1
+      ],
+      [
+        89,
+        1
+      ],
+      [
+        101,
+        1
+      ]
+    ],
+    "divergence": [
+      [
+        13,
+        -1
+      ],
+      [
+        39,
+        1
+      ]
+    ],
+    "quotient_escape": [
+      39,
+      59,
+      89,
+      33
+    ],
+    "rank": 39,
+    "rows": 9,
+    "seed": 13,
+    "supplied_paths": {
+      "13": [
+        13,
+        5,
+        1
+      ],
+      "39": [
+        39,
+        59,
+        89,
+        67,
+        101,
+        19,
+        29,
+        11,
+        17,
+        13,
+        5,
+        1
+      ]
+    },
+    "supplied_words": {
+      "13": [
+        3,
+        4
+      ],
+      "39": [
+        1,
+        1,
+        2,
+        1,
+        4,
+        1,
+        3,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  "theorem": "R85"
+}

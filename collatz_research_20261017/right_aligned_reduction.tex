@@ -110,6 +110,14 @@ through the available ternary precision, including every inverse ray.
 For one growing native exit, explicit smaller-origin comparisons exist
 after any prescribed number of returns, while the whole exit type and
 universal supply of its terminal currents remain unresolved.
+A complete next-target phase now has a finite original-rank decision
+with fourteen affine templates. Whole success progressions extend
+beyond the earlier fixed-word history cell; failed critical requests
+remain explicit. Conversely, arbitrarily long canonical
+valuation-one prefixes at suitable ternary multiples admit no smaller
+history within the stated two-clock bounds, including every inverse
+ray. Thus a uniformly bounded smaller-origin history catalogue cannot supply the
+universal construction.
 No complete universal current construction, Collatz proof, or novelty claim
 is supplied.
 \end{abstract}
@@ -7179,6 +7187,344 @@ not the entire exit type, as the complete failure witness demonstrates.
 Full proofs, words and stored supplies are in
 \texttt{native\_growth\_escape/NATIVE\_GROWTH\_ESCAPE.md}.
 
+\section{A complete thirteenth-target transition at the original rank}
+Retain the critical basis of Theorem~\ref{thm:criticalbasis}, with
+\[
+ [x]=\operatorname{div}\widehat J_x+
+       \sum_v\widehat A_x(v)P(v),\qquad
+ \rho(v)\le\nu(x).
+\]
+For every integer $k\ge0$ put
+\[
+ q=11547+3\cdot2^{19}k,\qquad b=q/3\in W_9,\qquad
+ R=70237+2\cdot3^{14}k.
+ \tag{HT1}
+\]
+The first thirteen ordinary valuations from $q$ are exactly
+\[
+ (1,2,1,1,1,1,1,2,2,1,1,2,2),
+ \tag{HT2}
+\]
+of total18. All thirteen source states before the endpoint are
+canonical, so $S^{13}(q)=R$ and $T^{13}(q)=\nu(R)$.
+If $L_q$ denotes this prefix current, the complete conditional plan is
+\[
+ C_k=L_q+\widehat J_R-\widehat J_b,\qquad
+ c_k=\widehat A_R-\widehat A_b.
+ \tag{HT3}
+\]
+Its boundary is $P(b)-\sum_vc_k(v)P(v)$. The negative side has
+all ranks at most $b<q$; no signed request is discarded.
+
+\begin{theorem}\label{thm:historytransition}
+There is a complete finite decision for whether every nonzero request
+in (HT3) has rank below the original $q$. Start at raw state $x=R$
+and put $n=\nu(x)$. Stop successfully if $n<q$. Stop unsuccessfully
+if $n\ge q$ is critical, meaning canonical, $3\bmod4$, and not
+$2\bmod3$. Otherwise take the applicable transition
+\[
+\begin{array}{c|c|c|c}
+ &\text{guard}&\text{new raw state}&\text{current}\\ \hline
+ A&x\equiv1\ (8)&(3x+1)/4&e_x\\
+ B&x\equiv3\ (16)&(3x-1)/8&e_x+e_{S(x)}-e_{B(x)}\\
+ C&x\equiv5\ (32)&(3x+1)/16&e_x .
+\end{array}
+ \tag{HT4}
+\]
+Here $e_x$ is the unit ordinary arrow current, with its row at1
+killed. Every displayed current has boundary $[x]-[\text{new raw state}]$.
+
+The decision takes at most seven transitions. Every raw state still
+above the normalized threshold has one of exactly fourteen possible
+word templates
+\[
+ A^j\ (0\le j\le6),\qquad
+ A^iBA^j\ (i+j\le2),\qquad C,
+ \tag{HT5}
+\]
+including the empty word and imposing all actual guards.
+A failed leaf retains a unique highest critical request of rank
+$n\ge q$ and coefficient $+1$; every other signed request has smaller
+rank. Thus success is equivalent to strict original-rank validity
+of this entire specified plan, not to existence of every possible
+comparison current.
+\end{theorem}
+\begin{proof}
+The first twelve anchor targets are
+\[
+ 17321,12991,19487,29231,43847,65771,
+ 98657,73993,55495,83243,124865,93649.
+\]
+Their cumulative valuations are
+$(1,3,4,5,6,7,8,10,12,13,14,16)$; the increment at step $j$ is
+$2^{19-A_j}3^{j+1}k$. These preserve each exact valuation and
+canonical phase. The last source is $93649+8\cdot3^{13}k$,
+whose valuation is2, proving (HT1)--(HT2). The affine coefficients
+and intercepts also give
+\[
+ 4(R-1)<25(q-1).
+ \tag{HT6}
+\]
+
+Every raw state is $1\bmod3$. Two inverse-$F$ removals, or one
+inverse-$F$ removal followed by a selected halving, reduce shifted
+height by at least a factor of eight. By (HT6) this is already
+below $q$. Above threshold, normalization therefore uses at most
+one such elementary step, and its result has residue0 or1 modulo3.
+A complementary result is critical; there is no above-threshold
+point-inverse branch at residue2. The remaining canonical phase
+is $1\bmod8$, giving exactly the three guards (HT4).
+Each transition equals $N_x+e_{\nu(x)}$, so these are the
+no-pair steps of formal absorption. For $B$, use
+$S^2(x)=S(B(x))$.
+
+The shifted contractions are
+\[
+ A(x)-1=\tfrac34(x-1),\quad
+ B(x)-1=\tfrac38(x-3),\quad
+ C(x)-1=\tfrac3{16}(x-5).
+\]
+Together with (HT6), seven $A$ letters, two $B$ letters, a $C$
+with any other letter, or a $B$ with at least three $A$ letters
+force below threshold. These exclusions leave precisely (HT5).
+Before stopping no pair is requested. Below threshold the remaining
+absorption ranks are at most $n<q$. Otherwise the first critical
+pair has rank $n$ and coefficient $+1$, and all its descendants
+have smaller rank. The negative frontier has rank at most $b<q$,
+so it cannot cancel that leader. This proves the equivalence.
+\end{proof}
+
+Let $j$ be the number of transitions, $x$ the final raw state,
+$n=\nu(x)$ and $\ell=13+j$. The accumulated comparison current $K$,
+including $N_x$, satisfies the exact row identities
+\[
+ \operatorname{div}K=[q]-[n],\qquad
+ C_k=K+\widehat J_n-\widehat J_b,\qquad
+ c_k=\widehat A_n-\widehat A_b.
+ \tag{HT7}
+\]
+In every successful case $T^\ell(q)=n<q$ with $13\le\ell\le20$.
+For the ordinary clock, let $d_F$ be the terminal inverse-$F$
+depth and let $a=v_2(\text{base}+1)$ when the terminal base is
+selected. Define
+\[
+ \beta=
+ \begin{cases}
+ a,&\text{the terminal base is selected},\\
+ 1,&\text{it is nonselected and }(d_F>0\text{ or the last letter is }B),\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\]
+Writing $L_m(z)$ for an ordinary $m$-arrow prefix, one has row for row
+\[
+ K=L_{\ell+\beta}(q)-L_\beta(n),\qquad
+ S^{\ell+\beta}(q)=S^\beta(n).
+ \tag{HT8}
+\]
+Indeed the raw current is $L_\ell(q)$ unless its last letter is $B$,
+when it is $L_{\ell+1}(q)-e_x$. A following positive row cancels
+this pending negative row. An inverse-$F$ normalization has a
+one-arrow common future; selected halving has equal ordinary
+clocks $(a,a)$. These give (HT8), including a final $B$.
+There is no uniform twenty-arrow ordinary bound.
+
+The complete initial parameter partition is
+\[
+\begin{array}{c|l}
+ k\text{ phase}&\text{outcome}\\ \hline
+ 1\ (4),\ 7\ (8)&\text{failure}\\
+ 0\ (8)&\text{success iff }(R-1)/4\text{ is selected}\\
+ 4\ (16)&\text{success iff }(3R+1)/16\text{ is not critical}\\
+ 12\ (16)&\text{success}\\
+ 2\ (4)&\text{starts }A;\ \text{use the complete decision}\\
+ 3\ (8)&\text{starts }B;\ \text{use the complete decision}.
+\end{array}
+ \tag{HT9}
+\]
+For the $4\bmod16$ row, put $m=(3R+1)/16$. Then $m>q$,
+$m\equiv1\pmod3$, and
+$m-1<(75/64)(q-1)$. A noncanonical $m$ normalizes below $q$;
+an $m\equiv1\pmod8$ goes below after one $A$. This proves that
+row, including the whole successful subprogression $k\equiv20\pmod{32}$.
+The other rows follow from zero, one or two inverse-$F$ removals
+and (HT6), retaining the critical cases above $q$.
+
+The bound is sharp for this forward descent: throughout
+$k=9954+2^{14}t$, $t\ge0$, the seven letters are $A^7$ and
+the first quotient descent is exactly step20. Here $R\equiv1\pmod{2^{15}}$,
+the first six continued targets are above $q$, and the coefficient
+and intercept inequalities give $A^6(R)>q>A^7(R)$.
+All twelve earlier targets are also above $q$. This is not a
+minimal-clock assertion against other histories.
+
+Membership in the fixed-word cell (HL5) is exactly $3^{11}\mid k$.
+The whole successful progressions $12\bmod16$ and $20\bmod32$
+include infinite subprogressions outside it, for example after
+imposing $k\equiv1\pmod3$. Meanwhile the two earlier returning
+endpoint plans retain their higher request throughout (HT1):
+\[
+ u=(3q+3)/4,\quad r=(6561q+8965)/1024,\quad
+ f=(19683q+27919)/4096=55495+2^7 3^{10}k.
+\]
+The returning exponent is7, $r\equiv1\pmod8$, and $f$ is
+complementary canonical and $1\bmod3$. Thus
+$v=(2f+1)/3\in W_5$ occurs with coefficient $+1$ and
+$\rho(v)=f>\rho(u)>q$. This compares those prescribed old plans,
+not every arm of the unchanged dispatcher. Exact terminal-current
+supplies remain necessary for (HT7). Complete proofs and stored
+supplies are in
+\texttt{history\_transition/HISTORY\_TRANSITION.md}.
+
+\section{No fixed pair of history clocks covers every critical source}
+The next theorem includes every quotient inverse ray, and separately
+all ordinary valuation words. Its source varies with the chosen
+precision; it does not assert failure of unrestricted histories at
+one fixed positive source.
+
+\begin{theorem}\label{thm:historyclockbarrier}
+Let $D\ge1$ and let $q>0$ be canonical with $3^D\mid q$.
+Suppose its first $J$ ordinary valuations are1 and all their states
+are canonical. Write
+\[
+ y_a=T^a(q)=S^a(q)=(3/2)^a(q+1)-1,\qquad 0\le a\le J.
+ \tag{HB1}
+\]
+For every such $a$, the complete set of canonical origins $p\le q$
+and depths $0\le d\le D+a$ with $T^d(p)=y_a$ is
+exactly $(p,d)=(q,a)$.
+
+There is also an ordinary-clock statement without canonicality:
+if $q>0$ is odd, $3^D\mid q$, and its first $J$ ordinary valuations
+are1, the only positive odd $p\le q$ with
+$S^d(p)=S^a(q)$ and $d\le D+a$ is again $p=q,d=a$.
+\end{theorem}
+\begin{proof}
+All targets in (HB1) are at least $q\ge3$, so absorption at1
+introduces no extra inverse branch in a path reaching them.
+For the quotient version the complete inverse bases
+$(Ax+B)/3$ are
+\[
+\begin{array}{c|c|cc}
+ x\bmod3&\text{point}&\text{ray }0&\text{ray }1\\ \hline
+ 0&\text{none}&(8,3)&(16,3)\\
+ 1&\text{none}&(4,-1)&(32,19)\\
+ 2&(2,-1)&(64,19)&(128,83).
+\end{array}
+\]
+A ray of index $L\ge0$ maps its base $z$ to
+$64^Lz+49(64^L-1)/63$. Every resulting inverse
+$\alpha x+\gamma$ satisfies
+$\alpha\ge2/3$ and $\alpha-\gamma\ge1$,
+and dominates $(2x-1)/3$ for positive real $x$.
+
+Write each inverse state as $x=\lambda q+c$. Initially
+$\lambda=(3/2)^a$, $c=\lambda-1$. The invariant
+$\lambda-c\ge1$ follows under every branch from
+\[
+ \lambda'-c'=\alpha(\lambda-c)-\gamma\ge1.
+\]
+Before each of the first $D+a$ inverse steps, $\lambda q$
+has ternary order at least1. Actual and shadow states therefore
+have the same residue modulo3, interpreted in rationals whose
+denominator is prime to3.
+
+Point inverses undo (HB1) and reach $q$ at depth $a$;
+there is no point branch at $q$. If the first ray leaves $y_k$,
+$k\ge1$, its coefficients are
+\[
+ \lambda=2^{e+6L-k}3^{k-1},\qquad
+ c=\lambda-m_L,\qquad m_L=(128\cdot64^L+7)/9,
+ \tag{HB2}
+\]
+where $e=6$ or7. In particular $c>0$.
+If the binary denominator remains, put $t=k-e-6L>0$.
+Every further inverse step raises its binary exponent by at least1,
+so an integral shadow is reached within $t$ steps, unless the word
+ends first. For every preceding $i\le t$, the inverse lower bound gives
+\[
+ c_i+1\ge(2/3)^i(c+1)
+ \ge3^{e+6L-1}-(2/3)^t(m_L-1)>1.
+ \tag{HB3}
+\]
+The last inequality is uniform in $L$, since
+$3^{e+6L-1}\ge243\cdot729^L$ while
+$m_L-1=(128\cdot64^L-2)/9$.
+This also justifies each application of the positive-real bound.
+After integrality, the matching ternary residues keep the shadow
+integral and positive under every branch. If the first ray instead
+leaves $q$, its shadow is already
+$(16\cdot64^L-7)/9>0$, and the same argument applies.
+Hence every off-spine state satisfies $c>0$, $\lambda-c\ge1$,
+and $x>q$. This covers every inverse word and every ray index.
+
+For the ordinary version, if $d\le a$ the bound
+$S^d(p)+1\le(3/2)^d(p+1)$ proves the claim.
+If $d>a$, let $E\ge d$ be the total valuation of the lower word.
+Its affine inverse has
+\[
+ p=\lambda q+c,\qquad
+ \lambda=2^{E-a}3^{a-d},
+ \tag{HB4}
+\]
+with $\lambda q,c$ integral because $d-a\le D$.
+Suppose $c<0$. After $k$ arrows with cumulative valuation $E_k$,
+the actual-shadow difference is
+$2^{E-a-E_k}3^{a-d+k}q$. Thus the shadow stays a negative
+integer while $E_k\le E-a$. At the first noninteger shadow
+it is still negative, and the remaining number of arrows is at most
+$E-E_k\le a-1$. Starting from a negative real, any $m$ positive-valuation
+arrows end below $(3/2)^m-1$: a negative numerator remains negative,
+and a positive numerator is maximized by dividing by2.
+It cannot reach the prescribed shadow target $(3/2)^a-1$.
+If no noninteger state occurs, the final shadow is negative.
+Consequently $c\ge0$.
+
+At upper source $-1$ the target in (HB1) is also $-1$;
+every ordinary inverse $(2^e x-1)/3$ preserves $x\le-1$.
+Therefore $c-\lambda\le-1$, giving $p\ge q$.
+Equality requires $\lambda=1,c=0$; unique prime factorization
+then forces $d=a,E=a$, contrary to $d>a$.
+This proves the second statement without treating negative rational
+shadows as negative integers.
+\end{proof}
+
+There are complete infinite critical families for arbitrary
+$D\ge1,J\ge0$. Choose $H\ge\max(J+1,3)$ and impose
+\[
+ q\equiv0\pmod{3^D},\qquad
+ q\equiv2^H u-1\pmod{2^{H+2}},\qquad
+ u\equiv-3^H\pmod4.
+ \tag{HB5}
+\]
+The moduli are coprime. The complementary unit condition preserves
+the canonical valuation-one prefix, including its final possible
+$1\bmod8$ state, and $q/3\equiv5\pmod8$ is an actual critical input.
+Given fixed future and partner clock bounds $A,B$, choose
+$J=A,D\ge\max(B,1)$. No smaller canonical history meets any of
+these first $A$ targets within $B$ arrows. Thus no uniformly
+bounded-clock history catalogue covers all these sources.
+Source-dependent unbounded clocks and other signed comparisons
+remain outside the exclusion.
+
+For the H17 family, a narrower consequence follows by imposing,
+for any $r\ge0,D\ge1$,
+\[
+ b\equiv(2^{9r+17}-223)\,217^{-1}\pmod{2^{9r+18}},
+ \qquad b\equiv0\pmod{3^{D-1}},\qquad b>0.
+ \tag{HB6}
+\]
+These are infinite exact-order cells with $b\equiv9\pmod{16}$
+and $q=3b\equiv11\pmod{16}$. They exclude smaller canonical
+histories to $q$ through $D$ and to $(3q+1)/2$ through $D+1$.
+They say nothing about the later exit target used in
+Theorem~\ref{thm:nativegrowthescape}.
+The absorbed control $q=39$ has canonical valuation-one prefix
+$39,59,89$, yet $T^3(39)=33<39$ and a supplied finite $P(13)$
+current. The clock obstruction therefore does not imply fixed-source
+nontermination or nonexistence of a current. The full proofs and
+finite controls are in
+\texttt{history\_cover\_scope/HISTORY\_CLOCK\_BARRIER.md}.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -7359,8 +7705,18 @@ contracting target prefixes.
 Theorem~\ref{thm:nativegrowthescape} gives explicit smaller histories
 after any prescribed number of native growing returns. Its all-ray
 failure witness also proves that the named ray/point procedure does not
-cover the whole exit type. These are conditional constructions with
-all signed premises retained. The next obligation is to supply every
+cover the whole exit type.
+Theorem~\ref{thm:historytransition} now decides the entire thirteenth-target
+binary phase for its specified comparison. Its whole success progressions
+give smaller futures outside the earlier fixed-word cell, while its
+complete failure leaves retain their critical leader. The sharp twenty
+is a quotient descent clock, with ordinary normalization padding retained.
+Theorem~\ref{thm:historyclockbarrier} proves that no fixed bounds on
+both future and partner clocks cover all critical inputs, even with all
+inverse rays allowed. This requires source-dependent histories or another
+comparison; it does not exclude universal unbounded termination.
+These are conditional constructions with all signed premises retained.
+The next obligation is to supply every
 terminal current by such comparisons or another well-founded closure
 on a complete remaining type. The old $W_5$-only dispatcher is unchanged.
 
@@ -7703,5 +8059,21 @@ stored hexadecimal sources and exact valuation words; only symbolic
 descriptors are tested at the much larger prescribed depths.
 Twenty-one invalid inputs and one capped-decision control are retained.
 These checks do not supply the terminal currents of the infinite families.
+The history-transition checker adds1024 complete signed plans,70 exact
+instances covering all fourteen templates,144 progression instances,
+20 sharp twentieth-step cases,66 complete old-failure comparisons and
+26 invalid-premise checks. Three actual supplied conversions outside
+the fixed-word history cell have148,153,172 rows; all signed input tables
+are stored and reconstructed by the default replay, without absorption
+discovery.
+The history-clock checker covers62 quotient and126 ordinary domains,
+with3911 and16008 origin instances respectively, including64
+noncanonical ordinary source domains. It checks196 critical CRT cells,
+60 H17 cells,200 inverse words with ray indices through64,15 exact
+point-spine equalities and1560 ordinary word candidates,70 of them legal.
+The traces include24 positive rational-shadow and2636 positive
+integer-shadow rows. A complete9-row $P(13)$ current with its supplied
+paths and23 invalid-input checks is retained. The all-ray and arbitrary
+precision quantifiers follow from the proofs, not these finite ranges.
 These audits remain finite evidence for the implementations.
 \end{document}
