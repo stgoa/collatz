@@ -13,12 +13,18 @@ Neither result asserts a forever-growing positive orbit. R71 gives an
 exact whole-word denominator constraint for mechanical cycles, a restricted
 nonintegrality direction with published antecedents. It leaves other
 cycles and aperiodic paths open.
-The current focus is progress across complete sequences of blocks and
-constraints specific to integer states. Rational scaling changes the
-integer lattice. The adjacent-history audit and pinned side review retain
-the failed automatic-supply and finite-base-only inferences. The
-seventeen-family dispatcher remains unchanged; sigma rules still need
-R62's compatibility test. Universal current supply and Collatz remain open.
+R72 now extends the rank obstruction to finite affine-valuation lists in
+the two fixed phases. R73 gives a terminating exact normalizer of whole
+signed vectors using two identities: both R69 helpers cancel, leaving one
+smaller mandatory pair. R67's larger leader remains terminal. R74 proves
+integer realizability of every finite mixed exit18 return word and excludes
+positive eventually periodic survivors, while leaving possible aperiodic
+ones despite their sparse counting bound.
+The current focus is joint cancellation resolving that retained leader, or
+a constraint on the same integer across unbounded prefixes. Rational scaling
+changes the integer lattice. The seventeen-family dispatcher remains
+unchanged; sigma rules still need R62's compatibility test. Universal
+current supply and Collatz remain open.
 No novelty is claimed. Integration and verification are recorded at the end.
 
 Started 2026-10-17 from clean pushed commit `ce56699`.
@@ -2445,3 +2451,136 @@ Mechanical checks passed for22 scoped files,421 local Markdown links,
 source hashes and staged whitespace. Remote main remained a489973 before
 delivery. The batch is prepared for the authorized commit and push; its
 delivery is recorded in Git history. The active research goal remains open.
+
+## 2026-10-18 — Finite valuation centres and whole-frontier progress
+
+Previous goal turn: **progress**. R69–R71, their checks, scoped reviews and
+standing updates are committed/pushed as ea3278e. Revalidated clean local
+and remote main at that commit. The universal-current objective is still
+unfulfilled; no successful finite check changes that completion standard.
+
+The side feed advanced to13590c1c3e2b91a8788297c373b2a73b0fab569d. It
+acknowledges the integer-lattice correction and supplies a new independent
+mechanical-word check. Its claims remain external input until replayed.
+
+This batch promotes the finite-centre candidate only after durable proof
+and exact implementation review. In parallel it tests a constructive
+whole-signed-frontier mechanism and the scope of integer-prefix constraints.
+The aim remains a complete progress argument, not a larger finite catalogue.
+
+- [x] Audit previous progress, current repository and side feed.
+- [x] Reproduce the new pinned independent mechanical-word probe.
+- [x] Prove and implement the full finite-centre obstruction with every signed input.
+- [x] Test whole-frontier progress beyond individual-child ranks.
+- [x] Identify what integer-prefix constraints add beyond the periodic mechanical class.
+- [x] Integrate genuine results, independent reviews and full verification.
+- [x] Update the standing, compile the existing TeX and prepare verified Git delivery.
+
+### Findings and direction
+
+The user asked whether Claude's merged PR warrants a pivot. A fresh remote
+read found only PR1, mergeba6b337, already incorporated in main. Its negative
+controls and independent checks remain useful. Its original no-alternative-
+certificate inference remains refuted by the persisted same-minimum-cost
+examples; it does not justify abandoning current construction. The latest
+side feed7150f312 acknowledges the transfer-scope correction and adds no new
+premise. The unchanged735-word mechanical probe at13590c1 was independently
+reproduced byte for byte under a90-second cap.
+
+**Decision:** focus on exact cancellation of whole signed request vectors
+and on constraints applying to the same integer across unbounded prefixes.
+Do not keep adding finite valuation centres to the now-excluded fixed-phase
+rank class, and do not mistake finite-word integrality or zero survivor
+density for a termination theorem.
+
+- **R72:** the [full finite-centre proof](finite_centres/FINITE_CENTRES.md)
+  allows arbitrary real valuation weights and nonnegative powers of positive
+  increasing affine heights in two fixed phases. Exact mixed transport forces
+  a common positive net weight at the natural centres. Balanced returning-ray
+  CRT families give infinitely distinct parent centres, with exact reduced
+  ternary denominator order a-1 on L4mod9. A finite list omits one and fails
+  nonincrease on its actual retained positive child. Every signed helper and
+  both clocks are preserved. Other phase partitions, nonlinear ranks,
+  infinite-centre constructions and joint-vector amortization remain open.
+- **R73:** the [signed normal form](frontier_progress/SIGNED_FRONTIER_NORMAL_FORM.md)
+  is a constructive result. Two explicit8/10-row pair identities give a
+  linear idempotent normalization on every finite integer request vector.
+  Its absolute-height potential proves termination of this algebraic
+  simplification. Its kernel is complete for those two identities only.
+  The whole R69 vector P(u)+P(a)-P(b) reduces to P(u), and the full current
+  reduces row for row to the eight-row identity. No pair was assumed known
+  during this cancellation. The R67 larger leader is terminal and survives;
+  the same potential therefore fails on that growth comparison.
+- **R74:** the [integer-prefix theorem](integer_prefix/INTEGER_PREFIXES.md)
+  covers the entire existing exit18 re-entry class, including every finite
+  list of maximal old counts. Mixed V/R words have exact complete binary
+  cylinders, with arbitrary additional initial odd congruences. The full
+  signed current telescopes, retaining a higher leading input. Eventually
+  periodic infinite itineraries give negative rational points. Aperiodic
+  positive survivors remain unexcluded even though their density is zero
+  and their count has a uniform power bound. Classical2-adic coding is
+  acknowledged; the guard/current proof is self-contained.
+
+### Bounded evidence and independent review
+
+R72's default replay checks192 CRT cases,48 full signed comparisons,24
+distinct centres, three finite-list illustrations, four mixed-stabilization
+cases and12 rejections. Two supplied outputs have158/211 rows, with3/13
+inputs. The dynamically loaded mathematical dependency graph is explicitly
+traversed and41 local sources are hashed.
+
+R73's default replay checks512 bridges,4096 singleton normalizations,28
+mixed-word families through32 edges,128 signed vectors,12 full R69 reset
+compressions and six retained R67 leaders. It stores an input-free current
+and a31-row supplied-current output with its inputs. Seven invalid/missing
+input checks pass;47 reachable source files are pinned.
+
+R74's default replay checks510 finite words with1530 positive lifts,20
+long words through256 symbols,108 odd-CRT cases, nine maximal-count lists,
+310 eventually periodic points,32 density/count cases and30 full signed
+compositions. Two complete unfinished current tables,30 missing-supply
+rejections, three cap/exit cases and ten invalid-input rejections are
+retained. Its47 actual imported source files are pinned.
+
+Root proof/source review and separate model proof/code/default-replay audits
+passed all three results. Source and receipt files were frozen before the
+full repository gate. All three checkers are registered in that gate.
+The seventeen-family dispatcher and frozen internal resolvers are unchanged.
+No universal current supply, Collatz proof, novelty, human peer review or
+formal verification is claimed.
+
+### Final verification and delivery
+
+`python3 scripts/verify_all.py --cpp` passed with exit0. All three new
+checkers, every historical and negative-control receipt,31 original archive
+entries and both independent C++ cutoffs4096/262144 passed. The full run log
+is `/tmp/collatz_frontier_prefix_full_gate.log`. Sources and receipts were
+frozen before the run; subsequent edits affected shared prose only.
+
+The existing TeX compiled successfully. Independent proof/code/default
+audits passed all three new results, and the final TeX/shared-prose review
+passed after clarifying that a finite-prefix seed may depend on the word.
+Mechanical checks passed for23 scoped files,467 local Markdown links,
+70 unique labels,115 resolved references, source hashes, LF endings,
+JSON parsing and staged whitespace. A final remote refresh found main
+unchanged at ea3278e. The verified changes are prepared for the authorized
+commit and push; actual delivery is recorded by the accompanying Git history.
+The active universal-current research goal remains open.
+
+### Next-batch candidate, not a promoted result
+
+During the frozen gate, a separate temporary probe tested uniformly smaller
+affine W5 partners on the entire R67 cylinder `w=40529845+2^26*n`, all n>=0,
+using fixed ordinary valuation words on both pair endpoints. The proposed
+completeness argument uses the11 fixed lower arrows and17 fixed upper arrows,
+plus integrality of the child's affine coefficient to bound inverse depth.
+The agent reports43 candidate partners and no simultaneous fixed-word merger.
+This has not received root/independent proof and implementation review and is
+not an R-series claim or a premise of R72–R74. It excludes neither refined
+CRT subprogressions, seed-dependent words/clocks nor general signed currents.
+
+Temporary handoff files are `/tmp/collatz_r67_fixed_word_scope.md`,
+`/tmp/collatz_r67_fixed_word_audit.py` and its adjacent JSON receipt.
+If pursued, inspect and independently replay them, then retain a portable
+proof/checker before promoting any conclusion. The current verified batch
+does not depend on those temporary files.

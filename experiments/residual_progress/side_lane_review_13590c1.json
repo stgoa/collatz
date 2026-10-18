@@ -1,0 +1,92 @@
+{
+  "elapsed_seconds": 0.144,
+  "exact_checked_ranges": [
+    [
+      1,
+      2,
+      8
+    ],
+    [
+      2,
+      4,
+      10
+    ],
+    [
+      3,
+      5,
+      11
+    ],
+    [
+      4,
+      7,
+      13
+    ],
+    [
+      5,
+      8,
+      14
+    ],
+    [
+      6,
+      10,
+      16
+    ],
+    [
+      7,
+      12,
+      18
+    ],
+    [
+      8,
+      13,
+      19
+    ],
+    [
+      9,
+      15,
+      21
+    ],
+    [
+      10,
+      16,
+      22
+    ],
+    [
+      11,
+      18,
+      24
+    ],
+    [
+      12,
+      20,
+      26
+    ],
+    [
+      13,
+      21,
+      27
+    ],
+    [
+      14,
+      23,
+      29
+    ]
+  ],
+  "exit_code": 0,
+  "main_commit": "ea3278e6e5cc98c48f2ff0a9e281d03a8d2f3a16",
+  "outer_cap_seconds": 90,
+  "receipt": "sidekick/probes/r71_mechanical_check.json",
+  "receipt_sha256": "c269d4ed8e0dde6f2c43582106ab6828f24783afc64cd853016487b3088ec09b",
+  "report": {
+    "cases": 735,
+    "integral_cases_all_twos": 105,
+    "scope": "Independent exact check of R71's mechanical-word denominators (main working copy).",
+    "status": "PASS"
+  },
+  "side_commit": "13590c1c3e2b91a8788297c373b2a73b0fab569d",
+  "source": "sidekick/probes/r71_mechanical_check.py",
+  "source_sha256": "1eb814376c1ce0ea672f35931631cf255013d8e37e9ce5bb37b920d6f58b4790",
+  "stderr": "",
+  "stdout": "{\n  \"cases\": 735,\n  \"integral_cases_all_twos\": 105,\n  \"scope\": \"Independent exact check of R71's mechanical-word denominators (main working copy).\",\n  \"status\": \"PASS\"\n}\n",
+  "unchanged_receipt_match": true
+}
