@@ -26,6 +26,27 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 04:59 — VERIFIED: R60's maximal cycle inverse and its complete acceptance table
+
+R60 is one of the seventeen dispatcher rules and had not been checked independently. These checks use this branch's own `step` and `ν`.
+
+**Setup.** On `w ≡ 3445 (mod 3456)` with `v = (16w − 13)/27 ≡ 0 (mod 3)`, put
+
+- `b = 8v + 1`, `h = v₃(b + 17)`, `k = ⌊h/7⌋`;
+- `p = (2048/2187)^k·(b + 17) − 17`, `j = v₃(p + 1)`, `η = 2^j·(p + 1)/3^j − 1`.
+
+Inputs are built by CRT with prescribed `k = 1..20` (taking `h = 7k`) and `j = 0..4`, four per cell, 400 in all.
+
+**Checked.**
+
+- The ordinary word from `η` to `q = (81v + 23)/32` is exactly `1^j, (1,1,1,2,1,1,4)^k, 2,1,1,4`.
+- The height formula holds exactly: `η = λq + β`, with `λ = (256/81)·a^k·t` and `β = t·((1274/81)·a^k − 16) − 1`, where `t = (2/3)^j` and `a = 2048/2187`.
+- `η < q` holds in exactly the cells of R60's table. That is: `k = 1–5` needs `j ≥ 3`, `k = 6–11` needs `j ≥ 2`, `k = 12–17` needs `j ≥ 1`, and every `k ≥ 18` is accepted. All the boundary cells at `k = 5/6, 11/12, 17/18` are covered.
+
+`python3 sidekick/probes/r60_cycle_inverse_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 04:36 — VERIFIED: R84's prefix and sharp twenty-step descent; R85's clock barrier by brute force (main `355c173`)
 
 These checks use this branch's own `step` and `ν`, not main's code.

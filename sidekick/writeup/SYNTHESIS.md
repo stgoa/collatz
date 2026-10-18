@@ -1,6 +1,6 @@
 # The W5 reduction of the Collatz conjecture: a verified map
 
-*This is a consolidated survey of the main programme (results R1–R83 and C1–C5 on `main`, through commit `1d58f50`) and the independent side lane (`claude/sidekick`), as of 2026-10-18.*
+*This is a consolidated survey of the main programme (results R1–R85 and C1–C5 on `main`, through commit `355c173`) and the independent side lane (`claude/sidekick`), as of 2026-10-18.*
 
 Status labels follow the repository:
 
@@ -342,6 +342,8 @@ The appendix is pinned at side commit `7150f31` and main commit `ea3278e`. Times
 | R75, R77 | 02:53 (`batch_r75_r77_check`): returning translation arithmetic (3,000 inputs); R77's growth bound, exact threshold, spacing lemma (2,188 repeats) and copy counts (200) | independently checked (finite) |
 | R78, R79, R80 | 03:31 (`batch_r78_r80_check`): six-arrow native prefix (2,000), return counts (3,000), the R80 family (30 cases) and the all-depth anchor 11547 | independently checked (finite) |
 | R56 | 04:30 (`r56_selected_inverse_check`): both inverse words, identity (2) and the thresholds `h ≥ 3` (k = 4) and `h ≥ 5` (k = 8) on 4,800 cases | independently checked (finite) |
+| R60 | 04:59 (`r60_cycle_inverse_check`): maximal cycle-inverse words, the exact height formula and the full acceptance table on all cells `k = 1..20`, `j = 0..4` | independently checked (finite) |
+| R84, R85 | 04:36 (`batch_r84_r85_check`): R84's prefix and sharp 20-step descent; R85's clock barrier by brute force on 24 instances | independently checked (finite) |
 | R81, R83 | 04:08 (`batch_r81_r83_check`): R80's merger cell (3,301 lifts), the cell theorem on 400 random anchor pairs with minimality, and R83's `(L, h)` | independently checked (finite) |
 | R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R61, R63–R70, R72, R76, R82 | none | not touched |
 
