@@ -1,0 +1,14 @@
+=== container prep start 2026-10-18 17:55:05 -0300 ===
+docker.io/library/ubuntu:24.04
+069b17830f35e7036936a8e2abd73d2a776e998ba56705d710ca79849dbefd76
+debconf: delaying package configuration, since apt-utils is not installed
+aarch64
+info: downloading installer
+elan 4.2.4 (227caca13 2026-08-25)
+
+leanprover/lean4:v4.35.0-rc2 installed - Lean (version 4.35.0-rc2, aarch64-unknown-linux-gnu, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)
+
+Lean (version 4.35.0-rc2, aarch64-unknown-linux-gnu, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)
+Lake version 5.0.0-src+11acb17 (Lean version 4.35.0-rc2)
+CONTAINER_PREP_DONE
+exit=0

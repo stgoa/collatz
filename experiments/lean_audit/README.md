@@ -45,9 +45,9 @@ targets `t` with `3` not dividing `t`.
   that merge commit and 0 behind, so the pinned toolchain **contains the fix**.
 - **CI duration.** In the green run on the pinned commit (run 38659218428),
   the `leanprover/lean-action@v1` step lasted 88 seconds (00:18:47 to
-  00:20:15 UTC). That is far too short to compile a ~500-file
+  00:20:15 UTC). That is far too short to compile a ~740-file
   Mathlib-dependent library from source. The job log
-  (`receipts/ci_run_38659218428.log`) shows why: lean-action ran with
+  (`receipts/ci_run_38659218428.log.txt`) shows why: lean-action ran with
   `use-github-cache: true` and restored a ~2.1 GB Actions cache
   (`Cache hit for restore-key: lake-Linux-X64-…`) before `lake build`, so the
   run reused previously built artifacts rather than compiling the pinned
@@ -145,10 +145,11 @@ final run used no bind-mounted files.
 four-theorem closure, which is 737 of the 738 library modules (74,803
 lines), from source: `Build completed successfully (4107 jobs)`, wall time
 6 min 02 s, zero errors, zero `declaration uses 'sorry'` warnings
-(`receipts/lake_build_solution.log`).
+(`receipts/lake_build_solution.log.txt`; receipts use `.txt` suffixes
+because the repository ignores `*.log` and `*.out`).
 
 **2. Axioms: PASS.** `#print axioms` in a fresh `lean` process importing
-`Solution.Basic` (`receipts/audit_solution.out`), for each of the four
+`Solution.Basic` (`receipts/audit_solution.pp.txt`), for each of the four
 theorems:
 
 ```
@@ -165,8 +166,8 @@ theorem types and the seven definitions they use (`collatz`, `ReachWithin`,
 `collatzDensity`, `collatzDensityThreshold`, `collatzAccel`,
 `collatzDensityDep`, `collatzDensityThresholdDep`) were printed from the
 human-written `Challenge.Basic` and from `Solution.Basic` and diffed
-(`receipts/audit_challenge.out`, `receipts/audit_solution.out`): 445
-lines, identical. The only differing lines in the raw outputs are the
+(`receipts/audit_challenge.pp.txt`, `receipts/audit_solution.pp.txt`,
+`receipts/statement_diff_clean.txt`): 445 lines, identical. The only differing lines in the raw outputs are the
 challenge's own `sorryAx` entries, as expected.
 
 **4. Kernel-fix containment: PASS** (see facts above): the toolchain

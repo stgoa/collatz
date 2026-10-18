@@ -1,0 +1,48 @@
+=== versions 2026-10-18 18:32:55 -0300 ===
+Lean (version 4.35.0-rc2, aarch64-unknown-linux-gnu, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)
+Lake version 5.0.0-src+11acb17 (Lean version 4.35.0-rc2)
+3a38bfbb70379e051b51155def1423846fab3a90
+4
+               total        used        free      shared  buff/cache   available
+Mem:            7837         710         117           0        7207        7126
+=== lake build Challenge Solution  18:32:55 ===
+✔ [4106/4107] Built Solution (1.0s)
+Build completed successfully (4107 jobs).
+
+real	6m1.990s
+user	0m0.043s
+sys	0m0.111s
+build exit=0  18:38:57
+error lines: 2
+sorry warnings: 0
+=== axioms + statements, solution side  18:38:57 ===
+exit=0
+1:'positive_density_collatz_reaches_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+2:'positive_density_collatz_and_collatzAccel_reaches_one' depends on axioms: [propext,
+5:'positive_density_collatz_and_collatzAccel_reaches_of_coprime_six' depends on axioms: [propext,
+8:'positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd' depends on axioms: [propext,
+=== axioms + statements, challenge side ===
+exit=0
+1:'positive_density_collatz_reaches_one' depends on axioms: [propext, sorryAx.{u}, Classical.choice.{u}, Quot.sound.{u}]
+2:'positive_density_collatz_and_collatzAccel_reaches_one' depends on axioms: [propext,
+6:'positive_density_collatz_and_collatzAccel_reaches_of_coprime_six' depends on axioms: [propext,
+10:'positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd' depends on axioms: [propext,
+=== diff of statements and definitions (axiom lines removed) ===
+diff exit=1 (6 lines)
+=== lake comparator, sandboxed (bwrap), --paranoid  18:39:11 ===
+error: `nanoda` kernel `nanoda_bin` was not found
+
+real	0m0.129s
+user	0m0.011s
+sys	0m0.009s
+comparator (sandboxed) exit=2  18:39:12
+=== lake comparator, --inadvisably-no-sandbox --paranoid (container is the sandbox)  18:39:12 ===
+WARNING: Sandbox disabled, this run is not trustworthy.
+error: `nanoda` kernel `nanoda_bin` was not found
+
+real	0m0.122s
+user	0m0.014s
+sys	0m0.010s
+comparator (no sandbox) exit=2  18:39:12
+AUDIT_DONE 18:39:12
+driver exit=0
