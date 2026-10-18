@@ -1,0 +1,320 @@
+{
+  "status": "PASS",
+  "external_commit": "dbb0dea5930ec667b70b5dfcbb595e5d566451b0",
+  "main_commit": "1603bf331f94ded378e81568aca0b2676eb2b358",
+  "sources": {
+    "sidekick/probes/pair_merge_controls.py": {
+      "sha256": "ad4fb408aed2eb799aaf56ce0995407a58d043b27f88202cb5b9da8dd04da5f3",
+      "bytes": 1568
+    },
+    "sidekick/probes/batch_r33_r36_check.py": {
+      "sha256": "0bb02f71c233a6896be607f1902b63a15617b40ebab33f49ea594dfd0f6c834e",
+      "bytes": 3513
+    },
+    "sidekick/probes/fibre_count_check.py": {
+      "sha256": "071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a",
+      "bytes": 2828
+    },
+    "collatz_research_20261017/negative_controls/affine_controls.py": {
+      "sha256": "9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c",
+      "bytes": 15888
+    },
+    "sidekick/probes/pair_merge_controls.json": {
+      "sha256": "ed9939896bcd36bfff2503d1f8b1db2b442067119696edee81641f0c035e0aed",
+      "bytes": 1424
+    },
+    "sidekick/probes/batch_r33_r36_check.json": {
+      "sha256": "7342c9f644d28431decb62b1f2fad8fa24f5ed64281a5b86ad81277ba3161baf",
+      "bytes": 438
+    }
+  },
+  "unmodified_probe_reproductions": {
+    "sidekick/probes/pair_merge_controls.py": {
+      "published_receipt_matches": true,
+      "report": {
+        "controls": {
+          "-1": {
+            "counterexamples_below_4000": 357,
+            "first": [
+              [
+                3,
+                "trivial",
+                5
+              ],
+              [
+                11,
+                "trivial",
+                17
+              ],
+              [
+                19,
+                5,
+                "trivial"
+              ],
+              [
+                35,
+                5,
+                "trivial"
+              ],
+              [
+                51,
+                5,
+                17
+              ]
+            ]
+          },
+          "13": {
+            "counterexamples_below_4000": 100,
+            "first": [
+              [
+                19,
+                131,
+                "trivial"
+              ],
+              [
+                35,
+                131,
+                "trivial"
+              ],
+              [
+                59,
+                131,
+                "trivial"
+              ],
+              [
+                99,
+                211,
+                "trivial"
+              ],
+              [
+                123,
+                259,
+                131
+              ]
+            ]
+          },
+          "61": {
+            "counterexamples_below_4000": 30,
+            "first": [
+              [
+                235,
+                235,
+                "trivial"
+              ],
+              [
+                451,
+                235,
+                "trivial"
+              ],
+              [
+                707,
+                235,
+                "trivial"
+              ],
+              [
+                883,
+                "trivial",
+                235
+              ],
+              [
+                939,
+                235,
+                "trivial"
+              ]
+            ]
+          }
+        },
+        "scope": "Generic pair-merger statement fails on 3x+d with cycles; d = 1 untested by design.",
+        "status": "PASS"
+      }
+    },
+    "sidekick/probes/batch_r33_r36_check.py": {
+      "published_receipt_matches": true,
+      "report": {
+        "r33_acceptance_fraction": {
+          "16": 0.203369140625,
+          "20": 0.203887939453125,
+          "22": 0.203765869140625,
+          "100": 0.205635
+        },
+        "r33_stated": 0.20382165605095542,
+        "r34": "eta chains for odd q < 20000; cylinder 19199 mod 65536; root 84735",
+        "r36": "Mersenne mergers at a = 1699 (t = a+4) and a = 659 (t = a+5)",
+        "scope": "Independent checks of main's R33/R34/R36 (commit 1603bf3); finite data.",
+        "status": "PASS"
+      }
+    }
+  },
+  "process_cap_seconds": 60,
+  "external_branch_modified": false,
+  "independent_control_witnesses": [
+    {
+      "d": -1,
+      "w": 3,
+      "w_orbit": {
+        "prefix": [
+          3
+        ],
+        "cycle": [
+          1
+        ]
+      },
+      "triple_orbit": {
+        "prefix": [
+          9,
+          13,
+          19
+        ],
+        "cycle": [
+          5,
+          7
+        ]
+      },
+      "cycle_indicator_pairing": 1
+    },
+    {
+      "d": -1,
+      "w": 11,
+      "w_orbit": {
+        "prefix": [
+          11
+        ],
+        "cycle": [
+          1
+        ]
+      },
+      "triple_orbit": {
+        "prefix": [
+          33,
+          49,
+          73,
+          109,
+          163
+        ],
+        "cycle": [
+          17,
+          25,
+          37,
+          55,
+          41,
+          61,
+          91
+        ]
+      },
+      "cycle_indicator_pairing": 1
+    },
+    {
+      "d": 13,
+      "w": 19,
+      "w_orbit": {
+        "prefix": [
+          19,
+          35,
+          59,
+          95,
+          149,
+          115
+        ],
+        "cycle": [
+          131,
+          203,
+          311,
+          473,
+          179,
+          275,
+          419,
+          635,
+          959,
+          1445,
+          1087,
+          1637,
+          1231,
+          1853,
+          1393
+        ]
+      },
+      "triple_orbit": {
+        "prefix": [
+          57,
+          23,
+          41,
+          17
+        ],
+        "cycle": [
+          1
+        ]
+      },
+      "cycle_indicator_pairing": -1
+    },
+    {
+      "d": 61,
+      "w": 235,
+      "w_orbit": {
+        "prefix": [],
+        "cycle": [
+          235,
+          383,
+          605,
+          469,
+          367,
+          581,
+          451,
+          707,
+          1091,
+          1667,
+          2531,
+          3827,
+          5771,
+          8687,
+          13061,
+          9811,
+          14747,
+          22151,
+          33257,
+          12479,
+          18749,
+          14077,
+          10573,
+          7945,
+          2987,
+          4511,
+          6797,
+          5113,
+          1925,
+          1459,
+          2219,
+          3359,
+          5069,
+          3817,
+          1439,
+          2189,
+          1657,
+          629,
+          487,
+          761,
+          293
+        ]
+      },
+      "triple_orbit": {
+        "prefix": [
+          705,
+          17,
+          7,
+          41,
+          23,
+          65
+        ],
+        "cycle": [
+          1
+        ]
+      },
+      "cycle_indicator_pairing": -1
+    }
+  ],
+  "scope_notes": [
+    "Exact pair-current control failures follow from nonzero invariant-cycle pairing; d=1 is not refuted.",
+    "The supplied R33 script uses 200000 random 100-bit inputs and three finite bands; the feed larger 2000000-sample table was not reproduced.",
+    "For d>1 the inherited control identifies both1 andd as absorbing; common-tail language must respect this convention.",
+    "R35 requires tripling pairs outside w=3 modulo8 as well; the control script introductory domain description is incomplete."
+  ]
+}
