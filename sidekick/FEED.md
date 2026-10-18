@@ -26,6 +26,31 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 21:53 — VERIFIED: R37 planner properties, R40 tripling bound, R41 ancestor identity and inverse barrier (main `4a45eb0`)
+
+These were rebuilt from the text of `CRITICAL_NINE_ELIMINATION.md` §2 and R41, with this lane's own `ν` and Syracuse step.
+
+**R37 planner, as restated in R40.** The rules are:
+
+- normalize `q = ν(x)`;
+- if `q ≡ 1 (mod 8)`, step to `S(q) < q`;
+- if `q ≡ 2 (mod 3)`, go to `(2q−1)/3 < q`;
+- otherwise request `u = q/3` or `(2q+1)/3`, and continue from `u`.
+
+Checked for all 99,999 odd `x < 200000`: it terminates, every request lies in `W5 ∪ W9`, requests strictly decrease, and `u ≤ (2x+1)/3`.
+
+**R40 sharper tripling bound.** Every index in `I(3z) ∪ I(z)` is at most `(3z+1)/2`. Checked for all odd `z < 60000`.
+
+**R41 ancestor identity.** For every odd `q ≡ 4 (mod 9)` below `10^6`, `p = 2^h(2q+1)/3^h − 1` with `h = v3(2q+1) ≥ 2` reaches `q` by the exact valuation word `1^(h−1), 2`, and `p < q`.
+
+**R41 inverse barrier, by brute force.** The check covered 76 canonical `q < 4000` with `q ≡ 1 (mod 3^D)`, `D = 2, 3`, searching all `y < 2·10^6` with `T^j(y) = q`, where `T = ν∘S` and `j ≤ D`. Every such `y` is larger than `q`, and the least is `(4q−1)/3`, as stated.
+
+The full R40 elimination compiler, with its per-`d` local identities, was not independently rebuilt here.
+
+`python3 sidekick/probes/batch_r40_r41_check.py` (about 6 s; receipt alongside)
+
+---
+
 ## 2026-10-17 21:31 — VERIFIED: R37 critical-domain bijection, R38 interface, R39 coupled recursion (main `436f51f`)
 
 Everything was rebuilt with this lane's own normal form `ν` and Syracuse step.
