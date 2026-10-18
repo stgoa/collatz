@@ -1,8 +1,9 @@
 # Find a better language for Collatz
 
-**Arithmetic-regularity investigation, 2026-10-18. Collatz remains open.**
-The [current brief](docs/ARITHMETIC_REGULARITY_BRIEF.md) develops the selected
-language. The [earlier brief](docs/VIEWPOINT_BRIEF.md) records the completed
+**Global automatic rigidity proved in V004, 2026-10-18. Collatz remains open.**
+The [current brief](docs/GLOBAL_RIGIDITY_BRIEF.md) required the full
+classification. The [partial-result brief](docs/ARITHMETIC_REGULARITY_BRIEF.md)
+records V003's earlier target. The [earlier brief](docs/VIEWPOINT_BRIEF.md) records the completed
 language-selection goal.
 The [batch log](docs/VIEWPOINT_LOG.md) records decisions and checks. The former
 [route map](ROUTE_MAP.md) supplies evidence, without restricting the search.
@@ -24,12 +25,13 @@ colorings survive. The [complete elementary argument](experiments/viewpoints/V00
 identifies the exact role of the additive parameter. It is independently
 reviewed here, with no novelty or formal-verification claim.
 
-The intermediate target is to classify invariant colorings recognized
-by a finite automaton in **base 2 alone**. We have no reason to assume an actual
-nonabsorbing set has that regularity. The two-base version follows from a
-published theorem; the one-base closure question remains unproved here and
-has now had a bounded prior-work check in V003. This is a working language,
-not evidence that it is a superior convergence method.
+The intermediate target of classifying invariant colorings recognized
+by a finite automaton in **base 2 alone** is now proved in
+[V004](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md). Positive-offset
+binary sections also form a finite ternary-closed family. Cobham and an
+elementary residue argument force constancy. We have no reason to assume
+an actual nonabsorbing set has that regularity. This demonstrated gain
+does not establish a superior convergence method.
 
 The complementary **V14: binary/ternary carry diagram** test is now complete:
 it adds no new section relation. Retain **V12: laws of actual integer
@@ -65,11 +67,27 @@ subsequent bounded investigation, including proof review and exact examples.
 - **Complementary probe closed:** the complete carry frontier for5 recovers
   the existing affine arrow and supplies no additional closure relation.
 
-The full single-base classification remains open here. The proofs above
-are written and independently agent-reviewed, with novelty undetermined.
-No arbitrary component indicator has been shown to satisfy a regularity
-hypothesis. The next useful test must address mixed ternary sections while
-retaining the guarded additive identity.
+These were the gains before V004; the full classification is now supplied
+below. The proofs above remain valid and independently agent-reviewed,
+with novelty undetermined. No arbitrary component indicator has been shown
+to satisfy a regularity hypothesis.
+
+## V004: the full single-base classification
+
+The [proof](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md) covers every
+finite-valued binary-automatic invariant, without a bound on automaton size.
+The retained family is K_+, all binary sections with strictly positive
+offset. Its complete ternary closure avoids the zero-offset exception;
+it does not need a separate proof about all mixed sections of h(3n).
+Cobham gives eventual periodicity of h(2n+1), after which elementary
+finite-residue identities force constancy.
+
+Parallel kernel, automaton and Mahler investigations are compared in the
+proof note. The [review](experiments/viewpoints/V004/INDEPENDENT_REVIEW.md)
+and [finite receipt](experiments/viewpoints/V004/verification.json) record
+their distinct scopes. The theorem is written and agent-reviewed, with
+published classical dependencies; formal verification and novelty are
+unclaimed. The historical R-series and dispatcher remain unchanged.
 
 ## Comparison
 
@@ -90,7 +108,7 @@ cycle controls, cheapest test and a genuinely partial milestone.
 | V10. [Rational denominator layers](experiments/viewpoints/V001/rational_layers.md) | Related maps become layers of one rational system; target and lattice changes are explicit | A property of the denominator-one layer that forces useful progress | Control bookkeeping; defer as an independent route |
 | V11. [Occupation measures](experiments/viewpoints/V002/statistical_languages.md#v11-occupation-measures-recurrence-versus-escape-of-mass) | Cycle mass and escape of mass are different phenomena | Tightness uniform in the seed range; cycle identification remains separate | Diagnostic only until a quantitative mechanism is proposed |
 | V12. [Information of actual integer ensembles](experiments/viewpoints/V002/statistical_languages.md#v12-conditional-information-of-realized-paths-rather-than-symbolic-entropy) | Merging, conditioning and endpoint concentration are separate | A quantitative first-passage law with integer endpoints | Retain as a separate statistical alternative; literature comparison first |
-| V13. [Arithmetic regularity of component colorings](experiments/viewpoints/V003/REPORT.md) | Partial digit-count classification; first ternary image adds at most one function | Mixed ternary closure; no regularity of the actual bad set is known here | Continue with a bounded mixed-section probe |
+| V13. [Arithmetic regularity of component colorings](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md) | Full rigidity for arbitrary finite binary automata via positive sections | No regularity or complexity bound for the actual bad set | Full-classification target achieved; compare quantitative complexity and statistical follow-ups before a new goal |
 | V14. [Two-dimensional base conversion](experiments/viewpoints/V003/carry_boundary.md) | Binary and ternary data share one complete carry boundary | Growing frontier, finite integer support and nonlocal bootstrap | Tested and closed: no additional relation; require a new whole-frontier proposal to reopen |
 
 These are related lenses, not fourteen independent possible proofs. In particular,
@@ -170,25 +188,34 @@ for either mathematical field. They are why the second round added V11–V14.
 
 ## Focused subsequent programme
 
-V003 completed the literature, first-kernel and carry-boundary tests proposed
-by the language-selection deliverable. The following recommendation follows
-their comparison. A full classification is still a research target.
+V004 completed the full-classification target. The first two rows below
+record completed tests; they are not outstanding obligations. A subsequent
+goal has not been activated by this map.
 
 | Priority | Bounded next investigation | Evidence needed to continue | Stop or redirect when |
 |---|---|---|---|
-| 1 — V13 | Test mixed sections of f_t(n)=h(3^t n), retaining the exact coupled binary-section equations from V003 | A specified finite family closed under all ternary sections, an additional relation, or a bound for the missing mixed families | Pure-zero finiteness or fixed-subsequence automaticity is treated as full closure; finite catalogues replace a theorem |
-| Complement — V13 | Test whether the retained section equations yield a finite characteristic-zero 3-Mahler relation for each color indicator | An actual finite polynomial-coefficient relation with every auxiliary series accounted for | An unknown series is discarded, or the two-base theorem is assumed applicable |
+| V13 — completed | Positive-offset binary kernel closure | K_+ is finite and closed under all binary/ternary sections; Cobham plus residue algebra finishes | Do not resume the unnecessary zero-offset closure search as though the full target were open |
+| Complement — V13, completed | Finite characteristic-zero2/3-Mahler systems | Every positive-section color indicator participates in both finite systems; scalar elimination is written | Do not present this dependent alternative as independent formal verification |
 | V14 — closed | Reopen only with a specific additional relation between entire frontier families | A relation not already present in the affine/section equations | Another finite rectangle merely redraws known arithmetic |
 | Alternative — V12 | Compare the specified capped first-passage law with Tao's exact hypotheses, retaining failure mass and selection bias | A named estimate that can plausibly be obtained for actual integer seeds | Fresh independent bits, stationary input laws, or uniform residue counts are assumed after conditioning |
 
-**V13 intermediate target.** Classify finite-valued, base-2-automatic solutions
+**V13 intermediate target, now proved.** Classify finite-valued, base-2-automatic solutions
 of `h(2n)=h(n)` for `n>=1` and `h(3n+1)=h(n)` for odd `n>1`.
-A sufficient approach would prove a finite ternary kernel from a finite binary
-kernel and these identities. V003 proves both nonzero first-section identities,
-the one-extra-function bound for the first image of the entire binary kernel,
-and finiteness of pure-zero iterates. It does not prove mixed closure. Classifying this
-restricted function class does not establish regularity of arbitrary component
-indicators and therefore supplies no universal convergence inference.
+V004 proves the positive-section closure and constancy. It suffices to make
+the odd section two-base automatic. Classifying this restricted function
+class does not establish regularity of arbitrary component indicators and
+therefore supplies no universal convergence inference.
+
+**Possible next V13 milestone, unproved and not activated:** define
+`kappa_h(D)=|{n -> h(2^a*n+r):0<=a<=D,0<=r<2^a}|`, for n>=0 and h(0)=h(1).
+Investigate whether every nonconstant invariant has
+`sup_D kappa_h(D)/(D+1)=infinity`. Infinite kernels already imply at least
+linear growth: if two successive cumulative kernels coincide, they are
+closed under binary sections and no later states appear. A stronger bound
+must exceed that generic argument. This would exclude another description
+class while leaving unrestricted components open. No such superlinear
+theorem, plausibility assessment or upper bound for the actual bad set is
+supplied here; it needs its own bounded comparison before selection.
 
 **Deferred V14 intermediate target.** The published small-cycle problem
 `T^k(x)!=x` for `x>2`, `1<=k<=ceil(log_2 x)` in the **shortcut** clock
@@ -204,10 +231,11 @@ mass of non-1 endpoints, for all sufficiently large integer X. Its card states
 all constants and quantifiers as a candidate, not a proved estimate. It leaves
 the fate of the endpoints and exceptional seeds unresolved.
 
-After the next bounded mixed-section check, compare its output before further
-depth. V003 supplies a genuine partial result; it does not guarantee another.
-If the mixed-family obligation is merely reproduced, consider V12 or broaden
-again; do not grow an automata case catalogue to preserve the choice.
+After this completed theorem, compare proposed complexity gains with the
+V12 statistical alternative before further depth. Proving the actual bad
+set automatic is now equivalent to convergence and cannot be relabeled an
+intermediate milestone. Do not grow an automata catalogue to preserve the
+choice or infer that the completed theorem guarantees the next one.
 V2 remains the arithmetic bookkeeping layer, V4 the survival observable, V10
 the control index, and V11 the check against losing mass at infinity.
 
@@ -239,6 +267,7 @@ earlier goal requirements to the actual cards, comparisons and checks. The
 [V003 report](experiments/viewpoints/V003/REPORT.md) and
 [goal audit](experiments/viewpoints/V003/GOAL_REVIEW.md) record the subsequent
 partial classification, section lemmas, scoped counterexample and closed carry
-test. Full automatic-coloring classification and the statistical estimate
-remain open. These records separate mathematical gain from novelty and from
+test. The [V004 proof](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md) now
+completes automatic-coloring classification; the statistical estimate remains
+open. These records separate mathematical gain from novelty and from
 progress on unrestricted convergence.

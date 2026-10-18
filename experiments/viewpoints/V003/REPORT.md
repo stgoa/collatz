@@ -1,5 +1,10 @@
 # V003 — What arithmetic regularity has gained
 
+**Historical snapshot:** the open classification below was subsequently
+proved in [V004](../V004/GLOBAL_RIGIDITY.md). The V003 results and scoped
+counterexamples remain valid; its completion used the earlier partial-result
+criterion, not the later strict full-classification goal.
+
 **Standing, 2026-10-18:** a partial classification and two structural lemmas
 have written, independently agent-reviewed proofs. Full classification of
 binary-automatic invariant colorings remains open here. No novelty, human

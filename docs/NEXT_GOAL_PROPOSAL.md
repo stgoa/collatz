@@ -1,6 +1,10 @@
 # Proposed next goal — global rigidity of finite-state component descriptions
 
-**Status: recommendation, 2026-10-18; not an activated goal.** The preceding
+**Historical recommendation, 2026-10-18.** This target was subsequently
+activated as the [global-rigidity goal](GLOBAL_RIGIDITY_BRIEF.md), and V004
+supplies the [full classification](../experiments/viewpoints/V004/GLOBAL_RIGIDITY.md).
+The text below records the assessment at the time of recommendation.
+The preceding
 arithmetic-regularity goal is complete under its stated partial-result
 criterion. The user now asks for a more ambitious high-level objective.
 

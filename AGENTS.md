@@ -1,13 +1,14 @@
 # Instructions for agents working in this repository
 
-## Active programme — arithmetic regularity of component colorings
+## Current standing — global rigidity of finite-state component colorings
 
 The user replaced the previous prove-or-narrow goal on 2026-10-18. V001/V002
 completed a broad language comparison and selected arithmetic regularity.
-The subsequent goal is in `docs/ARITHMETIC_REGULARITY_BRIEF.md`: develop a
-substantive theorem or sharply scoped obstruction for binary-automatic
-invariant colorings. V003 supplies a partial classification and structural
-lemmas; full classification remains open. This does not authorize resuming
+The partial-result goal in `docs/ARITHMETIC_REGULARITY_BRIEF.md` was followed
+by the strict full-classification goal in `docs/GLOBAL_RIGIDITY_BRIEF.md`.
+V004 supplies its written proof, using the finite-kernel characterization
+and Cobham. Read `experiments/viewpoints/V004/GLOBAL_RIGIDITY.md` and its
+goal review before proposing further research. This does not authorize resuming
 the previous dispatcher search or assuming regularity of an actual bad set.
 
 - Start with `VIEWPOINT_MAP.md` and `docs/VIEWPOINT_LOG.md`, then the result ledger and relevant sources. `ROUTE_MAP.md` is historical evidence and a collection of obligations; it does not restrict the available directions.
@@ -29,18 +30,20 @@ The initial relational and geometric portfolios were demoted after explicit
 tests. This selection is not evidence of a superior convergence method.
 
 - The finite-period coloring classification holds for positive odd d with 3 not dividing d, with absorber 1 retained. At d=1 all eventually periodic invariant colorings are constant. This supplies no periodicity or automaticity of an arbitrary component indicator.
-- The two-base-automatic case uses Cobham as a published input. The single-base target remains unproved here. Fixed-depth predecessor languages being regular does not imply their unbounded union is regular. A finite-state carry rule likewise does not imply a finite ternary kernel or a bounded frontier.
+- V004 proves the full single-base target using Cobham as a published input: the finite family of positive-offset binary sections is closed under all ternary sections. Only the odd section needs to be two-base automatic. This does not prove regularity of an arbitrary component indicator. Fixed-depth predecessor languages being regular does not imply their unbounded union is regular; a finite-state carry rule does not imply a bounded frontier.
 - V14's cycle control is arithmetic; no d=5 version of its tile system was verified. Keep ordinary, shortcut and parallel-update clocks separate. V12 uses positive laws on actual integer seeds, preserving conditioning and failure mass; these are not signed currents.
-- Language selection is complete. The subsequent arithmetic-regularity goal permits genuine partial classification or a structural gain; it does not require proving all of Collatz. Reassess after bounded tests before starting a deep proof campaign.
+- Language selection and the partial-result goal are complete. The subsequent goal required full classification; V004 supplies it. Further subclasses do not substitute for that completion standard. No new research target is activated merely by recommending a possible continuation.
 
-### V003 gains and remaining obligation
+### V003 historical gains and V004 completion
 
 - Any invariant of the form `F(s_2(n))` is constant, for arbitrary F on positive digit weights. This includes every digit-count-modulo-m automatic coloring, but does not include arbitrary bit-pattern automata. The written proof uses +1; no actual component indicator is assumed to have this form.
-- With h(0)=h(1), finite binary kernel K and f_t(n)=h(3^t n), every first ternary image of K lies in `K union {f_1}`, and the family of f_t has size at most |K|. This is not full ternary closure. Mixed sections of the extra function remain missing; automaticity of each fixed affine subsequence does not bound their number.
+- With h(0)=h(1), finite binary kernel K and f_t(n)=h(3^t n), every first ternary image of K lies in `K union {f_1}`, and the family of f_t has size at most |K|. These V003 statements alone are not full ternary closure. V004 bypasses the extra function by retaining all strictly positive offsets; automaticity of each fixed affine subsequence alone still does not bound their number.
 - The explicit binary-automatic character `chi(oddpart(n))`, with chi positive on1/3 and negative on5/7 modulo8, has h(2n)=h(3n)=h(n) and an infinite mixed ternary kernel. It fails Collatz invariance at3. It refutes the scaling-only shortcut, not the full target or the first-image lemma. It has constant binary sections; use Thue–Morse when illustrating their possible absence.
 - Monochromatic-cylinder rigidity is a known consequence at d=1 of published progression sufficiency. The elementary dyadic proof transfers to fixed positive odd d coprime to3. It supplies no constant section for an arbitrary automatic invariant.
 - The complete V14 carry test produced no new relation. Its finite input, entire undefined east ray, zero tail and carry flush are required boundary data. No generalized d=5 tiles were tested. Reopen only with a specific additional relation between whole frontier families.
-- The recommended next bounded probe concerns mixed ternary closure with all guarded identities, or a finite characteristic-zero 3-Mahler relation. Both remain open. Novelty of the elementary V003 gains is undetermined; source search failure is not evidence of novelty.
+- V004 closes the positive section family under both bases and gives finite polynomial2/3-Mahler systems. The main proof needs only Cobham plus elementary identities: eventual periodicity of h(2n+1) becomes a global odd period; the3-primary part then collapses and a unit translation forces constancy. Do not infer a period for all h before that argument.
+- V004's proof covers arbitrary finite automata and retains absorber1 via h(4)=h(1). Its d5/d61 divisibility colorings fail the named +1 identity at u=d, so the argument does not falsely exclude those actual cycles. Finite checks do not verify the imported classical theorem. Novelty and formal verification are unclaimed.
+- The hypothetical nonabsorbing set remains unrestricted. Given V004, its binary automaticity is equivalent to convergence, so proving that automaticity is not a genuinely intermediate milestone. Preserve that missing bridge in subsequent goal proposals.
 
 ## Historical Phase 6 results and controls
 

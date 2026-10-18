@@ -1,5 +1,28 @@
 # Research log
 
+## 2026-10-18 — V004: full finite-state rigidity
+
+The [full-classification goal](GLOBAL_RIGIDITY_BRIEF.md) now has a
+[written proof](../experiments/viewpoints/V004/GLOBAL_RIGIDITY.md): every
+finite-valued binary-automatic Collatz invariant is constant, for arbitrary
+finite automata. Positive-offset binary sections form a finite family closed
+under ternary sections. Cobham gives eventual periodicity of the odd section;
+an elementary residue argument finishes. Three parallel mechanisms were
+compared, with the kernel proof selected and the Mahler systems retained.
+
+Independent mathematical reviews and the standalone finite verifier passed.
+The proof retains absorber1 and exercises the actual d5/d61 controls at the
+named additive identity. The [viewpoint log](VIEWPOINT_LOG.md) records
+source checks, a draft corollary correction, finite scopes and delivery.
+The latest read-only side pin is5a379b2; its d-uniform suggestion and
+finite-prefix counts remain unadopted premises.
+
+This establishes the complete restricted classification, without supplying
+regularity of an actual nonabsorbing set. Novelty, formal verification and
+Collatz convergence remain unclaimed. The frozen ledger body, dispatcher
+and open LaTeX source are unchanged. A subsequent complexity-growth goal
+is only a recommendation, not an activated continuation.
+
 ## 2026-10-18 — V003: arithmetic regularity supplies a partial theorem
 
 The [new brief](ARITHMETIC_REGULARITY_BRIEF.md) asks for a demonstrated

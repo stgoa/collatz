@@ -1,5 +1,90 @@
 # Viewpoint exploration log
 
+## V004 — Full rigidity of binary-automatic invariants, 2026-10-18
+
+**Mathematical result: written proof of the full classification.** The
+activated [goal](GLOBAL_RIGIDITY_BRIEF.md) required arbitrary finite automata;
+another subclass would not count as completion. The
+[central proof](../experiments/viewpoints/V004/GLOBAL_RIGIDITY.md) meets that
+scope. The [goal review](../experiments/viewpoints/V004/GOAL_REVIEW.md)
+maps every requirement to evidence and limitations.
+
+### Mechanism and parallel comparison
+
+The kernel, direct-automaton and generating-function lanes ran bounded
+first passes. The decisive change was to retain the finite family K_+
+of binary sections with positive offsets. Each ternary section stays in
+K_+; the former exceptional h(3n) arose only when the offset was zero.
+This preserves the additive guards and all positive integer endpoints.
+
+Cobham's theorem makes the odd section eventually periodic. The elementary
+finish then makes its odd period global, removes the3-primary factor and
+uses two affine compositions to obtain a unit translation. This forces
+constancy. The proof does not assume periodicity of all h prematurely.
+The direct-automaton pass retained an exact counterexample to a scaling-only
+shortcut. The analytic pass supplied both finite Mahler systems and scalar
+elimination, but the shorter proof needs no additional Mahler theorem or
+progression sufficiency input.
+
+Three lanes audited the closure. The elementary finish received two
+independent adversarial checks and root review. One draft corollary was
+corrected from “proper union” to “nonempty proper union”; the empty union's
+indicator is constant. The checker boundary at source1 was repaired to use
+an actual absorbed path. No theorem hypothesis or frozen result changed.
+
+### Verification and source scope
+
+Root replay of `python3 -B experiments/viewpoints/V004/verify_examples.py`
+passed. The [receipt](../experiments/viewpoints/V004/verification.json)
+contains741 ternary transformations,6,669 common-endpoint comparisons,
+28,620 ordinary arrows,128 residue graphs through255 and256 period-lift
+examples. Actual d5/d61 cycles, divisibility colors and failure of the named
++1 identity are checked. Unknown/capped paths are not accepted. Finite
+checks supplement the written proof; they do not prove the universal
+classification or independently verify Cobham.
+
+The [literature note](../experiments/viewpoints/V004/literature_scope.md)
+records directly read primary theorem statements and a bounded novelty
+search. Novelty, human peer review and formal verification remain unclaimed.
+Fable's merged Lean-audit work concerns a different lower-density theorem;
+it is not a formalization of this proof.
+
+The frozen R1-onward ledger, dispatcher sources and open LaTeX document
+were byte-compared against9190ccf and are unchanged. Existing mathematical
+code/evidence was not modified, so the historical Phase6 gate was not rerun.
+The new standalone verifier received its own scoped replay. The delivery
+checks are recorded in
+[delivery_checks.json](../experiments/viewpoints/V004/delivery_checks.json).
+
+### Side lane and decision
+
+Initial read-only pin: `357c387c600f495041f86b79f447cb840b4a7785`.
+Delivery refresh: `5a379b292dde9601579112591444101446678fd9`; DIRECTIONS
+and newest FEED were read using `git show`. Its new referee note proposes
+a d-uniform periodicity theorem and reports finite-prefix kernel counts.
+These were not adopted as mathematical premises. The exact
+[assessment](../experiments/viewpoints/V004/side_review.md) retains the
+independently checked divisibility controls and defers the broader theorem
+and unreplayed counts. D1/D2/D5/D7 remain retained with scope, D3's blanket
+transfer remains rejected, D4 remains deferred, and D6 is historical.
+
+V004 completes the requested classification. It proves no regularity for
+the actual nonabsorbing set. Given this theorem, proving that set automatic
+would be equivalent to convergence and is not an intermediate milestone.
+The map records quantitative section complexity as a possible next target,
+alongside the separate statistical alternative. No follow-on goal is
+activated here.
+
+### Delivery
+
+Committed the completed batch as
+`f54b7416caac3b8d1bc3f76e8c4f572de07b830c` and pushed it to origin/main.
+Immediately after the push, local HEAD and origin/main matched that commit
+and the working tree was clean. The final scoped checks passed:17 Markdown
+files,501 local links,15 anchors, four frozen comparisons and the standalone
+arithmetic replay. This documentation follow-up records the completed
+delivery; it does not alter the mathematical result or activate another goal.
+
 ## 2026-10-18 — Recommendation after the user requests a higher target
 
 The user observed that the selected language yielded only a small theorem
