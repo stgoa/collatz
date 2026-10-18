@@ -26,6 +26,53 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 00:53 — FINDING (written proof + validation): with target (8ρ(w) − 5)/9, plain quotient-orbit prefixes are strict-ρ plans for every W5 input
+
+**Statement.** Let `w ∈ W5`, `q = ν(3w) = ρ(w)` and `z = ν(w)`. Follow `T = ν∘S` from `q` to the first state `x` with `9x + 5 < 8ρ(w)`. Then
+
+```
+J = N_3w + Σ_(i<n) quotient_bridge(Tⁱq) + H_x − N_w − H_z
+```
+
+has divergence `P(w) − requests(H_x) + requests(H_z)`, and every request has `ρ(u) < ρ(w)`.
+
+**Proof, from main's own theorems.**
+
+- **Requests of `H_x`.** R51 gives `σ(u) ≤ ν(x) = x`. R62 (1) says `ρ(u) = (9σ(u) + 5)/8` on `E` and `ρ(u) = σ(u)` off `E`. Either way `ρ(u) ≤ (9x + 5)/8 < ρ(w)`.
+- **Requests of `H_z`.** R43 gives `ρ(u) ≤ (9z + 5)/8`. With `z ≤ (w − 1)/4` and `ρ(w) > w`, this is below `ρ(w)`.
+
+For `w ∈ E` the target equals `σ(w)`, so these are exactly the 23:43 σ-plans. For `w ∉ E` the target is `(8ρ(w) − 5)/9` rather than `ρ(w)`, which removes R62's window (2).
+
+**Consequence.** Induct on ρ, then apply R40's equivalence. Collatz is then equivalent to the following statement:
+
+> For every `w ∈ W5`, the quotient orbit of `q = ν(3w)` reaches a state below `(8q − 5)/9`.
+
+A complete strict-ρ recursion for all of W5 is therefore the same thing as this quotient stopping-time statement for the critical images `ν(3w)`. No rule recognition is involved; the lookahead is that orbit's own stopping time.
+
+**Validation.** Main's own ρ validator (`critical_rank.rank_closure.validate_step`, at `793e835`) accepts all 3,600 plans, 1,200 each at 24, 40 and 64 bits, across every class. The table gives the share of inputs that need at most `n` quotient steps.
+
+| n ≤ | 2 | 4 | 8 | 16 | 32 |
+|---|---:|---:|---:|---:|---:|
+| share | 13.0% | 49.1% | 76.1% | 92.4% | 98.7% |
+
+The largest `n` observed is 79.
+
+`python3 sidekick/probes/rho_prefix_plans.py` (about 25 s; receipt alongside)
+
+---
+
+## 2026-10-18 00:53 — VERIFIED: R62's σ/ρ compatibility theorem on actual σ-plans (main `793e835`)
+
+- **Identity (1).** `8ρ(u) = 9σ(u) + 5` holds on 20,000 random `E` inputs.
+- **The theorem.** We apply it to 3,000 quotient-prefix σ-plans from the 23:43 entry, 1,000 each at 24, 40 and 64 bits.
+  - All 159 plans with an `E` parent are ρ-valid.
+  - For the 2,841 plans with a parent outside `E`, the requests with `ρ(u) ≥ ρ(w)` are exactly the `E`-requests in window (2), in every case.
+- **How often the frontier is empty.** 2,836 of those 2,841 plans (99.8%) are already strictly ρ-decreasing. The 00:53 entry above removes the remaining window cases by stopping at `(8ρ(w) − 5)/9` instead of `ρ(w)`.
+
+`python3 sidekick/probes/r62_compatibility_check.py` (about 20 s; receipt alongside)
+
+---
+
 ## 2026-10-18 00:22 — FINDING: the full signed closure of the fifteen-family dispatcher either finishes outright or stops about 2 bits below its root
 
 This runs main's `refined_rules.close(w)` (commit `d265d94`) on random `w ≡ 5 (mod 8)`, 200 per size. That call expands every accepted plan recursively under strict ρ and keeps unrecognized inputs as signed leaves. No run reached the 20,000-node cap.

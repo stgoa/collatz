@@ -1,0 +1,11 @@
+{
+  "e_identity_checked": 20000,
+  "plans": {
+    "E parent: rho-valid": 159,
+    "non-E parent": 2841,
+    "non-E parent: already rho-valid": 2836
+  },
+  "scope": "R62 compatibility identity and theorem on quotient-prefix sigma plans.",
+  "share_non_E_already_rho_valid": 0.998,
+  "status": "PASS"
+}
