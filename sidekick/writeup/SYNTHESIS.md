@@ -1,6 +1,6 @@
 # The W5 reduction of the Collatz conjecture: a verified map
 
-*This is a consolidated survey of the main programme (results R1–R71 and C1–C5 on `main`, through commit `ea3278e`) and the independent side lane (`claude/sidekick`), as of 2026-10-18.*
+*This is a consolidated survey of the main programme (results R1–R74 and C1–C5 on `main`, through commit `aefdf60`) and the independent side lane (`claude/sidekick`), as of 2026-10-18.*
 
 Status labels follow the repository:
 
@@ -130,6 +130,8 @@ The σ rules are not imported. The inner resolvers are frozen: R59 uses the twel
 - the twelve-family dispatcher accepts 722;
 - the fifteen-family dispatcher accepts 747, leaving 277 unresolved (for example `P(21) ↦ {21: 1}`).
 
+**A normal-form tool (R73).** Two exact pair identities, `w ≡ 93 (mod 512) ↦ (9w − 5)/64` and `b ≡ 1285 (mod 2048) ↦ 9(b − 5)/256`, generate a terminating, idempotent, integer-linear normal form for signed request vectors. Its kernel is exactly the relation module of the two identities. On R69's reset family it removes both helper premises, leaving the smaller `P(u)`.
+
 The side lane's size-stable rates are in §5.
 
 ## 4. Scoped obstructions
@@ -162,6 +164,8 @@ Every no-go result in the programme is **scoped**: it excludes a specified proce
 | R69 | Any phase-dependent monomial "debt" potential: a reset family breaks decrease across mixed blocks |
 | R70 | Finishing via the natural mixed exit: it can re-enter higher, `R(w) > w`, repeatably on complete cylinders |
 | R71 | Integer cycles from mechanical words: every cycle state has reduced denominator `2^(A/g) − 3^(k/g)`, never 1 except for the all-2s word (published antecedents) |
+| R72 | A finite affine-valuation rank on R69's two fixed mixed phases: infinitely many distinct centres defeat any finite centre list |
+| R74 | Finite integrality alone: every finite word in the mixed exit-18 returns `V`, `R` is realized by integers on a complete cylinder. Eventually periodic words have negative rational points, so they are never positive integers. Aperiodic survivors remain open; their density is zero, with explicit count bounds |
 
 **Interpretation (side lane, 23:32).** On negative odd integers, `T` has exactly three cycles with `|x| ≤ 4000`:
 
@@ -195,6 +199,8 @@ All rows below are measurements, not checks. Main notes that "size-stable" is no
 | share | 13% | 49% | 76% | 92% | 98.7% |
 
 The largest lookahead observed was 79. These shares are about the same in every class, including the selected classes that were hardest for the hand-built rules.
+
+**States with no smaller ancestor (exact census, R49's criterion).** Of the 499,998 canonical states below `2·10⁶`, 48.5% have no smaller canonical ancestor at any depth. The share is flat from `10³` up. By `q mod 3` it is 88.5% (for 0), 57.0% (for 1) and 0% (for 2). Every certificate for these states needs forward motion.
 
 ## 6. The core equivalence
 
@@ -321,8 +327,10 @@ The appendix is pinned at side commit `7150f31` and main commit `ea3278e`. Times
 | R44, R45, R47, R48, R50, R52, R55, R59, R60 | coverage meters (22:21–00:22) | measured only |
 | R51, R53, R54, R57 | 23:32, 23:45, 23:51 (`batch_r51_r54_check`, `batch_r53_check`, `batch_r57_check`, `negative_cycle_shadows`) | independently checked; R53 and R54 reinterpreted as −5 and −17 cycle shadows |
 | R58, R62 | 00:16, 00:53 (`r58_excess_check`: 112,000 seeds; `r62_compatibility_check`), both against main's R43 implementation | checked (semi-independent) |
+| R49 | 02:18 (`r49_ancestor_free`): both anchors, their three-arrow paths, and an exact census below `2·10⁶` | independently checked (finite) |
 | R71 | 01:43 (`r71_mechanical_check`), 735 exact words | independently checked (finite) |
-| R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R49, R56, R61, R63–R70 | none (R56 only through main's review of the 23:32 word) | not touched |
+| R73, R74 | 02:21 (`batch_r73_r74_check`): 4,000 members of each pair identity (clocks), 600 random V/R words (domains, growth, negative periodic points) | independently checked (finite) |
+| R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R56, R61, R63–R70, R72 | none (R56 only through main's review of the 23:32 word) | not touched |
 
 ### A.2 Main's reviews of side-lane claims
 
@@ -338,6 +346,7 @@ All of these are in `experiments/residual_progress/`.
 | `_c2319c9.json` (`793e835`) | R58 probe reproduced with identical tallies |
 | `_33c3829.md/.json` (`a489973`) | stopping-threshold argument and equivalence correct; both probes reproduced exactly |
 | `_678e565.md/.json` (`ea3278e`) | transfer, `18u + 5` form and catalogue accepted; finite-base-only inference rejected (already withdrawn); halving renumbered R23 |
+| `_13590c1.md/.json` (`aefdf60`) | R71 probe reproduced byte for byte, float bounds confirmed by integer bit lengths; 01:31 transfer correction accepted |
 
 `negative_controls/PR1_REVIEW.md` keeps C1–C5 at their stated scope. It rejects PR1's broad claims ("cheapest certificate is forced", "alternatives cannot succeed") with explicit counterexamples, including 56 equal-cost certificates on `A₇₆₈`.
 
