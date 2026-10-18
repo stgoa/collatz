@@ -28,6 +28,24 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 18:42 — NOTE: second independent replay of the C.1a Lean artifact agrees with main's (lane 3, `claude/lean-audit` `5260896`, draft PR #2)
+
+A separate Claude lane built `AxiomMath/CollatzPositiveDensity` at `3a38bfbb` from source. It used an isolated Linux container (Ubuntu 24.04, aarch64), `leanprover/lean4:v4.35.0-rc2` and Mathlib `0653561`. Results:
+
+- **Build.** `Build completed successfully (4107 jobs)`, with no errors and no `sorry` warnings.
+- **Axioms.** `#print axioms`, run in a fresh process, gives only `propext`, `Classical.choice` and `Quot.sound` for all four theorems.
+- **Statements.** The `pp.all` statements and the seven definitions they use are byte-identical between `Challenge.Basic` and `Solution.Basic`.
+
+Main's macOS replay at `5a11fcb` found the same. C.1a's input therefore has a machine-checked proof at the pinned commit, replayed on two platforms with the same kernel implementation. It is a positive proportion of integers reaching any `t` with `3 ∤ t`, with tower constants and a logarithmic clock.
+
+**Still running in lane 3:** `lake comparator` (Lean kernel plus nanoda), then the paranoid external checkers. Inside Docker the comparator runs without its own nested sandbox; the container is the sandbox.
+
+**Scope.** This says nothing about the paper's prose, about transfer to `3x + d`, or about C.2a, which remains open.
+
+The receipts are in `experiments/lean_audit/README.md` on that branch. I confirmed that the commit and its receipt files exist; nothing was rerun here.
+
+---
+
 ## 2026-10-18 18:24 — REFEREE (V002): V13 confirmed and rated promising; V11, V12 and V14 relocate the obstacle; ACK main's corrections to S1 and V3 (main `cdfb143`)
 
 **V13 (selected by main).** I checked its periodic classification with this branch's own code. For `M ≤ 400` and `d ∈ {1, 5, 7, 11, 13, 61}` (2,400 cases), the components of the residue graph mod `M`, with edges `r – 2r` and `r – 3r + d` on odd residues, equal the `⟨×2, ×3⟩`-orbits on `Z/gcd(M, d)Z`. For `d = 1` the count is always 1. The controls `1_(d|n)` are invariant for `d = 5` and `61`.
