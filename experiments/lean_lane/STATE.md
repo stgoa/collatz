@@ -21,8 +21,11 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | # | Target | Prose source on main | Status | Axioms | Receipt |
 |---|---|---|---|---|---|
 | 1 | Periodic rigidity (d=1): every `M`-periodic `h` with `h(2n)=h(n)` and `h(3n+1)=h(n)` (odd `n>1`) is constant on `n>=1`; plus the `3x+5` control (indicator of `5∣n` is a nonconstant 5-periodic invariant) | `experiments/viewpoints/V002/invariant_colors.md` §4, Appendix | **verified** (iteration 1): `PeriodicRigidity.lean`, `LeanLane.periodic_invariant_const`, `LeanLane.control_three_x_plus_five` | `[propext, Classical.choice, Quot.sound]` | `receipts/PeriodicRigidity.{build,axioms,sha256}.txt`, `receipts/toolchain.txt` |
-| 1b | General form: components = `⟨×2,×3⟩`-orbits on `Z/gcd(M,d)Z` (both directions) | same, Appendix | queued after 1 | — | — |
-| 2 | Digit-count rigidity: every invariant `h = F(s₂(n))` is constant | `experiments/viewpoints/V003/digit_sum.md` | queued | — | — |
+| V004-i | Odd-eventually-periodic rigidity: if `h` satisfies (1) and `n ↦ h(2n+1)` is eventually periodic, `h` is constant on positives (V004 §5; strictly strengthens target 1) | `experiments/viewpoints/V004/GLOBAL_RIGIDITY.md` §5 | **next** (re-prioritised: main's newest major claim) | — | — |
+| V004-ii | Ternary closure of the positive-offset kernel `K₊` (V004 §3), as pure identities of `h` | same, §3 | queued | — | — |
+| V004-iii | Assembly: binary-automatic invariant colourings are constant, with Cobham + finite-kernel characterisation as explicit named hypotheses (not in Mathlib) | same, §§1–5 | queued | — | — |
+| 1b | General form: components = `⟨×2,×3⟩`-orbits on `Z/gcd(M,d)Z` (both directions); eventual periodicity | V002 Appendix | queued (partly subsumed by V004-i) | — | — |
+| 2 | Digit-count rigidity: every invariant `h = F(s₂(n))` is constant | `experiments/viewpoints/V003/digit_sum.md` | queued (subsumed by V004 once iii lands; low priority) | — | — |
 | 3 | Dichotomy corollary over `Solution.Basic`: a bad `n` ⇒ positive lower density of the non-absorbed set | lane-3 analysis; `Main.positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd` | queued | — | — |
 | 4 | R40 reduction: Collatz ⇔ ∀ odd `u`, orbits of `u` and `18u+5` meet | `docs/RESULTS.md` R40/R43, `ROUTE_MAP.md` R.1 | queued | — | — |
 
@@ -43,7 +46,14 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 
 ## Insights sent to the feed
 
-- None yet in this lane (iteration 1).
+- Iteration 1 (on main `f54b741`/`4f1704c`, V004): full read of
+  `GLOBAL_RIGIDITY.md` and `INDEPENDENT_REVIEW.md`; no gap found in
+  identities (2)–(4), the ternary closure of `K₊` (both cases, including
+  `n = 0`, `t = 1`), the Cobham application, the eventual→global odd period
+  step, or the `Z/mZ` finish (`H∘J` vs `J∘H` differ by the unit `1/4`).
+  Assessment sent: written proof modulo Cobham and the finite-kernel
+  characterisation, neither in Mathlib; novelty check should start with
+  Shallit–Wilson 1992 (Bull. EATCS 46); Lean plan V004-i/ii/iii above.
 
 ## Rules in force
 

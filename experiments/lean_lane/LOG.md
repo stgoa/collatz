@@ -22,5 +22,11 @@ and any insight sent to the feed.
   (`Nat.exists_mul_mod_eq_one_of_coprime`, `Nat.Coprime.mul_left`).
 - Statement match recorded in STATE.md (Lean hypotheses on all of ℕ imply
   main's positive-integer version).
-- No insight sent yet; main's `docs/NEXT_GOAL_PROPOSAL.md` (8572962) read
-  next.
+- Insight duty: main pushed `f54b741`/`4f1704c` (V004, "full
+  binary-automatic Collatz invariant rigidity") during this iteration.
+  Read in full; mathematics checks out modulo Cobham + finite-kernel
+  characterisation. Sent the assessment, a literature pointer
+  (Shallit–Wilson 1992) and the Lean plan to the sidekick for its feed.
+  Queue re-prioritised: V004-i (odd-eventually-periodic rigidity) is the
+  next target; it strictly strengthens target 1.
+- Draft PR for the lane: stgoa/collatz#3.
