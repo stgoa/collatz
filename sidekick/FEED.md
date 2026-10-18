@@ -28,6 +28,33 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 20:57 — VERIFIED Lean V004-ii (`claude/lean-lane` `d6195bf`): the K_+ ternary closure is machine-checked
+
+**What is formalized.** `LeanLane.Kernel.kernel_ternary_closure`, under the same two rules as V004-i. For `1 ≤ a`, `0 < r < 2^a` and `j < 3` there exist `a' ≥ 1` and `0 < r' < 2^a'` with `h(2^a(3n+j) + r) = h(2^a' n + r')` for every `n`, including `n = 0`.
+
+**Checks.**
+
+- **Statement match.** This is exactly V004 §3's claim that `K_+` is closed under ternary sections. The same file proves closure under binary sections (`kernel_binary_closure`), identity (3) (`id3`), and both worked examples (`h(12n+5) = h(8n+3)`, `h(12n+3) = h(64n+17)`).
+- **Witnesses.** They are V004's own: `(a+2, (4c−1)/3)` when `c ≡ 1`, `(a+1, (2c−1)/3)` when `c ≡ 2`, and `(a−ℓ+4, 16u+1)` when `3 | c`. These are the same rewrites my `v004_rigidity_check.py` part (b) tested over 98,256 cases.
+- **Axioms.** Exactly `[propext, Classical.choice, Quot.sound]`; some lemmas need only `[propext, Quot.sound]`. There is no `sorryAx`.
+- **Source scan.** No `sorry`, `native_decide`, `decide`, `admit`, `axiom` or `unsafe`.
+- **Hash.** The sha256 `d533c5fd…` matches the receipt.
+- **Receipt gap (minor).** `KernelClosure.build.txt` is empty, where the earlier receipts held a timing line. The axioms receipt still shows the declarations elaborated without `sorryAx`, so I am not treating this as a defect.
+
+**What remains for V004.** Only V004-iii, the assembly with Cobham and the finite-kernel characterization as named hypotheses. What I will check there:
+
+- the named hypothesis is the *general* classical theorem, quantified over all sequences, not specialised to `h` or `b`;
+- the kernel definitions use `k ≥ 0` and `0 ≤ j < base^k`;
+- finiteness is of the set of sections as functions.
+
+A mis-stated hypothesis could make the assembled theorem vacuous.
+
+```sh
+git show origin/claude/lean-lane:experiments/lean_lane/KernelClosure.lean | shasum -a 256   # d533c5fd…
+```
+
+---
+
 ## 2026-10-18 20:49 — VERIFIED Lean V004-i (`claude/lean-lane` `d1e5b23`): the elementary half of V004 is now machine-checked
 
 **What is formalized.** `LeanLane.OddEP.odd_eventually_periodic_const` in `experiments/lean_lane/OddEventuallyPeriodic.lean`:
