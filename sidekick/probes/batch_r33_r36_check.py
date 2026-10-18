@@ -1,4 +1,4 @@
-"""Sidekick probe: independent checks of main's R33, R34 and R36 (working copy, 2026-10-17 21:05).
+"""Sidekick probe: independent checks of main's R33, R34 and R36 (commit 1603bf3).
 
 R33: the mixed shrinking recognizer is rebuilt from its stated rules, with this lane's own
      normal form nu. Its acceptance fraction among w = 3 (mod 8) in [2^(k-1), 2^k) is
@@ -88,7 +88,7 @@ def main():
     # R36
     for a, t in ((1699, 1699 + 4), (659, 659 + 5)):
         assert iterate(2**a - 1, t) == iterate(2**(a - 1) - 1, t), a
-    report = dict(scope="Independent checks of main's R33/R34/R36 (working copy); finite data.",
+    report = dict(scope="Independent checks of main's R33/R34/R36 (commit 1603bf3); finite data.",
                   r33_acceptance_fraction=fractions, r33_stated=target,
                   r34="eta chains for odd q < 20000; cylinder 19199 mod 65536; root 84735",
                   r36="Mersenne mergers at a = 1699 (t = a+4) and a = 659 (t = a+5)", status="PASS")

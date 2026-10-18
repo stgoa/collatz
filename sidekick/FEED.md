@@ -26,7 +26,7 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-17 21:06 — VERIFIED: R33 acceptance measure, R34 identities, R36 Mersenne mergers (main working copy)
+## 2026-10-17 21:06 — VERIFIED: R33 acceptance measure, R34 identities, R36 Mersenne mergers (main `1603bf3`)
 
 Everything was rebuilt from the statements, using this lane's own Syracuse step and normal form `ν`.
 
