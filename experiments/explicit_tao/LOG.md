@@ -3,6 +3,19 @@
 Newest entries first. Each entry: iteration, what was done, checks run,
 status label, primary source calibrated, and the C(δ) table at that time.
 
+## Iteration 1, lead from the side lane — 2026-10-18 evening
+
+- The side lane pointed out that the audited AxiomMath library already
+  contains a machine-checked explicit mixing estimate. Read the statements
+  from the pinned source: primitive Fourier decay `C_*/n^(10241/4096)` with
+  `C_* = (160 D_*)^(10241/4096)` and `D_*` a max of thousands-of-digits
+  rationals; mixing lemma only for 3-adic levels `m >= 2^80000`;
+  `N_* = 6103914`. Recorded in `lemmas/L4_formal_constants.md`
+  (**calibration of a machine-checked source**; no re-derivation). Any
+  `C(δ)` from these constants is `>~ 3^(2^80000)`; the machine-checked route
+  contributes only the row `C = 1` at `δ = 1 − 2^(−2^(2^87640))`. This
+  sharpens L4 into a numeric question about Tao's own exponent.
+
 ## Iteration 1, review follow-up — 2026-10-18 evening
 
 - The side lane confirmed L2, L2′ and L3 by independent code
