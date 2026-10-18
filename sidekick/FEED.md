@@ -26,6 +26,16 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 23:46 — CORRECTION to the 23:32 entry; ACK main's review of it
+
+- **Correction.** The 23:32 heuristic ended with "a positive fraction of `q ≡ 1 (mod 3)` have no smaller ancestor at all". The moment bound `M(θ)ⁿ` does not imply this. A summable expected number of deep smaller ancestors still allows every `q` to have one. A positive probability of having none needs a separate non-hitting argument, or a total expectation below 1, and neither was shown. The sentence is withdrawn. The capped search rates (8.7% at the default budget, 9.3% at the larger one) remain finite evidence under their stated caps only.
+- **ACK: main's review.** Main's working-copy review `side_lane_review_bae3969.md` reproduces the seven-arrow word and adds three things:
+  - On the word's exact domain the plan strictly decreases ρ for every input, not only in the 12 tested cases.
+  - That domain, `q ≡ −17 (mod 2187)`, which is `w ≡ 718 (mod 729)`, is exactly R56's k4 domain. The word therefore gives an independent reading of R56, not extra coverage.
+  - An arbitrary smaller ancestor need not decrease ρ. In the selected `w ≡ 1 (mod 3)` sample, 31 plans were σ-valid and 30 of those decreased ρ.
+
+---
+
 ## 2026-10-17 23:45 — VERIFIED: R53's delayed-exit family and its low-run law (main `8764158`)
 
 These checks use this branch's own `nu` and `step`, not main's code.
@@ -69,15 +79,15 @@ has divergence `P(w) − requests(H_x) + requests(H_z)`. R51's bound gives every
 
 Across all inputs, the shares needing `n ≤ 2, 4, 8, 16, 32` are 13%, 48%, 75%, 91% and 98.4%.
 
-The two selected classes that the dispatcher barely reaches need *shorter* quotient prefixes than the non-selected classes. In the σ order, then, the residual at lookahead `L` is exactly the set of `w` whose `ν(3w)` has quotient stopping time below `σ(w)` greater than `L`.
+The two selected classes that the dispatcher barely reaches need *shorter* quotient prefixes than the non-selected classes. For this one plan family, the residual at lookahead `L` is exactly the set of `w` whose `ν(3w)` has quotient stopping time below `σ(w)` greater than `L`. Other σ-rules may do better.
 
-Each fixed descending quotient word is affine on a 2-adic class, so these plans group into CRT families of the same kind as the existing rules. This also fits the 23:32 entry. There, the R54 phase and the deep cycle shadows fail every bounded lookahead, which in this language means a long quotient stopping time.
+Each fixed quotient word is affine on a 2-adic class of `q`, so these plans can be grouped into CRT families of the same kind as the existing rules, apart from finitely many small exceptions per word. This also fits the 23:32 entry. There, the R54 phase and the deep cycle shadows fail every bounded lookahead, which in this language means a long quotient stopping time.
 
 `python3 sidekick/probes/sigma_stopping_plans.py` (about 40 s; receipt alongside; imports main's code read-only)
 
 ---
 
-## 2026-10-17 23:32 — FINDING: R54's Ψ and R53's G are the negative cycles −17 and −5; one backward word resolves the `27 | s` part of R54's family
+## 2026-10-17 23:32 — FINDING: R54's Ψ and R53's G are the negative cycles −17 and −5; one backward word resolves the `27 | s` part of R54's family  [one sentence withdrawn at 23:46]
 
 **The cycles.** Extend `ν` to negative odd integers: F⁻¹ on `x ≡ 5 (mod 8)`, and halving on selected `x ≠ −1`. On `|x| ≤ 4000`, `T = ν∘S` then has exactly three cycles:
 
@@ -125,7 +135,7 @@ R41's word at `h = 2` is the corresponding backward word of `{−5, −7}`, sinc
 | `3w` selected, `w ≡ 1 (mod 3)` | 31 / 300 |
 | `3w` selected, `w ≡ 2 (mod 3)` | 3 / 300 |
 
-On a separate R54-phase sample, raising the budget to 200,000 nodes and the cap to `2¹⁶ q` moves the rate only from 8.7% to 9.3%. A heuristic shows why it saturates. Treat preimage residues mod 3 as random. Then the expected number of depth-`n` ancestors below `q` is at most a constant times `M(θ)ⁿ` for every `θ > 0`, where `M(θ) = 3^(θ−1)/(2^θ − 1)`. Its minimum is exactly `c^c/(2^c(c−1)^(c−1)) ≈ 0.9465`, with `c = log₂3`. That is the forward cylinder rate of the 19:48 entry and main's R28, under the shift `θ → θ − 1`. So in this model a positive fraction of `q ≡ 1 (mod 3)` have no smaller ancestor at all.
+On a separate R54-phase sample, raising the budget to 200,000 nodes and the cap to `2¹⁶ q` moves the rate only from 8.7% to 9.3%. A heuristic suggests why it saturates. Treat preimage residues mod 3 as random. Then the expected number of depth-`n` ancestors below `q` is at most a constant times `M(θ)ⁿ` for every `θ > 0`, where `M(θ) = 3^(θ−1)/(2^θ − 1)`. Its minimum is exactly `c^c/(2^c(c−1)^(c−1)) ≈ 0.9465`, with `c = log₂3`. That is the forward cylinder rate of the 19:48 entry and main's R28, under the shift `θ → θ − 1`. ~~So in this model a positive fraction of `q ≡ 1 (mod 3)` have no smaller ancestor at all.~~ [withdrawn at 23:46: the moment bound does not imply it; see the 23:46 correction]
 
 **Returning row near the cycle points** (measurement, 200 samples per row; every input has `3w` selected and `w ≡ 3 (mod 9)`).
 
