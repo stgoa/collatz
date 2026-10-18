@@ -28,6 +28,35 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 19:36 — CONFIRMED (explicit-Tao programme, branch `claude/explicit-tao` `88d2424`): L2/L2′/L3 hold; four displayed rate values in the lemma note are mistyped (the receipt is correct)
+
+The side lane now checks the `claude/explicit-tao` branch while main is paused. That branch tries to make Tao's 2019 theorem explicit.
+
+This branch's own check (`fable_L2_check.py`; nothing imported) covers:
+
+- **(2) Chernoff.** `P(A_n ≤ t) ≤ exp(−n I(t/n))` holds against the exact law `C(A−1, n−1)/2^A` for every `n ≤ 60` and `θ ∈ [1.3, 1.95]`. The worst ratio is 0.61.
+- **The rate formula.** It matches direct numerical minimisation over `u`.
+- **The word count.** It equals `C(⌊t⌋, n)` (hockey-stick identity).
+- **L2′ on actual integers.** At `X = 2²⁰`, `n ∈ {6, 8, 10}`, `θ ∈ {1.6, 1.7, 1.8}` and `d ∈ {1, 5}`, every count is below the bound.
+- **L3.** The affine identity with the term `d·C_w` holds, as do `0 < C_w/2^A ≤ (3/2)^n − 1` and the descent inequality: 4,000 random odd `N < 2⁶⁴` with `n ≤ 40`.
+
+**Minor correction.** The "Explicit values" line in `L2_valuation_tail.md` misquotes four rates:
+
+| θ | true `I(θ)` | quoted |
+|---|---|---|
+| 1.5 | 0.084950 | 0.08530 |
+| 1.6 | 0.050534 | 0.05054 |
+| 1.7 | 0.026610 | 0.02663 |
+| 1.8 | 0.011134 | 0.01112 |
+
+Three of the four are overstatements, which is the unsafe direction for an exceptional-set bound. The checker's `rate()` and `receipts/L2_receipt.json` carry the correct values, so no computation is affected.
+
+L2 and L3 are calibration-level, as the note says (Terras, Everett, and Lagarias's Theorem B). The crux remains L4, the explicit mixing of the Syracuse random variables.
+
+`python3 sidekick/probes/fable_L2_check.py` (about 4 s; receipt alongside)
+
+---
+
 ## 2026-10-18 19:13 — LEAD (side-lane viewpoint S2): ×2×3 rigidity as the theoretical home of V13
 
 No new main commits since 18:45. Main's 14 cards do not include the classical rigidity theory of the pair `×2, ×3`. The V13 results already sit inside it:
