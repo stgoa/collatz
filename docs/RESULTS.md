@@ -997,7 +997,7 @@ On G={b905mod8192}, U(b)=(729b+223)/512 and Y(b)=217b+223 satisfy Y(Ub)=729Y(b)/
 
 All nine final binary phases13..21 are classified. On the full H17 family v2(Y(b))=9r+17, write c=U^(r+1)(b), z=(9c-1)/16. Exact cancellation yields requests `{z:1}+A_z-A_b` and ordinary clocks(6r+12,4), quotient6r+8. The leading rank3z is below3b exactly at r0; every r>=1 leaves it higher. Other helpers need not remain below the original rank, but none cancels the unique leader. The two named base-ray inverses restore respectively the preceding growing comparison and the exit comparison, row for row.
 
-The bound `(27M+23)/32` for nonblocked local W9 plans is a useful stopping interface only until a smaller rank, W5 leaf or blocked W9 leaf is reached. It gives no closure across those leaves. Higher-ray modular matches are explicitly an uncompleted candidate.
+The bound `(27M+23)/32` for nonblocked local W9 plans is a useful stopping interface only until a smaller rank, W5 leaf or blocked W9 leaf is reached. It gives no closure across those leaves. The higher-ray candidate is now completed on explicit all-return-count subfamilies in R83; the whole exit type remains open.
 
 See [proof](../experiments/residual_progress/native_nine_growth/NATIVE_NINE_GROWTH.md), [implementation](../experiments/residual_progress/native_nine_growth/nine_growth.py), and [receipt](../experiments/residual_progress/native_nine_growth/nine_growth_audit.json). Checks cover123 cylinders,216 exit-phase cases,27 full H17 comparisons,24 full returns,54 inverse undos,383 local bounds and16 rejections. Complete failed-current tables at r1/r2 contain78/134 rows. No absorption search or accepted dispatcher rule is added.
 
@@ -1014,6 +1014,42 @@ An independently checked forward-closed table of4892 canonical states includes a
 The prescribed R44/R52 endpoint comparisons retain the same genuine higher request throughout this family, even with the native absorption basis. Failure of the full seventeen-rule dispatcher is recorded only for four finite samples. No new W5-only coverage or universal history-hitting theorem is claimed.
 
 See [proof](../experiments/residual_progress/native_history/HIGH_HISTORY.md), [constructor](../experiments/residual_progress/native_history/native_history.py), [anchor table](../experiments/residual_progress/native_history/anchor_certificate.json), and [receipt](../experiments/residual_progress/native_history/native_history_audit.json). Default verification checks the supplied anchor edges,54 family/native plans,54 W5-frontier variants,54 actual R44/R52 failures,88 base inverse words,18 varied words and11 rejections. Two supplied conversions produce46/229 rows with all5/9 required pair-current tables. Bounded inverse examples are evidence; the all-ray quantifiers follow from the written shadow proof.
+
+## R81 — Complete fixed-word history cells and original-rank transport
+
+**Status: written maximal-cell theorem, conditional signed compiler and exact supplied-current audit.**
+
+For positive odd anchors q0,p0 whose ordinary words alpha,beta meet, let a,b be their lengths and A,B their total valuations. Every positive same-word merger is exactly `q=q0+M*k`, `p=p0+P*k`, k integer, where `M=2^(A+1)*3^max(b-a,0)` and `P=2^(B+1)*3^max(a-b,0)`. M is minimal. The exact positivity and p<q intervals are given; all k>=0 are smaller precisely when p0<q0 and P<=M. Equal slope and finite expansive-slope examples are retained. This concerns raw paired origins, not every possible current.
+
+If rho(w)=q and p<q, the full current `N_(3w)+K+J_p-J_w`, divK=[q]-[p], requests `A_p-A_w` with all signed ranks belowq. Every nonzero terminal current remains required. The unchanged dispatcher is not extended.
+
+For R80's words(1,2) and(1^6,2,2,1^4,2,6), the entire cell is `q=11547+16*3^12*k`, `p=11391+2^23*k`, k>=0, with gap156+114448k. Its period is8192 times smaller than the old sufficient period. Ordinary clocks remain(2,14), quotient clocks(1,13), and the peak is32q+17. The ordinary meeting need not be canonical. For oddk the local W9 row is nonblocked; for evenk put Z=6496+3^14*k and H=v2(Z). It is blocked exactly when Z/2^H=3^Hmod4. The progression k3072mod4096 lies outside the old cell and retains genuine higher R44/R52 requests, even in the native basis; the new history plan is strict. No universal seventeen-rule nonrecognition is asserted.
+
+See [proof](../experiments/residual_progress/history_lifting/HISTORY_LIFTING.md), [compiler](../experiments/residual_progress/history_lifting/history_lifting.py), and [receipt](../experiments/residual_progress/history_lifting/history_lifting_audit.json). Checks cover18 specifications,189 lifts,592 memberships,191 native plans,62 old-phase records with38 genuine high requests,19 rejections and three complete supplied outputs with46/100/108 rows. Written algebra supplies the unbounded statements. Universal useful-word selection and terminal supply remain open.
+
+## R82 — All-ray history classification from a finite supplied anchor
+
+**Status: written completeness theorem within a stated ternary horizon and exact finite-table classification.**
+
+Let Q be a checked finite absorbing canonical T-table containing every canonical origin throughN. For canonical Y>1,y>=Y with y=Ymod3^K, and thresholdq>=2, set `n=ceil((q+1)(Y+1)/(y+1))-2`. If n<=N, every canonical a<q reachingy in0..K steps is the lift of a supplied origin c<=n whose unique path visitsY, with lengthd<=K. The lift is `a=c+lambda*(y-Y)`, where lambda is its inverse slope; test a<q. This includes every inverse ray without a search cap. The proof uses alpha-beta>=1 to obtain `a+1>=(c+1)(y+1)/(Y+1)`. It makes no claim beyondK or at anchorY1.
+
+For an affine forward endpoint y=gq+h with q>=b and Y=gb+h, the uniform anchor bound is `ceil(max(b+1,(Y+1)/g))-2`. A valuation1 canonical prefix gives exactlyb-1. The contracting paths465→43→65→49→9→7→11 and497→11 give lifted p<q even though497>465; their safe cutoff is538. This refutes the unrestricted smaller-anchor shortcut.
+
+The supplied4892-state R80 table has exactly one canonical origin below11547 reaching17321:11391, at quotient depth13, with inverse slope2^20/3^13. Consequently, for `q=11547+16*3^D*t`, D>=1,t>=0, its one-step future has no smaller origin throughD+1 whenD<=11; whenD>=12 its sole smaller origin within that horizon is `p=11391+2^23*3^(D-12)*t`, at depth13. At t0 the table gives the unique smaller origin at every depth; positive lifts are scoped toD+1. This is sharp for the named target, not for other futures or arbitrary currents. The same theorem excludes smaller ancestors ofq throughD.
+
+See [proof](../experiments/residual_progress/history_frontier/HISTORY_FRONTIER.md), [compiler](../experiments/residual_progress/history_frontier/history_frontier.py), and [receipt](../experiments/residual_progress/history_frontier/history_frontier_audit.json). Replay covers the full anchor,44 lifted histories,23 finite inverse trees,36 shadow words including large rays,10 cutoff controls,16 rejections and two supplied currents reconstructed from R80. No unknown absorption search is used. Universal history access remains unproved.
+
+## R83 — High histories beyond every prescribed native growth depth
+
+**Status: written conditional all-return-count CRT construction, complete scoped failure and full supplied finite demonstration.**
+
+For each r>=0 put s=r+1 and choose the unique `0<L<3^(6s+2)` with `64^L=217/8272mod3^(6s+4)`. Let h=11L+8s. Two exact positive CRT cells have `v2(217b+223)=9r+17`, c=U^s(b)=137mod1024, and exact point orderh on the second quotient inverse ray ofq=3(9c-1)/16. Their smaller endpointp satisfies p<b. The slope is `9*(131072/177147)^L/18^s<=1/2`, with a strictly negative omitted affine term; the strict inequality holds for every positive member, not only eventually.
+
+The actual upper word from3b is `(1,2,1),(1,1,2,1,1,3)^s,(1,1,3)`; the lower word fromp is `1^h,2,6L+3,1,2,1`. They meet at M=(2187c+925)/512>3b, with ordinary clocks(6r+12,h+5). Their prefix difference plusH_p-H_b has signed requestsA_p-A_b, all ranks below3b. Smaller currents remain supplied premises. The first(r,L,h) are(0,740,8148) and(1,2028089,22308995); huge later words are represented symbolically with explicit materialization caps.
+
+For r>=1 the complete two-ray/point procedure succeeds exactly when h>=1 andp<3b; h0 restores the old exit. All ray indices are covered by a proved finite cutoff: J=floor(log2(3b-1))-1, P=floor((3/2)^J*(3b-1)), and `64^L<=floor((9P-2)/(9a0+7))`. At b96797577 onlyL0,1,2 on each ray need testing and all six fail, with full signed frontiers retained. A supplied absorption witness confirms this is a limitation of that procedure, not a missing-current theorem. Other inverse words, cycles and later histories are outside the exclusion.
+
+See [proof](../experiments/residual_progress/native_growth_escape/NATIVE_GROWTH_ESCAPE.md), [constructor](../experiments/residual_progress/native_growth_escape/growth_escape.py), and [receipt](../experiments/residual_progress/native_growth_escape/growth_escape_audit.json). Replay covers20 symbolic depths through64,160 modular phases, four exact terminal-unit/index cells, six exhaustive failure cases,21 rejections and a capped-decision check. A fully materialized r0 comparison has8165 rows; its supplied31041/39181-arrow absorption paths compile to an exact129-row pair current. The inputs are stored losslessly and checked edge by edge. Coverage of the entire H17 type and universal terminal supply remain open.
 
 ## C1 — Independent audit of R2–R4 and of main's R5, R6, R9, R10
 

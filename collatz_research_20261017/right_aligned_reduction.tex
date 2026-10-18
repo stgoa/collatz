@@ -103,6 +103,13 @@ request vectors and remove both reset helpers, but leave the mixed-growth
 leader. Every finite word of the specified exit18 returns has positive
 integer realizations. Periodic limits are negative; sparse possible
 aperiodic integer survivors remain unexcluded.
+Exact fixed-word lifting now gives maximal arithmetic cells of smaller
+common-tail origins, with all signed premises below the original critical
+rank. A supplied finite anchor table classifies every smaller history
+through the available ternary precision, including every inverse ray.
+For one growing native exit, explicit smaller-origin comparisons exist
+after any prescribed number of returns, while the whole exit type and
+universal supply of its terminal currents remain unresolved.
 No complete universal current construction, Collatz proof, or novelty claim
 is supplied.
 \end{abstract}
@@ -6784,6 +6791,394 @@ finite observation here. No universal history-hitting theorem or
 terminal-current supply is asserted. The full argument and anchor table
 are in \texttt{native\_history/HIGH\_HISTORY.md} and its linked data.
 
+\section{Complete fixed-word lifting at the original critical rank}
+An exact ordinary valuation word $\alpha$ of length $a$ and total
+$A$ has affine formula
+\[
+ S^a(x)=\frac{3^a x+c_\alpha}{2^A}
+\]
+on one residue class modulo $2^{A+1}$. The extra bit is essential.
+The empty word is allowed and has the cylinder of all odd integers.
+
+\begin{theorem}\label{thm:historylifting}
+Suppose positive odd anchors $q_0,p_0$ have exact words $\alpha,\beta$,
+of lengths $a,b$ and totals $A,B$, and their endpoints agree. Put
+\[
+ M=2^{A+1}3^{\max(b-a,0)},\qquad
+ P=2^{B+1}3^{\max(a-b,0)}.
+ \tag{HL1}
+\]
+All positive odd pairs with these same words and equal endpoints are
+exactly
+\[
+ q=q_0+Mk,\qquad p=p_0+Pk,\qquad
+ k\in\mathbb Z,\quad q,p>0.
+ \tag{HL2}
+\]
+The endpoint may vary with $k$, and $M$ is the minimal step of this
+complete target progression. The raw smaller-origin condition is exactly
+\[
+ (q_0-p_0)+(M-P)k>0.
+ \tag{HL3}
+\]
+In particular $p<q$ for every $k\ge0$ if and only if
+$p_0<q_0$ and $P\le M$. Equal slope is permitted.
+
+Let $K$ be the difference of the two prefix currents, so
+$\operatorname{div}K=[q]-[p]$, with ordinary clocks $(a,b)$.
+For any $w\in W_5\cup W_9$ satisfying $\rho(w)=q$ and $p<q$,
+the full conditional pair plan is
+\[
+ C=N_{3w}+K+\widehat J_p-\widehat J_w,\qquad
+ c=\widehat A_p-\widehat A_w.
+ \tag{HL4}
+\]
+It has boundary $P(w)-\sum_v c(v)P(v)$, and every nonzero request
+has rank below the original $q$. Exact currents for all signed
+terminal requests remain supplied premises.
+\end{theorem}
+\begin{proof}
+The exact upper cylinder gives $q-q_0=2^{A+1}j$.
+Equality of the two affine endpoints forces
+\[
+ p-p_0=2^{B+1}3^{a-b}j.
+\]
+If $b>a$, integrality is equivalent to $3^{b-a}\mid j$;
+otherwise no additional divisibility is required. In both cases the
+resulting lower difference is divisible by $2^{B+1}$, which preserves
+its exact word. This proves both directions and the minimal step.
+The linear difference proves (HL3) and the stated slope boundary.
+The prefix currents telescope. Adding the full normalizer $N_{3w}$
+and the two formal absorption currents proves (HL4), preserving both
+signs. Theorem~\ref{thm:criticalbasis} bounds all its ranks by
+$\max(\nu(p),\nu(w))<q$.
+\end{proof}
+
+The slope in (HL2) is
+$\lambda=P/M=2^{B-A}3^{a-b}$, with intercept
+$p_0-\lambda q_0$. The equal-slope case occurs at
+$q_0=739,p_0=725$, with words $(1,8)$ and $(7,2)$ meeting at13:
+both periods are1024 and the gap stays14. Conversely $q_0=21,p_0=19$
+with words $(6)$ and $(1,3,1,2,3,4)$ meet at1 but have slope
+$256/243$; only $k=0$ is smaller among nonnegative indices.
+These statements concern these fixed raw words, not every normalized
+origin or signed-current construction.
+
+For Theorem~\ref{thm:nativehistory}, use
+\[
+ \alpha=(1,2),\qquad \beta=(1^6,2,2,1^4,2,6),
+ \qquad (q_0,p_0)=(11547,11391).
+\]
+Their lengths are2 and14 and totals3 and22. The entire positive
+fixed-word merger cell is therefore
+\[
+ q=11547+16\cdot3^{12}k,\qquad
+ p=11391+2^{23}k,\qquad k\ge0,
+ \tag{HL5}
+\]
+with $q-p=156+114448k>0$ and $w=q/3\in W_9$.
+Its target period is8192 times smaller than the earlier sufficient
+period; this compares exact arithmetic cells, not orbit probabilities.
+The ordinary clocks remain $(2,14)$, meeting at $(9q+5)/8>q$.
+The quotient clocks are $(1,13)$, meeting at $y=(3q+1)/2$.
+Indeed the $j$th lower state increases from its anchor by
+$3^j2^{23-A_j}k$. For $j\le12$ this is divisible by512, preserving
+the proper canonical prefix; the thirteenth state is $F^2(y)$.
+All lower states after $p$ are above $q$, with maximum $32q+17$.
+The ordinary common state need not itself be canonical.
+
+The enlarged cell is not wholly in the blocked local row.
+For odd $k$, $v_2(3q-1)\ge5$ and the local row is nonblocked.
+For even $k$, its depth is4. Put
+\[
+ Z=6496+3^{14}k,\qquad H=v_2(Z),\qquad T=Z/2^H.
+\]
+The local row is blocked exactly when $T\equiv3^H\pmod4$:
+this is precisely the noncanonical phase of
+$3z=Z-1$, where $z=(3q-1)/16$.
+There is a whole larger old-failure subdomain. For $k=512j$,
+the returning input $u=(3q+3)/4$ has exponent7 and endpoints
+\[
+ r=\frac{6561q+8965}{1024}\equiv1\pmod8,\qquad
+ f=S(r)=\frac{19683q+27919}{4096}
+       =55495+2\cdot3^{21}j\equiv1\pmod3.
+ \tag{HL6}
+\]
+Whenever $f$ is canonical and $3\bmod4$, both prescribed old returning
+plans, and the native formal absorption frontiers at $r$ and $f$, retain
+coefficient $+1$ at $v=(2f+1)/3\in W_5$, with
+\[
+ \rho(v)=f,\qquad
+ f-\rho(u)=\frac{15075q+25359}{4096}>0,\qquad \rho(u)>q.
+\]
+The sufficient complete subprogression $j\equiv6\pmod8$ gives
+$f\equiv11\pmod{16}$ and hence this genuine failure.
+Equivalently $k\equiv3072\pmod{4096}$, disjoint from the older
+$k\equiv0\pmod{8192}$ cell. The new history plan still descends below
+$q$. No assertion about the whole seventeen-rule dispatcher follows.
+Full interval formulas, source checks and scope are in
+\texttt{history\_lifting/HISTORY\_LIFTING.md}.
+
+\section{A finite anchor classifies every smaller history within precision}
+The complete inverse branches of the canonical quotient $T$ are affine
+$x\mapsto\alpha x+\beta$, including every ray index, with
+$\alpha>0$ and $\alpha-\beta\ge1$.
+
+\begin{theorem}\label{thm:historyfrontier}
+Let $\mathcal Q$ be a supplied finite canonical edge table, closed under
+$T$, in which every state reaches1. Suppose it contains every canonical
+origin at most $N_0$. Fix a canonical $Y>1$. Let integers $q\ge2$, $K\ge0$,
+and canonical $y\ge Y$ satisfy $y\equiv Y\pmod{3^K}$. Put
+\[
+ C=\frac{(q+1)(Y+1)}{y+1},\qquad n=\lceil C\rceil-2,
+ \qquad n\le N_0.
+ \tag{HF1}
+\]
+For every canonical $c\le n$, follow its supplied path to1 and retain
+it if it visits $Y$. Write $d_c$ for that path length to $Y$ and
+$\lambda_c$ for the product of its inverse affine slopes.
+Include the empty path when $c=Y$ is eligible.
+
+Then the complete set of pairs
+\[
+ a<q,\quad a\text{ canonical},\quad 0\le d\le K,\quad T^d(a)=y
+\]
+is exactly
+\[
+ (a,d)=\bigl(c+\lambda_c(y-Y),d_c\bigr)
+ \tag{HF2}
+\]
+over retained entries with $d_c\le K$ and $a<q$.
+If $n<1$, or if $Y$ is outside the closed table, the set is empty.
+Every ray index is covered; no inverse-ray search cap is present.
+\end{theorem}
+\begin{proof}
+Shadow any actual inverse word at $Y$. Through $K$ steps the ternary
+congruence preserves each branch's legality, since each inverse denominator
+is3 and its numerator multiplier is a power of2. Write its states as
+$a_i=\lambda_i(y-Y)+c_i$. Starting at zero, the gap satisfies
+\[
+ G_i=\lambda_i-\frac{c_i+1}{Y+1}
+ =\alpha_iG_{i-1}+\frac{\alpha_i-\beta_i-1}{Y+1}\ge0.
+\]
+Consequently
+\[
+ a_i+1\ge(c_i+1)\frac{y+1}{Y+1}.
+\]
+If $a_i<q$, then $c_i+1<C$, hence $c_i\le n$.
+Its supplied forward path must visit $Y$ after exactly $i$ steps.
+Since $Y>1$ and the table is absorbing, no extra cycle traversal is
+possible. Conversely each retained inverse word of length at most $K$
+is legal at $y$, is positive canonical, and gives (HF2).
+Testing its strict height bound completes both directions.
+\end{proof}
+
+The catalogue size is bounded by the number of supplied origins and
+its path lengths by $|\mathcal Q|-1$, independently of $K$.
+This does not extend the classification past the available ternary
+precision. The cutoff must retain the actual affine prefix: if
+$y=gq+h$, $Y=gb+h$, $g>0$ and $q\ge b$, then
+\[
+ C\le\max\left(b+1,\frac{Y+1}{g}\right).
+\]
+For $j$ canonical valuation-one arrows,
+$y+1=(3/2)^j(q+1)$, so (HF1) gives exactly $n=b-1$.
+It is false for an arbitrary contracting prefix that only smaller
+anchor origins need be checked. The anchor paths
+$465\to43\to65\to49\to9\to7\to11$ and $497\to11$
+lift, for $D\ge0,t\ge1$, to
+\[
+ q=465+2^{19}3^Dt,\qquad
+ p=497+2^{11}3^{D+5}t<q,\qquad
+ T^6(q)=T(p)=11+16\cdot3^{D+6}t.
+ \tag{HF3}
+\]
+Here the larger anchor497 is necessary; the safe origin cutoff is538.
+
+For the supplied4892-state table of Theorem~\ref{thm:nativehistory},
+all2887 canonical origins below11547 are covered. Exactly one of
+their paths visits $Y=17321$: the origin11391, at quotient depth13,
+with inverse slope $2^{20}/3^{13}$. This is an exhaustive finite
+table certificate. For
+\[
+ q=11547+16\cdot3^Dt,\qquad y=(3q+1)/2,\qquad D\ge1,\ t\ge0,
+ \tag{HF4}
+\]
+the cutoff is11546 and $y-Y=8\cdot3^{D+1}t$.
+There is no smaller canonical origin reaching $y$ through $D+1$
+quotient arrows when $D\le11$. When $D\ge12$, the complete set is
+the single origin
+\[
+ p=11391+2^{23}3^{D-12}t,\qquad d=13.
+\]
+For $t=0$ the same table proves uniqueness at every depth.
+For positive lifts no exclusion past $D+1$ is asserted.
+The empty catalogue at anchor target11547 also excludes smaller
+origins reaching $q$ itself through $D$ arrows.
+Thus13 is sharp for this specified one-step future and horizon;
+it is not an optimality claim over later futures or arbitrary currents.
+Summing each canonical edge as $\delta_x+N_{S(x)}$ gives exact
+ordinary currents; the difference of target and partner paths, plus
+$\widehat J_p-\widehat J_{q/3}$, has all signed ranks below $q$.
+The proof, complete table checks and cutoff control are in
+\texttt{history\_frontier/HISTORY\_FRONTIER.md}.
+
+\section{Smaller histories after every prescribed native growth depth}
+Retain $U(b)=(729b+223)/512$ and $Y(b)=217b+223$.
+For positive integer $b$ with $v_2(Y(b))=9r+17$, $r\ge0$, set
+\[
+ s=r+1,\qquad c=U^s(b),\qquad z=(9c-1)/16,\qquad
+ q=3z,\qquad Q=3b.
+\]
+Theorem~\ref{thm:nativegrowth} supplies the full exit comparison
+$E+\widehat J_z-\widehat J_b$, with requests
+$\{z:1\}+\widehat A_z-\widehat A_b$ and
+$\operatorname{div}E=[Q]-[q]$.
+
+All quotient inverse rays of $q$ have the form
+\[
+ a_{0,L}=\frac{64^L(9(8z+1)+7)-7}{9},\qquad
+ a_{1,L}=\frac{64^L(9(16z+1)+7)-7}{9},\quad L\ge0.
+ \tag{GE1}
+\]
+For either ray put $h=v_3(a+1)$ and
+$p=2^h(a+1)/3^h-1$. All $h$ point-inverse steps are legal.
+When $h\ge1$, $p$ is complementary canonical, $p\not\equiv2\pmod3$,
+and its formal absorption has a unique highest request of rank $p$.
+With the inverse current $\operatorname{div}I=[q]-[p]$, the complete
+substituted plan is
+\[
+ E+I+\widehat J_p-\widehat J_b,\qquad
+ \widehat A_p-\widehat A_b.
+ \tag{GE2}
+\]
+The two $\widehat J_z$ terms cancel exactly, rather than being dropped.
+
+For $r\ge1$ this precise two-ray/maximal-point procedure is strict
+at the original rank $Q$ if and only if $h\ge1$ and $p<Q$.
+If $h=0$, its forward formal identity restores the old higher exit
+row for row. If $h\ge1$ and $p\ge Q$, its highest coefficient $+1$
+cannot cancel with the negative requests of rank at most $b$.
+Stopping a nonempty point prefix early gives the same maximal endpoint.
+This does not classify other inverse words or other comparisons.
+
+The decision over all $L$ is finite. A passing endpoint obeys
+$p+1\le Q-1$ and $2^{h+1}\mid p+1$. Hence, with
+\[
+ J_0=\lfloor\log_2(Q-1)\rfloor-1,\qquad
+ P_0=\left\lfloor\frac{3^{J_0}(Q-1)}{2^{J_0}}\right\rfloor,
+\]
+one has $h\le J_0$, $a+1\le P_0$, and, at either base $a_0$,
+\[
+ 64^L\le\left\lfloor\frac{9P_0-2}{9a_0+7}\right\rfloor.
+ \tag{GE3}
+\]
+For $b=96797577$, these ratios are18683 and9341. Thus only
+$L=0,1,2$ on each ray can pass. Their exact $(h,p)$ pairs are
+\[
+\begin{array}{c|ccc}
+ &0&1&2\\ \hline
+ \text{ray }0&(1,588709275)&(0,56516090481)&(0,3617029790833)\\
+ \text{ray }1&(0,1766127825)&(0,113032180849)&(2,3215137588615).
+\end{array}
+\]
+All fail against $Q=290392731$. A supplied finite absorption
+certificate for this same input proves that this is a failure of
+the named procedure, not nonexistence of the pair current.
+
+\begin{theorem}\label{thm:nativegrowthescape}
+For every integer $r\ge0$, two explicit infinite positive arithmetic
+cells in the exact exit family $v_2(Y(b))=9r+17$ admit (GE2) with
+$0<p<b$. Thus every signed terminal rank is below the original
+$Q=3b$. The smaller origin and the original root meet above $Q$,
+with ordinary clocks $(6r+12,h+5)$.
+\end{theorem}
+\begin{proof}
+Put $s=r+1$, $d=6s+4$ and
+$C_s=223(729^s-512^s)/217$. Choose the unique
+$0\le L<3^{d-2}$ satisfying
+\[
+ 64^L\equiv217/8272\pmod{3^d}.
+ \tag{GE4}
+\]
+The target is $1\bmod9$, and
+$v_3(64^n-1)=2+v_3(n)$ shows that64 generates exactly this
+subgroup. Moreover $L>0$, since $v_3(8272-217)=2<d$.
+For ray1 define
+\[
+ B_0=64^L(81C_s+7\cdot512^s)+2\cdot512^s,\qquad
+ \beta=B_0/3^d.
+\]
+This is an integer, because
+\[
+ 217B_0=64^L\,18063\,729^s+
+           2\cdot512^s(217-8272\cdot64^L)
+\]
+is divisible by $3^d$. The exact ray formula becomes
+\[
+ a+1=3^{6s+2}\frac{2^{6L}b+\beta}{2^{9s}}.
+ \tag{GE5}
+\]
+Choose $h=11L+8s$, $m=h-6s-2\ge0$, and either $e=1$ or2.
+Impose the coprime congruences
+\[
+\begin{split}
+ b&\equiv(e3^m-\beta)2^{-6L}\pmod{3^{m+1}},\\
+ b&\equiv(512^s\cdot137-C_s)729^{-s}
+                    \pmod{2^{9s+10}}.
+\end{split}
+ \tag{GE6}
+\]
+They define a complete nonempty progression of modulus
+$2^{9s+10}3^{h-6s-1}$. The first gives exact $v_3(a+1)=h$.
+The second gives $c\equiv137\pmod{1024}$ and hence
+$v_2(Y(b))=9s+8=9r+17$.
+
+The slope of $p$ as an affine function of $b$ is
+\[
+ \lambda=9\cdot64^L(729/512)^s(2/3)^h
+ =\frac9{18^s}\left(\frac{131072}{177147}\right)^L
+ \le\frac12.
+\]
+Retaining the intercept, the exact ray formula gives
+$a+1<9\cdot64^L(729/512)^s(b+223/217)$, since the omitted
+constant $64^L(7/9-2007/217)+2/9$ is negative.
+Thus
+\[
+ 0<p,\qquad p+1<\lambda(b+223/217)\le(b+223/217)/2,
+\]
+which implies $p<b$ for every positive integer in the cells.
+Equation (GE2) now bounds all requests by $\max(p,b)<3b$.
+
+For the meeting and clocks, the exact word from $3b$ is
+\[
+ (1,2,1),\ (1,1,2,1,1,3)^s,\ (1,1,3),
+\]
+of length $6r+12$ and total $9r+18$. From $p$ it is
+\[
+ 1^h,\ 2,\ 6L+3,\ 1,2,1,
+\]
+of length $h+5$. Direct affine composition, with the exact
+binary condition in (GE6), gives the same endpoint
+\[
+ M=\frac{2187c+925}{512}>3b.
+ \tag{GE7}
+\]
+The ordinary current $E+I$ equals the difference of these complete
+prefixes, row for row. This proves the clock and source claims.
+\end{proof}
+
+The first $(r,L,h)$ values are $(0,740,8148)$ and
+$(1,2028089,22308995)$. Larger families are represented symbolically;
+materialization has an explicit size cap. Exact absorption currents at
+$p$ and $b$, with coefficients $+1$ and $-1$, suffice to supply $P(b)$,
+or both may be expanded into the smaller critical pair premises of
+(GE2). Neither is assumed automatically available.
+The family covers explicit subcells at every prescribed growth depth,
+not the entire exit type, as the complete failure witness demonstrates.
+Full proofs, words and stored supplies are in
+\texttt{native\_growth\_escape/NATIVE\_GROWTH\_ESCAPE.md}.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -6954,9 +7349,20 @@ leave a higher request and that the two prescribed inverse repairs undo
 previous work. Theorem~\ref{thm:nativehistory} gives a constructive
 alternative: a smaller origin meets the target's future above its original
 height, despite arbitrarily deep complete inverse barriers on the same
-family. The next obligation is to supply every terminal current by such
-comparisons or another well-founded closure, covering a complete remaining
-type. The old $W_5$-only dispatcher is unchanged.
+family. Theorem~\ref{thm:historylifting} supplies its maximal fixed-word
+cell and the exact slope/intercept test, with an explicit larger subdomain
+where the earlier returning endpoint tests still fail.
+Theorem~\ref{thm:historyfrontier} exhausts every smaller history within
+the supplied ternary precision: at the specified one-step future the
+thirteen-step partner is unique. The moving cutoff is essential for
+contracting target prefixes.
+Theorem~\ref{thm:nativegrowthescape} gives explicit smaller histories
+after any prescribed number of native growing returns. Its all-ray
+failure witness also proves that the named ray/point procedure does not
+cover the whole exit type. These are conditional constructions with
+all signed premises retained. The next obligation is to supply every
+terminal current by such comparisons or another well-founded closure
+on a complete remaining type. The old $W_5$-only dispatcher is unchanged.
 
 An earlier independent side note gives a correct conditional threshold:
 any quotient prefix from $q=\rho(w)$ to $x$ with $9x+5<8q$ supplies
@@ -7275,5 +7681,27 @@ endpoint failures,88 base inverse words,18 varied inverse words and11
 rejections. Two supplied outputs have46 and229 rows, with all5 and9
 premise-current tables retained. No bounded inverse scan substitutes for
 the all-ray shadow proof or for universal terminal supply.
+The fixed-word lifting checker adds18 specifications,189 lifts,592 exact
+membership cases and191 native plans. It checks62 old-phase records,
+including38 genuine higher-request cases, and19 invalid inputs.
+Three actual supplied conversions produce46,100,108 rows using5,7,12
+complete premise-current tables respectively. These checks include equal
+slope, expansive slope, empty cells and negative legal lift indices.
+The finite-history-frontier checker re-verifies the4892-state absorbing
+table and all2887 lower origins, then adds44 lifted histories,23 finite
+inverse-tree comparisons,36 arbitrary-ray shadow words,10 contracting
+cutoff controls and16 invalid inputs. Two supplied currents reproduce
+the earlier exact outputs. The completeness and sharp13-step claims
+rely on the written theorem and the exhaustive anchor catalogue.
+The native-growth escape checker adds20 symbolic depths,160 modular
+phase checks, four exact terminal-unit/index cells, and all six feasible
+ray cases of the complete failure witness. Its materialized $r=0$
+comparison has8165 rows and clocks $(12,8153)$.
+Supplied absorption words have39181 and31041 arrows and compile to
+a129-row pair current. Full current tables are reconstructed from the
+stored hexadecimal sources and exact valuation words; only symbolic
+descriptors are tested at the much larger prescribed depths.
+Twenty-one invalid inputs and one capped-decision control are retained.
+These checks do not supply the terminal currents of the infinite families.
 These audits remain finite evidence for the implementations.
 \end{document}
