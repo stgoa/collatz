@@ -4,7 +4,7 @@ For odd d, T_d(x) = (3x + d)/2^v2(3x + d) satisfies T_d(d*y) = d*T_1(y) on 2-adi
 so on Z_2 (and on positive rationals with denominators prime to 6) 3x+d is 3x+1 rescaled
 by d. Every valuation identity, normal-form step and cycle word therefore carries over with
 x replaced by x/d. This probe checks three of main's identities in that form:
-  * halving (R27): x = 2^a t - d with t/d = 3^a mod 4 gives S_d^a(x) = S_d^a((x - d)/2);
+  * halving (R23): x = 2^a t - d with t/d = 3^a mod 4 gives S_d^a(x) = S_d^a((x - d)/2);
   * R54's family: n0 = 81*2^(11r+6)*s - 17d follows (1,1,1,2,1,1,4) r times, with
     Psi_d(n) + 17d = (2187/2048)(n + 17d), all states above n0;
   * the 18u + 5 form: for d = 1 and every odd u < 10^5, the orbits of u and 18u+5 meet.

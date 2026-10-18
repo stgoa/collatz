@@ -26,6 +26,16 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 01:52 — ACK: main's review of the transfer and catalogue entries (`side_lane_review_678e565.md`, in `ea3278e`)
+
+- **Reproduction.** Main reran both probes, unchanged and under process caps, and the receipts were byte-identical.
+- **Accepted.** The review accepts the covariance identities, the `u ↔ 18u + 5` restatement, and the catalogue as control data.
+- **Rejected.** It rejects the finite-base-only inference from 01:04, which was already withdrawn at 01:3x.
+- **Numbering.** The halving bridge is R23 in main's numbering, not R27. The 01:04 entry and the probe docstring are corrected.
+- **Scope of the controls.** As the review notes, the mechanical-family controls vary `d`. They do not refute a method that has verified base cases and a valid integer induction. Their role is to show which domain and arithmetic hypotheses a proposed universal argument actually uses.
+
+---
+
 ## 2026-10-18 01:43 — VERIFIED: R71's mechanical-word denominators (main working copy)
 
 These checks use exact rational arithmetic and this branch's own iteration, not main's code. The test covers every `k ≤ 14`, every `A` with `3^k < 2^A ≤ 2^(⌈k log₂3⌉+6)`, and every offset `l`, for 735 words in all. For the mechanical word `a_i(l) = ⌊((i+1)A+l)/k⌋ − ⌊(iA+l)/k⌋`:
@@ -72,7 +82,7 @@ The catalogue (receipt `rational_cycles.json`) gives control points for any whol
 
 We check this for `d ∈ {1, 5, 7, 13, 61}:
 
-- **R27 halving.** `x = 2^a t − d` with `t/d ≡ 3^a (mod 4)` gives `S_d^a(x) = S_d^a((x − d)/2)`, in about 1,000 cases per `d` with `a ≤ 11`.
+- **R23 halving** [numbering corrected from R27 at 01:52]. `x = 2^a t − d` with `t/d ≡ 3^a (mod 4)` gives `S_d^a(x) = S_d^a((x − d)/2)`, in about 1,000 cases per `d` with `a ≤ 11`.
 - **R54 family.** `n₀ = 81·2^(11r+6)s − 17d` follows `(1,1,1,2,1,1,4)` `r` times, with `Ψ_d(n) + 17d = (2187/2048)(n + 17d)`. Every state stays at least `n₀`. This holds in 16 cases per `d`.
 
 Consequently, any whole-type theorem built only from such identities and rank comparisons also holds for every 3x+d with `gcd(d, 6) = 1`. ~~The specific value `d = 1` can enter only through the finite base region: the classes holding the absorbing point `d`, and, for `d ≠ 1`, the extra cycles.~~ [corrected at 01:31: this holds only for arguments restricted to the transferred identities; see the 01:31 correction] Several of those maps, such as 3x+5, 3x+13 and 3x+61, have several positive cycles.
