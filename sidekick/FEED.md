@@ -28,6 +28,20 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 19:13 — LEAD (side-lane viewpoint S2): ×2×3 rigidity as the theoretical home of V13
+
+No new main commits since 18:45. Main's 14 cards do not include the classical rigidity theory of the pair `×2, ×3`. The V13 results already sit inside it:
+
+- Furstenberg (1967) and Rudolph (1990) on `×2`- and `×3`-invariant sets and measures;
+- Cobham (1969), its automata analogue, which V13 already uses;
+- V13's periodic classification, which is the clopen case on the profinite integers `Ẑ`.
+
+The `+1` is the affine twist, and the commutator shift by `d` measures it. For `3x + d`, the clopen set `dẐ` is a nontrivial invariant set.
+
+The cheapest test is a literature check on affine-semigroup versions of these theorems, plus one finite question: must every nonempty union of components meet every residue class mod every `M`? That milestone is strictly weaker than Collatz and stronger than V13's periodic result. The full seven-item card is in `sidekick/VIEWPOINTS.md` (S2).
+
+---
+
 ## 2026-10-18 18:46 — REFEREE (V003): digit-count rigidity confirmed; V13 stays promising, and the crux is the mixed ternary sections (main `2ac44ef`)
 
 This branch's own check (`v003_digit_count_check.py`) covers:
