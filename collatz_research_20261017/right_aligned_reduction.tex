@@ -3653,6 +3653,238 @@ changes with $D$; no permanent obstruction at a fixed seed is asserted.
 See
 \path{experiments/residual_progress/inverse_escape/INVERSE_ESCAPE.md}.
 
+\section{Complete inverse blocks on nonselected multiples of three}
+Let $w\in W_5$, $3\mid w$, with $q=3w$ nonselected, and write
+$w=3^Du$, $D\ge1$, $3\nmid u$. For each $k\in\{4,8\}$ put
+\[
+ b=2kw+1,\quad j=v_3(k4^Du+1),\quad
+ C=(k4^Du+1)/3^j,\quad p=2^{j+1}C-1.
+\]
+The exact ordinary word $1^j,2^D$ takes $p$ to $b$, and $T(b)=q$.
+Exactly one branch has $j>0$: $k=4$ when $u\equiv2\pmod3$, and
+$k=8$ when $u\equiv1\pmod3$.
+
+\begin{theorem}\label{thm:multipleinverse}
+The endpoint satisfies
+\[
+ p<q\quad\Longleftrightarrow\quad
+ k2^{2D+j+1}<3^{D+j+1}.
+\]
+On this domain the exact signed pair plan has only $W_5$ requests of
+strictly smaller critical-image rank. Every failed branch of this
+specified interface retains a nondecreasing request after full formal
+critical-nine substitution. For every $D\ge1$ there are complete
+nonempty accepted congruence families.
+\end{theorem}
+\begin{proof}
+With $\lambda=k2^{2D+j+1}/3^{D+j+1}$,
+$p-q=(\lambda-1)q+2^{j+1}/3^j-1$.
+The inequality $\lambda<1$ forces $j\ge4$, making both contributions
+negative. If $\lambda>1$, the difference exceeds $-1$ and is an even
+integer, hence is nonnegative. Equality of the slope is impossible.
+For accepted inputs $p$ is complementary $7\pmod8$, so its critical
+child $v$ is in $W_5$ and has rank $p<q$. The reverse prefix and quotient
+bridge, followed by the critical step and $H_v-H_{\nu(w)}$, have the
+claimed boundary and rank bounds by Theorem~\ref{thm:criticalrank}.
+
+At $j=0$ the formal absorption plan retraces the inverse spine, leaving
+zero current and the sole request $P(w)$. A failed positive-$j$ branch
+with a $W_5$ child has that child as its unique largest-rank request.
+The remaining $j=1$, $p\equiv0\pmod3$ row has a $W_9$ child. Exact
+substitution leaves the formal expression
+\[
+ P(w)+H_C-e_C-H_{S(C)}.
+\]
+Here $H_C$ has its unique leading rank $C$ and every $H_{S(C)}$ rank is
+below $q$. Directly, $C<q$ exactly for $k=4$, $D=1,2$; in all other
+cases $C>q$. Thus either the parent or the $C$ child remains uniquely
+largest. This also excludes a hidden decreasing cancellation in this row.
+Finally, for either $c\in\{1,2\}$ the CRT conditions
+\[
+ k4^Du+1\equiv c3^j\pmod{3^{j+1}},\qquad
+ 3^Du\equiv13\pmod{32}
+\]
+give the exact parameters and the nonselected phase. The choice
+$j=2D+6$ always satisfies the strict slope inequality.
+\end{proof}
+
+The quotient clock is $D+j+1$. The ordinary coalescence clocks are
+$D+j+2$ versus1 for $k=8$, and $D+j+a+2$ versus $a+1$ for $k=4$,
+where $a=v_2(q+1)$. They must not be identified. For $w=16653$ the
+child index31189 increases while its rank falls from49959 to46783.
+Full signs, the exceptional defect identity and stored inputs are in
+\path{experiments/residual_progress/nonselected_multiples/NONSELECTED_MULTIPLES.md}.
+
+\section{Complete forward blocks on the nonselected domain}
+For any $w\in W_5$ with $q=3w$ nonselected, write
+\[
+ q=2^at-1,\quad a\ge3,\quad
+ d=v_2(3^{a-1}t-1)\ge2,\quad u=(3^{a-1}t-1)/2^d.
+\]
+The earlier full run bridge has endpoint
+\[
+ f=\begin{cases}3^{(d-1)/2}u,&d\text{ odd},\\
+ 2\cdot3^{d/2}u+1,&d\text{ even}.\end{cases}
+\]
+It supplies $D_q$ with boundary $\delta_q-\delta_f$. The exact quotient
+return is $T^{a+\lfloor d/2\rfloor-1}(q)=\nu(f)$. For odd $d$ the
+ordinary comparison clocks are $a+(d-1)/2$ versus1; for even $d$ it
+is an ordinary path of length $a+d/2-1$.
+The plan $D_q-N_w+H_f-H_{\nu(w)}$ has exact boundary $P(w)$ minus
+its signed requests. Apply the complete endpoint rank bound in the
+returning-phase section to $n=\nu(f)$; denote it by $B(n)$.
+
+\begin{theorem}\label{thm:nonselectedforward}
+The test $B(\nu(f))<q$ gives a strict-rank rule on the whole accepted
+domain. For $a=3$ it succeeds exactly when $d$ is odd, or even $d\ge6$,
+or the even endpoint $f$ is selected. For $a=4$ it succeeds exactly when
+$d$ is odd, or even $d\ge10$, or $f$ is selected with
+\[
+ d\ge6\quad\text{or}\quad(d=4\ \text{and}\ \nu(f)\not\equiv3\pmod8).
+\]
+For every $a\ge3$ there are complete nonempty accepted families with
+$3\mid w$. In particular the whole classes $w\equiv45\pmod{384}$
+and $w\equiv741\pmod{768}$ are accepted.
+\end{theorem}
+\begin{proof}
+The lower input $\nu(w)<w/4$ always has rank below $q$; the upper bound
+is precisely the stated sufficient test. At $a=3,4$ the least allowed
+$t$ are5 and7 respectively. Odd $d$ is bounded by its worst value3,
+giving $(9f+5)/8=(243t+13)/64$ or $(729t+13)/64$, both below $q$.
+For even $d$, a nonselected $f$ is canonical with bound $f$, while a
+selected $f$ has canonical minimum $(f-1)/2$. Comparing these expressions
+with $q$ gives the thresholds in the statement. At $a=4,d=4$ the three
+canonical residues $1,3,7\pmod8$ give differences
+\[
+ (1631t-733)/512,\quad(-139t-127)/128,\quad(13t-7)/16,
+\]
+so exactly the middle residue fails. The full intercept comparisons,
+including $d=2$ failure at $a=4$, are in the companion proof.
+For any $a$, choose odd $d\ge3$ with
+\[
+ 2^d(2^{a+3}-13)>9\cdot3^{(d-1)/2}(3^{a-1}-1).
+\]
+Such choices exist by the factors4 and3 under $d\mapsto d+2$.
+The coprime congruences
+\[
+ t\equiv3^{1-a}(1+2^d)\pmod{2^{d+1}},\qquad
+ t\equiv2^{-a}\pmod9
+\]
+fix the exact valuation, complementary binary phase and $3\mid w$.
+The displayed inequality makes the generic endpoint bound strictly
+smaller than $q$ for every positive member.
+\end{proof}
+
+This is an exact classification of the chosen sufficient test, not of
+all currents. A canonical even endpoint also has a complete undo:
+its maximal inverse block has $D=d/2$, $j=a-1$, and predecessor exactly
+$q$. Appending that reverse block cancels the forward current literally.
+Other endpoint comparisons remain available. Full statements and proofs:
+\path{experiments/residual_progress/nonselected_forward/NONSELECTED_FORWARD.md}.
+
+\section{Permanent inverse exclusions with short forward resolutions}
+If a canonical set $Q$ is $T$-forward-closed, no inverse ancestor of a
+target outside $Q$ belongs to $Q$. In particular inverse-only search
+cannot enlarge full supplied-history saturation. Uniform inverse formulas
+can nevertheless prove membership without enumerating the history and
+can support induction.
+
+\begin{theorem}\label{thm:permanentinverse}
+There are absorbed critical roots with no smaller canonical ancestor at
+any depth. Exact examples are39 and135, with $W_5$ indices13 and45.
+They enter verified smaller-origin history in three quotient steps:
+\[
+ 39\to59\to89\to33,\qquad135\to203\to305\to57.
+\]
+More generally, there are infinitely many absorbed inverse-minimal
+canonical states, without a restriction to the critical $W_5$ class.
+\end{theorem}
+\begin{proof}
+Stored finite exact edge tables contain every canonical origin below39
+or135, are $T$-forward-closed, and exclude the respective anchor. They
+have43 and68 states, with all edges and smaller-origin inclusion checked.
+Forward closure proves absence of a smaller ancestor at every depth,
+independently of a search cap. Both displayed final states lie in the
+corresponding table; full supplied absorption currents and the resulting
+pair currents are stored.
+For infinitude, the canonical inverse ray
+$r_k=(16\cdot64^k-7)/9$, $k\ge0$, satisfies $T(r_k)=1$ and has infinitely
+many distinct states. Every absorbed canonical $q$ has a least canonical
+ancestor $m(q)$, which is absorbed and inverse-minimal. Finitely many
+such minima would have only finitely many states in their finite forward
+orbits, contradicting this infinite absorbed set.
+\end{proof}
+
+A finite exclusion anchor $b>1$ also supplies an all-ray lift. If $q>b$
+is canonical and $q\equiv b\pmod{3^D}$, every canonical ancestor within
+$D$ quotient steps exceeds $q$. Shadow each inverse branch at $b$:
+$p_i=\lambda_i(q-b)+c_i$, with $c_i\ge b$. Every branch
+$y\mapsto\alpha y+\beta$ has $\alpha-\beta\ge1$, strictly on rays.
+The anchor cannot be $2\pmod3$, since its point predecessor would be
+smaller. Thus the gap $\lambda_i-(c_i+1)/(b+1)$ becomes positive at
+the first step and stays positive, giving $p_i>q$.
+
+Take $q=b+256\cdot3^Dt$, $t\ge1$, with $b=39,D\ge2$ or $b=135,D\ge4$.
+Then $v_3(q)$ remains1 or3 respectively, while the same inputs have
+\[
+ T^3(q)=\frac{27q+3}{32}\quad(b=39),\qquad
+ T^3(q)\le\frac{27q+3}{64}\quad(b=135).
+\]
+Both endpoints $r$ satisfy $9r+5<8q$, yielding strict-rank plans by
+Theorem~\ref{thm:criticalrank}. Their binary cylinders are already
+covered by Theorem~\ref{thm:nonselectedforward}; no extra coverage is
+claimed. This proves that arbitrarily deep inverse obstructions can
+coexist with fixed short forward resolution. Full invariant proofs and
+stored complete certificates are in
+\path{experiments/residual_progress/inverse_scope/INVERSE_SCOPE.md}.
+
+\section{A second inverse phase crosses an intermediate increase}
+Let $w\in W_5$ have $3w$ nonselected and $3\nmid w$. Choose $k=4$
+when $w\equiv2\pmod3$, otherwise $k=8$. Write
+\[
+ h=v_3(kw+1),\quad C=(kw+1)/3^h,\quad
+ r=2^{h+1}C-1,\quad L=v_3(2r+1)\ge3,\quad
+ p=2^L(2r+1)/3^L-1.
+\]
+The first inverse phase supplies $[3w]-[r]$ and the second supplies
+$[r]-[p]$. Combine these currents before requesting pair inputs.
+
+\begin{theorem}\label{thm:doubleinverse}
+Within this $L\ge3$ domain, $p<3w$ exactly when
+$h+L\ge5$ for $k=4$, or $h+L\ge6$ for $k=8$.
+Every accepted comparison gives only smaller-rank $W_5$ requests,
+including complete domains where $r>3w$.
+\end{theorem}
+\begin{proof}
+Directly,
+\[
+ k3^L(p-3w)=(k2^{h+L+2}-3^{h+L+1})C+(3-k)3^L-k2^L.
+\]
+The coefficient and constant are negative at the stated thresholds.
+Below them only $(k,h,L)=(4,1,3),(8,1,3),(8,1,4),(8,2,3)$ occur.
+The corresponding expressions are $13C-59$, $269C-199$, $295C-533$,
+$295C-199$. Exact $L$ forces $C\ge17$ in the first and $C\ge71$ in
+the third; the other expressions are positive for $C\ge1$. This proves
+necessity. Since $p$ is complementary $7\pmod8$, its critical child
+$v$ is in $W_5$. Apply one critical step to the combined bridge, then
+add $H_v-H_{\nu(w)}$. The rank bounds of
+Theorem~\ref{thm:criticalrank} prove strict decrease of every final input.
+\end{proof}
+
+The additional domains are $k=4$: $h=1,L\ge4$ or $h=2,L\ge3$;
+and $k=8$: $h=1,L\ge5$, $h=2,L\ge4$, or $h=3,4,L\ge3$.
+For every prescribed $h\ge1,L\ge3$, the CRT conditions
+\[
+ C\equiv(1+13k)3^{-h}\pmod{32k},\qquad
+ C\equiv(1+3^L)2^{-h-2}\pmod{3^{L+1}}
+\]
+give a complete nonempty family with $w\equiv13\pmod{32}$ and exactly
+these phase lengths. At $w=53$ the comparison is159 to283 to111:
+the intermediate rank increases, but every final request decreases.
+The seven-rule compiler composes these and the earlier strict-rank domains,
+retaining every unhandled leaf. It does not supply the universal complement.
+See \path{experiments/residual_progress/double_inverse/DOUBLE_INVERSE_PHASES.md}.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -3724,6 +3956,12 @@ increase while their critical images decrease. Theorems
 \ref{thm:returningforward}, \ref{thm:nonselectedphase} and
 \ref{thm:inverseescape} remove further complete arithmetic domains;
 their finite union still leaves explicit missing inputs.
+Theorems~\ref{thm:multipleinverse} and \ref{thm:nonselectedforward}
+now cover complete nonselected multiples-of-three domains, while
+Theorem~\ref{thm:doubleinverse} crosses some intermediate increases.
+Theorem~\ref{thm:permanentinverse} proves that inverse-only descent
+cannot be a universal completion even on absorbed critical inputs;
+forward or other comparisons remain necessary.
 Completing the remaining $W_5$ currents is still the full-strength open
 obligation. Further isolated merger families alone would not discharge it.
 Theorem~\ref{thm:paircatalogue} gives the exact limitation of the named
@@ -3878,5 +4116,14 @@ checker covers2731 word cases,444 parameter examples,317 strict plans,
 227 depth4 targets and15 complete small-origin checks. Stored supplied
 inputs and exact outputs permit replay of finite certificates, including
 one mixed no-input closure. All four checkers join the unified gate.
+The nonselected-multiple checker adds1364 complete plans and their failure
+vectors,264 exact parameter families and four actual substitutions. The full
+forward checker adds2047 inputs,1536 exact low-exponent classifications,
+687 whole-block undo identities and12 actual substitutions. The inverse-scope
+checker verifies two complete all-depth exclusion certificates,197 short and
+32 long inverse words,128 forward plans and56 lifted witnesses. The double
+inverse checker adds153 two-phase inputs,408 exact CRT cases and four actual
+substitutions; the expanded union checks1024 candidates and eight substituted
+outputs. Their unbounded statements rely on the corresponding written proofs.
 These audits remain finite evidence for the implementations.
 \end{document}

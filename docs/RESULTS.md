@@ -625,6 +625,48 @@ For every canonical q>1,q1 modulo9, no smaller quotient ancestor exists throughd
 
 See [proof](../experiments/residual_progress/inverse_escape/INVERSE_ESCAPE.md), [constructor](../experiments/residual_progress/inverse_escape/inverse_escape.py), and [receipt](../experiments/residual_progress/inverse_escape/inverse_escape_audit.json). Checks cover2731 word cases,444 parameter examples through D256/j182,317 strict plans,16 actual substitutions,227 depth4 targets,3229 finite inverse words,48 long-ray words and15 complete small-origin checks. Three full current tables are retained. The unbounded statements rest on the written proof.
 
+## R47 — Complete inverse interface for nonselected multiples of three
+
+**Status: written exact two-block classification, decreasing subdomains and retained failure vectors.**
+
+For w in W5 with3|w and3w nonselected, put D=v3(w),u=w/3^D. For each k4 or8, its base predecessor b=2kw+1 has maximal inverse blocks of lengths D and j=v3(k4^D u+1), giving `p=2^(j+1)(k4^D u+1)/3^j-1` and ordinary word1^j,2^D from p to b. The final quotient bridge reaches3w. Exactly one k has j>0. The endpoint decreases iff `k*2^(2D+j+1)<3^(D+j+1)`; this forces j>=4 and a W5 critical child. R43 bounds every auxiliary input below the parent rank.
+
+The classification includes every failed branch after full formal substitution. At j0 the current is zero and the sole request is w. At a failed positive-j W5 child, that child has the unique largest rank. The j1,p0 row has a W9 return with exact formal defect `P(w)+H_C-e_C-H_(S(C))`, C=(k4^D u+1)/3. The parent or the defect's leading child is uniquely largest, according to C<3w or C>3w; no descent is hidden by cancellation. Both terminal ternary phases have full CRT families at every D; j=2D+6 is an explicit sufficient choice. This entire accepted domain is outside the earlier four direct rule domains.
+
+See [proof](../experiments/residual_progress/nonselected_multiples/NONSELECTED_MULTIPLES.md), [constructor](../experiments/residual_progress/nonselected_multiples/multiple_escape.py), and [receipt](../experiments/residual_progress/nonselected_multiples/nonselected_multiples_audit.json). Checks cover682 inputs,1364 plans,240 CRT cases,24 farther families and four actual substitutions. The stored16653 example requests31189 while rank falls49959→46783. Remaining inputs and other inverse words are not settled.
+
+## R48 — Complete forward blocks and exact low-exponent tests
+
+**Status: written whole-domain conditional interface and exact classification of its rank test for a3/a4.**
+
+For every nonselected W5 input, write q=3w=2^a t-1, d=v2(3^(a-1)t-1),u=(3^(a-1)t-1)/2^d. The R26 endpoint is f=3^floor(d/2)u for odd d, or2*3^(d/2)u+1 for even d. Its exact quotient return time is a+floor(d/2)-1. Odd d instead has ordinary comparison clocks a+(d-1)/2 versus1; even d is an ordinary path of length a+d/2-1. The formal current `D_q-N_w+H_f-H_nu(w)` retains every signed W5 request. R44's full canonical endpoint bound B(nu(f))<q gives a strict-rho rule.
+
+For a3, the test accepts exactly: odd d; even d>=6; or a selected even endpoint f. For a4 it accepts exactly: odd d; even d>=10; or selected even f with d>=6, or d4 and nu(f) not3 modulo8. All intercepts are included. Complete multiples-of-three classes45 modulo384 and741 modulo768 lie inside this domain. For each a>=3 an explicit sufficiently large odd d and exact CRT progression give further accepted multiples of3. These are classifications of this sufficient test, not of all possible currents.
+
+For a canonical even endpoint, the R46 maximal inverse parameters are D=d/2,j=a-1 and its predecessor is exactly q: it reverses the same block and cancels the current literally. See [proof](../experiments/residual_progress/nonselected_forward/NONSELECTED_FORWARD.md), [constructor](../experiments/residual_progress/nonselected_forward/nonselected_forward.py), and [receipt](../experiments/residual_progress/nonselected_forward/nonselected_forward_audit.json). Checks cover2047 inputs,1536 a3/a4 decisions,687 undo identities,75 CRT examples through a128,32 multiple3 phase examples and12 actual substitutions. Three current tables are retained; universal endpoint coverage is open.
+
+## R49 — Permanent inverse-only exclusions coexist with short forward progress
+
+**Status: finite all-depth exclusion certificates, a general operation-scope theorem and written all-ray lifts.**
+
+If a canonical set Q is T-forward-closed and q is outside Q, no inverse ancestor of q belongs to Q. Thus inverse-only search cannot enlarge full supplied-history saturation. This does not prevent a uniform inverse formula from proving membership or supporting induction without materializing that history. A finite closed Q containing every canonical origin below b but excluding b proves that b has no smaller canonical ancestor at any depth.
+
+Stored exact tables give this certificate at b39 (w13) and b135 (w45,3|w), with43 and68 states. Both nevertheless enter verified smaller-origin history in exactly three quotient arrows:39→59→89→33 and135→203→305→57. Exact lower absorption inputs and tripling currents are stored. Hence even unlimited inverse-only descent is not a universal completion on the remaining critical domain.
+
+For b39,D>=2 or b135,D>=4, the family q=b+256*3^D*t,t>=1 preserves the forward cylinder yet has no smaller canonical inverse origin throughD steps, including every ray. The shadow proof uses the all-depth minimality of b and the strict affine gap lambda-(c+1)/(b+1). These families have fixed v3(q), respectively1 and3. Whole cylinders w13 modulo256 andw45 modulo128 have strict-rho three-step forward plans; they are contained in R48 and add no independent coverage. There are also infinitely many inverse-minimal absorbed canonical roots: otherwise finitely many finite absorbed forward orbits would cover the infinite absorbed canonical set. This last infinitude statement does not claim the roots all lie in the critical W5 class.
+
+See [proof](../experiments/residual_progress/inverse_scope/INVERSE_SCOPE.md), [certificate verifier](../experiments/residual_progress/inverse_scope/inverse_scope.py), and [stored closed tables](../experiments/residual_progress/inverse_scope/anchor_certificates.json). Complete finite checks verify the certificates and forward resolutions; arbitrary-depth lifting rests on the written invariant, not a truncated search.
+
+## R50 — Two inverse phases cross an intermediate increase
+
+**Status: written complete endpoint test within the second-depth L>=3 domain and a strict-rank constructor.**
+
+For nonselected W5 with3 not dividing w, choose k4 when w2 modulo3 andk8 otherwise. Set h=v3(kw+1)>=1,C=(kw+1)/3^h,r=2^(h+1)C-1,L=v3(2r+1)>=3,p=2^L(2r+1)/3^L-1. R45 gives a current with boundary[3w]-[r]; R41 gives one with boundary[r]-[p]. The combined bridge precedes every missing-current request. Exactly p<3w iff h+L>=5(k4) or>=6(k8); four explicit below-threshold cases prove necessity without small-input exceptions.
+
+Since p7 modulo8, its critical child is W5 and all final requests decrease rho by R43. The new domains are k4:h1,L>=4 orh2,L>=3; k8:h1,L>=5,h2,L>=4,orh3/4,L>=3. Every one has r>3w but p<3w and a complete nonempty CRT family. Examplew53 compares159 with283 and then111 through inverse phases; this order is not the forward orbit. Inputs with L<3 and failed tests remain unhandled by this result.
+
+See [proof](../experiments/residual_progress/double_inverse/DOUBLE_INVERSE_PHASES.md), [constructor](../experiments/residual_progress/double_inverse/double_inverse.py), and [receipt](../experiments/residual_progress/double_inverse/double_inverse_audit.json). Checks cover153 two-phase inputs,65 strict plans,408 exact CRT cases throughh128/L128 and four actual substitutions. The53 input and output are stored. The [expanded union](../experiments/residual_progress/double_inverse/expanded_union.py) combines seven strict-rho rules, preserving the earlier priority and explicit unresolved leaves. Its [receipt](../experiments/residual_progress/double_inverse/expanded_union_audit.json) covers1024 candidates,442 accepted rules,258 mixed closures and eight actual substitutions, with three full stored outputs. Those counts give no asymptotic or universal coverage theorem.
+
 ## C1 — Independent audit of R2–R4 and of main's R5, R6, R9, R10
 
 **Status: finite checks and model-assisted re-derivation; no discrepancy found.**
@@ -704,7 +746,7 @@ See the [note](../collatz_research_20261017/negative_controls/NOTE.md), Section 
 
 - **Primary:** construct a finite current (or one with nonpositive residual) at every cutoff on R5's five rays, and prove termination. R6's annular increments give an explicit sufficient target with its finite bases discharged. Arbitrarily large finite cost is permitted.
 - Find an arithmetic recursion or another structural mechanism that controls unresolved positive contributions. R13 proves its total exposure depth cannot be uniformly bounded, even on one ladder. Finite successful searches alone do not prove universal existence. C3 provides a conditional cost floor, while allowing one-sided alternatives. C2/C4 require a general termination argument to use hypotheses that fail for T_61; candidate methods that extend to those maps must respect the certified failures at `(d,N)=(61,213)` and `(-1,16)`.
-- Prioritize construction on the complement of the accepted R41/R44/R45/R46 domains in W5. R43 supplies a common canonical rank, so some increasing pair indices are now valid dependencies. The combined formal expansion terminates while retaining missing leaves. Resolve a complete further domain or prove eventual rank descent for a broader comparison. The failed base phases, nonselected multiples of3 and remaining returning inputs are concrete targets. R46 excludes fixed inverse depth even with fixed v3(q-1)=1 and after one/two forward arrows. Preserve signs, source weights and ordinary/quotient clocks; neither a self-request nor a larger finite acceptance rate supplies universal closure.
+- Prioritize the complement of the seven accepted strict-rho domains R41/R44/R45/R46/R47/R48/R50. R47–R48 now cover whole nonselected multiples-of3 subdomains; R50 permits an intermediate canonical increase before the final rank drops. R49 proves that inverse-only descent cannot cover even every absorbed critical input, so retain forward excursions and joint comparisons. Resolve a complete further forward-endpoint or returning domain, or prove eventual rank decrease across a broader comparison. Preserve all signed dependencies and ordinary/quotient clocks; the formal union still requires every remaining leaf.
 - Prove finite progress for every positive exposed-component plateau, or close R8/R9's residuals in a family with a decreasing integer parameter. R8 deletes only certified source coefficients; R9 contracts only one pass. Neither handles its full residual.
 - R11 gives a finite conditional compiler that retains boundary terms and can end a plateau if its packet inputs are supplied. Develop a noncircular source of those inputs. R12 rules out obtaining a new descent merely by alternating the existing P and R operators.
 - Independently audit cutoffs, absorption, the five-ray transition, finite bases, annular table, and maximum principle. Current review is computational and model-assisted. C1 is a separate, independent pass that found no error. There is still no human peer review or proof-assistant verification.

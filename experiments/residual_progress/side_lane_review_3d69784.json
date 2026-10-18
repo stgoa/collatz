@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "reviewed_commit": "3d69784a47790e5716d35a6a31b656aea0c73e79",
+  "source_hashes": {
+    "sidekick/probes/batch_r43_r46_check.py": "bffad8a327c69d71563ec5ae92533833bdff65e61ebb50d636df643c8c79d8a8",
+    "sidekick/probes/fibre_count_check.py": "071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a",
+    "collatz_research_20261017/negative_controls/affine_controls.py": "9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c"
+  },
+  "unmodified_probe_receipt": {
+    "quotient_predecessor_search_bound": 4000000,
+    "r46_depth4_q_checked": 1112,
+    "r46_identity_q_checked": 33333,
+    "ranks": {
+      "1613": 4839,
+      "4205": 12615,
+      "6645": 9967
+    },
+    "scope": "Independent finite checks of main's R43-R46 batch (working copy).",
+    "status": "PASS"
+  },
+  "process_cap_seconds": 60,
+  "scope": "Finite external identity/depth4/rank checks reproduced; R43 composition and R44/R45 domain proofs not independently rebuilt by this probe.",
+  "notes": [
+    "The quotient-preimage dictionary includes noncanonical odd origins too; this strengthens its finite search beyond canonical origins.",
+    "The code checks rho at6645,4205,1613; the header mentions2549 but does not test it. Main checks that value separately.",
+    "The cutoff4million is sufficient for these depth4 targets: inverse steps are at least(2y-1)/3, and any path that can end below q must stay below100q."
+  ]
+}

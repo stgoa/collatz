@@ -1,0 +1,3634 @@
+{
+  "status": "PASS",
+  "scope": "Complete prescribed two-block interface; universal remaining inputs open",
+  "W5_candidates": 4096,
+  "eligible_inputs": 682,
+  "complete_plans": 1364,
+  "cases": {
+    "uncancelled_largest_W5": 444,
+    "exact_zero_self_return": 682,
+    "W9_forward_defect": 228,
+    "strict_rank_decrease": 10
+  },
+  "decreasing_examples": [
+    {
+      "w": 2445,
+      "k": 4,
+      "D": 1,
+      "j": 4,
+      "p": 5151,
+      "child": 1717,
+      "clocks": [
+        10,
+        4
+      ],
+      "coefficients": {
+        "5": -1,
+        "21": 1,
+        "29": -1,
+        "1717": 1
+      }
+    },
+    {
+      "w": 4389,
+      "k": 4,
+      "D": 1,
+      "j": 4,
+      "p": 9247,
+      "child": 6165,
+      "clocks": [
+        11,
+        5
+      ],
+      "coefficients": {
+        "77": -1,
+        "6165": 1
+      }
+    },
+    {
+      "w": 10221,
+      "k": 4,
+      "D": 1,
+      "j": 4,
+      "p": 21535,
+      "child": 14357,
+      "clocks": [
+        10,
+        4
+      ],
+      "coefficients": {
+        "253": 1,
+        "757": -1,
+        "14357": 1
+      }
+    },
+    {
+      "w": 11493,
+      "k": 4,
+      "D": 2,
+      "j": 4,
+      "p": 32287,
+      "child": 21525,
+      "clocks": [
+        12,
+        5
+      ],
+      "coefficients": {
+        "21": 1,
+        "53": -1,
+        "1437": -1,
+        "21525": 1
+      }
+    },
+    {
+      "w": 16053,
+      "k": 4,
+      "D": 1,
+      "j": 4,
+      "p": 33823,
+      "child": 22549,
+      "clocks": [
+        12,
+        6
+      ],
+      "coefficients": {
+        "669": -1,
+        "22549": 1
+      }
+    },
+    {
+      "w": 16653,
+      "k": 8,
+      "D": 1,
+      "j": 5,
+      "p": 46783,
+      "child": 31189,
+      "clocks": [
+        8,
+        1
+      ],
+      "coefficients": {
+        "93": -1,
+        "325": 1,
+        "31189": 1
+      }
+    },
+    {
+      "w": 17325,
+      "k": 4,
+      "D": 2,
+      "j": 6,
+      "p": 21631,
+      "child": 14421,
+      "clocks": [
+        13,
+        4
+      ],
+      "coefficients": {
+        "5": -1,
+        "45": -1,
+        "85": 1,
+        "1925": -1,
+        "14421": 1
+      }
+    },
+    {
+      "w": 17997,
+      "k": 4,
+      "D": 1,
+      "j": 5,
+      "p": 25279,
+      "child": 16853,
+      "clocks": [
+        11,
+        4
+      ],
+      "coefficients": {
+        "5": 1,
+        "13": -1,
+        "117": 1,
+        "16853": 1
+      }
+    },
+    {
+      "w": 19941,
+      "k": 4,
+      "D": 1,
+      "j": 4,
+      "p": 42015,
+      "child": 14005,
+      "clocks": [
+        11,
+        5
+      ],
+      "coefficients": {
+        "21": 1,
+        "277": -1,
+        "389": 1,
+        "2493": -1,
+        "14005": 1
+      }
+    },
+    {
+      "w": 25773,
+      "k": 4,
+      "D": 1,
+      "j": 4,
+      "p": 54303,
+      "child": 18101,
+      "clocks": [
+        10,
+        4
+      ],
+      "coefficients": {
+        "13": -1,
+        "21": 1,
+        "189": 1,
+        "637": 1,
+        "1909": -1,
+        "18101": 1
+      }
+    }
+  ],
+  "synthetic_cases": [
+    {
+      "D": 1,
+      "k": 4,
+      "j": 1,
+      "terminal": 1,
+      "w": 429,
+      "period": 864,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        7,
+        4
+      ],
+      "sha256": "cc4a2e484c695ed6e9bf1236cd81099bb7f033bd98e5be639bf04cc7e4142b6e"
+    },
+    {
+      "D": 1,
+      "k": 4,
+      "j": 1,
+      "terminal": 2,
+      "w": 141,
+      "period": 864,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        7,
+        4
+      ],
+      "sha256": "20bdf79e4d5a31e1809690721cc68d32a3053e3e5064c680dadb7f690f9f0098"
+    },
+    {
+      "D": 1,
+      "k": 4,
+      "j": 2,
+      "terminal": 1,
+      "w": 1581,
+      "period": 2592,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        8,
+        4
+      ],
+      "sha256": "ece0e015ce095f266dacbcccb376833588eb53881326b2aa8cdb2d39f9eb8d2c"
+    },
+    {
+      "D": 1,
+      "k": 4,
+      "j": 2,
+      "terminal": 2,
+      "w": 717,
+      "period": 2592,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        8,
+        4
+      ],
+      "sha256": "c2fe68d50c38de5a8369064017777675b22e576eaa87916bce47e432a144d1f1"
+    },
+    {
+      "D": 1,
+      "k": 4,
+      "j": 3,
+      "terminal": 1,
+      "w": 7629,
+      "period": 7776,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        9,
+        4
+      ],
+      "sha256": "a89b3deafc055cf288ef6cbbb7bfe5c984b0188c03366e2bb05edb6d3d35298d"
+    },
+    {
+      "D": 1,
+      "k": 4,
+      "j": 3,
+      "terminal": 2,
+      "w": 5037,
+      "period": 7776,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        9,
+        4
+      ],
+      "sha256": "419c1c306e794f5e4e8ee04b03d5cf8c6673966aaa76f5b05709fa8e7070009d"
+    },
+    {
+      "D": 1,
+      "k": 4,
+      "j": 4,
+      "terminal": 1,
+      "w": 10221,
+      "period": 23328,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        10,
+        4
+      ],
+      "sha256": "898d0c5e28e66de857418588643deb6498a3f717ec1c3bb862d77daefaf9fcea"
+    },
+    {
+      "D": 1,
+      "k": 4,
+      "j": 4,
+      "terminal": 2,
+      "w": 2445,
+      "period": 23328,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        10,
+        4
+      ],
+      "sha256": "03c3cc197ca4cbefffa0c4f5d8849a1ca5319528b3522b5b1bb3c5c668f2c038"
+    },
+    {
+      "D": 1,
+      "k": 4,
+      "j": 8,
+      "terminal": 1,
+      "w": 414573,
+      "period": 1889568,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        14,
+        4
+      ],
+      "sha256": "30f10a53cb5313993e27b3ecb0b4317fdb606416d1c7678ba49884dc4352fd27"
+    },
+    {
+      "D": 1,
+      "k": 4,
+      "j": 8,
+      "terminal": 2,
+      "w": 1674285,
+      "period": 1889568,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        14,
+        4
+      ],
+      "sha256": "c11e1c5e698727f008daa2bcb214f1fc8aae42e322b7d25f33628368f662fa88"
+    },
+    {
+      "D": 1,
+      "k": 8,
+      "j": 1,
+      "terminal": 1,
+      "w": 525,
+      "period": 864,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        4,
+        1
+      ],
+      "sha256": "d39a59ecf69a7a08eed8b73b37b1e7bf37729b3b4a4726d87356de850f46ac7d"
+    },
+    {
+      "D": 1,
+      "k": 8,
+      "j": 1,
+      "terminal": 2,
+      "w": 813,
+      "period": 864,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        4,
+        1
+      ],
+      "sha256": "bf5893cd3a9ff86744e7175d683bfc081fc79de1fda449a4b87f052707a2150d"
+    },
+    {
+      "D": 1,
+      "k": 8,
+      "j": 2,
+      "terminal": 1,
+      "w": 1965,
+      "period": 2592,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        5,
+        1
+      ],
+      "sha256": "2a1b5b7f6c9146d7bfb3d57da853f1ae0c00a1c05590b51df93cdb9181ef24fb"
+    },
+    {
+      "D": 1,
+      "k": 8,
+      "j": 2,
+      "terminal": 2,
+      "w": 237,
+      "period": 2592,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        5,
+        1
+      ],
+      "sha256": "c236f2588407202c6e841874d9dd54510751298d13f6d7cb195b1ecd4c0034fa"
+    },
+    {
+      "D": 1,
+      "k": 8,
+      "j": 4,
+      "terminal": 1,
+      "w": 1101,
+      "period": 23328,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        7,
+        1
+      ],
+      "sha256": "f1a0e32360f7d473f314ecd47e75c4e8e70447ec35c2f17c33ec0a2fb36c765f"
+    },
+    {
+      "D": 1,
+      "k": 8,
+      "j": 4,
+      "terminal": 2,
+      "w": 8877,
+      "period": 23328,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        7,
+        1
+      ],
+      "sha256": "eff61d09c690b60fac065239587b1754927d2e984524bde082d881a05eb54231"
+    },
+    {
+      "D": 1,
+      "k": 8,
+      "j": 5,
+      "terminal": 1,
+      "w": 63309,
+      "period": 69984,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        8,
+        1
+      ],
+      "sha256": "8e2316f73eeabb159aee7b5785dced457b78dc4a4ccf81c3fe49925b16aa761d"
+    },
+    {
+      "D": 1,
+      "k": 8,
+      "j": 5,
+      "terminal": 2,
+      "w": 16653,
+      "period": 69984,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        8,
+        1
+      ],
+      "sha256": "605dba97168eed5dc5dfdf900eab460fef3930f9fe1490b8c7015d015ca3136f"
+    },
+    {
+      "D": 1,
+      "k": 8,
+      "j": 8,
+      "terminal": 1,
+      "w": 1299693,
+      "period": 1889568,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        11,
+        1
+      ],
+      "sha256": "c18d5505c0cf56efb73994d135a7ce58f43fc0f4e9a9f1ed26d7957a78aa6dcc"
+    },
+    {
+      "D": 1,
+      "k": 8,
+      "j": 8,
+      "terminal": 2,
+      "w": 39981,
+      "period": 1889568,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        11,
+        1
+      ],
+      "sha256": "284ae17ae3710415b94d3f3533fd1a5954d50317723c4ebf5910c9d32d777ead"
+    },
+    {
+      "D": 2,
+      "k": 4,
+      "j": 1,
+      "terminal": 1,
+      "w": 909,
+      "period": 2592,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        8,
+        4
+      ],
+      "sha256": "43c34706720757935cd9c48c2bdbf333dd34b321cc39e877fad4f9cd740373d2"
+    },
+    {
+      "D": 2,
+      "k": 4,
+      "j": 1,
+      "terminal": 2,
+      "w": 45,
+      "period": 2592,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        8,
+        4
+      ],
+      "sha256": "267d0264e2a3eee79942748b533661961f19b60bd8a702ef473e41a6c28d8a81"
+    },
+    {
+      "D": 2,
+      "k": 4,
+      "j": 2,
+      "terminal": 1,
+      "w": 6957,
+      "period": 7776,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        9,
+        4
+      ],
+      "sha256": "842e43ee128536d561f98f39d458b7fa53008a667215d419438dfb60e3c0be6b"
+    },
+    {
+      "D": 2,
+      "k": 4,
+      "j": 2,
+      "terminal": 2,
+      "w": 4365,
+      "period": 7776,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        9,
+        4
+      ],
+      "sha256": "c2ae06327184f149170a60b5691ca83f37d93e1455b02ab648383255f6f09a6e"
+    },
+    {
+      "D": 2,
+      "k": 4,
+      "j": 3,
+      "terminal": 1,
+      "w": 9549,
+      "period": 23328,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        10,
+        4
+      ],
+      "sha256": "7951ca50969fa013e08c001992a9e99ea068ee7b2d8b467e8aaa4ffd8fea3a8c"
+    },
+    {
+      "D": 2,
+      "k": 4,
+      "j": 3,
+      "terminal": 2,
+      "w": 1773,
+      "period": 23328,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        10,
+        4
+      ],
+      "sha256": "7079514116099df8c08ff8ec63fd703f416ade57e14de5c74d7ed7420dea099e"
+    },
+    {
+      "D": 2,
+      "k": 4,
+      "j": 4,
+      "terminal": 1,
+      "w": 63981,
+      "period": 69984,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        11,
+        4
+      ],
+      "sha256": "8adb72615206130d3654d0e865bdbcb16a098db3497798359645538aaf916ea0"
+    },
+    {
+      "D": 2,
+      "k": 4,
+      "j": 4,
+      "terminal": 2,
+      "w": 40653,
+      "period": 69984,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        11,
+        4
+      ],
+      "sha256": "fc42eba35c0e296e8d6b92350c9d5d8c66e3d0d50e2646b571acd5d2023b26c4"
+    },
+    {
+      "D": 2,
+      "k": 4,
+      "j": 10,
+      "terminal": 1,
+      "w": 27311085,
+      "period": 51018336,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        17,
+        4
+      ],
+      "sha256": "8fbf6b94fd6a51e3a17fde45a1b47b2e54ae7de14b2ca07845f32fcc69c371bf"
+    },
+    {
+      "D": 2,
+      "k": 4,
+      "j": 10,
+      "terminal": 2,
+      "w": 10304973,
+      "period": 51018336,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        17,
+        4
+      ],
+      "sha256": "05a0bc9dfaea9dfb4290d9b4fddc3e0f5f703fb6a90043796f7f8364dbf0745c"
+    },
+    {
+      "D": 2,
+      "k": 8,
+      "j": 1,
+      "terminal": 1,
+      "w": 333,
+      "period": 2592,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        5,
+        1
+      ],
+      "sha256": "2e6cc06b028c02956265c6b43e7d3ae741ed04739976a1b47e501524292aaee2"
+    },
+    {
+      "D": 2,
+      "k": 8,
+      "j": 1,
+      "terminal": 2,
+      "w": 1197,
+      "period": 2592,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        5,
+        1
+      ],
+      "sha256": "1bcdf9c0d2c9ab24d181d99ded5c6731f43375fd80511d2cc1eebe6bf87fc36c"
+    },
+    {
+      "D": 2,
+      "k": 8,
+      "j": 2,
+      "terminal": 1,
+      "w": 7245,
+      "period": 7776,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        6,
+        1
+      ],
+      "sha256": "3b8954d04389d9e964e7f35fa3ed3c11a75b6efec2a57f1f47c3faf812e7415b"
+    },
+    {
+      "D": 2,
+      "k": 8,
+      "j": 2,
+      "terminal": 2,
+      "w": 2061,
+      "period": 7776,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        6,
+        1
+      ],
+      "sha256": "601cdc578e7dbb3299f571623492c9cb6891f893d19f6084afc717b60834fc2c"
+    },
+    {
+      "D": 2,
+      "k": 8,
+      "j": 5,
+      "terminal": 1,
+      "w": 121293,
+      "period": 209952,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        9,
+        1
+      ],
+      "sha256": "f9d44a32281f0a9bc9cf7e070ab6a467c9a8979847d087bcd800cc17318e3cd6"
+    },
+    {
+      "D": 2,
+      "k": 8,
+      "j": 5,
+      "terminal": 2,
+      "w": 191277,
+      "period": 209952,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        9,
+        1
+      ],
+      "sha256": "f9d72362908d0e78615f03cde664150410a3c7e6da73ee396d5c759511025b77"
+    },
+    {
+      "D": 2,
+      "k": 8,
+      "j": 6,
+      "terminal": 1,
+      "w": 471213,
+      "period": 629856,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        10,
+        1
+      ],
+      "sha256": "ef8acba50ed8751849d07d017e146935dfeae60c268caf3e4d11eae320f6e8ea"
+    },
+    {
+      "D": 2,
+      "k": 8,
+      "j": 6,
+      "terminal": 2,
+      "w": 51309,
+      "period": 629856,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        10,
+        1
+      ],
+      "sha256": "0d1981d259e6545fc867909cafec51f1e25269e31886e6b88ffcc350bd725486"
+    },
+    {
+      "D": 2,
+      "k": 8,
+      "j": 10,
+      "terminal": 1,
+      "w": 12858381,
+      "period": 51018336,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        14,
+        1
+      ],
+      "sha256": "d95d4fd7cdf89577cfdc127320053411efe679a4bd7eaa8a121c50ac7e4dae63"
+    },
+    {
+      "D": 2,
+      "k": 8,
+      "j": 10,
+      "terminal": 2,
+      "w": 29864493,
+      "period": 51018336,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        14,
+        1
+      ],
+      "sha256": "33c9aafcaa56c1d32cd3d4a30d09e01f7582cd8b830423073a23606ce9478cff"
+    },
+    {
+      "D": 3,
+      "k": 4,
+      "j": 1,
+      "terminal": 1,
+      "w": 621,
+      "period": 7776,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        9,
+        4
+      ],
+      "sha256": "1eb561b232dacfc9f3e63c9cd2179bb2f8ba13dd0532333d31191ef3db5201e2"
+    },
+    {
+      "D": 3,
+      "k": 4,
+      "j": 1,
+      "terminal": 2,
+      "w": 5805,
+      "period": 7776,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        9,
+        4
+      ],
+      "sha256": "fd667c35fd7b90695273732a6515cfbf0db9b0ccac607d139e418663fd551a8c"
+    },
+    {
+      "D": 3,
+      "k": 4,
+      "j": 2,
+      "terminal": 1,
+      "w": 3213,
+      "period": 23328,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        10,
+        4
+      ],
+      "sha256": "26776cec032d7103e4663d536007bb587561232619ca88d666c355cf23537e03"
+    },
+    {
+      "D": 3,
+      "k": 4,
+      "j": 2,
+      "terminal": 2,
+      "w": 18765,
+      "period": 23328,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        10,
+        4
+      ],
+      "sha256": "9d610231dfd33ecd75e0eb73edd19bfa874af2222fa5771f2f64a9be642b451a"
+    },
+    {
+      "D": 3,
+      "k": 4,
+      "j": 4,
+      "terminal": 1,
+      "w": 174285,
+      "period": 209952,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        12,
+        4
+      ],
+      "sha256": "77f2024ef7b08044336ac6a18cbbcb7567c5554fc135ab417fbe426f5db3b950"
+    },
+    {
+      "D": 3,
+      "k": 4,
+      "j": 4,
+      "terminal": 2,
+      "w": 104301,
+      "period": 209952,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        12,
+        4
+      ],
+      "sha256": "7541ff6e3ff4667e140cef348524e33534e53029e9dc6d7bded0c2cb06463705"
+    },
+    {
+      "D": 3,
+      "k": 4,
+      "j": 5,
+      "terminal": 1,
+      "w": 34317,
+      "period": 629856,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        13,
+        4
+      ],
+      "sha256": "0ace35f48c030cff1e538a14a1cc707efd82b492402279da0fe5f2a55afada83"
+    },
+    {
+      "D": 3,
+      "k": 4,
+      "j": 5,
+      "terminal": 2,
+      "w": 454221,
+      "period": 629856,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        13,
+        4
+      ],
+      "sha256": "5a4737daf02ba7749684f4ba149469920f65a3ad4f256c1d8f0e0c607b9a9f47"
+    },
+    {
+      "D": 3,
+      "k": 4,
+      "j": 12,
+      "terminal": 1,
+      "w": 1321052301,
+      "period": 1377495072,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        20,
+        4
+      ],
+      "sha256": "76392ee37a30b2da787b471bdafbd0b1d96b420c90e78ad606601402766584d2"
+    },
+    {
+      "D": 3,
+      "k": 4,
+      "j": 12,
+      "terminal": 2,
+      "w": 861887277,
+      "period": 1377495072,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        20,
+        4
+      ],
+      "sha256": "cc9caced8a5495b64ce155019b12a183fa52bae69801b67b38020f430000044b"
+    },
+    {
+      "D": 3,
+      "k": 8,
+      "j": 1,
+      "terminal": 1,
+      "w": 4077,
+      "period": 7776,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        6,
+        1
+      ],
+      "sha256": "8f6f9b475cbcfc534e6251a900b768090979192b1430d0828e1b804dfadbeb74"
+    },
+    {
+      "D": 3,
+      "k": 8,
+      "j": 1,
+      "terminal": 2,
+      "w": 6669,
+      "period": 7776,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        6,
+        1
+      ],
+      "sha256": "8b1aef2952bfa5b3a93c71e243fa0f398d23f8a3dfb1ac31650924d96ccba8b0"
+    },
+    {
+      "D": 3,
+      "k": 8,
+      "j": 2,
+      "terminal": 1,
+      "w": 9261,
+      "period": 23328,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        7,
+        1
+      ],
+      "sha256": "bffd42133770b7ba14f58ceb9f39cc4c7d1324c9dabd1f971574f91bced82dbd"
+    },
+    {
+      "D": 3,
+      "k": 8,
+      "j": 2,
+      "terminal": 2,
+      "w": 17037,
+      "period": 23328,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        7,
+        1
+      ],
+      "sha256": "fcc3517eb7bb59c817575031915a8664b4038927eaeb98a6731d32d57492b25c"
+    },
+    {
+      "D": 3,
+      "k": 8,
+      "j": 6,
+      "terminal": 1,
+      "w": 1844397,
+      "period": 1889568,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        11,
+        1
+      ],
+      "sha256": "87aef7647ab8e5127b2e808a63ae6c9a67ca7807a6de1730c1fe7280ed122d7f"
+    },
+    {
+      "D": 3,
+      "k": 8,
+      "j": 6,
+      "terminal": 2,
+      "w": 584685,
+      "period": 1889568,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        11,
+        1
+      ],
+      "sha256": "afff8c31384246ccf7072de56e19a03dd8e247216203def1fc35522cc84c475c"
+    },
+    {
+      "D": 3,
+      "k": 8,
+      "j": 7,
+      "terminal": 1,
+      "w": 1214541,
+      "period": 5668704,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        12,
+        1
+      ],
+      "sha256": "c910f1542494eacfc8f1bcaeb37df0a6e230560bd60e4144e0cf8c8aff3dfe4b"
+    },
+    {
+      "D": 3,
+      "k": 8,
+      "j": 7,
+      "terminal": 2,
+      "w": 3104109,
+      "period": 5668704,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        12,
+        1
+      ],
+      "sha256": "a31a6f68650efd5ceb789a5e2b83f319368acdb76a37408086682a3857c28e6e"
+    },
+    {
+      "D": 3,
+      "k": 8,
+      "j": 12,
+      "terminal": 1,
+      "w": 940329837,
+      "period": 1377495072,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        17,
+        1
+      ],
+      "sha256": "7b02ee285fff4e5d70684602404645f103e730c8cb0d6f08d6c263dd25a0943a"
+    },
+    {
+      "D": 3,
+      "k": 8,
+      "j": 12,
+      "terminal": 2,
+      "w": 21999789,
+      "period": 1377495072,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        17,
+        1
+      ],
+      "sha256": "3782b6b2d758760136aa6874e8e02d4f9b6e8bb38e8412cf2682d2cffec12867"
+    },
+    {
+      "D": 4,
+      "k": 4,
+      "j": 1,
+      "terminal": 1,
+      "w": 10125,
+      "period": 23328,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        10,
+        4
+      ],
+      "sha256": "397d79eb18de2213654b5d5b2ecabf0a8e6d889301a12025254c1423e96beb44"
+    },
+    {
+      "D": 4,
+      "k": 4,
+      "j": 1,
+      "terminal": 2,
+      "w": 2349,
+      "period": 23328,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        10,
+        4
+      ],
+      "sha256": "8818e9ae3f2d8a70f06a12a9528e5dd386eb6657ea20c426dcb0eb60b2cb35f7"
+    },
+    {
+      "D": 4,
+      "k": 4,
+      "j": 2,
+      "terminal": 1,
+      "w": 41229,
+      "period": 69984,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        11,
+        4
+      ],
+      "sha256": "309cc63e27657061e424bf412365a88427a5cb053b54803b988262d71ccfbc07"
+    },
+    {
+      "D": 4,
+      "k": 4,
+      "j": 2,
+      "terminal": 2,
+      "w": 17901,
+      "period": 69984,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        11,
+        4
+      ],
+      "sha256": "77041b7f0a760e999faba9d36b19e85b450658eeeac418971080d9bc8b3d872e"
+    },
+    {
+      "D": 4,
+      "k": 4,
+      "j": 5,
+      "terminal": 1,
+      "w": 1044333,
+      "period": 1889568,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        14,
+        4
+      ],
+      "sha256": "dd08a17f12cdfbb08d5469c5dbad40a2d04a0e9a1bec80c5b28c60b14a99b2ec"
+    },
+    {
+      "D": 4,
+      "k": 4,
+      "j": 5,
+      "terminal": 2,
+      "w": 414477,
+      "period": 1889568,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        14,
+        4
+      ],
+      "sha256": "78a1b40d6a94e7b30b001124b48b5c784f645ac1665ea4fa47e3b260eebfc2df"
+    },
+    {
+      "D": 4,
+      "k": 4,
+      "j": 6,
+      "terminal": 1,
+      "w": 3563757,
+      "period": 5668704,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        15,
+        4
+      ],
+      "sha256": "130cff1a98d6ef8cb86fb24eabd5c4ecf3f58479ab191033066bbf83433d2e2b"
+    },
+    {
+      "D": 4,
+      "k": 4,
+      "j": 6,
+      "terminal": 2,
+      "w": 1674189,
+      "period": 5668704,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        15,
+        4
+      ],
+      "sha256": "aa0c9356d761d14cd86046664489c85b05ea0616285d510db8c0fe70a698ca8c"
+    },
+    {
+      "D": 4,
+      "k": 4,
+      "j": 14,
+      "terminal": 1,
+      "w": 26614349901,
+      "period": 37192366944,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        23,
+        4
+      ],
+      "sha256": "56cb17bdb9e9b6cf3117f65173ef87ec11daf5bdf0c4cdf993639256c4f63f74"
+    },
+    {
+      "D": 4,
+      "k": 4,
+      "j": 14,
+      "terminal": 2,
+      "w": 14216894253,
+      "period": 37192366944,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        23,
+        4
+      ],
+      "sha256": "16e13943e8382abf0cc77875c01887d9cc473de6aa893a7bf8ebd9ce828d9bbc"
+    },
+    {
+      "D": 4,
+      "k": 8,
+      "j": 1,
+      "terminal": 1,
+      "w": 12717,
+      "period": 23328,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        7,
+        1
+      ],
+      "sha256": "38a3864c97e571904005f7d612bcabe99bba87b6b094ed28fac71dea0b7ee895"
+    },
+    {
+      "D": 4,
+      "k": 8,
+      "j": 1,
+      "terminal": 2,
+      "w": 20493,
+      "period": 23328,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        7,
+        1
+      ],
+      "sha256": "7f4c43170366f422368bd95471170f64a4825d634452d057e501852c4926954f"
+    },
+    {
+      "D": 4,
+      "k": 8,
+      "j": 2,
+      "terminal": 1,
+      "w": 28269,
+      "period": 69984,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        8,
+        1
+      ],
+      "sha256": "584e1a180cfa17e5312c9d27c461b71357682a7225089bb43d09cf1c1fad5222"
+    },
+    {
+      "D": 4,
+      "k": 8,
+      "j": 2,
+      "terminal": 2,
+      "w": 51597,
+      "period": 69984,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        8,
+        1
+      ],
+      "sha256": "cb53a9eb544362a1399a3938ab812795f3de6832ef754723c78ca6a9666b9042"
+    },
+    {
+      "D": 4,
+      "k": 8,
+      "j": 6,
+      "terminal": 1,
+      "w": 984717,
+      "period": 5668704,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        12,
+        1
+      ],
+      "sha256": "8ef3c44f2cf6ec45de33ff4bc836a2b7c6da39274fdf7f390b2e489573f6147e"
+    },
+    {
+      "D": 4,
+      "k": 8,
+      "j": 6,
+      "terminal": 2,
+      "w": 2874285,
+      "period": 5668704,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        12,
+        1
+      ],
+      "sha256": "cd55a21a303426c6e4b3793b0072a27bc13217e03e263cd47096573d55e67ce1"
+    },
+    {
+      "D": 4,
+      "k": 8,
+      "j": 7,
+      "terminal": 1,
+      "w": 4763853,
+      "period": 17006112,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        13,
+        1
+      ],
+      "sha256": "26fd9d1891ed5c4b973f20e207031ede2bdb6b8c42958915fc86cbcd620b0825"
+    },
+    {
+      "D": 4,
+      "k": 8,
+      "j": 7,
+      "terminal": 2,
+      "w": 10432557,
+      "period": 17006112,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        13,
+        1
+      ],
+      "sha256": "3a965671a9a67f6e883f77afe2a2c6e12e3b952e93e2d8544a899ad79cfab82d"
+    },
+    {
+      "D": 4,
+      "k": 8,
+      "j": 14,
+      "terminal": 1,
+      "w": 8076998349,
+      "period": 37192366944,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        20,
+        1
+      ],
+      "sha256": "ecd1a6a1ea645ab7d4d11a3aef462b88daf3a9ba5ad8150f6f9e2bc3b5222ed2"
+    },
+    {
+      "D": 4,
+      "k": 8,
+      "j": 14,
+      "terminal": 2,
+      "w": 20474453997,
+      "period": 37192366944,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        20,
+        1
+      ],
+      "sha256": "b23ef64f0b8b55f6b058c33ad7995500265c2d34ae1357f13c975ef8a3b0db8b"
+    },
+    {
+      "D": 5,
+      "k": 4,
+      "j": 1,
+      "terminal": 1,
+      "w": 46413,
+      "period": 69984,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        11,
+        4
+      ],
+      "sha256": "11dce67de0fb5a4d5a6db9001837d1db992ffbd6fff82830c1d072190fcd93f5"
+    },
+    {
+      "D": 5,
+      "k": 4,
+      "j": 1,
+      "terminal": 2,
+      "w": 23085,
+      "period": 69984,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        11,
+        4
+      ],
+      "sha256": "488881db8e66b3b2541cf33ca296f829b87d3382f69a8ca21c3959939691071e"
+    },
+    {
+      "D": 5,
+      "k": 4,
+      "j": 2,
+      "terminal": 1,
+      "w": 209709,
+      "period": 209952,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        12,
+        4
+      ],
+      "sha256": "a40587aa9a932beccbc08403fe49589d1d076d4f2a0b776ebe5bf44c7de8f906"
+    },
+    {
+      "D": 5,
+      "k": 4,
+      "j": 2,
+      "terminal": 2,
+      "w": 139725,
+      "period": 209952,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        12,
+        4
+      ],
+      "sha256": "f81da5f06e4eb84b3cd844ac555a01160ab8e420bb711c93b914ae48343938be"
+    },
+    {
+      "D": 5,
+      "k": 4,
+      "j": 5,
+      "terminal": 1,
+      "w": 3219021,
+      "period": 5668704,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        15,
+        4
+      ],
+      "sha256": "5b80ab3e1f99c90cb2ec4d7c038e43463a676bb629101454113d90064e6a1035"
+    },
+    {
+      "D": 5,
+      "k": 4,
+      "j": 5,
+      "terminal": 2,
+      "w": 1329453,
+      "period": 5668704,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        15,
+        4
+      ],
+      "sha256": "4773a74de709f89c85f2331a5b71c897c82825bc258a92eb94b815b39ce6235a"
+    },
+    {
+      "D": 5,
+      "k": 4,
+      "j": 6,
+      "terminal": 1,
+      "w": 10777293,
+      "period": 17006112,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        16,
+        4
+      ],
+      "sha256": "5fbc57af7aebd5b4cd07e9311cc6ace97a1fc55259b40f5f7d5b899867494630"
+    },
+    {
+      "D": 5,
+      "k": 4,
+      "j": 6,
+      "terminal": 2,
+      "w": 5108589,
+      "period": 17006112,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        16,
+        4
+      ],
+      "sha256": "b481092231249e416253b7d7e924ae89de1320ac200e346c670d99461c11f616"
+    },
+    {
+      "D": 5,
+      "k": 4,
+      "j": 16,
+      "terminal": 1,
+      "w": 612423545229,
+      "period": 1004193907488,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        26,
+        4
+      ],
+      "sha256": "890e2dbfc2a7032aaa75d1c81d5f75ea540dc7adfc744785e1600364c0eabe00"
+    },
+    {
+      "D": 5,
+      "k": 4,
+      "j": 16,
+      "terminal": 2,
+      "w": 277692242733,
+      "period": 1004193907488,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        26,
+        4
+      ],
+      "sha256": "68b456501eda173d0df46aadbc9c241164d08722fe8b8cc0600a347e3270287b"
+    },
+    {
+      "D": 5,
+      "k": 8,
+      "j": 1,
+      "terminal": 1,
+      "w": 30861,
+      "period": 69984,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        8,
+        1
+      ],
+      "sha256": "7a8c98a1b44236dfc27b3e0c9308af93cc81dfbc4f76d3618fb19ab7ac02f206"
+    },
+    {
+      "D": 5,
+      "k": 8,
+      "j": 1,
+      "terminal": 2,
+      "w": 54189,
+      "period": 69984,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        8,
+        1
+      ],
+      "sha256": "effe6f61782caa970c1da8a17cc9118e21fc376f27973fb10c8b340b842aced5"
+    },
+    {
+      "D": 5,
+      "k": 8,
+      "j": 2,
+      "terminal": 1,
+      "w": 147501,
+      "period": 209952,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        9,
+        1
+      ],
+      "sha256": "36c5ab12f287f7851654209ab75ce036436858dad2a42f162c71b83633526ffc"
+    },
+    {
+      "D": 5,
+      "k": 8,
+      "j": 2,
+      "terminal": 2,
+      "w": 7533,
+      "period": 209952,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        9,
+        1
+      ],
+      "sha256": "235fe7862c71e3d25423208b917b5fbb8df242b3cccb2ca8d43c32869a4df944"
+    },
+    {
+      "D": 5,
+      "k": 8,
+      "j": 7,
+      "terminal": 1,
+      "w": 41438061,
+      "period": 51018336,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        14,
+        1
+      ],
+      "sha256": "1ccbc1c6b29dbd68b648538adaa5a2880d90ea78a3a78883df816ab9e7e5524b"
+    },
+    {
+      "D": 5,
+      "k": 8,
+      "j": 7,
+      "terminal": 2,
+      "w": 7425837,
+      "period": 51018336,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        14,
+        1
+      ],
+      "sha256": "0f2b42c8de9cf1fea7a5f7574c60106467f4495e89e2d6a2273fcbff4ed4112e"
+    },
+    {
+      "D": 5,
+      "k": 8,
+      "j": 8,
+      "terminal": 1,
+      "w": 126468621,
+      "period": 153055008,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        15,
+        1
+      ],
+      "sha256": "2f822d10a516d1f260d4abdcb914da1471d1e7bde716d4a149fb9a90e7f9a599"
+    },
+    {
+      "D": 5,
+      "k": 8,
+      "j": 8,
+      "terminal": 2,
+      "w": 24431949,
+      "period": 153055008,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        15,
+        1
+      ],
+      "sha256": "cb26f132647cd8c89292c0c2c4e92a5409f2495427e763c5b25f6f1969fab1d1"
+    },
+    {
+      "D": 5,
+      "k": 8,
+      "j": 16,
+      "terminal": 1,
+      "w": 635712898509,
+      "period": 1004193907488,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        23,
+        1
+      ],
+      "sha256": "eaf553aa2af7cd3ef2d44054ba4bee82b9ad2e6c865ff012c1c5f4eaf88aa0c1"
+    },
+    {
+      "D": 5,
+      "k": 8,
+      "j": 16,
+      "terminal": 2,
+      "w": 970444201005,
+      "period": 1004193907488,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        23,
+        1
+      ],
+      "sha256": "49ef558b0a520823ca1cfa5926d503c43d0770bcd7872bd7f79d8cf0b6a77187"
+    },
+    {
+      "D": 6,
+      "k": 4,
+      "j": 1,
+      "terminal": 1,
+      "w": 108621,
+      "period": 209952,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        12,
+        4
+      ],
+      "sha256": "06ddc5c5a0cdfb749f212d12fbf803281be5c101f1a1687a241934415417f323"
+    },
+    {
+      "D": 6,
+      "k": 4,
+      "j": 1,
+      "terminal": 2,
+      "w": 38637,
+      "period": 209952,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        12,
+        4
+      ],
+      "sha256": "51aca0cddfbe8f1bcdf0aa25420636906adac4f0b9bc990b7adc8fb99b02b935"
+    },
+    {
+      "D": 6,
+      "k": 4,
+      "j": 2,
+      "terminal": 1,
+      "w": 388557,
+      "period": 629856,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        13,
+        4
+      ],
+      "sha256": "f77d23ec2038ea77da94e6d802a1ea06c634107186644b804e6ffb59fac83895"
+    },
+    {
+      "D": 6,
+      "k": 4,
+      "j": 2,
+      "terminal": 2,
+      "w": 178605,
+      "period": 629856,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        13,
+        4
+      ],
+      "sha256": "847cd58ee8741181df4c0077f0f72a684cc18da224b6bd9a1cef73467c5ca5f9"
+    },
+    {
+      "D": 6,
+      "k": 4,
+      "j": 6,
+      "terminal": 1,
+      "w": 45948141,
+      "period": 51018336,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        17,
+        4
+      ],
+      "sha256": "7058363b1f6a3200860e78aad9b8ffe38fca9b5e9a25f881394dda1827cd3a55"
+    },
+    {
+      "D": 6,
+      "k": 4,
+      "j": 6,
+      "terminal": 2,
+      "w": 28942029,
+      "period": 51018336,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        17,
+        4
+      ],
+      "sha256": "879e61521f952500b3a88a26be923a8555fdcaf62e0a36007f962139cb1b270d"
+    },
+    {
+      "D": 6,
+      "k": 4,
+      "j": 7,
+      "terminal": 1,
+      "w": 11935917,
+      "period": 153055008,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        18,
+        4
+      ],
+      "sha256": "c7e53fcc8ccbe89ad0dbc1b55d589c9b988eb24265460e17f81ef2444961d5b0"
+    },
+    {
+      "D": 6,
+      "k": 4,
+      "j": 7,
+      "terminal": 2,
+      "w": 113972589,
+      "period": 153055008,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        18,
+        4
+      ],
+      "sha256": "4e1c000d1e3312cf120704049998c0e8a9058d3f85b69348a1de21b53c92f09b"
+    },
+    {
+      "D": 6,
+      "k": 4,
+      "j": 18,
+      "terminal": 1,
+      "w": 10666007296749,
+      "period": 27113235502176,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        29,
+        4
+      ],
+      "sha256": "0215b6ee8dd85140a3a11d75ba7e3362b5f5c34e1f762198b81fba87ea9261bd"
+    },
+    {
+      "D": 6,
+      "k": 4,
+      "j": 18,
+      "terminal": 2,
+      "w": 1628262129357,
+      "period": 27113235502176,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        29,
+        4
+      ],
+      "sha256": "87454454ea712a3a960401c920ed8a88422a2149f086c98c088a72e6be6e6c3a"
+    },
+    {
+      "D": 6,
+      "k": 8,
+      "j": 1,
+      "terminal": 1,
+      "w": 201933,
+      "period": 209952,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        9,
+        1
+      ],
+      "sha256": "b73959887b43e0e28df6b73009d5079bbd6b5777fa8e6d81f473e9b9d634e99c"
+    },
+    {
+      "D": 6,
+      "k": 8,
+      "j": 1,
+      "terminal": 2,
+      "w": 61965,
+      "period": 209952,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        9,
+        1
+      ],
+      "sha256": "089580143fc03fba12a8a015c5249cdc3ee2f11a1e1b3409c3de507161b1d5d6"
+    },
+    {
+      "D": 6,
+      "k": 8,
+      "j": 2,
+      "terminal": 1,
+      "w": 341901,
+      "period": 629856,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        10,
+        1
+      ],
+      "sha256": "1f8be3fa73bf920d0d51e3d7340e8428632ef9b2116e97e742e5b031e6fc03d2"
+    },
+    {
+      "D": 6,
+      "k": 8,
+      "j": 2,
+      "terminal": 2,
+      "w": 551853,
+      "period": 629856,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        10,
+        1
+      ],
+      "sha256": "1af40b0d3ff5452911a703c36631363c3bdbf8a773a5698564c5bab3f83220e2"
+    },
+    {
+      "D": 6,
+      "k": 8,
+      "j": 8,
+      "terminal": 1,
+      "w": 5170797,
+      "period": 459165024,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        16,
+        1
+      ],
+      "sha256": "45f81b881aa388a155cbf36765e1129b3e66e3cfccf03b348eb98cf8504f58fb"
+    },
+    {
+      "D": 6,
+      "k": 8,
+      "j": 8,
+      "terminal": 2,
+      "w": 158225805,
+      "period": 459165024,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        16,
+        1
+      ],
+      "sha256": "b2e1c7e1dd8d88d9849f81f76464e24f9c1c491d2ec93606f5507e03e55aeb11"
+    },
+    {
+      "D": 6,
+      "k": 8,
+      "j": 9,
+      "terminal": 1,
+      "w": 770445837,
+      "period": 1377495072,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        17,
+        1
+      ],
+      "sha256": "e33a15a1fd70c0ffe4d9c966acda137d611e6e3cfdfb5ba22e563ddd1d023f83"
+    },
+    {
+      "D": 6,
+      "k": 8,
+      "j": 9,
+      "terminal": 2,
+      "w": 1229610861,
+      "period": 1377495072,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        17,
+        1
+      ],
+      "sha256": "0209492b5ce798768bda6e6efcc632d9293ecca3b98ca656b818881cbcae1981"
+    },
+    {
+      "D": 6,
+      "k": 8,
+      "j": 18,
+      "terminal": 1,
+      "w": 25244285970285,
+      "period": 27113235502176,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        26,
+        1
+      ],
+      "sha256": "a95a9e4912f375fee7add49d89702da69beb28fb3631eec8dd75de5a509a6c80"
+    },
+    {
+      "D": 6,
+      "k": 8,
+      "j": 18,
+      "terminal": 2,
+      "w": 7168795635501,
+      "period": 27113235502176,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        26,
+        1
+      ],
+      "sha256": "dc6235633187d6ecd4f15759b62930d366ac20ee20c84bc369bc82f13c9874e7"
+    },
+    {
+      "D": 7,
+      "k": 4,
+      "j": 1,
+      "terminal": 1,
+      "w": 155277,
+      "period": 629856,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        13,
+        4
+      ],
+      "sha256": "a2e381d01650fdbf477b3b40b189b876dd212265ee8eb14244407955d4f92769"
+    },
+    {
+      "D": 7,
+      "k": 4,
+      "j": 1,
+      "terminal": 2,
+      "w": 575181,
+      "period": 629856,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        13,
+        4
+      ],
+      "sha256": "8becba8c7fd18199d7f833bfd52af6f590dffabb022e667f4e0c93db2aefeea5"
+    },
+    {
+      "D": 7,
+      "k": 4,
+      "j": 2,
+      "terminal": 1,
+      "w": 365229,
+      "period": 1889568,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        14,
+        4
+      ],
+      "sha256": "0b7fb6f8d436cd5214703f67435b6af969b4d1c9d8637b7cb5516ed8406fcbc3"
+    },
+    {
+      "D": 7,
+      "k": 4,
+      "j": 2,
+      "terminal": 2,
+      "w": 1624941,
+      "period": 1889568,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        14,
+        4
+      ],
+      "sha256": "a419cbdb86f6ea92be3aee47666839a573ea54d21960cbff357ccc5da6e45e73"
+    },
+    {
+      "D": 7,
+      "k": 4,
+      "j": 7,
+      "terminal": 1,
+      "w": 263645037,
+      "period": 459165024,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        19,
+        4
+      ],
+      "sha256": "38e6ab894350212230eee6b67727c44bd50f1dcbad9bb8fca239cfdce9c4dc8f"
+    },
+    {
+      "D": 7,
+      "k": 4,
+      "j": 7,
+      "terminal": 2,
+      "w": 110590029,
+      "period": 459165024,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        19,
+        4
+      ],
+      "sha256": "47b8cc88c99abb21d7ea8009a7a70b96098bb622edd5247fb178671ea1ef35f2"
+    },
+    {
+      "D": 7,
+      "k": 4,
+      "j": 8,
+      "terminal": 1,
+      "w": 416700045,
+      "period": 1377495072,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        20,
+        4
+      ],
+      "sha256": "fda61cb3ac968ba72bb37c43fd823f237fefca46369ad6a00f7e653882848446"
+    },
+    {
+      "D": 7,
+      "k": 4,
+      "j": 8,
+      "terminal": 2,
+      "w": 1335030093,
+      "period": 1377495072,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        20,
+        4
+      ],
+      "sha256": "3988baa11d806cc82f020cb063657846e06ce3cea8c59523865519bfaa50bbe2"
+    },
+    {
+      "D": 7,
+      "k": 4,
+      "j": 20,
+      "terminal": 1,
+      "w": 343313972659629,
+      "period": 732057358558752,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        32,
+        4
+      ],
+      "sha256": "c98a33bd40a3409a3c86ccdd8f3621e6b093d310383959c20351a62579d4e0d3"
+    },
+    {
+      "D": 7,
+      "k": 4,
+      "j": 20,
+      "terminal": 2,
+      "w": 99294853140045,
+      "period": 732057358558752,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        32,
+        4
+      ],
+      "sha256": "92f74228809da41586d43c62d0b1cc1f761e0ce94a3dadfa7861eefd4f44c9c3"
+    },
+    {
+      "D": 7,
+      "k": 8,
+      "j": 1,
+      "terminal": 1,
+      "w": 225261,
+      "period": 629856,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        10,
+        1
+      ],
+      "sha256": "c4f9c5e345c86c613463f4048fe04343e6b505352d50daf971b279ca8f7f1b71"
+    },
+    {
+      "D": 7,
+      "k": 8,
+      "j": 1,
+      "terminal": 2,
+      "w": 435213,
+      "period": 629856,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        10,
+        1
+      ],
+      "sha256": "8456e0516c0009e2400c09c3cf994cd34f4ad6669939df89df71137694c7a09e"
+    },
+    {
+      "D": 7,
+      "k": 8,
+      "j": 2,
+      "terminal": 1,
+      "w": 1275021,
+      "period": 1889568,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        11,
+        1
+      ],
+      "sha256": "0e00b3eb9ba938fd14a518ec8c1f176ba7d718a830ead7acf0221925da548d55"
+    },
+    {
+      "D": 7,
+      "k": 8,
+      "j": 2,
+      "terminal": 2,
+      "w": 15309,
+      "period": 1889568,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        11,
+        1
+      ],
+      "sha256": "9d7c71776f86013c2057a0ecfe8335c879ada8dc7e892e242ac47d9701026474"
+    },
+    {
+      "D": 7,
+      "k": 8,
+      "j": 9,
+      "terminal": 1,
+      "w": 28988685,
+      "period": 4132485216,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        18,
+        1
+      ],
+      "sha256": "dd36d2eae59cc29e94674269dd6c5df70e2fc16454a207a32111694b278b049c"
+    },
+    {
+      "D": 7,
+      "k": 8,
+      "j": 9,
+      "terminal": 2,
+      "w": 1406483757,
+      "period": 4132485216,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        18,
+        1
+      ],
+      "sha256": "96424dbb48c73a86834da7506076edfd8a4e0721b070d553b6c58b99342712da"
+    },
+    {
+      "D": 7,
+      "k": 8,
+      "j": 10,
+      "terminal": 1,
+      "w": 6916464045,
+      "period": 12397455648,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        19,
+        1
+      ],
+      "sha256": "3c9dccc75787236192364ba26254543277242c86c462bc861bb44d109c8a448d"
+    },
+    {
+      "D": 7,
+      "k": 8,
+      "j": 10,
+      "terminal": 2,
+      "w": 11048949261,
+      "period": 12397455648,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        19,
+        1
+      ],
+      "sha256": "1914cc7199d9d030a81292c7262f758cdb7867640728e094c66c3465dadb0cca"
+    },
+    {
+      "D": 7,
+      "k": 8,
+      "j": 20,
+      "terminal": 1,
+      "w": 137341797647373,
+      "period": 732057358558752,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        29,
+        1
+      ],
+      "sha256": "9a8f1920fdfae0d3bca96671fd41b2a645977d8cd9412f13cd7d064bdc62aa35"
+    },
+    {
+      "D": 7,
+      "k": 8,
+      "j": 20,
+      "terminal": 2,
+      "w": 381360917166957,
+      "period": 732057358558752,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        29,
+        1
+      ],
+      "sha256": "d3f4619cd73f77c030fbd8d10461ebc1f2629ab4e1528d4b88d9b0169d6d2000"
+    },
+    {
+      "D": 8,
+      "k": 4,
+      "j": 1,
+      "terminal": 1,
+      "w": 1135053,
+      "period": 1889568,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        14,
+        4
+      ],
+      "sha256": "af1a0056a88aebc92ca42ed9965d5d16de0c45214e60e9deb64808236e45b1cc"
+    },
+    {
+      "D": 8,
+      "k": 4,
+      "j": 1,
+      "terminal": 2,
+      "w": 505197,
+      "period": 1889568,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        14,
+        4
+      ],
+      "sha256": "7cf838fc638a4431cf506e5b50e0b7bdd9ab52805d854b0d9a9faf3847f5e844"
+    },
+    {
+      "D": 8,
+      "k": 4,
+      "j": 2,
+      "terminal": 1,
+      "w": 5544045,
+      "period": 5668704,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        15,
+        4
+      ],
+      "sha256": "5f8125a46d64f48c8bbc24fb906144ea25a2aa5d3d67d151009343a61aeaeba6"
+    },
+    {
+      "D": 8,
+      "k": 4,
+      "j": 2,
+      "terminal": 2,
+      "w": 3654477,
+      "period": 5668704,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        15,
+        4
+      ],
+      "sha256": "48b4a6c623d38ea4ad74d3c48d50bf1b4a4d486e6eff1e24811cc8c6bb97917f"
+    },
+    {
+      "D": 8,
+      "k": 4,
+      "j": 8,
+      "terminal": 1,
+      "w": 3896164557,
+      "period": 4132485216,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        21,
+        4
+      ],
+      "sha256": "8a500e21c3ff8339c7d71f10d2aac3f9fad9979df8f81a16b03fad66b8449eb6"
+    },
+    {
+      "D": 8,
+      "k": 4,
+      "j": 8,
+      "terminal": 2,
+      "w": 2518669485,
+      "period": 4132485216,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        21,
+        4
+      ],
+      "sha256": "b317f3fa4fa161b1449493f60efe5a9452c1bc620fdb88f1ed2193ae822ed59c"
+    },
+    {
+      "D": 8,
+      "k": 4,
+      "j": 9,
+      "terminal": 1,
+      "w": 5273659629,
+      "period": 12397455648,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        22,
+        4
+      ],
+      "sha256": "f2657b1ed9f523feeafebb9f8ea6aed5ec1d39ce87ce95b2b414a55a0549f2e7"
+    },
+    {
+      "D": 8,
+      "k": 4,
+      "j": 9,
+      "terminal": 2,
+      "w": 1141174413,
+      "period": 12397455648,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        22,
+        4
+      ],
+      "sha256": "f290a5a87f677671ba2b0277f2aa3aa895916d9104cfda3b6ea31505f8fe0cca"
+    },
+    {
+      "D": 8,
+      "k": 4,
+      "j": 22,
+      "terminal": 1,
+      "w": 17443675811284173,
+      "period": 19765548681086304,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        35,
+        4
+      ],
+      "sha256": "8fdfed0cc112d34dedb5790038d8c45cd1e36de71cff694321a5e56b377849d6"
+    },
+    {
+      "D": 8,
+      "k": 4,
+      "j": 22,
+      "terminal": 2,
+      "w": 10855159584255405,
+      "period": 19765548681086304,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        35,
+        4
+      ],
+      "sha256": "1a4b2a8b7cbedd4e8a1c306def8177cbdbbf423d7b4304497081b96144feed32"
+    },
+    {
+      "D": 8,
+      "k": 8,
+      "j": 1,
+      "terminal": 1,
+      "w": 715149,
+      "period": 1889568,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        11,
+        1
+      ],
+      "sha256": "4c82b1b07095e8569fe8d499a904b7aa1d1ab0c7c3ff910e40487089a64a6b96"
+    },
+    {
+      "D": 8,
+      "k": 8,
+      "j": 1,
+      "terminal": 2,
+      "w": 1345005,
+      "period": 1889568,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        11,
+        1
+      ],
+      "sha256": "736a94962ddf22cf7891d1bbab44fe0e3ce567ad56e1b6b2299129b58107ac8b"
+    },
+    {
+      "D": 8,
+      "k": 8,
+      "j": 2,
+      "terminal": 1,
+      "w": 1974861,
+      "period": 5668704,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        12,
+        1
+      ],
+      "sha256": "a6844f2fff1250ae37d65e7f07e5a229568a9e5990936d3027783655e1deb38f"
+    },
+    {
+      "D": 8,
+      "k": 8,
+      "j": 2,
+      "terminal": 2,
+      "w": 3864429,
+      "period": 5668704,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        12,
+        1
+      ],
+      "sha256": "04fd73cc31ea4f544f83e1acba05fabfa5bc90c4685d71fcb5bc50ecde527ffe"
+    },
+    {
+      "D": 8,
+      "k": 8,
+      "j": 9,
+      "terminal": 1,
+      "w": 3605381037,
+      "period": 12397455648,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        19,
+        1
+      ],
+      "sha256": "01fb84b506ef97778fa4e06537bb7d4e74a3b6e5d4b01bf1d78220a961f557ff"
+    },
+    {
+      "D": 8,
+      "k": 8,
+      "j": 9,
+      "terminal": 2,
+      "w": 7737866253,
+      "period": 12397455648,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        19,
+        1
+      ],
+      "sha256": "7b371044c5ec59d3392890db41307fdb034b454fd2c08949cd30f146d59b080b"
+    },
+    {
+      "D": 8,
+      "k": 8,
+      "j": 10,
+      "terminal": 1,
+      "w": 11870351469,
+      "period": 37192366944,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        20,
+        1
+      ],
+      "sha256": "aa149161191bec4d121649e0c42bebe0f53e02ac754c1746c072fcbeaf52cfe4"
+    },
+    {
+      "D": 8,
+      "k": 8,
+      "j": 10,
+      "terminal": 2,
+      "w": 24267807117,
+      "period": 37192366944,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        20,
+        1
+      ],
+      "sha256": "ca1dac4027ba9b381a9fbd25ee7561d2163d043e26cab101f0ac00aafc9db41e"
+    },
+    {
+      "D": 8,
+      "k": 8,
+      "j": 22,
+      "terminal": 1,
+      "w": 1000920452092749,
+      "period": 19765548681086304,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        32,
+        1
+      ],
+      "sha256": "e2db2ee4052b6ea590940818bf27f1286a7998553c00abb7a318ed693baed3ba"
+    },
+    {
+      "D": 8,
+      "k": 8,
+      "j": 22,
+      "terminal": 2,
+      "w": 7589436679121517,
+      "period": 19765548681086304,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        32,
+        1
+      ],
+      "sha256": "87e087d16220d0369c2a762c9272247027f020276004cfc4fb373e92ba98b9d5"
+    },
+    {
+      "D": 9,
+      "k": 4,
+      "j": 1,
+      "terminal": 1,
+      "w": 4704237,
+      "period": 5668704,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        15,
+        4
+      ],
+      "sha256": "c754876e7a6c5508eb7799b3b8db17a914ac889a632b39ea2fee045298c7a335"
+    },
+    {
+      "D": 9,
+      "k": 4,
+      "j": 1,
+      "terminal": 2,
+      "w": 2814669,
+      "period": 5668704,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        15,
+        4
+      ],
+      "sha256": "17a7e79ab60a61d34e9a74acc12a634c2b5dc8fdf210da72d6a0844113630401"
+    },
+    {
+      "D": 9,
+      "k": 4,
+      "j": 2,
+      "terminal": 1,
+      "w": 12262509,
+      "period": 17006112,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        16,
+        4
+      ],
+      "sha256": "3bd3bb235a986471234692c9bfc76fd397d3648406b1c36f45dd2518a9bb5922"
+    },
+    {
+      "D": 9,
+      "k": 4,
+      "j": 2,
+      "terminal": 2,
+      "w": 6593805,
+      "period": 17006112,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        16,
+        4
+      ],
+      "sha256": "b95a0c9f3df8822f02aa8db3aeae0700cae80a50ad1023123729239cb65bf456"
+    },
+    {
+      "D": 9,
+      "k": 4,
+      "j": 8,
+      "terminal": 1,
+      "w": 307035117,
+      "period": 12397455648,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        22,
+        4
+      ],
+      "sha256": "49e4c087d4e8e8dbd5eed9e666007a7ac49739f0ef395f6145a88139ef26ad9e"
+    },
+    {
+      "D": 9,
+      "k": 4,
+      "j": 8,
+      "terminal": 2,
+      "w": 8572005549,
+      "period": 12397455648,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        22,
+        4
+      ],
+      "sha256": "9749d0d49cda815e1eaf28d347e019a45139b7b445ef9cdb1451c4c72e09699c"
+    },
+    {
+      "D": 9,
+      "k": 4,
+      "j": 9,
+      "terminal": 1,
+      "w": 29234431629,
+      "period": 37192366944,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        23,
+        4
+      ],
+      "sha256": "3cb85a0e0989c1be82b5f19ffa0cc339961c309825a6eb750234e0ae17a63ddf"
+    },
+    {
+      "D": 9,
+      "k": 4,
+      "j": 9,
+      "terminal": 2,
+      "w": 16836975981,
+      "period": 37192366944,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        23,
+        4
+      ],
+      "sha256": "a50f3943894cb13994669b46dbb24f71c8548530dc5d5b96876bf8d66a75b6bc"
+    },
+    {
+      "D": 9,
+      "k": 4,
+      "j": 24,
+      "terminal": 1,
+      "w": 365002174391241933,
+      "period": 533669814389330208,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        38,
+        4
+      ],
+      "sha256": "82d0add60000a6773022bf8b455efd833709cb59376a256eff7a3a3af3ffc890"
+    },
+    {
+      "D": 9,
+      "k": 4,
+      "j": 24,
+      "terminal": 2,
+      "w": 187112236261465197,
+      "period": 533669814389330208,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        38,
+        4
+      ],
+      "sha256": "b0c1e6793e7cbd9b89cf8e11c72d0735c9dee5355461063f0874905a52622b82"
+    },
+    {
+      "D": 9,
+      "k": 8,
+      "j": 1,
+      "terminal": 1,
+      "w": 1554957,
+      "period": 5668704,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        12,
+        1
+      ],
+      "sha256": "5750becc028a6460906e372d36b091080b168bd67306d878567dffbc3ba86e1b"
+    },
+    {
+      "D": 9,
+      "k": 8,
+      "j": 1,
+      "terminal": 2,
+      "w": 3444525,
+      "period": 5668704,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        12,
+        1
+      ],
+      "sha256": "271a65c106d67a2d8700b1aa7c7a4bc7fa2e3db57dd9ac666acefdea6b50848e"
+    },
+    {
+      "D": 9,
+      "k": 8,
+      "j": 2,
+      "terminal": 1,
+      "w": 5334093,
+      "period": 17006112,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        13,
+        1
+      ],
+      "sha256": "c7c7672f1518c4c4f0f0230856e9d35ad4e9d66d8e825826a1cb036ca40eeed6"
+    },
+    {
+      "D": 9,
+      "k": 8,
+      "j": 2,
+      "terminal": 2,
+      "w": 11002797,
+      "period": 17006112,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        13,
+        1
+      ],
+      "sha256": "56c005d18877678126635aa8b73e18cd6c3d37c09919b0b942c1e0d267df0acd"
+    },
+    {
+      "D": 9,
+      "k": 8,
+      "j": 10,
+      "terminal": 1,
+      "w": 34181950509,
+      "period": 111577100832,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        21,
+        1
+      ],
+      "sha256": "cca81cf296d4000a62cafbe505c9f96f13474677796b1959796a5c95c96d24af"
+    },
+    {
+      "D": 9,
+      "k": 8,
+      "j": 10,
+      "terminal": 2,
+      "w": 71374317453,
+      "period": 111577100832,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        21,
+        1
+      ],
+      "sha256": "06026907d12ed924b41afa29b1453880ce1f9a598fe5c484f68141d3d35ffa2c"
+    },
+    {
+      "D": 9,
+      "k": 8,
+      "j": 11,
+      "terminal": 1,
+      "w": 331720886061,
+      "period": 334731302496,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        22,
+        1
+      ],
+      "sha256": "7a6bca8f85905f7403fc6b154d2f8f632a0d71b5fa27c75e47c4910883ad3654"
+    },
+    {
+      "D": 9,
+      "k": 8,
+      "j": 11,
+      "terminal": 2,
+      "w": 108566684397,
+      "period": 334731302496,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        22,
+        1
+      ],
+      "sha256": "b3e9bd6489a01c793982cd966f9a10da945b422894452d0cf10d751e5eb1ec4b"
+    },
+    {
+      "D": 9,
+      "k": 8,
+      "j": 24,
+      "terminal": 1,
+      "w": 491028948639452493,
+      "period": 533669814389330208,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        35,
+        1
+      ],
+      "sha256": "37156702de7b2d89fcf92a41332eca4309f63c17b7d062bb06eef43455aa2e4c"
+    },
+    {
+      "D": 9,
+      "k": 8,
+      "j": 24,
+      "terminal": 2,
+      "w": 135249072379899021,
+      "period": 533669814389330208,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        35,
+        1
+      ],
+      "sha256": "ebc32e686b8e09245ae203519d8fadb9aef35032170f9ab480b4bc858467831b"
+    },
+    {
+      "D": 10,
+      "k": 4,
+      "j": 1,
+      "terminal": 1,
+      "w": 11632653,
+      "period": 17006112,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        16,
+        4
+      ],
+      "sha256": "de845642c369ed8a90e16d97ea90e2ac48103f5a3aaef19a3dabb505b1d2f92f"
+    },
+    {
+      "D": 10,
+      "k": 4,
+      "j": 1,
+      "terminal": 2,
+      "w": 5963949,
+      "period": 17006112,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        16,
+        4
+      ],
+      "sha256": "5057271cb503de423425ad942146ab15eaf7b7027f34ce9a4036ef6a316313b0"
+    },
+    {
+      "D": 10,
+      "k": 4,
+      "j": 2,
+      "terminal": 1,
+      "w": 34307469,
+      "period": 51018336,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        17,
+        4
+      ],
+      "sha256": "92d39287d2e73c7ac890d5f39a0523196b83b01a23a1ba470502878e3d452270"
+    },
+    {
+      "D": 10,
+      "k": 4,
+      "j": 2,
+      "terminal": 2,
+      "w": 17301357,
+      "period": 51018336,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        17,
+        4
+      ],
+      "sha256": "3e7350739f3e82374c8fec45176959a89da30e50eca4ef0f80ac1772a74f990a"
+    },
+    {
+      "D": 10,
+      "k": 4,
+      "j": 9,
+      "terminal": 1,
+      "w": 75099285837,
+      "period": 111577100832,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        24,
+        4
+      ],
+      "sha256": "9e491beed7e80d4585dcaca2a0d9e5b952c66753a4e5b3d164084ad221f9d4f0"
+    },
+    {
+      "D": 10,
+      "k": 4,
+      "j": 9,
+      "terminal": 2,
+      "w": 37906918893,
+      "period": 111577100832,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        24,
+        4
+      ],
+      "sha256": "1d4d64dea020fd4d19ef996c36f2166f2bcb4e2c504f9daad1eed3b9450acecd"
+    },
+    {
+      "D": 10,
+      "k": 4,
+      "j": 10,
+      "terminal": 1,
+      "w": 223868753613,
+      "period": 334731302496,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        25,
+        4
+      ],
+      "sha256": "3a47ef3d074584e4ee18da4862769def4b4e61ab2cfb3948774b0b08f6b709c7"
+    },
+    {
+      "D": 10,
+      "k": 4,
+      "j": 10,
+      "terminal": 2,
+      "w": 112291652781,
+      "period": 334731302496,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        25,
+        4
+      ],
+      "sha256": "713f3c807c2b8465c583c553d84d6d182636754a6b227f8ea4e0f25fa4d02a1b"
+    },
+    {
+      "D": 10,
+      "k": 4,
+      "j": 26,
+      "terminal": 1,
+      "w": 7899392962965970125,
+      "period": 14409084988511915616,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        41,
+        4
+      ],
+      "sha256": "82eb6f3aa551d7fd9478b9479704f12f8cfcb2c2607c3e4765cfee7a41d1d6fd"
+    },
+    {
+      "D": 10,
+      "k": 4,
+      "j": 26,
+      "terminal": 2,
+      "w": 3096364633461998253,
+      "period": 14409084988511915616,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        41,
+        4
+      ],
+      "sha256": "dde28379258fa5007290743c9c7e61eda95c28a638c7827f35aa51c828593293"
+    },
+    {
+      "D": 10,
+      "k": 8,
+      "j": 1,
+      "terminal": 1,
+      "w": 13522221,
+      "period": 17006112,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        13,
+        1
+      ],
+      "sha256": "41cc25ea051838fd328616126dceed8b0b13ca9e592100db865e3f0b81c4ba0b"
+    },
+    {
+      "D": 10,
+      "k": 8,
+      "j": 1,
+      "terminal": 2,
+      "w": 2184813,
+      "period": 17006112,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        13,
+        1
+      ],
+      "sha256": "4d4f7100e654f82307545a2ee5f0c7f7bf3f0ade285a3a9d1f7b467e57b058eb"
+    },
+    {
+      "D": 10,
+      "k": 8,
+      "j": 2,
+      "terminal": 1,
+      "w": 41865741,
+      "period": 51018336,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        14,
+        1
+      ],
+      "sha256": "ff5a6b27fde0c2f2d5eeccbfa8a508d94e9c03171ed1591635752a523d25772a"
+    },
+    {
+      "D": 10,
+      "k": 8,
+      "j": 2,
+      "terminal": 2,
+      "w": 7853517,
+      "period": 51018336,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        14,
+        1
+      ],
+      "sha256": "71c050bf1caead0d5c83471aaff0d1a3565c3f3954f28da9c2d0bb2c710eb655"
+    },
+    {
+      "D": 10,
+      "k": 8,
+      "j": 11,
+      "terminal": 1,
+      "w": 664589704365,
+      "period": 1004193907488,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        23,
+        1
+      ],
+      "sha256": "cc8a722bf274557c769ff8374b53cada782c0e9536e785e3b636133f561b916c"
+    },
+    {
+      "D": 10,
+      "k": 8,
+      "j": 11,
+      "terminal": 2,
+      "w": 999321006861,
+      "period": 1004193907488,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        23,
+        1
+      ],
+      "sha256": "4a71d8c61c795b9ccaa4e7ed798ffecd941775524b0a19025bbf8ac78e16b04e"
+    },
+    {
+      "D": 10,
+      "k": 8,
+      "j": 12,
+      "terminal": 1,
+      "w": 1334052309357,
+      "period": 3012581722464,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        24,
+        1
+      ],
+      "sha256": "91ce9b8f3bea80c15b52baf12356d4017e06136842b9c7e00eeb70f911edbb57"
+    },
+    {
+      "D": 10,
+      "k": 8,
+      "j": 12,
+      "terminal": 2,
+      "w": 2338246216845,
+      "period": 3012581722464,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        24,
+        1
+      ],
+      "sha256": "a4287407b78b1222c52a887455ddecbc5958212371c2209cfc10cf0804214698"
+    },
+    {
+      "D": 10,
+      "k": 8,
+      "j": 26,
+      "terminal": 1,
+      "w": 3724554528537486381,
+      "period": 14409084988511915616,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        38,
+        1
+      ],
+      "sha256": "4d9767e50e46f7ef10ef15c1c08c5d986eb3aa35bf5914b434b185e2ce0981b1"
+    },
+    {
+      "D": 10,
+      "k": 8,
+      "j": 26,
+      "terminal": 2,
+      "w": 8527582858041458253,
+      "period": 14409084988511915616,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        38,
+        1
+      ],
+      "sha256": "99880d359d79069225b43cc216832f82e5998e7406c8c67f858c1a345de233c6"
+    },
+    {
+      "D": 11,
+      "k": 4,
+      "j": 1,
+      "terminal": 1,
+      "w": 21080493,
+      "period": 51018336,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        17,
+        4
+      ],
+      "sha256": "2fa2b56bcccba2cd91d37f16e7a00cf6da84abc9561c9948562f0b70461e5fa1"
+    },
+    {
+      "D": 11,
+      "k": 4,
+      "j": 1,
+      "terminal": 2,
+      "w": 4074381,
+      "period": 51018336,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        17,
+        4
+      ],
+      "sha256": "7db43a48c51aae425c2e34fa2b30bf86d6d5853248ceba55220b0f8948c8961b"
+    },
+    {
+      "D": 11,
+      "k": 4,
+      "j": 2,
+      "terminal": 1,
+      "w": 89104941,
+      "period": 153055008,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        18,
+        4
+      ],
+      "sha256": "c3d3c332eb0084a1480268197baf1d31a7f7275584de67a9f046d94e7e6924e2"
+    },
+    {
+      "D": 11,
+      "k": 4,
+      "j": 2,
+      "terminal": 2,
+      "w": 38086605,
+      "period": 153055008,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        18,
+        4
+      ],
+      "sha256": "057d7cbce42f86ae12682ce6c7efcc0f0ceffc32ccc0a83b447d3606ae9f74b5"
+    },
+    {
+      "D": 11,
+      "k": 4,
+      "j": 10,
+      "terminal": 1,
+      "w": 834749081901,
+      "period": 1004193907488,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        26,
+        4
+      ],
+      "sha256": "b7da2d32d8cd42021509c322bc140bdaadf6e3f2d3f2237858f86d1dfda6a412"
+    },
+    {
+      "D": 11,
+      "k": 4,
+      "j": 10,
+      "terminal": 2,
+      "w": 500017779405,
+      "period": 1004193907488,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        26,
+        4
+      ],
+      "sha256": "2b12aa320c10eda5ad57d87e2a952b8070330ccd5227babaeab481dfb258745a"
+    },
+    {
+      "D": 11,
+      "k": 4,
+      "j": 11,
+      "terminal": 1,
+      "w": 2173674291885,
+      "period": 3012581722464,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        27,
+        4
+      ],
+      "sha256": "eb8e8b2b8e3257639ebd6ef53ade06a7eb831f0168b3e4b48118bf10ae093a90"
+    },
+    {
+      "D": 11,
+      "k": 4,
+      "j": 11,
+      "terminal": 2,
+      "w": 1169480384397,
+      "period": 3012581722464,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        27,
+        4
+      ],
+      "sha256": "9840a6641f5f637181f5c3878e54907353328bca3dfd43df2ccd3632a766ae2e"
+    },
+    {
+      "D": 11,
+      "k": 4,
+      "j": 28,
+      "terminal": 1,
+      "w": 27425601228519601677,
+      "period": 389045294689821721632,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        44,
+        4
+      ],
+      "sha256": "4469d45bda3a1ef63ace9b938737b18a423bec162ed79c5f66b2b5bef473c63d"
+    },
+    {
+      "D": 11,
+      "k": 4,
+      "j": 28,
+      "terminal": 2,
+      "w": 286789131021734082765,
+      "period": 389045294689821721632,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        44,
+        4
+      ],
+      "sha256": "80cbc23030c1c2c96f0709732ee56e8ba439b18f45a2b08162ea6444ea2e6e43"
+    },
+    {
+      "D": 11,
+      "k": 8,
+      "j": 1,
+      "terminal": 1,
+      "w": 9743085,
+      "period": 51018336,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        14,
+        1
+      ],
+      "sha256": "6f8e9291475f68d351dc34af96354904569d58216b641a275237435861533626"
+    },
+    {
+      "D": 11,
+      "k": 8,
+      "j": 1,
+      "terminal": 2,
+      "w": 26749197,
+      "period": 51018336,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        14,
+        1
+      ],
+      "sha256": "bfb4e1f929972665912aa34ceacb5c141783e900ae05e877f46f756f6bd0f2d2"
+    },
+    {
+      "D": 11,
+      "k": 8,
+      "j": 2,
+      "terminal": 1,
+      "w": 94773645,
+      "period": 153055008,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        15,
+        1
+      ],
+      "sha256": "9386c44f4c6a482c9a4b6b7581a3a7289bb4e87eb044cf92dd54cd9da554b29b"
+    },
+    {
+      "D": 11,
+      "k": 8,
+      "j": 2,
+      "terminal": 2,
+      "w": 145791981,
+      "period": 153055008,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        15,
+        1
+      ],
+      "sha256": "685f235cadf6650ea1b1c32b678121f930e23d628835729898286e077ab496bd"
+    },
+    {
+      "D": 11,
+      "k": 8,
+      "j": 11,
+      "terminal": 1,
+      "w": 2922629133069,
+      "period": 3012581722464,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        24,
+        1
+      ],
+      "sha256": "dfcaadbcd1cb1cf29cd14d689bb8227ba11ac22a00ff85a4834efa9a16775ed9"
+    },
+    {
+      "D": 11,
+      "k": 8,
+      "j": 11,
+      "terminal": 2,
+      "w": 914241318093,
+      "period": 3012581722464,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        24,
+        1
+      ],
+      "sha256": "a0b1ad5c823443b96af9f2a19a045e826b0c378acbb7bd1bd52e2fe7f1e7e2bc"
+    },
+    {
+      "D": 11,
+      "k": 8,
+      "j": 12,
+      "terminal": 1,
+      "w": 1918435225581,
+      "period": 9037745167392,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        25,
+        1
+      ],
+      "sha256": "188815faddf6974f5dba5a603b0e6bff6d12624af177841ee25963f8a66945ab"
+    },
+    {
+      "D": 11,
+      "k": 8,
+      "j": 12,
+      "terminal": 2,
+      "w": 4931016948045,
+      "period": 9037745167392,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        25,
+        1
+      ],
+      "sha256": "12de4523251ff89af64ce2ab41b2f9cd2f5a986d7a7c7230970405993f9ee59e"
+    },
+    {
+      "D": 11,
+      "k": 8,
+      "j": 28,
+      "terminal": 1,
+      "w": 287260273443040698861,
+      "period": 389045294689821721632,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        41,
+        1
+      ],
+      "sha256": "aded33f591e52854a4f8008bfc8065caad4760e41d84ba70b1eeed8eb16bbf9d"
+    },
+    {
+      "D": 11,
+      "k": 8,
+      "j": 28,
+      "terminal": 2,
+      "w": 27896743649826217773,
+      "period": 389045294689821721632,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        41,
+        1
+      ],
+      "sha256": "260f0e0a51fa2fa467d3461788f2dde904c29fe5a77eb658368306d82bd84fb1"
+    },
+    {
+      "D": 12,
+      "k": 4,
+      "j": 1,
+      "terminal": 1,
+      "w": 117448461,
+      "period": 153055008,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        18,
+        4
+      ],
+      "sha256": "bf7ef8140c3ddc57b2ab7b7e78228a430db7ffc2c8b649b16e618e9c9e3e3710"
+    },
+    {
+      "D": 12,
+      "k": 4,
+      "j": 1,
+      "terminal": 2,
+      "w": 66430125,
+      "period": 153055008,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        18,
+        4
+      ],
+      "sha256": "82704d38e724e5b3fb197589b7e39b59a6bd80d65da94631fb905de18647f224"
+    },
+    {
+      "D": 12,
+      "k": 4,
+      "j": 2,
+      "terminal": 1,
+      "w": 321521805,
+      "period": 459165024,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        19,
+        4
+      ],
+      "sha256": "ce864f2cc5bf276632d0e4c31363bb36728e91e82ef372e4dc3a40418f69ac03"
+    },
+    {
+      "D": 12,
+      "k": 4,
+      "j": 2,
+      "terminal": 2,
+      "w": 168466797,
+      "period": 459165024,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        19,
+        4
+      ],
+      "sha256": "d07643f9d60c233283b1d8b16908d582ebafa88b8daa04484e5134fe28cd4f18"
+    },
+    {
+      "D": 12,
+      "k": 4,
+      "j": 10,
+      "terminal": 1,
+      "w": 37666943757,
+      "period": 3012581722464,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        27,
+        4
+      ],
+      "sha256": "792ef06fd65c5ce5174b803fd7e792078fc2b2d4c0d666990f19c402a4f79b8f"
+    },
+    {
+      "D": 12,
+      "k": 4,
+      "j": 10,
+      "terminal": 2,
+      "w": 2046054758733,
+      "period": 3012581722464,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        27,
+        4
+      ],
+      "sha256": "9750324c2b72397c2ecb72e9642c75a8a434bafb3d0192a7126caa7614225bd2"
+    },
+    {
+      "D": 12,
+      "k": 4,
+      "j": 11,
+      "terminal": 1,
+      "w": 7067024296173,
+      "period": 9037745167392,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        28,
+        4
+      ],
+      "sha256": "57f887873a450f81d25e404ebfdf9e743d2844a32b00a8c645949b387cbe0227"
+    },
+    {
+      "D": 12,
+      "k": 4,
+      "j": 11,
+      "terminal": 2,
+      "w": 4054442573709,
+      "period": 9037745167392,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        28,
+        4
+      ],
+      "sha256": "e8e7e42c24c56b8a700e9b04c62c436e837609b4888e005b9a6323e2ef83a1e8"
+    },
+    {
+      "D": 12,
+      "k": 4,
+      "j": 30,
+      "terminal": 1,
+      "w": 6965635594407660278829,
+      "period": 10504222956625186484064,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        47,
+        4
+      ],
+      "sha256": "a18cf6daafd619123b533575d9e8b757c37c272b5414729b83320753e984d8b3"
+    },
+    {
+      "D": 12,
+      "k": 4,
+      "j": 30,
+      "terminal": 2,
+      "w": 3464227942199264784141,
+      "period": 10504222956625186484064,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        47,
+        4
+      ],
+      "sha256": "287d31106607d7d401efc92e78c5b4e3271af265804449a2dfb66bed536d7d45"
+    },
+    {
+      "D": 12,
+      "k": 8,
+      "j": 1,
+      "terminal": 1,
+      "w": 32417901,
+      "period": 153055008,
+      "kind": "W9_forward_defect",
+      "clocks": [
+        15,
+        1
+      ],
+      "sha256": "a823845837dfb4b2f279d8ff163f8ab01f989d034f27f5bc789ebe5f351db11e"
+    },
+    {
+      "D": 12,
+      "k": 8,
+      "j": 1,
+      "terminal": 2,
+      "w": 83436237,
+      "period": 153055008,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        15,
+        1
+      ],
+      "sha256": "77c39c9c927db97ebfbb14fe5552958fee56b5ebebaf90162a36eb45f028d517"
+    },
+    {
+      "D": 12,
+      "k": 8,
+      "j": 2,
+      "terminal": 1,
+      "w": 440564589,
+      "period": 459165024,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        16,
+        1
+      ],
+      "sha256": "bcb4df37fc66ac53aa601cd648b5bb033c499ca90ff097403f9478a07bb8d78e"
+    },
+    {
+      "D": 12,
+      "k": 8,
+      "j": 2,
+      "terminal": 2,
+      "w": 134454573,
+      "period": 459165024,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        16,
+        1
+      ],
+      "sha256": "ec288974114f002e2b3e2c6894ab7a2bddabb78101b279a7854c1dfb67833272"
+    },
+    {
+      "D": 12,
+      "k": 8,
+      "j": 12,
+      "terminal": 1,
+      "w": 11394467580141,
+      "period": 27113235502176,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        26,
+        1
+      ],
+      "sha256": "69750d309be1b7d72403e9f78d64847edb37f45a40ee3bc071b8765df91717fa"
+    },
+    {
+      "D": 12,
+      "k": 8,
+      "j": 12,
+      "terminal": 2,
+      "w": 20432212747533,
+      "period": 27113235502176,
+      "kind": "uncancelled_largest_W5",
+      "clocks": [
+        26,
+        1
+      ],
+      "sha256": "9cd1acd517185c431b13efe5ae14d617e8a6db6801de272446f07eb901e509d0"
+    },
+    {
+      "D": 12,
+      "k": 8,
+      "j": 13,
+      "terminal": 1,
+      "w": 2356722412749,
+      "period": 81339706506528,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        27,
+        1
+      ],
+      "sha256": "84f0a0335cc1c5e97ade603329186a734d0fca1e3bf7916c2d2970cd1e00dc4e"
+    },
+    {
+      "D": 12,
+      "k": 8,
+      "j": 13,
+      "terminal": 2,
+      "w": 29469957914925,
+      "period": 81339706506528,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        27,
+        1
+      ],
+      "sha256": "934da415459aae79b08c154c653f544f2458a99d37d7937b3c635218c18c1b49"
+    },
+    {
+      "D": 12,
+      "k": 8,
+      "j": 30,
+      "terminal": 1,
+      "w": 2005661443928413290093,
+      "period": 10504222956625186484064,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        44,
+        1
+      ],
+      "sha256": "d6aea86176568c7f261f5e463cf6aea5f928361496fd792db1152496c57fd0c0"
+    },
+    {
+      "D": 12,
+      "k": 8,
+      "j": 30,
+      "terminal": 2,
+      "w": 5507069096136808784781,
+      "period": 10504222956625186484064,
+      "kind": "strict_rank_decrease",
+      "clocks": [
+        44,
+        1
+      ],
+      "sha256": "1f652a6a703c29badfb5af423003650b6f6848162d5ed2961eb13307c5b203e6"
+    }
+  ],
+  "far_CRT_checks": 24,
+  "actual_substitutions": [
+    {
+      "w": 2445,
+      "inputs": 4,
+      "rows": 33,
+      "sha256": "3bad5ced22eeeea97782bdf077b8dea793b806b612c4739cf64aad7e65b1b49f"
+    },
+    {
+      "w": 16653,
+      "inputs": 3,
+      "rows": 85,
+      "sha256": "960d8f2568ffe702f01862e242ca47ae016687937787fa2c30737bc67028d216"
+    },
+    {
+      "w": 17325,
+      "inputs": 5,
+      "rows": 89,
+      "sha256": "07c4762172d72888bd44374c54ecd1cefaf88c0bbec9f38d135ffd87c93f2cb0"
+    },
+    {
+      "w": 17997,
+      "inputs": 4,
+      "rows": 76,
+      "sha256": "8fe494fdccd699b062a43e0d78822fe24291742f7661de71f8067472b80aedd3"
+    }
+  ],
+  "fixture_absorption_cap": 10000,
+  "formal_closures": [
+    {
+      "w": 2445,
+      "expanded": [
+        2445
+      ],
+      "leaves": {
+        "5": -1,
+        "21": 1,
+        "29": -1,
+        "1717": 1
+      }
+    },
+    {
+      "w": 16653,
+      "expanded": [
+        16653
+      ],
+      "leaves": {
+        "93": -1,
+        "325": 1,
+        "31189": 1
+      }
+    },
+    {
+      "w": 17325,
+      "expanded": [
+        17325
+      ],
+      "leaves": {
+        "5": -1,
+        "45": -1,
+        "85": 1,
+        "1925": -1,
+        "14421": 1
+      }
+    },
+    {
+      "w": 17997,
+      "expanded": [
+        17997
+      ],
+      "leaves": {
+        "5": 1,
+        "13": -1,
+        "117": 1,
+        "16853": 1
+      }
+    }
+  ],
+  "rejection_checks": 5
+}
