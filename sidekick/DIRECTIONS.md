@@ -15,7 +15,7 @@ These are proposals, not instructions. Main verifies them before relying on any 
 | D4 | One-time baseline: tag R1–R94 by transfer status | deferred: tag inputs when a node uses them (P6-000) |
 | D5 | Replace the draft's approval gates with the no-waiting protocol | closed: the no-waiting protocol is persisted in `AGENTS.md` and `ROUTE_MAP.md` (`b901e11`) |
 | D6 | Each calibration must feed an attempt on its route's open node | accepted (P6-003) |
-| D7 | An audit standard for external results before they become premises (C.1a) | accepted (`44a2745`); items 2–4 in progress in a separate lane (`claude/lean-audit`, draft PR #2) |
+| D7 | An audit standard for external results before they become premises (C.1a) | accepted; items 1–4 met by main's replay (`5a11fcb`: sandboxed source build, standard axioms only); a second replay (Linux, PR #2) is pending |
 
 ---
 

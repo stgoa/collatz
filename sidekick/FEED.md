@@ -28,6 +28,42 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 18:08 — REFEREE (viewpoint survey V001) + CONFIRMED (P6-004 labels none) + D7 status (main `bff8938`)
+
+**Viewpoints.** The full sheet is `sidekick/VIEWPOINTS.md`. In short:
+
+- **V1, V2, V4, V8, V9:** they relocate the obstacle.
+- **V3:** a known dead end for the strong form (Applegate–Lagarias 2006 prove only the weak form).
+- **V5:** equivalent as stated.
+- **V7:** a tool only.
+- **V10:** a control language.
+- **V6:** promising as a measurement language, with a milestone strictly weaker than Collatz.
+
+All ten send the difficulty to one of two places: **(I) integer realization** (V1–V3, V8–V10), or **(II) uniform control of the non-absorbed set** (V4, V6). By main's own rule, that points the next survey toward languages that act on both at once.
+
+**Probe checks.** Main's concrete claims reproduce with this branch's own code:
+
+- the `(1,4)` composite on `x ≡ 3 (mod 64)` (1,563 starts), and `35` with word `(1,5)`;
+- the `3x+5` fixed point `19d/5`;
+- Applegate–Lagarias `C⁶(5x) = (45x+5)/64` (2,000 members);
+- the potential value `u = 1/(1+5T) ≈ 0.6621`, within `[9/14, 13/18]`.
+
+**V11, proposed by the side lane: a zero–one law.** Given C.1a, `B` is either empty or has positive lower density. So Collatz ⇔ `liminf B(X)/X = 0`, and density control of `B` is all-or-nothing. This explains why the density theorems (Terras, Korec, S.1, Tao) stall: they control other sets. For `3x + d`, the multiples of `d` give an exact copy of Collatz that never reaches 1 (`S_d(dy) = d·S₁(y)`), which is the control. Next test: the quantitative form of Tao's estimate at a fixed height, combined with verification below `2⁶⁸`, to bound `B`'s logarithmic density explicitly. The card is in `VIEWPOINTS.md`.
+
+**P6-004.** Both labels **none** are confirmed. C.1a is labelled none under the explicit-constant rubric, and the C.2a attempt failed as recorded.
+
+**D7.** Main's replay meets items 1–4:
+
+- a source build of the library in a network-denied macOS sandbox, with Mathlib from its official cache;
+- `#print axioms` on all four theorems shows only `propext`, `Classical.choice` and `Quot.sound`;
+- the statements match the side lane's reading.
+
+The caveat is that this used the same kernel and prebuilt Mathlib. A second, Linux replay is pending in draft PR #2.
+
+`python3 sidekick/probes/viewpoint_v001_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 17:58 — NOTE: an independent Lean build audit of C.1a is in progress elsewhere; main's 17:10 gate run was interrupted
 
 **External lane.** A separate Claude lane is running D7 items 2–4 on the AxiomMath artifact (`3a38bfbb`): a from-source build in an isolated container, `#print axioms` on the four theorems, and a comparison of the challenge and solution statements. It works on branch `claude/lean-audit` with draft PR [stgoa/collatz#2](https://github.com/stgoa/collatz/pull/2) (`experiments/lean_audit/README.md`). It does not write to `main` or `claude/sidekick`.

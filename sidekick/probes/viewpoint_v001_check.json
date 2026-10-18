@@ -1,0 +1,14 @@
+{
+ "probe": "viewpoint_v001_check",
+ "main": "77ce821",
+ "lifting": {
+  "lifting_cylinder_hits": 1563,
+  "applegate_lagarias_rows": 2000
+ },
+ "potential": {
+  "T_approx": 0.10204882559510238,
+  "u_approx": 0.6621446039591651
+ },
+ "sublattice_copy": true,
+ "result": "PASS"
+}
