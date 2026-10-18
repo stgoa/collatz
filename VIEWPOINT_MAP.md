@@ -1,11 +1,13 @@
 # Find a better language for Collatz
 
-**Language-selection recommendation, 2026-10-18. Collatz remains open.**
-The [user-approved brief](docs/VIEWPOINT_BRIEF.md) governs this exploration.
+**Arithmetic-regularity investigation, 2026-10-18. Collatz remains open.**
+The [current brief](docs/ARITHMETIC_REGULARITY_BRIEF.md) develops the selected
+language. The [earlier brief](docs/VIEWPOINT_BRIEF.md) records the completed
+language-selection goal.
 The [batch log](docs/VIEWPOINT_LOG.md) records decisions and checks. The former
 [route map](ROUTE_MAP.md) supplies evidence, without restricting the search.
 
-## Recommendation after two rounds
+## Language selection after two rounds
 
 We compared **fourteen viewpoints**, tested the initial shortlist, and expanded
 the search when both shortlisted approaches reproduced existing obligations.
@@ -22,17 +24,17 @@ colorings survive. The [complete elementary argument](experiments/viewpoints/V00
 identifies the exact role of the additive parameter. It is independently
 reviewed here, with no novelty or formal-verification claim.
 
-The proposed intermediate target is to classify invariant colorings recognized
+The intermediate target is to classify invariant colorings recognized
 by a finite automaton in **base 2 alone**. We have no reason to assume an actual
 nonabsorbing set has that regularity. The two-base version follows from a
 published theorem; the one-base closure question remains unproved here and
-needs a prior-work check. This is a recommendation of a working language,
+has now had a bounded prior-work check in V003. This is a working language,
 not evidence that it is a superior convergence method.
 
-Use **V14: binary/ternary carry diagrams** for one complementary boundary test.
-Retain **V12: laws of actual integer ensembles** as a distinct alternative.
-V14 has not supplied finite-kernel closure, and V12 has not supplied a new
-first-passage estimate. Their next tests are specified below.
+The complementary **V14: binary/ternary carry diagram** test is now complete:
+it adds no new section relation. Retain **V12: laws of actual integer
+ensembles** as a distinct alternative; it has not supplied a new first-passage
+estimate.
 
 The first round's information-loss lesson remains: simplifying a representation
 can discard exactly what is needed to recover an actual positive-integer path.
@@ -43,6 +45,31 @@ geometry controlled local boundary errors without giving an average estimate.
 The frozen results remain useful: they identify which quantities cannot serve
 as progress measures and provide exact difficult examples. We preserve them
 while changing the questions asked of them.
+
+## V003: demonstrated gains and a narrower closure question
+
+The [batch report](experiments/viewpoints/V003/REPORT.md) records the
+subsequent bounded investigation, including proof review and exact examples.
+
+- **Partial classification:** every invariant `h(n)=F(s_2(n))` is constant,
+  even without assuming F finite-valued or periodic. This includes all
+  digit-count-modulo-m automata, for every m, beyond the periodic baseline.
+- **Structural reduction:** if K is the finite binary kernel, every first
+  ternary section of every K-state belongs to `K union {n -> h(3n)}`.
+  Moreover `{n -> h(3^t n):t>=0}` has size at most |K|.
+- **Exact scoped obstruction:** a binary-automatic character of the odd
+  part is invariant under both doubling and tripling, but has infinitely
+  many mixed ternary sections. It fails the full Collatz guard at3.
+- **Known result identified:** constant dyadic sections force constancy,
+  already a consequence at d=1 of published progression sufficiency.
+- **Complementary probe closed:** the complete carry frontier for5 recovers
+  the existing affine arrow and supplies no additional closure relation.
+
+The full single-base classification remains open here. The proofs above
+are written and independently agent-reviewed, with novelty undetermined.
+No arbitrary component indicator has been shown to satisfy a regularity
+hypothesis. The next useful test must address mixed ternary sections while
+retaining the guarded additive identity.
 
 ## Comparison
 
@@ -63,8 +90,8 @@ cycle controls, cheapest test and a genuinely partial milestone.
 | V10. [Rational denominator layers](experiments/viewpoints/V001/rational_layers.md) | Related maps become layers of one rational system; target and lattice changes are explicit | A property of the denominator-one layer that forces useful progress | Control bookkeeping; defer as an independent route |
 | V11. [Occupation measures](experiments/viewpoints/V002/statistical_languages.md#v11-occupation-measures-recurrence-versus-escape-of-mass) | Cycle mass and escape of mass are different phenomena | Tightness uniform in the seed range; cycle identification remains separate | Diagnostic only until a quantitative mechanism is proposed |
 | V12. [Information of actual integer ensembles](experiments/viewpoints/V002/statistical_languages.md#v12-conditional-information-of-realized-paths-rather-than-symbolic-entropy) | Merging, conditioning and endpoint concentration are separate | A quantitative first-passage law with integer endpoints | Retain as a separate statistical alternative; literature comparison first |
-| V13. [Arithmetic regularity of component colorings](experiments/viewpoints/V002/invariant_colors.md) | Obstruction complexity and incompatible bases become explicit | Restricting one-base automatic solutions; no regularity of the actual bad set is known here | Preferred working language for the next bounded investigation |
-| V14. [Two-dimensional base conversion](experiments/viewpoints/V002/base_conversion.md) | Binary and ternary data share one carry boundary | Growing frontier, finite integer support and nonlocal bootstrap | One complementary test; no kernel-closure implication established |
+| V13. [Arithmetic regularity of component colorings](experiments/viewpoints/V003/REPORT.md) | Partial digit-count classification; first ternary image adds at most one function | Mixed ternary closure; no regularity of the actual bad set is known here | Continue with a bounded mixed-section probe |
+| V14. [Two-dimensional base conversion](experiments/viewpoints/V003/carry_boundary.md) | Binary and ternary data share one complete carry boundary | Growing frontier, finite integer support and nonlocal bootstrap | Tested and closed: no additional relation; require a new whole-frontier proposal to reopen |
 
 These are related lenses, not fourteen independent possible proofs. In particular,
 V2, V8 and V9 share affine data. V4 addresses absorption through an exact
@@ -143,26 +170,29 @@ for either mathematical field. They are why the second round added V11–V14.
 
 ## Focused subsequent programme
 
-The language-selection deliverable ends with the following bounded programme.
-It does not require executing that programme or starting an extended proof search.
+V003 completed the literature, first-kernel and carry-boundary tests proposed
+by the language-selection deliverable. The following recommendation follows
+their comparison. A full classification is still a research target.
 
 | Priority | Bounded next investigation | Evidence needed to continue | Stop or redirect when |
 |---|---|---|---|
-| 1 — V13 | Check primary automata/functional-equation literature; write the ternary sections of an invariant sequence with finite binary kernel | A precise existing classification, a new finite closure implication, or a specific missing family of sections | Only the already-known two-base theorem is recovered, or regularity of the actual bad set is assumed |
-| 2 — V14 with V13 | Trace one finite conversion rectangle and list its complete frontier, zero tail and bootstrap; compare with guarded affine data | A demonstrable relation between boundary data or sections that the endpoint description obscures | The diagram merely redraws the history or silently fixes an unknown/infinite boundary |
+| 1 — V13 | Test mixed sections of f_t(n)=h(3^t n), retaining the exact coupled binary-section equations from V003 | A specified finite family closed under all ternary sections, an additional relation, or a bound for the missing mixed families | Pure-zero finiteness or fixed-subsequence automaticity is treated as full closure; finite catalogues replace a theorem |
+| Complement — V13 | Test whether the retained section equations yield a finite characteristic-zero 3-Mahler relation for each color indicator | An actual finite polynomial-coefficient relation with every auxiliary series accounted for | An unknown series is discarded, or the two-base theorem is assumed applicable |
+| V14 — closed | Reopen only with a specific additional relation between entire frontier families | A relation not already present in the affine/section equations | Another finite rectangle merely redraws known arithmetic |
 | Alternative — V12 | Compare the specified capped first-passage law with Tao's exact hypotheses, retaining failure mass and selection bias | A named estimate that can plausibly be obtained for actual integer seeds | Fresh independent bits, stationary input laws, or uniform residue counts are assumed after conditioning |
 
 **V13 intermediate target.** Classify finite-valued, base-2-automatic solutions
 of `h(2n)=h(n)` for `n>=1` and `h(3n+1)=h(n)` for odd `n>1`.
 A sufficient approach would prove a finite ternary kernel from a finite binary
-kernel and these identities. We currently have only the section identity
-`h(3n+2)=h(2n+1)` for `n>=1`, not the required closure. Classifying this
+kernel and these identities. V003 proves both nonzero first-section identities,
+the one-extra-function bound for the first image of the entire binary kernel,
+and finiteness of pure-zero iterates. It does not prove mixed closure. Classifying this
 restricted function class does not establish regularity of arbitrary component
 indicators and therefore supplies no universal convergence inference.
 
-**V14 intermediate target.** Assess the published small-cycle problem
-`T^k(x)!=x` for `x>2`, `1<=k<=ceil(log_2 x)` in the **shortcut** clock.
-This leaves divergence and longer cycles. First establish that a boundary
+**Deferred V14 intermediate target.** The published small-cycle problem
+`T^k(x)!=x` for `x>2`, `1<=k<=ceil(log_2 x)` in the **shortcut** clock
+leaves divergence and longer cycles. A new proposal would first need to establish that a boundary
 argument contributes something beyond the periodic affine equation. The
 d=5 check on this card is an external arithmetic control; no generalized
 d=5 tile construction has been tested.
@@ -174,9 +204,10 @@ mass of non-1 endpoints, for all sufficiently large integer X. Its card states
 all constants and quantifiers as a candidate, not a proved estimate. It leaves
 the fate of the endpoints and exceptional seeds unresolved.
 
-After these bounded checks, compare their outputs before choosing deeper work.
-If V13 yields only an unsupported regularity assumption and V14 no compression,
-broaden again; do not grow an automata case catalogue to preserve the choice.
+After the next bounded mixed-section check, compare its output before further
+depth. V003 supplies a genuine partial result; it does not guarantee another.
+If the mixed-family obligation is merely reproduced, consider V12 or broaden
+again; do not grow an automata case catalogue to preserve the choice.
 V2 remains the arithmetic bookkeeping layer, V4 the survival observable, V10
 the control index, and V11 the check against losing mass at infinity.
 
@@ -204,7 +235,10 @@ side commit and the frozen-code boundary. These notes are exploratory
 comparisons and elementary worked calculations, not additions to R1–R94.
 The open LaTeX document and existing dispatcher remain unchanged.
 The [selection review](experiments/viewpoints/V002/SELECTION_REVIEW.md) maps the
-goal requirements to the actual cards, comparisons and checks. The independently
-reviewed finite-period argument is the main new diagnostic in this exploration;
-the automatic-coloring theorem, boundary closure and statistical estimate remain
-proposed subsequent work.
+earlier goal requirements to the actual cards, comparisons and checks. The
+[V003 report](experiments/viewpoints/V003/REPORT.md) and
+[goal audit](experiments/viewpoints/V003/GOAL_REVIEW.md) record the subsequent
+partial classification, section lemmas, scoped counterexample and closed carry
+test. Full automatic-coloring classification and the statistical estimate
+remain open. These records separate mathematical gain from novelty and from
+progress on unrestricted convergence.

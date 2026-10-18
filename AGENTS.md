@@ -1,15 +1,17 @@
 # Instructions for agents working in this repository
 
-## Active programme — find a better mathematical language
+## Active programme — arithmetic regularity of component colorings
 
-The user replaced the previous prove-or-narrow goal on 2026-10-18. Explore
-Grothendieck-style changes of viewpoint through breadth before depth. The
-immediate deliverable is a defensible recommendation of one or a few mathematical
-languages, supported by comparisons, examples and a focused subsequent programme.
-It is not a proof of Collatz or permission to resume the previous deep search.
+The user replaced the previous prove-or-narrow goal on 2026-10-18. V001/V002
+completed a broad language comparison and selected arithmetic regularity.
+The subsequent goal is in `docs/ARITHMETIC_REGULARITY_BRIEF.md`: develop a
+substantive theorem or sharply scoped obstruction for binary-automatic
+invariant colorings. V003 supplies a partial classification and structural
+lemmas; full classification remains open. This does not authorize resuming
+the previous dispatcher search or assuming regularity of an actual bad set.
 
 - Start with `VIEWPOINT_MAP.md` and `docs/VIEWPOINT_LOG.md`, then the result ledger and relevant sources. `ROUTE_MAP.md` is historical evidence and a collection of obligations; it does not restrict the available directions.
-- Fan out across substantially different objects and representations. Use bounded parallel first passes. Do not expand dispatcher families, run large searches, or spend a batch developing one proof before comparing alternatives.
+- Use bounded parallel investigations and compare their mathematical gains before deepening. Reconsider the statistical alternative or broaden representations if the chosen language repeatedly reproduces existing obligations. Do not expand dispatcher families or run large automaton catalogues.
 - Every candidate records seven fields: objects, structural gain, translated unresolved gap, worked example, known-cycle controls, cheapest meaningful next test, and a genuinely intermediate milestone. Reject a milestone that is only an equivalent formulation of all of Collatz.
 - Separate a useful language, a proposed inequality, a written argument and a verified finite example. A sophisticated name, analogy or notational change earns no preference. Explain exactly which information is retained or lost.
 - After the initial survey, shortlist a few candidates for slightly deeper bounded discrimination probes. Expand or combine viewpoints when they merely relocate the same obstacle. Record rejection reasons and remaining assumptions; do not settle prematurely on a familiar framework.
@@ -29,7 +31,16 @@ tests. This selection is not evidence of a superior convergence method.
 - The finite-period coloring classification holds for positive odd d with 3 not dividing d, with absorber 1 retained. At d=1 all eventually periodic invariant colorings are constant. This supplies no periodicity or automaticity of an arbitrary component indicator.
 - The two-base-automatic case uses Cobham as a published input. The single-base target remains unproved here. Fixed-depth predecessor languages being regular does not imply their unbounded union is regular. A finite-state carry rule likewise does not imply a finite ternary kernel or a bounded frontier.
 - V14's cycle control is arithmetic; no d=5 version of its tile system was verified. Keep ordinary, shortcut and parallel-update clocks separate. V12 uses positive laws on actual integer seeds, preserving conditioning and failure mass; these are not signed currents.
-- Finishing language selection does not require proving the proposed subsequent milestones. Reassess after the bounded tests in VIEWPOINT_MAP.md before starting a deep proof campaign.
+- Language selection is complete. The subsequent arithmetic-regularity goal permits genuine partial classification or a structural gain; it does not require proving all of Collatz. Reassess after bounded tests before starting a deep proof campaign.
+
+### V003 gains and remaining obligation
+
+- Any invariant of the form `F(s_2(n))` is constant, for arbitrary F on positive digit weights. This includes every digit-count-modulo-m automatic coloring, but does not include arbitrary bit-pattern automata. The written proof uses +1; no actual component indicator is assumed to have this form.
+- With h(0)=h(1), finite binary kernel K and f_t(n)=h(3^t n), every first ternary image of K lies in `K union {f_1}`, and the family of f_t has size at most |K|. This is not full ternary closure. Mixed sections of the extra function remain missing; automaticity of each fixed affine subsequence does not bound their number.
+- The explicit binary-automatic character `chi(oddpart(n))`, with chi positive on1/3 and negative on5/7 modulo8, has h(2n)=h(3n)=h(n) and an infinite mixed ternary kernel. It fails Collatz invariance at3. It refutes the scaling-only shortcut, not the full target or the first-image lemma. It has constant binary sections; use Thue–Morse when illustrating their possible absence.
+- Monochromatic-cylinder rigidity is a known consequence at d=1 of published progression sufficiency. The elementary dyadic proof transfers to fixed positive odd d coprime to3. It supplies no constant section for an arbitrary automatic invariant.
+- The complete V14 carry test produced no new relation. Its finite input, entire undefined east ray, zero tail and carry flush are required boundary data. No generalized d=5 tiles were tested. Reopen only with a specific additional relation between whole frontier families.
+- The recommended next bounded probe concerns mixed ternary closure with all guarded identities, or a finite characteristic-zero 3-Mahler relation. Both remain open. Novelty of the elementary V003 gains is undetermined; source search failure is not evidence of novelty.
 
 ## Historical Phase 6 results and controls
 
