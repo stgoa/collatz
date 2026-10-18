@@ -1,16 +1,15 @@
 # Residual progress and finite forcing
 
-**Latest standing:** three shrinking pair branches now compose in arbitrary
-finite words with exact signs, merger clocks and complete cylinders. Two
-additional branches enter this recursion from its missing1-modulo8 domain.
-Complete decreasing inverse ancestry independently gives lower-seed bridges
-through arbitrarily high old returns, with exact weighted source counts.
-These constructions cover infinite actual residual families, but still
-return explicit unresolved outcomes. The general half-seed comparison
-identifies the remaining pair sources; its static-catalogue obstruction
-does not exclude further dynamic bridges. Universal coverage and Collatz
-remain open. The current batch and evidence are recorded at the end of
-this report; earlier sections remain the historical investigation record.
+**Latest standing:** the missing tripling domain is now exactly W={5 mod8}
+union {9 mod16}, bijecting to the remaining least-counterexample roots.
+Universal currents there remain equivalent to Collatz. Every odd-h comparison
+has a complete one-child interface; all h>=7 children shrink below7w/8,
+while the low-h expansions and actual ternary restriction are explicit.
+Keeping an even-return pair sum together gives a new shrinking recursion
+that escapes a proved obstruction to the split catalogue. These are written
+reductions and partial constructions, not a universal supply of their inputs.
+The current batch and evidence are recorded at the end of this report;
+earlier sections remain the historical investigation record.
 
 Started 2026-10-17 from clean pushed commit `ce56699`.
 The preceding goal turn made progress: universal partial currents, an exact
@@ -960,3 +959,123 @@ root family from already supplied smaller inputs, preserving signs, source
 weights and clocks. All present recognizers can terminate unresolved. This
 batch is constructive progress; it does not complete that theorem or prove
 Collatz, and no novelty claim is made.
+
+## Active batch after1603bf3: complete pair domains
+
+Previous goal turn: **progress**, committed and pushed as1603bf3 with the
+full verification gate and integrated proof review passing. This batch starts
+from a clean tree. The independent feed was refreshed and read at
+dbb0dea5930ec667b70b5dfcbb595e5d566451b0. New entries report checks of
+R33–R36 and failed tripling mergers on the control maps; these are external
+inputs to verify before use. The side branch remains unchanged.
+
+Working hypotheses:
+
+1. The entire odd-parity residual pair admits a closed reduction, with a
+   genuine decrease on a whole missing arithmetic domain.
+2. Even-d comparisons admit an additional state or paired invariant that
+   avoids R34's complete lack of improvement on that branch.
+3. Universal tripling relations have a precise sufficient-set scope;
+   classifying it will expose which auxiliary obligations are circular.
+
+Checklist:
+
+- [x] Revalidate the committed state and skim the refreshed independent feed.
+- [x] Derive complete odd-parity and even-return interfaces; retain failures.
+- [x] Determine the logical and constructive scope of universal tripling.
+- [x] Verify new external control evidence before relying on it.
+- [x] Independently audit any new proofs and executable constructions.
+- [x] Persist results, update standing, run the required gate and compile.
+- [x] Review and package the verified batch for the authorized commit/push recorded by the accompanying Git history.
+
+### Results and hypothesis outcomes
+
+**R37: exact critical domain.** The map w->nu(3w) bijects
+W={5 mod8} union {9 mod16} onto complementary canonical q not2 modulo3.
+Its inverse is smaller than q. The other canonical branches already descend
+by a forward arrow or a smaller exact predecessor. Thus universal finite
+tripling currents on W are equivalent to Collatz. A separate formal graph
+using all elementary and hypothetical tripling edges has a decreasing
+normalizer, with logarithmically many pair requests. The executable compiler
+retains these requests and rejects missing or incorrect inputs. Neither
+the logical equivalence nor the formal plan constructs the missing currents.
+
+**R38: complete odd-h interface.** For Q(z)=delta_(6z+1)-delta_z,
+an elementary bridge reduces to P(u), where u=z if3z is canonical and
+u=4z+1 otherwise. Consequently every odd-h run has one exact child source.
+All h>=7 children are below7w/8, including the intercept; direct low-h
+children also shrink. Nondirect h3 and h5 children expand, with complete
+infinite examples. The parent clock retains a maximum with the selected
+partner length. This settles the high odd-h arithmetic interface but leaves
+the child currents in W open.
+
+The entire R35 static catalogue connects Q endpoints exactly in3 modulo8.
+The other Q indices biject to the same critical roots as R37. An exact
+finite input set compiles supplied exact or one-sided Q currents into U_M;
+the M128 demonstration stores all11 inputs and the112-row output current.
+Actual odd-h indices have ternary unit1, with an exact restricted critical
+image. The opposite phases cannot be assumed supplied. A repeated-word CRT
+family stays in these omitted phases for arbitrarily many growing returns,
+on actual weight2 required-ray sources. This excludes only the named bounded
+descending phase tests, not full known-history closure or unrestricted
+logical sufficiency of the restricted inputs.
+
+**R39: keeping an even pair together.** The split d4 catalogue is fully
+classified: it succeeds exactly on B inputs whose mixed child is accepted.
+Simultaneous R33 acceptance of P(v) and P(6v+1) is impossible by infinite
+descent on the same paired condition. Keeping C(v)=delta_(18v+3)-delta_v
+instead supplies a valid smaller child t=(3v-1)/8, including7 modulo8.
+The full terminal v39 modulo8192 and its inverse cylinders give arbitrary
+recursive depth, with exact signs and clocks. This adds A-family d4
+half-seed comparisons which the split catalogue rejects.
+
+The original equal clocks are a+ell+2, initially a+5 for B and a+r+7
+for A depth r. Every a>=2 has complete integral original-source cylinders;
+their old return ratios grow without bound with a. Each fixed period-L
+cylinder has exact full-weight count25N/(72L) with error at most6 for8|N.
+Both source weights occur on the required rays, and two full weight2
+conversion currents are stored. All A inputs, all d4, and all even d
+are still open; no global union density or repeated contraction is claimed.
+
+### External review and checks
+
+The two new pinned side-lane probes and their dependencies were inspected
+and reproduced unmodified in temporary storage. Both receipts matched.
+Four independently reconstructed control paths/cycles have nonzero invariant
+pairings, ruling out the stated control tripling currents. The saved witness
+checker is part of the full gate. The larger random sample counts mentioned
+in the feed were not reproduced, and the d>1 absorbing convention is explicit.
+See [the review](PAIR_DOMAIN_REVIEW.md) and its hashed receipt.
+
+A fresh remote read responding to the user's PR question still found only
+merged PR1, already an ancestor, main=origin/main=1603bf3 and the unchanged
+side-feed pin. The recommendation is a focused pivot toward the complete
+critical domain and joint comparisons. The merged audit does not justify
+abandoning exact current constructions.
+
+All three new focused default checkers and the saved external-cycle checker
+passed. Independent model proof/code reviews passed R37, R38 and R39,
+including clocks, signs, full input sets, scope restrictions and source weights.
+The existing LaTeX source compiled successfully in the desktop editor.
+The full `python3 scripts/verify_all.py --cpp` gate passed, including all
+new checkers, every previous certificate/control check, all31 archive
+manifest entries, and both independent C++ cutoffs. Final independent
+review of the integrated README, agent rules, ledger and TeX passed.
+All218 local Markdown links across the26 changed/new files resolve;
+LF endings and TeX references pass. The staged whitespace and scope review
+passed. The accompanying Git history records the authorized delivery.
+The goal remains active; this batch is classified as progress.
+
+### Decision and next obligation
+
+This batch is constructive progress plus an exact scope reduction. The next
+target is a complete rule on a remaining part of W, with no hidden universal
+pair assumption. The h3/5 expansion formulas and noncanonical even-return
+helpers identify where a new state or multi-step progress argument is needed.
+The coupled source is a concrete example of gaining a valid reduction by
+retaining cancellation between unresolved helpers.
+
+Do not replace this target with a larger finite scan or another isolated
+merger family. R38's restricted ternary domain is smaller than its finite
+compiler's universal input set, and R39 does not exhaust W. Universal
+completion remains open; no Collatz proof or novelty claim is made.

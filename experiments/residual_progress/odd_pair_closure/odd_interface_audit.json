@@ -1,0 +1,304 @@
+{
+  "actual_parameter_cases": 528,
+  "classification_count": 8192,
+  "classification_hash": "f2cf1d0872f9adac8d0ba2780a114ec38e9340e95adab0f26bd4612e00181a51",
+  "clock": "odd-only Syracuse, absorbing at1",
+  "compilers": [
+    {
+      "input_count": 5,
+      "input_hash": "4d9bd24810af9d175e048e77783df7cab742269bd06182e1f04e9efc998a3ab1",
+      "limit": 64,
+      "mode": "exact",
+      "output_hash": "a8f8cb2e7f50d1864b083df4d9eee6d7f344dd6147b883753475e0ec54f56858",
+      "output_rows": 75
+    },
+    {
+      "input_count": 5,
+      "input_hash": "13e9ef2f35dd8255b63b93ebeb0158089398deefb689bb3c1e2579ebeafd4f5d",
+      "limit": 64,
+      "mode": "one-sided",
+      "output_hash": "a8f8cb2e7f50d1864b083df4d9eee6d7f344dd6147b883753475e0ec54f56858",
+      "output_rows": 75
+    },
+    {
+      "input_count": 11,
+      "input_hash": "a11dcf1dc6faf4b6ae68f78209e240f6ae0f38612345e6219d76093b3042a99c",
+      "limit": 128,
+      "mode": "exact",
+      "output_hash": "328f3e89b796a565d725f7f53f323c96b6933386a9e59f3e8cb3b613a2eea8fb",
+      "output_rows": 112
+    },
+    {
+      "input_count": 11,
+      "input_hash": "4b70e7d493cfb82944584c3986ee135250c32349ba9fb1a801859b492f4576f3",
+      "limit": 128,
+      "mode": "one-sided",
+      "output_hash": "328f3e89b796a565d725f7f53f323c96b6933386a9e59f3e8cb3b613a2eea8fb",
+      "output_rows": 112
+    },
+    {
+      "input_count": 43,
+      "input_hash": "4629cd7ef4c827916896af3217ca92b9ddad381a705df7acc9b6a286ed01c1be",
+      "limit": 512,
+      "mode": "exact",
+      "output_hash": "bb2b11fe7207afd2690f7c4e27468eeac391aed355f397123d2e3343ab1609de",
+      "output_rows": 398
+    },
+    {
+      "input_count": 43,
+      "input_hash": "1fe9847014a9857c0e3ff470e3d8e35ac7d8715c4801c45832c161bfd1de1b4d",
+      "limit": 512,
+      "mode": "one-sided",
+      "output_hash": "bb2b11fe7207afd2690f7c4e27468eeac391aed355f397123d2e3343ab1609de",
+      "output_rows": 398
+    }
+  ],
+  "critical_targets_below65536": 5461,
+  "delayed_ray_cases": [
+    {
+      "cutoff_bits": 26,
+      "extra_scale": 0,
+      "ordinary_steps": 8,
+      "prefix_hash": "f0108cd00f76843f8bc0bc6dd233b925ede56173723b3493c7e954756863ac9a",
+      "repeats": 1,
+      "run_returns": 2,
+      "seed": "52166683",
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 29,
+      "extra_scale": 3,
+      "ordinary_steps": 8,
+      "prefix_hash": "91f9b81a72be8a982dc299aa0c6ddc34bea8a2e5e7c61ea52e73755f58995619",
+      "repeats": 1,
+      "run_returns": 2,
+      "seed": "406061083",
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 37,
+      "extra_scale": 0,
+      "ordinary_steps": 16,
+      "prefix_hash": "7e2606629444f8744c60cb6a228ae1f92de3a7294a3c813203fcdc73b19909e1",
+      "repeats": 2,
+      "run_returns": 4,
+      "seed": "108099665947",
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 40,
+      "extra_scale": 3,
+      "ordinary_steps": 16,
+      "prefix_hash": "2afc11135669c14b953d267a8e8367164db6832d5db525bc94cbe39da6c13284",
+      "repeats": 2,
+      "run_returns": 4,
+      "seed": "825627639835",
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 59,
+      "extra_scale": 0,
+      "ordinary_steps": 32,
+      "prefix_hash": "d253f391a3c502cbebfcad0d4ec88eafcdfab37bc806afa072454d7b2154d9f1",
+      "repeats": 4,
+      "run_returns": 8,
+      "seed": null,
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 62,
+      "extra_scale": 3,
+      "ordinary_steps": 32,
+      "prefix_hash": "fb5976f24dcb12ec8250fd7a27cc5f90f689b2648011ee73a5ab3ae9014e29c3",
+      "repeats": 4,
+      "run_returns": 8,
+      "seed": null,
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 103,
+      "extra_scale": 0,
+      "ordinary_steps": 64,
+      "prefix_hash": "df1cbba6ceddcd88f877709811102418b8089cedf3ab2ac46a3e7a12c6582b5f",
+      "repeats": 8,
+      "run_returns": 16,
+      "seed": null,
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 106,
+      "extra_scale": 3,
+      "ordinary_steps": 64,
+      "prefix_hash": "a5ad153a92e08946d8ad1ab4eaaef2f7adf688399227af8f95a99a9ad98222f1",
+      "repeats": 8,
+      "run_returns": 16,
+      "seed": null,
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 191,
+      "extra_scale": 0,
+      "ordinary_steps": 128,
+      "prefix_hash": "466d78e4826ffceb9a39d215ab72c75fb9ec1ff6f02dd7608a1f7da60f195a55",
+      "repeats": 16,
+      "run_returns": 32,
+      "seed": null,
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 194,
+      "extra_scale": 3,
+      "ordinary_steps": 128,
+      "prefix_hash": "bf8e19fb3a2909d4e755bb978d065d4c4ed1f6b15d3ba5d023f4cb1512e40fac",
+      "repeats": 16,
+      "run_returns": 32,
+      "seed": null,
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 367,
+      "extra_scale": 0,
+      "ordinary_steps": 256,
+      "prefix_hash": "b36288004f48372179bd09ffd0920ae6b8876798a224d96abcf7f506cb70fd42",
+      "repeats": 32,
+      "run_returns": 64,
+      "seed": null,
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 370,
+      "extra_scale": 3,
+      "ordinary_steps": 256,
+      "prefix_hash": "46e9fb3062e1b796d589d93e611b16d9694d5eb431570b9b416790443ed48b2e",
+      "repeats": 32,
+      "run_returns": 64,
+      "seed": null,
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 719,
+      "extra_scale": 0,
+      "ordinary_steps": 512,
+      "prefix_hash": "c7765cbde2f63877ccc59774df9306069f2cc1e811503b8742a087d95b93c59a",
+      "repeats": 64,
+      "run_returns": 128,
+      "seed": null,
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 722,
+      "extra_scale": 3,
+      "ordinary_steps": 512,
+      "prefix_hash": "9c201ebac06041989083de86366b5f7c7243952cf6197387745bf8696b350907",
+      "repeats": 64,
+      "run_returns": 128,
+      "seed": null,
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 1423,
+      "extra_scale": 0,
+      "ordinary_steps": 1024,
+      "prefix_hash": "99cdc0f617c8e8b78cd80e226a19279b1e2ce03cfc657183a96acf87c8ec86a5",
+      "repeats": 128,
+      "run_returns": 256,
+      "seed": null,
+      "weight": 2
+    },
+    {
+      "cutoff_bits": 1426,
+      "extra_scale": 3,
+      "ordinary_steps": 1024,
+      "prefix_hash": "95ea8424cb915cc2e4a46eee098a2d179c5dabbfcc8b09d95da851310e6bf074",
+      "repeats": 128,
+      "run_returns": 256,
+      "seed": null,
+      "weight": 2
+    }
+  ],
+  "expansion_examples": [
+    [
+      19,
+      3,
+      29
+    ],
+    [
+      139,
+      5,
+      157
+    ],
+    [
+      83,
+      3,
+      125
+    ],
+    [
+      395,
+      5,
+      445
+    ],
+    [
+      147,
+      3,
+      221
+    ],
+    [
+      651,
+      5,
+      733
+    ],
+    [
+      467,
+      3,
+      701
+    ],
+    [
+      1931,
+      5,
+      2173
+    ],
+    [
+      2003,
+      3,
+      3005
+    ],
+    [
+      8075,
+      5,
+      9085
+    ],
+    [
+      8147,
+      3,
+      12221
+    ],
+    [
+      32651,
+      5,
+      36733
+    ],
+    [
+      65491,
+      3,
+      98237
+    ],
+    [
+      262027,
+      5,
+      294781
+    ]
+  ],
+  "finite_input_discovery_cap": 2000,
+  "merger_clock_count": 171,
+  "odd_h_reduction_count": 2731,
+  "parameter_hash": "42e7224c0d18574a29ab0cdc2c75d1b59a7f128a89aaa457f4f9684636d919e2",
+  "reduction_categories": {
+    "high_F_True": 86,
+    "high_direct_True": 85,
+    "low_F_False": 1280,
+    "low_direct_True": 1280
+  },
+  "reduction_hash": "84a8fc3b2635ac263f3ad7144c8ec7257c0e598eb9c8e75a7bfcbbe9297647df",
+  "scope": "Complete arithmetic interfaces and scoped finite-delay obstruction; no universal Q supply",
+  "status": "PASS"
+}

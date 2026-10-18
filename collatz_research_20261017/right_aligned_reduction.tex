@@ -2932,6 +2932,242 @@ enters branch $B$ but still has an unresolved child. Full proofs and
 current data are in
 \path{experiments/residual_progress/pair_one/MISSING_PAIR_DOMAIN.md}.
 
+\section{The exact critical tripling domain}
+Write $\mathcal P(w)=\delta_{3w}-\delta_w$, with state1 killed as before.
+These are signed sources whose currents remain to be constructed. Let
+\[
+ W=\{w>0:w\equiv5\pmod8\}\cup\{w>0:w\equiv9\pmod{16}\},
+ \qquad
+ C=\{q\in\mathcal B:q\equiv3\pmod4,\ q\not\equiv2\pmod3\},
+\]
+where $\mathcal B$ is the canonical set of
+Theorem~\ref{thm:bridgenormal}.
+\begin{theorem}\label{thm:criticaltripling}
+The map $w\mapsto\nu(3w)$ is a bijection from $W$ onto $C$,
+and its inverse is
+\[
+ w=\begin{cases}q/3,&q\equiv0\pmod3,\\
+ (2q+1)/3,&q\equiv1\pmod3.\end{cases}
+ \qquad 0<w<q.
+\]
+Collatz is equivalent to the existence, for every $w\in W$, of a
+finite integer current $J_w$ with $(I-P)J_w=\mathcal P(w)$.
+No uniform cost, height or merger clock is required.
+\end{theorem}
+\begin{proof}
+If $w\equiv9\pmod{16}$ then $3w\equiv11\pmod{16}$ is
+complementary and canonical. If $w\equiv5\pmod8$, then $3w$
+is a root with $v_2(3w+1)\ge3$. Its minimum is either $3w$,
+divisible by3, or its selected half $(3w-1)/2$, which is
+complementary and1 modulo3. Both exceed $w$. Conversely, a
+complementary $q$ divisible by3 gives $q/3\equiv9\pmod{16}$
+when its exponent is2, and $q/3\equiv5\pmod8$ when that exponent
+is larger. For $q\equiv1\pmod3$, the selected partner $2q+1$
+gives the other inverse above, in5 modulo8. Residues modulo3
+distinguish the two inverse cases and prove bijectivity.
+
+For sufficiency use strong induction on odd seeds. A noncanonical seed
+normalizes to a smaller seed. A canonical $q>1$ in1 modulo8 has
+$S(q)\le(3q+1)/4<q$. A canonical $q\equiv2\pmod3$ has the
+smaller exact predecessor $(2q-1)/3$, whose reverse arrow is a
+signed bridge. The remaining seeds are exactly $C$. If $N_{3w}$
+is the proved elementary current with divergence
+$\delta_{3w}-\delta_q$, then
+\[
+ (I-P)(J_w-N_{3w})=\delta_q-\delta_w.
+\]
+Adding the inductively supplied absorption current of $w<q$ gives
+a finite current for $\delta_q$, which forces actual absorption by
+the finite-component criterion. Conversely, absorption supplies
+$J_w$ by subtracting the two finite path currents.
+\end{proof}
+
+A separate formal connectivity statement uses all elementary identities
+and a hypothetical edge $3w\sim w$ for every positive odd $w$.
+After normalization to $q>1$, the three cases modulo3 reduce to
+\[
+ v=\frac q3,\qquad v=\frac{2q+1}3,\qquad
+ v=\frac{2q-1}3,
+\]
+respectively. In the last case use
+$q\sim F(q)=3u\sim u\sim v$, where $u=(4q+1)/3$ is selected.
+Indeed $q\equiv1\pmod8$ gives $u\equiv23\pmod{32}$;
+otherwise $q=2^at-1$ is complementary with $3\mid t$, and
+$u+1=2^{a+2}t/3$ has the selected odd part.
+Each invocation satisfies $v-1\le2(q-1)/3$. This proves termination
+and a logarithmic number of requested pair inputs for the
+\emph{conditional plan}. It gives neither those inputs nor a bound
+on their construction. The executable compiler rejects missing or
+incorrect currents and preserves their full boundaries. The precise
+proof and finite evidence are in
+\path{experiments/residual_progress/tripling_equivalence/TRIPLING_EQUIVALENCE.md}.
+
+\section{A complete interface for odd paired valuations}
+Put $\mathcal Q(z)=\delta_{6z+1}-\delta_z$ for positive odd $z$.
+\begin{theorem}\label{thm:oddinterface}
+Define $u=z$ if $3z$ is canonical, and $u=4z+1$ otherwise.
+There is an explicit elementary current $E_z$ with
+\[
+ \operatorname{div}E_z=\mathcal Q(z)-\mathcal P(u).
+\]
+For every $w\equiv3\pmod8$ with odd $h=v_2(3w-1)=2k+3$,
+put $C=(3w-1)/2^h$ and $z=3^kC$. There is an explicit current
+$L_w$ with
+\[
+ \operatorname{div}L_w=\mathcal P(w)-\mathcal P(u).
+\]
+All $h\ge7$ branches satisfy $u<7w/8$. Direct children $u=z$
+are below $w/2$ for all $h$. Nondirect children at $h=3$ and $h=5$
+are respectively $(3w+1)/2$ and $(9w+5)/8$, both larger than $w$.
+\end{theorem}
+\begin{proof}
+If $3z$ is canonical, $6z+1$ is its selected partner and its
+elementary current is $E_z$. Otherwise $q=6z+1$ is canonical
+and $3u=12z+3=2q+1$ is its selected partner. Subtract that
+partner current from the sibling current $\delta_u-\delta_z$.
+The divergence is again $\mathcal Q(z)-\mathcal P(u)$, so the
+child current is added in both cases.
+
+The exact paired prefixes give
+$S^{k+1}(3w)=6z+1$ and $S^{k+1}(w)=F(z)$.
+Subtract the right prefix and its sibling bridge from the left prefix,
+then add $E_z$. This gives the second identity.
+Since $z/w<(3/8)(3/4)^k$, every direct child shrinks.
+For $k\ge2$ the nondirect bound $8u<7w$ is exactly
+\[
+ 17<\bigl(7\cdot2^{2k+3}-96\cdot3^k\bigr)C.
+\]
+The bracket is32 at $k=2$ and strictly increases; $C\ge1$ proves
+the bound including its intercept. Substitution at $k=0,1$ gives
+the expanding formulas.
+\end{proof}
+The expanding cases are genuine infinite classes:
+$w=64j+19$ has $h=3$ and $u=96j+29$, while
+$w=256j+139$ has $h=5$ and $u=288j+157$, for $j\ge0$.
+For general child merger clock $\ell$, put $r=v_2(3z+1)$ and
+$A=r+1$ in the direct case, $A=r+2$ otherwise. The valid parent
+clock is $k+1+\max(\ell,A)$. Children are in3 modulo8 or the
+critical domain $W$; their currents are still required.
+
+The complete static catalogue of Theorem~\ref{thm:paircatalogue}
+connects the endpoints of $\mathcal Q(z)$ exactly when
+$z\equiv3\pmod8$. On the complementary domain,
+$g(z)=\nu(6z+1)$ bijects onto $C$ from
+Theorem~\ref{thm:criticaltripling}, with inverse
+$z=q/3$ for $q\equiv0\pmod3$ and $z=(q-1)/6$ for
+$q\equiv1\pmod3$. In particular $z\le g(z)/3$.
+For each integer $M\ge1$, supplied exact or one-sided currents
+for the finite set $\{z\not\equiv3\pmod8:g(z)\le M\}$
+compile to a nonnegative exact $U_M$ current by smaller-seed induction
+and extraction using existing graph rows. Conversely $U_M$ supplies
+those exact inputs. This is a conditional compiler, with no construction
+of its input currents.
+
+Actual odd-$h$ parameters cover exactly the odd integers with ternary
+unit1: writing $z=3^kC$, the inverse is
+$w=(2^{2k+3}C+1)/3$. Their missing-domain critical images satisfy
+\[
+ q\equiv0\pmod3:\ \operatorname{unit}_3(q)=1,
+ \qquad
+ q\equiv1\pmod3:\ \operatorname{unit}_3(q-1)=2.
+\]
+Thus the finite compiler cannot silently assume the other phases.
+Imposing $x\equiv10\pmod{27}$ on the repeated-word cylinder in
+Theorem~\ref{thm:boundedruns} gives, for arbitrarily many returns,
+actual weight2 roots whose growing prefixes avoid these descending
+covered-phase substitutions. Their elementary and strictly decreasing
+valuation-one inverse minima also remain above the cutoff.
+This excludes a bounded test using those operations; it does not exclude
+full known-history closure or prove logical insufficiency of universal
+currents on the restricted ternary domain. Complete proofs and finite
+input/output currents are in
+\path{experiments/residual_progress/odd_pair_closure/ODD_PAIR_INTERFACE.md}.
+
+\section{A coupled recursion for even-return comparisons}
+For a complementary run with $d=4$, write $x=2^at-1$ and
+$3^{a-1}t-1=16w$. Its upper return is $f=18w+1$ after $a+1$
+steps; its smaller half reaches $w$ after $a-1$ steps.
+The missing source is $\delta_f-\delta_w$.
+The split catalogue using elementary doubling and separate mixed tripling
+calls succeeds exactly when $w\equiv105\pmod{256}$ and the mixed
+recognizer accepts $(9w-1)/16$. In particular it cannot accept both
+$\mathcal P(v)$ and $\mathcal P(6v+1)$: simultaneous acceptance forces
+the same condition at $(3v-1)/8<v$, with no joint terminal case.
+This is a limitation of that catalogue.
+
+\begin{theorem}\label{thm:coupledeven}
+Put $\mathcal C(v)=\delta_{18v+3}-\delta_v$ for $v\equiv3\pmod4$.
+For $v\equiv19\pmod{32}$ there is an explicit finite current $L_v$ with
+\[
+ \operatorname{div}L_v=\mathcal C(v)-\mathcal C(t),
+ \qquad t=(3v-1)/8<3v/8.
+\]
+Every $v\equiv39\pmod{8192}$ has
+$S^5(18v+3)=S^7(v)$. For every $r\ge0$, exactly $r$ recursive
+steps followed by this terminal rule define a complete cylinder of
+modulus $2^{13+3r}$ and the merger
+$S^{r+5}(18v+3)=S^{r+7}(v)$.
+\end{theorem}
+\begin{proof}
+The exact first arrows are
+$S(18v+3)=2(18t+3)+1$ and $S(v)=F(t)$.
+Since $18t+3\equiv1\pmod8$ is canonical, let $B$ be its selected-partner
+current. Then
+\[
+ L_v=\delta_{18v+3}+B-\delta_v-\delta_{F(t)}+\delta_t
+\]
+has the required divergence. Add the child current. The selected-partner
+identity synchronizes after two steps, while the $F$ identity does so
+after one, giving an increment of one in the prescribed child clock.
+
+On the terminal cylinder the exact valuation words are $(2,2,3,6)$
+from $18v+3$ and $(1,1,2,1,4,1)$ from $v$. Their endpoints are
+\[
+ z=\frac{729v+241}{4096},\qquad
+ \frac{729v+1265}{1024}=F(z),
+\]
+so one further step merges them. The left word requires14 seed bits;
+its coefficient18 has valuation1, giving exactly13 parameter bits.
+Thus the full modulus8192 retains the extra bit. Inverting
+$3v=8t+1$ multiplies the child modulus by8, proving the cylinders
+and clocks by induction. Recursive residues are19 modulo32 and
+the terminal residue is7 modulo32, so termination cannot occur early.
+\end{proof}
+
+The $A$ entry $w\equiv17\pmod{128}$ gives $v=3(w-1)/16$.
+With $L=18v+3$, the first arrows are
+$S(f)=F(2L+1)$ and $S(w)=F(v)$. The joint current supplies
+$\delta_f-\delta_w$ when its child is accepted. Its first parent
+cylinder is $w\equiv932625\pmod{1048576}$.
+The $B$ entry $w\equiv105\pmod{256}$ uses
+$v=(9w-1)/16$ and the mixed pair current; its second tripling call is
+automatically terminal and $9w$ is canonical.
+In either case, if the child clock is $\ell$, the completed original
+comparison is
+\[
+ \operatorname{div}J_x=\delta_x-\delta_{(x-1)/2},\qquad
+ S^{a+\ell+2}(x)=S^{a+\ell+2}((x-1)/2).
+\]
+Thus $A$ depth $r\ge1$ gives $a+r+7$, while the first $B$ terminal
+gives $a+5$. Only the smaller half is an absorption input.
+
+Each parent cylinder $w\equiv b\pmod m$ gives, for every $a\ge2$,
+the complete original cylinder
+\[
+ t\equiv(16b+1)3^{-(a-1)}\pmod{16m},\qquad
+ x\equiv2^at-1\pmod{L_a},\qquad L_a=2^a16m.
+\]
+Its old normalized return is
+$9w=3^{a+1}(x+1)/2^{a+4}-9/16$, exceeding $x$ for $a\ge5$
+and with unbounded ratio as $a$ grows.
+For $8\mid N$, exact CRT counts over all source bands, retaining weight2, give
+$25N/(72L_a)+O(1)$ with absolute error at most6 for each fixed
+cylinder. No global union asymptotic is claimed.
+The joint recognizer may still return unresolved; these entries do not
+complete the critical domain. The full proof and stored actual weight2
+currents are in
+\path{experiments/residual_progress/even_pair_closure/EVEN_PAIR_CLOSURE.md}.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -2987,6 +3223,12 @@ including families with unbounded old return ratios, but leaves every
 failed even-$d$ return unchanged. The next constructive obligation is
 a closed rule on the remaining pair domains and auxiliary pair types,
 with a proved decreasing parameter and preserved source multiplicities.
+Theorem~\ref{thm:criticaltripling} now identifies the exact sufficient
+tripling domain $W$. Theorem~\ref{thm:oddinterface} handles every high
+odd-$h$ interface with a smaller child, while retaining low-$h$ expansions
+and missing child inputs. Theorem~\ref{thm:coupledeven} shows that a
+joint source can escape a proved split-catalogue failure. Completing
+these critical child currents remains the full-strength open obligation.
 Further isolated merger families alone would not discharge it.
 Theorem~\ref{thm:paircatalogue} gives the exact limitation of the named
 static identity catalogue; the newer dynamic bridges cross part of it.
@@ -3110,5 +3352,15 @@ supplied-current conversions. It stores an11-row current for315 and
 reconstructs the3200-row $a=659$ output under a10000-step lower-input
 discovery cap. These new constructors and receipts are included in the
 same unified verification command; their proofs retain unresolved cases.
-These audits remain finite evidence for the implementations.
+The critical-domain checker covers16384 local steps,2048 conditional
+plans and40 compiled examples with supplied pair currents. The odd-interface
+checker covers8192 pair identities,2731 odd-$h$ reductions,528 exact
+parameter cases,171 clocks and16 actual weight2 delay witnesses; its
+exact and one-sided finite compilations include a stored112-row $U_{128}$
+current and all11 required input currents. The coupled-even checker
+covers57 joint cylinders,8192 split inputs,384 original cylinders,
+12 actual sources,24 fixed-cylinder counts and two stored weight2
+conversions. Four exact control paths and cycles are independently checked
+against the pinned external review. These checks are included in the
+unified command. These audits remain finite evidence for the implementations.
 \end{document}

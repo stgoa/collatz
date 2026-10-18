@@ -145,6 +145,10 @@ def main():
             ("inverse_ancestry", "check_inverse_ancestry.py"),
             ("pair_scope", "check_pair_scope.py"),
             ("pair_one", "check_pair_one.py"),
+            ("tripling_equivalence", "check_tripling.py"),
+            ("odd_pair_closure", "check_odd_interface.py"),
+            ("even_pair_closure", "check_even_pairs.py"),
+            (".", "check_pair_domain_external.py"),
         ):
             run([sys.executable, "-B", script], residual_work / directory)
         # The review checker imports the annular arithmetic implementation;
@@ -206,6 +210,10 @@ def main():
                          decreasing_inverse_ancestry="PASS: complete chains, exact counts and unbounded-return lower-seed families",
                          general_pair_scope="PASS: half-seed comparison, formal pair types and complete static catalogue components",
                          missing_pair_domain="PASS: two 1-mod-8 entry rules, mixed cylinders and actual Mersenne conversions",
+                         critical_tripling_domain="PASS: exact critical bijection, conditional plans, supplied-input boundaries and finite compilations",
+                         complete_odd_pair_interface="PASS: all odd-h boundaries, high-h shrinkage, critical input compilation and scoped ternary delay",
+                         coupled_even_pairs="PASS: split-catalogue scope, joint cylinders, exact half-seed clocks and full source weights",
+                         external_pair_controls="PASS: four exact cycle witnesses and invariant-pairing obstructions",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
 
 
