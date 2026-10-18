@@ -202,6 +202,8 @@ def main():
             ("history_cover_scope", "check_history_barrier.py"),
             ("even_exit_history", "check_even_exit_history.py"),
             ("w9_history_repair", "check_w9_history_repair.py"),
+            ("history_cell_scope", "check_history_cell_scope.py"),
+            ("retained_history", "check_retained_history.py"),
             ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
@@ -229,6 +231,8 @@ def main():
                          review_scope="PASS: alternative minimum-cost one-sided certificates",
                          even_exit_history="PASS: exact raw-target cone and supplied signed certificates",
                          w9_history_repair="PASS: original-rank W9 reduction and retained W5 leaders",
+                         history_cell_scope="PASS: complete four-target inverse trees, all-cell lifts and fixed-word scope",
+                         retained_history="PASS: sharp three-node W9 repair, retained signed histories and explicit W5 exits",
                          sparse_rays="PASS: five-ray proof arithmetic and finite bases",
                          annular_recursion="PASS: 66 finite full-measure cases",
                          current_obstructions="PASS: finite graphs and delayed separation",

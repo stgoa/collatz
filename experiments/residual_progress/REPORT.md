@@ -1,10 +1,10 @@
 # Residual progress and finite forcing
 
-**Latest standing:** universal tripling currents on W5={5 mod8} suffice, but their universal construction is missing. The retained W5/W9 compiler preserves a common integer rank and every signed dependency. The latest R86 gives an exact raw-target acceptance cone for a whole even-exit subtype; for every initial exponent H>=4 and exact ternary depth D it crosses a higher intermediate endpoint and supplies a comparison with smaller original-rank premises. Its identity was already contained in the old formal plan, whose coarse estimate missed part of this domain.
+**Latest standing:** universal tripling currents on W5={5 mod8} suffice, but their universal construction is missing. The retained W5/W9 compiler preserves a common integer rank and every signed dependency. R88 now classifies all smaller histories to four fixed targets on one complete remaining cell through its available ternary precision. A single fixed word cannot cover that whole cell at any depth; this does not exclude input-dependent histories or longer histories at a fixed source.
 
-R87 gives a complete bounded reduction for every W9 leader left by R84's history decision. At most two local substitutions leave only lower requests and, possibly, one W5 request with coefficient+1. The standard inverse on a noncanonical even upper branch restores the original W9 request plus a lower signed identity. The remaining W5 request still needs a different comparison. R86 does not automatically resolve all these leaves.
+The new R89 construction retains the lower history while enlarging the original-rank W9 window. At most three W9 substitutions leave at most one higher W5 input with coefficient+1. Its coupled-family application supplies a valid repair for a negative high request and exposes fresh25/27-arrow paths, while preserving inherited nonzero lower relations. The positive W5 request remains the next task. Both packages are frozen and independently reviewed. The existing TeX compiles, shared-record review passed after two exposition fixes, and the complete Python/C++ gate passed.
 
-The research direction remains exact smaller-input comparisons with input-dependent depth. R85 excludes a universal fixed future/partner clock budget. The recent remote review finds only the already integrated PR1; its valid controls remain useful and its overbroad no-alternative-current assertion remains refuted. The latest pinned side probes reproduce, with a recorded coverage defect in the R81 ternary-removal test. The W5 dispatcher and frozen resolvers are unchanged. No universal supply, Collatz proof or novelty claim is made. Full historical findings follow; the latest integration record is at the end.
+The strategy is to keep the finite-current framework and its negative controls, and prioritize terminal supply or a proved whole-family recursion. Further bounded catalogues are useful when they close a complete family or establish a decisive, precisely scoped obstruction. They do not substitute for a termination argument. The latest remote check identifies only the already integrated PR1; the pinned side-lane checks are independent arithmetic evidence, not a new merged solution. The W5 dispatcher and frozen resolvers remain unchanged. No universal supply, Collatz proof or novelty claim is made. Full historical findings follow; the latest integration record is at the end.
 
 Started 2026-10-17 from clean pushed commit `ce56699`.
 The preceding goal turn made progress: universal partial currents, an exact
@@ -3159,3 +3159,160 @@ Two scratch investigations began while the frozen packages' full gate ran. They 
 
 - **Continue at the original threshold.** The surviving R87 W5 input at R84k85 remains high after the old R44 comparison. A candidate whole originating subtype is k85mod256, with Q=133704987+402653184j and R44 raw r=771880927+2324522934j. Its bounded raw-to-critical decision can be investigated with the existing A/B/C transitions. The candidate remaining cell k85mod16384 retains P(v)+1 with v=128646821+64*3^18*m and v<Q<rho(v): a locally accepted R44 comparison would still fail the original threshold. The target is a complete remaining subtype and supplied currents. Scratch work is in `/tmp/collatz_r87_r44_continuation_note.md`, with `/tmp/collatz_r87_r44_next_probe.py` and `.json`; the explicit formulas above are the durable starting point.
 - **Identify the role of the additive1.** For the generalized map S_d(x)=(3x+d)/2^v, the analogous H4,b1 word suggests the exact relation q=16t-d, n=(81t-3d)/4, y=(243q+163d)/256 on t55dmod96 with q,u positive. The varying-map family d=2^k-3,t=2^(k-4)+27,k>=9 has q435 and proposed y=163*2^(k-8)+411>q despite multiplier243/256<1. A standalone scratch check rebuilt the signed six/one currents; its note, script and receipt are `/tmp/collatz_even_exit_d_control.md`, `.py`, `.json`. This is a prospective control for transferring the raw-target inequality. It asserts no cycle, verified finite base, generalized rank theorem or Collatz failure. The map d varies with k. Formal integration and its own registered replay remain for a later batch.
+
+## Continuation from `3acae93`: retained histories and the positive W5 obligation
+
+The preceding R86/R87 batch was verified, committed and pushed. This batch
+started from clean main `3acae93`; the universal research goal remains open.
+The user's question about a newly merged Claude PR prompted another remote
+check. The remote still listed only PR1, merge `ba6b337`, already ancestral
+to main; `origin/main` remained `3acae93`. The reviewed side-lane pin is
+`64a598169be279de8551a1be9959c91eed865875`. Its R60/R86 probes and corrected
+R81 probe reproduced byte for byte in the
+[pinned review](side_lane_review_64a5981.md). The R81 executed minimality
+coverage is binary; its earlier unexecuted ternary branch is not counted
+as a test. Full signed construction and universal terminal supply are
+outside these external probes.
+
+### R88: the whole four-target cell has an exact history classification
+
+The retained cell is k=85+16384m, m>=0, with
+
+```
+Q=133704987+3*2^33*m,
+v=128646821+64*3^18*m,
+n=3v,                    v<Q<n.
+```
+
+The [R88 proof](history_cell_scope/HISTORY_CELL_SCOPE.md) preserves the
+complete existing comparison T^18(Q)=n and S^23(Q)=S^5(n), with every
+signed current row. For each a=0,1,2,3, set
+y_a=3^a*(n+1)/2^a-1. Among all canonical origins p<=Q and all quotient
+words of length at most19+a, only Q reaches y_a, at depth18+a. Ordinary
+strictly smaller origins are excluded in the same horizons.
+
+This is an all-m theorem from a uniform exact anchor cutoff and four
+complete finite inverse trees of64/78/89/101 states. The trees retain all
+ray tails through their first excluded child; no guessed ray cap or
+absorption table is used. Since the target period has exact ternary order
+19+a, a single inverse word valid for every m must have length at most
+19+a. Thus one fixed quotient word, or one fixed ordinary valuation word,
+of any length cannot supply a smaller origin throughout this entire cell.
+This is not all-depth failure at any fixed m. Fixed clocks with varying
+valuations, finer parameter cells, later targets and general signed
+comparisons remain available.
+
+### R89: retain the lower history before repairing high W9 requests
+
+The [written construction](retained_history/RETAINED_HISTORY.md) enlarges
+the W9 window to odd Q>=11547 and C=9 mod16 satisfying
+Q<=3C and3C+1<4Q. Let U be the actual upper prefix from3C to raw F.
+The exact local identity uses U+J_F-J_C and signed requests A_F-A_C.
+The first arrow from C is already below Q, so its lower history is strict.
+At most one high request remains, with coefficient+1. A high W9 child
+fits the old R87 window and needs at most two further substitutions.
+The full bound is therefore three W9 nodes, attained by the prescribed
+16969→9545→5369 chain. It is not an ordinary clock bound and does not
+supply the possible terminal W5 input.
+
+The application to the complete retained cell keeps all exact H4 exit
+depths and original-Q tests. On m=2736+4096l, l>=0, an intermediate full
+comparison exposes +P(a)-P(b). The negative pair has an exact repair from
+strictly smaller signed histories. Substituting that repair with its
+negative coefficient cancels the corresponding rows exactly; it is not
+permission to discard a negative source. The fresh upper comparison is
+the actual25-arrow path from Q to X, followed by two arrows to Z.
+
+The inherited old-plan comparison differs from that fresh path by the
+lower zero-source relations D+E0+Fv and their signed request vectors.
+Their combined current need not vanish. They remain explicit, and every
+one of their requested ranks is below the original Q. The fresh direct
+path may be chosen as a separate exact comparison; it must not be
+described as silently removing unknown inputs from the inherited plan.
+
+Both parities of the coupled cell have a complete finite continuation to
+a strict plan or one high W5 request with coefficient+1. Concrete failed
+leaves remain: l4 retains540615167619701 and l13 retains1407056910087877.
+On the canonical-Z depth2 branch, the proposed return multiplier is
+`3^12/2^19>1`. The envelope g<6Q only bounds the finite decision; it is
+not a contraction or a decreasing recurrent parameter. The named maximal
+point inverse restores Z and undoes that complete run. The positive pair
+still needs a different original-rank-valid construction.
+
+### Two bounded explorations and what they do not establish
+
+1. The direct/future fixed-word probe searched n and its first three
+   canonical futures over the available ternary precision and found no
+   uniform smaller origin. The complete version, with all ray cutoffs
+   rather than a representative scan, is now R88. The scratch
+   `/tmp/collatz_r87_future_search.py` and
+   `/tmp/collatz_r87_future_complete_anchor.py` are historical development
+   evidence; the durable proof and receipt are authoritative. This does
+   not exclude longer or input-dependent histories at a fixed source.
+2. An adaptive ternary refinement searched the same four targets through
+   precision levels0..6, requiring a smaller anchor and nonexpanding
+   affine origin period. No resource cap fired. It found23 disjoint
+   success cells with combined coverage57/729=19/243, leaving672/729
+   classes unfilled by this prescribed test. Scratch evidence is
+   `/tmp/collatz_r87_ternary_cover_probe.py` and its JSON. These are not
+   supplied-current constructions, and the unfilled classes are not
+   all-depth impossibility results. No complete ternary cover or
+   terminating refinement argument was obtained.
+
+### PR assessment, strategy decision and next target
+
+The independent lane's useful contribution is exact cross-checking and
+negative controls. PR1 does not justify abandoning the finite-current
+framework: its broad no-alternative-certificate assertion was corrected,
+and the repository retains explicit counterexamples. Conversely, another
+bounded acceptance survey does not address the remaining universal
+construction. The strategy is therefore to preserve the framework and
+controls while shifting effort away from further catalogue additions
+unless they close a whole family or give a decisive scoped obstruction.
+
+The next target is the exact positive W5 request left by the complete
+retained-history comparison, at the ORIGINAL Q. A useful continuation
+must supply its signed terminal currents, or define a recursion on a
+closed family with a proved decreasing parameter and a complete base.
+Variable word length and history depth are permitted. Merely moving the
+threshold to the larger child, repairing only the negative pair, claiming
+a contraction from3^12/2^19, or repeating successful CRT cells would not
+complete that task. The fixed dispatcher and its frozen internal
+resolvers are unchanged.
+
+### Evidence and verification status
+
+R88's proof, portable module, checker and
+[receipt](history_cell_scope/history_cell_scope_audit.json) are frozen.
+Independent proof/source/default reviews passed. Replay reconstructs all
+four trees,28 lifts,1024 independent canonical cases, three full signed
+23/5 comparisons and20 rejection controls. It supplies no terminal input.
+
+R89's owner reports a frozen four-file package with generation and default
+replay PASS:656 enlarged-window cases, nine threshold controls,66 first-run
+plans,60 depth cells through128, four inherited origins,68 coupled
+decisions, nine signed cancellations and35 rejection controls. Its three
+fully supplied outputs have43/154/232 rows, with37 local source hashes.
+The nonzero inherited lower relation has22 rows and two requests in each
+of three retained controls. The widened-window argument has a separate
+independent mathematical audit; the final full-package proof/source/default
+peer review also passed with no requested fixes. Shared-record and TeX review passed after making the README's p<=Q origin restriction explicit and defining the inherited TeX variables locally. Native compilation passed after both corrections. Both checkers are registered. `python3 scripts/verify_all.py --cpp` passed with exit0 against the frozen packages, including both new checks, all historical and negative-control receipts,31 archive manifest entries and independent C++ cutoffs4096/262144. Log: `/tmp/collatz_retained_history_full_gate.log`. Mechanical checks passed for17 scoped files,457 local Markdown links,85 unique TeX labels,145 resolved references, LF endings, JSON parsing and whitespace. The final remote refresh left main at3acae93. The reviewed batch was committed and pushed as `7a477ad`; local main and origin/main matched afterward and the working tree was clean. The universal goal remains open.
+
+- [x] Revalidate pushed main, identify the merged PR and reproduce the pinned probes.
+- [x] Persist and independently review R88's complete finite-tree/lifting theorem.
+- [x] Derive and persist the larger W9 window, coupled repair and full signed continuation.
+- [x] Obtain R89 owner generation and default-replay PASS.
+- [x] Complete independent R89 proof/source/default-replay review.
+- [x] Finish shared-record/TeX integration, native compilation and final transcription review.
+- [x] Register both focused checkers and pass the complete Python/C++ gate.
+- [x] Review the final diff, commit and push the batch; retain the open universal goal.
+
+
+### Next-batch scratch directions, outside the frozen mathematical packages
+
+While the complete gate ran, three independent scratch reviews tested what a stronger history state would need. These notes are leads for re-derivation, not new accepted rules or premises of R88/R89.
+
+- **Known history and provenance.** A fixed exposed finite graph certifies the remaining single positive component exactly when it connects to the absorbing core. Once all pair inputs to a lower zero-source identity are actually supplied, its remaining finite zero-divergence current consists of cycle circulations; no global acyclicity assumption is needed. This specializes the existing component/history results. It does not let conditional inputs be silently supplied. Preserve exposed-arrow provenance separately from net current rows, since cancellation can erase rows without erasing a previously proved comparison. A minimum-origin label can plateau, so monotonicity alone is insufficient. Scratch review: `/tmp/collatz_retained_history_state_review.md`.
+- **Two distinct recurrence scopes.** On the canonical-Z second-depth2 branch, raw r=6v+1 maps to g=(3^12*r+1792529)/2^19. For the original r=771880927+128*3^19*m, exact arithmetic gives v3(g-r)=5 whenever this branch is legal. Thus the original ternary progression is not closed under this raw return. This does not exclude a broader binary family: the conjugate map Phi(v)=(531441*v+299947)/524288 has centre L(v)=7153*v+299947 and L(Phi(v))=3^12*L(v)/2^19. Exact repeated copies consume19 binary digits per copy while increasing ternary order by12. A fixed positive seed cannot repeat that word forever, but longer finite prefixes can use different seeds, and exit from the word is not original-rank descent. Scratch nonclosure arithmetic: `/tmp/collatz_r89_raw_nonclosure.py` and `.json`; the broader guard note and full signed probes are `/tmp/collatz_r89_binary_return_note.md`, `/tmp/collatz_r89_binary_return_probe.py` and its JSON. They still require a dedicated next-batch audit before use.
+
+The research priority remains a complete merger/termination mechanism across successive exits. Neither storing more history nor exhausting one repeated growing word supplies that mechanism by itself.

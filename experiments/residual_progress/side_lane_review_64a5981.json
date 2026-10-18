@@ -1,0 +1,207 @@
+{
+  "assessment": "All three exact pinned replays PASS with byte-identical receipts. These are scoped finite arithmetic checks, not universal construction or terminal supply. The revised R81 correction accurately narrows executed minimality coverage.",
+  "changed_side_files": [
+    "M\tsidekick/FEED.md",
+    "M\tsidekick/probes/batch_r81_r83_check.py",
+    "A\tsidekick/probes/r60_cycle_inverse_check.json",
+    "A\tsidekick/probes/r60_cycle_inverse_check.py",
+    "A\tsidekick/probes/r86_even_exit_check.json",
+    "A\tsidekick/probes/r86_even_exit_check.py",
+    "M\tsidekick/writeup/SYNTHESIS.md"
+  ],
+  "comparison_base": "b9203ff32801b15725d4c9b7e5890386f1d8a07f",
+  "coverage": {
+    "R60": {
+      "cases_per_cell": 4,
+      "cells": 100,
+      "checks": [
+        "exact ordinary valuation word",
+        "maximal k and j for constructed inputs",
+        "exact affine height formula",
+        "eta<q acceptance table"
+      ],
+      "exact_h": "7*k",
+      "inside_cells_from_asserted_table": 67,
+      "j": [
+        0,
+        4
+      ],
+      "k": [
+        1,
+        20
+      ],
+      "not_checked": [
+        "k=0",
+        "h-7*k remainders1..6",
+        "j>=5 or k>=21",
+        "full formal signed plans and W9 elimination",
+        "dispatcher coverage or supplied terminal currents"
+      ],
+      "outside_cells_from_asserted_table": 33,
+      "total_cases": 400,
+      "unused_import": "nu is imported but never called"
+    },
+    "R81_R83": {
+      "R83_s1": "exhaustive1<=L<3^8 gives unique740;h8148",
+      "R83_s2": "L2028089 satisfies modulus3^16 and exact order3^14 gives uniqueness;h22308995",
+      "checked_minimality": "binary halving only",
+      "correction": "Removed an unreachable condition requiring both M and P divisible3; only one can carry the positive ternary exponent. Source/docstring changed, stored/reproduced JSON unchanged.",
+      "fixed_cell_lifts": 3301,
+      "lifts_per_cell": 41,
+      "not_checked": [
+        "executable ternary minimality",
+        "all possible anchor words",
+        "negative-k positivity intervals",
+        "R83 whole CRT cells and full long currents"
+      ],
+      "random_cell_lifts": 16400,
+      "random_cells": 400
+    },
+    "R86": {
+      "H": [
+        3,
+        14
+      ],
+      "b": [
+        1,
+        8
+      ],
+      "cases_per_cell": 12,
+      "cells": 96,
+      "checks": [
+        "input equations and q divisibility3",
+        "selected(f) and nu(f)=n",
+        "S(n)=(3n+1)/4",
+        "ordinary common-tail clocks(H+b+1,1)",
+        "raw-target inequality in and outside the cone"
+      ],
+      "coverage_note": "Per-cell made<=12 and aggregate1152=96*12 establish twelve cases in every cell; code lacks a separate assert made==12.",
+      "inside": 396,
+      "not_checked": [
+        "all parameter values",
+        "full signed plan",
+        "all17 exclusion phase",
+        "supplied-current completion",
+        "R87 W9 repair"
+      ],
+      "outside": 756,
+      "total_cases": 1152
+    }
+  },
+  "files": {
+    "collatz_research_20261017/negative_controls/affine_controls.py": {
+      "bytes": 15888,
+      "sha256": "9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c"
+    },
+    "sidekick/FEED.md": {
+      "bytes": 88379,
+      "sha256": "b78341f306f4c959c8b5443ed343d45104466295a9605954401bceef802fb9a6"
+    },
+    "sidekick/probes/batch_r81_r83_check.py": {
+      "bytes": 4804,
+      "sha256": "ec88e50282d281030fec8c023c556caa8e2e04433a7a213170f3c74fc6494360"
+    },
+    "sidekick/probes/fibre_count_check.py": {
+      "bytes": 2828,
+      "sha256": "071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a"
+    },
+    "sidekick/probes/r60_cycle_inverse_check.py": {
+      "bytes": 4185,
+      "sha256": "4d6c516e9526b18ceb0764dc405beb79880901b46361ba44454db36a13d03df2"
+    },
+    "sidekick/probes/r86_even_exit_check.py": {
+      "bytes": 2770,
+      "sha256": "68b8577fe8ff083a786ecc5ca7f6ce988a8657ba2f873ee021e9df3e021d37ed"
+    },
+    "sidekick/writeup/SYNTHESIS.md": {
+      "bytes": 32492,
+      "sha256": "f3ea22e58351a0236e51a35dd13c27d37a304bd4e084a1872d06173b190b3f65"
+    }
+  },
+  "main_head": "3acae93f9fc9dbb2cf6411dc1e341aff2c13fcd5",
+  "probes": [
+    {
+      "actual_receipt_sha256": "31e98bbe7eb76ed533163df6c17d56bae0ef5c2970ce8886e074224d9f56f66f",
+      "byte_identical": true,
+      "cap_seconds": 90,
+      "elapsed_seconds": 0.114576,
+      "exit_code": 0,
+      "expected_receipt_sha256": "31e98bbe7eb76ed533163df6c17d56bae0ef5c2970ce8886e074224d9f56f66f",
+      "receipt": "sidekick/probes/r60_cycle_inverse_check.json",
+      "report": {
+        "accepted_cells": [
+          "k1 j3",
+          "k1 j4",
+          "k10 j2",
+          "k10 j3",
+          "k10 j4",
+          "k11 j2",
+          "k11 j3",
+          "k11 j4",
+          "k12 j1",
+          "k12 j2",
+          "k12 j3",
+          "k12 j4"
+        ],
+        "cases": 400,
+        "cells": 100,
+        "scope": "Independent check of R60's maximal cycle inverse words, height formula and acceptance table.",
+        "status": "PASS"
+      },
+      "source": "sidekick/probes/r60_cycle_inverse_check.py",
+      "stderr": "",
+      "stdout": "{\"cells\": 100, \"status\": \"PASS\"}\n"
+    },
+    {
+      "actual_receipt_sha256": "f2015b8edecb91f34ac356f6f0d6b6c66430f5adfab5c767cea40221c0c3fcb8",
+      "byte_identical": true,
+      "cap_seconds": 90,
+      "elapsed_seconds": 0.088136,
+      "exit_code": 0,
+      "expected_receipt_sha256": "f2015b8edecb91f34ac356f6f0d6b6c66430f5adfab5c767cea40221c0c3fcb8",
+      "receipt": "sidekick/probes/r86_even_exit_check.json",
+      "report": {
+        "cases": 1152,
+        "inside_cone": 396,
+        "outside_cone": 756,
+        "scope": "Independent check of R86's raw-target cone and its exact inequality (main 2a37f31).",
+        "status": "PASS"
+      },
+      "source": "sidekick/probes/r86_even_exit_check.py",
+      "stderr": "",
+      "stdout": "{\n  \"cases\": 1152,\n  \"inside_cone\": 396,\n  \"outside_cone\": 756,\n  \"scope\": \"Independent check of R86's raw-target cone and its exact inequality (main 2a37f31).\",\n  \"status\": \"PASS\"\n}\n"
+    },
+    {
+      "actual_receipt_sha256": "70d8a78fd624806cf03b9b062fd173883ee5f71c9c52a98323c063914968fe7b",
+      "byte_identical": true,
+      "cap_seconds": 90,
+      "elapsed_seconds": 0.116594,
+      "exit_code": 0,
+      "expected_receipt_sha256": "70d8a78fd624806cf03b9b062fd173883ee5f71c9c52a98323c063914968fe7b",
+      "receipt": "sidekick/probes/batch_r81_r83_check.json",
+      "receipt_identical_to_baseline": true,
+      "report": {
+        "r80_cell_lifts": 3301,
+        "r83_parameters": {
+          "1": {
+            "L": 740,
+            "h": 8148
+          },
+          "2": {
+            "L": 2028089,
+            "h": 22308995
+          }
+        },
+        "random_cells": 400,
+        "scope": "Independent checks of R81 merger cells and R83 (L, h) parameters (main 1d58f50).",
+        "status": "PASS"
+      },
+      "source": "sidekick/probes/batch_r81_r83_check.py",
+      "stderr": "",
+      "stdout": "{\n  \"r80_cell_lifts\": 3301,\n  \"r83_parameters\": {\n    \"1\": {\n      \"L\": 740,\n      \"h\": 8148\n    },\n    \"2\": {\n      \"L\": 2028089,\n      \"h\": 22308995\n    }\n  },\n  \"random_cells\": 400,\n  \"scope\": \"Independent checks of R81 merger cells and R83 (L, h) parameters (main 1d58f50).\",\n  \"status\": \"PASS\"\n}\n"
+    }
+  ],
+  "scratch": "/tmp/collatz_side_64a5981_a8cavgxn",
+  "side_pin": "64a598169be279de8551a1be9959c91eed865875",
+  "source_files_unchanged": true
+}
