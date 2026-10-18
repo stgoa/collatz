@@ -1,6 +1,6 @@
 # The W5 reduction of the Collatz conjecture: a verified map
 
-*This is a consolidated survey of the main programme (results R1–R74 and C1–C5 on `main`, through commit `aefdf60`) and the independent side lane (`claude/sidekick`), as of 2026-10-18.*
+*This is a consolidated survey of the main programme (results R1–R80 and C1–C5 on `main`, through commit `3b0c8a5`) and the independent side lane (`claude/sidekick`), as of 2026-10-18.*
 
 Status labels follow the repository:
 
@@ -130,6 +130,10 @@ The σ rules are not imported. The inner resolvers are frozen: R59 uses the twel
 - the twelve-family dispatcher accepts 722;
 - the fifteen-family dispatcher accepts 747, leaving 277 unresolved (for example `P(21) ↦ {21: 1}`).
 
+**One rank for both rule collections (R75).** Keep the source basis `W = W5 ∪ W9`. The returning conversion `P(u) = div C_u + P(b) + Σ(Â_b − Â_u)P`, with `b = σ(u)/3 ∈ W9`, then turns every σ-valid W5 plan into a ρ-valid plan in `W`. Old ρ plans stay valid, so both collections run under one strict rank after translation. The remaining W9 obstruction is a positive self-request on the blocked row.
+
+**A smaller-origin history (R80).** On a whole blocked-W9 cylinder, `q = 11547 + 2¹⁷·3^D·t`, the target `q` has no smaller canonical ancestor through depth `D`. The anchor `t = 0` has none at any depth. Yet the smaller seed `p = 11391 + 2³⁶·3^(D−12)·t` meets `q`'s future above `q`: `S²(q) = S¹⁴(p) = (9q + 5)/8`. This gives a strict original-rank comparison without inverse descent. It is main's current constructive priority.
+
 **A normal-form tool (R73).** Two exact pair identities, `w ≡ 93 (mod 512) ↦ (9w − 5)/64` and `b ≡ 1285 (mod 2048) ↦ 9(b − 5)/256`, generate a terminating, idempotent, integer-linear normal form for signed request vectors. Its kernel is exactly the relation module of the two identities. On R69's reset family it removes both helper premises, leaving the smaller `P(u)`.
 
 The side lane's size-stable rates are in §5.
@@ -165,6 +169,9 @@ Every no-go result in the programme is **scoped**: it excludes a specified proce
 | R70 | Finishing via the natural mixed exit: it can re-enter higher, `R(w) > w`, repeatably on complete cylinders |
 | R71 | Integer cycles from mechanical words: every cycle state has reduced denominator `2^(A/g) − 3^(k/g)`, never 1 except for the all-2s word (published antecedents) |
 | R72 | A finite affine-valuation rank on R69's two fixed mixed phases: infinitely many distinct centres defeat any finite centre list |
+| R76 | A uniform fixed-word pair model on `w ≡ 40529845 (mod 2²⁶)`: two independent searches find no smaller affine partner with fixed words |
+| R77 | Infinite survival in the V/R subsystem with low step-pattern complexity. A repeated factor forces both of its starting states into one 2-adic class, while growth is at most `Λ^j`. So any infinite survivor needs `liminf p(L)/L ≥ 18.285`. Also, no seed up to `2.6·10²⁶` makes 37 consecutive returns |
+| R78, R79 | Finishing at the original rank via the native W9 continuation and the native return `U(b) = (729b + 223)/512`: exact return counts `⌊(v2(217b + 223) − 13)/9⌋`, and every longer chain keeps a higher leading request |
 | R74 | Finite integrality alone: every finite word in the mixed exit-18 returns `V`, `R` is realized by integers on a complete cylinder. Eventually periodic words have negative rational points, so they are never positive integers. Aperiodic survivors remain open; their density is zero, with explicit count bounds |
 
 **Interpretation (side lane, 23:32).** On negative odd integers, `T` has exactly three cycles with `|x| ≤ 4000`:
@@ -199,6 +206,8 @@ All rows below are measurements, not checks. Main notes that "size-stable" is no
 | share | 13% | 49% | 76% | 92% | 98.7% |
 
 The largest lookahead observed was 79. These shares are about the same in every class, including the selected classes that were hardest for the hand-built rules.
+
+**Repeated-factor spacing for every orbit (side lane; written argument, reviewed by main).** R77's mechanism applies to any non-repeating odd-only orbit: `e + 1 < j·log₂(3/2) + log₂(x₀ + 1)` whenever a valuation factor of total `e` recurs at position `j`. Hence a divergent itinerary has `liminf p(L)/L ≥ 1/log₂(3/2) ≈ 1.7095`. This excludes Sturmian and other low-complexity itineraries, but not general ones.
 
 **States with no smaller ancestor (exact census, R49's criterion).** Of the 499,998 canonical states below `2·10⁶`, 48.5% have no smaller canonical ancestor at any depth. The share is flat from `10³` up. By `q mod 3` it is 88.5% (for 0), 57.0% (for 1) and 0% (for 2). Every certificate for these states needs forward motion.
 
@@ -330,7 +339,9 @@ The appendix is pinned at side commit `7150f31` and main commit `ea3278e`. Times
 | R49 | 02:15 (`r49_ancestor_free`): both anchors, their three-arrow paths, and an exact census below `2·10⁶` | independently checked (finite) |
 | R71 | 01:43 (`r71_mechanical_check`), 735 exact words | independently checked (finite) |
 | R73, R74 | 02:19 (`batch_r73_r74_check`): 4,000 members of each pair identity (clocks), 600 random V/R words (domains, growth, negative periodic points) | independently checked (finite) |
-| R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R56, R61, R63–R70, R72 | none (R56 only through main's review of the 23:32 word) | not touched |
+| R75, R77 | 02:53 (`batch_r75_r77_check`): returning translation arithmetic (3,000 inputs); R77's growth bound, exact threshold, spacing lemma (2,188 repeats) and copy counts (200) | independently checked (finite) |
+| R78, R79, R80 | 03:31 (`batch_r78_r80_check`): six-arrow native prefix (2,000), return counts (3,000), the R80 family (30 cases) and the all-depth anchor 11547 | independently checked (finite) |
+| R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R56, R61, R63–R70, R72, R76 | none (R56 only through main's review of the 23:32 word) | not touched |
 
 ### A.2 Main's reviews of side-lane claims
 
@@ -347,6 +358,8 @@ All of these are in `experiments/residual_progress/`.
 | `_33c3829.md/.json` (`a489973`) | stopping-threshold argument and equivalence correct; both probes reproduced exactly |
 | `_678e565.md/.json` (`ea3278e`) | transfer, `18u + 5` form and catalogue accepted; finite-base-only inference rejected (already withdrawn); halving renumbered R23 |
 | `_13590c1.md/.json` (`aefdf60`) | R71 probe reproduced byte for byte, float bounds confirmed by integer bit lengths; 01:31 transfer correction accepted |
+| `_d3a91fe.md` (`e9effe1`) | R73/R74 probe reproduced byte for byte |
+| `_fcc7e88.md` (`3b0c8a5`) | R75/R77 and general-spacing probes reproduced byte for byte; general spacing argument accepted; the informal average-valuation refinement not promoted |
 
 `negative_controls/PR1_REVIEW.md` keeps C1–C5 at their stated scope. It rejects PR1's broad claims ("cheapest certificate is forced", "alternatives cannot succeed") with explicit counterexamples, including 56 equal-cost certificates on `A₇₆₈`.
 
