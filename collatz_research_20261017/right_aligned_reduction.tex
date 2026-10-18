@@ -6275,6 +6275,226 @@ The proof here includes its own guard and current data and imports no
 termination conclusion. Neither finite-prefix realizability nor exclusion
 of periodic limits decides whether one positive integer survives every prefix.
 
+\section{Retaining both critical source types permits a common rank}
+Retain $W=W_5\cup W_9$ instead of eliminating every $W_9$ input.
+The rank is $\rho(w)=\nu(3w)$ on both types. Write the original
+critical-basis absorption identity of Theorem~\ref{thm:criticaltripling}
+as
+\[
+ [s]=\operatorname{div}\widehat J_s+
+       \sum_{v\in W}\widehat A_s(v)P(v).
+\]
+Every request has $\rho(v)\le\nu(s)$: each critical request is made
+at the current normalized seed, and the subsequent seed strictly decreases.
+This bound precedes the complete $W_9$ elimination and has no $9/8$ overhead.
+
+\begin{theorem}\label{thm:criticalbasis}
+Let $E_{\rm ret}=\{u\in W_5:u\equiv3\pmod9,\ 3u\text{ is selected}\}$.
+For $u\in E_{\rm ret}$ set
+\[
+ q=\rho(u)=\frac{3u-1}{2},\qquad
+ n=\sigma(u)=\frac{4u-3}{3},\qquad b=\frac n3\in W_9.
+\]
+There is an explicit finite integer current $C_u$ satisfying
+\[
+ P(u)=\operatorname{div}C_u+P(b)
+       +\sum_v\bigl(\widehat A_b(v)-\widehat A_u(v)\bigr)P(v).
+ \tag{CB1}
+\]
+The coefficient at $b$ is exactly $+1$, its rank is $n<q$, and
+every other request has rank strictly below $n$.
+
+Consequently every $\sigma$-valid signed $W_5$ plan can be translated
+into a $\rho$-valid plan with requests in $W$. Every old $\rho$-valid
+$W_5$ plan remains valid with its original current and requests.
+Any finitely branching choice among these translated and retained plans,
+together with other strictly $\rho$-decreasing $W$ plans, has finite
+conditional expansion. Its unresolved terminal currents remain premises.
+\end{theorem}
+\begin{proof}
+The ordinary path $n\to q$ has valuations $(1,2)$; write its current
+as $D_{n,q}$. Let $N_{3u}$ have divergence $[3u]-[q]$.
+Then
+\[
+ C_u=N_{3u}-D_{n,q}+\widehat J_b-\widehat J_u
+\]
+has precisely boundary (CB1), since $3b=n$.
+The ranks from $\widehat J_b$ are at most $\nu(b)\le b<n$.
+Those from $\widehat J_u$ are at most
+$\nu(u)\le(u-1)/4<n$. Hence they neither cancel the leading $b$
+nor exceed its rank.
+
+In a $\sigma$-valid plan at $w$, replace each signed request
+$c_uP(u)$ with $u\in E_{\rm ret}$ by $c_u$ times (CB1).
+Each replacement has all ranks at most $\sigma(u)<\sigma(w)\le\rho(w)$.
+For every unreplaced request, $\rho(u)=\sigma(u)<\sigma(w)$.
+Add equal coefficients, retaining both signs. This proves strict descent
+for the entire translated current. The old $\rho$ plans already satisfy
+the same strict test in the larger source set. Finite branching and a
+strictly decreasing positive integer rank give finite expansion, but do
+not supply any unrecognized leaf.
+\end{proof}
+
+In particular the complete mixed-growth guard has a decreasing comparison
+before the returning input is expanded in the old basis. Put $q=3w$ and
+$f=(729w+147)/256<q$ as in Theorem~\ref{thm:mixedgrowth}.
+The first five ordinary arrows give $S^5(q)=4f+1$, hence a current
+$D_{q,f}$ with ordinary common-tail clocks $(6,1)$. The plan
+\[
+ D_{q,f}+\widehat J_f-\widehat J_w,
+ \qquad \widehat A_f-\widehat A_w
+\]
+has boundary $P(w)$ minus its full request source. Every request has
+rank below $q$. Its unique highest request is $P(f/3)$, of rank $f$,
+in $W_9$. This is a valid conditional comparison in the enlarged basis;
+it is not a new $W_5$-only rule with those auxiliary currents already supplied.
+
+The remaining $W_9$ issue is explicit. The local $W_9$ rule fails the
+strict rank test exactly when $d=v_2(9b-1)=4$ and
+$3z$ is noncanonical, $z=(9b-1)/16$. Its unique high request is
+$P(u)$ with $u=4z+1$ and rank $(27b+5)/8>3b$.
+Substituting (CB1) restores coefficient $+1$ at $P(b)$, with all
+other requests strictly lower. The resulting current need not be zero:
+$u=453,b=201$ leaves requests $\{201:1,5:1,25:1\}$ and a nonzero
+fourteen-row current. Thus the branch still supplies no strict descent.
+The old incompatible edges have been replaced by translated comparisons;
+no common rank on all their original edges is asserted.
+
+\section{A complete fixed-word comparison model misses the mixed guard}
+\begin{theorem}\label{thm:uniformpairscope}
+Put $w(n)=40529845+2^{26}n$ for every integer $n\ge0$.
+There is no affine partner $u(n)=\alpha n+\beta$ that is a positive
+integer in $W_5$ with $u(n)<w(n)$ for every $n$, and has both
+\[
+ S^j(w(n))=S^\ell(u(n)),\qquad
+ S^k(3w(n))=S^m(3u(n))
+\]
+with all four complete ordinary valuation words fixed independently of $n$.
+The clocks may be zero or unequal. This statement does not exclude fixed
+clocks with varying intermediate valuations, refined progressions, other
+partner types, variable words, or general signed currents.
+\end{theorem}
+\begin{proof}
+Integrality at $n=0,1$ forces integer $\alpha,\beta$.
+The inequalities give $0\le\alpha\le2^{26}$ and
+$0<\beta<40529845$. A constant partner cannot match the positive
+affine slope of any fixed-word parent image, so $\alpha>0$.
+Membership in $W_5$ gives $8\mid\alpha$ and $\beta\equiv5\pmod8$.
+
+For a positive odd affine family $an+b$, the next valuation is fixed
+exactly when $v_2(3b+1)<v_2(a)$. Each such step lowers $v_2(a)$.
+The complete parent words are
+\[
+ (5,2,1,2,1,1,4,2,1,1,3),\quad
+ (1,1,1,1,2,3,2,1,1,1,1,2,3,1,1,1,2),
+\]
+of lengths $11$ and $17$. At the lower merger, equality of slopes gives
+$\ell+v_3(\alpha)=j$, hence $\ell\le j\le11$.
+
+Reverse every lower endpoint for every permitted depth using
+$(a,b)\mapsto(2^ha/3,(2^hb-1)/3)$, retaining exactly the integral
+positive predecessors. If at most $t$ further inverse steps remain after
+this step, a final slope at most $2^{26}$ requires
+\[
+ a2^{h+t}\le2^{26}3^{t+1}.
+\]
+Every later multiplier is at least $2/3$, so this bound also permits
+all words stopping early. It gives an exhaustive finite valuation range.
+The retained certificate has $43$ eligible partners after $1110$ nodes.
+Each complete upper fixed path is compared with all $18$ parent upper
+states, including clock zero; there are no intersections.
+
+An independent enumeration fixes exact clocks $(j,\ell)$ and uses
+the total inverse-valuation budget $2^B3^{j-\ell}\le2^A$, where $A$
+is the lower-parent total valuation. It visits $3401$ nodes and $450$
+complete inverse words and obtains exactly the same $43$ partners.
+Both enumerations and all candidate data are retained in
+\texttt{uniform\_pair\_scope/}. Their finite exhaustive arithmetic,
+together with the proved bounds above, establishes the stated model
+exclusion. Absorption at $1$ adds no path: $S(1)=1$ already has
+valuation $2$, and the other members must share that valuation.
+\end{proof}
+
+\section{Repeated return factors constrain one fixed positive integer}
+Use the two returns and constants of Theorem~\ref{thm:integerprefix}.
+Set $K=B/D$, $\Lambda=3^{24}/2^{37}>1$ and $X(w)=w+K$.
+Then $X(Vw)=(3^{12}/2^{19})X(w)$ and
+$X(Rw)=\Lambda X(w)-K$. A legal positive trajectory therefore has
+strictly increasing integer states and
+$X(w_j)\le\Lambda^jX(w_0)$.
+
+\begin{theorem}\label{thm:itinerarycomplexity}
+If one fixed positive integer $w_0$ makes infinitely many of these
+$V/R$ returns, let $p(L)$ be the number of different length-$L$
+words occurring in its itinerary. Then
+\[
+ \liminf_{L\to\infty}\frac{p(L)}L
+ \ge\frac{19}{\log_2\Lambda}>18.
+\]
+Thus $p(L)\le18L+O(1)$ is impossible even along unbounded lengths.
+Higher-complexity aperiodic itineraries remain unexcluded.
+
+Every positive seed
+\[
+ w\le N_*=
+ \left\lfloor\frac{2^{1305}}{3^{768}}-\frac{311195}{7153}\right\rfloor
+ =260028359941009900571662033
+\]
+makes fewer than $37$ consecutive returns in this subsystem.
+Leaving the subsystem is not identified with absorption.
+\end{theorem}
+\begin{proof}
+If the same factor $\omega$ of length $L$ starts at $i<j$, the
+complete-cylinder theorem gives
+\[
+ 2^{26+e_\omega}\mid(w_j-w_i),\qquad e_\omega\ge19L.
+\]
+The states are distinct positive integers, so
+\[
+ 2^{26+e_\omega}\le w_j-w_i<X(w_j)\le\Lambda^jX(w_0).
+ \tag{IC1}
+\]
+This applies also to overlapping factors. All factors starting at the
+initial positions with $\Lambda^jX(w_0)\le2^{26+19L}$ are therefore
+different. Their number is
+\[
+ \max\left(0,1+\left\lfloor
+ \frac{26+19L-\log_2X(w_0)}{\log_2\Lambda}
+ \right\rfloor\right).
+\]
+The seed is fixed, so division by $L$ proves the lower limit.
+The strict numerical comparison follows from the exact integer inequality
+$3^{432}<2^{685}$, equivalent to $\Lambda^{18}<2^{19}$.
+
+For the finite claim, $37$ symbols give $33$ length-five windows
+starting at $0,\ldots,32$. If $w_0\le N_*$, then
+$\Lambda^{32}X(w_0)\le2^{121}$. By (IC1) all $33$ windows would
+be different, although only $2^5=32$ binary words exist.
+\end{proof}
+
+An exact repetition bound also holds for every fixed nonempty word
+$F_\omega(w)=(aw+c)/2^e$. For $w\in G$ put
+$Z=(a-2^e)w+c>0$. The identity
+\[
+ F_\omega^k(w)-w=
+ \frac{Z}{2^{ke}}\sum_{t=0}^{k-1}a^{k-1-t}2^{et}
+\]
+has an odd sum. Completeness of the cylinders therefore gives exactly
+\[
+ k_{\max}=\left\lfloor\frac{v_2(Z)-26}{e}\right\rfloor
+\]
+consecutive complete copies of that word. Here $v_2(Z)\ge26$ on $G$.
+For a single $V$, this counts returns to $G$ and is one less than the
+number of old guarded R67 blocks. Changing the next word can permit
+further returns; this bound is not a total termination theorem.
+
+Real and $2$-adic convergence cannot be silently identified. For example,
+with $A=3^{12},M=2^{19}$, the rational sequence
+$(A^n\bmod M^n)/A^n$ tends to $0$ in the reals and to $1$ in
+$\mathbb Q_2$. The periodic negative rational controls lack the distinct
+positive integer states used in (IC1). No rationality-implies-periodicity
+claim or existence of a positive infinite survivor is assumed.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -6396,7 +6616,7 @@ these defect-resolution and lifted-inverse constructions. The R59 inner
 resolver stays fixed to twelve rules, and the optional R62 fixed-resolution
 audit stays fixed to fifteen; neither assumes the new union.
 Every returned rule decreases the same original $\rho$. Formal termination
-still retains every unrecognized signed leaf. A $\sigma$-valid plan can enter
+still retains every unrecognized signed leaf. An unchanged $\sigma$-valid plan can enter
 a $\rho$ argument only under the proved compatibility criterion.
 Theorem~\ref{thm:adjacentdefect} is a complete alternative source interface
 for the remaining returning defect. It supplies strictly smaller helpers,
@@ -6429,9 +6649,18 @@ leaving only its smaller positive input. The R67 higher leader remains
 terminal, so the normalizer's termination is not full-program progress.
 Theorem~\ref{thm:integerprefix} realizes every finite mixed exit18 return
 word on integers. Its periodic sign obstruction and sparse survivor bound
-still leave positive aperiodic survival unresolved. The next argument must
-resolve that leading obligation or constrain the same integer across
-unbounded prefixes. No additional dispatcher rule is inferred.
+still leave positive aperiodic survival unresolved.
+Theorem~\ref{thm:criticalbasis} now avoids the growing leading request
+by retaining a smaller $W_9$ premise and translating the sigma rules
+before testing rho. This supplies a coherent conditional compiler,
+while leaving its exceptional auxiliary branch unresolved.
+Theorem~\ref{thm:uniformpairscope} rules out one whole-guard fixed-word
+partner model; it does not cover this larger source basis.
+Theorem~\ref{thm:itinerarycomplexity} constrains a fixed positive
+survivor and gives a finite subsystem exit bound, but permits
+higher-complexity infinite itineraries. The next constructive obligation
+is supply of the enlarged compiler's terminal currents. The old
+$W_5$-only dispatcher is unchanged.
 
 An earlier independent side note gives a correct conditional threshold:
 any quotient prefix from $q=\rho(w)$ to $x$ with $9x+5<8q$ supplies
@@ -6723,5 +6952,19 @@ words through256 symbols,108 odd-CRT cases, nine maximal-count lists,
 signed compositions. Two full unfinished currents are stored, with
 missing-input, cap and invalid-domain checks. The written proofs establish
 the universal quantifiers and preserve the unresolved survivor question.
+The enlarged critical-basis checker adds512 formal absorption plans,
+256 returning conversions,512 complete W9 classifications,116 signed
+sigma translations,32 unchanged rho plans and eight whole-guard cases.
+Three complete supplied conversions produce40,86,15 rows, with all inputs
+stored. It preserves the blocked self-request and the nonzero fourteen-row
+undo counterexample. The uniform-pair checker independently enumerates
+all43 candidates by two complete bounds, and adds215 direct instances,
+256 small affine paths and20 invalid-input rejections.
+The itinerary checker adds62 affine words,186 positive lifts,630 exact
+copy-count cases including90 zero-copy cases,32 positive finite traces,
+11242 repeated factors including524 overlapping ones,45 exact threshold
+cases,62 negative rational periodic words,80 distinct-completion controls
+and12 rejections. The finite all-seed cutoff rests on the pigeonhole proof,
+not an enumeration of all seeds below that cutoff.
 These audits remain finite evidence for the implementations.
 \end{document}

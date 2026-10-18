@@ -1,0 +1,1867 @@
+{
+  "constructor": {
+    "candidate_count": 43,
+    "candidates": [
+      {
+        "affine_in_w": [
+          [
+            177147,
+            8388608
+          ],
+          [
+            10414729,
+            8388608
+          ]
+        ],
+        "coefficient": 1417176,
+        "intercept": 855893,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 0,
+          "inverse_word": [],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          9565938,
+          5777279
+        ],
+        "upper_word": [
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            6561,
+            131072
+          ],
+          [
+            70187,
+            131072
+          ]
+        ],
+        "coefficient": 3359232,
+        "intercept": 2028781,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 3,
+          "inverse_word": [
+            1,
+            2,
+            3
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          12754584,
+          7703029
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            59049,
+            1048576
+          ],
+          [
+            3122051,
+            1048576
+          ]
+        ],
+        "coefficient": 3779136,
+        "intercept": 2282381,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 0,
+          "inverse_word": [],
+          "parent_clock": 10
+        },
+        "upper_terminal": [
+          28697814,
+          17331833
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            19683,
+            262144
+          ],
+          [
+            603777,
+            262144
+          ]
+        ],
+        "coefficient": 5038848,
+        "intercept": 3043173,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 2,
+          "inverse_word": [
+            1,
+            4
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          28697814,
+          17331823
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            6561,
+            65536
+          ],
+          [
+            266795,
+            65536
+          ]
+        ],
+        "coefficient": 6718464,
+        "intercept": 4057565,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            3
+          ],
+          "parent_clock": 9
+        },
+        "upper_terminal": [
+          3188646,
+          1925759
+        ],
+        "upper_word": [
+          1,
+          1,
+          6,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            2187,
+            16384
+          ],
+          [
+            61625,
+            16384
+          ]
+        ],
+        "coefficient": 8957952,
+        "intercept": 5410085,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            4
+          ],
+          "parent_clock": 8
+        },
+        "upper_terminal": [
+          86093442,
+          51995465
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            19683,
+            131072
+          ],
+          [
+            996993,
+            131072
+          ]
+        ],
+        "coefficient": 10077696,
+        "intercept": 6086349,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            3
+          ],
+          "parent_clock": 10
+        },
+        "upper_terminal": [
+          172186884,
+          103990985
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            81,
+            512
+          ],
+          [
+            443,
+            512
+          ]
+        ],
+        "coefficient": 10616832,
+        "intercept": 6411949,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 3,
+          "inverse_word": [
+            2,
+            2,
+            3
+          ],
+          "parent_clock": 7
+        },
+        "upper_terminal": [
+          354294,
+          213973
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          3,
+          3,
+          6
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            729,
+            4096
+          ],
+          [
+            13715,
+            4096
+          ]
+        ],
+        "coefficient": 11943936,
+        "intercept": 7213445,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 0,
+          "inverse_word": [],
+          "parent_clock": 6
+        },
+        "upper_terminal": [
+          9565938,
+          5777273
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          4,
+          1,
+          4,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            6561,
+            32768
+          ],
+          [
+            102955,
+            32768
+          ]
+        ],
+        "coefficient": 13436928,
+        "intercept": 8115125,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 3,
+          "inverse_word": [
+            1,
+            2,
+            5
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          86093442,
+          51995447
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            59049,
+            262144
+          ],
+          [
+            3384195,
+            262144
+          ]
+        ],
+        "coefficient": 15116544,
+        "intercept": 9129525,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            5
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          258280326,
+          155986499
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            243,
+            1024
+          ],
+          [
+            2865,
+            1024
+          ]
+        ],
+        "coefficient": 15925248,
+        "intercept": 9617925,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 2,
+          "inverse_word": [
+            2,
+            4
+          ],
+          "parent_clock": 7
+        },
+        "upper_terminal": [
+          12754584,
+          7703029
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          5,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            1,
+            4
+          ],
+          [
+            -1,
+            4
+          ]
+        ],
+        "coefficient": 16777216,
+        "intercept": 10132461,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            3
+          ],
+          "parent_clock": 1
+        },
+        "upper_terminal": [
+          19131876,
+          11554541
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          2,
+          3,
+          2,
+          3,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            2187,
+            8192
+          ],
+          [
+            20665,
+            8192
+          ]
+        ],
+        "coefficient": 17915904,
+        "intercept": 10820165,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 4,
+          "inverse_word": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          516560652,
+          311972633
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            2187,
+            8192
+          ],
+          [
+            86201,
+            8192
+          ]
+        ],
+        "coefficient": 17915904,
+        "intercept": 10820173,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 2,
+          "inverse_word": [
+            3,
+            3
+          ],
+          "parent_clock": 9
+        },
+        "upper_terminal": [
+          86093442,
+          51995477
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          3
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            9,
+            32
+          ],
+          [
+            67,
+            32
+          ]
+        ],
+        "coefficient": 18874368,
+        "intercept": 11399021,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            3
+          ],
+          "parent_clock": 3
+        },
+        "upper_terminal": [
+          516560652,
+          311972633
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          2,
+          1,
+          3,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            19683,
+            65536
+          ],
+          [
+            669313,
+            65536
+          ]
+        ],
+        "coefficient": 20155392,
+        "intercept": 12172693,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 2,
+          "inverse_word": [
+            1,
+            6
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          344373768,
+          207981877
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            81,
+            256
+          ],
+          [
+            1211,
+            256
+          ]
+        ],
+        "coefficient": 21233664,
+        "intercept": 12823901,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            3
+          ],
+          "parent_clock": 5
+        },
+        "upper_terminal": [
+          1417176,
+          855893
+        ],
+        "upper_word": [
+          1,
+          1,
+          5,
+          5,
+          2,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            729,
+            2048
+          ],
+          [
+            3475,
+            2048
+          ]
+        ],
+        "coefficient": 23887872,
+        "intercept": 14426885,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 5,
+          "inverse_word": [
+            1,
+            2,
+            3,
+            2,
+            4
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          57395628,
+          34663625
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          6,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            729,
+            2048
+          ],
+          [
+            19859,
+            2048
+          ]
+        ],
+        "coefficient": 23887872,
+        "intercept": 14426893,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 2,
+          "inverse_word": [
+            4,
+            3
+          ],
+          "parent_clock": 8
+        },
+        "upper_terminal": [
+          28697814,
+          17331821
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          1,
+          3,
+          2,
+          3,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            3,
+            8
+          ],
+          [
+            9,
+            8
+          ]
+        ],
+        "coefficient": 25165824,
+        "intercept": 15198693,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            4
+          ],
+          "parent_clock": 2
+        },
+        "upper_terminal": [
+          57395628,
+          34663625
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          2,
+          4,
+          1,
+          1,
+          2,
+          4,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            6561,
+            16384
+          ],
+          [
+            283179,
+            16384
+          ]
+        ],
+        "coefficient": 26873856,
+        "intercept": 16230261,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            5
+          ],
+          "parent_clock": 9
+        },
+        "upper_terminal": [
+          28697814,
+          17331827
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          1,
+          4,
+          3
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            27,
+            64
+          ],
+          [
+            297,
+            64
+          ]
+        ],
+        "coefficient": 28311552,
+        "intercept": 17098533,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            4
+          ],
+          "parent_clock": 4
+        },
+        "upper_terminal": [
+          38263752,
+          23109085
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          4,
+          1,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            243,
+            512
+          ],
+          [
+            305,
+            512
+          ]
+        ],
+        "coefficient": 31850496,
+        "intercept": 19235845,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 6,
+          "inverse_word": [
+            1,
+            2,
+            3,
+            2,
+            2,
+            4
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          19131876,
+          11554541
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          5,
+          2,
+          3,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            243,
+            512
+          ],
+          [
+            4401,
+            512
+          ]
+        ],
+        "coefficient": 31850496,
+        "intercept": 19235853,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            3
+          ],
+          "parent_clock": 6
+        },
+        "upper_terminal": [
+          9565938,
+          5777273
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          1,
+          4,
+          4,
+          2,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            1,
+            2
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "coefficient": 33554432,
+        "intercept": 20264925,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 3,
+          "inverse_word": [
+            3,
+            1,
+            3
+          ],
+          "parent_clock": 3
+        },
+        "upper_terminal": [
+          1417176,
+          855893
+        ],
+        "upper_word": [
+          1,
+          1,
+          6,
+          3,
+          2,
+          2,
+          2,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            2187,
+            4096
+          ],
+          [
+            32953,
+            4096
+          ]
+        ],
+        "coefficient": 35831808,
+        "intercept": 21640333,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 4,
+          "inverse_word": [
+            1,
+            2,
+            5,
+            3
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          28697814,
+          17331815
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          1,
+          2,
+          3,
+          3
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            2187,
+            4096
+          ],
+          [
+            65721,
+            4096
+          ]
+        ],
+        "coefficient": 35831808,
+        "intercept": 21640341,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            6
+          ],
+          "parent_clock": 8
+        },
+        "upper_terminal": [
+          2324522934,
+          1403877521
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          2,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            9,
+            16
+          ],
+          [
+            115,
+            16
+          ]
+        ],
+        "coefficient": 37748736,
+        "intercept": 22798045,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 3,
+          "inverse_word": [
+            3,
+            1,
+            3
+          ],
+          "parent_clock": 5
+        },
+        "upper_terminal": [
+          1417176,
+          855893
+        ],
+        "upper_word": [
+          1,
+          1,
+          8,
+          2,
+          2,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            19683,
+            32768
+          ],
+          [
+            1029761,
+            32768
+          ]
+        ],
+        "coefficient": 40310784,
+        "intercept": 24345397,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            5
+          ],
+          "parent_clock": 10
+        },
+        "upper_terminal": [
+          516560652,
+          311972953
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          2
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            81,
+            128
+          ],
+          [
+            571,
+            128
+          ]
+        ],
+        "coefficient": 42467328,
+        "intercept": 25647797,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 3,
+          "inverse_word": [
+            2,
+            2,
+            5
+          ],
+          "parent_clock": 7
+        },
+        "upper_terminal": [
+          1033121304,
+          623945213
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            729,
+            1024
+          ],
+          [
+            6547,
+            1024
+          ]
+        ],
+        "coefficient": 47775744,
+        "intercept": 28853773,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 5,
+          "inverse_word": [
+            1,
+            2,
+            3,
+            4,
+            3
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          172186884,
+          103990877
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          1,
+          5,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            729,
+            1024
+          ],
+          [
+            14739,
+            1024
+          ]
+        ],
+        "coefficient": 47775744,
+        "intercept": 28853781,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            6
+          ],
+          "parent_clock": 7
+        },
+        "upper_terminal": [
+          114791256,
+          69327269
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          6,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            729,
+            1024
+          ],
+          [
+            22931,
+            1024
+          ]
+        ],
+        "coefficient": 47775744,
+        "intercept": 28853789,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 5,
+          "inverse_word": [
+            1,
+            6,
+            2,
+            1,
+            3
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          28697814,
+          17331823
+        ],
+        "upper_word": [
+          1,
+          1,
+          4,
+          3,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            3,
+            4
+          ],
+          [
+            21,
+            4
+          ]
+        ],
+        "coefficient": 50331648,
+        "intercept": 30397389,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 2,
+          "inverse_word": [
+            3,
+            3
+          ],
+          "parent_clock": 3
+        },
+        "upper_terminal": [
+          1033121304,
+          623945213
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          4,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            6561,
+            8192
+          ],
+          [
+            111147,
+            8192
+          ]
+        ],
+        "coefficient": 53747712,
+        "intercept": 32460501,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 3,
+          "inverse_word": [
+            1,
+            2,
+            7
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          2324522934,
+          1403877059
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            27,
+            32
+          ],
+          [
+            137,
+            32
+          ]
+        ],
+        "coefficient": 56623104,
+        "intercept": 34197061,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 4,
+          "inverse_word": [
+            2,
+            2,
+            3,
+            4
+          ],
+          "parent_clock": 7
+        },
+        "upper_terminal": [
+          229582512,
+          138654485
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          2,
+          2,
+          3,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            27,
+            32
+          ],
+          [
+            393,
+            32
+          ]
+        ],
+        "coefficient": 56623104,
+        "intercept": 34197069,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 2,
+          "inverse_word": [
+            3,
+            3
+          ],
+          "parent_clock": 5
+        },
+        "upper_terminal": [
+          774840978,
+          467958995
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          2,
+          1,
+          4,
+          1,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            59049,
+            65536
+          ],
+          [
+            3449731,
+            65536
+          ]
+        ],
+        "coefficient": 60466176,
+        "intercept": 36518101,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 1,
+          "inverse_word": [
+            7
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          2324522934,
+          1403878493
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            243,
+            256
+          ],
+          [
+            1073,
+            256
+          ]
+        ],
+        "coefficient": 63700992,
+        "intercept": 38471693,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 6,
+          "inverse_word": [
+            1,
+            2,
+            3,
+            2,
+            4,
+            3
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          57395628,
+          34663621
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          1,
+          4,
+          1,
+          1,
+          3,
+          2
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            243,
+            256
+          ],
+          [
+            3121,
+            256
+          ]
+        ],
+        "coefficient": 63700992,
+        "intercept": 38471701,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 2,
+          "inverse_word": [
+            2,
+            6
+          ],
+          "parent_clock": 7
+        },
+        "upper_terminal": [
+          258280326,
+          155986325
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          4,
+          1,
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            243,
+            256
+          ],
+          [
+            7217,
+            256
+          ]
+        ],
+        "coefficient": 63700992,
+        "intercept": 38471717,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 6,
+          "inverse_word": [
+            1,
+            6,
+            2,
+            1,
+            1,
+            4
+          ],
+          "parent_clock": 11
+        },
+        "upper_terminal": [
+          28697814,
+          17331821
+        ],
+        "upper_word": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          2,
+          1,
+          1,
+          7
+        ]
+      },
+      {
+        "affine_in_w": [
+          [
+            243,
+            256
+          ],
+          [
+            9265,
+            256
+          ]
+        ],
+        "coefficient": 63700992,
+        "intercept": 38471725,
+        "intersections": [],
+        "lower_comparison": {
+          "child_clock": 4,
+          "inverse_word": [
+            3,
+            3,
+            2,
+            3
+          ],
+          "parent_clock": 9
+        },
+        "upper_terminal": [
+          38263752,
+          23109101
+        ],
+        "upper_word": [
+          1,
+          1,
+          2,
+          4,
+          1,
+          4,
+          1,
+          1
+        ]
+      }
+    ],
+    "lower_states": [
+      [
+        67108864,
+        40529845
+      ],
+      [
+        6291456,
+        3799673
+      ],
+      [
+        4718592,
+        2849755
+      ],
+      [
+        7077888,
+        4274633
+      ],
+      [
+        5308416,
+        3205975
+      ],
+      [
+        7962624,
+        4808963
+      ],
+      [
+        11943936,
+        7213445
+      ],
+      [
+        2239488,
+        1352521
+      ],
+      [
+        1679616,
+        1014391
+      ],
+      [
+        2519424,
+        1521587
+      ],
+      [
+        3779136,
+        2282381
+      ],
+      [
+        1417176,
+        855893
+      ]
+    ],
+    "lower_word": [
+      5,
+      2,
+      1,
+      2,
+      1,
+      1,
+      4,
+      2,
+      1,
+      1,
+      3
+    ],
+    "parent_period": 67108864,
+    "parent_residue": 40529845,
+    "upper_states": [
+      [
+        201326592,
+        121589535
+      ],
+      [
+        301989888,
+        182384303
+      ],
+      [
+        452984832,
+        273576455
+      ],
+      [
+        679477248,
+        410364683
+      ],
+      [
+        1019215872,
+        615547025
+      ],
+      [
+        764411904,
+        461660269
+      ],
+      [
+        286654464,
+        173122601
+      ],
+      [
+        214990848,
+        129841951
+      ],
+      [
+        322486272,
+        194762927
+      ],
+      [
+        483729408,
+        292144391
+      ],
+      [
+        725594112,
+        438216587
+      ],
+      [
+        1088391168,
+        657324881
+      ],
+      [
+        816293376,
+        492993661
+      ],
+      [
+        306110016,
+        184872623
+      ],
+      [
+        459165024,
+        277308935
+      ],
+      [
+        688747536,
+        415963403
+      ],
+      [
+        1033121304,
+        623945105
+      ],
+      [
+        774840978,
+        467958829
+      ]
+    ],
+    "upper_word": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      3,
+      2,
+      1,
+      1,
+      1,
+      1,
+      2,
+      3,
+      1,
+      1,
+      1,
+      2
+    ],
+    "visited_inverse_nodes": 1110
+  },
+  "domain_checks": {
+    "absorption_and_split_cases": 3,
+    "empty_word_checked": true,
+    "invalid_input_rejections": 20,
+    "ordinary_integer_cases": 215,
+    "partner_domain_cases": [
+      [
+        67108864,
+        5,
+        true
+      ],
+      [
+        67108864,
+        40529837,
+        true
+      ],
+      [
+        8,
+        5,
+        true
+      ],
+      [
+        0,
+        5,
+        false
+      ],
+      [
+        67108864,
+        40529845,
+        false
+      ],
+      [
+        67108872,
+        5,
+        false
+      ],
+      [
+        -8,
+        5,
+        false
+      ],
+      [
+        8,
+        -3,
+        false
+      ],
+      [
+        8,
+        7,
+        false
+      ],
+      [
+        4,
+        5,
+        false
+      ],
+      [
+        8.0,
+        5,
+        false
+      ],
+      [
+        true,
+        5,
+        false
+      ]
+    ],
+    "small_affine_paths": 256,
+    "small_affine_paths_sha256": "9a0be7537a77911093ad432f334ed497c8fb54238640c60b9fa4715a88e7498f"
+  },
+  "independent": {
+    "candidate_count": 43,
+    "complete_inverse_words": 450,
+    "full_enumeration_sha256": "fe14c1f06ca838ca507c27a85bf2b3514ca624ddc73c2255809f75993d30cd7f",
+    "method": "Exact inverse length with global total-valuation budget and two-point fixedness",
+    "visited_nodes": 3401
+  },
+  "scope": "All n>=0 on w=40529845+2^26*n; smaller affine W5 partner; four fixed ordinary valuation words only",
+  "source_hashes": {
+    "UNIFORM_PAIR_SCOPE.md": "741d688aefddea29f54dbbff27a5cb642d7767651ec0c47c5d6a6fa2846fcc79",
+    "check_uniform_pair.py": "9db889f84de2dd0e4fbd50ac4ebaff26582ce34cc005db37df2a7da924c65f33",
+    "uniform_pair.py": "2fd6fd603b7a0feeb870bb1a95c46a6f1b527850d8507cee639ea167c5eaef0d"
+  },
+  "status": "PASS"
+}
