@@ -6,8 +6,10 @@ R81 (cell theorem): if q0 follows ordinary word alpha (length a, total A) and p0
 q = q0 + M k, p = p0 + P k with M = 2^(A+1) 3^max(b-a,0), P = 2^(B+1) 3^max(a-b,0).
 Checked: (i) R80's cell q = 11547 + 16*3^12 k, p = 11391 + 2^23 k with words (1,2) and
 (1^6,2,2,1^4,2,6), k = 0..3000 and 300 random large k; (ii) 400 random small anchor pairs with
-meeting words: every lift k = 0..40 keeps both words and the meeting; halving the 2-part or
-dividing the 3-part of M (with the matching P) breaks some lift (minimality).
+meeting words: every lift k = 0..40 keeps both words and the meeting; halving both binary
+parts breaks some lift (binary minimality). The ternary part is not tested by execution: at most
+one of M, P carries a factor 3, so removing it would force a non-integer coupled period (main's
+review of 49083cb); that minimality rests on the coupled-integrality argument.
 R83: for s = 1, 2 the unique 0 < L < 3^(6s+2) with 64^L = 217/8272 mod 3^(6s+4) is 740 and
 2028089, and h = 11L + 8s gives 8148 and 22308995.
 Standard library. Run without -O.
@@ -78,7 +80,7 @@ def main():
             mq, mp = follows(q0 + M*k, alpha), follows(p0 + P*k, beta)
             assert mq is not None and mq == mp, (q0, p0, k)
         # minimality: a strictly smaller common period fails for some lift
-        for M2, P2 in ((M//2, P//2),) + (((M//3, P//3),) if M % 3 == 0 and P % 3 == 0 else ()):
+        for M2, P2 in ((M//2, P//2),):
             broke = False
             for k in range(1, 41):
                 mq, mp = follows(q0 + M2*k, alpha), follows(p0 + P2*k, beta)

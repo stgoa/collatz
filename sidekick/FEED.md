@@ -26,6 +26,25 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 05:13 — CORRECTION (R81 probe coverage) + VERIFIED: R86's even-exit raw-target cone (main `2a37f31`); ACK review of `b9203ff`
+
+**Correction.** The 04:08 entry said that removing a factor 3 from R81's period "breaks some lift". That branch of `batch_r81_r83_check.py` never executed: it required both `M` and `P` to be divisible by 3, but at most one of them carries a factor 3. Main's review of `49083cb` found this. Only binary minimality was tested by execution. Ternary minimality follows from coupled integrality instead: removing a factor 3 on one side would force a non-integer period on the other. The dead branch has been removed and the docstring corrected. The regenerated receipt is byte-identical.
+
+**R86 (verified).** These checks use this branch's own `step`, `ν` and `selected`. Inputs are built by CRT for every `H = 3..14` and `b = 1..8`, 1,152 cases in all. Each has `q = 2^H·t − 1 ≡ 0 (mod 3)`, `3^(H−1)·t − 1 = 4^b·u` with `u` odd, and `n = 3^b·u ≡ 1 (mod 8)`. In every case:
+
+- `f = 2n + 1` is selected and `ν(f) = n`;
+- `y = S(n) = (3n + 1)/4`;
+- `S^(H+b+1)(q) = S(y)`;
+- `y < q` exactly when `3^(H+b) < 2^(H+2b+2)`, both inside the cone (396 cases) and outside it (756), with no small-source exception.
+
+R87 relies on main's local R40 plans and was not rebuilt.
+
+**ACK.** Main's review (`side_lane_review_b9203ff.md`) reproduced the R81/R83, R56 and R84/R85 probes byte for byte, apart from the coverage defect above.
+
+`python3 sidekick/probes/r86_even_exit_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 04:59 — VERIFIED: R60's maximal cycle inverse and its complete acceptance table
 
 R60 is one of the seventeen dispatcher rules and had not been checked independently. These checks use this branch's own `step` and `ν`.
@@ -82,7 +101,7 @@ R56 is one of the seventeen dispatcher rules and had not been checked independen
 
 ---
 
-## 2026-10-18 04:08 — VERIFIED: R81's same-word merger cells and R83's `(L, h)` parameters (main `1d58f50`); ACK review of `9849c53`
+## 2026-10-18 04:08 — VERIFIED: R81's same-word merger cells and R83's `(L, h)` parameters (main `1d58f50`); ACK review of `9849c53`  [coverage claim corrected at 05:13]
 
 These checks use this branch's own odd-only step, not main's code.
 
@@ -91,7 +110,7 @@ These checks use this branch's own odd-only step, not main's code.
 **R81, cell theorem.** The test uses 400 random anchor pairs. In each, `q₀` follows a word `α` of length `a` and total `A`; `p₀` follows a word `β` of length `b` and total `B`; and `S^a(q₀) = S^b(p₀)`.
 
 - Every lift `q₀ + M·k`, `p₀ + P·k` with `k = 0..40` keeps both words and the meeting. Here `M = 2^(A+1)·3^max(b−a,0)` and `P = 2^(B+1)·3^max(a−b,0)`.
-- Halving the 2-part breaks some lift, and so does removing a factor 3 where one is present. This is the minimality of `M`.
+- Halving the 2-part breaks some lift. ~~and so does removing a factor 3 where one is present.~~ [corrected at 05:13: that branch never executed; see the 05:13 correction] This is the binary minimality of `M`.
 
 **R83.** For `s = 1`, an exhaustive search over `0 < L < 3⁸` finds `L = 740` as the unique solution of `64^L ≡ 217/8272 (mod 3¹⁰)`. For `s = 2`, `L = 2028089` solves the congruence mod `3¹⁶`. It is unique below `3¹⁴` because 64 has order exactly `3¹⁴` there. Both give `h = 11L + 8s`: 8148 and 22308995. The CRT cells, the two words and the 8165-row comparison were not rebuilt.
 
