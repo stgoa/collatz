@@ -27,8 +27,14 @@ is still required, and the exceptional W9 elimination returns a positive
 self-request. R76 excludes one uniform fixed-word partner model, while
 R77 gives a same-seed complexity constraint and an exact finite subsystem
 exit bound. High-complexity infinite survivors remain open. The current
-focus is supplying the enlarged compiler's terminal inputs. Rational
-scaling changes the integer lattice. The seventeen-family W5 dispatcher
+focus now has a constructive history comparison: R80 supplies a whole
+blocked-W9 progression by meeting a smaller seed's path above the original
+target, while excluding all smaller ancestors through arbitrary prescribed
+depths on subfamilies. R78 classifies native and next-A2 continuations at
+the original rank; R79 gives exact growing returns and exit/inverse failures.
+The immediate-loop scope classification shows its surviving lower W9
+relations were already covered. Universal terminal supply remains missing.
+Rational scaling changes the integer lattice. The seventeen-family W5 dispatcher
 and frozen internal resolvers remain unchanged. Universal current supply
 and Collatz remain open.
 No novelty is claimed. Integration and verification are recorded at the end.
@@ -2745,3 +2751,143 @@ refresh found main unchanged at `aefdf60`. The reviewed batch is prepared
 for the authorized commit and push, recorded by the accompanying Git history.
 The universal-current research goal remains open. The separate planning
 lead above was not promoted or used as a premise of the verified results.
+
+## 2026-10-18 — Native continuations and a high smaller-origin history
+
+Continued from clean pushed `e9effe1`. The preceding batch was progress:
+R75–R77, their checks and the existing TeX were committed and pushed.
+The earlier native-W9 planning lead is now proved and checked as R78;
+its temporary files are not proof dependencies. The optional feed at
+`2d47613e6f652a20f81d65bd51cefcb11fa0cf5d` initially added only survey
+text. After the user's fresh PR question, remote main was still unchanged,
+and GitHub again identified PR1 as the sole merged PR. The new side-feed
+pin is `fcc7e8825073bf7a7f4363cd9427ed8ceefadf12`; its two new probes
+reproduced byte for byte in temporary storage. The side branch is untouched.
+
+### R78: retain the original rank through the full continuation
+
+The [native-nine proof](native_nine/NATIVE_NINE_CONTINUATION.md) handles
+all positive b905mod8192. Its six-arrow prefix and unexpanded local R40
+plan pass the original rank3b except exactly at D4/D6 with noncanonical
+upper3z. These first successful cells were already implicit in R52.
+The D4 failure retains a higher W9 input; the D6 failure retains a higher
+selected W5 input. Its two prescribed inverse alternatives give a full
+self-return with a possibly nonzero lower current, or a higher W9 request.
+Neither is original-rank progress.
+
+A further forward block instead leaves the exact signed frontier
+`A_f+A_c-A_ell-A_b`. On the whole next-A2 domain it succeeds exactly
+at odd d, even d>=6, or selected endpoint f. Canonical d2/d4 leave an
+actual high critical request, not just an inconclusive upper bound.
+The fixed b4187017 example shows local child acceptance above the original
+rank. Other A remain unclassified. Three supplied outputs retain all
+input tables and contain43/97/102 rows. The default checks383 local bounds,
+226 native cases,150 full inverse substitutions,134 next-A2 cells,30 exact
+inequalities,13 rejections and16 explicitly unresolved other-A cases.
+
+### R79: finite native growth does not imply original-rank descent
+
+The [native growth proof](native_nine_growth/NATIVE_NINE_GROWTH.md) gives
+`U(b)=(729b+223)/512`, complete cylinders modulo2^(13+9r), and exact count
+`floor((v2(217b+223)-13)/9)` of complete returns. One further native step
+is possible from the last guarded source. The full s-step current keeps
+its unique growing leader and all signed helpers, with ordinary clocks
+(6s+3,3) and quotient6s. Every fixed positive seed has finite guard length;
+arbitrarily long finite constructions use different seeds.
+
+All nine final binary phases13..21 are explicit. On the full H17 family,
+the exit has ordinary clocks(6r+12,4) and quotient6r+8. Its leading request
+is below original3b exactly when r0, already covered by R78/R52. For r>=1
+it is higher, and both named base inverse rays restore earlier unfinished
+currents exactly. The nonblocked27/32 local bound only provides a stop at
+a smaller original rank or an unhandled leaf. The higher-ray congruences
+are a segregated candidate, without an accepted-domain claim.
+
+Focused evidence covers123 cylinders,216 phase cases,27 full exit
+comparisons,24 full R40/R75 return equalities,54 inverse undos,383 local
+bounds and16 invalid inputs. Complete failed tables at r1/r2 have78/134
+rows. No absorption search or dispatcher rule is added.
+
+### R80: an above-target merger with strict smaller inputs
+
+The [high-history proof](native_history/HIGH_HISTORY.md) constructs all
+`q=11547+2^17*3^D*t`, `p=11391+2^36*3^(D-12)*t`, D>=12,t>=0,
+with blocked W9 parent b=q/3. It proves p<q and the actual ordinary merger
+`S²(q)=S¹⁴(p)=(9q+5)/8>q`; quotient clocks(1,13) meet at y=(3q+1)/2.
+The thirteen-arrow smaller-origin path has every intermediate above q and
+peak32q+17. Its full comparison current, followed by formal absorption at
+p and b, requests only ranks at most p<q. Every missing current remains
+an explicit premise. The native basis is convenient but unnecessary for
+this particular family: old W5-only H_p/H_b also pass at the W9 parent.
+
+The stored4892-state canonical closed set contains every2887 canonical
+origin below11547 and excludes11547. This proves all-depth smaller-ancestor
+exclusion at the anchor by a finite invariant-set certificate. R49's full
+shadow theorem lifts it through depthD on each positive lift, over every
+inverse ray and index. It does not give all-depth exclusion for one fixed
+positive lift. The smaller p reaches q's future, so its history comparison
+coexists with that barrier. Both prescribed R44/R52 endpoint plans retain
+a genuinely higher request on this whole family; failure of all seventeen
+W5 rules remains only a four-sample observation.
+
+Focused replay checks54 native plans,54 old-frontier variants,54 actual
+endpoint failures,all4892 anchor edges,88 base inverse words,18 varied
+words and11 invalid inputs. Two complete supplied outputs have46/229 rows
+from5/9 premise currents. The all-ray claim rests on the written lifting
+argument; the sampled words are implementation evidence.
+
+### Immediate-loop scope and unpromoted exploration
+
+The [lower-loop classification](lower_loop_scope/LOWER_LOOP_SCOPE.md)
+settles the full immediate R75 self-return. It is zero except exactly
+u453mod576. Its nonzero lower relation is oriented at W9v25mod32, with
+unique critical rank3v, already covered by the nonblocked local rule.
+It provides no new accepted family and leaves the parent self-request.
+The894-case audit has218 nonzero and676 zero cases, plus64 progression
+instances and6 rejections. Its proof, checker and default replay passed
+independent review.
+
+A separate temporary exploration considered using both past and future
+constraints in the R77 V/R return system. Its gap constraint reduces to the
+same whole-factor cylinder divisibility; it supplies no new independent
+restriction or high-complexity exclusion. No additional theorem or proof
+premise is promoted from that exploration.
+
+### Parallel review and research decision
+
+The [pinned side review](side_lane_review_fcc7e88.md) records the new
+independent R75/R77 checks and the exact general repeated-factor argument.
+The latter forces limiting factor complexity at least1/log2(3/2) for a
+hypothetical divergent ordinary orbit, leaving higher complexity possible.
+Its informal average-valuation extension is not imported. The source
+hashes, actual ranges and receipt equality are preserved.
+
+Keep the negative controls and the corrected conditional minimality theorem.
+Neither excludes useful alternative constructors. R80 provides concrete
+support for the next direction: compare unresolved roots with the histories
+of smaller origins, including meetings above the original height. Seek a
+complete remaining type with strict original-rank signed dependencies and
+actual terminal supply. R78/R79 and the immediate-loop classification prevent
+counting local descent or exact undo as progress. Universal current supply,
+Collatz and novelty remain open; the W5 dispatcher remains unchanged.
+
+### Verification and delivery
+
+All four mathematical notes, sources and receipts were frozen before the
+full repository gate. Independent proof/source/default reviews passed.
+Shared documentation and the existing TeX were updated while the gate ran.
+The first native compilation passed; independent TeX review caught a
+transcribed inverse-branch sign, corrected to match the source convention.
+The final native compilation and independent TeX/shared-record review
+passed. `python3 scripts/verify_all.py --cpp` passed with exit0, including
+all four new checkers, every historical and negative-control receipt,
+all31 original manifest entries and both independent C++ cutoffs4096 and262144.
+The full log is `/tmp/collatz_native_history_full_gate.log`.
+
+Final mechanical checks cover26 scoped files,500 local Markdown links,
+76 unique TeX labels,127 resolved references, unique new equation tags,
+LF endings, JSON parsing and staged whitespace. Remote main remained
+`e9effe1` at the final refresh. The staged change contains only the reviewed
+sources, proof notes, evidence and shared records. The authorized commit
+and push are recorded in Git history; the active universal-current goal
+remains open.

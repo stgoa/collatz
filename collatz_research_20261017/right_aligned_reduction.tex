@@ -6495,6 +6495,295 @@ $\mathbb Q_2$. The periodic negative rational controls lack the distinct
 positive integer states used in (IC1). No rationality-implies-periodicity
 claim or existence of a positive infinite survivor is assumed.
 
+\section{Native critical-nine continuation and the original rank}
+Continue with $\widehat J_s,\widehat A_s$ from
+Theorem~\ref{thm:criticalbasis}; every signed request has rank at most
+$\nu(s)$. Write $L_c,l_c$ for the unexpanded local critical-nine plan,
+so $\operatorname{div}L_c=P(c)-\sum l_c(v)P(v)$.
+
+\begin{theorem}\label{thm:nativenine}
+For every positive $b\equiv905\pmod{8192}$ put
+\[
+ t=\frac{27b+13}{128}\equiv191\pmod{1728},\quad n=3b,
+ \quad c=\frac{27t-1}{4},\quad m=3c,\quad r=\frac{81t-1}{2}.
+\]
+There is an ordinary six-arrow path $G$ from $n$ to selected $r$,
+with word $(1,2,1,1,1,2)$ and $\nu(r)=m$.
+The full pair plan is
+\[
+ C=G+N_r+L_c+\widehat J_c-\widehat J_b,\qquad
+ a=l_c+\widehat A_c-\widehat A_b.
+ \tag{NN1}
+\]
+It is strict below the original rank $n$ exactly unless
+$D=v_2(9c-1)\in\{4,6\}$ and $3z$ is noncanonical, where
+$z=3^{(D-4)/2}(9c-1)/2^D$ in the even rows.
+Each failed case has one higher request with coefficient $+1$.
+
+In the failed $D=6$ row set
+\[
+ p=\frac{19683b+12677}{8192},\quad
+ Q=\rho(p)=\frac{59049b+29839}{16384},\quad
+ \ell=\frac{Q+2}{3}=\frac{27c+29}{32}.
+\]
+Write $Q=2^As-1$ and $d=v_2(3^{A-1}s-1)$ for its next
+complementary forward block, with endpoint $f$.
+The full substituted request vector is
+\[
+ \widehat A_f+\widehat A_c-\widehat A_\ell-\widehat A_b.
+ \tag{NN2}
+\]
+On the entire $A=2$ subdomain it is strict below $n$ exactly when
+$d$ is odd, or $d\ge6$ is even, or $f$ is selected.
+Other $A$ are not classified by this theorem.
+\end{theorem}
+\begin{proof}
+The exact CRT equations for the first domain are
+$t\equiv83\pmod{108}$ and $t\equiv63\pmod{64}$;
+they give $t\equiv191\pmod{1728}$. Substitution proves the six
+valuations and $b<c<n<m$. For odd $D$, the highest local rank is
+at most $(9m-3)/32$. For even $D$ with canonical $3z$ it is at
+most $(9m-3)/16$. For noncanonical $3z$ the leading ranks at
+$D=4,6,8$ are respectively
+\[
+ \frac{9m+5}{8},\quad\frac{27m+23}{32},\quad
+ \frac{81m+101}{128}.
+\]
+The first two exceed $n$; the third is below $n$, since its
+difference is $(6487t-8105)/4608>0$. Later even rows send their
+leading bound $B$ to $(3B+1)/4$. Every helper from
+$\widehat A_c-\widehat A_b$ in (NN1) has rank at most $c$ or $b$.
+In each failed row the other local helpers have ranks at most
+$2z+1$ or $z$, also below $n$, so the high leader cannot cancel.
+These comparisons also give the local nonblocked bound
+$(27m+23)/32$.
+
+At $D=6$, the exact nine-arrow $n$-to-$Q$ prefix $G_9$ has word
+$(1,2,1,1,1,2,1,1,4)$. Let $L$ be the $c$-to-$\ell$ path
+$(2,1,2)$ and $D_Q$ the next complementary-block current.
+Exact row cancellation gives the current for (NN2):
+\[
+ G_9+D_Q+\widehat J_f-L+
+ \widehat J_c-\widehat J_\ell-\widehat J_b.
+ \tag{NN3}
+\]
+All terms outside $\widehat A_f$ have rank below $n$.
+For $A=2$, the largest odd-depth endpoint is $(9Q-3)/32$;
+the largest selected endpoint normalizes to $(9Q-3)/16$.
+The canonical even endpoints at $d=2,4,6$ are
+$(9Q+5)/8,(27Q+23)/32,(81Q+101)/128$.
+Using $n=(16384Q-29839)/19683$ and $Q\ge209935$,
+the first two canonical endpoints are above $n$, and every other
+bound just listed is below it. Subsequent even bounds decrease.
+In the failed rows $f$ is canonical, $3\pmod4$, and $1\pmod3$.
+Thus its formal plan has the actual request $(2f+1)/3$ of rank
+$f$, coefficient $+1$; all later requests have lower rank.
+No helper in (NN3) can cancel this request. This proves both directions.
+\end{proof}
+
+The initial successes were already implicit in the old second-block
+comparison; no new local orbit identity is claimed. Two inverse choices
+at the failed $D=6$ leader do not repair its original rank.
+Their point depths are exactly $v_3(4c+1)=3$ and $v_3(8c+1)=0$.
+After the first inverse and the returning conversion the entire plan is
+\[
+ C=\widehat J_c-L-\widehat J_\ell,\qquad
+ a=\{b:1\}+\widehat A_c-\widehat A_\ell.
+\]
+The self-request survives, and the lower current need not vanish.
+The second inverse retains the higher request $c$ with coefficient $+1$.
+All these are conditional identities with explicit terminal inputs.
+The complete phase tables and current formulas are retained in
+\texttt{native\_nine/NATIVE\_NINE\_CONTINUATION.md}.
+
+The immediate self-return in Theorem~\ref{thm:criticalbasis} can also
+be classified completely. Its current is zero except exactly
+$u\equiv453\pmod{576}$. In that class put $v=(u-3)/18$ and
+$z=(9v+1)/2$. Its nonzero lower current and request difference are
+\[
+ \widehat J_v-\delta_{3v}-\widehat J_z,
+ \qquad\{v:1\}+\widehat A_v-\widehat A_z.
+\]
+Here $v\equiv25\pmod{32}$ and the unique largest critical rank is
+$3v$. These oriented $W_9$ pairs already satisfy the nonblocked rule.
+This classification preserves the nonzero example $u=453$ and supplies
+no new domain or missing parent current; its full phase proof is in
+\texttt{lower\_loop\_scope/LOWER\_LOOP\_SCOPE.md}.
+
+\section{Native growing returns have finite guards and higher exits}
+\begin{theorem}\label{thm:nativegrowth}
+On $G=\{b>0:b\equiv905\pmod{8192}\}$ set
+\[
+ U(b)=\frac{729b+223}{512},\qquad Y(b)=217b+223.
+\]
+The exact number of complete returns to $G$ from one fixed $b$ is
+\[
+ r(b)=\left\lfloor\frac{v_2(Y(b))-13}{9}\right\rfloor.
+ \tag{NG1}
+\]
+One further native comparison is possible from the last guarded source.
+For $1\le s\le r(b)+1$, its full pair plan has request vector
+\[
+ \{U^s(b):1\}+\widehat A_{U^s(b)}-\widehat A_b.
+ \tag{NG2}
+\]
+The comparison of upper roots has ordinary clocks $(6s+3,3)$,
+quotient clock $6s$, and a unique growing leading request.
+
+On the entire family $v_2(Y(b))=9r+17$, put
+$c=U^{r+1}(b)$ and $z=(9c-1)/16$.
+The next exit comparison has requests
+\[
+ \{z:1\}+\widehat A_z-\widehat A_b
+ \tag{NG3}
+\]
+and ordinary clocks $(6r+12,4)$, quotient clock $6r+8$.
+It is strict at the original rank $3b$ exactly for $r=0$.
+The two prescribed base-ray inverses restore respectively (NG2)
+with $s=r+1$ and (NG3), row for row.
+\end{theorem}
+\begin{proof}
+The six-arrow path of Theorem~\ref{thm:nativenine} ends at
+$6U(b)+1$, a selected partner of $3U(b)$. Add its elementary
+normalizer to get $D_b$ with divergence $[3b]-[3U(b)]$ and
+clocks $(9,3)$. The identity $Y(Ub)=729Y(b)/512$ shows that
+the endpoint is again in $G$ exactly when $v_2(Y(b))\ge22$.
+Each complete return lowers this order by nine, proving (NG1).
+For $C_r=223(729^r-512^r)/217$, the complete cylinder is
+\[
+ b\equiv(512^r\cdot905-C_r)729^{-r}\pmod{2^{13+9r}}.
+\]
+Each finite cylinder has positive representatives, while $Y(b)>0$
+makes the count finite at each fixed seed. Telescoping the $D_b$
+gives the current $\sum_{i<s}D_{U^i(b)}+
+\widehat J_{U^s(b)}-\widehat J_b$ and (NG2).
+The negative three-arrow prefixes cancel the next positive prefixes,
+giving the stated ordinary clocks. Every other request has rank
+below $3U^s(b)$.
+
+For the stated exit, the last guarded source has $Y$-order17.
+The exact local formulas give $c\equiv137\pmod{512}$,
+$v_2(9c-1)=4$ and canonical $3z$, with $z\equiv5\pmod9$.
+The lower two-arrow current cancels its formal absorption difference,
+leaving (NG3) and the stated clocks. Its leader has rank
+\[
+ 3z=\frac{27U^{r+1}(b)-3}{16}.
+\]
+At $r=0$, $3b-3z=(4893b-4485)/8192>0$.
+At $r=1$, its coefficient relative to $3b$ is
+$4782969/4194304>1$ and its intercept is positive.
+Both increase with $r$. Helpers have ranks at most $z$ or $b$,
+so the leader never cancels, although helpers can also exceed
+the original rank for long chains.
+Finally $v_3(4z+1)=1$ and $v_3(8z+1)=0$.
+The first inverse has predecessor $3c$ and reverses precisely
+the exit comparison; the second cancels the compulsory initial
+arrow and normalizer of its formal absorption plan. They give
+the two claimed exact undos.
+\end{proof}
+
+The full binary exit table has final orders13 through21 and is
+retained in \texttt{native\_nine\_growth/NATIVE\_NINE\_GROWTH.md}.
+On nonblocked local $W_9$ rows the upper rank bound is
+$B(M)=(27M+23)/32$. Iteration, while those rows remain applicable,
+gives $M_k\le23/5+(27/32)^k(M_0-23/5)$.
+This stops at a smaller original rank or an unhandled $W_5$/blocked
+$W_9$ leaf. It does not prove closure across those leaves.
+
+\section{A high common tail bypasses complete inverse barriers}
+\begin{theorem}\label{thm:nativehistory}
+For integers $D\ge12,t\ge0$ let
+\[
+ q=11547+2^{17}3^Dt,\quad b=q/3,\quad
+ p=11391+2^{36}3^{D-12}t,\quad y=(3q+1)/2.
+\]
+Then $b<p<q<y$, all of $p,q,y$ are canonical, and $b$ belongs
+to the blocked local critical-nine branch. Nevertheless there is
+an explicit conditional $P(b)$ current requesting only ranks below
+$q=\rho(b)$, using the high merger
+\[
+ S^2(q)=S^{14}(p)=\frac{9q+5}{8}>q.
+ \tag{NH1}
+\]
+The quotient clocks are $(1,13)$.
+For $t>0$, every canonical ancestor of $q$ through depths
+$1,\ldots,D$, over every inverse ray, is strictly greater than $q$.
+At $t=0$, no smaller canonical ancestor exists at any depth.
+The seed varies when increasing $D$; no all-depth exclusion is
+asserted for a fixed positive lift.
+\end{theorem}
+\begin{proof}
+The relation $3^{12}p=2^{19}q-309105$ proves the inequalities.
+At $t=0$ the thirteen-arrow path from $p$ has states
+\[
+\begin{gathered}
+11391,17087,25631,38447,57671,86507,129761,97321,\\
+72991,109487,164231,246347,369521,277141.
+\end{gathered}
+\]
+Its exact valuation word is $(1^6,2,2,1^4,2)$ with total16.
+If $A_j$ is the accumulated valuation, the $j$th state increases
+from this list by $3^j2^{36-A_j}3^{D-12}t$, always divisible by
+$2^{20}$. Thus every valuation and canonical phase is preserved;
+the first thirteen states are canonical, and the final state
+normalizes by two inverse-$F$ moves. The affine identity is
+\[
+ S^{13}(p)=\frac{3^{13}p+1779283}{2^{16}}
+ =24q+13=F^2(y).
+\]
+For $1\le j\le12$, the base state exceeds11547 and
+$3^j2^{19-A_j}>3^{12}$. Hence every intermediate after $p$
+is above $q$, with maximum $32q+17$. Since $S(q)=y$ and
+$S(F^2(y))=S(y)$, (NH1) follows.
+
+Let $L_p$ be the thirteen-arrow current and $x=F^2(y)$.
+Then
+\[
+ K=\delta_q-L_p-\delta_x+\delta_y,
+ \qquad\operatorname{div}K=[q]-[p].
+\]
+Consequently $C_b=K+\widehat J_p-\widehat J_b$ has the exact
+signed requests $\widehat A_p-\widehat A_b$. Every such rank
+is at most $p<q$. The terminal currents remain supplied premises.
+The blocked phase follows from $q\equiv11547\pmod{2048}$:
+$v_2(3q-1)=4$ and $3(3q-1)/16\equiv95\pmod{128}$ is selected.
+
+For the inverse statement the stored exact anchor table contains
+4892 canonical states, including all2887 canonical origins below11547,
+is closed under $T$, and excludes11547. Verification of its listed
+edges proves no smaller canonical ancestor exists at any depth.
+Use the complete inverse-shadow theorem on $q\equiv11547\pmod{3^D}$.
+For an arbitrary legal inverse word let $c_i$ be its anchor shadow
+and write $a_i=\lambda_i(q-11547)+c_i$. Every shadow satisfies
+$c_i\ge11547$. For an inverse branch $x\mapsto\alpha x+\beta$,
+the exact gap obeys
+\[
+ G_i=\lambda_i-\frac{c_i+1}{11548}
+ =\alpha_iG_{i-1}+\frac{\alpha_i-\beta_i-1}{11548}.
+\]
+The first branch is a ray because11547 is divisible by3, so
+$G_i>0$ and $\lambda_i>1$ at every positive depth. All branches
+are legal for the shadow through $D$ by the ternary congruence.
+Thus $a_i>q$ for $t>0$, uniformly over all ray indices.
+The semiconjugacy also excludes ordinary origins at most $q$
+reaching $q$ through $D$ ordinary steps. There is no conflict
+with (NH1): $p$ reaches the future of $q$, not $q$ itself.
+\end{proof}
+
+This particular family also passes with the old $W_5$-only formal
+absorption frontiers at the $W_9$ parent: $p\equiv127\pmod{512}$
+makes the old direct critical request have rank $p$, with all later
+requests below it; in the point-predecessor phase the bound is
+$(3p+1)/4<p$. The old bound at $b$ is $(9b+5)/8<q$.
+Retaining the native basis is therefore convenient but not necessary
+for this comparison. The first two prescribed returning endpoint tests
+still retain a genuinely higher request throughout the family,
+at rank $(19683q+27919)/4096>q$.
+The unchanged seventeen-rule dispatcher's nonrecognition is only a
+finite observation here. No universal history-hitting theorem or
+terminal-current supply is asserted. The full argument and anchor table
+are in \texttt{native\_history/HIGH\_HISTORY.md} and its linked data.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -6658,9 +6947,16 @@ Theorem~\ref{thm:uniformpairscope} rules out one whole-guard fixed-word
 partner model; it does not cover this larger source basis.
 Theorem~\ref{thm:itinerarycomplexity} constrains a fixed positive
 survivor and gives a finite subsystem exit bound, but permits
-higher-complexity infinite itineraries. The next constructive obligation
-is supply of the enlarged compiler's terminal currents. The old
-$W_5$-only dispatcher is unchanged.
+higher-complexity infinite itineraries.
+Theorem~\ref{thm:nativenine} now supplies complete native forward decisions;
+Theorem~\ref{thm:nativegrowth} proves that a finite growing phase can
+leave a higher request and that the two prescribed inverse repairs undo
+previous work. Theorem~\ref{thm:nativehistory} gives a constructive
+alternative: a smaller origin meets the target's future above its original
+height, despite arbitrarily deep complete inverse barriers on the same
+family. The next obligation is to supply every terminal current by such
+comparisons or another well-founded closure, covering a complete remaining
+type. The old $W_5$-only dispatcher is unchanged.
 
 An earlier independent side note gives a correct conditional threshold:
 any quotient prefix from $q=\rho(w)$ to $x$ with $9x+5<8q$ supplies
@@ -6966,5 +7262,18 @@ copy-count cases including90 zero-copy cases,32 positive finite traces,
 cases,62 negative rational periodic words,80 distinct-completion controls
 and12 rejections. The finite all-seed cutoff rests on the pigeonhole proof,
 not an enumeration of all seeds below that cutoff.
+The immediate-loop checker adds894 cases,218 nonzero and676 zero,
+64 complete-progression examples and six rejections. The native-nine
+checker adds383 local bounds,226 native plans,150 full inverse substitutions,
+134 next-A2 cells,30 exact inequalities and13 rejections; three supplied
+outputs have43,97,102 rows. The native-growth checker adds123 cylinders,
+216 exit cases,27 complete H17 comparisons,24 full returns,54 exact
+inverse undos and16 rejections, with stored78- and134-row failed plans.
+The high-history checker verifies the4892-state closed anchor table,
+54 whole-family samples with both absorption frontiers,54 actual old
+endpoint failures,88 base inverse words,18 varied inverse words and11
+rejections. Two supplied outputs have46 and229 rows, with all5 and9
+premise-current tables retained. No bounded inverse scan substitutes for
+the all-ray shadow proof or for universal terminal supply.
 These audits remain finite evidence for the implementations.
 \end{document}
