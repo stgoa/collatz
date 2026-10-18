@@ -1,0 +1,11 @@
+{
+  "PATH": "/tmp/collatz_p6_replay/lean-4.35.0-rc2-darwin_aarch64/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+  "TMPDIR": "/tmp/collatz_p6_replay/tmp",
+  "MATHLIB_CACHE_DIR": "/tmp/collatz_p6_replay/cache",
+  "MATHLIB_NO_CACHE_ON_UPDATE": "1",
+  "GIT_CONFIG_NOSYSTEM": "1",
+  "GIT_CONFIG_GLOBAL": "/dev/null",
+  "GIT_TERMINAL_PROMPT": "0",
+  "LANG": "en_US.UTF-8",
+  "LEAN_SYSROOT": "/tmp/collatz_p6_replay/lean-4.35.0-rc2-darwin_aarch64"
+}

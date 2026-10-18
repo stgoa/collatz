@@ -32,6 +32,17 @@ alpha>=4/5. The all-exponent result concerns arbitrary-target contraction,
 not a bound tailored to the actual nonabsorbing set. Full verification for
 P6-003 passed; Collatz remains open.
 
+P6-004 supplies [an audited external linear lower theorem](../experiments/phase6/linear_density_audit/README.md)
+through independent source compilation, exact statement correspondence and
+actual axiom checks, followed by a successful fresh replay into the same
+Lean kernel. Its explicit bound applies to every fixed target not
+divisible by3, with no convergence premise. The separate written counting
+reconstruction is conditional on Tao's mixing theorem and has a qualitative
+general-d extension. Our actual-B residue attempt still permits a positive
+leading-density profile; C.2a remains open. The full finite gate passed119
+fields. Formal replay, handwritten proof status and programme grade none
+are distinguished in the Phase6 ledger and evidence.
+
 ## R1 — Exact source transport and original packets
 
 **Status: inherited written proofs and finite certificates.**

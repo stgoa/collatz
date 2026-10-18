@@ -20,8 +20,11 @@ not replace written-proof / finite-certificate / open status.
 
 | P6-003, 2026-10-18: power-growth norm | S.2 | **barrier** — no arbitrary-target contraction for any real0<alpha<1 | **Confirmed barrier** at side pin `e4f82311a804ecd1befaaa5e255e41c6d5d0c44c`, feed16:56, reviewing committed2e619a2; side probe independently reproduced | Full obstruction transfers to each supported fixed d; one-arrow upper bound proved only for d1 | Finite-cylinder stopping in Borovkov–Pfeifer; Tao valuation lemma and concentration issue; exact norm statement proved directly, no novelty claim |
 
+| P6-004, 2026-10-18: linear predecessor-density audit | C.1a | **none** under the strict explicit-constant rederivation rubric; independent formal reproduction is recorded separately | Pending side review | Written qualitative lower theorem transfers to fixed positive d coprime to6; Lau's numerical constants are only audited at d1 | Mazur's weighted-history/counting argument rederived conditional on corrected Tao v7; pinned Lau formal source independently rebuilt with exact statement and axiom checks |
+| P6-004, upper-bound attempt | C.2a | **none** — positive leading-density mode survives the specified residue relaxation | Pending side review | The proposed upper premise fails on the multiples-of-d controls; it remains unproved at d1 | Krasikov–Lagarias inverse inequalities supply lower counts, not this upper constraint; Tao almost-boundedness does not fill the gap |
+
 **Consecutive none counts:** MAP 1 (setup), S.1 0, S.2 0, C.1 0, C.2 0,
-C.3 0, Y.1 0, Y.2 0, H.1 0, H.2 0. A later mathematical attempt on a node
+C.1a 1, C.2a 1, C.3 0, Y.1 0, Y.2 0, H.1 0, H.2 0. A later mathematical attempt on a node
 must be counted even if it produces useful code or a clearer formulation.
 Three none batches trigger a written post-mortem and an autonomous pivot.
 S.2 has two retained redundant attempts across P6-001/002; P6-002's primary
@@ -337,3 +340,76 @@ D1/D2/D5/D6 remain accepted, D3's blanket transfer claim remains rejected,
 and D4 remains deferred for the reasons above. D6 is now marked accepted
 in the side file. The new D7 decision does not pause the parallel C.2a
 attempt, and no external theorem has been promoted to a verified premise.
+
+### P6-004 outcome — lower input supplied; upper estimate remains open
+
+**Working baseline after the PR review:** `44a2745`. The reviewed side pin
+remains `e4f82311a804ecd1befaaa5e255e41c6d5d0c44c`; all direction decisions
+above remain in force. No side-lane confirmation is inferred for this batch.
+
+The [written audit](../experiments/phase6/linear_density_audit/README.md)
+rederives the seed-uniform weighted histogram, summable central variation,
+endpoint-dependent terminal shift, distinct-source count and coverage of
+all sufficiently large cutoffs. Tao's corrected v7 Proposition1.14 is an
+explicit input. The normalization factor is2/3, and its marginal identity
+keeps the full1<=m<=q domain. Multiplicities, residue endpoint errors, both
+terminal errors and the nonreturn seed selection are retained. Independent
+model reviews of these arguments and their checker passed. The qualitative
+argument extends to each fixed positive d coprime to6 and target a with
+3 not dividing a; it is not a non-transfer step and does not carry over
+Lau's numerical constants.
+
+The Lau source pin is `3a38bfbb70379e051b51155def1423846fab3a90`. Its exact
+public statement uses L=2^(2^(2^87640)), c(a)=1/(a^4 L), and
+X0(a)=2^(a^3 L). Every sufficiently large integer cutoff counts distinct
+odd predecessors, with ordinary and accelerated logarithmic clocks. The
+formal challenge has been semantically reviewed and compared by compiling
+an independently named copy of all four statements and definitions. It
+imports Solution.Basic, not the challenge's placeholders. All eight actual
+axiom reports contain exactly propext, Classical.choice and Quot.sound.
+The explicit Solution.Basic build passed4102 jobs inside the reviewed
+network-denying macOS sandbox. Every original archive file matched the
+pinned archive; source files were unchanged during compilation.
+
+D7 is satisfied for adopting this **formal-source statement**, under the
+recorded compiler/dependency trust boundary. The full Hexagon article was
+unavailable, so no full article-correspondence claim is made. Cached
+Mathlib dependencies were not all rebuilt from source. Fresh-kernel replay
+also completed with exit0 and PASS, as recorded in the
+[formal replay record](../experiments/phase6/linear_density_audit/formal_replay.json). It uses the same Lean kernel implementation; it is
+not a second-kernel check. The receipt runner preserves the initial build,
+binds stage inputs and proof objects, and rejects missing predecessor
+edges, altered logs and incomplete/nonstandard axiom reports. Eleven
+focused integrity tests passed after one missing-edge validation defect
+was corrected; the focused independent review passed.
+
+**Grade:** none under the literal current rubric. Our written reconstruction
+still imports Tao's unspecified analytic constants. Independently replaying
+Lau's supplied numerical derivation is useful verification, but it is not
+our independent rederivation of that numerical Fourier/renewal chain. The
+new external premise can be used without awarding a new calibration label.
+
+**C.2a attempt:** the complete two-level inverse identity requires finer
+ternary lifts, an advanced a=1 cutoff, and a retained infinite valuation
+tail. Its specified leading-coefficient relaxation admits the positive
+profile b_u^j=lambda/(2*3^j), even after any finite base is removed at leading
+order. That relaxation cannot prove the proposed strict contraction. This
+is a failed attempt at the actual-B upper constraint, not a refutation of
+that constraint or of all finite-state methods. The separate matched
+lower/upper density comparison is only next-attempt preparation; its
+required strict inequality remains missing.
+
+**Verification:** the full `python3 scripts/verify_all.py --cpp --transfer-controls`
+gate passed with exit0 and119 report fields. The [verification record](../experiments/phase6/linear_density_audit/verification.json)
+pins the runner, checker and receipt bytes. An earlier run ended with143
+and an empty log; its cause is unknown and it was not counted as PASS.
+The new finite checker covers three central histories,64 histogram fibers,
+10 marginal laws, eight signed transfer identities,108 branch/tail checks,
+six density-mode cases, four d-controls and six rejections. These checks
+support the written ingredients; they do not certify the external theorem
+or supply the missing upper bound. No frozen result or LaTeX source changed.
+
+**Next:** proceed at C.2a using the now supplied lower premise. Any new upper
+argument must distinguish actual Collatz absorption from the positive-density
+control sectors. Do not repeat the failed leading-profile relaxation or
+infer the matched density comparison from Tao's qualitative tail limit.

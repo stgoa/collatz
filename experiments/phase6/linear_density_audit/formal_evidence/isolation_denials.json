@@ -1,0 +1,21 @@
+[
+  {
+    "command": [
+      "/usr/bin/touch",
+      "/tmp/collatz_p6_replay_denied_write.txt"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "touch: /tmp/collatz_p6_replay_denied_write.txt: Operation not permitted\n"
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "-c",
+      "import socket; s=socket.socket(); s.connect((\"127.0.0.1\",9))"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "python3: error: couldn't create cache file '/var/folders/b9/9vp4yl9s07s72f_2dff2bjy00000gn/T/xcrun_db-V0SuIeAx' (errno=Operation not permitted)\npython3: error: couldn't create cache file '/var/folders/b9/9vp4yl9s07s72f_2dff2bjy00000gn/T/xcrun_db-EVIilcuG' (errno=Operation not permitted)\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nPermissionError: [Errno 1] Operation not permitted\n"
+  }
+]

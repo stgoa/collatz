@@ -1,0 +1,16 @@
+test_exact_allowlist_rejects_nonstandard_and_lookalikes (__main__.AxiomTests) ... ok
+test_exact_and_multiline_reports (__main__.AxiomTests) ... ok
+test_missing_duplicate_unexpected_and_malformed_reports (__main__.AxiomTests) ... ok
+test_chain_detects_changed_predecessor_receipt (__main__.ReceiptTests) ... ok
+test_existing_seal_cannot_silently_rebind_changed_object (__main__.ReceiptTests) ... ok
+test_legacy_build_never_overwritten (__main__.ReceiptTests) ... ok
+test_popen_failure_replaces_old_pass (__main__.ReceiptTests) ... ok
+test_predecessor_rejects_status_source_log_input_and_object_changes (__main__.ReceiptTests) ... ok
+test_preflight_failure_replaces_old_pass (__main__.ReceiptTests) ... ok
+test_seal_preserves_initial_bytes_and_labels_timing (__main__.ReceiptTests) ... ok
+test_seal_rejects_changed_original_log_or_before_hashes (__main__.ReceiptTests) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.188s
+
+OK

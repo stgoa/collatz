@@ -1,0 +1,227 @@
+{
+  "schema": 1,
+  "date": "2026-10-18",
+  "status": "PASS",
+  "source_commit": "3a38bfbb70379e051b51155def1423846fab3a90",
+  "source_archive_sha256": "a97925bc3888a37476238c1d56de9e745b76a970a82e2771cbdc20c810828b77",
+  "lean": "4.35.0-rc2",
+  "stages": {
+    "build": {
+      "status": "PASS",
+      "exit_code": 0,
+      "receipt": "formal_evidence/build_status.json",
+      "log": "formal_evidence/build.log",
+      "original_receipt": "/tmp/collatz_p6_replay/build_status.json"
+    },
+    "seal-build": {
+      "status": "PASS",
+      "exit_code": 0,
+      "receipt": "formal_evidence/seal-build_status.json",
+      "log": "formal_evidence/seal-build.log",
+      "original_receipt": "/private/tmp/collatz_p6_replay/attempts/seal-build-1792355631813948000-8d9a03a8_status.json",
+      "original_log": "/private/tmp/collatz_p6_replay/attempts/seal-build-1792355631813948000-8d9a03a8.log"
+    },
+    "statements": {
+      "status": "PASS",
+      "exit_code": 0,
+      "receipt": "formal_evidence/statements_status.json",
+      "log": "formal_evidence/statements.log",
+      "original_receipt": "/private/tmp/collatz_p6_replay/attempts/statements-1792355711191407000-5d30b87e_status.json",
+      "original_log": "/private/tmp/collatz_p6_replay/attempts/statements-1792355711191407000-5d30b87e.log",
+      "axiom_reports": {
+        "LauStatementAudit.positive_density_collatz_and_collatzAccel_reaches_of_coprime_six": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "LauStatementAudit.positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "LauStatementAudit.positive_density_collatz_and_collatzAccel_reaches_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "LauStatementAudit.positive_density_collatz_reaches_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "positive_density_collatz_and_collatzAccel_reaches_of_coprime_six": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "positive_density_collatz_and_collatzAccel_reaches_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "positive_density_collatz_reaches_one": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "kernel": {
+      "status": "PASS",
+      "exit_code": 0,
+      "receipt": "formal_evidence/kernel_status.json",
+      "log": "formal_evidence/kernel.log",
+      "original_receipt": "/private/tmp/collatz_p6_replay/attempts/kernel-1792355853560699000-887f6503_status.json",
+      "original_log": "/private/tmp/collatz_p6_replay/attempts/kernel-1792355853560699000-887f6503.log"
+    }
+  },
+  "semantic_checks": [
+    "Four exact challenge types and local definitions copied under LauStatementAudit; direct proof from corresponding Solution.Basic root; Challenge placeholders not imported.",
+    "Printed types reviewed for natural quantifiers, distinct-start Finset counts, real casts/division, ordinary/accelerated clocks and target odd part.",
+    "All eight transitive axiom reports contain exactly Classical.choice, Quot.sound and propext.",
+    "Fresh LeanChecker replay uses private imported proof bodies and starts with an empty environment; same Lean kernel implementation."
+  ],
+  "trust_boundaries": [
+    "Official Lean binary distribution, checked against published release digest.",
+    "Pinned dependency sources and official Mathlib cache; not every dependency independently rebuilt from source.",
+    "Fresh kernel replay checks the actual imported proof objects, not their source-to-cache correspondence.",
+    "Full article unavailable; adoption is of the exact accessible formal-source statement, not full article equivalence.",
+    "No proof of Collatz; lower predecessor density alone does not supply the required upper bound."
+  ],
+  "receipt_integrity_tests": {
+    "count": 11,
+    "status": "PASS",
+    "log": "formal_evidence/runner_tests.log"
+  },
+  "files": {
+    "StatementAudit.lean": {
+      "bytes": 6490,
+      "sha256": "8215385e2b8b10c7507f6587ba1aa53fd7f6825f2cd020eee13307b8bba447e2"
+    },
+    "formal_evidence/README.md": {
+      "bytes": 2055,
+      "sha256": "d8b677aa60154715988f0ddab194f2520b7cc02ca2253b1168c9872bf6541f21"
+    },
+    "formal_evidence/UPSTREAM_LICENSE.txt": {
+      "bytes": 11358,
+      "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+    },
+    "formal_evidence/build.log": {
+      "bytes": 47988,
+      "sha256": "c8e0edabf019613c1fa2a7afa2d39b9c252e9f49fff472c024f5278e3b8b739f"
+    },
+    "formal_evidence/build.sb": {
+      "bytes": 627,
+      "sha256": "afede27c096261909e5194216446982bb17662863345a4061a4853133dddef5d"
+    },
+    "formal_evidence/build_status.json": {
+      "bytes": 86679,
+      "sha256": "4ff038c18f4ccf03138f278eada44571d8f48eab20e52e0b6c1f0b6d2c34ae05"
+    },
+    "formal_evidence/cache.sb": {
+      "bytes": 634,
+      "sha256": "f5bc93bbcc304714b2f71040dfa8bbcf7f69eb1bc39a7fd867f3673f6bc7f131"
+    },
+    "formal_evidence/cache_build.log": {
+      "bytes": 1678,
+      "sha256": "bf60a6b07e3449a2f61a112a54983a605710b4b077393728a21194e8a0d35417"
+    },
+    "formal_evidence/cache_build_status.json": {
+      "bytes": 214,
+      "sha256": "7ce4427c4992dd94b99a685be6ec7cdc76c1545b6f91ca5308910ee36239f9a6"
+    },
+    "formal_evidence/cache_get.log": {
+      "bytes": 14847,
+      "sha256": "11a7de5f2b4d9a65c967630e8f8a48ddefa3363569c6c0b4c757d51fb84778aa"
+    },
+    "formal_evidence/cache_get_status.json": {
+      "bytes": 1029,
+      "sha256": "3b22caa23e25f55d5d421a208762ee38e0cf64b9af944423d1c3d004e2e1ec5a"
+    },
+    "formal_evidence/cache_roots.json": {
+      "bytes": 6863,
+      "sha256": "3c4d7f3c502746caa588d35ba1584ca0df4909ca433bfc4e35d2adf02bd3b3b2"
+    },
+    "formal_evidence/isolation_denials.json": {
+      "bytes": 853,
+      "sha256": "a8d5610f49297012ab29da6eac28e838bff403964a07704d4bf9d6f285451c78"
+    },
+    "formal_evidence/isolation_smoke.json": {
+      "bytes": 629,
+      "sha256": "c953aaa94b540268d90295f008e2de47e00d631c1ec670b04dc2f2724ae8ab07"
+    },
+    "formal_evidence/kernel.log": {
+      "bytes": 96,
+      "sha256": "0776d32df4efee992f0f25749dea7b8c57a654ce6a542a3d317a953dcce116ab"
+    },
+    "formal_evidence/kernel_status.json": {
+      "bytes": 9038695,
+      "sha256": "aa23fdb58c4c44630a6d30ea50a0f11aafb68a5cf7307e486e7dc6b18c623c12"
+    },
+    "formal_evidence/lean_release.json": {
+      "bytes": 22406,
+      "sha256": "0e0eca6901b9b183163a9524f1c8b55c204e24999b21cfe22b1985aee5ad9805"
+    },
+    "formal_evidence/preparation_manifest.json": {
+      "bytes": 1916,
+      "sha256": "29ff328dd17a20bab4fe1956dcf4c795446a7a4669002e055a67679a6a3c3707"
+    },
+    "formal_evidence/replay_environment.json": {
+      "bytes": 434,
+      "sha256": "0ab9faef9963b79622c830b4687469a1d66d2bd86258360d1cc6b53fb301ea43"
+    },
+    "formal_evidence/run_formal_replay_initial.py": {
+      "bytes": 3994,
+      "sha256": "c3087bbddc00de657d4addbc6ca417065e0f8bba9fd54ab57317352483dcb246"
+    },
+    "formal_evidence/runner_tests.log": {
+      "bytes": 973,
+      "sha256": "5b04b264c3c79f0200d7bd1442c74541ce8fe558f79c46bd76a4416a8890fa6b"
+    },
+    "formal_evidence/seal-build.log": {
+      "bytes": 151,
+      "sha256": "1cf32000164b017ff03a2408b3a8dc3d9864430c2e9023b1c05863551696ba0e"
+    },
+    "formal_evidence/seal-build_status.json": {
+      "bytes": 9037664,
+      "sha256": "f9c6e866850953af171bee2946bc6d30e1adadb167110229ab92552546aea6a1"
+    },
+    "formal_evidence/source_snapshot.json": {
+      "bytes": 87144,
+      "sha256": "08bfab77780f478c33601af1803c3faa01245a84ba7d3ac26f2d19bfd4d94eaa"
+    },
+    "formal_evidence/statements.log": {
+      "bytes": 4716,
+      "sha256": "ca53740a51bf2a10c46d862d0a214d6f56166cca490b12f1b2aafb363705a250"
+    },
+    "formal_evidence/statements_status.json": {
+      "bytes": 9039370,
+      "sha256": "92352ca0e95696d07855338e3098df6aafecbfd81e39987d57e16b5279debaa2"
+    },
+    "formal_evidence/static_source_audit.json": {
+      "bytes": 38880,
+      "sha256": "b71ee05fc2bb9a89158aa7798d5aa26ba867e9bde7771ab65b4c34f702e4e608"
+    },
+    "formal_evidence/toolchain_receipt.json": {
+      "bytes": 171,
+      "sha256": "b987780613b93bea87c37ad05f19b9bad12d91963cf1351ac5a108bf29b5532e"
+    },
+    "generate_statement_audit.py": {
+      "bytes": 4210,
+      "sha256": "42ec49e86da66deb6c4e41b6ba7334ebe8b70965780d48d1349e84a9036f0841"
+    },
+    "run_formal_replay.py": {
+      "bytes": 24425,
+      "sha256": "56b46cce77adf3edc8aa545385bdd7fa81f9a7592a580f4efc1fb868e04be42d"
+    },
+    "test_formal_replay.py": {
+      "bytes": 11134,
+      "sha256": "450331942c027d8119bc644fa3fad33678a9e5aa4bf4c4623a2fa50f0ecfeaae"
+    }
+  }
+}

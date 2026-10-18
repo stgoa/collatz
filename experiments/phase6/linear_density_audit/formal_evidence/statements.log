@@ -1,0 +1,86 @@
+Stage statements; attempt statements-1792355711191407000-5d30b87e
+'positive_density_collatz_reaches_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem positive_density_collatz_reaches_one : ∀ {N : ℕ},
+  collatzDensityThreshold ≤ N →
+    collatzDensity * ↑N ≤ ↑{n ∈ Finset.range N | ReachWithin collatz 1 n ⌊10.46 * Real.log ↑n⌋₊}.card :=
+<not imported>
+'positive_density_collatz_and_collatzAccel_reaches_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem positive_density_collatz_and_collatzAccel_reaches_one : ∀ {N : ℕ},
+  collatzDensityThreshold ≤ N →
+    collatzDensity * ↑N ≤
+      ↑{n ∈ Finset.range N |
+            Odd n ∧
+              ReachWithin collatz 1 n ⌊10.46 * Real.log ↑n⌋₊ ∧
+                ReachWithin collatzAccel 1 n ⌊3.4881 * Real.log ↑n⌋₊}.card :=
+<not imported>
+'positive_density_collatz_and_collatzAccel_reaches_of_coprime_six' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+theorem positive_density_collatz_and_collatzAccel_reaches_of_coprime_six : ∀ {t : ℕ},
+  t.Coprime 6 →
+    ∀ {N : ℕ},
+      collatzDensityThresholdDep t ≤ N →
+        collatzDensityDep t * ↑N ≤
+          ↑{n ∈ Finset.range N |
+                Odd n ∧
+                  ReachWithin collatz t n ⌊10.46 * Real.log (↑n / ↑t)⌋₊ ∧
+                    ReachWithin collatzAccel t n ⌊3.4881 * Real.log (↑n / ↑t)⌋₊}.card :=
+<not imported>
+'positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+theorem positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd : ∀ {t : ℕ},
+  ¬3 ∣ t →
+    ∀ {N : ℕ},
+      collatzDensityThresholdDep t ≤ N →
+        collatzDensityDep t * ↑N ≤
+          ↑{n ∈ Finset.range N |
+                Odd n ∧
+                  ReachWithin collatz t n ⌊10.46 * Real.log (↑n / ↑t)⌋₊ ∧
+                    ReachWithin collatzAccel (t / 2 ^ padicValNat 2 t) n ⌊3.4881 * Real.log (↑n / ↑t)⌋₊}.card :=
+<not imported>
+'LauStatementAudit.positive_density_collatz_reaches_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem LauStatementAudit.positive_density_collatz_reaches_one : ∀ {N : ℕ},
+  LauStatementAudit.collatzDensityThreshold ≤ N →
+    LauStatementAudit.collatzDensity * ↑N ≤
+      ↑{n ∈ Finset.range N | LauStatementAudit.ReachWithin LauStatementAudit.collatz 1 n ⌊10.46 * Real.log ↑n⌋₊}.card :=
+⋯
+'LauStatementAudit.positive_density_collatz_and_collatzAccel_reaches_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+theorem LauStatementAudit.positive_density_collatz_and_collatzAccel_reaches_one : ∀ {N : ℕ},
+  LauStatementAudit.collatzDensityThreshold ≤ N →
+    LauStatementAudit.collatzDensity * ↑N ≤
+      ↑{n ∈ Finset.range N |
+            Odd n ∧
+              LauStatementAudit.ReachWithin LauStatementAudit.collatz 1 n ⌊10.46 * Real.log ↑n⌋₊ ∧
+                LauStatementAudit.ReachWithin LauStatementAudit.collatzAccel 1 n ⌊3.4881 * Real.log ↑n⌋₊}.card :=
+⋯
+'LauStatementAudit.positive_density_collatz_and_collatzAccel_reaches_of_coprime_six' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+theorem LauStatementAudit.positive_density_collatz_and_collatzAccel_reaches_of_coprime_six : ∀ {t : ℕ},
+  t.Coprime 6 →
+    ∀ {N : ℕ},
+      LauStatementAudit.collatzDensityThresholdDep t ≤ N →
+        LauStatementAudit.collatzDensityDep t * ↑N ≤
+          ↑{n ∈ Finset.range N |
+                Odd n ∧
+                  LauStatementAudit.ReachWithin LauStatementAudit.collatz t n ⌊10.46 * Real.log (↑n / ↑t)⌋₊ ∧
+                    LauStatementAudit.ReachWithin LauStatementAudit.collatzAccel t n
+                      ⌊3.4881 * Real.log (↑n / ↑t)⌋₊}.card :=
+⋯
+'LauStatementAudit.positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+theorem LauStatementAudit.positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd : ∀ {t : ℕ},
+  ¬3 ∣ t →
+    ∀ {N : ℕ},
+      LauStatementAudit.collatzDensityThresholdDep t ≤ N →
+        LauStatementAudit.collatzDensityDep t * ↑N ≤
+          ↑{n ∈ Finset.range N |
+                Odd n ∧
+                  LauStatementAudit.ReachWithin LauStatementAudit.collatz t n ⌊10.46 * Real.log (↑n / ↑t)⌋₊ ∧
+                    LauStatementAudit.ReachWithin LauStatementAudit.collatzAccel (t / 2 ^ padicValNat 2 t) n
+                      ⌊3.4881 * Real.log (↑n / ↑t)⌋₊}.card :=
+⋯

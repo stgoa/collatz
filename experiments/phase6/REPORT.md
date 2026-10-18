@@ -18,7 +18,10 @@ storage ([receipt](side_lane_review_e4f8231.json)). The user-requested
 PR review supports the current counting-route pivot. PR1 is already merged;
 its original overstatement about alternative certificates has a persisted
 counterexample and correction. D7's independent formal audit is accepted
-before C.1a becomes a premise. P6-004 remains in progress.
+before C.1a becomes a premise. Its source build, exact statement comparison
+and axiom checks now pass; C.1a supplies the lower premise. The separate
+[P6-004 record](linear_density_audit/README.md) retains the written
+conditional reconstruction, general-d scope and failed upper attempt.
 
 ## Mechanism and evidence
 
@@ -169,13 +172,41 @@ The inherited S.1 count supplies an explicit half-exception bound; the
 transport inequality itself remains missing. This preparation earns no
 additional batch label or non-transfer result.
 
-## P6-004 active checklist
+## P6-004 checklist (completed; scope limitations below)
 
 - [x] Fresh side read; record P6-002 confirmation and reaffirm all directions.
 - [x] Select the2026 linear predecessor-density input and pin exact statements.
-- [ ] Audit the weighted-path analytic dependencies and their source correspondence.
-- [ ] Decide and document what independent formal replay is feasible.
-- [ ] Re-derive a precise usable result or record a scoped unresolved audit.
-- [ ] Feed any calibration into a C.2a attempt, retaining the actual-B obligation.
+- [x] Audit the weighted-path dependencies; retain Tao as an explicit input.
+- [x] Complete isolated source, statement/axiom and fresh-kernel replay.
+- [x] Record the qualitative written reconstruction and the separate supplied formal theorem.
+- [x] Attempt C.2a; record the positive-density relaxation failure and missing upper premise.
 
-The completed P6-003 result is pushed. P6-004 has no accepted new theorem yet.
+P6-004 accepts the audited formal-source lower theorem as an external input.
+No new convergence theorem or independently rederived numerical calibration is claimed.
+
+## P6-004 outcome
+
+- Independent written reviews passed the weighted histogram, terminal
+  transport and distinct-source count, all-scale coverage and qualitative
+  fixed-d extension, with Tao's corrected mixing theorem explicit.
+- Pinned Lau source compilation passed4102 jobs. All four public statements
+  matched an independently named specification. All eight axiom reports
+  contain exactly the three allowed standard axioms. See the
+  [formal audit](linear_density_audit/lau_scope.md) and replay evidence for
+  the source, cache and kernel trust boundaries and actual stage outcomes.
+  Fresh replay into an empty instance of the same Lean kernel also passed.
+- Eleven receipt-integrity tests and focused independent runner review
+  passed. The full finite gate passed119 report fields; its
+  [record](linear_density_audit/verification.json) retains the earlier
+  interrupted attempt separately.
+- The actual-B two-level residue system is exact but its defined leading
+  relaxation admits positive density. This attempt is none. The matched
+  lower/upper density comparison remains a candidate with a missing strict
+  inequality, not a new theorem of convergence.
+- Main proposes none for C.1a under the strict calibration wording: a
+  reproduced formal derivation is distinguished from our own derivation
+  of its numerical analytic constants. Side grading remains pending.
+
+Next: C.2a. Use the supplied lower theorem to target the actual nonabsorbing
+upper count. The weaker sufficient condition is still Collatz-equivalent;
+neither the lower bound nor the two preceding S.2 barriers supply it.

@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/usr/bin/sandbox-exec",
+    "-f",
+    "/tmp/collatz_p6_replay/build.sb",
+    "/tmp/collatz_p6_replay/lean-4.35.0-rc2-darwin_aarch64/bin/lake",
+    "build",
+    "cache"
+  ],
+  "exit_code": 0
+}

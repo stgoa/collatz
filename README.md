@@ -13,6 +13,15 @@ predecessor-density input, then attack the actual nonabsorbing set. See the
 
 R1–R94 and the seventeen-family dispatcher are frozen at `9190ccf`. The living [route map](ROUTE_MAP.md) now controls research priorities. The [Phase 6 ledger](docs/PHASE6_LEDGER.md) records batch grades, side-lane decisions and disputes; the [literature audit](docs/PHASE6_LITERATURE.md) records primary references. The setup is confirmed **none**. **S.1 has a verified, independently confirmed calibration with explicit stopping constants and a W5 pullback.** S.2 now has a written barrier to uniform cardinality transport (P6-002, full gate passed) and a stronger written barrier to contraction in **every power-growth norm with exponent below 1** (P6-003, full gate passed). The latter uses the calibration directly: a finite family of first-descending paths concentrates on some sparse target set. Universal stopping remains open.
 
+**New counting input:** the [P6-004 audit](experiments/phase6/linear_density_audit/README.md)
+independently rebuilt a published formal proof that every fixed target
+not divisible by 3 has positive predecessor density, with explicit
+constants. Exact statement and axiom checks passed. This supplies the lower
+side of the counting route. The required upper bound on nonabsorbing starts
+remains open; our first residue-counting attempt does not establish it.
+Formal reproduction and our written conditional derivation are recorded
+separately, with programme label **none** under the strict rubric.
+
 ## Frozen mathematical standing
 
 Universal finite tripling-pair currents on `w=5 mod8` suffice. Our conditional compiler retains auxiliary `w=9 mod16` pairs and keeps every missing input explicit. We now retain both actual source histories and classify the lower path's first departure across every repetition count of the upper growth pattern. The resulting comparison still has an unresolved positive source. A proposed recursion to `Q(floor(ell/3))` provably requires unbounded ordinary clocks. Universal terminal supply remains unresolved; the route map now determines which proof obligations to pursue. These results have no human peer review or formal verification.
@@ -115,6 +124,6 @@ Most checks establish finite arithmetic identities. R91 and R92 additionally use
 
 ## Next research target
 
-The [S.1 calibration](experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md) feeds the [S.2 power-growth proof](experiments/phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md): uniform contraction for arbitrary target sets fails at every exponent 0<alpha<1. One-arrow contraction alone therefore cannot justify iterating density descent. The next step audits newly found2026 claims of linear predecessor density ([L3a](docs/PHASE6_LITERATURE.md)), then targets an estimate for the actual nonabsorbing set. Those external proofs are not yet independently reproduced here. The route map records the resulting conditional counting target; Y.2 addresses cycles only and H.2 needs additional rigidity.
+The [S.1 calibration](experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md) feeds the [S.2 power-growth proof](experiments/phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md): uniform contraction for arbitrary target sets fails at every exponent 0<alpha<1. The [C.1a audit](experiments/phase6/linear_density_audit/README.md) now supplies the stronger external lower theorem. Next, attack C.2a: arbitrarily small unabsorbed fractions at arbitrarily large cutoffs, with finite horizons. Its first residue relaxation failed, and the proposed matched density gap is unproved. Positive predecessor density, finite verification and Tao's almost-bounded theorem do not supply this upper bound. Y.2 addresses cycles only and H.2 needs additional rigidity.
 
 The overall goal remains a finite current, possibly with an everywhere nonpositive residual, at every cutoff on **all five rays**, or another proof of convergence. The [route map](ROUTE_MAP.md) supersedes old next-target paragraphs in historical reports. The [Phase 6 report](experiments/phase6/REPORT.md) records active work. No universal current construction, Collatz proof or novelty claim is supplied.

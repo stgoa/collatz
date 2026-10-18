@@ -150,33 +150,58 @@ an eventual upper bound `C X^(0.84-epsilon)` for the unabsorbed count, with
 fixed `C<infinity`, `epsilon>0`, would contradict C.1. Neither an unweighted
 source-support count nor a signed annular mass is automatically this count.
 
-## L3a — New 2026 positive-density claims: audit pending
+## L3a — Linear predecessor density: audited formal input
 
-**Discovered during P6-003 verification; not imported as a proved premise.**
-[Mazur, September6 manuscript](https://www.proofatlas.ai/papers/positive-lower-density-collatz-predecessors/paper-v1.pdf)
-claims positive lower natural density of distinct predecessors of each fixed
-target a>0 with3 not dividing a. It does not assume a reaches1. The local
-counting argument passed preliminary independent reading, conditional on
-its inherited weighted-path Proposition3.1. That analytic input and the
-claimed formal build have not been independently reproduced here.
+[Mazur's predecessor manuscript](https://www.proofatlas.ai/papers/positive-lower-density-collatz-predecessors/paper-v1.pdf)
+asserts positive lower natural density of distinct predecessors of every
+fixed target a>0 with3 not dividing a, without assuming the target reaches1.
+P6-004 independently rederived the weighted-history and terminal counting
+chain conditional on Tao's corrected v7 mixing theorem. The written audit
+retains residue endpoints, exact source multiplicities, endpoint-dependent
+shifts, separate error terms and coverage of every sufficiently large scale.
+It does not independently derive Tao's analytic mixing estimate.
 
 [Lau, Hexagon2610.00249v1](https://hexagonmath.org/2610.00249v1), dated
-October14, gives an explicit refinement. The pinned
-[challenge statement](https://raw.githubusercontent.com/AxiomMath/CollatzPositiveDensity/3a38bfbb70379e051b51155def1423846fab3a90/Challenge/Basic.lean)
-uses L=2^(2^(2^87640)), coefficient1/(t^4 L), cutoff2^(t^3 L), and counts
-odd starts reaching t (ordinary clock) and its odd part (accelerated clock).
-The challenge contains intentional placeholders; the separately imported
-[solution](https://raw.githubusercontent.com/AxiomMath/CollatzPositiveDensity/3a38bfbb70379e051b51155def1423846fab3a90/Solution/Basic.lean)
-and its dependencies must be checked. Reading declarations or a registry's
-build claim is not our independent formal verification. This is a Hexagon
-identifier, distinct from the unrelated arXiv paper with the same digits.
+October14, supplies an explicit formal refinement. The pinned
+[challenge](https://github.com/AxiomMath/CollatzPositiveDensity/blob/3a38bfbb70379e051b51155def1423846fab3a90/Challenge/Basic.lean)
+uses L=2^(2^(2^87640)), coefficient1/(t^4 L), and cutoff2^(t^3 L).
+For every eligible cutoff it counts distinct odd sources reaching any
+target t with3 not dividing t in the ordinary clock and its odd part in
+the accelerated clock. The respective bounds are natural floors of
+10.46log(n/t) and3.4881log(n/t), with real division. The strongest theorem
+has no convergence or nonperiodicity premise on t.
 
-**Decision:** audit this stronger input before spending a batch rebuilding
-the historical0.84 certificate. If the linear lower premise is verified,
-C.3's contradiction would require only arbitrarily small nonabsorption
-fractions at arbitrarily large cutoffs. That upper premise remains open.
-Do not describe0.84 as the current best bound, or the new density claim as
-a proof of Collatz. Transfer to d>1 has not been established by this audit.
+P6-004 rebuilt the [solution](https://github.com/AxiomMath/CollatzPositiveDensity/tree/3a38bfbb70379e051b51155def1423846fab3a90)
+independently inside the reviewed offline sandbox:4102 jobs completed.
+An independent namespace copy of all four challenge statements and their
+definitions compiled against the solution. All eight actual axiom reports
+contain exactly propext, Classical.choice and Quot.sound. The challenge's
+intentional placeholders were not imported. The [audit record](../experiments/phase6/linear_density_audit/README.md)
+separates this execution evidence from static inspection, cached dependency
+trust and the additional fresh-kernel replay. Source and dependency pins,
+logs, source checksums and statement output are retained.
+
+This is an independent reproduction of the supplied formal derivation,
+not our own numerical Fourier/renewal rederivation. Our separate written
+argument imports Tao's unspecified mixing constants. Programme label:
+**none** under the literal current calibration rule. The full Hexagon
+article was unavailable: the adopted exact theorem is the accessible
+formal challenge, not a claimed page-by-page match to the full article.
+Hexagon's identifier must not be confused with an arXiv identifier.
+
+**Transfer:** the qualitative written reconstruction extends to every fixed
+positive d coprime to6 and positive target a not divisible by3. The affine
+offset is multiplied by d, roots are chosen beyond d16^b0, and the reference
+law is permuted by multiplication by d. All constructed pretarget paths
+avoid the absorber. This does not transfer Lau's explicit constants or clocks.
+
+**Consequence for the route:** if any bad odd seed m exists, a=S(m) is a
+bad ternary-unit target. Every predecessor of a is bad, yielding a linear
+lower bad count at every sufficiently large cutoff. C.2a's arbitrarily
+small late fractions would contradict it. That upper estimate remains
+open. Positive predecessor density is not a proof of Collatz, and the
+historical exponent0.84 should not be described as the strongest audited
+lower premise now available here.
 
 ## L4 — Simons–de Weger and Hercher: cycle minima
 

@@ -1,0 +1,13 @@
+(version 1)
+(allow default)
+(deny network-inbound)
+(deny file-read-data (subpath "/Users") (subpath "/Volumes")
+ (subpath "/private/var/folders") (subpath "/private/var/tmp") (subpath "/private/var/root"))
+(deny file-read-data (require-all (subpath "/private/tmp")
+ (require-not (require-any (subpath "/private/tmp/collatz_p6_replay")
+ (subpath "/private/tmp/collatz_p6_lau_3a38bfbb7037")))))
+(deny process-exec (regex #".*/(node|npm|npx)$"))
+(deny file-write* (require-all (subpath "/") (require-not (require-any
+ (subpath "/private/tmp/collatz_p6_replay")
+ (subpath "/private/tmp/collatz_p6_lau_3a38bfbb7037")
+ (subpath "/dev")))))

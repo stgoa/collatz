@@ -13,14 +13,18 @@ theorems from the additional work required here.
 
 ## Current research decision
 
-After P6-003 verification, **audit the new linear predecessor-density
-input at C.1a**, then attempt C.2a's actual-nonabsorbing-set estimate. S.1 was pushed as546e891 and is independently
+P6-004 supplies **C.1a's external lower theorem through an independent
+source build, exact statement comparison and axiom audit**. Continue at
+**C.2a's actual-nonabsorbing-set upper estimate**. The separate written
+reconstruction retains Tao's mixing input. P6-004's finite residue attempt
+did not establish the upper estimate; it is recorded as none. S.1 was pushed as546e891 and is independently
 confirmed. P6-002's cardinality obstruction was pushed asde32608. P6-003
 now excludes arbitrary-target contraction in every power-growth norm with
 0<alpha<1; its full gate passed. This closes the current uniform-norm
-method. S.1 supplies its finite first-crossing code directly. Newly found
-2026 primary manuscripts may lower the remaining counting requirement;
-their analytic inputs and formal proof dependencies remain under audit.
+method. S.1 supplies its finite first-crossing code directly. The audited
+2026 formal theorem lowers the sufficient counting requirement from a
+power saving to C.2a's statistical condition. That condition remains
+equivalent to convergence. See the [audit and evidence](experiments/phase6/linear_density_audit/README.md).
 Do not add dispatcher families or collect exponent variants of this barrier.
 
 Each calibration must name the open-node step it feeds. Under accepted D6,
@@ -216,20 +220,31 @@ nor the presence of a cycle settles this lower-bound statement.
 
 ### C.1a — Audit the new linear predecessor-density input
 
-**External candidate, not yet independently reproduced here.** For each
-fixed positive target a with3 not dividing a, there exist c(a)>0 and X0(a)
-such that every integer X>=X0(a) has at least c(a)X distinct positive
-predecessors below X. No convergence assumption on a is permitted.
+**Supplied external theorem, with recorded trust boundaries.** Put
+`L=2^(2^(2^87640))`. For each positive target a with3 not dividing a,
+every integer `X>=2^(a^3 L)` has at least `X/(a^4 L)` distinct odd
+predecessors below X. For odd a the accelerated endpoint is a; for even a
+it is oddpart(a), while the ordinary path reaches a. No convergence or
+nonperiodicity assumption on a is used.
 
-**Source and scope:** the2026 Mazur/Lau manuscripts in L3a claim this
-stronger lower bound, including a later explicit version. Audit the selected
-weighted inverse paths, uniform mixing, all-scale coverage, source
-injectivity and exact formal declarations/dependencies. A website badge
-alone is not a calibration. Transfer to other d is unestablished here.
+**Source and scope:** the pinned Lau formal development in L3a was rebuilt
+independently. Four public statements matched an independently named copy
+of the challenge; all eight axiom reports contain only propext,
+Classical.choice and Quot.sound. The [evidence](experiments/phase6/linear_density_audit/README.md)
+separates source compilation, cached dependencies and fresh-kernel replay.
+The full Hexagon article was unavailable, so the adopted exact statement
+is the accessible formal challenge. Our separate written qualitative
+derivation is conditional on Tao's mixing theorem; it does not rederive
+Lau's numerical analytic chain. Programme label: none under the strict
+rederivation requirement.
 
-**Feeds:** C.2a. A verified linear lower bound would replace C.2's power
-saving requirement by the statistical upper condition below. Any calibrated
-batch at C.1a must then feed an attempt on C.2a under D6.
+**Transfer:** the qualitative lower-density assertion is proved in the
+written reconstruction for every fixed positive d coprime to6 and every
+positive target a with3 not dividing a. Lau's numerical constants and
+clocks are not claimed to transfer. Thus this lower premise is not(a).
+
+**Feeds:** C.2a, whose first residue-counting attempt is persisted in
+P6-004. A positive leading-density mode survives that stated relaxation.
 
 ### C.2a — Eliminate a positive-density nonabsorbing basin
 
@@ -238,7 +253,7 @@ integer M>=1, find finite integers X>=M and H>=0 such that at most epsilon*X
 of the positive integers n<X have tau_1(oddpart(n))>H. Times count absorbed
 odd arrows. There is no claimed uniform logarithmic bound on H.
 
-**Conditional implication:** if C.1a holds, a nonabsorbing target would force
+**Implication using C.1a:** a nonabsorbing target would force
 at least cX bad starts at every sufficiently large X. Choosing epsilon<c
 contradicts the obligation. Conversely Collatz supplies a finite H for every
 finite cutoff; choose X large enough to handle the excluded0. Thus this is
@@ -247,12 +262,15 @@ of absorbed starts or of stopping below the initial value.
 
 **Transfer:** the upper premise fails at supported d>1 because multiples of
 d never reach1. Exact controls must exercise any new claimed proof step.
-The new C.1a lower premise's transfer has not been audited.
+The qualitative C.1a lower premise transfers under its stated mixing input;
+its explicit numerical strengthening has only been replayed at d=1.
 
 **Closest source:** L3a for the conditional density criterion. No proof of
 this upper condition is supplied. A possible first test uses a truncated
 counting norm of the actual invariant set B, without assuming a finite
-global norm; that test is still only a candidate.
+global norm; that test is still only a candidate. The exact two-level
+residue system retains advanced cutoffs and valuation tails but admits a
+positive-density leading profile. See the [failed bounded attempt](experiments/phase6/linear_density_audit/c2a_attempt.md).
 
 ### C.2 — A power bound for the remaining seeds
 

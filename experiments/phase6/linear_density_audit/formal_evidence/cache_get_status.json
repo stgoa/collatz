@@ -1,0 +1,31 @@
+{
+  "command": [
+    "/usr/bin/sandbox-exec",
+    "-f",
+    "/tmp/collatz_p6_replay/cache.sb",
+    "/tmp/collatz_p6_replay/lean-4.35.0-rc2-darwin_aarch64/bin/lake",
+    "exe",
+    "cache",
+    "--repo=leanprover-community/mathlib4",
+    "--cache-from=master,legacy",
+    "get",
+    "Mathlib.Algebra.BigOperators.ModEq",
+    "Mathlib.Algebra.Order.Chebyshev",
+    "Mathlib.Algebra.Order.Field.GeomSum",
+    "Mathlib.Algebra.Order.Floor.Semifield",
+    "Mathlib.Analysis.Complex.ExponentialBounds",
+    "Mathlib.Analysis.Fourier.ZMod",
+    "Mathlib.Analysis.Real.Pi.Bounds",
+    "Mathlib.Analysis.SpecialFunctions.Log.Base",
+    "Mathlib.Analysis.SpecialFunctions.Log.Monotone",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Series",
+    "Mathlib.Data.Int.CardIntervalMod",
+    "Mathlib.Data.List.GetD",
+    "Mathlib.Data.Nat.Size",
+    "Mathlib.Data.Set.Finite.List",
+    "Mathlib.InformationTheory.Coding.PrefixFree",
+    "Mathlib.NumberTheory.Multiplicity"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 179.7937982082367
+}
