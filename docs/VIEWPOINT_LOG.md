@@ -104,6 +104,8 @@ unearned inferences and makes the next language tests more discriminating.
 
 Independent review and focused arithmetic checks passed. Local checks covered
 17 Markdown files,473 links and nine intra-document anchors, with no errors.
-The R1-onward result body and open LaTeX source are unchanged. The batch is
-ready for commit and push; final Git delivery status is reported after the
-actual operation, not inferred from this preparation record.
+The R1-onward result body and open LaTeX source are unchanged. The survey was committed as `77ce821` and pushed to `origin/main`, together
+with the completed P6-004 audit at `5a11fcb`. Local main and origin/main
+matched at `77ce821d2fcc38c705974f7b1ac40a3216f6a79d` and the working tree
+was clean immediately after that push. This documentation follow-up records
+the actual delivery. The exploration goal remains active.
