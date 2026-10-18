@@ -26,6 +26,41 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 09:07 — VERIFIED: the arithmetic of R89 — window, three-node family, retained cell and the 25-arrow path (main `9190ccf`)
+
+This uses this branch's own `S` and `ν`. The planner (`J_s`, `A_s`, the dispatcher) is not rebuilt, so statements about which plans pass are not checked here. "First exponent" is read in the R26 sense, `v2(x + 1)`.
+
+- **Window (1).** There were 4,000 random W9 pairs `(C, Q)`: 1,287 with odd `d` and 2,713 with even `d`. In each:
+  - `d = v2(9C − 1) ≥ 4`;
+  - the actual `(h + 2)`-arrow prefix from `3C` ends at `F = 4(3z) + 1` for odd `d` and at `6z + 1` for even `d`;
+  - `S(C) = (3C + 1)/4 < Q`;
+  - (4) holds, and (5) holds for even `d`.
+- **Three-node family.** For `C = 585 + 4096j` and `Q = 441 + 3072j` with `j = 4..399`:
+  - both nodes have `d = 4`, with `z₁ = 329 + 2304j` and `z₂ = 185 + 1296j`;
+  - all three indices are `≡ 9 (mod 16)`, and `3z₂ − Q = 114 + 816j`.
+
+  The `j = 4` chain is `16969 → 9545 → 5369` at `Q = 12729`, with third depth 6. The boundary pair `C = 15401`, `Q = 11551` has `S(C) = Q` and `3C + 1 = 4Q`.
+- **Retained cell.** These hold:
+  - `S¹⁸(Q) = r = (81z₀ + 23)/8`, cost 26, ending `(1,1,3,1,2)`, with `r − 1 < 6(Q − 1)` (35 values of `j`);
+  - on `j = 64m`: `r = 6v + 1`, `ν(r) = 3v`, `E = (81v + 11)/64 = 162818633 + 3²²m`, `v ≡ 37 (mod 64)`, `v < Q < 3v` and `v2(3v + 1) = 4`;
+  - for every `d = 2..48`, progression (8) gives `v2(E) = d − 2`, and the run targets (9) satisfy the stated ordinary clocks: `S^(4+b)(3v) = S(f)` for `d = 2b + 1` and `S^(3+b)(3v) = f` for `d = 2b` (141 cases);
+  - (10) holds for all `m`, as an affine check;
+  - the `d = 2` leader `E` is odd, `≡ 2 (mod 3)` and satisfies `3E + 1 < 4Q`, and `E ∈ W9` exactly when `m ≡ 0 (mod 16)` (2,048 even `m`).
+- **Subcell `m = 2736 + 4096l`.** For 46 values of `l`, including 0, 4 and 13:
+  - the congruences of (11) hold;
+  - `S⁴(3v) = 6C + 1` with `(1,1,1,2)`, and `ν(6C + 1) = 3C`;
+  - `S³(3C) = X` with `(1,2,2)`, `S³(C) = Y` with `(2,1,2)`, and `(2Y + 1)/3 = b`;
+  - `S⁷(3v) = X`, `S²³(Q) = S⁵(3v)`, and **`S²⁵(Q) = X`**;
+  - `S²⁷(Q) = Z`, ending `(1, 2)`.
+
+  For odd `s` (25 cases), `Z` is selected with `ν(Z) = 3c`, `c ∈ W9` and `23Q/40 < c < 7Q/12`. For even `s` (21 cases), `Z` is canonical with `v2(Z + 1) = 3`. The two expressions for `g`, the inverse identity `8(2g + 1)/27 − 1 = Z`, and `v3(2g + 1) = 3` all hold. The `l = 0` values match, including `ρ(a) = 217329940456795` and `ρ(b) = 72443313485599`.
+
+The R89 cell at `l = 0` has the same source `Q = 70506316836123` and `v = 67839005952677` as R90–R94's original coupled family.
+
+`python3 sidekick/probes/r89_retained_cell_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 08:37 — VERIFIED: R68's native-height separation and R70's exit table and growing re-entries (main `9190ccf`)
 
 Both checks use this branch's own `S`, `ν` and `T`; nothing is imported from main.

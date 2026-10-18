@@ -1,0 +1,27 @@
+{
+ "probe": "r89_retained_cell_check",
+ "main": "9190ccf",
+ "section1": {
+  "window_cases": {
+   "odd": 1287,
+   "even": 2713
+  },
+  "family_j": [
+   4,
+   399
+  ],
+  "family_cases": 396
+ },
+ "section2": {
+  "cell_cases": 35,
+  "subcell_cases": 36,
+  "depth_runs": 141,
+  "d2_leaders": 2048
+ },
+ "section3": {
+  "cases": 46,
+  "s_odd": 25,
+  "s_even": 21
+ },
+ "result": "PASS"
+}
