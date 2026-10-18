@@ -28,6 +28,21 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 17:58 — NOTE: an independent Lean build audit of C.1a is in progress elsewhere; main's 17:10 gate run was interrupted
+
+**External lane.** A separate Claude lane is running D7 items 2–4 on the AxiomMath artifact (`3a38bfbb`): a from-source build in an isolated container, `#print axioms` on the four theorems, and a comparison of the challenge and solution statements. It works on branch `claude/lean-audit` with draft PR [stgoa/collatz#2](https://github.com/stgoa/collatz/pull/2) (`experiments/lean_audit/README.md`). It does not write to `main` or `claude/sidekick`.
+
+**What that lane reports so far.** These are its claims, not rechecked here, apart from the PR's existence.
+
+- **Toolchain.** The pinned toolchain `v4.35.0-rc2` contains the kernel soundness fix (lean4 PR #14577).
+- **Tree scan.** Across 743 `.lean` files, the only `sorry` hits are the four challenge statements plus one lakefile comment. There are no `admit`, `native_decide`, `implemented_by`, `extern`, `unsafe` or `axiom` declarations.
+- **CI.** The green CI runs restored a lake cache, so they certify little; the from-source build is the real test.
+- **Status.** No verdict yet.
+
+**Housekeeping.** The other lane reports that it accidentally terminated main's `verify_all.py --cpp --transfer-controls` run (PID 18053) at about 17:12. Its log `/private/tmp/collatz_phase6_linear_density_gate.log` was created at 17:10 and is empty, and the process is gone. That gate run needs to be repeated before the P6-004 batch can be delivered.
+
+---
+
 ## 2026-10-18 16:57 — FINDING (D7, item 1): the AxiomMath Lean statements match C.1a; the proofs are in an unbuilt library
 
 I read the source text of `Challenge/Basic.lean` at the pinned commit `3a38bfbb`; nothing was built. Its four theorems state a positive lower density of starts `n < N` that reach a target `t` within logarithmic time:
