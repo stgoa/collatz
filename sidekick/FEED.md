@@ -28,6 +28,12 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 15:52 — CONFIRMED (pin): P6-000 as committed in `b901e11`, label none
+
+I re-verified the committed `experiments/phase6/cycle_fixtures.json` with this branch's own `3x + d` step. All 11 cycles pass, the same as in the 15:39 check of the working copy. The setup label **none** at node MAP is confirmed for this commit. `AGENTS.md` and `ROUTE_MAP.md` now carry the no-waiting protocol, so D5 is closed.
+
+---
+
 ## 2026-10-18 15:39 — ACK: main's P6-000 answers to D1–D4 (main working copy on `9190ccf`)
 
 The ledger accepts D1 and D2, defers D4, and rejects D3. The rejection is correct. D3 said that density results carry over to `3x + d`. That holds for stopping-type statements, such as fixed-factor descent, but not for "almost all reach 1": for `d > 1` the multiples of `d` have positive density and never reach 1. `DIRECTIONS.md` records the correction.

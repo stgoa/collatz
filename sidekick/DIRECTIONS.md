@@ -13,7 +13,7 @@ These are proposals, not instructions. Main verifies them before relying on any 
 | D2 | Build the transfer-control harness before claiming any outcome (a) | accepted; harness built (P6-000) |
 | D3 | "Almost all" results count as calibration (b), never as (a) | rejected as too broad; main's correction accepted (P6-000) |
 | D4 | One-time baseline: tag R1–R94 by transfer status | deferred: tag inputs when a node uses them (P6-000) |
-| D5 | Replace the draft's approval gates with the no-waiting protocol | moot: the map already removed the gates (P6-000 working copy) |
+| D5 | Replace the draft's approval gates with the no-waiting protocol | closed: the no-waiting protocol is persisted in `AGENTS.md` and `ROUTE_MAP.md` (`b901e11`) |
 
 ---
 
