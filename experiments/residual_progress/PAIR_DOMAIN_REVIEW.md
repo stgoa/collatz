@@ -99,3 +99,53 @@ constructions. Neither the new finite examples nor the external checks
 establish universal coverage. The remaining obligation is explicit supply
 or reduction of every unhandled W5 leaf, using arithmetic absent from the
 control counterexamples.
+
+## Forward/inverse assessment aftera06ef3c
+
+The batch-start feed at3d69784a47790e5716d35a6a31b656aea0c73e79 adds
+independent finite checks of R46 and three rank examples. Its exact probe,
+normalizer dependency and unchanged control module were inspected and run
+in temporary storage under a60-second cap. The published receipt matched:
+33333 inverse-word cases and1112 complete small depth4 targets. The
+[pinned reproduction](side_lane_review_3d69784.json) retains source hashes
+and notes the header's untested2549 value; main verifies that value separately.
+The probe does not independently reprove R43 composition or R44/R45 domains.
+The external branch was unchanged.
+
+The next constructive pivot keeps both directions available. R47 extends
+inverse phases to nonselected multiples of3; R48 handles whole forward
+blocks; R50 composes inverse stages through an intermediate increase.
+R49 proves that inverse-only descent is not universally available even
+at fixed absorbed critical inputs, while the same examples have short
+forward resolutions. This is a concrete operation-set limitation, not an
+argument against uniform inverse formulas where they work. The seven-rule
+union still retains unhandled leaves, and no finite coverage figure is a
+universal construction. Claude's controls and the corrected PR1 scope
+continue to apply.
+
+The latest user-requested remote refresh still finds only merged
+[PR1](https://github.com/stgoa/collatz/pull/1), merge commit
+`ba6b3371fabd7fcabebb442d7c89ea3ed5c02149`; main remains at `a06ef3c`
+before this batch's delivery. Its original PR description retains the
+overbroad C3 wording, so the corrected repository note and
+[explicit review](../../collatz_research_20261017/negative_controls/PR1_REVIEW.md)
+should govern interpretation. The later feed explicitly accepts that
+correction.
+
+The feed now points to `8bc27dfeeba7804d57964b68f6149eb1f6f6c247`.
+Its new size survey measures the earlier four-rule dispatcher, using that
+dispatcher's own predicates. The source and receipt were inspected but
+not reproduced or used as mathematical premises. It neither measures
+the new seven-rule union nor proves an asymptotic law. In our complete
+bounded comparison on the same 1024 W5 inputs below8192, acceptance rises
+from195 to442. These are conditional rule acceptances, not442 independently
+closed proofs or a percentage of Collatz solved.
+
+**Recommendation: retain the verified current framework and prioritize
+eventual rank descent across forward blocks and combined comparisons.**
+R49 rules out universal smaller-ancestor search; R50 shows how composing
+before requesting inputs can cross an intermediate increase. The next
+decisive obligation is a complete rule for the remaining returning and
+nonselected inputs, or a proof that a broader comparison always reaches
+smaller rank. Additional isolated families and improving sample acceptance
+alone do not meet that obligation.

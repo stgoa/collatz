@@ -1,0 +1,305 @@
+{
+  "status": "PASS",
+  "scope": "Finite certificates plus bounded checks; universal quantifiers are proved in INVERSE_SCOPE.md",
+  "source_sha256": "b64bddda64ad34474d2e729fbfd692f5bc73c7bf7cf8502b95b6fce7a8fcef1d",
+  "checker_sha256": "660be7cb28079bbd480375634c891f11107119e7e0fa45430caccc4ff0251e9f",
+  "certificates_sha256": "3aa536576b5617ad618268a7228571d38a74ffbcec0405c29a7d2247fee18589",
+  "anchors": [
+    {
+      "anchor": 39,
+      "critical_index": 13,
+      "smaller_origins": 9,
+      "quotient_states": 43,
+      "maximum": 1025,
+      "lower_current_rows": 54,
+      "pair_current_rows": 9,
+      "first_entry": [
+        39,
+        59,
+        89,
+        33
+      ],
+      "discovery_caps": {
+        "steps": 1000,
+        "bits": 1024
+      }
+    },
+    {
+      "anchor": 135,
+      "critical_index": 45,
+      "smaller_origins": 33,
+      "quotient_states": 68,
+      "maximum": 1457,
+      "lower_current_rows": 114,
+      "pair_current_rows": 11,
+      "first_entry": [
+        135,
+        203,
+        305,
+        57
+      ],
+      "discovery_caps": {
+        "steps": 1000,
+        "bits": 1024
+      }
+    }
+  ],
+  "short_inverse_words": {
+    "count": 197,
+    "sha256": "bc1c21b96ff7368f5ab76fe64c892197731704988264ac6e5c86874e4ebb3c41",
+    "depths": [
+      1,
+      2,
+      3
+    ],
+    "ray_indices": [
+      0,
+      1
+    ]
+  },
+  "long_inverse_words": {
+    "count": 32,
+    "rows": [
+      [
+        39,
+        4,
+        0,
+        "84e1f343d3693739a640228275ecff9e578a49068f8e466afad49f285cc6113c"
+      ],
+      [
+        39,
+        4,
+        8,
+        "c49f35e91cd760a6c5a6ea9c5cc51afd16d1c90e48e14d14577a242c8bfdaa77"
+      ],
+      [
+        39,
+        4,
+        128,
+        "3d8856bbe14442acdfab0fd6b683d32469409461e830d355683a444d8408adef"
+      ],
+      [
+        39,
+        4,
+        1024,
+        "f79d72f53ac12f075f81122777580bdbe14dc34afab76331e9cb234c7b63792a"
+      ],
+      [
+        39,
+        8,
+        0,
+        "36e81c5d084dcd6df06323676506b3c337c7f64647d958f13c138bd7035d2414"
+      ],
+      [
+        39,
+        8,
+        8,
+        "0633933269ac015fdb185e357fbdab33c57ed4eee496cf086c11ebbe5138a7fb"
+      ],
+      [
+        39,
+        8,
+        128,
+        "bd618e1e788e64f098179fab54e5f90c0dcc1ed675d43910d082372871432fb6"
+      ],
+      [
+        39,
+        8,
+        1024,
+        "b68ac62f7cdea74484340b543e821c2c7dcf19ee6ecbf24c183b0b497446d2b4"
+      ],
+      [
+        39,
+        32,
+        0,
+        "a74a826da8ec46098c84e909567087e3d1c7eafbc2c3d16294b5f430e8aaabfb"
+      ],
+      [
+        39,
+        32,
+        8,
+        "a62bd835ed0d05f41b8023fbaf542ae4eddeb1e84bd799faffadf1f02cc72ae1"
+      ],
+      [
+        39,
+        32,
+        128,
+        "7accb178a25f63f94f0e74489d73b537374c3a994b5849424058cb959368991e"
+      ],
+      [
+        39,
+        32,
+        1024,
+        "c577f27421a65c0c7547c219af35d6b8bd2aba779f426458187a0a7120fa0fdf"
+      ],
+      [
+        39,
+        128,
+        0,
+        "0f764eb7453eec2db9e60520474c976607e908aae38f7464a9c6d79556cab1f7"
+      ],
+      [
+        39,
+        128,
+        8,
+        "7b9e11f2d92ed5b5fe6e4433ee127ebdee348f8d5ceb9a7f6f53fd19deb4b0b6"
+      ],
+      [
+        39,
+        128,
+        128,
+        "648bc5e890a4601cc6f324ff749ad2404b449fcb615950633415a1826d1c184a"
+      ],
+      [
+        39,
+        128,
+        1024,
+        "708a8ce46e71c4be9585a9d44eb19015a69805c663d38051200c1476cabbcb44"
+      ],
+      [
+        135,
+        4,
+        0,
+        "2640e29dbc7cf76cba53657f52c7af1b99a9500ce72e46e122a554b499da7fa8"
+      ],
+      [
+        135,
+        4,
+        8,
+        "c4096333c23014c2c50a1a9388bfb176c73316c3f95d939c24f4acc348fd96b3"
+      ],
+      [
+        135,
+        4,
+        128,
+        "4819bc8751661039f915b519b2162e2800abbbd3303056339ce5b1d99761487c"
+      ],
+      [
+        135,
+        4,
+        1024,
+        "3179846a762fb80da71777cdf0b33c3143579b7daf2658c3ce68482cd692bc86"
+      ],
+      [
+        135,
+        8,
+        0,
+        "75b427637cdc197851d54602eaa710376e1751e4618a38fe4b64acb6aaab737a"
+      ],
+      [
+        135,
+        8,
+        8,
+        "27c35e68934984ed7b7ac8788f9b466e06a4726420e9c1e539b7cacbf8c49dd3"
+      ],
+      [
+        135,
+        8,
+        128,
+        "fb4998aaf90afd1758bb9f49388638d8a4757ad4a03dc89654ab35f7bb8caaba"
+      ],
+      [
+        135,
+        8,
+        1024,
+        "1f5f5cf8dcd02162a5d171b53af304aefe2b114564ec4fc495644cb5e63693c0"
+      ],
+      [
+        135,
+        32,
+        0,
+        "8be2c739fe830b75f054af14e3a301bffbd0163c691303cefe877a50a9b29983"
+      ],
+      [
+        135,
+        32,
+        8,
+        "a65332f113b7a186301813bbf92aa64f9fd7cf7406b8ce2ef27075a1c42b082c"
+      ],
+      [
+        135,
+        32,
+        128,
+        "aa58cd5e99b8ca7a930f53e4cec36f2bd3e952a812ae7c7d92d4344be83a29f5"
+      ],
+      [
+        135,
+        32,
+        1024,
+        "1dc286dee204c5d44e6c7916a0ce1ac21369c16a36304d940472366ce47e812f"
+      ],
+      [
+        135,
+        128,
+        0,
+        "42c1998a48f82e3bc18e0f984a340d20c523718b6c75362c5add418f9578df65"
+      ],
+      [
+        135,
+        128,
+        8,
+        "16e2cd199043922d62b93dd52977eaf330d8fbfe0ff64a833a2d2478bb88f9d9"
+      ],
+      [
+        135,
+        128,
+        128,
+        "20fda23300d5898e8e6b87355fe38b4ef788fa65a69f9fdfbecb26dc387d0307"
+      ],
+      [
+        135,
+        128,
+        1024,
+        "ae2f1c52f5f2d7fddd8f5ae11facfdf0253394ccb58eefc55390cfac4c3cf391"
+      ]
+    ]
+  },
+  "complete_origin_checks": [
+    {
+      "anchor": 39,
+      "D": 2,
+      "q": 2343,
+      "canonical_origins": 586,
+      "ordinary_origins": 1172
+    },
+    {
+      "anchor": 39,
+      "D": 3,
+      "q": 6951,
+      "canonical_origins": 1738,
+      "ordinary_origins": 3476
+    },
+    {
+      "anchor": 135,
+      "D": 4,
+      "q": 20871,
+      "canonical_origins": 5217,
+      "ordinary_origins": 10436
+    },
+    {
+      "anchor": 135,
+      "D": 5,
+      "q": 62343,
+      "canonical_origins": 15587,
+      "ordinary_origins": 31172
+    }
+  ],
+  "forward_cylinder_plans": {
+    "count": 128,
+    "sha256": "72f349d802e67009b8368ce79f20cd89b52b05996c5e85295ab38dc1545ade97",
+    "indices": [
+      0,
+      63
+    ]
+  },
+  "lifted_forward_witnesses": {
+    "count": 56,
+    "sha256": "6afe79545478770260a02a33210c9c46af253050c1b6cb922ccad60746700635",
+    "maximum_D": 128
+  },
+  "absorbed_ray": {
+    "count": 32,
+    "sha256": "8b51ebebe074ffbe171d66f7023bb250a1286ddea376cf5860e8aa5ce7e48402"
+  },
+  "rejected_inputs": 9
+}

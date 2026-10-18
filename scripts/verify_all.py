@@ -155,6 +155,11 @@ def main():
             ("returning_phase", "check_returning_phase.py"),
             ("nonselected_inverse", "check_inverse_phases.py"),
             ("inverse_escape", "check_inverse_escape.py"),
+            ("nonselected_multiples", "check_multiple_escape.py"),
+            ("nonselected_forward", "check_nonselected_forward.py"),
+            ("inverse_scope", "check_inverse_scope.py"),
+            ("double_inverse", "check_double_inverse.py"),
+            ("double_inverse", "check_expanded_union.py"),
             ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
@@ -228,6 +233,11 @@ def main():
                          returning_forward_phase="PASS: complete interface, scoped undo loops, decreasing subdomains and unbounded-run families",
                          nonselected_inverse_phases="PASS: both base rays, exact rank thresholds, self-returns and increasing-index descent",
                          variable_inverse_escape="PASS: two-block slope criterion, full depth4 classification and fixed-precision all-ray barriers",
+                         nonselected_multiple_escape="PASS: complete two-block phases, exact failure vectors and supplied currents",
+                         complete_nonselected_forward="PASS: full blocks, exact low-exponent tests, CRT families and undo identities",
+                         permanent_inverse_scope="PASS: finite closed exclusion certificates, all-ray lifts and short forward resolutions",
+                         double_inverse_phases="PASS: exact endpoint thresholds through intermediate growth and signed substitutions",
+                         seven_rule_composition="PASS: preserved earlier rules, strict common rank, mixed closure and supplied inputs",
                          external_sieve_gap="PASS: exact counterexample to the displayed set equality; no theorem refutation",
                          external_pair_controls="PASS: seven exact cycle witnesses, including three W5 pairs, and invariant-pairing obstructions",
                          scope="Finite audits only; universal current existence remains open."), indent=2))

@@ -1,12 +1,14 @@
 # Residual progress and finite forcing
 
 **Latest standing:** universal tripling currents on W5={5 mod8} suffice.
-The common rank rho(w)=nu(3w) now proves finite signed composition of four
-strictly decreasing rules, including cases where the pair index grows.
-New complete domains cover parts of the returning and nonselected phases,
-and a two-block inverse rule works through unbounded depth. The complement
-remains an explicit missing premise. A fixed ternary valuation cannot bound
-all inverse delays, even after the specified one/two forward arrows.
+Seven proved rule domains now compose using the common rank rho(w)=nu(3w),
+with all signed dependencies retained. New complete arithmetic domains
+cover nonselected multiples of3 and allow a second inverse phase to cross
+an intermediate increase. Universal supply on the seven-rule complement
+remains open. Pure smaller-ancestor inverse search cannot cover even every
+absorbed critical root:39 and135 have permanent exclusions, yet enter
+known smaller history in three quotient steps. Their lifted families keep
+arbitrarily deep inverse obstructions alongside that short forward escape.
 These are written reductions and partial constructions; Collatz remains
 open. The current batch and evidence are at the end of this report.
 
@@ -1285,3 +1287,147 @@ Checklist:
 - [x] Persist standing, proofs and reproducible evidence.
 - [x] Run the full verification gate and finish integration review.
 - [x] Review and prepare the verified batch for authorized commit and push; delivery is recorded by the accompanying Git history.
+
+## Active batch aftera06ef3c: complete remaining domains and forward escape
+
+Previous goal turn: **progress**. R43–R46, their exact constructors and
+receipts, common-rank compiler and shared standing were committed/pushed
+after full Python/C++ verification and TeX compilation. Revalidated clean
+main at a06ef3c. The independent feed was fetched and skimmed at
+3d69784a47790e5716d35a6a31b656aea0c73e79; its new R43–R46 finite probe
+was independently reproduced, with the matched receipt and inspected
+source hashes retained. A later remote check still found main at a06ef3c
+and only merged PR1, ba6b337, already incorporated. The latest optional
+feed at 8bc27dfeeba7804d57964b68f6149eb1f6f6c247 adds a size-acceptance
+survey of the **old four-rule union**. That survey was read, not reproduced
+or used as a proof premise. The side branch remains unchanged.
+
+Working hypotheses:
+
+1. A base inverse ray followed by complete valuation blocks resolves a
+   full part of the previously untouched nonselected multiples-of3 domain.
+2. A complete forward block followed by a different endpoint comparison
+   resolves remaining phases without immediately reversing the forward run.
+3. Composing a failed expanding rule with already decreasing rules gives
+   a genuine new descent or a nontrivial signed cycle elimination.
+
+Initial probes found no nontrivial self-coefficient in the tested composed
+cycles: every self-only high-rank return had coefficient+1. Some expanding
+rules descended after accepted-rule expansion. These were **finite probe
+observations only**; no universal cycle or cancellation theorem is inferred.
+The proved outcomes below instead use complete arithmetic classifications
+and finite invariant-set certificates.
+
+### Outcomes and scope corrections
+
+1. **R47: a complete two-block interface on nonselected multiples of 3.**
+   For w in W5 with 3|w and nonselected 3w, both base rays are classified.
+   With D=v3(w), u=w/3^D, k=4 or 8 and j=v3(k4^D u+1), the full signed plan
+   strictly decreases rho exactly when
+   `k*2^(2D+j+1)<3^(D+j+1)`. Complete CRT families succeed at every D.
+   Inactive j0 branches are literal self-returns; the other failed rows
+   retain a proved unique largest-rank request, including the full W9
+   substitution defect. This does not exhaust other inverse words.
+2. **R48: whole forward blocks with exact low-exponent classifications.**
+   The entire nonselected W5 domain has an explicit signed forward
+   interface. Its sufficient endpoint-rank test is completely classified
+   at a=3 and a=4, and successful multiples-of3 CRT families exist for every
+   a>=3. A canonical even endpoint followed by the prescribed maximal
+   inverse block literally undoes the forward current. That rejected
+   recipe is preserved; another endpoint comparison may still succeed.
+3. **R49: inverse-only completion is permanently insufficient.** Complete
+   finite smaller-origin closures exclude canonical 39 and 135 at every
+   inverse depth, despite their absorption. They enter those histories
+   after exactly three quotient arrows. All-ray affine lifts preserve
+   arbitrarily deep exclusions at fixed v3(q)=1 or 3 while retaining the
+   same three-step forward reduction. These forward cylinders are already
+   contained in R48 and add no independent rule. Infinitely many absorbed
+   canonical states are inverse-minimal; that infinitude theorem does not
+   assert infinitely many critical W5 examples. Uniform inverse arithmetic
+   still proves useful membership and induction statements without
+   enumerating complete forward history.
+4. **R50: a second inverse phase crosses a genuine intermediate increase.**
+   On its exact L>=3 domain, the completed endpoint decreases precisely
+   when h+L>=5 for k=4 or h+L>=6 for k=8. The failed small rows are proved
+   exhaustively, including positive-integer endpoint effects. The example
+   w=53 compares canonical159 to283 and then111; this is an inverse
+   comparison with a signed current, not that order along a forward orbit.
+   The complete new domains extend failed R45 phases while retaining every
+   smaller-rank missing input.
+
+### Durable evidence
+
+- [R47 proof and constructor](nonselected_multiples/NONSELECTED_MULTIPLES.md):
+  682 eligible inputs among 4096 W5 candidates,1364 two-ray plans, 240 exact
+  CRT cases plus 24 further progression terms, and four actual supplied
+  substitutions. The stored 16653 fixture demonstrates index increase with
+  rank decrease. Its remaining failure classes are explicit.
+- [R48 proof and constructor](nonselected_forward/NONSELECTED_FORWARD.md):
+  2047 whole-domain inputs, 1536 a=3/a=4 cases, 687 exact even-block undo
+  checks,75 CRT examples through a=128,12 actual substitutions and seven
+  rejected invalid requests. Three complete output currents are stored.
+- [R49 proof and certificates](inverse_scope/INVERSE_SCOPE.md): full
+  43-state and68-state smaller-origin closures for39 and135, with maxima
+  1025 and1457; U38/U134 currents of54/114 rows and P13/P45 currents of
+  9/11 rows. Further checks cover197 short inverse words, 32 long words
+  through depth 128/ray index 1024,four complete-origin checks, 128 forward
+  plans, 56 lifted forward witnesses and nine rejected invalid inputs.
+- [R50 proof and constructor](double_inverse/DOUBLE_INVERSE_PHASES.md):
+  153 two-phase inputs, 65 strict plans, 408 CRT examples through h=128/L=128,
+  four actual substitutions and four rejection checks. The w=53 input and
+  output tables are stored.
+- The [seven-rule receipt](double_inverse/expanded_union_audit.json)
+  checks 1024 W5 candidates below 8192:442 are accepted, preserving all 195
+  accepted by the old union;582 remain unresolved by these direct tests.
+  It checks 258 mixed closures and eight actual substitutions, with three
+  full stored outputs. P1821 closes by signed cancellation with no remaining
+  inputs. These are finite counts, not asymptotic coverage or convergence.
+- The [external reproduction](side_lane_review_3d69784.json) records 33333
+  R46 identities, 1112 depth4 targets and the stated rank checks. Its finite
+  predecessor cutoff is 4000000, with a 60-second process cap. It does not
+  independently rebuild R43 composition or R44/R45 domain proofs. The later
+  size survey is separate and has not been reproduced in this batch.
+
+### Review and validation
+
+Independent model proof/code reviews passed R47–R50 and the expanded
+strict-rho union. The focused checkers and stored receipts pass. The full
+`python3 scripts/verify_all.py --cpp` gate passed, including the five new
+default checks, all preceding checks, 31 original manifest entries and both
+independent C++ cutoffs. Its current run log is
+`/tmp/collatz_forward_inverse_full_gate.log`; the durable check definitions
+and receipts remain in the repository. The existing LaTeX source was
+updated in place and the built-in compiler passed. Final integrated-document
+review passed after distinguishing the original four-rule compiler from the
+expanded seven-rule compiler and clarifying Q-membership wording. Those
+prose corrections changed no mathematical code or TeX. Final file-scope,
+local-link, LF, TeX-reference and whitespace checks passed. The reviewed
+batch is prepared for authorized commit and push; the accompanying Git
+history records delivery.
+
+### Decision and next obligation
+
+This batch is **progress**: complete new arithmetic domains and a permanent
+inverse-only obstruction change the constructor's scope. Let A be the
+seven-rule union R41/R44/R45/R46/R47/R48/R50. Universal finite currents on
+W5 minus A remain the missing premise. The common rank makes formal
+composition terminate; it does not supply those leaves. Resolve a complete
+remaining forward-endpoint or returning domain, or prove eventual rho
+descent across a broader comparison that may grow temporarily.
+
+Retain forward motion, all signed requests and supplied history. Repeating
+an exact inverse/forward undo, interpreting finite cycle probes as a
+general no-go, or enlarging a sample acceptance fraction will not establish
+universal completion. No residual contraction, novelty claim or Collatz
+proof follows. The research goal remains active.
+
+Checklist:
+
+- [x] Revalidate repository and independent feed; classify prior turn.
+- [x] Derive whole-domain arithmetic and preserve failed compositions with their exact scope.
+- [x] Prove successful reductions and preserve scoped obstructions.
+- [x] Independently review proofs and exact constructors.
+- [x] Integrate standing, evidence and next open obligation.
+- [x] Complete the full Python/C++ gate and built-in LaTeX check.
+- [x] Finish the final integrated-document review.
+- [x] Review the final diff and prepare the verified batch for authorized commit and push; delivery is recorded in Git history.
