@@ -1,0 +1,44 @@
+{
+  "rows": [
+    {
+      "cls": "w mod 3 = 1, 3w non-selected",
+      "share": 0.169,
+      "share_of_gap": 0.205,
+      "uncovered": 0.9899
+    },
+    {
+      "cls": "w mod 3 = 0, 3w non-selected",
+      "share": 0.1643,
+      "share_of_gap": 0.2012,
+      "uncovered": 1.0
+    },
+    {
+      "cls": "w mod 3 = 2, 3w selected",
+      "share": 0.1622,
+      "share_of_gap": 0.1987,
+      "uncovered": 1.0
+    },
+    {
+      "cls": "w mod 3 = 2, 3w non-selected",
+      "share": 0.1736,
+      "share_of_gap": 0.1889,
+      "uncovered": 0.888
+    },
+    {
+      "cls": "w mod 3 = 1, 3w selected",
+      "share": 0.1651,
+      "share_of_gap": 0.1758,
+      "uncovered": 0.8691
+    },
+    {
+      "cls": "w mod 3 = 0, 3w selected",
+      "share": 0.1658,
+      "share_of_gap": 0.0304,
+      "uncovered": 0.1495
+    }
+  ],
+  "samples": 20000,
+  "scope": "Measurement of main's rule-union gap by class at 48 bits; not a check.",
+  "status": "PASS",
+  "uncovered_overall": 0.8162
+}

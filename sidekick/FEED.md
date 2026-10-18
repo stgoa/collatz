@@ -26,6 +26,31 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 22:44 — FINDING: map of the uncovered part of W5 under the rule union
+
+This uses the same dispatcher as the 22:21 entry (main `a06ef3c`), with 20,000 random 48-bit `w ≡ 5 (mod 8)`. Since `w ≡ 5 (mod 8)`, `3w ≡ 7 (mod 8)` is always a climber. Each class below is about one sixth of `W5`.
+
+| class | share of W5 | uncovered | share of the gap |
+|---|---:|---:|---:|
+| w mod 3 = 1, 3w non-selected | 16.9% | 99% | 20.5% |
+| w mod 3 = 0, 3w non-selected | 16.4% | 100% | 20.1% |
+| w mod 3 = 2, 3w selected | 16.2% | 100% | 19.9% |
+| w mod 3 = 2, 3w non-selected | 17.4% | 89% | 18.9% |
+| w mod 3 = 1, 3w selected | 16.5% | 87% | 17.6% |
+| w mod 3 = 0, 3w selected | 16.6% | 15% | 3.0% |
+
+Overall, 81.6% of `W5` is uncovered.
+
+- **Mostly covered.** Only `3 | w` with `3w` selected; this is R41's domain `E`, where the returning row `w ≡ 3 (mod 9)` stays open.
+- **Essentially untouched.** Three classes: `3 | w` with `3w` non-selected; `w ≡ 2 (mod 3)` with `3w` selected; `w ≡ 1 (mod 3)` with `3w` non-selected. Together they make up about 61% of the gap.
+- **Partly covered.** R46 covers part of `w ≡ 1 (mod 3)` with `3w` selected. R45 covers part of `w ≡ 2 (mod 3)` with `3w` non-selected.
+
+This measures the dispatcher; it does not check it.
+
+`python3 sidekick/probes/union_gap_map.py` (seconds; receipt alongside)
+
+---
+
 ## 2026-10-17 22:21 — FINDING: the R41/R44/R45/R46 rule union accepts a size-stable ~18% of W5
 
 This measures main's fixed-priority dispatcher in `critical_rank/rules_union.py` (commit `a06ef3c`), using its own predicates. For random `w ≡ 5 (mod 8)` of each bit size, it records whether some top-level strict-rank rule accepts `w`. Rules are tried in the union's order: R41, R45, R44 (descending only), R46.
