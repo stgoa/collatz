@@ -13,9 +13,11 @@ not replace written-proof / finite-certificate / open status.
 
 | Batch | Node | Proposed label | Confirmation | Transfer status | Literature match |
 |---|---|---|---|---|---|
-| P6-000, 2026-10-18: map and controls | MAP; baseline controls attached to S.2, C.2, Y.2 | **none** — setup and existing-obligation counterexamples | Pending; pinned feed predates these artifacts | Exact raw cycles refute ordinary universal descent / absorption / no-cycle analogues; quotient-specific transfer unestablished | [L1–L5 audit](PHASE6_LITERATURE.md); no published theorem re-derived in this batch |
+| P6-000, 2026-10-18: map and controls | MAP; baseline controls attached to S.2, C.2, Y.2 | **none** — setup and existing-obligation counterexamples | **Confirmed none** by the side lane at `b1785fb2dcf121586e99be95c90b94afcf1e9733`, feed 15:38; cycle fixtures independently replayed there | Exact raw cycles refute ordinary universal descent / absorption / no-cycle analogues; quotient-specific transfer unestablished | [L1–L5 audit](PHASE6_LITERATURE.md); no published theorem re-derived in this batch |
+| P6-001, 2026-10-18: explicit stopping calibration | S.1 | **calibration** — published half-descent corollary with explicit constants and W5 pullback | Pending; no verdict on this proof in the batch-start feed | Ordinary estimate proved for each fixed positive odd d coprime to6; W5/nu/T pullback only at d=1 | Borovkov–Pfeifer Corollary2 finite-horizon half-descent limit, with conservative explicit errors; Korec fixed-half corollary; full power theorem not re-proved |
+| P6-001, secondary preparation | S.2 | **none** — bounded-prefix obstruction already follows from frozen R25/R31 | Pending | No new transfer claim | Frozen growth examples; no new exclusion mechanism |
 
-**Consecutive none counts:** MAP 1 (setup), S.1 0, S.2 0, C.1 0, C.2 0,
+**Consecutive none counts:** MAP 1 (setup), S.1 0, S.2 1, C.1 0, C.2 0,
 C.3 0, Y.1 0, Y.2 0, H.1 0, H.2 0. A later mathematical attempt on a node
 must be counted even if it produces useful code or a clearer formulation.
 Three none batches trigger a written post-mortem and an autonomous pivot.
@@ -59,3 +61,57 @@ importing the harness. The review found and corrected C.1's target-domain
 ambiguity. No frozen mathematical source or dispatcher changed. Delivery is
 recorded in the accompanying Git history. No new proof of convergence,
 universal current supply, or novelty claim is made.
+
+## P6-001 — S.1 fixed-factor stopping calibration
+
+**Main baseline:** pushed `b901e11`. **Reviewed side commit:**
+`b1785fb2dcf121586e99be95c90b94afcf1e9733`, fetched and DIRECTIONS/FEED read
+at the start of this batch. The feed confirms P6-000's label none and eleven
+cycle fixtures, accepts the D3 correction and records D1–D4 as answered.
+No new open mathematical direction appears in DIRECTIONS.
+
+| Direction follow-up | Decision | Reason |
+|---|---|---|
+| D1/D2, now accepted | **accept**, unchanged | The living map and exact harness are in pushed b901e11. |
+| D3, correction accepted by side lane | **reject** the historical blanket assertion, unchanged | Fixed-factor stopping and absorption at 1 have different transfer behavior. The retained old paragraph in DIRECTIONS is not reinstated as a premise. |
+| D4, still deferred | **defer**, unchanged | This batch audits exactly the frozen R25/R37 interfaces used by S.1. |
+| D5, moot no-waiting change | **accept**, already implemented | b901e11 removed approval gates under the user's updated goal. Side-lane proposals do not restrict the user's ability to steer the programme. |
+
+**Attempted result and proposed label:** calibration of the published
+half-descent corollary, with explicit finite horizon, integer cutoffs and
+W5 pullback. It does not re-prove Korec's stronger power theorem. The ordinary
+argument is parameterized by each fixed positive odd d; the W5 conclusion
+uses only the frozen d=1 quotient. The [written proof](../experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md),
+[constructor](../experiments/phase6/stopping_calibration/calibration.py),
+[checker](../experiments/phase6/stopping_calibration/check_calibration.py) and
+[exact receipt](../experiments/phase6/stopping_calibration/calibration_audit.json)
+persist the result. Independent proof and integer-only parameter reviews
+passed. The full gate passed with exit0 and116 report fields; its
+[verification record](../experiments/phase6/stopping_calibration/verification.json)
+retains the report and checked source hashes. The label remains proposed
+until the side lane addresses this batch.
+
+For tolerances 1/2,1/10,1/100, the explicit ordinary odd-arrow horizons are
+85,170,295; the W5 quotient horizons are240,330,455. Every cutoff is stored
+as an exact integer. They are large conservative thresholds, not small-seed
+performance claims. For each tolerance the assertion is uniform over all
+integer cutoffs above its threshold. Choosing increasingly small tolerances
+does not remove every exceptional input or give a single universal horizon.
+
+Focused checks cover24,570 complete parity words,49,140 lifts,504 integer
+cutoffs,200 tail bounds,18 direct parameter records and3 W5 records,
+4,608 clock identities,1,024 W5 inputs and12 rejected invalid/capped calls.
+Independent review reconstructed all21 parameter records with integer-only
+cross products, and verified the proof separately from these finite tests.
+R25/R37 source hashes are pinned; no frozen mathematical files changed.
+
+**Next node:** S.2, whose exceptional-input obligation remains unproved.
+C.2's absorption count is not inferred from this stopping calibration.
+
+**Secondary S.2 attempt, none:** a proposed proof that finitely many
+bounded-prefix stopping tests cannot cover W5 was independently checked,
+then rejected as a new advance: the exclusion already follows from frozen
+R25/R31. The proposed positive-density cylinder does not change that
+mechanism. Count this conservatively as the first none batch at S.2.
+The next attempt must allow input-dependent unbounded histories; another
+finite dispatcher catalogue would not address the missing obligation.

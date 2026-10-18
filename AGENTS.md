@@ -11,6 +11,8 @@
 - The transfer harness must name and actually exercise the claimed step, its map, domain and absorber convention. Raw cycles containing 1 are terminal baselines under absorption at 1, not nonconvergence witnesses. Ordinary descent controls do not test an undefined generalized quotient or rank. Unknown/capped searches remain unresolved. Positive finite samples are not universal proofs; cycle controls do not settle hypothetical divergence.
 - Preserve all existing claim discipline and verification rules. Use `python3 scripts/verify_all.py --cpp --transfer-controls` for Phase 6 mathematical-code or evidence batches. The added flag augments the historical gate. Frozen results may be used with their exact hypotheses; a missing current stays a premise.
 
+- S.1 calibration uses raw shortcut parity words of length k=5m, exact bad-class count B, and bound `(8/7)(16807/18432)^m`. Preserve its affine-intercept cutoff Z, residue error B, small-seed allowance and all integer endpoints. It proves fixed-factor stopping for each fixed d, with d-dependent cutoffs; it does not prove absorption at1 or remove every exception. Its W5 pullback uses the frozen R37 injection and R25 same-index semiconjugacy only at d=1. Do not iterate the density estimate on its own outputs or infer the C.2 absorption bound.
+
 ## Start from the repository
 
 - Read `README.md`, `ROUTE_MAP.md`, `docs/PHASE6_LEDGER.md`, `docs/RESULTS.md`, and the relevant proof/source files before extending the work. Use `docs/RESEARCH_LOG.md` for recent changes and the master handoff for historical context.

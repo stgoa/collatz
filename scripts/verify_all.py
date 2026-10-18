@@ -50,12 +50,12 @@ def main():
 
     with tempfile.TemporaryDirectory(prefix="collatz-verify-") as temporary:
         work = Path(temporary)
+        phase6_source = ROOT / "experiments" / "phase6"
+        phase6_work = work / "experiments" / "phase6"
+        shutil.copytree(phase6_source, phase6_work,
+                        ignore=shutil.ignore_patterns("__pycache__"))
         transfer_controls = "not requested"
         if args.transfer_controls:
-            phase6_source = ROOT / "experiments" / "phase6"
-            phase6_work = work / "phase6"
-            shutil.copytree(phase6_source, phase6_work,
-                            ignore=shutil.ignore_patterns("__pycache__"))
             actual = json.loads(run([sys.executable, "-B", "transfer_controls.py"], phase6_work))
             expected = json.loads((phase6_source / "transfer_controls_audit.json").read_text())
             require(actual == expected and actual["status"] == "PASS",
@@ -130,6 +130,14 @@ def main():
         residual_work = work / "experiments" / "residual_progress"
         shutil.copytree(residual_source, residual_work,
                         ignore=shutil.ignore_patterns("__pycache__"))
+        # Reuse the existing frozen-source temporary tree for the two read-only
+        # R25/R37 inputs; the calibration checker pins their source hashes.
+        actual = json.loads(run([sys.executable, "-B", "check_calibration.py"],
+                                phase6_work / "stopping_calibration"))
+        expected = json.loads((phase6_source / "stopping_calibration" /
+                               "calibration_audit.json").read_text())
+        require(actual == expected and actual["status"] == "PASS",
+                "Phase 6 stopping calibration differs from the persisted receipt")
         for directory, script in (
             ("transport", "check_root_transport.py"),
             ("duality", "check_finite_cone.py"),
@@ -252,6 +260,7 @@ def main():
                          manifest_entries=len(entries), stored_python="PASS",
                          right_aligned="PASS: matches persisted receipt", independent_cpp=cpp,
                          phase6_transfer_controls=transfer_controls,
+                         phase6_stopping_calibration="PASS: exact fixed-factor stopping constants, parity cylinders, retained d-controls and injective W5 pullback; calibration only",
                          negative_controls_and_audit="PASS: five receipts reproduced",
                          review_scope="PASS: alternative minimum-cost one-sided certificates",
                          even_exit_history="PASS: exact raw-target cone and supplied signed certificates",
