@@ -148,6 +148,10 @@ def main():
             ("tripling_equivalence", "check_tripling.py"),
             ("odd_pair_closure", "check_odd_interface.py"),
             ("even_pair_closure", "check_even_pairs.py"),
+            ("w9_closure", "check_w9_closure.py"),
+            ("critical_inverse", "check_critical_inverse.py"),
+            ("joint_frontier", "check_joint_frontier.py"),
+            ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
             run([sys.executable, "-B", script], residual_work / directory)
@@ -213,7 +217,11 @@ def main():
                          critical_tripling_domain="PASS: exact critical bijection, conditional plans, supplied-input boundaries and finite compilations",
                          complete_odd_pair_interface="PASS: all odd-h boundaries, high-h shrinkage, critical input compilation and scoped ternary delay",
                          coupled_even_pairs="PASS: split-catalogue scope, joint cylinders, exact half-seed clocks and full source weights",
-                         external_pair_controls="PASS: four exact cycle witnesses and invariant-pairing obstructions",
+                         critical_nine_elimination="PASS: complete local interfaces, signed W5-only plans, input bounds and finite substitutions",
+                         critical_inverse_phase="PASS: whole shrinking phase, exact self-dependency and complete inverse-branch arithmetic",
+                         joint_positive_frontier="PASS: complete interfaces, growing prefixes and full-weight actual required-ray roots",
+                         external_sieve_gap="PASS: exact counterexample to the displayed set equality; no theorem refutation",
+                         external_pair_controls="PASS: seven exact cycle witnesses, including three W5 pairs, and invariant-pairing obstructions",
                          scope="Finite audits only; universal current existence remains open."), indent=2))
 
 

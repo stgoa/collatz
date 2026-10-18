@@ -53,3 +53,29 @@ descent that assumes the missing pair current do not settle it. The external
 checks support this sharper progress test; they do not show that all
 structural current constructions are exhausted. No external finding is
 used as an unverified premise in the new mathematical proofs.
+
+## Updated assessment after complete critical-nine elimination
+
+A fresh remote review at main436f51f again found PR1 as the only merged
+PR. It is already incorporated. The independent feed advanced to
+`1a2dfc5710c5e17a4f42355a3dce2d6984b2b09b`, adding direct checks of R37–R39
+and controls on their exact W domain. Its probe and both imported
+dependencies were inspected and reproduced unmodified in temporary storage
+under a60-second cap. The published receipt matched:16668 critical roots
+and images,100000 odd interfaces,6250 coupled-recursion inputs, and the
+three stated finite control counts. The [pinned reproduction receipt](side_lane_review_1a2dfc5.json)
+retains all source hashes. The independent branch was left unchanged.
+
+**Decision: focus on universal W5 construction and the exact dependencies
+of its recursive rules.** R40 eliminates the whole W9 domain as an
+independent premise. R41 distinguishes a complete decreasing W5 phase
+from the exact returning branch, including P21→P9→P21. This is a genuine
+scope reduction and a concrete failure of an attempted composition.
+It is not a universal constructor. The merged audit's controls remain
+useful; its stronger pessimistic claims do not invalidate these exact
+reductions or show that other current constructions are impossible.
+
+The same controls fail even on W5: examples include w5 for3x−1 and w133
+for3x+61. Thus restricting the input domain does not remove the need for
+specific3x+1 arithmetic in a universal argument. The finite checks and
+independent model reviews do not provide a human review or novelty audit.
