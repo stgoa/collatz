@@ -1,58 +1,10 @@
 # Residual progress and finite forcing
 
-**Latest standing:** universal tripling currents on W5={5 mod8} suffice.
-Seventeen conditional families compose under the same strict-rho order,
-retaining every signed dependency. R66 bounds every ray in a specified
-inverse procedure, while R67–R68 distinguish growing mixed blocks and
-native-height inverse obstructions from successful forward comparisons.
-The latest R69 shows that the natural arithmetic countdown resets without
-bound on a valid rule, excluding its specified monomial potential class.
-R70 gives all nineteen exit rows and a natural growing re-entry with its
-higher input retained; an intermediate comparison fails the old rank test.
-Neither result asserts a forever-growing positive orbit. R71 gives an
-exact whole-word denominator constraint for mechanical cycles, a restricted
-nonintegrality direction with published antecedents. It leaves other
-cycles and aperiodic paths open.
-R72 now extends the rank obstruction to finite affine-valuation lists in
-the two fixed phases. R73 gives a terminating exact normalizer of whole
-signed vectors using two identities: both R69 helpers cancel, leaving one
-smaller mandatory pair. R67's larger leader remains terminal. R74 proves
-integer realizability of every finite mixed exit18 return word and excludes
-positive eventually periodic survivors, while leaving possible aperiodic
-ones despite their sparse counting bound.
-R75 now retains both critical pair types before translating sigma plans
-into rho-valid comparisons. Old rho plans remain valid in that enlarged
-basis; the whole R67 guard requests a smaller W9 pair. Its terminal input
-is still required, and the exceptional W9 elimination returns a positive
-self-request. R76 excludes one uniform fixed-word partner model, while
-R77 gives a same-seed complexity constraint and an exact finite subsystem
-exit bound. High-complexity infinite survivors remain open. The current
-focus now has a constructive history comparison: R80 supplies a whole
-blocked-W9 progression by meeting a smaller seed's path above the original
-target, while excluding all smaller ancestors through arbitrary prescribed
-depths on subfamilies. R78 classifies native and next-A2 continuations at
-the original rank; R79 gives exact growing returns and exit/inverse failures.
-The immediate-loop scope classification shows its surviving lower W9
-relations were already covered. Universal terminal supply remains missing.
-R81 now supplies the complete arithmetic domain of every prescribed paired
-history, including the exact smaller-origin slope boundary. R82 turns a
-supplied finite anchor into a complete all-ray history classification within
-ternary precision, and identifies a unique thirteen-step smaller origin for
-R80's one-step future. R83 crosses every prescribed native growth depth on
-two explicit CRT cells. It also exhibits an absorbed input at which the
-entire named two-ray/point procedure fails. These are conditional families
-and a complete scoped test; coverage of the full exit type is still missing.
-R84 completes the thirteenth-target decision on an entire progression,
-with fourteen above-target templates, explicit failed leaders and a sharp
-twenty-step quotient descent family. Its successful classes extend outside
-the old fixed-word cell. R85 proves that no uniformly bounded future/partner
-clock budget covers every critical input, even allowing all inverse rays.
-The appropriate next target is input-dependent history depth with a proved
-termination mechanism and supplied terminal currents.
-Rational scaling changes the integer lattice. The seventeen-family W5 dispatcher
-and frozen internal resolvers remain unchanged. Universal current supply
-and Collatz remain open.
-No novelty is claimed. Integration and verification are recorded at the end.
+**Latest standing:** universal tripling currents on W5={5 mod8} suffice, but their universal construction is missing. The retained W5/W9 compiler preserves a common integer rank and every signed dependency. The latest R86 gives an exact raw-target acceptance cone for a whole even-exit subtype; for every initial exponent H>=4 and exact ternary depth D it crosses a higher intermediate endpoint and supplies a comparison with smaller original-rank premises. Its identity was already contained in the old formal plan, whose coarse estimate missed part of this domain.
+
+R87 gives a complete bounded reduction for every W9 leader left by R84's history decision. At most two local substitutions leave only lower requests and, possibly, one W5 request with coefficient+1. The standard inverse on a noncanonical even upper branch restores the original W9 request plus a lower signed identity. The remaining W5 request still needs a different comparison. R86 does not automatically resolve all these leaves.
+
+The research direction remains exact smaller-input comparisons with input-dependent depth. R85 excludes a universal fixed future/partner clock budget. The recent remote review finds only the already integrated PR1; its valid controls remain useful and its overbroad no-alternative-current assertion remains refuted. The latest pinned side probes reproduce, with a recorded coverage defect in the R81 ternary-removal test. The W5 dispatcher and frozen resolvers are unchanged. No universal supply, Collatz proof or novelty claim is made. Full historical findings follow; the latest integration record is at the end.
 
 Started 2026-10-17 from clean pushed commit `ce56699`.
 The preceding goal turn made progress: universal partial currents, an exact
@@ -3171,3 +3123,39 @@ for15 scoped files,425 local Markdown links,81 unique TeX labels,
 JSON parsing and whitespace. The final remote refresh left main at
 1d58f50. The reviewed batch's authorized commit and push are recorded
 in Git history. Universal current supply and the research goal remain open.
+
+
+## Continuation from `355c173`: exact even exits and the remaining W9 leaders
+
+The preceding batch made verified progress and was committed and pushed. The universal goal remains active. This batch began with a clean tree and refreshed the independent feed. The user's merged-PR question prompted a second remote check; GitHub returned only PR1, already ancestral to main. The [pinned review](side_lane_review_b9203ff.md) records the actual remote state, all three reproduced probes, source hashes, the unexecuted ternary-removal test, and the decision to retain the framework while demanding whole-domain original-rank progress.
+
+### Results and strategy
+
+1. [R86](even_exit_history/EVEN_EXIT_HISTORY.md) supplies an exact parameter cone after the long initial rising prefix. Every accepted full plan has strictly smaller signed premises, even when the intermediate canonical endpoint exceeds the original rank. The general proof handles every terminal unit and all positive members of each CRT family. It is a larger exact validity domain for an existing formal comparison, rather than a new local identity. The entire w293mod4608 progression lies outside the fixed seventeen direct predicates.
+2. [R87](w9_history_repair/W9_HISTORY_REPAIR.md) classifies every high leader in the relevant W9 window at the original threshold. A high W9 child shrinks by9/16; two substitutions suffice to remove all high W9 requests. The complete signed plan may still contain one higher W5 request with coefficient+1. Its natural R46 inverse universally restores the parent W9 request on the named branch. The nonzero lower current is retained.
+3. The two results leave the fixed dispatcher unchanged. Existing W5 comparisons may still be composed into a surviving leaf, but every final signed request must be tested against the original parent q. R87 proves an exact failure only for its named inverse word; bounded exploratory probes of other histories are not premises of either result.
+
+The decisive next target is supply of the surviving higher W5 request at the ORIGINAL R84 rank, particularly selected leaves where the natural inverse undoes the forward work. A locally descending rule at that larger child is insufficient if its remaining premises still exceed the original rank. The all-H even-exit cone is available as another comparison, but is not a universal repair for these leaves. Whole-family coverage and terminal supply remain separate obligations.
+
+### Integration checklist
+
+- [x] Revalidate main, identify the merged PR, and reproduce the pinned external checks.
+- [x] Derive the exact all-parameter exit cone and full original-rank W9 decision.
+- [x] Freeze and cross-review both proof/source/receipt packages.
+- [x] Register default replay; run the complete Python/C++ gate.
+- [x] Update and compile the existing TeX; audit shared records and links.
+- [ ] Commit and push the reviewed batch, retaining the open universal goal.
+
+
+### Frozen validation evidence
+
+Both packages passed independent proof, implementation and default-replay review. R86 checks640 arithmetic cells,50 full plans,256 minimal-H cells,72 direct CRT memberships,34 old17 cases and28 explicit rejection controls; supplied outputs contain29/79/73 rows. R87 checks865 generic cases,72 threshold cases,72 depth cells through128,72 R84 repairs among517 examined indices,51 full undos and37 rejections; supplied outputs contain166/49/61 rows. The R87 proof's normalization explanation was corrected before freezing, and its F-only k8 control is included. The review also confirms that the two-substitution bound concerns high-W9 replacements, not ordinary clocks or elimination of all lower W9 premises.
+
+Both default checkers are registered. `python3 scripts/verify_all.py --cpp` passed with exit0 against the frozen mathematical packages, including both new checkers, all historical and negative-control receipts,31 manifest entries and independent C++ cutoffs4096/262144. Output is in `/tmp/collatz_even_exit_repair_full_gate.log`. Shared-record and TeX transcription review passed, and the existing TeX compiled successfully in the native editor. Mechanical checks cover16 scoped files,438 local Markdown links,83 unique TeX labels,141 resolved references,11 unique new equation tags, LF endings, JSON parsing and whitespace. The final remote refresh left main at355c173. The reviewed batch is prepared for authorized commit and push; Git history records delivery. The next-batch scratch work below is outside this gate's scope.
+
+### Next-batch leads, not premises of this batch
+
+Two scratch investigations began while the frozen packages' full gate ran. They are not additional accepted rules, and their standalone code/receipts are not registered in this batch's verifier. Re-derive and port any retained result before promoting it.
+
+- **Continue at the original threshold.** The surviving R87 W5 input at R84k85 remains high after the old R44 comparison. A candidate whole originating subtype is k85mod256, with Q=133704987+402653184j and R44 raw r=771880927+2324522934j. Its bounded raw-to-critical decision can be investigated with the existing A/B/C transitions. The candidate remaining cell k85mod16384 retains P(v)+1 with v=128646821+64*3^18*m and v<Q<rho(v): a locally accepted R44 comparison would still fail the original threshold. The target is a complete remaining subtype and supplied currents. Scratch work is in `/tmp/collatz_r87_r44_continuation_note.md`, with `/tmp/collatz_r87_r44_next_probe.py` and `.json`; the explicit formulas above are the durable starting point.
+- **Identify the role of the additive1.** For the generalized map S_d(x)=(3x+d)/2^v, the analogous H4,b1 word suggests the exact relation q=16t-d, n=(81t-3d)/4, y=(243q+163d)/256 on t55dmod96 with q,u positive. The varying-map family d=2^k-3,t=2^(k-4)+27,k>=9 has q435 and proposed y=163*2^(k-8)+411>q despite multiplier243/256<1. A standalone scratch check rebuilt the signed six/one currents; its note, script and receipt are `/tmp/collatz_even_exit_d_control.md`, `.py`, `.json`. This is a prospective control for transferring the raw-target inequality. It asserts no cycle, verified finite base, generalized rank theorem or Collatz failure. The map d varies with k. Formal integration and its own registered replay remain for a later batch.

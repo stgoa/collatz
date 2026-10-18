@@ -7525,6 +7525,192 @@ nontermination or nonexistence of a current. The full proofs and
 finite controls are in
 \texttt{history\_cover\_scope/HISTORY\_CLOCK\_BARRIER.md}.
 
+\section{An exact smaller-target cone after an even complementary exit}
+Let $H\ge3$, $b\ge1$, and positive odd $t,u$ satisfy
+\[
+ q=2^Ht-1\equiv0\pmod3,\qquad
+ 3^{H-1}t-1=4^bu,\qquad n=3^bu\equiv1\pmod8.
+ \tag{EH1}
+\]
+Then $w=q/3\in W_5$, $\rho(w)=q$, and the even R26 endpoint is
+$f=2n+1$, selected with $\nu(f)=n$. Put $y=(3n+1)/4$.
+The ordinary word $(1^{H-1},2^b)$ goes from $q$ to $f$;
+all its source states are canonical. The next state is
+$3n+2=F(y)$, so
+\[
+ S^{H+b+1}(q)=S(y),\qquad T^{H+b}(q)=\nu(y).
+ \tag{EH2}
+\]
+For the ordinary prefix current $L_m(x)$, the complete comparison is
+\[
+ G=L_{H+b+1}(q)-\delta_y,\qquad
+ \operatorname{div}G=[q]-[y].
+ \tag{EH3}
+\]
+Its ordinary clocks are $(H+b+1,1)$, distinct from the quotient length
+$H+b$. Indeed the selected normalizer of $f$ is
+$\delta_f+\delta_{S(f)}-\delta_n-\delta_y$; adding the free arrow
+at $n$ cancels exactly its negative $\delta_n$ row.
+
+\begin{theorem}\label{thm:evenexithistory}
+On the entire domain (EH1),
+\[
+ y<q\quad\Longleftrightarrow\quad
+ 3^{H+b}<2^{H+2b+2}.
+ \tag{EH4}
+\]
+On this cone, $G+\widehat J_y-\widehat J_w$ is a full conditional
+$P(w)$ plan with coefficient vector $\widehat A_y-\widehat A_w$;
+every nonzero signed request has rank strictly below $q$.
+For every $H\ge4$ and exact ternary depth $D\ge1$, complete infinite
+positive arithmetic families satisfy $n>q>y$.
+\end{theorem}
+\begin{proof}
+Set $\lambda=3^{H+b}/2^{H+2b+2}$. Exact substitution gives
+\[
+ y-q=(\lambda-1)q+\lambda+\tfrac14-(3/4)^{b+1}.
+ \tag{EH5}
+\]
+For $\lambda<1$ this is less than $5/4$. It is an even integer,
+and is nonzero since $y\equiv1\pmod3$ and $q\equiv0\pmod3$.
+It is therefore negative. For $\lambda>1$ both terms grouped as
+$(\lambda-1)q$ and $\lambda+1/4-(3/4)^{b+1}$ are positive.
+Prime factorization excludes $\lambda=1$. The critical-basis bound
+$\rho(v)\le\nu(x)$ for $\widehat A_x$ now proves the signed-rank claim.
+
+For $c\in\{1,2\}$ impose
+\[
+\begin{split}
+ t&\equiv3^{1-H}(1+4^b3^{-b})\pmod{2^{2b+3}},\\
+ t&\equiv2^{-H}(1+c3^D)\pmod{3^{D+1}},
+\end{split}
+ \tag{EH6}
+\]
+where $3^{-b}$ in the first line is computed modulo8. These coprime
+conditions give exactly (EH1), $v_3(q)=D$ and $q/3^D\equiv c\pmod3$.
+All positive members have $u>0$; no further size cutoff is required.
+Choose the least positive $b=b_H$ satisfying (EH4). It exists since
+$b=2H$ suffices. At $H=4$, $b_H=1$ and the slope of $n$ in $q$ is
+$81/64>1$. For $H\ge5$, $b_H>1$, and failure of (EH4) at $b_H-1$
+gives $\lambda_n=3^{H-1+b_H}/2^{H+2b_H}>1$. In either case
+\[
+ n-q=(\lambda_n-1)q+\lambda_n-(3/4)^{b_H}>0.
+\]
+This proves $n>q>y$ on every positive member of these cells.
+\end{proof}
+
+For $H=4,b=1$ the entire phase is
+\[
+ (w,q,n,y)=(293+512l,\ 879+1536l,\ 1113+1944l,\ 835+1458l),
+ \quad l\ge0.
+ \tag{EH7}
+\]
+The old R48 sufficient bound $(27n+29)/32$ exceeds $q$ everywhere.
+Its full formal current nevertheless already contains the normalization
+and free arrow used above. The old W5-only absorption plan is also strict:
+$y\equiv1\pmod3$ avoids the above-source exception, and $w$ is
+noncanonical. This is an enlarged exact validity domain, not a new local
+orbit identity or an exclusively W9-based gain. The proof in
+\texttt{even\_exit\_history/EVEN\_EXIT\_HISTORY.md} also exhausts the
+old seventeen direct predicates on the subphase $w\equiv293\pmod{4608}$;
+every member is rejected by each predicate. The dispatcher is unchanged.
+Outside (EH4) only the raw-target test fails: at $q=927$, $n=1761$ and
+$y=1321$, further normalization gives $\nu(S(y))=495<q$.
+Every accepted plan still requires its terminal currents.
+
+\section{The failed W9 history leaders reduce to a single W5 obligation}
+Fix odd $Q\ge11547$ and $w\in W_9$ with
+\[
+ Q\le3w,\qquad32w<33Q.
+ \tag{WR1}
+\]
+Apply the full local R40 plan while testing every signed request at this
+original threshold $Q$. Put $d=v_2(9w-1)$, with
+$h=(d-5)/2$ for odd $d$ and $h=(d-4)/2$ for even $d$, and
+$z=3^h(9w-1)/2^d$. The local endpoints after the stated sibling
+normalization are $(3z,z)$ for odd $d$ and $(6z+1,2z+1)$ for even $d$.
+
+\begin{theorem}\label{thm:w9historyrepair}
+The complete local plan has at most one request of rank at least $Q$,
+with coefficient $+1$. Its exact decision is:
+\begin{enumerate}
+\item Odd $d$: every request is strict.
+\item Even $d$, noncanonical $3z$: the possible high request is
+$4z+1$, and it is high exactly when $6z+1\ge Q$.
+\item Even $d$, canonical $3z<Q$: every request is strict.
+\item Even $d$, complementary canonical $3z\ge Q$: the high request
+is $z$, of rank $3z$, in either $W_5$ or $W_9$.
+\item Even $d$, $3z\equiv1\pmod8$ and $3z\ge Q$: put
+$f=(9z+1)/4$. A high request exists exactly when $f$ is critical and
+$f\ge Q$; it is $(2f+1)/3\in W_5$.
+\end{enumerate}
+A high W9 child can occur only in the fourth row and obeys $16z<9w$.
+Consequently at most two local W9 substitutions leave only strict
+requests and, possibly, one high W5 request with coefficient $+1$.
+Every failed W9 leader of Theorem~\ref{thm:historytransition} lies in
+(WR1) at the original $Q=q$.
+\end{theorem}
+\begin{proof}
+For odd $d$, $3z<27w/32<Q$. For even $d\ge6$, the lower endpoint
+$2z+1\le(27w+29)/32<Q$. At $d=4$ one has $z\equiv2\pmod3$;
+a canonical lower endpoint has the smaller point ancestor
+$(4z+1)/3=(3w+1)/4<Q$, while a noncanonical one normalizes below
+$z<Q$. Also $\widehat A_w$ is strict, because $w\equiv1\pmod8$
+first descends to $(3w+1)/4<Q$.
+
+If $3z$ is noncanonical, $6z+1$ is critical and its leading request
+is $4z+1$; all later requests have rank at most $z$.
+If $3z$ is canonical, $6z+1$ is selected and normalizes to $3z$.
+This proves the third and fourth rows. In the fifth row the next free
+arrow reaches $f$. A noncanonical $f$ normalizes below $Q$.
+If canonical and $1\bmod8$, its next state is at most
+$(243w+85)/256<Q$; otherwise it is critical and has the stated
+unique leading request. That request's index is $(3z+1)/2<Q$,
+so subsequent helper ranks are strict.
+
+Any high W9 child is $z$ and satisfies $16z<9w$.
+After two such edges its rank is strictly below
+\[
+ 3(9/16)^2w<(8019/8192)Q<Q.
+ \tag{WR2}
+\]
+Thus a high W9 request cannot survive two substitutions. All lower
+signed requests are retained and equal coefficients combined exactly.
+
+For the R84 application, its raw states before stopping are at most
+$R=70237+2\cdot3^{14}k$ and are $1\bmod3$. A critical normal form
+$3w\equiv0\pmod3$ differs from that raw state, so normalization is
+nontrivial. An $F$ stripping gives a minimum at most $(x-1)/4$;
+a selected halving gives at most $(x-1)/2$. In either case
+$3w\le(R-1)/2$. Hence $w\le11706+3^{13}k$ and $32w<33q$.
+Its full initial frontier is $\{w:1\}+\widehat A_w-\widehat A_{q/3}$;
+the preceding first-arrow bound makes every other request strict at $q$.
+This justifies applying the whole decision at the original rank.
+\end{proof}
+
+There is an exact obstruction to one natural repair of the second row.
+For every noncanonical upper $X=6z+1$, the R46 maximal inverse has
+\[
+ D=v_3(X-1)=h+1,\qquad
+ j=v_3\bigl(4^D(X-1)/3^D+2\bigr)=1.
+ \tag{WR3}
+\]
+Its origin is exactly $3w$, with ordinary word $(1,2^{h+1})$.
+If $L_{\rm lower}$ is the prescribed lower prefix from $w$ to
+$Y=2z+1$, full substitution gives
+\[
+ \widehat J_w-L_{\rm lower}-\widehat J_Y,\qquad
+ \{w:1\}+\widehat A_w-\widehat A_Y.
+ \tag{WR4}
+\]
+The self-request remains with coefficient $+1$, and the lower identity
+need not be zero. This is an undo of the specified comparison, not an
+exclusion of other histories. Complete proof, implementation and failed
+leaders are retained in
+\texttt{w9\_history\_repair/W9\_HISTORY\_REPAIR.md}.
+The high W5 request and every smaller terminal current remain premises;
+neither this bounded reduction nor (EH4) supplies them universally.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -7715,6 +7901,13 @@ Theorem~\ref{thm:historyclockbarrier} proves that no fixed bounds on
 both future and partner clocks cover all critical inputs, even with all
 inverse rays allowed. This requires source-dependent histories or another
 comparison; it does not exclude universal unbounded termination.
+Theorem~\ref{thm:evenexithistory} gives an exact whole-parameter
+acceptance cone beyond an older sufficient bound, with complete
+families crossing a larger endpoint at every initial exponent.
+Theorem~\ref{thm:w9historyrepair} reduces every failed R84 W9 leader
+to strict premises and at most one higher W5 request in two substitutions.
+That remaining request must still be resolved at the original rank;
+its named inverse repair can restore the earlier W9 request exactly.
 These are conditional constructions with all signed premises retained.
 The next obligation is to supply every
 terminal current by such comparisons or another well-founded closure
@@ -8075,5 +8268,18 @@ The traces include24 positive rational-shadow and2636 positive
 integer-shadow rows. A complete9-row $P(13)$ current with its supplied
 paths and23 invalid-input checks is retained. The all-ray and arbitrary
 precision quantifiers follow from the proofs, not these finite ranges.
+The even-exit checker covers640 arithmetic cells,50 full signed plans,
+256 minimal-exponent cells through $H=256$ and $D=32$,72 valid CRT
+members in7680 direct attempts,34 old-dispatcher cases and28 explicit
+rejection controls. Three complete supplied conversions have29,79,73 rows.
+It verifies equality with the old formal comparison and retains the
+outside-cone control whose further normalization succeeds.
+The W9 repair checker covers865 generic cases,72 original-threshold
+boundaries,72 exact-depth cells through128,72 R84 repairs among517
+examined indices,51 complete inverse undos and37 rejection controls.
+The F-only normalization at $k=8$ is retained. Three fully supplied
+outputs have166,49,61 rows; all final lower W9 and W5 premises remain
+explicit until supplied. Two substitutions bound high-W9 replacements,
+not the input-dependent ordinary clocks.
 These audits remain finite evidence for the implementations.
 \end{document}

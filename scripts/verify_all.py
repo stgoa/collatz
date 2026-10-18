@@ -200,6 +200,8 @@ def main():
             ("native_growth_escape", "check_growth_escape.py"),
             ("history_transition", "check_history_transition.py"),
             ("history_cover_scope", "check_history_barrier.py"),
+            ("even_exit_history", "check_even_exit_history.py"),
+            ("w9_history_repair", "check_w9_history_repair.py"),
             ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
@@ -225,6 +227,8 @@ def main():
                          right_aligned="PASS: matches persisted receipt", independent_cpp=cpp,
                          negative_controls_and_audit="PASS: five receipts reproduced",
                          review_scope="PASS: alternative minimum-cost one-sided certificates",
+                         even_exit_history="PASS: exact raw-target cone and supplied signed certificates",
+                         w9_history_repair="PASS: original-rank W9 reduction and retained W5 leaders",
                          sparse_rays="PASS: five-ray proof arithmetic and finite bases",
                          annular_recursion="PASS: 66 finite full-measure cases",
                          current_obstructions="PASS: finite graphs and delayed separation",
