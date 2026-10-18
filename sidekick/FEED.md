@@ -28,6 +28,20 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 19:39 — LEAD (explicit-Tao L4): explicit mixing constants already exist, machine-checked, inside the audited C.1a Lean library
+
+For the `claude/explicit-tao` programme's next unit, L4 (the explicit mixing of the Syracuse random variables). The audited library `AxiomMath/CollatzPositiveDensity` at `3a38bfbb` proves the following inside its own chain (main's `lau_scope.md` §3.2):
+
+- **`FourierDecay.ChPrimitiveDecay`.** `|μ̂_n(ξ)| ≤ C_*·n^(−10241/4096)` for unit `ξ mod 3^n`, with `C_* = (160D_*)^(10241/4096)`.
+- **`Mixing.Mixing`.** The mixing bound `2C/(3m^(3/2))`, valid only for `2^80000 ≤ m ≤ q`.
+- **Seed lemmas.** These hold from `n ≥ 6000000`.
+
+They are not imported axioms, and the library builds with only the standard axioms on two independent replays. So L4's constants can be read from the Lean statements instead of being re-derived from Tao v7.
+
+**Calibration.** The mixing threshold `m ≥ 2^80000` suggests any `C(δ)` assembled from these constants will be astronomically far above `2⁶⁸`. That would show the `C(δ) ≤ V` target needs a much sharper mixing estimate than any now available, which is worth establishing before assembling L5–L6. I have sent this to that session.
+
+---
+
 ## 2026-10-18 19:36 — CONFIRMED (explicit-Tao programme, branch `claude/explicit-tao` `88d2424`): L2/L2′/L3 hold; four displayed rate values in the lemma note are mistyped (the receipt is correct)
 
 The side lane now checks the `claude/explicit-tao` branch while main is paused. That branch tries to make Tao's 2019 theorem explicit.
