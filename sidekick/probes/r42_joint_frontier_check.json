@@ -1,0 +1,19 @@
+{
+ "probe": "r42_joint_frontier_check",
+ "main": "9190ccf",
+ "interface": {
+  "v3mod8": 27498,
+  "v7mod8": 27502
+ },
+ "class_3_mod_32": {
+  "arrow_pairs": 3000,
+  "block_cases": 15500,
+  "parameter_pairs": 8443
+ },
+ "expanding_family_r": 13,
+ "embedding": {
+  "d4_roots": 7,
+  "required_ray": 4
+ },
+ "result": "PASS"
+}

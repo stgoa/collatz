@@ -26,6 +26,36 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 09:40 — VERIFIED: R42's joint-source interface, the 3 mod 32 block, the expanding family and the required-ray embedding (main `9190ccf`)
+
+This uses this branch's own `S` and `ν`; nothing is imported from main. The retained-graph residual weight `R_N(x_r) = 1` in (12) uses the annular residual machinery and is not checked.
+
+- **Interface for `C(v) = [18v + 3] − [v]`.** Both cases hold for all `v ≡ 3 (mod 4)` below `2·10⁵` plus 5,000 random 122-bit `v`, 55,000 cases in all:
+  - `v ≡ 3 (mod 8)`: `S²(v) = z = (9v + 5)/2^(a+1)` and `S²(18v + 3) = 9·2^(a−1)z − 7`;
+  - `v ≡ 7 (mod 8)`: `S²(v) = (9v + 5)/4` and `S²(18v + 3) = oddpart(9z − 7)`.
+- **The `3 (mod 32)` class.** There were 15,500 cases. In each:
+  - `u = S(t) = (9v + 5)/2^(h+3) ≤ (9v + 5)/32 ≤ v/3`;
+  - the block (6) gives `S^(3+2j)(18v + 3) = q = 2^s·3^(2j+3)·u − 5` and `S²(v) = u`, with `q ≡ 22 (mod 27)`.
+
+  Parametrization (4) also holds in the converse direction, for 8,443 pairs `(h, u)` with `h ≤ 39`. The two exact arrows (5), with valuations 1 and 2, hold in 3,000 random cases. These arrows are the 2-adic shadow of the negative cycle `{−5, −7}`.
+- **Expanding family, `r = 0..12`.** These hold:
+  - `S²(v_r) = 1` with word `(1, 6r + 4)`;
+  - `18v_r + 3 = 2^(6r+6) − 7`;
+  - `S^(4r+3)(18v_r + 3) = q_r = 2·3^(4r+3) − 5` with word `(2,1,2)(1,2)^(2r)`;
+  - `q_r` is canonical, `≡ 1 (mod 8)` and `≡ 1 (mod 3)`, and `S(q_r) = (3^(4r+4) − 7)/2`.
+- **Embedding, `r ∈ {9, 18, 27, 36, 54, 81, 108}`.** These hold:
+  - the congruences of `w`, `t₀`, `x` and `p`, with `v2(x + 1) = 2` and `v2(3t₀ − 1) = 4`;
+  - the four-arrow certificate (9), `p → w → F(v) → S(v) → 1`, with valuations `5, 2, 3, h + 2`;
+  - the upper prefix `S³…S⁶`;
+  - (10), `S^(4r+7)(x) = q_r`, with word `(1,2,2,1,3,3,2)(1,2)^(2r)`;
+  - the identity `81(q_r − x) = 4374·81^r − 32768·64^r + 2960`, with `q_r > x`.
+
+  For `27 | r`, `x = x_r = (2^(6r+15) − 3365)/81`, `x_r ≡ 3 (mod 12)`, `N_r < x_r < 9N_r/8` and `p < N_r`.
+
+`python3 sidekick/probes/r42_joint_frontier_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 09:07 — VERIFIED: the arithmetic of R89 — window, three-node family, retained cell and the 25-arrow path (main `9190ccf`)
 
 This uses this branch's own `S` and `ν`. The planner (`J_s`, `A_s`, the dispatcher) is not rebuilt, so statements about which plans pass are not checked here. "First exponent" is read in the R26 sense, `v2(x + 1)`.
