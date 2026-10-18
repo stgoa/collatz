@@ -79,3 +79,23 @@ The same controls fail even on W5: examples include w5 for3x−1 and w133
 for3x+61. Thus restricting the input domain does not remove the need for
 specific3x+1 arithmetic in a universal argument. The finite checks and
 independent model reviews do not provide a human review or novelty audit.
+
+## Assessment with the common critical-image rank
+
+The user's renewed merged-PR question prompted a fresh fetch and remote
+PR listing at main4a45eb0. PR1, merged asba6b337, is still the only merged
+PR returned and is already incorporated. The side feed has since advanced
+to8c3f96f9b3da3df68ba49bfe2a5dfdd64e04abf1, adding finite R37/R40/R41 checks.
+Those new receipts were read but not independently reproduced in this
+batch and are not premises of its results. The side branch was unchanged.
+
+**Decision: keep exact currents and pivot the induction to rho(w)=nu(3w).**
+The [rank theorem](critical_rank/CRITICAL_IMAGE_RANK.md) explains why some
+larger pair indices still make genuine progress. R44–R46 remove further
+complete arithmetic domains and compose with R41 under this common rank.
+The merged audit's controls remain mandatory tests of claims intended to
+be generic. Its corrected minimality result does not prohibit these
+constructions. Neither the new finite examples nor the external checks
+establish universal coverage. The remaining obligation is explicit supply
+or reduction of every unhandled W5 leaf, using arithmetic absent from the
+control counterexamples.
