@@ -1,0 +1,138 @@
+{
+  "assertions_enabled": true,
+  "assessment": "Retain PR1 negative controls and scope corrections. Continue shrinking comparisons with supplied smaller-seed paths; R33-R36 add complete partial branches and explicit limits. Universal branch coverage remains the proof obligation.",
+  "command": [
+    "python3",
+    "sidekick/probes/batch_64fff1d_check.py"
+  ],
+  "correction": "The external r labels for a199/455/2887 are one above main R30 recursion depth. Their checked times are three steps later than main prescribed mergers and remain valid, but do not recheck the sharper clocks. Main prescribed clocks202,458,2893 and47 were checked independently here. No earliest-merger claim is made.",
+  "date": "2026-10-17",
+  "dependency_review": {
+    "direct": [
+      "affine_controls.py:step,valuation",
+      "progress_measures_audit.py:point_value"
+    ],
+    "remaining_imports": "Python standard library; affine_controls.main is not run and its guarded repository import is not used.",
+    "transitive": [
+      "progress_measures_audit.py imports affine_controls.py"
+    ]
+  },
+  "external_branch_modified": false,
+  "external_commit": "e3111d3b74e410cd300b01b842c57bbc5e32d058",
+  "external_source_modified": false,
+  "main_commit": "64fff1d3fab454b20ba68d3c08c9df54e8ce7355",
+  "materialization_directory": "/var/folders/b9/9vp4yl9s07s72f_2dff2bjy00000gn/T/collatz-e3111d3-review-5d5xf4ir",
+  "merged_pr1_commit": "ba6b3371fabd7fcabebb442d7c89ea3ed5c02149",
+  "pr1_is_ancestor_of_main": true,
+  "process_timeout_seconds": 45,
+  "published_receipt_matches_exactly": true,
+  "published_report": {
+    "r30_mersenne": [
+      {
+        "a": 199,
+        "merge_steps": 205,
+        "r": 1
+      },
+      {
+        "a": 455,
+        "merge_steps": 461,
+        "r": 1
+      },
+      {
+        "a": 2887,
+        "merge_steps": 2896,
+        "r": 2
+      },
+      {
+        "a": 39,
+        "merge_steps": 47
+      }
+    ],
+    "r30_pairs_checked": 10922,
+    "r31_repeated_words_r_max": 6,
+    "r32_cancellation": [
+      {
+        "N": 196608,
+        "a": 19
+      },
+      {
+        "N": 51539607552,
+        "a": 37
+      },
+      {
+        "N": 13510798882111488,
+        "a": 55
+      }
+    ],
+    "scope": "Independent finite checks of concrete identities in main commit 64fff1d.",
+    "status": "PASS"
+  },
+  "r30_clock_comparison": [
+    {
+      "a": 199,
+      "external_reported_r": 1,
+      "external_test_is_later_by": 3,
+      "external_test_time": 205,
+      "main_clock_directly_checked": true,
+      "main_pair_clock": 3,
+      "main_prescribed_merger_time": 202,
+      "main_recursive_layers": 0
+    },
+    {
+      "a": 455,
+      "external_reported_r": 1,
+      "external_test_is_later_by": 3,
+      "external_test_time": 461,
+      "main_clock_directly_checked": true,
+      "main_pair_clock": 3,
+      "main_prescribed_merger_time": 458,
+      "main_recursive_layers": 0
+    },
+    {
+      "a": 2887,
+      "external_reported_r": 2,
+      "external_test_is_later_by": 3,
+      "external_test_time": 2896,
+      "main_clock_directly_checked": true,
+      "main_pair_clock": 6,
+      "main_prescribed_merger_time": 2893,
+      "main_recursive_layers": 1
+    },
+    {
+      "a": 39,
+      "external_reported_r": null,
+      "external_test_is_later_by": 0,
+      "external_test_time": 47,
+      "main_clock_directly_checked": true,
+      "main_pair_clock": 8,
+      "main_prescribed_merger_time": 47,
+      "main_recursive_layers": 1
+    }
+  ],
+  "scope": "Unmodified finite probe reproduction with inspected pinned dependencies; no universal proof or branch coverage inferred.",
+  "sources": {
+    "collatz_research_20261017/negative_controls/affine_controls.py": {
+      "bytes": 15888,
+      "git_blob": "7fbbd7f3bc420b6b9af5a6a7d5d6598d46f9e5a4",
+      "matches_current_main_file": true,
+      "sha256": "9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c"
+    },
+    "collatz_research_20261017/negative_controls/progress_measures_audit.py": {
+      "bytes": 7063,
+      "git_blob": "ae1966ad4ca7acd09764dde751d0dcbd77ebb85d",
+      "matches_current_main_file": true,
+      "sha256": "6929d1f04ad8647610c61bf9d12946f431899c775fb238c9bcbf0f7b5dc1b467"
+    },
+    "sidekick/probes/batch_64fff1d_check.json": {
+      "bytes": 637,
+      "git_blob": "c2350237da4430dfcea672c731bb51faa525d7d7",
+      "sha256": "a9ea36610d365daf93b89be15228f2aa6761dd8e1720972828680c12131c0d04"
+    },
+    "sidekick/probes/batch_64fff1d_check.py": {
+      "bytes": 3648,
+      "git_blob": "b74741197bf8711bd5a7ef99d142f142900abd6b",
+      "sha256": "eed3c1270b9fe356416db74a75e36f8abdbc77083c623f46e75bcb6c1f79e69e"
+    }
+  },
+  "status": "PASS"
+}

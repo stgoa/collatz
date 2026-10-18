@@ -47,10 +47,16 @@ are unbounded. The same normal form supplies infinitely many known targets
 with a height-uniform counting theorem; density alone does not prove that
 every remaining orbit meets them.
 A shrinking signed-pair recursion now resolves explicit infinite families
-of those growing returns, with arbitrarily deep recursion. Its positive
-integer parameter decreases by more than a factor of four, but some
-arithmetic branches remain unresolved. Conversely, repeated bounded run
-patterns rule out strict height-monotone progress with any finite label set.
+of those growing returns, with arbitrarily deep mixed recursion. Its
+recursive parameter decreases by more than a factor of two; two additional
+rules enter this recursion from another residue domain. Complete decreasing
+inverse chains also give explicit smaller partners for families with
+unbounded old return heights. These constructions preserve all source
+weights and use only supplied lower absorption inputs. An exact component
+classification shows which comparisons remain outside the restricted static
+identity catalogue. Universal coverage of the remaining arithmetic branches
+is open. Conversely, repeated bounded run patterns rule out strict
+height-monotone progress with any finite label set.
 No complete universal current construction, Collatz proof, or novelty claim
 is supplied.
 \end{abstract}
@@ -2295,8 +2301,10 @@ has divergence
 \]
 The child current must therefore be subtracted. Finally
 $z<(3/4)^{k+1}w<w$ and $(3z+1)/16<w/4$, giving the strict
-integer decrease. Odd $h$ and other noncanonical $z$ are explicitly
-unresolved; the theorem does not assert that every branch succeeds.
+integer decrease. For this original rule, odd $h$ and other noncanonical
+$z$ are explicitly unresolved; the theorem does not assert that every
+branch succeeds. The later Theorem~\ref{thm:mixedpairs} handles some
+of these additional branches.
 If a child merger has clock $l$, the parent has clock $k+l+2$.
 \end{proof}
 
@@ -2438,6 +2446,492 @@ finite target-density samples cannot rule out every merger construction.
 The full scoped rate proof and externally reproduced peak tables are in
 \path{experiments/residual_progress/merger_scope/MERGER_SCOPE.md}.
 
+\section{Mixed shrinking pair rules and complete word cylinders}
+Write $\mathcal P(w)=\delta_{3w}-\delta_w$, with the mass at $1$
+killed as throughout. A current for this signed pair does not assume
+that either endpoint absorbs. We extend the original rule of
+Theorem~\ref{thm:pairedreturn}.
+
+\begin{theorem}[Mixed partial pair recursion]\label{thm:mixedpairs}
+Let $w>0$, $w\equiv3\pmod8$, $h=v_2(3w-1)$, and
+$z=3^k(3w-1)/2^h$, with $k$ specified below. There are the following
+complete recursive branches:
+\[
+\begin{array}{c|c|c|c|c}
+\text{branch}&\text{domain}&v&\epsilon&\text{clock increment}\\\hline
+O_k&h=2k+3,\ z\equiv3\ (8),\ k\ge0&z&+1&k+1\\
+E_{1,k}&h=2k+2,\ z\equiv29\ (64),\ k\ge1&(3z+1)/8&-1&k+2\\
+E_{2,k}&h=2k+2,\ z\equiv101\ (128),\ k\ge1&(3z+1)/16&-1&k+2
+\end{array}
+\]
+In each row $v\equiv3\pmod8$, $0<v<w/2$, and an explicit local
+current $L_w$ satisfies
+\[
+\operatorname{div}L_w=\mathcal P(w)-\epsilon\mathcal P(v).
+\]
+Thus a child current is added for $O_k$ and subtracted for either
+even branch. If the child has prescribed clock
+$S^\ell(3v)=S^{\ell+1}(v)$, $\ell\ge2$, the parent has that clock
+plus the increment in the table. The even case with $z\in\mathcal B$
+remains terminal, with clock $k+v_2(2z+2)$. Checking the terminal
+case and these three branches gives a terminating partial recognizer;
+all other cases remain unresolved.
+\end{theorem}
+\begin{proof}
+For odd $c$ and $e\ge3$ the exact valuation is two and
+\[
+S(1+2^ec)=1+3\cdot2^{e-2}c.
+\]
+Starting from $3w=1+2^h c$ and $S(w)=1+2^{h-1}c$ gives
+\[
+\begin{array}{ll}
+h=2k+2:& S^k(3w)=4z+1,\quad S^{k+1}(w)=2z+1,\\
+h=2k+3:& S^k(3w)=8z+1,\quad S^{k+1}(w)=4z+1.
+\end{array}
+\]
+In the odd branch $S(8z+1)=6z+1$, the selected partner of the
+canonical integer $3z\equiv1\pmod8$. Its selected run has length
+two. Append this elementary bridge on the left and the $F$-sibling
+bridge to $z$ on the right. Subtracting the two prefix currents gives
+$\mathcal P(w)-\mathcal P(z)$ and the stated clock increment.
+Moreover
+$z<(3/8)(3/4)^k w<w/2$.
+
+For $E_{1,k}$ write $z=4u+1$, $u\equiv7\pmod{16}$.
+The left prefix reaches $v=S(u)=(3u+1)/2$ at time $k+1$.
+The right prefix continues through
+\[
+8u+3\longrightarrow12u+5\longrightarrow9u+4=6v+1,
+\]
+at time $k+3$. The last state is the length-two selected partner
+of $3v$. The prefix difference therefore has divergence
+$\mathcal P(w)+\mathcal P(v)$. The child equality gives the parent
+clock $\ell+k+2$. Here $z<(3/4)^{k+1}w$ implies
+$v=(3z+1)/8<w/2$. The $E_{2,k}$ identity, its reversed orientation,
+clock, and stronger bound $v<w/4$ are those already proved in
+Theorem~\ref{thm:pairedreturn}. The terminal even case uses the
+elementary bridge between $z$ and its selected partner $2z+1$.
+Every recursive child is a smaller positive integer in the same domain,
+which proves termination of recognition, including its unresolved outputs.
+\end{proof}
+
+Every finite mixed word has a complete nonempty binary cylinder.
+To see this, fix a terminal parameter $j\ge1$ and impose
+\[
+3^{j+1}v\equiv3^j+2^{2j+2}\pmod{2^{2j+5}}.
+\]
+Its terminal $z$ is $1\pmod8$ and its clock is $j+2$.
+The three child maps have the form $(Aw+B)/2^p$, with
+\[
+\begin{array}{c|c|c|c}
+&A&B&p\\\hline
+O_k&3^{k+1}&-3^k&2k+3\\
+E_{1,k}&3^{k+2}&4^{k+1}-3^{k+1}&2k+5\\
+E_{2,k}&3^{k+2}&4^{k+1}-3^{k+1}&2k+6
+\end{array}
+\]
+If the required child is $v\equiv c\pmod{2^M}$, impose
+\[
+w\equiv(2^pc-B)A^{-1}\pmod{2^{M+p}}.
+\]
+The inverse exists because $A$ is odd. An odd child forces the exact
+value of $h$; its residue $3\pmod8$ forces the displayed $z$ residue.
+The even residues are noncanonical, so the word does not terminate
+prematurely. These congruences give positive integer realizations of
+every prescribed finite word, of modulus $2^{2j+5+\sum p}$ and clock
+\[
+\ell=j+2+\sum_O(k+1)+\sum_{E_1,E_2}(k+2).
+\]
+Every such $w\equiv c\pmod{2^M}$ lifts to a unique exponent class
+$a\equiv7\pmod{16}$ modulo $2^{M+1}$ satisfying
+$(3^{a-1}-1)/8\equiv c\pmod{2^M}$. The one-bit lifting identity is
+$3^{2^i}\equiv1+2^{i+2}\pmod{2^{i+3}}$ for $i\ge1$.
+With $x=2^a-1$, $q=2^{a-1}-1$, and $N=12\cdot2^{a-4}$,
+these are actual weight-one residual roots with $q<N$, and
+\[
+S^{a+\ell}(x)=S^{a+\ell}(q).
+\]
+For example $O_0$ followed by the $j=1$ terminal gives
+$a\equiv631\pmod{2048}$ and $\ell=4$;
+$E_{1,1}$ followed by that terminal gives
+$a\equiv3655\pmod{32768}$ and $\ell=6$.
+The old canonical return $3w$ still has unbounded ratio to $x$
+along each exponent progression.
+
+The exact measure of the accepted binary cylinders, conditional on
+$w\equiv3\pmod8$, is
+\[
+\frac{1/6}{1-(1/6+1/96+1/192)}=\frac{32}{157}.
+\]
+Here a residue modulo $2^m$ has its usual binary-cylinder measure.
+The even terminal mass is $1/6$; the recursive masses for $O,E_1,E_2$
+are $1/6,1/96,1/192$. On each branch cylinder, increasing $w$ by
+$2^{p+3}$ increases its child by $8A$, with $A$ odd. Thus the child
+has the exact uniform conditional binary measure, and summing disjoint
+finite words gives the geometric series. This is neither a weighted
+$R_N$ mass fraction nor a uniform finite-integer estimate for increasing
+word depth. It gives no permission to iterate a residual contraction.
+
+For a supplied lower current, retain the exact signs. Let $D_x$ bridge
+$x$ to $3w$, let $J_w$ certify $\mathcal P(w)$, and let $H_{q,w}$
+be the prescribed prefix from $q$ to $w$. Then
+\[
+\operatorname{div}(D_x+J_w-H_{q,w})=\delta_x-\delta_q.
+\]
+Adding a supplied exact current for $q$ certifies $\delta_x$.
+The finite graph of nonzero current rows contains an absorbing path:
+a component disjoint from $1$ has divergence sum zero and cannot
+contain the sole positive source. This extraction assumes no global
+absence of cycles. Multiplying the whole identity preserves any source
+coefficient, including two. Separate proofs may reuse a known lower path;
+no simultaneous annular source-capacity assertion is made.
+Full cylinder proofs and the constructor are in
+\path{experiments/residual_progress/paired_completion/MIXED_SHRINKING_RULES.md}.
+
+\section{Complete decreasing inverse ancestry and lower partners}
+All residual-profile and weighted-count assertions in this section
+assume $N\ge8$ and $8\mid N$. The inverse-chain identities themselves
+apply to every positive canonical state.
+\begin{theorem}[Canonical inverse-chain minimum]\label{thm:inverseancestry}
+For $q\in\mathcal B$ put
+\[
+h=v_3(q+1),\qquad \eta(q)=2^h(q+1)/3^h-1.
+\]
+The unique maximal strictly decreasing path of canonical
+$T$-predecessors has the states
+\[
+q_j=2^j(q+1)/3^j-1\quad(0\le j\le h),\qquad
+S(q_j)=q_{j-1}\quad(j\ge1).
+\]
+In particular $\eta$ is idempotent, $3\nmid\eta(q)+1$, and the
+nonpositive current
+\[
+J_q=-\sum_{j=1}^h\delta_{q_j},\qquad
+\operatorname{div}J_q=\delta_q-\delta_{\eta(q)}
+\]
+is explicit. The complete undirected components of canonical
+valuation-one arrows are finite paths. If their minimum is $p$ and
+$a=v_2(p+1)$, their states are exactly
+$3^j(p+1)/2^j-1$ for $0\le j<a$.
+\end{theorem}
+\begin{proof}
+In the inverse list following Theorem~\ref{thm:bridgenormal}, all
+ray bases exceed the target, except the self-loop at $1$. The only
+smaller predecessor is $(2q-1)/3$ when $q\equiv2\pmod3$.
+It is canonical and has exact valuation one. Iteration gives the
+displayed formula, with ternary order $h-j$, proving both maximality
+and the current sign. Conversely, start at the minimum $p$.
+The stated forward path increases through complementary canonical
+states and ends at a state $1\pmod8$, which has no valuation-one
+successor. The unique inverse at each preceding state proves full
+component completeness, including the singleton case $p\equiv1\pmod8$.
+\end{proof}
+This minimum is local to decreasing inverse arrows. For every $j\ge0$,
+\[
+S^8(27+131072j)=91+419904j,
+\]
+with all states canonical, yet the target is fixed by $\eta$ and is
+larger than its displayed ancestor. Nor does this collapse induce a
+one-step quotient: $\eta(7)=\eta(17)=7$, while
+$\eta(T(7))=7$ and $\eta(T(17))=1$. The exit position matters.
+
+For a complementary root $x$, set $q=f_*(x)$ and $p=\eta(q)$.
+Adding $J_q$ to its normalized run bridge gives divergence
+$\delta_x-\delta_p$. Therefore a supplied exact $U_N$ current
+certifies the full source coefficient whenever $p<N$, for $8\mid N$.
+For a general single-seed cutoff the condition is $p\le N$.
+The target $q$ is already supplied history, since $S^h(p)=q$;
+this is an arithmetic recognition rule within the saturation of
+Theorem~\ref{thm:saturation}. The separate run bridge certifies $x$,
+which need not already be in that known closure.
+
+This extension leaves every even-$d$ return unchanged. Such a return
+is $f=2\cdot3^b w+1$; normalization gives either $q=f\equiv1\pmod3$
+or $q=(f-1)/2\equiv0\pmod3$, hence $h=0$.
+For odd $d=2b+1$, write its elementary stratum as
+$f=F^k(q)$ or $F^k(2q+1)$. In either case
+\[
+h=v_3(V)-1,\qquad
+V=3^{a+b}t-3^{b+1}+2^d(2^{2k+1}+1).
+\]
+Since $v_3(2^n+1)=1+v_3(n)$ for odd $n$, putting
+$e=v_3(2k+1)$ gives $h=\min(b,e)$ whenever $b\ne e$.
+For $b=e$ the exact formula for $V$ is retained; cancellation cannot
+be discarded. In particular the stratum $k=0$ never improves.
+
+The complete cylinder $x\equiv19199\pmod{65536}$ has
+\[
+q=\frac{6561x+3745}{8192},\qquad
+p=\frac{2187x-117}{4096},\qquad S^9(x)=S^2(p).
+\]
+Its exact word from $x$ has total valuation $15$, including the extra
+cylinder bit in modulus $2^{16}$. Every actual residual source in
+this cylinder has $p<(2187/4096)x<N$ because $x<3N/2$.
+At $N=65536$, for example, $x=84735$ has old return $67865>N$
+and lower partner $45243<N$.
+
+\begin{corollary}[Unbounded old returns with explicit lower partners]
+\label{cor:inversefamilies}
+For every $h\ge2$ put
+\[
+k=(3^h-1)/2,\quad b=h+1,\quad d=2h+3,\quad M=h+2+3^h.
+\]
+Choose the unique integer $a$ for which
+$4/9\le\lambda=3^a/2^{a+M}<2/3$. Define the odd residue $t_0$ by
+\[
+3^{a+b}t_0\equiv3^{b+1}+2^d(4^{k+1}-1)
+\pmod{2^{d+2k+3}}.
+\]
+Every positive integer in the complete cylinder
+\[
+x\equiv2^at_0-1\pmod{2^K},\qquad K=a+d+2k+3,
+\]
+is complementary and has old canonical return $q>x$ and inverse-chain
+minimum $0<p<(2/3)x$. It satisfies the exact merger
+\[
+S^{a+b}(x)=S^{h+1}(p).
+\]
+Thus every actual $R_N$ source in this cylinder has $p<N$ and is
+certified by a supplied $U_N$ current, although $q>N$.
+The limiting ratio $q/x$ is unbounded as $h$ increases. For each fixed
+$h$ the full weighted source count differs from
+$25N/(72\cdot2^K)$ by at most six. Both source weights occur at
+infinitely many required ray cutoffs.
+\end{corollary}
+\begin{proof}
+Successive choices of $a$ multiply $\lambda$ by $3/2$, giving its
+unique allowed value. The cylinder imposes the exact run parameter
+$d$ and $f=F^k(q)$ with $q\equiv1\pmod8$.
+Here $e=v_3(2k+1)=h<b$, so the inverse depth is exactly $h$.
+Set
+\[
+c=\frac13-\frac{3^{h+1}}{2^d},\qquad
+\beta=\lambda+(2/3)^h(2/3+c/4^k)-1,
+\qquad \Lambda=(3/2)^h\lambda.
+\]
+Direct substitution gives
+\[
+p=\lambda x+\beta,\quad -5/9<\beta<-7/192<0,
+\qquad q=\Lambda x+\Lambda-1/3+c/4^k.
+\]
+The bounds follow from $0<c<1/3$, $h\ge2$, $k\ge4$ and
+$4/9\le\lambda<2/3$; in particular $\Lambda\ge1$ and tends to
+infinity with $h$. The exact words are
+$1^{a-1},2^b,(2k+4)$ from $x$ and $1^h,2$ from $p$.
+The first has total valuation $K-1$, so the displayed cylinder keeps
+the required extra bit. Their common endpoint exceeds $1$.
+
+Intersect the binary cylinder with the four weighted source rows
+\[
+\begin{array}{c|c|c}
+\text{interval}&\text{residue}&\text{weight}\\\hline
+(N,3N/2)&3\pmod{12}&1\\
+(9N/8,3N/2)&7\pmod{12}&1\\
+(N,9N/8)&7\pmod{36}&2\\
+(N,9N/8)&19\pmod{36}&2
+\end{array}
+\]
+Their CRT periods are $3\cdot2^K$ or $9\cdot2^K$. Summing their
+interval lengths gives $25N/(72\cdot2^K)$, and the four counting
+errors have total weight six. For $N=12\cdot2^B$, $B\ge K$, the
+first cylinder member above $N$ with residue $0\pmod3$ is below
+$5N/4$ and has weight one. With $B\ge K+3$, impose $7\pmod{36}$;
+the first member is below $35N/32<9N/8$ and has weight two.
+These give infinitely many required cutoffs without assuming absorption
+above the supplied interval.
+\end{proof}
+
+The whole extended profile also has an exact finite count. For each
+run cell and elementary stratum, the original counter provides a
+canonical interval $q_-<q<q_+$ in a progression modulo $3^E$.
+For each possible $h$, cap its upper endpoint at
+$(3/2)^h(N+1)-1$, intersect with $q\equiv-1\pmod{3^h}$, and
+subtract the intersection with $q\equiv-1\pmod{3^{h+1}}$.
+Compatibility of these powers of three is checked by divisibility,
+not a coprime CRT assumption. Apply the canonical progression counter,
+retaining the original partner restriction and every source weight.
+The four cell indices and the counter give at most
+$O(\log^5 N)$ arithmetic operations; this is not a bit-complexity bound.
+No new leading coefficient for the entire extended profile is claimed.
+Full formulas and finite certificates are in
+\path{experiments/residual_progress/inverse_ancestry/INVERSE_ANCESTRY.md}.
+
+\section{General pair decomposition and the exact scope of a static catalogue}
+For every complementary $x=2^at-1$ put
+$q=(x-1)/2$ and $3^{a-1}t-1=2^dw$, with $a,d\ge2$ and $t,w$ odd.
+The smaller seed has the prescribed prefix $S^{a-1}(q)=w$:
+its valuations are $1^{a-2},d+1$. Let $D_x$ be the raw run bridge
+of Theorem~\ref{thm:runbridge}, with endpoint
+\[
+f=\begin{cases}3^kw,&d=2k+1,\\2\cdot3^kw+1,&d=2k.\end{cases}
+\]
+Subtracting the smaller prefix current $H_{q,w}$ gives
+\[
+\operatorname{div}(D_x-H_{q,w})
+=\delta_x-\delta_q-\delta_f+\delta_w.
+\]
+The unresolved comparison is therefore exactly $\delta_f-\delta_w$.
+With $\mathcal D(u)=\delta_{2u+1}-\delta_u$, it decomposes as
+\[
+\delta_f-\delta_w=
+\begin{cases}
+\displaystyle\sum_{j=0}^{k-1}\mathcal P(3^jw),&d=2k+1,\\[4pt]
+\displaystyle\mathcal D(3^kw)+\sum_{j=0}^{k-1}\mathcal P(3^jw),&d=2k.
+\end{cases}
+\]
+This is a decomposition into two formal types with unbounded parameters.
+For $a\equiv5\pmod8$, $a\ge13$, $t=1$, the doubling parameter
+$9(3^{a-1}-1)/16$ already has unbounded ratio to $x$.
+No smaller-input induction follows just from the number of types.
+
+Universal finite exact currents for $\mathcal D(u)$, for all positive
+odd $u$, are themselves equivalent to Collatz. Indeed strong induction
+on odd $x$ uses $S(x)<x$ for $x\equiv1\pmod4$, $x>1$, and the
+current for $\mathcal D((x-1)/2)$ otherwise. Adding the smaller
+absorption input produces the nonnegative source $\delta_x$, whose
+finite current graph must absorb. Conversely subtracting two absorbing
+path currents gives every $\mathcal D(u)$ current. Since canonical
+$u$ already have their elementary doubling bridge, restricting the
+unproved universal requirement to noncanonical $u$ does not change
+this equivalence.
+
+\begin{theorem}[Complete scope of the restricted static catalogue]
+\label{thm:paircatalogue}
+Consider the undirected identity graph generated by all elementary
+bridges of Theorem~\ref{thm:bridgenormal} and the formal additional
+edges $3w\mathbin{--}w$ for every $w\equiv3\pmod8$. No arbitrary
+forward $S$ arrow is included in this graph. After elementary
+normalization, its complete added edges are
+\[
+q\mathbin{--}(q-3)/6\quad(q\equiv9\pmod{48}),
+\qquad q\mathbin{--}q/3\quad(q\equiv33\pmod{48}).
+\]
+Apply these unique decreasing parents to $\nu(x)$ until neither
+condition holds, and denote the terminal label by $\chi(x)$.
+Two states are connected by the entire static catalogue if and only
+if their labels agree, even when paths may use arbitrarily large
+intermediate states. Every complementary canonical vertex with initial
+run length at least three is isolated in this quotient graph.
+\end{theorem}
+\begin{proof}
+For $w\equiv3\pmod{16}$, its selected elementary minimum is
+$(w-1)/2$ and $3w\equiv9\pmod{48}$ is canonical. For
+$w\equiv11\pmod{16}$, both $w$ and $3w\equiv33\pmod{48}$ are
+canonical. These two cases exhaust the added edges. Each upper
+endpoint has exactly one smaller parent, so iteration terminates.
+Every edge preserves its final label, and every vertex has a finite
+parent path to that label; this proves both implications. Upper
+endpoints are $1\pmod8$, and lower endpoints are $1\pmod8$ or
+$11\pmod{16}$. A complementary vertex with run length at least
+three is $7\pmod8$ and is incident to none of them.
+\end{proof}
+
+The limitation persists after the whole first run on an actual source
+family. For $a\equiv3\pmod{16}$, $a\ge19$, take
+\[
+x=2^a-1,\quad N=12\cdot2^{a-4},\quad
+w=(3^{a-1}-1)/8\equiv1\pmod{24},\quad f=3w.
+\]
+Here $x$ is a weight-one complementary residual root and $w$ is
+already a terminal $\chi$ label. If $w\equiv1\pmod{16}$,
+$\nu(3w)=(3w-1)/2$ is another terminal label $1\pmod{24}$,
+strictly larger than $w$. If $w\equiv9\pmod{16}$, the state
+$3w\equiv11\pmod{16}$ is itself a different terminal label.
+Thus $\chi(f)\ne\chi(w)$ throughout this family, even if every
+restricted tripling relation is formally granted.
+This excludes only the specified first-run-plus-static-catalogue
+mechanism. It is not a claim of logical insufficiency in a theory
+allowing additional arguments or ordinary arrows. The next theorem
+uses such arrows to cross part of this boundary. The complete scope
+proof is in
+\path{experiments/residual_progress/pair_scope/PAIR_SCOPE.md}.
+
+\section{Two shrinking entries from the missing pair domain}
+\begin{theorem}[Entries from $1$ modulo $8$]\label{thm:pairone}
+For the signed pair $\mathcal P(w)$ there are two complete branches
+with positive smaller child $v\equiv3\pmod8$:
+\[
+\begin{array}{c|c|c|c}
+&\text{parent domain}&v&\text{clock increment}\\\hline
+A&w\equiv17\pmod{128}&3(w-1)/16&1\\
+B&w\equiv105\pmod{256}&(9w-1)/16&2
+\end{array}
+\]
+Both have $v<w$ and an explicit current $L$ of divergence
+$\mathcal P(w)-\mathcal P(v)$. Thus an accepted child current from
+Theorem~\ref{thm:mixedpairs} is added. A child merger clock
+$\ell\ge2$ becomes the parent clock $\ell+1$ or $\ell+2$.
+Unrecognized parents and unresolved children remain unresolved.
+\end{theorem}
+\begin{proof}
+In branch $A$, write $w=16u+1$ with $u\equiv1\pmod8$, so $v=3u$.
+Then
+\[
+S(3w)=F(18u+1),\qquad S(w)=F(3u),\qquad
+18u+1=2(9u)+1.
+\]
+The left endpoint has the elementary bridge to $9u=3v$, and the
+right to $3u=v$. Their prefix difference proves the sign. The
+selected partner of $9u$ has length two, giving
+$S^j(3w)=S^{j-1}(3v)$ for $j\ge3$ and
+$S^j(w)=S^{j-1}(v)$ for $j\ge2$; these give the clock increment.
+
+In branch $B$, the child is $v\equiv11\pmod{16}$, so $v$ and
+$3v$ are canonical. The first two valuations are $(1,2)$ on $3w$
+and $(2,1)$ on $w$, with exact endpoints
+\[
+S^2(3w)=\frac{27w+5}{8}=2(3v)+1,\qquad
+S^2(w)=\frac{9w+7}{8}=2v+1.
+\]
+Append their selected bridges to $3v$ and $v$, respectively.
+Their lengths are two and three, so
+$S^j(3w)=S^{j-2}(3v)$ for $j\ge4$ and
+$S^j(w)=S^{j-2}(v)$ for $j\ge5$. A child clock $\ell\ge2$
+therefore gives parent clock $\ell+2$. The displayed affine formulas
+prove positivity and strict decrease. The two parent domains are
+disjoint modulo sixteen.
+\end{proof}
+
+Every complete accepted mixed child cylinder $v\equiv r\pmod M$
+has the complete $A$ parent cylinder
+\[
+3w\equiv16r+3\pmod{16M}.
+\]
+If $r\equiv11\pmod{16}$, it also has the complete $B$ parent
+cylinder $9w\equiv16r+1\pmod{16M}$. Odd coefficients are invertible
+modulo $16M$ and retain all branch bits. Positive integer witnesses
+follow by additionally imposing $v\equiv0\pmod3$ for $A$, or
+$v\equiv5\pmod9$ for $B$, and applying CRT with the binary child
+cylinder. In particular $A$ accepts parents of every finite mixed word.
+
+Each parent cylinder $w\equiv c\pmod{2^m}$ lifts uniquely to
+$a\equiv3\pmod{16}$ modulo $2^{m+1}$ with
+$3^{a-1}\equiv1+8c\pmod{2^{m+3}}$. This is the same exact binary
+lifting as above, now starting with $a-1\equiv2\pmod{16}$.
+For the terminal child $v\equiv59\pmod{128}$ the two parent
+cylinders and their actual Mersenne mergers are
+\[
+\begin{array}{c|c|c|c}
+&w\pmod{2048}&a\pmod{4096}&S^{a+\ell}(2^a-1)=S^{a+\ell}(2^{a-1}-1)\\\hline
+A&1681&1699&\ell=4\\
+B&105&659&\ell=5
+\end{array}
+\]
+They lie in the source family excluded by the restricted static
+catalogue, and use additional ordinary arrows. Their old normalized
+returns are $(3w-1)/2$ on $A$ and $3w$ on $B$; both have unbounded
+ratio to the source along the exponent progression.
+For current conversion use the \emph{raw} run bridge $D_x$ from
+$x$ to $3w$, not a bridge ending at its possibly smaller normal form.
+Then $D_x+J_w-H_{q,w}$ again has divergence $\delta_x-\delta_q$,
+with $q=2^{a-1}-1<N$. Adding that supplied lower current and extracting
+an existing graph path preserves every source coefficient.
+This supplies additional complete families, without a universal
+completion or a global residual-density claim. For example $a=147$
+enters branch $B$ but still has an unresolved child. Full proofs and
+current data are in
+\path{experiments/residual_progress/pair_one/MISSING_PAIR_DOMAIN.md}.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -2483,12 +2977,22 @@ Theorem~\ref{thm:knownfibres} expands the known target set to arbitrary
 heights. Neither target density nor the symbolic prefix rates establish
 that every remaining branch reaches it.
 Theorem~\ref{thm:saturation} now compiles all supplied history into an
-exact finite core. Theorem~\ref{thm:pairedreturn} provides a genuinely
-decreasing recursion for explicit infinite subfamilies of the growing
-returns. Its odd-$h$ and remaining $z$ branches are the next concrete
-obligation. Theorem~\ref{thm:boundedruns} rules out strict decrease on
-every run return for height-monotone potentials with finitely many labels;
-it leaves other arithmetic state and paired mergers available.
+exact finite core. Theorems~\ref{thm:pairedreturn} and
+\ref{thm:mixedpairs} give decreasing recursions for explicit infinite
+subfamilies of growing returns, including complete mixed words and some
+odd-$h$ branches. Theorem~\ref{thm:pairone} adds shrinking entries
+from the separate $1$-modulo-$8$ pair domain. The inverse-chain rule in
+Theorem~\ref{thm:inverseancestry} recognizes further lower inputs,
+including families with unbounded old return ratios, but leaves every
+failed even-$d$ return unchanged. The next constructive obligation is
+a closed rule on the remaining pair domains and auxiliary pair types,
+with a proved decreasing parameter and preserved source multiplicities.
+Further isolated merger families alone would not discharge it.
+Theorem~\ref{thm:paircatalogue} gives the exact limitation of the named
+static identity catalogue; the newer dynamic bridges cross part of it.
+Theorem~\ref{thm:boundedruns} rules out strict decrease on every run
+return for height-monotone potentials with finitely many labels; it
+leaves other arithmetic state and paired mergers available.
 The packet work itself need not be nonpositive: direct finite iteration gives
 $H_{39}(\PiR_{32})=57$. The target is a finite upper bound for each cutoff.
 
@@ -2586,5 +3090,25 @@ The repeated-word checker covers57 cylinders through128 word repetitions,
 The merger-scope checker verifies16384 successor bounds,128 escape
 representatives,six ray escapes,six early-cancellation family members,
 and both reproduced sign/climb tables.
+The mixed-pair checker covers4096 inputs,510 complete cylinders,
+28 long words through depth64,four actual Mersenne bridges and one
+supplied-current conversion, including full weight-two scaling.
+The inverse-ancestry checker covers4096 canonical targets,depths through128,
+2048 complementary branches,32 small-cylinder members,12 large-return
+required-ray witnesses with both source weights,eight exact full-profile
+counts through $N=65536$,and three supplied-profile conversions.
+Its two new-root currents contain25 and171 rows; the larger cutoff
+uses a supplied single lower-seed path, not an unconstructed full $U_N$.
+The pair-scope checker verifies4096 complete smaller-half comparisons,
+741 integrality-preserving parameter cases,4096 hypothetical graph edges,
+the bounded quotient graph through32767,eight members of its scoped
+counterfamily,and seven growing even-return helper cases. It does not
+certify the hypothetical universal pair premise.
+The missing-domain checker covers4096 parent inputs,213 complete mixed
+cylinder examples,71 exponent lifts,four actual Mersenne bridges and
+supplied-current conversions. It stores an11-row current for315 and
+reconstructs the3200-row $a=659$ output under a10000-step lower-input
+discovery cap. These new constructors and receipts are included in the
+same unified verification command; their proofs retain unresolved cases.
 These audits remain finite evidence for the implementations.
 \end{document}
