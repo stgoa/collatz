@@ -1,0 +1,123 @@
+{
+ "probe": "automatic_rigidity_control",
+ "main": "8572962",
+ "E": 9,
+ "W": 60,
+ "rows": {
+  "d=5": {
+   "cycle_labels_seen": [
+    1,
+    5,
+    19,
+    23,
+    187,
+    347
+   ],
+   "kernel_sizes_cycle_label": [
+    1,
+    2,
+    4,
+    8,
+    14,
+    24,
+    42,
+    74,
+    133,
+    242
+   ],
+   "kernel_sizes_multiple_of_d": [
+    1,
+    2,
+    4,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+   ]
+  },
+  "d=7": {
+   "cycle_labels_seen": [
+    5,
+    7
+   ],
+   "kernel_sizes_cycle_label": [
+    1,
+    2,
+    4,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
+   ],
+   "kernel_sizes_multiple_of_d": [
+    1,
+    2,
+    4,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
+   ]
+  },
+  "d=13": {
+   "cycle_labels_seen": [
+    1,
+    13,
+    131,
+    211,
+    227,
+    251,
+    259,
+    283,
+    287,
+    319
+   ],
+   "kernel_sizes_cycle_label": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    28,
+    48,
+    84,
+    146,
+    259
+   ],
+   "kernel_sizes_multiple_of_d": [
+    1,
+    2,
+    4,
+    8,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13
+   ]
+  }
+ },
+ "thue_morse_kernel_sizes": [
+  1,
+  2,
+  2,
+  2,
+  2,
+  2,
+  2,
+  2,
+  2,
+  2
+ ],
+ "result": "DONE"
+}

@@ -28,6 +28,37 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 20:02 — REFEREE (main's proposed next goal "full automatic rigidity", `8572962`) + control data: the goal looks like it factors as a `d`-uniform step plus V13
+
+**The proposal.** Every finite-valued 2-automatic `h` with `h(2n) = h(n)` and `h(3n+1) = h(n)` (odd `n > 1`) is constant. As a target it is:
+
+- **well posed;**
+- **strictly weaker than Collatz,** since Collatz implies it trivially and the converse fails;
+- **specific to `d = 1`,** since for `d > 1` the periodic, hence automatic, coloring `1_(d|n)` is invariant and nonconstant. Its failure for `3x + d` sits exactly at V13's periodic classification.
+
+**Control data.** This is finite evidence from `automatic_rigidity_control.py`. For `3x + d`, take the natural invariant coloring "which cycle the orbit ends in" and count its distinct 2-kernel elements, truncated to 60 terms, for levels `e ≤ 9`:
+
+| d | cycles seen | cycle labelling, by level | `1_(d|n)` |
+|---|---|---|---|
+| 5 | 1, 5, 19, 23, 187, 347 | 1, 2, 4, 8, 14, 24, 42, 74, 133, 242 (growing) | saturates at 5 |
+| 7 | 5, 7 | saturates at 7; the labelling **equals** `1_(7|n)` | saturates at 7 |
+| 13 | 1, 13, 131, 211, 227, … | 1, 2, 4, 8, 16, 28, 48, 84, 146, 259 (growing) | saturates at 13 |
+
+As a control, Thue–Morse saturates at 2. Any automaton for the `d = 5` or `d = 13` labelling would need at least 242 or 259 states respectively.
+
+**Reading, a candidate structure rather than a claim.** The non-periodic invariant colorings that exist for `d = 5` and `d = 13` show no sign of automaticity, and the one automatic labelling seen (`d = 7`) is periodic. This fits a `d`-uniform statement: **every 2-automatic invariant coloring is eventually periodic**, a Cobham/Mahler-type rigidity in which `+d` plays no special role. V13's periodic classification then supplies the `d = 1` constancy.
+
+If so:
+
+- mechanism 3 of the proposal (a 3-Mahler relation, then Adamczewski–Bell) only needs to reach *periodicity*;
+- every step before V13 can be sanity-checked against the `3x + 5` and `3x + 13` controls, where the conclusion must also hold.
+
+Separately, verification below `2⁶⁸` already rules out nonconstant examples with fewer than 70 states for `d = 1`.
+
+`python3 sidekick/probes/automatic_rigidity_control.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 19:50 — CONFIRMED (explicit-Tao L4 part 1, `e89ce02` + `478a069`): scoped barrier — Tao's printed architecture is vacuous below `log x ≈ 6.27·10¹³`
 
 I recomputed the window certificate with 50-digit decimal arithmetic (`fable_L4_window_check.py`):

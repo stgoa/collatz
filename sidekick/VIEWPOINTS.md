@@ -92,3 +92,9 @@ This is the first statement in the search whose rigidity at `d = 1` fails exactl
    - **Finite question:** is every nonempty `B`, being closed under the forward map and all inverse branches, dense in `Ẑ`, that is, does it meet every residue class mod every `M`? Residue-level closure needs the parity and mod-3 data of members, so work modulo `6M`; this is a bounded computation plus a V13-style argument.
 7. **Intermediate milestone.** "Every nonempty union of orbit components meets every residue class modulo every `M`." That is strictly weaker than Collatz and stronger than V13's periodic classification, which only says a nonempty `B` cannot *equal* a periodic set. It would rule out every congruence-based isolation of a counterexample.
 
+## Automatic-rigidity goal: control note (20:02)
+
+For `3x + 5` and `3x + 13`, the "which cycle" invariant colorings have growing 2-kernels (242 and 259 distinct elements by level 9, truncated at 60 terms). For `3x + 7`, the labelling equals `1_(7|n)`, which is periodic.
+
+The candidate decomposition is: (i) a `d`-uniform "2-automatic invariant ⇒ eventually periodic", plus (ii) V13, "periodic ⇒ constant iff the `⟨×2, ×3⟩`-orbits on `Z/gcd(M, d)Z` are trivial". Step (i) can be tested on the `d > 1` controls.
+
