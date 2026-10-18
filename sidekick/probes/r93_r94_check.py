@@ -1,6 +1,6 @@
 """Sidekick probe: independent checks of main's in-progress R93 (two-source history interface),
 R94 (the prescribed child Q(floor(ell/3)) needs unbounded clocks) and the later-target ray probe,
-as read from main's uncommitted working copy on top of 61fd041. This branch's own integer and
+first read from main's working copy on 61fd041 and committed unchanged as 9190ccf. This branch's own integer and
 rational Syracuse code and normal form; nothing is imported from main.
 
 R93
@@ -21,7 +21,8 @@ R94
  word from p*_2 to 1663/7153 (negative states, disjoint from the upper states); complete cylinders
  for c in {0,1,2}, caps K and return bounds R built here by affine-root exclusion, with
  brute-force replay (all clock pairs a,b<=K distinct; actual words equal the shadow words;
- v2(7153 v0+299947)>=19R+18) and the first actual meeting clocks of the least member.
+ v2(7153 v0+299947)>=19R+18) and the first actual meeting clocks of the least member;
+ NEXT_TARGET's remark that p=q*+gamma^s(q-q*) is never an integer (exact ternary orders).
 Later-target probe
  S^78(Q)=y (r=4, cost 122) and S^126(Q)=y (r=8, cost 198); canonical targets and high request
  ranks; ray cutoffs J and L from (4); every ray base a_L checked by T(a_L)=target; all maximal
@@ -423,7 +424,26 @@ def r94():
                 assert max(first_meet) > K
         cylinders.append({"c": c, "K": K, "R": R, "N": N, "roots": len(roots),
                           "first_meeting_clocks_least_member": list(first_meet)})
+    # NEXT_TARGET remark: p = q* + gamma^s (q - q*) has v3(p) = -13 (s > 0) or 12s - 13 (s < 0)
+    def v3(x):
+        x, k = F(x), 0
+        n, d = x.numerator, x.denominator
+        while n % 3 == 0:
+            n //= 3
+            k += 1
+        while d % 3 == 0:
+            d //= 3
+            k -= 1
+        return k
+    gamma = F(A, M)
+    scal = 0
+    for s in [k for k in range(-12, 13) if k]:
+        for q in [0, 1, -1, 3**30, -7*3**25] + [rng.randrange(-2**80, 2**80) for _ in range(30)]:
+            pq = qstar + gamma**s * (q - qstar)
+            assert pq.denominator != 1 and v3(pq) == (-13 if s > 0 else 12*s - 13)
+            scal += 1
     return {"q_star": str(qstar), "ell_star": str(lstar), "child_word_max_bits": maxbits,
+            "cycle_scaling_nonintegral_cases": scal,
             "cylinders": len(cylinders), "replayed_pairs": replays, "detail": cylinders}
 
 

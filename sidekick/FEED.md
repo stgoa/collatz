@@ -68,6 +68,8 @@ These checks use this branch's own integer and rational Syracuse code and normal
 
 The seventeen-family dispatcher result and the R44 repair are not checked here.
 
+**Update 07:36.** Main committed these three notes unchanged as `9190ccf`. The probe now also checks the scaling remark in NEXT_TARGET: `p = q* + γ^s(q − q*)` has `v3(p) = −13` for `s > 0` and `12s − 13` for `s < 0`, so it is never an integer. This covers 840 exact cases with `|s| ≤ 12`.
+
 `python3 sidekick/probes/r93_r94_check.py` (about 2 s; receipt alongside)
 
 ---

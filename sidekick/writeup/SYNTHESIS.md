@@ -1,6 +1,6 @@
 # The W5 reduction of the Collatz conjecture: a verified map
 
-*This is a consolidated survey of the main programme (results R1–R92 and C1–C5 on `main`, through commit `61fd041`) and the independent side lane (`claude/sidekick`), as of 2026-10-18.*
+*This is a consolidated survey of the main programme (results R1–R94 and C1–C5 on `main`, through commit `9190ccf`) and the independent side lane (`claude/sidekick`), as of 2026-10-18.*
 
 Status labels follow the repository:
 
@@ -173,6 +173,8 @@ Every no-go result in the programme is **scoped**: it excludes a specified proce
 | R77 | Infinite survival in the V/R subsystem with low step-pattern complexity. A repeated factor forces both of its starting states into one 2-adic class, while growth is at most `Λ^j`. So any infinite survivor needs `liminf p(L)/L ≥ 18.285`. Also, no seed up to `2.6·10²⁶` makes 37 consecutive returns |
 | R78, R79 | Finishing at the original rank via the native W9 continuation and the native return `U(b) = (729b + 223)/512`: exact return counts `⌊(v2(217b + 223) − 13)/9⌋`, and every longer chain keeps a higher leading request |
 | R74 | Finite integrality alone: every finite word in the mixed exit-18 returns `V`, `R` is realized by integers on a complete cylinder. Eventually periodic words have negative rational points, so they are never positive integers. Aperiodic survivors remain open; their density is zero, with explicit count bounds |
+| R85, R94 | Uniformly bounded clocks. For any fixed clock budget, positive critical progressions have no smaller history within it (R85, every inverse word and ray). The prescribed child `Q(⌊ℓ/3⌋)` has no merger at clocks `a, b ≤ K` on complete binary cylinders, in every digit and with any prescribed return count (R94) |
+| R91, R92 | Smaller origins reaching the repeated target `n_r` within `12r + 19` quotient steps: only `p = Q` itself, at `d = 12r + 18` (a finite rational basin at `c₀ = −899841/7153`; computer-assisted) |
 
 **Interpretation (side lane, 23:32).** On negative odd integers, `T` has exactly three cycles with `|x| ≤ 4000`:
 
@@ -181,6 +183,8 @@ Every no-go result in the programme is **scoped**: it excludes a specified proce
 - `{−17, −25, −37, −55, −21, −31, −23}`, with return map `3⁷/2¹¹` (R54's `Ψ(q) + 17 = (2187/2048)(q + 17)`).
 
 Positive integers that are 2-adically close to these points follow them, and keep growing, for a number of steps proportional to the 2-adic agreement. Every periodic valuation word with `3^k > 2^m` has a negative rational 2-adic fixed point, and these points are dense in `Z_2`. So every residue class contains inputs that defeat any fixed lookahead. Running backward around the cycle gives the smaller ancestor `p = (2048q − 2363)/2187` whenever `q ≡ −17 (mod 3⁷)`. This coincides with R56's k4 domain `w ≡ 718 (mod 729)` (main's review of `bae3969`).
+
+The same picture organizes R90–R94, now with denominator `7153 = 3¹² − 2¹⁹`. The upper source shadows the negative rational 12-cycle through `−1792529/7153`, with return slope `3¹²/2¹⁹ > 1`. The retained lower source shadows the positive rational 377-cycle through `7817/7153`, with slope `3³⁷⁷/2⁷³⁹ < 1`. The binary agreement `n = v2(7153z − 53)` sets how long both shadows last (side lane, 07:33).
 
 ## 5. Measurements of the rule programme (side lane)
 
@@ -317,7 +321,7 @@ Integrality does bound how long an integer can follow a contracting positive rat
 
 ## Appendix A. Verification ledger
 
-The appendix is pinned at side commit `7150f31` and main commit `ea3278e`. Times refer to `sidekick/FEED.md` entries, and probes live in `sidekick/probes/` unless noted. "PR1" means the merged negative-controls lane, `collatz_research_20261017/negative_controls/`.
+The appendix is pinned at main commit `9190ccf` and the side lane's feed through its 07:36 note. Times refer to `sidekick/FEED.md` entries, and probes live in `sidekick/probes/` unless noted. "PR1" means the merged negative-controls lane, `collatz_research_20261017/negative_controls/`.
 
 ### A.1 Main results and independent side-lane checks
 
@@ -352,7 +356,7 @@ The appendix is pinned at side commit `7150f31` and main commit `ea3278e`. Times
 | R25 (inverse table) | 07:02 (`r92_inverse_tree_check`): brute-force completeness for 750 targets below 3000 | independently checked (finite) |
 | R90 | 06:27 (`r90_phi_return_check`): both twelve-arrow return words (2,000), `T¹²(3v) = 3Φ(v)` on the re-entry cylinder (500), re-entry counts (3,000) | independently checked (finite) |
 | R61, R65, R66, R67 | 06:14 (`batch_r61_r67_check`): R61's exit and the `r ≥ 16` threshold (132), R65's triple bijection and arrows (10,000), R66's ternary identity (2,990), R67's count formula (3,000) | independently checked (finite) |
-| R93, R94 (main working copy on `61fd041`) | 07:33 (`r93_r94_check`): R93's identities, the 53/7153 shadow certificate, departures for every exact order `n = 14..1000` plus 1,584 prescribed long branches, 209 joint upper/lower cases; R94's centers, shadow words and all 39 cylinders with 156 replayed pairs; later-target paths, ray cutoffs and endpoints | independently checked (finite; dispatcher claims not rebuilt) |
+| R93, R94 | 07:33, 07:36 (`r93_r94_check`): R93's identities, the 53/7153 shadow certificate, departures for every exact order `n = 14..1000` plus 1,584 prescribed long branches, 209 joint upper/lower cases; R94's centers, shadow words and all 39 cylinders with 156 replayed pairs; later-target paths, ray cutoffs and endpoints; NEXT_TARGET's scaling remark (840 exact cases) | independently checked (finite; dispatcher claims not rebuilt) |
 | R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R63, R68–R70, R72, R76, R82, R87, R89 | none | not touched |
 
 ### A.2 Main's reviews of side-lane claims

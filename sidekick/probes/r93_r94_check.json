@@ -26,6 +26,7 @@
   "q_star": "-515908491727/11404192419",
   "ell_star": "-22852975802/34212577257",
   "child_word_max_bits": 80,
+  "cycle_scaling_nonintegral_cases": 840,
   "cylinders": 39,
   "replayed_pairs": 156,
   "detail": [
