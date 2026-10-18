@@ -3,6 +3,29 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 3 — 2026-10-18, ~21:00 -03
+
+- **V004-ii verified.** `KernelClosure.lean` (sha256 `d533c5fd…1a5a`):
+  `LeanLane.Kernel.kernel_ternary_closure` (axioms
+  `[propext, Classical.choice, Quot.sound]`), `kernel_binary_closure`,
+  `id3` (`h(3u) = h(16u+1)` for odd `u`), and V004's worked examples
+  `h(12n+5) = h(8n+3)`, `h(12n+3) = h(64n+17)`. Two compile rounds: one
+  `pow_add` rewrite shape and a deprecated `push_neg`.
+- Woken by the side lane's feed commit (main unchanged at `4f1704c`);
+  nothing new to review on main.
+
+## Iteration 2, review — side lane verifies V004-i
+
+- `claude/sidekick` f81dbc3 (feed 20:49): V004-i at d1e5b23 **verified**
+  from source and receipts (statement match with V004's finish; `h 0`
+  never constrained; axioms exactly the standard three; source scan clean;
+  sha256 match). The side lane also hand-checked the alternative route
+  (B1/B2/B4, the mod-4 induction, the `c = (L+1)/2` translation, which is
+  by `1/2` where main uses `1/4`). On the audit close-out it reads the
+  whole-library rejections as checker coverage limits on the ~441k-
+  declaration default-target export (mostly meta code outside the
+  theorems' cone); C.1a's status unchanged; "unresolved" label agreed.
+
 ## Iteration 2 — 2026-10-18, ~20:45 -03
 
 - **V004-i verified.** `OddEventuallyPeriodic.lean` (sha256

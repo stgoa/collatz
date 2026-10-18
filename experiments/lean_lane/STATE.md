@@ -22,7 +22,7 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 |---|---|---|---|---|---|
 | 1 | Periodic rigidity (d=1): every `M`-periodic `h` with `h(2n)=h(n)` and `h(3n+1)=h(n)` (odd `n>1`) is constant on `n>=1`; plus the `3x+5` control (indicator of `5∣n` is a nonconstant 5-periodic invariant) | `experiments/viewpoints/V002/invariant_colors.md` §4, Appendix | **verified** (iteration 1): `PeriodicRigidity.lean`, `LeanLane.periodic_invariant_const`, `LeanLane.control_three_x_plus_five` | `[propext, Classical.choice, Quot.sound]` | `receipts/PeriodicRigidity.{build,axioms,sha256}.txt`, `receipts/toolchain.txt` |
 | V004-i | Odd-eventually-periodic rigidity: if `h` satisfies (1) and `n ↦ h(2n+1)` is eventually periodic, `h` is constant on positives (V004 §§2, 5; strictly strengthens target 1) | `experiments/viewpoints/V004/GLOBAL_RIGIDITY.md` §§2, 5 | **verified** (iteration 2): `OddEventuallyPeriodic.lean`, `LeanLane.OddEP.odd_eventually_periodic_const` | `[propext, Classical.choice, Quot.sound]` | `receipts/OddEventuallyPeriodic.{build,axioms,sha256}.txt` |
-| V004-ii | Ternary closure of the positive-offset kernel `K₊` (V004 §3), as pure identities of `h` | same, §3 | queued | — | — |
+| V004-ii | Ternary closure of the positive-offset kernel `K₊` (V004 §3), as pure identities of `h`; binary closure; V004's two worked examples | same, §3 | **verified** (iteration 3): `KernelClosure.lean`, `LeanLane.Kernel.kernel_ternary_closure`, `kernel_binary_closure`, `example_12n5`, `example_12n3` | `[propext, Classical.choice, Quot.sound]` (binary closure and the first example need only `[propext, Quot.sound]`) | `receipts/KernelClosure.{build,axioms,sha256}.txt` |
 | V004-iii | Assembly: binary-automatic invariant colourings are constant, with Cobham + finite-kernel characterisation as explicit named hypotheses (not in Mathlib) | same, §§1–5 | queued | — | — |
 | 1b | General form: components = `⟨×2,×3⟩`-orbits on `Z/gcd(M,d)Z` (both directions); eventual periodicity | V002 Appendix | queued (partly subsumed by V004-i) | — | — |
 | 2 | Digit-count rigidity: every invariant `h = F(s₂(n))` is constant | `experiments/viewpoints/V003/digit_sum.md` | queued (subsumed by V004 once iii lands; low priority) | — | — |
@@ -53,6 +53,15 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   strong induction instead of the `H^{e₃}` descent; translation by
   `c = (L+1)/2` instead of by `1/4`), but it uses only consequences of (1)
   and reaches the same statement. No finiteness of the colour set is needed.
+
+- V004-ii: V004 §3 states that `K₊ = {n ↦ h(2^a n + r) : a ≥ 1, 0 < r < 2^a}`
+  is closed under binary and ternary sections, with Case A (`3 ∤ c`,
+  `v ∈ {1,2}`, `t = (2^v c − 1)/3`) and Case B (`3 ∣ c`, `t = 2^ℓ u`,
+  offset `16u+1`). The Lean theorem states exactly the closure as
+  identities: for `a ≥ 1`, `0 < r < 2^a`, `j < 3` there exist `a' ≥ 1`,
+  `0 < r' < 2^a'` with `h(2^a(3n+j)+r) = h(2^a' n + r')` for all `n`; the
+  witnesses are V004's (`a+v`, `t`) and (`s+4`, `16u+1`). It does not
+  mention automata, finiteness or Cobham; those enter only in V004-iii.
 
 ## Insights sent to the feed
 

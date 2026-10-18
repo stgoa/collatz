@@ -1,0 +1,15 @@
+'LeanLane.Kernel.kernel_ternary_closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Kernel.kernel_binary_closure' depends on axioms: [propext, Quot.sound]
+'LeanLane.Kernel.id3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Kernel.example_12n5' depends on axioms: [propext, Quot.sound]
+'LeanLane.Kernel.example_12n3' depends on axioms: [propext, Classical.choice, Quot.sound]
+@LeanLane.Kernel.kernel_ternary_closure : ∀ {α : Type u_1} (h : ℕ → α),
+  (∀ (n : ℕ), h (2 * n) = h n) →
+    (∀ (n : ℕ), Odd n → 1 < n → h (3 * n + 1) = h n) →
+      ∀ {a r : ℕ},
+        1 ≤ a →
+          0 < r →
+            r < 2 ^ a →
+              ∀ {j : ℕ},
+                j < 3 →
+                  ∃ a' r', 1 ≤ a' ∧ 0 < r' ∧ r' < 2 ^ a' ∧ ∀ (n : ℕ), h (2 ^ a * (3 * n + j) + r) = h (2 ^ a' * n + r')
