@@ -198,6 +198,8 @@ def main():
             ("history_lifting", "check_history_lifting.py"),
             ("history_frontier", "check_history_frontier.py"),
             ("native_growth_escape", "check_growth_escape.py"),
+            ("history_transition", "check_history_transition.py"),
+            ("history_cover_scope", "check_history_barrier.py"),
             ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
@@ -308,6 +310,8 @@ def main():
                          maximal_history_lifting="PASS: complete paired-word cells, exact slope boundary, native currents and enlarged blocked subdomains",
                          complete_history_frontier="PASS: finite-anchor all-ray classification within ternary precision and sharp thirteen-step history",
                          native_growth_history="PASS: conditional high histories beyond every prescribed growth depth and complete two-ray point failures",
+                         complete_history_transition="PASS: full thirteenth-target decision, exact failed leaders and sharp twenty-step quotient descent",
+                         bounded_history_clock_barrier="PASS: all-ray and ordinary history exclusion within D+a clocks, with varying positive critical families",
                          all_ray_continuation="PASS: exhaustive ray cutoff, full failed vectors, exact integer-count bound and supplied currents",
                          mixed_rank_growth="PASS: two actual accepted plans, full signed telescoping, guarded maximum and retained high requests",
                          native_height_separation="PASS: all-ray shadow interface, fixed forward word, original-height helpers and supplied currents",

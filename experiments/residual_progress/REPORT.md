@@ -42,6 +42,13 @@ R80's one-step future. R83 crosses every prescribed native growth depth on
 two explicit CRT cells. It also exhibits an absorbed input at which the
 entire named two-ray/point procedure fails. These are conditional families
 and a complete scoped test; coverage of the full exit type is still missing.
+R84 completes the thirteenth-target decision on an entire progression,
+with fourteen above-target templates, explicit failed leaders and a sharp
+twenty-step quotient descent family. Its successful classes extend outside
+the old fixed-word cell. R85 proves that no uniformly bounded future/partner
+clock budget covers every critical input, even allowing all inverse rays.
+The appropriate next target is input-dependent history depth with a proved
+termination mechanism and supplied terminal currents.
 Rational scaling changes the integer lattice. The seventeen-family W5 dispatcher
 and frozen internal resolvers remain unchanged. Universal current supply
 and Collatz remain open.
@@ -3052,3 +3059,115 @@ C++ cutoffs4096 and262144. Log: `/tmp/collatz_history_lifting_full_gate.log`.
 The final remote refresh left main unchanged at3b0c8a5. The authorized
 commit and push are recorded in Git history. Universal current supply and
 the active research goal remain open.
+
+## 2026-10-18 — A complete later-target phase and a limit on fixed history clocks
+
+Started from clean pushed `1d58f50`. The prior batch delivered R81–R83;
+the universal objective remains active. The new side pin is
+`dc4976dfc1ff75126021923af22be58d0956245e`. Its FEED is unchanged from
+the already verified9849c53. Only the synthesis was updated, summarizing
+R75–R80 and their existing independent checks. That diff was read as
+external context; no new premise or unverified survey was imported.
+The side branch was unchanged.
+
+### R84: the thirteenth-target decision is complete
+
+The [full proof](history_transition/HISTORY_TRANSITION.md) settles the
+previous batch's explicit next-target question. On every
+q=11547+3*2^19*k, the raw thirteenth endpoint is
+R=70237+2*3^14*k, with4(R−1)<25(q−1). In the retained critical basis,
+the entire plan is the thirteen-arrow prefix plusJ_R−J_(q/3).
+
+No-pair transitions above the original rank have exactly three affine
+forms, with shifted factors3/4,3/8,3/16. The height inequality leaves
+fourteen possible above-target templates and forces a decision within
+seven additional transitions. Success means every signed request is
+strictly below q. Failure exposes a unique highest request at least q
+with coefficient+1; the negative smaller frontier cannot cancel it.
+This exact decision concerns the specified formal plan.
+
+The entire k12mod16 and k20mod32 classes succeed, and infinite
+subprogressions lie outside R81's maximal fixed-word cell. The earlier
+R44/R52 endpoint comparisons retain a higher request throughout the
+domain. On k9954mod16384 the first quotient descent is exactly step20.
+Its ordinary-prefix current has clocks(ell+beta,beta), with ell<=20
+and terminal-normalization padding beta; these clocks are not conflated.
+
+Replay covers1024 full plans,70 instances of all fourteen templates,
+144 progression cases including large indices,20 sharp cases,66 complete
+old-plan failures and26 rejections. Three stored supplied demonstrations
+outside R81 produce148/153/172 rows. The default reconstructs the supplied
+tables and verifies every boundary; it does not discover absorption paths.
+Root proof/source/default review passed. Unknown inputs on the infinite
+families remain premises, and failed leaves remain unresolved.
+
+### R85: all inverse branches obey a clock barrier
+
+The [clock theorem](history_cover_scope/HISTORY_CLOCK_BARRIER.md) fixes
+canonical q divisible by3^D and a canonical valuation-one prefix.
+For every future position a in that prefix, the only canonical origin p<=q
+reaching T^a(q) within D+a quotient steps is q at depth a itself.
+Every inverse word and ray index is included. The ordinary-clock theorem
+needs only the valuation-one prefix and divisibility, without canonicality.
+
+The proof follows the exact affine shadow at q=0. Point inverses undo
+the growing prefix. A first ray makes the shadow positive; a uniform
+dyadic-denominator bound keeps it positive until its first integral
+state. Ternary precision then keeps it integral, and the affine gap
+forces the actual state above q. The separate ordinary argument tracks
+the remaining binary valuation budget if a hypothetical negative integer
+shadow loses integrality. The stored control −1→−1/4→1/8 shows why simply
+assuming such shadows remain negative would be invalid.
+
+Explicit coprime CRT conditions realize arbitrary prescribed future and
+partner clock bounds on positive W5 inputs. Thus no fixed bound on both
+clocks can cover every critical input. The source depends on the bound.
+An H17 subfamily has the narrower exclusion at q and its first future;
+the theorem does not classify all later H17 targets or contradict R83.
+
+Replay covers62 quotient and126 ordinary domains, with3911/16008 complete
+origin instances;196 critical and60 H17 CRT cells;200 inverse words with
+both rational and integral shadows;15 equality spines;1560 ordinary-word
+attempts; and23 rejections. A supplied nine-row P13 current and the
+q39→59→89→33 quotient trace demonstrate later progress at an input
+subject to the stated barrier. Root proof/source/default review passed.
+Neither a fixed-source failure nor a restriction on arbitrary signed
+current constructions follows.
+
+### Research decision and next obligation
+
+Keep the finite-current framework and the merged lane's negative controls.
+Continue to reject the broad conclusion that no alternative certificate
+can help. The new positive result is a complete decision on one domain;
+the new negative result says a universally fixed history budget is
+insufficient. Together they favor an arithmetic procedure whose depth
+depends on its input, paired with a genuine termination argument.
+
+The next target is to resolve all failed leaders of a complete remaining
+type, or construct a different complete history cover. Another list of
+successful CRT cells is not enough. Neither is an empirical increase in
+coverage or a conditional recursion whose terminal currents are unknown.
+The seventeen-family dispatcher and frozen resolvers are unchanged.
+Universal current supply and Collatz remain open; no novelty is claimed.
+
+### Verification and delivery
+
+Both new source/receipt sets are frozen and registered in the full gate.
+Root focused checks and independent proof/source/default cross-reviews
+passed. Independent shared-record review passed after clarifying the
+canonical valuation-one hypothesis in the README. The existing TeX
+was updated in place, reviewed independently and compiled successfully
+in the native editor. The README's historical list was condensed to
+the current frontier; the full results remain in the ledger and reports.
+Independent README review separated strict rank descent from terminal
+supply, and its closing target now includes R84/R85.
+
+`python3 scripts/verify_all.py --cpp` passed with exit0: both new checks,
+all historical and negative-control receipts,31 archive manifest entries
+and independent C++ cutoffs4096/262144. The log is
+`/tmp/collatz_history_transition_full_gate.log`. Mechanical checks passed
+for15 scoped files,425 local Markdown links,81 unique TeX labels,
+138 resolved references,15 unique new equation tags, LF endings,
+JSON parsing and whitespace. The final remote refresh left main at
+1d58f50. The reviewed batch's authorized commit and push are recorded
+in Git history. Universal current supply and the research goal remain open.
