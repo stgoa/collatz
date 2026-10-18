@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "side_commit": "e4f82311a804ecd1befaaa5e255e41c6d5d0c44c",
+  "main_reviewed": "2e619a2",
+  "source_path": "sidekick/probes/p6_003_growth_norm_check.py",
+  "source_sha256": "3ac8afc88fe6290bb449351454c701c0a047bd0eca718fa0d315d6a293a54651",
+  "receipt_sha256": "186334c2a720f4c5f32e52e9cff703c070e7f3cd6a36aeba05e533acbbfd3e3a",
+  "receipt_matches_byte_for_byte": true,
+  "timeout_seconds": 45,
+  "scope": "Independent side probe reproduced unmodified in temporary storage; finite checks support the separately written proof. No universal Collatz conclusion.",
+  "result": {
+    "probe": "p6_003_growth_norm_check",
+    "main": "2e619a2",
+    "four_path_targets": 27773,
+    "K_alpha": {
+      "0.5": 1.82389,
+      "0.75": 1.26448,
+      "0.875": 1.05922,
+      "0.9": 1.02282,
+      "0.95": 0.95416
+    },
+    "count_formula_checks": 120000,
+    "first_crossing": {
+      "rows": [
+        [
+          9,
+          46,
+          90,
+          0.9977166791800598,
+          0.5019744865024037
+        ],
+        [
+          10,
+          41,
+          90,
+          0.9977166791800598,
+          0.5458813582160241
+        ],
+        [
+          11,
+          36,
+          90,
+          0.9977166791800598,
+          0.5859173170180197
+        ],
+        [
+          12,
+          31,
+          90,
+          0.9977166791800598,
+          0.6224236294912848
+        ],
+        [
+          13,
+          26,
+          90,
+          0.9977166791800598,
+          0.6557114623496197
+        ],
+        [
+          14,
+          21,
+          90,
+          0.9977166791800598,
+          0.6860641280974054
+        ],
+        [
+          15,
+          16,
+          90,
+          0.9977166791800598,
+          0.7137264846536029
+        ]
+      ],
+      "B_for_alpha_0.9": 30
+    },
+    "result": "PASS"
+  }
+}

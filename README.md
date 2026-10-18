@@ -4,6 +4,13 @@ This repository is the persistent record of the Collatz programme: definitions, 
 
 **Current standing (2026-10-18): Collatz remains unproved. Phase 6 is active.**
 
+**Parallel-work review:** the remote currently lists PR1 as the only merged
+PR; it is already incorporated with corrected minimality claims. The latest
+side feed independently confirms P6-003's barrier, and its probe was reproduced
+here. We are continuing the counting-route pivot: audit the stronger
+predecessor-density input, then attack the actual nonabsorbing set. See the
+[current decision](docs/PHASE6_LEDGER.md#user-requested-pr-review-and-mid-batch-side-refresh).
+
 R1–R94 and the seventeen-family dispatcher are frozen at `9190ccf`. The living [route map](ROUTE_MAP.md) now controls research priorities. The [Phase 6 ledger](docs/PHASE6_LEDGER.md) records batch grades, side-lane decisions and disputes; the [literature audit](docs/PHASE6_LITERATURE.md) records primary references. The setup is confirmed **none**. **S.1 has a verified, independently confirmed calibration with explicit stopping constants and a W5 pullback.** S.2 now has a written barrier to uniform cardinality transport (P6-002, full gate passed) and a stronger written barrier to contraction in **every power-growth norm with exponent below 1** (P6-003, full gate passed). The latter uses the calibration directly: a finite family of first-descending paths concentrates on some sparse target set. Universal stopping remains open.
 
 ## Frozen mathematical standing

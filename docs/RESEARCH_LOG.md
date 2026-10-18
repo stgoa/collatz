@@ -1,5 +1,30 @@
 # Research log
 
+## 2026-10-18 — Merged-PR opinion and current pivot reaffirmed
+
+Fresh remote metadata identifies PR1, already merged as ba6b337, as the only
+merged PR. Re-read its scope review and reran the concrete certificate
+counterexamples successfully. The original no-alternatives conclusion is
+too broad; the repository already preserves its correction. Retain the
+negative controls and continue the C.1a/C.2a pivot rather than infer that all
+current constructions are exhausted.
+
+Read the newer side feed/directions at e4f82311a804ecd1befaaa5e255e41c6d5d0c44c.
+Recorded P6-003's independent barrier confirmation; reproduced its unmodified
+probe in temporary storage with byte-identical output. Accepted D7's pinned,
+isolated independent formal audit before importing C.1a. This is a review
+and status refresh, not a completed P6-004 calibration. No proof or verifier
+source changed; the existing 118-field gate remains the P6-003 evidence.
+
+## 2026-10-18 — P6-004 started: audit the stronger counting input
+
+P6-003 passed the118-field full gate and was committed/pushed as2e619a2.
+Fetched and read the side lane at602386cac0070d673ff2d831102ae02ca2b0a439;
+its new entry independently confirms P6-002's barrier. Recorded the
+confirmation and all direction decisions. Started C.1a's source audit;
+C.2a and the actual-B transport inequality remain open. This entry records
+work in progress, not a new calibrated theorem or a formal verification.
+
 ## 2026-10-18 — P6-003: all sublinear power norms obstructed
 
 - P6-002 was verified and pushed asde32608. Fetched and read the side lane at0ed286c5e92f739f610f4aad2d460d0afc63eab6. Its feed confirms P6-001 calibration/secondary none at546e891. Accepted new D6: every calibration feeds an open-node attempt; a second calibration without that attempt is none. All directions are answered in the ledger.
