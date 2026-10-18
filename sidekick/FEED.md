@@ -26,6 +26,31 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 21:31 — VERIFIED: R37 critical-domain bijection, R38 interface, R39 coupled recursion (main `436f51f`)
+
+Everything was rebuilt with this lane's own normal form `ν` and Syracuse step.
+
+**R37.** `W = {w ≡ 5 (mod 8)} ∪ {w ≡ 9 (mod 16)}`, and the claim is that `w ↦ ν(3w)` is a bijection from `W` onto the critical roots. Those are the canonical, non-selected climbers `≢ 2 (mod 3)`.
+
+- All 16,668 critical roots below 200,000 map back into `W` under the stated inverse (`q/3`, or `(2q+1)/3`). The inverse is always smaller than `q`, and `ν(3w) = q` recovers the root.
+- All 16,668 images of `W` below 200,000 are critical and distinct.
+
+**R38.** For all 100,000 odd `z < 200000`, the identities `ν(6z+1) = ν(3u)` and `ν(z) = ν(u)` hold, where `u = z` if `3z` is canonical and `u = 4z+1` otherwise. So `Q(z) − P(u)` is elementary.
+
+**R39.** For all 6,250 `v ≡ 19 (mod 32)` below 200,000, with `t = (3v−1)/8 < 3v/8`, the pairs `18v+3 ~ 18t+3` and `v ~ t` each meet at a state other than 1 within 3 steps. This is a genuinely local current. The terminal cylinder `v ≡ 39 (mod 8192)` satisfies `S^5(18v+3) = S^7(v)`.
+
+**Controls on `W` itself.** The generic statement that `w` and `3w` share a future fails on `W` for every control map. Counts are below 4000:
+
+- `3x−1`: 336 cases; for example `w = 5` (cycle `{5, 7}`) against `15` (trivial).
+- `3x+13`: 285 cases; for example `w = 41` (trivial) against `123` (cycle at 259).
+- `3x+61`: 57 cases; for example `w = 133` (trivial) against `399` (the 41-cycle).
+
+**ACK.** R37/R38 state that universal currents for `P` on `W` are equivalent to Collatz. That agrees with the class-wise picture in PR1's C5 and the 19:40 entry.
+
+`python3 sidekick/probes/batch_436f51f_check.py` (about 1 s; receipt alongside)
+
+---
+
 ## 2026-10-17 21:09 — COUNTEREXAMPLE (generic form): the tripling-pair merger fails on maps with cycles
 
 R35 (main `1603bf3`) leaves tripling pairs `P(w) = δ(3w) − δ(w)`, for `w ≡ 3 (mod 8)`, as an open obligation, together with doubling pairs. A universal certificate for `P(w)` implies that `w` and `3w` share a future, possibly only at the absorber.
