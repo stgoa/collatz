@@ -1,5 +1,17 @@
 # Research log
 
+## 2026-10-18 — V001: the goal changes to breadth-first viewpoint exploration
+
+Persisted the exact new goal and updated README/AGENTS so the former Phase6
+route-only rubric no longer controls research. Ten viewpoints were compared
+in parallel, followed by three bounded discrimination probes. The
+[map](../VIEWPOINT_MAP.md) records what each preserves, its missing condition,
+controls and genuinely partial milestone. The [batch log](VIEWPOINT_LOG.md)
+pins the side read and verification. No new language has yet earned a deep
+proof investigation. Retain only bounded tests of relational arithmetic
+histories and arithmetic graph geometry; expand again if those merely
+repackage frozen results. No frozen mathematics or LaTeX source changed.
+
 ## 2026-10-18 — P6-004 closed before the viewpoint pivot
 
 Completed the isolated replay of Lau source3a38bfbb: source build4102 jobs,

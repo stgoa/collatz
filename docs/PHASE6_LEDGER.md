@@ -1,6 +1,10 @@
 # Phase 6 ledger
 
-The active plan is [ROUTE_MAP.md](../ROUTE_MAP.md). Collatz remains open.
+**Historical programme ledger.** The active goal is now
+[viewpoint exploration](../VIEWPOINT_MAP.md). P6-004 is closed; its grading
+and the former next-node choice below are retained as history.
+
+The Phase6 plan is preserved in [ROUTE_MAP.md](../ROUTE_MAP.md). Collatz remains open.
 R1–R94 and the seventeen-family dispatcher are frozen at main
 `9190ccf2519acc56446dd027c6cbf8d45dcceeb6`.
 

@@ -1,6 +1,11 @@
 # Phase 6 route map
 
-**2026-10-18. Collatz remains open.** This is a living research map.
+**Historical route map.** The user replaced route-first proof search with
+[breadth-first viewpoint exploration](VIEWPOINT_MAP.md) on2026-10-18.
+The decisions below describe the completed Phase6 programme; they do not
+constrain the new survey or instruct continued C.2a work.
+
+**2026-10-18. Collatz remains open.** This is the preserved Phase6 research map.
 S.1 now has a written quantitative calibration; universal stopping is open. The user has authorized
 autonomous node selection and revision. R1–R94 and the seventeen-family
 dispatcher are frozen at main `9190ccf2519acc56446dd027c6cbf8d45dcceeb6`.
@@ -11,7 +16,7 @@ The seed proposals are D1–D4 in the read-only side lane at
 The [literature audit](docs/PHASE6_LITERATURE.md) distinguishes published
 theorems from the additional work required here.
 
-## Current research decision
+## Last Phase6 research decision (superseded as active priority)
 
 P6-004 supplies **C.1a's external lower theorem through an independent
 source build, exact statement comparison and axiom audit**. Continue at

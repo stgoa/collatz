@@ -1,5 +1,9 @@
 # Phase 6 research report
 
+**Historical programme report.** The active goal is now breadth-first
+[viewpoint exploration](../../VIEWPOINT_MAP.md). The completed P6-004 audit
+is preserved; its old next-node choice is not the current assignment.
+
 ## Standing
 
 Collatz is open. The programme has pivoted from expanding the frozen local

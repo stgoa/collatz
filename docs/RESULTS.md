@@ -2,11 +2,14 @@
 
 Last updated: 2026-10-18. This ledger summarizes scope; the linked proof notes and exact data contain the supporting arguments.
 
-## Phase 6 standing
+## Current programme and preserved Phase6 standing
 
-R1–R94 below are frozen infrastructure. The living [route map](../ROUTE_MAP.md)
-supersedes historical priority paragraphs in this file. New work and its
-grades are recorded in the [Phase 6 ledger](PHASE6_LEDGER.md).
+R1–R94 below are frozen infrastructure. The active goal is to compare
+mathematical languages through [VIEWPOINT_MAP.md](../VIEWPOINT_MAP.md),
+with exploration decisions in [VIEWPOINT_LOG.md](VIEWPOINT_LOG.md).
+The [route map](../ROUTE_MAP.md) and [Phase6 ledger](PHASE6_LEDGER.md)
+retain earlier obligations, grades and completed evidence. Viewpoint
+recommendations are not new mathematical results.
 
 S.1 now has a [written stopping calibration](../experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md)
 with explicit finite horizons, integer cutoffs and a separate W5 pullback.
