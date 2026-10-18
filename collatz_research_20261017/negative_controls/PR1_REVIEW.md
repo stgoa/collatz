@@ -435,3 +435,21 @@ The latest side probe, pinned at `d3a91fe`, was reproduced byte for byte;
 distinguishes endpoint checks from full-current and infinite assertions.
 These developments support keeping the current formulation while changing
 the intermediate source basis and the progress tests.
+
+## 2026-10-18 — Refresh after the native-history result
+
+A fresh remote and GitHub metadata check again identifies PR1, merged as
+`ba6b3371fabd7fcabebb442d7c89ea3ed5c02149`, as the only merged PR. It is
+already incorporated. New findings through side-branch commit `fcc7e882`
+were separately read and checked; the [pinned review](../../experiments/residual_progress/side_lane_review_fcc7e88.md)
+reproduces both new probes and records their limits.
+
+The focused pivot is now explicit: prioritize comparisons with the histories
+of smaller seeds. The new R80 family meets such a history above its original
+height while excluding every smaller ancestor through arbitrary prescribed
+depths. Its complete current has strict smaller-rank premises, which remain
+required. R78/R79 also preserve exact cases where native continuation or
+inverse repair fails at the original rank. The negative controls remain
+useful; neither their finite behaviour nor conditional current minimality
+justifies abandoning alternative constructors. Universal history access and
+terminal-current supply remain open.
