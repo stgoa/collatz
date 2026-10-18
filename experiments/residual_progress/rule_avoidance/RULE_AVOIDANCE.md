@@ -7,6 +7,18 @@ for. The result does not give one indefinitely avoiding positive orbit,
 exclude other currents, or prove or disprove Collatz. No novelty claim is
 made.
 
+**Subsequent scope update (R55–R57).** The named old rules below remain
+fixed, including the R52/R53 extension in Section7. The new
+[selected forward](../selected_forward/SELECTED_FORWARD.md),
+[selected inverse](../selected_inverse/SELECTED_INVERSE.md), and
+[cycle-exit](../selected_cycle_exit/SELECTED_CYCLE_EXIT.md) comparisons
+resolve whole parts of this phase outside that procedure. Thus the phase
+is no longer wholly unrecognized by the enlarged twelve-family dispatcher.
+R57 also proves, by cancellation across the normalization bridge, that
+the full seven-step quotient current equals a seven-arrow ordinary path
+with a different list of intermediate states. The quotient prefixes below
+are unchanged.
+
 Use positive odd Syracuse S, absorbed at 1, the elementary minimum nu,
 canonical quotient T=nu S, P(w)=[3w]-[w], and rho(w)=nu(3w).
 The seven rules are exactly the fixed dispatcher in

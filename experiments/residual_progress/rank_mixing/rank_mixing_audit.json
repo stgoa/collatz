@@ -1,0 +1,25 @@
+{
+  "scope": "Finite survey only; no common global rank or new pair certificate",
+  "cases": [
+    {
+      "root_upper_bound": 16384,
+      "roots": 2048,
+      "dependency_nodes": 2075,
+      "removed_nodes": 2075,
+      "acyclic": true,
+      "unresolved_leaves": 1048,
+      "node_cap": 20000,
+      "graph_sha256": "f5fefba0a7d7bced1914dbebf8d91d2cfe6243223d5289df4461a833762fcc40"
+    },
+    {
+      "root_upper_bound": 131072,
+      "roots": 16384,
+      "dependency_nodes": 16619,
+      "removed_nodes": 16619,
+      "acyclic": true,
+      "unresolved_leaves": 8407,
+      "node_cap": 20000,
+      "graph_sha256": "42ed6930a224d23c6f7d03f2cedf1afd3889410fddf31f800c2f32cd1f3df8e9"
+    }
+  ]
+}

@@ -61,6 +61,11 @@ The complete critical domain now reduces to tripling comparisons indexed
 only by $w\equiv5\pmod8$. Every $9$-modulo-$16$ request can be eliminated
 by a finite signed computation; its remaining inputs are explicit and
 may be larger. This is a sharper equivalence, not a supply of those inputs.
+Complete selected-input forward and inverse interfaces now remove further
+whole arithmetic domains. A controlled exit crosses any prescribed number
+of one previously obstructing growing cycle, with every remaining input
+strictly smaller in the original critical-image rank. The finite union
+still has unresolved inputs.
 No complete universal current construction, Collatz proof, or novelty claim
 is supplied.
 \end{abstract}
@@ -4190,8 +4195,10 @@ For $q\equiv-17\pmod{2^{17}}$ the exact seven quotient prefixes are
 At the displayed canonical states the ordinary valuations are
 $1,1,1,2,1,2,2$. At the fourth arrow the
 ordinary successor $(81q+65)/32$ is selected; normalizing it supplies
-row4 and retains the full signed ordinary bridge. The quotient steps
-therefore must not be counted as seven ordinary arrows. The negative
+row4 and retains the full signed ordinary bridge. These displayed quotient
+states do not themselves form the seven ordinary arrows. A separate
+cancellation identity below identifies the complete currents and clocks.
+The negative
 residue shadows $-17,-25,-37,-55,-21,-31,-23,-17$ verify every exact
 binary phase, while all actual states are positive. Every noninitial
 prefix exceeds $q$, and the return $\Psi$ obeys
@@ -4248,6 +4255,294 @@ Other absorption representations, independently supplied leading currents,
 different inverse words and joint comparisons remain possible. Full
 current formulas and the scoped operation set are in
 \path{experiments/residual_progress/rule_avoidance/RULE_AVOIDANCE.md}.
+
+\section{Complete forward interfaces for selected critical-five inputs}
+Continue to use the original rank $\rho(w)=\nu(3w)$ and the formal
+absorption plan $H_s$. Let $B(s)=B(\nu(s))$ be the proved branchwise
+bound on its missing input ranks from the returning-forward section;
+in particular $B(s)\le(9\nu(s)+5)/8$. The normalizer $N_s$ has boundary
+$[s]-[\nu(s)]$ and retains its ordinary rows.
+
+\begin{theorem}\label{thm:selectedforward}
+For every $w\in W_5$ with selected $3w$, write
+\[
+ q=\rho(w)=(3w-1)/2=2^A t-1,\qquad
+ d=v_2(3^{A-1}t-1),\quad u=(3^{A-1}t-1)/2^d,
+ \quad b=\lfloor d/2\rfloor.
+\]
+Then $A,d\ge2$, $t\equiv-3^A\pmod4$ and $2^At\equiv2\pmod3$.
+The full run has raw endpoint
+\[
+ f=\begin{cases}3^b u,&d\text{ odd},\\2\,3^b u+1,&d\text{ even},\end{cases}
+\]
+and exact current $D_q$ with boundary $[q]-[f]$.
+With $z=\nu(w)$, $m=\nu(f)$, the full formal comparison is
+\[
+ J=N_{3w}+D_q+N_f-N_w+H_m-H_z.
+\]
+Its missing signed $W_5$ requests all strictly decrease $\rho$ whenever
+$B(f)<q$. For $A=2,3,4$, this sufficient test has the following complete
+classification. In the even-$d$ column, $E$ means that $f$ is selected.
+\[
+\begin{array}{c|c|l}
+ A&d\text{ odd}&d\text{ even}\\\hline
+ 2&\text{all}&d\ge4\text{ or }E\\
+ 3&\text{all}&d\ge6\text{ or }E\\
+ 4&\text{all}&d\ge10\text{ or }
+ E\text{ and }(d\ge6\text{ or }(d=4,\ m\not\equiv3\pmod8))
+\end{array}
+\]
+There is also a complete second-block interface after a failed
+$(A,d)=(2,2)$ block: its canonical endpoint is
+$n=(9q+5)/8=2^C v-1$. Take its full run and normalize its raw endpoint
+$y$. The same test $B(y)<q$ gives the accepted signed comparison.
+For $C=2,3,4$, writing $e$ for the second depth and $m=\nu(y)$, all
+odd $e$ pass; the even cases are respectively
+\[
+\begin{array}{c|l}
+2&e\ge4\text{ or selected }y\\
+3&e\ge8\text{ or selected }y\text{ and }(e\ge4\text{ or }m\not\equiv3\pmod8)\\
+4&e\ge10\text{ or selected }y\text{ and }(e\ge6\text{ or }(e=4,\ m\equiv1\pmod8)).
+\end{array}
+\]
+These classify the stated endpoint-bound tests, not all possible currents.
+\end{theorem}
+\begin{proof}
+The selected normalization gives the stated canonical $q$ and binary
+conditions. The run theorem gives $D_q$. The current formula telescopes,
+retaining the difference of the two signed $H$ request vectors. Since
+$z\le(w-1)/4$, all lower requests already have rank below $q$.
+For odd $d$ the ordinary merger clocks are $(A+b,1)$; for even $d$ they
+are $(A+b-1,0)$. The quotient clock from $q$ to $m$ is $A+b-1$.
+Normalizers are separate exact currents, not zero-time ordinary moves.
+
+For $A=2,3,4$, the smallest odd depth gives respectively
+\[
+ q-\frac{9f+5}{8}
+ =\frac{175t-77}{64},\quad\frac{269t-77}{64},\quad
+ \frac{295t-77}{64}>0.
+\]
+Increasing $d$ by two multiplies $f$ by $3/4$ for odd depths, or $f-1$
+by $3/4$ for even depths. Nonselected even endpoints have $B(f)=f$;
+selected ones have $m=(f-1)/2$ and the three bounds
+$(27m+29)/32$, $(9m+5)/8$, $m$ according as $m\equiv1,3,7\pmod8$.
+Substitution at each displayed even threshold gives the table. The
+domain has $t\ge11$ for $A=2,4$ and $t\ge13$ for the even-depth
+$A=3$ cases, so all signs are strict at their least admissible values.
+The second table follows by the identical comparison after substituting
+$v=(9q+13)/2^{C+3}$, with $q\ge91$; its total quotient clock is
+$C+\lfloor e/2\rfloor+1$. Full boundary differences, including every
+intercept, are retained in the companion proof.
+\end{proof}
+
+Every selected $w\equiv2\pmod3$ is outside all nine earlier direct
+domains: its selected inverse parameters are $D=1,j=0$, while the other
+rules require $3\mid w$ or nonselected $3w$. For each $A\ge2$, choose
+odd $d\ge3$ such that
+\[
+ 2^d(2^{A+3}-13)>9\,3^{(d-1)/2}(3^{A-1}-1).
+\]
+The full CRT cylinder
+\[
+ t\equiv(1+2^d)3^{1-A}\pmod{2^{d+1}},\qquad
+ t\equiv7\,2^{-A-1}\pmod9
+\]
+then passes the generic bound for every positive member. The extra bit
+fixes the exact depth; increasing odd $d$ makes the slope test hold.
+Examples include the whole progressions $w\equiv221\pmod{384}$ and
+$w\equiv2813\pmod{3072}$, the latter using two blocks. In the old
+untouched phase $w=3456k-11$, the first depth is
+$d=2+v_2(2187k-7)$; hence every $w\equiv10357\pmod{13824}$ has
+$A=4,d=3$ and passes. The different progression $3445\pmod{13824}$
+does not have that universal property: $58741$ and $86389$ are retained
+counterexamples to that incorrect substitution.
+Complete tables, currents and finite evidence are in
+\path{experiments/residual_progress/selected_forward/SELECTED_FORWARD.md}.
+
+\section{Two inverse choices on a complete selected phase}
+\begin{theorem}\label{thm:selectedinverse}
+Let $w\in W_5$ satisfy $w\equiv16\pmod{27}$ and selected $3w$.
+Define
+\[
+ q=(3w-1)/2,\quad v=(16w-13)/27,\quad
+ k\in\{4,8\},\quad h=v_3(kv+1),\quad
+ C=(kv+1)/3^h,\quad r=2^{h+1}C-1.
+\]
+Then $v\equiv-7\pmod{128}$ and $v\ge121$. There is an actual
+ordinary path from $r$ to $q$, with valuation word
+\[
+ (1^h,2,1,1,4)\quad(k=4),\qquad
+ (1^h,2,3,2,2)\quad(k=8).
+\]
+Both have ordinary length $h+4$; there is separately a quotient path
+of that length. Negating the ordinary path gives a current $I$ with
+boundary $[q]-[r]$. The full formal comparison
+\[
+ N_{3w}+I-N_w+H_r-H_{\nu(w)}
+\]
+strictly decreases every missing input's original rank if and only if
+$h\ge3$ for $k=4$, or $h\ge5$ for $k=8$.
+The accepted complete domains are precisely selected $w\in W_5$ with
+\[
+ w\equiv718\pmod{729}\quad\text{or}\quad
+ w\equiv4255\pmod{6561}.
+\]
+For $h=0$, and for $h=1$ with $r\equiv0\pmod3$, the failed plan
+retains the original request with coefficient $+1$ and all other ranks
+below $q$. Every other failed row retains a unique leading request
+with coefficient $+1$ and rank $r>q$.
+\end{theorem}
+\begin{proof}
+The binary class of $v$ proves all four terminal valuations exactly.
+The first $h$ point arrows end at $2kv+1$; maximality of $h$ prevents
+a further point predecessor. Exact comparison gives
+\[
+ 32\,3^h(r-q)=(k2^{h+6}-3^{h+4})v+2^{h+6}-55\,3^h.
+\]
+At or above the stated thresholds both coefficients are negative;
+below them direct substitution and $v\ge121$ make the expression
+positive. For $h\ge2$, or $h=1$ with $r\equiv1\pmod3$, the first
+critical input at $r$ is in $W_5$,
+has rank $r$, and all other $H_r$ requests have rank below $r$.
+This proves both the accepted and higher-leading-request statements.
+
+For the remaining rows put $p=3v$ and $\ell=(q+2)/3$, and write
+$A_s$ for the full request vector of $H_s$. The complete $W_9$
+elimination at $v$ has depth6 and endpoints $q,\ell$, giving
+\[
+ A_p=A_q-A_\ell+A_v,\qquad A_q=\{w:1\}+A_w.
+\]
+For $h=0$ the normalization after one forward arrow gives $A_r=A_p$.
+For $h=1,r\equiv0\pmod3$, setting $c=r/3$ gives instead
+$A_r=A_q-A_\ell+A_c$. In both cases the remaining vectors have
+ranks below $q$; for the $k=8$ latter case one first normalizes the
+forward successor of $c$ to $(4v-1)/3$. Thus the coefficient at $w$
+cannot cancel. These are exact signed-vector identities, not a
+displayed-path approximation to the full plan. Finally
+$kv+1=(64w-25)/27$ or $(128w-77)/27$ gives the two residue classes.
+\end{proof}
+
+These inverse comparisons cross every prescribed length of the old
+growing forward obstruction. For any $L\ge1$, set $K=11L+6$ and
+$q_0=81\cdot2^Ks-17$. For either accepted $k,h$ and either unit
+$e\in\{1,2\}$, the nonempty full congruence
+\[
+ k2^{K+5}s\equiv7k-1+3^he\pmod{3^{h+1}}
+\]
+fixes the exact $h$ and preserves the $7L$ growing quotient prefix.
+Fixed $h=3,k=4$ or $h=5,k=8$ therefore supplies a seven- or nine-arrow
+inverse comparison for every $L$. The seed changes with $L$; no infinite
+positive growing orbit or universal inverse coverage is inferred.
+Full failed-row vectors and supplied finite tables are in
+\path{experiments/residual_progress/selected_inverse/SELECTED_INVERSE.md}.
+
+\section{Maximal selected cycles and a controlled complete exit}
+\begin{theorem}\label{thm:selectedexit}
+For positive $q\equiv-17\pmod{5184}$, put
+\[
+ E=v_2(q+17),\quad R=\left\lfloor\frac{E-6}{11}\right\rfloor,
+ \quad e=E-11R\in\{6,\ldots,16\},\quad u=(q+17)/2^E.
+\]
+Exactly $R$ consecutive copies of the specified guarded seven-row
+cycle of Theorem~\ref{thm:ruleavoidance} occur before its guard fails.
+Their final endpoint is $Q=3^{7R}2^eu-17$. Each full cycle's current
+equals the seven ordinary arrows with valuations $(1,1,1,2,1,1,4)$;
+thus $Q$ is reached in both $7R$ ordinary and $7R$ quotient steps.
+This maximality concerns the specified guarded phase returns, not
+all possible later visits through other itineraries.
+
+For every $R\ge0$, every odd $d\ge2R+5$, and every positive $s$ with
+\[
+ s\equiv3^{-7R-9}(1+2^{d-4})\pmod{2^{d-3}},
+ \qquad q=81\cdot2^{11R+12}s-17,\quad w=(2q+1)/3,
+\]
+the complete exit described below gives
+\[
+ b=(d-1)/2,\qquad
+ f=\frac{3^b(3^{7R+9}s-1)}{2^{d-4}},\qquad
+ \frac{9f+5}{8}<q.
+\]
+The ordinary common-tail clocks are $(7R+b+6,1)$, and the quotient
+clock from $q$ to $\nu(f)$ is $7R+b+5$. Consequently this whole
+progression has an exact conditional $P(w)$ comparison whose missing
+$W_5$ ranks are all strictly smaller than $\rho(w)=q$.
+\end{theorem}
+\begin{proof}
+Each guarded return removes exactly11 binary factors from $q+17$ and
+preserves its factor81. Its guard is $E\ge17$, proving the exact
+count and exit range. For the ordinary-current identity write $Z=q+17$.
+The ordinary states after $q$ are
+\[
+ \frac{3Z}{2}-25,\ \frac{9Z}{4}-37,\ \frac{27Z}{8}-55,
+ \ \frac{81Z}{32}-41,\ \frac{243Z}{64}-61,
+ \ \frac{729Z}{128}-91,\ \frac{2187Z}{2048}-17.
+\]
+The selected fourth state $Y$ and its minimum $V=(Y-1)/2$ satisfy
+$S^3Y=S^3V$. The negative three-arrow prefix in their normalizer
+cancels the next three quotient rows. This proves equality of currents,
+not merely equality of endpoints. The ordinary word already holds for
+$E\ge12$; the stronger guard ensures return to the canonical entry phase.
+
+Here is a complete finite interface for all eleven exit exponents.
+Write $Q=2^eU-17$. Its first run has $A=4$ and
+\[
+ d_1=2+v_2(27\cdot2^{e-6}U-7).
+\]
+For $e=6$ take this complete run and retain its raw endpoint.
+For $e\ge7$, $d_1=2$: take its four ordinary arrows to
+$Y=81\cdot2^{e-5}U-41$, normalize exactly, then take one complete
+run from a complementary minimum, one forward arrow from a minimum
+$1\pmod8$, or none from1. This prescription handles every variable
+depth without an absorption assumption. For $e\ge10$ the minimum is
+$V=81\cdot2^{e-6}U-21$, with first exponent2 and second depth
+\[
+ d_2=v_2(243\cdot2^{e-8}U-16)
+ =\begin{cases}2,&e=10,\\3,&e=11,\\
+ 4+v_2(243U-1),&e=12,\\4,&13\le e\le16.
+ \end{cases}
+\]
+Exact normalization covers the remaining $e=7,8,9$ rows as well.
+This is a complete interface, not a claim that every resulting bound descends.
+
+For the stated progression the residue is odd and retains the extra bit,
+so its exact exit exponent is12 and its second depth is exactly $d$.
+Its normalized intermediate state is $V=3^{7R+8}64s-21$.
+The run formula gives $f$ and the quotient clock. Since the second
+ordinary prefix has length $b+2\ge4$, it extends the three-step
+$Y,V$ merger, giving $S^{7R+b+6}(q)=S(f)$.
+
+The strict rank inequality, after multiplication by $2^{d-4}$, is
+\[
+ (3^4 2^{11R+d+11}-3^{7R+b+11})s
+   >141\cdot2^{d-4}-3^{b+2}.
+\]
+The right side is positive. It suffices that
+\[
+ 2^{d-4}(3^4 2^{11R+15}-141)
+   >3^{b+2}(3^{7R+9}-1).
+\]
+At $d=2R+5$ its left side exceeds $3^4 2^{13R+15}$ and its right
+side is below $3^{8R+13}$. The comparison follows from $2^{15}>3^9$
+and $2^{13}>3^8$. Raising $d$ by two multiplies these sides by4 and3.
+It therefore holds for every stated $d$ and every positive progression
+member. If $D$ is the complete current from $q$ to $f$, the exact plan
+is $N_{3w}+D-N_w+H_f-H_{\nu(w)}$. All high requests have rank below
+$q$ by the displayed inequality; all lower ones do because
+$\nu(w)<w/4$. Every signed premise remains explicit.
+\end{proof}
+
+These exit progressions add direct coverage beyond both preceding new
+dispatchers. Impose the independent ternary condition
+$2^{11R+17}s\equiv1\pmod3$. The inverse theorem's parameter is then
+$v=2^{11R+17}s-7\equiv0\pmod3$, so both its ray depths are zero.
+The first selected forward block has $(A,d)=(4,2)$ and fails its table;
+its second-block option applies only to $(2,2)$. CRT gives a nonempty
+full subprogression for every $R,d$ above. It remains in the phase
+excluded by all nine earlier direct rules. This comparison is about
+those dispatchers, not all possible recursive compositions or supplied
+finite histories. The complete exit table, a retained failed exit, and
+all supplied-current demonstration tables are in
+\path{experiments/residual_progress/selected_cycle_exit/SELECTED_CYCLE_EXIT.md}.
 
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
@@ -4333,12 +4628,20 @@ prevent importing every old rule into that order. Theorems
 original rank and compose complete forward blocks before asking for
 inputs, crossing arbitrarily long specified increasing prefixes.
 Theorem~\ref{thm:ruleavoidance} shows why bounded lookahead followed by
-the fixed absorption converter and the named decreasing rules cannot
-complete the programme: a unique nondecreasing unhandled request survives
-for every prescribed lookahead. This is a restriction on that procedure;
-the next obligation is a new valid comparison or eventual progress argument
-for the remaining selected, nondivisible-by-three phase and other missing
-inputs, with every dependency checked in one coherent induction order.
+the fixed absorption converter and its original nine decreasing rules
+cannot complete the programme: a unique nondecreasing unhandled request
+survives for every prescribed lookahead. This remains a restriction on that
+specified procedure. Theorems~\ref{thm:selectedforward} and
+\ref{thm:selectedinverse} now supply complete selected-domain interfaces
+and remove whole subdomains of the old untouched phase.
+Theorem~\ref{thm:selectedexit} supplies exact exits after arbitrarily many
+maximal guarded repetitions, with additional full progressions outside
+both other new dispatchers. The old phase is therefore no longer wholly
+unrecognized by the current twelve-rule union. All these new comparisons
+use the same original $\rho$ order; their remaining signed premises still
+require exact currents. A closed progress argument on the complement,
+with every dependency checked in one coherent induction order, remains
+unproved.
 Completing the remaining $W_5$ currents is still the full-strength open
 obligation. Further isolated merger families alone would not discharge it.
 Theorem~\ref{thm:paircatalogue} gives the exact limitation of the named
@@ -4517,5 +4820,19 @@ substitutions. The rule-avoidance
 checker covers256 phase cases,48 repeated families,148 lookahead positions,
 20 complete $W_9$ plans and two separately ranked smaller-request expansions.
 Its stored unfinished currents preserve the leading missing input.
+The selected-forward checker adds2049 selected inputs,256 complete
+second-block continuations,78 exact CRT examples and128 progression
+members, with four actual substitutions using nine supplied currents.
+Its905 newly recognized inputs in that finite window are a comparison of
+specified direct rules, not an asymptotic coverage estimate.
+The selected-inverse checker adds300 eligible inputs,600 complete
+two-choice plans,192 exact phase examples and36 intersections with long
+growing prefixes, with four actual substitutions. The selected-exit
+checker covers352 complete exit cases,264 maximal-cycle cases and128
+progression cases through64 repetitions;64 include the additional CRT
+exclusion of the other two new dispatchers. It stores three actual
+outputs with142,178,252 rows and all18 distinct supplied pair currents.
+The exact guarded-cycle maximum, ordinary-current cancellation and
+unbounded family quantifiers rely on the written proofs, not these scans.
 These audits remain finite evidence for the implementations.
 \end{document}
