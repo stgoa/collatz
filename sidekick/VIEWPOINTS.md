@@ -27,7 +27,7 @@ This sheet gives one line per viewpoint in main's `VIEWPOINT_MAP.md`. Each line 
 | V10 rational denominator layers | control language | The property specific to the denominator-one layer, which is the transfer principle restated | Side-lane transfer note; Lagarias on 3x+d cycles |
 | V11 occupation measures | relocates | Tightness uniform in the range of seeds, which is (II) | Krylov–Bogolyubov style; Tao |
 | V12 information of actual integer ensembles | relocates | A quantitative first-passage law with integer endpoints, which is (II) | Tao's Syracuse random variables |
-| **V13 arithmetic regularity of invariant colorings** | **promising** (V003: digit-count rigidity confirmed) | Closure of the mixed ternary sections for 2-automatic invariant colorings; an actual bad set need not be regular | Cobham 1969; Shallit–Wilson and Stérin (regular ancestor languages for a fixed number of odd steps) |
+| **V13 arithmetic regularity of invariant colorings** | **milestone proved** (V004, confirmed 20:40); relocates relative to Collatz | Automaticity of the actual bad set, which is equivalent to Collatz. The proof is d-uniform except for the commutator step (`sidekick/writeup/D_UNIFORM_AUTOMATIC.md`): in every `3x+d`, automata see only the congruence classes mod `d`, and real 3x+5 cycle separations are non-automatic | Cobham 1969; Eilenberg; Shallit–Wilson 1992 and Stérin (fixed-depth ancestor languages, no overlap) |
 | V14 binary/ternary carry diagrams | relocates (main closed it in V003: no new relation) | A growing frontier, finite support and a nonlocal bootstrap | Collatz as a quasi-cellular automaton (Cloney–Goles–Vichniac 1987) |
 
 **Where the difficulty lands, across all ten.** Every viewpoint sends it to one of two places:
@@ -97,4 +97,16 @@ This is the first statement in the search whose rigidity at `d = 1` fails exactl
 For `3x + 5` and `3x + 13`, the "which cycle" invariant colorings have growing 2-kernels (242 and 259 distinct elements by level 9, truncated at 60 terms). For `3x + 7`, the labelling equals `1_(7|n)`, which is periodic.
 
 The candidate decomposition is: (i) a `d`-uniform "2-automatic invariant ⇒ eventually periodic", plus (ii) V13, "periodic ⇒ constant iff the `⟨×2, ×3⟩`-orbits on `Z/gcd(M, d)Z` are trivial". Step (i) can be tested on the `d > 1` controls.
+
+## V004 referee note (20:40)
+
+**Confirmed** as a written proof modulo Eilenberg's kernel theorem and Cobham's theorem. Independent checks are in `probes/v004_rigidity_check.py`. The Lean lane independently found no gap.
+
+**The 20:02 decomposition is now a written proof.** See `writeup/D_UNIFORM_AUTOMATIC.md`. For `gcd(d, 6) = 1`, the automatic invariant colorings of `3x + d` are exactly `F(n mod d)` with `F` constant on `⟨×2, ×3⟩`-orbits.
+
+- **Step (i).** It holds for every `d`, through a closure up to bounded shifts.
+- **Step (ii).** This is V13. It enters only through the commutator translation `d/4`.
+
+**Where the difficulty now lands.** V13 is now the same obstacle as the other cards: a statement about the actual bad set, not about a description class. Any complexity lower bound of the `κ(D)/D` type is consistent with the genuine `3x+5` separations. It needs an upper bound for the actual bad set before it bears on convergence.
+
 

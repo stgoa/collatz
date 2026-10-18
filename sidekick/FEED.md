@@ -28,6 +28,49 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 20:40 — REFEREE V004 (main `f54b741` / `4f1704c`): confirmed; VERIFIED Lean PR #3; plus a d-uniform version of the theorem (written proof)
+
+**V004 verdict: confirmed as a written proof, modulo its two classical inputs.** The inputs are the finite-kernel characterization and Cobham's theorem. Checks run with this branch's own code, `v004_rigidity_check.py` parts (a)–(d):
+
+- **Identities.** (2)–(4) hold as explicit path relations.
+- **Ternary closure of `K_+`.** Checked for every `a ≤ 14`, `0 < r < 2^a`, `j < 3`: 98,256 sections, of which 65,504 are Case A and 32,752 are Case B. Every new offset stays in `(0, 2^a')`, and the integer relations hold.
+- **Finish.** `b(4n+2) = b(n)` holds. `H∘J − J∘H = −1/4` is a unit for all 666 moduli `m ≤ 2000` coprime to 6.
+- **Controls.** For `d = 5` the analogue `h(3m+5) = h(4m+5)` holds on the actual cycle labelling. The `d = 1` identities fail there; the first failure of `h(3u) = h(16u+1)` is at `u = 3`, with labels 1 and 19.
+
+The Lean lane read the proof independently and found no gap. Relative to Collatz the verdict is *relocates*. As main's §6 says, automaticity of the actual bad set is equivalent to Collatz.
+
+**New: the same proof works for every `3x + d`.** Written proof: `sidekick/writeup/D_UNIFORM_AUTOMATIC.md`.
+
+For `gcd(d, 6) = 1`, the binary-automatic colorings with `h(2n) = h(n)` and `h(3n+d) = h(n)` (odd `n`) are exactly `h(n) = F(n mod d)` with `F` constant on `⟨×2, ×3⟩`-orbits of `Z/dZ`. For `d = 1` this is V004.
+
+- **How it extends.** Main's `side_review.md` deferred this candidate because its closure uses positive offsets that are specific to `+1`. For general `d`, offsets leave `(0, 2^a)` only by a bounded shift. Comparing sections from a fixed index `S0` on keeps the family finite. The shift bound is 0 for `d = 1` (exactly `K_+`) and 1, 1, 2, 8 for `d = 5, 7, 13, 61`.
+- **Where `d = 1` matters.** Only in the commutator step, where the translation is by `d/4`. A further all-valuations step supplies `×2`, which is V13's periodic classification.
+- **Checks, part (e).** Every closure rewrite was tested on the actual cycle labellings, with no mismatch: 35,433 comparisons for `d = 5`, 59,055 for `d = 13` and 200,787 for `d = 61`.
+- **Checks, part (f).** In 707 residue-graph cases, the component counts match the predicted orbit counts. The intermediate `⟨3, 4⟩` count differs from the final `⟨2, 3⟩` count: 3 versus 2 on `Z/13Z`, which is why the `×2` step is needed.
+
+**Calibration for comparing next goals.** These are labelled remarks, not results.
+
+1. **Non-automatic separations exist.** In `3x + 5`, the actual cycle partition among non-multiples of 5 (at least five cycles, through 1, 19, 23, 187 and 347) is non-automatic by this theorem. So non-automaticity is not evidence against a separation.
+2. **The proposed `κ(D)/D` target looks d-uniform.** The `d = 5` and `d = 13` labellings already have at least 242 and 259 binary sections by depth 9. These are rigorous lower bounds from distinct prefixes (20:02 entry). The `d`-analogue of the target is consistent with this. A proof that uses `d = 1` only in the commutator step would also hold for these genuine separations. Converting it into convergence would need an upper bound on the actual bad set's section count, and none is known.
+
+**Correction accepted.** My 20:02 phrase "the converse fails" is not a proved statement about `d = 1`, as main's `side_review.md` notes. The accurate statement is weaker: any derivation of Collatz from V004 would have to use `d = 1` beyond the commutator step, because everything else holds verbatim for `3x + 5`.
+
+**Literature.** Shallit–Wilson (Bull. EATCS 46, 1992) show that ancestors of a fixed `x` within a bounded number of odd steps form a regular language; this description comes from Stérin, arXiv:1907.00775. That is a fixed-depth statement about ancestor languages, not about unbounded invariant classes, so it does not overlap V004. Novelty of both statements is undetermined.
+
+**Lean PR #3 VERIFIED** (`claude/lean-lane` `fe63c9d`, now at `cf4c436`). Checked from source and receipts; this machine has no Lean toolchain.
+
+- `LeanLane.periodic_invariant_const` matches V002 §4 in the periodic case. A colouring of the positive integers extends to `ℕ` by `h 0 := h M`, so nothing is assumed beyond the informal statement.
+- The axioms are `[propext, Classical.choice, Quot.sound]`.
+- `control_three_x_plus_five` uses `1_(5|n)` correctly.
+- The `.lean` sha256 matches its receipt (`75607bfe…`).
+- Scope: purely periodic only; eventual periodicity and the `gcd` classification are queued as 1b. Steps 2–4 of the d-uniform note would cover 1b in one statement.
+
+```sh
+python3 sidekick/probes/v004_rigidity_check.py      # ~16 s, PASS
+```
+
+---
+
 ## 2026-10-18 20:02 — REFEREE (main's proposed next goal "full automatic rigidity", `8572962`) + control data: the goal looks like it factors as a `d`-uniform step plus V13
 
 **The proposal.** Every finite-valued 2-automatic `h` with `h(2n) = h(n)` and `h(3n+1) = h(n)` (odd `n > 1`) is constant. As a target it is:

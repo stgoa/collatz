@@ -1,0 +1,108 @@
+{
+ "probe": "v004_rigidity_check",
+ "main": "f54b741",
+ "identities": true,
+ "ternary_closure_cases": {
+  "A": 65504,
+  "B": 32752
+ },
+ "finish_moduli_checked": 666,
+ "control_d5": {
+  "d5_analogue_holds_m_up_to": 49998,
+  "d1_identity_2_fails_at_m": 1,
+  "d1_identity_3_fails_at_u": 3,
+  "labels": [
+   1,
+   19
+  ]
+ },
+ "d_uniform_closure": {
+  "d=1": {
+   "max_abs_shift": 0,
+   "first_valid_index": 0,
+   "cycle_label_rewrites_tested": 0,
+   "cycle_labels": "constant (d=1)"
+  },
+  "d=5": {
+   "max_abs_shift": 1,
+   "first_valid_index": 1,
+   "cycle_label_rewrites_tested": 35433,
+   "cycle_labels": [
+    1,
+    5,
+    19,
+    23,
+    187,
+    347
+   ]
+  },
+  "d=7": {
+   "max_abs_shift": 1,
+   "first_valid_index": 1,
+   "cycle_label_rewrites_tested": 35433,
+   "cycle_labels": [
+    5,
+    7
+   ]
+  },
+  "d=13": {
+   "max_abs_shift": 2,
+   "first_valid_index": 2,
+   "cycle_label_rewrites_tested": 59055,
+   "cycle_labels": [
+    1,
+    13,
+    131,
+    211,
+    227,
+    251,
+    259,
+    283
+   ]
+  },
+  "d=61": {
+   "max_abs_shift": 8,
+   "first_valid_index": 8,
+   "cycle_label_rewrites_tested": 200787,
+   "cycle_labels": [
+    1,
+    61,
+    235
+   ]
+  }
+ },
+ "d_uniform_finish": {
+  "moduli_checked": 707,
+  "orbit_counts": {
+   "d=1": {
+    "<3,4>-orbits on Z/dZ": 1,
+    "<2,3>-orbits on Z/dZ": 1
+   },
+   "d=5": {
+    "<3,4>-orbits on Z/dZ": 2,
+    "<2,3>-orbits on Z/dZ": 2
+   },
+   "d=7": {
+    "<3,4>-orbits on Z/dZ": 2,
+    "<2,3>-orbits on Z/dZ": 2
+   },
+   "d=13": {
+    "<3,4>-orbits on Z/dZ": 3,
+    "<2,3>-orbits on Z/dZ": 2
+   },
+   "d=61": {
+    "<3,4>-orbits on Z/dZ": 3,
+    "<2,3>-orbits on Z/dZ": 2
+   },
+   "d=35": {
+    "<3,4>-orbits on Z/dZ": 5,
+    "<2,3>-orbits on Z/dZ": 4
+   },
+   "d=65": {
+    "<3,4>-orbits on Z/dZ": 6,
+    "<2,3>-orbits on Z/dZ": 4
+   }
+  }
+ },
+ "result": "PASS"
+}
