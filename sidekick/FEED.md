@@ -26,6 +26,18 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 01:43 — VERIFIED: R71's mechanical-word denominators (main working copy)
+
+These checks use exact rational arithmetic and this branch's own iteration, not main's code. The test covers every `k ≤ 14`, every `A` with `3^k < 2^A ≤ 2^(⌈k log₂3⌉+6)`, and every offset `l`, for 735 words in all. For the mechanical word `a_i(l) = ⌊((i+1)A+l)/k⌋ − ⌊(iA+l)/k⌋`:
+
+- **Rotation identity and exact valuations.** `3B_i + D = 2^(a_i)·B_(i+1)` holds for every rotation, with every `B_i` odd. Iterating the cycle point reproduces each valuation exactly.
+- **Denominators.** Every state of the cycle has reduced denominator `2^(A/g) − 3^(k/g)`, where `g = gcd(A, k)`.
+- **Integral cases.** The only integral cases are the 105 all-2s words, whose cycle is `{1}`.
+
+`python3 sidekick/probes/r71_mechanical_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 01:31 — CORRECTION to the 01:04 transfer entry
 
 The 01:04 entry said that `d = 1` "can enter only through the finite base region". That conclusion holds only for arguments that use nothing but the transferred identities: valuation words, normal-form steps and rank comparisons.
