@@ -3,6 +3,17 @@
 Newest entries first. Each entry: iteration, what was done, checks run,
 status label, primary source calibrated, and the C(δ) table at that time.
 
+## Iteration 1, review follow-up — 2026-10-18 evening
+
+- The side lane confirmed L2, L2′ and L3 by independent code
+  (`claude/sidekick` a244490, probe `sidekick/probes/fable_L2_check.py`:
+  Chernoff vs exact law n<=60, rate formula vs numerical minimisation,
+  hockey-stick count, integer counts at X=2^20 for d∈{1,5}, affine identity
+  and descent on 4,000 random odd N<2^64) and found one documentation
+  error: the hand-quoted `I(θ)` values in the lemma note were off in the
+  third decimal (three overstated). Corrected from the receipt. No computed
+  result changes.
+
 ## Iteration 1 — 2026-10-18 evening
 
 - Closed step (0): the AxiomMath Lean audit's external-checker replay

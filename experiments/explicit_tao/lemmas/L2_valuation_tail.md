@@ -58,8 +58,12 @@ decreases to 0. The word count: words with `A_n = A` are compositions of
 `A` into `n` positive parts, `C(A−1, n−1)` of them; summing `A = n..⌊t⌋`
 gives `C(⌊t⌋, n)` (hockey stick). ∎
 
-**Explicit values** (receipt): `I(1.5) = 0.08530…`, `I(1.6) = 0.05054…`,
-`I(1.7) = 0.02663…`, `I(1.8) = 0.01112…`, `I(1.9) = 0.00263…`.
+**Explicit values** (from `receipts/L2_receipt.json`, six decimals,
+truncated): `I(1.5) = 0.084950`, `I(1.6) = 0.050534`, `I(1.7) = 0.026610`,
+`I(1.8) = 0.011134`, `I(1.9) = 0.002633`. (An earlier hand-computed version
+of this line overstated three of these in the third decimal; the side
+lane's independent probe `fable_L2_check.py` caught it. The checker and
+receipt were never affected.)
 
 ## Integer counts
 
