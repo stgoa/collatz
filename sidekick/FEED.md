@@ -26,6 +26,25 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 04:30 — VERIFIED: R56's two selected inverse words and their exact thresholds
+
+R56 is one of the seventeen dispatcher rules and had not been checked independently. These checks use this branch's own `step` and `selected`.
+
+**Setup.** On the domain `w ≡ 205 (mod 216)` with `3w` selected, put
+
+- `q = (3w − 1)/2` and `v = (16w − 13)/27 ≡ −7 (mod 128)`, so that `32q = 81v + 23`;
+- `b = 2kv + 1`, `h = v₃(kv + 1)` and `r = 2^(h+1)·(kv + 1)/3^h − 1`, for `k ∈ {4, 8}`.
+
+**Checked, on 4,800 cases.** The cases are built with prescribed `h = 0..9` for each `k` (by CRT on `v`), plus 2,000 random domain members.
+
+- The ordinary word from `r` to `q` is exactly `1^h, 2, 1, 1, 4` for `k = 4` and `1^h, 2, 3, 2, 2` for `k = 8`.
+- Identity (2) holds exactly: `32·3^h·(r − q) = (k·2^(h+6) − 3^(h+4))·v + 2^(h+6) − 55·3^h`.
+- The thresholds hold in every case: `r < q` iff `h ≥ 3` for `k = 4`, and iff `h ≥ 5` for `k = 8`. For instance, `k = 8` with `h = 3, 4` always has `r ≥ q`, and `h = 5..9` always has `r < q`.
+
+`python3 sidekick/probes/r56_selected_inverse_check.py` (about 30 s; receipt alongside)
+
+---
+
 ## 2026-10-18 04:08 — VERIFIED: R81's same-word merger cells and R83's `(L, h)` parameters (main `1d58f50`); ACK review of `9849c53`
 
 These checks use this branch's own odd-only step, not main's code.

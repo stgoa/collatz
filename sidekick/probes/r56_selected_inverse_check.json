@@ -1,0 +1,27 @@
+{
+  "by_k_h_accept": {
+    "k4 h0 r>=q": 1357,
+    "k4 h1 r>=q": 493,
+    "k4 h2 r>=q": 197,
+    "k4 h3 r<q": 85,
+    "k4 h4 r<q": 59,
+    "k4 h5 r<q": 44,
+    "k4 h6 r<q": 45,
+    "k4 h7 r<q": 40,
+    "k4 h8 r<q": 40,
+    "k4 h9 r<q": 40,
+    "k8 h0 r>=q": 1396,
+    "k8 h1 r>=q": 456,
+    "k8 h2 r>=q": 199,
+    "k8 h3 r>=q": 84,
+    "k8 h4 r>=q": 53,
+    "k8 h5 r<q": 51,
+    "k8 h6 r<q": 41,
+    "k8 h7 r<q": 40,
+    "k8 h8 r<q": 40,
+    "k8 h9 r<q": 40
+  },
+  "cases": 4800,
+  "scope": "Independent check of R56's two inverse words, identity (2) and thresholds (3).",
+  "status": "PASS"
+}
