@@ -1,0 +1,8 @@
+{
+  "r75_e_return_inputs": 3000,
+  "r77_copy_count_cases": 200,
+  "r77_spacing_repeats": 2188,
+  "r77_threshold": "260028359941009900571662033",
+  "scope": "Independent checks of R75 E_return arithmetic and R77 complexity bounds (main e9effe1).",
+  "status": "PASS"
+}
