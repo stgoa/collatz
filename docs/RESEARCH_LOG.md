@@ -1,5 +1,13 @@
 # Research log
 
+## 2026-10-18 — P6-003: all sublinear power norms obstructed
+
+- P6-002 was verified and pushed asde32608. Fetched and read the side lane at0ed286c5e92f739f610f4aad2d460d0afc63eab6. Its feed confirms P6-001 calibration/secondary none at546e891. Accepted new D6: every calibration feeds an open-node attempt; a second calibration without that attempt is none. All directions are answered in the ledger.
+- Materialized the [growth-norm proof](../experiments/phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md). The d1 one-arrow operator contracts by10/13 for4/5<=alpha<1, while four exact first-half paths expand a specified sparse set by more than241/240 for0<alpha<=7/8.
+- Strengthened the full-operator barrier to every real0<alpha<1 and every supported fixed d. The S.1 cylinder count makes a finite first-crossing code's mass approach1; averaging compatible inverse residues gives expansion above1. Explicit finite thresholds preserve affine intercepts, exact odd valuations, first-passage clocks and disjointness. The argument establishes a finite existence construction, not a materialized astronomical catalogue or any infinite-orbit random assumption.
+- Proposed labelbarrier at S.2. Full `python3 scripts/verify_all.py --cpp --transfer-controls` gate passed with exit0 and118 report fields. The [verification record](../experiments/phase6/growth_norm_transport/verification.json) retains the report and source hashes. Independent model review and focused replay passed, including separate reproduction of both large code masses. Remote main remainedde32608 before delivery. Close this arbitrary-target power-norm method after verification; next attempt must use actual-B structure, another specified norm or signed cancellation. Frozen R1–R94, dispatcher and open TeX remain unchanged.
+- During verification, a primary-literature update found2026 linear predecessor-density claims. Pinned exact scopes and Lau's3a38bfbb source in L3a, with independent verification still pending. Revised the next route to C.1a audit followed by C.2a; these external claims are not P6-003 premises. No extra result label is claimed for the discovery.
+
 ## 2026-10-18 — P6-002: a scoped barrier to first-half counting transport
 
 - P6-001 was verified and pushed as546e891. Started the next batch after fetching and reading DIRECTIONS/FEED at ade50f97bf187003f25fbc4d9e5430b53d2f2527. The feed confirms P6-000 at its committed pin and closes D5; it has no verdict on P6-001. Every direction is answered in the Phase6 ledger. The side branch was unchanged.

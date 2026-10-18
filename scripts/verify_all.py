@@ -144,6 +144,16 @@ def main():
                                "transport_audit.json").read_text())
         require(actual == expected and actual["status"] == "PASS",
                 "Phase 6 stopping transport differs from the persisted receipt")
+        for script, receipt in (
+            ("check_growth_norm.py", "growth_norm_audit.json"),
+            ("check_all_exponents.py", "all_exponents_audit.json"),
+        ):
+            actual = json.loads(run([sys.executable, "-B", script],
+                                    phase6_work / "growth_norm_transport"))
+            expected = json.loads((phase6_source / "growth_norm_transport" /
+                                   receipt).read_text())
+            require(actual == expected and actual["status"] == "PASS",
+                    "Phase 6 growth-norm transport differs from the persisted receipt")
         for directory, script in (
             ("transport", "check_root_transport.py"),
             ("duality", "check_finite_cone.py"),
@@ -268,6 +278,7 @@ def main():
                          phase6_transfer_controls=transfer_controls,
                          phase6_stopping_calibration="PASS: exact fixed-factor stopping constants, parity cylinders, retained d-controls and injective W5 pullback; calibration only",
                          phase6_stopping_transport="PASS: exact one-arrow multiplicities refute uniform arbitrary-target linear transport; scoped barrier with d-controls",
+                         phase6_growth_norm_transport="PASS: one-arrow contraction, four exact expansion words and finite-cylinder all-exponent barrier for arbitrary-target power-growth norms; actual bad-set estimates remain open",
                          negative_controls_and_audit="PASS: five receipts reproduced",
                          review_scope="PASS: alternative minimum-cost one-sided certificates",
                          even_exit_history="PASS: exact raw-target cone and supplied signed certificates",

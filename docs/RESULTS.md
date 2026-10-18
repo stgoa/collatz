@@ -21,6 +21,17 @@ one-arrow sources and transfers to each supported fixed d. It does not
 exclude estimates specific to the actual bad set or bounds in a global
 weighted growth norm. Verification status is in the Phase 6 ledger.
 
+A separate [growth-norm proof](../experiments/phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md)
+now addresses that gap: for every fixed supported d and every0<alpha<1,
+some fixed infinite target set of finite power-growth norm expands under
+first-half preimages. The S.1 finite-cylinder calibration supplies the
+prefix-free word family; averaging exact target residues produces the
+witness. The four-word explicit subcase already expands by more than241/240
+through alpha7/8, while the d1 one-arrow operator contracts by10/13 for
+alpha>=4/5. The all-exponent result concerns arbitrary-target contraction,
+not a bound tailored to the actual nonabsorbing set. Full verification for
+P6-003 passed; Collatz remains open.
+
 ## R1 — Exact source transport and original packets
 
 **Status: inherited written proofs and finite certificates.**
