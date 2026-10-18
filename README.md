@@ -175,6 +175,11 @@ further depth. The completed carry probe supplies no basis for expanding
 a tile search. No automaton catalogue or regularity assumption about the
 actual bad set substitutes for this obligation.
 
+Following the user's request for a higher target, the
+[next-goal proposal](docs/NEXT_GOAL_PROPOSAL.md) recommends the full
+binary-automatic classification, with further subclasses counted as progress
+rather than completion. This recommendation has not activated a new goal.
+
 The former C.2a upper-density target remains an unresolved historical route.
 Its [matched density gap](experiments/phase6/linear_density_audit/next_upper_attempt.md)
 is not supplied by the audited lower theorem or by an unspecified positive
