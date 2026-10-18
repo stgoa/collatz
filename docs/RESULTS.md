@@ -4,20 +4,30 @@ Last updated: 2026-10-18. This ledger summarizes scope; the linked proof notes a
 
 ## Current programme and preserved Phase6 standing
 
-R1–R94 below are frozen infrastructure. The active goal is to compare
-mathematical languages through [VIEWPOINT_MAP.md](../VIEWPOINT_MAP.md),
-with exploration decisions in [VIEWPOINT_LOG.md](VIEWPOINT_LOG.md).
+R1–R94 below are frozen infrastructure. The active
+[arithmetic-regularity brief](ARITHMETIC_REGULARITY_BRIEF.md) develops the
+language selected through [VIEWPOINT_MAP.md](../VIEWPOINT_MAP.md), with
+exploration decisions in [VIEWPOINT_LOG.md](VIEWPOINT_LOG.md).
 The [route map](../ROUTE_MAP.md) and [Phase6 ledger](PHASE6_LEDGER.md)
 retain earlier obligations, grades and completed evidence. Viewpoint
-recommendations are not new mathematical results.
+recommendations are distinct from the written mathematical results below.
 
 V002 recommends arithmetic regularity of component colorings after comparing
 fourteen viewpoints and testing the first shortlist. Its
 [finite-period classification](../experiments/viewpoints/V002/invariant_colors.md)
 is a separate elementary written diagnostic, not a new R-series convergence
-result. Automaticity of an actual bad set is not supplied. Carry boundaries
-and integer-ensemble laws remain bounded follow-up candidates; the initial
+result. Automaticity of an actual bad set is not supplied. V002 proposed carry
+boundaries and integer-ensemble laws as bounded follow-ups; the initial
 relational and geometric portfolios were demoted with recorded reasons.
+
+V003 supplies a separate [partial classification and kernel reduction](../experiments/viewpoints/V003/REPORT.md):
+all invariants depending only on binary digit count are constant; the first
+ternary image of a finite binary kernel adds at most one function; and its
+pure-zero ternary orbit is finite. An explicit automatic counterexample
+refutes a scaling-only completion. Full mixed-section closure and the full
+binary-automatic classification remain open. The carry probe adds no new
+relation and is closed. These written, independently agent-reviewed proofs
+have no novelty or convergence claim and do not alter the frozen R-series.
 
 S.1 now has a [written stopping calibration](../experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md)
 with explicit finite horizons, integer cutoffs and a separate W5 pullback.

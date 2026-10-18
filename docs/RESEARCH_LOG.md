@@ -1,5 +1,34 @@
 # Research log
 
+## 2026-10-18 — V003: arithmetic regularity supplies a partial theorem
+
+The [new brief](ARITHMETIC_REGULARITY_BRIEF.md) asks for a demonstrated
+mathematical gain from the language selected in V002. The
+[report](../experiments/viewpoints/V003/REPORT.md) supplies an infinite-class
+classification: any invariant depending only on binary digit count is
+constant. It also proves that the first ternary image of an entire finite
+binary kernel adds at most one function and that the pure-zero ternary
+orbit is finite. Full mixed-section closure remains unproved.
+
+A binary-automatic character of the odd part gives an exact counterexample
+to completing the argument from scaling invariance alone: its mixed
+ternary kernel is infinite, and it fails the full Collatz equation at3.
+The literature audit identifies the monochromatic-cylinder consequence
+as already covered at d=1 by published progression sufficiency. The complete
+carry-frontier test recovers existing affine data and is closed without
+expanding the tile search. The recommendation is a bounded investigation
+of mixed sections retaining all guards, with a characteristic-zero Mahler
+relation as a possible alternative sufficient interface.
+
+Proofs and scopes were independently reviewed; finite arithmetic checks and
+the read-only side assessment are saved alongside them. The reviewed side
+pin is `c583fc3e1adab7c15d6297a5acf55d7560fc5e08`. Its state-count bound
+is retained only as a conditional implication with explicit encoding and
+external absorption premises. No new numerical absorption cutoff is adopted.
+The [viewpoint log](VIEWPOINT_LOG.md) records verification and delivery.
+Frozen proofs, mathematical code, R1–R94 and the open LaTeX source are
+unchanged. Neither novelty nor universal convergence is claimed.
+
 ## 2026-10-18 — V002: recommend arithmetic regularity after expanding the survey
 
 Tested both V001 shortlist entries and demoted them with explicit reasons:

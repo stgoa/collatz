@@ -2,7 +2,7 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-18): Collatz remains unproved. The viewpoint survey recommends arithmetic regularity of orbit-component colorings as the next working language.**
+**Current standing (2026-10-18): Collatz remains unproved. Arithmetic regularity has produced a partial classification and a sharper finite-kernel question. The full binary-automatic classification remains open here.**
 
 We explored Grothendieck-style changes of viewpoint through **breadth before
 depth**. Fourteen views and two rounds of bounded comparisons support a
@@ -17,15 +17,24 @@ Each card records seven evaluation fields; deferred cards may offer only a
 milestone template. The [selection review](experiments/viewpoints/V002/SELECTION_REVIEW.md)
 records the evidence and limitations of the final recommendation.
 
-The preferred view has a concrete diagnostic: every eventually periodic
-invariant coloring for `3x+1` is constant, whereas explicit periodic colorings
-survive for `3x+5` and `3x+61`. The [elementary proof](experiments/viewpoints/V002/invariant_colors.md)
-does not establish regularity of an actual hypothetical bad set. The next
-bounded target is the restricted class recognizable in base 2 by finite
-automata, with a prior-work check first. Binary/ternary carry diagrams earn
-one complementary test; integer-ensemble statistics remain a separate
-alternative. The initial relational and geometric portfolios were demoted
-after tests found no new closure or global estimate.
+The [current brief](docs/ARITHMETIC_REGULARITY_BRIEF.md) develops that language.
+The [V003 report](experiments/viewpoints/V003/REPORT.md) gives three results:
+
+- Every invariant coloring depending only on the **number of binary 1s** is
+  constant. This covers all digit-count-modulo-m automata, for every m.
+- Taking ternary sections of the **entire finite binary kernel** adds at
+  most one new function. Repeated tripling also gives only finitely many
+  functions; mixed ternary sections remain unresolved.
+- An exact automatic counterexample shows that doubling/tripling invariance
+  and a finite pure-zero orbit cannot replace the full guarded equations.
+
+These are written proofs with independent agent review and reproducible
+finite checks; novelty is undetermined. The previous
+[periodic classification](experiments/viewpoints/V002/invariant_colors.md)
+remains the baseline. No regularity of an arbitrary hypothetical bad set is
+assumed. A complete carry-boundary test added no new relation, so that
+probe is closed. The recommendation is a bounded investigation of the
+remaining mixed sections; integer-ensemble statistics remain an alternative.
 
 **Preserved evidence:** R1–R94 and the seventeen-family dispatcher are frozen
 at `9190ccf`. The earlier [route map](ROUTE_MAP.md) supplies obligations and
@@ -90,6 +99,7 @@ Everything else is **none**. Finite acceptance rates and new conditional interfa
 
 1. Read [AGENTS.md](AGENTS.md) for working rules and claim standards.
 2. Read [VIEWPOINT_MAP.md](VIEWPOINT_MAP.md) and the [exploration log](docs/VIEWPOINT_LOG.md), then the [result ledger](docs/RESULTS.md) for exact scope, evidence and unresolved obligations.
+   For the current target, read the [arithmetic-regularity brief](docs/ARITHMETIC_REGULARITY_BRIEF.md) and [V003 report](experiments/viewpoints/V003/REPORT.md).
 3. Read the [current proof note](collatz_research_20261017/right_aligned_reduction.tex). Open this source in the document editor for its PDF preview.
 4. Consult the [master handoff](COLLATZ_PROGRAMME_MASTER_HANDOFF.md) for the wider programme and historical counterexamples. Its old active target is superseded only for the revised right-aligned family.
 
@@ -98,6 +108,15 @@ Each batch fetches the read-only `claude/sidekick` branch and reads both `sideki
 ## Reproduce the finite checks
 
 Requires Python 3.10+ and its standard library. The independent check additionally requires a C++17 compiler (`c++`, or set `CXX` to a compiler executable).
+
+The new viewpoint examples have a separate bounded verifier:
+
+```sh
+python3 experiments/viewpoints/V003/verify_examples.py
+```
+
+Its [receipt](experiments/viewpoints/V003/verification.json) accompanies the
+written proofs and records finite scope. The historical mathematical gate is:
 
 ```sh
 python3 scripts/verify_all.py --cpp --transfer-controls
@@ -147,13 +166,14 @@ Most checks establish finite arithmetic identities. R91 and R92 additionally use
 
 ## Recommended next research programme
 
-The [viewpoint map](VIEWPOINT_MAP.md#focused-subsequent-programme) specifies
-three bounded tests: a finite-kernel and prior-literature audit for arithmetic
-colorings; one complete carry-boundary comparison; and a separate comparison
-of an actual integer first-passage law with published hypotheses. Compare
-their outputs before committing to deeper work. Selecting a working language
-does not authorize an extended case catalogue or assume every bad set has a
-finite automaton.
+The [viewpoint map](VIEWPOINT_MAP.md#focused-subsequent-programme) now focuses
+on mixed ternary sections of the one extra function `n -> h(3n)`. A proposed
+finite closure must retain every guarded relation; alternatively, a finite
+3-Mahler equation for each color indicator would suffice. Neither is supplied.
+The next bounded test must produce an additional relation or bound before
+further depth. The completed carry probe supplies no basis for expanding
+a tile search. No automaton catalogue or regularity assumption about the
+actual bad set substitutes for this obligation.
 
 The former C.2a upper-density target remains an unresolved historical route.
 Its [matched density gap](experiments/phase6/linear_density_audit/next_upper_attempt.md)

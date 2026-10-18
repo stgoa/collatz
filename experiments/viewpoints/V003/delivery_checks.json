@@ -1,0 +1,26 @@
+{
+  "R1_onward_sha256": "6c47418b75ec6dbdfeaa054bd74387f37a5fcff5cc9046859cfd3147812a605f",
+  "baseline": "c47d91ba7faacfc50db060ebb3b717ecb8b4c622",
+  "changed_tracked_files": [
+    "AGENTS.md",
+    "README.md",
+    "VIEWPOINT_MAP.md",
+    "docs/RESEARCH_LOG.md",
+    "docs/RESULTS.md",
+    "docs/VIEWPOINT_LOG.md"
+  ],
+  "finite_replay": "PASS; independently rerun by root",
+  "frozen_baseline": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "full_Phase6_gate": "not rerun: no Phase6 infrastructure or historical mathematical code/evidence changed",
+  "link_scope": "V003 Markdown, README, VIEWPOINT_MAP, new brief and new log/ledger entries",
+  "local_fragments_checked": 17,
+  "local_links_checked": 118,
+  "new_file_scope": "ARITHMETIC_REGULARITY_BRIEF.md and V003 only",
+  "preserved_files_sha256": {
+    "collatz_research_20261017/right_aligned_reduction.tex": "35709cfff84f4baa11563360adc171986ea410af4a8e1a9acb9eb7457def1f8d",
+    "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md": "5cd7fd5f12ce50d6001ec6b322017bb1777aa88ecb675f4393248c2bf224c5ea",
+    "experiments/residual_progress/resolved_rules/resolved_rules.py": "4d91d83e93499b07079e48f2fc0e3765fffb99498c18228ab57f56732062b7aa"
+  },
+  "status": "PASS",
+  "verifier_sha256": "13ed3b920514eb851110208b748d29d7a07585ab18d2c7a182ec4e1d42fe5ecc"
+}

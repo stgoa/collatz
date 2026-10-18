@@ -1,0 +1,422 @@
+{
+  "carry_patch": {
+    "binary_input": 5,
+    "binary_output": 16,
+    "boundary_ambiguity_samples": 12,
+    "boundary_scope": "Bootstrap and entire zero/undefined rays are supplied data; finite replay does not infer them.",
+    "column_values": [
+      8,
+      4,
+      2,
+      1
+    ],
+    "exact_cylinder_samples": 17,
+    "horizontal_nonzero_transitions": 5,
+    "horizontal_zero_tail_transition": 1,
+    "nonzero_conversion_digit_transitions": 6,
+    "odd_arrows": 1,
+    "odd_valuation": 4,
+    "parallel_update_count": "not asserted",
+    "rectangle_rows_y2_y1_y0": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "shortcut_arrows": 4,
+    "transition_sha256": "38070df378be299d66f9014574b8d9c322a1c48f5d59b9a2d10e96c07119bd1e",
+    "vertical_divisions": [
+      [
+        5,
+        2,
+        1
+      ],
+      [
+        2,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1
+      ]
+    ],
+    "zero_column_digit_transitions": 4
+  },
+  "cycle_controls": {
+    "binary_CRT_color_examples": 252,
+    "cycles": [
+      {
+        "absorber": 1,
+        "d": 5,
+        "length": 3,
+        "states": [
+          19,
+          31,
+          49,
+          19
+        ],
+        "status": "nonabsorbing cycle",
+        "total_valuation": 5,
+        "valuations": [
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "absorber": 1,
+        "d": 61,
+        "length": 41,
+        "states": [
+          235,
+          383,
+          605,
+          469,
+          367,
+          581,
+          451,
+          707,
+          1091,
+          1667,
+          2531,
+          3827,
+          5771,
+          8687,
+          13061,
+          9811,
+          14747,
+          22151,
+          33257,
+          12479,
+          18749,
+          14077,
+          10573,
+          7945,
+          2987,
+          4511,
+          6797,
+          5113,
+          1925,
+          1459,
+          2219,
+          3359,
+          5069,
+          3817,
+          1439,
+          2189,
+          1657,
+          629,
+          487,
+          761,
+          293,
+          235
+        ],
+        "status": "nonabsorbing cycle",
+        "total_valuation": 66,
+        "valuations": [
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          3,
+          1,
+          2,
+          2,
+          2,
+          3,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          2,
+          1,
+          3,
+          2
+        ]
+      }
+    ],
+    "d1_affine_identity_transfer_failures": [
+      {
+        "d": 5,
+        "left": 4,
+        "left_color": 0,
+        "m": 1,
+        "refuted_transfer": "h(3m+1)=h(4m+1)",
+        "right": 5,
+        "right_color": 1
+      },
+      {
+        "d": 61,
+        "left": 46,
+        "left_color": 0,
+        "m": 15,
+        "refuted_transfer": "h(3m+1)=h(4m+1)",
+        "right": 61,
+        "right_color": 1
+      }
+    ],
+    "d7_absorbed_at1": 1,
+    "d7_raw_at1": 5,
+    "divisibility_color_actual_odd_checks": 66,
+    "divisibility_color_doubling_and_oddpart_checks": 132,
+    "divisibility_color_ordinary_odd_checks": 64,
+    "fixed_points_outside_absorber": [
+      5,
+      61
+    ]
+  },
+  "cylinders": {
+    "K_range": [
+      0,
+      5
+    ],
+    "d": [
+      1,
+      5,
+      7,
+      13,
+      61
+    ],
+    "largest_shortcut_clock": 338,
+    "largest_source_bits": 334,
+    "lifts_per_class_and_target": 2,
+    "odd_arrows_after_initial_halvings": 7740,
+    "parity_classes": 315,
+    "paths_sha256": "8281e3939188f3f75aa0e3e90afdbfbeffa12d4875dfefb7391b68c24c0cc7e7",
+    "predecessor_paths": 3780,
+    "scope": "Two explicit lifts per case; unbounded predecessor supply is a separate written proof.",
+    "shortcut_arrows": 85758,
+    "targets": [
+      1,
+      5,
+      7,
+      19,
+      61,
+      235
+    ],
+    "unit_orders": [
+      2,
+      6,
+      18,
+      54,
+      162
+    ]
+  },
+  "digit_sum": {
+    "Thue_Morse_periods_separated": 64,
+    "Thue_Morse_witness_sha256": "539c1f148e776724f1fdfd02b1a9824b4bccddfee5f14f99a6d0755afc77ca5c",
+    "bridges": [
+      [
+        5,
+        16,
+        2,
+        1
+      ],
+      [
+        13,
+        40,
+        3,
+        2
+      ],
+      [
+        23,
+        70,
+        4,
+        3
+      ]
+    ],
+    "family_count": 127,
+    "family_sha256": "00c6846a1a98d4e97247c203a20c37743a8cc262f29de64076d936173e7af92e",
+    "k_range": [
+      2,
+      128
+    ]
+  },
+  "kernel_arithmetic": {
+    "affine_samples_sha256": "00e7aa89a88d1eedca3abd85feafdaaed2ddeec0ffc728660c3b1e30433ea04b",
+    "binary_depth_range": [
+      0,
+      6
+    ],
+    "divisible_index_checks": 762,
+    "index_samples": [
+      0,
+      5
+    ],
+    "mixed_pair_index_equalities": 468,
+    "nondivisible_actual_branches": 1524,
+    "pure_zero_arrow_or_absorber_steps": 936,
+    "pure_zero_mergers": 117,
+    "pure_zero_sha256": "bd462969b2e89204adf07f24b3541bf9b33734afd34d09d19e73dd6977ed7495",
+    "pure_zero_t_range": [
+      0,
+      12
+    ],
+    "scope": "Arithmetic identities and actual common endpoints; no sampled constant coloring and no finite-kernel theorem inferred."
+  },
+  "scaling_control": {
+    "actual_invariance_failure": [
+      3,
+      5
+    ],
+    "candidate_period_range": [
+      1,
+      128
+    ],
+    "mixed_examples": [
+      [
+        1,
+        2,
+        181,
+        544,
+        1630,
+        1,
+        -1
+      ],
+      [
+        2,
+        1,
+        103,
+        928,
+        310,
+        -1,
+        1
+      ],
+      [
+        8,
+        9,
+        191,
+        1253152,
+        3759454,
+        1,
+        -1
+      ],
+      [
+        9,
+        8,
+        21,
+        413344,
+        137782,
+        -1,
+        1
+      ]
+    ],
+    "mixed_t_s_range": [
+      1,
+      9
+    ],
+    "mixed_witness_sha256": "feca92e50ae944552dbcda3e26d1350c6127acd69410972da412cf5ed9790562",
+    "nonperiod_sha256": "d62d121b6bf53c55147485b2e04fb0806e0d659d08c5c14ebf06b6c13f2e6846",
+    "nonperiod_witnesses": 256,
+    "ordered_mixed_pairs": 72,
+    "scaling_equalities": 1024,
+    "scaling_inputs": 512,
+    "thresholds": [
+      1,
+      1000000
+    ]
+  },
+  "schema": 1,
+  "scope": "Bounded exact arithmetic examples only. Written all-input proofs, external theorems and automatic-coloring closure are not established by this replay.",
+  "status": "PASS",
+  "verifier_sha256": "13ed3b920514eb851110208b748d29d7a07585ab18d2c7a182ec4e1d42fe5ecc"
+}

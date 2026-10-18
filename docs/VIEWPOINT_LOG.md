@@ -1,5 +1,117 @@
 # Viewpoint exploration log
 
+## V003 — Arithmetic regularity yields a partial classification, 2026-10-18
+
+**Substantive status:** the [report](../experiments/viewpoints/V003/REPORT.md)
+delivers a digit-count classification, two kernel reductions and an exact
+counterexample to a weaker closure inference. Full binary-automatic
+classification remains open. The
+[goal audit](../experiments/viewpoints/V003/GOAL_REVIEW.md) maps every item
+of the [unchanged goal](ARITHMETIC_REGULARITY_BRIEF.md) to evidence and limits.
+Repository verification and delivery are recorded below.
+
+### Progress and comparison
+
+The intervening goal-wording response was **no progress** for the research
+goal: it supplied reusable wording but no new mathematical evidence. This
+continuation inspected the saved work, completed independent proof review,
+corrected scope issues and supplied reproducible checks. The substantive
+V003 investigation and its delivery continuation are **progress**, with no
+external blocker or inferred background process.
+
+- **Digit-count theorem:** every invariant F(s_2(n)) is constant, for every
+  function F on positive weights. This covers an explicit infinite automatic
+  class, including nonperiodic descriptions, beyond V002's periodic case.
+- **Kernel reduction:** all first ternary sections of the entire binary
+  kernel K lie in K union {f_1}, and the pure-zero orbit f_t(n)=h(3^t n)
+  has at most |K| states. The mutually linked mixed-section equations are
+  retained. No whole-kernel closure is inferred.
+- **Scoped barrier:** chi(oddpart(n)) is binary-automatic and invariant
+  under doubling/tripling, but has infinitely many distinct mixed ternary
+  sections. Its failure at the actual odd source3 preserves the full target.
+- **Known cylinder result:** published progression sufficiency already
+  implies the d1 constant-section consequence. Its elementary dyadic proof
+  and general-d scope are retained without counting it as a new theorem.
+- **Carry test closed:** the complete frontier for5 yields the existing
+  relation and no additional section constraint. No broader tile search.
+
+Recommend a bounded mixed-section probe with all guarded identities, or an
+explicit finite characteristic-zero 3-Mahler relation. If that probe adds
+no structure, compare V12 or broaden again. A finite automaton catalogue
+would not establish the missing universal implication.
+
+### Independent reviews and corrections
+
+The [proof review](../experiments/viewpoints/V003/PROOF_REVIEW.md) independently
+checks the kernel algebra, digit-count proof, predecessor construction and
+CRT section separation. It also records the carry calculation's separate
+spot checks. Three presentation issues were corrected before delivery:
+the carry comparison omitted the newly proved nonzero section; the scaling
+example was wrongly juxtaposed with absence of constant sections, although
+it has them; and canonical mixed ternary sections of offset1 start at depth1.
+The zero-extension convention and stale L6 anchor were made explicit/fixed.
+No error in frozen mathematics was found or corrected.
+
+### Read-only independent lane
+
+Reviewed DIRECTIONS, FEED and relevant V13 notes/code/receipt after fetching
+`origin/claude/sidekick` at `c583fc3e1adab7c15d6297a5acf55d7560fc5e08`.
+The [assessment](../experiments/viewpoints/V003/side_review.md) records:
+
+- **Accept, scoped:** the reported 2,400 residue component-count checks as
+  external finite corroboration of V002, not an all-modulus proof or a
+  replay completed in this batch.
+- **Accept as a conditional tool:** invariance of one supplied automaton
+  is decidable with the encoding, carries and odd-source guard fixed.
+- **Qualify the numerical state bound:** the claimed70 follows from an
+  external absorption bound and a normalized leading-zero convention.
+  Canonical-positive-only machines give69 by the stated argument instead.
+  No externally reported numerical absorption cutoff is adopted into our
+  independently verified evidence, and neither bound classifies unbounded
+  automata.
+- **Retain D1/D2/D5 with prior scopes; reject D3's broad transfer claim;
+  defer D4 and the historical D6 calibration sequence; retain D7's formal
+  audit standard.** Corrections to older density proposals remain in force.
+  The separate reported Linux replay is uninspected input.
+
+The side branch was not edited or pushed. Its favorable recommendation of
+V13 is a judgment, not a premise for any of the V003 proofs.
+
+### Verification and delivery
+
+The [standalone verifier](../experiments/viewpoints/V003/verify_examples.py)
+and [receipt](../experiments/viewpoints/V003/verification.json) passed the
+author's replay, independent reviewer replay and coordinating-agent replay.
+They check:
+
+- 127 digit-count family instances and three connecting sources;
+- 315 parity classes, with 3,780 explicit predecessor paths over five d
+  values and six targets, replaying 85,758 shortcut arrows and 7,740
+  compressed odd arrows;
+- 1,524 affine inverse branches, 762 divisible-offset cases, 117
+  pure-zero mergers and 468 mixed-pair index identities;
+- 72 pairwise mixed-section witnesses and 256 nonperiod witnesses for
+  the scaling counterexample;
+- the complete carry patch and its closed zero tail, retaining all clocks;
+- the d5 length3 and d61 length41 nonabsorbing cycles, divisible fixed
+  points, 252 binary CRT color fixtures, 132 doubling/odd-part checks,
+  66 absorbed-arrow and 64 ordinary odd-source color checks, and both
+  named failures of the unchanged d1 section identity.
+
+These are bounded checks; written proofs supply the unbounded quantifiers.
+The checker compares the receipt without mutating it. Unknown flags and a
+corrupted receipt were also confirmed to fail without changing evidence.
+
+The [delivery integrity receipt](../experiments/viewpoints/V003/delivery_checks.json)
+records the coordinating-agent audit: all changed tracked files are standing
+documentation; new files are confined to the brief and V003; the R1-onward
+ledger body, seventeen-family dispatcher/proof and open LaTeX match both
+the batch baseline c47d91b and frozen baseline9190ccf byte for byte. Local
+link/fragment checks passed, as did `git diff --check`. No historical
+mathematical code or Phase6 infrastructure changed, so the full historical
+gate was not rerun. Fresh origin/main matched the batch baseline before
+the commit. Commit and push evidence follow after execution.
+
 ## V002 — Expanded survey and working-language recommendation, 2026-10-18
 
 **Status:** substantive comparison completed; delivery checks and commit are
