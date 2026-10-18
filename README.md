@@ -4,7 +4,7 @@ This repository is the persistent record of the Collatz programme: definitions, 
 
 **Current standing (2026-10-18): Collatz remains unproved. Phase 6 is active.**
 
-R1–R94 and the seventeen-family dispatcher are frozen at `9190ccf`. The living [route map](ROUTE_MAP.md) now controls research priorities. The [Phase 6 ledger](docs/PHASE6_LEDGER.md) records batch grades, side-lane decisions and disputes; the [literature audit](docs/PHASE6_LITERATURE.md) records primary references. The setup is confirmed **none**. **S.1 now has a written calibration with explicit stopping constants and a W5 pullback**, with the full verification gate passed; the next node is S.2 and its exceptional inputs.
+R1–R94 and the seventeen-family dispatcher are frozen at `9190ccf`. The living [route map](ROUTE_MAP.md) now controls research priorities. The [Phase 6 ledger](docs/PHASE6_LEDGER.md) records batch grades, side-lane decisions and disputes; the [literature audit](docs/PHASE6_LITERATURE.md) records primary references. The setup is confirmed **none**. **S.1 has a verified calibration with explicit stopping constants and a W5 pullback.** S.2 now has a written barrier to uniform endpoint counting, with the full gate passed: a first descent can concentrate too many sources on a chosen target set for any constant cardinality bound. Universal stopping remains open.
 
 ## Frozen mathematical standing
 
@@ -108,6 +108,6 @@ Most checks establish finite arithmetic identities. R91 and R92 additionally use
 
 ## Next research target
 
-The [S.1 calibration](experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md) now supplies explicit finite counts, horizons and the injective W5 pullback. It re-derives a published half-descent corollary and does not remove every exception. S.2 remains the universal stopping obligation. C.2 asks for a stronger power bound; Y.2 addresses cycles only; H.2 needs rigidity beyond automatic analyticity.
+The [S.1 calibration](experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md) supplies explicit finite counts, horizons and the injective W5 pullback. The [S.2 transport barrier](experiments/phase6/stopping_transport/STOPPING_TRANSPORT.md) rules out one uniform counting premise, while universal stopping remains open. The next candidate tests a global power-growth norm; its proposed expansion and limits are recorded in the report. C.2 still asks for a stronger absorption bound; Y.2 addresses cycles only; H.2 needs rigidity beyond automatic analyticity.
 
 The overall goal remains a finite current, possibly with an everywhere nonpositive residual, at every cutoff on **all five rays**, or another proof of convergence. The [route map](ROUTE_MAP.md) supersedes old next-target paragraphs in historical reports. The [Phase 6 report](experiments/phase6/REPORT.md) records active work. No universal current construction, Collatz proof or novelty claim is supplied.

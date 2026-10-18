@@ -56,6 +56,24 @@ density alone. P6-001 proves a conservative finite-cutoff bound and the
 separate odd-clock/W5 conversions; it does not reproduce every exact
 fixed-k density in that paper.
 
+## L1a — Published power counts for strict stopping exceptions
+
+Lagarias's 1985 survey, [Theorem D](https://www.cecm.sfu.ca/organics/papers/lagarias/paper/html/theorem-D.html)
+and [Theorem F](https://www.cecm.sfu.ca/organics/papers/lagarias/paper/html/theorem-F.html),
+states the following for strict shortcut stopping time sigma. Set
+`theta=1/log_2(3)` and `h=-theta log_2(theta)-(1-theta)log_2(1-theta)`,
+approximately0.949955527188. The density of seeds with sigma>k is at most
+`2^(-(1-h)k)`, and the count with infinite sigma through X is at most
+`c1 X^h` for an unspecified constant c1. The linked primary TeX formulas
+were checked because the HTML displays the equations as images.
+
+These are published benchmarks, not newly reproduced explicit calibrations.
+Strict stopping exceptions are not the nonabsorbing basin, and are not
+identical to the first-half exception set. No bound for their full inverse
+closure follows by changing the set's name. P6-002 examines one specific
+endpoint transport premise; its failure is proved directly by exact
+one-arrow sources, independently of these published estimates.
+
 ## L2 — Tao: almost bounded values, logarithmic density
 
 [Tao's paper](https://arxiv.org/html/1909.03562v3), Theorem 1.3, proves that

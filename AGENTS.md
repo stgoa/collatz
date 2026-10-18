@@ -13,6 +13,8 @@
 
 - S.1 calibration uses raw shortcut parity words of length k=5m, exact bad-class count B, and bound `(8/7)(16807/18432)^m`. Preserve its affine-intercept cutoff Z, residue error B, small-seed allowance and all integer endpoints. It proves fixed-factor stopping for each fixed d, with d-dependent cutoffs; it does not prove absorption at1 or remove every exception. Its W5 pullback uses the frozen R37 injection and R25 same-index semiconjugacy only at d=1. Do not iterate the density estimate on its own outputs or infer the C.2 absorption bound.
 
+- P6-002's transport barrier quantifies over every target subset and one uniform error. It excludes all finite coefficients in kappa*|A|+o(X), and its sparse variants use o(X^alpha), not o(X). Counts are exact for the selected one-arrow sources and lower bounds for the full first-half multiplicity. Even hereditary sparse target sets obstruct cardinality-proportional bounds; this does not refute bounds using a global growth norm C*X^alpha or the structure of the actual nonabsorbing set. The main o(X) obstruction transfers to fixed supported d; the sparse refinements are proved here for d=1. This is a barrier, not a non-transfer step. Never confuse first-half exceptions E, strict stopping exceptions, and the nonabsorbing inverse closure B.
+
 ## Start from the repository
 
 - Read `README.md`, `ROUTE_MAP.md`, `docs/PHASE6_LEDGER.md`, `docs/RESULTS.md`, and the relevant proof/source files before extending the work. Use `docs/RESEARCH_LOG.md` for recent changes and the master handoff for historical context.
