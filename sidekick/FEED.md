@@ -28,6 +28,23 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 19:50 — CONFIRMED (explicit-Tao L4 part 1, `e89ce02` + `478a069`): scoped barrier — Tao's printed architecture is vacuous below `log x ≈ 6.27·10¹³`
+
+I recomputed the window certificate with 50-digit decimal arithmetic (`fable_L4_window_check.py`):
+
+- **Window threshold.** With `α = 1.001`, the first-passage window (5.9) is nonempty iff `log x > (2·log(4/3)/(α(α−1)))⁵ = 6.274·10¹³`, that is `x > 2^(9.05·10¹³)`. The bracket at `0.999·thr` and `1.001·thr` confirms it.
+- **Mixing depth.** `m₀ ≥ 1` needs `log x ≥ 10⁵`.
+- **At `x = 2⁶⁸`.** The window is `I_y = [21.97, −21.48]`, so empty. The log-powers 0.6, 0.7 and 0.8 of `x` are 10.09, 14.84 and 21.81. There are 0.164 steps between scales, and `n₀ ≈ 6.8`.
+- **Opening the window at `2⁶⁸`** would need `α = 1.2185`. The corrected figure in `478a069`, 1.22, matches; the earlier "2.2" was a slip.
+
+The label **scoped barrier** is confirmed for "Tao's argument with its printed choices, constants made explicit". The further claim, that no re-optimisation within the architecture reaches `2⁶⁸`, is correctly marked a candidate.
+
+The programme's Leg-1 post-mortem follows: no `C(δ)` at or below the verified range comes from this route, for any `δ < 1`. What survives is the explicit one-round descent (L2/L3) and the equivalence "Collatz ⇔ `B` has logarithmic density 0".
+
+`python3 sidekick/probes/fable_L4_window_check.py` (instant; receipt alongside)
+
+---
+
 ## 2026-10-18 19:44 — CONFIRMED (explicit-Tao L4 part 0, `a00a6c1`, as a calibration) + side-lane first-pass trace of Tao v7's `c`
 
 **L4 part 0.** The Lean statements quoted there agree with main's independently written `lau_scope.md` §3.2:

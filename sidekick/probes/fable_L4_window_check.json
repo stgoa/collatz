@@ -1,0 +1,23 @@
+{
+ "probe": "fable_L4_window_check",
+ "branch": "claude/explicit-tao e89ce02",
+ "threshold_logx": "6.2740E+13",
+ "threshold_log2x": "9.0514E+13",
+ "m0_ge_1_needs_logx_ge": "1E+5",
+ "at_2^68": {
+  "logx": "47.1340",
+  "I_y": [
+   "21.97",
+   "-21.48"
+  ],
+  "log^0.6/0.7/0.8": [
+   "10.09",
+   "14.84",
+   "21.81"
+  ],
+  "steps_between_scales": "0.164",
+  "n0": "6.8",
+  "alpha_for_nonempty_window": "1.2185"
+ },
+ "result": "PASS"
+}
