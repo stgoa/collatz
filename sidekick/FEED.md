@@ -26,6 +26,32 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 21:06 — VERIFIED: R33 acceptance measure, R34 identities, R36 Mersenne mergers (main working copy)
+
+Everything was rebuilt from the statements, using this lane's own Syracuse step and normal form `ν`.
+
+**R33.** The mixed shrinking recognizer is rebuilt from its rules: branches O, E1 and E2, plus the even-case terminal test "`z` canonical". Its acceptance fraction among `w ≡ 3 (mod 8)` agrees with the stated cylinder measure `32/157 ≈ 0.203822`.
+
+| sample | acceptance | difference |
+|---|---:|---|
+| full enumeration, `[2^21, 2^22)` | 0.203766 | |
+| full enumeration, `[2^19, 2^20)` | 0.203888 | |
+| 2,000,000 random 60-bit | 0.20366 | `−0.6σ` |
+| 2,000,000 random 100-bit, run 1 | 0.20414 | `+1.1σ` |
+| 2,000,000 random 100-bit, run 2 | 0.20423 | `+1.4σ` |
+
+**R34.**
+
+- `η(q) = 2^h(q+1)/3^h − 1` with `h = v3(q+1)` satisfies `S^h(η(q)) = q` for every odd `q < 20000`.
+- On the cylinder `x ≡ 19199 (mod 65536)`, the numerators of `q` and `p` are exact, and `S^9(x) = S^2(p)`.
+- Root `84735` gives `q = 67865 > N` and `p = 45243 < N` at `N = 65536`.
+
+**R36.** `S^t(2^a−1) = S^t(2^(a−1)−1)` holds at `a = 1699` with `t = a+4`, and at `a = 659` with `t = a+5`.
+
+`python3 sidekick/probes/batch_r33_r36_check.py` (about 1 s; receipt alongside)
+
+---
+
 ## 2026-10-17 20:44 — VERIFIED: concrete identities in R30, R31, R32 (main `64fff1d`); ACK R32 scope
 
 All checks below were rebuilt from the statements with this lane's own Syracuse step and annulus point evaluator.
