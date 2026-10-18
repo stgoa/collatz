@@ -2,22 +2,24 @@
 
 **Latest standing:** universal tripling currents on W5={5 mod8} suffice.
 Seventeen conditional families compose under the same strict-rho order,
-retaining every signed dependency. R62 gives exact original-parent defect
-interfaces and complete low-exponent decision tables. R63 classifies the
-whole earlier exponent-eleven family under the fixed fifteen rules and
-proves that a natural inverse repair is an exact circular dependency.
-R64 uses a lifted inverse ray to cross full subrows of that family below
-the original rank. R65 represents the entire returning defect by an
-adjacent-source comparison with strictly smaller helpers, but still
-requires that comparison's current. The focus remains a complete
-recursion for the unresolved types; neither a different basis nor
-formal rewriting termination supplies their missing currents.
-The seed varies with the prescribed growing depth; no infinite positive
-orbit is asserted. Sigma rules require R62's explicit compatibility test.
-Universal current
-supply and Collatz remain open.
-These are written reductions and partial constructions, with no novelty
-claim. Current integration and verification status are recorded at the end.
+retaining every signed dependency. R66 bounds every ray in a specified
+inverse procedure, while R67–R68 distinguish growing mixed blocks and
+native-height inverse obstructions from successful forward comparisons.
+The latest R69 shows that the natural arithmetic countdown resets without
+bound on a valid rule, excluding its specified monomial potential class.
+R70 gives all nineteen exit rows and a natural growing re-entry with its
+higher input retained; an intermediate comparison fails the old rank test.
+Neither result asserts a forever-growing positive orbit. R71 gives an
+exact whole-word denominator constraint for mechanical cycles, a restricted
+nonintegrality direction with published antecedents. It leaves other
+cycles and aperiodic paths open.
+The current focus is progress across complete sequences of blocks and
+constraints specific to integer states. Rational scaling changes the
+integer lattice. The adjacent-history audit and pinned side review retain
+the failed automatic-supply and finite-base-only inferences. The
+seventeen-family dispatcher remains unchanged; sigma rules still need
+R62's compatibility test. Universal current supply and Collatz remain open.
+No novelty is claimed. Integration and verification are recorded at the end.
 
 Started 2026-10-17 from clean pushed commit `ce56699`.
 The preceding goal turn made progress: universal partial currents, an exact
@@ -2261,3 +2263,185 @@ and staged whitespace. A final remote refresh left main at793e835.
 The batch is prepared for the authorized commit and push; Git history
 records delivery. The side branch and original archive remain unchanged.
 This is progress on the active research goal, which remains open.
+
+## 2026-10-18 — Whole-block exits and integer-lattice audit
+
+The previous goal turn made verified structural progress (R66–R68), delivered
+as a489973; the universal-current goal remains open. A fresh remote check
+still finds only merged PR1, already incorporated. The side feed now reaches
+678e56531c782ce9eb67e18eb6ddf74e53e80192. Its new transfer identities and
+rational-cycle catalogue are external evidence to reproduce and scope.
+
+This batch tests three mechanisms: an arithmetic potential using the exact
+mixed-block countdown; progress through the entire maximal block and its
+exit; and whole-word integer constraints that are absent from unrestricted
+rational scaling. It also preserves the failed adjacent-history rewrites.
+The work does not enlarge the fixed seventeen-family dispatcher.
+
+- [x] Review prior-turn progress and refresh merged PR/side-lane state.
+- [x] Reproduce the new side probes with pinned sources and process caps.
+- [x] Prove or refute the proposed two-phase arithmetic potential.
+- [x] Analyze a full maximal-block exit with every signed helper retained.
+- [x] Prove, implement and independently review the mechanical-word denominator control.
+- [x] Integrate results and run the required complete verification gate.
+- [x] Update standing, compile the existing TeX, and prepare the authorized commit/push (delivery recorded in Git).
+
+### R69: the exact arithmetic countdown resets on a valid rule
+
+The [valuation-debt proof](arithmetic_progress/VALUATION_DEBT.md) identifies
+the two correct linear forms for the mixed phases. Their binary orders
+drop10 and9 on the actual leading edges, and size times2-to-the-order is
+a positive integer that strictly decreases there. The complete R44
+exponent-three family shows why that is not a global rank: for arbitrary
+child order H>=26, the parent order is exactly3, despite substantial rho
+descent. The entire signed frontier simplifies to three requests,
+`P(u)+P((u-13)/72)-P((32u-11)/81)`, with the cancellation proved for all
+members of the family.
+
+The theorem excludes the specified phase-dependent monomial class with
+nonnegative size exponents, also when both old centres are evaluated in
+both phases. Its necessary pulled-back-centre condition identifies a new
+centre; it does not rule out every finite set of centres or arbitrary
+arithmetic potentials. Fourteen leading transports,24 full reset plans,
+35 rational-power cases and two complete supplied outputs support the
+implementation. Independent review checked the added three-request identity.
+
+### R70: a maximal phase can exit and re-enter at greater height
+
+The [exit proof](mixed_exit/MIXED_EXIT_REENTRY.md) gives a complete interface
+for all nineteen valuations7..25, retaining every request against the
+original parent rank. The entire exit18-to-guard subdomain has an exact
+congruence at every old count. At count one it reduces to the map
+`R(w)=(282429536481w+328537586155)/2^37` on one complete63-bit cylinder.
+Every other final helper is below the original rank, but the leading
+request is larger with coefficient+1.
+
+The natural continuation includes a returning comparison that fails the
+old rho test. This is therefore a failed proposed extension, not a new
+accepted dispatcher rule. Any prescribed number of growing copies is
+realized on a complete varying-seed progression. A fixed positive input
+still exits this stronger guard after an exact finite count; no permanent
+positive orbit is asserted. The clocks are quotient24r and ordinary
+common-tail(24r+6,6). The checker covers114 exit parameters,19 full exits,
+eight general re-entries,eight explicit compositions,eight repeated
+currents,24 long arithmetic families and37 exact maxima. Full unfinished
+one- and two-copy tables retain their missing higher inputs.
+
+### R71: integer realizability is an additional whole-word condition
+
+The [mechanical-word proof](lattice_cycles/BALANCED_DENOMINATORS.md) gives
+the exact reduced denominator `2^(A/g)-3^(k/g)` for all specified
+mechanical valuation words, with g=gcd(A,k). In the primitive case,
+rotation-invariant gcds and one pure2/3-power intercept difference force
+coprimality. Repeated words must first be reduced. Only the constant
+valuation2 cycle is integral.
+
+Choosing A as the bit length of3^k gives every rational cycle state>k/6.
+These are useful arbitrarily high controls, with denominator d varying.
+They do not establish high cycles for one fixed d or show that any
+associated map passes a finite base test. The finite replay covers1320
+general words,336 mechanical families,8232 intercepts and130 controls.
+The result has published antecedents: primary literature was consulted,
+including Knight's high-cycle nonintegrality paper, and no novelty is
+claimed. This scoped cycle calculation does not settle other periodic
+words or aperiodic divergence.
+
+### Parallel-work assessment and the next research decision
+
+PR1 is already incorporated. Its negative controls remain a valuable test
+of overly general progress claims; the previously corrected certificate
+minimality overstatement stays corrected. Both latest side probes at the
+pinned commit reproduced unchanged with byte-identical receipts under
+outer90/180-second caps. See the [review](side_lane_review_678e565.md).
+The rational catalogue has3,889 cycles in its stated finite range. Its
+covariance is valid, but division by d changes the integer lattice, so
+the claim that d1 can enter only through a finite base does not follow.
+
+The [retained-history audit](adjacent_history/HISTORY_SCOPE.md) also
+records two failed joint rewrites and the precise1179 compiler example.
+It does not treat lower-rho pair inputs as an automatically supplied full
+lower-height interval, or rule out alternative use of actual history.
+
+**Decision:** retain the current framework and controls; focus on progress
+across complete sequences of blocks and exact integer constraints. A single
+phase's countdown and a wider short-identity catalogue do not close the
+missing induction. One concrete next question is whether legal returning
+ray lifts force closure of the valuation-centre set: for endpoint
+`r=F^L(3u)`, the exponent-three parent is `(16r-1)/27`. At L1, R69 proves
+the reset. At larger L, lower formal helpers may cancel the child request;
+their complete signed frontier must be proved before claiming any further
+potential obstruction. This is an open lead, not a result.
+
+**Stronger follow-up candidate, not an integrated result:** allowing the
+returning exponent to vary with the ray appears to control those helpers.
+For L=1mod3,L>=1, choose a minimal a>=3 with
+`lambda=6*4^L*(2/3)^a<=4`. Let `r=F^L(3u)`,
+`t=(2r+1)/3^(a-1)`, and `w=(2^a*t-1)/3`. The exact returning CRT condition is
+
+```
+2^a*(2*4^L*u+(2*4^L+1)/9) = 10*3^(a-2) mod3^(a+1).
+```
+
+It is compatible with arbitrary exact binary debt H at u. Two independent
+algebra audits find `8/3<lambda<=4`, `w<=4u`, `rho(w)>3u`, and all
+nonleading helpers below3u, preserving the child P(u)+1. The proposed
+parent centre corresponding to theta=-311195/7153 is
+
+```
+[2^a*(7153-5587204*4^L)-7153*3^a] / [7153*3^(a+1)].
+```
+
+Its reduced ternary denominator appears unbounded with L: a>3L, whereas
+the numerator bracket has ternary order at most2L+14. Combined with R67's
+forced positive pole weight, this could exclude finite affine-valuation
+centre collections in a precisely specified monotone-size/product class.
+The quantified potential theorem, exact checker, retained examples and
+integration are still pending. This lead was investigated while the frozen
+R69–R71 full gate ran; it is not part of those verified result claims.
+
+A cleaner independent centre calculation uses L=4mod9: with
+`p=4^L`, `d_L=(2p+1)/9`, `K_L=7153*d_L-2p*311195`, one has
+`d_L=0mod3`, `K_L=2mod3`. The parent centre is
+`[3*2^a*K_L-3^(a-1)*7153]/(3^a*7153)`, whose numerator has exact
+ternary order1. Its reduced denominator therefore has exact factor
+3^(a-1), unbounded along this subsequence. The intended potential class
+has two fixed phases W/E, finitely many affine valuation forms per phase
+with arbitrary real weights, and a positive increasing affine size raised
+to a nonnegative phase exponent. It excludes neither arbitrary phase
+partitions, nonlinear valuation functions, signed-frontier amortization,
+nor a rule selection omitting the tested edges. This scope and the
+retained-child proof need a retained executable replay before promotion.
+
+Before delivery, the next candidate received a separate temporary replay:
+`/tmp/collatz_general_sibling_audit.py` and its `.json` checked42 full R44
+plans at L4,7,10,13,16,19,22; H26,64,128; and indices0,1, plus16 distinct
+centres at L4mod9. The exact a values were15,25,36,46,56,66,77.
+All42 plans retained the unique highest child+1 and strict parent-rank
+descent, with independent divergence and both clocks checked. These
+temporary files must be read, retained and independently replayed in the
+next batch before the stronger theorem is promoted. The fixed-phase,
+finite-centre proof has passed a mathematical audit; a complete durable
+proof and integration are still pending.
+
+R69–R71 are scoped progress on the active goal. Universal current supply,
+Collatz, novelty, human review and formal verification remain unclaimed.
+The seventeen-family dispatcher and the external side branch are unchanged.
+
+### Final verification and delivery
+
+`python3 scripts/verify_all.py --cpp` completed with exit0. The three new
+checkers, all historical and negative-control receipts,31 archive manifest
+entries and independent C++ cutoffs4096/262144 passed. The complete log is
+`/tmp/collatz_exit_lattice_full_gate.log`. Source and evidence files were
+frozen before the run; subsequent edits affected shared prose and the
+separately labelled follow-up candidate only.
+
+The existing TeX compiled successfully in the built-in editor. Independent
+proof/code reviews passed all three results; final TeX and shared-scope
+review passed after clarifying mechanical phase notation, nonnegative size
+exponents, the report's opening standing and the re-entry map name R.
+Mechanical checks passed for22 scoped files,421 local Markdown links,
+67 unique TeX labels,112 resolved references, JSON parsing, LF endings,
+source hashes and staged whitespace. Remote main remained a489973 before
+delivery. The batch is prepared for the authorized commit and push; its
+delivery is recorded in Git history. The active research goal remains open.

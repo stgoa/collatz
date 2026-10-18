@@ -1,0 +1,239 @@
+{
+  "earlier_transfer_commit": "9223dbc7c6233b072515e506b266e18aa047bb6b",
+  "main_commit": "a489973de2ce7ff293ef295d24ed17b5f9526dc9",
+  "results": [
+    {
+      "actual_receipt_sha256": "57f2ae225cd4b5a5a08ca5e6da1cc4d9fa6fc50cdcfdb7f3f2c20ea25eb07dce",
+      "elapsed_seconds": 0.674,
+      "exit_code": 0,
+      "expected_receipt_sha256": "57f2ae225cd4b5a5a08ca5e6da1cc4d9fa6fc50cdcfdb7f3f2c20ea25eb07dce",
+      "external_report": {
+        "by_d": {
+          "1": {
+            "halving_cases": 1000,
+            "r54_family_cases": 16
+          },
+          "13": {
+            "halving_cases": 996,
+            "r54_family_cases": 16
+          },
+          "5": {
+            "halving_cases": 999,
+            "r54_family_cases": 16
+          },
+          "61": {
+            "halving_cases": 984,
+            "r54_family_cases": 16
+          },
+          "7": {
+            "halving_cases": 998,
+            "r54_family_cases": 16
+          }
+        },
+        "pairs_meeting": 50000,
+        "scope": "3x+d transfer of main's identities; 18u+5 restatement checked for odd u < 1e5 (d = 1).",
+        "status": "PASS"
+      },
+      "probe_path": "sidekick/probes/transfer_3xd.py",
+      "probe_sha256": "af1b85350dfb08a6ecf9d0756bda740a781ba1151dad58705aedba6efb67211c",
+      "receipt_byte_identical": true,
+      "status": "PASS",
+      "stderr": "",
+      "timeout_seconds": 90,
+      "unchanged_since_9223dbc": true
+    },
+    {
+      "actual_receipt_sha256": "288498412875d621ac9f848ead5d1e2a6679bd9cf307a72fecd3b759383411ac",
+      "catalogue_rows": 3889,
+      "elapsed_seconds": 60.824,
+      "exit_code": 0,
+      "expected_receipt_sha256": "288498412875d621ac9f848ead5d1e2a6679bd9cf307a72fecd3b759383411ac",
+      "external_report": {
+        "cycles": 3889,
+        "integral_cycles": [
+          "1"
+        ],
+        "largest_minima": [
+          [
+            "319/13",
+            24.54,
+            [
+              1,
+              2,
+              1,
+              2,
+              2
+            ]
+          ],
+          [
+            "287/13",
+            22.08,
+            [
+              1,
+              1,
+              3,
+              1,
+              2
+            ]
+          ],
+          [
+            "283/13",
+            21.77,
+            [
+              1,
+              1,
+              2,
+              2,
+              2
+            ]
+          ],
+          [
+            "259/13",
+            19.92,
+            [
+              1,
+              1,
+              1,
+              3,
+              2
+            ]
+          ],
+          [
+            "251/13",
+            19.31,
+            [
+              1,
+              1,
+              2,
+              1,
+              3
+            ]
+          ],
+          [
+            "227/13",
+            17.46,
+            [
+              1,
+              1,
+              1,
+              2,
+              3
+            ]
+          ],
+          [
+            "211/13",
+            16.23,
+            [
+              1,
+              1,
+              1,
+              1,
+              4
+            ]
+          ],
+          [
+            "14501/1631",
+            8.89,
+            [
+              1,
+              2,
+              1,
+              2,
+              2,
+              1,
+              2,
+              2
+            ]
+          ],
+          [
+            "13637/1631",
+            8.36,
+            [
+              1,
+              1,
+              3,
+              1,
+              2,
+              2,
+              1,
+              2
+            ]
+          ],
+          [
+            "13529/1631",
+            8.29,
+            [
+              1,
+              1,
+              2,
+              2,
+              2,
+              1,
+              2,
+              2
+            ]
+          ],
+          [
+            "13477/1631",
+            8.26,
+            [
+              1,
+              1,
+              3,
+              1,
+              2,
+              1,
+              2,
+              2
+            ]
+          ],
+          [
+            "1907/233",
+            8.18,
+            [
+              1,
+              2,
+              1,
+              2,
+              1,
+              2,
+              2,
+              2
+            ]
+          ]
+        ],
+        "scope": "Positive rational cycles of 3x+1 (odd-only), primitive words k<=9, 3^k<2^m<=2^(ceil(k log2 3)+2).",
+        "status": "PASS"
+      },
+      "probe_path": "sidekick/frameworks/rational_cycles.py",
+      "probe_sha256": "f7394ace72ea32b8362001a7b14cba30b8b6228772133e6a8a50717e33f98ad0",
+      "receipt_byte_identical": true,
+      "scaled_minima_by_d": {
+        "13": [
+          1,
+          211,
+          227,
+          251,
+          259,
+          283,
+          287,
+          319
+        ],
+        "5": [
+          1,
+          19,
+          23
+        ],
+        "7": [
+          5
+        ]
+      },
+      "status": "PASS",
+      "stderr": "",
+      "timeout_seconds": 180
+    }
+  ],
+  "scope": "Unchanged pinned external probes run only in a temporary directory with outer process timeouts. Finite reproduction does not prove integer-lattice transfer or universal convergence.",
+  "side_commit": "678e56531c782ce9eb67e18eb6ddf74e53e80192",
+  "status": "PASS"
+}

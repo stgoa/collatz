@@ -863,6 +863,42 @@ The same family preserves the 35-arrow ordinary word from31 to23, with total val
 
 The [proof](../experiments/residual_progress/adjacent_recursion/NATIVE_HEIGHT_SEPARATION.md) also derives the initial paired run and proves that transporting R44 through R65 is row-for-row the original forward endpoint comparison. The [constructor](../experiments/residual_progress/adjacent_recursion/native_height.py) and [receipt](../experiments/residual_progress/adjacent_recursion/native_height_audit.json) retain exact supplied-current demonstrations and the native-height tests.
 
+## R69 — Arithmetic debt transport and a complete reset obstruction
+
+**Status: written local progress identity and scoped potential impossibility theorem; exact conditional currents.**
+
+With `L_W(w)=7153w+311195`, `L_E(u)=7153u+656187`, the two actual R67 leading edges obey `L_E(u)=3^7 L_W(w)/2^10` and `L_W(v)=3^5 L_E(u)/2^9`. Thus the positive integer `L_phase*2^v2(L_phase)` strictly decreases on those leading edges. This is not a full-current rank.
+
+For every H>=26, the complete CRT progression `L_W(u)=2^H mod2^(H+1)`, `u=13 mod81`, gives a returning parent `w=(64u+5)/9`. Its already valid R44 exponent-three plan retains the unique highest child P(u)+1, with all requests strictly below the original rho. Nevertheless `v2(L_E(w))=3` and `v2(L_W(u))=H`, so the candidate potential increases without bound. Varying height at fixed order and then order forces any phase-dependent monomial `C_phase L_phase^alpha_phase 2^(beta_phase H_phase)` with nonnegative size exponents alpha_phase to have common exponents. Strict mixed-block decrease then requires beta>0, which the reset family contradicts. Both old centres in both phases also fail. No arbitrary-potential impossibility is claimed.
+
+The whole reset frontier is exactly `P(u)+P((u-13)/72)-P((32u-11)/81)`, with its two lower absorption terms cancelling row for row after the specified bridge. The [proof](../experiments/residual_progress/arithmetic_progress/VALUATION_DEBT.md) also gives a necessary pulled-back-centre condition, without a closure theorem. The [module](../experiments/residual_progress/arithmetic_progress/valuation_debt.py) and [receipt](../experiments/residual_progress/arithmetic_progress/valuation_debt_audit.json) verify14 leading transports,24 complete signed reset plans,35 rational power cases and two supplied-current conversions with180/235 rows. Existing accepted domains are unchanged.
+
+## R70 — Complete mixed exits and a growing conditional re-entry
+
+**Status: written full exit interface and scoped failure of a natural continuation; no new accepted rule.**
+
+At the end of R67's maximal guarded block let `7153v+311195=2^e z`, z odd, e7..25. The next R26 first exponent is always5. Its second depth is2 at e7, `3+v2(243z-294023)>=4` at e8, and3 at every e9..25. The complete composed current retains every signed helper and tests them against the original parent rank.
+
+On `w=8515171531530858421 mod2^63`, the maximal old block has exactly one copy and exit e18. A natural continuation returns to a guarded pair
+
+`R(w)=(282429536481w+328537586155)/2^37>w`.
+
+The full current is an exact comparison from3w to3R(w) plus `H_R(w)-H_w`, with requests `{R(w):1}+A_R(w)-A_w`; all other ranks are below3w. Crucially, the continuation's returning R44 comparison is **not rho-descending**. The larger request remains an unresolved premise. Its quotient length is24 and ordinary common-tail clocks are(30,6).
+
+Writing `E=144990583009`, `C=328537586155`, one has `ER(w)+C=(282429536481/2^37)(Ew+C)`. For every r>=1 the complete cylinder `w=-C/E mod2^(63+37(r-1))` gives r growing re-entries. At a fixed positive guarded seed their exact maximal count is `1+floor((v2(Ew+C)-63)/37)`; the new exit remains open. Repeated clocks are(24r+6,6). This is not an infinite positive path, accepted mixed-dispatcher loop or impossibility of other exit comparisons.
+
+The full exponent18-to-guard congruence is also proved for every maximal old count m, with clocks(12(m+1)+6,6). Its other helpers need not lie below the original rank. See [proof](../experiments/residual_progress/mixed_exit/MIXED_EXIT_REENTRY.md), [constructor](../experiments/residual_progress/mixed_exit/mixed_exit.py) and [receipt](../experiments/residual_progress/mixed_exit/mixed_exit_audit.json):114 exit cases,19 full exit plans, eight general re-entries, eight fully composed re-entries, eight repeated currents,24 long arithmetic families through128 copies and37 exact maxima. One- and two-copy unfinished currents are stored.
+
+## R71 — Whole-word integrality and rational cycle controls
+
+**Status: self-contained derivation and finite exact implementation of a restricted cycle result with published antecedents.**
+
+For the mechanical valuation words `a_i=floor(((i+1)A+l)/k)-floor((iA+l)/k)`, A>=k>=1,0<=l<k,2^A>3^k, put g=gcd(A,k). Every rational cycle state has exact reduced denominator `2^(A/g)-3^(k/g)`. In the primitive case all intercept words are rotations, their gcds with `2^A-3^k` agree, and the change from intercept0 to1 is one pure2/3-power term. This forces gcd1. Repetitions reduce to primitive parameters. Modulo8 excludes denominator1 except the all-2 word and cycle1.
+
+Taking `A=ceil(k log2 3)` also gives every rational cycle state greater than k/6. Thus integer3x+d controls can have minimum above any prescribed multiple of d, **with d varying**. This does not give high cycles for a fixed d or certify any finite base test. It excludes neither arbitrary integer cycles nor aperiodic divergence. Rational scaling preserves local identities but changes the integer lattice; whole-word integrality is a distinct requirement.
+
+The [proof and literature audit](../experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md) acknowledges Knight's published nonintegrality result for high cycles and rational-cycle antecedents. No novelty or new current coverage is claimed. The [module](../experiments/residual_progress/lattice_cycles/balanced_cycles.py) and [receipt](../experiments/residual_progress/lattice_cycles/balanced_cycles_audit.json) check1320 arbitrary rational words,336 mechanical families,8232 intercepts,130 high controls and11 domain rejections. The [side-lane review](../experiments/residual_progress/side_lane_review_678e565.md) separately reproduces both pinned transfer/catalogue probes unchanged.
+
 ## C1 — Independent audit of R2–R4 and of main's R5, R6, R9, R10
 
 **Status: finite checks and model-assisted re-derivation; no discrepancy found.**
@@ -942,7 +978,7 @@ See the [note](../collatz_research_20261017/negative_controls/NOTE.md), Section 
 
 - **Primary:** construct a finite current (or one with nonpositive residual) at every cutoff on R5's five rays, and prove termination. R6's annular increments give an explicit sufficient target with its finite bases discharged. Arbitrarily large finite cost is permitted.
 - Find an arithmetic recursion or another structural mechanism that controls unresolved positive contributions. R13 proves its total exposure depth cannot be uniformly bounded, even on one ladder. Finite successful searches alone do not prove universal existence. C3 provides a conditional cost floor, while allowing one-sided alternatives. C2/C4 require a general termination argument to use hypotheses that fail for T_61; candidate methods that extend to those maps must respect the certified failures at `(d,N)=(61,213)` and `(-1,16)`.
-- Prioritize compatible progress through the exits of complete arithmetic blocks or a different joint comparison covering a whole remaining type. R66 proves that enlarging the specified inverse ray search cannot complete its entry row. R67 gives actual repeated mixed growth and a finite guard exit, whose new pair still needs supply. R68 shows why the original native height matters and why forward comparisons can succeed where complete bounded inverse search fails. These scoped results change the mechanisms worth pursuing; they supply no universal recursion. The fixed internal resolvers cannot assume later rules. Preserve supplied history, signed coefficients, original-rank comparisons and both clocks. The side lane's correctly sharpened quotient stopping threshold is still an unproved universal hitting assertion, as recorded in the [latest review](../experiments/residual_progress/side_lane_review_33c3829.md).
+- Prioritize progress across complete sequences of arithmetic blocks or integer-specific whole-word constraints. R69 rules out the proposed two-centre monomial rank; its local binary countdown can reset on a valid descending rule. R70 shows why finishing an old guard need not lower the original obligation: the specified natural exit can re-enter at greater height, retaining its unproved input. R71 supplies a concrete integrality distinction and varying-denominator controls, but no criterion for all words or aperiodic paths. Preserve supplied history, all signed coefficients, original-rank comparisons and both clocks. The [history audit](../experiments/residual_progress/adjacent_history/HISTORY_SCOPE.md) and [new side-lane review](../experiments/residual_progress/side_lane_review_678e565.md) retain the failed automatic-supply and finite-base-only inferences. R66's all-ray bound and R68's native-height separation still have their specified scope. The frozen internal resolvers cannot assume later rules, and the seventeen-family dispatcher is unchanged.
 - Prove finite progress for every positive exposed-component plateau, or close R8/R9's residuals in a family with a decreasing integer parameter. R8 deletes only certified source coefficients; R9 contracts only one pass. Neither handles its full residual.
 - R11 gives a finite conditional compiler that retains boundary terms and can end a plateau if its packet inputs are supplied. Develop a noncircular source of those inputs. R12 rules out obtaining a new descent merely by alternating the existing P and R operators.
 - Independently audit cutoffs, absorption, the five-ray transition, finite bases, annular table, and maximum principle. Current review is computational and model-assisted. C1 is a separate, independent pass that found no error. There is still no human peer review or proof-assistant verification.

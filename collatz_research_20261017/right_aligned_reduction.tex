@@ -89,6 +89,13 @@ systems can also produce arbitrarily long growing blocks, with an exact
 finite guard exit that still needs a current. A separate complete family
 has deep native-height inverse obstructions and a fixed forward comparison
 with all helper ranks below that height.
+A natural binary-debt measure decreases on the two mixed leading edges,
+but a complete valid returning family resets it without bound. A specified
+maximal-block continuation can also re-enter the growth guard at greater
+height, with the higher input retained. Separately, exact reduced
+denominators exclude nontrivial integer cycles for the mechanical valuation
+words, a direction with published antecedents. It leaves other cycle
+patterns and aperiodic divergence open.
 No complete universal current construction, Collatz proof, or novelty claim
 is supplied.
 \end{abstract}
@@ -5723,6 +5730,234 @@ endpoint comparison, including the full signed current. The proof,
 paired-run audit and supplied-current fixtures are in
 \path{experiments/residual_progress/adjacent_recursion/NATIVE_HEIGHT_SEPARATION.md}.
 
+\section{Arithmetic debt decreases locally but resets on a valid rule}
+\label{sec:valuationdebt}
+Use the two phases $W$ (nonreturning) and $E$ (returning) of the mixed
+block, and put
+\[
+ L_W(w)=7153w+311195,\qquad L_E(u)=7153u+656187,
+ \qquad H_X(s)=v_2(L_X(s)).
+\]
+On $w\equiv40529845\pmod {2^{26}}$, the actual leading comparisons are
+\[
+ w\longmapsto u=\frac{2187w+1209}{1024}
+ \longmapsto v=\frac{243u+17}{512}.
+\]
+Their linear forms obey $L_E(u)=3^7L_W(w)/2^{10}$ and
+$L_W(v)=3^5L_E(u)/2^9$. Consequently the positive integer
+$L_X(s)2^{H_X(s)}$ decreases on both leading edges, by respective factors
+$3^7/2^{20}$ and $3^5/2^{18}$. This statement does not include all signed
+helpers or the later exit.
+
+\begin{theorem}[Obstruction to the two-phase monomial potential]
+\label{thm:valuationdebt}
+No function
+\[
+ \Phi(s)=C_X L_X(s)^{\alpha_X}2^{\beta_X H_X(s)},
+ \qquad C_X>0,\quad \alpha_X\geq0,\quad \beta_X\in\mathbb R,
+\]
+is nonincreasing on both leading mixed edges and all the returning
+comparisons below, while strictly decreasing on every complete mixed block.
+\end{theorem}
+\begin{proof}
+The exact-order progression $H_W(w)=26$ allows $w\to\infty$.
+Nonincrease on the two edges respectively forces
+$\alpha_E\leq\alpha_W$ and $\alpha_W\leq\alpha_E$. With the common
+size exponent fixed, arbitrarily large exact orders $H_W(w)$ likewise
+force $\beta_E=\beta_W=\beta$. Phase constants cancel over the block;
+its ratio is $(3^{12}/2^{19})^\alpha2^{-19\beta}$. Strict decrease
+requires $\beta>0$.
+
+For every $H\geq26$, the complete CRT family
+\[
+ 7153u+311195\equiv2^H\pmod {2^{H+1}},\qquad u\equiv13\pmod {81},
+ \qquad w=(64u+5)/9
+\]
+gives a valid returning exponent-three comparison from $w$ to the
+unique highest request $P(u)$, with coefficient $+1$.
+Here $q=\rho(w)=(32u+1)/3$, and its two-arrow endpoint is
+$r=12u+1=F(3u)$. The full remaining vector is
+$\{u:1\}+A_u-A_{\nu(w)}$; all helpers are below $3u<q$.
+Indeed their ranks are bounded respectively by $(9u+5)/8$ and
+$2u+1/2$. Yet
+\[
+ 9L_E(w)=64L_W(u)-13975032,\qquad
+ H_E(w)=3,\quad H_W(u)=H.
+\]
+Thus $\Phi(u)/\Phi(w)>(C_W/C_E)(9/64)^\alpha2^{\beta(H-3)}$,
+contradicting nonincrease as $H\to\infty$.
+\end{proof}
+In fact the entire reset frontier is exactly
+$P(u)+P(a)-P(b)$, with $a=(u-13)/72$, $b=(32u-11)/81$.
+Writing $a=9c$ gives $b=256c+5$. The prescribed normalization and
+two forward steps give $b\sim64c+1\to48c+1\to36c+1=F(a)$,
+so the corresponding formal request vectors satisfy $A_b=A_a$.
+The complete note retains the current identity behind this cancellation.
+Evaluating both old centres in both phases does not fix this class:
+the inactive order is $5$ on the mixed edges and at the reset child,
+while both parent orders at the reset are $3$. Additional fixed powers
+contribute only constants. This does not exclude more centres or other
+functional forms. A positive child pole at $-311195/7153$ would need
+a matching parent pole at $-6626905/21459$ on this legal branch, since
+$21459w+6626905=(64/3)L_W(u)$. This is a necessary compatibility
+condition only. Full proof and supplied-current fixtures are in
+\path{experiments/residual_progress/arithmetic_progress/VALUATION_DEBT.md}.
+
+\section{Complete mixed exits and a growing conditional re-entry}
+\label{sec:mixedexit}
+Write $A=531441$, $M=524288$, $B=311195$, $D=A-M=7153$,
+$V(w)=(Aw+B)/M$, and $Y(w)=Dw+B$. At the maximal mixed-block
+exit $v=V^m(w_0)$, write $Y(v)=2^e z$, with $z$ odd and $7\leq e\leq25$.
+Every exit has next first exponent $a=5$. The second exponent and raw
+run endpoint are completely described by
+\[
+\begin{array}{c|c|c}
+ e&d&f\\\hline
+ 7&2&(729v+211)/64\\
+ 8&3+v_2(243z-294023)\geq4&\text{general run formula}\\
+ 9,\ldots,25&3&(729v+147)/256.
+\end{array}
+\]
+Indeed $243v+49=(243\cdot2^ez-2^8\cdot294023)/D$ and
+$d=v_2(243v+49)-5$. Every row occurs for every prescribed $m\geq1$
+by choosing the exact initial order $v_2(Y(w_0))=19m+e$.
+After this next run the complete requests are $A_f-A_{w_0}$.
+Since every request of $H_{w_0}$ is below $3w_0$, its above-original-rank
+frontier is exactly that of $H_f$, with all signs retained.
+
+At exit $e=18$, a further twelve quotient steps have raw ordinary
+endpoint $6y+1$, where $y=2V(v)$. They re-enter the old guard precisely
+on $y\equiv40529845\pmod {2^{26}}$. For any prescribed maximal old
+count $m$, put $k=m+1$ and
+\[
+ P_k=A^k,\quad C_k=B\frac{A^k-M^k}{A-M},\quad L_k=2^{19k-1}.
+\]
+The complete initial congruence is
+$w_0\equiv(40529845L_k-C_k)P_k^{-1}\pmod {2^{26}L_k}$,
+with $y=(P_kw_0+C_k)/L_k$. The identity
+$Y(y)=2(A/M)^kY(w_0)-B$ forces the exact old count and exit18.
+The resulting current retains $\{y:1\}+A_y-A_{w_0}$; for large $m$
+even its other helpers need not be below the original rank.
+
+\begin{theorem}[A complete growing exit-and-re-entry comparison]
+\label{thm:mixedreentry}
+Set $P=282429536481$, $C=328537586155$, $L=2^{37}$,
+$E=P-L=144990583009$, and $R(w)=(Pw+C)/L$.
+For every positive $w\equiv8515171531530858421\pmod {2^{63}}$,
+the old maximal block has one copy and exit18. The specified continuation
+re-enters the old guard at $R(w)>w$. Its full current is
+\[
+ K_w=D_{3w,3R(w)}+J_{R(w)}-J_w,
+ \qquad c_w=\{R(w):1\}+A_{R(w)}-A_w,
+\]
+with every request other than $R(w)$ below the original $3w$.
+Its quotient length is24 and ordinary common-tail clocks are $(30,6)$.
+\end{theorem}
+\begin{proof}
+The displayed residue is both the preimage of the old guard under $R$
+and $-C/E\pmod {2^{63}}$. It forces $v_2(Y(w))=37$, hence exactly
+one old copy and exit18. The ordinary path from $3w$ uses the old
+twelve-arrow word followed by the same word with first valuation changed
+from1 to3, ending at $6R(w)+1$. Its normalizer to $3R(w)$ has equal
+six-arrow prefixes. Append this bridge and the two full formal absorption
+plans to obtain the stated current. The helper bound follows from
+\[
+ (9R(w)+5)/8<3w
+ \quad\Longleftrightarrow\quad
+ 756669054999w>3644033042755,
+\]
+which holds for every $w\geq5$. The leading coefficient cannot cancel.
+\end{proof}
+This is a conditional comparison, not an accepted mixed-rank rule.
+The intermediate returning parent has index
+$u=(2187v+1209)/1024$ and rank $(6561v+2603)/2048$, whereas
+\[
+ \rho(2V(v))-\rho(u)=(754515v+600401)/262144>0.
+\]
+The old returning rank test therefore correctly leaves this input unresolved.
+
+For every $r\geq1$, the full progression
+$w\equiv-C/E\pmod {2^{63+37(r-1)}}$ admits $r$ growing copies,
+because $ER(w)+C=(P/L)(Ew+C)$. At a fixed positive guarded seed
+their maximal count is $1+\lfloor(v_2(Ew+C)-63)/37\rfloor$.
+The new terminal order is26 through62, and its subsequent current is
+still missing. Summing the full currents cancels every intermediate
+$J$, leaving $\{w_r:1\}+A_{w_r}-A_{w_0}$. Other requests are below
+$3w_{r-1}$, not necessarily $3w_0$. The repeated clocks are $(24r+6,6)$.
+These varying-seed families exclude the proposed progress inference;
+they give no infinite positive path or failure of other comparisons.
+Full proof and stored unfinished currents are in
+\path{experiments/residual_progress/mixed_exit/MIXED_EXIT_REENTRY.md}.
+
+\section{Exact integer constraints for mechanical valuation words}
+\label{sec:balanceddenominators}
+For positive $d$ with $\gcd(d,6)=1$, local identities obey
+$S_d(dy)=dS_1(y)$ on positive odd rationals with
+denominators coprime to $6$. This scaling changes the integer domain to
+$d^{-1}\mathbb Z$. It does not preserve integer realizability for $S_1$.
+
+For a positive valuation word $(a_0,\ldots,a_{k-1})$, set
+$A_j=\sum_{i<j}a_i$, $A=A_k$, and
+\[
+ B=\sum_{j=0}^{k-1}3^{k-1-j}2^{A_j},\qquad D=2^A-3^k>0.
+\]
+The fixed rational is $B/D$. If $B_i$ denotes the intercept of the
+rotation beginning at $i$, then
+\[
+ 3B_i+D=2^{a_i}B_{i+1}.
+\]
+Every $B_i$ is odd and $D$ is coprime to $6$, so this identity proves
+the exact valuations and a common reduced denominator
+$D/\gcd(B,D)$. Scaling by this denominator gives an integer $3x+d$ cycle.
+
+\begin{theorem}[Mechanical-word denominator]
+\label{thm:balanceddenominator}
+For integers $A\geq k\geq1$ with $2^A>3^k$, let
+\[
+ a_i(\ell)=\left\lfloor\frac{(i+1)A+\ell}{k}\right\rfloor
+          -\left\lfloor\frac{iA+\ell}{k}\right\rfloor,
+ \qquad 0\leq\ell<k.
+\]
+Put $g=\gcd(A,k)$. Every cycle state has reduced denominator
+$2^{A/g}-3^{k/g}$. The only positive integer case is $A=2k$,
+with every valuation $2$ and fixed point $1$.
+\end{theorem}
+\begin{proof}
+Write $C_\ell=\sum_{j=0}^{k-1}3^{k-1-j}
+2^{\lfloor(jA+\ell)/k\rfloor}$ for the mechanical-phase intercept,
+distinguishing it from the rotation index $B_i$ above.
+First take $g=1$. Intercept $\ell+sA\pmod k$ gives rotation by $s$;
+thus all $C_\ell$ have the same gcd with $D$. For $k\geq2$, exactly
+one nonzero $j<k$ has $jA\equiv k-1\pmod k$. Consequently
+\[
+ C_1-C_0=3^{k-1-j}2^{\lfloor jA/k\rfloor}.
+\]
+The common gcd divides this number and is coprime to $6$, hence is $1$.
+For $k=1$, $B=1$ directly. For general $g$, writing $\ell=gh+r$,
+$0\leq r<g$, shows that the word repeats the primitive parameter word
+$(k/g,A/g)$, whose fixed point is unchanged by repetition.
+If the resulting denominator is $1$ and $k/g\geq2$, then $A/g\geq4$,
+whereas $3^{k/g}+1$ is $2$ or $4$ modulo $8$, a contradiction.
+For $k/g=1$, denominator $1$ forces $A/g=2$.
+\end{proof}
+
+For each $k$, choose $A$ as the bit length of $3^k$.
+Then $0<D<3^k$ and, at every intercept, each summand of $B$ exceeds
+$3^{k-1}/2$, since
+$\lfloor(jA+\ell)/k\rfloor>jA/k-1$ and $2^{A/k}/3>1$.
+Every state therefore exceeds $k/6$. These give rational cycles
+arbitrarily far above $1$, or integer $3x+d$ cycles with minimum
+arbitrarily large relative to $d$, with $d$ varying.
+They do not show that any such map passes a separate finite-base test.
+
+The nonintegrality direction is related to the published high-cycle
+result of Kevin Knight, \emph{Discrete Mathematics} 349(3) (2026),
+114812, \href{https://doi.org/10.1016/j.disc.2025.114812}{doi:10.1016/j.disc.2025.114812}.
+No novelty or extremal characterization is claimed here. Other word
+patterns and aperiodic divergence remain open. The self-contained proof,
+primary references and exact controls are in
+\path{experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md}.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -5862,8 +6097,15 @@ Theorem~\ref{thm:nativeheight} separates complete bounded inverse
 search from a fixed forward comparison at the required native height.
 These results motivate a compatible argument across full block exits
 or a different joint comparison, while preserving supplied history.
+Theorem~\ref{thm:valuationdebt} shows why the natural two-centre
+arithmetic countdown cannot rank all valid reductions. The conditional
+re-entry construction in Theorem~\ref{thm:mixedreentry} retains a larger pair after leaving the old
+guard; it does not add a rank-valid rule. Theorem~\ref{thm:balanceddenominator}
+instead illustrates a whole-word integer constraint. Its cycle exclusion
+is restricted to the mechanical class, so neither all periodic words nor
+aperiodic paths have been resolved.
 
-The latest independent side note gives a correct conditional threshold:
+An earlier independent side note gives a correct conditional threshold:
 any quotient prefix from $q=\rho(w)$ to $x$ with $9x+5<8q$ supplies
 a strict-rho pair plan by the formal absorption bound. Universal finite
 hitting of that threshold would prove Collatz by induction, and Collatz
@@ -5872,6 +6114,12 @@ does not prove universal hitting or restrict every possible current
 construction to that particular prefix. Its two finite probes were
 reproduced against pinned sources; their sample lengths are not universal
 bounds.
+The newer transfer and rational-cycle probes also reproduce exactly.
+Their local covariance is valid, but division by $d$ changes the integer
+lattice; the assertion that $d=1$ can matter only through a finite base
+does not follow. High rational-cycle controls require the stated rational
+domain, and do not show that a corresponding map passes a proposed base
+test. Both distinctions are retained in the pinned review.
 Completing the remaining $W_5$ currents is still the full-strength open
 obligation. Further isolated merger families alone would not discharge it.
 Theorem~\ref{thm:paircatalogue} gives the exact limitation of the named
@@ -6126,5 +6374,14 @@ with large ray indices,120 paired runs,120 exact transported currents,
 an exact45-row adjacent current at31 and a345-row output with all15
 supplied input currents. The infinite quantifiers and integer-count
 bound rely on the written proofs, not these finite checks.
+The valuation-debt checker adds14 leading transports,24 complete signed
+reset plans,35 rational-power checks and two supplied-current conversions
+with180 and235 rows. The exit checker covers114 parameters,19 full exit
+plans, eight general re-entries, eight audited re-entry plans, eight
+repeated currents,24 long families and37 exact maximal counts. Every
+higher missing input remains explicit. The mechanical-word checker adds
+1320 arbitrary rational words,336 parameter families,8232 intercepts,
+130 high controls and11 domain rejections. The finite checks do not
+replace the all-length denominator proof or the quantified CRT arguments.
 These audits remain finite evidence for the implementations.
 \end{document}
