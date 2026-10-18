@@ -1,0 +1,296 @@
+{
+ "checks": {
+  "chernoff_vs_exact": {
+   "cases": 480,
+   "worst_exact_over_bound": 0.6099848056243592,
+   "pass": true
+  },
+  "word_count_hockey_stick": {
+   "pass": true
+  },
+  "cylinders_d1": {
+   "X": 65536,
+   "words": 9948,
+   "one_class_each": true,
+   "counts_within_1": true,
+   "class_determines_word": true,
+   "pass": true
+  },
+  "cylinders_d5": {
+   "X": 65536,
+   "words": 9948,
+   "one_class_each": true,
+   "counts_within_1": true,
+   "class_determines_word": true,
+   "pass": true
+  },
+  "affine_bound": {
+   "samples": 20000,
+   "pass": true,
+   "discarded_multiplicative_form_violations": 18788,
+   "counterexample_word": [
+    10,
+    1
+   ],
+   "counterexample_Cw": 1027,
+   "counterexample_exceeds_3^n": true
+  },
+  "integer_tail_and_descent": [
+   {
+    "d": 1,
+    "n": 6,
+    "theta": 1.6,
+    "bad_count": 133120,
+    "bound_(4)": 387242.9393058174,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 1,
+    "n": 6,
+    "theta": 1.7,
+    "bad_count": 197632,
+    "bound_(4)": 447131.4425005637,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 1,
+    "n": 6,
+    "theta": 1.8,
+    "bad_count": 197632,
+    "bound_(4)": 490617.4758315442,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 1,
+    "n": 8,
+    "theta": 1.6,
+    "bad_count": 101632,
+    "bound_(4)": 350436.7418990007,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 1,
+    "n": 8,
+    "theta": 1.7,
+    "bad_count": 152320,
+    "bound_(4)": 425045.3639961955,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 1,
+    "n": 8,
+    "theta": 1.8,
+    "bad_count": 207232,
+    "bound_(4)": 482610.6887410737,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 1,
+    "n": 10,
+    "theta": 1.6,
+    "bad_count": 119144,
+    "bound_(4)": 324310.1960512611,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 1,
+    "n": 10,
+    "theta": 1.7,
+    "bad_count": 164904,
+    "bound_(4)": 421243.7832857966,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 1,
+    "n": 10,
+    "theta": 1.8,
+    "bad_count": 213524,
+    "bound_(4)": 512803.73530312197,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 5,
+    "n": 6,
+    "theta": 1.6,
+    "bad_count": 133120,
+    "bound_(4)": 387242.9393058174,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 5,
+    "n": 6,
+    "theta": 1.7,
+    "bad_count": 197632,
+    "bound_(4)": 447131.4425005637,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 5,
+    "n": 6,
+    "theta": 1.8,
+    "bad_count": 197632,
+    "bound_(4)": 490617.4758315442,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 5,
+    "n": 8,
+    "theta": 1.6,
+    "bad_count": 101632,
+    "bound_(4)": 350436.7418990007,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 5,
+    "n": 8,
+    "theta": 1.7,
+    "bad_count": 152320,
+    "bound_(4)": 425045.3639961955,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 5,
+    "n": 8,
+    "theta": 1.8,
+    "bad_count": 207232,
+    "bound_(4)": 482610.6887410737,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 5,
+    "n": 10,
+    "theta": 1.6,
+    "bad_count": 119144,
+    "bound_(4)": 324310.1960512611,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 5,
+    "n": 10,
+    "theta": 1.7,
+    "bad_count": 164904,
+    "bound_(4)": 421243.7832857966,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   },
+   {
+    "d": 5,
+    "n": 10,
+    "theta": 1.8,
+    "bad_count": 213524,
+    "bound_(4)": 512803.73530312197,
+    "descent_violations_off_bad_set": 0,
+    "pass": true
+   }
+  ]
+ },
+ "rate_table": [
+  {
+   "theta": 1.3,
+   "I": 0.19882594962240963,
+   "descent_factor_per_step": 1.2183785945343533
+  },
+  {
+   "theta": 1.4,
+   "I": 0.13282862876456336,
+   "descent_factor_per_step": 1.1367874248827987
+  },
+  {
+   "theta": 1.5,
+   "I": 0.0849495183976986,
+   "descent_factor_per_step": 1.0606601717798212
+  },
+  {
+   "theta": 1.6,
+   "I": 0.050534307843141224,
+   "descent_factor_per_step": 0.9896309330796706
+  },
+  {
+   "theta": 1.7,
+   "I": 0.02660971938910467,
+   "descent_factor_per_step": 0.9233583100086873
+  },
+  {
+   "theta": 1.8,
+   "I": 0.0111340871327196,
+   "descent_factor_per_step": 0.8615237662477763
+  },
+  {
+   "theta": 1.9,
+   "I": 0.0026327952443023495,
+   "descent_factor_per_step": 0.8038300969022198
+  },
+  {
+   "theta": 1.95,
+   "I": 0.000641095901192261,
+   "descent_factor_per_step": 0.7764486928810331
+  }
+ ],
+ "tradeoff_table": [
+  {
+   "theta": 1.6,
+   "I": 0.050534307843141224,
+   "descent_factor_per_step": 0.9896309330796706,
+   "kappa_max_for_boundary_term": 0.6548383629298837,
+   "exceptional_exponent_at_kappa_max": 0.047741380687814125,
+   "landing_scale_exponent_at_kappa_max": 0.9901528685896825
+  },
+  {
+   "theta": 1.65,
+   "I": 0.03740472740820733,
+   "descent_factor_per_step": 0.9559204704894467,
+   "kappa_max_for_boundary_term": 0.6265521320402779,
+   "exceptional_exponent_at_kappa_max": 0.03381101786645861,
+   "landing_scale_exponent_at_kappa_max": 0.9592506161642724
+  },
+  {
+   "theta": 1.7,
+   "I": 0.02660971938910467,
+   "descent_factor_per_step": 0.9233583100086873,
+   "kappa_max_for_boundary_term": 0.6018258349384885,
+   "exceptional_exponent_at_kappa_max": 0.02310391939543038,
+   "landing_scale_exponent_at_kappa_max": 0.9307674609472741
+  },
+  {
+   "theta": 1.75,
+   "I": 0.017918382754078754,
+   "descent_factor_per_step": 0.8919053362520408,
+   "kappa_max_for_boundary_term": 0.5799961963415808,
+   "exceptional_exponent_at_kappa_max": 0.014993343597766357,
+   "landing_scale_exponent_at_kappa_max": 0.9042788781645442
+  },
+  {
+   "theta": 1.8,
+   "I": 0.0111340871327196,
+   "descent_factor_per_step": 0.8615237662477763,
+   "kappa_max_for_boundary_term": 0.5605579410789535,
+   "exceptional_exponent_at_kappa_max": 0.009004293942116385,
+   "landing_scale_exponent_at_kappa_max": 0.8794590221494843
+  },
+  {
+   "theta": 1.9,
+   "I": 0.0026327952443023495,
+   "descent_factor_per_step": 0.8038300969022198,
+   "kappa_max_for_boundary_term": 0.5273700634728392,
+   "exceptional_exponent_at_kappa_max": 0.0020031205983945303,
+   "landing_scale_exponent_at_kappa_max": 0.8338586540089916
+  }
+ ],
+ "pass": true
+}
