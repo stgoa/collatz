@@ -11,8 +11,10 @@
   cutoffs4096/262144 and the complete independent R91 basin. Log:
   `/tmp/collatz_phi_shadow_full_gate.log`. Shared-record and TeX review passed;
   mechanical checks covered18 files,465 local links,87 labels,149 references,
-  JSON, LF endings and staged whitespace. The verified batch is prepared for
-  authorized commit/push, recorded in the report and Git history. Universal current supply, Collatz and the active research goal remain open; no novelty claim is made.
+  JSON, LF endings and staged whitespace. The verified mathematical batch was committed and pushed as `a94533a`;
+  local main and origin/main matched and the working tree was clean. The
+  accompanying documentation follow-up records delivery and the unpromoted
+  next-window research lead. Universal current supply, Collatz and the active research goal remain open; no novelty claim is made.
 
 ## 2026-10-18 — Retained histories, complete cell scope, and the next research priority
 

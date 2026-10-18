@@ -3338,7 +3338,7 @@ The active target remains original-rank supply for a COMPLETE remaining type, ra
 - [x] Test a genuinely adaptive history-cover or across-exit progress mechanism.
 - [x] Persist proved advances or decisive counterexamples, with exact limits and reproducible evidence.
 - [x] Independently review, update standing/TeX and pass the required verification.
-- [ ] Commit and push the reviewed batch.
+- [x] Commit and push the reviewed batch.
 
 The full objective remains open; a new finite countdown or conditional reduction alone does not complete it.
 
@@ -3439,4 +3439,22 @@ for18 scoped files,465 local Markdown links,87 unique TeX labels,149 resolved
 references, JSON parsing, LF endings and staged whitespace. Independent shared
 record and TeX transcription review passed. The staged scope contains only the
 reviewed research packages, pinned side review and maintained records.
-The verified batch is ready for authorized commit and push; delivery follows.
+The verified mathematical batch was committed and pushed as `a94533a`; local main and origin/main matched afterward, and the working tree was clean. The universal goal remains active.
+
+
+### Next-batch candidate preserved separately from verified results
+
+The [deeper-window draft](deeper_window/CANDIDATE.md) records a proposed finite
+reduction for the window12r+5<d<=12r+19, with the original source fixed.
+The draft bounds a candidate boundary shadow by u<741545113, restricts its
+first-hit cost to seven possibilities, and compresses repeated inverse cycles
+to an r-independent affine boundary. A remaining suffix would have at most14
+quotient steps, exponent sum at most21 and ray indices at most3. Intercepts,
+binary guards and the self-history p=Q are retained.
+
+This is UNPROMOTED and outside the completed R90/R91 gate. Its larger rational
+basin has not been classified, no complete window conclusion is available,
+and independent proof review is still required. A finite origin universe alone
+does not guarantee a terminating classification. The draft preserves the exact
+argument and missing certificate obligations so the next batch can start from
+the repository. No new dispatcher, supplied current or Collatz claim is added.
