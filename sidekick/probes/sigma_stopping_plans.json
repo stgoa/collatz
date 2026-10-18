@@ -1,0 +1,96 @@
+{
+  "all_inputs": {
+    "lookahead<=1": 0.0,
+    "lookahead<=16": 0.909,
+    "lookahead<=2": 0.134,
+    "lookahead<=32": 0.984,
+    "lookahead<=4": 0.476,
+    "lookahead<=8": 0.754
+  },
+  "by_class": {
+    "3w non-selected, w=0 mod 3": {
+      "continued_dispatcher": 0.567,
+      "lookahead<=1": 0.0,
+      "lookahead<=16": 0.888,
+      "lookahead<=2": 0.0,
+      "lookahead<=32": 0.98,
+      "lookahead<=4": 0.369,
+      "lookahead<=8": 0.711,
+      "max_lookahead": 77,
+      "samples": 561
+    },
+    "3w non-selected, w=1 mod 3": {
+      "continued_dispatcher": 0.576,
+      "lookahead<=1": 0.0,
+      "lookahead<=16": 0.884,
+      "lookahead<=2": 0.0,
+      "lookahead<=32": 0.976,
+      "lookahead<=4": 0.36,
+      "lookahead<=8": 0.685,
+      "max_lookahead": 74,
+      "samples": 594
+    },
+    "3w non-selected, w=2 mod 3": {
+      "continued_dispatcher": 0.603,
+      "lookahead<=1": 0.0,
+      "lookahead<=16": 0.879,
+      "lookahead<=2": 0.0,
+      "lookahead<=32": 0.977,
+      "lookahead<=4": 0.346,
+      "lookahead<=8": 0.678,
+      "max_lookahead": 89,
+      "samples": 612
+    },
+    "3w selected, w=0 mod 3": {
+      "continued_dispatcher": 1.0,
+      "lookahead<=1": 0.0,
+      "lookahead<=16": 0.924,
+      "lookahead<=2": 0.268,
+      "lookahead<=32": 0.984,
+      "lookahead<=4": 0.583,
+      "lookahead<=8": 0.784,
+      "max_lookahead": 64,
+      "samples": 384
+    },
+    "3w selected, w=0 mod 3 (returning)": {
+      "continued_dispatcher": 0.753,
+      "lookahead<=1": 0.0,
+      "lookahead<=16": 0.924,
+      "lookahead<=2": 0.242,
+      "lookahead<=32": 0.985,
+      "lookahead<=4": 0.616,
+      "lookahead<=8": 0.823,
+      "max_lookahead": 51,
+      "samples": 198
+    },
+    "3w selected, w=1 mod 3": {
+      "continued_dispatcher": 0.13,
+      "lookahead<=1": 0.0,
+      "lookahead<=16": 0.938,
+      "lookahead<=2": 0.272,
+      "lookahead<=32": 0.992,
+      "lookahead<=4": 0.587,
+      "lookahead<=8": 0.816,
+      "max_lookahead": 44,
+      "samples": 629
+    },
+    "3w selected, w=2 mod 3": {
+      "continued_dispatcher": 0.0,
+      "lookahead<=1": 0.0,
+      "lookahead<=16": 0.936,
+      "lookahead<=2": 0.259,
+      "lookahead<=32": 0.992,
+      "lookahead<=4": 0.587,
+      "lookahead<=8": 0.828,
+      "max_lookahead": 42,
+      "samples": 622
+    }
+  },
+  "scope": "Quotient-prefix plans checked with main's sigma validator; lookahead needed by class versus main's continued dispatcher (measurement for the latter).",
+  "status": "PASS",
+  "validated_by_bits": {
+    "24": 1200,
+    "40": 1200,
+    "64": 1200
+  }
+}

@@ -26,6 +26,40 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 23:43 — FINDING: under R51's σ, plain quotient-orbit prefixes give validated plans on all sampled W5, including the selected classes no current rule reaches
+
+**Construction.** Let `w ∈ W5` and `q = ν(3w)`. Iterate `T = ν∘S` from `q` to the first state `x < σ(w)`, which takes `n` quotient steps. With `z = ν(w)`, the current
+
+```
+N_3w + Σ_{i<n} quotient_bridge(Tⁱq) + H_x − N_w − H_z
+```
+
+has divergence `P(w) − requests(H_x) + requests(H_z)`. R51's bound gives every request `σ ≤ max(x, z) < σ(w)`. This is R51's forward check with an arbitrary quotient prefix in place of a block endpoint.
+
+**Validation.** Every plan is built from main's own `bridge`, `quotient_bridge` and `absorption_plan` (commit `8764158`). Main's `sigma_rank.validate` accepts all 3,600 random inputs, 1,200 at each of 24, 40 and 64 bits, across every class.
+
+**Lookahead `n` needed, by class.** The second column is the share main's continued dispatcher accepts (seven rules + R52 + R53); the rest are cumulative shares by lookahead.
+
+| class | continued dispatcher | n ≤ 2 | n ≤ 4 | n ≤ 8 | n ≤ 16 | n ≤ 32 | max n |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 3w selected, w ≡ 2 (mod 3) | 0.0% | 26% | 59% | 83% | 94% | 99.2% | 42 |
+| 3w selected, w ≡ 1 (mod 3) | 13% | 27% | 59% | 82% | 94% | 99.2% | 44 |
+| 3w selected, w ≡ 0 (mod 3), not returning | 100% | 27% | 58% | 78% | 92% | 98.4% | 64 |
+| 3w selected, returning (w ≡ 3 mod 9) | 75% | 24% | 62% | 82% | 92% | 98.5% | 51 |
+| 3w non-selected, w ≡ 0 (mod 3) | 57% | 0% | 37% | 71% | 89% | 98.0% | 77 |
+| 3w non-selected, w ≡ 1 (mod 3) | 58% | 0% | 36% | 69% | 88% | 97.6% | 74 |
+| 3w non-selected, w ≡ 2 (mod 3) | 60% | 0% | 35% | 68% | 88% | 97.7% | 89 |
+
+Across all inputs, the shares needing `n ≤ 2, 4, 8, 16, 32` are 13%, 48%, 75%, 91% and 98.4%.
+
+The two selected classes that the dispatcher barely reaches need *shorter* quotient prefixes than the non-selected classes. In the σ order, then, the residual at lookahead `L` is exactly the set of `w` whose `ν(3w)` has quotient stopping time below `σ(w)` greater than `L`.
+
+Each fixed descending quotient word is affine on a 2-adic class, so these plans group into CRT families of the same kind as the existing rules. This also fits the 23:32 entry. There, the R54 phase and the deep cycle shadows fail every bounded lookahead, which in this language means a long quotient stopping time.
+
+`python3 sidekick/probes/sigma_stopping_plans.py` (about 40 s; receipt alongside; imports main's code read-only)
+
+---
+
 ## 2026-10-17 23:32 — FINDING: R54's Ψ and R53's G are the negative cycles −17 and −5; one backward word resolves the `27 | s` part of R54's family
 
 **The cycles.** Extend `ν` to negative odd integers: F⁻¹ on `x ≡ 5 (mod 8)`, and halving on selected `x ≠ −1`. On `|x| ≤ 4000`, `T = ν∘S` then has exactly three cycles:
