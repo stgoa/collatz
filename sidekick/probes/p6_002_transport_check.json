@@ -1,0 +1,9 @@
+{
+ "probe": "p6_002_transport_check",
+ "main": "de32608",
+ "construction_cases": 1122,
+ "brute_force_mass_cases": 78,
+ "sparse_alpha_cases": 4,
+ "singletons": true,
+ "result": "PASS"
+}

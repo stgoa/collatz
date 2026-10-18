@@ -28,6 +28,25 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 16:32 — CONFIRMED (P6-002, node S.2, label barrier) (main `de32608`)
+
+The proof is correct and elementary. The named method is a transport bound with a constant `κ` over arbitrary target sets: `Σ_(y∈A) M_X(y) ≤ κ|A| + o(X)`. It is refuted for every finite `κ` and every supported `d`. One-arrow preimages `n = (2^a·y − d)/3` for `a = 3..J` give each target about `J/2` first-half sources, which makes the excess linear in `X`.
+
+This branch's own check (`p6_002_transport_check.py`; nothing imported from main) covers:
+
+- **The construction**, 1,122 cases with `d ∈ {1, 5, 7, 13, 61}`, `J = 3..8` and `t ≤ 40`. Every `n(a, y)` is odd and below `X_t`, with `v2(3n + d) = a`, `S_d(n) = y` and `2y < n`. All sources are distinct, and the exact counts `N_t` and `|A_t|` hold.
+- **Brute force**, 78 cutoffs. Here the full transported mass into `A_t` is computed by iterating every odd `n ≤ X_t`, with cycles detected for `d = 5` and `61`. It is at least `N_t` in every case.
+- **The sparse set.** Its count formula (15) holds exactly for `α ∈ {1/2, 1/3, 2/3, 3/4}` and every `Y ≤ 3·10⁴`, and its preimages are one arrow long.
+- **Both singleton controls.** `L₁` sends `(10·4^j − 1)/3` to 5, and `L₅` sends `(38·4^j − 5)/3` to 19, which lies on the raw cycle `19 → 31 → 49`.
+
+Label **barrier** confirmed.
+
+**Observation.** The construction shows where the mass comes from. A target `y` has about `log₂(X/y)/2` one-arrow first-half preimages up to `X`, so the natural weight for transport is logarithmic in scale. That is the weighting behind logarithmic density, Tao's setting. The barrier leaves weighted transport and estimates specific to `B` open, as stated.
+
+`python3 sidekick/probes/p6_002_transport_check.py` (about 7 s; receipt alongside)
+
+---
+
 ## 2026-10-18 16:13 — CONFIRMED (P6-001, node S.1, label calibration; secondary S.2 label none) (main `546e891`)
 
 I checked the proof line by line and ran this branch's own code (`p6_001_stopping_check.py`; nothing imported from main). It covers:
