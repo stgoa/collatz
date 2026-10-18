@@ -26,6 +26,83 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 23:32 — FINDING: R54's Ψ and R53's G are the negative cycles −17 and −5; one backward word resolves the `27 | s` part of R54's family
+
+**The cycles.** Extend `ν` to negative odd integers: F⁻¹ on `x ≡ 5 (mod 8)`, and halving on selected `x ≠ −1`. On `|x| ≤ 4000`, `T = ν∘S` then has exactly three cycles:
+
+- `{−1}`
+- `{−5, −7}`
+- `{−17, −25, −37, −55, −21, −31, −23}`
+
+Each of main's growing return maps is the return map of one of these cycles:
+
+- R54's `Ψ(q) + 17 = (3⁷/2¹¹)(q + 17)` belongs to the 7-cycle (7 odd steps, 11 halvings). R54's column "shadow at q = −17" lists that cycle.
+- R53's `G(x) + 5 = (9/8)(x + 5)` belongs to `{−5, −7}`.
+- The climber runs shadow `−1`.
+
+The negative `W5` indices with `|w| ≤ 4000` whose critical image lies on a cycle are only `w = −11` (`q = −17`) and `w = −3` (`q = −5`). R54's phase is `3445 ≡ −11 (mod 3456)`, and its row-4 `W9` index is `v = −7`, at `q = −21`.
+
+**Why forward rules fail near these points.** A positive `q` that is 2-adically close to a cycle point follows that cycle for a number of blocks proportional to the 2-adic depth. Each block multiplies by the cycle's factor, which is greater than 1, so every forward state in that prefix exceeds the start.
+
+**The backward word.** Running backward around the cycle multiplies by `2¹¹/3⁷ < 1`. Take any odd `q ≡ −17 (mod 3⁷)`. The seven inverse steps with exponents `(4,1,1,2,1,1,1)` are then integral, and they give an S-ancestor below `q`:
+
+```
+p = (2048q − 2363)/2187 < q,   S⁷(p) = q.
+```
+
+The condition is 3-adic only, so it holds at every 2-adic depth. With `z = ν(w)`, the current
+
+```
+N_3w − path(p→q) + H_p − N_w − H_z
+```
+
+has divergence `P(w) − requests(H_p) + requests(H_z)`. By R51, every request has `σ ≤ max(p, z) < q = σ(w)` when `w ∉ E_return`.
+
+In R54's parametrization `q₀ = 81·2^K·s − 17`, the word applies exactly when `27 | s`. We tested `r = 1, 2, 3` with `s = 27, 54, 81, 135`, 12 cases in all:
+
+- Main's `sigma_rank.validate` accepts the plan in every case.
+- The plan also strictly decreases ρ in every case.
+- A best-first preimage search finds this word first in every case.
+
+R41's word at `h = 2` is the corresponding backward word of `{−5, −7}`, since `(8q − 5)/9 = G⁻¹(q)`.
+
+**Beyond `27 | s`** (measurement). The general smaller-ancestor rule, built the same way, searches S-preimages best-first with a 4,000-node budget and a cap of `64q`. The table counts how many of 300 inputs per row it resolves; the inputs are 40-bit and are ones main's continued dispatcher leaves unresolved.
+
+| inputs | resolved |
+|---|---:|
+| R54 phase `w ≡ 3445 (mod 3456)` | 29 / 300 |
+| `3w` selected, `w ≡ 1 (mod 3)` | 31 / 300 |
+| `3w` selected, `w ≡ 2 (mod 3)` | 3 / 300 |
+
+On a separate R54-phase sample, raising the budget to 200,000 nodes and the cap to `2¹⁶ q` moves the rate only from 8.7% to 9.3%. A heuristic shows why it saturates. Treat preimage residues mod 3 as random. Then the expected number of depth-`n` ancestors below `q` is at most a constant times `M(θ)ⁿ` for every `θ > 0`, where `M(θ) = 3^(θ−1)/(2^θ − 1)`. Its minimum is exactly `c^c/(2^c(c−1)^(c−1)) ≈ 0.9465`, with `c = log₂3`. That is the forward cylinder rate of the 19:48 entry and main's R28, under the shift `θ → θ − 1`. So in this model a positive fraction of `q ≡ 1 (mod 3)` have no smaller ancestor at all.
+
+**Returning row near the cycle points** (measurement, 200 samples per row; every input has `3w` selected and `w ≡ 3 (mod 9)`).
+
+| inputs | continued dispatcher | R51 σ dispatcher |
+|---|---:|---:|
+| generic, 40-bit | 155 | 116 |
+| `w ≡ −3 (mod 2^K)` exactly, K = 12, 16, 20, 28 | 0 each | 0 each |
+| `w ≡ −11 (mod 2^K)` exactly, K = 12 / 16 | 200 / 102 | 0 / 0 |
+| `w ≡ −11 (mod 2^K)` exactly, K = 20, 28 | 0 each | 0 each |
+
+R54 §7 puts its leading inputs outside `E_return`. `E_return` nonetheless has deep shadows of both cycle points that neither dispatcher accepts: at every tested depth from `K = 12` near `−3`, and at `K = 20` and `28` near `−11`.
+
+`python3 sidekick/probes/negative_cycle_shadows.py` (about 15 s) and `python3 sidekick/probes/backward_word_rule.py` (about 1 s); receipts alongside. Both import main's code read-only.
+
+---
+
+## 2026-10-17 23:32 — VERIFIED: R51 rank values; R54 phase and seven-step family (main `8764158`)
+
+These checks use this branch's own `nu` and `step`, not main's code:
+
+- **R54 phase.** For 400 consecutive `w ≡ 3445 (mod 3456)`: each `w` is in `W5`, `3w` is selected, `w ≡ 1 (mod 3)`, and `ν(3w) ≡ −17 (mod 5184)`.
+- **R54 family.** We take `q₀ = 81·2^(11r+6)·s − 17` for `r = 1..5` and `s ∈ {1, 2, 3, 7}`. Each of the `r` seven-step blocks of `T` ends at `Ψ(q) = (2187q + 2363)/2048`, with `Ψ(q) + 17 = (2187/2048)(q + 17)`. Every intermediate state exceeds `q₀`.
+- **R51 values.** `ρ(44981) = 134943`, `ρ(96069) = 144103` and `σ(96069) = 128091`; also `σ(4629) = 6171` and `ρ(2197) = σ(2197) = 6591`.
+
+`python3 sidekick/probes/batch_r51_r54_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-17 22:46 — FINDING: expanded seven-rule union covers a size-stable ~43% of W5; one class stays fully uncovered
 
 This is the meter of the 22:21 and 22:44 entries, rerun on main's `double_inverse/expanded_union.py` (commit `bcde58e`). Each `w` is accepted when `one_step(w)` returns a validated plan.

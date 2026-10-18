@@ -1,0 +1,73 @@
+{
+  "negative_T_cycles": [
+    [
+      -1
+    ],
+    [
+      -5,
+      -7
+    ],
+    [
+      -17,
+      -25,
+      -37,
+      -55,
+      -21,
+      -31,
+      -23
+    ]
+  ],
+  "returning_row_acceptance": {
+    "generic selected, w=3 mod 9": {
+      "continued_accepts": 155,
+      "samples": 200,
+      "sigma_accepts": 116
+    },
+    "w=-11 mod 2^12 exactly, w=3 mod 9": {
+      "continued_accepts": 200,
+      "samples": 200,
+      "sigma_accepts": 0
+    },
+    "w=-11 mod 2^16 exactly, w=3 mod 9": {
+      "continued_accepts": 102,
+      "samples": 200,
+      "sigma_accepts": 0
+    },
+    "w=-11 mod 2^20 exactly, w=3 mod 9": {
+      "continued_accepts": 0,
+      "samples": 200,
+      "sigma_accepts": 0
+    },
+    "w=-11 mod 2^28 exactly, w=3 mod 9": {
+      "continued_accepts": 0,
+      "samples": 200,
+      "sigma_accepts": 0
+    },
+    "w=-3 mod 2^12 exactly, w=3 mod 9": {
+      "continued_accepts": 0,
+      "samples": 200,
+      "sigma_accepts": 0
+    },
+    "w=-3 mod 2^16 exactly, w=3 mod 9": {
+      "continued_accepts": 0,
+      "samples": 200,
+      "sigma_accepts": 0
+    },
+    "w=-3 mod 2^20 exactly, w=3 mod 9": {
+      "continued_accepts": 0,
+      "samples": 200,
+      "sigma_accepts": 0
+    },
+    "w=-3 mod 2^28 exactly, w=3 mod 9": {
+      "continued_accepts": 0,
+      "samples": 200,
+      "sigma_accepts": 0
+    }
+  },
+  "scope": "Negative T-cycles behind R53/R54, and dispatcher acceptance on the returning row near the two cycle-anchored W5 indices (measurement).",
+  "status": "PASS",
+  "w5_indices_on_cycles": {
+    "-11": -17,
+    "-3": -5
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "r51_values": {
+    "rho_2197": 6591,
+    "rho_44981": 134943,
+    "rho_96069": 144103,
+    "sigma_4629": 6171,
+    "sigma_96069": 128091
+  },
+  "r54_family_cases": 20,
+  "r54_phase_inputs": 400,
+  "scope": "Independent finite checks of main's R51/R54 claims (working copy).",
+  "status": "PASS"
+}

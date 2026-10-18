@@ -1,0 +1,122 @@
+{
+  "coverage_of_unresolved": {
+    "R54 phase w=3445 mod 3456, 40 bits": {
+      "also_rho_decreasing": 29,
+      "depth<=4": 0,
+      "sigma_rule_accepts": 29,
+      "unresolved_by_main": 300
+    },
+    "selected 3w, w=1 mod 3, 40 bits": {
+      "also_rho_decreasing": 30,
+      "depth<=4": 0,
+      "sigma_rule_accepts": 31,
+      "unresolved_by_main": 300
+    },
+    "selected 3w, w=2 mod 3, 40 bits": {
+      "also_rho_decreasing": 3,
+      "depth<=4": 0,
+      "sigma_rule_accepts": 3,
+      "unresolved_by_main": 300
+    }
+  },
+  "r54_subfamily_27_divides_s": [
+    {
+      "ancestor_is_minus17_word": true,
+      "depth": 7,
+      "r": 1,
+      "requests": 8,
+      "rho_decreasing": true,
+      "s": 27
+    },
+    {
+      "ancestor_is_minus17_word": true,
+      "depth": 7,
+      "r": 1,
+      "requests": 3,
+      "rho_decreasing": true,
+      "s": 54
+    },
+    {
+      "ancestor_is_minus17_word": true,
+      "depth": 7,
+      "r": 1,
+      "requests": 3,
+      "rho_decreasing": true,
+      "s": 81
+    },
+    {
+      "ancestor_is_minus17_word": true,
+      "depth": 7,
+      "r": 1,
+      "requests": 3,
+      "rho_decreasing": true,
+      "s": 135
+    },
+    {
+      "ancestor_is_minus17_word": true,
+      "depth": 7,
+      "r": 2,
+      "requests": 3,
+      "rho_decreasing": true,
+      "s": 27
+    },
+    {
+      "ancestor_is_minus17_word": true,
+      "depth": 7,
+      "r": 2,
+      "requests": 9,
+      "rho_decreasing": true,
+      "s": 54
+    },
+    {
+      "ancestor_is_minus17_word": true,
+      "depth": 7,
+      "r": 2,
+      "requests": 3,
+      "rho_decreasing": true,
+      "s": 81
+    },
+    {
+      "ancestor_is_minus17_word": true,
+      "depth": 7,
+      "r": 2,
+      "requests": 2,
+      "rho_decreasing": true,
+      "s": 135
+    },
+    {
+      "ancestor_is_minus17_word": true,
+      "depth": 7,
+      "r": 3,
+      "requests": 2,
+      "rho_decreasing": true,
+      "s": 27
+    },
+    {
+      "ancestor_is_minus17_word": true,
+      "depth": 7,
+      "r": 3,
+      "requests": 3,
+      "rho_decreasing": true,
+      "s": 54
+    },
+    {
+      "ancestor_is_minus17_word": true,
+      "depth": 7,
+      "r": 3,
+      "requests": 3,
+      "rho_decreasing": true,
+      "s": 81
+    },
+    {
+      "ancestor_is_minus17_word": true,
+      "depth": 7,
+      "r": 3,
+      "requests": 3,
+      "rho_decreasing": true,
+      "s": 135
+    }
+  ],
+  "scope": "Backward-word sigma rule built from main's code; family checks plus coverage measurement on inputs main's continued dispatcher leaves unresolved.",
+  "status": "PASS"
+}
