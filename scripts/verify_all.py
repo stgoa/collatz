@@ -175,6 +175,10 @@ def main():
             ("cycle_inverse", "check_cycle_inverse.py"),
             ("exit_continuation", "check_exit_continuation.py"),
             ("refined_rules", "check_refined_rules.py"),
+            ("defect_resolution", "check_defect_resolution.py"),
+            ("refined_obstruction", "check_refined_obstruction.py"),
+            ("defect_normal_form", "check_adjacent_defect.py"),
+            ("resolved_rules", "check_resolved_rules.py"),
             ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
@@ -268,6 +272,10 @@ def main():
                          maximal_cycle_inverse="PASS: complete cycle/point thresholds, failed frontiers, all-depth CRT escape and supplied currents",
                          eleven_exit_continuation="PASS: whole exit interface, sharp original-rank threshold and exact scoped continuation undo",
                          refined_rule_composition="PASS: old twelve-rule priority preserved; fifteen families share rho with explicit missing leaves",
+                         defect_resolution="PASS: original-rank defect interfaces, complete low-exponent tables and fixed-fifteen failures",
+                         refined_exit_obstruction="PASS: whole fifteen-rule classification, exact inverse undo and lifted-ray descent thresholds",
+                         adjacent_defect_interface="PASS: complete triangular source identity, smaller helpers and checked bidirectional conversion",
+                         resolved_rule_composition="PASS: seventeen rho families preserve old priority and every missing signed input",
                          external_sieve_gap="PASS: exact counterexample to the displayed set equality; no theorem refutation",
                          external_pair_controls="PASS: seven exact cycle witnesses, including three W5 pairs, and invariant-pairing obstructions",
                          scope="Finite audits only; universal current existence remains open."), indent=2))

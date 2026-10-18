@@ -779,6 +779,56 @@ The [proof](../experiments/residual_progress/exit_continuation/ELEVEN_EXIT_CONTI
 
 The [fifteen-family dispatcher](../experiments/residual_progress/refined_rules/REFINED_RULES.md) preserves the old twelve choices and appends R58/R59/R60 under rho. R61 supplies a scoped obstruction, not a new accepted rule. The finite1024-root replay preserves all722 earlier plans exactly and accepts747 in total, with277 unresolved. Explicit witnesses exercise all three added branches, including R60 after earlier priorities. Seven actual conversions use eight distinct supplied pairs, with full1301/11432437 tables;245 closes without any supplied pair. These finite figures do not imply an asymptotic coverage rate or universal closure.
 
+## R62 — Original-rank resolution of the unique absorption defect
+
+**Status: written compatibility theorem, exact whole-domain interfaces, complete local tables and a scoped surviving family.**
+
+For any sigma-valid signed plan, a returning parent automatically gives a rho-valid plan. For a nonreturning parent w, the nondecreasing-rho requests are precisely returning u with `ceil((8rho(w)-5)/9)<=sigma(u)<rho(w)`. This is a complete compatibility criterion; it does not permit arbitrary mixing of ranked rules.
+
+Every failed fifth-exponent plan has `w=4021+8192j`, original rank `Q=12063+24576j`, and one high request `u=8589+17496j` with coefficient+1. Substituting the entire first or second returning comparison gives exactly the final endpoint's formal absorption requests at ranks at least Q; all other terms lie below Q. This holds for arbitrary exponents without claiming every plan passes. When the defect exponent is3, the first comparison succeeds iff its endpoint r is noncanonical or1mod8. On its failed complementary branch, the second-exponent2 and3 tables classify every depth, including the selected endpoint's possible R58 excess. The nonexceptional W9 bound `(243n+511)/256` resolves the remaining small-even case. All tests use Q, not the larger child's rank.
+
+The whole progression `w=53173+65536k` passes the first comparison. Conversely `w=44981+2^24 k` retains an unrecognized high u under the fixed fifteen-rule expansion; for k divisible by81 the original parent also misses all fifteen. This limitation concerns that fixed resolver and initial plan. Later rules and the new second interface are not excluded automatically.
+
+See [proof](../experiments/residual_progress/defect_resolution/DEFECT_RESOLUTION.md), [constructor](../experiments/residual_progress/defect_resolution/defect_resolution.py), and [receipt](../experiments/residual_progress/defect_resolution/defect_resolution_audit.json). The code retains exact signed currents and permits compilation only after the original-rank test and supplied-input validation.
+
+Finite evidence covers13 affine inequalities,76 sigma-valid plans,192 nonexceptional W9 roots,64 first-stage cases,544 second-stage cells, four large exact cells through depth129 and index2^128,90 higher-exponent interfaces,63 family instances and16 fixed-resolver expansions. Four actual outputs use21 distinct supplied pairs; full tables and an unfinished44981 fixture are stored. These checks support the implementation; the infinite quantifiers rest on the written proof.
+
+## R63 — Complete refinement of the exponent-eleven obstruction and exact inverse undo
+
+**Status: written classification of the whole R61 CRT family under the fixed fifteen rules.**
+
+For every R61 parameter triple r>=16,A>=5,K>=0, the higher exit's leading pair remains outside all fifteen direct domains. At the original parent, R59's candidates retain either that unrecognized leading request or the protected original request. Thus the original parent is accepted by the fifteen-rule dispatcher iff R60's maximal-cycle/point threshold passes. Every feasible phase has a full CRT realization inside each fixed(r,A,K) family; both accepted and rejected subrows are infinite.
+
+The prescribed quotient inverse word of length7r+6 from the higher exit f returns exactly to the original q. Its leading-pair plan is locally strict because q<f, but substituting it into the original exit plan cancels every current row and leaves precisely `{w:1}`. Stopping at the alternate inverse phase recovers R56's existing first node. These are complete exact undo identities for named paths, not barriers to other comparisons.
+
+See [proof](../experiments/residual_progress/refined_obstruction/REFINED_ELEVEN.md) and [constructor](../experiments/residual_progress/refined_obstruction/refined_obstruction.py). R64 supplies a distinct comparison inside this family, so the old exclusion cannot be extended to all later rules.
+
+## R64 — A lifted inverse ray with complete maximal continuation thresholds
+
+**Status: written conditional construction and full arithmetic classification for a specified inverse family.**
+
+On the R60 entry domain, put `v=(16w-13)/27`, `3|v`, and q=rho(w). Lift the first inverse ray to `b=512v+113`. Its ordinary tail to q is `(2,7,1,4)`. The rotated cycle `(1,1,2,1,1,4,1)` has affine center−25 and inverse slope2048/2187. The construction takes its maximal number of inverse copies and the maximal subsequent valuation1 run, retaining every ternary remainder and every failed signed plan.
+
+For positive cycle count k, the exact point-depth thresholds descend from13 to0 at k=1,7,13,20,26,32,38,44,50,57,63,69,75,81. The proof checks finite affine intercepts as well as slopes. Whole subrows inside every R61(r,A,K) family pass below the original q and miss all fifteen previous rules. These are conditional pair constructions requiring their remaining smaller inputs, not universal supply or completeness among inverse words.
+
+The zero-cycle branch also takes maximal point ancestry: it passes exactly at depth j>=14. Its special failed j1 endpoint0mod3 reproduces the old original+1 plan; every other failed row has a unique higher+1 request. Whole new subrows at k0,j14 and k1,j13 give respectively18 and24 ordinary arrows, independently of the prescribed R61 parameters. The seed varies with those parameters. These clocks cover the inverse comparison to q; pair normalizers and supplied helper currents retain their own rows.
+
+See [proof and full zero-cycle continuation](../experiments/residual_progress/refined_obstruction/LIFTED_CYCLE.md), [constructor](../experiments/residual_progress/refined_obstruction/refined_obstruction.py), and [joint R63–R64 receipt](../experiments/residual_progress/refined_obstruction/refined_obstruction_audit.json). The [seventeen-family dispatcher](../experiments/residual_progress/resolved_rules/RESOLVED_RULES.md) appends R62/R64 after the fixed fifteen choices. R63 is a classification, not an accepted rule; R65 is a conditional change of source basis.
+
+The new dispatcher preserves all747 accepted plans in the1024-input window, still leaving277 unresolved there. Its two new winning witnesses53173 and36641534965 are outside that window. Six actual conversions use14 distinct supplied pairs; full59-row and102-row output tables are stored. The finite acceptance count is not a global rate.
+
+The joint R63–R64 receipt covers3298 affine checks,43 full plans (13 descending,29 higher failures and one exact self-return), nine old-cycle rows,16 new CRT rows through r64,A32,K64, four complete dispatcher classifications and two exact leading-current undos. Three actual supplied-current conversions produce102,215,1746 rows from9,15,42 pair inputs respectively; the first two full outputs are stored. Fifteen rejection checks retain invalid and missing-premise cases.
+
+## R65 — The entire returning defect as an adjacent-source comparison
+
+**Status: written triangular equivalence and checked conversion in both directions; no new accepted domain.**
+
+The entire R58 exceptional domain is in bijection with returning pairs u and positive canonical `q=31mod108`, via `q=(9n+5)/8`, `u=(2q+1)/3`, `n=(8q-5)/9`. The raw defect lift n→q is the ordinary word(1,2). Set `D(q)=[q+2]-[q]`. There is an exact identity `P(u)=div K-D(q)+sum c(v)P(v)` in which every helper has `rho(v)<=(3q+7)/4<n`. Thus a supplied D(q) current gives P(u), and a supplied P(u) current gives D(q), using the same strictly smaller helpers. Composing these conversions returns the original supplied current row for row. The adjacent current is still a premise with coefficient−1.
+
+Eliminating all returning requests from any formal H_s terminates and leaves nonreturning pairs and adjacent sources of native height at most nu(s). At the exceptional leading source the height equals nu(s), so this change of basis gives no strict progress. The old accepted rule at4629 still raises that proposed height from6171 to6591 after conversion. The constant source gap of two does not bound merger time, exposure depth or current cost.
+
+The [proof](../experiments/residual_progress/defect_normal_form/ADJACENT_DEFECT_INTERFACE.md) also records why maximal inverse(1,2) normalization adds no W5 domain and fails to define a quotient dynamics. Its static two-pair boundary obstruction does not exclude inspecting internal supplied-current rows. The [receipt](../experiments/residual_progress/defect_normal_form/adjacent_defect_audit.json) checks512 defect interfaces,1024 mixed absorption plans,4096 inverse-scope cases and three bidirectional supplied-current conversions with complete stored tables.
+
 ## C1 — Independent audit of R2–R4 and of main's R5, R6, R9, R10
 
 **Status: finite checks and model-assisted re-derivation; no discrepancy found.**
@@ -858,7 +908,7 @@ See the [note](../collatz_research_20261017/negative_controls/NOTE.md), Section 
 
 - **Primary:** construct a finite current (or one with nonpositive residual) at every cutoff on R5's five rays, and prove termination. R6's annular increments give an explicit sufficient target with its finite bases discharged. Arbitrarily large finite cost is permitted.
 - Find an arithmetic recursion or another structural mechanism that controls unresolved positive contributions. R13 proves its total exposure depth cannot be uniformly bounded, even on one ladder. Finite successful searches alone do not prove universal existence. C3 provides a conditional cost floor, while allowing one-sided alternatives. C2/C4 require a general termination argument to use hypotheses that fail for T_61; candidate methods that extend to those maps must respect the certified failures at `(d,N)=(61,213)` and `(-1,16)`.
-- Prioritize a complete recursion on the complement of the fifteen strict-rho families. R58 isolates the unique above-seed absorption defect; R59 permits exact expansion before the original-rank test, and R60 classifies a larger inverse-word family. Establish a compatible comparison for every blocked high request or a complete remaining type, including original self-requests. R59's formal termination is not success of its final rank test. Its internal resolver remains the old twelve. R61's continuation limitation is scoped to that old operation set and must be retested against later rules. R51 retains a separate sigma induction; the finite mixing survey gives no permission to mix them. Preserve supplied history, signed coefficients and both clocks; missing currents remain premises.
+- Prioritize a complete recursion on the complement of the seventeen strict-rho families. R62 classifies original-rank defect repair, R63 identifies exact circular inverses, and R64 crosses full parts of the old obstruction with another ray. R65 gives one complete remaining adjacent-source type with smaller helpers, but leaves its current unproved. Establish a compatible comparison for all its inputs or another complete blocked type. The fixed internal resolvers cannot assume later rules. R62's explicit rank-compatibility criterion is the only new permission to mix sigma-valid plans; the finite survey supplies none. Preserve supplied history, signed coefficients, original-rank comparisons and both clocks; missing currents remain premises.
 - Prove finite progress for every positive exposed-component plateau, or close R8/R9's residuals in a family with a decreasing integer parameter. R8 deletes only certified source coefficients; R9 contracts only one pass. Neither handles its full residual.
 - R11 gives a finite conditional compiler that retains boundary terms and can end a plateau if its packet inputs are supplied. Develop a noncircular source of those inputs. R12 rules out obtaining a new descent merely by alternating the existing P and R operators.
 - Independently audit cutoffs, absorption, the five-ray transition, finite bases, annular table, and maximum principle. Current review is computational and model-assisted. C1 is a separate, independent pass that found no error. There is still no human peer review or proof-assistant verification.

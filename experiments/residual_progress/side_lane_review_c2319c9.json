@@ -1,0 +1,21 @@
+{
+  "baseline_for_dependencies": "7206f9c",
+  "expected_receipt_sha256": "1264df0fa9209a0fb0b642bd7e8c0e82e3fd93663928cc8c01ef46e7b50d9266",
+  "external_report": {
+    "scope": "R58 classification tested against main's committed formal absorption plans.",
+    "status": "PASS",
+    "tally": {
+      "exceptional": 8227,
+      "noncanonical": 53006,
+      "ordinary": 103773
+    }
+  },
+  "main_commit": "d265d94630719838ef9310b58f79eccdf00b0ad4",
+  "preexisting_experiment_python_changed": false,
+  "probe_path": "sidekick/probes/r58_excess_check.py",
+  "probe_sha256": "ccca8540da3760f3186f40f8809fee8c7050e9093143f7aca88fa5c90cf95f73",
+  "scope": "Independent finite R58 probe reproduced unchanged; no universal proof inferred",
+  "side_commit": "c2319c93f33b9c4139215d83126037a92c426f56",
+  "status": "PASS",
+  "timeout_seconds": 180
+}
