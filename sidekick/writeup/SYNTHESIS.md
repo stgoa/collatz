@@ -215,6 +215,11 @@ The largest lookahead observed was 79. These shares are about the same in every 
 
 **States with no smaller ancestor (exact census, R49's criterion).** Of the 499,998 canonical states below `2·10⁶`, 48.5% have no smaller canonical ancestor at any depth. The share is flat from `10³` up. By `q mod 3` it is 88.5% (for 0), 57.0% (for 1) and 0% (for 2). Every certificate for these states needs forward motion.
 
+**Exposure of the annular increment `A_N` (side lane, Q1 and Q2).** These measurements concern the earlier annular layer, not the W5 rules.
+
+- *Absorption is set by depth, not by `N`.* For `N = 96·2^k` up to 49,152, half the positive mass of `A_N` lies in 1's component by depth 2, 90% by depth 7 and 99% by about depth 25, whatever `N` is. The unabsorbed share at a fixed depth is nearly independent of `N`. Only the last sources need depth growing with `N`, about `7.3·log₂N` at the top of the range.
+- *Protected chains end at their own excursion.* For the `D ≤ 4` chains, the end depth equals an exact relay bottleneck along the chain's forward orbit, and that bottleneck sits where the orbit returns below `144N`, the top of the source support. So the plateau is a stopping-time quantity of the chain's own orbit; no other source can shorten it, because none lies above `144N`.
+
 ## 6. The core equivalence
 
 **Theorem (side lane, written proof from main's R43, R51 and R62; reviewed in `side_lane_review_33c3829.md`).** Let `w ∈ W5`, `q = ν(3w) = ρ(w)` and `z = ν(w)`. Suppose some quotient prefix reaches `x = T^n(q)` with `9x + 5 < 8q`. Then
