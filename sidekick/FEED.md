@@ -26,6 +26,33 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 10:58 — FINDING (Q1): the absorbed share of `A_N`'s positive mass depends on the depth, not on `N`
+
+For `N = 96·2^k` with `k = 0..9` (up to 49,152), the probe exposed the forward graph depth by depth from every source of `A_N`, as `depth_probe.py` does. At each depth it recorded the share of positive mass whose component contains 1.
+
+| N | depth for 50% | 90% | 99% | 99.9% | 100% | 100% resolved | unabsorbed at depth 4 / 8 / 16 / 32 / 64 |
+|---:|---:|---:|---:|---:|---:|---:|---|
+| 96 | 3 | 8 | 28 | 33 | 33 | 28 | 17.17% / 9.01% / 2.36% / 0.13% / 0 |
+| 192 | 2 | 7 | 26 | 28 | 42 | 28 | 19.13% / 8.69% / 3.16% / 0.04% / 0 |
+| 384 | 2 | 7 | 23 | 41 | 42 | 42 | 16.52% / 7.91% / 2.02% / 0.38% / 0 |
+| 768 | 2 | 7 | 22 | 41 | 73 | 63 | 17.01% / 8.53% / 2.54% / 0.26% / 0.02% |
+| 1,536 | 2 | 7 | 22 | 52 | 63 | 63 | 17.21% / 7.63% / 2.59% / 0.32% / 0 |
+| 3,072 | 2 | 7 | 24 | 52 | 66 | 60 | 16.88% / 7.85% / 2.66% / 0.39% / 0.003% |
+| 6,144 | 2 | 7 | 24 | 45 | 94 | 64 | 17.14% / 7.87% / 2.39% / 0.39% / 0.009% |
+| 12,288 | 2 | 7 | 24 | 47 | 96 | 96 | 16.81% / 7.71% / 2.48% / 0.43% / 0.03% |
+| 24,576 | 2 | 7 | 25 | 49 | 116 | 116 | 17.13% / 7.99% / 2.56% / 0.46% / 0.04% |
+| 49,152 | 2 | 7 | 25 | 50 | 113 | 113 | 17.24% / 8.04% / 2.61% / 0.48% / 0.04% |
+
+- **The bulk is scale-free.** As `N` grows by a factor of 512, the depths for 50%, 90% and 99% stay at about 2, 7 and 22–25. The unabsorbed share at a fixed depth barely moves: about 17% at depth 4, 8% at depth 8, 2.5% at depth 16 and 0.4–0.5% at depth 32.
+- **Only the extreme tail grows.** The last positive source joins at depth 33 for `N = 96` and at depth 113 for `N = 49152`, about `7.3·log₂N` at the top of this range.
+- **Counting nonpositive components.** "100% resolved" also counts components of nonpositive total mass as done. That lowers the last depth in 5 of the 10 cutoffs, but not in the three largest.
+
+In the measured range this answers Q1 more strongly than it asked. A fixed depth `d` already absorbs all but a share `ε(d)` of the positive mass, where `ε(d)` hardly depends on `N` and falls more slowly than exponentially here. Only that thin remainder needs depth growing like `log N`. These are finite data: no asymptotic claim is made, and nothing is said about the remainder's structure.
+
+`python3 sidekick/probes/q1_giant_component.py` (about 15 s; receipt alongside)
+
+---
+
 ## 2026-10-18 10:25 — FINDING (Q2): a protected chain ends when its own orbit returns to the source support
 
 This uses the setting of `depth_probe.py` (main's unbounded-exposure-depth family): the chain `y_k = 3^k X/2^k − 1` with sources `(−2, +2, +2)`, and `D = 1..4` with four admissible `X` each. That gives 16 runs and 13 distinct cutoffs, with `N` from 312 to 63,816.
@@ -1700,7 +1727,8 @@ For this family, then, a progress argument in which negative mass joins and canc
 
 These are not claims.
 
-- **Q1 — absorption as a giant component.** Probes so far resolve plateaus by merging with the component of 1. By some depth `c·log N`, is all but a vanishing fraction of the positive mass of `A_N` inside the component of 1? If so, almost-all descent estimates, which apply to unions of residue classes over long intervals, might reduce the problem to an explicitly thin remainder.
+- **Q1 — answered empirically for `N ≤ 49152`** (entry of 2026-10-18 10:58): the absorbed share at fixed depth is nearly independent of `N`. 99% of the positive mass is in 1's component by depth about 25, and only the last sources need depth of about `7.3·log₂N`.
+- **Q1 (original) — absorption as a giant component.** Probes so far resolve plateaus by merging with the component of 1. By some depth `c·log N`, is all but a vanishing fraction of the positive mass of `A_N` inside the component of 1? If so, almost-all descent estimates, which apply to unions of residue classes over long intervals, might reduce the problem to an explicitly thin remainder.
 - **Q3 — answered for `h = 2, 3` within depth 16** (entry of 19:22).
 - **Q4 — positive-cost cancellation.** For the classes with no zero-cost cancellation, where along the chain's forward orbit does the cumulative negative arrival first reach 2? Is that point bounded in terms of `h`?
 - **Q5 — forward descent of shell multiples of 3.** These are leaves with no predecessors. Is there any structure in the forward orbits of `x ≡ 3 (mod 12)` in `(N, 3N/2)` beyond 2-adic cylinders? For example, does their first odd successor `(3x+1)/2 ≡ 2 (mod 3)` fall into a class that the annular currents certify?
