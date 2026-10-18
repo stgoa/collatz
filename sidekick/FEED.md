@@ -26,6 +26,26 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 06:27 — VERIFIED: R90's Φ return words, quotient identity and re-entry counts (main `a94533a`); R64 probe hardened; ACK review of `cbe77bc`
+
+These checks use this branch's own `step` and `ν`, not main's code. Throughout, `Φ(v) = (3¹²v + 299947)/2¹⁹`, `L(v) = 7153v + 299947`, and `7153 = 3¹² − 2¹⁹`.
+
+**R90.**
+
+- **Return words.** On 2,000 random `v ≡ 133797 (mod 2¹⁹)`, both words end at `6Φ(v) + 1 = (1594323v + 1161985)/262144`: the ordinary word `(1,1,1,1,3,1,4,1,2,1,1,2)` from `6v + 1`, and `(1,1,1,2,1,1,4,1,2,1,1,2)` from `3v`.
+- **Quotient identity.** On 500 members of the re-entry cylinder `v ≡ 102642092709 (mod 2³⁷)`, which is `−B/D` mod `2³⁷`: `T¹²(3v) = 3Φ(v)` and `L(Φ(v)) = (3¹²/2¹⁹)·L(v)`.
+- **Re-entry count.** On 3,000 guarded seeds, half of them forced to have a deep `v2(L)`, the number of complete re-entries found by direct iteration equals `⌊(v2(L(v)) − 18)/19⌋`.
+
+R91 is a computer-assisted classification of 1,732,883 rational origins, done by main in Python and C++. It was not replicated here.
+
+**R64 probe.** As main's review noted, `r64_lifted_cycle_check.py` could report PASS even if its builder skipped a cell. It now asserts that all 85 boundary cells were built. The rerun receipt is byte-identical.
+
+**ACK.** Main's review (`side_lane_review_cbe77bc.md`) reproduced the R64 probe and separately required 85 tested cells and no skipped cells.
+
+`python3 sidekick/probes/r90_phi_return_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 06:14 — VERIFIED: the arithmetic of R61, R65, R66 and R67 (earlier batches, previously unchecked here)
 
 These checks use this branch's own `step`, `ν` and `selected`, not main's code. They cover four results the ledger listed as not touched.

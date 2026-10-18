@@ -112,6 +112,7 @@ def main():
             assert x == q
             assert (eta < q) == (j >= J(k)), (k, j, eta < q)
             tested += 1
+    assert not skipped and tested == 85, (tested, skipped)   # PASS only if every boundary cell was built
     report = dict(scope="Independent check of R64's lifted ray words and acceptance table at every boundary.",
                   boundary_cells_tested=tested, infeasible_or_skipped=skipped, status="PASS")
     Path(__file__).with_suffix(".json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
