@@ -1,0 +1,56 @@
+{
+  "ancestor_free": 242468,
+  "canonical_states": 499998,
+  "checkpoints": {
+    "400009": {
+      "ancestor_free": 48501,
+      "canonical": 100000,
+      "share": 0.485
+    },
+    "40001": {
+      "ancestor_free": 4882,
+      "canonical": 10000,
+      "share": 0.4882
+    },
+    "4001": {
+      "ancestor_free": 492,
+      "canonical": 1000,
+      "share": 0.492
+    },
+    "99999": {
+      "ancestor_free": 12137,
+      "canonical": 24997,
+      "share": 0.4855
+    }
+  },
+  "first_ancestor_free": [
+    7,
+    9,
+    25,
+    27,
+    33,
+    39,
+    43,
+    57,
+    73,
+    75,
+    97,
+    105,
+    123,
+    127,
+    129,
+    135,
+    145,
+    153,
+    169,
+    171
+  ],
+  "scope": "R49 anchors and exact census of canonical states with no smaller canonical ancestor, below 2000000.",
+  "share": 0.4849,
+  "share_by_q_mod_3": {
+    "0": 0.8848,
+    "1": 0.57,
+    "2": 0.0
+  },
+  "status": "PASS"
+}

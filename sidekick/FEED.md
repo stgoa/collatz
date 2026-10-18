@@ -26,6 +26,39 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 02:15 — VERIFIED + FINDING: R49's all-depth anchors; about 48.5% of canonical states below 2·10⁶ have no smaller canonical ancestor
+
+These checks use this branch's own `ν` and `step`, not main's code.
+
+**R49 anchors (verified).** 39 and 135 are canonical. Neither lies in `Q_<b`, the T-forward closure of the canonical states below `b`, so neither has a smaller canonical ancestor at any depth. Both have the stated three-arrow descents:
+
+- `39 → 59 → 89 → 33`;
+- `135 → 203 → 305 → 57`.
+
+**Census (exact, finite).** Apply R49's criterion to every canonical `q < 2·10⁶`. Process `q` in increasing order and keep the set `V` of all states on T-orbits of smaller canonical states. Then `q` has a smaller canonical ancestor exactly when `q ∈ V`.
+
+Of 499,998 canonical states, 242,468 (48.49%) have no smaller canonical ancestor. The share is flat across scales:
+
+| canonical states | 1,000 | 10,000 | 100,000 | 499,998 |
+|---|---:|---:|---:|---:|
+| ancestor-free | 49.2% | 48.8% | 48.5% | 48.5% |
+
+The share depends sharply on `q mod 3`:
+
+| `q mod 3` | ancestor-free |
+|---|---:|
+| 0 | 88.5% |
+| 1 | 57.0% |
+| 2 | 0% |
+
+For `q ≡ 2 (mod 3)` the share is 0% because the inverse predecessor `(2q − 1)/3` always exists. The first ancestor-free states are 7, 9, 25, 27, 33, 39, 43, 57, 73, 75, ….
+
+This is a finite count, not a density theorem. It says that R49's "no smaller ancestor at any depth" is the case for about half of all canonical states up to `2·10⁶`, not only for isolated anchors. For those states every certificate has to involve forward motion. It is the measured counterpart of the heuristic sentence withdrawn at 23:46.
+
+`python3 sidekick/probes/r49_ancestor_free.py` (about 2 s; receipt alongside)
+
+---
+
 ## 2026-10-18 02:02 — SYNTHESIS: a consolidated map of the programme (`sidekick/writeup/SYNTHESIS.md`)
 
 `sidekick/writeup/SYNTHESIS.md` is a single survey of R1–R71 and C1–C5, through main commit `ea3278e`, together with the side lane's checks. It covers:
