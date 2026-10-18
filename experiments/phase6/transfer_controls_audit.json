@@ -1,0 +1,2607 @@
+{
+  "schema": "phase6-transfer-audit-v1",
+  "status": "PASS",
+  "batch_label": "none",
+  "confirmation": "pending side-lane review",
+  "side_lane_proposal_commit": "f244b7a5b77a51f8dd7e6bccf2c6d5f18932df88",
+  "clock": "odd-only; absorbed at 1; raw map only for explicit cycle/scaling checks",
+  "d_domain": "positive odd d coprime to 6",
+  "max_steps": 10000,
+  "registered_mechanisms": {
+    "strict_descent": {
+      "node": "S.2",
+      "failure_step": "S.2.strict_orbit_descent",
+      "obligation": "Every odd start > 1 eventually has an odd iterate strictly below itself.",
+      "scope": "baseline obligation control; no candidate proof step supplied"
+    },
+    "one_absorption": {
+      "node": "C.2",
+      "failure_step": "C.2.one_absorption",
+      "obligation": "The tested odd seed eventually reaches the sole absorber 1.",
+      "scope": "baseline obligation control; no candidate proof step supplied"
+    },
+    "nonprincipal_cycle_exclusion": {
+      "node": "Y.2",
+      "failure_step": "Y.2.nonprincipal_cycle_exclusion",
+      "obligation": "The tested orbit has no cycle disjoint from the sole absorber 1.",
+      "scope": "baseline obligation control; no candidate proof step supplied"
+    }
+  },
+  "cycle_summary": [
+    {
+      "d": 5,
+      "minimum": 1,
+      "length": 1,
+      "valuation_sum": 3,
+      "contains_absorber_1": true,
+      "primitive_relative_to_d": true
+    },
+    {
+      "d": 5,
+      "minimum": 19,
+      "length": 3,
+      "valuation_sum": 5,
+      "contains_absorber_1": false,
+      "primitive_relative_to_d": true
+    },
+    {
+      "d": 5,
+      "minimum": 23,
+      "length": 3,
+      "valuation_sum": 5,
+      "contains_absorber_1": false,
+      "primitive_relative_to_d": true
+    },
+    {
+      "d": 5,
+      "minimum": 187,
+      "length": 17,
+      "valuation_sum": 27,
+      "contains_absorber_1": false,
+      "primitive_relative_to_d": true
+    },
+    {
+      "d": 5,
+      "minimum": 347,
+      "length": 17,
+      "valuation_sum": 27,
+      "contains_absorber_1": false,
+      "primitive_relative_to_d": true
+    },
+    {
+      "d": 7,
+      "minimum": 5,
+      "length": 2,
+      "valuation_sum": 4,
+      "contains_absorber_1": false,
+      "primitive_relative_to_d": true
+    },
+    {
+      "d": 13,
+      "minimum": 1,
+      "length": 1,
+      "valuation_sum": 4,
+      "contains_absorber_1": true,
+      "primitive_relative_to_d": true
+    },
+    {
+      "d": 13,
+      "minimum": 131,
+      "length": 15,
+      "valuation_sum": 24,
+      "contains_absorber_1": false,
+      "primitive_relative_to_d": true
+    },
+    {
+      "d": 13,
+      "minimum": 211,
+      "length": 5,
+      "valuation_sum": 8,
+      "contains_absorber_1": false,
+      "primitive_relative_to_d": true
+    },
+    {
+      "d": 61,
+      "minimum": 1,
+      "length": 1,
+      "valuation_sum": 6,
+      "contains_absorber_1": true,
+      "primitive_relative_to_d": true
+    },
+    {
+      "d": 61,
+      "minimum": 235,
+      "length": 41,
+      "valuation_sum": 66,
+      "contains_absorber_1": false,
+      "primitive_relative_to_d": true
+    }
+  ],
+  "cycle_controls": [
+    {
+      "d": 5,
+      "start": 1,
+      "expected": "SUCCESS",
+      "role": "terminal baseline",
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 0,
+          "endpoint": 1,
+          "reason": "terminal baseline",
+          "path": [
+            1
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 0,
+          "endpoint": 1,
+          "reason": "terminal baseline",
+          "path": [
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 0,
+          "endpoint": 1,
+          "reason": "terminal baseline",
+          "path": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 5,
+      "start": 19,
+      "expected": "OBSTRUCTED",
+      "role": "negative cycle control",
+      "observations": {
+        "strict_descent": {
+          "status": "OBSTRUCTED",
+          "steps": 3,
+          "endpoint": 19,
+          "reason": "S.2.strict_orbit_descent",
+          "path": [
+            19,
+            31,
+            49,
+            19
+          ],
+          "cycle": [
+            19,
+            31,
+            49
+          ]
+        },
+        "one_absorption": {
+          "status": "OBSTRUCTED",
+          "steps": 3,
+          "endpoint": 19,
+          "reason": "C.2.one_absorption",
+          "path": [
+            19,
+            31,
+            49,
+            19
+          ],
+          "cycle": [
+            19,
+            31,
+            49
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "OBSTRUCTED",
+          "steps": 3,
+          "endpoint": 19,
+          "reason": "Y.2.nonprincipal_cycle_exclusion",
+          "path": [
+            19,
+            31,
+            49,
+            19
+          ],
+          "cycle": [
+            19,
+            31,
+            49
+          ]
+        }
+      }
+    },
+    {
+      "d": 5,
+      "start": 23,
+      "expected": "OBSTRUCTED",
+      "role": "negative cycle control",
+      "observations": {
+        "strict_descent": {
+          "status": "OBSTRUCTED",
+          "steps": 3,
+          "endpoint": 23,
+          "reason": "S.2.strict_orbit_descent",
+          "path": [
+            23,
+            37,
+            29,
+            23
+          ],
+          "cycle": [
+            23,
+            37,
+            29
+          ]
+        },
+        "one_absorption": {
+          "status": "OBSTRUCTED",
+          "steps": 3,
+          "endpoint": 23,
+          "reason": "C.2.one_absorption",
+          "path": [
+            23,
+            37,
+            29,
+            23
+          ],
+          "cycle": [
+            23,
+            37,
+            29
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "OBSTRUCTED",
+          "steps": 3,
+          "endpoint": 23,
+          "reason": "Y.2.nonprincipal_cycle_exclusion",
+          "path": [
+            23,
+            37,
+            29,
+            23
+          ],
+          "cycle": [
+            23,
+            37,
+            29
+          ]
+        }
+      }
+    },
+    {
+      "d": 5,
+      "start": 187,
+      "expected": "OBSTRUCTED",
+      "role": "negative cycle control",
+      "observations": {
+        "strict_descent": {
+          "status": "OBSTRUCTED",
+          "steps": 17,
+          "endpoint": 187,
+          "reason": "S.2.strict_orbit_descent",
+          "path": [
+            187,
+            283,
+            427,
+            643,
+            967,
+            1453,
+            1091,
+            1639,
+            2461,
+            1847,
+            2773,
+            2081,
+            781,
+            587,
+            883,
+            1327,
+            1993,
+            187
+          ],
+          "cycle": [
+            187,
+            283,
+            427,
+            643,
+            967,
+            1453,
+            1091,
+            1639,
+            2461,
+            1847,
+            2773,
+            2081,
+            781,
+            587,
+            883,
+            1327,
+            1993
+          ]
+        },
+        "one_absorption": {
+          "status": "OBSTRUCTED",
+          "steps": 17,
+          "endpoint": 187,
+          "reason": "C.2.one_absorption",
+          "path": [
+            187,
+            283,
+            427,
+            643,
+            967,
+            1453,
+            1091,
+            1639,
+            2461,
+            1847,
+            2773,
+            2081,
+            781,
+            587,
+            883,
+            1327,
+            1993,
+            187
+          ],
+          "cycle": [
+            187,
+            283,
+            427,
+            643,
+            967,
+            1453,
+            1091,
+            1639,
+            2461,
+            1847,
+            2773,
+            2081,
+            781,
+            587,
+            883,
+            1327,
+            1993
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "OBSTRUCTED",
+          "steps": 17,
+          "endpoint": 187,
+          "reason": "Y.2.nonprincipal_cycle_exclusion",
+          "path": [
+            187,
+            283,
+            427,
+            643,
+            967,
+            1453,
+            1091,
+            1639,
+            2461,
+            1847,
+            2773,
+            2081,
+            781,
+            587,
+            883,
+            1327,
+            1993,
+            187
+          ],
+          "cycle": [
+            187,
+            283,
+            427,
+            643,
+            967,
+            1453,
+            1091,
+            1639,
+            2461,
+            1847,
+            2773,
+            2081,
+            781,
+            587,
+            883,
+            1327,
+            1993
+          ]
+        }
+      }
+    },
+    {
+      "d": 5,
+      "start": 347,
+      "expected": "OBSTRUCTED",
+      "role": "negative cycle control",
+      "observations": {
+        "strict_descent": {
+          "status": "OBSTRUCTED",
+          "steps": 17,
+          "endpoint": 347,
+          "reason": "S.2.strict_orbit_descent",
+          "path": [
+            347,
+            523,
+            787,
+            1183,
+            1777,
+            667,
+            1003,
+            1507,
+            2263,
+            3397,
+            2549,
+            1913,
+            359,
+            541,
+            407,
+            613,
+            461,
+            347
+          ],
+          "cycle": [
+            347,
+            523,
+            787,
+            1183,
+            1777,
+            667,
+            1003,
+            1507,
+            2263,
+            3397,
+            2549,
+            1913,
+            359,
+            541,
+            407,
+            613,
+            461
+          ]
+        },
+        "one_absorption": {
+          "status": "OBSTRUCTED",
+          "steps": 17,
+          "endpoint": 347,
+          "reason": "C.2.one_absorption",
+          "path": [
+            347,
+            523,
+            787,
+            1183,
+            1777,
+            667,
+            1003,
+            1507,
+            2263,
+            3397,
+            2549,
+            1913,
+            359,
+            541,
+            407,
+            613,
+            461,
+            347
+          ],
+          "cycle": [
+            347,
+            523,
+            787,
+            1183,
+            1777,
+            667,
+            1003,
+            1507,
+            2263,
+            3397,
+            2549,
+            1913,
+            359,
+            541,
+            407,
+            613,
+            461
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "OBSTRUCTED",
+          "steps": 17,
+          "endpoint": 347,
+          "reason": "Y.2.nonprincipal_cycle_exclusion",
+          "path": [
+            347,
+            523,
+            787,
+            1183,
+            1777,
+            667,
+            1003,
+            1507,
+            2263,
+            3397,
+            2549,
+            1913,
+            359,
+            541,
+            407,
+            613,
+            461,
+            347
+          ],
+          "cycle": [
+            347,
+            523,
+            787,
+            1183,
+            1777,
+            667,
+            1003,
+            1507,
+            2263,
+            3397,
+            2549,
+            1913,
+            359,
+            541,
+            407,
+            613,
+            461
+          ]
+        }
+      }
+    },
+    {
+      "d": 7,
+      "start": 5,
+      "expected": "OBSTRUCTED",
+      "role": "negative cycle control",
+      "observations": {
+        "strict_descent": {
+          "status": "OBSTRUCTED",
+          "steps": 2,
+          "endpoint": 5,
+          "reason": "S.2.strict_orbit_descent",
+          "path": [
+            5,
+            11,
+            5
+          ],
+          "cycle": [
+            5,
+            11
+          ]
+        },
+        "one_absorption": {
+          "status": "OBSTRUCTED",
+          "steps": 2,
+          "endpoint": 5,
+          "reason": "C.2.one_absorption",
+          "path": [
+            5,
+            11,
+            5
+          ],
+          "cycle": [
+            5,
+            11
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "OBSTRUCTED",
+          "steps": 2,
+          "endpoint": 5,
+          "reason": "Y.2.nonprincipal_cycle_exclusion",
+          "path": [
+            5,
+            11,
+            5
+          ],
+          "cycle": [
+            5,
+            11
+          ]
+        }
+      }
+    },
+    {
+      "d": 13,
+      "start": 1,
+      "expected": "SUCCESS",
+      "role": "terminal baseline",
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 0,
+          "endpoint": 1,
+          "reason": "terminal baseline",
+          "path": [
+            1
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 0,
+          "endpoint": 1,
+          "reason": "terminal baseline",
+          "path": [
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 0,
+          "endpoint": 1,
+          "reason": "terminal baseline",
+          "path": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 13,
+      "start": 131,
+      "expected": "OBSTRUCTED",
+      "role": "negative cycle control",
+      "observations": {
+        "strict_descent": {
+          "status": "OBSTRUCTED",
+          "steps": 15,
+          "endpoint": 131,
+          "reason": "S.2.strict_orbit_descent",
+          "path": [
+            131,
+            203,
+            311,
+            473,
+            179,
+            275,
+            419,
+            635,
+            959,
+            1445,
+            1087,
+            1637,
+            1231,
+            1853,
+            1393,
+            131
+          ],
+          "cycle": [
+            131,
+            203,
+            311,
+            473,
+            179,
+            275,
+            419,
+            635,
+            959,
+            1445,
+            1087,
+            1637,
+            1231,
+            1853,
+            1393
+          ]
+        },
+        "one_absorption": {
+          "status": "OBSTRUCTED",
+          "steps": 15,
+          "endpoint": 131,
+          "reason": "C.2.one_absorption",
+          "path": [
+            131,
+            203,
+            311,
+            473,
+            179,
+            275,
+            419,
+            635,
+            959,
+            1445,
+            1087,
+            1637,
+            1231,
+            1853,
+            1393,
+            131
+          ],
+          "cycle": [
+            131,
+            203,
+            311,
+            473,
+            179,
+            275,
+            419,
+            635,
+            959,
+            1445,
+            1087,
+            1637,
+            1231,
+            1853,
+            1393
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "OBSTRUCTED",
+          "steps": 15,
+          "endpoint": 131,
+          "reason": "Y.2.nonprincipal_cycle_exclusion",
+          "path": [
+            131,
+            203,
+            311,
+            473,
+            179,
+            275,
+            419,
+            635,
+            959,
+            1445,
+            1087,
+            1637,
+            1231,
+            1853,
+            1393,
+            131
+          ],
+          "cycle": [
+            131,
+            203,
+            311,
+            473,
+            179,
+            275,
+            419,
+            635,
+            959,
+            1445,
+            1087,
+            1637,
+            1231,
+            1853,
+            1393
+          ]
+        }
+      }
+    },
+    {
+      "d": 13,
+      "start": 211,
+      "expected": "OBSTRUCTED",
+      "role": "negative cycle control",
+      "observations": {
+        "strict_descent": {
+          "status": "OBSTRUCTED",
+          "steps": 5,
+          "endpoint": 211,
+          "reason": "S.2.strict_orbit_descent",
+          "path": [
+            211,
+            323,
+            491,
+            743,
+            1121,
+            211
+          ],
+          "cycle": [
+            211,
+            323,
+            491,
+            743,
+            1121
+          ]
+        },
+        "one_absorption": {
+          "status": "OBSTRUCTED",
+          "steps": 5,
+          "endpoint": 211,
+          "reason": "C.2.one_absorption",
+          "path": [
+            211,
+            323,
+            491,
+            743,
+            1121,
+            211
+          ],
+          "cycle": [
+            211,
+            323,
+            491,
+            743,
+            1121
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "OBSTRUCTED",
+          "steps": 5,
+          "endpoint": 211,
+          "reason": "Y.2.nonprincipal_cycle_exclusion",
+          "path": [
+            211,
+            323,
+            491,
+            743,
+            1121,
+            211
+          ],
+          "cycle": [
+            211,
+            323,
+            491,
+            743,
+            1121
+          ]
+        }
+      }
+    },
+    {
+      "d": 61,
+      "start": 1,
+      "expected": "SUCCESS",
+      "role": "terminal baseline",
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 0,
+          "endpoint": 1,
+          "reason": "terminal baseline",
+          "path": [
+            1
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 0,
+          "endpoint": 1,
+          "reason": "terminal baseline",
+          "path": [
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 0,
+          "endpoint": 1,
+          "reason": "terminal baseline",
+          "path": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 61,
+      "start": 235,
+      "expected": "OBSTRUCTED",
+      "role": "negative cycle control",
+      "observations": {
+        "strict_descent": {
+          "status": "OBSTRUCTED",
+          "steps": 41,
+          "endpoint": 235,
+          "reason": "S.2.strict_orbit_descent",
+          "path": [
+            235,
+            383,
+            605,
+            469,
+            367,
+            581,
+            451,
+            707,
+            1091,
+            1667,
+            2531,
+            3827,
+            5771,
+            8687,
+            13061,
+            9811,
+            14747,
+            22151,
+            33257,
+            12479,
+            18749,
+            14077,
+            10573,
+            7945,
+            2987,
+            4511,
+            6797,
+            5113,
+            1925,
+            1459,
+            2219,
+            3359,
+            5069,
+            3817,
+            1439,
+            2189,
+            1657,
+            629,
+            487,
+            761,
+            293,
+            235
+          ],
+          "cycle": [
+            235,
+            383,
+            605,
+            469,
+            367,
+            581,
+            451,
+            707,
+            1091,
+            1667,
+            2531,
+            3827,
+            5771,
+            8687,
+            13061,
+            9811,
+            14747,
+            22151,
+            33257,
+            12479,
+            18749,
+            14077,
+            10573,
+            7945,
+            2987,
+            4511,
+            6797,
+            5113,
+            1925,
+            1459,
+            2219,
+            3359,
+            5069,
+            3817,
+            1439,
+            2189,
+            1657,
+            629,
+            487,
+            761,
+            293
+          ]
+        },
+        "one_absorption": {
+          "status": "OBSTRUCTED",
+          "steps": 41,
+          "endpoint": 235,
+          "reason": "C.2.one_absorption",
+          "path": [
+            235,
+            383,
+            605,
+            469,
+            367,
+            581,
+            451,
+            707,
+            1091,
+            1667,
+            2531,
+            3827,
+            5771,
+            8687,
+            13061,
+            9811,
+            14747,
+            22151,
+            33257,
+            12479,
+            18749,
+            14077,
+            10573,
+            7945,
+            2987,
+            4511,
+            6797,
+            5113,
+            1925,
+            1459,
+            2219,
+            3359,
+            5069,
+            3817,
+            1439,
+            2189,
+            1657,
+            629,
+            487,
+            761,
+            293,
+            235
+          ],
+          "cycle": [
+            235,
+            383,
+            605,
+            469,
+            367,
+            581,
+            451,
+            707,
+            1091,
+            1667,
+            2531,
+            3827,
+            5771,
+            8687,
+            13061,
+            9811,
+            14747,
+            22151,
+            33257,
+            12479,
+            18749,
+            14077,
+            10573,
+            7945,
+            2987,
+            4511,
+            6797,
+            5113,
+            1925,
+            1459,
+            2219,
+            3359,
+            5069,
+            3817,
+            1439,
+            2189,
+            1657,
+            629,
+            487,
+            761,
+            293
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "OBSTRUCTED",
+          "steps": 41,
+          "endpoint": 235,
+          "reason": "Y.2.nonprincipal_cycle_exclusion",
+          "path": [
+            235,
+            383,
+            605,
+            469,
+            367,
+            581,
+            451,
+            707,
+            1091,
+            1667,
+            2531,
+            3827,
+            5771,
+            8687,
+            13061,
+            9811,
+            14747,
+            22151,
+            33257,
+            12479,
+            18749,
+            14077,
+            10573,
+            7945,
+            2987,
+            4511,
+            6797,
+            5113,
+            1925,
+            1459,
+            2219,
+            3359,
+            5069,
+            3817,
+            1439,
+            2189,
+            1657,
+            629,
+            487,
+            761,
+            293,
+            235
+          ],
+          "cycle": [
+            235,
+            383,
+            605,
+            469,
+            367,
+            581,
+            451,
+            707,
+            1091,
+            1667,
+            2531,
+            3827,
+            5771,
+            8687,
+            13061,
+            9811,
+            14747,
+            22151,
+            33257,
+            12479,
+            18749,
+            14077,
+            10573,
+            7945,
+            2987,
+            4511,
+            6797,
+            5113,
+            1925,
+            1459,
+            2219,
+            3359,
+            5069,
+            3817,
+            1439,
+            2189,
+            1657,
+            629,
+            487,
+            761,
+            293
+          ]
+        }
+      }
+    }
+  ],
+  "d1_positive_samples": [
+    {
+      "d": 1,
+      "start": 1,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 0,
+          "endpoint": 1,
+          "reason": "terminal baseline",
+          "path": [
+            1
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 0,
+          "endpoint": 1,
+          "reason": "terminal baseline",
+          "path": [
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 0,
+          "endpoint": 1,
+          "reason": "terminal baseline",
+          "path": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 1,
+      "start": 3,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 2,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            3,
+            5,
+            1
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 2,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            3,
+            5,
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 2,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            3,
+            5,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 1,
+      "start": 5,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 1,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            5,
+            1
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 1,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            5,
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 1,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            5,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 1,
+      "start": 7,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 4,
+          "endpoint": 5,
+          "reason": "witnessed obligation",
+          "path": [
+            7,
+            11,
+            17,
+            13,
+            5
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 5,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            7,
+            11,
+            17,
+            13,
+            5,
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 5,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            7,
+            11,
+            17,
+            13,
+            5,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 1,
+      "start": 9,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 1,
+          "endpoint": 7,
+          "reason": "witnessed obligation",
+          "path": [
+            9,
+            7
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 6,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            9,
+            7,
+            11,
+            17,
+            13,
+            5,
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 6,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            9,
+            7,
+            11,
+            17,
+            13,
+            5,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 1,
+      "start": 11,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 3,
+          "endpoint": 5,
+          "reason": "witnessed obligation",
+          "path": [
+            11,
+            17,
+            13,
+            5
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 4,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            11,
+            17,
+            13,
+            5,
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 4,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            11,
+            17,
+            13,
+            5,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 1,
+      "start": 15,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 4,
+          "endpoint": 5,
+          "reason": "witnessed obligation",
+          "path": [
+            15,
+            23,
+            35,
+            53,
+            5
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 5,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            15,
+            23,
+            35,
+            53,
+            5,
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 5,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            15,
+            23,
+            35,
+            53,
+            5,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 1,
+      "start": 27,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 37,
+          "endpoint": 23,
+          "reason": "witnessed obligation",
+          "path": [
+            27,
+            41,
+            31,
+            47,
+            71,
+            107,
+            161,
+            121,
+            91,
+            137,
+            103,
+            155,
+            233,
+            175,
+            263,
+            395,
+            593,
+            445,
+            167,
+            251,
+            377,
+            283,
+            425,
+            319,
+            479,
+            719,
+            1079,
+            1619,
+            2429,
+            911,
+            1367,
+            2051,
+            3077,
+            577,
+            433,
+            325,
+            61,
+            23
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 41,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            27,
+            41,
+            31,
+            47,
+            71,
+            107,
+            161,
+            121,
+            91,
+            137,
+            103,
+            155,
+            233,
+            175,
+            263,
+            395,
+            593,
+            445,
+            167,
+            251,
+            377,
+            283,
+            425,
+            319,
+            479,
+            719,
+            1079,
+            1619,
+            2429,
+            911,
+            1367,
+            2051,
+            3077,
+            577,
+            433,
+            325,
+            61,
+            23,
+            35,
+            53,
+            5,
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 41,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            27,
+            41,
+            31,
+            47,
+            71,
+            107,
+            161,
+            121,
+            91,
+            137,
+            103,
+            155,
+            233,
+            175,
+            263,
+            395,
+            593,
+            445,
+            167,
+            251,
+            377,
+            283,
+            425,
+            319,
+            479,
+            719,
+            1079,
+            1619,
+            2429,
+            911,
+            1367,
+            2051,
+            3077,
+            577,
+            433,
+            325,
+            61,
+            23,
+            35,
+            53,
+            5,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 1,
+      "start": 31,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 35,
+          "endpoint": 23,
+          "reason": "witnessed obligation",
+          "path": [
+            31,
+            47,
+            71,
+            107,
+            161,
+            121,
+            91,
+            137,
+            103,
+            155,
+            233,
+            175,
+            263,
+            395,
+            593,
+            445,
+            167,
+            251,
+            377,
+            283,
+            425,
+            319,
+            479,
+            719,
+            1079,
+            1619,
+            2429,
+            911,
+            1367,
+            2051,
+            3077,
+            577,
+            433,
+            325,
+            61,
+            23
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 39,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            31,
+            47,
+            71,
+            107,
+            161,
+            121,
+            91,
+            137,
+            103,
+            155,
+            233,
+            175,
+            263,
+            395,
+            593,
+            445,
+            167,
+            251,
+            377,
+            283,
+            425,
+            319,
+            479,
+            719,
+            1079,
+            1619,
+            2429,
+            911,
+            1367,
+            2051,
+            3077,
+            577,
+            433,
+            325,
+            61,
+            23,
+            35,
+            53,
+            5,
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 39,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            31,
+            47,
+            71,
+            107,
+            161,
+            121,
+            91,
+            137,
+            103,
+            155,
+            233,
+            175,
+            263,
+            395,
+            593,
+            445,
+            167,
+            251,
+            377,
+            283,
+            425,
+            319,
+            479,
+            719,
+            1079,
+            1619,
+            2429,
+            911,
+            1367,
+            2051,
+            3077,
+            577,
+            433,
+            325,
+            61,
+            23,
+            35,
+            53,
+            5,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 1,
+      "start": 41,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 1,
+          "endpoint": 31,
+          "reason": "witnessed obligation",
+          "path": [
+            41,
+            31
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 40,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            41,
+            31,
+            47,
+            71,
+            107,
+            161,
+            121,
+            91,
+            137,
+            103,
+            155,
+            233,
+            175,
+            263,
+            395,
+            593,
+            445,
+            167,
+            251,
+            377,
+            283,
+            425,
+            319,
+            479,
+            719,
+            1079,
+            1619,
+            2429,
+            911,
+            1367,
+            2051,
+            3077,
+            577,
+            433,
+            325,
+            61,
+            23,
+            35,
+            53,
+            5,
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 40,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            41,
+            31,
+            47,
+            71,
+            107,
+            161,
+            121,
+            91,
+            137,
+            103,
+            155,
+            233,
+            175,
+            263,
+            395,
+            593,
+            445,
+            167,
+            251,
+            377,
+            283,
+            425,
+            319,
+            479,
+            719,
+            1079,
+            1619,
+            2429,
+            911,
+            1367,
+            2051,
+            3077,
+            577,
+            433,
+            325,
+            61,
+            23,
+            35,
+            53,
+            5,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 1,
+      "start": 63,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 34,
+          "endpoint": 61,
+          "reason": "witnessed obligation",
+          "path": [
+            63,
+            95,
+            143,
+            215,
+            323,
+            485,
+            91,
+            137,
+            103,
+            155,
+            233,
+            175,
+            263,
+            395,
+            593,
+            445,
+            167,
+            251,
+            377,
+            283,
+            425,
+            319,
+            479,
+            719,
+            1079,
+            1619,
+            2429,
+            911,
+            1367,
+            2051,
+            3077,
+            577,
+            433,
+            325,
+            61
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 39,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            63,
+            95,
+            143,
+            215,
+            323,
+            485,
+            91,
+            137,
+            103,
+            155,
+            233,
+            175,
+            263,
+            395,
+            593,
+            445,
+            167,
+            251,
+            377,
+            283,
+            425,
+            319,
+            479,
+            719,
+            1079,
+            1619,
+            2429,
+            911,
+            1367,
+            2051,
+            3077,
+            577,
+            433,
+            325,
+            61,
+            23,
+            35,
+            53,
+            5,
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 39,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            63,
+            95,
+            143,
+            215,
+            323,
+            485,
+            91,
+            137,
+            103,
+            155,
+            233,
+            175,
+            263,
+            395,
+            593,
+            445,
+            167,
+            251,
+            377,
+            283,
+            425,
+            319,
+            479,
+            719,
+            1079,
+            1619,
+            2429,
+            911,
+            1367,
+            2051,
+            3077,
+            577,
+            433,
+            325,
+            61,
+            23,
+            35,
+            53,
+            5,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 1,
+      "start": 127,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 9,
+          "endpoint": 77,
+          "reason": "witnessed obligation",
+          "path": [
+            127,
+            191,
+            287,
+            431,
+            647,
+            971,
+            1457,
+            1093,
+            205,
+            77
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 15,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            127,
+            191,
+            287,
+            431,
+            647,
+            971,
+            1457,
+            1093,
+            205,
+            77,
+            29,
+            11,
+            17,
+            13,
+            5,
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 15,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            127,
+            191,
+            287,
+            431,
+            647,
+            971,
+            1457,
+            1093,
+            205,
+            77,
+            29,
+            11,
+            17,
+            13,
+            5,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 1,
+      "start": 255,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 8,
+          "endpoint": 205,
+          "reason": "witnessed obligation",
+          "path": [
+            255,
+            383,
+            575,
+            863,
+            1295,
+            1943,
+            2915,
+            4373,
+            205
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 15,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            255,
+            383,
+            575,
+            863,
+            1295,
+            1943,
+            2915,
+            4373,
+            205,
+            77,
+            29,
+            11,
+            17,
+            13,
+            5,
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 15,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            255,
+            383,
+            575,
+            863,
+            1295,
+            1943,
+            2915,
+            4373,
+            205,
+            77,
+            29,
+            11,
+            17,
+            13,
+            5,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "d": 1,
+      "start": 447,
+      "observations": {
+        "strict_descent": {
+          "status": "SUCCESS",
+          "steps": 25,
+          "endpoint": 173,
+          "reason": "witnessed obligation",
+          "path": [
+            447,
+            671,
+            1007,
+            1511,
+            2267,
+            3401,
+            2551,
+            3827,
+            5741,
+            2153,
+            1615,
+            2423,
+            3635,
+            5453,
+            2045,
+            767,
+            1151,
+            1727,
+            2591,
+            3887,
+            5831,
+            8747,
+            13121,
+            9841,
+            7381,
+            173
+          ]
+        },
+        "one_absorption": {
+          "status": "SUCCESS",
+          "steps": 34,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            447,
+            671,
+            1007,
+            1511,
+            2267,
+            3401,
+            2551,
+            3827,
+            5741,
+            2153,
+            1615,
+            2423,
+            3635,
+            5453,
+            2045,
+            767,
+            1151,
+            1727,
+            2591,
+            3887,
+            5831,
+            8747,
+            13121,
+            9841,
+            7381,
+            173,
+            65,
+            49,
+            37,
+            7,
+            11,
+            17,
+            13,
+            5,
+            1
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "SUCCESS",
+          "steps": 34,
+          "endpoint": 1,
+          "reason": "witnessed obligation",
+          "path": [
+            447,
+            671,
+            1007,
+            1511,
+            2267,
+            3401,
+            2551,
+            3827,
+            5741,
+            2153,
+            1615,
+            2423,
+            3635,
+            5453,
+            2045,
+            767,
+            1151,
+            1727,
+            2591,
+            3887,
+            5831,
+            8747,
+            13121,
+            9841,
+            7381,
+            173,
+            65,
+            49,
+            37,
+            7,
+            11,
+            17,
+            13,
+            5,
+            1
+          ]
+        }
+      }
+    }
+  ],
+  "fixed_d_and_scaling_controls": [
+    {
+      "d": 5,
+      "observations": {
+        "strict_descent": {
+          "status": "OBSTRUCTED",
+          "steps": 1,
+          "endpoint": 5,
+          "reason": "S.2.strict_orbit_descent",
+          "path": [
+            5,
+            5
+          ],
+          "cycle": [
+            5
+          ]
+        },
+        "one_absorption": {
+          "status": "OBSTRUCTED",
+          "steps": 1,
+          "endpoint": 5,
+          "reason": "C.2.one_absorption",
+          "path": [
+            5,
+            5
+          ],
+          "cycle": [
+            5
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "OBSTRUCTED",
+          "steps": 1,
+          "endpoint": 5,
+          "reason": "Y.2.nonprincipal_cycle_exclusion",
+          "path": [
+            5,
+            5
+          ],
+          "cycle": [
+            5
+          ]
+        }
+      },
+      "scaling_samples": [
+        {
+          "k": 1,
+          "image": 5
+        },
+        {
+          "k": 3,
+          "image": 25
+        },
+        {
+          "k": 5,
+          "image": 5
+        },
+        {
+          "k": 7,
+          "image": 55
+        },
+        {
+          "k": 27,
+          "image": 205
+        },
+        {
+          "k": 127,
+          "image": 955
+        }
+      ],
+      "odd_multiples_up_to_20000": 2000
+    },
+    {
+      "d": 7,
+      "observations": {
+        "strict_descent": {
+          "status": "OBSTRUCTED",
+          "steps": 1,
+          "endpoint": 7,
+          "reason": "S.2.strict_orbit_descent",
+          "path": [
+            7,
+            7
+          ],
+          "cycle": [
+            7
+          ]
+        },
+        "one_absorption": {
+          "status": "OBSTRUCTED",
+          "steps": 1,
+          "endpoint": 7,
+          "reason": "C.2.one_absorption",
+          "path": [
+            7,
+            7
+          ],
+          "cycle": [
+            7
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "OBSTRUCTED",
+          "steps": 1,
+          "endpoint": 7,
+          "reason": "Y.2.nonprincipal_cycle_exclusion",
+          "path": [
+            7,
+            7
+          ],
+          "cycle": [
+            7
+          ]
+        }
+      },
+      "scaling_samples": [
+        {
+          "k": 1,
+          "image": 7
+        },
+        {
+          "k": 3,
+          "image": 35
+        },
+        {
+          "k": 5,
+          "image": 7
+        },
+        {
+          "k": 7,
+          "image": 77
+        },
+        {
+          "k": 27,
+          "image": 287
+        },
+        {
+          "k": 127,
+          "image": 1337
+        }
+      ],
+      "odd_multiples_up_to_20000": 1429
+    },
+    {
+      "d": 13,
+      "observations": {
+        "strict_descent": {
+          "status": "OBSTRUCTED",
+          "steps": 1,
+          "endpoint": 13,
+          "reason": "S.2.strict_orbit_descent",
+          "path": [
+            13,
+            13
+          ],
+          "cycle": [
+            13
+          ]
+        },
+        "one_absorption": {
+          "status": "OBSTRUCTED",
+          "steps": 1,
+          "endpoint": 13,
+          "reason": "C.2.one_absorption",
+          "path": [
+            13,
+            13
+          ],
+          "cycle": [
+            13
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "OBSTRUCTED",
+          "steps": 1,
+          "endpoint": 13,
+          "reason": "Y.2.nonprincipal_cycle_exclusion",
+          "path": [
+            13,
+            13
+          ],
+          "cycle": [
+            13
+          ]
+        }
+      },
+      "scaling_samples": [
+        {
+          "k": 1,
+          "image": 13
+        },
+        {
+          "k": 3,
+          "image": 65
+        },
+        {
+          "k": 5,
+          "image": 13
+        },
+        {
+          "k": 7,
+          "image": 143
+        },
+        {
+          "k": 27,
+          "image": 533
+        },
+        {
+          "k": 127,
+          "image": 2483
+        }
+      ],
+      "odd_multiples_up_to_20000": 769
+    },
+    {
+      "d": 61,
+      "observations": {
+        "strict_descent": {
+          "status": "OBSTRUCTED",
+          "steps": 1,
+          "endpoint": 61,
+          "reason": "S.2.strict_orbit_descent",
+          "path": [
+            61,
+            61
+          ],
+          "cycle": [
+            61
+          ]
+        },
+        "one_absorption": {
+          "status": "OBSTRUCTED",
+          "steps": 1,
+          "endpoint": 61,
+          "reason": "C.2.one_absorption",
+          "path": [
+            61,
+            61
+          ],
+          "cycle": [
+            61
+          ]
+        },
+        "nonprincipal_cycle_exclusion": {
+          "status": "OBSTRUCTED",
+          "steps": 1,
+          "endpoint": 61,
+          "reason": "Y.2.nonprincipal_cycle_exclusion",
+          "path": [
+            61,
+            61
+          ],
+          "cycle": [
+            61
+          ]
+        }
+      },
+      "scaling_samples": [
+        {
+          "k": 1,
+          "image": 61
+        },
+        {
+          "k": 3,
+          "image": 305
+        },
+        {
+          "k": 5,
+          "image": 61
+        },
+        {
+          "k": 7,
+          "image": 671
+        },
+        {
+          "k": 27,
+          "image": 2501
+        },
+        {
+          "k": 127,
+          "image": 11651
+        }
+      ],
+      "odd_multiples_up_to_20000": 164
+    }
+  ],
+  "absorption_conventions": {
+    "raw_T7_at_1": 5,
+    "absorbed_T7_at_1": 1,
+    "absorbed_T61_at_61": 61,
+    "legacy_packet_absorbers_at_d61": [
+      1,
+      61
+    ]
+  },
+  "rejections": [
+    "corrupt cycle arrow",
+    "wrong exact valuation",
+    "missing cycle",
+    "duplicate cycle",
+    "unknown fixture field",
+    "unknown mechanism",
+    "unsupported d",
+    "even state",
+    "boolean state",
+    "cap cannot pass strict_descent",
+    "cap cannot pass one_absorption",
+    "cap cannot pass nonprincipal_cycle_exclusion",
+    "cycle cannot pass strict_descent",
+    "cycle cannot pass one_absorption",
+    "cycle cannot pass nonprincipal_cycle_exclusion"
+  ],
+  "scope": "Finite exact cycle and positive-sample controls, with the separately written multiples-of-d invariant. No d=1 theorem, no quotient/rank implementation, no density theorem and no exclusion of divergence.",
+  "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+}

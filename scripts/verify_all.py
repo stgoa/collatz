@@ -32,6 +32,8 @@ def run(command, cwd):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--cpp", action="store_true", help="require the independent C++17 checks")
+    parser.add_argument("--transfer-controls", action="store_true",
+                        help="also require the Phase 6 d-parametric obligation controls")
     args = parser.parse_args()
     require(not sys.flags.optimize, "Run without -O or PYTHONOPTIMIZE; checks use assertions.")
     archive = ROOT / "collatz_packet_currents_bundle.zip"
@@ -48,6 +50,19 @@ def main():
 
     with tempfile.TemporaryDirectory(prefix="collatz-verify-") as temporary:
         work = Path(temporary)
+        transfer_controls = "not requested"
+        if args.transfer_controls:
+            phase6_source = ROOT / "experiments" / "phase6"
+            phase6_work = work / "phase6"
+            shutil.copytree(phase6_source, phase6_work,
+                            ignore=shutil.ignore_patterns("__pycache__"))
+            actual = json.loads(run([sys.executable, "-B", "transfer_controls.py"], phase6_work))
+            expected = json.loads((phase6_source / "transfer_controls_audit.json").read_text())
+            require(actual == expected and actual["status"] == "PASS",
+                    "Phase 6 transfer controls differ from the persisted receipt")
+            transfer_controls = ("PASS: eleven exact raw cycles, eight nonprincipal controls, "
+                                 "four fixed-d controls, fourteen d1 samples and fail-closed checks; "
+                                 "setup label none")
         snapshot = work / "snapshot"
         shutil.copytree(BUNDLE, snapshot,
                         ignore=shutil.ignore_patterns("__pycache__", "independent_verifier"))
@@ -236,6 +251,7 @@ def main():
     print(json.dumps(dict(status="PASS", archive_sha256=ARCHIVE_SHA,
                          manifest_entries=len(entries), stored_python="PASS",
                          right_aligned="PASS: matches persisted receipt", independent_cpp=cpp,
+                         phase6_transfer_controls=transfer_controls,
                          negative_controls_and_audit="PASS: five receipts reproduced",
                          review_scope="PASS: alternative minimum-cost one-sided certificates",
                          even_exit_history="PASS: exact raw-target cone and supplied signed certificates",
