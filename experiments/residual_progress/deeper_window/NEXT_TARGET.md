@@ -6,6 +6,15 @@ search, closed recursion, current construction or accepted result is claimed.
 See [R92](DEEPER_WINDOW.md) for the completed theorem and
 [R90](../phi_exit_control/PHI_EXIT_CONTROL.md) for the exit interface.
 
+**Subsequent scope result:** the [prescribed-child theorem](../child_history_scope/CHILD_HISTORY_SCOPE.md)
+now excludes a uniform bound on both ordinary clocks for this exact child,
+in every ternary digit and with any prescribed initial growth count. It
+also excludes finite word catalogues with finite binary refinements. The
+conditional identity below remains valid; unbounded histories and different
+children remain available. The [two-source interface](../two_source_history/TWO_SOURCE_HISTORY.md)
+separately retains both actual original paths and classifies the lower
+path's first departure. Neither result supplies the missing merger.
+
 ## Verified starting constraints
 
 Write the original coupled cell as
@@ -127,9 +136,36 @@ Its additional s positive valuations then force B>A, a contradiction.
 The same argument includes a=0.
 
 Thus a pure ternary subdivision cannot be closed by assigning one fixed
-pair of valuation words to each entire branch. Words that depend on the
-input, varying valuations even at fixed clocks, extra binary refinements,
+pair of valuation words to each entire branch. The subsequent R94 theorem
+also excludes whole-domain completion by uniformly bounded clocks,
+including finite binary refinements. Input-dependent unbounded clocks,
 different child families and general signed identities remain available.
+
+## An inverse upper cycle does not give an integer original-source child
+
+The subsequent two-source work suggests another tempting candidate: shrink
+the original source by reversing its upper cycle around the same rational
+center. This particular proposal fails an exact integrality test, before
+any current or termination question. The following algebraic observation
+is outside the frozen R92 certificate.
+
+Write
+
+    q*=-515908491727/(7153*3^13), gamma=3^12/2^19,
+    p=q*+gamma^s*(q-q*),   s a nonzero integer.
+
+For EVERY integer q, p is nonintegral. Indeed v3(q*)=-13. If s>0,
+v3((1-gamma^s)q*)=-13 while v3(gamma^s*q)>=12s. If s<0, the
+two orders are respectively12s-13 and at least12s. The smaller order
+cannot cancel in either case, so p has a negative ternary order. The
+case q=0 is immediate from the nonzero constant term.
+
+Thus integer integrality of the v- or z-coordinate return must not be
+transferred to a child in the original Q-coordinate. Reversing its growth
+factor does not automatically define a smaller integer source. Different
+affine centers and genuine word-pair comparisons remain available; their
+complete divisibility and exact binary cylinders must be checked using
+the [merger-cell formulas](../history_lifting/HISTORY_LIFTING.md).
 
 ## Honest status and the next useful test
 
