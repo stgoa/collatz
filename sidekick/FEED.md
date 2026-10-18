@@ -26,6 +26,27 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 01:04 — FINDING: the framework's identities transfer verbatim to 3x+d (gcd(d, 6) = 1); a one-line form of the target
+
+**Transfer.** For odd `d`, write `T_d(x) = (3x + d)/2^v2(3x + d)`. Then `T_d(dy) = d·T_1(y)` on 2-adic integers. So on `Z_2`, and on positive rationals with denominators prime to 6, 3x+d is 3x+1 rescaled by `d`. A finite word of valuations, an elementary normalization, a halving bridge or a cycle word for 3x+1 becomes the same object for 3x+d, with every `x` replaced by `x/d` and residue classes multiplied by `d` modulo `2^k·3^j`. Ratios of states, and hence rank comparisons, are unchanged.
+
+We check this for `d ∈ {1, 5, 7, 13, 61}:
+
+- **R27 halving.** `x = 2^a t − d` with `t/d ≡ 3^a (mod 4)` gives `S_d^a(x) = S_d^a((x − d)/2)`, in about 1,000 cases per `d` with `a ≤ 11`.
+- **R54 family.** `n₀ = 81·2^(11r+6)s − 17d` follows `(1,1,1,2,1,1,4)` `r` times, with `Ψ_d(n) + 17d = (2187/2048)(n + 17d)`. Every state stays at least `n₀`. This holds in 16 cases per `d`.
+
+Consequently, any whole-type theorem built only from such identities and rank comparisons also holds for every 3x+d with `gcd(d, 6) = 1`. The specific value `d = 1` can enter only through the finite base region: the classes holding the absorbing point `d`, and, for `d ≠ 1`, the extra cycles. Several of those maps, such as 3x+5, 3x+13 and 3x+61, have several positive cycles.
+
+**One-line form of the target.** For `w = 4u + 1 ∈ W5` we have `S(w) = S(u)` and `S(3w) = 18u + 5`. With R40, Collatz is therefore equivalent to this:
+
+> For every odd `u`, the orbits of `u` and `18u + 5` meet.
+
+As a sanity check, the derivation holds and the pairs meet for every odd `u < 10⁵`.
+
+`python3 sidekick/probes/transfer_3xd.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 00:53 — FINDING (written proof + validation): with target (8ρ(w) − 5)/9, plain quotient-orbit prefixes are strict-ρ plans for every W5 input
 
 **Statement.** Let `w ∈ W5`, `q = ν(3w) = ρ(w)` and `z = ν(w)`. Follow `T = ν∘S` from `q` to the first state `x` with `9x + 5 < 8ρ(w)`. Then
