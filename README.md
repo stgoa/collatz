@@ -2,7 +2,7 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-18): Collatz remains unproved. Arithmetic regularity has produced a partial classification and a sharper finite-kernel question. The full binary-automatic classification remains open here.**
+**Current standing (2026-10-18): every finite-valued binary-automatic Collatz invariant is constant. V004 supplies a written proof for arbitrary finite automata, using Cobham's theorem. Collatz remains unproved.**
 
 We explored Grothendieck-style changes of viewpoint through **breadth before
 depth**. Fourteen views and two rounds of bounded comparisons support a
@@ -17,24 +17,28 @@ Each card records seven evaluation fields; deferred cards may offer only a
 milestone template. The [selection review](experiments/viewpoints/V002/SELECTION_REVIEW.md)
 records the evidence and limitations of the final recommendation.
 
-The [current brief](docs/ARITHMETIC_REGULARITY_BRIEF.md) develops that language.
-The [V003 report](experiments/viewpoints/V003/REPORT.md) gives three results:
+The [full-classification brief](docs/GLOBAL_RIGIDITY_BRIEF.md) raised the
+completion threshold after V003's partial theorem. The
+[V004 proof](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md) now meets it:
 
-- Every invariant coloring depending only on the **number of binary 1s** is
-  constant. This covers all digit-count-modulo-m automata, for every m.
-- Taking ternary sections of the **entire finite binary kernel** adds at
-  most one new function. Repeated tripling also gives only finitely many
-  functions; mixed ternary sections remain unresolved.
-- An exact automatic counterexample shows that doubling/tripling invariance
-  and a finite pure-zero orbit cannot replace the full guarded equations.
+1. Retain binary sections with **strictly positive offsets**. They form a
+   finite family closed under both binary and ternary sections.
+2. Cobham's published theorem makes the odd section eventually periodic.
+3. An elementary residue argument removes the exceptional initial terms
+   and forces every color to agree.
 
-These are written proofs with independent agent review and reproducible
-finite checks; novelty is undetermined. The previous
-[periodic classification](experiments/viewpoints/V002/invariant_colors.md)
-remains the baseline. No regularity of an arbitrary hypothetical bad set is
-assumed. A complete carry-boundary test added no new relation, so that
-probe is closed. The recommendation is a bounded investigation of the
-remaining mixed sections; integer-ensemble statistics remain an alternative.
+This rules out every finite-state binary description separating Collatz
+components. No automaticity of the actual nonabsorbing set has been proved.
+Proving that automaticity would now be equivalent to proving convergence;
+it must not be presented as an intermediate next milestone.
+
+The proof has independent agent review and reproducible finite checks;
+it has no formal verification, human peer review or novelty claim. The
+[V003 results and counterexample](experiments/viewpoints/V003/REPORT.md)
+remain valid historical evidence. The carry-boundary probe is closed;
+integer-ensemble statistics remain an alternative language. See the
+[goal review](experiments/viewpoints/V004/GOAL_REVIEW.md) for exact scope
+and the distinction between completion of this theorem and the next goal.
 
 **Preserved evidence:** R1–R94 and the seventeen-family dispatcher are frozen
 at `9190ccf`. The earlier [route map](ROUTE_MAP.md) supplies obligations and
@@ -99,7 +103,7 @@ Everything else is **none**. Finite acceptance rates and new conditional interfa
 
 1. Read [AGENTS.md](AGENTS.md) for working rules and claim standards.
 2. Read [VIEWPOINT_MAP.md](VIEWPOINT_MAP.md) and the [exploration log](docs/VIEWPOINT_LOG.md), then the [result ledger](docs/RESULTS.md) for exact scope, evidence and unresolved obligations.
-   For the current target, read the [arithmetic-regularity brief](docs/ARITHMETIC_REGULARITY_BRIEF.md) and [V003 report](experiments/viewpoints/V003/REPORT.md).
+   For the latest theorem, read the [global-rigidity brief](docs/GLOBAL_RIGIDITY_BRIEF.md) and [V004 proof](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md).
 3. Read the [current proof note](collatz_research_20261017/right_aligned_reduction.tex). Open this source in the document editor for its PDF preview.
 4. Consult the [master handoff](COLLATZ_PROGRAMME_MASTER_HANDOFF.md) for the wider programme and historical counterexamples. Its old active target is superseded only for the revised right-aligned family.
 
@@ -109,14 +113,15 @@ Each batch fetches the read-only `claude/sidekick` branch and reads both `sideki
 
 Requires Python 3.10+ and its standard library. The independent check additionally requires a C++17 compiler (`c++`, or set `CXX` to a compiler executable).
 
-The new viewpoint examples have a separate bounded verifier:
+The latest viewpoint examples have a separate bounded verifier:
 
 ```sh
-python3 experiments/viewpoints/V003/verify_examples.py
+python3 experiments/viewpoints/V004/verify_examples.py
 ```
 
-Its [receipt](experiments/viewpoints/V003/verification.json) accompanies the
-written proofs and records finite scope. The historical mathematical gate is:
+Its [receipt](experiments/viewpoints/V004/verification.json) records finite
+scope; it does not verify Cobham or replace the all-input proof. V003's
+separate verifier and receipt remain available. The historical mathematical gate is:
 
 ```sh
 python3 scripts/verify_all.py --cpp --transfer-controls
@@ -166,19 +171,18 @@ Most checks establish finite arithmetic identities. R91 and R92 additionally use
 
 ## Recommended next research programme
 
-The [viewpoint map](VIEWPOINT_MAP.md#focused-subsequent-programme) now focuses
-on mixed ternary sections of the one extra function `n -> h(3n)`. A proposed
-finite closure must retain every guarded relation; alternatively, a finite
-3-Mahler equation for each color indicator would suffice. Neither is supplied.
-The next bounded test must produce an additional relation or bound before
-further depth. The completed carry probe supplies no basis for expanding
-a tile search. No automaton catalogue or regularity assumption about the
-actual bad set substitutes for this obligation.
+The full binary-automatic goal has its proof in V004. Its
+[mechanism comparison](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md#8-comparison-of-the-three-requested-mechanisms)
+records the positive-section proof, the direct-automaton limitations and
+the supplied Mahler systems. Further searches for the same classification
+are unnecessary. The [viewpoint map](VIEWPOINT_MAP.md#focused-subsequent-programme)
+records the completed target and the remaining regularity gap.
 
-Following the user's request for a higher target, the
-[next-goal proposal](docs/NEXT_GOAL_PROPOSAL.md) recommends the full
-binary-automatic classification, with further subclasses counted as progress
-rather than completion. This recommendation has not activated a new goal.
+A subsequent goal must add an independently meaningful complexity theorem
+or a new estimate for actual integer ensembles. It cannot simply assume
+that the nonabsorbing indicator is automatic. Verification and possible
+formalization of V004 are separate tasks from extending its mathematical
+scope. No subsequent research goal is activated by this recommendation.
 
 The former C.2a upper-density target remains an unresolved historical route.
 Its [matched density gap](experiments/phase6/linear_density_audit/next_upper_attempt.md)

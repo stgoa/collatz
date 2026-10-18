@@ -5,7 +5,7 @@ Last updated: 2026-10-18. This ledger summarizes scope; the linked proof notes a
 ## Current programme and preserved Phase6 standing
 
 R1–R94 below are frozen infrastructure. The active
-[arithmetic-regularity brief](ARITHMETIC_REGULARITY_BRIEF.md) develops the
+[global-rigidity brief](GLOBAL_RIGIDITY_BRIEF.md) develops the
 language selected through [VIEWPOINT_MAP.md](../VIEWPOINT_MAP.md), with
 exploration decisions in [VIEWPOINT_LOG.md](VIEWPOINT_LOG.md).
 The [route map](../ROUTE_MAP.md) and [Phase6 ledger](PHASE6_LEDGER.md)
@@ -24,10 +24,19 @@ V003 supplies a separate [partial classification and kernel reduction](../experi
 all invariants depending only on binary digit count are constant; the first
 ternary image of a finite binary kernel adds at most one function; and its
 pure-zero ternary orbit is finite. An explicit automatic counterexample
-refutes a scaling-only completion. Full mixed-section closure and the full
-binary-automatic classification remain open. The carry probe adds no new
+refutes a scaling-only completion. Those lemmas did not establish full
+mixed-section closure. The carry probe adds no new
 relation and is closed. These written, independently agent-reviewed proofs
 have no novelty or convergence claim and do not alter the frozen R-series.
+
+V004 supplies the [full binary-automatic classification](../experiments/viewpoints/V004/GLOBAL_RIGIDITY.md):
+every finite-valued binary-automatic Collatz invariant is constant, for
+arbitrary finite automata. Positive-offset binary sections close under
+ternary sections; Cobham gives periodicity of the odd section, and an
+elementary residue argument forces constancy. This is a written proof
+with independent agent review, imported classical inputs, and separate
+bounded arithmetic checks. Novelty, formal verification and regularity
+of the actual nonabsorbing set are not supplied. The R-series is unchanged.
 
 S.1 now has a [written stopping calibration](../experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md)
 with explicit finite horizons, integer cutoffs and a separate W5 pullback.

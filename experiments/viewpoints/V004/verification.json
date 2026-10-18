@@ -1,0 +1,297 @@
+{
+  "clock": "Ordinary absorbed arrows for closure witnesses; explicitly odd-only for cycle controls. Section depth is not an orbit clock.",
+  "controls": {
+    "absorbed_odd_checks": 264,
+    "color_checks_sha256": "400f8332ee660a1fe0a214cb9d45633f9b11b32c06917fd838e6c5e703ca3a03",
+    "control_relation_graphs": [
+      {
+        "components": [
+          [
+            0
+          ],
+          [
+            1,
+            2,
+            3,
+            4
+          ]
+        ],
+        "d": 5,
+        "modulus": 5
+      },
+      {
+        "components": [
+          [
+            0
+          ],
+          [
+            1,
+            3,
+            4,
+            5,
+            9,
+            12,
+            13,
+            14,
+            15,
+            16,
+            19,
+            20,
+            22,
+            25,
+            27,
+            34,
+            36,
+            39,
+            41,
+            42,
+            45,
+            46,
+            47,
+            48,
+            49,
+            52,
+            56,
+            57,
+            58,
+            60
+          ],
+          [
+            2,
+            6,
+            7,
+            8,
+            10,
+            11,
+            17,
+            18,
+            21,
+            23,
+            24,
+            26,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            35,
+            37,
+            38,
+            40,
+            43,
+            44,
+            50,
+            51,
+            53,
+            54,
+            55,
+            59
+          ]
+        ],
+        "d": 61,
+        "modulus": 61
+      }
+    ],
+    "cycles": [
+      {
+        "absorber": 1,
+        "cap": 64,
+        "d": 5,
+        "odd_length": 3,
+        "states": [
+          19,
+          31,
+          49
+        ],
+        "valuation_sum": 5,
+        "valuations": [
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "absorber": 1,
+        "cap": 64,
+        "d": 61,
+        "odd_length": 41,
+        "states": [
+          235,
+          383,
+          605,
+          469,
+          367,
+          581,
+          451,
+          707,
+          1091,
+          1667,
+          2531,
+          3827,
+          5771,
+          8687,
+          13061,
+          9811,
+          14747,
+          22151,
+          33257,
+          12479,
+          18749,
+          14077,
+          10573,
+          7945,
+          2987,
+          4511,
+          6797,
+          5113,
+          1925,
+          1459,
+          2219,
+          3359,
+          5069,
+          3817,
+          1439,
+          2189,
+          1657,
+          629,
+          487,
+          761,
+          293
+        ],
+        "valuation_sum": 66,
+        "valuations": [
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          3,
+          1,
+          2,
+          2,
+          2,
+          3,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          2,
+          1,
+          3,
+          2
+        ]
+      }
+    ],
+    "d_values": [
+      5,
+      61
+    ],
+    "doubling_checks": 528,
+    "identity_transfer_failures": [
+      {
+        "d": 5,
+        "failed_identity": "h(3u)=h(16u+1)",
+        "left": 15,
+        "left_color": 1,
+        "right": 81,
+        "right_color": 0,
+        "u": 5
+      },
+      {
+        "d": 61,
+        "failed_identity": "h(3u)=h(16u+1)",
+        "left": 183,
+        "left_color": 1,
+        "right": 977,
+        "right_color": 0,
+        "u": 61
+      }
+    ],
+    "ordinary_odd_checks": 262
+  },
+  "periodic_finish": {
+    "F_identity_path_pairs": 32,
+    "F_paths_sha256": "eeb47b991430837bf4d370a75f69d1890b37513a1d11c061760a05ec0dae7af3",
+    "all_d1_graphs_connected": true,
+    "commutator_residues": 12228,
+    "eventual_cutoff_used": 1000,
+    "graphs_sha256": "e112c690cee0710b142758950da7dffb1afa3d067e2e0b91d5915d0919857791",
+    "odd_moduli": [
+      1,
+      255
+    ],
+    "period_lift_examples": 256,
+    "period_lifts_sha256": "a7f1f2787938a505ad805ecdf51439b1385699e272874198597b1f7d97994f5c",
+    "period_range": [
+      1,
+      64
+    ],
+    "relation_graphs": 128,
+    "residue_vertices": 16384
+  },
+  "rejections": [
+    "zero offset",
+    "offset at modulus",
+    "bad ternary digit",
+    "nonpositive valuation",
+    "even odd-clock source",
+    "unsupported d",
+    "negative cap",
+    "exhausted path cap",
+    "nonabsorbing target search"
+  ],
+  "schema": 1,
+  "scope": "Bounded exact arithmetic and actual finite paths only. This replay does not prove positive-section closure at all depths, the full invariant classification, Cobham, or convergence.",
+  "sections": {
+    "a_range": [
+      1,
+      7
+    ],
+    "all_positive_offsets": true,
+    "all_ternary_digits": true,
+    "binary_index_checks": 4446,
+    "binary_transformations": 494,
+    "branches": {
+      "divisible": 247,
+      "unit": 494
+    },
+    "common_endpoint_comparisons": 6669,
+    "maximum_ordinary_clock": 7,
+    "n_range": [
+      0,
+      8
+    ],
+    "ordinary_arrows": 28620,
+    "ordinary_paths": 13338,
+    "path_cap": 16,
+    "paths_sha256": "05cdc1ef290c755876df41d6a088cd451a0f35e3efd1c38f06657f97dfa26cee",
+    "source1_identity_cases": 13,
+    "ternary_transformations": 741,
+    "transformations_sha256": "1c4867986860cbfb0f21e622f950717af6f5070a77ce283779f6bbbfcdd87c65"
+  },
+  "status": "PASS",
+  "verifier_sha256": "33fe0285198b887164878c32bd57a09a4e3cf180f4c87a63a3b964afddb98610"
+}
