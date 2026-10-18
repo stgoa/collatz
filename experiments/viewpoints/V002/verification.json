@@ -1,0 +1,257 @@
+{
+  "base_conversion": {
+    "emitted_least_first": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "integer_output": 10,
+    "local_trace": [
+      [
+        1,
+        [
+          0,
+          1
+        ],
+        2,
+        0,
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        1,
+        [
+          1,
+          1
+        ],
+        3,
+        1,
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        0,
+        [
+          1,
+          1
+        ],
+        2,
+        0,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        0,
+        [
+          0,
+          1
+        ],
+        1,
+        1,
+        [
+          0,
+          0
+        ]
+      ]
+    ],
+    "local_transitions": 4,
+    "odd_arrows": 2,
+    "parallel_automaton_update_count": "not asserted",
+    "shortcut_arrows": 5
+  },
+  "colorings": {
+    "absorbed_d7_at1": 1,
+    "actual_odd_arrows": 23280,
+    "cases": 480,
+    "component_histogram": {
+      "1": {
+        "1": 96
+      },
+      "13": {
+        "1": 89,
+        "2": 7
+      },
+      "5": {
+        "1": 77,
+        "2": 19
+      },
+      "61": {
+        "1": 95,
+        "2": 1
+      },
+      "7": {
+        "1": 83,
+        "2": 13
+      }
+    },
+    "d": [
+      1,
+      5,
+      7,
+      13,
+      61
+    ],
+    "moduli": [
+      1,
+      96
+    ],
+    "odd_source_range": "3,5,...,2M+1; source1 excluded",
+    "partition_sha256": "fcb037a516611b0a199407953e7b1c364458b80fcc418d94edf4b56404b17e53",
+    "raw_d7_at1": 5,
+    "residue_vertices": 23280
+  },
+  "ensembles": {
+    "d5_cycle": [
+      19,
+      31,
+      49,
+      19
+    ],
+    "mergers": [
+      {
+        "conditional_entropy_bits": 1,
+        "d": 1,
+        "endpoint": 5,
+        "endpoint_entropy_bits": 0,
+        "source_entropy_bits": 1,
+        "sources": [
+          13,
+          53
+        ],
+        "valuations": [
+          3,
+          5
+        ]
+      },
+      {
+        "conditional_entropy_bits": 1,
+        "d": 5,
+        "endpoint": 31,
+        "endpoint_entropy_bits": 0,
+        "source_entropy_bits": 1,
+        "sources": [
+          19,
+          81
+        ],
+        "valuations": [
+          1,
+          3
+        ]
+      }
+    ],
+    "uniform_cycle_law": "invariant, entropy log2(3); not absorbed",
+    "valuations": [
+      1,
+      1,
+      3
+    ]
+  },
+  "geometry": {
+    "forward_probability_lower": "5/17",
+    "height13_component_of7": [
+      7,
+      9,
+      11
+    ],
+    "height13_voltage_at7": 0,
+    "infinite_tail_status": "written geometric comparison; finite prefixes checked here",
+    "ordinary_word": [
+      1,
+      1,
+      2,
+      3,
+      4
+    ],
+    "path": [
+      7,
+      11,
+      17,
+      13,
+      5,
+      1
+    ],
+    "path_probability_lower": "3125/1419857",
+    "tail_entries": [
+      {
+        "checked_tail_terms": 11,
+        "isolated": [],
+        "tail_start": 9,
+        "upper": "4/27",
+        "vertex": 7
+      },
+      {
+        "checked_tail_terms": 11,
+        "isolated": [],
+        "tail_start": 29,
+        "upper": "4/87",
+        "vertex": 11
+      },
+      {
+        "checked_tail_terms": 11,
+        "isolated": [],
+        "tail_start": 45,
+        "upper": "4/135",
+        "vertex": 17
+      },
+      {
+        "checked_tail_terms": 11,
+        "isolated": [],
+        "tail_start": 69,
+        "upper": "4/207",
+        "vertex": 13
+      },
+      {
+        "checked_tail_terms": 11,
+        "isolated": [
+          3
+        ],
+        "tail_start": 53,
+        "upper": "19/53",
+        "vertex": 5
+      }
+    ]
+  },
+  "histories": {
+    "R81": {
+      "endpoint": 12991,
+      "ordinary_clocks": [
+        2,
+        14
+      ],
+      "p": 11391,
+      "peak": 369521,
+      "q": 11547,
+      "unguarded_pair": [
+        1074429,
+        1059967
+      ],
+      "wrong_first_valuation": 3
+    },
+    "R93": {
+      "Q": 97367964818811137307,
+      "comparison_status": "unfinished; distinct endpoint atoms retained",
+      "coordinate_defect": 8876123885813760,
+      "ell": 922454,
+      "joint_relation": "exact equality",
+      "lower_clock": 28,
+      "lower_endpoint": 80500808671037,
+      "order": 33,
+      "shadow_cost": 32,
+      "shadow_numerator": 7931,
+      "upper_clock": 30,
+      "upper_endpoint": 569775707683020881887,
+      "z": 650586500747312261
+    }
+  },
+  "schema": 1,
+  "scope": "Finite V002 examples only; written all-input arguments remain separate. No convergence claim.",
+  "status": "PASS",
+  "verifier_sha256": "eb9e53a2ab8c33bb2484838c6cd16f6b3b6273b7389218b5187efbc6a95b1e24"
+}

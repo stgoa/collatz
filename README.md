@@ -2,21 +2,30 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-18): Collatz remains unproved. The active goal is to find a better mathematical language.**
+**Current standing (2026-10-18): Collatz remains unproved. The viewpoint survey recommends arithmetic regularity of orbit-component colorings as the next working language.**
 
-We are exploring Grothendieck-style changes of viewpoint through **breadth
-before depth**. The task is to compare what different objects and
-representations reveal, then recommend a small research portfolio. No new
-language is being presented as a proof or a promised breakthrough.
+We explored Grothendieck-style changes of viewpoint through **breadth before
+depth**. Fourteen views and two rounds of bounded comparisons support a
+provisional choice: ask how complicated an arithmetic description of a
+nonabsorbing component would have to be. No language is being presented as
+a proof or a promised breakthrough.
 
 Start with the living [VIEWPOINT_MAP.md](VIEWPOINT_MAP.md) and
-[exploration log](docs/VIEWPOINT_LOG.md). The first survey compares ten
-viewpoints across symbolic arithmetic, operators and geometry, and
-rewriting and renormalization. Each has an exact example, a known-cycle
-control, a cheap next test and a milestone short of all of Collatz.
-The initial discrimination probes ask which information a simplification
-loses and whether that information can be restored without assuming the
-missing theorem. Recommendations remain provisional.
+[exploration log](docs/VIEWPOINT_LOG.md). The survey spans symbolic arithmetic,
+operators, geometry, rewriting, statistical laws, automata and base conversion.
+Each card records seven evaluation fields; deferred cards may offer only a
+milestone template. The [selection review](experiments/viewpoints/V002/SELECTION_REVIEW.md)
+records the evidence and limitations of the final recommendation.
+
+The preferred view has a concrete diagnostic: every eventually periodic
+invariant coloring for `3x+1` is constant, whereas explicit periodic colorings
+survive for `3x+5` and `3x+61`. The [elementary proof](experiments/viewpoints/V002/invariant_colors.md)
+does not establish regularity of an actual hypothetical bad set. The next
+bounded target is the restricted class recognizable in base 2 by finite
+automata, with a prior-work check first. Binary/ternary carry diagrams earn
+one complementary test; integer-ensemble statistics remain a separate
+alternative. The initial relational and geometric portfolios were demoted
+after tests found no new closure or global estimate.
 
 **Preserved evidence:** R1–R94 and the seventeen-family dispatcher are frozen
 at `9190ccf`. The earlier [route map](ROUTE_MAP.md) supplies obligations and
@@ -136,8 +145,20 @@ Most checks establish finite arithmetic identities. R91 and R92 additionally use
 - `experiments/annular_construction/duality/`: component potential, exact boundary flux, residue information loss, and scoped counterexamples.
 - `experiments/residual_progress/`: finite rational cone and integer-gap compiler, actual certificate conversion, and scoped residual-transport obstructions.
 
-## Next research target
+## Recommended next research programme
 
-The [S.1 calibration](experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md) feeds the [S.2 power-growth proof](experiments/phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md): uniform contraction for arbitrary target sets fails at every exponent 0<alpha<1. The [C.1a audit](experiments/phase6/linear_density_audit/README.md) now supplies the stronger external lower theorem. Next, attack C.2a: arbitrarily small unabsorbed fractions at arbitrarily large cutoffs, with finite horizons. Its first residue relaxation failed, and the proposed matched density gap is unproved. Positive predecessor density, finite verification and Tao's almost-bounded theorem do not supply this upper bound. Y.2 addresses cycles only and H.2 needs additional rigidity.
+The [viewpoint map](VIEWPOINT_MAP.md#focused-subsequent-programme) specifies
+three bounded tests: a finite-kernel and prior-literature audit for arithmetic
+colorings; one complete carry-boundary comparison; and a separate comparison
+of an actual integer first-passage law with published hypotheses. Compare
+their outputs before committing to deeper work. Selecting a working language
+does not authorize an extended case catalogue or assume every bad set has a
+finite automaton.
 
-The overall goal remains a finite current, possibly with an everywhere nonpositive residual, at every cutoff on **all five rays**, or another proof of convergence. The [route map](ROUTE_MAP.md) supersedes old next-target paragraphs in historical reports. The [Phase 6 report](experiments/phase6/REPORT.md) records active work. No universal current construction, Collatz proof or novelty claim is supplied.
+The former C.2a upper-density target remains an unresolved historical route.
+Its [matched density gap](experiments/phase6/linear_density_audit/next_upper_attempt.md)
+is not supplied by the audited lower theorem or by an unspecified positive
+upper fraction. The [route map](ROUTE_MAP.md) and [Phase6 report](experiments/phase6/REPORT.md)
+retain that programme's results. Universal currents on all five rays remain
+one possible proof route. No such supply, Collatz proof or novelty claim is
+made by the viewpoint recommendation.
