@@ -8128,6 +8128,114 @@ This rules out a proposed use of the accumulated ternary precision alone;
 it does not establish a nonterminating positive orbit or failure of every
 finite current construction.
 
+\section{Fourteen further steps give only the original history}
+
+The gained ternary precision can be crossed by classifying its finitely
+many possible boundary states. This supplies a stronger exclusion for the
+same target, uniformly over all return counts.
+
+\begin{theorem}[Complete extended history window]
+\label{thm:deeperwindow}
+Use the original coupled family and guarded returns of
+Theorem~\ref{thm:phiexitcontrol}. For every admitted $\ell,r\ge0$, the
+solutions with positive canonical $p\le Q$ to
+\[
+ T^d(p)=n_r=3\Phi^r(v_0),\qquad 0\le d\le12r+19
+\]
+consist exactly of $p=Q$ and $d=12r+18$.
+All inverse rays are allowed, and intermediate heights are unrestricted.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:shadowprecision} treats $d\le h=12r+5$.
+Suppose $d=h+t$ with $1\le t\le14$. Write $\lambda_j$ for the
+slope of the first $j$ inverse arrows, $\mu_h=\lambda_h\gamma^r$,
+and $\mu_d=\lambda_d\gamma^r$.
+The original family satisfies
+\[
+ Q=\kappa n_0-c,\quad
+ \kappa=\frac{2^{27}}{3^{18}},\quad
+ c=\frac{213949807}{3^{17}}>1,\quad
+ n_0\ge C2^{7r},\quad C=\frac{62801151}{7153}.
+\]
+The full affine inverse bound is
+$x_j\ge\lambda_j[n_r+1-(3/2)^j]$.
+Applying it to the first $h$ arrows, and the bound
+$x_h+1\le(3/2)^{14}(Q+1)$ to the remaining suffix, gives
+\[
+ 1\le\mu_h<102,\qquad \mu_d<\frac12.
+\]
+These are uniform inequalities including intercepts: the sufficient
+constant margins are
+\[
+ \frac{70}{81}C-102\frac{243}{32}
+   =\frac{21052290557}{3090096}>0,
+ \qquad
+ (1-2\kappa)C-(3/2)^{19}
+   =\frac{232269104057100257855}{484305580032786432}>0.
+\]
+
+The first $h$ inverse arrows lift to a rational shadow $-u/D$ from $c_0$.
+The prefix scores in Theorem~\ref{thm:shadowprecision} and the recurrence
+$t'=\alpha t+D\delta$, $0\le\delta<\alpha$, give
+\[
+ D<u<D+\mu_h(892688+12A)<741545113.
+\]
+If that boundary shadow first reaches $c_0$ at depth $d_0$ with binary
+cost $E_0$, the deterministic twelve-cycle gives
+\[
+ d_0=12k_0+5,\quad E_0=19k_0+m,\quad
+ r\ge k_0,\quad \mu_h=\frac{2^m}{243},\quad 8\le m\le14.
+\]
+Reducing its affine inverse word modulo $D$, using $2^{19}=3^{12}$
+modulo $D$, gives the additional necessary congruence
+\[
+ 243u\equiv899841\,2^m\pmod D,\qquad
+ D<u<D+\frac{2^m}{243}(892688+12A).
+\]
+These seven classes contain exactly67,992 odd candidates, of which33,995
+are canonical. A signed integer classification follows every such origin
+without an intermediate height cutoff. Each path reaches the root, a
+previously classified state, a different finite cycle, or the invariant
+complement of $x<-1$. No resource cap fires. Exactly16 first-hit tails
+have the required phase and cost. The independent positive-numerator C++
+implementation classifies all176,754,119 canonical primitive origins in
+the larger interval $D<u<741545113$ and gives the same16 tails.
+
+For any one of them, the actual boundary is
+\[
+ x(\ell)=\frac{2^m}{243}(n_0(\ell)-c_0)-\frac{u}{D}
+        =x(0)+2^{m+18}3^{14}\ell.
+\]
+It is independent of $r$ once $r\ge k_0$. The intercept is integral;
+equivalently, $x=(2^m L(v_0)/81-u)/D$ and the congruence proves its
+divisibility. Thus all next fourteen branch residues are fixed across
+the entire $\ell$ family. A suffix of length $t\le14$ and cost $E_s$
+can satisfy $p\le Q$ only if
+\[
+ \frac{2^{m+E_s}}{3^{5+t}}<\frac12,\qquad E_s\le21.
+\]
+The complete finite suffix enumeration uses both rays and every legal
+point branch, with all costs up to21 and all affine intercepts retained.
+Only two endpoints satisfy this necessary score bound. Both come from
+the tail $(u,d_0,E_0)=(952661,5,8)$:
+\[
+ \begin{array}{c|c|c}
+ t&E_s&p(\ell)\\\hline
+ 11&16&(9Q+5)/8\\
+ 13&19&Q
+ \end{array}
+\]
+The first exceeds $Q$ for every $\ell\ge0$; the second is the known
+original history. Its first-hit phase has $k_0=0$, so it is available
+for every admitted return count. This proves the assertion.
+\end{proof}
+
+The complete proof, sixteen-tail table and replayable finite evidence are
+in \texttt{deeper\_window/DEEPER\_WINDOW.md} and its companions.
+This resolves the saved next-window candidate, but supplies no new
+terminal current. Histories longer than $12r+19$, later meeting targets
+and different signed comparisons remain outside the exclusion.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -8338,8 +8446,11 @@ recurrent contraction. Theorem~\ref{thm:phiexitcontrol} classifies every
 exit of its repeated growth pattern, but leaves positive high requests.
 Theorem~\ref{thm:shadowprecision} excludes all inverse words through the
 ternary precision gained during those repetitions, even with arbitrary
-ray indices. This directs the search toward deeper histories, later
-meeting targets or genuinely different signed comparisons. These results
+ray indices. Theorem~\ref{thm:deeperwindow} extends the complete
+classification fourteen steps further: only the original source returns.
+This directs the search toward later meeting targets or genuinely
+different signed comparisons; still longer histories remain available.
+These results
 favor input-dependent whole-family closure over accumulating further
 bounded local rules alone.
 The next obligation is to supply every
@@ -8390,9 +8501,10 @@ $8\le N\le2048$ and selected larger cutoffs. It also checks the dyadic core
 formula through $b=1000$, the core hitting times, and the exact rational
 comparison constant. Results are saved in \texttt{right\_aligned\_audit.json}.
 Most computations check implementations and examples.
-Theorem~\ref{thm:shadowprecision} additionally uses its complete finite
-rational-basin classification as part of the proof, with independent
-Python and C++ implementations. The results have not received human peer
+Theorems~\ref{thm:shadowprecision} and~\ref{thm:deeperwindow}
+additionally use complete finite rational-basin classifications as part
+of their proofs, with independent Python and C++ implementations.
+The results have not received human peer
 review or formal proof-assistant verification.
 
 The continuation scripts in
@@ -8736,4 +8848,10 @@ through $r=128$. Independent C++ reproduces the complete classification.
 The finite basin is a premise of the first-counterword proof; the positive
 samples alone do not prove the universal statement. No terminal-current
 supply or universal termination follows.
+The extended-window checker classifies all33,995 selected rational origins,
+verifies all16 first-hit tails, and enumerates the complete finite suffix
+space with cost at most21. Independent C++ additionally resolves the
+entire176,754,119-origin interval. The universal positive-source statement
+uses the written selective reduction and full affine inequalities; it
+does not follow from finite positive-source examples alone.
 \end{document}

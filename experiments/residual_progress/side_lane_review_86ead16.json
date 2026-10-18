@@ -1,0 +1,151 @@
+{
+  "additional_local_checks": {
+    "d61_control": {
+      "cap_reached": false,
+      "cutoffs_checked": [
+        8,
+        213
+      ],
+      "cycle_length": 41,
+      "first_positive_packet_cutoff": 213,
+      "method": "Bounded direct iteration of x -> (3x+61)/2^v2(3x+61), stopping on stored labels or an actual repeated state; packet coefficients from affine_controls.packets(61,N). All earlier packet pairings are nonpositive.",
+      "nontrivial_cycle_minimum": 235,
+      "odd_seeds_below_175": 87,
+      "packet_source_sha256": "9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c",
+      "per_orbit_step_cap": 10000,
+      "per_state_bit_cap": 256,
+      "positive_pairing": 1,
+      "states_classified": 291,
+      "status": "PASS"
+    },
+    "minimality_scope": {
+      "N": 768,
+      "alternative_rows": 40105,
+      "both_positive_costs": 53758,
+      "command": [
+        "python3",
+        "collatz_research_20261017/negative_controls/check_review_scope.py"
+      ],
+      "exact_rows": 40106,
+      "removed_negative_coefficient": -55,
+      "removed_row": 5,
+      "source_sha256": "6ce23375523b12f2d696e9530ba7774d21aa422296350c481852eaabf2974275",
+      "status": "PASS",
+      "wall_seconds": 0.36
+    }
+  },
+  "assessment": "Retain controls and conditional exact-current minimality; alternatives remain possible. R90/R91 warrant a focused pivot beyond repeated-target inverse searches within the accumulated precision, toward longer/later shared histories or different signed source comparisons at the original rank. Universal terminal supply remains open.",
+  "main_baseline": "b2731dd1843c58d119c0d39b14b4e63cf5f644da",
+  "merged_pr": {
+    "already_in_baseline": true,
+    "merge_commit": "ba6b3371fabd7fcabebb442d7c89ea3ed5c02149",
+    "number": 1,
+    "remote_listing_provenance": "Root agent refreshed GitHub metadata this batch; only merged PR1 reported",
+    "url": "https://github.com/stgoa/collatz/pull/1"
+  },
+  "pin": "86ead16d88bce7d1f9ed3562a806b9ae39c5c631",
+  "pinned_files": {
+    "collatz_research_20261017/negative_controls/affine_controls.py": "9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c",
+    "sidekick/FEED.md": "3fda64240da92216bbe4265c53ad538064465ad28886c452c2e89b0259b55829",
+    "sidekick/probes/batch_r61_r67_check.json": "18fa6151235653b340aba8eea19bc045312fe551137ed992037e269f3dbe0e3d",
+    "sidekick/probes/batch_r61_r67_check.py": "7fda6a7581de9b81d2f88dee098b70b8fd319f6d98faffe07510664c07e7d9b5",
+    "sidekick/probes/fibre_count_check.py": "071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a",
+    "sidekick/probes/r64_lifted_cycle_check.json": "cf9beff74c72c9b88ea812b6f7b5c2ca84a591538c697282b2e5546dcd5c678b",
+    "sidekick/probes/r64_lifted_cycle_check.py": "5f8a78456b0591a851b779ca81220cca9d2fb875e5fa83e28dd5888732d91bf2",
+    "sidekick/probes/r88_anchor_exhaustive.c": "72e7fd7c14e3b395c56de9743848ec7b5843138dfa381987f8b5b7e21a9a9e67",
+    "sidekick/probes/r90_phi_return_check.json": "323e46f9edcb105a7592379f7a183456088e00af68e690fd9668537e5de4bde6",
+    "sidekick/probes/r90_phi_return_check.py": "5828e871e2217edc86af95622ad79322f5669b2629b5c31d492b110839184815",
+    "sidekick/writeup/SYNTHESIS.md": "aef0c089b9c17a4bc6587dce7c81ba796d611348a06fc210fbdf6526efa74c1c"
+  },
+  "probes": [
+    {
+      "byte_identical_receipt": true,
+      "command": [
+        "python3",
+        "sidekick/probes/r90_phi_return_check.py"
+      ],
+      "name": "r90_phi_return_check",
+      "receipt_sha256": "323e46f9edcb105a7592379f7a183456088e00af68e690fd9668537e5de4bde6",
+      "result": {
+        "count_cases": 3000,
+        "quotient_cases": 500,
+        "scope": "Independent check of R90's return words, quotient identity and re-entry counts.",
+        "status": "PASS",
+        "word_cases": 2000
+      },
+      "status": "PASS",
+      "wall_seconds": 0.143
+    },
+    {
+      "byte_identical_receipt": true,
+      "command": [
+        "python3",
+        "sidekick/probes/batch_r61_r67_check.py"
+      ],
+      "name": "batch_r61_r67_check",
+      "receipt_sha256": "18fa6151235653b340aba8eea19bc045312fe551137ed992037e269f3dbe0e3d",
+      "result": {
+        "r61_cases": 132,
+        "r65_q_values": 10000,
+        "r66_pairs": 2990,
+        "r67_cases": 3000,
+        "scope": "Independent arithmetic checks of R61, R65, R66, R67.",
+        "status": "PASS"
+      },
+      "status": "PASS",
+      "wall_seconds": 0.172
+    },
+    {
+      "byte_identical_receipt": true,
+      "command": [
+        "python3",
+        "sidekick/probes/r64_lifted_cycle_check.py"
+      ],
+      "name": "r64_lifted_cycle_check",
+      "receipt_sha256": "cf9beff74c72c9b88ea812b6f7b5c2ca84a591538c697282b2e5546dcd5c678b",
+      "result": {
+        "boundary_cells_tested": 85,
+        "infeasible_or_skipped": [],
+        "scope": "Independent check of R64's lifted ray words and acceptance table at every boundary.",
+        "status": "PASS"
+      },
+      "status": "PASS",
+      "wall_seconds": 0.093
+    }
+  ],
+  "process_timeout_seconds": 60,
+  "r88_exhaustive": {
+    "canonical_nonabsorbing_origins": 33426246,
+    "command": [
+      "cc",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-o",
+      "r88",
+      "sidekick/probes/r88_anchor_exhaustive.c"
+    ],
+    "compiler_stderr": "",
+    "expected_hits_explicitly_required": true,
+    "integer_safety": "x_j+1<=(3/2)^j*(Q+1),j<=22; terminal bound<2^40 and all predivision 3x+1<2^42, hence uint64_t operations cannot overflow",
+    "omitted_absorber": "p=1 cannot reach any target; absorbed convention",
+    "quotient_steps": 22,
+    "run_command": [
+      "./r88"
+    ],
+    "status": "PASS",
+    "stdout": "hit p=133704987 d=18 a=0\nhit p=133704987 d=19 a=1\nhit p=133704987 d=20 a=2\nhit p=133704987 d=21 a=3\ncanonical=33426246 hits=4 unexpected=0 y=385940463,578910695,868366043,1302549065\n",
+    "wall_seconds": 4.957
+  },
+  "review_date": "2026-10-18",
+  "review_note_sha256": "cbbb430659ae7f10204e6e82fe3eb2f0af030c6d59b28ebe8441579bbf8bca6c",
+  "scope": {
+    "r64": "85 generated threshold-boundary representatives, no skipped cells; not all seeds or unbounded k.",
+    "r67_clock": "Includes the final step whose source is guarded and whose image may leave; R90 counts complete guarded returns only.",
+    "r88": "Every nonabsorbing positive canonical origin through Q at the fixed m=0 anchor, to four targets within their specified horizons; no all-m lifting proof.",
+    "r90": "Finite ordinary words, quotient endpoints, affine conjugacy and return counts; no full signed plans or terminal supplies.",
+    "r91": "Explicitly not reproduced in the side feed or this focused review; distinct from R88 scan."
+  },
+  "side_branch_modified": false,
+  "status": "PASS"
+}

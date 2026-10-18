@@ -1,6 +1,14 @@
 # Candidate finite-boundary reduction beyond the R91 precision horizon
 
-**Research candidate, 2026-10-18. Unpromoted and awaiting independent review.**
+**Historical research candidate, 2026-10-18. Resolved by R92.**
+The [completed proof and classification](DEEPER_WINDOW.md) independently
+audits this reduction, adds a selective congruence, classifies every required
+boundary origin and enumerates every legal suffix. The sole origin p<=Q in
+the full extended window is Q itself. The original draft below is preserved
+as a dated research handoff; its statements about unfinished work describe
+that earlier state, not the current result.
+
+**Original draft status:** unpromoted and awaiting independent review.
 This draft is outside the frozen R90/R91 verification scope. It changes no
 accepted result, implementation or receipt. The larger finite rational basin
 below has **not been enumerated**. In particular, this is not a conclusion

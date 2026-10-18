@@ -1,0 +1,3621 @@
+{
+  "boundary_instances": 303,
+  "explicit_cap_abort_checks": 3,
+  "first_hit_arrows": 224,
+  "independent_full_basin": {
+    "candidates": 176754119,
+    "cap_hits": 0,
+    "classification_fingerprint": "0ae881831f9893dd",
+    "hits": 1939,
+    "sparse_outcomes_compared": 33995
+  },
+  "interval_checks": [
+    [
+      70506316836123,
+      105553116266496,
+      false,
+      [
+        0,
+        null
+      ]
+    ],
+    [
+      70506316836123,
+      105553116266496,
+      true,
+      null
+    ],
+    [
+      70506316836122,
+      105553116266496,
+      false,
+      [
+        0,
+        null
+      ]
+    ],
+    [
+      70506316836122,
+      105553116266496,
+      true,
+      [
+        0,
+        null
+      ]
+    ],
+    [
+      70506316836124,
+      105553116266496,
+      false,
+      null
+    ],
+    [
+      70506316836124,
+      105553116266496,
+      true,
+      null
+    ],
+    [
+      70506316836118,
+      105553116266497,
+      false,
+      [
+        0,
+        5
+      ]
+    ],
+    [
+      70506316836118,
+      105553116266497,
+      true,
+      [
+        0,
+        4
+      ]
+    ],
+    [
+      70506316836128,
+      105553116266495,
+      false,
+      [
+        5,
+        null
+      ]
+    ],
+    [
+      70506316836128,
+      105553116266495,
+      true,
+      [
+        6,
+        null
+      ]
+    ],
+    [
+      70506316836128,
+      105553116266497,
+      false,
+      null
+    ],
+    [
+      70506316836128,
+      105553116266497,
+      true,
+      null
+    ],
+    [
+      70506316836118,
+      105553116266495,
+      false,
+      [
+        0,
+        null
+      ]
+    ],
+    [
+      70506316836118,
+      105553116266495,
+      true,
+      [
+        0,
+        null
+      ]
+    ],
+    [
+      -211106232532992,
+      105553116266496,
+      false,
+      [
+        3,
+        null
+      ]
+    ],
+    [
+      -211106232532992,
+      105553116266496,
+      true,
+      [
+        3,
+        null
+      ]
+    ],
+    [
+      0,
+      1,
+      false,
+      [
+        1,
+        null
+      ]
+    ],
+    [
+      0,
+      1,
+      true,
+      [
+        1,
+        null
+      ]
+    ],
+    [
+      -10,
+      3,
+      false,
+      [
+        4,
+        null
+      ]
+    ],
+    [
+      -10,
+      3,
+      true,
+      [
+        4,
+        null
+      ]
+    ],
+    [
+      70506316836123,
+      1,
+      false,
+      [
+        0,
+        null
+      ]
+    ],
+    [
+      70506316836123,
+      1,
+      true,
+      [
+        1,
+        null
+      ]
+    ],
+    [
+      70506316836124,
+      1,
+      false,
+      [
+        1,
+        null
+      ]
+    ],
+    [
+      70506316836124,
+      1,
+      true,
+      [
+        1,
+        null
+      ]
+    ]
+  ],
+  "invalid_rejections": 24,
+  "margins": {
+    "mu102": "21052290557/3090096",
+    "whole_half": "232269104057100257855/484305580032786432"
+  },
+  "nonstrict_successes": [
+    {
+      "cost": 19,
+      "depth": 13,
+      "first_guarded": 0,
+      "nonstrict_interval": [
+        0,
+        null
+      ],
+      "origin": 952661,
+      "p0": 70506316836123,
+      "period": 105553116266496,
+      "relation": "Q",
+      "score": [
+        134217728,
+        387420489
+      ],
+      "slope_ratio": [
+        1,
+        1
+      ],
+      "strict_first_guarded": null,
+      "strict_interval": null,
+      "word": [
+        [
+          "ray0",
+          0,
+          3,
+          3
+        ],
+        [
+          "ray0",
+          0,
+          2,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "ray0",
+          0,
+          2,
+          -1
+        ],
+        [
+          "ray0",
+          0,
+          2,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "ray0",
+          0,
+          2,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ]
+      ]
+    }
+  ],
+  "positive_controls": [
+    {
+      "boundary_values": [
+        [
+          952661,
+          "5a4ad5dcd1f69842ac87700ffe967f0b26bc7fff327cc9188c44ab110273d619"
+        ],
+        [
+          3789185,
+          "de6d25917a392346d7b66801254111cbcfb8d2faaa8c9c0ae91e09cbbb6f2278"
+        ],
+        [
+          15120975,
+          "1cfdf6cd6bcde56ba8fcd00abe623e49d3e4bbfb343211aab062e5b2e72b684d"
+        ],
+        [
+          30206185,
+          "981f58af6d5dddeae05e20c59922604f54e751b8b11a63806c2c23858099b835"
+        ],
+        [
+          30363551,
+          "7478c0e9b957604b85a816f1265c80be0224e2e6d2ac74528b0b9917ae4ae188"
+        ],
+        [
+          60505359,
+          "4ffa26b764e052d46ce2569ab228fec746789cffc63b2c990ef9c95974639224"
+        ],
+        [
+          60562583,
+          "83185822c38318ea5c29b7e7797d0082bb547e1c4ab5d8420e4ea43261cc3d7d"
+        ],
+        [
+          60619807,
+          "a01cc5f9425180bd0b8067c5a7bd5422c7117522584bfbbb99c3468038c05a84"
+        ]
+      ],
+      "ell": 0,
+      "index": 0,
+      "ordinary_clocks": [
+        23,
+        5
+      ],
+      "quotient_clock": 18,
+      "quotient_cost": 27,
+      "returns": 0,
+      "target_digest": "fb5dc66c702ae82e9c21d52c00e7586c7cfe9380fd242d6ea4fa3d64a0a7e76f"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "12bfae3686e632ab391c8abc334451f13264a043d0b6bcc66f70b17e8c6759fa"
+        ],
+        [
+          3789185,
+          "1382d6a82e2802adb254e3e16e8e4205cf2c95142d4a2c71cf1fc53148322910"
+        ],
+        [
+          15120975,
+          "70472cb819e40735f4b77a5eb88dc58e3339dea85ffd59e08bea5dc68d6f83a3"
+        ],
+        [
+          30206185,
+          "863db5508727a4f180bd7472c8a6d314261858c66ca44d3bfbbcde8b56172444"
+        ],
+        [
+          30363551,
+          "019596e2a1bbe7d2d7cd0eb0e97bc3abfdd95e57c90d072e2514dab200c0b77a"
+        ],
+        [
+          60505359,
+          "3abd6e6a34b41f640d5046f5ef2094f64c0280ba485425d0c82e9b5c36cf10b7"
+        ],
+        [
+          60562583,
+          "3d82a0230d87cdf6bc9bc21a8aadf5ca4a5988a5899f115c7361b882a386edf6"
+        ],
+        [
+          60619807,
+          "f70c311462ec8a6212a86b1ca2b2a082045007a04c380bfc67d9262de464c31a"
+        ]
+      ],
+      "ell": 1,
+      "index": 1,
+      "ordinary_clocks": [
+        23,
+        5
+      ],
+      "quotient_clock": 18,
+      "quotient_cost": 27,
+      "returns": 0,
+      "target_digest": "69c84c6f36ea57456293033076df04fd3f7b824356862e51479aa2d533a24a5d"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "5380c93296a07f9e02ef31ed6df6a6de1c2a26fe0f94e25486d66c64b8def82d"
+        ],
+        [
+          3789185,
+          "6aa2e1272b53c86d9e0c8de4b23d48652122ffa040c8908bcd81f8145f211113"
+        ],
+        [
+          15120975,
+          "d0350e81bfcd0af14e2a4eece70e96a05cee4513b4f8f75a54ea95ecc4a5c7b3"
+        ],
+        [
+          30206185,
+          "13b17abf1bfaf98e7df9f5b2716d32ee8c80037ffaf7ea421d3a97ebeaf9bd9c"
+        ],
+        [
+          30363551,
+          "1ebf9d8b825e8a7e346bf3b5685b396af4ff6ff5adaa277fecc1904b2e096262"
+        ],
+        [
+          60505359,
+          "7e3065977d83bafb4f3dd7b2d8170eb0b59d298fa54ed87689a0f379aaaca324"
+        ],
+        [
+          60562583,
+          "2e216062c830c7e4a2fae9959938fe2703df67206f3c47b7efeece76c2c8d8ae"
+        ],
+        [
+          60619807,
+          "c7f1eba6185b82990ddfd407b0c15befaeae21731e644f051f2abfbd9856ca13"
+        ]
+      ],
+      "ell": 7,
+      "index": 7,
+      "ordinary_clocks": [
+        23,
+        5
+      ],
+      "quotient_clock": 18,
+      "quotient_cost": 27,
+      "returns": 0,
+      "target_digest": "0f7d0b5ceca1307732c638cbf5d98fb9647e8a19e7617ad4604f2e441fd1c3eb"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "9322f1b8da29ebd7c783a3da282429c909dc156e3aded42b0875608567a3ef3d"
+        ],
+        [
+          3789185,
+          "f43ddce76b6fa527d36ec9605b2581857d9fb072d316ac33ef5aa11e4e0eb826"
+        ],
+        [
+          7499687,
+          "5ddd3b609632e24fffb262d3aac3b6559cd3b3031195ad3cedb2fdcf47b891f0"
+        ],
+        [
+          15120975,
+          "1a36dfed82fe6e5b271f09b6cf2bc8668be3b1e22c39e30f0edf332aaaf59614"
+        ],
+        [
+          29977289,
+          "d1d2cd812f92917c05ccbc9f2a3b1b2dae5f334e1af47fa4ea381146c39c3cd9"
+        ],
+        [
+          30206185,
+          "344ee5779b8a58e0af47826b4aa40524fabe889156e79903aab5f28a0cbdf9e6"
+        ],
+        [
+          30363551,
+          "954d51c46a8adcc5e1d799f9037f40012a5cd7b9ce43936236679b74f4024b5e"
+        ],
+        [
+          59775753,
+          "d3ad549b0561b7bc388f13fe26ae34c4f215e8639281441cc182043942ae369e"
+        ],
+        [
+          59933119,
+          "fa616847026d6bc9fc55d23a82d1fa1d832e84f3f4f502aaf54df7c3fa3ebd0f"
+        ],
+        [
+          60290769,
+          "e462bf93051590ba243b0ffbb8e7253f1eb1ed3e60ee60540d1936567a51fbe2"
+        ],
+        [
+          60433829,
+          "c0607f84b1f1518ecd3e59d6068588917aaac39290fcd53cd8aa6eafe2a9442e"
+        ],
+        [
+          60505359,
+          "45bf318cc84a663ca34ddad598577a3b2bdc9822040147e8cd8c840c1a4ff472"
+        ],
+        [
+          60562583,
+          "793b5f9a36e53f849b6cf7fea1dd7bb4cc57dc3052443f5c78e657fbcb4d91dd"
+        ],
+        [
+          60619807,
+          "a307e3b6afd67da6041f1571bf197a95176444f57eb66280996aa713289541d6"
+        ]
+      ],
+      "ell": 398166,
+      "index": 0,
+      "ordinary_clocks": [
+        35,
+        5
+      ],
+      "quotient_clock": 30,
+      "quotient_cost": 46,
+      "returns": 1,
+      "target_digest": "245862cd1376e03fba165f235ecafe91107ecdf2b94dcb020a5ef007c26e0f22"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "28523664e58ad07ddaaf0d71c9bcb86552278955ff551f5fbc12ac8995843fad"
+        ],
+        [
+          3789185,
+          "615a6b2aebd3dbabb587930edb8c675dbf3df4cfd42473ba8799bb4ac9b298b3"
+        ],
+        [
+          7499687,
+          "8ce4a35fa9017af67586b1374fbcb0e68731b564d211d42890d3caf75e6247b6"
+        ],
+        [
+          15120975,
+          "cf95fab6ea9f13b0856a5a20b951c740035e9cd87389914d4fb7c2cda32478e9"
+        ],
+        [
+          29977289,
+          "d119681393a73d0ec0300759eba17391b2db5b80e3a10ef94c925fb87a48466d"
+        ],
+        [
+          30206185,
+          "b27dd8dd48ca877fb34c736b79c11c110c7f27f5dfd13229e7807a802a90e23b"
+        ],
+        [
+          30363551,
+          "5d203c468534fbd02a936a42fc4a4ca285dd0436a335e80de20cee58ab481914"
+        ],
+        [
+          59775753,
+          "0ec8920a983dabaf241c1f3cf0b2eda0fe0aa96f855f48dd41b113ee545bcad1"
+        ],
+        [
+          59933119,
+          "1375e6c779e07cd5337d558cf676cdd5634e95c1ccc9351021d1028b2ddf0fb4"
+        ],
+        [
+          60290769,
+          "135b788c8f25a1acc590087398e25d5978ba6a81e1e31d18a58aba7a123974a8"
+        ],
+        [
+          60433829,
+          "109244cdf4e633641c8cc44440e49aba403e8ef973498ab1d3fad3b15213a34e"
+        ],
+        [
+          60505359,
+          "88d1065017a27b10d642b326c6ae977932e3deab0aafc4093e98435f8046e205"
+        ],
+        [
+          60562583,
+          "42595e87afca99195193ecedf5983129e2a45d52971a45c349afdeb1d25cff01"
+        ],
+        [
+          60619807,
+          "3094cd11a2d335aa676d174e390347e282e29f1f592181d8e6872ed5d23a2f69"
+        ]
+      ],
+      "ell": 922454,
+      "index": 1,
+      "ordinary_clocks": [
+        35,
+        5
+      ],
+      "quotient_clock": 30,
+      "quotient_cost": 46,
+      "returns": 1,
+      "target_digest": "da43c42a1c3bc41f3240d7e712f7cd2b59e514b7477015e388eb99c3c36e91e8"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "b7b2bac91ef22b1bba7bae9758aaa6b661cd92dec63ed162d2535ba1a5541353"
+        ],
+        [
+          3789185,
+          "8762e03b65797d3dd4f3b5b2f5a05325f59ebfd757a13d157b18412579d82cc8"
+        ],
+        [
+          7499687,
+          "05a102545a6964ad85979883230e5ee551b9d028dc0e0877298f68fb0d2ee7d3"
+        ],
+        [
+          15120975,
+          "d83a7391521008fbe751e8d3a7863dd4105bb7a411a3dffe495fbf77835c460c"
+        ],
+        [
+          29977289,
+          "0d4040ead6f10a7e8effe6ba2a66026c564efd8b251e090f13701356738d5294"
+        ],
+        [
+          30206185,
+          "17a0aca145e779ba15af4f1321abae73afc8f4053837a171cea7e407f60dd099"
+        ],
+        [
+          30363551,
+          "90e630fbe45899196360c50eb2a42ca75c5bfcbd64055b0d7ce118c1f6357441"
+        ],
+        [
+          59775753,
+          "78c7a450abef80d88076c993fa3ba849e44085da6736921af401647b4efdb881"
+        ],
+        [
+          59933119,
+          "df17b2c4061cc2fdf369e3def88d3af2969bd062e94f7f545b05865dec314f9e"
+        ],
+        [
+          60290769,
+          "db011d8d69310fbb05c9a965140a9e8eebd1aa8ffdcae87d8bd467c41d570f82"
+        ],
+        [
+          60433829,
+          "81aefbcfccdb848cc22d1e3c0ea98f0bf7f05e5c7ab4f42146e8279d073b4872"
+        ],
+        [
+          60505359,
+          "7e8111f4e8d80e616ff6a54e42c6c012f2f9d4e0767f991f9730f278b4a981dd"
+        ],
+        [
+          60562583,
+          "19ef1ac81e1de7f23d777065b98bd5a42d6ba96a1149d7603a61a966aaa5b1e7"
+        ],
+        [
+          60619807,
+          "72b01f62c27dd62f8b2492d5cdc36a7bc5ec15de3c92716d76344c698aee922e"
+        ]
+      ],
+      "ell": 4068182,
+      "index": 7,
+      "ordinary_clocks": [
+        35,
+        5
+      ],
+      "quotient_clock": 30,
+      "quotient_cost": 46,
+      "returns": 1,
+      "target_digest": "6f8beac51f4fdac01780677d7e90d731a23498a7975309e5a552da445a52cfa9"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "d147fbfb3750159736710c36c1c6cf2841501e41b86a8147110c0e33799d7d00"
+        ],
+        [
+          3789185,
+          "5fb2bba1874360a37d99cd64d24165f0e1236e2ab4e904f75adbcef4efdb7561"
+        ],
+        [
+          7499687,
+          "72f0cbe7d2372d5602dec0417a2d02d91343dc8ef3b3a80a3aeb4d3788bbc6d2"
+        ],
+        [
+          15120975,
+          "fc0ffc0c1c52d3548c35622342e26526ccb6d7ec05de938fe9776be3ccb254cb"
+        ],
+        [
+          29977289,
+          "87157865c7af98f23ca0b9306bda9167165f794e035b0a5e45a9614ea877ae7a"
+        ],
+        [
+          30206185,
+          "7fa4294e77970098ebb30c1745e60577512d26fe96baacfe0da1a949def8d40e"
+        ],
+        [
+          30363551,
+          "3f783df8a905960195ae7cb07de669a55cb964cd636d2bb981678c3ad2b8251c"
+        ],
+        [
+          59646999,
+          "77230fce91aadb778278f873df030d63f627e63ed17fe3b28904c30623896c57"
+        ],
+        [
+          59775753,
+          "ba0335f85eada9ca1182efac452061ab4959d8b5ce25a4da4a4d6d3fbfdd27ee"
+        ],
+        [
+          59933119,
+          "119496c69ab557a272464838550390faa10ffb027948e3e7c0eff4cf71602ee6"
+        ],
+        [
+          60290769,
+          "eccc91b865d9bece14369cc2f8fe8ad9f356ce51494cb38d32863b37177ffac5"
+        ],
+        [
+          60433829,
+          "1a0b2510faff75ead24945ccedcfdf21debe4793b389ffbe23281b78d3086d88"
+        ],
+        [
+          60505359,
+          "630a8eac9147120673acda80785e4359ebf8ef92d78977a21c3ba2c83b27f936"
+        ],
+        [
+          60562583,
+          "2e77fcf60a091bcb5067f8fe4411bb8181336197a7c51eca239fd5ffbd9974bf"
+        ],
+        [
+          60619807,
+          "46ec0e2629c4696d5e2d53a667d3d072b96e9c3f5c4c38ef1243d1f9a6f1a8ee"
+        ]
+      ],
+      "ell": 2001081174,
+      "index": 0,
+      "ordinary_clocks": [
+        47,
+        5
+      ],
+      "quotient_clock": 42,
+      "quotient_cost": 65,
+      "returns": 2,
+      "target_digest": "db8e22a12cb01eb36a7abe859c10ff6d892eabdf980e6d3cbf2b5439c36d0e90"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "762dc22f317c0c01aaf210a695acb58cc7d9b5a9334cc9192a6f25eb2a281360"
+        ],
+        [
+          3789185,
+          "788eae04e69316085b96d4b4b158689b694e432328612db1fa21c957ac6e89f9"
+        ],
+        [
+          7499687,
+          "a0048e5594bc425ff774e7c45920615035394826d2cc7aff386171e22ae2cc4c"
+        ],
+        [
+          15120975,
+          "62d4d06717cbe8040b92772474e2201e4585f5f38455dd9d3a27a11c20d52233"
+        ],
+        [
+          29977289,
+          "c68c9be62a9e7acd5cc67274e548a66cb64be8e92939122033006987dcd617da"
+        ],
+        [
+          30206185,
+          "e684d49f2effdc17788ad72e6c769b524aed9aacff75c9787f431f62e1c4d263"
+        ],
+        [
+          30363551,
+          "504d4413526c011f43b146924e3d29fd1c2e520b08f6906b7e6c522f2065910b"
+        ],
+        [
+          59646999,
+          "3a5f32c1e17fd64a722e3f8bbf53f5c1a397ee18dc91ba8ba790fa452d14a075"
+        ],
+        [
+          59775753,
+          "761c85441a38449331e2e29e668c21532422a2ba8a65adf0d17b522f84b28fb1"
+        ],
+        [
+          59933119,
+          "7cb9612c6967d154c1ae3177e7f04dae942cb8bc656ecf6efc03ad4b36dc0c88"
+        ],
+        [
+          60290769,
+          "7b1b233d451ceb4678b7ad877803f65b521dcddd290543758dc4906d1ab5cf77"
+        ],
+        [
+          60433829,
+          "d4fbfd838a4f1b0c4a1ce9ebf623a30a2fbff2d1bda7f9569bf95c191132e4cb"
+        ],
+        [
+          60505359,
+          "605d6d488130abe3fc814f22e823a7088c82df669fadd6ecf0dea1776ff3b5dd"
+        ],
+        [
+          60562583,
+          "07e9be627aef9cff704c85d5439e15c07381c6b5389490fc14b5c878730b6975"
+        ],
+        [
+          60619807,
+          "bd8f0f2ddd346a107ead4c0a6d61da79eba3c8a4ca600b55c59ee36f2afd9d0b"
+        ]
+      ],
+      "ell": 276878988118,
+      "index": 1,
+      "ordinary_clocks": [
+        47,
+        5
+      ],
+      "quotient_clock": 42,
+      "quotient_cost": 65,
+      "returns": 2,
+      "target_digest": "cc9e66fffa1c64a5d5222303dae1d4b8c466832f11eee8358ba2d6e2e4f4a8c9"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "eec23db9b5abedf4d0d9db86ef0cf57174c1810c0f695a07474ef1c4b5764514"
+        ],
+        [
+          3789185,
+          "ef1de22740612541c11fa4cecd2170318448dbb1a69bdfbb8582791df89eedc9"
+        ],
+        [
+          7499687,
+          "86dcb17bc3b353c92a7ef32eda4d7f52cb495ccda035d5be80051706397cdeed"
+        ],
+        [
+          15120975,
+          "f0b56f6d3b8822c06e1529e91e73f6344f3073e7495a73243ffbf7c3e24cfbff"
+        ],
+        [
+          29977289,
+          "d0c86252439841f43020abe1da65c9726a9b74336da260b5144ec4b34a518943"
+        ],
+        [
+          30206185,
+          "1350f7c35a77a4076604875ab986ff0ab97c5102f2b8f7832077e809fe375113"
+        ],
+        [
+          30363551,
+          "e56d3a9692e3b4734d3b09edd8b51caf5f10d3514802a9d986753151e6c91edd"
+        ],
+        [
+          59646999,
+          "ac72825d9903d2ef27962419b2aae061610fb0b525f5b2c9cf844a0b71f8edae"
+        ],
+        [
+          59775753,
+          "7843275aff3006c6bae7c830550deeae4b343018efab074505b954e48e72e4a5"
+        ],
+        [
+          59933119,
+          "9e3bbca81da332bf4aafe772c756fcf25e3ba0c7996a66b5db2e9912573b6d4e"
+        ],
+        [
+          60290769,
+          "7d56a4583a84463b0b83ed819ce84371c91f827b8955a40f355ea81f38c1dff4"
+        ],
+        [
+          60433829,
+          "357d29c11c8029d190e933a529d4a4d47041d0bb0592b86ba714bc8d1a8cc5ff"
+        ],
+        [
+          60505359,
+          "84c692dde6900cb6ff48b93b1b3d6b46175f3aa07d0a093b75e13df3871bc592"
+        ],
+        [
+          60562583,
+          "1e45efabc8ce4cc09766a23494262ae3b80948074c6b36a6be1e393c0b23a6a6"
+        ],
+        [
+          60619807,
+          "01c1a12c3ea0d01938ad19af97f22aaf2313b97ebb3d0121a01e681b7a2348eb"
+        ]
+      ],
+      "ell": 1926146429782,
+      "index": 7,
+      "ordinary_clocks": [
+        47,
+        5
+      ],
+      "quotient_clock": 42,
+      "quotient_cost": 65,
+      "returns": 2,
+      "target_digest": "7497bc02dbcb0f894000831ee8fa6db7ffe0304511ee535cc1012e44f75e1c3f"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "e7b37828a75c126b1486c398e5adfe3594afc4eb4c5640194793dcc65c2feb9e"
+        ],
+        [
+          3789185,
+          "01c42df38fc96ea5d4083736f56421a5430ea04df1c8e42b40b2b230c3ba2b89"
+        ],
+        [
+          7499687,
+          "7a129449ed21de52cf8438a28fb643b222e405c6ff895093de7392c75d2af73f"
+        ],
+        [
+          15120975,
+          "f92f1554d398ca6823482c0824d1de20a477a873b0529c399e3c0b149cf6a5d9"
+        ],
+        [
+          29977289,
+          "5549fc7478366dce84202666d48a1b1968e047e94895a84e0c2f799e9ba9f5d1"
+        ],
+        [
+          30206185,
+          "79cdbde06d016140376031effcbf6578c9e0e9d47192bb2f9d81650a18d98942"
+        ],
+        [
+          30363551,
+          "32c99ab9a499e9a20d9a6ae997f26a5ca4a2abeff834f1fb4e193fcb818e2a61"
+        ],
+        [
+          57915973,
+          "3aad3b176ccce5fae7dde166306273c0e0ce91a05485c61e5ae17b1862f60da1"
+        ],
+        [
+          59646999,
+          "98a9a326b4c57149133180ca162648ec705a99c7e3899973b354acc62b47e376"
+        ],
+        [
+          59775753,
+          "a93184e9e38092633d55b98caf1abe4ed1f9f92b2628ff4d2e7fa819df4f5345"
+        ],
+        [
+          59933119,
+          "780d697e4f56cf8a6f20c8b605b75d3ad946169792e54a464bf8d1e97ec7fe00"
+        ],
+        [
+          60290769,
+          "a93553770dcb2d59182aaac13ec808511d7a270e657fcbecd5ab74f98e727a11"
+        ],
+        [
+          60433829,
+          "6266514c03b3eaa07a3db2b6f68357d6accdbb58c051ad1e98bba3f34a1ba7ab"
+        ],
+        [
+          60505359,
+          "4216d763b7191ec35c37f4a7c3734ba868e8749af80f993f05dcd53d62a30562"
+        ],
+        [
+          60562583,
+          "e62367b58e0308c0429c991e7f08d43ddeac7d48dbfcd839131c34b098b00637"
+        ],
+        [
+          60619807,
+          "147b83e68b9eeca4da975a63767941e8dcc61624291fa9877797084a5494e244"
+        ]
+      ],
+      "ell": 25820561690710036058966,
+      "index": 0,
+      "ordinary_clocks": [
+        71,
+        5
+      ],
+      "quotient_clock": 66,
+      "quotient_cost": 103,
+      "returns": 4,
+      "target_digest": "db588d6c94c8088644de29e7348b39ac094ed0b7821df88c3f113cc4ce005639"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "950f6a45f90464ebbb92280365f1fbe40cce7b34f888dcb1cf7ce3879550c8ba"
+        ],
+        [
+          3789185,
+          "64c55de2b03e1046bd1b79069088116188f17eda6d9ba06a626388ef99352d1b"
+        ],
+        [
+          7499687,
+          "0de45476046147eefe689371daf27cf07b90b65893e6c7ef782312d5d97f0aa9"
+        ],
+        [
+          15120975,
+          "666b01a3130e40f7e5e65543571d052ba314cf2eb95ce77a7de3f27696274a23"
+        ],
+        [
+          29977289,
+          "8879b1a4e7af783923083c504e07ff95f08cf2822e898d8c3dc8be7d3309cad4"
+        ],
+        [
+          30206185,
+          "f1b185fd9c1f2d202f3cc54e39468dd8251a381c49b67d80dd85b4240cd7f961"
+        ],
+        [
+          30363551,
+          "74fa8675c805a783177424dd5c6d551da4a9f399deacb3a84ac1ead9413f5f86"
+        ],
+        [
+          57915973,
+          "44c930d14ae1acd574b04aa571ae7fc5c29c85e263b1693c75fbf6e569ee672c"
+        ],
+        [
+          59646999,
+          "f6b30581c90cc546df0a85fef9cdceee8dc45f932ef195da70ec8402d1aeaad9"
+        ],
+        [
+          59775753,
+          "2690f21eb695c8b5197c462907468fe2ef384341b42ded76f27bbc3cbbc55efb"
+        ],
+        [
+          59933119,
+          "25501644536881a1c7c5e12c2586acb03ee0a0b81e23fe6ba9543432c4002b79"
+        ],
+        [
+          60290769,
+          "ff83c951175812f2d54995774e5e49ad379654663c425af392209148752cbe0e"
+        ],
+        [
+          60433829,
+          "f6ccfbe2bd610c319d3a9a497c63edba08a533a422c618ed17ebfc209ba92eec"
+        ],
+        [
+          60505359,
+          "0fdca2234a8437dfee6afd1a920d6605a5f531d592ddf1f45f061070cc04f7c5"
+        ],
+        [
+          60562583,
+          "5872cd77e7320115c9399400f99e94c205f4ef1c745a5f1c65271c8b292cbc67"
+        ],
+        [
+          60619807,
+          "f9720904a7158e475e5f1730754e2a8d8f1c4ebe820af9416e2c1da27e760c2d"
+        ]
+      ],
+      "ell": 101378425416624359478102,
+      "index": 1,
+      "ordinary_clocks": [
+        71,
+        5
+      ],
+      "quotient_clock": 66,
+      "quotient_cost": 103,
+      "returns": 4,
+      "target_digest": "fa61c7ad5f14ed2f970fc53cd5b06697fc6bd4c0e829317fdd87cbb1139924fd"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "765ea4306087270db51e5941bd87037c287b6bfb9640835e5d75f00181860f45"
+        ],
+        [
+          3789185,
+          "9c82c5e06cef7f68d67267a0094350e94b3a66531e58969ef933121940b22e26"
+        ],
+        [
+          7499687,
+          "6bab31862d3b6f5f04f98400845fdfb4475759dcd3f2cdf168ccce8fbc81548c"
+        ],
+        [
+          15120975,
+          "9d02547b6e344edd4aa42d6c50f72a63ccb3aef18a64e67a4014046408988e89"
+        ],
+        [
+          29977289,
+          "ea9ec0f47998d05acacbc9d350d222b248c8f9e748e1b0bc56a8ad6e348fd62b"
+        ],
+        [
+          30206185,
+          "dbf465d427443098d9c9cec42477c1a2819eeb6191bba73428a603087cb70655"
+        ],
+        [
+          30363551,
+          "9d9045f7a6730748903e4c122c6266a1d5e4a0b35e657a6edb575e532cd919df"
+        ],
+        [
+          57915973,
+          "3294afd28d6801d3252a033f8ead3f456137a6a401277d265f703901888323b7"
+        ],
+        [
+          59646999,
+          "862922f65613598af6b60195183d196ef253d8ab2d4de2385535d68c565422a4"
+        ],
+        [
+          59775753,
+          "be7ab0a0aea234f067cbcfb6f249d3a57f10a25966414e10058afe65cc757dfa"
+        ],
+        [
+          59933119,
+          "ff19e2e9ac351d1ca7ed6ec44956628d14d3929c9b33044cd618ca8ad363650a"
+        ],
+        [
+          60290769,
+          "0c3971735a6966b6697c4aa3360cb27d475538ce48783b07b6a30641c39ec76a"
+        ],
+        [
+          60433829,
+          "d5998f5589faeaffe6872c304adf47e3aee5b0a15948697ff6f3ff6e3ee10b4a"
+        ],
+        [
+          60505359,
+          "f2cd02f8dd72946fb5bc698bcb0c02755a63a47feed15c6ae0e158244faeaa68"
+        ],
+        [
+          60562583,
+          "6e6b3c5f3f0f533b8bd3bd5b5d0667c25202c11f790369c1ce74f7cc6e949f6a"
+        ],
+        [
+          60619807,
+          "4d4bfbafe6e6e42e9b5c8edd7012cb9197728680b56d04580a7cf36cb66be731"
+        ]
+      ],
+      "ell": 554725607772110299992918,
+      "index": 7,
+      "ordinary_clocks": [
+        71,
+        5
+      ],
+      "quotient_clock": 66,
+      "quotient_cost": 103,
+      "returns": 4,
+      "target_digest": "1fbe072f7fece832a2ed0dcd3983c9196cdd5e336697a4e63ac1e67cad06d2dc"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "ad2adc77995eee209f6c5bc7199090eea80599016414cf46738d945b1885e6b3"
+        ],
+        [
+          3789185,
+          "7af6b472111e0a0f5a68d25b4fcbfcc8973e18dbf77ac2e94c3d52c9ebf9a94d"
+        ],
+        [
+          7499687,
+          "3978e7c17fd9e7e7363672725466b1c1307fec89ffbef64ef0207e0231743cde"
+        ],
+        [
+          15120975,
+          "1f7baf70ce49547f439de23caab787582e5a77d1b12e684a875382c175cab9f8"
+        ],
+        [
+          29977289,
+          "d8b54745f8182f369ae67a210a8696e7e75fcbf8044d6015321319934c4808eb"
+        ],
+        [
+          30206185,
+          "e17e3b0fcb9045e4e7f79cdef8d9e7bfef64a10746ca2517872b5e1d926d44d1"
+        ],
+        [
+          30363551,
+          "7306b47cc2d53a00ba1183a074372b83e6fa481e951bd1be2e3e45014640b0cf"
+        ],
+        [
+          57915973,
+          "5332615b5bf233d115ca9fb00be41b45d3c6fd76aeb56d712f8c673c7c82bcf8"
+        ],
+        [
+          59646999,
+          "168481bd110f57f01667f66f4b4454729cb94efeb4c6e36cd87dfd5ff7c87a59"
+        ],
+        [
+          59775753,
+          "d1cc232ab496061f269bc7138afff67ecf1f36e79edddca0535b9840c731f1d3"
+        ],
+        [
+          59933119,
+          "3b640cc1179bdb5abc0cd93dbf5ad0703085b29940765c0fb791c58fb7ccaa9e"
+        ],
+        [
+          60290769,
+          "1a73f0cf0d1b9ec7d38d42a80e32626d2f3c367185a7c8720acce83307cc3a1e"
+        ],
+        [
+          60433829,
+          "f6ba711439d1b1178dd47a563bad7f0505f9ae7f1a20056ffb6c9906a7e6563e"
+        ],
+        [
+          60505359,
+          "3697c18907b57711026c571d653594a28322b2e9fe581de4568116361bd0a0b9"
+        ],
+        [
+          60562583,
+          "bd96e6ee47e5d72a2f14e7b03defea0081d3779b1ba1d30d90cb041e34a27d6e"
+        ],
+        [
+          60619807,
+          "6b712c79329a24e65163355e84ee641a2d8c00effd62b9d340d59697e3956fc4"
+        ]
+      ],
+      "ell": 1990135738636520821498803136666171576760537942,
+      "index": 0,
+      "ordinary_clocks": [
+        119,
+        5
+      ],
+      "quotient_clock": 114,
+      "quotient_cost": 179,
+      "returns": 8,
+      "target_digest": "99a099537ffd0cfb93f4d9426bc194d3a42be8139448c6fd56d00fc25b2e2ede"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "0bb23a3f130d327d3887e1ab8e920ce674ea76c783a8b074e766382943a6f35d"
+        ],
+        [
+          3789185,
+          "9a617974df1992017687f0e0a39e382d7c30208921db26bcb51aa4afc1176422"
+        ],
+        [
+          7499687,
+          "bf07fa179e35a06effe3325a133bedba41980e5dbb86ff73942d2968219e89ef"
+        ],
+        [
+          15120975,
+          "d740de03ff0d55cda92b4391f7fc2798b9a841b5e38e8c624cda8767c8078cb8"
+        ],
+        [
+          29977289,
+          "09e1a3f96c07c86b56dda0a0e1773250bbdb2a746f6e281145f11875a50718fd"
+        ],
+        [
+          30206185,
+          "729a5b048ae9e1710a4bfb85d495a0420a02f464841d741caa52066f019459a5"
+        ],
+        [
+          30363551,
+          "b9cf8c1607638ece73b4d6922517e5c2dc25211578169c1140176b264b7d255e"
+        ],
+        [
+          57915973,
+          "ef8a1d9475ea0da5acc84783161f300d5aa901d047bb965ff9ee54def52695ba"
+        ],
+        [
+          59646999,
+          "a0474f46d88b227905bf64b7cc2adb765473dbc89d5d6089e5155644c7bae3cd"
+        ],
+        [
+          59775753,
+          "08c9c47e00599480ce75457b247c79a9139402827a2e3ba451c7e7ff63f47cab"
+        ],
+        [
+          59933119,
+          "b5cd19d7d95390d92461b00b87a4a362b9314a4da83c477ed50710966641684e"
+        ],
+        [
+          60290769,
+          "6eb85e9948a3640dc23fbf013a9ff579a54881c00226e5b8235731d8a407cca2"
+        ],
+        [
+          60433829,
+          "0246004bfb7e49b1da0648fc400cbd5bca2f2fcfbcc02012e8ebdff61ef5e60c"
+        ],
+        [
+          60505359,
+          "1512c8eb7b80ad30f01affc7bde0f3901535f2e4612a0b397ea7b9efc7b1d2b4"
+        ],
+        [
+          60562583,
+          "450c50a2b0835c8073ae8bd26beeefb10f70c3f608bcce6f38c09f894d15232f"
+        ],
+        [
+          60619807,
+          "c69fa26dd3fca89a2d2c5c509e89eb312525c08b24c0c11120200de50235433a"
+        ]
+      ],
+      "ell": 7699126509460360345731947014464152122291524438,
+      "index": 1,
+      "ordinary_clocks": [
+        119,
+        5
+      ],
+      "quotient_clock": 114,
+      "quotient_cost": 179,
+      "returns": 8,
+      "target_digest": "3c524da730a85bf2dab570befe8d941b212f7ac4fa5ed4efa04847270c3bd16a"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "dec175acddac265716f6b446b5525bccd7e9914ae5010c92614ab61e24255b40"
+        ],
+        [
+          3789185,
+          "28e7d4ebc3c59ee3bfdd9b2498d767d9d0b83e6fb56f2652d61f88cedc682474"
+        ],
+        [
+          7499687,
+          "9752a9d6f3fe9396c53da6e41d32ebbdd68ff757413b0215c20d7f994a9fbbcd"
+        ],
+        [
+          15120975,
+          "0b1e1cad7d588abe08a319579aba4dabad26ee9af159f2fc3b0745509838fb00"
+        ],
+        [
+          29977289,
+          "05c5651bb674e9ee8b9327eb4a2b5a38fc7cff7d80f954133613ab8c79df713d"
+        ],
+        [
+          30206185,
+          "f35daca181f380e925ca8654173544ce10a7b2a66d21717ff69372c5407352f0"
+        ],
+        [
+          30363551,
+          "8df8792c0850b02c162460a2a66710e6b8223ae1a4a97e5e77756923b9bed1fe"
+        ],
+        [
+          57915973,
+          "4cfab487d85e2ab71566b39e13527bd676dace4ff4eedb4916e59e30894491d8"
+        ],
+        [
+          59646999,
+          "753e430e8055bdc866fac3e03543d32a9f60850aeef395956b5930dab3db1161"
+        ],
+        [
+          59775753,
+          "2c78ae2d6cc1d6cfaf06b8501c2692b3ed6a7a41968fc35eef3e6503bfd6fe94"
+        ],
+        [
+          59933119,
+          "f6d3790d57db92d05e4235bf785ea0eeb9509a582174c251917ad5a5f1d78310"
+        ],
+        [
+          60290769,
+          "cd772ef5cbeda3795e3749f9e8f7034fdfba2979e759e0bd93c202ff7350ae91"
+        ],
+        [
+          60433829,
+          "da5914daa1907a387c4eddeabd7263cd8b3bbce6f0975e984d94c9d20d96e358"
+        ],
+        [
+          60505359,
+          "e6dec780b99306ff0ba8df5ed155dca751d698c35292bcb8d76068d2f43d3f8e"
+        ],
+        [
+          60562583,
+          "eff5fc50da6ba3fff2575834ba1014537e67101aa0d5ae09ab09fcd46aab8e8f"
+        ],
+        [
+          60619807,
+          "0185bfe970acb12784d38dabed30740b4d718c6994a6554adefe8d34d5803bdb"
+        ]
+      ],
+      "ell": 41953071134403397491130810281252035395477443414,
+      "index": 7,
+      "ordinary_clocks": [
+        119,
+        5
+      ],
+      "quotient_clock": 114,
+      "quotient_cost": 179,
+      "returns": 8,
+      "target_digest": "08fd008e51594234046c317a2e92663d71e436a6d339ce61f52c4187886de256"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "8f29c5a5edf60d79543035781852ffbdbf5d3dc2ae5e8ed957ef08990bbe239b"
+        ],
+        [
+          3789185,
+          "3d49d0dc2c74d03ea66922af440cdf954f131b4b6a7ed94fd08e32df1ce378ac"
+        ],
+        [
+          7499687,
+          "a30774b2be2efab7b11780ea3f39d567d8dbd3851a61edea0f731b5baba355a9"
+        ],
+        [
+          15120975,
+          "c2c5b5d0c1ab6947d990cc61f8e8d76b031f4228702af8cbbf7a64dd67383d33"
+        ],
+        [
+          29977289,
+          "d5c630523e43db1a15ec0f30945e81905986306053325548e7ab63587d711943"
+        ],
+        [
+          30206185,
+          "ce695d52cfd4378e1653273f5c8fa6bc025bfea1eccca6dd2bee712657496f56"
+        ],
+        [
+          30363551,
+          "162bd8bd556ba0d102e829980653564da6dad550edc2ad68310ff8795db4e0b4"
+        ],
+        [
+          57915973,
+          "b6821b98b61cae47d60c8f2245727077cd58f5295d4b8225547fa83265dd6da5"
+        ],
+        [
+          59646999,
+          "9d5fbd3df4b9defed79c8d2a7a340fca62cde8ea3b6dc769f85aff6bc023466e"
+        ],
+        [
+          59775753,
+          "b25909ba4110f856afb43410091e74f72db15c02685a07835aec2d876a93b762"
+        ],
+        [
+          59933119,
+          "8dd324970ad6953b0260ad674973326342458fd35269b5adf0c9f44dc5d7e490"
+        ],
+        [
+          60290769,
+          "47692edebc1cef9ac72be18c87084d670c2b85ad99f9623e762b9a612124020f"
+        ],
+        [
+          60433829,
+          "30c84291d701271ca4ac1a80093e09817816ee94672604b542b80e481711fc7a"
+        ],
+        [
+          60505359,
+          "28fd8b44765269e623bddb9e701b042db8e0c4ec1dbb4c928cbf8555fc520163"
+        ],
+        [
+          60562583,
+          "84c5502c621608c2fc17bbc4a438c65aec5bdb32fd7b0a4aff60abe6fa6c3437"
+        ],
+        [
+          60619807,
+          "ad8133fe484a075066e8fa0070ac546af4dc26c94262b929dd807f84564fdfd5"
+        ]
+      ],
+      "ell": 29993699446025847146630040163294956795543522989130947484580897656399539659083881510808720214,
+      "index": 0,
+      "ordinary_clocks": [
+        215,
+        5
+      ],
+      "quotient_clock": 210,
+      "quotient_cost": 331,
+      "returns": 16,
+      "target_digest": "5952a16fcf128a2bc462b70d1fcc5f20dbd85c003d1b3a7d589c6ef618cba93c"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "637107b1c9412dbd937666c868206c5c85064aba75630ed53b45b32935c7b40d"
+        ],
+        [
+          3789185,
+          "f6c153fa32d9684996a9bd7af7c1edda22885b96f7c6bb1a8c44e1434c296cdb"
+        ],
+        [
+          7499687,
+          "b90f349900f5e1dc01a6525ff5abb3bf7db318c1d393067c6c00f84a62cede31"
+        ],
+        [
+          15120975,
+          "3913b7746d765512dea65ec00c76e479253d8961502c1c981f5b24587e97616d"
+        ],
+        [
+          29977289,
+          "f20fcba9952ea592dfc192cd97784206bd51b4154c540fdd2736ee8adf04719b"
+        ],
+        [
+          30206185,
+          "b719e8af0419a85bacb3abe8c6a893b1207b8f459efaa93ff313fc3b21d0ffb4"
+        ],
+        [
+          30363551,
+          "4c45176f8eedc8abd7112b284521bb553e2dd4cc2b9963dc5df61bcc8b799978"
+        ],
+        [
+          57915973,
+          "e37e70025e4b9ca10215690ac0eac1a40dec78474133844521c245467a898063"
+        ],
+        [
+          59646999,
+          "becc37f557d823dc95ceb33aff6d8bab949d8d11cf9e4a1c5ea184bd6114eb8f"
+        ],
+        [
+          59775753,
+          "80c4c12b3c570198bb4a4468ab7c5ba161abb4fa6330e452bae1d339491fd054"
+        ],
+        [
+          59933119,
+          "274226636f810ad182cf66ca33bd21285fe3b8c101679b0ace4f45bb22dfd9c1"
+        ],
+        [
+          60290769,
+          "c32836876fdf01cb908546ca154855596c1e0d575c5248179761724a60e57590"
+        ],
+        [
+          60433829,
+          "9af7c0384253c39301351e45e5605bb9f746f8a5a6147f130709ff20a414fac4"
+        ],
+        [
+          60505359,
+          "3afb198bea8437ed53a5b32a414288bdd72da3cf397a056c357b94c31f68463b"
+        ],
+        [
+          60562583,
+          "7864a829be99d7910e14a14ce5eb6021c7367f651033323f791ef993f2b7f7ab"
+        ],
+        [
+          60619807,
+          "238a1a7058302b10f95d2ce38f2c28ef3c4d5bf2ad0dbe873bfeb267149bd23d"
+        ]
+      ],
+      "ell": 62586275067377624526925171177845007372367017287785927494759144846069640455297268809743078230,
+      "index": 1,
+      "ordinary_clocks": [
+        215,
+        5
+      ],
+      "quotient_clock": 210,
+      "quotient_cost": 331,
+      "returns": 16,
+      "target_digest": "e42e91c26109fe3825377232329b8c1bc705832d7745cf3c970acb2cd4f59a46"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "281426e7718b67aa8bc80e50eaff191e67b71d3c534a14844fe75c659515256b"
+        ],
+        [
+          3789185,
+          "352b571fcf39a0cad43ee0dfcf194ea3340caf7b26aceae23062b81e6417bc18"
+        ],
+        [
+          7499687,
+          "1be03cba61ff1d684ff0e9e7b6ebea869dceec614f57985ef9763bbb2e277a01"
+        ],
+        [
+          15120975,
+          "c95d628daa1aa2e9ed50cf0b10237349ffda43dc8e9dbbb59b461b62792c61a6"
+        ],
+        [
+          29977289,
+          "82b5433ecd3c0ea9808773d738ac08d7a1fba1b7bbb9762c40a4a8ab7976ef41"
+        ],
+        [
+          30206185,
+          "cc633a17d66dc445fc059de8100806f21f4eb7d1472b45619e55ec69e77e29cf"
+        ],
+        [
+          30363551,
+          "be264d1828a06a0a4042241eb43ecbe06fdb5e8ce2d2e7969342dbc8fa1c6421"
+        ],
+        [
+          57915973,
+          "f149aeaf5fe8edd3bd349cfc0b94dc32f773833bc6eb810465a74f916ed10753"
+        ],
+        [
+          59646999,
+          "ce24524c1a6189831a6304d0db59a42c24c48a82febf2616783355f2f3247427"
+        ],
+        [
+          59775753,
+          "a28065575291374fb99839e80bbca108b38c5584c8ef73818050086401047cb0"
+        ],
+        [
+          59933119,
+          "d0fd7856405327af8caf4fe4315fae7fd92aea5296b469747bc67979c6afb8ce"
+        ],
+        [
+          60290769,
+          "01b6b50fdc213092128a8b131d84becff327a26c01cb7177c9f18abbeee86434"
+        ],
+        [
+          60433829,
+          "fab879125e0a210c75adabb6ca6a3a954842175359202e73d6126dfdeba42fe4"
+        ],
+        [
+          60505359,
+          "802e18cceff56dfd5d289ad3c9c98ec7b22f6702d750d146db4e5c101c96a963"
+        ],
+        [
+          60562583,
+          "ebf1add47666c61663caae3c12457625da0b2b52afc27eecd56fdd161d542590"
+        ],
+        [
+          60619807,
+          "8a2f3da5aa6ec0e7bc497bab72f18111db0ef8a80a779b6a10deeabe4e7beac7"
+        ]
+      ],
+      "ell": 258141728795488288808695957265145310833307983079715807555828627984090245232577592603349226326,
+      "index": 7,
+      "ordinary_clocks": [
+        215,
+        5
+      ],
+      "quotient_clock": 210,
+      "quotient_cost": 331,
+      "returns": 16,
+      "target_digest": "f6fd60a14611d3a9d1cdcefa9458976efd86e2ea0797ac0c2c556b96a5b3fb0e"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "3588f55adce78cf6a8921cb0cad2992f9b164dec472fc80f985aac7ee91735eb"
+        ],
+        [
+          3789185,
+          "da75afe64403f801d50a91016dac9d2652d3e835a45131ac1ae4c1057123d462"
+        ],
+        [
+          7499687,
+          "d02137cbeb0df3da56ba3605e77f7233f579588ca81ab93b98932474ffb22a37"
+        ],
+        [
+          15120975,
+          "7cade52035329ff3cdf12cc053677450cc5086671e8e1d10cb63a2c4d3d6c84d"
+        ],
+        [
+          29977289,
+          "3847c84fe37426202556d075cca0bfee5241fae166e3712d99e3749f4f09d098"
+        ],
+        [
+          30206185,
+          "d64b3958980eb5fd8fdf500511be5cb04afe21cdd5e776b835719612be42cf93"
+        ],
+        [
+          30363551,
+          "bb9e8c682c3b1016a06abed0297361a1ce28896ef62d124afa871e90d283900e"
+        ],
+        [
+          57915973,
+          "fc20660feb19f2251bf8e999ff6348d23961bcfcad0f6222187a6ef3928a762e"
+        ],
+        [
+          59646999,
+          "2ce47a244a986ecb3c9504d132e977f338ca832e05ede7542e1c6b87a70cf711"
+        ],
+        [
+          59775753,
+          "71334da45647de500aaa00f3b5e6fba38dbb94cd59dc9a0312e57aa24ffb2a80"
+        ],
+        [
+          59933119,
+          "63898e8e1d5485f633203eb522416e404fc30ec2fa3826f3e3c24e6bf96726a3"
+        ],
+        [
+          60290769,
+          "3c755131eb8dae7fce86c63fa83c5859f87985d63f2822aaba72ff4bac80f132"
+        ],
+        [
+          60433829,
+          "2f26ade06b26118844a1f23d9923aef3b32ee99dcf1d569560fb2cfb4a77d558"
+        ],
+        [
+          60505359,
+          "bcba34c734fa93b4a5440f1d41d847551573102cadd98b58fa34669c3e2355f5"
+        ],
+        [
+          60562583,
+          "445d8e8528813a586614bffb19e549507da8f62b79a0bcf08a61f889f643597a"
+        ],
+        [
+          60619807,
+          "4b5317adfa44b48735f303491487296e113b4974b6387ee808e96b1500cf01fc"
+        ]
+      ],
+      "ell": 681000831460171685129528577629951970141359294297691851494067938212048950082869128129300450003234242481565412866340837875259591662849962260015597680261662416492264595665543156806599382821507950992114932072385395518150860884799235777000750642422415775920850270384076790903735978146208664900491943068631369528115371432737988704248484766226020041009783272265920096839866588442079229965747090790499834691216831481900597718390173162153791064407842938045282886867325311457251207742792833416643067834035537200477263887210952540564104564407534296747274924756261303483225018115405866893485061761980777681734337514282334650765381975595500842912854495854917988254759068242240178369325528322495175108967295939770761264216634482627207932429079382,
+      "index": 0,
+      "ordinary_clocks": [
+        1559,
+        5
+      ],
+      "quotient_clock": 1554,
+      "quotient_cost": 2459,
+      "returns": 128,
+      "target_digest": "3a015c2de4122219609be4126db8f974a105d3404a29e64ae3c70e53ff2a0e51"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "c59225aefd71f3f556314491b456eace642002857b5d16bb9d61a91e31b051c5"
+        ],
+        [
+          3789185,
+          "ba9627990e963cdd90e99c75823c886649ccd11584821bf67beb308e00a938e4"
+        ],
+        [
+          7499687,
+          "b66578476b8a323fb359e3ea6ebde40eedf68eb90bd14cf38cf2d26b400a6578"
+        ],
+        [
+          15120975,
+          "5aef725cd25bf282d267fd0a71f710ffa322196023beffedd76d31d52ac38bc4"
+        ],
+        [
+          29977289,
+          "91379b0c94944978c8271bb26408dfd27269e4ccdc5dd8d5a255ce6b41e510b1"
+        ],
+        [
+          30206185,
+          "b0b99f43eb3429200ff169e7ebde95ea7e8b78a56450c4195e9e456af30365ec"
+        ],
+        [
+          30363551,
+          "8dc558c4832d239f7a9ec7e25a76846cc2968ef3c452576d4476bc5357ee4382"
+        ],
+        [
+          57915973,
+          "8f2426e7d281ce3a297220f9b08a99c940d318174d827ff29a3bed0c3067cf90"
+        ],
+        [
+          59646999,
+          "c0ef1028227ab0f57b9bb042ba4b53b3ed041e737db76c5a00ca6d49eec9059c"
+        ],
+        [
+          59775753,
+          "0db1ce50fbd52a11c3e297f4af6d7e03e278bead2717099de78a4c74898a1a08"
+        ],
+        [
+          59933119,
+          "895519ed542ce84250baafb316c53c3cac4c31bf5f223abb6bedf7eea79da3d4"
+        ],
+        [
+          60290769,
+          "c7969c62c8d718edda289fe4d2ced329117a317ddce60e794d7f0779614e1aa0"
+        ],
+        [
+          60433829,
+          "094186b1e03f715a19af9d66598ff7c2e5cf9c55158be39acd9ccf0ea4196e97"
+        ],
+        [
+          60505359,
+          "16c1e240a4a000c600bf0f0ddcc4d0a0a596a77db68a80870084d6282e94e091"
+        ],
+        [
+          60562583,
+          "80f56889644d608594b77d59b85cf9e354143f78d481f12742c4fdd09d3e5472"
+        ],
+        [
+          60619807,
+          "3422ddc4f3eefcca3b8a34697c5b945c59c3296fda1b4b001a7d60b812d30f5a"
+        ]
+      ],
+      "ell": 1954355704930885999733525106723694030697602085426201665058886693991981444012436009156449667986982018812678992625562253643725991242694824061154522399556973588773255089556370062038169658303401996151146773917138935017578220451173603055467665416373302349240718194441864705248472003699775256028364772608392476084551333699010378090254897255629997933547539165101537329532085538645049744083171993093726045476747448803672490288914475395102714876262254524206568921232782473482971552244304999789255467090638050234698840515874605260391015712650088364231469248894118806832295876018807212029147066010673444257093892723857067881693202164642632202620473536360973543127423245925388944751789891892996859609131006280997343474610453001743694670974030678,
+      "index": 1,
+      "ordinary_clocks": [
+        1559,
+        5
+      ],
+      "quotient_clock": 1554,
+      "quotient_cost": 2459,
+      "returns": 128,
+      "target_digest": "5a16b6b16c5f7c575e8344fda7128740989dca76672bc4e499e6ef214ce6ef19"
+    },
+    {
+      "boundary_values": [
+        [
+          952661,
+          "c0f56047db4818587364f82238a7556e26d02312b51e7ab024ca049cbe1427e8"
+        ],
+        [
+          3789185,
+          "54c69ce325d5cac9aaf3d42b9e65e5ab7e807be139cb0cf4589871c4cec8eaa6"
+        ],
+        [
+          7499687,
+          "10bc2ad0f1f811c6899644d8b27b06aa948aa08629feabafa8122879694c10b3"
+        ],
+        [
+          15120975,
+          "6aaf5fc6d837e4a56180a0811bac788ad94e6a1f0ffaea316b259eecaf786596"
+        ],
+        [
+          29977289,
+          "42234b0ab3133e479323fcea773dcd92b0bacc26ee6fde4a1adebe76faf9d8dc"
+        ],
+        [
+          30206185,
+          "998b531a50d0d50264abc55c47b7d3a7dbb08624ec06b06d5635bbd7ee561eaf"
+        ],
+        [
+          30363551,
+          "bcfb293fbcbf0db7f8f6d2c06257a86b16166fb5f48c0e4e6045bc3fc8772de8"
+        ],
+        [
+          57915973,
+          "a330954ddd3bc44259fb3a73dd054eec63f4bc92f21ae2981d9852e289b917c6"
+        ],
+        [
+          59646999,
+          "353d883e05136a3dfcbf49b3da53f9465497a2e013f8b7e9c6bf7922f9cddd25"
+        ],
+        [
+          59775753,
+          "098f5d97c1202687b1248a979690e6ffdf8ad993878198287fb36dd34108da60"
+        ],
+        [
+          59933119,
+          "466f01d8989e0e389de0dd03ec7c7cf5994bb25debdc955f05b9ea38109ae9b8"
+        ],
+        [
+          60290769,
+          "17841e8c38abd51761ad20d21ffaff7d4674f674a499df5d97c0a884282cd78b"
+        ],
+        [
+          60433829,
+          "78e64bcf43e612645d967a670edf6d1b8461ea72e1364512ea70ecaf806af5fd"
+        ],
+        [
+          60505359,
+          "cfc016907dd6fdea2ee4a580cfd430c0ea40aa27d82d51261ae090e5d0e30759"
+        ],
+        [
+          60562583,
+          "5a2b0280e69c55d448e0ae9a504fdd2998e00c23e408547633cd7fb7f95cb50a"
+        ],
+        [
+          60619807,
+          "94fd433fa9d0de3f4ea37203f0a96b94cee9650719740870e2f68ecebb4b9551"
+        ]
+      ],
+      "ell": 9594484945755171887357504281286146394035058832197260546447799228671576407589837295319344975889468676799360471180890748254524388721763994867988070715328840622459198052901331493427591311194766267105337824985660172014142377849419806726269154060078621789159925738788592191316888157021174802795601749846959115423167107296644714406293372192053865288774074522115240725685399239862872828787721406913083310189931152734303845712060288792796257747388724041174285127425525445637293619253377998024929862630253128440028300287856521579352482602105412769136635193721263826926721023439215282843119091502829443709251223981305467267260123298925420360866187779397306872363408312024281543046576073316006966610113268328356836736973364116442615102243738454,
+      "index": 7,
+      "ordinary_clocks": [
+        1559,
+        5
+      ],
+      "quotient_clock": 1554,
+      "quotient_cost": 2459,
+      "returns": 128,
+      "target_digest": "37fbc47d6d8e17967011c8ddfa3977b5e369f7502183ba66e4a4d612cd906cef"
+    }
+  ],
+  "positive_families": 21,
+  "pruned_suffix_nodes": 467,
+  "scope": "Complete original-source inverse history classification through12r+19; only Q at12r+18. No all-depth exclusion or terminal-current supply.",
+  "score_eligible_terminals": [
+    {
+      "cost": 16,
+      "depth": 11,
+      "first_guarded": null,
+      "nonstrict_interval": null,
+      "origin": 952661,
+      "p0": 79319606440639,
+      "period": 118747255799808,
+      "relation": "(9Q+5)/8",
+      "score": [
+        16777216,
+        43046721
+      ],
+      "slope_ratio": [
+        9,
+        8
+      ],
+      "strict_first_guarded": null,
+      "strict_interval": null,
+      "word": [
+        [
+          "ray0",
+          0,
+          3,
+          3
+        ],
+        [
+          "ray0",
+          0,
+          2,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "ray0",
+          0,
+          2,
+          -1
+        ],
+        [
+          "ray0",
+          0,
+          2,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ]
+      ]
+    },
+    {
+      "cost": 19,
+      "depth": 13,
+      "first_guarded": 0,
+      "nonstrict_interval": [
+        0,
+        null
+      ],
+      "origin": 952661,
+      "p0": 70506316836123,
+      "period": 105553116266496,
+      "relation": "Q",
+      "score": [
+        134217728,
+        387420489
+      ],
+      "slope_ratio": [
+        1,
+        1
+      ],
+      "strict_first_guarded": null,
+      "strict_interval": null,
+      "word": [
+        [
+          "ray0",
+          0,
+          3,
+          3
+        ],
+        [
+          "ray0",
+          0,
+          2,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "ray0",
+          0,
+          2,
+          -1
+        ],
+        [
+          "ray0",
+          0,
+          2,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ],
+        [
+          "ray0",
+          0,
+          2,
+          -1
+        ],
+        [
+          "point",
+          0,
+          1,
+          -1
+        ]
+      ]
+    }
+  ],
+  "source_sha256": {
+    "experiments/residual_progress/deeper_window/DEEPER_WINDOW.md": "572ebca1abfc150a1a6cb5a6e367bd0544407f0766f528b11001e3e385274c68",
+    "experiments/residual_progress/deeper_window/check_deeper_window.py": "909833866d3a54357f63140485d99f36f1d5df72065eecbefdadf000a0b6c2d4",
+    "experiments/residual_progress/deeper_window/deeper_window.py": "f9b688c7914b8dd218e3d2a7f004ee932634a696efc5ec12ddfcdce33a1bbd58",
+    "experiments/residual_progress/deeper_window/full_basin_audit.json": "178e7a99469f8c3c7fd2997b82ab0813d8eeea54f73f0f65b5f71b6512da79a2",
+    "experiments/residual_progress/deeper_window/independent_basin.cpp": "fefa325b092991a78ffa58cc1212cac4ca70604b433f0ae4a2de0310029584f1",
+    "experiments/residual_progress/deeper_window/sparse_basin.py": "1c1a856a32a7a11e8386eca860339530d2d367b93e27238ca06bd0e374445573",
+    "experiments/residual_progress/phi_exit_control/PHI_EXIT_CONTROL.md": "c3d0ae803201b2f7c3390812d9cc965bed9e3e14fc3cbfded12c265978172546",
+    "experiments/residual_progress/phi_exit_control/phi_exit_control.py": "8bc591036e3c5f364bbaed72686ce64a897c9e361429a7d09925a1b37b1dc744",
+    "experiments/residual_progress/phi_exit_control/phi_exit_control_audit.json": "1158d60233e8abae1b24cf65d40a2ac34f75fd0898df010d8ffe27ab6b76d0be",
+    "experiments/residual_progress/shadow_precision/SHADOW_PRECISION.md": "cbeb25d610752fbad20e67b67cd15a6c5d2fad86cb2fd21f793d1ebe6847e809",
+    "experiments/residual_progress/shadow_precision/independent_basin.cpp": "f97c1d372903c982fea8852af0836e9bbbe8b167431a09f6dda3b25d16ea7fbe",
+    "experiments/residual_progress/shadow_precision/shadow_precision.py": "87e7c0b5ec5c64ea30a7595769f1954217dee171c3c6f70a46f9f0bcf5d15435",
+    "experiments/residual_progress/shadow_precision/shadow_precision_audit.json": "0aa1b1acc9a926ae27e0beb89598299c6ca7499448a3f13d52294f92e95a3eb5"
+  },
+  "sparse_basin": {
+    "candidate_classes": [
+      {
+        "canonical_rows": 267,
+        "first": 8465,
+        "m": 8,
+        "odd_rows": 536,
+        "period": 14306,
+        "residue": 1312,
+        "strict_bound": [
+          1862853059,
+          243
+        ]
+      },
+      {
+        "canonical_rows": 536,
+        "first": 9777,
+        "m": 9,
+        "odd_rows": 1071,
+        "period": 14306,
+        "residue": 2624,
+        "strict_bound": [
+          3723967939,
+          243
+        ]
+      },
+      {
+        "canonical_rows": 1070,
+        "first": 12401,
+        "m": 10,
+        "odd_rows": 2142,
+        "period": 14306,
+        "residue": 5248,
+        "strict_bound": [
+          7446197699,
+          243
+        ]
+      },
+      {
+        "canonical_rows": 2142,
+        "first": 17649,
+        "m": 11,
+        "odd_rows": 4283,
+        "period": 14306,
+        "residue": 3343,
+        "strict_bound": [
+          14890657219,
+          243
+        ]
+      },
+      {
+        "canonical_rows": 4283,
+        "first": 13839,
+        "m": 12,
+        "odd_rows": 8566,
+        "period": 14306,
+        "residue": 6686,
+        "strict_bound": [
+          29779576259,
+          243
+        ]
+      },
+      {
+        "canonical_rows": 8566,
+        "first": 20525,
+        "m": 13,
+        "odd_rows": 17131,
+        "period": 14306,
+        "residue": 6219,
+        "strict_bound": [
+          59557414339,
+          243
+        ]
+      },
+      {
+        "canonical_rows": 17131,
+        "first": 19591,
+        "m": 14,
+        "odd_rows": 34263,
+        "period": 14306,
+        "residue": 5285,
+        "strict_bound": [
+          119113090499,
+          243
+        ]
+      }
+    ],
+    "candidates": 67992,
+    "canonical_count": 33995,
+    "cap_hits": 0,
+    "caps": {
+      "integer_bits": 256,
+      "path": 100000,
+      "states": 5000000
+    },
+    "classification_sha256": "b0f8ec3a422ede361d49cb06d79c74be7d01d05d18c58d61da972ee0f09f2d3e",
+    "classified_states": 275892,
+    "first_hit_paths": [
+      {
+        "cost": 8,
+        "depth": 5,
+        "exponents": [
+          1,
+          2,
+          1,
+          1,
+          3
+        ],
+        "origin": 952661,
+        "signed_numerators": [
+          -952661,
+          -1425415,
+          -1067273,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      },
+      {
+        "cost": 10,
+        "depth": 5,
+        "exponents": [
+          1,
+          1,
+          1,
+          3,
+          4
+        ],
+        "origin": 3789185,
+        "signed_numerators": [
+          -3789185,
+          -5680201,
+          -8516725,
+          -12771511,
+          -4791999,
+          -899841
+        ]
+      },
+      {
+        "cost": 30,
+        "depth": 17,
+        "exponents": [
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          2,
+          3,
+          1,
+          5,
+          1,
+          2,
+          1,
+          1,
+          3
+        ],
+        "origin": 7499687,
+        "signed_numerators": [
+          -7499687,
+          -5622977,
+          -8430889,
+          -12642757,
+          -18960559,
+          -14218631,
+          -10662185,
+          -15989701,
+          -23980975,
+          -17983943,
+          -6746661,
+          -10116415,
+          -952661,
+          -1425415,
+          -1067273,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      },
+      {
+        "cost": 12,
+        "depth": 5,
+        "exponents": [
+          2,
+          5,
+          1,
+          1,
+          3
+        ],
+        "origin": 15120975,
+        "signed_numerators": [
+          -15120975,
+          -11338943,
+          -1067273,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      },
+      {
+        "cost": 32,
+        "depth": 17,
+        "exponents": [
+          1,
+          1,
+          2,
+          1,
+          2,
+          2,
+          3,
+          2,
+          1,
+          1,
+          1,
+          2,
+          6,
+          2,
+          1,
+          1,
+          3
+        ],
+        "origin": 29977289,
+        "signed_numerators": [
+          -29977289,
+          -44962357,
+          -67439959,
+          -50578181,
+          -75863695,
+          -56895983,
+          -42670199,
+          -16004007,
+          -12001217,
+          -17998249,
+          -26993797,
+          -40487119,
+          -30363551,
+          -1425415,
+          -1067273,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      },
+      {
+        "cost": 13,
+        "depth": 5,
+        "exponents": [
+          1,
+          1,
+          7,
+          1,
+          3
+        ],
+        "origin": 30206185,
+        "signed_numerators": [
+          -30206185,
+          -45305701,
+          -67954975,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      },
+      {
+        "cost": 13,
+        "depth": 5,
+        "exponents": [
+          6,
+          2,
+          1,
+          1,
+          3
+        ],
+        "origin": 30363551,
+        "signed_numerators": [
+          -30363551,
+          -1425415,
+          -1067273,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      },
+      {
+        "cost": 90,
+        "depth": 53,
+        "exponents": [
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          4,
+          1,
+          6,
+          3,
+          2,
+          1,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          5,
+          2,
+          1,
+          2,
+          1,
+          6,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          3
+        ],
+        "origin": 57915973,
+        "signed_numerators": [
+          -57915973,
+          -86870383,
+          -65150999,
+          -48861461,
+          -73288615,
+          -54964673,
+          -82443433,
+          -123661573,
+          -185488783,
+          -139114799,
+          -104334311,
+          -78248945,
+          -117369841,
+          -176051185,
+          -264073201,
+          -396106225,
+          -594155761,
+          -891230065,
+          -1336841521,
+          -2005258705,
+          -3007884481,
+          -4511823145,
+          -6767731141,
+          -10151593135,
+          -7613693063,
+          -5710268009,
+          -8565398437,
+          -12848094079,
+          -2409018981,
+          -3613524895,
+          -169386103,
+          -63522471,
+          -47640065,
+          -71456521,
+          -107181205,
+          -160768231,
+          -60290769,
+          -90432577,
+          -135645289,
+          -203464357,
+          -305192959,
+          -28616087,
+          -21460277,
+          -32186839,
+          -24138341,
+          -36203935,
+          -1699183,
+          -1272599,
+          -952661,
+          -1425415,
+          -1067273,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      },
+      {
+        "cost": 52,
+        "depth": 29,
+        "exponents": [
+          2,
+          1,
+          3,
+          1,
+          1,
+          3,
+          1,
+          2,
+          1,
+          1,
+          1,
+          2,
+          1,
+          4,
+          1,
+          2,
+          1,
+          6,
+          1,
+          1,
+          3,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          3
+        ],
+        "origin": 59646999,
+        "signed_numerators": [
+          -59646999,
+          -44733461,
+          -67096615,
+          -25163913,
+          -37742293,
+          -56609863,
+          -21231381,
+          -31843495,
+          -23880833,
+          -35817673,
+          -53722933,
+          -80580823,
+          -60433829,
+          -90647167,
+          -16997685,
+          -25492951,
+          -19117925,
+          -28673311,
+          -1346185,
+          -2015701,
+          -3019975,
+          -1135173,
+          -1699183,
+          -1272599,
+          -952661,
+          -1425415,
+          -1067273,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      },
+      {
+        "cost": 33,
+        "depth": 17,
+        "exponents": [
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          3,
+          8,
+          1,
+          1,
+          3
+        ],
+        "origin": 59775753,
+        "signed_numerators": [
+          -59775753,
+          -89660053,
+          -134486503,
+          -50435121,
+          -75649105,
+          -113470081,
+          -170201545,
+          -255298741,
+          -382944535,
+          -287206613,
+          -430806343,
+          -161555061,
+          -242329015,
+          -90876063,
+          -1067273,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      },
+      {
+        "cost": 33,
+        "depth": 17,
+        "exponents": [
+          5,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          2,
+          3,
+          1,
+          5,
+          1,
+          2,
+          1,
+          1,
+          3
+        ],
+        "origin": 59933119,
+        "signed_numerators": [
+          -59933119,
+          -5622977,
+          -8430889,
+          -12642757,
+          -18960559,
+          -14218631,
+          -10662185,
+          -15989701,
+          -23980975,
+          -17983943,
+          -6746661,
+          -10116415,
+          -952661,
+          -1425415,
+          -1067273,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      },
+      {
+        "cost": 33,
+        "depth": 17,
+        "exponents": [
+          1,
+          1,
+          1,
+          1,
+          5,
+          2,
+          1,
+          2,
+          1,
+          6,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          3
+        ],
+        "origin": 60290769,
+        "signed_numerators": [
+          -60290769,
+          -90432577,
+          -135645289,
+          -203464357,
+          -305192959,
+          -28616087,
+          -21460277,
+          -32186839,
+          -24138341,
+          -36203935,
+          -1699183,
+          -1272599,
+          -952661,
+          -1425415,
+          -1067273,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      },
+      {
+        "cost": 33,
+        "depth": 17,
+        "exponents": [
+          1,
+          4,
+          1,
+          2,
+          1,
+          6,
+          1,
+          1,
+          3,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          3
+        ],
+        "origin": 60433829,
+        "signed_numerators": [
+          -60433829,
+          -90647167,
+          -16997685,
+          -25492951,
+          -19117925,
+          -28673311,
+          -1346185,
+          -2015701,
+          -3019975,
+          -1135173,
+          -1699183,
+          -1272599,
+          -952661,
+          -1425415,
+          -1067273,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      },
+      {
+        "cost": 14,
+        "depth": 5,
+        "exponents": [
+          2,
+          2,
+          6,
+          1,
+          3
+        ],
+        "origin": 60505359,
+        "signed_numerators": [
+          -60505359,
+          -45377231,
+          -34031135,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      },
+      {
+        "cost": 14,
+        "depth": 5,
+        "exponents": [
+          2,
+          1,
+          3,
+          4,
+          4
+        ],
+        "origin": 60562583,
+        "signed_numerators": [
+          -60562583,
+          -45420149,
+          -68126647,
+          -25550175,
+          -4791999,
+          -899841
+        ]
+      },
+      {
+        "cost": 14,
+        "depth": 5,
+        "exponents": [
+          7,
+          2,
+          1,
+          1,
+          3
+        ],
+        "origin": 60619807,
+        "signed_numerators": [
+          -60619807,
+          -1425415,
+          -1067273,
+          -1597333,
+          -2392423,
+          -899841
+        ]
+      }
+    ],
+    "hit_details": [
+      [
+        8,
+        952661,
+        5,
+        8,
+        true
+      ],
+      [
+        10,
+        3789185,
+        5,
+        10,
+        true
+      ],
+      [
+        11,
+        7499687,
+        17,
+        30,
+        true
+      ],
+      [
+        12,
+        15120975,
+        5,
+        12,
+        true
+      ],
+      [
+        13,
+        29977289,
+        17,
+        32,
+        true
+      ],
+      [
+        13,
+        30206185,
+        5,
+        13,
+        true
+      ],
+      [
+        13,
+        30363551,
+        5,
+        13,
+        true
+      ],
+      [
+        14,
+        57915973,
+        53,
+        90,
+        true
+      ],
+      [
+        14,
+        59646999,
+        29,
+        52,
+        true
+      ],
+      [
+        14,
+        59775753,
+        17,
+        33,
+        true
+      ],
+      [
+        14,
+        59933119,
+        17,
+        33,
+        true
+      ],
+      [
+        14,
+        60290769,
+        17,
+        33,
+        true
+      ],
+      [
+        14,
+        60433829,
+        17,
+        33,
+        true
+      ],
+      [
+        14,
+        60505359,
+        5,
+        14,
+        true
+      ],
+      [
+        14,
+        60562583,
+        5,
+        14,
+        true
+      ],
+      [
+        14,
+        60619807,
+        5,
+        14,
+        true
+      ]
+    ],
+    "hits": [
+      [
+        952661,
+        5,
+        8
+      ],
+      [
+        3789185,
+        5,
+        10
+      ],
+      [
+        7499687,
+        17,
+        30
+      ],
+      [
+        15120975,
+        5,
+        12
+      ],
+      [
+        29977289,
+        17,
+        32
+      ],
+      [
+        30206185,
+        5,
+        13
+      ],
+      [
+        30363551,
+        5,
+        13
+      ],
+      [
+        57915973,
+        53,
+        90
+      ],
+      [
+        59646999,
+        29,
+        52
+      ],
+      [
+        59775753,
+        17,
+        33
+      ],
+      [
+        59933119,
+        17,
+        33
+      ],
+      [
+        60290769,
+        17,
+        33
+      ],
+      [
+        60433829,
+        17,
+        33
+      ],
+      [
+        60505359,
+        5,
+        14
+      ],
+      [
+        60562583,
+        5,
+        14
+      ],
+      [
+        60619807,
+        5,
+        14
+      ]
+    ],
+    "invariant_exits": 70,
+    "largest_numerator": 3723514929151,
+    "longest_new_path": 120,
+    "other_cycles": 45,
+    "relevant_hits": [
+      [
+        952661,
+        5,
+        8
+      ],
+      [
+        3789185,
+        5,
+        10
+      ],
+      [
+        7499687,
+        17,
+        30
+      ],
+      [
+        15120975,
+        5,
+        12
+      ],
+      [
+        29977289,
+        17,
+        32
+      ],
+      [
+        30206185,
+        5,
+        13
+      ],
+      [
+        30363551,
+        5,
+        13
+      ],
+      [
+        57915973,
+        53,
+        90
+      ],
+      [
+        59646999,
+        29,
+        52
+      ],
+      [
+        59775753,
+        17,
+        33
+      ],
+      [
+        59933119,
+        17,
+        33
+      ],
+      [
+        60290769,
+        17,
+        33
+      ],
+      [
+        60433829,
+        17,
+        33
+      ],
+      [
+        60505359,
+        5,
+        14
+      ],
+      [
+        60562583,
+        5,
+        14
+      ],
+      [
+        60619807,
+        5,
+        14
+      ]
+    ],
+    "transitions": 275891
+  },
+  "status": "PASS",
+  "suffix_nodes": 7036,
+  "suffixes": [
+    {
+      "boundary": {
+        "cost": 8,
+        "depth": 5,
+        "k": 0,
+        "m": 8,
+        "period": 320979616137216,
+        "score": [
+          256,
+          243
+        ],
+        "u": 952661,
+        "x0": 214404759554139
+      },
+      "nodes": 396,
+      "successes": [
+        {
+          "cost": 19,
+          "depth": 13,
+          "first_guarded": 0,
+          "nonstrict_interval": [
+            0,
+            null
+          ],
+          "p0": 70506316836123,
+          "period": 105553116266496,
+          "relation": "Q",
+          "score": [
+            134217728,
+            387420489
+          ],
+          "slope_ratio": [
+            1,
+            1
+          ],
+          "strict_first_guarded": null,
+          "strict_interval": null,
+          "word": [
+            [
+              "ray0",
+              0,
+              3,
+              3
+            ],
+            [
+              "ray0",
+              0,
+              2,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "ray0",
+              0,
+              2,
+              -1
+            ],
+            [
+              "ray0",
+              0,
+              2,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "ray0",
+              0,
+              2,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ]
+          ]
+        }
+      ],
+      "terminal_rows": [
+        {
+          "cost": 16,
+          "depth": 11,
+          "first_guarded": null,
+          "nonstrict_interval": null,
+          "p0": 79319606440639,
+          "period": 118747255799808,
+          "relation": "(9Q+5)/8",
+          "score": [
+            16777216,
+            43046721
+          ],
+          "slope_ratio": [
+            9,
+            8
+          ],
+          "strict_first_guarded": null,
+          "strict_interval": null,
+          "word": [
+            [
+              "ray0",
+              0,
+              3,
+              3
+            ],
+            [
+              "ray0",
+              0,
+              2,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "ray0",
+              0,
+              2,
+              -1
+            ],
+            [
+              "ray0",
+              0,
+              2,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ]
+          ]
+        },
+        {
+          "cost": 19,
+          "depth": 13,
+          "first_guarded": 0,
+          "nonstrict_interval": [
+            0,
+            null
+          ],
+          "p0": 70506316836123,
+          "period": 105553116266496,
+          "relation": "Q",
+          "score": [
+            134217728,
+            387420489
+          ],
+          "slope_ratio": [
+            1,
+            1
+          ],
+          "strict_first_guarded": null,
+          "strict_interval": null,
+          "word": [
+            [
+              "ray0",
+              0,
+              3,
+              3
+            ],
+            [
+              "ray0",
+              0,
+              2,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "ray0",
+              0,
+              2,
+              -1
+            ],
+            [
+              "ray0",
+              0,
+              2,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ],
+            [
+              "ray0",
+              0,
+              2,
+              -1
+            ],
+            [
+              "point",
+              0,
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "boundary": {
+        "cost": 10,
+        "depth": 5,
+        "k": 0,
+        "m": 10,
+        "period": 1283918464548864,
+        "score": [
+          1024,
+          243
+        ],
+        "u": 3789185,
+        "x0": 857619038216559
+      },
+      "nodes": 363,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 30,
+        "depth": 17,
+        "k": 1,
+        "m": 11,
+        "period": 2567836929097728,
+        "score": [
+          2048,
+          243
+        ],
+        "u": 7499687,
+        "x0": 1715238076433129
+      },
+      "nodes": 514,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 12,
+        "depth": 5,
+        "k": 0,
+        "m": 12,
+        "period": 5135673858195456,
+        "score": [
+          4096,
+          243
+        ],
+        "u": 15120975,
+        "x0": 3430476152866241
+      },
+      "nodes": 472,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 32,
+        "depth": 17,
+        "k": 1,
+        "m": 13,
+        "period": 10271347716390912,
+        "score": [
+          8192,
+          243
+        ],
+        "u": 29977289,
+        "x0": 6860952305732519
+      },
+      "nodes": 513,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 13,
+        "depth": 5,
+        "k": 0,
+        "m": 13,
+        "period": 10271347716390912,
+        "score": [
+          8192,
+          243
+        ],
+        "u": 30206185,
+        "x0": 6860952305732487
+      },
+      "nodes": 355,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 13,
+        "depth": 5,
+        "k": 0,
+        "m": 13,
+        "period": 10271347716390912,
+        "score": [
+          8192,
+          243
+        ],
+        "u": 30363551,
+        "x0": 6860952305732465
+      },
+      "nodes": 522,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 90,
+        "depth": 53,
+        "k": 4,
+        "m": 14,
+        "period": 20542695432781824,
+        "score": [
+          16384,
+          243
+        ],
+        "u": 57915973,
+        "x0": 13721904611465323
+      },
+      "nodes": 442,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 52,
+        "depth": 29,
+        "k": 2,
+        "m": 14,
+        "period": 20542695432781824,
+        "score": [
+          16384,
+          243
+        ],
+        "u": 59646999,
+        "x0": 13721904611465081
+      },
+      "nodes": 461,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 33,
+        "depth": 17,
+        "k": 1,
+        "m": 14,
+        "period": 20542695432781824,
+        "score": [
+          16384,
+          243
+        ],
+        "u": 59775753,
+        "x0": 13721904611465063
+      },
+      "nodes": 463,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 33,
+        "depth": 17,
+        "k": 1,
+        "m": 14,
+        "period": 20542695432781824,
+        "score": [
+          16384,
+          243
+        ],
+        "u": 59933119,
+        "x0": 13721904611465041
+      },
+      "nodes": 429,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 33,
+        "depth": 17,
+        "k": 1,
+        "m": 14,
+        "period": 20542695432781824,
+        "score": [
+          16384,
+          243
+        ],
+        "u": 60290769,
+        "x0": 13721904611464991
+      },
+      "nodes": 438,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 33,
+        "depth": 17,
+        "k": 1,
+        "m": 14,
+        "period": 20542695432781824,
+        "score": [
+          16384,
+          243
+        ],
+        "u": 60433829,
+        "x0": 13721904611464971
+      },
+      "nodes": 379,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 14,
+        "depth": 5,
+        "k": 0,
+        "m": 14,
+        "period": 20542695432781824,
+        "score": [
+          16384,
+          243
+        ],
+        "u": 60505359,
+        "x0": 13721904611464961
+      },
+      "nodes": 463,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 14,
+        "depth": 5,
+        "k": 0,
+        "m": 14,
+        "period": 20542695432781824,
+        "score": [
+          16384,
+          243
+        ],
+        "u": 60562583,
+        "x0": 13721904611464953
+      },
+      "nodes": 370,
+      "successes": [],
+      "terminal_rows": []
+    },
+    {
+      "boundary": {
+        "cost": 14,
+        "depth": 5,
+        "k": 0,
+        "m": 14,
+        "period": 20542695432781824,
+        "score": [
+          16384,
+          243
+        ],
+        "u": 60619807,
+        "x0": 13721904611464945
+      },
+      "nodes": 456,
+      "successes": [],
+      "terminal_rows": []
+    }
+  ],
+  "terminal_instances": 42
+}
