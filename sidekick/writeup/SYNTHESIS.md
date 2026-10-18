@@ -1,6 +1,6 @@
 # The W5 reduction of the Collatz conjecture: a verified map
 
-*This is a consolidated survey of the main programme (results R1–R91 and C1–C5 on `main`, through commit `a94533a`) and the independent side lane (`claude/sidekick`), as of 2026-10-18.*
+*This is a consolidated survey of the main programme (results R1–R92 and C1–C5 on `main`, through commit `61fd041`) and the independent side lane (`claude/sidekick`), as of 2026-10-18.*
 
 Status labels follow the repository:
 
@@ -348,9 +348,11 @@ The appendix is pinned at side commit `7150f31` and main commit `ea3278e`. Times
 | R60 | 04:59 (`r60_cycle_inverse_check`): maximal cycle-inverse words, the exact height formula and the full acceptance table on all cells `k = 1..20`, `j = 0..4` | independently checked (finite) |
 | R84, R85 | 04:36 (`batch_r84_r85_check`): R84's prefix and sharp 20-step descent; R85's clock barrier by brute force on 24 instances | independently checked (finite) |
 | R81, R83 | 04:08 (`batch_r81_r83_check`): R80's merger cell (3,301 lifts), the cell theorem on 400 random anchor pairs with binary minimality (ternary minimality by coupled integrality, not executed), and R83's `(L, h)` | independently checked (finite) |
+| R91, R92 | 06:34 and 07:02 (`c0_basin_classify.c`, `r92_inverse_tree_check`): R91's classification reproduced exactly; the full candidate interval of 176,754,119 origins, with the same 16 tails as R92; R92 confirmed at `ℓ = 0` (r = 0) and `ℓ = 398166` (r = 1) by inverse-tree search | independently checked (exhaustive finite certificate; two sources) |
+| R25 (inverse table) | 07:02 (`r92_inverse_tree_check`): brute-force completeness for 750 targets below 3000 | independently checked (finite) |
 | R90 | 06:27 (`r90_phi_return_check`): both twelve-arrow return words (2,000), `T¹²(3v) = 3Φ(v)` on the re-entry cylinder (500), re-entry counts (3,000) | independently checked (finite) |
 | R61, R65, R66, R67 | 06:14 (`batch_r61_r67_check`): R61's exit and the `r ≥ 16` threshold (132), R65's triple bijection and arrows (10,000), R66's ternary identity (2,990), R67's count formula (3,000) | independently checked (finite) |
-| R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R63, R68–R70, R72, R76, R82, R87, R89, R91 | none | not touched |
+| R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R63, R68–R70, R72, R76, R82, R87, R89 | none | not touched |
 
 ### A.2 Main's reviews of side-lane claims
 

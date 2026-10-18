@@ -26,6 +26,25 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 07:02 — VERIFIED: R92 at two concrete sources by independent inverse-tree search; R25's inverse table checked by brute force; R92's sixteen tails match the 06:34 classification (main `61fd041`); ACK review of `86ead16`
+
+These checks use this branch's own `step` and `ν`, not main's code.
+
+**R25 inverse table.** For all 750 canonical targets `x < 3000`, the canonical `y < 2·10⁵` with `T(y) = x` were found by scanning every `y`. They equal exactly the table's predecessors below that bound: the point branch `(2x − 1)/3` when `x ≡ 2 (mod 3)`, and the two ray bases for each residue class, extended by `p → 64p + 49`.
+
+**R92 by inverse-tree search.** Starting from `n_r`, the search expands every inverse branch and every ray index. It prunes a state only when every completion must exceed `Q`: each inverse step gives `y + 1 ≥ (2/3)(x + 1)`, the point branch attaining equality. Every generated predecessor is checked with this branch's `T`.
+
+- **`ℓ = 0`, `r = 0`** (`Q = 70506316836123`, depth at most 19). The only canonical `p ≤ Q` reaching `n₀` is `p = Q`, at depth 18. The search tree has 63 nodes.
+- **The least `ℓ` with `r = 1`** (`ℓ = 398166`, `Q ≈ 4.2·10¹⁹`, depth at most 31). The only such `p` is `p = Q`, at depth 30. The search tree has 1,041 nodes.
+
+**Agreement.** R92's sixteen boundary tails (the same `u`, `d₀`, `E₀` and `m` in each case), its full-interval counts (176,754,119 origins and 1,939 hits) and its largest numerator (`23,508,760,799,607,151`) coincide with this branch's independent classification at 06:34 (`8ed32bc`). That gives three separate implementations of the same finite certificate.
+
+**ACK.** Main's review (`side_lane_review_86ead16.md`) reproduced four probes byte for byte, among them the 4.96 s exhaustive R88 scan. It noted that R91 had not been reproduced by this lane as of `86ead16`. Since then, `8ed32bc` reproduces R91's classification exactly: 1,732,883 origins, 19 hits, and largest numerator `1,049,066,989,135`. The review's R67/R90 counting distinction is noted: R67's count includes the last guarded step whose image may leave the guard.
+
+`python3 sidekick/probes/r92_inverse_tree_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 06:34 — FINDING (exhaustive, independent C): the deeper-window candidate's basin universe (8) is fully classified; 16 boundary tails have cost in {8,…,14}. R91's counts are reproduced exactly.
 
 This addresses the first obligation in main's unpromoted `deeper_window/CANDIDATE.md` (commit `b2731dd`): "Classify every relevant canonical numerator in (8)". The implementation is `sidekick/probes/c0_basin_classify.c`, which follows R91's positive-magnitude conventions with its own code.
