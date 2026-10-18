@@ -14,9 +14,11 @@ not replace written-proof / finite-certificate / open status.
 | Batch | Node | Proposed label | Confirmation | Transfer status | Literature match |
 |---|---|---|---|---|---|
 | P6-000, 2026-10-18: map and controls | MAP; baseline controls attached to S.2, C.2, Y.2 | **none** — setup and existing-obligation counterexamples | **Confirmed none** by the side lane at `b1785fb2dcf121586e99be95c90b94afcf1e9733`, feed 15:38; cycle fixtures independently replayed there | Exact raw cycles refute ordinary universal descent / absorption / no-cycle analogues; quotient-specific transfer unestablished | [L1–L5 audit](PHASE6_LITERATURE.md); no published theorem re-derived in this batch |
-| P6-001, 2026-10-18: explicit stopping calibration | S.1 | **calibration** — published half-descent corollary with explicit constants and W5 pullback | Pending; no verdict on this proof in the batch-start feed | Ordinary estimate proved for each fixed positive odd d coprime to6; W5/nu/T pullback only at d=1 | Borovkov–Pfeifer Corollary2 finite-horizon half-descent limit, with conservative explicit errors; Korec fixed-half corollary; full power theorem not re-proved |
-| P6-001, secondary preparation | S.2 | **none** — bounded-prefix obstruction already follows from frozen R25/R31 | Pending | No new transfer claim | Frozen growth examples; no new exclusion mechanism |
+| P6-001, 2026-10-18: explicit stopping calibration | S.1 | **calibration** — published half-descent corollary with explicit constants and W5 pullback | **Confirmed calibration** at side pin `0ed286c5e92f739f610f4aad2d460d0afc63eab6`, feed16:13, reviewing committed main546e891 | Ordinary estimate proved for each fixed positive odd d coprime to6; W5/nu/T pullback only at d=1 | Borovkov–Pfeifer Corollary2 finite-horizon half-descent limit, with conservative explicit errors; Korec fixed-half corollary; full power theorem not re-proved |
+| P6-001, secondary preparation | S.2 | **none** — bounded-prefix obstruction already follows from frozen R25/R31 | **Confirmed none** in the same feed16:13 review | No new transfer claim | Frozen growth examples; no new exclusion mechanism |
 | P6-002, 2026-10-18: first-half transport | S.2 | **barrier** — no uniform arbitrary-target constant-cardinality bound, even with sublinear error | Pending; no verdict at the batch-start pin | Main obstruction transfers to every fixed supported d; sparse refinements proved for d=1 | Tao §1.1 concentration issue; exact named inequality and elementary construction specified here, no novelty claim |
+
+| P6-003, 2026-10-18: power-growth norm | S.2 | **barrier** — no arbitrary-target contraction for any real0<alpha<1 | Pending | Full obstruction transfers to each supported fixed d; one-arrow upper bound proved only for d1 | Finite-cylinder stopping in Borovkov–Pfeifer; Tao valuation lemma and concentration issue; exact norm statement proved directly, no novelty claim |
 
 **Consecutive none counts:** MAP 1 (setup), S.1 0, S.2 0, C.1 0, C.2 0,
 C.3 0, Y.1 0, Y.2 0, H.1 0, H.2 0. A later mathematical attempt on a node
@@ -92,8 +94,10 @@ uses only the frozen d=1 quotient. The [written proof](../experiments/phase6/sto
 persist the result. Independent proof and integer-only parameter reviews
 passed. The full gate passed with exit0 and116 report fields; its
 [verification record](../experiments/phase6/stopping_calibration/verification.json)
-retains the report and checked source hashes. The label remains proposed
-until the side lane addresses this batch.
+retains the report and checked source hashes. The side lane subsequently
+confirmed calibration at0ed286c5, feed16:13, reviewing committed546e891.
+Its independent arithmetic agrees; this is external confirmation, not formal
+verification or a new theorem imported into main.
 
 For tolerances 1/2,1/10,1/100, the explicit ordinary odd-arrow horizons are
 85,170,295; the W5 quotient horizons are240,330,455. Every cutoff is stored
@@ -193,3 +197,79 @@ the [report](../experiments/phase6/REPORT.md) retains its exact formula and
 candidate status. Defer C.1's large certificate reconstruction and H.2's
 currently missing regularity premise. Neither alternative supplies an
 extra hypothesis for this batch.
+
+## P6-003 — Global power-growth norm transport
+
+**Main baseline:** pushed `de32608`. **Reviewed side commit:**
+`0ed286c5e92f739f610f4aad2d460d0afc63eab6`; fetched and DIRECTIONS/FEED
+read at batch start. The new feed independently confirms P6-001's
+calibration and secondary none labels at committed546e891. It contains no
+P6-002 verdict. Its finite arithmetic agrees with main's independent proof
+and gate. The qualitative comment about logarithmic horizons is not adopted
+as a universal barrier to other counting methods.
+
+| Direction | Decision | Reason |
+|---|---|---|
+| D1/D2 | **accept**, unchanged | Living routes and exact controls remain active. |
+| D3 | **reject** the historical blanket paragraph, unchanged | Stopping and absorption at1 retain distinct transfer behavior. |
+| D4 | **defer**, unchanged | Audit frozen inputs when actually used. |
+| D5 | **accept**, closed | Continue without approval waits; the user retains steering authority. |
+| D6 | **accept** | At most one calibration per route before an attempt on its open node; each calibration names the step it feeds. A second calibration without an intervening attempt is none. S.1's explicit stopping counts already feed P6-002's S.2 transport attempt, followed here by the remaining growth-norm test. A scoped barrier counts as an attempt. |
+
+**Written attempt:** the [proof](../experiments/phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md)
+and exact checker separate a contracting one-arrow operator from its full
+first-half transport. The all-exponent scope is now proved; full verification passed.
+The proposed label is barrier, not(a); arbitrary targets and the actual
+nonabsorbing set must remain distinct.
+
+Theorem3 strengthens the initial four-word obstruction to every real
+0<alpha<1. A finite prefix-free homogeneous first-crossing code has mass
+arbitrarily close to1 by S.1. Averaging its weights over exact inverse
+residues gives a class with expansion above1. A fixed positive offset makes
+every compatible path an actual first-half descent, retaining intercepts
+and all source multiplicities. The fixed sparse target sequence has an
+exact global norm. Thus arbitrary-target power norms cannot supply the
+proposed contraction, even allowing a target-dependent o(X^alpha) error.
+The constructed target need not be the nonabsorbing set. The norm of its
+full inverse image may be infinite; the proof does not decide this.
+
+**Next decision:** close this uniform power-norm method and attempt a
+B-specific estimate using exact invariance, with explicit transfer controls.
+Do not add more exponent variants or repackage the obstruction as universal
+impossibility. C.1 and H.2 remain alternatives with the costs recorded in
+the report. Side-lane confirmation of P6-002/003 remains pending.
+
+**Independent review:** the base proof/checker and the all-exponent extension
+passed independent model review. One convention clarification was applied:
+parity cylinders use the raw map; the finite target threshold then ensures
+selected actual paths avoid1 and follow the absorbed map. Focused replay
+covers1920 four-word paths,10752 one-arrow norm checks,276 independently
+enumerated small code words,1752 raw residue seeds,390 inverse paths and
+residue counts, two exact large code masses, two S.1 feed records, and29
+rejections across the two checkers. The two large masses were independently
+recomputed with a separate dynamic program. The full gate passed with exit0
+and118 report fields, including all historical/C++ and transfer controls.
+The [verification record](../experiments/phase6/growth_norm_transport/verification.json)
+pins its report and checked sources. Remote main remainedde32608 before
+delivery; the accompanying Git history records the commit and push.
+
+**Next-choice revision during verification:** a fresh primary-literature
+search found the2026 linear predecessor-density claims pinned in L3a.
+They are not mathematical premises of this batch. Preliminary local proof
+reading supports auditing their inherited analytic input; no independent
+formal build is claimed. Select C.1a's input audit next, feeding a C.2a
+attempt if verified. This supersedes the provisional S.2-only next choice
+above and defers reconstruction of the older0.84 certificate. C.2a's upper
+condition remains open; no extra calibration label is earned by this find.
+
+The preliminary source audit also checked the newer endpoint implementation
+and the companion's stated mixing-to-counting chain. No hidden convergence
+hypothesis was found in the inspected steps. Its reported full local import
+rebuild still reuses third-party dependencies and has not been independently
+replayed here. C.1a remains an audit obligation rather than a supplied premise.
+
+**Retained next-attempt preparation, no additional result label:**
+[NEXT_ATTEMPT.md](../experiments/phase6/NEXT_ATTEMPT.md) records the proposed
+actual-B truncated-norm inequality, conditional consequences and its d>1
+negative control. The inequality is unproved. Its finite maxima avoid
+assuming the desired global growth bound; none of this supplies C.2a.

@@ -13,13 +13,20 @@ theorems from the additional work required here.
 
 ## Current research decision
 
-Investigate **S.2 through the first-half endpoint transport**. S.1 fixed-factor
-stopping with explicit finite errors and the separate W5 pullback was pushed
-as `546e891`. The next attempted lemma tests a uniform arbitrary-target counting
-bound with a sublinear error; its written obstruction passed the full verification gate.
-S.1 calibrates a published corollary. It does not supply
-the universal stopping assertion or the stronger absorption count C.2.
-Do not add more dispatcher families during this phase.
+After P6-003 verification, **audit the new linear predecessor-density
+input at C.1a**, then attempt C.2a's actual-nonabsorbing-set estimate. S.1 was pushed as546e891 and is independently
+confirmed. P6-002's cardinality obstruction was pushed asde32608. P6-003
+now excludes arbitrary-target contraction in every power-growth norm with
+0<alpha<1; its full gate passed. This closes the current uniform-norm
+method. S.1 supplies its finite first-crossing code directly. Newly found
+2026 primary manuscripts may lower the remaining counting requirement;
+their analytic inputs and formal proof dependencies remain under audit.
+Do not add dispatcher families or collect exponent variants of this barrier.
+
+Each calibration must name the open-node step it feeds. Under accepted D6,
+a route gets at most one calibration before an attempt on S.2, C.2, Y.2 or
+H.2, respectively; a barrier counts. A second calibration without that
+intervening attempt is none. S.1 has already fed the S.2 transport attempt.
 
 Routes S, C and H each have a stated path to full convergence. Route Y
 addresses cycles only; a separate divergence argument would still be needed.
@@ -129,7 +136,7 @@ Tao's logarithmic-density
 almost-bounded theorem, L2, is a stronger but differently quantified
 benchmark; it cannot be substituted for a natural-density power bound.
 
-**Proposed label:** calibration, subject to side-lane confirmation. The
+**Label:** calibration, confirmed by the side lane at0ed286c5. The
 initial setup remains none. S.2 remains open; there is no iteration of this
 density estimate or conclusion that its exceptional set is empty.
 
@@ -161,9 +168,27 @@ excludes every finite kappa, even after discarding any fixed finite target
 set; it transfers to all supported fixed d. At d=1 the sparse refinements
 also reject cardinality-proportional bounds with o(X^alpha) errors, even
 under hereditary sparse counts. This barrier concerns the stated premise.
-A bound in a global growth norm C*X^alpha and one using the actual
-nonabsorbing set's structure remain open, as do other weighted or
-scale-dependent schemes. Full verification is recorded in the ledger.
+P6-002 alone leaves global growth norms open; P6-003 addresses them next.
+Full verification is recorded in the ledger.
+
+**Global norm test (P6-003):** define `||A||_alpha=sup_X A(X)/X^alpha` and
+G_d(A) as the first-half preimage set. The [written proof](experiments/phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md)
+shows that for every fixed supported d and every real0<alpha<1 there is a
+fixed infinite finite-norm A with `||G_d(A)||_alpha>||A||_alpha`. It also
+rejects coefficients<=1 with o(X^alpha) error, even depending on A. Finite
+homogeneous crossing words, exact inverse residue classes and a large
+fixed target offset retain all affine terms. Only the four-word subtheorem
+has the explicit241/240 factor through alpha7/8. At d=1 the one-arrow
+operator contracts by10/13 for4/5<=alpha<1; that bound cannot be iterated
+as a bound for G. The full norm's finiteness remains undecided.
+
+**Next attempt:** exploit the actual nonabsorbing set B, which satisfies
+B=E disjoint-union L^(-1)(B), rather than arbitrary targets. Any proposed
+bound must state exactly how B-invariance changes the estimate and why its
+claimed discriminating step fails on a certified d-cycle. No such bound is
+currently supplied. Other norms, signed currents and the other routes
+remain available. Closest sources are L1's finite-cylinder stopping
+estimates and L2's concentration issue; no novelty claim is made.
 
 ## C — predecessor counting route
 
@@ -188,6 +213,46 @@ The inverse-tree arithmetic must be checked; neither generic covariance
 nor the presence of a cycle settles this lower-bound statement.
 
 **Closest published result:** Krasikov–Lagarias (2003), L3, directly.
+
+### C.1a — Audit the new linear predecessor-density input
+
+**External candidate, not yet independently reproduced here.** For each
+fixed positive target a with3 not dividing a, there exist c(a)>0 and X0(a)
+such that every integer X>=X0(a) has at least c(a)X distinct positive
+predecessors below X. No convergence assumption on a is permitted.
+
+**Source and scope:** the2026 Mazur/Lau manuscripts in L3a claim this
+stronger lower bound, including a later explicit version. Audit the selected
+weighted inverse paths, uniform mixing, all-scale coverage, source
+injectivity and exact formal declarations/dependencies. A website badge
+alone is not a calibration. Transfer to other d is unestablished here.
+
+**Feeds:** C.2a. A verified linear lower bound would replace C.2's power
+saving requirement by the statistical upper condition below. Any calibrated
+batch at C.1a must then feed an attempt on C.2a under D6.
+
+### C.2a — Eliminate a positive-density nonabsorbing basin
+
+**Open candidate obligation:** for every rational epsilon>0 and every
+integer M>=1, find finite integers X>=M and H>=0 such that at most epsilon*X
+of the positive integers n<X have tau_1(oddpart(n))>H. Times count absorbed
+odd arrows. There is no claimed uniform logarithmic bound on H.
+
+**Conditional implication:** if C.1a holds, a nonabsorbing target would force
+at least cX bad starts at every sufficiently large X. Choosing epsilon<c
+contradicts the obligation. Conversely Collatz supplies a finite H for every
+finite cutoff; choose X large enough to handle the excluded0. Thus this is
+an alternative universal obligation, not a consequence of positive density
+of absorbed starts or of stopping below the initial value.
+
+**Transfer:** the upper premise fails at supported d>1 because multiples of
+d never reach1. Exact controls must exercise any new claimed proof step.
+The new C.1a lower premise's transfer has not been audited.
+
+**Closest source:** L3a for the conditional density criterion. No proof of
+this upper condition is supplied. A possible first test uses a truncated
+counting norm of the actual invariant set B, without assuming a finite
+global norm; that test is still only a candidate.
 
 ### C.2 — A power bound for the remaining seeds
 

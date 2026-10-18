@@ -1,0 +1,742 @@
+{
+  "schema": "phase6-all-exponents-transport-v1",
+  "status": "PASS",
+  "research_status": "WRITTEN_PROOF_FOCUSED_AUDIT",
+  "node": "S.2",
+  "proposed_label": "barrier",
+  "code_certificates": [
+    {
+      "alpha": "19/20",
+      "total_valuation_budget": 48,
+      "max_word_length": 29,
+      "cell_count": 688,
+      "word_count": 802325466536,
+      "mass_numerator": 275793430051165,
+      "mass_denominator": 281474976710656,
+      "common_denominator": 281474976710656,
+      "common_numerator": 275793430051165,
+      "exact_threshold": "2^1 * numerator^20 > denominator^20",
+      "strict_integer_gap": 3217769525684972334715854202666507033969996659057661463166767829232604556606436891352203471983962254324270145322402162992608734405914786129505899932360546222200430522852032621315333945790186975776284451015141327225229003969272683100687470032427658848597752053378442436335987762852324170274,
+      "length_rows": [
+        {
+          "length": 1,
+          "word_count": 46,
+          "common_numerator": 70368744177663
+        },
+        {
+          "length": 2,
+          "word_count": 88,
+          "common_numerator": 35184372088830
+        },
+        {
+          "length": 3,
+          "word_count": 215,
+          "common_numerator": 43980465111035
+        },
+        {
+          "length": 4,
+          "word_count": 369,
+          "common_numerator": 19791209299959
+        },
+        {
+          "length": 5,
+          "word_count": 920,
+          "common_numerator": 25288767438825
+        },
+        {
+          "length": 6,
+          "word_count": 1634,
+          "common_numerator": 11819749998549
+        },
+        {
+          "length": 7,
+          "word_count": 4068,
+          "common_numerator": 7765300871055
+        },
+        {
+          "length": 8,
+          "word_count": 11585,
+          "common_numerator": 11373073399477
+        },
+        {
+          "length": 9,
+          "word_count": 23034,
+          "common_numerator": 5995774344518
+        },
+        {
+          "length": 10,
+          "word_count": 62912,
+          "common_numerator": 8443905701970
+        },
+        {
+          "length": 11,
+          "word_count": 122160,
+          "common_numerator": 4372276703256
+        },
+        {
+          "length": 12,
+          "word_count": 320124,
+          "common_numerator": 3069022557015
+        },
+        {
+          "length": 13,
+          "word_count": 948618,
+          "common_numerator": 4715605620418
+        },
+        {
+          "length": 14,
+          "word_count": 1954175,
+          "common_numerator": 2622849207977
+        },
+        {
+          "length": 15,
+          "word_count": 5485872,
+          "common_numerator": 3834902250270
+        },
+        {
+          "length": 16,
+          "word_count": 10866482,
+          "common_numerator": 2071696275093
+        },
+        {
+          "length": 17,
+          "word_count": 30006795,
+          "common_numerator": 2996608578145
+        },
+        {
+          "length": 18,
+          "word_count": 58235342,
+          "common_numerator": 1606949092166
+        },
+        {
+          "length": 19,
+          "word_count": 150323690,
+          "common_numerator": 1159004492470
+        },
+        {
+          "length": 20,
+          "word_count": 444498880,
+          "common_numerator": 1820639631300
+        },
+        {
+          "length": 21,
+          "word_count": 888628986,
+          "common_numerator": 1039886334117
+        },
+        {
+          "length": 22,
+          "word_count": 2462049239,
+          "common_numerator": 1551280408973
+        },
+        {
+          "length": 23,
+          "word_count": 4610835009,
+          "common_numerator": 858034478493
+        },
+        {
+          "length": 24,
+          "word_count": 11110705686,
+          "common_numerator": 630841178394
+        },
+        {
+          "length": 25,
+          "word_count": 31515588880,
+          "common_numerator": 1004559395550
+        },
+        {
+          "length": 26,
+          "word_count": 54976853004,
+          "common_numerator": 577256956542
+        },
+        {
+          "length": 27,
+          "word_count": 138499349640,
+          "common_numerator": 858695967768
+        },
+        {
+          "length": 28,
+          "word_count": 186744729255,
+          "common_numerator": 435737701595
+        },
+        {
+          "length": 29,
+          "word_count": 370813859828,
+          "common_numerator": 556220789742
+        }
+      ],
+      "cells_sha256": "c2cbc975f34944b8f677c423739a1f40d558282b431fd8e64fa04f77624a1b10"
+    },
+    {
+      "alpha": "99/100",
+      "total_valuation_budget": 80,
+      "max_word_length": 49,
+      "cell_count": 1954,
+      "word_count": 435623894291450504477,
+      "mass_numerator": 1204386107935371996229335,
+      "mass_denominator": 1208925819614629174706176,
+      "common_denominator": 1208925819614629174706176,
+      "common_numerator": 1204386107935371996229335,
+      "exact_threshold": "2^1 * numerator^100 > denominator^100",
+      "strict_integer_gap": 64797156878033889713953029306265703858496915411190776153490885053450428268780421609789405280613129142152691014332684589653788378804461040699353104504585574252402768069588795747145217798125000668801017258609684175171281584212152276140173294569032360099468404205969842883562939676409374619328561562213064440883258624710057638535377714445454704058746611326763368898324435644122462803555998461371861286727193851398319118506885783406859355370837848969048975999788205437507140872926867150631636850835850994744295019660456226077299637529388709608430369647504013251163381498349907218109955706535431005625013316289187504166588005318598893928374140360572448454964266260451969978053663204128132876180073522025522535150539887112805169340238336808685226206907910838779197849734580458147645380363522034706396096072608837947188890584856900323049986575225579607859944087509272302042335054247616922359345668621131457606564065088207695672149224821970911457328609187588691820352131456684248650824381023661885538726760573492475104257001395462457596403901815080505555219132501307270242808116268951131008403119830749710075269628558614254399204088443768085136676030721146579667433689257325220589307974262920135312465841572135992600134013556153372501575541930953860143558639188603788305325522443943892418191255190232805356481301870431972459813927551603529772906915270638205080511902021396161783281397822439937619311679723893544406178796450521466632961960272591257300187331068947652396043401934183427903885178615530403104142813477652570791902850429984182964928372043195942113433028884566647891861292236676986608235430250675000275049316746229980008557097243316672408264401886828866591175110062110792149914287685248634258203987157524100020275897343274432870372617837494712883984406758599508615140177532499405059186662258972943109206198856143286819249963808321058603178258904593663644287284026862033966446285287822814974399091809897665520079442908617947720535736818323918924050081085426324390792590681510482097594407040363169075170228678953653918768653589287898980151663843145422543753029571955032724971165126142598045637700202889068633903656533301109685354476113200214951234139409217485853854533540849113777087192193859331782208324845077436021051424767765406816959237854962244394562291906934205049638544965301229088038243724981978044724746155198576242323550423049815952771253245506190624087453765730172165797987661749120297549415991874,
+      "length_rows": [
+        {
+          "length": 1,
+          "word_count": 78,
+          "common_numerator": 302231454903657293676543
+        },
+        {
+          "length": 2,
+          "word_count": 152,
+          "common_numerator": 151115727451828646838270
+        },
+        {
+          "length": 3,
+          "word_count": 375,
+          "common_numerator": 188894659314785808547835
+        },
+        {
+          "length": 4,
+          "word_count": 657,
+          "common_numerator": 85002596691653613846519
+        },
+        {
+          "length": 5,
+          "word_count": 1656,
+          "common_numerator": 108614429106001839914985
+        },
+        {
+          "length": 6,
+          "word_count": 3010,
+          "common_numerator": 50765439690848686047189
+        },
+        {
+          "length": 7,
+          "word_count": 7684,
+          "common_numerator": 33351713285266869321615
+        },
+        {
+          "length": 8,
+          "word_count": 22177,
+          "common_numerator": 48846978307182892678837
+        },
+        {
+          "length": 9,
+          "word_count": 45370,
+          "common_numerator": 25751654726898534055238
+        },
+        {
+          "length": 10,
+          "word_count": 125824,
+          "common_numerator": 36266298848912978475090
+        },
+        {
+          "length": 11,
+          "word_count": 252464,
+          "common_numerator": 18778785467036323541016
+        },
+        {
+          "length": 12,
+          "word_count": 685980,
+          "common_numerator": 13181351562170081465175
+        },
+        {
+          "length": 13,
+          "word_count": 2072906,
+          "common_numerator": 20253372071428480792258
+        },
+        {
+          "length": 14,
+          "word_count": 4455519,
+          "common_numerator": 11265051906325425868457
+        },
+        {
+          "length": 15,
+          "word_count": 12800368,
+          "common_numerator": 16470780730001491526430
+        },
+        {
+          "length": 16,
+          "word_count": 26672274,
+          "common_numerator": 8897869870186945345173
+        },
+        {
+          "length": 17,
+          "word_count": 75731435,
+          "common_numerator": 12870341979103128334945
+        },
+        {
+          "length": 18,
+          "word_count": 156315918,
+          "common_numerator": 6901806961341928389446
+        },
+        {
+          "length": 19,
+          "word_count": 433285930,
+          "common_numerator": 4977924369624682009270
+        },
+        {
+          "length": 20,
+          "word_count": 1333496640,
+          "common_numerator": 7819706993494514472900
+        },
+        {
+          "length": 21,
+          "word_count": 2919780954,
+          "common_numerator": 4466550413192148252837
+        },
+        {
+          "length": 22,
+          "word_count": 8522478135,
+          "common_numerator": 6663512040461477226893
+        },
+        {
+          "length": 23,
+          "word_count": 18024173217,
+          "common_numerator": 3687030331746604549533
+        },
+        {
+          "length": 24,
+          "word_count": 50615437014,
+          "common_numerator": 2714744465455191862554
+        },
+        {
+          "length": 25,
+          "word_count": 157577944400,
+          "common_numerator": 4331469553717061142750
+        },
+        {
+          "length": 26,
+          "word_count": 348186735692,
+          "common_numerator": 2518653714008750334462
+        },
+        {
+          "length": 27,
+          "word_count": 1024895187336,
+          "common_numerator": 3807041134187144120088
+        },
+        {
+          "length": 28,
+          "word_count": 2178688507975,
+          "common_numerator": 2138833346206016942195
+        },
+        {
+          "length": 29,
+          "word_count": 6303835617076,
+          "common_numerator": 3185266801544169440262
+        },
+        {
+          "length": 30,
+          "word_count": 13172572007392,
+          "common_numerator": 1767992686336910570145
+        },
+        {
+          "length": 31,
+          "word_count": 36553813068330,
+          "common_numerator": 1308311929386329258853
+        },
+        {
+          "length": 32,
+          "word_count": 113351376300729,
+          "common_numerator": 2098450229575040972211
+        },
+        {
+          "length": 33,
+          "word_count": 247237715933433,
+          "common_numerator": 1229025343009520761733
+        },
+        {
+          "length": 34,
+          "word_count": 724167440354410,
+          "common_numerator": 1869155905530952774455
+        },
+        {
+          "length": 35,
+          "word_count": 1514009620586448,
+          "common_numerator": 1058369371526969340930
+        },
+        {
+          "length": 36,
+          "word_count": 4159862638494574,
+          "common_numerator": 793078379282986691451
+        },
+        {
+          "length": 37,
+          "word_count": 12856202064999699,
+          "common_numerator": 1283876048419818274169
+        },
+        {
+          "length": 38,
+          "word_count": 27536056229024995,
+          "common_numerator": 759831384849833029135
+        },
+        {
+          "length": 39,
+          "word_count": 79954065667218870,
+          "common_numerator": 1164411035344542013245
+        },
+        {
+          "length": 40,
+          "word_count": 162391691591326976,
+          "common_numerator": 665146219277350835760
+        },
+        {
+          "length": 41,
+          "word_count": 459310639450805640,
+          "common_numerator": 1003348781525636560392
+        },
+        {
+          "length": 42,
+          "word_count": 897614506580597364,
+          "common_numerator": 565566186415513308348
+        },
+        {
+          "length": 43,
+          "word_count": 2275135986177320640,
+          "common_numerator": 423382123973179577280
+        },
+        {
+          "length": 44,
+          "word_count": 6701157407418670780,
+          "common_numerator": 685528402778930020794
+        },
+        {
+          "length": 45,
+          "word_count": 12713147401954117536,
+          "common_numerator": 405231573437287496460
+        },
+        {
+          "length": 46,
+          "word_count": 34161749591985504349,
+          "common_numerator": 619791742597451293189
+        },
+        {
+          "length": 47,
+          "word_count": 55916599104137056355,
+          "common_numerator": 346682914445649749401
+        },
+        {
+          "length": 48,
+          "word_count": 101480645529368119209,
+          "common_numerator": 236788172901858944821
+        },
+        {
+          "length": 49,
+          "word_count": 220728977658337158532,
+          "common_numerator": 331093466487505737798
+        }
+      ],
+      "cells_sha256": "5b6c651a70395979c92e510a8f9ac9829f92f551ac48332cf251d31359db31ef"
+    }
+  ],
+  "independent_small_code_checks": {
+    "rows": [
+      {
+        "B": 3,
+        "words": 1,
+        "numerator": 1,
+        "denominator": 8
+      },
+      {
+        "B": 4,
+        "words": 2,
+        "numerator": 3,
+        "denominator": 16
+      },
+      {
+        "B": 5,
+        "words": 5,
+        "numerator": 9,
+        "denominator": 32
+      },
+      {
+        "B": 6,
+        "words": 13,
+        "numerator": 26,
+        "denominator": 64
+      },
+      {
+        "B": 7,
+        "words": 21,
+        "numerator": 60,
+        "denominator": 128
+      },
+      {
+        "B": 8,
+        "words": 38,
+        "numerator": 137,
+        "denominator": 256
+      },
+      {
+        "B": 9,
+        "words": 78,
+        "numerator": 314,
+        "denominator": 512
+      },
+      {
+        "B": 10,
+        "words": 118,
+        "numerator": 668,
+        "denominator": 1024
+      }
+    ],
+    "enumerated_words": 276,
+    "odd_residue_seeds": 1752,
+    "modulus_convention": "word total A uses modulus 2^(A+1), conditioned on odd source",
+    "encoding": "raw S_d; no absorber modification of finite parity cylinders"
+  },
+  "inverse_word_checks": {
+    "total_valuation_budget": 9,
+    "max_length": 5,
+    "words": 78,
+    "exact_paths": 390,
+    "residue_compatibility_checks": 390,
+    "common_target_modulus": 486,
+    "samples": [
+      {
+        "word": [
+          1,
+          4
+        ],
+        "k": 2,
+        "A": 5,
+        "affine_b": 5,
+        "d": 1,
+        "target_modulus": 18,
+        "target_residue": 1,
+        "target": 19,
+        "source": 67,
+        "source_modulus": 64,
+        "source_residue": 3,
+        "path": [
+          67,
+          101,
+          19
+        ]
+      },
+      {
+        "word": [
+          3
+        ],
+        "k": 1,
+        "A": 3,
+        "affine_b": 1,
+        "d": 1,
+        "target_modulus": 6,
+        "target_residue": 5,
+        "target": 5,
+        "source": 13,
+        "source_modulus": 16,
+        "source_residue": 13,
+        "path": [
+          13,
+          5
+        ]
+      },
+      {
+        "word": [
+          1,
+          4
+        ],
+        "k": 2,
+        "A": 5,
+        "affine_b": 5,
+        "d": 5,
+        "target_modulus": 18,
+        "target_residue": 5,
+        "target": 5,
+        "source": 15,
+        "source_modulus": 64,
+        "source_residue": 15,
+        "path": [
+          15,
+          25,
+          5
+        ]
+      },
+      {
+        "word": [
+          3
+        ],
+        "k": 1,
+        "A": 3,
+        "affine_b": 1,
+        "d": 5,
+        "target_modulus": 6,
+        "target_residue": 1,
+        "target": 7,
+        "source": 17,
+        "source_modulus": 16,
+        "source_residue": 1,
+        "path": [
+          17,
+          7
+        ]
+      },
+      {
+        "word": [
+          1,
+          4
+        ],
+        "k": 2,
+        "A": 5,
+        "affine_b": 5,
+        "d": 7,
+        "target_modulus": 18,
+        "target_residue": 7,
+        "target": 7,
+        "source": 21,
+        "source_modulus": 64,
+        "source_residue": 21,
+        "path": [
+          21,
+          35,
+          7
+        ]
+      },
+      {
+        "word": [
+          3
+        ],
+        "k": 1,
+        "A": 3,
+        "affine_b": 1,
+        "d": 7,
+        "target_modulus": 6,
+        "target_residue": 5,
+        "target": 5,
+        "source": 11,
+        "source_modulus": 16,
+        "source_residue": 11,
+        "path": [
+          11,
+          5
+        ]
+      },
+      {
+        "word": [
+          1,
+          4
+        ],
+        "k": 2,
+        "A": 5,
+        "affine_b": 5,
+        "d": 13,
+        "target_modulus": 18,
+        "target_residue": 13,
+        "target": 13,
+        "source": 39,
+        "source_modulus": 64,
+        "source_residue": 39,
+        "path": [
+          39,
+          65,
+          13
+        ]
+      },
+      {
+        "word": [
+          3
+        ],
+        "k": 1,
+        "A": 3,
+        "affine_b": 1,
+        "d": 13,
+        "target_modulus": 6,
+        "target_residue": 5,
+        "target": 11,
+        "source": 25,
+        "source_modulus": 16,
+        "source_residue": 9,
+        "path": [
+          25,
+          11
+        ]
+      },
+      {
+        "word": [
+          1,
+          4
+        ],
+        "k": 2,
+        "A": 5,
+        "affine_b": 5,
+        "d": 61,
+        "target_modulus": 18,
+        "target_residue": 7,
+        "target": 25,
+        "source": 55,
+        "source_modulus": 64,
+        "source_residue": 55,
+        "path": [
+          55,
+          113,
+          25
+        ]
+      },
+      {
+        "word": [
+          3
+        ],
+        "k": 1,
+        "A": 3,
+        "affine_b": 1,
+        "d": 61,
+        "target_modulus": 6,
+        "target_residue": 5,
+        "target": 35,
+        "source": 73,
+        "source_modulus": 16,
+        "source_residue": 9,
+        "path": [
+          73,
+          35
+        ]
+      }
+    ],
+    "all_paths_sha256": "6672cf4b3958bbae7ddcdf1ffe92bef4f41ca72fe4a772e11ab149afdd7aede4"
+  },
+  "parity_feed": [
+    {
+      "alpha": "19/20",
+      "m": 40,
+      "parity_horizon": 200,
+      "tail_window": 12,
+      "total_valuation_budget": 211,
+      "mgf_numerator": 1494548327330622453574128515973830522831312650024319094278591440576446538203466035967768944987052007184723606893220902024866168620526227312592964895334259504948208017143,
+      "mgf_denominator": 52457607915600667312780272447868286709918105146442860923554697443423359837837434913797637251667564433179560483300004307690433921943529267900134534848011331677303626268672,
+      "mass_lower_numerator": 50950252555087525165037984685691363343651753896529273552683441281791390018423559347821616930398367024521892647773165240551385518478778546137370638669755194405832639045897,
+      "mass_lower_denominator": 52457607915600667312780272447868286709918105146442860923554697443423359837837434913797637251667564433179560483300004307690433921943529267900134534848011331677303626268672,
+      "exact_tail_bounded": true,
+      "strict_exponent_threshold": true
+    },
+    {
+      "alpha": "99/100",
+      "m": 64,
+      "parity_horizon": 320,
+      "tail_window": 12,
+      "total_valuation_budget": 331,
+      "mgf_numerator": 385722314941230071647025613677708998511921945148356869294785901072496970322286528457292424570259081603613241778480855459514460679105996468303272081008455922805718319978310306579642622140520246927570686994295758424733211922130490928110556939059972253310930426320863113143,
+      "mgf_denominator": 124035946366489343202609040585349981966459483674635723656841534212449036673287389719278680782364960685929517517101027761483669048552403188995959895594832637986872208435809529780558632936369346761510963543074913376247335511916642793109401751584385779586533133437878163996672,
+      "mass_lower_numerator": 123619941838079731943656690498873115257506531582105863925325839733687953512371038886690705086119319533845941014209973412918323613984490453467843156742438724877057976393068570662997408616734595717034195843496859094049104415348048278061879719608317900648752834570776568909897,
+      "mass_lower_denominator": 124035946366489343202609040585349981966459483674635723656841534212449036673287389719278680782364960685929517517101027761483669048552403188995959895594832637986872208435809529780558632936369346761510963543074913376247335511916642793109401751584385779586533133437878163996672,
+      "exact_tail_bounded": true,
+      "strict_exponent_threshold": true
+    }
+  ],
+  "rejections": [
+    "empty word",
+    "zero valuation",
+    "boolean valuation",
+    "noncrossing word",
+    "earlier crossing",
+    "unsupported d",
+    "negative d",
+    "zero budget",
+    "alpha at one",
+    "nonreduced alpha",
+    "insufficient finite code",
+    "unknown CLI flag",
+    "unimplemented word-cap CLI flag"
+  ],
+  "scope": "Exact finite formal cylinder masses and inverse-word identities. Residue-average existence does not provide an efficient winning-residue constructor. No actual-orbit stochasticity, convergence, full-operator norm finiteness, or actual-bad-set-only transport estimate is asserted."
+}

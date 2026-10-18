@@ -5,10 +5,12 @@
 Collatz is open. The programme has pivoted from expanding the frozen local
 dispatcher to named proof obligations in [ROUTE_MAP.md](../../ROUTE_MAP.md).
 The setup batch built the grading and control infrastructure and is confirmed
-**none**. S.1 has a verified stopping calibration, pushed as546e891.
-P6-002 at S.2 has a written endpoint-transport barrier and focused checks;
-its full gate passed with117 report fields. The next candidate tests a global power-growth
-norm, with its exact scope recorded below.
+**none**. S.1 has a verified, side-confirmed stopping calibration, pushed
+as546e891. P6-002's endpoint cardinality barrier passed117 report fields and
+was pushed asde32608. P6-003 now proves a stronger barrier: arbitrary-target
+first-half transport cannot contract any power-growth norm with0<alpha<1.
+Its full gate passed with118 report fields. This closes
+the selected uniform-norm method; actual-B-specific estimates remain open.
 
 ## Mechanism and evidence
 
@@ -85,7 +87,7 @@ the analogous cardinality bound at scale X^alpha. The remaining global
 power-growth norm and actual-bad-set methods are not refuted. No human
 review or proof-assistant verification is implied.
 
-## Next-batch choice prepared during verification
+## Historical next-batch choice from P6-002
 
 Select S.2's remaining global power-growth norm as the next attempted
 method, subject to the next batch's fresh side-lane read. Define
@@ -108,3 +110,53 @@ boundary classification currently replaces the missing assertion with an
 unproved regularity assumption. Defer both while testing the explicit
 power-norm premise. No source from either alternative is imported as a
 new proof premise in P6-002.
+
+## P6-003 checklist and decision
+
+- [x] Fetch/read side pin0ed286c5; record P6-001 confirmation and accept D6.
+- [x] Prove and audit one-arrow contraction and the four-word expansion.
+- [x] Extend to every0<alpha<1 using S.1 finite cylinders and inverse-residue averaging.
+- [x] Finish integrated exact replay and independent final-text review.
+- [x] Pass the full gate and persist its [report/source hashes](growth_norm_transport/verification.json).
+- [x] Prepare the verified batch for commit/push; delivery is recorded in Git history.
+- [ ] Start the next audit after the fresh side read.
+
+The proof is in [GROWTH_NORM_TRANSPORT.md](growth_norm_transport/GROWTH_NORM_TRANSPORT.md).
+It uses the calibration in an actual S.2 attempt, satisfying accepted D6.
+The norm witness depends on alpha,d; its residue exists by finite averaging.
+Exact affine thresholds turn homogeneous crossing words into genuine
+first-half paths. No stochastic assumption about an infinite integer orbit
+is used. The result transfers to all fixed supported d, so its label is
+barrier, not(a). Universal convergence remains unproved.
+
+Next examine a specific estimate for the actual nonabsorbing set B, retaining
+B=E disjoint-union L^(-1)(B). This requires additional information from
+invariance; simply applying the failed arbitrary-target bound is unavailable.
+Further variants of the same power-norm barrier are not the next task.
+
+## New evidence while the P6-003 gate runs
+
+The literature check found recent primary manuscripts claiming a linear
+predecessor lower bound. [L3a](../../docs/PHASE6_LITERATURE.md) pins their
+statements and the Lau source commit. The local elementary counting steps
+passed preliminary reading; the inherited analytic input and formal
+build are not independently verified here. These results are not premises
+of P6-003.
+
+Revise the next choice to C.1a's targeted input audit, then an attempt on
+C.2a. If the new lower bound checks out, an actual-B sublinear upper count
+would suffice, without improving the historical0.84 predecessor exponent.
+This is a reason to audit the new input before reconstructing that old
+large certificate. The full statistical upper condition remains open.
+
+The next formal audit has a practical dependency: neither `lean` nor `lake`
+is currently available on the command path. No package was installed during
+this batch. Source-level inspection and reported external builds remain
+distinct from an independent local formal replay.
+
+The [next-attempt note](NEXT_ATTEMPT.md) preserves a concrete open inequality
+for the actual B, its elementary conditional bootstrap, and the exact d>1
+failure. It uses finite maxima rather than assuming a finite global norm.
+The inherited S.1 count supplies an explicit half-exception bound; the
+transport inequality itself remains missing. This preparation earns no
+additional batch label or non-transfer result.

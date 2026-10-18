@@ -56,6 +56,13 @@ density alone. P6-001 proves a conservative finite-cutoff bound and the
 separate odd-clock/W5 conversions; it does not reproduce every exact
 fixed-k density in that paper.
 
+**Additional current benchmark (not reproduced here).**
+[Inselmann v3](https://arxiv.org/abs/2402.03276v3) states natural-density
+power descent below n^epsilon for every fixed epsilon>0, at a specified
+shortcut horizon. This is stronger than Korec's exponent range; neither
+statement is a count of starts failing to reach the fixed target1.
+P6-001's independently proved conservative calibration is unchanged.
+
 ## L1a — Published power counts for strict stopping exceptions
 
 Lagarias's 1985 survey, [Theorem D](https://www.cecm.sfu.ca/organics/papers/lagarias/paper/html/theorem-D.html)
@@ -96,6 +103,23 @@ imported here. It requires a separate primary theorem or an audited adaptation
 of the first-passage and mixing arguments. The parity-vector observation in
 L1 does not verify that adaptation.
 
+**P6-003 match.** Tao Lemma2.1 and Remark1.10 give the exact valuation-word
+and geometric-cylinder context; Section1.1 explains concentration as a
+problem with iterating descent estimates. Borovkov–Pfeifer Theorem3 gives
+joint finite-horizon threshold densities in shortcut time. Neither is
+claimed here to state the exact sparse growth-norm barrier. P6-003 proves
+its finite inverse-residue averaging, thresholds and norm count directly,
+and derives code mass from P6-001. Kontorovich–Sinai's structure theorem
+has a bounded perturbation hypothesis and is not imported as an arbitrary-d
+theorem. No novelty conclusion follows from the absence of an exact match
+in this audit.
+
+**Version update.** The [corrected Tao v7](https://arxiv.org/abs/1909.03562v7)
+was posted July16,2026 and identifies a correction to Lemma7.9. The main
+statement remains the growing-threshold logarithmic-density theorem. New
+analytic imports must use the corrected version; P6-001/003 prove their
+finite-cylinder arguments directly and do not rely on that corrected lemma.
+
 ## L3 — Krasikov–Lagarias: the predecessor lower bound
 
 In [Krasikov–Lagarias, Theorem 6.1](https://arxiv.org/pdf/math/0205002), define
@@ -125,6 +149,34 @@ target `a`. Every predecessor of this target is also nonconvergent. Hence
 an eventual upper bound `C X^(0.84-epsilon)` for the unabsorbed count, with
 fixed `C<infinity`, `epsilon>0`, would contradict C.1. Neither an unweighted
 source-support count nor a signed annular mass is automatically this count.
+
+## L3a — New 2026 positive-density claims: audit pending
+
+**Discovered during P6-003 verification; not imported as a proved premise.**
+[Mazur, September6 manuscript](https://www.proofatlas.ai/papers/positive-lower-density-collatz-predecessors/paper-v1.pdf)
+claims positive lower natural density of distinct predecessors of each fixed
+target a>0 with3 not dividing a. It does not assume a reaches1. The local
+counting argument passed preliminary independent reading, conditional on
+its inherited weighted-path Proposition3.1. That analytic input and the
+claimed formal build have not been independently reproduced here.
+
+[Lau, Hexagon2610.00249v1](https://hexagonmath.org/2610.00249v1), dated
+October14, gives an explicit refinement. The pinned
+[challenge statement](https://raw.githubusercontent.com/AxiomMath/CollatzPositiveDensity/3a38bfbb70379e051b51155def1423846fab3a90/Challenge/Basic.lean)
+uses L=2^(2^(2^87640)), coefficient1/(t^4 L), cutoff2^(t^3 L), and counts
+odd starts reaching t (ordinary clock) and its odd part (accelerated clock).
+The challenge contains intentional placeholders; the separately imported
+[solution](https://raw.githubusercontent.com/AxiomMath/CollatzPositiveDensity/3a38bfbb70379e051b51155def1423846fab3a90/Solution/Basic.lean)
+and its dependencies must be checked. Reading declarations or a registry's
+build claim is not our independent formal verification. This is a Hexagon
+identifier, distinct from the unrelated arXiv paper with the same digits.
+
+**Decision:** audit this stronger input before spending a batch rebuilding
+the historical0.84 certificate. If the linear lower premise is verified,
+C.3's contradiction would require only arbitrarily small nonabsorption
+fractions at arbitrarily large cutoffs. That upper premise remains open.
+Do not describe0.84 as the current best bound, or the new density claim as
+a proof of Collatz. Transfer to d>1 has not been established by this audit.
 
 ## L4 — Simons–de Weger and Hercher: cycle minima
 
