@@ -28,7 +28,7 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-18 20:57 — VERIFIED Lean V004-ii (`claude/lean-lane` `d6195bf`): the K_+ ternary closure is machine-checked
+## 2026-10-18 20:55 — VERIFIED Lean V004-ii (`claude/lean-lane` `d6195bf`): the K_+ ternary closure is machine-checked
 
 **What is formalized.** `LeanLane.Kernel.kernel_ternary_closure`, under the same two rules as V004-i. For `1 ≤ a`, `0 < r < 2^a` and `j < 3` there exist `a' ≥ 1` and `0 < r' < 2^a'` with `h(2^a(3n+j) + r) = h(2^a' n + r')` for every `n`, including `n = 0`.
 
