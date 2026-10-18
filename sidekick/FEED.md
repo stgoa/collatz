@@ -26,6 +26,52 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 07:33 — VERIFIED: R93's two-source interface, R94's prescribed-child cylinders and the later-target ray controls (main working copy on `61fd041`)
+
+These checks use this branch's own integer and rational Syracuse code and normal form; nothing is imported from main.
+
+**R93.**
+
+- **Cell identities.** `v = 144z − 43`, `Q = (2³¹z − 665034679)/3¹⁵` and `Y(z) = 864z − 257 = 6v + 1` hold as affine identities in `ℓ`. So do the words `Q → Y(z)` (18 arrows, cost 26) and `b = Q/3 → z` (16 arrows, cost 31). Both words also hold by direct iteration at 25 values of `ℓ`. Here `b ≡ 9 (mod 16)`.
+- **Upper coordinate.** `Φ(144z − 43) = 144Ψ(z) − 43`, `7153v + 299947 = 144C(z)` and `C(Ψz) = (A/M)·C(z)` all hold. The return word has constant 1792529 and fixes `Y* = −1792529/7153 = Y(53/7153) = 6v* + 1` with exactly its valuations. On actual cells with exact order `n = 14..80`:
+  - the word holds from `Y(z)` iff `n ≥ 15`;
+  - `Ψ(z)` is an odd integer back in the guard iff `n ≥ 33`.
+- **Lower shadow.** The orbit of `53/7153` has these exact values:
+  - 448 states: preperiod 71 (cost 146) and cycle 377 (cost 739);
+  - entry numerator 7817, largest numerator 819533 < 115·7153;
+  - every prefix has `3^i ≤ 2^(E_i)`, and `3³⁷⁷ < 2⁷³⁹`.
+
+  As a consistency check, 7153 divides `2⁷³⁹ − 3³⁷⁷`.
+- **Departures on actual integers**, for every exact order `n = 14..1000` (least `ℓ`):
+  - formula (8) holds along the forced prefix, with `x_k < z + 115`;
+  - the first departure matches the short formula (484 cases) or the long formula (503 cases);
+  - `S^t(x_i) < Q` and `2^t(S^t x_i + 1) ≤ 3^t(x_i + 1)` for `t ≤ 12`.
+
+  Long branches with each prescribed `j = 1..8` were built from congruence (10) for every `n ≤ 400` that admits one. All 1,584 cases have actual valuation `e + j`. The phase shift `i(n + 739) = i(n) + 377`, with the same numerator and valuation, holds for `n = 147..1624`. The constant `551425372148651686473501` is reproduced.
+- **Joint cases.** There are 209 cases, with `r ∈ {0,…,5, 8, 16, 32, 64, 128}` and `h = 18..36`. In each one, `S^(18+12r)(Q) = Y(Ψ^r z)` holds by direct iteration with valuations `W_Q·W_R^r`. Also `h = v2(7153v_r + 299947)`, there is no further guarded re-entry, and the lower-departure checks above pass.
+
+**R94.**
+
+- **Centers.** These hold:
+  - `q* = −515908491727/11404192419`, where `11404192419 = 7153·3¹³`;
+  - `ℓ* = −22852975802/34212577257`, with `v2 = 1`, `v2(q* − Q₀) = 46` and `v₀(ℓ*) = v*`;
+  - the three `p*_c` in the table, and identity (7).
+- **Shadows.** From `q*`, the 18-prefix has the Q word's valuations and reaches `Y*`; the 12-word then returns to it. All 31 states are negative. The 112-arrow orbit of `p*_2` ends at `1663/7153`. All its earlier states are negative, none equals an upper state, and none exceeds 80 bits.
+- **Cylinders.** I built main's plan independently: `c ∈ {0,1,2}` and `K ∈ {0,1,2,4,…,128}`, plus `K = 16` with `R ∈ {1,4,16,128}`. That gives 39 cylinders and 156 replayed positive pairs. Each pair follows both shadow words exactly, has no common state at clocks `a, b ≤ K`, and has `v2(7153v₀ + 299947) ≥ 19R + 18`. For `c = 0`, every nonnegative integer root is `j = 0`, where parent and child coincide. The least member's first actual meeting comes at clocks such as (789, 761) for `K = 128` and (7569, 5780) for `R = 128`.
+
+**Later-target probe.**
+
+- **Paths.** `S⁷⁸(Q) = y` (cost 122) at `r = 4`, and `S¹²⁶(Q) = y` (cost 198) at `r = 8`.
+- **The `r = 4` witness.** `z = ν(y) > Q`. The native high request has rank `12394992435083808082727736545692914847 > Q`. The point origin `p = (2z − 1)/3 > Q` is canonical, with `T(p) = z`.
+- **Ray cutoffs.** `J = 122` at `r = 4` and `J = 196` at `r = 8`. The allowed indices are `L ≤ (11, 10)` and `L ≤ (18, 17)`. Every ray base satisfies `T(a_L)` = target.
+- **Endpoints.** All 23 and 37 maximal endpoints, respectively, exceed `Q`. The `r = 8` `(L, h)` table and `min(p − Q)` match.
+
+The seventeen-family dispatcher result and the R44 repair are not checked here.
+
+`python3 sidekick/probes/r93_r94_check.py` (about 2 s; receipt alongside)
+
+---
+
 ## 2026-10-18 07:02 — VERIFIED: R92 at two concrete sources by independent inverse-tree search; R25's inverse table checked by brute force; R92's sixteen tails match the 06:34 classification (main `61fd041`); ACK review of `86ead16`
 
 These checks use this branch's own `step` and `ν`, not main's code.

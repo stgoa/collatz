@@ -352,6 +352,7 @@ The appendix is pinned at side commit `7150f31` and main commit `ea3278e`. Times
 | R25 (inverse table) | 07:02 (`r92_inverse_tree_check`): brute-force completeness for 750 targets below 3000 | independently checked (finite) |
 | R90 | 06:27 (`r90_phi_return_check`): both twelve-arrow return words (2,000), `T¹²(3v) = 3Φ(v)` on the re-entry cylinder (500), re-entry counts (3,000) | independently checked (finite) |
 | R61, R65, R66, R67 | 06:14 (`batch_r61_r67_check`): R61's exit and the `r ≥ 16` threshold (132), R65's triple bijection and arrows (10,000), R66's ternary identity (2,990), R67's count formula (3,000) | independently checked (finite) |
+| R93, R94 (main working copy on `61fd041`) | 07:33 (`r93_r94_check`): R93's identities, the 53/7153 shadow certificate, departures for every exact order `n = 14..1000` plus 1,584 prescribed long branches, 209 joint upper/lower cases; R94's centers, shadow words and all 39 cylinders with 156 replayed pairs; later-target paths, ray cutoffs and endpoints | independently checked (finite; dispatcher claims not rebuilt) |
 | R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R42, R63, R68–R70, R72, R76, R82, R87, R89 | none | not touched |
 
 ### A.2 Main's reviews of side-lane claims
