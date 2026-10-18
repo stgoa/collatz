@@ -20,11 +20,17 @@ smaller mandatory pair. R67's larger leader remains terminal. R74 proves
 integer realizability of every finite mixed exit18 return word and excludes
 positive eventually periodic survivors, while leaving possible aperiodic
 ones despite their sparse counting bound.
-The current focus is joint cancellation resolving that retained leader, or
-a constraint on the same integer across unbounded prefixes. Rational scaling
-changes the integer lattice. The seventeen-family dispatcher remains
-unchanged; sigma rules still need R62's compatibility test. Universal
-current supply and Collatz remain open.
+R75 now retains both critical pair types before translating sigma plans
+into rho-valid comparisons. Old rho plans remain valid in that enlarged
+basis; the whole R67 guard requests a smaller W9 pair. Its terminal input
+is still required, and the exceptional W9 elimination returns a positive
+self-request. R76 excludes one uniform fixed-word partner model, while
+R77 gives a same-seed complexity constraint and an exact finite subsystem
+exit bound. High-complexity infinite survivors remain open. The current
+focus is supplying the enlarged compiler's terminal inputs. Rational
+scaling changes the integer lattice. The seventeen-family W5 dispatcher
+and frozen internal resolvers remain unchanged. Universal current supply
+and Collatz remain open.
 No novelty is claimed. Integration and verification are recorded at the end.
 
 Started 2026-10-17 from clean pushed commit `ce56699`.
@@ -2584,3 +2590,158 @@ Temporary handoff files are `/tmp/collatz_r67_fixed_word_scope.md`,
 If pursued, inspect and independently replay them, then retain a portable
 proof/checker before promoting any conclusion. The current verified batch
 does not depend on those temporary files.
+
+## 2026-10-18 — Current batch: retain the critical basis before translating ranks
+
+Started from clean pushed `aefdf60`. The preceding turn completed the user's
+PR review, independently rechecked its false-analogue control and reproduced
+the same-cost certificate counterexample. This is completed review work;
+it supplies no new universal-current theorem. PR1 remains the sole merged
+PR returned by the remote query and is already incorporated.
+
+The independent feed was refreshed and read at
+`d3a91fe33f2c4cd1dcdc0576b78558963278f4f8`. Its R73/R74 probe was inspected
+and reproduced unmodified, with its pinned independent step implementation,
+in temporary storage. The published receipt matched byte for byte: 4,000
+members of each pair identity and 600 finite return words. These checks
+support the stated finite arithmetic; they do not establish an infinite
+integer itinerary or universal supply. The side branch was unchanged.
+
+### R75: translate the rank rules in the full critical basis
+
+The [proved compiler](critical_basis/CRITICAL_BASIS.md) retains R37's
+W5 union W9 source basis. Its formal absorption requests have critical
+rank at most the normalized seed. Every returning W5 child u has an exact
+comparison to a W9 leading input b=(4u-3)/9 of rank sigma(u), plus strictly
+smaller helpers. Replacing each such child with its full signed multiplier
+translates every sigma-valid W5 plan into a rho-valid critical-basis plan.
+Old rho plans remain valid unchanged. This changes intermediate requests;
+it does not claim a common rank on all original incompatible edges.
+
+The entire R67 guard now has a decreasing plan: compare q=3w to
+f=(729w+147)/256<q at ordinary clocks(6,1), then use the critical H plans.
+Its unique highest request is the W9 pair f/3 of rankf<q. Its current is
+still missing. The local W9 rule fails exactly at d4 with noncanonical3z;
+substituting its returning input restores self coefficient+1 and lower
+requests. A proposed stronger universal zero-current undo was refuted:
+u453,b201 leaves a nonzero14-row current and `{201:1,5:1,25:1}`. That
+counterexample is retained. It does not affect the positive self-request
+obstruction or the rank-translation theorem.
+
+The default replay checks512 H plans,256 returning conversions,512 W9
+rows,116 signed sigma translations,32 unchanged rho plans and eight
+whole-guard examples. Three supplied-current demonstrations retain all
+inputs and40/86/15-row outputs. Missing and malformed supplies, negative
+multipliers, wrong parents, expanding/self requests and resource caps are
+checked. The receipt pins32 reachable local sources. Independent review
+also checked64 random128-bit returning inputs,32 random128-bit guard inputs
+and231 W9 cases through d80 using separate arithmetic. Proof/code review
+and the frozen default replay passed.
+
+### R76: finish the complete fixed-word scope audit
+
+The preceding temporary candidate is now the
+[retained exhaustive theorem](uniform_pair_scope/UNIFORM_PAIR_SCOPE.md).
+The all-n slope argument bounds lower inverse depth by11; proved valuation
+bounds exhaust every smaller affine W5 partner with four fixed ordinary
+valuation words. The constructor's1110 nodes and independent exact-length
+enumeration's3401 nodes/450 complete words give the same43 candidates,
+with no upper fixed-path intersection. The full candidate receipt and
+portable replay are saved. Additional checks cover215 direct instances,
+256 small paths,12 domain boundaries and20 invalid inputs. Independent
+enumeration and root proof/source/default review passed.
+
+This excludes exactly the stated whole-guard model. Variable valuations
+at fixed clocks, refined domains, other pair types, non-affine partners
+and joint currents remain outside it. The enlarged R75 construction uses
+an additional source type and is consistent with this exclusion.
+
+### R77: one fixed seed cannot repeat factors too early
+
+The [same-seed theorem](itinerary_complexity/ITINERARY_COMPLEXITY.md) uses
+the actual integer difference between repeated factor starts. Their one
+complete cylinder forces divisibility by2^(26+e), while the shifted real
+height grows by at mostLambda=3^24/2^37 per macro. Any positive infinite
+V/R survivor must have liminf p(L)/L>=19/log2(Lambda)>18. This rules out
+specified low-complexity words while permitting higher-complexity aperiodic
+ones; infinite survival remains a hypothesis.
+
+The same inequality proves that every seed at most
+260028359941009900571662033 leaves this subsystem before37 returns:
+33 length-five factors would otherwise be distinct, but only32 exist.
+This is an exact all-seed finite bound, not a scan or an absorption theorem.
+An exact formula also gives every fixed word's maximum consecutive-copy
+count; V return counts differ by one from old R67 guarded-block counts.
+An explicit sequence with real limit0 and2-adic limit1 prevents the
+unjustified identification of those completions.
+
+The replay checks62 affine words,186 lifts,630 copy counts including90
+zero-copy cases,12 V/R67 boundaries,32 traces,11242 repeated factors
+including524 overlapping ones,45 exact complexity thresholds, eight cutoff
+formulas,62 negative rational periodic words,80 completion controls and12
+invalid inputs. Independent proof/code/default review and root review passed.
+
+### Integration and next obligation
+
+The three implementations and receipts are frozen and registered in the
+repository gate. The existing TeX was updated in place and compiled
+successfully with the native compiler. README, agent rules, ledger and
+the pinned side-feed review record the new standing. Full verification
+passed; its scope and authorized Git delivery are recorded below.
+
+Next: supply the critical-basis compiler's retained W9 d4 inputs and
+unresolved nonreturning W5 inputs through comparisons that pass their own
+original rank. Re-expanding a W9 input into a higher W5 request recreates
+the old difficulty. A same-seed argument would need to handle the remaining
+high-complexity itineraries and all subsequent exits. The seventeen-family
+W5 dispatcher and frozen internal resolvers are unchanged. This batch is
+verified local progress; universal current supply and Collatz remain open.
+
+### Next-batch planning lead, not an additional result
+
+A separate agent inspected the blocked W9 input at its own original rank
+while the repository gate was running. Its temporary handoff proposes the
+complete exponent-five family
+
+    t = 191 mod 1728, t >= 191,
+    b = (128t-13)/27, c = (27t-1)/4,
+    D = v2(9c-1).
+
+The reported continuation accepts all rows except D=4 or D=6 with the
+R40 upper parameter 3z noncanonical. The successful mechanism is already
+implicit in R52, so this is not new W5 coverage. The proposed remaining
+leading requests are, respectively, W9 input `(729b+223)/512` and
+nonreturning W5 input `(19683b+12677)/8192`; each still exceeds the original
+rank 3b. Those exact rows are candidates for the next constructive audit.
+
+The agent reports 60 exact finite cases, 58 accepted and two retained
+failures, with no discrepancy against its old-R52 comparison. Root read
+the handoff but has not independently replayed or reviewed this argument.
+It is not an R-series theorem, a dispatcher addition, or a premise of
+R75–R77. The temporary files are
+`/tmp/collatz_critical_nine_native.md`,
+`/tmp/collatz_critical_nine_native.py`, and
+`/tmp/collatz_critical_nine_native.json`. Future work must independently
+check the phases, full signed currents and comparison to R52 before
+promoting any claim. The formulas and limitations above persist the
+planning target even if the temporary files disappear.
+
+### Final verification and delivery
+
+`python3 scripts/verify_all.py --cpp` passed with exit 0. The three new
+checkers, every historical and negative-control receipt, all 31 original
+manifest entries and both independent C++ cutoffs (4096 and 262144) passed.
+The full run log is `/tmp/collatz_critical_basis_full_gate.log`. The
+mathematical implementations and receipts were frozen before this run;
+subsequent edits affected shared prose and the existing proof document.
+The latter passed the native compiler after its final wording corrections.
+
+Independent proof/code/default audits passed the new results. Shared-record
+review checked formulas, signs, ranks, clocks and cutoff scope; its two
+wording clarifications were adopted. Mechanical checks passed for 21 scoped
+files, 476 local Markdown links, 73 unique TeX labels, 121 resolved references,
+source hashes, LF endings, JSON parsing and whitespace. The final remote
+refresh found main unchanged at `aefdf60`. The reviewed batch is prepared
+for the authorized commit and push, recorded by the accompanying Git history.
+The universal-current research goal remains open. The separate planning
+lead above was not promoted or used as a premise of the verified results.

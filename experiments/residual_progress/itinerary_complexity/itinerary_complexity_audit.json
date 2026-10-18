@@ -1,0 +1,151 @@
+{
+  "affine_and_repetition": {
+    "V_guard_boundary_cases": [
+      {
+        "R67_guarded_blocks": 1,
+        "Y_order": 26,
+        "complete_V_returns": 0
+      },
+      {
+        "R67_guarded_blocks": 1,
+        "Y_order": 27,
+        "complete_V_returns": 0
+      },
+      {
+        "R67_guarded_blocks": 1,
+        "Y_order": 37,
+        "complete_V_returns": 0
+      },
+      {
+        "R67_guarded_blocks": 1,
+        "Y_order": 44,
+        "complete_V_returns": 0
+      },
+      {
+        "R67_guarded_blocks": 2,
+        "Y_order": 45,
+        "complete_V_returns": 1
+      },
+      {
+        "R67_guarded_blocks": 2,
+        "Y_order": 46,
+        "complete_V_returns": 1
+      },
+      {
+        "R67_guarded_blocks": 2,
+        "Y_order": 63,
+        "complete_V_returns": 1
+      },
+      {
+        "R67_guarded_blocks": 3,
+        "Y_order": 64,
+        "complete_V_returns": 2
+      },
+      {
+        "R67_guarded_blocks": 3,
+        "Y_order": 82,
+        "complete_V_returns": 2
+      },
+      {
+        "R67_guarded_blocks": 4,
+        "Y_order": 83,
+        "complete_V_returns": 3
+      },
+      {
+        "R67_guarded_blocks": 5,
+        "Y_order": 102,
+        "complete_V_returns": 4
+      },
+      {
+        "R67_guarded_blocks": 6,
+        "Y_order": 121,
+        "complete_V_returns": 5
+      }
+    ],
+    "affine_words": 62,
+    "complete_cylinder_lifts": 186,
+    "copy_case_digest": "6c79879d714e31b191e646026d49b951f707c0cfbddcffa6122c7ddfe9f1e909",
+    "copy_count_cases": 630,
+    "zero_copy_cases": 90
+  },
+  "all_positive_survivors_excluded": false,
+  "complexity_and_finite_cutoffs": {
+    "conditional_complexity_lower_slope": "19/log2(3^24/2^37)",
+    "pigeonhole_cutoffs": [
+      {
+        "factor_length": 1,
+        "forbidden_return_prefix_length": 3,
+        "positive_seed_cutoff": 8331999926942
+      },
+      {
+        "factor_length": 2,
+        "forbidden_return_prefix_length": 6,
+        "positive_seed_cutoff": 1034471732129150114
+      },
+      {
+        "factor_length": 3,
+        "forbidden_return_prefix_length": 11,
+        "positive_seed_cutoff": 30414974064975814347455
+      },
+      {
+        "factor_length": 4,
+        "forbidden_return_prefix_length": 20,
+        "positive_seed_cutoff": 50148180279227137835149644
+      },
+      {
+        "factor_length": 5,
+        "forbidden_return_prefix_length": 37,
+        "positive_seed_cutoff": 260028359941009900571662033
+      },
+      {
+        "factor_length": 6,
+        "forbidden_return_prefix_length": 70,
+        "positive_seed_cutoff": 13334657823188416130889
+      },
+      {
+        "factor_length": 7,
+        "forbidden_return_prefix_length": 135,
+        "positive_seed_cutoff": 66885810
+      },
+      {
+        "factor_length": 8,
+        "forbidden_return_prefix_length": 264,
+        "positive_seed_cutoff": 0
+      }
+    ],
+    "scope": "Conditional threshold tests and arithmetic cutoffs; no survivor is supplied.",
+    "strict_lower_constant_test": "3^432 < 2^685",
+    "threshold_cases": 45,
+    "threshold_digest": "bea777c400db51397f28524a7fc74784315def4b34934ec8c93bba22425fe734"
+  },
+  "finite_repeats": {
+    "exact_growth_checks": 2070,
+    "maximum_symbols": 64,
+    "overlapping_factor_checks": 524,
+    "positive_finite_traces": 32,
+    "repeat_digest": "89304274a486ae8b629379538a8d040a7f684d0ba9027a8826a538c462220817",
+    "repeated_factor_checks": 11242
+  },
+  "invalid_inputs": {
+    "absorbing_one_rejected_outside_guard": true,
+    "empty_finite_trace_accepted": true,
+    "rejected_cases": 12
+  },
+  "negative_and_completion_controls": {
+    "completion_control_digest": "2328f146414ab358170264ef680763ca3f310f1025d5e45f469ab0bf47766694",
+    "different_completion_limit_cases": 80,
+    "negative_rational_periodic_words": 62,
+    "periodic_control_digest": "0a5fe7e9bd9cce7a59a31b1d15768fbbc08cd97dbd711a4d535d5549b6df2401",
+    "periodic_guarded_rational_steps": 774,
+    "scope": "Negative rational controls and a limit-inference counterexample, not positive survivors."
+  },
+  "new_current_or_dispatcher_rule": false,
+  "positive_infinite_survivor_constructed": false,
+  "source_hashes": {
+    "experiments/residual_progress/integer_prefix/INTEGER_PREFIXES.md": "57dc51cc30be8e1083d6229399743d71b21b69f5a5708ac543f9907171f69cae",
+    "experiments/residual_progress/itinerary_complexity/ITINERARY_COMPLEXITY.md": "6c54a8d0e6fbe870125e7d5a9d8632c9e90f363490a0ee6093b8f8a1ffc3820a",
+    "experiments/residual_progress/itinerary_complexity/check_itinerary_complexity.py": "41dfff24a65c82871664899e1deb6b40bed0d356d709d36bf7d205cf76f3f518",
+    "experiments/residual_progress/itinerary_complexity/itinerary_complexity.py": "d30c486a9f97aa8ac9425c8db8db4f8a8edab9b14804aa1683fc533ac8507a79"
+  },
+  "status": "PASS"
+}

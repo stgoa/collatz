@@ -419,3 +419,19 @@ construction must handle the retained leading request, or a same-seed
 unbounded-prefix condition; more finite acceptance counts alone will not
 meet that obligation. This assessment preserves the exact-current programme
 and its controls without claiming the remaining problem is solved.
+
+The subsequent [critical-basis result](../../experiments/residual_progress/critical_basis/CRITICAL_BASIS.md)
+makes the change more precise: retain W9 inputs before translating sigma
+plans into rho-valid plans. The whole growing guard then has a smaller W9
+premise; its old higher W5 request need not be introduced. The auxiliary
+branch still needs a current, and its old elimination returns a self-request.
+This is a coherent conditional construction with explicit unfinished inputs.
+The [same-seed result](../../experiments/residual_progress/itinerary_complexity/ITINERARY_COMPLEXITY.md)
+also excludes low-complexity infinite return words and proves an exact finite
+subsystem exit bound. It does not identify exit with absorption.
+
+The latest side probe, pinned at `d3a91fe`, was reproduced byte for byte;
+[its review](../../experiments/residual_progress/side_lane_review_d3a91fe.md)
+distinguishes endpoint checks from full-current and infinite assertions.
+These developments support keeping the current formulation while changing
+the intermediate source basis and the progress tests.
