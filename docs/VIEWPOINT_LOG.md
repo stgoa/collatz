@@ -1,5 +1,26 @@
 # Viewpoint exploration log
 
+## 2026-10-18 — Recommendation after the user requests a higher target
+
+The user observed that the selected language yielded only a small theorem
+and asked for the next high-level goal. The
+[proposal](NEXT_GOAL_PROPOSAL.md) raises the target to the **full**
+binary-automatic invariant-coloring classification. Another selected
+subclass would be progress, not completion. Mixed ternary closure, direct
+automaton rigidity and a Mahler relation are candidate mechanisms to
+compare. The connection to arbitrary component indicators remains separate.
+This is a recommendation; it does not activate or replace a goal.
+
+Freshly inspected side input is pinned at
+`357c387c600f495041f86b79f447cb840b4a7785` (DIRECTIONS and newest FEED);
+the separate explicit-Tao branch at `478a069` reports a scoped window
+obstruction. Those reports are deferred as mathematical premises pending
+independent checking. Existing D-numbered dispositions remain unchanged.
+Remote main now contains merged PR2's Lean-audit records; the clean local
+checkout was fast-forwarded to it. The proposal records the exact branches,
+completed versus unfinished receipt scopes and the absence of a new replay.
+No mathematical proof, evidence or code was modified for this strategy note.
+
 ## V003 — Arithmetic regularity yields a partial classification, 2026-10-18
 
 **Substantive status:** the [report](../experiments/viewpoints/V003/REPORT.md)
