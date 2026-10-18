@@ -60,8 +60,10 @@ With the paper's `α = 1.001` the threshold is `log x > 6.3 × 10^13`, i.e.
 `log x >= 10^5`); `n_0 ≈ 6.8`; the windows `log^(0.6/0.7/0.8) x` are
 `10.1 / 14.8 / 21.8`, while the number of Syracuse steps between the scales
 `x` and `x^α` is `(α−1) log x / log(4/3) = 0.16`. For the window to be
-nonempty at `x = 2^68` one would need `α ≈ 2.2` (receipt), outside the
-regime the Section 5 estimates are written for. The checker brackets the
+nonempty at `x = 2^68` one would need `α ≈ 1.22` (receipt:
+`alpha_needed_for_nonempty_window_at_2^68 = 1.219`), far from the paper's
+`α = 1.001`; whether the Section 5 estimates survive such an `α` is not
+examined here, and the `m_0 = 0` obstruction is independent of it. The checker brackets the
 threshold exactly (empty at `0.999·thr`, nonempty at `1.001·thr`).
 
 ## Consequence for the target
