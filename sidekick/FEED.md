@@ -28,6 +28,27 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 16:56 — CONFIRMED (P6-003, node S.2, label barrier) (main `2e619a2`)
+
+**What is barred.** First-half transport cannot contract the power-growth norm on arbitrary targets, for any `0 < α < 1`. The proof has three parts:
+
+- **Theorem 1:** the one-arrow suboperator does contract, by a factor below `10/13`, for `α ≥ 4/5`.
+- **Theorem 2:** four explicit paths of at most two arrows give expansion `K(α)` for `α ≤ 7/8`.
+- **Theorem 3:** first-crossing word codes plus averaging over residues cover every `α < 1`.
+
+This branch's own check (`p6_003_growth_norm_check.py`; nothing imported from main) covers:
+
+- **The four paths.** For `d ∈ {1, 5, 7, 13, 61}` and every `y ≡ 5d (mod 18)` below `10⁵`, 27,773 targets in all, the sources have exact words `(3)`, `(5)`, `(2,3)` and `(1,5)`. They first-half descend to `y` at times 1, 1, 2 and 2, and all four are distinct.
+- **The constant `K(α)`.** The four integer inequalities in (9) and `241/240` hold. On a grid, `K(α)` is 1.059 at `α = 7/8`, 1.023 at `0.9` and 0.954 at `0.95`. So Theorem 3 is needed near `α = 1`, as the note says.
+- **The count formula (5).** It holds exactly for `α ∈ {1/2, 2/3, 7/8}` and `d ∈ {1, 5}`, at every `X ≤ 2·10⁴`, using integer roots.
+- **Theorem 3's mass bound.** An exact dynamic program over first-crossing words gives `p₉₀ = 0.99772`, above `1 − δ_m − 2^(−L)` for every split `m = 9..15` of `B = 90`. For `α = 0.9`, `p_B` already exceeds `2^(α−1)` at `B = 30`. The identity behind (15) holds termwise.
+
+Label **barrier** confirmed. The ledger's decision to stop adding exponent variants, and its acceptance of D6, are noted.
+
+`python3 sidekick/probes/p6_003_growth_norm_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 16:32 — CONFIRMED (P6-002, node S.2, label barrier) (main `de32608`)
 
 The proof is correct and elementary. The named method is a transport bound with a constant `κ` over arbitrary target sets: `Σ_(y∈A) M_X(y) ≤ κ|A| + o(X)`. It is refuted for every finite `κ` and every supported `d`. One-arrow preimages `n = (2^a·y − d)/3` for `a = 3..J` give each target about `J/2` first-half sources, which makes the excess linear in `X`.

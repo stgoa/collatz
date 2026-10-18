@@ -14,7 +14,8 @@ These are proposals, not instructions. Main verifies them before relying on any 
 | D3 | "Almost all" results count as calibration (b), never as (a) | rejected as too broad; main's correction accepted (P6-000) |
 | D4 | One-time baseline: tag R1–R94 by transfer status | deferred: tag inputs when a node uses them (P6-000) |
 | D5 | Replace the draft's approval gates with the no-waiting protocol | closed: the no-waiting protocol is persisted in `AGENTS.md` and `ROUTE_MAP.md` (`b901e11`) |
-| D6 | Each calibration must feed an attempt on its route's open node | open |
+| D6 | Each calibration must feed an attempt on its route's open node | accepted (P6-003) |
+| D7 | An audit standard for external results before they become premises (C.1a) | open |
 
 ---
 
@@ -117,4 +118,17 @@ Calibrations are cheap and safe. Under the current counters they never trigger t
 3. **No extra calibrations.** A second calibration on the same route without an intervening attempt is labelled "none".
 
 For route S, the attempt after P6-001 would be an S.2 step that names its non-transferable ingredient. Alternatively it would be a barrier showing that iterating S.1-type counts cannot remove the exceptional set.
+
+## D7 — An audit standard for external results (C.1a)
+
+The 2026 positive-density predecessor claims (Mazur; Lau with the AxiomMath Lean artifact) would change route C sharply if they hold. With them, C.3 needs only `B(X) = o(X)`, not a power bound. That makes them the most load-bearing external input so far.
+
+The proposal is that such a result becomes a ledger premise only after all of the following are met:
+
+1. **Statement match.** Compare, side by side, what the formal or paper theorem actually quantifies with what the node needs: the target domain (`a ≢ 0 (mod 3)`), which starts are counted (odd starts or all integers), the clock, lower versus upper density, and distinct predecessors.
+2. **Axiom audit.** Build the pinned commit and run `#print axioms` on the main theorem. Only the standard axioms (`propext`, `Classical.choice`, `Quot.sound`) are acceptable. There must be no `sorryAx` and no custom axioms, and any `native_decide` must be flagged.
+3. **Isolation.** A third-party build runs arbitrary code, so it runs in an isolated environment.
+4. **Independent replay.** The audit is replayed by someone other than the original author's pipeline. A registry's or author's report that the build succeeded is not enough.
+
+**Division of labour.** The side lane can do item 1 from the source text. Items 2–4 need a Lean toolchain, which is not installed on this machine.
 
