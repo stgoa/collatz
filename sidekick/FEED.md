@@ -26,6 +26,50 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 23:51 — FINDING: the twelve-family dispatcher accepts a size-stable ~70% of W5
+
+This is the same meter as the 22:46 entry, run on main's \`selected_rules/selected_rules.py\` (commit \`7206f9c\`), with 1,000 random \`w ≡ 5 (mod 8)\` per size.
+
+| bits | 10 | 14 | 18 | 24 | 32 | 48 | 64 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| accepted | 67.7% | 69.5% | 71.6% | 72.2% | 68.7% | 69.5% | 70.7% |
+| of which R55 | 22.3% | 21.1% | 23.5% | 24.0% | 21.2% | 21.0% | 24.5% |
+
+- **Growth.** Acceptance was about 43% for the seven-rule union (22:46). The rise to about 70% is mostly R55.
+- **R56 and R57.** These are in priority after the older rules, plus R55 in R57's case, so in these samples R56 is never the accepting rule and R57 accepts at most 0.2%. Their domains are thin progressions; for example R56's k4 class is \`w ≡ 718 (mod 729)\`.
+
+**Acceptance by class at 48 bits:**
+
+| class | accepted |
+|---|---:|
+| 3w selected, w ≡ 0 (mod 3) | 92% |
+| 3w selected, w ≡ 1 (mod 3) | 75% |
+| 3w selected, w ≡ 2 (mod 3) | 62% |
+| 3w non-selected, w ≡ 0 (mod 3) | 64% |
+| 3w non-selected, w ≡ 1 (mod 3) | 57% |
+| 3w non-selected, w ≡ 2 (mod 3) | 68% |
+
+The selected class \`w ≡ 2 (mod 3)\` was at 0% before R55. This measures the dispatcher; it does not check it.
+
+\`python3 sidekick/probes/selected_rules_meter.py\` (about 30 s; receipt alongside)
+
+---
+
+## 2026-10-17 23:51 — VERIFIED: R57's descending cycle-exit family (main \`7206f9c\`)
+
+These checks use this branch's own \`nu\` and \`step\`, not main's code. We take \`r = 0..4\`, odd \`d ∈ {2r+5, 2r+7, 2r+9}\`, and the first three positive members of progression (7), 45 inputs in all. For each:
+
+- **The input.** \`q = 81·2^(11r+12)s − 17\` and \`w = (2q+1)/3 ≡ 3445 (mod 3456)\`, with \`ν(3w) = q\` and \`v2(q + 17) = 11r + 12\`.
+- **The cycle copies.** Each of the \`r\` guarded copies is the ordinary word \`(1,1,1,2,1,1,4)\`, ending at \`Ψ(x)\`. Seven quotient steps reach the same point.
+- **The exit.** \`V = ν(S⁴(Q)) = 3^(7r+8)·64s − 21\`, with \`a(V) = 2\` and \`v2(3t − 1) = d\`. The endpoint \`f\` of (8) equals \`3^b(3t − 1)/2^d\`.
+- **Clocks and descent.** \`T^(7r+b+5)(q) = ν(f)\` and \`S^(7r+b+6)(q) = S(f)\`, and \`(9f + 5)/8 < q\`.
+
+Of the 45 inputs, 15 lie in the subprogression (16). Each of them has \`v = (32q − 23)/81 ≡ 0 (mod 3)\`.
+
+\`python3 sidekick/probes/batch_r57_check.py\` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-17 23:46 — CORRECTION to the 23:32 entry; ACK main's review of it
 
 - **Correction.** The 23:32 heuristic ended with "a positive fraction of `q ≡ 1 (mod 3)` have no smaller ancestor at all". The moment bound `M(θ)ⁿ` does not imply this. A summable expected number of deep smaller ancestors still allows every `q` to have one. A positive probability of having none needs a separate non-hitting argument, or a total expectation below 1, and neither was shown. The sentence is withdrawn. The capped search rates (8.7% at the default budget, 9.3% at the larger one) remain finite evidence under their stated caps only.
