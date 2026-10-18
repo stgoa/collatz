@@ -7960,6 +7960,174 @@ contraction. The named point inverse returns to $Z$ exactly.
 Complete phase proofs, signed rows and supplied finite demonstrations
 are in \texttt{retained\_history/RETAINED\_HISTORY.md}.
 
+\section{Complete exits of the retained growing word}
+
+Set $A=3^{12}$, $M=2^{19}$, $B=299947$, $D=A-M=7153$, and
+\[
+ \Phi(v)=\frac{Av+B}{M},\qquad L(v)=Dv+B,\qquad
+ \gamma=A/M>1.
+\]
+The broader binary guard is $v\equiv133797\pmod{2^{18}}$.
+Its two ordinary valuation words, starting respectively at $6v+1$ and $3v$,
+are
+\[
+ (1,1,1,1,3,1,4,1,2,1,1,2),\qquad
+ (1,1,1,2,1,1,4,1,2,1,1,2).
+\]
+Both have twelve arrows and end at $6\Phi(v)+1$ on the complete
+cylinder $v\equiv133797\pmod{2^{19}}$. Their valuation sums are19 and18.
+On a guarded re-entry the quotient clock is separately
+$T^{12}(3v)=3\Phi(v)$.
+
+\begin{theorem}[Guarded return and complete exit interface]
+\label{thm:phiexitcontrol}
+A positive guarded $v$ has exactly
+\[
+ r=\left\lfloor\frac{v_2(L(v))-18}{19}\right\rfloor
+\]
+consecutive guarded re-entries. Every prescribed finite $r$ occurs in the
+original coupled cell
+\[
+ v_0=67839005952677+2^{18}3^{18}\ell,\qquad
+ Q=70506316836123+3\cdot2^{45}\ell,\quad \ell\ge0.
+\]
+At maximal exit $h=v_2(L(v_r))\in\{18,\ldots,36\}$.
+Each of these nineteen complete cells has a fixed ordinary prefix from
+$6v_r+1$, followed by one arbitrary exact valuation $a\ge p$.
+Every such refined cell has an explicit nonempty binary cylinder and
+pullback to the original $\ell$ progression.
+The full original comparison has quotient clock $18+12r$ and ordinary
+clocks $(23+12r,5)$.
+\end{theorem}
+\begin{proof}
+The affine identity $L(\Phi(v))=\gamma L(v)$ consumes19 binary digits,
+gains12 ternary digits and increases $v$. The guard is exactly
+$2^{18}\mid L(v)$. Thus at least $r$ re-entries have complete cylinder
+$v_0=-BD^{-1}\pmod{2^{19r+18}}$. Its intersection with the displayed
+original cell is nonempty because $3^{18}$ is odd. The original cell has
+$v_3(L(v_0))=4$; it is not invariant under the return.
+
+For each $h$, start with
+$v=c_h+2^{h+1}t$, where
+$c_h=(2^h-B)D^{-1}\pmod{2^{h+1}}$.
+An affine state $x=\alpha t+\beta$ has a fixed next valuation whenever
+$v_2(3\beta+1)<v_2(3\alpha)$. Exact iteration gives all nineteen fixed
+prefixes. At the first variable arrow put
+$p=v_2(3\alpha)$, $u=3\alpha/2^p$ and $z=(3\beta+1)/2^p$.
+Then the exact valuation $a=p+j$ is equivalent to
+\[
+ t=(2^j-z)u^{-1}\pmod{2^{j+1}},\qquad j\ge0.
+\]
+This retains the extra bit and covers every possible next valuation.
+The full table, affine pullbacks and exact original-$Q$ endpoint inequality
+are in \texttt{phi\_exit\_control/PHI\_EXIT\_CONTROL.md}.
+The ordinary words concatenate with the original18-arrow prefix;
+the selected terminal sibling supplies the separate five-arrow tail.
+\end{proof}
+
+Writing $v_i=\Phi^i(v_0)$ and $b=Q/3$, the full conditional plan is
+\[
+ P(b)=\operatorname{div}(K_i+\widehat J_{v_i}-\widehat J_b)
+       +(\{v_i:+1\}+A_{v_i}-A_b)\cdot P,
+ \qquad \operatorname{div}K_i=[Q]-[3v_i].
+\]
+The unique highest request is $P(v_i)$ with coefficient $+1$ and
+rank $3v_i>Q$. Other requests are below that larger rank, but need not
+all lie below the original $Q$ for arbitrary $i$.
+A fresh ordinary continuation from $Q$ to an exit $y$ has vector $A_y-A_b$.
+Every negative request is below $Q$; additional forward history alone
+creates no high negative cancellation. The countdown proves departure
+from this one growing word, not supply or termination across subsequent exits.
+
+\section{A complete rational basin and an inverse precision barrier}
+
+The following theorem uses a finite exhaustive calculation as part of its
+proof. The infinite inverse-word quantifier is reduced to that calculation
+by an explicit first-counterword bound.
+
+\begin{theorem}[Rational inverse slope and original-source exclusion]
+\label{thm:shadowprecision}
+Put $c_0=-899841/7153$, with $\gamma$ as above. For every legal canonical
+quotient inverse word from $c_0$, of length $d$ and affine slope $\lambda$,
+allowing every ray index,
+\[
+ \lambda\gamma^{k(d)}\ge1,
+ \qquad k(d)=\max\{0,\lceil(d-5)/12\rceil\}.
+\]
+For every original coupled source in Theorem~\ref{thm:phiexitcontrol}
+with at least $r$ guarded returns, put $n_r=3\Phi^r(v_0)$.
+No positive canonical $p\le Q$ satisfies
+\[
+ T^d(p)=n_r,\qquad d\le12r+5.
+\]
+There is no restriction on intermediate heights. The known original
+source satisfies $T^{18+12r}(Q)=n_r$, thirteen steps beyond this exclusion.
+\end{theorem}
+\begin{proof}
+Extend the residue-defined normalizer to odd rational numerators over
+$D=7153$, coprime to $D$. Signed valuations use absolute values.
+Reduced denominators are preserved, so the exceptional values $-1$ and
+$-1/3$ do not occur. The complete inverse formulas remain valid.
+Every inverse arrow $x\mapsto\alpha x+\beta$ obeys
+\[
+ \alpha\ge2/3,\qquad \beta\ge-1/3,\qquad \alpha-\beta\ge1.
+\]
+Hence all inverse shadows from $c_0$ lie below $-1$.
+For $x=-u/D$, put $t=u-D>0$. An inverse arrow gives
+$t'=\alpha t+D\delta$, where $0\le\delta<\alpha$.
+
+Suppose a word first makes $\lambda_d\gamma^{k(d)}<1$.
+Every proper prefix has score at least1. Since each positive value of
+$k(j)$ occurs at twelve depths and $k=0$ at six depths,
+\[
+ t_d<892688+D\sum_{j<d}\gamma^{k(j)-k(d)}
+     <892688+\frac{12D\gamma}{\gamma-1}
+     =892688+12\cdot531441.
+\]
+Thus its origin is a primitive odd canonical $-u/D$ with
+$7153<u<7277133$. This bounds the origin, not intermediate states.
+
+The signed rational forward map is deterministic. Exhaustive Python and
+independent C++ classifications resolve all1,732,883 eligible origins.
+Exactly19 reach $c_0$; all19 first-hit scores are at least1.
+The target has a twelve-step cycle of exponent sum19, so every additional
+visit adds $(12,19)$ and preserves the score. All other origins have an
+actual path to a classified state, a different detected cycle, or the
+invariant interval $(-1,\infty)$. No cap fires. The largest intermediate
+numerator is1,049,066,989,135. The full hit table, algorithms and receipt
+are in \texttt{shadow\_precision/SHADOW\_PRECISION.md} and its companions.
+This complete finite calculation contradicts the first counterword and
+proves the rational assertion.
+
+For the positive source, $n_r-c_0=\gamma^r(n_0-c_0)$ has ternary order
+$12r+5$. Therefore every actual inverse word of depth at most $12r+5$
+has the same branch residues as its rational shadow. The proved slope
+bound gives $\lambda\ge\gamma^{-r}$.
+Summing possible negative offsets gives
+\[
+ p\ge\lambda\bigl[n_r+1-(3/2)^d\bigr]
+   \ge n_0+1-\frac{243}{32}2^{7r}.
+\]
+Here the bracket is positive: $v_3(L(v_0))=4$ and
+$v_2(L(v_0))\ge19r+18$ imply
+\[
+ L(v_0)\ge81\cdot2^{19r+18},\qquad
+ n_0/2>\frac{243}{32}2^{7r}.
+\]
+The last strict inequality follows already at $r=0$ from
+$243(2^{18}-D/16)>3B$ and strengthens with $r$.
+The original affine formulas give $n_0>2Q$ coefficientwise.
+Consequently $p>Q$, as required.
+\end{proof}
+
+The rational theorem covers all word lengths. Its positive consequence
+has the explicit horizon $12r+5$: deeper actual words need not share the
+same rational branch residues. Longer histories, later common targets,
+other signed comparisons and universal current supply remain open.
+This rules out a proposed use of the accumulated ternary precision alone;
+it does not establish a nonterminating positive orbit or failure of every
+finite current construction.
+
 \section{What this changes, and what remains open}
 The handoff's left-aligned remainder was paid for by a time horizon. That
 created a source/time-domain issue and motivated a uniform positive current
@@ -8166,8 +8334,14 @@ retaining its strict lower history, with a sharp three-node bound.
 The explicit negative-history substitution removes one high negative
 pair, while leaving the positive W5 obligation. Its later raw comparison
 has slope greater than one relative to the old raw state; it is not a
-recurrent contraction. These results favor input-dependent whole-family
-closure over accumulating further bounded local rules alone.
+recurrent contraction. Theorem~\ref{thm:phiexitcontrol} classifies every
+exit of its repeated growth pattern, but leaves positive high requests.
+Theorem~\ref{thm:shadowprecision} excludes all inverse words through the
+ternary precision gained during those repetitions, even with arbitrary
+ray indices. This directs the search toward deeper histories, later
+meeting targets or genuinely different signed comparisons. These results
+favor input-dependent whole-family closure over accumulating further
+bounded local rules alone.
 The next obligation is to supply every
 terminal current by such comparisons or another well-founded closure
 on a complete remaining type. The old $W_5$-only dispatcher is unchanged.
@@ -8215,8 +8389,10 @@ new packets and compares them with direct one-step pushforward for every
 $8\le N\le2048$ and selected larger cutoffs. It also checks the dyadic core
 formula through $b=1000$, the core hitting times, and the exact rational
 comparison constant. Results are saved in \texttt{right\_aligned\_audit.json}.
-These computations check the implementation and examples. The general
-claims above rest on the written proofs and have not received human peer
+Most computations check implementations and examples.
+Theorem~\ref{thm:shadowprecision} additionally uses its complete finite
+rational-basin classification as part of the proof, with independent
+Python and C++ implementations. The results have not received human peer
 review or formal proof-assistant verification.
 
 The continuation scripts in
@@ -8551,5 +8727,13 @@ decisions,9 signed cancellations and35 rejections. Three fully supplied
 outputs contain43,154,232 rows. Every stored input and output is replayed;
 the retained lower relation is explicitly nonzero. These supplied finite
 examples do not supply all terminal currents in the proved domains.
-These audits remain finite evidence for the implementations.
+The Phi-exit checker verifies10 full return plans,19 complete exit rows,
+171 signed exit comparisons,15 modular ancestor certificates and29
+rejections; stored exit plans have156,283,498 rows. The shadow-precision
+checker exhausts all1,732,883 eligible rational origins, with19 target hits
+and no cap, and checks306 positive inverse words across21 families
+through $r=128$. Independent C++ reproduces the complete classification.
+The finite basin is a premise of the first-counterword proof; the positive
+samples alone do not prove the universal statement. No terminal-current
+supply or universal termination follows.
 \end{document}

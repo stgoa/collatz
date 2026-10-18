@@ -204,10 +204,15 @@ def main():
             ("w9_history_repair", "check_w9_history_repair.py"),
             ("history_cell_scope", "check_history_cell_scope.py"),
             ("retained_history", "check_retained_history.py"),
+            ("phi_exit_control", "check_phi_exit_control.py"),
+            ("shadow_precision", "check_shadow_precision.py"),
             ("sufficient_sets", "check_recursive_sieve.py"),
             (".", "check_pair_domain_external.py"),
         ):
-            run([sys.executable, "-B", script], residual_work / directory)
+            command = [sys.executable, "-B", script]
+            if directory == "shadow_precision" and args.cpp:
+                command.append("--cpp")
+            run(command, residual_work / directory)
         # The review checker imports the annular arithmetic implementation;
         # its temporary copy and dependencies now exist at their usual paths.
         run([sys.executable, "-B", "check_review_scope.py"], controls)
@@ -233,6 +238,8 @@ def main():
                          w9_history_repair="PASS: original-rank W9 reduction and retained W5 leaders",
                          history_cell_scope="PASS: complete four-target inverse trees, all-cell lifts and fixed-word scope",
                          retained_history="PASS: sharp three-node W9 repair, retained signed histories and explicit W5 exits",
+                         phi_exit_control="PASS: finite binary countdown, complete nineteen-row exit alphabet and full original-rank signed comparisons",
+                         shadow_precision="PASS: complete 1732883-origin rational basin, all-word slope bound and positive precision barrier" + ("; independent C++ agrees" if args.cpp else "; C++ not requested"),
                          sparse_rays="PASS: five-ray proof arithmetic and finite bases",
                          annular_recursion="PASS: 66 finite full-measure cases",
                          current_obstructions="PASS: finite graphs and delayed separation",

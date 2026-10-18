@@ -1,8 +1,8 @@
 # Residual progress and finite forcing
 
-**Latest standing:** universal tripling currents on W5={5 mod8} suffice, but their universal construction is missing. The retained W5/W9 compiler preserves a common integer rank and every signed dependency. R88 now classifies all smaller histories to four fixed targets on one complete remaining cell through its available ternary precision. A single fixed word cannot cover that whole cell at any depth; this does not exclude input-dependent histories or longer histories at a fixed source.
+**Latest standing:** universal tripling currents on W5={5 mod8} suffice, but their universal construction is missing. The retained W5/W9 compiler preserves a common integer rank and every signed dependency. R90 now controls every exit of the retained Phi growth pattern. R91 proves that its accumulated ternary precision cannot supply a smaller original history, even using arbitrary inverse words and ray indices. Its arbitrary-length rational-shadow theorem reduces to a finite basin of1,732,883 eligible origins, independently classified in Python and C++.
 
-The new R89 construction retains the lower history while enlarging the original-rank W9 window. At most three W9 substitutions leave at most one higher W5 input with coefficient+1. Its coupled-family application supplies a valid repair for a negative high request and exposes fresh25/27-arrow paths, while preserving inherited nonzero lower relations. The positive W5 request remains the next task. Both packages are frozen and independently reviewed. The existing TeX compiles, shared-record review passed after two exposition fixes, and the complete Python/C++ gate passed.
+For every original coupled source with at least r returns, no canonical origin p<=Q reaches the repeated target within12r+5 quotient steps; the original Q reaches it at18+12r. The rational theorem and this bounded positive consequence have different quantifiers. Deeper histories, later meeting targets and different signed comparisons remain open. R89's negative-history repair still leaves the positive W5 obligation. Both new packages are frozen and independently reviewed, focused Python/C++ replay passes, the existing TeX compiles, and the full repository Python/C++ gate passed.
 
 The strategy is to keep the finite-current framework and its negative controls, and prioritize terminal supply or a proved whole-family recursion. Further bounded catalogues are useful when they close a complete family or establish a decisive, precisely scoped obstruction. They do not substitute for a termination argument. The latest remote check identifies only the already integrated PR1; the pinned side-lane checks are independent arithmetic evidence, not a new merged solution. The W5 dispatcher and frozen resolvers remain unchanged. No universal supply, Collatz proof or novelty claim is made. Full historical findings follow; the latest integration record is at the end.
 
@@ -3316,3 +3316,127 @@ While the complete gate ran, three independent scratch reviews tested what a str
 - **Two distinct recurrence scopes.** On the canonical-Z second-depth2 branch, raw r=6v+1 maps to g=(3^12*r+1792529)/2^19. For the original r=771880927+128*3^19*m, exact arithmetic gives v3(g-r)=5 whenever this branch is legal. Thus the original ternary progression is not closed under this raw return. This does not exclude a broader binary family: the conjugate map Phi(v)=(531441*v+299947)/524288 has centre L(v)=7153*v+299947 and L(Phi(v))=3^12*L(v)/2^19. Exact repeated copies consume19 binary digits per copy while increasing ternary order by12. A fixed positive seed cannot repeat that word forever, but longer finite prefixes can use different seeds, and exit from the word is not original-rank descent. Scratch nonclosure arithmetic: `/tmp/collatz_r89_raw_nonclosure.py` and `.json`; the broader guard note and full signed probes are `/tmp/collatz_r89_binary_return_note.md`, `/tmp/collatz_r89_binary_return_probe.py` and its JSON. They still require a dedicated next-batch audit before use.
 
 The research priority remains a complete merger/termination mechanism across successive exits. Neither storing more history nor exhausting one repeated growing word supplies that mechanism by itself.
+
+
+## Continuation from `7d86314`: control successive exits
+
+The previous batch made verified progress: R88/R89, complete receipts, shared records and the strategic pivot were committed, pushed and passed the full gate. This batch starts from clean main7d86314. The independent feed advanced to cbe77bce62d0a5ba2fbac1af3f686806cc7f6d4a with a finite R64 boundary check; it is being reproduced before use. The side branch remains untouched.
+
+The active target remains original-rank supply for a COMPLETE remaining type, rather than a new list of local acceptance cases. The known-history state review and repeated-Phi scratch are starting points to audit, not accepted premises.
+
+### Hypotheses and tests
+
+1. The ternary precision accumulated during maximal Phi returns could permit a genuinely different inverse history at the exit, with every signed request below the original Q. Test complete exit classes and distinguish a new comparison from the exact undo of the previous forward word.
+2. A larger history cover might close under a recursion on open ternary cells. Inspect the existing cover's unresolved classes and its nonexpanding-period condition before extending any scan. A finite coverage fraction or residue count is not a termination proof.
+3. A binary countdown across one repeated word might extend across successive exit types. First derive the full exit arithmetic; reject a quantity that only proves departure from one guard or changes when the affine centre changes. Preserve the possibility of variable word length and intermediate height growth.
+
+### Batch checklist
+
+- [x] Revalidate the pushed research state and read the new pinned feed.
+- [x] Reproduce and scope the new independent R64 probe.
+- [x] Audit whole maximal-return exits and original-rank signed dependencies.
+- [x] Test a genuinely adaptive history-cover or across-exit progress mechanism.
+- [x] Persist proved advances or decisive counterexamples, with exact limits and reproducible evidence.
+- [x] Independently review, update standing/TeX and pass the required verification.
+- [ ] Commit and push the reviewed batch.
+
+The full objective remains open; a new finite countdown or conditional reduction alone does not complete it.
+
+
+### Outcomes: a complete exit interface and a stronger inverse obstruction
+
+**R90 — complete exit control.** The audited binary return and complete19-row
+exit alphabet are now a durable [package](phi_exit_control/PHI_EXIT_CONTROL.md).
+The exact fixed-seed countdown consumes19 binary digits per return; it gains12
+ternary digits and increases height. Every next valuation has an exact cylinder
+and original-cell pullback. The raw original-Q inequality is complete for its
+stated endpoint test, and the full signed continuation retains every request.
+All high requests in a fresh forward comparison are positive. The finite
+countdown therefore supplies no automatic cancellation or descent across
+successive exits. The original ternary cell is not closed under the return.
+
+**R91 — all inverse words through gained precision are excluded.** The original
+hypothesis was that the extra ternary order could supply a different smaller
+history. A direct arbitrary-ray search exhausted small prescribed budgets and
+hit caps at larger ones, so those scans were not promoted as exclusions. A
+first-counterword argument then removed the unknown depth entirely: an improving
+word in the negative rational shadow must originate at primitive odd canonical
+-u/7153 with7153<u<7277133. Its intermediate states may be much larger.
+
+Two independent exact implementations classify all1,732,883 eligible origins.
+Only19 reach the target cycle; all have weighted slope at least1. No cap fired,
+and the largest visited numerator was1,049,066,989,135. The first-hit proof and
+this complete finite basin establish a sharp all-word rational slope bound.
+The [positive-source transfer](shadow_precision/SHADOW_PRECISION.md) then proves,
+for EVERY original coupled source with at least r returns, that no canonical
+p<=Q reaches the repeated target through12r+5 quotient steps. It includes
+arbitrary combinations of rays, without bounding intermediate heights.
+The known original Q reaches that same target at18+12r. These are deliberately
+different horizons. The rational all-word theorem is computer-assisted; the
+positive consequence does not become an all-depth theorem at a fixed source.
+
+This rules out the specific gained-precision proposal rather than merely finding
+more failed inputs. It does not rule out additional ternary refinement, deeper
+histories, later targets or genuinely different signed comparisons. The primary
+research objective remains open. This batch made verified structural progress;
+it supplied no universal terminal current.
+
+### Other probes and why they were not promoted into new dispatchers
+
+- The adaptive ternary-cover review found that its nonexpanding-period filter
+  loses no smaller partner on the old tested horizons. A branch inequality
+  p>=alpha*(y+1-(3/2)^d) gives exact finite comparisons through44+a for the
+  retained targets; the existing scan only used25+a. Thus dropping the slope
+  filter does not repair those missing classes. Of23 saved success cells,
+  22 retrace the original Q prefix exactly; one is a different early-history
+  attachment. This remains a scoped review of an exploratory cover, not a
+  supplied or terminating cover. Scratch re-derivation and receipt:
+  `/tmp/collatz_retained_cover_scope.md`, `.py`, `.json`.
+- A separate all-first-ray/point-chain argument constructs least exact-order
+  original CRT starts for every r>=1024 where both full first inverse rays,
+  at every ray index and followed by any point depth, fail to give eta<Q.
+  It does not cover arbitrary multi-ray words beyond the R91 horizon. This
+  unpromoted scratch has different quantifiers from R91 and is not a premise
+  of the frozen packages: `/tmp/collatz_phi_all_ray_point_scope.md`, `.py`,
+  `.json`. Re-derive it before importing it into a later result.
+- The old retained-cell all-horizon requirement is not made easy by calling it
+  an arithmetic progression: the existing sufficient-set audit already records
+  that unconditional absorption of a whole nonconstant progression has full
+  Collatz strength. R90 proves the sharper explicit ancestor-cover property
+  for each exact exit cell. Conditional original-rank pair repair remains a
+  distinct target and every signed terminal premise must still be supplied.
+
+### Parallel lane, review and research decision
+
+The [cbe77bc review](side_lane_review_cbe77bc.md) reproduces the pinned R64 probe
+byte for byte:85 constructed cases,58 accepted and27 rejected, maximum ordinary
+word length600. It is finite boundary evidence, not a new universal supply
+claim. A final remote refresh still lists only merged PR1, already incorporated,
+and leaves origin/main at7d86314. The side branch was not edited.
+
+The PR opinion is unchanged: retain its exact controls and audits, and retain
+the current framework after the broad minimality conclusion's correction.
+The new tactical decision has a sharper mathematical basis: do not spend the
+next batch searching arbitrary inverse words only within the gained ternary
+precision at this repeated target. R91 already covers them. Study a comparison
+beyond that horizon, a later common target, or an arithmetic state that controls
+successive exits at the original rank. Any recursion needs a closed domain, a
+well-founded decrease and actual terminal-current supply.
+
+R90 received independent proof/source/default-replay review: PASS,10 return
+plans,19 rows,171 signed exits,15 ancestor certificates,29 rejections; all10
+return plans and three exit plans are stored completely. R91 received two
+independent mathematical reviews plus source/default/independent-C++ review:
+PASS, the full basin,306 positive inverse words on21 families through r128 and
+14 invalid-domain rejections. The positive samples support the implementation;
+the finite-basin reduction establishes the universal word quantifier.
+The existing TeX was updated in place and native compilation passed.
+`python3 scripts/verify_all.py --cpp` passed with exit0, including both new
+packages, every historical/negative-control receipt,31 archive manifest entries,
+the independent original C++ cutoffs4096/262144, and the full R91 independent
+C++ basin. Log: `/tmp/collatz_phi_shadow_full_gate.log`. Mechanical checks passed
+for18 scoped files,465 local Markdown links,87 unique TeX labels,149 resolved
+references, JSON parsing, LF endings and staged whitespace. Independent shared
+record and TeX transcription review passed. The staged scope contains only the
+reviewed research packages, pinned side review and maintained records.
+The verified batch is ready for authorized commit and push; delivery follows.
