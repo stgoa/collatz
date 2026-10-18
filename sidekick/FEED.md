@@ -26,6 +26,26 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 11:32 — VERIFIED: the arithmetic parts of R15, R18, R21 and R29 (main `9190ccf`)
+
+This uses this branch's own `S` and `ν`. Statements that need the annular measure `A_N` are not checked here: source and cluster masses, residual profiles and the `21N/4` bound.
+
+- **R15.** For every odd `y < 10⁶`, a strictly smaller ancestor within two Syracuse steps exists exactly when `y ≡ 5, 11, 13, 17 (mod 18)`. That gives 222,221 such `y` and 277,778 without one. In each case the stated move is such an ancestor, via an exact path, and lies below `8y/9`: `(2y − 1)/3` for `y ≡ 5, 11`, `(8y − 5)/9` for `y ≡ 13`, and `(4y − 5)/9` for `y ≡ 17`.
+- **R18.** On all odd `y < 10⁶`, the graph `E0` has in-degree and out-degree at most 1 (by brute force below 3000), no two consecutive valuation-2 arrows, two-step backward contraction below `8/9`, and no incoming arrow exactly on `{1, 3, 7, 9, 15} (mod 18)`. For the Mersenne family `L = 12 + 6k` with `k ≤ 12`, the states `x_j` form an `E0` path. Its first forbidden exit has valuation `3 + v2(L)` and lands at `w = (3^L − 1)/2^(2+v2(L))`. For odd `k`, `w ≡ 1 (mod 18)` is an inactive root.
+- **R21.** For all odd `x < 2·10⁵` (41,666 allowed steps), the adjusted height grows by a factor above `3/4` from type 1 and above `3/2` from type 2, and a shrinking step always lands on type 2. The separation bounds 58 and 63 follow from `(9/8)^(m/2) < 32` and `(3/4)(9/8)^k < 32`.
+  - **Sharp path.** For `t = 1..5`, the path from `x = 3·2⁹⁵·t − 5` has word `(1,2)³¹,1`, cost 94, lies inside `E0`, and has both ends in `(Q, 32Q)`.
+  - **Forbidden edges.** Each of the 16,666 valuation-2 forbidden edges lands on a smaller inactive root. Each of the 25,000 with valuation 3 or more lands in a component whose root is below `x/4`.
+- **R29.** Let `Q` be the `T`-closure of all canonical states below 3000, which has 1,269 states and maximum 252,233. Then:
+  - `W_Q = {S(q), 3q + 2}` has `|W_Q| = 2|Q|` and `max W_Q = 3·max Q + 2`, and `S(W_Q) ⊆ W_Q`;
+  - every odd `x < 2·10⁶` with `ν(x) ∈ Q` has `S(x) ∈ W_Q` (12,866 such `x`), and every element of `W_Q` is attained;
+  - sampled `x` reach 1 within `1 + 2|Q|` arrows;
+  - `S(x) ≤ 3ν(x) + 2` for all odd `x < 2·10⁶`;
+  - `S⁴(327) = 415` and `S⁹(327) = 1579`.
+
+`python3 sidekick/probes/batch_r15_r18_r21_r29_check.py` (about 3 s; receipt alongside)
+
+---
+
 ## 2026-10-18 10:58 — FINDING (Q1): the absorbed share of `A_N`'s positive mass depends on the depth, not on `N`
 
 For `N = 96·2^k` with `k = 0..9` (up to 49,152), the probe exposed the forward graph depth by depth from every source of `A_N`, as `depth_probe.py` does. At each depth it recorded the share of positive mass whose component contains 1.

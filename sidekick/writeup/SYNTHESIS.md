@@ -321,7 +321,7 @@ Integrality does bound how long an integer can follow a contracting positive rat
 
 ## Appendix A. Verification ledger
 
-The appendix is pinned at main commit `9190ccf` and the side lane's feed through its 09:40 entry. Times refer to `sidekick/FEED.md` entries, and probes live in `sidekick/probes/` unless noted. "PR1" means the merged negative-controls lane, `collatz_research_20261017/negative_controls/`.
+The appendix is pinned at main commit `9190ccf` and the side lane's feed through its 11:32 entry. Times refer to `sidekick/FEED.md` entries, and probes live in `sidekick/probes/` unless noted. "PR1" means the merged negative-controls lane, `collatz_research_20261017/negative_controls/`.
 
 ### A.1 Main results and independent side-lane checks
 
@@ -361,7 +361,8 @@ The appendix is pinned at main commit `9190ccf` and the side lane's feed through
 | R68, R70 | 08:37 (`batch_r68_r70_check`): R68's six-state anchor, the 35-arrow word and the all-ray separation by inverse-tree search (`D = 3..12`, 60 cases); R70's exit table (228 constructed inputs), the re-entry theorem (23 inputs, clocks `T²⁴` and `(30, 6)`) and r-fold repetition with the exact maximal count (`r ≤ 6`) | independently checked (finite) |
 | R89 (arithmetic) | 09:07 (`r89_retained_cell_check`): the window (4,000 W9 pairs), the three-node family (`j = 4..399`), the retained cell and its run targets for `d = 2..48`, the subcell's ordinary paths including `S²⁵(Q) = X` and `S²⁷(Q) = Z`, and the `l = 0` ranks | independently checked (finite; planner not rebuilt) |
 | R42 | 09:40 (`r42_joint_frontier_check`): the two-case interface (55,000 `v`), the `3 (mod 32)` block (15,500) and its parametrization, the expanding family `r ≤ 12`, and the d4 / required-ray embedding (`r` up to 108); the residual weight in (12) is not checked | independently checked (finite) |
-| R1, R7, R8, R11, R12, R14, R15, R18, R19, R21, R29, R63, R69, R72, R76, R87 | none | not touched |
+| R15, R18, R21, R29 (arithmetic) | 11:32 (`batch_r15_r18_r21_r29_check`): R15's short-ancestor classes below 10⁶; R18's `E0` degree, contraction and inactive-root facts and the Mersenne exits; R21's height multipliers, separation arithmetic, sharp 63-step path and forbidden edges; R29's `W_Q` closure facts and `S(x) ≤ 3ν(x) + 2` below 2·10⁶ | independently checked (finite; `A_N` masses not rebuilt) |
+| R1, R7, R8, R11, R12, R14, R19, R63, R69, R72, R76, R87 | none | not touched |
 
 ### A.2 Main's reviews of side-lane claims
 

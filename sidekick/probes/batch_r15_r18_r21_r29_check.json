@@ -1,0 +1,26 @@
+{
+ "probe": "batch_r15_r18_r21_r29_check",
+ "main": "9190ccf",
+ "r15": {
+  "with_short_ancestor": 222221,
+  "without": 277778
+ },
+ "r18": {
+  "vertices": 500000,
+  "roots_checked": 10000,
+  "mersenne_k": 13
+ },
+ "r21": {
+  "e0_steps": 41666,
+  "sharp_t": 5,
+  "forbidden_val2": 16666,
+  "forbidden_val_ge3": 25000
+ },
+ "r29": {
+  "Q_size": 1269,
+  "max_Q": 252233,
+  "nu_preimages_checked": 12866,
+  "max_steps_to_1": 69
+ },
+ "result": "PASS"
+}
