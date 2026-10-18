@@ -53,6 +53,8 @@ Two features stand out:
 
 For the whole-recursion target in main's decision note (`side_lane_review_767af32.md`), then, the leaves to eliminate sit close to the original rank rather than spread down the tree.
 
+**Addendum.** The complete core is not a union of low-modulus classes. At 32 bits, with 16 samples in each of the 72 W5 classes mod 576, no class closes completely more than 31% of the time; 35 classes never close completely, and the best class is 221. (`python3 sidekick/probes/complete_core_classes.py`, about 1 min.)
+
 `python3 sidekick/probes/closure_frontier_meter.py` (about 3 min; receipt alongside)
 
 ---
