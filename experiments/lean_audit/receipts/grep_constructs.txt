@@ -1,0 +1,6 @@
+lakefile.toml:26:# permanent `sorry` (its statements are the artifact), and `lake lint` derives its
+CollatzPosDens/Attr.lean:20:initialize Lean.registerBuiltinAttribute {
+Challenge/Basic.lean:37:  sorry
+Challenge/Basic.lean:54:  sorry
+Challenge/Basic.lean:77:  sorry
+Challenge/Basic.lean:89:  sorry

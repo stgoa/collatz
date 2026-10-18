@@ -129,6 +129,72 @@ At about 17:12 -03 this lane accidentally terminated main's running
 its own replay. Nothing in main's checkout was modified. That gate run needs
 to be repeated. Apologies.
 
-## Results
+## Results (2026-10-18, 18:39 -03; comparator replay still running)
 
-Pending.
+**Environment actually used.** Docker container `leanaudit` (Rancher
+Desktop VM, linux/aarch64, 4 CPUs via cpuset, 7 GB memory limit),
+`ubuntu:24.04`, elan 4.2.4, `Lean (version 4.35.0-rc2,
+aarch64-unknown-linux-gnu, commit 11acb17ec6b07a8f9e9173e6845197929540936b,
+Release)`, Lake 5.0.0. Project at the pinned commit, Mathlib cache fetched
+with `lake exe cache get` (8,536 Mathlib `.olean`s). Toolchain and project
+were copied onto the container's own filesystem after the macOS bind mount
+proved I/O-starved and produced spurious `EMFILE`/`ENOENT` errors; the
+final run used no bind-mounted files.
+
+**1. From-source build: PASS.** `lake build Challenge Solution` compiled the
+four-theorem closure, which is 737 of the 738 library modules (74,803
+lines), from source: `Build completed successfully (4107 jobs)`, wall time
+6 min 02 s, zero errors, zero `declaration uses 'sorry'` warnings
+(`receipts/lake_build_solution.log`).
+
+**2. Axioms: PASS.** `#print axioms` in a fresh `lean` process importing
+`Solution.Basic` (`receipts/audit_solution.out`), for each of the four
+theorems:
+
+```
+positive_density_collatz_reaches_one                               [propext, Classical.choice, Quot.sound]
+positive_density_collatz_and_collatzAccel_reaches_one              [propext, Classical.choice, Quot.sound]
+positive_density_collatz_and_collatzAccel_reaches_of_coprime_six   [propext, Classical.choice, Quot.sound]
+positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd [propext, Classical.choice, Quot.sound]
+```
+
+No `sorryAx`, no custom axiom, no `native_decide` (`Lean.ofReduceBool`).
+
+**3. Statement match: PASS.** With `set_option pp.all true`, the four
+theorem types and the seven definitions they use (`collatz`, `ReachWithin`,
+`collatzDensity`, `collatzDensityThreshold`, `collatzAccel`,
+`collatzDensityDep`, `collatzDensityThresholdDep`) were printed from the
+human-written `Challenge.Basic` and from `Solution.Basic` and diffed
+(`receipts/audit_challenge.out`, `receipts/audit_solution.out`): 445
+lines, identical. The only differing lines in the raw outputs are the
+challenge's own `sorryAx` entries, as expected.
+
+**4. Kernel-fix containment: PASS** (see facts above): the toolchain
+contains lean4 #14577.
+
+**5. Independent kernel replay (`lake comparator` with the authors'
+`Comparator/comparator.json`, which enables nanoda; then `--paranoid`, which
+also runs `leanchecker-paranoid`, `lean4lean`, `con-leche`, `con-ron`; then
+`lake check --paranoid`): running at the time of this commit.** Note on
+scope: the comparator's own `bwrap` sandbox cannot create user namespaces
+inside an unprivileged Docker container, so it runs with
+`--inadvisably-no-sandbox`; the Docker container is the sandbox, and the
+source audit above found no code-executing construct in the project (its
+lakefile is TOML; the only metaprogram is a no-op attribute). Record this
+when citing the comparator result.
+
+### Verdict so far
+
+The four Lean statements in `Challenge/Basic.lean` are theorems of
+Lean + Mathlib, under the standard axioms, as checked by Lean's own kernel
+in a from-source build on this machine. In particular, the statement the
+route map calls C.1a — for every fixed target `t` with `3 ∤ t`, a positive
+proportion of integers reach `t` (with tower-sized constants and a
+logarithmic clock) — has a machine-checked proof at the pinned commit,
+subject to Lean's trusted base and the trusted-base remark below.
+
+What this does **not** establish: anything about the paper's prose, the
+transfer of the statement to `3x+d`, or C.2a. Route C would still need
+density zero of the non-absorbing starts, which remains open. The theorem
+is d-sensitive in the right way (its `d=5` analogue is false), so it is the
+first input in this programme that is not a transferable local identity.
