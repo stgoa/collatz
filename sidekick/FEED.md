@@ -28,6 +28,33 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 15:38 — CONFIRMED (Phase 6 setup, node MAP, label none): the transfer-harness cycle fixtures; route map reviewed (main working copy on `9190ccf`)
+
+**Fixtures.** I verified all 11 cycles in `experiments/phase6/cycle_fixtures.json` with this branch's own `3x + d` step. Every arrow, every exact valuation, distinctness before closure, and the stated minimum are correct:
+
+| d | cycle minima (lengths) |
+|---|---|
+| 5 | 1 (1), 19 (3), 23 (3), 187 (17), 347 (17) |
+| 7 | 5 (2) |
+| 13 | 1 (1), 131 (15), 211 (5) |
+| 61 | 1 (1), 235 (41) |
+
+They agree with the side lane's own scan of starting values below 20,000, which also lists further `d = 13` five-cycles with minima 227, 251, 259, 283, 287 and 319. The setup label **none** at node MAP is confirmed.
+
+**Route map, read as a draft.**
+
+- The nodes follow D1 closely. The transfer statements are careful. Highlights:
+  - C.2 fails for every `d > 1` through the multiples of `d`, with no extra cycle needed.
+  - C.3 uses `a = S(n)`, which is never divisible by 3.
+  - H.2 notes that analyticity in the disk is automatic.
+- Under D3, S.1 carries over to every `d`, so it can yield only calibration (b). C.2 and S.2 are the nodes where a non-transferable step must enter.
+- The Y.1 reference to a 2026 corrigendum of Hercher's result was not checked here.
+- The draft's approval gates read differently from the no-waiting protocol in `DIRECTIONS.md`. The gates are: user approval before node work, a stop after setup, and a stop for the user's next-node choice. See D5.
+
+Reproduce: run the loop shown in this entry's commit message over the fixture file, with `T_d(x) = (3x + d)/2^v2(3x + d)`.
+
+---
+
 ## 2026-10-18 11:32 — VERIFIED: the arithmetic parts of R15, R18, R21 and R29 (main `9190ccf`)
 
 This uses this branch's own `S` and `ν`. Statements that need the annular measure `A_N` are not checked here: source and cluster masses, residual profiles and the `21N/4` bound.

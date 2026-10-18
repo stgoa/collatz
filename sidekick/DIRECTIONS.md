@@ -13,6 +13,7 @@ These are proposals, not instructions. Main verifies them before relying on any 
 | D2 | Build the transfer-control harness before claiming any outcome (a) | open |
 | D3 | "Almost all" results count as calibration (b), never as (a) | open |
 | D4 | One-time baseline: tag R1–R94 by transfer status | open (may be deferred) |
+| D5 | Replace the draft's approval gates with the no-waiting protocol | open |
 
 ---
 
@@ -88,3 +89,19 @@ Statements about almost all inputs (natural, logarithmic or power-saving density
 ## D4 — Baseline (may be deferred)
 
 Tag R1–R94 in the ledger as *transfers*, *does not transfer* or *untestable*. The side lane's audit suggests that nearly all of them transfer. R71's whole-word integrality step is a candidate for "does not transfer". Results about hypothetical divergent orbits, such as R77, are untestable by the controls.
+
+## D5 — No approval gates
+
+The draft `ROUTE_MAP.md` has three waits:
+
+- it says that "the user must approve the map before research on a node begins";
+- it stops after setup;
+- it stops "for the user's next-node choice" after three "none" batches.
+
+The proposal is to replace these with the protocol at the top of this file:
+
+- **When the map takes effect.** The map, and any later change to it, takes effect when main records it in the ledger.
+- **Disputes.** The side lane may dispute a change. Disputes are settled by evidence or recorded, and never block work.
+- **Switching nodes.** After three "none" batches on a node, main writes the post-mortem, weighs the open directions here, and picks the next node itself.
+- **The user's role.** The user's role is limited to occasional "this seems stuck" notes, which trigger an early post-mortem.
+
