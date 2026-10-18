@@ -1,0 +1,458 @@
+'positive_density_collatz_reaches_one' depends on axioms: [propext, sorryAx.{u}, Classical.choice.{u}, Quot.sound.{u}]
+'positive_density_collatz_and_collatzAccel_reaches_one' depends on axioms: [propext,
+ sorryAx.{u},
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'positive_density_collatz_and_collatzAccel_reaches_of_coprime_six' depends on axioms: [propext,
+ sorryAx.{u},
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd' depends on axioms: [propext,
+ sorryAx.{u},
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@positive_density_collatz_reaches_one : ∀ {N : Nat} (hN : @LE.le.{0} Nat instLENat collatzDensityThreshold N),
+  @LE.le.{0} Rat Rat.instLE
+    (@HMul.hMul.{0, 0, 0} Rat Rat Rat (@instHMul.{0} Rat Rat.instMul) collatzDensity
+      (@Nat.cast.{0} Rat Rat.instNatCast N))
+    (@Nat.cast.{0} Rat Rat.instNatCast
+      (@Finset.card.{0} Nat
+        (@Finset.filter.{0} Nat
+          (fun (n : Nat) =>
+            @ReachWithin.{0} Nat collatz (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) n
+              (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                    (nat_lit 1046) Bool.true (nat_lit 2))
+                  (Real.log (@Nat.cast.{0} Real Real.instNatCast n)))))
+          (fun (a : Nat) =>
+            @Nat.decidableExistsLE
+              (fun (r : Nat) =>
+                @Eq.{1} Nat (@Nat.iterate.{1} Nat collatz r a)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (fun (a_1 : Nat) =>
+                instDecidableEqNat (@Nat.iterate.{1} Nat collatz a_1 a)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                    (nat_lit 1046) Bool.true (nat_lit 2))
+                  (Real.log (@Nat.cast.{0} Real Real.instNatCast a)))))
+          (Finset.range N))))
+@positive_density_collatz_and_collatzAccel_reaches_one : ∀ {N : Nat}
+  (hN : @LE.le.{0} Nat instLENat collatzDensityThreshold N),
+  @LE.le.{0} Rat Rat.instLE
+    (@HMul.hMul.{0, 0, 0} Rat Rat Rat (@instHMul.{0} Rat Rat.instMul) collatzDensity
+      (@Nat.cast.{0} Rat Rat.instNatCast N))
+    (@Nat.cast.{0} Rat Rat.instNatCast
+      (@Finset.card.{0} Nat
+        (@Finset.filter.{0} Nat
+          (fun (n : Nat) =>
+            And (@Odd.{0} Nat Nat.instSemiring n)
+              (And
+                (@ReachWithin.{0} Nat collatz (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) n
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 1046) Bool.true (nat_lit 2))
+                      (Real.log (@Nat.cast.{0} Real Real.instNatCast n)))))
+                (@ReachWithin.{0} Nat collatzAccel (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) n
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 34881) Bool.true (nat_lit 4))
+                      (Real.log (@Nat.cast.{0} Real Real.instNatCast n)))))))
+          (fun (a : Nat) =>
+            @instDecidableAnd (@Odd.{0} Nat Nat.instSemiring a)
+              (And
+                (@ReachWithin.{0} Nat collatz (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) a
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 1046) Bool.true (nat_lit 2))
+                      (Real.log (@Nat.cast.{0} Real Real.instNatCast a)))))
+                (@ReachWithin.{0} Nat collatzAccel (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) a
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 34881) Bool.true (nat_lit 4))
+                      (Real.log (@Nat.cast.{0} Real Real.instNatCast a))))))
+              (Nat.instDecidablePredOdd a)
+              (@instDecidableAnd
+                (@ReachWithin.{0} Nat collatz (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) a
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 1046) Bool.true (nat_lit 2))
+                      (Real.log (@Nat.cast.{0} Real Real.instNatCast a)))))
+                (@ReachWithin.{0} Nat collatzAccel (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) a
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 34881) Bool.true (nat_lit 4))
+                      (Real.log (@Nat.cast.{0} Real Real.instNatCast a)))))
+                (@Nat.decidableExistsLE
+                  (fun (r : Nat) =>
+                    @Eq.{1} Nat (@Nat.iterate.{1} Nat collatz r a)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (fun (a_1 : Nat) =>
+                    instDecidableEqNat (@Nat.iterate.{1} Nat collatz a_1 a)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 1046) Bool.true (nat_lit 2))
+                      (Real.log (@Nat.cast.{0} Real Real.instNatCast a)))))
+                (@Nat.decidableExistsLE
+                  (fun (r : Nat) =>
+                    @Eq.{1} Nat (@Nat.iterate.{1} Nat collatzAccel r a)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (fun (a_1 : Nat) =>
+                    instDecidableEqNat (@Nat.iterate.{1} Nat collatzAccel a_1 a)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 34881) Bool.true (nat_lit 4))
+                      (Real.log (@Nat.cast.{0} Real Real.instNatCast a)))))))
+          (Finset.range N))))
+@positive_density_collatz_and_collatzAccel_reaches_of_coprime_six : ∀ {t : Nat}
+  (ht : Nat.Coprime t (@OfNat.ofNat.{0} Nat (nat_lit 6) (instOfNatNat (nat_lit 6)))) {N : Nat}
+  (hN : @LE.le.{0} Nat instLENat (collatzDensityThresholdDep t) N),
+  @LE.le.{0} Rat Rat.instLE
+    (@HMul.hMul.{0, 0, 0} Rat Rat Rat (@instHMul.{0} Rat Rat.instMul) (collatzDensityDep t)
+      (@Nat.cast.{0} Rat Rat.instNatCast N))
+    (@Nat.cast.{0} Rat Rat.instNatCast
+      (@Finset.card.{0} Nat
+        (@Finset.filter.{0} Nat
+          (fun (n : Nat) =>
+            And (@Odd.{0} Nat Nat.instSemiring n)
+              (And
+                (@ReachWithin.{0} Nat collatz t n
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 1046) Bool.true (nat_lit 2))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast n) (@Nat.cast.{0} Real Real.instNatCast t))))))
+                (@ReachWithin.{0} Nat collatzAccel t n
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 34881) Bool.true (nat_lit 4))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast n) (@Nat.cast.{0} Real Real.instNatCast t))))))))
+          (fun (a : Nat) =>
+            @instDecidableAnd (@Odd.{0} Nat Nat.instSemiring a)
+              (And
+                (@ReachWithin.{0} Nat collatz t a
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 1046) Bool.true (nat_lit 2))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast a) (@Nat.cast.{0} Real Real.instNatCast t))))))
+                (@ReachWithin.{0} Nat collatzAccel t a
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 34881) Bool.true (nat_lit 4))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast a) (@Nat.cast.{0} Real Real.instNatCast t)))))))
+              (Nat.instDecidablePredOdd a)
+              (@instDecidableAnd
+                (@ReachWithin.{0} Nat collatz t a
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 1046) Bool.true (nat_lit 2))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast a) (@Nat.cast.{0} Real Real.instNatCast t))))))
+                (@ReachWithin.{0} Nat collatzAccel t a
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 34881) Bool.true (nat_lit 4))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast a) (@Nat.cast.{0} Real Real.instNatCast t))))))
+                (@Nat.decidableExistsLE (fun (r : Nat) => @Eq.{1} Nat (@Nat.iterate.{1} Nat collatz r a) t)
+                  (fun (a_1 : Nat) => instDecidableEqNat (@Nat.iterate.{1} Nat collatz a_1 a) t)
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 1046) Bool.true (nat_lit 2))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast a) (@Nat.cast.{0} Real Real.instNatCast t))))))
+                (@Nat.decidableExistsLE (fun (r : Nat) => @Eq.{1} Nat (@Nat.iterate.{1} Nat collatzAccel r a) t)
+                  (fun (a_1 : Nat) => instDecidableEqNat (@Nat.iterate.{1} Nat collatzAccel a_1 a) t)
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 34881) Bool.true (nat_lit 4))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast a) (@Nat.cast.{0} Real Real.instNatCast t))))))))
+          (Finset.range N))))
+@positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd : ∀ {t : Nat}
+  (ht : Not (@Dvd.dvd.{0} Nat Nat.instDvd (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) t)) {N : Nat}
+  (hN : @LE.le.{0} Nat instLENat (collatzDensityThresholdDep t) N),
+  @LE.le.{0} Rat Rat.instLE
+    (@HMul.hMul.{0, 0, 0} Rat Rat Rat (@instHMul.{0} Rat Rat.instMul) (collatzDensityDep t)
+      (@Nat.cast.{0} Rat Rat.instNatCast N))
+    (@Nat.cast.{0} Rat Rat.instNatCast
+      (@Finset.card.{0} Nat
+        (@Finset.filter.{0} Nat
+          (fun (n : Nat) =>
+            And (@Odd.{0} Nat Nat.instSemiring n)
+              (And
+                (@ReachWithin.{0} Nat collatz t n
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 1046) Bool.true (nat_lit 2))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast n) (@Nat.cast.{0} Real Real.instNatCast t))))))
+                (@ReachWithin.{0} Nat collatzAccel
+                  (@HDiv.hDiv.{0, 0, 0} Nat Nat Nat (@instHDiv.{0} Nat Nat.instDiv) t
+                    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                      (padicValNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) t)))
+                  n
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 34881) Bool.true (nat_lit 4))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast n) (@Nat.cast.{0} Real Real.instNatCast t))))))))
+          (fun (a : Nat) =>
+            @instDecidableAnd (@Odd.{0} Nat Nat.instSemiring a)
+              (And
+                (@ReachWithin.{0} Nat collatz t a
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 1046) Bool.true (nat_lit 2))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast a) (@Nat.cast.{0} Real Real.instNatCast t))))))
+                (@ReachWithin.{0} Nat collatzAccel
+                  (@HDiv.hDiv.{0, 0, 0} Nat Nat Nat (@instHDiv.{0} Nat Nat.instDiv) t
+                    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                      (padicValNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) t)))
+                  a
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 34881) Bool.true (nat_lit 4))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast a) (@Nat.cast.{0} Real Real.instNatCast t)))))))
+              (Nat.instDecidablePredOdd a)
+              (@instDecidableAnd
+                (@ReachWithin.{0} Nat collatz t a
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 1046) Bool.true (nat_lit 2))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast a) (@Nat.cast.{0} Real Real.instNatCast t))))))
+                (@ReachWithin.{0} Nat collatzAccel
+                  (@HDiv.hDiv.{0, 0, 0} Nat Nat Nat (@instHDiv.{0} Nat Nat.instDiv) t
+                    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                      (padicValNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) t)))
+                  a
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 34881) Bool.true (nat_lit 4))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast a) (@Nat.cast.{0} Real Real.instNatCast t))))))
+                (@Nat.decidableExistsLE (fun (r : Nat) => @Eq.{1} Nat (@Nat.iterate.{1} Nat collatz r a) t)
+                  (fun (a_1 : Nat) => instDecidableEqNat (@Nat.iterate.{1} Nat collatz a_1 a) t)
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 1046) Bool.true (nat_lit 2))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast a) (@Nat.cast.{0} Real Real.instNatCast t))))))
+                (@Nat.decidableExistsLE
+                  (fun (r : Nat) =>
+                    @Eq.{1} Nat (@Nat.iterate.{1} Nat collatzAccel r a)
+                      (@HDiv.hDiv.{0, 0, 0} Nat Nat Nat (@instHDiv.{0} Nat Nat.instDiv) t
+                        (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                          (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                          (padicValNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) t))))
+                  (fun (a_1 : Nat) =>
+                    instDecidableEqNat (@Nat.iterate.{1} Nat collatzAccel a_1 a)
+                      (@HDiv.hDiv.{0, 0, 0} Nat Nat Nat (@instHDiv.{0} Nat Nat.instDiv) t
+                        (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                          (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                          (padicValNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) t))))
+                  (@Nat.floor.{0} Real Real.semiring Real.partialOrder
+                    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfScientific.ofScientific.{0} Real (@NNRatCast.toOfScientific.{0} Real Real.instNNRatCast)
+                        (nat_lit 34881) Bool.true (nat_lit 4))
+                      (Real.log
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@Nat.cast.{0} Real Real.instNatCast a) (@Nat.cast.{0} Real Real.instNatCast t))))))))
+          (Finset.range N))))
+def collatz : (n : Nat) → Nat :=
+fun (n : Nat) =>
+  @ite.{1} Nat
+    (@Eq.{1} Nat
+      (@HMod.hMod.{0, 0, 0} Nat Nat Nat (@instHMod.{0} Nat Nat.instMod) n
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+    (instDecidableEqNat
+      (@HMod.hMod.{0, 0, 0} Nat Nat Nat (@instHMod.{0} Nat Nat.instMod) n
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))))
+    (@HDiv.hDiv.{0, 0, 0} Nat Nat Nat (@instHDiv.{0} Nat Nat.instDiv) n
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) n)
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+@[reducible] def ReachWithin.{u_1} : {α : Type u_1} → (f : α → α) → (target n : α) → (steps : Nat) → Prop :=
+fun {α : Type u_1} (f : α → α) (target n : α) (steps : Nat) =>
+  @Exists.{1} Nat fun (r : Nat) =>
+    And (@LE.le.{0} Nat instLENat r steps) (@Eq.{u_1 + 1} α (@Nat.iterate.{u_1 + 1} α f r n) target)
+def collatzDensity : Rat :=
+@HDiv.hDiv.{0, 0, 0} Rat Rat Rat (@instHDiv.{0} Rat Rat.instDiv)
+  (@OfNat.ofNat.{0} Rat (nat_lit 1) (@Rat.instOfNat (nat_lit 1)))
+  (@HPow.hPow.{0, 0, 0} Rat Nat Rat (@instHPow.{0, 0} Rat Nat (@NPow.toPow.{0} Rat (@Monoid.toNPow.{0} Rat Rat.monoid)))
+    (@OfNat.ofNat.{0} Rat (nat_lit 2) (@Rat.instOfNat (nat_lit 2)))
+    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+        (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 87640) (instOfNatNat (nat_lit 87640))))))
+def collatzDensityThreshold : Nat :=
+@HPow.hPow.{0, 0, 0} Nat Nat Nat
+  (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+  (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+    (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+        (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 87640) (instOfNatNat (nat_lit 87640))))))
+def collatzAccel : (n : Nat) → Nat :=
+fun (n : Nat) =>
+  @HDiv.hDiv.{0, 0, 0} Nat Nat Nat (@instHDiv.{0} Nat Nat.instDiv)
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) n)
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+    (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+      (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+      (padicValNat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))) n)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+def collatzDensityDep : (t : Nat) → Rat :=
+fun (t : Nat) =>
+  @HDiv.hDiv.{0, 0, 0} Rat Rat Rat (@instHDiv.{0} Rat Rat.instDiv)
+    (@OfNat.ofNat.{0} Rat (nat_lit 1) (@Rat.instOfNat (nat_lit 1)))
+    (@HMul.hMul.{0, 0, 0} Rat Rat Rat (@instHMul.{0} Rat Rat.instMul)
+      (@HPow.hPow.{0, 0, 0} Rat Nat Rat
+        (@instHPow.{0, 0} Rat Nat (@NPow.toPow.{0} Rat (@Monoid.toNPow.{0} Rat Rat.monoid)))
+        (@Nat.cast.{0} Rat Rat.instNatCast t) (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))
+      (@HPow.hPow.{0, 0, 0} Rat Nat Rat
+        (@instHPow.{0, 0} Rat Nat (@NPow.toPow.{0} Rat (@Monoid.toNPow.{0} Rat Rat.monoid)))
+        (@OfNat.ofNat.{0} Rat (nat_lit 2) (@Rat.instOfNat (nat_lit 2)))
+        (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+          (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+            (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@OfNat.ofNat.{0} Nat (nat_lit 87640) (instOfNatNat (nat_lit 87640)))))))
+def collatzDensityThresholdDep : (t : Nat) → Nat :=
+fun (t : Nat) =>
+  @HPow.hPow.{0, 0, 0} Nat Nat Nat
+    (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+    (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+    (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+      (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+        (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid))) t
+        (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+      (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+        (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+        (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+          (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+          (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+            (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+            (@OfNat.ofNat.{0} Nat (nat_lit 87640) (instOfNatNat (nat_lit 87640)))))))
