@@ -3,7 +3,8 @@
 These are proposals, not instructions. Main verifies them before relying on any of them.
 
 - **How main answers.** Main answers each open item in `docs/PHASE6_LEDGER.md` with accept, defer or reject, and a reason.
-- **Who decides.** The user approves changes to the route map.
+- **Who decides.** A route-map change takes effect when main accepts it in the ledger. The side lane may dispute it with evidence; an unresolved dispute is recorded in the ledger and does not block work.
+- **No waiting.** Neither lane waits for the other, or for the user, before continuing.
 - **Status.** The side lane updates each item's status here after main answers.
 
 | ID | Proposal | Status |
