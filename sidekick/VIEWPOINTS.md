@@ -9,7 +9,7 @@ This sheet gives one line per viewpoint in main's `VIEWPOINT_MAP.md`. Each line 
 - *equivalent:* a restatement with no new estimate;
 - *known dead end:* published, with a known reason it stalled.
 
-**Pinned against:** main `77ce821` / `bff8938` (survey V001). The probe checks are in `probes/viewpoint_v001_check.py`.
+**Pinned against:** main `77ce821` / `bff8938` (survey V001) and `cdfb143` / `c47d91b` (V002). The probe checks are in `probes/viewpoint_v001_check.py` and `probes/v13_coloring_check.py`.
 
 ## Verdicts on V1–V10
 
@@ -17,7 +17,7 @@ This sheet gives one line per viewpoint in main's `VIEWPOINT_MAP.md`. Each line 
 |---|---|---|---|
 | V1 parity coding | relocates (known) | Which infinite parity codes come from positive integers | Lagarias 1985 and Bernstein–Lagarias 1996 (the 2-adic conjugacy and the periodicity conjecture) |
 | V2 mixed-place affine cocycles | relocates | A bound coupling real size with 2-adic legality; one shadow episode can raise height polynomially, so the coupling *is* the stopping problem | Tao §1.2 affine framework |
-| V3 multiplicative semigroups | known dead end for the strong form | Lifting factor products to legal ordered paths; the multiplication bridge `x ↔ 5x` is unsupplied | Applegate–Lagarias, *The 3x+1 semigroup* (2006), which proves the weak form |
+| V3 multiplicative semigroups | relocates; the relaxation is already solved | Lifting factor products to legal ordered paths; the bridge `x ↔ 5x` is unsupplied. (Wording corrected after main's review: this is not an impossibility claim.) | Applegate–Lagarias, *The 3x+1 semigroup* (2006), which proves the weak form |
 | V4 absorbing transfer operators | relocates | A uniform survival estimate for actual inputs, i.e. the exceptional set | Tao's Syracuse random variables |
 | V5 orbit groupoids, currents, cohomology | equivalent (as is) | Needs an invariant beyond orbit components; R7 already gives exactly what currents detect | Repository R7/R40; Berg–Meinardus duality |
 | V6 Dirichlet energy and potentials | promising as measurement, unproven | Quantitative control as domains grow, with escape flux. Its milestone (50% logarithmic absorption) is strictly weaker than Collatz and stronger than what is known | Doyle–Snell, Lyons–Peres (standard network theory) |
@@ -25,6 +25,10 @@ This sheet gives one line per viewpoint in main's `VIEWPOINT_MAP.md`. Each line 
 | V8 induced maps | relocates | Leaving a guard is not descent | Frozen R31, R67, R77 |
 | V9 relational abstraction | relocates | A relation that survives composition across histories of unequal time, which is the pair-merger problem P(w) | Abstract interpretation (program analysis) |
 | V10 rational denominator layers | control language | The property specific to the denominator-one layer, which is the transfer principle restated | Side-lane transfer note; Lagarias on 3x+d cycles |
+| V11 occupation measures | relocates | Tightness uniform in the range of seeds, which is (II) | Krylov–Bogolyubov style; Tao |
+| V12 information of actual integer ensembles | relocates | A quantitative first-passage law with integer endpoints, which is (II) | Tao's Syracuse random variables |
+| **V13 arithmetic regularity of invariant colorings** | **promising** | Classify 2-automatic invariant colorings; an actual bad set need not be regular | Cobham 1969; Shallit–Wilson and Stérin (regular ancestor languages for a fixed number of odd steps) |
+| V14 binary/ternary carry diagrams | relocates | A growing frontier, finite support and a nonlocal bootstrap; most useful as a tool for V13 | Collatz as a quasi-cellular automaton (Cloney–Goles–Vichniac 1987) |
 
 **Where the difficulty lands, across all ten.** Every viewpoint sends it to one of two places:
 
@@ -39,9 +43,15 @@ V5 and V7 are bookkeeping. Under main's own rule ("expand the search when candid
 - **Applegate–Lagarias row `7 (mod 64)`.** `C⁶(5x) = (45x+5)/64 < x` holds for 2,000 members.
 - **Potential probe.** `u(3) = u(5) = 1/(1+5T)`, with `T ≈ 0.10205` and `u ≈ 0.66214`, within `[9/14, 13/18]`.
 
-## V11 (side lane) — a zero–one law in density language
+## S1 (side lane) — an empty-or-positive density dichotomy (formerly labelled V11 here; renamed to avoid main's V11)
 
-**Status: proposed viewpoint.** It depends on C.1a. Main's formal replay at `5a11fcb` reports only the standard axioms. A second, Linux replay is pending (draft PR #2).
+**Status: retained by main under historical C.2a, not adopted as a new language (`cdfb143`). The side lane accepts the following corrections:**
+
+- the result is a dichotomy, "empty or positive lower density", not literally zero–one;
+- `c(a) = 1/(a⁴L)` depends on the target and has infimum 0 over an unbounded bad set, so no single density threshold works, and a contradiction must compare at a particular target;
+- Tao v7 Theorem 3.1 gives `C/(log V)^c` with unspecified constants, which settles the "next test" below in the negative for explicit bounds.
+
+It depends on C.1a. Main's formal replay at `5a11fcb` reports only the standard axioms; a second, Linux replay is pending (draft PR #2).
 
 1. **Objects.** The non-absorbed set `B`, meaning the integers whose orbit never reaches 1, together with natural and logarithmic densities of invariant sets.
 2. **Structural gain: a dichotomy.** If `B` is nonempty, it contains some `a` with `3 ∤ a`. All predecessors of `a` lie in `B`, and by C.1a they have positive lower density. So **`B` is either empty or has positive lower density**, and Collatz ⇔ `liminf B(X)/X = 0`.
@@ -52,3 +62,15 @@ V5 and V7 are bookkeeping. Under main's own rule ("expand the search when candid
 5. **Controls.** The dichotomy holds for every `d`, because C.1a carries over. What singles out `d = 1` is only that `B` has density zero. The `d·Z` copy shows exactly why that fails for `d > 1`.
 6. **Next test (cheapest).** Find the quantitative form of Tao's estimate for `P(Col_min(N) ≥ x)` at fixed `x` (corrected v7), and whether its constants are effective. Combined with verification below `2⁶⁸`, that would give an explicit upper bound on `B`'s logarithmic density. Then compare it with the tower constants of C.1a.
 7. **Intermediate milestone.** An explicit bound `B` log-density `≤ ε` for a stated small `ε`. This is strictly weaker than Collatz, and it would be a concrete version of V6's 50% target. By the dichotomy, any `ε` below the smallest `c(a)` over `a ∈ B` would finish the job, but `c(a)` is tower-small.
+
+## V13 referee note (18:24)
+
+**Classification confirmed with this branch's own code.** For each modulus `M ≤ 400` and each `d ∈ {1, 5, 7, 11, 13, 61}`, I built the residue graph mod `M`, with edges `r – 2r` and, on odd residues, `r – 3r + d`. That is 2,400 cases. In every case its number of components equals the number of `⟨×2, ×3⟩`-orbits on `Z/gZ`, where `g = gcd(M, d)`. For `d = 1` it is always 1. The controls `1_(5|n)` and `1_(61|n)` are invariant, and the commutator is a shift by `d`.
+
+This is the first statement in the search whose rigidity at `d = 1` fails exactly for `d > 1`: periodic invariant colorings are constant precisely when `g = 1`. It is elementary, and it does not carry over to `3x + d`.
+
+**Remarks for the milestone (classifying the 2-automatic invariant colorings).**
+
+1. **Small automata are already excluded.** Every `n < 2⁶⁸` reaches 1 (Barina's verification). A `k`-state recognizer of a nonempty colour class accepts a word of length below `k`. So any nonconstant 2-automatic invariant coloring needs at least 70 states, and the milestone's content lies in large automata.
+2. **Invariance is decidable for each automaton.** `n ↦ 3n + 1` is a finite transducer on binary strings, so invariance is decidable for a given automaton. The classification asks whether binary strings admit a finite invariant partition under that transducer, which is a natural question about automata.
+

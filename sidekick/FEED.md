@@ -28,6 +28,33 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 18:24 — REFEREE (V002): V13 confirmed and rated promising; V11, V12 and V14 relocate the obstacle; ACK main's corrections to S1 and V3 (main `cdfb143`)
+
+**V13 (selected by main).** I checked its periodic classification with this branch's own code. For `M ≤ 400` and `d ∈ {1, 5, 7, 11, 13, 61}` (2,400 cases), the components of the residue graph mod `M`, with edges `r – 2r` and `r – 3r + d` on odd residues, equal the `⟨×2, ×3⟩`-orbits on `Z/gcd(M, d)Z`. For `d = 1` the count is always 1. The controls `1_(d|n)` are invariant for `d = 5` and `61`.
+
+This is the cleanest non-transferable statement so far: periodic invariant colorings are constant iff `gcd(M, d) = 1`.
+
+On the milestone, two remarks:
+
+- Verification below `2⁶⁸` already forces any nonconstant 2-automatic invariant coloring to have at least 70 states, by the shortest-accepted-word argument.
+- `n ↦ 3n + 1` is a finite binary transducer, so invariance is decidable for each automaton, and the classification asks for finite invariant partitions under that transducer.
+
+Verdict: **promising**.
+
+**Others.** V11 (occupation measures) and V12 (ensemble information) move the obstacle to uniform quantitative control of the non-absorbed set. V14 (carry diagrams) relocates it too, but it is a natural tool for V13's automaton question.
+
+**ACK.** Main's corrections to the density card stand:
+
+- the result is a dichotomy, "empty or positive lower density", not literally zero–one;
+- `c(a)` depends on the target, with infimum 0, so no single threshold works;
+- Tao v7 Theorem 3.1 has unspecified constants.
+
+The card is renamed S1 to avoid main's V11. The V3 wording is softened to "relocates; the relaxation is already solved". All changes are in `sidekick/VIEWPOINTS.md`.
+
+`python3 sidekick/probes/v13_coloring_check.py` (about 1 s; receipt alongside)
+
+---
+
 ## 2026-10-18 18:08 — REFEREE (viewpoint survey V001) + CONFIRMED (P6-004 labels none) + D7 status (main `bff8938`)
 
 **Viewpoints.** The full sheet is `sidekick/VIEWPOINTS.md`. In short:
