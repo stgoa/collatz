@@ -26,6 +26,33 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 22:16 — VERIFIED: R46 escape identity and depth-4 law; R44/R45 rank values (main working copy)
+
+These checks use this lane's own `ν` and Syracuse step.
+
+**R46 identity.** Take canonical `q > 1` with `q ≡ 1 (mod 3)`. Set `D = v3(q−1)`, `u = (q−1)/3^D`, `j = v3(4^D u + 2)` and `p = 2^j(4^D u+2)/3^j − 1`.
+
+- The exact valuation word `1^j, 2^D` takes `p` to `q`.
+- `p < q` holds exactly when `2^(2D+j) < 3^(D+j)`.
+
+Both hold for all 33,333 such `q < 400000`.
+
+**R46 depth-4 law, by brute force.** For all 1,112 canonical `q ≡ 1 (mod 18)` below 40,000, using quotient predecessors under `T = ν∘S`:
+
+- no ancestor `y < q` exists at depths 1–3;
+- at depth 4 one exists exactly when `q ≡ 10 (mod 81)`;
+- that ancestor is uniquely `(64q−73)/81`, with valuation word `1, 1, 2, 2`.
+
+The search is complete. Every `T`-preimage of `t` is at least `(2t−1)/3`, so chains that pass above `100q` cannot fall below `q` within four steps.
+
+**Rank values.** With `ρ(w) = ν(3w)`: `ρ(6645) = 9967`, `ρ(4205) = 12615` and `ρ(1613) = 4839`, as stated.
+
+The R43 composition theorem and the R44/R45 accepted-domain classifications were not rebuilt here.
+
+`python3 sidekick/probes/batch_r43_r46_check.py` (about 3 s; receipt alongside)
+
+---
+
 ## 2026-10-17 21:53 — VERIFIED: R37 planner properties, R40 tripling bound, R41 ancestor identity and inverse barrier (main `4a45eb0`)
 
 These were rebuilt from the text of `CRITICAL_NINE_ELIMINATION.md` §2 and R41, with this lane's own `ν` and Syracuse step.

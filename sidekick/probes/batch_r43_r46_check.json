@@ -1,0 +1,12 @@
+{
+  "quotient_predecessor_search_bound": 4000000,
+  "r46_depth4_q_checked": 1112,
+  "r46_identity_q_checked": 33333,
+  "ranks": {
+    "1613": 4839,
+    "4205": 12615,
+    "6645": 9967
+  },
+  "scope": "Independent finite checks of main's R43-R46 batch (working copy).",
+  "status": "PASS"
+}
