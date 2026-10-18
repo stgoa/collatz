@@ -1,18 +1,19 @@
 # Residual progress and finite forcing
 
 **Latest standing:** universal tripling currents on W5={5 mod8} suffice.
-Three new selected-input rules supplement the nine earlier strict-rho
-domains, retaining every signed dependency. Complete forward tables cover
-previously unrecognized selected unit classes. A seven- or nine-arrow
-inverse comparison crosses selected examples with any prescribed depth
-of R54 forward growth. A complete maximal-cycle exit interface also gives
-whole descending families after every repeat count, including families
-missed by the other two new rules. Thus w=3445 mod3456 is no longer a
-wholly unrecognized phase, but some members remain unresolved.
+Fifteen conditional families now compose under the same strict-rho order,
+retaining every signed dependency. R58 classifies the unique possible
+above-seed absorption request. R59 expands larger intermediate requests
+under the fixed old twelve rules before testing the original rank; two
+complete new domains pass, while blocked inputs remain premises. R60
+classifies a maximal inverse-cycle comparison, including complete families
+through arbitrary prescribed forward-growth depth. R61 identifies a
+full-family exact undo for a named continuation procedure with the old
+twelve rules; it does not exclude newer rules or other comparisons.
+The focus is now a complete recursion for the remaining blocked inputs.
 The seed varies with the prescribed growing depth; no infinite positive
-orbit is asserted. The separate rank sigma remains incompatible with some
-rho rules; finite acyclicity of their joint request graphs does not prove
-global termination. Universal current supply and Collatz remain open.
+orbit is asserted. Sigma keeps its separate induction. Universal current
+supply and Collatz remain open.
 These are written reductions and partial constructions, with no novelty
 claim. Current integration and verification status are recorded at the end.
 
@@ -1765,3 +1766,170 @@ Checklist for this batch:
 - [x] Complete the full Python/C++ gate and integrated-document review.
 - [x] Compile the existing LaTeX source and finish links/whitespace checks.
 - [x] Review the final diff and prepare the verified batch for authorized commit and push; delivery is recorded in Git history.
+
+## Active batch after 7206f9c: complete remaining exits and deferred rank tests
+
+Previous goal turn: **progress**. R55–R57, the twelve-family dispatcher,
+independent parallel-work review and persistent records were committed and
+pushed after the full Python/C++ gate and final TeX compilation. Revalidated
+clean main at7206f9c. The refreshed external feed is pinned at
+7bda180ac104781896a5836198026baffce27622. It acknowledges the earlier review,
+withdraws the unsupported random-preimage density inference, checks R53
+samples independently and reports finite sigma-stopping plans. These are
+optional data; the new broad surveys have not been rerun or imported as
+universal premises. The side branch remains unchanged.
+
+Working hypotheses:
+
+1. A remaining exit row admits a complete additional comparison once its
+   full arithmetic conditions are retained.
+2. Testing the actual signed requests, and expanding permitted larger
+   intermediate requests before the final rank test, resolves a whole
+   class rejected by a conservative endpoint bound.
+3. A full inverse-cycle word after a forward prefix adds a new comparison;
+   a rotation that merely undoes the prefix must be identified explicitly.
+4. A sigma-valid forward block can sometimes be turned into a rho-valid
+   complete comparison by expanding its exceptional returning requests.
+   No automatic mixing of the ranks is assumed.
+
+At the start of this batch these were exploratory hypotheses. The findings
+below record the completed written arguments, their checks and their limits.
+
+### Findings: exact defects, deferred expansion and complete inverse words
+
+1. **R58 gives a global description of the absorption overhead.** For
+   n=nu(s), unchanged H_s has a request above n exactly on the exceptional
+   critical-nine branch n27mod48, v2(3n-1)=4, with3z noncanonical for
+   z=(3n-1)/16. The unique excess is P(4z+1), coefficient+1, rank(9n+5)/8.
+   Every other request is below n. Outside this branch every request is
+   at most n; for noncanonical s every request is below s. The proof
+   accounts for all recursive W9 substitutions. Applied to the complete
+   fifth-exponent family w437mod512, it gives an iff test in the original
+   rho and the entire newly descending progression w4021mod294912.
+   The sigma incompatibility at44981 remains, as it must.
+2. **R59 makes delayed rank testing precise.** A finite candidate current
+   may contain larger intermediate inputs. Expand them largest first with
+   the fixed old twelve rules, protect the original source, and retain
+   blocked inputs. Injective integer rho proves finite formal rewriting;
+   it does not prove that the final frontier is below the original rank.
+   Two complete families do pass: every w245mod1024, and
+   w=1301+32768l whenever g=3127+78732l is selected. In the latter one
+   genuinely larger pair is expanded and its auxiliary terms cancel
+   exactly, leaving the eight ordinary valuations(1,1,1,1,2,1,3,2).
+   Subfamilies245mod3072 and1301mod786432 are outside all twelve old
+   direct domains. This is an actual signed-composition improvement.
+3. **R60 exhausts a larger inverse-word interface.** After the four-arrow
+   tail in the selected phase, take the maximal number k of inverse
+   negative-cycle words and the maximal valuation1 depth j. The full
+   acceptance table is k1–5,j>=3; k6–11,j>=2; k12–17,j>=1; k>=18,j>=0.
+   All failures retain a classified high or original request. Exact CRT
+   families supply a14-arrow comparison at k1,j3 outside the old twelve
+   rules at every prescribed guarded forward depth L. Some of these
+   families also pass R59; the refined dispatcher records that overlap.
+   Input11432437 demonstrates an actual winning R60 branch after R59.
+4. **R61 identifies a complete failure mechanism for a natural extension.**
+   The entire e11 exit is q=81*2^(11r+11)s-17 to f=3^(7r+10)s-6,
+   with clocks(7r+7,1) ordinary and7r+6 quotient. Raw f exceeds the
+   original q exactly when r>=16. For every such r,A>=5,K>=0, a full
+   CRT class has a canonical higher exit followed by a complete(A,2)
+   block and at least K further(2,2) blocks. Applying their named
+   leading inverses restores the identical unfinished current and signed
+   vector. Its largest+1 request is outside the old twelve rules; lower
+   strict-rho expansions cannot cancel it. This limits that specified
+   procedure. The seed changes with K, and other or newer rules remain
+   available. No permanent nonabsorbing orbit is constructed.
+
+### Evidence and review
+
+- [R58](exact_absorption_bound/EXACT_ABSORPTION_BOUND.md):16384 odd seeds,
+  2048 complete W9 plans,2048 fifth-family inputs with1983 strict plans
+  and65 retained failures,69 new-progression examples through2^128,
+  three actual supplied-current conversions with complete tables and12
+  distinct supplied pairs, seven rejections. Root and independent peer
+  written-proof/code audits and default replays passed.
+- [R59](deferred_rank/DEFERRED_RANK.md):127 candidate plans from the1024
+  W5-root window,23 newly descending roots,101 protected-source cases,
+  68 examples per complete family,72 new-domain examples, signed negative
+  multiplication and exact retained zero-cap frontier, four actual
+  substitutions with13 supplied pairs, two full tables, seven rejections.
+  Root proof/code review and independent default replay passed.
+- [R60](cycle_inverse/CYCLE_INVERSE.md):512 affine cases, seven threshold
+  boundaries,99 complete plans, nine all-depth exclusion examples through
+  L64, four long words through depth64, three actual substitutions and
+  two full tables, eight rejections. Root and independent peer proof/code
+  audits and both default replays passed.
+- [R61](exit_continuation/ELEVEN_EXIT_CONTINUATION.md):200 complete e11
+  exits,19 CRT families,40 exact full-current undos, eight rejections and
+  one full unfinished fixture. No absorption discovery is used. Root and
+  peer proof/code audits and owned/independent default replays passed.
+- [Refined fifteen-family compiler](refined_rules/REFINED_RULES.md):all722
+  old accepted plans in the1024-root window are unchanged, with matching
+  prior full-plan digest. It accepts747, adding two R58 and23 R59 choices,
+  leaving277 unresolved. Separate examples exercise each new family,
+  including R60, and the documented R59/R60 overlap. Seven exact actual
+  conversions use eight distinct supplied pairs. Full tables for1301
+  and11432437 contain59 and133 rows;245 closes without supplied inputs
+  in17 rows. Five rejection checks and R59's retained zero-cap frontier
+  pass. Root code review and independent default replay passed.
+
+These ranges are finite implementation evidence. Infinite-domain statements
+rest on the written proofs; none is a claimed human review or formal proof
+assistant verification. Constructor inputs remain explicit premises.
+
+### Parallel-work assessment and decision
+
+The user's fresh PR question prompted a full remote fetch and merged-PR
+listing. Only PR1 exists in that listing, already incorporated; remote main
+still matches7206f9c. The newer side feed is at767af32. Its latest R57
+and random acceptance probes were read without reproducing their receipts,
+and are not used as proof premises. The existing PR-scope checker was
+rerun and passed. The [dated review](side_lane_review_767af32.md) records
+the exact references, retained conclusions and decision. The side branch
+was not changed.
+
+This batch is **progress** toward a complete recursive comparison. The
+important general advances are the exact characterization of absorption's
+rank excess and safe formal expansion before the original-rank test.
+They also produce complete new arithmetic domains. The new inverse word
+has a full acceptance table; the e11 analysis prevents mistaking an exact
+undo for progress. None completes the whole remaining W5 obligation.
+
+**Focused pivot:** retain the current formulation and common rho order,
+but prioritize a theorem eliminating a complete type of blocked high or
+original request. First classify the complement of the new fifteen-rule
+dispatcher. Do not carry an old-twelve exclusion forward without checking
+new rules, and do not replace universal success with formal rewriting
+termination. R59 keeps its internal old-twelve resolver fixed. An enlarged
+recursive resolver needs its own noncircular argument. More individual
+examples and random acceptance percentages are not the next progress test.
+
+The original unbounded research goal remains active.
+
+### Final integrated verification
+
+The full `python3 scripts/verify_all.py --cpp` run passed with exit0.
+It reproduced all five new checks, all earlier receipts and negative
+controls, the original31-entry archive manifest, and both independent
+C++ cutoffs4096/262144. Run log: `/tmp/collatz_refined_full_gate.log`.
+The existing LaTeX source compiled successfully with the built-in editor.
+Independent review of its new sections passed after making R60's positive
+input hypothesis explicit. Shared prose review passed after updating the
+report's opening standing and ledger date, and distinguishing R59's
+eight-arrow q-to-g prefix from the full compiled pair current.
+
+Mechanical checks passed for the28-file change scope,368 local Markdown
+links, LF endings,54 unique TeX labels,95 resolved references, and staged
+whitespace. The final remote refresh still had main at7206f9c with no
+intervening merge. The reviewed batch is prepared for the authorized
+commit and push; Git history records delivery. No change was made to the
+parallel side branch or original archive.
+
+Checklist:
+
+- [x] Revalidate the repository and review the updated independent feed.
+- [x] Derive complete remaining-domain comparisons or exact failure mechanisms.
+- [x] Audit every proposed macro against the original rank after full cancellation.
+- [x] Persist proved results, counterexamples and capped experimental evidence.
+- [x] Obtain independent proof/code and shared-record reviews.
+- [x] Run the full gate, compile the existing TeX and verify links/scope.
+- [x] Review the final diff and prepare the authorized commit and push; retain the full open goal and record delivery in Git history.
