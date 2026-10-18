@@ -13,9 +13,11 @@ theorems from the additional work required here.
 
 ## Current research decision
 
-Proceed to **S.2 and its remaining exceptional inputs**. S.1 fixed-factor
-stopping with explicit finite errors and the separate W5 pullback has passed
-the full verification gate. S.1 calibrates a published corollary. It does not supply
+Investigate **S.2 through the first-half endpoint transport**. S.1 fixed-factor
+stopping with explicit finite errors and the separate W5 pullback was pushed
+as `546e891`. The next attempted lemma tests a uniform arbitrary-target counting
+bound with a sublinear error; its written obstruction passed the full verification gate.
+S.1 calibrates a published corollary. It does not supply
 the universal stopping assertion or the stronger absorption count C.2.
 Do not add more dispatcher families during this phase.
 
@@ -149,6 +151,19 @@ qualifiers. Neither removes every exception.
 **Potential outcomes:** (a) only for a new proved step whose stated
 `d` analogue actually fails in the harness; barrier for a named proposed
 method with a proof. Repackaging R.2 or adding finite accepted cases is none.
+
+**Current named-method test (P6-002):** define L(n) as the first odd iterate
+at most n/2 and M_X(y) as the number of odd n<=X whose L endpoint is y.
+Test whether one finite kappa and one remainder r(X)=o(X) can satisfy
+`sum_(y in A) M_X(y) <= kappa |A| + r(X)` uniformly over every eligible
+A subset of odd (1,X/2]. The [written one-arrow obstruction](experiments/phase6/stopping_transport/STOPPING_TRANSPORT.md)
+excludes every finite kappa, even after discarding any fixed finite target
+set; it transfers to all supported fixed d. At d=1 the sparse refinements
+also reject cardinality-proportional bounds with o(X^alpha) errors, even
+under hereditary sparse counts. This barrier concerns the stated premise.
+A bound in a global growth norm C*X^alpha and one using the actual
+nonabsorbing set's structure remain open, as do other weighted or
+scale-dependent schemes. Full verification is recorded in the ledger.
 
 ## C — predecessor counting route
 

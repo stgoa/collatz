@@ -14,6 +14,13 @@ Its ordinary estimate transfers to each fixed supported `3x+d` map and does
 not remove every exception. S.2 and universal current supply remain open.
 This is a re-derived published stopping limit, with no novelty claim.
 
+S.2 has a [written transport barrier](../experiments/phase6/stopping_transport/STOPPING_TRANSPORT.md):
+no fixed cardinality multiplier plus a uniform sublinear error controls
+first-half preimages of every target subset. The obstruction already uses
+one-arrow sources and transfers to each supported fixed d. It does not
+exclude estimates specific to the actual bad set or bounds in a global
+weighted growth norm. Verification status is in the Phase 6 ledger.
+
 ## R1 — Exact source transport and original packets
 
 **Status: inherited written proofs and finite certificates.**

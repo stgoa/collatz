@@ -138,6 +138,12 @@ def main():
                                "calibration_audit.json").read_text())
         require(actual == expected and actual["status"] == "PASS",
                 "Phase 6 stopping calibration differs from the persisted receipt")
+        actual = json.loads(run([sys.executable, "-B", "check_transport.py"],
+                                phase6_work / "stopping_transport"))
+        expected = json.loads((phase6_source / "stopping_transport" /
+                               "transport_audit.json").read_text())
+        require(actual == expected and actual["status"] == "PASS",
+                "Phase 6 stopping transport differs from the persisted receipt")
         for directory, script in (
             ("transport", "check_root_transport.py"),
             ("duality", "check_finite_cone.py"),
@@ -261,6 +267,7 @@ def main():
                          right_aligned="PASS: matches persisted receipt", independent_cpp=cpp,
                          phase6_transfer_controls=transfer_controls,
                          phase6_stopping_calibration="PASS: exact fixed-factor stopping constants, parity cylinders, retained d-controls and injective W5 pullback; calibration only",
+                         phase6_stopping_transport="PASS: exact one-arrow multiplicities refute uniform arbitrary-target linear transport; scoped barrier with d-controls",
                          negative_controls_and_audit="PASS: five receipts reproduced",
                          review_scope="PASS: alternative minimum-cost one-sided certificates",
                          even_exit_history="PASS: exact raw-target cone and supplied signed certificates",
