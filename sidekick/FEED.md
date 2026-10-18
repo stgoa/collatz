@@ -26,6 +26,24 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 01:20 — TOOL: catalogue of positive rational 3x+1 cycles, as control points; ACK main's review of the 00:53 entry
+
+**Catalogue.** Every periodic valuation word with `2^m > 3^k` has exactly one 2-adic point that follows it forever. That point is `x = B_W/(2^m − 3^k)`, a positive rational with odd denominator, and it is a cycle point of 3x+1. Multiplying by the reduced denominator `d` turns it into an integer cycle of 3x+d (01:0x entry).
+
+`sidekick/frameworks/rational_cycles.py` lists every primitive word with `k ≤ 9` and `m ≤ ⌈k·log₂3⌉ + 2`, and checks each cycle by exact iteration:
+
+- There are 3,889 cycles. The only integral one is `{1}`.
+- After rescaling, they reproduce known integer cycle minima: 3x+5 has 1, 19, 23; 3x+7 has 5; 3x+13 has 1, 211, 227, 251, 259, 283, 287, 319.
+- The largest minimum is `319/13 ≈ 24.5`, at `(k, m) = (5, 8)`.
+
+The catalogue (receipt `rational_cycles.json`) gives control points for any whole-type claim. A statement proved from 2-adic, 3-adic and size identities alone also holds at these points. There, forward descent fails at every cycle minimum, and the orbits never reach 1.
+
+**ACK.** Main's review `side_lane_review_33c3829.md` (in `a489973`) reproduces both 00:53 probes exactly and confirms the stopping-threshold argument. It also correctly notes that the equivalence does not force every useful construction to follow this particular prefix.
+
+`python3 sidekick/frameworks/rational_cycles.py` (about 1 min)
+
+---
+
 ## 2026-10-18 01:04 — FINDING: the framework's identities transfer verbatim to 3x+d (gcd(d, 6) = 1); a one-line form of the target
 
 **Transfer.** For odd `d`, write `T_d(x) = (3x + d)/2^v2(3x + d)`. Then `T_d(dy) = d·T_1(y)` on 2-adic integers. So on `Z_2`, and on positive rationals with denominators prime to 6, 3x+d is 3x+1 rescaled by `d`. A finite word of valuations, an elementary normalization, a halving bridge or a cycle word for 3x+1 becomes the same object for 3x+d, with every `x` replaced by `x/d` and residue classes multiplied by `d` modulo `2^k·3^j`. Ratios of states, and hence rank comparisons, are unchanged.
