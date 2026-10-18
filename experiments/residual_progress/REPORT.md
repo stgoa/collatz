@@ -3296,7 +3296,7 @@ fully supplied outputs have43/154/232 rows, with37 local source hashes.
 The nonzero inherited lower relation has22 rows and two requests in each
 of three retained controls. The widened-window argument has a separate
 independent mathematical audit; the final full-package proof/source/default
-peer review also passed with no requested fixes. Shared-record and TeX review passed after making the README's p<=Q origin restriction explicit and defining the inherited TeX variables locally. Native compilation passed after both corrections. Both checkers are registered. `python3 scripts/verify_all.py --cpp` passed with exit0 against the frozen packages, including both new checks, all historical and negative-control receipts,31 archive manifest entries and independent C++ cutoffs4096/262144. Log: `/tmp/collatz_retained_history_full_gate.log`. Mechanical checks passed for17 scoped files,457 local Markdown links,85 unique TeX labels,145 resolved references, LF endings, JSON parsing and whitespace. The final remote refresh left main at3acae93. The reviewed batch is prepared for the already authorized commit and push; Git history records delivery.
+peer review also passed with no requested fixes. Shared-record and TeX review passed after making the README's p<=Q origin restriction explicit and defining the inherited TeX variables locally. Native compilation passed after both corrections. Both checkers are registered. `python3 scripts/verify_all.py --cpp` passed with exit0 against the frozen packages, including both new checks, all historical and negative-control receipts,31 archive manifest entries and independent C++ cutoffs4096/262144. Log: `/tmp/collatz_retained_history_full_gate.log`. Mechanical checks passed for17 scoped files,457 local Markdown links,85 unique TeX labels,145 resolved references, LF endings, JSON parsing and whitespace. The final remote refresh left main at3acae93. The reviewed batch was committed and pushed as `7a477ad`; local main and origin/main matched afterward and the working tree was clean. The universal goal remains open.
 
 - [x] Revalidate pushed main, identify the merged PR and reproduce the pinned probes.
 - [x] Persist and independently review R88's complete finite-tree/lifting theorem.
@@ -3305,7 +3305,7 @@ peer review also passed with no requested fixes. Shared-record and TeX review pa
 - [x] Complete independent R89 proof/source/default-replay review.
 - [x] Finish shared-record/TeX integration, native compilation and final transcription review.
 - [x] Register both focused checkers and pass the complete Python/C++ gate.
-- [ ] Review the final diff, commit and push the batch; retain the open universal goal.
+- [x] Review the final diff, commit and push the batch; retain the open universal goal.
 
 
 ### Next-batch scratch directions, outside the frozen mathematical packages
