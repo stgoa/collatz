@@ -1,5 +1,35 @@
 # Research log
 
+## 2026-10-18 — V001: the goal changes to breadth-first viewpoint exploration
+
+Persisted the exact new goal and updated README/AGENTS so the former Phase6
+route-only rubric no longer controls research. Ten viewpoints were compared
+in parallel, followed by three bounded discrimination probes. The
+[map](../VIEWPOINT_MAP.md) records what each preserves, its missing condition,
+controls and genuinely partial milestone. The [batch log](VIEWPOINT_LOG.md)
+pins the side read and verification. No new language has yet earned a deep
+proof investigation. Retain only bounded tests of relational arithmetic
+histories and arithmetic graph geometry; expand again if those merely
+repackage frozen results. No frozen mathematics or LaTeX source changed.
+
+## 2026-10-18 — P6-004 closed before the viewpoint pivot
+
+Completed the isolated replay of Lau source3a38bfbb: source build4102 jobs,
+four exact specification comparisons, eight standard-axiom reports and fresh
+private-proof replay into an empty instance of the same Lean kernel all PASS.
+The [completed receipt](../experiments/phase6/linear_density_audit/formal_replay.json)
+pins evidence and retains cache/source trust boundaries. This supplies an
+external lower-density input, not Collatz or the missing upper estimate.
+Our qualitative reconstruction retains Tao's mixing theorem; the exact
+residue relaxation admits a positive-density profile. P6-004 is none under
+the previous strict calibration rubric. Eleven integrity tests and the
+119-field full finite gate passed; the earlier143 exit is retained separately.
+R1–R94, dispatcher and open LaTeX source were unchanged.
+
+The user then replaced the research goal with breadth-first exploration of
+mathematical languages. The remaining C.2a preparation is historical input;
+no further C.2a proof investigation is authorized as the immediate priority.
+
 ## 2026-10-18 — Merged-PR opinion and current pivot reaffirmed
 
 Fresh remote metadata identifies PR1, already merged as ba6b337, as the only

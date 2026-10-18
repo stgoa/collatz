@@ -1,0 +1,28 @@
+[
+  {
+    "command": [
+      "/usr/bin/true"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/bin/cat",
+      "/tmp/collatz_p6_replay_denied_canary.txt"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "cat: /tmp/collatz_p6_replay_denied_canary.txt: Operation not permitted\n"
+  },
+  {
+    "command": [
+      "/tmp/collatz_p6_replay/lean-4.35.0-rc2-darwin_aarch64/bin/lean",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "Lean (version 4.35.0-rc2, arm64-apple-darwin24.6.0, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)\n",
+    "stderr": ""
+  }
+]

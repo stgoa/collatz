@@ -2,11 +2,14 @@
 
 Last updated: 2026-10-18. This ledger summarizes scope; the linked proof notes and exact data contain the supporting arguments.
 
-## Phase 6 standing
+## Current programme and preserved Phase6 standing
 
-R1–R94 below are frozen infrastructure. The living [route map](../ROUTE_MAP.md)
-supersedes historical priority paragraphs in this file. New work and its
-grades are recorded in the [Phase 6 ledger](PHASE6_LEDGER.md).
+R1–R94 below are frozen infrastructure. The active goal is to compare
+mathematical languages through [VIEWPOINT_MAP.md](../VIEWPOINT_MAP.md),
+with exploration decisions in [VIEWPOINT_LOG.md](VIEWPOINT_LOG.md).
+The [route map](../ROUTE_MAP.md) and [Phase6 ledger](PHASE6_LEDGER.md)
+retain earlier obligations, grades and completed evidence. Viewpoint
+recommendations are not new mathematical results.
 
 S.1 now has a [written stopping calibration](../experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md)
 with explicit finite horizons, integer cutoffs and a separate W5 pullback.
@@ -31,6 +34,17 @@ through alpha7/8, while the d1 one-arrow operator contracts by10/13 for
 alpha>=4/5. The all-exponent result concerns arbitrary-target contraction,
 not a bound tailored to the actual nonabsorbing set. Full verification for
 P6-003 passed; Collatz remains open.
+
+P6-004 supplies [an audited external linear lower theorem](../experiments/phase6/linear_density_audit/README.md)
+through independent source compilation, exact statement correspondence and
+actual axiom checks, followed by a successful fresh replay into the same
+Lean kernel. Its explicit bound applies to every fixed target not
+divisible by3, with no convergence premise. The separate written counting
+reconstruction is conditional on Tao's mixing theorem and has a qualitative
+general-d extension. Our actual-B residue attempt still permits a positive
+leading-density profile; C.2a remains open. The full finite gate passed119
+fields. Formal replay, handwritten proof status and programme grade none
+are distinguished in the Phase6 ledger and evidence.
 
 ## R1 — Exact source transport and original packets
 

@@ -2,22 +2,41 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-18): Collatz remains unproved. Phase 6 is active.**
+**Current standing (2026-10-18): Collatz remains unproved. The active goal is to find a better mathematical language.**
 
-**Parallel-work review:** the remote currently lists PR1 as the only merged
-PR; it is already incorporated with corrected minimality claims. The latest
-side feed independently confirms P6-003's barrier, and its probe was reproduced
-here. We are continuing the counting-route pivot: audit the stronger
-predecessor-density input, then attack the actual nonabsorbing set. See the
-[current decision](docs/PHASE6_LEDGER.md#user-requested-pr-review-and-mid-batch-side-refresh).
+We are exploring Grothendieck-style changes of viewpoint through **breadth
+before depth**. The task is to compare what different objects and
+representations reveal, then recommend a small research portfolio. No new
+language is being presented as a proof or a promised breakthrough.
 
-R1–R94 and the seventeen-family dispatcher are frozen at `9190ccf`. The living [route map](ROUTE_MAP.md) now controls research priorities. The [Phase 6 ledger](docs/PHASE6_LEDGER.md) records batch grades, side-lane decisions and disputes; the [literature audit](docs/PHASE6_LITERATURE.md) records primary references. The setup is confirmed **none**. **S.1 has a verified, independently confirmed calibration with explicit stopping constants and a W5 pullback.** S.2 now has a written barrier to uniform cardinality transport (P6-002, full gate passed) and a stronger written barrier to contraction in **every power-growth norm with exponent below 1** (P6-003, full gate passed). The latter uses the calibration directly: a finite family of first-descending paths concentrates on some sparse target set. Universal stopping remains open.
+Start with the living [VIEWPOINT_MAP.md](VIEWPOINT_MAP.md) and
+[exploration log](docs/VIEWPOINT_LOG.md). The first survey compares ten
+viewpoints across symbolic arithmetic, operators and geometry, and
+rewriting and renormalization. Each has an exact example, a known-cycle
+control, a cheap next test and a milestone short of all of Collatz.
+The initial discrimination probes ask which information a simplification
+loses and whether that information can be restored without assuming the
+missing theorem. Recommendations remain provisional.
+
+**Preserved evidence:** R1–R94 and the seventeen-family dispatcher are frozen
+at `9190ccf`. The earlier [route map](ROUTE_MAP.md) supplies obligations and
+failures without restricting this exploration. Phase6 proved two scoped
+obstructions to uniform transport estimates. Its final
+[P6-004 audit](experiments/phase6/linear_density_audit/README.md) independently
+reproduced the formal lower-density theorem, including exact statements,
+axioms and fresh same-kernel replay. The required upper estimate remains
+open. Those results and all counterexamples remain available.
+
+The independent side lane remains read-only input. PR1 is already
+incorporated with corrected minimality claims; it does not rule out all
+alternative current constructions. Current source pins and decisions are
+recorded in the exploration log.
 
 ## Frozen mathematical standing
 
-Universal finite tripling-pair currents on `w=5 mod8` suffice. Our conditional compiler retains auxiliary `w=9 mod16` pairs and keeps every missing input explicit. We now retain both actual source histories and classify the lower path's first departure across every repetition count of the upper growth pattern. The resulting comparison still has an unresolved positive source. A proposed recursion to `Q(floor(ell/3))` provably requires unbounded ordinary clocks. Universal terminal supply remains unresolved; the route map now determines which proof obligations to pursue. These results have no human peer review or formal verification.
+Universal finite tripling-pair currents on `w=5 mod8` suffice. Our conditional compiler retains auxiliary `w=9 mod16` pairs and keeps every missing input explicit. We now retain both actual source histories and classify the lower path's first departure across every repetition count of the upper growth pattern. The resulting comparison still has an unresolved positive source. A proposed recursion to `Q(floor(ell/3))` provably requires unbounded ordinary clocks. Universal terminal supply remains unresolved; the new exploration compares languages for addressing such obligations. These results have no human peer review or formal verification.
 
-## Our current understanding
+## What the existing current framework captures
 
 The programme converts an exact stopping-work discrepancy into a finite signed measure on actual Collatz states. Balanced source packets allow positive and negative contributions to cancel, including contributions that arrive at a common state at different times. A finite current certificate can be checked using one-step arithmetic without resolving the future of its exits.
 
@@ -47,9 +66,10 @@ These criteria are equivalent to Collatz; they do not prove the universal certif
 - **The recursion uses one consistent rank.** The [critical-basis compiler](experiments/residual_progress/critical_basis/CRITICAL_BASIS.md) retains W5 and W9 pairs and translates the older rank rules before combining them. Every signed dependency is explicit. Each accepted expansion strictly lowers the positive integer rank. A finite conditional plan becomes an actual current only after every remaining signed input is supplied; universal supply is still open. The older seventeen-family W5 dispatcher remains unchanged.
 - **The parallel lane is useful independent scrutiny.** PR1's negative controls are incorporated. Its broad claim that alternative certificates cannot help has explicit counterexamples in our [review](collatz_research_20261017/negative_controls/PR1_REVIEW.md). The [latest pinned reproduction](experiments/residual_progress/side_lane_review_8ed32bc.md) now independently agrees with both R91's1,732,883-origin basin and R92's176,754,119-origin basin, including the16 boundary tails. It does not verify R92's suffix proof or supply a new current. The [previous review](experiments/residual_progress/side_lane_review_86ead16.md) covers the merged PR and older arithmetic probes. These checks support the tactical pivot toward whole-family supply and termination.
 
-## What counts in Phase 6
+## Historical Phase6 grading
 
-Every attempted result must attach to a named route-map node with one of three labels:
+This rubric records the previous programme; it does not grade or restrict
+the current viewpoint exploration. Within Phase6, every attempted result must attach to a named route-map node with one of three labels:
 
 - **(a) Non-transfer step:** a proved step whose stated `3x+d` analogue fails on a known cycle, exercised by the transfer harness.
 - **Calibration:** a published result re-derived with explicit constants.
@@ -60,11 +80,11 @@ Everything else is **none**. Finite acceptance rates and new conditional interfa
 ## Where to start
 
 1. Read [AGENTS.md](AGENTS.md) for working rules and claim standards.
-2. Read [ROUTE_MAP.md](ROUTE_MAP.md) and the [Phase 6 ledger](docs/PHASE6_LEDGER.md), then the [result ledger](docs/RESULTS.md) for exact scope, evidence, and unresolved obligations.
+2. Read [VIEWPOINT_MAP.md](VIEWPOINT_MAP.md) and the [exploration log](docs/VIEWPOINT_LOG.md), then the [result ledger](docs/RESULTS.md) for exact scope, evidence and unresolved obligations.
 3. Read the [current proof note](collatz_research_20261017/right_aligned_reduction.tex). Open this source in the document editor for its PDF preview.
 4. Consult the [master handoff](COLLATZ_PROGRAMME_MASTER_HANDOFF.md) for the wider programme and historical counterexamples. Its old active target is superseded only for the revised right-aligned family.
 
-Each batch fetches the read-only `claude/sidekick` branch and reads both `sidekick/DIRECTIONS.md` and `sidekick/FEED.md`. Answer every open direction in the Phase 6 ledger with accept/defer/reject and a reason. Verify findings before using them; never write to that branch. Verified batches are committed and pushed to origin/main without an approval wait.
+Each batch fetches the read-only `claude/sidekick` branch and reads both `sidekick/DIRECTIONS.md` and `sidekick/FEED.md`. Assess open direction proposals in the exploration log with accept/defer/reject and a reason. Verify findings before using them; never write to that branch. Verified batches are committed and pushed to origin/main without an approval wait.
 
 ## Reproduce the finite checks
 
@@ -82,10 +102,13 @@ Most checks establish finite arithmetic identities. R91 and R92 additionally use
 
 ## Repository map
 
-- `ROUTE_MAP.md`: active living proof skeletons and selected node.
+- `VIEWPOINT_MAP.md`: active comparison, shortlist, tests and decision criteria.
+- `docs/VIEWPOINT_LOG.md`: exploration batches, source pins, decisions and verification.
+- `experiments/viewpoints/`: bounded surveys and discrimination probes.
+- `ROUTE_MAP.md`: preserved Phase6 proof skeletons and unresolved nodes.
 - `docs/PHASE6_LEDGER.md`: batch grading, transfer status and side-lane decisions.
 - `docs/PHASE6_LITERATURE.md`: primary references and exact comparison scopes.
-- `experiments/phase6/`: controls, receipts and current report.
+- `experiments/phase6/`: completed controls, audits, receipts and historical report.
 
 - `COLLATZ_PROGRAMME_MASTER_HANDOFF.md`: inherited proof map and historical context.
 - `collatz_packet_currents_bundle.zip`: original supplied archive, retained for provenance.
@@ -115,6 +138,6 @@ Most checks establish finite arithmetic identities. R91 and R92 additionally use
 
 ## Next research target
 
-The [S.1 calibration](experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md) feeds the [S.2 power-growth proof](experiments/phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md): uniform contraction for arbitrary target sets fails at every exponent 0<alpha<1. One-arrow contraction alone therefore cannot justify iterating density descent. The next step audits newly found2026 claims of linear predecessor density ([L3a](docs/PHASE6_LITERATURE.md)), then targets an estimate for the actual nonabsorbing set. Those external proofs are not yet independently reproduced here. The route map records the resulting conditional counting target; Y.2 addresses cycles only and H.2 needs additional rigidity.
+The [S.1 calibration](experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md) feeds the [S.2 power-growth proof](experiments/phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md): uniform contraction for arbitrary target sets fails at every exponent 0<alpha<1. The [C.1a audit](experiments/phase6/linear_density_audit/README.md) now supplies the stronger external lower theorem. Next, attack C.2a: arbitrarily small unabsorbed fractions at arbitrarily large cutoffs, with finite horizons. Its first residue relaxation failed, and the proposed matched density gap is unproved. Positive predecessor density, finite verification and Tao's almost-bounded theorem do not supply this upper bound. Y.2 addresses cycles only and H.2 needs additional rigidity.
 
 The overall goal remains a finite current, possibly with an everywhere nonpositive residual, at every cutoff on **all five rays**, or another proof of convergence. The [route map](ROUTE_MAP.md) supersedes old next-target paragraphs in historical reports. The [Phase 6 report](experiments/phase6/REPORT.md) records active work. No universal current construction, Collatz proof or novelty claim is supplied.
