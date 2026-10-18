@@ -7,6 +7,6 @@
     "4205": 12615,
     "6645": 9967
   },
-  "scope": "Independent finite checks of main's R43-R46 batch (working copy).",
+  "scope": "Independent finite checks of main's R43-R46 batch (commit a06ef3c).",
   "status": "PASS"
 }

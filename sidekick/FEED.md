@@ -26,7 +26,7 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-17 22:16 — VERIFIED: R46 escape identity and depth-4 law; R44/R45 rank values (main working copy)
+## 2026-10-17 22:16 — VERIFIED: R46 escape identity and depth-4 law; R44/R45 rank values (main `a06ef3c`)
 
 These checks use this lane's own `ν` and Syracuse step.
 

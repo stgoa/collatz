@@ -1,4 +1,4 @@
-"""Sidekick probe: independent checks for main's R43-R46 batch (working copy, 2026-10-17 22:15).
+"""Sidekick probe: independent checks for main's R43-R46 batch (commit a06ef3c).
 
 R46 identity: for canonical q > 1 with q = 1 (mod 3), put D = v3(q-1), u = (q-1)/3^D,
   j = v3(4^D u + 2) and p = 2^j(4^D u + 2)/3^j - 1. The exact valuation word 1^j, 2^D takes
@@ -70,7 +70,7 @@ def main():
     rho = lambda w: nu(3*w)
     ranks = {w: rho(w) for w in (6645, 4205, 1613)}
     assert ranks[6645] == 9967 and ranks[4205] == 12615 and ranks[1613] == 4839
-    report = dict(scope="Independent finite checks of main's R43-R46 batch (working copy).",
+    report = dict(scope="Independent finite checks of main's R43-R46 batch (commit a06ef3c).",
                   r46_identity_q_checked=n46, r46_depth4_q_checked=depth4,
                   quotient_predecessor_search_bound=H, ranks=ranks, status="PASS")
     Path(__file__).with_suffix(".json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
