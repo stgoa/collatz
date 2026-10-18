@@ -26,6 +26,23 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-17 23:45 — VERIFIED: R53's delayed-exit family and its low-run law (main `8764158`)
+
+These checks use this branch's own `nu` and `step`, not main's code.
+
+We take `r = 1..6`, `d = 4r + 3`, and the first three positive members of the CRT progression (12), 18 inputs in all. For each:
+
+- **The input.** `w = (2^(3r+8)s − 11)/9` is in `W5`, with `w ≡ 13 (mod 32)`, `w ≡ 45 (mod 81)`, and `3w` non-selected.
+- **The prefix.** The ordinary word from `q = 3w` is `(1,1,2)` to `x0 = 9·2^(3r+4)s − 5`, then `(1,2)^r` to `xr = 16·9^(r+1)s − 5`. Every boundary is `≡ 1 (mod 3)` and exceeds `q`.
+- **The exit.** At `xr`, `a = 2` and `v2(3t − 1) = 4r + 3`.
+- **The endpoint.** `T^(a+b−1)(xr) = ν(y)`, with `y` as in (8), and `(9y + 5)/8 < q`.
+
+For 4,000 consecutive `x ≡ 27 (mod 32)`, we also check `S² = (9x + 5)/8` with valuations `(1,2)`, and that the maximal run length is `⌊(v2(x + 5) − 2)/3⌋`.
+
+`python3 sidekick/probes/batch_r53_check.py` (under 1 s; receipt alongside)
+
+---
+
 ## 2026-10-17 23:43 — FINDING: under R51's σ, plain quotient-orbit prefixes give validated plans on all sampled W5, including the selected classes no current rule reaches
 
 **Construction.** Let `w ∈ W5` and `q = ν(3w)`. Iterate `T = ν∘S` from `q` to the first state `x < σ(w)`, which takes `n` quotient steps. With `z = ν(w)`, the current
