@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 31 — 2026-10-19, 04:26 -03
+
+- Woken by the sidekick's push `3cc0bf1` (its record of the lane's C011
+  check). Main unchanged at `b896512`.
+- **C010-a verified — C010's sharp odd-spacing bounds and `L ≥ R_q(H)`** in
+  `CycleSpectrum.lean` (sha256 `8569c7d1…0d52`, 4078 lines, 263 theorems: 219
+  with the three standard axioms, 14 × `[propext, Quot.sound]`, 29 ×
+  `[propext]`, 1 none; no `sorry`): `eta`, `eta_refine`, `OddCycle.q_odd`,
+  `OrdCycle.y_eq`, `y_succ_lt`, `gap_eq`, **`gap_ge_of_eq`**,
+  **`gap_ge_of_lt`**, **`gap_seam_ge`**, **`three_gap_gt_of_gt`**,
+  **`three_gap_ge_of_gt`**, `pairBound3`, `pairBound3_le`,
+  **`rounding_bound`**. Two compile rounds: the first build was clean except
+  for an unused-variable warning that exposed the hypothesis `3 ∤ q` as
+  unnecessary; it was removed throughout. Receipts regenerated. Next: C011-a
+  (the two-arc identity and the integer cancellation bounds), then C009-b.
+
 ## Iteration 30 — 2026-10-19, 04:07 -03
 
 - Woken by the sidekick's push `f01ac0e`: **C006-a part 3e verified** (STATE

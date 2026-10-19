@@ -3351,6 +3351,17 @@ theorem D_pos : 0 < (2 : ℤ) ^ Γ.Apre m - 3 ^ m := by
   have : ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * Γ.n 0 ≤ 0 := mul_nonpos_of_nonpos_of_nonneg hD hn.le
   linarith
 
+/-- With positive valuations the additive parameter is odd: `2^{a_0} n_1 = 3 n_0 + q` has an even
+left side and `3 n_0` is odd. -/
+theorem q_odd (hapos : ∀ i, 1 ≤ Γ.a i) : Odd Γ.q := by
+  have harrow := Γ.arrow 0
+  have heven : Even (2 ^ Γ.a 0 * Γ.n 1) :=
+    even_iff_two_dvd.mpr (dvd_mul_of_dvd_left (dvd_pow_self 2 (by have := hapos 0; omega)) _)
+  rw [harrow] at heven
+  have h3 : Odd (3 * Γ.n 0) := Int.odd_mul.mpr ⟨⟨1, by norm_num⟩, Γ.nodd 0⟩
+  have hne : ¬ Even (3 * Γ.n 0) := Int.not_even_iff_odd.mpr h3
+  exact Int.not_even_iff_odd.mp (fun hq => hne ((Int.even_add.mp heven).mpr hq))
+
 theorem toNarrow_primitive (hord : ∀ i j, Γ.Z i < Γ.Z j ↔ Γ.F i < Γ.F j) (q' : ℕ)
     (hq1 : (2 : ℤ) ^ q' * Γ.lo ≤ Γ.F 0) (hq2 : Γ.F 0 < 2 ^ (q' + 1) * Γ.lo)
     (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) :
@@ -3530,6 +3541,52 @@ theorem card_image_le_changes (f : ℕ → ℕ) (n : ℕ) :
         exact Finset.mem_image_of_mem f (Finset.mem_range.mpr (Nat.lt_succ_self n))
       rw [Finset.card_insert_of_mem hmem]
       exact ih
+
+/-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
+
+C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
+constant `b_q(a, b)` depending on the adjacent sorted heights `a = H_r`, `b = H_{r+1}`: `2/2^a`
+for `b = a`, `1/2^a` for `b < a` (the seam included, with `b = −1`), and
+`[q(2^k − 1) + η]/(3 · 2^b)` for `b = a + k > a`, where strict image order gives `3r > q(2^k − 1)`
+for the odd numerator `r` and the residue of `q(2^k − 1)` modulo `6` supplies `η ∈ {6, 2, 4}`.
+Summing over the circle, `L ≥ R_q(H) = Σ b_q(H_r, H_{r+1})`. Here everything is scaled by `2^B`
+(`G_r = 2^B Δ_r`) and the upward bound is multiplied by `3` to stay in `ℤ`. -/
+
+/-- C010's residue increment `η(q, k)`: `6` for even `k`; for odd `k`, `2` if `q ≡ 1 (mod 6)` and
+`4` otherwise (`q ≡ 5 (mod 6)` in the intended domain `gcd(q, 6) = 1`). -/
+def eta (q : ℤ) (k : ℕ) : ℤ := if Even k then 6 else if q % 6 = 1 then 2 else 4
+
+/-- C010 §2's increment: for odd `r, q` and `k ≥ 1`, `q (2^k − 1) < 3 r` forces
+`q (2^k − 1) + η(q, k) ≤ 3 r`, because `3 r ≡ 3 (mod 6)` while `q (2^k − 1) ≡ 3` (`k` even) or
+`≡ q` (`k` odd) modulo `6`. The prose assumes `3 ∤ q`; it is not needed, since for `q ≡ 3 (mod 6)`
+the true increment is `6 ≥ 4`. -/
+theorem eta_refine {q r : ℤ} (k : ℕ) (hk : 1 ≤ k) (hq : Odd q) (hr : Odd r)
+    (h : q * (2 ^ k - 1) < 3 * r) : q * (2 ^ k - 1) + eta q k ≤ 3 * r := by
+  have hx2 : (2 : ℤ) ∣ 2 ^ k := dvd_pow_self 2 (by omega)
+  have hxodd : Odd ((2 : ℤ) ^ k - 1) := by
+    obtain ⟨c, hc⟩ := hx2
+    exact ⟨c - 1, by omega⟩
+  have hyodd : Odd (q * (2 ^ k - 1)) := Int.odd_mul.mpr ⟨hq, hxodd⟩
+  have hmod : (2 : ℤ) ^ k ≡ (-1) ^ k [ZMOD 3] := (show (2 : ℤ) ≡ -1 [ZMOD 3] by decide).pow k
+  obtain ⟨s, hs⟩ := hyodd
+  obtain ⟨u, hu⟩ := hr
+  obtain ⟨v, hv⟩ := hq
+  unfold eta
+  rcases Nat.even_or_odd k with hke | hko
+  · rw [hke.neg_one_pow] at hmod
+    have h3y : (3 : ℤ) ∣ q * (2 ^ k - 1) := Dvd.dvd.mul_left hmod.symm.dvd q
+    rw [ite_eq_left hke]
+    omega
+  · rw [hko.neg_one_pow] at hmod
+    have h3' : (3 : ℤ) ∣ 2 ^ k + 1 := by
+      have := hmod.symm.dvd
+      rwa [sub_neg_eq_add] at this
+    have h3y : (3 : ℤ) ∣ q * (2 ^ k - 1) - q := by
+      have hrew : q * (2 ^ k - 1) - q = q * (2 ^ k + 1) - 3 * q := by ring
+      rw [hrew]
+      exact dvd_sub (Dvd.dvd.mul_left h3' q) (dvd_mul_right 3 q)
+    rw [ite_eq_right (Nat.not_even_iff_odd.mpr hko)]
+    split_ifs with h6 <;> omega
 
 /-- An ordered primitive odd cycle with `m ≥ 2`, together with its exponent window: C006's
 domain (order of the normalised successor is the hypothesis `hord`). -/
@@ -3842,6 +3899,178 @@ theorem G1_second :
         mul_lt_mul_of_pos_left h1 hD
     _ = 2 ^ Ω.Γ.B * (((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) * Ω.Γ.n 0) := by ring
     _ = 2 ^ Ω.Γ.B * (Ω.Γ.q * Ω.Γ.Cpre m) := by rw [hc]
+
+/-! #### C010's sharp odd-spacing bounds and the summed bound `L ≥ R_q(H)` -/
+
+/-- The sorted state of rank `r` in coordinates: `y_r = 2^{B − hr_r} n_{idx r}`. -/
+theorem y_eq (r : ℕ) : Ω.N.y r = 2 ^ (Ω.Γ.B - Ω.hr r) * Ω.Γ.n (Ω.N.idx r) := rfl
+
+/-- Adjacent sorted states are strictly increasing. -/
+theorem y_succ_lt {r : ℕ} (hr1 : r + 1 < m) : Ω.N.y r < Ω.N.y (r + 1) :=
+  Ω.N.y_lt_y Ω.N_prim (Nat.lt_succ_self r) hr1
+
+/-- An interior gap is the difference of adjacent sorted states. -/
+theorem gap_eq {r : ℕ} (hr1 : r + 1 < m) : Ω.N.gap r = Ω.N.y (r + 1) - Ω.N.y r := by
+  unfold NarrowCycle.gap
+  rw [Ω.N.yext_of_lt hr1, Ω.N.yext_of_lt (by omega)]
+
+/-- Equal adjacent heights: `G_r ≥ 2 · 2^{B − a}` (two odd numerators differ by at least `2`). -/
+theorem gap_ge_of_eq {r : ℕ} (hr1 : r + 1 < m) (heq : Ω.hr (r + 1) = Ω.hr r) :
+    2 * 2 ^ (Ω.Γ.B - Ω.hr r) ≤ Ω.N.gap r := by
+  have hy := Ω.y_succ_lt hr1
+  have hyr := Ω.y_eq r
+  have hyr1 := Ω.y_eq (r + 1)
+  rw [heq] at hyr1
+  have hPpos : (0 : ℤ) < 2 ^ (Ω.Γ.B - Ω.hr r) := by positivity
+  rw [hyr, hyr1] at hy
+  have hlt := lt_of_mul_lt_mul_left hy hPpos.le
+  obtain ⟨s, hs⟩ := Ω.Γ.nodd (Ω.N.idx r)
+  obtain ⟨t, ht⟩ := Ω.Γ.nodd (Ω.N.idx (r + 1))
+  have h2 : (2 : ℤ) ≤ Ω.Γ.n (Ω.N.idx (r + 1)) - Ω.Γ.n (Ω.N.idx r) := by omega
+  rw [Ω.gap_eq hr1, hyr, hyr1]
+  have h3 := mul_le_mul_of_nonneg_left h2 hPpos.le
+  rw [mul_sub] at h3
+  linarith
+
+/-- Downward adjacent heights: `G_r ≥ 2^{B − a}` (the numerator `2^{a−b} n_{[r+1]} − n_{[r]}` is a
+positive integer). -/
+theorem gap_ge_of_lt {r : ℕ} (hr1 : r + 1 < m) (hlt : Ω.hr (r + 1) < Ω.hr r) :
+    2 ^ (Ω.Γ.B - Ω.hr r) ≤ Ω.N.gap r := by
+  have hy := Ω.y_succ_lt hr1
+  have hyr := Ω.y_eq r
+  have hB := Ω.hr_le_B r
+  have hsplit : Ω.Γ.B - Ω.hr (r + 1) = (Ω.Γ.B - Ω.hr r) + (Ω.hr r - Ω.hr (r + 1)) := by omega
+  have hyr1 : Ω.N.y (r + 1) = 2 ^ (Ω.Γ.B - Ω.hr r) *
+      (2 ^ (Ω.hr r - Ω.hr (r + 1)) * Ω.Γ.n (Ω.N.idx (r + 1))) := by
+    rw [Ω.y_eq (r + 1), hsplit, pow_add, mul_assoc]
+  have hPpos : (0 : ℤ) < 2 ^ (Ω.Γ.B - Ω.hr r) := by positivity
+  rw [hyr, hyr1] at hy
+  have hlt' := lt_of_mul_lt_mul_left hy hPpos.le
+  have h1 : (1 : ℤ) ≤ 2 ^ (Ω.hr r - Ω.hr (r + 1)) * Ω.Γ.n (Ω.N.idx (r + 1))
+      - Ω.Γ.n (Ω.N.idx r) := by omega
+  rw [Ω.gap_eq hr1, hyr, hyr1]
+  have h3 := mul_le_mul_of_nonneg_left h1 hPpos.le
+  rw [mul_sub, mul_one] at h3
+  linarith
+
+/-- The seam: `G_{m−1} ≥ 2^{B − a}` with `a = hr_{m−1}` (the numerator `2^{a+1} L − n_{[m−1]}` is a
+positive integer). -/
+theorem gap_seam_ge : 2 ^ (Ω.Γ.B - Ω.hr (m - 1)) ≤ Ω.N.gap (m - 1) := by
+  have hm := Ω.Γ.hm
+  have hgap : Ω.N.gap (m - 1) = 2 * Ω.N.y 0 - Ω.N.y (m - 1) := by
+    unfold NarrowCycle.gap
+    rw [show m - 1 + 1 = m by omega, Ω.N.yext_m, Ω.N.yext_of_lt (by omega)]
+  have hy0 : Ω.N.y 0 = 2 ^ Ω.Γ.B * Ω.Γ.n 0 := by
+    rw [Ω.N.y_zero Ω.N_prim Ω.N_rank_zero, Ω.N_x, Ω.Γ.Z_zero]
+    rfl
+  have hpos := Ω.N.gap_pos Ω.N_prim Ω.N_rank_zero (Nat.sub_lt hm Nat.one_pos)
+  have hB := Ω.hr_le_B (m - 1)
+  have hsplit : Ω.Γ.B + 1 = (Ω.Γ.B - Ω.hr (m - 1)) + (Ω.hr (m - 1) + 1) := by omega
+  have hpow : (2 : ℤ) ^ Ω.Γ.B * 2 = 2 ^ (Ω.Γ.B - Ω.hr (m - 1)) * 2 ^ (Ω.hr (m - 1) + 1) := by
+    rw [← pow_succ, ← pow_add, ← hsplit]
+  have h2y0 : 2 * Ω.N.y 0 = 2 ^ (Ω.Γ.B - Ω.hr (m - 1)) *
+      (2 ^ (Ω.hr (m - 1) + 1) * Ω.Γ.n 0) := by
+    rw [hy0]
+    linear_combination Ω.Γ.n 0 * hpow
+  have hym := Ω.y_eq (m - 1)
+  have hPpos : (0 : ℤ) < 2 ^ (Ω.Γ.B - Ω.hr (m - 1)) := by positivity
+  rw [hgap, h2y0, hym] at hpos ⊢
+  rw [← mul_sub] at hpos ⊢
+  have h1 : (1 : ℤ) ≤ 2 ^ (Ω.hr (m - 1) + 1) * Ω.Γ.n 0 - Ω.Γ.n (Ω.N.idx (m - 1)) := by
+    have := (mul_pos_iff_of_pos_left hPpos).mp hpos
+    omega
+  have h3 := mul_le_mul_of_nonneg_left h1 hPpos.le
+  rw [mul_one] at h3
+  exact h3
+
+/-- Upward adjacent heights, the order inequality: `2^{B−b} q (2^k − 1) < 3 G_r` with `k = b − a`
+(strict increase of the images `F_{[r]} < F_{[r+1]}`). -/
+theorem three_gap_gt_of_gt {r : ℕ} (hr1 : r + 1 < m) (hgt : Ω.hr r < Ω.hr (r + 1)) :
+    2 ^ (Ω.Γ.B - Ω.hr (r + 1)) * (Ω.Γ.q * (2 ^ (Ω.hr (r + 1) - Ω.hr r) - 1))
+      < 3 * Ω.N.gap r := by
+  have hy := Ω.y_succ_lt hr1
+  have hZ : Ω.Γ.Z (Ω.N.idx r) < Ω.Γ.Z (Ω.N.idx (r + 1)) := hy
+  have hF : Ω.Γ.F (Ω.N.idx r) < Ω.Γ.F (Ω.N.idx (r + 1)) := (Ω.hord _ _).mp hZ
+  have hB := Ω.hr_le_B (r + 1)
+  have hsplit : Ω.Γ.B - Ω.hr r = (Ω.Γ.B - Ω.hr (r + 1)) + (Ω.hr (r + 1) - Ω.hr r) := by omega
+  have hFi : Ω.Γ.F (Ω.N.idx r) = 3 * Ω.N.y r + 2 ^ (Ω.Γ.B - Ω.hr r) * Ω.Γ.q := rfl
+  have hFj : Ω.Γ.F (Ω.N.idx (r + 1)) =
+      3 * Ω.N.y (r + 1) + 2 ^ (Ω.Γ.B - Ω.hr (r + 1)) * Ω.Γ.q := rfl
+  rw [hFi, hFj, hsplit, pow_add] at hF
+  rw [Ω.gap_eq hr1]
+  linear_combination hF
+
+/-- Upward adjacent heights, C010's sharp form: `2^{B−b} (q (2^k − 1) + η(q, k)) ≤ 3 G_r`
+(`q` odd). -/
+theorem three_gap_ge_of_gt (hqodd : Odd Ω.Γ.q) {r : ℕ} (hr1 : r + 1 < m)
+    (hgt : Ω.hr r < Ω.hr (r + 1)) :
+    2 ^ (Ω.Γ.B - Ω.hr (r + 1)) * (Ω.Γ.q * (2 ^ (Ω.hr (r + 1) - Ω.hr r) - 1)
+      + eta Ω.Γ.q (Ω.hr (r + 1) - Ω.hr r)) ≤ 3 * Ω.N.gap r := by
+  have hB := Ω.hr_le_B (r + 1)
+  have hsplit : Ω.Γ.B - Ω.hr r = (Ω.Γ.B - Ω.hr (r + 1)) + (Ω.hr (r + 1) - Ω.hr r) := by omega
+  have hyr : Ω.N.y r = 2 ^ (Ω.Γ.B - Ω.hr (r + 1)) *
+      (2 ^ (Ω.hr (r + 1) - Ω.hr r) * Ω.Γ.n (Ω.N.idx r)) := by
+    rw [Ω.y_eq r, hsplit, pow_add, mul_assoc]
+  have hyr1 := Ω.y_eq (r + 1)
+  have hPpos : (0 : ℤ) < 2 ^ (Ω.Γ.B - Ω.hr (r + 1)) := by positivity
+  have hgapeq : Ω.N.gap r = 2 ^ (Ω.Γ.B - Ω.hr (r + 1)) *
+      (Ω.Γ.n (Ω.N.idx (r + 1)) - 2 ^ (Ω.hr (r + 1) - Ω.hr r) * Ω.Γ.n (Ω.N.idx r)) := by
+    rw [Ω.gap_eq hr1, hyr, hyr1, mul_sub]
+  have hstrict := Ω.three_gap_gt_of_gt hr1 hgt
+  rw [hgapeq] at hstrict
+  have hr' : Ω.Γ.q * (2 ^ (Ω.hr (r + 1) - Ω.hr r) - 1)
+      < 3 * (Ω.Γ.n (Ω.N.idx (r + 1)) - 2 ^ (Ω.hr (r + 1) - Ω.hr r) * Ω.Γ.n (Ω.N.idx r)) := by
+    have h' : 2 ^ (Ω.Γ.B - Ω.hr (r + 1)) * (Ω.Γ.q * (2 ^ (Ω.hr (r + 1) - Ω.hr r) - 1))
+        < 2 ^ (Ω.Γ.B - Ω.hr (r + 1)) * (3 * (Ω.Γ.n (Ω.N.idx (r + 1))
+          - 2 ^ (Ω.hr (r + 1) - Ω.hr r) * Ω.Γ.n (Ω.N.idx r))) := by
+      linear_combination hstrict
+    exact lt_of_mul_lt_mul_left h' hPpos.le
+  have hodd : Odd (Ω.Γ.n (Ω.N.idx (r + 1))
+      - 2 ^ (Ω.hr (r + 1) - Ω.hr r) * Ω.Γ.n (Ω.N.idx r)) := by
+    have he : Even (2 ^ (Ω.hr (r + 1) - Ω.hr r) * Ω.Γ.n (Ω.N.idx r)) :=
+      even_iff_two_dvd.mpr (dvd_mul_of_dvd_left (dvd_pow_self 2 (by omega)) _)
+    exact (Ω.Γ.nodd _).sub_even he
+  have hk : 1 ≤ Ω.hr (r + 1) - Ω.hr r := by omega
+  have hbound := eta_refine _ hk hqodd hodd hr'
+  rw [hgapeq]
+  have h3' := mul_le_mul_of_nonneg_left hbound hPpos.le
+  linarith
+
+/-- Three times C010's sharp lower bound for the complete gap `G_r` (scaled by `2^B`): the seam,
+equal, downward and upward cases of `b_q(H_r, H_{r+1})`, so that `Σ_r pairBound3 r / (3 · 2^B)`
+is the prose's `R_q(H)`. -/
+noncomputable def pairBound3 (r : ℕ) : ℤ :=
+  if r + 1 < m then
+    (if Ω.hr (r + 1) = Ω.hr r then 3 * (2 * 2 ^ (Ω.Γ.B - Ω.hr r))
+     else if Ω.hr (r + 1) < Ω.hr r then 3 * 2 ^ (Ω.Γ.B - Ω.hr r)
+     else 2 ^ (Ω.Γ.B - Ω.hr (r + 1)) * (Ω.Γ.q * (2 ^ (Ω.hr (r + 1) - Ω.hr r) - 1)
+            + eta Ω.Γ.q (Ω.hr (r + 1) - Ω.hr r)))
+  else 3 * 2 ^ (Ω.Γ.B - Ω.hr r)
+
+/-- Each complete gap dominates its sharp bound: `pairBound3 r ≤ 3 G_r`. -/
+theorem pairBound3_le (hqodd : Odd Ω.Γ.q) {r : ℕ} (hr : r < m) :
+    Ω.pairBound3 r ≤ 3 * Ω.N.gap r := by
+  unfold pairBound3
+  split_ifs with h1 h2 h4
+  · exact mul_le_mul_of_nonneg_left (Ω.gap_ge_of_eq h1 h2) (by norm_num)
+  · exact mul_le_mul_of_nonneg_left (Ω.gap_ge_of_lt h1 h4) (by norm_num)
+  · exact Ω.three_gap_ge_of_gt hqodd h1 (lt_of_le_of_ne (not_lt.mp h4) (Ne.symm h2))
+  · have hm1 : r = m - 1 := by omega
+    subst hm1
+    exact mul_le_mul_of_nonneg_left Ω.gap_seam_ge (by norm_num)
+
+/-- **C010's summed bound** `L ≥ R_q(H)` (its (3)) in scaled integer form: the sharp bounds of
+the `m` complete gaps sum to at most `3 · 2^B L`, because the complete gaps sum to `2^B L`. -/
+theorem rounding_bound (hqodd : Odd Ω.Γ.q) :
+    ∑ r ∈ Finset.range m, Ω.pairBound3 r ≤ 3 * (2 ^ Ω.Γ.B * Ω.Γ.n 0) := by
+  have hsum := Ω.N.sum_gap Ω.N_prim Ω.N_rank_zero
+  rw [Ω.N_x, Ω.Γ.Z_zero] at hsum
+  calc ∑ r ∈ Finset.range m, Ω.pairBound3 r
+      ≤ ∑ r ∈ Finset.range m, 3 * Ω.N.gap r :=
+        Finset.sum_le_sum fun r hr => Ω.pairBound3_le hqodd (Finset.mem_range.mp hr)
+    _ = 3 * ∑ r ∈ Finset.range m, Ω.N.gap r := by rw [Finset.mul_sum]
+    _ = 3 * Ω.Γ.lo := by rw [hsum]
+    _ = 3 * (2 ^ Ω.Γ.B * Ω.Γ.n 0) := rfl
 
 end OrdCycle
 
