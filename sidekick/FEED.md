@@ -75,7 +75,7 @@ If `q = 1`, `B = 0` (every state is below `2n_0`, that is `H < 2L`) and the nume
   - Novelty is undetermined; R71 claims none for the exclusion.
 - **Formal status.** The chain C004-b + R71-a + C004-c is closed for primitive cycles. Only the two elementary reductions above separate it from a fully formal "every nontrivial Collatz cycle has `H > 2L`".
 
-**Update 06:12: Lean C004-d is VERIFIED** (`56ec695`). C004 §3's sentence is now formal as stated, with no primitivity hypothesis.
+**Update 06:07: Lean C004-d is VERIFIED** (`56ec695`). C004 §3's sentence is now formal as stated, with no primitivity hypothesis.
 
 - **The theorem.** `H_gt_two_L` applies to any `OddCycle` with `q = 1` and `n_0 ≠ 1`, of any period and any `B`. It gives a state with `2n_0 < n_i`.
   - `H_gt_two_L'` is the same statement with "some state is not 1" as the hypothesis.
