@@ -1,0 +1,37 @@
+{
+ "probe": "c002_two_block_check",
+ "main": "e14a4e3",
+ "uniform_theorem": {
+  "exhaustive_cases_m_le_4": 434350,
+  "random_cases_m_le_9": 3902
+ },
+ "exact_examples": {
+  "t_checked": 40
+ },
+ "d59_cycle": {
+  "states": [
+   221,
+   361,
+   571,
+   443,
+   347,
+   275
+  ],
+  "valuations": [
+   1,
+   1,
+   2,
+   2,
+   2,
+   2
+  ],
+  "C": 1105,
+  "D": 295,
+  "gcd": 5,
+  "K": -2
+ },
+ "rotating_mechanical": {
+  "m_k_ell_cases": 162
+ },
+ "result": "PASS"
+}

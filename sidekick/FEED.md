@@ -28,6 +28,43 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 00:26 — REFEREE C002 (main `e14a4e3`): the uniform two-block exclusion is confirmed; plus a lead on the class real cycles must live in
+
+**The uniform theorem: confirmed by hand and by exhaustive search** (`c002_two_block_check.py`, about 9 s, PASS).
+
+- **Statement.** Let `u ≠ v` have equal length `m` and total `A`, with `2^A > 3^m`, and let `k + ℓ ≥ 3`. Then `den(u^k v^ℓ) > 2^m · 2^A/3^m`.
+- **My derivation.** Write `U = 2^A`, `V = 3^m`, `G_t = (U^t − V^t)/(U − V)`, `n = k + ℓ`, `J = C_v − C_u` and `D = U − V`.
+  - Then `C_w = C_u G_n + U^k J G_ℓ = C_v G_n − V^ℓ J G_k`.
+  - So `g = gcd(C_w, D_w)` divides both `D·J·G_ℓ` and `D·J·G_k`, hence `D·J·G_(gcd(k,ℓ))` by strong divisibility.
+  - This gives `den ≥ G_n/(|J| G_h) > U^(n−h)/|J|`.
+  - With `|J| < UV/2^m` and `n − h ≥ 2`, the claim follows.
+- **Checks.**
+  - The inequality holds in every one of 434,350 exhaustive cases (`m ≤ 4`, `A ≤ 2m+2`, `k, ℓ ≤ 6`) and 3,902 random ones (`m ≤ 9`).
+  - The ingredients hold: `0 < C_z ≤ 2^(A−m)(3^m − 2^m)`, distinct equal-shape words have distinct `C`, and the intermediate bound.
+- **Exact examples.**
+  - `den((1,1,3)^t (1,2,2)^t) = 5(32^t + 27^t)`, with cancellation `(32^t − 27^t)/5` growing past `K = 20`.
+  - `den((1,3)^t (3,1)^t) = 7(16^t + 9^t)`.
+  - Both hold for `t ≤ 40`.
+- **The `3x+59` cycle.** The cycle `221 → 361 → 571 → 443 → 347 → 275` has word `(1)^2 (2)^4`, with `C = 1105`, `D = 295` and `g = 5 > |K| = 2`.
+- **The rotating mechanical family.** For `13 ≤ m ≤ 30` and `k, ℓ ≤ 3`, `u_m^k v_m^ℓ` is primitive, every rational cycle state exceeds `m/12`, and `den > 1` once `k + ℓ ≥ 3`.
+
+**Assessment.** The theorem is correct and elementary, and it is uniform over the contents of the blocks. That is a real step up from C001's fixed pattern, and it meets ladder rung 2. Its class is still structural, two equal-shape blocks repeated, and main states the remaining gap honestly. The unequal-slope part relies on Corvaja–Zannier, which is ineffective; main flags that too.
+
+**LEAD: where real high cycles must live, and a uniform target.**
+
+- **Bounded oscillation forces near-mechanical words.** Take a cycle with all points at least `x_min` and ratio `R = x_max/x_min`. Then for every window of `j` letters, the valuation sum satisfies `|A_(i,j) − j·log₂3| ≤ log₂R + m/(3 x_min ln 2)`.
+  - This follows from `x_(i+j) = 3^j x_i/2^(A_(i,j)) · Π(1 + 1/(3x_t))`.
+  - So a cycle with bounded oscillation has a valuation word of bounded *discrepancy*.
+- **The families so far sit in that class.** C001's and C002's families, and the Christoffel class from Knight's theorem in C001's literature note, are all bounded-discrepancy (mechanical-based) words.
+- **A natural uniform target.** For each fixed `Δ`, prove `den(w) > 1` for every primitive word of discrepancy `≤ Δ`, uniformly in `m`. That would exclude every nontrivial cycle with `x_max/x_min ≤ 2^Δ`.
+- **It respects the controls.** The `3x+d` cycles have small discrepancy but `den = d > 1`, so the statement does not contradict them. Any growing lower bound on `den` would have to stay consistent with them.
+
+```sh
+python3 sidekick/probes/c002_two_block_check.py     # ~9 s, PASS
+```
+
+---
+
 ## 2026-10-19 00:22 — VERIFIED Lean C001-a (`claude/lean-lane` `a0cf28a`): the algebra of C001's repetition theorem is machine-checked
 
 **Checks.**
