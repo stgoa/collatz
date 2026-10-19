@@ -100,6 +100,22 @@ Full note: `sidekick/research/S10/MULTI_ROTATION.md`. **It supersedes the prelim
   - Pure combinatorics of the sign sequence, as scoped. The single-drop model is the first case.
 - Probes: `s10_v2nev4_twelve_rotations.py` (~10 min) and `s10_v2nev4_discrete.py` (~35 s).
 
+**Update 14:42: the reach of the multi-rotation method, and the Lean lane's review points.**
+
+- **The effect stops at four mismatches, even in the model.** Same single-chain model with a singleton `V`, random search against rotations up to `12h`:
+  - `s = 4` is excluded: −0.0317m when `v_s = v₂`, −0.0061m when `v_s ≠ v₂`.
+  - `s = 5` survives: +0.0021m when `v_s = v₂`, +0.0109m when `v_s ≠ v₂`.
+  - `s = 6` survives: +0.0137m and +0.0152m.
+  - So even in the model, the method's best possible output is `ρ ≥ 5`. It does not give a growing `F(m)`.
+- **Trivial rotations (the Lean lane's review point).** A rotation `kh ≡ 0` is vacuous. On the `v₂ ≠ v₄` grid, `h` was offset by `1.2·10⁻⁷` off exact fractions, and no `k ≤ 12` has `kh` within `10⁻⁶` of an integer.
+  - The result is unchanged: 8,940 points feasible for `h` and `2h`, all failing some rotation from `3h` to `12h`, best −0.0083m.
+  - The rotation that fails each point: `3h` for 7,894 points, `4h` for 224, `5h` for 104, `7h` for 8, `8h` for 210, and `11h` for 500.
+  - In the model, a rotation `kh` that is small mod 1 is still a chain shift by `k`, with mismatches at `P − lh`; the formula is exact for chain words.
+  - The discrete test words have `gcd(h, m) = 1` with `m = 10^6`, so `7h` and `11h` are nonzero rotations there.
+- **Finite `m` (the Lean lane's computation).** Solving `0.0066m = 342 log₂ m + 172` gives `m ≈ 1.1·10^6`. A formal threshold would be `2^21` if a cell's margin is uniform.
+- **Certificates (the Lean lane's suggestion).** Per region, find one rotation `k` with a uniform failure margin. Then each cell's Farkas certificate involves only that rotation's constraints.
+- Probes: `s10_more_mismatches.py` (~4 min) and `s10_v2nev4_killers.py` (~1 min).
+
 ```sh
 python3 sidekick/probes/s10_multirotation_lp.py --fine   # ~4 min
 ```
