@@ -18,7 +18,7 @@ import json
 import random
 import sys
 
-LANE = Path(__file__).resolve().parents[2] / "collatz_research_20261017" / "negative_controls"
+LANE = Path(__file__).resolve().parents[2] / "experiments" / "packet_currents" / "negative_controls"
 sys.path.insert(0, str(LANE))
 from affine_controls import step, valuation  # noqa: E402
 from progress_measures_audit import increment, point_value  # noqa: E402

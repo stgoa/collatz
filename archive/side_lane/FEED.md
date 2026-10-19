@@ -5152,7 +5152,7 @@ For this family, then, a progress argument in which negative mass joins and canc
 
 ## TOOL — controls and checker (on main since PR1)
 
-- **Certificate checker.** `python3 collatz_research_20261017/negative_controls/affine_controls.py --check CERT.json` rebuilds `Π_N` for any `3x+d` independently and validates the certificate `(J, ζ)`.
+- **Certificate checker.** `python3 experiments/packet_currents/negative_controls/affine_controls.py --check CERT.json` rebuilds `Π_N` for any `3x+d` independently and validates the certificate `(J, ζ)`.
 - **Failure cases.**
   - `(d, N) = (61, 213)`: locally Collatz-like, yet the criterion fails.
   - `(d, N) = (−1, 16)`.

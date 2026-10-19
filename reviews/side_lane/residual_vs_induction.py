@@ -13,7 +13,7 @@ from pathlib import Path
 import json
 import sys
 
-sys.path[:0] = [str(Path(__file__).resolve().parents[2] / "collatz_research_20261017" / "negative_controls")]
+sys.path[:0] = [str(Path(__file__).resolve().parents[2] / "experiments" / "packet_currents" / "negative_controls")]
 from affine_controls import step  # noqa: E402
 
 

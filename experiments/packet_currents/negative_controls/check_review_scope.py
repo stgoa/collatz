@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[3]
 SPEC = importlib.util.spec_from_file_location(
     "review_arithmetic",
     ROOT / "experiments/annular_construction/arithmetic/check_arithmetic_reductions.py")

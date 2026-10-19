@@ -23,7 +23,7 @@ import math
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path[:0] = [str(HERE.parents[1] / "collatz_research_20261017" / "negative_controls")]
+sys.path[:0] = [str(HERE.parents[1] / "experiments" / "packet_currents" / "negative_controls")]
 from affine_controls import step  # noqa: E402
 
 

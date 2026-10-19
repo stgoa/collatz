@@ -70,14 +70,14 @@ certificates or prescribe their discovery method.
 
 The concrete correction was independently replayed again:
 
-    python3 collatz_research_20261017/negative_controls/check_review_scope.py
+    python3 experiments/packet_currents/negative_controls/check_review_scope.py
 
 It passed in 0.36s. For source[21]-[3], both J0=delta21-delta3-delta5 and
 J=delta21-delta3 with residual-[5] have minimum positive cost 1. For actual
 A_768, removing the negative row J0(5)=-55 preserves minimum positive
 cost 53758 and removes one of 40106 current rows. Thus the original broad
 claim that alternative certificates cannot help is false; the
-[persisted PR review](../../collatz_research_20261017/negative_controls/PR1_REVIEW.md)
+[persisted PR review](../packet_currents/negative_controls/PR1_REVIEW.md)
 and corrected handoff already acknowledge this.
 
 The negative control is substantive. A separate bounded reconstruction

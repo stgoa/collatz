@@ -68,7 +68,7 @@ Batches C001–C014 come from the main lane; results S01–S13 come from the sid
 ## Packet currents (frozen)
 
 R1–R94 split across four folders:
-- `collatz_research_20261017/` (R1–R4 and controls C1–C5);
+- `experiments/packet_currents/` (R1–R4 and controls C1–C5);
 - `experiments/current_construction/` (R5–R7);
 - `experiments/annular_construction/` (R8–R9);
 - `experiments/residual_progress/` (R10–R94).
@@ -81,7 +81,7 @@ R1–R94 split across four folders:
 | R5–R7 | Five-ray reduction, annular recursion, current-existence criterion, per-packet obstruction ([report](../experiments/current_construction/REPORT.md)). | `written` + `evidence` |
 | R8–R9 | Affine lifting and universal partial currents; a contraction attempt fails ([report](../experiments/annular_construction/REPORT.md)). | `written` + `evidence` |
 | R10–R94 | Residual progress: many partial constructions and exact obstructions. Universal terminal supply unresolved ([report](../experiments/residual_progress/REPORT.md)). | frozen; the objective is `open` |
-| C1–C5 | Negative controls from the independent lane, with corrections ([PR1 review](../collatz_research_20261017/negative_controls/PR1_REVIEW.md)). | `evidence` |
+| C1–C5 | Negative controls from the independent lane, with corrections ([PR1 review](../experiments/packet_currents/negative_controls/PR1_REVIEW.md)). | `evidence` |
 
 ## Explicit Tao (closed): `experiments/explicit_tao/`
 

@@ -7,7 +7,7 @@ Each folder is one research line (programme). Each has a `README.md` giving its 
 | [`cycle_spectrum`](cycle_spectrum/) | C001–C014, S01–S13 | **active**; paused since Oct 19 | Oct 18–19 | [README](cycle_spectrum/README.md) | `python3 scripts/run_checks.py --line cycle_spectrum` |
 | [`viewpoints`](viewpoints/) | V001–V009 | finished | Oct 18 | [README](viewpoints/README.md) | `python3 scripts/run_checks.py --line viewpoints` |
 | [`phase6`](phase6/) | P6-000–P6-004 | finished | Oct 18 | [README](phase6/README.md) | `python3 scripts/verify_all.py --transfer-controls` |
-| [`collatz_research_20261017`](../collatz_research_20261017/) (at the repository root) | R1–R4, C1–C5 | frozen | Oct 17 | [README](../collatz_research_20261017/README.md) | `python3 scripts/verify_all.py` |
+| [`packet_currents`](packet_currents/) | R1–R4, C1–C5 | frozen | Oct 17 | [README](packet_currents/README.md) | `python3 scripts/verify_all.py` |
 | [`current_construction`](current_construction/) | R5–R7 | frozen | Oct 17 | [README](current_construction/README.md) | `python3 scripts/verify_all.py` |
 | [`annular_construction`](annular_construction/) | R8–R9 | frozen | Oct 17 | [README](annular_construction/README.md) | `python3 scripts/verify_all.py` |
 | [`residual_progress`](residual_progress/) | R10–R94 | frozen; objective abandoned | Oct 17–18 | [README](residual_progress/README.md) | `python3 scripts/verify_all.py` |

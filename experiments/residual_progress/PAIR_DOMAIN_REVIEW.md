@@ -4,7 +4,7 @@ The remote review still finds only [PR1](https://github.com/stgoa/collatz/pull/1
 merged as `ba6b337`, already incorporated into main. At this review both
 main and origin/main were `1603bf3`. The newer independent feed was read at
 `dbb0dea5930ec667b70b5dfcbb595e5d566451b0`; that branch was left unchanged.
-The [earlier review](../../collatz_research_20261017/negative_controls/PR1_REVIEW.md)
+The [earlier review](../packet_currents/negative_controls/PR1_REVIEW.md)
 retains its negative controls and the cycle-qualified minimality lemma,
 with explicit counterexamples to the stronger uniqueness wording.
 
@@ -128,7 +128,7 @@ The latest user-requested remote refresh still finds only merged
 `ba6b3371fabd7fcabebb442d7c89ea3ed5c02149`; main remains at `a06ef3c`
 before this batch's delivery. Its original PR description retains the
 overbroad C3 wording, so the corrected repository note and
-[explicit review](../../collatz_research_20261017/negative_controls/PR1_REVIEW.md)
+[explicit review](../packet_currents/negative_controls/PR1_REVIEW.md)
 should govern interpretation. The later feed explicitly accepts that
 correction.
 

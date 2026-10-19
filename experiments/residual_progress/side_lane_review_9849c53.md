@@ -31,7 +31,7 @@ remain supported by the written proofs and main's separate certificates.
 | `reviews/side_lane/batch_r78_r80_check.py` | `59d0b84fe0cfb462c7bf38e6df21b89b072e810cfd7c00fe8f072812c76d6810` |
 | `reviews/side_lane/batch_r78_r80_check.json` | `f477cf6a4a8ad9cd33928fa83be83d0b4167df7ffbbc067bfacef34855cb58ec` |
 | `reviews/side_lane/fibre_count_check.py` | `071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a` |
-| `collatz_research_20261017/negative_controls/affine_controls.py` | `9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c` |
+| `experiments/packet_currents/negative_controls/affine_controls.py` | `9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c` |
 
 The dependency hashes match the preceding pinned review. The new feed also
 accepts that the informal average-valuation complexity refinement needs
@@ -41,7 +41,7 @@ The earlier [general-spacing review](side_lane_review_fcc7e88.md) stands.
 ## Opinion and research decision
 
 Retain the merged PR's negative controls and conditional minimality lemma.
-The [exact counterexamples](../../collatz_research_20261017/negative_controls/PR1_REVIEW.md)
+The [exact counterexamples](../packet_currents/negative_controls/PR1_REVIEW.md)
 still refute its broad no-alternative-certificate conclusion. These controls
 make early numerical compression an inadequate progress test; they do not
 make exact constructive comparisons pointless.

@@ -43,7 +43,7 @@ Raw cycle certificates explicitly use the raw map at every state.
 
 This distinction matters at `d=7`: the raw path is `1 -> 5 -> 11 -> 5`, while
 the absorbed map fixes 1. The older packet control
-[`affine_controls.py`](../../collatz_research_20261017/negative_controls/affine_controls.py)
+[`affine_controls.py`](../packet_currents/negative_controls/affine_controls.py)
 uses absorbers `{1,d}` for work and currents. That convention is appropriate
 to its stated certificate, but is **not** imported here. In this harness 61
 remains a nonabsorbing fixed point of `T_61`.

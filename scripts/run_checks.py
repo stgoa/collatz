@@ -6,7 +6,7 @@
     python3 scripts/run_checks.py --fast -j 4           # skip checks slower than ~1 minute
 
 Lines handled here: cycle_spectrum, viewpoints, explicit_tao, and reviews (reviews/side_lane).
-The frozen lines (collatz_research_20261017, current_construction, annular_construction, residual_progress,
+The frozen lines (packet_currents, current_construction, annular_construction, residual_progress,
 phase6) are verified by scripts/verify_all.py, which runs them in a temporary copy, because some of
 their scripts rewrite committed receipts when run in place.
 

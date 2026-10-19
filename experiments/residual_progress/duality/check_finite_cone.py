@@ -17,7 +17,7 @@ ROOT = HERE.parents[2]
 
 
 def load_packets():
-    path = ROOT / "collatz_research_20261017/right_aligned_packets.py"
+    path = ROOT / "experiments/packet_currents/right_aligned_packets.py"
     spec = spec_from_file_location("right_packets_for_cone", path)
     module = module_from_spec(spec)
     spec.loader.exec_module(module)

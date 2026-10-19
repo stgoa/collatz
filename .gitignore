@@ -2,7 +2,7 @@ __pycache__/
 *.py[cod]
 .DS_Store
 /build/
-collatz_research_20261017/collatz_packet_currents/independent_verifier
+experiments/packet_currents/collatz_packet_currents/independent_verifier
 *.aux
 *.log
 *.out

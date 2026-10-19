@@ -230,7 +230,7 @@ that continuation; its positive rows may cancel the earlier negative rows.
 
 The user requested review of the parallel lane during this batch. The
 checkout was fast-forwarded to merged commit `ba6b337`, with ongoing edits
-preserved and reapplied. The [review](../../collatz_research_20261017/negative_controls/PR1_REVIEW.md)
+preserved and reapplied. The [review](../packet_currents/negative_controls/PR1_REVIEW.md)
 retains the independent audit, negative controls, conditional minimality
 lemma, and class-wise equivalence. It corrects the claims that there are
 no alternative one-sided currents and that six traffic samples prove a

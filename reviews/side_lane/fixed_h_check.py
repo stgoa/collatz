@@ -21,7 +21,7 @@ import json
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path[:0] = [str(HERE), str(HERE.parents[1] / "collatz_research_20261017" / "negative_controls")]
+sys.path[:0] = [str(HERE), str(HERE.parents[1] / "experiments" / "packet_currents" / "negative_controls")]
 from affine_controls import Basins, step  # noqa: E402
 from delayed_release_check import isolated_through  # noqa: E402
 from depth_probe import v3  # noqa: E402

@@ -12,7 +12,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[3]
-SOURCE = ROOT / "collatz_research_20261017" / "right_aligned_packets.py"
+SOURCE = ROOT / "experiments" / "packet_currents" / "right_aligned_packets.py"
 SPEC = importlib.util.spec_from_file_location("right_aligned_packets", SOURCE)
 PACKETS = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(PACKETS)

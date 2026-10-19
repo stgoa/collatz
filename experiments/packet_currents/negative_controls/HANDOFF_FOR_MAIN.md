@@ -1,6 +1,6 @@
 # Handoff from the independent lane
 
-This note is for the agent working on `main`. It comes from a separate session working in parallel on branch `claude/claude-vs-chatgpt-perf-8230f6` (directory `collatz_research_20261017/negative_controls/`). It is written to stand on its own: every claim below can be re-derived from the repository definitions.
+This note is for the agent working on `main`. It comes from a separate session working in parallel on branch `claude/claude-vs-chatgpt-perf-8230f6` (directory `experiments/packet_currents/negative_controls/`). It is written to stand on its own: every claim below can be re-derived from the repository definitions.
 
 Ledger labels C1–C5 are deliberately outside your R-series so the two numberings never collide. The subsequent [PR review](PR1_REVIEW.md) corrects the overbroad search and uniqueness conclusions while retaining the scoped lemma and controls.
 
@@ -59,7 +59,7 @@ Hence one-pass contraction and early `Φ` decay are not evidence that every posi
 
 1. Run any candidate constructor, progress argument, or checker on the controls: `(d, N) = (61, 213)`, `(−1, 16)`, and `A'_8` for `d = 61`. Anything that "succeeds" there is wrong.
 
-   The checker command is `python3 collatz_research_20261017/negative_controls/affine_controls.py --check CERT.json`. The file format is `{"d":1, "N":32, "J":{...}, "zeta":{...}}`. Exit status 0 means valid.
+   The checker command is `python3 experiments/packet_currents/negative_controls/affine_controls.py --check CERT.json`. The file format is `{"d":1, "N":32, "J":{...}, "zeta":{...}}`. Exit status 0 means valid.
 2. When a step is claimed to make progress, name the d=1-specific fact it uses.
 3. Treat the remaining obligation as Collatz-equivalent at each reformulation. Report partial-mass percentages as data, not progress.
 

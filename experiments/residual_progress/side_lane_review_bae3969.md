@@ -17,7 +17,7 @@ number or novelty claim is assigned here.
 Merged PR1, `ba6b337`, was checked to be an ancestor of the repository base.
 It is the previously integrated PR, whose retained controls and corrected
 minimality scope are recorded in the existing
-[PR1 review](../../collatz_research_20261017/negative_controls/PR1_REVIEW.md).
+[PR1 review](../packet_currents/negative_controls/PR1_REVIEW.md).
 The new feed finding must not be presented as a newly merged PR. The
 parent's current remote review found no additional merged PR.
 

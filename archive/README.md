@@ -14,14 +14,15 @@ Frozen history. Nothing here is edited except to keep links working. The files a
 
 ## Where did it go? (the 2026-10-19 restructure)
 
-The research lines in `experiments/` and the upload folder `collatz_research_20261017/` did **not** move: frozen scripts load files by path, and receipts pin their hashes. Everything else moved as follows. Old paths may still appear in receipts, historical notes and commit history.
+The research lines in `experiments/` did **not** move: frozen scripts load files by path, and receipts pin their hashes. Everything else moved as follows. Old paths may still appear in receipts, historical notes and commit history.
 
 | Before | After |
 |---|---|
+| `collatz_research_20261017/` (the dated upload folder) | `experiments/packet_currents/` |
 | `experiments/lean_lane/` | `lean/` |
 | `experiments/lean_audit/` | `lean/audit/` |
 | `collatz_research_20261017/right_aligned_reduction.tex` | `papers/right_aligned_reduction/right_aligned_reduction.tex` |
-| `collatz_packet_currents_bundle.zip` | removed; byte-identical to `collatz_research_20261017/collatz_packet_currents/`, and in git history |
+| `collatz_packet_currents_bundle.zip` | removed; byte-identical to `experiments/packet_currents/collatz_packet_currents/`, and in git history |
 | `sidekick/research/S2` … `S13` (branch `claude/sidekick`) | `experiments/cycle_spectrum/S02` … `S13` |
 | `sidekick/probes/` | `reviews/side_lane/` |
 | `sidekick/writeup/D_UNIFORM_AUTOMATIC.md` | `experiments/viewpoints/V004/D_UNIFORM_AUTOMATIC.md` |

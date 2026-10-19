@@ -35,7 +35,6 @@ The repository root holds only:
 
 Do not add files at the root.
 
-`collatz_research_20261017/` is the frozen 2026-10-17 upload. It stays at the root because frozen scripts load files from it by path.
 
 **New result folders** are named `<YYYY-MM-DD>-<short-slug>`, for example `experiments/cycle_spectrum/2026-11-02-largest-letter-bound/`. Dates avoid ID collisions between parallel pull requests.
 
@@ -126,7 +125,7 @@ Rules:
    python3 path/to/your/check_<topic>.py       # your own checks, in check mode
    ```
 
-   If you touched `collatz_research_20261017`, `experiments/current_construction`, `experiments/annular_construction`, `experiments/residual_progress` or `experiments/phase6`, also run `python3 scripts/verify_all.py`.
+   If you touched `experiments/packet_currents`, `experiments/current_construction`, `experiments/annular_construction`, `experiments/residual_progress` or `experiments/phase6`, also run `python3 scripts/verify_all.py`.
 5. **Open the PR** with the template in [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md). Disclose AI use: which agent or model, and how autonomous it was.
 6. **Review.**
    - Results enter as `written`, `evidence`, `heuristic` or `conditional`. A result becomes `proved` only after an independent review, recorded in `reviews/` or in the result folder by someone other than the author.
@@ -137,7 +136,7 @@ Rules:
 
 Do not edit, rename or move anything in:
 - `archive/`;
-- the finished lines `collatz_research_20261017/`, `experiments/current_construction/`, `experiments/annular_construction/`, `experiments/residual_progress/`, `experiments/phase6/`, `experiments/viewpoints/` and `experiments/explicit_tao/`;
+- the finished lines `experiments/packet_currents/`, `experiments/current_construction/`, `experiments/annular_construction/`, `experiments/residual_progress/`, `experiments/phase6/`, `experiments/viewpoints/` and `experiments/explicit_tao/`;
 - every committed receipt and script of an existing result, in any line;
 - `papers/right_aligned_reduction/`.
 

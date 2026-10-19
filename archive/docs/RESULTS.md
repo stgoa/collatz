@@ -343,7 +343,7 @@ are distinguished in the Phase6 ledger and evidence.
 
 **Status: inherited written proofs and finite certificates.**
 
-The master handoff develops exact cylinders, the stopping-work recurrence, the signed source measure `nu_N`, and the original packet decomposition. Finite currents cancel unknown common futures, including unequal arrival times. See [master handoff](../COLLATZ_PROGRAMME_MASTER_HANDOFF.md), Sections 2–10, and the [original research note](../../collatz_research_20261017/collatz_packet_currents/research_note.md).
+The master handoff develops exact cylinders, the stopping-work recurrence, the signed source measure `nu_N`, and the original packet decomposition. Finite currents cancel unknown common futures, including unequal arrival times. See [master handoff](../COLLATZ_PROGRAMME_MASTER_HANDOFF.md), Sections 2–10, and the [original research note](../../experiments/packet_currents/collatz_packet_currents/research_note.md).
 
 The original complete tables certify all-horizon packet work in `[-1406,2364]` at `N=4096`, depth 2, and `[-57661,63824]` at `N=262144`, depth 4. These are two finite source cutoffs, not a uniform theorem. Python and independently compiled C++ verification passed at both cutoffs.
 
@@ -361,7 +361,7 @@ Over-budget one-step valuations map to 1 and are killed. The four residual state
 
 `|3 E_T(N) - H_(T-1)(Pi_right_N)| <= 8 + 30 ceil(log2 N)`.
 
-This is a new grouping. The original current tables cannot be relabeled as certificates for it. Full argument: [current proof note](../../papers/right_aligned_reduction/right_aligned_reduction.tex), Theorem 1. Implementation and receipts: [script](../../collatz_research_20261017/right_aligned_packets.py), [audit](../../collatz_research_20261017/right_aligned_audit.json).
+This is a new grouping. The original current tables cannot be relabeled as certificates for it. Full argument: [current proof note](../../papers/right_aligned_reduction/right_aligned_reduction.tex), Theorem 1. Implementation and receipts: [script](../../experiments/packet_currents/right_aligned_packets.py), [audit](../../experiments/packet_currents/right_aligned_audit.json).
 
 ## R3 — Qualitative current criterion
 
@@ -1558,7 +1558,7 @@ The same independent construction also cross-checks two results committed on mai
 
 The written five-ray proof was re-read and no gap was found.
 
-This is not human peer review or formal verification. See the [negative-controls note](../../collatz_research_20261017/negative_controls/NOTE.md), Sections 4, 6 and 10, and the receipts [reduction_audit.json](../../collatz_research_20261017/negative_controls/reduction_audit.json) and [main_claims_audit.json](../../collatz_research_20261017/negative_controls/main_claims_audit.json).
+This is not human peer review or formal verification. See the [negative-controls note](../../experiments/packet_currents/negative_controls/NOTE.md), Sections 4, 6 and 10, and the receipts [reduction_audit.json](../../experiments/packet_currents/negative_controls/reduction_audit.json) and [main_claims_audit.json](../../experiments/packet_currents/negative_controls/main_claims_audit.json).
 
 Main commit `ce56699` makes two further claims that were checked here as well:
 
@@ -1579,7 +1579,7 @@ Consider the maps `T_d(x)=(3x+d)/2^v` with `d=2^k-3`; these fix 1, and for `d>1`
 
 Consequently, no argument that applies verbatim to `T_61` can discharge the primary obligation for `3x+1`. This includes induction on N that uses only those generic properties.
 
-See [note](../../collatz_research_20261017/negative_controls/NOTE.md), Sections 1–3, and [receipt](../../collatz_research_20261017/negative_controls/negative_controls_audit.json).
+See [note](../../experiments/packet_currents/negative_controls/NOTE.md), Sections 1–3, and [receipt](../../experiments/packet_currents/negative_controls/negative_controls_audit.json).
 
 ## C3 — Certificate minimality
 
@@ -1589,7 +1589,7 @@ Suppose an exact finite current `J_0` exists for `mu`. Then every finite certifi
 
 When all atoms terminate, `J_0=sum_j P^j mu` is the time-aggregated forward push. The archive's stored currents equal this forward aggregate row for row: 2,736 rows at `N=4096` and 132,998 rows at `N=262144`.
 
-The lemma does not eliminate one-sided alternatives or structural search. The [PR review](../../collatz_research_20261017/negative_controls/PR1_REVIEW.md) exhibits two minimum-cost1 currents for `delta21-delta3`; for actual A_768 it removes the exact current's row `J_0(5)=-55`, leaving residual `-55delta5`, with the same positive cost53758 and one fewer row. Preserve the finite-exact-current and no-cycle hypotheses of pointwise domination. A formal infinite forward sum is not automatically a finite certificate. See [note](../../collatz_research_20261017/negative_controls/NOTE.md), Section5, for the corrected scope.
+The lemma does not eliminate one-sided alternatives or structural search. The [PR review](../../experiments/packet_currents/negative_controls/PR1_REVIEW.md) exhibits two minimum-cost1 currents for `delta21-delta3`; for actual A_768 it removes the exact current's row `J_0(5)=-55`, leaving residual `-55delta5`, with the same positive cost53758 and one fewer row. Preserve the finite-exact-current and no-cycle hypotheses of pointwise domination. A formal infinite forward sum is not automatically a finite certificate. See [note](../../experiments/packet_currents/negative_controls/NOTE.md), Section5, for the corrected scope.
 
 ## C4 — Progress measures that do not separate 3x+1 from 3x+61
 
@@ -1601,7 +1601,7 @@ Consider the 64-fold increments `A'_N=Pi'_(64N)-Pi'_N` of `T_61`, at `N=8,16,24,
 - **Early exposure looks the same.** `Phi` falls by about 97% within 25 exposure depths.
 - **But `Phi` never reaches zero.** At depths up to 400, `Phi` equals the pairing `<e,A'_N>`, which is 6–13. The surviving component contains the whole 41-cycle, so it can never join an absorber.
 
-Hence neither one-pass contraction nor early `Phi` decay is evidence that `3x+1` plateaus end. See [note](../../collatz_research_20261017/negative_controls/NOTE.md), Section 11, and [receipt](../../collatz_research_20261017/negative_controls/progress_measures_audit.json).
+Hence neither one-pass contraction nor early `Phi` decay is evidence that `3x+1` plateaus end. See [note](../../experiments/packet_currents/negative_controls/NOTE.md), Section 11, and [receipt](../../experiments/packet_currents/negative_controls/progress_measures_audit.json).
 
 ## C5 — A direct attempt: negative results and class-wise equivalence
 
@@ -1611,7 +1611,7 @@ Hence neither one-pass contraction nor early `Phi` decay is evidence that `3x+1`
 - **Class-wise equivalence.** Take any invariant class `K` with no members below 12096. Then all five-ray pairings `<1_K,Pi_M> <= 0` hold iff all annular pairings `<1_K,A_N> <= 0` hold, iff `K` is empty. The obligation therefore splits exactly into "no nontrivial cycles" and "no divergent orbits", each at full strength.
 - **Controls.** For `T_-1`, `T_5` and `T_13`, each of the 14 cycle basins individually has a positive pairing.
 
-See the [note](../../collatz_research_20261017/negative_controls/NOTE.md), Section 12, and the [receipt](../../collatz_research_20261017/negative_controls/attempt_probes.json).
+See the [note](../../experiments/packet_currents/negative_controls/NOTE.md), Section 12, and the [receipt](../../experiments/packet_currents/negative_controls/attempt_probes.json).
 
 ## Open obligations and priorities
 

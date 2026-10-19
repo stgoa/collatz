@@ -16,7 +16,7 @@ import random
 import sys
 
 HERE = Path(__file__).resolve().parent
-sys.path[:0] = [str(HERE), str(HERE.parents[1] / "collatz_research_20261017" / "negative_controls")]
+sys.path[:0] = [str(HERE), str(HERE.parents[1] / "experiments" / "packet_currents" / "negative_controls")]
 from affine_controls import step, valuation  # noqa: E402
 
 BOUNDS = [(0, 0, 14), (1, 6, 13), (7, 12, 12), (13, 19, 11), (20, 25, 10), (26, 31, 9), (32, 37, 8),

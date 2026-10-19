@@ -29,7 +29,7 @@ that separate the actual Collatz case from that control.
 The conditional minimality lemma remains valid with its finite-current
 and cycle hypotheses. Its broader conclusion that alternative certificates
 cannot help is unsupported. The existing
-[PR review](../../collatz_research_20261017/negative_controls/PR1_REVIEW.md)
+[PR review](../packet_currents/negative_controls/PR1_REVIEW.md)
 gives exact counterexamples, including 56 distinct one-sided minimum-cost
 certificates on the actual required annulus A768. The review checker was
 rerun in this batch and passed: positive cost53758 is retained after

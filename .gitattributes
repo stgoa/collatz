@@ -1,3 +1,3 @@
 # Preserve every byte of the manifest-covered historical snapshot, including CRLF.
-collatz_research_20261017/collatz_packet_currents/** -text -whitespace
+experiments/packet_currents/collatz_packet_currents/** -text -whitespace
 collatz_packet_currents_bundle.zip -text

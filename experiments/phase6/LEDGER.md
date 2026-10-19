@@ -323,7 +323,7 @@ written proof; they do not supply a new convergence theorem.
 **PR opinion:** retain C1/C2/C4's checks and negative controls, and C3's
 minimality lemma with its finite exact comparison and cycle hypothesis.
 The PR description's claim that alternative certificates cannot help is
-too broad. The existing [scope review](../../collatz_research_20261017/negative_controls/PR1_REVIEW.md)
+too broad. The existing [scope review](../packet_currents/negative_controls/PR1_REVIEW.md)
 has exact counterexamples; its bounded checker was rerun successfully.
 At `A_768`, 56 distinct integer one-sided certificates have the same minimum
 positive cost 53758. The working repository already contains this correction.

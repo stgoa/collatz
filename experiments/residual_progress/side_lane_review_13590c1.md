@@ -37,7 +37,7 @@ The user's merged-PR question prompted another remote read. PR1,
 `ba6b3371fabd7fcabebb442d7c89ea3ed5c02149`, remains the only merged PR
 returned by GitHub and is already an ancestor of main. Its negative
 controls and the corrected certificate-minimality scope remain as recorded
-in the [PR review](../../collatz_research_20261017/negative_controls/PR1_REVIEW.md).
+in the [PR review](../packet_currents/negative_controls/PR1_REVIEW.md).
 
 The side feed subsequently advanced to
 `7150f312e0b9bd1099fb617ee680acb22cf1187e`. Its01:52 entry acknowledges

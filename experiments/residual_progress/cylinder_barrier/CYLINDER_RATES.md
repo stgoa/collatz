@@ -409,7 +409,7 @@ on these finite ranges. No assertion-disabling optimization is used.
 
 For the external reproduction, the four pinned probe sources were copied
 to a temporary `reviews/side_lane` directory, with main's
-`collatz_research_20261017/negative_controls/affine_controls.py` as its
+`experiments/packet_currents/negative_controls/affine_controls.py` as its
 existing arithmetic dependency. The two unmodified entry points were
 `coalescence_check.py` and `excursion_merge_probe.py`, each with a
 45-second process cap; both completed. No feed branch file was edited.

@@ -19,7 +19,7 @@ receipts byte for byte. Imports were also read from that exact commit.
 | `reviews/side_lane/itinerary_complexity_general.py` | `e5099124e39c13c92a9ea7914343a6441e3a691f1f11b773eb5a8a02840da23c` |
 | `reviews/side_lane/itinerary_complexity_general.json` | `f4e65d5d79abeb5a85d6a3aed3e9ffe790ae952fad08c22e09411465ee7a8287` |
 | `reviews/side_lane/fibre_count_check.py` | `071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a` |
-| `collatz_research_20261017/negative_controls/affine_controls.py` | `9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c` |
+| `experiments/packet_currents/negative_controls/affine_controls.py` | `9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c` |
 
 ## Reproduced evidence
 
@@ -69,7 +69,7 @@ is needed beyond the exact cylinder identity already proved in the repo.
 ## Research decision
 
 Keep the negative controls and conditional minimality theorem, with the
-[PR1 scope corrections](../../collatz_research_20261017/negative_controls/PR1_REVIEW.md).
+[PR1 scope corrections](../packet_currents/negative_controls/PR1_REVIEW.md).
 They do not rule out alternative constructions. Keep repeated-factor
 spacing as a constraint on one fixed hypothetical survivor, without treating
 linear complexity growth as a termination proof.

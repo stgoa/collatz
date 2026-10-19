@@ -104,8 +104,8 @@ Several series reuse letters. Always read an ID together with the folder it live
 
 | ID | Meaning | Location |
 |---|---|---|
-| R1–R94 | Rounds of the packet-currents (convergence) programme | R1–R4 in `collatz_research_20261017/`; R5–R7 in `experiments/current_construction/`; R8–R9 in `experiments/annular_construction/`; R10–R94 in `experiments/residual_progress/`. The numbering is in `experiments/residual_progress/REPORT.md` and `archive/docs/RESULTS.md`. |
-| C1–C5 | Negative controls from the independent PR1 lane | `collatz_research_20261017/negative_controls/` |
+| R1–R94 | Rounds of the packet-currents (convergence) programme | R1–R4 in `experiments/packet_currents/`; R5–R7 in `experiments/current_construction/`; R8–R9 in `experiments/annular_construction/`; R10–R94 in `experiments/residual_progress/`. The numbering is in `experiments/residual_progress/REPORT.md` and `archive/docs/RESULTS.md`. |
+| C1–C5 | Negative controls from the independent PR1 lane | `experiments/packet_currents/negative_controls/` |
 | C001–C014 | Cycle-spectrum batches by the main lane. C014 is unreviewed work in progress. | `experiments/cycle_spectrum/C0xx/` |
 | S1–S13 | Cycle-spectrum results by the side lane. S1 exists only as a feed entry and Lean units. | `experiments/cycle_spectrum/S02/`–`S13/` |
 | V001–V009 | Viewpoint batches | `experiments/viewpoints/V0xx/` |

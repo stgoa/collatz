@@ -13,7 +13,7 @@ and the side lane, and a GitHub merged-PR query. The query returned only
 2026-10-17 21:30:44 UTC as `ba6b3371fabd7fcabebb442d7c89ea3ed5c02149`.
 That commit is already an ancestor of current main. Its original PR body
 still contains the broad certificate-minimality conclusion; the corrected
-repository note and [review](../../collatz_research_20261017/negative_controls/PR1_REVIEW.md)
+repository note and [review](../packet_currents/negative_controls/PR1_REVIEW.md)
 retain the valid lemma and explicit counterexamples to the overstatement.
 
 Keep the false-map controls, independent arithmetic and conditional
@@ -75,6 +75,6 @@ Paths in the first column are relative to the pinned side branch.
 | `reviews/side_lane/batch_r84_r85_check.py` | `f19a46ed83fec41fb0fbe27d5f43af20b1100e02f82a79162ee15d4d74db6709` |
 | `reviews/side_lane/batch_r84_r85_check.json` | `358d0af434935d691438a0c7b7f8c657d2c181044f8bb68f423ebd1607a2e37c` |
 | `reviews/side_lane/fibre_count_check.py` | `071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a` |
-| `collatz_research_20261017/negative_controls/affine_controls.py` | `9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c` |
+| `experiments/packet_currents/negative_controls/affine_controls.py` | `9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c` |
 
 The last two dependencies were identical at both pins.

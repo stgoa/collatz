@@ -1,6 +1,6 @@
 # Negative controls, an independent audit, and certificate minimality
 
-17 October 2026. Companion to [`right_aligned_reduction.tex`](../../papers/right_aligned_reduction/right_aligned_reduction.tex).
+17 October 2026. Companion to [`right_aligned_reduction.tex`](../../../papers/right_aligned_reduction/right_aligned_reduction.tex).
 Executables: [`affine_controls.py`](affine_controls.py), [`reduction_audit.py`](reduction_audit.py), [`main_claims_audit.py`](main_claims_audit.py), [`progress_measures_audit.py`](progress_measures_audit.py), [`attempt_probes.py`](attempt_probes.py).
 Receipts: the matching `*.json` files in this directory.
 Ledger entries: C1–C5 in `archive/docs/RESULTS.md`. The C-series is kept separate from the R-series used on main.
@@ -199,7 +199,7 @@ The full table is in `reduction_audit.json`. `W(N)` is small at dyadic `N`, cons
 ## 8. Using the checker
 
 ```sh
-python3 collatz_research_20261017/negative_controls/affine_controls.py --check CERT.json
+python3 experiments/packet_currents/negative_controls/affine_controls.py --check CERT.json
 ```
 
 `CERT.json` has the form `{"d": 1, "N": 32, "J": {"5": 2, ...}, "zeta": {...}}`. The checker rebuilds `Π_N` independently and returns exit status 0 if and only if `Π_N = (I − P_A)J + ζ` with `ζ ≤ 0`.

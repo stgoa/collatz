@@ -326,7 +326,7 @@ Integrality does bound how long an integer can follow a contracting positive rat
 
 ## Appendix A. Verification ledger
 
-The appendix is pinned at main commit `9190ccf` and the side lane's feed through its 11:32 entry. Times refer to `archive/side_lane/FEED.md` entries, and probes live in `reviews/side_lane/` unless noted. "PR1" means the merged negative-controls lane, `collatz_research_20261017/negative_controls/`.
+The appendix is pinned at main commit `9190ccf` and the side lane's feed through its 11:32 entry. Times refer to `archive/side_lane/FEED.md` entries, and probes live in `reviews/side_lane/` unless noted. "PR1" means the merged negative-controls lane, `experiments/packet_currents/negative_controls/`.
 
 ### A.1 Main results and independent side-lane checks
 

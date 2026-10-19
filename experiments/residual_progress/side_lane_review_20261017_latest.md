@@ -246,9 +246,9 @@ repo=Path.cwd()
 review=Path(tempfile.mkdtemp(prefix='collatz-side-review-'))
 probe=review/'sidekick'/'probes'
 probe.mkdir(parents=True)
-dep=review/'collatz_research_20261017'/'negative_controls'
+dep=review/'experiments/packet_currents'/'negative_controls'
 dep.mkdir(parents=True)
-shutil.copy2(repo/'collatz_research_20261017/negative_controls/affine_controls.py',
+shutil.copy2(repo/'experiments/packet_currents/negative_controls/affine_controls.py',
              dep/'affine_controls.py')
 ref='9a0c28d90e1554cfa967e7e0ea785a86dd1af04c'
 for name in ('residual_vs_induction.py','residual_cylinder_core.py'):

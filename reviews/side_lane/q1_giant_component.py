@@ -16,7 +16,7 @@ import math
 import sys
 import time
 
-LANE = Path(__file__).resolve().parents[2] / "collatz_research_20261017" / "negative_controls"
+LANE = Path(__file__).resolve().parents[2] / "experiments" / "packet_currents" / "negative_controls"
 sys.path.insert(0, str(LANE))
 from affine_controls import step  # noqa: E402
 from progress_measures_audit import increment  # noqa: E402

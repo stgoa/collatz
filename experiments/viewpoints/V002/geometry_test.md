@@ -138,7 +138,8 @@ Let h_o(X)=sum_{odd n<=X}1/n. A proposed quantitative improvement needs, for
 example, explicitly specified growing finite domains F_X and
 
 \[
- \frac1{h_o(X)}\sum_{\substack{n\le X\\n\ {m odd}}}
+ \frac1{h_o(X)}\sum_{\substack{n\le X\\n\ {
+m odd}}}
           \frac{u_{F_X}(n)}n\ge\frac12
  \quad\hbox{for every integer }X\ge X_0.             \tag{6}
 \]
@@ -171,7 +172,7 @@ still retain their conductances 1/11, 1/81 and 1/129.
 For d=61, the simplest direct control is S_61(61)=61. Removing this
 self-loop does not connect its component to 1 or assign it positive
 voltage. The separately certified 41-cycle with minimum 235 in the
-[frozen negative-control record](../../../collatz_research_20261017/negative_controls/NOTE.md)
+[frozen negative-control record](../../packet_currents/negative_controls/NOTE.md)
 is a nonprincipal control with the same conclusion. These are statements
 for the designated absorber **1**, without enlarging it to include cycles.
 

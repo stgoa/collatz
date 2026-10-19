@@ -18,7 +18,7 @@ from verify_obstructions import capped_search, clean, divergence
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 spec = importlib.util.spec_from_file_location(
-    "right_packet_source", ROOT / "collatz_research_20261017/right_aligned_packets.py")
+    "right_packet_source", ROOT / "experiments/packet_currents/right_aligned_packets.py")
 packet_source = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(packet_source)
 step, push = packet_source.step, packet_source.push

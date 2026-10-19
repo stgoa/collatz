@@ -11,7 +11,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-RESEARCH = ROOT / "collatz_research_20261017"
+RESEARCH = ROOT / "experiments" / "packet_currents"
 BUNDLE = RESEARCH / "collatz_packet_currents"
 # SHA-256 of the original upload, collatz_packet_currents_bundle.zip. The zip was removed from the tree on
 # 2026-10-19 (it is in git history); its 32 entries are byte-identical to the extracted snapshot, which the
@@ -75,7 +75,7 @@ def main():
         right = json.loads((work / "right_aligned_audit.json").read_text())
         receipt = json.loads((RESEARCH / "right_aligned_audit.json").read_text())
         require(right == receipt, "Right-aligned audit differs from persisted receipt")
-        controls = work / "research" / "negative_controls"
+        controls = work / "experiments" / "packet_currents" / "negative_controls"
         shutil.copytree(RESEARCH / "negative_controls", controls,
                         ignore=shutil.ignore_patterns("__pycache__"))
         shutil.copy2(RESEARCH / "right_aligned_packets.py", controls.parent)
@@ -92,8 +92,8 @@ def main():
 
 
         # Preserve the repository-relative imports used by the new experiments.
-        revised = work / "collatz_research_20261017"
-        revised.mkdir()
+        revised = work / "experiments" / "packet_currents"
+        revised.mkdir(parents=True, exist_ok=True)
         shutil.copy2(RESEARCH / "right_aligned_packets.py", revised)
         source_experiments = ROOT / "experiments" / "current_construction"
         experiments = work / "experiments" / "current_construction"

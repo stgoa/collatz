@@ -29,7 +29,6 @@ A selection; the full picture is in [`docs/STATUS.md`](docs/STATUS.md).
 |---|---|
 | [`docs/`](docs/) | [Status](docs/STATUS.md) · [Frontier: open problems](docs/FRONTIER.md) · [Results index](docs/RESULTS.md) · [Conventions](docs/CONVENTIONS.md) · [Literature](docs/LITERATURE.md) · [History](docs/HISTORY.md) |
 | [`experiments/`](experiments/) | One folder per research line, each with a README giving its goal, status and an index. The active line is [`cycle_spectrum`](experiments/cycle_spectrum/). |
-| [`collatz_research_20261017/`](collatz_research_20261017/) | The original 2026-10-17 upload and the first rounds R1–R4 (frozen). It stays at the root because frozen scripts load files from it by path. |
 | [`lean/`](lean/) | The formal (Lean 4 + Mathlib) development and its build receipts |
 | [`reviews/`](reviews/) | Independent checks of claims made elsewhere in the repository |
 | [`papers/`](papers/) | Typeset (`.tex`) write-ups |
