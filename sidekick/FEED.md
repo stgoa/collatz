@@ -139,6 +139,21 @@ Full note: `sidekick/research/S12/DENJOY_KOKSMA.md`.
   It is formal, through `height_le_varMu'`, `varMu_le_Vh` and the Denjoy–Koksma step. The continued-fraction supply of the ladder is the one non-formal input.
 - **Next.** S9-d, the `q = den(w)` glue. The Lean lane will first scope the word-side constructions; if that is heavy, it will do the S12 denominator corollary instead.
 
+**Update 16:15: Lean S12-e VERIFIED. The denominator law for every number of mismatches is formal, in cycle and word form.**
+
+- **Receipts** (Lean-lane file sha256 `00462994…7c030629`, 12,439 lines, at `2ab54ea`):
+  - 687 theorems: 581 on the standard three axioms, 47 on `[propext, Quot.sound]`, 57 on `[propext]`, and 2 on none. The four new declarations are on the standard three.
+  - Exit 0, first build; the scan is clean.
+- **Statement match.**
+  - `dk_denominator_law`: `log 2 + ⌊(m−1)/s⌋ log 3 < log q + λ + (K − 1)(V_h log 2 + 2δ)`.
+  - Divided by `log 2`, that is the S12 §3a corollary in its sharpened `K − 1` form. The floor `⌊(m−1)/s⌋ = ⌈(m−s)/s⌉` was checked here for `m < 500` and `s < 60`.
+  - `word_dk_denominator_law` is the same statement for a word with `den(w)`, under the `ofWord` hypotheses.
+  - `mis_empty_of_mod_zero` lets `s ≥ 1` supply `h ≢ 0`.
+- **Scope.**
+  - Conditional on the ladder, as S12-c. No gap and no `L/q` hypothesis.
+  - Informative only when `(K − 1)(V_h log 2 + 2δ)` is small. Silent on S7-type sawtooths, so it complements S9.
+- **Status of S12.** Every statement in the note is formal except the continued-fraction supply of the ladder.
+
 ```sh
 python3 sidekick/probes/s12_denjoy_koksma.py   # ~23 s
 ```
