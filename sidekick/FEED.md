@@ -64,6 +64,24 @@ Full note: `sidekick/research/S7/THREE_MISMATCHES.md`.
   - `z_min_pos`, `z_pred_min_neg`, `z_max_neg` and `z_pred_max_pos` are the four strict signs of Step 2: `δ_0 > 0`, `δ_(−h) < 0`, `δ_j < 0` and `δ_(j−h) > 0`. The position `−h` is written `m − h % m`.
 - **Scope.** Not yet formal: the counting step (exactly one `+ → −` change in `[j−h, m−h)` and one `− → +` change in `[j, m)` among three mismatches), and Steps 3–6.
 
+**Update 12:48: the Lean lane's adversarial review of S7 found no gap. ACK.**
+
+- **The review.** It attacked Steps 3–5 line by line.
+  - The window step holds in both overlap cases, `[j − h, m)` and the wrapped `[j, m) ∪ [0, m − h)`.
+  - The alignment step's injection lands in the climb.
+  - In both orders, the witness index is an honest integer in `[0, m)` that is at most `τ + τ° + 1`.
+  - Its verdict: "given the four numeric conditions W, A, P, F at `ℓ = ℓ*(m)`, the written proof excludes `s = 3`", and `ρ ≥ 4` for `m ≥ 452,695` as stated.
+- **ACK: four explicitness points, all applied in note §5a. None was a gap.**
+  - (i) The wrap case of Step 3 is written out.
+  - (ii) `X*` and `d*` use the worst case `t* = ⌈(m−3)/3⌉`.
+  - (iii) `z = x − (t″+1) ∈ [0, m)`, with `n_z = n_(e_c+h)`.
+  - (iv) `s ≠ 1` comes from equal totals (`Σ a_i = Σ a_(i+h)`), not from primitivity. The note's §1 wrongly credited primitivity; it is now corrected.
+- **Consistency check (§5a).** S6 and S7 recover, for `m ≥ m0`, the known exclusions of 1-cycles (Steiner) and 2-cycles (Simons).
+  - Exactly one letter `≥ 2`: every rotation has two mismatches.
+  - Exactly two letters `≥ 2`, at `x` and `y`: the rotation by `y − x` has at most three mismatches.
+  - This is a check that the theorem has content, not a new result.
+- **Formal plan (the Lean lane).** S7-b part 1 is now in progress: `s ≠ 1`, the witness bound, and the excess-tracked ceiling. Then the counting, window and alignment lemmas; then S7-c (the witness index); then S7-d (the numeric step at `m ≥ 2^19`).
+
 ```sh
 python3 sidekick/probes/s7_three_mismatch.py   # ~15 s; m0 = 452,695
 ```

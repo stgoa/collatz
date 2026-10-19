@@ -1,12 +1,12 @@
 # S7: no rotation with exactly three mismatches at `q = 1`
 
-**Status:** side-lane producer batch S7 (2026-10-19). A written proof from elementary steps, plus the replayed `gap_all` and two imports (Barina's minimum, a period bound). There is a probe for the threshold and controls on actual `3x+q` cycles. It has not yet been reviewed by the Lean lane. Novelty undetermined.
+**Status:** side-lane producer batch S7 (2026-10-19). A written proof from elementary steps, plus the replayed `gap_all` and two imports (Barina's minimum, a period bound). There is a probe for the threshold and controls on actual `3x+q` cycles. The Lean lane reviewed it adversarially and found no gap (§5a). The sign lemma is formal (S7-a). Novelty undetermined.
 
 ## 1. Statement
 
 Take a nontrivial primitive Collatz cycle (`q = 1`) with period `m ≥ 452,695` and minimum `L > 2^71`. Then **no nonidentity rotation of its valuation word differs from it in exactly three positions**.
 
-- Every nonidentity rotation differs in at least two positions, by primitivity.
+- Every nonidentity rotation differs in at least one position, by primitivity. It never differs in exactly one, because the totals agree: `Σ a_i = Σ a_(i+h)`. (The Lean lane is formalising this as `mis_card_ne_one`.)
 - C011 (main), or S6 (formal as S6-b/c for `m ≥ 2^15`), excludes exactly two.
 - So with any period import above 452,695, for example Eliahou's `m ≥ 17,087,915` or the Hercher/Barina bound used in C011, **every nonidentity rotation of a hypothetical nontrivial Collatz cycle differs in at least four positions**. In main's notation that is `ρ(w) ≥ 4`; C011 gave `ρ(w) ≥ 3`.
 
@@ -37,7 +37,7 @@ Take a nontrivial primitive Collatz cycle (`q = 1`) with period `m ≥ 452,695` 
 **Step 1 (sizes).**
 - Each witness has `n_z ≤ H ≤ L·2^((m−1)κ)`. So every run satisfies `t ≤ t_max`, the largest integer below `T = (ℓ + (m−1)κ − 1)/log₂ 3 ≈ 0.369m + 0.631ℓ`. This `t_max` is a uniform bound on every run, not the length of the longest one.
 - The three runs sum to `m − 3`, so every run is longer than `m − 3 − 2t_max ≈ 0.262m − 1.26ℓ`. Write `σ_min = m − 2(t_max + 1)` for the resulting lower bound on the **spacing** (run length plus one) between consecutive mismatches. "Spacing" is used to avoid the programme's `gap`, which means `Δ_r`.
-- The longest run has `t* ≥ ⌈(m−3)/3⌉`, so `log₂ H > 1 + t* log₂ 3`. Combined with (F3) up to `j`:
+- The longest run has length at least `t* = ⌈(m−3)/3⌉`, so `log₂ H > 1 + t* log₂ 3`. `X*` and `d*` below use this worst case, the smallest possible longest run, which makes them as large as possible. Combined with (F3) up to `j`:
   - the **climb excess** `X_c = Σ_(i<j)(a_i − 1)` satisfies `X_c < X* = (m−1)κ − 1 − t* log₂ 3 + ℓ ≈ 0.057m + ℓ`. The climb bound used is `log₂(H/L) ≤ jκ − X_c`, the exact form of S6-a's `h_le_climb`.
   - the **descent window** `W = [j, m)` has length `d = m − j < d* = m − (1 + t* log₂ 3 − ℓ)/κ ≈ 0.097m + 1.71ℓ`. Keeping `X_c` gives the sharper `d < d* − X_c/κ`, which is not needed.
 
@@ -48,7 +48,10 @@ Take a nontrivial primitive Collatz cycle (`q = 1`) with period `m ≥ 452,695` 
 - So `δ < 0` on the forward stretch `(e_a, e_b]` and `δ > 0` on `(e_b, e_a]`.
 
 **Step 3 (the windows are disjoint).** Take the representative `1 ≤ h ≤ m − 1`. Both window conditions are needed: `d ≤ h ≤ m − d`.
-- Suppose `h < d` or `h > m − d`. Then `W` and `W − h` overlap, and `W ∪ (W − h)` is an arc of fewer than `2d` positions containing the distinct mismatches `e_a` and `e_b`. Their distance would be below `2d − 1`, but every two mismatches are at least `σ_min` apart. Condition **W**, `σ_min ≥ 2d_max − 1`, rules this out.
+- Suppose `h < d` or `h > m − d`. Then `W` and `W − h` overlap.
+  - If `h < d`, the union is `[j − h, m)`, of length `d + h ≤ 2d − 1`.
+  - If `h > m − d`, the union wraps: it is `[j, m) ∪ [0, m − h)`, of length `d + (m − h) ≤ 2d − 1`.
+  - The union contains `e_a` and `e_b`. They are distinct because their change types differ (`+ → −` against `− → +`). So two mismatches would lie in an arc of at most `2d − 1` positions, while every two mismatches are at least `σ_min` apart. Condition **W**, `σ_min ≥ 2d_max − 1`, rules this out.
 - With `h ≥ d`, the copies `W + h = [j + h − m, h)` start at or after index 0. With `h ≤ m − d = j`, they end at or before `j`. So `W + h ⊂ [0, j)`, the climb, and symmetrically `W − h ⊂ [0, j)`.
 - Each of `W` and `W − h` contains exactly one mismatch, `e_b` and `e_a` respectively. This uses `σ_min > d_max`, which condition W also covers. It is the second place where `m ≥ m0` enters.
 
@@ -64,7 +67,7 @@ Take a nontrivial primitive Collatz cycle (`q = 1`) with period `m ≥ 452,695` 
 - **Order 1: `x − h → x → e_c` (forward).**
   - The run `(x, e_c)`, of length `t′`, ends at `e_c`. That position lies in the stretch `(x, x − h]`, where `δ > 0`, so the larger of the two compared states is `n_(e_c + h)`. Its witness is `z = e_c + h`, with `n_z > 2·3^(t′)`.
   - The forward spacings are `t + 1` (from `x − h` to `x`), `t′ + 1` and `t″ + 1`, and they sum to `m`. So `z ≡ x − (t″ + 1)`.
-  - As an index, `x ∈ [j, m − 1]`. Condition **P** (`m − d_max ≥ t_max + 1`) gives `x ≥ t″ + 1`, so there is no wrap and `z = x − t″ − 1 ≤ m − 2 − t″ = t + t′ + 1`.
+  - As an index, `x ∈ [j, m − 1]`. Condition **P** (`m − d_max ≥ t_max + 1`) gives `x ≥ t″ + 1`. So `z` is the integer `x − (t″ + 1) ∈ [0, m)`, `n_z = n_(e_c + h)` by the congruence, and `z ≤ m − 2 − t″ = t + t′ + 1`.
   - Since `t″ + 1 > d`, also `z < m − d = j`. So `z` is a climb index, reached forward from the minimum. (F3) would apply at any index anyway.
 - **Order 2: `x − h → e_c → x`.**
   - The run `(x − h, e_c)`, of length `t₁`, ends at `e_c`. That position lies in `(x − h, x]`, where `δ < 0`, so the larger state is `n_(e_c)` itself. Its witness is `z = e_c`.
@@ -104,6 +107,20 @@ The sample is the 616 cycles with `m ≥ 3` for odd `q < 400`, `3 ∤ q`, from s
   - These cycles have `log₂ L / m ≈ 1.5–1.6`, so all four conditions fail by wide margins, and three-mismatch rotations duly exist. One example is `q = 13`, `m = 5`, `L = 287`, `h = 2`, which is aligned (order 1).
   - The same holds for main's C013 §3 distance-three family of rational cycles, where `log₂ q ≈ 0.447m`.
   - The proof uses `q = 1` only through `ℓ = O(log m)` (F4) and `ε ≈ 0`.
+
+## 5a. Review and a consistency check
+
+- **The Lean lane's review** (2026-10-19, of `d978b57`) attacked Steps 3–5 line by line and found no gap.
+  - It asked for four points to be made explicit, now done: the wrap case of Step 3; that `X*` and `d*` use the worst case `t*`; that the witness index `z` is an integer in `[0, m)` with `n_z = n_(e_c+h)`; and that `s ≠ 1` comes from the equal totals, not from primitivity.
+  - S7-a, the sign lemma, is formal. The other steps are planned as S7-b, S7-c and S7-d.
+- **Consistency with known results.** Two short arguments recover the Steiner/Simons exclusions of 1-cycles and 2-cycles for `m ≥ m0`, through rotations alone.
+  - **One letter `≥ 2`.** Every rotation of a word with exactly one letter `≥ 2` has two mismatches, so S6 excludes it.
+  - **Two letters `V, W ≥ 2`, at `x` and `y`.** The rotation by `r = y − x` can only mismatch at `x`, `y` and `2x − y`. So it has 3 mismatches (`V ≠ W`), 2 (`V = W`), or, when `2r ≡ 0`, 2 or 0.
+  - S6, S7 and primitivity exclude every case.
+  - This is a check that the theorem has content, not a new result. Words with three or more letters `≥ 2` are not reached this way.
+- **Relation to the literature.**
+  - `ρ ≥ 4` improves this programme's `ρ ≥ 3` (C011).
+  - The k-cycle literature bounds a different statistic, the number of local minima, as settled in the S6 dispute. No comparison with it is implied beyond the check above.
 
 ## 6. Limits and what it does not give
 
