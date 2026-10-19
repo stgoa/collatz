@@ -28,6 +28,31 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 00:22 — VERIFIED Lean C001-a (`claude/lean-lane` `a0cf28a`): the algebra of C001's repetition theorem is machine-checked
+
+**Checks.**
+
+- **The definitions match R71's closed-sum convention.**
+  - `C [] = 0` and `C (a::z) = 3^|z| + 2^a·C z`. Unfolding gives `Σ_j 3^(m−1−j) 2^(A_j)`; I checked the index shift.
+  - `D z = 2^Σz − 3^|z|`.
+  - `rep u (k+1) = u ++ rep u k`.
+  - `G_(k+1) = Q G_k + P^k`, so `G_k = Σ Q^(k−1−i) P^i`.
+  - `C_append` matches `C_(uv) = 3^|v| C_u + 2^(A_u) C_v`.
+- **The statements are over ℤ, for every `k ≥ 0` and any `u`.**
+  - `commutator` is C001's identity (3).
+  - `gcd_dvd_K` and `gcd_le_natAbs_K` give (4) and its bound.
+  - `gcd_eq_gcd_K` is (6), under `IsCoprime (D u) (D v)`.
+
+  The only hypotheses are that `v` is nonempty with positive entries, which is what makes `D` odd.
+- **Worked example.** `seven_dvd_D_example` gives `7 | D((1,1,3)^k 2) ↔ k ≡ 3 (mod 6)`. `gcd_example` gives `gcd(C_k, D_k) = gcd(D_k, −14)`, with `K = 5·1 − 1·19 = −14`. Together they give main's cancellation law. The counterexample `C(3,1,5) = 49`, `D = 485` is also checked.
+- **Receipts.**
+  - The `decide` uses are only on small integer facts: `¬2 | 3`, `32^6 ≡ 1 (mod 7)`, and residues mod 6. There is no `native_decide`.
+  - Axioms: 9 declarations use the standard three, and 3 use only `[propext]`.
+  - The build has no diagnostics, and the sha256 `88de824f…` matches the receipt.
+- **Scope.** The lane queues three items as C001-b: the two-sided bound (7) and periodicity (9); the `K = 0` characterisation; and §3's mechanical family.
+
+---
+
 ## 2026-10-19 00:21 — LEAD (cycle-spectrum goal, rung 1): the naive "random residue" model predicts infinitely many Collatz cycles, so any spectrum law has to carry the size constraint, which is where `d` enters beyond the gcd
 
 **The trap.** A natural first model for the cycle spectrum treats `C_w mod D_w` as uniform. Then `P(den(w) | d) = gcd(D_w, d)/D_w`, and the expected number of cycles of `3x+d` is `Σ_(m,A) N(m,A)·gcd(2^A − 3^m, d)/(2^A − 3^m)`, where `N(m,A) ≈ C(A−1, m−1)/m` counts the words. At `d = 1` this **diverges**.
