@@ -7265,6 +7265,163 @@ theorem z_pred_max_pos (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j →
 
 end OddCycle
 
+/-! ### S7-b (part 1): three ingredients of the side lane's S7
+
+`s ≠ 1`: the totals `Σ_{i<m} a_i` and `Σ_{i<m} a_{i+h}` agree (`sum_a_shift`), so exactly one mismatch
+is impossible (`mis_card_ne_one`). The witness of a run (F1): at the end `e = i + t` of an agreeing
+run with `z_e ≠ 0`, the larger of `n_e`, `n_{e+h}` exceeds `2·3^t` (`witness_gt`). The
+excess-tracked ceiling (F3): with `X_k = Σ_{i<k}(a_i − 1)` (`excess`), `n_k 2^{X_k} ≤ L (3/2)^k
+(1 + q/(3L))^k` (`n_mul_pow_excess_le`), hence `(h_k + X_k) log 2 ≤ k (log 3 − log 2) +
+k log(1 + q/(3L))` (`h_add_excess_le`): the prose's `log₂(n_k/L) ≤ kκ − X_k`. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- The sum of the valuation word over one period is shift-invariant. -/
+theorem sum_a_shift (k : ℕ) : ∑ i ∈ Finset.range m, Γ.a (i + k) = ∑ i ∈ Finset.range m, Γ.a i := by
+  induction k with
+  | zero => simp
+  | succ k ih =>
+    have h1 := Finset.sum_range_succ' (fun i => Γ.a (i + k)) m
+    have h2 := Finset.sum_range_succ (fun i => Γ.a (i + k)) m
+    simp only [Nat.zero_add] at h1 h2
+    have h3 : Γ.a (m + k) = Γ.a k := by rw [Nat.add_comm, Γ.a_per]
+    have h4 : ∑ i ∈ Finset.range m, Γ.a (i + (k + 1)) =
+        ∑ i ∈ Finset.range m, Γ.a (i + 1 + k) := by
+      apply Finset.sum_congr rfl
+      intro i _
+      rw [Nat.add_right_comm i 1 k, Nat.add_assoc]
+    rw [h4, ← ih]
+    rw [h3] at h2
+    omega
+
+/-- Exactly one mismatch is impossible: the two totals agree. -/
+theorem mis_card_ne_one (h : ℕ) : (Γ.mis h).card ≠ 1 := by
+  intro hcard
+  obtain ⟨e, he⟩ := Finset.card_eq_one.mp hcard
+  have hsum : ∑ i ∈ Finset.range m, ((Γ.a (i + h) : ℤ) - Γ.a i) = 0 := by
+    rw [Finset.sum_sub_distrib]
+    have := Γ.sum_a_shift h
+    have hc : ((∑ i ∈ Finset.range m, Γ.a (i + h) : ℕ) : ℤ) = ((∑ i ∈ Finset.range m, Γ.a i : ℕ) : ℤ) := by
+      rw [this]
+    push_cast at hc
+    linarith
+  have hfilter : ∑ i ∈ Finset.range m, ((Γ.a (i + h) : ℤ) - Γ.a i) =
+      ∑ i ∈ Γ.mis h, ((Γ.a (i + h) : ℤ) - Γ.a i) := by
+    unfold mis
+    symm
+    apply Finset.sum_filter_of_ne
+    intro i _ hne hagree
+    apply hne
+    unfold agree at hagree
+    rw [hagree]
+    ring
+  rw [hfilter, he, Finset.sum_singleton] at hsum
+  have hemis : e ∈ Γ.mis h := by
+    rw [he]
+    exact Finset.mem_singleton_self e
+  unfold mis at hemis
+  rw [Finset.mem_filter] at hemis
+  apply hemis.2
+  unfold agree
+  have : (Γ.a (e + h) : ℤ) = Γ.a e := by linarith
+  exact_mod_cast this.symm
+
+/-- (F1), the witness: at the end `e = i + t` of an agreeing run with `z_e ≠ 0`, the larger of
+`n_e` and `n_{e+h}` exceeds `2·3^t`. -/
+theorem witness_gt {h i : ℕ} (t : ℕ) (hagree : ∀ j, j < t → Γ.a (i + j) = Γ.a (i + j + h))
+    (hz : Γ.z h (i + t) ≠ 0) : 2 * (3 : ℤ) ^ t < max (Γ.n (i + t)) (Γ.n (i + t + h)) := by
+  obtain ⟨k, hend, -, hk⟩ := Γ.z_run_factor t hagree
+  have hk0 := hk hz
+  have hpos1 : 0 < Γ.n (i + t) := Γ.npos.trans_le (Γ.nmin _)
+  have hpos2 : 0 < Γ.n (i + t + h) := Γ.npos.trans_le (Γ.nmin _)
+  have h3 : (0 : ℤ) < 3 ^ t := by positivity
+  unfold z at hend
+  rcases lt_or_gt_of_ne hk0 with hneg | hposk
+  · -- k ≤ −1: n (i+t) = n (i+t+h) − 2·3^t k ≥ n (i+t+h) + 2·3^t
+    have hk1 : k ≤ -1 := by omega
+    have : 2 * (3 : ℤ) ^ t < Γ.n (i + t) := by nlinarith
+    exact lt_of_lt_of_le this (le_max_left _ _)
+  · have hk1 : 1 ≤ k := by omega
+    have : 2 * (3 : ℤ) ^ t < Γ.n (i + t + h) := by nlinarith
+    exact lt_of_lt_of_le this (le_max_right _ _)
+
+/-- The excess `X_k = Σ_{i<k} (a_i − 1)`. -/
+def excess : ℕ → ℕ
+  | 0 => 0
+  | k + 1 => excess k + (Γ.a k - 1)
+
+theorem excess_succ (k : ℕ) : Γ.excess (k + 1) = Γ.excess k + (Γ.a k - 1) := rfl
+
+/-- (F3), tracked: `n_k 2^{X_k} ≤ L (3/2)^k (1 + q/(3L))^k`. -/
+theorem n_mul_pow_excess_le (hapos : ∀ i, 1 ≤ Γ.a i) (k : ℕ) :
+    (Γ.n k : ℝ) * 2 ^ Γ.excess k ≤ Γ.n 0 * (3 / 2 : ℝ) ^ k * (1 + Γ.q / (3 * Γ.n 0)) ^ k := by
+  induction k with
+  | zero => simp [excess]
+  | succ k ih =>
+    have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+    have hnk : (0 : ℝ) < Γ.n k := by exact_mod_cast Γ.npos.trans_le (Γ.nmin k)
+    have hq : (0 : ℝ) < Γ.q := by exact_mod_cast Γ.hq
+    have hle : (Γ.n 0 : ℝ) ≤ Γ.n k := by exact_mod_cast Γ.nmin k
+    have hε : (0 : ℝ) ≤ 1 + Γ.q / (3 * Γ.n 0) := Γ.one_add_eps_pos.le
+    have harrow : (2 : ℝ) ^ Γ.a k * Γ.n (k + 1) = 3 * Γ.n k + Γ.q := by exact_mod_cast Γ.arrow k
+    have hsplit : (2 : ℝ) ^ Γ.a k = 2 * 2 ^ (Γ.a k - 1) := by
+      rw [← pow_succ']
+      congr 1
+      have := hapos k
+      omega
+    have h1 : (3 * Γ.n k + Γ.q : ℝ) ≤ 3 * Γ.n k * (1 + Γ.q / (3 * Γ.n 0)) := by
+      have h2 : (Γ.q : ℝ) ≤ Γ.n k * Γ.q / Γ.n 0 := by
+        rw [le_div_iff₀ hn0]
+        nlinarith
+      have e : 3 * (Γ.n k : ℝ) * (1 + Γ.q / (3 * Γ.n 0)) = 3 * Γ.n k + Γ.n k * Γ.q / Γ.n 0 := by
+        ring
+      linarith
+    -- n (k+1) · 2^(a k − 1) = (3 n k + q)/2 ≤ (3/2) n k (1 + ε)
+    have h3 : (Γ.n (k + 1) : ℝ) * 2 ^ (Γ.a k - 1) ≤ (3 / 2) * Γ.n k * (1 + Γ.q / (3 * Γ.n 0)) := by
+      rw [hsplit] at harrow
+      nlinarith
+    have hP : (0 : ℝ) ≤ 2 ^ Γ.excess k := by positivity
+    rw [Γ.excess_succ, pow_add, pow_succ, pow_succ]
+    calc (Γ.n (k + 1) : ℝ) * (2 ^ Γ.excess k * 2 ^ (Γ.a k - 1))
+        = (Γ.n (k + 1) * 2 ^ (Γ.a k - 1)) * 2 ^ Γ.excess k := by ring
+      _ ≤ ((3 / 2) * Γ.n k * (1 + Γ.q / (3 * Γ.n 0))) * 2 ^ Γ.excess k :=
+          mul_le_mul_of_nonneg_right h3 hP
+      _ = (3 / 2) * (1 + Γ.q / (3 * Γ.n 0)) * (Γ.n k * 2 ^ Γ.excess k) := by ring
+      _ ≤ (3 / 2) * (1 + Γ.q / (3 * Γ.n 0)) *
+          (Γ.n 0 * (3 / 2 : ℝ) ^ k * (1 + Γ.q / (3 * Γ.n 0)) ^ k) :=
+          mul_le_mul_of_nonneg_left ih (by positivity)
+      _ = Γ.n 0 * ((3 / 2 : ℝ) ^ k * (3 / 2)) * ((1 + Γ.q / (3 * Γ.n 0)) ^ k *
+          (1 + Γ.q / (3 * Γ.n 0))) := by ring
+
+/-- (F3), tracked, in logarithms: `(h_k + X_k) log 2 ≤ k (log 3 − log 2) + k log(1 + q/(3L))`. -/
+theorem h_add_excess_le (hapos : ∀ i, 1 ≤ Γ.a i) (k : ℕ) :
+    ((Γ.h k : ℝ) + Γ.excess k) * Real.log 2 ≤
+      (k : ℝ) * (Real.log 3 - Real.log 2) + (k : ℝ) * Real.log (1 + Γ.q / (3 * Γ.n 0)) := by
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have hlo : (2 : ℝ) ^ Γ.h k * Γ.n 0 ≤ Γ.n k := by exact_mod_cast Γ.hlo k
+  have hcl := Γ.n_mul_pow_excess_le hapos k
+  have hε := Γ.one_add_eps_pos
+  have hP : (0 : ℝ) < 2 ^ Γ.excess k := by positivity
+  have h1 : (2 : ℝ) ^ (Γ.h k + Γ.excess k) ≤ (3 / 2 : ℝ) ^ k * (1 + Γ.q / (3 * Γ.n 0)) ^ k := by
+    have h2 : (2 : ℝ) ^ (Γ.h k + Γ.excess k) * Γ.n 0 ≤
+        (3 / 2 : ℝ) ^ k * (1 + Γ.q / (3 * Γ.n 0)) ^ k * Γ.n 0 := by
+      calc (2 : ℝ) ^ (Γ.h k + Γ.excess k) * Γ.n 0
+          = (2 ^ Γ.h k * Γ.n 0) * 2 ^ Γ.excess k := by rw [pow_add]; ring
+        _ ≤ Γ.n k * 2 ^ Γ.excess k := mul_le_mul_of_nonneg_right hlo hP.le
+        _ ≤ Γ.n 0 * (3 / 2 : ℝ) ^ k * (1 + Γ.q / (3 * Γ.n 0)) ^ k := hcl
+        _ = (3 / 2 : ℝ) ^ k * (1 + Γ.q / (3 * Γ.n 0)) ^ k * Γ.n 0 := by ring
+    exact le_of_mul_le_mul_right h2 hn0
+  have hlog := Real.log_le_log (by positivity) h1
+  rw [Real.log_pow, Real.log_mul (by positivity : ((3 / 2 : ℝ) ^ k) ≠ 0) (pow_pos hε k).ne',
+    Real.log_pow, Real.log_pow, Real.log_div (by norm_num : (3 : ℝ) ≠ 0) (by norm_num : (2 : ℝ) ≠ 0)]
+    at hlog
+  push_cast at hlog
+  linarith
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

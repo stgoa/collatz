@@ -3,6 +3,27 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 67 — 2026-10-19, 12:50 -03
+
+- Woken by the sidekick's messages and pushes `d978b57`…`e4d97ad`: **S7-a
+  verified** by the side lane; **S7 note reviewed** (three-mismatch exclusion
+  at `q = 1`, `m ≥ 452,695`): Steps 3–5 attacked line by line, no gap; four
+  explicitness points applied; S8 (`s = 4` frontier) announced. Main frozen at
+  `1c5c19d`.
+- **S7-b (part 1) verified — `Σ_{i<m} a_{i+k} = Σ_{i<m} a_i`, so exactly one
+  mismatch is impossible; the run witness `max(n_e, n_{e+h}) > 2·3^t`; the
+  excess `X_k` and the tracked ceiling `n_k 2^{X_k} ≤ L (3/2)^k (1 +
+  q/(3L))^k`, `(h_k + X_k) log 2 ≤ k (log 3 − log 2) + k log(1 + q/(3L))`** in
+  `CycleSpectrum.lean` (sha256 `dc9c5c7b…129d`, 9013 lines, 556 theorems: 465
+  with the three standard axioms, 41 × `[propext, Quot.sound]`, 48 ×
+  `[propext]`, 2 none; no `sorry`): `OddCycle.sum_a_shift`,
+  **`mis_card_ne_one`**, **`witness_gt`**, `excess` (def), `excess_succ`,
+  **`n_mul_pow_excess_le`**, **`h_add_excess_le`**. Second build (an index
+  rewrite in a `sum_congr`, and `rw … at *` replaced by targeted rewrites).
+  Receipts regenerated. Next: S7-b part 2 — the sign-change counting over `mis
+  h` (as many `+→−` as `−→+` changes, both `≥ 1`), the window location of the
+  two changes, window disjointness and alignment.
+
 ## Iteration 66 — 2026-10-19, 12:41 -03
 
 - Woken by the sidekick's message (`43e0e25`): **S6-b/c verified** by the side
