@@ -73,6 +73,20 @@ Status words follow `AGENTS.md`.
 - **ACK: status of the inputs.** Corollary 2's numbers inherit the status of `gap_all`, a replayed external result (EXT-1), while the drift bound is formal (`three_L_D_le`). Marked in the note.
 - **The reviewer's independent spot checks agree:** `ℓ'_max(1.375·10^11) ≈ 12,824`, `F(1) = 28`, `F(√m) = 23` and `c_4 ≈ 0.0752`.
 
+**Update 17:46: two more corollaries of the rise lemma (S13 §1, Corollaries 5 and 6).**
+- **The low spectrum is sparse.**
+  - Mismatch counts are subadditive: `s(h₁ − h₂) ≤ s(h₁) + s(h₂)`.
+  - So the rotations with at most `S` mismatches are pairwise at least `H*(2S)` apart and at least `H*(S)` from 0.
+  - At `m = 1.375·10^11`, at most 156 rotations have 4 mismatches, at most 540 have `≤ 5`, and at most 1,695 have `≤ 6`. These counts are stable for larger `m`.
+  - Asymptotically, all but `m^θ` rotations have at least `(θ/2)·log_κ m − O(log log m)` mismatches.
+- **A low-mismatch rotation forces a letter of linear size.**
+  - The partner bound `Δ⁺ ≤ V_h/2 + δ` (`μ` has mean zero) turns the lemma into `V_h ≥ 2(B/(κ^(s+1) − 1) − ℓ' − 1 − δ)`.
+  - Combined with S5's height: `s(h) ≤ 4` forces a letter `≥ 0.0220m`; `≤ 5`, one `≥ 0.0085m`; `≤ 6`, one `≥ 0.0037m`.
+  - So the configurations that size methods cannot exclude at long rotations are, provably, tall profiles with a spike of linear size at a mismatch. That spike is the case where S12 and C011's product bound both lose.
+- **Checks** (`s13_corollaries.py`, ~7 s), with no violation:
+  - subadditivity on 3,963,083 rotation pairs (actual cycles with `m ≤ 120`);
+  - the forced-letter law on 99,169 rotations of the 4,218 actual cycles, using each cycle's own `B`, `ℓ'` and `δ` (minimum margin 2.68).
+
 ```sh
 python3 sidekick/probes/s13_rise_lemma.py        # ~100 s
 python3 sidekick/probes/s13_short_rotations.py   # ~1 s, the q = 1 tables

@@ -90,6 +90,42 @@ log₂ den(w) ≥ B/(κ_w^(s+1) − 1) − 1 − (σ + η)|h|_m − λ(w).
 
 This is a third denominator law, after S9 and S12. It is exponential in `s`, where S12's is linear in `K(h/m)`, and it holds for every rotation, coprime or not.
 
+**Corollary 5 (the low spectrum is sparse; added 2026-10-19 after review).**
+- **Subadditivity.** `s(h₁ − h₂) ≤ s(h₁) + s(h₂)`: if `a_i ≠ a_(i+h₁−h₂)`, then `i ∈ mis(h₁)` or `i + h₁ − h₂ ∈ mis(h₂)`.
+- **Consequence.** Write `E_S = {h ≢ 0 : s(h) ≤ S}`. Any two of its members differ by a rotation with at most `2S` mismatches. By Corollary 3, `E_S` therefore lies in the arc `[H*(S), m − H*(S)]` with pairwise cyclic distances `≥ H*(2S)`, where `H*(S) = c_S m` is Corollary 3's threshold. So
+
+```
+|E_S| ≤ ⌊(m − 2H*(S))/H*(2S)⌋ + 1.
+```
+
+| `S` | 4 | 5 | 6 | 7 | 8 | 10 | 12 |
+|---|---|---|---|---|---|---|---|
+| `|E_S|` at most (`m = 1.375·10^11`) | 156 | 540 | 1,695 | 5,067 | 14,712 | 118,906 | 1,031,595 |
+
+- The values are stable for larger `m`; at `10^15` they are 156, 540, 1,694, ….
+- **Asymptotics.** `c_S = log₂3/(σS(κ^(S+1) − 1))` up to `O(ℓ'/m)`, and `|E_S| ≤ 1/c_(2S) + 1 ≈ 0.74·S·κ^(2S+1)`. Equivalently, **all but `m^θ` rotations have at least `(θ/2)·log_κ m − O(log log m)` mismatches**.
+- Without the subadditivity step, Corollary 3 alone would allow every long rotation to have few mismatches.
+
+**Corollary 6 (a low-mismatch rotation forces a letter of linear size).**
+- `Δ⁺ ≤ max_p μ(p) ≤ Var(μ)/2 ≤ V_h/2 + δ`, because `μ(p) = y_(p+d) − y_p` has mean exactly 0. With `δ` in bits, the lemma then gives
+
+```
+V_h ≥ 2·(B/(κ^(s+1) − 1) − ℓ' − 1 − δ).
+```
+
+- Some mismatch has `|a_e − a_(e+h)| ≥ V_h/s`, so the cycle has a letter `≥ 1 + V_h/s`.
+- At `q = 1` with S5's height (`B > ⌈(m − s)/s⌉·log₂3 − ℓ' + 1`), the forced letter is:
+
+| `s(h) ≤` | 4 | 5 | 6 | 7 | 8 | 10 |
+|---|---|---|---|---|---|---|
+| some letter at least | `0.0220m` | `0.0085m` | `0.0037m` | `0.0017m` | `0.0008m` | `0.0002m` |
+
+  These values are stable in `m`.
+- **This makes the obstruction rigorous.** Any configuration left over at a long rotation is a tall profile with a spike of linear size at a mismatch. That is exactly where:
+  - S12 loses (the drop sits at a mismatch);
+  - C011's product bound loses (amplitude);
+  - the size method stops (S7–S10).
+
 ## 2. Proof
 
 - **(W) The 2-adic start witness.**
@@ -163,4 +199,5 @@ This is a third denominator law, after S9 and S12. It is exponential in `s`, whe
 ```sh
 python3 sidekick/probes/s13_rise_lemma.py        # ~100 s, all checks above
 python3 sidekick/probes/s13_short_rotations.py   # ~1 s, the q = 1 tables
+python3 sidekick/probes/s13_corollaries.py       # ~7 s, Corollaries 5 and 6 (and their checks)
 ```
