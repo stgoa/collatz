@@ -1,0 +1,99 @@
+{
+  "baseline_commit": "de7db672582eb3745efa2eb9a99326ccf43206b9",
+  "batch_file_sha256": {
+    "EXACT_REVIEW.md": "302c57fa7ad8df883dfb03ca25bb87cee96180f3faee06475ab6501d435edf59",
+    "INDEPENDENT_CHECKER_REVIEW.md": "67be7a07d29d7d67e64652295baab23394e67ca9d7c13ce310f70076689c8979",
+    "LITERATURE.md": "ce5a52aecc2609b7d3b656db21e37e1cb50c23dccc91069543cb49d124de93bf",
+    "OBSTRUCTION_REVIEW.md": "79ed5c9cf2a250316629ad959a05cbde2009ff034c6346846093e48e9107a937",
+    "OVERLAP_CONTROLS.md": "66d6b4eee55410ceee5b8da2e3b509f6ac29f37f8e0993aa0534e2ef17688ec8",
+    "OVERLAP_THEORY.md": "43c44f9ef6a2d9f42b1ce956a70d69db5f7c5b9582baf81b87c554aadb0605f9",
+    "REPORT.md": "07ffed372583130da3ef993a9c8b0d4a2e274cf3b7c822cba87290da32d055c1",
+    "ROOT_REVIEW.md": "a75ff0e88f100eab6516272db35e4d5e6b6a0312be342190f67fc81aed2f989b",
+    "SIDE_REVIEW.md": "23ae8125de0d4639558ffd544f2a44f565fb2eab67f5ccda19327de8c926f0ea",
+    "THEORY_REVIEW.md": "1ae516a5cfe84e7b79cc5981ea31cea20c892c7851f0dbf5621bf496a3f65f6e",
+    "check_delivery.py": "37de1573e36107fd756cc8c514218bc1bac40a0f8b471af8a28304bf4ea567e7",
+    "check_overlap.py": "911b5adf0688c4e5954f95b3439902db221f118ead0ca7ce45ed7a5d793d84d5",
+    "historical_gate.json": "10a42beae3aec02a370ce90f6b5d2a8d2c307261646116868211b95d77fd6c2d",
+    "overlap_audit.json": "21a5f84c35f8b15ebcbf88597ac50bf2fa68ed719750c079c915ec359fc2ec75"
+  },
+  "frozen_commit": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "goal_status": "All-cycle goal active; unrestricted growing mismatch target remains open.",
+  "historical_gate": {
+    "fields": 119,
+    "status": "PASS"
+  },
+  "independent_reviews": {
+    "OVERLAP_CONTROLS.md": [
+      "THEORY_REVIEW.md",
+      "ROOT_REVIEW.md",
+      "EXACT_REVIEW.md"
+    ],
+    "OVERLAP_THEORY.md": [
+      "OBSTRUCTION_REVIEW.md",
+      "ROOT_REVIEW.md",
+      "EXACT_REVIEW.md"
+    ],
+    "check_overlap.py": [
+      "INDEPENDENT_CHECKER_REVIEW.md",
+      "ROOT_REVIEW.md",
+      "EXACT_REVIEW.md"
+    ],
+    "overlap_audit.json": [
+      "INDEPENDENT_CHECKER_REVIEW.md",
+      "ROOT_REVIEW.md",
+      "EXACT_REVIEW.md"
+    ]
+  },
+  "markdown_checks": {
+    "checked_local_links": 652,
+    "errors": [],
+    "files": 18
+  },
+  "preservation": {
+    "C001_C012_files_unchanged": 163,
+    "R1_onward_byte_identical": true,
+    "frozen_files_byte_identical": [
+      "collatz_research_20261017/right_aligned_reduction.tex",
+      "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md",
+      "experiments/residual_progress/resolved_rules/resolved_rules.py"
+    ],
+    "git_diff_check": "PASS"
+  },
+  "reviewed_pins": {
+    "OVERLAP_CONTROLS.md": "66d6b4eee55410ceee5b8da2e3b509f6ac29f37f8e0993aa0534e2ef17688ec8",
+    "OVERLAP_THEORY.md": "43c44f9ef6a2d9f42b1ce956a70d69db5f7c5b9582baf81b87c554aadb0605f9",
+    "check_overlap.py": "911b5adf0688c4e5954f95b3439902db221f118ead0ca7ce45ed7a5d793d84d5",
+    "overlap_audit.json": "21a5f84c35f8b15ebcbf88597ac50bf2fa68ed719750c079c915ec359fc2ec75"
+  },
+  "reviewed_side_commit": "3529355a5b77740c5ff3f874d228ee9a1b5bb478",
+  "saved_actual_coverage": {
+    "coprime_total_polynomial_controls": 423,
+    "empty_background_uniform_bounds": 1177,
+    "exact_polynomial_gcds": 1185,
+    "fixed_points_outside_nonconstant_marker_theorem": 8,
+    "fourier_complexity_checks": 27646,
+    "maximal_agreeing_runs": 969102,
+    "nonconstant_polynomial_gcds": 20,
+    "normalized_arrows": 28831,
+    "normalized_cycles": 1185,
+    "overlap_orbit_sums": 75577,
+    "positive_length_runs": 334590,
+    "positive_run_unit_multipliers": 4202,
+    "raw_arrows": 36912,
+    "rotations": 27646,
+    "scaled_source_instances": 1275,
+    "unit_difference_multipliers": 5242
+  },
+  "scope": "Saved evidence consistency, review pins and preservation; not a mathematical or formal replay.",
+  "status": "PASS",
+  "top_document_sha256": {
+    "AGENTS.md": "e13823d7415ba644c32d4bc08a7a61459c718a833a717a2a98e24005d5daae3c",
+    "README.md": "4546bba871e0c59fe489fa4d5c13bbf1880a288949b96941b94802fbe5ec67eb",
+    "VIEWPOINT_MAP.md": "12dead1a9b0787351c124bddb677ebf8ec91041b39caf32c276a621519ace7d2",
+    "docs/CYCLE_SPECTRUM_BRIEF.md": "747b5e7f513c65f165b7e64a40e7d50e17ffa6f0fb2532487114a15d85a17cdf",
+    "docs/CYCLE_SPECTRUM_LOG.md": "a3b12bd5ae78134ea9b559053e49c28f65153eda8461909bccdae0f80c316c8f",
+    "docs/RESEARCH_LOG.md": "9817e9aed800e4196c0490c7bc9490ff269c67b7222d97ca1b59e58f15319424",
+    "docs/RESULTS.md": "6c6974b289668a689a26562ed40c95a4a11b276389d0478667ec365716f5f6ba",
+    "docs/VIEWPOINT_LOG.md": "63192401416b62a1fcab2201962df62bce4460661522c3fd4faca3091cc9a1be"
+  }
+}

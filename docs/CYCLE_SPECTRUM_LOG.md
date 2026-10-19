@@ -1,5 +1,31 @@
 # Cycle spectrum programme log
 
+## C013 — Shared-background denominator growth, 2026-10-19
+
+The [batch](../experiments/cycle_spectrum/C013/REPORT.md) proves exact
+polynomial factor extraction for one arbitrary common background with
+any nonconstant positive marker pattern. Residual degree equals Fourier
+support and obeys an all-rotation inequality. A uniform resultant bound
+and retained background intercept give a quantitative denominator law,
+effective bounded-q finiteness at fixed marker count/total, and a
+growing necessary q1 representation count at bounded average marker size.
+
+That representation count is not rotation mismatch count. The general
+growing-mismatch target remains open. Paired actual state differences
+give exact run divisibility, but a primitive near-critical family with
+three mismatches and linear normalized minimum has linear dyadic height.
+The proposed polynomial height conversion is therefore refuted. These
+controls have growing denominators and do not refute the fixed-q target.
+
+The next bounded test concerns distinct compatible shared arcs and their
+remaining numerical gcd. Nondiscriminating candidate searches are stopped.
+Historical mathematics and the open TeX are preserved; the finite gate,
+independent reviews and exact replay are linked in the batch. The side
+pin is3529355; reported Lean progress remains separate from main replay.
+The cited Matveev theorem already has the product-minus-one form, so the
+side suggestion of an extra conversion is unnecessary. Headline active;
+this batch is progress, without novelty or full-cycle claims.
+
 ## C012 — Coupled cuts and the information lost by two shortcuts, 2026-10-19
 
 The [batch](../experiments/cycle_spectrum/C012/REPORT.md) proves the

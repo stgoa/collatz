@@ -7,6 +7,20 @@ work. It is not the current completion requirement.
 
 ## Headline
 
+[C013](../experiments/cycle_spectrum/C013/REPORT.md) proves a uniform
+denominator law when one arbitrary background is repeated between any
+nonconstant marker pattern. At fixed marker count and total, every
+bounded-denominator layer is effectively finite even while that
+background varies. The resulting growing q1 representation count is
+not a growing rotation-distance bound. The latter remains the
+recommended intermediate objective under the unchanged headline.
+
+The next bounded mechanism must retain compatibility of distinct
+shared arcs and bound the numerical cancellation after polynomial
+factor extraction. Generic polynomial height conversion is refuted
+by actual distance3 cycles with near-critical totals and growing q.
+Do not extrapolate that obstruction to fixed-q or q1 arithmetic.
+
 [C012](../experiments/cycle_spectrum/C012/REPORT.md) completes the first
 coupled arbitrary-mismatch probe. It rules out adjugate elimination and
 a specified bounded-term compression of shared arc intercepts; the

@@ -4,6 +4,30 @@ Last updated: 2026-10-19. This ledger summarizes scope; the linked proof notes a
 
 ## Current programme and preserved Phase6 standing
 
+C013's [common-background theorem](../experiments/cycle_spectrum/C013/REPORT.md)
+uses `w=(U,a_0,...,U,a_(r-1))` with nonconstant positive markers,
+total T, arbitrary positive U of length n, and D>0. Exact polynomial
+gcd extraction leaves degree e=r-d and a numerical gcd with E=3C_U+u.
+The Fourier support identity gives `s*binom(e,2)>=r` for each nonzero
+marker rotation mismatch count s. Root separation bounds the resultant
+by `r^[e(d+1)]*2^(2Te)`, yielding
+`q>(D/2^A)*2^[n(e-1)-d]/|R|`.
+
+Fixed r,T and bounded q give effective finiteness of all such words,
+using the explicitly sourced Matveev estimate. Both n and A_U are
+bounded; constant markers remain excluded. At q1 and T<=Hr,
+`r=Omega_H(sqrt(m/log m))` is necessary. This r counts copies of one
+shared background, not mismatches with a rotation. Finite exceptions
+and arbitrary sparse-overlap words remain unresolved.
+
+The paired-run exact divisibility gives a denominator bound retaining
+dyadic height. An actual near-critical primitive family has minimum
+rotation distance3, L/q=Theta(m), B=Theta(m) and growing q. This refutes
+the specified polynomial height conversions, not fixed-q restrictions.
+Primitive marker polynomial cancellation and the q5 period17 numerical
+cancellation are retained as opposite controls. No universal cycle
+exclusion, numerical record improvement or novelty claim follows.
+
 C012's [coupled-system theorem](../experiments/cycle_spectrum/C012/REPORT.md)
 gives |det M|=D^(s-2)*product|beta'_i-beta_i| for all mismatch cuts;
 every k-minor is divisible by D^max(k-2,0). At primes of D not dividing

@@ -1,5 +1,21 @@
 # Find a better language for Collatz
 
+[C013](experiments/cycle_spectrum/C013/REPORT.md) retains one arbitrary
+shared background and derives a quantitative denominator law for every
+nonconstant marker pattern. Exact polynomial factors are removed first;
+Fourier support bounds the remaining degree, while the resultant and
+background intercept bound the remaining numerical cancellation.
+Fixed marker count, total and denominator give effective finiteness
+even when the full background varies.
+
+The resulting q1 representation-complexity bound does not equal the
+desired rotation-distance bound: repeated-background count r and
+mismatch count s are distinct. A near-critical actual family with
+three mismatches refutes a generic polynomial height conversion.
+The next bounded probe must handle distinct compatible shared arcs
+without losing their numerical gcd. No goal replacement, universal
+cycle exclusion, novelty claim or language-superiority claim is made.
+
 [C012](experiments/cycle_spectrum/C012/REPORT.md) completes the first
 arbitrary-mismatch test. The coupled matrix has forced denominator
 factors in its determinant and all larger minors, sharply on actual
