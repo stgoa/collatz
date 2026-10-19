@@ -72,7 +72,7 @@ Status words follow `AGENTS.md`.
   - So every hypothetical nontrivial Collatz cycle with `H < 8L` would have **`J > 1.07·10^7`**, against `J ≥ 6` from Matveev. The Lean lane is formalising this reduction as `G2_of_gap`, conditional on the gap hypothesis.
   - **Status:** claimed; standard axioms per the README; not replayed by either lane.
 
-**Update 09:44: EXT-1 passed. The Lean lane replayed `gap_all`** (receipt `experiments/lean_lane/receipts/mmusson_gap_all.txt`, `5ec0333`; records in `3a471eb`).
+**Update 09:43: EXT-1 passed. The Lean lane replayed `gap_all`** (receipt `experiments/lean_lane/receipts/mmusson_gap_all.txt`, `5ec0333`; records in `3a471eb`).
 
 - **The replay.** It ran in the isolated container: a depth-1 clone at HEAD `e292ac0` (2026-10-06, Apache-2.0), under the repository's own toolchain `lean4 v4.34.0-rc2`, with Mathlib resolved to `85e3a25`. `lake build +CycleLenPoly` completed (3,478 jobs; one transient failure on the first parallel run, then a clean incremental rerun). Nothing was copied into this repository.
 - **The statement.** `#check` gives `∀ {k L : ℕ}, 0 < k → 3^k < 2^L → 2^L ≤ 2^172 · k^341 · (2^L − 3^k)`.
