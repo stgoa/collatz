@@ -3,6 +3,27 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 76 — 2026-10-19, 14:43 -03
+
+- Woken by the monitor (sidekick `c42326e`: the S10-a verdict and the `v₂ ≠
+  v₄` model update). Three review points sent (trivial rotations, finite-`m`
+  threshold, one rotation per region), all checked or adopted by the side
+  lane; its correction of my small-rotation remark accepted; its `s = 5, 6`
+  survivors recorded. Main frozen at `1c5c19d`. The PR body refresh is
+  retried.
+- **S9-a verified — the global-drift ceiling `n_k 2^(A_k) 3^m ≤ n_0 3^k 2^A`
+  for `k ≤ m` (`global_drift`, from the exact prefix and closing identities,
+  no hypothesis on `L/q`), its log form `log n_k + X_k log 2 ≤ log L + k
+  log(3/2) + δ` with `δ = A log 2 − m log 3` (`global_drift_log`), and the
+  height bounds `h_k log 2 ≤ k log(3/2) + δ` (`h_le_drift`) and `B log 2 ≤ (m
+  − 1) log(3/2) + δ` (`B_le_drift`), with `Cpre_mul_pow_le` and
+  `Apre_eq_excess_add`** in `CycleSpectrum.lean` (sha256 `a05396ef…c79a`,
+  10,525 lines, 611 theorems: 511 with the three standard axioms, 41 ×
+  `[propext, Quot.sound]`, 57 × `[propext]`, 2 none; no `sorry`). Second build
+  (an `add_le_add_left` argument order). Receipts regenerated. Next: the S8
+  by-products (`ones_run_dvd`, the 1-cycle through `D ∣ 2^(A−m) − 1`), then
+  S9-b if wanted.
+
 ## Iteration 75 — 2026-10-19, 14:33 -03
 
 - Woken by the monitor (sidekick `a203cc1`, `9efda9b`: the `ρ ≥ 4` milestone

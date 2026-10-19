@@ -8811,6 +8811,129 @@ theorem four_mismatch_alternation {h : ℕ} (hs : (Γ.mis h).card = 4)
 
 end OddCycle
 
+/-! ### S9-a: the global-drift ceiling
+
+The exact prefix identity `2^{A_k} n_k = 3^k n_0 + q C_k` and the closing identity
+`(2^A − 3^m) n_0 = q C_m` give, for `k ≤ m`, the ceiling `n_k 2^{A_k} 3^m ≤ n_0 3^k 2^A`
+(`global_drift`), because the intercepts satisfy `3^{m−k} C_k ≤ C_m` (`Cpre_mul_pow_le`: `C_k/3^k`
+is nondecreasing). In the language of S9 §1, with the drift `δ = A log 2 − m log 3 = log(2^A/3^m)`:
+`log n_k + X_k log 2 ≤ log L + k log(3/2) + δ` (`global_drift_log`, natural logarithms), with no
+hypothesis on `L/q`. The per-step ceiling `n_mul_pow_excess_le` has `k log(1 + q/(3L))` in place of
+`δ`; both hold, so their minimum does. For the height exponents, `h_k log 2 ≤ k log(3/2) + δ`
+(`h_le_drift`) and, with the height attained, `B log 2 ≤ (m − 1) log(3/2) + δ` (`B_le_drift`): S9's
+elimination of the height through the drift. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- `3^j C_k ≤ C_{k+j}`: the intercepts grow at least by the factor `3` per step. -/
+theorem Cpre_mul_pow_le (k j : ℕ) : 3 ^ j * Γ.Cpre k ≤ Γ.Cpre (k + j) := by
+  induction j with
+  | zero => simp
+  | succ j ih =>
+    rw [← Nat.add_assoc, Γ.Cpre_succ, pow_succ]
+    have h2 : (0 : ℤ) ≤ 2 ^ Γ.Apre (k + j) := by positivity
+    linarith
+
+/-- **The global-drift ceiling** (S9 §1, integer form): for `k ≤ m`,
+`n_k 2^{A_k} 3^m ≤ n_0 3^k 2^A`. No hypothesis on `L/q`. -/
+theorem global_drift {k : ℕ} (hk : k ≤ m) :
+    Γ.n k * 2 ^ Γ.Apre k * 3 ^ m ≤ Γ.n 0 * 3 ^ k * 2 ^ Γ.Apre m := by
+  have hpre := Γ.prefix_identity k
+  have hcyc := Γ.cycle_identity
+  have hC := Γ.Cpre_mul_pow_le k (m - k)
+  rw [Nat.add_sub_cancel' hk] at hC
+  have hq := Γ.hq
+  have h3k : (0 : ℤ) < 3 ^ k := by positivity
+  have hqC : Γ.q * (3 ^ (m - k) * Γ.Cpre k) ≤ Γ.q * Γ.Cpre m :=
+    mul_le_mul_of_nonneg_left hC hq.le
+  have h3m : (3 : ℤ) ^ m = 3 ^ k * 3 ^ (m - k) := by
+    rw [← pow_add, Nat.add_sub_cancel' hk]
+  calc Γ.n k * 2 ^ Γ.Apre k * 3 ^ m = (2 ^ Γ.Apre k * Γ.n k) * 3 ^ m := by ring
+    _ = (3 ^ k * Γ.n 0 + Γ.q * Γ.Cpre k) * 3 ^ m := by rw [hpre]
+    _ = 3 ^ k * (3 ^ m * Γ.n 0) + 3 ^ k * (Γ.q * (3 ^ (m - k) * Γ.Cpre k)) := by
+        rw [h3m]
+        ring
+    _ ≤ 3 ^ k * (3 ^ m * Γ.n 0) + 3 ^ k * (Γ.q * Γ.Cpre m) := by
+        linarith [mul_le_mul_of_nonneg_left hqC h3k.le]
+    _ = 3 ^ k * (3 ^ m * Γ.n 0 + ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * Γ.n 0) := by
+        rw [hcyc]
+        ring
+    _ = Γ.n 0 * 3 ^ k * 2 ^ Γ.Apre m := by ring
+
+/-- `A_k = X_k + k` for letters `≥ 1`. -/
+theorem Apre_eq_excess_add (hapos : ∀ i, 1 ≤ Γ.a i) (k : ℕ) : Γ.Apre k = Γ.excess k + k := by
+  induction k with
+  | zero => simp [Apre, excess]
+  | succ k ih =>
+    rw [Γ.Apre_succ, Γ.excess_succ, ih]
+    have := hapos k
+    omega
+
+/-- The global-drift ceiling in the form of S9 §1 (natural logarithms): for `k ≤ m`,
+`log n_k + X_k log 2 ≤ log L + k log(3/2) + δ`, `δ = A log 2 − m log 3`. -/
+theorem global_drift_log (hapos : ∀ i, 1 ≤ Γ.a i) {k : ℕ} (hk : k ≤ m) :
+    Real.log (Γ.n k) + Γ.excess k * Real.log 2 ≤
+      Real.log (Γ.n 0) + k * (Real.log 3 - Real.log 2) +
+        ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) := by
+  have hnk : (0 : ℝ) < Γ.n k := by exact_mod_cast lt_of_lt_of_le Γ.npos (Γ.nmin k)
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have hAk := Γ.Apre_eq_excess_add hapos k
+  have hR : (Γ.n k : ℝ) * 2 ^ Γ.Apre k * 3 ^ m ≤ Γ.n 0 * 3 ^ k * 2 ^ Γ.Apre m := by
+    exact_mod_cast Γ.global_drift hk
+  have h2k : (2 : ℝ) ^ Γ.Apre k ≠ 0 := by positivity
+  have h3m : (3 : ℝ) ^ m ≠ 0 := by positivity
+  have h3k : (3 : ℝ) ^ k ≠ 0 := by positivity
+  have h2A : (2 : ℝ) ^ Γ.Apre m ≠ 0 := by positivity
+  have hnk2 : (Γ.n k : ℝ) * 2 ^ Γ.Apre k ≠ 0 := mul_ne_zero hnk.ne' h2k
+  have hn03 : (Γ.n 0 : ℝ) * 3 ^ k ≠ 0 := mul_ne_zero hn0.ne' h3k
+  have hpos : (0 : ℝ) < Γ.n k * 2 ^ Γ.Apre k * 3 ^ m :=
+    mul_pos (mul_pos hnk (by positivity)) (by positivity)
+  have hl := Real.log_le_log hpos hR
+  rw [Real.log_mul hnk2 h3m, Real.log_mul hnk.ne' h2k, Real.log_mul hn03 h2A,
+    Real.log_mul hn0.ne' h3k, Real.log_pow, Real.log_pow, Real.log_pow, Real.log_pow, hAk] at hl
+  push_cast at hl
+  linarith
+
+/-- The height exponents under the drift ceiling: `h_k log 2 ≤ k log(3/2) + δ` for `k ≤ m`. -/
+theorem h_le_drift (hapos : ∀ i, 1 ≤ Γ.a i) {k : ℕ} (hk : k ≤ m) :
+    (Γ.h k : ℝ) * Real.log 2 ≤ k * (Real.log 3 - Real.log 2) +
+      ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) := by
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have hlo : (2 : ℝ) ^ Γ.h k * Γ.n 0 ≤ Γ.n k := by exact_mod_cast Γ.hlo k
+  have h2h : (2 : ℝ) ^ Γ.h k ≠ 0 := by positivity
+  have hl := Real.log_le_log (mul_pos (by positivity) hn0) hlo
+  rw [Real.log_mul h2h hn0.ne', Real.log_pow] at hl
+  have hlog2 : 0 < Real.log 2 := Real.log_pos (by norm_num)
+  have hX : (0 : ℝ) ≤ Γ.excess k * Real.log 2 := mul_nonneg (Nat.cast_nonneg _) hlog2.le
+  have hg := Γ.global_drift_log hapos hk
+  linarith
+
+/-- S9's elimination of the height: with the height attained, `B log 2 ≤ (m − 1) log(3/2) + δ`. -/
+theorem B_le_drift (hapos : ∀ i, 1 ≤ Γ.a i) (hB : ∃ i, Γ.h i = Γ.B) :
+    (Γ.B : ℝ) * Real.log 2 ≤ ((m : ℝ) - 1) * (Real.log 3 - Real.log 2) +
+      ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) := by
+  obtain ⟨i, hi⟩ := hB
+  have hm := Γ.hm
+  have hj : i % m ≤ m - 1 := by
+    have := Nat.mod_lt i hm
+    omega
+  have hji : Γ.h (i % m) = Γ.B := by rw [Γ.h_mod, hi]
+  have hd := Γ.h_le_drift hapos (Nat.mod_lt i hm).le
+  rw [hji] at hd
+  have hjm : ((i % m : ℕ) : ℝ) ≤ (m : ℝ) - 1 := by
+    have h3 : ((i % m : ℕ) : ℝ) ≤ ((m - 1 : ℕ) : ℝ) := by exact_mod_cast hj
+    rw [Nat.cast_sub (by omega), Nat.cast_one] at h3
+    exact h3
+  have hlog32 : 0 ≤ Real.log 3 - Real.log 2 := by
+    have := Real.log_le_log (by norm_num : (0 : ℝ) < 2) (by norm_num : (2 : ℝ) ≤ 3)
+    linarith
+  have := mul_le_mul_of_nonneg_right hjm hlog32
+  linarith
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
