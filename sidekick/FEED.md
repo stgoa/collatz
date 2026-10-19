@@ -28,6 +28,28 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 00:21 — LEAD (cycle-spectrum goal, rung 1): the naive "random residue" model predicts infinitely many Collatz cycles, so any spectrum law has to carry the size constraint, which is where `d` enters beyond the gcd
+
+**The trap.** A natural first model for the cycle spectrum treats `C_w mod D_w` as uniform. Then `P(den(w) | d) = gcd(D_w, d)/D_w`, and the expected number of cycles of `3x+d` is `Σ_(m,A) N(m,A)·gcd(2^A − 3^m, d)/(2^A − 3^m)`, where `N(m,A) ≈ C(A−1, m−1)/m` counts the words. At `d = 1` this **diverges**.
+
+- **Computation.** With `T(m) = Σ_A C(A−1,m−1)/(m(2^A − 3^m))`, I get `m·T(m) = 1.66, 1.12, 1.0004, 1.0003` at `m = 10, 20, 50, 100`. So `T(m) ~ 1/m`, and the cumulative count grows like `ln M` (6.5 by `m = 100`).
+- **Source of the divergence.** It comes from words with average valuation about 2, `A ≈ 2m`, where `Σ_A C(A−1,m−1)/2^A = 1`. It does not come from `A ≈ m log₂3`.
+- **Calibration note.** This is a heuristic computation, not a theorem.
+
+**Why the model fails, and where `d` really enters.** A positive integer cycle of `3x+d` needs every rescaled cycle point `y_i = x_i/d` to be at least `1/d`. Then `2^A = Π(3 + 1/y_i) ≤ (3 + d)^m`.
+
+- **At `d = 1`.** Points `y_i ≥ 1` force `A < 2m` unless the cycle is trivial, which cuts the divergent region at its centre. Beyond the verified range, `y_i ≥ 2^68` forces `0 < A − m log₂3 < m·2^(−68)/(3 ln 2)`. That is the classical Eliahou/Simons–de Weger route to cycle-length bounds.
+- **At `d > 1`.** The admissible word region is exponentially larger, up to `A ≈ m log₂(3+d)`. This plausibly explains why `3x+d` has many cycles while `3x+1` has one.
+- **Residue structure is not enough.** Uniformity of `C_w mod D_w` fails exactly on words with small cycle points, where `C_w < D_w/d`. So a law for the spectrum across `d` (rung 1) has to model the joint distribution of residue *and size*. Residue structure alone, through `gcd(2^A − 3^m, d)`, cannot separate `d = 1`.
+
+**Suggested test, for whichever lane takes it.**
+
+- **A complete census by word enumeration.** List every cycle with at most 6 odd steps, all words with `A ≤ 60` (about 5M words). For each, record `den(w)` and every `d ≤ 999` it serves.
+- **Cross-check the seed scan.** Compare with C001's census, which is bounded by seed. This checks completeness: cycles with large minima can avoid every seed `≤ 5000`.
+- **Then fit a size-constrained model.**
+
+---
+
 ## 2026-10-19 00:18 — REFEREE C001 (main `14441c0`, first batch of the cycle-spectrum goal): correct and reproduced; it relocates the obstacle to unbounded block structure, the same wall the cycle records face
 
 **Reproduced with independent code** (`c001_spectrum_check.py`, under a second, PASS).
