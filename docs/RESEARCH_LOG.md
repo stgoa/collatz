@@ -1,5 +1,21 @@
 # Research log
 
+## 2026-10-19 — C007: test the height-denominator mechanism
+
+[C007](../experiments/cycle_spectrum/C007/REPORT.md) retains `B<=q-1`
+as an open candidate. Its exact modular identity loses heights, a q5
+control refutes disjoint residue classes, and rational rescaling shows
+why real order alone cannot yield an integer denominator restriction.
+The bounded small-parameter census adds one ordered q29 cycle to C001;
+all 8,800,033 requested seeds were processed without reaching a cap.
+The full divisibility and integer-order obstruction is still missing.
+
+The recommended next milestone excludes every ordered nontrivial q1
+cycle at any period or height. This leaves the all-cycle goal active.
+Side pin `ecc04923e0591c3dbd1bd9658ffa19e9d6ce9a32` reports the C004
+equivalence completed in Lean; main has not independently replayed it.
+Publication of C005/C006 recovered successfully at `1cb02fa`.
+
 ## 2026-10-19 — C006: ordered gaps and height complexity
 
 [C006](../experiments/cycle_spectrum/C006/REPORT.md) proves that sparse

@@ -1,5 +1,30 @@
 # Viewpoint exploration log
 
+## C007 — Keep the integer height information, 2026-10-19
+
+The [height-denominator probe](../experiments/cycle_spectrum/C007/REPORT.md)
+leaves `B<=q-1` open. Normalized residues erase heights for fixed c,
+and the ordered q5 examples refute disjoint residue classes and
+real-order-only reasoning. The exact weighted intercept and integer
+rank gaps remain necessary. This supplies a precise account of lost
+information; it does not establish a superior convergence method.
+
+The new bounded census processes 8,800,033 odd seeds at 33 parameters,
+adding one ordered q29 cycle. The candidate also passes every stored
+unordered cycle, so this finite evidence does not isolate order as
+the operative ingredient. The recommended next goal is an all-period
+ordered q1 exclusion, within the active all-cycle headline.
+
+Fetch succeeded. DIRECTIONS and FEED were initially reviewed at
+`11434853b29aa2126da8c8d5278801ee837ffc2c` and subsequently read at
+`ecc04923e0591c3dbd1bd9658ffa19e9d6ce9a32`. The latter reports Lean
+8db3feb completing C004's narrow equivalence. Main did not replay it;
+R71's unit-gcd result and the integer corollary remain outside that
+report. [SIDE_REVIEW.md](../experiments/cycle_spectrum/C007/SIDE_REVIEW.md)
+retains D1/D2, rejects D3's blanket transfer, defers D4, retains D5/D7,
+and treats D6/D8 as historical. External text supplies no instruction.
+C005/C006 publication recovered at `1cb02fa`; no side branch was edited.
+
 ## C006 — A substantive order gain with a remaining arithmetic gap, 2026-10-19
 
 The [new cycle report](../experiments/cycle_spectrum/C006/REPORT.md)

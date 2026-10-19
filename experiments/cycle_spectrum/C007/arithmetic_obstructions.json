@@ -1,0 +1,73 @@
+{
+  "modular_arrows": 28830,
+  "normalized_cycles": 1185,
+  "rational_rescaling_control": {
+    "B": 3,
+    "L": 347,
+    "additive_term_after_rescaling": 1,
+    "first_scaled_gap": [
+      96,
+      5
+    ],
+    "reduced_q": 5,
+    "warning": "Rational coordinates are not an integer denominator-one cycle."
+  },
+  "relaxation_scope": "Only the min/top pair inequalities; these pairs are not claimed to lie in cycles.",
+  "relaxed_pair_checks": 99,
+  "residue_control": {
+    "B": 3,
+    "L": 187,
+    "normalized_residues": {
+      "0": [
+        2,
+        3
+      ],
+      "1": [
+        1,
+        4
+      ],
+      "2": [
+        2,
+        3,
+        4
+      ],
+      "3": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "q": 5,
+    "raw_residues": {
+      "0": [
+        2,
+        3
+      ],
+      "1": [
+        2,
+        3
+      ],
+      "2": [
+        1,
+        2,
+        3
+      ],
+      "3": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  "scope": "Finite checks of written identities and exact obstructions; no proof of the height-denominator conjecture.",
+  "source_sha256": {
+    "HEIGHT_DENOMINATOR.md": "2d01dd74be7de1ed8ab99f3459759a23eb20c3316a580de63609210f654a828f",
+    "INDEPENDENT_ARITHMETIC.md": "b82c5801eda3d26c4514fdd9d565d6ed34dfa113cc2f71c4495fd499d4d501c3",
+    "actual_cycles.json": "28d067d3f82585a3701616adce3b57cae994541c4ddd3b4859d2bcf2307e44f2",
+    "check_arithmetic_obstructions.py": "d040c5eb43d7c71fb09c05efe3675ba6810ce47bd1a0f06755710886d8fd1b42",
+    "height_denominator_audit.json": "b35a18cb4209b5d0afd104f5c9e38926dc2de5dbef890cc324cf05ae83ce4ceb"
+  },
+  "status": "PASS"
+}

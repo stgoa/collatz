@@ -1,5 +1,12 @@
 # Find a better language for Collatz
 
+[C007](experiments/cycle_spectrum/C007/REPORT.md) tests a height versus
+denominator law within the current cycle programme. It remains open;
+exact residue and rational-rescaling controls identify information lost
+by two attempted proofs. The next recommended milestone is still an
+ordered-cycle q1 exclusion at every size, under the unchanged all-cycle
+headline. Another language survey has not been activated.
+
 **Historical viewpoint map, updated 2026-10-19.** The user has replaced
 the quantitative goal with the [cycle-spectrum programme](docs/CYCLE_SPECTRUM_BRIEF.md).
 [C006](experiments/cycle_spectrum/C006/REPORT.md) proves an order-dependent

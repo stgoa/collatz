@@ -1,0 +1,105 @@
+{
+  "arithmetic_obstructions_replay": {
+    "modular_arrows": 28830,
+    "normalized_cycles": 1185,
+    "relaxed_pair_checks": 99,
+    "status": "PASS"
+  },
+  "baseline_commit": "1cb02fae9fb31e03cfc1ba7ec26b964995b3c1e2",
+  "batch_file_sha256": {
+    "experiments/cycle_spectrum/C007/HEIGHT_DENOMINATOR.md": "2d01dd74be7de1ed8ab99f3459759a23eb20c3316a580de63609210f654a828f",
+    "experiments/cycle_spectrum/C007/INDEPENDENT_ARITHMETIC.md": "b82c5801eda3d26c4514fdd9d565d6ed34dfa113cc2f71c4495fd499d4d501c3",
+    "experiments/cycle_spectrum/C007/REPORT.md": "b7fd2d288f8d9a14d2ff04163192d8c65377e2c9b1d6053849d323ab32da4741",
+    "experiments/cycle_spectrum/C007/RESIDUE_MATCHING.md": "8a6dbfd42e3fe3cd8dc4f2cd1a6b8b8663e7b37b811f2ca8a28116954f0b97db",
+    "experiments/cycle_spectrum/C007/ROOT_REVIEW.md": "07705111100028a544f858b3e0366304637858b5a197439722fb5c85238baae0",
+    "experiments/cycle_spectrum/C007/SIDE_REVIEW.md": "eccdc1a4752fe050859757a606d84565f73b0d3788112e8756d8c920a0672d2c",
+    "experiments/cycle_spectrum/C007/arithmetic_obstructions.json": "05c5bf567dcc1aba26fec3d0e17d00e8ed85526cadb2e548b255add66a4209ec",
+    "experiments/cycle_spectrum/C007/check_arithmetic_obstructions.py": "d040c5eb43d7c71fb09c05efe3675ba6810ce47bd1a0f06755710886d8fd1b42",
+    "experiments/cycle_spectrum/C007/check_height_denominator.py": "516ea313c3f2829eef6546a84210234ec85c2ceb79f35cc147e1364d0248f22f",
+    "experiments/cycle_spectrum/C007/height_denominator_audit.json": "b35a18cb4209b5d0afd104f5c9e38926dc2de5dbef890cc324cf05ae83ce4ceb",
+    "experiments/cycle_spectrum/C007/historical_gate.json": "d015fd098ff4d04705eabdd037204cd1c2cdd43595ea4b90756f6abf2dd88690",
+    "experiments/cycle_spectrum/C007/residue_matching_replay.json": "eb53aa2356e6202126c78acb1ccf3e09d92a63aedad61e99e1b1f309574cde2f"
+  },
+  "checked_at_utc": "2026-10-19T05:26:12.498822+00:00",
+  "frozen_commit": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "goal_status": "Original all-cycle goal active. Ordered q1 exclusion is a recommendation, not replacement or completion.",
+  "historical_gate": {
+    "command": "python3 scripts/verify_all.py --cpp --transfer-controls",
+    "exit_code": 0,
+    "field_count": 119,
+    "independent_cpp": "PASS: 4096 and 262144",
+    "phase6_transfer_controls": "PASS: eleven exact raw cycles, eight nonprincipal controls, four fixed-d controls, fourteen d1 samples and fail-closed checks; setup label none",
+    "status": "PASS"
+  },
+  "markdown_checks": {
+    "errors": [],
+    "existing_local_links": 597,
+    "files": 14
+  },
+  "preservation": {
+    "C001_C006_files_unchanged": 68,
+    "R1_onward_byte_identical": true,
+    "frozen_files_byte_identical": [
+      "collatz_research_20261017/right_aligned_reduction.tex",
+      "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md",
+      "experiments/residual_progress/resolved_rules/resolved_rules.py"
+    ],
+    "git_diff_check": "PASS"
+  },
+  "publication_recovery": "C005/C006 committed and pushed successfully as 1cb02fa; historical failed-attempt notes preserved.",
+  "residue_matching_replay": {
+    "counts": {
+      "cycles_q_gt1": 1184,
+      "missing_intermediate_heights": 371,
+      "normalized_passes": 1184,
+      "ordered_cycles": 51,
+      "raw_passes": 1184
+    },
+    "matching_certificates": 2368,
+    "scope": "Finite q>1 matching replay only; denominator-one behavior remains unproved.",
+    "sha256": "00b0c0946d6cbba22d3239edaf4eb1a55869cc568a2e5f23d02a56df02e65f98",
+    "source_sha256": "8a6dbfd42e3fe3cd8dc4f2cd1a6b8b8663e7b37b811f2ca8a28116954f0b97db",
+    "status": "PASS"
+  },
+  "root_census_replay": {
+    "census": {
+      "capped_paths": 0,
+      "new_arrows": 13998115,
+      "processed_seeds": 8800033,
+      "requested_seeds": 8800033,
+      "source_cycles": 180,
+      "unprocessed_seeds": 0
+    },
+    "combined": {
+      "candidate_failures": 0,
+      "comparable_height_denominator": 5,
+      "nontrivial": 1177,
+      "normalized_cycles": 1185,
+      "ordered_domain": 51,
+      "outside_order_candidate_failures": 0,
+      "wide_ordered": 47
+    },
+    "existing": {
+      "candidate_failures": 0,
+      "comparable_height_denominator": 4,
+      "nontrivial": 1176,
+      "normalized_cycles": 1184,
+      "ordered_domain": 50,
+      "outside_order_candidate_failures": 0,
+      "wide_ordered": 46
+    },
+    "mode": "replay",
+    "new_cycles": {
+      "candidate_failures": 0,
+      "comparable_height_denominator": 1,
+      "nontrivial": 1,
+      "normalized_cycles": 1,
+      "ordered_domain": 1,
+      "outside_order_candidate_failures": 0,
+      "wide_ordered": 1
+    },
+    "status": "PASS"
+  },
+  "side_reviewed_commit": "ecc04923e0591c3dbd1bd9658ffa19e9d6ce9a32",
+  "status": "PASS"
+}

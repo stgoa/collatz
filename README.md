@@ -11,6 +11,15 @@ elementary gap bound uses circular order; the finiteness corollary imports a cla
 two-logarithm theorem. Excluding every ordered denominator-one cycle
 and the all-cycle headline remain open.**
 
+[C007's bounded test](experiments/cycle_spectrum/C007/REPORT.md) leaves
+the candidate height bound `B<=q-1` open. A new census of 8,800,033 odd
+seeds at 33 small parameters adds one ordered q29 cycle to the dataset.
+The candidate also survives all stored unordered cycles, so finite
+success does not yet identify order as the mechanism. Exact arithmetic
+shows why two shortcuts fail: normalized residues erase the height
+profile, and real order inequalities survive rational rescaling. The
+next proof attempt must retain the full integer divisibility condition.
+
 The active [cycle-spectrum goal](docs/CYCLE_SPECTRUM_BRIEF.md) studies
 integer cycles across the positive `3x+d` family through the reduced
 denominators of rational `3x+1` cycles. Rotations, repetitions and scaled
@@ -87,9 +96,10 @@ remaining gap. No argument places all possible integer cycles in that
 ordered class. This is an intermediate target under the unchanged headline.
 Each batch must produce a theorem or exact obstruction and actual-cycle
 tests; the [cycle log](docs/CYCLE_SPECTRUM_LOG.md) records the work.
-The separate Lean lane reports C003's effective algebra and C004's
-cut identities and mechanical-implies-narrow direction. Main has not
-independently replayed those builds; they do not verify C006.
+The separate Lean lane now reports C003's effective algebra and both
+directions of C004's narrow/mechanical classification, with its cut
+identities. Main has not independently replayed those builds; they do
+not verify C005-C007 or supply the missing height argument.
 
 ## Previous language programme: arithmetic regularity
 

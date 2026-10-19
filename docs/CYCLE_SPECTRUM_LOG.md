@@ -1,5 +1,34 @@
 # Cycle spectrum programme log
 
+## C007 — Height arithmetic and failed residue shortcuts, 2026-10-19
+
+The [batch](../experiments/cycle_spectrum/C007/REPORT.md) tests the
+candidate `B<=q-1` for ordered reduced cycles with q<=L. It remains open.
+Normalized residues follow a height-free recurrence for fixed c, and
+an exact q5 cycle has overlapping residue classes at different heights.
+Rational rescaling of another q5 cycle preserves the real order geometry
+with additive term 1 and B3. These are exact failures of specific proof
+shortcuts, not counterexamples to the denominator candidate.
+
+A bounded census processes 8,800,033 odd seeds across 33 parameters
+without caps or unprocessed seeds. It adds the ordered q29 cycle with
+minimum 7055, period 41 and B7, bringing combined coverage to 1,185
+normalized cycles. The candidate passes every one, including unordered
+cases. Proof review, separate finite replays and historical verification
+are recorded in the batch; no stronger denominator exclusion is claimed.
+
+The recommended intermediate goal remains an all-period ordered q1
+exclusion, with unrestricted heights and change count. The next probe
+must use full weighted divisibility together with integer order. The
+unchanged headline remains exclusion of all nontrivial cycles.
+
+Successful fetch and side review culminated at
+`ecc04923e0591c3dbd1bd9658ffa19e9d6ce9a32`. It reports the completed
+C004 narrow equivalence at Lean 8db3feb; main has not replayed it.
+[SIDE_REVIEW.md](../experiments/cycle_spectrum/C007/SIDE_REVIEW.md)
+records D1-D8 and the remaining formal scope. C005/C006 were successfully
+committed and pushed as `1cb02fa`; earlier failure notes are historical.
+
 ## C006 — Order forces complexity in the height labels, 2026-10-19
 
 **Progress; original headline active and open.** The
