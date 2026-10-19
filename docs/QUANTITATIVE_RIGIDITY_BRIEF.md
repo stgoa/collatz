@@ -76,3 +76,17 @@ The next investigation retains that hypothesis through the proved uniform
 future-mean condition; it cannot infer long bounded-width intervals from
 cumulative growth alone. No rate gain or revised completion condition is
 claimed. The full all-invariant objective above remains active.
+
+## Fifth batch
+
+[V009](../experiments/viewpoints/V009/REPORT.md) proves a universal additive
+gain: every nonconstant invariant has `kappa_h(D)-(D+1)` tending to
+infinity. Its eventual-ray argument controls every return and excludes
+bounded additive excess. This remains weaker than the accepted objective;
+it permits, for example, D+sqrt(D).
+
+The separate global detection theorem constrains every hypothetical linear
+coefficient: nonzero combinations of depth-A joint sections must be
+detected with O_C(sqrt(A+1)) digits. The next comparison seeks longer
+delays from full invariance, or an extension of the return contraction
+to several states per layer. Neither missing step is assumed supplied.

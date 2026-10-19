@@ -1,0 +1,50 @@
+{
+  "anchors": 13,
+  "checked_markdown": [
+    "AGENTS.md",
+    "README.md",
+    "VIEWPOINT_MAP.md",
+    "docs/QUANTITATIVE_RIGIDITY_BRIEF.md",
+    "docs/RESEARCH_LOG.md",
+    "docs/RESULTS.md",
+    "docs/VIEWPOINT_LOG.md",
+    "experiments/viewpoints/V009/ADDITIVE_REVIEW.md",
+    "experiments/viewpoints/V009/GLOBAL_REVIEW.md",
+    "experiments/viewpoints/V009/REPORT.md",
+    "experiments/viewpoints/V009/binary_tail.md",
+    "experiments/viewpoints/V009/global_growth.md",
+    "experiments/viewpoints/V009/side_review.md"
+  ],
+  "errors": [],
+  "frozen": {
+    "collatz_research_20261017/right_aligned_reduction.tex": {
+      "sha256": "35709cfff84f4baa11563360adc171986ea410af4a8e1a9acb9eb7457def1f8d",
+      "unchanged": true
+    },
+    "docs/RESULTS.md from R1 onward": {
+      "sha256": "89ecd33a0528585e5b3b2cc41af4a60103e32a3389c9e0570e1c1d4af58913ee",
+      "unchanged": true
+    },
+    "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md": {
+      "sha256": "5cd7fd5f12ce50d6001ec6b322017bb1777aa88ecb675f4393248c2bf224c5ea",
+      "unchanged": true
+    },
+    "experiments/residual_progress/resolved_rules/resolved_rules.py": {
+      "sha256": "4d91d83e93499b07079e48f2fc0e3765fffb99498c18228ab57f56732062b7aa",
+      "unchanged": true
+    }
+  },
+  "frozen_baseline": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "local_links": 523,
+  "markdown_files": 13,
+  "scope": "Changed Markdown local links/anchors and exact frozen comparisons. Source hashes bind written proofs and reviews; they do not certify mathematics or a formal replay. No existing executable evidence changed.",
+  "source_sha256": {
+    "experiments/viewpoints/V009/ADDITIVE_REVIEW.md": "fc9891b1188d18fb7928169c5bd5f79b69e46503cc7a92d29eaac8d8d80a2822",
+    "experiments/viewpoints/V009/GLOBAL_REVIEW.md": "c442d82b505b9931881b3eef91c52e25d59473c2c3ef0dfdee7a4e8ad152ed65",
+    "experiments/viewpoints/V009/REPORT.md": "2e2de98cde750d54d58771127518445143b3f5c0d4824f8a22b5281b6eff683c",
+    "experiments/viewpoints/V009/binary_tail.md": "cdf54e8a6b53868c8cddb011afe13be9ccea3bebd81926685477c6e35e143f2f",
+    "experiments/viewpoints/V009/global_growth.md": "2d16174d7d47a5d523662c47e4a5c821202ab71da4157f623a80a735ec374069",
+    "experiments/viewpoints/V009/side_review.md": "340aa3d19333972ab48d749257e858a1945c7efb2218b668d0b23a8d907771e6"
+  },
+  "status": "PASS"
+}

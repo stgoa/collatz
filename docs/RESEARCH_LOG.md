@@ -1,5 +1,32 @@
 # Research log
 
+## 2026-10-18 — V009: a universal additive complexity gain
+
+The [batch](../experiments/viewpoints/V009/REPORT.md) proves that every
+nonconstant invariant's excess `kappa_h(D)-(D+1)` tends to infinity.
+An eventual one-state binary tail first reduces to periodic maximal
+transition digits. Formal rational coordinates then force nonmaximal
+moves in every return block; exact radix commutation turns those moves
+into a contraction. All finite earlier-state returns are included.
+Bounded return families become periodic and force equality of whole
+sections, a contradiction. This is stronger than the generic bound but
+still permits D+sqrt(D); the full ratio goal remains active.
+
+The parallel global-count theorem proves finite-prefix injectivity on
+the whole linear span of depth-A joint sections under any linear bound:
+O_C(sqrt(A+1)) input digits suffice. A long first nonzero delay supplies
+quadratically many independent mixed sections. A pure rank count does
+not supply the required delay. The next comparison is delayed-combination
+construction versus extending return contraction beyond one-state layers.
+
+Root reviewed both proofs. Separate agents audited the generic theorem
+and the complete additive argument. The fetched side pin was d0354c2;
+its new Lean periodic-classification report was recorded as external
+input, with no independent main replay. D8's requested universal
+improvement is met in the additive sense, without a fixed epsilon rate
+or any replacement of the accepted objective. Historical code, evidence,
+R1–R94 and the open LaTeX document remain unchanged.
+
 ## 2026-10-18 — V008: the two-exit extension fails at generic scope
 
 The [new batch](../experiments/viewpoints/V008/REPORT.md) supplies an exact

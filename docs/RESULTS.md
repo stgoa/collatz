@@ -80,6 +80,22 @@ has a uniform future-mean consequence, but a bounded-degree graph control
 rejects a stronger bounded-layer inference. No universal asymptotic rate
 improvement is proved. The quantitative goal remains open.
 
+V009 proves [unbounded additive binary-section excess](../experiments/viewpoints/V009/binary_tail.md):
+every nonconstant finite-valued invariant satisfies `kappa_h(D)-(D+1)->infinity`.
+The proof excludes an eventual single-state binary tail by classifying
+its maximal transition phases and controlling every earlier-state return.
+Exact radix commutation forces contraction of return blocks, bounded
+return families and equality of whole sections. This imports Cobham
+through the existing two-base infinitude premise. It gives no fixed
+fractional improvement and does not complete the unbounded-ratio goal.
+The separate elementary [global detection theorem](../experiments/viewpoints/V009/global_growth.md)
+shows that under `|J_D|<=C(D+1)`, every nonzero vector in the real span
+of J_A is detected before `9^L`, for
+`L=ceil(2C+sqrt(2C(A+1))+1)`. Longer first-nonzero delays would force
+quadratic mixed-section rank, but their full-class construction remains
+missing. Both arguments have written agent review, without a novelty or
+formal-verification claim. Frozen mathematical infrastructure is unchanged.
+
 S.1 now has a [written stopping calibration](../experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md)
 with explicit finite horizons, integer cutoffs and a separate W5 pullback.
 Its ordinary estimate transfers to each fixed supported `3x+d` map and does

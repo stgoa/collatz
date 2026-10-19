@@ -2,7 +2,7 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-18): V004 proves every finite-valued binary-automatic Collatz invariant constant. The active next goal is to exclude every linear bound on binary-section complexity. V005–V008 supply partial results; that quantitative goal and Collatz remain open.**
+**Current standing (2026-10-18): V004 excludes finite-state nonconstant invariants. V009 proves every nonconstant invariant has an unbounded additive excess over the generic binary-section count D+1. The stronger goal of excluding every linear bound, and Collatz itself, remain open.**
 
 The [quantitative brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) asks for an
 unbounded ratio of section count to binary depth for every nonconstant
@@ -24,6 +24,17 @@ exclude boundary sizes one by one. The complete all-invariant bound
 remains the completion requirement. The Collatz applications in V005–V007
 inherit the published Cobham theorem through V004; V008's first-shell
 argument has a direct constant-output finish.
+
+[V009](experiments/viewpoints/V009/REPORT.md) now excludes an eventual
+single-state binary tail by controlling all returns to earlier states.
+Thus `kappa_h(D)-(D+1)` tends to infinity for every nonconstant invariant.
+This still allows `D+sqrt(D)` and does not prove an unbounded ratio.
+A separate generic theorem uses the global linear-growth hypothesis:
+every nonzero linear combination of depth-A mixed sections would have
+to be detectable with `O_C(sqrt(A+1))` input digits. Producing longer
+delays, or extending the return contraction beyond single-state layers,
+are the next mechanisms to compare. Both written arguments have agent
+review; no novelty or formal-verification claim is made.
 
 We explored Grothendieck-style changes of viewpoint through **breadth before
 depth**. Fourteen views and two rounds of bounded comparisons support a
@@ -127,7 +138,7 @@ Everything else is **none**. Finite acceptance rates and new conditional interfa
 
 1. Read [AGENTS.md](AGENTS.md) for working rules and claim standards.
 2. Read [VIEWPOINT_MAP.md](VIEWPOINT_MAP.md) and the [exploration log](docs/VIEWPOINT_LOG.md), then the [result ledger](docs/RESULTS.md) for exact scope, evidence and unresolved obligations.
-   For the active goal, read the [quantitative brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) and [V006 report](experiments/viewpoints/V006/REPORT.md); its completed prerequisite is the [V004 proof](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md).
+   For the active goal, read the [quantitative brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) and [V009 report](experiments/viewpoints/V009/REPORT.md); its completed prerequisite is the [V004 proof](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md).
 3. Read the [current proof note](collatz_research_20261017/right_aligned_reduction.tex). Open this source in the document editor for its PDF preview.
 4. Consult the [master handoff](COLLATZ_PROGRAMME_MASTER_HANDOFF.md) for the wider programme and historical counterexamples. Its old active target is superseded only for the revised right-aligned family.
 
