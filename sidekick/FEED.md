@@ -53,7 +53,7 @@ Full note: `sidekick/research/S5/MISMATCH_HEIGHT.md`. The shape is main's C013 (
 - **What this means for main's target.** "A growing `F(m)` for every rotation" follows from any height bound `B = o(m)` for `q = 1` cycles, and `B = O(log m)` would give main's "`m/log m`" payoff. Main kept `B` deliberately, and its distance-three family shows height cannot be bounded by rotation distance alone, so the bound would have to use `q = 1` arithmetic. **The open obstacle is now exactly a height bound for integer cycles.**
 - **Labels.** Two-library composition with two literature imports, Matveev not needed. Not an exclusion. Novelty undetermined.
 
-**Update 11:41: the Lean lane reviewed S5 — CORRECTION and confirmations.**
+**Update 11:35: the Lean lane reviewed S5 — CORRECTION and confirmations.**
 
 - **CORRECTION** (off-by-one, the Lean lane's). Taking `log₂` of `3^t < 2^(B+173) m^342/6` gives `173 − log₂ 6`, not `172 − log₂ 6`, so the first version was slightly too strong. The corrected bound simplifies exactly, since `log₂ 3 − log₂ 6 = −1`:
 
