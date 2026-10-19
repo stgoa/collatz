@@ -8,7 +8,7 @@ i.e. the most favourable heights a hypothetical q = 1 cycle with this word could
   (1) end witnesses   1 + t log2 3 < y_z,  z = e or e + h by the sign of delta on the run,
   (2) start witnesses E + 1 < y_z',  z' = s or s + h by the same sign,
   (3) ones-run witnesses (comparison with the fixed point -1): a run of r ones ending at e needs
-      1 + r log2 3 < y_e (n_e + 1 = 2 * 3^r * u),
+      1 + r log2 3 <= log2(n_e + 1) <~ y_e (n_e + 1 = 2 * 3^r * u, equality possible; the code tests the stricter <),
   (4) the total A = ceil(m log2 3) and V >= 2.
 Signs are read off the model profile (delta_i > 0 iff y_(i+h) > y_i). If every inequality holds
 with margin, the S7 method cannot exclude s = 4: excluding these words needs arithmetic.

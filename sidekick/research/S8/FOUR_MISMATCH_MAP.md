@@ -21,7 +21,7 @@ S7 excludes `s = 3` using only inequalities between sizes, along the maximal adm
 
 S8 adds one constraint of the same kind, a comparison with the integer fixed point `−1` (word `1^∞`).
 - On a run of `r` ones, `n + 1` is multiplied by `3/2` at each step, so `3^r | n_e + 1` at the run's end `e`.
-- So **a run of `r` ones ending at `e` forces `1 + r log₂ 3 < y_e`.**
+- So **a run of `r` ones ending at `e` forces `n_e + q ≥ 2·3^r`, i.e. `1 + r log₂ 3 ≤ log₂(n_e + q)`.** *[Corrected 2026-10-19, after the Lean lane's review: the first version had the strict `<`. Equality occurs, e.g. at the step `3 → 5` at `q = 1`, where `5 + 1 = 2·3`. The formal statement is `ones_run_le` (S8-a), in the `≤` form. The probes test the strict form, which is only more demanding, so their survivor margins remain valid.]*
 - A run of ones starting at height `y` gains `0.585` per step, so it can last at most about `y − 1` steps (`1 + 1.585r < y + 0.585r`). In particular, the run starting at the minimum has length below `ℓ − 1`, and letters `≥ 2` must recur at gaps of order `ℓ` early in the climb. *[Corrected 13:13: the first version said "about `0.63ℓ`", which ignored the run's own gain. The probe evaluates the exact inequality, so the tables are unaffected.]*
 - Consistency: reducing `C(w)` mod `D` for this family gives the same constraint. For the first 2, at position `p₀` after the minimum, the reduced representative is below `D` when `p₀ ≳ ℓ`. So "reduce mod `D` to a small number" adds nothing beyond the comparison with `−1` here.
 - The same device works with any integer cycle as the comparison orbit: `{1}`, `{−1}`, `{−5, −7}` and the `−17` cycle.

@@ -282,6 +282,24 @@ Full note: `sidekick/research/S8/FOUR_MISMATCH_MAP.md`. A negative map, kept so 
 - **Scope.** This is not an exhaustive check over all `m` rotations. Rotations with more mismatches have shorter runs, and runs below about `(ℓ − 1)/log₂ 3` satisfy every witness inequality automatically.
 - `python3 sidekick/probes/s8_multirotation_check.py` (~20 s).
 
+**Update 15:06: Lean S8-a VERIFIED (the S8 by-products), and a CORRECTION to constraint (5)'s strictness.**
+
+- **Receipts** (Lean-lane file sha256 `8abc45c4…dbea935f`, 10,874 lines, at `79faea5`):
+  - 628 theorems: 528 on the standard three axioms, 41 on `[propext, Quot.sound]`, 57 on `[propext]`, and 2 on none. The eleven new declarations are on the standard three.
+  - Exit 0; the scan is clean.
+- **Statement match.**
+  - `ones_run_identity`: `2^r (n_(i₀+r) + q) = 3^r (n_(i₀) + q)`.
+  - `ones_run_dvd`: `2^r | n_(i₀) + q` and `2·3^r | n_(i₀+r) + q`, at odd `q`.
+  - `ones_run_le`: `2·3^r ≤ n_(i₀+r) + q`. This is constraint (5).
+  - The 1-cycle by-product:
+    - `one_cycle_D_dvd`: for `1^(m−1)V` at `q = 1`, `D | 2^(A−m) − 1`.
+    - `one_cycle_D_le` bounds `D` from that.
+    - `no_one_cycle_of_gap`: with the gap and `m ≥ 2^13`, there is no such cycle.
+- **Exact threshold.** `2^m > 2^172 m^341` holds from `m = 4,287` on: 4,286 fails and 4,287 holds, rechecked here in exact integers. The formal statement uses `2^13`. This is a by-product only, conditional on the gap and far weaker than Steiner's unconditional theorem.
+- **CORRECTION (the Lean lane's).** The S8 note stated (5) with a strict `<`. The correct form is `≤`: `1 + r log₂ 3 ≤ log₂(n_e + q)`. Equality occurs, e.g. at the step `3 → 5`, where `5 + 1 = 2·3`.
+  - The note is corrected with a marker. The probes test the stricter `<`, so their margins remain valid.
+  - The rotation witness of S7/S9 (`max(n_e, n_(e+h)) > 2·3^t`) is genuinely strict, so it is unaffected.
+
 ```sh
 python3 sidekick/probes/s8_four_mismatch_map.py   # ~10 s
 ```

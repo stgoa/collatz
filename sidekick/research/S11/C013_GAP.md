@@ -45,6 +45,7 @@ So, under the period imports, a hypothetical nontrivial cycle whose word is `r` 
     - C011, Matveev, replaced by S6, now formal as S6-b/c;
     - C013, Matveev, replaced here.
   - Each therefore has a replayed-gap replacement.
+  - The grep also hits C002 (`INDEPENDENT_SLOPES.md` §5). That is a non-import: C002 proves its power-gap lemma from its own Input B, "without importing an additional theorem on linear forms in logarithms". The Lean lane checked this.
   - C014, ChatGPT's uncommitted draft, is not touched.
 
 ## Reproduce
