@@ -3,6 +3,26 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 75 — 2026-10-19, 14:33 -03
+
+- Woken by the monitor (sidekick `a203cc1`, `9efda9b`: the `ρ ≥ 4` milestone
+  entry and its scoping). The entry's EXT-1 attribution checked against STATE
+  and confirmed to the side lane. Main frozen at `1c5c19d`. The PR body
+  refresh is retried.
+- **S10-a verified — the four-mismatch dichotomy (`four_mismatch_dichotomy`:
+  `|D| = |U| = 1` with two non-changes, or `|D| = |U| = 2` with none) and the
+  cyclic alternation in the two-and-two case (`four_mismatch_alternation`:
+  `mis h = {a, b, c, d}`, `a < b < c < d < m`, `down, up, down, up` or `up,
+  down, up, down`), with the partition `mis_card_partition`, the
+  between-change lemmas and the period lemmas** in `CycleSpectrum.lean`
+  (sha256 `ab47164c…a89a`, 10,402 lines, 605 theorems: 505 with the three
+  standard axioms, 41 × `[propext, Quot.sound]`, 57 × `[propext]`, 2 none; no
+  `sorry`). Second build (the Mathlib lemma is
+  `card_filter_add_card_filter_not`; `filter_eq_empty_iff` has a
+  strict-implicit binder; a `tauto` on a permuted four-way disjunction timed
+  out and was replaced by a cardinality argument). Receipts regenerated. Next:
+  S9-a.
+
 ## Iteration 74 — 2026-10-19, 14:17 -03
 
 - Woken by the scheduled tick; the side lane's S7-d part 1 verdict (feed

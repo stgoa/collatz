@@ -8572,6 +8572,245 @@ theorem four_le_mis_card_of_gap (hprim : ∀ i j, i < m → j < m → Γ.n i = �
 
 end OddCycle
 
+/-! ### S10-a: the four-mismatch dichotomy and the cyclic alternation of the sign changes
+
+For a rotation `h` of a cycle, the mismatches split into the `+→−` changes `D`, the `−→+` changes
+`U` and the non-changes `N`: `|mis h| = |D| + |U| + |N|` (`mis_card_partition`), with `|D| = |U|`
+(`card_down_eq_card_up`). Between two `+→−` changes there is a `−→+` change and conversely
+(`up_between_downs`, `down_between_ups`: the sign of `z` changes only at a change), also across the
+period (`down_add_period`, `up_add_period`). With exactly four mismatches (and a primitive cycle, so
+that a change exists): either one change of each kind and two non-changes, or two of each kind and
+no non-change (`four_mismatch_dichotomy`). In the second case the four mismatches alternate in
+cyclic order — in increasing order they read `down, up, down, up` or `up, down, up, down`
+(`four_mismatch_alternation`, via `alternation_core`). The side lane's single-drop model is the
+first case; the alternation is the geometry of the second. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+theorem mis_lt_m {h i : ℕ} (hi : i ∈ Γ.mis h) : i < m := by
+  unfold mis at hi
+  rw [Finset.mem_filter, Finset.mem_range] at hi
+  exact hi.1
+
+theorem down_add_period (h i : ℕ) : Γ.down h (i + m) ↔ Γ.down h i := by
+  have h1 : Γ.z h (i + m) = Γ.z h i := Γ.z_per h i
+  have h2 : Γ.z h (i + m + 1) = Γ.z h (i + 1) := by
+    rw [Nat.add_right_comm i m 1]
+    exact Γ.z_per h (i + 1)
+  show (0 < Γ.z h (i + m) ∧ ¬ 0 < Γ.z h (i + m + 1)) ↔ (0 < Γ.z h i ∧ ¬ 0 < Γ.z h (i + 1))
+  rw [h1, h2]
+
+theorem up_add_period (h i : ℕ) : Γ.up h (i + m) ↔ Γ.up h i := by
+  have h1 : Γ.z h (i + m) = Γ.z h i := Γ.z_per h i
+  have h2 : Γ.z h (i + m + 1) = Γ.z h (i + 1) := by
+    rw [Nat.add_right_comm i m 1]
+    exact Γ.z_per h (i + 1)
+  show (¬ 0 < Γ.z h (i + m) ∧ 0 < Γ.z h (i + m + 1)) ↔ (¬ 0 < Γ.z h i ∧ 0 < Γ.z h (i + 1))
+  rw [h1, h2]
+
+/-- Between two `+→−` changes `e₁ < e₂` there is a `−→+` change. -/
+theorem up_between_downs {h e₁ e₂ : ℕ} (h₁ : Γ.down h e₁) (h₂ : Γ.down h e₂) (hlt : e₁ < e₂) :
+    ∃ u, e₁ < u ∧ u < e₂ ∧ Γ.up h u := by
+  have hd : e₁ + 1 + (e₂ - e₁ - 1) = e₂ := by omega
+  have hb : 0 < Γ.z h (e₁ + 1 + (e₂ - e₁ - 1)) := by
+    rw [hd]
+    exact h₂.1
+  obtain ⟨u, hu1, hu2, hu⟩ := Γ.exists_up h₁.2 hb
+  exact ⟨u, by omega, by omega, hu⟩
+
+/-- Between two `−→+` changes `e₁ < e₂` there is a `+→−` change. -/
+theorem down_between_ups {h e₁ e₂ : ℕ} (h₁ : Γ.up h e₁) (h₂ : Γ.up h e₂) (hlt : e₁ < e₂) :
+    ∃ d, e₁ < d ∧ d < e₂ ∧ Γ.down h d := by
+  have hd : e₁ + 1 + (e₂ - e₁ - 1) = e₂ := by omega
+  have hb : ¬ 0 < Γ.z h (e₁ + 1 + (e₂ - e₁ - 1)) := by
+    rw [hd]
+    exact h₂.1
+  obtain ⟨d, hd1, hd2, hdown⟩ := Γ.exists_down h₁.2 hb
+  exact ⟨d, by omega, by omega, hdown⟩
+
+/-- The mismatches split into the `+→−` changes, the `−→+` changes and the non-changes. -/
+theorem mis_card_partition (h : ℕ) :
+    (Γ.mis h).card = ((Finset.range m).filter (Γ.down h)).card +
+      ((Finset.range m).filter (Γ.up h)).card +
+      ((Γ.mis h).filter (fun i => ¬ Γ.down h i ∧ ¬ Γ.up h i)).card := by
+  have h1 := Finset.card_filter_add_card_filter_not (s := Γ.mis h) (Γ.down h)
+  have h2 := Finset.card_filter_add_card_filter_not
+    (s := (Γ.mis h).filter (fun i => ¬ Γ.down h i)) (Γ.up h)
+  have hD : (Γ.mis h).filter (Γ.down h) = (Finset.range m).filter (Γ.down h) := by
+    ext i
+    rw [Finset.mem_filter, Finset.mem_filter, Finset.mem_range]
+    constructor
+    · rintro ⟨hi, hd⟩
+      exact ⟨Γ.mis_lt_m hi, hd⟩
+    · rintro ⟨hi, hd⟩
+      exact ⟨Γ.down_mem_mis hi hd, hd⟩
+  have hU : ((Γ.mis h).filter (fun i => ¬ Γ.down h i)).filter (Γ.up h) =
+      (Finset.range m).filter (Γ.up h) := by
+    ext i
+    rw [Finset.mem_filter, Finset.mem_filter, Finset.mem_filter, Finset.mem_range]
+    constructor
+    · rintro ⟨⟨hi, _⟩, hu⟩
+      exact ⟨Γ.mis_lt_m hi, hu⟩
+    · rintro ⟨hi, hu⟩
+      exact ⟨⟨Γ.up_mem_mis hi hu, fun hd => hd.2 hu.2⟩, hu⟩
+  have hN : ((Γ.mis h).filter (fun i => ¬ Γ.down h i)).filter (fun i => ¬ Γ.up h i) =
+      (Γ.mis h).filter (fun i => ¬ Γ.down h i ∧ ¬ Γ.up h i) := by
+    rw [Finset.filter_filter]
+  rw [hD] at h1
+  rw [hU, hN] at h2
+  omega
+
+/-- **The four-mismatch dichotomy.** With exactly four mismatches: one change of each kind and two
+non-changes, or two changes of each kind and no non-change. -/
+theorem four_mismatch_dichotomy (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {j : ℕ}
+    (hj : ∀ i, Γ.n i ≤ Γ.n j) (hjm : j < m) {h : ℕ} (hh : h % m ≠ 0)
+    (hs : (Γ.mis h).card = 4) :
+    (((Finset.range m).filter (Γ.down h)).card = 1 ∧
+        ((Finset.range m).filter (Γ.up h)).card = 1 ∧
+        ((Γ.mis h).filter (fun i => ¬ Γ.down h i ∧ ¬ Γ.up h i)).card = 2) ∨
+      (((Finset.range m).filter (Γ.down h)).card = 2 ∧
+        ((Finset.range m).filter (Γ.up h)).card = 2 ∧
+        ((Γ.mis h).filter (fun i => ¬ Γ.down h i ∧ ¬ Γ.up h i)).card = 0) := by
+  have hpart := Γ.mis_card_partition h
+  have hDU := Γ.card_down_eq_card_up h
+  have hDpos : 0 < ((Finset.range m).filter (Γ.down h)).card := by
+    obtain ⟨i, _, _, hdown⟩ := Γ.exists_down_window hprim hj hjm hh
+    apply Finset.card_pos.mpr
+    refine ⟨i % m, ?_⟩
+    rw [Finset.mem_filter, Finset.mem_range]
+    exact ⟨Nat.mod_lt _ Γ.hm, (Γ.down_mod h i).mpr hdown⟩
+  omega
+
+/-- Two `+→−` changes `x < y` and two `−→+` changes `p < q`, the latter being all the `−→+` changes
+below `m`: in increasing order the four positions read `x, p, y, q` or `p, x, q, y`. -/
+theorem alternation_core {h x y p q : ℕ} (hx : x < m ∧ Γ.down h x) (hy : y < m ∧ Γ.down h y)
+    (hxy : x < y) (hp : p < m ∧ Γ.up h p) (hq : q < m ∧ Γ.up h q) (hpq : p < q)
+    (hU : ∀ i, i < m → Γ.up h i → i = p ∨ i = q) :
+    (x < p ∧ p < y ∧ y < q) ∨ (p < x ∧ x < q ∧ q < y) := by
+  have hm := Γ.hm
+  have hpx : p ≠ x := fun e => by
+    rw [e] at hp
+    exact hp.2.1 hx.2.1
+  have hpy : p ≠ y := fun e => by
+    rw [e] at hp
+    exact hp.2.1 hy.2.1
+  have hqx : q ≠ x := fun e => by
+    rw [e] at hq
+    exact hq.2.1 hx.2.1
+  have hqy : q ≠ y := fun e => by
+    rw [e] at hq
+    exact hq.2.1 hy.2.1
+  obtain ⟨u, hu1, hu2, hu⟩ := Γ.up_between_downs hx.2 hy.2 hxy
+  have hu' := hU u (by omega) hu
+  have hxm : Γ.down h (x + m) := (Γ.down_add_period h x).mpr hx.2
+  obtain ⟨v, hv1, hv2, hv⟩ := Γ.up_between_downs hy.2 hxm (by omega)
+  have hvm : Γ.up h (v % m) := (Γ.up_mod h v).mpr hv
+  have hv' := hU (v % m) (Nat.mod_lt _ hm) hvm
+  have hvres : (v < m ∧ v % m = v) ∨ (m ≤ v ∧ v % m = v - m) := by
+    rcases Nat.lt_or_ge v m with hlt | hge
+    · exact Or.inl ⟨hlt, Nat.mod_eq_of_lt hlt⟩
+    · right
+      refine ⟨hge, ?_⟩
+      rw [Nat.mod_eq_sub_mod hge, Nat.mod_eq_of_lt (by omega)]
+  omega
+
+/-- A four-element set of naturals in increasing order has cardinality four. -/
+theorem card_four {a b c d : ℕ} (hab : a < b) (hbc : b < c) (hcd : c < d) :
+    ({a, b, c, d} : Finset ℕ).card = 4 := by
+  have hc : c ∉ ({d} : Finset ℕ) := by
+    rw [Finset.mem_singleton]
+    omega
+  have hb : b ∉ ({c, d} : Finset ℕ) := by
+    rw [Finset.mem_insert, Finset.mem_singleton]
+    omega
+  have ha : a ∉ ({b, c, d} : Finset ℕ) := by
+    rw [Finset.mem_insert, Finset.mem_insert, Finset.mem_singleton]
+    omega
+  have e1 := Finset.card_insert_of_notMem ha
+  have e2 := Finset.card_insert_of_notMem hb
+  have e3 := Finset.card_insert_of_notMem hc
+  have e4 : ({d} : Finset ℕ).card = 1 := Finset.card_singleton d
+  omega
+
+/-- **Cyclic alternation in the two-and-two case.** With exactly four mismatches and two `+→−`
+changes, the mismatch set is `{a, b, c, d}` with `a < b < c < d < m`, alternating:
+`down, up, down, up` or `up, down, up, down`. -/
+theorem four_mismatch_alternation {h : ℕ} (hs : (Γ.mis h).card = 4)
+    (hD2 : ((Finset.range m).filter (Γ.down h)).card = 2) :
+    ∃ a b c d, a < b ∧ b < c ∧ c < d ∧ d < m ∧ Γ.mis h = {a, b, c, d} ∧
+      ((Γ.down h a ∧ Γ.up h b ∧ Γ.down h c ∧ Γ.up h d) ∨
+        (Γ.up h a ∧ Γ.down h b ∧ Γ.up h c ∧ Γ.down h d)) := by
+  have hpart := Γ.mis_card_partition h
+  have hDU := Γ.card_down_eq_card_up h
+  have hU2 : ((Finset.range m).filter (Γ.up h)).card = 2 := by omega
+  obtain ⟨x₀, y₀, hxy₀, hDeq⟩ := Finset.card_eq_two.mp hD2
+  obtain ⟨p₀, q₀, hpq₀, hUeq⟩ := Finset.card_eq_two.mp hU2
+  have hUmem : ∀ i, i < m → Γ.up h i → i = p₀ ∨ i = q₀ := by
+    intro i hi hu
+    have : i ∈ (Finset.range m).filter (Γ.up h) := by
+      rw [Finset.mem_filter, Finset.mem_range]
+      exact ⟨hi, hu⟩
+    rw [hUeq, Finset.mem_insert, Finset.mem_singleton] at this
+    exact this
+  have hx₀ : x₀ < m ∧ Γ.down h x₀ := by
+    have : x₀ ∈ (Finset.range m).filter (Γ.down h) := by
+      rw [hDeq]
+      exact Finset.mem_insert_self _ _
+    rwa [Finset.mem_filter, Finset.mem_range] at this
+  have hy₀ : y₀ < m ∧ Γ.down h y₀ := by
+    have : y₀ ∈ (Finset.range m).filter (Γ.down h) := by
+      rw [hDeq]
+      exact Finset.mem_insert_of_mem (Finset.mem_singleton_self _)
+    rwa [Finset.mem_filter, Finset.mem_range] at this
+  have hp₀ : p₀ < m ∧ Γ.up h p₀ := by
+    have : p₀ ∈ (Finset.range m).filter (Γ.up h) := by
+      rw [hUeq]
+      exact Finset.mem_insert_self _ _
+    rwa [Finset.mem_filter, Finset.mem_range] at this
+  have hq₀ : q₀ < m ∧ Γ.up h q₀ := by
+    have : q₀ ∈ (Finset.range m).filter (Γ.up h) := by
+      rw [hUeq]
+      exact Finset.mem_insert_of_mem (Finset.mem_singleton_self _)
+    rwa [Finset.mem_filter, Finset.mem_range] at this
+  -- sort the two pairs
+  obtain ⟨x, y, hx, hy, hxy⟩ : ∃ x y, (x < m ∧ Γ.down h x) ∧ (y < m ∧ Γ.down h y) ∧ x < y := by
+    rcases Nat.lt_or_gt_of_ne hxy₀ with hlt | hlt
+    · exact ⟨x₀, y₀, hx₀, hy₀, hlt⟩
+    · exact ⟨y₀, x₀, hy₀, hx₀, hlt⟩
+  obtain ⟨p, q, hp, hq, hpq, hUmem'⟩ : ∃ p q, (p < m ∧ Γ.up h p) ∧ (q < m ∧ Γ.up h q) ∧
+      p < q ∧ ∀ i, i < m → Γ.up h i → i = p ∨ i = q := by
+    rcases Nat.lt_or_gt_of_ne hpq₀ with hlt | hlt
+    · exact ⟨p₀, q₀, hp₀, hq₀, hlt, hUmem⟩
+    · exact ⟨q₀, p₀, hq₀, hp₀, hlt, fun i hi hu => (hUmem i hi hu).symm⟩
+  -- the set equality from four distinct members and the cardinality
+  have hset : ∀ a b c d, a < b → b < c → c < d → a ∈ Γ.mis h → b ∈ Γ.mis h → c ∈ Γ.mis h →
+      d ∈ Γ.mis h → Γ.mis h = {a, b, c, d} := by
+    intro a b c d hab hbc hcd ha hb hc hd
+    symm
+    apply Finset.eq_of_subset_of_card_le
+    · intro e he
+      rw [Finset.mem_insert, Finset.mem_insert, Finset.mem_insert, Finset.mem_singleton] at he
+      rcases he with rfl | rfl | rfl | rfl
+      · exact ha
+      · exact hb
+      · exact hc
+      · exact hd
+    · have := card_four hab hbc hcd
+      omega
+  rcases Γ.alternation_core hx hy hxy hp hq hpq hUmem' with ⟨h1, h2, h3⟩ | ⟨h1, h2, h3⟩
+  · exact ⟨x, p, y, q, h1, h2, h3, hq.1,
+      hset x p y q h1 h2 h3 (Γ.down_mem_mis hx.1 hx.2) (Γ.up_mem_mis hp.1 hp.2)
+        (Γ.down_mem_mis hy.1 hy.2) (Γ.up_mem_mis hq.1 hq.2),
+      Or.inl ⟨hx.2, hp.2, hy.2, hq.2⟩⟩
+  · exact ⟨p, x, q, y, h1, h2, h3, hy.1,
+      hset p x q y h1 h2 h3 (Γ.up_mem_mis hp.1 hp.2) (Γ.down_mem_mis hx.1 hx.2)
+        (Γ.up_mem_mis hq.1 hq.2) (Γ.down_mem_mis hy.1 hy.2),
+      Or.inr ⟨hp.2, hx.2, hq.2, hy.2⟩⟩
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
