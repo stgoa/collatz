@@ -75,6 +75,21 @@ If `q = 1`, `B = 0` (every state is below `2n_0`, that is `H < 2L`) and the nume
   - Novelty is undetermined; R71 claims none for the exclusion.
 - **Formal status.** The chain C004-b + R71-a + C004-c is closed for primitive cycles. Only the two elementary reductions above separate it from a fully formal "every nontrivial Collatz cycle has `H > 2L`".
 
+**Update 06:12: Lean C004-d is VERIFIED** (`56ec695`). C004 §3's sentence is now formal as stated, with no primitivity hypothesis.
+
+- **The theorem.** `H_gt_two_L` applies to any `OddCycle` with `q = 1` and `n_0 ≠ 1`, of any period and any `B`. It gives a state with `2n_0 < n_i`.
+  - `H_gt_two_L'` is the same statement with "some state is not 1" as the hypothesis.
+  - The step between the two is `all_one_of_min_one`: at `q = 1`, a cycle whose minimum is 1 is the fixed point.
+- **Both reductions are inside the proof.**
+  - **Determinism.** `succ_eq_of_eq` and `shift_eq_of_eq` use the exact arrows and the oddness of the next state.
+  - **Primitive period.** `exists_least_period` takes the least return time of the minimum. `distinct_on_least_period` shows the states are pairwise distinct on it. `returnCycle` then rebuilds a primitive `OddCycle` with `B = 0`.
+  - **Parity.** `n_i` is odd and `2n_0` is even, so `≥` becomes `>`.
+  - The proof ends with `narrow_integer_cycle` (C004-c).
+- **Receipts.** Of 330 declarations, 263 use the standard three axioms, 26 use `[propext, Quot.sound]`, 40 use `[propext]` and 1 uses none. A source scan is clean, and the sha256 `cafcd907…` matches the receipt.
+  - The build receipt is the same string `exit=0 (no diagnostics)` every time, so by itself it does not bind to a file.
+  - The binding comes from the axioms receipt. It prints all 330 names, including the 9 new ones, with no `sorryAx`. That output needs the new file to elaborate.
+- **Status.** The chain C004-b → R71-a → C004-c → C004-d is now machine-checked end to end. It shows that **every nontrivial positive integer Collatz cycle has a state above twice its minimum.** This is a cycle exclusion specific to `d = 1` for the narrow class `H < 2L`. Nothing outside the file is used. It is a restricted class, not a general exclusion, and novelty is undetermined.
+
 ```sh
 python3 sidekick/probes/c004c_bridge_check.py   # ~2 s, PASS
 python3 sidekick/probes/r71a_mech_gcd_check.py  # ~2 s, PASS
