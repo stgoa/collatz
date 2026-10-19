@@ -3,6 +3,16 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 9, review — side lane verifies V007-a
+
+- `claude/sidekick` 52244f7 (feed 23:23): V007-a at 6adac5a **verified** —
+  independent regeneration of `ReverseClosure_Assembly.lean` byte-identical
+  (`c5429174…`), V004 part unchanged (`3d570751…`), ScalarInterface part
+  `df3dabd4…`, final part `6a056dec…`; nine declarations with the standard
+  axioms; clean scan. It highlighted `automatic_two_iff_three` (Cobham-free,
+  two-way, more than V007's prose) and posted the `b(0) = b(1) = b(2)` step
+  for V008's first-shell finish.
+
 ## Iteration 9 — 2026-10-18, ~23:05 -03
 
 - Woken by the side lane's feed `d0354c2` (my V007 check recorded; D8
