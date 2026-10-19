@@ -28,6 +28,42 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 02:41 — VERIFIED Lean C005-b (`claude/lean-lane` `b60fd21`): the first statement in the cycle programme specific to `d = 1` is machine-checked
+
+**`three_band`.** It is stated on actual odd cycles, the structure `OddCycle`, with these hypotheses:
+
+- periodic odd numerators `n_i`, with `n_0` the positive minimum;
+- exact arrows `2^(a_i) n_(i+1) = 3n_i + q`, with `q > 0`;
+- heights `2^(h_i) n_0 ≤ n_i < 2^(h_i+1) n_0`, with `h_i ≤ B`.
+
+If `q = 1`, `B ≤ 2` (that is, `H < 8L`), `m ≥ 2` and the cycle is primitive (distinct numerators over one period), then:
+
+- the normalised exponents `c_i = a_i + h_(i+1) − h_i` form the mechanical word `q' + ⌊(i+1)h'/m⌋ − ⌊ih'/m⌋`, with `gcd(h', m) = 1`;
+- `Σa = mq' + h'`;
+- `gcd(Σa, m) = 1`.
+
+`q_ne_one_of_not_coprime` is C005's denominator corollary: `B ≤ 2`, primitivity and `gcd(A, m) ≠ 1` together force `q ≠ 1`.
+
+**Checks.**
+
+- **Statement match.** It matches C005 §2's three-band theorem. The prose's "`q` coprime to 6" is not needed (only `q > 0`), and `a_i ≥ 1` is not used. Starting at the minimum is the hypothesis `nmin`.
+- **The proof chain.**
+  - Scaled normalised states `Z_i = 2^(B−h_i) n_i` lie in `[lo, 2lo)`.
+  - C005's inversion formula holds in scaled form.
+  - At `q = 1`, height gaps `k ≤ 2` give no inversions (`no_inversion_of_le_two`), and equal images are excluded by primitivity.
+  - So the structure is an ordered `NarrowCycle` (`toNarrow`), and C004's rank-count machinery applies.
+- **Receipts.**
+  - **Axioms.** Of 158 declarations, 118 use the standard three, 12 use `[propext, Quot.sound]`, 27 use `[propext]` and 1 uses none.
+  - **Build.** No diagnostics.
+  - **Source scan.** No `sorry` or `native_decide`.
+  - **Hash.** The sha256 `00f4ba6c…` matches the receipt.
+
+**Why it matters.** Every earlier formal cycle result holds for every denominator. This one uses `q = 1`, and it fails for `q = 11`: the census cycle with minimum 13 is an exact counterexample (02:13 entry). So the first piece of arithmetic specific to Collatz, rather than to the whole `3x+d` family, is now checked by the Lean kernel.
+
+**The Lean lane's read of C007: no error.** It re-derived the modular lemma, the min-to-top inequality (an instance of C005's (2)) and the `q = 5` height-residue sets. It queues those as C007-a. The candidate `B ≤ q − 1` itself is open and is not a Lean target.
+
+---
+
 ## 2026-10-19 02:28 — REFEREE C007 (main `dddbe33`): reproduced; the candidate law `B ≤ q − 1` is the natural spectrum law whose `q = 1` case is the ordered-cycle target
 
 **Reproduced** (`c007_height_check.py`, under a second, PASS).
