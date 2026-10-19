@@ -138,6 +138,20 @@ assuming regularity of an actual bad set.
   finiteness does not replace or complete the headline. Reported Lean
   C003/C004 units remain separate from main's independent replay.
 
+- C007 leaves `B<=q-1` open. Its normalized modular identity
+  `z_i=L*3^i*2^(-P_i) mod q` loses the height profile for fixed c;
+  this does not remove height from the integer weighted intercept.
+  Exact q5 controls refute disjoint residue classes for height levels
+  and a proof using real order alone. Rational rescaling to additive 1
+  keeps reduced denominator 5; it is not an integer q1 counterexample.
+- C007's bounded census adds the ordered q29 cycle with minimum 7055,
+  period 41 and B7. All 1,185 combined normalized cycles pass the
+  candidate, including unordered ones; finite success alone supplies
+  no evidence that order is decisive. Caps and unprocessed seeds remain
+  unresolved by definition, although this recorded census has neither.
+  The proposed all-period ordered q1 milestone remains subordinate to
+  the active all-cycle headline. No new goal is activated by advice.
+
 - Read `README.md`, the cycle brief, `docs/CYCLE_SPECTRUM_LOG.md`, the latest C-series report and relevant sources. `VIEWPOINT_MAP.md`, `docs/VIEWPOINT_LOG.md` and `ROUTE_MAP.md` preserve prior obligations and comparisons without restricting the active cycle programme.
 - Use bounded parallel investigations to test the selected mechanism. Do not substitute another language survey or dispatcher expansion for the cycle goal.
 - Every candidate records seven fields: objects, structural gain, translated unresolved gap, worked example, known-cycle controls, cheapest meaningful next test, and a genuinely intermediate milestone. Reject a milestone that is only an equivalent formulation of all of Collatz.

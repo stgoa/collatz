@@ -1,0 +1,14 @@
+{
+  "counts": {
+    "cycles_q_gt1": 1184,
+    "missing_intermediate_heights": 371,
+    "normalized_passes": 1184,
+    "ordered_cycles": 51,
+    "raw_passes": 1184
+  },
+  "matching_certificates": 2368,
+  "scope": "Finite q>1 matching replay only; denominator-one behavior remains unproved.",
+  "sha256": "00b0c0946d6cbba22d3239edaf4eb1a55869cc568a2e5f23d02a56df02e65f98",
+  "source_sha256": "8a6dbfd42e3fe3cd8dc4f2cd1a6b8b8663e7b37b811f2ca8a28116954f0b97db",
+  "status": "PASS"
+}

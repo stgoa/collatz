@@ -4,6 +4,13 @@ Last updated: 2026-10-19. This ledger summarizes scope; the linked proof notes a
 
 ## Current programme and preserved Phase6 standing
 
+C007's [arithmetic probe](../experiments/cycle_spectrum/C007/REPORT.md)
+leaves the height-denominator candidate `B<=q-1` open. Its written
+modular lemma and exact q5 controls reject residue-class injection and
+real-order-only proofs. A new bounded census adds one ordered q29 cycle;
+the combined 1,185 normalized cycles do not refute the candidate.
+This is scoped obstruction evidence, with no new denominator exclusion.
+
 R1–R94 below are frozen infrastructure. The active
 [cycle-spectrum brief](CYCLE_SPECTRUM_BRIEF.md) studies rational-cycle
 denominators across 3x+d; see [CYCLE_SPECTRUM_LOG.md](CYCLE_SPECTRUM_LOG.md).

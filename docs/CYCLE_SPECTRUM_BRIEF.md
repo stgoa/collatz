@@ -7,6 +7,12 @@ work. It is not the current completion requirement.
 
 ## Headline
 
+The latest [C007 probe](../experiments/cycle_spectrum/C007/REPORT.md)
+leaves the candidate `B<=q-1` unresolved and rules out two proposed
+shortcuts. The recommended intermediate milestone is an ordered-cycle
+denominator-one exclusion with no bounds on period, height or height
+changes. It does not replace the headline below or complete this goal.
+
 Prove that Collatz has no nontrivial cycles, or find the structural law
 that forces it. Study the whole positive `3x+d` family together through
 the reduced denominators of rational `3x+1` cycles.
