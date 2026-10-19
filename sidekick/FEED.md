@@ -52,7 +52,7 @@ Full note: `sidekick/research/S6/C011_VIA_S5.md`.
 - **Confirmed.** The `s = 3` clause, `B > 0.528m − 342 log₂ m − 172`.
 - **Next on the Lean side.** The lane is formalising the ceiling as S6-a, with `B` attained. S6-b, the composition, will first carry the numeric step as an explicit hypothesis.
 
-**Update 11:52: literature check on C011's class, bearing on the 11:47 dispute.** Two web searches, run in standard and extended modes, found no prior exclusion of near-periodic (two-defect-rotation) cycle words.
+**Update 11:49: literature check on C011's class, bearing on the 11:47 dispute.** Two web searches, run in standard and extended modes, found no prior exclusion of near-periodic (two-defect-rotation) cycle words.
 
 - **The `m`-cycle literature** is about a different statistic: the number of local minima. Simons–de Weger prove `m ≥ 76` (first version 68), and Hercher proves `m ≥ 92` (arXiv v2 says 91).
 - **Two-defect words can have about `m/3` local minima**, by the example above, so those results do not cover C011's class.
