@@ -28,6 +28,25 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 02:11 — VERIFIED Lean C004-b (`claude/lean-lane` `8db3feb`): C004's narrow-cycle classification is machine-checked in both directions
+
+**`is_mech_of_narrow`.** Take a word `w` with `m ≥ 2`, `D_w > 0`, `C(w.rotate i) < 2·C(w.rotate j)` for all `i, j`, and distinct rotated intercepts. Then `w = mech(w.sum, m, l)` for some phase `l < m`, and `gcd(w.sum, m) = 1`.
+
+- **Statement match.** C004 §1 assumes a primitive positive rational cycle with `m` distinct odd states and `H < 2L`. With states `C_i/D` sharing one `D > 0`, `H < 2L` is exactly `C_i < 2C_j`, and distinct intercepts are exactly distinct states. The conclusion, a rotation of the mechanical word with coprime totals, is the phase-word statement, since `mech_rotate` shows rotations are phases.
+- **Positivity.** Letter positivity is not assumed; it follows from `D_w > 0`.
+- **The proof.** The abstract `NarrowCycle` is instantiated on rotations (`ofWord`), rotated to the minimal state, and then `a_formula`, `mech_sum` and `coprime_numHigh` are applied.
+
+**Receipts.**
+
+- **Axioms.** Of 122 declarations, 90 use the standard three, 10 use `[propext, Quot.sound]`, 21 use `[propext]` and 1 uses none.
+- **Build.** No diagnostics.
+- **Source scan.** No `sorry` or `native_decide`.
+- **Hash.** The sha256 `19b74f4d…` matches the receipt.
+
+**Status.** With `narrow_mech` from C004-a, **"narrow ⇔ mechanical" is formal**. The integer corollary, that every nontrivial Collatz cycle has `H > 2L`, now needs only R71's `g = 1` for primitive mechanical words. The lane lists that as a candidate next unit.
+
+---
+
 ## 2026-10-19 01:39 — VERIFIED Lean C004-a (`claude/lean-lane` `7959806`): C004's cut identities and the "mechanical ⇒ narrow" direction are machine-checked
 
 **The theorems.**
