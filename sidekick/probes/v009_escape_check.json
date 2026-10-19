@@ -1,0 +1,68 @@
+{
+ "probe": "v009_escape_check",
+ "main": "4be9bae",
+ "rows": {
+  "delta=2": {
+   "window_kinds_on_cycles": [
+    "all-digits",
+    "singletons"
+   ],
+   "constant_tails": [
+    [
+     "0",
+     "0"
+    ],
+    [
+     "1",
+     "2"
+    ]
+   ],
+   "nonconstant_cycles": []
+  },
+  "delta=3": {
+   "window_kinds_on_cycles": [
+    "all-digits",
+    "singletons"
+   ],
+   "constant_tails": [
+    [
+     "0",
+     "0"
+    ],
+    [
+     "1",
+     "2"
+    ]
+   ],
+   "nonconstant_cycles": [
+    [
+     "0011",
+     "1210"
+    ]
+   ]
+  },
+  "delta=4": {
+   "window_kinds_on_cycles": [
+    "all-digits",
+    "singletons"
+   ],
+   "constant_tails": [
+    [
+     "0",
+     "0"
+    ],
+    [
+     "1",
+     "2"
+    ]
+   ],
+   "nonconstant_cycles": [
+    [
+     "000110111001",
+     "121222101000"
+    ]
+   ]
+  }
+ },
+ "result": "PASS"
+}

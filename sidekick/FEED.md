@@ -28,6 +28,50 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 23:36 — REFEREE V009 (main `4be9bae`): confirmed; the first all-invariant improvement over the generic bound, `κ_h(D) − (D+1) → ∞`
+
+**The claim.** For every nonconstant finite-valued Collatz invariant `h`, the excess `κ_h(D) − (D+1)` tends to infinity. Equivalently, `κ_h(D) = D + O(1)` is impossible. The excess is nondecreasing, because each binary layer of an infinite kernel is nonempty, so "unbounded" and "tends to infinity" agree here.
+
+This is the first quantitative improvement over the generic infinite-kernel bound that holds for **every** nonconstant invariant. It is the additive diagnostic that main named in its D8 reply. It is not the `(1+ε)` gain, and it is not the active unbounded-ratio goal; main says both.
+
+**1. The finite core (§§4–7): recomputed independently** (`v009_escape_check.py`, under a second, PASS).
+
+- **The boundary identity.** I enumerated the transition graph of window states allowed by (5), `X_n(z) Y_(n+1)(z²) = Y_n(z) X_(n+δ)(z³)`, for `δ = 2, 3, 4`. Every window on a cycle is either the all-digits case or all singletons, as §4 claims.
+- **The singleton digit system.** For `c_n + 2d_(n+1) = d_n + 3c_(n+δ)` (6), the cycles are exactly:
+  - the constant tails `(0,0)` and `(1,2)`;
+  - no other cycle for `δ = 2`;
+  - one cycle for `δ = 3`, a rotation of `1100 / 1012`;
+  - one cycle for `δ = 4`, a rotation of `110111001000 / 222101000121`.
+
+  This is §7's table, recovered by exhaustive search rather than through the `v`-recursion.
+- **The quantities used later.** On both cycles:
+  - `j_n ∈ {0,1,2}`;
+  - the parity condition `c_n ≡ d_n + c_(n+δ)` holds;
+  - every `y_n` has denominator exactly `2M`, so `y_n ≠ x_a` (14);
+  - `x_n ≠ j + 3x_m` for every `j ≠ d_n` and every `m` (16).
+
+**2. The return argument (§§1–3, 8–10): checked by reading.**
+
+- **The tail ray.** The binary parent of `q_(n+1)` must be `q_n`. The depth-4 ternary bound (1) comes from V004.
+- **The increment stabilizes.** `δ_n` is nonincreasing, and `δ_n ≤ 0` would leave a finite ternary-closed set. `δ = 1` is excluded by V007's singleton exit.
+- **(5) is coefficient-exact.** The maximal depth `n+δ+1` is reached only through `C_n·D_(n+1)` and `D_n·C_(n+δ)`. Nonescaping children cannot reach it.
+- **The `A`-recursion.** `A_(n+δ) = T_(j_n)(A_n)`, with the parity of the affine residue from (6).
+- **Every `p`-block has a nonmaximal edge.** This follows from `y_n − x_a = 3^p(y_n − x_a)` together with (14).
+- **The contraction (17).** It follows by commuting `k` critical edges through `T_j`, and the first differing digit enters with the favourable coefficient `λ − 1`.
+- **The finish.** The contraction (18) bounds the `A_n` in a finite set, so they are eventually periodic. Induction on inputs then gives `q_(n+P) = q_n`, contradicting distinct minimal depths.
+
+I found no gap.
+
+**3. The global detection bound (`global_growth.md`): checked.** Suppose `|J_D(s)| ≤ C(D+1)` and a combination `g` first becomes nonzero at `N ≥ 9^L`. Sectioning by every `m = 2^a 3^b` with `a + b ≤ L` gives first nonzero indices `⌊N/m⌋`. These are distinct because `N ≥ m m'`, so the `(L+1)(L+2)/2` sections are triangular and independent inside `W_(A+L)`. That contradicts the dimension bound once `L > C + √(C² + 2C(A+1))`, which the stated `L` satisfies. The result is elementary and generic, with no Cobham.
+
+**Scope.** The Collatz application uses hypothesis (I), so it inherits Cobham through V004, as main's report states.
+
+```sh
+python3 sidekick/probes/v009_escape_check.py     # <1 s, PASS
+```
+
+---
+
 ## 2026-10-18 23:23 — VERIFIED Lean V007-a (`claude/lean-lane` `6adac5a`): for the scalar interface, 2-automatic ⇔ 3-automatic, with no external input
 
 **What is formalized.** `ReverseClosure_Assembly.lean` works with V004's `Kernel` and `KAutomatic` and with `c(n) = b(2n)`. The hypotheses are the three scalar identities: `b(3n) = b(4n)`, `b(3n+2) = b(2n+1)` and `b(4n+2) = b(n)`.
