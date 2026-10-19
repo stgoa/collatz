@@ -5623,6 +5623,127 @@ theorem den_mech {A k l : ℕ} (hk : 0 < k) (hAk : k ≤ A) (hl : l < k) :
   rw [mech_gcd_one_phase' hk₀ (A / g) hAm hcop hh, Nat.cast_one, Int.ediv_one,
     D_mech hk₀ (A / g) (l / g) hh]
 
+/-! ### R71-c: the state bound (5) — rational cycles arbitrarily far above the absorber
+
+R71 §3: for `k ≥ 1` take `A = ⌈k log₂ 3⌉`, so `3^k < 2^A < 2·3^k` and `0 < D < 3^k`. Every
+summand of `C` is `3^{k−1−j} 2^{⌊(jA + l)/k⌋} > (3^{k−1}/2)(2^{A/k}/3)^j ≥ 3^{k−1}/2`, so summing
+`k` terms and dividing by `D < 3^k` gives every cycle state `x = C_{(l)}/D > k/6`. Here:
+`mech_term_lower` (`3^j ≤ 2^{⌊(jA+l)/k⌋+1}`, from `2^A ≥ 3^k` by taking `k`-th powers),
+`mech_state_bound` (`k D < 6 C` for every phase, cleared), `exists_total` (the bit length of
+`3^k`), and `mech_cycle_state_bound`: the reduced integer `3x+q` cycle of the phase-`0` word
+(`ofWord`) has every state above `k q/6`, `q = den` — R71's "the corresponding integer `S_d`
+cycle has every state `> C d`". -/
+
+/-- `3^j ≤ 2^{⌊(jA + l)/k⌋ + 1}` when `3^k ≤ 2^A`: compare `k`-th powers. -/
+theorem mech_term_lower {A k : ℕ} (hk : 0 < k) (hA : 3 ^ k ≤ 2 ^ A) (l j : ℕ) :
+    3 ^ j ≤ 2 ^ ((j * A + l) / k + 1) := by
+  have h1 : j * A + l < k * ((j * A + l) / k + 1) := Nat.lt_mul_div_succ _ hk
+  have h2 : (3 ^ j) ^ k ≤ (2 ^ ((j * A + l) / k + 1)) ^ k := by
+    calc (3 ^ j) ^ k = (3 ^ k) ^ j := by rw [← pow_mul, ← pow_mul, Nat.mul_comm]
+      _ ≤ (2 ^ A) ^ j := Nat.pow_le_pow_left hA j
+      _ = 2 ^ (j * A) := by rw [← pow_mul, Nat.mul_comm]
+      _ ≤ 2 ^ (k * ((j * A + l) / k + 1)) := Nat.pow_le_pow_right (by norm_num) (by omega)
+      _ = (2 ^ ((j * A + l) / k + 1)) ^ k := by rw [← pow_mul, Nat.mul_comm]
+  exact (Nat.pow_le_pow_iff_left hk.ne').mp h2
+
+/-- Each summand of `C` is at least `3^{k−1}/2` (cleared). -/
+theorem mech_summand_lower {A k l : ℕ} (hk : 0 < k) (hA : 3 ^ k ≤ 2 ^ A) {j : ℕ} (hj : j < k) :
+    (3 : ℤ) ^ (k - 1) ≤ 2 * (3 ^ (k - (j + 1)) * 2 ^ ((j * A + l) / k)) := by
+  have h' : (3 : ℤ) ^ j ≤ 2 ^ ((j * A + l) / k + 1) := by
+    exact_mod_cast mech_term_lower hk hA l j
+  have hsplit : k - 1 = (k - (j + 1)) + j := by omega
+  rw [hsplit, pow_add]
+  calc (3 : ℤ) ^ (k - (j + 1)) * 3 ^ j ≤ 3 ^ (k - (j + 1)) * 2 ^ ((j * A + l) / k + 1) :=
+        mul_le_mul_of_nonneg_left h' (by positivity)
+    _ = 2 * (3 ^ (k - (j + 1)) * 2 ^ ((j * A + l) / k)) := by rw [pow_succ]; ring
+
+/-- **R71's (5), cleared**: for a mechanical word with `3^k < 2^A < 2·3^k`, every cycle state
+exceeds `k/6`: `k D < 6 C` for every phase `l`. -/
+theorem mech_state_bound {A k l : ℕ} (hk : 0 < k) (hl : l < k) (hpos : 3 ^ k < 2 ^ A)
+    (hsmall : 2 ^ A < 2 * 3 ^ k) : (k : ℤ) * D (mech A k l) < 6 * C (mech A k l) := by
+  have hsum : (k : ℤ) * 3 ^ (k - 1) ≤ 2 * C (mech A k l) := by
+    rw [C_mech A l hl, Finset.mul_sum]
+    have := Finset.sum_le_sum (s := Finset.range k) (f := fun _ => (3 : ℤ) ^ (k - 1))
+      (g := fun j => 2 * (3 ^ (k - (j + 1)) * 2 ^ ((j * A + l) / k)))
+      (fun j hj => mech_summand_lower hk hpos.le (Finset.mem_range.mp hj))
+    rw [Finset.sum_const, Finset.card_range, nsmul_eq_mul] at this
+    exact this
+  have h3 : (3 : ℤ) ^ k = 3 * 3 ^ (k - 1) := by
+    rw [← pow_succ']
+    congr 1
+    omega
+  have hA' : (2 : ℤ) ^ A < 2 * 3 ^ k := by exact_mod_cast hsmall
+  have hk' : (0 : ℤ) < k := by exact_mod_cast hk
+  have h1 : (k : ℤ) * 3 ^ k ≤ 6 * C (mech A k l) := by
+    calc (k : ℤ) * 3 ^ k = 3 * (k * 3 ^ (k - 1)) := by rw [h3]; ring
+      _ ≤ 3 * (2 * C (mech A k l)) := by linarith
+      _ = 6 * C (mech A k l) := by ring
+  have h2 : (k : ℤ) * (2 ^ A - 3 ^ k) < k * 3 ^ k := by
+    apply mul_lt_mul_of_pos_left _ hk'
+    linarith
+  rw [D_mech hk A l hl]
+  linarith
+
+/-- R71 §3: for every `k ≥ 1`, the bit length `A` of `3^k` (`A = ⌈k log₂ 3⌉`) satisfies
+`3^k < 2^A < 2·3^k`. -/
+theorem exists_total {k : ℕ} (hk : 0 < k) : ∃ A, 3 ^ k < 2 ^ A ∧ 2 ^ A < 2 * 3 ^ k := by
+  refine ⟨Nat.log 2 (3 ^ k) + 1, Nat.lt_pow_succ_log_self (by norm_num) _, ?_⟩
+  have h1 : 2 ^ Nat.log 2 (3 ^ k) ≤ 3 ^ k := Nat.pow_log_le_self 2 (by positivity)
+  rw [pow_succ]
+  rcases Nat.lt_or_ge (2 ^ Nat.log 2 (3 ^ k)) (3 ^ k) with hlt | hge
+  · omega
+  · exfalso
+    have heq : 2 ^ Nat.log 2 (3 ^ k) = 3 ^ k := le_antisymm h1 hge
+    have hL : Nat.log 2 (3 ^ k) ≠ 0 := by
+      intro h0
+      rw [h0, pow_zero] at heq
+      have : 1 < 3 ^ k := Nat.one_lt_pow hk.ne' (by norm_num)
+      omega
+    have h2 : 2 ∣ 3 ^ k := by
+      rw [← heq]
+      exact dvd_pow_self 2 hL
+    have h3 : Odd (3 ^ k) := Odd.pow (Nat.odd_iff.mpr (by norm_num))
+    exact (Nat.not_even_iff_odd.mpr h3) (even_iff_two_dvd.mpr h2)
+
+theorem mech_ne_nil {k : ℕ} (hk : 0 < k) (A l : ℕ) : mech A k l ≠ [] :=
+  List.ne_nil_of_length_pos (by rw [mech_length]; exact hk)
+
+theorem mech_D_pos {A k l : ℕ} (hk : 0 < k) (hl : l < k) (hpos : 3 ^ k < 2 ^ A) :
+    0 < D (mech A k l) := by
+  rw [D_mech hk A l hl]
+  have : (3 : ℤ) ^ k < 2 ^ A := by exact_mod_cast hpos
+  linarith
+
+/-- Phase `0` is the minimal rotation (`C_mech_zero_le` through `mech_rotate`). -/
+theorem mech_zero_min {k : ℕ} (hk : 0 < k) (A : ℕ) :
+    ∀ i, C (mech A k 0) ≤ C ((mech A k 0).rotate i) := by
+  intro i
+  rw [mech_rotate hk]
+  exact C_mech_zero_le hk A _ (Nat.mod_lt _ hk)
+
+/-- **R71 §3's high control**: the reduced integer `3x+q` cycle of the phase-`0` mechanical word
+with `3^k < 2^A < 2·3^k` (`ofWord`, parameter `q = den`) has every state above `k q/6`. -/
+theorem mech_cycle_state_bound {A k : ℕ} (hk : 0 < k) (hpos : 3 ^ k < 2 ^ A)
+    (hsmall : 2 ^ A < 2 * 3 ^ k) (hw0 : mech A k 0 ≠ []) (hpw : ∀ x ∈ mech A k 0, 1 ≤ x)
+    (hD : 0 < D (mech A k 0)) (hmin : ∀ i, C (mech A k 0) ≤ C ((mech A k 0).rotate i)) (i : ℕ) :
+    (k : ℤ) * (OddCycle.ofWord (mech A k 0) hw0 hpw hD hmin).q <
+      6 * (OddCycle.ofWord (mech A k 0) hw0 hpw hD hmin).n i := by
+  set Γ := OddCycle.ofWord (mech A k 0) hw0 hpw hD hmin with hΓ
+  have hg := OddCycle.gcdCD_pos (mech A k 0) hw0
+  have hq : OddCycle.gcdCD (mech A k 0) * Γ.q = D (mech A k 0) := OddCycle.gcdCD_mul_ofWord_q ..
+  have hn : OddCycle.gcdCD (mech A k 0) * Γ.n i = C ((mech A k 0).rotate i) :=
+    OddCycle.gcdCD_mul_ofWord_n ..
+  rw [mech_rotate hk] at hn
+  have hb := mech_state_bound hk (Nat.mod_lt (0 + i * A) hk) hpos hsmall
+  rw [D_mech hk A _ (Nat.mod_lt _ hk), ← D_mech hk A 0 hk, ← hq, ← hn] at hb
+  have h' : OddCycle.gcdCD (mech A k 0) * ((k : ℤ) * Γ.q) <
+      OddCycle.gcdCD (mech A k 0) * (6 * Γ.n i) := by
+    calc OddCycle.gcdCD (mech A k 0) * ((k : ℤ) * Γ.q)
+        = (k : ℤ) * (OddCycle.gcdCD (mech A k 0) * Γ.q) := by ring
+      _ < 6 * (OddCycle.gcdCD (mech A k 0) * Γ.n i) := hb
+      _ = OddCycle.gcdCD (mech A k 0) * (6 * Γ.n i) := by ring
+  exact lt_of_mul_lt_mul_left h' hg.le
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

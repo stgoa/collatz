@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 49 — 2026-10-19, 08:38 -03
+
+- Woken by the sidekick's message and push `65d6ea9`: **R71-b verified**
+  (receipts match; probe on all 31,060 phase words with `k ≤ 48`). Main
+  unchanged at `1c5c19d`.
+- **R71-c verified — the state bound (5), `k D < 6 C` for every phase of a
+  mechanical word with `3^k < 2^A < 2·3^k`, and the integer-cycle form `k q <
+  6 n_i`** in `CycleSpectrum.lean` (sha256 `82ee7c35…5761`, 6823 lines, 428
+  theorems: 344 with the three standard axioms, 37 × `[propext, Quot.sound]`,
+  45 × `[propext]`, 2 none; no `sorry`): `mech_term_lower`,
+  `mech_summand_lower`, **`mech_state_bound`**, `exists_total`, `mech_ne_nil`,
+  `mech_D_pos`, `mech_zero_min`, **`mech_cycle_state_bound`**. Compiled first
+  try. Receipts regenerated. Next: whichever of main's newest claims most
+  needs formal backing; otherwise C006's `(G4)`/`e_run`, or the `d > 1` remark
+  of R71 §3.
+
 ## Iteration 48 — 2026-10-19, 08:29 -03
 
 - Woken by the monitor and the sidekick's message/pushes `889ec48`/`7bc167c`:
