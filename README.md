@@ -2,7 +2,15 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-18): every finite-valued binary-automatic Collatz invariant is constant. V004 supplies a written proof for arbitrary finite automata, using Cobham's theorem. Collatz remains unproved.**
+**Current standing (2026-10-18): V004 proves every finite-valued binary-automatic Collatz invariant constant. The active next goal is to exclude every linear bound on binary-section complexity. V005 supplies partial results; that quantitative goal and Collatz remain open.**
+
+The [quantitative brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) asks for an
+unbounded ratio of section count to binary depth for every nonconstant
+invariant. The [first investigation](experiments/viewpoints/V005/REPORT.md)
+proves reconstruction from any positive binary cylinder and rejects two
+growth shortcuts with exact counterexamples. The next bounded probe uses
+the complete Collatz identities to control overlap in the joint binary
+and ternary section family. Another local lemma alone will not finish it.
 
 We explored Grothendieck-style changes of viewpoint through **breadth before
 depth**. Fourteen views and two rounds of bounded comparisons support a
@@ -32,8 +40,11 @@ components. No automaticity of the actual nonabsorbing set has been proved.
 Proving that automaticity would now be equivalent to proving convergence;
 it must not be presented as an intermediate next milestone.
 
-The proof has independent agent review and reproducible finite checks;
-it has no formal verification, human peer review or novelty claim. The
+The proof has independent agent review and reproducible finite checks.
+The separate Lean lane reports a formal derivation conditional on Cobham;
+main inspected its statement and matching source receipt but has not
+independently replayed it. See the [scope assessment](experiments/viewpoints/V005/side_review.md).
+Human peer review and novelty are unclaimed. The
 [V003 results and counterexample](experiments/viewpoints/V003/REPORT.md)
 remain valid historical evidence. The carry-boundary probe is closed;
 integer-ensemble statistics remain an alternative language. See the
@@ -103,7 +114,7 @@ Everything else is **none**. Finite acceptance rates and new conditional interfa
 
 1. Read [AGENTS.md](AGENTS.md) for working rules and claim standards.
 2. Read [VIEWPOINT_MAP.md](VIEWPOINT_MAP.md) and the [exploration log](docs/VIEWPOINT_LOG.md), then the [result ledger](docs/RESULTS.md) for exact scope, evidence and unresolved obligations.
-   For the latest theorem, read the [global-rigidity brief](docs/GLOBAL_RIGIDITY_BRIEF.md) and [V004 proof](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md).
+   For the active goal, read the [quantitative brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) and [V005 report](experiments/viewpoints/V005/REPORT.md); its completed prerequisite is the [V004 proof](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md).
 3. Read the [current proof note](collatz_research_20261017/right_aligned_reduction.tex). Open this source in the document editor for its PDF preview.
 4. Consult the [master handoff](COLLATZ_PROGRAMME_MASTER_HANDOFF.md) for the wider programme and historical counterexamples. Its old active target is superseded only for the revised right-aligned family.
 
@@ -116,12 +127,12 @@ Requires Python 3.10+ and its standard library. The independent check additional
 The latest viewpoint examples have a separate bounded verifier:
 
 ```sh
-python3 experiments/viewpoints/V004/verify_examples.py
+python3 -B experiments/viewpoints/V005/verify_examples.py
 ```
 
-Its [receipt](experiments/viewpoints/V004/verification.json) records finite
-scope; it does not verify Cobham or replace the all-input proof. V003's
-separate verifier and receipt remain available. The historical mathematical gate is:
+Its [receipt](experiments/viewpoints/V005/verification.json) records finite
+reconstruction and counterexample checks; it does not prove the quantitative
+goal. V003/V004's separate verifiers and receipts remain available. The historical mathematical gate is:
 
 ```sh
 python3 scripts/verify_all.py --cpp --transfer-controls

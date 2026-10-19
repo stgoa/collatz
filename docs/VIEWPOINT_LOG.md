@@ -1,5 +1,77 @@
 # Viewpoint exploration log
 
+## V005 — Quantitative rigidity: first bounded comparison, 2026-10-18
+
+**Progress; active goal unresolved.** The user activated the
+[quantitative brief](QUANTITATIVE_RIGIDITY_BRIEF.md): every nonconstant
+finite-valued invariant must have unbounded kappa_h(D)/(D+1). The exact
+goal is stronger than generic infinite-kernel growth. The
+[report](../experiments/viewpoints/V005/REPORT.md) records its first batch,
+the [direct proofs](../experiments/viewpoints/V005/direct_sections.md),
+[graph control](../experiments/viewpoints/V005/section_graph.md), and
+[primary-source audit](../experiments/viewpoints/V005/literature.md).
+
+### Gains and bounded comparison
+
+The direct section and literature lanes ran in parallel; root developed
+the graph test. One automatic positive dyadic section forces global
+constancy. The reconstruction also gives an explicit polynomial bound
+between cumulative whole-kernel counts at every depth. The full positive
+family has bounded depth cost under ternary sectioning, so linear binary
+growth would imply linear joint binary/ternary growth of the odd section.
+
+These results do not finish the goal. The exact graph control has all
+sections nonautomatic yet count D+3, because descendant families overlap.
+It retains doubling and a positive return but fails full invariance at9.
+The sparse indicator of {6^(2^j)} has linear growth separately in bases2/3,
+yet at least quadratic joint growth. This refutes the generic separate-base
+shortcut, and Conjecture3.4 in Bell2009 as printed. No novelty or exhaustive
+literature claim is made. The example fails doubling at3/6.
+
+The [scalar interface](../experiments/viewpoints/V005/scalar_interface.md)
+retains all of Collatz invariance in three equations. The preferred next
+bounded test asks whether these equations prevent overlaps from sustaining
+linear joint growth. Compare a joint-growth rigidity proof with direct
+descendant separation; do not assume finite rank, periodicity, disjointness
+or a new complexity bound for the actual bad set. The unbounded-ratio
+statement remains the completion threshold, with no external blocker.
+
+### Review, checks and preservation
+
+Independent agent reviews cover the reconstruction and bound, sparse
+example, exact graph count and scalar converse. Root and a second reviewer
+replayed the standalone verifier successfully against its unchanged
+[receipt](../experiments/viewpoints/V005/verification.json). It checks
+224 cylinder/residue choices,896 paths and15,288 actual shortcut arrows;
+5,040 tuple decompositions; graph labels and distinguishing witnesses;
+59,823 sparse-cell evaluations; and45 mixed sections with990 comparisons.
+The d5/d61 controls include actual nonabsorbing fixed cycles, periodic
+divisibility invariants and failure of the named d1 identity.
+
+The written universal arguments and these finite checks have separate
+scopes. No equality of unknown entire sections is inferred from matching
+prefixes. Historical mathematical code/evidence remains untouched, so
+the Phase6 gate is not rerun. Scoped links and exact frozen comparisons
+are recorded in [delivery checks](../experiments/viewpoints/V005/delivery_checks.json).
+
+### Read-only external input
+
+Fetched and read DIRECTIONS/newest FEED at sidekick
+`3b95686f36d491a1da0b8fcf162f6c9fcceaa6e5`. Its warning that quantitative
+Cobham needs an additional theorem is retained. Its stronger ratio-limit
+formulation is not substituted for the accepted target. Its d-uniform
+version of the full target is rejected by the periodic d5/d61 invariants.
+Numerical prefix counts and explicit-Tao claims remain unadopted premises.
+D1/D2/D5/D7 are retained with scope, D3 rejected, D4 deferred, D6 historical.
+
+Fetched the Lean lane at `b980e52e4f709e88dd6cabae88073b578e0027fc` and
+inspected its V004 assembly type, proof tail, reported successful build,
+axiom report and matching source hash. The statement matches the main
+classification with Cobham explicitly assumed. No independent local Lean
+replay was performed. This is useful verification input for V004, not a
+V005 complexity bound. The [side assessment](../experiments/viewpoints/V005/side_review.md)
+preserves exact scopes and pins. No external lane was edited or messaged.
+
 ## V004 — Full rigidity of binary-automatic invariants, 2026-10-18
 
 **Mathematical result: written proof of the full classification.** The
