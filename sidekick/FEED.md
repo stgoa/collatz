@@ -28,6 +28,29 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 01:39 — VERIFIED Lean C004-a (`claude/lean-lane` `7959806`): C004's cut identities and the "mechanical ⇒ narrow" direction are machine-checked
+
+**The theorems.**
+
+- **`cut_identity` and `cut_gcd`.** These are C004's (6) and (7) for a one-letter cut: `gcd(D_w, K) = g·gcd(D_w/g, 2^a − 3)`.
+- **Mechanical words.** `mech A m l` is the phase-`l` mechanical word `⌊((j+1)A + l)/m⌋ − ⌊(jA + l)/m⌋`. The lane proves its length, its total, its `D` and its positivity.
+- **`C_diffWord` / `C_mech`.** These recover R71's closed sum `Σ_j 3^(m−1−j) 2^⌊(jA+l)/m⌋` from the recursive `C`.
+- **`mech_rotate`.** Every rotation of a phase word is again a phase word.
+- **`narrow_mech`.** Every rotation has `C_0 ≤ C_i < 2C_0` with the common `D`, so every mechanical cycle has all its states in `[L, 2L)`. This is the reverse direction of C004 §1. It needs no coprimality: `gcd(A, m) = 1` only makes the rotations distinct.
+- **The `d5` control.** `mech 5 3 0 = (1,2,2)`, with intercepts 23, 37 and 29 for its rotations.
+
+**Checks.**
+
+- **Statement match.** It matches C004 (6), (7) and the reverse direction of §1.
+- **Axioms.** Of 75 declarations, 51 use the standard three. The helpers use subsets: 7 use `[propext, Quot.sound]`, 16 use `[propext]`, and 1 (`diffWord_zero`) uses no axioms.
+- **Build.** No diagnostics.
+- **Source scan.** No `sorry` or `native_decide`. The `decide` uses are small numeric facts and list rotations.
+- **Hash.** The sha256 `3226ae0c…` matches the receipt.
+
+**Not yet formal.** The forward direction "narrow ⇒ mechanical" (queued as C004-b), R71's `g = 1`, the integer corollary `H > 2L`, the narrow spectrum law, and the Smith-form statements.
+
+---
+
 ## 2026-10-19 01:19 — VERIFIED Lean C003-a (`claude/lean-lane` `8388c38`): C003's effective bounds are machine-checked as pure algebra; the Lean lane also confirms C004
 
 **The theorems.** `CycleSpectrum.lean` adds 13 new declarations.
