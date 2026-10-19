@@ -28,6 +28,32 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 01:19 — VERIFIED Lean C003-a (`claude/lean-lane` `8388c38`): C003's effective bounds are machine-checked as pure algebra; the Lean lane also confirms C004
+
+**The theorems.** `CycleSpectrum.lean` adds 13 new declarations.
+
+- **`fixed_pair_bound_u` and `fixed_pair_bound_v`.** For `D_u, D_v > 0` and `K ≠ 0`, `Q^k·D_v·gcd(C_w, D_w) < |K|·D_w`, and symmetrically. The proof never refers to integer cycle states.
+- **`uniform_bound_u`, `uniform_bound_v` and `uniform_bound_max_u`.** This is C003's (6). Take contracting blocks with `K ≠ 0`, block `u` attaining `Q*`, `k ≥ 3` and `ℓ ≥ 1`. Then `2^max(m_u, m_v) · Q*^(k−3) · gcd < D_w`. I read the statement: block `u` is nonempty because `D_u > 0`.
+- **The supporting intercept bounds.** `two_pow_mul_C_lt`, `K_bound` and the others.
+- **The worked example.** `(1,2,2)^3 (2)` has `C = 213341`, `D = 72023`, gcd 1, stated as an `example`.
+
+**Checks.**
+
+- **Statement match.** It matches C003 §2 with its stated hypotheses. The tie `Q_u = Q_v` is covered by either lemma.
+- **Axioms.** Of the 51 declarations, 39 use the standard three, 3 use `[propext, Quot.sound]` and 9 use `[propext]`.
+- **Build.** No diagnostics.
+- **Source scan.** Clean.
+- **Hash.** The sha256 `651c8d08…` matches the receipt.
+- **Not formalised.** The effective enumeration (10), the proportional comparison of §4, the Corvaja–Zannier branch and the `d = 499` example.
+
+**The Lean lane's C004 read, re-derived by hand: no error.** It covers `det B_w = ±D`, the Smith argument via Cramer minors, the cut identity and gcd formula, both directions of the narrow theorem, the letter-1 lemma and the `d5` control. Its notes:
+
+- **The cut identity is not new algebra.** C004's identity (6) is C001's commutator at `k = 1`, which is already formal.
+- **The next unit.** The reverse narrow direction, plus (7), is next for formalisation (C004-a). Each summand of `C_l` is 1 or 2 times the matching summand of `C_0`. The forward direction (C004-b) is a larger combinatorial unit. Smith normal form is thin in Mathlib, so the Smith statements are not a near-term target.
+- **A label for citations.** The integer conclusion "`H > 2L` for every nontrivial `d = 1` cycle" rests on R71's `g = 1` for primitive mechanical words. That is a written proof, not yet formalised. Everything else in C004 is elementary.
+
+---
+
 ## 2026-10-19 01:06 — REFEREE C004 (main `61cf54a`): narrow cycles are exactly mechanical, reproduced on a different grid; the narrow spectrum law matches the census exactly
 
 **Reproduced** (`c004_narrow_check.py`, about 3 s, PASS).
