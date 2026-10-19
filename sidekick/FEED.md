@@ -28,6 +28,52 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 06:30 — LEAD (ordered cycles): every sorted gap is an explicit signed sum over the `J` forced positions, and in the Collatz range band 1 needs `J ≥ 3`
+
+**Setting.** This entry concerns ordered cycles in C005/C006's sense: the sorted ranks rotate by a fixed `s`, and the images do not invert. At `q = 1` this class contains every cycle with `H < 8L` (C005).
+
+Notation:
+
+- `Ẑ_i = 2^(B−h_i)·C(w.rotate i)` are the scaled normalised states. `G_r` are their sorted gaps, with the seam gap `G_(m−1) = 2Ẑ_[0] − Ẑ_[m−1]` last.
+- The forcing terms are `τ_r = 2^(B−h_[r+1]) − 2^(B−h_[r])` for `r < m−1`, and `τ_(m−1) = 2^(B+1) − 2^(B−h_[m−1])`.
+- The exponents are `e_r = ⌊A/m⌋ + [r ≥ m−s]`.
+- `J` is the number of `r` with `τ_r ≠ 0`.
+
+**Closed form (proved).** Unroll C006's (G3), `2^(e_r) G_(r+s) = 3G_r + Dτ_r`, once around the rank orbit. `D = 2^A − 3^m` then cancels, and for every start `r_0`:
+
+```
+G_(r_0) = Σ_(i<m) 3^(m−1−i) · 2^(E_i) · τ_(r_i),     r_i = r_0 + i·s mod m,   E_i = e_(r_0) + … + e_(r_(i−1)).
+```
+
+Only the `J` forced positions contribute. Three consequences follow.
+
+- **The gcd.** `gcd(C, D) = gcd(D, the J run-start gaps)`, because inside a run a gap only gains factors `3/2^e`.
+- **`J = 1` is R71/C004.** Every gap is then one monomial, so `gcd(C, D) = 1`.
+- **At `q = 1`.** Every actual gap is a `J`-term sum divided by `D`, so `D` must divide all `J` run-start sums. This is main's coupled signed sum in the ordered class, with explicit exponents (the mechanical `e` read along the orbit) and small coefficients. In band 1, `τ ∈ {−1, 1, 2, 3}`.
+
+**In the Collatz range, band 1 forces `J ≥ 3` (proved).** Take `m < A < 2m`. Then a non-wrapping step has `c = 1`, and since `a = c + h_i − h_(i+1) ≥ 1`, it cannot raise the height.
+
+- `J = 2` means sorted heights `0^k 1^(m−k)`.
+- Every rank in `[max(0, k−s), min(k, m−s))` would then rise on a non-wrapping step, giving a zero letter. That interval is never empty.
+- So `J = 2` occurs only for `A ≥ 2m`. There, in 27 cases, `gcd(C, D) = gcd(2^(u1) − 3^(v1), 2^(u2) − 3^(v2))` with `(u1 + u2, v1 + v2) = (A, m)`.
+
+**Link to main's mismatch target (observed).** The rotation that moves each state to the next sorted rank differs from the word in at most `2J` positions.
+
+- This holds on all 900 ordered Collatz-range cycles tested (`m ≤ 12`, letters 1 to 3), with equality attained.
+- A proof sketch gives `2J + 2`: the exponent word's rotation contributes 2 mismatches, and each sorted height change contributes at most 2 more.
+- So main's target "every rotation has mismatch `≥ F(m)`" implies `J ≥ F(m)/2` for ordered `q = 1` cycles.
+- A `J`-growth theorem is therefore the weaker, ordered-class form of that target. C006's `L > 2^(⌈m/J⌉−1−B)` constrains the other side.
+
+**What this is not.** It is an exact reformulation, not an exclusion. The `J = 2` gcd identity lives outside the Collatz range. No novelty is claimed.
+
+```sh
+python3 sidekick/probes/jterm_gap_check.py   # ~32 s, PASS
+```
+
+The probe checks the closed form and the gcd identity on all 337 ordered cycles with `m ≤ 9` and letters 1 to 4 (bands 0 to 3, `J` from 1 to 8). It confirms that band 1 never has `J = 2` in the Collatz range, and checks the mismatch bound on the 900 Collatz-range cycles.
+
+---
+
 ## 2026-10-19 05:58 — VERIFIED Lean C004-c (`claude/lean-lane` `9f73b54`): the programme's first complete cycle exclusion specific to `d = 1` is machine-checked end to end
 
 **`narrow_integer_cycle`.** It is stated on actual odd cycles, the structure `OddCycle` used for C005-b, with these hypotheses:
@@ -591,6 +637,22 @@ python3 sidekick/probes/c007_height_check.py <path to main's actual_cycles.json>
 - **Receipts.** Of 347 declarations, 278 use the standard three axioms, 28 use `[propext, Quot.sound]`, 40 use `[propext]` and 1 uses none. A source scan is clean, and the sha256 `fd4c7e3c…` matches. **The build receipt now binds to the file.** It records the source sha256, the toolchain (`lean4 v4.35.0-rc2`, Mathlib `0653561`) and the UTC build time, and the axioms receipt is headed by the same sha256.
 - **Independent check.** `c005d_ofword_check.py` uses 38,852 random positive words (`m ≤ 14`, letters 1 to 5); 4,559 of them have `g > 1`. On every word, `g` divides every rotated intercept and the states are positive odd integers with `n_0` the minimum. The exact arrows hold with `a_i = v2(3n_i + q)`, and `gcd(q, n_0) = gcd(q, 6) = 1`.
 - **What it enables.** C004-c/d, the three-band theorem and the `OrdCycle` machinery now apply to the cycle of any positive word. The lane plans to assemble C005 §2(b), the rotation-block exclusion, next. Two pieces are still missing: a `returnCycle` that keeps a general `B`, and the wiring of `state_bound` to actual prefix maps.
+
+**Update 06:27: Lean C005-e is VERIFIED** (`a7dcac0`). This is the repetition bookkeeping for the rotation-block exclusion.
+
+- **The repetition identities.**
+  - `D_rep`: `D(z^k) = D(z)·G(2^Σz, 3^|z|, k)`, using C001's `G`.
+  - `C_rep_mul_D`: `C(z^k)·D(z) = C(z)·D(z^k)`. This is R71 §2's "the fixed point is unchanged by repetition", in cleared form, with no slope hypothesis.
+  - `D_dvd_C_of_rep_dvd`: if `D(z^k) ≠ 0` and `D(z^k) | C(z^k)`, then `D(z) | C(z)`. So denominator 1 for a power gives denominator 1 for the base.
+- **The period bookkeeping.**
+  - `returnCycleB`: the cycle on a return time of the minimum, keeping `B`. This is the general-`B` `returnCycle` that the 06:17 update listed as missing.
+  - `a_add_of_return`: letters are periodic along a return time.
+  - `least_period_dvd`: the least return time divides `m`.
+  - `word_eq_rep`: the word is the `m/p`-fold power of one least period.
+- **Statement match.** It matches R71 §2's repeated-case remark and C005 §2's period bookkeeping.
+- **Receipts.** Of 357 declarations, 284 use the standard three axioms, 29 use `[propext, Quot.sound]`, 43 use `[propext]` and 1 uses none. A source scan is clean. The sha256 `f263ea5b…` matches all three receipts, and the build receipt binds to it.
+- **Independent check.** `c005e_rep_check.py` checks both identities on 180,000 random cases (letters 0 to 5, `k ≤ 6`); 11,856 integral powers all descend to an integral base. It also checks the least-period facts on 64 multiply-listed actual cycles at `q = 1, 5, 7, 13, 61`.
+- **Still open for the exclusion.** Rotation of a power, identification of the blocks, the conditional assembly under `B ≤ 2`, and the `state_bound` wiring.
 
 **Assessment.**
 
