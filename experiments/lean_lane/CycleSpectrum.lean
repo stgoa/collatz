@@ -4412,6 +4412,143 @@ theorem mech_D_ne_one {m : ℕ} (hm : 2 ≤ m) (A : ℕ) (hAm : m ≤ A) : (2 : 
     have h3 := three_pow_mod_eight m
     omega
 
+/-! ### C004-c: the integer corollary of the narrow-cycle theorem
+
+C004 §3 with R71: a primitive positive odd integer cycle at `q = 1` all of whose states lie
+below `2L` (every height `0`) is the fixed point `1`. Its valuation word is narrow, hence a
+phase of the mechanical word of its total with coprime totals (`is_mech_of_narrow`); the
+cycle identity gives `D ∣ C`, R71 gives `gcd(C, D) = 1`, so `D = 1`, which `mech_D_ne_one`
+excludes for `m ≥ 2`; the one-letter case is `(2^A − 3) n_0 = 1`. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- The chronological valuation word `(a_0, …, a_{m−1})` of the cycle. -/
+def word : List ℕ := (List.range m).map Γ.a
+
+theorem word_length : Γ.word.length = m := by simp [word]
+
+theorem word_prefix (i : ℕ) :
+    ((List.range i).map Γ.a).sum = Γ.Apre i ∧ C ((List.range i).map Γ.a) = Γ.Cpre i := by
+  induction i with
+  | zero => simp [Apre, Cpre, C]
+  | succ i ih =>
+    obtain ⟨h1, h2⟩ := ih
+    rw [List.range_succ, List.map_append, List.map_singleton, List.sum_append,
+      List.sum_singleton, C_append_singleton, h1, h2, Γ.Apre_succ, Γ.Cpre_succ]
+    exact ⟨rfl, rfl⟩
+
+theorem word_sum : Γ.word.sum = Γ.Apre m := (Γ.word_prefix m).1
+
+theorem C_word : C Γ.word = Γ.Cpre m := (Γ.word_prefix m).2
+
+theorem D_word : D Γ.word = 2 ^ Γ.Apre m - 3 ^ m := by
+  rw [D, Γ.word_sum, Γ.word_length]
+
+theorem word_ne_nil : Γ.word ≠ [] :=
+  List.ne_nil_of_length_pos (by rw [Γ.word_length]; exact Γ.hm)
+
+/-- At `q = 1` the rotated intercepts are `D · n_i` (the cycle identity propagated along the
+rotation recurrence `2^{a_i} C_{(i+1)} = 3 C_{(i)} + D`). -/
+theorem C_word_rotate (hq : Γ.q = 1) : ∀ i, i < m → C (Γ.word.rotate i) = D Γ.word * Γ.n i
+  | 0, _ => by
+    rw [List.rotate_zero, Γ.C_word, Γ.D_word]
+    have h := Γ.cycle_identity
+    rw [hq, one_mul] at h
+    exact h.symm
+  | i + 1, hi => by
+    have ih := C_word_rotate hq i (by omega)
+    obtain ⟨x, v, hxv⟩ := List.exists_cons_of_ne_nil (NarrowCycle.rotate_ne_nil Γ.word_ne_nil i)
+    have hx : x = Γ.a i := by
+      have h1 := NarrowCycle.headD_rotate Γ.word (show i < Γ.word.length by rw [Γ.word_length]; omega)
+      rw [hxv, List.headD_cons] at h1
+      rw [h1]
+      simp [word]
+    subst hx
+    have hrec := C_rotate_succ hxv
+    have harrow := Γ.arrow i
+    rw [hq] at harrow
+    rw [ih] at hrec
+    have h2 : (2 : ℤ) ^ Γ.a i * C (Γ.word.rotate (i + 1))
+        = 2 ^ Γ.a i * (D Γ.word * Γ.n (i + 1)) := by
+      linear_combination hrec - D Γ.word * harrow
+    exact mul_left_cancel₀ (pow_ne_zero _ two_ne_zero) h2
+
+theorem C_word_rotate' (hq : Γ.q = 1) (i : ℕ) : C (Γ.word.rotate i) = D Γ.word * Γ.n i := by
+  rw [← List.rotate_mod, Γ.word_length, Γ.C_word_rotate hq (i % m) (Nat.mod_lt _ Γ.hm), Γ.n_mod]
+
+/-- **C004's integer corollary.** A primitive positive odd integer cycle at `q = 1` with every
+state below `2 n_0` (all heights `0`, i.e. `H < 2L`) is the fixed point `1`: `m = 1` and
+`n_0 = 1`. -/
+theorem narrow_integer_cycle (hq : Γ.q = 1) (hB : Γ.B = 0)
+    (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) : m = 1 ∧ Γ.n 0 = 1 := by
+  have hm := Γ.hm
+  have hh : ∀ i, Γ.h i = 0 := fun i => by have := Γ.hB i; omega
+  have hlt : ∀ i, Γ.n i < 2 * Γ.n 0 := fun i => by
+    have := Γ.hhi i
+    rw [hh i] at this
+    simpa using this
+  have hCD : C Γ.word = D Γ.word * Γ.n 0 := by
+    have := Γ.C_word_rotate hq 0 hm
+    rwa [List.rotate_zero] at this
+  have hCpos : 0 < C Γ.word := C_pos Γ.word_ne_nil
+  have hn0 := Γ.npos
+  have hD : 0 < D Γ.word := by
+    by_contra hneg
+    rw [not_lt] at hneg
+    have : D Γ.word * Γ.n 0 ≤ 0 := mul_nonpos_of_nonpos_of_nonneg hneg hn0.le
+    linarith
+  rcases Nat.lt_or_ge m 2 with hm1 | hm2
+  · have hm1' : m = 1 := by omega
+    subst hm1'
+    refine ⟨rfl, ?_⟩
+    have hC1 : C Γ.word = 1 := by simp [word, C]
+    rw [hC1] at hCD
+    have hdvd : Γ.n 0 ∣ 1 := ⟨D Γ.word, by rw [mul_comm]; exact hCD⟩
+    have := Int.le_of_dvd one_pos hdvd
+    omega
+  · exfalso
+    have hrot := Γ.C_word_rotate' hq
+    have hnarrow : ∀ i j, C (Γ.word.rotate i) < 2 * C (Γ.word.rotate j) := by
+      intro i j
+      rw [hrot i, hrot j]
+      have h1 := mul_lt_mul_of_pos_left (hlt i) hD
+      have h2 := mul_le_mul_of_nonneg_left (Γ.nmin j) hD.le
+      linarith
+    have hdist : ∀ i j, i < Γ.word.length → j < Γ.word.length →
+        C (Γ.word.rotate i) = C (Γ.word.rotate j) → i = j := by
+      intro i j hi hj hij
+      rw [hrot i, hrot j] at hij
+      rw [Γ.word_length] at hi hj
+      exact hprim i j hi hj (mul_left_cancel₀ hD.ne' hij)
+    obtain ⟨l, hl, hw, hcop⟩ :=
+      NarrowCycle.is_mech_of_narrow Γ.word (by rw [Γ.word_length]; exact hm2) hD hnarrow hdist
+    rw [Γ.word_length] at hl hw hcop
+    have hAm : m ≤ Γ.word.sum := by
+      by_contra hlt'
+      rw [not_le] at hlt'
+      have h1 : (2 : ℤ) ^ Γ.word.sum ≤ 2 ^ m := pow_le_pow_right₀ (by norm_num) hlt'.le
+      have h2 : (2 : ℤ) ^ m ≤ 3 ^ m := pow_le_pow_left₀ (by norm_num) (by norm_num) m
+      have h3 : D Γ.word = 2 ^ Γ.word.sum - 3 ^ Γ.word.length := rfl
+      rw [Γ.word_length] at h3
+      linarith
+    have hgcd := mech_gcd_one_phase hm2 Γ.word.sum hAm hcop hl
+    rw [← hw] at hgcd
+    have hDdvd : D Γ.word ∣ C Γ.word := ⟨Γ.n 0, hCD⟩
+    have h1 : (D Γ.word).natAbs ∣ 1 := by
+      rw [← hgcd]
+      exact Int.dvd_gcd (Int.natAbs_dvd.mpr hDdvd) (Int.natAbs_dvd.mpr dvd_rfl)
+    have hD1 : D Γ.word = 1 := by
+      have h2 := Int.natAbs_of_nonneg hD.le
+      rw [Nat.dvd_one.mp h1] at h2
+      simpa using h2.symm
+    have hDne := mech_D_ne_one hm2 Γ.word.sum hAm
+    rw [hw, D_mech (by omega) _ _ hl] at hD1
+    exact hDne hD1
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

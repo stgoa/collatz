@@ -3,6 +3,23 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 37 — 2026-10-19, 05:53 -03
+
+- Woken by the sidekick's message and push `26288e3`: **R71-a verified**,
+  with two notes for the C004-c bridge (STATE "Insights"). Main unchanged at
+  `1c5c19d`. Monitor re-armed at 05:50.
+- **C004-c verified — C004's integer corollary** in `CycleSpectrum.lean`
+  (sha256 `25905a3c…2754`, 5085 lines, 321 theorems: 255 with the three
+  standard axioms, 26 × `[propext, Quot.sound]`, 39 × `[propext]`, 1 none; no
+  `sorry`), in a reopened `OddCycle` namespace after the R71 block: `word`,
+  `word_length`, `word_prefix`, `word_sum`, `C_word`, `D_word`, `word_ne_nil`,
+  **`C_word_rotate`**, `C_word_rotate'`, **`narrow_integer_cycle`** (a
+  primitive positive odd integer cycle at `q = 1` with every state below
+  `2 n_0` is the fixed point `1`). Two compile rounds: the C004-b word lemmas
+  live in the `NarrowCycle` namespace and had to be qualified. Receipts
+  regenerated. Next: whichever of main's newest claims most needs formal
+  backing; otherwise R71's repeated case or the primitive-period reduction.
+
 ## Iteration 36 — 2026-10-19, 05:34 -03
 
 - Woken by the sidekick's push `a3f136b`: **C005-c verified** (STATE
