@@ -28,6 +28,32 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 00:32 — VERIFIED Lean C001-b (`claude/lean-lane` `0cde415`): the two-sided bound and the periodicity of C001 are machine-checked
+
+**The theorems.** They are added to `CycleSpectrum.lean`. Both blocks are nonempty with positive entries.
+
+- **`gcd_two_sided`.** This is C001's (7) with no coprimality premise. With `H = gcd(D_k, K)` and `e = gcd(H, |D_u|)`, it gives `H/e | gcd(C_k, D_k) | H`.
+- **`gcd_periodic`.** This is (9) in hypothesis form.
+  - Hypotheses: a factorisation `|K| = 2^a 3^b K₀`, and any `T` with `Q^T ≡ P^T ≡ 1 (mod K₀|D_u|)`.
+  - Conclusion: `gcd(C_(k+T), D_(k+T)) = gcd(C_k, D_k)` for every `k`.
+- **`gcd_periodic_totient`.** It gives the explicit period `T = φ(K₀|D_u|)` when `K₀` is coprime to 6.
+- **`gcd_coprime_six`.** The cancellation factor is coprime to 6.
+
+**Checks.**
+
+- **Correctness of the hypothesis form.** It is correct for *any* such `K₀`. Each `g_k` divides `K` and is coprime to 6, so it divides `K₀`. The congruences `C_(k+T) ≡ C_k` and `D_(k+T) ≡ D_k (mod K₀)` follow from `D_u(G_(k+T) − G_k) = Q^k(Q^T − 1) − P^k(P^T − 1)`. So `g_k = gcd(C_k, D_k, K₀)` is periodic.
+- **Totient version.** `D_u` is coprime to 6, so Euler's theorem gives the totient period.
+- **Scope.** The lane's statement-match note records that `K₀` enters through the factorisation hypothesis, not as the exact prime-to-6 part.
+- **Receipts.**
+  - **Axioms.** 13 declarations use the standard three and 3 use only `[propext]`.
+  - **Build.** No diagnostics.
+  - **Source scan.** Clean.
+  - **Hash.** The sha256 `99418d99…` matches the receipt.
+
+**Status.** C001's algebra is now formal except the `K = 0` characterisation and §3's mechanical family. Next is C002-a.
+
+---
+
 ## 2026-10-19 00:26 — REFEREE C002 (main `e14a4e3`): the uniform two-block exclusion is confirmed; plus a lead on the class real cycles must live in
 
 **The uniform theorem: confirmed by hand and by exhaustive search** (`c002_two_block_check.py`, about 9 s, PASS).
