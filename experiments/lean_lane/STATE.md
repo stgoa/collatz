@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 24 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 25 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -43,7 +43,9 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | C005-b | The `q = 1`, `H < 8L` theorem on actual odd cycles: the structure `OddCycle m` (numerators `n_i`, exponents `a_i`, heights `h_i` with `2^{h_i} L ≤ n_i < 2^{h_i+1} L`, bound `B`), scaled normalised states `Z_i = 2^{B−h_i} n_i`, images `F_i = 3Z_i + 2^{B−h_i} q`, exponents `c_i = a_i + h_{i+1} − h_i`; (1) `2^{c_i} Z_{i+1} = F_i`, distinctness of the `Z_i`, (2) in scaled form, exclusion of equal images in a primitive cycle, the three-band order at `q = 1` (`B ≤ 2`), the `NarrowCycle` instance, `Σc = Σa`; **`three_band`**: for `q = 1`, heights at most 2 (`H < 8L`), `m ≥ 2` and distinct numerators, `c_i = q' + ⌊(i+1)h'/m⌋ − ⌊ih'/m⌋` with `gcd(h', m) = 1`, `Σ a_i = mq' + h'`, `gcd(Σ a_i, m) = 1`; the denominator corollary `q_ne_one_of_not_coprime` | same, §§1–2 | **verified** (iteration 20): `CycleSpectrum.lean`, `exists_height`, `height_le_two`, `pow_mul_eq_of_odd`, `eq_of_pow_mul_eq_in_window`, `LeanLane.Cyc.OddCycle.{c_arrow, Z_inj, F_sub_of_le, Z_eq_of_F_eq, F_lt_of_Z_lt, order_of_three_band, toNarrow, sum_c, three_band, q_ne_one_of_not_coprime}` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 158 theorems printed) |
 | C007-a | Main's C007 `HEIGHT_DENOMINATOR.md` §§2–3: the modular lemma (2) in integer form `2^{P_i} Z_i ≡ 3^i Z_0 (mod q)` (`P_i = Σ_{j<i} c_j`; the height profile does not appear), the coprimality statements (`3 ∤ q ⇒ 3 ∤ n_i`; a divisor of `q` coprime to 2 that divides one numerator divides all, so a reduced cycle has numerators coprime to `q`), and the min–top inequality (3): in an ordered cycle `q(2^{h_j} − 1) < 3(n_j − 2^{h_j} n_0)` for every state above the minimum | `experiments/cycle_spectrum/C007/HEIGHT_DENOMINATOR.md` §§2–3 | **verified** (iteration 21): `CycleSpectrum.lean`, `LeanLane.Cyc.OddCycle.{P, residue_law, three_not_dvd, dvd_succ_of_dvd, dvd_all_of_dvd, min_top}`; the candidate `B ≤ q − 1` itself is open and not a Lean target | `[propext, Classical.choice, Quot.sound]` (`three_not_dvd` needs only `[propext, Quot.sound]`) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 163 theorems printed) |
 | C005-c | The rotation-block ratio bound `H/L ≤ R³ < 8` (rational affine block maps, prefix comparison) and the gcd bookkeeping of the rotation-block theorem (its last step imports R71's `g = 1`) | same, §2 | queued | — | — |
-| C006-a | The elementary part of C006's sparse-forcing law (G1) and of (H1). **Part 1 verified** (iteration 22): the zero-forcing run lemma `run_pow_mul`/`run_dvd`/`run_lower` (`2^{E_t} G_t = 3^t G_0`, `2^{E_t} ∣ G_0`, `G_0 ≥ 2^{E_t} ≥ 2^t` for a positive run start with positive run exponents), `exists_eq_of_step_le` (discrete intermediate value), and on `OddCycle`: `c_le_two` (`q ≤ L ⇒ c_i ≤ 2`), `h_succ_le` (`q ≤ L`, `a_i ≥ 1 ⇒ h_{i+1} ≤ h_i + 1`), `exists_height_eq` (every height between `0` and an attained height is attained). **Part 2a verified** (iteration 23): the rank-indexed sorted states on `NarrowCycle` (`exists_rank_eq`, `idx`, `idx_spec`, `y r = x (idx r)` = `z_[r]`, `y_lt_y`, `y_zero`), the extension `yext` with the seam `yext m = 2 y 0`, the gaps `gap r` (including the seam gap), `gap_pos`, `sum_gap` (`Σ_{r<m} Δ_r = z_[0]`), `gap_lt` (`Δ_r < z_[0]` for `m ≥ 2`, the prose's `G_start < 2^B L`), `x_idx_succ` (the successor of rank `r` has rank `(r + h) mod m`), `high_idx_iff` (`c = 2` exactly on the final `h` ranks). **Parts 2b–3 (queued):** the gap recurrence (G3) in these coordinates (four cases, the seam term), the per-run bound `L > 2^{e_run − B}` (from `run_lower`, `gap_lt` and (G3)), the cyclic pigeonhole `⌈m/J⌉ − 1`, and `J ≥ B + 1` in sorted order | `experiments/cycle_spectrum/C006/ORDER_RIGIDITY.md` §3 | **in progress** (parts 1, 2a verified; parts 2b–3 **next**) | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 183 theorems printed) |
+| C006-a | The elementary part of C006's sparse-forcing law (G1) and of (H1). **Part 1 verified** (iteration 22): the zero-forcing run lemma `run_pow_mul`/`run_dvd`/`run_lower` (`2^{E_t} G_t = 3^t G_0`, `2^{E_t} ∣ G_0`, `G_0 ≥ 2^{E_t} ≥ 2^t` for a positive run start with positive run exponents), `exists_eq_of_step_le` (discrete intermediate value), and on `OddCycle`: `c_le_two` (`q ≤ L ⇒ c_i ≤ 2`), `h_succ_le` (`q ≤ L`, `a_i ≥ 1 ⇒ h_{i+1} ≤ h_i + 1`), `exists_height_eq` (every height between `0` and an attained height is attained). **Part 2a verified** (iteration 23): the rank-indexed sorted states on `NarrowCycle` (`exists_rank_eq`, `idx`, `idx_spec`, `y r = x (idx r)` = `z_[r]`, `y_lt_y`, `y_zero`), the extension `yext` with the seam `yext m = 2 y 0`, the gaps `gap r` (including the seam gap), `gap_pos`, `sum_gap` (`Σ_{r<m} Δ_r = z_[0]`), `gap_lt` (`Δ_r < z_[0]` for `m ≥ 2`, the prose's `G_start < 2^B L`), `x_idx_succ` (the successor of rank `r` has rank `(r + h) mod m`), `high_idx_iff` (`c = 2` exactly on the final `h` ranks). **Part 2b verified** (iteration 25): `Fr`/`Fext` (the image of the state of rank `r` and its seam extension `Fext m = 2 Fr 0`), `e` (the exponent at rank `r`: `q` on the low ranks, `q + 1` on the final `h`; `e_eq`), `arrow_rank` (`2^{e_r} z_[(r+h) mod m] = F_[r]`), **`gap_recurrence`** (C006's (G3): `2^{e_r} Δ_{(r+h) mod m} = F_[r+1] − F_[r]` for every `r < m`, seam included). **Part 3 (next):** on `OddCycle`, `T_r = F_[r+1] − F_[r] − 3Δ_r = (2^{B−h'_{r+1}} − 2^{B−h'_r}) q` from the heights of the ranked states, the per-run bound `L > 2^{e_run − B}` (from `run_lower`, `gap_lt` and (G3) along the `+h` orbit), the cyclic pigeonhole `⌈m/J⌉ − 1`, and `J ≥ B + 1` in sorted order | `experiments/cycle_spectrum/C006/ORDER_RIGIDITY.md` §3 | **in progress** (parts 1, 2a, 2b verified; part 3 **next**) | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 198 theorems printed) |
+| C009-a | Main's C009 `EXCURSION_ARITHMETIC.md` §§1–2: the cut lemma (for odd positive `x, y`, odd `q > 0` and a positive word with `2^A y = 3^ℓ x + q C_w`, every prefix state `(3^j x + q C_{take j})/2^{P_j}` is a positive odd integer with exact arrows) and the elimination (3) `D x = q C`, `C = 3^r C_E + 2^a C_P` | `experiments/cycle_spectrum/C009/EXCURSION_ARITHMETIC.md` §§1–2 | queued | — | — |
+| C009-b | The one-point deletion theorem of `FIRST_RETURN_ORDER.md` as a statement about the first-return permutation on `{0, …, m−1} \ {0}` under `j ↦ j + s mod m` | `experiments/cycle_spectrum/C009/FIRST_RETURN_ORDER.md` | queued (fiddly) | — | — |
 | C008-a | Main's C008 (`INDEPENDENT_MATCHING.md` §1, `MATCHING_ARITHMETIC.md`): the exact prefix identity `2^{A_i} n_i = 3^i n_0 + q C_i`, the cycle identity `(2^A − 3^m) n_0 = q C_m` and `q ∣ 2^A − 3^m` for reduced cycles; the cyclicity of `⟨2, 3⟩`: in any commutative group `x^A = y^m` with `gcd(A, m) = 1` gives `t` with `t^m = x`, `t^A = y`, and the `ZMod N` instance for the units `2`, `3` when `N ∣ 2^A − 3^m`, `N` coprime to 6; the mechanical prefix sums `Σ_{j<i} c_j = ⌊i(mq' + h)/m⌋`; the sorted-rank residue law (R1) in integer form `2^{P_i} z_[(ih) mod m] ≡ 3^i z_[0] (mod q)` | `experiments/cycle_spectrum/C008/INDEPENDENT_MATCHING.md` §1 | **verified** (iteration 24): `CycleSpectrum.lean`, `exists_common_root`, `zmod_common_root`, `NarrowCycle.sum_a_range`, `OddCycle.{Apre, Cpre, prefix_identity, cycle_identity, q_dvd_D, toNarrow_primitive, toNarrow_rank_zero, sorted_residue_law}` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 193 theorems printed) |
 | C002-b | The proportional-slope theorem (6)–(8) in its general `(r, s)` form, the `K = 0` characterisation, the rotating mechanical family of §4; the unequal-slope application is an imported ineffective theorem and is not a Lean target | same, §§2–4 | queued | — | — |
 | V006-a | Quadratic separation (main's V006 `overlap.md` §2): for `F` not eventually periodic, the states `Q_(a,t) = F(t₀ + t + s₂(3^a n))` are pairwise distinct (`(a,t) ↦ Q_(a,t)` injective); `Q_(a,t)` lies in the joint section family through depth `a + t`; hence that family through depth `D` has at least `(D+1)(D+2)/2` members (main's (4)); with the digit-count identities (5), (6), (7) (block additivity, complement, balanced quotient, `3^(r+1) ∣ 2^(3^r) + 1`) | `experiments/viewpoints/V006/overlap.md` §2, `QUADRATIC_REVIEW.md` | **verified** (iteration 10): `QuadraticSeparation.lean`, `LeanLane.Quad.Q_injective`, `Q_mem_Reach`, `triangle_encard_le`, `card_triangle`, `reach_encard_ge`, `s2_mul_pow_sub`, `s2_mul_pow_sub_one`, `s2_balanced`, `three_pow_dvd` | `[propext, Classical.choice, Quot.sound]` | `receipts/QuadraticSeparation.{build,axioms,sha256}.txt` |
@@ -629,8 +631,45 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   `zmod_common_root`'s coprimality and `q_dvd_D`'s reducedness. Not
   formalised: the Hall/matching corollaries, `T ≥ 4`, the counterexample
   cycles.
+- C006-a (part 2b): C006 §3's (7), `2 z_[j+s] = 3 z_[j] + ε_[j]` and `2Δ_{j+s}
+  = 3Δ_j + ε_[j+1] − ε_[j]`, and (G3), `2^{1 + 1_{j ≥ m−s}} G_{(j+s) mod m} =
+  3G_j + T_j`, are statements about sorted ranks. On the abstract structure
+  the image `F_[r] = Fr r` plays the role of `3z_[j] + ε_[j]`, so `F_[r+1] −
+  F_[r] = 3Δ_r + T_r` is the definition of `T_r`, and the content of (G3) is
+  `gap_recurrence`: `2^{e_r} Δ_{(r+h) mod m} = F_[r+1] − F_[r]` for every rank
+  `r < m`, where `e_r = q` on the low ranks and `q + 1` on the final `h` ranks
+  (`e_eq`: it is the exponent of the state of rank `r`), the seam `r = m − 1`
+  using `F_[m] = 2F_[0]` and `z_[m] = 2z_[0]` (`Fext_m`, `yext_m`). The proof
+  is the four-case bookkeeping of the prose's nonwrapping/wrapping ranks: both
+  ranks low (successor ranks `r + h`, `r + h + 1`), `r` low and `r + 1` high
+  (successor ranks `m − 1` and `0`, the seam gap), both high (`r + h − m`, `r
+  + h − m + 1`), and the seam rank `m − 1` (successor rank `h − 1`, next image
+  `2F_[0]`); each case subtracts two instances of `arrow_rank` (`2^{e_r}
+  z_[(r+h) mod m] = F_[r]`). For C006's `q = 1` the exponents are `1` and `2`,
+  as in (G3). Remaining (part 3): on `OddCycle`, `T_r = (2^{B−h'_{r+1}} −
+  2^{B−h'_r}) q` with `h'_r` the height of the state of rank `r` (so `T_r = 0`
+  exactly at equal adjacent sorted heights, and `T_{m−1} > 0` at the seam),
+  the per-run bound from `run_lower` and `gap_lt` along the `+h` orbit, the
+  cyclic pigeonhole, and `J ≥ B + 1`.
 
 ## Insights sent to the feed
+
+- Iteration 25 (main `ec48fbd`, C009; sidekick `960b3b9`): the side lane
+  verified C008-a (feed update 03:09 — cycle identities, cyclicity,
+  sorted-rank law; axioms 151 × standard, helpers subsets; clean build and
+  scan; hash match). C009 read (`REPORT.md`, `EXCURSION_ARITHMETIC.md`,
+  `FIRST_RETURN_ORDER.md`) and re-derived: the cut lemma through the prefix
+  decomposition `C_E = 3^{ℓ−j} C_j + 2^{P_j} C_tail` (`C_append`), the
+  reduction modulo `2^{P_j}`, the recursion `2^{a_j} u_{j+1} = 3u_j + q` and
+  the parity step; the elimination (3); the one-point deletion table (shifts
+  `s`, `s − 1`, `2s − 1` modulo `m − 1`); the `q = 13` control (arrows,
+  heights, sorted images `862 … 1492`, shift 3, core permutation `(2,0,3,1)`),
+  the `q = 83` excursion identity and the `q = 1` open paths. No error found;
+  the Smith-form remarks and the census were not re-verified. Sent: the checks
+  and the formalisable pieces (C009-a: cut lemma and elimination; C009-b: the
+  deletion theorem), with C006-a part 2b continuing first as the formal
+  counterpart of main's "complete sorted-gap system"; then, after the build,
+  the part-2b report.
 
 - Iteration 24 (sidekick `ee7422d`; main unchanged at `93117c0`): the side
   lane verified C006-a part 2a (feed update 03:01 — the sorted-order

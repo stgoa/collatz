@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 25 — 2026-10-19, 03:22 -03
+
+- Main pushed `ec48fbd` (C009: excursion compression rejected, cut lemma,
+  one-point deletion theorem) and the sidekick verified C008-a (`960b3b9`,
+  feed 03:09); C009 read and checked, no error found; insights sent (STATE
+  "Insights"). Monitor re-armed at 03:09 after its expiry.
+- **C006-a part 2b verified** in `CycleSpectrum.lean` (sha256 `a5af2f82…5f06`,
+  3179 lines, 198 theorems: 156 with the three standard axioms, 14 ×
+  `[propext, Quot.sound]`, 27 × `[propext]`, 1 none; no `sorry`): `Fr`,
+  `Fext`, `e`, `Fext_of_lt`, `Fext_m`, `e_eq`, `arrow_rank`,
+  **`gap_recurrence`** (the four-case (G3) with the seam). Two compile rounds:
+  the rank reduction `hm1` had to be rewritten in the arrow hypotheses as well
+  as the goal; an unused `rank 0 = 0` hypothesis dropped. Receipts
+  regenerated. Next: part 3 (`T_r` from the heights, the per-run bound, the
+  pigeonhole, `J ≥ B + 1`), then C009-a.
+
 ## Iteration 24 — 2026-10-19, 03:08 -03
 
 - Woken by the sidekick's push `ee7422d`: **C006-a part 2a verified** (STATE

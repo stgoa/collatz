@@ -2272,6 +2272,134 @@ theorem sum_a_range (hh : N.numHigh < m) (h0 : N.rank 0 = 0) (i : ℕ) :
     Nat.add_mul_div_left _ _ N.hm]
   ring
 
+/-! #### Part 5: the gap recurrence in rank coordinates (C006 (7)/(G3)) -/
+
+/-- The image of the state of rank `r`. -/
+noncomputable def Fr (r : ℕ) : ℤ := N.F (N.idx r)
+
+/-- Its extension over one more period, `Fext m = 2 Fr 0` (C006's seam `ε_[m] = 2ε_[0]`
+together with `z_[m] = 2z_[0]`). -/
+noncomputable def Fext (r : ℕ) : ℤ := if r < m then N.Fr r else 2 * N.Fr (r - m)
+
+/-- The exponent at rank `r`: `q` on the low ranks `r < m − h`, `q + 1` on the final `h` ranks
+(C006's `1 + 1_{j ≥ m−s}` when `q = 1`). -/
+def e (r : ℕ) : ℕ := if m - N.numHigh ≤ r then N.q + 1 else N.q
+
+theorem Fext_of_lt {r : ℕ} (hr : r < m) : N.Fext r = N.Fr r := by
+  unfold Fext
+  rw [ite_eq_left hr]
+
+theorem Fext_m : N.Fext m = 2 * N.Fr 0 := by
+  unfold Fext
+  rw [ite_eq_right (lt_irrefl m), Nat.sub_self]
+
+theorem e_eq (hp : N.Primitive) {r : ℕ} (hr : r < m) : N.e r = N.a (N.idx r) := by
+  unfold e
+  rw [N.a_eq (N.idx r)]
+  by_cases h2 : m - N.numHigh ≤ r
+  · rw [ite_eq_left h2, ite_eq_left ((N.high_idx_iff hp hr).mpr h2)]
+  · rw [ite_eq_right h2, ite_eq_right (fun h3 => h2 ((N.high_idx_iff hp hr).mp h3))]
+
+/-- The arrow at the state of rank `r`: `2^{e_r} z_[(r+h) mod m] = F_[r]`. -/
+theorem arrow_rank (hp : N.Primitive) (hh : N.numHigh < m) {r : ℕ} (hr : r < m) :
+    (2 : ℤ) ^ N.e r * N.y ((r + N.numHigh) % m) = N.Fr r := by
+  rw [N.e_eq hp hr]
+  have h1 := N.arrow (N.idx r)
+  rw [N.x_idx_succ hp hh hr] at h1
+  exact h1
+
+/-- **C006's gap recurrence (G3)** in rank coordinates: `2^{e_r} Δ_{(r+h) mod m} = F_[r+1] − F_[r]`
+for every rank `r < m`, the seam `r = m − 1` using the extension `F_[m] = 2F_[0]`,
+`z_[m] = 2z_[0]`. -/
+theorem gap_recurrence (hp : N.Primitive) (hm2 : 2 ≤ m) {r : ℕ} (hr : r < m) :
+    (2 : ℤ) ^ N.e r * N.gap ((r + N.numHigh) % m) = N.Fext (r + 1) - N.Fext r := by
+  have hh := N.numHigh_lt hp hm2
+  have hpos := N.numHigh_pos hp hm2
+  have hA := N.arrow_rank hp hh hr
+  rw [N.Fext_of_lt hr]
+  rcases Nat.lt_or_ge (r + 1) m with hr1 | hr1
+  · have hA' := N.arrow_rank hp hh hr1
+    rw [N.Fext_of_lt hr1]
+    by_cases hlow : m - N.numHigh ≤ r
+    · -- both ranks high: exponents `q + 1`, successor ranks `r + h − m`, `r + h − m + 1`
+      have hlow' : m - N.numHigh ≤ r + 1 := le_trans hlow (Nat.le_succ r)
+      have he : N.e r = N.q + 1 := by
+        unfold e
+        rw [ite_eq_left hlow]
+      have he' : N.e (r + 1) = N.q + 1 := by
+        unfold e
+        rw [ite_eq_left hlow']
+      have hm1 : (r + N.numHigh) % m = r + N.numHigh - m := by
+        rw [Nat.mod_eq_sub_mod (by omega), Nat.mod_eq_of_lt (by omega)]
+      have hm2' : (r + 1 + N.numHigh) % m = r + N.numHigh - m + 1 := by
+        rw [Nat.mod_eq_sub_mod (by omega), Nat.mod_eq_of_lt (by omega)]
+        omega
+      rw [he, hm1] at hA
+      rw [he', hm2'] at hA'
+      rw [hm1, he]
+      unfold gap
+      rw [N.yext_of_lt (by omega : r + N.numHigh - m + 1 < m),
+        N.yext_of_lt (by omega : r + N.numHigh - m < m)]
+      linarith
+    · rw [not_le] at hlow
+      have he : N.e r = N.q := by
+        unfold e
+        rw [ite_eq_right (not_le.mpr hlow)]
+      by_cases hlow' : m - N.numHigh ≤ r + 1
+      · -- `r` low, `r + 1` high: successor ranks `m − 1` and `0`, the seam gap
+        have he' : N.e (r + 1) = N.q + 1 := by
+          unfold e
+          rw [ite_eq_left hlow']
+        have hm1 : (r + N.numHigh) % m = m - 1 := by
+          rw [show r + N.numHigh = m - 1 by omega]
+          exact Nat.mod_eq_of_lt (by omega)
+        have hm2' : (r + 1 + N.numHigh) % m = 0 := by
+          rw [show r + 1 + N.numHigh = m by omega]
+          exact Nat.mod_self m
+        rw [he, hm1] at hA
+        rw [he', hm2', pow_succ] at hA'
+        rw [hm1, he]
+        unfold gap
+        rw [show m - 1 + 1 = m by omega, N.yext_m, N.yext_of_lt (by omega : m - 1 < m)]
+        linarith
+      · -- both ranks low: exponents `q`, successor ranks `r + h`, `r + h + 1`
+        have he' : N.e (r + 1) = N.q := by
+          unfold e
+          rw [ite_eq_right hlow']
+        have hm1 : (r + N.numHigh) % m = r + N.numHigh := Nat.mod_eq_of_lt (by omega)
+        have hm2' : (r + 1 + N.numHigh) % m = r + N.numHigh + 1 := by
+          rw [show r + 1 + N.numHigh = r + N.numHigh + 1 by ring]
+          exact Nat.mod_eq_of_lt (by omega)
+        rw [he, hm1] at hA
+        rw [he', hm2'] at hA'
+        rw [hm1, he]
+        unfold gap
+        rw [N.yext_of_lt (by omega : r + N.numHigh + 1 < m),
+          N.yext_of_lt (by omega : r + N.numHigh < m)]
+        linarith
+  · -- the seam `r = m − 1` (high): successor rank `h − 1`; the next image is `2F_[0]`
+    have hlow : m - N.numHigh ≤ r := by omega
+    have he : N.e r = N.q + 1 := by
+      unfold e
+      rw [ite_eq_left hlow]
+    have hA0 := N.arrow_rank hp hh N.hm
+    have he0 : N.e 0 = N.q := by
+      unfold e
+      rw [ite_eq_right (by omega)]
+    have hm0 : (0 + N.numHigh) % m = N.numHigh := by
+      rw [Nat.zero_add]
+      exact Nat.mod_eq_of_lt hh
+    rw [he0, hm0] at hA0
+    have hm1 : (r + N.numHigh) % m = N.numHigh - 1 := by
+      rw [show r + N.numHigh = (N.numHigh - 1) + m by omega, Nat.add_mod_right]
+      exact Nat.mod_eq_of_lt (by omega)
+    rw [he, pow_succ, hm1] at hA
+    rw [show r + 1 = m by omega, N.Fext_m, hm1, he, pow_succ]
+    unfold gap
+    rw [N.yext_of_lt (by omega : N.numHigh - 1 + 1 < m),
+      N.yext_of_lt (by omega : N.numHigh - 1 < m), show N.numHigh - 1 + 1 = N.numHigh by omega]
+    linarith
+
 end NarrowCycle
 
 /-! ### C005 `ORDER_THEORY.md` §2: the inversion formula (2) and the three-band observation -/
