@@ -99,6 +99,26 @@ Status words follow `AGENTS.md`.
 - **With S7:** every `q = 1` cycle with `m ≥ 1.375·10^11` (the imported period bound, where `f(4)/m` has reached 0.0220) whose letters are all below `0.022m` has `ρ ≥ 5`, the paused S10 case. *(Scope clarified a few minutes after posting: at smaller `m` the threshold is lower.)*
 - **Scope.** No sublinear bound on `a_max` is proved; the open configurations are exactly tall teeth with one drop of `v₂(3n + 1) ≥ εm`. That `a_max` is about `log₂ m` for random-like cycles is a heuristic, labelled as such in the note.
 
+**Update 17:58: Lean S13-a is VERIFIED** (`95ae39f`). The rise lemma is formal in natural logarithms with a uniform `Δ`, and so is Corollary 1 from the minimum.
+- **Statement match** (namespace `LeanLane.Cyc.OddCycle`):
+  - **Definitions.** `eta = q/(3n₀)`, `kappa = (log 3 + η)/log 2` and `Phi Δ p = log n_p + log 2 + Δ`. So `Φ = (y + c)·log 2` with `c = ℓ' + 1 + Δ/log 2`, and `κ = log₂3 + q/(3L ln 2)`, exactly as in the note.
+  - **(P):** `eps_le_eta` (from `nmin`), `rise_bound` and `rise_le_mul`, the last being the note's `Δ⁺ ≤ (σ + η)d` in natural units.
+  - **(W):** `witness_two_pow` gives `2^(F+1) ∣ n_(i+d) − n_i` on an agreeing run, and `witness_log` turns it into `(F + 1)·log 2 ≤ log n_i + Δ`. Nonvanishing comes from `z_ne_zero` (primitivity, `d ≢ 0`). No mismatch at the run's end is used, matching the review.
+  - **The lemma.** `run_step` covers one run plus at most one following letter (`s ≤ t + 1`). `rise_lemma` gives `Φ_v ≤ κ^(k+1)·Φ_u`, with `k` the number of mismatches in `[u, v)` and `Δ` bounding the partner offset on `[u, v]`.
+  - **Corollary 1.** `rise_from_min` gives `Φ_j ≤ κ^(|mis d|+1)·Φ_0` for `j ≤ m`, and `rise_from_min_uniform` is the same with `Δ = d(log 3 + η − log 2)`.
+  - **Hypotheses:** `hprim` (distinct states), letters `≥ 1`, `d % m ≠ 0` and `Δ ≥ 0`.
+- **Receipts:**
+  - sha256 `33085b09…171ce3296` matches the fetched file; 13,896 lines; exit 0, no diagnostics.
+  - 772 theorems: 639 on the standard three axioms, 58 on `[propext, Quot.sound]`, 62 on `[propext]`, and 13 on none. The 16 new declarations rest on exactly the standard three.
+  - The scan is clean; the one `extern` match is the same docstring word.
+- **Left for S13-b:** `|mis(m − h)| = |mis h|` and the explicit rearrangement `s ≥ log_κ(1 + B/c) − 1` in bits.
+
+**ACK of the Lean lane's review of Corollaries 5–7 (all correct).** The one rounding-sensitive count is now stated exactly. The probe's thresholds at `m = 1.375·10^11` are:
+- `H*(4)/m = 0.0752456` and `H*(8)/m = 0.0054519`, so `(m − 2H*(4))/H*(8) = 155.82` and `|E_4| ≤ 156`. Rounded inputs `0.0752` and `0.0055` would give 155.
+- `S = 5`: `H*(5)/m = 0.0364839`, `H*(10)/m = 0.0017194`, ratio `539.15`, so `|E_5| ≤ 540`.
+- `S = 6`: `H*(6)/m = 0.0187171`, `H*(12)/m = 0.0005681`, ratio `1694.34`, so `|E_6| ≤ 1,695`.
+- Also ACKed: the numerical thresholds in Corollaries 2, 3 and 5–7 inherit EXT-1, while the lemma, Corollary 1 and subadditivity do not.
+
 ```sh
 python3 sidekick/probes/s13_rise_lemma.py        # ~100 s
 python3 sidekick/probes/s13_short_rotations.py   # ~1 s, the q = 1 tables
