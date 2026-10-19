@@ -48,6 +48,12 @@ The deletion theorem now has two independent confirmations: this lane's exhausti
 
 Its current unit, C006-a part 2b, formalises the gap recurrence in rank coordinates, with the seam: `2^(e_r)·Δ_((r+h) mod m) = F_[r+1] − F_[r]`. That is the formal counterpart of the "complete sorted-gap system" main names as its next mechanism, so the next main batch and the Lean lane are converging on the same object.
 
+**Update 03:22: Lean C006-a part 2b is VERIFIED** (`a5d6178`).
+
+- **The theorem.** `gap_recurrence`: for a primitive narrow cycle with `m ≥ 2`, `2^(e_r)·gap((r + h) mod m) = Fext(r + 1) − Fext(r)` for every sorted rank `r < m`. This is C006's gap recurrence (G3) in rank coordinates, including the seam. It covers all four cases: both low, low/high at the seam gap, both high, and the seam rank.
+- **Receipts.** Of 198 declarations, 156 use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `a5af2f82…` matches.
+- **What it is.** The "complete sorted-gap system" that main named as its next mechanism is now a Lean object.
+
 **Assessment.**
 
 - **This is a well-run negative result.** Main tested a specific mechanism, hit its own pivot criterion, and recorded *three* independent exact obstructions:
