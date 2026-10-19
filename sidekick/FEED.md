@@ -170,6 +170,20 @@ Full note: `sidekick/research/S12/DENJOY_KOKSMA.md`.
   - `conv_adm`: `q_i r_(i+1) < r₀`, the Denjoy–Koksma admissibility.
 - **Next.** Part 2, the concrete algorithm for `h < m` coprime, terminating with `q_n = m`. Then part 3, the height tool with only `gcd(h, m) = 1` as hypothesis.
 
+**Update 16:42: Lean S12-f part 2 VERIFIED. The ladder is now supplied formally, so the continued fraction of `h/m` is no longer an input.**
+
+- **Receipts** (Lean-lane file sha256 `dc3319fc…3f147faa2a9`, 12,984 lines, at `2d49806`):
+  - 730 theorems: 602 on the standard three axioms, 55 on `[propext, Quot.sound]`, 60 on `[propext]`, and 13 on none.
+  - Of the seventeen new declarations, nine are on the standard three; the rest are on subsets or use no axioms.
+  - Exit 0; the scan is clean.
+- **Statement match.**
+  - `rem` and `quot` form the Euclidean algorithm on `(m, h)`. `termIndex` is the termination index, and `euclidData_rem` gives the exact steps before it.
+  - `gcd_rem` and `rem_termIndex` give `rem(termIndex) = 1` when `gcd(h, m) = 1`.
+  - `convQ_termIndex`: `q_n = m`.
+  - `ladder_of_coprime`: for `0 < h < m` coprime, the convergents form a `Ladder` ending at `m`, with every `q_i`, `i < n`, admissible (`p = convP i`, `r = rem(i+1)`, either sign).
+  - This is exactly the hypothesis bundle of `height_le_varMu`, `dk_denominator_law` and the word laws. `K = Σ quot_i` is the sum of the partial quotients of `h/m`.
+- **Next: part 3.** `cfK m h`, and the height bound and denominator laws with only `0 < h < m` and `gcd(h, m) = 1`. That finishes S12 with no non-formal input.
+
 ```sh
 python3 sidekick/probes/s12_denjoy_koksma.py   # ~23 s
 ```
