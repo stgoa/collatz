@@ -10848,6 +10848,228 @@ theorem word_dk_denominator_law (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x �
 
 end OddCycle
 
+/-! ### S9-e: rotation invariance — the word laws without the minimal-rotation normalisation
+
+Every nonempty word has a rotation of minimal intercept (the existing `exists_min_rotation`). `D`, `gcd(C, D)`
+and hence `den` are rotation-invariant (`D_rotate`, `gcdCD_rotate`, `den_rotate`), as are the
+length and the letter sum (`rotate_sum`); distinct rotated intercepts are inherited by rotations
+(`hdist_rotate`); the mismatch count of a rotation `h` and the letter variation are the same for
+every rotation of the word (`mismatch_card_rotate`, `Vh_sum_rotate`: periodic shifts of indicator
+sums, `rotate_add_length`, `sum_range_shift_nat`). Hence the word laws S9 (i), S9 (ii) and S12's
+corollary hold for every positive primitive word with `D_w > 0` — no normalisation hypothesis
+(`word_two_mismatch_law'`, `word_three_mismatch_law'`, `word_dk_denominator_law'`). -/
+
+namespace OddCycle
+
+theorem gcdCD_rotate (w : List ℕ) (hw0 : w ≠ []) (hsum : 1 ≤ w.sum) (k : ℕ) :
+    gcdCD (w.rotate k) = gcdCD w := by
+  unfold gcdCD
+  rw [gcd_rotate_eq hw0 hsum k]
+
+theorem den_rotate (w : List ℕ) (hw0 : w ≠ []) (hsum : 1 ≤ w.sum) (k : ℕ) :
+    den (w.rotate k) = den w := by
+  unfold den
+  rw [D_rotate, gcdCD_rotate w hw0 hsum k]
+
+theorem rotate_sum (w : List ℕ) (k : ℕ) : (w.rotate k).sum = w.sum :=
+  (List.rotate_perm w k).sum_eq
+
+/-- Rotations are periodic in the rotation index. -/
+theorem rotate_add_length (w : List ℕ) (i : ℕ) : w.rotate (i + w.length) = w.rotate i := by
+  rw [← List.rotate_mod, Nat.add_mod_right, List.rotate_mod]
+
+theorem hdist_rotate (w : List ℕ)
+    (hdist : ∀ i j, i < w.length → j < w.length → C (w.rotate i) = C (w.rotate j) → i = j)
+    (k : ℕ) : ∀ i j, i < (w.rotate k).length → j < (w.rotate k).length →
+      C ((w.rotate k).rotate i) = C ((w.rotate k).rotate j) → i = j := by
+  intro i j hi hj hij
+  rw [List.length_rotate] at hi hj
+  have hlen : 0 < w.length := by omega
+  rw [List.rotate_rotate, List.rotate_rotate, ← List.rotate_mod w (k + i),
+    ← List.rotate_mod w (k + j)] at hij
+  have h1 := hdist _ _ (Nat.mod_lt _ hlen) (Nat.mod_lt _ hlen) hij
+  have h2 : i % w.length = j % w.length := Nat.ModEq.add_left_cancel' k h1
+  rwa [Nat.mod_eq_of_lt hi, Nat.mod_eq_of_lt hj] at h2
+
+/-- Shift invariance of a periodic natural sum over a period. -/
+theorem sum_range_shift_nat {m : ℕ} (f : ℕ → ℕ) (hper : ∀ t, f (t + m) = f t) (x : ℕ) :
+    ∑ t ∈ Finset.range m, f (x + t) = ∑ t ∈ Finset.range m, f t := by
+  induction x with
+  | zero => simp
+  | succ x ih =>
+    rw [← ih]
+    rcases Nat.eq_zero_or_pos m with hm0 | hmpos
+    · subst hm0
+      simp
+    · obtain ⟨n, rfl⟩ := Nat.exists_eq_succ_of_ne_zero hmpos.ne'
+      rw [Finset.sum_range_succ, Finset.sum_range_succ' (fun t => f (x + t))]
+      have h1 : f (x + 1 + n) = f (x + 0) := by
+        rw [Nat.add_zero, show x + 1 + n = x + (n + 1) by omega]
+        exact hper x
+      rw [h1]
+      congr 1
+      apply Finset.sum_congr rfl
+      intro t _
+      congr 1
+      omega
+
+/-- The mismatch count of the rotation `h` is the same for every rotation of the word. -/
+theorem mismatch_card_rotate (w : List ℕ) (k h : ℕ) :
+    ((Finset.range (w.rotate k).length).filter
+      (fun i => ((w.rotate k).rotate i).headD 0 ≠ ((w.rotate k).rotate (i + h)).headD 0)).card =
+    ((Finset.range w.length).filter
+      (fun i => (w.rotate i).headD 0 ≠ (w.rotate (i + h)).headD 0)).card := by
+  rw [List.length_rotate, Finset.card_filter, Finset.card_filter]
+  have hper : ∀ t, (if (w.rotate (t + w.length)).headD 0 ≠ (w.rotate (t + w.length + h)).headD 0
+      then 1 else 0) = (if (w.rotate t).headD 0 ≠ (w.rotate (t + h)).headD 0 then 1 else 0) := by
+    intro t
+    rw [rotate_add_length, show t + w.length + h = t + h + w.length by omega, rotate_add_length]
+  have hsh := sum_range_shift_nat
+    (fun t => if (w.rotate t).headD 0 ≠ (w.rotate (t + h)).headD 0 then 1 else 0) hper k
+  rw [← hsh]
+  apply Finset.sum_congr rfl
+  intro t _
+  rw [List.rotate_rotate, List.rotate_rotate, ← Nat.add_assoc]
+
+/-- The letter variation of the rotation `h` is the same for every rotation of the word. -/
+theorem Vh_sum_rotate (w : List ℕ) (k h : ℕ) :
+    ∑ t ∈ Finset.range (w.rotate k).length,
+        Int.natAbs ((((w.rotate k).rotate t).headD 0 : ℤ) -
+          (((w.rotate k).rotate (t + h)).headD 0 : ℤ)) =
+      ∑ t ∈ Finset.range w.length,
+        Int.natAbs (((w.rotate t).headD 0 : ℤ) - ((w.rotate (t + h)).headD 0 : ℤ)) := by
+  rw [List.length_rotate]
+  have hper : ∀ t, Int.natAbs (((w.rotate (t + w.length)).headD 0 : ℤ) -
+      ((w.rotate (t + w.length + h)).headD 0 : ℤ)) =
+      Int.natAbs (((w.rotate t).headD 0 : ℤ) - ((w.rotate (t + h)).headD 0 : ℤ)) := by
+    intro t
+    rw [rotate_add_length, show t + w.length + h = t + h + w.length by omega, rotate_add_length]
+  have hsh := sum_range_shift_nat
+    (fun t => Int.natAbs (((w.rotate t).headD 0 : ℤ) - ((w.rotate (t + h)).headD 0 : ℤ))) hper k
+  rw [← hsh]
+  apply Finset.sum_congr rfl
+  intro t _
+  rw [List.rotate_rotate, List.rotate_rotate, ← Nat.add_assoc]
+
+/-- **S9 (i) for every positive primitive word** (no normalisation). -/
+theorem word_two_mismatch_law' (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x)
+    (hD : 0 < D w)
+    (hdist : ∀ i j, i < w.length → j < w.length → C (w.rotate i) = C (w.rotate j) → i = j)
+    {h : ℕ} (hh : h % w.length ≠ 0)
+    (hs : ((Finset.range w.length).filter
+      (fun i => (w.rotate i).headD 0 ≠ (w.rotate (i + h)).headD 0)).card = 2) :
+    Real.log 2 + (((w.length - 1) / 2 : ℕ) : ℝ) * Real.log 3 <
+      Real.log (den w) + ((w.length : ℝ) - 1) * (Real.log 3 - Real.log 2) +
+        ((w.sum : ℝ) * Real.log 2 - w.length * Real.log 3) +
+        (Real.log w.length + (w.sum : ℝ) * Real.log 2 - Real.log 3 -
+          Real.log ((2 : ℝ) ^ w.sum - 3 ^ w.length)) := by
+  obtain ⟨k, hmin⟩ := exists_min_rotation w hw0
+  have hsum := sum_pos_of_pos w hw0 hpos
+  have hr0 : w.rotate k ≠ [] := NarrowCycle.rotate_ne_nil hw0 k
+  have hrpos : ∀ x ∈ w.rotate k, 1 ≤ x := fun x hx => hpos x (List.mem_rotate.mp hx)
+  have hrD : 0 < D (w.rotate k) := by
+    rw [D_rotate]
+    exact hD
+  have hrdist := hdist_rotate w hdist k
+  have hrh : h % (w.rotate k).length ≠ 0 := by
+    rw [List.length_rotate]
+    exact hh
+  have hrs : ((Finset.range (w.rotate k).length).filter
+      (fun i => ((w.rotate k).rotate i).headD 0 ≠ ((w.rotate k).rotate (i + h)).headD 0)).card
+      = 2 := by
+    rw [mismatch_card_rotate]
+    exact hs
+  have key := word_two_mismatch_law (w.rotate k) hr0 hrpos hrD hmin hrdist hrh hrs
+  rw [den_rotate w hw0 hsum k, List.length_rotate, rotate_sum] at key
+  exact key
+
+/-- **S9 (ii) for every positive primitive word** (no normalisation), `m ≥ 2^19`. -/
+theorem word_three_mismatch_law' (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x)
+    (hD : 0 < D w)
+    (hdist : ∀ i j, i < w.length → j < w.length → C (w.rotate i) = C (w.rotate j) → i = j)
+    (hm : 2 ^ 19 ≤ w.length) {h : ℕ} (hh1 : 1 ≤ h) (hhm : h < w.length)
+    (hs : ((Finset.range w.length).filter
+      (fun i => (w.rotate i).headD 0 ≠ (w.rotate (i + h)).headD 0)).card = 3) :
+    (w.length : ℝ) / 70 * Real.log 2 <
+      Real.log (den w) + ((w.sum : ℝ) * Real.log 2 - w.length * Real.log 3) +
+        (Real.log w.length + (w.sum : ℝ) * Real.log 2 - Real.log 3 -
+          Real.log ((2 : ℝ) ^ w.sum - 3 ^ w.length)) := by
+  obtain ⟨k, hmin⟩ := exists_min_rotation w hw0
+  have hsum := sum_pos_of_pos w hw0 hpos
+  have hr0 : w.rotate k ≠ [] := NarrowCycle.rotate_ne_nil hw0 k
+  have hrpos : ∀ x ∈ w.rotate k, 1 ≤ x := fun x hx => hpos x (List.mem_rotate.mp hx)
+  have hrD : 0 < D (w.rotate k) := by
+    rw [D_rotate]
+    exact hD
+  have hrdist := hdist_rotate w hdist k
+  have hrm : 2 ^ 19 ≤ (w.rotate k).length := by
+    rw [List.length_rotate]
+    exact hm
+  have hrhm : h < (w.rotate k).length := by
+    rw [List.length_rotate]
+    exact hhm
+  have hrs : ((Finset.range (w.rotate k).length).filter
+      (fun i => ((w.rotate k).rotate i).headD 0 ≠ ((w.rotate k).rotate (i + h)).headD 0)).card
+      = 3 := by
+    rw [mismatch_card_rotate]
+    exact hs
+  have key := word_three_mismatch_law (w.rotate k) hr0 hrpos hrD hmin hrdist hrm hh1 hrhm hrs
+  rw [den_rotate w hw0 hsum k, List.length_rotate, rotate_sum] at key
+  exact key
+
+/-- **S12's denominator law for every positive primitive word** (no normalisation). -/
+theorem word_dk_denominator_law' (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x)
+    (hD : 0 < D w)
+    (hdist : ∀ i j, i < w.length → j < w.length → C (w.rotate i) = C (w.rotate j) → i = j)
+    {h : ℕ} (hhm : h ≤ w.length) (hcop : Nat.Coprime h w.length) {q a : ℕ → ℕ}
+    (L : DK.Ladder q a) {n : ℕ} (hn : 1 ≤ n) (hqn : q n = w.length)
+    (hadm : ∀ i, i < n → ∃ p r, (q i * h = p * w.length + r ∨ p * w.length = q i * h + r) ∧
+      q i * r < w.length ∧ Nat.Coprime p (q i))
+    {s : ℕ} (hs1 : 1 ≤ s)
+    (hs : ((Finset.range w.length).filter
+      (fun i => (w.rotate i).headD 0 ≠ (w.rotate (i + h)).headD 0)).card = s) :
+    Real.log 2 + (((w.length - 1) / s : ℕ) : ℝ) * Real.log 3 <
+      Real.log (den w) + (Real.log w.length + (w.sum : ℝ) * Real.log 2 - Real.log 3 -
+          Real.log ((2 : ℝ) ^ w.sum - 3 ^ w.length)) +
+        (((∑ i ∈ Finset.Icc 1 n, a i : ℕ) : ℝ) - 1) *
+          (((∑ t ∈ Finset.range w.length,
+              Int.natAbs (((w.rotate t).headD 0 : ℤ) - ((w.rotate (t + h)).headD 0 : ℤ)) : ℕ) : ℝ) *
+              Real.log 2 +
+            2 * ((w.sum : ℝ) * Real.log 2 - w.length * Real.log 3)) := by
+  obtain ⟨k, hmin⟩ := exists_min_rotation w hw0
+  have hsum := sum_pos_of_pos w hw0 hpos
+  have hr0 : w.rotate k ≠ [] := NarrowCycle.rotate_ne_nil hw0 k
+  have hrpos : ∀ x ∈ w.rotate k, 1 ≤ x := fun x hx => hpos x (List.mem_rotate.mp hx)
+  have hrD : 0 < D (w.rotate k) := by
+    rw [D_rotate]
+    exact hD
+  have hrdist := hdist_rotate w hdist k
+  have hrhm : h ≤ (w.rotate k).length := by
+    rw [List.length_rotate]
+    exact hhm
+  have hrcop : Nat.Coprime h (w.rotate k).length := by
+    rw [List.length_rotate]
+    exact hcop
+  have hrqn : q n = (w.rotate k).length := by
+    rw [List.length_rotate]
+    exact hqn
+  have hradm : ∀ i, i < n → ∃ p r, (q i * h = p * (w.rotate k).length + r ∨
+      p * (w.rotate k).length = q i * h + r) ∧ q i * r < (w.rotate k).length ∧
+      Nat.Coprime p (q i) := by
+    rw [List.length_rotate]
+    exact hadm
+  have hrs : ((Finset.range (w.rotate k).length).filter
+      (fun i => ((w.rotate k).rotate i).headD 0 ≠ ((w.rotate k).rotate (i + h)).headD 0)).card
+      = s := by
+    rw [mismatch_card_rotate]
+    exact hs
+  have key := word_dk_denominator_law (w.rotate k) hr0 hrpos hrD hmin hrdist hrhm hrcop L hn
+    hrqn hradm hs1 hrs
+  rw [den_rotate w hw0 hsum k, Vh_sum_rotate, List.length_rotate, rotate_sum] at key
+  exact key
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

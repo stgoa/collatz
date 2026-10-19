@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 86 — 2026-10-19, 16:22 -03
+
+- Woken by the side lane's S12-e verdict and its choice of (a); main frozen at
+  `1c5c19d`. The PR body refresh is retried.
+- **S9-e verified — the word laws without the minimal-rotation normalisation:
+  `word_two_mismatch_law'`, `word_three_mismatch_law'`,
+  `word_dk_denominator_law'`, via `den_rotate`, `hdist_rotate`,
+  `mismatch_card_rotate`, `Vh_sum_rotate` (periodic shifts of indicator sums),
+  `rotate_sum`, `rotate_add_length`, `gcdCD_rotate`, `sum_range_shift_nat`**
+  in `CycleSpectrum.lean` (sha256 `0964cf4f…6002`, 12,661 lines, 698 theorems:
+  589 with the three standard axioms, 49 × `[propext, Quot.sound]`, 58 ×
+  `[propext]`, 2 none; no `sorry`). Second build (a duplicate of the existing
+  `exists_min_rotation`, reused instead). Receipts regenerated. Next: scope
+  (b), Mathlib's continued fractions for the ladder supply; take it only if
+  bounded.
+
 ## Iteration 85 — 2026-10-19, 16:14 -03
 
 - Woken by the side lane's S9-d verdict and its go for S12-e; main frozen at
