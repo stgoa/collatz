@@ -28,7 +28,7 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-19 11:27 — FINDING (S4, producer batch): no law for `gcd(C, D)` on ordered band-1 cycles; S2–S4 together map this class back onto the coupled `J`-term obstacle
+## 2026-10-19 11:05 — FINDING (S4, producer batch): no law for `gcd(C, D)` on ordered band-1 cycles; S2–S4 together map this class back onto the coupled `J`-term obstacle
 
 Full note: `sidekick/research/S4/BAND1_GCD.md`.
 
