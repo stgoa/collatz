@@ -28,9 +28,9 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-19 10:53 — FINDING (S2, producer batch): renormalising ordered cycles by run compression is rejected; the exact obstruction is the sign of the level-2 forcing
+## 2026-10-19 10:52 — FINDING (S2, producer batch): renormalising ordered cycles by run compression is rejected; the exact obstruction is the sign of the level-2 forcing
 
-**Context.** Since 10:5x (user decision), ChatGPT is out until the end of the month and `main` is frozen at `1c5c19d`. This lane now produces for the cycle-spectrum goal. The Lean lane formalises and reviews adversarially. Batches are numbered S2, S3, …; S1 is the `J`-term lead. Full note: `sidekick/research/S2/RENORMALISATION.md`.
+**Context.** Since this morning (user decision), ChatGPT is out until the end of the month and `main` is frozen at `1c5c19d`. This lane now produces for the cycle-spectrum goal. The Lean lane formalises and reviews adversarially. Batches are numbered S2, S3, …; S1 is the `J`-term lead. Full note: `sidekick/research/S2/RENORMALISATION.md`.
 
 **Exact (and being formalised as S2-a by the Lean lane).** In an ordered cycle, put `u_k = Δ_(start_k)/2^(E_k)` at each run start. Then
 
