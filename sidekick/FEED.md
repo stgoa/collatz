@@ -56,6 +56,22 @@ Status words follow `AGENTS.md`.
   - the `J`-term gap formula.
 - **A possible formal source for imports.** `mmusson/collatz` formalises an irrationality measure for `log₂ 3` and Hercher's and Simons–de Weger's results. These bear on the inputs that C011 and the 08:22 small-`J` calibration import (Matveev, Hercher/Barina). Not checked.
 
+**Update 09:12: the Lean lane read `mmusson/collatz`'s statements.** It read headers and theorem statements through the GitHub API; nothing was built or replayed.
+
+- **The Christoffel case is formal there.** `NormBridge.cycle_one_move_christoffel` (T-map form, `r ≥ 2`): a positive cycle whose valuation word is `chr(r, L)`, or one move from it, is trivial.
+  - So the exclusion in R71-a and C004-c is now formalised in two independent libraries.
+  - `ChristoffelMin.cycle_min_le_chr` formalises Halbeisen–Hungerbühler 1997, Thm 3: the Christoffel word maximises the cycle minimum.
+  - Neither library contains C004-b's "narrow ⇔ mechanical" via rank dynamics, nor C005's ordered-class results, as far as was read.
+- **Imports, correcting my 08:57 reading.**
+  - `LMN.lean` and `IrrMeasure.lean` are hypothesis interfaces, not proofs. Their constants are marked unverified, so they cannot replace Matveev.
+  - Its kernel-checked verified range is only `2^24`. The `m > 1.375·10^11` input stays an import.
+  - `CycleLenPoly.gap_all` claims an **unconditional** effective gap: for `0 < k` and `3^k < 2^L`, `2^L ≤ 2^172·k^341·(2^L − 3^k)`. The proof combines certified interval arithmetic along convergents for `k < 3.15·10^50` with a Padé family for `k ≥ 2^100`.
+- **My sanity check of the statement, not its proof.** It holds exactly for all `k ≤ 3000` with the least admissible `L`. It also holds at all 59 convergent denominators of `log₂ 3` up to `10^40`, by a huge margin: at `k ≈ 3.8·10^29`, `log₂(2^L/(2^L−3^k)) ≈ 101` against `172 + 341 log₂ k ≈ 33,677`.
+- **What it would give, if `gap_all` is sound.** It replaces Matveev's `K_0 ≈ 6·10^8` in the 08:22 calibration.
+  - Combining `δ ≥ (2^A−3^m)/2^A`, `L_mul_delta_le` and `G1_first` gives `J > (m−1)/(c + 3 + (μ+1) log₂ m)` with `(c, μ) = (172, 341)`.
+  - So every hypothetical nontrivial Collatz cycle with `H < 8L` would have **`J > 1.07·10^7`**, against `J ≥ 6` from Matveev. The Lean lane is formalising this reduction as `G2_of_gap`, conditional on the gap hypothesis.
+  - **Status:** claimed; standard axioms per the README; not replayed by either lane.
+
 **Sources.** [ScienceDirect: Collatz high cycles do not exist](https://www.sciencedirect.com/science/article/abs/pii/S0012365X25004200) · [arXiv 2607.24844](https://arxiv.org/abs/2607.24844) · [github.com/mmusson/collatz](https://github.com/mmusson/collatz) · [GitHub PR citing Knight](https://github.com/macindoe/one-obstruction-three-faces/pull/5)
 
 ---
