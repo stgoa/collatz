@@ -28,6 +28,38 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 09:00 — REFEREE (literature): the mechanical-word exclusion behind C004 is published (Knight), and Lean work on the Christoffel case exists outside this programme
+
+**Sources found.**
+
+- **Knight, "Collatz high cycles do not exist", *Discrete Mathematics* 349(3).** One citation says 2025, another 2026.
+  - A "high cycle" is the rational cycle whose parity vector is the upper Christoffel word of given length and odd density. Knight shows that no high cycle consists of positive integers, extending the result that the only circuit is 1-2-1.
+  - Translated from parity vectors to valuation words, upper Christoffel words are R71's mechanical words. So this is R71's exclusion, the core of C004-c. R71 already disclaims novelty.
+  - I could not open the paper (ScienceDirect returned 403). This summary comes from its abstract snippet and from the description in Fernández–Ibáñez.
+- **Fernández–Ibáñez, "Christoffel words as extremal structures in Collatz dynamics", arXiv 2607.24844 (24 July 2026).**
+  - Up to rotation, Christoffel words are the unique maximizers of the cycle minimum `C_min` among binary words of length `N` with `r` ones. The abstract also gives explicit bounds on the minimum element.
+  - This is close to R71 §3's high-control family and to C004's narrow class. I did not check whether C004's "narrow ⇔ mechanical" classification appears there.
+- **github.com/mmusson/collatz (2026, Lean 4 v4.34.0-rc2).** This is from its README; I did not read the source.
+  - It formalises literature cycle results: Terras, Böhm–Sontacchi, Crandall, Eliahou, Steiner, Simons, Simons–de Weger, Hercher, Halbeisen–Hungerbühler, an irrationality measure for `log₂ 3`, and verified ranges.
+  - It adds new exclusions of valuation words one move from a Christoffel word (`no_cycle_one_move_christoffel_all`), plus a "slide" version for `r ≥ 40901`.
+  - It credits Knight, Lebel, Mghirbi and Solomon for the Christoffel case.
+  - It uses only the standard axioms. There are three deliberate `sorry`s: the conjecture statement, and two goal statements that the README says are proved in other files.
+
+**Calibration consequences.**
+
+- **The mechanical exclusion is published.** Mechanical/Christoffel words are never integer cycles. The Lean lane's R71-a formalises this known result, and it is the core of C004-c.
+  - "First" in this feed's milestone entries (05:58, 07:19) means first in this programme. It does not mean first in the literature, nor necessarily first in Lean: the Christoffel case may already be formal in `mmusson/collatz`, which I did not check.
+- **Not found in these sources, novelty undetermined:**
+  - C004's classification "narrow (`H < 2L`) ⇔ mechanical";
+  - C005's rotation-block class;
+  - C011's two-defect class, which neighbours the "one move from Christoffel" class;
+  - the `J`-term gap formula.
+- **A possible formal source for imports.** `mmusson/collatz` formalises an irrationality measure for `log₂ 3` and Hercher's and Simons–de Weger's results. These bear on the inputs that C011 and the 08:22 small-`J` calibration import (Matveev, Hercher/Barina). Not checked.
+
+**Sources.** [ScienceDirect: Collatz high cycles do not exist](https://www.sciencedirect.com/science/article/abs/pii/S0012365X25004200) · [arXiv 2607.24844](https://arxiv.org/abs/2607.24844) · [github.com/mmusson/collatz](https://github.com/mmusson/collatz) · [GitHub PR citing Knight](https://github.com/macindoe/one-obstruction-three-faces/pull/5)
+
+---
+
 ## 2026-10-19 07:19 — VERIFIED Lean C005-h (`claude/lean-lane` `9d98bed`): C005's rotation-block exclusion is machine-checked unconditionally, the programme's second complete `d = 1` cycle exclusion
 
 **`rotation_block_exclusion_mech`.** Take a mechanical base `v = mech A₀ m₀ l₀` with `2 ≤ m₀ ≤ A₀`, `gcd(A₀, m₀) = 1` and `3^m₀ < 2^A₀`, in any phase. Every concatenation `w` of `r ≥ 1` rotations of `v`, in any order and with repetitions, has `D_w ∤ C_w`, so its cycle's reduced denominator exceeds 1. `single_block_exclusion` covers the one-letter bases `(a)` with `a ≥ 3`. So the only exception is the base `(2)`, the fixed point 1, exactly as C005 states.
@@ -497,6 +529,17 @@ The `q = 1` structural chain is formal up to R71's `g = 1`, and that is what rem
 - **Receipts.** Of 434 declarations, 350 use the standard three axioms, 37 use `[propext, Quot.sound]`, 45 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `282d9102…` matches all three binding receipts.
 - **Independent check.** `c006b_erun_check.py` covers 97 zero-forcing stretches on the 33 actual ordered `3x+q` cycles. On every one, `2^(e_run)` divides the start gap and `2^(e_run) < 2^B n_0`. In 77 of them `e_run > t`, so the refinement over `2^t` is strictly sharper in most cases.
 - **Still informal in C006.** (G4), `δ = Σ log(1 + q/(3n_i)) ≤ mq/(3L)`, is the lane's candidate next unit; it is the elementary `L` bound behind the 08:22 calibration. Also informal: the imported (G2)/(G5) and the `C_c` form of (G1).
+
+**Update 09:00: Lean C006-c is VERIFIED** (`b113413`). C006's (G4) is now formal for every `OddCycle`, at any `q` and with no ordering or reducedness hypothesis.
+
+- **The theorems.**
+  - `prod_arrow`: `2^A Π n_i = Π(3n_i + q)`.
+  - `log_identity`: `A log 2 − m log 3 = Σ log(1 + q/(3n_i))`, over ℝ.
+  - `G4`: `δ ≤ mq/(3L)`.
+  - `L_mul_delta_le`: the cleared form `3Lδ ≤ mq`.
+- **What this settles.** Together with `G1_first` and `run_bound_E_L`, the elementary half of the 08:22 small-`J` calibration is formal. Only Matveev's estimate and the Hercher/Barina period bound remain imports.
+- **Receipts.** Of 438 declarations, 354 use the standard three axioms, 37 use `[propext, Quot.sound]`, 45 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `2d600c05…` matches all three binding receipts.
+- **Independent check.** `c006c_g4_check.py` covers 93 actual cycles of `3x+q` for `q ∈ {1, 5, 7, 11, 13, 17, 19, 23, 29, 61, 233, 1201}`, ordered or not. On every cycle the integer product identity holds exactly, the log identity holds to 1e-12, and `δ ≤ mq/(3L)` holds. The bound is loose by a factor between 1.16 and 45.
 
 ---
 
