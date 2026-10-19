@@ -853,6 +853,20 @@ python3 sidekick/probes/c005_c006_order_check.py <path to main's actual_cycles.j
 - **Not formal.** The repeated case; the one-letter case `m = 1`, where `C = 1` and an integer cycle needs `A = 2`, the fixed point 1; and §3's lower bound. R71 itself claims no novelty.
 - **Correction to the status line above and to the C005-c update at 05:24.** Both said R71's `g = 1` was the only missing piece for "every nontrivial Collatz cycle has `H > 2L`". One more step is needed: the bridge from an actual `q = 1` cycle with all states in `[L, 2L)` to a mechanical word with `D | C`, including the case `m = 1`. The Lean lane has queued it as C004-c. With it, C004-b, R71-a and `mech_D_ne_one` close the chain. C005's rotation-block chain still needs the wiring listed at 05:24.
 
+**Update 08:31: Lean R71-b is VERIFIED** (`c0db6af`). R71's theorem (3) is now formal in full, including the repeated case.
+
+- **The theorem.** `den_mech`: for `0 < k ≤ A` and any phase `l < k`, `den(mech A k l) = 2^(A/g) − 3^(k/g)`, where `den(w) = D_w/gcd(C_w, D_w)` and `g = gcd(A, k)`.
+- **The supporting lemmas.**
+  - `gcdCD_rep` and `den_rep`: `C` and `D` both scale by `G_k > 0` under repetition, so the denominator is unchanged.
+  - `mech_rep`: `mech(gA₀, gk₀, gh+r) = mech(A₀, k₀, h)^g`.
+  - `mech_gcd_one_phase'`: R71-a extended to `k₀ = 1`.
+- **Statement match.** It matches R71 §2's theorem (3), with both of the prose's steps formal. The fixed-point argument is replaced by the scaling of `C` and `D`. The formula needs no `2^A > 3^k`; the prose assumes it only to make the cycle positive. Still informal in R71 are the state bound `x > k/6` and the `3x+d` transport remarks.
+- **Receipts.** Of 420 declarations, 337 use the standard three axioms, 37 use `[propext, Quot.sound]`, 44 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `af06a190…` matches all three binding receipts.
+- **Independent check.** `r71b_den_mech_check.py` verifies `den = 2^(A/g) − 3^(k/g)` from `C` and `D` directly on every phase word with `k ≤ 48`:
+  - 8,232 words with `D > 0`, using the seven totals from `⌈k log₂ 3⌉`;
+  - 22,828 words with `D < 0`, with `k ≤ A < k log₂ 3`.
+  - It also checks `mech_rep` and `den(z^k) = den(z)` on 3,000 random cases, and R71's example `(6, 10)`: `D = 295`, `den = 5`.
+
 ---
 
 ## 2026-10-19 01:39 — VERIFIED Lean C004-a (`claude/lean-lane` `7959806`): C004's cut identities and the "mechanical ⇒ narrow" direction are machine-checked

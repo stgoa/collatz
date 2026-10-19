@@ -1,0 +1,12 @@
+{
+ "probe": "r71b_den_mech_check",
+ "lean": "claude/lean-lane c0db6af",
+ "phase_words_D_pos": 8232,
+ "phase_words_D_neg": 22828,
+ "repetition_cases": 3000,
+ "example_(k,A)=(6,10)": {
+  "D": 295,
+  "den": 5
+ },
+ "result": "PASS"
+}
