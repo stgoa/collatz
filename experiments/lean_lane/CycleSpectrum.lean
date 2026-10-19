@@ -1489,5 +1489,277 @@ example : mech 5 3 0 = [1, 2, 2] ∧ (mech 5 3 0).rotate 1 = [2, 2, 1] ∧
 example : C [1, 2, 2] = 23 ∧ C [2, 2, 1] = 37 ∧ C [2, 1, 2] = 29 ∧ D [1, 2, 2] = 5 := by
   norm_num [C, D]
 
+/-! ### Toward C004's forward direction (narrow ⇒ mechanical), part 1: the cyclic recursion
+(1) on rotations, abstract narrow cycles, the exponent dichotomy, successor order and the
+rank-shift lemmas of `ROTATION_LATTICE.md` §3 -/
+
+/-- C004's (1) in cons form: `2^a C(v ++ [a]) = 3 C(a :: v) + D(a :: v)`. -/
+theorem C_cons_rotate (a : ℕ) (v : List ℕ) :
+    (2 : ℤ) ^ a * C (v ++ [a]) = 3 * C (a :: v) + D (a :: v) := by
+  rw [C_append]
+  simp only [C, D, List.sum_cons, List.length_cons, List.length_nil, pow_succ, pow_add, pow_zero,
+    one_mul, mul_zero, add_zero]
+  ring
+
+theorem D_rotate (w : List ℕ) (i : ℕ) : D (w.rotate i) = D w := by
+  simp only [D, (List.rotate_perm w i).sum_eq, List.length_rotate]
+
+/-- C004's (1) on rotations: if `w.rotate i = a :: v` then `2^a C_{i+1} = 3 C_i + D_w`. -/
+theorem C_rotate_succ {w : List ℕ} {i a : ℕ} {v : List ℕ} (h : w.rotate i = a :: v) :
+    (2 : ℤ) ^ a * C (w.rotate (i + 1)) = 3 * C (w.rotate i) + D w := by
+  have h1 : w.rotate (i + 1) = v ++ [a] := by
+    rw [← List.rotate_rotate, h, List.rotate_cons_succ, List.rotate_zero]
+  rw [h1, h, ← D_rotate w i, h]
+  exact C_cons_rotate a v
+
+/-- The exponent `q` of C004 §3 exists: `2^q lo ≤ 3 lo + d < 2^{q+1} lo`. -/
+theorem exists_exponent {lo d : ℤ} (hlo : 0 < lo) (hd : 0 < d) :
+    ∃ q : ℕ, (2 : ℤ) ^ q * lo ≤ 3 * lo + d ∧ 3 * lo + d < 2 ^ (q + 1) * lo := by
+  classical
+  have hex : ∃ n : ℕ, 3 * lo + d < 2 ^ (n + 1) * lo := by
+    obtain ⟨n, hn⟩ := pow_unbounded_of_one_lt (3 * lo + d) (by norm_num : (1 : ℤ) < 2)
+    refine ⟨n, ?_⟩
+    have h1 : (2 : ℤ) ^ n ≤ 2 ^ (n + 1) := pow_le_pow_right₀ (by norm_num) (Nat.le_succ n)
+    have h2 : (2 : ℤ) ^ (n + 1) ≤ 2 ^ (n + 1) * lo :=
+      le_mul_of_one_le_right (by positivity) (by linarith)
+    linarith
+  refine ⟨Nat.find hex, ?_, Nat.find_spec hex⟩
+  rcases Nat.eq_zero_or_pos (Nat.find hex) with h0 | hpos
+  · rw [h0, pow_zero, one_mul]; linarith
+  · have hmin := Nat.find_min hex (Nat.sub_lt hpos Nat.one_pos)
+    rw [Nat.sub_add_cancel hpos] at hmin
+    exact not_lt.mp hmin
+
+/-- The exponent dichotomy of C004 §3: if the states `x, y` of an arrow `2^a y = 3x + d` lie in
+`[lo, 2 lo)` and `2^q lo ≤ 3 lo + d < 2^{q+1} lo`, then `a = q` exactly when
+`3x + d < 2^{q+1} lo`, and `a = q + 1` exactly when `2^{q+1} lo ≤ 3x + d`. -/
+theorem exponent_dichotomy {lo d x y : ℤ} {a q : ℕ} (hd : 0 < d) (hx : lo ≤ x) (hx2 : x < 2 * lo)
+    (hy : lo ≤ y) (hy2 : y < 2 * lo) (harrow : (2 : ℤ) ^ a * y = 3 * x + d)
+    (hq1 : (2 : ℤ) ^ q * lo ≤ 3 * lo + d) (hq2 : 3 * lo + d < 2 ^ (q + 1) * lo) :
+    (a = q ∧ 3 * x + d < 2 ^ (q + 1) * lo) ∨ (a = q + 1 ∧ 2 ^ (q + 1) * lo ≤ 3 * x + d) := by
+  have hlo : 0 < lo := by linarith
+  have h2a : (0 : ℤ) < 2 ^ a := by positivity
+  rcases lt_trichotomy a q with hlt | heq | hgt
+  · exfalso
+    have h1 : (2 : ℤ) ^ (a + 1) ≤ 2 ^ q := pow_le_pow_right₀ (by norm_num) hlt
+    rw [pow_succ] at h1
+    nlinarith [mul_lt_mul_of_pos_left hy2 h2a, mul_le_mul_of_nonneg_right h1 hlo.le]
+  · subst heq
+    left
+    refine ⟨rfl, ?_⟩
+    rw [pow_succ]
+    nlinarith [mul_lt_mul_of_pos_left hy2 h2a]
+  · rcases Nat.lt_or_ge (q + 1) a with hgt2 | hle
+    · exfalso
+      have h1 : (2 : ℤ) ^ (q + 2) ≤ 2 ^ a := pow_le_pow_right₀ (by norm_num) hgt2
+      rw [pow_add] at h1
+      rw [pow_succ] at hq2
+      nlinarith [mul_le_mul_of_nonneg_left hy h2a.le, mul_le_mul_of_nonneg_right h1 hlo.le]
+    · have ha : a = q + 1 := le_antisymm hle hgt
+      subst ha
+      right
+      refine ⟨rfl, ?_⟩
+      nlinarith [mul_le_mul_of_nonneg_left hy h2a.le]
+
+/-- Successors of two states with the same exponent compare as the states. -/
+theorem succ_order_same {d x x' y y' : ℤ} {a : ℕ} (harrow : (2 : ℤ) ^ a * y = 3 * x + d)
+    (harrow' : (2 : ℤ) ^ a * y' = 3 * x' + d) : y < y' ↔ x < x' := by
+  have h2a : (0 : ℤ) < 2 ^ a := by positivity
+  constructor
+  · intro h; nlinarith [mul_lt_mul_of_pos_left h h2a]
+  · intro h; exact lt_of_mul_lt_mul_left (by linarith) h2a.le
+
+/-- A high-exponent successor lies below every low-exponent successor (narrow states). -/
+theorem succ_order_high_low {lo d x x' y y' : ℤ} {q : ℕ} (hd : 0 < d) (hx2 : x < 2 * lo)
+    (hx' : lo ≤ x') (harrow : (2 : ℤ) ^ (q + 1) * y = 3 * x + d)
+    (harrow' : (2 : ℤ) ^ q * y' = 3 * x' + d) : y < y' := by
+  have h2q : (0 : ℤ) < 2 ^ q := by positivity
+  rw [pow_succ] at harrow
+  have h : (2 : ℤ) ^ q * 2 * y < 2 ^ q * 2 * y' := by linarith
+  exact lt_of_mul_lt_mul_left h (by positivity)
+
+/-- Abstract data of a narrow positive rational cycle of period `m` (C004 §3): states `x i`,
+periodic mod `m`, all in `[lo, 2 lo)`; exponents `a i` with the arrows
+`2^{a i} x(i+1) = 3 x i + d`, `d > 0`; and the exponent `q` with `2^q lo ≤ 3 lo + d < 2^{q+1} lo`.
+-/
+structure NarrowCycle (m : ℕ) where
+  x : ℕ → ℤ
+  a : ℕ → ℕ
+  d : ℤ
+  lo : ℤ
+  q : ℕ
+  hm : 0 < m
+  hd : 0 < d
+  periodic : ∀ i, x (i + m) = x i
+  arrow : ∀ i, (2 : ℤ) ^ a i * x (i + 1) = 3 * x i + d
+  lower : ∀ i, lo ≤ x i
+  upper : ∀ i, x i < 2 * lo
+  hq1 : (2 : ℤ) ^ q * lo ≤ 3 * lo + d
+  hq2 : 3 * lo + d < 2 ^ (q + 1) * lo
+
+namespace NarrowCycle
+
+variable {m : ℕ} (N : NarrowCycle m)
+
+theorem lo_pos : 0 < N.lo := by
+  have h1 := N.lower 0
+  have h2 := N.upper 0
+  linarith
+
+/-- Index `i` is *high* when its arrow has exponent `q + 1`. -/
+def high (i : ℕ) : Prop := 2 ^ (N.q + 1) * N.lo ≤ 3 * N.x i + N.d
+
+instance decHigh (i : ℕ) : Decidable (N.high i) :=
+  inferInstanceAs (Decidable (2 ^ (N.q + 1) * N.lo ≤ 3 * N.x i + N.d))
+
+/-- The exponent dichotomy on the cycle. -/
+theorem a_eq (i : ℕ) : N.a i = if N.high i then N.q + 1 else N.q := by
+  have hdi := exponent_dichotomy N.hd (N.lower i) (N.upper i) (N.lower (i + 1))
+    (N.upper (i + 1)) (N.arrow i) N.hq1 N.hq2
+  split_ifs with hc
+  · rcases hdi with ⟨_, h2⟩ | ⟨h1, _⟩
+    · exact absurd hc (not_le.mpr h2)
+    · exact h1
+  · rcases hdi with ⟨h1, _⟩ | ⟨_, h2⟩
+    · exact h1
+    · exact absurd h2 hc
+
+theorem a_of_low {i : ℕ} (hi : ¬ N.high i) : N.a i = N.q := by rw [N.a_eq, ite_eq_right hi]
+
+theorem a_of_high {i : ℕ} (hi : N.high i) : N.a i = N.q + 1 := by rw [N.a_eq, ite_eq_left hi]
+
+/-- Low states lie below high states. -/
+theorem x_lt_of_low_high {i j : ℕ} (hi : ¬ N.high i) (hj : N.high j) : N.x i < N.x j := by
+  have hi' : 3 * N.x i + N.d < 2 ^ (N.q + 1) * N.lo := by simpa [high, not_le] using hi
+  have hj' : 2 ^ (N.q + 1) * N.lo ≤ 3 * N.x j + N.d := hj
+  linarith
+
+theorem succ_lt_iff_low {i j : ℕ} (hi : ¬ N.high i) (hj : ¬ N.high j) :
+    N.x (i + 1) < N.x (j + 1) ↔ N.x i < N.x j := by
+  have h1 := N.arrow i
+  have h2 := N.arrow j
+  rw [N.a_of_low hi] at h1
+  rw [N.a_of_low hj] at h2
+  exact succ_order_same h1 h2
+
+theorem succ_lt_iff_high {i j : ℕ} (hi : N.high i) (hj : N.high j) :
+    N.x (i + 1) < N.x (j + 1) ↔ N.x i < N.x j := by
+  have h1 := N.arrow i
+  have h2 := N.arrow j
+  rw [N.a_of_high hi] at h1
+  rw [N.a_of_high hj] at h2
+  exact succ_order_same h1 h2
+
+theorem succ_lt_of_high_low {i j : ℕ} (hi : N.high i) (hj : ¬ N.high j) :
+    N.x (i + 1) < N.x (j + 1) := by
+  have h1 := N.arrow i
+  have h2 := N.arrow j
+  rw [N.a_of_high hi] at h1
+  rw [N.a_of_low hj] at h2
+  exact succ_order_high_low N.hd (N.upper i) (N.lower j) h1 h2
+
+/-- Shifting the summation index once around the cycle. -/
+theorem sum_range_shift (f : ℕ → ℕ) (hf : f m = f 0) :
+    ∑ j ∈ Finset.range m, f (j + 1) = ∑ j ∈ Finset.range m, f j := by
+  have h1 := Finset.sum_range_succ f m
+  have h2 := Finset.sum_range_succ' f m
+  omega
+
+theorem x_add_mul (n k : ℕ) : N.x (n + m * k) = N.x n := by
+  induction k with
+  | zero => simp
+  | succ k ih => rw [Nat.mul_succ, ← Nat.add_assoc, N.periodic, ih]
+
+theorem x_mod (i : ℕ) : N.x (i % m) = N.x i := by
+  conv_rhs => rw [← Nat.mod_add_div i m]
+  exact (N.x_add_mul _ _).symm
+
+theorem x_m : N.x m = N.x 0 := by simpa using N.periodic 0
+
+/-- The rank of index `i`: the number of indices `j < m` whose state lies below `x i`. -/
+def rank (i : ℕ) : ℕ := ∑ j ∈ Finset.range m, if N.x j < N.x i then 1 else 0
+
+/-- The number of high indices among `0, …, m − 1` (C004's `h`). -/
+def numHigh : ℕ := ∑ j ∈ Finset.range m, if N.high j then 1 else 0
+
+theorem numHigh_add_low :
+    N.numHigh + (∑ j ∈ Finset.range m, if N.high j then 0 else 1) = m := by
+  unfold numHigh
+  rw [← Finset.sum_add_distrib]
+  calc (∑ j ∈ Finset.range m, ((if N.high j then 1 else 0) + if N.high j then 0 else 1))
+      = ∑ j ∈ Finset.range m, 1 := Finset.sum_congr rfl (fun j _ => by split_ifs <;> omega)
+    _ = m := by simp
+
+theorem numHigh_le : N.numHigh ≤ m := by
+  have := N.numHigh_add_low
+  omega
+
+theorem sum_low : (∑ j ∈ Finset.range m, if N.high j then 0 else 1) = m - N.numHigh := by
+  have := N.numHigh_add_low
+  omega
+
+theorem rank_succ (i : ℕ) :
+    N.rank (i + 1) = ∑ j ∈ Finset.range m, if N.x (j + 1) < N.x (i + 1) then 1 else 0 := by
+  unfold rank
+  exact (sum_range_shift (fun j => if N.x j < N.x (i + 1) then 1 else 0) (by simp [N.x_m])).symm
+
+/-- **C004 §3, rank shift at a low index:** `rank(i+1) = rank(i) + h`. -/
+theorem rank_succ_of_low {i : ℕ} (hi : ¬ N.high i) : N.rank (i + 1) = N.rank i + N.numHigh := by
+  rw [N.rank_succ, rank, numHigh, ← Finset.sum_add_distrib]
+  apply Finset.sum_congr rfl
+  intro j _
+  by_cases hj : N.high j
+  · simp only [ite_eq_left (N.succ_lt_of_high_low hj hi),
+      ite_eq_right (not_lt.mpr (N.x_lt_of_low_high hi hj).le), ite_eq_left hj, zero_add]
+  · simp only [ite_eq_right hj, add_zero]
+    by_cases hx : N.x j < N.x i
+    · simp only [ite_eq_left hx, ite_eq_left ((N.succ_lt_iff_low hj hi).mpr hx)]
+    · simp only [ite_eq_right hx, ite_eq_right ((fun h => hx ((N.succ_lt_iff_low hj hi).mp h)) :
+        ¬ N.x (j + 1) < N.x (i + 1))]
+
+/-- **C004 §3, rank shift at a high index:** `rank(i) = rank(i+1) + (m − h)`. -/
+theorem rank_of_high {i : ℕ} (hi : N.high i) : N.rank i = N.rank (i + 1) + (m - N.numHigh) := by
+  rw [← N.sum_low, N.rank_succ, rank, ← Finset.sum_add_distrib]
+  apply Finset.sum_congr rfl
+  intro j _
+  by_cases hj : N.high j
+  · simp only [ite_eq_left hj, add_zero]
+    by_cases hx : N.x j < N.x i
+    · simp only [ite_eq_left hx, ite_eq_left ((N.succ_lt_iff_high hj hi).mpr hx)]
+    · simp only [ite_eq_right hx, ite_eq_right ((fun h => hx ((N.succ_lt_iff_high hj hi).mp h)) :
+        ¬ N.x (j + 1) < N.x (i + 1))]
+  · simp only [ite_eq_left (N.x_lt_of_low_high hj hi),
+      ite_eq_right (not_lt.mpr (N.succ_lt_of_high_low hi hj).le), ite_eq_right hj, zero_add]
+
+/-- A high index has rank at least `m − h`. -/
+theorem rank_ge_of_high {i : ℕ} (hi : N.high i) : m - N.numHigh ≤ N.rank i := by
+  rw [← N.sum_low, rank]
+  apply Finset.sum_le_sum
+  intro j _
+  by_cases hj : N.high j
+  · simp only [ite_eq_left hj]
+    exact Nat.zero_le _
+  · simp only [ite_eq_right hj, ite_eq_left (N.x_lt_of_low_high hj hi), le_refl]
+
+/-- A low index `i < m` has rank below `m − h`. -/
+theorem rank_lt_of_low {i : ℕ} (hi : i < m) (hlow : ¬ N.high i) : N.rank i < m - N.numHigh := by
+  rw [← N.sum_low, rank]
+  apply Finset.sum_lt_sum
+  · intro j _
+    by_cases hj : N.high j
+    · have h : ¬ N.x j < N.x i := not_lt.mpr (N.x_lt_of_low_high hlow hj).le
+      simp only [ite_eq_right h, ite_eq_left hj, le_refl]
+    · simp only [ite_eq_right hj]
+      split_ifs <;> omega
+  · exact ⟨i, Finset.mem_range.mpr hi, by simp [hlow]⟩
+
+/-- The high indices are exactly the `h` largest ranks. -/
+theorem high_iff_rank {i : ℕ} (hi : i < m) : N.high i ↔ m - N.numHigh ≤ N.rank i :=
+  ⟨N.rank_ge_of_high, fun h => by
+    by_contra hlow
+    exact absurd h (not_le.mpr (N.rank_lt_of_low hi hlow))⟩
+
+end NarrowCycle
+
 end Cyc
 end LeanLane

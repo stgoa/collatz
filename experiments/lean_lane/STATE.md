@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 15 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 16 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -38,7 +38,7 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | C002-a | Two growing blocks (main's C002 `PROPORTIONAL.md`): identities (1)–(4) for `u^k v^ℓ`, the divisibility (5) `g ∣ |K|·gcd(G_u(k), G_v(ℓ))` with no coprimality premise, strong divisibility `gcd(U^i − V^i, U^j − V^j) = |U^gcd − V^gcd|` for coprime `U, V`, the intercept facts (`C > 0`, `C` odd, `C` injective on positive words of fixed length and total, the bound (U2) `2^m C_z ≤ 2^A(3^m − 2^m)`), and **the uniform equal-total exclusion (U1)**: for distinct positive words of the same length `m` and total `A` with `2^A > 3^m`, `k, ℓ ≥ 1`, `k + ℓ ≥ 3`, the reduced denominator of `u^k v^ℓ` exceeds `2^m · 2^A/3^m` (`2^A · 2^m · gcd(C, D) < 3^m · D`, the prose's full bound) and hence `2^m` | `experiments/cycle_spectrum/C002/PROPORTIONAL.md` §§1–2 | **verified** (iteration 13): `CycleSpectrum.lean`, `LeanLane.Cyc.commutator_two_u`, `commutator_two_v`, `gcd_dvd_K_mul_gcd`, `gcd_pow_sub_pow`, `C_injective`, `two_pow_mul_C_le`, `uniform_two_block_strong`, `uniform_two_block` | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated) |
 | C003-a | Main's C003 effective theorem (`PROPORTIONAL_UNIFORM.md`): the fixed-pair bounds (5) `den(u^k v^ℓ) > Q^k D_v/|K|` and `> S^ℓ D_u/|K|` for contracting blocks with `K ≠ 0`, `k, ℓ ≥ 1`; the intercept/fixed-point bounds (7)–(9); and the uniform bound (6) `den > 2^M Q_*^{t_*−3}` (`M = max(m_u, m_v)`, the `Q_*` block repeated `t_* ≥ 3` times, the other at least once) — proved purely algebraically from the commutator identities (3)–(4) and `g ∣ K·G_v(ℓ)`, `g ∣ K·G_u(k)`, without the integrality of cycle states | `experiments/cycle_spectrum/C003/PROPORTIONAL_UNIFORM.md` §§2–3 | **verified** (iteration 14): `CycleSpectrum.lean`, `LeanLane.Cyc.fixed_pair_bound_u`, `fixed_pair_bound_v`, `two_pow_mul_C_lt`, `F_mono`, `two_pow_mul_C_lt_M`, `K_bound`, `uniform_bound_u`, `uniform_bound_v`, `uniform_bound_max_u` (helpers `G_pos`, `gcd_dvd_K_mul_Gv`, `gcd_dvd_K_mul_Gu`, `D_two_pos`) | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 51 theorems printed) |
 | C004-a | Main's C004 (`ROTATION_LATTICE.md`): the one-letter cut identities (6) `2^{a_i} K_i = (2^{a_i} − 3) C_i − D` (the `k = 1` case of `commutator`) and (7) `gcd(D, K_i) = g · gcd(D/g, 2^{a_i} − 3)` for `a_i ≥ 1`; the reverse narrow direction of §3: the phase words `mech A m l` (`a_j = ⌊((j+1)A + l)/m⌋ − ⌊(jA + l)/m⌋`) have length `m`, total `A`, `D = 2^A − 3^m`, intercepts `C_0 ≤ C_l < 2 C_0` for `l < m`, and every rotation of `mech A m l` is the phase `(l + iA) mod m`; hence every rotation of the mechanical word has intercept in `[C_0, 2C_0)` with the common `D`: `H < 2L` (no coprimality of `A, m` is needed for the inequalities) | `experiments/cycle_spectrum/C004/ROTATION_LATTICE.md` §§2–3 | **verified** (iteration 15): `CycleSpectrum.lean`, `LeanLane.Cyc.cut_identity`, `cut_gcd`, `mech`, `C_diffWord`, `C_mech`, `D_mech`, `mech_pos`, `C_mech_zero_le`, `C_mech_lt_two`, `mech_rotate`, `narrow_mech` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 75 theorems printed) |
-| C004-b | The forward narrow-cycle theorem (a primitive rational cycle with `H < 2L` has sorted ranks shifted by `h`, `gcd(h, m) = 1`, and its word is `mech (mq + h) m l` for some phase) — larger finite-combinatorics unit; the Smith forms `diag(1, …, 1, D)`, `diag(1, …, 1, g)` of §2 stay queued separately (Smith normal form is thin in Mathlib) | same, §§2–3 | **next** (forward direction), unless main pushes a claim that needs backing first | — | — |
+| C004-b | The forward narrow-cycle theorem (a primitive rational cycle with `H < 2L` has sorted ranks shifted by `h`, `gcd(h, m) = 1`, and its word is `mech (mq + h) m l` for some phase). **Part 1 verified** (iteration 16): C004's (1) on rotations (`C_cons_rotate`, `D_rotate`, `C_rotate_succ`), the exponent `q` (`exists_exponent`), the exponent dichotomy (`exponent_dichotomy`), successor order (`succ_order_same`, `succ_order_high_low`), and on the abstract structure `NarrowCycle m` (states `x i` periodic mod `m` in `[lo, 2lo)`, arrows `2^{a i} x(i+1) = 3 x i + d`, `d > 0`, exponent `q`): `a_eq` (`a i = q` or `q + 1` according to the threshold `high i`), `x_lt_of_low_high`, `succ_lt_iff_low`/`succ_lt_iff_high`, `succ_lt_of_high_low`, the ranks `rank i = #{j < m : x j < x i}` and `numHigh = h`, the **rank shift** `rank_succ_of_low` (`rank(i+1) = rank i + h`) and `rank_of_high` (`rank i = rank(i+1) + (m − h)`), and `high_iff_rank` (`high i ↔ m − h ≤ rank i` for `i < m`). **Part 2 (next):** `rank i = (rank 0 + ih) mod m` by induction, `1 ≤ h ≤ m − 1` and `gcd(h, m) = 1` from distinct states, the letters `a i = q + ⌊(i+1)h/m⌋ − ⌊ih/m⌋`, hence `w = mech (mq + h) m l`; the instance `x i = C (w.rotate i)` for a positive word with `D > 0`. The Smith forms of §2 stay queued separately | same, §§2–3 | **in progress** (part 1 verified, part 2 next) | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 103 theorems printed) |
 | C002-b | The proportional-slope theorem (6)–(8) in its general `(r, s)` form, the `K = 0` characterisation, the rotating mechanical family of §4; the unequal-slope application is an imported ineffective theorem and is not a Lean target | same, §§2–4 | queued | — | — |
 | V006-a | Quadratic separation (main's V006 `overlap.md` §2): for `F` not eventually periodic, the states `Q_(a,t) = F(t₀ + t + s₂(3^a n))` are pairwise distinct (`(a,t) ↦ Q_(a,t)` injective); `Q_(a,t)` lies in the joint section family through depth `a + t`; hence that family through depth `D` has at least `(D+1)(D+2)/2` members (main's (4)); with the digit-count identities (5), (6), (7) (block additivity, complement, balanced quotient, `3^(r+1) ∣ 2^(3^r) + 1`) | `experiments/viewpoints/V006/overlap.md` §2, `QUADRATIC_REVIEW.md` | **verified** (iteration 10): `QuadraticSeparation.lean`, `LeanLane.Quad.Q_injective`, `Q_mem_Reach`, `triangle_encard_le`, `card_triangle`, `reach_encard_ge`, `s2_mul_pow_sub`, `s2_mul_pow_sub_one`, `s2_balanced`, `three_pow_dvd` | `[propext, Classical.choice, Quot.sound]` | `receipts/QuadraticSeparation.{build,axioms,sha256}.txt` |
 | V007-b | Singleton-exit theorem (V007 `separator.md` §§2–4) under the infinitude hypothesis (I): larger unit (bit algebra by `decide`, recursive propagation, tail evaluation formulas) | `experiments/viewpoints/V007/separator.md` | queued (larger) | — | — |
@@ -391,8 +391,43 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   `(2,2,1)`, `(2,1,2)` and intercepts `23, 37, 29` (C004's table), by `decide`
   and `norm_num`; the `(1,2,2)` cut has `K = −14`, (6) reads `−28 = −28`, and
   both sides of (7) are `1`.
+- C004-b (part 1): `ROTATION_LATTICE.md` §1 (1), `2^{a_i} C_{i+1} − 3 C_i =
+  D`, is `C_rotate_succ` on `List.rotate` (`w.rotate i = a :: v` gives `2^a
+  C(w.rotate (i+1)) = 3 C(w.rotate i) + D_w`), through `C_cons_rotate` and
+  `D_rotate`. §3's forward proof is formalised on an abstract structure
+  `NarrowCycle m` carrying exactly the data the prose uses: states `x i` (the
+  rotated numerators, periodic mod `m`) with `lo ≤ x i < 2 lo` (narrowness `H
+  < 2L` with `L = lo/d`), the arrows `2^{a i} x(i+1) = 3 x i + d` with `d >
+  0`, and the exponent `q` with `2^q lo ≤ 3 lo + d < 2^{q+1} lo` (the prose's
+  `q = ⌊log₂(f_0/L)⌋`; `exists_exponent` supplies it). The prose's "the
+  exponents are `q` or `q+1`" is `exponent_dichotomy`/`a_eq`, with `high i :⇔
+  2^{q+1} lo ≤ 3 x i + d` the prose's high block (`x_lt_of_low_high`: every
+  low state lies below every high state, so the high block is a final segment
+  of the sorted order). The prose's "after division the high block comes
+  before the low block, and outputs within each block remain increasing" is
+  `succ_lt_of_high_low` and `succ_lt_iff_low`/`succ_lt_iff_high`. The prose's
+  "the successor of sorted rank `j` has rank `j + h mod m`" is proved as a
+  counting statement without sorting: with `rank i = #{j < m : x j < x i}` and
+  `h = numHigh`, `rank_succ_of_low` gives `rank(i+1) = rank i + h` and
+  `rank_of_high` gives `rank i = rank(i+1) + (m − h)` (the index sum is
+  shifted once around the cycle by `sum_range_shift`, then compared termwise
+  by the order lemmas); `high_iff_rank` identifies the high indices with the
+  `h` largest ranks. Not yet formalised (part 2): the induction `rank i =
+  (rank 0 + ih) mod m`, `1 ≤ h ≤ m − 1` and `gcd(h, m) = 1` (which need the
+  prose's primitivity, i.e. distinct states, and `m > 1`), the letter formula
+  `a_i = q + ⌊(i+1)h/m⌋ − ⌊ih/m⌋` with `A = mq + h`, the identification of the
+  word with `mech`, and the instantiation of `NarrowCycle` by the rotations of
+  a positive word. Part 1 uses neither coprimality nor primitivity.
 
 ## Insights sent to the feed
+
+- Iteration 16 (sidekick `f054db4`; main unchanged at `61cf54a`): the side
+  lane verified C004-a (feed 01:39 — statement match for (6)–(7) and the
+  reverse narrow direction with no coprimality, `C_mech` recovers R71's sum,
+  the `(1,2,2)` control; axioms 51 × standard, 7 × `[propext, Quot.sound]`, 16
+  × `[propext]`, `diffWord_zero` none; clean build; scan with only small
+  `decide` uses and no `native_decide`; hash match). Nothing new from main;
+  the part-1 report of C004-b was sent after the build.
 
 - Iteration 15 (sidekick `2ea1c7f`; main unchanged at `61cf54a`): the side
   lane verified C003-a (feed 01:19 — statement match with C003 §2, block `u`

@@ -3,6 +3,30 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 16 — 2026-10-19, 01:54 -03
+
+- Woken by the sidekick's verdict message and push `f054db4` (feed 01:39):
+  **C004-a verified** (details in STATE "Insights"). Main unchanged at
+  `61cf54a`; the monitor re-armed during iteration 15 is still running.
+- **C004-b part 1 verified** in `CycleSpectrum.lean` (sha256 `bc20673f…02da`,
+  1765 lines, 103 theorems: 73 with the three standard axioms, 29 needing only
+  subsets, `diffWord_zero` none): `C_cons_rotate`/`D_rotate`/`C_rotate_succ`
+  (C004's (1) on rotations), `exists_exponent`, `exponent_dichotomy`,
+  `succ_order_same`, `succ_order_high_low`; the structure `NarrowCycle m` with
+  `lo_pos`, `high`, `a_eq`, `a_of_low`/`a_of_high`, `x_lt_of_low_high`,
+  `succ_lt_iff_low`/`_high`, `succ_lt_of_high_low`, `sum_range_shift`,
+  `x_add_mul`/`x_mod`/`x_m`, `rank`, `numHigh`,
+  `numHigh_add_low`/`numHigh_le`/`sum_low`, `rank_succ`,
+  **`rank_succ_of_low`**, **`rank_of_high`**, `rank_ge_of_high`,
+  `rank_lt_of_low`, `high_iff_rank`. Design: the rank shift is proved by
+  shifting the index sum once around the cycle
+  (`Finset.sum_range_succ`/`succ'`) and comparing termwise, with no sorting
+  and no reindexing bijection. Two compile rounds: clean on the first; the
+  second only renamed the deprecated `if_pos`/`if_neg` to
+  `ite_eq_left`/`ite_eq_right` and dropped three unused simp arguments.
+  Receipts regenerated. Part 2 (rank formula, `gcd(h, m) = 1`, the word
+  identification, the list instance) is recorded in STATE.
+
 ## Iteration 15 — 2026-10-19, 01:38 -03
 
 - Woken by the sidekick's push `2ea1c7f` (feed 01:19): **C003-a verified** —
