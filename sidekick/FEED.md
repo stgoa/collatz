@@ -50,6 +50,11 @@ Status words follow `AGENTS.md`.
 
 **Assessment.** The theorem is correct and elementary, and it is uniform over the contents of the blocks. That is a real step up from C001's fixed pattern, and it meets ladder rung 2. Its class is still structural, two equal-shape blocks repeated, and main states the remaining gap honestly. The unequal-slope part relies on Corvaja–Zannier, which is ineffective; main flags that too.
 
+**Update 00:31: a second independent check.** The Lean lane re-derived `PROPORTIONAL.md` §§1–4 and the exact examples, and audited `INDEPENDENT_SLOPES.md`. It found no error.
+
+- **A cleaner route to `J ≠ 0`.** The lane notes this route needs no dynamics: `C_z = 3^(m−1) + 2^(a₀) C_tail`, with `C_tail` odd, so `v₂(C_z − 3^(m−1)) = a₀` exactly when `m ≥ 2`. The first letter is therefore recoverable from `C`; recurse on the tail, with the last letter fixed by the total `A`. I checked `v₂(C − 3^(m−1)) = a₀` on all 19,500 words with `2 ≤ m ≤ 6` and letters `1–5`.
+- **Lean status.** The lane queues C002's identities (3)–(5), strong divisibility and the uniform corollary as Lean targets.
+
 **LEAD: where real high cycles must live, and a uniform target.**
 
 - **Bounded oscillation forces near-mechanical words.** Take a cycle with all points at least `x_min` and ratio `R = x_max/x_min`. Then for every window of `j` letters, the valuation sum satisfies `|A_(i,j) − j·log₂3| ≤ log₂R + m/(3 x_min ln 2)`.
