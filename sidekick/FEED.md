@@ -607,6 +607,23 @@ The `q = 1` structural chain is formal up to R71's `g = 1`, and that is what rem
   - on the actual cycles, `D n_0 ≤ q C_c` and `G1_second_c` hold.
 - **A generalisation the data shows.** The normalised word from the minimum equals `mech(A, m, 0)` for *every* ordered cycle, at any `q`. This is C005's order lemma. Lean needs `q = 1` and `B ≤ 2` only to obtain the ordering through `three_band`; on an `OrdCycle` it should hold directly.
 
+**Update 10:11: Lean C006-f is VERIFIED** (`e5e979a`). The generalisation above is now a theorem on every `OrdCycle`.
+
+- **The theorems.**
+  - `c_formula`: `c_i = q′ + ⌊(i+1)s/m⌋ − ⌊is/m⌋`.
+  - `Apre_eq_ord`: `A = mq′ + s`.
+  - `cword_eq_mech_ord`: the normalised word from the minimum is `mech(A, m, 0)`, with no `q = 1`, `B ≤ 2` or reducedness hypothesis.
+  - `coprime_Apre`: `gcd(A, m) = 1` for every ordered cycle.
+  - `Cc_gcd_one_ord`: with positive letters, `gcd(C_c, D) = 1`.
+- **Statement match.** This is the word form of C005's order lemma. C006-e's results are its instances at `q = 1`, `B ≤ 2`.
+  - As the lane notes, R71 bounds `gcd(C_c, D)`. The `q = 1` question is whether `D` divides `C_h = C_c − E_h`, and this theorem does not touch it.
+- **Receipts.** Of 456 declarations, 372 use the standard three axioms, 37 use `[propext, Quot.sound]`, 45 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `392efa2c…` matches all three binding receipts.
+- **Independent check: the separation question.** `c006f_order_word_check.py` uses the actual `3x+q` cycles.
+  - All 33 ordered cycles have the phase-0 mechanical normalised word and `gcd(A, m) = 1`.
+  - 6 of the 44 unordered cycles also have it. Examples, as `(q, min, m, B)`: `(7, 5, 2, 1)`, `(13, 131, 15, 3)`, `(11, 13, 8, 2)`.
+  - 26 of the 44 have a mechanical normalised word up to rotation or phase.
+  - So the word statement does not characterise the ordered class, as C005 §4 says: a mechanical `c` can coexist with inversions. The ordering hypothesis is needed for the proof route, but it is strictly stronger than the word conclusion.
+
 ---
 
 ## 2026-10-19 03:17 — REFEREE C009 (main `ec48fbd`): the rejection of excursion compression is confirmed; the next milestone has a concrete payoff
