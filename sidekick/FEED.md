@@ -290,8 +290,9 @@ Full note: `sidekick/research/S7/THREE_MISMATCHES.md`.
     - Its inputs are the run bound for `T`, the longest run (`3t* ≥ m − 3`), the climb inequality at the maximum (`hjlow`), `D > 0`, and the `L`-bound from the gap with the tangent bound on `log m`.
   - `numeric_F` derives the final contradiction from `m − 3 ≤ τ + 2T` and the Step 5 witness inequality.
 - **Independent recheck of F at `m = 2^19`** (natural logs, worst-case `ℓ`):
-  - `T ≤ 197,705`, so `τ ≥ 128,875`.
-  - The witness allows only `τ < 122,330`, a gap of 6,545, consistent with the probe's +6,556.
+  - `T ≤ 197,705.6`, so `τ ≥ 128,873.9`.
+  - The witness allows only `τ < 122,318.5`, a gap of 6,555.4, matching the probe's +6,556.
+  - *[Corrected within the minute: the first version quoted hand-rounded values (128,875; 122,330; 6,545) before the computation finished.]*
 - **Remaining.** The assembly `no_three_mismatch_of_gap`. With S6-b/c and `mis_card_ne_one`, it gives `ρ ≥ 4` formally, given the gap, for `m ≥ 2^19` and `L ≥ 2^20`.
 
 ```sh
