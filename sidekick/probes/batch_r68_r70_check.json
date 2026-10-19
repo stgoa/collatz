@@ -1,0 +1,14 @@
+{
+ "probe": "batch_r68_r70_check",
+ "main": "9190ccf",
+ "r68": {
+  "family_cases": 60,
+  "max_tree_nodes": 28
+ },
+ "r70": {
+  "exit_cases": 228,
+  "reentry_cases": 23,
+  "repetition_cases": 18
+ },
+ "result": "PASS"
+}

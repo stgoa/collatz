@@ -1,0 +1,27 @@
+{
+  "by_d": {
+    "1": {
+      "halving_cases": 1000,
+      "r54_family_cases": 16
+    },
+    "5": {
+      "halving_cases": 999,
+      "r54_family_cases": 16
+    },
+    "7": {
+      "halving_cases": 998,
+      "r54_family_cases": 16
+    },
+    "13": {
+      "halving_cases": 996,
+      "r54_family_cases": 16
+    },
+    "61": {
+      "halving_cases": 984,
+      "r54_family_cases": 16
+    }
+  },
+  "pairs_meeting": 50000,
+  "scope": "3x+d transfer of main's identities; 18u+5 restatement checked for odd u < 1e5 (d = 1).",
+  "status": "PASS"
+}

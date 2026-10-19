@@ -1,0 +1,13 @@
+{
+  "r33_acceptance_fraction": {
+    "16": 0.203369140625,
+    "20": 0.203887939453125,
+    "22": 0.203765869140625,
+    "100": 0.205635
+  },
+  "r33_stated": 0.20382165605095542,
+  "r34": "eta chains for odd q < 20000; cylinder 19199 mod 65536; root 84735",
+  "r36": "Mersenne mergers at a = 1699 (t = a+4) and a = 659 (t = a+5)",
+  "scope": "Independent checks of main's R33/R34/R36 (commit 1603bf3); finite data.",
+  "status": "PASS"
+}

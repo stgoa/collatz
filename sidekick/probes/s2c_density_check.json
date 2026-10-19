@@ -1,0 +1,6 @@
+{
+ "probe": "s2c_density_check",
+ "lean": "claude/lean-lane 7602fe7",
+ "cases": 8829024,
+ "result": "PASS"
+}

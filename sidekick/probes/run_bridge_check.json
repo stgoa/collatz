@@ -1,0 +1,36 @@
+{
+  "bridges": {
+    "f_side_steps": {
+      "0": 16661,
+      "1": 8339
+    },
+    "max_x_side_steps": 19,
+    "roots_below": 200000,
+    "via_absorbing_class_only": 2
+  },
+  "coverage": [
+    {
+      "N": 6144,
+      "certified": 146,
+      "complementary_mass": 269,
+      "remaining": 123,
+      "remaining_over_N": 0.02002
+    },
+    {
+      "N": 49152,
+      "certified": 1184,
+      "complementary_mass": 2132,
+      "remaining": 948,
+      "remaining_over_N": 0.01929
+    },
+    {
+      "N": 98304,
+      "certified": 2367,
+      "complementary_mass": 4269,
+      "remaining": 1902,
+      "remaining_over_N": 0.01935
+    }
+  ],
+  "scope": "Independent finite checks of main's R26 bridges and coverage.",
+  "status": "PASS"
+}

@@ -1,0 +1,101 @@
+{
+  "families_checked": 16,
+  "isolation_brute_force": [
+    {
+      "N": 96,
+      "X": 4096,
+      "chain_exact_at_h_plus_1": true,
+      "chain_exact_at_h_plus_2": true,
+      "h": 2
+    },
+    {
+      "N": 312,
+      "X": 13312,
+      "chain_exact_at_h_plus_1": true,
+      "chain_exact_at_h_plus_2": true,
+      "h": 3
+    },
+    {
+      "N": 1608,
+      "X": 68608,
+      "chain_exact_at_h_plus_1": true,
+      "chain_exact_at_h_plus_2": true,
+      "h": 4
+    },
+    {
+      "N": 5496,
+      "X": 234496,
+      "chain_exact_at_h_plus_1": true,
+      "chain_exact_at_h_plus_2": false,
+      "h": 5
+    },
+    {
+      "N": 11328,
+      "X": 483328,
+      "chain_exact_at_h_plus_1": true,
+      "chain_exact_at_h_plus_2": true,
+      "h": 7
+    },
+    {
+      "N": 6144,
+      "X": 262144,
+      "chain_exact_at_h_plus_1": true,
+      "chain_exact_at_h_plus_2": true,
+      "h": 3
+    }
+  ],
+  "ladder_example": {
+    "N": "96*64^89",
+    "X": "2^546",
+    "current_rows": 9
+  },
+  "qualifying_h_through_64": [
+    2,
+    3,
+    5,
+    6,
+    7,
+    9,
+    10,
+    12,
+    13,
+    14,
+    16,
+    17,
+    19,
+    20,
+    21,
+    23,
+    24,
+    26,
+    27,
+    29,
+    30,
+    31,
+    33,
+    34,
+    36,
+    37,
+    38,
+    40,
+    41,
+    43,
+    44,
+    45,
+    47,
+    48,
+    50,
+    51,
+    52,
+    54,
+    55,
+    57,
+    58,
+    60,
+    61,
+    62,
+    64
+  ],
+  "scope": "Independent finite checks of main's delayed-release construction and sharpened isolation lemma; the universal statements rest on main's written proof.",
+  "status": "PASS"
+}

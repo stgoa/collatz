@@ -1,0 +1,9 @@
+{
+  "scope": "R58 classification tested against main's committed formal absorption plans.",
+  "status": "PASS",
+  "tally": {
+    "exceptional": 8227,
+    "noncanonical": 53006,
+    "ordinary": 103773
+  }
+}

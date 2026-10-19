@@ -1,0 +1,71 @@
+{
+  "controls_on_W": {
+    "-1": {
+      "count_below_4000": 336,
+      "first": [
+        [
+          5,
+          5,
+          "trivial"
+        ],
+        [
+          13,
+          5,
+          "trivial"
+        ],
+        [
+          21,
+          17,
+          5
+        ]
+      ]
+    },
+    "13": {
+      "count_below_4000": 285,
+      "first": [
+        [
+          41,
+          "trivial",
+          259
+        ],
+        [
+          53,
+          "trivial",
+          287
+        ],
+        [
+          57,
+          "trivial",
+          131
+        ]
+      ]
+    },
+    "61": {
+      "count_below_4000": 57,
+      "first": [
+        [
+          133,
+          "trivial",
+          235
+        ],
+        [
+          137,
+          "trivial",
+          235
+        ],
+        [
+          213,
+          235,
+          "trivial"
+        ]
+      ]
+    }
+  },
+  "r37_images_checked": 16668,
+  "r37_roots_checked": 16668,
+  "r38_z_checked": 100000,
+  "r39_max_meet_steps": 3,
+  "r39_v_checked": 6250,
+  "scope": "Independent finite checks of main 436f51f (R37-R39) and controls on W.",
+  "status": "PASS"
+}

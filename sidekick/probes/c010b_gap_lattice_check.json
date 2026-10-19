@@ -1,0 +1,7 @@
+{
+ "probe": "c010b_gap_lattice_check",
+ "lean": "claude/lean-lane 4a707e3",
+ "actual_cycles_all_orders": 92,
+ "rational_ordered_cycles_lcd_equal_q": 337,
+ "result": "PASS"
+}

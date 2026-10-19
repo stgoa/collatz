@@ -1,0 +1,13 @@
+{
+ "probe": "c006b_erun_check",
+ "lean": "claude/lean-lane 3faa040",
+ "R71d_k_range": "3..80, every phase den > 1",
+ "den_one_at_k": [
+  1,
+  2
+ ],
+ "ordered_cycles": 33,
+ "zero_forcing_stretches": 97,
+ "stretches_with_e_run_gt_t": 77,
+ "result": "PASS"
+}

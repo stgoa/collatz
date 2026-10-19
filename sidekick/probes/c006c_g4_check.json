@@ -1,0 +1,10 @@
+{
+ "probe": "c006c_g4_check",
+ "lean": "claude/lean-lane b113413",
+ "actual_cycles": 93,
+ "looseness_(mq/3L)/delta": {
+  "min": 1.1587,
+  "max": 45.15
+ },
+ "result": "PASS"
+}

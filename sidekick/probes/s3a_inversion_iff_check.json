@@ -1,0 +1,8 @@
+{
+ "probe": "s3a_inversion_iff_check",
+ "lean": "claude/lean-lane 95dd4a9",
+ "cycles": 162,
+ "ordered_pairs_Zi_lt_Zj": 14774,
+ "inversions": 1979,
+ "result": "PASS"
+}

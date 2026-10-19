@@ -1,0 +1,8 @@
+{
+ "probe": "c010c_any_arrangement_check",
+ "lean": "claude/lean-lane b192b3c",
+ "reduced_actual_cycles_all_orders": 81,
+ "non_reduced_skipped": 11,
+ "arrangements_checked": 1701,
+ "result": "PASS"
+}

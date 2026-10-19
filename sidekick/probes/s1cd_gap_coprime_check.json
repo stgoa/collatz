@@ -1,0 +1,26 @@
+{
+ "probe": "s1cd_gap_coprime_check",
+ "lean": "claude/lean-lane 9686831",
+ "actual_ordered_cycles_every_gap_coprime_to_q": 33,
+ "actual_J1_cycles_with_D_eq_q": 3,
+ "J1_examples_(q,min,m)": [
+  [
+   5,
+   23,
+   3
+  ],
+  [
+   13,
+   319,
+   5
+  ],
+  [
+   23,
+   7,
+   2
+  ]
+ ],
+ "rational_ordered_cycles": 337,
+ "rational_J1_with_gcd_1": 65,
+ "result": "PASS"
+}

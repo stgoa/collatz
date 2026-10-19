@@ -1,0 +1,42 @@
+{
+ "probe": "c006f_order_word_check",
+ "lean": "claude/lean-lane e5e979a",
+ "ordered": 33,
+ "ordered_mech0": 33,
+ "unordered": 44,
+ "unordered_mech0": 6,
+ "unordered_mech_any_rotation_or_phase": 26,
+ "unordered_with_mech0_examples_(q,min,m,B)": [
+  [
+   7,
+   5,
+   2,
+   1
+  ],
+  [
+   13,
+   131,
+   15,
+   3
+  ],
+  [
+   11,
+   1,
+   2,
+   2
+  ],
+  [
+   11,
+   13,
+   8,
+   2
+  ],
+  [
+   19,
+   5,
+   5,
+   2
+  ]
+ ],
+ "result": "PASS"
+}

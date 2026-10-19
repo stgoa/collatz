@@ -1,0 +1,9 @@
+{
+ "probe": "s1b_run_start_gcd_check",
+ "lean": "claude/lean-lane 82bd72f",
+ "ordered_reduced_cycles": 33,
+ "word_normalisation_gcd(D, run-start G) == gcd(C, D)": 33,
+ "cycles_with_g_gt_1": 22,
+ "cycles_where_a_single_run_start_gap_shares_a_factor_with_q": 0,
+ "result": "PASS"
+}

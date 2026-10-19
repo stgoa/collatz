@@ -1,0 +1,110 @@
+{
+  "rows": [
+    {
+      "accepted": 0.415,
+      "bits": 10,
+      "by_rule": {
+        "R41_inverse_phase": 0.099,
+        "R44_returning_forward": 0.027,
+        "R45_nonselected_base": 0.0145,
+        "R46_inverse_escape": 0.027,
+        "R48_nonselected_forward": 0.2475
+      },
+      "samples": 2000
+    },
+    {
+      "accepted": 0.433,
+      "bits": 14,
+      "by_rule": {
+        "R41_inverse_phase": 0.107,
+        "R44_returning_forward": 0.031,
+        "R45_nonselected_base": 0.021,
+        "R46_inverse_escape": 0.028,
+        "R47_nonselected_multiple": 0.0035,
+        "R48_nonselected_forward": 0.238,
+        "R50_double_inverse": 0.0045
+      },
+      "samples": 2000
+    },
+    {
+      "accepted": 0.437,
+      "bits": 18,
+      "by_rule": {
+        "R41_inverse_phase": 0.113,
+        "R44_returning_forward": 0.0345,
+        "R45_nonselected_base": 0.0225,
+        "R46_inverse_escape": 0.021,
+        "R47_nonselected_multiple": 0.0005,
+        "R48_nonselected_forward": 0.2445,
+        "R50_double_inverse": 0.001
+      },
+      "samples": 2000
+    },
+    {
+      "accepted": 0.4245,
+      "bits": 24,
+      "by_rule": {
+        "R41_inverse_phase": 0.1045,
+        "R44_returning_forward": 0.028,
+        "R45_nonselected_base": 0.02,
+        "R46_inverse_escape": 0.016,
+        "R47_nonselected_multiple": 0.003,
+        "R48_nonselected_forward": 0.2495,
+        "R50_double_inverse": 0.0035
+      },
+      "samples": 2000
+    },
+    {
+      "accepted": 0.418,
+      "bits": 32,
+      "by_rule": {
+        "R41_inverse_phase": 0.113,
+        "R44_returning_forward": 0.031,
+        "R45_nonselected_base": 0.015,
+        "R46_inverse_escape": 0.019,
+        "R47_nonselected_multiple": 0.003,
+        "R48_nonselected_forward": 0.234,
+        "R50_double_inverse": 0.003
+      },
+      "samples": 1000
+    },
+    {
+      "accepted": 0.415,
+      "bits": 48,
+      "by_rule": {
+        "R41_inverse_phase": 0.11,
+        "R44_returning_forward": 0.022,
+        "R45_nonselected_base": 0.019,
+        "R46_inverse_escape": 0.027,
+        "R47_nonselected_multiple": 0.005,
+        "R48_nonselected_forward": 0.23,
+        "R50_double_inverse": 0.002
+      },
+      "samples": 1000
+    },
+    {
+      "accepted": 0.426,
+      "bits": 64,
+      "by_rule": {
+        "R41_inverse_phase": 0.106,
+        "R44_returning_forward": 0.028,
+        "R45_nonselected_base": 0.03,
+        "R46_inverse_escape": 0.028,
+        "R47_nonselected_multiple": 0.004,
+        "R48_nonselected_forward": 0.228,
+        "R50_double_inverse": 0.002
+      },
+      "samples": 1000
+    }
+  ],
+  "scope": "Measurement of main's expanded union by size and class; not a check.",
+  "status": "PASS",
+  "uncovered_by_class_at_48_bits": {
+    "w mod 3 = 0, 3w non-selected": 0.517,
+    "w mod 3 = 0, 3w selected": 0.137,
+    "w mod 3 = 1, 3w non-selected": 0.468,
+    "w mod 3 = 1, 3w selected": 0.834,
+    "w mod 3 = 2, 3w non-selected": 0.457,
+    "w mod 3 = 2, 3w selected": 1.0
+  }
+}

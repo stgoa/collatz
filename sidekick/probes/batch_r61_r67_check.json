@@ -1,0 +1,8 @@
+{
+  "r61_cases": 132,
+  "r65_q_values": 10000,
+  "r66_pairs": 2990,
+  "r67_cases": 3000,
+  "scope": "Independent arithmetic checks of R61, R65, R66, R67.",
+  "status": "PASS"
+}

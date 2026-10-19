@@ -1,0 +1,44 @@
+{
+ "probe": "c011_two_defect_check",
+ "main": "b896512",
+ "two_defect_theorem": {
+  "words_with_two_defect_rotation": 20431,
+  "two_defect_rotations": 33360
+ },
+ "marker_family": [
+  {
+   "n": 3,
+   "m": 8,
+   "den_gt_1": true
+  },
+  {
+   "n": 7,
+   "m": 16,
+   "den_gt_1": true
+  },
+  {
+   "n": 15,
+   "m": 32,
+   "den_gt_1": true
+  },
+  {
+   "n": 31,
+   "m": 64,
+   "den_gt_1": true
+  },
+  {
+   "n": 63,
+   "m": 128,
+   "den_gt_1": true
+  }
+ ],
+ "cancellation_family": {
+  "t_checked": 60,
+  "first_t_with_5^e": {
+   "1": 2,
+   "2": 10,
+   "3": 50
+  }
+ },
+ "result": "PASS"
+}

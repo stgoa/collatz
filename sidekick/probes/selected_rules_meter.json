@@ -1,0 +1,183 @@
+{
+  "rows": [
+    {
+      "accepted": 0.677,
+      "accepted_by_class": {
+        "3w non-selected, w mod 3 = 0": 0.6,
+        "3w non-selected, w mod 3 = 1": 0.54,
+        "3w non-selected, w mod 3 = 2": 0.61,
+        "3w selected, w mod 3 = 0": 1.0,
+        "3w selected, w mod 3 = 1": 0.72,
+        "3w selected, w mod 3 = 2": 0.65
+      },
+      "bits": 10,
+      "by_rule": {
+        "R41": 101,
+        "R44": 29,
+        "R45": 8,
+        "R46": 24,
+        "R48": 235,
+        "R53": 57,
+        "R55": 223
+      },
+      "samples": 1000
+    },
+    {
+      "accepted": 0.695,
+      "accepted_by_class": {
+        "3w non-selected, w mod 3 = 0": 0.58,
+        "3w non-selected, w mod 3 = 1": 0.58,
+        "3w non-selected, w mod 3 = 2": 0.64,
+        "3w selected, w mod 3 = 0": 0.92,
+        "3w selected, w mod 3 = 1": 0.71,
+        "3w selected, w mod 3 = 2": 0.78
+      },
+      "bits": 14,
+      "by_rule": {
+        "R41": 113,
+        "R44": 24,
+        "R45": 18,
+        "R46": 27,
+        "R47": 6,
+        "R48": 232,
+        "R50": 5,
+        "R52": 8,
+        "R53": 51,
+        "R55": 211
+      },
+      "samples": 1000
+    },
+    {
+      "accepted": 0.716,
+      "accepted_by_class": {
+        "3w non-selected, w mod 3 = 0": 0.59,
+        "3w non-selected, w mod 3 = 1": 0.61,
+        "3w non-selected, w mod 3 = 2": 0.72,
+        "3w selected, w mod 3 = 0": 0.94,
+        "3w selected, w mod 3 = 1": 0.73,
+        "3w selected, w mod 3 = 2": 0.69
+      },
+      "bits": 18,
+      "by_rule": {
+        "R41": 101,
+        "R44": 36,
+        "R45": 26,
+        "R46": 18,
+        "R47": 3,
+        "R48": 237,
+        "R50": 6,
+        "R52": 18,
+        "R53": 34,
+        "R55": 235,
+        "R57": 2
+      },
+      "samples": 1000
+    },
+    {
+      "accepted": 0.722,
+      "accepted_by_class": {
+        "3w non-selected, w mod 3 = 0": 0.58,
+        "3w non-selected, w mod 3 = 1": 0.6,
+        "3w non-selected, w mod 3 = 2": 0.71,
+        "3w selected, w mod 3 = 0": 0.96,
+        "3w selected, w mod 3 = 1": 0.78,
+        "3w selected, w mod 3 = 2": 0.74
+      },
+      "bits": 24,
+      "by_rule": {
+        "R41": 112,
+        "R44": 26,
+        "R45": 21,
+        "R46": 25,
+        "R47": 3,
+        "R48": 243,
+        "R50": 3,
+        "R52": 11,
+        "R53": 37,
+        "R55": 240,
+        "R57": 1
+      },
+      "samples": 1000
+    },
+    {
+      "accepted": 0.687,
+      "accepted_by_class": {
+        "3w non-selected, w mod 3 = 0": 0.57,
+        "3w non-selected, w mod 3 = 1": 0.58,
+        "3w non-selected, w mod 3 = 2": 0.63,
+        "3w selected, w mod 3 = 0": 0.92,
+        "3w selected, w mod 3 = 1": 0.74,
+        "3w selected, w mod 3 = 2": 0.67
+      },
+      "bits": 32,
+      "by_rule": {
+        "R41": 115,
+        "R44": 34,
+        "R45": 12,
+        "R46": 24,
+        "R47": 4,
+        "R48": 237,
+        "R50": 1,
+        "R52": 11,
+        "R53": 37,
+        "R55": 212
+      },
+      "samples": 1000
+    },
+    {
+      "accepted": 0.695,
+      "accepted_by_class": {
+        "3w non-selected, w mod 3 = 0": 0.64,
+        "3w non-selected, w mod 3 = 1": 0.57,
+        "3w non-selected, w mod 3 = 2": 0.68,
+        "3w selected, w mod 3 = 0": 0.92,
+        "3w selected, w mod 3 = 1": 0.75,
+        "3w selected, w mod 3 = 2": 0.62
+      },
+      "bits": 48,
+      "by_rule": {
+        "R41": 108,
+        "R44": 25,
+        "R45": 18,
+        "R46": 28,
+        "R47": 1,
+        "R48": 256,
+        "R50": 1,
+        "R52": 12,
+        "R53": 35,
+        "R55": 210,
+        "R57": 1
+      },
+      "samples": 1000
+    },
+    {
+      "accepted": 0.707,
+      "accepted_by_class": {
+        "3w non-selected, w mod 3 = 0": 0.61,
+        "3w non-selected, w mod 3 = 1": 0.62,
+        "3w non-selected, w mod 3 = 2": 0.59,
+        "3w selected, w mod 3 = 0": 0.93,
+        "3w selected, w mod 3 = 1": 0.77,
+        "3w selected, w mod 3 = 2": 0.72
+      },
+      "bits": 64,
+      "by_rule": {
+        "R41": 105,
+        "R44": 35,
+        "R45": 21,
+        "R46": 18,
+        "R47": 6,
+        "R48": 229,
+        "R50": 1,
+        "R52": 3,
+        "R53": 43,
+        "R55": 245,
+        "R57": 1
+      },
+      "samples": 1000
+    }
+  ],
+  "scope": "Measurement of main's twelve-family dispatcher by size and class; not a check.",
+  "source": "/Users/armstrongsantiago/CodexWorkspace/.claude/worktrees/claude-vs-chatgpt-perf-8230f6/experiments/residual_progress/selected_rules",
+  "status": "PASS"
+}

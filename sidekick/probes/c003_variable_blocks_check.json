@@ -1,0 +1,39 @@
+{
+ "probe": "c003_variable_blocks_check",
+ "main": "7270d95",
+ "contracting_theorem": {
+  "contracting_words_len_le_3": 76,
+  "exhaustive_eligible_cases": 142144,
+  "random_eligible_cases": 3000
+ },
+ "example_122_2": {
+  "C": 213341,
+  "D": 72023,
+  "gcd": 1,
+  "bound": 8
+ },
+ "d499_obstruction": {
+  "word": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   3,
+   1,
+   3,
+   1,
+   3
+  ],
+  "C": 85865,
+  "D": 6487,
+  "gcd": 13,
+  "den": 499,
+  "start": 6605
+ },
+ "integer_lemma": {
+  "cases": 165451,
+  "eta": 0.0110463406
+ },
+ "result": "PASS"
+}

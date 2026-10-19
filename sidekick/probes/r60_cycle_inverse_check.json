@@ -1,0 +1,20 @@
+{
+  "accepted_cells": [
+    "k1 j3",
+    "k1 j4",
+    "k10 j2",
+    "k10 j3",
+    "k10 j4",
+    "k11 j2",
+    "k11 j3",
+    "k11 j4",
+    "k12 j1",
+    "k12 j2",
+    "k12 j3",
+    "k12 j4"
+  ],
+  "cases": 400,
+  "cells": 100,
+  "scope": "Independent check of R60's maximal cycle inverse words, height formula and acceptance table.",
+  "status": "PASS"
+}

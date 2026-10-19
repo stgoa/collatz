@@ -1,0 +1,56 @@
+{
+  "rows": [
+    {
+      "D": 1,
+      "N": 312,
+      "X": 13312,
+      "component_mass_then": -20,
+      "depth_D_component_is_chain": true,
+      "linked_to_1": true,
+      "resolved_at_depth": 11,
+      "v3_X_minus_1": 3
+    },
+    {
+      "D": 2,
+      "N": 1608,
+      "X": 68608,
+      "component_mass_then": 38,
+      "depth_D_component_is_chain": true,
+      "linked_to_1": true,
+      "resolved_at_depth": 21,
+      "v3_X_minus_1": 4
+    },
+    {
+      "D": 3,
+      "N": 5496,
+      "X": 234496,
+      "component_mass_then": 64,
+      "depth_D_component_is_chain": true,
+      "linked_to_1": true,
+      "resolved_at_depth": 9,
+      "v3_X_minus_1": 5
+    },
+    {
+      "D": 4,
+      "N": 11328,
+      "X": 483328,
+      "component_mass_then": 108,
+      "depth_D_component_is_chain": true,
+      "linked_to_1": true,
+      "resolved_at_depth": 10,
+      "v3_X_minus_1": 7
+    },
+    {
+      "D": 1,
+      "N": 6144,
+      "X": 262144,
+      "component_mass_then": 23,
+      "depth_D_component_is_chain": true,
+      "linked_to_1": true,
+      "resolved_at_depth": 51,
+      "v3_X_minus_1": 3
+    }
+  ],
+  "scope": "Finite brute-force checks; the theorem's quantifiers rest on its proof.",
+  "status": "PASS"
+}

@@ -1,0 +1,13 @@
+{
+ "exhaustive_pairs": 360284,
+ "actual_pairs": 52484,
+ "lowvar_pairs": 40,
+ "lowvar_nonvacuous": 18,
+ "lowvar_nonvacuous_min_slack": [
+  547.63,
+  400,
+  4,
+  79.8
+ ],
+ "violations": []
+}

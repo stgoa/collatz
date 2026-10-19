@@ -1,0 +1,61 @@
+{
+  "rows": [
+    {
+      "all_leaves_below_2_20": 1.0,
+      "bits": 16,
+      "capped": 0,
+      "closure_complete": 0.11,
+      "gap_at_least_8_bits": 0.107,
+      "median_gap_bits": 1.42,
+      "median_leaves": 1.0,
+      "root_accepted": 0.745,
+      "samples": 200
+    },
+    {
+      "all_leaves_below_2_20": 0.37,
+      "bits": 24,
+      "capped": 0,
+      "closure_complete": 0.055,
+      "gap_at_least_8_bits": 0.132,
+      "median_gap_bits": 1.25,
+      "median_leaves": 1.0,
+      "root_accepted": 0.625,
+      "samples": 200
+    },
+    {
+      "all_leaves_below_2_20": 0.115,
+      "bits": 32,
+      "capped": 0,
+      "closure_complete": 0.06,
+      "gap_at_least_8_bits": 0.144,
+      "median_gap_bits": 1.42,
+      "median_leaves": 2.0,
+      "root_accepted": 0.72,
+      "samples": 200
+    },
+    {
+      "all_leaves_below_2_20": 0.06,
+      "bits": 48,
+      "capped": 0,
+      "closure_complete": 0.055,
+      "gap_at_least_8_bits": 0.169,
+      "median_gap_bits": 2.08,
+      "median_leaves": 3.0,
+      "root_accepted": 0.71,
+      "samples": 200
+    },
+    {
+      "all_leaves_below_2_20": 0.055,
+      "bits": 64,
+      "capped": 0,
+      "closure_complete": 0.055,
+      "gap_at_least_8_bits": 0.143,
+      "median_gap_bits": 2.08,
+      "median_leaves": 3.0,
+      "root_accepted": 0.76,
+      "samples": 200
+    }
+  ],
+  "scope": "Closure frontier of main's fifteen-family dispatcher by size; measurement, not a check.",
+  "status": "PASS"
+}

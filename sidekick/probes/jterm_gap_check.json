@@ -1,0 +1,26 @@
+{
+ "probe": "jterm_gap_check",
+ "closed_form_ordered_cycles": 337,
+ "by_band_and_J": {
+  "B=0,J=1": 65,
+  "B=1,J=2": 27,
+  "B=1,J=3": 97,
+  "B=1,J=4": 16,
+  "B=1,J=5": 40,
+  "B=1,J=6": 5,
+  "B=1,J=7": 4,
+  "B=2,J=4": 19,
+  "B=2,J=5": 16,
+  "B=2,J=6": 15,
+  "B=2,J=7": 13,
+  "B=2,J=8": 10,
+  "B=3,J=6": 3,
+  "B=3,J=7": 6,
+  "B=3,J=8": 1
+ },
+ "band1_J2_identity_cases": 27,
+ "band1_J2_in_collatz_range": 0,
+ "collatz_range_ordered_cycles": 900,
+ "max(adjacent_mismatch - 2J)": 0,
+ "result": "PASS"
+}

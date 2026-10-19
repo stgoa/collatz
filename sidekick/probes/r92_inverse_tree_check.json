@@ -1,0 +1,33 @@
+{
+  "r25_table_checked_targets": 750,
+  "r92_cases": [
+    {
+      "Q": 70506316836123,
+      "depth_limit": 19,
+      "ell": 0,
+      "hits": [
+        [
+          70506316836123,
+          18
+        ]
+      ],
+      "nodes": 63,
+      "r": 0
+    },
+    {
+      "Q": 42027732597682482459,
+      "depth_limit": 31,
+      "ell": 398166,
+      "hits": [
+        [
+          42027732597682482459,
+          30
+        ]
+      ],
+      "nodes": 1041,
+      "r": 1
+    }
+  ],
+  "scope": "R25 inverse-table completeness (brute force) and R92 at two concrete sources (inverse-tree search).",
+  "status": "PASS"
+}

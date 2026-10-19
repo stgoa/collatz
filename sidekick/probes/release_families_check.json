@@ -1,0 +1,13 @@
+{
+  "boundary_point_checks_N": 40,
+  "count_shift_216": [
+    72,
+    32
+  ],
+  "full_construction_N": [
+    8,
+    1024
+  ],
+  "scope": "Independent finite checks of main's two release-packing families from their statements; disjointness from main's older catalogue is not checked here.",
+  "status": "PASS"
+}

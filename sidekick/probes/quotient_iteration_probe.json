@@ -1,0 +1,32 @@
+{
+  "N": 98304,
+  "model": {
+    "quotient": {
+      "decay_per_step_15_30": 0.903,
+      "drift_bits_per_step": -1.4081,
+      "stay_15": 0.0177,
+      "stay_30": 0.003833333333333333,
+      "stay_5": 0.07398333333333333
+    },
+    "raw": {
+      "decay_per_step_15_30": 0.902,
+      "drift_bits_per_step": -0.4079,
+      "stay_15": 0.03475,
+      "stay_30": 0.0074,
+      "stay_5": 0.1484
+    }
+  },
+  "quotient_steps_median_p90_max": [
+    5,
+    17,
+    66
+  ],
+  "raw_steps_median_p90_max": [
+    10,
+    25,
+    81
+  ],
+  "remaining_roots": 1775,
+  "scope": "Finite data and random-model estimates; no termination claim.",
+  "status": "PASS"
+}

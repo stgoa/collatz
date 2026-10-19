@@ -1,0 +1,29 @@
+{
+ "probe": "v13_coloring_check",
+ "main": "cdfb143",
+ "moduli_checked": 2400,
+ "orbit_classification_mismatches": 0,
+ "examples": {
+  "d=1,M=360": [
+   1,
+   1
+  ],
+  "d=5,M=60": [
+   2,
+   2
+  ],
+  "d=61,M=122": [
+   2,
+   2
+  ],
+  "d=7,M=84": [
+   2,
+   2
+  ],
+  "d=13,M=156": [
+   2,
+   2
+  ]
+ },
+ "result": "PASS"
+}

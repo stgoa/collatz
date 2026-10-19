@@ -1,0 +1,6 @@
+{
+  "r73_members_each": 4000,
+  "r74_words": 600,
+  "scope": "Independent checks of R73 identities (clocks) and R74 word arithmetic (main aefdf60).",
+  "status": "PASS"
+}

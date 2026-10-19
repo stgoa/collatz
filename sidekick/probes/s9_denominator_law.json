@@ -1,0 +1,146 @@
+{
+ "lam3": {
+  "100": 1.77,
+  "300": 4.65,
+  "1000": 15.74,
+  "3000": 44.04,
+  "10000": 146.54,
+  "100000": 1458.13
+ },
+ "stats": {
+  "exhaustive_s2": 1498,
+  "exhaustive_s2_min_slack": [
+   3.83,
+   3,
+   -1.51,
+   2.32
+  ],
+  "exhaustive_s3": 1274,
+  "exhaustive_s3_min_slack": [
+   6.83,
+   3,
+   -1.62,
+   5.21
+  ],
+  "chain2_s2": 163,
+  "chain2_s2_min_slack": [
+   34.792,
+   30,
+   0.56,
+   35.35
+  ],
+  "chain3_s3": 192,
+  "chain3_s3_min_slack": [
+   51.132,
+   30,
+   -5.03,
+   46.1
+  ],
+  "chain2_s2_nonvacuous": 16,
+  "chain2_s2_nonvacuous_min_slack": [
+   34.792,
+   30,
+   0.56,
+   35.35
+  ],
+  "nearcrit2_s2": 50,
+  "nearcrit2_s2_min_slack": [
+   281.563,
+   200,
+   27.85,
+   309.41
+  ],
+  "nearcrit2_s2_nonvacuous": 50,
+  "nearcrit2_s2_nonvacuous_min_slack": [
+   281.563,
+   200,
+   27.85,
+   309.41
+  ],
+  "nearcrit3_s3": 50,
+  "nearcrit3_s3_min_slack": [
+   319.602,
+   200,
+   -10.19,
+   309.41
+  ],
+  "nearcrit3_s3_nonvacuous": 20,
+  "nearcrit3_s3_nonvacuous_min_slack": [
+   2516.534,
+   1600,
+   10.76,
+   2527.29
+  ],
+  "C013fam_s3": 5,
+  "C013fam_s3_min_slack": [
+   84.048,
+   51,
+   -6.24,
+   77.81
+  ],
+  "C013fam_s3_nonvacuous": 1,
+  "C013fam_s3_nonvacuous_min_slack": [
+   4584.263,
+   2913,
+   24.32,
+   4608.59
+  ],
+  "actual_q_lt_2000_s2": 451,
+  "actual_q_lt_2000_s2_min_slack": [
+   3.83,
+   3,
+   -1.51,
+   2.32
+  ],
+  "actual_q_lt_2000_s3": 392,
+  "actual_q_lt_2000_s3_min_slack": [
+   6.83,
+   3,
+   -1.62,
+   5.21
+  ]
+ },
+ "C013_family": [
+  {
+   "a": 27,
+   "b": 17,
+   "m": 51,
+   "log2q": 77.8,
+   "log2q_over_m": 1.526,
+   "b3": -6.2
+  },
+  {
+   "a": 65,
+   "b": 41,
+   "m": 123,
+   "log2q": 190.1,
+   "log2q_over_m": 1.546,
+   "b3": -7.9
+  },
+  {
+   "a": 149,
+   "b": 94,
+   "m": 282,
+   "log2q": 439.0,
+   "log2q_over_m": 1.557,
+   "b3": -7.3
+  },
+  {
+   "a": 485,
+   "b": 306,
+   "m": 918,
+   "log2q": 1446.6,
+   "log2q_over_m": 1.576,
+   "b3": -3.1
+  },
+  {
+   "a": 1539,
+   "b": 971,
+   "m": 2913,
+   "log2q": 4608.6,
+   "log2q_over_m": 1.582,
+   "b3": 24.3
+  }
+ ],
+ "violations": []
+}

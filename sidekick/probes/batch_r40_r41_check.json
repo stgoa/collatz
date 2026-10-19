@@ -1,0 +1,9 @@
+{
+  "planner_inputs": 99999,
+  "r41_barrier_q_checked": 76,
+  "r41_barrier_search_bound": 2000000,
+  "r41_identity_q_below": 1000000,
+  "scope": "Independent finite checks for main's R40/R41 batch (commit 4a45eb0).",
+  "status": "PASS",
+  "tripling_bound_z_below": 60000
+}

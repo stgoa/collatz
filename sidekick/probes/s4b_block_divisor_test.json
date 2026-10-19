@@ -1,0 +1,75 @@
+{
+ "probe": "s4b_block_divisor_test",
+ "profiles_with_g_gt_1_(m<=18, exhaustive)": 1413,
+ "g_divides_some_proper_block_D": {
+  "divides a block D": 1213,
+  "no block D": 200
+ },
+ "g_over_formal_bound_Cc_over_n0": {
+  "min": 0.588351,
+  "max": 0.993156
+ },
+ "examples_no_block": [
+  [
+   12,
+   23,
+   [
+    8,
+    10
+   ],
+   31
+  ],
+  [
+   12,
+   23,
+   [
+    6
+   ],
+   31
+  ],
+  [
+   14,
+   23,
+   [
+    4,
+    5,
+    6
+   ],
+   79
+  ],
+  [
+   14,
+   23,
+   [
+    3,
+    5,
+    7,
+    8
+   ],
+   79
+  ],
+  [
+   14,
+   23,
+   [
+    3,
+    4,
+    7,
+    8,
+    13
+   ],
+   79
+  ],
+  [
+   14,
+   23,
+   [
+    3,
+    5,
+    6,
+    12
+   ],
+   79
+  ]
+ ]
+}

@@ -1,0 +1,7 @@
+{
+  "count_cases": 3000,
+  "quotient_cases": 500,
+  "scope": "Independent check of R90's return words, quotient identity and re-entry counts.",
+  "status": "PASS",
+  "word_cases": 2000
+}

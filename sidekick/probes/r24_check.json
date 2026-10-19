@@ -1,0 +1,11 @@
+{
+  "base": "all odd seeds <= 6144 reach 1",
+  "cutoffs_checked": 355,
+  "ratios": [
+    "7/6",
+    "8/7",
+    "9/8"
+  ],
+  "scope": "Finite arithmetic of main's R24 step and base; the completion rule is open.",
+  "status": "PASS"
+}

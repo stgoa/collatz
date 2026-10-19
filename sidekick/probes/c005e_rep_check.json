@@ -1,0 +1,8 @@
+{
+ "probe": "c005e_rep_check",
+ "lean": "claude/lean-lane a7dcac0",
+ "identity_cases": 180000,
+ "integral_power_cases_descending": 11856,
+ "listed_cycle_cases": 64,
+ "result": "PASS"
+}

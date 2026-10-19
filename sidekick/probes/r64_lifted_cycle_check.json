@@ -1,0 +1,6 @@
+{
+  "boundary_cells_tested": 85,
+  "infeasible_or_skipped": [],
+  "scope": "Independent check of R64's lifted ray words and acceptance table at every boundary.",
+  "status": "PASS"
+}

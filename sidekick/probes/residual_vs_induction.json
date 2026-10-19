@@ -1,0 +1,43 @@
+{
+  "identity": "supp R_N = shell climbers not in S([1,N]) or S^2([1,N])",
+  "rows": [
+    {
+      "N": 96,
+      "R_mass": 7,
+      "multiples_of_3": 4,
+      "support": 7
+    },
+    {
+      "N": 768,
+      "R_mass": 66,
+      "multiples_of_3": 32,
+      "support": 61
+    },
+    {
+      "N": 6144,
+      "R_mass": 532,
+      "multiples_of_3": 256,
+      "support": 490
+    },
+    {
+      "N": 9216,
+      "R_mass": 800,
+      "multiples_of_3": 384,
+      "support": 736
+    },
+    {
+      "N": 49152,
+      "R_mass": 4266,
+      "multiples_of_3": 2048,
+      "support": 3925
+    },
+    {
+      "N": 98304,
+      "R_mass": 8532,
+      "multiples_of_3": 4096,
+      "support": 7850
+    }
+  ],
+  "scope": "Finite exact identification of main's R_N support; no termination claim.",
+  "status": "PASS"
+}

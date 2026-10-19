@@ -1,0 +1,42 @@
+{
+ "model": "single drop, aligned pair, arcs longer than k, slope log2(3/2), ell/m -> 0",
+ "v2==v4: h-feasible, best 2h margin": {
+  "feasible_points": 179700,
+  "h_range": [
+   0.2575,
+   0.7425
+  ],
+  "best_next_rotation_margin": [
+   -0.0219,
+   0.6525,
+   0.55,
+   0.865
+  ]
+ },
+ "v2!=v4: h-feasible, best 2h margin": {
+  "feasible_points": 179700,
+  "h_range": [
+   0.2575,
+   0.7425
+  ],
+  "best_next_rotation_margin": [
+   0.0522,
+   0.3225,
+   0.185,
+   0.48
+  ]
+ },
+ "v2!=v4: (h,2h)-feasible, best 3h margin": {
+  "feasible_points": 11162,
+  "h_range": [
+   0.256,
+   0.744
+  ],
+  "best_next_rotation_margin": [
+   0.0092,
+   0.574,
+   0.66,
+   0.22
+  ]
+ }
+}

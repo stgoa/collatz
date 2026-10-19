@@ -1,0 +1,8 @@
+{
+ "probe": "c006e_cc_check",
+ "lean": "claude/lean-lane 6c42229",
+ "actual_ordered_cycles": 33,
+ "rational_ordered_cycles": 337,
+ "normalised_word_is_mech_phase0_at_any_q": true,
+ "result": "PASS"
+}

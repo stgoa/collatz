@@ -1,0 +1,7 @@
+{
+  "cases": 1152,
+  "inside_cone": 396,
+  "outside_cone": 756,
+  "scope": "Independent check of R86's raw-target cone and its exact inequality (main 2a37f31).",
+  "status": "PASS"
+}

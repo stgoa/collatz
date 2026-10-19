@@ -1,0 +1,14 @@
+{
+ "probe": "c005g_rotation_block_check",
+ "lean": "claude/lean-lane 1166d1b",
+ "worked_example": {
+  "C": 1805,
+  "D": 295,
+  "gcd": 5,
+  "reduced_den": 59,
+  "H/L": "571/221"
+ },
+ "random_concatenations": 3515,
+ "max_H_over_L": 4.22543873643501,
+ "result": "PASS"
+}
