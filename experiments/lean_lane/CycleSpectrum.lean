@@ -4850,6 +4850,116 @@ end ofWordInterface
 
 end OddCycle
 
+/-! ### C005-e: repetitions and the least period
+
+Preparations for assembling C005's rotation-block exclusion: the rational cycle of a repeated
+word is the base cycle (R71 "repeated words": `C(z^k) D_z = C_z D(z^k)`), so `D(z^k) ∣ C(z^k)`
+forces `D_z ∣ C_z`; the least return time of an `OddCycle`'s minimum divides its period and the
+chronological word is the corresponding power of the word of one least period; and the cycle on
+a return time keeping its height bound. -/
+
+theorem D_rep (z : List ℕ) (k : ℕ) : D (rep z k) = D z * G (2 ^ z.sum) (3 ^ z.length) k := by
+  unfold D
+  rw [rep_sum, rep_length, pow_mul', pow_mul', ← G_mul]
+
+/-- R71's "repeated words": the fixed point is unchanged by repetition,
+`C(z^k)/D(z^k) = C_z/D_z` in cleared form. -/
+theorem C_rep_mul_D (z : List ℕ) (k : ℕ) : C (rep z k) * D z = C z * D (rep z k) := by
+  rw [C_rep, D_rep]
+  ring
+
+/-- If the repeated word has denominator `1` (`D(z^k) ∣ C(z^k)`), so does the base word. -/
+theorem D_dvd_C_of_rep_dvd (z : List ℕ) (k : ℕ) (hD : D (rep z k) ≠ 0)
+    (h : D (rep z k) ∣ C (rep z k)) : D z ∣ C z := by
+  obtain ⟨t, ht⟩ := h
+  refine ⟨t, ?_⟩
+  have h1 := C_rep_mul_D z k
+  rw [ht] at h1
+  have h2 : D (rep z k) * (t * D z) = D (rep z k) * C z := by linear_combination h1
+  have h3 := mul_left_cancel₀ hD h2
+  linarith
+
+theorem rep_add (u : List ℕ) (a b : ℕ) : rep u (a + b) = rep u a ++ rep u b := by
+  induction a with
+  | zero => simp [rep]
+  | succ a ih =>
+    rw [show a + 1 + b = (a + b) + 1 by ring, rep, ih, rep, List.append_assoc]
+
+theorem rep_one (u : List ℕ) : rep u 1 = u := by simp [rep]
+
+theorem rep_succ' (u : List ℕ) (k : ℕ) : rep u (k + 1) = rep u k ++ u := by
+  rw [rep_add, rep_one]
+
+/-- A `p`-periodic letter function on `k·p` letters is the `k`-fold repetition of its first
+period. -/
+theorem map_range_mul_eq_rep (f : ℕ → ℕ) (p : ℕ) (hf : ∀ i, f (i + p) = f i) :
+    ∀ k, (List.range (k * p)).map f = rep ((List.range p).map f) k
+  | 0 => by simp [rep]
+  | k + 1 => by
+    rw [rep_succ', ← map_range_mul_eq_rep f p hf k, show (k + 1) * p = k * p + p by ring,
+      List.range_add, List.map_append, List.map_map]
+    congr 1
+    apply List.map_congr_left
+    intro j _
+    show f (k * p + j) = f j
+    have hper : ∀ c, f (j + c * p) = f j := by
+      intro c
+      induction c with
+      | zero => simp
+      | succ c ih => rw [show j + (c + 1) * p = (j + c * p) + p by ring, hf, ih]
+    rw [add_comm]
+    exact hper k
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- The cycle on a return time `p` of its minimum, keeping the height bound `B`. -/
+def returnCycleB {p : ℕ} (hp0 : 0 < p) (hp : Γ.n p = Γ.n 0) : OddCycle p where
+  n := Γ.n
+  a := Γ.a
+  h := Γ.h
+  q := Γ.q
+  B := Γ.B
+  hm := hp0
+  hq := Γ.hq
+  nper := Γ.nper_of_return hp
+  nodd := Γ.nodd
+  nmin := Γ.nmin
+  npos := Γ.npos
+  arrow := Γ.arrow
+  hlo := Γ.hlo
+  hhi := Γ.hhi
+  hB := Γ.hB
+
+/-- The letters are periodic along any return time of the minimum (determinism). -/
+theorem a_add_of_return {p : ℕ} (hp : Γ.n p = Γ.n 0) (i : ℕ) : Γ.a (i + p) = Γ.a i :=
+  (Γ.succ_eq_of_eq (Γ.nper_of_return hp i)).2
+
+/-- The least return time of the minimum divides the period. -/
+theorem least_period_dvd {p : ℕ} (hp0 : 0 < p) (hp : Γ.n p = Γ.n 0)
+    (hmin : ∀ k, 0 < k → k < p → Γ.n k ≠ Γ.n 0) : p ∣ m := by
+  have h1 : Γ.n (m % p) = Γ.n 0 := by
+    have := Γ.n_add_mul_of_return hp (m % p) (m / p)
+    rw [show m % p + m / p * p = m by rw [mul_comm]; exact Nat.mod_add_div m p] at this
+    rw [← this]
+    simpa using Γ.nper 0
+  by_contra hndvd
+  have hpos : 0 < m % p := Nat.pos_of_ne_zero (fun h0 => hndvd (Nat.dvd_of_mod_eq_zero h0))
+  exact hmin (m % p) hpos (Nat.mod_lt _ hp0) h1
+
+/-- The chronological word is the `m/p`-fold repetition of the word of one return time `p ∣ m`. -/
+theorem word_eq_rep {p : ℕ} (hp : Γ.n p = Γ.n 0) (hdvd : p ∣ m) :
+    Γ.word = rep ((List.range p).map Γ.a) (m / p) := by
+  have hm : m / p * p = m := Nat.div_mul_cancel hdvd
+  have h1 : Γ.word = (List.range (m / p * p)).map Γ.a := by
+    unfold word
+    rw [hm]
+  rw [h1]
+  exact map_range_mul_eq_rep Γ.a p (Γ.a_add_of_return hp) (m / p)
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

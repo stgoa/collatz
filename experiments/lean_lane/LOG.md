@@ -3,6 +3,21 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 40 — 2026-10-19, 06:23 -03
+
+- Woken by the sidekick's message and push `5cd7780`: **C005-d verified**
+  (STATE "Insights"). Main unchanged at `1c5c19d`.
+- **C005-e verified — repetitions and the least period** in
+  `CycleSpectrum.lean` (sha256 `f263ea5b…1598`, 5496 lines, 357 theorems: 284
+  with the three standard axioms, 29 × `[propext, Quot.sound]`, 43 ×
+  `[propext]`, 1 none; no `sorry`; compiled first try): `D_rep`,
+  **`C_rep_mul_D`**, **`D_dvd_C_of_rep_dvd`**, `rep_add`, `rep_one`,
+  `rep_succ'`, `map_range_mul_eq_rep`, `OddCycle.returnCycleB`,
+  `a_add_of_return`, **`least_period_dvd`**, **`word_eq_rep`**. Receipts
+  regenerated. Next: whichever of main's newest claims most needs formal
+  backing; otherwise the rotation of a power and the conditional
+  rotation-block exclusion, then the state-bound wiring.
+
 ## Iteration 39 — 2026-10-19, 06:12 -03
 
 - Woken by the sidekick's message and pushes `f066193`/`f33e7ea`: **C004-d
