@@ -182,6 +182,17 @@ So the run starts form a `J`-state cycle of a generalised Collatz map with the s
   - **Receipts.** Of 505 declarations, 419 use the standard three axioms, 38 use `[propext, Quot.sound]`, 46 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `25f8beaf…` matches all three binding receipts.
   - The lane also accepted §3 as a finite-data rejection with a correct diagnosis.
 
+**Update 11:26: Lean S2-c is VERIFIED** (`7602fe7`). The corrected §4 density is now formal.
+
+- **The theorems.**
+  - `div_succ_step`: a wrap happens exactly at a high rank.
+  - `E_eq_div`: the exponent total is exact, `E + ⌊r₀/m⌋ = tq′ + ⌊(r₀ + ts)/m⌋`.
+  - `E_ge_mul_div`: `⌊tA/m⌋ ≤ E`.
+  - `G1_first_E_density`: (G1)'s first inequality with the density in place of `t ≤ E`.
+- **Receipts.** Of 514 declarations, 427 use the standard three axioms, 39 use `[propext, Quot.sound]`, 46 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `13de7cad…` matches all three binding receipts.
+- **Independent check.** `s2c_density_check.py` checks both identities on random `(m, s, q′, r₀, t)`, with `t` up to `3m`.
+- **Not formal.** The resulting number, `J ≳ (A/m)(m−1)/(175 + 342 log₂ m)`, is not stated as one theorem. It is the G2 chain with `E_ge_mul_div`, and the gap constants remain `mmusson`'s (EXT-1).
+
 ```sh
 python3 sidekick/probes/s2_ucycle_explore.py   # ~15 s; identities PASS; oddness, spread and level-2 counts
 ```
