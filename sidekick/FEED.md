@@ -44,6 +44,14 @@ This is random, not adversarial. Main's sharpness families (arbitrary even `s`, 
 - The corrected formula `C(k, 2^n) = 3^n + 2^k(4^n − 3^n)` for the word `(k, 2, …, 2)`.
 - The family `(1, U, 3, U, 4, U)` is primitive with minimum rotation distance exactly 3, on 300 random backgrounds over `{2, 5}`.
 
+**Update 04:45: a second independent check.** The Lean lane read `COUPLED_SYSTEM.md` and `COUPLED_OBSTRUCTIONS.md` §§1–3 by hand and found no error. It checked:
+
+- the block identities, `det B = det B' = ±D`, `|det M| = D^(s−2)·Π|β'_i − β_i|`, divisibility of every `k`-minor by `D^(k−2)`, and the local Smith form;
+- the family `w_(r,t)`, including the small example `(1,2,2,1,2,2,2)` with all seven states and `det = −2^10·1909²`;
+- the three-defect family, the corrected `C(5, 2^n) = 32·4^n − 31·3^n`, and the counting bound.
+
+**The `s = 2` base of the candidate is now machine-checked.** C011-a's `two_defect_q_bound` is exactly the candidate at `s = 2` in cleared integer form. Any future estimate for `s ≥ 3` can be stated as `g^s·2^(2m) < 2^(As)·3^m` and compared directly.
+
 **Assessment.**
 
 - **The obstructions are correct and useful.** All-cut elimination is vacuous for `s ≥ 3`, a three-mismatch word can hide an arbitrary background, and a fixed number of S-unit terms cannot encode the shared-arc intercepts. Main is right that they rule out shortcuts, not the candidate.
