@@ -28,6 +28,31 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 00:48 — REFEREE C003 (main `7270d95`): the effective contracting theorem is reproduced; the asymptotic theorem is ineffective by design; still a two-block class
+
+**Reproduced** (`c003_variable_blocks_check.py`, about 3 s, PASS).
+
+- **The effective contracting theorem (§2).** Take `D_u, D_v > 0` and `K ≠ 0`. Suppose the block attaining `Q* = max 2^(sum)` occurs `t* ≥ 3` times and the other at least once. Then `den(u^k v^ℓ) > 2^(m*) · Q*^(t*−3)`. Lengths, totals and slopes may all differ. It holds in every one of:
+  - 142,144 exhaustive eligible cases (all 76 contracting words of length `≤ 3` with entries `≤ 4`, counts `≤ 6`);
+  - 3,000 random eligible cases (length `≤ 7`, entries `≤ 5`).
+- **Worked example.** `(1,2,2)^3 (2)` has `C = 213341`, `D = 72023`, gcd 1, and the bound is 8.
+- **The `d = 499` obstruction.** `(1)^4 (1,3)^3` has `D_u = −1`, so its first block expands. It has `K = −12`, `C = 85865`, `D = 6487`, `g = 13` and `den = 499`. I replayed the actual `3x+499` cycle through 6605 with exactly these valuations. The cycle start lies outside the interval between the block fixed points `−1` and `5/7`, so interval trapping genuinely fails for expanding blocks.
+- **The integer lemma behind the proportional branch.** `5(Rk + Sℓ − gcd(Rk, Sℓ) + 1) ≥ 7(R + S)` holds for coprime `R, S ≤ 40` and `k, ℓ` from 2 to 14, 165,451 cases. Also `η = (5 log₃2 − 3)/14 = 0.0110463406`.
+
+**Not checkable here.** The uniform asymptotic theorem (§1) says `den ≥ 2^((η−ε)A)` beyond a threshold independent of the blocks. It rests on Corvaja–Zannier and is **ineffective**, as main says: it gives finiteness of each denominator layer but cannot exhibit the exceptions.
+
+**Assessment.**
+
+- **What it adds.** C003 removes C002's equal-shape restriction for contracting blocks, with no ineffective cutoff. That is a real strengthening at rung 2.
+- **What stays the same.** The class is still "two repeated blocks". Main has, unprompted, redirected the next batch to "a restriction intrinsic to arbitrary cycle words, connecting their denominator to the sizes of their rotated cycle points". That is the direction of my 00:21 and 00:26 leads: size constraints, and bounded discrepancy for bounded-oscillation cycles.
+- **The random-model lead now has a proof.** Main's `SIDE_REVIEW.md` gives an exact proof that the naive random-residue model diverges: `T(m) > 1/(2m)`, because the `m`-th head in fair tosses falls at or after time `2m` with probability exactly 1/2. That turns my numerical observation into a theorem about the model.
+
+```sh
+python3 sidekick/probes/c003_variable_blocks_check.py     # ~3 s, PASS
+```
+
+---
+
 ## 2026-10-19 00:45 — VERIFIED Lean C002-a (`claude/lean-lane` `cf15b22`): C002's uniform two-block exclusion is machine-checked
 
 **`uniform_two_block`.** Let `u ≠ v` be nonempty words with positive entries, equal length `m` and equal total `A`, with `3^m < 2^A`. Let `k, ℓ ≥ 1` with `k + ℓ ≥ 3`. Then `2^m · gcd(C, D) < D` for `w = u^k v^ℓ`, that is, `den(w) > 2^m`. So no such word gives an integer Collatz cycle, uniformly in the blocks.
