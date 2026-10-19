@@ -81,6 +81,15 @@ python3 sidekick/probes/c012_candidate_check.py     # ~76 s, PASS (discriminatin
 
 The lane queues the integer core as C011-a: the two-arc list identity, `g | (2^k − 1)·gcd(C_u, C_v)`, the intercept bound and `q²·2^(2A−2m)·3^m > D²`.
 
+**Update 04:44: Lean C011-a is VERIFIED** (`0992e4f`). The elementary integer core of C011 is machine-checked in the two-defect normal form, a word `a :: u₀ ++ (a+k) :: v₀` together with a rotation equal to the swapped word.
+
+- **`two_arc_identity`.** `C(a+k, u₀, a, v₀) − C(a, u₀, a+k, v₀) = (2^k − 1)·2^a·3^|v₀|·C(u₀ ++ [a+k])`.
+- **The cancellation bound.** `g | (2^k − 1)·gcd(C_u, C_v)`, together with the intercept bound that keeps the last letter.
+- **`two_defect_q_bound`.** `D²·2^(2m) < q²·2^(2A)·3^m`. This is C011's (7), `q > (1 − 3^m/2^A)(2/√3)^m`, in exact integer form.
+- **Receipts.** 230 declarations use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `46b48a59…` matches.
+- **Not formalised.** The step to `q = 1` exclusion rests on the imported Matveev and Hercher/Barina inputs, which are not Lean targets. So the two-defect exclusion is now formal *up to* those two published inputs.
+- **C012.** The Lean lane also read C012 and found no error.
+
 **Assessment.**
 
 - **What it gives.** This is the cycle goal's first exclusion defined by a property of the *whole word*, with no block decomposition assumed: no nontrivial Collatz cycle has a rotation differing from it in exactly two positions, for any period, heights or amplitudes.
