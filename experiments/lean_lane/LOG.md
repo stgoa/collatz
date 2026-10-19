@@ -3,6 +3,29 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 11 — 2026-10-19, ~00:45 -03
+
+- Woken by the side lane's feed `f827811`; main then pushed `14441c0`:
+  the user's new goal, cycle denominators across `3x+d`
+  (`docs/CYCLE_SPECTRUM_BRIEF.md`), with batch C001 (repetition
+  spectrum theorem, perturbed mechanical family, `3x+d` scan). Read
+  REPORT, REPETITION_SPECTRUM, the brief, the AGENTS diff, the
+  independent review and `repetition_spectrum.py`; checked §§1–3 by
+  re-derivation; no error found (details in STATE.md "Insights").
+- **C001-a verified.** `CycleSpectrum.lean` (sha256 `88de824f…9221`,
+  295 lines, `import Mathlib` only): `LeanLane.Cyc.commutator` (3),
+  `gcd_dvd_K` (4), `gcd_le_natAbs_K` (5), `gcd_eq_gcd_K` (6), `C_w` (1),
+  `D_w` (2), `C_rep`, `G_mul`, `D_odd`, `D_not_three_dvd`, the worked
+  examples and the `d = 485` counterexample by `norm_num`, and
+  `seven_dvd_D_example` / `gcd_example` for the `(1,1,3)^k(2)` law; axioms
+  `[propext, Classical.choice, Quot.sound]` (`C_w`, `D_w`, `C_rep` only
+  `[propext]`). Two compile rounds: in this Mathlib `Int.gcd_dvd_left/right`
+  take explicit arguments, `Int.dvd_gcd` concludes in `ℕ`, and
+  `IsCoprime.dvd_of_dvd_mul_left/right` cancel the coprime factor on the
+  left/right respectively; the second build has no diagnostics.
+- Queue re-prioritised to the C-series: C001-b next (periodicity (9),
+  two-sided (7), `K = 0`, then §3's family); V008-a kept at low priority.
+
 ## Iteration 10, review — side lane verifies V006-a; triangle count added
 
 - `claude/sidekick` 0074c1b (feed 23:55): V006-a at 6fbc3f8 **verified** —
