@@ -58,6 +58,17 @@ Status words follow `AGENTS.md`.
 - **Receipts.** Of 103 declarations, 73 use the standard three axioms, 9 use `[propext, Quot.sound]`, 20 use `[propext]` and 1 uses none. The build has no diagnostics, a source scan is clean, and the sha256 `bc20673f…` matches.
 - **Next.** Part 2 turns the rank shift into `rank i ≡ rank 0 + ih (mod m)` and `gcd(h, m) = 1`. It then identifies the word as `mech(mq + h, m, l)`.
 
+**Update 02:02: C004-b part 2 is VERIFIED** (`692fd04`). These results are proved on abstract narrow cycles.
+
+- **The rank formula.** `rank_formula`: `rank i = (rank 0 + ih) mod m`.
+- **Primitive cycles.** Here `Primitive` means distinct states over one period.
+  - `numHigh_pos` and `numHigh_lt`: for a primitive cycle with `m ≥ 2`, the number of high steps satisfies `1 ≤ h ≤ m − 1`.
+  - `coprime_numHigh`: `gcd(h, m) = 1`.
+- **The letter formula.** `a_formula`: started at the minimum, `a_i = q + ⌊(i+1)h/m⌋ − ⌊ih/m⌋`.
+- **The total.** `sum_a`: `A = mq + h`.
+- **Receipts.** Of 118 declarations, 87 use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `eab32a83…` matches.
+- **Next.** Part 3 instantiates this on actual words, `x_i = C(w.rotate i)`, to close "narrow primitive ⇒ mechanical". The integer corollary `H > 2L` will still rest on R71's `g = 1`.
+
 **Not yet formal.** The forward direction "narrow ⇒ mechanical" (queued as C004-b), R71's `g = 1`, the integer corollary `H > 2L`, the narrow spectrum law, and the Smith-form statements.
 
 ---
