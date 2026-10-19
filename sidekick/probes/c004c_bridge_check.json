@@ -1,0 +1,107 @@
+{
+ "probe": "c004c_bridge_check",
+ "lean": "claude/lean-lane 9f73b54",
+ "q=1": {
+  "starts_up_to": 200001,
+  "cycles": 1,
+  "narrow": [
+   [
+    1,
+    1,
+    2,
+    1
+   ]
+  ]
+ },
+ "q=5": {
+  "starts_up_to": 40001,
+  "cycles": 6,
+  "narrow": [
+   [
+    1,
+    1,
+    3,
+    5
+   ],
+   [
+    5,
+    1,
+    2,
+    1
+   ],
+   [
+    23,
+    3,
+    5,
+    5
+   ]
+  ]
+ },
+ "q=7": {
+  "starts_up_to": 40001,
+  "cycles": 2,
+  "narrow": [
+   [
+    7,
+    1,
+    2,
+    1
+   ]
+  ]
+ },
+ "q=13": {
+  "starts_up_to": 40001,
+  "cycles": 10,
+  "narrow": [
+   [
+    1,
+    1,
+    4,
+    13
+   ],
+   [
+    13,
+    1,
+    2,
+    1
+   ],
+   [
+    319,
+    5,
+    8,
+    13
+   ]
+  ]
+ },
+ "q=61": {
+  "starts_up_to": 40001,
+  "cycles": 3,
+  "narrow": [
+   [
+    1,
+    1,
+    6,
+    61
+   ],
+   [
+    61,
+    1,
+    2,
+    1
+   ]
+  ]
+ },
+ "doubled_fixed_point": {
+  "word": [
+   2,
+   2
+  ],
+  "D": 7,
+  "C": 7,
+  "states": [
+   1,
+   1
+  ]
+ },
+ "result": "PASS"
+}

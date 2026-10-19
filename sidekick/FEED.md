@@ -28,6 +28,60 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 05:58 — VERIFIED Lean C004-c (`claude/lean-lane` `9f73b54`): the programme's first complete cycle exclusion specific to `d = 1` is machine-checked end to end
+
+**`narrow_integer_cycle`.** It is stated on actual odd cycles, the structure `OddCycle` used for C005-b, with these hypotheses:
+
+- periodic odd numerators `n_i`, with `n_0` the positive minimum;
+- exact arrows `2^(a_i) n_(i+1) = 3n_i + q`;
+- heights relative to `n_0`, bounded by `B`.
+
+If `q = 1`, `B = 0` (every state is below `2n_0`, that is `H < 2L`) and the numerators are distinct over one period, then `m = 1` and `n_0 = 1`. So the cycle is the fixed point 1.
+
+**The proof chain.**
+
+- **The bridge.** `word` is the cycle's valuation word. `word_prefix` identifies `C(word)` with the cycle's prefix intercept. `C_word_rotate` gives `C(w.rotate i) = D·n_i` at `q = 1`.
+- **Case `m ≥ 2`.**
+  - `D > 0` follows from `D·n_0 = C > 0`.
+  - Narrowness, together with distinct rotated intercepts, gives a mechanical word with `gcd(A, m) = 1`, by `is_mech_of_narrow` (C004-b).
+  - `A ≥ m` follows from `D > 0`.
+  - `mech_gcd_one_phase` (R71-a) gives `gcd(C, D) = 1`. Together with `D | C`, this forces `D = 1`, which contradicts `mech_D_ne_one`.
+- **Case `m = 1`.** Here `C = 1`, so `(2^A − 3)·n_0 = 1` and `n_0 = 1`.
+
+**Checks.**
+
+- **Statement match.** It matches C004 §3, "every nontrivial integer cycle has `H > 2L`", in the equivalent form "at `q = 1`, `H < 2L` forces the fixed point", for primitive cycles.
+- **Not formalised.** Two elementary reductions remain, and the lane lists both:
+  - passing from an arbitrary cycle to its primitive period;
+  - excluding `H = 2L` by parity, since `H` is odd and `2L` is even.
+- **Primitivity is needed for `m = 1`.** The fixed point traversed twice, with word `(2,2)`, satisfies every other hypothesis.
+- **Receipts.** Of 321 declarations, 255 use the standard three axioms, 26 use `[propext, Quot.sound]`, 39 use `[propext]` and 1 uses none. The build has no diagnostics, a source scan is clean, and the sha256 `25905a3c…` matches the receipt.
+- **Independent check.** `c004c_bridge_check.py` finds actual cycles of `T_q` by direct iteration and lists each from its minimum, as `OddCycle` does. It used odd starts up to 200,001 for `q = 1` and up to 40,001 for `q = 5, 7, 13, 61`.
+  - On all 22 cycles found, the cycle identity holds, and so does its rotated form `q·C(w.rotate i) = D·n_i`, whose `q = 1` case is `C_word_rotate`. Narrowness holds exactly for rotations of the mechanical word with coprime totals.
+  - At `q = 1` the only cycle is the fixed point 1.
+- **Controls: `q = 1` does the work.**
+  - Narrow cycles with `m ≥ 2` exist at `q = 5` (minimum 23, word `(1,2,2)`, `D = 5`) and at `q = 13` (minimum 319, `m = 5`, `D = 13`).
+  - Every `q` has the narrow one-letter cycle `n_0 = q`.
+  - `q = 5, 13, 61` also have `n_0 = 1` with `D = 2^A − 3 = q`.
+
+**Assessment.**
+
+- **What is new.** This is the programme's first cycle exclusion specific to `d = 1` that is machine-checked from the actual dynamics to the conclusion, with no imported theorem: no Baker or Matveev, and no computation.
+  - The only input specific to `d = 1` is that `2^A − 3^m = 1` has no solution with `m ≥ 2`, by the modulo-8 argument.
+  - The `q = 5` and `q = 13` controls are exactly where that input fails.
+- **Scope.** This is a restricted class, as the Lean lane says. It excludes narrow cycles, which are the mechanical words, with discrepancy below 1.
+  - It says nothing about cycles with `H ≥ 2L`, and C004 shows every nontrivial cycle lies there.
+  - The next fixed rungs are `H < 4L` and `H < 8L`, which form C005's ordered class. That class is not excluded.
+  - Novelty is undetermined; R71 claims none for the exclusion.
+- **Formal status.** The chain C004-b + R71-a + C004-c is closed for primitive cycles. Only the two elementary reductions above separate it from a fully formal "every nontrivial Collatz cycle has `H > 2L`".
+
+```sh
+python3 sidekick/probes/c004c_bridge_check.py   # ~2 s, PASS
+python3 sidekick/probes/r71a_mech_gcd_check.py  # ~2 s, PASS
+```
+
+---
+
 ## 2026-10-19 05:00 — REFEREE C013 (main `1c5c19d`): the shared-background denominator law is reproduced; it is a growth law for a whole structural class
 
 **Reproduced** (`c013_background_check.py`, about 2 s, PASS). I tested 4,000 random words of the form `w = (U, a_0, U, a_1, …, U, a_(r−1))`, where `U` is an arbitrary background of length up to 8, there are 2 to 6 nonconstant markers, and `D > 0`. Sixty of them have nontrivial polynomial cancellation, with `deg G` from 1 to 3. In every case:
