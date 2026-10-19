@@ -70,6 +70,16 @@ If `q = 1`, `B ≤ 2` (that is, `H < 8L`), `m ≥ 2` and the cycle is primitive 
 - **Receipts.** Of 163 declarations, 122 use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `3c342e5a…` matches.
 - **Scope and what agrees.** The candidate `B ≤ q − 1`, the census and the `q = 29` cycle are not Lean targets. My census check (`c007_height_check.py`) confirms the residue law at all 28,823 states.
 
+**Update 02:53: Lean C006-a part 1 is VERIFIED** (`74d66d4`).
+
+- **The theorems.**
+  - The zero-forcing run lemma, for an abstract run: `run_pow_mul` gives `2^(E_t) G_t = 3^t G_0`, `run_dvd` gives `2^(E_t) | G_0`, and `run_lower` gives `G_0 ≥ 2^t`.
+  - `c_le_two`: `q ≤ L` implies every normalised exponent `c_i` is 1 or 2.
+  - `h_succ_le`: heights rise by at most 1 per step.
+  - `exists_height_eq`: every intermediate height is attained.
+- **Receipts.** Of 170 declarations, 128 use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `341ee1d8…` matches.
+- **Next.** Parts 2–3 carry the sorted-order bookkeeping: the gap system with its seam, `G_start < 2^B L`, the cyclic pigeonhole, and `J ≥ B + 1` in sorted order.
+
 **The Lean lane's read of C007: no error.** It re-derived the modular lemma, the min-to-top inequality (an instance of C005's (2)) and the `q = 5` height-residue sets. It queues those as C007-a. The candidate `B ≤ q − 1` itself is open and is not a Lean target.
 
 ---
