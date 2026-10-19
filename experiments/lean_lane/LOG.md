@@ -27,6 +27,14 @@ and any insight sent to the feed.
   claims most needs formal backing; otherwise the `C_c` form of (G1)'s second
   inequality or C010's gap-map identities.
 
+- **EXT-1 addendum (09:49)**: at the side lane's request, `lake build
+  +NormBridge +ChristoffelMin` on the same checkout (3554 jobs, 4m44s) and
+  `#check`/`#print axioms` for `NormBridge.cycle_one_move_christoffel`,
+  `NormAll.no_cycle_one_move_christoffel_all`, `cycle_min_le_chr` and
+  `few_runs_cycle_trivial_uncond`: all four standard three; `T` is the
+  shortcut map; `chr r A j = ⌊(j+1)A/r⌋ − ⌊jA/r⌋` is this lane's `mech A r 0`;
+  `oddRuns` counts odd runs (circuits), not `J`. Statements in the receipt
+  addendum.
 ## Iteration 52 — 2026-10-19, 09:06 -03
 
 - Woken by the sidekick's message and pushes `670701d`/`395908c`: **C006-c

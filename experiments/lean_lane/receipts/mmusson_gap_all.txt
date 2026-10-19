@@ -39,3 +39,38 @@ fresh build from the pinned sources. The proofs were not reviewed line by line h
 Correspondence to this lane: with k ↦ m (odd steps) and L ↦ A = Apre m (total valuation), the ℤ-cast of
 gap_all is the hypothesis of OrdCycle.G2_of_gap with (c, μ) = (172, 341) (CycleSpectrum.lean, C006-d).
 The two libraries use different toolchains and are not linked by a single Lean theorem.
+
+Addendum (2026-10-19 12:49 UTC) — three further checks on the same checkout, at the side lane's request.
+Built additionally: lake build +NormBridge +ChristoffelMin ("Build completed successfully (3554 jobs)", 4m44s;
+  warnings only: exponentiation-threshold notices in NormMain). Then lake env lean (2.7 s and 3 s):
+
+@Collatz.NormBridge.cycle_one_move_christoffel : ∀ {m L r : ℕ} {v : ℕ → ℕ},
+  2 ≤ r → (∀ i < r, 1 ≤ v i) → Collatz.NormGoal.psum v r = L →
+  (∀ j < L, CollatzProof.T^[j] m % 2 = 1 ↔ ∃ i < r, Collatz.NormGoal.psum v i = j) →
+  CollatzProof.T^[L] m = m →
+  (Collatz.NormGoal.OneMove r (Collatz.NormGoal.chr r L) v ∨ ∀ j < r, v j = Collatz.NormGoal.chr r L j) →
+  L = 2 * r ∧ (∀ j < r, v j = Collatz.NormGoal.chr r L j) ∧ m = 1
+  axioms: [propext, Classical.choice, Quot.sound]
+  with  def CollatzProof.T : ℕ → ℕ := fun n => if n % 2 = 0 then n / 2 else (3 * n + 1) / 2   (the shortcut map),
+        def Collatz.NormGoal.chr : ℕ → ℕ → ℕ → ℕ := fun r A j => (j + 1) * A / r - j * A / r   (= this lane's mech A r 0),
+        def Collatz.NormGoal.psum := fun w j => ∑ i ∈ Finset.range j, w i,
+        def Collatz.NormGoal.OneMove := fun r w v => (∃ j < r, v = cswap r w j) ∨
+          ∃ j < r, 2 ≤ w j ∧ ∃ k, (k = (j + 1) % r ∨ (k + 1) % r = j) ∧ k < r ∧ k ≠ j ∧ v = slide w j k.
+  No explicit 3^r < 2^L: a positive T-cycle with the stated odd-step pattern forces it (cycle equation), and
+  m = 0 is inconsistent with the odd-step hypothesis for r ≥ 2. Every r ≥ 2 and every total L = Σ v are covered.
+@Collatz.NormAll.no_cycle_one_move_christoffel_all : ∀ (r A : ℕ), 2 ≤ r → 3 ^ r + 1 < 2 ^ A → ∀ (v : ℕ → ℕ),
+  Collatz.NormGoal.OneMove r (Collatz.NormGoal.chr r A) v → (∃ j < r, v j ≠ Collatz.NormGoal.chr r A j) →
+  ¬2 ^ A - 3 ^ r ∣ Collatz.NormGoal.Bnum r v
+  axioms: [propext, Classical.choice, Quot.sound]
+@Collatz.cycle_min_le_chr : ∀ {m L : ℕ}, 0 < m → 0 < L → CollatzProof.T^[L] m = m →
+  (∀ (i : ℕ), m ≤ CollatzProof.T^[i] m) → m * (2 ^ L - 3 ^ Collatz.oddSteps L m) ≤ Collatz.chr L (Collatz.oddSteps L m)
+  axioms: [propext, Classical.choice, Quot.sound]      (Halbeisen–Hungerbühler 1997, Thm 3 upper half; chr L k = chrG L k k,
+  the Böhm–Sontacchi sum Σ_{i<k} 3^{k−1−i} 2^{⌊iL/k⌋} of the lower Christoffel word per the file header)
+@Collatz.few_runs_cycle_trivial_uncond : ∀ {z L : ℕ}, 0 < z → 0 < L → CollatzProof.T^[L] z = z →
+  Collatz.oddRuns L z ≤ 2 → z = 1 ∨ z = 2
+  axioms: [propext, Classical.choice, Quot.sound]
+  with  def oddRuns : ℕ → ℕ → ℕ | 0, _ => 0 | j+1, n => oddRuns j (T n) + runStart n
+  ("number of even→odd transitions T^i n → T^{i+1} n, i < j"): the number of odd runs of the T-orbit window,
+  i.e. the Steiner/Simons/Simons–de Weger circuit count, not this lane's J (forced positions in the sorted-rank
+  order). "≤ 2 odd runs ⇒ trivial" is the classical 1-/2-circuit exclusion made unconditional for all k there.
+Scope as above: kernel acceptance of the pinned sources; proofs not read line by line.
