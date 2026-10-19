@@ -4,10 +4,24 @@ Last updated: 2026-10-19. This ledger summarizes scope; the linked proof notes a
 
 ## Current programme and preserved Phase6 standing
 
+C008's [written arithmetic results](../experiments/cycle_spectrum/C008/REPORT.md)
+give `z_[j]=L*t^j mod q` and `n_[j]=L*t^(j+m H_j) mod q` for
+primitive ordered cycles with q<=L, q>1. Here `t^m=2,t^A=3`.
+The group `<2,3> mod q` must be cyclic; its relation lattice excludes
+every denominator divisible by35/65/91 in this domain. This follows
+from existing coprime totals and gives no q1 exclusion. Normalized
+height matching holds for q>1,B<=2, raw matching for q>1,B<=1.
+Exact actual cycles refute the corresponding primewise extension at
+B3 normalized and B2 raw. Both full-q matchings remain open, including
+q1. All1,185 stored cycles pass the finite matching test; a targeted
+946,001-profile extension adds no new small-q cycles. Written proofs,
+independent checks and formal verification are distinct; novelty is
+unclaimed. R1–R94 below are unchanged.
+
 C007's [arithmetic probe](../experiments/cycle_spectrum/C007/REPORT.md)
 leaves the height-denominator candidate `B<=q-1` open. Its written
-modular lemma and exact q5 controls reject residue-class injection and
-real-order-only proofs. A new bounded census adds one ordered q29 cycle;
+modular lemma and exact q5 controls reject disjoint height-residue sets and
+real-order-only proofs. Distinct-representative matching remains open. A new bounded census adds one ordered q29 cycle;
 the combined 1,185 normalized cycles do not refute the candidate.
 This is scoped obstruction evidence, with no new denominator exclusion.
 

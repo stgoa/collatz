@@ -1,5 +1,26 @@
 # Research log
 
+## 2026-10-19 — C008: distinguish full denominators from prime projections
+
+The [batch](../experiments/cycle_spectrum/C008/REPORT.md) records exact
+sorted residue structure, forbidden denominator factors under circular
+order, small-band matching and exact failures of primewise matching.
+The full-q proposal and every ordered q1 exclusion remain open. A large
+bounded profile screen adds no new small-q cycle and is reported as
+such. The high-level next target stays unbounded ordered q1 exclusion.
+
+The C007 ledger summary had overstated overlapping residue sets as
+failure of injection. It is corrected explicitly: the example refutes
+disjointness, while distinct-representative matching remains open.
+The C008 draft raw B2 general-divisor extension was also retracted
+after an exact counterexample; only normalized B2 and raw B1 survive.
+The exact correction and proof scopes are in the batch reviews.
+
+Fable's latest reported Lean result formalizes q1 three-band structure
+on actual cycles; main has not independently replayed it. The reviewed
+side pin is aab73dd. Historical mathematics and the open LaTeX document
+remain preserved, with separate historical and delivery checks.
+
 ## 2026-10-19 — C007: test the height-denominator mechanism
 
 [C007](../experiments/cycle_spectrum/C007/REPORT.md) retains `B<=q-1`

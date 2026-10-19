@@ -1,5 +1,12 @@
 # Find a better language for Collatz
 
+[C008](experiments/cycle_spectrum/C008/REPORT.md) identifies exact
+geometric residue order and a forbidden-denominator-factor consequence
+of coprime totals. Primewise height matching is refuted by actual cycles;
+full-q matching and ordered q1 exclusion remain open. This is a bounded
+discrimination of the current language, not a new language-selection
+claim. The next high-level target retains unbounded heights and periods.
+
 [C007](experiments/cycle_spectrum/C007/REPORT.md) tests a height versus
 denominator law within the current cycle programme. It remains open;
 exact residue and rational-rescaling controls identify information lost

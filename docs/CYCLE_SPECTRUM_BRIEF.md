@@ -7,7 +7,15 @@ work. It is not the current completion requirement.
 
 ## Headline
 
-The latest [C007 probe](../experiments/cycle_spectrum/C007/REPORT.md)
+The latest [C008 probe](../experiments/cycle_spectrum/C008/REPORT.md)
+gives an exact sorted-residue progression and a denominator-factor
+restriction within the ordered domain. Full-q height matching remains
+open; exact cycles refute the stronger primewise matching shortcut.
+These q>1 gains leave the all-height ordered q1 milestone unresolved.
+The next attempt must use full integer divisibility, not just modular
+arrows or a succession of fixed-band bounds.
+
+[C007's probe](../experiments/cycle_spectrum/C007/REPORT.md)
 leaves the candidate `B<=q-1` unresolved and rules out two proposed
 shortcuts. The recommended intermediate milestone is an ordered-cycle
 denominator-one exclusion with no bounds on period, height or height

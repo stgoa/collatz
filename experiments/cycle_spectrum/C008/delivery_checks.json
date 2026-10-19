@@ -1,0 +1,54 @@
+{
+  "baseline_commit": "dddbe334159f0fd658974627127b9e8b237add40",
+  "batch_file_sha256": {
+    "experiments/cycle_spectrum/C008/ARITHMETIC_REVIEW.md": "8a36496637405b5fcedd19d2f813134b63a4da1006595f12ef33d8e935714f50",
+    "experiments/cycle_spectrum/C008/CHECKER_REVIEW.md": "33b8d61b2188070f5d3542efb30af4009c2c3ae4dd23b5c711a69cda64792512",
+    "experiments/cycle_spectrum/C008/INDEPENDENT_MATCHING.md": "21b37af7f124364e57b041a18cd8b96fec818a14a55451e7528d74aff1c3931e",
+    "experiments/cycle_spectrum/C008/LITERATURE.md": "f23e9a5c58d60e74579960456b398d2bd2c53131fc39e8e3e8f7fb57bf0faded",
+    "experiments/cycle_spectrum/C008/MATCHING_ARITHMETIC.md": "aefff8c4a83e236c341ecbd2c37e7b6d7cb41d2aa87c3459a44f9d722a2a53ad",
+    "experiments/cycle_spectrum/C008/REPORT.md": "d951a7ec82db7d2f160e7efc3ae01f7d4362ae16efd1f31dafa5b5eda67eae31",
+    "experiments/cycle_spectrum/C008/ROOT_REVIEW.md": "aaa766f80ccbf9563549f28fb23d539fb07dd972a30b46ae6d28a848d99030ae",
+    "experiments/cycle_spectrum/C008/SIDE_REVIEW.md": "423f597a243468ad00bb82840d306a787ab44e9dbcc8fbb88cbaafa8a0b3cb22",
+    "experiments/cycle_spectrum/C008/check_delivery.py": "17bb5686d7c1554421c2e060bb526caa351310aa44c1cba4491921fe5743680e",
+    "experiments/cycle_spectrum/C008/check_height_matching.py": "f8d63a71dc57206386c35cfcadba62a29969f1405aa8be665fa39158e99d1f39",
+    "experiments/cycle_spectrum/C008/check_residue_spectrum.py": "0a3ac38cda93904c8c9bd48094ec59cdda7b71577c9cf88c6def83af7d693f71",
+    "experiments/cycle_spectrum/C008/height_matching_audit.json": "8be1fb6414481b333f36cd007e4542a2c9e009d6339afd7fb3771b6e79b7361a",
+    "experiments/cycle_spectrum/C008/historical_gate.json": "10a42beae3aec02a370ce90f6b5d2a8d2c307261646116868211b95d77fd6c2d",
+    "experiments/cycle_spectrum/C008/residue_spectrum_audit.json": "d12246b465cd79f083d7f461e4987ee3e9849bec2231cfae5fdde47d7806d96a"
+  },
+  "frozen_commit": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "goal_status": "All-cycle objective active; ordered q1 exclusion remains open and is only an intermediate recommendation.",
+  "historical_gate": {
+    "command": "python3 scripts/verify_all.py --cpp --transfer-controls",
+    "field_count": 119,
+    "independent_cpp": "PASS: 4096 and 262144",
+    "phase6_transfer_controls": "PASS: eleven exact raw cycles, eight nonprincipal controls, four fixed-d controls, fourteen d1 samples and fail-closed checks; setup label none",
+    "status": "PASS"
+  },
+  "markdown_checks": {
+    "errors": [],
+    "existing_local_links": 612,
+    "files": 16
+  },
+  "preservation": {
+    "C001_C007_files_unchanged": 81,
+    "R1_onward_byte_identical": true,
+    "frozen_files_byte_identical": [
+      "collatz_research_20261017/right_aligned_reduction.tex",
+      "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md",
+      "experiments/residual_progress/resolved_rules/resolved_rules.py"
+    ],
+    "git_diff_check": "PASS"
+  },
+  "side_reviewed_commit": "aab73dd4cf84561d5bd1f59b8eb1be5b4825f6bf",
+  "source_reviews": {
+    "pinned_sha256": {
+      "INDEPENDENT_MATCHING.md": "21b37af7f124364e57b041a18cd8b96fec818a14a55451e7528d74aff1c3931e",
+      "MATCHING_ARITHMETIC.md": "aefff8c4a83e236c341ecbd2c37e7b6d7cb41d2aa87c3459a44f9d722a2a53ad",
+      "check_height_matching.py": "f8d63a71dc57206386c35cfcadba62a29969f1405aa8be665fa39158e99d1f39",
+      "height_matching_audit.json": "8be1fb6414481b333f36cd007e4542a2c9e009d6339afd7fb3771b6e79b7361a"
+    },
+    "status": "PASS"
+  },
+  "status": "PASS"
+}

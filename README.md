@@ -4,12 +4,27 @@ This repository is the persistent record of the Collatz programme: definitions, 
 
 ## Current programme: cycle denominators across 3x+d
 
-**Current standing (2026-10-19): C006 proves that ordered cycles with
+**Current standing (2026-10-19): C008 identifies a geometric progression
+of normalized residues in sorted rank and an all-period denominator
+restriction: ordered reduced cycles with q<=L cannot have 35, 65 or 91
+dividing q. This follows from C005's coprime totals and does not exclude
+denominator1. Full height-residue matching remains open.**
+
+[C008](experiments/cycle_spectrum/C008/REPORT.md) also gives small-band
+matching theorems for q>1 and exact counterexamples to projecting the
+matching claim to every prime divisor. Both full-q matchings pass on
+1,185 stored normalized cycles. A targeted 946,001-profile extension
+produces no new small-q examples; it adds no substantive evidence.
+The next mechanism must retain full integer divisibility and all rank
+inequalities. Increasing a fixed band limit is a diagnostic, not the
+high-level objective.
+
+C006 proves that ordered cycles with
 bounded denominator and number of dyadic height changes form a finite
 class, effectively in principle, with no separate height bound. The
 elementary gap bound uses circular order; the finiteness corollary imports a classical
 two-logarithm theorem. Excluding every ordered denominator-one cycle
-and the all-cycle headline remain open.**
+and the all-cycle headline remain open.
 
 [C007's bounded test](experiments/cycle_spectrum/C007/REPORT.md) leaves
 the candidate height bound `B<=q-1` open. A new census of 8,800,033 odd
@@ -96,10 +111,11 @@ remaining gap. No argument places all possible integer cycles in that
 ordered class. This is an intermediate target under the unchanged headline.
 Each batch must produce a theorem or exact obstruction and actual-cycle
 tests; the [cycle log](docs/CYCLE_SPECTRUM_LOG.md) records the work.
-The separate Lean lane now reports C003's effective algebra and both
-directions of C004's narrow/mechanical classification, with its cut
-identities. Main has not independently replayed those builds; they do
-not verify C005-C007 or supply the missing height argument.
+The separate Lean lane reports C003's effective algebra, both directions
+of C004's narrow/mechanical classification and C005's q1 three-band
+structural theorem on actual odd cycles. Main has not independently
+replayed those builds; the reports do not supply cycle exclusion or
+the missing height argument. C008's side review records the exact scope.
 
 ## Previous language programme: arithmetic regularity
 

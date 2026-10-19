@@ -1,5 +1,28 @@
 # Viewpoint exploration log
 
+## C008 — Rank residues retain structure but prime projection loses it, 2026-10-19
+
+The [batch](../experiments/cycle_spectrum/C008/REPORT.md) proves that
+ordered normalized residues have the form `L*t^j` in sorted rank.
+The raw form retains the height shift `L*t^(j+m H_j)`. Cyclicity of
+`<2,3>` is already forced by C005's coprime totals and excludes factors
+35/65/91 from reduced ordered denominators. It does not touch q1.
+
+Exact ordered cycles refute Hall matching modulo every proper divisor,
+including a three-height raw failure modulo5. Full-q Hall is open;
+small-band q>1 theorems do not supply its q1 case. The targeted profile
+extension adds no new small-q cycles. Keep the high-level target of
+ordered q1 exclusion at all heights; use full divisibility and rank gaps
+in the next bounded attempt instead of collecting fixed-band results.
+
+Successful fetch initially reviewed `92bff411a90c197bc953cde2cbbc1b7374d651ff`;
+the latest shared ref reviewed is `aab73dd4cf84561d5bd1f59b8eb1be5b4825f6bf`.
+[Side review](../experiments/cycle_spectrum/C008/SIDE_REVIEW.md) assesses
+D1–D8 and reported Lean b60fd21, the actual-cycle q1 three-band structure.
+Main did not independently kernel-replay it. The top ledger's old
+residue-injection overstatement is explicitly corrected to disjointness;
+historical batch notes and receipts are preserved.
+
 ## C007 — Keep the integer height information, 2026-10-19
 
 The [height-denominator probe](../experiments/cycle_spectrum/C007/REPORT.md)
