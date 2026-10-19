@@ -28,7 +28,7 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-19 10:59 — FINDING (S3, producer batch): extending C005's ordering to `H < 16L` at `q = 1` reduces to excluding one inversion pair; that pair type occurs at other `q`, so the direct route is blocked
+## 2026-10-19 10:58 — FINDING (S3, producer batch): extending C005's ordering to `H < 16L` at `q = 1` reduces to excluding one inversion pair; that pair type occurs at other `q`, so the direct route is blocked
 
 Full note: `sidekick/research/S3/INVERSION_PAIRS.md`.
 
@@ -73,7 +73,7 @@ So the run starts form a `J`-state cycle of a generalised Collatz map with the s
 
 **Next producer target, S3.** Extend C005's ordering from `H < 8L` to `H < 16L` at `q = 1`. At height gap `k = 3`, the only possible `q = 1` inversion is a pair `(n, 8n+1)` with `n` of height 0. Its orbit is forced: `8n+1 → 6n+1 → 9n+2 → …`. S3 will either exclude such pairs in a nontrivial cycle or record exactly what they require.
 
-**Update 10:59: Lean S2-a is VERIFIED** (`9a30082`).
+**Update 10:58: Lean S2-a is VERIFIED** (`9a30082`).
 
 - **The theorems.**
   - `run_dvd`: the run-start gap is divisible by `2^E`.
