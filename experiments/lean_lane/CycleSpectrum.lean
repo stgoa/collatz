@@ -9679,6 +9679,490 @@ theorem three_mismatch_denominator_law (hprim : ∀ i j, i < m → j < m → Γ.
 
 end OddCycle
 
+/-! ### S12-a: the discrete Denjoy–Koksma inequality at a single convergent
+
+For an `m`-periodic `f : ℕ → ℝ` of zero mean over a period and a rotation `h` with a rational
+approximation `p/q`: `q h = p m + r`, `0 ≤ r`, `q r < m` (that is `0 ≤ h/m − p/q < 1/q²`), `gcd(p, q)
+= 1`: `|Σ_{k<q} f(x + k h)| ≤ Σ_{t<m} |f(t+1) − f(t)|` for every start `x` (`dk_core` for `x = 0`,
+`dk_discrete` in general). The proof is the one-point-per-cell argument in coordinates scaled by `q`:
+position `t` occupies the block `[qt, qt+q)` and cell `j < q` the interval `[jm, jm+m)`, both tiling
+`[0, qm)`; the chain point `k` lies in the cell `J k ≡ k p (mod q)` (`J_spec`), a bijection of
+`[0, q)` (`J_lt`, injectivity by coprimality); with the integer weights `w j t = #(block t ∩ cell j)`
+(`sum_w_t`, `sum_w_j`), `m Σ_k f(c_k) = Σ_k Σ_t w (J k) t (f c_k − f t)`, each cell's contribution
+is bounded by the variation of `f` over the positions touching the cell (`w_pos_bounds`,
+`abs_sub_le_var_window`), and those windows are disjoint across cells (`windows_disjoint`,
+`sum_windows_le`). Applied to the height profile `μ_h(t) = log n_{t+h} − log n_t` of a cycle, whose
+chain sums telescope, this is the side lane's S12 (1): `|log n_{x+qh} − log n_x| ≤ Var(μ_h)`
+(`OddCycle.dk_log`). Every convergent `p/q` of `h/m` with `q < m` satisfies the hypotheses (with
+`h` replaced by `m − h` when `qh < pm`); nothing else about the cycle is used. -/
+
+namespace DK
+
+theorem card_filter_div {N d j : ℕ} (hd : 0 < d) (hj : (j + 1) * d ≤ N) :
+    ((Finset.range N).filter (fun u => u / d = j)).card = d := by
+  have he : (Finset.range N).filter (fun u => u / d = j) = Finset.Ico (j * d) (j * d + d) := by
+    ext u
+    rw [Finset.mem_filter, Finset.mem_range, Finset.mem_Ico]
+    constructor
+    · rintro ⟨_, hu⟩
+      have h1 := Nat.div_add_mod' u d
+      have h2 := Nat.mod_lt u hd
+      rw [hu] at h1
+      omega
+    · rintro ⟨h1, h2⟩
+      refine ⟨?_, ?_⟩
+      · calc u < j * d + d := h2
+          _ = (j + 1) * d := by ring
+          _ ≤ N := hj
+      · exact Nat.div_eq_of_lt_le h1 (by rw [add_mul, one_mul]; exact h2)
+  rw [he, Nat.card_Ico, Nat.add_sub_cancel_left]
+
+/-- The weight of position `t` in cell `j`, in coordinates scaled by `q`. -/
+def w (m q j t : ℕ) : ℕ :=
+  ((Finset.range (q * m)).filter (fun u => u / m = j ∧ u / q = t)).card
+
+/-- Each cell has total weight `m`. -/
+theorem sum_w_t {m q j : ℕ} (hm : 0 < m) (hq : 0 < q) (hj : j < q) :
+    ∑ t ∈ Finset.range m, w m q j t = m := by
+  have hcard := card_filter_div (N := q * m) (d := m) (j := j) hm (Nat.mul_le_mul_right m hj)
+  have hmaps : Set.MapsTo (fun u => u / q)
+      (↑((Finset.range (q * m)).filter (fun u => u / m = j)) : Set ℕ)
+      (↑(Finset.range m) : Set ℕ) := by
+    intro u hu
+    rw [Finset.mem_coe, Finset.mem_filter, Finset.mem_range] at hu
+    rw [Finset.mem_coe, Finset.mem_range]
+    exact (Nat.div_lt_iff_lt_mul hq).mpr (by rw [Nat.mul_comm]; exact hu.1)
+  have hfib := Finset.card_eq_sum_card_fiberwise hmaps
+  calc ∑ t ∈ Finset.range m, w m q j t
+      = ∑ t ∈ Finset.range m,
+          (((Finset.range (q * m)).filter (fun u => u / m = j)).filter (fun u => u / q = t)).card := by
+        apply Finset.sum_congr rfl
+        intro t _
+        unfold w
+        rw [Finset.filter_filter]
+    _ = ((Finset.range (q * m)).filter (fun u => u / m = j)).card := hfib.symm
+    _ = m := hcard
+
+/-- Each position has total weight `q`. -/
+theorem sum_w_j {m q t : ℕ} (hm : 0 < m) (hq : 0 < q) (ht : t < m) :
+    ∑ j ∈ Finset.range q, w m q j t = q := by
+  have hcard := card_filter_div (N := q * m) (d := q) (j := t) hq
+    (by rw [Nat.mul_comm q m]; exact Nat.mul_le_mul_right q ht)
+  have hmaps : Set.MapsTo (fun u => u / m)
+      (↑((Finset.range (q * m)).filter (fun u => u / q = t)) : Set ℕ)
+      (↑(Finset.range q) : Set ℕ) := by
+    intro u hu
+    rw [Finset.mem_coe, Finset.mem_filter, Finset.mem_range] at hu
+    rw [Finset.mem_coe, Finset.mem_range]
+    exact (Nat.div_lt_iff_lt_mul hm).mpr hu.1
+  have hfib := Finset.card_eq_sum_card_fiberwise hmaps
+  calc ∑ j ∈ Finset.range q, w m q j t
+      = ∑ j ∈ Finset.range q,
+          (((Finset.range (q * m)).filter (fun u => u / q = t)).filter (fun u => u / m = j)).card := by
+        apply Finset.sum_congr rfl
+        intro j _
+        unfold w
+        rw [Finset.filter_filter]
+        congr 1
+        exact Finset.filter_congr (fun u _ => and_comm)
+    _ = ((Finset.range (q * m)).filter (fun u => u / q = t)).card := hfib.symm
+    _ = q := hcard
+
+/-- A position of positive weight in cell `j` lies in the window `[jm/q, (jm+m−1)/q]`. -/
+theorem w_pos_bounds {m q j t : ℕ} (hm : 0 < m) (hq : 0 < q) (hw : 0 < w m q j t) :
+    j * m / q ≤ t ∧ t ≤ (j * m + m - 1) / q := by
+  unfold w at hw
+  rw [Finset.card_pos] at hw
+  obtain ⟨u, hu⟩ := hw
+  rw [Finset.mem_filter, Finset.mem_range] at hu
+  obtain ⟨_, huj, hut⟩ := hu
+  have h1 := Nat.div_add_mod' u m
+  have h2 := Nat.mod_lt u hm
+  have h3 := Nat.div_add_mod' u q
+  have h4 := Nat.mod_lt u hq
+  rw [huj] at h1
+  rw [hut] at h3
+  constructor
+  · have h5 : j * m < (t + 1) * q := by
+      rw [add_mul, one_mul]
+      omega
+    exact Nat.le_of_lt_succ ((Nat.div_lt_iff_lt_mul hq).mpr h5)
+  · apply (Nat.le_div_iff_mul_le hq).mpr
+    omega
+
+/-- Telescoping: `|f b − f a| ≤ Σ_{a ≤ s < b} |f(s+1) − f(s)|`. -/
+theorem abs_sub_le_sum_jumps (f : ℕ → ℝ) {a b : ℕ} (hab : a ≤ b) :
+    |f b - f a| ≤ ∑ s ∈ Finset.Ico a b, |f (s + 1) - f s| := by
+  induction b, hab using Nat.le_induction with
+  | base => simp
+  | succ b hab ih =>
+    rw [Finset.sum_Ico_succ_top hab]
+    calc |f (b + 1) - f a| ≤ |f (b + 1) - f b| + |f b - f a| := abs_sub_le _ _ _
+      _ ≤ |f (b + 1) - f b| + ∑ s ∈ Finset.Ico a b, |f (s + 1) - f s| := by linarith
+      _ = ∑ s ∈ Finset.Ico a b, |f (s + 1) - f s| + |f (b + 1) - f b| := by ring
+
+/-- Two positions in the window `[lo, hi]` differ by at most the variation over the window. -/
+theorem abs_sub_le_var_window (f : ℕ → ℝ) {lo hi a b : ℕ} (ha1 : lo ≤ a) (ha2 : a ≤ hi)
+    (hb1 : lo ≤ b) (hb2 : b ≤ hi) :
+    |f b - f a| ≤ ∑ s ∈ Finset.Ico lo hi, |f (s + 1) - f s| := by
+  rcases le_total a b with hab | hba
+  · calc |f b - f a| ≤ ∑ s ∈ Finset.Ico a b, |f (s + 1) - f s| := abs_sub_le_sum_jumps f hab
+      _ ≤ ∑ s ∈ Finset.Ico lo hi, |f (s + 1) - f s| :=
+          Finset.sum_le_sum_of_subset_of_nonneg (Finset.Ico_subset_Ico ha1 hb2)
+            (fun _ _ _ => abs_nonneg _)
+  · rw [abs_sub_comm]
+    calc |f a - f b| ≤ ∑ s ∈ Finset.Ico b a, |f (s + 1) - f s| := abs_sub_le_sum_jumps f hba
+      _ ≤ ∑ s ∈ Finset.Ico lo hi, |f (s + 1) - f s| :=
+          Finset.sum_le_sum_of_subset_of_nonneg (Finset.Ico_subset_Ico hb1 ha2)
+            (fun _ _ _ => abs_nonneg _)
+
+/-- The windows of distinct cells are disjoint. -/
+theorem windows_disjoint {m q : ℕ} :
+    (↑(Finset.range q) : Set ℕ).PairwiseDisjoint
+      (fun j => Finset.Ico (j * m / q) ((j * m + m - 1) / q)) := by
+  intro j _ j' _ hne
+  have key : ∀ a b : ℕ, a < b →
+      Disjoint (Finset.Ico (a * m / q) ((a * m + m - 1) / q))
+        (Finset.Ico (b * m / q) ((b * m + m - 1) / q)) := by
+    intro a b hab
+    have h1 : (a + 1) * m ≤ b * m := Nat.mul_le_mul_right m hab
+    rw [add_mul, one_mul] at h1
+    have h2 : (a * m + m - 1) / q ≤ b * m / q := Nat.div_le_div_right (by omega)
+    rw [Finset.disjoint_left]
+    intro s hs hs'
+    rw [Finset.mem_Ico] at hs hs'
+    omega
+  rcases Nat.lt_or_gt_of_ne hne with hlt | hlt
+  · exact key j j' hlt
+  · exact (key j' j hlt).symm
+
+/-- The sum over all windows of a nonnegative function is at most the sum over a period. -/
+theorem sum_windows_le {m q : ℕ} (hm : 0 < m) (hq : 0 < q) (g : ℕ → ℝ) (hg : ∀ s, 0 ≤ g s) :
+    ∑ j ∈ Finset.range q, ∑ s ∈ Finset.Ico (j * m / q) ((j * m + m - 1) / q), g s ≤
+      ∑ s ∈ Finset.range m, g s := by
+  rw [← Finset.sum_biUnion windows_disjoint]
+  apply Finset.sum_le_sum_of_subset_of_nonneg
+  · intro s hs
+    rw [Finset.mem_biUnion] at hs
+    obtain ⟨j, hj, hs⟩ := hs
+    rw [Finset.mem_range] at hj ⊢
+    rw [Finset.mem_Ico] at hs
+    have h1 : (j * m + m - 1) / q ≤ (q * m - 1) / q := by
+      apply Nat.div_le_div_right
+      have h1' : (j + 1) * m ≤ q * m := Nat.mul_le_mul_right m hj
+      rw [add_mul, one_mul] at h1'
+      omega
+    have h2 : (q * m - 1) / q < m := by
+      rw [Nat.div_lt_iff_lt_mul hq, Nat.mul_comm m q]
+      have : 0 < q * m := Nat.mul_pos hq hm
+      omega
+    omega
+  · intro s _ _
+    exact hg s
+
+/-- The cell of the chain point `k`: `J k = k p − q ⌊k h / m⌋`. -/
+def J (m q p h k : ℕ) : ℕ := k * p - q * (k * h / m)
+
+theorem J_add {m q p h r k : ℕ} (hr : q * h = p * m + r) (hqr : q * r < m) (hk : k < q) :
+    J m q p h k + q * (k * h / m) = k * p := by
+  unfold J
+  apply Nat.sub_add_cancel
+  by_contra hlt
+  have hlt' : k * p + 1 ≤ q * (k * h / m) := not_le.mp hlt
+  have h1 : (k * p + 1) * m ≤ q * (k * h / m) * m := Nat.mul_le_mul_right m hlt'
+  have h2 : k * h / m * m ≤ k * h := Nat.div_mul_le_self (k * h) m
+  have h3 : q * (k * h / m) * m ≤ q * (k * h) := by
+    rw [Nat.mul_assoc]
+    exact Nat.mul_le_mul_left q h2
+  have h4 : q * (k * h) = k * (p * m) + k * r := by
+    calc q * (k * h) = k * (q * h) := by ring
+      _ = k * (p * m + r) := by rw [hr]
+      _ = k * (p * m) + k * r := by ring
+  have h5 : k * r < m := by
+    calc k * r ≤ q * r := Nat.mul_le_mul_right r hk.le
+      _ < m := hqr
+  have h6 : (k * p + 1) * m ≤ k * (p * m) + k * r := le_trans h1 (le_trans h3 h4.le)
+  have e1 : (k * p + 1) * m = k * (p * m) + m := by ring
+  omega
+
+theorem J_spec {m q p h r k : ℕ} (hr : q * h = p * m + r) (hqr : q * r < m) (hk : k < q) :
+    m * J m q p h k + k * r = q * (k * h % m) := by
+  have hJ := J_add hr hqr hk
+  have hdm := Nat.div_add_mod (k * h) m
+  zify at hJ hdm hr ⊢
+  linear_combination (m : ℤ) * hJ - (q : ℤ) * hdm - (k : ℤ) * hr
+
+theorem J_lt {m q p h r k : ℕ} (hm : 0 < m) (hq : 0 < q) (hr : q * h = p * m + r)
+    (hqr : q * r < m) (hk : k < q) : J m q p h k < q := by
+  have hs := J_spec hr hqr hk
+  have hmod : k * h % m < m := Nat.mod_lt (k * h) hm
+  have h1 : q * (k * h % m) < q * m := Nat.mul_lt_mul_of_pos_left hmod hq
+  have h2 : m * J m q p h k < m * q := by
+    calc m * J m q p h k ≤ m * J m q p h k + k * r := Nat.le_add_right _ _
+      _ = q * (k * h % m) := hs
+      _ < q * m := h1
+      _ = m * q := Nat.mul_comm q m
+  exact Nat.lt_of_mul_lt_mul_left h2
+
+theorem J_mod {m q p h r k : ℕ} (hr : q * h = p * m + r) (hqr : q * r < m) (hk : k < q) :
+    J m q p h k % q = k * p % q := by
+  have hJ := J_add hr hqr hk
+  rw [← hJ, Nat.add_mul_mod_self_left]
+
+theorem J_injOn {m q p h r : ℕ} (hr : q * h = p * m + r) (hqr : q * r < m)
+    (hcop : Nat.Coprime p q) : Set.InjOn (J m q p h) (↑(Finset.range q) : Set ℕ) := by
+  intro k hk k' hk' heq
+  rw [Finset.mem_coe, Finset.mem_range] at hk hk'
+  have h1 := J_mod hr hqr hk
+  have h2 := J_mod hr hqr hk'
+  have h3 : k * p ≡ k' * p [MOD q] := by
+    unfold Nat.ModEq
+    rw [← h1, ← h2, heq]
+  have h4 : k ≡ k' [MOD q] := Nat.ModEq.cancel_right_of_coprime hcop.symm.gcd_eq_one h3
+  unfold Nat.ModEq at h4
+  rwa [Nat.mod_eq_of_lt hk, Nat.mod_eq_of_lt hk'] at h4
+
+theorem J_image {m q p h r : ℕ} (hm : 0 < m) (hq : 0 < q) (hr : q * h = p * m + r)
+    (hqr : q * r < m) (hcop : Nat.Coprime p q) :
+    (Finset.range q).image (J m q p h) = Finset.range q := by
+  apply Finset.eq_of_subset_of_card_le
+  · intro j hj
+    rw [Finset.mem_image] at hj
+    obtain ⟨k, hk, rfl⟩ := hj
+    rw [Finset.mem_range] at hk ⊢
+    exact J_lt hm hq hr hqr hk
+  · rw [Finset.card_image_of_injOn (J_injOn hr hqr hcop)]
+
+/-- The chain point `k` has positive weight in its cell `J k`. -/
+theorem w_J_pos {m q p h r k : ℕ} (hm : 0 < m) (hq : 0 < q) (hr : q * h = p * m + r)
+    (hqr : q * r < m) (hk : k < q) : 0 < w m q (J m q p h k) (k * h % m) := by
+  have hs := J_spec hr hqr hk
+  have hkr : k * r < m := by
+    calc k * r ≤ q * r := Nat.mul_le_mul_right r hk.le
+      _ < m := hqr
+  unfold w
+  apply Finset.card_pos.mpr
+  refine ⟨q * (k * h % m), ?_⟩
+  rw [Finset.mem_filter, Finset.mem_range]
+  refine ⟨?_, ?_, ?_⟩
+  · exact Nat.mul_lt_mul_of_pos_left (Nat.mod_lt (k * h) hm) hq
+  · have e : J m q p h k * m = m * J m q p h k := Nat.mul_comm _ _
+    apply Nat.div_eq_of_lt_le
+    · omega
+    · rw [add_mul, one_mul]
+      omega
+  · exact Nat.mul_div_cancel_left _ hq
+
+/-- Shift invariance of a periodic sum over a period. -/
+theorem sum_range_shift {m : ℕ} (f : ℕ → ℝ) (hper : ∀ t, f (t + m) = f t) (x : ℕ) :
+    ∑ t ∈ Finset.range m, f (x + t) = ∑ t ∈ Finset.range m, f t := by
+  induction x with
+  | zero => simp
+  | succ x ih =>
+    rw [← ih]
+    rcases Nat.eq_zero_or_pos m with hm0 | hmpos
+    · subst hm0
+      simp
+    · obtain ⟨n, rfl⟩ := Nat.exists_eq_succ_of_ne_zero hmpos.ne'
+      rw [Finset.sum_range_succ, Finset.sum_range_succ' (fun t => f (x + t))]
+      have h1 : f (x + 1 + n) = f (x + 0) := by
+        rw [Nat.add_zero, show x + 1 + n = x + (n + 1) by omega]
+        exact hper x
+      rw [h1]
+      congr 1
+      apply Finset.sum_congr rfl
+      intro t _
+      congr 1
+      omega
+
+/-- **The discrete Denjoy–Koksma inequality**, chain starting at `0`. -/
+theorem dk_core {m q p h r : ℕ} (f : ℕ → ℝ) (hper : ∀ t, f (t + m) = f t)
+    (hmean : ∑ t ∈ Finset.range m, f t = 0) (hm : 0 < m) (hq : 0 < q)
+    (hr : q * h = p * m + r) (hqr : q * r < m) (hcop : Nat.Coprime p q) :
+    |∑ k ∈ Finset.range q, f (k * h)| ≤ ∑ t ∈ Finset.range m, |f (t + 1) - f t| := by
+  -- periodic reduction
+  have fmod : ∀ t, f (t % m) = f t := by
+    intro t
+    have : ∀ n, f (t % m + m * n) = f (t % m) := by
+      intro n
+      induction n with
+      | zero => simp
+      | succ n ih => rw [Nat.mul_succ, ← Nat.add_assoc, hper, ih]
+    conv_rhs => rw [← Nat.mod_add_div t m]
+    exact (this _).symm
+  have hS : ∑ k ∈ Finset.range q, f (k * h) = ∑ k ∈ Finset.range q, f (k * h % m) :=
+    Finset.sum_congr rfl (fun k _ => (fmod (k * h)).symm)
+  rw [hS]
+  -- weights
+  have hW2 : ∀ k ∈ Finset.range q, ∑ t ∈ Finset.range m, (w m q (J m q p h k) t : ℝ) = m := by
+    intro k hk
+    rw [Finset.mem_range] at hk
+    exact_mod_cast sum_w_t hm hq (J_lt hm hq hr hqr hk)
+  have hW1 : ∀ t ∈ Finset.range m, ∑ j ∈ Finset.range q, (w m q j t : ℝ) = q := by
+    intro t ht
+    rw [Finset.mem_range] at ht
+    exact_mod_cast sum_w_j hm hq ht
+  have hJinj := J_injOn hr hqr hcop
+  have hJimg := J_image hm hq hr hqr hcop
+  -- the weighted sum of `f` over all cells vanishes
+  have hzero : ∑ k ∈ Finset.range q, ∑ t ∈ Finset.range m,
+      (w m q (J m q p h k) t : ℝ) * f t = 0 := by
+    have h1 : ∑ k ∈ Finset.range q, ∑ t ∈ Finset.range m, (w m q (J m q p h k) t : ℝ) * f t
+        = ∑ j ∈ Finset.range q, ∑ t ∈ Finset.range m, (w m q j t : ℝ) * f t := by
+      conv_rhs => rw [← hJimg]
+      rw [Finset.sum_image hJinj]
+    rw [h1, Finset.sum_comm]
+    have h2 : ∀ t ∈ Finset.range m,
+        ∑ j ∈ Finset.range q, (w m q j t : ℝ) * f t = (q : ℝ) * f t := by
+      intro t ht
+      rw [← Finset.sum_mul, hW1 t ht]
+    rw [Finset.sum_congr rfl h2, ← Finset.mul_sum, hmean, mul_zero]
+  -- the key identity
+  have hident : (m : ℝ) * ∑ k ∈ Finset.range q, f (k * h % m) =
+      ∑ k ∈ Finset.range q, ∑ t ∈ Finset.range m,
+        (w m q (J m q p h k) t : ℝ) * (f (k * h % m) - f t) := by
+    have h1 : ∀ k ∈ Finset.range q, ∑ t ∈ Finset.range m,
+        (w m q (J m q p h k) t : ℝ) * (f (k * h % m) - f t) =
+        (m : ℝ) * f (k * h % m) - ∑ t ∈ Finset.range m, (w m q (J m q p h k) t : ℝ) * f t := by
+      intro k hk
+      have e : ∀ t, (w m q (J m q p h k) t : ℝ) * (f (k * h % m) - f t) =
+          (w m q (J m q p h k) t : ℝ) * f (k * h % m) - (w m q (J m q p h k) t : ℝ) * f t :=
+        fun t => mul_sub _ _ _
+      rw [Finset.sum_congr rfl (fun t _ => e t), Finset.sum_sub_distrib, ← Finset.sum_mul,
+        hW2 k hk]
+    rw [Finset.sum_congr rfl h1, Finset.sum_sub_distrib, hzero, sub_zero, ← Finset.mul_sum]
+  -- the pointwise bound by the window variation
+  have hbound : ∀ k ∈ Finset.range q, ∀ t ∈ Finset.range m,
+      (w m q (J m q p h k) t : ℝ) * |f (k * h % m) - f t| ≤
+        (w m q (J m q p h k) t : ℝ) *
+          ∑ s ∈ Finset.Ico (J m q p h k * m / q) ((J m q p h k * m + m - 1) / q),
+            |f (s + 1) - f s| := by
+    intro k hk t _
+    rw [Finset.mem_range] at hk
+    rcases Nat.eq_zero_or_pos (w m q (J m q p h k) t) with h0 | hpos
+    · rw [h0]
+      simp
+    · apply mul_le_mul_of_nonneg_left _ (Nat.cast_nonneg _)
+      obtain ⟨ht1, ht2⟩ := w_pos_bounds hm hq hpos
+      obtain ⟨hc1, hc2⟩ := w_pos_bounds hm hq (w_J_pos hm hq hr hqr hk)
+      exact abs_sub_le_var_window f ht1 ht2 hc1 hc2
+  have hmpos : (0 : ℝ) < m := by exact_mod_cast hm
+  have hmain : (m : ℝ) * |∑ k ∈ Finset.range q, f (k * h % m)| ≤
+      (m : ℝ) * ∑ t ∈ Finset.range m, |f (t + 1) - f t| := by
+    calc (m : ℝ) * |∑ k ∈ Finset.range q, f (k * h % m)|
+        = |(m : ℝ) * ∑ k ∈ Finset.range q, f (k * h % m)| := by
+          rw [abs_mul, abs_of_pos hmpos]
+      _ = |∑ k ∈ Finset.range q, ∑ t ∈ Finset.range m,
+            (w m q (J m q p h k) t : ℝ) * (f (k * h % m) - f t)| := by rw [hident]
+      _ ≤ ∑ k ∈ Finset.range q, ∑ t ∈ Finset.range m,
+            |(w m q (J m q p h k) t : ℝ) * (f (k * h % m) - f t)| := by
+          refine (Finset.abs_sum_le_sum_abs _ _).trans ?_
+          exact Finset.sum_le_sum (fun k _ => Finset.abs_sum_le_sum_abs _ _)
+      _ = ∑ k ∈ Finset.range q, ∑ t ∈ Finset.range m,
+            (w m q (J m q p h k) t : ℝ) * |f (k * h % m) - f t| := by
+          apply Finset.sum_congr rfl
+          intro k _
+          apply Finset.sum_congr rfl
+          intro t _
+          rw [abs_mul, abs_of_nonneg (Nat.cast_nonneg _)]
+      _ ≤ ∑ k ∈ Finset.range q, ∑ t ∈ Finset.range m, (w m q (J m q p h k) t : ℝ) *
+            ∑ s ∈ Finset.Ico (J m q p h k * m / q) ((J m q p h k * m + m - 1) / q),
+              |f (s + 1) - f s| := by
+          apply Finset.sum_le_sum
+          intro k hk
+          apply Finset.sum_le_sum
+          intro t ht
+          exact hbound k hk t ht
+      _ = ∑ k ∈ Finset.range q, (m : ℝ) *
+            ∑ s ∈ Finset.Ico (J m q p h k * m / q) ((J m q p h k * m + m - 1) / q),
+              |f (s + 1) - f s| := by
+          apply Finset.sum_congr rfl
+          intro k hk
+          rw [← Finset.sum_mul, hW2 k hk]
+      _ = (m : ℝ) * ∑ j ∈ Finset.range q,
+            ∑ s ∈ Finset.Ico (j * m / q) ((j * m + m - 1) / q), |f (s + 1) - f s| := by
+          rw [← Finset.mul_sum]
+          congr 1
+          conv_rhs => rw [← hJimg]
+          rw [Finset.sum_image hJinj]
+      _ ≤ (m : ℝ) * ∑ t ∈ Finset.range m, |f (t + 1) - f t| := by
+          apply mul_le_mul_of_nonneg_left _ (Nat.cast_nonneg _)
+          exact sum_windows_le hm hq (fun s => |f (s + 1) - f s|) (fun s => abs_nonneg _)
+  exact le_of_mul_le_mul_left hmain hmpos
+
+/-- **The discrete Denjoy–Koksma inequality**, chain starting anywhere. -/
+theorem dk_discrete {m q p h r : ℕ} (f : ℕ → ℝ) (hper : ∀ t, f (t + m) = f t)
+    (hmean : ∑ t ∈ Finset.range m, f t = 0) (hm : 0 < m) (hq : 0 < q)
+    (hr : q * h = p * m + r) (hqr : q * r < m) (hcop : Nat.Coprime p q) (x : ℕ) :
+    |∑ k ∈ Finset.range q, f (x + k * h)| ≤ ∑ t ∈ Finset.range m, |f (t + 1) - f t| := by
+  have hper' : ∀ t, f (x + (t + m)) = f (x + t) := by
+    intro t
+    rw [← Nat.add_assoc, hper]
+  have hmean' : ∑ t ∈ Finset.range m, f (x + t) = 0 := by
+    rw [sum_range_shift f hper x, hmean]
+  have h : |∑ k ∈ Finset.range q, f (x + k * h)| ≤
+      ∑ t ∈ Finset.range m, |f (x + (t + 1)) - f (x + t)| :=
+    dk_core (fun t => f (x + t)) hper' hmean' hm hq hr hqr hcop
+  refine h.trans (le_of_eq ?_)
+  have hg : ∀ t, |f (t + m + 1) - f (t + m)| = |f (t + 1) - f t| := by
+    intro t
+    rw [show t + m + 1 = t + 1 + m by omega, hper, hper]
+  have hsh : ∑ t ∈ Finset.range m, |f (x + t + 1) - f (x + t)| =
+      ∑ t ∈ Finset.range m, |f (t + 1) - f t| :=
+    sum_range_shift (fun t => |f (t + 1) - f t|) hg x
+  rw [← hsh]
+  apply Finset.sum_congr rfl
+  intro t _
+  rw [Nat.add_assoc]
+
+end DK
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- **S12 (1) for a cycle.** For a rational approximation `p/q` of `h/m` with `q h = p m + r`,
+`0 ≤ r`, `q r < m`, `gcd(p, q) = 1`, and every `x`: `|log n_{x+qh} − log n_x| ≤ Var(μ_h)`, with
+`μ_h(t) = log n_{t+h} − log n_t` (natural logarithms; every proper convergent of `h/m` qualifies,
+with `h` replaced by `m − h` when `q h < p m`). -/
+theorem dk_log {q p h r : ℕ} (hq : 0 < q) (hr : q * h = p * m + r) (hqr : q * r < m)
+    (hcop : Nat.Coprime p q) (x : ℕ) :
+    |Real.log (Γ.n (x + q * h)) - Real.log (Γ.n x)| ≤
+      ∑ t ∈ Finset.range m, |(Real.log (Γ.n (t + 1 + h)) - Real.log (Γ.n (t + 1))) -
+        (Real.log (Γ.n (t + h)) - Real.log (Γ.n t))| := by
+  have hper : ∀ t, Real.log (Γ.n (t + m + h)) - Real.log (Γ.n (t + m)) =
+      Real.log (Γ.n (t + h)) - Real.log (Γ.n t) := by
+    intro t
+    rw [Nat.add_right_comm t m h, Γ.nper, Γ.nper]
+  have hmean : ∑ t ∈ Finset.range m, (Real.log (Γ.n (t + h)) - Real.log (Γ.n t)) = 0 := by
+    rw [Finset.sum_sub_distrib, sub_eq_zero]
+    have hsh : ∑ t ∈ Finset.range m, Real.log (Γ.n (h + t)) =
+        ∑ t ∈ Finset.range m, Real.log (Γ.n t) :=
+      DK.sum_range_shift (fun t => Real.log (Γ.n t)) (fun t => by rw [Γ.nper]) h
+    rw [← hsh]
+    apply Finset.sum_congr rfl
+    intro t _
+    rw [Nat.add_comm]
+  have hdk : |∑ k ∈ Finset.range q,
+      (Real.log (Γ.n (x + k * h + h)) - Real.log (Γ.n (x + k * h)))| ≤
+      ∑ t ∈ Finset.range m, |(Real.log (Γ.n (t + 1 + h)) - Real.log (Γ.n (t + 1))) -
+        (Real.log (Γ.n (t + h)) - Real.log (Γ.n t))| :=
+    DK.dk_discrete (fun t => Real.log (Γ.n (t + h)) - Real.log (Γ.n t)) hper hmean Γ.hm hq hr
+      hqr hcop x
+  have htel : ∑ k ∈ Finset.range q,
+      (Real.log (Γ.n (x + k * h + h)) - Real.log (Γ.n (x + k * h))) =
+      Real.log (Γ.n (x + q * h)) - Real.log (Γ.n x) := by
+    have hs := Finset.sum_range_sub (fun k => Real.log (Γ.n (x + k * h))) q
+    simp only [zero_mul, add_zero] at hs
+    rw [← hs]
+    apply Finset.sum_congr rfl
+    intro k _
+    rw [show x + (k + 1) * h = x + k * h + h by ring]
+  rw [← htel]
+  exact hdk
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

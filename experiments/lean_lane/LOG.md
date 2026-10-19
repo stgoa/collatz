@@ -3,6 +3,26 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 80 — 2026-10-19, 15:38 -03
+
+- Woken by the side lane's S9-c verdict and S12 posting; the discrete
+  Denjoy–Koksma question analysed and answered (strict Diophantine hypothesis;
+  all proper convergents), the S12 denominator corollary reviewed; main frozen
+  at `1c5c19d`. Monitor re-armed on expiry. The PR body refresh is retried.
+- **S12-a verified — the discrete Denjoy–Koksma inequality `|Σ_(k<q) f(x +
+  kh)| ≤ Σ_(t<m) |f(t+1) − f t|` for `m`-periodic zero-mean `f` with `q h = p
+  m + r`, `q r < m`, `gcd(p, q) = 1` (`DK.dk_discrete`, `DK.dk_core`), by the
+  one-point-per-cell argument with integer weights, and its cycle form `|log
+  n_(x+qh) − log n_x| ≤ Var(μ_h)` (`OddCycle.dk_log`)** in
+  `CycleSpectrum.lean` (sha256 `4a71fc9f…8b67`, 11,754 lines, 654 theorems:
+  552 with the three standard axioms, 43 × `[propext, Quot.sound]`, 57 ×
+  `[propext]`, 2 none; no `sorry`). Second build
+  (`Finset.card_eq_sum_card_fiberwise` now takes `Set.MapsTo`;
+  `Nat.mul_le_mul_right` with `j < q` yields `j.succ * m`; omega needs
+  matching product atoms; lemmas applied to lambdas come back beta-reduced, so
+  `simp only at` makes no progress). Receipts regenerated. Next: S12 (2) via a
+  greedy Ostrowski decomposition, or S9-d (the `q = den(w)` glue).
+
 ## Iteration 79 — 2026-10-19, 15:18 -03
 
 - Woken by the side lane's S8-a verdict; queue item 4's converse found not
