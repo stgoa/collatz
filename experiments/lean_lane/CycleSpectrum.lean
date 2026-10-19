@@ -7010,6 +7010,130 @@ theorem B_le_ceiling_q1 (hq1 : Γ.q = 1) (hB : ∃ i, Γ.h i = Γ.B) :
 
 end OddCycle
 
+/-! ### S6-b: the two-mismatch composition (the side lane's S6 §2, exact part)
+
+S5-a at `s = 2` gives `t` with `m ≤ 2(t+1)` and `6 · 3^t < 2^{B+1+c} m^{μ+1}`; the ceiling S6-a bounds
+`B log 2`. Together: `log 6 + t log 3 < (m−1)(log 3 − log 2) + (m−1) log(1 + 1/(3L)) + (1+c) log 2 +
+(μ+1) log m` (`two_mismatch_bound`). Hence, whenever the numeric inequality fails for every such `t`
+(the side lane's "false for all `m ≥ 24,891`, `L ≥ 2^20`" with `(c, μ) = (172, 341)`, taken here as
+the explicit hypothesis `hnum`), no nonidentity rotation has exactly two mismatches
+(`no_two_mismatch`): C011's conclusion by the S6 route. The numeric step itself is S6-c. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- S6 §2 steps 1–4, exact: at `q = 1` with the gap `(c, μ)`, an attained band and a rotation with
+exactly two mismatches, some `t` has `m ≤ 2(t+1)` and
+`log 6 + t log 3 < (m−1)(log 3 − log 2) + (m−1) log(1 + 1/(3L)) + (1+c) log 2 + (μ+1) log m`. -/
+theorem two_mismatch_bound (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) (hq1 : Γ.q = 1)
+    {c μ : ℕ} (hgap : (2 : ℤ) ^ Γ.Apre m ≤ 2 ^ c * (m : ℤ) ^ μ * (2 ^ Γ.Apre m - 3 ^ m))
+    (hB : ∃ i, Γ.h i = Γ.B) {h : ℕ} (hh : h % m ≠ 0) (hs : (Γ.mis h).card = 2) :
+    ∃ t : ℕ, m ≤ 2 * (t + 1) ∧
+      Real.log 6 + (t : ℝ) * Real.log 3 <
+        ((m : ℝ) - 1) * (Real.log 3 - Real.log 2) +
+          ((m : ℝ) - 1) * Real.log (1 + 1 / (3 * Γ.n 0)) +
+          (1 + (c : ℝ)) * Real.log 2 + ((μ : ℝ) + 1) * Real.log m := by
+  obtain ⟨t, hmt, hlt⟩ := Γ.mismatch_height hprim hq1 hgap hh
+  rw [hs] at hmt
+  refine ⟨t, hmt, ?_⟩
+  have hceil := Γ.B_le_ceiling_q1 hq1 hB
+  have hltR : (6 : ℝ) * 3 ^ t < 2 ^ (Γ.B + 1 + c) * (m : ℝ) ^ (μ + 1) := by exact_mod_cast hlt
+  have hm0 : (0 : ℝ) < m := by exact_mod_cast Γ.hm
+  have hlog := Real.log_lt_log (by positivity) hltR
+  rw [Real.log_mul (by norm_num : (6 : ℝ) ≠ 0) (by positivity : (3 : ℝ) ^ t ≠ 0),
+    Real.log_mul (by positivity : (2 : ℝ) ^ (Γ.B + 1 + c) ≠ 0) (pow_pos hm0 _).ne',
+    Real.log_pow, Real.log_pow, Real.log_pow] at hlog
+  push_cast at hlog
+  have e : ((Γ.B : ℝ) + 1 + c) * Real.log 2 = Γ.B * Real.log 2 + (1 + (c : ℝ)) * Real.log 2 := by
+    ring
+  rw [e] at hlog
+  linarith
+
+/-- S6 §1 with the numeric step as an explicit hypothesis: if for every `t` with `m ≤ 2(t+1)` the
+right side of `two_mismatch_bound` is at most `log 6 + t log 3`, then no nonidentity rotation has
+exactly two mismatches. -/
+theorem no_two_mismatch (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) (hq1 : Γ.q = 1)
+    {c μ : ℕ} (hgap : (2 : ℤ) ^ Γ.Apre m ≤ 2 ^ c * (m : ℤ) ^ μ * (2 ^ Γ.Apre m - 3 ^ m))
+    (hB : ∃ i, Γ.h i = Γ.B)
+    (hnum : ∀ t : ℕ, m ≤ 2 * (t + 1) →
+      ((m : ℝ) - 1) * (Real.log 3 - Real.log 2) +
+          ((m : ℝ) - 1) * Real.log (1 + 1 / (3 * Γ.n 0)) +
+          (1 + (c : ℝ)) * Real.log 2 + ((μ : ℝ) + 1) * Real.log m ≤
+        Real.log 6 + (t : ℝ) * Real.log 3)
+    {h : ℕ} (hh : h % m ≠ 0) : (Γ.mis h).card ≠ 2 := by
+  intro hs
+  obtain ⟨t, hmt, hlt⟩ := Γ.two_mismatch_bound hprim hq1 hgap hB hh hs
+  exact absurd hlt (not_lt.mpr (hnum t hmt))
+
+
+/-! #### S6-c: the numeric step, for `m ≥ 2^15` and `L ≥ 2^20` with `gap_all`'s `(c, μ) = (172, 341)`
+
+Only `log 2`'s decimal bounds (`Real.log_two_gt_d9`, `Real.log_two_lt_d9`), the integer comparisons
+`3^41 < 2^65` and `2^19 < 3^12` (so `19/12 < log₂ 3 < 65/41`), the tangent bound
+`log m ≤ 15 log 2 + m/2^15 − 1`, and `log(1 + x) ≤ x` are used; the rest is linear arithmetic. -/
+
+theorem numeric_step {m : ℕ} (hm : 2 ^ 15 ≤ m) {L : ℝ} (hL : (2 : ℝ) ^ 20 ≤ L) (t : ℕ)
+    (hmt : m ≤ 2 * (t + 1)) :
+    ((m : ℝ) - 1) * (Real.log 3 - Real.log 2) + ((m : ℝ) - 1) * Real.log (1 + 1 / (3 * L)) +
+        (1 + ((172 : ℕ) : ℝ)) * Real.log 2 + (((341 : ℕ) : ℝ) + 1) * Real.log m ≤
+      Real.log 6 + (t : ℝ) * Real.log 3 := by
+  have hmR : (2 : ℝ) ^ 15 ≤ m := by exact_mod_cast hm
+  have hmtR : (m : ℝ) ≤ 2 * ((t : ℝ) + 1) := by exact_mod_cast hmt
+  have ht0 : (0 : ℝ) ≤ t := by positivity
+  have hm1 : (0 : ℝ) ≤ (m : ℝ) - 1 := by linarith
+  have hm0 : (0 : ℝ) < m := by linarith
+  have hl2a := Real.log_two_gt_d9
+  have hl2b := Real.log_two_lt_d9
+  have hL0 : (0 : ℝ) < L := by linarith
+  have h3u : 41 * Real.log 3 < 65 * Real.log 2 := by
+    have h := Real.log_lt_log (by norm_num : (0 : ℝ) < 3 ^ 41)
+      (by norm_num : (3 : ℝ) ^ 41 < 2 ^ 65)
+    rw [Real.log_pow, Real.log_pow] at h
+    push_cast at h
+    linarith
+  have h3l : 19 * Real.log 2 < 12 * Real.log 3 := by
+    have h := Real.log_lt_log (by norm_num : (0 : ℝ) < 2 ^ 19)
+      (by norm_num : (2 : ℝ) ^ 19 < 3 ^ 12)
+    rw [Real.log_pow, Real.log_pow] at h
+    push_cast at h
+    linarith
+  have hlogm : Real.log m ≤ 15 * Real.log 2 + ((m : ℝ) / 2 ^ 15 - 1) := by
+    have h := Real.log_le_sub_one_of_pos (by positivity : (0 : ℝ) < m / 2 ^ 15)
+    rw [Real.log_div hm0.ne' (by positivity), Real.log_pow] at h
+    push_cast at h
+    linarith
+  have hε : Real.log (1 + 1 / (3 * L)) ≤ 1 / (3 * 2 ^ 20) := by
+    have h := Real.log_le_sub_one_of_pos (by positivity : (0 : ℝ) < 1 + 1 / (3 * L))
+    have h2 : (1 : ℝ) / (3 * L) ≤ 1 / (3 * 2 ^ 20) :=
+      div_le_div_of_nonneg_left (by norm_num) (by positivity) (by linarith)
+    linarith
+  have hlog6 : Real.log 6 = Real.log 2 + Real.log 3 := by
+    rw [show (6 : ℝ) = 2 * 3 by norm_num, Real.log_mul (by norm_num) (by norm_num)]
+  have hA : ((m : ℝ) - 1) * (Real.log 3 - Real.log 2) ≤
+      ((m : ℝ) - 1) * ((24 / 41) * 0.6931471808) := by
+    apply mul_le_mul_of_nonneg_left _ hm1
+    linarith
+  have hB : ((m : ℝ) - 1) * Real.log (1 + 1 / (3 * L)) ≤ ((m : ℝ) - 1) * (1 / (3 * 2 ^ 20)) :=
+    mul_le_mul_of_nonneg_left hε hm1
+  have hC : (t : ℝ) * ((19 / 12) * 0.6931471803) ≤ (t : ℝ) * Real.log 3 := by
+    apply mul_le_mul_of_nonneg_left _ ht0
+    linarith
+  push_cast
+  linarith [hA, hB, hC, hlogm, hlog6, hl2a, hl2b, h3l, hmR, hmtR]
+
+/-- **C011's conclusion by the S6 route**, with explicit inputs: a primitive cycle at `q = 1` with
+the gap `(172, 341)` (the shape of `gap_all`), attained band, `m ≥ 2^15` and `L ≥ 2^20` has no
+nonidentity rotation with exactly two mismatches. -/
+theorem no_two_mismatch_of_gap (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hq1 : Γ.q = 1)
+    (hgap : (2 : ℤ) ^ Γ.Apre m ≤ 2 ^ 172 * (m : ℤ) ^ 341 * (2 ^ Γ.Apre m - 3 ^ m))
+    (hB : ∃ i, Γ.h i = Γ.B) (hm : 2 ^ 15 ≤ m) (hL : (2 : ℤ) ^ 20 ≤ Γ.n 0) {h : ℕ}
+    (hh : h % m ≠ 0) : (Γ.mis h).card ≠ 2 :=
+  Γ.no_two_mismatch hprim hq1 hgap hB
+    (fun t hmt => numeric_step hm (by exact_mod_cast hL) t hmt) hh
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

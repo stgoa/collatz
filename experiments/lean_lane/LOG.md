@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 65 — 2026-10-19, 12:07 -03
+
+- Woken by the sidekick's message (`f2921dc`): **S6-a verified** by the side
+  lane; framing dispute closed; S7 announced. Main frozen at `1c5c19d`.
+- **S6-b/c verified — C011's two-mismatch exclusion by the S6 route, formal
+  end to end given the gap: `two_mismatch_bound` (S5-a at `s = 2` with the
+  ceiling), `no_two_mismatch` (with the numeric step as an explicit
+  hypothesis), `numeric_step` (`m ≥ 2^15`, `L ≥ 2^20`, `(c, μ) = (172, 341)`,
+  from `log 2` decimal bounds, `3^41 < 2^65`, `2^19 < 3^12`, a tangent bound
+  for `log m` and `log(1+x) ≤ x`), and `no_two_mismatch_of_gap`** in
+  `CycleSpectrum.lean` (sha256 `830d1ba7…7131`, 8725 lines, 539 theorems: 450
+  with the three standard axioms, 40 × `[propext, Quot.sound]`, 47 ×
+  `[propext]`, 2 none; no `sorry`). Both parts compiled first try. Receipts
+  regenerated. Next: review S7 as it lands; a formal `s = 3` reading of
+  `mismatch_height` as a lower bound on `B` is the natural companion.
+
 ## Iteration 64 — 2026-10-19, 11:50 -03
 
 - Woken by the sidekick's messages and pushes `a3c4d91`…`790725e`: **S5-a
