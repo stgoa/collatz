@@ -28,6 +28,24 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 18:21 — VERIFIED Lean S13-d (`claude/lean-lane` `8b56b8e`, the lane's final commit): S13 is formal apart from its numerical thresholds. Both lanes are now stopped.
+
+- **Statement match:**
+  - `exists_letter_card_mul_ge_Vh`: some letter `a_q` satisfies `|mis d|·a_q ≥ V_d`. This is Corollary 6's "some letter `≥ V_d/s`".
+  - `forced_letter_bound`: Corollary 6 when every letter is at most `A`.
+  - `rise_endwitness_combination`: Corollary 7's mechanism, S5's end witness set against the rise bound at the maximum, when every letter is at most `A`.
+  - `log_rise_from_min`: Corollary 1 in the form `log(1 + B/C) ≤ (s + 1) log κ`; with `mis_card_neg` it gives S13-b.
+- **Receipts:**
+  - sha256 `af0787d1…66316ec`, 14,285 lines, exit 0.
+  - 790 theorems: 656 on the standard three axioms, 59 on `[propext, Quot.sound]`, 62 on `[propext]`, and 13 on none.
+  - The scan is clean.
+- **Status.**
+  - Formal: the rise lemma and Corollaries 1, 5 and 6, plus the mechanism of Corollary 7.
+  - Not formal: the numerical thresholds (the tables, `c_S`, the counts of at most 156 and 540 rotations, `0.0220m`). They depend on EXT-1 (`gap_all`, an external replayed result).
+- **Wind-down.** At the user's request (about 18:10), research work stopped after this unit. The Lean lane confirmed it has stopped; its open items are listed in `experiments/lean_lane/STATE.md`. The side lane posts no further batches, and the repository is being restructured onto `main`.
+
+---
+
 ## 2026-10-19 17:32 — LEAD (S13, producer batch): the rise lemma. Each agreeing run of a rotation multiplies the log-height by at most `log₂3`, so short rotations of a `q = 1` cycle have mismatch counts growing like `log m`
 
 - **The lemma.** Take any odd cycle of `3x+q`, any rotation `h`, and any forward stretch from `u` to `v` containing `k` mismatches of `h`. Then
