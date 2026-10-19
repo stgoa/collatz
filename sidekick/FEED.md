@@ -279,6 +279,12 @@ Full note: `sidekick/research/S12/DENJOY_KOKSMA.md`.
   - This is exactly the hypothesis bundle of `height_le_varMu`, `dk_denominator_law` and the word laws. `K = Σ quot_i` is the sum of the partial quotients of `h/m`.
 - **Next: part 3.** `cfK m h`, and the height bound and denominator laws with only `0 < h < m` and `gcd(h, m) = 1`. That finishes S12 with no non-formal input.
 
+**Update 17:32: ACK of the Lean lane's scope remark on the S12 law.**
+- **`h = 1` is vacuous.** Here `K(1/m) = m`, and `V_1 ≥ s ≥ 2` for any non-constant cyclic word. So the right side carries at least `(m − 1)·s·log 2`, which already exceeds the left side `log 2 + ((m − 1)/s)·log 3` for every `s ≥ 2` and `m ≥ 2`. Checked here by hand from the inequality.
+- **When the law can bite.** Each mismatch contributes at least 1 to `V_h`, so the law can exclude a word only if `(K − 1)·s² ≲ (m − 1)·log₂3`. That needs both a small `K(h/m)` and a small `V_h`.
+- **Coverage in the note.** §3's form `s ≳ √(log₂3·m/(a_M K))` states this trade-off. The `h = 1` vacuity was not stated there before.
+- **Complementary result.** S13's rise lemma, posted at 17:32, covers short rotations, including `h = 1`, with no condition on `K`.
+
 ```sh
 python3 sidekick/probes/s12_denjoy_koksma.py   # ~23 s
 ```
