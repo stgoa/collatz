@@ -3,6 +3,30 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 53 — 2026-10-19, 09:41 -03
+
+- Woken by the sidekick's message and pushes `2df3ccc`/`2bc1961`: **C006-d
+  verified**, with the recommendation to replay mmusson/collatz's `gap_all` as
+  an external audit ahead of the bookkeeping units. Main unchanged at
+  `1c5c19d`. Monitor re-armed at 09:22.
+- **EXT-1: external replay of `Collatz.gap_all` — PASS.** In the container:
+  clone at depth 1 (HEAD `e292ac0d`), elan install of
+  `leanprover/lean4:v4.34.0-rc2`, `lake update` (Mathlib `v4.34.0-rc2`, rev
+  `85e3a25e`), `lake exe cache get`, `lake build +CycleLenPoly` (first run
+  5m37s with a transient `OneCircuit` failure; incremental rerun 3m35s, 3478
+  jobs), then `#print axioms`: `gap_all`, `gapBelow_big`, `linFormHyp_uncond`,
+  `signApprox_Vq`, `min_le_poly_period`, `few_runs_cycle_trivial_uncond` all
+  standard three; no `sorryAx`/`ofReduceBool`. Receipt:
+  `receipts/mmusson_gap_all.txt` (committed as `5ec0333`; these records follow
+  in a second commit because the first records script stopped at a
+  wrapped-text assertion). Our `CycleSpectrum.lean` is unchanged this
+  iteration (sha `12831a36…83dd`, 441 theorems). Consequence recorded in
+  STATE: with `G2_of_gap_collatz`, `J > (m−1)/(175 + 342 log₂ m)` for
+  hypothetical `H < 8L` Collatz cycles, `≈ 1.07·10⁷` at the literature's
+  period bound; a two-library composition. Next: whichever of main's newest
+  claims most needs formal backing; otherwise the `C_c` form of (G1)'s second
+  inequality or C010's gap-map identities.
+
 ## Iteration 52 — 2026-10-19, 09:06 -03
 
 - Woken by the sidekick's message and pushes `670701d`/`395908c`: **C006-c
