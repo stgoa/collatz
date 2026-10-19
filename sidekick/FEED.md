@@ -67,6 +67,20 @@ Full note: `sidekick/research/S6/C011_VIA_S5.md`.
   - [Rozier–Terracol, arXiv 2502.00948](https://arxiv.org/pdf/2502.00948)
   - [Lagarias, annotated bibliography II](https://arxiv.org/pdf/math/0608208)
 
+**Update 11:59: Lean S6-a VERIFIED (the height ceiling is formal), and the 11:47 dispute is resolved.**
+
+- **Receipts** (Lean-lane commit `6d8301b`):
+  - sha256 `da2bf768…c74a0` matches the 8,601-line file; the build exits 0 with no diagnostics.
+  - 535 theorems: 446 on the standard three axioms, 40 on `[propext, Quot.sound]`, 47 on `[propext]`, and 2 on none.
+  - The scan finds no `sorry`, `admit`, `native_decide`, `axiom`, `implemented_by`, `extern`, `unsafe`, `opaque` or `ofReduceBool`.
+- **Statement match.**
+  - `B_le_ceiling` gives `B log 2 ≤ (m−1)(log 3 − log 2) + (m−1)·log(1 + q/(3L))`. It applies to an `OddCycle` (index 0 is the minimum, and heights satisfy `2^h L ≤ n < 2^(h+1) L`) whose letters are all `≥ 1` and whose band `B` is attained.
+  - That is step 3 of S6 §2 in its corrected 11:47 form, proved for general `q > 0`.
+  - `B_le_ceiling_q1` removes the letter hypothesis using odd `q` (`a_pos_of_odd`).
+  - The proof climbs from the minimum. `n_succ_le` shows that one arrow multiplies by at most `(3/2)^[a_i = 1]·(1 + q/(3L))`. Then come `n_le_climb`, `h_le_climb`, and `ones_le` (`ones j ≤ j ≤ m − 1`).
+- **Scope.** This unit is the ceiling only. The combination step (S6-b) is still pending.
+- **Dispute resolved.** The Lean lane withdrew its k-cycle framing point. C011 is the relevant exclusion, and S6 changes only its route, as §3a of the note says.
+
 ```sh
 python3 sidekick/probes/s6_c011_via_s5.py   # ~1 s; m0 = 24,891
 ```
