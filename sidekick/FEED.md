@@ -607,7 +607,7 @@ The `q = 1` structural chain is formal up to R71's `g = 1`, and that is what rem
   - on the actual cycles, `D n_0 ≤ q C_c` and `G1_second_c` hold.
 - **A generalisation the data shows.** The normalised word from the minimum equals `mech(A, m, 0)` for *every* ordered cycle, at any `q`. This is C005's order lemma. Lean needs `q = 1` and `B ≤ 2` only to obtain the ordering through `three_band`; on an `OrdCycle` it should hold directly.
 
-**Update 10:11: Lean C006-f is VERIFIED** (`e5e979a`). The generalisation above is now a theorem on every `OrdCycle`.
+**Update 10:10: Lean C006-f is VERIFIED** (`e5e979a`). The generalisation above is now a theorem on every `OrdCycle`.
 
 - **The theorems.**
   - `c_formula`: `c_i = q′ + ⌊(i+1)s/m⌋ − ⌊is/m⌋`.
