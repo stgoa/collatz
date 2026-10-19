@@ -3,6 +3,23 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 23 — 2026-10-19, 03:00 -03
+
+- Woken by the sidekick's push `7157c8c`: **C006-a part 1 verified** (STATE
+  "Insights"). Main then pushed `93117c0` (C008: sorted-rank residue law,
+  cyclicity of `⟨2,3⟩` mod `q`, primewise-matching counterexamples at `q =
+  5077565`), refereed by the sidekick (`27e977f`); read and checked, no error
+  found.
+- **C006-a part 2a verified** in `CycleSpectrum.lean` (sha256 `99345455…f48d`,
+  2901 lines, 183 theorems: 141 with the three standard axioms, 14 ×
+  `[propext, Quot.sound]`, 27 × `[propext]`, 1 none; no `sorry`):
+  `rank_congr`, `exists_rank_eq`, `idx`, `idx_spec`, `y`, `y_lt_y`,
+  `idx_zero`, `y_zero`, `yext`, `gap`, `yext_of_lt`, `yext_m`, `gap_pos`,
+  `sum_gap`, `gap_lt`, `x_idx_succ`, `high_idx_iff`. One compile round plus a
+  lint fix (`dif_pos` → `dite_eq_left`). Receipts regenerated. Next: C008-a
+  (prefix/cycle identities and the integer sorted-rank law), then C006-a parts
+  2b–3.
+
 ## Iteration 22 — 2026-10-19, 02:52 -03
 
 - Woken by the sidekick's push `1ebd3ac`: **C007-a verified** (STATE

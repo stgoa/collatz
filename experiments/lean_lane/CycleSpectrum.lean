@@ -2128,6 +2128,134 @@ theorem is_mech_of_narrow (w : List ℕ) (hm2 : 2 ≤ w.length) (hD : 0 < D w)
   conv_lhs => rw [hback]
   rw [hmech, mech_rotate hm0]
 
+/-! #### Part 4: states indexed by rank (C006 §3's sorted order `z_[r]`, its extension
+`z_[r+m] = 2 z_[r]` and the sorted gaps) -/
+
+theorem rank_congr {i j : ℕ} (h : N.x i = N.x j) : N.rank i = N.rank j := by
+  unfold rank
+  simp only [h]
+
+/-- On a primitive cycle the rank is onto `{0, …, m−1}`. -/
+theorem exists_rank_eq (hp : N.Primitive) {r : ℕ} (hr : r < m) :
+    ∃ i, i < m ∧ N.rank i = r := by
+  have hsurj := Finset.surj_on_of_inj_on_of_card_le (s := Finset.range m)
+    (t := Finset.range m) (fun i _ => N.rank i)
+    (fun i _ => Finset.mem_range.mpr (N.rank_lt i))
+    (fun i j hi hj h => N.rank_inj hp (Finset.mem_range.mp hi) (Finset.mem_range.mp hj) h)
+    le_rfl
+  obtain ⟨i, hi, hri⟩ := hsurj r (Finset.mem_range.mpr hr)
+  exact ⟨i, Finset.mem_range.mp hi, hri.symm⟩
+
+open Classical in
+/-- The index below `m` of the state of rank `r` (on a primitive cycle). -/
+noncomputable def idx (r : ℕ) : ℕ :=
+  if h : ∃ i, i < m ∧ N.rank i = r then Classical.choose h else 0
+
+theorem idx_spec (hp : N.Primitive) {r : ℕ} (hr : r < m) :
+    N.idx r < m ∧ N.rank (N.idx r) = r := by
+  have h := N.exists_rank_eq hp hr
+  unfold idx
+  rw [dite_eq_left h]
+  exact Classical.choose_spec h
+
+/-- The state of rank `r`: C006's sorted `z_[r]`. -/
+noncomputable def y (r : ℕ) : ℤ := N.x (N.idx r)
+
+/-- The sorted states increase strictly with the rank. -/
+theorem y_lt_y (hp : N.Primitive) {r r' : ℕ} (hrr : r < r') (hr' : r' < m) : N.y r < N.y r' := by
+  have h1 := N.idx_spec hp (lt_trans hrr hr')
+  have h2 := N.idx_spec hp hr'
+  unfold y
+  rcases lt_trichotomy (N.x (N.idx r)) (N.x (N.idx r')) with h | h | h
+  · exact h
+  · exfalso
+    have := N.rank_congr h
+    rw [h1.2, h2.2] at this
+    omega
+  · exfalso
+    have := N.rank_lt_of_lt h2.1 h
+    rw [h1.2, h2.2] at this
+    omega
+
+theorem idx_zero (hp : N.Primitive) (h0 : N.rank 0 = 0) : N.idx 0 = 0 := by
+  have h := N.idx_spec hp N.hm
+  exact N.rank_inj hp h.1 N.hm (h.2.trans h0.symm)
+
+theorem y_zero (hp : N.Primitive) (h0 : N.rank 0 = 0) : N.y 0 = N.x 0 := by
+  unfold y
+  rw [N.idx_zero hp h0]
+
+/-- The extension over one more period: `yext r = y r` for `r < m` and `2 y (r − m)` beyond,
+so `yext m = 2 y 0` (C006's seam). -/
+noncomputable def yext (r : ℕ) : ℤ := if r < m then N.y r else 2 * N.y (r - m)
+
+/-- The sorted gaps `Δ_r = z_[r+1] − z_[r]`, with the seam gap `2 z_[0] − z_[m−1]` at `r = m−1`. -/
+noncomputable def gap (r : ℕ) : ℤ := N.yext (r + 1) - N.yext r
+
+theorem yext_of_lt {r : ℕ} (hr : r < m) : N.yext r = N.y r := by
+  unfold yext
+  rw [ite_eq_left hr]
+
+theorem yext_m : N.yext m = 2 * N.y 0 := by
+  unfold yext
+  rw [ite_eq_right (lt_irrefl m), Nat.sub_self]
+
+/-- Every gap is positive (the states are distinct and below `2 lo ≤ 2 z_[0]`). -/
+theorem gap_pos (hp : N.Primitive) (h0 : N.rank 0 = 0) {r : ℕ} (hr : r < m) : 0 < N.gap r := by
+  unfold gap
+  rcases Nat.lt_or_ge (r + 1) m with hlt | hge
+  · rw [N.yext_of_lt hlt, N.yext_of_lt hr]
+    linarith [N.y_lt_y hp (Nat.lt_succ_self r) hlt]
+  · have hr1 : r + 1 = m := le_antisymm hr hge
+    rw [hr1, N.yext_m, N.yext_of_lt hr]
+    have h1 : N.y r < 2 * N.lo := N.upper _
+    have h2 : N.lo ≤ N.x 0 := N.lower 0
+    rw [N.y_zero hp h0]
+    linarith
+
+/-- The gaps over one period sum to `z_[m] − z_[0] = z_[0]`, the minimum. -/
+theorem sum_gap (hp : N.Primitive) (h0 : N.rank 0 = 0) :
+    ∑ r ∈ Finset.range m, N.gap r = N.x 0 := by
+  unfold gap
+  rw [Finset.sum_range_sub N.yext m, N.yext_m, N.yext_of_lt N.hm, N.y_zero hp h0]
+  ring
+
+/-- Hence each gap is below the minimum when `m ≥ 2` (C006's `G_start < 2^B L` after scaling). -/
+theorem gap_lt (hp : N.Primitive) (h0 : N.rank 0 = 0) (hm2 : 2 ≤ m) {r : ℕ} (hr : r < m) :
+    N.gap r < N.x 0 := by
+  rw [← N.sum_gap hp h0]
+  have hmem : r ∈ Finset.range m := Finset.mem_range.mpr hr
+  rw [← Finset.add_sum_erase _ _ hmem]
+  have hpos : 0 < ∑ j ∈ (Finset.range m).erase r, N.gap j := by
+    apply Finset.sum_pos
+    · intro j hj
+      exact N.gap_pos hp h0 (Finset.mem_range.mp (Finset.mem_of_mem_erase hj))
+    · obtain ⟨j, hj, hjr⟩ : ∃ j, j < m ∧ j ≠ r := by
+        rcases Nat.eq_zero_or_pos r with h | h
+        · exact ⟨1, by omega, by omega⟩
+        · exact ⟨0, by omega, by omega⟩
+      exact ⟨j, Finset.mem_erase.mpr ⟨hjr, Finset.mem_range.mpr hj⟩⟩
+  linarith
+
+/-- The successor of the state of rank `r` is the state of rank `(r + h) mod m`. -/
+theorem x_idx_succ (hp : N.Primitive) (hh : N.numHigh < m) {r : ℕ} (hr : r < m) :
+    N.x (N.idx r + 1) = N.y ((r + N.numHigh) % m) := by
+  have h1 := N.idx_spec hp hr
+  have h2 := N.idx_spec hp (Nat.mod_lt (r + N.numHigh) N.hm)
+  have hrk : N.rank (N.idx r + 1) = (r + N.numHigh) % m := by
+    rw [N.rank_succ_eq hh, h1.2]
+  unfold y
+  rw [← N.x_mod (N.idx r + 1)]
+  congr 1
+  apply N.rank_inj hp (Nat.mod_lt _ N.hm) h2.1
+  rw [N.rank_mod, hrk, h2.2]
+
+/-- The state of rank `r` is high exactly when `r ≥ m − h` (the final block of ranks). -/
+theorem high_idx_iff (hp : N.Primitive) {r : ℕ} (hr : r < m) :
+    N.high (N.idx r) ↔ m - N.numHigh ≤ r := by
+  have h := N.idx_spec hp hr
+  rw [N.high_iff_rank h.1, h.2]
+
 end NarrowCycle
 
 /-! ### C005 `ORDER_THEORY.md` §2: the inversion formula (2) and the three-band observation -/
