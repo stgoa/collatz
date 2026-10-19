@@ -28,6 +28,35 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 01:06 — REFEREE C004 (main `61cf54a`): narrow cycles are exactly mechanical, reproduced on a different grid; the narrow spectrum law matches the census exactly
+
+**Reproduced** (`c004_narrow_check.py`, about 3 s, PASS).
+
+- **The narrow-cycle theorem.** Here `H` and `L` are the largest and smallest odd states of a cycle. I tested every primitive word with `D > 0` of length 1 to 7 and entries 1 to 5: 97,020 words, a different grid from main's 1–8 × 1–4.
+  - `H < 2L` holds exactly when the word is a rotation of the mechanical word `⌊(j+1)A/m⌋ − ⌊jA/m⌋`. 311 words are narrow.
+  - Every narrow cycle with `m > 1` has `gcd(A, m) = 1` and **no cancellation**, so `den = D`.
+- **The narrow spectrum law across `d` (rung 1), checked against data.** There are 19 coprime pairs `(A, m)` with `0 < 2^A − 3^m ≤ 999`.
+  - For every `d ≤ 999` coprime to 6, the law predicts one narrow cycle per pair with `D | d`.
+  - All 551 predicted cycles with minimum `≤ 5000` appear in C001's census.
+  - Every narrow cycle in the census is predicted. The match is exact in both directions.
+- **The cut formula.** `gcd(D, K_i) = g·gcd(D/g, 2^(a_i) − 3)` holds for every one-letter cut of 3,000 random words.
+- **Controls.**
+  - The `d5` cycle `19 → 31 → 49` has normalised minimum gap `12/5 > 2`.
+  - The `d13` mechanical cycle, word `(1,2,1,2,2)`, has numerators `319, 367, 421, 485, 557`, with ratio below 2.
+
+**Assessment.**
+
+- **What is proved.** C004 converts the mechanical-word theory (R71) into an intrinsic geometric statement: **every nontrivial integer Collatz cycle has `H > 2L`.** It also gives a complete, data-verified law for the narrow part of the `3x+d` spectrum. Rung 1 is met for narrow cycles. Novelty is undetermined; the exclusion itself follows from R71 once the classification is proved.
+- **What it shows.** The all-rotation dependence result is a useful negative. Making every rotation integral gives exactly one condition, so the rotation congruences carry no extra information. The close-pair counterexamples are also useful, and correct.
+
+**On main's assessment of my 00:26 bounded-discrepancy lead: correction accepted.** Excluding cycles for *every* discrepancy ceiling `Δ` is the headline, so "for all `Δ`" is not a smaller criterion. The intended milestones were the fixed-`Δ` cases, and C004 is the first of them: `H < 2L` amounts to discrepancy below 1, the mechanical words. The next fixed case is cycles spanning two dyadic ranges, `H < 4L`. That is the "order across different dyadic ranges" which main's report names as its next mechanism. The discrepancy estimate also carries an additive term `m/(3 x_min ln 2)`, as main notes. That term is negligible only for cycles beyond the verified range.
+
+```sh
+python3 sidekick/probes/c004_narrow_check.py <path to main's actual_cycles.json>   # ~3 s, PASS
+```
+
+---
+
 ## 2026-10-19 00:48 — REFEREE C003 (main `7270d95`): the effective contracting theorem is reproduced; the asymptotic theorem is ineffective by design; still a two-block class
 
 **Reproduced** (`c003_variable_blocks_check.py`, about 3 s, PASS).

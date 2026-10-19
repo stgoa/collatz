@@ -1,0 +1,34 @@
+{
+ "probe": "c004_narrow_check",
+ "main": "61cf54a",
+ "narrow_theorem": {
+  "primitive_positive_words": 97020,
+  "narrow": 311
+ },
+ "spectrum_vs_census": {
+  "coprime_pairs_with_D_le_999": 19,
+  "predicted_narrow_cycles_with_min_le_5000": 551
+ },
+ "cut_formula": {
+  "random_words": 3000
+ },
+ "controls": {
+  "d5_min_gap": "12/5",
+  "d13_mechanical_word": [
+   1,
+   2,
+   1,
+   2,
+   2
+  ],
+  "d13_numerators": [
+   319,
+   367,
+   421,
+   485,
+   557
+  ],
+  "ratio_lt_2": true
+ },
+ "result": "PASS"
+}
