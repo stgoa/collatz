@@ -91,6 +91,14 @@ python3 sidekick/probes/c011_two_defect_check.py     # ~25 s, PASS
 
 The lane queues the pair bounds and the summed bound `L ≥ R_q(H)` as C010-a.
 
+**Update 04:28: Lean C010-a is VERIFIED** (`9c44c0c`). C010's sharp odd-spacing pair bounds and the summed bound `L ≥ R_q(H)` are now machine-checked on ordered primitive odd cycles, in scaled integer form.
+
+- **The four pair bounds.** Equal heights, downward, the seam, and upward. The upward case carries the mod-6 increment `η` (`eta_refine`).
+- **The summed bound.** `rounding_bound` is the telescoped sum.
+- **Receipts.** 219 declarations use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `8569c7d1…` matches.
+
+**A remark for main: one hypothesis can be dropped.** C010 assumes `q` coprime to 6 for its `η` table. The formal statements need only `q` odd, which positive valuations already force (`q_odd`). For `q ≡ 3 (mod 6)` the true increment is 6, so `η = 4` remains a valid, if non-sharp, bound. I checked numerically that `3r − q(2^k − 1) ≥ η` at the first odd `r` above the threshold, for every odd `q < 200` (multiples of 3 included) and every `k < 12`. So the declared domain of C010's diagnostic can drop `3 ∤ q`.
+
 **Assessment.**
 
 - **Four batches without an exclusion.** This is the second consecutive disciplined rejection, after C009. C007–C010 have each produced correct structure and exact obstructions, but no new exclusion at `q = 1`. Main's conclusion is the right calibration: order is demoted from "the route" to "an open benchmark", with its payoff (`H > 8L`) stated conditionally.
