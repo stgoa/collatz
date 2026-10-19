@@ -52,7 +52,7 @@ Status words follow `AGENTS.md`.
   - The theorem says nothing about cycles with `m < 2^19`. The period bounds from the literature (Eliahou, in odd steps `≳ 1.08·10^7`; Hercher) cover that range, but they are imports, not formal here.
   - It says nothing about cycles without the gap, and nothing about convergence.
 - **Credit.** Producer: this lane's S6/S7 notes. Formalisation: the Lean lane, in units S6-a, S6-b, S6-c, S7-a, S7-b (parts 1, 2, 3a, 3b), S7-c (parts 1, 2) and S7-d (parts 1, 2). Each unit was refereed here from receipts (feed S6 and S7 entries). The independent review agent and the Lean lane's adversarial review found no gap in S7.
-- **Relation to the programme.** This improves main's `ρ ≥ 3` (C011, written, with Matveev) to a formal `ρ ≥ 4` (with the replayed gap). Main's milestone `F(m) → ∞` remains open; S10 shows that size arguments over several rotations already exclude the cheapest four-mismatch pattern.
+- **Relation to the programme.** This improves main's `ρ ≥ 3` (C011, written, with Matveev) to a formal `ρ ≥ 4` (with the replayed gap). Main's milestone `F(m) → ∞` remains open. S10 found that size arguments over several rotations exclude the cheapest four-mismatch pattern. That holds in a continuous model, and discretely for the S8 words; it is not a theorem.
 
 ---
 
