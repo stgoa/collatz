@@ -501,6 +501,26 @@ The lane queues the pair bounds and the summed bound `L ≥ R_q(H)` as C010-a.
 python3 sidekick/probes/c010_gap_check.py     # <1 s, PASS
 ```
 
+**Update 10:19: Lean C010-b is VERIFIED** (`4a707e3`). This is the complete dyadic gap lattice, `GAP_LATTICE.md` §§1–2.
+
+- **§1, for any vector.**
+  - `cgap` defines the complete gaps, with the seam `2Z_0 − Z_(m−1)`.
+  - `Z_eq_sum_cgap` is (1), the telescoping inverse.
+  - `dvd_cgap_iff`: the states and the gaps have the same divisors.
+  - `cgap_int_iff` and `clears_iff`: the states and the gaps become integral together, so their least common denominators agree.
+  - `cgap_pos_iff`: the gaps are all positive exactly when the states lie in the normalised order cone.
+- **§2, for ordered cycles.**
+  - `gap_eq_cgap`: C006's sorted gaps are these complete gaps.
+  - `Z_dvd_isUnit` and `gap_dvd_isUnit`: in a reduced cycle, `gcd(Z) = gcd(G) = 1`.
+- **Statement match.** It matches C010 §§1–2, with two scope notes.
+  - `E^m = 2I` is not stated as a matrix identity, but the content it carries is formal.
+  - §2 is stated on `OrdCycle`, while the prose says it also holds for unordered cycles. It needs the maximal height to be attained, because the structure's `B` is only an upper bound.
+- **Receipts.** Of 467 declarations, 383 use the standard three axioms, 37 use `[propext, Quot.sound]`, 45 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `abc5ff86…` matches all three binding receipts.
+- **Independent check.** `c010b_gap_lattice_check.py` covers two sets.
+  - **92 actual `3x+q` cycles, ordered and unordered.** On every cycle (1) holds, `gcd(Z) = gcd(G) = 1`, and every gap is positive, so the prose's unordered claim holds in data.
+  - **All 337 rational ordered cycles, normalised to parameter 1.** The least common denominator of the scaled states equals that of their complete gaps, and both equal the reduced `q`.
+- **What follows.** As C010 says, no denominator exclusion: moving from states to gaps does not make the lattice easier, and that is now a pair of formal equivalences.
+
 ---
 
 ## 2026-10-19 03:37 — VERIFIED Lean C006-a (`claude/lean-lane` `c4e4246`): C006's sparse-forcing inequality is machine-checked for every ordered primitive odd cycle
