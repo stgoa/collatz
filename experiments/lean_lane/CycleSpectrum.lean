@@ -6512,6 +6512,104 @@ theorem Z_odd_iff (i : ℕ) : Odd (Γ.Z i) ↔ Γ.h i = Γ.B := by
 
 end OddCycle
 
+/-! ### S3-a: C005's inversion lemma as a theorem (the side lane's S3 §1)
+
+For `Z_i < Z_j` with `h_i ≤ h_j`, `k = h_j − h_i` and `r = n_j − 2^k n_i`:
+`Z_j − Z_i = 2^{B−h_j} r` and `F_j − F_i = 2^{B−h_j}(3r − q(2^k − 1))` (C005-b's `Z_sub_of_le`,
+`F_sub_of_le`; the tie `F_i = F_j` is excluded by primitivity, `Z_eq_of_F_eq`),
+so the images invert (`F_j < F_i`) iff `h_i < h_j` and `3r < q(2^k − 1)` (`inversion_iff`; when
+`h_j ≤ h_i` both terms of `F_j − F_i` are positive). At `q = 1` an inversion needs `k ≥ 3`
+(`inversion_gap_ge_three`: `3 ≤ 3r < 2^k − 1`), and `k = 3` forces `r = 1`, the pair `(n, 8n+1)`
+(`inversion_gap_three`: `r` is odd and `3r < 7`). With `B = 3` that pair is sorted-adjacent: no state
+lies strictly between `Z_i = 8n` and `Z_j = 8n + 1` (`pair_adjacent`). -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- `r = n_j − 2^k n_i` is positive when `Z_i < Z_j` and `h_i ≤ h_j`. -/
+theorem r_pos {i j : ℕ} (hij : Γ.h i ≤ Γ.h j) (hZ : Γ.Z i < Γ.Z j) :
+    0 < Γ.n j - 2 ^ (Γ.h j - Γ.h i) * Γ.n i := by
+  have h := Γ.Z_sub_of_le hij
+  have hP : (0 : ℤ) < 2 ^ (Γ.B - Γ.h j) := by positivity
+  have h2 : 0 < Γ.Z j - Γ.Z i := by linarith
+  rw [h] at h2
+  exact (mul_pos_iff_of_pos_left hP).mp h2
+
+/-- C005's inversion lemma (S3 §1): for `Z_i < Z_j`, the images invert iff `h_i < h_j` and
+`3r < q(2^k − 1)`. -/
+theorem inversion_iff {i j : ℕ} (hZ : Γ.Z i < Γ.Z j) :
+    Γ.F j < Γ.F i ↔ Γ.h i < Γ.h j ∧
+      3 * (Γ.n j - 2 ^ (Γ.h j - Γ.h i) * Γ.n i) < Γ.q * (2 ^ (Γ.h j - Γ.h i) - 1) := by
+  rcases Nat.lt_or_ge (Γ.h i) (Γ.h j) with hlt | hge
+  · have hF := Γ.F_sub_of_le hlt.le
+    have hP : (0 : ℤ) < 2 ^ (Γ.B - Γ.h j) := by positivity
+    constructor
+    · intro h
+      refine ⟨hlt, ?_⟩
+      have h2 : 2 ^ (Γ.B - Γ.h j) * (3 * (Γ.n j - 2 ^ (Γ.h j - Γ.h i) * Γ.n i) -
+          Γ.q * (2 ^ (Γ.h j - Γ.h i) - 1)) < 0 := by
+        rw [← hF]
+        linarith
+      by_contra hge'
+      have h3 : 0 ≤ 3 * (Γ.n j - 2 ^ (Γ.h j - Γ.h i) * Γ.n i) -
+          Γ.q * (2 ^ (Γ.h j - Γ.h i) - 1) := by linarith [not_lt.mp hge']
+      exact absurd h2 (not_lt.mpr (mul_nonneg hP.le h3))
+    · rintro ⟨_, h⟩
+      have hX : 3 * (Γ.n j - 2 ^ (Γ.h j - Γ.h i) * Γ.n i) -
+          Γ.q * (2 ^ (Γ.h j - Γ.h i) - 1) < 0 := by linarith
+      have h2 := mul_neg_of_pos_of_neg hP hX
+      rw [← hF] at h2
+      linarith
+  · constructor
+    · intro h
+      exfalso
+      have h1 : (2 : ℤ) ^ (Γ.B - Γ.h i) ≤ 2 ^ (Γ.B - Γ.h j) :=
+        pow_le_pow_right₀ (by norm_num) (Nat.sub_le_sub_left hge _)
+      have hq := Γ.hq
+      unfold OddCycle.F at h
+      linarith [mul_le_mul_of_nonneg_right h1 hq.le]
+    · rintro ⟨h, _⟩
+      exact absurd h (not_lt.mpr hge)
+
+/-- At `q = 1`, an inversion needs height gap at least `3`. -/
+theorem inversion_gap_ge_three (hq1 : Γ.q = 1) {i j : ℕ} (hZ : Γ.Z i < Γ.Z j)
+    (hinv : Γ.F j < Γ.F i) : 3 ≤ Γ.h j - Γ.h i := by
+  obtain ⟨hlt, h⟩ := (Γ.inversion_iff hZ).mp hinv
+  rw [hq1, one_mul] at h
+  have hr := Γ.r_pos hlt.le hZ
+  rcases Nat.lt_or_ge (Γ.h j - Γ.h i) 3 with hk | hk
+  · exfalso
+    have h4 : (2 : ℤ) ^ (Γ.h j - Γ.h i) ≤ 2 ^ 2 := pow_le_pow_right₀ (by norm_num) (by omega)
+    linarith
+  · exact hk
+
+/-- At `q = 1` and height gap exactly `3`, an inversion forces the pair `(n, 8n+1)`. -/
+theorem inversion_gap_three (hq1 : Γ.q = 1) {i j : ℕ} (hZ : Γ.Z i < Γ.Z j) (hinv : Γ.F j < Γ.F i)
+    (hk : Γ.h j - Γ.h i = 3) : Γ.n j = 8 * Γ.n i + 1 := by
+  obtain ⟨hlt, h⟩ := (Γ.inversion_iff hZ).mp hinv
+  have hr := Γ.r_pos hlt.le hZ
+  rw [hq1, one_mul, hk] at h
+  rw [hk] at hr
+  have hodd : Odd (Γ.n j - 2 ^ 3 * Γ.n i) :=
+    Int.odd_sub.mpr ⟨fun _ => ⟨4 * Γ.n i, by ring⟩, fun _ => Γ.nodd j⟩
+  obtain ⟨c, hc⟩ := hodd
+  rw [show (2 : ℤ) ^ 3 = 8 by norm_num] at h hr hc
+  omega
+
+/-- With `B = 3`, the pair `(n, 8n+1)` at heights `(0, 3)` is sorted-adjacent: no state lies
+strictly between `Z_i = 8n` and `Z_j = 8n + 1`. -/
+theorem pair_adjacent (hB3 : Γ.B = 3) {i j : ℕ} (hi : Γ.h i = 0) (hj : Γ.h j = 3)
+    (hn : Γ.n j = 8 * Γ.n i + 1) (l : ℕ) : ¬ (Γ.Z i < Γ.Z l ∧ Γ.Z l < Γ.Z j) := by
+  unfold OddCycle.Z
+  rw [hB3, hi, hj, hn, Nat.sub_zero, Nat.sub_self, pow_zero, one_mul,
+    show (2 : ℤ) ^ 3 = 8 by norm_num]
+  generalize (2 : ℤ) ^ (3 - Γ.h l) * Γ.n l = w
+  intro ⟨h1, h2⟩
+  omega
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

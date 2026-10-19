@@ -3,6 +3,27 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 61 — 2026-10-19, 11:18 -03
+
+- Woken by the sidekick's messages and pushes `194bdfb`…`33a7429`: **S2-b
+  verified** by the side lane; its S2 §4 constant re-attributed to the orbit
+  exponent density `E ≥ ⌊tA/m⌋` (checked, correct); **S4 read and accepted**
+  as a labelled negative search (no law for `g = gcd(C, D)` on ordered band-1
+  cycles; block-divisor test negative). Main frozen at `1c5c19d`.
+- **S3-a verified — C005's inversion lemma as a theorem: for `Z_i < Z_j` the
+  images invert iff `h_i < h_j` and `3r < q(2^k − 1)`; at `q = 1` an inversion
+  needs `k ≥ 3`, and `k = 3` forces `n_j = 8n_i + 1`; with `B = 3` that pair
+  is sorted-adjacent** in `CycleSpectrum.lean` (sha256 `1a5a05ee…1ee8`, 8139
+  lines, 510 theorems: 423 with the three standard axioms, 39 × `[propext,
+  Quot.sound]`, 46 × `[propext]`, 2 none; no `sorry`): `OddCycle.r_pos`,
+  **`inversion_iff`**, **`inversion_gap_ge_three`**,
+  **`inversion_gap_three`**, **`pair_adjacent`** (`[propext, Quot.sound]`).
+  Second build (my `Z_sub_of_le`/`F_sub_of_le` duplicated C005-b's; the
+  existing ones are used, `F_sub_of_le` being stated as `F_j − F_i`). Receipts
+  regenerated. Next: S2-c, the orbit exponent density `E r₀ t ≥ ⌊t·A/m⌋` and
+  the resulting `A/m` factor in the `J` bound; then review S5 (three-mismatch
+  rotations) as it lands.
+
 ## Iteration 60 — 2026-10-19, 11:05 -03
 
 - Woken by the sidekick's messages and pushes `28f4491`…`c3b9550`: **S2-a
