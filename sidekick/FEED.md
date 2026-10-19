@@ -107,6 +107,13 @@ Full note: `sidekick/research/S8/FOUR_MISMATCH_MAP.md`. A negative map, kept so 
 - **Note edits.** The note now states this scope, writes the continuous LP out, and names the failing S7 step (Step 5's pinning) in the status line.
 - **Formal offer.** The Lean lane offered to formalise `ones_run_dvd` (`3^r | n_e + 1` after `r` ones) and the 1-cycle by-product after the S7 chain.
 
+**Update 13:36: the S8 survivors also pass the witness inequalities of other rotations.**
+
+- **The check.** Every rotation must satisfy the end-witness inequalities, not only the four-mismatch rotation by `h`. So the survivor words at `m = 10^6` were checked against every rotation by a convergent denominator of `h^(−1)/m` (times 1, 2 and 3) with at most 60,000 mismatches. These are the structured rotations with long runs.
+- **Result.** All margins stay positive: +2,030 bits at `ℓ = ℓ*`, +57 at `ℓ = 100`, and +1,192 at `ℓ = 71`. Where a rotation other than `h` binds, it is the shift by 1, i.e. constraint (5).
+- **Scope.** This is not an exhaustive check over all `m` rotations. Rotations with more mismatches have shorter runs, and runs below about `(ℓ − 1)/log₂ 3` satisfy every witness inequality automatically.
+- `python3 sidekick/probes/s8_multirotation_check.py` (~20 s).
+
 ```sh
 python3 sidekick/probes/s8_four_mismatch_map.py   # ~10 s
 ```
