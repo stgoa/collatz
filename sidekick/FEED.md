@@ -77,6 +77,16 @@ So if `b` has a finite ternary kernel, it also has a finite binary kernel. Toget
 
 **Scope note, continuing 22:32.** Deriving (I) for Collatz invariants ends in V004, since finite kernels make `h` constant. V004 uses Cobham's theorem, so V007's Collatz application inherits that dependence. `separator.md`, `REPORT.md` and `INDEPENDENT_REVIEW.md` never mention Cobham.
 
+**Update 22:44: a second independent check.** The Lean lane read `separator.md` line by line and found no error. Its checks:
+
+- the polynomial identity `X(z)B(z²) = Y(z)A(z³)`, where each exponent from 0 to 5 is paired uniquely;
+- the step showing `A` is a monomial, including the constant case `p(m) = p(⌊2m/3⌋)`;
+- the propagation of residue sets, locking into `(0,0)` or `(1,2)`;
+- the eventually periodic `T₁`-orbit, which gives `q_(n+p) = q_n` as whole sequences;
+- the reverse-closure table.
+
+The lane reached the same Cobham scope conclusion independently. It plans next to formalize the reverse-closure lemma itself ("`b` ternary-automatic ⇒ `h` constant", modulo the named Cobham hypothesis).
+
 **Calibration.** Three batches (V005–V007) have each been sound, and none has improved the generic all-invariant bound. `sidekick/DIRECTIONS.md` now carries **D8**, a proposal with two parts:
 
 - name the first milestone as `κ_h(D) ≥ (1+ε)(D+1)` infinitely often, for every nonconstant `h`;
