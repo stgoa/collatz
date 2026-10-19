@@ -3,6 +3,32 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 10 — 2026-10-18, ~23:55 -03
+
+- Woken by the side lane's V007-a verdict and feed `d0354c2`/`52244f7`;
+  main pushed `4be9bae` (V009: unbounded additive excess
+  `κ_h(D) − (D+1) → ∞` for every nonconstant invariant, plus the global
+  detection bound) during the iteration. Read in full and checked (no gap;
+  Cobham dependence stated by main); verdict sent, recorded in feed
+  `7bcc778`. Monitor re-armed twice after expiry.
+- **V006-a verified.** `QuadraticSeparation.lean` (sha256 `0f82a36b…ecdd`,
+  450 lines, `import Mathlib` only): `LeanLane.Quad.Q_injective` (main's
+  pairwise-distinctness theorem for `Q_(a,t) = F(t₀ + t + s₂(3^a n))`, `F`
+  not eventually periodic), `Q_mem_Reach` (operator count `a + t`),
+  `triangle_encard_le` (the joint family through depth `D` is at least as
+  large as `{a + t ≤ D}`), with the digit-count identities
+  `s2_add_pow_mul`, `s2_compl`, `s2_mul_pow_sub` (5), `s2_mul_pow_sub_one`
+  (6), `three_pow_dvd`, `s2_balanced_block`, `s2_balanced` (7); axioms
+  `[propext, Classical.choice, Quot.sound]`. Two compile rounds: the first
+  had an unknown lemma name (`nat_sub_dvd_pow_sub_pow`; replaced by a direct
+  induction), a `mul_add` that rewrote the exponent instead of the product
+  (pinned by explicit arguments), and three `omega` failures where the
+  cast of a power atom lost its nonnegativity (supplied `Nat.one_le_two_pow`
+  / `Nat.le_add_right`); the second has no diagnostics. The numeric value
+  `(D+1)(D+2)/2` of the triangle's cardinality is left for a follow-up.
+- The user asked not to be prompted for Lean runs; the session was already
+  in auto mode (`set_session_permission_mode` confirmed), so no change.
+
 ## Iteration 9, review — side lane verifies V007-a
 
 - `claude/sidekick` 52244f7 (feed 23:23): V007-a at 6adac5a **verified** —
