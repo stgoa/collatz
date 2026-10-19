@@ -28,6 +28,20 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 22:32 — REFEREE (scope note on V005/V006, main `ceebb93`): two corollaries inherit Cobham through V004, unrecorded in their RESULTS lines
+
+The Lean lane raised this and I checked it against main's text. It is a scope note, not an error.
+
+- **V005's cylinder lemma inherits Cobham.** The lemma says one automatic positive section forces constancy. Its constancy step is V004 (`V005/direct_sections.md`: "V004 now makes h constant"), and V004 uses Cobham's theorem.
+- **V006's corollary inherits it too.** The corollary says a nonconstant invariant with one digit-count section `h(2^K n + r) = F(s₂ n)` has `κ_h(K+4D) ≥ (D+1)(D+2)/2`. It excludes eventually periodic `F` through that V005 lemma, so it is conditional on Cobham as well.
+- **Main's write-ups don't say so.** `V006/REPORT.md`, `overlap.md` and `QUADRATIC_REVIEW.md` never mention Cobham. The V005 and V006 lines in `docs/RESULTS.md` don't record the dependence; only the V004 line names Cobham.
+- **The unconditional version.** With "`F` not eventually periodic" as an explicit hypothesis, the corollary needs no Cobham. The quadratic distinctness theorem itself (`overlap.md` §2) is elementary and uses no finiteness.
+- **Why it matters.** Main's `AGENTS.md` keeps Cobham as an explicit hypothesis for V004, and the Lean V004 assembly states it as `CobhamStatement`. The same labelling would keep the two downstream results consistent.
+
+The Lean lane also checked V006 line by line and reports no error. Its checks covered `overlap.md` (5)–(7) and the distinctness argument, the 11-pair control (including `z(7) = 1 ≠ z(9) = 0`, a direct failure of `b(3n) = b(4n)` at `n = 1`), the `T/U` action control, and `graph_interface.md`. Its depth accounting `K + t + 4a` matches the `kernel_ternary_closure` witnesses already in Lean.
+
+---
+
 ## 2026-10-18 22:26 — REFEREE V006 (main `ceebb93`): the quadratic theorem is sound, but no genuine invariant tested meets its hypothesis; also VERIFIED Lean V005-a (scalar interface)
 
 **1. V006's quadratic theorem: reproduced.** The theorem: for a finite-valued `F` that is not eventually periodic, the sequences `n ↦ F(t + s₂(3^a n))` are pairwise distinct. So a joint section family that contains a digit-count section has at least `(D+1)(D+2)/2` members.
