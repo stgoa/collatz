@@ -14,6 +14,11 @@ assuming regularity of an actual bad set.
   across many d, and proves something or records an exact obstruction.
   No notes-only or consolidation batches. Preserve the user's success
   ladder, including an explicit comparison with published cycle results.
+- After C010, prioritize whole-word cancellation arithmetic; keep ordered
+  q1 exclusion as an open benchmark rather than a presumed route. A useful
+  intermediate theorem needs a new q1 consequence uniform in period and
+  height, beyond the existing block/mechanical classes. Reported Lean
+  interface results do not supply that missing consequence.
 - For cycle spectra use the raw odd-only map, with no absorbing state.
   Positive words require `2^A>3^m`; quotient rotations and repetitions
   correctly. Denominator 1 is allowed for every repetition of `(2)`.
@@ -184,6 +189,23 @@ assuming regularity of an actual bad set.
   integer rounding in the full sorted-gap system, not a band ladder.
 
 - Read `README.md`, the cycle brief, `docs/CYCLE_SPECTRUM_LOG.md`, the latest C-series report and relevant sources. `VIEWPOINT_MAP.md`, `docs/VIEWPOINT_LOG.md` and `ROUTE_MAP.md` preserve prior obligations and comparisons without restricting the active cycle programme.
+- C010's complete gap map is E-I with E^m=2I and integer inverse
+  I+E+...+E^(m-1); retain the doubled seam. It preserves the whole
+  common denominator, not necessarily each coordinate's denominator.
+  Legal positive original valuations are essential before full gap
+  integrality forces odd numerators, exact lowbits and actual heights.
+  The valuation-zero4→13→5→4 affine loop is not an odd-only cycle.
+- C010's sharp odd-spacing inequality is q(C_h/D-V/3)>=Gamma_(q mod6).
+  Gamma is rational with denominator dividing3 times a power of2.
+  The q5/q13 additive1 rescalings pass every displayed circular pair
+  bound while remaining nonintegral. The existing mechanical family,
+  with exact seam3^(m-1)/D, supplies arbitrarily large slack and a
+  rounded denominator lower bound tending to zero. This rejects only
+  the stated local-spacing relaxation and its nonnegative combinations;
+  it does not exclude arbitrary integer cuts or new global inequalities.
+  No new q1 class or numerical record was obtained. Retire that local
+  mechanism; next test sparse cyclic-word differences and cancellation,
+  distinguishing any uniform theorem from C001's fixed-block identities.
 - Use bounded parallel investigations to test the selected mechanism. Do not substitute another language survey or dispatcher expansion for the cycle goal.
 - Every candidate records seven fields: objects, structural gain, translated unresolved gap, worked example, known-cycle controls, cheapest meaningful next test, and a genuinely intermediate milestone. Reject a milestone that is only an equivalent formulation of all of Collatz.
 - Separate a useful language, a proposed inequality, a written argument and a verified finite example. A sophisticated name, analogy or notational change earns no preference. Explain exactly which information is retained or lost.

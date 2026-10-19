@@ -1,5 +1,23 @@
 # Research log
 
+## 2026-10-19 — C010: complete integer gaps and sharp rounding limits
+
+[C010](../experiments/cycle_spectrum/C010/REPORT.md) proves a necessary
+all-height odd-spacing bound and the exact unimodular gap equivalence.
+The promised global rounding test fails as a universal exclusion
+mechanism:19 stored noninteger rational cycles pass every displayed
+pair bound at additive1, and a mechanical family passes with arbitrarily
+large slack at unbounded periods. The latter extends C004 through its
+exact seam identity; it is not a new nonintegrality theorem.
+
+Legal full gap integrality already forces exact lowbits and actual
+heights. Valuation-zero affine loops are explicitly rejected. C006's
+seam recurrence was independently audited and is correct. Preserve
+these results and switch the next bounded mechanism to cyclic word
+differences and numerator cancellation. No goal change or completion.
+All source controls, independent reviews, finite evidence, source pins
+and preservation checks are saved in the batch.
+
 ## 2026-10-19 — C009: reject automatic excursion recursion
 
 [C009](../experiments/cycle_spectrum/C009/REPORT.md) proves exact

@@ -1,5 +1,32 @@
 # Cycle spectrum programme log
 
+## C010 — Global gap arithmetic and an infinite rounding obstruction, 2026-10-19
+
+The [batch](../experiments/cycle_spectrum/C010/REPORT.md) proves that
+the complete dyadic gap map E-I is unimodular, with inverse
+I+E+...+E^(m-1). It preserves the positive order cone and full common
+denominator. Under legal positive valuations, full gap integrality
+already forces the exact odd numerators, lowbits and heights.
+
+Sharp local odd/order bounds give the necessary all-height inequality
+q(C_h/D-V/3)>=Gamma_(q mod6). The q83 shape fails its additive1
+relaxation, while q5 and q13 pass every circular pair inequality.
+The C004 mechanical family extends through the exact seam
+2B_0-B_(m-1)=3^(m-1), giving arbitrarily large slack in every
+displayed spacing bound. The denominator lower bound can tend to zero.
+This rejects the specified relaxation, not arbitrary integer cuts.
+
+All2,459 sources,1,185 normalized cycles and11 fixtures are retained;
+19 noninteger additive1 rescalings pass every pair bound. Separate
+matrix/vector checks and four mechanical examples support the written
+proofs. Independent agent reviews, replays and the historical gate are
+recorded separately. No new q1 exclusion, novelty or record improvement.
+
+Next test: sparse differences between a cyclic valuation word and a
+rotation, with uniform cancellation bounds distinguished from C001's
+fixed-block identities. The original goal remains active. Side pin
+0448ab3 confirms C009 externally; no new formal premise is imported.
+
 ## C009 — Exact excursion obstruction and a mechanism pivot, 2026-10-19
 
 The [batch](../experiments/cycle_spectrum/C009/REPORT.md) tests the

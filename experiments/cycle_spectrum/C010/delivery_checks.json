@@ -1,0 +1,127 @@
+{
+  "baseline_commit": "ec48fbde29258e88cd6e7cd226e2cb6aebc6011e",
+  "batch_file_sha256": {
+    "experiments/cycle_spectrum/C010/ARITHMETIC_REVIEW.md": "a49524fb4354b219c30f5107c312825bc99a020b685fc98bd30d3b627aa142c2",
+    "experiments/cycle_spectrum/C010/EXACT_CHECKER_REVIEW.md": "fb4b0ec0f71ebd186b594e085b4319b8990a40eb200bb7482e0becc42f6d9364",
+    "experiments/cycle_spectrum/C010/GAP_LATTICE.md": "e8eed1e1a08aeefc1632ef4e762da8bc9182ee6456bb390a5e804c86c968ee64",
+    "experiments/cycle_spectrum/C010/INDEPENDENT_REVIEW.md": "680ff9d8ea8ce71c06bf26734f542d53a4fb43e5e880e52ba5f3fbe04b9d5f67",
+    "experiments/cycle_spectrum/C010/LITERATURE.md": "a000a4eda92ec565c93aea90c2b622facb67af7f440a0930e9411b6ba315e473",
+    "experiments/cycle_spectrum/C010/ODD_ROUNDING.md": "4647d1b51ddf73e1e6a5b5161414c5368d3c9098baa115cd61748c52132a59ac",
+    "experiments/cycle_spectrum/C010/REPORT.md": "406f83bb879631a212f5b669abb134b288413ba6d59477a5a9fe84bf647d951d",
+    "experiments/cycle_spectrum/C010/ROOT_REVIEW.md": "e7b8f2837b4d20cc3b21b0b73c4026b88e818ccb28ee60c09c9c01a02aafa34e",
+    "experiments/cycle_spectrum/C010/ROUNDING_PROBE.md": "62b9d2da833ce97fa1025e2bc22aafa6ee768c16e84c24044330beed8b76dbf2",
+    "experiments/cycle_spectrum/C010/SIDE_REVIEW.md": "8319f4081fc07451fb42a9ef7189638810a532371deeb95a682caa686fccef5b",
+    "experiments/cycle_spectrum/C010/check_delivery.py": "d64162b02cb6dca2fd076c862cf64e9ab7a8843fc1f85554e7228d00beeaa3ae",
+    "experiments/cycle_spectrum/C010/check_integer_gaps.py": "87221a51c008668a8e36513096080cfc352ad16a86ba842976342a1c7deead78",
+    "experiments/cycle_spectrum/C010/historical_gate.json": "10a42beae3aec02a370ce90f6b5d2a8d2c307261646116868211b95d77fd6c2d",
+    "experiments/cycle_spectrum/C010/integer_gap_audit.json": "f26028a1d6c9f5f725e1d0bece4d1f3e44dc5dc895863c105433c9eed8d92d5c"
+  },
+  "frozen_commit": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "goal_status": "All-cycle objective remains active; ordered q1 exclusion is open and intermediate.",
+  "historical_gate": {
+    "command": "python3 scripts/verify_all.py --cpp --transfer-controls",
+    "field_count": 119,
+    "independent_cpp": "PASS: 4096 and 262144",
+    "phase6_transfer_controls": "PASS: eleven exact raw cycles, eight nonprincipal controls, four fixed-d controls, fourteen d1 samples and fail-closed checks; setup label none",
+    "status": "PASS"
+  },
+  "markdown_checks": {
+    "checked_local_links": 628,
+    "errors": [],
+    "files": 18
+  },
+  "preservation": {
+    "C001_C009_files_unchanged": 112,
+    "R1_onward_byte_identical": true,
+    "frozen_files_byte_identical": [
+      "collatz_research_20261017/right_aligned_reduction.tex",
+      "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md",
+      "experiments/residual_progress/resolved_rules/resolved_rules.py"
+    ],
+    "git_diff_check": "PASS"
+  },
+  "saved_receipt_coverage": {
+    "C007_new_distinct_cycles": 1,
+    "algebra_grid": {
+      "coprime_rank_determinants": 46,
+      "independent_sharp_bound_checks": 1428,
+      "integer_vectors": 19530,
+      "rank_operator_commutations": 131835,
+      "rational_vectors": 78120,
+      "unimodular_determinants": 12
+    },
+    "coordinate_and_rounding": {
+      "actual_sharp_circular_pair_checks": 7022,
+      "actual_sharp_local_rounding_checks": 474,
+      "actual_sharp_rounding_equalities": 1,
+      "coordinate_gcd_one": 1185,
+      "noninteger_rescaled_additive_one_local_pass": 19,
+      "normalized_arrows": 28831,
+      "normalized_cycles": 1185,
+      "ordered_arrows": 474,
+      "ordered_cycles": 52,
+      "ordered_nonfixed_cycles": 51,
+      "ordered_wide_cycles": 47,
+      "rescaled_additive_one_all_circular_pairs_pass": 20,
+      "rescaled_additive_one_circular_pair_failures": 235,
+      "rescaled_additive_one_local_fail": 32,
+      "rescaled_additive_one_local_pass": 20,
+      "rescaled_additive_one_odd_ceiled_sum_pass": 28,
+      "rescaled_additive_one_sum_fail": 21,
+      "rescaled_additive_one_sum_pass": 31
+    },
+    "fixture_controls": 11,
+    "mechanical_complete_gaps": {
+      "cycles": 4,
+      "exact_seam_checks": 4,
+      "interior_monomials": 351,
+      "noninteger_shapes_passing_all_pair_bounds": 3,
+      "phase_intercept_summands": 95351,
+      "proper_circular_pair_checks": 94996,
+      "raw_cycle_arrows": 355
+    },
+    "rejected_inputs": 5,
+    "scaled_source_instances": 1275,
+    "source_cycles": 2459,
+    "source_parameters": 333,
+    "source_raw_arrows": 36912
+  },
+  "scope": "Preservation and consistency of saved evidence; no fresh mathematical or formal replay.",
+  "side_reports": {
+    "lean_state_commit": "a1e1054ff8d509a84f7f373068b2d6e324987a82",
+    "reviewed_commits": [
+      "0448ab3d463db61e261e4998e8604dbfb756947a",
+      "4856ed7c3eb03fcc2dcbadbb9d799ebc08887860"
+    ],
+    "scope": "Side-lane research reports were inspected. No main-side independent Lean kernel replay is claimed."
+  },
+  "source_reviews": {
+    "independent_pin_reviews": {
+      "GAP_LATTICE.md": "ARITHMETIC_REVIEW.md",
+      "ODD_ROUNDING.md": "EXACT_CHECKER_REVIEW.md",
+      "ROUNDING_PROBE.md": "ARITHMETIC_REVIEW.md",
+      "check_integer_gaps.py": "ARITHMETIC_REVIEW.md",
+      "integer_gap_audit.json": "ARITHMETIC_REVIEW.md"
+    },
+    "pinned_sha256": {
+      "GAP_LATTICE.md": "e8eed1e1a08aeefc1632ef4e762da8bc9182ee6456bb390a5e804c86c968ee64",
+      "ODD_ROUNDING.md": "4647d1b51ddf73e1e6a5b5161414c5368d3c9098baa115cd61748c52132a59ac",
+      "ROUNDING_PROBE.md": "62b9d2da833ce97fa1025e2bc22aafa6ee768c16e84c24044330beed8b76dbf2",
+      "check_integer_gaps.py": "87221a51c008668a8e36513096080cfc352ad16a86ba842976342a1c7deead78",
+      "integer_gap_audit.json": "f26028a1d6c9f5f725e1d0bece4d1f3e44dc5dc895863c105433c9eed8d92d5c"
+    },
+    "scope": "Review authorship and independent replay are identified in each review; no formal verification claimed.",
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "top_document_sha256": {
+    "AGENTS.md": "ccb2b75bf85c3fc7b167bffe11bed8fe0d142df8c25c31dd8234a97d3c53fea9",
+    "README.md": "30f54027ebc6152fde314683cdf20fb8d26b4ba304a46c3c82f0aa19390651db",
+    "VIEWPOINT_MAP.md": "be2bab7fd7828537cce1759230135f12e3694949ccfb023a2e55123696979ddc",
+    "docs/CYCLE_SPECTRUM_BRIEF.md": "fc22acec5e79b9d6456e1f374d529269785c049a720dba5a6c0ded455d89f398",
+    "docs/CYCLE_SPECTRUM_LOG.md": "2e9d731dfb7ef1115d6e49cfb339a05c47e57477122190187164a0d94f429b4b",
+    "docs/RESEARCH_LOG.md": "a1e4dc243abd9b7fb9cec0994054a8b7ac7cd11b3554cfdfe004f1d8616cf456",
+    "docs/RESULTS.md": "c9ad4157a67ea44e57a8b746381c859c7a7ded58e7e3c9d7cac70b83b47fd137",
+    "docs/VIEWPOINT_LOG.md": "1ca99a4569f2c8c00b564ef6a1d74da5ecc544ca47bb197b9dbf01b08fd2f150"
+  }
+}

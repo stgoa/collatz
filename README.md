@@ -4,19 +4,41 @@ This repository is the persistent record of the Collatz programme: definitions, 
 
 ## Current programme: cycle denominators across 3x+d
 
-**Current standing (2026-10-19): C009 rejects the proposed automatic
+**Current standing (2026-10-19): C010 derives an all-height odd-spacing
+inequality and rejects its use for universal cycle exclusion. Exact
+rational cycles pass every displayed spacing bound with arbitrarily
+large slack. Full integer gap coordinates retain the original lattice
+obstruction. The cycle goal remains open.**
+
+[C010's report](experiments/cycle_spectrum/C010/REPORT.md) proves that
+the complete gap transformation has an integer inverse, including the
+dyadic seam. Under legal positive valuations, exact lowbits already
+follow from full gap integrality. The necessary rounding bound rejects
+some rational shapes, but19 noninteger corpus examples pass every
+circular pair bound after rescaling to additive1. An infinite mechanical
+family gives arbitrarily large slack; these are known noninteger cycles.
+
+The next bounded mechanism returns to full cyclic word arithmetic:
+test whether sparse differences between a word and a rotation yield
+a uniform bound on numerator cancellation beyond the fixed-block
+results. This changes the mechanism while retaining the all-cycle
+headline. Ordered-cycle exclusion remains an open benchmark; after
+C010 it no longer determines the next mechanism. The immediate aim is
+an intrinsic arithmetic restriction that produces a new q1 consequence
+uniformly in period and height.
+
+C009 rejected the proposed automatic
 excursion compression. Exact cuts recover the original integer cycle
 condition; actual ordered cycles can lose circular order after a first
 return, and excursions can rise even with contracting slope. The
-ordered integer-cycle target and full cycle exclusion remain open.**
+ordered integer-cycle target and full cycle exclusion remain open.
 
 [C009's report](experiments/cycle_spectrum/C009/REPORT.md) records the
 proofs and exact controls, with all 1,185 stored normalized cycles
 replayed. A one-point deletion theorem explains the loss of order at
-all periods under its hypotheses. The next bounded mechanism will test
+all periods under its hypotheses. C010 subsequently tested
 global rounding inequalities on the full integer gap system, retaining
-the dyadic seam and odd-state constraints. No such new inequality is
-claimed yet.
+the dyadic seam and odd-state constraints, with the scoped outcome above.
 
 C008 identifies a geometric progression
 of normalized residues in sorted rank and an all-period denominator
@@ -118,7 +140,7 @@ two-block result: bounded denominator layers are finite for nondegenerate
 general threshold. Its contracting theorem and C002's equal-total theorem
 provide effective exclusions under their separate repetition conditions.
 
-**Next:** seek an all-period denominator-one exclusion whenever normalized
+**Earlier benchmark, retained as open:** seek an all-period denominator-one exclusion whenever normalized
 successor order is circular, without a common-base decomposition or bounds
 on height and its changes. C006's growing-complexity alternative is the
 remaining gap. No argument places all possible integer cycles in that
@@ -129,7 +151,9 @@ Completing that intermediate target would, by C005, force every
 nontrivial integer cycle to have H>8L, while also excluding ordered
 cycles at unrestricted height ratios. This is a proposed consequence,
 not a theorem established by C009 or a novelty claim. Order remains a
-working hypothesis; the next global integer-gap test must justify it.
+working hypothesis. C010 completed the integer-gap test and rejected
+its local-spacing relaxation; the next mechanism returns to full-word
+cancellation, without presuming that circular order is decisive.
 The separate Lean lane reports C003's effective algebra, both directions
 of C004's narrow/mechanical classification and C005's q1 three-band
 structural theorem on actual odd cycles. Main has not independently
