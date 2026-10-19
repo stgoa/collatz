@@ -3542,6 +3542,288 @@ theorem card_image_le_changes (f : ℕ → ℕ) (n : ℕ) :
       rw [Finset.card_insert_of_mem hmem]
       exact ih
 
+/-! ### C011: the two-arc identity and the two-defect cancellation bounds
+
+C011 (`ROTATION_DEFECTS.md` §§2–3) compares a positive word `w` with a rotation `w'` differing from
+it in exactly two positions; after cutting at the first mismatch and exchanging the roles if
+necessary, `w = a :: (u₀ ++ (a + k) :: v₀)` and `w' = (a + k) :: (u₀ ++ a :: v₀)` with `k ≥ 1`.
+With the complementary arcs `u = u₀ ++ [a + k]` and `v = v₀ ++ [a]`, `g = gcd(C_w, D_w)` divides
+`(2^k − 1) gcd(C_u, C_v)` (its (2)), and the intercept bound `C_z ≤ 2^{S−l−(b−1)} (3^l − 2^l)`
+for a word of length `l`, total `S` and last letter `b` (its (4)) gives
+`g² < (2^k − 1)² 2^{A−m−k−2a+2} 3^m` (its (5)) and `g² < 2^{2A−2m} 3^m` (its (7)). Everything is
+kept in cleared integer form. The combinatorial reduction of an arbitrary two-defect rotation to
+this normal form, the real-analytic (6)–(8) and the imported Matveev/Hercher inputs of
+`EXCLUSION.md` are not formalised. -/
+
+/-- The intercept of a word does not depend on its last letter: `C (z ++ [b]) = 3 C_z + 2^{Σz}`. -/
+theorem C_append_singleton (z : List ℕ) (b : ℕ) : C (z ++ [b]) = 3 * C z + 2 ^ z.sum := by
+  rw [C_append]
+  simp [C]
+
+/-- C011's two-arc identity (1): `C_{w'} − C_w = (2^k − 1) 2^a 3^{|v₀|} C_u`, `u = u₀ ++ [a + k]`. -/
+theorem two_arc_identity (a k : ℕ) (u₀ v₀ : List ℕ) :
+    C ((a + k) :: (u₀ ++ a :: v₀)) - C (a :: (u₀ ++ (a + k) :: v₀))
+      = (2 ^ k - 1) * 2 ^ a * 3 ^ v₀.length * C (u₀ ++ [a + k]) := by
+  rw [C_append_singleton]
+  simp only [C, C_append, List.length_append, List.length_cons, pow_add, pow_succ]
+  ring
+
+/-- The cut at the second mismatch is a rotation: rotating `x :: (u₀ ++ y :: v₀)` by `|u₀| + 1`
+gives `y :: (v₀ ++ x :: u₀)`. -/
+theorem rotate_cut (x y : ℕ) (u₀ v₀ : List ℕ) :
+    (x :: (u₀ ++ y :: v₀)).rotate (u₀.length + 1) = y :: (v₀ ++ x :: u₀) := by
+  have h1 : x :: (u₀ ++ y :: v₀) = (x :: u₀) ++ (y :: v₀) := by simp
+  have h2 : y :: (v₀ ++ x :: u₀) = (y :: v₀) ++ (x :: u₀) := by simp
+  rw [h1, h2, show u₀.length + 1 = (x :: u₀).length by simp,
+    List.rotate_eq_drop_append_take (by simp), List.drop_left, List.take_left]
+
+/-- `D_w` is coprime to `3` (`3 ∤ D_w`). -/
+theorem isCoprime_three_D {w : List ℕ} (hw : 1 ≤ w.length) : IsCoprime (3 : ℤ) (D w) := by
+  rw [Int.isCoprime_iff_gcd_eq_one]
+  have h1 : Int.gcd 3 (D w) ∣ 3 := by
+    have := Int.gcd_dvd_left (3 : ℤ) (D w)
+    exact_mod_cast this
+  rcases (Nat.dvd_prime Nat.prime_three).mp h1 with h | h
+  · exact h
+  · exfalso
+    apply D_not_three_dvd hw
+    have := Int.gcd_dvd_right (3 : ℤ) (D w)
+    rw [h] at this
+    exact_mod_cast this
+
+/-- Every common divisor `g` of `C_w` and `D_w` that is coprime to `2` divides every rotated
+intercept (the recurrence `2^{a_i} C_{(i+1)} = 3 C_{(i)} + D_w`). -/
+theorem dvd_C_rotate_of_dvd {w : List ℕ} (hw0 : w ≠ []) {g : ℤ} (hg2 : IsCoprime g 2)
+    (hgC : g ∣ C w) (hgD : g ∣ D w) : ∀ i, g ∣ C (w.rotate i) := by
+  intro i
+  induction i with
+  | zero => simpa using hgC
+  | succ i ih =>
+    obtain ⟨a, v, hav⟩ : ∃ a v, w.rotate i = a :: v := by
+      cases hrot : w.rotate i with
+      | nil => exact absurd (List.rotate_eq_nil_iff.mp hrot) hw0
+      | cons a v => exact ⟨a, v, rfl⟩
+    have hrec := C_rotate_succ hav
+    have h2 : g ∣ 2 ^ a * C (w.rotate (i + 1)) := by
+      rw [hrec]
+      exact dvd_add (dvd_mul_of_dvd_right ih 3) hgD
+    exact (hg2.pow_right).dvd_of_dvd_mul_left h2
+
+/-- `g = gcd(C_w, D_w)` is coprime to `2` (it divides the odd `D_w`). -/
+theorem gcd_isCoprime_two {w : List ℕ} (hw : 1 ≤ w.sum) :
+    IsCoprime ((Int.gcd (C w) (D w) : ℕ) : ℤ) 2 :=
+  (isCoprime_two_D hw).symm.of_isCoprime_of_dvd_left (Int.gcd_dvd_right _ _)
+
+/-- `g = gcd(C_w, D_w)` is coprime to `3`. -/
+theorem gcd_isCoprime_three {w : List ℕ} (hw : 1 ≤ w.length) :
+    IsCoprime ((Int.gcd (C w) (D w) : ℕ) : ℤ) 3 :=
+  (isCoprime_three_D hw).symm.of_isCoprime_of_dvd_left (Int.gcd_dvd_right _ _)
+
+/-- C011's (2): in the two-defect normal form `w = a :: (u₀ ++ (a + k) :: v₀)` with
+`w' = (a + k) :: (u₀ ++ a :: v₀)` a rotation of `w` and `k ≥ 1`, `g = gcd(C_w, D_w)` divides
+`(2^k − 1) gcd(C_u, C_v)` for the complementary arcs `u = u₀ ++ [a + k]`, `v = v₀ ++ [a]`. -/
+theorem two_arc_dvd (a k : ℕ) (hk : 1 ≤ k) (u₀ v₀ : List ℕ)
+    (hrot : ∃ r, (a :: (u₀ ++ (a + k) :: v₀)).rotate r = (a + k) :: (u₀ ++ a :: v₀)) :
+    ((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀))) (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ)
+      ∣ (2 ^ k - 1) * ((Int.gcd (C (u₀ ++ [a + k])) (C (v₀ ++ [a])) : ℕ) : ℤ) := by
+  obtain ⟨r, hr⟩ := hrot
+  have hw0 : a :: (u₀ ++ (a + k) :: v₀) ≠ [] := List.cons_ne_nil _ _
+  have hsum : 1 ≤ (a :: (u₀ ++ (a + k) :: v₀)).sum := by
+    simp only [List.sum_cons, List.sum_append]
+    omega
+  have hlen : 1 ≤ (a :: (u₀ ++ (a + k) :: v₀)).length := by simp
+  have hg2 := gcd_isCoprime_two hsum
+  have hg3 := gcd_isCoprime_three hlen
+  have hgC : ((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀))) (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ)
+      ∣ C (a :: (u₀ ++ (a + k) :: v₀)) := Int.gcd_dvd_left _ _
+  have hgD : ((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀))) (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ)
+      ∣ D (a :: (u₀ ++ (a + k) :: v₀)) := Int.gcd_dvd_right _ _
+  have hrotall := dvd_C_rotate_of_dvd hw0 hg2 hgC hgD
+  set g : ℤ :=
+    ((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀))) (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ) with hg
+  -- the first arc
+  have hu : g ∣ (2 ^ k - 1) * C (u₀ ++ [a + k]) := by
+    have hdiff : g ∣ C ((a + k) :: (u₀ ++ a :: v₀)) - C (a :: (u₀ ++ (a + k) :: v₀)) := by
+      have := hrotall r
+      rw [hr] at this
+      exact dvd_sub this hgC
+    rw [two_arc_identity, show (2 ^ k - 1) * 2 ^ a * 3 ^ v₀.length * C (u₀ ++ [a + k])
+        = (2 ^ a * 3 ^ v₀.length) * ((2 ^ k - 1) * C (u₀ ++ [a + k])) by ring] at hdiff
+    exact ((hg2.pow_right).mul_right (hg3.pow_right)).dvd_of_dvd_mul_left hdiff
+  -- the second arc: cut at the other mismatch
+  have hv : g ∣ (2 ^ k - 1) * C (v₀ ++ [a]) := by
+    have hW : g ∣ C ((a + k) :: (v₀ ++ a :: u₀)) := by
+      have := hrotall (u₀.length + 1)
+      rwa [rotate_cut] at this
+    have hW' : g ∣ C (a :: (v₀ ++ (a + k) :: u₀)) := by
+      have := hrotall (r + (u₀.length + 1))
+      rwa [← List.rotate_rotate, hr, rotate_cut] at this
+    have hdiff := dvd_sub hW hW'
+    rw [two_arc_identity, show (2 ^ k - 1) * 2 ^ a * 3 ^ u₀.length * C (v₀ ++ [a + k])
+        = (2 ^ a * 3 ^ u₀.length) * ((2 ^ k - 1) * C (v₀ ++ [a + k])) by ring] at hdiff
+    have := ((hg2.pow_right).mul_right (hg3.pow_right)).dvd_of_dvd_mul_left hdiff
+    rwa [C_append_singleton, ← C_append_singleton v₀ a] at this
+  have hX1 : (1 : ℤ) ≤ 2 ^ k := one_le_pow₀ (by norm_num)
+  have hX0 : (0 : ℤ) ≤ 2 ^ k - 1 := by linarith
+  have hdvd := Int.dvd_gcd hu hv
+  rw [Int.gcd_mul_left] at hdvd
+  have h' : ((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀))) (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ)
+      ∣ (((2 ^ k - 1 : ℤ).natAbs * Int.gcd (C (u₀ ++ [a + k])) (C (v₀ ++ [a])) : ℕ) : ℤ) :=
+    Int.natCast_dvd_natCast.mpr hdvd
+  rw [Nat.cast_mul, Int.natAbs_of_nonneg hX0] at h'
+  exact h'
+
+/-- C011's (4) for a word with last letter `b`, in cleared form: `2^{l−1} C_z ≤ 2^{S−b} (3^l − 2^l)`
+with `z = z₀ ++ [b]`, `l = |z₀| + 1`, `S − b = Σ z₀` (the last letter does not enter). -/
+theorem intercept_bound_last (z₀ : List ℕ) (b : ℕ) (hz : ∀ x ∈ z₀, 1 ≤ x) :
+    (2 : ℤ) ^ z₀.length * C (z₀ ++ [b])
+      ≤ 2 ^ z₀.sum * (3 ^ (z₀.length + 1) - 2 ^ (z₀.length + 1)) := by
+  rw [C_append_singleton]
+  have h := two_pow_mul_C_le z₀ hz
+  have h3 : (2 : ℤ) ^ z₀.length * (3 * C z₀ + 2 ^ z₀.sum)
+      = 3 * (2 ^ z₀.length * C z₀) + 2 ^ z₀.length * 2 ^ z₀.sum := by ring
+  rw [h3, pow_succ, pow_succ]
+  linarith
+
+/-- The arithmetic of C011's (5): from `G ≤ X H`, `H ≤ C_u, C_v`, the cleared intercept bounds
+`P_u C_u ≤ B_u < T_u`, `P_v C_v ≤ B_v < T_v`, one gets `G² P_u P_v < X² T_u T_v`. -/
+theorem two_defect_arith {G H X Cu Cv Pu Pv Bu Bv Tu Tv : ℤ} (hG0 : 0 ≤ G) (hX : 0 < X)
+    (hH0 : 0 ≤ H) (hGXH : G ≤ X * H) (hHu : H ≤ Cu) (hHv : H ≤ Cv) (hPu : 0 ≤ Pu)
+    (hPv : 0 ≤ Pv) (hbu : Pu * Cu ≤ Bu) (hbv : Pv * Cv ≤ Bv) (hBuT : Bu < Tu) (hBvT : Bv < Tv)
+    (hTu : 0 < Tu) : G ^ 2 * (Pu * Pv) < X ^ 2 * (Tu * Tv) := by
+  have hPuPv : 0 ≤ Pu * Pv := mul_nonneg hPu hPv
+  have h1 : G ^ 2 ≤ (X * H) ^ 2 := pow_le_pow_left₀ hG0 hGXH 2
+  have hPuH : Pu * H ≤ Bu := le_trans (mul_le_mul_of_nonneg_left hHu hPu) hbu
+  have hPvH : Pv * H ≤ Bv := le_trans (mul_le_mul_of_nonneg_left hHv hPv) hbv
+  have hPuH0 : 0 ≤ Pu * H := mul_nonneg hPu hH0
+  have hPvH0 : 0 ≤ Pv * H := mul_nonneg hPv hH0
+  have hBu0 : 0 ≤ Bu := le_trans hPuH0 hPuH
+  have hBv0 : 0 ≤ Bv := le_trans hPvH0 hPvH
+  have hX2 : 0 < X ^ 2 := pow_pos hX 2
+  calc G ^ 2 * (Pu * Pv) ≤ (X * H) ^ 2 * (Pu * Pv) := mul_le_mul_of_nonneg_right h1 hPuPv
+    _ = X ^ 2 * ((Pu * H) * (Pv * H)) := by ring
+    _ ≤ X ^ 2 * (Bu * Bv) :=
+        mul_le_mul_of_nonneg_left (mul_le_mul hPuH hPvH hPvH0 hBu0) hX2.le
+    _ < X ^ 2 * (Tu * Tv) := by
+        apply mul_lt_mul_of_pos_left _ hX2
+        calc Bu * Bv ≤ Tu * Bv := mul_le_mul_of_nonneg_right hBuT.le hBv0
+          _ < Tu * Tv := mul_lt_mul_of_pos_left hBvT hTu
+
+/-- C011's (5) in cleared integer form: in the two-defect normal form (`k ≥ 1`, positive arcs),
+`g² · 2^{|u₀| + |v₀|} < (2^k − 1)² · 2^{Σu₀ + Σv₀} · 3^m` with `m = |u₀| + |v₀| + 2`, i.e.
+`g² < (2^k − 1)² 2^{A − m − k − 2a + 2} 3^m`. -/
+theorem two_defect_bound_sharp (a k : ℕ) (hk : 1 ≤ k) (u₀ v₀ : List ℕ)
+    (hu : ∀ x ∈ u₀, 1 ≤ x) (hv : ∀ x ∈ v₀, 1 ≤ x)
+    (hrot : ∃ r, (a :: (u₀ ++ (a + k) :: v₀)).rotate r = (a + k) :: (u₀ ++ a :: v₀)) :
+    ((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀))) (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ) ^ 2
+        * 2 ^ (u₀.length + v₀.length)
+      < (2 ^ k - 1) ^ 2 * 2 ^ (u₀.sum + v₀.sum) * 3 ^ (u₀.length + v₀.length + 2) := by
+  have hg := two_arc_dvd a k hk u₀ v₀ hrot
+  have hG0 : (0 : ℤ) ≤
+      ((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀))) (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ) :=
+    Nat.cast_nonneg _
+  have hH0 : (0 : ℤ) ≤ ((Int.gcd (C (u₀ ++ [a + k])) (C (v₀ ++ [a])) : ℕ) : ℤ) :=
+    Nat.cast_nonneg _
+  have hCu : 0 < C (u₀ ++ [a + k]) := C_pos (by simp)
+  have hCv : 0 < C (v₀ ++ [a]) := C_pos (by simp)
+  have hHpos : (0 : ℤ) < ((Int.gcd (C (u₀ ++ [a + k])) (C (v₀ ++ [a])) : ℕ) : ℤ) := by
+    have := Int.gcd_pos_of_ne_zero_left (C (v₀ ++ [a])) hCu.ne'
+    exact_mod_cast this
+  have hHu : ((Int.gcd (C (u₀ ++ [a + k])) (C (v₀ ++ [a])) : ℕ) : ℤ) ≤ C (u₀ ++ [a + k]) :=
+    Int.le_of_dvd hCu (Int.gcd_dvd_left _ _)
+  have hHv : ((Int.gcd (C (u₀ ++ [a + k])) (C (v₀ ++ [a])) : ℕ) : ℤ) ≤ C (v₀ ++ [a]) :=
+    Int.le_of_dvd hCv (Int.gcd_dvd_right _ _)
+  have hX : (0 : ℤ) < 2 ^ k - 1 := by
+    have : (1 : ℤ) < 2 ^ k := one_lt_pow₀ (by norm_num) (by omega)
+    linarith
+  have hGXH := Int.le_of_dvd (mul_pos hX hHpos) hg
+  have hbu := intercept_bound_last u₀ (a + k) hu
+  have hbv := intercept_bound_last v₀ a hv
+  have hBuT : (2 : ℤ) ^ u₀.sum * (3 ^ (u₀.length + 1) - 2 ^ (u₀.length + 1))
+      < 2 ^ u₀.sum * 3 ^ (u₀.length + 1) :=
+    mul_lt_mul_of_pos_left (sub_lt_self _ (by positivity)) (by positivity)
+  have hBvT : (2 : ℤ) ^ v₀.sum * (3 ^ (v₀.length + 1) - 2 ^ (v₀.length + 1))
+      < 2 ^ v₀.sum * 3 ^ (v₀.length + 1) :=
+    mul_lt_mul_of_pos_left (sub_lt_self _ (by positivity)) (by positivity)
+  have key := two_defect_arith hG0 hX hH0 hGXH hHu hHv (by positivity) (by positivity) hbu hbv
+    hBuT hBvT (by positivity)
+  calc ((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀))) (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ) ^ 2
+        * 2 ^ (u₀.length + v₀.length)
+      = ((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀))) (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ) ^ 2
+        * (2 ^ u₀.length * 2 ^ v₀.length) := by rw [pow_add]
+    _ < (2 ^ k - 1) ^ 2 * ((2 ^ u₀.sum * 3 ^ (u₀.length + 1)) * (2 ^ v₀.sum * 3 ^ (v₀.length + 1))) :=
+        key
+    _ = (2 ^ k - 1) ^ 2 * 2 ^ (u₀.sum + v₀.sum) * 3 ^ (u₀.length + v₀.length + 2) := by ring
+
+/-- C011's (7) in cleared integer form: `g² · 2^{2m} < 2^{2A} · 3^m`, i.e. `g² < 2^{2A−2m} 3^m`, for
+the two-defect normal form with `a, k ≥ 1` and positive arcs (`A = Σw`, `m = |w|`). -/
+theorem two_defect_bound (a k : ℕ) (ha : 1 ≤ a) (hk : 1 ≤ k) (u₀ v₀ : List ℕ)
+    (hu : ∀ x ∈ u₀, 1 ≤ x) (hv : ∀ x ∈ v₀, 1 ≤ x)
+    (hrot : ∃ r, (a :: (u₀ ++ (a + k) :: v₀)).rotate r = (a + k) :: (u₀ ++ a :: v₀)) :
+    ((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀))) (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ) ^ 2
+        * 2 ^ (2 * (a :: (u₀ ++ (a + k) :: v₀)).length)
+      < 2 ^ (2 * (a :: (u₀ ++ (a + k) :: v₀)).sum) * 3 ^ (a :: (u₀ ++ (a + k) :: v₀)).length := by
+  have hsharp := two_defect_bound_sharp a k hk u₀ v₀ hu hv hrot
+  have hlen : (a :: (u₀ ++ (a + k) :: v₀)).length = u₀.length + v₀.length + 2 := by
+    simp only [List.length_cons, List.length_append]
+    omega
+  have hsum : (a :: (u₀ ++ (a + k) :: v₀)).sum = a + u₀.sum + (a + k) + v₀.sum := by
+    simp only [List.sum_cons, List.sum_append]
+    omega
+  rw [hlen, hsum]
+  set G : ℤ :=
+    ((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀))) (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ) with hG
+  have hX1 : (1 : ℤ) ≤ 2 ^ k := one_le_pow₀ (by norm_num)
+  have hX0 : (0 : ℤ) ≤ 2 ^ k - 1 := by linarith
+  have hX : (2 : ℤ) ^ k - 1 < 2 ^ k := sub_one_lt _
+  have hX2 : ((2 : ℤ) ^ k - 1) ^ 2 ≤ (2 ^ k) ^ 2 := by
+    rw [sq, sq]
+    exact (mul_self_lt_mul_self hX0 hX).le
+  have hlu := List.length_le_sum_of_one_le u₀ hu
+  have hlv := List.length_le_sum_of_one_le v₀ hv
+  have hexp : 2 * k + (u₀.sum + v₀.sum) + (u₀.length + v₀.length + 4)
+      ≤ 2 * (a + u₀.sum + (a + k) + v₀.sum) := by omega
+  have hpow : (2 : ℤ) ^ (2 * k + (u₀.sum + v₀.sum) + (u₀.length + v₀.length + 4))
+      ≤ 2 ^ (2 * (a + u₀.sum + (a + k) + v₀.sum)) := pow_le_pow_right₀ (by norm_num) hexp
+  have hQ : (0 : ℤ) < 2 ^ (u₀.length + v₀.length + 4) := by positivity
+  calc G ^ 2 * 2 ^ (2 * (u₀.length + v₀.length + 2))
+      = (G ^ 2 * 2 ^ (u₀.length + v₀.length)) * 2 ^ (u₀.length + v₀.length + 4) := by ring
+    _ < ((2 ^ k - 1) ^ 2 * 2 ^ (u₀.sum + v₀.sum) * 3 ^ (u₀.length + v₀.length + 2))
+          * 2 ^ (u₀.length + v₀.length + 4) := mul_lt_mul_of_pos_right hsharp hQ
+    _ ≤ ((2 ^ k) ^ 2 * 2 ^ (u₀.sum + v₀.sum) * 3 ^ (u₀.length + v₀.length + 2))
+          * 2 ^ (u₀.length + v₀.length + 4) := by
+        apply mul_le_mul_of_nonneg_right _ hQ.le
+        apply mul_le_mul_of_nonneg_right _ (by positivity)
+        exact mul_le_mul_of_nonneg_right hX2 (by positivity)
+    _ = 2 ^ (2 * k + (u₀.sum + v₀.sum) + (u₀.length + v₀.length + 4))
+          * 3 ^ (u₀.length + v₀.length + 2) := by ring
+    _ ≤ 2 ^ (2 * (a + u₀.sum + (a + k) + v₀.sum)) * 3 ^ (u₀.length + v₀.length + 2) :=
+        mul_le_mul_of_nonneg_right hpow (by positivity)
+
+/-- The reduced denominator form of C011's (7): with `D_w = g q`, `q > 0`,
+`D_w² · 2^{2m} < q² · 2^{2A} · 3^m`, i.e. `q > (1 − 3^m/2^A) (2/√3)^m`. -/
+theorem two_defect_q_bound (a k : ℕ) (ha : 1 ≤ a) (hk : 1 ≤ k) (u₀ v₀ : List ℕ)
+    (hu : ∀ x ∈ u₀, 1 ≤ x) (hv : ∀ x ∈ v₀, 1 ≤ x)
+    (hrot : ∃ r, (a :: (u₀ ++ (a + k) :: v₀)).rotate r = (a + k) :: (u₀ ++ a :: v₀))
+    {q : ℤ} (hq0 : 0 < q)
+    (hq : D (a :: (u₀ ++ (a + k) :: v₀)) =
+      ((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀))) (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ) * q) :
+    D (a :: (u₀ ++ (a + k) :: v₀)) ^ 2 * 2 ^ (2 * (a :: (u₀ ++ (a + k) :: v₀)).length)
+      < q ^ 2 * 2 ^ (2 * (a :: (u₀ ++ (a + k) :: v₀)).sum)
+          * 3 ^ (a :: (u₀ ++ (a + k) :: v₀)).length := by
+  have h := two_defect_bound a k ha hk u₀ v₀ hu hv hrot
+  rw [hq]
+  calc (((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀))) (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ) * q)
+          ^ 2 * 2 ^ (2 * (a :: (u₀ ++ (a + k) :: v₀)).length)
+      = q ^ 2 * (((Int.gcd (C (a :: (u₀ ++ (a + k) :: v₀)))
+          (D (a :: (u₀ ++ (a + k) :: v₀))) : ℕ) : ℤ) ^ 2
+            * 2 ^ (2 * (a :: (u₀ ++ (a + k) :: v₀)).length)) := by ring
+    _ < q ^ 2 * (2 ^ (2 * (a :: (u₀ ++ (a + k) :: v₀)).sum)
+          * 3 ^ (a :: (u₀ ++ (a + k) :: v₀)).length) :=
+        mul_lt_mul_of_pos_left h (pow_pos hq0 2)
+    _ = q ^ 2 * 2 ^ (2 * (a :: (u₀ ++ (a + k) :: v₀)).sum)
+          * 3 ^ (a :: (u₀ ++ (a + k) :: v₀)).length := by ring
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
