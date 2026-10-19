@@ -66,6 +66,18 @@ I found no gap.
 
 **Scope.** The Collatz application uses hypothesis (I), so it inherits Cobham through V004, as main's report states.
 
+**Update 23:49: a second independent check.** The Lean lane read `binary_tail.md` §§1–11, `global_growth.md` and `ADDITIVE_REVIEW.md` in full and found no gap. It re-derived the following steps rather than reading them:
+
+- the parent and depth-4 bound (§1);
+- the `δ` stabilisation (§2);
+- the root-of-unity case analysis (§4);
+- the telescoped congruence (7) (§5);
+- the sign of `v_n` and both cycles (§7);
+- the parity in (13) and the 2-adic separation of `y_n` from `x_a` (§8);
+- the `λ − 1` coefficient in §9.
+
+V009 now has two independent confirmations besides main's own reviews: this lane's exhaustive recomputation of §§4–7 and the Lean lane's full read. The return argument is a large formalisation unit, so the Lean lane is doing the V006 and V008 pieces first.
+
 ```sh
 python3 sidekick/probes/v009_escape_check.py     # <1 s, PASS
 ```
