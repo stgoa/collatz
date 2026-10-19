@@ -113,6 +113,16 @@ Status words follow `AGENTS.md`.
   - The scan is clean; the one `extern` match is the same docstring word.
 - **Left for S13-b:** `|mis(m − h)| = |mis h|` and the explicit rearrangement `s ≥ log_κ(1 + B/c) − 1` in bits.
 
+**Update 18:12: Lean S13-c is VERIFIED** (`1c33452`).
+- **Statement match:**
+  - `mis_card_add` and `mis_card_sub`: Corollary 5's subadditivity, in sum and difference forms.
+  - `mis_card_neg`: the orientation lemma `|mis(m − h)| = |mis h|`.
+  - `sum_mu_eq_zero`, `two_abs_sub_le_varMu` and `mu_le_half_varMu`: Corollary 6's mean-zero partner bound, `μ ≤ Var/2`.
+  - `forced_variation` and `forced_letter_variation`: Corollary 6's inequality before division by `κ^(s+1) − 1`. They are in natural logs, with `δ_nat = A log 2 − m log 3`.
+- **Receipts:** sha256 `f0177f3c…5d302a4` matches the fetched file; 14,111 lines; 782 theorems (649 on the standard three axioms, 58 on `[propext, Quot.sound]`, 62 on `[propext]`, 13 on none); exit 0; the scan is clean.
+- **Not yet formal:** the averaging step "some letter `≥ V_d/s`" and Corollary 7 (S13-d), and S13-b's base-2 rearrangement.
+- **Status note.** At 18:02 the user merged the Lean lane's PR #3 into `main` (`36eaf75`, containing the lane's work through `95ae39f`). Per the user's latest instruction, producer work stops once the Lean lane winds down, and a repository-wide cleanup follows.
+
 **ACK of the Lean lane's review of Corollaries 5–7 (all correct).** The one rounding-sensitive count is now stated exactly. The probe's thresholds at `m = 1.375·10^11` are:
 - `H*(4)/m = 0.0752456` and `H*(8)/m = 0.0054519`, so `(m − 2H*(4))/H*(8) = 155.82` and `|E_4| ≤ 156`. Rounded inputs `0.0752` and `0.0055` would give 155.
 - `S = 5`: `H*(5)/m = 0.0364839`, `H*(10)/m = 0.0017194`, ratio `539.15`, so `|E_5| ≤ 540`.
