@@ -4549,6 +4549,146 @@ theorem narrow_integer_cycle (hq : Γ.q = 1) (hB : Γ.B = 0)
 
 end OddCycle
 
+/-! ### C004-d: the primitive-period reduction — every nontrivial cycle has `H > 2L`
+
+C004 §3's sentence "every nontrivial integer Collatz cycle has `H > 2L`", as stated: a positive
+odd integer cycle at `q = 1` other than the fixed point `1` has a state above `2 n_0`. The
+reduction to C004-c passes to the least return time of the minimum, on which the deterministic
+state sequence is a primitive `OddCycle`; the parity remark (`n_i` odd, `2 n_0` even) turns `≥`
+into `>`. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- Determinism of the odd-only dynamics: equal states have equal successors and valuations. -/
+theorem succ_eq_of_eq {i j : ℕ} (h : Γ.n i = Γ.n j) :
+    Γ.n (i + 1) = Γ.n (j + 1) ∧ Γ.a i = Γ.a j := by
+  have hi := Γ.arrow i
+  have hj := Γ.arrow j
+  rw [h] at hi
+  have := pow_mul_eq_of_odd (Γ.nodd (i + 1)) (Γ.nodd (j + 1)) (hi.trans hj.symm)
+  exact ⟨this.2, this.1⟩
+
+/-- Equal states propagate: `n (i + t) = n (j + t)` for all `t`. -/
+theorem shift_eq_of_eq {i j : ℕ} (h : Γ.n i = Γ.n j) : ∀ t, Γ.n (i + t) = Γ.n (j + t)
+  | 0 => h
+  | t + 1 => by
+    show Γ.n (i + t + 1) = Γ.n (j + t + 1)
+    exact (Γ.succ_eq_of_eq (shift_eq_of_eq h t)).1
+
+/-- If the minimum is `1` then every state is `1` (the fixed point). -/
+theorem all_one_of_min_one (hq : Γ.q = 1) (h0 : Γ.n 0 = 1) : ∀ i, Γ.n i = 1
+  | 0 => h0
+  | i + 1 => by
+    have hi := Γ.arrow i
+    rw [hq, all_one_of_min_one hq h0 i] at hi
+    have : (2 : ℤ) ^ Γ.a i * Γ.n (i + 1) = 2 ^ 2 * 1 := by rw [hi]; norm_num
+    exact (pow_mul_eq_of_odd (Γ.nodd (i + 1)) odd_one this).2
+
+/-- The least positive return time of the minimum: `n p = n 0`, `0 < p`, and no smaller. -/
+theorem exists_least_period :
+    ∃ p, 0 < p ∧ Γ.n p = Γ.n 0 ∧ ∀ k, 0 < k → k < p → Γ.n k ≠ Γ.n 0 := by
+  classical
+  have hex : ∃ k, 0 < k ∧ Γ.n k = Γ.n 0 := ⟨m, Γ.hm, by simpa using Γ.nper 0⟩
+  exact ⟨Nat.find hex, (Nat.find_spec hex).1, (Nat.find_spec hex).2,
+    fun k hk0 hk hkeq => Nat.find_min hex hk ⟨hk0, hkeq⟩⟩
+
+/-- A return time of the minimum is a period of the whole state sequence. -/
+theorem nper_of_return {p : ℕ} (hp : Γ.n p = Γ.n 0) (i : ℕ) : Γ.n (i + p) = Γ.n i := by
+  have := Γ.shift_eq_of_eq hp i
+  rwa [add_comm p i, zero_add] at this
+
+theorem n_add_mul_of_return {p : ℕ} (hp : Γ.n p = Γ.n 0) (k : ℕ) :
+    ∀ c, Γ.n (k + c * p) = Γ.n k
+  | 0 => by simp
+  | c + 1 => by
+    rw [show k + (c + 1) * p = (k + c * p) + p by ring, Γ.nper_of_return hp,
+      n_add_mul_of_return hp k c]
+
+/-- On the least period the states are pairwise distinct (primitivity). -/
+theorem distinct_on_least_period {p : ℕ} (hp0 : 0 < p) (hp : Γ.n p = Γ.n 0)
+    (hmin : ∀ k, 0 < k → k < p → Γ.n k ≠ Γ.n 0) :
+    ∀ i j, i < p → j < p → Γ.n i = Γ.n j → i = j := by
+  have key : ∀ i j, i < j → j < p → Γ.n i = Γ.n j → False := by
+    intro i j hij hjp heq
+    have hle : i ≤ i * p := Nat.le_mul_of_pos_right i hp0
+    have h1 : Γ.n (i * p + (j - i)) = Γ.n (i * p) := by
+      have := Γ.shift_eq_of_eq heq (i * p - i)
+      rw [show i + (i * p - i) = i * p by omega,
+        show j + (i * p - i) = i * p + (j - i) by omega] at this
+      exact this.symm
+    have h2 : Γ.n (i * p) = Γ.n 0 := by
+      have := Γ.n_add_mul_of_return hp 0 i
+      rwa [zero_add] at this
+    have h3 : Γ.n (j - i) = Γ.n 0 := by
+      have := Γ.n_add_mul_of_return hp (j - i) i
+      rw [add_comm] at this
+      rw [← this, h1, h2]
+    exact hmin (j - i) (by omega) (by omega) h3
+  intro i j hi hj heq
+  rcases lt_trichotomy i j with h | h | h
+  · exact (key i j h hj heq).elim
+  · exact h
+  · exact (key j i h hi heq.symm).elim
+
+/-- The cycle on a return time `p` of its minimum, with `B = 0` when every state lies below
+`2 n_0`. -/
+def returnCycle {p : ℕ} (hp0 : 0 < p) (hp : Γ.n p = Γ.n 0) (hnarrow : ∀ i, Γ.n i < 2 * Γ.n 0) :
+    OddCycle p where
+  n := Γ.n
+  a := Γ.a
+  h := Γ.h
+  q := Γ.q
+  B := 0
+  hm := hp0
+  hq := Γ.hq
+  nper := Γ.nper_of_return hp
+  nodd := Γ.nodd
+  nmin := Γ.nmin
+  npos := Γ.npos
+  arrow := Γ.arrow
+  hlo := Γ.hlo
+  hhi := Γ.hhi
+  hB := fun i => by
+    by_contra hne
+    have h1 : 1 ≤ Γ.h i := by omega
+    have h2 : (2 : ℤ) ^ 1 ≤ 2 ^ Γ.h i := pow_le_pow_right₀ (by norm_num) h1
+    have h3 := Γ.hlo i
+    have h4 := hnarrow i
+    have h5 := Γ.npos
+    have h6 := mul_le_mul_of_nonneg_right h2 h5.le
+    norm_num at h6
+    linarith
+
+/-- **C004 §3's sentence as stated:** every positive odd integer cycle at `q = 1` other than the
+fixed point `1` has a state above `2 n_0`, i.e. `H > 2L`. -/
+theorem H_gt_two_L (hq : Γ.q = 1) (hnt : Γ.n 0 ≠ 1) : ∃ i, 2 * Γ.n 0 < Γ.n i := by
+  by_contra hall
+  rw [not_exists] at hall
+  have hnarrow : ∀ i, Γ.n i < 2 * Γ.n 0 := fun i => by
+    have h1 : ¬ (2 * Γ.n 0 < Γ.n i) := hall i
+    rw [not_lt] at h1
+    rcases lt_or_eq_of_le h1 with h | h
+    · exact h
+    · exfalso
+      have hodd := Γ.nodd i
+      rw [h] at hodd
+      exact (Int.not_even_iff_odd.mpr hodd) (even_two_mul _)
+  obtain ⟨p, hp0, hp, hmin⟩ := Γ.exists_least_period
+  have hprim := Γ.distinct_on_least_period hp0 hp hmin
+  have := (Γ.returnCycle hp0 hp hnarrow).narrow_integer_cycle hq rfl hprim
+  exact hnt this.2
+
+/-- The same, with "nontrivial" read as "some state is not `1`". -/
+theorem H_gt_two_L' (hq : Γ.q = 1) (hnt : ∃ i, Γ.n i ≠ 1) : ∃ i, 2 * Γ.n 0 < Γ.n i := by
+  apply Γ.H_gt_two_L hq
+  intro h0
+  obtain ⟨i, hi⟩ := hnt
+  exact hi (Γ.all_one_of_min_one hq h0 i)
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
