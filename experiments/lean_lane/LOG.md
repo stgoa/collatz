@@ -3,6 +3,24 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 77 — 2026-10-19, 14:52 -03
+
+- Woken by the side lane's S9-a verdict and its queue suggestion (S9-b first);
+  its decision to pause `ρ ≥ 5` and the S10 headline change (`efc8caf`)
+  recorded. Main frozen at `1c5c19d`. Monitor re-armed on expiry. The PR body
+  refresh is retried.
+- **S9-b verified — S9 (i), the two-mismatch denominator law at general `q`:
+  for a primitive cycle with letters `≥ 1` (or odd `q`) and a rotation with
+  exactly two mismatches, `log 2 + ⌈(m−2)/2⌉ log 3 < log q + (m−1) log(3/2) +
+  δ + λ`, `δ = A log 2 − m log 3`, `λ = log(m 2^A/(3D))`
+  (`two_mismatch_denominator_law`, `…'`, `…_odd`), with `exists_longest_run`,
+  `D_div_le_delta` and `three_L_D_le` (S7's (F4))** in `CycleSpectrum.lean`
+  (sha256 `c7424159…0268`, 10,687 lines, 617 theorems: 517 with the three
+  standard axioms, 41 × `[propext, Quot.sound]`, 57 × `[propext]`, 2 none; no
+  `sorry`). First build. Receipts regenerated. Next: the S8 by-products
+  (`ones_run_dvd`; the 1-cycle through `D ∣ 2^(A−m) − 1`), from the S8 note's
+  §1 (5) and §4.
+
 ## Iteration 76 — 2026-10-19, 14:43 -03
 
 - Woken by the monitor (sidekick `c42326e`: the S10-a verdict and the `v₂ ≠

@@ -8934,6 +8934,168 @@ theorem B_le_drift (hapos : ∀ i, 1 ≤ Γ.a i) (hB : ∃ i, Γ.h i = Γ.B) :
 
 end OddCycle
 
+/-! ### S9-b: the two-mismatch denominator law at general `q` (S9 §2 (i))
+
+S6's chain with the global-drift ceiling, for an arbitrary `OddCycle` (any `q > 0`, letters `≥ 1`;
+for odd `q` the letters are automatically `≥ 1`). A rotation with exactly two mismatches has a
+longest agreeing run `T` with `m ≤ 2(T + 1)` (`exists_longest_run`, `pigeonhole`); its witness
+exceeds `2·3^T` and is at most the maximum `n_j`, which the drift ceiling bounds through
+`log n_j ≤ log L + (m − 1) log(3/2) + δ`; and `3 L D ≤ m q 2^A` (`three_L_D_le`, S7's (F4), from
+`L_mul_delta_le` and `D/2^A ≤ δ`). Hence
+`log 2 + T log 3 < log q + (m − 1) log(3/2) + δ + λ`, with `δ = A log 2 − m log 3` and
+`λ = log m + A log 2 − log 3 − log D`, `D = 2^A − 3^m` (`two_mismatch_denominator_law`); with
+`T ≥ ⌈(m − 2)/2⌉ = (m − 1)/2` this is S9 (i) (`two_mismatch_denominator_law'`), and
+`two_mismatch_denominator_law_odd` is the `3x+q` reading for odd `q`. Dividing by `log 2` gives S9's
+`log₂ den(w) > Φ₂(m) − δ(w) − λ(w)` once `q = den(w)`; the identification of a reduced cycle's `q`
+with `den(w)` is the programme's (C008/C009) and is not re-proved here. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- A longest agreeing run of a rotation with a mismatch: realised at some `i`, and bounding every
+run. -/
+theorem exists_longest_run (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {h : ℕ}
+    (hh : h % m ≠ 0) :
+    ∃ i T, (∀ k, k < T → Γ.agree h (i + k)) ∧
+      ∀ i' t, (∀ k, k < t → Γ.agree h (i' + k)) → t ≤ T := by
+  classical
+  have hmpos := Γ.hm
+  have hlt : ∀ i t, (∀ k, k < t → Γ.agree h (i + k)) → t < m := by
+    intro i t hrun
+    by_contra hge
+    have hall : ∀ k, k < m → Γ.agree h (i + k) :=
+      fun k hk => hrun k (lt_of_lt_of_le hk (not_lt.mp hge))
+    exact Γ.z_ne_zero hprim hh i (Γ.z_eq_zero_of_agree_period hall)
+  obtain ⟨P, hP⟩ : ∃ P : ℕ → Prop, ∀ t, P t ↔ ∃ i, i < m ∧ ∀ k, k < t → Γ.agree h (i + k) :=
+    ⟨_, fun _ => Iff.rfl⟩
+  have hP0 : P 0 := (hP 0).mpr ⟨0, hmpos, fun k hk => absurd hk (Nat.not_lt_zero k)⟩
+  have hPT : P (Nat.findGreatest P m) := Nat.findGreatest_spec (Nat.zero_le m) hP0
+  obtain ⟨i, _, hrun⟩ := (hP _).mp hPT
+  refine ⟨i, Nat.findGreatest P m, hrun, ?_⟩
+  intro i' t hrun'
+  have hrun'' : ∀ k, k < t → Γ.agree h (i' % m + k) := by
+    intro k hk
+    rw [← Γ.agree_mod, Nat.mod_add_mod, Γ.agree_mod]
+    exact hrun' k hk
+  exact Nat.le_findGreatest (hlt i' t hrun').le
+    ((hP t).mpr ⟨i' % m, Nat.mod_lt _ hmpos, hrun''⟩)
+
+/-- `D/2^A ≤ δ = A log 2 − m log 3` (the `OddCycle` form of `OrdCycle.delta_ge_gap`). -/
+theorem D_div_le_delta :
+    ((2 : ℝ) ^ Γ.Apre m - 3 ^ m) / 2 ^ Γ.Apre m ≤
+      (Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3 := by
+  have hA2 : (0 : ℝ) < 2 ^ Γ.Apre m := by positivity
+  have h3m : (0 : ℝ) < 3 ^ m := by positivity
+  have hx : (0 : ℝ) < 2 ^ Γ.Apre m / 3 ^ m := div_pos hA2 h3m
+  have hlog := Real.one_sub_inv_le_log_of_pos hx
+  rw [Real.log_div hA2.ne' h3m.ne', Real.log_pow, Real.log_pow, inv_div] at hlog
+  have heq : ((2 : ℝ) ^ Γ.Apre m - 3 ^ m) / 2 ^ Γ.Apre m = 1 - 3 ^ m / 2 ^ Γ.Apre m := by
+    rw [sub_div, div_self hA2.ne']
+  rw [heq]
+  exact hlog
+
+/-- S7's (F4): `3 L D ≤ m q 2^A`, i.e. `L ≤ m q 2^A/(3D)`. -/
+theorem three_L_D_le :
+    3 * (Γ.n 0 : ℝ) * ((2 : ℝ) ^ Γ.Apre m - 3 ^ m) ≤ m * Γ.q * 2 ^ Γ.Apre m := by
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have hA2 : (0 : ℝ) < 2 ^ Γ.Apre m := by positivity
+  have hδ := Γ.D_div_le_delta
+  have hL := Γ.L_mul_delta_le
+  have h3n : (0 : ℝ) ≤ 3 * (Γ.n 0 : ℝ) := by linarith
+  have h1 : 3 * (Γ.n 0 : ℝ) * (((2 : ℝ) ^ Γ.Apre m - 3 ^ m) / 2 ^ Γ.Apre m) ≤ m * Γ.q :=
+    le_trans (mul_le_mul_of_nonneg_left hδ h3n) hL
+  have h2 : 3 * (Γ.n 0 : ℝ) * (((2 : ℝ) ^ Γ.Apre m - 3 ^ m) / 2 ^ Γ.Apre m) * 2 ^ Γ.Apre m =
+      3 * (Γ.n 0 : ℝ) * ((2 : ℝ) ^ Γ.Apre m - 3 ^ m) := by
+    rw [mul_assoc, div_mul_cancel₀ _ hA2.ne']
+  calc 3 * (Γ.n 0 : ℝ) * ((2 : ℝ) ^ Γ.Apre m - 3 ^ m)
+      = 3 * (Γ.n 0 : ℝ) * (((2 : ℝ) ^ Γ.Apre m - 3 ^ m) / 2 ^ Γ.Apre m) * 2 ^ Γ.Apre m := h2.symm
+    _ ≤ m * Γ.q * 2 ^ Γ.Apre m := mul_le_mul_of_nonneg_right h1 hA2.le
+
+/-- **S9 (i), the two-mismatch denominator law** (natural logarithms). For a primitive cycle with
+letters `≥ 1` and a rotation with exactly two mismatches, some run `T` with `m ≤ 2(T + 1)` has
+`log 2 + T log 3 < log q + (m − 1) log(3/2) + δ + λ`, where `δ = A log 2 − m log 3` and
+`λ = log m + A log 2 − log 3 − log D`, `D = 2^A − 3^m`. -/
+theorem two_mismatch_denominator_law (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {h : ℕ} (hh : h % m ≠ 0) (hs : (Γ.mis h).card = 2) :
+    ∃ T, m ≤ 2 * (T + 1) ∧
+      Real.log 2 + T * Real.log 3 < Real.log (Γ.q) + ((m : ℝ) - 1) * (Real.log 3 - Real.log 2) +
+        ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) +
+        (Real.log m + (Γ.Apre m : ℝ) * Real.log 2 - Real.log 3 -
+          Real.log ((2 : ℝ) ^ Γ.Apre m - 3 ^ m)) := by
+  have hmpos := Γ.hm
+  obtain ⟨i, T, hrun, hTbound⟩ := Γ.exists_longest_run hprim hh
+  have hne := Γ.exists_mis hprim hh
+  have hpig := Γ.pigeonhole hne hTbound
+  rw [hs] at hpig
+  refine ⟨T, by omega, ?_⟩
+  -- the maximum
+  obtain ⟨j, hjm', hjmax⟩ :=
+    Finset.exists_max_image (Finset.range m) Γ.n ⟨0, Finset.mem_range.mpr hmpos⟩
+  have hjm : j < m := Finset.mem_range.mp hjm'
+  have hj : ∀ i, Γ.n i ≤ Γ.n j := fun i => by
+    rw [← Γ.n_mod i]
+    exact hjmax (i % m) (Finset.mem_range.mpr (Nat.mod_lt _ hmpos))
+  -- the witness of the longest run, below the maximum
+  have hw := Γ.witness_gt T (fun k hk => hrun k hk) (Γ.z_ne_zero hprim hh (i + T))
+  have hwj : 2 * (3 : ℤ) ^ T < Γ.n j := lt_of_lt_of_le hw (max_le (hj _) (hj _))
+  have hwjR : 2 * (3 : ℝ) ^ T < Γ.n j := by exact_mod_cast hwj
+  have h3T : (3 : ℝ) ^ T ≠ 0 := by positivity
+  have hlw := Real.log_lt_log (by positivity) hwjR
+  rw [Real.log_mul (by norm_num : (2 : ℝ) ≠ 0) h3T, Real.log_pow] at hlw
+  -- the drift ceiling at the maximum
+  have hg := Γ.global_drift_log hapos hjm.le
+  have hlog32 : 0 ≤ Real.log 3 - Real.log 2 := by
+    have := Real.log_le_log (by norm_num : (0 : ℝ) < 2) (by norm_num : (2 : ℝ) ≤ 3)
+    linarith
+  have hlog2 : 0 < Real.log 2 := Real.log_pos (by norm_num)
+  have hX : (0 : ℝ) ≤ Γ.excess j * Real.log 2 := mul_nonneg (Nat.cast_nonneg _) hlog2.le
+  have hjR : (j : ℝ) ≤ (m : ℝ) - 1 := by
+    have h' : ((j + 1 : ℕ) : ℝ) ≤ m := by exact_mod_cast (hjm : j + 1 ≤ m)
+    push_cast at h'
+    linarith
+  have hjκ := mul_le_mul_of_nonneg_right hjR hlog32
+  -- `3 L D ≤ m q 2^A` in logarithms
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have hD : (0 : ℝ) < (2 : ℝ) ^ Γ.Apre m - 3 ^ m := by exact_mod_cast Γ.D_pos
+  have hq : (0 : ℝ) < Γ.q := by exact_mod_cast Γ.hq
+  have hm0 : (0 : ℝ) < m := by exact_mod_cast hmpos
+  have hA2 : (0 : ℝ) < 2 ^ Γ.Apre m := by positivity
+  have h3n0 : (0 : ℝ) < 3 * Γ.n 0 := mul_pos (by norm_num) hn0
+  have hmq : (0 : ℝ) < m * Γ.q := mul_pos hm0 hq
+  have hl3 := Real.log_le_log (mul_pos h3n0 hD) Γ.three_L_D_le
+  rw [Real.log_mul h3n0.ne' hD.ne', Real.log_mul (by norm_num : (3 : ℝ) ≠ 0) hn0.ne',
+    Real.log_mul hmq.ne' hA2.ne', Real.log_mul hm0.ne' hq.ne', Real.log_pow] at hl3
+  linarith
+
+/-- S9 (i) in its stated form, with `⌈(m − 2)/2⌉ = (m − 1)/2` (natural division):
+`log 2 + ⌈(m − 2)/2⌉ log 3 < log q + (m − 1) log(3/2) + δ + λ`. -/
+theorem two_mismatch_denominator_law' (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {h : ℕ} (hh : h % m ≠ 0) (hs : (Γ.mis h).card = 2) :
+    Real.log 2 + (((m - 1) / 2 : ℕ) : ℝ) * Real.log 3 <
+      Real.log (Γ.q) + ((m : ℝ) - 1) * (Real.log 3 - Real.log 2) +
+        ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) +
+        (Real.log m + (Γ.Apre m : ℝ) * Real.log 2 - Real.log 3 -
+          Real.log ((2 : ℝ) ^ Γ.Apre m - 3 ^ m)) := by
+  obtain ⟨T, hT, hlt⟩ := Γ.two_mismatch_denominator_law hprim hapos hh hs
+  have h1 : (m - 1) / 2 ≤ T := by omega
+  have h2 : (((m - 1) / 2 : ℕ) : ℝ) ≤ T := by exact_mod_cast h1
+  have hlog3 : 0 < Real.log 3 := Real.log_pos (by norm_num)
+  have := mul_le_mul_of_nonneg_right h2 hlog3.le
+  linarith
+
+/-- The `3x+q` reading: for odd `q` the letters are `≥ 1` automatically. -/
+theorem two_mismatch_denominator_law_odd (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hq : Odd Γ.q) {h : ℕ} (hh : h % m ≠ 0) (hs : (Γ.mis h).card = 2) :
+    Real.log 2 + (((m - 1) / 2 : ℕ) : ℝ) * Real.log 3 <
+      Real.log (Γ.q) + ((m : ℝ) - 1) * (Real.log 3 - Real.log 2) +
+        ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) +
+        (Real.log m + (Γ.Apre m : ℝ) * Real.log 2 - Real.log 3 -
+          Real.log ((2 : ℝ) ^ Γ.Apre m - 3 ^ m)) :=
+  Γ.two_mismatch_denominator_law' hprim (Γ.a_pos_of_odd hq) hh hs
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
