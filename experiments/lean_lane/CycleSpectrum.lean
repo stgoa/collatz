@@ -1512,6 +1512,207 @@ theorem C_rotate_succ {w : List ℕ} {i a : ℕ} {v : List ℕ} (h : w.rotate i 
   rw [h1, h, ← D_rotate w i, h]
   exact C_cons_rotate a v
 
+/-! ### C009: exact excursion cuts and the elimination `D x = q C`
+
+C009 (`EXCURSION_ARITHMETIC.md` §§1–2) takes a positive valuation word `w` of length `ℓ`, total
+`a = Σ w`, prefix totals `P_j = Σ (take j w)` and prefix intercepts `C_j = C (take j w)`, and
+positive odd integers `q, x, y` with the exact endpoint relation `2^a y = 3^ℓ x + q C_w`. The
+cut states `u_j = (3^j x + q C_j)/2^{P_j}` are then positive odd integers with `u_0 = x`,
+`u_ℓ = y` and the exact arrows `2^{a_j} u_{j+1} = 3 u_j + q`: no internal odd-only cylinder is
+lost by passing to the endpoint relation. Oddness of `x` is a consequence, not a hypothesis. -/
+
+/-- `C_w = 3^{ℓ−j} C_j + 2^{P_j} C_tail` (composition of the prefix and the tail). -/
+theorem C_take_drop (w : List ℕ) (j : ℕ) :
+    C w = 3 ^ (w.drop j).length * C (w.take j) + 2 ^ (w.take j).sum * C (w.drop j) := by
+  rw [← C_append, List.take_append_drop]
+
+/-- `Σ w = P_j + Σ tail`. -/
+theorem sum_take_drop (w : List ℕ) (j : ℕ) : w.sum = (w.take j).sum + (w.drop j).sum := by
+  rw [← List.sum_append, List.take_append_drop]
+
+/-- The integrality step of C009's cut lemma: reducing the endpoint relation modulo `2^{P_j}`
+and cancelling the unit `3^{ℓ−j}` gives `2^{P_j} ∣ 3^j x + q C_j`. -/
+theorem cut_dvd (w : List ℕ) {q x y : ℤ} (h : 2 ^ w.sum * y = 3 ^ w.length * x + q * C w)
+    {j : ℕ} (hj : j ≤ w.length) :
+    (2 : ℤ) ^ (w.take j).sum ∣ 3 ^ j * x + q * C (w.take j) := by
+  have hsplit := C_take_drop w j
+  have hsum := sum_take_drop w j
+  have hlen : w.length = j + (w.drop j).length := by rw [List.length_drop]; omega
+  have hcop : IsCoprime ((2 : ℤ) ^ (w.take j).sum) (3 ^ (w.drop j).length) :=
+    (Int.isCoprime_iff_gcd_eq_one.mpr (by norm_num)).pow
+  apply hcop.dvd_of_dvd_mul_left
+  refine ⟨2 ^ (w.drop j).sum * y - q * C (w.drop j), ?_⟩
+  rw [hlen, hsum, hsplit] at h
+  linear_combination (-1 : ℤ) * h
+
+/-- The cut states `u_j = (3^j x + q C_j)/2^{P_j}` of C009's lemma. -/
+def cutState (w : List ℕ) (q x : ℤ) (j : ℕ) : ℤ :=
+  (3 ^ j * x + q * C (w.take j)) / 2 ^ (w.take j).sum
+
+/-- `2^{P_j} u_j = 3^j x + q C_j`: the cut state is an integer. -/
+theorem cutState_spec (w : List ℕ) {q x y : ℤ}
+    (h : 2 ^ w.sum * y = 3 ^ w.length * x + q * C w) {j : ℕ} (hj : j ≤ w.length) :
+    2 ^ (w.take j).sum * cutState w q x j = 3 ^ j * x + q * C (w.take j) :=
+  Int.mul_ediv_cancel' (cut_dvd w h hj)
+
+theorem cutState_zero (w : List ℕ) (q x : ℤ) : cutState w q x 0 = x := by
+  simp [cutState, C]
+
+theorem cutState_last (w : List ℕ) {q x y : ℤ}
+    (h : 2 ^ w.sum * y = 3 ^ w.length * x + q * C w) : cutState w q x w.length = y := by
+  have hs := cutState_spec w h (le_refl w.length)
+  rw [List.take_length] at hs
+  exact mul_left_cancel₀ (pow_ne_zero _ two_ne_zero) (hs.trans h.symm)
+
+/-- The exact arrow `2^{a_j} u_{j+1} = 3 u_j + q` between consecutive cut states. -/
+theorem cutState_arrow (w : List ℕ) {q x y : ℤ}
+    (h : 2 ^ w.sum * y = 3 ^ w.length * x + q * C w) {j : ℕ} (hj : j < w.length) :
+    2 ^ w[j] * cutState w q x (j + 1) = 3 * cutState w q x j + q := by
+  have h1 := cutState_spec w h hj.le
+  have h2 := cutState_spec w h (show j + 1 ≤ w.length from hj)
+  rw [List.take_succ_eq_append_getElem hj, List.sum_append, C_append] at h2
+  simp only [List.sum_cons, List.sum_nil, add_zero, List.length_singleton, List.length_nil,
+    pow_one, pow_zero, C, mul_zero, mul_one] at h2
+  apply mul_left_cancel₀ (pow_ne_zero (w.take j).sum (two_ne_zero : (2 : ℤ) ≠ 0))
+  linear_combination h2 - 3 * h1
+
+/-- Positivity of the cut states (`q, x > 0`). -/
+theorem cutState_pos (w : List ℕ) {q x y : ℤ} (hq : 0 < q) (hx : 0 < x)
+    (h : 2 ^ w.sum * y = 3 ^ w.length * x + q * C w) {j : ℕ} (hj : j ≤ w.length) :
+    0 < cutState w q x j := by
+  have hs := cutState_spec w h hj
+  have hC := C_nonneg (w.take j)
+  have h3 : (0 : ℤ) < 3 ^ j * x := mul_pos (by positivity) hx
+  have hqC : 0 ≤ q * C (w.take j) := mul_nonneg hq.le hC
+  have h2 : (0 : ℤ) < 2 ^ (w.take j).sum := by positivity
+  have hpos : 0 < 2 ^ (w.take j).sum * cutState w q x j := by rw [hs]; linarith
+  exact (mul_pos_iff_of_pos_left h2).mp hpos
+
+/-- Oddness of the cut states: `u_ℓ = y` is odd, and for `j < ℓ` the arrow
+`2^{a_j} u_{j+1} = 3 u_j + q` has an even left side (`a_j ≥ 1`) and odd `q`, so `u_j` is odd. -/
+theorem cutState_odd (w : List ℕ) (hw : ∀ a ∈ w, 1 ≤ a) {q x y : ℤ} (hq : Odd q) (hy : Odd y)
+    (h : 2 ^ w.sum * y = 3 ^ w.length * x + q * C w) {j : ℕ} (hj : j ≤ w.length) :
+    Odd (cutState w q x j) := by
+  rcases Nat.lt_or_ge j w.length with hlt | hge
+  · have harrow := cutState_arrow w h hlt
+    have ha : 1 ≤ w[j] := hw _ (List.getElem_mem hlt)
+    have heven : Even (2 ^ w[j] * cutState w q x (j + 1)) :=
+      even_iff_two_dvd.mpr (dvd_mul_of_dvd_left (dvd_pow_self 2 (by omega)) _)
+    rw [harrow] at heven
+    have hq' : ¬ Even q := Int.not_even_iff_odd.mpr hq
+    have h3 : Odd (3 * cutState w q x j) :=
+      Int.not_even_iff_odd.mp (fun he => hq' ((Int.even_add.mp heven).mp he))
+    exact (Int.odd_mul.mp h3).2
+  · rw [le_antisymm hj hge, cutState_last w h]
+    exact hy
+
+/-- **C009's cut lemma** (`EXCURSION_ARITHMETIC.md` §1). For a positive word `w` of length `ℓ`,
+total `a` and intercept `C_w`, and integers `q > 0` odd, `x > 0`, `y` odd with
+`2^a y = 3^ℓ x + q C_w`, the cut states `u_j` (`j ≤ ℓ`) satisfy `u_0 = x`, `u_ℓ = y`,
+`2^{P_j} u_j = 3^j x + q C_j`, are positive odd integers, and obey the exact arrows
+`2^{a_j} u_{j+1} = 3 u_j + q`. (Oddness of the next state is the exactness of the valuation.) -/
+theorem cut_lemma (w : List ℕ) (hw : ∀ a ∈ w, 1 ≤ a) {q x y : ℤ} (hq0 : 0 < q) (hq : Odd q)
+    (hx0 : 0 < x) (hy : Odd y) (h : 2 ^ w.sum * y = 3 ^ w.length * x + q * C w) :
+    cutState w q x 0 = x ∧ cutState w q x w.length = y ∧
+    (∀ j, j ≤ w.length →
+      2 ^ (w.take j).sum * cutState w q x j = 3 ^ j * x + q * C (w.take j)) ∧
+    (∀ j, j ≤ w.length → 0 < cutState w q x j ∧ Odd (cutState w q x j)) ∧
+    (∀ j, (hj : j < w.length) →
+      2 ^ w[j] * cutState w q x (j + 1) = 3 * cutState w q x j + q) :=
+  ⟨cutState_zero w q x, cutState_last w h, fun _ hj => cutState_spec w h hj,
+    fun _ hj => ⟨cutState_pos w hq0 hx0 h hj, cutState_odd w hw hq hy h hj⟩,
+    fun _ hj => cutState_arrow w h hj⟩
+
+/-- C009's (3): eliminating `y` from the endpoint equations of an excursion `E` and its
+complement `P` gives `D x = q C` with `D = D_{EP} = 2^{a+b} − 3^{ℓ+r}` and
+`C = C_{EP} = 3^r C_E + 2^a C_P`, the intercept of the full word based at `x`. -/
+theorem elimination (E P : List ℕ) {q x y : ℤ}
+    (hE : 2 ^ E.sum * y = 3 ^ E.length * x + q * C E)
+    (hP : 2 ^ P.sum * x = 3 ^ P.length * y + q * C P) :
+    D (E ++ P) * x = q * C (E ++ P) ∧
+      C (E ++ P) = 3 ^ P.length * C E + 2 ^ E.sum * C P := by
+  refine ⟨?_, C_append E P⟩
+  rw [D, List.sum_append, List.length_append, C_append]
+  linear_combination 2 ^ E.sum * hP + 3 ^ P.length * hE
+
+/-- At `q = 1` an integer solution of the cycle equation forces `D_w ∣ C_w` (C009 §2,
+necessity). -/
+theorem D_dvd_C_of_cycle {w : List ℕ} {x : ℤ}
+    (h : 2 ^ w.sum * x = 3 ^ w.length * x + C w) : D w ∣ C w :=
+  ⟨x, by rw [D]; linear_combination (-1 : ℤ) * h⟩
+
+/-- `D_w` is coprime to `2` (it is odd). -/
+theorem isCoprime_two_D {w : List ℕ} (hw : 1 ≤ w.sum) : IsCoprime (2 : ℤ) (D w) := by
+  rw [Int.isCoprime_iff_gcd_eq_one]
+  have h1 : Int.gcd 2 (D w) ∣ 2 := by
+    have := Int.gcd_dvd_left (2 : ℤ) (D w)
+    exact_mod_cast this
+  rcases (Nat.dvd_prime Nat.prime_two).mp h1 with h | h
+  · exact h
+  · exfalso
+    apply D_odd hw
+    have := Int.gcd_dvd_right (2 : ℤ) (D w)
+    rw [h] at this
+    exact_mod_cast this
+
+/-- The rotation recurrence `2^{a_i} C_{(i+1)} = 3 C_{(i)} + D` propagates `D ∣ C_{(i)}` to
+every phase (C009 §2; `D` is odd). -/
+theorem dvd_C_rotate {w : List ℕ} (hw0 : w ≠ []) (hw : ∀ a ∈ w, 1 ≤ a) (hdvd : D w ∣ C w) :
+    ∀ i, D w ∣ C (w.rotate i) := by
+  intro i
+  induction i with
+  | zero => simpa using hdvd
+  | succ i ih =>
+    obtain ⟨a, v, hav⟩ : ∃ a v, w.rotate i = a :: v := by
+      cases hrot : w.rotate i with
+      | nil => exact absurd (List.rotate_eq_nil_iff.mp hrot) hw0
+      | cons a v => exact ⟨a, v, rfl⟩
+    have hrec := C_rotate_succ hav
+    have h2 : D w ∣ 2 ^ a * C (w.rotate (i + 1)) := by
+      rw [hrec]
+      exact dvd_add (dvd_mul_of_dvd_right ih 3) dvd_rfl
+    have hcop : IsCoprime (D w) (2 ^ a) :=
+      (isCoprime_two_D (one_le_sum_of_ne_nil hw0 hw)).symm.pow_right
+    exact hcop.dvd_of_dvd_mul_left h2
+
+/-- Every phase quotient `C_{(i)}/D` is odd when `D ∣ C` (C009 §2). -/
+theorem odd_quot_rotate {w : List ℕ} (hw0 : w ≠ []) (hw : ∀ a ∈ w, 1 ≤ a) (hdvd : D w ∣ C w)
+    (i : ℕ) : Odd (C (w.rotate i) / D w) := by
+  have hd := dvd_C_rotate hw0 hw hdvd i
+  have hrot0 : w.rotate i ≠ [] := fun h => hw0 (List.rotate_eq_nil_iff.mp h)
+  have hrotpos : ∀ a ∈ w.rotate i, 1 ≤ a := fun a ha => hw a (List.mem_rotate.mp ha)
+  have hodd := C_odd hrot0 hrotpos
+  rw [← Int.mul_ediv_cancel' hd] at hodd
+  exact (Int.odd_mul.mp hodd).2
+
+/-- C009 §2 at `q = 1`, sufficiency: if `D_w > 0` and `D_w x = C_w` for a positive word `w`,
+then `x` is a positive odd integer closing the cycle equation `2^A x = 3^m x + 1 · C_w`. -/
+theorem integer_cycle_of_dvd (w : List ℕ) (hw0 : w ≠ []) (hw : ∀ a ∈ w, 1 ≤ a) (hD : 0 < D w)
+    {x : ℤ} (hx : D w * x = C w) :
+    0 < x ∧ Odd x ∧ 2 ^ w.sum * x = 3 ^ w.length * x + 1 * C w := by
+  have hC := C_pos hw0
+  have hCodd := C_odd hw0 hw
+  refine ⟨?_, ?_, ?_⟩
+  · have hDx : 0 < D w * x := by rw [hx]; exact hC
+    exact (mul_pos_iff_of_pos_left hD).mp hDx
+  · rw [← hx] at hCodd
+    exact (Int.odd_mul.mp hCodd).2
+  · rw [D] at hx
+    linear_combination hx
+
+/-- C009 §2 at `q = 1`: `D_w ∣ C_w` (with `D_w > 0`, positive `w`) yields the odd integer cycle
+through `x = C_w/D_w`, with every cut state a positive odd integer and every arrow exact —
+the cut lemma recovers all the internal cylinders. -/
+theorem cylinders_of_dvd (w : List ℕ) (hw0 : w ≠ []) (hw : ∀ a ∈ w, 1 ≤ a) (hD : 0 < D w)
+    {x : ℤ} (hx : D w * x = C w) :
+    cutState w 1 x 0 = x ∧ cutState w 1 x w.length = x ∧
+    (∀ j, j ≤ w.length → 0 < cutState w 1 x j ∧ Odd (cutState w 1 x j)) ∧
+    (∀ j, (hj : j < w.length) →
+      2 ^ w[j] * cutState w 1 x (j + 1) = 3 * cutState w 1 x j + 1) := by
+  obtain ⟨hx0, hxodd, hcyc⟩ := integer_cycle_of_dvd w hw0 hw hD hx
+  obtain ⟨h0, hl, -, hpo, harr⟩ := cut_lemma w hw one_pos odd_one hx0 hxodd hcyc
+  exact ⟨h0, hl, hpo, harr⟩
+
 /-- The exponent `q` of C004 §3 exists: `2^q lo ≤ 3 lo + d < 2^{q+1} lo`. -/
 theorem exists_exponent {lo d : ℤ} (hlo : 0 < lo) (hd : 0 < d) :
     ∃ q : ℕ, (2 : ℤ) ^ q * lo ≤ 3 * lo + d ∧ 3 * lo + d < 2 ^ (q + 1) * lo := by

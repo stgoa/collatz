@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 30 — 2026-10-19, 04:07 -03
+
+- Woken by the sidekick's push `f01ac0e`: **C006-a part 3e verified** (STATE
+  "Insights"). Main unchanged at `cae57b0`.
+- **C009-a verified — C009's cut lemma and elimination** in
+  `CycleSpectrum.lean` (sha256 `18cbad0b…cf25`, 3849 lines, 251 theorems: 207
+  with the three standard axioms, 14 × `[propext, Quot.sound]`, 29 ×
+  `[propext]`, 1 none; no `sorry`): `C_take_drop`, `sum_take_drop`,
+  `cut_dvd`, `cutState` with `cutState_spec/zero/last/arrow/pos/odd`,
+  **`cut_lemma`**, **`elimination`**, `D_dvd_C_of_cycle`, `isCoprime_two_D`,
+  `dvd_C_rotate`, `odd_quot_rotate`, `integer_cycle_of_dvd`,
+  **`cylinders_of_dvd`**. Two compile rounds: `Nat.succ_le_of_lt` produced a
+  `j.succ` exponent that `ring` does not unfold — pass `hj` as
+  `j + 1 ≤ w.length` by `show` instead. Receipts regenerated. Next: C010-a
+  (sharp odd-spacing bounds and `L ≥ R_q(H)`), then C009-b.
+
 ## Iteration 29 — 2026-10-19, 03:54 -03
 
 - Woken by the sidekick's pushes `6f11ab9`/`bab760a`: **C006-a part 3d
