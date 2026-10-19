@@ -2,6 +2,15 @@
 
 **Status:** side-lane producer batch S5 (2026-10-19). This is a composition of results that are already formal, with one elementary step (a pigeonhole) and the two literature imports. Main's own C013 inequality (6) is the source of the shape. What is new here is only that the replayed `gap_all` makes it quantitatively strong. No cycle is excluded, and novelty is undetermined.
 
+## 0. Why S5 does not use C012's coupled matrix (an observation, not new mathematics)
+
+S5 was announced as a coupled two-plateau estimate at three mismatches. Reading C012 §§4–5 shows why that cannot give a size bound by congruences alone.
+
+- **The rank-two structure.** C012 §4 shows `W ≡ u·vᵀ (mod D)`, where `v` is the first row of `W`. So `Wc ≡ u·X_0` and `W′c ≡ u′·Y_0 (mod D)`, with `X_0` and `Y_0` the two rotated intercepts at block start 0.
+- **What the system says modulo `g`.** Hence `Mc ≡ u′Y_0 − u·X_0`. Modulo any `g` dividing `D`, the coupled system says only that `g | X_0` and `g | Y_0`. That holds automatically, since `g` divides every rotated intercept.
+- **Why `s = 2` is different.** C011's gain at `s = 2` comes from inverting `M` over the integers with the small determinant `Π|β′ − β|`, not from congruences. At `s ≥ 3`, `det M` carries `D^(s−2)` (C012 (5)).
+- **Consequence.** Any bound at `s ≥ 3` must come from integer sizes. S5 therefore uses the size route already in C013.
+
 ## 1. The inputs
 
 Throughout, the cycle is primitive with `q = 1`, of period `m` and band `B` (`H < 2^(B+1) L`).
