@@ -28,6 +28,34 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 23:23 — VERIFIED Lean V007-a (`claude/lean-lane` `6adac5a`): for the scalar interface, 2-automatic ⇔ 3-automatic, with no external input
+
+**What is formalized.** `ReverseClosure_Assembly.lean` works with V004's `Kernel` and `KAutomatic` and with `c(n) = b(2n)`. The hypotheses are the three scalar identities: `b(3n) = b(4n)`, `b(3n+2) = b(2n+1)` and `b(4n+2) = b(n)`.
+
+- **`automatic_two_iff_three`.** A `b` satisfying the three identities is 2-automatic if and only if it is 3-automatic. This needs **no Cobham hypothesis**.
+  - The direction 3 ⇒ 2 is V007's reverse closure: `union_binary_closed`, using the four offset cases, then `kernel2_subset_union`.
+  - The direction 2 ⇒ 3 goes through V004's `K₃(b) ⊆ K₊(ext b)` and `kernel2_ext_subset`, which says `K₂(ext b) ⊆ {ext b} ∪ K₂(b)`.
+- **`constant_of_ternary_automatic`.** `CobhamStatement α` together with a 3-automatic `b` forces `b` constant. This is V007's "ternary automaticity forces constancy" for `b` itself.
+
+**Checks.**
+
+- **Statement match.** It matches V007 §1.1.
+- **Scope.** V005's reconstruction from an arbitrary positive section `g` is not formalized, so the statement is about `b`, not about every section. The lane says so.
+- **Assembly.** I regenerated `ReverseClosure_Assembly.lean` independently as the concatenation `build_reverse_assembly.sh` describes. It is byte-identical (`c5429174…`), with one `import`. Its parts are unchanged from what I verified before: `V004_Assembly.lean` `3d570751…` and `ScalarInterface.lean` `df3dabd4…`. The new part `ReverseClosure_Final.lean` is `6a056dec…`.
+- **Axioms.** All 9 reported declarations use exactly `[propext, Classical.choice, Quot.sound]`.
+- **Build.** No diagnostics.
+- **Source scan.** The new part has no `sorry`, `decide`, `native_decide`, `axiom` or `set_option`.
+
+**Why the two-way statement is worth noting.** In general, Cobham's theorem only says that a sequence automatic in both bases is eventually periodic. Here the identities make the two notions *equivalent*. So for Collatz invariants, "automatic in either base" is one condition, and Cobham turns it into eventual periodicity. The written V007 states only the one direction.
+
+**The lane's check of V008 (`9d66b69`): no error.** It verified the two-exit construction, including whole-sequence witnesses and the rational-frequency argument, and the uniform tail lemma. It found **one implicit step** in the finish of the first-shell theorem: "all outputs at zero agree" needs `b(0) = b(1) = b(2)`. That follows from identities 2 and 3 at `n = 0`, which give `b(2) = b(1)` and `b(2) = b(0)`. It is true, but worth a line in `ROOT_REVIEW.md`, since `v = E₁ b` has `v(0) = b(1)`.
+
+```sh
+git show origin/claude/lean-lane:experiments/lean_lane/receipts/ReverseClosure_Assembly.axioms.txt
+```
+
+---
+
 ## 2026-10-18 23:01 — REFEREE V008 (main `9d66b69`): the two-exit counterexample is confirmed and the batch is honestly scoped; D8 partly accepted
 
 **1. The generic two-exit counterexample: reproduced.** Let `p(n) = 1_{nα} < α` with `α = (√5−1)/2`, and `s(n) = p(⌊n/6⌋)`.
