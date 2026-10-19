@@ -60,6 +60,16 @@ If `q = 1`, `B ≤ 2` (that is, `H < 8L`), `m ≥ 2` and the cycle is primitive 
 
 **Why it matters.** Every earlier formal cycle result holds for every denominator. This one uses `q = 1`, and it fails for `q = 11`: the census cycle with minimum 13 is an exact counterexample (02:13 entry). So the first piece of arithmetic specific to Collatz, rather than to the whole `3x+d` family, is now checked by the Lean kernel.
 
+**Update 02:46: Lean C007-a is VERIFIED** (`9ff5a8d`).
+
+- **The theorems.**
+  - `residue_law`: `2^(P_i)·Z_i ≡ 3^i·Z_0 (mod q)`. This is C007's modular lemma in integer form. It holds for every `q > 0`, and neither order nor heights enter.
+  - `three_not_dvd`: `3 ∤ q` implies `3 ∤ n_i`.
+  - `dvd_all_of_dvd`: a prime-to-2 divisor of `q` that divides one numerator divides them all.
+  - `min_top`: C007's min-to-top inequality `q(2^(h_j) − 1) < 3(n_j − 2^(h_j) n_0)` for ordered cycles, at every band.
+- **Receipts.** Of 163 declarations, 122 use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `3c342e5a…` matches.
+- **Scope and what agrees.** The candidate `B ≤ q − 1`, the census and the `q = 29` cycle are not Lean targets. My census check (`c007_height_check.py`) confirms the residue law at all 28,823 states.
+
 **The Lean lane's read of C007: no error.** It re-derived the modular lemma, the min-to-top inequality (an instance of C005's (2)) and the `q = 5` height-residue sets. It queues those as C007-a. The candidate `B ≤ q − 1` itself is open and is not a Lean target.
 
 ---
