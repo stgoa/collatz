@@ -11393,6 +11393,94 @@ theorem ladder_of_coprime {m h : ℕ} (hh : 0 < h) (hhm : h < m) (hcop : Nat.Cop
 
 end DK
 
+/-! ### S12-f (part 3): the height tool with only `gcd(h, m) = 1`
+
+With the ladder of `h/m` supplied by `ladder_of_coprime`, the S12 statements lose their ladder
+hypothesis: `K(h/m) = Σ_{1 ≤ i ≤ n} a_i` is the sum of the partial quotients (`cfK`), and for every
+rotation `0 < h < m` coprime to `m`: `|log n_y − log n_x| ≤ (K − 1)·Var(μ_h)` for all positions
+(`height_le_varMu_coprime`), `B ≤ (K − 1)·Var(μ_h)` relative to the minimum (`height_le_varMu_coprime'`),
+`B ≤ (K − 1)(V_h log 2 + 2δ)` (`height_le_coprime`, the composed height bound), and the denominator
+law for every mismatch count (`dk_denominator_law_coprime`, `word_dk_denominator_law_coprime`).
+Nothing external remains: the only hypotheses are the cycle (or the positive word with `D_w > 0`
+and distinct rotated intercepts), the rotation, and the mismatch count. -/
+
+namespace DK
+
+/-- The sum of the partial quotients of `h/m`: the side lane's `K(h/m)`. -/
+def cfK (m h : ℕ) : ℕ := ∑ i ∈ Finset.Icc 1 (termIndex m h), quot m h i
+
+/-- `K(h/m) ≥ 1` for `h > 0` (the first quotient is `≥ 1`). -/
+theorem one_le_cfK {m h : ℕ} (hh : 0 < h) : 1 ≤ cfK m h := by
+  unfold cfK
+  calc 1 ≤ quot m h 1 := one_le_quot m h 1
+    _ ≤ ∑ i ∈ Finset.Icc 1 (termIndex m h), quot m h i :=
+      Finset.single_le_sum (fun _ _ => Nat.zero_le _)
+        (Finset.mem_Icc.mpr ⟨le_rfl, termIndex_pos hh⟩)
+
+end DK
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- **The height bound for every coprime rotation**: `|log n_y − log n_x| ≤ (K − 1)·Var(μ_h)`. -/
+theorem height_le_varMu_coprime {h : ℕ} (hh : 0 < h) (hhm : h < m) (hcop : Nat.Coprime h m)
+    (x y : ℕ) :
+    |Real.log (Γ.n y) - Real.log (Γ.n x)| ≤ ((DK.cfK m h : ℝ) - 1) * Γ.varMu h := by
+  obtain ⟨L, hn, hqn, hadm⟩ := DK.ladder_of_coprime hh hhm hcop
+  exact Γ.height_le_varMu hhm.le hcop L hn hqn hadm x y
+
+/-- Relative to the minimum: `B ≤ (K − 1)·Var(μ_h)`. -/
+theorem height_le_varMu_coprime' {h : ℕ} (hh : 0 < h) (hhm : h < m) (hcop : Nat.Coprime h m)
+    (y : ℕ) : Real.log (Γ.n y) - Real.log (Γ.n 0) ≤ ((DK.cfK m h : ℝ) - 1) * Γ.varMu h :=
+  le_trans (le_abs_self _) (Γ.height_le_varMu_coprime hh hhm hcop 0 y)
+
+/-- **The composed height bound**: `B ≤ (K − 1)(V_h log 2 + 2δ)` for every coprime rotation. -/
+theorem height_le_coprime {h : ℕ} (hh : 0 < h) (hhm : h < m) (hcop : Nat.Coprime h m) (y : ℕ) :
+    Real.log (Γ.n y) - Real.log (Γ.n 0) ≤ ((DK.cfK m h : ℝ) - 1) *
+      ((Γ.Vh h : ℝ) * Real.log 2 + 2 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) := by
+  have h1 := Γ.height_le_varMu_coprime' hh hhm hcop y
+  have h2 := Γ.varMu_le_Vh h
+  have hK : (1 : ℝ) ≤ DK.cfK m h := by exact_mod_cast DK.one_le_cfK (m := m) hh
+  exact h1.trans (mul_le_mul_of_nonneg_left h2 (by linarith))
+
+/-- **S12's denominator law for every coprime rotation and mismatch count.** -/
+theorem dk_denominator_law_coprime (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    {h : ℕ} (hh : 0 < h) (hhm : h < m) (hcop : Nat.Coprime h m) {s : ℕ} (hs1 : 1 ≤ s)
+    (hs : (Γ.mis h).card = s) :
+    Real.log 2 + (((m - 1) / s : ℕ) : ℝ) * Real.log 3 <
+      Real.log (Γ.q) + (Real.log m + (Γ.Apre m : ℝ) * Real.log 2 - Real.log 3 -
+          Real.log ((2 : ℝ) ^ Γ.Apre m - 3 ^ m)) +
+        ((DK.cfK m h : ℝ) - 1) *
+          ((Γ.Vh h : ℝ) * Real.log 2 + 2 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) := by
+  obtain ⟨L, hn, hqn, hadm⟩ := DK.ladder_of_coprime hh hhm hcop
+  exact Γ.dk_denominator_law hprim hhm.le hcop L hn hqn hadm hs1 hs
+
+end OddCycle
+
+namespace OddCycle
+
+/-- **S12's denominator law for words, every coprime rotation and mismatch count.** -/
+theorem word_dk_denominator_law_coprime (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x)
+    (hD : 0 < D w)
+    (hdist : ∀ i j, i < w.length → j < w.length → C (w.rotate i) = C (w.rotate j) → i = j)
+    {h : ℕ} (hh : 0 < h) (hhm : h < w.length) (hcop : Nat.Coprime h w.length) {s : ℕ}
+    (hs1 : 1 ≤ s)
+    (hs : ((Finset.range w.length).filter
+      (fun i => (w.rotate i).headD 0 ≠ (w.rotate (i + h)).headD 0)).card = s) :
+    Real.log 2 + (((w.length - 1) / s : ℕ) : ℝ) * Real.log 3 <
+      Real.log (den w) + (Real.log w.length + (w.sum : ℝ) * Real.log 2 - Real.log 3 -
+          Real.log ((2 : ℝ) ^ w.sum - 3 ^ w.length)) +
+        ((DK.cfK w.length h : ℝ) - 1) *
+          (((∑ t ∈ Finset.range w.length,
+              Int.natAbs (((w.rotate t).headD 0 : ℤ) - ((w.rotate (t + h)).headD 0 : ℤ)) : ℕ) : ℝ) *
+              Real.log 2 +
+            2 * ((w.sum : ℝ) * Real.log 2 - w.length * Real.log 3)) := by
+  obtain ⟨L, hn, hqn, hadm⟩ := DK.ladder_of_coprime hh hhm hcop
+  exact word_dk_denominator_law' w hw0 hpos hD hdist hhm.le hcop L hn hqn hadm hs1 hs
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

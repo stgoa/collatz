@@ -3,6 +3,24 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 90 — 2026-10-19, 16:53 -03
+
+- Woken by the monitor (sidekick `20a3ecf`: the part 2 verdict in the feed,
+  verified); main frozen at `1c5c19d`. The PR body refresh is retried.
+- **S12-f (part 3) verified — the height tool with only `gcd(h, m) = 1`:
+  `DK.cfK` (the sum of the partial quotients of `h/m`), `one_le_cfK`,
+  `height_le_varMu_coprime` (`|log n_y − log n_x| ≤ (K − 1)·Var(μ_h)` for
+  every `0 < h < m` coprime to `m`), `height_le_varMu_coprime'` (relative to
+  `n 0`), `height_le_coprime` (`B ≤ (K − 1)(V_h log 2 + 2δ)`),
+  `dk_denominator_law_coprime` and `word_dk_denominator_law_coprime` (no
+  ladder, no minimal rotation)** in `CycleSpectrum.lean` (sha256
+  `a3cf4400…83d1`, 13,072 lines, 736 theorems: 608 with the three standard
+  axioms, 55 × `[propext, Quot.sound]`, 60 × `[propext]`, 13 none; no
+  `sorry`). Second build (a `Γ`-free lemma under `variable (Γ)` is not a
+  field; moved to `DK`). Receipts regenerated. S12 now has no non-formal
+  input. Next: the side lane's newest material, else the paused `(1, 1, 2)`
+  window theorem.
+
 ## Iteration 89 — 2026-10-19, 16:41 -03
 
 - Woken by the monitor (sidekick `aec3c89`: the part 1 verdict in the feed);
