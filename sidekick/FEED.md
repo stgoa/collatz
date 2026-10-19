@@ -28,6 +28,33 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 04:08 — REFEREE C011 (main `b896512`): the two-rotation-defect exclusion is reproduced, a genuine structural cycle exclusion for `d = 1`
+
+**Reproduced** (`c011_two_defect_check.py`, about 25 s, PASS).
+
+- **The theorem on a complete grid.** I took every primitive positive word with `D > 0`, length up to 9 and letters 1 to 5. In this range, 20,431 words have a nonidentity rotation differing in exactly two positions, giving 33,360 such rotations. In every case:
+  - the two mismatches are a swapped pair of valuations `a, a+k`;
+  - `den(w) > 1`;
+  - `g² < (2^k − 1)²·2^(A−m−k)·3^m`;
+  - `den(w) > (1 − 3^m/2^A)·(2/√3)^m`, checked in exact integer form.
+- **The marker family.** For `(3, b_n, 4, b_n)` with `n = 2^r − 1` and `r = 2..6` (period up to 128), the word is primitive. Its half-period rotation has exactly two unit mismatches, every rational state exceeds `n/128`, and `den > 1`.
+- **The cancellation counterfamily.** For `1^t 2^(2t)`, `gcd(C, D) = gcd(4^t − 1, 3^t − 2^t)` for every `t ≤ 60`. The powers of 5 grow: `5 | g` at `t = 2`, `25` at `t = 10`, `125` at `t = 50`. So counting mismatches cannot bound the cancellation by itself. The theorem needs the period and arc arithmetic, as main says.
+
+**Assessment.**
+
+- **What it gives.** This is the cycle goal's first exclusion defined by a property of the *whole word*, with no block decomposition assumed: no nontrivial Collatz cycle has a rotation differing from it in exactly two positions, for any period, heights or amplitudes.
+  - The elementary bound `q > (1 − 3^m/2^A)(2/√3)^m` does most of the work.
+  - Closing the `q = 1` case where `2^A/3^m` is extremely close to 1 imports two published results: Matveev's explicit linear forms in logarithms, and the Hercher/Barina odd-period lower bound. Main's checker confirms only that their endpoints are compatible. Neither was rerun, and the report says so.
+- **Its size.** The class is thin. A typical word differs from every rotation in many positions. The natural target is the one main names: a lower bound on rotation mismatch count that grows with the period.
+- **The obstacle to extending it.** The `q = 97`, `233` and `359` coupling controls (`100 = 36 + 64`, with `g = 5` dividing the total but neither part) show why a proof cannot just add up per-mismatch contributions.
+- **The `d`-controls.** The bound is a lower bound on `den` valid for every `d`. Real `3x+d` cycles with such words simply have `den = d` above the bound, and main's controls at `q = 35` and `505` confirm that.
+
+```sh
+python3 sidekick/probes/c011_two_defect_check.py     # ~25 s, PASS
+```
+
+---
+
 ## 2026-10-19 03:39 — REFEREE C010 (main `cae57b0`): local rounding is rejected, and the rejection is confirmed; ordered-cycle exclusion is rightly demoted to a benchmark
 
 **Reproduced** (`c010_gap_check.py`, under a second, PASS).
