@@ -28,6 +28,36 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 14:57 — LEAD (S11, producer batch): main's C013 `q = 1` restriction with the replayed gap instead of Matveev; it becomes effective, forcing about 46,000–61,000 background copies at the period import instead of 6
+
+Full note: `sidekick/research/S11/C013_GAP.md`.
+
+- **Where Matveev enters.** C013 §4 (13) reads `n < r + 4T + 2(r−1) log₂ r + log₂(1/η)`, with `η = D/2^A`. The last term is C013's only analytic input. Through Matveev (`K = 6·10^8`) it is bounded by about `2.4·10^10` at `m = 1.375·10^11`.
+- **The substitution.** `gap_all` (replayed, EXT-1) gives `log₂(1/η) ≤ 172 + 341 log₂ m`, about `1.3·10^4` at that period.
+- **What changes.**
+  - C013's `r = Ω_H(√(m/log m))` becomes effective. For words that are `r` copies of one background between nonconstant markers of average `≤ H`, the minimum `r` is:
+
+    | `m` | with the gap | C013 as written |
+    |---|---|---|
+    | `1.375·10^11` | ≈ 61,000 (`H = 1`) to ≈ 46,000 (`H = 8`) | 6 |
+    | `10^7` | 374–507 | 2 |
+    | `10^15` | ≈ `3.6–4.5·10^6` | 31,897 |
+- **Scope.**
+  - `r` counts background copies, not mismatches (C013's own caveat).
+  - The bounded-average consequence fails if the cycle's huge letter is a marker.
+  - C013's algebra is main's written proof, not re-verified.
+- **Pattern.** Imported linear-form bounds appear in three cycle-spectrum batches on main (`git grep`), and each now has a replayed-gap replacement:
+  - C006 (EXT-1 composition);
+  - C011 (S6, formal);
+  - C013 (this entry).
+- **Labels.** An input substitution, not new algebra. Novelty is that of the constant.
+
+```sh
+python3 sidekick/probes/s11_c013_gap.py   # < 1 s
+```
+
+---
+
 ## 2026-10-19 14:20 — VERIFIED (machine-checked milestone): every nonidentity rotation of a hypothetical nontrivial Collatz cycle differs in at least four positions. `ρ ≥ 4` is formal end to end, given the linear-form gap
 
 - **The theorem** (Lean lane, `bd627c9`, namespace `LeanLane.Cyc.OddCycle`). The hypotheses of `four_le_mis_card_of_gap` are:

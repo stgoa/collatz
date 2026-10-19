@@ -1,0 +1,98 @@
+[
+ {
+  "m": 10000000,
+  "H": 1,
+  "min_r_gap_all": 507,
+  "min_r_matveev": 2,
+  "log2(1/eta) bound: gap_all": 8101,
+  "Matveev": "1.54e+10"
+ },
+ {
+  "m": 10000000,
+  "H": 2,
+  "min_r_gap_all": 479,
+  "min_r_matveev": 2,
+  "log2(1/eta) bound: gap_all": 8101,
+  "Matveev": "1.54e+10"
+ },
+ {
+  "m": 10000000,
+  "H": 4,
+  "min_r_gap_all": 434,
+  "min_r_matveev": 2,
+  "log2(1/eta) bound: gap_all": 8101,
+  "Matveev": "1.54e+10"
+ },
+ {
+  "m": 10000000,
+  "H": 8,
+  "min_r_gap_all": 374,
+  "min_r_matveev": 2,
+  "log2(1/eta) bound: gap_all": 8101,
+  "Matveev": "1.54e+10"
+ },
+ {
+  "m": 137500000000,
+  "H": 1,
+  "min_r_gap_all": 60985,
+  "min_r_matveev": 6,
+  "log2(1/eta) bound: gap_all": 12789,
+  "Matveev": "2.37e+10"
+ },
+ {
+  "m": 137500000000,
+  "H": 2,
+  "min_r_gap_all": 58036,
+  "min_r_matveev": 6,
+  "log2(1/eta) bound: gap_all": 12789,
+  "Matveev": "2.37e+10"
+ },
+ {
+  "m": 137500000000,
+  "H": 4,
+  "min_r_gap_all": 53192,
+  "min_r_matveev": 6,
+  "log2(1/eta) bound: gap_all": 12789,
+  "Matveev": "2.37e+10"
+ },
+ {
+  "m": 137500000000,
+  "H": 8,
+  "min_r_gap_all": 46267,
+  "min_r_matveev": 6,
+  "log2(1/eta) bound: gap_all": 12789,
+  "Matveev": "2.37e+10"
+ },
+ {
+  "m": 1000000000000000,
+  "H": 1,
+  "min_r_gap_all": 4511861,
+  "min_r_matveev": 31897,
+  "log2(1/eta) bound: gap_all": 17164,
+  "Matveev": "3.14e+10"
+ },
+ {
+  "m": 1000000000000000,
+  "H": 2,
+  "min_r_gap_all": 4343730,
+  "min_r_matveev": 31897,
+  "log2(1/eta) bound: gap_all": 17164,
+  "Matveev": "3.14e+10"
+ },
+ {
+  "m": 1000000000000000,
+  "H": 4,
+  "min_r_gap_all": 4054289,
+  "min_r_matveev": 31897,
+  "log2(1/eta) bound: gap_all": 17164,
+  "Matveev": "3.14e+10"
+ },
+ {
+  "m": 1000000000000000,
+  "H": 8,
+  "min_r_gap_all": 3614115,
+  "min_r_matveev": 31897,
+  "log2(1/eta) bound: gap_all": 17164,
+  "Matveev": "3.14e+10"
+ }
+]
