@@ -3,6 +3,27 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 19 — 2026-10-19, 02:21 -03
+
+- Main pushed `1cb02fa` (C005: dyadic order, three-band restriction at `q =
+  1`, rotation-block exclusion; C006: sparse-forcing gap law with the Bugeaud
+  import). Both read and checked by hand (STATE "Insights"); no error found;
+  insights sent to the sidekick, which recorded them (feed 02:19) after
+  refereeing both batches (`15da388`). The sidekick also verified C004-b
+  complete (`8db3feb`, feed 02:11). Monitor re-armed at 02:04 after its
+  expiry.
+- **C005-a verified** in `CycleSpectrum.lean` (sha256 `cd57b972…2a73`, 2152
+  lines, 128 theorems: 93 with the three standard axioms, 10 × `[propext,
+  Quot.sound]`, 24 × `[propext]`, 1 none; no `sorry`): the `NarrowCycle`
+  structure generalised from a constant offset `d` to images `F i` with
+  `order`, `window`, `hq1`, `hq2` (C005's order-lemma hypotheses),
+  `exponent_dichotomy_F`, `F_eq_of_x_eq`, `succ_lt_iff_of_a_eq`, `F_mod`;
+  `ofWord` rebuilt on the general structure (`F i = 3 C(w.rotate i) + D_w`);
+  all C004-b theorems unchanged and re-verified; `inversion_formula` (C005's
+  (2) in `ℚ`) and `no_inversion_of_le_two`. One compile round, no diagnostics.
+  Receipts regenerated. Next: C005-b (the `q = 1`, `H < 8L` theorem on actual
+  integer cycles).
+
 ## Iteration 18 — 2026-10-19, 02:09 -03
 
 - Woken by the sidekick's verdict message and push `1143485`: **C004-b part 2

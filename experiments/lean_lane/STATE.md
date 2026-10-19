@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 18 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 19 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -39,6 +39,10 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | C003-a | Main's C003 effective theorem (`PROPORTIONAL_UNIFORM.md`): the fixed-pair bounds (5) `den(u^k v^ℓ) > Q^k D_v/|K|` and `> S^ℓ D_u/|K|` for contracting blocks with `K ≠ 0`, `k, ℓ ≥ 1`; the intercept/fixed-point bounds (7)–(9); and the uniform bound (6) `den > 2^M Q_*^{t_*−3}` (`M = max(m_u, m_v)`, the `Q_*` block repeated `t_* ≥ 3` times, the other at least once) — proved purely algebraically from the commutator identities (3)–(4) and `g ∣ K·G_v(ℓ)`, `g ∣ K·G_u(k)`, without the integrality of cycle states | `experiments/cycle_spectrum/C003/PROPORTIONAL_UNIFORM.md` §§2–3 | **verified** (iteration 14): `CycleSpectrum.lean`, `LeanLane.Cyc.fixed_pair_bound_u`, `fixed_pair_bound_v`, `two_pow_mul_C_lt`, `F_mono`, `two_pow_mul_C_lt_M`, `K_bound`, `uniform_bound_u`, `uniform_bound_v`, `uniform_bound_max_u` (helpers `G_pos`, `gcd_dvd_K_mul_Gv`, `gcd_dvd_K_mul_Gu`, `D_two_pos`) | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 51 theorems printed) |
 | C004-a | Main's C004 (`ROTATION_LATTICE.md`): the one-letter cut identities (6) `2^{a_i} K_i = (2^{a_i} − 3) C_i − D` (the `k = 1` case of `commutator`) and (7) `gcd(D, K_i) = g · gcd(D/g, 2^{a_i} − 3)` for `a_i ≥ 1`; the reverse narrow direction of §3: the phase words `mech A m l` (`a_j = ⌊((j+1)A + l)/m⌋ − ⌊(jA + l)/m⌋`) have length `m`, total `A`, `D = 2^A − 3^m`, intercepts `C_0 ≤ C_l < 2 C_0` for `l < m`, and every rotation of `mech A m l` is the phase `(l + iA) mod m`; hence every rotation of the mechanical word has intercept in `[C_0, 2C_0)` with the common `D`: `H < 2L` (no coprimality of `A, m` is needed for the inequalities) | `experiments/cycle_spectrum/C004/ROTATION_LATTICE.md` §§2–3 | **verified** (iteration 15): `CycleSpectrum.lean`, `LeanLane.Cyc.cut_identity`, `cut_gcd`, `mech`, `C_diffWord`, `C_mech`, `D_mech`, `mech_pos`, `C_mech_zero_le`, `C_mech_lt_two`, `mech_rotate`, `narrow_mech` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 75 theorems printed) |
 | C004-b | The forward narrow-cycle theorem (a primitive rational cycle with `H < 2L` has sorted ranks shifted by `h`, `gcd(h, m) = 1`, and its word is `mech (mq + h) m l` for some phase). **Part 1 verified** (iteration 16): C004's (1) on rotations (`C_cons_rotate`, `D_rotate`, `C_rotate_succ`), the exponent `q` (`exists_exponent`), the exponent dichotomy (`exponent_dichotomy`), successor order (`succ_order_same`, `succ_order_high_low`), and on the abstract structure `NarrowCycle m` (states `x i` periodic mod `m` in `[lo, 2lo)`, arrows `2^{a i} x(i+1) = 3 x i + d`, `d > 0`, exponent `q`): `a_eq` (`a i = q` or `q + 1` according to the threshold `high i`), `x_lt_of_low_high`, `succ_lt_iff_low`/`succ_lt_iff_high`, `succ_lt_of_high_low`, the ranks `rank i = #{j < m : x j < x i}` and `numHigh = h`, the **rank shift** `rank_succ_of_low` (`rank(i+1) = rank i + h`) and `rank_of_high` (`rank i = rank(i+1) + (m − h)`), and `high_iff_rank` (`high i ↔ m − h ≤ rank i` for `i < m`). **Part 2 verified** (iteration 17): `rank_lt` (`rank i < m`), `rank_lt_of_lt`, `x_eq_of_rank_eq`, `Primitive` (distinct states), `rank_inj`, `numHigh_pos`/`numHigh_lt` (`1 ≤ h ≤ m − 1` for primitive cycles with `m ≥ 2`), `rank_succ_eq` (`rank(i+1) = (rank i + h) mod m`), **`rank_formula`** (`rank i = (rank 0 + ih) mod m`), **`a_formula`** (`rank 0 = 0 ⇒ a_i = q + ⌊(i+1)h/m⌋ − ⌊ih/m⌋`), **`coprime_numHigh`** (`gcd(h, m) = 1`), `sum_a` (`Σ_{i<m} a_i = mq + h`). **Part 3 verified** (iteration 18): `ofWord` (the `NarrowCycle` instance of a word: states `C(w.rotate i)`, letters the first letters of the rotations, `lo = C_w`), `headD_rotate`, **`eq_mech_of_narrow`** (a word of length `m ≥ 2` with `D_w > 0` that starts at its minimum, has `C(w.rotate i) < 2 C_w` for all `i` and distinct rotated intercepts satisfies `w = mech w.sum m 0 ∧ gcd(w.sum, m) = 1`) and **`is_mech_of_narrow`** (without the starting-point normalisation: `∃ l < m, w = mech w.sum m l ∧ gcd(w.sum, m) = 1`, from `H < 2L` in the form `∀ i j, C(w.rotate i) < 2 C(w.rotate j)`). With `narrow_mech` (C004-a) this is C004 §3's narrow-cycle equivalence in full. The Smith forms of §2 stay queued separately | same, §§2–3 | **verified** (iteration 18) | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 122 theorems printed) |
+| C005-a | Main's C005 `ORDER_THEORY.md` §2 order lemma in abstract form: `NarrowCycle` generalised to images `F i` with `x i < x j ↔ F i < F j`, `F i < 2 F j` and `2^q lo ≤ F i < 2^{q+2} lo` (exactly the order lemma's hypotheses; the constant-offset C004 case is the instance `ofWord`), so that the rank shift, `rank_formula`, `a_formula` (mechanical `c`), `coprime_numHigh` (`gcd(A, m) = 1`) and `sum_a` hold for every ordered dyadically normalised cycle; the inversion formula (2) over `ℚ`; the three-band observation at `q = 1` (`3r − (2^k − 1) ≥ 0` for `k ≤ 2`, `r ≥ 1`, equality only at `(2, 1)`) | `experiments/cycle_spectrum/C005/ORDER_THEORY.md` §2 | **verified** (iteration 19): `CycleSpectrum.lean`, `exponent_dichotomy_F`, `NarrowCycle` (fields `F`, `order`, `window`, `hq1`, `hq2`), `F_eq_of_x_eq`, `succ_lt_iff_of_a_eq`, `F_mod`, `inversion_formula`, `no_inversion_of_le_two`; all C004 theorems re-verified on the general structure | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 128 theorems printed) |
+| C005-b | The `q = 1`, `H < 8L` theorem on actual integer cycles: heights `h_i = ⌊log₂(n_i/L)⌋`, scaled normalised states `2^B z_i` and images `2^B F_i`, the `NarrowCycle` hypotheses from (2) and `no_inversion_of_le_two` (primitivity for the equality case), hence mechanical `c` and `gcd(A, m) = 1`; the denominator corollary | same, §2 | **next** | — | — |
+| C005-c | The rotation-block ratio bound `H/L ≤ R³ < 8` (rational affine block maps, prefix comparison) and the gcd bookkeeping of the rotation-block theorem (its last step imports R71's `g = 1`) | same, §2 | queued | — | — |
+| C006-a | The elementary part of C006's sparse-forcing law (G1): the extended gap system (7)/(G3) with the seam, `2^{e_run} ∣ G_start`, `G_start < 2^B L`, hence `L > 2^{⌈m/J⌉ − 1 − B}`; and `J ≥ B + 1` | `experiments/cycle_spectrum/C006/ORDER_RIGIDITY.md` §3 | queued (larger) | — | — |
 | C002-b | The proportional-slope theorem (6)–(8) in its general `(r, s)` form, the `K = 0` characterisation, the rotating mechanical family of §4; the unequal-slope application is an imported ineffective theorem and is not a Lean target | same, §§2–4 | queued | — | — |
 | V006-a | Quadratic separation (main's V006 `overlap.md` §2): for `F` not eventually periodic, the states `Q_(a,t) = F(t₀ + t + s₂(3^a n))` are pairwise distinct (`(a,t) ↦ Q_(a,t)` injective); `Q_(a,t)` lies in the joint section family through depth `a + t`; hence that family through depth `D` has at least `(D+1)(D+2)/2` members (main's (4)); with the digit-count identities (5), (6), (7) (block additivity, complement, balanced quotient, `3^(r+1) ∣ 2^(3^r) + 1`) | `experiments/viewpoints/V006/overlap.md` §2, `QUADRATIC_REVIEW.md` | **verified** (iteration 10): `QuadraticSeparation.lean`, `LeanLane.Quad.Q_injective`, `Q_mem_Reach`, `triangle_encard_le`, `card_triangle`, `reach_encard_ge`, `s2_mul_pow_sub`, `s2_mul_pow_sub_one`, `s2_balanced`, `three_pow_dvd` | `[propext, Classical.choice, Quot.sound]` | `receipts/QuadraticSeparation.{build,axioms,sha256}.txt` |
 | V007-b | Singleton-exit theorem (V007 `separator.md` §§2–4) under the infinitude hypothesis (I): larger unit (bit algebra by `decide`, recursive propagation, tail evaluation formulas) | `experiments/viewpoints/V007/separator.md` | queued (larger) | — | — |
@@ -472,8 +476,51 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   C004 §3's narrow-cycle theorem in both directions. Not formalised: R71's `g
   = 1` for primitive mechanical words, hence the integer corollary (9) `H >
   2L` and the spectrum law (10); the Smith forms of §2.
+- C005-a: C005's order lemma (§2) assumes that the sorted images `F_i = 3z_i +
+  q/2^{h_i}` strictly increase with the sorted normalised states `z_i ∈ [L,
+  2L)`, and proves that the normalised successor is a circular rank shift,
+  that `c` is mechanical with total `A`, and that `gcd(A, m) = 1` for `m > 1`.
+  Its proof uses only: the least `F` is `3L + q`, every `F` is below `2(3L +
+  q)`, and the C004 rank argument. The Lean `NarrowCycle m` now carries
+  exactly this: `order : x i < x j ↔ F i < F j`, `window : F i < 2 F j` (the
+  prose's `F < 6L + q < 2(3L + q)`, which follows from `ε_i ≤ ε_0 = q`), and
+  `hq1`/`hq2`, `2^q lo ≤ F i < 2^{q+2} lo`, the two-exponent window around the
+  least image (the prose's `q = ⌊log₂(F_0/L)⌋`; `exponent_dichotomy_F`). With
+  these, every earlier theorem — `a_eq`, the order lemmas, the rank shift,
+  `rank_formula`, `a_formula` (the mechanical `c`), `coprime_numHigh` (`gcd(h,
+  m) = 1`, hence `gcd(A, m) = 1` for `A = mq' + h` by `sum_a`) — holds
+  verbatim on the general structure; only the proofs of `a_eq`,
+  `x_lt_of_low_high`, `succ_lt_iff_*`, `succ_lt_of_high_low` and `high_mod`
+  changed. The C004 constant-offset case is the instance `ofWord` with `F i =
+  3 C(w.rotate i) + D_w`, whose `order`, `window`, `hq1`, `hq2` are one-line
+  consequences of `D_w > 0` and the old condition on `q`; `eq_mech_of_narrow`
+  and `is_mech_of_narrow` are unchanged. Not yet instantiated: C005's actual
+  normalised cycle (heights, `z_i`, `ε_i`), which is C005-b.
+  `inversion_formula` is (2) in `ℚ` for states `n_i/2^h`, `n_j/2^{h+k}` (the
+  identity needs no oddness or positivity); `no_inversion_of_le_two` is the
+  arithmetic of the three-band remark (`k ≤ 2`, `r ≥ 1`), with the equality
+  case `(k, r) = (2, 1)` left to primitivity as in the prose.
 
 ## Insights sent to the feed
+
+- Iteration 19 (main `1cb02fa`, C005 + C006; sidekick `15da388`/`ebf2330`):
+  both batches read in full (`REPORT.md`s, `ORDER_THEORY.md`,
+  `ORDER_RIGIDITY.md`, the AGENTS/brief diff) and re-derived by hand — the
+  normalisation (1), the inversion formula (2), the order lemma and its
+  converse under `q ≤ L`, the three-band `q = 1` statement and denominator
+  corollary, the rotation-block theorem (`R³ < 8`, gcd bookkeeping, R71 at the
+  end), the weighted identity `D L = q C_h`, the Green comparison, the
+  sorted-height descent, `J ≥ B + 1`, the seam-correct gap system, sparse
+  forcing and (G4); the examples `(1,2,2)(2,2,1)` (den 59), the `q = 233`
+  two-band and one-defect cycles (gcd 7), the `q = 11` inversion recomputed.
+  No error found; the Bugeaud import was not checked at the source. Sent: the
+  checks, the structural remark that the order lemma needs only monotonicity
+  and the factor-two window of the images (hence the generalisation C005-a),
+  and the candidate units C005-b/c, C006-a; the sidekick recorded them (feed
+  02:19). The sidekick also verified C004-b complete (feed 02:11, `8db3feb`:
+  statement match for `is_mech_of_narrow`, axioms 90/10/21/1, clean build and
+  scan, hash match), refereed C005/C006 (reproduced; suggests `H ≥ 4L` as the
+  next rung). Sent after the build: the C005-a report.
 
 - Iteration 18 (sidekick `1143485`; main unchanged at `61cf54a`): the side
   lane verified C004-b part 2 (feed update and a direct message — `Primitive`

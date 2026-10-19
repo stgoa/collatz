@@ -1578,24 +1578,55 @@ theorem succ_order_high_low {lo d x x' y y' : ℤ} {q : ℕ} (hd : 0 < d) (hx2 :
   have h : (2 : ℤ) ^ q * 2 * y < 2 ^ q * 2 * y' := by linarith
   exact lt_of_mul_lt_mul_left h (by positivity)
 
-/-- Abstract data of a narrow positive rational cycle of period `m` (C004 §3): states `x i`,
-periodic mod `m`, all in `[lo, 2 lo)`; exponents `a i` with the arrows
-`2^{a i} x(i+1) = 3 x i + d`, `d > 0`; and the exponent `q` with `2^q lo ≤ 3 lo + d < 2^{q+1} lo`.
--/
+/-- The exponent dichotomy in image form: if `y ∈ [lo, 2 lo)`, `2^a y = F` and
+`2^q lo ≤ F < 2^{q+2} lo`, then `a = q` exactly when `F < 2^{q+1} lo`, and `a = q + 1` exactly
+when `2^{q+1} lo ≤ F`. -/
+theorem exponent_dichotomy_F {lo F y : ℤ} {a q : ℕ} (hy : lo ≤ y) (hy2 : y < 2 * lo)
+    (harrow : (2 : ℤ) ^ a * y = F) (hq1 : (2 : ℤ) ^ q * lo ≤ F) (hq2 : F < 2 ^ (q + 2) * lo) :
+    (a = q ∧ F < 2 ^ (q + 1) * lo) ∨ (a = q + 1 ∧ 2 ^ (q + 1) * lo ≤ F) := by
+  have hlo : 0 < lo := by linarith
+  have h2a : (0 : ℤ) < 2 ^ a := by positivity
+  rcases lt_trichotomy a q with hlt | heq | hgt
+  · exfalso
+    have h1 : (2 : ℤ) ^ (a + 1) ≤ 2 ^ q := pow_le_pow_right₀ (by norm_num) hlt
+    rw [pow_succ] at h1
+    nlinarith [mul_lt_mul_of_pos_left hy2 h2a, mul_le_mul_of_nonneg_right h1 hlo.le]
+  · subst heq
+    left
+    refine ⟨rfl, ?_⟩
+    rw [pow_succ]
+    nlinarith [mul_lt_mul_of_pos_left hy2 h2a]
+  · rcases Nat.lt_or_ge (q + 1) a with hgt2 | hle
+    · exfalso
+      have h1 : (2 : ℤ) ^ (q + 2) ≤ 2 ^ a := pow_le_pow_right₀ (by norm_num) hgt2
+      nlinarith [mul_le_mul_of_nonneg_left hy h2a.le, mul_le_mul_of_nonneg_right h1 hlo.le]
+    · have ha : a = q + 1 := le_antisymm hle hgt
+      subst ha
+      right
+      refine ⟨rfl, ?_⟩
+      nlinarith [mul_le_mul_of_nonneg_left hy h2a.le]
+
+/-- Abstract data of an ordered, dyadically normalised cycle of period `m` (C004 §3 with a
+constant offset; C005's order lemma in general): states `x i`, periodic mod `m`, all in
+`[lo, 2 lo)`; exponents `a i` with the arrows `2^{a i} x(i+1) = F i`, where the images `F i`
+are strictly increasing in the states (`x i < x j ↔ F i < F j`) and lie in a factor-two window
+(`F i < 2 F j`); and an exponent `q` with `2^q lo ≤ F i < 2^{q+2} lo`. For C004,
+`F i = 3 x i + d`; for C005, `F i = 3 z_i + q/2^{h_i}` after scaling to integers. -/
 structure NarrowCycle (m : ℕ) where
   x : ℕ → ℤ
   a : ℕ → ℕ
-  d : ℤ
+  F : ℕ → ℤ
   lo : ℤ
   q : ℕ
   hm : 0 < m
-  hd : 0 < d
   periodic : ∀ i, x (i + m) = x i
-  arrow : ∀ i, (2 : ℤ) ^ a i * x (i + 1) = 3 * x i + d
+  arrow : ∀ i, (2 : ℤ) ^ a i * x (i + 1) = F i
   lower : ∀ i, lo ≤ x i
   upper : ∀ i, x i < 2 * lo
-  hq1 : (2 : ℤ) ^ q * lo ≤ 3 * lo + d
-  hq2 : 3 * lo + d < 2 ^ (q + 1) * lo
+  order : ∀ i j, x i < x j ↔ F i < F j
+  window : ∀ i j, F i < 2 * F j
+  hq1 : ∀ i, (2 : ℤ) ^ q * lo ≤ F i
+  hq2 : ∀ i, F i < 2 ^ (q + 2) * lo
 
 namespace NarrowCycle
 
@@ -1606,16 +1637,27 @@ theorem lo_pos : 0 < N.lo := by
   have h2 := N.upper 0
   linarith
 
+theorem F_eq_of_x_eq {i j : ℕ} (h : N.x i = N.x j) : N.F i = N.F j := by
+  have h1 : ¬ N.F i < N.F j := fun hlt => by
+    have := (N.order i j).mpr hlt
+    rw [h] at this
+    exact lt_irrefl _ this
+  have h2 : ¬ N.F j < N.F i := fun hlt => by
+    have := (N.order j i).mpr hlt
+    rw [h] at this
+    exact lt_irrefl _ this
+  exact le_antisymm (not_lt.mp h2) (not_lt.mp h1)
+
 /-- Index `i` is *high* when its arrow has exponent `q + 1`. -/
-def high (i : ℕ) : Prop := 2 ^ (N.q + 1) * N.lo ≤ 3 * N.x i + N.d
+def high (i : ℕ) : Prop := 2 ^ (N.q + 1) * N.lo ≤ N.F i
 
 instance decHigh (i : ℕ) : Decidable (N.high i) :=
-  inferInstanceAs (Decidable (2 ^ (N.q + 1) * N.lo ≤ 3 * N.x i + N.d))
+  inferInstanceAs (Decidable (2 ^ (N.q + 1) * N.lo ≤ N.F i))
 
 /-- The exponent dichotomy on the cycle. -/
 theorem a_eq (i : ℕ) : N.a i = if N.high i then N.q + 1 else N.q := by
-  have hdi := exponent_dichotomy N.hd (N.lower i) (N.upper i) (N.lower (i + 1))
-    (N.upper (i + 1)) (N.arrow i) N.hq1 N.hq2
+  have hdi := exponent_dichotomy_F (N.lower (i + 1)) (N.upper (i + 1)) (N.arrow i) (N.hq1 i)
+    (N.hq2 i)
   split_ifs with hc
   · rcases hdi with ⟨_, h2⟩ | ⟨h1, _⟩
     · exact absurd hc (not_le.mpr h2)
@@ -1630,33 +1672,39 @@ theorem a_of_high {i : ℕ} (hi : N.high i) : N.a i = N.q + 1 := by rw [N.a_eq, 
 
 /-- Low states lie below high states. -/
 theorem x_lt_of_low_high {i j : ℕ} (hi : ¬ N.high i) (hj : N.high j) : N.x i < N.x j := by
-  have hi' : 3 * N.x i + N.d < 2 ^ (N.q + 1) * N.lo := by simpa [high, not_le] using hi
-  have hj' : 2 ^ (N.q + 1) * N.lo ≤ 3 * N.x j + N.d := hj
-  linarith
+  have hi' : N.F i < 2 ^ (N.q + 1) * N.lo := by simpa [high, not_le] using hi
+  have hj' : 2 ^ (N.q + 1) * N.lo ≤ N.F j := hj
+  exact (N.order i j).mpr (lt_of_lt_of_le hi' hj')
+
+/-- Successors of two states with the same exponent compare as the states. -/
+theorem succ_lt_iff_of_a_eq {i j : ℕ} (h : N.a i = N.a j) :
+    N.x (i + 1) < N.x (j + 1) ↔ N.x i < N.x j := by
+  have h1 := N.arrow i
+  have h2 := N.arrow j
+  rw [h] at h1
+  have h2a : (0 : ℤ) < 2 ^ N.a j := by positivity
+  rw [N.order i j, ← h1, ← h2]
+  exact ⟨fun hlt => mul_lt_mul_of_pos_left hlt h2a, fun hlt => lt_of_mul_lt_mul_left hlt h2a.le⟩
 
 theorem succ_lt_iff_low {i j : ℕ} (hi : ¬ N.high i) (hj : ¬ N.high j) :
-    N.x (i + 1) < N.x (j + 1) ↔ N.x i < N.x j := by
-  have h1 := N.arrow i
-  have h2 := N.arrow j
-  rw [N.a_of_low hi] at h1
-  rw [N.a_of_low hj] at h2
-  exact succ_order_same h1 h2
+    N.x (i + 1) < N.x (j + 1) ↔ N.x i < N.x j :=
+  N.succ_lt_iff_of_a_eq (by rw [N.a_of_low hi, N.a_of_low hj])
 
 theorem succ_lt_iff_high {i j : ℕ} (hi : N.high i) (hj : N.high j) :
-    N.x (i + 1) < N.x (j + 1) ↔ N.x i < N.x j := by
-  have h1 := N.arrow i
-  have h2 := N.arrow j
-  rw [N.a_of_high hi] at h1
-  rw [N.a_of_high hj] at h2
-  exact succ_order_same h1 h2
+    N.x (i + 1) < N.x (j + 1) ↔ N.x i < N.x j :=
+  N.succ_lt_iff_of_a_eq (by rw [N.a_of_high hi, N.a_of_high hj])
 
+/-- A high-exponent successor lies below every low-exponent successor (the factor-two window). -/
 theorem succ_lt_of_high_low {i j : ℕ} (hi : N.high i) (hj : ¬ N.high j) :
     N.x (i + 1) < N.x (j + 1) := by
   have h1 := N.arrow i
   have h2 := N.arrow j
-  rw [N.a_of_high hi] at h1
+  rw [N.a_of_high hi, pow_succ] at h1
   rw [N.a_of_low hj] at h2
-  exact succ_order_high_low N.hd (N.upper i) (N.lower j) h1 h2
+  have hw := N.window i j
+  have h2q : (0 : ℤ) < 2 ^ N.q := by positivity
+  have h : (2 : ℤ) ^ N.q * 2 * N.x (i + 1) < 2 ^ N.q * 2 * N.x (j + 1) := by linarith
+  exact lt_of_mul_lt_mul_left h (by positivity)
 
 /-- Shifting the summation index once around the cycle. -/
 theorem sum_range_shift (f : ℕ → ℕ) (hf : f m = f 0) :
@@ -1765,9 +1813,11 @@ theorem rank_mod (i : ℕ) : N.rank (i % m) = N.rank i := by
   unfold rank
   rw [N.x_mod]
 
+theorem F_mod (i : ℕ) : N.F (i % m) = N.F i := N.F_eq_of_x_eq (N.x_mod i)
+
 theorem high_mod (i : ℕ) : N.high (i % m) ↔ N.high i := by
   unfold high
-  rw [N.x_mod]
+  rw [N.F_mod]
 
 /-- `rank i < m`: the index `i` itself (reduced mod `m`) is never counted. -/
 theorem rank_lt (i : ℕ) : N.rank i < m := by
@@ -1936,19 +1986,19 @@ theorem headD_rotate (w : List ℕ) {i : ℕ} (hi : i < w.length) :
     List.cons_append, List.headD_cons]
 
 /-- The narrow-cycle data of a word `w` with `D_w > 0` that starts at its minimum and is narrow
-(`H < 2L`): states `C(w.rotate i)`, letters the first letters of the rotations, `lo = C_w`, and
-an exponent `q` with `2^q C_w ≤ 3 C_w + D_w < 2^{q+1} C_w`. -/
+(`H < 2L`): states `C(w.rotate i)`, letters the first letters of the rotations, images
+`3 C(w.rotate i) + D_w` (constant offset), `lo = C_w`, and an exponent `q` with
+`2^q C_w ≤ 3 C_w + D_w < 2^{q+1} C_w`. -/
 def ofWord (w : List ℕ) (hm : 0 < w.length) (hD : 0 < D w)
     (hmin : ∀ i, C w ≤ C (w.rotate i)) (hnarrow : ∀ i, C (w.rotate i) < 2 * C w) (q : ℕ)
     (hq1 : (2 : ℤ) ^ q * C w ≤ 3 * C w + D w) (hq2 : 3 * C w + D w < 2 ^ (q + 1) * C w) :
     NarrowCycle w.length where
   x i := C (w.rotate i)
   a i := (w.rotate i).headD 0
-  d := D w
+  F i := 3 * C (w.rotate i) + D w
   lo := C w
   q := q
   hm := hm
-  hd := hD
   periodic i := by
     show C (w.rotate (i + w.length)) = C (w.rotate i)
     rw [← List.rotate_mod w (i + w.length), Nat.add_mod_right, List.rotate_mod]
@@ -1961,8 +2011,24 @@ def ofWord (w : List ℕ) (hm : 0 < w.length) (hD : 0 < D w)
     exact C_rotate_succ h
   lower := hmin
   upper := hnarrow
-  hq1 := hq1
-  hq2 := hq2
+  order i j := by
+    show C (w.rotate i) < C (w.rotate j) ↔ 3 * C (w.rotate i) + D w < 3 * C (w.rotate j) + D w
+    constructor <;> intro h <;> linarith
+  window i j := by
+    show 3 * C (w.rotate i) + D w < 2 * (3 * C (w.rotate j) + D w)
+    have h1 := hnarrow i
+    have h2 := hmin j
+    linarith
+  hq1 i := by
+    show (2 : ℤ) ^ q * C w ≤ 3 * C (w.rotate i) + D w
+    have := hmin i
+    linarith
+  hq2 i := by
+    show 3 * C (w.rotate i) + D w < 2 ^ (q + 2) * C w
+    have h1 := hnarrow i
+    have h3 : (2 : ℤ) ^ (q + 2) * C w = 2 * (2 ^ (q + 1) * C w) := by ring
+    rw [h3]
+    linarith
 
 /-- **C004 §3, forward direction, for a word starting at its minimum.** A word `w` of length
 `m ≥ 2` with `D_w > 0` whose `m` rotations have distinct intercepts, all in `[C_w, 2 C_w)`, is
@@ -2063,6 +2129,24 @@ theorem is_mech_of_narrow (w : List ℕ) (hm2 : 2 ≤ w.length) (hD : 0 < D w)
   rw [hmech, mech_rotate hm0]
 
 end NarrowCycle
+
+/-! ### C005 `ORDER_THEORY.md` §2: the inversion formula (2) and the three-band observation -/
+
+/-- C005's (2): with normalised states `z_i = n_i/2^h`, `z_j = n_j/2^{h+k}` and offsets `q/2^h`,
+`q/2^{h+k}`, the difference of the images `F = 3z + q/2^{height}` is
+`(3r − q(2^k − 1))/2^{h+k}` with `r = n_j − 2^k n_i`. -/
+theorem inversion_formula (n_i n_j q : ℚ) (h k : ℕ) :
+    (3 * (n_j / 2 ^ (h + k)) + q / 2 ^ (h + k)) - (3 * (n_i / 2 ^ h) + q / 2 ^ h)
+      = (3 * (n_j - 2 ^ k * n_i) - q * (2 ^ k - 1)) / 2 ^ (h + k) := by
+  rw [pow_add]
+  field_simp
+  ring
+
+/-- C005's three-band observation at `q = 1`: a height gap `k ≤ 2` cannot invert, because
+`3r − (2^k − 1) ≥ 0` for `r ≥ 1`, with equality only for `k = 2`, `r = 1`. -/
+theorem no_inversion_of_le_two {r : ℤ} {k : ℕ} (hr : 1 ≤ r) (hk : k ≤ 2) :
+    0 ≤ 3 * r - (2 ^ k - 1) ∧ (3 * r - (2 ^ k - 1) = 0 → k = 2 ∧ r = 1) := by
+  interval_cases k <;> norm_num <;> omega
 
 end Cyc
 end LeanLane
