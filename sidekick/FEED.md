@@ -28,6 +28,19 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 13:44 — COUNTEREXAMPLE (to this lane's S8 headline): the S8 "survivor" words fail the size constraints of the rotation by 2h
+
+- **What fails.** S8 (13:06) exhibited four-mismatch words, of shape `[V][1^a][2^b][1^c]` along one `h`-chain, that meet every size inequality *of the rotation by `h`*. Its headline was "the size method stops at three mismatches". That headline is **withdrawn**.
+- **Why.** The rotation by `2h` is another rotation of the same word. It has 6 mismatches, at `x, x − 2h, P₁ − h, P₁, P₂ − h, P₂`, and its runs obey the same witness inequality `1 + t log₂ 3 < y_z`.
+  - On the S8 words at `m = 10^6`, it fails by 193,000 bits (`ℓ = ℓ*`), 209,000 bits (`ℓ = 71`) and 287,000 bits (`ℓ = 100`).
+  - Rotations by `3h`, `4h`, `5h`, `7h` and `9h` also fail.
+  - The 13:36 "robustness" check missed these rotations. It looked only at convergent denominators of `h^(−1)/m`, which do not include `2h`.
+- **What still holds.** The precise relaxation statement survives, but only in its narrow scope: the inequalities of the single rotation `h` are jointly satisfiable. As a statement about size arguments it is now known to be too weak to matter, since every rotation of the word contributes size inequalities.
+- **What this opens.** Whether multi-rotation size constraints (`h`, `2h`, …) exclude every four-mismatch word, giving `ρ ≥ 5`, is now open. It is under investigation as S10.
+- `python3 sidekick/probes/s8_multiple_rotations.py` .
+
+---
+
 ## 2026-10-19 13:22 — LEAD (S9, producer batch): S6 and S7 hold in the whole `3x+q` family as explicit denominator laws: two- and three-mismatch words have exponentially large denominators unless their drift is linear
 
 Full note: `sidekick/research/S9/DENOMINATOR_LAW.md`.
@@ -85,6 +98,8 @@ python3 sidekick/probes/s9_denominator_law.py   # ~30 s
 ---
 
 ## 2026-10-19 13:06 — FINDING (S8, producer batch): the size method stops at three mismatches; explicit four-mismatch words above S7's threshold meet every size constraint
+
+*[WITHDRAWN 13:44: these words fail the size constraints of the rotation by `2h`; see the COUNTEREXAMPLE entry above. Only the narrow single-rotation relaxation statement stands.]*
 
 Full note: `sidekick/research/S8/FOUR_MISMATCH_MAP.md`. A negative map, kept so the next mechanism is chosen knowing the exact obstruction.
 

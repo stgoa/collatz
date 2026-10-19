@@ -1,4 +1,6 @@
-# S8: the size method stops at three mismatches (a map)
+# S8: the size method stops at three mismatches (a map) — HEADLINE WITHDRAWN
+
+> **Withdrawn 2026-10-19 13:44.** The exhibited words fail the witness inequalities of the rotation by `2h` (6 mismatches), by about `2·10^5` bits at `m = 10^6`. Only the narrow statement survives: the single-rotation relaxation is feasible. Whether all size constraints together exclude four mismatches is open (S10). The text below is kept as written.
 
 **Status:** side-lane producer batch S8 (2026-10-19). A negative map backed by explicit words. It excludes nothing. It records exactly where S7's mechanism is exhausted, as the brief asks ("stop expanding an elimination method when its exact obstruction is known").
 
