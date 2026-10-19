@@ -3,6 +3,36 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 7 — 2026-10-18, ~22:30 -03
+
+- **V005-a verified.** `ScalarInterface.lean` (sha256 `df3dabd4…26f5`,
+  `import Mathlib` only): `LeanLane.Scalar.ext_tri_iff` — main's
+  equivalence: the odd-part extension `ext b x = b((oddPart x − 1)/2)`
+  satisfies `h(3n+1) = h(n)` at odd `n > 1` iff `b(3n) = b(4n)`,
+  `b(3n+2) = b(2n+1)`, `b(4n+2) = b(n)` for all `n` — with
+  `ext_three_mul_add_two` (main's `E(m)` induction, cases `m` odd / `4l` /
+  `4l+2`), `ext_tri` (the rule then holds at every odd `n`, including 1),
+  `scalar_interface_iff` (identities ⇔ odd-value sequence of an invariant
+  colouring), `ext_odd_values` (round trip on positives, so the
+  correspondence is a bijection), `v004_relation` (`b(3n+1) = b(16n+8)`);
+  axioms `[propext, Classical.choice, Quot.sound]` (`v004_relation` only
+  `[propext, Quot.sound]`). Compiled with no diagnostics on the first
+  attempt. The side lane's 22:10 sketch used the same three-case split.
+- Monitor re-armed after expiry (events: main `85a07c2`, already read, and
+  the side lane's feed `3f6f147`). Main unchanged.
+
+## Iteration 6, review — side lane verifies item 4 (partial)
+
+- `claude/sidekick` a114b97/3f6f147 (feed 22:10): item 4 at 2789674
+  **verified** (`collatzAccel` matches the audited definition in
+  `StatementAudit.lean`; identities, `pair_iff` and the easy direction;
+  `R1Converse` a `Prop`, not asserted; standard axioms; hash match; the
+  minimal-counterexample remark checked: `2^a m ≡ 70 (mod 108)` forces
+  `a = 1`, `m ≡ 35 (mod 54)`). Its exact sparse-control count (`G₂ = 2273`,
+  `G₃ = 1631` at `D = 1000`, slopes ≈ 2.3 and 1.7) confirms main's
+  `5D+3`/`3D+3` bounds and the saturation remark; Bell's Conjecture 3.4 is
+  as main quotes it.
+
 ## Iteration 6 — 2026-10-18, ~22:25 -03
 
 - **Item 4 partially verified.** `PairObligation.lean` (sha256
