@@ -3,6 +3,42 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 95 — 2026-10-19, 18:20 -03 (FINAL)
+
+- Woken by the monitor (sidekick `6bcd0a3`: the S13-c verdict, verified). The
+  side lane relayed the user's new direction (wind down the Lean lane, then a
+  repository refactor) and asked for a final commit with a fixed merge base;
+  main at `36eaf75`.
+- **S13-d verified — the averaging step (`exists_letter_card_mul_ge_Vh`: some
+  letter has `s · a_q ≥ V_d`), Corollary 6 with a uniform letter bound
+  (`forced_letter_bound`), Corollary 7's mechanism
+  (`rise_endwitness_combination`: S5's end witness against the rise bound at
+  the maximum) and the logarithmic form of Corollary 1 (`log_rise_from_min`)**
+  in `CycleSpectrum.lean` (sha256 `af0787d1…16ec`, 14,285 lines, 790 theorems:
+  656 with the three standard axioms, 59 × `[propext, Quot.sound]`, 62 ×
+  `[propext]`, 13 none; no `sorry`). First build. Receipts regenerated.
+- This is the lane's final commit: the loop and the monitor are stopped and
+  `claude/lean-lane` is not pushed again. PR #4 (draft) is left to the side
+  lane's refactor. Open items at close: C002-b's list packaging, C001-c, the
+  `(1, 1, 2)` window theorem (all low priority), queue item 4's converse (a
+  framework theorem). Resume with `/loop` from `STATE.md` if wanted.
+
+## Iteration 94 — 2026-10-19, 18:09 -03
+
+- Woken by the monitor (sidekick `1115825`: the S13-a verdict, verified, with
+  the exact `H*` values; then main `36eaf75`: the user merged PR #3, the
+  lane's branch through `95ae39f`, into main at 18:02; the PR body retries for
+  #3 end with the merge, and a new draft PR for the continuing branch is opened right after this commit (#4, draft)). Monitor re-armed on expiry (`bj6shntnz`).
+- **S13-c verified — subadditivity of the mismatch count (`mis_card_add`,
+  `mis_card_sub`), the orientation lemma (`mis_card_neg`), the mean-zero
+  partner bound (`sum_mu_eq_zero`, `two_abs_sub_le_varMu`, `mu_le_half_varMu`:
+  `max μ_h ≤ Var(μ_h)/2`) and Corollary 6's inequality (`forced_variation`,
+  `forced_letter_variation`)** in `CycleSpectrum.lean` (sha256
+  `f0177f3c…02a4`, 14,111 lines, 782 theorems: 649 with the three standard
+  axioms, 58 × `[propext, Quot.sound]`, 62 × `[propext]`, 13 none; no
+  `sorry`). First build. Receipts regenerated. Next: S13-d (the averaging step
+  and Corollary 7) or S13-b (the explicit base-2 form).
+
 ## Iteration 93 — 2026-10-19, 17:55 -03
 
 - Woken by the monitor (sidekick `5764d7f`: the S13 review ACK; `55cf217`,
