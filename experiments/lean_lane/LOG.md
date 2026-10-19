@@ -3,6 +3,24 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 42 — 2026-10-19, 06:46 -03
+
+- Woken by the monitor and the sidekick's message/push `0cec4b2`: **C005-f
+  verified** (receipts match; probe PASS), plus the S1-a index convention
+  (`E_i` = the sum of the `e`'s before orbit position `i`; recorded in STATE).
+  Main unchanged at `1c5c19d`.
+- **C005-g verified — the rotation-block exclusion, conditional on the `8L`
+  hypothesis** in `CycleSpectrum.lean` (sha256 `5b3012ab…b4d6`, 5758 lines,
+  371 theorems: 294 with the three standard axioms, 31 × `[propext,
+  Quot.sound]`, 44 × `[propext]`, 2 none; no `sorry`): `rotate_inv`,
+  **`OddCycle.rotation_block_exclusion`** (`w` a concatenation of `r ≥ 1`
+  rotations of `mech A₀ m₀ l₀`, `2 ≤ m₀ ≤ A₀`, `gcd(A₀, m₀) = 1`, `D_w > 0`,
+  every rotated intercept below `8` times every other ⇒ `D_w ∤ C_w`). Compiled
+  first try. Receipts regenerated. Next: whichever of main's newest claims
+  most needs formal backing; otherwise the state-bound wiring (actual states =
+  prefix maps of the blocks) that discharges the `8L` hypothesis from `R < 2`,
+  making the rotation-block theorem unconditional for the mechanical base.
+
 ## Iteration 41 — 2026-10-19, 06:37 -03
 
 - Woken by the sidekick's message and pushes `26959d1`/`bf35b87`: **C005-e

@@ -5093,6 +5093,135 @@ theorem coprime_least_period (hq : Γ.q = 1) (hB2 : Γ.B ≤ 2) {p : ℕ} (hp0 :
 
 end OddCycle
 
+/-! ### C005-g: the rotation-block exclusion, conditional on the ratio bound
+
+C005 §2's rotation-block theorem, second half: a concatenation of rotations of a primitive
+mechanical word `v = mech A₀ m₀ l₀` (`m₀ ≥ 2`) whose cycle has `H < 8L` has reduced denominator
+greater than `1`. The assembly: rotate `w` to its minimal intercept, form its reduced integer
+cycle (`ofWord`), which has `q = 1` and `B ≤ 2`; on the least period the word has coprime totals
+(`coprime_least_period`), so `w` is a power `z^r` of a single block (`word_eq_rep`,
+`rep_rotate`, `blocks_identical`), `z` a rotation of `v`; denominator `1` descends to `z`
+(`D_dvd_C_of_rep_dvd`), R71-a gives `gcd(C_z, D_z) = 1`, hence `D_z = 1`, excluded by
+`mech_D_ne_one`. The hypothesis `H < 8L` is the ratio bound `H/L ≤ R³ < 8` of C005-c, whose
+wiring to the actual states is the remaining step. -/
+
+/-- The rotation by `i` is undone by the rotation by `|w| − i mod |w|`. -/
+theorem rotate_inv (w : List ℕ) (hw0 : w ≠ []) (i : ℕ) :
+    (w.rotate i).rotate (w.length - i % w.length) = w := by
+  have hlen : 0 < w.length := List.length_pos_of_ne_nil hw0
+  have hr := Nat.mod_lt i hlen
+  have hd := Nat.div_add_mod i w.length
+  have heq : i + (w.length - i % w.length) = w.length * (i / w.length + 1) := by
+    rw [Nat.mul_succ]
+    omega
+  rw [List.rotate_rotate, heq, List.rotate_length_mul]
+
+namespace OddCycle
+
+/-- **C005's rotation-block exclusion, conditional on the ratio bound.** For a primitive
+mechanical word `v = mech A₀ m₀ l₀` (`m₀ ≥ 2`, `A₀ ≥ m₀`, `gcd(A₀, m₀) = 1`) and `w` a
+concatenation of `r ≥ 1` rotations of `v` with `D_w > 0`: if every rotated intercept of `w` is
+below `8` times every other (`H < 8L` for its cycle), then `D_w ∤ C_w`, i.e. the reduced
+denominator of `w`'s cycle exceeds `1`. -/
+theorem rotation_block_exclusion {m₀ A₀ l₀ : ℕ} (hm₀ : 2 ≤ m₀) (hAm : m₀ ≤ A₀)
+    (hcop : Nat.Coprime A₀ m₀) (hl₀ : l₀ < m₀) (blocks : List (List ℕ))
+    (hb : ∀ b ∈ blocks, ∃ i, b = (mech A₀ m₀ l₀).rotate i) (hr : 0 < blocks.length)
+    (hD : 0 < D blocks.flatten)
+    (h8 : ∀ i j, C (blocks.flatten.rotate i) < 8 * C (blocks.flatten.rotate j)) :
+    ¬ D blocks.flatten ∣ C blocks.flatten := by
+  intro hq1
+  have hm0 : 0 < m₀ := by omega
+  have hv_pos : ∀ x ∈ mech A₀ m₀ l₀, 1 ≤ x := mech_pos hm0 A₀ l₀ hAm
+  have hv_len : (mech A₀ m₀ l₀).length = m₀ := mech_length A₀ m₀ l₀
+  have hv_sum : (mech A₀ m₀ l₀).sum = A₀ := mech_sum hm0 A₀ l₀ hl₀
+  have hv_cop : Nat.Coprime (mech A₀ m₀ l₀).sum (mech A₀ m₀ l₀).length := by
+    rw [hv_sum, hv_len]
+    exact hcop
+  have hwlen : blocks.flatten.length = blocks.length * m₀ := by
+    rw [flatten_rotations_length _ blocks hb, hv_len]
+  have hw0 : blocks.flatten ≠ [] :=
+    List.ne_nil_of_length_pos (by rw [hwlen]; exact Nat.mul_pos hr hm0)
+  have hpos : ∀ x ∈ blocks.flatten, 1 ≤ x := by
+    intro x hx
+    obtain ⟨b, hbmem, hxb⟩ := List.mem_flatten.mp hx
+    obtain ⟨i, hi⟩ := hb b hbmem
+    rw [hi] at hxb
+    exact hv_pos x (List.mem_rotate.mp hxb)
+  have hsum : 1 ≤ blocks.flatten.sum := one_le_sum_of_ne_nil hw0 hpos
+  -- rotate `w` to its minimal intercept
+  obtain ⟨i₀, hmin₀⟩ := exists_min_rotation blocks.flatten hw0
+  obtain ⟨w', hw'⟩ : ∃ w', w' = blocks.flatten.rotate i₀ := ⟨_, rfl⟩
+  rw [← hw'] at hmin₀
+  have hw0' : w' ≠ [] := by rw [hw']; exact NarrowCycle.rotate_ne_nil hw0 i₀
+  have hpos' : ∀ x ∈ w', 1 ≤ x := by
+    intro x hx
+    rw [hw'] at hx
+    exact hpos x (List.mem_rotate.mp hx)
+  have hD' : 0 < D w' := by rw [hw', D_rotate]; exact hD
+  have hgw' : gcdCD w' = D w' := by
+    rw [hw']
+    unfold gcdCD
+    rw [gcd_rotate_eq hw0 hsum i₀, D_rotate]
+    exact gcdCD_eq_D_of_dvd _ hD hq1
+  have hq1' : D w' ∣ C w' := by rw [← hgw']; exact gcdCD_dvd_C w'
+  have h8' : ∀ i, C (w'.rotate i) < 8 * C w' := by
+    intro i
+    rw [hw', List.rotate_rotate]
+    exact h8 _ _
+  -- the reduced integer cycle of `w'`: parameter `1`, heights at most `2`
+  have hq : (ofWord w' hw0' hpos' hD' hmin₀).q = 1 := ofWord_q_eq_one w' hw0' hpos' hD' hmin₀ hq1'
+  have hB2 : (ofWord w' hw0' hpos' hD' hmin₀).B ≤ 2 := ofWord_B_le_two w' hw0' hpos' hD' hmin₀ h8'
+  obtain ⟨p, hp0, hp, hminp⟩ := (ofWord w' hw0' hpos' hD' hmin₀).exists_least_period
+  have hpdvd : p ∣ w'.length := (ofWord w' hw0' hpos' hD' hmin₀).least_period_dvd hp0 hp hminp
+  obtain ⟨z, hz⟩ : ∃ z, z = (List.range p).map (ofWord w' hw0' hpos' hD' hmin₀).a := ⟨_, rfl⟩
+  have hz_cop : Nat.Coprime z.sum z.length := by
+    rw [hz, List.length_map, List.length_range]
+    exact (ofWord w' hw0' hpos' hD' hmin₀).coprime_least_period hq hB2 hp0 hp hminp
+  obtain ⟨k, hk⟩ : ∃ k, w'.length / p = k := ⟨_, rfl⟩
+  have hw'_rep : w' = rep z k := by
+    have := (ofWord w' hw0' hpos' hD' hmin₀).word_eq_rep hp hpdvd
+    rwa [ofWord_word, hk, ← hz] at this
+  -- back to `w` itself: a power of one rotated block
+  obtain ⟨u, hu⟩ : ∃ u, u = blocks.flatten.length - i₀ % blocks.flatten.length := ⟨_, rfl⟩
+  have hinv : w'.rotate u = blocks.flatten := by
+    rw [hw', hu]
+    exact rotate_inv _ hw0 i₀
+  have hw_rep : blocks.flatten = rep (z.rotate u) k := by
+    rw [← hinv, hw'_rep, rep_rotate]
+  have hz'_cop : Nat.Coprime (z.rotate u).sum (z.rotate u).length := by
+    rwa [(List.rotate_perm z u).sum_eq, List.length_rotate]
+  obtain ⟨hk_eq, -, hall⟩ :=
+    blocks_identical (mech A₀ m₀ l₀) hv_cop blocks hb hr (z.rotate u) k hw_rep hz'_cop
+  obtain ⟨b₀, hb₀⟩ := List.exists_mem_of_length_pos hr
+  obtain ⟨i₁, hi₁⟩ := hb b₀ hb₀
+  have hz' : z.rotate u = mech A₀ m₀ ((l₀ + i₁ * A₀) % m₀) := by
+    rw [← hall b₀ hb₀, hi₁, mech_rotate hm0]
+  have hl₁m : (l₀ + i₁ * A₀) % m₀ < m₀ := Nat.mod_lt _ hm0
+  -- denominator `1` descends to the block, where R71 forbids it
+  have hDw_ne : D (rep (z.rotate u) k) ≠ 0 := by rw [← hw_rep]; exact hD.ne'
+  have hdvd_z : D (z.rotate u) ∣ C (z.rotate u) :=
+    D_dvd_C_of_rep_dvd _ k hDw_ne (by rw [← hw_rep]; exact hq1)
+  have hDz_pos : 0 < D (z.rotate u) := by
+    have hG : 0 < G (2 ^ (z.rotate u).sum) (3 ^ (z.rotate u).length) k :=
+      G_pos _ _ (by positivity) (by positivity) k (by omega)
+    have hprod : 0 < D (z.rotate u) * G (2 ^ (z.rotate u).sum) (3 ^ (z.rotate u).length) k := by
+      rw [← D_rep, ← hw_rep]
+      exact hD
+    exact (mul_pos_iff_of_pos_right hG).mp hprod
+  have hgcd := mech_gcd_one_phase hm₀ A₀ hAm hcop hl₁m
+  rw [← hz'] at hgcd
+  have h1 : (D (z.rotate u)).natAbs ∣ 1 := by
+    rw [← hgcd]
+    exact Int.dvd_gcd (Int.natAbs_dvd.mpr hdvd_z) (Int.natAbs_dvd.mpr dvd_rfl)
+  have hD1 : D (z.rotate u) = 1 := by
+    have h2 := Int.natAbs_of_nonneg hDz_pos.le
+    rw [Nat.dvd_one.mp h1] at h2
+    simpa using h2.symm
+  rw [hz', D_mech hm0 _ _ hl₁m] at hD1
+  exact mech_D_ne_one hm₀ A₀ hAm hD1
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
