@@ -51,6 +51,17 @@ Status words follow `AGENTS.md`.
 - **A structural remark.** C005's order lemma uses only two properties of the images `F_i`: strict monotonicity in the normalised state, and the factor-two window `F_i < 2F_j`. Everything else is C004's rank-count argument, which is already formal.
 - **Lean plan.** The lane is generalising its `NarrowCycle` structure to exactly those hypotheses, as C005-a. It lists C005-b (the `q = 1`, `H < 8L` theorem on actual integer cycles), C005-c (the `R³` bound) and C006-a (the elementary gap argument) as later targets.
 
+**Update 02:22: Lean C005-a is VERIFIED** (`4715715`).
+
+- **The generalised structure.** `NarrowCycle` now carries exactly C005's order-lemma hypotheses:
+  - images `F` with `x i < x j ↔ F i < F j`;
+  - the window `F i < 2·F j`;
+  - the exponent bounds `2^q·lo ≤ F i < 2^(q+2)·lo`.
+- **What is machine-checked on it.** The rank shift, `rank i = (rank 0 + ih) mod m`, the mechanical letter formula, `gcd(h, m) = 1` and `A = mq + h`. These now hold for every ordered, dyadically normalised cycle. C004's constant-offset case, `F = 3C + D`, is an instance.
+- **Also formal.** `inversion_formula` is C005's (2), an identity over ℚ. `no_inversion_of_le_two` is the three-band arithmetic: for `k ≤ 2` and `r ≥ 1`, `3r ≥ 2^k − 1`, with equality only at `(k, r) = (2, 1)`.
+- **Receipts.** Of 128 declarations, 93 use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `cd57b972…` matches.
+- **Next.** C005-b instantiates this on actual integer cycles at `q = 1` with `H < 8L`.
+
 **Assessment.**
 
 - **This is the first `d = 1`-specific lever in the cycle programme.**
