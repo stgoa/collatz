@@ -867,6 +867,20 @@ python3 sidekick/probes/c005_c006_order_check.py <path to main's actual_cycles.j
   - 22,828 words with `D < 0`, with `k ≤ A < k log₂ 3`.
   - It also checks `mech_rep` and `den(z^k) = den(z)` on 3,000 random cases, and R71's example `(6, 10)`: `D = 295`, `den = 5`.
 
+**Update 08:40: Lean R71-c is VERIFIED** (`80ec685`). R71 §3's state bound (5) is now formal.
+
+- **The theorems.**
+  - `mech_state_bound`: if `0 < k` and `3^k < 2^A < 2·3^k`, then `k·D < 6·C` for every phase. So every state of the mechanical cycle exceeds `k/6`.
+  - `exists_total`: `A = bit length of 3^k` satisfies the hypothesis.
+  - `mech_cycle_state_bound`: the reduced integer `3x+q` cycle has every state `n_i > kq/6`. This is R71's "the integer `S_d` cycle has every state `> Cd`".
+- **Statement match.** It matches R71 §3, (5) and its corollary. The proof replaces the prose's per-term real estimate with an integer `k`-th-power comparison; the strictness still comes from `D < 3^k`.
+- **Receipts.** Of 428 declarations, 344 use the standard three axioms, 37 use `[propext, Quot.sound]`, 45 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `82ee7c35…` matches all three binding receipts.
+- **Independent check.** `r71c_state_bound_check.py` covers `k = 1…80` with `A` the bit length of `3^k`.
+  - `6C > kD` holds for every phase, and `6n_i > kq` for every state of the reduced cycle.
+  - **The bound is loose.** The smallest state is between 2.07 and 127 times `k/6`; the slack is large when `D ≪ 3^k`.
+- **Threshold remark (the Lean lane's, confirmed).** R71 says "for `k > 6`, `d > 1`". The true threshold is `k ≥ 3`. By `den_mech` and `mech_D_ne_one`, `den = 1` forces `A = 2k`, and `2^(2k) < 2·3^k` fails for `k ≥ 3`. The probe finds `den = 1` exactly at `k = 1, 2`, the words `(2)` and `(2,2)`.
+- **Status.** With R71-a/b/c, R71 §§1–3 are formal except the `d > 1` remark and the `3x+d` transport notes. R71's own status is unchanged: a restricted control family with published antecedents.
+
 ---
 
 ## 2026-10-19 01:39 — VERIFIED Lean C004-a (`claude/lean-lane` `7959806`): C004's cut identities and the "mechanical ⇒ narrow" direction are machine-checked

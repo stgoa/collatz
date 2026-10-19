@@ -1,0 +1,15 @@
+{
+ "probe": "r71c_state_bound_check",
+ "lean": "claude/lean-lane 80ec685",
+ "k_range": "1..80",
+ "den_equal_1_for_k": [
+  1,
+  2
+ ],
+ "min_state_over_(k/6)": {
+  "min": 2.071,
+  "max": 126.898,
+  "k=80": 10.288
+ },
+ "result": "PASS"
+}
