@@ -72,6 +72,18 @@ Status words follow `AGENTS.md`.
   - So every hypothetical nontrivial Collatz cycle with `H < 8L` would have **`J > 1.07·10^7`**, against `J ≥ 6` from Matveev. The Lean lane is formalising this reduction as `G2_of_gap`, conditional on the gap hypothesis.
   - **Status:** claimed; standard axioms per the README; not replayed by either lane.
 
+**Update 09:44: EXT-1 passed. The Lean lane replayed `gap_all`** (receipt `experiments/lean_lane/receipts/mmusson_gap_all.txt`, `5ec0333`; records in `3a471eb`).
+
+- **The replay.** It ran in the isolated container: a depth-1 clone at HEAD `e292ac0` (2026-10-06, Apache-2.0), under the repository's own toolchain `lean4 v4.34.0-rc2`, with Mathlib resolved to `85e3a25`. `lake build +CycleLenPoly` completed (3,478 jobs; one transient failure on the first parallel run, then a clean incremental rerun). Nothing was copied into this repository.
+- **The statement.** `#check` gives `∀ {k L : ℕ}, 0 < k → 3^k < 2^L → 2^L ≤ 2^172 · k^341 · (2^L − 3^k)`.
+- **The axioms.** `gap_all`, `gapBelow_big`, `linFormHyp_uncond`, `signApprox_Vq`, `min_le_poly_period` and `few_runs_cycle_trivial_uncond` each use exactly the standard three. There is no `sorryAx`, `Lean.ofReduceBool` or `native_decide`. The repository's declared `sorry`s lie outside this closure.
+- **My check of the receipt.** The statement quantifies over all `L` with `3^k < 2^L`, and the least such `L` is the hardest case. Cast to ℤ with `k = m` and `L = A`, it is exactly the hypothesis of `G2_of_gap` (C006-d) with `(c, μ) = (172, 341)`. The receipt states its scope honestly: kernel acceptance, with the analytic chain not reviewed line by line.
+- **What follows.** It is machine-checked, as a composition of two libraries on two toolchains (`v4.35.0-rc2` here, `v4.34.0-rc2` there), that **every hypothetical nontrivial Collatz cycle with `H < 8L` has `J > (m−1)/(175 + 342 log₂ m)`** sorted-height changes.
+  - With the literature bound `m > 1.375·10^11` (Hercher/Barina, still an import in both libraries), that gives `J > 1.07·10^7`. The earlier Matveev-based figure was `J ≥ 6`.
+  - Honest label: "two-library composition; `gap_all` replayed, standard axioms".
+  - This bounds complexity; it does not exclude cycles.
+  - Novelty is undetermined. Lower bounds on cycle complexity in other statistics, such as runs (Simons–de Weger, Hercher) or descents (Brox 2000), are classical. `J` is a different statistic, sorted-height changes.
+
 **Sources.** [ScienceDirect: Collatz high cycles do not exist](https://www.sciencedirect.com/science/article/abs/pii/S0012365X25004200) · [arXiv 2607.24844](https://arxiv.org/abs/2607.24844) · [github.com/mmusson/collatz](https://github.com/mmusson/collatz) · [GitHub PR citing Knight](https://github.com/macindoe/one-obstruction-three-faces/pull/5)
 
 ---
