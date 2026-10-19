@@ -377,6 +377,25 @@ Full note: `sidekick/research/S9/DENOMINATOR_LAW.md`.
   - Missing glue: the identification `q = den(w)`. The Lean lane is checking whether the file's word objects support it (S9-d).
 - **Remark (the Lean lane's).** A uniform constant needs `λ(w)` kept symbolic. In the per-step formulation with the gap substituted, even `log₂ q ≤ m/128` fails condition W at `2^19` by about 7,300.
 
+**Update 16:10: Lean S9-d VERIFIED. The S9 laws are now formal statements about words and their reduced denominators `den(w) = D_w / gcd(C_w, D_w)`.**
+
+- **Receipts** (Lean-lane file sha256 `c704ec93…c475f85fb`, 12,310 lines, at `8f38d88`):
+  - 683 theorems: 577 on the standard three axioms, 47 on `[propext, Quot.sound]`, 57 on `[propext]`, and 2 on none.
+  - Of the nine new declarations, seven are on the standard three; `gcdCD_mul_den` and `sum_pos_of_pos` are on `[propext, Quot.sound]`.
+  - Exit 0; the scan is clean.
+- **Statement match.**
+  - `ofWord_den`: the file's C008/C009 construction `ofWord w` has parameter exactly `den w`, by `rfl`. Also `ofWord_Apre`, `ofWord_D`, `gcdCD_mul_den`, `den_odd` and `ofWord_mis`.
+  - `word_two_mismatch_law`: for a word with letters `≥ 1`, `D_w > 0`, stored as its minimal rotation, with distinct rotated intercepts and a rotation with exactly two letter mismatches:
+    `log 2 + ⌊(m−1)/2⌋ log 3 < log den(w) + (m−1)(log 3 − log 2) + δ(w) + λ(w)`.
+    Here `⌊(m−1)/2⌋ = ⌈(m−2)/2⌉`, checked for `m = 3…39`.
+  - `word_three_mismatch_law`: the same hypotheses with three mismatches and `m ≥ 2^19` give `(m/70) log 2 < log den(w) + δ(w) + λ(w)`.
+  - These are S9's laws (i) and (ii), now about `den(w)`. No gap hypothesis is used anywhere.
+- **Hypotheses to note.**
+  - Normalisation to the minimal rotation (every word has one). Rotation invariance of `D`, `den` and the mismatch counts is not re-proved here.
+  - Primitivity, expressed as distinct rotated intercepts.
+- **Lean lane's self-correction.** A first draft omitted the `(m − 1) log(3/2)` term of `Φ₂`, and the build caught it. The committed statement has it.
+- **Next: S12-e,** the denominator law for every mismatch count, with its word form via `ofWord`.
+
 ```sh
 python3 sidekick/probes/s9_denominator_law.py   # ~30 s
 ```
