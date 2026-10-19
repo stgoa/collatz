@@ -574,6 +574,24 @@ python3 sidekick/probes/c007_height_check.py <path to main's actual_cycles.json>
 - **Receipts.** 243 declarations use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `10004222…` matches.
 - **Not yet formal.** Wiring these into actual words: the prefix maps as affine maps and the mechanical states in `[l, h)`. Also the final step through R71's `g = 1`, which is the lane's next unit. Once that lands, `H > 2L` for every nontrivial Collatz cycle becomes fully formal.
 
+**Update 06:17: Lean C005-d is VERIFIED** (`6136784`). This is R71 §1 as a constructor: every positive word gives an integer `3x+q` cycle at its reduced parameter.
+
+- **The constructor.** `ofWord` takes a word `w` with positive letters and `D_w > 0`, rotated to a minimal intercept. It builds an `OddCycle` with `g = gcd(C_w, D_w)`, states `n_i = C(w.rotate i)/g`, letters `a_i` (the first letter of `w.rotate i`) and parameter `q = D_w/g`.
+- **The interface lemmas.**
+  - `gcdCD_mul_ofWord_n` and `gcdCD_mul_ofWord_q` recover `C(w.rotate i)` and `D_w` from `g`.
+  - `ofWord_coprime`: the cycle is reduced, `gcd(q, n_0) = 1`.
+  - `ofWord_primitive`: distinct rotated intercepts give distinct states.
+  - `ofWord_word`: the cycle's chronological word is `w` again.
+- **Statement match.** It matches R71 §1:
+  - each `B_i` is odd;
+  - (1) gives the exact valuations;
+  - `gcd(B_i, D)` does not depend on `i`;
+  - multiplying by `d = D/gcd` gives an integer `S_d` cycle.
+- **What the build checks.** The fields `nper`, `nmin`, `arrow` and `hB` are discharged in the build; I read their proofs: `rotate_mod`, division by `g > 0`, `quot_arrow`, and a `Finset.sup` over one period. `q` being coprime to 6 is not stated, but it is immediate.
+- **Receipts.** Of 347 declarations, 278 use the standard three axioms, 28 use `[propext, Quot.sound]`, 40 use `[propext]` and 1 uses none. A source scan is clean, and the sha256 `fd4c7e3c…` matches. **The build receipt now binds to the file.** It records the source sha256, the toolchain (`lean4 v4.35.0-rc2`, Mathlib `0653561`) and the UTC build time, and the axioms receipt is headed by the same sha256.
+- **Independent check.** `c005d_ofword_check.py` uses 38,852 random positive words (`m ≤ 14`, letters 1 to 5); 4,559 of them have `g > 1`. On every word, `g` divides every rotated intercept and the states are positive odd integers with `n_0` the minimum. The exact arrows hold with `a_i = v2(3n_i + q)`, and `gcd(q, n_0) = gcd(q, 6) = 1`.
+- **What it enables.** C004-c/d, the three-band theorem and the `OrdCycle` machinery now apply to the cycle of any positive word. The lane plans to assemble C005 §2(b), the rotation-block exclusion, next. Two pieces are still missing: a `returnCycle` that keeps a general `B`, and the wiring of `state_bound` to actual prefix maps.
+
 **Assessment.**
 
 - **This is the first `d = 1`-specific lever in the cycle programme.**

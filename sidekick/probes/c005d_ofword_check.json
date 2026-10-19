@@ -1,0 +1,7 @@
+{
+ "probe": "c005d_ofword_check",
+ "lean": "claude/lean-lane 6136784",
+ "words": 38852,
+ "words_with_gcd_gt_1": 4559,
+ "result": "PASS"
+}
