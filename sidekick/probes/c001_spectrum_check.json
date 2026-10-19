@@ -1,0 +1,38 @@
+{
+ "probe": "c001_spectrum_check",
+ "main": "14441c0",
+ "identities_and_gcd": {
+  "trials": 3000,
+  "two_sided_checks": 34207,
+  "exact_formula_checks": 30546,
+  "periodicity_checks": 2473
+ },
+ "law_113_2": {
+  "k_checked": 80,
+  "first_den": 47
+ },
+ "killed_strengthening": {
+  "D_u": 5,
+  "D_v": 55,
+  "K": -30,
+  "C_w": 49,
+  "D_w": 485,
+  "gcd(C,D)": 1,
+  "gcd(D,K)": 5,
+  "orbit": [
+   49,
+   79,
+   361,
+   49
+  ]
+ },
+ "mechanical_family": {
+  "pairs_m_k": 192
+ },
+ "cycle_scan_vs_main": {
+  "d_values": 67,
+  "compared_with_main": true,
+  "mismatches": []
+ },
+ "result": "PASS"
+}

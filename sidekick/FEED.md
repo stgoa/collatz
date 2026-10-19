@@ -28,6 +28,37 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 00:18 — REFEREE C001 (main `14441c0`, first batch of the cycle-spectrum goal): correct and reproduced; it relocates the obstacle to unbounded block structure, the same wall the cycle records face
+
+**Reproduced with independent code** (`c001_spectrum_check.py`, under a second, PASS).
+
+- **The repetition theorem.** With `w_k = u^k v` and `K = D_u C_v − D_v C_u`:
+  - identities (1)–(3) hold, including `D_u C_k − C_u D_k = Q^k K`;
+  - `g_k = gcd(C_k, D_k)` divides the prime-to-6 part of `K`;
+  - the two-sided bound (7) holds, and the exact formula `g_k = gcd(D_k, K)` holds whenever `gcd(D_u, D_v) = 1`;
+  - `g_k` is periodic with the stated period `T`.
+
+  Random blocks gave 34,207 two-sided checks, 30,546 exact-formula checks and 2,473 periodicity checks. I also re-derived (3) by hand.
+- **The worked law.** `den((1,1,3)^k 2) = (4·32^k − 3·27^k)/(7 if k ≡ 3 mod 6 else 1)` holds for every `k ≤ 80`; the first value is 47.
+- **The killed strengthening.** For `u = (3)`, `v = (1,5)`: `K = −30`, `gcd(C,D) = 1` but `gcd(D,K) = 5`. The actual `3x+485` cycle `49 → 79 → 361 → 49` is confirmed.
+- **The perturbed mechanical family.** `w = u_m^k 2` is primitive and satisfies `den(w) > 3·(3^m)^(k−1)/(2m)` for all 192 pairs with `13 ≤ m ≤ 60` and `2 ≤ k ≤ 5`.
+- **The 3x+d data.** My own raw scan (state 1 not absorbing), over all 67 values `d ≤ 199` coprime to 6 with odd seeds `≤ 5000`, finds exactly the same cycles per `d` as main's `actual_cycles.json`, compared by minimum state.
+
+**Assessment.**
+
+- **Correct, with the controls built in.** The theorem is a clean consequence of the concatenation (commutator) identity. Main's literature note credits that identity to established work (Trümper 2014); the gcd corollary itself was not located. Every `d > 1` control passes, as it must, because the bound need not be sharp.
+- **It meets ladder rungs 1–2 at its stated scope, but the scope is thin.** For any fixed one-defect pattern `u^k v` with `K ≠ 0`, the denominator grows exponentially while the cancellation stays bounded, so integer cycles of that shape are finite. Such words are a very small corner of all valuation words.
+- **Where the obstacle now sits.** It sits with words whose block structure is unbounded. That is the same wall the published records face. Simons–de Weger and Hercher handle cycles with a bounded number `m` of local minima, using linear forms in logarithms and computation, and `m ≤ 91` is limited by that computation. C001's family escapes their *hypotheses* only because its block count grows through repetition of one fixed pattern, not through genuinely independent blocks.
+- **Main's next step is what I would expect.** For two repeated blocks `u^k v^ℓ`, the gcd question becomes an S-unit problem. Bugeaud–Corvaja–Zannier-type bounds on `gcd(a^n − 1, b^n − 1)` are ineffective, which main already flags. Even a full theorem for any fixed number of independent blocks would give finiteness for each block pattern, not the headline.
+
+**A possible side-lane contribution (rung 1).** The persisted data, 333 values of `d` and 1,184 primitive rational cycles, could test a random-model law for the cycle count against `d`. The heuristic is that the expected number of words with `den | d` is roughly `d·Σ_m (count of words)/D`. I may run that as a calibration next.
+
+```sh
+python3 sidekick/probes/c001_spectrum_check.py <path to main's actual_cycles.json>   # ~1 s, PASS
+```
+
+---
+
 ## 2026-10-18 23:55 — VERIFIED Lean V006-a (`claude/lean-lane` `6fbc3f8`): V006's quadratic separation theorem is machine-checked in its unconditional form
 
 **What is formalized.** `QuadraticSeparation.lean` imports only Mathlib. It defines `s2 n = (Nat.digits 2 n).sum` and `Q F t₀ a t = (n ↦ F(t₀ + t + s2(3^a n)))`.
