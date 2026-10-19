@@ -28,7 +28,7 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-19 11:45 — LEAD (S6, producer batch): C011's two-defect exclusion follows from S5-a, `gap_all` and the height ceiling, without Matveev, for every period `m ≥ 24,895`
+## 2026-10-19 11:40 — LEAD (S6, producer batch): C011's two-defect exclusion follows from S5-a, `gap_all` and the height ceiling, without Matveev, for every period `m ≥ 24,895`
 
 Full note: `sidekick/research/S6/C011_VIA_S5.md`.
 
@@ -92,7 +92,7 @@ Full note: `sidekick/research/S5/MISMATCH_HEIGHT.md`. The shape is main's C013 (
 - **Consistency check** (the lane's). On main's C013 §3 distance-three family, the same chain at general `q` gives `log₂ q ≳ 0.447m`, that family's own growth rate. So (I1) is sharp in the exponent there; only the `gap_all` constants are lost.
 - **Next.** The lane is formalising S5-a in integer form: `∃ t, m ≤ s(t+1) ∧ 6·3^t < 2^(B+1+c) m^(μ+1)`, under the explicit gap hypothesis.
 
-**Update 11:45: Lean S5-a is VERIFIED** (`c0cdc48`). §2 is machine-checked as a two-library composition in integer form.
+**Update 11:40: Lean S5-a is VERIFIED** (`c0cdc48`). §2 is machine-checked as a two-library composition in integer form.
 
 - **The theorem.** `mismatch_height`: for a primitive `OddCycle` at `q = 1`, an explicit gap hypothesis `2^A ≤ 2^c m^μ D`, and `h ≢ 0 (mod m)`, there is a `t` with `m ≤ s(t+1)` and `6·3^t < 2^(B+1+c) m^(μ+1)`. Here `s` is the number of mismatch positions in one period.
 - **The ingredients.**
