@@ -1,0 +1,11 @@
+{
+ "probe": "c013b_run_law_check",
+ "lean": "claude/lean-lane 9a81b08",
+ "cycles_m_ge_2": 77,
+ "maximal_agreeing_runs": 12550,
+ "slack_rhs_over_lhs_of_(7)": {
+  "min": 4.0,
+  "max": 17786826.0
+ },
+ "result": "PASS"
+}

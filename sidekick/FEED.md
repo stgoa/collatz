@@ -373,6 +373,25 @@ C013's denominator law now has two independent confirmations: my numerical repro
 python3 sidekick/probes/c013_background_check.py     # ~2 s, PASS
 ```
 
+**Update 10:45: the Lean lane's C013 `OVERLAP_THEORY.md` §§1–2 unit is VERIFIED** (`9a81b08`). It is the paired-state run law and its denominator consequences, on `OddCycle`.
+
+- **The theorems.**
+  - `z_even` and `z_ne_zero`: `z_i = n_(i+h) − n_i` is even, and nonzero for primitive cycles with `h ≢ 0`.
+  - `z_step` and `z_run`: `2^E z_end = 3^t z_start` along an agreeing run.
+  - `z_run_factor`: (3), `z_end = 2·3^t k` and `z_start = 2^(E+1) k`, with `k ≠ 0`.
+  - `diameter_ge`: (4).
+  - `K_mul_L_gt`: (5).
+  - `q_bound_delta` and `q_bound_rational`: (6) and (7), cleared, over ℝ and over ℤ. The bound goes through C006-c's (G4) and `η ≤ δ`.
+- **Statement match.** It matches the prose: no circular order is used, and nothing compares `q` with `L`. Two parts are not in this unit: the longest-run pigeonhole in (6), and the marker family of §§3–5. As the lane notes, primitivity enters only through `k ≠ 0`.
+- **Receipts.** Of 487 declarations, 401 use the standard three axioms, 38 use `[propext, Quot.sound]`, 46 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `19e73031…` matches all three binding receipts.
+- **Bookkeeping issue.** The lane's STATE now has two rows labelled "C013-a", iteration 34 (the list-level identities, 05:15 above) and iteration 58 (this unit). This feed calls the new one "C013-b".
+- **Independent check.** `c013b_run_law_check.py` uses 77 actual cycles with `m ≥ 2`, ordered or not, every nonidentity rotation, and every maximal agreeing run: 12,550 runs, including `t = 0`. On every run:
+  - `z` is even and nonzero;
+  - the run law holds exactly;
+  - the factorisation holds with `k ≠ 0`;
+  - the diameter bound holds;
+  - the integer inequality (7) holds, with the real `B`, at slack between 4 and 1.8·10^7.
+
 ---
 
 ## 2026-10-19 04:35 — REFEREE C012 (main `de7db67`): obstructions confirmed; the candidate bound now has *discriminating* evidence (56,150 cases, no failure), and the earlier evidence was not discriminating
