@@ -2226,6 +2226,60 @@ theorem eq_of_pow_mul_eq_in_window {lo x y : ℤ} {s t : ℕ} (hx : lo ≤ x) (h
     have h4 : 2 * x ≤ y := le_of_mul_le_mul_left h3 h2t
     linarith
 
+/-! ### C006 `ORDER_RIGIDITY.md` §3, elementary parts: the zero-forcing run lemma behind (G1)
+and the discrete intermediate-value step behind (H1) -/
+
+/-- Binary divisibility along a zero-forcing run: if `2^{e_k} G_{k+1} = 3 G_k` for `k < t`,
+then `2^{E_t} G_t = 3^t G_0` with `E_t = Σ_{k<t} e_k`. -/
+theorem run_pow_mul (G : ℕ → ℤ) (e : ℕ → ℕ) (t : ℕ)
+    (hrun : ∀ k, k < t → (2 : ℤ) ^ e k * G (k + 1) = 3 * G k) :
+    (2 : ℤ) ^ (∑ k ∈ Finset.range t, e k) * G t = 3 ^ t * G 0 := by
+  induction t with
+  | zero => simp
+  | succ t ih =>
+    have ih' := ih (fun k hk => hrun k (Nat.lt_succ_of_lt hk))
+    rw [Finset.sum_range_succ, pow_add, pow_succ]
+    calc (2 : ℤ) ^ (∑ k ∈ Finset.range t, e k) * 2 ^ e t * G (t + 1)
+        = 2 ^ (∑ k ∈ Finset.range t, e k) * (2 ^ e t * G (t + 1)) := by ring
+      _ = 2 ^ (∑ k ∈ Finset.range t, e k) * (3 * G t) := by rw [hrun t (Nat.lt_succ_self t)]
+      _ = 3 * (2 ^ (∑ k ∈ Finset.range t, e k) * G t) := by ring
+      _ = 3 * (3 ^ t * G 0) := by rw [ih']
+      _ = 3 ^ t * 3 * G 0 := by ring
+
+/-- Hence `2^{E_t} ∣ G_0`: "since `G_start` is a positive integer and 2 and 3 are coprime". -/
+theorem run_dvd (G : ℕ → ℤ) (e : ℕ → ℕ) (t : ℕ)
+    (hrun : ∀ k, k < t → (2 : ℤ) ^ e k * G (k + 1) = 3 * G k) :
+    (2 : ℤ) ^ (∑ k ∈ Finset.range t, e k) ∣ G 0 := by
+  have h := run_pow_mul G e t hrun
+  have h1 : (2 : ℤ) ^ (∑ k ∈ Finset.range t, e k) ∣ 3 ^ t * G 0 := ⟨G t, h.symm⟩
+  have hcop : IsCoprime ((2 : ℤ) ^ (∑ k ∈ Finset.range t, e k)) (3 ^ t) :=
+    IsCoprime.pow (Int.isCoprime_iff_gcd_eq_one.mpr (by norm_num))
+  exact hcop.dvd_of_dvd_mul_left h1
+
+/-- A positive run start is at least `2^{E_t} ≥ 2^t` when every run exponent is positive
+(C006's `G_start ≥ 2^{e_run} ≥ 2^t`). -/
+theorem run_lower (G : ℕ → ℤ) (e : ℕ → ℕ) (t : ℕ) (hG : 0 < G 0) (he : ∀ k, k < t → 1 ≤ e k)
+    (hrun : ∀ k, k < t → (2 : ℤ) ^ e k * G (k + 1) = 3 * G k) :
+    (2 : ℤ) ^ t ≤ G 0 := by
+  have h1 := Int.le_of_dvd hG (run_dvd G e t hrun)
+  have h2 : t ≤ ∑ k ∈ Finset.range t, e k := by
+    calc t = ∑ _k ∈ Finset.range t, 1 := by simp
+      _ ≤ ∑ k ∈ Finset.range t, e k :=
+          Finset.sum_le_sum (fun k hk => he k (Finset.mem_range.mp hk))
+  exact le_trans (pow_le_pow_right₀ (by norm_num) h2) h1
+
+/-- A sequence of naturals starting at `0` that rises by at most one per step attains every
+value up to any value it attains (C006 (H1): reaching height `B` from `0` visits all heights). -/
+theorem exists_eq_of_step_le (f : ℕ → ℕ) (h0 : f 0 = 0) (hstep : ∀ i, f (i + 1) ≤ f i + 1)
+    {j b : ℕ} (hb : b ≤ f j) : ∃ i, i ≤ j ∧ f i = b := by
+  induction j with
+  | zero => exact ⟨0, le_refl 0, by omega⟩
+  | succ j ih =>
+    rcases Nat.lt_or_ge b (f (j + 1)) with hlt | hge
+    · obtain ⟨i, hi, hfi⟩ := ih (by have := hstep j; omega)
+      exact ⟨i, Nat.le_succ_of_le hi, hfi⟩
+    · exact ⟨j + 1, le_refl _, by omega⟩
+
 /-- An actual odd cycle of the raw `3x+q` map, listed from its minimum `n 0`, with dyadic
 heights `h i` (`2^{h_i} n_0 ≤ n_i < 2^{h_i+1} n_0`) bounded by `B`: C005 §1's data. -/
 structure OddCycle (m : ℕ) where
@@ -2671,6 +2725,47 @@ theorem min_top (hord : ∀ i j, Γ.Z i < Γ.Z j ↔ Γ.F i < Γ.F j) {j : ℕ} 
   rw [not_lt] at hneg
   have hX : 3 * (Γ.n j - 2 ^ Γ.h j * Γ.n 0) - Γ.q * (2 ^ Γ.h j - 1) ≤ 0 := by linarith
   nlinarith
+
+/-! #### C006 §§1, 3 on actual cycles: `c ≤ 2` under `q ≤ L`, chronological height steps -/
+
+/-- Under `q ≤ L` every normalised exponent is at most `2` (C005 §1, C006 §1). -/
+theorem c_le_two (hqL : Γ.q ≤ Γ.n 0) (i : ℕ) : Γ.c i ≤ 2 := by
+  by_contra hgt
+  rw [not_le] at hgt
+  have harrow := Γ.c_arrow i
+  have hZ := Γ.Z_lower (i + 1)
+  have hZi := Γ.Z_upper i
+  have hpow : (2 : ℤ) ^ 3 ≤ 2 ^ Γ.c i := pow_le_pow_right₀ (by norm_num) hgt
+  have hlo : 0 < Γ.lo := by
+    unfold lo
+    exact mul_pos (by positivity) Γ.npos
+  have hoff : (2 : ℤ) ^ (Γ.B - Γ.h i) * Γ.q ≤ Γ.lo := by
+    unfold lo
+    have h1 : (2 : ℤ) ^ (Γ.B - Γ.h i) ≤ 2 ^ Γ.B :=
+      pow_le_pow_right₀ (by norm_num) (Nat.sub_le _ _)
+    have h2 : (0 : ℤ) ≤ 2 ^ Γ.B := by positivity
+    linarith [mul_le_mul_of_nonneg_right h1 Γ.hq.le, mul_le_mul_of_nonneg_left hqL h2]
+  have hF : Γ.F i < 7 * Γ.lo := by
+    unfold F
+    linarith
+  have h8 : (8 : ℤ) * Γ.lo ≤ 2 ^ Γ.c i * Γ.Z (i + 1) := by
+    have h2c : (0 : ℤ) ≤ 2 ^ Γ.c i := by positivity
+    linarith [mul_le_mul_of_nonneg_right hpow hlo.le, mul_le_mul_of_nonneg_left hZ h2c]
+  linarith
+
+/-- Chronological heights rise by at most one per odd step when `q ≤ L` and the valuation is
+positive (the first half of C006's (H1)). -/
+theorem h_succ_le (hqL : Γ.q ≤ Γ.n 0) (i : ℕ) (hai : 1 ≤ Γ.a i) : Γ.h (i + 1) ≤ Γ.h i + 1 := by
+  have h1 := Γ.c_le_two hqL i
+  have h2 := Γ.h_le_a_add i
+  unfold c at h1
+  omega
+
+/-- Every height between `0` and an attained height is attained (C006 (H1)): with `q ≤ L` and
+positive valuations, reaching height `h_j` from `h_0 = 0` visits all heights `0, …, h_j`. -/
+theorem exists_height_eq (hqL : Γ.q ≤ Γ.n 0) (hapos : ∀ i, 1 ≤ Γ.a i) {j b : ℕ}
+    (hb : b ≤ Γ.h j) : ∃ i, i ≤ j ∧ Γ.h i = b :=
+  exists_eq_of_step_le Γ.h Γ.h_zero (fun i => Γ.h_succ_le hqL i (hapos i)) hb
 
 end OddCycle
 

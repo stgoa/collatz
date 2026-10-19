@@ -3,6 +3,19 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 22 — 2026-10-19, 02:52 -03
+
+- Woken by the sidekick's push `1ebd3ac`: **C007-a verified** (STATE
+  "Insights"). Main unchanged at `dddbe33`.
+- **C006-a part 1 verified** in `CycleSpectrum.lean` (sha256 `341ee1d8…e729`,
+  2773 lines, 170 theorems: 128 with the three standard axioms, 14 ×
+  `[propext, Quot.sound]`, 27 × `[propext]`, 1 none; no `sorry`):
+  `run_pow_mul`, `run_dvd`, `run_lower` (the binary-divisibility core of
+  (G1)), `exists_eq_of_step_le`, and on `OddCycle` `c_le_two`, `h_succ_le`,
+  `exists_height_eq` ((H1)'s chronological half). One compile round, no
+  diagnostics. Receipts regenerated. Parts 2–3 (rank-indexed gaps with the
+  seam, the per-run bound, the cyclic pigeonhole, `J ≥ B + 1`) are queued.
+
 ## Iteration 21 — 2026-10-19, 02:45 -03
 
 - Woken by the sidekick's push `aab73dd` and verdict message: **C005-b
