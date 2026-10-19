@@ -105,7 +105,7 @@ The sample is the 616 cycles with `m ≥ 3` for odd `q < 400`, `3 ∤ q`, from s
 - **Alignment holds in 78 of the 196 three-mismatch rotations.** In every aligned case the witness identity of Step 5 (`z = x − (t° + 1)`, with no wrap) holds exactly.
 - **What fails at `q > 1` is the size input.**
   - These cycles have `log₂ L / m ≈ 1.5–1.6`, so all four conditions fail by wide margins, and three-mismatch rotations duly exist. One example is `q = 13`, `m = 5`, `L = 287`, `h = 2`, which is aligned (order 1).
-  - The same holds for main's C013 §3 distance-three family of rational cycles, where `log₂ q ≈ 0.447m`.
+  - The same holds for main's C013 §3 distance-three family of rational cycles. *[Corrected 13:29: an earlier version wrote `log₂ q ≈ 0.447m`. That is C013 §5's lower bound; the actual denominators are `den ≈ D`, `log₂ den ≈ 1.55m` (S9).]*
   - The proof uses `q = 1` only through `ℓ = O(log m)` (F4) and `ε ≈ 0`.
 
 ## 5a. Review and a consistency check

@@ -59,6 +59,16 @@ Full note: `sidekick/research/S9/DENOMINATOR_LAW.md`.
 - **Data.** On 3,918 actual `3x+q` cycles the witness bound is nearly sharp: `(1 + t log₂ 3)/log₂ H` reaches 0.97.
 - **Labels.** S5's bound repackaged, not a new inequality. A first draft wrongly claimed `p(n) ≤ (k−1)n + 1` for rotation codings; the correct bound is `kn`, and it was fixed before posting.
 
+**Update 13:29: the Lean lane reviewed S9 and found no hidden `q = 1`. ACK on its two points.**
+
+- **Inventory of where `q` enters.** It enters only through (I1)'s factor `q`, the ceiling's drift, and `L ≤ m q 2^A/(3D)`. The run law, signs, pigeonhole, windows, excess transfer and condition A are `q`-free. Letters `≥ 1` need odd `q`.
+- **ACK (b): the drift caveat is intrinsic.**
+  - The general ceiling is `log₂(n_k/L) ≤ k log₂(3/2) − X_k + min(δ(w), k·log₂(1 + q/(3L)))`. So the laws hold without the caveat when `L > 2.2q`, with the `s = 2` constant reduced to `0.2075 − log₂(1 + q/(3L))`.
+  - Cycles living at scale `q` can have linear drift (narrow words, for example). The laws describe the `L ≫ q` regime by nature. The note's §3 now says this, rather than promising a partial-drift bound.
+- **CORRECTION (c), originally the Lean lane's.** Main's `0.447m` on the C013 §3 family is a lower bound; the family's actual denominators are `den ≈ D`.
+  - The S5 entry and the S5 and S7 notes had called (I1) "sharp in the exponent" there. All three are amended with markers.
+  - S9 §4's "different normalisations" is replaced by this reconciliation.
+
 ```sh
 python3 sidekick/probes/s9_denominator_law.py   # ~30 s
 ```
@@ -335,7 +345,7 @@ Full note: `sidekick/research/S5/MISMATCH_HEIGHT.md`. The shape is main's C013 (
   - `z ≠ 0` for every `h ≢ 0 (mod m)`, whatever `gcd(h, m)` is.
   - The height ceiling, sharpened to `B ≤ 0.585(m−1) + 1` at `q = 1`, `L > 2^71`.
   - The §0 rank-two observation, and the §4 reading.
-- **Consistency check** (the lane's). On main's C013 §3 distance-three family, the same chain at general `q` gives `log₂ q ≳ 0.447m`, that family's own growth rate. So (I1) is sharp in the exponent there; only the `gap_all` constants are lost.
+- **Consistency check** (the lane's). On main's C013 §3 distance-three family, the same chain at general `q` gives `log₂ q ≳ 0.447m`, that family's own growth rate. So (I1) is sharp in the exponent there; only the `gap_all` constants are lost. *[Corrected 13:29: `0.447m` is C013 §5's lower bound, not the family's actual growth. Its actual denominators are `den ≈ D` (`log₂ den ≈ 1.55m`, S9 probe), so neither bound is sharp there. The correction came from the Lean lane's own retraction.]*
 - **Next.** The lane is formalising S5-a in integer form: `∃ t, m ≤ s(t+1) ∧ 6·3^t < 2^(B+1+c) m^(μ+1)`, under the explicit gap hypothesis.
 
 **Update 11:40: Lean S5-a is VERIFIED** (`c0cdc48`). §2 is machine-checked as a two-library composition in integer form.

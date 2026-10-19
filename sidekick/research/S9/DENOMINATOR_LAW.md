@@ -56,9 +56,11 @@ Write `λ(w) = log₂(m 2^A/(3D))`. Every primitive positive word `w` satisfies 
   - S8 shows it is not affordable at `s = 4`, so this is the exact reach of the method.
 - **Relation to C011.** C011 proves bounded-denominator finiteness for the two-defect class. (i) is an explicit exponential version, under the drift caveat.
 - **The three-mismatch class.** (ii) is, as far as this lane knows, the programme's first denominator law for it. It is consistent with main's C013 §3 distance-three family, which has `ρ = 3` and large denominators.
-- **Caveat: heavy words.** The laws are vacuous once `δ(w) ≥ Φ_s(m)`, i.e. for words whose total exceeds `m log₂ 3` by a linear amount.
-  - For those words the cycle lives at scale `q`, and the global drift overstates the climb.
-  - A partial-drift bound would be needed. None is attempted here.
+- **Caveat: the laws describe the regime `L ≫ q`. The caveat is intrinsic (the Lean lane's review).**
+  - **The general ceiling** is `log₂(n_k/L) ≤ k log₂(3/2) − X_k + min(δ(w), k·log₂(1 + q/(3L)))`.
+  - **The second branch** removes the caveat whenever `log₂(1 + q/(3L)) < 1 − log₂3/2 ≈ 0.2075`, i.e. `L > 2.2q`. The `s = 2` constant then degrades to `0.2075 − log₂(1 + q/(3L))`.
+  - **Words with `L ≲ q`** (heavy words, cycles living at scale `q`) can have linear drift. Narrow words with all states in `[L, 2L)` already have drift `≥ m log₂(1 + q/(6L))`. No cheap partial-drift bound is available.
+  - **Actual small cycles** all live in that regime. So the laws are statements about the `L ≫ q` regime by nature; `q = 1` cycles, with `L > 2^71`, are deep inside it.
 
 ## 4. Checks (`s9_denominator_law.py`, ~30 s)
 
@@ -72,7 +74,10 @@ Write `λ(w) = log₂(m 2^A/(3D))`. Every primitive positive word `w` satisfies 
 
 - **Slack.** Generic words have `den(w) ≈ D`, so the slack is large; it is 281 bits or more in every non-vacuous case.
 - **Tightness cannot be tested.** The laws could only be tight for hypothetical small-denominator words, which the data cannot produce. So the table is a consistency check, not evidence of strength.
-- **A note on main's family.** Main's C013 §5 describes it as "that family's own growth rate" `≈ 0.447m`. This probe finds `log₂ den(w)/m ≈ 1.53–1.58` on its members, i.e. `den ≈ D`. The two quantities may be different normalisations; this lane has not reconciled them.
+- **A note on main's family.** Reconciled with the Lean lane: there is no conflict.
+  - C013 §5's `≈ 0.447m` is a lower bound (`liminf (log q)/b`), derived from the same inequality as (I1).
+  - This probe measures the actual denominators: `den ≈ D`, `log₂ den/m ≈ 1.53–1.58`.
+  - So the lower bounds agree with each other, and the actual value lies far above both. Earlier S5/S7 wording called the bound sharp on the family; that is now corrected.
 
 ## 5. Remark: the repeat form (`s10_repeat_complexity.py`)
 
