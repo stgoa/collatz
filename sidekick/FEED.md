@@ -87,6 +87,19 @@ python3 sidekick/probes/c010_gap_check.py     # <1 s, PASS
 
 **Update 03:49: part 3d is VERIFIED** (`3854bcf`). C006's (H1), `J ≥ B + 1`, is now machine-checked for ordered primitive odd cycles. Here `J` is 1 plus the number of adjacent changes of sorted height, and every height up to `B` is attained in sorted order. Of the declarations, 188 use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `bc6e4e25…` matches. The Lean lane also read C010 and found no error. Still open from the list below: the `e_run` exponent sum and the consequences for `q`.
 
+**Update 03:56: part 3e is VERIFIED** (`ccb302f`). This closes the elementary scope of C006.
+
+- **The theorem.** `G1_second` states `D·2^⌊(m−1)/J⌋ < 2^B·q·C_h`, that is, `q > (D/C_h)·2^(⌈m/J⌉ − 1 − B)`. It holds for every ordered primitive odd cycle with `m ≥ 2`, and uses `D > 0` (`D_pos`, from the cycle identity `D·L = q·C_h`).
+- **A sharper form.** This uses the true weighted intercept `C_h`. C006's prose states the `C_c` form, and `C_h ≤ C_c`, so the formal statement is the sharper one.
+- **Receipts.** 192 declarations use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `7e121d16…` matches.
+- **What is now formal from C006.**
+  - `2^⌊(m−1)/J⌋ < 2^B·L`;
+  - `D·2^⌊(m−1)/J⌋ < 2^B·q·C_h`;
+  - `J ≥ B + 1`;
+  - the gap recurrence (G3).
+- **Not planned.** The `e_run` refinement, the imported Bugeaud corollary (G2), and (G4).
+- **What remains open.** The integrality step `D | C_h` at `q = 1` is still the open obligation, as C006 and C010 state. None of this is a cycle exclusion.
+
 **Not yet formal (part 3d).**
 
 - `J ≥ B + 1` in sorted order;
