@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 38 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 39 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -17,7 +17,10 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 `CollatzPosDens` library. Files are compiled with
 `lake env lean <file>` from that project directory (`docker cp` the file to
 `/audit/` first). Receipts: build output and `#print axioms` lines in
-`receipts/`, hashes of the `.lean` sources alongside.
+`receipts/`, hashes of the `.lean` sources alongside. Since iteration 39,
+`CycleSpectrum.build.txt` names the source sha256, the toolchain and the build
+time, and `CycleSpectrum.axioms.txt` is headed by the source sha256, so each
+receipt binds to the file it certifies.
 
 ## Queue
 
@@ -43,6 +46,7 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | C005-b | The `q = 1`, `H < 8L` theorem on actual odd cycles: the structure `OddCycle m` (numerators `n_i`, exponents `a_i`, heights `h_i` with `2^{h_i} L ≤ n_i < 2^{h_i+1} L`, bound `B`), scaled normalised states `Z_i = 2^{B−h_i} n_i`, images `F_i = 3Z_i + 2^{B−h_i} q`, exponents `c_i = a_i + h_{i+1} − h_i`; (1) `2^{c_i} Z_{i+1} = F_i`, distinctness of the `Z_i`, (2) in scaled form, exclusion of equal images in a primitive cycle, the three-band order at `q = 1` (`B ≤ 2`), the `NarrowCycle` instance, `Σc = Σa`; **`three_band`**: for `q = 1`, heights at most 2 (`H < 8L`), `m ≥ 2` and distinct numerators, `c_i = q' + ⌊(i+1)h'/m⌋ − ⌊ih'/m⌋` with `gcd(h', m) = 1`, `Σ a_i = mq' + h'`, `gcd(Σ a_i, m) = 1`; the denominator corollary `q_ne_one_of_not_coprime` | same, §§1–2 | **verified** (iteration 20): `CycleSpectrum.lean`, `exists_height`, `height_le_two`, `pow_mul_eq_of_odd`, `eq_of_pow_mul_eq_in_window`, `LeanLane.Cyc.OddCycle.{c_arrow, Z_inj, F_sub_of_le, Z_eq_of_F_eq, F_lt_of_Z_lt, order_of_three_band, toNarrow, sum_c, three_band, q_ne_one_of_not_coprime}` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 158 theorems printed) |
 | C007-a | Main's C007 `HEIGHT_DENOMINATOR.md` §§2–3: the modular lemma (2) in integer form `2^{P_i} Z_i ≡ 3^i Z_0 (mod q)` (`P_i = Σ_{j<i} c_j`; the height profile does not appear), the coprimality statements (`3 ∤ q ⇒ 3 ∤ n_i`; a divisor of `q` coprime to 2 that divides one numerator divides all, so a reduced cycle has numerators coprime to `q`), and the min–top inequality (3): in an ordered cycle `q(2^{h_j} − 1) < 3(n_j − 2^{h_j} n_0)` for every state above the minimum | `experiments/cycle_spectrum/C007/HEIGHT_DENOMINATOR.md` §§2–3 | **verified** (iteration 21): `CycleSpectrum.lean`, `LeanLane.Cyc.OddCycle.{P, residue_law, three_not_dvd, dvd_succ_of_dvd, dvd_all_of_dvd, min_top}`; the candidate `B ≤ q − 1` itself is open and not a Lean target | `[propext, Classical.choice, Quot.sound]` (`three_not_dvd` needs only `[propext, Quot.sound]`) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 163 theorems printed) |
 | C005-c | The rotation-block theorem of C005 `ORDER_THEORY.md` §2: the ratio bound `H/L ≤ R³ < 8` and its gcd bookkeeping. **Verified** (iteration 35), abstractly over `ℚ` and lists: `affine_ratio` (the prefix comparison `g(X)/R ≤ g(x) ≤ R g(X)` for `g(x) = αx + β`, `α > 0`, `β ≥ 0`, `X/R ≤ x ≤ RX`), `block_preserves` (`x ↦ sx + (1−s)X` preserves `[l,h]`), `fixed_point_mem` (the fixed point of an affine map with slope `< 1` preserving `[l,h]` lies in `[l,h]`), `blockComp` (the composition of `r` block maps) with `blockComp_mem`, `blockComp_affine` (slope `s^r`), **`cycle_point_mem`** (the closing point of a mixed cycle lies in `[l,h]`), **`state_bound`** (every mixed-cycle state lies in `[l²/h, h²/l] = [l/R, Rh]`, cleared form), **`ratio_bound`** (`y₁ l³ ≤ y₂ h³`, i.e. `H/L ≤ R³`); and the bookkeeping `flatten_rotations_length/sum` (`m = r m_0`, `A = r A_0`), **`gcd_flatten_rotations`** (`gcd(A, m) = r` for coprime base totals), `gcd_rep_of_flatten` (`w = z^p ⇒ gcd(Σz, ∣z∣)·p = r`), `blocks_eq_of_flatten_rep`, **`blocks_identical`** (coprime `z` totals, the three-band output, force `p = r`, `∣z∣ = m_0` and every block `= z`). Not formalised: the identification of the actual rational states with prefix maps of the blocks (`α = 3^j/2^{P_j}`, `β = C_j/2^{P_j}`), `R < 2` for the base (available as `C_mech_lt_two`), the three-band input (`three_band`), and R71's `g = 1` for the base denominator | `experiments/cycle_spectrum/C005/ORDER_THEORY.md` §2 | **verified** (abstract core) | `[propext, Classical.choice, Quot.sound]` (the list lemmas need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 304 theorems printed) |
+| C005-d | R71 §1 / C004: the integer `3x+q` cycle of a positive word at its reduced parameter. **Verified** (iteration 39, compiled first try): `heightOf`/`heightOf_spec` (heights chosen from `exists_height`), `gcdCD` (`g = gcd(C_w, D_w)`) with `gcdCD_pos`, `gcdCD_dvd_C/D`, `gcdCD_dvd_rotate` (`g` divides every rotated intercept), `quot_pos`, `quotD_pos`, `quot_odd` (`C_{(i)}/g` is a positive odd integer), **`quot_arrow`** (`2^{a_i} (C_{(i+1)}/g) = 3 (C_{(i)}/g) + D_w/g`), the constructor **`ofWord`** (`w ≠ []`, positive letters, `D_w > 0`, `C_w` minimal among rotations ⇒ an `OddCycle w.length` with `n_i = C_{(i)}/g`, `a_i` the `i`-th letter, `q = D_w/g`), and its interface `ofWord_n/a/q`, `gcdCD_mul_ofWord_n` (`g n_i = C_{(i)}`), `gcdCD_mul_ofWord_q` (`g q = D_w`), **`ofWord_coprime`** (`gcd(q, n_0) = 1`: the cycle is reduced), `ofWord_primitive` (distinct rotated intercepts ⇒ primitive) and **`ofWord_word`** (its chronological word is `w`). This is the bridge from words to `OddCycle`s used by C004/C005/R71 ("multiplication by `d` gives an integer `S_d` cycle") | `experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md` §1, `C004/ROTATION_LATTICE.md` | **verified** | `[propext, Classical.choice, Quot.sound]` (two helpers subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 347 theorems printed; receipts now name the source sha256 and toolchain) |
 | R71-a | R71's exact denominator for mechanical words (`experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md` §2, primitive case) — the last step of C004's narrow-cycle corollary and of C005's rotation-block theorem. **Verified** (iteration 36): `gcd_rotate_eq` (`gcd(C_{(i)}, D)` is rotation invariant for words with positive total), `mech_jump_unique`/`exists_unique_mech_jump` (exactly one `j < m` with `m ∣ jA + 1` when `gcd(A,m) = 1`), **`C_mech_one_sub_zero`** (R71's (4): `B_1 − B_0 = 3^{m−1−j} 2^{⌊jA/m⌋}`), **`mech_gcd_one`** (`m ≥ 2`, `A ≥ m`, `gcd(A,m) = 1` ⇒ `gcd(C (mech A m 0), D (mech A m 0)) = 1`, i.e. the reduced denominator is exactly `D = 2^A − 3^m`), `mech_gcd_one_phase` (the same for every phase `l < m`), `three_pow_mod_eight`, **`mech_D_ne_one`** (`2^A − 3^m ≠ 1` for `m ≥ 2`, `A ≥ m`: no primitive mechanical word with `m ≥ 2` is an integer cycle; the modulo-`8` exclusion). Not formalised: the repeated case `gcd(A, m) > 1` (reduction to the primitive parameters) and the `k/6` lower bound of §3 | `experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md` §2 | **verified** (primitive case) | `[propext, Classical.choice, Quot.sound]` (helpers subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 312 theorems printed) |
 | C004-c | C004's integer corollary (`ROTATION_LATTICE.md` §3 with R71). **Verified** (iteration 37), in a reopened `OddCycle` namespace: `word` (the chronological valuation word `(List.range m).map a`), `word_length/sum`, `word_prefix`, `C_word` (`C word = Cpre m`), `D_word`, `word_ne_nil`, **`C_word_rotate`**/`C_word_rotate'` (at `q = 1`, `C (word.rotate i) = D · n_i` for every `i`, by propagating the cycle identity along `C_rotate_succ`), and **`narrow_integer_cycle`**: for a primitive `OddCycle` with `q = 1` and `B = 0` (every state below `2 n_0`, i.e. `H < 2L`), `m = 1 ∧ n_0 = 1` — the fixed point `1`. Proof: `m ≥ 2` is impossible (`is_mech_of_narrow` gives a mechanical phase word with coprime totals, `mech_gcd_one_phase` gives `gcd(C, D) = 1`, the cycle identity gives `D ∣ C`, so `D = 1`, against `mech_D_ne_one`; `A ≥ m` from `D > 0`); for `m = 1`, `(2^A − 3) n_0 = 1` forces `n_0 = 1` (the sidekick's two notes). Not formalised: passing from an arbitrary nontrivial cycle to its primitive period (the `H > 2L` form) | `experiments/cycle_spectrum/C004/ROTATION_LATTICE.md` §3 | **verified** | `[propext, Classical.choice, Quot.sound]` (helpers subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 321 theorems printed) |
 | C004-d | C004 §3's sentence as stated: "every nontrivial integer Collatz cycle has `H > 2L`". **Verified** (iteration 38): `succ_eq_of_eq` (determinism: equal states have equal successors and valuations, by `pow_mul_eq_of_odd`), `shift_eq_of_eq`, `all_one_of_min_one` (`n_0 = 1 ⇒` every state `1`), `exists_least_period` (the least return time `p` of the minimum), `nper_of_return`, `n_add_mul_of_return`, **`distinct_on_least_period`** (the states are pairwise distinct on the least period), `returnCycle` (the `OddCycle p` on that period with `B = 0` under `n_i < 2 n_0`), and **`H_gt_two_L`**: for any `OddCycle` with `q = 1` and `n_0 ≠ 1` there is a state `n_i > 2 n_0` (`H_gt_two_L'`: with "some state `≠ 1`" instead). The parity remark (`n_i` odd, `2 n_0` even) turns `≥` into `>`. No primitivity hypothesis remains | `experiments/cycle_spectrum/C004/ROTATION_LATTICE.md` §3 | **verified** (compiled first try) | `[propext, Classical.choice, Quot.sound]` (helpers subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 330 theorems printed) |
@@ -985,7 +989,38 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   narrow cycles (`H < 2L`): the conclusion is that no such nontrivial cycle
   exists, equivalently `H > 2L` for every nontrivial cycle.
 
+- C005-d: R71 §1 states, for a positive word: "every `B_i` is odd … `D` is odd
+  and prime to `3`. Thus (1) [`3B_i + D = 2^{a_i} B_{i+1}`] proves the exact
+  valuation `a_i`; the numbers `B_i/D` form a genuine positive odd rational
+  Syracuse cycle; `gcd(B_i, D)` is independent of `i`; the common reduced
+  denominator is `d = D/gcd(B, D)`, coprime to `6`; multiplication by `d`
+  gives an integer `S_d` cycle". `ofWord` is that integer cycle as an
+  `OddCycle`: states `n_i = C_{(i)}/g` (`g = gcdCD w`), positive (`quot_pos`)
+  and odd (`quot_odd`, from `C_odd` and `g ∣ C_{(i)}`, `gcdCD_dvd_rotate` =
+  the rotation invariance), parameter `q = D_w/g > 0` (`quotD_pos`), exact
+  arrows `quot_arrow` (R71's (1) divided by `g`), periodicity from
+  `List.rotate_mod`, the minimum at index `0` by the hypothesis `hmin` (the
+  word is rotated to its minimal intercept first, C004's convention), heights
+  from `exists_height` via `heightOf` with `B` the `Finset.sup` over one
+  period, and `ofWord_coprime` is "`d` is the reduced denominator" in the form
+  `gcd(q, n_0) = 1` (`Int.gcd_div_gcd_div_gcd`). `ofWord_word` identifies the
+  cycle's chronological word (C004-c's `word`) with `w`, so C004-c/d and the
+  three-band theorem apply to the cycle of a word, and `ofWord_primitive`
+  transfers distinctness of the rotated intercepts. Not formalised: that `q`
+  is coprime to `6` (it divides `D_w`; immediate from
+  `isCoprime_two_D`/`isCoprime_three_D` but not stated) and R71's remark that
+  the reduced denominator of a rational is `S_1`-invariant.
+
 ## Insights sent to the feed
+
+- Iteration 39 (sidekick `f066193`/`f33e7ea`; main unchanged at `1c5c19d`):
+  the side lane verified C004-d (feed update 06:07 inside the C004-c milestone
+  entry; all nine new names printed without `sorryAx`; agrees with the
+  calibration) and made a receipt-hygiene note: `CycleSpectrum.build.txt` was
+  the same string every time and so did not bind to a file version. Adopted
+  this iteration: `build.txt` now names the source sha256, the toolchain and
+  the build time, and `axioms.txt` is headed by the source sha256. Nothing new
+  from main. Sent after the build: the C005-d report.
 
 - Iteration 38 (sidekick `b76d101`; main unchanged at `1c5c19d`): the side
   lane verified C004-c as a standalone milestone (feed 05:58; independent

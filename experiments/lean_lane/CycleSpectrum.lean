@@ -4689,6 +4689,167 @@ theorem H_gt_two_L' (hq : Γ.q = 1) (hnt : ∃ i, Γ.n i ≠ 1) : ∃ i, 2 * Γ.
 
 end OddCycle
 
+/-! ### C005-d: the integer cycle of a positive word at its reduced parameter
+
+R71 §1 and C004: for a positive word `w` with `D_w > 0`, the rotated intercepts `C_{(i)}` are odd,
+`g = gcd(C_w, D_w)` divides all of them and `D_w`, and `n_i = C_{(i)}/g` is a positive odd
+integer cycle of the `3x + q` map at the reduced parameter `q = D_w/g`:
+`2^{a_i} n_{i+1} = 3 n_i + q` with `a_i` the `i`-th letter ("multiplication by `d` gives an
+integer `S_d` cycle"). Packaged as an `OddCycle` for a word starting at its minimal rotated
+intercept, with heights chosen from `exists_height`; its chronological word is `w` again and
+`gcd(q, n_0) = 1`. -/
+
+namespace OddCycle
+
+/-- The height of a state `x ≥ L` relative to `L > 0` (and `0` below `L`). -/
+noncomputable def heightOf (L : ℤ) (hL : 0 < L) (x : ℤ) : ℕ :=
+  if hx : L ≤ x then Classical.choose (exists_height hL hx) else 0
+
+theorem heightOf_spec (L : ℤ) (hL : 0 < L) {x : ℤ} (hx : L ≤ x) :
+    2 ^ heightOf L hL x * L ≤ x ∧ x < 2 ^ (heightOf L hL x + 1) * L := by
+  unfold heightOf
+  rw [dite_eq_left hx]
+  exact Classical.choose_spec (exists_height hL hx)
+
+/-- `g = gcd(C_w, D_w)` as an integer. -/
+def gcdCD (w : List ℕ) : ℤ := ((Int.gcd (C w) (D w) : ℕ) : ℤ)
+
+theorem gcdCD_pos (w : List ℕ) (hw0 : w ≠ []) : 0 < gcdCD w := by
+  unfold gcdCD
+  have := Int.gcd_pos_of_ne_zero_left (D w) (C_pos hw0).ne'
+  exact_mod_cast this
+
+theorem gcdCD_dvd_C (w : List ℕ) : gcdCD w ∣ C w := Int.gcd_dvd_left _ _
+
+theorem gcdCD_dvd_D (w : List ℕ) : gcdCD w ∣ D w := Int.gcd_dvd_right _ _
+
+theorem gcdCD_dvd_rotate (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) (i : ℕ) :
+    gcdCD w ∣ C (w.rotate i) :=
+  dvd_C_rotate_of_dvd hw0 (gcd_isCoprime_two (one_le_sum_of_ne_nil hw0 hpos))
+    (gcdCD_dvd_C w) (gcdCD_dvd_D w) i
+
+theorem quot_pos (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) (i : ℕ) :
+    0 < C (w.rotate i) / gcdCD w := by
+  have hg := gcdCD_pos w hw0
+  have hC := C_pos (NarrowCycle.rotate_ne_nil hw0 i)
+  have hmul := Int.mul_ediv_cancel' (gcdCD_dvd_rotate w hw0 hpos i)
+  by_contra hle
+  rw [not_lt] at hle
+  have := mul_nonneg hg.le (neg_nonneg.mpr hle)
+  linarith
+
+theorem quotD_pos (w : List ℕ) (hw0 : w ≠ []) (hD : 0 < D w) : 0 < D w / gcdCD w := by
+  have hg := gcdCD_pos w hw0
+  have hmul := Int.mul_ediv_cancel' (gcdCD_dvd_D w)
+  by_contra hle
+  rw [not_lt] at hle
+  have := mul_nonneg hg.le (neg_nonneg.mpr hle)
+  linarith
+
+theorem quot_odd (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) (i : ℕ) :
+    Odd (C (w.rotate i) / gcdCD w) := by
+  have hodd : Odd (C (w.rotate i)) :=
+    C_odd (NarrowCycle.rotate_ne_nil hw0 i) (fun x hx => hpos x (List.mem_rotate.mp hx))
+  rw [← Int.mul_ediv_cancel' (gcdCD_dvd_rotate w hw0 hpos i)] at hodd
+  exact (Int.odd_mul.mp hodd).2
+
+/-- The exact arrows of the reduced integer cycle: `2^{a_i} n_{i+1} = 3 n_i + q`. -/
+theorem quot_arrow (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) (i : ℕ) :
+    (2 : ℤ) ^ (w.rotate i).headD 0 * (C (w.rotate (i + 1)) / gcdCD w)
+      = 3 * (C (w.rotate i) / gcdCD w) + D w / gcdCD w := by
+  obtain ⟨x, v, hxv⟩ := List.exists_cons_of_ne_nil (NarrowCycle.rotate_ne_nil hw0 i)
+  have hhead : (w.rotate i).headD 0 = x := by rw [hxv, List.headD_cons]
+  have hrec := C_rotate_succ hxv
+  have hg := gcdCD_pos w hw0
+  have h1 := Int.mul_ediv_cancel' (gcdCD_dvd_rotate w hw0 hpos i)
+  have h2 := Int.mul_ediv_cancel' (gcdCD_dvd_rotate w hw0 hpos (i + 1))
+  have h3 := Int.mul_ediv_cancel' (gcdCD_dvd_D w)
+  rw [hhead]
+  apply mul_left_cancel₀ hg.ne'
+  linear_combination 2 ^ x * h2 - 3 * h1 - h3 + hrec
+
+/-- **The integer cycle of a positive word at its reduced parameter.** For `w ≠ []` with
+positive letters, `D_w > 0` and `C_w` minimal among the rotated intercepts: states
+`n_i = C(w.rotate i)/g`, letters `a_i` = the first letter of `w.rotate i`, parameter
+`q = D_w/g`, heights from `exists_height`. -/
+noncomputable def ofWord (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) (hD : 0 < D w)
+    (hmin : ∀ i, C w ≤ C (w.rotate i)) : OddCycle w.length :=
+  let L : ℤ := C (w.rotate 0) / gcdCD w
+  have hL : 0 < L := quot_pos w hw0 hpos 0
+  have hle : ∀ i, L ≤ C (w.rotate i) / gcdCD w := fun i =>
+    Int.ediv_le_ediv (gcdCD_pos w hw0) (by rw [List.rotate_zero]; exact hmin i)
+  { n := fun i => C (w.rotate i) / gcdCD w
+    a := fun i => (w.rotate i).headD 0
+    h := fun i => heightOf L hL (C (w.rotate i) / gcdCD w)
+    q := D w / gcdCD w
+    B := (Finset.range w.length).sup fun i => heightOf L hL (C (w.rotate i) / gcdCD w)
+    hm := List.length_pos_of_ne_nil hw0
+    hq := quotD_pos w hw0 hD
+    nper := fun i => by
+      show C (w.rotate (i + w.length)) / gcdCD w = C (w.rotate i) / gcdCD w
+      rw [← List.rotate_mod w (i + w.length), Nat.add_mod_right, List.rotate_mod]
+    nodd := quot_odd w hw0 hpos
+    nmin := hle
+    npos := hL
+    arrow := quot_arrow w hw0 hpos
+    hlo := fun i => (heightOf_spec L hL (hle i)).1
+    hhi := fun i => (heightOf_spec L hL (hle i)).2
+    hB := fun i => by
+      show heightOf L hL (C (w.rotate i) / gcdCD w)
+        ≤ (Finset.range w.length).sup fun j => heightOf L hL (C (w.rotate j) / gcdCD w)
+      have hper : C (w.rotate i) = C (w.rotate (i % w.length)) := by rw [List.rotate_mod]
+      rw [hper]
+      exact Finset.le_sup (f := fun j => heightOf L hL (C (w.rotate j) / gcdCD w))
+        (Finset.mem_range.mpr (Nat.mod_lt _ (List.length_pos_of_ne_nil hw0))) }
+
+section ofWordInterface
+
+variable (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) (hD : 0 < D w)
+  (hmin : ∀ i, C w ≤ C (w.rotate i))
+
+theorem ofWord_n (i : ℕ) : (ofWord w hw0 hpos hD hmin).n i = C (w.rotate i) / gcdCD w := rfl
+
+theorem ofWord_a (i : ℕ) : (ofWord w hw0 hpos hD hmin).a i = (w.rotate i).headD 0 := rfl
+
+theorem ofWord_q : (ofWord w hw0 hpos hD hmin).q = D w / gcdCD w := rfl
+
+/-- `g · n_i = C_{(i)}`. -/
+theorem gcdCD_mul_ofWord_n (i : ℕ) :
+    gcdCD w * (ofWord w hw0 hpos hD hmin).n i = C (w.rotate i) :=
+  Int.mul_ediv_cancel' (gcdCD_dvd_rotate w hw0 hpos i)
+
+/-- `g · q = D_w`. -/
+theorem gcdCD_mul_ofWord_q : gcdCD w * (ofWord w hw0 hpos hD hmin).q = D w :=
+  Int.mul_ediv_cancel' (gcdCD_dvd_D w)
+
+/-- The cycle is reduced: `gcd(q, n_0) = 1`. -/
+theorem ofWord_coprime : IsCoprime (ofWord w hw0 hpos hD hmin).q ((ofWord w hw0 hpos hD hmin).n 0) := by
+  rw [Int.isCoprime_iff_gcd_eq_one]
+  show Int.gcd (D w / gcdCD w) (C (w.rotate 0) / gcdCD w) = 1
+  rw [List.rotate_zero, Int.gcd_comm]
+  exact Int.gcd_div_gcd_div_gcd (Int.gcd_pos_of_ne_zero_left _ (C_pos hw0).ne')
+
+/-- Distinct rotated intercepts give a primitive cycle. -/
+theorem ofWord_primitive
+    (hdist : ∀ i j, i < w.length → j < w.length → C (w.rotate i) = C (w.rotate j) → i = j) :
+    ∀ i j, i < w.length → j < w.length →
+      (ofWord w hw0 hpos hD hmin).n i = (ofWord w hw0 hpos hD hmin).n j → i = j := by
+  intro i j hi hj hij
+  apply hdist i j hi hj
+  rw [← gcdCD_mul_ofWord_n w hw0 hpos hD hmin i, ← gcdCD_mul_ofWord_n w hw0 hpos hD hmin j, hij]
+
+/-- The chronological word of the reduced cycle is `w` itself. -/
+theorem ofWord_word : (ofWord w hw0 hpos hD hmin).word = w := by
+  apply List.ext_getElem
+  · simp [word]
+  · intro i h1 h2
+    simp only [word, List.getElem_map, List.getElem_range]
+    exact NarrowCycle.headD_rotate w h2
+
+end ofWordInterface
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

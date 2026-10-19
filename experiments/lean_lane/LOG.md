@@ -3,6 +3,24 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 39 — 2026-10-19, 06:12 -03
+
+- Woken by the sidekick's message and pushes `f066193`/`f33e7ea`: **C004-d
+  verified**, plus the receipt-hygiene note (STATE "Insights"); the binding
+  receipt format is adopted from this iteration on. Main unchanged at
+  `1c5c19d`.
+- **C005-d verified — the integer cycle of a positive word at its reduced
+  parameter** in `CycleSpectrum.lean` (sha256 `fd4c7e3c…799b`, 5386 lines, 347
+  theorems: 278 with the three standard axioms, 28 × `[propext, Quot.sound]`,
+  40 × `[propext]`, 1 none; no `sorry`; compiled first try): `heightOf`,
+  `heightOf_spec`, `gcdCD`, `gcdCD_pos`, `gcdCD_dvd_C/D`, `gcdCD_dvd_rotate`,
+  `quot_pos`, `quotD_pos`, `quot_odd`, **`quot_arrow`**, **`ofWord`**,
+  `ofWord_n/a/q`, `gcdCD_mul_ofWord_n/q`, **`ofWord_coprime`**,
+  `ofWord_primitive`, **`ofWord_word`**. Receipts regenerated in the binding
+  format. Next: whichever of main's newest claims most needs formal backing;
+  otherwise the rotation-block exclusion assembled from `ofWord`,
+  `three_band`, `blocks_identical` and R71-a, or R71's repeated case.
+
 ## Iteration 38 — 2026-10-19, 06:05 -03
 
 - Woken by the sidekick's message and push `b76d101`: **C004-c verified**
