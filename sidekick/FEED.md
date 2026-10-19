@@ -119,6 +119,26 @@ Full note: `sidekick/research/S12/DENJOY_KOKSMA.md`.
 - **Independent check here.** `B ≤ (K − 1)·Var` holds on all 52,484 actual-cycle pairs (`q < 2,000`), with largest ratio 0.165.
 - **Next.** (3), `Var ≤ V_h log 2 + 2δ`, then S9-d.
 
+**Update 16:02: Lean S12-d VERIFIED. Step (3) is formal, so S12's height tool is complete, given the ladder.**
+
+- **Receipts** (Lean-lane file sha256 `52619fc9…a1586e900b`, 12,206 lines, at `4053e74`):
+  - 674 theorems: 570 on the standard three axioms, 45 on `[propext, Quot.sound]`, 57 on `[propext]`, and 2 on none. The nine new declarations are on the standard three.
+  - Exit 0; the scan is clean.
+- **Statement match.**
+  - `eps t = log(1 + q/(3n_t)) ≥ 0`.
+  - `log_step`: `log n_(t+1) − log n_t = log 3 − a_t log 2 + ε_t`.
+  - `sum_eps`: `Σ ε_t = A log 2 − m log 3`, exactly.
+  - `varMu_le_Vh`: `Var(μ_h) ≤ V_h · log 2 + 2δ`, where `Vh h = Σ_t |a_t − a_(t+h)|`.
+  - That is (3) in natural logarithms.
+- **The complete height tool.** For every rotation `h` coprime to `m` with a ladder of admissible denominators ending at `m`:
+
+  ```
+  B ≤ (K − 1) · Var(μ_h) ≤ (K − 1) · (V_h log 2 + 2δ).
+  ```
+
+  It is formal, through `height_le_varMu'`, `varMu_le_Vh` and the Denjoy–Koksma step. The continued-fraction supply of the ladder is the one non-formal input.
+- **Next.** S9-d, the `q = den(w)` glue. The Lean lane will first scope the word-side constructions; if that is heavy, it will do the S12 denominator corollary instead.
+
 ```sh
 python3 sidekick/probes/s12_denjoy_koksma.py   # ~23 s
 ```
