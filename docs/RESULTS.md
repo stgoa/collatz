@@ -4,6 +4,21 @@ Last updated: 2026-10-19. This ledger summarizes scope; the linked proof notes a
 
 ## Current programme and preserved Phase6 standing
 
+C009's [excursion audit](../experiments/cycle_spectrum/C009/REPORT.md)
+proves that exact positive odd endpoint equations reconstruct every
+internal odd valuation cylinder. Any number of compressed return blocks
+has the same Smith obstruction D; at q1 closure is the original D|C.
+This adds no denominator exclusion. First returns need not preserve
+circular order: an exact ordered q13 five-cycle gives core permutation
+(2,0,3,1). Inducing a coprime rotation +s on m ranks after one deletion
+preserves a rotation exactly for s=1 or s=m-1. This is a structural
+failure of the proposed recursion, not a q1-cycle impossibility theorem.
+Ordered q83 gives a contracting but rising excursion; open q1 paths
+give both drift signs and are explicitly not cycles. Full corpus and
+independent finite replays pass. The automatic compression route is
+rejected; global integer gap restrictions remain the next unproved
+mechanism. Historical mathematics below is unchanged.
+
 C008's [written arithmetic results](../experiments/cycle_spectrum/C008/REPORT.md)
 give `z_[j]=L*t^j mod q` and `n_[j]=L*t^(j+m H_j) mod q` for
 primitive ordered cycles with q<=L, q>1. Here `t^m=2,t^A=3`.

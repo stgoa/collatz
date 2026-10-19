@@ -1,0 +1,112 @@
+{
+  "baseline_commit": "93117c0989c6bee557c601f0667589cd4985b0ab",
+  "batch_file_sha256": {
+    "experiments/cycle_spectrum/C009/ARITHMETIC_REVIEW.md": "15f22f1555bc52aed9f8a823f7aad514482e0c3eaacbcde4298cda15733e63cf",
+    "experiments/cycle_spectrum/C009/CHECKER_REVIEW.md": "c75be9522803b5c34439ab0e441e51c915048722c890f1256708b83e89655588",
+    "experiments/cycle_spectrum/C009/EXCURSION_ARITHMETIC.md": "7d4a0f7413dea67be2f3fd6e6643ace2ccb8b2decee6dc17f2b77f10b27eabcd",
+    "experiments/cycle_spectrum/C009/FIRST_RETURN_ORDER.md": "10a7f10d396a8631c197f3203af498467d92551ad35f4e9ded63c7c621d354fa",
+    "experiments/cycle_spectrum/C009/INDEPENDENT_EXCURSION.md": "b37655989a8f43a17ced1632a404fd34dfdb8d6d5dcadaa0d6533df1e3be58ac",
+    "experiments/cycle_spectrum/C009/LITERATURE.md": "ee6fd4f8331dc4be62660754858a81397de43f70410312bc53ea38af5db4b1ed",
+    "experiments/cycle_spectrum/C009/REPORT.md": "38822b111c34666c98904abb367f81928847f5f9cda11a1c0644d3f158d8883f",
+    "experiments/cycle_spectrum/C009/ROOT_REVIEW.md": "33b36f7711a7993703e42b668a4b59c4739d0ce05c31e5259174ab2c025c1e40",
+    "experiments/cycle_spectrum/C009/SIDE_REVIEW.md": "81e7b8d88aee686f6da9b08b59cd2d734ebb752c03ad70553604b01601febbd4",
+    "experiments/cycle_spectrum/C009/check_delivery.py": "004bd9075c2a712f223bf4ee72e8efcb1c5fcab44824e62d9b022e8cae5e10b2",
+    "experiments/cycle_spectrum/C009/check_excursions.py": "a7631d433cd5952d8a27de3eb41addb8d01784da410064fb9e479d5cff3e17cb",
+    "experiments/cycle_spectrum/C009/check_return_order.py": "58b016702d0292a5294027dd75139b36dad171fc2e314971ae07a46fb2a59355",
+    "experiments/cycle_spectrum/C009/excursions_audit.json": "414c04dd9042d378674659f2ddf824a6228756f230ebe28fb2282795425f19e1",
+    "experiments/cycle_spectrum/C009/historical_gate.json": "10a42beae3aec02a370ce90f6b5d2a8d2c307261646116868211b95d77fd6c2d",
+    "experiments/cycle_spectrum/C009/return_order_audit.json": "ab4672a38fa2dc688d34ced57d3af0148eab1b821267eb44ed013b016eba5d34"
+  },
+  "frozen_commit": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "goal_status": "All-cycle objective active; ordered q1 exclusion remains open and is intermediate.",
+  "historical_gate": {
+    "command": "python3 scripts/verify_all.py --cpp --transfer-controls",
+    "field_count": 119,
+    "independent_cpp": "PASS: 4096 and 262144",
+    "phase6_transfer_controls": "PASS: eleven exact raw cycles, eight nonprincipal controls, four fixed-d controls, fourteen d1 samples and fail-closed checks; setup label none",
+    "status": "PASS"
+  },
+  "markdown_checks": {
+    "checked_local_links": 625,
+    "errors": [],
+    "files": 17
+  },
+  "preservation": {
+    "C001_C008_files_unchanged": 96,
+    "R1_onward_byte_identical": true,
+    "frozen_files_byte_identical": [
+      "collatz_research_20261017/right_aligned_reduction.tex",
+      "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md",
+      "experiments/residual_progress/resolved_rules/resolved_rules.py"
+    ],
+    "git_diff_check": "PASS"
+  },
+  "saved_receipt_coverage": {
+    "deletion": {
+      "checked_arrows": 6250510,
+      "exact_rows_sha256": "9264139dd9832fac202db676d865bc81cd5508ffbaba3002d375e5675a385399",
+      "interior_nonrotations": 98912,
+      "maximum_m": 80,
+      "nearest_neighbor_rotations": 6476,
+      "permutations": 105388
+    },
+    "endpoints": {
+      "exact_arrows": 76464,
+      "lifts_per_word_parameter": 3,
+      "parameters": [
+        1,
+        5,
+        7,
+        13
+      ],
+      "positive_odd_endpoint_pairs": 16368,
+      "scope": "Open positive paths constructed from endpoint congruences, not new cycles.",
+      "valuation_alphabet": [
+        1,
+        4
+      ],
+      "word_lengths": [
+        1,
+        5
+      ]
+    },
+    "first_returns": 2593,
+    "normalized_cycles": 1185,
+    "ordered_cycles": 52,
+    "prefix_cylinders": 28831,
+    "source_cycles": 2459,
+    "source_parameters": 333
+  },
+  "scope": "Preservation and consistency of saved evidence; no fresh mathematical or formal replay.",
+  "side_reports": {
+    "lean_state_commit": "c8f3d2e80b7cd5e1513219036bf74d1d41aebf0c",
+    "reviewed_commits": [
+      "215759608ee8197a9a0862b0dfc9c41b07410359",
+      "960b3b9825cc86a0a2ffb4a1e9f77732122b22f2"
+    ],
+    "scope": "Reported formal builds only; no independent kernel replay in main."
+  },
+  "source_reviews": {
+    "pinned_sha256": {
+      "EXCURSION_ARITHMETIC.md": "7d4a0f7413dea67be2f3fd6e6643ace2ccb8b2decee6dc17f2b77f10b27eabcd",
+      "FIRST_RETURN_ORDER.md": "10a7f10d396a8631c197f3203af498467d92551ad35f4e9ded63c7c621d354fa",
+      "INDEPENDENT_EXCURSION.md": "b37655989a8f43a17ced1632a404fd34dfdb8d6d5dcadaa0d6533df1e3be58ac",
+      "check_excursions.py": "a7631d433cd5952d8a27de3eb41addb8d01784da410064fb9e479d5cff3e17cb",
+      "check_return_order.py": "58b016702d0292a5294027dd75139b36dad171fc2e314971ae07a46fb2a59355",
+      "excursions_audit.json": "414c04dd9042d378674659f2ddf824a6228756f230ebe28fb2282795425f19e1",
+      "return_order_audit.json": "ab4672a38fa2dc688d34ced57d3af0148eab1b821267eb44ed013b016eba5d34"
+    },
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "top_document_sha256": {
+    "AGENTS.md": "78a496d3ab2392de32779799711c3c6768cffeb7149e258c9cb63608a9ba196d",
+    "README.md": "46de8c801feb855c6fd69de0efa19e09d559f882ef5a316f0c2f77fc965aa6ec",
+    "VIEWPOINT_MAP.md": "1d6942d70c15b5e107adf94b064a7d4a65caa16676b2ae736677bed8ca0f345e",
+    "docs/CYCLE_SPECTRUM_BRIEF.md": "e75b0d64b86fd3f0bc8b32f4401e8475ac961eba8369b99378fb5f109c3d382e",
+    "docs/CYCLE_SPECTRUM_LOG.md": "da680509f5c58baf017cbddfb5886cf329a09278464a92835620dbbff4efa0b3",
+    "docs/RESEARCH_LOG.md": "0ac8f83f5168970963edfc9c95c4c7c3a6359eb8f3df5f7d30892a7302a2176a",
+    "docs/RESULTS.md": "612f60066bc78eb3a8a7ced4ad8236caa00fa79de018e1b049ffeb46df7e4bcd",
+    "docs/VIEWPOINT_LOG.md": "95925432022812c8e744dfa7d36db208497ef928d3ef6d0f3f213c5eb9702001"
+  }
+}

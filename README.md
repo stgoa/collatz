@@ -4,11 +4,25 @@ This repository is the persistent record of the Collatz programme: definitions, 
 
 ## Current programme: cycle denominators across 3x+d
 
-**Current standing (2026-10-19): C008 identifies a geometric progression
+**Current standing (2026-10-19): C009 rejects the proposed automatic
+excursion compression. Exact cuts recover the original integer cycle
+condition; actual ordered cycles can lose circular order after a first
+return, and excursions can rise even with contracting slope. The
+ordered integer-cycle target and full cycle exclusion remain open.**
+
+[C009's report](experiments/cycle_spectrum/C009/REPORT.md) records the
+proofs and exact controls, with all 1,185 stored normalized cycles
+replayed. A one-point deletion theorem explains the loss of order at
+all periods under its hypotheses. The next bounded mechanism will test
+global rounding inequalities on the full integer gap system, retaining
+the dyadic seam and odd-state constraints. No such new inequality is
+claimed yet.
+
+C008 identifies a geometric progression
 of normalized residues in sorted rank and an all-period denominator
 restriction: ordered reduced cycles with q<=L cannot have 35, 65 or 91
 dividing q. This follows from C005's coprime totals and does not exclude
-denominator1. Full height-residue matching remains open.**
+denominator1. Full height-residue matching remains open.
 
 [C008](experiments/cycle_spectrum/C008/REPORT.md) also gives small-band
 matching theorems for q>1 and exact counterexamples to projecting the
@@ -111,6 +125,11 @@ remaining gap. No argument places all possible integer cycles in that
 ordered class. This is an intermediate target under the unchanged headline.
 Each batch must produce a theorem or exact obstruction and actual-cycle
 tests; the [cycle log](docs/CYCLE_SPECTRUM_LOG.md) records the work.
+Completing that intermediate target would, by C005, force every
+nontrivial integer cycle to have H>8L, while also excluding ordered
+cycles at unrestricted height ratios. This is a proposed consequence,
+not a theorem established by C009 or a novelty claim. Order remains a
+working hypothesis; the next global integer-gap test must justify it.
 The separate Lean lane reports C003's effective algebra, both directions
 of C004's narrow/mechanical classification and C005's q1 three-band
 structural theorem on actual odd cycles. Main has not independently

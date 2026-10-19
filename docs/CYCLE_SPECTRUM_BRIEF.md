@@ -7,7 +7,15 @@ work. It is not the current completion requirement.
 
 ## Headline
 
-The latest [C008 probe](../experiments/cycle_spectrum/C008/REPORT.md)
+The latest [C009 probe](../experiments/cycle_spectrum/C009/REPORT.md)
+rejects automatic recursion through excursions. Exact compression adds
+no independent congruence, circular order can fail under first return,
+and excursion slopes do not determine drift. The next bounded test
+will seek global integer rounding inequalities in the full sorted-gap
+system, with all oddness and seam constraints. The original headline
+and the all-height ordered q1 milestone remain unresolved.
+
+[C008's probe](../experiments/cycle_spectrum/C008/REPORT.md)
 gives an exact sorted-residue progression and a denominator-factor
 restriction within the ordered domain. Full-q height matching remains
 open; exact cycles refute the stronger primewise matching shortcut.

@@ -1,5 +1,33 @@
 # Cycle spectrum programme log
 
+## C009 — Exact excursion obstruction and a mechanism pivot, 2026-10-19
+
+The [batch](../experiments/cycle_spectrum/C009/REPORT.md) tests the
+proposed first-return compression using true affine intercepts and full
+closure. Prefix divisibility proves that odd integer endpoints already
+force every internal exact valuation. The compressed block matrix has
+the same Smith obstruction D, so the algebra returns D|C at q1.
+
+Automatic geometry and descent fail on actual controls. Ordered q13
+loses circular order on its four-state core, and ordered q83 has a
+contracting positive-height excursion that rises. The finite-rotation
+one-point-deletion theorem explains the first failure uniformly in m.
+Open q1 paths realize both drift signs without being closed cycles.
+
+All 1,185 normalized cycles give 2,593 first returns and 28,831 prefix
+cylinder checks; all11 fixtures and scaling distinctions survive.
+Among the52 ordered cases,12 lose induced order. Of60 positive
+excursions,12 rise and2 of those have contracting slope. Separate
+reconstruction and deletion checks cover16,368 endpoint pairs and
+105,388 finite permutations. Proofs and independent replays are scoped
+separately from formal verification and novelty.
+
+The batch reaches its stated pivot criterion. Stop automatic excursion
+recursion; test global integer rounding in the full gap system next.
+No new inequality, q1 exclusion or numerical record is claimed.
+Fetch and side review at2157596 retain reported Lean progress without
+main kernel replay. The original all-cycle goal stays active.
+
 ## C008 — Exact rank residues and failed primewise matching, 2026-10-19
 
 [C008](../experiments/cycle_spectrum/C008/REPORT.md) proves the sorted

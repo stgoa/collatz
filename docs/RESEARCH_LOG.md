@@ -1,5 +1,21 @@
 # Research log
 
+## 2026-10-19 — C009: reject automatic excursion recursion
+
+[C009](../experiments/cycle_spectrum/C009/REPORT.md) proves exact
+endpoint reconstruction and records why compressed closure adds no
+new congruence. Actual ordered q13 and q83 controls refute inherited
+first-return circular order and slope-based descent. A general
+one-point deletion theorem explains the order loss. Open q1 paths
+remain distinct from cycles. The original cycle target is unresolved.
+
+The bounded mechanism is retired as an automatic recursion. The next
+test will retain the full integer gap system and seek a new rounding
+inequality rather than another cut of the same closure equation.
+Full actual-cycle controls, independent proof/code reviews and the
+historical gate are recorded in the batch. Side pin2157596 adds only
+reported formal results; no external formal premise was imported.
+
 ## 2026-10-19 — C008: distinguish full denominators from prime projections
 
 The [batch](../experiments/cycle_spectrum/C008/REPORT.md) records exact

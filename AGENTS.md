@@ -168,6 +168,21 @@ assuming regularity of an actual bad set.
   C005's q1 three-band structural statement, not cycle exclusion; main
   has not independently replayed it. Preserve written/finite/formal scope.
 
+- C009's exact positive odd endpoint compression reconstructs all
+  internal exact valuation cylinders; retain the extra modulus bit
+  and true weighted intercept. Closed blocks have the same Smith
+  obstruction D, so pure cut elimination gives only the original D|C
+  at q1. It does not rule out an additional global integer inequality.
+- Height-zero first return need not retain circular order: q13's
+  five-cycle gives core permutation(2,0,3,1). For a coprime rotation
+  +s modm with one rank deleted, order survives exactly for s=1 or
+  s=m-1. This theorem does not assert actual cycles at every period.
+  Positive excursions can rise with contracting slope (ordered q83).
+  Open q1 paths with both drift signs are not cycle counterexamples.
+  Do not revive automatic order-preserving or descending excursion
+  recursion without new hypotheses. The next bounded test is global
+  integer rounding in the full sorted-gap system, not a band ladder.
+
 - Read `README.md`, the cycle brief, `docs/CYCLE_SPECTRUM_LOG.md`, the latest C-series report and relevant sources. `VIEWPOINT_MAP.md`, `docs/VIEWPOINT_LOG.md` and `ROUTE_MAP.md` preserve prior obligations and comparisons without restricting the active cycle programme.
 - Use bounded parallel investigations to test the selected mechanism. Do not substitute another language survey or dispatcher expansion for the cycle goal.
 - Every candidate records seven fields: objects, structural gain, translated unresolved gap, worked example, known-cycle controls, cheapest meaningful next test, and a genuinely intermediate milestone. Reject a milestone that is only an equivalent formulation of all of Collatz.
