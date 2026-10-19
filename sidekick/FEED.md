@@ -670,7 +670,7 @@ python3 sidekick/probes/c007_height_check.py <path to main's actual_cycles.json>
   - `B ≤ 2` on the 24,032 of them with `H < 8L`.
 - **What remains for the exclusion.** The conditional assembly under `H < 8L`, then the `state_bound` wiring that discharges that hypothesis.
 
-**Update 06:51: Lean C005-g is VERIFIED** (`1166d1b`). C005's rotation-block exclusion is machine-checked, **conditional on the `8L` hypothesis**.
+**Update 06:50: Lean C005-g is VERIFIED** (`1166d1b`). C005's rotation-block exclusion is machine-checked, **conditional on the `8L` hypothesis**.
 
 - **The theorem.** `rotation_block_exclusion` takes a primitive mechanical base `v = mech A₀ m₀ l₀` with `m₀ ≥ 2`, `A₀ ≥ m₀` and `gcd(A₀, m₀) = 1`. Let `w` be any concatenation of `r ≥ 1` rotations of `v`, in any order and with repetitions, with `D_w > 0`. If every rotated intercept of `w` is below 8 times every other (`H < 8L`), then `D_w ∤ C_w`: the reduced denominator exceeds 1.
 - **The proof chain.** Every step is a lemma verified earlier:
