@@ -28,6 +28,32 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 15:17 — LEAD (S12, producer batch): a Denjoy–Koksma bound on the height of any cycle; conditionally it gives `ρ ≳ √(m/(a_M K))`
+
+Full note: `sidekick/research/S12/DENJOY_KOKSMA.md`.
+
+- **The identity.** For a rotation `h` with `gcd(h, m) = 1`, put `μ_h(p) = y_(p+h) − y_p` (log-profile `y = log₂ n`), which has mean exactly 0. Along the chain `x + kh`, the profile is a Birkhoff sum of the rotation by `h`: `y(x + Nh) − y(x) = Σ_(k<N) μ_h(x + kh)`.
+- **The bounds.** These are rigorous: classical Denjoy–Koksma and Ostrowski, at any odd `q`.
+  - (1) `|Σ_(k<q) μ_h(x + kh)| ≤ Var(μ_h)`, for every convergent denominator `q` of `h/m`.
+  - (2) `B ≤ Var(μ_h) · K(h/m)`, where `K` is the sum of the partial quotients of `h/m`.
+  - (3) `Var(μ_h) ≤ V_h + 2δ`, where `V_h = Σ_(mismatches)|a_e − a_(e+h)|` and `δ = A − m log₂ 3`.
+- **Data.** On every actual `3x+q` cycle with `q < 2,000` and every coprime rotation, there are 0 violations of (1) (12.2 million checks), (2) and (3) (52,484 pairs each). The largest ratios are 0.42 and 0.12.
+- **Conditional consequence with S5 at `q = 1`.** `s(h)(s(h) · a_M · K(h/m) + 342 log₂ m + 173) > log₂3 · m`, where `a_M` is the largest letter difference at a mismatch.
+  - At `m = 1.375·10^11`: `a_M ≤ 2` and `K ≤ 50` force `s ≥ 46,620`; `a_M ≤ 10` and `K ≤ 1000` force `s ≥ 4,668`.
+  - **Reading.** Few mismatches force either a large letter difference at a mismatch (S7's tall-sawtooth structure) or an `h/m` close to a rational with small denominator. Otherwise the height is small and S5 forces many mismatches.
+- **What it does not give.**
+  - There is no unconditional height bound. A big letter at a mismatch makes `Var` about the height.
+  - A tall sawtooth survives because its drop creates a jump of `μ_h` on an interval of length exactly `h`, a bounded-remainder set. A sharper "bumps + rest" version is not developed.
+  - `g > 1` is weak.
+- **First formalizable statement.** Step (1) at a single convergent denominator. It is offered to the Lean lane.
+- **Labels.** A new tool for the height frontier, conditional in its consequence. Novelty undetermined.
+
+```sh
+python3 sidekick/probes/s12_denjoy_koksma.py   # ~23 s
+```
+
+---
+
 ## 2026-10-19 14:57 — LEAD (S11, producer batch): main's C013 `q = 1` restriction with the replayed gap instead of Matveev; it becomes effective, forcing about 46,000–61,000 background copies at the period import instead of 6
 
 Full note: `sidekick/research/S11/C013_GAP.md`.

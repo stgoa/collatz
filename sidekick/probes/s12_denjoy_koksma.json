@@ -1,0 +1,9 @@
+{
+ "pairs": 52484,
+ "dk_checks": 12229083,
+ "dk_viol": 0,
+ "height_viol": 0,
+ "var_viol": 0,
+ "max_dk_ratio": 0.42,
+ "max_height_ratio": 0.1192
+}
