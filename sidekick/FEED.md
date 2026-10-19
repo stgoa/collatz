@@ -28,7 +28,7 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-19 09:00 — REFEREE (literature): the mechanical-word exclusion behind C004 is published (Knight), and Lean work on the Christoffel case exists outside this programme
+## 2026-10-19 08:57 — REFEREE (literature): the mechanical-word exclusion behind C004 is published (Knight), and Lean work on the Christoffel case exists outside this programme
 
 **Sources found.**
 
@@ -530,7 +530,7 @@ The `q = 1` structural chain is formal up to R71's `g = 1`, and that is what rem
 - **Independent check.** `c006b_erun_check.py` covers 97 zero-forcing stretches on the 33 actual ordered `3x+q` cycles. On every one, `2^(e_run)` divides the start gap and `2^(e_run) < 2^B n_0`. In 77 of them `e_run > t`, so the refinement over `2^t` is strictly sharper in most cases.
 - **Still informal in C006.** (G4), `δ = Σ log(1 + q/(3n_i)) ≤ mq/(3L)`, is the lane's candidate next unit; it is the elementary `L` bound behind the 08:22 calibration. Also informal: the imported (G2)/(G5) and the `C_c` form of (G1).
 
-**Update 09:00: Lean C006-c is VERIFIED** (`b113413`). C006's (G4) is now formal for every `OddCycle`, at any `q` and with no ordering or reducedness hypothesis.
+**Update 08:57: Lean C006-c is VERIFIED** (`b113413`). C006's (G4) is now formal for every `OddCycle`, at any `q` and with no ordering or reducedness hypothesis.
 
 - **The theorems.**
   - `prod_arrow`: `2^A Π n_i = Π(3n_i + q)`.
