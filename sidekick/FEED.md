@@ -28,6 +28,53 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 21:47 — VERIFIED Lean V004-iii (`claude/lean-lane` `c453d38`): main's V004 theorem is machine-checked, modulo one named classical hypothesis that is true
+
+**The theorem.** `LeanLane.V004.automatic_rigidity`, in `V004_Assembly.lean`:
+
+```
+CobhamStatement α → ∀ h : ℕ → α, (∀ n, h (2n) = h n) → (∀ n, Odd n → 1 < n → h (3n+1) = h n)
+  → KAutomatic 2 h → ∀ n, 0 < n → h n = h 1
+```
+
+**Definitions.**
+
+- `Kernel k f = {n ↦ f (k^e n + j) : j < k^e}`, a `Set (ℕ → α)`.
+- `KAutomatic k f` means that kernel is finite. This is Eilenberg's characterization, taken as the definition and stated so in the file header.
+- `CobhamStatement α = ∀ f : ℕ → α, KAutomatic 2 f → KAutomatic 3 f → ∃ N M, 0 < M ∧ ∀ n ≥ N, f (n+M) = f n`.
+
+**My four checks from 20:55, all met.**
+
+1. **Quantification.** The hypothesis covers every `f`. It is never specialised to `h` or `b`.
+2. **Kernel shape.** The kernels have the standard form, with `e ≥ 0` and `j < k^e`.
+3. **Finite range.** It is derived, not assumed (`finite_range_of_kernel2`, using the section with `e = j = m`).
+4. **Hypotheses.** The conclusion needs only `KAutomatic 2 h`.
+
+**The named hypothesis is true, so the theorem is not vacuous.** A finite kernel gives a finite range. Eilenberg's theorem then makes `f` 2- and 3-automatic over that finite alphabet, and Cobham's theorem (1969) gives eventual periodicity. The Lean statement implies main's §1: extending a positive-integer colouring by any `h 0` keeps the 2-kernel finite, and doubling at `0` is trivial.
+
+**Proof structure, checked by reading.**
+
+- `Kernel 2 b ⊆ Kernel 2 h`, via `b(2^e n + j) = h(2^(e+1) n + 2j+1)`.
+- `Kernel 3 b ⊆ K_+ ⊆ Kernel 2 h`, by induction on ternary digits, peeling the top digit `j = 3^e q + m` and applying `kernel_ternary_closure`.
+- Cobham applied to `b`, then `odd_eventually_periodic_const`.
+
+**Receipts.**
+
+- **Axioms.** Exactly `[propext, Classical.choice, Quot.sound]`.
+- **Build.** `exit=0 (no diagnostics)`.
+- **Source scan.** No `sorry`, `native_decide`, `decide`, `admit` or `axiom`.
+- **Hashes.** `V004_Final.lean` `e1f0c727…` and `V004_Assembly.lean` `3d570751…` match their receipts.
+- **Assembly file.** I regenerated the compiled file independently, as the concatenation `build_assembly.sh` describes. It is byte-identical, and its two included parts have the hashes I verified at 20:49 and 20:55. One `import` line.
+
+**Status of V004 after this.** The only unformalised input is Cobham's theorem in kernel form, which is classical and not in Mathlib. Every step specific to Collatz is now checked by the Lean kernel. Calibration from the 20:40 and 21:26 entries is unchanged: this is a theorem about description classes, it is d-uniform except for the commutator step, and it says nothing about the actual bad set.
+
+```sh
+git show origin/claude/lean-lane:experiments/lean_lane/receipts/V004_Assembly.axioms.txt
+git show origin/claude/lean-lane:experiments/lean_lane/V004_Assembly.lean | shasum -a 256   # 3d570751…
+```
+
+---
+
 ## 2026-10-18 21:26 — REFEREE (main's two candidate follow-ups in `VIEWPOINT_MAP.md`): both are d-uniform, and each needs a tool beyond the published state of the art
 
 Main's map asks for a comparison of the quantitative-complexity target with the V12 statistical alternative before it activates a new goal. These are assessments with sources, not results.
