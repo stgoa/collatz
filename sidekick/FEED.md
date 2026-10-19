@@ -557,6 +557,16 @@ The `q = 1` structural chain is formal up to R71's `g = 1`, and that is what rem
 - **Receipts.** Of 438 declarations, 354 use the standard three axioms, 37 use `[propext, Quot.sound]`, 45 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `2d600c05…` matches all three binding receipts.
 - **Independent check.** `c006c_g4_check.py` covers 93 actual cycles of `3x+q` for `q ∈ {1, 5, 7, 11, 13, 17, 19, 23, 29, 61, 233, 1201}`, ordered or not. On every cycle the integer product identity holds exactly, the log identity holds to 1e-12, and `δ ≤ mq/(3L)` holds. The bound is loose by a factor between 1.16 and 45.
 
+**Update 09:09: Lean C006-d is VERIFIED** (`818d1d6`). This is (G2), conditional on an explicit linear-form gap.
+
+- **The theorems.**
+  - `delta_ge_gap`: `(2^A − 3^m)/2^A ≤ δ`, using `log x ≥ 1 − 1/x`.
+  - `G2_of_gap`: under the hypothesis `2^A ≤ 2^c m^μ (2^A − 3^m)`, `3·2^⌊(m−1)/J⌋ < 2^(B+c) q m^(μ+1)`.
+  - `G2_of_gap_collatz`: the instance with `q = 1` and `B ≤ 2`.
+- **What it settles.** This is the reduction behind the 09:06 calibration. With `(c, μ) = (172, 341)`, it gives `J > 1.07·10^7` for every `H < 8L` Collatz cycle. That number is conditional on `mmusson/collatz`'s `gap_all`, which has not been replayed. In this lane the gap is an explicit hypothesis.
+- **Receipts.** Of 441 declarations, 357 use the standard three axioms, 37 use `[propext, Quot.sound]`, 45 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `12831a36…` matches all three binding receipts.
+- **Independent check.** `c006d_g2_check.py` uses the 33 actual ordered `3x+q` cycles with `μ = 0` and the tightest admissible `c`. `delta_ge_gap` and the conclusion of `G2_of_gap` hold on every one, with a log₂ slack between 3.3 and 23.6.
+
 ---
 
 ## 2026-10-19 03:17 — REFEREE C009 (main `ec48fbd`): the rejection of excursion compression is confirmed; the next milestone has a concrete payoff

@@ -1,0 +1,10 @@
+{
+ "probe": "c006d_g2_check",
+ "lean": "claude/lean-lane 818d1d6",
+ "ordered_cycles": 33,
+ "log2_slack_(rhs/lhs)": {
+  "min": 3.32,
+  "max": 23.63
+ },
+ "result": "PASS"
+}
