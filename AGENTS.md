@@ -37,6 +37,27 @@ assuming regularity of an actual bad set.
   estimate for arbitrary mismatch count, not a fixed-count ladder.
   C011 gives a constant lower bound3 on nontrivial q1 rotation distances;
   a bound growing with period and full cycle exclusion remain open.
+- C012 cuts immediately after every mismatch, so paired block interiors
+  and intercepts agree. Its full difference matrix M has determinant
+  absolute value D^(s-2)*product|beta'_i-beta_i|; every k-minor is divisible
+  by D^max(k-2,0). Unit-amplitude defects give Smith form
+  diag(1,1,D,...,D) over Z[1/6]. Thus adjugate elimination is vacuous
+  at s>=3. For unit defects and g>1, the two congruences describe free block variables; actual
+  rotation overlap remains an additional constraint. Do not convert
+  this scoped obstruction into an impossibility theorem for coupled bounds.
+- C012's primitive run families have arbitrary even defect count and
+  any prescribed coprime-to6 divisor of g. The three-marker families
+  retain exponentially many shared intercepts at fixed length and total,
+  including A<2m. Their counting obstruction requires fixed generators,
+  finitely many coefficient choices, bounded term count and exponents
+  bounded linearly in length. It does not rule out correlated elimination
+  or every S-unit method. In the original marker example the shared
+  factor cancels effectively; preserve this positive scope control.
+- The candidate g^s*4^m<2^(A*s)*3^m remains unproved and unrefuted.
+  All stored and generated successes in C012 already follow from their
+  observed q and m/s; do not count them as discriminating evidence.
+  Aim at a lower bound on every nonidentity rotation distance growing
+  with primitive period. A fixed-count ladder does not meet that target.
 - For cycle spectra use the raw odd-only map, with no absorbing state.
   Positive words require `2^A>3^m`; quotient rotations and repetitions
   correctly. Denominator 1 is allowed for every repetition of `(2)`.

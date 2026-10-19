@@ -1,0 +1,124 @@
+{
+  "baseline_commit": "b896512077a4be31ef3d9fcdcf833d1a59cd1b89",
+  "batch_file_sha256": {
+    "COUPLED_OBSTRUCTIONS.md": "c9bfcf8fec24a56084a6e93230fdededec621ebc882cf422e570dd29a65ce9f3",
+    "COUPLED_SYSTEM.md": "c71362d09e2480971fd473f902f47387d2c31a482852d3f6d964d6d9ad9c46c2",
+    "EXACT_REVIEW.md": "eaf2fb6bf8758d357c9095688c90ab6c40c958fab3d5ff63689e16697c396cd0",
+    "INDEPENDENT_CHECKER_REVIEW.md": "c9e643c7333ee01684f1562127a6286df3e02ef892a9c217ec466f17962d8e47",
+    "INDEPENDENT_THEORY_REVIEW.md": "a49e2cec26cef86561cb37494ac31fe42b1dd29737ce1dfb2ffa2edd3f2f12bb",
+    "LITERATURE.md": "cc31b96e32f4f4502e4a6a0b1fcd9ce26aec6ea0c2d5851f5c58cc0486c137b3",
+    "REPORT.md": "2abcd0f9ae47bb5a3c330a7df43dc7b8b8bbac03ec7a2f2591264023331baf3f",
+    "ROOT_REVIEW.md": "60aa2c320374a4eb10a5a472a5fee6e322f1b3f58dacc5639bdd5c9b1687d08d",
+    "SIDE_REVIEW.md": "e4034f007996e2289ea75b1cd8213042913a53077e1a3e3f82feb80fa81c2bbf",
+    "check_coupled_system.py": "bb0b9c27fc6ef0b116e302a369b33552f54c2a7efa4d94d4b44be8b9ea5e356c",
+    "check_delivery.py": "980c5b4885d3ce21f5daa528cd54e47150929ea2cce7edb62669f86e95a87054",
+    "check_shared_arcs.py": "a861866031610455a5179edce78685bddbc72a55993f5c1e86097dd768506a9c",
+    "coupled_system_audit.json": "033f8f950498c208c7e446e3c46f467d3894adb752c43bba61200b60aee107fc",
+    "historical_gate.json": "10a42beae3aec02a370ce90f6b5d2a8d2c307261646116868211b95d77fd6c2d",
+    "shared_arc_audit.json": "7e165c6da40336f5702315a671770325d3f5caf0e2af8494a43080eabb8cf61f"
+  },
+  "frozen_commit": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "goal_status": "All-cycle goal active; growing mismatch target remains open.",
+  "historical_gate": {
+    "fields": 119,
+    "status": "PASS"
+  },
+  "independent_reviews": {
+    "COUPLED_OBSTRUCTIONS.md": [
+      "EXACT_REVIEW.md",
+      "ROOT_REVIEW.md"
+    ],
+    "COUPLED_SYSTEM.md": [
+      "EXACT_REVIEW.md",
+      "INDEPENDENT_THEORY_REVIEW.md",
+      "ROOT_REVIEW.md"
+    ],
+    "check_coupled_system.py": [
+      "EXACT_REVIEW.md",
+      "INDEPENDENT_CHECKER_REVIEW.md"
+    ],
+    "check_shared_arcs.py": [
+      "INDEPENDENT_THEORY_REVIEW.md"
+    ],
+    "coupled_system_audit.json": [
+      "EXACT_REVIEW.md",
+      "INDEPENDENT_CHECKER_REVIEW.md"
+    ],
+    "shared_arc_audit.json": [
+      "INDEPENDENT_THEORY_REVIEW.md"
+    ]
+  },
+  "markdown_checks": {
+    "checked_local_links": 643,
+    "errors": [],
+    "files": 17
+  },
+  "preservation": {
+    "C001_C011_files_unchanged": 147,
+    "R1_onward_byte_identical": true,
+    "frozen_files_byte_identical": [
+      "collatz_research_20261017/right_aligned_reduction.tex",
+      "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md",
+      "experiments/residual_progress/resolved_rules/resolved_rules.py"
+    ],
+    "git_diff_check": "PASS"
+  },
+  "reviewed_pins": {
+    "COUPLED_OBSTRUCTIONS.md": "c9bfcf8fec24a56084a6e93230fdededec621ebc882cf422e570dd29a65ce9f3",
+    "COUPLED_SYSTEM.md": "c71362d09e2480971fd473f902f47387d2c31a482852d3f6d964d6d9ad9c46c2",
+    "check_coupled_system.py": "bb0b9c27fc6ef0b116e302a369b33552f54c2a7efa4d94d4b44be8b9ea5e356c",
+    "check_shared_arcs.py": "a861866031610455a5179edce78685bddbc72a55993f5c1e86097dd768506a9c",
+    "coupled_system_audit.json": "033f8f950498c208c7e446e3c46f467d3894adb752c43bba61200b60aee107fc",
+    "shared_arc_audit.json": "7e165c6da40336f5702315a671770325d3f5caf0e2af8494a43080eabb8cf61f"
+  },
+  "reviewed_side_commit": "f01ac0e24c42353dedaf67b7bfd73548cdd015e4",
+  "saved_coverage": {
+    "actual": {
+      "all_cut_identities": 1938204,
+      "candidate_passes": 27646,
+      "candidate_passes_already_implied_by_q": 27646,
+      "coupled_equations": 969102,
+      "independent_determinants": 28,
+      "independent_minors": 552,
+      "matrix_entries": 52686990,
+      "nonfixed_cycles": 1177,
+      "normalized_arrows": 28831,
+      "normalized_cycles": 1185,
+      "raw_arrows": 36912,
+      "repetition_limit_could_fail": 0,
+      "rotations": 27646,
+      "scaled_instances": 1275
+    },
+    "generated": {
+      "candidate_passes_already_implied_by_q": 2887,
+      "candidate_rotations": 2887,
+      "independent_determinants": 25,
+      "independent_minors": 603,
+      "prime_power_local_profiles": 5,
+      "prime_power_three_minors": 6704,
+      "primitive_family_words": 25,
+      "raw_arrows": 2948,
+      "repeated_word_controls": 12,
+      "zero_rotations_kept_separate": 24
+    },
+    "shared": {
+      "admissible_total_backgrounds": 3582,
+      "backgrounds": 350,
+      "prime_set_cases": 7,
+      "raw_arrows": 177288,
+      "rotations": 173349
+    }
+  },
+  "scope": "Saved consistency, review pins and preservation; not a mathematical or formal replay.",
+  "status": "PASS",
+  "top_document_sha256": {
+    "AGENTS.md": "4a4ea3704e20a7658b4f71898ced385bd6c8a05bf636099ee6c71bb7192149ac",
+    "README.md": "f82d394654626a4c601bab0de43450900c7ce04df77e9a24de4b841da31c49ce",
+    "VIEWPOINT_MAP.md": "85a666cc83b1c4eb2f1f501744dac6173aa6304f1a74f5acf915e76285eea062",
+    "docs/CYCLE_SPECTRUM_BRIEF.md": "b0a705fe1747450eb98d03b8e3ef72689909fef793a26147cde4406b56fc2a46",
+    "docs/CYCLE_SPECTRUM_LOG.md": "a4d44eb6e15037310695bd097fc23a6aae11c9d716e653d23822c69dee85b95a",
+    "docs/RESEARCH_LOG.md": "6b7b7d1f91fc267949636adb716daa842a13a9162570a2d0bbf14f38ced8ff5c",
+    "docs/RESULTS.md": "390c8af2f032f3c77d72bdac6ecfa6e7083a20de1ea205d2ff4e2e020ca0ce88",
+    "docs/VIEWPOINT_LOG.md": "8e55a7f97445d70cedee5a221790efb5b13057c752f92e90da683a7aaebad014"
+  }
+}

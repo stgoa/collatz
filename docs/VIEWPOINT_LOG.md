@@ -1,5 +1,29 @@
 # Viewpoint exploration log
 
+## C012 — Keep overlap; reject two generalization shortcuts, 2026-10-19
+
+[C012](../experiments/cycle_spectrum/C012/REPORT.md) supplies all-s
+matrix and minor theorems, sharply realized on primitive actual cycles.
+The resulting adjugate elimination loses the required denominator gain.
+Three mismatches can retain exponentially many legal shared backgrounds;
+the counting obstruction also applies within A<2m. Treating their
+intercepts as fixed arithmetic coefficients is unjustified. Correlations
+between repeated backgrounds can still yield cancellation identities.
+
+The high-level recommendation remains a structural restriction growing
+with period for every hypothetical integer cycle. Use actual overlap
+in the next bounded probe, then reassess. Candidate successes on all
+stored cycles are nondiscriminating. There is no new q1 exclusion,
+language-superiority claim or replacement goal.
+
+Fetch succeeded; DIRECTIONS and FEED were reviewed at
+`f01ac0e24c42353dedaf67b7bfd73548cdd015e4`. DIRECTIONS is unchanged
+from the C011 pin. The new reported Lean C006 part3e keeps the true
+weighted intercept and completes its declared elementary scope.
+Main performed no independent kernel replay. D1/D2/D5/D7 retain their
+scopes; D3 blanket transfer remains rejected, D4 deferred, D6/D8
+historical. See [SIDE_REVIEW](../experiments/cycle_spectrum/C012/SIDE_REVIEW.md).
+
 ## C011 — A structural exclusion, with the generalization tested, 2026-10-19
 
 [C011](../experiments/cycle_spectrum/C011/REPORT.md) completes the

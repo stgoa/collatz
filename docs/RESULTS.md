@@ -4,6 +4,23 @@ Last updated: 2026-10-19. This ledger summarizes scope; the linked proof notes a
 
 ## Current programme and preserved Phase6 standing
 
+C012's [coupled-system theorem](../experiments/cycle_spectrum/C012/REPORT.md)
+gives |det M|=D^(s-2)*product|beta'_i-beta_i| for all mismatch cuts;
+every k-minor is divisible by D^max(k-2,0). At primes of D not dividing
+any beta difference, the local Smith form is diag(1,1,D,...,D).
+Unit defects meet that condition at every prime of D. Primitive actual
+run families realize it at arbitrary even s and with arbitrarily large
+prescribed divisors of g. This rejects adjugate elimination, not the
+open relative denominator bound or all use of rotation compatibility.
+
+Three unique markers retain exponentially many shared backgrounds at
+fixed length and total, also within A<2m. They preclude a fixed number
+of terms with fixed coefficient choices/generators and linearly bounded
+exponents from representing all shared intercepts. Correlated identities
+can still remove a common background factor. All stored candidate
+successes are nondiscriminating. No new q1 exclusion or record gain;
+the growing-mismatch and full-cycle objectives remain open.
+
 C011's [rotation-defect theorem](../experiments/cycle_spectrum/C011/REPORT.md)
 proves `g | (2^k-1)gcd(C_u,C_v)` for the two complementary original
 arcs of a two-mismatch rotation. The intercept's unused terminal

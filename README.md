@@ -4,7 +4,31 @@ This repository is the persistent record of the Collatz programme: definitions, 
 
 ## Current programme: cycle denominators across 3x+d
 
-**Current standing (2026-10-19): C011 excludes every positive cycle word
+**Current standing (2026-10-19): C012 rejects two proposed ways to
+extend the rotation bound. The growing-complexity milestone and the
+full cycle goal remain open.**
+
+[C012](experiments/cycle_spectrum/C012/REPORT.md) derives the complete
+matrix for an arbitrary number of mismatches. Its determinant and
+larger minors carry forced powers of the original denominator; for
+unit mismatches and g>1, the free-block system has exactly two surviving
+congruences modulo g. The proposed adjugate elimination therefore adds no bound.
+Three mismatches can also retain exponentially many shared backgrounds,
+including totals in the hypothetical integer-cycle range. This rejects
+a particular compression into finitely many arithmetic terms, while
+leaving methods that use correlations between the shared pieces open.
+
+The recommended intermediate objective is an explicit lower bound,
+growing with period, on the distance of every hypothetical nontrivial
+integer cycle from each nonidentity rotation. C011 gives only the
+constant bound3. The next estimate must exploit actual overlap within
+the word. All stored cycles pass the candidate inequality, but those
+passes already follow from their observed parameters and provide no
+discriminating support. Fable's reported Lean work strengthens checks
+of established interfaces; main has not independently replayed its
+latest build. See C012 for proof, finite-check and review scopes.
+
+**Previous positive result: C011 excludes denominator one for every positive cycle word
 that differs from some nonidentity rotation in exactly two positions.
 No period, height or mismatch-amplitude bound is required. The full
 cycle goal remains open.**

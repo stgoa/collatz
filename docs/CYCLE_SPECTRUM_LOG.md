@@ -1,5 +1,27 @@
 # Cycle spectrum programme log
 
+## C012 — Coupled cuts and the information lost by two shortcuts, 2026-10-19
+
+The [batch](../experiments/cycle_spectrum/C012/REPORT.md) proves the
+all-s determinant, minor divisibility and sharp local Smith structure
+of the complete mismatch-cut matrix. Primitive actual families realize
+the obstruction with arbitrary even s and prescribed cancellation
+divisors. Adjugate elimination becomes automatic at s>=3.
+
+Three-mismatch words can retain exponentially many shared intercepts,
+including in the range A<2m. A counting proof rejects a specified
+fixed-term arithmetic compression. An explicit common-background
+identity shows why this does not rule out correlated elimination.
+The candidate denominator bound remains open; every finite pass is
+already explained by its observed q and m/s. No new q1 class is excluded.
+
+The user's high-level question is answered by the proposed growing
+rotation-distance target, uniform in period and height. A bound on
+each fixed count is insufficient. The next mechanism must use actual
+overlap, with reassessment after a bounded test. The all-cycle headline
+is unchanged. The side review at f01ac0e reports more C006 formalization;
+main has not independently kernel-replayed it.
+
 ## C011 — Complete two-defect exclusion and the coupling obstruction, 2026-10-19
 
 The [batch](../experiments/cycle_spectrum/C011/REPORT.md) proves an
