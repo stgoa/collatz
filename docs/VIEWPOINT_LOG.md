@@ -1,5 +1,77 @@
 # Viewpoint exploration log
 
+## V006 — Quadratic mixed separation and full graph constraints, 2026-10-18
+
+**Progress; full goal active and unresolved.** The preceding goal turn
+delivered V005 in85a07c2 and was progress. This bounded comparison proves
+a quadratic separation theorem, rejects two proposed structural shortcuts
+and records a faithful full-graph interface. The
+[report](../experiments/viewpoints/V006/REPORT.md) preserves the distinction
+between these gains and the unproved all-invariant target.
+
+### Mathematical comparison
+
+The overlap lane and root developed the exact theorem that every
+`F(t+s_2(3^a*n))` is distinct for non-eventually-periodic F. Complementary
+binary blocks of `(2^K-1)/3^r` provide the separation. One positive
+digit-count section of h now implies
+`kappa_h(K+4D)>=(D+1)(D+2)/2`. If F is eventually periodic, V005 already
+forces constancy. No section-extraction hypothesis has been proved.
+
+The new adjacent11-pair sequence has linear binary growth and no
+digit-count section, despite doubling, the positive return and infinitude
+below every section. Its exact failure at3 preserves the full goal.
+The literature lane checked a linear-semigroup structure theorem and
+identified its stronger premise: it counts transformations rather than
+one orbit. An explicit two-map action has linear rooted growth but2^D
+different length-D transformations. The corresponding direct import is
+rejected, as are unproved global-pattern or finite-rank inferences.
+
+The next preferred bounded probe retains the five section transitions,
+six radix-reordering identities, zero-output compatibility and all three
+Collatz root identities. The graph converse is proved, so a candidate
+model must represent actual sequences. Linear growth would force small
+separating layers arbitrarily far out. Test whether the full constraints
+force an automatic section there; a singleton-layer case alone would be
+partial. Do not replace the active all-invariant completion standard.
+
+### Verification and source scope
+
+The supplied quadratic argument received independent review; root checked
+the final source and the11-pair control. The graph converse and layer
+lemma received independent review. Root and a separate reviewer replayed
+the standalone verifier successfully. Its
+[receipt](../experiments/viewpoints/V006/verification.json) records18
+balanced blocks,756 mixed-state distinguishing witnesses,65,280 exact
+section evaluations,15 equal-weight witnesses and10,795 transformation
+witnesses. Named root-identity failures are checked on actual d5/d61
+divisibility invariants, alongside their fixed odd cycles.
+
+A draft Python compatibility issue and a tuple/list receipt mismatch were
+fixed before final replay; no mathematical correction was required. The
+[reviews](../experiments/viewpoints/V006/VERIFIER_REVIEW.md) and
+[delivery checks](../experiments/viewpoints/V006/delivery_checks.json)
+keep universal proof, finite arithmetic and frozen/link comparisons
+separate. Existing mathematical code/evidence remains untouched, so the
+historical Phase6 gate was not rerun. Novelty and formal verification
+of the new theorem are unclaimed.
+
+### Side input and decision
+
+Fetched and read DIRECTIONS and newest FEED at
+`b999b7bdb9a7383ac69553d6de3a8770c67ba3a9`.
+The latest Lean density-dichotomy report concerns another completed
+interface; it supplies no new complexity estimate and was not locally
+replayed in this batch. The previous V004 assembly inspection remains
+conditional on Cobham, without a new main-lane replay. D1/D2/D5/D7 are
+retained with scope, D3 rejected, D4 deferred, D6 historical. Earlier
+full-target d-uniformity and stronger ratio-limit substitutions remain
+rejected. Details are in the [side review](../experiments/viewpoints/V006/side_review.md).
+
+The quadratic bound is genuine progress under its explicit premise.
+The general extraction/overlap theorem is missing, so the active goal
+remains open, with no external blocker or completion claim.
+
 ## V005 — Quantitative rigidity: first bounded comparison, 2026-10-18
 
 **Progress; active goal unresolved.** The user activated the

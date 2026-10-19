@@ -2,15 +2,19 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-18): V004 proves every finite-valued binary-automatic Collatz invariant constant. The active next goal is to exclude every linear bound on binary-section complexity. V005 supplies partial results; that quantitative goal and Collatz remain open.**
+**Current standing (2026-10-18): V004 proves every finite-valued binary-automatic Collatz invariant constant. The active next goal is to exclude every linear bound on binary-section complexity. V005/V006 supply partial results; that quantitative goal and Collatz remain open.**
 
 The [quantitative brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) asks for an
 unbounded ratio of section count to binary depth for every nonconstant
-invariant. The [first investigation](experiments/viewpoints/V005/REPORT.md)
-proves reconstruction from any positive binary cylinder and rejects two
-growth shortcuts with exact counterexamples. The next bounded probe uses
-the complete Collatz identities to control overlap in the joint binary
-and ternary section family. Another local lemma alone will not finish it.
+invariant. [V005](experiments/viewpoints/V005/REPORT.md) proves local
+reconstruction and rejects two growth shortcuts.
+[V006](experiments/viewpoints/V006/REPORT.md) proves a quadratic bound if
+even one positive section depends only on binary digit count. No argument
+supplies such a section for an arbitrary invariant; an exact linear-growth
+control shows why extraction from weaker premises fails. The next bounded
+probe retains every binary/ternary radix relation and tests whether small
+separating layers can persist in the full section graph. The complete
+all-invariant bound remains the completion requirement.
 
 We explored Grothendieck-style changes of viewpoint through **breadth before
 depth**. Fourteen views and two rounds of bounded comparisons support a
@@ -114,7 +118,7 @@ Everything else is **none**. Finite acceptance rates and new conditional interfa
 
 1. Read [AGENTS.md](AGENTS.md) for working rules and claim standards.
 2. Read [VIEWPOINT_MAP.md](VIEWPOINT_MAP.md) and the [exploration log](docs/VIEWPOINT_LOG.md), then the [result ledger](docs/RESULTS.md) for exact scope, evidence and unresolved obligations.
-   For the active goal, read the [quantitative brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) and [V005 report](experiments/viewpoints/V005/REPORT.md); its completed prerequisite is the [V004 proof](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md).
+   For the active goal, read the [quantitative brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) and [V006 report](experiments/viewpoints/V006/REPORT.md); its completed prerequisite is the [V004 proof](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md).
 3. Read the [current proof note](collatz_research_20261017/right_aligned_reduction.tex). Open this source in the document editor for its PDF preview.
 4. Consult the [master handoff](COLLATZ_PROGRAMME_MASTER_HANDOFF.md) for the wider programme and historical counterexamples. Its old active target is superseded only for the revised right-aligned family.
 
@@ -127,12 +131,13 @@ Requires Python 3.10+ and its standard library. The independent check additional
 The latest viewpoint examples have a separate bounded verifier:
 
 ```sh
-python3 -B experiments/viewpoints/V005/verify_examples.py
+python3 -B experiments/viewpoints/V006/verify_examples.py
 ```
 
-Its [receipt](experiments/viewpoints/V005/verification.json) records finite
-reconstruction and counterexample checks; it does not prove the quantitative
-goal. V003/V004's separate verifiers and receipts remain available. The historical mathematical gate is:
+Its [receipt](experiments/viewpoints/V006/verification.json) records finite
+mixed-state distinctions and counterexample checks; it does not prove the
+full quantitative goal. V003–V005's separate verifiers and receipts remain
+available. The historical mathematical gate is:
 
 ```sh
 python3 scripts/verify_all.py --cpp --transfer-controls

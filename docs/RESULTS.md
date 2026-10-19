@@ -48,6 +48,15 @@ step still missing. The activated unbounded-ratio goal remains open.
 The separate Lean lane reports a V004 derivation conditional on Cobham;
 main inspected the statement and source receipt, without independent replay.
 
+V006 proves a [scoped quadratic lower bound](../experiments/viewpoints/V006/overlap.md):
+all mixed states `F(t+s_2(3^a*n))` are distinct when F is not eventually
+periodic. One positive digit-count section therefore forces quadratic
+growth of an invariant's binary kernel. The missing extraction hypothesis
+is not assumed. An adjacent11-pair control rejects extraction from weaker
+binary premises. A separate action counterexample rejects importing linear
+semigroup growth from a linear rooted orbit. The full radix graph is
+faithfully represented, but its general growth problem remains open.
+
 S.1 now has a [written stopping calibration](../experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md)
 with explicit finite horizons, integer cutoffs and a separate W5 pullback.
 Its ordinary estimate transfers to each fixed supported `3x+d` map and does

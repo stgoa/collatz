@@ -1,6 +1,6 @@
 # Find a better language for Collatz
 
-**Quantitative rigidity active, 2026-10-18. V004's finite-state classification is proved; V005's stronger growth target remains open. Collatz remains open.**
+**Quantitative rigidity active, 2026-10-18. V004's finite-state classification is proved; V005/V006 leave the stronger all-invariant growth target open. Collatz remains open.**
 The [current brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) requires an unbounded
 ratio of binary-section count to depth for every nonconstant invariant.
 The [completed brief](docs/GLOBAL_RIGIDITY_BRIEF.md) required the full
@@ -109,6 +109,24 @@ overlap argument. No new rank, periodicity or regularity premise is assumed.
 The Lean branch's reported conditional formalization of V004 is assessed
 separately in the [side review](experiments/viewpoints/V005/side_review.md).
 
+## V006: quadratic amplification and the extraction gap
+
+The [report](experiments/viewpoints/V006/REPORT.md) proves pairwise
+distinctness of all `F(t+s_2(3^a*n))` when F is not eventually periodic.
+One positive digit-count section of an invariant therefore forces quadratic
+binary-section growth. An exact adjacent11-pair example has linear growth
+and no digit-count section while satisfying the reduced binary identities.
+It fails full Collatz invariance. The new theorem leaves extraction for
+arbitrary invariants unresolved.
+
+The semigroup audit rejects a direct import from transformation growth:
+linear growth of one orbit counts a different object. The preferred next
+probe uses the [complete graph interface](experiments/viewpoints/V006/graph_interface.md),
+including all radix-reordering identities and root relations. Hypothetical
+linear growth would give arbitrarily distant small separating layers;
+whether the full constraints permit them is the next bounded test. The
+faithful representation and that necessary condition are not growth proofs.
+
 ## Comparison
 
 Each linked card records objects, structural gain, translated gap, example,
@@ -214,7 +232,7 @@ The completed rows remain historical evidence, not outstanding obligations.
 
 | Priority | Bounded next investigation | Evidence needed to continue | Stop or redirect when |
 |---|---|---|---|
-| V13 — active | Linear joint-section growth under all three scalar identities | A proved restriction on overlapping descendants, or a periodic section forced by joint growth | Only generic infinitude, separate-base counts or an assumed finite rank is obtained |
+| V13 — active | Small separating layers under the full radix and root identities | An automatic section forced by those constraints, or a genuine bound covering every possible linear coefficient | A graph classification is assumed, or a proved special case is treated as the full target |
 | V13 — completed | Positive-offset binary kernel closure | K_+ is finite and closed under all binary/ternary sections; Cobham plus residue algebra finishes | Do not resume the unnecessary zero-offset closure search as though the full target were open |
 | Complement — V13, completed | Finite characteristic-zero2/3-Mahler systems | Every positive-section color indicator participates in both finite systems; scalar elimination is written | Do not present this dependent alternative as independent formal verification |
 | V14 — closed | Reopen only with a specific additional relation between entire frontier families | A relation not already present in the affine/section equations | Another finite rectangle merely redraws known arithmetic |
