@@ -1,0 +1,87 @@
+{
+ "probe": "c008_residue_check",
+ "main": "93117c0",
+ "sorted_rank_law_and_cyclicity": {
+  "ordered_cycles_q_gt_1": 50,
+  "noncyclic_23_mod": {
+   "35": true,
+   "65": true,
+   "91": true
+  }
+ },
+ "q5077565_counterexamples": [
+  {
+   "L": 446400719,
+   "B": 3,
+   "raw_mod5_by_height": {
+    "0": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "1": [
+     3
+    ],
+    "2": [
+     2,
+     3
+    ],
+    "3": [
+     2
+    ]
+   },
+   "normalized_mod5_by_height": {
+    "0": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "1": [
+     4
+    ],
+    "2": [
+     2,
+     3
+    ],
+    "3": [
+     4
+    ]
+   }
+  },
+  {
+   "L": 365289811,
+   "B": 2,
+   "raw_mod5_by_height": {
+    "0": [
+     1,
+     4
+    ],
+    "1": [
+     1,
+     4
+    ],
+    "2": [
+     1,
+     4
+    ]
+   },
+   "normalized_mod5_by_height": {
+    "0": [
+     1,
+     4
+    ],
+    "1": [
+     2,
+     3
+    ],
+    "2": [
+     1,
+     4
+    ]
+   }
+  }
+ ],
+ "result": "PASS"
+}
