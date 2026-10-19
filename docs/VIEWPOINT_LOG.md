@@ -1,5 +1,31 @@
 # Viewpoint exploration log
 
+## C001 transition — User replaces the goal, 2026-10-18
+
+The active objective is now the [cycle spectrum](CYCLE_SPECTRUM_BRIEF.md),
+with ongoing batches in [CYCLE_SPECTRUM_LOG.md](CYCLE_SPECTRUM_LOG.md).
+The earlier quantitative target remains unresolved. Its replacement is
+the user's explicit choice, not completion or adoption of D8's automatic
+abandonment proposal.
+
+[C001](../experiments/cycle_spectrum/C001/REPORT.md) proves that a fixed
+perturbation of a repeated valuation block limits cancellation to divisors
+of one fixed determinant. The cancellation factor is periodic. Its
+primitive perturbed-mechanical family has denominator greater than 1,
+with unbounded rational minima and shortcut minimum counts under the
+specified exponent condition. Actual-cycle and word-family tests are
+persisted; the general cycle question stays open.
+
+Fetched and read side DIRECTIONS and FEED at
+`a15cd429747e43997ce94aa84264fb8e32b6848d`. D1/D2 retain their scope,
+D3 remains rejected, D4 deferred, D5 standing, D6 historical and D7
+retained. D8 now belongs to a replaced goal. The latest V009 confirmation,
+Lean report and V008 clarification are assessed in the
+[side review](../experiments/cycle_spectrum/C001/SIDE_REVIEW.md). No new
+main Lean replay or imported formal premise is claimed. The primary
+cycle-source audit includes Hercher's corrigendum and retains exact clock
+conventions. The next mechanism is two independently growing blocks.
+
 ## V009 — Unbounded additive excess and global detection, 2026-10-18
 
 **Progress; the full quantitative goal remains active.** The preceding

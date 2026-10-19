@@ -1,8 +1,10 @@
 # Goal — Quantify the complexity of a hypothetical Collatz obstruction
 
-**Activated 2026-10-18; active and unresolved.** This records the accepted
-objective below. V004's finite-state classification is complete. The new
-goal has a stronger completion requirement.
+**Historical objective; unresolved, replaced by the user on 2026-10-18.**
+The active goal is now the [cycle spectrum](CYCLE_SPECTRUM_BRIEF.md).
+The text below records the earlier completion requirement and its batches;
+their use of “active” describes their status at the time. V004's
+finite-state classification is complete; the stronger target below is open.
 
 Prove that any nonconstant finite-valued Collatz invariant requires binary-section complexity exceeding every linear bound.
 

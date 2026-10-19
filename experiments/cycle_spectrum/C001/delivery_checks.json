@@ -1,0 +1,47 @@
+{
+  "schema": "C001-delivery-v1",
+  "status": "PASS",
+  "delivered_local_date": "2026-10-19",
+  "goal_activation_date": "2026-10-18",
+  "head_before_batch": "4be9bae23a2d06dc7c31c2237299273cb9c5a1f2",
+  "side_lane_reviewed_commit": "a15cd429747e43997ce94aa84264fb8e32b6848d",
+  "word_receipt_default_replay": "PASS: independently recomputed without rewriting; 239345 positive word realizations",
+  "actual_cycle_replay": "PASS: 2459 complete exact cycles, discovery paths, decompositions and source hashes",
+  "fresh_discovery": "PASS: all saved fields matched except discovery_seconds; 832500 seeds, 333 parameters, no caps",
+  "optimized_python": "PASS: checker rejects -O before assertions can be disabled",
+  "proof_review": "PASS: root and independent agent; draft small-k sign error corrected",
+  "checker_correction": "Tuple/list JSON mismatch corrected; accepted default replay followed regeneration",
+  "historical_gate": {
+    "command": "python3 scripts/verify_all.py --cpp --transfer-controls",
+    "status": "PASS",
+    "receipt": "full_gate.json",
+    "independent_cpp": "PASS: 4096 and 262144",
+    "transfer_controls": "PASS: eleven exact raw cycles, eight nonprincipal controls, four fixed-d controls, fourteen d1 samples and fail-closed checks; setup label none"
+  },
+  "frozen_comparisons": {
+    "collatz_research_20261017/right_aligned_reduction.tex": "35709cfff84f4baa11563360adc171986ea410af4a8e1a9acb9eb7457def1f8d",
+    "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md": "5cd7fd5f12ce50d6001ec6b322017bb1777aa88ecb675f4393248c2bf224c5ea",
+    "experiments/residual_progress/resolved_rules/resolved_rules.py": "4d91d83e93499b07079e48f2fc0e3765fffb99498c18228ab57f56732062b7aa",
+    "docs/RESULTS.md from R1 onward": "89ecd33a0528585e5b3b2cc41af4a60103e32a3389c9e0570e1c1d4af58913ee"
+  },
+  "local_links": {
+    "markdown_files": 14,
+    "local_targets_checked": 551,
+    "missing": []
+  },
+  "git_diff_check": "PASS",
+  "source_sha256": {
+    "INDEPENDENT_REVIEW.md": "97e67a98fcb35dac2b024205003237e4cf94b9db2ae1219c987258e52eb3e0be",
+    "LITERATURE.md": "c39c3c198c6c5d93eabe0e39977eaaa3b9baa38a0fdc054646cf739f905ce827",
+    "REPETITION_SPECTRUM.md": "5831b37c6c65bb469d8a7d0d305bbbed0394d45eb1c948633dc7b5010e799d64",
+    "REPORT.md": "5e4b29cfdcd07a7f8b7adddcc13f71805f69adaf33b5c84c895d8517cc400b68",
+    "SIDE_REVIEW.md": "90cf0837a3c8377e8151dd576dcbf7624455f8b3925ac6ccb4f48ed14b6661d9",
+    "actual_cycles.json": "28d067d3f82585a3701616adce3b57cae994541c4ddd3b4859d2bcf2307e44f2",
+    "check_spectrum.py": "2461a60bea1e45cd99c9e737699c9b76353a5d50a9939d78e125ec33a91b9a5d",
+    "full_gate.json": "10a42beae3aec02a370ce90f6b5d2a8d2c307261646116868211b95d77fd6c2d",
+    "repetition_spectrum.py": "238af448ec174a08f9b9020f25712b46213e3b9bc6ab0cdbf95586d665e9afa5",
+    "scan_cycles.py": "32bf38b6ac5d9b592d4deba1cab4cfbf15598cb15d32275c134373853b06626f",
+    "spectrum_audit.json": "84273d1b0a875b54bf687dd738ba9088d31010b026583f44e6890ec648c4214e"
+  },
+  "scope": "Written, agent-reviewed mathematics and finite exact evidence; no novelty, human review, formal verification, complete cycle classification or convergence claim."
+}
