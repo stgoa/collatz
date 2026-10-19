@@ -1,5 +1,61 @@
 # Research log
 
+## 2026-10-19 — C006: ordered gaps and height complexity
+
+[C006](../experiments/cycle_spectrum/C006/REPORT.md) proves that sparse
+changes of height in normalized sorted order force a large integer gap.
+The resulting denominator bound and an inspected classical logarithm
+theorem give effective finite-cycle classes when q,J are bounded,
+without a separate height bound: B+1<=J. Fixed q forces at least
+square-root growth of J with period.
+This is an all-period structural restriction, with no practical cutoff
+or exclusion of every ordered integer cycle. Generic packing bounds
+are explicitly separated from the order-dependent theorem.
+
+Actual q13/q233/q1909 examples reject three plausible shortcuts; the
+q1 affine loop fails the declared exact odd-only domain. The checker
+replays every stored source cycle and fixture plus 360,618 legal profiles,
+retaining all failures of proposed geometric height labels and order.
+Independent proof review and root verification are recorded in the
+batch. The R-series, dispatcher, earlier cycle files and open LaTeX
+source remain preserved.
+
+The local side pin `f054db41be4688dec8200208e4994e96379bc0dd` reports Lean
+C003 effective algebra and C004's reverse narrow direction/cut algebra.
+Main did not independently replay those builds. Fetch failed before
+execution because automatic approval review was at capacity; no remote
+freshness was claimed from that attempt. A later authorized retry
+succeeded; the final reviewed side pin is `9ac12a8b7c960333f6ee7c2a0f39651209b486b9`.
+It adds a reported partial C004 forward-direction Lean unit; main did
+not replay it. The proposed ordered-cycle exclusion remains an
+intermediate target under the unchanged all-cycle headline.
+
+## 2026-10-19 — C005: arbitrary mechanical rotation blocks
+
+[C005](../experiments/cycle_spectrum/C005/REPORT.md) excludes denominator
+1 for arbitrary finite concatenations of rotations of one primitive
+positive mechanical base, except repetitions of base `(2)`. A positive
+affine prefix envelope gives H/L<=R^3<8; exact integer order then forces
+primitive coprime totals and reduction to one base block. A six-phase
+family has unbounded minimum and shortcut minimum count. The common-base
+hypothesis remains, and arbitrary cycles are unresolved.
+
+The exact dyadic inversion formula also shows why normalized mechanical
+exponents do not inherit the original denominator: the height-dependent
+intercept weights remain. Actual q233 and q5 cycles give cancellation
+factors 7 and 1,015,513 despite strict normalized order. All 2,459 source
+cycles, 21,844 generated words, 9,664 phase concatenations and twenty
+prime-base controls are checked in their respective receipts. Independent
+agent proof review, separate root replays and the historical gate pass;
+novelty and formal verification are unclaimed.
+
+Side input was read at local tracking pin
+`67c691b93ddd3d07748f557c8a26f9883e37389b`. Fresh fetch attempts failed
+in automatic approval review because the review model was at capacity.
+The stronger C002 Lean result is reported, not independently replayed
+on main. An exact q23 control corrects the feed's unqualified discrepancy
+identification. Earlier mathematics and the open LaTeX file are preserved.
+
 ## 2026-10-19 — C004: narrow-cycle classification and failed rotation shortcuts
 
 [C004](../experiments/cycle_spectrum/C004/REPORT.md) proves that primitive
@@ -396,7 +452,7 @@ The batch advances the exact exit interface and rules out a specific bounded-clo
 ## 2026-10-18 — Complete Phi exits and an all-word precision barrier
 
 - Continued from pushed `7d86314`. The independent side pin `cbe77bce62d0a5ba2fbac1af3f686806cc7f6d4a` adds the R64 boundary probe. Exact pinned reproduction matched85 cases,58 accepted,27 rejected and maximum ordinary word600; [review](../experiments/residual_progress/side_lane_review_cbe77bc.md) retains hashes and scope. Final PR refresh still lists only PR1, already incorporated, and remote main remains7d86314. The side branch was unchanged.
-- **R90:** persisted the broader binary Phi guard, exact maximal fixed-seed return count, all19 maximal exit rows, every arbitrary next-valuation cylinder and original-cell pullback, the exact raw original-Q inequality, and complete signed formal plans. Repeated returns consume19 binary digits and gain12 ternary digits while growing. Fresh forward history has no negative high request. These facts control the whole exit alphabet without supplying its remaining terminal currents. Independent proof/source/default review passed:10 return plans,171 signed exits,15 ancestor certificates,29 rejections; stored exits have156/283/498 rows.
+- **R90:** persisted the broader binary Phi guard, exact maximal fixed-seed return count, all19 maximal exit rows, every arbitrary next-valuation cylinder and original-cell pullback, the exact raw original-Q inequality, and complete signed formal plans. Repeated returns consume19 binary digits and gain 12 ternary digits while growing. Fresh forward history has no negative high request. These facts control the whole exit alphabet without supplying its remaining terminal currents. Independent proof/source/default review passed:10 return plans,171 signed exits,15 ancestor certificates,29 rejections; stored exits have156/283/498 rows.
 - **R91:** a first-counterword proof reduces every improving finite inverse word at c0=-899841/7153 to a bounded rational origin universe. Independent Python/C++ classifications exhaust1,732,883 canonical primitive origins, with19 target hits, all weighted slopes at least1, and no cap. Intermediate numerators reach1,049,066,989,135. This proves the sharp all-word rational slope bound. For every original coupled source with at least r returns, the written transfer excludes every canonical origin p<=Q through12r+5 quotient steps, over all rays and words. The known Q arrives at18+12r; deeper histories and later targets remain open. This is a computer-assisted theorem, distinct from a bounded positive-source scan. Two mathematical reviews and independent proof/source/default/C++ review passed. The checker also covers306 positive words on21 families through r128 and14 domain rejections.
 - **Research decision:** the gained-ternary-precision route to a smaller origin at the repeated target is now excluded in its full stated scope. Continue toward comparisons beyond that precision, later meeting targets or a different signed-history mechanism at the original rank. The earlier adaptive cover's filter and22/23 undo successes were reviewed; neither yields a closed recursion. Their scratch status remains explicit in REPORT.
 - Both new checkers are registered. The existing LaTeX source was extended in place and compiled successfully with the native editor. `python3 scripts/verify_all.py --cpp` passed with exit0: both new checks,
@@ -588,7 +644,7 @@ Next: supply the finite compiler's larger packet inputs without circular inducti
 - Persisted the full proof, exact arithmetic checker, and receipts. Finite checks include5715 inverse-word cases, eight CRT components throughD32, four required-ray components, and modular ray conditions throughD128. Two independent model audits checked the written invariant and complete incoming-edge exclusion; the main LaTeX transcription was separately reviewed.
 - Proved the local packet conversion: inner absorption on `(N/4,N]` supplies a one-sided input whose negative residual retains the low-quarter/outer-shell complement. Reversing that automatic construction leaves the residual unchanged. An independent exact input absorbs the complement; a one-sided input supplies an exact unresolved-count budget. A scoped positive-cone coefficient argument identifies why the automatic smaller-seed induction is circular. Raw outermost source height was explicitly rejected as an intrinsic dependency.
 - Stored a102-row exact outer-shell current at N96 and sharp/unresolved examples at N24 and384. The checker passed64 full identities,16640 pointwise coefficients, input/output identities, and automatic-feedback cases.
-- Constructed a terminating, order-independent auxiliary normalization using all residue classes with a smaller ancestor within two steps. It uses nonpositive current, moves positive annular residuals below64N, and retains at least21N/4 positive mass on multiples of3. This forces positive continuation current; it is not a lower bound on the final summed current's cost. All66 annular cases and the exhaustive small-ancestor checks passed.
+- Constructed a terminating, order-independent auxiliary normalization using all residue classes with a smaller ancestor within two steps. It uses nonpositive current, moves positive annular residuals below64N, and retains at least 21N/4 positive mass on multiples of3. This forces positive continuation current; it is not a lower bound on the final summed current's cost. All66 annular cases and the exhaustive small-ancestor checks passed.
 - At the user's request, reviewed merged GitHub PR1 and fast-forwarded to `ba6b337`, preserving ongoing edits. Retained C1/C2/C4, the conditional C3 lemma, and C5's class-wise equivalence. Corrected the unsupported claims excluding alternative one-sided currents or structural search and the extrapolation from six finite traffic/cost samples. Stored a review, checker, and exact counterexamples: A768 admits56 distinct same-minimum-cost one-sided certificates; one removes row5 while retaining positive cost53758.
 - Updated the README and agent ground rules with the resulting direction: arithmetic specific to3x+1, allowing unbounded total depth, with a proof that every positive component eventually resolves. Neither early compression, a fixed catalogue, nor feeding automatic compiler inputs back provides that proof.
 - Ran `python3 scripts/verify_all.py --cpp`: PASS on the integrated tree, including all five merged-lane receipts, the review examples, both component-lift checks, local conversion, auxiliary normalization, and all prior original/C++ checks. The first run exposed a new review-stage temporary-copy ordering issue; moving that stage after its dependencies fixed it without changing mathematical receipts.

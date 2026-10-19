@@ -2,10 +2,16 @@
 
 **Historical viewpoint map, updated 2026-10-19.** The user has replaced
 the quantitative goal with the [cycle-spectrum programme](docs/CYCLE_SPECTRUM_BRIEF.md).
-[C004](experiments/cycle_spectrum/C004/REPORT.md) identifies cycles with
-odd-state ratio below two exactly as mechanical. It also proves dependence
-of all rotation congruences and rejects a universal close-pair bound.
-Wide cycles and the all-cycle headline remain open. Current
+[C006](experiments/cycle_spectrum/C006/REPORT.md) proves an order-dependent
+gap bound and effective finiteness with bounded denominator and
+sorted-height change count; no separate height bound is needed. The analytic corollary imports a classical
+two-logarithm theorem. The full ordered-cycle q1 exclusion remains open;
+the proposed intermediate target does not replace the all-cycle headline.
+[C005](experiments/cycle_spectrum/C005/REPORT.md) excludes denominator1
+for arbitrary concatenations of rotations of one common mechanical base,
+except base(2), using a ratio bound and integer order. Height-label
+counterexamples prevent extending mechanical denominator inheritance to
+normalized words. Arbitrary cycles and the headline remain open. Current
 decisions are in the [cycle log](docs/CYCLE_SPECTRUM_LOG.md). The roadmap
 below records the earlier language selection and its subsequent results;
 its statements about active targets describe those earlier stages.

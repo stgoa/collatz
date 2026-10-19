@@ -4,11 +4,12 @@ This repository is the persistent record of the Collatz programme: definitions, 
 
 ## Current programme: cycle denominators across 3x+d
 
-**Current standing (2026-10-19): C004 classifies every positive
-rational cycle whose largest odd state is less than twice its smallest:
-its valuation word is mechanical, with an exact denominator. Therefore
-any nontrivial integer Collatz cycle must span a ratio greater than two.
-Wider cycles and the all-cycle headline remain open.**
+**Current standing (2026-10-19): C006 proves that ordered cycles with
+bounded denominator and number of dyadic height changes form a finite
+class, effectively in principle, with no separate height bound. The
+elementary gap bound uses circular order; the finiteness corollary imports a classical
+two-logarithm theorem. Excluding every ordered denominator-one cycle
+and the all-cycle headline remain open.**
 
 The active [cycle-spectrum goal](docs/CYCLE_SPECTRUM_BRIEF.md) studies
 integer cycles across the positive `3x+d` family through the reduced
@@ -16,9 +17,46 @@ denominators of rational `3x+1` cycles. Rotations, repetitions and scaled
 copies must be distinguished from new primitive cycles. Divergence is
 separate from this cycle goal.
 
+[C006's report](experiments/cycle_spectrum/C006/REPORT.md) explains the
+gain. Put the odd states into one dyadic interval while retaining how
+many powers of two were removed. If the normalized successor preserves
+circular order, long stretches without a height change force large
+integer gaps. Combined with the cycle product identity, this limits the
+period when the denominator and number of changes are bounded. At fixed
+denominator the change count must grow at least on the order of the
+square root of the period. The theorem permits growing height complexity;
+no practical cutoff or universal cycle exclusion follows.
+
+The proof retains the dyadic seam and exact valuations. A separate
+height-packing bound also holds for unordered cycles and is recorded as
+a generic comparison. An actual wide q233 profile gives q>=15 from a
+gap run versus q>=2 from packing. Exact q13, q233 and q1909 examples
+reject simpler gap, cancellation and order shortcuts. The independent
+review and exact checker cover the written claim and bounded examples;
+they are separate from formal verification and novelty.
+
+[C005's report](experiments/cycle_spectrum/C005/REPORT.md) gives the new
+proof and its limits. An integer cycle with odd-state ratio H/L<8 must
+have coprime primitive totals (A,m). Mixed rotations of one mechanical
+base have ratio at most R cubed, where the base ratio R is below two.
+Together these force any integer mixed cycle to reduce to a single
+mechanical base block. The argument allows arbitrarily many phase changes.
+A primitive six-phase family has unbounded minimum and shortcut minimum
+count; this does not improve a universal numerical cycle record or
+establish novelty.
+
+The height labels cannot generally be removed. A real q=233 cycle spans
+only two dyadic bands and has perfectly ordered normalized states, yet
+its numerator and denominator share a factor 7. The q=5 period-17
+control has the same order property with common factor 1,015,513.
+The exact order audit covers all 2,459 source cycles and a separate
+generated grid. Written proof, independent agent review, finite checks
+and the historical gate have distinct scopes; C005 is not formally
+verified here.
+
 [C004's report](experiments/cycle_spectrum/C004/REPORT.md) gives the
-classification and exact parameter spectrum: a primitive cycle in that
-ratio range has coprime totals (A,m), denominator `2^A-3^m`, and exists
+classification and exact parameter spectrum: a primitive cycle with
+H<2L has coprime totals (A,m), denominator `2^A-3^m`, and exists
 at an odd parameter d exactly when that denominator divides d. This
 identifies the already-known mechanical class by an intrinsic geometric
 condition; it does not expand the excluded word class beyond R71.
@@ -42,14 +80,16 @@ two-block result: bounded denominator layers are finite for nondegenerate
 general threshold. Its contracting theorem and C002's equal-total theorem
 provide effective exclusions under their separate repetition conditions.
 
-**Next:** investigate order and cancellation when cycle states occupy
-several dyadic ranges. The new restriction must retain information lost
-by bare gcd intersection and absolute spacing. No bound placing every
-cycle inside a fixed range is supplied. Each batch must produce a theorem
-or exact obstruction and actual-cycle tests; the
-[cycle log](docs/CYCLE_SPECTRUM_LOG.md) records the work. The separate
-Lean lane reports further C001/C002 checks; main has not independently
-replayed those builds in C004.
+**Next:** seek an all-period denominator-one exclusion whenever normalized
+successor order is circular, without a common-base decomposition or bounds
+on height and its changes. C006's growing-complexity alternative is the
+remaining gap. No argument places all possible integer cycles in that
+ordered class. This is an intermediate target under the unchanged headline.
+Each batch must produce a theorem or exact obstruction and actual-cycle
+tests; the [cycle log](docs/CYCLE_SPECTRUM_LOG.md) records the work.
+The separate Lean lane reports C003's effective algebra and C004's
+cut identities and mechanical-implies-narrow direction. Main has not
+independently replayed those builds; they do not verify C006.
 
 ## Previous language programme: arithmetic regularity
 

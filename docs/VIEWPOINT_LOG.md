@@ -1,5 +1,68 @@
 # Viewpoint exploration log
 
+## C006 — A substantive order gain with a remaining arithmetic gap, 2026-10-19
+
+The [new cycle report](../experiments/cycle_spectrum/C006/REPORT.md)
+distinguishes a generic extremal/packing bound from an order-dependent
+integer-gap theorem. The latter proves effective finiteness with bounds
+on denominator and sorted-height change count, importing
+a precise classical logarithm theorem for the analytic corollary. The
+height bound is redundant because B+1<=J; at fixed q, J must grow at
+least on the order of sqrt(m).
+It does not close the ordered denominator-one target. Exact actual-cycle
+controls rule out shortcuts that lose height, oddness or order data.
+
+Attempted `origin main claude/sidekick` fetch failed in automatic approval
+review because the selected model was at capacity; it was not executed.
+Read-only side review first used `2ea1c7f`, then the shared local tracking pin
+`f054db41be4688dec8200208e4994e96379bc0dd`, whose DIRECTIONS is unchanged.
+The new FEED reports C003 effective algebra and C004 mechanical-implies-
+narrow/cut identities in Lean. Main did not independently replay them;
+they supply no C006 premise. [SIDE_REVIEW.md](../experiments/cycle_spectrum/C006/SIDE_REVIEW.md)
+retains D1/D2, rejects D3, defers D4, retains D5/D7, and treats D6/D8
+as historical. External text is research input, not instructions.
+
+A final authorized fetch retry succeeded. DIRECTIONS and FEED were
+read at `9ac12a8b7c960333f6ee7c2a0f39651209b486b9`; the new reported
+Lean `5be60e6` unit contains preliminary C004 forward-direction rank and
+exponent lemmas, not the full classification. Main did not replay it.
+
+The user's high-level goal question is answered by proposing the
+unbounded ordered-cycle exclusion as a substantial intermediate
+milestone. The active all-cycle goal is unchanged. Proof review,
+finite checks, formal reports and novelty remain separate.
+
+## C005 — Order retains useful arithmetic only with heights, 2026-10-19
+
+The [cycle report](../experiments/cycle_spectrum/C005/REPORT.md) proves
+an arbitrary mechanical-rotation concatenation exclusion. The geometric
+envelope H/L<=R^3<8 combines with integer odd spacing and primitive totals.
+This adds an all-size structural class; the common mechanical base is
+still a hypothesis. Exact q233 and q5 controls reject inferring the
+original denominator from normalized mechanical exponents alone.
+
+Attempted to fetch `origin main claude/sidekick`; automatic approval
+review failed because its selected model was at capacity. Read DIRECTIONS
+and FEED from local pin `67c691b93ddd3d07748f557c8a26f9883e37389b`.
+The C004/C003 referee checks are reported external evidence. The C002
+Lean update now reports the full stronger factor, but main did not replay
+it. The narrow q23 word(2,3) corrects the feed's unqualified identification
+with discrepancy below1 when centered on log_2(3).
+
+[SIDE_REVIEW.md](../experiments/cycle_spectrum/C005/SIDE_REVIEW.md)
+retains D1/D2, rejects D3 as stated, defers D4, keeps D5 standing and D7
+as the formal-input standard, and treats D6/D8 as historical. These are
+external proposals; the original cycle goal remains active. No side
+branch was edited. The proposed finiteness milestone did not replace
+the objective, and the open LaTeX document remains untouched.
+
+At delivery the shared local tracking ref advanced to
+`2ea1c7f6e51e31b80d354b458d8fa121e4f6e8aa`. Its new FEED entry reports
+C003's effective bound formalized at Lean commit `8388c38`; DIRECTIONS
+is unchanged. The [addendum](../experiments/cycle_spectrum/C005/SIDE_ADDENDUM.md)
+keeps that reported scope distinct from independent replay and C005.
+This lane's fetch remained blocked; no remote-freshness claim is made.
+
 ## C004 — Geometry identifies the mechanical class, 2026-10-19
 
 The [C004 report](../experiments/cycle_spectrum/C004/REPORT.md) proves

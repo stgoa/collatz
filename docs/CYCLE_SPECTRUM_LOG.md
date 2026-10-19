@@ -1,5 +1,99 @@
 # Cycle spectrum programme log
 
+## C006 — Order forces complexity in the height labels, 2026-10-19
+
+**Progress; original headline active and open.** The
+[batch report](../experiments/cycle_spectrum/C006/REPORT.md) proves a
+gap restriction without a common-base decomposition. For primitive
+ordered cycles with q<=L, maximum height B and sorted-height change
+count J including the seam, a long zero-forcing run forces binary
+divisibility of an integer gap. Thus
+`q>(D/C_lower)2^(ceil(m/J)-1-B)`, with a sharper exponent from each
+actual run. A classical effective two-logarithm bound gives finite
+periods under bounds on q,J alone: chronological heights visit every
+level, so B+1<=J. Fixed q force J>=sqrt(m)-O_q(log m). The proof leaves finite exceptions and
+growing height complexity, so the ordered q1 target remains open.
+
+A wide actual q233 profile gives q>=15 versus the generic packing
+bound2. The generic extremal/packing estimate also holds without order;
+it is not evidence of an order-specific gain. Exact q1909, q233 and q13
+controls refute mechanical-normalization sufficiency, unit gcd after
+one height defect and a universal small odd gap. The invalid q1 affine
+loop is explicitly rejected. Every stored raw fixture is retained.
+
+The checker covers 2,459 source cycles at 333 parameters and 360,618
+generated legal profiles, separating actual heights and order from
+formal labels. Proof review, source inspection, finite replay and the
+historical gate have distinct scopes, recorded with the batch.
+
+Fetch was attempted but not executed because automatic approval review
+was at capacity. The shared tracking ref was read first at `2ea1c7f` and
+then at `f054db41be4688dec8200208e4994e96379bc0dd`. The latter reports
+Lean C004-a at `7959806` in addition to C003-a at `8388c38`. Main did not
+independently replay those builds. [SIDE_REVIEW.md](../experiments/cycle_spectrum/C006/SIDE_REVIEW.md)
+records D1–D8 and the exact formal scopes. No side branch was changed.
+
+The final authorized fetch retry succeeded: main stayed at `61cf54a` and
+the fetched side pin is `9ac12a8b7c960333f6ee7c2a0f39651209b486b9`.
+Its added C004-b part1 report at Lean `5be60e6` covers exponent/rank lemmas,
+not the full forward classification. DIRECTIONS and FEED were reread;
+main did not independently replay the reported build.
+
+**Next:** the proposed high-level intermediate target is exclusion of
+every nontrivial ordered denominator-one cycle, with no bounds on its
+period, height or change count. Probe the missing height-dependent
+arithmetic; a bounded scan or another generic packing estimate is
+insufficient. This recommendation does not replace the original goal.
+Publication status is recorded separately in the batch delivery note.
+
+## C005 — Arbitrary phase order within a mechanical base, 2026-10-19
+
+**Progress; original headline active and open.** Baseline main is
+`61cf54ad52df1caa5cc250b0d1464432ed90b162`. The preceding advisory turn
+proposed a milestone but did not advance the mathematics or change the
+active goal. This [batch](../experiments/cycle_spectrum/C005/REPORT.md)
+tests dyadic order and arithmetic cancellation on actual cycles.
+
+The strongest result excludes denominator1 for every finite concatenation
+of rotations of one primitive positive mechanical base, with arbitrary
+phase order and multiplicities; base(2) is the trivial exception. Full
+block contractions and positive prefixes give odd-state ratio at most
+R^3<8. A primitive integer cycle in that range has coprime totals,
+forcing the mixed word to reduce to one mechanical block. A primitive
+six-phase prime-base family has unbounded minimum and shortcut minimum
+count. The literature comparison is scoped; novelty is unclaimed.
+
+Under q<=L, normalized successor rank rotation is equivalent to strict
+scaled-image order. The q233 two-band and q5 period17 cycles show why
+mechanical normalized exponents do not retain the no-cancellation
+conclusion. The exact height weights must remain in the intercept.
+
+The order audit exercises 2,459 actual cycles at 333 parameters, all
+eleven fixtures, 739,757 distinct-cycle pairs and 21,844 generated words.
+The separate block checker tests arbitrary phase combinations, primitive
+reduction, actual-cycle recognition and the high family. Proof review,
+root replay and historical gate receipts are linked in the report.
+
+The reviewed local side pin is
+`67c691b93ddd3d07748f557c8a26f9883e37389b`. A fetch was attempted but
+failed because the automatic approval service was at capacity. The
+[side review](../experiments/cycle_spectrum/C005/SIDE_REVIEW.md) records
+reported C002 Lean strengthening, D1–D8 scope and an exact discrepancy
+correction. No side branch was edited or used as an instruction source.
+
+The shared local ref later advanced to `2ea1c7f6e51e31b80d354b458d8fa121e4f6e8aa`.
+Its new C003 Lean report is assessed in the
+[addendum](../experiments/cycle_spectrum/C005/SIDE_ADDENDUM.md), with
+unchanged DIRECTIONS and no independent main build.
+
+**Next:** test denominator-1 exclusion under circular normalized successor
+order, retaining the heights but dropping common-base, period and height
+bounds. This is a proposed intrinsic-class milestone under the existing
+headline. No argument places every hypothetical integer cycle in that
+class. Global bounded-denominator finiteness remains a separate proposal;
+neither it nor the all-cycle headline is proved. Historical results and
+earlier C-series files remain preserved.
+
 ## C004 — Intrinsic geometry and two exact obstructions, 2026-10-19
 
 **Progress; headline active and open.** Baseline C003 is

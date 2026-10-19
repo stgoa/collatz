@@ -15,6 +15,39 @@ The [route map](../ROUTE_MAP.md) and [Phase6 ledger](PHASE6_LEDGER.md)
 retain earlier obligations, grades and completed evidence. Viewpoint
 recommendations are distinct from the written mathematical results below.
 
+C006 supplies an [ordered-gap restriction](../experiments/cycle_spectrum/C006/REPORT.md):
+for primitive positive odd cycles with q<=L and circular normalized
+successor order, let B be maximum dyadic height and J one plus the count
+of adjacent sorted-height changes. Then
+`q>(D/C_lower)2^(ceil(m/J)-1-B)`; each zero-forcing run improves the
+exponent to its exact valuation sum. The seam is retained. A product
+identity supplies the factor `3(A log2-m log3)/m`; an inspected published
+linear-forms theorem and B+1<=J then give effective finiteness under
+fixed bounds on q,J, with no separate height bound. Fixed q force
+J>=sqrt(m)-O_q(log m); fixed q,B force J=Omega(m/log m). Finite exceptions and growing
+height complexity remain; global bounded-q finiteness and exclusion of
+all ordered q1 cycles are unproved. Generic mechanical-minimum packing is
+identified as order-independent. Exact q13/q233/q1909 controls reject
+stronger shortcuts. Independent written review and finite replay are
+separate from formal verification or novelty. R1–R94 below are unchanged.
+
+C005 supplies an [arbitrary rotation-block exclusion](../experiments/cycle_spectrum/C005/REPORT.md):
+every finite concatenation of rotations of one primitive positive
+mechanical block has reduced denominator greater than 1, except base
+`(2)`. The block count, phase order and multiplicities are unrestricted.
+The proof combines a ratio bound R^3<8 from positive affine prefixes
+with integer order: a primitive denominator-1 cycle below ratio8 must
+have coprime totals (A,m). A primitive six-phase family has unbounded
+minimum and shortcut minimum count. This is a scoped exclusion, not
+universal cycle exclusion, a numerical record or a novelty claim.
+The common-base hypothesis remains; no general denominator growth or
+bounded-denominator finiteness is proved. Under q<=L, sorted normalized
+image order is equivalent to a circular successor rank shift. The
+original height labels still enter the intercept: exact q233 and q5
+cycles refute transferring the mechanical no-cancellation conclusion
+to normalized exponents. Written review, finite receipts and the
+historical gate are separately recorded. R1–R94 below are unchanged.
+
 C004 supplies an [intrinsic narrow-cycle classification](../experiments/cycle_spectrum/C004/REPORT.md):
 for primitive positive rational odd-only cycles, H<2L iff the valuation
 word is mechanical. Its coprime totals have exact denominator D=2^A-3^m;

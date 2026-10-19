@@ -130,3 +130,51 @@ mechanism must use ordered states across several dyadic ranges together
 with arithmetic cancellation, retaining dependence rather than treating
 rotations as independent events. No bound placing all cycles in a fixed
 range is assumed. Wide cycles and the headline remain unresolved.
+
+## C005: an arbitrary phase language and an intrinsic order restriction
+
+[C005](../experiments/cycle_spectrum/C005/REPORT.md) excludes denominator
+1 for every finite concatenation of rotations of a common primitive
+positive mechanical base, except base `(2)`. The phase count, order and
+multiplicities are unrestricted. A uniform state-ratio envelope combines
+with exact integer order; primitive periods and the height labels are
+retained. This does not include every word or prove global finiteness
+at bounded denominators.
+
+The next mechanism should address the remaining height-dependent weighted
+intercept. A concrete proposed intermediate target is exclusion of
+nontrivial denominator-1 cycles with circular normalized successor order,
+without a prescribed block decomposition or bound on period or height.
+It must allow the q5 and q233 ordered controls. Establishing this would
+be an intrinsic class theorem; no argument places every possible integer
+cycle in that class. The original all-cycle headline remains active.
+Global bounded-denominator finiteness is a separate ambitious proposal,
+not an activated replacement goal or a consequence of C005.
+
+## C006: height complexity and the next substantial target
+
+[C006](../experiments/cycle_spectrum/C006/REPORT.md) proves an elementary
+denominator restriction from ordered integer gaps. After importing an
+effective two-logarithm bound, periods are bounded when denominator and
+sorted-height change count are bounded; the separate height bound is
+redundant because B+1<=J. At fixed q, J>=sqrt(m)-O_q(log m).
+This does not exclude the finite exceptions or profiles with growing
+height complexity. The generic height-packing estimate is valid without
+order and is retained only as a comparison.
+
+The proposed high-level intermediate target remains:
+
+> Prove that every nontrivial primitive positive rational cycle whose
+> normalized successor preserves circular order has reduced denominator
+> greater than one, with no bound on period, height or height-change
+> count. Retain exact oddness, valuations and height labels, and test each
+> mechanism against actual cycles across the 3x+d family. Produce a
+> complete argument or an exact obstruction that explains what additional
+> structure is needed. Keep the broader all-cycle goal active.
+
+This target would extend beyond a prescribed block language and bounded
+complexity classes. No argument forces every possible integer cycle to
+have the required order. Fable's Lean lane can validate completed
+statements, while the main research obligation is the missing
+height-dependent arithmetic exclusion. C006 is not formally verified
+here, and proposing this target does not activate a replacement goal.
