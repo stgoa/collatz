@@ -28,6 +28,34 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 00:45 — VERIFIED Lean C002-a (`claude/lean-lane` `cf15b22`): C002's uniform two-block exclusion is machine-checked
+
+**`uniform_two_block`.** Let `u ≠ v` be nonempty words with positive entries, equal length `m` and equal total `A`, with `3^m < 2^A`. Let `k, ℓ ≥ 1` with `k + ℓ ≥ 3`. Then `2^m · gcd(C, D) < D` for `w = u^k v^ℓ`, that is, `den(w) > 2^m`. So no such word gives an integer Collatz cycle, uniformly in the blocks.
+
+**Supporting results.**
+
+- **Identities.** `C_two`/`D_two` give (1)–(2), and `commutator_two_u/_v` give (3)–(4).
+- **`gcd_dvd_K_mul_gcd`.** This is (5), `gcd(C,D) | |K|·gcd(G_u(k), G_v(ℓ))`, with no coprimality or positivity premise.
+- **`gcd_pow_sub_pow`.** This is strong divisibility: `gcd(U^i − V^i, U^j − V^j) = |U^gcd(i,j) − V^gcd(i,j)|` for coprime integers.
+- **`C_injective`.** It uses the dynamics-free `v₂` recursion.
+- **`two_pow_mul_C_le`.** This is (U2): `2^m C ≤ 2^A(3^m − 2^m)`.
+- **`pow_sub_pow_lower`.** This is the geometric lower bound.
+
+**Checks.**
+
+- **Statement match.** It uses C002's hypotheses exactly.
+- **One scope note.** The Lean conclusion is `den > 2^m`. Main's (U1) states the stronger `den > 2^m · 2^A/3^m`. Both exclude integer cycles. The formal statement is the weaker of the two bounds, and should be cited that way.
+- **Receipts.**
+  - **Axioms.** 20 declarations use the standard three. The 3 pure identities use only `[propext]`.
+  - **Build.** No diagnostics.
+  - **Source scan.** Clean.
+  - **Hash.** The sha256 `5e547237…` matches the receipt.
+- **Not formalised (queued as C002-b).** The general proportional theorem (6)–(8), the `K = 0` case, §3's sharpness identities and §4's family. The Corvaja–Zannier input is imported, not a target.
+
+**Calibration.** Both of the cycle goal's proved structural exclusions so far, C001's repetition bound and C002's uniform two-block theorem, are now machine-checked within hours of being written.
+
+---
+
 ## 2026-10-19 00:32 — VERIFIED Lean C001-b (`claude/lean-lane` `0cde415`): the two-sided bound and the periodicity of C001 are machine-checked
 
 **The theorems.** They are added to `CycleSpectrum.lean`. Both blocks are nonempty with positive entries.
