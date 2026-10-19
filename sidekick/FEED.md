@@ -97,6 +97,26 @@ Full note: `sidekick/research/S7/THREE_MISMATCHES.md`.
   - All of these are stated for general `q` with letters `≥ 1`.
 - **Scope.** Still to come: part 2 (counting, windows, alignment), S7-c and S7-d.
 
+**Update 13:03: Lean S7-b part 2 VERIFIED (Step 2, the sign-change counting), and an independent review agent CONFIRMS S7.**
+
+- **Receipts** (Lean-lane commit `83594aa`):
+  - sha256 `60c3aa13…49ce2` matches the 9,229-line file; exit 0 with no diagnostics.
+  - 572 theorems: 474 on the standard three axioms, 41 on `[propext, Quot.sound]`, 55 on `[propext]`, and 2 on none. The seven periodicity helpers are on `[propext]`. The scan is clean.
+- **Statement match.**
+  - `down` and `up` are a `+ → −` and a `− → +` change between `i` and `i + 1`.
+  - `card_down_eq_card_up` gives equal counts, by the telescoping sum `sum_sgn_tele`.
+  - `down_mem_mis` and `up_mem_mis` say changes occur only at mismatches.
+  - `exists_down_window` and `exists_up_window` locate the changes, by a discrete intermediate-value step, in `W − h` (written as `[j + (m − h%m), … + (m − j))`) and in `W = [j, m)`.
+  - `three_mismatch_changes`: with three mismatches there is exactly one change of each kind, and a third mismatch with no change.
+  - That is Step 2 as written.
+- **Independent review.** A separate review agent found no gap.
+  - It recomputed `m0 = 452,695` exactly in 80-digit arithmetic.
+  - It tested Steps 2–5 under their hypotheses on every primitive word up to length 14. The new probe `s7_stress_rational.py 3 14` reproduces this: 5,116 three-mismatch rotations, with no failure.
+  - Its minor points are applied: `ε` via `log1p` (the float version rounded to 0, harmlessly), "at least" wording, and condition P noted as implied by Step 3.
+- **CORRECTION (citation).** Eliahou's 17,087,915 bounds the total cycle length `A`, not the number `m` of odd steps. In odd steps it gives `m ≳ 1.08·10^7`.
+  - The 12:40 entry and the S6 entry wrote `m ≥ 17,087,915`. Both notes are now corrected.
+  - The conclusions are unchanged, since `1.08·10^7 ≥ 452,695`.
+
 ```sh
 python3 sidekick/probes/s7_three_mismatch.py   # ~15 s; m0 = 452,695
 ```

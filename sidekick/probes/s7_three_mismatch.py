@@ -11,7 +11,8 @@ X* = (m-1) kappa - 1 - t* log2 3 + ell; d* = m - (1 + t* log2 3 - ell)/kappa, d_
 sigma_min = m - 2 (t_max + 1) (the minimum mismatch spacing); tau_max = ceil((ell + (t_max + 1) kappa - 1)/(1 - eps)) - 1.
 Every condition gets harder as ell or eps grows, so we use the worst case ell = log2(2^172 m^342 / 3)
 (L <= m 2^A/(3D) and gap_all) and eps at L = 2^71 (Barina). Floats: values stay below 1e8, so
-rounding errors are below 1e-7; a safety slack of 1e-6 is added on the unfavourable side.
+rounding errors are below 1e-7 for m <= 1e7 (the scan range); a safety slack of 1e-6 is added on the unfavourable side.
+Condition P is implied by the window structure (an independent review found it never binds); it is kept as a check.
 
 Part 2 (controls). Actual 3x+q cycles, odd q < 400 with 3 not dividing q: every rotation with
 exactly three (and two) mismatches is checked for the exact, q-independent claims:
@@ -59,7 +60,7 @@ def worst_ell(m):
     return 172 + 342 * math.log2(m) - LOG2_3
 
 
-EPS71 = math.log2(1 + 1 / (3 * 2**71))
+EPS71 = math.log1p(1 / (3 * 2**71)) / math.log(2)  # log1p: log2(1 + x) underflows to 0.0 here
 
 
 def threshold(m_hi=10_000_000):

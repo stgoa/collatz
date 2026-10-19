@@ -27,7 +27,7 @@ More generally, a rotation with exactly three mismatches requires `B > 0.528m �
 | Minimum input | (through the period input) | `L > 2^71` (Barina), used only to make the `ε` term negligible; any `L ≥ 2^20` suffices |
 | Formal status | written proof with two imports | S5-a formal; `gap_all` formal elsewhere; the ceiling elementary; the period input imported |
 
-For the period input, Hercher's bound or even Eliahou's 1993 bound (`m ≥ 17,087,915`) is far more than needed.
+For the period input, Hercher's bound or even Eliahou's 1993 bound is far more than needed. *[Corrected 2026-10-19: Eliahou's 17,087,915 bounds the total cycle length `A`, so in odd steps it gives `m ≳ 1.08·10^7`. An earlier version wrote `m ≥ 17,087,915`.]*
 
 ## 3a. Remarks from the Lean lane's review
 

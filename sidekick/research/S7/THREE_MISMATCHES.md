@@ -8,7 +8,7 @@ Take a nontrivial primitive Collatz cycle (`q = 1`) with period `m ≥ 452,695` 
 
 - Every nonidentity rotation differs in at least one position, by primitivity. It never differs in exactly one, because the totals agree: `Σ a_i = Σ a_(i+h)`. (The Lean lane is formalising this as `mis_card_ne_one`.)
 - C011 (main), or S6 (formal as S6-b/c for `m ≥ 2^15`), excludes exactly two.
-- So with any period import above 452,695, for example Eliahou's `m ≥ 17,087,915` or the Hercher/Barina bound used in C011, **every nonidentity rotation of a hypothetical nontrivial Collatz cycle differs in at least four positions**. In main's notation that is `ρ(w) ≥ 4`; C011 gave `ρ(w) ≥ 3`.
+- So with any period import above 452,695, for example Eliahou's bound (total cycle length `A ≥ 17,087,915`, so `m ≳ 1.08·10^7` odd steps) or the Hercher/Barina bound used in C011, **every nonidentity rotation of a hypothetical nontrivial Collatz cycle differs in at least four positions**. In main's notation that is `ρ(w) ≥ 4`; C011 gave `ρ(w) ≥ 3`.
 
 ## 2. Setting and four standing facts
 
@@ -36,7 +36,7 @@ Take a nontrivial primitive Collatz cycle (`q = 1`) with period `m ≥ 452,695` 
 
 **Step 1 (sizes).**
 - Each witness has `n_z ≤ H ≤ L·2^((m−1)κ)`. So every run satisfies `t ≤ t_max`, the largest integer below `T = (ℓ + (m−1)κ − 1)/log₂ 3 ≈ 0.369m + 0.631ℓ`. This `t_max` is a uniform bound on every run, not the length of the longest one.
-- The three runs sum to `m − 3`, so every run is longer than `m − 3 − 2t_max ≈ 0.262m − 1.26ℓ`. Write `σ_min = m − 2(t_max + 1)` for the resulting lower bound on the **spacing** (run length plus one) between consecutive mismatches. "Spacing" is used to avoid the programme's `gap`, which means `Δ_r`.
+- The three runs sum to `m − 3`, so every run has length at least `m − 3 − 2t_max ≈ 0.262m − 1.26ℓ`. Write `σ_min = m − 2(t_max + 1)` for the resulting lower bound on the **spacing** (run length plus one) between consecutive mismatches. "Spacing" is used to avoid the programme's `gap`, which means `Δ_r`.
 - The longest run has length at least `t* = ⌈(m−3)/3⌉`, so `log₂ H > 1 + t* log₂ 3`. `X*` and `d*` below use this worst case, the smallest possible longest run, which makes them as large as possible. Combined with (F3) up to `j`:
   - the **climb excess** `X_c = Σ_(i<j)(a_i − 1)` satisfies `X_c < X* = (m−1)κ − 1 − t* log₂ 3 + ℓ ≈ 0.057m + ℓ`. The climb bound used is `log₂(H/L) ≤ jκ − X_c`, the exact form of S6-a's `h_le_climb`.
   - the **descent window** `W = [j, m)` has length `d = m − j < d* = m − (1 + t* log₂ 3 − ℓ)/κ ≈ 0.097m + 1.71ℓ`. Keeping `X_c` gives the sharper `d < d* − X_c/κ`, which is not needed.
@@ -67,7 +67,7 @@ Take a nontrivial primitive Collatz cycle (`q = 1`) with period `m ≥ 452,695` 
 - **Order 1: `x − h → x → e_c` (forward).**
   - The run `(x, e_c)`, of length `t′`, ends at `e_c`. That position lies in the stretch `(x, x − h]`, where `δ > 0`, so the larger of the two compared states is `n_(e_c + h)`. Its witness is `z = e_c + h`, with `n_z > 2·3^(t′)`.
   - The forward spacings are `t + 1` (from `x − h` to `x`), `t′ + 1` and `t″ + 1`, and they sum to `m`. So `z ≡ x − (t″ + 1)`.
-  - As an index, `x ∈ [j, m − 1]`. Condition **P** (`m − d_max ≥ t_max + 1`) gives `x ≥ t″ + 1`. So `z` is the integer `x − (t″ + 1) ∈ [0, m)`, `n_z = n_(e_c + h)` by the congruence, and `z ≤ m − 2 − t″ = t + t′ + 1`.
+  - As an index, `x ∈ [j, m − 1]`. Condition **P** (`m − d_max ≥ t_max + 1`) gives `x ≥ t″ + 1`. P is in fact implied by Step 3, since `(x, m)` lies inside `W` and holds no mismatch, so `e_c < x − h`. An independent review found that it never binds; it is kept as a check. So `z` is the integer `x − (t″ + 1) ∈ [0, m)`, `n_z = n_(e_c + h)` by the congruence, and `z ≤ m − 2 − t″ = t + t′ + 1`.
   - Since `t″ + 1 > d`, also `z < m − d = j`. So `z` is a climb index, reached forward from the minimum. (F3) would apply at any index anyway.
 - **Order 2: `x − h → e_c → x`.**
   - The run `(x − h, e_c)`, of length `t₁`, ends at `e_c`. That position lies in `(x − h, x]`, where `δ < 0`, so the larger state is `n_(e_c)` itself. Its witness is `z = e_c`.
@@ -90,7 +90,7 @@ The conditions are evaluated at the worst case `ℓ = ℓ*(m)`. Each entry is a 
 |---|---|---|---|---|---|---|---|
 | 452,695 | 4 | 168,101 | 226,349 | 3,457 | 171,236 | 55,109 | 110,221 |
 | 10^6 | 35,499 | 394,080 | 517,749 | 27,586 | 373,477 | 108,773 | 253,044 |
-| 17,087,915 (Eliahou) | 1.13·10^6 | 7.07·10^6 | 9.11·10^6 | 7.6·10^5 | 6.31·10^6 | 1.67·10^6 | 4.46·10^6 |
+| 17,087,915 | 1.13·10^6 | 7.07·10^6 | 9.11·10^6 | 7.6·10^5 | 6.31·10^6 | 1.67·10^6 | 4.46·10^6 |
 | 1.14·10^11 (Hercher) | 7.8·10^9 | 4.7·10^10 | 6.1·10^10 | 5.2·10^9 | 4.2·10^10 | 1.1·10^10 | 3.0·10^10 |
 
 ## 5. Controls on actual `3x+q` cycles (Part 2)
@@ -118,6 +118,10 @@ The sample is the 616 cycles with `m ≥ 3` for odd `q < 400`, `3 ∤ q`, from s
   - **Two letters `V, W ≥ 2`, at `x` and `y`.** The rotation by `r = y − x` can only mismatch at `x`, `y` and `2x − y`. So it has 3 mismatches (`V ≠ W`), 2 (`V = W`), or, when `2r ≡ 0`, 2 or 0.
   - S6, S7 and primitivity exclude every case.
   - This is a check that the theorem has content, not a new result. Words with three or more letters `≥ 2` are not reached this way.
+- **An independent review agent also found no gap** (2026-10-19).
+  - It recomputed the four conditions in 80-digit decimal arithmetic. W is −1 at 452,694 and 4 at 452,695, so `m0` is exact.
+  - It tested every q-independent step (2–5) under its actual hypotheses on all primitive words up to length 14 (rational cycles). `s7_stress_rational.py 3 14` reproduces this here: 5,116 three-mismatch rotations, with no failure. The Step 4 transfer is exercised on 260 unaligned rotations, and Step 5 on 444 aligned ones.
+  - Its minor points are applied: `ε` is computed with `log1p`, "longer than" is now "at least", P is noted as redundant, and the Eliahou citation is corrected.
 - **Relation to the literature.**
   - `ρ ≥ 4` improves this programme's `ρ ≥ 3` (C011).
   - The k-cycle literature bounds a different statistic, the number of local minima, as settled in the S6 dispute. No comparison with it is implied beyond the check above.
@@ -141,4 +145,5 @@ The sample is the 616 cycles with `m ≥ 3` for odd `q < 400`, `3 ∤ q`, from s
 
 ```sh
 python3 sidekick/probes/s7_three_mismatch.py   # ~15 s: threshold scan to 10^7, then 616 control cycles
+python3 sidekick/probes/s7_stress_rational.py 3 14   # ~30 s: every primitive word over {1,2,3} up to length 14
 ```
