@@ -536,6 +536,26 @@ python3 sidekick/probes/c005_c006_order_check.py <path to main's actual_cycles.j
 
 **Status.** With `narrow_mech` from C004-a, **"narrow ⇔ mechanical" is formal**. The integer corollary, that every nontrivial Collatz cycle has `H > 2L`, now needs only R71's `g = 1` for primitive mechanical words. The lane lists that as a candidate next unit.
 
+**Update 05:44: Lean R71-a is VERIFIED** (`09d4319`). R71's exact denominator for primitive mechanical words (`BALANCED_DENOMINATORS.md` §2) is machine-checked.
+
+- **The theorems.**
+  - `gcd_rotate_eq`: `gcd(C, D)` is the same for every rotation of a word with positive total.
+  - `exists_unique_mech_jump`: for `gcd(A, m) = 1` there is exactly one `j < m` with `m | jA + 1`.
+  - `C_mech_one_sub_zero`: R71's (4), `C(phase 1) − C(phase 0) = 3^(m−1−j)·2^⌊jA/m⌋`.
+  - `mech_gcd_one` and `mech_gcd_one_phase`: for `m ≥ 2`, `A ≥ m` and `gcd(A, m) = 1`, every phase word has `gcd(C, D) = 1`. So its reduced denominator is exactly `D = 2^A − 3^m`.
+  - `mech_D_ne_one`: `2^A − 3^m ≠ 1` for `m ≥ 2` and `A ≥ m`, by the modulo-8 argument.
+- **Statement match.** It matches R71 §2's primitive case, which writes `k` for `m`. Two hypotheses differ from the prose, both harmlessly.
+  - The Lean statement does not assume `2^A > 3^m`; the gcd claim does not need it.
+  - `A ≥ m` is not needed in `mech_D_ne_one`, since `2^A − 3^m = 1` has only the solutions `(A, m) = (1, 0)` and `(2, 1)`. For a cycle, `D > 0` gives `A > m` anyway.
+- **Receipts.** Of 312 declarations, 248 use the standard three axioms, 26 use `[propext, Quot.sound]`, 37 use `[propext]` and 1 uses none. The build has no diagnostics. A source scan finds no `sorry`, `native_decide`, `axiom` or `implemented_by`. The sha256 `56ba1e1d…` matches the receipt.
+- **Independent check.** `r71a_mech_gcd_check.py` uses exact arithmetic and the recursive `C`.
+  - `gcd(C, D) = 1` holds on all 16,887 phase words with `m ≤ 40`, `m ≤ A ≤ 2m + 7` and `gcd(A, m) = 1`.
+  - (4), with a unique and nonzero jump index, holds on all 669 such `(A, m)` with `m ≥ 2`.
+  - `mech_rotate` holds on 849,520 cases, and the gcd is rotation invariant on 19,569 random words.
+  - **Control: coprimality is necessary.** For `g = gcd(A, m) > 1` and `D > 0`, all 6,109 phase words have `gcd(C, D) = D/(2^(A/g) − 3^(m/g)) > 1`. This is R71's (3) in the repeated case. For example, `(m, A) = (6, 10)` has `D = 295` and reduced denominator 5.
+- **Not formal.** The repeated case; the one-letter case `m = 1`, where `C = 1` and an integer cycle needs `A = 2`, the fixed point 1; and §3's lower bound. R71 itself claims no novelty.
+- **Correction to the status line above and to the C005-c update at 05:24.** Both said R71's `g = 1` was the only missing piece for "every nontrivial Collatz cycle has `H > 2L`". One more step is needed: the bridge from an actual `q = 1` cycle with all states in `[L, 2L)` to a mechanical word with `D | C`, including the case `m = 1`. The Lean lane has queued it as C004-c. With it, C004-b, R71-a and `mech_D_ne_one` close the chain. C005's rotation-block chain still needs the wiring listed at 05:24.
+
 ---
 
 ## 2026-10-19 01:39 — VERIFIED Lean C004-a (`claude/lean-lane` `7959806`): C004's cut identities and the "mechanical ⇒ narrow" direction are machine-checked

@@ -1,0 +1,30 @@
+{
+ "probe": "r71a_mech_gcd_check",
+ "source": "BALANCED_DENOMINATORS.md section 2",
+ "lean": "claude/lean-lane 09d4319",
+ "mech_rotate_cases": 849520,
+ "jump_index_unique_nonzero_cases": 669,
+ "R71_4_difference_cases": 669,
+ "gcd_one_phase_words": 16887,
+ "repeated_case_words_D_pos": 6109,
+ "repeated_example": [
+  {
+   "m": 6,
+   "A": 10,
+   "D": 295,
+   "reduced_den": 5
+  }
+ ],
+ "gcd_rotate_eq_random_words": 19569,
+ "solutions_2A_minus_3m_eq_1": [
+  [
+   1,
+   0
+  ],
+  [
+   2,
+   1
+  ]
+ ],
+ "result": "PASS"
+}
