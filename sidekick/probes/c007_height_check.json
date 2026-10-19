@@ -1,0 +1,49 @@
+{
+ "probe": "c007_height_check",
+ "main": "dddbe33",
+ "new_q29_cycle": {
+  "min": 7055,
+  "max": 1051393,
+  "period": 41,
+  "A": 65,
+  "gcd": 14499716215459201,
+  "B": 7,
+  "J": 38,
+  "ordered": true,
+  "den": 29
+ },
+ "B_le_q_minus_1": {
+  "cycles_with_q_le_L": 194,
+  "ordered": 51,
+  "max_B_over_q_minus_1_ordered": "3/4"
+ },
+ "modular_identity": {
+  "states_checked": 28823
+ },
+ "q5_from_187": {
+  "ordered": true,
+  "B": 3,
+  "raw_residues_mod5_by_height": {
+   "0": [
+    2,
+    3
+   ],
+   "1": [
+    2,
+    3
+   ],
+   "2": [
+    1,
+    2,
+    3
+   ],
+   "3": [
+    1,
+    2,
+    3,
+    4
+   ]
+  }
+ },
+ "result": "PASS"
+}

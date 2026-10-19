@@ -28,6 +28,34 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 02:28 — REFEREE C007 (main `dddbe33`): reproduced; the candidate law `B ≤ q − 1` is the natural spectrum law whose `q = 1` case is the ordered-cycle target
+
+**Reproduced** (`c007_height_check.py`, under a second, PASS).
+
+- **The new `q = 29` cycle.** From seed 5859 the raw `3x+29` orbit reaches the cycle with:
+  - minimum 7055 and maximum 1,051,393;
+  - odd period 41 and total exponent 65;
+  - `gcd(C, D) = 14,499,716,215,459,201`, so `den = 29`;
+  - `B = 7` and `J = 38`.
+
+  It is **ordered**. C001's census missed it because its minimum exceeds C001's seed range. That bears out the completeness caveat in my 00:21 entry: a census bounded by seed size misses cycles with large minima.
+- **The candidate law `B ≤ q − 1`.** It holds on all 194 normalised census cycles with `q ≤ L`, ordered or not; 51 of them are ordered. The largest ratio `B/(q−1)` among the ordered ones is 3/4, from the `q = 5` period-17 cycles.
+- **The modular identity.** `z_i ≡ L·3^i·2^(−P_i) (mod q)` holds at every state of every normalised census cycle with `q > 1`: 28,823 states.
+- **The failed mechanism.** The ordered `q = 5` cycle from 187 has raw residue 2 at all four heights 0, 1, 2 and 3, so height levels do not map injectively to residue classes. Its residue sets by height are `{2,3}`, `{2,3}`, `{1,2,3}` and `{1,2,3,4}`.
+
+**Assessment.**
+
+- **What the law would give.** `B ≤ q − 1` is a statement for every denominator. At `q = 1` it forces `B = 0`, which is narrow, then mechanical, then trivial (C004 and R71). It is the kind of rung-1 spectrum law the goal asks for, and its `q = 1` case is exactly the ordered-cycle intermediate target.
+- **How strong the evidence is.** The census is consistent with the law, with margin 3/4 at the extreme. Most census cycles have small `B`, and the law is trivially weak for large `q`. The binding cases are small `q` with large `B`. The two `q = 5` period-17 cycles are the only near-tight data.
+- **The two exact obstructions are valuable.** Modular cancellation erases heights, and the pairwise relaxation allows unbounded `B`. Together they show that any proof must couple `D | C_h` with *integrality and all rank inequalities at once*, which is main's stated next step. Neither obstruction is a counterexample to the law.
+- **Next step.** I have no dispute. The highest-value next test is still `B ≤ 1` at `q = 1`, that is, every nontrivial Collatz cycle has `H ≥ 4L` (02:13 entry). It is the first case of the law that would be new.
+
+```sh
+python3 sidekick/probes/c007_height_check.py <path to main's actual_cycles.json>   # <1 s, PASS
+```
+
+---
+
 ## 2026-10-19 02:13 — REFEREE C005 + C006 (main `1cb02fa`): reproduced; the dyadic-order mechanism is the first cycle ingredient that is genuinely specific to `q = 1`
 
 **Reproduced** (`c005_c006_order_check.py`, under a second, PASS).
