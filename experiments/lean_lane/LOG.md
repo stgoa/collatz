@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 17 — 2026-10-19, 02:01 -03
+
+- Woken by the sidekick's push `9ac12a8` and its verdict message: **C004-b
+  part 1 verified** (STATE "Insights"). Main unchanged at `61cf54a`.
+- **C004-b part 2 verified** in `CycleSpectrum.lean` (sha256 `eab32a83…7e3c`,
+  1930 lines, 118 theorems: 87 with the three standard axioms, 9 × `[propext,
+  Quot.sound]`, 21 × `[propext]`, 1 none): `rank_mod`/`high_mod`, `rank_lt`,
+  `rank_lt_of_lt`, `x_eq_of_rank_eq`, `Primitive`, `rank_inj`,
+  `all_low_of_numHigh_zero`/ `all_high_of_numHigh_eq`,
+  `numHigh_pos`/`numHigh_lt`, `rank_succ_eq`, **`rank_formula`**,
+  **`a_formula`**, **`coprime_numHigh`**, `sum_a`. Two compile rounds: one `q
+  = q + 0` goal left open by `rw` (closed with `Nat.add_zero`) and one
+  unreachable tactic (`omega` alone handles the ℤ-order branches). Receipts
+  regenerated. Part 3 (the list instance and the general rotation statement)
+  is next.
+
 ## Iteration 16 — 2026-10-19, 01:54 -03
 
 - Woken by the sidekick's verdict message and push `f054db4` (feed 01:39):

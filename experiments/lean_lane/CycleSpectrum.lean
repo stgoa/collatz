@@ -1759,6 +1759,171 @@ theorem high_iff_rank {i : ℕ} (hi : i < m) : N.high i ↔ m - N.numHigh ≤ N.
     by_contra hlow
     exact absurd h (not_le.mpr (N.rank_lt_of_low hi hlow))⟩
 
+/-! #### Part 2: the rank formula, `gcd(h, m) = 1` and the letter formula -/
+
+theorem rank_mod (i : ℕ) : N.rank (i % m) = N.rank i := by
+  unfold rank
+  rw [N.x_mod]
+
+theorem high_mod (i : ℕ) : N.high (i % m) ↔ N.high i := by
+  unfold high
+  rw [N.x_mod]
+
+/-- `rank i < m`: the index `i` itself (reduced mod `m`) is never counted. -/
+theorem rank_lt (i : ℕ) : N.rank i < m := by
+  unfold rank
+  calc (∑ j ∈ Finset.range m, if N.x j < N.x i then 1 else 0)
+      < ∑ j ∈ Finset.range m, 1 := by
+        apply Finset.sum_lt_sum
+        · intro j _
+          split_ifs <;> omega
+        · refine ⟨i % m, Finset.mem_range.mpr (Nat.mod_lt _ N.hm), ?_⟩
+          rw [N.x_mod]
+          simp
+    _ = m := by simp
+
+/-- Ranks are strictly monotone in the states (for a counted index `i < m`). -/
+theorem rank_lt_of_lt {i j : ℕ} (hi : i < m) (h : N.x i < N.x j) : N.rank i < N.rank j := by
+  unfold rank
+  apply Finset.sum_lt_sum
+  · intro k _
+    split_ifs <;> omega
+  · refine ⟨i, Finset.mem_range.mpr hi, ?_⟩
+    simp [h]
+
+theorem x_eq_of_rank_eq {i j : ℕ} (hi : i < m) (hj : j < m) (h : N.rank i = N.rank j) :
+    N.x i = N.x j := by
+  rcases lt_trichotomy (N.x i) (N.x j) with hlt | heq | hgt
+  · exact absurd h (ne_of_lt (N.rank_lt_of_lt hi hlt))
+  · exact heq
+  · exact absurd h.symm (ne_of_lt (N.rank_lt_of_lt hj hgt))
+
+/-- Primitivity (the prose's "primitive state period"): the `m` states are distinct. -/
+def Primitive : Prop := ∀ i j, i < m → j < m → N.x i = N.x j → i = j
+
+theorem rank_inj (hp : N.Primitive) {i j : ℕ} (hi : i < m) (hj : j < m)
+    (h : N.rank i = N.rank j) : i = j :=
+  hp i j hi hj (N.x_eq_of_rank_eq hi hj h)
+
+theorem all_low_of_numHigh_zero (h0 : N.numHigh = 0) (j : ℕ) : ¬ N.high j := by
+  intro hj
+  have h1 : m - N.numHigh ≤ N.rank j := N.rank_ge_of_high hj
+  rw [h0, Nat.sub_zero] at h1
+  exact absurd (N.rank_lt j) (not_lt.mpr h1)
+
+theorem all_high_of_numHigh_eq (hm0 : N.numHigh = m) (j : ℕ) : N.high j := by
+  by_contra hj
+  have h1 := N.rank_lt_of_low (Nat.mod_lt j N.hm) ((not_congr (N.high_mod j)).mpr hj)
+  rw [hm0, Nat.sub_self] at h1
+  exact Nat.not_lt_zero _ h1
+
+/-- A primitive narrow cycle with `m ≥ 2` has a high index: `h ≥ 1`. -/
+theorem numHigh_pos (hp : N.Primitive) (hm2 : 2 ≤ m) : 0 < N.numHigh := by
+  rcases Nat.eq_zero_or_pos N.numHigh with h0 | hpos
+  · exfalso
+    have h01 : N.rank 1 = N.rank 0 + N.numHigh :=
+      N.rank_succ_of_low (N.all_low_of_numHigh_zero h0 0)
+    rw [h0, Nat.add_zero] at h01
+    have := N.rank_inj hp (by omega) (by omega) h01
+    omega
+  · exact hpos
+
+/-- A primitive narrow cycle with `m ≥ 2` has a low index: `h ≤ m − 1`. -/
+theorem numHigh_lt (hp : N.Primitive) (hm2 : 2 ≤ m) : N.numHigh < m := by
+  rcases Nat.lt_or_ge N.numHigh m with h | h
+  · exact h
+  · exfalso
+    have hm0 : N.numHigh = m := le_antisymm N.numHigh_le h
+    have h01 : N.rank 0 = N.rank 1 + (m - N.numHigh) :=
+      N.rank_of_high (N.all_high_of_numHigh_eq hm0 0)
+    rw [hm0, Nat.sub_self, Nat.add_zero] at h01
+    have := N.rank_inj hp (by omega) (by omega) h01
+    omega
+
+/-- The rank shift in one formula: `rank(i+1) = (rank i + h) mod m`. -/
+theorem rank_succ_eq (hh : N.numHigh < m) (i : ℕ) :
+    N.rank (i + 1) = (N.rank i + N.numHigh) % m := by
+  by_cases hi : N.high i
+  · have h1 := N.rank_of_high hi
+    have h2 : m - N.numHigh ≤ N.rank i := N.rank_ge_of_high hi
+    have h3 := N.rank_lt (i + 1)
+    rw [Nat.mod_eq_sub_mod (show m ≤ N.rank i + N.numHigh by omega),
+      Nat.mod_eq_of_lt (show N.rank i + N.numHigh - m < m by omega)]
+    omega
+  · rw [N.rank_succ_of_low hi]
+    have h1 : N.rank i < m - N.numHigh := by
+      have := N.rank_lt_of_low (Nat.mod_lt i N.hm) ((not_congr (N.high_mod i)).mpr hi)
+      rwa [N.rank_mod] at this
+    rw [Nat.mod_eq_of_lt (show N.rank i + N.numHigh < m by omega)]
+
+/-- **C004 §3:** time `i` has rank `rank 0 + i h mod m`. -/
+theorem rank_formula (hh : N.numHigh < m) (i : ℕ) :
+    N.rank i = (N.rank 0 + i * N.numHigh) % m := by
+  induction i with
+  | zero => simp [Nat.mod_eq_of_lt (N.rank_lt 0)]
+  | succ i ih =>
+    rw [N.rank_succ_eq hh, ih, Nat.mod_add_mod, Nat.add_mul, Nat.one_mul, Nat.add_assoc]
+
+/-- **C004 §3, the letters:** starting at the minimum (`rank 0 = 0`),
+`a_i = q + ⌊(i+1)h/m⌋ − ⌊ih/m⌋`. -/
+theorem a_formula (hh : N.numHigh < m) (h0 : N.rank 0 = 0) (i : ℕ) :
+    N.a i = N.q + (((i + 1) * N.numHigh) / m - (i * N.numHigh) / m) := by
+  have hr : N.rank i = (i * N.numHigh) % m := by
+    rw [N.rank_formula hh i, h0, Nat.zero_add]
+  have hlt : (i * N.numHigh) % m < m := Nat.mod_lt _ N.hm
+  have hdiv : ((i + 1) * N.numHigh) / m - (i * N.numHigh) / m
+      = ((i * N.numHigh) % m + N.numHigh) / m := by
+    rw [Nat.add_mul, Nat.one_mul, step_mod N.hm, Nat.div_eq_of_lt hlt, Nat.sub_zero]
+  rw [hdiv, N.a_eq]
+  have hiff : N.high i ↔ m - N.numHigh ≤ N.rank i := by
+    rw [← N.high_mod, ← N.rank_mod]
+    exact N.high_iff_rank (Nat.mod_lt _ N.hm)
+  split_ifs with hc
+  · have h1 : m ≤ (i * N.numHigh) % m + N.numHigh := by
+      have := hiff.mp hc
+      omega
+    rw [Nat.div_eq_of_lt_le (show 1 * m ≤ (i * N.numHigh) % m + N.numHigh by omega)
+      (show (i * N.numHigh) % m + N.numHigh < Nat.succ 1 * m by omega)]
+  · have h1 : (i * N.numHigh) % m + N.numHigh < m := by
+      have := (not_congr hiff).mp hc
+      omega
+    rw [Nat.div_eq_of_lt h1, Nat.add_zero]
+
+/-- **C004 §3:** `gcd(h, m) = 1` for a primitive narrow cycle with `m ≥ 2`. -/
+theorem coprime_numHigh (hp : N.Primitive) (hm2 : 2 ≤ m) : Nat.Coprime N.numHigh m := by
+  have hh := N.numHigh_lt hp hm2
+  by_contra hne
+  have hg1 : Nat.gcd N.numHigh m ≠ 1 := hne
+  have hgpos : 0 < Nat.gcd N.numHigh m := Nat.gcd_pos_of_pos_right _ N.hm
+  obtain ⟨m', hm'⟩ := Nat.gcd_dvd_right N.numHigh m
+  obtain ⟨h', hh'⟩ := Nat.gcd_dvd_left N.numHigh m
+  set g := Nat.gcd N.numHigh m with hg
+  have hg2 : 2 ≤ g := by omega
+  have hm'pos : 0 < m' := by
+    rcases Nat.eq_zero_or_pos m' with h0 | h0
+    · rw [h0, Nat.mul_zero] at hm'
+      omega
+    · exact h0
+  have hm'lt : m' < m := by
+    rw [hm']
+    nlinarith
+  have hmul : m' * N.numHigh = m * h' := by
+    rw [hh', hm']
+    ring
+  have hr : N.rank m' = N.rank 0 := by
+    rw [N.rank_formula hh m', hmul, Nat.add_mul_mod_self_left, Nat.mod_eq_of_lt (N.rank_lt 0)]
+  have := N.rank_inj hp hm'lt N.hm hr
+  omega
+
+/-- The total over one period: `A = mq + h`. -/
+theorem sum_a : ∑ i ∈ Finset.range m, N.a i = m * N.q + N.numHigh := by
+  have h : ∀ i, N.a i = N.q + if N.high i then 1 else 0 := fun i => by
+    rw [N.a_eq]
+    split_ifs <;> omega
+  simp_rw [h]
+  rw [Finset.sum_add_distrib, Finset.sum_const, Finset.card_range, smul_eq_mul]
+  rfl
+
 end NarrowCycle
 
 end Cyc
