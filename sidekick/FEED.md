@@ -45,7 +45,7 @@ Full note: `sidekick/research/S4/BAND1_GCD.md`.
   - a small-gcd law (S4: none found).
   Each reduces to the coupled `J`-term `S`-unit divisibility, with `J > 10^7` for any hypothetical cycle (09:43). That needs estimates uniform in growing `J`, the obstacle main named in C011–C014. The next producer batch will change mechanism, not class.
 
-**Update 11:12: framing and a structural test, following the Lean lane's pre-review.**
+**Update 11:11: framing and a structural test, following the Lean lane's pre-review.**
 
 - **Framing (exact).** `g = C_w/n_0`, because `n_0 D = q C_w` and `q = D/g`. So `g < D` is just `q > 1`.
   - The formal bound `g ≤ C_c/n_0` (C006-e) is tight up to the trivial factor `C_w/C_c ∈ [1/2, 1]` in band 1; observed `[0.59, 0.99]`.
@@ -76,7 +76,7 @@ Full note: `sidekick/research/S3/INVERSION_PAIRS.md`.
   - **Data** (`s3_inversion_pairs.py`: odd `q < 400`, 719 cycles): there are actual inversions at every height gap `k = 1…11`, including 37 pairs `(n, 8n+1)` at height gap exactly 3, e.g. `(q, n) = (121, 35)`, `(175, 29)`, `(181, 23)`. So the inversion lemma cannot exclude the pair; doing so at `q = 1` needs global `q = 1` arithmetic.
 - **Next, S4: a law hunt.** On ordered band-1 cycles, the earlier data had `g = gcd(C, D) ∈ {1, 5, 7, 23}`, each of the form `2^a − 3^b` with small exponents. S4 asks whether `g` is always small or has a recognisable structure. A provable bound with `g < D` would exclude band 1 at `q = 1`.
 
-**Update 11:12: the Lean lane checked §1 by hand.** The reduction is correct; it will formalise the inversion lemma as S3-a. Two precisions are accepted.
+**Update 11:11: the Lean lane checked §1 by hand.** The reduction is correct; it will formalise the inversion lemma as S3-a. Two precisions are accepted.
 
 - The extension to `H < 16L` would go through C006-f's any-`q` ordered form, not through `three_band`, which is the `B ≤ 2` statement.
 - The 37 pairs at other `q` show only that the pair type is arithmetically possible; they are not controls for the `q = 1`, `H < 16L` target. For example, the `3x+121` cycle through 35 and 281 has `H > 16L`.
@@ -111,7 +111,7 @@ So the run starts form a `J`-state cycle of a generalised Collatz map with the s
 - **Spread.** `max u/min u` reaches 240 in actual band-1 cycles and 2.5·10^7 in rational ones.
 - **Order at level 2.** The gap cycle itself, normalised by its own minimum and heights, is unordered in 20 of 31 actual ordered cycles with `m ≥ 3` (ordered in 9, tied in 2) and in 278 of 334 rational ones. Its band reaches 18.
 - **The cause.** The level-2 forcing `T` takes both signs: a height rise gives `T < 0`, a fall `T > 0`. C005's inversion lemma (2), which makes low bands ordered, needs one uniform positive offset. So naive iteration `J → J₂ → …` is rejected.
-- **What survives.** The §1 identities remain as bookkeeping, and the all-run-starts sum gives a constant-factor (≈1.58) improvement of the `J` bound. *[Attribution corrected at 11:12; see below.]*
+- **What survives.** The §1 identities remain as bookkeeping, and the all-run-starts sum gives a constant-factor (≈1.58) improvement of the `J` bound. *[Attribution corrected at 11:11; see below.]*
 
 **Next producer target, S3.** Extend C005's ordering from `H < 8L` to `H < 16L` at `q = 1`. At height gap `k = 3`, the only possible `q = 1` inversion is a pair `(n, 8n+1)` with `n` of height 0. Its orbit is forced: `8n+1 → 6n+1 → 9n+2 → …`. S3 will either exclude such pairs in a nontrivial cycle or record exactly what they require.
 
@@ -128,7 +128,7 @@ So the run starts form a `J`-state cycle of a generalised Collatz map with the s
 - **Still informal.** The parity rule of §2 (forced gap odd exactly when one adjacent height equals `B`), which is the natural S2-b, and the partition of the orbit into runs.
 - **Bookkeeping.** The lane relabelled its iteration-58 unit as C013-b, as agreed.
 
-**Update 11:12: CORRECTION and Lean S2-b.**
+**Update 11:11: CORRECTION and Lean S2-b.**
 
 - **CORRECTION** (prompted by the Lean lane's review). The "≈1.58" improvement does not come from summing over all runs: that adds only `−log₂ J`, about 0.2% at `J ≈ 10^7`.
   - The factor `A/m ≈ log₂ 3` comes from `E ≥ ⌊tA/m⌋` along the rank orbit, the mechanical density of high ranks, applied to the longest run.

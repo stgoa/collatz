@@ -61,7 +61,7 @@ S2's hope was to iterate: compress, find the same structure again, and compress 
 
 **Verdict:** naive renormalisation `J → J₂ → …` is rejected. The identities of §1 stay, as bookkeeping on the way to S1-a's `J`-term sums. A renormalisation would need a sign-insensitive notion of order, and none is proposed here.
 
-## 4. A minor by-product (corrected at 11:12 after the Lean lane's review)
+## 4. A minor by-product (corrected at 11:11 after the Lean lane's review)
 
 The earlier version said "a constant factor, roughly 1.58 in the leading term" and attributed it to summing over all runs. That attribution was wrong. The two effects are separate.
 
