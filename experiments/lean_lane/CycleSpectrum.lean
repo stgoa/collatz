@@ -6047,6 +6047,135 @@ theorem rounding_bound (hqodd : Odd Ω.Γ.q) :
     _ = 3 * Ω.Γ.lo := by rw [hsum]
     _ = 3 * (2 ^ Ω.Γ.B * Ω.Γ.n 0) := rfl
 
+/-! #### S1-a: the unrolled (G3) — every `D`-scaled sorted gap as a forcing sum
+
+Side lane's lead (feed 06:30, index convention 06:40): unroll `gap_rec` once around the rank
+orbit. With `r_i = orb r₀ i` and `E_i = e_{r_0} + ⋯ + e_{r_{i−1}}` (`E_0 = 0`),
+`2^{E_n} Δ_{r_n} = 3^n Δ_{r_0} + Σ_{i<n} 3^{n−1−i} 2^{E_i} T_{r_i}` for every `n`; at `n = m` the
+orbit closes (`r_m = r_0`, `E_m = A`), so `(2^A − 3^m) Δ_{r_0} = Σ_{i<m} 3^{m−1−i} 2^{E_i} T_{r_i}`,
+and only the forced positions (`T ≠ 0`) contribute. The feed's `G_{r_0} = Σ 3^{m−1−i} 2^{E_i} τ_{r_i}`
+is this identity divided by `q`: here `T_r = q τ_r` and `D Δ_r = q G_r`. -/
+
+/-- The exponent sum along the orbit from rank `r₀`: `E_n = Σ_{t<n} e(r_t)`, `E_0 = 0`. -/
+noncomputable def E (r₀ n : ℕ) : ℕ := ∑ t ∈ Finset.range n, Ω.N.e (Ω.orb r₀ t)
+
+theorem E_succ (r₀ n : ℕ) : Ω.E r₀ (n + 1) = Ω.E r₀ n + Ω.N.e (Ω.orb r₀ n) := by
+  unfold E
+  rw [Finset.sum_range_succ]
+
+/-- The forcing sum along the orbit, as the recurrence `S_0 = 0`,
+`S_{n+1} = 3 S_n + 2^{E_n} T_{r_n}`. -/
+noncomputable def jsum (r₀ : ℕ) : ℕ → ℤ
+  | 0 => 0
+  | n + 1 => 3 * jsum r₀ n + 2 ^ Ω.E r₀ n * Ω.T (Ω.orb r₀ n)
+
+/-- Closed form of the forcing sum: `S_n = Σ_{i<n} 3^{n−1−i} 2^{E_i} T_{r_i}`. -/
+theorem jsum_eq_sum (r₀ n : ℕ) :
+    Ω.jsum r₀ n = ∑ i ∈ Finset.range n, 3 ^ (n - 1 - i) * 2 ^ Ω.E r₀ i * Ω.T (Ω.orb r₀ i) := by
+  induction n with
+  | zero => simp [jsum]
+  | succ n ih =>
+    rw [jsum, ih, Finset.sum_range_succ, Finset.mul_sum]
+    congr 1
+    · apply Finset.sum_congr rfl
+      intro i hi
+      have hi' := Finset.mem_range.mp hi
+      rw [show n + 1 - 1 - i = n - 1 - i + 1 by omega, pow_succ]
+      ring
+    · rw [show n + 1 - 1 - n = 0 by omega, pow_zero, one_mul]
+
+/-- **The unrolled (G3)**: `2^{E_n} Δ_{r_n} = 3^n Δ_{r_0} + S_n` for every `n`. -/
+theorem gap_unroll {r₀ : ℕ} (hr₀ : r₀ < m) (n : ℕ) :
+    (2 : ℤ) ^ Ω.E r₀ n * Ω.N.gap (Ω.orb r₀ n) = 3 ^ n * Ω.N.gap r₀ + Ω.jsum r₀ n := by
+  induction n with
+  | zero => simp [E, jsum, Ω.orb_zero hr₀]
+  | succ n ih =>
+    rw [Ω.E_succ, pow_add, mul_assoc, Ω.orb_succ r₀ n, Ω.gap_rec (Ω.orb_lt r₀ n), jsum]
+    linear_combination 3 * ih
+
+/-- The orbit closes after `m` steps. -/
+theorem orb_m {r₀ : ℕ} (hr₀ : r₀ < m) : Ω.orb r₀ m = r₀ := by
+  unfold orb
+  rw [Nat.add_mul_mod_self_left]
+  exact Nat.mod_eq_of_lt hr₀
+
+/-- A sum over one period of a `p`-periodic function is shift invariant. -/
+theorem sum_range_shift {g : ℕ → ℕ} {p : ℕ} (hg : ∀ t, g (t + p) = g t) (a : ℕ) :
+    ∑ t ∈ Finset.range p, g (a + t) = ∑ t ∈ Finset.range p, g t := by
+  induction a with
+  | zero => simp
+  | succ a ih =>
+    have h1 : ∑ t ∈ Finset.range (p + 1), g (a + t) =
+        ∑ t ∈ Finset.range p, g (a + t) + g (a + p) := Finset.sum_range_succ _ _
+    have h2 : ∑ t ∈ Finset.range (p + 1), g (a + t) =
+        ∑ t ∈ Finset.range p, g (a + (t + 1)) + g a := Finset.sum_range_succ' _ _
+    have h3 : ∑ t ∈ Finset.range p, g (a + 1 + t) = ∑ t ∈ Finset.range p, g (a + (t + 1)) :=
+      Finset.sum_congr rfl (fun t _ => by rw [show a + 1 + t = a + (t + 1) by omega])
+    rw [hg a] at h1
+    rw [h3, ← ih]
+    exact Nat.add_right_cancel (h2.symm.trans h1)
+
+/-- The exponent sum over one full orbit is the total `A`: every rank is visited once, `e_r` is
+the letter at the index of rank `r`, and `Σ c_i = Σ a_i`. -/
+theorem E_m {r₀ : ℕ} (hr₀ : r₀ < m) : Ω.E r₀ m = Ω.Γ.Apre m := by
+  obtain ⟨a, ha, hra⟩ := Ω.N.exists_rank_eq Ω.N_prim hr₀
+  have h1 : ∀ t, Ω.orb r₀ t = Ω.orb 0 (a + t) := fun t => by
+    rw [← Ω.orb_orb, Ω.orb_zero_eq_rank, hra]
+  have hper : ∀ t, Ω.N.e (Ω.orb 0 (t + m)) = Ω.N.e (Ω.orb 0 t) := fun t => by
+    rw [← Ω.orb_mod (t + m), Nat.add_mod_right, Ω.orb_mod t]
+  have h2 : ∀ t, t < m → Ω.N.e (Ω.orb 0 t) = Ω.N.a t := fun t ht => by
+    rw [Ω.orb_zero_eq_rank t, Ω.N.e_eq Ω.N_prim (Ω.N.rank_lt t)]
+    congr 1
+    exact Ω.N.rank_inj Ω.N_prim (Ω.N.idx_spec Ω.N_prim (Ω.N.rank_lt t)).1 ht
+      (Ω.N.idx_spec Ω.N_prim (Ω.N.rank_lt t)).2
+  have h0 : ∑ t ∈ Finset.range m, Ω.N.e (Ω.orb r₀ t) =
+      ∑ t ∈ Finset.range m, Ω.N.e (Ω.orb 0 (a + t)) :=
+    Finset.sum_congr rfl (fun t _ => by rw [h1 t])
+  have h3 : ∑ t ∈ Finset.range m, Ω.N.e (Ω.orb 0 (a + t)) =
+      ∑ t ∈ Finset.range m, Ω.N.e (Ω.orb 0 t) :=
+    sum_range_shift (g := fun t => Ω.N.e (Ω.orb 0 t)) hper a
+  have h4 : ∑ t ∈ Finset.range m, Ω.N.e (Ω.orb 0 t) = ∑ t ∈ Finset.range m, Ω.N.a t :=
+    Finset.sum_congr rfl (fun t ht => h2 t (Finset.mem_range.mp ht))
+  have h5 : ∑ t ∈ Finset.range m, Ω.N.a t = Ω.Γ.Apre m := by
+    show ∑ t ∈ Finset.range m, Ω.Γ.c t = Ω.Γ.Apre m
+    rw [Ω.Γ.sum_c]
+    rfl
+  unfold E
+  rw [h0, h3, h4, h5]
+
+/-- **The `D`-scaled gap closed form** (S1-a): for every sorted rank `r₀`,
+`(2^A − 3^m) Δ_{r₀} = Σ_{i<m} 3^{m−1−i} 2^{E_i} T_{r_i}`. -/
+theorem gap_closed_form {r₀ : ℕ} (hr₀ : r₀ < m) :
+    ((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) * Ω.N.gap r₀ =
+      ∑ i ∈ Finset.range m, 3 ^ (m - 1 - i) * 2 ^ Ω.E r₀ i * Ω.T (Ω.orb r₀ i) := by
+  have h := Ω.gap_unroll hr₀ m
+  rw [Ω.orb_m hr₀, Ω.E_m hr₀, Ω.jsum_eq_sum] at h
+  linear_combination h
+
+/-- Only the forced positions (`T ≠ 0`) contribute to the closed form. -/
+theorem gap_closed_form_filter {r₀ : ℕ} (hr₀ : r₀ < m) :
+    ((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) * Ω.N.gap r₀ =
+      ∑ i ∈ (Finset.range m).filter (fun i => Ω.T (Ω.orb r₀ i) ≠ 0),
+        3 ^ (m - 1 - i) * 2 ^ Ω.E r₀ i * Ω.T (Ω.orb r₀ i) := by
+  rw [Ω.gap_closed_form hr₀, Finset.sum_filter]
+  apply Finset.sum_congr rfl
+  intro i _
+  split_ifs with h
+  · rfl
+  · rw [Ne, not_not] at h
+    rw [h, mul_zero]
+
+/-- From rank `0`, the contributing positions are exactly the `J` forced positions. -/
+theorem card_forced_zero :
+    ((Finset.range m).filter (fun i => Ω.T (Ω.orb 0 i) ≠ 0)).card = Ω.J := rfl
+
+/-- `D` divides every forcing sum (the feed's "at `q = 1`, `D` must divide all `J`-term sums";
+here with `T = q τ`, for every `q`). -/
+theorem D_dvd_forcing_sum {r₀ : ℕ} (hr₀ : r₀ < m) :
+    ((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) ∣
+      ∑ i ∈ Finset.range m, 3 ^ (m - 1 - i) * 2 ^ Ω.E r₀ i * Ω.T (Ω.orb r₀ i) :=
+  ⟨Ω.N.gap r₀, (Ω.gap_closed_form hr₀).symm⟩
+
 end OrdCycle
 
 end Cyc

@@ -3,6 +3,25 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 44 — 2026-10-19, 07:30 -03
+
+- Woken by the sidekick's message and push `444de54`: **C005-h verified** as a
+  milestone (receipts match; probe PASS incl. 7,518 arbitrary-base
+  concatenations), with the feed calibration recorded. Main unchanged at
+  `1c5c19d`.
+- **S1-a verified — the unrolled (G3): every `D`-scaled sorted gap as a
+  forcing sum** in `CycleSpectrum.lean` (sha256 `5a1df382…6687`, 6182 lines,
+  390 theorems: 310 with the three standard axioms, 34 × `[propext,
+  Quot.sound]`, 44 × `[propext]`, 2 none; no `sorry`): `OrdCycle.E`/`E_succ`,
+  `jsum`/`jsum_eq_sum`, **`gap_unroll`**, `orb_m`, `sum_range_shift`,
+  **`E_m`** (`= Apre m`), **`gap_closed_form`** (`(2^A − 3^m) Δ_{r₀} = Σ_{i<m}
+  3^{m−1−i} 2^{E_i} T_{r_i}`), `gap_closed_form_filter`, `card_forced_zero`,
+  `D_dvd_forcing_sum`. One compile round: an `omega` step treating `g (a + 0)`
+  and `g a` as different atoms, replaced by `Nat.add_right_cancel` with the `g
+  a` form taken by defeq. Receipts regenerated. Next: whichever of main's
+  newest claims most needs formal backing; otherwise S1-b (the gcd consequence
+  through the word–cycle dictionary) or R71's repeated case.
+
 ## Iteration 43 — 2026-10-19, 07:16 -03
 
 - Woken by the sidekick's message and pushes `2b4f963`/`dd8f4b7`: **C005-g
