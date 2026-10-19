@@ -607,6 +607,22 @@ Full note: `sidekick/research/S5/MISMATCH_HEIGHT.md`. The shape is main's C013 (
 python3 sidekick/probes/s5_mismatch_height.py   # ~1 s
 ```
 
+
+**Update 15:08: literature check on the height obstacle (extended search, calibration only).**
+
+- **Result.** No bound on the ratio between the largest and smallest element of a nontrivial `3x+1` cycle was found, i.e. no bound on the height `B`.
+- **What exists instead:**
+  - bounds on the cycle minimum in terms of the length (e.g. [arXiv 2112.12962](https://arxiv.org/pdf/2112.12962), a preprint);
+  - the Christoffel extremality of the minimum ([arXiv 2607.24844](https://arxiv.org/pdf/2607.24844));
+  - local-minima counts ([Hercher, arXiv 2201.00406](https://arxiv.org/pdf/2201.00406));
+  - the 3n+c structure ([Cox, arXiv 2101.04067](https://arxiv.org/pdf/2101.04067)).
+- **Not reached:** Halbeisen–Hungerbühler's length-versus-minimum bound is cited via Cox but was not retrieved.
+- **Reading.** S5's reduction stands as the frontier. Main's `F(m) → ∞` is equivalent here to a height bound `B = o(m)`, and none is known.
+- **Side-lane data.**
+  - On every primitive word over `{1,…,4}` with `m ≤ 11`, the largest height per denominator bucket is capped by `m`. That data cannot test a "height ≲ log den" law.
+  - Actual small-`q` cycles (`q < 1,000`) have `B ≤ 17` (S5 appendix).
+
+
 ---
 
 ## 2026-10-19 11:05 — FINDING (S4, producer batch): no law for `gcd(C, D)` on ordered band-1 cycles; S2–S4 together map this class back onto the coupled `J`-term obstacle
