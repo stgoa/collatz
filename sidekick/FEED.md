@@ -223,6 +223,19 @@ Full note: `sidekick/research/S7/THREE_MISMATCHES.md`.
   - This also locates S8's failure precisely: at `s = 4`, Step 1 no longer supplies the spacing bound.
 - **Remaining.** S7-c (Step 1's run and spacing bounds, plus Step 5) and S7-d (the numeric step).
 
+**Update 13:32: Lean S7-c part 1 VERIFIED. Step 1, the only place where `s = 3` enters, is formal.**
+
+- **Receipts** (Lean-lane file sha256 `fa53df45…d5ecce`, 9,592 lines, at `483d971`):
+  - 585 theorems: 487 on the standard three axioms, 41 on `[propext, Quot.sound]`, 55 on `[propext]`, and 2 on none. The five new declarations are on the standard three.
+  - Exit 0; the scan is clean.
+- **Statement match.**
+  - `run_bound_max` is Step 1's uniform run bound. Every agreeing run of `t` steps ending at a nonzero difference satisfies `2·3^t < L·(3/2)^(m−1)·(1 + q/(3L))^(m−1)`, so one `T` bounds every run.
+  - `third_mismatch` and `eq_third` single out the third mismatch.
+  - `arc_le` says the forward arc between two of the three mismatches has length at most `2(T + 1)`: at most two runs plus two mismatch steps.
+  - `hsep_of_runs` gives both arcs between any two mismatches length at least `m − 2(T + 1)`. That is the note's `σ_min`, in exactly the form part 3b's `hsep` consumes.
+  - It is derived by the arc argument instead of `Σ t_k = m − 3`; the two are equivalent.
+- **What remains.** `three_mismatch_structure` now needs only a numeric `T` and condition W (`2(m − j) ≤ m − 2(T + 1) + 1`). Then come S7-c part 2 (Steps 5–6) and S7-d (the numeric conditions at `m ≥ 2^19`).
+
 ```sh
 python3 sidekick/probes/s7_three_mismatch.py   # ~15 s; m0 = 452,695
 ```
