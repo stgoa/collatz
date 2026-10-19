@@ -1924,6 +1924,144 @@ theorem sum_a : ∑ i ∈ Finset.range m, N.a i = m * N.q + N.numHigh := by
   rw [Finset.sum_add_distrib, Finset.sum_const, Finset.card_range, smul_eq_mul]
   rfl
 
+/-! #### Part 3: the instance on words and C004 §3's forward direction -/
+
+theorem rotate_ne_nil {w : List ℕ} (hw : w ≠ []) (i : ℕ) : w.rotate i ≠ [] :=
+  fun h => hw (List.rotate_eq_nil_iff.mp h)
+
+/-- The first letter of `w.rotate i`, for `i < w.length`, is `w[i]`. -/
+theorem headD_rotate (w : List ℕ) {i : ℕ} (hi : i < w.length) :
+    (w.rotate i).headD 0 = w[i] := by
+  rw [List.rotate_eq_drop_append_take_mod, Nat.mod_eq_of_lt hi, List.drop_eq_getElem_cons hi,
+    List.cons_append, List.headD_cons]
+
+/-- The narrow-cycle data of a word `w` with `D_w > 0` that starts at its minimum and is narrow
+(`H < 2L`): states `C(w.rotate i)`, letters the first letters of the rotations, `lo = C_w`, and
+an exponent `q` with `2^q C_w ≤ 3 C_w + D_w < 2^{q+1} C_w`. -/
+def ofWord (w : List ℕ) (hm : 0 < w.length) (hD : 0 < D w)
+    (hmin : ∀ i, C w ≤ C (w.rotate i)) (hnarrow : ∀ i, C (w.rotate i) < 2 * C w) (q : ℕ)
+    (hq1 : (2 : ℤ) ^ q * C w ≤ 3 * C w + D w) (hq2 : 3 * C w + D w < 2 ^ (q + 1) * C w) :
+    NarrowCycle w.length where
+  x i := C (w.rotate i)
+  a i := (w.rotate i).headD 0
+  d := D w
+  lo := C w
+  q := q
+  hm := hm
+  hd := hD
+  periodic i := by
+    show C (w.rotate (i + w.length)) = C (w.rotate i)
+    rw [← List.rotate_mod w (i + w.length), Nat.add_mod_right, List.rotate_mod]
+  arrow i := by
+    show (2 : ℤ) ^ (w.rotate i).headD 0 * C (w.rotate (i + 1)) = 3 * C (w.rotate i) + D w
+    obtain ⟨a, v, h⟩ :=
+      List.exists_cons_of_ne_nil (rotate_ne_nil (List.ne_nil_of_length_pos hm) i)
+    have ha : (w.rotate i).headD 0 = a := by rw [h, List.headD_cons]
+    rw [ha]
+    exact C_rotate_succ h
+  lower := hmin
+  upper := hnarrow
+  hq1 := hq1
+  hq2 := hq2
+
+/-- **C004 §3, forward direction, for a word starting at its minimum.** A word `w` of length
+`m ≥ 2` with `D_w > 0` whose `m` rotations have distinct intercepts, all in `[C_w, 2 C_w)`, is
+the mechanical word of its own total: `w = mech w.sum m 0`, and `gcd(w.sum, m) = 1`. -/
+theorem eq_mech_of_narrow (w : List ℕ) (hm2 : 2 ≤ w.length) (hD : 0 < D w)
+    (hmin : ∀ i, C w ≤ C (w.rotate i)) (hnarrow : ∀ i, C (w.rotate i) < 2 * C w)
+    (hdist : ∀ i j, i < w.length → j < w.length → C (w.rotate i) = C (w.rotate j) → i = j) :
+    w = mech w.sum w.length 0 ∧ Nat.Coprime w.sum w.length := by
+  have hm0 : 0 < w.length := by omega
+  have hne : w ≠ [] := List.ne_nil_of_length_pos hm0
+  obtain ⟨q, hq1, hq2⟩ := exists_exponent (C_pos hne) hD
+  set N : NarrowCycle w.length := ofWord w hm0 hD hmin hnarrow q hq1 hq2 with hN
+  have hx : ∀ i, N.x i = C (w.rotate i) := fun _ => rfl
+  have ha : ∀ i, N.a i = (w.rotate i).headD 0 := fun _ => rfl
+  have hq : N.q = q := rfl
+  have hp : N.Primitive := by
+    unfold NarrowCycle.Primitive
+    intro i j hi hj h
+    exact hdist i j hi hj h
+  have hh := N.numHigh_lt hp hm2
+  have h0 : N.rank 0 = 0 := by
+    unfold NarrowCycle.rank
+    apply Finset.sum_eq_zero
+    intro j _
+    rw [hx, hx, List.rotate_zero]
+    exact ite_eq_right (not_lt.mpr (hmin j))
+  have hlet : ∀ i, (hi : i < w.length) →
+      w[i] = q + (((i + 1) * N.numHigh) / w.length - (i * N.numHigh) / w.length) := by
+    intro i hi
+    rw [← headD_rotate w hi, ← ha, N.a_formula hh h0 i, hq]
+  have hw : w = mech (w.length * q + N.numHigh) w.length 0 := by
+    apply List.ext_getElem
+    · simp [mech_length]
+    · intro i hi _
+      rw [hlet i hi]
+      simp only [mech, diffWord, List.getElem_map, List.getElem_range, add_zero]
+      have e1 : (i + 1) * (w.length * q + N.numHigh)
+          = (i + 1) * N.numHigh + w.length * (q * (i + 1)) := by ring
+      have e2 : i * (w.length * q + N.numHigh) = i * N.numHigh + w.length * (q * i) := by ring
+      rw [e1, e2, Nat.add_mul_div_left _ _ hm0, Nat.add_mul_div_left _ _ hm0]
+      have hmono : (i * N.numHigh) / w.length ≤ ((i + 1) * N.numHigh) / w.length :=
+        Nat.div_le_div_right (Nat.mul_le_mul_right _ (Nat.le_succ i))
+      rw [Nat.mul_add, Nat.mul_one]
+      omega
+  have hsum : w.sum = w.length * q + N.numHigh := by
+    conv_lhs => rw [hw]
+    exact mech_sum hm0 _ _ hm0
+  refine ⟨?_, ?_⟩
+  · rw [hsum]
+    exact hw
+  · rw [hsum]
+    exact (Nat.coprime_mul_left_add_left N.numHigh w.length q).mpr (N.coprime_numHigh hp hm2)
+
+/-- **C004 §3, forward direction (narrow ⇒ mechanical).** A word `w` of length `m ≥ 2` with
+`D_w > 0`, whose `m` rotations have distinct intercepts (a primitive cycle) and which is narrow —
+every rotated intercept is below twice every other, i.e. `H < 2L` — is a phase of the
+mechanical word of its total: `w = mech w.sum m l` for some `l < m`, and `gcd(w.sum, m) = 1`.
+Together with `narrow_mech` this is C004's narrow-cycle equivalence. -/
+theorem is_mech_of_narrow (w : List ℕ) (hm2 : 2 ≤ w.length) (hD : 0 < D w)
+    (hnarrow : ∀ i j, C (w.rotate i) < 2 * C (w.rotate j))
+    (hdist : ∀ i j, i < w.length → j < w.length → C (w.rotate i) = C (w.rotate j) → i = j) :
+    ∃ l < w.length, w = mech w.sum w.length l ∧ Nat.Coprime w.sum w.length := by
+  have hm0 : 0 < w.length := by omega
+  obtain ⟨i₀, hi₀, hmin₀⟩ := Finset.exists_min_image (Finset.range w.length)
+    (fun i => C (w.rotate i)) ⟨0, Finset.mem_range.mpr hm0⟩
+  rw [Finset.mem_range] at hi₀
+  set w' := w.rotate i₀ with hw'
+  have hlen : w'.length = w.length := List.length_rotate w i₀
+  have hrot : ∀ j, w'.rotate j = w.rotate (i₀ + j) := fun j => List.rotate_rotate w i₀ j
+  have hmin : ∀ j, C w' ≤ C (w'.rotate j) := by
+    intro j
+    rw [hrot, ← List.rotate_mod w (i₀ + j)]
+    exact hmin₀ _ (Finset.mem_range.mpr (Nat.mod_lt _ hm0))
+  have hnar : ∀ j, C (w'.rotate j) < 2 * C w' := fun j => by
+    rw [hrot]
+    exact hnarrow _ _
+  have hdist' : ∀ i j, i < w'.length → j < w'.length →
+      C (w'.rotate i) = C (w'.rotate j) → i = j := by
+    intro i j hi hj h
+    rw [hlen] at hi hj
+    rw [hrot, hrot, ← List.rotate_mod w (i₀ + i), ← List.rotate_mod w (i₀ + j)] at h
+    have h1 := hdist _ _ (Nat.mod_lt _ hm0) (Nat.mod_lt _ hm0) h
+    have h2 : i % w.length = j % w.length := Nat.ModEq.add_left_cancel' i₀ h1
+    rwa [Nat.mod_eq_of_lt hi, Nat.mod_eq_of_lt hj] at h2
+  have hD' : 0 < D w' := by
+    rw [hw', D_rotate]
+    exact hD
+  have hm2' : 2 ≤ w'.length := by
+    rw [hlen]
+    exact hm2
+  obtain ⟨hmech, hcop⟩ := eq_mech_of_narrow w' hm2' hD' hmin hnar hdist'
+  have hsum : w'.sum = w.sum := (List.rotate_perm w i₀).sum_eq
+  rw [hlen, hsum] at hmech hcop
+  have hback : w = w'.rotate (w.length - i₀) := by
+    rw [hrot, Nat.add_sub_of_le hi₀.le, List.rotate_length]
+  refine ⟨(0 + (w.length - i₀) * w.sum) % w.length, Nat.mod_lt _ hm0, ?_, hcop⟩
+  conv_lhs => rw [hback]
+  rw [hmech, mech_rotate hm0]
+
 end NarrowCycle
 
 end Cyc

@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 18 — 2026-10-19, 02:09 -03
+
+- Woken by the sidekick's verdict message and push `1143485`: **C004-b part 2
+  verified** (STATE "Insights"). Main unchanged at `61cf54a`. Monitor re-armed
+  after its expiry.
+- **C004-b part 3 verified — the forward direction is complete** in
+  `CycleSpectrum.lean` (sha256 `19b74f4d…2ba6`, 2068 lines, 122 theorems: 90
+  with the three standard axioms, 10 × `[propext, Quot.sound]`, 21 ×
+  `[propext]`, 1 none; no `sorry`, no `native_decide`): `rotate_ne_nil`,
+  `headD_rotate`, the instance `ofWord`, **`eq_mech_of_narrow`**,
+  **`is_mech_of_narrow`**. One compile round, no diagnostics. With
+  `narrow_mech` (iteration 15) C004 §3's narrow-cycle equivalence is formal in
+  both directions. Receipts regenerated. Next: decide between R71's `g = 1`
+  (which would make the integer corollary `H > 2L` formal) and the queued
+  C002-b/C001-c, after reading any new main commits.
+
 ## Iteration 17 — 2026-10-19, 02:01 -03
 
 - Woken by the sidekick's push `9ac12a8` and its verdict message: **C004-b
