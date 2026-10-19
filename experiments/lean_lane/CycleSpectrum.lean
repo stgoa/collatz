@@ -3175,5 +3175,177 @@ theorem sorted_residue_law (hord : ∀ i j, Γ.Z i < Γ.Z j ↔ Γ.F i < Γ.F j)
 
 end OddCycle
 
+/-! ### C006 §3 on actual cycles: the height term `T_r`, the zero-forcing recurrence and the
+per-run bound of the sparse-forcing law -/
+
+/-- An ordered primitive odd cycle with `m ≥ 2`, together with its exponent window: C006's
+domain (order of the normalised successor is the hypothesis `hord`). -/
+structure OrdCycle (m : ℕ) where
+  Γ : OddCycle m
+  hord : ∀ i j, Γ.Z i < Γ.Z j ↔ Γ.F i < Γ.F j
+  q' : ℕ
+  hq1 : (2 : ℤ) ^ q' * Γ.lo ≤ Γ.F 0
+  hq2 : Γ.F 0 < 2 ^ (q' + 1) * Γ.lo
+  hm2 : 2 ≤ m
+  hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j
+
+namespace OrdCycle
+
+variable {m : ℕ} (Ω : OrdCycle m)
+
+/-- The underlying ordered `NarrowCycle` on the scaled normalised states. -/
+noncomputable def N : NarrowCycle m := Ω.Γ.toNarrow Ω.hord Ω.q' Ω.hq1 Ω.hq2
+
+theorem N_prim : Ω.N.Primitive := Ω.Γ.toNarrow_primitive Ω.hord Ω.q' Ω.hq1 Ω.hq2 Ω.hprim
+
+theorem N_rank_zero : Ω.N.rank 0 = 0 := Ω.Γ.toNarrow_rank_zero Ω.hord Ω.q' Ω.hq1 Ω.hq2
+
+theorem N_x (i : ℕ) : Ω.N.x i = Ω.Γ.Z i := rfl
+
+theorem N_q : Ω.N.q = Ω.q' := rfl
+
+theorem numHigh_lt : Ω.N.numHigh < m := Ω.N.numHigh_lt Ω.N_prim Ω.hm2
+
+theorem numHigh_pos : 0 < Ω.N.numHigh := Ω.N.numHigh_pos Ω.N_prim Ω.hm2
+
+/-- The low exponent is at least `1` (the least image exceeds `3 lo > 2 lo`). -/
+theorem q'_pos : 1 ≤ Ω.q' := by
+  rcases Nat.eq_zero_or_pos Ω.q' with h | h
+  · exfalso
+    have h2 := Ω.hq2
+    rw [h, Nat.zero_add, pow_one] at h2
+    have hF := Ω.Γ.F_zero
+    have hlo : 0 < Ω.Γ.lo := by
+      unfold OddCycle.lo
+      exact mul_pos (by positivity) Ω.Γ.npos
+    have hd : (0 : ℤ) < 2 ^ Ω.Γ.B * Ω.Γ.q := mul_pos (by positivity) Ω.Γ.hq
+    linarith
+  · exact h
+
+/-- The height of the state of rank `r`. -/
+noncomputable def hr (r : ℕ) : ℕ := Ω.Γ.h (Ω.N.idx r)
+
+/-- The scaled offset `2^{B−h'_r} q` of the state of rank `r`, and its seam extension. -/
+noncomputable def off (r : ℕ) : ℤ := 2 ^ (Ω.Γ.B - Ω.hr r) * Ω.Γ.q
+
+noncomputable def offext (r : ℕ) : ℤ := if r < m then Ω.off r else 2 * Ω.off (r - m)
+
+/-- C006's `T_r = 2^B(ε_[r+1] − ε_[r])`, with the seam `ε_[m] = 2ε_[0]`. -/
+noncomputable def T (r : ℕ) : ℤ := Ω.offext (r + 1) - Ω.offext r
+
+theorem Fr_eq (r : ℕ) : Ω.N.Fr r = 3 * Ω.N.y r + Ω.off r := rfl
+
+/-- The image difference between consecutive sorted ranks is `3Δ_r + T_r`. -/
+theorem Fext_sub {r : ℕ} (hr : r < m) :
+    Ω.N.Fext (r + 1) - Ω.N.Fext r = 3 * Ω.N.gap r + Ω.T r := by
+  unfold NarrowCycle.gap T
+  rcases Nat.lt_or_ge (r + 1) m with h1 | h1
+  · rw [Ω.N.Fext_of_lt h1, Ω.N.Fext_of_lt hr, Ω.N.yext_of_lt h1, Ω.N.yext_of_lt hr]
+    unfold offext
+    rw [ite_eq_left h1, ite_eq_left hr, Ω.Fr_eq, Ω.Fr_eq]
+    ring
+  · have hm : r + 1 = m := le_antisymm hr h1
+    rw [hm, Ω.N.Fext_m, Ω.N.Fext_of_lt hr, Ω.N.yext_m, Ω.N.yext_of_lt hr]
+    unfold offext
+    rw [ite_eq_right (lt_irrefl m), Nat.sub_self, ite_eq_left hr, Ω.Fr_eq, Ω.Fr_eq]
+    ring
+
+/-- **C006's (G3)** in its stated form: `2^{e_r} Δ_{(r+h) mod m} = 3Δ_r + T_r`. -/
+theorem gap_rec {r : ℕ} (hr : r < m) :
+    (2 : ℤ) ^ Ω.N.e r * Ω.N.gap ((r + Ω.N.numHigh) % m) = 3 * Ω.N.gap r + Ω.T r := by
+  rw [Ω.N.gap_recurrence Ω.N_prim Ω.hm2 hr, Ω.Fext_sub hr]
+
+theorem hr_le_B (r : ℕ) : Ω.hr r ≤ Ω.Γ.B := Ω.Γ.hB _
+
+/-- `T_r = 0` exactly when the adjacent sorted heights agree (`r + 1 < m`). -/
+theorem T_eq_zero_iff {r : ℕ} (hr1 : r + 1 < m) : Ω.T r = 0 ↔ Ω.hr (r + 1) = Ω.hr r := by
+  unfold T offext off
+  rw [ite_eq_left hr1, ite_eq_left (by omega : r < m)]
+  constructor
+  · intro h
+    have hq := Ω.Γ.hq
+    have h' : ((2 : ℤ) ^ (Ω.Γ.B - Ω.hr (r + 1)) - 2 ^ (Ω.Γ.B - Ω.hr r)) * Ω.Γ.q = 0 := by
+      linarith
+    rcases mul_eq_zero.mp h' with h'' | h''
+    · have h3 : (2 : ℤ) ^ (Ω.Γ.B - Ω.hr (r + 1)) = 2 ^ (Ω.Γ.B - Ω.hr r) := by linarith
+      have h4 : (2 ^ (Ω.Γ.B - Ω.hr (r + 1)) : ℕ) = 2 ^ (Ω.Γ.B - Ω.hr r) := by exact_mod_cast h3
+      have h5 := Nat.pow_right_injective (le_refl 2) h4
+      have := Ω.hr_le_B r
+      have := Ω.hr_le_B (r + 1)
+      omega
+    · exact absurd h'' hq.ne'
+  · intro h
+    rw [h]
+    ring
+
+theorem hr_zero : Ω.hr 0 = 0 := by
+  unfold hr
+  rw [Ω.N.idx_zero Ω.N_prim Ω.N_rank_zero]
+  exact Ω.Γ.h_zero
+
+/-- The seam term is always positive: `T_{m−1} = 2^{B+1} q − 2^{B−h'_{m−1}} q > 0`, so the seam
+is a forced position (`J ≥ 1`). -/
+theorem T_seam_pos : 0 < Ω.T (m - 1) := by
+  have hm := Ω.Γ.hm
+  unfold T offext
+  rw [show m - 1 + 1 = m by omega, ite_eq_right (lt_irrefl m), Nat.sub_self,
+    ite_eq_left (by omega : m - 1 < m)]
+  unfold off
+  rw [Ω.hr_zero, Nat.sub_zero]
+  have h1 : (2 : ℤ) ^ (Ω.Γ.B - Ω.hr (m - 1)) ≤ 2 ^ Ω.Γ.B :=
+    pow_le_pow_right₀ (by norm_num) (Nat.sub_le _ _)
+  have hq := Ω.Γ.hq
+  have h2 : (0 : ℤ) < 2 ^ Ω.Γ.B := by positivity
+  nlinarith [mul_le_mul_of_nonneg_right h1 hq.le, mul_pos h2 hq]
+
+/-- The rank reached after `k` successor steps from rank `r₀`: `(r₀ + k h) mod m`. -/
+noncomputable def orb (r₀ k : ℕ) : ℕ := (r₀ + k * Ω.N.numHigh) % m
+
+theorem orb_lt (r₀ k : ℕ) : Ω.orb r₀ k < m := Nat.mod_lt _ Ω.Γ.hm
+
+theorem orb_zero {r₀ : ℕ} (hr₀ : r₀ < m) : Ω.orb r₀ 0 = r₀ := by
+  unfold orb
+  rw [Nat.zero_mul, Nat.add_zero]
+  exact Nat.mod_eq_of_lt hr₀
+
+theorem orb_succ (r₀ k : ℕ) : Ω.orb r₀ (k + 1) = (Ω.orb r₀ k + Ω.N.numHigh) % m := by
+  unfold orb
+  rw [Nat.mod_add_mod, Nat.add_mul, Nat.one_mul, Nat.add_assoc]
+
+/-- **C006's per-run bound.** Along a zero-forcing run of length `t` starting at rank `r₀`
+(`T = 0` at the first `t` ranks of its successor orbit), `2^t ≤ Δ_{r₀} < 2^B L`; hence
+`L > 2^{t−B}`. -/
+theorem run_bound {r₀ t : ℕ} (hr₀ : r₀ < m) (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0) :
+    (2 : ℤ) ^ t ≤ Ω.N.gap r₀ ∧ Ω.N.gap r₀ < 2 ^ Ω.Γ.B * Ω.Γ.n 0 := by
+  have hG : ∀ k, k < t →
+      (2 : ℤ) ^ Ω.N.e (Ω.orb r₀ k) * Ω.N.gap (Ω.orb r₀ (k + 1)) = 3 * Ω.N.gap (Ω.orb r₀ k) := by
+    intro k hk
+    rw [Ω.orb_succ, Ω.gap_rec (Ω.orb_lt r₀ k), hrun k hk, add_zero]
+  have hpos : 0 < Ω.N.gap r₀ := Ω.N.gap_pos Ω.N_prim Ω.N_rank_zero hr₀
+  have hq : 1 ≤ Ω.N.q := Ω.q'_pos
+  have he : ∀ k, k < t → 1 ≤ Ω.N.e (Ω.orb r₀ k) := by
+    intro k _
+    unfold NarrowCycle.e
+    split_ifs <;> omega
+  have h1 := run_lower (fun k => Ω.N.gap (Ω.orb r₀ k)) (fun k => Ω.N.e (Ω.orb r₀ k)) t
+    (by show 0 < Ω.N.gap (Ω.orb r₀ 0); rw [Ω.orb_zero hr₀]; exact hpos) he hG
+  have h1' : (2 : ℤ) ^ t ≤ Ω.N.gap r₀ := by
+    have := h1
+    rw [Ω.orb_zero hr₀] at this
+    exact this
+  refine ⟨h1', ?_⟩
+  have h2 := Ω.N.gap_lt Ω.N_prim Ω.N_rank_zero Ω.hm2 hr₀
+  rw [Ω.N_x, Ω.Γ.Z_zero] at h2
+  unfold OddCycle.lo at h2
+  exact h2
+
+/-- `L > 2^{t−B}` in cleared form: `2^t < 2^B L` for every zero-forcing run of length `t`. -/
+theorem run_bound_L {r₀ t : ℕ} (hr₀ : r₀ < m) (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0) :
+    (2 : ℤ) ^ t < 2 ^ Ω.Γ.B * Ω.Γ.n 0 := by
+  obtain ⟨h1, h2⟩ := Ω.run_bound hr₀ hrun
+  exact lt_of_le_of_lt h1 h2
+
+end OrdCycle
+
 end Cyc
 end LeanLane

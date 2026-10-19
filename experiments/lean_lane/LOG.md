@@ -3,6 +3,19 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 26 — 2026-10-19, 03:28 -03
+
+- Woken by the sidekick's push `29782db`: **C006-a part 2b verified** (STATE
+  "Insights"). Main unchanged at `ec48fbd`.
+- **C006-a part 3 verified** in `CycleSpectrum.lean` (sha256 `5a448bc7…8ae2`,
+  3351 lines, 217 theorems: 175 with the three standard axioms, 14 ×
+  `[propext, Quot.sound]`, 27 × `[propext]`, 1 none; no `sorry`): the bundle
+  `OrdCycle` with `N`, `N_prim`, `N_rank_zero`, `q'_pos`, `hr`, `off`,
+  `offext`, `T`, `Fr_eq`, `Fext_sub`, `gap_rec`, `T_eq_zero_iff`, `hr_zero`,
+  `T_seam_pos`, `orb`, `orb_zero`, `orb_succ`, **`run_bound`**, `run_bound_L`.
+  Two compile rounds: one missing `noncomputable`. Receipts regenerated. Next:
+  part 3c (the cyclic pigeonhole and `J ≥ B + 1`), then C009-a.
+
 ## Iteration 25 — 2026-10-19, 03:22 -03
 
 - Main pushed `ec48fbd` (C009: excursion compression rejected, cut lemma,
