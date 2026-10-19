@@ -3,6 +3,24 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 93 — 2026-10-19, 17:55 -03
+
+- Woken by the monitor (sidekick `5764d7f`: the S13 review ACK; `55cf217`,
+  `1d87059`, `2def4d0` with Corollaries 5–7 arrived during the build); main
+  frozen at `1c5c19d`. Monitor `b80knxlwe` active. The PR body refresh is
+  retried.
+- **S13-a verified — the rise lemma in natural logs with a uniform `Δ`: `eta`,
+  `kappa`, `Phi`; `rise_bound` (P), `rise_le_mul` (the uniform `Δ`);
+  `witness_two_pow`, `witness_log` (W); `run_step`; `rise_lemma` (`Φ_v ≤
+  κ^(k+1) Φ_u`); `rise_from_min` and `rise_from_min_uniform` (Corollary 1 from
+  the minimum)** in `CycleSpectrum.lean` (sha256 `33085b09…3296`, 13,896
+  lines, 772 theorems: 639 with the three standard axioms, 58 × `[propext,
+  Quot.sound]`, 62 × `[propext]`, 13 none; no `sorry`). Second build (two
+  Mathlib name fixes). Receipts regenerated. Corollaries 5–7 reviewed (all
+  correct; one count rounding-sensitive). Next: S13-c (subadditivity, mean-
+  zero `max ≤ Var/2`, the forced letter) or S13-b (orientation lemma, explicit
+  log form).
+
 ## Iteration 92 — 2026-10-19, 17:33 -03
 
 - Woken by the monitor (sidekick `ee62601`: the C002-b part 1 verdict,

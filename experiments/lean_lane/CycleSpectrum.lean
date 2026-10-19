@@ -11959,6 +11959,352 @@ theorem den_4 : den [4] = 13 := by norm_num [den, OddCycle.gcdCD, C, D]
 
 end KZero
 
+/-! ### S13-a: the rise lemma — one agreeing run of a rotation multiplies the log-height by at most `κ`
+
+Side lane's S13 (`sidekick/research/S13/RISE_LEMMA.md`, §§1–2), in natural logarithms and with a
+uniform `Δ`. For a primitive cycle with letters `≥ 1`, a forward offset `d` with `d ≢ 0 (mod m)`,
+`η = q/(3 n₀)`, `κ = (log 3 + η)/log 2` and the potential `Φ_p = log n_p + log 2 + Δ`, where `Δ ≥ 0`
+bounds `log n_(p+d) − log n_p` on the stretch: (W) the 2-adic start witness — on an agreeing run of
+letter sum `F` from `i`, `2^(F+1) ∣ n_(i+d) − n_i ≠ 0`, hence `(F + 1) log 2 ≤ log n_i + Δ`
+(`witness_two_pow`, `witness_log`; the nonvanishing is `z_ne_zero`, i.e. primitivity); (P) the rise
+over `t` steps is at most `t (log 3 + η) − F log 2` (`rise_bound`, from `log_step` and `ε_t ≤ η`);
+one run and its following letter multiply `Φ` by at most `κ` (`run_step`); chaining over the
+mismatches of `[u, v)` — induction on their number, splitting at the least one — gives
+`Φ_v ≤ κ^(k+1) Φ_u` (`rise_lemma`). From the minimum `n₀`: `Φ_j ≤ κ^(s+1) Φ_0` for every position
+`j ≤ m`, `s = |mis d|` (`rise_from_min`), the natural-log form of S13's Corollary 1; and
+`log n_(p+d) − log n_p ≤ d (log 3 + η − log 2)` (`rise_le_mul`), the uniform `Δ` of S13's
+`Δ⁺ ≤ (σ + η) d`, giving `rise_from_min_uniform`. The orientation lemma `|mis (m − h)| = |mis h|` and
+the explicit `s(h) ≥ log_κ(1 + B/c) − 1` are S13-b. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- `η = q/(3 n₀)`, the uniform bound on the per-step correction `ε_t`. -/
+noncomputable def eta : ℝ := (Γ.q : ℝ) / (3 * (Γ.n 0 : ℝ))
+
+/-- `κ = (log 3 + η)/log 2`, the rise factor of one agreeing run. -/
+noncomputable def kappa : ℝ := (Real.log 3 + Γ.eta) / Real.log 2
+
+/-- The rise potential `Φ_p = log n_p + log 2 + Δ`. -/
+noncomputable def Phi (Δ : ℝ) (p : ℕ) : ℝ := Real.log (Γ.n p) + Real.log 2 + Δ
+
+theorem eta_nonneg : 0 ≤ Γ.eta := by
+  unfold eta
+  have hq : (0 : ℝ) ≤ Γ.q := by exact_mod_cast Γ.hq.le
+  have hn := Γ.n_cast_pos 0
+  exact div_nonneg hq (by linarith)
+
+/-- `ε_t ≤ η`: `log(1 + x) ≤ x` and `n_t ≥ n₀`. -/
+theorem eps_le_eta (t : ℕ) : Γ.eps t ≤ Γ.eta := by
+  unfold eps eta
+  have hq : (0 : ℝ) ≤ Γ.q := by exact_mod_cast Γ.hq.le
+  have hn0 := Γ.n_cast_pos 0
+  have hnt := Γ.n_cast_pos t
+  have hle : (Γ.n 0 : ℝ) ≤ Γ.n t := by exact_mod_cast Γ.nmin t
+  have h1 : (0 : ℝ) < 1 + (Γ.q : ℝ) / (3 * (Γ.n t : ℝ)) := by
+    have := div_nonneg hq (by linarith : (0 : ℝ) ≤ 3 * (Γ.n t : ℝ))
+    linarith
+  calc Real.log (1 + (Γ.q : ℝ) / (3 * (Γ.n t : ℝ)))
+      ≤ 1 + (Γ.q : ℝ) / (3 * (Γ.n t : ℝ)) - 1 := Real.log_le_sub_one_of_pos h1
+    _ = (Γ.q : ℝ) / (3 * (Γ.n t : ℝ)) := by ring
+    _ ≤ (Γ.q : ℝ) / (3 * (Γ.n 0 : ℝ)) :=
+      div_le_div_of_nonneg_left hq (by linarith) (by linarith)
+
+theorem kappa_mul_log2 : Γ.kappa * Real.log 2 = Real.log 3 + Γ.eta := by
+  unfold kappa
+  have h2 : Real.log 2 ≠ 0 := (Real.log_pos (by norm_num)).ne'
+  exact div_mul_cancel₀ _ h2
+
+theorem one_le_kappa : 1 ≤ Γ.kappa := by
+  unfold kappa
+  have h2 : (0 : ℝ) < Real.log 2 := Real.log_pos (by norm_num)
+  rw [le_div_iff₀ h2, one_mul]
+  have := Γ.eta_nonneg
+  have := Real.log_lt_log (by norm_num : (0 : ℝ) < 2) (by norm_num : (2 : ℝ) < 3)
+  linarith
+
+theorem Phi_nonneg {Δ : ℝ} (hΔ0 : 0 ≤ Δ) (p : ℕ) : 0 ≤ Γ.Phi Δ p := by
+  unfold Phi
+  have h1 : (1 : ℤ) ≤ Γ.n p := by
+    have := Γ.npos.trans_le (Γ.nmin p)
+    omega
+  have h1R : (1 : ℝ) ≤ Γ.n p := by exact_mod_cast h1
+  have := Real.log_nonneg h1R
+  have := Real.log_pos (by norm_num : (1 : ℝ) < 2)
+  linarith
+
+/-- Letters `≥ 1`: a run of `s` letters has sum `≥ s`. -/
+theorem le_runSum (hapos : ∀ i, 1 ≤ Γ.a i) (i s : ℕ) : s ≤ Γ.runSum i s := by
+  unfold runSum
+  calc s = ∑ _j ∈ Finset.range s, 1 := by simp
+    _ ≤ ∑ j ∈ Finset.range s, Γ.a (i + j) := Finset.sum_le_sum (fun j _ => hapos _)
+
+theorem runSum_mono (i : ℕ) {s t : ℕ} (hst : s ≤ t) : Γ.runSum i s ≤ Γ.runSum i t := by
+  unfold runSum
+  exact Finset.sum_le_sum_of_subset (Finset.range_mono hst)
+
+/-- (P): the rise over `t` steps is at most `t (log 3 + η) − F log 2`. -/
+theorem rise_bound (i : ℕ) : ∀ t : ℕ,
+    Real.log (Γ.n (i + t)) - Real.log (Γ.n i)
+      ≤ (t : ℝ) * (Real.log 3 + Γ.eta) - (Γ.runSum i t : ℝ) * Real.log 2 := by
+  intro t
+  induction t with
+  | zero => simp [runSum]
+  | succ t ih =>
+    have hstep := Γ.log_step (i + t)
+    have heps := Γ.eps_le_eta (i + t)
+    rw [runSum_succ]
+    push_cast
+    show Real.log (Γ.n (i + t + 1)) - Real.log (Γ.n i) ≤ _
+    linarith
+
+/-- The uniform `Δ`: `log n_(p+d) − log n_p ≤ d (log 3 + η − log 2)`. -/
+theorem rise_le_mul (hapos : ∀ i, 1 ≤ Γ.a i) (p d : ℕ) :
+    Real.log (Γ.n (p + d)) - Real.log (Γ.n p)
+      ≤ (d : ℝ) * (Real.log 3 + Γ.eta - Real.log 2) := by
+  have h1 := Γ.rise_bound p d
+  have h2 : (d : ℝ) ≤ Γ.runSum p d := by exact_mod_cast Γ.le_runSum hapos p d
+  have h3 : (0 : ℝ) < Real.log 2 := Real.log_pos (by norm_num)
+  have h4 : (d : ℝ) * Real.log 2 ≤ (Γ.runSum p d : ℝ) * Real.log 2 :=
+    mul_le_mul_of_nonneg_right h2 h3.le
+  linarith
+
+/-- (W), 2-adic form: on an agreeing run of letter sum `F` from `i`, `2^(F+1) ∣ n_(i+d) − n_i`. -/
+theorem witness_two_pow {d i : ℕ} (t : ℕ) (hrun : ∀ j, j < t → Γ.agree d (i + j)) :
+    (2 : ℤ) ^ (Γ.runSum i t + 1) ∣ Γ.z d i := by
+  obtain ⟨k, -, hk, -⟩ := Γ.z_run_factor t hrun
+  exact Dvd.intro k hk.symm
+
+/-- (W), logarithmic form: `(F + 1) log 2 ≤ log n_i + Δ` whenever `log n_(i+d) − log n_i ≤ Δ`. -/
+theorem witness_log (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {d : ℕ}
+    (hh : d % m ≠ 0) {Δ : ℝ} (hΔ0 : 0 ≤ Δ) {i : ℕ}
+    (hΔ : Real.log (Γ.n (i + d)) - Real.log (Γ.n i) ≤ Δ) {t : ℕ}
+    (hrun : ∀ j, j < t → Γ.agree d (i + j)) :
+    ((Γ.runSum i t : ℝ) + 1) * Real.log 2 ≤ Real.log (Γ.n i) + Δ := by
+  have hdvd := Γ.witness_two_pow t hrun
+  have hz := Γ.z_ne_zero hprim hh i
+  have hpos1 : 0 < Γ.n i := Γ.npos.trans_le (Γ.nmin _)
+  have hpos2 : 0 < Γ.n (i + d) := Γ.npos.trans_le (Γ.nmin _)
+  have hle : (2 : ℤ) ^ (Γ.runSum i t + 1) ≤ |Γ.z d i| :=
+    Int.le_of_dvd (abs_pos.mpr hz) ((dvd_abs _ _).mpr hdvd)
+  have hcase : (2 : ℤ) ^ (Γ.runSum i t + 1) ≤ Γ.n (i + d) ∨
+      (2 : ℤ) ^ (Γ.runSum i t + 1) ≤ Γ.n i := by
+    unfold z at hle
+    rcases le_or_gt (Γ.n i) (Γ.n (i + d)) with h1 | h1
+    · left
+      rw [abs_of_nonneg (by linarith)] at hle
+      linarith
+    · right
+      rw [abs_of_neg (by linarith)] at hle
+      linarith
+  have hlog2 : Real.log ((2 : ℝ) ^ (Γ.runSum i t + 1))
+      = ((Γ.runSum i t : ℝ) + 1) * Real.log 2 := by
+    rw [Real.log_pow, Nat.cast_add, Nat.cast_one]
+  have hn1 := Γ.n_cast_pos i
+  have hn2 := Γ.n_cast_pos (i + d)
+  rcases hcase with h1 | h1
+  · have h1R : (2 : ℝ) ^ (Γ.runSum i t + 1) ≤ Γ.n (i + d) := by exact_mod_cast h1
+    have := Real.log_le_log (by positivity) h1R
+    rw [hlog2] at this
+    linarith
+  · have h1R : (2 : ℝ) ^ (Γ.runSum i t + 1) ≤ Γ.n i := by exact_mod_cast h1
+    have := Real.log_le_log (by positivity) h1R
+    rw [hlog2] at this
+    linarith
+
+/-- **One run step.** If `[u, u + t)` agrees and `s ≤ t + 1`, then `Φ_(u+s) ≤ κ Φ_u`. -/
+theorem run_step (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {d : ℕ} (hh : d % m ≠ 0) {Δ : ℝ} (hΔ0 : 0 ≤ Δ) {u : ℕ}
+    (hΔ : Real.log (Γ.n (u + d)) - Real.log (Γ.n u) ≤ Δ) {t : ℕ}
+    (hrun : ∀ j, j < t → Γ.agree d (u + j)) {s : ℕ} (hs : s ≤ t + 1) :
+    Γ.Phi Δ (u + s) ≤ Γ.kappa * Γ.Phi Δ u := by
+  have hW := Γ.witness_log hprim hh hΔ0 hΔ hrun
+  have hR := Γ.rise_bound u s
+  have h2 : (0 : ℝ) < Real.log 2 := Real.log_pos (by norm_num)
+  have h3 := Real.log_lt_log (by norm_num : (0 : ℝ) < 2) (by norm_num : (2 : ℝ) < 3)
+  have heta := Γ.eta_nonneg
+  have hpos3 : 0 ≤ Real.log 3 + Γ.eta := by linarith
+  set F := Γ.runSum u t with hF
+  set X := Real.log 3 + Γ.eta - Real.log 2 with hX
+  have hXpos : 0 < X := by rw [hX]; linarith
+  -- the rise is at most `(F + 1) X`
+  have hrise : Real.log (Γ.n (u + s)) - Real.log (Γ.n u) ≤ ((F : ℝ) + 1) * X := by
+    rcases Nat.lt_or_ge s (t + 1) with hlt | hge
+    · have hst : s ≤ t := by omega
+      have hRs : Γ.runSum u s ≤ F := Γ.runSum_mono u hst
+      have hsR : s ≤ Γ.runSum u s := Γ.le_runSum hapos u s
+      have hRsR : (Γ.runSum u s : ℝ) ≤ F := by exact_mod_cast hRs
+      have hsRR : (s : ℝ) ≤ Γ.runSum u s := by exact_mod_cast hsR
+      calc Real.log (Γ.n (u + s)) - Real.log (Γ.n u)
+          ≤ (s : ℝ) * (Real.log 3 + Γ.eta) - (Γ.runSum u s : ℝ) * Real.log 2 := hR
+        _ ≤ (Γ.runSum u s : ℝ) * (Real.log 3 + Γ.eta) - (Γ.runSum u s : ℝ) * Real.log 2 := by
+          have := mul_le_mul_of_nonneg_right hsRR hpos3
+          linarith
+        _ = (Γ.runSum u s : ℝ) * X := by rw [hX]; ring
+        _ ≤ (F : ℝ) * X := mul_le_mul_of_nonneg_right hRsR hXpos.le
+        _ ≤ ((F : ℝ) + 1) * X := by linarith
+    · have hst : s = t + 1 := by omega
+      subst hst
+      have hRs : Γ.runSum u (t + 1) = F + Γ.a (u + t) := Γ.runSum_succ u t
+      have ha : 1 ≤ Γ.a (u + t) := hapos _
+      have htF : t ≤ F := Γ.le_runSum hapos u t
+      have htFR : (t : ℝ) ≤ F := by exact_mod_cast htF
+      have haR : (1 : ℝ) ≤ Γ.a (u + t) := by exact_mod_cast ha
+      rw [hRs] at hR
+      push_cast at hR
+      calc Real.log (Γ.n (u + (t + 1))) - Real.log (Γ.n u)
+          ≤ ((t : ℝ) + 1) * (Real.log 3 + Γ.eta) - ((F : ℝ) + Γ.a (u + t)) * Real.log 2 := hR
+        _ ≤ ((F : ℝ) + 1) * (Real.log 3 + Γ.eta) - ((F : ℝ) + 1) * Real.log 2 := by
+          have e1 := mul_le_mul_of_nonneg_right (show (t : ℝ) + 1 ≤ F + 1 by linarith) hpos3
+          have e2 := mul_le_mul_of_nonneg_right
+            (show (F : ℝ) + 1 ≤ F + Γ.a (u + t) by linarith) h2.le
+          linarith
+        _ = ((F : ℝ) + 1) * X := by rw [hX]; ring
+  -- `(F + 1) X ≤ (κ − 1) Φ_u`
+  have hkX : (Γ.kappa - 1) * Real.log 2 = X := by
+    rw [hX]
+    have := Γ.kappa_mul_log2
+    linarith
+  have hk0 : 0 ≤ Γ.kappa - 1 := by
+    have := Γ.one_le_kappa
+    linarith
+  have hΦ : ((F : ℝ) + 1) * Real.log 2 ≤ Γ.Phi Δ u := by
+    unfold Phi
+    linarith
+  have hkey : ((F : ℝ) + 1) * X ≤ (Γ.kappa - 1) * Γ.Phi Δ u := by
+    calc ((F : ℝ) + 1) * X = ((F : ℝ) + 1) * Real.log 2 * (Γ.kappa - 1) := by
+          rw [← hkX]
+          ring
+      _ ≤ Γ.Phi Δ u * (Γ.kappa - 1) := mul_le_mul_of_nonneg_right hΦ hk0
+      _ = (Γ.kappa - 1) * Γ.Phi Δ u := mul_comm _ _
+  have hΦs : Γ.Phi Δ (u + s) = Real.log (Γ.n (u + s)) - Real.log (Γ.n u) + Γ.Phi Δ u := by
+    unfold Phi
+    ring
+  rw [hΦs]
+  linarith
+
+/-- The chain, by induction on the number of mismatches of `[u, v)`. -/
+theorem rise_lemma_aux (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {d : ℕ} (hh : d % m ≠ 0) {Δ : ℝ} (hΔ0 : 0 ≤ Δ) (v : ℕ) :
+    ∀ k u, u ≤ v → (∀ p, u ≤ p → p ≤ v → Real.log (Γ.n (p + d)) - Real.log (Γ.n p) ≤ Δ) →
+      ((Finset.Ico u v).filter (fun p => ¬ Γ.agree d p)).card = k →
+      Γ.Phi Δ v ≤ Γ.kappa ^ (k + 1) * Γ.Phi Δ u := by
+  intro k
+  induction k with
+  | zero =>
+    intro u huv hΔ hcard
+    have hrun : ∀ j, j < v - u → Γ.agree d (u + j) := by
+      intro j hj
+      by_contra hna
+      have hmem : u + j ∈ (Finset.Ico u v).filter (fun p => ¬ Γ.agree d p) :=
+        Finset.mem_filter.mpr ⟨Finset.mem_Ico.mpr ⟨by omega, by omega⟩, hna⟩
+      have := Finset.card_pos.mpr ⟨_, hmem⟩
+      omega
+    have h := Γ.run_step hprim hapos hh hΔ0 (hΔ u le_rfl huv) hrun (s := v - u) (by omega)
+    rw [show u + (v - u) = v by omega] at h
+    rw [zero_add, pow_one]
+    exact h
+  | succ k ih =>
+    intro u huv hΔ hcard
+    set M := (Finset.Ico u v).filter (fun p => ¬ Γ.agree d p) with hM
+    have hne : M.Nonempty := by
+      rw [← Finset.card_pos, hcard]
+      omega
+    set e := M.min' hne with he
+    have heM : e ∈ M := Finset.min'_mem M hne
+    obtain ⟨heIco, hea⟩ := Finset.mem_filter.mp heM
+    obtain ⟨hue, hev⟩ := Finset.mem_Ico.mp heIco
+    -- `[u, e)` agrees
+    have hrun : ∀ j, j < e - u → Γ.agree d (u + j) := by
+      intro j hj
+      by_contra hna
+      have hmem : u + j ∈ M :=
+        Finset.mem_filter.mpr ⟨Finset.mem_Ico.mpr ⟨by omega, by omega⟩, hna⟩
+      have h' : e ≤ u + j := Finset.min'_le M _ hmem
+      omega
+    -- the step to `e + 1`
+    have hstep := Γ.run_step hprim hapos hh hΔ0 (hΔ u le_rfl huv) hrun (s := e - u + 1) (by omega)
+    rw [show u + (e - u + 1) = e + 1 by omega] at hstep
+    -- `[e + 1, v)` has `k` mismatches
+    have hcard' : ((Finset.Ico (e + 1) v).filter (fun p => ¬ Γ.agree d p)).card = k := by
+      have hsplit : M = (Finset.Ico u (e + 1)).filter (fun p => ¬ Γ.agree d p) ∪
+          (Finset.Ico (e + 1) v).filter (fun p => ¬ Γ.agree d p) := by
+        rw [hM, ← Finset.filter_union, Finset.Ico_union_Ico_eq_Ico (by omega) (by omega)]
+      have hsing : (Finset.Ico u (e + 1)).filter (fun p => ¬ Γ.agree d p) = {e} := by
+        apply Finset.eq_singleton_iff_unique_mem.mpr
+        refine ⟨Finset.mem_filter.mpr ⟨Finset.mem_Ico.mpr ⟨hue, by omega⟩, hea⟩, ?_⟩
+        intro p hp
+        obtain ⟨hpI, hpa⟩ := Finset.mem_filter.mp hp
+        obtain ⟨hup, hpe⟩ := Finset.mem_Ico.mp hpI
+        have hpM : p ∈ M :=
+          Finset.mem_filter.mpr ⟨Finset.mem_Ico.mpr ⟨hup, by omega⟩, hpa⟩
+        have h' : e ≤ p := Finset.min'_le M _ hpM
+        omega
+      have hdisj : Disjoint ((Finset.Ico u (e + 1)).filter (fun p => ¬ Γ.agree d p))
+          ((Finset.Ico (e + 1) v).filter (fun p => ¬ Γ.agree d p)) :=
+        Finset.disjoint_filter_filter (Finset.Ico_disjoint_Ico_consecutive u (e + 1) v)
+      have h1 := hcard
+      rw [hsplit, Finset.card_union_of_disjoint hdisj, hsing, Finset.card_singleton] at h1
+      omega
+    have hΔ' : ∀ p, e + 1 ≤ p → p ≤ v → Real.log (Γ.n (p + d)) - Real.log (Γ.n p) ≤ Δ :=
+      fun p hp1 hp2 => hΔ p (by omega) hp2
+    have hih := ih (e + 1) (by omega) hΔ' hcard'
+    have hκ : 0 ≤ Γ.kappa := by
+      have := Γ.one_le_kappa
+      linarith
+    calc Γ.Phi Δ v ≤ Γ.kappa ^ (k + 1) * Γ.Phi Δ (e + 1) := hih
+      _ ≤ Γ.kappa ^ (k + 1) * (Γ.kappa * Γ.Phi Δ u) :=
+        mul_le_mul_of_nonneg_left hstep (pow_nonneg hκ _)
+      _ = Γ.kappa ^ (k + 1 + 1) * Γ.Phi Δ u := by ring
+
+/-- **S13's rise lemma** (natural logs, uniform `Δ`): for a primitive cycle with letters `≥ 1`, a
+forward offset `d ≢ 0 (mod m)`, a stretch `u ≤ v` on which `log n_(p+d) − log n_p ≤ Δ`, and `k`
+the number of mismatches in `[u, v)`: `Φ_v ≤ κ^(k+1) Φ_u`. -/
+theorem rise_lemma (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {d : ℕ} (hh : d % m ≠ 0) {Δ : ℝ} (hΔ0 : 0 ≤ Δ) {u v : ℕ}
+    (huv : u ≤ v) (hΔ : ∀ p, u ≤ p → p ≤ v → Real.log (Γ.n (p + d)) - Real.log (Γ.n p) ≤ Δ) :
+    Γ.Phi Δ v ≤
+      Γ.kappa ^ (((Finset.Ico u v).filter (fun p => ¬ Γ.agree d p)).card + 1) * Γ.Phi Δ u :=
+  Γ.rise_lemma_aux hprim hapos hh hΔ0 v _ u huv hΔ rfl
+
+/-- **S13's Corollary 1, natural-log form.** From the minimum `n₀` to any position `j ≤ m`:
+`Φ_j ≤ κ^(s+1) Φ_0` with `s = |mis d|`, for any uniform `Δ ≥ 0`. -/
+theorem rise_from_min (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {d : ℕ} (hh : d % m ≠ 0) {Δ : ℝ} (hΔ0 : 0 ≤ Δ)
+    (hΔ : ∀ p, Real.log (Γ.n (p + d)) - Real.log (Γ.n p) ≤ Δ) {j : ℕ} (hj : j ≤ m) :
+    Γ.Phi Δ j ≤ Γ.kappa ^ ((Γ.mis d).card + 1) * Γ.Phi Δ 0 := by
+  have h := Γ.rise_lemma hprim hapos hh hΔ0 (u := 0) (v := j) (Nat.zero_le _)
+    (fun p _ _ => hΔ p)
+  have hsub : (Finset.Ico 0 j).filter (fun p => ¬ Γ.agree d p) ⊆ Γ.mis d := by
+    unfold mis
+    apply Finset.filter_subset_filter
+    intro p hp
+    rw [Finset.mem_Ico] at hp
+    exact Finset.mem_range.mpr (by omega)
+  have hcard := Finset.card_le_card hsub
+  calc Γ.Phi Δ j
+      ≤ Γ.kappa ^ (((Finset.Ico 0 j).filter (fun p => ¬ Γ.agree d p)).card + 1) * Γ.Phi Δ 0 := h
+    _ ≤ Γ.kappa ^ ((Γ.mis d).card + 1) * Γ.Phi Δ 0 :=
+      mul_le_mul_of_nonneg_right (pow_le_pow_right₀ Γ.one_le_kappa (by omega))
+        (Γ.Phi_nonneg hΔ0 0)
+
+/-- Corollary 1 with the uniform `Δ = d (log 3 + η − log 2)` (S13's `Δ⁺ ≤ (σ + η) d`):
+`log n_j + log 2 + d(log 3 + η − log 2) ≤ κ^(s+1) (log n₀ + log 2 + d(log 3 + η − log 2))`. -/
+theorem rise_from_min_uniform (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {d : ℕ} (hh : d % m ≠ 0) {j : ℕ} (hj : j ≤ m) :
+    Real.log (Γ.n j) + Real.log 2 + (d : ℝ) * (Real.log 3 + Γ.eta - Real.log 2) ≤
+      Γ.kappa ^ ((Γ.mis d).card + 1) *
+        (Real.log (Γ.n 0) + Real.log 2 + (d : ℝ) * (Real.log 3 + Γ.eta - Real.log 2)) := by
+  have hX : 0 ≤ (d : ℝ) * (Real.log 3 + Γ.eta - Real.log 2) := by
+    have := Γ.eta_nonneg
+    have := Real.log_lt_log (by norm_num : (0 : ℝ) < 2) (by norm_num : (2 : ℝ) < 3)
+    have hd : (0 : ℝ) ≤ d := by positivity
+    nlinarith
+  exact Γ.rise_from_min hprim hapos hh hX (fun p => Γ.rise_le_mul hapos p d) hj
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
