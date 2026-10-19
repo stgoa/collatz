@@ -1,0 +1,1273 @@
+{
+  "actual": {
+    "all_nonconstant_G_controls": [
+      {
+        "A": 8,
+        "G": [
+          4,
+          1
+        ],
+        "L": 17,
+        "arithmetic_sha256": "5c1bb6b907fd86d3bcde3e16ae8c19513a8bdcbf0d306b21e940d39dcc42f23f",
+        "determinant_degree": 3,
+        "determinant_evaluations": 2,
+        "e": 3,
+        "evaluated_G": 7,
+        "g": 7,
+        "m": 4,
+        "phase_sha256": "2ec8f91156b51ba0d9bdc53872262951dacd69a0891627efd879fe2140020903",
+        "prime_to_six_part_bits": 1,
+        "q": 25,
+        "residual_denominator_resultant_gcd": 1,
+        "residual_evaluation_gcd": 1,
+        "resultant_bits": 11,
+        "resultant_v2": 9,
+        "resultant_v3": 1
+      },
+      {
+        "A": 12,
+        "G": [
+          8,
+          1
+        ],
+        "L": 5,
+        "arithmetic_sha256": "c26d59be5cdcc6b23391165cc8209e45599a01392c05dcb4cce5ee216edceff8",
+        "determinant_degree": 3,
+        "determinant_evaluations": 2,
+        "e": 3,
+        "evaluated_G": 11,
+        "g": 55,
+        "m": 4,
+        "phase_sha256": "c2f650004536b6277d35d83060dee368d0bb57417eff3fea1e1ac43073aa53dd",
+        "prime_to_six_part_bits": 3,
+        "q": 73,
+        "residual_denominator_resultant_gcd": 5,
+        "residual_evaluation_gcd": 5,
+        "resultant_bits": 18,
+        "resultant_v2": 12,
+        "resultant_v3": 2
+      },
+      {
+        "A": 12,
+        "G": [
+          16,
+          4,
+          1
+        ],
+        "L": 59,
+        "arithmetic_sha256": "3635cdb2d15416f46bead956dc942a917aaa1362fe1c7d913a1c1c11305007b6",
+        "determinant_degree": 4,
+        "determinant_evaluations": 2,
+        "e": 4,
+        "evaluated_G": 37,
+        "g": 37,
+        "m": 6,
+        "phase_sha256": "04d3a1589f585fe5eb7652a35c7de6f4abd7d348d065d5ac7301609c5ec6cb7a",
+        "prime_to_six_part_bits": 1,
+        "q": 91,
+        "residual_denominator_resultant_gcd": 1,
+        "residual_evaluation_gcd": 1,
+        "resultant_bits": 22,
+        "resultant_v2": 20,
+        "resultant_v3": 1
+      },
+      {
+        "A": 24,
+        "G": [
+          4,
+          1
+        ],
+        "L": 83,
+        "arithmetic_sha256": "51eb9744a5aa6d1468839ddd9f9c3a2484b28fc45a632f084db480429ef25b5c",
+        "determinant_degree": 11,
+        "determinant_evaluations": 2,
+        "e": 11,
+        "evaluated_G": 7,
+        "g": 49987,
+        "m": 12,
+        "phase_sha256": "2c3b0a409d352c1a7aec9c3dc8533adc00e8ff334a086822fa505d4d34bf0381",
+        "prime_to_six_part_bits": 30,
+        "q": 325,
+        "residual_denominator_resultant_gcd": 178525,
+        "residual_evaluation_gcd": 7141,
+        "resultant_bits": 216,
+        "resultant_v2": 184,
+        "resultant_v3": 1
+      },
+      {
+        "A": 16,
+        "G": [
+          64,
+          16,
+          4,
+          1
+        ],
+        "L": 209,
+        "arithmetic_sha256": "898adf40e5bf2b01843a5599c0f14eabbccfdb0e5f42eaaa679b256ae844a5b6",
+        "determinant_degree": 5,
+        "determinant_evaluations": 2,
+        "e": 5,
+        "evaluated_G": 175,
+        "g": 175,
+        "m": 8,
+        "phase_sha256": "11ce2d6136204e05a4f4d42724c31a785d5319dfd2d50b41c423f323bc9ff3a5",
+        "prime_to_six_part_bits": 1,
+        "q": 337,
+        "residual_denominator_resultant_gcd": 1,
+        "residual_evaluation_gcd": 1,
+        "resultant_bits": 37,
+        "resultant_v2": 35,
+        "resultant_v3": 1
+      },
+      {
+        "A": 16,
+        "G": [
+          64,
+          16,
+          4,
+          1
+        ],
+        "L": 227,
+        "arithmetic_sha256": "af45950b552a73b5b606fd39d7a3787f9ed1a0fac941eee1410e1ee4974885a1",
+        "determinant_degree": 5,
+        "determinant_evaluations": 2,
+        "e": 5,
+        "evaluated_G": 175,
+        "g": 175,
+        "m": 8,
+        "phase_sha256": "cda650f5fee450338afd03c47efdfc347965b878600619699a049b851624864d",
+        "prime_to_six_part_bits": 1,
+        "q": 337,
+        "residual_denominator_resultant_gcd": 1,
+        "residual_evaluation_gcd": 1,
+        "resultant_bits": 37,
+        "resultant_v2": 35,
+        "resultant_v3": 1
+      },
+      {
+        "A": 12,
+        "G": [
+          8,
+          1
+        ],
+        "L": 41,
+        "arithmetic_sha256": "abf4dcb4e37014bbad1a7e1c7b88202d26f2a6b019765a74a82057c037dc4281",
+        "determinant_degree": 3,
+        "determinant_evaluations": 2,
+        "e": 3,
+        "evaluated_G": 11,
+        "g": 11,
+        "m": 4,
+        "phase_sha256": "20d9b4e6d120f04f6f1ee827679efc4e5000466fd80017a4c928a059d47f2c46",
+        "prime_to_six_part_bits": 1,
+        "q": 365,
+        "residual_denominator_resultant_gcd": 1,
+        "residual_evaluation_gcd": 1,
+        "resultant_bits": 17,
+        "resultant_v2": 15,
+        "resultant_v3": 1
+      },
+      {
+        "A": 28,
+        "G": [
+          4,
+          1
+        ],
+        "L": 35,
+        "arithmetic_sha256": "a7dff77c0f58490471d86a627086deea13a4079eff39508646aa3f67fb9ccd96",
+        "determinant_degree": 13,
+        "determinant_evaluations": 2,
+        "e": 13,
+        "evaluated_G": 7,
+        "g": 695653,
+        "m": 14,
+        "phase_sha256": "a17d37a291657112d0a844f8a6227fa92871625cd41705f0a385a83b76bd2a3b",
+        "prime_to_six_part_bits": 61,
+        "q": 379,
+        "residual_denominator_resultant_gcd": 99379,
+        "residual_evaluation_gcd": 99379,
+        "resultant_bits": 311,
+        "resultant_v2": 247,
+        "resultant_v3": 2
+      },
+      {
+        "A": 24,
+        "G": [
+          4,
+          1
+        ],
+        "L": 119,
+        "arithmetic_sha256": "91be308a34b4190101fe5a905b26587e9f3fbacd5f049a14a54cefc40804bdb2",
+        "determinant_degree": 11,
+        "determinant_evaluations": 2,
+        "e": 11,
+        "evaluated_G": 7,
+        "g": 33775,
+        "m": 12,
+        "phase_sha256": "03ecc453559b6ee7d0b8608655717067a6cb34a3c5ba029e9d254ce99d177599",
+        "prime_to_six_part_bits": 40,
+        "q": 481,
+        "residual_denominator_resultant_gcd": 62725,
+        "residual_evaluation_gcd": 4825,
+        "resultant_bits": 223,
+        "resultant_v2": 176,
+        "resultant_v3": 4
+      },
+      {
+        "A": 12,
+        "G": [
+          4,
+          1
+        ],
+        "L": 215,
+        "arithmetic_sha256": "b65cd1dd8b8ff06008e6a111c66b357781291513edbdceb5285ec4b2b350be12",
+        "determinant_degree": 5,
+        "determinant_evaluations": 2,
+        "e": 5,
+        "evaluated_G": 7,
+        "g": 7,
+        "m": 6,
+        "phase_sha256": "68232cb2df96260db42da9eaf2eec4c0b15f68ee84bbe122b672737e491715b4",
+        "prime_to_six_part_bits": 1,
+        "q": 481,
+        "residual_denominator_resultant_gcd": 1,
+        "residual_evaluation_gcd": 1,
+        "resultant_bits": 38,
+        "resultant_v2": 31,
+        "resultant_v3": 4
+      },
+      {
+        "A": 12,
+        "G": [
+          4,
+          1
+        ],
+        "L": 217,
+        "arithmetic_sha256": "8d54f998182573bedc76bb3e88269c79dae90d600b9743688e671f823f7f47c0",
+        "determinant_degree": 5,
+        "determinant_evaluations": 2,
+        "e": 5,
+        "evaluated_G": 7,
+        "g": 7,
+        "m": 6,
+        "phase_sha256": "fc906ae2a4d2b84488710f9f65da1a2848399faa4dc134d381f25217e3158d3f",
+        "prime_to_six_part_bits": 9,
+        "q": 481,
+        "residual_denominator_resultant_gcd": 1,
+        "residual_evaluation_gcd": 1,
+        "resultant_bits": 39,
+        "resultant_v2": 30,
+        "resultant_v3": 0
+      },
+      {
+        "A": 12,
+        "G": [
+          4,
+          1
+        ],
+        "L": 233,
+        "arithmetic_sha256": "eeb52f93c3b0069b2c29eb30cb6d95a89ee397e3a219a6c50972f4aae0c38ac0",
+        "determinant_degree": 5,
+        "determinant_evaluations": 2,
+        "e": 5,
+        "evaluated_G": 7,
+        "g": 7,
+        "m": 6,
+        "phase_sha256": "c711a35de834268aad5aceeeab8a2f59d5ff21283bacd85973ef4f3f403ab6e2",
+        "prime_to_six_part_bits": 3,
+        "q": 481,
+        "residual_denominator_resultant_gcd": 1,
+        "residual_evaluation_gcd": 1,
+        "resultant_bits": 36,
+        "resultant_v2": 30,
+        "resultant_v3": 2
+      },
+      {
+        "A": 12,
+        "G": [
+          4,
+          1
+        ],
+        "L": 281,
+        "arithmetic_sha256": "517781920ddceaf0bf4f1c345c1206d79757b04ece2bc4bdb354cabc4d4630ac",
+        "determinant_degree": 5,
+        "determinant_evaluations": 2,
+        "e": 5,
+        "evaluated_G": 7,
+        "g": 7,
+        "m": 6,
+        "phase_sha256": "f048424de62d11407f6201b3be1b0b218cd61a28bc8255cdcbfdeac2c452b922",
+        "prime_to_six_part_bits": 1,
+        "q": 481,
+        "residual_denominator_resultant_gcd": 1,
+        "residual_evaluation_gcd": 1,
+        "resultant_bits": 38,
+        "resultant_v2": 37,
+        "resultant_v3": 0
+      },
+      {
+        "A": 12,
+        "G": [
+          4,
+          1
+        ],
+        "L": 353,
+        "arithmetic_sha256": "13e507cee925a76be1812d90a3a6ee954763a3a73a043d8cee91410c0625c326",
+        "determinant_degree": 5,
+        "determinant_evaluations": 2,
+        "e": 5,
+        "evaluated_G": 7,
+        "g": 7,
+        "m": 6,
+        "phase_sha256": "14a738899f339685ced274c40254e0565b3e9685ead2d809bd034a85e75bf3b6",
+        "prime_to_six_part_bits": 3,
+        "q": 481,
+        "residual_denominator_resultant_gcd": 1,
+        "residual_evaluation_gcd": 1,
+        "resultant_bits": 38,
+        "resultant_v2": 35,
+        "resultant_v3": 0
+      },
+      {
+        "A": 18,
+        "G": [
+          64,
+          8,
+          1
+        ],
+        "L": 31,
+        "arithmetic_sha256": "4c34cdec0ab2fea39da00f2c2c8fc01929534f6b0f8c319f3edad36b9f279545",
+        "determinant_degree": 4,
+        "determinant_evaluations": 2,
+        "e": 4,
+        "evaluated_G": 97,
+        "g": 485,
+        "m": 6,
+        "phase_sha256": "4361054d8278cd740b12e136345fbb7b29ebfc5142a3dd20fcec84bcbd08108d",
+        "prime_to_six_part_bits": 3,
+        "q": 539,
+        "residual_denominator_resultant_gcd": 5,
+        "residual_evaluation_gcd": 5,
+        "resultant_bits": 36,
+        "resultant_v2": 28,
+        "resultant_v3": 3
+      },
+      {
+        "A": 30,
+        "G": [
+          256,
+          64,
+          16,
+          4,
+          1
+        ],
+        "L": 211,
+        "arithmetic_sha256": "0e23f3b11423c1b3e0e1833ef8f75211d524026903489996a283c0e855c44228",
+        "determinant_degree": 11,
+        "determinant_evaluations": 2,
+        "e": 11,
+        "evaluated_G": 781,
+        "g": 1762717,
+        "m": 15,
+        "phase_sha256": "637a12bf02b4e47a5538f180bd1190a1b45bf9a7854768a9c9735c0f84bab14b",
+        "prime_to_six_part_bits": 19,
+        "q": 601,
+        "residual_denominator_resultant_gcd": 2257,
+        "residual_evaluation_gcd": 2257,
+        "resultant_bits": 217,
+        "resultant_v2": 198,
+        "resultant_v3": 0
+      },
+      {
+        "A": 30,
+        "G": [
+          16,
+          4,
+          1
+        ],
+        "L": 119,
+        "arithmetic_sha256": "cc85e0de4f394843d156df0d1780ea4f06fd96b509b97610870a2ae4ad910628",
+        "determinant_degree": 13,
+        "determinant_evaluations": 2,
+        "e": 13,
+        "evaluated_G": 37,
+        "g": 1356457,
+        "m": 15,
+        "phase_sha256": "e8241900c3a6e8c96272aeedc3c339ddf34305690941cb9d2f853bcfebebba59",
+        "prime_to_six_part_bits": 47,
+        "q": 781,
+        "residual_denominator_resultant_gcd": 36661,
+        "residual_evaluation_gcd": 36661,
+        "resultant_bits": 310,
+        "resultant_v2": 261,
+        "resultant_v3": 1
+      },
+      {
+        "A": 20,
+        "G": [
+          4,
+          1
+        ],
+        "L": 203,
+        "arithmetic_sha256": "d72c1149de2f31e1a75ebf2c0256cfc0349689cc21ffc14d457f0d0328253fc2",
+        "determinant_degree": 9,
+        "determinant_evaluations": 2,
+        "e": 9,
+        "evaluated_G": 7,
+        "g": 1267,
+        "m": 10,
+        "phase_sha256": "1522e9c4915c6abbb2d37c1e7b796255d6c1610f215b144c60b9d7c00c37f93f",
+        "prime_to_six_part_bits": 27,
+        "q": 781,
+        "residual_denominator_resultant_gcd": 181,
+        "residual_evaluation_gcd": 181,
+        "resultant_bits": 140,
+        "resultant_v2": 108,
+        "resultant_v3": 3
+      },
+      {
+        "A": 60,
+        "G": [
+          262144,
+          65536,
+          16384,
+          4096,
+          1024,
+          256,
+          64,
+          16,
+          4,
+          1
+        ],
+        "L": 259,
+        "arithmetic_sha256": "f0be8eda78bb60b1bce0393dfcbcd74f301082af2596857e0b52e7fc0a2ffeac",
+        "determinant_degree": 21,
+        "determinant_evaluations": 2,
+        "e": 21,
+        "evaluated_G": 989527,
+        "g": 1453613636159839,
+        "m": 30,
+        "phase_sha256": "5e458e515044d64c767f788940822de7f87dff3105bbf11059c802f48c0c7d9c",
+        "prime_to_six_part_bits": 43,
+        "q": 793,
+        "residual_denominator_resultant_gcd": 1468998457,
+        "residual_evaluation_gcd": 1468998457,
+        "resultant_bits": 841,
+        "resultant_v2": 798,
+        "resultant_v3": 0
+      },
+      {
+        "A": 24,
+        "G": [
+          1024,
+          256,
+          64,
+          16,
+          4,
+          1
+        ],
+        "L": 613,
+        "arithmetic_sha256": "c391e7ba5d0db2629bff6880549be1ec879806081f873dc7e99ffe7ba5b35987",
+        "determinant_degree": 7,
+        "determinant_evaluations": 2,
+        "e": 7,
+        "evaluated_G": 3367,
+        "g": 16835,
+        "m": 12,
+        "phase_sha256": "2476ac234aabbe6c21c81e30b60d68d62cb9008a45da1ee62a4f920e86c9e734",
+        "prime_to_six_part_bits": 3,
+        "q": 965,
+        "residual_denominator_resultant_gcd": 5,
+        "residual_evaluation_gcd": 5,
+        "resultant_bits": 81,
+        "resultant_v2": 77,
+        "resultant_v3": 1
+      }
+    ],
+    "counts": {
+      "coprime_totals": 423,
+      "cycles_outside_direct_resultant_scope": 718,
+      "cyclic_polynomial_and_residual_identities": 28831,
+      "direct_invariant_cut_closures": 27646,
+      "direct_resultant_cycles": 467,
+      "direct_resultant_evaluations": 956,
+      "nonconstant_G": 20,
+      "nonfixed_floor_screen_ineligible": 1177,
+      "nonidentity_rotation_phases": 27646,
+      "normalized_raw_arrows": 28831,
+      "original_exact_polynomial_gcds": 1185,
+      "raw_source_arrows": 36912,
+      "scaled_source_instances": 1275,
+      "singleton_cut_refinements": 25973,
+      "truncated_prime_valuation_controls": 50233
+    },
+    "determinant_cases_sha256": "a3688ed1b904b01a05e0d0e248f361018183485fa09697578a88e5e19cd5e4d3",
+    "determinant_scope": "Every original cycle with m<=10, every nonconstant G, and both q5 period17 controls. First two phases directly evaluated, or every phase for q5. All other phases use exact polynomial identities, not independent determinants.",
+    "fixtures": [
+      {
+        "d": 5,
+        "q": 5,
+        "states": [
+          1
+        ],
+        "word": [
+          3
+        ]
+      },
+      {
+        "d": 5,
+        "q": 5,
+        "states": [
+          19,
+          31,
+          49
+        ],
+        "word": [
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "d": 5,
+        "q": 5,
+        "states": [
+          23,
+          37,
+          29
+        ],
+        "word": [
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "d": 5,
+        "q": 5,
+        "states": [
+          187,
+          283,
+          427,
+          643,
+          967,
+          1453,
+          1091,
+          1639,
+          2461,
+          1847,
+          2773,
+          2081,
+          781,
+          587,
+          883,
+          1327,
+          1993
+        ],
+        "word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          1,
+          5
+        ]
+      },
+      {
+        "d": 5,
+        "q": 5,
+        "states": [
+          347,
+          523,
+          787,
+          1183,
+          1777,
+          667,
+          1003,
+          1507,
+          2263,
+          3397,
+          2549,
+          1913,
+          359,
+          541,
+          407,
+          613,
+          461
+        ],
+        "word": [
+          1,
+          1,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4,
+          1,
+          2,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "d": 7,
+        "q": 7,
+        "states": [
+          5,
+          11
+        ],
+        "word": [
+          1,
+          3
+        ]
+      },
+      {
+        "d": 13,
+        "q": 13,
+        "states": [
+          1
+        ],
+        "word": [
+          4
+        ]
+      },
+      {
+        "d": 13,
+        "q": 13,
+        "states": [
+          131,
+          203,
+          311,
+          473,
+          179,
+          275,
+          419,
+          635,
+          959,
+          1445,
+          1087,
+          1637,
+          1231,
+          1853,
+          1393
+        ],
+        "word": [
+          1,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          5
+        ]
+      },
+      {
+        "d": 13,
+        "q": 13,
+        "states": [
+          211,
+          323,
+          491,
+          743,
+          1121
+        ],
+        "word": [
+          1,
+          1,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "d": 61,
+        "q": 61,
+        "states": [
+          1
+        ],
+        "word": [
+          6
+        ]
+      },
+      {
+        "d": 61,
+        "q": 61,
+        "states": [
+          235,
+          383,
+          605,
+          469,
+          367,
+          581,
+          451,
+          707,
+          1091,
+          1667,
+          2531,
+          3827,
+          5771,
+          8687,
+          13061,
+          9811,
+          14747,
+          22151,
+          33257,
+          12479,
+          18749,
+          14077,
+          10573,
+          7945,
+          2987,
+          4511,
+          6797,
+          5113,
+          1925,
+          1459,
+          2219,
+          3359,
+          5069,
+          3817,
+          1439,
+          2189,
+          1657,
+          629,
+          487,
+          761,
+          293
+        ],
+        "word": [
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          3,
+          1,
+          2,
+          2,
+          2,
+          3,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          2,
+          1,
+          3,
+          2
+        ]
+      }
+    ],
+    "full_corpus_sha256": "470e0f32cc5ca0ed641812b2ab04d7092aa59606fe18e0a5df917fcdb650879a",
+    "maximum_direct_resultant_degree": 21,
+    "normalized_cycles": 1185,
+    "q5_polynomial_coprime_numerical_cancellation": [
+      {
+        "A": 27,
+        "G": [
+          1
+        ],
+        "L": 187,
+        "arithmetic_sha256": "b0d60ea90d86750cfec8f0ec12458165adad59027837e29a693ed2ab377fdc9b",
+        "determinant_degree": 17,
+        "determinant_evaluations": 17,
+        "e": 17,
+        "evaluated_G": 1,
+        "g": 1015513,
+        "m": 17,
+        "phase_sha256": "2d8b145d217e267b5f3a94e57da55e65f029a6ed4c4422093c7b22f563bc2e87",
+        "prime_to_six_part_bits": 65,
+        "q": 5,
+        "residual_denominator_resultant_gcd": 1015513,
+        "residual_evaluation_gcd": 1015513,
+        "resultant_bits": 431,
+        "resultant_v2": 366,
+        "resultant_v3": 0
+      },
+      {
+        "A": 27,
+        "G": [
+          1
+        ],
+        "L": 347,
+        "arithmetic_sha256": "4fa74fa8d0696513c24b96bff2d7bef0baaf24d03a177cb352ae7252bd5d8bd6",
+        "determinant_degree": 17,
+        "determinant_evaluations": 17,
+        "e": 17,
+        "evaluated_G": 1,
+        "g": 1015513,
+        "m": 17,
+        "phase_sha256": "d0acb86c3499ee01872c8221052859a2a590c6d41477af9ba62b70ffa6691fb5",
+        "prime_to_six_part_bits": 54,
+        "q": 5,
+        "residual_denominator_resultant_gcd": 1015513,
+        "residual_evaluation_gcd": 1015513,
+        "resultant_bits": 432,
+        "resultant_v2": 376,
+        "resultant_v3": 1
+      }
+    ],
+    "raw_instances": 2459,
+    "source_parameters": 333
+  },
+  "c012_stress_correction": {
+    "correction": "The same measured-q interpretation error also affects C012 generated controls:178 of its2887 nonzero rotations exceed the q>1 floor screen. Historical exact arithmetic, determinant controls and zero-shift exclusions are unchanged. These counts concern rotations, unlike C013 counts of one strongest shift per word.",
+    "counts": {
+      "floor_screen_eligible": 178,
+      "nonzero_rotations": 2887,
+      "primitive_eligible": 178,
+      "repeated_eligible": 0,
+      "s2_eligible": 0,
+      "s_at_least3_eligible": 178,
+      "words": 37,
+      "zero_shifts_kept_separate": 24
+    },
+    "transcript_sha256": "56f8d10ec5852bee044a01dd1a48ff77131ecaa28a31646a6d825ded3a70c393"
+  },
+  "c013_stress_correction": {
+    "by": {
+      "marker_runs": {
+        "floor_screen_eligible": 5,
+        "words": 5
+      },
+      "s2_already_proved_C011": {
+        "floor_screen_eligible": 82,
+        "words": 102
+      },
+      "s_at_least3": {
+        "floor_screen_eligible": 96,
+        "words": 141
+      },
+      "two_blocks": {
+        "floor_screen_eligible": 173,
+        "words": 238
+      }
+    },
+    "correction": "The observed-q test contains g through q=D/g. Thus all243 measured-q successes are not independent reasons to call the generated tests nondiscriminating. 178 exceed the q>1 universal floor screen, including96 with s>=3; these are successful finite evidence, not a theorem. The actual corpus remains floor-screen ineligible. Historical arithmetic and files are unchanged.",
+    "counts": {
+      "candidate_passes": 243,
+      "floor_screen_eligible": 178,
+      "observed_q_stronger_inequality": 243,
+      "raw_arrows": 27666,
+      "rotation_distances": 27423,
+      "words": 243
+    },
+    "floor_scope": "The floor q>=5 applies only after q>1 is known. No q1 hypothetical cycle is discarded by this screen.",
+    "selected_eligible_examples": [
+      {
+        "A": 512,
+        "floor_screen_eligible": true,
+        "g": 7226510706498229446103102192745974823900225735440600935280366158403861329595,
+        "g_bits": 252,
+        "label": [
+          "two_blocks",
+          3,
+          0,
+          32,
+          32
+        ],
+        "m": 320,
+        "q": 1789314010772020304621421339651815858945881452017193106963515303435488805936781,
+        "q_bits": 260,
+        "s": 4,
+        "shift": 5
+      },
+      {
+        "A": 520,
+        "floor_screen_eligible": true,
+        "g": 1,
+        "g_bits": 1,
+        "label": [
+          "two_blocks",
+          3,
+          0,
+          32,
+          33
+        ],
+        "m": 325,
+        "q": 3316412239129157957670736123170473657754075010783117745831660926813348998886862441605702294702106865576144672755495046910650334989143100669922606351442181133,
+        "q_bits": 520,
+        "s": 4,
+        "shift": 5
+      },
+      {
+        "A": 768,
+        "floor_screen_eligible": true,
+        "g": 7226510706498229446103102192745974823900225735440600935280366158403861329595,
+        "g_bits": 252,
+        "label": [
+          "two_blocks",
+          3,
+          0,
+          32,
+          64
+        ],
+        "m": 480,
+        "q": 213393451568440880765361320802064702173203176929086811130577787712959434674726649247256745533133746258715313563564191310553174383689620340821366896521641229,
+        "q_bits": 516,
+        "s": 4,
+        "shift": 5
+      },
+      {
+        "A": 512,
+        "floor_screen_eligible": true,
+        "g": 93944639184476982799340328505697672710702934560727812158644760059250197284735,
+        "g_bits": 256,
+        "label": [
+          "two_blocks",
+          3,
+          1,
+          32,
+          32
+        ],
+        "m": 320,
+        "q": 137639539290155408047801641511678142995837034770553315920270407956576061995137,
+        "q_bits": 257,
+        "s": 8,
+        "shift": 5
+      }
+    ],
+    "transcript_sha256": "e1aaa07004437a9d319e02c24ea18f006fa7177c97b84919120291afa8e014d8"
+  },
+  "checker_sha256": "abe3a65ac7479a5fc6a47d61d01d4e42ccc584ae440f969eb2b54e9fa407c5b7",
+  "clock": "raw positive odd-only 3x+d, no absorber",
+  "prime_period_coverage": {
+    "cases": [
+      {
+        "A": 9,
+        "all_states_exceed_q": true,
+        "cuts_sha256": "b0ab6ea77cc3b9acc9ba9487f45a1588e6cdbc2ed40e7d55a974ec5afc46b394",
+        "g": 1,
+        "invariant_cut_closures": 4,
+        "mechanical_A": 8,
+        "mechanical_phase_shift": 2,
+        "minimum_distance": 3,
+        "normalized_minimum_floor": 1,
+        "phase_mismatch_positions": [
+          2,
+          3,
+          4
+        ],
+        "prime_period": 5,
+        "q": 269,
+        "raw_arrows": 5,
+        "states_sha256": "a891660199af9f5938637edfb4dc432e659f022059eda4c160b2f3efcc67b390",
+        "witness_shift": 2
+      },
+      {
+        "A": 13,
+        "all_states_exceed_q": false,
+        "cuts_sha256": "6aabee2a3df94a45855fa409f19453545ea7ee05f30fb4ce2f5e2b1c53ded86c",
+        "g": 5,
+        "invariant_cut_closures": 6,
+        "mechanical_A": 12,
+        "mechanical_phase_shift": 3,
+        "minimum_distance": 3,
+        "normalized_minimum_floor": 0,
+        "phase_mismatch_positions": [
+          3,
+          4,
+          6
+        ],
+        "prime_period": 7,
+        "q": 1201,
+        "raw_arrows": 7,
+        "states_sha256": "4c2591482181e61ba7bd5cbae64970119d4d6598cb32faef4cf10574d401330f",
+        "witness_shift": 3
+      },
+      {
+        "A": 32,
+        "all_states_exceed_q": true,
+        "cuts_sha256": "e9dda8eadd0f8ee01c5628422a007e344efa7b8394d6e5abcc58b2ecd34acb9f",
+        "g": 1,
+        "invariant_cut_closures": 18,
+        "mechanical_A": 31,
+        "mechanical_phase_shift": 8,
+        "minimum_distance": 3,
+        "normalized_minimum_floor": 2,
+        "phase_mismatch_positions": [
+          10,
+          11,
+          18
+        ],
+        "prime_period": 19,
+        "q": 3132705829,
+        "raw_arrows": 19,
+        "states_sha256": "64aff623932b128f5f3a5095e22fb52f57f111e93cc8376279380dc5edcd02c1",
+        "witness_shift": 8
+      },
+      {
+        "A": 66,
+        "all_states_exceed_q": true,
+        "cuts_sha256": "b5147b0222646d67952b2bcd2d6e7da63f0d1154bad855c8260f8bb5449c18e2",
+        "g": 1,
+        "invariant_cut_closures": 40,
+        "mechanical_A": 65,
+        "mechanical_phase_shift": 12,
+        "minimum_distance": 3,
+        "normalized_minimum_floor": 9,
+        "phase_mismatch_positions": [
+          28,
+          29,
+          40
+        ],
+        "prime_period": 41,
+        "q": 37313979917667420061,
+        "raw_arrows": 41,
+        "states_sha256": "2f410acecdfa813e96e0bb4efabdefd709f46ef528582103d0fd8ba58784317f",
+        "witness_shift": 12
+      },
+      {
+        "A": 162,
+        "all_states_exceed_q": true,
+        "cuts_sha256": "509001bc1c6f51798f6263668f37f1b4af88c0d775033224a23c9156309ca049",
+        "g": 1,
+        "invariant_cut_closures": 100,
+        "mechanical_A": 161,
+        "mechanical_phase_shift": 32,
+        "minimum_distance": 3,
+        "normalized_minimum_floor": 12,
+        "phase_mismatch_positions": [
+          68,
+          69,
+          100
+        ],
+        "prime_period": 101,
+        "q": 4299873987127577679705355941568268260517407605901,
+        "raw_arrows": 101,
+        "states_sha256": "6366c8de03f1e9491cdd795c21e0d2fe9d0d88c0160515f558dac935f12703d8",
+        "witness_shift": 32
+      }
+    ],
+    "scope": "Finite arrows, minimum bound, mismatch distances and invariant-cut closures. The assertion about every repetition and every common-background representation is a separate written prime-period theorem, not an exhaustive finite enumeration."
+  },
+  "schema": "C014-overlap-arithmetic-v1",
+  "scope": "Finite checks, explicit interpretation correction and scoped obstructions only. No new census, universal mismatch law, Collatz exclusion, novelty or formal-verification claim.",
+  "side_source_audit": {
+    "file_sha256": {
+      "sidekick/DIRECTIONS.md": "9581e29ef2b6e462065fc32c2c597f1b459a3411ec8690ff82ed928c3dde0793",
+      "sidekick/FEED.md": "9a04144b3fe7322c36c8b67243fafecd4f7883fcc50467287f309255d8b06290",
+      "sidekick/probes/c012_candidate_check.json": "1ea053cf5885f17661e9b0fc7b1de23ef89900bfb3b27eb3610a23784f20036d",
+      "sidekick/probes/c012_candidate_check.py": "d2637fc7275e5a89f85e29c60dcfd5eee3c997bff6ed78e159668e3345f679f1"
+    },
+    "independent_replay": false,
+    "reported_failures": [],
+    "reported_floor_screen_eligible": 56150,
+    "reported_structured_words": 59759,
+    "reviewed_commit": "9a0e8dc68e3751cfe8917f3f12d3645023c85725",
+    "scope": "Read-only source and receipt audit. The exact threshold matches C014. The side sample and exhaustive grid were not rerun; counts are externally reported. Eligible means beyond the q>1 floor, not a proof or a near-failure."
+  },
+  "source_sha256": {
+    "experiments/cycle_spectrum/C001/actual_cycles.json": "28d067d3f82585a3701616adce3b57cae994541c4ddd3b4859d2bcf2307e44f2",
+    "experiments/cycle_spectrum/C007/height_denominator_audit.json": "b35a18cb4209b5d0afd104f5c9e38926dc2de5dbef890cc324cf05ae83ce4ceb",
+    "experiments/cycle_spectrum/C009/check_excursions.py": "a7631d433cd5952d8a27de3eb41addb8d01784da410064fb9e479d5cff3e17cb",
+    "experiments/cycle_spectrum/C012/check_coupled_system.py": "bb0b9c27fc6ef0b116e302a369b33552f54c2a7efa4d94d4b44be8b9ea5e356c",
+    "experiments/cycle_spectrum/C012/coupled_system_audit.json": "033f8f950498c208c7e446e3c46f467d3894adb752c43bba61200b60aee107fc",
+    "experiments/cycle_spectrum/C013/check_overlap.py": "911b5adf0688c4e5954f95b3439902db221f118ead0ca7ce45ed7a5d793d84d5",
+    "experiments/cycle_spectrum/C013/overlap_audit.json": "21a5f84c35f8b15ebcbf88597ac50bf2fa68ed719750c079c915ec359fc2ec75",
+    "experiments/phase6/cycle_fixtures.json": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+  },
+  "status": "PASS",
+  "two_run_resultant": {
+    "cases": [
+      {
+        "A": 7,
+        "D": 47,
+        "denominator_resultant_gcd": 1,
+        "direct_determinant": {
+          "arithmetic_sha256": "56c96378530df306ef3be1de6d9660eefc22b097e62366c2020446db69d30f38",
+          "determinant_degree": 4,
+          "determinant_evaluations": 4,
+          "evaluated_G": 1,
+          "phase_sha256": "5bc299fe53d4a2b5b98624bae5bb2c511d271aaaf26802860daa90be67757459",
+          "prime_to_six_part_bits": 1,
+          "residual_denominator_resultant_gcd": 1,
+          "residual_evaluation_gcd": 1,
+          "resultant_bits": 19,
+          "resultant_v2": 18,
+          "resultant_v3": 0
+        },
+        "g": 1,
+        "m": 4,
+        "prime_to_six_part": 1,
+        "q": 47,
+        "raw_states_sha256": "20d04795b8bfd0a076d98022a3506ec6121a613199db8b39b2556a6216be940b",
+        "resultant_bits": 19,
+        "t": 1
+      },
+      {
+        "A": 12,
+        "D": 1909,
+        "denominator_resultant_gcd": 1,
+        "direct_determinant": {
+          "arithmetic_sha256": "89d4f332b2ccb712c5f265d3c836cdccbf95285c4aa77e8f1ee1a18f20f6297d",
+          "determinant_degree": 7,
+          "determinant_evaluations": 7,
+          "evaluated_G": 1,
+          "phase_sha256": "9ea69c9a9dc8eaba433a7541f891b188e971fc23e4e68815fdb04824e8b77ab0",
+          "prime_to_six_part_bits": 4,
+          "residual_denominator_resultant_gcd": 1,
+          "residual_evaluation_gcd": 1,
+          "resultant_bits": 66,
+          "resultant_v2": 62,
+          "resultant_v3": 0
+        },
+        "g": 1,
+        "m": 7,
+        "prime_to_six_part": 11,
+        "q": 1909,
+        "raw_states_sha256": "66c92da878bcda4c58a2452930a594358359637667be52f025091735d5473d8b",
+        "resultant_bits": 66,
+        "t": 2
+      },
+      {
+        "A": 17,
+        "D": 72023,
+        "denominator_resultant_gcd": 7,
+        "direct_determinant": {
+          "arithmetic_sha256": "47d39e20c1d294f363da848d489c076c93fe9f19db7ea06a13d9974dca7f1a4a",
+          "determinant_degree": 10,
+          "determinant_evaluations": 10,
+          "evaluated_G": 1,
+          "phase_sha256": "8aa7513810ddc917dbe9012cc72de2f7f966e57810dbb532125b78ac75c4b98e",
+          "prime_to_six_part_bits": 12,
+          "residual_denominator_resultant_gcd": 7,
+          "residual_evaluation_gcd": 1,
+          "resultant_bits": 144,
+          "resultant_v2": 132,
+          "resultant_v3": 0
+        },
+        "g": 1,
+        "m": 10,
+        "prime_to_six_part": 2359,
+        "q": 72023,
+        "raw_states_sha256": "d04c26aba41aecde970b45ac43bceb5b24bcc75c21be03f2c694959181656544",
+        "resultant_bits": 144,
+        "t": 3
+      },
+      {
+        "A": 32,
+        "D": 3132705829,
+        "denominator_resultant_gcd": 1,
+        "direct_determinant": {
+          "arithmetic_sha256": "2da4f49ab5f14f4ed999bb3f0c08108618e232e439239c982fb16f514cacdb85",
+          "determinant_degree": 19,
+          "determinant_evaluations": 19,
+          "evaluated_G": 1,
+          "phase_sha256": "3803dc590d20ab5ef3858bc0be172a986fdbab917958328f67cefb8300145f5f",
+          "prime_to_six_part_bits": 60,
+          "residual_denominator_resultant_gcd": 1,
+          "residual_evaluation_gcd": 1,
+          "resultant_bits": 558,
+          "resultant_v2": 498,
+          "resultant_v3": 0
+        },
+        "g": 1,
+        "m": 19,
+        "prime_to_six_part": 585682417410625471,
+        "q": 3132705829,
+        "raw_states_sha256": "6cf011d2924b35d83dc8b7ee6c7239da2486b14715eac995fd8e9081e1d522f5",
+        "resultant_bits": 558,
+        "t": 6
+      },
+      {
+        "A": 62,
+        "D": 4161402112536390541,
+        "denominator_resultant_gcd": 1,
+        "direct_determinant": null,
+        "g": 1,
+        "m": 37,
+        "prime_to_six_part": 14825007250624049259876356366520963468793356945333703109906959041886703553867775,
+        "q": 4161402112536390541,
+        "raw_states_sha256": "bf0c8bb93e70b6fd8d736b8c6c15b8700ee52afac89df10c2d42ff26959775fa",
+        "resultant_bits": 2196,
+        "t": 12
+      },
+      {
+        "A": 92,
+        "D": 4777310946132400920525326389,
+        "denominator_resultant_gcd": 1,
+        "direct_determinant": null,
+        "g": 1,
+        "m": 55,
+        "prime_to_six_part": 8498240303344153970516831989279938804269159967847589401645938620391939055613074813104901014695161388262769506444469456705828561298216185303060955411937586438091443593604647365709135871,
+        "q": 4777310946132400920525326389,
+        "raw_states_sha256": "0fea9346e261a9451aec9a2c81c9b4e15e462307f9fa427b3ed0eab4593973f5",
+        "resultant_bits": 4914,
+        "t": 18
+      },
+      {
+        "A": 122,
+        "D": 5249326784504845968379707797497060381,
+        "denominator_resultant_gcd": 1,
+        "direct_determinant": null,
+        "g": 1,
+        "m": 73,
+        "prime_to_six_part": 108663888800823552853654103061503462026176960465246120990343004336878624456100499819348940998216069692048727017833157521298978308016750575279531941395818425359091151718823519539700356863312021794174503459714557478590370567031381361073842946135266303087076588355207129104951225613024493708428460032907475033249586443841107838736793599,
+        "q": 5249326784504845968379707797497060381,
+        "raw_states_sha256": "cb74dfe445e7527f36adf516f1c21ea51351b3b911b701251b6b8dece38149a2",
+        "resultant_bits": 8712,
+        "t": 24
+      }
+    ],
+    "scope": "Direct Sylvester determinants only at t1,2,3,6. Larger selected t use the separately written resultant formula, with exact arrows and gcd checks. Large R6 refutes its use as a useful uniform height bound here; it does not refute exact gcd(D,R6) information, which equals1 at t6,12,18,24.",
+    "spurious_prime_control": {
+      "P_at_3_mod_prime": 2,
+      "actual_g": 1,
+      "common_roots_mod_prime": [
+        4
+      ],
+      "denominator_resultant_gcd": 7,
+      "evaluation_point": 3,
+      "prime": 7,
+      "t": 3
+    }
+  }
+}
