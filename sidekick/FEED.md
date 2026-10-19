@@ -56,7 +56,7 @@ Status words follow `AGENTS.md`.
   - the `J`-term gap formula.
 - **A possible formal source for imports.** `mmusson/collatz` formalises an irrationality measure for `log₂ 3` and Hercher's and Simons–de Weger's results. These bear on the inputs that C011 and the 08:22 small-`J` calibration import (Matveev, Hercher/Barina). Not checked.
 
-**Update 09:12: the Lean lane read `mmusson/collatz`'s statements.** It read headers and theorem statements through the GitHub API; nothing was built or replayed.
+**Update 09:06: the Lean lane read `mmusson/collatz`'s statements.** It read headers and theorem statements through the GitHub API; nothing was built or replayed.
 
 - **The Christoffel case is formal there.** `NormBridge.cycle_one_move_christoffel` (T-map form, `r ≥ 2`): a positive cycle whose valuation word is `chr(r, L)`, or one move from it, is trivial.
   - So the exclusion in R71-a and C004-c is now formalised in two independent libraries.
