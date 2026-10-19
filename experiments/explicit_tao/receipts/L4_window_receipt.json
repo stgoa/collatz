@@ -1,0 +1,71 @@
+{
+ "x=2^68 (verified range)": {
+  "log_x": 47.13400827807628,
+  "I_y_lower": 21.974434892339186,
+  "I_y_upper": -21.482749200432902,
+  "I_y_nonempty": false,
+  "m0": 0,
+  "n0_approx": 6.8,
+  "window_0.6": 10.092543367683824,
+  "window_0.7": 14.836588846424378,
+  "window_0.8": 21.810594275242785,
+  "steps between scales x and x^alpha, (alpha-1)log x / log(4/3)": 0.16384061709640022
+ },
+ "x=2^1000": {
+  "log_x": 693.1471805599452,
+  "I_y_lower": 189.7622988351638,
+  "I_y_upper": -182.53162689536552,
+  "I_y_nonempty": false,
+  "m0": 0,
+  "n0_approx": 99.99999999999999,
+  "window_0.6": 50.64018418836389,
+  "window_0.7": 97.40423117048218,
+  "window_0.8": 187.35287799551085,
+  "steps between scales x and x^alpha, (alpha-1)log x / log(4/3)": 2.409420839652944
+ },
+ "x=2^(10^6)": {
+  "log_x": 693147.1805599453,
+  "I_y_lower": 49470.33605377231,
+  "I_y_upper": -42239.664113974024,
+  "I_y_nonempty": false,
+  "m0": 6,
+  "n0_approx": 100000.0,
+  "window_0.6": 3195.1796139477947,
+  "window_0.7": 12262.46618367935,
+  "window_0.8": 47060.91521411937,
+  "steps between scales x and x^alpha, (alpha-1)log x / log(4/3)": 2409.4208396529443
+ },
+ "x=exp(10^12)": {
+  "log_x": 1000000000000.0,
+  "I_y_lower": 7457131202.316803,
+  "I_y_upper": 2974523347.525169,
+  "I_y_nonempty": false,
+  "m0": 9999999,
+  "n0_approx": 144269504088.89633,
+  "window_0.6": 15848931.924611125,
+  "window_0.7": 251188643.1509577,
+  "window_0.8": 3981071705.5349774,
+  "steps between scales x and x^alpha, (alpha-1)log x / log(4/3)": 3476059496.781825
+ },
+ "x=exp(10^14)": {
+  "log_x": 100000000000000.0,
+  "I_y_lower": 506095268924.29407,
+  "I_y_upper": 537070186059.9031,
+  "I_y_nonempty": true,
+  "m0": 999999999,
+  "n0_approx": 14426950408889.635,
+  "window_0.6": 251188643.15095782,
+  "window_0.7": 6309573444.801924,
+  "window_0.8": 158489319246.11157,
+  "steps between scales x and x^alpha, (alpha-1)log x / log(4/3)": 347605949678.1825
+ },
+ "threshold_log_x_for_nonempty_window": 62739865662402.266,
+ "threshold_log2_x_for_nonempty_window": 90514493057187.52,
+ "bracket_check": {
+  "empty_at_0.999*thr": true,
+  "nonempty_at_1.001*thr": true
+ },
+ "threshold_log_x_for_m0_ge_1": 100000.00000001102,
+ "alpha_needed_for_nonempty_window_at_2^68": 1.2189999999999759,
+ "pass": true
+}
