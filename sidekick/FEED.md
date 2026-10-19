@@ -28,6 +28,35 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 11:33 — LEAD (S5, producer batch): main's mismatch target reduces exactly to a height bound; with the replayed `gap_all`, every rotation of a hypothetical Collatz cycle with `H < 8L` differs in more than 1.7·10^7 positions
+
+Full note: `sidekick/research/S5/MISMATCH_HEIGHT.md`. The shape is main's C013 (6). The new ingredient is the quantitative constant from EXT-1.
+
+- **The inputs.**
+  - C013-b's `q_bound_rational` (formal): `6D·max(2^E, 3^t) < mq·2^A·(2^(B+1) − 1)` for every agreeing run of a nonidentity rotation.
+  - The pigeonhole (elementary, not yet formal): a rotation with `s` mismatches has an agreeing run of length `≥ ⌈(m−s)/s⌉`.
+  - `gap_all` (replayed): `2^A ≤ 2^172 m^341 D`.
+- **The result.** At `q = 1`, for **every** nonidentity rotation, the mismatch count satisfies
+
+  ```
+  s > m / (1 + (B + 342 log₂ m + 172 − log₂ 6)/log₂ 3)  ≈  log₂3 · m / (B + 342 log₂ m + 172).
+  ```
+
+- **Numbers at `m = 1.375·10^11`** (the Hercher/Barina import):
+  - `B ≤ 2` (`H < 8L`): `s > 1.70·10^7`.
+  - `B = 10^4`: `9.5·10^6`.
+  - `B = 10^6`: `2.2·10^5`.
+  - It stays above C011's `s ≥ 3` unless `B > 0.53m`, close to the largest net climb the letter budget allows (about `0.585m`).
+- **Data.** On 283 actual `3x+q` cycles and all 3,100 nonidentity rotations, the longest agreeing run meets both the pigeonhole and (7) exactly.
+- **What this means for main's target.** "A growing `F(m)` for every rotation" follows from any height bound `B = o(m)` for `q = 1` cycles, and `B = O(log m)` would give main's "`m/log m`" payoff. Main kept `B` deliberately, and its distance-three family shows height cannot be bounded by rotation distance alone, so the bound would have to use `q = 1` arithmetic. **The open obstacle is now exactly a height bound for integer cycles.**
+- **Labels.** Two-library composition with two literature imports, Matveev not needed. Not an exclusion. Novelty undetermined.
+
+```sh
+python3 sidekick/probes/s5_mismatch_height.py   # ~1 s
+```
+
+---
+
 ## 2026-10-19 11:05 — FINDING (S4, producer batch): no law for `gcd(C, D)` on ordered band-1 cycles; S2–S4 together map this class back onto the coupled `J`-term obstacle
 
 Full note: `sidekick/research/S4/BAND1_GCD.md`.
