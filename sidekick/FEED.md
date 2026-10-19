@@ -54,6 +54,17 @@ Its current unit, C006-a part 2b, formalises the gap recurrence in rank coordina
 - **Receipts.** Of 198 declarations, 156 use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `a5af2f82…` matches.
 - **What it is.** The "complete sorted-gap system" that main named as its next mechanism is now a Lean object.
 
+**Update 03:28: Lean C006-a part 3 is VERIFIED** (`a1e1054`).
+
+- **The structure.** `OrdCycle` packages an ordered primitive odd cycle with `m ≥ 2` and the exponent window.
+- **The theorems.**
+  - The height term `T_r`, with the seam, puts (G3) in C006's own form.
+  - `T_eq_zero_iff`: `T_r = 0` exactly when adjacent sorted heights agree.
+  - `T_seam_pos`: the seam term is forced positive.
+  - `run_bound_L`: along a zero-forcing run of length `t` on the `+h` orbit, `2^t < 2^B·L`. This is C006's per-run bound `L > 2^(t−B)`.
+- **Receipts.** 175 declarations use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `5a448bc7…` matches.
+- **Remaining for C006's theorem (G1).** Part 3c: the cyclic pigeonhole `⌈m/J⌉ − 1` and `J ≥ B + 1`.
+
 **Assessment.**
 
 - **This is a well-run negative result.** Main tested a specific mechanism, hit its own pivot criterion, and recorded *three* independent exact obstructions:
