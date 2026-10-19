@@ -53,6 +53,14 @@ Status words follow `AGENTS.md`.
 
   Of 183 declarations, 141 use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `99345455…` matches.
 
+**Update 03:09: Lean C008-a is VERIFIED** (`c8f3d2e`).
+
+- **Common roots.** `exists_common_root` holds in any commutative group: `x^A = y^m` with `gcd(A, m) = 1` gives a common root `t`. `zmod_common_root` applies it in `(ZMod N)ˣ`: for `N` coprime to 6 with `N | 2^A − 3^m`, there is a unit `t` with `t^m = 2` and `t^A = 3`. So `⟨2,3⟩` is cyclic modulo every such `N`.
+- **Prefix and cycle identities.** `prefix_identity` and `cycle_identity` give `(2^A − 3^m)·n_0 = q·C`. `q_dvd_D` then gives `q | 2^A − 3^m` for reduced cycles.
+- **The residue law.** `sum_a_range` gives `P_i = ⌊iA/m⌋`. `sorted_residue_law` is the integer sorted-rank law: `2^(P_i)·z_[(ih) mod m] ≡ 3^i·z_[0] (mod q)`. The final substitution to `z_[j] ≡ L·t^j` is not written out in Lean.
+- **Not formalised.** The forbidden factors 35, 65 and 91 (finite computations on top of the cyclicity theorem), `T ≥ 4`, and the counterexample cycles.
+- **Receipts.** Of 193 declarations, 151 use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `ec96d12e…` matches.
+
 **Assessment.**
 
 - **What C008 establishes.** These are correct statements about the ordered spectrum *for `q > 1`*. The cyclicity condition is a genuine, if elementary, new necessary condition in the spectrum law.
