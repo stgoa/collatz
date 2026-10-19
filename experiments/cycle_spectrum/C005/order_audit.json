@@ -1,0 +1,6807 @@
+{
+  "actual_counts": {
+    "actual_cycles": 2459,
+    "actual_raw_arrows": 36912,
+    "scaled_raw_arrows": 36912
+  },
+  "all_actual_sources_sha256": "9482819d7ed268fd4a525a737a9ec3a43ab2a0404d587843b05a40f55c5afba4",
+  "all_normalized_rows_sha256": "91f1a9516a01da3be674ec8b1923add0f293d6164f4c04a821ccb2cdacb435f4",
+  "baseline_commit": "61cf54ad52df1caa5cc250b0d1464432ed90b162",
+  "clock": "Raw positive odd-only map; state1 is not absorbed.",
+  "fixture_controls": [
+    {
+      "actual_fixture": {
+        "d": 5,
+        "minimum": 1,
+        "states": [
+          1
+        ],
+        "valuations": [
+          3
+        ]
+      },
+      "fixture_id": 1,
+      "normalized_cycle": {
+        "A": 3,
+        "C": 1,
+        "D": 5,
+        "F_is_strictly_increasing": true,
+        "F_span_less_than2": true,
+        "L_ge_denominator": false,
+        "all_pairs_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "circular_successor_descents": 0,
+        "common_rotation_gcd": 1,
+        "denominator": 5,
+        "first_inversions": [],
+        "heights": [
+          0
+        ],
+        "inversion_height_histogram": {},
+        "m": 1,
+        "mantissas": [
+          {
+            "denominator": 1,
+            "numerator": 1
+          }
+        ],
+        "maximum_minimum_ratio": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "minimum_numerator": 1,
+        "narrow": true,
+        "normalized_exponents": [
+          3
+        ],
+        "normalized_exponents_are_1_or_2": false,
+        "normalized_mechanical_offset": 0,
+        "original_mechanical_offset": 0,
+        "pair_counts": {
+          "equal_scaled_images": 0
+        },
+        "primitive_states": [
+          1
+        ],
+        "rank_shift": 0,
+        "scaled_images": [
+          {
+            "denominator": 1,
+            "numerator": 8
+          }
+        ],
+        "sorted_indices": [
+          0
+        ],
+        "source_instances": [
+          {
+            "actual_d": 5,
+            "actual_minimum": 1,
+            "scale": 1
+          },
+          {
+            "actual_d": 25,
+            "actual_minimum": 5,
+            "scale": 5
+          },
+          {
+            "actual_d": 35,
+            "actual_minimum": 7,
+            "scale": 7
+          },
+          {
+            "actual_d": 55,
+            "actual_minimum": 11,
+            "scale": 11
+          },
+          {
+            "actual_d": 65,
+            "actual_minimum": 13,
+            "scale": 13
+          },
+          {
+            "actual_d": 85,
+            "actual_minimum": 17,
+            "scale": 17
+          },
+          {
+            "actual_d": 95,
+            "actual_minimum": 19,
+            "scale": 19
+          },
+          {
+            "actual_d": 115,
+            "actual_minimum": 23,
+            "scale": 23
+          },
+          {
+            "actual_d": 125,
+            "actual_minimum": 25,
+            "scale": 25
+          },
+          {
+            "actual_d": 145,
+            "actual_minimum": 29,
+            "scale": 29
+          },
+          {
+            "actual_d": 155,
+            "actual_minimum": 31,
+            "scale": 31
+          },
+          {
+            "actual_d": 175,
+            "actual_minimum": 35,
+            "scale": 35
+          },
+          {
+            "actual_d": 185,
+            "actual_minimum": 37,
+            "scale": 37
+          },
+          {
+            "actual_d": 205,
+            "actual_minimum": 41,
+            "scale": 41
+          },
+          {
+            "actual_d": 215,
+            "actual_minimum": 43,
+            "scale": 43
+          },
+          {
+            "actual_d": 235,
+            "actual_minimum": 47,
+            "scale": 47
+          },
+          {
+            "actual_d": 245,
+            "actual_minimum": 49,
+            "scale": 49
+          },
+          {
+            "actual_d": 265,
+            "actual_minimum": 53,
+            "scale": 53
+          },
+          {
+            "actual_d": 275,
+            "actual_minimum": 55,
+            "scale": 55
+          },
+          {
+            "actual_d": 295,
+            "actual_minimum": 59,
+            "scale": 59
+          },
+          {
+            "actual_d": 305,
+            "actual_minimum": 61,
+            "scale": 61
+          },
+          {
+            "actual_d": 325,
+            "actual_minimum": 65,
+            "scale": 65
+          },
+          {
+            "actual_d": 335,
+            "actual_minimum": 67,
+            "scale": 67
+          },
+          {
+            "actual_d": 355,
+            "actual_minimum": 71,
+            "scale": 71
+          },
+          {
+            "actual_d": 365,
+            "actual_minimum": 73,
+            "scale": 73
+          },
+          {
+            "actual_d": 385,
+            "actual_minimum": 77,
+            "scale": 77
+          },
+          {
+            "actual_d": 395,
+            "actual_minimum": 79,
+            "scale": 79
+          },
+          {
+            "actual_d": 415,
+            "actual_minimum": 83,
+            "scale": 83
+          },
+          {
+            "actual_d": 425,
+            "actual_minimum": 85,
+            "scale": 85
+          },
+          {
+            "actual_d": 445,
+            "actual_minimum": 89,
+            "scale": 89
+          },
+          {
+            "actual_d": 455,
+            "actual_minimum": 91,
+            "scale": 91
+          },
+          {
+            "actual_d": 475,
+            "actual_minimum": 95,
+            "scale": 95
+          },
+          {
+            "actual_d": 485,
+            "actual_minimum": 97,
+            "scale": 97
+          },
+          {
+            "actual_d": 505,
+            "actual_minimum": 101,
+            "scale": 101
+          },
+          {
+            "actual_d": 515,
+            "actual_minimum": 103,
+            "scale": 103
+          },
+          {
+            "actual_d": 535,
+            "actual_minimum": 107,
+            "scale": 107
+          },
+          {
+            "actual_d": 545,
+            "actual_minimum": 109,
+            "scale": 109
+          },
+          {
+            "actual_d": 565,
+            "actual_minimum": 113,
+            "scale": 113
+          },
+          {
+            "actual_d": 575,
+            "actual_minimum": 115,
+            "scale": 115
+          },
+          {
+            "actual_d": 595,
+            "actual_minimum": 119,
+            "scale": 119
+          },
+          {
+            "actual_d": 605,
+            "actual_minimum": 121,
+            "scale": 121
+          },
+          {
+            "actual_d": 625,
+            "actual_minimum": 125,
+            "scale": 125
+          },
+          {
+            "actual_d": 635,
+            "actual_minimum": 127,
+            "scale": 127
+          },
+          {
+            "actual_d": 655,
+            "actual_minimum": 131,
+            "scale": 131
+          },
+          {
+            "actual_d": 665,
+            "actual_minimum": 133,
+            "scale": 133
+          },
+          {
+            "actual_d": 685,
+            "actual_minimum": 137,
+            "scale": 137
+          },
+          {
+            "actual_d": 695,
+            "actual_minimum": 139,
+            "scale": 139
+          },
+          {
+            "actual_d": 715,
+            "actual_minimum": 143,
+            "scale": 143
+          },
+          {
+            "actual_d": 725,
+            "actual_minimum": 145,
+            "scale": 145
+          },
+          {
+            "actual_d": 745,
+            "actual_minimum": 149,
+            "scale": 149
+          },
+          {
+            "actual_d": 755,
+            "actual_minimum": 151,
+            "scale": 151
+          },
+          {
+            "actual_d": 775,
+            "actual_minimum": 155,
+            "scale": 155
+          },
+          {
+            "actual_d": 785,
+            "actual_minimum": 157,
+            "scale": 157
+          },
+          {
+            "actual_d": 805,
+            "actual_minimum": 161,
+            "scale": 161
+          },
+          {
+            "actual_d": 815,
+            "actual_minimum": 163,
+            "scale": 163
+          },
+          {
+            "actual_d": 835,
+            "actual_minimum": 167,
+            "scale": 167
+          },
+          {
+            "actual_d": 845,
+            "actual_minimum": 169,
+            "scale": 169
+          },
+          {
+            "actual_d": 865,
+            "actual_minimum": 173,
+            "scale": 173
+          },
+          {
+            "actual_d": 875,
+            "actual_minimum": 175,
+            "scale": 175
+          },
+          {
+            "actual_d": 895,
+            "actual_minimum": 179,
+            "scale": 179
+          },
+          {
+            "actual_d": 905,
+            "actual_minimum": 181,
+            "scale": 181
+          },
+          {
+            "actual_d": 925,
+            "actual_minimum": 185,
+            "scale": 185
+          },
+          {
+            "actual_d": 935,
+            "actual_minimum": 187,
+            "scale": 187
+          },
+          {
+            "actual_d": 955,
+            "actual_minimum": 191,
+            "scale": 191
+          },
+          {
+            "actual_d": 965,
+            "actual_minimum": 193,
+            "scale": 193
+          },
+          {
+            "actual_d": 985,
+            "actual_minimum": 197,
+            "scale": 197
+          },
+          {
+            "actual_d": 995,
+            "actual_minimum": 199,
+            "scale": 199
+          }
+        ],
+        "successor_is_rank_rotation": true,
+        "successor_ranks": [
+          0
+        ],
+        "word": [
+          3
+        ]
+      }
+    },
+    {
+      "actual_fixture": {
+        "d": 5,
+        "minimum": 19,
+        "states": [
+          19,
+          31,
+          49
+        ],
+        "valuations": [
+          1,
+          1,
+          3
+        ]
+      },
+      "fixture_id": 2,
+      "normalized_cycle": {
+        "A": 5,
+        "C": 19,
+        "D": 5,
+        "F_is_strictly_increasing": true,
+        "F_span_less_than2": true,
+        "L_ge_denominator": true,
+        "all_pairs_sha256": "1c51b545d8c9bcf992abe948e854f1c40e99a7bdbb3ef2d6b1a3c5336bab36fd",
+        "circular_successor_descents": 1,
+        "common_rotation_gcd": 1,
+        "denominator": 5,
+        "first_inversions": [],
+        "heights": [
+          0,
+          0,
+          1
+        ],
+        "inversion_height_histogram": {},
+        "m": 3,
+        "mantissas": [
+          {
+            "denominator": 1,
+            "numerator": 19
+          },
+          {
+            "denominator": 1,
+            "numerator": 31
+          },
+          {
+            "denominator": 2,
+            "numerator": 49
+          }
+        ],
+        "maximum_minimum_ratio": {
+          "denominator": 19,
+          "numerator": 49
+        },
+        "minimum_numerator": 19,
+        "narrow": false,
+        "normalized_exponents": [
+          1,
+          2,
+          2
+        ],
+        "normalized_exponents_are_1_or_2": true,
+        "normalized_mechanical_offset": 0,
+        "original_mechanical_offset": null,
+        "pair_counts": {
+          "equal_scaled_images": 0,
+          "height_increase_pair_identity_checks": 1,
+          "nonincreasing_height_order_checks": 2,
+          "pairs": 3
+        },
+        "primitive_states": [
+          19,
+          31,
+          49
+        ],
+        "rank_shift": 2,
+        "scaled_images": [
+          {
+            "denominator": 1,
+            "numerator": 62
+          },
+          {
+            "denominator": 1,
+            "numerator": 98
+          },
+          {
+            "denominator": 1,
+            "numerator": 76
+          }
+        ],
+        "sorted_indices": [
+          0,
+          2,
+          1
+        ],
+        "source_instances": [
+          {
+            "actual_d": 5,
+            "actual_minimum": 19,
+            "scale": 1
+          },
+          {
+            "actual_d": 25,
+            "actual_minimum": 95,
+            "scale": 5
+          },
+          {
+            "actual_d": 35,
+            "actual_minimum": 133,
+            "scale": 7
+          },
+          {
+            "actual_d": 55,
+            "actual_minimum": 209,
+            "scale": 11
+          },
+          {
+            "actual_d": 65,
+            "actual_minimum": 247,
+            "scale": 13
+          },
+          {
+            "actual_d": 85,
+            "actual_minimum": 323,
+            "scale": 17
+          },
+          {
+            "actual_d": 95,
+            "actual_minimum": 361,
+            "scale": 19
+          },
+          {
+            "actual_d": 115,
+            "actual_minimum": 437,
+            "scale": 23
+          },
+          {
+            "actual_d": 125,
+            "actual_minimum": 475,
+            "scale": 25
+          },
+          {
+            "actual_d": 145,
+            "actual_minimum": 551,
+            "scale": 29
+          },
+          {
+            "actual_d": 155,
+            "actual_minimum": 589,
+            "scale": 31
+          },
+          {
+            "actual_d": 175,
+            "actual_minimum": 665,
+            "scale": 35
+          },
+          {
+            "actual_d": 185,
+            "actual_minimum": 703,
+            "scale": 37
+          },
+          {
+            "actual_d": 205,
+            "actual_minimum": 779,
+            "scale": 41
+          },
+          {
+            "actual_d": 215,
+            "actual_minimum": 817,
+            "scale": 43
+          },
+          {
+            "actual_d": 235,
+            "actual_minimum": 893,
+            "scale": 47
+          },
+          {
+            "actual_d": 245,
+            "actual_minimum": 931,
+            "scale": 49
+          },
+          {
+            "actual_d": 265,
+            "actual_minimum": 1007,
+            "scale": 53
+          },
+          {
+            "actual_d": 275,
+            "actual_minimum": 1045,
+            "scale": 55
+          },
+          {
+            "actual_d": 295,
+            "actual_minimum": 1121,
+            "scale": 59
+          },
+          {
+            "actual_d": 305,
+            "actual_minimum": 1159,
+            "scale": 61
+          },
+          {
+            "actual_d": 325,
+            "actual_minimum": 1235,
+            "scale": 65
+          },
+          {
+            "actual_d": 335,
+            "actual_minimum": 1273,
+            "scale": 67
+          },
+          {
+            "actual_d": 355,
+            "actual_minimum": 1349,
+            "scale": 71
+          },
+          {
+            "actual_d": 365,
+            "actual_minimum": 1387,
+            "scale": 73
+          },
+          {
+            "actual_d": 385,
+            "actual_minimum": 1463,
+            "scale": 77
+          },
+          {
+            "actual_d": 395,
+            "actual_minimum": 1501,
+            "scale": 79
+          },
+          {
+            "actual_d": 415,
+            "actual_minimum": 1577,
+            "scale": 83
+          },
+          {
+            "actual_d": 425,
+            "actual_minimum": 1615,
+            "scale": 85
+          },
+          {
+            "actual_d": 445,
+            "actual_minimum": 1691,
+            "scale": 89
+          },
+          {
+            "actual_d": 455,
+            "actual_minimum": 1729,
+            "scale": 91
+          },
+          {
+            "actual_d": 475,
+            "actual_minimum": 1805,
+            "scale": 95
+          },
+          {
+            "actual_d": 485,
+            "actual_minimum": 1843,
+            "scale": 97
+          },
+          {
+            "actual_d": 505,
+            "actual_minimum": 1919,
+            "scale": 101
+          },
+          {
+            "actual_d": 515,
+            "actual_minimum": 1957,
+            "scale": 103
+          },
+          {
+            "actual_d": 535,
+            "actual_minimum": 2033,
+            "scale": 107
+          },
+          {
+            "actual_d": 545,
+            "actual_minimum": 2071,
+            "scale": 109
+          },
+          {
+            "actual_d": 565,
+            "actual_minimum": 2147,
+            "scale": 113
+          },
+          {
+            "actual_d": 575,
+            "actual_minimum": 2185,
+            "scale": 115
+          },
+          {
+            "actual_d": 595,
+            "actual_minimum": 2261,
+            "scale": 119
+          },
+          {
+            "actual_d": 605,
+            "actual_minimum": 2299,
+            "scale": 121
+          },
+          {
+            "actual_d": 625,
+            "actual_minimum": 2375,
+            "scale": 125
+          },
+          {
+            "actual_d": 635,
+            "actual_minimum": 2413,
+            "scale": 127
+          },
+          {
+            "actual_d": 655,
+            "actual_minimum": 2489,
+            "scale": 131
+          },
+          {
+            "actual_d": 665,
+            "actual_minimum": 2527,
+            "scale": 133
+          },
+          {
+            "actual_d": 685,
+            "actual_minimum": 2603,
+            "scale": 137
+          },
+          {
+            "actual_d": 695,
+            "actual_minimum": 2641,
+            "scale": 139
+          },
+          {
+            "actual_d": 715,
+            "actual_minimum": 2717,
+            "scale": 143
+          },
+          {
+            "actual_d": 725,
+            "actual_minimum": 2755,
+            "scale": 145
+          },
+          {
+            "actual_d": 745,
+            "actual_minimum": 2831,
+            "scale": 149
+          },
+          {
+            "actual_d": 755,
+            "actual_minimum": 2869,
+            "scale": 151
+          },
+          {
+            "actual_d": 775,
+            "actual_minimum": 2945,
+            "scale": 155
+          },
+          {
+            "actual_d": 785,
+            "actual_minimum": 2983,
+            "scale": 157
+          },
+          {
+            "actual_d": 805,
+            "actual_minimum": 3059,
+            "scale": 161
+          },
+          {
+            "actual_d": 815,
+            "actual_minimum": 3097,
+            "scale": 163
+          },
+          {
+            "actual_d": 835,
+            "actual_minimum": 3173,
+            "scale": 167
+          },
+          {
+            "actual_d": 845,
+            "actual_minimum": 3211,
+            "scale": 169
+          },
+          {
+            "actual_d": 865,
+            "actual_minimum": 3287,
+            "scale": 173
+          },
+          {
+            "actual_d": 875,
+            "actual_minimum": 3325,
+            "scale": 175
+          },
+          {
+            "actual_d": 895,
+            "actual_minimum": 3401,
+            "scale": 179
+          },
+          {
+            "actual_d": 905,
+            "actual_minimum": 3439,
+            "scale": 181
+          },
+          {
+            "actual_d": 925,
+            "actual_minimum": 3515,
+            "scale": 185
+          },
+          {
+            "actual_d": 935,
+            "actual_minimum": 3553,
+            "scale": 187
+          },
+          {
+            "actual_d": 955,
+            "actual_minimum": 3629,
+            "scale": 191
+          },
+          {
+            "actual_d": 965,
+            "actual_minimum": 3667,
+            "scale": 193
+          },
+          {
+            "actual_d": 985,
+            "actual_minimum": 3743,
+            "scale": 197
+          },
+          {
+            "actual_d": 995,
+            "actual_minimum": 3781,
+            "scale": 199
+          }
+        ],
+        "successor_is_rank_rotation": true,
+        "successor_ranks": [
+          2,
+          0,
+          1
+        ],
+        "word": [
+          1,
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "actual_fixture": {
+        "d": 5,
+        "minimum": 23,
+        "states": [
+          23,
+          37,
+          29
+        ],
+        "valuations": [
+          1,
+          2,
+          2
+        ]
+      },
+      "fixture_id": 3,
+      "normalized_cycle": {
+        "A": 5,
+        "C": 23,
+        "D": 5,
+        "F_is_strictly_increasing": true,
+        "F_span_less_than2": true,
+        "L_ge_denominator": true,
+        "all_pairs_sha256": "9c6553b1af9612d1136412d51d7d0265f615502247bdbc0c960668666abddf25",
+        "circular_successor_descents": 1,
+        "common_rotation_gcd": 1,
+        "denominator": 5,
+        "first_inversions": [],
+        "heights": [
+          0,
+          0,
+          0
+        ],
+        "inversion_height_histogram": {},
+        "m": 3,
+        "mantissas": [
+          {
+            "denominator": 1,
+            "numerator": 23
+          },
+          {
+            "denominator": 1,
+            "numerator": 37
+          },
+          {
+            "denominator": 1,
+            "numerator": 29
+          }
+        ],
+        "maximum_minimum_ratio": {
+          "denominator": 23,
+          "numerator": 37
+        },
+        "minimum_numerator": 23,
+        "narrow": true,
+        "normalized_exponents": [
+          1,
+          2,
+          2
+        ],
+        "normalized_exponents_are_1_or_2": true,
+        "normalized_mechanical_offset": 0,
+        "original_mechanical_offset": 0,
+        "pair_counts": {
+          "equal_scaled_images": 0,
+          "nonincreasing_height_order_checks": 3,
+          "pairs": 3
+        },
+        "primitive_states": [
+          23,
+          37,
+          29
+        ],
+        "rank_shift": 2,
+        "scaled_images": [
+          {
+            "denominator": 1,
+            "numerator": 74
+          },
+          {
+            "denominator": 1,
+            "numerator": 116
+          },
+          {
+            "denominator": 1,
+            "numerator": 92
+          }
+        ],
+        "sorted_indices": [
+          0,
+          2,
+          1
+        ],
+        "source_instances": [
+          {
+            "actual_d": 5,
+            "actual_minimum": 23,
+            "scale": 1
+          },
+          {
+            "actual_d": 25,
+            "actual_minimum": 115,
+            "scale": 5
+          },
+          {
+            "actual_d": 35,
+            "actual_minimum": 161,
+            "scale": 7
+          },
+          {
+            "actual_d": 55,
+            "actual_minimum": 253,
+            "scale": 11
+          },
+          {
+            "actual_d": 65,
+            "actual_minimum": 299,
+            "scale": 13
+          },
+          {
+            "actual_d": 85,
+            "actual_minimum": 391,
+            "scale": 17
+          },
+          {
+            "actual_d": 95,
+            "actual_minimum": 437,
+            "scale": 19
+          },
+          {
+            "actual_d": 115,
+            "actual_minimum": 529,
+            "scale": 23
+          },
+          {
+            "actual_d": 125,
+            "actual_minimum": 575,
+            "scale": 25
+          },
+          {
+            "actual_d": 145,
+            "actual_minimum": 667,
+            "scale": 29
+          },
+          {
+            "actual_d": 155,
+            "actual_minimum": 713,
+            "scale": 31
+          },
+          {
+            "actual_d": 175,
+            "actual_minimum": 805,
+            "scale": 35
+          },
+          {
+            "actual_d": 185,
+            "actual_minimum": 851,
+            "scale": 37
+          },
+          {
+            "actual_d": 205,
+            "actual_minimum": 943,
+            "scale": 41
+          },
+          {
+            "actual_d": 215,
+            "actual_minimum": 989,
+            "scale": 43
+          },
+          {
+            "actual_d": 235,
+            "actual_minimum": 1081,
+            "scale": 47
+          },
+          {
+            "actual_d": 245,
+            "actual_minimum": 1127,
+            "scale": 49
+          },
+          {
+            "actual_d": 265,
+            "actual_minimum": 1219,
+            "scale": 53
+          },
+          {
+            "actual_d": 275,
+            "actual_minimum": 1265,
+            "scale": 55
+          },
+          {
+            "actual_d": 295,
+            "actual_minimum": 1357,
+            "scale": 59
+          },
+          {
+            "actual_d": 305,
+            "actual_minimum": 1403,
+            "scale": 61
+          },
+          {
+            "actual_d": 325,
+            "actual_minimum": 1495,
+            "scale": 65
+          },
+          {
+            "actual_d": 335,
+            "actual_minimum": 1541,
+            "scale": 67
+          },
+          {
+            "actual_d": 355,
+            "actual_minimum": 1633,
+            "scale": 71
+          },
+          {
+            "actual_d": 365,
+            "actual_minimum": 1679,
+            "scale": 73
+          },
+          {
+            "actual_d": 385,
+            "actual_minimum": 1771,
+            "scale": 77
+          },
+          {
+            "actual_d": 395,
+            "actual_minimum": 1817,
+            "scale": 79
+          },
+          {
+            "actual_d": 415,
+            "actual_minimum": 1909,
+            "scale": 83
+          },
+          {
+            "actual_d": 425,
+            "actual_minimum": 1955,
+            "scale": 85
+          },
+          {
+            "actual_d": 445,
+            "actual_minimum": 2047,
+            "scale": 89
+          },
+          {
+            "actual_d": 455,
+            "actual_minimum": 2093,
+            "scale": 91
+          },
+          {
+            "actual_d": 475,
+            "actual_minimum": 2185,
+            "scale": 95
+          },
+          {
+            "actual_d": 485,
+            "actual_minimum": 2231,
+            "scale": 97
+          },
+          {
+            "actual_d": 505,
+            "actual_minimum": 2323,
+            "scale": 101
+          },
+          {
+            "actual_d": 515,
+            "actual_minimum": 2369,
+            "scale": 103
+          },
+          {
+            "actual_d": 535,
+            "actual_minimum": 2461,
+            "scale": 107
+          },
+          {
+            "actual_d": 545,
+            "actual_minimum": 2507,
+            "scale": 109
+          },
+          {
+            "actual_d": 565,
+            "actual_minimum": 2599,
+            "scale": 113
+          },
+          {
+            "actual_d": 575,
+            "actual_minimum": 2645,
+            "scale": 115
+          },
+          {
+            "actual_d": 595,
+            "actual_minimum": 2737,
+            "scale": 119
+          },
+          {
+            "actual_d": 605,
+            "actual_minimum": 2783,
+            "scale": 121
+          },
+          {
+            "actual_d": 625,
+            "actual_minimum": 2875,
+            "scale": 125
+          },
+          {
+            "actual_d": 635,
+            "actual_minimum": 2921,
+            "scale": 127
+          },
+          {
+            "actual_d": 655,
+            "actual_minimum": 3013,
+            "scale": 131
+          },
+          {
+            "actual_d": 665,
+            "actual_minimum": 3059,
+            "scale": 133
+          },
+          {
+            "actual_d": 685,
+            "actual_minimum": 3151,
+            "scale": 137
+          },
+          {
+            "actual_d": 695,
+            "actual_minimum": 3197,
+            "scale": 139
+          },
+          {
+            "actual_d": 715,
+            "actual_minimum": 3289,
+            "scale": 143
+          },
+          {
+            "actual_d": 725,
+            "actual_minimum": 3335,
+            "scale": 145
+          },
+          {
+            "actual_d": 745,
+            "actual_minimum": 3427,
+            "scale": 149
+          },
+          {
+            "actual_d": 755,
+            "actual_minimum": 3473,
+            "scale": 151
+          },
+          {
+            "actual_d": 775,
+            "actual_minimum": 3565,
+            "scale": 155
+          },
+          {
+            "actual_d": 785,
+            "actual_minimum": 3611,
+            "scale": 157
+          },
+          {
+            "actual_d": 805,
+            "actual_minimum": 3703,
+            "scale": 161
+          },
+          {
+            "actual_d": 815,
+            "actual_minimum": 3749,
+            "scale": 163
+          },
+          {
+            "actual_d": 835,
+            "actual_minimum": 3841,
+            "scale": 167
+          },
+          {
+            "actual_d": 845,
+            "actual_minimum": 3887,
+            "scale": 169
+          },
+          {
+            "actual_d": 865,
+            "actual_minimum": 3979,
+            "scale": 173
+          },
+          {
+            "actual_d": 875,
+            "actual_minimum": 4025,
+            "scale": 175
+          },
+          {
+            "actual_d": 895,
+            "actual_minimum": 4117,
+            "scale": 179
+          },
+          {
+            "actual_d": 905,
+            "actual_minimum": 4163,
+            "scale": 181
+          },
+          {
+            "actual_d": 925,
+            "actual_minimum": 4255,
+            "scale": 185
+          },
+          {
+            "actual_d": 935,
+            "actual_minimum": 4301,
+            "scale": 187
+          },
+          {
+            "actual_d": 955,
+            "actual_minimum": 4393,
+            "scale": 191
+          },
+          {
+            "actual_d": 965,
+            "actual_minimum": 4439,
+            "scale": 193
+          },
+          {
+            "actual_d": 985,
+            "actual_minimum": 4531,
+            "scale": 197
+          },
+          {
+            "actual_d": 995,
+            "actual_minimum": 4577,
+            "scale": 199
+          }
+        ],
+        "successor_is_rank_rotation": true,
+        "successor_ranks": [
+          2,
+          0,
+          1
+        ],
+        "word": [
+          1,
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "actual_fixture": {
+        "d": 5,
+        "minimum": 187,
+        "states": [
+          187,
+          283,
+          427,
+          643,
+          967,
+          1453,
+          1091,
+          1639,
+          2461,
+          1847,
+          2773,
+          2081,
+          781,
+          587,
+          883,
+          1327,
+          1993
+        ],
+        "valuations": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          1,
+          5
+        ]
+      },
+      "fixture_id": 4,
+      "normalized_cycle": {
+        "A": 27,
+        "C": 189900931,
+        "D": 5077565,
+        "F_is_strictly_increasing": true,
+        "F_span_less_than2": true,
+        "L_ge_denominator": true,
+        "all_pairs_sha256": "27a6496c46d7f86f42f3a79570ec39145ecb4832a89992a401a147ead2188595",
+        "circular_successor_descents": 1,
+        "common_rotation_gcd": 1015513,
+        "denominator": 5,
+        "first_inversions": [],
+        "heights": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2,
+          1,
+          2,
+          2,
+          3
+        ],
+        "inversion_height_histogram": {},
+        "m": 17,
+        "mantissas": [
+          {
+            "denominator": 1,
+            "numerator": 187
+          },
+          {
+            "denominator": 1,
+            "numerator": 283
+          },
+          {
+            "denominator": 2,
+            "numerator": 427
+          },
+          {
+            "denominator": 2,
+            "numerator": 643
+          },
+          {
+            "denominator": 4,
+            "numerator": 967
+          },
+          {
+            "denominator": 4,
+            "numerator": 1453
+          },
+          {
+            "denominator": 4,
+            "numerator": 1091
+          },
+          {
+            "denominator": 8,
+            "numerator": 1639
+          },
+          {
+            "denominator": 8,
+            "numerator": 2461
+          },
+          {
+            "denominator": 8,
+            "numerator": 1847
+          },
+          {
+            "denominator": 8,
+            "numerator": 2773
+          },
+          {
+            "denominator": 8,
+            "numerator": 2081
+          },
+          {
+            "denominator": 4,
+            "numerator": 781
+          },
+          {
+            "denominator": 2,
+            "numerator": 587
+          },
+          {
+            "denominator": 4,
+            "numerator": 883
+          },
+          {
+            "denominator": 4,
+            "numerator": 1327
+          },
+          {
+            "denominator": 8,
+            "numerator": 1993
+          }
+        ],
+        "maximum_minimum_ratio": {
+          "denominator": 187,
+          "numerator": 2773
+        },
+        "minimum_numerator": 187,
+        "narrow": false,
+        "normalized_exponents": [
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2
+        ],
+        "normalized_exponents_are_1_or_2": true,
+        "normalized_mechanical_offset": 0,
+        "original_mechanical_offset": null,
+        "pair_counts": {
+          "equal_scaled_images": 0,
+          "height_increase_pair_identity_checks": 56,
+          "nonincreasing_height_order_checks": 80,
+          "pairs": 136
+        },
+        "primitive_states": [
+          187,
+          283,
+          427,
+          643,
+          967,
+          1453,
+          1091,
+          1639,
+          2461,
+          1847,
+          2773,
+          2081,
+          781,
+          587,
+          883,
+          1327,
+          1993
+        ],
+        "rank_shift": 10,
+        "scaled_images": [
+          {
+            "denominator": 1,
+            "numerator": 566
+          },
+          {
+            "denominator": 1,
+            "numerator": 854
+          },
+          {
+            "denominator": 1,
+            "numerator": 643
+          },
+          {
+            "denominator": 1,
+            "numerator": 967
+          },
+          {
+            "denominator": 2,
+            "numerator": 1453
+          },
+          {
+            "denominator": 1,
+            "numerator": 1091
+          },
+          {
+            "denominator": 2,
+            "numerator": 1639
+          },
+          {
+            "denominator": 4,
+            "numerator": 2461
+          },
+          {
+            "denominator": 2,
+            "numerator": 1847
+          },
+          {
+            "denominator": 4,
+            "numerator": 2773
+          },
+          {
+            "denominator": 2,
+            "numerator": 2081
+          },
+          {
+            "denominator": 1,
+            "numerator": 781
+          },
+          {
+            "denominator": 1,
+            "numerator": 587
+          },
+          {
+            "denominator": 1,
+            "numerator": 883
+          },
+          {
+            "denominator": 2,
+            "numerator": 1327
+          },
+          {
+            "denominator": 2,
+            "numerator": 1993
+          },
+          {
+            "denominator": 1,
+            "numerator": 748
+          }
+        ],
+        "sorted_indices": [
+          0,
+          12,
+          7,
+          2,
+          14,
+          9,
+          4,
+          16,
+          11,
+          6,
+          1,
+          13,
+          8,
+          3,
+          15,
+          10,
+          5
+        ],
+        "source_instances": [
+          {
+            "actual_d": 5,
+            "actual_minimum": 187,
+            "scale": 1
+          },
+          {
+            "actual_d": 25,
+            "actual_minimum": 935,
+            "scale": 5
+          },
+          {
+            "actual_d": 35,
+            "actual_minimum": 1309,
+            "scale": 7
+          },
+          {
+            "actual_d": 55,
+            "actual_minimum": 2057,
+            "scale": 11
+          },
+          {
+            "actual_d": 65,
+            "actual_minimum": 2431,
+            "scale": 13
+          },
+          {
+            "actual_d": 85,
+            "actual_minimum": 3179,
+            "scale": 17
+          },
+          {
+            "actual_d": 95,
+            "actual_minimum": 3553,
+            "scale": 19
+          },
+          {
+            "actual_d": 115,
+            "actual_minimum": 4301,
+            "scale": 23
+          },
+          {
+            "actual_d": 125,
+            "actual_minimum": 4675,
+            "scale": 25
+          },
+          {
+            "actual_d": 145,
+            "actual_minimum": 5423,
+            "scale": 29
+          },
+          {
+            "actual_d": 155,
+            "actual_minimum": 5797,
+            "scale": 31
+          },
+          {
+            "actual_d": 175,
+            "actual_minimum": 6545,
+            "scale": 35
+          },
+          {
+            "actual_d": 185,
+            "actual_minimum": 6919,
+            "scale": 37
+          }
+        ],
+        "successor_is_rank_rotation": true,
+        "successor_ranks": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          1,
+          5
+        ]
+      }
+    },
+    {
+      "actual_fixture": {
+        "d": 5,
+        "minimum": 347,
+        "states": [
+          347,
+          523,
+          787,
+          1183,
+          1777,
+          667,
+          1003,
+          1507,
+          2263,
+          3397,
+          2549,
+          1913,
+          359,
+          541,
+          407,
+          613,
+          461
+        ],
+        "valuations": [
+          1,
+          1,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4,
+          1,
+          2,
+          1,
+          2,
+          2
+        ]
+      },
+      "fixture_id": 5,
+      "normalized_cycle": {
+        "A": 27,
+        "C": 352383011,
+        "D": 5077565,
+        "F_is_strictly_increasing": true,
+        "F_span_less_than2": true,
+        "L_ge_denominator": true,
+        "all_pairs_sha256": "eed91d9c49294a8135f937d89b5b98574057cb77f5e828d8621e00ed8a7e3403",
+        "circular_successor_descents": 1,
+        "common_rotation_gcd": 1015513,
+        "denominator": 5,
+        "first_inversions": [],
+        "heights": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          1,
+          2,
+          2,
+          3,
+          2,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "inversion_height_histogram": {},
+        "m": 17,
+        "mantissas": [
+          {
+            "denominator": 1,
+            "numerator": 347
+          },
+          {
+            "denominator": 1,
+            "numerator": 523
+          },
+          {
+            "denominator": 2,
+            "numerator": 787
+          },
+          {
+            "denominator": 2,
+            "numerator": 1183
+          },
+          {
+            "denominator": 4,
+            "numerator": 1777
+          },
+          {
+            "denominator": 1,
+            "numerator": 667
+          },
+          {
+            "denominator": 2,
+            "numerator": 1003
+          },
+          {
+            "denominator": 4,
+            "numerator": 1507
+          },
+          {
+            "denominator": 4,
+            "numerator": 2263
+          },
+          {
+            "denominator": 8,
+            "numerator": 3397
+          },
+          {
+            "denominator": 4,
+            "numerator": 2549
+          },
+          {
+            "denominator": 4,
+            "numerator": 1913
+          },
+          {
+            "denominator": 1,
+            "numerator": 359
+          },
+          {
+            "denominator": 1,
+            "numerator": 541
+          },
+          {
+            "denominator": 1,
+            "numerator": 407
+          },
+          {
+            "denominator": 1,
+            "numerator": 613
+          },
+          {
+            "denominator": 1,
+            "numerator": 461
+          }
+        ],
+        "maximum_minimum_ratio": {
+          "denominator": 347,
+          "numerator": 3397
+        },
+        "minimum_numerator": 347,
+        "narrow": false,
+        "normalized_exponents": [
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2
+        ],
+        "normalized_exponents_are_1_or_2": true,
+        "normalized_mechanical_offset": 0,
+        "original_mechanical_offset": null,
+        "pair_counts": {
+          "equal_scaled_images": 0,
+          "height_increase_pair_identity_checks": 46,
+          "nonincreasing_height_order_checks": 90,
+          "pairs": 136
+        },
+        "primitive_states": [
+          347,
+          523,
+          787,
+          1183,
+          1777,
+          667,
+          1003,
+          1507,
+          2263,
+          3397,
+          2549,
+          1913,
+          359,
+          541,
+          407,
+          613,
+          461
+        ],
+        "rank_shift": 10,
+        "scaled_images": [
+          {
+            "denominator": 1,
+            "numerator": 1046
+          },
+          {
+            "denominator": 1,
+            "numerator": 1574
+          },
+          {
+            "denominator": 1,
+            "numerator": 1183
+          },
+          {
+            "denominator": 1,
+            "numerator": 1777
+          },
+          {
+            "denominator": 1,
+            "numerator": 1334
+          },
+          {
+            "denominator": 1,
+            "numerator": 2006
+          },
+          {
+            "denominator": 1,
+            "numerator": 1507
+          },
+          {
+            "denominator": 2,
+            "numerator": 2263
+          },
+          {
+            "denominator": 2,
+            "numerator": 3397
+          },
+          {
+            "denominator": 2,
+            "numerator": 2549
+          },
+          {
+            "denominator": 1,
+            "numerator": 1913
+          },
+          {
+            "denominator": 1,
+            "numerator": 1436
+          },
+          {
+            "denominator": 1,
+            "numerator": 1082
+          },
+          {
+            "denominator": 1,
+            "numerator": 1628
+          },
+          {
+            "denominator": 1,
+            "numerator": 1226
+          },
+          {
+            "denominator": 1,
+            "numerator": 1844
+          },
+          {
+            "denominator": 1,
+            "numerator": 1388
+          }
+        ],
+        "sorted_indices": [
+          0,
+          12,
+          7,
+          2,
+          14,
+          9,
+          4,
+          16,
+          11,
+          6,
+          1,
+          13,
+          8,
+          3,
+          15,
+          10,
+          5
+        ],
+        "source_instances": [
+          {
+            "actual_d": 5,
+            "actual_minimum": 347,
+            "scale": 1
+          },
+          {
+            "actual_d": 25,
+            "actual_minimum": 1735,
+            "scale": 5
+          },
+          {
+            "actual_d": 35,
+            "actual_minimum": 2429,
+            "scale": 7
+          },
+          {
+            "actual_d": 55,
+            "actual_minimum": 3817,
+            "scale": 11
+          },
+          {
+            "actual_d": 65,
+            "actual_minimum": 4511,
+            "scale": 13
+          },
+          {
+            "actual_d": 85,
+            "actual_minimum": 5899,
+            "scale": 17
+          },
+          {
+            "actual_d": 95,
+            "actual_minimum": 6593,
+            "scale": 19
+          },
+          {
+            "actual_d": 115,
+            "actual_minimum": 7981,
+            "scale": 23
+          },
+          {
+            "actual_d": 125,
+            "actual_minimum": 8675,
+            "scale": 25
+          },
+          {
+            "actual_d": 145,
+            "actual_minimum": 10063,
+            "scale": 29
+          }
+        ],
+        "successor_is_rank_rotation": true,
+        "successor_ranks": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "word": [
+          1,
+          1,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4,
+          1,
+          2,
+          1,
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "actual_fixture": {
+        "d": 7,
+        "minimum": 5,
+        "states": [
+          5,
+          11
+        ],
+        "valuations": [
+          1,
+          3
+        ]
+      },
+      "fixture_id": 6,
+      "normalized_cycle": {
+        "A": 4,
+        "C": 5,
+        "D": 7,
+        "F_is_strictly_increasing": false,
+        "F_span_less_than2": true,
+        "L_ge_denominator": false,
+        "all_pairs_sha256": "3e6817addcbbdc7ef369f25ec28fff8114e99f330e6b3676628933f8c65217de",
+        "circular_successor_descents": 1,
+        "common_rotation_gcd": 1,
+        "denominator": 7,
+        "first_inversions": [
+          {
+            "height_difference": 1,
+            "indices": [
+              0,
+              1
+            ],
+            "odd_offset": 1,
+            "scaled_image_difference": {
+              "denominator": 1,
+              "numerator": -2
+            },
+            "threshold": -4
+          }
+        ],
+        "heights": [
+          0,
+          1
+        ],
+        "inversion_height_histogram": {
+          "1": 1
+        },
+        "m": 2,
+        "mantissas": [
+          {
+            "denominator": 1,
+            "numerator": 5
+          },
+          {
+            "denominator": 2,
+            "numerator": 11
+          }
+        ],
+        "maximum_minimum_ratio": {
+          "denominator": 5,
+          "numerator": 11
+        },
+        "minimum_numerator": 5,
+        "narrow": false,
+        "normalized_exponents": [
+          2,
+          2
+        ],
+        "normalized_exponents_are_1_or_2": true,
+        "normalized_mechanical_offset": 0,
+        "original_mechanical_offset": null,
+        "pair_counts": {
+          "equal_scaled_images": 0,
+          "height_increase_pair_identity_checks": 1,
+          "inverted_pairs": 1,
+          "pairs": 1
+        },
+        "primitive_states": [
+          5,
+          11
+        ],
+        "rank_shift": 1,
+        "scaled_images": [
+          {
+            "denominator": 1,
+            "numerator": 22
+          },
+          {
+            "denominator": 1,
+            "numerator": 20
+          }
+        ],
+        "sorted_indices": [
+          0,
+          1
+        ],
+        "source_instances": [
+          {
+            "actual_d": 7,
+            "actual_minimum": 5,
+            "scale": 1
+          },
+          {
+            "actual_d": 35,
+            "actual_minimum": 25,
+            "scale": 5
+          },
+          {
+            "actual_d": 49,
+            "actual_minimum": 35,
+            "scale": 7
+          },
+          {
+            "actual_d": 77,
+            "actual_minimum": 55,
+            "scale": 11
+          },
+          {
+            "actual_d": 91,
+            "actual_minimum": 65,
+            "scale": 13
+          },
+          {
+            "actual_d": 119,
+            "actual_minimum": 85,
+            "scale": 17
+          },
+          {
+            "actual_d": 133,
+            "actual_minimum": 95,
+            "scale": 19
+          },
+          {
+            "actual_d": 161,
+            "actual_minimum": 115,
+            "scale": 23
+          },
+          {
+            "actual_d": 175,
+            "actual_minimum": 125,
+            "scale": 25
+          },
+          {
+            "actual_d": 203,
+            "actual_minimum": 145,
+            "scale": 29
+          },
+          {
+            "actual_d": 217,
+            "actual_minimum": 155,
+            "scale": 31
+          },
+          {
+            "actual_d": 245,
+            "actual_minimum": 175,
+            "scale": 35
+          },
+          {
+            "actual_d": 259,
+            "actual_minimum": 185,
+            "scale": 37
+          },
+          {
+            "actual_d": 287,
+            "actual_minimum": 205,
+            "scale": 41
+          },
+          {
+            "actual_d": 301,
+            "actual_minimum": 215,
+            "scale": 43
+          },
+          {
+            "actual_d": 329,
+            "actual_minimum": 235,
+            "scale": 47
+          },
+          {
+            "actual_d": 343,
+            "actual_minimum": 245,
+            "scale": 49
+          },
+          {
+            "actual_d": 371,
+            "actual_minimum": 265,
+            "scale": 53
+          },
+          {
+            "actual_d": 385,
+            "actual_minimum": 275,
+            "scale": 55
+          },
+          {
+            "actual_d": 413,
+            "actual_minimum": 295,
+            "scale": 59
+          },
+          {
+            "actual_d": 427,
+            "actual_minimum": 305,
+            "scale": 61
+          },
+          {
+            "actual_d": 455,
+            "actual_minimum": 325,
+            "scale": 65
+          },
+          {
+            "actual_d": 469,
+            "actual_minimum": 335,
+            "scale": 67
+          },
+          {
+            "actual_d": 497,
+            "actual_minimum": 355,
+            "scale": 71
+          },
+          {
+            "actual_d": 511,
+            "actual_minimum": 365,
+            "scale": 73
+          },
+          {
+            "actual_d": 539,
+            "actual_minimum": 385,
+            "scale": 77
+          },
+          {
+            "actual_d": 553,
+            "actual_minimum": 395,
+            "scale": 79
+          },
+          {
+            "actual_d": 581,
+            "actual_minimum": 415,
+            "scale": 83
+          },
+          {
+            "actual_d": 595,
+            "actual_minimum": 425,
+            "scale": 85
+          },
+          {
+            "actual_d": 623,
+            "actual_minimum": 445,
+            "scale": 89
+          },
+          {
+            "actual_d": 637,
+            "actual_minimum": 455,
+            "scale": 91
+          },
+          {
+            "actual_d": 665,
+            "actual_minimum": 475,
+            "scale": 95
+          },
+          {
+            "actual_d": 679,
+            "actual_minimum": 485,
+            "scale": 97
+          },
+          {
+            "actual_d": 707,
+            "actual_minimum": 505,
+            "scale": 101
+          },
+          {
+            "actual_d": 721,
+            "actual_minimum": 515,
+            "scale": 103
+          },
+          {
+            "actual_d": 749,
+            "actual_minimum": 535,
+            "scale": 107
+          },
+          {
+            "actual_d": 763,
+            "actual_minimum": 545,
+            "scale": 109
+          },
+          {
+            "actual_d": 791,
+            "actual_minimum": 565,
+            "scale": 113
+          },
+          {
+            "actual_d": 805,
+            "actual_minimum": 575,
+            "scale": 115
+          },
+          {
+            "actual_d": 833,
+            "actual_minimum": 595,
+            "scale": 119
+          },
+          {
+            "actual_d": 847,
+            "actual_minimum": 605,
+            "scale": 121
+          },
+          {
+            "actual_d": 875,
+            "actual_minimum": 625,
+            "scale": 125
+          },
+          {
+            "actual_d": 889,
+            "actual_minimum": 635,
+            "scale": 127
+          },
+          {
+            "actual_d": 917,
+            "actual_minimum": 655,
+            "scale": 131
+          },
+          {
+            "actual_d": 931,
+            "actual_minimum": 665,
+            "scale": 133
+          },
+          {
+            "actual_d": 959,
+            "actual_minimum": 685,
+            "scale": 137
+          },
+          {
+            "actual_d": 973,
+            "actual_minimum": 695,
+            "scale": 139
+          }
+        ],
+        "successor_is_rank_rotation": true,
+        "successor_ranks": [
+          1,
+          0
+        ],
+        "word": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "actual_fixture": {
+        "d": 13,
+        "minimum": 1,
+        "states": [
+          1
+        ],
+        "valuations": [
+          4
+        ]
+      },
+      "fixture_id": 7,
+      "normalized_cycle": {
+        "A": 4,
+        "C": 1,
+        "D": 13,
+        "F_is_strictly_increasing": true,
+        "F_span_less_than2": true,
+        "L_ge_denominator": false,
+        "all_pairs_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "circular_successor_descents": 0,
+        "common_rotation_gcd": 1,
+        "denominator": 13,
+        "first_inversions": [],
+        "heights": [
+          0
+        ],
+        "inversion_height_histogram": {},
+        "m": 1,
+        "mantissas": [
+          {
+            "denominator": 1,
+            "numerator": 1
+          }
+        ],
+        "maximum_minimum_ratio": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "minimum_numerator": 1,
+        "narrow": true,
+        "normalized_exponents": [
+          4
+        ],
+        "normalized_exponents_are_1_or_2": false,
+        "normalized_mechanical_offset": 0,
+        "original_mechanical_offset": 0,
+        "pair_counts": {
+          "equal_scaled_images": 0
+        },
+        "primitive_states": [
+          1
+        ],
+        "rank_shift": 0,
+        "scaled_images": [
+          {
+            "denominator": 1,
+            "numerator": 16
+          }
+        ],
+        "sorted_indices": [
+          0
+        ],
+        "source_instances": [
+          {
+            "actual_d": 13,
+            "actual_minimum": 1,
+            "scale": 1
+          },
+          {
+            "actual_d": 65,
+            "actual_minimum": 5,
+            "scale": 5
+          },
+          {
+            "actual_d": 91,
+            "actual_minimum": 7,
+            "scale": 7
+          },
+          {
+            "actual_d": 143,
+            "actual_minimum": 11,
+            "scale": 11
+          },
+          {
+            "actual_d": 169,
+            "actual_minimum": 13,
+            "scale": 13
+          },
+          {
+            "actual_d": 221,
+            "actual_minimum": 17,
+            "scale": 17
+          },
+          {
+            "actual_d": 247,
+            "actual_minimum": 19,
+            "scale": 19
+          },
+          {
+            "actual_d": 299,
+            "actual_minimum": 23,
+            "scale": 23
+          },
+          {
+            "actual_d": 325,
+            "actual_minimum": 25,
+            "scale": 25
+          },
+          {
+            "actual_d": 377,
+            "actual_minimum": 29,
+            "scale": 29
+          },
+          {
+            "actual_d": 403,
+            "actual_minimum": 31,
+            "scale": 31
+          },
+          {
+            "actual_d": 455,
+            "actual_minimum": 35,
+            "scale": 35
+          },
+          {
+            "actual_d": 481,
+            "actual_minimum": 37,
+            "scale": 37
+          },
+          {
+            "actual_d": 533,
+            "actual_minimum": 41,
+            "scale": 41
+          },
+          {
+            "actual_d": 559,
+            "actual_minimum": 43,
+            "scale": 43
+          },
+          {
+            "actual_d": 611,
+            "actual_minimum": 47,
+            "scale": 47
+          },
+          {
+            "actual_d": 637,
+            "actual_minimum": 49,
+            "scale": 49
+          },
+          {
+            "actual_d": 689,
+            "actual_minimum": 53,
+            "scale": 53
+          },
+          {
+            "actual_d": 715,
+            "actual_minimum": 55,
+            "scale": 55
+          },
+          {
+            "actual_d": 767,
+            "actual_minimum": 59,
+            "scale": 59
+          },
+          {
+            "actual_d": 793,
+            "actual_minimum": 61,
+            "scale": 61
+          },
+          {
+            "actual_d": 845,
+            "actual_minimum": 65,
+            "scale": 65
+          },
+          {
+            "actual_d": 871,
+            "actual_minimum": 67,
+            "scale": 67
+          },
+          {
+            "actual_d": 923,
+            "actual_minimum": 71,
+            "scale": 71
+          },
+          {
+            "actual_d": 949,
+            "actual_minimum": 73,
+            "scale": 73
+          }
+        ],
+        "successor_is_rank_rotation": true,
+        "successor_ranks": [
+          0
+        ],
+        "word": [
+          4
+        ]
+      }
+    },
+    {
+      "actual_fixture": {
+        "d": 13,
+        "minimum": 131,
+        "states": [
+          131,
+          203,
+          311,
+          473,
+          179,
+          275,
+          419,
+          635,
+          959,
+          1445,
+          1087,
+          1637,
+          1231,
+          1853,
+          1393
+        ],
+        "valuations": [
+          1,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          5
+        ]
+      },
+      "fixture_id": 8,
+      "normalized_cycle": {
+        "A": 24,
+        "C": 24469883,
+        "D": 2428309,
+        "F_is_strictly_increasing": false,
+        "F_span_less_than2": true,
+        "L_ge_denominator": true,
+        "all_pairs_sha256": "02347d58964c0b509e50877ddb626df888c767f1c45be813eb9a3cbb98380126",
+        "circular_successor_descents": 3,
+        "common_rotation_gcd": 186793,
+        "denominator": 13,
+        "first_inversions": [
+          {
+            "height_difference": 3,
+            "indices": [
+              4,
+              9
+            ],
+            "odd_offset": 13,
+            "scaled_image_difference": {
+              "denominator": 2,
+              "numerator": -13
+            },
+            "threshold": -52
+          },
+          {
+            "height_difference": 3,
+            "indices": [
+              1,
+              11
+            ],
+            "odd_offset": 13,
+            "scaled_image_difference": {
+              "denominator": 2,
+              "numerator": -13
+            },
+            "threshold": -52
+          }
+        ],
+        "heights": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "inversion_height_histogram": {
+          "3": 2
+        },
+        "m": 15,
+        "mantissas": [
+          {
+            "denominator": 1,
+            "numerator": 131
+          },
+          {
+            "denominator": 1,
+            "numerator": 203
+          },
+          {
+            "denominator": 2,
+            "numerator": 311
+          },
+          {
+            "denominator": 2,
+            "numerator": 473
+          },
+          {
+            "denominator": 1,
+            "numerator": 179
+          },
+          {
+            "denominator": 2,
+            "numerator": 275
+          },
+          {
+            "denominator": 2,
+            "numerator": 419
+          },
+          {
+            "denominator": 4,
+            "numerator": 635
+          },
+          {
+            "denominator": 4,
+            "numerator": 959
+          },
+          {
+            "denominator": 8,
+            "numerator": 1445
+          },
+          {
+            "denominator": 8,
+            "numerator": 1087
+          },
+          {
+            "denominator": 8,
+            "numerator": 1637
+          },
+          {
+            "denominator": 8,
+            "numerator": 1231
+          },
+          {
+            "denominator": 8,
+            "numerator": 1853
+          },
+          {
+            "denominator": 8,
+            "numerator": 1393
+          }
+        ],
+        "maximum_minimum_ratio": {
+          "denominator": 131,
+          "numerator": 1853
+        },
+        "minimum_numerator": 131,
+        "narrow": false,
+        "normalized_exponents": [
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2
+        ],
+        "normalized_exponents_are_1_or_2": true,
+        "normalized_mechanical_offset": 0,
+        "original_mechanical_offset": null,
+        "pair_counts": {
+          "equal_scaled_images": 0,
+          "height_increase_pair_identity_checks": 43,
+          "inverted_pairs": 2,
+          "nonincreasing_height_order_checks": 62,
+          "pairs": 105
+        },
+        "primitive_states": [
+          131,
+          203,
+          311,
+          473,
+          179,
+          275,
+          419,
+          635,
+          959,
+          1445,
+          1087,
+          1637,
+          1231,
+          1853,
+          1393
+        ],
+        "rank_shift": null,
+        "scaled_images": [
+          {
+            "denominator": 1,
+            "numerator": 406
+          },
+          {
+            "denominator": 1,
+            "numerator": 622
+          },
+          {
+            "denominator": 1,
+            "numerator": 473
+          },
+          {
+            "denominator": 1,
+            "numerator": 716
+          },
+          {
+            "denominator": 1,
+            "numerator": 550
+          },
+          {
+            "denominator": 1,
+            "numerator": 419
+          },
+          {
+            "denominator": 1,
+            "numerator": 635
+          },
+          {
+            "denominator": 2,
+            "numerator": 959
+          },
+          {
+            "denominator": 2,
+            "numerator": 1445
+          },
+          {
+            "denominator": 2,
+            "numerator": 1087
+          },
+          {
+            "denominator": 4,
+            "numerator": 1637
+          },
+          {
+            "denominator": 2,
+            "numerator": 1231
+          },
+          {
+            "denominator": 4,
+            "numerator": 1853
+          },
+          {
+            "denominator": 2,
+            "numerator": 1393
+          },
+          {
+            "denominator": 1,
+            "numerator": 524
+          }
+        ],
+        "sorted_indices": [
+          0,
+          10,
+          5,
+          12,
+          2,
+          7,
+          14,
+          4,
+          9,
+          1,
+          11,
+          6,
+          13,
+          3,
+          8
+        ],
+        "source_instances": [
+          {
+            "actual_d": 13,
+            "actual_minimum": 131,
+            "scale": 1
+          },
+          {
+            "actual_d": 65,
+            "actual_minimum": 655,
+            "scale": 5
+          },
+          {
+            "actual_d": 91,
+            "actual_minimum": 917,
+            "scale": 7
+          },
+          {
+            "actual_d": 143,
+            "actual_minimum": 1441,
+            "scale": 11
+          },
+          {
+            "actual_d": 169,
+            "actual_minimum": 1703,
+            "scale": 13
+          },
+          {
+            "actual_d": 221,
+            "actual_minimum": 2227,
+            "scale": 17
+          },
+          {
+            "actual_d": 247,
+            "actual_minimum": 2489,
+            "scale": 19
+          },
+          {
+            "actual_d": 299,
+            "actual_minimum": 3013,
+            "scale": 23
+          },
+          {
+            "actual_d": 325,
+            "actual_minimum": 3275,
+            "scale": 25
+          },
+          {
+            "actual_d": 377,
+            "actual_minimum": 3799,
+            "scale": 29
+          },
+          {
+            "actual_d": 403,
+            "actual_minimum": 4061,
+            "scale": 31
+          },
+          {
+            "actual_d": 455,
+            "actual_minimum": 4585,
+            "scale": 35
+          },
+          {
+            "actual_d": 481,
+            "actual_minimum": 4847,
+            "scale": 37
+          },
+          {
+            "actual_d": 533,
+            "actual_minimum": 5371,
+            "scale": 41
+          },
+          {
+            "actual_d": 559,
+            "actual_minimum": 5633,
+            "scale": 43
+          },
+          {
+            "actual_d": 611,
+            "actual_minimum": 6157,
+            "scale": 47
+          },
+          {
+            "actual_d": 637,
+            "actual_minimum": 6419,
+            "scale": 49
+          },
+          {
+            "actual_d": 689,
+            "actual_minimum": 6943,
+            "scale": 53
+          },
+          {
+            "actual_d": 715,
+            "actual_minimum": 7205,
+            "scale": 55
+          },
+          {
+            "actual_d": 767,
+            "actual_minimum": 7729,
+            "scale": 59
+          },
+          {
+            "actual_d": 793,
+            "actual_minimum": 7991,
+            "scale": 61
+          },
+          {
+            "actual_d": 845,
+            "actual_minimum": 8515,
+            "scale": 65
+          },
+          {
+            "actual_d": 871,
+            "actual_minimum": 8777,
+            "scale": 67
+          },
+          {
+            "actual_d": 923,
+            "actual_minimum": 9301,
+            "scale": 71
+          },
+          {
+            "actual_d": 949,
+            "actual_minimum": 9563,
+            "scale": 73
+          }
+        ],
+        "successor_is_rank_rotation": false,
+        "successor_ranks": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          0,
+          2,
+          1,
+          4,
+          3,
+          5,
+          6,
+          7,
+          8
+        ],
+        "word": [
+          1,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          5
+        ]
+      }
+    },
+    {
+      "actual_fixture": {
+        "d": 13,
+        "minimum": 211,
+        "states": [
+          211,
+          323,
+          491,
+          743,
+          1121
+        ],
+        "valuations": [
+          1,
+          1,
+          1,
+          1,
+          4
+        ]
+      },
+      "fixture_id": 9,
+      "normalized_cycle": {
+        "A": 8,
+        "C": 211,
+        "D": 13,
+        "F_is_strictly_increasing": true,
+        "F_span_less_than2": true,
+        "L_ge_denominator": true,
+        "all_pairs_sha256": "7aaf28717ddde4596c6cd87327d803019de3785c67151b27d2a2be926c327b20",
+        "circular_successor_descents": 1,
+        "common_rotation_gcd": 1,
+        "denominator": 13,
+        "first_inversions": [],
+        "heights": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "inversion_height_histogram": {},
+        "m": 5,
+        "mantissas": [
+          {
+            "denominator": 1,
+            "numerator": 211
+          },
+          {
+            "denominator": 1,
+            "numerator": 323
+          },
+          {
+            "denominator": 2,
+            "numerator": 491
+          },
+          {
+            "denominator": 2,
+            "numerator": 743
+          },
+          {
+            "denominator": 4,
+            "numerator": 1121
+          }
+        ],
+        "maximum_minimum_ratio": {
+          "denominator": 211,
+          "numerator": 1121
+        },
+        "minimum_numerator": 211,
+        "narrow": false,
+        "normalized_exponents": [
+          1,
+          2,
+          1,
+          2,
+          2
+        ],
+        "normalized_exponents_are_1_or_2": true,
+        "normalized_mechanical_offset": 0,
+        "original_mechanical_offset": null,
+        "pair_counts": {
+          "equal_scaled_images": 0,
+          "height_increase_pair_identity_checks": 5,
+          "nonincreasing_height_order_checks": 5,
+          "pairs": 10
+        },
+        "primitive_states": [
+          211,
+          323,
+          491,
+          743,
+          1121
+        ],
+        "rank_shift": 3,
+        "scaled_images": [
+          {
+            "denominator": 1,
+            "numerator": 646
+          },
+          {
+            "denominator": 1,
+            "numerator": 982
+          },
+          {
+            "denominator": 1,
+            "numerator": 743
+          },
+          {
+            "denominator": 1,
+            "numerator": 1121
+          },
+          {
+            "denominator": 1,
+            "numerator": 844
+          }
+        ],
+        "sorted_indices": [
+          0,
+          2,
+          4,
+          1,
+          3
+        ],
+        "source_instances": [
+          {
+            "actual_d": 13,
+            "actual_minimum": 211,
+            "scale": 1
+          },
+          {
+            "actual_d": 65,
+            "actual_minimum": 1055,
+            "scale": 5
+          },
+          {
+            "actual_d": 91,
+            "actual_minimum": 1477,
+            "scale": 7
+          },
+          {
+            "actual_d": 143,
+            "actual_minimum": 2321,
+            "scale": 11
+          },
+          {
+            "actual_d": 169,
+            "actual_minimum": 2743,
+            "scale": 13
+          },
+          {
+            "actual_d": 221,
+            "actual_minimum": 3587,
+            "scale": 17
+          },
+          {
+            "actual_d": 247,
+            "actual_minimum": 4009,
+            "scale": 19
+          },
+          {
+            "actual_d": 299,
+            "actual_minimum": 4853,
+            "scale": 23
+          },
+          {
+            "actual_d": 325,
+            "actual_minimum": 5275,
+            "scale": 25
+          },
+          {
+            "actual_d": 377,
+            "actual_minimum": 6119,
+            "scale": 29
+          },
+          {
+            "actual_d": 403,
+            "actual_minimum": 6541,
+            "scale": 31
+          },
+          {
+            "actual_d": 455,
+            "actual_minimum": 7385,
+            "scale": 35
+          },
+          {
+            "actual_d": 481,
+            "actual_minimum": 7807,
+            "scale": 37
+          },
+          {
+            "actual_d": 533,
+            "actual_minimum": 8651,
+            "scale": 41
+          },
+          {
+            "actual_d": 559,
+            "actual_minimum": 9073,
+            "scale": 43
+          },
+          {
+            "actual_d": 611,
+            "actual_minimum": 9917,
+            "scale": 47
+          },
+          {
+            "actual_d": 637,
+            "actual_minimum": 10339,
+            "scale": 49
+          }
+        ],
+        "successor_is_rank_rotation": true,
+        "successor_ranks": [
+          3,
+          4,
+          0,
+          1,
+          2
+        ],
+        "word": [
+          1,
+          1,
+          1,
+          1,
+          4
+        ]
+      }
+    },
+    {
+      "actual_fixture": {
+        "d": 61,
+        "minimum": 1,
+        "states": [
+          1
+        ],
+        "valuations": [
+          6
+        ]
+      },
+      "fixture_id": 10,
+      "normalized_cycle": {
+        "A": 6,
+        "C": 1,
+        "D": 61,
+        "F_is_strictly_increasing": true,
+        "F_span_less_than2": true,
+        "L_ge_denominator": false,
+        "all_pairs_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "circular_successor_descents": 0,
+        "common_rotation_gcd": 1,
+        "denominator": 61,
+        "first_inversions": [],
+        "heights": [
+          0
+        ],
+        "inversion_height_histogram": {},
+        "m": 1,
+        "mantissas": [
+          {
+            "denominator": 1,
+            "numerator": 1
+          }
+        ],
+        "maximum_minimum_ratio": {
+          "denominator": 1,
+          "numerator": 1
+        },
+        "minimum_numerator": 1,
+        "narrow": true,
+        "normalized_exponents": [
+          6
+        ],
+        "normalized_exponents_are_1_or_2": false,
+        "normalized_mechanical_offset": 0,
+        "original_mechanical_offset": 0,
+        "pair_counts": {
+          "equal_scaled_images": 0
+        },
+        "primitive_states": [
+          1
+        ],
+        "rank_shift": 0,
+        "scaled_images": [
+          {
+            "denominator": 1,
+            "numerator": 64
+          }
+        ],
+        "sorted_indices": [
+          0
+        ],
+        "source_instances": [
+          {
+            "actual_d": 61,
+            "actual_minimum": 1,
+            "scale": 1
+          },
+          {
+            "actual_d": 305,
+            "actual_minimum": 5,
+            "scale": 5
+          },
+          {
+            "actual_d": 427,
+            "actual_minimum": 7,
+            "scale": 7
+          },
+          {
+            "actual_d": 671,
+            "actual_minimum": 11,
+            "scale": 11
+          },
+          {
+            "actual_d": 793,
+            "actual_minimum": 13,
+            "scale": 13
+          }
+        ],
+        "successor_is_rank_rotation": true,
+        "successor_ranks": [
+          0
+        ],
+        "word": [
+          6
+        ]
+      }
+    },
+    {
+      "actual_fixture": {
+        "d": 61,
+        "minimum": 235,
+        "states": [
+          235,
+          383,
+          605,
+          469,
+          367,
+          581,
+          451,
+          707,
+          1091,
+          1667,
+          2531,
+          3827,
+          5771,
+          8687,
+          13061,
+          9811,
+          14747,
+          22151,
+          33257,
+          12479,
+          18749,
+          14077,
+          10573,
+          7945,
+          2987,
+          4511,
+          6797,
+          5113,
+          1925,
+          1459,
+          2219,
+          3359,
+          5069,
+          3817,
+          1439,
+          2189,
+          1657,
+          629,
+          487,
+          761,
+          293
+        ],
+        "valuations": [
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          3,
+          1,
+          2,
+          2,
+          2,
+          3,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          2,
+          1,
+          3,
+          2
+        ]
+      },
+      "fixture_id": 11,
+      "normalized_cycle": {
+        "A": 66,
+        "C": 143750578371341700235,
+        "D": 37313979917667420061,
+        "F_is_strictly_increasing": false,
+        "F_span_less_than2": false,
+        "L_ge_denominator": true,
+        "all_pairs_sha256": "07b17c21a45bac89bf2c5a5b363fdd25f97f0d4f3f4b82a4aa2f5d006a3684da",
+        "circular_successor_descents": 13,
+        "common_rotation_gcd": 611704588814220001,
+        "denominator": 61,
+        "first_inversions": [
+          {
+            "height_difference": 4,
+            "indices": [
+              0,
+              33
+            ],
+            "odd_offset": 57,
+            "scaled_image_difference": {
+              "denominator": 2,
+              "numerator": -93
+            },
+            "threshold": -744
+          },
+          {
+            "height_difference": 4,
+            "indices": [
+              0,
+              11
+            ],
+            "odd_offset": 67,
+            "scaled_image_difference": {
+              "denominator": 8,
+              "numerator": -357
+            },
+            "threshold": -714
+          },
+          {
+            "height_difference": 3,
+            "indices": [
+              0,
+              28
+            ],
+            "odd_offset": 45,
+            "scaled_image_difference": {
+              "denominator": 2,
+              "numerator": -73
+            },
+            "threshold": -292
+          },
+          {
+            "height_difference": 1,
+            "indices": [
+              0,
+              38
+            ],
+            "odd_offset": 17,
+            "scaled_image_difference": {
+              "denominator": 1,
+              "numerator": -5
+            },
+            "threshold": -10
+          },
+          {
+            "height_difference": 5,
+            "indices": [
+              0,
+              23
+            ],
+            "odd_offset": 425,
+            "scaled_image_difference": {
+              "denominator": 4,
+              "numerator": -77
+            },
+            "threshold": -616
+          },
+          {
+            "height_difference": 4,
+            "indices": [
+              38,
+              23
+            ],
+            "odd_offset": 153,
+            "scaled_image_difference": {
+              "denominator": 4,
+              "numerator": -57
+            },
+            "threshold": -456
+          },
+          {
+            "height_difference": 1,
+            "indices": [
+              8,
+              35
+            ],
+            "odd_offset": 7,
+            "scaled_image_difference": {
+              "denominator": 1,
+              "numerator": -5
+            },
+            "threshold": -40
+          },
+          {
+            "height_difference": 5,
+            "indices": [
+              5,
+              20
+            ],
+            "odd_offset": 157,
+            "scaled_image_difference": {
+              "denominator": 16,
+              "numerator": -355
+            },
+            "threshold": -1420
+          }
+        ],
+        "heights": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          2,
+          2,
+          3,
+          4,
+          4,
+          5,
+          5,
+          5,
+          5,
+          6,
+          7,
+          5,
+          6,
+          5,
+          5,
+          5,
+          3,
+          4,
+          4,
+          4,
+          3,
+          2,
+          3,
+          3,
+          4,
+          4,
+          2,
+          3,
+          2,
+          1,
+          1,
+          1,
+          0
+        ],
+        "inversion_height_histogram": {
+          "1": 4,
+          "2": 2,
+          "3": 5,
+          "4": 5,
+          "5": 5
+        },
+        "m": 41,
+        "mantissas": [
+          {
+            "denominator": 1,
+            "numerator": 235
+          },
+          {
+            "denominator": 1,
+            "numerator": 383
+          },
+          {
+            "denominator": 2,
+            "numerator": 605
+          },
+          {
+            "denominator": 1,
+            "numerator": 469
+          },
+          {
+            "denominator": 1,
+            "numerator": 367
+          },
+          {
+            "denominator": 2,
+            "numerator": 581
+          },
+          {
+            "denominator": 1,
+            "numerator": 451
+          },
+          {
+            "denominator": 2,
+            "numerator": 707
+          },
+          {
+            "denominator": 4,
+            "numerator": 1091
+          },
+          {
+            "denominator": 4,
+            "numerator": 1667
+          },
+          {
+            "denominator": 8,
+            "numerator": 2531
+          },
+          {
+            "denominator": 16,
+            "numerator": 3827
+          },
+          {
+            "denominator": 16,
+            "numerator": 5771
+          },
+          {
+            "denominator": 32,
+            "numerator": 8687
+          },
+          {
+            "denominator": 32,
+            "numerator": 13061
+          },
+          {
+            "denominator": 32,
+            "numerator": 9811
+          },
+          {
+            "denominator": 32,
+            "numerator": 14747
+          },
+          {
+            "denominator": 64,
+            "numerator": 22151
+          },
+          {
+            "denominator": 128,
+            "numerator": 33257
+          },
+          {
+            "denominator": 32,
+            "numerator": 12479
+          },
+          {
+            "denominator": 64,
+            "numerator": 18749
+          },
+          {
+            "denominator": 32,
+            "numerator": 14077
+          },
+          {
+            "denominator": 32,
+            "numerator": 10573
+          },
+          {
+            "denominator": 32,
+            "numerator": 7945
+          },
+          {
+            "denominator": 8,
+            "numerator": 2987
+          },
+          {
+            "denominator": 16,
+            "numerator": 4511
+          },
+          {
+            "denominator": 16,
+            "numerator": 6797
+          },
+          {
+            "denominator": 16,
+            "numerator": 5113
+          },
+          {
+            "denominator": 8,
+            "numerator": 1925
+          },
+          {
+            "denominator": 4,
+            "numerator": 1459
+          },
+          {
+            "denominator": 8,
+            "numerator": 2219
+          },
+          {
+            "denominator": 8,
+            "numerator": 3359
+          },
+          {
+            "denominator": 16,
+            "numerator": 5069
+          },
+          {
+            "denominator": 16,
+            "numerator": 3817
+          },
+          {
+            "denominator": 4,
+            "numerator": 1439
+          },
+          {
+            "denominator": 8,
+            "numerator": 2189
+          },
+          {
+            "denominator": 4,
+            "numerator": 1657
+          },
+          {
+            "denominator": 2,
+            "numerator": 629
+          },
+          {
+            "denominator": 2,
+            "numerator": 487
+          },
+          {
+            "denominator": 2,
+            "numerator": 761
+          },
+          {
+            "denominator": 1,
+            "numerator": 293
+          }
+        ],
+        "maximum_minimum_ratio": {
+          "denominator": 235,
+          "numerator": 33257
+        },
+        "minimum_numerator": 235,
+        "narrow": false,
+        "normalized_exponents": [
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          1,
+          2,
+          2
+        ],
+        "normalized_exponents_are_1_or_2": true,
+        "normalized_mechanical_offset": null,
+        "original_mechanical_offset": null,
+        "pair_counts": {
+          "equal_scaled_images": 0,
+          "height_increase_pair_identity_checks": 332,
+          "inverted_pairs": 21,
+          "nonincreasing_height_order_checks": 488,
+          "pairs": 820
+        },
+        "primitive_states": [
+          235,
+          383,
+          605,
+          469,
+          367,
+          581,
+          451,
+          707,
+          1091,
+          1667,
+          2531,
+          3827,
+          5771,
+          8687,
+          13061,
+          9811,
+          14747,
+          22151,
+          33257,
+          12479,
+          18749,
+          14077,
+          10573,
+          7945,
+          2987,
+          4511,
+          6797,
+          5113,
+          1925,
+          1459,
+          2219,
+          3359,
+          5069,
+          3817,
+          1439,
+          2189,
+          1657,
+          629,
+          487,
+          761,
+          293
+        ],
+        "rank_shift": null,
+        "scaled_images": [
+          {
+            "denominator": 1,
+            "numerator": 766
+          },
+          {
+            "denominator": 1,
+            "numerator": 1210
+          },
+          {
+            "denominator": 1,
+            "numerator": 938
+          },
+          {
+            "denominator": 1,
+            "numerator": 1468
+          },
+          {
+            "denominator": 1,
+            "numerator": 1162
+          },
+          {
+            "denominator": 1,
+            "numerator": 902
+          },
+          {
+            "denominator": 1,
+            "numerator": 1414
+          },
+          {
+            "denominator": 1,
+            "numerator": 1091
+          },
+          {
+            "denominator": 2,
+            "numerator": 1667
+          },
+          {
+            "denominator": 2,
+            "numerator": 2531
+          },
+          {
+            "denominator": 4,
+            "numerator": 3827
+          },
+          {
+            "denominator": 8,
+            "numerator": 5771
+          },
+          {
+            "denominator": 8,
+            "numerator": 8687
+          },
+          {
+            "denominator": 16,
+            "numerator": 13061
+          },
+          {
+            "denominator": 8,
+            "numerator": 9811
+          },
+          {
+            "denominator": 16,
+            "numerator": 14747
+          },
+          {
+            "denominator": 16,
+            "numerator": 22151
+          },
+          {
+            "denominator": 32,
+            "numerator": 33257
+          },
+          {
+            "denominator": 16,
+            "numerator": 12479
+          },
+          {
+            "denominator": 16,
+            "numerator": 18749
+          },
+          {
+            "denominator": 16,
+            "numerator": 14077
+          },
+          {
+            "denominator": 8,
+            "numerator": 10573
+          },
+          {
+            "denominator": 8,
+            "numerator": 7945
+          },
+          {
+            "denominator": 4,
+            "numerator": 2987
+          },
+          {
+            "denominator": 4,
+            "numerator": 4511
+          },
+          {
+            "denominator": 8,
+            "numerator": 6797
+          },
+          {
+            "denominator": 4,
+            "numerator": 5113
+          },
+          {
+            "denominator": 2,
+            "numerator": 1925
+          },
+          {
+            "denominator": 2,
+            "numerator": 1459
+          },
+          {
+            "denominator": 2,
+            "numerator": 2219
+          },
+          {
+            "denominator": 4,
+            "numerator": 3359
+          },
+          {
+            "denominator": 4,
+            "numerator": 5069
+          },
+          {
+            "denominator": 4,
+            "numerator": 3817
+          },
+          {
+            "denominator": 2,
+            "numerator": 1439
+          },
+          {
+            "denominator": 2,
+            "numerator": 2189
+          },
+          {
+            "denominator": 2,
+            "numerator": 1657
+          },
+          {
+            "denominator": 1,
+            "numerator": 1258
+          },
+          {
+            "denominator": 1,
+            "numerator": 974
+          },
+          {
+            "denominator": 1,
+            "numerator": 761
+          },
+          {
+            "denominator": 1,
+            "numerator": 1172
+          },
+          {
+            "denominator": 1,
+            "numerator": 940
+          }
+        ],
+        "sorted_indices": [
+          0,
+          33,
+          11,
+          28,
+          38,
+          23,
+          18,
+          13,
+          8,
+          35,
+          30,
+          25,
+          5,
+          20,
+          40,
+          2,
+          15,
+          37,
+          10,
+          32,
+          27,
+          22,
+          17,
+          7,
+          34,
+          12,
+          29,
+          4,
+          24,
+          39,
+          1,
+          19,
+          14,
+          36,
+          9,
+          31,
+          26,
+          21,
+          6,
+          16,
+          3
+        ],
+        "source_instances": [
+          {
+            "actual_d": 61,
+            "actual_minimum": 235,
+            "scale": 1
+          },
+          {
+            "actual_d": 305,
+            "actual_minimum": 1175,
+            "scale": 5
+          },
+          {
+            "actual_d": 427,
+            "actual_minimum": 1645,
+            "scale": 7
+          },
+          {
+            "actual_d": 671,
+            "actual_minimum": 2585,
+            "scale": 11
+          },
+          {
+            "actual_d": 793,
+            "actual_minimum": 3055,
+            "scale": 13
+          }
+        ],
+        "successor_is_rank_rotation": false,
+        "successor_ranks": [
+          30,
+          24,
+          25,
+          26,
+          29,
+          28,
+          31,
+          32,
+          34,
+          33,
+          35,
+          36,
+          38,
+          37,
+          0,
+          40,
+          39,
+          4,
+          2,
+          1,
+          3,
+          5,
+          6,
+          8,
+          9,
+          7,
+          10,
+          12,
+          11,
+          14,
+          15,
+          13,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          23,
+          22,
+          27
+        ],
+        "word": [
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          3,
+          1,
+          2,
+          2,
+          2,
+          3,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          2,
+          1,
+          3,
+          2
+        ]
+      }
+    }
+  ],
+  "fixture_ids_checked": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "generated_words": {
+    "counts": {
+      "F_is_strictly_increasing": 848,
+      "F_span_less_than2": 9270,
+      "L_ge_denominator": 842,
+      "L_ge_q_rank_rotation_with_inversion": 0,
+      "cycles": 21298,
+      "denominator1_cycles": 1,
+      "equal_scaled_images": 0,
+      "fixed_cycles": 3,
+      "gcd_greater_than1": 1959,
+      "height_increase_pair_identity_checks": 171637,
+      "inverted_cycles": 20450,
+      "inverted_pairs": 150149,
+      "narrow": 220,
+      "negative_D_skipped": 451,
+      "nonincreasing_height_order_checks": 236260,
+      "nontrivial_cycles": 21295,
+      "normalized_exponents_are_1_or_2": 2703,
+      "normalized_mechanical": 8112,
+      "original_mechanical": 220,
+      "pairs": 407897,
+      "positive_words": 21393,
+      "primitive_displayed_words": 21298,
+      "proper_power_words": 95,
+      "rank_rotation_with_inversion": 1273,
+      "raw_arrows": 142164,
+      "realization_raw_arrows": 142687,
+      "successor_is_rank_rotation": 2121,
+      "wide_cycles": 21078,
+      "wide_monotone_images": 628,
+      "wide_monotone_with_gcd_greater_than1": 28,
+      "wide_rank_rotations": 1901,
+      "words": 21844
+    },
+    "domain": {
+      "lengths": [
+        1,
+        7
+      ],
+      "valuations": [
+        1,
+        4
+      ]
+    },
+    "examples": {
+      "monotone_with_cancellation": {
+        "A": 12,
+        "C": 3611,
+        "D": 1909,
+        "F_is_strictly_increasing": true,
+        "F_span_less_than2": true,
+        "L_ge_denominator": true,
+        "all_pairs_sha256": "259da1dea659e3d8ae3d2a1f4f4f5c3e629f3c02502a45f5295978124d6cb022",
+        "circular_successor_descents": 1,
+        "common_rotation_gcd": 23,
+        "denominator": 83,
+        "first_inversions": [],
+        "heights": [
+          0,
+          0,
+          1,
+          2,
+          0,
+          0,
+          1
+        ],
+        "inversion_height_histogram": {},
+        "m": 7,
+        "mantissas": [
+          {
+            "denominator": 1,
+            "numerator": 157
+          },
+          {
+            "denominator": 1,
+            "numerator": 277
+          },
+          {
+            "denominator": 2,
+            "numerator": 457
+          },
+          {
+            "denominator": 4,
+            "numerator": 727
+          },
+          {
+            "denominator": 1,
+            "numerator": 283
+          },
+          {
+            "denominator": 1,
+            "numerator": 233
+          },
+          {
+            "denominator": 2,
+            "numerator": 391
+          }
+        ],
+        "maximum_minimum_ratio": {
+          "denominator": 157,
+          "numerator": 727
+        },
+        "minimum_numerator": 157,
+        "narrow": false,
+        "normalized_exponents": [
+          1,
+          2,
+          2,
+          1,
+          2,
+          2,
+          2
+        ],
+        "normalized_exponents_are_1_or_2": true,
+        "normalized_mechanical_offset": 0,
+        "original_mechanical_offset": null,
+        "pair_counts": {
+          "equal_scaled_images": 0,
+          "height_increase_pair_identity_checks": 3,
+          "nonincreasing_height_order_checks": 18,
+          "pairs": 21
+        },
+        "primitive_states": [
+          157,
+          277,
+          457,
+          727,
+          283,
+          233,
+          391
+        ],
+        "rank_shift": 5,
+        "scaled_images": [
+          {
+            "denominator": 1,
+            "numerator": 554
+          },
+          {
+            "denominator": 1,
+            "numerator": 914
+          },
+          {
+            "denominator": 1,
+            "numerator": 727
+          },
+          {
+            "denominator": 1,
+            "numerator": 566
+          },
+          {
+            "denominator": 1,
+            "numerator": 932
+          },
+          {
+            "denominator": 1,
+            "numerator": 782
+          },
+          {
+            "denominator": 1,
+            "numerator": 628
+          }
+        ],
+        "sorted_indices": [
+          0,
+          3,
+          6,
+          2,
+          5,
+          1,
+          4
+        ],
+        "successor_is_rank_rotation": true,
+        "successor_ranks": [
+          5,
+          6,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "word": [
+          1,
+          1,
+          1,
+          3,
+          2,
+          1,
+          3
+        ]
+      },
+      "two_band_monotone_with_cancellation": {
+        "A": 13,
+        "C": 6115,
+        "D": 6005,
+        "F_is_strictly_increasing": true,
+        "F_span_less_than2": true,
+        "L_ge_denominator": true,
+        "all_pairs_sha256": "cef29c8739a0eea93a6def82395cb8d8b34631c5bc69654e512a1c1c8cce26b8",
+        "circular_successor_descents": 1,
+        "common_rotation_gcd": 5,
+        "denominator": 1201,
+        "first_inversions": [],
+        "heights": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "inversion_height_histogram": {},
+        "m": 7,
+        "mantissas": [
+          {
+            "denominator": 1,
+            "numerator": 1223
+          },
+          {
+            "denominator": 1,
+            "numerator": 2435
+          },
+          {
+            "denominator": 2,
+            "numerator": 4253
+          },
+          {
+            "denominator": 1,
+            "numerator": 1745
+          },
+          {
+            "denominator": 1,
+            "numerator": 1609
+          },
+          {
+            "denominator": 1,
+            "numerator": 1507
+          },
+          {
+            "denominator": 2,
+            "numerator": 2861
+          }
+        ],
+        "maximum_minimum_ratio": {
+          "denominator": 1223,
+          "numerator": 4253
+        },
+        "minimum_numerator": 1223,
+        "narrow": false,
+        "normalized_exponents": [
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "normalized_exponents_are_1_or_2": true,
+        "normalized_mechanical_offset": 0,
+        "original_mechanical_offset": null,
+        "pair_counts": {
+          "equal_scaled_images": 0,
+          "height_increase_pair_identity_checks": 5,
+          "nonincreasing_height_order_checks": 16,
+          "pairs": 21
+        },
+        "primitive_states": [
+          1223,
+          2435,
+          4253,
+          1745,
+          1609,
+          1507,
+          2861
+        ],
+        "rank_shift": 6,
+        "scaled_images": [
+          {
+            "denominator": 1,
+            "numerator": 4870
+          },
+          {
+            "denominator": 1,
+            "numerator": 8506
+          },
+          {
+            "denominator": 1,
+            "numerator": 6980
+          },
+          {
+            "denominator": 1,
+            "numerator": 6436
+          },
+          {
+            "denominator": 1,
+            "numerator": 6028
+          },
+          {
+            "denominator": 1,
+            "numerator": 5722
+          },
+          {
+            "denominator": 1,
+            "numerator": 4892
+          }
+        ],
+        "sorted_indices": [
+          0,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1
+        ],
+        "successor_is_rank_rotation": true,
+        "successor_ranks": [
+          6,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "word": [
+          1,
+          1,
+          3,
+          2,
+          2,
+          1,
+          3
+        ]
+      }
+    },
+    "monotone_cancellation_max_height_histogram": {
+      "1": 21,
+      "2": 7
+    },
+    "scope": "All displayed positive words are realized exactly; repeated words are counted and excluded from simple-cycle order tests. Primitive rotations are counted separately in this generated grid, unlike the deduplicated actual census.",
+    "verification_sha256": "35175d927501cce52f787145badcb6c43c691de28b00ab1bf500518384b68d39"
+  },
+  "inversion_height_histogram": {
+    "1": 31564,
+    "10": 1046,
+    "11": 565,
+    "12": 271,
+    "13": 96,
+    "14": 51,
+    "15": 24,
+    "16": 8,
+    "17": 5,
+    "2": 37173,
+    "3": 31925,
+    "4": 22755,
+    "5": 15199,
+    "6": 9512,
+    "7": 5672,
+    "8": 3370,
+    "9": 1977
+  },
+  "monotone_cancellation_max_height_histogram": {
+    "1": 4,
+    "2": 7,
+    "3": 11,
+    "4": 3,
+    "9": 1
+  },
+  "named_obstructions": {
+    "L_ge_q_inversion": {
+      "A": 14,
+      "C": 11609,
+      "D": 9823,
+      "F_is_strictly_increasing": false,
+      "F_span_less_than2": true,
+      "L_ge_denominator": true,
+      "all_pairs_sha256": "5994d110f2cd905c4f7d9accdbaee56b79abd9bec679c7eb1e18017161055254",
+      "circular_successor_descents": 2,
+      "common_rotation_gcd": 893,
+      "denominator": 11,
+      "first_inversions": [
+        {
+          "height_difference": 1,
+          "indices": [
+            0,
+            4
+          ],
+          "odd_offset": 3,
+          "scaled_image_difference": {
+            "denominator": 1,
+            "numerator": -1
+          },
+          "threshold": -2
+        }
+      ],
+      "heights": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "inversion_height_histogram": {
+        "1": 1
+      },
+      "m": 8,
+      "mantissas": [
+        {
+          "denominator": 1,
+          "numerator": 13
+        },
+        {
+          "denominator": 1,
+          "numerator": 25
+        },
+        {
+          "denominator": 2,
+          "numerator": 43
+        },
+        {
+          "denominator": 2,
+          "numerator": 35
+        },
+        {
+          "denominator": 2,
+          "numerator": 29
+        },
+        {
+          "denominator": 2,
+          "numerator": 49
+        },
+        {
+          "denominator": 4,
+          "numerator": 79
+        },
+        {
+          "denominator": 2,
+          "numerator": 31
+        }
+      ],
+      "maximum_minimum_ratio": {
+        "denominator": 13,
+        "numerator": 79
+      },
+      "minimum_numerator": 13,
+      "narrow": false,
+      "normalized_exponents": [
+        1,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "normalized_exponents_are_1_or_2": true,
+      "normalized_mechanical_offset": 0,
+      "original_mechanical_offset": null,
+      "pair_counts": {
+        "equal_scaled_images": 0,
+        "height_increase_pair_identity_checks": 9,
+        "inverted_pairs": 1,
+        "nonincreasing_height_order_checks": 19,
+        "pairs": 28
+      },
+      "primitive_states": [
+        13,
+        25,
+        43,
+        35,
+        29,
+        49,
+        79,
+        31
+      ],
+      "rank_shift": null,
+      "scaled_images": [
+        {
+          "denominator": 1,
+          "numerator": 50
+        },
+        {
+          "denominator": 1,
+          "numerator": 86
+        },
+        {
+          "denominator": 1,
+          "numerator": 70
+        },
+        {
+          "denominator": 1,
+          "numerator": 58
+        },
+        {
+          "denominator": 1,
+          "numerator": 49
+        },
+        {
+          "denominator": 1,
+          "numerator": 79
+        },
+        {
+          "denominator": 1,
+          "numerator": 62
+        },
+        {
+          "denominator": 1,
+          "numerator": 52
+        }
+      ],
+      "sorted_indices": [
+        0,
+        4,
+        7,
+        3,
+        6,
+        2,
+        5,
+        1
+      ],
+      "source_instances": [
+        {
+          "actual_d": 11,
+          "actual_minimum": 13,
+          "scale": 1
+        },
+        {
+          "actual_d": 55,
+          "actual_minimum": 65,
+          "scale": 5
+        },
+        {
+          "actual_d": 77,
+          "actual_minimum": 91,
+          "scale": 7
+        },
+        {
+          "actual_d": 121,
+          "actual_minimum": 143,
+          "scale": 11
+        },
+        {
+          "actual_d": 143,
+          "actual_minimum": 169,
+          "scale": 13
+        },
+        {
+          "actual_d": 187,
+          "actual_minimum": 221,
+          "scale": 17
+        },
+        {
+          "actual_d": 209,
+          "actual_minimum": 247,
+          "scale": 19
+        },
+        {
+          "actual_d": 253,
+          "actual_minimum": 299,
+          "scale": 23
+        },
+        {
+          "actual_d": 275,
+          "actual_minimum": 325,
+          "scale": 25
+        },
+        {
+          "actual_d": 319,
+          "actual_minimum": 377,
+          "scale": 29
+        },
+        {
+          "actual_d": 341,
+          "actual_minimum": 403,
+          "scale": 31
+        },
+        {
+          "actual_d": 385,
+          "actual_minimum": 455,
+          "scale": 35
+        },
+        {
+          "actual_d": 407,
+          "actual_minimum": 481,
+          "scale": 37
+        },
+        {
+          "actual_d": 451,
+          "actual_minimum": 533,
+          "scale": 41
+        },
+        {
+          "actual_d": 473,
+          "actual_minimum": 559,
+          "scale": 43
+        },
+        {
+          "actual_d": 517,
+          "actual_minimum": 611,
+          "scale": 47
+        },
+        {
+          "actual_d": 539,
+          "actual_minimum": 637,
+          "scale": 49
+        },
+        {
+          "actual_d": 583,
+          "actual_minimum": 689,
+          "scale": 53
+        },
+        {
+          "actual_d": 605,
+          "actual_minimum": 715,
+          "scale": 55
+        },
+        {
+          "actual_d": 649,
+          "actual_minimum": 767,
+          "scale": 59
+        },
+        {
+          "actual_d": 671,
+          "actual_minimum": 793,
+          "scale": 61
+        },
+        {
+          "actual_d": 715,
+          "actual_minimum": 845,
+          "scale": 65
+        },
+        {
+          "actual_d": 737,
+          "actual_minimum": 871,
+          "scale": 67
+        },
+        {
+          "actual_d": 781,
+          "actual_minimum": 923,
+          "scale": 71
+        },
+        {
+          "actual_d": 803,
+          "actual_minimum": 949,
+          "scale": 73
+        },
+        {
+          "actual_d": 847,
+          "actual_minimum": 1001,
+          "scale": 77
+        },
+        {
+          "actual_d": 869,
+          "actual_minimum": 1027,
+          "scale": 79
+        },
+        {
+          "actual_d": 913,
+          "actual_minimum": 1079,
+          "scale": 83
+        },
+        {
+          "actual_d": 935,
+          "actual_minimum": 1105,
+          "scale": 85
+        },
+        {
+          "actual_d": 979,
+          "actual_minimum": 1157,
+          "scale": 89
+        }
+      ],
+      "successor_is_rank_rotation": false,
+      "successor_ranks": [
+        7,
+        6,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "word": [
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        3,
+        3
+      ]
+    },
+    "large_cancellation_with_monotone_images": {
+      "A": 27,
+      "C": 189900931,
+      "D": 5077565,
+      "F_is_strictly_increasing": true,
+      "F_span_less_than2": true,
+      "L_ge_denominator": true,
+      "all_pairs_sha256": "27a6496c46d7f86f42f3a79570ec39145ecb4832a89992a401a147ead2188595",
+      "circular_successor_descents": 1,
+      "common_rotation_gcd": 1015513,
+      "denominator": 5,
+      "first_inversions": [],
+      "heights": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        2,
+        2,
+        3
+      ],
+      "inversion_height_histogram": {},
+      "m": 17,
+      "mantissas": [
+        {
+          "denominator": 1,
+          "numerator": 187
+        },
+        {
+          "denominator": 1,
+          "numerator": 283
+        },
+        {
+          "denominator": 2,
+          "numerator": 427
+        },
+        {
+          "denominator": 2,
+          "numerator": 643
+        },
+        {
+          "denominator": 4,
+          "numerator": 967
+        },
+        {
+          "denominator": 4,
+          "numerator": 1453
+        },
+        {
+          "denominator": 4,
+          "numerator": 1091
+        },
+        {
+          "denominator": 8,
+          "numerator": 1639
+        },
+        {
+          "denominator": 8,
+          "numerator": 2461
+        },
+        {
+          "denominator": 8,
+          "numerator": 1847
+        },
+        {
+          "denominator": 8,
+          "numerator": 2773
+        },
+        {
+          "denominator": 8,
+          "numerator": 2081
+        },
+        {
+          "denominator": 4,
+          "numerator": 781
+        },
+        {
+          "denominator": 2,
+          "numerator": 587
+        },
+        {
+          "denominator": 4,
+          "numerator": 883
+        },
+        {
+          "denominator": 4,
+          "numerator": 1327
+        },
+        {
+          "denominator": 8,
+          "numerator": 1993
+        }
+      ],
+      "maximum_minimum_ratio": {
+        "denominator": 187,
+        "numerator": 2773
+      },
+      "minimum_numerator": 187,
+      "narrow": false,
+      "normalized_exponents": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "normalized_exponents_are_1_or_2": true,
+      "normalized_mechanical_offset": 0,
+      "original_mechanical_offset": null,
+      "pair_counts": {
+        "equal_scaled_images": 0,
+        "height_increase_pair_identity_checks": 56,
+        "nonincreasing_height_order_checks": 80,
+        "pairs": 136
+      },
+      "primitive_states": [
+        187,
+        283,
+        427,
+        643,
+        967,
+        1453,
+        1091,
+        1639,
+        2461,
+        1847,
+        2773,
+        2081,
+        781,
+        587,
+        883,
+        1327,
+        1993
+      ],
+      "rank_shift": 10,
+      "scaled_images": [
+        {
+          "denominator": 1,
+          "numerator": 566
+        },
+        {
+          "denominator": 1,
+          "numerator": 854
+        },
+        {
+          "denominator": 1,
+          "numerator": 643
+        },
+        {
+          "denominator": 1,
+          "numerator": 967
+        },
+        {
+          "denominator": 2,
+          "numerator": 1453
+        },
+        {
+          "denominator": 1,
+          "numerator": 1091
+        },
+        {
+          "denominator": 2,
+          "numerator": 1639
+        },
+        {
+          "denominator": 4,
+          "numerator": 2461
+        },
+        {
+          "denominator": 2,
+          "numerator": 1847
+        },
+        {
+          "denominator": 4,
+          "numerator": 2773
+        },
+        {
+          "denominator": 2,
+          "numerator": 2081
+        },
+        {
+          "denominator": 1,
+          "numerator": 781
+        },
+        {
+          "denominator": 1,
+          "numerator": 587
+        },
+        {
+          "denominator": 1,
+          "numerator": 883
+        },
+        {
+          "denominator": 2,
+          "numerator": 1327
+        },
+        {
+          "denominator": 2,
+          "numerator": 1993
+        },
+        {
+          "denominator": 1,
+          "numerator": 748
+        }
+      ],
+      "sorted_indices": [
+        0,
+        12,
+        7,
+        2,
+        14,
+        9,
+        4,
+        16,
+        11,
+        6,
+        1,
+        13,
+        8,
+        3,
+        15,
+        10,
+        5
+      ],
+      "source_instances": [
+        {
+          "actual_d": 5,
+          "actual_minimum": 187,
+          "scale": 1
+        },
+        {
+          "actual_d": 25,
+          "actual_minimum": 935,
+          "scale": 5
+        },
+        {
+          "actual_d": 35,
+          "actual_minimum": 1309,
+          "scale": 7
+        },
+        {
+          "actual_d": 55,
+          "actual_minimum": 2057,
+          "scale": 11
+        },
+        {
+          "actual_d": 65,
+          "actual_minimum": 2431,
+          "scale": 13
+        },
+        {
+          "actual_d": 85,
+          "actual_minimum": 3179,
+          "scale": 17
+        },
+        {
+          "actual_d": 95,
+          "actual_minimum": 3553,
+          "scale": 19
+        },
+        {
+          "actual_d": 115,
+          "actual_minimum": 4301,
+          "scale": 23
+        },
+        {
+          "actual_d": 125,
+          "actual_minimum": 4675,
+          "scale": 25
+        },
+        {
+          "actual_d": 145,
+          "actual_minimum": 5423,
+          "scale": 29
+        },
+        {
+          "actual_d": 155,
+          "actual_minimum": 5797,
+          "scale": 31
+        },
+        {
+          "actual_d": 175,
+          "actual_minimum": 6545,
+          "scale": 35
+        },
+        {
+          "actual_d": 185,
+          "actual_minimum": 6919,
+          "scale": 37
+        }
+      ],
+      "successor_is_rank_rotation": true,
+      "successor_ranks": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "word": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        2,
+        3,
+        2,
+        1,
+        1,
+        1,
+        5
+      ]
+    },
+    "rank_rotation_with_inversion": {
+      "A": 4,
+      "C": 5,
+      "D": 7,
+      "F_is_strictly_increasing": false,
+      "F_span_less_than2": true,
+      "L_ge_denominator": false,
+      "all_pairs_sha256": "3e6817addcbbdc7ef369f25ec28fff8114e99f330e6b3676628933f8c65217de",
+      "circular_successor_descents": 1,
+      "common_rotation_gcd": 1,
+      "denominator": 7,
+      "first_inversions": [
+        {
+          "height_difference": 1,
+          "indices": [
+            0,
+            1
+          ],
+          "odd_offset": 1,
+          "scaled_image_difference": {
+            "denominator": 1,
+            "numerator": -2
+          },
+          "threshold": -4
+        }
+      ],
+      "heights": [
+        0,
+        1
+      ],
+      "inversion_height_histogram": {
+        "1": 1
+      },
+      "m": 2,
+      "mantissas": [
+        {
+          "denominator": 1,
+          "numerator": 5
+        },
+        {
+          "denominator": 2,
+          "numerator": 11
+        }
+      ],
+      "maximum_minimum_ratio": {
+        "denominator": 5,
+        "numerator": 11
+      },
+      "minimum_numerator": 5,
+      "narrow": false,
+      "normalized_exponents": [
+        2,
+        2
+      ],
+      "normalized_exponents_are_1_or_2": true,
+      "normalized_mechanical_offset": 0,
+      "original_mechanical_offset": null,
+      "pair_counts": {
+        "equal_scaled_images": 0,
+        "height_increase_pair_identity_checks": 1,
+        "inverted_pairs": 1,
+        "pairs": 1
+      },
+      "primitive_states": [
+        5,
+        11
+      ],
+      "rank_shift": 1,
+      "scaled_images": [
+        {
+          "denominator": 1,
+          "numerator": 22
+        },
+        {
+          "denominator": 1,
+          "numerator": 20
+        }
+      ],
+      "sorted_indices": [
+        0,
+        1
+      ],
+      "source_instances": [
+        {
+          "actual_d": 7,
+          "actual_minimum": 5,
+          "scale": 1
+        },
+        {
+          "actual_d": 35,
+          "actual_minimum": 25,
+          "scale": 5
+        },
+        {
+          "actual_d": 49,
+          "actual_minimum": 35,
+          "scale": 7
+        },
+        {
+          "actual_d": 77,
+          "actual_minimum": 55,
+          "scale": 11
+        },
+        {
+          "actual_d": 91,
+          "actual_minimum": 65,
+          "scale": 13
+        },
+        {
+          "actual_d": 119,
+          "actual_minimum": 85,
+          "scale": 17
+        },
+        {
+          "actual_d": 133,
+          "actual_minimum": 95,
+          "scale": 19
+        },
+        {
+          "actual_d": 161,
+          "actual_minimum": 115,
+          "scale": 23
+        },
+        {
+          "actual_d": 175,
+          "actual_minimum": 125,
+          "scale": 25
+        },
+        {
+          "actual_d": 203,
+          "actual_minimum": 145,
+          "scale": 29
+        },
+        {
+          "actual_d": 217,
+          "actual_minimum": 155,
+          "scale": 31
+        },
+        {
+          "actual_d": 245,
+          "actual_minimum": 175,
+          "scale": 35
+        },
+        {
+          "actual_d": 259,
+          "actual_minimum": 185,
+          "scale": 37
+        },
+        {
+          "actual_d": 287,
+          "actual_minimum": 205,
+          "scale": 41
+        },
+        {
+          "actual_d": 301,
+          "actual_minimum": 215,
+          "scale": 43
+        },
+        {
+          "actual_d": 329,
+          "actual_minimum": 235,
+          "scale": 47
+        },
+        {
+          "actual_d": 343,
+          "actual_minimum": 245,
+          "scale": 49
+        },
+        {
+          "actual_d": 371,
+          "actual_minimum": 265,
+          "scale": 53
+        },
+        {
+          "actual_d": 385,
+          "actual_minimum": 275,
+          "scale": 55
+        },
+        {
+          "actual_d": 413,
+          "actual_minimum": 295,
+          "scale": 59
+        },
+        {
+          "actual_d": 427,
+          "actual_minimum": 305,
+          "scale": 61
+        },
+        {
+          "actual_d": 455,
+          "actual_minimum": 325,
+          "scale": 65
+        },
+        {
+          "actual_d": 469,
+          "actual_minimum": 335,
+          "scale": 67
+        },
+        {
+          "actual_d": 497,
+          "actual_minimum": 355,
+          "scale": 71
+        },
+        {
+          "actual_d": 511,
+          "actual_minimum": 365,
+          "scale": 73
+        },
+        {
+          "actual_d": 539,
+          "actual_minimum": 385,
+          "scale": 77
+        },
+        {
+          "actual_d": 553,
+          "actual_minimum": 395,
+          "scale": 79
+        },
+        {
+          "actual_d": 581,
+          "actual_minimum": 415,
+          "scale": 83
+        },
+        {
+          "actual_d": 595,
+          "actual_minimum": 425,
+          "scale": 85
+        },
+        {
+          "actual_d": 623,
+          "actual_minimum": 445,
+          "scale": 89
+        },
+        {
+          "actual_d": 637,
+          "actual_minimum": 455,
+          "scale": 91
+        },
+        {
+          "actual_d": 665,
+          "actual_minimum": 475,
+          "scale": 95
+        },
+        {
+          "actual_d": 679,
+          "actual_minimum": 485,
+          "scale": 97
+        },
+        {
+          "actual_d": 707,
+          "actual_minimum": 505,
+          "scale": 101
+        },
+        {
+          "actual_d": 721,
+          "actual_minimum": 515,
+          "scale": 103
+        },
+        {
+          "actual_d": 749,
+          "actual_minimum": 535,
+          "scale": 107
+        },
+        {
+          "actual_d": 763,
+          "actual_minimum": 545,
+          "scale": 109
+        },
+        {
+          "actual_d": 791,
+          "actual_minimum": 565,
+          "scale": 113
+        },
+        {
+          "actual_d": 805,
+          "actual_minimum": 575,
+          "scale": 115
+        },
+        {
+          "actual_d": 833,
+          "actual_minimum": 595,
+          "scale": 119
+        },
+        {
+          "actual_d": 847,
+          "actual_minimum": 605,
+          "scale": 121
+        },
+        {
+          "actual_d": 875,
+          "actual_minimum": 625,
+          "scale": 125
+        },
+        {
+          "actual_d": 889,
+          "actual_minimum": 635,
+          "scale": 127
+        },
+        {
+          "actual_d": 917,
+          "actual_minimum": 655,
+          "scale": 131
+        },
+        {
+          "actual_d": 931,
+          "actual_minimum": 665,
+          "scale": 133
+        },
+        {
+          "actual_d": 959,
+          "actual_minimum": 685,
+          "scale": 137
+        },
+        {
+          "actual_d": 973,
+          "actual_minimum": 695,
+          "scale": 139
+        }
+      ],
+      "successor_is_rank_rotation": true,
+      "successor_ranks": [
+        1,
+        0
+      ],
+      "word": [
+        1,
+        3
+      ]
+    },
+    "rank_rotation_with_inversion_period4": {
+      "A": 8,
+      "C": 65,
+      "D": 175,
+      "F_is_strictly_increasing": false,
+      "F_span_less_than2": true,
+      "L_ge_denominator": false,
+      "all_pairs_sha256": "0cb425741d41635aab0b3cc5d84065bc1dbcf0d7790cd646d2588e6dee739a11",
+      "circular_successor_descents": 1,
+      "common_rotation_gcd": 5,
+      "denominator": 35,
+      "first_inversions": [
+        {
+          "height_difference": 3,
+          "indices": [
+            0,
+            3
+          ],
+          "odd_offset": 23,
+          "scaled_image_difference": {
+            "denominator": 1,
+            "numerator": -22
+          },
+          "threshold": -176
+        },
+        {
+          "height_difference": 2,
+          "indices": [
+            0,
+            2
+          ],
+          "odd_offset": 21,
+          "scaled_image_difference": {
+            "denominator": 2,
+            "numerator": -21
+          },
+          "threshold": -42
+        },
+        {
+          "height_difference": 1,
+          "indices": [
+            0,
+            1
+          ],
+          "odd_offset": 11,
+          "scaled_image_difference": {
+            "denominator": 1,
+            "numerator": -1
+          },
+          "threshold": -2
+        }
+      ],
+      "heights": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "inversion_height_histogram": {
+        "1": 1,
+        "2": 1,
+        "3": 1
+      },
+      "m": 4,
+      "mantissas": [
+        {
+          "denominator": 1,
+          "numerator": 13
+        },
+        {
+          "denominator": 2,
+          "numerator": 37
+        },
+        {
+          "denominator": 4,
+          "numerator": 73
+        },
+        {
+          "denominator": 8,
+          "numerator": 127
+        }
+      ],
+      "maximum_minimum_ratio": {
+        "denominator": 13,
+        "numerator": 127
+      },
+      "minimum_numerator": 13,
+      "narrow": false,
+      "normalized_exponents": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "normalized_exponents_are_1_or_2": true,
+      "normalized_mechanical_offset": 0,
+      "original_mechanical_offset": null,
+      "pair_counts": {
+        "equal_scaled_images": 0,
+        "height_increase_pair_identity_checks": 3,
+        "inverted_pairs": 3,
+        "nonincreasing_height_order_checks": 3,
+        "pairs": 6
+      },
+      "primitive_states": [
+        13,
+        37,
+        73,
+        127
+      ],
+      "rank_shift": 3,
+      "scaled_images": [
+        {
+          "denominator": 1,
+          "numerator": 74
+        },
+        {
+          "denominator": 1,
+          "numerator": 73
+        },
+        {
+          "denominator": 2,
+          "numerator": 127
+        },
+        {
+          "denominator": 1,
+          "numerator": 52
+        }
+      ],
+      "sorted_indices": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "source_instances": [
+        {
+          "actual_d": 35,
+          "actual_minimum": 13,
+          "scale": 1
+        },
+        {
+          "actual_d": 175,
+          "actual_minimum": 65,
+          "scale": 5
+        },
+        {
+          "actual_d": 245,
+          "actual_minimum": 91,
+          "scale": 7
+        },
+        {
+          "actual_d": 385,
+          "actual_minimum": 143,
+          "scale": 11
+        },
+        {
+          "actual_d": 455,
+          "actual_minimum": 169,
+          "scale": 13
+        },
+        {
+          "actual_d": 595,
+          "actual_minimum": 221,
+          "scale": 17
+        },
+        {
+          "actual_d": 665,
+          "actual_minimum": 247,
+          "scale": 19
+        },
+        {
+          "actual_d": 805,
+          "actual_minimum": 299,
+          "scale": 23
+        },
+        {
+          "actual_d": 875,
+          "actual_minimum": 325,
+          "scale": 25
+        }
+      ],
+      "successor_is_rank_rotation": true,
+      "successor_ranks": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "word": [
+        1,
+        1,
+        1,
+        5
+      ]
+    },
+    "shortest_actual_monotone_cancellation": {
+      "A": 12,
+      "C": 3611,
+      "D": 1909,
+      "F_is_strictly_increasing": true,
+      "F_span_less_than2": true,
+      "L_ge_denominator": true,
+      "all_pairs_sha256": "259da1dea659e3d8ae3d2a1f4f4f5c3e629f3c02502a45f5295978124d6cb022",
+      "circular_successor_descents": 1,
+      "common_rotation_gcd": 23,
+      "denominator": 83,
+      "first_inversions": [],
+      "heights": [
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "inversion_height_histogram": {},
+      "m": 7,
+      "mantissas": [
+        {
+          "denominator": 1,
+          "numerator": 157
+        },
+        {
+          "denominator": 1,
+          "numerator": 277
+        },
+        {
+          "denominator": 2,
+          "numerator": 457
+        },
+        {
+          "denominator": 4,
+          "numerator": 727
+        },
+        {
+          "denominator": 1,
+          "numerator": 283
+        },
+        {
+          "denominator": 1,
+          "numerator": 233
+        },
+        {
+          "denominator": 2,
+          "numerator": 391
+        }
+      ],
+      "maximum_minimum_ratio": {
+        "denominator": 157,
+        "numerator": 727
+      },
+      "minimum_numerator": 157,
+      "narrow": false,
+      "normalized_exponents": [
+        1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "normalized_exponents_are_1_or_2": true,
+      "normalized_mechanical_offset": 0,
+      "original_mechanical_offset": null,
+      "pair_counts": {
+        "equal_scaled_images": 0,
+        "height_increase_pair_identity_checks": 3,
+        "nonincreasing_height_order_checks": 18,
+        "pairs": 21
+      },
+      "primitive_states": [
+        157,
+        277,
+        457,
+        727,
+        283,
+        233,
+        391
+      ],
+      "rank_shift": 5,
+      "scaled_images": [
+        {
+          "denominator": 1,
+          "numerator": 554
+        },
+        {
+          "denominator": 1,
+          "numerator": 914
+        },
+        {
+          "denominator": 1,
+          "numerator": 727
+        },
+        {
+          "denominator": 1,
+          "numerator": 566
+        },
+        {
+          "denominator": 1,
+          "numerator": 932
+        },
+        {
+          "denominator": 1,
+          "numerator": 782
+        },
+        {
+          "denominator": 1,
+          "numerator": 628
+        }
+      ],
+      "sorted_indices": [
+        0,
+        3,
+        6,
+        2,
+        5,
+        1,
+        4
+      ],
+      "source_instances": [
+        {
+          "actual_d": 83,
+          "actual_minimum": 157,
+          "scale": 1
+        },
+        {
+          "actual_d": 415,
+          "actual_minimum": 785,
+          "scale": 5
+        },
+        {
+          "actual_d": 581,
+          "actual_minimum": 1099,
+          "scale": 7
+        },
+        {
+          "actual_d": 913,
+          "actual_minimum": 1727,
+          "scale": 11
+        }
+      ],
+      "successor_is_rank_rotation": true,
+      "successor_ranks": [
+        5,
+        6,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "word": [
+        1,
+        1,
+        1,
+        3,
+        2,
+        1,
+        3
+      ]
+    },
+    "two_band_monotone_cancellation": {
+      "A": 13,
+      "C": 10745,
+      "D": 1631,
+      "F_is_strictly_increasing": true,
+      "F_span_less_than2": true,
+      "L_ge_denominator": true,
+      "all_pairs_sha256": "b43e147f356881d3840b302fb21dbb59bdc1ddcf21b74940e624d03f7bf9eaef",
+      "circular_successor_descents": 1,
+      "common_rotation_gcd": 7,
+      "denominator": 233,
+      "first_inversions": [],
+      "heights": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "inversion_height_histogram": {},
+      "m": 8,
+      "mantissas": [
+        {
+          "denominator": 1,
+          "numerator": 1535
+        },
+        {
+          "denominator": 1,
+          "numerator": 2419
+        },
+        {
+          "denominator": 2,
+          "numerator": 3745
+        },
+        {
+          "denominator": 1,
+          "numerator": 2867
+        },
+        {
+          "denominator": 2,
+          "numerator": 4417
+        },
+        {
+          "denominator": 2,
+          "numerator": 3371
+        },
+        {
+          "denominator": 2,
+          "numerator": 5173
+        },
+        {
+          "denominator": 1,
+          "numerator": 1969
+        }
+      ],
+      "maximum_minimum_ratio": {
+        "denominator": 1535,
+        "numerator": 5173
+      },
+      "minimum_numerator": 1535,
+      "narrow": false,
+      "normalized_exponents": [
+        1,
+        2,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "normalized_exponents_are_1_or_2": true,
+      "normalized_mechanical_offset": 0,
+      "original_mechanical_offset": null,
+      "pair_counts": {
+        "equal_scaled_images": 0,
+        "height_increase_pair_identity_checks": 7,
+        "nonincreasing_height_order_checks": 21,
+        "pairs": 28
+      },
+      "primitive_states": [
+        1535,
+        2419,
+        3745,
+        2867,
+        4417,
+        3371,
+        5173,
+        1969
+      ],
+      "rank_shift": 5,
+      "scaled_images": [
+        {
+          "denominator": 1,
+          "numerator": 4838
+        },
+        {
+          "denominator": 1,
+          "numerator": 7490
+        },
+        {
+          "denominator": 1,
+          "numerator": 5734
+        },
+        {
+          "denominator": 1,
+          "numerator": 8834
+        },
+        {
+          "denominator": 1,
+          "numerator": 6742
+        },
+        {
+          "denominator": 1,
+          "numerator": 5173
+        },
+        {
+          "denominator": 1,
+          "numerator": 7876
+        },
+        {
+          "denominator": 1,
+          "numerator": 6140
+        }
+      ],
+      "sorted_indices": [
+        0,
+        5,
+        2,
+        7,
+        4,
+        1,
+        6,
+        3
+      ],
+      "source_instances": [
+        {
+          "actual_d": 233,
+          "actual_minimum": 1535,
+          "scale": 1
+        }
+      ],
+      "successor_is_rank_rotation": true,
+      "successor_ranks": [
+        5,
+        6,
+        7,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "word": [
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        3,
+        2
+      ]
+    },
+    "wide_mechanical_inheritance_failure": {
+      "A": 5,
+      "C": 19,
+      "D": 5,
+      "F_is_strictly_increasing": true,
+      "F_span_less_than2": true,
+      "L_ge_denominator": true,
+      "all_pairs_sha256": "1c51b545d8c9bcf992abe948e854f1c40e99a7bdbb3ef2d6b1a3c5336bab36fd",
+      "circular_successor_descents": 1,
+      "common_rotation_gcd": 1,
+      "denominator": 5,
+      "first_inversions": [],
+      "heights": [
+        0,
+        0,
+        1
+      ],
+      "inversion_height_histogram": {},
+      "m": 3,
+      "mantissas": [
+        {
+          "denominator": 1,
+          "numerator": 19
+        },
+        {
+          "denominator": 1,
+          "numerator": 31
+        },
+        {
+          "denominator": 2,
+          "numerator": 49
+        }
+      ],
+      "maximum_minimum_ratio": {
+        "denominator": 19,
+        "numerator": 49
+      },
+      "minimum_numerator": 19,
+      "narrow": false,
+      "normalized_exponents": [
+        1,
+        2,
+        2
+      ],
+      "normalized_exponents_are_1_or_2": true,
+      "normalized_mechanical_offset": 0,
+      "original_mechanical_offset": null,
+      "pair_counts": {
+        "equal_scaled_images": 0,
+        "height_increase_pair_identity_checks": 1,
+        "nonincreasing_height_order_checks": 2,
+        "pairs": 3
+      },
+      "primitive_states": [
+        19,
+        31,
+        49
+      ],
+      "rank_shift": 2,
+      "scaled_images": [
+        {
+          "denominator": 1,
+          "numerator": 62
+        },
+        {
+          "denominator": 1,
+          "numerator": 98
+        },
+        {
+          "denominator": 1,
+          "numerator": 76
+        }
+      ],
+      "sorted_indices": [
+        0,
+        2,
+        1
+      ],
+      "source_instances": [
+        {
+          "actual_d": 5,
+          "actual_minimum": 19,
+          "scale": 1
+        },
+        {
+          "actual_d": 25,
+          "actual_minimum": 95,
+          "scale": 5
+        },
+        {
+          "actual_d": 35,
+          "actual_minimum": 133,
+          "scale": 7
+        },
+        {
+          "actual_d": 55,
+          "actual_minimum": 209,
+          "scale": 11
+        },
+        {
+          "actual_d": 65,
+          "actual_minimum": 247,
+          "scale": 13
+        },
+        {
+          "actual_d": 85,
+          "actual_minimum": 323,
+          "scale": 17
+        },
+        {
+          "actual_d": 95,
+          "actual_minimum": 361,
+          "scale": 19
+        },
+        {
+          "actual_d": 115,
+          "actual_minimum": 437,
+          "scale": 23
+        },
+        {
+          "actual_d": 125,
+          "actual_minimum": 475,
+          "scale": 25
+        },
+        {
+          "actual_d": 145,
+          "actual_minimum": 551,
+          "scale": 29
+        },
+        {
+          "actual_d": 155,
+          "actual_minimum": 589,
+          "scale": 31
+        },
+        {
+          "actual_d": 175,
+          "actual_minimum": 665,
+          "scale": 35
+        },
+        {
+          "actual_d": 185,
+          "actual_minimum": 703,
+          "scale": 37
+        },
+        {
+          "actual_d": 205,
+          "actual_minimum": 779,
+          "scale": 41
+        },
+        {
+          "actual_d": 215,
+          "actual_minimum": 817,
+          "scale": 43
+        },
+        {
+          "actual_d": 235,
+          "actual_minimum": 893,
+          "scale": 47
+        },
+        {
+          "actual_d": 245,
+          "actual_minimum": 931,
+          "scale": 49
+        },
+        {
+          "actual_d": 265,
+          "actual_minimum": 1007,
+          "scale": 53
+        },
+        {
+          "actual_d": 275,
+          "actual_minimum": 1045,
+          "scale": 55
+        },
+        {
+          "actual_d": 295,
+          "actual_minimum": 1121,
+          "scale": 59
+        },
+        {
+          "actual_d": 305,
+          "actual_minimum": 1159,
+          "scale": 61
+        },
+        {
+          "actual_d": 325,
+          "actual_minimum": 1235,
+          "scale": 65
+        },
+        {
+          "actual_d": 335,
+          "actual_minimum": 1273,
+          "scale": 67
+        },
+        {
+          "actual_d": 355,
+          "actual_minimum": 1349,
+          "scale": 71
+        },
+        {
+          "actual_d": 365,
+          "actual_minimum": 1387,
+          "scale": 73
+        },
+        {
+          "actual_d": 385,
+          "actual_minimum": 1463,
+          "scale": 77
+        },
+        {
+          "actual_d": 395,
+          "actual_minimum": 1501,
+          "scale": 79
+        },
+        {
+          "actual_d": 415,
+          "actual_minimum": 1577,
+          "scale": 83
+        },
+        {
+          "actual_d": 425,
+          "actual_minimum": 1615,
+          "scale": 85
+        },
+        {
+          "actual_d": 445,
+          "actual_minimum": 1691,
+          "scale": 89
+        },
+        {
+          "actual_d": 455,
+          "actual_minimum": 1729,
+          "scale": 91
+        },
+        {
+          "actual_d": 475,
+          "actual_minimum": 1805,
+          "scale": 95
+        },
+        {
+          "actual_d": 485,
+          "actual_minimum": 1843,
+          "scale": 97
+        },
+        {
+          "actual_d": 505,
+          "actual_minimum": 1919,
+          "scale": 101
+        },
+        {
+          "actual_d": 515,
+          "actual_minimum": 1957,
+          "scale": 103
+        },
+        {
+          "actual_d": 535,
+          "actual_minimum": 2033,
+          "scale": 107
+        },
+        {
+          "actual_d": 545,
+          "actual_minimum": 2071,
+          "scale": 109
+        },
+        {
+          "actual_d": 565,
+          "actual_minimum": 2147,
+          "scale": 113
+        },
+        {
+          "actual_d": 575,
+          "actual_minimum": 2185,
+          "scale": 115
+        },
+        {
+          "actual_d": 595,
+          "actual_minimum": 2261,
+          "scale": 119
+        },
+        {
+          "actual_d": 605,
+          "actual_minimum": 2299,
+          "scale": 121
+        },
+        {
+          "actual_d": 625,
+          "actual_minimum": 2375,
+          "scale": 125
+        },
+        {
+          "actual_d": 635,
+          "actual_minimum": 2413,
+          "scale": 127
+        },
+        {
+          "actual_d": 655,
+          "actual_minimum": 2489,
+          "scale": 131
+        },
+        {
+          "actual_d": 665,
+          "actual_minimum": 2527,
+          "scale": 133
+        },
+        {
+          "actual_d": 685,
+          "actual_minimum": 2603,
+          "scale": 137
+        },
+        {
+          "actual_d": 695,
+          "actual_minimum": 2641,
+          "scale": 139
+        },
+        {
+          "actual_d": 715,
+          "actual_minimum": 2717,
+          "scale": 143
+        },
+        {
+          "actual_d": 725,
+          "actual_minimum": 2755,
+          "scale": 145
+        },
+        {
+          "actual_d": 745,
+          "actual_minimum": 2831,
+          "scale": 149
+        },
+        {
+          "actual_d": 755,
+          "actual_minimum": 2869,
+          "scale": 151
+        },
+        {
+          "actual_d": 775,
+          "actual_minimum": 2945,
+          "scale": 155
+        },
+        {
+          "actual_d": 785,
+          "actual_minimum": 2983,
+          "scale": 157
+        },
+        {
+          "actual_d": 805,
+          "actual_minimum": 3059,
+          "scale": 161
+        },
+        {
+          "actual_d": 815,
+          "actual_minimum": 3097,
+          "scale": 163
+        },
+        {
+          "actual_d": 835,
+          "actual_minimum": 3173,
+          "scale": 167
+        },
+        {
+          "actual_d": 845,
+          "actual_minimum": 3211,
+          "scale": 169
+        },
+        {
+          "actual_d": 865,
+          "actual_minimum": 3287,
+          "scale": 173
+        },
+        {
+          "actual_d": 875,
+          "actual_minimum": 3325,
+          "scale": 175
+        },
+        {
+          "actual_d": 895,
+          "actual_minimum": 3401,
+          "scale": 179
+        },
+        {
+          "actual_d": 905,
+          "actual_minimum": 3439,
+          "scale": 181
+        },
+        {
+          "actual_d": 925,
+          "actual_minimum": 3515,
+          "scale": 185
+        },
+        {
+          "actual_d": 935,
+          "actual_minimum": 3553,
+          "scale": 187
+        },
+        {
+          "actual_d": 955,
+          "actual_minimum": 3629,
+          "scale": 191
+        },
+        {
+          "actual_d": 965,
+          "actual_minimum": 3667,
+          "scale": 193
+        },
+        {
+          "actual_d": 985,
+          "actual_minimum": 3743,
+          "scale": 197
+        },
+        {
+          "actual_d": 995,
+          "actual_minimum": 3781,
+          "scale": 199
+        }
+      ],
+      "successor_is_rank_rotation": true,
+      "successor_ranks": [
+        2,
+        0,
+        1
+      ],
+      "word": [
+        1,
+        1,
+        3
+      ]
+    }
+  },
+  "narrow_full_period_discrepancy_control": {
+    "cycle": {
+      "A": 5,
+      "C": 7,
+      "D": 23,
+      "F_is_strictly_increasing": true,
+      "F_span_less_than2": true,
+      "L_ge_denominator": false,
+      "all_pairs_sha256": "0ebf8712c68b09ed36ad8222ee1bdf27f7167efa3a7edc9d020bdc0ae258f8a2",
+      "circular_successor_descents": 1,
+      "common_rotation_gcd": 1,
+      "denominator": 23,
+      "first_inversions": [],
+      "heights": [
+        0,
+        0
+      ],
+      "inversion_height_histogram": {},
+      "m": 2,
+      "mantissas": [
+        {
+          "denominator": 1,
+          "numerator": 7
+        },
+        {
+          "denominator": 1,
+          "numerator": 11
+        }
+      ],
+      "maximum_minimum_ratio": {
+        "denominator": 7,
+        "numerator": 11
+      },
+      "minimum_numerator": 7,
+      "narrow": true,
+      "normalized_exponents": [
+        2,
+        3
+      ],
+      "normalized_exponents_are_1_or_2": false,
+      "normalized_mechanical_offset": 0,
+      "original_mechanical_offset": 0,
+      "pair_counts": {
+        "equal_scaled_images": 0,
+        "nonincreasing_height_order_checks": 1,
+        "pairs": 1
+      },
+      "primitive_states": [
+        7,
+        11
+      ],
+      "rank_shift": 1,
+      "scaled_images": [
+        {
+          "denominator": 1,
+          "numerator": 44
+        },
+        {
+          "denominator": 1,
+          "numerator": 56
+        }
+      ],
+      "sorted_indices": [
+        0,
+        1
+      ],
+      "successor_is_rank_rotation": true,
+      "successor_ranks": [
+        1,
+        0
+      ],
+      "word": [
+        2,
+        3
+      ]
+    },
+    "exact_comparison": {
+      "left_2_to_A": 32,
+      "right_2_times_3_to_m": 18
+    },
+    "scope": "One period has length2; this does not discard the m/L term in a valid discrepancy estimate.",
+    "statement": "A-m*log_2(3)>1 over the complete odd period although H<2L."
+  },
+  "normalization": "Each actual cycle is reduced by its common odd scaling; normalized cycles are deduplicated by reduced denominator and the minimum-oriented numerator cycle. Mantissas z=n/2^h lie in [L,2L), with L=min n, and represent q times the rational mantissas.",
+  "normalized_counts": {
+    "F_is_strictly_increasing": 71,
+    "F_span_less_than2": 369,
+    "L_ge_denominator": 194,
+    "L_ge_q_rank_rotation_with_inversion": 0,
+    "cycles": 1184,
+    "denominator1_cycles": 1,
+    "equal_scaled_images": 0,
+    "fixed_cycles": 8,
+    "gcd_greater_than1": 1024,
+    "height_increase_pair_identity_checks": 290441,
+    "inverted_cycles": 1113,
+    "inverted_pairs": 161213,
+    "narrow": 19,
+    "nonincreasing_height_order_checks": 449316,
+    "nontrivial_cycles": 1176,
+    "normalized_exponents_are_1_or_2": 368,
+    "normalized_mechanical": 307,
+    "original_mechanical": 19,
+    "pairs": 739757,
+    "rank_rotation_with_inversion": 91,
+    "raw_arrows": 28790,
+    "successor_is_rank_rotation": 162,
+    "wide_cycles": 1165,
+    "wide_monotone_images": 52,
+    "wide_monotone_with_gcd_greater_than1": 26,
+    "wide_rank_rotations": 143
+  },
+  "pair_controls": {
+    "counts": {
+      "equal_images_same_successor": 36,
+      "pairs": 1424,
+      "unit_parameter_inversions": 128
+    },
+    "domain": {
+      "height_gap": [
+        1,
+        6
+      ],
+      "p_odd": [
+        1,
+        15
+      ],
+      "q": [
+        1,
+        5,
+        7,
+        13
+      ],
+      "r": "positive odd r<=15 and r<2^k*p"
+    },
+    "scope": "Pairs of actual odd inputs, not asserted to lie in one cycle. Equality pairs have the same odd successor and therefore cannot both be distinct states of a simple cycle. The q1 inversion restriction is exercised nonvacuously here.",
+    "unit_parameter_witnesses": {
+      "2": {
+        "height_difference": 2,
+        "image_difference": {
+          "denominator": 1,
+          "numerator": 0
+        },
+        "numerators": [
+          1,
+          5
+        ],
+        "odd_offset": 1,
+        "odd_successors": [
+          1,
+          1
+        ],
+        "q": 1
+      },
+      "3": {
+        "height_difference": 3,
+        "image_difference": {
+          "denominator": 2,
+          "numerator": -1
+        },
+        "numerators": [
+          1,
+          9
+        ],
+        "odd_offset": 1,
+        "odd_successors": [
+          1,
+          7
+        ],
+        "q": 1
+      }
+    },
+    "verification_sha256": "a99b5e0e4480f4ee1e9ad61d9c7d0d1d3604c62eee2004de1145146a64ce3fbc"
+  },
+  "schema": "C005-dyadic-order-v1",
+  "scope": "Every actual arrow and each distinct normalized pair is checked exactly. Full rows, source associations and pair audits enter deterministic digests. The actual sample and generated grid are finite; zero observed cases are not universal exclusions. q1 only has its fixed cycle in these cycle samples; separate input-pair controls exercise the q1 inversion threshold. Written arguments are separate from this receipt.",
+  "source_sha256": {
+    "C001/actual_cycles.json": "28d067d3f82585a3701616adce3b57cae994541c4ddd3b4859d2bcf2307e44f2",
+    "C001/scan_cycles.py": "32bf38b6ac5d9b592d4deba1cab4cfbf15598cb15d32275c134373853b06626f",
+    "check_order.py": "f2962db4f72ce66862f0a03ac14f04c0d7303108b7d48b4a5e83cc000c029218",
+    "phase6/cycle_fixtures.json": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+  },
+  "status": "Exact finite audit; wide monotone rank-rotation cycles can have large numerator cancellation."
+}

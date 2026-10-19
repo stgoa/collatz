@@ -1,0 +1,155 @@
+{
+  "baseline_commit": "61cf54ad52df1caa5cc250b0d1464432ed90b162",
+  "checked_at_utc": "2026-10-19T04:32:02.172853+00:00",
+  "delivery_boundary": "Commit and push occur after this receipt and are verified separately; this receipt is not a publication claim.",
+  "frozen_commit": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "historical_full_gate": {
+    "command": "python3 scripts/verify_all.py --cpp --transfer-controls",
+    "field_count": 119,
+    "independent_cpp": "PASS: 4096 and 262144",
+    "phase6_transfer_controls": "PASS: eleven exact raw cycles, eight nonprincipal controls, four fixed-d controls, fourteen d1 samples and fail-closed checks; setup label none",
+    "status": "PASS"
+  },
+  "markdown_checks": {
+    "errors": [],
+    "existing_local_links": 591,
+    "files": 16
+  },
+  "preservation": {
+    "R1_onward_ledger_body_byte_identical": true,
+    "earlier_cycle_trees": {
+      "C001": {
+        "files": 12,
+        "unchanged": true
+      },
+      "C002": {
+        "files": 10,
+        "unchanged": true
+      },
+      "C003": {
+        "files": 10,
+        "unchanged": true
+      },
+      "C004": {
+        "files": 10,
+        "unchanged": true
+      }
+    },
+    "files_byte_identical": [
+      "collatz_research_20261017/right_aligned_reduction.tex",
+      "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md",
+      "experiments/residual_progress/resolved_rules/resolved_rules.py"
+    ],
+    "git_diff_check": "PASS",
+    "tracked_changes_confined_to_current_docs": [
+      "AGENTS.md",
+      "README.md",
+      "VIEWPOINT_MAP.md",
+      "docs/CYCLE_SPECTRUM_BRIEF.md",
+      "docs/CYCLE_SPECTRUM_LOG.md",
+      "docs/RESEARCH_LOG.md",
+      "docs/RESULTS.md",
+      "docs/VIEWPOINT_LOG.md"
+    ]
+  },
+  "proof_scope": "Written and independently agent-reviewed. Arbitrary rotations of one common mechanical base are covered; general words remain open. No novelty or formal-verification claim.",
+  "publication_status": "Stage/commit/push not executed: automatic approval review failed because its selected model was at capacity. Batch saved locally.",
+  "remote_refresh": "Fetch not executed: automatic approval review failed because its model was at capacity. Later local tracking movement is assessed in SIDE_ADDENDUM.md.",
+  "reviewed_proof_sha256": "bf1048e6de6c90bbc477c34b061b73435afc0d61553fd6309c4595c1ef929a44",
+  "root_checker_replays": {
+    "actual_counts": {
+      "actual_cycles": 2459,
+      "actual_raw_arrows": 36912,
+      "scaled_raw_arrows": 36912
+    },
+    "high_family_counts": {
+      "at_least_three_distinct_phases": 0,
+      "boundary_checks": 120,
+      "concatenations": 20,
+      "denominator1_exceptions": 0,
+      "envelope_checks": 6192,
+      "mixed_phases": 20,
+      "nontrivial_cancellation": 8,
+      "primitive_words": 20,
+      "proper_powers": 0,
+      "raw_arrows": 6192,
+      "shortcut_arrows": 9876,
+      "shortcut_local_minima": 3684
+    },
+    "mechanical_blocks": "PASS, separate root process",
+    "normalized_counts": {
+      "F_is_strictly_increasing": 71,
+      "F_span_less_than2": 369,
+      "L_ge_denominator": 194,
+      "L_ge_q_rank_rotation_with_inversion": 0,
+      "cycles": 1184,
+      "denominator1_cycles": 1,
+      "equal_scaled_images": 0,
+      "fixed_cycles": 8,
+      "gcd_greater_than1": 1024,
+      "height_increase_pair_identity_checks": 290441,
+      "inverted_cycles": 1113,
+      "inverted_pairs": 161213,
+      "narrow": 19,
+      "nonincreasing_height_order_checks": 449316,
+      "nontrivial_cycles": 1176,
+      "normalized_exponents_are_1_or_2": 368,
+      "normalized_mechanical": 307,
+      "original_mechanical": 19,
+      "pairs": 739757,
+      "rank_rotation_with_inversion": 91,
+      "raw_arrows": 28790,
+      "successor_is_rank_rotation": 162,
+      "wide_cycles": 1165,
+      "wide_monotone_images": 52,
+      "wide_monotone_with_gcd_greater_than1": 26,
+      "wide_rank_rotations": 143
+    },
+    "order": "PASS, separate root process",
+    "phase_grid_counts": {
+      "at_least_three_distinct_phases": 7368,
+      "bases": 10,
+      "boundary_checks": 36700,
+      "concatenations": 9664,
+      "denominator1_exceptions": 0,
+      "envelope_checks": 227860,
+      "fixed_base_controls": 48,
+      "fixed_base_unit_controls": 8,
+      "mixed_phases": 9480,
+      "noncoprime_base_candidates_skipped": 8,
+      "nontrivial_cancellation": 2810,
+      "primitive_words": 9334,
+      "proper_powers": 330,
+      "raw_arrows": 227860
+    },
+    "receipt_status_fields_are_scope_descriptions": true
+  },
+  "side_review_pins": [
+    "67c691b93ddd3d07748f557c8a26f9883e37389b",
+    "2ea1c7f6e51e31b80d354b458d8fa121e4f6e8aa"
+  ],
+  "source_sha256": {
+    "AGENTS.md": "1eaa6f1aa559cca046c8247087dbba9df8541cdc423f74e728b670cb72bfbfe5",
+    "README.md": "de72b343ce0350991bd1482f88db1026885bced0c7b8fb751860f7c4c6974af3",
+    "VIEWPOINT_MAP.md": "8ece12c1a69862dc88a089e5095eaad254bbbc55fa6a81b9869036de370a3dfc",
+    "docs/CYCLE_SPECTRUM_BRIEF.md": "d7e32c8f1f70c617506ef5c55c0fe6b7e96b64395b29ddfade517ac1b45649c9",
+    "docs/CYCLE_SPECTRUM_LOG.md": "02fcad517e73dad2d530c2db6f7a670428e36efdf0e7fbfd72517e0de1f8277e",
+    "docs/RESEARCH_LOG.md": "4d0102d7987834e493267a56939aaebd798672c9bc86bb30086a49341dd83c6f",
+    "docs/RESULTS.md": "dcbd039a3f9edf34e452277f0519d1c15cceb9deca322549b8be6e6a45580b70",
+    "docs/VIEWPOINT_LOG.md": "25da2304dd14d8718cc4a4a7b88ab1981f915b1ef8a28568f2564742be5782b4",
+    "experiments/cycle_spectrum/C005/DELIVERY_STATUS.md": "8a018b8767d96d0202e71f8e1b352264a379dc0f03da2d81370098f6b3334578",
+    "experiments/cycle_spectrum/C005/INDEPENDENT_REVIEW.md": "38a2661b251962d7470d481706a505455deef7221350adc6a45cd95efd27df46",
+    "experiments/cycle_spectrum/C005/LITERATURE.md": "d1a246f0ce9e569fe5a6bb70e7b0637057eea64d922f3aa4167acfe12859d5e9",
+    "experiments/cycle_spectrum/C005/ORDER_THEORY.md": "bf1048e6de6c90bbc477c34b061b73435afc0d61553fd6309c4595c1ef929a44",
+    "experiments/cycle_spectrum/C005/REPORT.md": "d458dcd8b7b5cf98d2b8bc300756513b04b4bfd6a3b7f39a78a19e6e6d8d1428",
+    "experiments/cycle_spectrum/C005/ROOT_REVIEW.md": "571cd2be58f28a78832589a3c739733dc91f18555ae847829f81b89ecac5b8cd",
+    "experiments/cycle_spectrum/C005/SIDE_ADDENDUM.md": "0bc83ea9b2acb8f39ebfdee042cb755e657624c65823c47f482531997856c6b9",
+    "experiments/cycle_spectrum/C005/SIDE_REVIEW.md": "bb78d37dfabc993f043f9febed43c6e133043e2f0b4891ad20b210e82cb61e00",
+    "experiments/cycle_spectrum/C005/check_mechanical_blocks.py": "130480b0e845803336777e6e2d74734793c56243dc008f4858ef1e56547f8d7f",
+    "experiments/cycle_spectrum/C005/check_order.py": "f2962db4f72ce66862f0a03ac14f04c0d7303108b7d48b4a5e83cc000c029218",
+    "experiments/cycle_spectrum/C005/full_gate.json": "10a42beae3aec02a370ce90f6b5d2a8d2c307261646116868211b95d77fd6c2d",
+    "experiments/cycle_spectrum/C005/mechanical_blocks_audit.json": "0907cb701cc3f8687fd8d0f83531fae06b45473f9c203a958e178978364d19a3",
+    "experiments/cycle_spectrum/C005/order_audit.json": "e4470e2b6e6925bbd493c06bfecb66882a4d32d3948cde1445a74b180a5ede9e"
+  },
+  "status": "PASS"
+}

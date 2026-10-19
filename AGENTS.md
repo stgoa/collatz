@@ -86,10 +86,57 @@ assuming regularity of an actual bad set.
   large, even with H<2L; their denominators vary. Odd-lattice bounds are
   lower bounds on spacing, not the missing upper bounds. Retain the
   exact actual counterexamples and do not revive a height-only shortcut.
+- C005 proves that a primitive integer cycle with H<8L has coprime
+  totals (A,m). Dyadic heights are 0,1,2 in that range; the exact pair
+  numerator is 3r-q(2^k-1), with r positive odd. At q1 gaps k<=2
+  cannot invert; equality would give a common successor and is excluded
+  inside a simple cycle. This is not exclusion of all cycles below8L.
+- For q<=L, C005 proves circular normalized successor order iff the
+  scaled images F are increasing. Mechanical normalized exponents c
+  alone are weaker; original a=c+h_i-h_next retains height-dependent
+  intercept weights. The two-band q233 cycle has g7 and the q5
+  period17 cycle has g1015513 despite monotone F. Do not transfer
+  R71's exact denominator to a mechanical c-word.
+- C005 excludes q1 for arbitrary finite concatenations of rotations of
+  ONE primitive positive mechanical base, except base(2). Full blocks
+  contract toward the base interval; positive prefixes give H/L<=R^3<8.
+  Reduce to primitive period before the gcd(A,m) step; primitive period1
+  has gcd1 directly. The number/order of phases is unrestricted, but
+  arbitrary words need not admit this common base. This does not contain
+  all C002/C003 classes or prove bounded-denominator finiteness. The
+  six-phase prime-base family has unbounded minimum and shortcut local
+  minima; its scoped literature comparison is not a novelty or universal
+  numerical record claim.
 - The side lane's bounded-discrepancy estimate retains m/L and its
   window horizon. A ratio bound alone does not remove that term.
   Exclusion for every finite discrepancy ceiling (on one-period windows)
   would be the full cycle headline, not a smaller completion condition.
+
+- C006 uses primitive raw positive odd cycles with reduced q<=L and
+  circular normalized successor order. B is maximum dyadic height; J
+  counts adjacent sorted-height changes PLUS the seam. Keep the extension
+  eps_m=2eps_0. The integer-gap recurrence gives
+  q>(D/C_lower)2^(ceil(m/J)-1-B), strengthened by each actual zero-run
+  exponent sum E. Long runs give binary divisibility, not cancellation
+  independence. The product bound gives the separate factor3delta/m.
+- C006's effective fixed-q,J finiteness imports Bugeaud Thm1.1(1.2)
+  with logarithms2/3, coefficients A,-m, degree1 and A<2m. No numerical
+  cutoff is computed. Chronological heights rise by at most1, so all
+  heights0..B occur and B+1<=J. No separate B bound is needed. At fixedq,
+  J>=sqrt(m)-O_q(log m); fixedq,B gives J=Omega(m/log m). It leaves
+  finite exceptions and growing J; it does not prove bounded-denominator
+  finiteness without the J bound,
+  nor exclude all ordered q1 cycles. Its J is not a chronological
+  descent or shortcut local-minimum count.
+- The C006 mechanical-minimum/height-packing bound is valid without
+  order, so it is a comparison baseline. Retain the q1909 primitive
+  mechanical-normalization inversion, q233 single-height gcd7 and q13
+  all-pairs odd-gap15 controls. The q1 affine4,13,5 loop is invalid for
+  odd-only Collatz and must be rejected. B<=q-1 is only a tested candidate.
+- The proposed ordered-cycle q1 exclusion is an intermediate target
+  under the active all-cycle goal. Proposing it or proving fixed-q,B,J
+  finiteness does not replace or complete the headline. Reported Lean
+  C003/C004 units remain separate from main's independent replay.
 
 - Read `README.md`, the cycle brief, `docs/CYCLE_SPECTRUM_LOG.md`, the latest C-series report and relevant sources. `VIEWPOINT_MAP.md`, `docs/VIEWPOINT_LOG.md` and `ROUTE_MAP.md` preserve prior obligations and comparisons without restricting the active cycle programme.
 - Use bounded parallel investigations to test the selected mechanism. Do not substitute another language survey or dispatcher expansion for the cycle goal.
