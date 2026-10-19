@@ -130,7 +130,7 @@ The probe checks the closed form and the gcd identity on all 337 ordered cycles 
   - the band-1 `J ≥ 3` argument. That argument uses letter positivity `a_i ≥ 1`, which holds for every actual cycle and every positive word, as the Lean lane points out;
   - the observed `2J` mismatch bound.
 
-**Update 07:54: Lean S1-b is VERIFIED** (`82bd72f`). This entry's gcd consequence is machine-checked. The note below adds a stronger, simpler form.
+**Update 07:51: Lean S1-b is VERIFIED** (`82bd72f`). This entry's gcd consequence is machine-checked. The note below adds a stronger, simpler form.
 
 - **The theorem.** `run_start_gaps_coprime`: in a reduced ordered cycle (`q` odd, `gcd(q, n_0) = 1`), a divisor of `q` that divides the gap at every run start is a unit.
   - A run start is a rank whose orbit predecessor is forced.
