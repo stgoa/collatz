@@ -6,6 +6,13 @@
 'LeanLane.Cyc.gcd_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.gcd_periodic_totient' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.gcd_coprime_six' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.commutator_two_u' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.commutator_two_v' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.gcd_dvd_K_mul_gcd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.gcd_pow_sub_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.C_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.two_pow_mul_C_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.uniform_two_block' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.C_w' depends on axioms: [propext]
 'LeanLane.Cyc.D_w' depends on axioms: [propext]
 'LeanLane.Cyc.C_rep' depends on axioms: [propext]
@@ -23,12 +30,6 @@ LeanLane.Cyc.gcd_dvd_K : ∀ (u v : List ℕ) (k : ℕ),
     v ≠ [] →
       ↑((LeanLane.Cyc.C (LeanLane.Cyc.rep u k ++ v)).gcd (LeanLane.Cyc.D (LeanLane.Cyc.rep u k ++ v))) ∣
         LeanLane.Cyc.D u * LeanLane.Cyc.C v - LeanLane.Cyc.D v * LeanLane.Cyc.C u
-LeanLane.Cyc.gcd_le_natAbs_K : ∀ (u v : List ℕ) (k : ℕ),
-  (∀ a ∈ v, 1 ≤ a) →
-    v ≠ [] →
-      LeanLane.Cyc.D u * LeanLane.Cyc.C v - LeanLane.Cyc.D v * LeanLane.Cyc.C u ≠ 0 →
-        (LeanLane.Cyc.C (LeanLane.Cyc.rep u k ++ v)).gcd (LeanLane.Cyc.D (LeanLane.Cyc.rep u k ++ v)) ≤
-          (LeanLane.Cyc.D u * LeanLane.Cyc.C v - LeanLane.Cyc.D v * LeanLane.Cyc.C u).natAbs
 LeanLane.Cyc.gcd_eq_gcd_K : ∀ (u v : List ℕ) (k : ℕ),
   (∀ a ∈ v, 1 ≤ a) →
     v ≠ [] →
@@ -74,6 +75,45 @@ LeanLane.Cyc.gcd_periodic_totient : ∀ (u v : List ℕ),
                   (LeanLane.Cyc.C (LeanLane.Cyc.rep u (k + (K₀ * (LeanLane.Cyc.D u).natAbs).totient) ++ v)).gcd
                       (LeanLane.Cyc.D (LeanLane.Cyc.rep u (k + (K₀ * (LeanLane.Cyc.D u).natAbs).totient) ++ v)) =
                     (LeanLane.Cyc.C (LeanLane.Cyc.rep u k ++ v)).gcd (LeanLane.Cyc.D (LeanLane.Cyc.rep u k ++ v))
+LeanLane.Cyc.commutator_two_u : ∀ (u v : List ℕ) (k l : ℕ),
+  LeanLane.Cyc.D u * LeanLane.Cyc.C (LeanLane.Cyc.rep u k ++ LeanLane.Cyc.rep v l) -
+      LeanLane.Cyc.C u * LeanLane.Cyc.D (LeanLane.Cyc.rep u k ++ LeanLane.Cyc.rep v l) =
+    (2 ^ u.sum) ^ k * LeanLane.Cyc.G (2 ^ v.sum) (3 ^ v.length) l *
+      (LeanLane.Cyc.D u * LeanLane.Cyc.C v - LeanLane.Cyc.D v * LeanLane.Cyc.C u)
+LeanLane.Cyc.gcd_dvd_K_mul_gcd : ∀ (u v : List ℕ) (k l : ℕ),
+  (∀ a ∈ u, 1 ≤ a) →
+    u ≠ [] →
+      (∀ a ∈ v, 1 ≤ a) →
+        v ≠ [] →
+          1 ≤ k →
+            1 ≤ l →
+              (LeanLane.Cyc.C (LeanLane.Cyc.rep u k ++ LeanLane.Cyc.rep v l)).gcd
+                  (LeanLane.Cyc.D (LeanLane.Cyc.rep u k ++ LeanLane.Cyc.rep v l)) ∣
+                (LeanLane.Cyc.D u * LeanLane.Cyc.C v - LeanLane.Cyc.D v * LeanLane.Cyc.C u).natAbs *
+                  (LeanLane.Cyc.G (2 ^ u.sum) (3 ^ u.length) k).gcd (LeanLane.Cyc.G (2 ^ v.sum) (3 ^ v.length) l)
+LeanLane.Cyc.gcd_pow_sub_pow : ∀ (U V : ℤ),
+  IsCoprime U V → ∀ (i j : ℕ), (U ^ i - V ^ i).gcd (U ^ j - V ^ j) = (U ^ i.gcd j - V ^ i.gcd j).natAbs
+LeanLane.Cyc.C_injective : ∀ (u v : List ℕ),
+  (∀ a ∈ u, 1 ≤ a) →
+    (∀ a ∈ v, 1 ≤ a) → u.length = v.length → u.sum = v.sum → LeanLane.Cyc.C u = LeanLane.Cyc.C v → u = v
+LeanLane.Cyc.two_pow_mul_C_le : ∀ (z : List ℕ),
+  (∀ a ∈ z, 1 ≤ a) → 2 ^ z.length * LeanLane.Cyc.C z ≤ 2 ^ z.sum * (3 ^ z.length - 2 ^ z.length)
+LeanLane.Cyc.uniform_two_block : ∀ (u v : List ℕ),
+  (∀ a ∈ u, 1 ≤ a) →
+    (∀ a ∈ v, 1 ≤ a) →
+      u ≠ [] →
+        u ≠ v →
+          u.length = v.length →
+            u.sum = v.sum →
+              3 ^ u.length < 2 ^ u.sum →
+                ∀ (k l : ℕ),
+                  1 ≤ k →
+                    1 ≤ l →
+                      3 ≤ k + l →
+                        2 ^ u.length *
+                            ↑((LeanLane.Cyc.C (LeanLane.Cyc.rep u k ++ LeanLane.Cyc.rep v l)).gcd
+                                (LeanLane.Cyc.D (LeanLane.Cyc.rep u k ++ LeanLane.Cyc.rep v l))) <
+                          LeanLane.Cyc.D (LeanLane.Cyc.rep u k ++ LeanLane.Cyc.rep v l)
 LeanLane.Cyc.seven_dvd_D_example : ∀ (k : ℕ), 7 ∣ LeanLane.Cyc.D (LeanLane.Cyc.rep [1, 1, 3] k ++ [2]) ↔ k % 6 = 3
 def LeanLane.Cyc.C : List ℕ → ℤ :=
 fun x => List.brecOn x LeanLane.Cyc.C._f

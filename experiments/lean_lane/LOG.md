@@ -3,6 +3,35 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 13 — 2026-10-19, ~01:50 -03
+
+- Side lane verdict on C001-b (feed 00:32, `9a17566`): **verified** — (7)
+  without coprimality, the hypothesis-form periodicity sound for any
+  factorisation `K₀`, totient version from `D_u` coprime to 6, axioms
+  13 × standard + 3 × `[propext]`, clean scan, hash match; it also checked
+  the `v₂` injectivity route on all 19,525 words with `m ≤ 6`, letters
+  1–5.
+- **C002-a verified** in `CycleSpectrum.lean` (sha256 `5e547237…2581`,
+  841 lines, twenty-three declarations with the standard axioms):
+  `C_two`/`D_two` (1)–(2), `commutator_two_u`/`_v` (3)–(4),
+  `gcd_dvd_K_mul_gcd` (5), `gcd_pow_sub_pow` (strong divisibility of
+  `U^i − V^i` for coprime `U, V`), `C_nonneg`/`C_pos`/`C_odd`,
+  `length_le_sum`, `C_injective`, `two_pow_mul_C_le` (U2),
+  `pow_sub_pow_lower`, and **`uniform_two_block`**, main's uniform
+  equal-total exclusion (U1): `den(u^k v^ℓ) > 2^m` for distinct positive
+  words of equal length and total with `2^A > 3^m`, `k, ℓ ≥ 1`,
+  `k + ℓ ≥ 3`. Three compile rounds: `nlinarith` needing explicit
+  products for `1 ≤ k·Σu + ℓ·Σv`; implicit divisors in
+  `Nat.Coprime.coprime_dvd_right`; a `← mul_assoc` that should have been
+  forward; a `rw … at hA` that also rewrote the gcd's argument (replaced
+  by `rw [← hsplit]` on the goal); `pow_sub_pow_lower` first stated with
+  `0 ≤ V`, which is false at `V = 0` (corrected to `0 < V`); `2 ^ A ^ h`
+  parsing as `2 ^ (A ^ h)` (parenthesised); `set` variables hiding
+  `Nat.gcd` from `omega` (removed); a `rw [hDw]` that rewrote `D w`
+  inside the gcd (replaced by a final `calc` step); a `rw … at *` with a
+  missing pattern (replaced by `simp only [pow_succ, pow_add]`). Main
+  unchanged at `e14a4e3`.
+
 ## Iteration 12 — 2026-10-19, ~01:15 -03
 
 - Side lane verdict on C001-a (feed 00:22, `b9c3fd7`): **verified** —
