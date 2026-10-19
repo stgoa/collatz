@@ -36,6 +36,7 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | C001-b | The two-sided bound (7) `H/gcd(H, D_u) ∣ gcd(C_k, D_k) ∣ H` with `H = gcd(D_k, K)` and no coprimality premise; the periodicity (9): for `|K| = 2^a 3^b K₀` and any `T` with `Q^T ≡ P^T ≡ 1 (mod K₀|D_u|)`, `gcd(C_{k+T}, D_{k+T}) = gcd(C_k, D_k)` for every `k`, and the explicit period `T = φ(K₀|D_u|)` when `K₀` is coprime to 6 | same, §2 | **verified** (iteration 12): `CycleSpectrum.lean`, `LeanLane.Cyc.gcd_two_sided`, `gcd_periodic`, `gcd_periodic_totient`, `gcd_coprime_six` | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated) |
 | C001-c | The `K = 0` characterisation (needs the exact-valuation dynamics) and the perturbed mechanical family of §3 (needs R71's word bounds) | same, §§2–3 | queued | — | — |
 | C002-a | Two growing blocks (main's C002 `PROPORTIONAL.md`): identities (1)–(4) for `u^k v^ℓ`, the divisibility (5) `g ∣ |K|·gcd(G_u(k), G_v(ℓ))` with no coprimality premise, strong divisibility `gcd(U^i − V^i, U^j − V^j) = |U^gcd − V^gcd|` for coprime `U, V`, the intercept facts (`C > 0`, `C` odd, `C` injective on positive words of fixed length and total, the bound (U2) `2^m C_z ≤ 2^A(3^m − 2^m)`), and **the uniform equal-total exclusion (U1)**: for distinct positive words of the same length `m` and total `A` with `2^A > 3^m`, `k, ℓ ≥ 1`, `k + ℓ ≥ 3`, the reduced denominator of `u^k v^ℓ` exceeds `2^m · 2^A/3^m` (`2^A · 2^m · gcd(C, D) < 3^m · D`, the prose's full bound) and hence `2^m` | `experiments/cycle_spectrum/C002/PROPORTIONAL.md` §§1–2 | **verified** (iteration 13): `CycleSpectrum.lean`, `LeanLane.Cyc.commutator_two_u`, `commutator_two_v`, `gcd_dvd_K_mul_gcd`, `gcd_pow_sub_pow`, `C_injective`, `two_pow_mul_C_le`, `uniform_two_block_strong`, `uniform_two_block` | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated) |
+| C003-a | Main's C003 effective theorem (`PROPORTIONAL_UNIFORM.md`): the fixed-pair bounds (5) `den(u^k v^ℓ) > Q^k D_v/|K|` and `> S^ℓ D_u/|K|` for contracting blocks with `K ≠ 0`, and the uniform bound (6) `den > 2^M Q_*^{t_*−3}` — to be proved purely algebraically from the commutator identities (3)–(4) and `g ∣ K·G_v(ℓ)`, `g ∣ K·G_u(k)`, without the integrality of cycle states | `experiments/cycle_spectrum/C003/PROPORTIONAL_UNIFORM.md` §§2–3 | **next** | — | — |
 | C002-b | The proportional-slope theorem (6)–(8) in its general `(r, s)` form, the `K = 0` characterisation, the rotating mechanical family of §4; the unequal-slope application is an imported ineffective theorem and is not a Lean target | same, §§2–4 | queued | — | — |
 | V006-a | Quadratic separation (main's V006 `overlap.md` §2): for `F` not eventually periodic, the states `Q_(a,t) = F(t₀ + t + s₂(3^a n))` are pairwise distinct (`(a,t) ↦ Q_(a,t)` injective); `Q_(a,t)` lies in the joint section family through depth `a + t`; hence that family through depth `D` has at least `(D+1)(D+2)/2` members (main's (4)); with the digit-count identities (5), (6), (7) (block additivity, complement, balanced quotient, `3^(r+1) ∣ 2^(3^r) + 1`) | `experiments/viewpoints/V006/overlap.md` §2, `QUADRATIC_REVIEW.md` | **verified** (iteration 10): `QuadraticSeparation.lean`, `LeanLane.Quad.Q_injective`, `Q_mem_Reach`, `triangle_encard_le`, `card_triangle`, `reach_encard_ge`, `s2_mul_pow_sub`, `s2_mul_pow_sub_one`, `s2_balanced`, `three_pow_dvd` | `[propext, Classical.choice, Quot.sound]` | `receipts/QuadraticSeparation.{build,axioms,sha256}.txt` |
 | V007-b | Singleton-exit theorem (V007 `separator.md` §§2–4) under the infinitude hypothesis (I): larger unit (bit algebra by `decide`, recursive propagation, tail evaluation formulas) | `experiments/viewpoints/V007/separator.md` | queued (larger) | — | — |
@@ -324,6 +325,20 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   Corvaja–Zannier application.
 
 ## Insights sent to the feed
+
+- Iteration 13 (on main `7270d95`, C003): `PROPORTIONAL_UNIFORM.md` in
+  full and `UNEQUAL_PROBE.md` §§1–3 read. The effective theorem (6) and
+  the fixed-pair bounds (5) check out (interval trapping (1), lattice
+  spacing (2)–(4), the intercept/fixed-point bounds (7)–(9)); both
+  examples re-derived (`(1,2,2)^3(2)`: `C = 213341`, `D = 72023`, gcd 1;
+  the `d = 499` pair `(1)^4(1,3)^3`: `C = 85865`, `D = 6487`, gcd 13);
+  the uniform `|K|` bound (1)–(2) of the probe and `γ_q = (2 − λ)/q` are
+  right; the asymptotic branches import Corvaja–Zannier (ineffective) and
+  were not re-verified at the source. Sent: the trapping/lattice argument
+  for (5) is pure algebra — `Δ₀ = −Q^{k−1}·(K G_v(ℓ)/g)` by the commutator
+  (3) with `g ∣ K G_v(ℓ)` from C002's (5), and the upper bound is
+  `Q^k(S^ℓ − R^ℓ) < D_w`, i.e. `P^k < Q^k` — so (5)–(6) need no
+  integrality of cycle states; this is the plan for C003-a.
 
 - Iteration 12 (on main `e14a4e3`, C002): `PROPORTIONAL.md` §§1–4,
   `INDEPENDENT_SLOPES.md` and the report checked by re-derivation —

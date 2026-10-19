@@ -17,7 +17,9 @@ and any insight sent to the feed.
   standard axioms; no diagnostics; receipts regenerated (sha256
   `a64b42e3…7fb3`, 872 lines).
 - Main pushed `7270d95` (C003: uniform denominator bounds for changing
-  repeated blocks). Read next.
+  repeated blocks). Read and checked (STATE "Insights"); no error found;
+  the effective theorem (5)–(6) is purely algebraic given C002's (5),
+  which is the plan for C003-a.
 
 ## Iteration 13 — 2026-10-19, ~01:50 -03
 
