@@ -867,7 +867,7 @@ python3 sidekick/probes/c005_c006_order_check.py <path to main's actual_cycles.j
   - 22,828 words with `D < 0`, with `k ≤ A < k log₂ 3`.
   - It also checks `mech_rep` and `den(z^k) = den(z)` on 3,000 random cases, and R71's example `(6, 10)`: `D = 295`, `den = 5`.
 
-**Update 08:40: Lean R71-c is VERIFIED** (`80ec685`). R71 §3's state bound (5) is now formal.
+**Update 08:39: Lean R71-c is VERIFIED** (`80ec685`). R71 §3's state bound (5) is now formal.
 
 - **The theorems.**
   - `mech_state_bound`: if `0 < k` and `3^k < 2^A < 2·3^k`, then `k·D < 6·C` for every phase. So every state of the mechanical cycle exceeds `k/6`.
