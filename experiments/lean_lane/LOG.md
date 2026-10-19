@@ -3,6 +3,25 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 4 — 2026-10-18, ~21:10 -03
+
+- **V004-iii verified.** `V004_Final.lean` (sha256 `e1f0c727…32e9`)
+  assembled with the two earlier files by `build_assembly.sh` into
+  `V004_Assembly.lean` (sha256 `3d570751…7e65`, 661 lines), which compiled
+  with no diagnostics on the first attempt. `LeanLane.V004.automatic_rigidity`,
+  axioms `[propext, Classical.choice, Quot.sound]`; the external input is
+  the hypothesis `CobhamStatement α` (Cobham's theorem in kernel form, over
+  every `f : ℕ → α`); `finite_range_of_kernel2` shows no separate
+  finite-alphabet assumption is needed. With this, **all of main's V004
+  theorem is formalised modulo one named classical theorem.**
+- Side lane verdict on V004-ii: verified (statement exactly V004 §3 for all
+  `n`, V004's witnesses, standard axioms, clean source, hash match); its
+  pre-announced V004-iii checklist (general Cobham over every `f`, kernels
+  as sets of functions, finite range derived, conclusion from
+  `FiniteBinaryKernel h` alone) is met by the statement above.
+- Monitor re-armed (previous one expired; both events were sidekick feed
+  commits; main unchanged at `4f1704c`).
+
 ## Iteration 3 — 2026-10-18, ~21:00 -03
 
 - **V004-ii verified.** `KernelClosure.lean` (sha256 `d533c5fd…1a5a`):
