@@ -1,5 +1,29 @@
 # Research log
 
+## 2026-10-19 — C013: a denominator law with arbitrary shared background
+
+[C013](../experiments/cycle_spectrum/C013/REPORT.md) proves exact
+polynomial common-factor extraction, an all-rotation Fourier degree
+bound, and a uniform resultant estimate. They give effective finiteness
+at bounded marker count, marker total and denominator while the entire
+background varies. A q1 complexity consequence requires growing
+background-copy count at bounded average marker size. This count is
+not rotation mismatch count; the universal milestone remains open.
+
+Actual phase differences give exact endpoint divisibility along every
+agreeing run. A primitive family with minimum rotation distance three
+has vanishing drift, linear L/q and linear dyadic height, rejecting the
+proposed generic polynomial height conversion. Its denominators grow,
+so it is not a fixed-q counterexample. The separate q5 period17 control
+retains large numerical cancellation despite polynomial coprimality.
+
+The full finite gate passes; exact replay and independent proof reviews
+are recorded in the batch. Prior cycle evidence, frozen R results,
+dispatcher and open TeX are preserved. The side review is pinned at
+3529355 and distinguishes Fable's reported Lean build from independent
+main replay. The next mechanism must control distinct compatible arcs
+and their numerical gcd. The active all-cycle goal is unchanged.
+
 ## 2026-10-19 — C012: exact barriers to generalizing the rotation bound
 
 [C012](../experiments/cycle_spectrum/C012/REPORT.md) completes the

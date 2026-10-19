@@ -58,6 +58,21 @@ assuming regularity of an actual bad set.
   observed q and m/s; do not count them as discriminating evidence.
   Aim at a lower bound on every nonidentity rotation distance growing
   with primitive period. A fixed-count ladder does not meet that target.
+- C013 extracts G=gcd(P,Q) for arbitrary shared background U and
+  nonconstant marker word a, retaining the numerical gcd with E=3C_U+u.
+  Its residual degree e is Fourier support size and satisfies
+  s*binom(e,2)>=r for each nonzero marker rotation distance s.
+  Primitive markers may have G!=1; G=1 does not prevent numerical
+  cancellation (actual q5 period17). The uniform resultant depends on
+  r,T and may not be treated as an absolute constant.
+  Bounded r,T,q gives effective finiteness of the entire varying-U
+  class, including a separate total-valuation bound. Constant markers
+  are excluded. The q1 lower bound r=Omega_H(sqrt(m/log m)) assumes
+  T<=Hr; r counts repeated backgrounds, not rotation mismatches.
+  The arbitrary-s mismatch-growth target remains open. C013's paired
+  run law retains height B. Its near-critical distance3 family has
+  L/q=Theta(m), B=Theta(m) and exponentially growing q; it refutes
+  the stated generic height conversions, not a fixed-q bound.
 - For cycle spectra use the raw odd-only map, with no absorbing state.
   Positive words require `2^A>3^m`; quotient rotations and repetitions
   correctly. Denominator 1 is allowed for every repetition of `(2)`.

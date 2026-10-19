@@ -1,5 +1,32 @@
 # Viewpoint exploration log
 
+## C013 — Extract shared factors and retain numerical cancellation, 2026-10-19
+
+[C013](../experiments/cycle_spectrum/C013/REPORT.md) gives a quantitative
+denominator law with one arbitrary common background and any nonconstant
+marker pattern. Fourier support controls the remaining polynomial
+degree; explicit resultant and intercept costs retain the numerical
+cancellation. Bounded marker count/total and denominator give effective
+finiteness while the background varies. The necessary q1 representation
+count grows at bounded average marker size, but it is not the general
+rotation mismatch count.
+
+The accompanying actual-cycle family rejects a proposed polynomial
+height conversion even at distance3, small drift and q<=L. It has
+growing q, so it leaves fixed-q and q1 laws open. Continue one bounded
+test on distinct compatible arcs; do not expand fixed marker catalogues
+or treat nondiscriminating candidate passes as empirical support.
+
+Fetch succeeded. DIRECTIONS and FEED were reviewed at
+`3529355a5b77740c5ff3f874d228ee9a1b5bb478`; DIRECTIONS is unchanged.
+The feed reports C011 finite corroboration, written review and Lean
+C010-a. Main did not independently kernel-replay the reported build.
+The proposed logarithm correction is unnecessary for the primary
+product-minus-one theorem actually cited; no historical edit is made.
+D1/D2/D5/D7 retain their scopes, D3 blanket transfer stays rejected,
+D4 is deferred, and D6/D8 remain historical. See
+[SIDE_REVIEW](../experiments/cycle_spectrum/C013/SIDE_REVIEW.md).
+
 ## C012 — Keep overlap; reject two generalization shortcuts, 2026-10-19
 
 [C012](../experiments/cycle_spectrum/C012/REPORT.md) supplies all-s

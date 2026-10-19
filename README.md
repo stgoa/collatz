@@ -4,7 +4,33 @@ This repository is the persistent record of the Collatz programme: definitions, 
 
 ## Current programme: cycle denominators across 3x+d
 
-**Current standing (2026-10-19): C012 rejects two proposed ways to
+**Current standing (2026-10-19): C013 proves denominator growth for
+an arbitrary shared background and arbitrary nonconstant markers.
+The universal growing-mismatch target and cycle headline remain open.**
+
+[C013](experiments/cycle_spectrum/C013/REPORT.md) separates exact
+polynomial cancellation from numerical cancellation at evaluation.
+The remaining degree equals a Fourier support size and obeys a
+uniform mismatch inequality. Retaining the resultant and the background
+intercept gives an effective finiteness theorem: at fixed marker count
+and total, only finitely many such words have bounded denominator,
+even while the entire background varies.
+
+A hypothetical integer cycle with bounded average marker size must
+have at least order `sqrt(m/log m)` background copies in any such
+representation. This count is **not** rotation mismatch count; the
+general milestone is not achieved. Actual cycles also refute the
+proposed shortcut through a polynomial height bound, with minimum
+rotation distance three and exponentially large relative heights.
+
+**Next:** retain correlations between distinct overlapping arcs while
+controlling numerical cancellation. The high-level intermediate aim is
+still a restriction growing with period for every hypothetical integer
+cycle. Fable's reported Lean work strengthens established interfaces;
+its latest build was not independently kernel-replayed on main.
+Proofs, exact checks, source scope and preservation are linked in C013.
+
+**Previous standing: C012 rejects two proposed ways to
 extend the rotation bound. The growing-complexity milestone and the
 full cycle goal remain open.**
 
