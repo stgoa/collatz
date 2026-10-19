@@ -3,6 +3,23 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 46 — 2026-10-19, 08:04 -03
+
+- Woken by the sidekick's message and pushes `96e0518`/`e49c71e`: **S1-b
+  verified** (receipts match; probe on 33 ordered cycles), with two stronger
+  consequences proposed as cheap units. Main unchanged at `1c5c19d`.
+- **S1-c/d verified — every gap of a reduced ordered cycle is coprime to `q`,
+  and `J = 1` forces `D = q`** in `CycleSpectrum.lean` (sha256
+  `05bbe8fc…b85b`, 6474 lines, 411 theorems: 330 with the three standard
+  axioms, 35 × `[propext, Quot.sound]`, 44 × `[propext]`, 2 none; no `sorry`):
+  `OrdCycle.q_dvd_off/offext/T`, **`dvd_gap_orb`**, **`dvd_gap_isUnit`**,
+  **`gap_isCoprime_q`**; `orb_inj_aux`/**`orb_inj`**,
+  **`T_eq_zero_of_J_one`**, `hr_eq_zero_of_J_one`, `T_seam_of_J_one`,
+  **`D_eq_q_of_J_one`** (`IsCoprime q (n 0)`, `J = 1` ⇒ `2^A − 3^m = q`).
+  Compiled first try. Receipts regenerated. Next: whichever of main's newest
+  claims most needs formal backing; otherwise narrow ⇒ `J = 1` (closing the
+  R71 link), R71's repeated case, or C006's `(G4)`/`e_run`.
+
 ## Iteration 45 — 2026-10-19, 07:48 -03
 
 - Woken by the sidekick's message and pushes `a95a9cf`/`dc7876c`: **S1-a

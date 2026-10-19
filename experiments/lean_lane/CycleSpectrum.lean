@@ -6303,6 +6303,171 @@ theorem run_start_gaps_coprime (hq : Odd Ω.Γ.q) (hred : IsCoprime Ω.Γ.q (Ω.
   rw [← hrt, Ω.dvd_gap_run_iff hd2 hd3 hr' t hrun]
   exact hstart r' hr' hT
 
+/-! #### S1-c/d: every gap is coprime to `q`; a single forced position forces `D = q`
+
+Side lane (feed update 07:51), two consequences of S1-a/S1-b. (c) Every sorted gap of a reduced
+ordered cycle (`q` odd) is coprime to `q`: a divisor `d` of `q` divides every `T_r`, so `gap_rec`
+propagates `d ∣ Δ` along the whole orbit and `dvd_all_gaps_isUnit` finishes — C007-a's
+`dvd_all_of_dvd` mechanism on gaps. (d) If `J = 1`, the seam is the only forced position, all
+sorted heights equal `h_[0] = 0`, `T_{m−1} = 2^B q`, and the closed form at the run start after
+the seam reads `D Δ = 2^{E} 2^B q`; with `q ∣ D` (reduced) and `D` odd this forces `D = q`: R71's
+exact denominator for ordered cycles with a single forced position, from S1-a alone. -/
+
+theorem q_dvd_off (r : ℕ) : Ω.Γ.q ∣ Ω.off r := by
+  unfold off
+  exact Dvd.intro_left _ rfl
+
+theorem q_dvd_offext (r : ℕ) : Ω.Γ.q ∣ Ω.offext r := by
+  unfold offext
+  split_ifs
+  · exact Ω.q_dvd_off r
+  · exact (Ω.q_dvd_off (r - m)).mul_left 2
+
+theorem q_dvd_T (r : ℕ) : Ω.Γ.q ∣ Ω.T r := by
+  unfold T
+  exact dvd_sub (Ω.q_dvd_offext (r + 1)) (Ω.q_dvd_offext r)
+
+/-- Divisibility of the gaps by a divisor of `q` propagates along the whole orbit (`T ≡ 0`). -/
+theorem dvd_gap_orb {d : ℤ} (hd : d ∣ Ω.Γ.q) (hd2 : IsCoprime d 2) {r₀ : ℕ}
+    (hr₀ : r₀ < m) (hg : d ∣ Ω.N.gap r₀) (k : ℕ) : d ∣ Ω.N.gap (Ω.orb r₀ k) := by
+  induction k with
+  | zero => rw [Ω.orb_zero hr₀]; exact hg
+  | succ k ih =>
+    have hG := Ω.gap_rec (Ω.orb_lt r₀ k)
+    rw [← Ω.orb_succ] at hG
+    have h' : d ∣ 2 ^ Ω.N.e (Ω.orb r₀ k) * Ω.N.gap (Ω.orb r₀ (k + 1)) := by
+      rw [hG]
+      exact dvd_add (ih.mul_left 3) (hd.trans (Ω.q_dvd_T _))
+    exact hd2.pow_right.dvd_of_dvd_mul_left h'
+
+/-- **S1-c**: a common divisor of `q` and one sorted gap of a reduced ordered cycle (`q` odd) is a
+unit: it divides every gap, hence `2^B n_0`, hence `n_0`. -/
+theorem dvd_gap_isUnit (hq : Odd Ω.Γ.q) (hred : IsCoprime Ω.Γ.q (Ω.Γ.n 0)) {d : ℤ}
+    (hd : d ∣ Ω.Γ.q) {r : ℕ} (hr : r < m) (hg : d ∣ Ω.N.gap r) : IsUnit d := by
+  have hd2 : IsCoprime d 2 := (Ω.isCoprime_q_two hq).of_isCoprime_of_dvd_left hd
+  refine Ω.dvd_all_gaps_isUnit hq hred hd (fun r' hr' => ?_)
+  obtain ⟨k, -, hk⟩ := Ω.orb_surj hr hr'
+  rw [← hk]
+  exact Ω.dvd_gap_orb hd hd2 hr hg k
+
+/-- Every sorted gap of a reduced ordered cycle (`q` odd) is coprime to `q`. -/
+theorem gap_isCoprime_q (hq : Odd Ω.Γ.q) (hred : IsCoprime Ω.Γ.q (Ω.Γ.n 0)) {r : ℕ}
+    (hr : r < m) : IsCoprime Ω.Γ.q (Ω.N.gap r) := by
+  rw [Int.isCoprime_iff_gcd_eq_one]
+  have hu := Ω.dvd_gap_isUnit hq hred (Int.gcd_dvd_left _ _) hr (Int.gcd_dvd_right _ _)
+  rcases Int.isUnit_iff.mp hu with h | h
+  · exact_mod_cast h
+  · omega
+
+theorem orb_inj_aux {r₀ i j : ℕ} (hij : i ≤ j) (hj : j < m) (h : Ω.orb r₀ i = Ω.orb r₀ j) :
+    i = j := by
+  have hcop : Nat.Coprime m Ω.N.numHigh :=
+    Nat.coprime_comm.mp (Ω.N.coprime_numHigh Ω.N_prim Ω.hm2)
+  unfold orb at h
+  have h1 := Nat.sub_mod_eq_zero_of_mod_eq h.symm
+  have h2 : r₀ + j * Ω.N.numHigh - (r₀ + i * Ω.N.numHigh) = (j - i) * Ω.N.numHigh := by
+    rw [Nat.sub_mul]
+    have := Nat.mul_le_mul_right Ω.N.numHigh hij
+    omega
+  rw [h2] at h1
+  have h3 : m ∣ j - i := hcop.dvd_of_dvd_mul_right (Nat.dvd_of_mod_eq_zero h1)
+  have h4 : j - i = 0 := Nat.eq_zero_of_dvd_of_lt h3 (by omega)
+  omega
+
+/-- The orbit visits each rank once in `m` steps. -/
+theorem orb_inj {r₀ i j : ℕ} (hi : i < m) (hj : j < m) (h : Ω.orb r₀ i = Ω.orb r₀ j) : i = j := by
+  rcases le_total i j with hij | hji
+  · exact Ω.orb_inj_aux hij hj h
+  · exact (Ω.orb_inj_aux hji hi h.symm).symm
+
+/-- With `J = 1`, the seam is the only forced position: `T_r = 0` for `r + 1 < m`. -/
+theorem T_eq_zero_of_J_one (hJ : Ω.J = 1) {r : ℕ} (hr : r + 1 < m) : Ω.T r = 0 := by
+  by_contra hT
+  have hm := Ω.Γ.hm
+  have hsub : ({r, m - 1} : Finset ℕ) ⊆ (Finset.range m).filter (fun r => Ω.T r ≠ 0) := by
+    intro x hx
+    rw [Finset.mem_insert, Finset.mem_singleton] at hx
+    rw [Finset.mem_filter, Finset.mem_range]
+    rcases hx with rfl | rfl
+    · exact ⟨by omega, hT⟩
+    · exact ⟨by omega, ne_of_gt Ω.T_seam_pos⟩
+  have hcard := Finset.card_le_card hsub
+  rw [Finset.card_pair_eq_two_iff.mpr (by omega : r ≠ m - 1), ← Ω.J_eq, hJ] at hcard
+  omega
+
+/-- With `J = 1`, every sorted height is `hr 0 = 0`. -/
+theorem hr_eq_zero_of_J_one (hJ : Ω.J = 1) {r : ℕ} (hr : r < m) : Ω.hr r = 0 := by
+  induction r with
+  | zero => exact Ω.hr_zero
+  | succ r ih =>
+    rw [(Ω.T_eq_zero_iff hr).mp (Ω.T_eq_zero_of_J_one hJ hr)]
+    exact ih (by omega)
+
+/-- With `J = 1`, the seam term is `2^B q`. -/
+theorem T_seam_of_J_one (hJ : Ω.J = 1) : Ω.T (m - 1) = 2 ^ Ω.Γ.B * Ω.Γ.q := by
+  have hm := Ω.Γ.hm
+  unfold T offext
+  rw [show m - 1 + 1 = m by omega, ite_eq_right (lt_irrefl m), Nat.sub_self,
+    ite_eq_left (by omega : m - 1 < m)]
+  unfold off
+  rw [Ω.hr_zero, Nat.sub_zero, Ω.hr_eq_zero_of_J_one hJ (by omega : m - 1 < m), Nat.sub_zero]
+  ring
+
+/-- **S1-d**: for a reduced ordered cycle with a single forced position (`J = 1`), `D = q`: the
+closed form at the run start after the seam reads `D Δ = 2^{E} 2^B q`, and `q ∣ D` with `D` odd
+forces `D/q = 1`. This is R71's exact denominator (`gcd(C, D) = 1`) for such cycles, derived from
+S1-a without the mechanical structure. -/
+theorem D_eq_q_of_J_one (hred : IsCoprime Ω.Γ.q (Ω.Γ.n 0)) (hJ : Ω.J = 1) :
+    (2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m = Ω.Γ.q := by
+  have hm := Ω.Γ.hm
+  have hm1 : m - 1 < m := by omega
+  obtain ⟨r₁, hr₁⟩ : ∃ r₁, r₁ = Ω.orb (m - 1) 1 := ⟨_, rfl⟩
+  have hr₁m : r₁ < m := by rw [hr₁]; exact Ω.orb_lt _ _
+  have hpred : Ω.orb r₁ (m - 1) = m - 1 := by rw [hr₁]; exact Ω.orb_pred_succ hm1
+  have hcf := Ω.gap_closed_form hr₁m
+  have hsum : ∑ i ∈ Finset.range m, 3 ^ (m - 1 - i) * 2 ^ Ω.E r₁ i * Ω.T (Ω.orb r₁ i)
+      = 2 ^ Ω.E r₁ (m - 1) * (2 ^ Ω.Γ.B * Ω.Γ.q) := by
+    rw [Finset.sum_eq_single (m - 1)]
+    · rw [hpred, Nat.sub_self, pow_zero, one_mul, Ω.T_seam_of_J_one hJ]
+    · intro i hi hne
+      have hT : Ω.T (Ω.orb r₁ i) = 0 := by
+        apply Ω.T_eq_zero_of_J_one hJ
+        have hlt := Ω.orb_lt r₁ i
+        have hne' : Ω.orb r₁ i ≠ m - 1 := fun heq =>
+          hne (Ω.orb_inj (Finset.mem_range.mp hi) hm1 (heq.trans hpred.symm))
+        omega
+      rw [hT, mul_zero]
+    · intro h
+      exact absurd (Finset.mem_range.mpr hm1) h
+  rw [hsum] at hcf
+  obtain ⟨D', hD'⟩ := Ω.Γ.q_dvd_D hred
+  have hgpos : 0 < Ω.N.gap r₁ := Ω.N.gap_pos Ω.N_prim Ω.N_rank_zero hr₁m
+  have hq0 : Ω.Γ.q ≠ 0 := Ω.Γ.hq.ne'
+  have hkey : D' * Ω.N.gap r₁ = 2 ^ (Ω.E r₁ (m - 1) + Ω.Γ.B) := by
+    rw [hD'] at hcf
+    rw [pow_add]
+    apply mul_left_cancel₀ hq0
+    linear_combination hcf
+  have hD'pos : 0 < D' := (mul_pos_iff_of_pos_right hgpos).mp (by rw [hkey]; positivity)
+  have hA1 : 1 ≤ Ω.Γ.Apre m := by
+    by_contra hA
+    have hA0 : Ω.Γ.Apre m = 0 := by omega
+    have hD := Ω.Γ.D_pos
+    rw [hA0, pow_zero] at hD
+    have h3 : (1 : ℤ) ≤ 3 ^ m := one_le_pow₀ (by norm_num)
+    linarith
+  have hDodd : IsCoprime (2 : ℤ) (2 ^ Ω.Γ.Apre m - 3 ^ m) := by
+    rw [← Ω.Γ.D_word]
+    exact isCoprime_two_D (by rw [Ω.Γ.word_sum]; exact hA1)
+  have hD'2 : IsCoprime D' (2 ^ (Ω.E r₁ (m - 1) + Ω.Γ.B)) :=
+    (hDodd.of_isCoprime_of_dvd_right (Dvd.intro_left _ hD'.symm)).symm.pow_right
+  have hu : IsUnit D' := hD'2.isUnit_of_dvd' dvd_rfl (Dvd.intro _ hkey)
+  have hD'1 : D' = 1 := by
+    rcases Int.isUnit_iff.mp hu with h | h
+    · exact h
+    · omega
+  rw [hD', hD'1, mul_one]
+
 end OrdCycle
 
 end Cyc
