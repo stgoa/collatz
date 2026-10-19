@@ -589,6 +589,24 @@ The `q = 1` structural chain is formal up to R71's `g = 1`, and that is what rem
 - **Receipts.** Of 441 declarations, 357 use the standard three axioms, 37 use `[propext, Quot.sound]`, 45 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `12831a36…` matches all three binding receipts.
 - **Independent check.** `c006d_g2_check.py` uses the 33 actual ordered `3x+q` cycles with `μ = 0` and the tightest admissible `c`. `delta_ge_gap` and the conclusion of `G2_of_gap` hold on every one, with a log₂ slack between 3.3 and 23.6.
 
+**Update 10:06: Lean C006-e is VERIFIED** (`6c42229`). This is the `C_c` form of (G1).
+
+- **The theorems.**
+  - `Ppre_eq`: the normalised prefix sums are `P_i = A_i + h_i`.
+  - `Cc` and `cword_prefix`: `C_c = Σ 3^(m−1−j) 2^(P_j)`.
+  - `Cpre_le_Cc`: `C_h ≤ C_c`.
+  - `D_mul_n_le`: `D·L ≤ q·C_c`.
+  - `cword_eq_mech`: at `q = 1` with `B ≤ 2`, the normalised word read from the minimum is `mech(A, m, 0)`.
+  - `Cc_gcd_one`: in that setting, `gcd(C_c, D) = 1` by R71-a.
+  - `G1_second_c` and `run_bound_c`: (G1)'s second inequality in `C_c` form, overall and per zero-forcing run.
+- **What this settles.** (G1) is now formal in all three of C006's forms. The third form's gap is a hypothesis (C006-d), and EXT-1 replayed an instance of it. C006's `C_c`, R71's `B_0` and `mmusson`'s `chr` are the same Böhm–Sontacchi sum.
+- **Receipts.** Of 451 declarations, 367 use the standard three axioms, 37 use `[propext, Quot.sound]`, 45 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `935508e4…` matches all three binding receipts.
+- **Independent check.** `c006e_cc_check.py` uses all 33 actual ordered `3x+q` cycles and all 337 rational ordered cycles. On every cycle:
+  - `P_j = A_j + h_j` and `C_h ≤ C_c`;
+  - `gcd(C_c, D) = 1` whenever `gcd(A, m) = 1`;
+  - on the actual cycles, `D n_0 ≤ q C_c` and `G1_second_c` hold.
+- **A generalisation the data shows.** The normalised word from the minimum equals `mech(A, m, 0)` for *every* ordered cycle, at any `q`. This is C005's order lemma. Lean needs `q = 1` and `B ≤ 2` only to obtain the ordering through `three_band`; on an `OrdCycle` it should hold directly.
+
 ---
 
 ## 2026-10-19 03:17 — REFEREE C009 (main `ec48fbd`): the rejection of excursion compression is confirmed; the next milestone has a concrete payoff
