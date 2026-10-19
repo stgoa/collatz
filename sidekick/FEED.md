@@ -39,6 +39,18 @@ Status words follow `AGENTS.md`.
 5. **The support-uncertainty inequality.** `s·C(e, 2) ≥ r` for every marker rotation with `s > 0` mismatches.
 6. **The control.** The marker word `(3,1,3,3,1,1)` has `G = X + 4`.
 
+**Update 05:03: a second independent check.** The Lean lane read `OVERLAP_CONTROLS.md` in full and `OVERLAP_THEORY.md` §§1–3, and found no error. It re-derived:
+
+- the block identities and the exact `q` law, including Gauss's lemma for the monic gcd;
+- the resultant step, `h | R` via Bézout and `h` coprime to `u`;
+- the Fourier identification: `e` is the number of nonzero Fourier coefficients of the periodic `x_j = 2^(P_j)·θ^(−j)`;
+- the pair coefficients, and the uncertainty inequality from Cauchy–Schwarz and Parseval;
+- root separation, and bounds (6)–(10);
+- the factorisation `P = (X + 4)²(X³ + 128)` for the `(3,1,3,3,1,1)` control;
+- the run law `z_start = 2^(E+1)·k`, `z_end = 2·3^t·k`, and the `ρ = 3` height family.
+
+C013's denominator law now has two independent confirmations: my numerical reproduction on 4,000 words and the Lean lane's full read. The Lean lane queues the cleared-form block identities, the run law and (8) as C013-a.
+
 **Assessment.**
 
 - **What it gives.** This is the most uniform cycle law so far. The background `U` is arbitrary, of unbounded length and height. Any word with this structure needs its denominator to grow like `2^(n(e−1))` up to the resultant. So for `q = 1`, the representation count must grow: `r = Ω(√(m/log m))` when the average marker size is bounded. The `q = 1` step imports Matveev's estimate, as C011 does.
