@@ -2148,5 +2148,447 @@ theorem no_inversion_of_le_two {r : ℤ} {k : ℕ} (hr : 1 ≤ r) (hk : k ≤ 2)
     0 ≤ 3 * r - (2 ^ k - 1) ∧ (3 * r - (2 ^ k - 1) = 0 → k = 2 ∧ r = 1) := by
   interval_cases k <;> norm_num <;> omega
 
+/-! ### C005 §§1–2 on actual cycles: dyadic heights, scaled normalised states, and the
+three-band order at `q = 1` -/
+
+/-- Heights exist: for `0 < L ≤ n` there is `h` with `2^h L ≤ n < 2^{h+1} L`. -/
+theorem exists_height {L n : ℤ} (hL : 0 < L) (hn : L ≤ n) :
+    ∃ h : ℕ, 2 ^ h * L ≤ n ∧ n < 2 ^ (h + 1) * L := by
+  classical
+  have hex : ∃ k : ℕ, n < 2 ^ (k + 1) * L := by
+    obtain ⟨k, hk⟩ := pow_unbounded_of_one_lt n (by norm_num : (1 : ℤ) < 2)
+    refine ⟨k, ?_⟩
+    have h1 : (2 : ℤ) ^ k ≤ 2 ^ (k + 1) := pow_le_pow_right₀ (by norm_num) (Nat.le_succ k)
+    have h2 : (2 : ℤ) ^ (k + 1) ≤ 2 ^ (k + 1) * L :=
+      le_mul_of_one_le_right (by positivity) (by linarith)
+    linarith
+  refine ⟨Nat.find hex, ?_, Nat.find_spec hex⟩
+  rcases Nat.eq_zero_or_pos (Nat.find hex) with h0 | hpos
+  · rw [h0, pow_zero, one_mul]; exact hn
+  · have hmin := Nat.find_min hex (Nat.sub_lt hpos Nat.one_pos)
+    rw [Nat.sub_add_cancel hpos] at hmin
+    exact not_lt.mp hmin
+
+/-- `H < 8L` means heights at most `2`. -/
+theorem height_le_two {L n : ℤ} {h : ℕ} (hL : 0 < L) (h1 : 2 ^ h * L ≤ n) (h8 : n < 8 * L) :
+    h ≤ 2 := by
+  by_contra hgt
+  rw [not_le] at hgt
+  have : (2 : ℤ) ^ 3 ≤ 2 ^ h := pow_le_pow_right₀ (by norm_num) hgt
+  nlinarith [mul_le_mul_of_nonneg_right this hL.le]
+
+/-- A power of two times an odd number determines both factors. -/
+theorem pow_mul_eq_of_odd {x y : ℤ} {s t : ℕ} (hx : Odd x) (hy : Odd y)
+    (h : (2 : ℤ) ^ s * x = 2 ^ t * y) : s = t ∧ x = y := by
+  rcases lt_trichotomy s t with hlt | heq | hgt
+  · exfalso
+    have e : (2 : ℤ) ^ t = 2 ^ s * (2 * 2 ^ (t - s - 1)) := by
+      rw [← pow_succ', ← pow_add]
+      congr 1
+      omega
+    rw [e, mul_assoc] at h
+    have hx' : x = 2 * 2 ^ (t - s - 1) * y := mul_left_cancel₀ (by positivity) h
+    exact (Int.not_even_iff_odd.mpr hx) ⟨2 ^ (t - s - 1) * y, by rw [hx']; ring⟩
+  · subst heq
+    exact ⟨rfl, mul_left_cancel₀ (by positivity) h⟩
+  · exfalso
+    have e : (2 : ℤ) ^ s = 2 ^ t * (2 * 2 ^ (s - t - 1)) := by
+      rw [← pow_succ', ← pow_add]
+      congr 1
+      omega
+    rw [e, mul_assoc] at h
+    have hy' : y = 2 * 2 ^ (s - t - 1) * x := mul_left_cancel₀ (by positivity) h.symm
+    exact (Int.not_even_iff_odd.mpr hy) ⟨2 ^ (s - t - 1) * x, by rw [hy']; ring⟩
+
+/-- Two numbers of `[lo, 2 lo)` whose quotient is a power of two are equal. -/
+theorem eq_of_pow_mul_eq_in_window {lo x y : ℤ} {s t : ℕ} (hx : lo ≤ x) (hx2 : x < 2 * lo)
+    (hy : lo ≤ y) (hy2 : y < 2 * lo) (h : (2 : ℤ) ^ s * x = 2 ^ t * y) : x = y := by
+  have hlo : 0 < lo := by linarith
+  rcases lt_trichotomy s t with hlt | heq | hgt
+  · exfalso
+    have e : (2 : ℤ) ^ (s + 1) ≤ 2 ^ t := pow_le_pow_right₀ (by norm_num) hlt
+    rw [pow_succ] at e
+    have h2s : (0 : ℤ) < 2 ^ s := by positivity
+    have h3 : (2 : ℤ) ^ s * (2 * y) ≤ 2 ^ s * x := by
+      have := mul_le_mul_of_nonneg_right e (by linarith : (0 : ℤ) ≤ y)
+      linarith
+    have h4 : 2 * y ≤ x := le_of_mul_le_mul_left h3 h2s
+    linarith
+  · subst heq
+    exact mul_left_cancel₀ (by positivity) h
+  · exfalso
+    have e : (2 : ℤ) ^ (t + 1) ≤ 2 ^ s := pow_le_pow_right₀ (by norm_num) hgt
+    rw [pow_succ] at e
+    have h2t : (0 : ℤ) < 2 ^ t := by positivity
+    have h3 : (2 : ℤ) ^ t * (2 * x) ≤ 2 ^ t * y := by
+      have := mul_le_mul_of_nonneg_right e (by linarith : (0 : ℤ) ≤ x)
+      linarith
+    have h4 : 2 * x ≤ y := le_of_mul_le_mul_left h3 h2t
+    linarith
+
+/-- An actual odd cycle of the raw `3x+q` map, listed from its minimum `n 0`, with dyadic
+heights `h i` (`2^{h_i} n_0 ≤ n_i < 2^{h_i+1} n_0`) bounded by `B`: C005 §1's data. -/
+structure OddCycle (m : ℕ) where
+  n : ℕ → ℤ
+  a : ℕ → ℕ
+  h : ℕ → ℕ
+  q : ℤ
+  B : ℕ
+  hm : 0 < m
+  hq : 0 < q
+  nper : ∀ i, n (i + m) = n i
+  nodd : ∀ i, Odd (n i)
+  nmin : ∀ i, n 0 ≤ n i
+  npos : 0 < n 0
+  arrow : ∀ i, (2 : ℤ) ^ a i * n (i + 1) = 3 * n i + q
+  hlo : ∀ i, 2 ^ h i * n 0 ≤ n i
+  hhi : ∀ i, n i < 2 ^ (h i + 1) * n 0
+  hB : ∀ i, h i ≤ B
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- The scaled normalised state `2^{B−h_i} n_i = 2^B z_i`. -/
+def Z (i : ℕ) : ℤ := 2 ^ (Γ.B - Γ.h i) * Γ.n i
+
+/-- The scaled image `2^B F_i = 3 Z_i + 2^{B−h_i} q`. -/
+def F (i : ℕ) : ℤ := 3 * Γ.Z i + 2 ^ (Γ.B - Γ.h i) * Γ.q
+
+/-- The normalised exponent `c_i = a_i + h_{i+1} − h_i` (C005 (1)). -/
+def c (i : ℕ) : ℕ := Γ.a i + Γ.h (i + 1) - Γ.h i
+
+/-- The scaled lower endpoint `2^B L`. -/
+def lo : ℤ := 2 ^ Γ.B * Γ.n 0
+
+theorem h_unique {L n : ℤ} {h h' : ℕ} (hL : 0 < L) (h1 : 2 ^ h * L ≤ n)
+    (h2 : n < 2 ^ (h + 1) * L) (h1' : 2 ^ h' * L ≤ n) (h2' : n < 2 ^ (h' + 1) * L) : h = h' := by
+  by_contra hne
+  rcases Nat.lt_or_gt_of_ne hne with hlt | hgt
+  · have : (2 : ℤ) ^ (h + 1) ≤ 2 ^ h' := pow_le_pow_right₀ (by norm_num) hlt
+    nlinarith [mul_le_mul_of_nonneg_right this hL.le]
+  · have : (2 : ℤ) ^ (h' + 1) ≤ 2 ^ h := pow_le_pow_right₀ (by norm_num) hgt
+    nlinarith [mul_le_mul_of_nonneg_right this hL.le]
+
+theorem h_zero : Γ.h 0 = 0 := by
+  have h1 := Γ.hlo 0
+  have hp := Γ.npos
+  by_contra hne
+  have h2 : (2 : ℤ) ^ 1 ≤ 2 ^ Γ.h 0 :=
+    pow_le_pow_right₀ (by norm_num) (Nat.one_le_iff_ne_zero.mpr hne)
+  nlinarith [mul_le_mul_of_nonneg_right h2 hp.le]
+
+theorem h_per (i : ℕ) : Γ.h (i + m) = Γ.h i := by
+  have h1 := Γ.hlo (i + m)
+  have h2 := Γ.hhi (i + m)
+  rw [Γ.nper i] at h1 h2
+  exact h_unique Γ.npos h1 h2 (Γ.hlo i) (Γ.hhi i)
+
+theorem n_add_mul (k t : ℕ) : Γ.n (k + m * t) = Γ.n k := by
+  induction t with
+  | zero => simp
+  | succ t ih => rw [Nat.mul_succ, ← Nat.add_assoc, Γ.nper, ih]
+
+theorem n_mod (k : ℕ) : Γ.n (k % m) = Γ.n k := by
+  conv_rhs => rw [← Nat.mod_add_div k m]
+  exact (Γ.n_add_mul _ _).symm
+
+theorem h_mod (k : ℕ) : Γ.h (k % m) = Γ.h k := by
+  have h1 := Γ.hlo k
+  have h2 := Γ.hhi k
+  rw [← Γ.n_mod k] at h1 h2
+  exact h_unique Γ.npos (Γ.hlo (k % m)) (Γ.hhi (k % m)) h1 h2
+
+theorem Z_per (i : ℕ) : Γ.Z (i + m) = Γ.Z i := by
+  unfold Z
+  rw [Γ.h_per, Γ.nper]
+
+theorem Z_mod (k : ℕ) : Γ.Z (k % m) = Γ.Z k := by
+  unfold Z
+  rw [Γ.h_mod, Γ.n_mod]
+
+theorem pow_sub_mul {B h : ℕ} (hh : h ≤ B) : (2 : ℤ) ^ (B - h) * 2 ^ h = 2 ^ B := by
+  rw [← pow_add, Nat.sub_add_cancel hh]
+
+theorem Z_lower (i : ℕ) : Γ.lo ≤ Γ.Z i := by
+  unfold Z lo
+  have h1 := Γ.hlo i
+  have h2 : (0 : ℤ) < 2 ^ (Γ.B - Γ.h i) := by positivity
+  calc (2 : ℤ) ^ Γ.B * Γ.n 0 = 2 ^ (Γ.B - Γ.h i) * (2 ^ Γ.h i * Γ.n 0) := by
+        rw [← mul_assoc, pow_sub_mul (Γ.hB i)]
+    _ ≤ 2 ^ (Γ.B - Γ.h i) * Γ.n i := mul_le_mul_of_nonneg_left h1 h2.le
+
+theorem Z_upper (i : ℕ) : Γ.Z i < 2 * Γ.lo := by
+  unfold Z lo
+  have h2 := Γ.hhi i
+  have hp : (0 : ℤ) < 2 ^ (Γ.B - Γ.h i) := by positivity
+  have e := pow_sub_mul (Γ.hB i)
+  calc (2 : ℤ) ^ (Γ.B - Γ.h i) * Γ.n i < 2 ^ (Γ.B - Γ.h i) * (2 ^ (Γ.h i + 1) * Γ.n 0) :=
+        mul_lt_mul_of_pos_left h2 hp
+    _ = 2 * (2 ^ Γ.B * Γ.n 0) := by
+        rw [pow_succ]
+        linear_combination (2 * Γ.n 0) * e
+
+theorem Z_zero : Γ.Z 0 = Γ.lo := by
+  unfold Z lo
+  rw [Γ.h_zero, Nat.sub_zero]
+
+theorem h_le_a_add (i : ℕ) : Γ.h i ≤ Γ.a i + Γ.h (i + 1) := by
+  by_contra hlt
+  rw [not_le] at hlt
+  have h1 := Γ.arrow i
+  have h2 := Γ.hhi (i + 1)
+  have h3 := Γ.hlo i
+  have hp := Γ.npos
+  have hq := Γ.hq
+  have hpow : (2 : ℤ) ^ (Γ.a i + Γ.h (i + 1) + 1) ≤ 2 ^ Γ.h i :=
+    pow_le_pow_right₀ (by norm_num) hlt
+  have h4 : (2 : ℤ) ^ Γ.a i * Γ.n (i + 1) < 2 ^ Γ.a i * (2 ^ (Γ.h (i + 1) + 1) * Γ.n 0) :=
+    mul_lt_mul_of_pos_left h2 (by positivity)
+  have h5 : (2 : ℤ) ^ Γ.a i * (2 ^ (Γ.h (i + 1) + 1) * Γ.n 0)
+      = 2 ^ (Γ.a i + Γ.h (i + 1) + 1) * Γ.n 0 := by
+    rw [← mul_assoc, ← pow_add, Nat.add_assoc]
+  have h6 : (2 : ℤ) ^ (Γ.a i + Γ.h (i + 1) + 1) * Γ.n 0 ≤ 2 ^ Γ.h i * Γ.n 0 :=
+    mul_le_mul_of_nonneg_right hpow hp.le
+  have h7 : 0 < Γ.n i := lt_of_lt_of_le hp (Γ.nmin i)
+  linarith
+
+/-- C005 (1): `2^{c_i} Z_{i+1} = F_i`. -/
+theorem c_arrow (i : ℕ) : (2 : ℤ) ^ Γ.c i * Γ.Z (i + 1) = Γ.F i := by
+  unfold c F Z
+  have h1 := Γ.arrow i
+  have hle := Γ.h_le_a_add i
+  have hB := Γ.hB (i + 1)
+  have hBi := Γ.hB i
+  have e : (2 : ℤ) ^ (Γ.a i + Γ.h (i + 1) - Γ.h i) * 2 ^ (Γ.B - Γ.h (i + 1))
+      = 2 ^ (Γ.B - Γ.h i) * 2 ^ Γ.a i := by
+    rw [← pow_add, ← pow_add]
+    congr 1
+    omega
+  calc (2 : ℤ) ^ (Γ.a i + Γ.h (i + 1) - Γ.h i) * (2 ^ (Γ.B - Γ.h (i + 1)) * Γ.n (i + 1))
+      = (2 ^ (Γ.a i + Γ.h (i + 1) - Γ.h i) * 2 ^ (Γ.B - Γ.h (i + 1))) * Γ.n (i + 1) := by ring
+    _ = 2 ^ (Γ.B - Γ.h i) * (2 ^ Γ.a i * Γ.n (i + 1)) := by rw [e]; ring
+    _ = 2 ^ (Γ.B - Γ.h i) * (3 * Γ.n i + Γ.q) := by rw [h1]
+    _ = 3 * (2 ^ (Γ.B - Γ.h i) * Γ.n i) + 2 ^ (Γ.B - Γ.h i) * Γ.q := by ring
+
+/-- Distinct odd numerators give distinct normalised states. -/
+theorem Z_inj {i j : ℕ} (h : Γ.Z i = Γ.Z j) : Γ.h i = Γ.h j ∧ Γ.n i = Γ.n j := by
+  unfold Z at h
+  obtain ⟨h1, h2⟩ := pow_mul_eq_of_odd (Γ.nodd i) (Γ.nodd j) h
+  refine ⟨?_, h2⟩
+  have := Γ.hB i
+  have := Γ.hB j
+  omega
+
+/-- C005 (2) in scaled form, for `h_i ≤ h_j`, `k = h_j − h_i`, `r = n_j − 2^k n_i`:
+`F_j − F_i = 2^{B−h_j} (3r − q(2^k − 1))`. -/
+theorem F_sub_of_le {i j : ℕ} (hij : Γ.h i ≤ Γ.h j) :
+    Γ.F j - Γ.F i = 2 ^ (Γ.B - Γ.h j)
+      * (3 * (Γ.n j - 2 ^ (Γ.h j - Γ.h i) * Γ.n i) - Γ.q * (2 ^ (Γ.h j - Γ.h i) - 1)) := by
+  unfold F Z
+  have e : (2 : ℤ) ^ (Γ.B - Γ.h i) = 2 ^ (Γ.B - Γ.h j) * 2 ^ (Γ.h j - Γ.h i) := by
+    rw [← pow_add]
+    congr 1
+    have := Γ.hB j
+    omega
+  rw [e]
+  ring
+
+theorem Z_sub_of_le {i j : ℕ} (hij : Γ.h i ≤ Γ.h j) :
+    Γ.Z j - Γ.Z i = 2 ^ (Γ.B - Γ.h j) * (Γ.n j - 2 ^ (Γ.h j - Γ.h i) * Γ.n i) := by
+  unfold Z
+  have e : (2 : ℤ) ^ (Γ.B - Γ.h i) = 2 ^ (Γ.B - Γ.h j) * 2 ^ (Γ.h j - Γ.h i) := by
+    rw [← pow_add]
+    congr 1
+    have := Γ.hB j
+    omega
+  rw [e]
+  ring
+
+/-- The equality case of (2) is excluded in a primitive cycle: equal images give equal
+normalised successors, hence equal states. -/
+theorem Z_eq_of_F_eq (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {i j : ℕ}
+    (h : Γ.F i = Γ.F j) : Γ.Z i = Γ.Z j := by
+  rw [← Γ.c_arrow i, ← Γ.c_arrow j] at h
+  have hZ : Γ.Z (i + 1) = Γ.Z (j + 1) :=
+    eq_of_pow_mul_eq_in_window (Γ.Z_lower _) (Γ.Z_upper _) (Γ.Z_lower _) (Γ.Z_upper _) h
+  have hn : Γ.n ((i + 1) % m) = Γ.n ((j + 1) % m) := by
+    rw [Γ.n_mod, Γ.n_mod]
+    exact (Γ.Z_inj hZ).2
+  have hij := hprim _ _ (Nat.mod_lt _ Γ.hm) (Nat.mod_lt _ Γ.hm) hn
+  have hmod : i % m = j % m := Nat.ModEq.add_right_cancel' 1 hij
+  rw [← Γ.Z_mod i, ← Γ.Z_mod j, hmod]
+
+/-- **C005 §2, the three-band order at `q = 1`:** with all heights at most `2` (`H < 8L`), the
+images increase with the normalised states. -/
+theorem F_lt_of_Z_lt (hq1 : Γ.q = 1) (hB2 : Γ.B ≤ 2)
+    (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {i j : ℕ} (hZ : Γ.Z i < Γ.Z j) :
+    Γ.F i < Γ.F j := by
+  rcases Nat.lt_or_ge (Γ.h i) (Γ.h j) with hlt | hle
+  · have hk : Γ.h j - Γ.h i ≤ 2 := by
+      have := Γ.hB j
+      omega
+    have hsub := Γ.F_sub_of_le hlt.le
+    have hZs := Γ.Z_sub_of_le hlt.le
+    set r := Γ.n j - 2 ^ (Γ.h j - Γ.h i) * Γ.n i with hr
+    have hpos : (0 : ℤ) < 2 ^ (Γ.B - Γ.h j) := by positivity
+    have hr0 : 0 < r := by
+      have hprod : 0 < 2 ^ (Γ.B - Γ.h j) * r := by
+        rw [← hZs]
+        linarith
+      by_contra hneg
+      rw [not_lt] at hneg
+      nlinarith
+    have hr1 : 1 ≤ r := by linarith
+    obtain ⟨hnn, _⟩ := no_inversion_of_le_two hr1 hk
+    rw [hq1] at hsub
+    rcases lt_or_eq_of_le hnn with hgt | heq0
+    · have hin : (0 : ℤ) < 3 * r - 1 * (2 ^ (Γ.h j - Γ.h i) - 1) := by linarith
+      have := mul_pos hpos hin
+      linarith
+    · exfalso
+      have hFeq : Γ.F i = Γ.F j := by
+        have hz : (3 : ℤ) * r - 1 * (2 ^ (Γ.h j - Γ.h i) - 1) = 0 := by linarith
+        rw [hz, mul_zero] at hsub
+        linarith
+      have := Γ.Z_eq_of_F_eq hprim hFeq
+      linarith
+  · have e1 : (2 : ℤ) ^ (Γ.B - Γ.h i) ≤ 2 ^ (Γ.B - Γ.h j) :=
+      pow_le_pow_right₀ (by norm_num) (by have := Γ.hB i; have := Γ.hB j; omega)
+    have hq := Γ.hq
+    unfold F
+    nlinarith [mul_le_mul_of_nonneg_right e1 hq.le]
+
+theorem order_of_three_band (hq1 : Γ.q = 1) (hB2 : Γ.B ≤ 2)
+    (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) (i j : ℕ) :
+    Γ.Z i < Γ.Z j ↔ Γ.F i < Γ.F j := by
+  constructor
+  · exact Γ.F_lt_of_Z_lt hq1 hB2 hprim
+  · intro hF
+    rcases lt_trichotomy (Γ.Z i) (Γ.Z j) with h | h | h
+    · exact h
+    · exfalso
+      obtain ⟨hh, hn⟩ := Γ.Z_inj h
+      have : Γ.F i = Γ.F j := by
+        unfold F Z
+        rw [hh, hn]
+      linarith
+    · exfalso
+      have := Γ.F_lt_of_Z_lt hq1 hB2 hprim h
+      linarith
+
+theorem F_zero : Γ.F 0 = 3 * Γ.lo + 2 ^ Γ.B * Γ.q := by
+  unfold F
+  rw [Γ.Z_zero, Γ.h_zero, Nat.sub_zero]
+
+theorem F_lt_two_F_zero (i : ℕ) : Γ.F i < 2 * Γ.F 0 := by
+  rw [Γ.F_zero]
+  unfold F
+  have h1 := Γ.Z_upper i
+  have h2 : (2 : ℤ) ^ (Γ.B - Γ.h i) ≤ 2 ^ Γ.B :=
+    pow_le_pow_right₀ (by norm_num) (Nat.sub_le _ _)
+  have hq := Γ.hq
+  have hB : (0 : ℤ) < 2 ^ Γ.B := by positivity
+  nlinarith [mul_le_mul_of_nonneg_right h2 hq.le]
+
+theorem F_zero_le (hord : ∀ i j, Γ.Z i < Γ.Z j ↔ Γ.F i < Γ.F j) (j : ℕ) : Γ.F 0 ≤ Γ.F j := by
+  by_contra hlt
+  rw [not_le] at hlt
+  have := (hord j 0).mpr hlt
+  rw [Γ.Z_zero] at this
+  linarith [Γ.Z_lower j]
+
+/-- An ordered actual cycle gives a `NarrowCycle` on its scaled normalised states, with
+exponents `c_i`, images `2^B F_i` and `lo = 2^B L` (C005 §§1–2). -/
+def toNarrow (hord : ∀ i j, Γ.Z i < Γ.Z j ↔ Γ.F i < Γ.F j) (q' : ℕ)
+    (hq1 : (2 : ℤ) ^ q' * Γ.lo ≤ Γ.F 0) (hq2 : Γ.F 0 < 2 ^ (q' + 1) * Γ.lo) : NarrowCycle m where
+  x := Γ.Z
+  a := Γ.c
+  F := Γ.F
+  lo := Γ.lo
+  q := q'
+  hm := Γ.hm
+  periodic := Γ.Z_per
+  arrow := Γ.c_arrow
+  lower := Γ.Z_lower
+  upper := Γ.Z_upper
+  order := hord
+  window i j := by
+    have h1 := Γ.F_lt_two_F_zero i
+    have h2 := Γ.F_zero_le hord j
+    linarith
+  hq1 i := le_trans hq1 (Γ.F_zero_le hord i)
+  hq2 i := by
+    have h1 := Γ.F_lt_two_F_zero i
+    have h3 : (2 : ℤ) ^ (q' + 2) * Γ.lo = 2 * (2 ^ (q' + 1) * Γ.lo) := by ring
+    rw [h3]
+    linarith
+
+/-- The normalised and original totals agree over a period: `Σ c_i = Σ a_i` (the height
+coboundary telescopes). -/
+theorem sum_c : ∑ i ∈ Finset.range m, Γ.c i = ∑ i ∈ Finset.range m, Γ.a i := by
+  have hshift : ∑ i ∈ Finset.range m, Γ.h (i + 1) = ∑ i ∈ Finset.range m, Γ.h i :=
+    NarrowCycle.sum_range_shift Γ.h (by simpa using Γ.h_per 0)
+  have hc : ∀ i ∈ Finset.range m, Γ.c i + Γ.h i = Γ.a i + Γ.h (i + 1) := fun i _ => by
+    unfold c
+    have := Γ.h_le_a_add i
+    omega
+  have := Finset.sum_congr rfl hc
+  rw [Finset.sum_add_distrib, Finset.sum_add_distrib, hshift] at this
+  omega
+
+/-- **C005 §2, the three-band restriction at `q = 1`.** A primitive odd cycle of the `3x+1`
+map with `m ≥ 2` and all dyadic heights at most `2` (`H < 8L`) has mechanical normalised
+exponents: there are `q'` and `h'` coprime to `m` with `c_i = q' + ⌊(i+1)h'/m⌋ − ⌊ih'/m⌋`,
+and the total `A = Σ a_i = Σ c_i = mq' + h'` is coprime to `m`. -/
+theorem three_band (hq1 : Γ.q = 1) (hB2 : Γ.B ≤ 2) (hm2 : 2 ≤ m)
+    (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) :
+    ∃ q' h' : ℕ, Nat.Coprime h' m ∧ (∀ i, Γ.c i = q' + (((i + 1) * h') / m - (i * h') / m)) ∧
+      ∑ i ∈ Finset.range m, Γ.a i = m * q' + h' ∧
+      Nat.Coprime (∑ i ∈ Finset.range m, Γ.a i) m := by
+  have hord := Γ.order_of_three_band hq1 hB2 hprim
+  have hlo : 0 < Γ.lo := by
+    unfold lo
+    exact mul_pos (by positivity) Γ.npos
+  have hd : (0 : ℤ) < 2 ^ Γ.B * Γ.q := mul_pos (by positivity) Γ.hq
+  obtain ⟨q', hq1', hq2'⟩ := exists_exponent hlo hd
+  rw [← Γ.F_zero] at hq1' hq2'
+  set N : NarrowCycle m := Γ.toNarrow hord q' hq1' hq2' with hN
+  have hx : ∀ i, N.x i = Γ.Z i := fun _ => rfl
+  have ha : ∀ i, N.a i = Γ.c i := fun _ => rfl
+  have hq : N.q = q' := rfl
+  have hp : N.Primitive := by
+    unfold NarrowCycle.Primitive
+    intro i j hi hj h
+    exact hprim i j hi hj (Γ.Z_inj h).2
+  have hh := N.numHigh_lt hp hm2
+  have h0 : N.rank 0 = 0 := by
+    unfold NarrowCycle.rank
+    apply Finset.sum_eq_zero
+    intro j _
+    rw [hx, hx, Γ.Z_zero]
+    exact ite_eq_right (not_lt.mpr (Γ.Z_lower j))
+  have hsum : ∑ i ∈ Finset.range m, Γ.a i = m * q' + N.numHigh := by
+    rw [← Γ.sum_c]
+    have := N.sum_a
+    rw [hq] at this
+    exact this
+  refine ⟨q', N.numHigh, N.coprime_numHigh hp hm2, ?_, hsum, ?_⟩
+  · intro i
+    rw [← ha, N.a_formula hh h0 i, hq]
+  · rw [hsum]
+    exact (Nat.coprime_mul_left_add_left _ _ _).mpr (N.coprime_numHigh hp hm2)
+
+/-- **C005's denominator corollary**, contrapositive form: a primitive odd cycle with `m ≥ 2`,
+heights at most `2` and `gcd(A, m) > 1` is not a `3x+1` cycle (`q ≠ 1`). -/
+theorem q_ne_one_of_not_coprime (hB2 : Γ.B ≤ 2) (hm2 : 2 ≤ m)
+    (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hg : ¬ Nat.Coprime (∑ i ∈ Finset.range m, Γ.a i) m) : Γ.q ≠ 1 := by
+  intro hq1
+  obtain ⟨_, _, _, _, _, hcop⟩ := Γ.three_band hq1 hB2 hm2 hprim
+  exact hg hcop
+
+end OddCycle
+
 end Cyc
 end LeanLane

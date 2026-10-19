@@ -3,6 +3,27 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 20 — 2026-10-19, 02:40 -03
+
+- Woken by the sidekick's verdict message (C005-a verified, `f3cc907`). Main
+  pushed `dddbe33` (C007: height-denominator candidate `B ≤ q − 1`, modular
+  lemma, min–top inequality, census with a new `q = 29` cycle) and the
+  sidekick refereed it (`bbd3417`); read and checked (STATE "Insights"), no
+  error found. Monitor re-armed after its expiry.
+- **C005-b verified** in `CycleSpectrum.lean` (sha256 `00f4ba6c…74cf`, 2594
+  lines, 158 theorems: 118 with the three standard axioms, 12 × `[propext,
+  Quot.sound]`, 27 × `[propext]`, 1 none; no `sorry`): `exists_height`,
+  `height_le_two`, `pow_mul_eq_of_odd`, `eq_of_pow_mul_eq_in_window`; the
+  structure `OddCycle m` with `Z`, `F`, `c`, `lo`,
+  `h_unique`/`h_zero`/`h_per`/`h_mod`, `Z_per`/`Z_mod`,
+  `Z_lower`/`Z_upper`/`Z_zero`, `h_le_a_add`, `c_arrow`, `Z_inj`,
+  `F_sub_of_le`/`Z_sub_of_le`, `Z_eq_of_F_eq`, `F_lt_of_Z_lt`,
+  `order_of_three_band`, `F_zero`, `F_lt_two_F_zero`, `F_zero_le`, `toNarrow`,
+  `sum_c`, **`three_band`**, `q_ne_one_of_not_coprime`. Two compile rounds:
+  `le_or_lt` no longer exists (replaced by `Nat.lt_or_ge` with the branches
+  swapped) and `push_neg` is deprecated (replaced by `rw [not_le]`/`rw
+  [not_lt]`). Receipts regenerated. Next: C007-a (small), then C006-a.
+
 ## Iteration 19 — 2026-10-19, 02:21 -03
 
 - Main pushed `1cb02fa` (C005: dyadic order, three-band restriction at `q =

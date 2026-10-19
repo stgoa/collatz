@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 19 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 20 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -40,7 +40,8 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | C004-a | Main's C004 (`ROTATION_LATTICE.md`): the one-letter cut identities (6) `2^{a_i} K_i = (2^{a_i} − 3) C_i − D` (the `k = 1` case of `commutator`) and (7) `gcd(D, K_i) = g · gcd(D/g, 2^{a_i} − 3)` for `a_i ≥ 1`; the reverse narrow direction of §3: the phase words `mech A m l` (`a_j = ⌊((j+1)A + l)/m⌋ − ⌊(jA + l)/m⌋`) have length `m`, total `A`, `D = 2^A − 3^m`, intercepts `C_0 ≤ C_l < 2 C_0` for `l < m`, and every rotation of `mech A m l` is the phase `(l + iA) mod m`; hence every rotation of the mechanical word has intercept in `[C_0, 2C_0)` with the common `D`: `H < 2L` (no coprimality of `A, m` is needed for the inequalities) | `experiments/cycle_spectrum/C004/ROTATION_LATTICE.md` §§2–3 | **verified** (iteration 15): `CycleSpectrum.lean`, `LeanLane.Cyc.cut_identity`, `cut_gcd`, `mech`, `C_diffWord`, `C_mech`, `D_mech`, `mech_pos`, `C_mech_zero_le`, `C_mech_lt_two`, `mech_rotate`, `narrow_mech` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 75 theorems printed) |
 | C004-b | The forward narrow-cycle theorem (a primitive rational cycle with `H < 2L` has sorted ranks shifted by `h`, `gcd(h, m) = 1`, and its word is `mech (mq + h) m l` for some phase). **Part 1 verified** (iteration 16): C004's (1) on rotations (`C_cons_rotate`, `D_rotate`, `C_rotate_succ`), the exponent `q` (`exists_exponent`), the exponent dichotomy (`exponent_dichotomy`), successor order (`succ_order_same`, `succ_order_high_low`), and on the abstract structure `NarrowCycle m` (states `x i` periodic mod `m` in `[lo, 2lo)`, arrows `2^{a i} x(i+1) = 3 x i + d`, `d > 0`, exponent `q`): `a_eq` (`a i = q` or `q + 1` according to the threshold `high i`), `x_lt_of_low_high`, `succ_lt_iff_low`/`succ_lt_iff_high`, `succ_lt_of_high_low`, the ranks `rank i = #{j < m : x j < x i}` and `numHigh = h`, the **rank shift** `rank_succ_of_low` (`rank(i+1) = rank i + h`) and `rank_of_high` (`rank i = rank(i+1) + (m − h)`), and `high_iff_rank` (`high i ↔ m − h ≤ rank i` for `i < m`). **Part 2 verified** (iteration 17): `rank_lt` (`rank i < m`), `rank_lt_of_lt`, `x_eq_of_rank_eq`, `Primitive` (distinct states), `rank_inj`, `numHigh_pos`/`numHigh_lt` (`1 ≤ h ≤ m − 1` for primitive cycles with `m ≥ 2`), `rank_succ_eq` (`rank(i+1) = (rank i + h) mod m`), **`rank_formula`** (`rank i = (rank 0 + ih) mod m`), **`a_formula`** (`rank 0 = 0 ⇒ a_i = q + ⌊(i+1)h/m⌋ − ⌊ih/m⌋`), **`coprime_numHigh`** (`gcd(h, m) = 1`), `sum_a` (`Σ_{i<m} a_i = mq + h`). **Part 3 verified** (iteration 18): `ofWord` (the `NarrowCycle` instance of a word: states `C(w.rotate i)`, letters the first letters of the rotations, `lo = C_w`), `headD_rotate`, **`eq_mech_of_narrow`** (a word of length `m ≥ 2` with `D_w > 0` that starts at its minimum, has `C(w.rotate i) < 2 C_w` for all `i` and distinct rotated intercepts satisfies `w = mech w.sum m 0 ∧ gcd(w.sum, m) = 1`) and **`is_mech_of_narrow`** (without the starting-point normalisation: `∃ l < m, w = mech w.sum m l ∧ gcd(w.sum, m) = 1`, from `H < 2L` in the form `∀ i j, C(w.rotate i) < 2 C(w.rotate j)`). With `narrow_mech` (C004-a) this is C004 §3's narrow-cycle equivalence in full. The Smith forms of §2 stay queued separately | same, §§2–3 | **verified** (iteration 18) | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 122 theorems printed) |
 | C005-a | Main's C005 `ORDER_THEORY.md` §2 order lemma in abstract form: `NarrowCycle` generalised to images `F i` with `x i < x j ↔ F i < F j`, `F i < 2 F j` and `2^q lo ≤ F i < 2^{q+2} lo` (exactly the order lemma's hypotheses; the constant-offset C004 case is the instance `ofWord`), so that the rank shift, `rank_formula`, `a_formula` (mechanical `c`), `coprime_numHigh` (`gcd(A, m) = 1`) and `sum_a` hold for every ordered dyadically normalised cycle; the inversion formula (2) over `ℚ`; the three-band observation at `q = 1` (`3r − (2^k − 1) ≥ 0` for `k ≤ 2`, `r ≥ 1`, equality only at `(2, 1)`) | `experiments/cycle_spectrum/C005/ORDER_THEORY.md` §2 | **verified** (iteration 19): `CycleSpectrum.lean`, `exponent_dichotomy_F`, `NarrowCycle` (fields `F`, `order`, `window`, `hq1`, `hq2`), `F_eq_of_x_eq`, `succ_lt_iff_of_a_eq`, `F_mod`, `inversion_formula`, `no_inversion_of_le_two`; all C004 theorems re-verified on the general structure | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 128 theorems printed) |
-| C005-b | The `q = 1`, `H < 8L` theorem on actual integer cycles: heights `h_i = ⌊log₂(n_i/L)⌋`, scaled normalised states `2^B z_i` and images `2^B F_i`, the `NarrowCycle` hypotheses from (2) and `no_inversion_of_le_two` (primitivity for the equality case), hence mechanical `c` and `gcd(A, m) = 1`; the denominator corollary | same, §2 | **next** | — | — |
+| C005-b | The `q = 1`, `H < 8L` theorem on actual odd cycles: the structure `OddCycle m` (numerators `n_i`, exponents `a_i`, heights `h_i` with `2^{h_i} L ≤ n_i < 2^{h_i+1} L`, bound `B`), scaled normalised states `Z_i = 2^{B−h_i} n_i`, images `F_i = 3Z_i + 2^{B−h_i} q`, exponents `c_i = a_i + h_{i+1} − h_i`; (1) `2^{c_i} Z_{i+1} = F_i`, distinctness of the `Z_i`, (2) in scaled form, exclusion of equal images in a primitive cycle, the three-band order at `q = 1` (`B ≤ 2`), the `NarrowCycle` instance, `Σc = Σa`; **`three_band`**: for `q = 1`, heights at most 2 (`H < 8L`), `m ≥ 2` and distinct numerators, `c_i = q' + ⌊(i+1)h'/m⌋ − ⌊ih'/m⌋` with `gcd(h', m) = 1`, `Σ a_i = mq' + h'`, `gcd(Σ a_i, m) = 1`; the denominator corollary `q_ne_one_of_not_coprime` | same, §§1–2 | **verified** (iteration 20): `CycleSpectrum.lean`, `exists_height`, `height_le_two`, `pow_mul_eq_of_odd`, `eq_of_pow_mul_eq_in_window`, `LeanLane.Cyc.OddCycle.{c_arrow, Z_inj, F_sub_of_le, Z_eq_of_F_eq, F_lt_of_Z_lt, order_of_three_band, toNarrow, sum_c, three_band, q_ne_one_of_not_coprime}` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 158 theorems printed) |
+| C007-a | Main's C007 `HEIGHT_DENOMINATOR.md` §§2–3: the modular lemma (2) (numerators coprime to `6q`; `z_i ≡ L 3^i 2^{−P_i} mod q`) and the min–top inequality (3) `3r > q(2^B − 1)` (a corollary of `F_sub_of_le` at `i = 0` and the order) | `experiments/cycle_spectrum/C007/HEIGHT_DENOMINATOR.md` §§2–3 | **next** (small; the candidate `B ≤ q − 1` itself is open and not a Lean target) | — | — |
 | C005-c | The rotation-block ratio bound `H/L ≤ R³ < 8` (rational affine block maps, prefix comparison) and the gcd bookkeeping of the rotation-block theorem (its last step imports R71's `g = 1`) | same, §2 | queued | — | — |
 | C006-a | The elementary part of C006's sparse-forcing law (G1): the extended gap system (7)/(G3) with the seam, `2^{e_run} ∣ G_start`, `G_start < 2^B L`, hence `L > 2^{⌈m/J⌉ − 1 − B}`; and `J ≥ B + 1` | `experiments/cycle_spectrum/C006/ORDER_RIGIDITY.md` §3 | queued (larger) | — | — |
 | C002-b | The proportional-slope theorem (6)–(8) in its general `(r, s)` form, the `K = 0` characterisation, the rotating mechanical family of §4; the unequal-slope application is an imported ineffective theorem and is not a Lean target | same, §§2–4 | queued | — | — |
@@ -500,8 +501,61 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   identity needs no oddness or positivity); `no_inversion_of_le_two` is the
   arithmetic of the three-band remark (`k ≤ 2`, `r ≥ 1`), with the equality
   case `(k, r) = (2, 1)` left to primitivity as in the prose.
+- C005-b: C005 §1 fixes a primitive positive odd numerator cycle `3n_i + q =
+  2^{a_i} n_{i+1}` listed from its minimum `L = n_0`, heights `h_i =
+  ⌊log₂(n_i/L)⌋`, `z_i = n_i/2^{h_i} ∈ [L, 2L)`, `F_i = 3z_i + q/2^{h_i}`,
+  `c_i = a_i + h_{i+1} − h_i`, and proves `F_i = 2^{c_i} z_{i+1}` (1) with
+  `c_i ≥ 1`; §2 proves the inversion formula (2), that equal images are
+  impossible in a primitive cycle, and the three-band statement: for `q = 1`
+  and `H < 8L` the sorted `F` increases, so the order lemma gives mechanical
+  `c` and `gcd(A, m) = 1`. The Lean `OddCycle m` carries this data with the
+  heights as a field `h` satisfying `2^{h_i} n_0 ≤ n_i < 2^{h_i+1} n_0` and a
+  bound `B` (`exists_height` shows such heights exist for any `n_i ≥ L > 0`,
+  `height_le_two` that `n_i < 8L` forces `h_i ≤ 2`, `h_unique` that the
+  heights are determined, hence periodic, `h_per`); to stay in `ℤ` everything
+  is scaled by `2^B`: `Z i = 2^{B−h_i} n_i = 2^B z_i`, `F i = 3Z_i + 2^{B−h_i}
+  q = 2^B F_i`, `lo = 2^B L`. `c_arrow` is (1) (`h_le_a_add` is the prose's
+  `c_i ≥ 1`, in the form `h_i ≤ a_i + h_{i+1}`, from `F_i > 3L` and `z_{i+1} <
+  2L`); `Z_lower`/`Z_upper` are `z_i ∈ [L, 2L)`; `Z_inj` is "the points `z_i`
+  are distinct" (`pow_mul_eq_of_odd`, from the oddness of the numerators);
+  `F_sub_of_le`/`Z_sub_of_le` are (2) in scaled form with `r = n_j − 2^k n_i`;
+  `Z_eq_of_F_eq` is the prose's "equality cannot occur between two states of
+  one primitive cycle" (`eq_of_pow_mul_eq_in_window`: a power-of-two ratio
+  inside `[lo, 2lo)` forces equality, then primitivity of the numerators
+  modulo `m`); `F_lt_of_Z_lt`/`order_of_three_band` are the three-band
+  argument (`h_j ≤ h_i` gives `F_j > F_i` directly; `h_j = h_i + k` with `k ≤
+  2` uses `no_inversion_of_le_two` and the equality exclusion);
+  `F_lt_two_F_zero` and `F_zero_le` are the order lemma's "the least `F` is
+  `3L + q`; every `F` is below `2(3L + q)`"; `toNarrow` builds the
+  `NarrowCycle`; `sum_c` is `Σc = Σa` (the coboundary telescopes).
+  `three_band` is the three-band theorem: for `q = 1`, `B ≤ 2` (all heights at
+  most 2, i.e. `H < 8L`), `m ≥ 2` and primitivity (`n_i = n_j → i = j` for `i,
+  j < m`) there are `q'`, `h'` with `gcd(h', m) = 1`, `c_i = q' + ⌊(i+1)h'/m⌋
+  − ⌊ih'/m⌋`, `Σ_{i<m} a_i = mq' + h'` and `gcd(Σ a_i, m) = 1`;
+  `q_ne_one_of_not_coprime` is the prose's denominator corollary in
+  contrapositive form (`gcd(A, m) > 1` and `H < 8L` force `q ≠ 1`). Hypotheses
+  versus the prose: "`q` odd coprime to 6" is not needed for these statements
+  (only `q > 0`); "primitive" is distinct numerators over one period; the
+  minimum at index 0 is a hypothesis (`nmin`), the prose's rotation; the
+  positivity `a_i ≥ 1` is not needed. Not formalised: the general-`q` converse
+  of the order lemma under `q ≤ L`, the `q = 11`/`q = 233` controls as
+  theorems, and the rotation-block theorem (C005-c).
 
 ## Insights sent to the feed
+
+- Iteration 20 (main `dddbe33`, C007; sidekick `f3cc907`/`92bff41`): the side
+  lane verified C005-a (feed update: fields match C005 §2, C004 theorems
+  re-verify, `inversion_formula`/`no_inversion_of_le_two` read correctly;
+  axioms 93 × standard; clean build and scan; hash match) and refereed C007.
+  C007 read (`REPORT.md`, `HEIGHT_DENOMINATOR.md`): the candidate `B ≤ q − 1`
+  is open; the modular lemma (2) (coprimality of the numerators to `6q`; `z_i
+  ≡ L 3^i 2^{−P_i} mod q` from the normalised arrow reduced mod `q`) and the
+  min–top inequality (3) (`F(N) − F(L) = (3r − q(2^B − 1))/2^B`, the `i = 0`
+  case of C005's (2)) re-derived; the `q = 5` period-17 height-residue sets
+  `{2,3}, {2,3}, {1,2,3}, {1,2,3,4}` recomputed from the stored numerators;
+  the new `q = 29` cycle and the census were not re-verified. No error found.
+  Sent after the build: the C005-b report and the C007 notes (both (2) and (3)
+  are small Lean targets; the candidate is not).
 
 - Iteration 19 (main `1cb02fa`, C005 + C006; sidekick `15da388`/`ebf2330`):
   both batches read in full (`REPORT.md`s, `ORDER_THEORY.md`,
