@@ -1,0 +1,41 @@
+External replay receipt — mmusson/collatz, theorem Collatz.gap_all
+==================================================================
+Replayed: 2026-10-19 (12:11–12:39 UTC), container leanaudit (aarch64 linux, 4 CPU, 7 GB), by the Lean lane.
+Source: https://github.com/mmusson/collatz (Apache-2.0), clone --depth 1, HEAD e292ac0d44ef3f27f82cdc6d1325d48b883218a2
+  (2026-10-06 22:33:28 -0400, "add a license"). Nothing from the repository is copied into this repository.
+Toolchain (from its lean-toolchain): leanprover/lean4:v4.34.0-rc2
+  (Lean 4.34.0-rc2, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d), installed with elan in the container.
+Mathlib: inputRev v4.34.0-rc2, resolved by lake update to rev 85e3a25e006c35636f0e53b0e9296caca2685bc0; oleans from lake exe cache get.
+Build: lake build +CycleLenPoly (module target; the Sieve29 certificate parts were not built).
+  First run: 3463/3478 modules in 5m37s real (17m28s user); one required target, OneCircuit, logged a failure
+  (output truncated by the log; transient under four parallel jobs — see second run).
+  Second run (incremental): "Build completed successfully (3478 jobs)", 3m35s real; OneCircuit built in 20s.
+  Warnings only (deprecated if_pos/if_neg in Runs.lean; exponentiation-threshold notices in FareyBigCore,
+  FareyBigChain, FareyBig, RunsTail, FiniteRuns, CycleLenPoly; "declaration uses sorry" at
+  shared-lean/CollatzProof/Statement.lean:109 — the Collatz statement itself, as the README declares).
+
+Statement (lake env lean, #check @Collatz.gap_all):
+  @Collatz.gap_all : ∀ {k L : ℕ}, 0 < k → 3 ^ k < 2 ^ L → 2 ^ L ≤ 2 ^ 172 * k ^ 341 * (2 ^ L - 3 ^ k)
+  (ℕ arithmetic; truncated subtraction is harmless under 3^k < 2^L). Regimes per the source: k < 2^100 via
+  gapBelow_big (K1big ≈ 3.15·10^50, certified interval arithmetic along convergents of log₂ 3); k ≥ 2^100 via
+  linFormHyp_uncond (Padé family, FewRunsUncond.signApprox_Vq).
+  def Collatz.GapBelow : ℕ → ℕ → Prop := fun K1 s => ∀ (k L : ℕ), 0 < k → k < K1 → 3 ^ k < 2 ^ L → 2 ^ L ≤ 2 ^ s * (2 ^ L - 3 ^ k)
+
+#print axioms (lake env lean /audit/mmusson/check_gap_all.lean, 3.5 s):
+  'Collatz.gap_all' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Collatz.gapBelow_big' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Collatz.linFormHyp_uncond' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Collatz.min_le_poly_period' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Collatz.signApprox_Vq' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Collatz.few_runs_cycle_trivial_uncond' depends on axioms: [propext, Classical.choice, Quot.sound]
+  No sorryAx, no Lean.ofReduceBool, no native_decide in any of these closures.
+Sorry audit (grep over the repository's own .lean files): only shared-lean/CollatzProof/Statement.lean,
+  shared-lean/CollatzProof/Equivalence.lean (the conjecture and its forms) and
+  christoffel-neighbourhood/lean/NormGoal.lean, NormGoalAll.lean (declared target statements) — none in the
+  gap_all closure, as the axiom lists confirm.
+
+Scope of this receipt: the Lean kernel (v4.34.0-rc2) accepted Collatz.gap_all with the standard axioms in a
+fresh build from the pinned sources. The proofs were not reviewed line by line here; the statement was read.
+Correspondence to this lane: with k ↦ m (odd steps) and L ↦ A = Apre m (total valuation), the ℤ-cast of
+gap_all is the hypothesis of OrdCycle.G2_of_gap with (c, μ) = (172, 341) (CycleSpectrum.lean, C006-d).
+The two libraries use different toolchains and are not linked by a single Lean theorem.
