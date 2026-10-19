@@ -1,8 +1,10 @@
 # Find a better language for Collatz
 
-**Global automatic rigidity proved in V004, 2026-10-18. Collatz remains open.**
-The [current brief](docs/GLOBAL_RIGIDITY_BRIEF.md) required the full
-classification. The [partial-result brief](docs/ARITHMETIC_REGULARITY_BRIEF.md)
+**Quantitative rigidity active, 2026-10-18. V004's finite-state classification is proved; V005's stronger growth target remains open. Collatz remains open.**
+The [current brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) requires an unbounded
+ratio of binary-section count to depth for every nonconstant invariant.
+The [completed brief](docs/GLOBAL_RIGIDITY_BRIEF.md) required the full
+finite-state classification. The [partial-result brief](docs/ARITHMETIC_REGULARITY_BRIEF.md)
 records V003's earlier target. The [earlier brief](docs/VIEWPOINT_BRIEF.md) records the completed
 language-selection goal.
 The [batch log](docs/VIEWPOINT_LOG.md) records decisions and checks. The former
@@ -89,6 +91,24 @@ their distinct scopes. The theorem is written and agent-reviewed, with
 published classical dependencies; formal verification and novelty are
 unclaimed. The historical R-series and dispatcher remain unchanged.
 
+## V005: the quantitative target and its first discrimination tests
+
+The [first report](experiments/viewpoints/V005/REPORT.md) proves that an
+automatic positive binary cylinder would force global constancy, with a
+polynomial reconstruction bound at every depth. It also transfers binary
+growth to the **joint** binary/ternary section family. The active target
+requires more: the ratio kappa_h(D)/(D+1) must be unbounded for every
+nonconstant invariant. Generic infinite-kernel growth is insufficient.
+
+Two exact examples rule out shortcuts: all descendant families can be
+infinite yet overlap enough for linear growth; separate linear growth in
+two independent bases need not force periodicity. Neither example obeys
+the full Collatz identities. The preferred bounded test retains all three
+odd-section equations and compares joint-growth rigidity with a direct
+overlap argument. No new rank, periodicity or regularity premise is assumed.
+The Lean branch's reported conditional formalization of V004 is assessed
+separately in the [side review](experiments/viewpoints/V005/side_review.md).
+
 ## Comparison
 
 Each linked card records objects, structural gain, translated gap, example,
@@ -108,7 +128,7 @@ cycle controls, cheapest test and a genuinely partial milestone.
 | V10. [Rational denominator layers](experiments/viewpoints/V001/rational_layers.md) | Related maps become layers of one rational system; target and lattice changes are explicit | A property of the denominator-one layer that forces useful progress | Control bookkeeping; defer as an independent route |
 | V11. [Occupation measures](experiments/viewpoints/V002/statistical_languages.md#v11-occupation-measures-recurrence-versus-escape-of-mass) | Cycle mass and escape of mass are different phenomena | Tightness uniform in the seed range; cycle identification remains separate | Diagnostic only until a quantitative mechanism is proposed |
 | V12. [Information of actual integer ensembles](experiments/viewpoints/V002/statistical_languages.md#v12-conditional-information-of-realized-paths-rather-than-symbolic-entropy) | Merging, conditioning and endpoint concentration are separate | A quantitative first-passage law with integer endpoints | Retain as a separate statistical alternative; literature comparison first |
-| V13. [Arithmetic regularity of component colorings](experiments/viewpoints/V004/GLOBAL_RIGIDITY.md) | Full rigidity for arbitrary finite binary automata via positive sections | No regularity or complexity bound for the actual bad set | Full-classification target achieved; compare quantitative complexity and statistical follow-ups before a new goal |
+| V13. [Arithmetic regularity of component colorings](experiments/viewpoints/V005/REPORT.md) | Full finite-state rigidity and local reconstruction; exact growth controls | Exclude linear binary-section growth using the complete identities | Quantitative goal active; compare joint-growth rigidity and overlap control |
 | V14. [Two-dimensional base conversion](experiments/viewpoints/V003/carry_boundary.md) | Binary and ternary data share one complete carry boundary | Growing frontier, finite integer support and nonlocal bootstrap | Tested and closed: no additional relation; require a new whole-frontier proposal to reopen |
 
 These are related lenses, not fourteen independent possible proofs. In particular,
@@ -188,12 +208,13 @@ for either mathematical field. They are why the second round added V11–V14.
 
 ## Focused subsequent programme
 
-V004 completed the full-classification target. The first two rows below
-record completed tests; they are not outstanding obligations. A subsequent
-goal has not been activated by this map.
+V004 completed the full-classification target. The user subsequently
+activated the quantitative brief; V005 is its first partial batch.
+The completed rows remain historical evidence, not outstanding obligations.
 
 | Priority | Bounded next investigation | Evidence needed to continue | Stop or redirect when |
 |---|---|---|---|
+| V13 — active | Linear joint-section growth under all three scalar identities | A proved restriction on overlapping descendants, or a periodic section forced by joint growth | Only generic infinitude, separate-base counts or an assumed finite rank is obtained |
 | V13 — completed | Positive-offset binary kernel closure | K_+ is finite and closed under all binary/ternary sections; Cobham plus residue algebra finishes | Do not resume the unnecessary zero-offset closure search as though the full target were open |
 | Complement — V13, completed | Finite characteristic-zero2/3-Mahler systems | Every positive-section color indicator participates in both finite systems; scalar elimination is written | Do not present this dependent alternative as independent formal verification |
 | V14 — closed | Reopen only with a specific additional relation between entire frontier families | A relation not already present in the affine/section equations | Another finite rectangle merely redraws known arithmetic |
@@ -206,16 +227,16 @@ the odd section two-base automatic. Classifying this restricted function
 class does not establish regularity of arbitrary component indicators and
 therefore supplies no universal convergence inference.
 
-**Possible next V13 milestone, unproved and not activated:** define
+**Active V13 milestone, unproved:** define
 `kappa_h(D)=|{n -> h(2^a*n+r):0<=a<=D,0<=r<2^a}|`, for n>=0 and h(0)=h(1).
 Investigate whether every nonconstant invariant has
 `sup_D kappa_h(D)/(D+1)=infinity`. Infinite kernels already imply at least
 linear growth: if two successive cumulative kernels coincide, they are
 closed under binary sections and no later states appear. A stronger bound
 must exceed that generic argument. This would exclude another description
-class while leaving unrestricted components open. No such superlinear
-theorem, plausibility assessment or upper bound for the actual bad set is
-supplied here; it needs its own bounded comparison before selection.
+class while leaving unrestricted components open. V005's bounded comparison
+retains joint growth and full-identity overlap control. No superlinear
+theorem or upper bound for the actual bad set has been supplied.
 
 **Deferred V14 intermediate target.** The published small-cycle problem
 `T^k(x)!=x` for `x>2`, `1<=k<=ceil(log_2 x)` in the **shortcut** clock
@@ -231,8 +252,8 @@ mass of non-1 endpoints, for all sufficiently large integer X. Its card states
 all constants and quantifiers as a candidate, not a proved estimate. It leaves
 the fate of the endpoints and exceptional seeds unresolved.
 
-After this completed theorem, compare proposed complexity gains with the
-V12 statistical alternative before further depth. Proving the actual bad
+If bounded complexity probes stop adding mathematical structure, compare
+the V12 statistical alternative before further depth. Proving the actual bad
 set automatic is now equivalent to convergence and cannot be relabeled an
 intermediate milestone. Do not grow an automata catalogue to preserve the
 choice or infer that the completed theorem guarantees the next one.

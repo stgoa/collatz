@@ -5,7 +5,7 @@ Last updated: 2026-10-18. This ledger summarizes scope; the linked proof notes a
 ## Current programme and preserved Phase6 standing
 
 R1–R94 below are frozen infrastructure. The active
-[global-rigidity brief](GLOBAL_RIGIDITY_BRIEF.md) develops the
+[quantitative-rigidity brief](QUANTITATIVE_RIGIDITY_BRIEF.md) develops the
 language selected through [VIEWPOINT_MAP.md](../VIEWPOINT_MAP.md), with
 exploration decisions in [VIEWPOINT_LOG.md](VIEWPOINT_LOG.md).
 The [route map](../ROUTE_MAP.md) and [Phase6 ledger](PHASE6_LEDGER.md)
@@ -37,6 +37,16 @@ elementary residue argument forces constancy. This is a written proof
 with independent agent review, imported classical inputs, and separate
 bounded arithmetic checks. Novelty, formal verification and regularity
 of the actual nonabsorbing set are not supplied. The R-series is unchanged.
+
+V005 supplies [partial quantitative results](../experiments/viewpoints/V005/REPORT.md):
+one automatic positive binary section forces constancy; its exact
+reconstruction gives a polynomial all-depth complexity bound; and binary
+growth controls joint binary/ternary section growth. Exact counterexamples
+refute descendant-infinitude and separate-base-growth shortcuts. The full
+Collatz identities have a three-equation scalar interface, with the growth
+step still missing. The activated unbounded-ratio goal remains open.
+The separate Lean lane reports a V004 derivation conditional on Cobham;
+main inspected the statement and source receipt, without independent replay.
 
 S.1 now has a [written stopping calibration](../experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md)
 with explicit finite horizons, integer cutoffs and a separate W5 pullback.

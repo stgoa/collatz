@@ -1,15 +1,18 @@
 # Instructions for agents working in this repository
 
-## Current standing — global rigidity of finite-state component colorings
+## Active goal — quantitative rigidity of component colorings
 
 The user replaced the previous prove-or-narrow goal on 2026-10-18. V001/V002
 completed a broad language comparison and selected arithmetic regularity.
 The partial-result goal in `docs/ARITHMETIC_REGULARITY_BRIEF.md` was followed
 by the strict full-classification goal in `docs/GLOBAL_RIGIDITY_BRIEF.md`.
 V004 supplies its written proof, using the finite-kernel characterization
-and Cobham. Read `experiments/viewpoints/V004/GLOBAL_RIGIDITY.md` and its
-goal review before proposing further research. This does not authorize resuming
-the previous dispatcher search or assuming regularity of an actual bad set.
+and Cobham. The activated `docs/QUANTITATIVE_RIGIDITY_BRIEF.md` now requires
+that every nonconstant finite-valued invariant have unbounded
+`kappa_h(D)/(D+1)`. V005 supplies partial results; the goal is active and
+unresolved. Read its report and V004's proof before extending the work.
+This does not authorize resuming the dispatcher search or assuming
+regularity of an actual bad set.
 
 - Start with `VIEWPOINT_MAP.md` and `docs/VIEWPOINT_LOG.md`, then the result ledger and relevant sources. `ROUTE_MAP.md` is historical evidence and a collection of obligations; it does not restrict the available directions.
 - Use bounded parallel investigations and compare their mathematical gains before deepening. Reconsider the statistical alternative or broaden representations if the chosen language repeatedly reproduces existing obligations. Do not expand dispatcher families or run large automaton catalogues.
@@ -44,6 +47,16 @@ tests. This selection is not evidence of a superior convergence method.
 - V004 closes the positive section family under both bases and gives finite polynomial2/3-Mahler systems. The main proof needs only Cobham plus elementary identities: eventual periodicity of h(2n+1) becomes a global odd period; the3-primary part then collapses and a unit translation forces constancy. Do not infer a period for all h before that argument.
 - V004's proof covers arbitrary finite automata and retains absorber1 via h(4)=h(1). Its d5/d61 divisibility colorings fail the named +1 identity at u=d, so the argument does not falsely exclude those actual cycles. Finite checks do not verify the imported classical theorem. Novelty and formal verification are unclaimed.
 - The hypothetical nonabsorbing set remains unrestricted. Given V004, its binary automaticity is equivalent to convergence, so proving that automaticity is not a genuinely intermediate milestone. Preserve that missing bridge in subsequent goal proposals.
+
+### V005 quantitative scope
+
+- Count entire binary-section functions through depth D, with h(0)=h(1), not matching finite prefixes. The target is an unbounded ratio, not necessarily a ratio tending to infinity. Generic infinite-kernel growth only gives D+1 and does not meet the goal.
+- One automatic positive dyadic section forces global constancy. The reconstruction inequality `kappa_h(D)<=1+(C_g*kappa_g(D-1))^M` has constants fixed by that section; it does not exclude linear growth. Every section being nonautomatic does not give disjoint descendant families.
+- The exact graph control has `kappa(D)=D+3` for D>=3, all sections nonautomatic, doubling and the positive return identity. It fails full invariance at9. Preserve its overlap counterexample; do not revive the reduced graph argument without using the omitted equations.
+- The sparse indicator of `{6^(2^j):j>=0}` has separate linear base2/base3 growth but at least quadratic joint growth. It refutes the generic separate-growth implication and Bell2009 Conjecture3.4 as printed, without a novelty claim. It fails doubling and does not refute the Collatz target.
+- For b(n)=h(2n+1), joint sections of total depth D lie in positive binary sections of h through1+4D. The complete scalar interface is `b(3n)=b(4n)`, `b(3n+2)=b(2n+1)`, `b(4n+2)=b(n)` for all n>=0. It is an equivalent interface, not a growth theorem.
+- Compare joint-growth rigidity and overlap control using all three identities before deepening. A finite-rank or periodicity premise must be proved, not imported from a linear count alone. The full target is false for d5/d61 periodic divisibility invariants.
+- The Lean lane's V004 assembly statement, reported build, axiom receipt and matching source hash were inspected in V005. Main did not independently replay it; Cobham remains an explicit hypothesis. Do not describe this as formal verification of V005 or completion of the quantitative goal.
 
 ## Historical Phase 6 results and controls
 

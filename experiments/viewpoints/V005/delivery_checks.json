@@ -1,0 +1,43 @@
+{
+  "anchors": 14,
+  "checked_markdown": [
+    "AGENTS.md",
+    "README.md",
+    "VIEWPOINT_MAP.md",
+    "docs/QUANTITATIVE_RIGIDITY_BRIEF.md",
+    "docs/RESEARCH_LOG.md",
+    "docs/RESULTS.md",
+    "docs/VIEWPOINT_LOG.md",
+    "experiments/viewpoints/V005/INDEPENDENT_REVIEW.md",
+    "experiments/viewpoints/V005/REPORT.md",
+    "experiments/viewpoints/V005/direct_sections.md",
+    "experiments/viewpoints/V005/literature.md",
+    "experiments/viewpoints/V005/scalar_interface.md",
+    "experiments/viewpoints/V005/section_graph.md",
+    "experiments/viewpoints/V005/side_review.md"
+  ],
+  "errors": [],
+  "frozen": {
+    "collatz_research_20261017/right_aligned_reduction.tex": {
+      "sha256": "35709cfff84f4baa11563360adc171986ea410af4a8e1a9acb9eb7457def1f8d",
+      "unchanged": true
+    },
+    "docs/RESULTS.md from R1 onward": {
+      "sha256": "2fddfd4077ade871f6a909fe60280d53a50fb8aad3b338b6abde29178c8e5bd7",
+      "unchanged": true
+    },
+    "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md": {
+      "sha256": "5cd7fd5f12ce50d6001ec6b322017bb1777aa88ecb675f4393248c2bf224c5ea",
+      "unchanged": true
+    },
+    "experiments/residual_progress/resolved_rules/resolved_rules.py": {
+      "sha256": "4d91d83e93499b07079e48f2fc0e3765fffb99498c18228ab57f56732062b7aa",
+      "unchanged": true
+    }
+  },
+  "frozen_baseline": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "local_links": 498,
+  "markdown_files": 14,
+  "scope": "Changed Markdown local links and anchors; exact frozen artifact comparisons. Mathematical checks are recorded separately in verification.json and INDEPENDENT_REVIEW.md.",
+  "status": "PASS"
+}

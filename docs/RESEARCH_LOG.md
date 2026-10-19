@@ -1,5 +1,27 @@
 # Research log
 
+## 2026-10-18 — V005: quantitative rigidity remains open
+
+The user activated the [quantitative goal](QUANTITATIVE_RIGIDITY_BRIEF.md):
+exclude every linear bound on binary-section complexity for a nonconstant
+finite-valued Collatz invariant. The [first batch](../experiments/viewpoints/V005/REPORT.md)
+proves local automaticity rigidity and an explicit all-depth polynomial
+reconstruction bound. It preserves the full odd-section equations and
+reduces a hypothetical linear binary bound to linear joint2/3 growth.
+
+Two exact controls reject shortcuts: infinite descendant families can
+overlap enough for linear growth, and separate linear growth in two bases
+does not imply periodicity. Both fail full Collatz invariance. The next
+bounded comparison must use all three scalar identities to control overlap
+or force periodicity from joint growth. Neither mechanism is proved here.
+
+Independent proof review and standalone finite replay passed. The R-series,
+dispatcher and open LaTeX source remain unchanged. Sidekick3b95686 and
+Lean-lane b980e52 were inspected read-only. The latter reports a V004
+derivation conditional on Cobham, with a matching source receipt; main has
+not independently replayed it. Details, source attribution and actual
+verification scopes are in the [viewpoint log](VIEWPOINT_LOG.md).
+
 ## 2026-10-18 — V004: full finite-state rigidity
 
 The [full-classification goal](GLOBAL_RIGIDITY_BRIEF.md) now has a
