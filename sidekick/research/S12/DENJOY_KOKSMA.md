@@ -32,6 +32,7 @@ Take any primitive positive cycle (odd `q`, letters `≥ 1`) with log-profile `y
   B ≤ Var(μ_h) · K(h/m),       K(h/m) = Σ_i a_i   (the partial quotients of h/m).
   ```
 
+- **Review note (the Lean lane, 2026-10-19).** (1) holds exactly in the discrete setting, under `gcd(p, q) = 1`, `1 ≤ q < m` and the strict `|qh − pm| < m/q`. Every proper convergent satisfies it. In (2), the Ostrowski digits satisfy `b_0 ≤ a_1 − 1`, so `Σ b_i ≤ K − 1` and the bound sharpens slightly to `Var·(K − 1)`.
 - **(3) Variation from the letters.**
 
   ```

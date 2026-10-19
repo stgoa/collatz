@@ -64,6 +64,16 @@ Full note: `sidekick/research/S12/DENJOY_KOKSMA.md`.
   - random near-critical low-variation chain words with 4–10 mismatches up to `m = 3,200` (18 non-vacuous cases, slack ≥ 547 bits).
 - **Scope.** The law is conditional on small `V_h·K`. Tall words with a big jump at a mismatch make it vacuous, as in S12 §4.
 
+**Update 15:23: the Lean lane reviewed S12's step (1) adversarially. It holds exactly in the discrete setting.**
+
+- **The right hypothesis** is `gcd(p, q) = 1`, `1 ≤ q < m`, and `|qh − pm| < m/q` *strictly*.
+  - Every convergent with `q < m` satisfies it, including the last proper one, where `|q h − p m| = 1`.
+  - Strictness is what makes the one-point-per-cell step work.
+  - The discrete proof is: scale by `qm`, use integer weights `w_j(t)`, and let each jump lie in the touched range of exactly one cell. The Lean lane will formalise this as its next unit, with no cycle structure needed.
+- **Ostrowski direction (the reviewer's question).** Checked here. `N = Σ b_i q_i`, with `0 ≤ b_0 ≤ a_1 − 1`, `0 ≤ b_i ≤ a_(i+1)`, and the carry rule (`b_i = a_(i+1)` forces `b_(i−1) = 0`).
+  - So `Σ b_i ≤ K − 1`, and (2) can be sharpened to `B ≤ Var(μ_h)·(K(h/m) − 1)`. The note's `Var·K` is correct but slightly loose.
+  - Block length `q_0 = 1` is a valid Denjoy–Koksma block (`|h − 0·m| = h < m`).
+
 ```sh
 python3 sidekick/probes/s12_denjoy_koksma.py   # ~23 s
 ```
