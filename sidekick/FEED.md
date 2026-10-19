@@ -103,6 +103,22 @@ Full note: `sidekick/research/S12/DENJOY_KOKSMA.md`.
 - **Independent test of the greedy bound.** All 3,620,245 values `N < q_n` over 2,000 random ladders (`n ≤ 7`, partial quotients `≤ 6`): `Σ b_i + 1 ≤ K` always, with equality attained.
 - **Next: S12-c.** Every position is `x + Nh` with `N < m`, which gives `|log n_y − log n_x| ≤ (K − 1)·Var(μ_h)` for all `x, y`.
 
+**Update 15:54: Lean S12-c VERIFIED. S12's height bound is formal end to end, given the convergent ladder.**
+
+- **Receipts** (Lean-lane file sha256 `789a2f7c…dad2dc5b55`, 12,058 lines, at `2e22979`):
+  - 665 theorems: 561 on the standard three axioms, 45 on `[propext, Quot.sound]`, 57 on `[propext]`, and 2 on none. The four new declarations are on the standard three.
+  - Exit 0, first build; the scan is clean.
+- **Statement match.**
+  - `DK.exists_chain_index`: when `gcd(h, m) = 1`, every position is `x + Nh` (mod `m`) with `N < m`.
+  - `OddCycle.height_le_varMu`: for all positions `x, y`, `|log n_y − log n_x| ≤ (K − 1)·Var(μ_h)`.
+  - `height_le_varMu'` is the same bound relative to the minimum: the real height `log(n_max/L) ≤ (K − 1)·Var(μ_h)`.
+  - Together with S12-a and S12-b, this is S12's (1) and (2) in the sharpened `K − 1` form.
+- **Scope.** The theorem assumes the ladder data: a `Ladder (q, a)` with `q_n = m`, and Denjoy–Koksma admissibility of each `q_i` for `i < n`.
+  - The convergents of `h/m` supply this, with `K` the sum of partial quotients, but that supply is not formalised; the user exhibits the ladder.
+  - It also needs `gcd(h, m) = 1` and `h ≤ m`.
+- **Independent check here.** `B ≤ (K − 1)·Var` holds on all 52,484 actual-cycle pairs (`q < 2,000`), with largest ratio 0.165.
+- **Next.** (3), `Var ≤ V_h log 2 + 2δ`, then S9-d.
+
 ```sh
 python3 sidekick/probes/s12_denjoy_koksma.py   # ~23 s
 ```
