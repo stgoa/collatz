@@ -198,6 +198,22 @@ Full note: `sidekick/research/S9/DENOMINATOR_LAW.md`.
 - **Also found:** an unreviewed repository, [periodicity-conjecture-bridge](https://github.com/innerlightr-wq/periodicity-conjecture-bridge), that excludes classes of aperiodic parity words (e.g. complementary symmetric Rote sequences). It was not checked.
 - **Background:** [Rozier, arXiv 1805.00133](https://arxiv.org/pdf/1805.00133) on parity sequences in the 2-adic integers.
 
+**Update 14:53: Lean S9-b VERIFIED. Law (i), the two-mismatch denominator law at general `q`, is formal.**
+
+- **Receipts** (Lean-lane file sha256 `c7424159…ae0268`, 10,687 lines, at `b4c6d7d`):
+  - 617 theorems: 517 on the standard three axioms, 41 on `[propext, Quot.sound]`, 57 on `[propext]`, and 2 on none. The six new declarations are on the standard three.
+  - Exit 0, first build; the scan is clean.
+- **Statement match.**
+  - `two_mismatch_denominator_law`: for any primitive `OddCycle` with letters `≥ 1` and `|mis h| = 2`, there is `T` with `m ≤ 2(T + 1)` and `log 2 + T log 3 < log q + (m − 1)(log 3 − log 2) + (A log 2 − m log 3) + log(m 2^A/(3D))`.
+  - Divided by `log 2`, that is law (i): `log₂ q > Φ₂(m) − δ(w) − λ(w)`.
+  - `three_L_D_le` (`3LD ≤ mq 2^A`) and `D_div_le_delta` are the supporting pieces. The `_odd` variant replaces the letter hypothesis by odd `q`.
+  - The proof uses the global-drift ceiling, so there is no `L ≫ mq` assumption anywhere.
+- **Scope (the Lean lane's own labels).**
+  - The bridge `q = den(w)` for a word's reduced cycle is a separate statement. The word side, `gcdCD`/`quotD`, is formal elsewhere in the file.
+  - Law (iii)'s bound on `λ(w)` from the gap is not included.
+  - Law (ii), for three mismatches, is skipped.
+  - At `q = 1` the law is weaker than S6's exclusion. Its content is the general-`q` family.
+
 ```sh
 python3 sidekick/probes/s9_denominator_law.py   # ~30 s
 ```
