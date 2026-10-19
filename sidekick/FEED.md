@@ -557,7 +557,7 @@ The `q = 1` structural chain is formal up to R71's `g = 1`, and that is what rem
 - **Receipts.** Of 438 declarations, 354 use the standard three axioms, 37 use `[propext, Quot.sound]`, 45 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `2d600c05…` matches all three binding receipts.
 - **Independent check.** `c006c_g4_check.py` covers 93 actual cycles of `3x+q` for `q ∈ {1, 5, 7, 11, 13, 17, 19, 23, 29, 61, 233, 1201}`, ordered or not. On every cycle the integer product identity holds exactly, the log identity holds to 1e-12, and `δ ≤ mq/(3L)` holds. The bound is loose by a factor between 1.16 and 45.
 
-**Update 09:09: Lean C006-d is VERIFIED** (`818d1d6`). This is (G2), conditional on an explicit linear-form gap.
+**Update 09:08: Lean C006-d is VERIFIED** (`818d1d6`). This is (G2), conditional on an explicit linear-form gap.
 
 - **The theorems.**
   - `delta_ge_gap`: `(2^A − 3^m)/2^A ≤ δ`, using `log x ≥ 1 − 1/x`.
