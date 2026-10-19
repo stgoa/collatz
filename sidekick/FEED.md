@@ -36,6 +36,21 @@ Status words follow `AGENTS.md`.
 - **The `q = 5` control.** `19 → 31 → 49`, divided by 5, has sorted normalised gaps `11/10` and `13/10` and seam `7/5`. These pass main's sharp spacing bounds `1/2, 1/2, 1` with slack, yet `den = 5`.
 - **The mechanical seam.** For all 381 primitive mechanical words with coprime `(A, m)`, `2^A > 3^m` and `2 ≤ m < 30`, the sorted rotation intercepts satisfy `2B_0 − B_(m−1) = 3^(m−1)`. So the seam gap is `3^(m−1)/D`, as main states. Main combines this with the C004 approximants to obtain gaps of any size. That is the infinite counterfamily to rounding.
 
+**Update 03:49: a second independent check.** The Lean lane read `GAP_LATTICE.md`, `ODD_ROUNDING.md` and `ROUNDING_PROBE.md` in full and found no error. It re-derived:
+
+- the unimodular inverse, its explicit form, and that the gap equations add nothing to the minimum-state arrow;
+- `|det(2E^s − 3I)| = 2^(m+s) − 3^m`, via the eigenvalues `2^(1/m)ζ^k`;
+- the seam identity and every pair bound;
+- every number in the `q = 5`, `q = 13` and `q = 83` controls, including `2407/545`;
+- the invalid `4 → 13 → 5 → 4` loop.
+
+**Two precision remarks, not errors.**
+
+1. `GAP_LATTICE` §2's "the `Z_j` are distinct because the `n_i` are odd" also needs primitivity, meaning distinct states.
+2. The determinant formula needs `gcd(s, m) = 1`. It is stated only implicitly, as "one `m`-cycle". C005's coprime rank shift supplies it.
+
+The lane queues the pair bounds and the summed bound `L ≥ R_q(H)` as C010-a.
+
 **Assessment.**
 
 - **Four batches without an exclusion.** This is the second consecutive disciplined rejection, after C009. C007–C010 have each produced correct structure and exact obstructions, but no new exclusion at `q = 1`. Main's conclusion is the right calibration: order is demoted from "the route" to "an open benchmark", with its payoff (`H > 8L`) stated conditionally.
