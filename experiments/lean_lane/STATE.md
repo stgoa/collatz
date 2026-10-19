@@ -27,7 +27,7 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | 1b | General form: components = `⟨×2,×3⟩`-orbits on `Z/gcd(M,d)Z` (both directions); eventual periodicity | V002 Appendix | queued (partly subsumed by V004-i) | — | — |
 | 2 | Digit-count rigidity: every invariant `h = F(s₂(n))` is constant | `experiments/viewpoints/V003/digit_sum.md` | queued (subsumed by V004 once iii lands; low priority) | — | — |
 | 3 | Dichotomy corollary over `Solution.Basic`: a positive bad `n` ⇒ positive lower natural density of the bad set, with explicit constants; contrapositive: density zero of the bad set ⇒ every positive integer reaches 1 | lane-3 analysis; `positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd` | **verified** (iteration 5): `Dichotomy.lean`, `LeanLane.Dichotomy.bad_positive_lower_density`, `collatz_of_bad_density_zero` | `[propext, Classical.choice, Quot.sound]` | `receipts/Dichotomy.{build,axioms,sha256}.txt` |
-| 4 | R40 reduction: Collatz ⇔ ∀ odd `u`, orbits of `u` and `18u+5` meet | `docs/RESULTS.md` R40/R43, `ROUTE_MAP.md` R.1 | queued | — | — |
+| 4 | R.1/R40 reformulation: Collatz ⇔ ∀ odd `u`, Syracuse orbits of `u` and `18u+5` meet | `docs/RESULTS.md` R40/R43, `ROUTE_MAP.md` R.1 | **partially verified** (iteration 6): `PairObligation.lean` — identities `S(4u+1)=S(u)`, `S(3(4u+1))=18u+5`, `pair_iff` (W5 pair obligation ⇔ `u ↔ 18u+5` meeting), `collatz_imp_pairs_meet` (Collatz ⇒ all pairs meet). **Converse not formalised**: in the repo it rests on the frozen framework (R25/R37/R40/R43); stated as `R1Converse`, not asserted, no sorry | `[propext, Classical.choice, Quot.sound]` | `receipts/PairObligation.{build,axioms,sha256}.txt` |
 
 ## Statement-match notes
 
@@ -105,6 +105,26 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   (positivity is proved for a general `q` and closed by definitional
   unfolding), and `norm_cast` overflows on the cast inequality (replaced by
   `Nat.cast_le.mpr`).
+
+- Item 4: R.1 states "Collatz holds iff every `w ∈ W5` has a finite exact
+  current for `P(w)`; equivalently, for every positive odd `u`, the ordinary
+  orbits of `u` and `18u+5` meet", via `S(4u+1)=S(u)` and `S(3(4u+1))=18u+5`
+  with `w=4u+1`. The Lean file proves the two identities for the library's
+  `collatzAccel` (Syracuse map), the meeting equivalence `pair_iff` (so the
+  pair obligation at `w = 4u+1` is exactly the `u ↔ 18u+5` meeting; the
+  current/meeting equivalence itself is a graph fact not restated), and the
+  easy direction `collatz_imp_pairs_meet`, which needs
+  `accel_reaches_one` (an odd `n` reaching 1 under `collatz` reaches 1 under
+  `collatzAccel`; the only odd point on the orbit of 1 is 1). The converse,
+  the content of R40, is **not** formalised: the repository proves it through
+  the frozen framework (R25 normal form, R37 critical index, R40 W9
+  elimination, R43 strict-rank induction). A direct minimal-counterexample
+  attempt does not close it: for a component `D ≠ C₁` with minimum `m`,
+  the pair relation only forces elements `≡ 23 (mod 36)` of `D` to be
+  `≥ 18m+5`, and the Syracuse preimages `(2^a m − 1)/3` of `m` below
+  `18m+5` (`a ≤ 5`) hit that class only when `m ≡ 35 (mod 54)`; so the
+  converse is genuinely a framework theorem, not a one-line reformulation.
+  `R1Converse` records the exact statement without asserting it.
 
 ## Insights sent to the feed
 

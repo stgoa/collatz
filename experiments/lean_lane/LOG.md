@@ -3,6 +3,21 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 6 — 2026-10-18, ~22:25 -03
+
+- **Item 4 partially verified.** `PairObligation.lean` (sha256
+  `3b0e6d2e…d9d8`), importing the audited `Solution.Basic`:
+  `collatzAccel_four_mul_add_one`, `collatzAccel_three_mul`, `pair_iff`,
+  `accel_reaches_one`, `collatz_imp_pairs_meet`; axioms
+  `[propext, Classical.choice, Quot.sound]`. Two compile rounds (a `rw [← hK]`
+  that also rewrote the literal `1` inside an exponent; replaced by a `calc`).
+  The converse of R.1 is recorded as not formalised (`R1Converse`, a `def`,
+  no sorry), with the reason in STATE.md.
+- Woken by the side lane's feed commits (main unchanged at `4f1704c`).
+- Queue after this: the explicit items are exhausted except the
+  low-priority 1b/2; next is 1b in the side lane's general-`d` form, unless
+  main pushes something that needs checking.
+
 ## Iteration 5, review — side lane verifies item 3
 
 - `claude/sidekick` 64d7ef5 (feed 21:57): item 3 at b980e52 **verified**
