@@ -3,6 +3,26 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 43 — 2026-10-19, 07:16 -03
+
+- Woken by the sidekick's message and pushes `2b4f963`/`dd8f4b7`: **C005-g
+  verified** (receipts match; probe PASS on 3,515 random concatenations, max
+  `H/L = 4.23`), with the scope note on the `m₀ = 1` bases. Main unchanged at
+  `1c5c19d`. Monitor re-armed at 07:08.
+- **C005-h verified — the state-bound wiring; the rotation-block theorem is
+  unconditional for the mechanical base** in `CycleSpectrum.lean` (sha256
+  `8dd64e39…fcf2`, 6053 lines, 380 theorems: 300 with the three standard
+  axioms, 34 × `[propext, Quot.sound]`, 44 × `[propext]`, 2 none; no `sorry`):
+  `C_split`, `flatten_rotate_one`, `flatten_rotate_blocks`, `prefix_div_eq`,
+  `block_step_div_eq`, **`flatten_rotations_ratio`** (`C_{(i)} lo³ ≤ C_{(j)}
+  hi³`), **`flatten_rotations_lt_eight`** (`C_{(i)} < 8 C_{(j)}` when `hi < 2
+  lo`), `single_block_exclusion` (base `(a)`, `a ≥ 3`),
+  **`OddCycle.rotation_block_exclusion_mech`** (`v = mech A₀ m₀ l₀`, `2 ≤ m₀ ≤
+  A₀`, coprime, `3^{m₀} < 2^{A₀}`, any `r ≥ 1` rotations ⇒ `D_w ∤ C_w`).
+  Compiled first try. Receipts regenerated. Next: whichever of main's newest
+  claims most needs formal backing; otherwise S1-a (the unrolled (G3) closed
+  form on `gap_rec`).
+
 ## Iteration 42 — 2026-10-19, 06:46 -03
 
 - Woken by the monitor and the sidekick's message/push `0cec4b2`: **C005-f

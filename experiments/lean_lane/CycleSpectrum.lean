@@ -5222,6 +5222,301 @@ theorem rotation_block_exclusion {m₀ A₀ l₀ : ℕ} (hm₀ : 2 ≤ m₀) (hA
 
 end OddCycle
 
+/-! ### C005-h: the state-bound wiring — the `8L` hypothesis from the ratio bound
+
+C005 §2's rotation-block theorem, first half, on actual words. For `w` a concatenation of
+rotations of a nonempty word `v` with `D_v > 0` whose rotated intercepts lie in `[lo, hi]`, the
+rational states `x_i = C_{(i)}/D_w` of `w`'s cycle are controlled by the states
+`C_{(t)}/D_v ∈ [l, h] = [lo/D_v, hi/D_v]` of `v`'s cycle: the one-block identity
+`2^{A₀} C_{((k+1)m₀)} = 3^{m₀} C_{(km₀)} + D_w C_{b_k}` (`C_split`) says the entry states are
+the `blockComp` iterates of the closing point `x_0` under the block maps `x ↦ s x + (1 − s) X_k`,
+`s = 3^{m₀}/2^{A₀}`, `X_k = C_{b_k}/D_v`, and `x_0` is a fixed point of their composition
+(`cycle_point_mem`); inside a block the state is the prefix map of the entry state, with the same
+`(α, β)` as the base state of `v` (`state_bound`). Hence `C_{(i)} lo³ ≤ C_{(j)} hi³`
+(`flatten_rotations_ratio`), and `hi < 2 lo` gives `C_{(i)} < 8 C_{(j)}`
+(`flatten_rotations_lt_eight`), the hypothesis of `rotation_block_exclusion`; for the mechanical
+base `C_0 ≤ C_l < 2 C_0` supplies it (`rotation_block_exclusion_mech`). The one-letter bases
+`(a)`, `a ≥ 3`, are covered separately (`single_block_exclusion`). -/
+
+/-- The split identity: for the cycle of `u ++ t`, the state after `|u|` arrows is the cycle of
+`t ++ u`: `2^{Σu} C(t ++ u) = 3^{|u|} C(u ++ t) + D(u ++ t) C_u`. -/
+theorem C_split (u t : List ℕ) :
+    (2 : ℤ) ^ u.sum * C (t ++ u) = 3 ^ u.length * C (u ++ t) + D (u ++ t) * C u := by
+  simp only [C_append, D, List.sum_append, List.length_append, pow_add]
+  ring
+
+/-- Rotating a concatenation of equal-length blocks by one block length rotates the block list. -/
+theorem flatten_rotate_one {m₀ : ℕ} (bs : List (List ℕ)) (hbs : bs ≠ [])
+    (hlen : ∀ b ∈ bs, b.length = m₀) : bs.flatten.rotate m₀ = (bs.rotate 1).flatten := by
+  obtain ⟨b, bs', rfl⟩ := List.exists_cons_of_ne_nil hbs
+  rw [List.flatten_cons, ← hlen b (List.mem_cons_self ..), List.rotate_append_length_eq,
+    List.rotate_cons_succ, List.rotate_zero, List.flatten_append, List.flatten_cons,
+    List.flatten_nil, List.append_nil]
+
+/-- Rotating by `k` block lengths rotates the block list by `k`. -/
+theorem flatten_rotate_blocks {m₀ : ℕ} (bs : List (List ℕ)) (hbs : bs ≠ [])
+    (hlen : ∀ b ∈ bs, b.length = m₀) (k : ℕ) :
+    bs.flatten.rotate (k * m₀) = (bs.rotate k).flatten := by
+  induction k with
+  | zero => simp
+  | succ k ih =>
+    rw [add_mul, one_mul, ← List.rotate_rotate bs.flatten (k * m₀) m₀, ih,
+      flatten_rotate_one (bs.rotate k) (fun h => hbs (List.rotate_eq_nil_iff.mp h))
+        (fun b hb => hlen b (List.mem_rotate.mp hb)),
+      List.rotate_rotate]
+
+/-- A cleared prefix identity `P Cn = Q Cx + Dd Cp` in the affine form
+`(Q/P) (Cx/Dd) + Cp/P = Cn/Dd`. -/
+theorem prefix_div_eq {P Q Dd Cn Cx Cp : ℚ} (hP : P ≠ 0) (hD : Dd ≠ 0)
+    (h : P * Cn = Q * Cx + Dd * Cp) : Q / P * (Cx / Dd) + Cp / P = Cn / Dd := by
+  rw [div_mul_div_comm, div_add_div _ _ (mul_ne_zero hP hD) hP,
+    div_eq_div_iff (mul_ne_zero (mul_ne_zero hP hD) hP) hD]
+  linear_combination (-(P * Dd)) * h
+
+/-- The cleared block identity `P Cn = T Cb' + Dw Cb` with `Dv = P − T` as the block map
+`x ↦ s x + (1 − s) X`, `s = T/P`, `X = Cb/Dv`. -/
+theorem block_step_div_eq {P T Dw Dv Cn Cb' Cb : ℚ} (hP : P ≠ 0) (hDw : Dw ≠ 0) (hDv : Dv ≠ 0)
+    (hDv' : Dv = P - T) (h : P * Cn = T * Cb' + Dw * Cb) :
+    T / P * (Cb' / Dw) + (1 - T / P) * (Cb / Dv) = Cn / Dw := by
+  have h1 : 1 - T / P = Dv / P := by rw [hDv', sub_div, div_self hP]
+  have h2 : Dv / P * (Cb / Dv) = Cb / P := by
+    rw [div_mul_div_comm, mul_comm Dv Cb, mul_div_mul_right _ _ hDv]
+  rw [h1, h2]
+  exact prefix_div_eq hP hDw h
+
+/-- **C005's ratio bound on actual words.** For `w` a concatenation of `r ≥ 1` rotations of a
+nonempty word `v` with `D_v > 0` whose rotated intercepts all lie in `[lo, hi]` (`lo > 0`), any
+two rotated intercepts of `w` satisfy `C_{(i)} lo³ ≤ C_{(j)} hi³`: the cleared form of
+`H/L ≤ (hi/lo)³ = R³`. -/
+theorem flatten_rotations_ratio (v : List ℕ) (hv0 : v ≠ []) (hDv : 0 < D v) {lo hi : ℤ}
+    (hlo0 : 0 < lo) (hlo : ∀ t, lo ≤ C (v.rotate t)) (hhi : ∀ t, C (v.rotate t) ≤ hi)
+    (blocks : List (List ℕ)) (hb : ∀ b ∈ blocks, ∃ i, b = v.rotate i) (hr : 0 < blocks.length)
+    (i j : ℕ) : C (blocks.flatten.rotate i) * lo ^ 3 ≤ C (blocks.flatten.rotate j) * hi ^ 3 := by
+  obtain ⟨w, hw⟩ : ∃ w, w = blocks.flatten := ⟨_, rfl⟩
+  rw [← hw]
+  have hm0 : 0 < v.length := List.length_pos_of_ne_nil hv0
+  have hbs0 : blocks ≠ [] := List.ne_nil_of_length_pos hr
+  have hlen : ∀ b ∈ blocks, b.length = v.length := fun b hb' => by
+    obtain ⟨t, ht⟩ := hb b hb'
+    rw [ht, List.length_rotate]
+  have hwlen : w.length = blocks.length * v.length := by
+    rw [hw]; exact flatten_rotations_length v blocks hb
+  have hwsum : w.sum = blocks.length * v.sum := by
+    rw [hw]; exact flatten_rotations_sum v blocks hb
+  have h32 : (3 : ℤ) ^ v.length < 2 ^ v.sum := by
+    have := hDv
+    rw [D] at this
+    exact sub_pos.mp this
+  have hDw : 0 < D w := by
+    rw [D, hwlen, hwsum, pow_mul', pow_mul']
+    exact sub_pos.mpr (pow_lt_pow_left₀ h32 (by positivity) hr.ne')
+  have hDwQ : (0 : ℚ) < D w := by exact_mod_cast hDw
+  have hDvQ : (0 : ℚ) < D v := by exact_mod_cast hDv
+  have hDv' : (D v : ℚ) = 2 ^ v.sum - 3 ^ v.length := by simp [D]
+  have hP : (2 : ℚ) ^ v.sum ≠ 0 := by positivity
+  -- the blocks in rotation order: `blocks.rotate k = b :: bs`, `b` a rotation of `v`
+  have hdec : ∀ k, ∃ b bs τ, blocks.rotate k = b :: bs ∧ b = v.rotate τ := by
+    intro k
+    obtain ⟨b, bs, hcons⟩ :=
+      List.exists_cons_of_ne_nil (fun h => hbs0 (List.rotate_eq_nil_iff.mp h) : blocks.rotate k ≠ [])
+    obtain ⟨τ, hτ⟩ := hb b (List.mem_rotate.mp (by rw [hcons]; exact List.mem_cons_self ..))
+    exact ⟨b, bs, τ, hcons, hτ⟩
+  -- the rational data: block slope, block fixed points, entry states, the band `[l, h]`
+  obtain ⟨s, hs⟩ : ∃ s : ℚ, s = 3 ^ v.length / 2 ^ v.sum := ⟨_, rfl⟩
+  obtain ⟨tt, htt⟩ : ∃ tt : ℕ → ℚ, ∀ k, tt k = (C ((blocks.rotate k).headD []) : ℚ) / D v :=
+    ⟨_, fun _ => rfl⟩
+  obtain ⟨x, hx⟩ : ∃ x : ℕ → ℚ, ∀ k, x k = (C (w.rotate (k * v.length)) : ℚ) / D w :=
+    ⟨_, fun _ => rfl⟩
+  have hs0 : 0 < s := by rw [hs]; positivity
+  have hs1 : s < 1 := by
+    rw [hs, div_lt_one (by positivity)]
+    exact_mod_cast h32
+  have hl : (0 : ℚ) < lo / D v := div_pos (by exact_mod_cast hlo0) hDvQ
+  have hlh : (lo : ℚ) / D v ≤ hi / D v :=
+    div_le_div_of_nonneg_right (by exact_mod_cast (hlo 0).trans (hhi 0)) hDvQ.le
+  have hvlo : ∀ t, (lo : ℚ) / D v ≤ (C (v.rotate t) : ℚ) / D v := fun t =>
+    div_le_div_of_nonneg_right (by exact_mod_cast hlo t) hDvQ.le
+  have hvhi : ∀ t, (C (v.rotate t) : ℚ) / D v ≤ hi / D v := fun t =>
+    div_le_div_of_nonneg_right (by exact_mod_cast hhi t) hDvQ.le
+  have ht : ∀ k, (lo : ℚ) / D v ≤ tt k ∧ tt k ≤ hi / D v := by
+    intro k
+    obtain ⟨b, bs, τ, hcons, hτ⟩ := hdec k
+    rw [htt k, hcons, List.headD_cons, hτ]
+    exact ⟨hvlo τ, hvhi τ⟩
+  -- the one-block step: `x (k+1) = s x k + (1 − s) X_k`
+  have hstep : ∀ k, x (k + 1) = s * x k + (1 - s) * tt k := by
+    intro k
+    obtain ⟨b, bs, τ, hcons, hτ⟩ := hdec k
+    have hkb : w.rotate (k * v.length) = b ++ bs.flatten := by
+      rw [hw, flatten_rotate_blocks blocks hbs0 hlen k, hcons, List.flatten_cons]
+    have hblen : b.length = v.length := by rw [hτ, List.length_rotate]
+    have hbsum : b.sum = v.sum := by rw [hτ, (List.rotate_perm v τ).sum_eq]
+    have hk1 : w.rotate ((k + 1) * v.length) = bs.flatten ++ b := by
+      rw [add_mul, one_mul, ← List.rotate_rotate, hkb, ← hblen, List.rotate_append_length_eq]
+    have hid := C_split b bs.flatten
+    rw [hbsum, hblen, ← hkb, D_rotate, ← hk1] at hid
+    have hidQ : (2 : ℚ) ^ v.sum * (C (w.rotate ((k + 1) * v.length)) : ℚ) =
+        3 ^ v.length * (C (w.rotate (k * v.length)) : ℚ) + (D w : ℚ) * (C b : ℚ) := by
+      exact_mod_cast hid
+    rw [hx, hx, htt k, hcons, List.headD_cons, hs]
+    exact (block_step_div_eq hP hDwQ.ne' hDvQ.ne' hDv' hidQ).symm
+  -- entry states are `blockComp` iterates of the closing point, which is a fixed point
+  have hcomp : ∀ k, blockComp s tt k (x 0) = x k := by
+    intro k
+    induction k with
+    | zero => simp [blockComp]
+    | succ k ih =>
+      simp only [blockComp]
+      rw [ih, hstep]
+  have hfix : blockComp s tt blocks.length (x 0) = x 0 := by
+    rw [hcomp, hx, hx, zero_mul, List.rotate_zero, ← hwlen, List.rotate_length]
+  have hx0 := cycle_point_mem hs0 hs1 ht hlh hr hfix
+  have hxk : ∀ k, (lo : ℚ) / D v ≤ x k ∧ x k ≤ hi / D v := fun k => by
+    rw [← hcomp k]
+    exact blockComp_mem hs0.le hs1.le ht hx0.1 hx0.2 k
+  -- every state: a prefix map of its entry state, with the base state's `(α, β)`
+  have hsb : ∀ i, (lo : ℚ) / D v * (lo / D v) ≤ hi / D v * ((C (w.rotate i) : ℚ) / D w) ∧
+      (lo : ℚ) / D v * ((C (w.rotate i) : ℚ) / D w) ≤ hi / D v * (hi / D v) := by
+    intro i
+    obtain ⟨k, j, hj, rfl⟩ : ∃ k j, j < v.length ∧ i = k * v.length + j :=
+      ⟨i / v.length, i % v.length, Nat.mod_lt _ hm0, (Nat.div_add_mod' _ _).symm⟩
+    obtain ⟨b, bs, τ, hcons, hτ⟩ := hdec k
+    have hkb : w.rotate (k * v.length) = b ++ bs.flatten := by
+      rw [hw, flatten_rotate_blocks blocks hbs0 hlen k, hcons, List.flatten_cons]
+    have hblen : b.length = v.length := by rw [hτ, List.length_rotate]
+    have hjb : j < b.length := by rw [hblen]; exact hj
+    have htl : (b.take j).length = j := by rw [List.length_take, min_eq_left hjb.le]
+    have hrot : (b ++ bs.flatten).rotate j = (b.drop j ++ bs.flatten) ++ b.take j := by
+      have := List.rotate_append_length_eq (b.take j) (b.drop j ++ bs.flatten)
+      rwa [htl, ← List.append_assoc, List.take_append_drop] at this
+    have hrotv : b.rotate j = b.drop j ++ b.take j := by
+      have := List.rotate_append_length_eq (b.take j) (b.drop j)
+      rwa [htl, List.take_append_drop] at this
+    have hwi : w.rotate (k * v.length + j) = (b.drop j ++ bs.flatten) ++ b.take j := by
+      rw [← List.rotate_rotate, hkb, hrot]
+    have hbj : b.rotate j = v.rotate (τ + j) := by rw [hτ, List.rotate_rotate]
+    have hDb : D b = D v := by rw [hτ, D_rotate]
+    have hw_id : (2 : ℤ) ^ (b.take j).sum * C (w.rotate (k * v.length + j)) =
+        3 ^ j * C (w.rotate (k * v.length)) + D w * C (b.take j) := by
+      have := C_split (b.take j) (b.drop j ++ bs.flatten)
+      rwa [htl, ← List.append_assoc, List.take_append_drop, ← hkb, D_rotate, ← hwi] at this
+    have hv_id : (2 : ℤ) ^ (b.take j).sum * C (v.rotate (τ + j)) =
+        3 ^ j * C b + D v * C (b.take j) := by
+      have := C_split (b.take j) (b.drop j)
+      rwa [htl, List.take_append_drop, ← hrotv, hbj, hDb] at this
+    have hP' : (2 : ℚ) ^ (b.take j).sum ≠ 0 := by positivity
+    have hw_idQ : (2 : ℚ) ^ (b.take j).sum * (C (w.rotate (k * v.length + j)) : ℚ) =
+        3 ^ j * (C (w.rotate (k * v.length)) : ℚ) + (D w : ℚ) * (C (b.take j) : ℚ) := by
+      exact_mod_cast hw_id
+    have hv_idQ : (2 : ℚ) ^ (b.take j).sum * (C (v.rotate (τ + j)) : ℚ) =
+        3 ^ j * (C b : ℚ) + (D v : ℚ) * (C (b.take j) : ℚ) := by
+      exact_mod_cast hv_id
+    have hgx := prefix_div_eq hP' hDwQ.ne' hw_idQ
+    have hgX := prefix_div_eq hP' hDvQ.ne' hv_idQ
+    have hXk : tt k = (C b : ℚ) / D v := by rw [htt k, hcons, List.headD_cons]
+    rw [← hgx, ← hx]
+    refine state_bound (by positivity)
+      (div_nonneg (by exact_mod_cast C_nonneg _) (by positivity)) hl hlh (hxk k).1 (hxk k).2
+      (ht k).1 (ht k).2 ?_ ?_
+    · rw [hXk, hgX]; exact hvlo (τ + j)
+    · rw [hXk, hgX]; exact hvhi (τ + j)
+  have key := ratio_bound hl hlh (hsb i).2 (hsb j).1
+  rw [div_pow, div_pow, div_mul_div_comm, div_mul_div_comm,
+    div_le_div_iff_of_pos_right (mul_pos hDwQ (pow_pos hDvQ 3))] at key
+  exact_mod_cast key
+
+/-- The `8L` hypothesis of `rotation_block_exclusion` from the ratio bound: when the rotated
+intercepts of the base lie in `[lo, 2lo)` (`R < 2`), every rotated intercept of the
+concatenation is below `8` times every other (`H/L ≤ R³ < 8`). -/
+theorem flatten_rotations_lt_eight (v : List ℕ) (hv0 : v ≠ []) (hDv : 0 < D v) {lo hi : ℤ}
+    (hlo0 : 0 < lo) (hlo : ∀ t, lo ≤ C (v.rotate t)) (hhi : ∀ t, C (v.rotate t) ≤ hi)
+    (h2 : hi < 2 * lo) (blocks : List (List ℕ)) (hb : ∀ b ∈ blocks, ∃ i, b = v.rotate i)
+    (hr : 0 < blocks.length) (i j : ℕ) :
+    C (blocks.flatten.rotate i) < 8 * C (blocks.flatten.rotate j) := by
+  have key := flatten_rotations_ratio v hv0 hDv hlo0 hlo hhi blocks hb hr i j
+  have hhi0 : 0 ≤ hi := hlo0.le.trans ((hlo 0).trans (hhi 0))
+  have hcube : hi ^ 3 < 8 * lo ^ 3 := by
+    have := pow_lt_pow_left₀ h2 hhi0 (by norm_num : (3 : ℕ) ≠ 0)
+    rw [mul_pow] at this
+    norm_num at this
+    linarith
+  have hw0 : blocks.flatten ≠ [] := List.ne_nil_of_length_pos (by
+    rw [flatten_rotations_length v blocks hb]
+    exact Nat.mul_pos hr (List.length_pos_of_ne_nil hv0))
+  have hCj : 0 < C (blocks.flatten.rotate j) := C_pos (NarrowCycle.rotate_ne_nil hw0 j)
+  have h1 : C (blocks.flatten.rotate j) * hi ^ 3 < C (blocks.flatten.rotate j) * (8 * lo ^ 3) :=
+    mul_lt_mul_of_pos_left hcube hCj
+  have h3 : C (blocks.flatten.rotate i) * lo ^ 3 < 8 * C (blocks.flatten.rotate j) * lo ^ 3 := by
+    linarith
+  exact lt_of_mul_lt_mul_right h3 (pow_pos hlo0 3).le
+
+/-- The one-letter base `(a)`, `a ≥ 3` (the `m₀ = 1` mechanical words other than `(2)`): every
+concatenation of its copies has `D ∤ C`, since `C_{(a)} = 1` and `D_{(a)} = 2^a − 3 ≥ 5`. -/
+theorem single_block_exclusion (a : ℕ) (ha : 3 ≤ a) (blocks : List (List ℕ))
+    (hb : ∀ b ∈ blocks, ∃ i, b = [a].rotate i) (hr : 0 < blocks.length) :
+    ¬ D blocks.flatten ∣ C blocks.flatten := by
+  have hall : ∀ b ∈ blocks, b = [a] := fun b hb' => by
+    obtain ⟨i, hi⟩ := hb b hb'
+    rw [hi, List.rotate_singleton]
+  have hrep : blocks.flatten = rep [a] blocks.length := by
+    clear hb hr
+    induction blocks with
+    | nil => rfl
+    | cons b bs ih =>
+      rw [List.flatten_cons, List.length_cons, rep, hall b (List.mem_cons_self ..),
+        ih (fun c hc => hall c (List.mem_cons_of_mem _ hc))]
+  have h8 : (8 : ℤ) ≤ 2 ^ a :=
+    calc (8 : ℤ) = 2 ^ 3 := by norm_num
+      _ ≤ 2 ^ a := pow_le_pow_right₀ (by norm_num) ha
+  have hDa : D [a] = 2 ^ a - 3 := by simp [D]
+  have hCa : C [a] = 1 := by simp [C]
+  have hDpos : 0 < D blocks.flatten := by
+    rw [hrep, D_rep, hDa]
+    exact mul_pos (by omega) (G_pos _ _ (by positivity) (by positivity) _ hr)
+  intro hdvd
+  rw [hrep] at hdvd
+  have hdiv := D_dvd_C_of_rep_dvd [a] blocks.length (by rw [← hrep]; exact hDpos.ne') hdvd
+  rw [hDa, hCa] at hdiv
+  have := Int.le_of_dvd one_pos hdiv
+  omega
+
+namespace OddCycle
+
+/-- **C005's rotation-block exclusion for the mechanical base, unconditional.** For
+`v = mech A₀ m₀ l₀` with `2 ≤ m₀ ≤ A₀`, `gcd(A₀, m₀) = 1` and `3^{m₀} < 2^{A₀}` (`D_v > 0`),
+every concatenation of `r ≥ 1` rotations of `v` has `D_w ∤ C_w`: the reduced denominator of its
+cycle exceeds `1`. The `8L` hypothesis of `rotation_block_exclusion` is supplied by
+`flatten_rotations_lt_eight` from `C_0 ≤ C_l < 2 C_0` (`C_mech_zero_le`, `C_mech_lt_two`). -/
+theorem rotation_block_exclusion_mech {m₀ A₀ l₀ : ℕ} (hm₀ : 2 ≤ m₀) (hAm : m₀ ≤ A₀)
+    (hcop : Nat.Coprime A₀ m₀) (hl₀ : l₀ < m₀) (h32 : (3 : ℤ) ^ m₀ < 2 ^ A₀)
+    (blocks : List (List ℕ)) (hb : ∀ b ∈ blocks, ∃ i, b = (mech A₀ m₀ l₀).rotate i)
+    (hr : 0 < blocks.length) : ¬ D blocks.flatten ∣ C blocks.flatten := by
+  have hm0 : 0 < m₀ := by omega
+  have hv0 : mech A₀ m₀ l₀ ≠ [] :=
+    List.ne_nil_of_length_pos (by rw [mech_length]; exact hm0)
+  have hDv : 0 < D (mech A₀ m₀ l₀) := by
+    rw [D_mech hm0 A₀ l₀ hl₀]
+    exact sub_pos.mpr h32
+  have hlo : ∀ t, C (mech A₀ m₀ 0) ≤ C ((mech A₀ m₀ l₀).rotate t) := by
+    intro t
+    rw [mech_rotate hm0]
+    exact C_mech_zero_le hm0 A₀ _ (Nat.mod_lt _ hm0)
+  have hhi : ∀ t, C ((mech A₀ m₀ l₀).rotate t) ≤ 2 * C (mech A₀ m₀ 0) - 1 := by
+    intro t
+    rw [mech_rotate hm0]
+    have := C_mech_lt_two hm0 A₀ _ (Nat.mod_lt (l₀ + t * A₀) hm0)
+    omega
+  have hlo0 : 0 < C (mech A₀ m₀ 0) :=
+    C_pos (List.ne_nil_of_length_pos (by rw [mech_length]; exact hm0))
+  have hD : 0 < D blocks.flatten := by
+    rw [D, flatten_rotations_length _ blocks hb, flatten_rotations_sum _ blocks hb, mech_length,
+      mech_sum hm0 A₀ l₀ hl₀, pow_mul', pow_mul']
+    exact sub_pos.mpr (pow_lt_pow_left₀ h32 (by positivity) hr.ne')
+  exact rotation_block_exclusion hm₀ hAm hcop hl₀ blocks hb hr hD
+    (flatten_rotations_lt_eight _ hv0 hDv hlo0 hlo hhi (by omega) blocks hb hr)
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
