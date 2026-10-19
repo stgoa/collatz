@@ -373,7 +373,7 @@ supplied smaller-seed history. R35 records exactly what the restricted
 identity catalogue misses and why an unrestricted doubling-pair premise
 would already be equivalent to Collatz. R36 then resolves explicit parts
 of that missing domain by additional dynamic comparisons. See the
-[current result ledger](../../docs/RESULTS.md).
+[current result ledger](../../archive/docs/RESULTS.md).
 
 The parallel work supports the checks and preserves useful negative
 controls. It gives no reason to abandon finite signed certificates.

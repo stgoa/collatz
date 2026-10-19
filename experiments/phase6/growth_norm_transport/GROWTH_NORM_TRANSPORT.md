@@ -447,7 +447,7 @@ densities (Theorem3) and Tao's exact valuation lemma (Lemma2.1) and
 geometric-cylinder discussion (Remark1.10). Tao's Section1.1 identifies
 concentration in an exceptional set as a difficulty with iteration. See
 [the primary paper](https://arxiv.org/html/1909.03562v3) and the
-[scoped literature audit](../../../docs/PHASE6_LITERATURE.md). These sources
+[scoped literature audit](../LITERATURE.md). These sources
 are contextual matches; the inverse congruences, affine thresholds and norm
 obstruction above are proved directly. No claim of novelty is supplied.
 

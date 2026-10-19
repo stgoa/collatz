@@ -5,7 +5,7 @@ status label, primary source calibrated, and the C(δ) table at that time.
 
 ## Iteration 2, review — side lane confirms the L4 barrier
 
-- Independent 50-digit decimal check (`sidekick/probes/fable_L4_window_check.py`,
+- Independent 50-digit decimal check (`reviews/side_lane/fable_L4_window_check.py`,
   `claude/sidekick` HEAD after a244490) reproduces every number of
   `check_L4_window.py`: threshold `6.274e13`, `m_0 >= 1` only for
   `log x >= 1e5`, `I_y = [21.97, −21.48]` at `2^68`, `α = 1.2185` to open
@@ -49,7 +49,7 @@ status label, primary source calibrated, and the C(δ) table at that time.
 ## Iteration 1, review follow-up — 2026-10-18 evening
 
 - The side lane confirmed L2, L2′ and L3 by independent code
-  (`claude/sidekick` a244490, probe `sidekick/probes/fable_L2_check.py`:
+  (`claude/sidekick` a244490, probe `reviews/side_lane/fable_L2_check.py`:
   Chernoff vs exact law n<=60, rate formula vs numerical minimisation,
   hockey-stick count, integer counts at X=2^20 for d∈{1,5}, affine identity
   and descent on 4,000 random odd N<2^64) and found one documentation

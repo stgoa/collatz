@@ -12,7 +12,7 @@ already present in the proof, not a new hypothesis about the invariant.
 ## The goal and why it is a further milestone
 
 V004 excludes every finite-valued binary-automatic Collatz invariant. The
-[activated brief](../../../docs/QUANTITATIVE_RIGIDITY_BRIEF.md) asks for more:
+[activated brief](../briefs/QUANTITATIVE_RIGIDITY_BRIEF.md) asks for more:
 if an invariant h is nonconstant, its number of distinct binary sections
 through depth D must exceed every bound C(D+1), with C fixed. Write
 

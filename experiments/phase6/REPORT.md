@@ -1,13 +1,13 @@
 # Phase 6 research report
 
 **Historical programme report.** The active goal is now breadth-first
-[viewpoint exploration](../../VIEWPOINT_MAP.md). The completed P6-004 audit
+[viewpoint exploration](../viewpoints/MAP.md). The completed P6-004 audit
 is preserved; its old next-node choice is not the current assignment.
 
 ## Standing
 
 Collatz is open. The programme has pivoted from expanding the frozen local
-dispatcher to named proof obligations in [ROUTE_MAP.md](../../ROUTE_MAP.md).
+dispatcher to named proof obligations in [experiments/phase6/ROUTE_MAP.md](ROUTE_MAP.md).
 The setup batch built the grading and control infrastructure and is confirmed
 **none**. S.1 has a verified, side-confirmed stopping calibration, pushed
 as546e891. P6-002's endpoint cardinality barrier passed117 report fields and
@@ -31,7 +31,7 @@ conditional reconstruction, general-d scope and failed upper attempt.
 
 Every claimed advance must be a demonstrated non-transfer step, a published
 calibration with explicit constants, or a proved barrier for a named method.
-The [ledger](../../docs/PHASE6_LEDGER.md) records proposals, decisions,
+The [ledger](LEDGER.md) records proposals, decisions,
 transfer scope, literature and external confirmation. The
 [control specification](README.md) and exact stored cycles make generic
 descent and absorption claims falsifiable on maps with known cycles.
@@ -39,7 +39,7 @@ descent and absorption claims falsifiable on maps with known cycles.
 The source baseline is main `9190ccf`; the reviewed side-lane proposal pin is
 `f244b7a5b77a51f8dd7e6bccf2c6d5f18932df88`. None of the side lane's new finite
 exposure statistics is treated as a uniform density estimate. The primary
-[literature audit](../../docs/PHASE6_LITERATURE.md) preserves theorem
+[literature audit](LITERATURE.md) preserves theorem
 quantifiers, constants and publication corrections.
 
 ## Open work
@@ -152,7 +152,7 @@ Further variants of the same power-norm barrier are not the next task.
 ## New evidence while the P6-003 gate runs
 
 The literature check found recent primary manuscripts claiming a linear
-predecessor lower bound. [L3a](../../docs/PHASE6_LITERATURE.md) pins their
+predecessor lower bound. [L3a](LITERATURE.md) pins their
 statements and the Lau source commit. The local elementary counting steps
 passed preliminary reading; the inherited analytic input and formal
 build are not independently verified here. These results are not premises

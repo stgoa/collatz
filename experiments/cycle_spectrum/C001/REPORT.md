@@ -2,7 +2,7 @@
 
 **2026-10-18–19. Written theorem, exact finite experiments, novelty unclaimed.**
 This is the first batch under the user's
-[cycle-spectrum goal](../../../docs/CYCLE_SPECTRUM_BRIEF.md). It proves a
+[cycle-spectrum goal](../BRIEF.md). It proves a
 restriction for repeated-block words, then applies it to an infinite
 primitive, nonbalanced family. It does not exclude all Collatz cycles.
 

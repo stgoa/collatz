@@ -10,7 +10,7 @@ have written, independently agent-reviewed proofs. Full classification of
 binary-automatic invariant colorings remains open here. No novelty, human
 peer review, formal verification or Collatz convergence is claimed.
 
-The [active brief](../../../docs/ARITHMETIC_REGULARITY_BRIEF.md) asks how
+The [active brief](../briefs/ARITHMETIC_REGULARITY_BRIEF.md) asks how
 complicated a rule separating Collatz components must be. V002 supplied
 periodic rigidity. This batch investigates the larger binary-automatic
 class and delivers results beyond that periodic case.
@@ -159,7 +159,7 @@ entirely separate missing premise.
 - [Executable arithmetic checks](verify_examples.py) and [receipt](verification.json).
 - [Read-only side-lane assessment](side_review.md).
 - [Goal completion audit](GOAL_REVIEW.md), with delivery evidence in the
-  [viewpoint log](../../../docs/VIEWPOINT_LOG.md).
+  [viewpoint log](../LOG.md).
 
 The finite checks accompany the written proofs; they do not prove their
 unbounded quantifiers. R1–R94 and all historical mathematical evidence are

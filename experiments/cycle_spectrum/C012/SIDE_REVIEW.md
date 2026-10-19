@@ -1,7 +1,7 @@
 # C012 — Side input and Fable's reported formalization
 
 The batch fetched `origin main claude/sidekick` successfully and reviewed
-`sidekick/DIRECTIONS.md` and `sidekick/FEED.md` with `git show` at
+`archive/side_lane/DIRECTIONS.md` and `archive/side_lane/FEED.md` with `git show` at
 `f01ac0e24c42353dedaf67b7bfd73548cdd015e4`. Main started at
 `b896512077a4be31ef3d9fcdcf833d1a59cd1b89`. DIRECTIONS is unchanged from
 the C011 review at `bab760a670973cc98a874dfc713996bc0dca8470`.

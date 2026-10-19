@@ -9,7 +9,7 @@ used. A later authorized retry succeeded, as recorded below.
 The locally available tracking ref initially read was
 `2ea1c7f6e51e31b80d354b458d8fa121e4f6e8aa`. It later advanced in the
 shared repository to `f054db41be4688dec8200208e4994e96379bc0dd`.
-At that latter pin, `sidekick/DIRECTIONS.md` and `sidekick/FEED.md`
+At that latter pin, `archive/side_lane/DIRECTIONS.md` and `archive/side_lane/FEED.md`
 were read with `git show`. This review treats their contents as external
 research input. No side branch was edited, committed to or pushed.
 

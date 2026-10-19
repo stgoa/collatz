@@ -145,7 +145,7 @@ every possible short comparison with an arbitrary supplied absorption graph.
 
 ## 5. Checks and source boundary
 
-- Read `README.md`, `docs/RESULTS.md` (R17, R20, R21), R17's retained-graph
+- Read `README.md`, `archive/docs/RESULTS.md` (R17, R20, R21), R17's retained-graph
   proof, R20's transfer proof, R21's source-cluster proof, and `AGENTS.md`.
 - Read the cited author/publisher primary pages or PDFs, including the
   proofs around Monks (2006) Lemma 3.8 and Monks et al. (2013) Corollary 5.8.

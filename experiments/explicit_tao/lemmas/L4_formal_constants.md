@@ -89,6 +89,6 @@ expected of an averaging estimate.
 
 The quoted statements were read from the local clone of the pinned commit
 used for the lane-3 build (`~/lean-audit/src/CollatzPositiveDensity`), file
-hashes in `experiments/lean_audit/receipts/pinned_source_hashes.txt` on
+hashes in `lean/audit/receipts/pinned_source_hashes.txt` on
 `claude/lean-audit`; the four theorems depending on them are machine-checked
 there with axioms `[propext, Classical.choice, Quot.sound]`.

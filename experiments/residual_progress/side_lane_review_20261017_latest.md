@@ -253,7 +253,7 @@ shutil.copy2(repo/'collatz_research_20261017/negative_controls/affine_controls.p
 ref='9a0c28d90e1554cfa967e7e0ea785a86dd1af04c'
 for name in ('residual_vs_induction.py','residual_cylinder_core.py'):
     (probe/name).write_bytes(subprocess.check_output(
-        ['git','show',f'{ref}:sidekick/probes/{name}'],cwd=repo))
+        ['git','show',f'{ref}:reviews/side_lane/{name}'],cwd=repo))
 for args in (['residual_vs_induction.py'],['residual_cylinder_core.py'],
              ['residual_cylinder_core.py','--merge']):
     subprocess.run([sys.executable,str(probe/args[0]),*args[1:]],

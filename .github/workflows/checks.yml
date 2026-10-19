@@ -1,0 +1,47 @@
+name: checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quick:
+    name: links, Lean receipts, active-line checkers
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/check_links.py
+      - run: python3 scripts/check_lean_receipts.py
+      - run: python3 scripts/run_checks.py --line cycle_spectrum --line viewpoints --line explicit_tao -j 2
+
+  frozen-gate:
+    name: frozen programmes (verify_all.py)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/verify_all.py
+
+  reviews:
+    name: side-lane review scripts (manual)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/run_checks.py --line reviews --fast -j 2

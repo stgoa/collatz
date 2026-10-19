@@ -2,7 +2,7 @@
 
 Reviewed local remote-tracking commit
 `67c691b93ddd3d07748f557c8a26f9883e37389b` of `origin/claude/sidekick`.
-Read `sidekick/DIRECTIONS.md` and the new `sidekick/FEED.md` entries with
+Read `archive/side_lane/DIRECTIONS.md` and the new `archive/side_lane/FEED.md` entries with
 `git show`. A fresh fetch was attempted, but automatic approval review
 could not execute because its selected model was at capacity. This is
 a tooling failure, not evidence that the branch is current or the action

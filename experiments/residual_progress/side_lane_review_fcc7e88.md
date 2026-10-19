@@ -14,11 +14,11 @@ receipts byte for byte. Imports were also read from that exact commit.
 
 | Pinned file | SHA-256 |
 |---|---|
-| `sidekick/probes/batch_r75_r77_check.py` | `ab06b27788f18644fc00dbc92fc926448edee94d3c248e0c38709b8ae13f1845` |
-| `sidekick/probes/batch_r75_r77_check.json` | `06ef47a7d4db744867da72aa89890ef929b6b660a039c273d3aa3fc600f1b4a8` |
-| `sidekick/probes/itinerary_complexity_general.py` | `e5099124e39c13c92a9ea7914343a6441e3a691f1f11b773eb5a8a02840da23c` |
-| `sidekick/probes/itinerary_complexity_general.json` | `f4e65d5d79abeb5a85d6a3aed3e9ffe790ae952fad08c22e09411465ee7a8287` |
-| `sidekick/probes/fibre_count_check.py` | `071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a` |
+| `reviews/side_lane/batch_r75_r77_check.py` | `ab06b27788f18644fc00dbc92fc926448edee94d3c248e0c38709b8ae13f1845` |
+| `reviews/side_lane/batch_r75_r77_check.json` | `06ef47a7d4db744867da72aa89890ef929b6b660a039c273d3aa3fc600f1b4a8` |
+| `reviews/side_lane/itinerary_complexity_general.py` | `e5099124e39c13c92a9ea7914343a6441e3a691f1f11b773eb5a8a02840da23c` |
+| `reviews/side_lane/itinerary_complexity_general.json` | `f4e65d5d79abeb5a85d6a3aed3e9ffe790ae952fad08c22e09411465ee7a8287` |
+| `reviews/side_lane/fibre_count_check.py` | `071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a` |
 | `collatz_research_20261017/negative_controls/affine_controls.py` | `9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c` |
 
 ## Reproduced evidence

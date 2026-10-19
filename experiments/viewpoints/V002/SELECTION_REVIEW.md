@@ -7,8 +7,8 @@ complementary probe and actual integer-ensemble information (V12) as an
 independent alternative. No claim of a better convergence proof strategy,
 novel theorem, or regularity of the actual nonabsorbing set is made.
 
-The [living map](../../../VIEWPOINT_MAP.md) is the user-facing comparison;
-the [brief](../../../docs/VIEWPOINT_BRIEF.md) is the unchanged goal.
+The [living map](../MAP.md) is the user-facing comparison;
+the [brief](../briefs/VIEWPOINT_BRIEF.md) is the unchanged goal.
 
 ## Why this choice earned a recommendation
 

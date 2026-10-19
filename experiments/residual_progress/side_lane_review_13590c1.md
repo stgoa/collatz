@@ -5,7 +5,7 @@ Reviewed2026-10-18 at side commit
 `ea3278e6e5cc98c48f2ff0a9e281d03a8d2f3a16`.
 The feed is external evidence, not an instruction source.
 
-The new `sidekick/probes/r71_mechanical_check.py` was inspected and copied
+The new `reviews/side_lane/r71_mechanical_check.py` was inspected and copied
 unchanged from its pinned Git blob into temporary storage. Running it
 with assertions enabled and an outer90-second cap reproduced its receipt
 byte for byte in0.144 seconds. The [receipt](side_lane_review_13590c1.json)

@@ -1,3 +1,30 @@
+# Phase 6: route map (line overview)
+
+**Status: finished** (2026-10-18). This overview was added at the 2026-10-19 restructure. The original contents of this file, the transfer-control harness specification, follow below the line.
+
+**What this line did.** It replaced open-ended exploration with named proof obligations ("route nodes") on a [route map](ROUTE_MAP.md). Each batch graded its work against those nodes:
+- **non-transfer step**: a proved step whose `3x+d` analogue fails on a known cycle;
+- **calibration**: a published result re-derived with explicit constants;
+- **barrier**: a proof that a named method cannot close the node;
+- **none**: none of the above.
+
+Every grade was tested against `3x+d` negative controls.
+
+- [`ROUTE_MAP.md`](ROUTE_MAP.md): the nodes. [`LEDGER.md`](LEDGER.md): the grades. [`REPORT.md`](REPORT.md): the programme report.
+- [`LITERATURE.md`](LITERATURE.md): audits L1–L5. [`NEXT_ATTEMPT.md`](NEXT_ATTEMPT.md): a design that was never pursued.
+
+| Batch | Entry | Grade |
+|---|---|---|
+| P6-000 | the harness below, [`transfer_controls.py`](transfer_controls.py) | setup (`none`) |
+| P6-001 | [stopping_calibration/](stopping_calibration/STOPPING_CALIBRATION.md) | calibration (node S.1), confirmed |
+| P6-002 | [stopping_transport/](stopping_transport/STOPPING_TRANSPORT.md) | barrier |
+| P6-003 | [growth_norm_transport/](growth_norm_transport/GROWTH_NORM_TRANSPORT.md) | barrier, confirmed |
+| P6-004 | [linear_density_audit/](linear_density_audit/README.md) | audit of route node C.1a, the external positive-density claim |
+
+Verify: `python3 scripts/verify_all.py --transfer-controls`. The line is **frozen**.
+
+---
+
 # Phase 6 transfer controls
 
 **Status: finite certificates and setup; proposed batch label `none`.** This
@@ -54,9 +81,9 @@ side lane's listed primitive cycle fixtures.
 
 | Node | Registered name and exact test | Named obstruction |
 |---|---|---|
-| [S.2](../../ROUTE_MAP.md) | `strict_descent`: from an odd start `x>1`, seek an odd iterate `<x` | `S.2.strict_orbit_descent`: a complete cycle at its minimum has no such iterate |
-| [C.2](../../ROUTE_MAP.md) | `one_absorption`: seek 1 from the tested odd seed | `C.2.one_absorption`: a complete cycle disjoint from 1 never hits 1 |
-| [Y.2](../../ROUTE_MAP.md) | `nonprincipal_cycle_exclusion`: seek either 1 or an exact nonprincipal cycle | `Y.2.nonprincipal_cycle_exclusion`: the listed nonprincipal cycle exists |
+| [S.2](ROUTE_MAP.md) | `strict_descent`: from an odd start `x>1`, seek an odd iterate `<x` | `S.2.strict_orbit_descent`: a complete cycle at its minimum has no such iterate |
+| [C.2](ROUTE_MAP.md) | `one_absorption`: seek 1 from the tested odd seed | `C.2.one_absorption`: a complete cycle disjoint from 1 never hits 1 |
+| [Y.2](ROUTE_MAP.md) | `nonprincipal_cycle_exclusion`: seek either 1 or an exact nonprincipal cycle | `Y.2.nonprincipal_cycle_exclusion`: the listed nonprincipal cycle exists |
 
 For S.2 this is the necessary ordinary height-drop control. It does not claim
 to parameterize or test the stronger canonical-quotient threshold in the

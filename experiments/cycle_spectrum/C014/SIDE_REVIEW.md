@@ -1,7 +1,7 @@
 # C014 — Side research and reported C011 formalization
 
 This batch fetched `origin main claude/sidekick` successfully and read
-`sidekick/DIRECTIONS.md` and `sidekick/FEED.md` with `git show` at
+`archive/side_lane/DIRECTIONS.md` and `archive/side_lane/FEED.md` with `git show` at
 `9a0e8dc68e3751cfe8917f3f12d3645023c85725`. Main began at
 `1c5c19dd5ac52928631ae3539d7cbddaf738b78b`. DIRECTIONS is unchanged
 from the previous reviewed pin `3529355a5b77740c5ff3f874d228ee9a1b5bb478`.
@@ -28,7 +28,7 @@ too strong: the measured q already contains the numerator cancellation
 under investigation. The new independent audit identifies 178 of
 C013's243 cases above the floor, including96 of141 with at least
 three mismatches. Their arithmetic was correct; the evidence label
-needed correction. The [scope correction](EVIDENCE_SCOPE.md) records
+needed correction. The scope correction (`EVIDENCE_SCOPE.md`, never written; the draft is incomplete) records
 the exact counts, the distinction and treatment of C012. Historical
 receipts remain unchanged and are qualified by this new record.
 

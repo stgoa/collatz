@@ -1,7 +1,7 @@
 # V004 — Audit against the full global-rigidity goal
 
 **Mathematical completion: PASS; repository delivery completed.** The unchanged activated objective is
-saved in [GLOBAL_RIGIDITY_BRIEF.md](../../../docs/GLOBAL_RIGIDITY_BRIEF.md).
+saved in [experiments/viewpoints/briefs/GLOBAL_RIGIDITY_BRIEF.md](../briefs/GLOBAL_RIGIDITY_BRIEF.md).
 The theorem, reviews and receipts were committed as `f54b741` and pushed
 to origin/main; the viewpoint log records the matching remote and clean
 working-tree check. This follow-up only records that delivery.
@@ -19,7 +19,7 @@ subclasses and finite experiments alone do not complete it.
 | Full proof, not partial-result completion | Positive ternary closure → odd-section eventual periodicity → global odd period → residue constancy | No selected subclass or empirical inference supplies the universal step. |
 | Assess relevance to actual convergence | Central proof §6 and [independent review](INDEPENDENT_REVIEW.md) | No automaticity or complexity upper bound for the actual nonabsorbing set is known here. |
 | Preserve controls, failures, sources, checks | [Finite receipt](verification.json), [literature scope](literature_scope.md), [side review](side_review.md) | Novelty undetermined; finite checks do not prove the classification. |
-| Repository delivery | Updated README, map, AGENTS, ledgers; delivery recorded in the [viewpoint log](../../../docs/VIEWPOINT_LOG.md) | Frozen R-series, dispatcher and open LaTeX source are unchanged. |
+| Repository delivery | Updated README, map, AGENTS, ledgers; delivery recorded in the [viewpoint log](../LOG.md) | Frozen R-series, dispatcher and open LaTeX source are unchanged. |
 
 ## Review and corrections
 
@@ -57,7 +57,7 @@ an intermediate milestone.
 
 A possible next goal is quantitative rigidity: establish a growth lower
 bound for the number of distinct binary sections beyond the generic
-linear bound for an infinite kernel. The [map](../../../VIEWPOINT_MAP.md#focused-subsequent-programme)
+linear bound for an infinite kernel. The [map](../MAP.md#focused-subsequent-programme)
 records an explicit candidate and the separate statistical alternative.
 No such growth theorem or feasibility claim is supplied, and this review
 does not activate a new goal. Formalizing the elementary proof would be

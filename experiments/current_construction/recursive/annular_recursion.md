@@ -3,7 +3,7 @@
 Date: 2026-10-17. Status: written elementary identities with finite arithmetic
 checks. This note supplies no universal current construction, Collatz proof,
 or novelty claim. All clocks and measures are those of
-`collatz_research_20261017/right_aligned_reduction.tex`: odd-only Syracuse,
+`papers/right_aligned_reduction/right_aligned_reduction.tex`: odd-only Syracuse,
 absorption at 1, exact integer source cutoffs, and the revised right-aligned
 depth-one packets.
 

@@ -7,7 +7,7 @@ All deterministic times count odd Syracuse arrows, with 1 absorbed.
 Write \(S_d(n)=(3n+d)/2^{v_2(3n+d)}\) for odd \(n>1\), where
 \(d>0\) is odd and coprime to 3; \(S=S_1\).
 
-Relevant existing constraints are [R7](../../../docs/RESULTS.md), the
+Relevant existing constraints are [R7](../../../archive/docs/RESULTS.md), the
 [finite-cone compiler](../../residual_progress/duality/FINITE_CONE.md),
 [arbitrary-target transport barriers](../../phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md),
 and the [actual-basin density audit](../../phase6/linear_density_audit/next_upper_attempt.md).

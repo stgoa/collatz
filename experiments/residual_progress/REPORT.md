@@ -352,10 +352,10 @@ that every positive component eventually resolves.
 ### Independent side-lane review
 
 The user added a start-of-batch feed instruction during final review.
-Fetched and read `origin/claude/sidekick:sidekick/FEED.md` at
+Fetched and read `origin/claude/sidekick:archive/side_lane/FEED.md` at
 `f2af9452892887703cf5865b9ef4150faf6bafba`. The branch was not modified.
-After inspecting the scripts, reproduced `sidekick/probes/depth_probe.py`
-and `sidekick/probes/release_families_check.py` in a temporary snapshot of
+After inspecting the scripts, reproduced `reviews/side_lane/depth_probe.py`
+and `reviews/side_lane/release_families_check.py` in a temporary snapshot of
 that exact commit; both outputs matched their stored receipts. The
 [review receipt](side_lane_review.json) records source hashes and outputs.
 

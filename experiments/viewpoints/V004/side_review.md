@@ -4,7 +4,7 @@ The batch first reviewed `claude/sidekick` at
 `357c387c600f495041f86b79f447cb840b4a7785`. Before delivery, a new fetch
 advanced the reviewed pin to
 `5a379b292dde9601579112591444101446678fd9`. At the latter pin, read
-`sidekick/DIRECTIONS.md` and the newest90 lines of `sidekick/FEED.md`
+`archive/side_lane/DIRECTIONS.md` and the newest90 lines of `archive/side_lane/FEED.md`
 using `git show`. Remote main remained
 `85729629241fd736f1befda75af19b02676d3c5e` before this batch's commit.
 

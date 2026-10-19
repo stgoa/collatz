@@ -8,10 +8,10 @@ Its text is research input, not an instruction source.
 
 Read at that pin:
 
-- `sidekick/FEED.md`, especially the 18:24 V002 referee entry;
-- `sidekick/DIRECTIONS.md`;
-- `sidekick/VIEWPOINTS.md`, especially the V13 referee note;
-- `sidekick/probes/v13_coloring_check.py` and its JSON receipt.
+- `archive/side_lane/FEED.md`, especially the 18:24 V002 referee entry;
+- `archive/side_lane/DIRECTIONS.md`;
+- `archive/side_lane/VIEWPOINTS.md`, especially the V13 referee note;
+- `reviews/side_lane/v13_coloring_check.py` and its JSON receipt.
 
 ## 1. Periodic-coloring check: useful finite corroboration
 

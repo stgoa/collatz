@@ -6,14 +6,14 @@ The source, independent step implementation and published receipt were read
 from that exact commit and materialized in temporary storage. The side
 branch was not changed.
 
-The unmodified `sidekick/probes/batch_r73_r74_check.py` passed, and its output
+The unmodified `reviews/side_lane/batch_r73_r74_check.py` passed, and its output
 receipt matched the pinned `batch_r73_r74_check.json` byte for byte. The
 execution had a 30-second cap and completed in under one second.
 
 | Pinned file | SHA-256 |
 |---|---|
-| `sidekick/probes/batch_r73_r74_check.py` | `b89863a6e4faf20ac9b6d1b7ab3e1f6f79f1998fb702946f41200906892f5045` |
-| `sidekick/probes/batch_r73_r74_check.json` | `711aacecf34c2b31c2ab2744ca6ab47e8e1f0ae4d2bee5bf091b378269681d3e` |
+| `reviews/side_lane/batch_r73_r74_check.py` | `b89863a6e4faf20ac9b6d1b7ab3e1f6f79f1998fb702946f41200906892f5045` |
+| `reviews/side_lane/batch_r73_r74_check.json` | `711aacecf34c2b31c2ab2744ca6ab47e8e1f0ae4d2bee5bf091b378269681d3e` |
 | `collatz_research_20261017/negative_controls/affine_controls.py` | `9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c` |
 
 ## What was reproduced

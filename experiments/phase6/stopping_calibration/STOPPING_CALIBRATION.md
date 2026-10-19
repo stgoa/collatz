@@ -2,10 +2,10 @@
 
 **Batch P6-001. Proposed label: calibration. Status: written proof, with
 separate executable checks.** This proves the stopping statement and W5
-pullback named in [S.1](../../../ROUTE_MAP.md). It re-derives a fixed-half
+pullback named in [S.1](../ROUTE_MAP.md). It re-derives a fixed-half
 corollary of a published density theorem. It does not prove convergence,
 universal current supply, or a new dispatcher rule. Independent confirmation
-of the programme label is recorded in the [Phase 6 ledger](../../../docs/PHASE6_LEDGER.md).
+of the programme label is recorded in the [Phase 6 ledger](../LEDGER.md).
 
 The batch read the independent lane at
 `b1785fb2dcf121586e99be95c90b94afcf1e9733`. Its direction and feed entries
@@ -335,7 +335,7 @@ horizons and all integer cutoff errors. They do **not** re-prove Korec's
 stronger power-descent theorem or claim his power exponent for this fixed
 horizon. The primary paper's parity lemma concerns the shortcut clock;
 its power-descent iteration count is not bounded independently of the
-starting value. The [literature audit](../../../docs/PHASE6_LITERATURE.md)
+starting value. The [literature audit](../LITERATURE.md)
 records the distinction from the Terras/Everett benchmarks and Tao's
 different logarithmic-density statement. No novelty is asserted for the
 elementary counting argument or its deliberately loose constants.

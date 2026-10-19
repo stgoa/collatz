@@ -1,6 +1,6 @@
 # V003 — Audit against the arithmetic-regularity goal
 
-**Scope:** the unchanged [user goal](../../../docs/ARITHMETIC_REGULARITY_BRIEF.md)
+**Scope:** the unchanged [user goal](../briefs/ARITHMETIC_REGULARITY_BRIEF.md)
 asks for a demonstrated mathematical gain from arithmetic regularity, or a
 decisive scoped reason to redirect it. Its principal research aim is the
 binary-automatic classification. It explicitly accepts a rigorous partial
@@ -24,14 +24,14 @@ of the goal requires the delivery checks and push recorded in the log.
 | Make missing information explicit | kernel_probe.md §5; literature.md L6 exact CRT separation | Met: scaling invariance alone allows an infinite mixed kernel. The counterexample fails the full guarded equation, which a successful proof must retain. |
 | Use Cobham only with its premises | kernel_probe.md §5; literature.md L3–L4 | Met: full second-base automaticity remains conditional. A finite characteristic-zero 3-Mahler relation is an alternative missing input, not an adopted theorem about h. |
 | One bounded carry test with complete boundary | carry_boundary.md §§1–3; verify_examples.py check_carry_patch | Met: full rectangle, zero and undefined rays, nonlocal bootstrap and carry flush are explicit. The symbolic tail checks accompany the finite arithmetic; no parallel-update count is inferred. |
-| Compare before deepening | REPORT.md §§4 and6; VIEWPOINT_MAP.md focused programme | Met: V13 earns a focused mixed-section follow-up; V14 closes after adding no relation. V12 is retained as an alternative if the next bounded probe adds no structure. |
+| Compare before deepening | REPORT.md §§4 and6; experiments/viewpoints/MAP.md focused programme | Met: V13 earns a focused mixed-section follow-up; V14 closes after adding no relation. V12 is retained as an alternative if the next bounded probe adds no structure. |
 | Exercise general claims against cycle controls | REPORT.md §5; PROOF_REVIEW.md §4; verifier check_controls and cylinder checks | Met at each claim's scope. Actual d5/d61 nonabsorbing cycles, divisible fixed points, invariant colors, failed d1 section identity and both colors in dyadic cylinders are checked. No d5 tile construction or divergence test is claimed. |
 | Preserve exact clocks, domains and absorber | Each proof's domain section; carry clocks; actual predecessor replay | Met: source1 is excluded where necessary, raw shortcut prefixes stay above1, section operations are not orbit clocks, and exact valuation4 uses modulus32. |
 | Keep novelty separate | Status labels and primary-source note; known cylinder result explicitly credited | Met: the independently written digit/kernel gains have undetermined novelty. The cylinder rederivation is not counted as a new result. |
 | Persist proofs, failures, sources and checks | V003 directory, brief, logs and updated README/map | Met; executable receipt is separate from written proof and external theorem evidence. |
-| Review independent side lane read-only | side_review.md at c583fc3e1adab7c15d6297a5acf55d7560fc5e08; VIEWPOINT_LOG.md | Met: DIRECTIONS/FEED and the relevant probe were read. Numerical cutoff/state bound remains conditional and encoding-dependent; no side files or branches were changed. |
-| Preserve frozen results and open LaTeX | delivery_checks.json and delivery integrity record in VIEWPOINT_LOG.md | Met: R1-onward ledger, dispatcher/proof and LaTeX bytes match both c47d91b and9190ccf. All other historical tracked files are unchanged from the batch baseline. |
-| Appropriate verification and commit/push | verification.json, delivery_checks.json and delivery record in VIEWPOINT_LOG.md | Met for substantive commit2ac44ef: independent replay,118 local links,17 fragments, whitespace and integrity checks passed; origin/main matched local main after successful push, with a clean worktree. This delivery-record follow-up is also pushed before the goal-status update. No Phase6 infrastructure or frozen evidence changed, so its full gate was not required for this standalone batch. |
+| Review independent side lane read-only | side_review.md at c583fc3e1adab7c15d6297a5acf55d7560fc5e08; experiments/viewpoints/LOG.md | Met: DIRECTIONS/FEED and the relevant probe were read. Numerical cutoff/state bound remains conditional and encoding-dependent; no side files or branches were changed. |
+| Preserve frozen results and open LaTeX | delivery_checks.json and delivery integrity record in experiments/viewpoints/LOG.md | Met: R1-onward ledger, dispatcher/proof and LaTeX bytes match both c47d91b and9190ccf. All other historical tracked files are unchanged from the batch baseline. |
+| Appropriate verification and commit/push | verification.json, delivery_checks.json and delivery record in experiments/viewpoints/LOG.md | Met for substantive commit2ac44ef: independent replay,118 local links,17 fragments, whitespace and integrity checks passed; origin/main matched local main after successful push, with a clean worktree. This delivery-record follow-up is also pushed before the goal-status update. No Phase6 infrastructure or frozen evidence changed, so its full gate was not required for this standalone batch. |
 
 ## Why this is substantive progress
 

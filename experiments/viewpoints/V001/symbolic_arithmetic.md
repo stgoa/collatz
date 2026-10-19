@@ -5,7 +5,7 @@ The user's breadth-first viewpoint search supersedes the former Phase 6 priority
 No theorem, novelty, formal-verification or convergence claim is made here.
 The examples below are elementary exact calculations; proposed tests remain unperformed.
 
-Read before comparison: current `README.md`, `docs/RESULTS.md`, and the source notes for
+Read before comparison: current `README.md`, `archive/docs/RESULTS.md`, and the source notes for
 [R25](../../residual_progress/bridge_normal_form/BRIDGE_NORMAL_FORM.md),
 [R31](../../residual_progress/bounded_run_cycles/BOUNDED_RUN_GROWTH.md),
 [R49](../../residual_progress/inverse_scope/INVERSE_SCOPE.md),

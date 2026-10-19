@@ -25,8 +25,8 @@ and status/link to this review. Reversing exactly those two edits
 reproduces the earlier audited source hash, confirming no further
 proof changes.
 
-I also read the latest relevant entries of `sidekick/FEED.md` and the
-direction table in `sidekick/DIRECTIONS.md` directly at the stated pin
+I also read the latest relevant entries of `archive/side_lane/FEED.md` and the
+direction table in `archive/side_lane/DIRECTIONS.md` directly at the stated pin
 `67c691b93ddd3d07748f557c8a26f9883e37389b`. Those are external reports,
 not mathematical premises or instructions. I did not repeat the fetch,
 independently build the Lean lane, or run another agent's full receipt.

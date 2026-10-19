@@ -1,0 +1,31 @@
+name: lean
+
+on:
+  pull_request:
+    paths: ["lean/**", ".github/workflows/lean.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: compile the Mathlib-only Lean files
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: install elan
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: fetch Mathlib (prebuilt cache for the pinned commit)
+        working-directory: lean
+        run: lake exe cache get
+      - name: compile
+        working-directory: lean
+        run: |
+          for f in PeriodicRigidity GeneralPeriodic OddEventuallyPeriodic KernelClosure V004_Assembly \
+                   ScalarInterface QuadraticSeparation ReverseClosure_Assembly CycleSpectrum; do
+            echo "::group::$f"; lake env lean "$f.lean"; echo "::endgroup::"
+          done

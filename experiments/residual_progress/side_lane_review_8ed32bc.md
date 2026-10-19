@@ -8,7 +8,7 @@ by the [previous assessment](side_lane_review_86ead16.md).
 
 ## What was reproduced
 
-The pinned `sidekick/probes/c0_basin_classify.c`, its Python wrapper
+The pinned `reviews/side_lane/c0_basin_classify.c`, its Python wrapper
 `c0_basin_receipt.py`, and its stored JSON receipt were extracted into
 temporary storage. The wrapper ran unmodified with a 60-second process
 timeout and finished in 5.71 seconds. Its new receipt is byte-identical

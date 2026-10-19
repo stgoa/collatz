@@ -9,7 +9,7 @@ already using one ordinary odd arrow. It does not refute a bound restricted
 to the actual nonabsorbing set, weighted counting, or estimates that depend
 on the target's scale or arithmetic structure.
 
-This result attaches to [S.2](../../../ROUTE_MAP.md). The batch read the
+This result attaches to [S.2](../ROUTE_MAP.md). The batch read the
 side lane at `ade50f97bf187003f25fbc4d9e5430b53d2f2527`. A search of the
 frozen research proofs and results index found no earlier first-half
 transport statement with these quantifiers. Earlier fixed-depth barriers

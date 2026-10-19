@@ -6,7 +6,7 @@ Reviewed exact side commit `cbe77bce62d0a5ba2fbac1af3f686806cc7f6d4a`, compared 
 
 ## Reproduction
 
-The unchanged `sidekick/probes/r64_lifted_cycle_check.py` and its only nonstandard import, `collatz_research_20261017/negative_controls/affine_controls.py`, were materialized from the same exact commit in an isolated `/tmp` directory. The probe ran without Python optimization, under a 90-second external process cap. It exited successfully in approximately 0.06 seconds and reproduced the published JSON **byte for byte**.
+The unchanged `reviews/side_lane/r64_lifted_cycle_check.py` and its only nonstandard import, `collatz_research_20261017/negative_controls/affine_controls.py`, were materialized from the same exact commit in an isolated `/tmp` directory. The probe ran without Python optimization, under a 90-second external process cap. It exited successfully in approximately 0.06 seconds and reproduced the published JSON **byte for byte**.
 
 The [machine receipt](side_lane_review_cbe77bc.json) records both pins, source and dependency SHA-256 hashes, the execution output, the receipt comparison, and every sampled parameter cell.
 

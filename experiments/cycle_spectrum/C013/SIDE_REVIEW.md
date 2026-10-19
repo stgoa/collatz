@@ -1,7 +1,7 @@
 # C013 — Side input and reported Lean progress
 
 This batch successfully fetched `origin main claude/sidekick` and read
-`sidekick/DIRECTIONS.md` and `sidekick/FEED.md` with `git show` at
+`archive/side_lane/DIRECTIONS.md` and `archive/side_lane/FEED.md` with `git show` at
 `3529355a5b77740c5ff3f874d228ee9a1b5bb478`. Its main baseline is
 `de7db672582eb3745efa2eb9a99326ccf43206b9`. DIRECTIONS is unchanged
 from the previous reviewed pin `f01ac0e24c42353dedaf67b7bfd73548cdd015e4`.

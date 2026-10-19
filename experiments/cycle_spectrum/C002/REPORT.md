@@ -5,7 +5,7 @@ This batch tests the cancellation mechanism when both repeated blocks grow.
 Its strongest elementary consequence is uniform over the blocks themselves:
 two different blocks with the same length and total valuation cannot produce
 an integer Collatz cycle when their repetition counts sum to at least three.
-The [headline goal](../../../docs/CYCLE_SPECTRUM_BRIEF.md) remains open.
+The [headline goal](../BRIEF.md) remains open.
 
 ## 1. The uniform theorem
 

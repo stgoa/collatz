@@ -28,9 +28,9 @@ R86 has no explicit per-cell assertion that twelve samples were made, but each c
 | Exact pinned source/dependency | SHA-256 |
 |---|---|
 | `collatz_research_20261017/negative_controls/affine_controls.py` | `9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c` |
-| `sidekick/probes/batch_r81_r83_check.py` | `ec88e50282d281030fec8c023c556caa8e2e04433a7a213170f3c74fc6494360` |
-| `sidekick/probes/fibre_count_check.py` | `071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a` |
-| `sidekick/probes/r60_cycle_inverse_check.py` | `4d6c516e9526b18ceb0764dc405beb79880901b46361ba44454db36a13d03df2` |
-| `sidekick/probes/r86_even_exit_check.py` | `68b8577fe8ff083a786ecc5ca7f6ce988a8657ba2f873ee021e9df3e021d37ed` |
+| `reviews/side_lane/batch_r81_r83_check.py` | `ec88e50282d281030fec8c023c556caa8e2e04433a7a213170f3c74fc6494360` |
+| `reviews/side_lane/fibre_count_check.py` | `071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a` |
+| `reviews/side_lane/r60_cycle_inverse_check.py` | `4d6c516e9526b18ceb0764dc405beb79880901b46361ba44454db36a13d03df2` |
+| `reviews/side_lane/r86_even_exit_check.py` | `68b8577fe8ff083a786ecc5ca7f6ce988a8657ba2f873ee021e9df3e021d37ed` |
 
 These checks support the named arithmetic identities in the tested ranges. They do not establish universal acceptance, guaranteed search termination, current supply, or a new theorem beyond main’s written proofs.

@@ -2,7 +2,7 @@
 
 **Reviewed pin:** `bc76c7d3f3d31c109d63984c595866ba9054aef3`, fetched
 from `origin/claude/sidekick` and read through `git show` on 2026-10-18.
-Both `sidekick/DIRECTIONS.md` and the newest `sidekick/FEED.md` entries
+Both `archive/side_lane/DIRECTIONS.md` and the newest `archive/side_lane/FEED.md` entries
 were inspected. The branch was not edited.
 
 ## New evidence and its scope

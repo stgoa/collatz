@@ -68,13 +68,13 @@ Paths in the first column are relative to the pinned side branch.
 
 | File | SHA-256 |
 |---|---|
-| `sidekick/probes/batch_r81_r83_check.py` | `274f7581af91dc84e6b09b0aaa0b20caff7d280f8cb3d24816eec1c17a4b1e84` |
-| `sidekick/probes/batch_r81_r83_check.json` | `70d8a78fd624806cf03b9b062fd173883ee5f71c9c52a98323c063914968fe7b` |
-| `sidekick/probes/r56_selected_inverse_check.py` | `ce986126042ad7537e44d19cd98898b7f7de40246dcff3eb7d7f4953b95a02e9` |
-| `sidekick/probes/r56_selected_inverse_check.json` | `4ed429453d4001c6d02c0a3a20a2c9ad96f5d2624fd809bf3f20c0a0c3ae4849` |
-| `sidekick/probes/batch_r84_r85_check.py` | `f19a46ed83fec41fb0fbe27d5f43af20b1100e02f82a79162ee15d4d74db6709` |
-| `sidekick/probes/batch_r84_r85_check.json` | `358d0af434935d691438a0c7b7f8c657d2c181044f8bb68f423ebd1607a2e37c` |
-| `sidekick/probes/fibre_count_check.py` | `071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a` |
+| `reviews/side_lane/batch_r81_r83_check.py` | `274f7581af91dc84e6b09b0aaa0b20caff7d280f8cb3d24816eec1c17a4b1e84` |
+| `reviews/side_lane/batch_r81_r83_check.json` | `70d8a78fd624806cf03b9b062fd173883ee5f71c9c52a98323c063914968fe7b` |
+| `reviews/side_lane/r56_selected_inverse_check.py` | `ce986126042ad7537e44d19cd98898b7f7de40246dcff3eb7d7f4953b95a02e9` |
+| `reviews/side_lane/r56_selected_inverse_check.json` | `4ed429453d4001c6d02c0a3a20a2c9ad96f5d2624fd809bf3f20c0a0c3ae4849` |
+| `reviews/side_lane/batch_r84_r85_check.py` | `f19a46ed83fec41fb0fbe27d5f43af20b1100e02f82a79162ee15d4d74db6709` |
+| `reviews/side_lane/batch_r84_r85_check.json` | `358d0af434935d691438a0c7b7f8c657d2c181044f8bb68f423ebd1607a2e37c` |
+| `reviews/side_lane/fibre_count_check.py` | `071b2d076702ff0ab87746b9c130c0271c2adcf82b45f59e5d0ffec53b14923a` |
 | `collatz_research_20261017/negative_controls/affine_controls.py` | `9e5ad66deaf7ede55b1d607f6d85d57f58d38e9dd2c551d45f1b7a2d58538e3c` |
 
 The last two dependencies were identical at both pins.

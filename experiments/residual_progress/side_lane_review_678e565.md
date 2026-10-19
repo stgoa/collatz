@@ -18,8 +18,8 @@ SHA256 hashes, exact reports, exit statuses and time limits.
 
 | Probe | Outer cap | Observed result |
 |---|---:|---|
-| `sidekick/probes/transfer_3xd.py` |90 seconds|PASS in0.674 seconds|
-| `sidekick/frameworks/rational_cycles.py` |180 seconds|PASS in60.824 seconds|
+| `reviews/side_lane/transfer_3xd.py` |90 seconds|PASS in0.674 seconds|
+| `archive/side_lane/frameworks/rational_cycles.py` |180 seconds|PASS in60.824 seconds|
 
 The transfer probe checks halving for d1,5,7,13,61 on respectively
 1000,999,998,996,984 inputs, and16 prescribed R54 families for each d.

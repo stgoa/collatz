@@ -2,7 +2,7 @@
 
 Date: 2026-10-17. External pin:
 `bae3969e5b7f1fde6518586ca5386a1884f729cd`, especially the23:32 feed entry
-and `sidekick/probes/backward_word_rule.py`. Repository base:
+and `reviews/side_lane/backward_word_rule.py`. Repository base:
 `87641585b7fbf84d26ce9f5b062cddc71006f33b`; the local R55–R57 additions
 were also read for overlap. The external branch was not modified.
 
@@ -144,9 +144,9 @@ ref = 'bae3969e5b7f1fde6518586ca5386a1884f729cd'
 def read(path):
     return subprocess.check_output(['git', 'show', f'{ref}:{path}'], text=True)
 ns = {'__name__': 'reviewed_probe',
-      '__file__': str(root/'sidekick/probes/backward_word_rule.py')}
-exec(compile(read('sidekick/probes/backward_word_rule.py'), 'pinned_probe', 'exec'), ns)
-receipt = json.loads(read('sidekick/probes/backward_word_rule.json'))
+      '__file__': str(root/'reviews/side_lane/backward_word_rule.py')}
+exec(compile(read('reviews/side_lane/backward_word_rule.py'), 'pinned_probe', 'exec'), ns)
+receipt = json.loads(read('reviews/side_lane/backward_word_rule.json'))
 spec = importlib.util.spec_from_file_location('new', root/
     'experiments/residual_progress/selected_inverse/selected_inverse.py')
 new = importlib.util.module_from_spec(spec)
@@ -180,9 +180,9 @@ Pinned SHA256 values:
 
 | Source | SHA256 |
 |---|---|
-|`sidekick/FEED.md`|`a464d4ef51bdc44ae8a8c1b842e23f3f93eede8c8f5bd73a09576c39ec3fd06e`|
-|`sidekick/probes/backward_word_rule.py`|`be010e694c057236f80473da60d4b6be9a2d47b8e913a058b45697c960aecb19`|
-|`sidekick/probes/backward_word_rule.json`|`22238566dc203d7bdece9b8663e61b49145f26f77fdecccc479d8034f8046249`|
+|`archive/side_lane/FEED.md`|`a464d4ef51bdc44ae8a8c1b842e23f3f93eede8c8f5bd73a09576c39ec3fd06e`|
+|`reviews/side_lane/backward_word_rule.py`|`be010e694c057236f80473da60d4b6be9a2d47b8e913a058b45697c960aecb19`|
+|`reviews/side_lane/backward_word_rule.json`|`22238566dc203d7bdece9b8663e61b49145f26f77fdecccc479d8034f8046249`|
 
 ## 5. Heuristic scope and direction
 

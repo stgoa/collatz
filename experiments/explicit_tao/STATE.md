@@ -7,7 +7,7 @@ of work, update it, commit, push.
 
 ## Goal and logic
 
-[A] (machine-checked; see PR stgoa/collatz#2, `experiments/lean_audit/` on
+[A] (machine-checked; see PR stgoa/collatz#2, `lean/audit/` on
 branch `claude/lean-audit`): for every target `t` with `3 ∤ t`, a positive
 proportion `c(t)` of integers reach `t` (`c(t)=1/(t^4·2^2^2^87640)`,
 cutoff `2^(t^3·2^2^2^87640)`, logarithmic clock). Consequence: if some `n`
