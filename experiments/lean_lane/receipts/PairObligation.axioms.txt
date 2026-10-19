@@ -1,0 +1,11 @@
+'LeanLane.Pair.pair_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Pair.collatz_imp_pairs_meet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Pair.accel_reaches_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Pair.collatzAccel_four_mul_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Pair.collatzAccel_three_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+LeanLane.Pair.pair_iff : ∀ (u : ℕ),
+  LeanLane.Pair.Meet collatzAccel (3 * (4 * u + 1)) (4 * u + 1) ↔ LeanLane.Pair.Meet collatzAccel (18 * u + 5) u
+LeanLane.Pair.collatz_imp_pairs_meet : (∀ (n : ℕ), 0 < n → ∃ k, collatz^[k] n = 1) →
+  ∀ (u : ℕ), Odd u → LeanLane.Pair.Meet collatzAccel (18 * u + 5) u
+def LeanLane.Pair.R1Converse : Prop :=
+(∀ (u : ℕ), Odd u → LeanLane.Pair.Meet collatzAccel (18 * u + 5) u) → ∀ (n : ℕ), 0 < n → ∃ k, collatz^[k] n = 1

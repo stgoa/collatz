@@ -1,0 +1,12 @@
+'LeanLane.periodic_invariant_const' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.const_of_odd_period' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.succ_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.period_div_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.period_odd_part' depends on axioms: [propext]
+'LeanLane.control_three_x_plus_five' depends on axioms: [propext, Classical.choice, Quot.sound]
+@LeanLane.periodic_invariant_const : ∀ {α : Type u_1} (h : ℕ → α) {M : ℕ},
+  0 < M →
+    (∀ (n : ℕ), h (n + M) = h n) →
+      (∀ (n : ℕ), h (2 * n) = h n) → (∀ (n : ℕ), Odd n → 1 < n → h (3 * n + 1) = h n) → ∀ (n : ℕ), 0 < n → h n = h 1
+LeanLane.control_three_x_plus_five : ∃ g,
+  (∀ (n : ℕ), g (n + 5) = g n) ∧ (∀ (n : ℕ), g (2 * n) = g n) ∧ (∀ (n : ℕ), Odd n → g (3 * n + 5) = g n) ∧ g 1 ≠ g 5

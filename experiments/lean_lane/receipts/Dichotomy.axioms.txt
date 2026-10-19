@@ -1,0 +1,11 @@
+'LeanLane.Dichotomy.bad_positive_lower_density' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Dichotomy.collatz_of_bad_density_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Dichotomy.bad_of_reach' depends on axioms: [propext, Quot.sound]
+'LeanLane.Dichotomy.exists_bad_target' depends on axioms: [propext, Classical.choice, Quot.sound]
+LeanLane.Dichotomy.bad_positive_lower_density : (∃ n, 0 < n ∧ LeanLane.Dichotomy.Bad n) →
+  ∃ c X₀, 0 < c ∧ ∀ (N : ℕ), X₀ ≤ N → c * ↑N ≤ ↑{n ∈ Finset.range N | 0 < n ∧ LeanLane.Dichotomy.Bad n}.card
+LeanLane.Dichotomy.collatz_of_bad_density_zero : (∀ (c : ℚ),
+    0 < c → ∀ (X₀ : ℕ), ∃ N, X₀ ≤ N ∧ ↑{n ∈ Finset.range N | 0 < n ∧ LeanLane.Dichotomy.Bad n}.card < c * ↑N) →
+  ∀ (n : ℕ), 0 < n → ∃ k, collatz^[k] n = 1
+def LeanLane.Dichotomy.Bad : ℕ → Prop :=
+fun n => ∀ (k : ℕ), collatz^[k] n ≠ 1

@@ -1,0 +1,1 @@
+docker exec -w /build/CollatzPositiveDensity -e ELAN_HOME=/opt/.elan -e  -e    0.01s user 0.03s system 0% cpu 2:20.21 total

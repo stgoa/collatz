@@ -1,0 +1,16 @@
+'LeanLane.V004.automatic_rigidity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.V004.b_sections' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.V004.kernel3_b_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.V004.kernel2_b_subset' depends on axioms: [propext, Quot.sound]
+'LeanLane.V004.finite_range_of_kernel2' depends on axioms: [propext, Classical.choice, Quot.sound]
+@LeanLane.V004.automatic_rigidity : ∀ {α : Type u_1},
+  LeanLane.V004.CobhamStatement α →
+    ∀ (h : ℕ → α),
+      (∀ (n : ℕ), h (2 * n) = h n) →
+        (∀ (n : ℕ), Odd n → 1 < n → h (3 * n + 1) = h n) → LeanLane.V004.KAutomatic 2 h → ∀ (n : ℕ), 0 < n → h n = h 1
+def LeanLane.V004.CobhamStatement.{u_2} : Type u_2 → Prop :=
+fun α =>
+  ∀ (f : ℕ → α),
+    LeanLane.V004.KAutomatic 2 f → LeanLane.V004.KAutomatic 3 f → ∃ N M, 0 < M ∧ ∀ (n : ℕ), N ≤ n → f (n + M) = f n
+def LeanLane.V004.Kernel.{u_1} : {α : Type u_1} → ℕ → (ℕ → α) → Set (ℕ → α) :=
+fun {α} k f => {g | ∃ e, ∃ j < k ^ e, g = fun n => f (k ^ e * n + j)}

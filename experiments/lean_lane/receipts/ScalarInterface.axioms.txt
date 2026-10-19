@@ -1,0 +1,26 @@
+'LeanLane.Scalar.ext_tri_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Scalar.scalar_interface_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Scalar.ext_three_mul_add_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Scalar.ext_tri' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Scalar.ext_odd_values' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Scalar.v004_relation' depends on axioms: [propext, Quot.sound]
+'LeanLane.Scalar.ext_two_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Scalar.ext_two_mul_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Scalar.ext_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Scalar.ext_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+@LeanLane.Scalar.ext_tri_iff : ∀ {α : Type u_1} (b : ℕ → α),
+  (∀ (n : ℕ), Odd n → 1 < n → LeanLane.Scalar.ext b (3 * n + 1) = LeanLane.Scalar.ext b n) ↔
+    (∀ (n : ℕ), b (3 * n) = b (4 * n)) ∧ (∀ (n : ℕ), b (3 * n + 2) = b (2 * n + 1)) ∧ ∀ (n : ℕ), b (4 * n + 2) = b n
+@LeanLane.Scalar.scalar_interface_iff : ∀ {α : Type u_1} (b : ℕ → α),
+  ((∀ (n : ℕ), b (3 * n) = b (4 * n)) ∧ (∀ (n : ℕ), b (3 * n + 2) = b (2 * n + 1)) ∧ ∀ (n : ℕ), b (4 * n + 2) = b n) ↔
+    ∃ h,
+      (∀ (n : ℕ), h (2 * n) = h n) ∧ (∀ (n : ℕ), Odd n → 1 < n → h (3 * n + 1) = h n) ∧ ∀ (n : ℕ), h (2 * n + 1) = b n
+@LeanLane.Scalar.ext_odd_values : ∀ {α : Type u_1} (h : ℕ → α),
+  (∀ (n : ℕ), h (2 * n) = h n) → ∀ (x : ℕ), 0 < x → LeanLane.Scalar.ext (fun n => h (2 * n + 1)) x = h x
+@LeanLane.Scalar.v004_relation : ∀ {α : Type u_1} (h : ℕ → α),
+  (∀ (n : ℕ), h (2 * n) = h n) →
+    (∀ (n : ℕ), Odd n → 1 < n → h (3 * n + 1) = h n) → ∀ (n : ℕ), h (2 * (3 * n + 1) + 1) = h (2 * (16 * n + 8) + 1)
+def LeanLane.Scalar.ext.{u_1} : {α : Type u_1} → (ℕ → α) → ℕ → α :=
+fun {α} b x => b ((LeanLane.Scalar.oddPart x - 1) / 2)
+def LeanLane.Scalar.oddPart : ℕ → ℕ :=
+fun n => n / 2 ^ padicValNat 2 n

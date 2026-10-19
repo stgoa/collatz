@@ -1,0 +1,12 @@
+'LeanLane.OddEP.odd_eventually_periodic_const' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.OddEP.period_of_eventually' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.OddEP.period_div_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.OddEP.succ_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.OddEP.const_of_period' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.OddEP.B1' depends on axioms: [propext, Quot.sound]
+'LeanLane.OddEP.B2' depends on axioms: [propext, Quot.sound]
+'LeanLane.OddEP.B4' depends on axioms: [propext, Quot.sound]
+@LeanLane.OddEP.odd_eventually_periodic_const : ∀ {α : Type u_1} (h : ℕ → α),
+  (∀ (n : ℕ), h (2 * n) = h n) →
+    (∀ (n : ℕ), Odd n → 1 < n → h (3 * n + 1) = h n) →
+      ∀ {N M : ℕ}, 0 < M → (∀ (n : ℕ), N ≤ n → h (2 * (n + M) + 1) = h (2 * n + 1)) → ∀ (n : ℕ), 0 < n → h n = h 1
