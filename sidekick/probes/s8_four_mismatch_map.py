@@ -132,10 +132,19 @@ def main():
         r = targeted(m, ell, eps, hf, (0.64, 0.92), (0.2, 0.243), (1.6, 2, 3), span=15)
         out["ell_scan_m1e6"].append(r)
         print("ell =", ell, ":", r)
-    ok = all(r is not None and r["margin"] > 0 for r in out["above_threshold"])
-    out["s4_survives_all_size_constraints_at_ell_star"] = ok
+    # smallest admissible minimum: a rotation fraction inside the LP window with bounded partial quotients
+    phi = (1 + 5 ** 0.5) / 2
+    alpha = 1 / (2 + 1 / (3 + 1 / phi))  # [0; 2, 3, 1, 1, ...] ~ 0.4393
+    out["small_ell_alpha_0.4393"] = []
+    for ell, p1w, p2w in ((71.0, (0.65, 0.86), (0.207, 0.241)), (100.0, (0.645, 0.87), (0.2, 0.245))):
+        r = targeted(m, ell, eps, alpha, p1w, p2w, (1.6, 2.0, 2.5), span=25)
+        out["small_ell_alpha_0.4393"].append(r)
+        print("ell =", ell, "h/m ~ 0.4393:", r)
+    ok = all(r is not None and r["margin"] > 0
+             for r in out["above_threshold"] + out["small_ell_alpha_0.4393"])
+    out["s4_survives_all_size_constraints"] = ok
     Path(__file__).with_suffix(".json").write_text(json.dumps(out, indent=1))
-    print("four-mismatch words meet every size constraint at ell = ell*:", ok)
+    print("four-mismatch words meet every size constraint (ell = ell*, and ell = 71, 100):", ok)
     return 0
 
 

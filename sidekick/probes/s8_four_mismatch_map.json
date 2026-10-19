@@ -93,5 +93,37 @@
    "min_ones": 1225.5
   }
  ],
- "s4_survives_all_size_constraints_at_ell_star": true
+ "small_ell_alpha_0.4393": [
+  {
+   "m": 1000003,
+   "ell": 71.0,
+   "h": 439292,
+   "h_over_m": 0.4393,
+   "a": 167506,
+   "b": 35235,
+   "V": 549731,
+   "P1": 0.825,
+   "P2": 0.232,
+   "margin": 33.0,
+   "min_end": 1192.3,
+   "min_start": 1192.3,
+   "min_ones": 33.0
+  },
+  {
+   "m": 1000003,
+   "ell": 100.0,
+   "h": 439292,
+   "h_over_m": 0.4393,
+   "a": 68009,
+   "b": 16011,
+   "V": 568955,
+   "P1": 0.72,
+   "P2": 0.203,
+   "margin": 55.0,
+   "min_end": 2273.8,
+   "min_start": 2273.8,
+   "min_ones": 55.0
+  }
+ ],
+ "s4_survives_all_size_constraints": true
 }
