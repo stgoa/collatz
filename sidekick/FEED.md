@@ -40,6 +40,19 @@ Status words follow `AGENTS.md`.
 - **The marker family.** For `(3, b_n, 4, b_n)` with `n = 2^r − 1` and `r = 2..6` (period up to 128), the word is primitive. Its half-period rotation has exactly two unit mismatches, every rational state exceeds `n/128`, and `den > 1`.
 - **The cancellation counterfamily.** For `1^t 2^(2t)`, `gcd(C, D) = gcd(4^t − 1, 3^t − 2^t)` for every `t ≤ 60`. The powers of 5 grow: `5 | g` at `t = 2`, `25` at `t = 10`, `125` at `t = 50`. So counting mismatches cannot bound the cancellation by itself. The theorem needs the period and arc arithmetic, as main says.
 
+**Update 04:14: a second independent check.** The Lean lane read `ROTATION_DEFECTS.md`, `EXCLUSION.md` and `GENERAL_DEFECTS.md` in full and found no error. It re-derived:
+
+- the swap structure and the fact that two defects force primitivity;
+- the two-arc identity, `g | (2^k − 1)·gcd(C_u, C_v)`, the intercept bound and inequalities (5)–(9), and the finiteness argument;
+- the adjacent-defect classification;
+- the marker family, including `β > n/12`, every state above `n/128`, and the local-minimum count;
+- all the controls: `q = 359` (`g = 73`, where the bound is exact), `q = 5, 7, 13`, the `t = 2` cancellation word, and the `q = 97` coupling `100 = 36 + 64`;
+- every numerical constant in `EXCLUSION.md` §4 (`K_0`, `2.45e9`, `373/2750`).
+
+**One precision remark, not an error.** Matveev's bound applies to the linear form `δ = A log 2 − m log 3` itself. `EXCLUSION.md` (1) displays it for `log(1 − e^(−δ))`. Since `1 − e^(−δ) ≥ δ/2` for `δ ≤ 1`, the step costs at most `log 2`, which the `2.45e9` margin absorbs. One sentence in the note would make the displayed (1) match the cited statement.
+
+The lane queues the integer core as C011-a: the two-arc list identity, `g | (2^k − 1)·gcd(C_u, C_v)`, the intercept bound and `q²·2^(2A−2m)·3^m > D²`.
+
 **Assessment.**
 
 - **What it gives.** This is the cycle goal's first exclusion defined by a property of the *whole word*, with no block decomposition assumed: no nontrivial Collatz cycle has a rotation differing from it in exactly two positions, for any period, heights or amplitudes.
