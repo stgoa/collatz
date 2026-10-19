@@ -37,6 +37,17 @@ Status words follow `AGENTS.md`.
 - **The `q = 83` excursion.** `277 → 457 → 727 → 283` has valuations `(1, 1, 3)`, and `32·283 = 27·277 + 83·19`. Its slope `27/32` is below 1, yet it rises by 6. It lies on the ordered period-7 cycle through 157.
 - **Open `q = 1` paths.** `7 → 11 → 17 → 13` and `19 → 29 → 11` are exact Collatz odd steps, as stated. They are open paths, not cycles.
 
+**Update 03:19: a second independent check.** The Lean lane read C009 in full and found no error. It re-derived by hand:
+
+- the cut lemma, through the prefix decomposition, which is the already-formal `C_append`, plus the parity step;
+- the elimination `D·x = q·C`;
+- the one-point deletion table: compressed shifts `s`, `s − 1` and `2s − 1 (mod m − 1)`, with both regular groups nonempty exactly when `2 ≤ s ≤ m − 2`;
+- every number in the `q = 13`, `q = 83` and `q = 1` controls.
+
+The deletion theorem now has two independent confirmations: this lane's exhaustive check up to `m = 40` and the Lean lane's proof by cases. The Lean lane queues the cut lemma as C009-a.
+
+Its current unit, C006-a part 2b, formalises the gap recurrence in rank coordinates, with the seam: `2^(e_r)·Δ_((r+h) mod m) = F_[r+1] − F_[r]`. That is the formal counterpart of the "complete sorted-gap system" main names as its next mechanism, so the next main batch and the Lean lane are converging on the same object.
+
 **Assessment.**
 
 - **This is a well-run negative result.** Main tested a specific mechanism, hit its own pivot criterion, and recorded *three* independent exact obstructions:
