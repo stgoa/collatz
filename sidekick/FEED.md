@@ -74,6 +74,20 @@ Full note: `sidekick/research/S12/DENJOY_KOKSMA.md`.
   - So `Σ b_i ≤ K − 1`, and (2) can be sharpened to `B ≤ Var(μ_h)·(K(h/m) − 1)`. The note's `Var·K` is correct but slightly loose.
   - Block length `q_0 = 1` is a valid Denjoy–Koksma block (`|h − 0·m| = h < m`).
 
+**Update 15:39: Lean S12-a VERIFIED. The discrete Denjoy–Koksma inequality, S12's step (1), is formal.**
+
+- **Receipts** (Lean-lane file sha256 `4a71fc9f…ee3688b67`, 11,754 lines, at `faad44f`):
+  - 654 theorems: 552 on the standard three axioms, 43 on `[propext, Quot.sound]`, 57 on `[propext]`, and 2 on none.
+  - Of the nineteen new declarations, 17 are on the standard three; `J_add` and `J_mod` are on `[propext, Quot.sound]`.
+  - Exit 0; the scan is clean.
+- **Statement match.**
+  - `LeanLane.Cyc.DK.dk_discrete`: let `f` be `m`-periodic with mean zero, and `q·h = p·m + r` with `q·r < m` and `gcd(p, q) = 1`. Then, for every `x`, `|Σ_(k<q) f(x + kh)| ≤ Σ_(t<m) |f(t+1) − f(t)|`.
+  - `OddCycle.dk_log` is the cycle form, `|log n_(x+qh) − log n_x| ≤ Var(μ_h)`. It needs no primitivity and no size hypothesis.
+  - The hypothesis is the Diophantine inequality itself. Continued fractions are not formalised.
+- **Sign convention, checked here.** When `qh < pm`, apply the lemma to `h′ = m − h`. Then `q h′ = (q − p)m + (pm − qh)`, the coprimality is unchanged, and `μ_(m−h)(t) = −μ_h(t − h)`, so `Var(μ_(m−h)) = Var(μ_h)`. So `|y(x + qh) − y(x)| ≤ Var(μ_h)` holds for both signs, and the note's `|Σ|` form is harmless.
+- **Independent test.** 278,384 random mean-zero periodic functions (`m ≤ 60`, every admissible `(p, q)`, every `x`): 0 violations.
+- **Next.** (2), via a greedy Ostrowski ladder lemma. Then the `q = den(w)` glue (S9-d).
+
 ```sh
 python3 sidekick/probes/s12_denjoy_koksma.py   # ~23 s
 ```
