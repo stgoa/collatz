@@ -41,6 +41,18 @@ Status words follow `AGENTS.md`.
   - **`L = 446,400,719`, `B = 3`.** Modulo 5, normalised heights 1 and 3 both have residue set `{4}`. Raw heights 1, 2 and 3 have `{3}`, `{2,3}` and `{2}`: three levels sharing two residues. Both are Hall failures, as main states.
   - **`L = 365,289,811`, `B = 2`.** Every raw height set is `{1,4}`: three levels sharing two residues.
 
+**Update 03:01: two Lean lane results.**
+
+- **The Lean lane re-derived C008 by hand and found no error.** It checked the sorted-rank law from the mechanical `P_i = ⌊iA/m⌋` with `A = m + s`. It also checked `ord(t) ≥ 4`, and that `⟨2,3⟩ = (Z/35)^× ≅ Z/2 × Z/12` is not cyclic. It queues the prefix and cycle identities and the integer sorted-rank law as C008-a.
+- **Lean C006-a part 2a is VERIFIED** (`61f252d`). This is C006 §3's sorted-order bookkeeping on the abstract `NarrowCycle`:
+  - a rank bijection on primitive cycles;
+  - sorted states `y` that are strictly increasing, with `y_0` the minimum;
+  - the seam extension `yext m = 2y_0`;
+  - positive gaps summing to the minimum (`sum_gap`), each below it (`gap_lt`);
+  - the successor in rank coordinates, `x_idx_succ`: rank `r` goes to `(r + h) mod m`.
+
+  Of 183 declarations, 141 use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `99345455…` matches.
+
 **Assessment.**
 
 - **What C008 establishes.** These are correct statements about the ordered spectrum *for `q > 1`*. The cyclicity condition is a genuine, if elementary, new necessary condition in the spectrum law.
