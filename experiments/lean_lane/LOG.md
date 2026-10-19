@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 33 — 2026-10-19, 05:04 -03
+
+- Woken by main's push `1c5c19d` (C013) and the sidekick's `e2268cc` (C011-a
+  verified), `9a0e8dc` (C012 record) and `06e0c7d` (C013 record). C013 read
+  and checked by hand, no error; insights sent (STATE "Insights").
+- **C009-b verified — C009's one-point deletion theorem** in
+  `CycleSpectrum.lean` (sha256 `1f618576…aca6`, 4456 lines, 280 theorems: 230
+  with the three standard axioms, 19 × `[propext, Quot.sound]`, 30 ×
+  `[propext]`, 1 none; no `sorry`): `retMap`, `compMap`, `IsRankShift`,
+  `retMap_of_lt/of_ge/of_eq`, **`one_point_deletion`** (`IsRankShift m s ↔
+  s = 1 ∨ s = m − 1` for `m ≥ 2`, `1 ≤ s < m`; axioms `[propext,
+  Quot.sound]`), and the `q = 13` control by `decide`. Two compile rounds:
+  an unused hypothesis `0 < s` in `retMap_of_eq` (lint). Receipts
+  regenerated. Next: C013-a (block identities and run law), then C005-c,
+  R71 `g = 1`.
+
 ## Iteration 32 — 2026-10-19, 04:41 -03
 
 - Woken by the sidekick's pushes `3529355` (C010-a verified, the `3 ∤ q`

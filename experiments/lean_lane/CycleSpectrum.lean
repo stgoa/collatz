@@ -3542,6 +3542,102 @@ theorem card_image_le_changes (f : ℕ → ℕ) (n : ℕ) :
       rw [Finset.card_insert_of_mem hmem]
       exact ih
 
+/-! ### C009: the one-point deletion theorem for the first-return permutation
+
+C009 (`FIRST_RETURN_ORDER.md`): for the rank shift `R(j) = (j + s) mod m` on `m ≥ 2` ranks with
+`1 ≤ s < m`, delete rank `0` and take the first-return map on the retained ranks `1, …, m − 1`
+(compressed to `0, …, m − 2`). The induced map is a circular rank shift if and only if `s = 1` or
+`s = m − 1`. (The prose also assumes `gcd(s, m) = 1`; it is not needed for this statement. The
+deleted rank is `0` without loss of generality, by rotating the circle.) -/
+
+/-- The first-return map on the retained old ranks after deleting rank `0`: one step of
+`j ↦ (j + s) mod m`, or two steps when the first lands on the deleted rank. -/
+def retMap (m s j : ℕ) : ℕ := if (j + s) % m = 0 then (j + 2 * s) % m else (j + s) % m
+
+/-- The compressed first-return permutation on `{0, …, m − 2}` (old rank `j + 1 ↦` new rank). -/
+def compMap (m s j : ℕ) : ℕ := retMap m s (j + 1) - 1
+
+/-- "The induced permutation is a circular rank shift": some `c` with
+`compMap j = (j + c) mod (m − 1)` on all compressed ranks. -/
+def IsRankShift (m s : ℕ) : Prop := ∃ c, ∀ j, j < m - 1 → compMap m s j = (j + c) % (m - 1)
+
+theorem retMap_of_lt {m s j : ℕ} (h : j + s < m) (h0 : 0 < j + s) : retMap m s j = j + s := by
+  unfold retMap
+  rw [Nat.mod_eq_of_lt h]
+  exact ite_eq_right (by omega)
+
+theorem retMap_of_ge {m s j : ℕ} (h1 : m ≤ j + s) (h2 : j + s < 2 * m) (h0 : j + s ≠ m) :
+    retMap m s j = j + s - m := by
+  unfold retMap
+  have hmod : (j + s) % m = j + s - m := by
+    rw [Nat.mod_eq_sub_mod h1]
+    exact Nat.mod_eq_of_lt (by omega)
+  rw [hmod]
+  exact ite_eq_right (by omega)
+
+theorem retMap_of_eq {m s j : ℕ} (h : j + s = m) (hsm : s < m) : retMap m s j = s := by
+  unfold retMap
+  rw [h, Nat.mod_self, ite_eq_left rfl, show j + 2 * s = s + m by omega, Nat.add_mod_right,
+    Nat.mod_eq_of_lt hsm]
+
+/-- **C009's one-point deletion theorem.** For `m ≥ 2` and `1 ≤ s < m`, the compressed
+first-return map after deleting one rank is a circular rank shift iff `s = 1` or `s = m − 1`.
+For `2 ≤ s ≤ m − 2` the compressed shifts of old ranks `1` and `m − 1` are `s` and `s − 1`,
+which differ modulo `m − 1`; for `s = 1` every compressed shift is `1`, for `s = m − 1` it is
+`m − 2 ≡ −1`. -/
+theorem one_point_deletion (m s : ℕ) (hm : 2 ≤ m) (hs1 : 1 ≤ s) (hsm : s < m) :
+    IsRankShift m s ↔ (s = 1 ∨ s = m - 1) := by
+  constructor
+  · rintro ⟨c, hc⟩
+    by_contra hne
+    rw [not_or] at hne
+    obtain ⟨hne1, hne2⟩ := hne
+    have h0 := hc 0 (by omega)
+    have h1 := hc (m - 2) (by omega)
+    have hc0 : compMap m s 0 = s := by
+      unfold compMap
+      rw [retMap_of_lt (by omega) (by omega)]
+      omega
+    have hc1 : compMap m s (m - 2) = s - 2 := by
+      unfold compMap
+      rw [retMap_of_ge (by omega) (by omega) (by omega)]
+      omega
+    rw [hc0, zero_add] at h0
+    rw [hc1] at h1
+    have hcm : c % (m - 1) = s := h0.symm
+    have hval : (m - 2 + c) % (m - 1) = s - 1 := by
+      rw [Nat.add_mod, hcm, show (m - 2) % (m - 1) = m - 2 from Nat.mod_eq_of_lt (by omega),
+        show m - 2 + s = (s - 1) + (m - 1) by omega, Nat.add_mod_right,
+        Nat.mod_eq_of_lt (by omega)]
+    omega
+  · rintro (rfl | rfl)
+    · refine ⟨1, fun j hj => ?_⟩
+      unfold compMap
+      rcases Nat.lt_or_ge (j + 2) m with hlt | hge
+      · rw [retMap_of_lt (by omega) (by omega), Nat.mod_eq_of_lt (by omega)]
+        omega
+      · rw [retMap_of_eq (by omega) (by omega), show j + 1 = m - 1 by omega, Nat.mod_self]
+    · refine ⟨m - 2, fun j hj => ?_⟩
+      unfold compMap
+      rcases Nat.eq_zero_or_pos j with hj0 | hjpos
+      · subst hj0
+        rw [retMap_of_eq (by omega) (by omega), Nat.zero_add, Nat.mod_eq_of_lt (by omega)]
+        omega
+      · rw [retMap_of_ge (by omega) (by omega) (by omega),
+          show j + (m - 2) = (j - 1) + (m - 1) by omega, Nat.add_mod_right,
+          Nat.mod_eq_of_lt (by omega)]
+        omega
+
+/-- C009's `q = 13` control in this normalisation: for `m = 5`, `s = 3` (the ordered cycle
+`(283, 431, 653, 493, 373)` with the positive-height state deleted) the compressed first-return
+map is `(3, 2, 0, 1)` — the prose's `(2, 0, 3, 1)` conjugated by the relabelling that puts the
+deleted rank at `0` — and not a rank shift. -/
+example : (List.range 4).map (compMap 5 3) = [3, 2, 0, 1] := by decide
+
+example : ¬ IsRankShift 5 3 := by
+  rw [one_point_deletion 5 3 (by norm_num) (by norm_num) (by norm_num)]
+  omega
+
 /-! ### C011: the two-arc identity and the two-defect cancellation bounds
 
 C011 (`ROTATION_DEFECTS.md` §§2–3) compares a positive word `w` with a rotation `w'` differing from
