@@ -7,6 +7,23 @@ work. It is not the current completion requirement.
 
 ## Headline
 
+[C012](../experiments/cycle_spectrum/C012/REPORT.md) completes the first
+coupled arbitrary-mismatch probe. It rules out adjugate elimination and
+a specified bounded-term compression of shared arc intercepts; the
+candidate denominator estimate remains open. Its finite successes are
+nondiscriminating. Actual overlap between arcs is the retained missing
+ingredient for the next bounded attempt.
+
+**Recommended intermediate objective:** find explicit F(m) tending to
+infinity such that every hypothetical nontrivial integer cycle of
+primitive odd period m differs from each nonidentity rotation in at
+least F(m) positions. An order m/log m bound is a stronger candidate
+payoff. This would constrain all hypothetical cycles at every height;
+it would still leave high-complexity cycles and divergence unresolved.
+It neither replaces nor completes the all-cycle headline. Stop expanding
+an elimination method when its exact obstruction is known; compare
+another mechanism if no estimate using actual overlap emerges.
+
 [C011](../experiments/cycle_spectrum/C011/REPORT.md) now excludes q1
 for every word with a two-defect rotation, at arbitrary period, height
 and amplitude, under its explicit published inputs. It also proves

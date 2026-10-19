@@ -1,0 +1,184 @@
+{
+  "all_checks_sha256": "bb1ac0c7e56be0d600dfc598999c5a5f539596bd15a5fc772aa2676b3e390ec8",
+  "clock": "raw positive odd-only; no absorbing state",
+  "counts": {
+    "admissible_total_backgrounds": 3582,
+    "backgrounds": 350,
+    "prime_set_cases": 7,
+    "raw_arrows": 177288,
+    "rotations": 173349
+  },
+  "fixed_total_families": [
+    {
+      "background_length": 2,
+      "background_total": 7,
+      "distinct_intercepts": 2,
+      "expected": 2
+    },
+    {
+      "background_length": 4,
+      "background_total": 14,
+      "distinct_intercepts": 6,
+      "expected": 6
+    },
+    {
+      "background_length": 6,
+      "background_total": 21,
+      "distinct_intercepts": 20,
+      "expected": 20
+    },
+    {
+      "background_length": 8,
+      "background_total": 28,
+      "distinct_intercepts": 70,
+      "expected": 70
+    },
+    {
+      "background_length": 10,
+      "background_total": 35,
+      "distinct_intercepts": 252,
+      "expected": 252
+    }
+  ],
+  "integer_cycle_admissible_total_families": [
+    {
+      "background_length": 9,
+      "background_total": 15,
+      "distinct_intercepts": 84,
+      "expected": 84,
+      "t": 3
+    },
+    {
+      "background_length": 12,
+      "background_total": 20,
+      "distinct_intercepts": 495,
+      "expected": 495,
+      "t": 4
+    },
+    {
+      "background_length": 15,
+      "background_total": 25,
+      "distinct_intercepts": 3003,
+      "expected": 3003,
+      "t": 5
+    }
+  ],
+  "prescribed_prime_sets": [
+    {
+      "C": 44881,
+      "check_sha256": "5b3042f095258cb92efac6d77c14510b0bf74d95b63085c5bf7594dcb3e8d3f0",
+      "k": 8,
+      "n": 4,
+      "period": 18,
+      "primes": [
+        5
+      ],
+      "q_bits": 52,
+      "residues": [
+        1
+      ]
+    },
+    {
+      "C": 66543225841,
+      "check_sha256": "9fbf6428767ccea182b5eac3e311b3c8219b988b4bd3818d937ec8b2dfc76a57",
+      "k": 12,
+      "n": 12,
+      "period": 42,
+      "primes": [
+        5,
+        7
+      ],
+      "q_bits": 112,
+      "residues": [
+        1,
+        1
+      ]
+    },
+    {
+      "C": 1532495491992210877669089580218715185060338770817185201,
+      "check_sha256": "ea6190f8848138f49a3f8a2275eb31ad167e3f119ef75425ad5e0348c41bd414",
+      "k": 60,
+      "n": 60,
+      "period": 186,
+      "primes": [
+        5,
+        7,
+        11
+      ],
+      "q_bits": 548,
+      "residues": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "C": 1532495491992210877669089580218715185060338770817185201,
+      "check_sha256": "ea6190f8848138f49a3f8a2275eb31ad167e3f119ef75425ad5e0348c41bd414",
+      "k": 60,
+      "n": 60,
+      "period": 186,
+      "primes": [
+        5,
+        7,
+        11,
+        13
+      ],
+      "q_bits": 548,
+      "residues": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "C": 278653909849921,
+      "check_sha256": "8cae3364adc17a0d0d9551326a66b8b26f2197f5ea89afb1b9358ac0a914406a",
+      "k": 16,
+      "n": 16,
+      "period": 54,
+      "primes": [
+        17
+      ],
+      "q_bits": 152,
+      "residues": [
+        1
+      ]
+    },
+    {
+      "C": 17912838940234057,
+      "check_sha256": "42028a8d024cb22b648dc84314862950894288fa77c1ab00e22d0d11b35ddf8a",
+      "k": 18,
+      "n": 18,
+      "period": 60,
+      "primes": [
+        19
+      ],
+      "q_bits": 170,
+      "residues": [
+        1
+      ]
+    },
+    {
+      "C": 8227314683,
+      "check_sha256": "60066e9f77382cf17c27536175caed48f49ea093c8c25a48e5d37efed40c6e1e",
+      "k": 11,
+      "n": 11,
+      "period": 39,
+      "primes": [
+        23
+      ],
+      "q_bits": 107,
+      "residues": [
+        1
+      ]
+    }
+  ],
+  "scope": "Bounded exact examples for the written arbitrary-background and fixed-coefficient, bounded-height expression-counting obstructions. No candidate denominator inequality is proved or refuted.",
+  "source_sha256": {
+    "check_coupled_system.py": "bb0b9c27fc6ef0b116e302a369b33552f54c2a7efa4d94d4b44be8b9ea5e356c",
+    "check_shared_arcs.py": "a861866031610455a5179edce78685bddbc72a55993f5c1e86097dd768506a9c"
+  },
+  "status": "PASS"
+}

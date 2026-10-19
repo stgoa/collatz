@@ -1,5 +1,27 @@
 # Research log
 
+## 2026-10-19 — C012: exact barriers to generalizing the rotation bound
+
+[C012](../experiments/cycle_spectrum/C012/REPORT.md) completes the
+coupled-cut probe. It proves the denominator factors in all large
+minors and the sharp local Smith form, with primitive actual-cycle
+families. A separate shared-background counting theorem rejects only
+the specified bounded-term compression, retaining actual correlations
+as a possible source of a future estimate. No new q1 exclusion follows.
+
+Stored and generated passes of the proposed denominator bound are
+explicitly nondiscriminating. The primitive three-marker examples now
+include A<2m, so the complexity warning is not restricted to totals
+already excluded for integer cycles. The draft shared-arc formula's
+leading 3-power was corrected before persistence and independently
+checked. Historical mathematics and the open TeX are preserved.
+
+The recommended intermediate objective is a mismatch requirement
+growing with period for every hypothetical integer cycle. The original
+cycle goal remains active. Fable's reported C006 formalization supports
+verification of stable interfaces, not the missing bound; the reviewed
+side pin and its scope are recorded in the batch.
+
 ## 2026-10-19 — C011: Complete two-defect exclusion and the coupling obstruction
 
 The [batch](../experiments/cycle_spectrum/C011/REPORT.md) proves an

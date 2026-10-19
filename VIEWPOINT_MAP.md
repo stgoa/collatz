@@ -1,5 +1,19 @@
 # Find a better language for Collatz
 
+[C012](experiments/cycle_spectrum/C012/REPORT.md) completes the first
+arbitrary-mismatch test. The coupled matrix has forced denominator
+factors in its determinant and all larger minors, sharply on actual
+primitive unit-defect families. Three mismatches permit exponentially
+many legal shared backgrounds even with A<2m. Independent treatment of
+the arc intercepts loses their correlations; one explicit family shows
+those correlations can still supply effective cancellation identities.
+
+Reject adjugate elimination and the specified bounded-term compression.
+Keep a growing mismatch lower bound as an open intermediate target;
+the next bounded probe must use actual overlap constraints. Passing
+the candidate on the stored corpus is nondiscriminating. No new q1
+exclusion, novelty claim or replacement of the all-cycle goal occurs.
+
 [C011](experiments/cycle_spectrum/C011/REPORT.md) gives a genuine
 all-size denominator-one exclusion for words with a two-position
 rotation difference, with no amplitude restriction. Both complementary
