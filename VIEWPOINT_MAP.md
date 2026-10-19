@@ -1,6 +1,6 @@
 # Find a better language for Collatz
 
-**Quantitative rigidity active, 2026-10-18. V004's finite-state classification is proved; V005/V006 leave the stronger all-invariant growth target open. Collatz remains open.**
+**Quantitative rigidity active, 2026-10-18. V004's finite-state classification is proved; V005–V007 leave the stronger all-invariant growth target open. Collatz remains open.**
 The [current brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) requires an unbounded
 ratio of binary-section count to depth for every nonconstant invariant.
 The [completed brief](docs/GLOBAL_RIGIDITY_BRIEF.md) required the full
@@ -127,6 +127,24 @@ linear growth would give arbitrarily distant small separating layers;
 whether the full constraints permit them is the next bounded test. The
 faithful representation and that necessary condition are not growth proofs.
 
+## V007: singleton separators excluded at every depth
+
+The [report](experiments/viewpoints/V007/REPORT.md) proves that a finite
+forward interior cannot have a single exit in the full joint section
+graph of a nonconstant invariant. Reverse closure first supplies infinite
+ternary kernels at every positive binary section, complementing V005's
+binary result. The six radix identities then propagate a putative single
+exit and force a repeated whole sequence, a contradiction.
+
+This proves at least two new joint states at every depth. It remains a
+linear bound; after the depth conversion it is weaker than the generic
+binary bound. The gain is exclusion of a possible graph structure without
+the V006 digit-count hypothesis. The next bounded test keeps distinct
+destinations in a two-exit boundary. The full target requires every
+possible linear coefficient; singleton or two-exit results alone cannot
+complete it. The parallel literature audit supplies no applicable general
+growth theorem under the present hypotheses.
+
 ## Comparison
 
 Each linked card records objects, structural gain, translated gap, example,
@@ -146,7 +164,7 @@ cycle controls, cheapest test and a genuinely partial milestone.
 | V10. [Rational denominator layers](experiments/viewpoints/V001/rational_layers.md) | Related maps become layers of one rational system; target and lattice changes are explicit | A property of the denominator-one layer that forces useful progress | Control bookkeeping; defer as an independent route |
 | V11. [Occupation measures](experiments/viewpoints/V002/statistical_languages.md#v11-occupation-measures-recurrence-versus-escape-of-mass) | Cycle mass and escape of mass are different phenomena | Tightness uniform in the seed range; cycle identification remains separate | Diagnostic only until a quantitative mechanism is proposed |
 | V12. [Information of actual integer ensembles](experiments/viewpoints/V002/statistical_languages.md#v12-conditional-information-of-realized-paths-rather-than-symbolic-entropy) | Merging, conditioning and endpoint concentration are separate | A quantitative first-passage law with integer endpoints | Retain as a separate statistical alternative; literature comparison first |
-| V13. [Arithmetic regularity of component colorings](experiments/viewpoints/V005/REPORT.md) | Full finite-state rigidity and local reconstruction; exact growth controls | Exclude linear binary-section growth using the complete identities | Quantitative goal active; compare joint-growth rigidity and overlap control |
+| V13. [Arithmetic regularity of component colorings](experiments/viewpoints/V007/REPORT.md) | Full finite-state rigidity, local reconstruction and singleton-exit exclusion | Control boundaries with several exits and exclude linear binary-section growth | Quantitative goal active; test a boundary with two distinct exits |
 | V14. [Two-dimensional base conversion](experiments/viewpoints/V003/carry_boundary.md) | Binary and ternary data share one complete carry boundary | Growing frontier, finite integer support and nonlocal bootstrap | Tested and closed: no additional relation; require a new whole-frontier proposal to reopen |
 
 These are related lenses, not fourteen independent possible proofs. In particular,

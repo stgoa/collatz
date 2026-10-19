@@ -9,7 +9,7 @@ by the strict full-classification goal in `docs/GLOBAL_RIGIDITY_BRIEF.md`.
 V004 supplies its written proof, using the finite-kernel characterization
 and Cobham. The activated `docs/QUANTITATIVE_RIGIDITY_BRIEF.md` now requires
 that every nonconstant finite-valued invariant have unbounded
-`kappa_h(D)/(D+1)`. V005/V006 supply partial results; the goal is active and
+`kappa_h(D)/(D+1)`. V005–V007 supply partial results; the goal is active and
 unresolved. Read the latest report and V004's proof before extending the work.
 This does not authorize resuming the dispatcher search or assuming
 regularity of an actual bad set.
@@ -66,6 +66,12 @@ tests. This selection is not evidence of a superior convergence method.
 - Linear rooted orbit growth does not imply linear transformation-semigroup growth, low global pattern complexity or finite operator rank. The exact T/U counterexample in V006 must be addressed before importing a theorem with those stronger premises.
 - The full graph has five transitions and six identities `T_j E_i=E_l T_k` with `2j+i=3l+k`, plus zero-output compatibility at every vertex. Root b satisfies `T_0 b=E_0 E_0 b`, `T_2 b=E_1 b`, `E_1 E_0 b=b`. Preserve composition order and whole-function distinguishability. These are a faithful interface, not a new growth theorem.
 - Linear joint growth would give arbitrarily distant separating layers of uniformly bounded size. Test the full radix/root constraints there; a repeated singleton-layer case alone would still be partial. Keep the unrestricted goal intact and do not assume a classification of all linear-growth graphs.
+
+### V007 reverse closure and singleton separators
+
+- The union of the ternary kernels of b and c(n)=b(2n) is binary-closed under all three scalar identities. Together with V005 reconstruction this excludes ternary automaticity of every positive binary h-section of a nonconstant invariant. It does not assert reconstruction from an arbitrary ternary cylinder.
+- In an exact joint section graph where every vertex has infinite kernels in both bases, no finite nonempty forward interior has exactly one exit. The proof retains all returns to the interior, derives a unique escaping binary digit, and uses finite T_1 closure and whole-sequence evaluation to rule out both propagated tails.
+- Every joint shell therefore has at least two vertices. This remains linear; the factor4 depth conversion is weaker than the generic binary D+1 bound. The arbitrary finite-width problem is unresolved. A two-exit calculation must retain destination labels; Boolean support alone loses the singleton proof's essential information. Do not substitute this theorem for the full unbounded-ratio goal.
 
 ## Historical Phase 6 results and controls
 

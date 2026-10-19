@@ -1,5 +1,24 @@
 # Research log
 
+## 2026-10-18 — V007: singleton exits are impossible
+
+The [new batch](../experiments/viewpoints/V007/REPORT.md) proves that no
+finite forward interior in a nonconstant invariant's exact joint section
+graph can have a single exit. Reverse closure supplies infinite kernels
+in both bases; the radix identities force two possible tails and then
+whole-sequence repetition. Independent mathematical review passed.
+
+This excludes a graph structure at every depth but gives only a linear
+joint lower bound, with no improved binary rate after depth conversion.
+Several-exit boundaries and the full unbounded-ratio target remain open.
+The next bounded probe retains distinct destinations in a two-exit
+boundary. No digit-count extraction or regularity of the bad set is assumed.
+
+The batch is prose-only; historical mathematics, executable evidence and
+the open LaTeX file are unchanged. The read-only side pin isbc76c7d;
+its Lean scalar-interface report was read without a new main replay.
+Detailed source scope and controls are in the [viewpoint log](VIEWPOINT_LOG.md).
+
 ## 2026-10-18 — V006: a conditional quadratic bound
 
 The [new batch](../experiments/viewpoints/V006/REPORT.md) proves that all

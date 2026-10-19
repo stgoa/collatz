@@ -1,5 +1,62 @@
 # Viewpoint exploration log
 
+## V007 — Reverse closure and a singleton-exit theorem, 2026-10-18
+
+**Progress; full quantitative goal active and unresolved.** The preceding
+turn delivered V006 at `ceebb935137fc9e153b558ec6a2a4a66ce010395` and was
+progress. The [new report](../experiments/viewpoints/V007/REPORT.md)
+completes its bounded singleton-separator test. This is not a replacement
+for the all-invariant unbounded-ratio objective.
+
+### Gains, comparison and remaining scope
+
+Root derived reverse closure: the ternary kernels of b and b(2n) together
+are binary-closed under the three scalar identities. V005 reconstruction
+then implies that a ternary-automatic positive binary section would force
+constancy. The two lanes independently checked the formulas and endpoint
+conventions. Every joint vertex of a nonconstant invariant now has infinite
+kernels in both bases.
+
+The separator lane proved that an exact graph with this property cannot
+have any finite forward interior with a single exit, at any depth. The
+six radix identities yield an exact boundary polynomial, a unique escaping
+binary digit and two possible propagated tails. In both tails a finite
+T_1 orbit identifies whole section sequences, giving a contradiction.
+Root and the second lane independently checked the complete argument.
+All returns to the finite interior are retained.
+
+This forces at least two new joint states per depth. It remains linear,
+and after the factor4 depth conversion it is weaker than the generic
+binary D+1 bound. The gain is an excluded graph structure without a
+digit-count premise. Several-exit boundaries remain open. The next bounded
+test retains destination labels at a two-exit boundary; a result there
+would also be partial. Completion still requires every possible linear
+coefficient or another proof of the full unbounded ratio.
+
+The parallel primary-source audit found no theorem directly supplying
+the missing growth step. Decorated-tree extension criteria concern global
+patterns; asymptotic Cobham assumes a finite kernel modulo density-zero
+errors. Neither premise follows from the current rooted count or cuts.
+The search was bounded, and no absence or novelty claim is made.
+
+### Checks and read-only external input
+
+The [independent review](../experiments/viewpoints/V007/INDEPENDENT_REVIEW.md)
+separates the universal argument from its scope. Explicit d5/d61 controls
+have finite kernels and fail the named d1 scalar identity, so the result
+does not remove their genuine nonabsorbing fixed cycles. This prose-only
+batch changes no historical mathematics or executable evidence; the Phase6
+finite gate was not rerun. Local links and frozen preservation were checked.
+
+Fetched and read DIRECTIONS and newest FEED at
+`bc76c7d3f3d31c109d63984c595866ba9054aef3`. The feed independently reproduces
+V006's scoped theorem and reports the Lean scalar-interface verification.
+Main did not independently replay that Lean artifact in this batch.
+D1/D2/D5/D7 remain retained with scope, D3 rejected, D4 deferred and D6
+historical. The [side review](../experiments/viewpoints/V007/side_review.md)
+records those distinctions. Neither the new feed nor the singleton theorem
+completes the quantitative goal. There is no external blocker.
+
 ## V006 — Quadratic mixed separation and full graph constraints, 2026-10-18
 
 **Progress; full goal active and unresolved.** The preceding goal turn
