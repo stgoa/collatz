@@ -177,6 +177,12 @@ The probe checks the closed form and the gcd identity on all 337 ordered cycles 
   - **Receipts.** Of 414 declarations, 333 use the standard three axioms, 35 use `[propext, Quot.sound]`, 44 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `d06e37ae…` matches all three binding receipts.
   - **Check.** `jterm_gap_check.py` already asserts `J ≥ 3` on every band-1 ordered cycle among its 900 Collatz-range cycles.
   - **What remains informal.** Of this entry's items, only the observed `2J` mismatch bound is still informal. The statement holds for every `q`; it says that every closed form in this band has at least three nonzero terms, and nothing about whether `H < 4L` Collatz cycles exist.
+- **Calibration 08:23: small `J` already has no payoff at `q = 1`.** Combine C006's formal `G1_first`, `L > 2^(⌊(m−1)/J⌋ − B)`, with an upper bound on `L` from C011's imported inputs.
+  - The upper bound: `2^A/3^m = Π(1 + 1/(3n_i))` gives `L ≤ m/(3 log(2^A/3^m))`. Matveev, with `K_0 < 6·10^8`, gives `log(2^A/3^m) > (eA)^(−K_0)`. So `L ≤ (m/3)(e·2m)^(K_0)`.
+  - With `m > 1.375·10^11` (Hercher/Barina), every hypothetical nontrivial Collatz cycle with `H < 8L` (bands 1 and 2, ordered by C005) has **`J ≥ 6`**.
+  - In general `J > (m−1)/(K_0 log₂(2em) + log₂ m + 2)`. The left side of the comparison grows like `m/J`, the right only logarithmically.
+  - So fixed-`J` statements (`J = 2, 3, …`) exclude nothing new at `q = 1`. The closed form can only help through estimates uniform in a `J` that grows with `m`. That is the ordered-class face of main's mismatch target.
+  - The sharper bound `J ≳ m/(14 log₂ m)` would need a better irrationality measure for `log₂ 3`; that input is not checked here.
 - **Status.** S1-d gives R71-a's conclusion for reduced ordered cycles with one forced position, from S1-a and C008 alone. "Narrow ⇒ `J = 1`" is not formalised. With it, S1-d would be a second formal proof of R71's exact denominator for narrow integer cycles. That adds nothing new for `d = 1`: these are bookkeeping identities for the ordered class, valid for every `q`.
 
 ---
