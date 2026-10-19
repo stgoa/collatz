@@ -15,6 +15,21 @@ The [route map](../ROUTE_MAP.md) and [Phase6 ledger](PHASE6_LEDGER.md)
 retain earlier obligations, grades and completed evidence. Viewpoint
 recommendations are distinct from the written mathematical results below.
 
+C002 supplies a [uniform two-block exclusion](../experiments/cycle_spectrum/C002/REPORT.md):
+if different words u,v have the same positive totals (A,m), `2^A>3^m`,
+and k+ell>=3, then `den(u^k v^ell)>2^(A+m)/3^m>2^m>1`. The bound is
+uniform over the words, totals and exponents, and gives effective finite
+enumeration at bounded denominators within this class. It does not cover
+arbitrary words, identical blocks or the two-occurrence case. The broader
+fixed-pair theorem uses elementary strong divisibility for proportional
+slopes and two published S-unit inputs for unequal slopes, with ineffective
+thresholds in the latter case. K=0 retains every common primitive cycle.
+An exact family disproves constant cancellation, and thirteen such failures
+occur in the replayed actual-cycle dataset. The rotated-mechanical subfamily
+has minimum>m/12 and unbounded clock-specific minimum counts. Independent
+written review and exact finite checks are separate from formal verification
+or novelty; the headline remains open.
+
 C001 supplies the [repeated-block denominator theorem](../experiments/cycle_spectrum/C001/REPETITION_SPECTRUM.md):
 for `w=u^k v`, every numerator cancellation divisor divides
 `K=D_u*C_v-D_v*C_u` when K is nonzero, and the cancellation factor is

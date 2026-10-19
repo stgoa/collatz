@@ -26,6 +26,22 @@ assuming regularity of an actual bad set.
   Its odd-only local-minimum count and shortcut local-minimum count differ;
   Hercher's record uses the latter. Exceeding those scoped records is not
   an assertion of novelty against all literature or a result for all words.
+- C002's dual elimination retains `gcd(G_u(k),G_v(ell))`; cancellation
+  can grow exponentially when both blocks repeat. Preserve the exact
+  examples and thirteen actual-cycle failures of a constant K bound.
+- C002 proves a uniform theorem for different blocks with equal totals
+  (A,m), `2^A>3^m` and k+ell>=3: `den(u^k v^ell)>2^(A+m)/3^m>2^m`.
+  This bounds totals, words and exponents in every bounded denominator
+  layer of that class. Identical blocks and k=ell=1 are outside the
+  exclusion. Do not promote it to arbitrary cycle words.
+- For fixed proportional-slope blocks with K!=0, the explicit bound
+  removes all 2/3 factors from J=K/H_gcd(r,s). For unequal slopes, the
+  full exponential rate imports Corvaja–Zannier twice and has no effective
+  threshold here; expanding blocks are permitted only when the combined
+  D is positive. K=0 retains the common primitive-cycle exception.
+- C002's rotated mechanical family has every state>m/12 without an extra
+  exponent condition. Its odd-only minimum count is `(k+ell)(2m-A)-1`,
+  while its shortcut count is `(k+ell)(A-m)`. Keep these clocks separate.
 
 - Read `README.md`, the cycle brief, `docs/CYCLE_SPECTRUM_LOG.md`, the latest C-series report and relevant sources. `VIEWPOINT_MAP.md`, `docs/VIEWPOINT_LOG.md` and `ROUTE_MAP.md` preserve prior obligations and comparisons without restricting the active cycle programme.
 - Use bounded parallel investigations to test the selected mechanism. Do not substitute another language survey or dispatcher expansion for the cycle goal.

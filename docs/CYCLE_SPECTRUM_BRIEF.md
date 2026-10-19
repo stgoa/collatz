@@ -72,3 +72,25 @@ headline remains open: unrestricted words need not have a fixed repeated
 block and a fixed final block. The next test lets both blocks repeat;
 it must retain common geometric factors and distinguish proportional
 valuation slopes from genuinely independent ones.
+
+## C002: two growing blocks and uniformity
+
+[C002](../experiments/cycle_spectrum/C002/REPORT.md) completes that bounded
+test. It retains common geometric factors, proves explicit denominator
+growth for proportional slopes, and uses two primary S-unit estimates
+for the full leading exponential rate at unequal slopes. The common-cycle
+case remains an exception; the latter thresholds are ineffective here.
+
+An elementary corollary goes beyond fixed blocks: for any different
+equal-total words u,v of length m and total A, with `2^A>3^m`, and any
+k,ell>=1 with k+ell>=3, their combined denominator exceeds
+`2^(A+m)/3^m>2^m`. This also bounds all totals, words and exponents in
+every bounded denominator layer of the specified class. A primitive
+rotated-mechanical subfamily has every state>m/12 without an extra
+exponent condition.
+
+The next investigation should test a structural restriction that remains
+uniform when the block totals differ. This is a proposed mechanism under
+the existing headline, not a new completion criterion. Arbitrary primitive
+words and the all-cycle conclusion remain unresolved; Lean validation
+of earlier results does not supply that missing implication.

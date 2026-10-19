@@ -1,0 +1,102 @@
+{
+  "baseline_commit": "14441c0864ba67e73d32b24dc67afb4cd832921e",
+  "checked_at_utc": "2026-10-19T03:22:14.625329+00:00",
+  "constant_bound_failure_scope": {
+    "decomposition_cases": 13,
+    "distinct_parameters": 12,
+    "distinct_words": 6
+  },
+  "delivery_boundary": "Commit and push are performed after this receipt; this file does not claim their outcome.",
+  "frozen_commit": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "historical_full_gate": {
+    "command": "python3 scripts/verify_all.py --cpp --transfer-controls",
+    "field_count": 119,
+    "independent_cpp": "PASS: 4096 and 262144",
+    "phase6_transfer_controls": "PASS: eleven exact raw cycles, eight nonprincipal controls, four fixed-d controls, fourteen d1 samples and fail-closed checks; setup label none",
+    "status": "PASS"
+  },
+  "markdown_checks": {
+    "errors": [],
+    "existing_local_links": 559,
+    "files": 14
+  },
+  "preservation": {
+    "C001_tree_unchanged": true,
+    "R1_onward_ledger_body_byte_identical": true,
+    "files_byte_identical": [
+      "collatz_research_20261017/right_aligned_reduction.tex",
+      "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md",
+      "experiments/residual_progress/resolved_rules/resolved_rules.py"
+    ],
+    "git_diff_check": "PASS",
+    "tracked_changes_confined_to_current_docs": [
+      "AGENTS.md",
+      "README.md",
+      "VIEWPOINT_MAP.md",
+      "docs/CYCLE_SPECTRUM_BRIEF.md",
+      "docs/CYCLE_SPECTRUM_LOG.md",
+      "docs/RESEARCH_LOG.md",
+      "docs/RESULTS.md",
+      "docs/VIEWPOINT_LOG.md"
+    ]
+  },
+  "proof_scope": "Written and independently agent-reviewed; no formal verification or novelty claim.",
+  "root_fresh_checker_replay": {
+    "actual_decompositions": {
+      "baseline_k1_ell1": 34453,
+      "both_repetitions_at_least2": 56,
+      "cancellation_exceeds_abs_K": 13,
+      "decompositions": 37271,
+      "equal_total_uniform_bounds": 0,
+      "negative_D": 0,
+      "nonzero_K": 37271,
+      "positive_D": 37271,
+      "proportional_positive_nonzero_K_bounds": 459,
+      "zero_K": 0
+    },
+    "generated_counts": {
+      "baseline_k1_ell1": 7056,
+      "both_repetitions_at_least2": 345744,
+      "cancellation_exceeds_abs_K": 8842,
+      "decompositions": 451584,
+      "equal_total_uniform_bounds": 33768,
+      "exact_odd_arrows": 10623694,
+      "negative_D": 18510,
+      "nonzero_K": 444672,
+      "positive_D": 433074,
+      "positive_common_fixed_point_checks": 6016,
+      "primitive_word_realizations": 427028,
+      "proper_power_word_realizations": 6046,
+      "proportional_positive_nonzero_K_bounds": 44544,
+      "zero_K": 6912
+    },
+    "generated_parameters": 5003,
+    "status": "PASS"
+  },
+  "side_review_pin": "f82781197b1b2792e7b3394a142754f383b4555d",
+  "source_sha256": {
+    "AGENTS.md": "3b8e3395d92fc52938d85b3c13a679ea77d20105a44dbb4d74ded7b50d21e713",
+    "README.md": "c1ae1b01c57defaaf9b3fd18b1c62fb5a858aa2092872a539c655dd543cbd97f",
+    "VIEWPOINT_MAP.md": "9e3f4965c2d095fd76e532e4834e8a65ad8ac5175c87aa0f060a399a1b2c593f",
+    "docs/CYCLE_SPECTRUM_BRIEF.md": "e931fc11e0b9f1a98e82b69ae8c26741087853d32199bce50352cddf112fe272",
+    "docs/CYCLE_SPECTRUM_LOG.md": "9152de2b7735ece1c570c24c3c862f73047142f1d42a218335f9571ff6f95909",
+    "docs/RESEARCH_LOG.md": "68faf4c6aa85f999826b0f3f91f23beac69caa27325e0c5989ffce47a3a9a3a1",
+    "docs/RESULTS.md": "36d2c1652e30a72549bf32a5d75ec9513334062df2b89c1af5e8d03ae18de16f",
+    "docs/VIEWPOINT_LOG.md": "1d5750c7b7ed8ce0c48686385a2688f7e74a444dbbc84b5ca883a428d0e3546d",
+    "experiments/cycle_spectrum/C002/INDEPENDENT_REVIEW.md": "57acd45c3cac0508b8a0c68402ef84c5a03e901b2f5641f5eaaa6fff32be81ec",
+    "experiments/cycle_spectrum/C002/INDEPENDENT_SLOPES.md": "a7d8d06cbe9a5df66fc2d3efefeb1e6ceb74a2594019b43dc375e2740779573c",
+    "experiments/cycle_spectrum/C002/PROPORTIONAL.md": "0853dd0ceb16e8dc5a0c1e6c0055b3503635793d31405b87c3c80cd6d4818f82",
+    "experiments/cycle_spectrum/C002/REPORT.md": "83b47557138c0eacf0573da33c9bd5220dc5747e3bcb281cc4c3ebd853f7a2d4",
+    "experiments/cycle_spectrum/C002/ROOT_REVIEW.md": "b298813d0ea107dea0e6b3fc7c2fd16f7b41aee9c7394633f0ca81da0b54fdde",
+    "experiments/cycle_spectrum/C002/SIDE_REVIEW.md": "9c9e434b753a07230288d3807edfd58726544e2841a50a7b5da2f747cbdf89d1",
+    "experiments/cycle_spectrum/C002/check_two_blocks.py": "94bd8768e165301b5aab9c351426492ee16e02255e8e32629f563bc9b0ec69ba",
+    "experiments/cycle_spectrum/C002/full_gate.json": "10a42beae3aec02a370ce90f6b5d2a8d2c307261646116868211b95d77fd6c2d",
+    "experiments/cycle_spectrum/C002/two_blocks_audit.json": "e2de6b340ba76946c61e5bf8a05dabb1aea23f571a1a1cd53391c6de5991b782"
+  },
+  "status": "PASS",
+  "uniform_theorem_finite_coverage": {
+    "additional_rotating_cases": 590,
+    "canonical_actual_source_cases": 0,
+    "generated_grid_cases": 33768
+  }
+}

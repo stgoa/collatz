@@ -1,0 +1,1460 @@
+{
+  "actual_cycles": {
+    "both_growing_examples": [
+      {
+        "C": 283,
+        "D": 13,
+        "G_u": 5,
+        "G_v": 37,
+        "K": -2,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 1,
+        "cut": 2,
+        "d": 13,
+        "denominator": 13,
+        "ell": 3,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 1,
+        "k": 2,
+        "minimum": 283,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      },
+      {
+        "C": 905,
+        "D": 295,
+        "G_u": 5,
+        "G_v": 25,
+        "K": -12,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 5,
+        "cut": 2,
+        "d": 59,
+        "denominator": 59,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -2,
+        "gcd": 5,
+        "k": 2,
+        "minimum": 181,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          1,
+          3
+        ]
+      },
+      {
+        "C": 1105,
+        "D": 295,
+        "G_u": 5,
+        "G_v": 25,
+        "K": -14,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 5,
+        "cut": 2,
+        "d": 59,
+        "denominator": 59,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -2,
+        "gcd": 5,
+        "k": 2,
+        "minimum": 221,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          2,
+          2
+        ]
+      },
+      {
+        "C": 1105,
+        "D": 295,
+        "G_u": 5,
+        "G_v": 175,
+        "K": -2,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 5,
+        "cut": 2,
+        "d": 59,
+        "denominator": 59,
+        "ell": 4,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 5,
+        "k": 2,
+        "minimum": 221,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      },
+      {
+        "C": 283,
+        "D": 13,
+        "G_u": 5,
+        "G_v": 37,
+        "K": -2,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 1,
+        "cut": 2,
+        "d": 65,
+        "denominator": 13,
+        "ell": 3,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 1,
+        "k": 2,
+        "minimum": 1415,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      },
+      {
+        "C": 283,
+        "D": 13,
+        "G_u": 5,
+        "G_v": 37,
+        "K": -2,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 1,
+        "cut": 2,
+        "d": 91,
+        "denominator": 13,
+        "ell": 3,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 1,
+        "k": 2,
+        "minimum": 1981,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      },
+      {
+        "C": 323,
+        "D": 1805,
+        "G_u": 19,
+        "G_v": 19,
+        "K": -14,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 19,
+        "cut": 3,
+        "d": 95,
+        "denominator": 95,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -3,
+        "gcd": 19,
+        "k": 3,
+        "minimum": 17,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          4
+        ]
+      },
+      {
+        "C": 283,
+        "D": 13,
+        "G_u": 5,
+        "G_v": 37,
+        "K": -2,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 1,
+        "cut": 2,
+        "d": 143,
+        "denominator": 13,
+        "ell": 3,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 1,
+        "k": 2,
+        "minimum": 3113,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      },
+      {
+        "C": 283,
+        "D": 13,
+        "G_u": 5,
+        "G_v": 37,
+        "K": -2,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 1,
+        "cut": 2,
+        "d": 169,
+        "denominator": 13,
+        "ell": 3,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 1,
+        "k": 2,
+        "minimum": 3679,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      },
+      {
+        "C": 89,
+        "D": 175,
+        "G_u": 5,
+        "G_v": 11,
+        "K": -6,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 1,
+        "cut": 2,
+        "d": 175,
+        "denominator": 175,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -2,
+        "gcd": 1,
+        "k": 2,
+        "minimum": 89,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          3
+        ]
+      },
+      {
+        "C": 283,
+        "D": 13,
+        "G_u": 5,
+        "G_v": 37,
+        "K": -2,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 1,
+        "cut": 2,
+        "d": 221,
+        "denominator": 13,
+        "ell": 3,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 1,
+        "k": 2,
+        "minimum": 4811,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      },
+      {
+        "C": 13349,
+        "D": 1631,
+        "G_u": 217,
+        "G_v": 7,
+        "K": -6,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 7,
+        "cut": 6,
+        "d": 233,
+        "denominator": 233,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 7,
+        "k": 3,
+        "minimum": 1907,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1,
+          2
+        ],
+        "v": [
+          2
+        ]
+      },
+      {
+        "C": 1469,
+        "D": 3367,
+        "G_u": 17,
+        "G_v": 11,
+        "K": -26,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 1,
+        "cut": 4,
+        "d": 259,
+        "denominator": 259,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -3,
+        "gcd": 13,
+        "k": 2,
+        "minimum": 113,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1,
+          2
+        ],
+        "v": [
+          3
+        ]
+      },
+      {
+        "C": 259,
+        "D": 269,
+        "G_u": 19,
+        "G_v": 11,
+        "K": -6,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 1,
+        "cut": 3,
+        "d": 269,
+        "denominator": 269,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -2,
+        "gcd": 1,
+        "k": 3,
+        "minimum": 259,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          3
+        ]
+      },
+      {
+        "C": 761,
+        "D": 295,
+        "G_u": 13,
+        "G_v": 11,
+        "K": -30,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 1,
+        "cut": 4,
+        "d": 295,
+        "denominator": 295,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -4,
+        "gcd": 1,
+        "k": 2,
+        "minimum": 761,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1,
+          1
+        ],
+        "v": [
+          3
+        ]
+      },
+      {
+        "C": 761,
+        "D": 295,
+        "G_u": 65,
+        "G_v": 11,
+        "K": -6,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 1,
+        "cut": 4,
+        "d": 295,
+        "denominator": 295,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -2,
+        "gcd": 1,
+        "k": 4,
+        "minimum": 761,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          3
+        ]
+      }
+    ],
+    "constant_bound_counterexamples": [
+      {
+        "C": 1105,
+        "D": 295,
+        "G_u": 5,
+        "G_v": 175,
+        "K": -2,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 5,
+        "cut": 2,
+        "d": 59,
+        "denominator": 59,
+        "ell": 4,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 5,
+        "k": 2,
+        "minimum": 221,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      },
+      {
+        "C": 323,
+        "D": 1805,
+        "G_u": 19,
+        "G_v": 19,
+        "K": -14,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 19,
+        "cut": 3,
+        "d": 95,
+        "denominator": 95,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -3,
+        "gcd": 19,
+        "k": 3,
+        "minimum": 17,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          4
+        ]
+      },
+      {
+        "C": 13349,
+        "D": 1631,
+        "G_u": 217,
+        "G_v": 7,
+        "K": -6,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 7,
+        "cut": 6,
+        "d": 233,
+        "denominator": 233,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 7,
+        "k": 3,
+        "minimum": 1907,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1,
+          2
+        ],
+        "v": [
+          2
+        ]
+      },
+      {
+        "C": 1105,
+        "D": 295,
+        "G_u": 5,
+        "G_v": 175,
+        "K": -2,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 5,
+        "cut": 2,
+        "d": 295,
+        "denominator": 59,
+        "ell": 4,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 5,
+        "k": 2,
+        "minimum": 1105,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      },
+      {
+        "C": 8225,
+        "D": 58975,
+        "G_u": 133,
+        "G_v": 35,
+        "K": -150,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 7,
+        "cut": 6,
+        "d": 337,
+        "denominator": 337,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -8,
+        "gcd": 175,
+        "k": 3,
+        "minimum": 47,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1,
+          1
+        ],
+        "v": [
+          5
+        ]
+      },
+      {
+        "C": 8225,
+        "D": 58975,
+        "G_u": 665,
+        "G_v": 35,
+        "K": -30,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 35,
+        "cut": 6,
+        "d": 337,
+        "denominator": 337,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -4,
+        "gcd": 175,
+        "k": 6,
+        "minimum": 47,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          5
+        ]
+      },
+      {
+        "C": 1105,
+        "D": 295,
+        "G_u": 5,
+        "G_v": 175,
+        "K": -2,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 5,
+        "cut": 2,
+        "d": 413,
+        "denominator": 59,
+        "ell": 4,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 5,
+        "k": 2,
+        "minimum": 1547,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      },
+      {
+        "C": 323,
+        "D": 1805,
+        "G_u": 19,
+        "G_v": 19,
+        "K": -14,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 19,
+        "cut": 3,
+        "d": 475,
+        "denominator": 95,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -3,
+        "gcd": 19,
+        "k": 3,
+        "minimum": 85,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          4
+        ]
+      },
+      {
+        "C": 85865,
+        "D": 6487,
+        "G_u": 65,
+        "G_v": 481,
+        "K": -12,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 13,
+        "cut": 4,
+        "d": 499,
+        "denominator": 499,
+        "ell": 3,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -2,
+        "gcd": 13,
+        "k": 4,
+        "minimum": 6605,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          1,
+          3
+        ]
+      },
+      {
+        "C": 7201,
+        "D": 9823,
+        "G_u": 665,
+        "G_v": 19,
+        "K": -14,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 19,
+        "cut": 6,
+        "d": 517,
+        "denominator": 517,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -3,
+        "gcd": 19,
+        "k": 6,
+        "minimum": 379,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          4
+        ]
+      },
+      {
+        "C": 1105,
+        "D": 295,
+        "G_u": 5,
+        "G_v": 175,
+        "K": -2,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 5,
+        "cut": 2,
+        "d": 649,
+        "denominator": 59,
+        "ell": 4,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 5,
+        "k": 2,
+        "minimum": 2431,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      },
+      {
+        "C": 323,
+        "D": 1805,
+        "G_u": 19,
+        "G_v": 19,
+        "K": -14,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 19,
+        "cut": 3,
+        "d": 665,
+        "denominator": 95,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -3,
+        "gcd": 19,
+        "k": 3,
+        "minimum": 119,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          4
+        ]
+      },
+      {
+        "C": 1105,
+        "D": 295,
+        "G_u": 5,
+        "G_v": 175,
+        "K": -2,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 5,
+        "cut": 2,
+        "d": 767,
+        "denominator": 59,
+        "ell": 4,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 5,
+        "k": 2,
+        "minimum": 2873,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      }
+    ],
+    "counts": {
+      "baseline_k1_ell1": 34453,
+      "both_repetitions_at_least2": 56,
+      "cancellation_exceeds_abs_K": 13,
+      "decompositions": 37271,
+      "equal_total_uniform_bounds": 0,
+      "negative_D": 0,
+      "nonzero_K": 37271,
+      "positive_D": 37271,
+      "proportional_positive_nonzero_K_bounds": 459,
+      "zero_K": 0
+    },
+    "decomposition_sha256": "527bf739e0ab10e5be01242ba0984f5650cbe7aceae2a23f435f20138af020a2",
+    "enumeration": "every cut; every divisor exponent of each side, including nonprimitive bases",
+    "exact_source_arrows": 36912,
+    "groups": {
+      "equal|contracting/contracting|positive_D": 26,
+      "multiplicatively_independent|contracting/contracting|positive_D": 21022,
+      "multiplicatively_independent|expanding/contracting|positive_D": 15790,
+      "proportional_unequal|contracting/contracting|positive_D": 433
+    },
+    "historical_fixtures_verified": 11,
+    "orientation": "minimum-state canonical word only; no all-rotation claim",
+    "source_cycles": 2459,
+    "source_d_count": 333
+  },
+  "baseline_commit": "14441c0864ba67e73d32b24dc67afb4cd832921e",
+  "clock": "Raw positive odd 3x+d; no absorption convention at1",
+  "equal_slope_control": {
+    "arithmetic_sha256": "cad2e6cdd39d09597e45f63496c183d7837bcda85334835b599491e4b65957fe",
+    "checked_equal_repetitions": [
+      1,
+      128
+    ],
+    "exact_odd_arrows": 49536,
+    "examples": [
+      {
+        "C": 1249,
+        "D": 295,
+        "G_u": 1,
+        "G_v": 1,
+        "K": 20,
+        "block_directions": "contracting/contracting",
+        "both_repetitions_grow": false,
+        "common_geometric_gcd": 1,
+        "denominator": 295,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": 0,
+        "gcd": 1,
+        "parameter": 295,
+        "proportional": {
+          "H_h": 5,
+          "J": 4,
+          "J0": 1,
+          "a": 5,
+          "b": 3,
+          "e": 1,
+          "h": 1,
+          "positive_bound_checked": true,
+          "r": 1,
+          "s": 1
+        },
+        "slope_relation": "equal",
+        "states": [
+          1249,
+          2021,
+          3179,
+          1229,
+          1991,
+          1567
+        ],
+        "t": 1
+      },
+      {
+        "C": 2206777,
+        "D": 517135,
+        "G_u": 59,
+        "G_v": 59,
+        "K": 20,
+        "block_directions": "contracting/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 59,
+        "denominator": 8765,
+        "equal_total_uniform_bound_checked": true,
+        "exponent_determinant": 0,
+        "gcd": 59,
+        "parameter": 8765,
+        "proportional": {
+          "H_h": 295,
+          "J": 4,
+          "J0": 1,
+          "a": 5,
+          "b": 3,
+          "e": 1,
+          "h": 2,
+          "positive_bound_checked": true,
+          "r": 1,
+          "s": 1
+        },
+        "slope_relation": "equal",
+        "states": [
+          37403,
+          60487,
+          95113,
+          36763,
+          59527,
+          93673,
+          36223,
+          58717,
+          46229,
+          36863,
+          59677,
+          46949
+        ],
+        "t": 2
+      },
+      {
+        "C": 2951036497,
+        "D": 686321335,
+        "G_u": 2617,
+        "G_v": 2617,
+        "K": 20,
+        "block_directions": "contracting/contracting",
+        "both_repetitions_grow": true,
+        "common_geometric_gcd": 2617,
+        "denominator": 262255,
+        "equal_total_uniform_bound_checked": true,
+        "exponent_determinant": 0,
+        "gcd": 2617,
+        "parameter": 262255,
+        "proportional": {
+          "H_h": 13085,
+          "J": 4,
+          "J0": 1,
+          "a": 5,
+          "b": 3,
+          "e": 1,
+          "h": 3,
+          "positive_bound_checked": true,
+          "r": 1,
+          "s": 1
+        },
+        "slope_relation": "equal",
+        "states": [
+          1127641,
+          1822589,
+          2865011,
+          1107161,
+          1791869,
+          2818931,
+          1089881,
+          1765949,
+          2780051,
+          1075301,
+          1744079,
+          1373623,
+          1095781,
+          1774799,
+          1396663,
+          1113061,
+          1800719,
+          1416103
+        ],
+        "t": 3
+      }
+    ],
+    "scope": "Exact finite checks of an unbounded-cancellation family; denominator still grows and is never1.",
+    "u": [
+      1,
+      1,
+      3
+    ],
+    "v": [
+      1,
+      2,
+      2
+    ]
+  },
+  "generated_words": {
+    "arithmetic_sha256": "8e8bf6897faf7fac78e95cfb3f2693d0d10c4ee5e14bbb0a7a74e91691366753",
+    "base_word_count": 84,
+    "bounds": {
+      "base_lengths": [
+        1,
+        3
+      ],
+      "contracting_block_restriction": false,
+      "ell": [
+        1,
+        8
+      ],
+      "k": [
+        1,
+        8
+      ],
+      "valuations": [
+        1,
+        4
+      ]
+    },
+    "completed_cases": 451584,
+    "counts": {
+      "baseline_k1_ell1": 7056,
+      "both_repetitions_at_least2": 345744,
+      "cancellation_exceeds_abs_K": 8842,
+      "decompositions": 451584,
+      "equal_total_uniform_bounds": 33768,
+      "exact_odd_arrows": 10623694,
+      "negative_D": 18510,
+      "nonzero_K": 444672,
+      "positive_D": 433074,
+      "positive_common_fixed_point_checks": 6016,
+      "primitive_word_realizations": 427028,
+      "proper_power_word_realizations": 6046,
+      "proportional_positive_nonzero_K_bounds": 44544,
+      "zero_K": 6912
+    },
+    "distinct_realized_parameters": 5003,
+    "examples": {
+      "equal|contracting/contracting": {
+        "C": 7,
+        "D": 7,
+        "G_u": 1,
+        "G_v": 1,
+        "K": 0,
+        "block_directions": "contracting/contracting",
+        "both_repetitions_grow": false,
+        "common_geometric_gcd": 1,
+        "denominator": 1,
+        "ell": 1,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": 0,
+        "gcd": 7,
+        "k": 1,
+        "primitive_length": 1,
+        "proportional": {
+          "H_h": 1,
+          "J": 0,
+          "J0": null,
+          "a": 2,
+          "b": 1,
+          "e": 1,
+          "h": 1,
+          "positive_bound_checked": false,
+          "r": 1,
+          "s": 1
+        },
+        "slope_relation": "equal",
+        "states": [
+          1,
+          1
+        ],
+        "u": [
+          2
+        ],
+        "v": [
+          2
+        ]
+      },
+      "multiplicatively_independent|contracting/contracting": {
+        "C": 7,
+        "D": 23,
+        "G_u": 1,
+        "G_v": 1,
+        "K": -4,
+        "block_directions": "contracting/contracting",
+        "both_repetitions_grow": false,
+        "common_geometric_gcd": 1,
+        "denominator": 23,
+        "ell": 1,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 1,
+        "k": 1,
+        "primitive_length": 2,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "states": [
+          7,
+          11
+        ],
+        "u": [
+          2
+        ],
+        "v": [
+          3
+        ]
+      },
+      "multiplicatively_independent|contracting/expanding": {
+        "C": 37,
+        "D": 5,
+        "G_u": 7,
+        "G_v": 1,
+        "K": 2,
+        "block_directions": "contracting/expanding",
+        "both_repetitions_grow": false,
+        "common_geometric_gcd": 1,
+        "denominator": 5,
+        "ell": 1,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": 1,
+        "gcd": 1,
+        "k": 2,
+        "primitive_length": 3,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "states": [
+          37,
+          29,
+          23
+        ],
+        "u": [
+          2
+        ],
+        "v": [
+          1
+        ]
+      },
+      "multiplicatively_independent|expanding/contracting": {
+        "C": 23,
+        "D": 5,
+        "G_u": 1,
+        "G_v": 7,
+        "K": -2,
+        "block_directions": "expanding/contracting",
+        "both_repetitions_grow": false,
+        "common_geometric_gcd": 1,
+        "denominator": 5,
+        "ell": 2,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": -1,
+        "gcd": 1,
+        "k": 1,
+        "primitive_length": 3,
+        "proportional": null,
+        "slope_relation": "multiplicatively_independent",
+        "states": [
+          23,
+          37,
+          29
+        ],
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      },
+      "proportional_unequal|contracting/contracting": {
+        "C": 29,
+        "D": 37,
+        "G_u": 1,
+        "G_v": 1,
+        "K": -2,
+        "block_directions": "contracting/contracting",
+        "both_repetitions_grow": false,
+        "common_geometric_gcd": 1,
+        "denominator": 37,
+        "ell": 1,
+        "equal_total_uniform_bound_checked": false,
+        "exponent_determinant": 0,
+        "gcd": 1,
+        "k": 1,
+        "primitive_length": 3,
+        "proportional": {
+          "H_h": 1,
+          "J": -2,
+          "J0": 1,
+          "a": 2,
+          "b": 1,
+          "e": 1,
+          "h": 1,
+          "positive_bound_checked": true,
+          "r": 1,
+          "s": 2
+        },
+        "slope_relation": "proportional_unequal",
+        "states": [
+          29,
+          31,
+          65
+        ],
+        "u": [
+          2
+        ],
+        "v": [
+          1,
+          3
+        ]
+      }
+    },
+    "groups": {
+      "equal|contracting/contracting|positive_D": 39168,
+      "equal|expanding/expanding|negative_D": 1024,
+      "multiplicatively_independent|contracting/contracting|positive_D": 319104,
+      "multiplicatively_independent|contracting/expanding|negative_D": 7207,
+      "multiplicatively_independent|contracting/expanding|positive_D": 31705,
+      "multiplicatively_independent|expanding/contracting|negative_D": 7207,
+      "multiplicatively_independent|expanding/contracting|positive_D": 31705,
+      "multiplicatively_independent|expanding/expanding|negative_D": 2688,
+      "proportional_unequal|contracting/contracting|positive_D": 11392,
+      "proportional_unequal|expanding/expanding|negative_D": 384
+    },
+    "largest_parameter": 4903985730770844346746710486880973434291349816485554291,
+    "ordered_block_pairs": 7056,
+    "requested_cases": 451584,
+    "scope": "Positive word realizations may repeat primitive cycles; distinct parameters are counted exactly.",
+    "smallest_parameter": 1,
+    "unresolved_cases": 0
+  },
+  "limits": "Finite algebraic grids only; no unbounded trajectory search and no capped cases are represented as successes.",
+  "rotating_mechanical": {
+    "arithmetic_sha256": "dfbea83823406b6fe1c1188fd37d177aefa885f83fcab8173f59543e11d6e25c",
+    "completed_cases": 590,
+    "exact_odd_arrows": 304164,
+    "examples": [
+      {
+        "A": 21,
+        "cancellation_bits": 1,
+        "denominator": 5170816883835799541,
+        "denominator_bits": 63,
+        "ell": 2,
+        "k": 1,
+        "m": 13,
+        "minimum_numerator": 52667243993455142327,
+        "odd_arrows": 39,
+        "odd_only_minima": 14,
+        "shortcut_minima": 24
+      },
+      {
+        "A": 21,
+        "cancellation_bits": 1,
+        "denominator": 5170816883835799541,
+        "denominator_bits": 63,
+        "ell": 1,
+        "k": 2,
+        "m": 13,
+        "minimum_numerator": 47322510164389882835,
+        "odd_arrows": 39,
+        "odd_only_minima": 14,
+        "shortcut_minima": 24
+      },
+      {
+        "A": 21,
+        "cancellation_bits": 22,
+        "denominator": 3489589181724755957,
+        "denominator_bits": 62,
+        "ell": 2,
+        "k": 2,
+        "m": 13,
+        "minimum_numerator": 33257288969559221687,
+        "odd_arrows": 52,
+        "odd_only_minima": 19,
+        "shortcut_minima": 32
+      },
+      {
+        "A": 21,
+        "cancellation_bits": 1,
+        "denominator": 332398839977418229246189965664353129943048021719775,
+        "denominator_bits": 168,
+        "ell": 5,
+        "k": 3,
+        "m": 13,
+        "minimum_numerator": 3170761001196856301920974905843435246936168650424869,
+        "odd_arrows": 104,
+        "odd_only_minima": 39,
+        "shortcut_minima": 64
+      },
+      {
+        "A": 21,
+        "cancellation_bits": 149,
+        "denominator": 209121551973294587936577153818905667763040433468531757773,
+        "denominator_bits": 188,
+        "ell": 8,
+        "k": 8,
+        "m": 13,
+        "minimum_numerator": 1805556629395286290507410553018855879439458233205474399103,
+        "odd_arrows": 208,
+        "odd_only_minima": 79,
+        "shortcut_minima": 128
+      },
+      {
+        "A": 406,
+        "cancellation_bits": 204,
+        "denominator": 74155448798480232101725054866909859770215133152968252482501029049161639207098001681322769345692926215464762738724330079594934819479405508245662548775017657550819849924691439415947862879703875506146287172016114878574739680984444995157131334262142113515046168146103709100046096983363859376243986059476049407,
+        "denominator_bits": 1013,
+        "ell": 2,
+        "k": 1,
+        "m": 256,
+        "minimum_numerator": 23263676290980968274426953546624284854529755783129854362468751173117765916393411791892862090814697582423346569363368110778736997005568337471103966353809437433209635501333848183592551254024989954075447970728534353690723018575254156835412813205126568002105060348560486088237837986838666293486248660274347478533,
+        "odd_arrows": 768,
+        "odd_only_minima": 317,
+        "shortcut_minima": 450
+      },
+      {
+        "A": 812,
+        "cancellation_bits": 611,
+        "denominator": 1754699240532449009853982863269381556468603277863513343458830772136622190741057526526842565761028349969039322201272390327656857925244943602731038287156843542194866802987310652091797925760805100181835733397853001869096028462634933741997992466586697116995639395885528817521664785173093067599798674649398073497878013741888342527685706572343393365145691538513823764511986203052958349120119002696725975413354758634102180846888611216624681289317754112498716750658318091692102114587227748692756440664249178762373898555958168895129408108698758212993842263551,
+        "denominator_bits": 1825,
+        "ell": 2,
+        "k": 1,
+        "m": 512,
+        "minimum_numerator": 538865806953872143411182247344137675001295342505899316685401413763737229490824689609865045639719840126495499653109265440205544732740635230052903809178021032021945417089124009602322005437200809996552878261721260394134158693164144677055132664770732167356131400030754342859589737045313999686696654830118488750465925845953268794450438388046123103592221977494556233675952637845949848570686554411383894755724247489458721407200357182596992850129303163986751822037173589896729062000623379814978687531073811020781876624200186628754932337238566731835406286657029,
+        "odd_arrows": 1536,
+        "odd_only_minima": 635,
+        "shortcut_minima": 900
+      }
+    ],
+    "extra_exponent_separation_condition": false,
+    "lengths": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      256,
+      512
+    ],
+    "repetition_pairs": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        8,
+        8
+      ]
+    ],
+    "scope": "Exact finite primitive cycle realizations, height and two clock-specific minima counts; the all-m theorem is separate."
+  },
+  "schema": "C002-two-growing-blocks-v1",
+  "scope": "Finite exact identities and positive integer-cycle realizations; no exhaustive cycle spectrum or convergence claim.",
+  "source_sha256": {
+    "C001/actual_cycles.json": "28d067d3f82585a3701616adce3b57cae994541c4ddd3b4859d2bcf2307e44f2",
+    "C001/scan_cycles.py": "32bf38b6ac5d9b592d4deba1cab4cfbf15598cb15d32275c134373853b06626f",
+    "check_two_blocks.py": "94bd8768e165301b5aab9c351426492ee16e02255e8e32629f563bc9b0ec69ba",
+    "phase6/cycle_fixtures.json": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+  },
+  "status": "PASS"
+}
