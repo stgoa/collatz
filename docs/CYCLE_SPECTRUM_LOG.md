@@ -1,5 +1,60 @@
 # Cycle spectrum programme log
 
+## C002 — Two growing blocks and a uniform exclusion, 2026-10-19
+
+**Progress; headline active and open.** C001 was delivered at
+`14441c0864ba67e73d32b24dc67afb4cd832921e`. This batch tests its next
+mechanism, with both repetition counts free. [The report](../experiments/cycle_spectrum/C002/REPORT.md)
+links the full arguments, primary source, independent review and exact
+receipts. Historical mathematics and C001 evidence are preserved.
+
+The strongest elementary result is uniform over changing blocks:
+different words u,v with equal totals (A,m), `2^A>3^m`, and k+ell>=3
+have `den(u^k v^ell)>2^(A+m)/3^m>2^m`. This bounds the totals and
+words in each bounded denominator layer; the explicit proportional-slope
+bound then bounds both repetitions. It excludes this whole structural
+class without assuming a finite catalogue. Arbitrary cycle words need
+not admit the required decomposition.
+
+The general elimination identity retains a shared geometric gcd.
+Proportional slopes admit an elementary strong-divisibility proof and
+an explicit exponential bound. Unequal slopes retain the full leading
+exponential denominator rate, using Corvaja–Zannier's Corollary 1 and
+Proposition 1; the local terms and exceptional-grid intersections are
+audited. This covers an expanding block but supplies no effective
+threshold. K=0 retains repetitions of a common primitive cycle.
+
+The former constant bound is false: `(1,1,3)^t(1,2,2)^t` has cancellation
+`(32^t-27^t)/5`, already greater than K=20 at t=2. All thirteen failures
+found among actual cycle decompositions are saved. A separate exact
+family shows the proportional half-exponent is sharp.
+
+The rotated-mechanical family has every rational state>m/12, with no
+extra exponent separation, and is primitive and nonbalanced. Its
+odd-only and shortcut minimum counts are retained separately. The
+literature comparison is scoped to the hypotheses audited in C001;
+general record improvement and novelty are unclaimed.
+
+The checker replays 2,459 actual cycles over 333 parameters, 37,271
+canonical power decompositions and all eleven fixtures. It generates
+451,584 word/exponent cases, including 433,074 positive realizations
+and over 10.6 million exact odd arrows. Separate checks exercise the
+uniform theorem and the rotating family. Finite checks do not verify
+the imported asymptotic theorem. The final receipts distinguish proof
+review, local replay and the historical finite gate.
+
+The reviewed side pin is `f82781197b1b2792e7b3394a142754f383b4555d`.
+Its new V006 Lean report and V009 reading are external evidence; C002
+does not independently replay those builds or use them as new premises.
+The [side review](../experiments/cycle_spectrum/C002/SIDE_REVIEW.md) records
+the D1–D8 assessment. No side branch was modified.
+
+**Next:** seek a uniform structural restriction when block totals differ.
+The user's high-level concern about accumulating small lemmas is addressed
+by keeping that uniformity requirement explicit. Extending only fixed
+catalogues would leave the main gap untouched. The accepted goal remains
+cycle exclusion through the generalized family, with divergence separate.
+
 ## C001 — Fixed perturbations and bounded cancellation, 2026-10-18
 
 **Progress; headline active and open.** The user replaced the quantitative

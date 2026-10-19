@@ -1,5 +1,30 @@
 # Research log
 
+## 2026-10-19 — C002: two growing blocks and a uniform cycle restriction
+
+[C002](../experiments/cycle_spectrum/C002/REPORT.md) proves that any two
+different valuation blocks with equal totals (A,m), `2^A>3^m`, repeated
+k and ell times with k+ell>=3, have denominator greater than
+`2^(A+m)/3^m>2^m`. The blocks themselves can vary. The explicit bound
+gives finite enumeration of every bounded denominator layer inside this
+class. This is the main gain beyond fixed-word catalogues.
+
+The general dual identity permits unbounded shared geometric cancellation.
+Exact examples and thirteen failures from stored actual cycles reject the
+constant-bound extension. Proportional slopes have an elementary bound;
+unequal slopes use two audited Corvaja–Zannier inputs and retain the leading
+exponential denominator rate, with ineffective thresholds. K=0 preserves
+all common-cycle controls. A rotated-mechanical family has minimum>m/12
+without an exponent separation and unbounded clock-specific minima counts.
+
+Independent proof review, 37,271 decompositions of 2,459 stored cycles,
+433,074 positive generated realizations, and final receipts are linked
+in the report. No new claim of formal verification or novelty is made.
+The side pin f827811 reports Lean work on earlier V006 and a further V009
+reading; main does not independently replay it here. C001, R1–R94,
+the dispatcher and open LaTeX source are preserved. The cycle headline
+remains active, and the next test must address changing block totals.
+
 ## 2026-10-18 — C001: cycle spectra and bounded cancellation
 
 The user replaced the quantitative target with the cycle half of Collatz

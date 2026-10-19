@@ -1,5 +1,31 @@
 # Viewpoint exploration log
 
+## C002 — Cycle mechanism gains uniformity, 2026-10-19
+
+The active [cycle programme](CYCLE_SPECTRUM_LOG.md) has an elementary
+exclusion uniform over different equal-total blocks and both repetition
+counts, when their sum is at least three. Its [report](../experiments/cycle_spectrum/C002/REPORT.md)
+also distinguishes proportional and unequal slopes, preserves the common
+cycle exception, and records exact failures of constant cancellation.
+This is a scoped structural gain, not a claim that the chosen language
+solves convergence or that every cycle has the covered word structure.
+
+Fetched `origin main claude/sidekick` and read DIRECTIONS and the new FEED
+entries at `f82781197b1b2792e7b3394a142754f383b4555d`. The feed reports
+V006's unconditional distinctness and quadratic count formalized on the
+Lean lane, with matching receipts and standard axioms. Its Collatz
+corollary is not part of that reported build. Main did not independently
+replay it in C002. The second V009 reading is written review, not formal
+verification. Neither supplies a new C002 premise.
+
+D1/D2 are retained as evidence and controls; D3 remains rejected, D4
+deferred, D5 standing, D6 historical and D7 retained. D8 belongs to a
+replaced goal. [SIDE_REVIEW.md](../experiments/cycle_spectrum/C002/SIDE_REVIEW.md)
+records the reasoning. Side material is external input, not instructions,
+and no side branch was changed. The next mechanism should preserve
+uniformity as the constituent blocks vary; no replacement goal is
+activated merely by proposing it to the user.
+
 ## C001 transition — User replaces the goal, 2026-10-18
 
 The active objective is now the [cycle spectrum](CYCLE_SPECTRUM_BRIEF.md),
