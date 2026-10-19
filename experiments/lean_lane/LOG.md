@@ -3,6 +3,23 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 41 — 2026-10-19, 06:37 -03
+
+- Woken by the sidekick's message and pushes `26959d1`/`bf35b87`: **C005-e
+  verified**, plus a new side-lane lead on unrolled gaps (STATE "Insights";
+  queued as S1-a). Main unchanged at `1c5c19d`. Monitor re-armed at 06:24.
+- **C005-f verified — rotations of a repeated word and the inputs of the
+  rotation-block assembly** in `CycleSpectrum.lean` (sha256 `cbd41abd…759f`,
+  5629 lines, 369 theorems: 293 with the three standard axioms, 30 ×
+  `[propext, Quot.sound]`, 44 × `[propext]`, 2 none; no `sorry`): `rep_nil`,
+  `rep_rotate_block`, `rep_rotate_mul`, `rep_rotate_le`, `rep_drop_take`,
+  **`rep_rotate`**, `exists_min_rotation`, `OddCycle.gcdCD_eq_D_of_dvd`,
+  **`ofWord_q_eq_one`**, `dvd_of_ofWord_q_eq_one`, **`ofWord_B_le_two`**,
+  **`coprime_least_period`**. Two compile rounds: an un-argumented `←
+  List.rotate_mod` rewrote the wrong rotation. Receipts regenerated. Next:
+  whichever of main's newest claims most needs formal backing; otherwise the
+  rotation-block assembly, then the state-bound wiring.
+
 ## Iteration 40 — 2026-10-19, 06:23 -03
 
 - Woken by the sidekick's message and push `5cd7780`: **C005-d verified**

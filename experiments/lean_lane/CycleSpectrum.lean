@@ -4960,6 +4960,139 @@ theorem word_eq_rep {p : ℕ} (hp : Γ.n p = Γ.n 0) (hdvd : p ∣ m) :
 
 end OddCycle
 
+/-! ### C005-f: rotations of a repeated word, and the inputs of the rotation-block assembly
+
+Remaining bookkeeping for C005's rotation-block exclusion: `(z^k).rotate u = (z.rotate u)^k`;
+for the reduced cycle `ofWord w`, `q = 1` iff `D_w ∣ C_w`, and `B ≤ 2` once every rotated
+intercept is below `8 C_w`; and on the least period of a `q = 1` cycle with `B ≤ 2` the word has
+coprime totals (the three-band theorem, or trivially for a one-letter period). -/
+
+theorem rep_nil : ∀ k, rep ([] : List ℕ) k = []
+  | 0 => rfl
+  | k + 1 => by rw [rep, rep_nil k]; rfl
+
+/-- Rotating a repetition by one block length changes nothing. -/
+theorem rep_rotate_block (z : List ℕ) (k : ℕ) : (rep z k).rotate z.length = rep z k := by
+  rcases k with _ | k
+  · simp [rep]
+  · show (z ++ rep z k).rotate z.length = z ++ rep z k
+    rw [List.rotate_eq_drop_append_take (by simp), List.drop_append_of_le_length le_rfl,
+      List.take_append_of_le_length le_rfl, List.drop_length, List.take_length, List.nil_append]
+    exact (rep_succ' z k).symm
+
+theorem rep_rotate_mul (z : List ℕ) (k : ℕ) : ∀ c, (rep z k).rotate (c * z.length) = rep z k
+  | 0 => by simp
+  | c + 1 => by
+    rw [show (c + 1) * z.length = c * z.length + z.length by ring, ← List.rotate_rotate,
+      rep_rotate_mul z k c, rep_rotate_block]
+
+/-- Rotating `z^{k+1}` by `u ≤ |z|` places: `drop u z ++ z^k ++ take u z`. -/
+theorem rep_rotate_le (z : List ℕ) (k u : ℕ) (hu : u ≤ z.length) :
+    (rep z (k + 1)).rotate u = z.drop u ++ rep z k ++ z.take u := by
+  show (z ++ rep z k).rotate u = z.drop u ++ rep z k ++ z.take u
+  rw [List.rotate_eq_drop_append_take (by rw [List.length_append]; omega),
+    List.drop_append_of_le_length hu, List.take_append_of_le_length hu]
+
+theorem rep_drop_take (z : List ℕ) (u : ℕ) :
+    ∀ k, rep (z.drop u ++ z.take u) (k + 1) = z.drop u ++ rep z k ++ z.take u
+  | 0 => by simp [rep]
+  | k + 1 => by
+    rw [rep_succ', rep_drop_take z u k, rep_succ' z k]
+    simp only [List.append_assoc]
+    rw [← List.append_assoc (z.take u) (z.drop u) (z.take u), List.take_append_drop]
+
+/-- Rotating a repeated word rotates the base: `(z^k).rotate u = (z.rotate u)^k`. -/
+theorem rep_rotate (z : List ℕ) (k u : ℕ) : (rep z k).rotate u = rep (z.rotate u) k := by
+  rcases k with _ | k
+  · simp [rep]
+  rcases Nat.eq_zero_or_pos z.length with hz | hz
+  · rw [List.length_eq_zero_iff.mp hz]
+    simp [rep_nil]
+  have hu : u % z.length ≤ z.length := (Nat.mod_lt u hz).le
+  have hdecomp : u = u / z.length * z.length + u % z.length := (Nat.div_add_mod' u z.length).symm
+  conv_lhs => rw [hdecomp]
+  rw [← List.rotate_rotate, rep_rotate_mul, rep_rotate_le z k _ hu, ← List.rotate_mod z u,
+    List.rotate_eq_drop_append_take hu, rep_drop_take]
+
+/-- Every nonempty word has a rotation starting at its minimal rotated intercept. -/
+theorem exists_min_rotation (w : List ℕ) (hw0 : w ≠ []) :
+    ∃ i₀, ∀ i, C (w.rotate i₀) ≤ C ((w.rotate i₀).rotate i) := by
+  have hm0 : 0 < w.length := List.length_pos_of_ne_nil hw0
+  obtain ⟨i₀, -, hmin₀⟩ := Finset.exists_min_image (Finset.range w.length)
+    (fun i => C (w.rotate i)) ⟨0, Finset.mem_range.mpr hm0⟩
+  refine ⟨i₀, fun i => ?_⟩
+  rw [List.rotate_rotate, ← List.rotate_mod w (i₀ + i)]
+  exact hmin₀ _ (Finset.mem_range.mpr (Nat.mod_lt _ hm0))
+
+namespace OddCycle
+
+/-- `D_w ∣ C_w` (denominator `1`) makes `g = D_w`. -/
+theorem gcdCD_eq_D_of_dvd (w : List ℕ) (hD : 0 < D w) (hdvd : D w ∣ C w) : gcdCD w = D w := by
+  have h1 : (D w).natAbs ∣ Int.gcd (C w) (D w) :=
+    Int.dvd_gcd (Int.natAbs_dvd.mpr hdvd) (Int.natAbs_dvd.mpr dvd_rfl)
+  have h2 : Int.gcd (C w) (D w) ∣ (D w).natAbs := by
+    have := Int.gcd_dvd_right (C w) (D w)
+    rw [← Int.dvd_natAbs] at this
+    exact Int.natCast_dvd_natCast.mp this
+  have h3 := Nat.dvd_antisymm h1 h2
+  unfold gcdCD
+  rw [← h3, Int.natAbs_of_nonneg hD.le]
+
+section ofWordCriteria
+
+variable (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) (hD : 0 < D w)
+  (hmin : ∀ i, C w ≤ C (w.rotate i))
+
+/-- The reduced cycle of `w` has parameter `1` when `D_w ∣ C_w`. -/
+theorem ofWord_q_eq_one (hdvd : D w ∣ C w) : (ofWord w hw0 hpos hD hmin).q = 1 := by
+  show D w / gcdCD w = 1
+  rw [gcdCD_eq_D_of_dvd w hD hdvd, Int.ediv_self hD.ne']
+
+/-- Conversely, parameter `1` means `D_w ∣ C_w`. -/
+theorem dvd_of_ofWord_q_eq_one (h1 : (ofWord w hw0 hpos hD hmin).q = 1) : D w ∣ C w := by
+  have := gcdCD_mul_ofWord_q w hw0 hpos hD hmin
+  rw [h1, mul_one] at this
+  rw [← this]
+  exact gcdCD_dvd_C w
+
+/-- If every rotated intercept is below `8 C_w` (`H < 8L`), every height is at most `2`. -/
+theorem ofWord_B_le_two (h8 : ∀ i, C (w.rotate i) < 8 * C w) :
+    (ofWord w hw0 hpos hD hmin).B ≤ 2 := by
+  have hg := gcdCD_pos w hw0
+  have hn8 : ∀ i, (ofWord w hw0 hpos hD hmin).n i < 8 * (ofWord w hw0 hpos hD hmin).n 0 := by
+    intro i
+    have h1 := gcdCD_mul_ofWord_n w hw0 hpos hD hmin i
+    have h0 := gcdCD_mul_ofWord_n w hw0 hpos hD hmin 0
+    rw [List.rotate_zero] at h0
+    have h8i := h8 i
+    rw [← h1, ← h0] at h8i
+    have h2 : gcdCD w * (ofWord w hw0 hpos hD hmin).n i
+        < gcdCD w * (8 * (ofWord w hw0 hpos hD hmin).n 0) := by linarith
+    exact lt_of_mul_lt_mul_left h2 hg.le
+  show (Finset.range w.length).sup _ ≤ 2
+  exact Finset.sup_le fun i _ => height_le_two (ofWord w hw0 hpos hD hmin).npos
+    ((ofWord w hw0 hpos hD hmin).hlo i) (hn8 i)
+
+end ofWordCriteria
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- On the least period of a `q = 1` cycle with `B ≤ 2`, the valuation word has coprime totals:
+the three-band theorem for `p ≥ 2`, and trivially for `p = 1`. -/
+theorem coprime_least_period (hq : Γ.q = 1) (hB2 : Γ.B ≤ 2) {p : ℕ} (hp0 : 0 < p)
+    (hp : Γ.n p = Γ.n 0) (hmin : ∀ k, 0 < k → k < p → Γ.n k ≠ Γ.n 0) :
+    Nat.Coprime ((List.range p).map Γ.a).sum p := by
+  rw [sum_map_range]
+  rcases Nat.lt_or_ge p 2 with hp1 | hp2
+  · have hp1' : p = 1 := by omega
+    subst hp1'
+    exact (Nat.coprime_one_right_iff _).mpr trivial
+  · obtain ⟨_, _, -, -, -, hcop⟩ := (Γ.returnCycleB hp0 hp).three_band hq hB2 hp2
+      (Γ.distinct_on_least_period hp0 hp hmin)
+    exact hcop
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
