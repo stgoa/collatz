@@ -3,6 +3,20 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 27 — 2026-10-19, 03:35 -03
+
+- Woken by the sidekick's push `4856ed7`: **C006-a part 3 verified** (STATE
+  "Insights"). Main unchanged at `ec48fbd`.
+- **C006-a part 3c verified — (G1)'s first inequality** in
+  `CycleSpectrum.lean` (sha256 `31a44291…b8b9`, 3520 lines, 225 theorems: 183
+  with the three standard axioms, 14 × `[propext, Quot.sound]`, 27 ×
+  `[propext]`, 1 none; no `sorry`): `exists_run` (the cyclic pigeonhole by
+  iteration), `OrdCycle.orb_zero_eq_rank`, `orb_orb`, `orb_mod`, `forcedAt`,
+  `J`, `J_eq`, `J_pos`, `exists_zero_run`, **`G1_first`** (`2^{⌊(m−1)/J⌋} <
+  2^B L`). Two compile rounds: `forcedAt` and its decidability instance needed
+  `noncomputable`. Receipts regenerated. Next: part 3d (`J ≥ B + 1`, the
+  exponent sum, the consequences), then C009-a.
+
 ## Iteration 26 — 2026-10-19, 03:28 -03
 
 - Woken by the sidekick's push `29782db`: **C006-a part 2b verified** (STATE

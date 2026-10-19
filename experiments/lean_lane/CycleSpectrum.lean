@@ -3178,6 +3178,105 @@ end OddCycle
 /-! ### C006 §3 on actual cycles: the height term `T_r`, the zero-forcing recurrence and the
 per-run bound of the sparse-forcing law -/
 
+/-- **The cyclic pigeonhole behind C006's (G1).** If `J ≥ 1` of the `m` positions of a cycle are
+forced, some forced position is followed by `⌈m/J⌉ − 1 = ⌊(m−1)/J⌋` consecutive unforced ones.
+Proof: otherwise every forced position is followed within `t = ⌊(m−1)/J⌋` steps by another, and
+iterating `J` times from a forced position produces `J + 1` distinct forced positions inside an
+arc of length `Jt + 1 ≤ m`. -/
+theorem exists_run {m : ℕ} (hm : 0 < m) (forced : ℕ → Prop) [DecidablePred forced]
+    (hJ : 0 < ((Finset.range m).filter forced).card) :
+    ∃ k₀, k₀ < m ∧ forced k₀ ∧
+      ∀ j, j < (m - 1) / ((Finset.range m).filter forced).card →
+        ¬ forced ((k₀ + 1 + j) % m) := by
+  classical
+  by_cases hex : ∃ k₀, k₀ < m ∧ forced k₀ ∧
+      ∀ j, j < (m - 1) / ((Finset.range m).filter forced).card →
+        ¬ forced ((k₀ + 1 + j) % m)
+  · exact hex
+  exfalso
+  have hstep : ∀ k, k < m → forced k → ∃ d, 1 ≤ d ∧
+      d ≤ (m - 1) / ((Finset.range m).filter forced).card ∧ forced ((k + d) % m) := by
+    intro k hk hf
+    by_contra h2
+    apply hex
+    refine ⟨k, hk, hf, fun j hj hfj => h2 ⟨j + 1, by omega, by omega, ?_⟩⟩
+    rw [show k + (j + 1) = k + 1 + j by ring]
+    exact hfj
+  choose! d hd using hstep
+  obtain ⟨k₀, hk₀⟩ := Finset.card_pos.mp hJ
+  have hk₀m : k₀ < m := Finset.mem_range.mp (Finset.mem_filter.mp hk₀).1
+  have hk₀f : forced k₀ := (Finset.mem_filter.mp hk₀).2
+  let pos : ℕ → ℕ := fun i => Nat.rec (motive := fun _ => ℕ) k₀ (fun _ p => (p + d p) % m) i
+  have pos_zero : pos 0 = k₀ := rfl
+  have pos_succ : ∀ i, pos (i + 1) = (pos i + d (pos i)) % m := fun _ => rfl
+  have pos_prop : ∀ i, pos i < m ∧ forced (pos i) := by
+    intro i
+    induction i with
+    | zero => exact ⟨hk₀m, hk₀f⟩
+    | succ i ih =>
+      rw [pos_succ]
+      exact ⟨Nat.mod_lt _ hm, (hd (pos i) ih.1 ih.2).2.2⟩
+  let s : ℕ → ℕ := fun i => ∑ j ∈ Finset.range i, d (pos j)
+  have s_succ : ∀ i, s (i + 1) = s i + d (pos i) := fun i => Finset.sum_range_succ _ _
+  have pos_eq : ∀ i, pos i = (k₀ + s i) % m := by
+    intro i
+    induction i with
+    | zero =>
+      rw [pos_zero]
+      simp [s, Nat.mod_eq_of_lt hk₀m]
+    | succ i ih =>
+      rw [pos_succ, s_succ, ← Nat.add_assoc]
+      have hmod : pos i ≡ k₀ + s i [MOD m] := by
+        unfold Nat.ModEq
+        rw [ih, Nat.mod_mod]
+      exact hmod.add_right _
+  have s_le : ∀ i, s i ≤ i * ((m - 1) / ((Finset.range m).filter forced).card) := by
+    intro i
+    induction i with
+    | zero => simp [s]
+    | succ i ih =>
+      rw [s_succ, Nat.add_mul, Nat.one_mul]
+      have := (hd (pos i) (pos_prop i).1 (pos_prop i).2).2.1
+      omega
+  have s_mono : StrictMono s := by
+    apply strictMono_nat_of_lt_succ
+    intro i
+    rw [s_succ]
+    have := (hd (pos i) (pos_prop i).1 (pos_prop i).2).1
+    omega
+  have hJt : ((Finset.range m).filter forced).card
+      * ((m - 1) / ((Finset.range m).filter forced).card) ≤ m - 1 :=
+    Nat.mul_div_le (m - 1) _
+  have hinj : Set.InjOn pos (Finset.range (((Finset.range m).filter forced).card + 1) : Set ℕ) := by
+    intro i hi i' hi' h
+    simp only [Finset.coe_range, Set.mem_Iio] at hi hi'
+    rw [pos_eq, pos_eq] at h
+    have hsi : s i < m := by
+      have h1 := s_le i
+      have h2 : i * ((m - 1) / ((Finset.range m).filter forced).card)
+          ≤ ((Finset.range m).filter forced).card
+            * ((m - 1) / ((Finset.range m).filter forced).card) :=
+        Nat.mul_le_mul_right _ (by omega)
+      omega
+    have hsi' : s i' < m := by
+      have h1 := s_le i'
+      have h2 : i' * ((m - 1) / ((Finset.range m).filter forced).card)
+          ≤ ((Finset.range m).filter forced).card
+            * ((m - 1) / ((Finset.range m).filter forced).card) :=
+        Nat.mul_le_mul_right _ (by omega)
+      omega
+    have hmod : s i ≡ s i' [MOD m] := Nat.ModEq.add_left_cancel' k₀ h
+    unfold Nat.ModEq at hmod
+    rw [Nat.mod_eq_of_lt hsi, Nat.mod_eq_of_lt hsi'] at hmod
+    exact s_mono.injective hmod
+  have hmaps : ∀ i ∈ Finset.range (((Finset.range m).filter forced).card + 1),
+      pos i ∈ (Finset.range m).filter forced := by
+    intro i _
+    exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr (pos_prop i).1, (pos_prop i).2⟩
+  have hcard := Finset.card_le_card_of_injOn pos hmaps hinj
+  rw [Finset.card_range] at hcard
+  omega
+
 /-- An ordered primitive odd cycle with `m ≥ 2`, together with its exponent window: C006's
 domain (order of the normalised successor is the hypothesis `hord`). -/
 structure OrdCycle (m : ℕ) where
@@ -3344,6 +3443,76 @@ theorem run_bound_L {r₀ t : ℕ} (hr₀ : r₀ < m) (hrun : ∀ k, k < t → �
     (2 : ℤ) ^ t < 2 ^ Ω.Γ.B * Ω.Γ.n 0 := by
   obtain ⟨h1, h2⟩ := Ω.run_bound hr₀ hrun
   exact lt_of_le_of_lt h1 h2
+
+/-! #### The forced positions along the orbit, `J`, and (G1)'s first inequality -/
+
+theorem orb_zero_eq_rank (k : ℕ) : Ω.orb 0 k = Ω.N.rank k := by
+  unfold orb
+  rw [Ω.N.rank_formula Ω.numHigh_lt k, Ω.N_rank_zero]
+
+theorem orb_orb (a j : ℕ) : Ω.orb (Ω.orb 0 a) j = Ω.orb 0 (a + j) := by
+  unfold orb
+  rw [Nat.zero_add, Nat.zero_add, Nat.mod_add_mod, Nat.add_mul]
+
+theorem orb_mod (k : ℕ) : Ω.orb 0 (k % m) = Ω.orb 0 k := by
+  unfold orb
+  rw [Nat.zero_add, Nat.zero_add, Nat.mul_mod, Nat.mod_mod, ← Nat.mul_mod]
+
+/-- The `k`-th rank of the orbit of rank `0` is a forced position: `T ≠ 0` there. -/
+noncomputable def forcedAt (k : ℕ) : Prop := Ω.T (Ω.orb 0 k) ≠ 0
+
+noncomputable instance decForcedAt (k : ℕ) : Decidable (Ω.forcedAt k) :=
+  inferInstanceAs (Decidable (Ω.T (Ω.orb 0 k) ≠ 0))
+
+/-- C006's `J`, the number of forced positions (`T_j ≠ 0`), counted along the orbit. -/
+noncomputable def J : ℕ := ((Finset.range m).filter Ω.forcedAt).card
+
+/-- `J` counts the ranks with `T_r ≠ 0`, as in the prose (the orbit visits every rank once). -/
+theorem J_eq : Ω.J = ((Finset.range m).filter (fun r => Ω.T r ≠ 0)).card := by
+  unfold J
+  apply Finset.card_bij (fun k _ => Ω.orb 0 k)
+  · intro k hk
+    rw [Finset.mem_filter] at hk ⊢
+    exact ⟨Finset.mem_range.mpr (Ω.orb_lt 0 k), hk.2⟩
+  · intro k hk k' hk' h
+    rw [Ω.orb_zero_eq_rank, Ω.orb_zero_eq_rank] at h
+    exact Ω.N.rank_inj Ω.N_prim (Finset.mem_range.mp (Finset.mem_filter.mp hk).1)
+      (Finset.mem_range.mp (Finset.mem_filter.mp hk').1) h
+  · intro r hr
+    rw [Finset.mem_filter] at hr
+    obtain ⟨k, hk, hrk⟩ := Ω.N.exists_rank_eq Ω.N_prim (Finset.mem_range.mp hr.1)
+    refine ⟨k, Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hk, ?_⟩, ?_⟩
+    · show Ω.T (Ω.orb 0 k) ≠ 0
+      rw [Ω.orb_zero_eq_rank, hrk]
+      exact hr.2
+    · rw [Ω.orb_zero_eq_rank, hrk]
+
+/-- The seam makes `J ≥ 1`. -/
+theorem J_pos : 0 < Ω.J := by
+  rw [Ω.J_eq]
+  apply Finset.card_pos.mpr
+  refine ⟨m - 1, Finset.mem_filter.mpr ⟨Finset.mem_range.mpr ?_, ?_⟩⟩
+  · have := Ω.Γ.hm
+    omega
+  · exact ne_of_gt Ω.T_seam_pos
+
+/-- Some rank `r₀` starts a zero-forcing run of length `⌊(m−1)/J⌋ = ⌈m/J⌉ − 1`. -/
+theorem exists_zero_run :
+    ∃ r₀, r₀ < m ∧ ∀ j, j < (m - 1) / Ω.J → Ω.T (Ω.orb r₀ j) = 0 := by
+  obtain ⟨k₀, _, _, hrun⟩ := exists_run Ω.Γ.hm Ω.forcedAt Ω.J_pos
+  refine ⟨Ω.orb 0 (k₀ + 1), Ω.orb_lt _ _, ?_⟩
+  intro j hj
+  have h := hrun j hj
+  unfold forcedAt at h
+  rw [Ω.orb_mod] at h
+  rw [Ω.orb_orb]
+  exact not_ne_iff.mp h
+
+/-- **C006's (G1), first inequality:** `L > 2^{⌈m/J⌉ − 1 − B}`, in the cleared form
+`2^{⌊(m−1)/J⌋} < 2^B L`. -/
+theorem G1_first : (2 : ℤ) ^ ((m - 1) / Ω.J) < 2 ^ Ω.Γ.B * Ω.Γ.n 0 := by
+  obtain ⟨r₀, hr₀, hrun⟩ := Ω.exists_zero_run
+  exact Ω.run_bound_L hr₀ hrun
 
 end OrdCycle
 
