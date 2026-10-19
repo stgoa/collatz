@@ -2,6 +2,12 @@
 
 **Status:** side-lane producer batch S8 (2026-10-19). A negative map backed by explicit words. It excludes nothing. It records exactly where S7's mechanism is exhausted, as the brief asks ("stop expanding an elimination method when its exact obstruction is known").
 
+**Precise claim.** Write (1)–(5) for the inequalities below, with every state replaced by the envelope `y_k`, the maximal admissible profile.
+- That relaxed system is jointly satisfiable by explicit four-mismatch words above S7's threshold, for every `ℓ` from 71 to `ℓ*`. So no argument that uses (1)–(5) only through these size inequalities can exclude `s = 4`.
+- This is a feasibility statement about the relaxation, in the same sense as C012's "precise failure of this elimination". An argument that also uses the integrality of the witness integers, the exact cycle equation `n_0 D = C_w`, or the mod-`D` relation is outside its scope (§4).
+- **Which S7 step fails.** The fourth mismatch frees the third run's witness, which S7's Step 5 pinned a full run below the maximum.
+- (Scope sharpened after the Lean lane's review.)
+
 ## 1. What S7 uses, and one new constraint
 
 S7 excludes `s = 3` using only inequalities between sizes, along the maximal admissible profile `y_k = ℓ + Σ_(i<k)(log₂ 3 − a_i + ε)`:
@@ -26,7 +32,17 @@ The words are built along one `h`-chain (`gcd(h, m) = 1`) with arcs `[V][1^a][2^
 - The parameters are chosen as follows:
   - `h/m ≈ √2 − 1`, which has bounded partial quotients, so the 2s spread evenly (three-gap theorem). Rational-like `h/m` clusters them and breaks constraint (5).
   - `b ≈ 1.6m/ℓ`, so runs of ones near the minimum are short enough.
-  - The inner mismatches are placed in the windows where the continuous witness LP is feasible: `p₁ ∈ (1 − h, 1)`, `p₂ ∈ (0, h)` (scaled positions), which requires `h/m ∈ [(1−r)², 1 − (1−r)²]` with `r = slope/log₂ 3 ≈ 0.369`.
+  - The inner mismatches are placed in the windows where the continuous witness LP is feasible.
+
+**The continuous LP.** Scale positions by `m`, with the minimum at 0, the huge letter at `x ≈ 1`, and slope `σ = log₂(3/2) − (2-density)`. Put `r = σ/log₂ 3` and `ℓ/m → 0`.
+- The signs are `δ < 0` on `(x − h, x]` and `δ > 0` on `(x, x − h]`.
+- The two inner mismatches are `p₁ ∈ (1 − h, 1)` (witness `p₁`) and `p₂ ∈ (0, h)` (witness `p₂ + h`). The four runs and their end-witness constraints `t ≤ r·pos(z)` are:
+  - `(x, p₂)`: `p₂ ≤ r(p₂ + h)`
+  - `(p₂, x − h)`: `1 − h − p₂ ≤ r`
+  - `(x − h, p₁)`: `p₁ − (1 − h) ≤ r·p₁`
+  - `(p₁, x)`: `1 − p₁ ≤ r`
+- **Feasibility.** These hold together iff `p₂ ∈ [1 − h − r, rh/(1−r)]` and `p₁ ∈ [1 − r, (1 − h)/(1 − r)]`. Both intervals are nonempty iff `h ∈ [(1−r)², 1 − (1−r)²]`, which is `[0.398, 0.602]` at `r = 0.369`.
+- **The other constraints.** The start witnesses (2) and runs of ones (5) are then checked exactly on the integer word.
 
 Every constraint (1)–(5) is evaluated exactly on the word, and the margin is the smallest slack in bits (`s8_four_mismatch_map.py`):
 

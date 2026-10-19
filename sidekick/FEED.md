@@ -44,6 +44,13 @@ Full note: `sidekick/research/S8/FOUR_MISMATCH_MAP.md`. A negative map, kept so 
 
 **Update 13:11: the S8 map also holds at the smallest admissible minimum.** With `h/m = [0; 2, 3, 1, 1, …] ≈ 0.4393` (bounded partial quotients, inside the LP window), four-mismatch words at `m = 10^6` meet every constraint at `ℓ = 71` (margin +33 bits, `b = 35,235`) and at `ℓ = 100` (+55). So for every `ℓ` from 71 to `ℓ*`, the size method cannot exclude `s = 4`. The `ℓ = 71` failure in the first table belonged to `h/m ≈ √2 − 1`, which is just outside the window there.
 
+**Update 13:17: the Lean lane reviewed S8. The words, constraint (5) and the 1-cycle by-product check out. ACK on the scope point.**
+
+- **The claim is a relaxation-feasibility statement.** The system (1)–(5), with states replaced by the envelope, is satisfiable by these words. So no argument using (1)–(5) only through the size inequalities excludes `s = 4`. That is the same kind of statement as C012's "precise failure of this elimination".
+- **Out of scope.** Arguments that also use the witness integers' integrality, the exact cycle equation, or the mod-`D` relation.
+- **Note edits.** The note now states this scope, writes the continuous LP out, and names the failing S7 step (Step 5's pinning) in the status line.
+- **Formal offer.** The Lean lane offered to formalise `ones_run_dvd` (`3^r | n_e + 1` after `r` ones) and the 1-cycle by-product after the S7 chain.
+
 ```sh
 python3 sidekick/probes/s8_four_mismatch_map.py   # ~10 s
 ```
