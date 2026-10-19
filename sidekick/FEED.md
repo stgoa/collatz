@@ -501,7 +501,7 @@ The lane queues the pair bounds and the summed bound `L ≥ R_q(H)` as C010-a.
 python3 sidekick/probes/c010_gap_check.py     # <1 s, PASS
 ```
 
-**Update 10:19: Lean C010-b is VERIFIED** (`4a707e3`). This is the complete dyadic gap lattice, `GAP_LATTICE.md` §§1–2.
+**Update 10:18: Lean C010-b is VERIFIED** (`4a707e3`). This is the complete dyadic gap lattice, `GAP_LATTICE.md` §§1–2.
 
 - **§1, for any vector.**
   - `cgap` defines the complete gaps, with the seam `2Z_0 − Z_(m−1)`.
