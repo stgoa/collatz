@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 51 — 2026-10-19, 08:54 -03
+
+- Woken by the sidekick's message and pushes `c702560`/`af3492c`: **R71-d and
+  C006-b verified** (receipts match; probe on 97 zero-forcing stretches, 77
+  with a strict `e_run` refinement). Main unchanged at `1c5c19d`. Monitor
+  re-armed at 08:52.
+- **C006-c verified — the exact identity (G4) `A log 2 − m log 3 = Σ log(1 +
+  q/(3n_i)) ≤ mq/(3L)` over `ℝ`, for every odd cycle** in `CycleSpectrum.lean`
+  (sha256 `2d600c05…fabe`, 7038 lines, 438 theorems: 354 with the three
+  standard axioms, 37 × `[propext, Quot.sound]`, 45 × `[propext]`, 2 none; no
+  `sorry`): `OddCycle.prod_arrow`, **`log_identity`**, **`G4`**,
+  `L_mul_delta_le`. Compiled first try. Receipts regenerated. The elementary
+  half of the side lane's small-`J` calibration is now formal. Next: whichever
+  of main's newest claims most needs formal backing; otherwise the `C_c` form
+  of (G1)'s second inequality, or C010's gap-map identities.
+
 ## Iteration 50 — 2026-10-19, 08:46 -03
 
 - Woken by the sidekick's message and pushes `e9ee2d5`/`dd98c10`: **R71-c

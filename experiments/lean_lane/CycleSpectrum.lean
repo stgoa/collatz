@@ -5809,6 +5809,109 @@ theorem den_mech_gt_one {A k l : ℕ} (hk3 : 3 ≤ k) (hl : l < k) (hpos : 3 ^ k
   · have hne := mech_D_ne_one h2 (A / g) hAm
     omega
 
+/-! ### C006-c: the exact logarithmic identity (G4)
+
+C006 (ORDER_RIGIDITY.md, proof of the elementary part): "Multiplying the original odd-cycle
+arrows gives the exact identity `δ = Σ_i log(1 + q/(3n_i)) ≤ mq/(3L)` (G4)", with
+`δ = A log 2 − m log 3`. It is the elementary half of the side lane's small-`J` calibration
+(feed 08:22), `L ≤ mq/(3δ)`. Here, for every `OddCycle` (any `q`): the product identity
+`2^A Π n_i = Π (3n_i + q)` (`prod_arrow`), its logarithm (`log_identity`), the bound (`G4`, via
+`log(1 + x) ≤ x` and `n_i ≥ L`), and the cleared `3 L δ ≤ m q` (`L_mul_delta_le`). -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- The arrows multiplied around the cycle: `2^A Π n_i = Π (3 n_i + q)`. -/
+theorem prod_arrow :
+    (2 : ℤ) ^ Γ.Apre m * ∏ i ∈ Finset.range m, Γ.n i =
+      ∏ i ∈ Finset.range m, (3 * Γ.n i + Γ.q) := by
+  have h1 : ∏ i ∈ Finset.range m, ((2 : ℤ) ^ Γ.a i * Γ.n (i + 1)) =
+      ∏ i ∈ Finset.range m, (3 * Γ.n i + Γ.q) :=
+    Finset.prod_congr rfl (fun i _ => Γ.arrow i)
+  rw [Finset.prod_mul_distrib, Finset.prod_pow_eq_pow_sum] at h1
+  have h2 : ∏ i ∈ Finset.range m, Γ.n (i + 1) = ∏ i ∈ Finset.range m, Γ.n i := by
+    have h3 := Finset.prod_range_succ' Γ.n m
+    have h4 := Finset.prod_range_succ Γ.n m
+    have h5 : Γ.n m = Γ.n 0 := by
+      have := Γ.nper 0
+      rwa [Nat.zero_add] at this
+    rw [h5] at h4
+    exact mul_right_cancel₀ Γ.npos.ne' (h3.symm.trans h4)
+  rw [h2] at h1
+  unfold Apre
+  exact h1
+
+/-- (G4), the identity: `A log 2 − m log 3 = Σ_{i<m} log(1 + q/(3 n_i))`. -/
+theorem log_identity :
+    (Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3 =
+      ∑ i ∈ Finset.range m, Real.log (1 + (Γ.q : ℝ) / (3 * Γ.n i)) := by
+  have hpos : ∀ i, (0 : ℝ) < Γ.n i := fun i => by exact_mod_cast Γ.npos.trans_le (Γ.nmin i)
+  have hq : (0 : ℝ) < Γ.q := by exact_mod_cast Γ.hq
+  have hprod : (2 : ℝ) ^ Γ.Apre m * ∏ i ∈ Finset.range m, (Γ.n i : ℝ) =
+      ∏ i ∈ Finset.range m, (3 * (Γ.n i : ℝ) + Γ.q) := by exact_mod_cast Γ.prod_arrow
+  have hP : (0 : ℝ) < ∏ i ∈ Finset.range m, (Γ.n i : ℝ) := Finset.prod_pos (fun i _ => hpos i)
+  have hne1 : ∀ i ∈ Finset.range m, (Γ.n i : ℝ) ≠ 0 := fun i _ => (hpos i).ne'
+  have hne2 : ∀ i ∈ Finset.range m, (3 * (Γ.n i : ℝ) + Γ.q) ≠ 0 := fun i _ => by
+    have := hpos i
+    exact ne_of_gt (by linarith)
+  have hlog := congrArg Real.log hprod
+  rw [Real.log_mul (by positivity : (2 : ℝ) ^ Γ.Apre m ≠ 0) hP.ne', Real.log_pow,
+    Real.log_prod hne1, Real.log_prod hne2] at hlog
+  have hterm : ∀ i ∈ Finset.range m, Real.log (1 + (Γ.q : ℝ) / (3 * Γ.n i)) =
+      Real.log (3 * (Γ.n i : ℝ) + Γ.q) - Real.log (Γ.n i) - Real.log 3 := by
+    intro i _
+    have hn := hpos i
+    have hn' : (3 * (Γ.n i : ℝ)) ≠ 0 := mul_ne_zero (by norm_num) hn.ne'
+    have hx : (0 : ℝ) < 3 * Γ.n i + Γ.q := by linarith
+    rw [one_add_div hn', Real.log_div (ne_of_gt hx) hn',
+      Real.log_mul (by norm_num : (3 : ℝ) ≠ 0) hn.ne']
+    ring
+  rw [Finset.sum_congr rfl hterm, Finset.sum_sub_distrib, Finset.sum_sub_distrib,
+    Finset.sum_const, Finset.card_range, nsmul_eq_mul]
+  linarith
+
+/-- **(G4)**: `A log 2 − m log 3 ≤ m q/(3 L)` with `L = n_0`, from `log(1 + x) ≤ x` and
+`n_i ≥ L`. -/
+theorem G4 : (Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3 ≤
+    (m : ℝ) * (Γ.q : ℝ) / (3 * (Γ.n 0 : ℝ)) := by
+  rw [Γ.log_identity]
+  have hpos : ∀ i, (0 : ℝ) < Γ.n i := fun i => by exact_mod_cast Γ.npos.trans_le (Γ.nmin i)
+  have hq : (0 : ℝ) < Γ.q := by exact_mod_cast Γ.hq
+  have hn0 : (0 : ℝ) < Γ.n 0 := hpos 0
+  have h30 : (0 : ℝ) < 3 * Γ.n 0 := by linarith
+  have hterm : ∀ i ∈ Finset.range m,
+      Real.log (1 + (Γ.q : ℝ) / (3 * Γ.n i)) ≤ (Γ.q : ℝ) / (3 * Γ.n 0) := by
+    intro i _
+    have hn := hpos i
+    have h3n : (0 : ℝ) < 3 * Γ.n i := by linarith
+    have hle : (Γ.n 0 : ℝ) ≤ Γ.n i := by exact_mod_cast Γ.nmin i
+    have hx : (0 : ℝ) < 1 + Γ.q / (3 * Γ.n i) := by
+      have := div_pos hq h3n
+      linarith
+    calc Real.log (1 + (Γ.q : ℝ) / (3 * Γ.n i)) ≤ (1 + (Γ.q : ℝ) / (3 * Γ.n i)) - 1 :=
+          Real.log_le_sub_one_of_pos hx
+      _ = Γ.q / (3 * Γ.n i) := by ring
+      _ ≤ Γ.q / (3 * Γ.n 0) := div_le_div_of_nonneg_left hq.le h30 (by linarith)
+  calc ∑ i ∈ Finset.range m, Real.log (1 + (Γ.q : ℝ) / (3 * Γ.n i))
+      ≤ ∑ _i ∈ Finset.range m, (Γ.q : ℝ) / (3 * Γ.n 0) := Finset.sum_le_sum hterm
+    _ = (m : ℝ) * (Γ.q : ℝ) / (3 * (Γ.n 0 : ℝ)) := by
+      rw [Finset.sum_const, Finset.card_range, nsmul_eq_mul]
+      ring
+
+/-- The cleared form `3 L δ ≤ m q` (the side lane's `L ≤ mq/(3δ)` when `δ > 0`). -/
+theorem L_mul_delta_le :
+    3 * (Γ.n 0 : ℝ) * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) ≤ (m : ℝ) * Γ.q := by
+  have h := Γ.G4
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have h30 : (0 : ℝ) < 3 * Γ.n 0 := by linarith
+  calc 3 * (Γ.n 0 : ℝ) * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)
+      ≤ 3 * (Γ.n 0 : ℝ) * ((m : ℝ) * (Γ.q : ℝ) / (3 * (Γ.n 0 : ℝ))) :=
+        mul_le_mul_of_nonneg_left h h30.le
+    _ = (m : ℝ) * Γ.q := by rw [← mul_div_assoc, mul_div_cancel_left₀ _ h30.ne']
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
