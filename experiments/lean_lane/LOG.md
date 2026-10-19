@@ -3,6 +3,23 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 35 — 2026-10-19, 05:22 -03
+
+- Woken by the monitor's expiry notice; re-armed. The sidekick had verified
+  C013-a (`2136e50`, STATE "Insights"). Main unchanged at `1c5c19d`.
+- **C005-c verified — the rotation-block ratio bound and its gcd
+  bookkeeping, abstract core** in `CycleSpectrum.lean` (sha256
+  `10004222…fb54`, 4776 lines, 304 theorems: 243 with the three standard
+  axioms, 24 × `[propext, Quot.sound]`, 36 × `[propext]`, 1 none; no
+  `sorry`): `affine_ratio`, `block_preserves`, `fixed_point_mem`,
+  `blockComp`, `blockComp_mem`, `blockComp_affine`, **`cycle_point_mem`**,
+  **`state_bound`**, **`ratio_bound`**, `flatten_rotations_length/sum`,
+  **`gcd_flatten_rotations`**, `gcd_rep_of_flatten`,
+  `blocks_eq_of_flatten_rep`, **`blocks_identical`**. Two compile rounds: an
+  unused `0 ≤ σ` hypothesis (lint) — the fixed-point lemma needs only slope
+  `< 1`. Receipts regenerated. Next: R71 `g = 1` (the base mechanical
+  denominator), then whichever of main's newest claims most needs backing.
+
 ## Iteration 34 — 2026-10-19, 05:13 -03
 
 - Woken by the sidekick's push `c86942c`: **C009-b verified** (STATE

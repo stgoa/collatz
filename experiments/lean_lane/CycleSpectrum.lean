@@ -4052,6 +4052,194 @@ theorem run_factor {E t : ℕ} {zs ze : ℤ} (h : (2 : ℤ) ^ E * ze = 3 ^ t * z
   · rw [hk', hk]; ring
   · rw [hze, hk]; ring
 
+/-! ### C005: the rotation-block ratio bound `H/L ≤ R³` and its gcd bookkeeping
+
+C005 (`ORDER_THEORY.md` §2, rotation-block theorem): concatenating `r` cyclic rotations of a
+primitive mechanical word `v` (coprime totals, rational states in `[l, h]`, `R = h/l < 2` by
+C004 — `C_mech_lt_two`) gives a rational cycle all of whose states lie in `[l/R, R h]`, hence
+`H/L ≤ R³ < 8`; and if its reduced denominator were `1`, the three-band corollary (`three_band`)
+would force the primitive cycle word to have coprime totals, which by the gcd bookkeeping forces
+every aligned block to be the same rotation, i.e. the base mechanical cycle (whose denominator is
+`D_0` by R71, not formalised). Below: the affine comparison, the interval and fixed-point lemmas
+behind `[l/R, R h]`, the ratio bound, and the bookkeeping, all stated abstractly. -/
+
+/-- C005's prefix comparison: for `g(x) = αx + β` with `α > 0`, `β ≥ 0`, and `X/R ≤ x ≤ R X`
+(`R ≥ 1`), `g(X)/R ≤ g(x) ≤ R g(X)` — the prose's `min(1, x/X) ≤ g(x)/g(X) ≤ max(1, x/X)`. -/
+theorem affine_ratio {α β x X R : ℚ} (hα : 0 < α) (hβ : 0 ≤ β) (hR : 1 ≤ R)
+    (hlo : X ≤ R * x) (hhi : x ≤ R * X) :
+    α * X + β ≤ R * (α * x + β) ∧ α * x + β ≤ R * (α * X + β) := by
+  have h1 := mul_le_mul_of_nonneg_left hlo hα.le
+  have h2 := mul_le_mul_of_nonneg_left hhi hα.le
+  have h3 := mul_le_mul_of_nonneg_left hR hβ
+  constructor <;> nlinarith
+
+/-- A block map `x ↦ s x + (1 − s) X` with `0 ≤ s ≤ 1` and `X ∈ [l, h]` preserves `[l, h]`. -/
+theorem block_preserves {s X l h x : ℚ} (hs0 : 0 ≤ s) (hs1 : s ≤ 1) (hXl : l ≤ X) (hXh : X ≤ h)
+    (hxl : l ≤ x) (hxh : x ≤ h) : l ≤ s * x + (1 - s) * X ∧ s * x + (1 - s) * X ≤ h := by
+  constructor <;> nlinarith
+
+/-- The fixed point of an affine map `x ↦ σ x + τ` with `σ < 1` that maps `[l, h]` into itself
+lies in `[l, h]`. -/
+theorem fixed_point_mem {σ τ l h x : ℚ} (hσ1 : σ < 1) (hl : l ≤ σ * l + τ)
+    (hh : σ * h + τ ≤ h) (hx : σ * x + τ = x) : l ≤ x ∧ x ≤ h := by
+  constructor <;> nlinarith
+
+/-- The composition of block maps with common slope `s` and fixed points `t 0, t 1, …`:
+`blockComp s t 0 x = x`, `blockComp s t (i+1) x = s · blockComp s t i x + (1 − s) t i`. -/
+def blockComp (s : ℚ) (t : ℕ → ℚ) : ℕ → ℚ → ℚ
+  | 0, x => x
+  | i + 1, x => s * blockComp s t i x + (1 - s) * t i
+
+/-- Boundary points stay in `[l, h]` when the block fixed points do. -/
+theorem blockComp_mem {s l h : ℚ} {t : ℕ → ℚ} (hs0 : 0 ≤ s) (hs1 : s ≤ 1)
+    (ht : ∀ i, l ≤ t i ∧ t i ≤ h) {x : ℚ} (hxl : l ≤ x) (hxh : x ≤ h) (i : ℕ) :
+    l ≤ blockComp s t i x ∧ blockComp s t i x ≤ h := by
+  induction i with
+  | zero => exact ⟨hxl, hxh⟩
+  | succ i ih =>
+    simp only [blockComp]
+    exact block_preserves hs0 hs1 (ht i).1 (ht i).2 ih.1 ih.2
+
+/-- The composition is affine with slope `s^i`: `blockComp s t i x = s^i x + blockComp s t i 0`. -/
+theorem blockComp_affine (s : ℚ) (t : ℕ → ℚ) (i : ℕ) (x : ℚ) :
+    blockComp s t i x = s ^ i * x + blockComp s t i 0 := by
+  induction i with
+  | zero => simp [blockComp]
+  | succ i ih =>
+    simp only [blockComp]
+    rw [ih]
+    ring
+
+/-- The closing point of a mixed cycle of `r ≥ 1` blocks (slope `0 < s < 1`, fixed points in
+`[l, h]`) lies in `[l, h]`: C005's "the unique positive fixed point of their composition, and all
+successive block boundary points, lie in `[l, h]`". -/
+theorem cycle_point_mem {s l h : ℚ} {t : ℕ → ℚ} (hs0 : 0 < s) (hs1 : s < 1)
+    (ht : ∀ i, l ≤ t i ∧ t i ≤ h) (hlh : l ≤ h) {r : ℕ} (hr : 1 ≤ r) {x : ℚ}
+    (hx : blockComp s t r x = x) : l ≤ x ∧ x ≤ h := by
+  have hσ1 : s ^ r < 1 := pow_lt_one₀ hs0.le hs1 (by omega)
+  have hl := (blockComp_mem hs0.le hs1.le ht (le_refl l) hlh r).1
+  have hh := (blockComp_mem hs0.le hs1.le ht hlh (le_refl h) r).2
+  rw [blockComp_affine] at hl hh hx
+  exact fixed_point_mem hσ1 hl hh hx
+
+/-- Every mixed-cycle state lies in `[l/R, R h]`, `R = h/l`: a prefix map `g(x) = αx + β`
+(`α > 0`, `β ≥ 0`) applied to a boundary point `x ∈ [l, h]`, when the block fixed point `X` and
+the base prefix state `g(X)` lie in `[l, h]`, satisfies `l²/h ≤ g(x) ≤ h²/l` (cleared form). -/
+theorem state_bound {α β x X l h : ℚ} (hα : 0 < α) (hβ : 0 ≤ β) (hl : 0 < l) (hlh : l ≤ h)
+    (hxl : l ≤ x) (hxh : x ≤ h) (hXl : l ≤ X) (hXh : X ≤ h)
+    (hgl : l ≤ α * X + β) (hgh : α * X + β ≤ h) :
+    l * l ≤ h * (α * x + β) ∧ l * (α * x + β) ≤ h * h := by
+  have hl0 : l ≠ 0 := hl.ne'
+  have hR : 1 ≤ h / l := (one_le_div hl).mpr hlh
+  have hR0 : 0 ≤ h / l := div_nonneg (hl.le.trans hlh) hl.le
+  have hRl : h / l * l = h := by field_simp
+  have hlR : l * (h / l) = h := by field_simp
+  have hlo : X ≤ h / l * x := by
+    have := mul_le_mul_of_nonneg_left hxl hR0
+    rw [hRl] at this
+    exact hXh.trans this
+  have hhi : x ≤ h / l * X := by
+    have := mul_le_mul_of_nonneg_left hXl hR0
+    rw [hRl] at this
+    exact hxh.trans this
+  obtain ⟨h1, h2⟩ := affine_ratio hα hβ hR hlo hhi
+  have e1 : l * (α * X + β) ≤ h * (α * x + β) := by
+    calc l * (α * X + β) ≤ l * (h / l * (α * x + β)) := mul_le_mul_of_nonneg_left h1 hl.le
+      _ = (l * (h / l)) * (α * x + β) := by ring
+      _ = h * (α * x + β) := by rw [hlR]
+  have e2 : l * (α * x + β) ≤ h * (α * X + β) := by
+    calc l * (α * x + β) ≤ l * (h / l * (α * X + β)) := mul_le_mul_of_nonneg_left h2 hl.le
+      _ = (l * (h / l)) * (α * X + β) := by ring
+      _ = h * (α * X + β) := by rw [hlR]
+  constructor
+  · have := mul_le_mul_of_nonneg_left hgl hl.le
+    linarith
+  · have := mul_le_mul_of_nonneg_left hgh (hl.le.trans hlh)
+    linarith
+
+/-- Hence the largest-to-smallest state ratio is at most `R³ = (h/l)³`: for states `y₁, y₂` with
+`y₁ ≤ h²/l` and `l²/h ≤ y₂` (cleared), `y₁ l³ ≤ y₂ h³` (C005's `H/L ≤ R³`). -/
+theorem ratio_bound {y₁ y₂ l h : ℚ} (hl : 0 < l) (hlh : l ≤ h)
+    (h₁ : l * y₁ ≤ h * h) (h₂ : l * l ≤ h * y₂) : y₁ * l ^ 3 ≤ y₂ * h ^ 3 := by
+  have hh : 0 < h := hl.trans_le hlh
+  have := mul_le_mul h₁ h₂ (by positivity) (by positivity)
+  linarith
+
+/-- Concatenating rotations of `v` (any order, repetitions allowed): the length. -/
+theorem flatten_rotations_length (v : List ℕ) (blocks : List (List ℕ))
+    (hb : ∀ b ∈ blocks, ∃ i, b = v.rotate i) :
+    blocks.flatten.length = blocks.length * v.length := by
+  induction blocks with
+  | nil => simp
+  | cons b bs ih =>
+    obtain ⟨i, hi⟩ := hb b (List.mem_cons_self ..)
+    rw [List.flatten_cons, List.length_append, ih (fun c hc => hb c (List.mem_cons_of_mem _ hc)),
+      hi, List.length_rotate, List.length_cons]
+    ring
+
+/-- Concatenating rotations of `v`: the total. -/
+theorem flatten_rotations_sum (v : List ℕ) (blocks : List (List ℕ))
+    (hb : ∀ b ∈ blocks, ∃ i, b = v.rotate i) : blocks.flatten.sum = blocks.length * v.sum := by
+  induction blocks with
+  | nil => simp
+  | cons b bs ih =>
+    obtain ⟨i, hi⟩ := hb b (List.mem_cons_self ..)
+    rw [List.flatten_cons, List.sum_append, ih (fun c hc => hb c (List.mem_cons_of_mem _ hc)),
+      hi, (List.rotate_perm v i).sum_eq, List.length_cons]
+    ring
+
+/-- The gcd of the totals of a concatenation of `r` rotations of a word with coprime totals is
+`r` (C005: "the displayed word has totals `(rA_0, rm_0)`, whose gcd is `r`"). -/
+theorem gcd_flatten_rotations (v : List ℕ) (hcop : Nat.Coprime v.sum v.length)
+    (blocks : List (List ℕ)) (hb : ∀ b ∈ blocks, ∃ i, b = v.rotate i) :
+    Nat.gcd blocks.flatten.sum blocks.flatten.length = blocks.length := by
+  rw [flatten_rotations_sum v blocks hb, flatten_rotations_length v blocks hb, Nat.gcd_mul_left,
+    hcop.gcd_eq_one, mul_one]
+
+/-- If that concatenation is `p` repetitions of a word `z`, then `gcd(Σz, |z|) · p = r`
+(C005: "`p ∣ r` and the primitive word's total/length gcd is `r/p`"). -/
+theorem gcd_rep_of_flatten (v : List ℕ) (hcop : Nat.Coprime v.sum v.length)
+    (blocks : List (List ℕ)) (hb : ∀ b ∈ blocks, ∃ i, b = v.rotate i) (z : List ℕ) (p : ℕ)
+    (hw : blocks.flatten = rep z p) : Nat.gcd z.sum z.length * p = blocks.length := by
+  have h := gcd_flatten_rotations v hcop blocks hb
+  rw [hw, rep_sum, rep_length, Nat.gcd_mul_left] at h
+  rw [mul_comm]
+  exact h
+
+/-- If a concatenation of blocks of length `|z|` equals `z^r` with `r` the number of blocks, every
+block is `z` (C005: "every aligned rotation block of `w` is identical"). -/
+theorem blocks_eq_of_flatten_rep (z : List ℕ) : ∀ (blocks : List (List ℕ)),
+    (∀ b ∈ blocks, b.length = z.length) → blocks.flatten = rep z blocks.length →
+      ∀ b ∈ blocks, b = z
+  | [], _, _, _, hb => nomatch hb
+  | b :: bs, hlen, h, c, hc => by
+    rw [List.flatten_cons, List.length_cons, rep] at h
+    obtain ⟨h1, h2⟩ := List.append_inj h (hlen b (List.mem_cons_self ..))
+    rcases List.mem_cons.mp hc with rfl | hc'
+    · exact h1
+    · exact blocks_eq_of_flatten_rep z bs (fun d hd => hlen d (List.mem_cons_of_mem _ hd)) h2
+        c hc'
+
+/-- C005's bookkeeping conclusion: if the concatenation of `r ≥ 1` rotations of `v` (coprime
+totals) is `p` repetitions of a word `z` with coprime totals (the three-band output at `q = 1`),
+then `p = r`, `|z| = |v|` and every block equals `z`. -/
+theorem blocks_identical (v : List ℕ) (hcop : Nat.Coprime v.sum v.length)
+    (blocks : List (List ℕ)) (hb : ∀ b ∈ blocks, ∃ i, b = v.rotate i) (hr : 0 < blocks.length)
+    (z : List ℕ) (p : ℕ) (hw : blocks.flatten = rep z p) (hz : Nat.Coprime z.sum z.length) :
+    p = blocks.length ∧ z.length = v.length ∧ ∀ b ∈ blocks, b = z := by
+  have hp := gcd_rep_of_flatten v hcop blocks hb z p hw
+  rw [hz.gcd_eq_one, one_mul] at hp
+  have hlen : blocks.flatten.length = blocks.length * v.length :=
+    flatten_rotations_length v blocks hb
+  rw [hw, rep_length, hp] at hlen
+  have hzl : z.length = v.length := Nat.eq_of_mul_eq_mul_left hr hlen
+  refine ⟨hp, hzl, ?_⟩
+  apply blocks_eq_of_flatten_rep z blocks
+  · intro b hb'
+    obtain ⟨i, hi⟩ := hb b hb'
+    rw [hi, List.length_rotate, hzl]
+  · rw [hw, hp]
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
