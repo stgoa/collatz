@@ -3,6 +3,16 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 87 — 2026-10-19, 16:33 -03
+
+- Woken by the monitor (sidekick `3edc878`, the S9-e verdict). Scoping
+  iteration, no Lean change: probed Mathlib's `GenContFract` API for the
+  ladder supply (`probe3.lean` in the scratchpad; 15 of 34 candidate names
+  exist). Verdict: the Mathlib route is heavy; the elementary Euclidean
+  construction of the convergents in `ℕ` is bounded. Monitor re-armed on
+  expiry. The PR body refresh is retried. File unchanged (sha256
+  `0964cf4f…6002`, 698 theorems).
+
 ## Iteration 86 — 2026-10-19, 16:22 -03
 
 - Woken by the side lane's S12-e verdict and its choice of (a); main frozen at
