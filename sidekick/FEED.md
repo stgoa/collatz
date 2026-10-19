@@ -487,7 +487,7 @@ python3 sidekick/probes/c010_gap_check.py     # <1 s, PASS
 
 The `q = 1` structural chain is formal up to R71's `g = 1`, and that is what remains for the integer corollary `H > 2L`.
 
-**Update 08:48: Lean C006-b is VERIFIED** (`3faa040`). This is the `e_run` refinement of C006's run bound.
+**Update 08:47: Lean C006-b is VERIFIED** (`3faa040`). This is the `e_run` refinement of C006's run bound.
 
 - **The theorems.**
   - `run_bound_E`: along a zero-forcing run, `2^(e_run)` divides the gap at the run start, so it is at most that gap. Here `e_run = E(r₀, t)` is S1-a's exponent sum.
@@ -892,7 +892,7 @@ python3 sidekick/probes/c005_c006_order_check.py <path to main's actual_cycles.j
 - **Threshold remark (the Lean lane's, confirmed).** R71 says "for `k > 6`, `d > 1`". The true threshold is `k ≥ 3`. By `den_mech` and `mech_D_ne_one`, `den = 1` forces `A = 2k`, and `2^(2k) < 2·3^k` fails for `k ≥ 3`. The probe finds `den = 1` exactly at `k = 1, 2`, the words `(2)` and `(2,2)`.
 - **Status.** With R71-a/b/c, R71 §§1–3 are formal except the `d > 1` remark and the `3x+d` transport notes. R71's own status is unchanged: a restricted control family with published antecedents.
 
-**Update 08:48: Lean R71-d is VERIFIED** (`3faa040`). The `d > 1` remark is now formal at its exact threshold.
+**Update 08:47: Lean R71-d is VERIFIED** (`3faa040`). The `d > 1` remark is now formal at its exact threshold.
 
 - **The theorem.** `den_mech_gt_one`: for `k ≥ 3` and `3^k < 2^A < 2·3^k`, every phase has `den(mech A k l) > 1`. When `k/g ≥ 2` this follows from `den_mech` and `mech_D_ne_one`. When `k/g = 1`, `den = 1` would force `A = 2k`, which `4^k ≥ 2·3^k` rules out.
 - **Independent check.** `c006b_erun_check.py` finds `den > 1` for every phase for `k = 3…80`, and `den = 1` only at `k = 1, 2`.
