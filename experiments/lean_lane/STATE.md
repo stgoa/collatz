@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 13 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 14 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -36,7 +36,9 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | C001-b | The two-sided bound (7) `H/gcd(H, D_u) ∣ gcd(C_k, D_k) ∣ H` with `H = gcd(D_k, K)` and no coprimality premise; the periodicity (9): for `|K| = 2^a 3^b K₀` and any `T` with `Q^T ≡ P^T ≡ 1 (mod K₀|D_u|)`, `gcd(C_{k+T}, D_{k+T}) = gcd(C_k, D_k)` for every `k`, and the explicit period `T = φ(K₀|D_u|)` when `K₀` is coprime to 6 | same, §2 | **verified** (iteration 12): `CycleSpectrum.lean`, `LeanLane.Cyc.gcd_two_sided`, `gcd_periodic`, `gcd_periodic_totient`, `gcd_coprime_six` | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated) |
 | C001-c | The `K = 0` characterisation (needs the exact-valuation dynamics) and the perturbed mechanical family of §3 (needs R71's word bounds) | same, §§2–3 | queued | — | — |
 | C002-a | Two growing blocks (main's C002 `PROPORTIONAL.md`): identities (1)–(4) for `u^k v^ℓ`, the divisibility (5) `g ∣ |K|·gcd(G_u(k), G_v(ℓ))` with no coprimality premise, strong divisibility `gcd(U^i − V^i, U^j − V^j) = |U^gcd − V^gcd|` for coprime `U, V`, the intercept facts (`C > 0`, `C` odd, `C` injective on positive words of fixed length and total, the bound (U2) `2^m C_z ≤ 2^A(3^m − 2^m)`), and **the uniform equal-total exclusion (U1)**: for distinct positive words of the same length `m` and total `A` with `2^A > 3^m`, `k, ℓ ≥ 1`, `k + ℓ ≥ 3`, the reduced denominator of `u^k v^ℓ` exceeds `2^m · 2^A/3^m` (`2^A · 2^m · gcd(C, D) < 3^m · D`, the prose's full bound) and hence `2^m` | `experiments/cycle_spectrum/C002/PROPORTIONAL.md` §§1–2 | **verified** (iteration 13): `CycleSpectrum.lean`, `LeanLane.Cyc.commutator_two_u`, `commutator_two_v`, `gcd_dvd_K_mul_gcd`, `gcd_pow_sub_pow`, `C_injective`, `two_pow_mul_C_le`, `uniform_two_block_strong`, `uniform_two_block` | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated) |
-| C003-a | Main's C003 effective theorem (`PROPORTIONAL_UNIFORM.md`): the fixed-pair bounds (5) `den(u^k v^ℓ) > Q^k D_v/|K|` and `> S^ℓ D_u/|K|` for contracting blocks with `K ≠ 0`, and the uniform bound (6) `den > 2^M Q_*^{t_*−3}` — to be proved purely algebraically from the commutator identities (3)–(4) and `g ∣ K·G_v(ℓ)`, `g ∣ K·G_u(k)`, without the integrality of cycle states | `experiments/cycle_spectrum/C003/PROPORTIONAL_UNIFORM.md` §§2–3 | **next** | — | — |
+| C003-a | Main's C003 effective theorem (`PROPORTIONAL_UNIFORM.md`): the fixed-pair bounds (5) `den(u^k v^ℓ) > Q^k D_v/|K|` and `> S^ℓ D_u/|K|` for contracting blocks with `K ≠ 0`, `k, ℓ ≥ 1`; the intercept/fixed-point bounds (7)–(9); and the uniform bound (6) `den > 2^M Q_*^{t_*−3}` (`M = max(m_u, m_v)`, the `Q_*` block repeated `t_* ≥ 3` times, the other at least once) — proved purely algebraically from the commutator identities (3)–(4) and `g ∣ K·G_v(ℓ)`, `g ∣ K·G_u(k)`, without the integrality of cycle states | `experiments/cycle_spectrum/C003/PROPORTIONAL_UNIFORM.md` §§2–3 | **verified** (iteration 14): `CycleSpectrum.lean`, `LeanLane.Cyc.fixed_pair_bound_u`, `fixed_pair_bound_v`, `two_pow_mul_C_lt`, `F_mono`, `two_pow_mul_C_lt_M`, `K_bound`, `uniform_bound_u`, `uniform_bound_v`, `uniform_bound_max_u` (helpers `G_pos`, `gcd_dvd_K_mul_Gv`, `gcd_dvd_K_mul_Gu`, `D_two_pos`) | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 51 theorems printed) |
+| C004-a | Main's C004 (`ROTATION_LATTICE.md`): the one-letter cut identities (6) `2^{a_i} K_i = (2^{a_i} − 3) C_i − D` (this is C001's commutator identity at `k = 1`, already `LeanLane.Cyc.commutator`) and (7) `gcd(D, K_i) = g · gcd(D/g, 2^{a_i} − 3)`; the reverse narrow direction of §3: for a mechanical word with `gcd(A, m) = 1`, every phase intercept satisfies `C_0 ≤ C_l < 2 C_0`, hence `H < 2L` | `experiments/cycle_spectrum/C004/ROTATION_LATTICE.md` §§2–3 | **next** | — | — |
+| C004-b | The forward narrow-cycle theorem (sorted ranks shift by `h`, `gcd(h, m) = 1`, the word is mechanical with `A = mq + h`) and the Smith forms `diag(1, …, 1, D)`, `diag(1, …, 1, g)` of §2 | same, §§2–3 | queued (larger; Smith normal form is thin in Mathlib) | — | — |
 | C002-b | The proportional-slope theorem (6)–(8) in its general `(r, s)` form, the `K = 0` characterisation, the rotating mechanical family of §4; the unequal-slope application is an imported ineffective theorem and is not a Lean target | same, §§2–4 | queued | — | — |
 | V006-a | Quadratic separation (main's V006 `overlap.md` §2): for `F` not eventually periodic, the states `Q_(a,t) = F(t₀ + t + s₂(3^a n))` are pairwise distinct (`(a,t) ↦ Q_(a,t)` injective); `Q_(a,t)` lies in the joint section family through depth `a + t`; hence that family through depth `D` has at least `(D+1)(D+2)/2` members (main's (4)); with the digit-count identities (5), (6), (7) (block additivity, complement, balanced quotient, `3^(r+1) ∣ 2^(3^r) + 1`) | `experiments/viewpoints/V006/overlap.md` §2, `QUADRATIC_REVIEW.md` | **verified** (iteration 10): `QuadraticSeparation.lean`, `LeanLane.Quad.Q_injective`, `Q_mem_Reach`, `triangle_encard_le`, `card_triangle`, `reach_encard_ge`, `s2_mul_pow_sub`, `s2_mul_pow_sub_one`, `s2_balanced`, `three_pow_dvd` | `[propext, Classical.choice, Quot.sound]` | `receipts/QuadraticSeparation.{build,axioms,sha256}.txt` |
 | V007-b | Singleton-exit theorem (V007 `separator.md` §§2–4) under the infinitude hypothesis (I): larger unit (bit algebra by `decide`, recursive propagation, tail evaluation formulas) | `experiments/viewpoints/V007/separator.md` | queued (larger) | — | — |
@@ -323,8 +325,59 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   `K = 0` characterisation, §3's sharpness example as a theorem (the
   identity `den((1,3)^t(3,1)^t) = 7(16^t + 9^t)`), §4's family, and the
   Corvaja–Zannier application.
+- C003-a: `PROPORTIONAL_UNIFORM.md` §2 derives (5), `d > Q^k D_v/|K|` and `d >
+  S^ℓ D_u/|K|` for every `k, ℓ ≥ 1`, from interval trapping (1) and the
+  lattice spacing (2)–(4) of the integer states `n_i = d·f_u^i(x)`. The Lean
+  `fixed_pair_bound_u`/`_v` state the same inequalities cleared of the
+  denominator: `Q^k · D_v · gcd(C_w, D_w) < |K| · D_w` and `S^ℓ · D_u ·
+  gcd(C_w, D_w) < |K| · D_w`, under `D_u, D_v > 0` (both blocks contracting),
+  `K ≠ 0`, `k, ℓ ≥ 1` and `v` nonempty positive (`u` is any word with `D_u >
+  0`, as in C002's (5)). Since `d = D_w/gcd(C_w, D_w)`, each is exactly the
+  prose's bound. The proof is algebraic: `g ∣ K·G_v(ℓ)` (`gcd_dvd_K_mul_Gv`,
+  extracted from C002's (5)) gives `g ≤ |K|·G_v(ℓ)`, and `D_v·G_v(ℓ) = S^ℓ −
+  R^ℓ` with `P^k < Q^k` gives `Q^k(S^ℓ − R^ℓ) < S^ℓ Q^k − R^ℓ P^k = D_w`; the
+  prose's `Δ₀`, the states `n_i` and their integrality do not appear. §3's
+  theorem (6), `den(u^k v^ℓ) > 2^M Q_*^{t_*−3}`, is `uniform_bound_u` (the `u`
+  block attains `Q_*`, `k ≥ 3`, `ℓ ≥ 1`) and `uniform_bound_v` (roles
+  exchanged), with hypotheses `D_u, D_v > 0`, `K ≠ 0`, both words positive, `M
+  ≥ m_u, m_v` and `3^M < Q_*` — which `uniform_bound_max_u` derives for `M =
+  max(m_u, m_v)` from `S ≤ Q` and contraction, matching the prose's `Q_* ≥ 3^M
+  + 1`; the conclusion is `2^M · Q_*^{t_*−3} · gcd(C_w, D_w) < D_w`. The
+  prose's "when `Q = S`, select a block whose count is at least 3" is covered
+  because either lemma applies. The intermediate steps are (7) `2^m C_z < Q_z
+  3^m` (`two_pow_mul_C_le`, C002's (U2)), (8) `x_z < F(m)` in the cleared form
+  `2^m C_z < D_z (3^m + 1) 3^m` (`two_pow_mul_C_lt`), the monotonicity of `F`
+  (`F_mono`, cleared form) and its `M`-version (`two_pow_mul_C_lt_M`), and (9)
+  as `2^M |K| < D_u D_v (3^M + 1) 3^M` (`K_bound`) — the prose's `max(a, b) <
+  F(M)` enters only through this bound on `|K| = D_u D_v |a − b|`. Not
+  formalised: the effective-finiteness enumeration (10), §4's
+  proportional-slope comparison, the Corvaja–Zannier branch (ineffective,
+  imported) and the `d = 499` expanding-block example. The worked example
+  `(1,2,2)^3(2)` (`C = 213341`, `D = 72023`, gcd 1) is an `example`.
 
 ## Insights sent to the feed
+
+- Iteration 14 (on main `61cf54a`, C004): `REPORT.md`, `ROTATION_LATTICE.md`
+  in full, `SIDE_REVIEW.md` and `SIZE_PROBE.md` §§1–2 read. Checked by
+  re-derivation: `det B_w = (−1)^{m−1} D`; the Smith argument (for `p ∣ D` the
+  kernel mod `p` is one-dimensional because every `2^{a_i}` is a unit and the
+  cycle consistency `2^A ≡ 3^m` holds, so only the last invariant factor is
+  divisible by `p`; the augmented matrix's maximal minors are `±D, ±C_i` by
+  Cramer, with gcd `g`); the cut identity (6) `2^{a_i} K_i = (2^{a_i} − 3) C_i
+  − D` (expanded by hand; it is C001's commutator identity at `k = 1`, already
+  `LeanLane.Cyc.commutator`) and (7); the narrow-cycle theorem both ways
+  (every high-exponent output lies below every low-exponent output because
+  `f_{m−1} < 2 f_0`, so sorted ranks shift by `h`, `gcd(h, m) = 1` and `a_i =
+  q + ⌊(i+1)h/m⌋ − ⌊ih/m⌋` with `A = mq + h`; conversely the phase intercepts
+  of a mechanical word differ from `C_0` term by term by factors in `{1, 2}`
+  with the `j = 0` term fixed, so `C_0 ≤ C_l ≤ 2C_0 − 3^{m−1}`); the letter-1
+  lemma for `d = 1` cycles; the `d = 5` control `19 → 31 → 49` (valuations 1,
+  1, 3; gaps `12/5`, `18/5`). No error found. The integer-cycle conclusion `H
+  > 2L` rests on R71's `g = 1` for primitive mechanical words (not formalised
+  here) and on `2^A − 3^m = 1 ⇒ (A, m) = (2, 1)`. Sent: C003-a verified; (6)
+  is already formal; the reverse narrow direction and (7) are the next bounded
+  Lean unit (C004-a); the forward direction and the Smith forms are a larger
+  unit (C004-b).
 
 - Iteration 13 (on main `7270d95`, C003): `PROPORTIONAL_UNIFORM.md` in
   full and `UNEQUAL_PROBE.md` §§1–3 read. The effective theorem (6) and

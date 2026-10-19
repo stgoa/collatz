@@ -868,5 +868,363 @@ theorem uniform_two_block (u v : List ℕ) (hu : ∀ a ∈ u, 1 ≤ a) (hv : ∀
     have p2 := mul_lt_mul_of_pos_right hUV (mul_pos h2m hgpos)
     linarith
 
+/-! ### Main's C003 (`PROPORTIONAL_UNIFORM.md`): the fixed-pair bounds (5) and the uniform
+effective bound (6), proved algebraically from the commutator identities -/
+
+theorem G_pos (Q P : ℤ) (hQ : 0 < Q) (hP : 0 < P) : ∀ k, 1 ≤ k → 0 < G Q P k
+  | 0, h => absurd h (by norm_num)
+  | k + 1, _ => by
+    simp only [G]
+    have hG : 0 ≤ G Q P k := by
+      rcases Nat.eq_zero_or_pos k with rfl | hk
+      · simp [G]
+      · exact (G_pos Q P hQ hP k hk).le
+    exact add_pos_of_nonneg_of_pos (mul_nonneg hQ.le hG) (pow_pos hP k)
+
+/-- The intermediate step of C002's (5): `gcd(C, D) ∣ K · G_v(ℓ)`. -/
+theorem gcd_dvd_K_mul_Gv (u v : List ℕ) (k l : ℕ) (hv : ∀ a ∈ v, 1 ≤ a) (hv0 : v ≠ [])
+    (hl : 1 ≤ l) :
+    ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ)
+      ∣ (D u * C v - D v * C u) * G (2 ^ v.sum) (3 ^ v.length) l := by
+  have hgC : ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ) ∣
+      C (rep u k ++ rep v l) := Int.gcd_dvd_left _ _
+  have hgD : ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ) ∣
+      D (rep u k ++ rep v l) := Int.gcd_dvd_right _ _
+  set g : ℕ := Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) with hg
+  have hsum : 1 ≤ (rep u k ++ rep v l).sum := by
+    rw [List.sum_append, rep_sum, rep_sum]
+    have := Nat.mul_le_mul hl (one_le_sum_of_ne_nil hv0 hv)
+    omega
+  have hlen : 1 ≤ (rep u k ++ rep v l).length := by
+    rw [List.length_append, rep_length, rep_length]
+    have := Nat.mul_le_mul hl (List.length_pos_of_ne_nil hv0)
+    omega
+  have h6 := gcd_coprime_six' _ hsum hlen
+  have hcopQ : IsCoprime (g : ℤ) (((2 : ℤ) ^ u.sum) ^ k) := by
+    have := Nat.isCoprime_iff_coprime.mpr
+      (Nat.Coprime.pow_right k (Nat.Coprime.pow_right u.sum
+        (h6.coprime_dvd_right (by norm_num : 2 ∣ 6))))
+    exact_mod_cast this
+  have h1 : (g : ℤ) ∣ (2 ^ u.sum) ^ k
+      * (G (2 ^ v.sum) (3 ^ v.length) l * (D u * C v - D v * C u)) := by
+    rw [← mul_assoc, ← commutator_two_u]
+    exact dvd_sub (dvd_mul_of_dvd_right hgC _) (dvd_mul_of_dvd_right hgD _)
+  rw [mul_comm]
+  exact hcopQ.dvd_of_dvd_mul_left h1
+
+/-- The other intermediate step of C002's (5): `gcd(C, D) ∣ K · G_u(k)`. -/
+theorem gcd_dvd_K_mul_Gu (u v : List ℕ) (k l : ℕ) (hv : ∀ a ∈ v, 1 ≤ a) (hv0 : v ≠ [])
+    (hl : 1 ≤ l) :
+    ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ)
+      ∣ (D u * C v - D v * C u) * G (2 ^ u.sum) (3 ^ u.length) k := by
+  have hgC : ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ) ∣
+      C (rep u k ++ rep v l) := Int.gcd_dvd_left _ _
+  have hgD : ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ) ∣
+      D (rep u k ++ rep v l) := Int.gcd_dvd_right _ _
+  set g : ℕ := Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) with hg
+  have hsum : 1 ≤ (rep u k ++ rep v l).sum := by
+    rw [List.sum_append, rep_sum, rep_sum]
+    have := Nat.mul_le_mul hl (one_le_sum_of_ne_nil hv0 hv)
+    omega
+  have hlen : 1 ≤ (rep u k ++ rep v l).length := by
+    rw [List.length_append, rep_length, rep_length]
+    have := Nat.mul_le_mul hl (List.length_pos_of_ne_nil hv0)
+    omega
+  have h6 := gcd_coprime_six' _ hsum hlen
+  have hcopR : IsCoprime (g : ℤ) (((3 : ℤ) ^ v.length) ^ l) := by
+    have := Nat.isCoprime_iff_coprime.mpr
+      (Nat.Coprime.pow_right l (Nat.Coprime.pow_right v.length
+        (h6.coprime_dvd_right (by norm_num : 3 ∣ 6))))
+    exact_mod_cast this
+  have h2 : (g : ℤ) ∣ (3 ^ v.length) ^ l
+      * (G (2 ^ u.sum) (3 ^ u.length) k * (D u * C v - D v * C u)) := by
+    have := dvd_sub (dvd_mul_of_dvd_right hgC (D v)) (dvd_mul_of_dvd_right hgD (C v))
+    rw [commutator_two_v, dvd_neg, mul_assoc] at this
+    exact this
+  rw [mul_comm]
+  exact hcopR.dvd_of_dvd_mul_left h2
+
+/-- Positivity of `D(u^k v^ℓ)` for contracting blocks. -/
+theorem D_two_pos (u v : List ℕ) (k l : ℕ) (hk : 1 ≤ k) (hl : 1 ≤ l) (hDu : 0 < D u)
+    (hDv : 0 < D v) : 0 < D (rep u k ++ rep v l) := by
+  have hPQ : (3 : ℤ) ^ u.length < 2 ^ u.sum := by simp only [D] at hDu; linarith
+  have hRS : (3 : ℤ) ^ v.length < 2 ^ v.sum := by simp only [D] at hDv; linarith
+  have hPQk : ((3 : ℤ) ^ u.length) ^ k < ((2 : ℤ) ^ u.sum) ^ k :=
+    pow_lt_pow_left₀ hPQ (by positivity) (by omega)
+  have hRSl : ((3 : ℤ) ^ v.length) ^ l < ((2 : ℤ) ^ v.sum) ^ l :=
+    pow_lt_pow_left₀ hRS (by positivity) (by omega)
+  rw [D_two]
+  have := mul_lt_mul'' hRSl hPQk (by positivity) (by positivity)
+  linarith
+
+/-- **C003's (5), first form.** For contracting blocks with `K ≠ 0`:
+`Q^k D_v · gcd(C, D) < |K| · D`, i.e. `den(u^k v^ℓ) > Q^k D_v/|K|`. -/
+theorem fixed_pair_bound_u (u v : List ℕ) (k l : ℕ) (hv : ∀ a ∈ v, 1 ≤ a) (hv0 : v ≠ [])
+    (hk : 1 ≤ k) (hl : 1 ≤ l) (hDu : 0 < D u) (hDv : 0 < D v)
+    (hK : D u * C v - D v * C u ≠ 0) :
+    ((2 : ℤ) ^ u.sum) ^ k * D v
+        * (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ)
+      < |D u * C v - D v * C u| * D (rep u k ++ rep v l) := by
+  have hGv : 0 < G (2 ^ v.sum) (3 ^ v.length) l := G_pos _ _ (by positivity) (by positivity) l hl
+  have hdvd := gcd_dvd_K_mul_Gv u v k l hv hv0 hl
+  have hg_le : ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ)
+      ≤ |D u * C v - D v * C u| * G (2 ^ v.sum) (3 ^ v.length) l := by
+    have h1 : ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ)
+        ∣ |D u * C v - D v * C u| * G (2 ^ v.sum) (3 ^ v.length) l := by
+      rw [← abs_of_pos hGv, ← abs_mul]
+      exact (dvd_abs _ _).mpr hdvd
+    exact Int.le_of_dvd (mul_pos (abs_pos.mpr hK) hGv) h1
+  have hPQ : (3 : ℤ) ^ u.length < 2 ^ u.sum := by simp only [D] at hDu; linarith
+  have hPQk : ((3 : ℤ) ^ u.length) ^ k < ((2 : ℤ) ^ u.sum) ^ k :=
+    pow_lt_pow_left₀ hPQ (by positivity) (by omega)
+  have hDvG : D v * G (2 ^ v.sum) (3 ^ v.length) l
+      = ((2 : ℤ) ^ v.sum) ^ l - ((3 : ℤ) ^ v.length) ^ l := by
+    unfold D; exact G_mul _ _ _
+  have hR : (0 : ℤ) < ((3 : ℤ) ^ v.length) ^ l := by positivity
+  calc ((2 : ℤ) ^ u.sum) ^ k * D v
+          * ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ)
+      ≤ ((2 : ℤ) ^ u.sum) ^ k * D v
+          * (|D u * C v - D v * C u| * G (2 ^ v.sum) (3 ^ v.length) l) :=
+        mul_le_mul_of_nonneg_left hg_le (mul_pos (by positivity) hDv).le
+    _ = |D u * C v - D v * C u|
+          * (((2 : ℤ) ^ u.sum) ^ k * (D v * G (2 ^ v.sum) (3 ^ v.length) l)) := by ring
+    _ = |D u * C v - D v * C u|
+          * (((2 : ℤ) ^ u.sum) ^ k * (((2 : ℤ) ^ v.sum) ^ l - ((3 : ℤ) ^ v.length) ^ l)) := by
+        rw [hDvG]
+    _ < |D u * C v - D v * C u|
+          * (((2 : ℤ) ^ v.sum) ^ l * ((2 : ℤ) ^ u.sum) ^ k
+            - ((3 : ℤ) ^ v.length) ^ l * ((3 : ℤ) ^ u.length) ^ k) := by
+        apply mul_lt_mul_of_pos_left _ (abs_pos.mpr hK)
+        nlinarith [mul_lt_mul_of_pos_left hPQk hR]
+    _ = |D u * C v - D v * C u| * D (rep u k ++ rep v l) := by rw [D_two]
+
+/-- **C003's (5), second form.** `S^ℓ D_u · gcd(C, D) < |K| · D`, i.e.
+`den(u^k v^ℓ) > S^ℓ D_u/|K|`. -/
+theorem fixed_pair_bound_v (u v : List ℕ) (k l : ℕ) (hv : ∀ a ∈ v, 1 ≤ a) (hv0 : v ≠ [])
+    (hk : 1 ≤ k) (hl : 1 ≤ l) (hDu : 0 < D u) (hDv : 0 < D v)
+    (hK : D u * C v - D v * C u ≠ 0) :
+    ((2 : ℤ) ^ v.sum) ^ l * D u
+        * (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ)
+      < |D u * C v - D v * C u| * D (rep u k ++ rep v l) := by
+  have hGu : 0 < G (2 ^ u.sum) (3 ^ u.length) k := G_pos _ _ (by positivity) (by positivity) k hk
+  have hdvd := gcd_dvd_K_mul_Gu u v k l hv hv0 hl
+  have hg_le : ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ)
+      ≤ |D u * C v - D v * C u| * G (2 ^ u.sum) (3 ^ u.length) k := by
+    have h1 : ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ)
+        ∣ |D u * C v - D v * C u| * G (2 ^ u.sum) (3 ^ u.length) k := by
+      rw [← abs_of_pos hGu, ← abs_mul]
+      exact (dvd_abs _ _).mpr hdvd
+    exact Int.le_of_dvd (mul_pos (abs_pos.mpr hK) hGu) h1
+  have hRS : (3 : ℤ) ^ v.length < 2 ^ v.sum := by simp only [D] at hDv; linarith
+  have hRSl : ((3 : ℤ) ^ v.length) ^ l < ((2 : ℤ) ^ v.sum) ^ l :=
+    pow_lt_pow_left₀ hRS (by positivity) (by omega)
+  have hDuG : D u * G (2 ^ u.sum) (3 ^ u.length) k
+      = ((2 : ℤ) ^ u.sum) ^ k - ((3 : ℤ) ^ u.length) ^ k := by
+    unfold D; exact G_mul _ _ _
+  have hP : (0 : ℤ) < ((3 : ℤ) ^ u.length) ^ k := by positivity
+  calc ((2 : ℤ) ^ v.sum) ^ l * D u
+          * ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ)
+      ≤ ((2 : ℤ) ^ v.sum) ^ l * D u
+          * (|D u * C v - D v * C u| * G (2 ^ u.sum) (3 ^ u.length) k) :=
+        mul_le_mul_of_nonneg_left hg_le (mul_pos (by positivity) hDu).le
+    _ = |D u * C v - D v * C u|
+          * (((2 : ℤ) ^ v.sum) ^ l * (D u * G (2 ^ u.sum) (3 ^ u.length) k)) := by ring
+    _ = |D u * C v - D v * C u|
+          * (((2 : ℤ) ^ v.sum) ^ l * (((2 : ℤ) ^ u.sum) ^ k - ((3 : ℤ) ^ u.length) ^ k)) := by
+        rw [hDuG]
+    _ < |D u * C v - D v * C u|
+          * (((2 : ℤ) ^ v.sum) ^ l * ((2 : ℤ) ^ u.sum) ^ k
+            - ((3 : ℤ) ^ v.length) ^ l * ((3 : ℤ) ^ u.length) ^ k) := by
+        apply mul_lt_mul_of_pos_left _ (abs_pos.mpr hK)
+        nlinarith [mul_lt_mul_of_pos_right hRSl hP]
+    _ = |D u * C v - D v * C u| * D (rep u k ++ rep v l) := by rw [D_two]
+
+/-! #### The intercept and fixed-point bounds (7)–(9) -/
+
+/-- C003's (7)+(8): for a contracting positive word, `2^m C_z < D_z (3^m + 1) 3^m`
+(the fixed point is below `F(m) = (3^m + 1) 3^m / 2^m`). -/
+theorem two_pow_mul_C_lt (z : List ℕ) (hpos : ∀ a ∈ z, 1 ≤ a) (hD : 0 < D z) :
+    (2 : ℤ) ^ z.length * C z < D z * ((3 ^ z.length + 1) * 3 ^ z.length) := by
+  have h7 := two_pow_mul_C_le z hpos
+  have hQ : (2 : ℤ) ^ z.sum = D z + 3 ^ z.length := by simp [D]
+  have h2m : (0 : ℤ) < 2 ^ z.length := by positivity
+  have h3m : (0 : ℤ) < 3 ^ z.length := by positivity
+  have h2A : (0 : ℤ) < 2 ^ z.sum := by positivity
+  have hD1 : (1 : ℤ) ≤ D z := hD
+  have hQ3 : (2 : ℤ) ^ z.sum * 3 ^ z.length = D z * 3 ^ z.length + 3 ^ z.length * 3 ^ z.length := by
+    rw [hQ]; ring
+  nlinarith [h7, hQ3, mul_pos h2A h2m, mul_le_mul_of_nonneg_left hD1 (mul_pos h3m h3m).le]
+
+/-- `F(m) = (3^m + 1) 3^m / 2^m` is increasing, in cleared form. -/
+theorem F_mono {m M : ℕ} (h : m ≤ M) :
+    ((3 : ℤ) ^ m + 1) * 3 ^ m * 2 ^ M ≤ (3 ^ M + 1) * 3 ^ M * 2 ^ m := by
+  obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le h
+  simp only [pow_add]
+  have h3 : (3 : ℤ) ^ m + 1 ≤ 3 ^ m * 3 ^ d + 1 := by
+    have h1 : (1 : ℤ) ≤ 3 ^ d := one_le_pow₀ (by norm_num)
+    nlinarith [pow_pos (by norm_num : (0 : ℤ) < 3) m]
+  have h23 : (2 : ℤ) ^ d ≤ 3 ^ d := pow_le_pow_left₀ (by norm_num) (by norm_num) d
+  have hpos : (0 : ℤ) ≤ 3 ^ m * 2 ^ m := by positivity
+  calc ((3 : ℤ) ^ m + 1) * 3 ^ m * (2 ^ m * 2 ^ d)
+      = ((3 ^ m + 1) * 2 ^ d) * (3 ^ m * 2 ^ m) := by ring
+    _ ≤ ((3 ^ m * 3 ^ d + 1) * 3 ^ d) * (3 ^ m * 2 ^ m) := by
+        apply mul_le_mul_of_nonneg_right _ hpos
+        exact mul_le_mul h3 h23 (by positivity) (by positivity)
+    _ = (3 ^ m * 3 ^ d + 1) * (3 ^ m * 3 ^ d) * 2 ^ m := by ring
+
+/-- C003's (9), one block: for `m_z ≤ M`, `2^M C_z < D_z (3^M + 1) 3^M`. -/
+theorem two_pow_mul_C_lt_M (z : List ℕ) (hpos : ∀ a ∈ z, 1 ≤ a) (hD : 0 < D z) {M : ℕ}
+    (hM : z.length ≤ M) :
+    (2 : ℤ) ^ M * C z < D z * ((3 ^ M + 1) * 3 ^ M) := by
+  have h1 := two_pow_mul_C_lt z hpos hD
+  have h2 := F_mono hM
+  have h2m : (0 : ℤ) < 2 ^ z.length := by positivity
+  have h3 : (2 : ℤ) ^ z.length * (2 ^ M * C z) < 2 ^ z.length * (D z * ((3 ^ M + 1) * 3 ^ M)) := by
+    calc (2 : ℤ) ^ z.length * (2 ^ M * C z) = 2 ^ M * (2 ^ z.length * C z) := by ring
+      _ < 2 ^ M * (D z * ((3 ^ z.length + 1) * 3 ^ z.length)) :=
+          mul_lt_mul_of_pos_left h1 (by positivity)
+      _ = D z * ((3 ^ z.length + 1) * 3 ^ z.length * 2 ^ M) := by ring
+      _ ≤ D z * ((3 ^ M + 1) * 3 ^ M * 2 ^ z.length) := mul_le_mul_of_nonneg_left h2 hD.le
+      _ = 2 ^ z.length * (D z * ((3 ^ M + 1) * 3 ^ M)) := by ring
+  exact lt_of_mul_lt_mul_left h3 h2m.le
+
+/-- C003's (9), the determinant: `2^M |K| < D_u D_v (3^M + 1) 3^M` for contracting blocks of
+lengths at most `M`. -/
+theorem K_bound (u v : List ℕ) (hu : ∀ a ∈ u, 1 ≤ a) (hv : ∀ a ∈ v, 1 ≤ a) (hDu : 0 < D u)
+    (hDv : 0 < D v) {M : ℕ} (hMu : u.length ≤ M) (hMv : v.length ≤ M) :
+    |D u * C v - D v * C u| * 2 ^ M < D u * D v * ((3 ^ M + 1) * 3 ^ M) := by
+  have hu0 : u ≠ [] := by
+    rintro rfl
+    simp [D] at hDu
+  have hv0 : v ≠ [] := by
+    rintro rfl
+    simp [D] at hDv
+  have hCu := two_pow_mul_C_lt_M u hu hDu hMu
+  have hCv := two_pow_mul_C_lt_M v hv hDv hMv
+  have hCu0 := C_pos hu0
+  have hCv0 := C_pos hv0
+  have h2M : (0 : ℤ) < 2 ^ M := by positivity
+  rw [← abs_of_pos h2M, ← abs_mul, abs_lt]
+  constructor
+  · nlinarith [mul_lt_mul_of_pos_left hCu hDv, mul_pos (mul_pos hDu h2M) hCv0]
+  · nlinarith [mul_lt_mul_of_pos_left hCv hDu, mul_pos (mul_pos hDv h2M) hCu0]
+
+/-- **C003's (6), `u`-block form.** Both blocks contracting, `K ≠ 0`, `Q = 2^Σu ≥ S = 2^Σv`,
+`k ≥ 3`, `ℓ ≥ 1`, `M ≥` both lengths with `3^M < Q`: then
+`2^M Q^{k−3} · gcd(C, D) < D`, i.e. `den(u^k v^ℓ) > 2^M Q^{k−3}`. -/
+theorem uniform_bound_u (u v : List ℕ) (k l : ℕ) (hu : ∀ a ∈ u, 1 ≤ a) (hv : ∀ a ∈ v, 1 ≤ a)
+    (hv0 : v ≠ []) (hk : 3 ≤ k) (hl : 1 ≤ l) (hDu : 0 < D u) (hDv : 0 < D v)
+    (hK : D u * C v - D v * C u ≠ 0) {M : ℕ} (hMu : u.length ≤ M) (hMv : v.length ≤ M)
+    (h3M : (3 : ℤ) ^ M < 2 ^ u.sum) :
+    (2 : ℤ) ^ M * ((2 : ℤ) ^ u.sum) ^ (k - 3)
+        * (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ)
+      < D (rep u k ++ rep v l) := by
+  have h5 := fixed_pair_bound_u u v k l hv hv0 (by omega) hl hDu hDv hK
+  have hKb := K_bound u v hu hv hDu hDv hMu hMv
+  have hDw := D_two_pos u v k l (by omega) hl hDu hDv
+  have h2M : (0 : ℤ) < 2 ^ M := by positivity
+  have hQ : (0 : ℤ) < 2 ^ u.sum := by positivity
+  have hQ3 : (3 : ℤ) ^ M + 1 ≤ 2 ^ u.sum := by linarith
+  have h3Mpos : (0 : ℤ) < 3 ^ M := by positivity
+  have hF : ((3 : ℤ) ^ M + 1) * 3 ^ M < 2 ^ u.sum * 2 ^ u.sum := by
+    nlinarith [mul_le_mul_of_nonneg_right hQ3 h3Mpos.le, mul_lt_mul_of_pos_left h3M hQ]
+  have hDuQ : D u < 2 ^ u.sum := by
+    simp only [D]
+    linarith [pow_pos (by norm_num : (0 : ℤ) < 3) u.length]
+  set g : ℤ := (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ) with hg
+  set W : ℤ := D (rep u k ++ rep v l) with hW
+  have step1 : 2 ^ M * (((2 : ℤ) ^ u.sum) ^ k * D v * g) < 2 ^ M * (|D u * C v - D v * C u| * W) :=
+    mul_lt_mul_of_pos_left h5 h2M
+  have step2 : |D u * C v - D v * C u| * 2 ^ M * W
+      < D u * D v * ((3 ^ M + 1) * 3 ^ M) * W := mul_lt_mul_of_pos_right hKb hDw
+  have step3 : D u * D v * ((3 ^ M + 1) * 3 ^ M) * W ≤ D u * D v * (2 ^ u.sum * 2 ^ u.sum) * W := by
+    apply mul_le_mul_of_nonneg_right _ hDw.le
+    exact mul_le_mul_of_nonneg_left hF.le (mul_pos hDu hDv).le
+  have step4 : D v * (2 ^ M * ((2 : ℤ) ^ u.sum) ^ k * g)
+      < D v * (D u * (2 ^ u.sum * 2 ^ u.sum) * W) := by nlinarith [step1, step2, step3]
+  have step5 : 2 ^ M * ((2 : ℤ) ^ u.sum) ^ k * g < D u * (2 ^ u.sum * 2 ^ u.sum) * W :=
+    lt_of_mul_lt_mul_left step4 hDv.le
+  have step6 : D u * (2 ^ u.sum * 2 ^ u.sum) * W < 2 ^ u.sum * (2 ^ u.sum * 2 ^ u.sum) * W := by
+    apply mul_lt_mul_of_pos_right _ hDw
+    exact mul_lt_mul_of_pos_right hDuQ (by positivity)
+  have hk3 : ((2 : ℤ) ^ u.sum) ^ k = ((2 : ℤ) ^ u.sum) ^ (k - 3) * ((2 : ℤ) ^ u.sum) ^ 3 := by
+    rw [← pow_add, Nat.sub_add_cancel hk]
+  have step7 : ((2 : ℤ) ^ u.sum) ^ 3 * (2 ^ M * ((2 : ℤ) ^ u.sum) ^ (k - 3) * g)
+      < ((2 : ℤ) ^ u.sum) ^ 3 * W := by
+    calc ((2 : ℤ) ^ u.sum) ^ 3 * (2 ^ M * ((2 : ℤ) ^ u.sum) ^ (k - 3) * g)
+        = 2 ^ M * (((2 : ℤ) ^ u.sum) ^ (k - 3) * ((2 : ℤ) ^ u.sum) ^ 3) * g := by ring
+      _ = 2 ^ M * ((2 : ℤ) ^ u.sum) ^ k * g := by rw [← hk3]
+      _ < 2 ^ u.sum * (2 ^ u.sum * 2 ^ u.sum) * W := lt_trans step5 step6
+      _ = ((2 : ℤ) ^ u.sum) ^ 3 * W := by ring
+  exact lt_of_mul_lt_mul_left step7 (by positivity)
+
+/-- **C003's (6), `v`-block form.** As above with the roles of the blocks exchanged:
+`S ≥ Q`, `ℓ ≥ 3`, `k ≥ 1`, `3^M < S`; then `2^M S^{ℓ−3} · gcd(C, D) < D`. -/
+theorem uniform_bound_v (u v : List ℕ) (k l : ℕ) (hu : ∀ a ∈ u, 1 ≤ a) (hv : ∀ a ∈ v, 1 ≤ a)
+    (hv0 : v ≠ []) (hk : 1 ≤ k) (hl : 3 ≤ l) (hDu : 0 < D u) (hDv : 0 < D v)
+    (hK : D u * C v - D v * C u ≠ 0) {M : ℕ} (hMu : u.length ≤ M) (hMv : v.length ≤ M)
+    (h3M : (3 : ℤ) ^ M < 2 ^ v.sum) :
+    (2 : ℤ) ^ M * ((2 : ℤ) ^ v.sum) ^ (l - 3)
+        * (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ)
+      < D (rep u k ++ rep v l) := by
+  have h5 := fixed_pair_bound_v u v k l hv hv0 hk (by omega) hDu hDv hK
+  have hKb := K_bound u v hu hv hDu hDv hMu hMv
+  have hDw := D_two_pos u v k l hk (by omega) hDu hDv
+  have h2M : (0 : ℤ) < 2 ^ M := by positivity
+  have hS : (0 : ℤ) < 2 ^ v.sum := by positivity
+  have hS3 : (3 : ℤ) ^ M + 1 ≤ 2 ^ v.sum := by linarith
+  have h3Mpos : (0 : ℤ) < 3 ^ M := by positivity
+  have hF : ((3 : ℤ) ^ M + 1) * 3 ^ M < 2 ^ v.sum * 2 ^ v.sum := by
+    nlinarith [mul_le_mul_of_nonneg_right hS3 h3Mpos.le, mul_lt_mul_of_pos_left h3M hS]
+  have hDvS : D v < 2 ^ v.sum := by
+    simp only [D]
+    linarith [pow_pos (by norm_num : (0 : ℤ) < 3) v.length]
+  set g : ℤ := (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ) with hg
+  set W : ℤ := D (rep u k ++ rep v l) with hW
+  have step1 : 2 ^ M * (((2 : ℤ) ^ v.sum) ^ l * D u * g) < 2 ^ M * (|D u * C v - D v * C u| * W) :=
+    mul_lt_mul_of_pos_left h5 h2M
+  have step2 : |D u * C v - D v * C u| * 2 ^ M * W
+      < D u * D v * ((3 ^ M + 1) * 3 ^ M) * W := mul_lt_mul_of_pos_right hKb hDw
+  have step3 : D u * D v * ((3 ^ M + 1) * 3 ^ M) * W ≤ D u * D v * (2 ^ v.sum * 2 ^ v.sum) * W := by
+    apply mul_le_mul_of_nonneg_right _ hDw.le
+    exact mul_le_mul_of_nonneg_left hF.le (mul_pos hDu hDv).le
+  have step4 : D u * (2 ^ M * ((2 : ℤ) ^ v.sum) ^ l * g)
+      < D u * (D v * (2 ^ v.sum * 2 ^ v.sum) * W) := by nlinarith [step1, step2, step3]
+  have step5 : 2 ^ M * ((2 : ℤ) ^ v.sum) ^ l * g < D v * (2 ^ v.sum * 2 ^ v.sum) * W :=
+    lt_of_mul_lt_mul_left step4 hDu.le
+  have step6 : D v * (2 ^ v.sum * 2 ^ v.sum) * W < 2 ^ v.sum * (2 ^ v.sum * 2 ^ v.sum) * W := by
+    apply mul_lt_mul_of_pos_right _ hDw
+    exact mul_lt_mul_of_pos_right hDvS (by positivity)
+  have hl3 : ((2 : ℤ) ^ v.sum) ^ l = ((2 : ℤ) ^ v.sum) ^ (l - 3) * ((2 : ℤ) ^ v.sum) ^ 3 := by
+    rw [← pow_add, Nat.sub_add_cancel hl]
+  have step7 : ((2 : ℤ) ^ v.sum) ^ 3 * (2 ^ M * ((2 : ℤ) ^ v.sum) ^ (l - 3) * g)
+      < ((2 : ℤ) ^ v.sum) ^ 3 * W := by
+    calc ((2 : ℤ) ^ v.sum) ^ 3 * (2 ^ M * ((2 : ℤ) ^ v.sum) ^ (l - 3) * g)
+        = 2 ^ M * (((2 : ℤ) ^ v.sum) ^ (l - 3) * ((2 : ℤ) ^ v.sum) ^ 3) * g := by ring
+      _ = 2 ^ M * ((2 : ℤ) ^ v.sum) ^ l * g := by rw [← hl3]
+      _ < 2 ^ v.sum * (2 ^ v.sum * 2 ^ v.sum) * W := lt_trans step5 step6
+      _ = ((2 : ℤ) ^ v.sum) ^ 3 * W := by ring
+  exact lt_of_mul_lt_mul_left step7 (by positivity)
+
+/-- **C003's (6) with `M = max(m_u, m_v)` and `Q_* = Q`.** If the `u`-block has the larger
+binary power and is repeated `k ≥ 3` times, `den(u^k v^ℓ) > 2^M Q^{k−3} ≥ 2^M`. -/
+theorem uniform_bound_max_u (u v : List ℕ) (k l : ℕ) (hu : ∀ a ∈ u, 1 ≤ a)
+    (hv : ∀ a ∈ v, 1 ≤ a) (hv0 : v ≠ []) (hk : 3 ≤ k) (hl : 1 ≤ l) (hDu : 0 < D u)
+    (hDv : 0 < D v) (hK : D u * C v - D v * C u ≠ 0) (hQS : (2 : ℤ) ^ v.sum ≤ 2 ^ u.sum) :
+    (2 : ℤ) ^ max u.length v.length * ((2 : ℤ) ^ u.sum) ^ (k - 3)
+        * (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ)
+      < D (rep u k ++ rep v l) := by
+  apply uniform_bound_u u v k l hu hv hv0 hk hl hDu hDv hK (le_max_left _ _) (le_max_right _ _)
+  have hPQ : (3 : ℤ) ^ u.length < 2 ^ u.sum := by simp only [D] at hDu; linarith
+  have hRS : (3 : ℤ) ^ v.length < 2 ^ v.sum := by simp only [D] at hDv; linarith
+  rcases le_total v.length u.length with h | h
+  · rw [max_eq_left h]; exact hPQ
+  · rw [max_eq_right h]; exact lt_of_lt_of_le hRS hQS
+
+/-- The worked example `(1,2,2)^3 (2)` of C003: `C = 213341`, `D = 72023`, coprime. -/
+example : C (rep [1, 2, 2] 3 ++ rep [2] 1) = 213341 ∧ D (rep [1, 2, 2] 3 ++ rep [2] 1) = 72023 ∧
+    Int.gcd (C (rep [1, 2, 2] 3 ++ rep [2] 1)) (D (rep [1, 2, 2] 3 ++ rep [2] 1)) = 1 := by
+  norm_num [rep, C, D]
+
 end Cyc
 end LeanLane

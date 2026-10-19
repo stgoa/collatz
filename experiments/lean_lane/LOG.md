@@ -3,6 +3,30 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 14 — 2026-10-19, 01:15 -03
+
+- Monitor re-armed after its expiry. Main pushed `61cf54a` (C004: narrow
+  cycles are mechanical, rotation lattice, close-pair rule refuted); the
+  sidekick refereed it at `6b5b73b` (feed 01:06) and merged main (`67c691b`).
+  C004 read and checked (STATE "Insights"); no error found; insights sent to
+  the sidekick.
+- **C003-a verified** in `CycleSpectrum.lean` (sha256 `651c8d08…c601`, 1230
+  lines): `fixed_pair_bound_u`/`_v` (C003's (5) as `Q^k·D_v·gcd(C,D) <
+  |K|·D_w` and `S^ℓ·D_u·gcd(C,D) < |K|·D_w`),
+  `two_pow_mul_C_lt`/`F_mono`/`two_pow_mul_C_lt_M`/`K_bound` ((7)–(9)),
+  `uniform_bound_u`/`_v`/`_max_u` (the uniform theorem (6), `2^M
+  Q_*^{t_*−3}·gcd(C,D) < D_w`), helpers `G_pos`, `gcd_dvd_K_mul_Gv`/`_Gu`
+  (extracted from C002's (5)) and `D_two_pos`, and the `(1,2,2)^3(2)` example.
+  Purely algebraic: no cycle states, no integrality. Three compile rounds: an
+  unassigned metavariable in `one_le_pow₀ (by norm_num)` inside a term-mode
+  `le_mul_of_one_le_right` (then `positivity` ran on `0 ≤ ?b`); fixed by a
+  tactic proof with explicit types. Axioms receipt regenerated for all 51
+  theorems of the file: 39 with the three standard axioms, 12 needing only
+  `[propext]` or `[propext, Quot.sound]`; no diagnostics.
+- Clock note: the times in the iteration 12 and 13 headers were estimates and
+  are too late; those commits are timestamped 00:31–00:50 -03. From this entry
+  on, times come from `date`.
+
 ## Iteration 13, review — side lane verifies C002-a; (U1) strengthened
 
 - `claude/sidekick` fe7377a (feed 00:45): C002-a at cf15b22 **verified**
