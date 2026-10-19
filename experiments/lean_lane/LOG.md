@@ -3,6 +3,21 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 34 — 2026-10-19, 05:13 -03
+
+- Woken by the sidekick's push `c86942c`: **C009-b verified** (STATE
+  "Insights"). Main unchanged at `1c5c19d`.
+- **C013-a verified — C013's shared-background block identities and the run
+  law** in `CycleSpectrum.lean` (sha256 `c6222ea4…2fb5`, 4588 lines, 290
+  theorems: 235 with the three standard axioms, 19 × `[propext,
+  Quot.sound]`, 35 × `[propext]`, 1 none; no `sorry`): `interleave`, `Ph`,
+  `interleave_cons/length/sum`, **`C_interleave`**, **`D_interleave`**,
+  `Ph_eq_sum`, `E_bound`, **`run_factor`**, `OddCycle.diff_step`,
+  `OddCycle.run_diff`. Two compile rounds: a length lemma needed
+  `List.length_nil` in its simp set. Receipts regenerated. Next: C005-c
+  (the rotation-block ratio bound and its gcd bookkeeping), R71 `g = 1`, then
+  whichever of main's newest claims most needs formal backing.
+
 ## Iteration 33 — 2026-10-19, 05:04 -03
 
 - Woken by main's push `1c5c19d` (C013) and the sidekick's `e2268cc` (C011-a

@@ -3362,6 +3362,29 @@ theorem q_odd (hapos : ∀ i, 1 ≤ Γ.a i) : Odd Γ.q := by
   have hne : ¬ Even (3 * Γ.n 0) := Int.not_even_iff_odd.mpr h3
   exact Int.not_even_iff_odd.mp (fun hq => hne ((Int.even_add.mp heven).mpr hq))
 
+/-- `OVERLAP_THEORY.md` §1 (2): where the valuations of two phases agree, the state differences
+`z_i = n_{i+k} − n_i` satisfy `2^{a_i} z_{i+1} = 3 z_i`. -/
+theorem diff_step (i k : ℕ) (h : Γ.a (i + k) = Γ.a i) :
+    (2 : ℤ) ^ Γ.a i * (Γ.n (i + k + 1) - Γ.n (i + 1)) = 3 * (Γ.n (i + k) - Γ.n i) := by
+  have h1 := Γ.arrow i
+  have h2 := Γ.arrow (i + k)
+  rw [h] at h2
+  linear_combination h2 - h1
+
+/-- Along a run of `t` agreeing positions starting at `i`, `2^E z_{i+t} = 3^t z_i` with
+`E = Σ_{j<t} a_{i+j}` (`OVERLAP_THEORY.md` §1, (3), via `run_pow_mul`). -/
+theorem run_diff (i k t : ℕ) (hrun : ∀ j, j < t → Γ.a (i + j + k) = Γ.a (i + j)) :
+    (2 : ℤ) ^ (∑ j ∈ Finset.range t, Γ.a (i + j)) * (Γ.n (i + t + k) - Γ.n (i + t))
+      = 3 ^ t * (Γ.n (i + k) - Γ.n i) := by
+  have h := run_pow_mul (fun j => Γ.n (i + j + k) - Γ.n (i + j)) (fun j => Γ.a (i + j)) t
+    (fun j hj => by
+      have := Γ.diff_step (i + j) k (hrun j hj)
+      show (2 : ℤ) ^ Γ.a (i + j) * (Γ.n (i + (j + 1) + k) - Γ.n (i + (j + 1)))
+        = 3 * (Γ.n (i + j + k) - Γ.n (i + j))
+      rw [show i + (j + 1) + k = i + j + k + 1 by ring, show i + (j + 1) = i + j + 1 by ring]
+      exact this)
+  exact h
+
 theorem toNarrow_primitive (hord : ∀ i j, Γ.Z i < Γ.Z j ↔ Γ.F i < Γ.F j) (q' : ℕ)
     (hq1 : (2 : ℤ) ^ q' * Γ.lo ≤ Γ.F 0) (hq2 : Γ.F 0 < 2 ^ (q' + 1) * Γ.lo)
     (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) :
@@ -3919,6 +3942,115 @@ theorem two_defect_q_bound (a k : ℕ) (ha : 1 ≤ a) (hk : 1 ≤ k) (u₀ v₀ 
         mul_lt_mul_of_pos_left h (pow_pos hq0 2)
     _ = q ^ 2 * 2 ^ (2 * (a :: (u₀ ++ (a + k) :: v₀)).sum)
           * 3 ^ (a :: (u₀ ++ (a + k) :: v₀)).length := by ring
+
+/-! ### C013: the shared-background block identities and the run law
+
+C013 (`OVERLAP_CONTROLS.md` §1) studies `w = (U, a_0, U, a_1, …, U, a_{r−1})`: an arbitrary
+positive background `U` (length `n`, total `A_U`, intercept `C_U`) interleaved with a marker word
+`a` of length `r` and total `T`. With `u = 2^{A_U}`, `α = 3^{n+1}`, `E = 3 C_U + u` and
+`P_j = Σ_{i<j} a_i`, its (1) reads `C_w = E · u^{r−1} P(α/u)` and `D_w = −u^r Q(α/u)` for
+`P(X) = Σ_j 2^{P_j} X^{r−1−j}`, `Q(X) = X^r − 2^T`. Here these are list identities: `Ph U a` is the
+homogenised `u^{r−1} P(α/u)`, by the recursion `P_h(x :: a) = α^{|a|} + u 2^x P_h(a)`, with the
+closed form `Σ_{j<r} α^{r−1−j} 2^{j A_U + P_j}`. The polynomial gcd, the resultant, the Fourier
+step (5) and the Matveev input are not formalised. -/
+
+/-- The word `(U, a_0, U, a_1, …, U, a_{r−1})` of C013: background `U`, marker word `a`. -/
+def interleave (U a : List ℕ) : List ℕ := List.flatMap (fun x => U ++ [x]) a
+
+/-- The homogenised marker polynomial `P_h = u^{r−1} P(α/u)` of C013, by the recursion
+`P_h(x :: a) = α^{|a|} + u 2^x P_h(a)` with `α = 3^{|U|+1}`, `u = 2^{Σ U}`. -/
+def Ph (U : List ℕ) : List ℕ → ℤ
+  | [] => 0
+  | x :: a => 3 ^ ((U.length + 1) * a.length) + 2 ^ (U.sum + x) * Ph U a
+
+theorem interleave_cons (U : List ℕ) (x : ℕ) (a : List ℕ) :
+    interleave U (x :: a) = (U ++ [x]) ++ interleave U a := by
+  simp [interleave]
+
+theorem interleave_length (U a : List ℕ) :
+    (interleave U a).length = a.length * (U.length + 1) := by
+  induction a with
+  | nil => simp [interleave]
+  | cons x a ih =>
+    rw [interleave_cons, List.length_append, ih]
+    simp only [List.length_append, List.length_cons, List.length_nil]
+    ring
+
+theorem interleave_sum (U a : List ℕ) : (interleave U a).sum = a.sum + a.length * U.sum := by
+  induction a with
+  | nil => simp [interleave]
+  | cons x a ih =>
+    rw [interleave_cons, List.sum_append, ih]
+    simp only [List.sum_append, List.sum_cons, List.sum_nil, List.length_cons, add_zero]
+    ring
+
+/-- C013's (1), first half: `C_w = E · P_h` with `E = 3 C_U + 2^{Σ U}` the common block
+intercept (`C_append_singleton`). -/
+theorem C_interleave (U a : List ℕ) : C (interleave U a) = (3 * C U + 2 ^ U.sum) * Ph U a := by
+  induction a with
+  | nil => simp [interleave, C, Ph]
+  | cons x a ih =>
+    rw [interleave_cons, C_append, ih, C_append_singleton, interleave_length]
+    simp only [Ph, List.sum_append, List.sum_singleton]
+    ring
+
+/-- C013's (1), second half: `D_w = 2^{T + r A_U} − 3^{r(n+1)}` (`= −u^r Q(α/u)`). -/
+theorem D_interleave (U a : List ℕ) :
+    D (interleave U a) = 2 ^ (a.sum + a.length * U.sum) - 3 ^ (a.length * (U.length + 1)) := by
+  rw [D, interleave_sum, interleave_length]
+
+/-- The closed form `P_h = Σ_{j<r} 3^{(n+1)(r−1−j)} 2^{j A_U + P_j}`, `P_j = Σ_{i<j} a_i`. -/
+theorem Ph_eq_sum (U a : List ℕ) :
+    Ph U a = ∑ j ∈ Finset.range a.length,
+      (3 : ℤ) ^ ((U.length + 1) * (a.length - 1 - j)) * 2 ^ (j * U.sum + (a.take j).sum) := by
+  induction a with
+  | nil => simp [Ph]
+  | cons x a ih =>
+    have hpt : ∀ j ∈ Finset.range a.length,
+        (3 : ℤ) ^ ((U.length + 1) * (a.length + 1 - 1 - (j + 1)))
+            * 2 ^ ((j + 1) * U.sum + ((x :: a).take (j + 1)).sum)
+          = 2 ^ (U.sum + x)
+            * (3 ^ ((U.length + 1) * (a.length - 1 - j)) * 2 ^ (j * U.sum + (a.take j).sum)) := by
+      intro j _
+      rw [List.take_succ_cons, List.sum_cons,
+        show a.length + 1 - 1 - (j + 1) = a.length - 1 - j by omega,
+        show (j + 1) * U.sum + (x + (a.take j).sum) = (U.sum + x) + (j * U.sum + (a.take j).sum)
+          by ring, pow_add]
+      ring
+    rw [List.length_cons, Finset.sum_range_succ', Finset.sum_congr rfl hpt, ← Finset.mul_sum,
+      ← ih]
+    simp only [Ph, Nat.sub_zero, Nat.add_sub_cancel, Nat.zero_mul, List.take_zero, List.sum_nil,
+      Nat.add_zero, pow_zero, mul_one]
+    ring
+
+/-- C013's (8) in cleared form: `2^n E ≤ u (3^{n+1} − 2^{n+1})`, i.e. `E ≤ u (α/2^n − 2)`, for a
+positive background (`intercept_bound_last` with the block's last letter). -/
+theorem E_bound (U : List ℕ) (hU : ∀ x ∈ U, 1 ≤ x) :
+    (2 : ℤ) ^ U.length * (3 * C U + 2 ^ U.sum)
+      ≤ 2 ^ U.sum * (3 ^ (U.length + 1) - 2 ^ (U.length + 1)) := by
+  have h := intercept_bound_last U 0 hU
+  rwa [C_append_singleton] at h
+
+/-- C013's run law (`OVERLAP_THEORY.md` §1, (3)): if `2^E z_end = 3^t z_start` and `z_end` is
+even, then `z_start = 2^{E+1} k` and `z_end = 2 · 3^t k` for an integer `k`. -/
+theorem run_factor {E t : ℕ} {zs ze : ℤ} (h : (2 : ℤ) ^ E * ze = 3 ^ t * zs) (he : Even ze) :
+    ∃ k : ℤ, zs = 2 ^ (E + 1) * k ∧ ze = 2 * 3 ^ t * k := by
+  have hcop : IsCoprime ((2 : ℤ) ^ E) (3 ^ t) :=
+    (Int.isCoprime_iff_gcd_eq_one.mpr (by norm_num)).pow
+  have hdvd : (2 : ℤ) ^ E ∣ zs := hcop.dvd_of_dvd_mul_left ⟨ze, h.symm⟩
+  obtain ⟨k', hk'⟩ := hdvd
+  have hze : ze = 3 ^ t * k' := by
+    have h2 : (2 : ℤ) ^ E * ze = 2 ^ E * (3 ^ t * k') := by rw [h, hk']; ring
+    exact mul_left_cancel₀ (pow_ne_zero _ two_ne_zero) h2
+  have hcop2 : IsCoprime (2 : ℤ) (3 ^ t) :=
+    (Int.isCoprime_iff_gcd_eq_one.mpr (by norm_num)).pow_right
+  have h2k : (2 : ℤ) ∣ k' := by
+    have : (2 : ℤ) ∣ 3 ^ t * k' := by rw [← hze]; exact even_iff_two_dvd.mp he
+    exact hcop2.dvd_of_dvd_mul_left this
+  obtain ⟨k, hk⟩ := h2k
+  refine ⟨k, ?_, ?_⟩
+  · rw [hk', hk]; ring
+  · rw [hze, hk]; ring
 
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 

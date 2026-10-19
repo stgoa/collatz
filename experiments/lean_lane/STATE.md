@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 33 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 34 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -48,7 +48,7 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | C009-b | The one-point deletion theorem of `FIRST_RETURN_ORDER.md`. **Verified** (iteration 33): `retMap` (the first-return map on the retained old ranks after deleting rank `0`: one step of `j ↦ (j+s) mod m`, two when the first lands on `0`), `compMap` (compressed to `{0,…,m−2}`), `IsRankShift` (`∃ c, compMap j = (j + c) mod (m−1)`), the case lemmas `retMap_of_lt/of_ge/of_eq`, and **`one_point_deletion`**: for `m ≥ 2`, `1 ≤ s < m`, `IsRankShift m s ↔ s = 1 ∨ s = m − 1` (the prose's `gcd(s,m) = 1` is not needed); plus the `q = 13` control `compMap 5 3 = (3, 2, 0, 1)` by `decide` and `¬ IsRankShift 5 3` | `experiments/cycle_spectrum/C009/FIRST_RETURN_ORDER.md` | **verified** | `[propext, Quot.sound]` (a subset of the standard three; no choice is used) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 280 theorems printed) |
 | C010-a | Main's C010 `ODD_ROUNDING.md` §§2–3: the sharp adjacent odd-spacing bounds and the summed bound. **Verified** (iteration 31): `eta` (C010's `η(q,k)`), `eta_refine` (the mod-6 increment: odd `r, q`, `k ≥ 1`, `q(2^k−1) < 3r ⇒ q(2^k−1) + η ≤ 3r`; the prose's `3 ∤ q` is not needed), `OddCycle.q_odd` (positive valuations make `q` odd); on `OrdCycle`: `y_eq`, `y_succ_lt`, `gap_eq`, **`gap_ge_of_eq`** (equal heights: `G_r ≥ 2·2^{B−a}`), **`gap_ge_of_lt`** (downward: `G_r ≥ 2^{B−a}`), **`gap_seam_ge`** (seam: `G_{m−1} ≥ 2^{B−a}`), **`three_gap_gt_of_gt`** (upward, the order inequality `2^{B−b} q(2^k−1) < 3G_r`), **`three_gap_ge_of_gt`** (upward, sharp: `2^{B−b}(q(2^k−1) + η) ≤ 3G_r`), `pairBound3` (three times the scaled sharp bound, four cases) with `pairBound3_le`, and **`rounding_bound`**: `Σ_{r<m} pairBound3 r ≤ 3·2^B L`, i.e. C010's (3) `L ≥ R_q(H)` (hypothesis: `q` odd only) | `experiments/cycle_spectrum/C010/ODD_ROUNDING.md` §§2–3 | **verified** | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 263 theorems printed) |
 | C011-a | Main's C011 `ROTATION_DEFECTS.md` §§2–3, elementary core. **Verified** (iteration 32), in the two-defect normal form `w = a :: (u₀ ++ (a+k) :: v₀)`, `w' = (a+k) :: (u₀ ++ a :: v₀)` a rotation of `w`, `k ≥ 1`: `C_append_singleton` (the intercept ignores the last letter), **`two_arc_identity`** ((1): `C_{w'} − C_w = (2^k − 1) 2^a 3^{|v₀|} C (u₀ ++ [a+k])`), `rotate_cut` (the cut at the second mismatch is the rotation by `|u₀| + 1`), `isCoprime_three_D`, `dvd_C_rotate_of_dvd` (a common divisor of `C_w, D_w` coprime to `2` divides every rotated intercept), `gcd_isCoprime_two/three`, **`two_arc_dvd`** ((2): `g ∣ (2^k − 1) gcd(C_u, C_v)`, `u = u₀ ++ [a+k]`, `v = v₀ ++ [a]`), **`intercept_bound_last`** ((4) in cleared form: `2^{|z₀|} C (z₀ ++ [b]) ≤ 2^{Σz₀}(3^{|z₀|+1} − 2^{|z₀|+1})`), `two_defect_arith`, **`two_defect_bound_sharp`** ((5): `g² 2^{|u₀|+|v₀|} < (2^k−1)² 2^{Σu₀+Σv₀} 3^m`), **`two_defect_bound`** ((7): `g² 2^{2m} < 2^{2A} 3^m`, needs `a ≥ 1`) and `two_defect_q_bound` (`D² 2^{2m} < q² 2^{2A} 3^m` for `D = g q`, `q > 0`). Not formalised: the reduction of an arbitrary two-defect rotation to the normal form, the real-analytic (6)–(8), Matveev's constant and the Hercher/Barina period input | `experiments/cycle_spectrum/C011/ROTATION_DEFECTS.md` §§2–3 | **verified** | `[propext, Classical.choice, Quot.sound]` (two helpers subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 276 theorems printed) |
-| C013-a | Main's C013 `OVERLAP_CONTROLS.md` §1 (1) as list identities: for `w = (U, a_0, …, U, a_{r−1})`, `C_w = (3 C_U + 2^{A_U}) · Σ_j 3^{(n+1)(r−1−j)} 2^{j A_U + P_j}` and `D_w = 2^{T + r A_U} − 3^{r(n+1)}` (i.e. `C_w = E P_h`, `D = −Q_h`), the bound (8) `E ≤ u(α/2^n − 2)`, and `OVERLAP_THEORY.md` §1's run law (2)–(3) (`2^E z_end = 3^t z_start` along an agreeing run, hence `z_start = 2^{E+1} k`, `z_end = 2·3^t k`). Not Lean targets: the polynomial gcd/resultant steps, the Fourier–uncertainty inequality (5), Matveev | `experiments/cycle_spectrum/C013/OVERLAP_CONTROLS.md` §1, `OVERLAP_THEORY.md` §1 | queued | — | — |
+| C013-a | Main's C013 `OVERLAP_CONTROLS.md` §1 (1) and `OVERLAP_THEORY.md` §1. **Verified** (iteration 34): `interleave U a` (the word `(U, a_0, …, U, a_{r−1})`), `Ph U a` (the homogenised `u^{r−1} P(α/u)`, by the recursion `P_h(x :: a) = α^{|a|} + u 2^x P_h(a)`), `interleave_length` (`m = r(n+1)`), `interleave_sum` (`A = T + r A_U`), **`C_interleave`** (`C_w = (3 C_U + 2^{A_U}) · P_h`, (1) first half; axioms `[propext]` only), **`D_interleave`** (`D_w = 2^{T + r A_U} − 3^{r(n+1)}`, i.e. `−u^r Q(α/u)`; `[propext]`), `Ph_eq_sum` (the closed form `Σ_{j<r} 3^{(n+1)(r−1−j)} 2^{j A_U + P_j}`), `E_bound` ((8): `2^n E ≤ u(3^{n+1} − 2^{n+1})`), `run_factor` (OVERLAP_THEORY (3): `2^E z_end = 3^t z_start`, `z_end` even ⇒ `z_start = 2^{E+1} k`, `z_end = 2·3^t k`), and on `OddCycle`: `diff_step` ((2): `2^{a_i} z_{i+1} = 3 z_i` at agreeing valuations) and `run_diff` (`2^{Σ a} z_{i+t} = 3^t z_i` along an agreeing run, via `run_pow_mul`). Not Lean targets: the polynomial gcd/resultant steps (2)–(3), the Fourier–uncertainty inequality (5), the bounds (6)–(14), Matveev | `experiments/cycle_spectrum/C013/OVERLAP_CONTROLS.md` §1, `OVERLAP_THEORY.md` §1 | **verified** | `[propext, Classical.choice, Quot.sound]` (the identities need only `[propext]`) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 290 theorems printed) |
 | C008-a | Main's C008 (`INDEPENDENT_MATCHING.md` §1, `MATCHING_ARITHMETIC.md`): the exact prefix identity `2^{A_i} n_i = 3^i n_0 + q C_i`, the cycle identity `(2^A − 3^m) n_0 = q C_m` and `q ∣ 2^A − 3^m` for reduced cycles; the cyclicity of `⟨2, 3⟩`: in any commutative group `x^A = y^m` with `gcd(A, m) = 1` gives `t` with `t^m = x`, `t^A = y`, and the `ZMod N` instance for the units `2`, `3` when `N ∣ 2^A − 3^m`, `N` coprime to 6; the mechanical prefix sums `Σ_{j<i} c_j = ⌊i(mq' + h)/m⌋`; the sorted-rank residue law (R1) in integer form `2^{P_i} z_[(ih) mod m] ≡ 3^i z_[0] (mod q)` | `experiments/cycle_spectrum/C008/INDEPENDENT_MATCHING.md` §1 | **verified** (iteration 24): `CycleSpectrum.lean`, `exists_common_root`, `zmod_common_root`, `NarrowCycle.sum_a_range`, `OddCycle.{Apre, Cpre, prefix_identity, cycle_identity, q_dvd_D, toNarrow_primitive, toNarrow_rank_zero, sorted_residue_law}` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 193 theorems printed) |
 | C002-b | The proportional-slope theorem (6)–(8) in its general `(r, s)` form, the `K = 0` characterisation, the rotating mechanical family of §4; the unequal-slope application is an imported ineffective theorem and is not a Lean target | same, §§2–4 | queued | — | — |
 | V006-a | Quadratic separation (main's V006 `overlap.md` §2): for `F` not eventually periodic, the states `Q_(a,t) = F(t₀ + t + s₂(3^a n))` are pairwise distinct (`(a,t) ↦ Q_(a,t)` injective); `Q_(a,t)` lies in the joint section family through depth `a + t`; hence that family through depth `D` has at least `(D+1)(D+2)/2` members (main's (4)); with the digit-count identities (5), (6), (7) (block additivity, complement, balanced quotient, `3^(r+1) ∣ 2^(3^r) + 1`) | `experiments/viewpoints/V006/overlap.md` §2, `QUADRATIC_REVIEW.md` | **verified** (iteration 10): `QuadraticSeparation.lean`, `LeanLane.Quad.Q_injective`, `Q_mem_Reach`, `triangle_encard_le`, `card_triangle`, `reach_encard_ge`, `s2_mul_pow_sub`, `s2_mul_pow_sub_one`, `s2_balanced`, `three_pow_dvd` | `[propext, Classical.choice, Quot.sound]` | `receipts/QuadraticSeparation.{build,axioms,sha256}.txt` |
@@ -854,7 +854,38 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   of the height-zero first-return map of an ordered cycle with exactly one
   positive-height state with this permutation, and the `q = 83` slope control.
 
+- C013-a: `OVERLAP_CONTROLS.md` §1 defines the word
+  `w = (U, a_0, U, a_1, …, U, a_{r−1})`, `u = 2^{A_U}`, `α = 3^{n+1}`,
+  `E = 3C_U + u`, `P(X) = Σ_j 2^{P_j} X^{r−1−j}`, `Q(X) = X^r − 2^T`, and
+  states (1) `S = u^{r−1} P(α/u)`, `C_w = E S`, `D = 2^T u^r − α^r = −u^r
+  Q(α/u)`. In the file `w` is `interleave U a = List.flatMap (fun x => U ++
+  [x]) a`; `Ph U a` is `S` defined by the block recursion (`Ph U [] = 0`,
+  `Ph U (x :: a) = 3^{(n+1)|a|} + 2^{A_U + x} Ph U a`), and `Ph_eq_sum` is its
+  closed form `Σ_{j<r} 3^{(n+1)(r−1−j)} 2^{j A_U + P_j}` with `P_j = Σ(a.take
+  j)`, which is literally `u^{r−1} P(α/u)` expanded. `C_interleave` is
+  `C_w = (3 C_U + 2^{A_U}) · Ph U a`, by induction with `C_append` and
+  `C_append_singleton` (the prose's "each block `(U, a_j)` has the same
+  affine numerator `α x + E`"); `D_interleave` is `D_w = 2^{T + r A_U} −
+  3^{r(n+1)}` from `interleave_sum`/`interleave_length`. No positivity,
+  primitivity or `D > 0` is needed for these identities, as the prose says.
+  (8) is `E_bound`: `2^n E ≤ u(3^{n+1} − 2^{n+1})` for positive `U`, which is
+  `E ≤ u(α/2^n − 2)`; it is `intercept_bound_last` for the block.
+  `OVERLAP_THEORY.md` §1's (2) is `OddCycle.diff_step` (`2^{a_i} z_{i+1} =
+  3 z_i` when `a_i = a_{i+k}`, from the two arrows), its `2^E z_end = 3^t
+  z_start` along `t` agreeing positions is `run_diff` (an instance of C006's
+  `run_pow_mul`), and the factorisation `z_start = 2^{E+1} k`, `z_end = 2·3^t
+  k` for even `z_end` is `run_factor` (coprimality of `2^E` and `3^t`, then of
+  `2` and `3^t`). Not formalised: (2)–(3)'s polynomial gcd/resultant steps,
+  the Fourier identification (4) and the uncertainty inequality (5), the
+  analytic bounds (6)–(14), the diameter consequences (4)–(7) of
+  OVERLAP_THEORY, and its §3 family.
+
 ## Insights sent to the feed
+
+- Iteration 34 (sidekick `c86942c`; main unchanged at `1c5c19d`): the side
+  lane verified C009-b (feed update 05:07) and re-ran its deletion test
+  without the coprimality filter (1,770 cases agree). Nothing new from main.
+  Sent after the build: the C013-a report.
 
 - Iteration 33 (sidekick `e2268cc`/`9a0e8dc`/`06e0c7d`; main `1c5c19d`): the
   side lane verified C011-a (feed update 04:44), recorded the C012 check
