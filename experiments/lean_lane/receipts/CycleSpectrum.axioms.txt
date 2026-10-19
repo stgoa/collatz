@@ -1,7 +1,10 @@
-source sha256: d06e37ae822e2092a0323b45b4ee2763fa25852ee77b90d56e88e0814b79977b
-'LeanLane.Cyc.OrdCycle.hr_eq_of_no_change' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.OrdCycle.q'_eq_one_of_range' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.OrdCycle.J_ge_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+source sha256: af06a19069663c4d87e5ef64357f68a487960c7fadd15e2374831056b56ea0b9
+'LeanLane.Cyc.gcdCD_rep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.den_rep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.div_scale' depends on axioms: [propext, Quot.sound]
+'LeanLane.Cyc.mech_rep' depends on axioms: [propext, Quot.sound]
+'LeanLane.Cyc.mech_gcd_one_phase'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.den_mech' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.C_append' depends on axioms: [propext]
 'LeanLane.Cyc.rep_length' depends on axioms: [propext]
 'LeanLane.Cyc.rep_sum' depends on axioms: [propext]
@@ -413,3 +416,6 @@ source sha256: d06e37ae822e2092a0323b45b4ee2763fa25852ee77b90d56e88e0814b79977b
 'LeanLane.Cyc.OrdCycle.hr_eq_zero_of_J_one' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OrdCycle.T_seam_of_J_one' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OrdCycle.D_eq_q_of_J_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OrdCycle.hr_eq_of_no_change' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OrdCycle.q'_eq_one_of_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OrdCycle.J_ge_three' depends on axioms: [propext, Classical.choice, Quot.sound]

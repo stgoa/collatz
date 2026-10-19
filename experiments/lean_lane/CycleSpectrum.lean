@@ -5517,6 +5517,112 @@ theorem rotation_block_exclusion_mech {m₀ A₀ l₀ : ℕ} (hm₀ : 2 ≤ m₀
 
 end OddCycle
 
+/-! ### R71-b: repeated words — `den(z^k) = den(z)` and R71's (3) in full
+
+R71 §2's repeated case: for `g = gcd(A, k) > 1` the phase-`l` mechanical word with parameters
+`(A, k)` is `g` repeats of the phase-`h` word with parameters `(A/g, k/g)`, where `l = g h + r`,
+`0 ≤ r < g` (the floor identity `⌊(jA + l)/k⌋ = ⌊(jA₀ + h)/k₀⌋`), and "its positive fixed point is
+unchanged by repetition", so the reduced denominator is that of the primitive word:
+`d = 2^{A/g} − 3^{k/g}` for every mechanical word (R71's (3)); R71-a gave the primitive case
+`gcd(C, D) = 1`. Here `den w := D_w / gcd(C_w, D_w)`; `C(z^k) = C_z G_k` and `D(z^k) = D_z G_k`
+scale the gcd by `G_k` (`gcdCD_rep`), so `den (z^k) = den z` (`den_rep`); `mech_rep` is the
+power decomposition; `den_mech` is (3). R71's example: `(k, A) = (6, 10)` has `D = 295` but
+`d = 2^5 − 3^3 = 5`. -/
+
+/-- The reduced denominator `den(w) = D_w / gcd(C_w, D_w)` of the cycle-spectrum brief. -/
+def den (w : List ℕ) : ℤ := D w / OddCycle.gcdCD w
+
+/-- The gcd of a repeated word scales by `G_k`. -/
+theorem gcdCD_rep (z : List ℕ) {k : ℕ} (hk : 1 ≤ k) :
+    OddCycle.gcdCD (rep z k) = G (2 ^ z.sum) (3 ^ z.length) k * OddCycle.gcdCD z := by
+  have hG : 0 < G (2 ^ z.sum) (3 ^ z.length) k :=
+    G_pos _ _ (by positivity) (by positivity) k hk
+  unfold OddCycle.gcdCD
+  rw [C_rep, D_rep, mul_comm (C z), mul_comm (D z), Int.gcd_mul_left, Nat.cast_mul,
+    Int.natAbs_of_nonneg hG.le]
+
+/-- R71 §2: the reduced denominator is unchanged by repetition. -/
+theorem den_rep (z : List ℕ) {k : ℕ} (hk : 1 ≤ k) : den (rep z k) = den z := by
+  have hG : 0 < G (2 ^ z.sum) (3 ^ z.length) k :=
+    G_pos _ _ (by positivity) (by positivity) k hk
+  unfold den
+  rw [D_rep, gcdCD_rep z hk, mul_comm (D z), Int.mul_ediv_mul_of_pos _ _ hG]
+
+/-- `⌊(gX + r)/(g k₀)⌋ = ⌊X/k₀⌋` for `r < g`. -/
+theorem div_scale {g k₀ : ℕ} (hg : 0 < g) (hk₀ : 0 < k₀) (X r : ℕ) (hr : r < g) :
+    (g * X + r) / (g * k₀) = X / k₀ := by
+  have hdm := Nat.div_add_mod X k₀
+  have hlt : g * (X % k₀) + r < g * k₀ := by
+    have h1 : X % k₀ + 1 ≤ k₀ := Nat.mod_lt X hk₀
+    have h2 := Nat.mul_le_mul_left g h1
+    rw [Nat.mul_add, Nat.mul_one] at h2
+    omega
+  have heq : g * X + r = g * k₀ * (X / k₀) + (g * (X % k₀) + r) := by
+    rw [show g * X = g * (k₀ * (X / k₀) + X % k₀) by rw [hdm]]
+    ring
+  rw [heq, Nat.mul_add_div (Nat.mul_pos hg hk₀), Nat.div_eq_of_lt hlt, Nat.add_zero]
+
+/-- R71 §2: the mechanical word with parameters `(gA₀, gk₀)` and phase `gh + r` (`r < g`) is `g`
+repeats of the word with parameters `(A₀, k₀)` and phase `h`. -/
+theorem mech_rep {g A₀ k₀ h r : ℕ} (hg : 0 < g) (hk₀ : 0 < k₀) (hr : r < g) :
+    mech (g * A₀) (g * k₀) (g * h + r) = rep (mech A₀ k₀ h) g := by
+  have hF : ∀ j, (j * (g * A₀) + (g * h + r)) / (g * k₀) = (j * A₀ + h) / k₀ := by
+    intro j
+    rw [show j * (g * A₀) + (g * h + r) = g * (j * A₀ + h) + r by ring]
+    exact div_scale hg hk₀ _ r hr
+  have hper : ∀ j, (j + k₀) * A₀ + h = (j * A₀ + h) + k₀ * A₀ := fun j => by ring
+  unfold mech diffWord
+  simp only [hF]
+  have hf : ∀ i, ((i + k₀ + 1) * A₀ + h) / k₀ - ((i + k₀) * A₀ + h) / k₀ =
+      ((i + 1) * A₀ + h) / k₀ - (i * A₀ + h) / k₀ := by
+    intro i
+    rw [show i + k₀ + 1 = (i + 1) + k₀ by ring, hper (i + 1), hper i,
+      Nat.add_mul_div_left _ _ hk₀, Nat.add_mul_div_left _ _ hk₀]
+    omega
+  exact map_range_mul_eq_rep (fun j => ((j + 1) * A₀ + h) / k₀ - (j * A₀ + h) / k₀) k₀ hf g
+
+/-- R71-a extended to `k₀ = 1`: every primitive mechanical word has `gcd(C, D) = 1`. -/
+theorem mech_gcd_one_phase' {k₀ : ℕ} (hk₀ : 0 < k₀) (A₀ : ℕ) (hAm : k₀ ≤ A₀)
+    (hcop : Nat.Coprime A₀ k₀) {h : ℕ} (hh : h < k₀) :
+    Int.gcd (C (mech A₀ k₀ h)) (D (mech A₀ k₀ h)) = 1 := by
+  rcases Nat.lt_or_ge k₀ 2 with h1 | h2
+  · have hk1 : k₀ = 1 := by omega
+    subst hk1
+    have hh0 : h = 0 := by omega
+    subst hh0
+    have hC : C (mech A₀ 1 0) = 1 := by
+      rw [C_mech A₀ 0 (show 0 < 1 by norm_num)]
+      simp
+    rw [hC, Int.gcd_one_left]
+  · exact mech_gcd_one_phase h2 A₀ hAm hcop hh
+
+/-- **R71's (3)**: every mechanical word with parameters `(A, k)`, `k ≤ A`, phase `l < k`, has
+reduced denominator `2^{A/g} − 3^{k/g}` with `g = gcd(A, k)`. -/
+theorem den_mech {A k l : ℕ} (hk : 0 < k) (hAk : k ≤ A) (hl : l < k) :
+    den (mech A k l) = 2 ^ (A / Nat.gcd A k) - 3 ^ (k / Nat.gcd A k) := by
+  obtain ⟨g, hg⟩ : ∃ g, g = Nat.gcd A k := ⟨_, rfl⟩
+  have hgpos : 0 < g := by rw [hg]; exact Nat.gcd_pos_of_pos_right _ hk
+  have hgA : g ∣ A := by rw [hg]; exact Nat.gcd_dvd_left _ _
+  have hgk : g ∣ k := by rw [hg]; exact Nat.gcd_dvd_right _ _
+  have hA : A = g * (A / g) := (Nat.mul_div_cancel' hgA).symm
+  have hk' : k = g * (k / g) := (Nat.mul_div_cancel' hgk).symm
+  have hl' : l = g * (l / g) + l % g := (Nat.div_add_mod l g).symm
+  have hk₀ : 0 < k / g := Nat.div_pos (Nat.le_of_dvd hk hgk) hgpos
+  have hcop : Nat.Coprime (A / g) (k / g) := by
+    rw [hg]
+    exact Nat.coprime_div_gcd_div_gcd (Nat.gcd_pos_of_pos_right _ hk)
+  have hAm : k / g ≤ A / g := Nat.div_le_div_right hAk
+  have hh : l / g < k / g := by
+    apply Nat.div_lt_of_lt_mul
+    rw [← hk']
+    exact hl
+  rw [← hg]
+  conv_lhs => rw [hA, hk', hl']
+  rw [mech_rep hgpos hk₀ (Nat.mod_lt l hgpos), den_rep _ hgpos]
+  unfold den OddCycle.gcdCD
+  rw [mech_gcd_one_phase' hk₀ (A / g) hAm hcop hh, Nat.cast_one, Int.ediv_one,
+    D_mech hk₀ (A / g) (l / g) hh]
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

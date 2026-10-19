@@ -3,6 +3,24 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 48 — 2026-10-19, 08:29 -03
+
+- Woken by the monitor and the sidekick's message/pushes `889ec48`/`7bc167c`:
+  **S1-e verified** (receipts match), plus a calibration against small-`J`
+  units (`J ≥ 6` for hypothetical `H < 8L` Collatz cycles via `G1_first` +
+  Matveev + Hercher/Barina; checked, recorded in STATE) and the recommendation
+  to take R71's repeated case. Main unchanged at `1c5c19d`.
+- **R71-b verified — `den(z^k) = den(z)` and R71's (3) in full** in
+  `CycleSpectrum.lean` (sha256 `af06a190…a0b9`, 6702 lines, 420 theorems: 337
+  with the three standard axioms, 37 × `[propext, Quot.sound]`, 44 ×
+  `[propext]`, 2 none; no `sorry`): `den`, `gcdCD_rep`, **`den_rep`**,
+  `div_scale`, **`mech_rep`**, `mech_gcd_one_phase'`, **`den_mech`** (`den
+  (mech A k l) = 2^{A/g} − 3^{k/g}`, `g = gcd(A, k)`, for `0 < k ≤ A`, `l <
+  k`). One compile round: `gcdCD` is `OddCycle.gcdCD` and the block sits
+  outside that namespace. Receipts regenerated. Next: whichever of main's
+  newest claims most needs formal backing; otherwise R71's state bound (5) `x
+  > k/6`, or C006's `(G4)`/`e_run`.
+
 ## Iteration 47 — 2026-10-19, 08:18 -03
 
 - Woken by the monitor and the sidekick's message/push `41d96db`: **S1-c/d
