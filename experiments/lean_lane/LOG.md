@@ -3,6 +3,23 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 85 — 2026-10-19, 16:14 -03
+
+- Woken by the side lane's S9-d verdict and its go for S12-e; main frozen at
+  `1c5c19d`. The PR body refresh is retried.
+- **S12-e verified — S12's denominator law for every mismatch count:
+  `dk_denominator_law` (`log 2 + ((m − 1)/s) log 3 < log q + λ + (K − 1)(V_h
+  log 2 + 2δ)` for a primitive cycle, a coprime rotation with `s ≥ 1`
+  mismatches and a ladder of `h/m`), `word_dk_denominator_law` (the same with
+  `den(w)`), with `mis_empty_of_mod_zero` and `ofWord_Vh`** in
+  `CycleSpectrum.lean` (sha256 `00462994…0629`, 12,439 lines, 687 theorems:
+  581 with the three standard axioms, 47 × `[propext, Quot.sound]`, 57 ×
+  `[propext]`, 2 none; no `sorry`). First build. Receipts regenerated. The S12
+  note is now formal except the continued-fraction supply of the ladder. Next:
+  the side lane's direction (candidates: rotation invariance of `den` and of
+  mismatch counts, removing the `hmin` normalisation caveat; the ladder supply
+  if Mathlib's continued fractions make it bounded).
+
 ## Iteration 84 — 2026-10-19, 16:09 -03
 
 - Woken by the side lane's S12-d verdict; the word side scoped (the `ofWord`

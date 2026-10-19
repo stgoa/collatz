@@ -10719,6 +10719,135 @@ theorem word_three_mismatch_law (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x �
 
 end OddCycle
 
+/-! ### S12-e: the Denjoy–Koksma denominator law for every mismatch count
+
+S12's denominator corollary: for a primitive cycle with letters `≥ 1`, a rotation `h` coprime to `m`
+with exactly `s ≥ 1` mismatches, and a ladder `(q, a)` of `h/m` with `q n = m` whose denominators
+are DK-admissible, the longest agreeing run `T` has `m ≤ s(T + 1)`, so `T ≥ ⌈(m−s)/s⌉ = (m − 1)/s`
+(natural division); its witness exceeds `2·3^T` and is at most the maximum `n_j`; the height bound
+gives `log n_j ≤ log L + (K − 1)·Var(μ_h)`, the variation bound `Var(μ_h) ≤ V_h log 2 + 2δ`, and
+`3 L D ≤ m q 2^A` gives `log L ≤ log q + λ`. Hence
+`log 2 + ((m − 1)/s) log 3 < log q + λ + (K − 1)(V_h log 2 + 2δ)` (`dk_denominator_law`), the side
+lane's `log₂ den(w) > 1 + ⌈(m−s)/s⌉ log₂3 − (K − 1)(V_h + 2δ) − λ(w)` in natural logarithms, and
+the same for words with `den(w)` (`word_dk_denominator_law`). Unlike S9 (i)–(ii) it holds for every
+`s`, informative when `(K − 1)(V_h log 2 + 2δ)` is small (low-variation words with tame `h/m`);
+the ladder is a hypothesis, as in S12-c. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- A rotation by a multiple of the period has no mismatches. -/
+theorem mis_empty_of_mod_zero {h : ℕ} (hh : h % m = 0) : Γ.mis h = ∅ := by
+  unfold mis
+  rw [Finset.filter_eq_empty_iff]
+  intro i _ hna
+  apply hna
+  show Γ.a i = Γ.a (i + h)
+  rw [← Γ.a_mod (i + h), Nat.add_mod, hh, Nat.add_zero, Nat.mod_mod, Γ.a_mod]
+
+/-- **S12's denominator law for every mismatch count** (natural logarithms). -/
+theorem dk_denominator_law (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    {h : ℕ} (hhm : h ≤ m) (hcop : Nat.Coprime h m) {q a : ℕ → ℕ} (L : DK.Ladder q a) {n : ℕ}
+    (hn : 1 ≤ n) (hqn : q n = m)
+    (hadm : ∀ i, i < n → ∃ p r, (q i * h = p * m + r ∨ p * m = q i * h + r) ∧ q i * r < m ∧
+      Nat.Coprime p (q i))
+    {s : ℕ} (hs1 : 1 ≤ s) (hs : (Γ.mis h).card = s) :
+    Real.log 2 + (((m - 1) / s : ℕ) : ℝ) * Real.log 3 <
+      Real.log (Γ.q) + (Real.log m + (Γ.Apre m : ℝ) * Real.log 2 - Real.log 3 -
+          Real.log ((2 : ℝ) ^ Γ.Apre m - 3 ^ m)) +
+        (((∑ i ∈ Finset.Icc 1 n, a i : ℕ) : ℝ) - 1) *
+          ((Γ.Vh h : ℝ) * Real.log 2 + 2 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) := by
+  have hmpos := Γ.hm
+  have hh : h % m ≠ 0 := by
+    intro h0
+    have h1 := Γ.mis_empty_of_mod_zero h0
+    rw [h1, Finset.card_empty] at hs
+    omega
+  obtain ⟨i, T, hrun, hTbound⟩ := Γ.exists_longest_run hprim hh
+  have hpig := Γ.pigeonhole (Γ.exists_mis hprim hh) hTbound
+  rw [hs] at hpig
+  have hT : (m - 1) / s ≤ T := by
+    have h1 : (m - 1) / s < T + 1 := by
+      rw [Nat.div_lt_iff_lt_mul hs1]
+      omega
+    omega
+  -- the maximum
+  obtain ⟨j, hjm', hjmax⟩ :=
+    Finset.exists_max_image (Finset.range m) Γ.n ⟨0, Finset.mem_range.mpr hmpos⟩
+  have hj : ∀ k, Γ.n k ≤ Γ.n j := fun k => by
+    rw [← Γ.n_mod k]
+    exact hjmax (k % m) (Finset.mem_range.mpr (Nat.mod_lt _ hmpos))
+  -- the witness of the longest run, below the maximum
+  have hw := Γ.witness_gt T (fun k hk => hrun k hk) (Γ.z_ne_zero hprim hh (i + T))
+  have hwj : 2 * (3 : ℤ) ^ T < Γ.n j := lt_of_lt_of_le hw (max_le (hj _) (hj _))
+  have hwjR : 2 * (3 : ℝ) ^ T < Γ.n j := by exact_mod_cast hwj
+  have h3T : (3 : ℝ) ^ T ≠ 0 := by positivity
+  have hlw := Real.log_lt_log (by positivity) hwjR
+  rw [Real.log_mul (by norm_num : (2 : ℝ) ≠ 0) h3T, Real.log_pow] at hlw
+  -- the height bound at the maximum and the variation bound
+  have hht := Γ.height_le_varMu' hhm hcop L hn hqn hadm j
+  have hvar := Γ.varMu_le_Vh h
+  have hK : (1 : ℝ) ≤ ((∑ i ∈ Finset.Icc 1 n, a i : ℕ) : ℝ) := by
+    have h1 : 1 ≤ ∑ i ∈ Finset.Icc 1 n, a i := by
+      calc 1 ≤ a 1 := L.apos 1 le_rfl
+        _ ≤ ∑ i ∈ Finset.Icc 1 n, a i :=
+          Finset.single_le_sum (fun _ _ => Nat.zero_le _) (Finset.mem_Icc.mpr ⟨le_rfl, hn⟩)
+    exact_mod_cast h1
+  have hprod := mul_le_mul_of_nonneg_left hvar
+    (by linarith : (0 : ℝ) ≤ ((∑ i ∈ Finset.Icc 1 n, a i : ℕ) : ℝ) - 1)
+  -- `3 L D ≤ m q 2^A` in logarithms
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have hD : (0 : ℝ) < (2 : ℝ) ^ Γ.Apre m - 3 ^ m := by exact_mod_cast Γ.D_pos
+  have hq : (0 : ℝ) < Γ.q := by exact_mod_cast Γ.hq
+  have hm0 : (0 : ℝ) < m := by exact_mod_cast hmpos
+  have hA2 : (0 : ℝ) < 2 ^ Γ.Apre m := by positivity
+  have h3n0 : (0 : ℝ) < 3 * Γ.n 0 := mul_pos (by norm_num) hn0
+  have hmq : (0 : ℝ) < m * Γ.q := mul_pos hm0 hq
+  have hl3 := Real.log_le_log (mul_pos h3n0 hD) Γ.three_L_D_le
+  rw [Real.log_mul h3n0.ne' hD.ne', Real.log_mul (by norm_num : (3 : ℝ) ≠ 0) hn0.ne',
+    Real.log_mul hmq.ne' hA2.ne', Real.log_mul hm0.ne' hq.ne', Real.log_pow] at hl3
+  -- `(m − 1)/s ≤ T`
+  have hTR : (((m - 1) / s : ℕ) : ℝ) ≤ T := by exact_mod_cast hT
+  have hlog3 : 0 < Real.log 3 := Real.log_pos (by norm_num)
+  have hTlog := mul_le_mul_of_nonneg_right hTR hlog3.le
+  linarith
+
+/-- The letter variation of the reduced cycle of a word, in word terms. -/
+theorem ofWord_Vh (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) (hD : 0 < D w)
+    (hmin : ∀ i, C w ≤ C (w.rotate i)) (h : ℕ) : (ofWord w hw0 hpos hD hmin).Vh h =
+    ∑ t ∈ Finset.range w.length,
+      Int.natAbs (((w.rotate t).headD 0 : ℤ) - ((w.rotate (t + h)).headD 0 : ℤ)) := rfl
+
+/-- **S12's denominator law for words**, every mismatch count. -/
+theorem word_dk_denominator_law (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x)
+    (hD : 0 < D w) (hmin : ∀ i, C w ≤ C (w.rotate i))
+    (hdist : ∀ i j, i < w.length → j < w.length → C (w.rotate i) = C (w.rotate j) → i = j)
+    {h : ℕ} (hhm : h ≤ w.length) (hcop : Nat.Coprime h w.length) {q a : ℕ → ℕ}
+    (L : DK.Ladder q a) {n : ℕ} (hn : 1 ≤ n) (hqn : q n = w.length)
+    (hadm : ∀ i, i < n → ∃ p r, (q i * h = p * w.length + r ∨ p * w.length = q i * h + r) ∧
+      q i * r < w.length ∧ Nat.Coprime p (q i))
+    {s : ℕ} (hs1 : 1 ≤ s)
+    (hs : ((Finset.range w.length).filter
+      (fun i => (w.rotate i).headD 0 ≠ (w.rotate (i + h)).headD 0)).card = s) :
+    Real.log 2 + (((w.length - 1) / s : ℕ) : ℝ) * Real.log 3 <
+      Real.log (den w) + (Real.log w.length + (w.sum : ℝ) * Real.log 2 - Real.log 3 -
+          Real.log ((2 : ℝ) ^ w.sum - 3 ^ w.length)) +
+        (((∑ i ∈ Finset.Icc 1 n, a i : ℕ) : ℝ) - 1) *
+          (((∑ t ∈ Finset.range w.length,
+              Int.natAbs (((w.rotate t).headD 0 : ℤ) - ((w.rotate (t + h)).headD 0 : ℤ)) : ℕ) : ℝ) *
+              Real.log 2 +
+            2 * ((w.sum : ℝ) * Real.log 2 - w.length * Real.log 3)) := by
+  have hprim := ofWord_primitive w hw0 hpos hD hmin hdist
+  have hs' : ((ofWord w hw0 hpos hD hmin).mis h).card = s := by
+    rw [ofWord_mis]
+    exact hs
+  have key := (ofWord w hw0 hpos hD hmin).dk_denominator_law hprim hhm hcop L hn hqn hadm hs1 hs'
+  rw [ofWord_Apre, ofWord_den, ofWord_Vh] at key
+  exact key
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
