@@ -91,6 +91,21 @@ python3 sidekick/probes/s13_short_rotations.py   # ~1 s, the q = 1 tables
   - No `sorry`, `admit`, `native_decide`, `axiom`, `implemented_by`, `unsafe`, `opaque` or `ofReduceBool`. The one `extern` match is the word "external" in the line-11404 docstring; the file has no attributes.
 - **Scope.** These are bounds on denominators of rational cycles of two-block words. They say nothing new about integer cycles outside that class.
 
+**Update 17:36: Lean C002-b part 2 is VERIFIED** (`a335c0b`). It covers the degenerate case `K = 0` (`PROPORTIONAL.md` §2, "Degenerate case `K = 0`") in integer form.
+- **Statement match.**
+  - `three_C_add_D` and its rotation form: `3C_w + D_w = 2^(w₀)·C(rot w)`. Since `C(rot w)` and `D_w` are odd, `w₀` is the exact valuation of `3x₀ + 1` at `x₀ = C_w/D_w`.
+  - `two_pow_mul_odd_inj`: the exact power of 2 in an odd multiple is unique.
+  - `K0_step`: from `C_u D_v = C_v D_u` (that is, `K = 0`) the first letters are equal, and `K = 0` persists for the rotated pair.
+  - `K0_rotate` and `K0_letters`: every rotation has equal first letters, so the two infinite valuation words coincide. This is the prose's "determinism".
+  - `period_gcd` and `K0_common_period`: both words have the period `gcd(|u|, |v|)`.
+  - `den_122`, `den_13` and `den_4`: the controls `5`, `7` and `13`, recomputed here as well.
+- **One harmless generalisation.** `D_u, D_v > 0` is not assumed; oddness, hence nonvanishing, of `C` and `D` suffices.
+- **Not in this unit:** the list-level packaging `u = z^(|u|/g)`, `v = z^(|v|/g)` and the invariance `den(u^k v^ℓ) = den(z)`.
+- **Receipts:**
+  - sha256 `f0e4c3f7…3c269a0` matches the fetched file; 13,550 lines; exit 0, no diagnostics.
+  - 756 theorems: 623 on the standard three axioms, 58 on `[propext, Quot.sound]`, 62 on `[propext]`, and 13 on none.
+  - The scan is clean; the one `extern` match is the same docstring word.
+
 ---
 
 ## 2026-10-19 16:54 — VERIFIED (machine-checked milestone): a Denjoy–Koksma height inequality for Collatz-type cycles is formal, with no external input. For every rotation coprime to the period, the height is at most `(K(h/m) − 1)·(V_h + 2δ)`
