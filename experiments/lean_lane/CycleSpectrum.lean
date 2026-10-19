@@ -9096,6 +9096,193 @@ theorem two_mismatch_denominator_law_odd (hprim : ∀ i j, i < m → j < m → �
 
 end OddCycle
 
+/-! ### S8-a: the by-products of S8 — runs of ones and the 1-cycle identity
+
+S8's headline is withdrawn; its §1 constraint (5) and §4 1-cycle remain valid and are recorded here.
+On a one-letter the arrow reads `2 (n_{i+1} + q) = 3 (n_i + q)` (`one_step_add_q`), so a run of `r`
+ones from `i₀` gives `2^r (n_{i₀+r} + q) = 3^r (n_{i₀} + q)` (`ones_run_identity`); for odd `q` this
+yields `2^r ∣ n_{i₀} + q` and `2·3^r ∣ n_{i₀+r} + q` (`ones_run_dvd`: the factor `2` because the states
+are odd), hence `2·3^r ≤ n_{i₀+r} + q` (`ones_run_le`). The inequality is NOT strict in general: the
+one-step `3 → 5` at `q = 1` has `r = 1` and `5 + 1 = 2·3`. The 1-cycle: with `q = 1` and the word
+`1^{m−1} V` read from the minimum (letters `a_k = 1` for `k < m − 1`), the intercepts are
+`C_j = 3^j − 2^j` (`Cpre_ones`), so the closing identity gives `D n_0 = 3^m − 2^m`, and with
+`3^m ≡ 2^A (mod D)` and `D` odd, `D ∣ 2^{A−m} − 1` (`one_cycle_D_dvd`), hence `D ≤ 2^{A−m} − 1`
+(`one_cycle_D_le`). With the gap `2^A ≤ 2^172 m^341 D` this forces `2^m < 2^172 m^341`
+(`one_cycle_pow_lt`), impossible for `m ≥ 2^13` (`no_one_cycle_of_gap`; the exact threshold is
+`m ≥ 4287`, computed outside Lean). All of this is conditional on the gap and far weaker than
+Steiner's unconditional theorem on 1-cycles; it is recorded as a by-product. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- On a one-letter, `2 (n_{i+1} + q) = 3 (n_i + q)`. -/
+theorem one_step_add_q {i : ℕ} (hi : Γ.a i = 1) :
+    2 * (Γ.n (i + 1) + Γ.q) = 3 * (Γ.n i + Γ.q) := by
+  have h := Γ.arrow i
+  rw [hi, pow_one] at h
+  linarith
+
+/-- A run of `r` ones from `i₀`: `2^r (n_{i₀+r} + q) = 3^r (n_{i₀} + q)`. -/
+theorem ones_run_identity (i₀ : ℕ) : ∀ r, (∀ k, k < r → Γ.a (i₀ + k) = 1) →
+    2 ^ r * (Γ.n (i₀ + r) + Γ.q) = 3 ^ r * (Γ.n i₀ + Γ.q) := by
+  intro r
+  induction r with
+  | zero =>
+    intro _
+    simp
+  | succ r ih =>
+    intro hr
+    have h1 := ih (fun k hk => hr k (Nat.lt_succ_of_lt hk))
+    have h2 := Γ.one_step_add_q (hr r (Nat.lt_succ_self r))
+    rw [pow_succ, pow_succ, ← Nat.add_assoc]
+    linear_combination 2 ^ r * h2 + 3 * h1
+
+/-- **S8 §1 (5), the divisibility form, at general odd `q`.** A run of `r` ones from `i₀` gives
+`2^r ∣ n_{i₀} + q` and `2·3^r ∣ n_{i₀+r} + q`. -/
+theorem ones_run_dvd (hq : Odd Γ.q) {i₀ r : ℕ} (hr : ∀ k, k < r → Γ.a (i₀ + k) = 1) :
+    (2 : ℤ) ^ r ∣ Γ.n i₀ + Γ.q ∧ 2 * (3 : ℤ) ^ r ∣ Γ.n (i₀ + r) + Γ.q := by
+  have hid := Γ.ones_run_identity i₀ r hr
+  have h23 : IsCoprime (2 : ℤ) 3 := Int.isCoprime_iff_gcd_eq_one.mpr (by norm_num)
+  have hcop : IsCoprime ((2 : ℤ) ^ r) (3 ^ r) := h23.pow
+  constructor
+  · have h : (2 : ℤ) ^ r ∣ 3 ^ r * (Γ.n i₀ + Γ.q) := ⟨Γ.n (i₀ + r) + Γ.q, hid.symm⟩
+    exact hcop.dvd_of_dvd_mul_left h
+  · have h : (3 : ℤ) ^ r ∣ 2 ^ r * (Γ.n (i₀ + r) + Γ.q) := ⟨Γ.n i₀ + Γ.q, hid⟩
+    have h3 : (3 : ℤ) ^ r ∣ Γ.n (i₀ + r) + Γ.q := hcop.symm.dvd_of_dvd_mul_left h
+    have heven : (2 : ℤ) ∣ Γ.n (i₀ + r) + Γ.q :=
+      even_iff_two_dvd.mp ((Γ.nodd (i₀ + r)).add_odd hq)
+    exact IsCoprime.mul_dvd h23.pow_right heven h3
+
+/-- The size form of (5): `2·3^r ≤ n_{i₀+r} + q` (not strict in general: `3 → 5`, `r = 1`, `q = 1`). -/
+theorem ones_run_le (hq : Odd Γ.q) {i₀ r : ℕ} (hr : ∀ k, k < r → Γ.a (i₀ + k) = 1) :
+    2 * (3 : ℤ) ^ r ≤ Γ.n (i₀ + r) + Γ.q := by
+  have hpos : 0 < Γ.n (i₀ + r) + Γ.q := by
+    have := lt_of_lt_of_le Γ.npos (Γ.nmin (i₀ + r))
+    have := Γ.hq
+    linarith
+  exact Int.le_of_dvd hpos (Γ.ones_run_dvd hq hr).2
+
+/-- Letters `≥ 1` give `m ≤ A`. -/
+theorem m_le_Apre (hapos : ∀ i, 1 ≤ Γ.a i) : m ≤ Γ.Apre m := by
+  rw [Γ.Apre_eq_excess_add hapos m]
+  omega
+
+/-- With the first `m − 1` letters equal to `1`, `A_j = j` for `j ≤ m − 1`. -/
+theorem Apre_ones (hones : ∀ k, k < m - 1 → Γ.a k = 1) : ∀ j, j ≤ m - 1 → Γ.Apre j = j := by
+  intro j
+  induction j with
+  | zero =>
+    intro _
+    simp [Apre]
+  | succ j ih =>
+    intro hj
+    rw [Γ.Apre_succ, ih (by omega), hones j (by omega)]
+
+/-- With the first `m − 1` letters equal to `1`, `C_j = 3^j − 2^j` for `j ≤ m`. -/
+theorem Cpre_ones (hones : ∀ k, k < m - 1 → Γ.a k = 1) :
+    ∀ j, j ≤ m → Γ.Cpre j = 3 ^ j - 2 ^ j := by
+  intro j
+  induction j with
+  | zero =>
+    intro _
+    simp [Cpre]
+  | succ j ih =>
+    intro hj
+    rw [Γ.Cpre_succ, ih (by omega), Γ.Apre_ones hones j (by omega), pow_succ, pow_succ]
+    ring
+
+/-- **S8 §4, the 1-cycle identity**: with `q = 1` and the word `1^{m−1} V` from the minimum,
+`D ∣ 2^{A−m} − 1`. -/
+theorem one_cycle_D_dvd (hq1 : Γ.q = 1) (hones : ∀ k, k < m - 1 → Γ.a k = 1) :
+    (2 : ℤ) ^ Γ.Apre m - 3 ^ m ∣ 2 ^ (Γ.Apre m - m) - 1 := by
+  have hapos : ∀ i, 1 ≤ Γ.a i := Γ.a_pos_of_odd (by rw [hq1]; exact odd_one)
+  have hAm := Γ.m_le_Apre hapos
+  have hcyc := Γ.cycle_identity
+  rw [hq1, one_mul, Γ.Cpre_ones hones m le_rfl] at hcyc
+  have hD : (2 : ℤ) ^ Γ.Apre m - 3 ^ m ∣ 3 ^ m - 2 ^ m := ⟨Γ.n 0, hcyc.symm⟩
+  have h1 : (2 : ℤ) ^ Γ.Apre m - 3 ^ m ∣ 2 ^ Γ.Apre m - 2 ^ m := by
+    have e : (2 : ℤ) ^ Γ.Apre m - 2 ^ m = (3 ^ m - 2 ^ m) + (2 ^ Γ.Apre m - 3 ^ m) := by ring
+    rw [e]
+    exact dvd_add hD (dvd_refl _)
+  have h2 : (2 : ℤ) ^ Γ.Apre m - 2 ^ m = 2 ^ m * (2 ^ (Γ.Apre m - m) - 1) := by
+    rw [mul_sub, mul_one, ← pow_add, Nat.add_sub_cancel' hAm]
+  rw [h2] at h1
+  have hA0 : Γ.Apre m ≠ 0 := by
+    have := Γ.hm
+    omega
+  have hDodd : Odd ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) :=
+    (even_two.pow_of_ne_zero hA0).sub_odd (Odd.pow ⟨1, by norm_num⟩)
+  obtain ⟨k, hk⟩ := hDodd
+  have hcop2 : IsCoprime ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) 2 := ⟨1, -k, by rw [hk]; ring⟩
+  exact (hcop2.pow_right).dvd_of_dvd_mul_left h1
+
+/-- `D ≤ 2^{A−m} − 1`, i.e. `2^A − 3^m ≤ 2^{A−m} − 1`. -/
+theorem one_cycle_D_le (hq1 : Γ.q = 1) (hones : ∀ k, k < m - 1 → Γ.a k = 1) :
+    (2 : ℤ) ^ Γ.Apre m - 3 ^ m ≤ 2 ^ (Γ.Apre m - m) - 1 := by
+  have hdvd := Γ.one_cycle_D_dvd hq1 hones
+  have hD := Γ.D_pos
+  have hm := Γ.hm
+  have h32 : (2 : ℤ) ^ m ≤ 3 ^ m := by
+    gcongr
+    norm_num
+  have hAm : m < Γ.Apre m := by
+    by_contra hle
+    have hle' : Γ.Apre m ≤ m := not_lt.mp hle
+    have : (2 : ℤ) ^ Γ.Apre m ≤ 2 ^ m := pow_le_pow_right₀ (by norm_num) hle'
+    linarith
+  have h1 : (2 : ℤ) ^ 1 ≤ 2 ^ (Γ.Apre m - m) := pow_le_pow_right₀ (by norm_num) (by omega)
+  have hpos : (0 : ℤ) < 2 ^ (Γ.Apre m - m) - 1 := by
+    rw [pow_one] at h1
+    linarith
+  exact Int.le_of_dvd hpos hdvd
+
+/-- With the gap `2^A ≤ 2^172 m^341 D`, a 1-cycle forces `2^m < 2^172 m^341`. -/
+theorem one_cycle_pow_lt (hq1 : Γ.q = 1)
+    (hgap : (2 : ℤ) ^ Γ.Apre m ≤ 2 ^ 172 * (m : ℤ) ^ 341 * (2 ^ Γ.Apre m - 3 ^ m))
+    (hones : ∀ k, k < m - 1 → Γ.a k = 1) : (2 : ℤ) ^ m < 2 ^ 172 * (m : ℤ) ^ 341 := by
+  have hapos : ∀ i, 1 ≤ Γ.a i := Γ.a_pos_of_odd (by rw [hq1]; exact odd_one)
+  have hAm := Γ.m_le_Apre hapos
+  have hle := Γ.one_cycle_D_le hq1 hones
+  have hmZ : (0 : ℤ) < m := by exact_mod_cast Γ.hm
+  have hc : (0 : ℤ) < 2 ^ 172 * (m : ℤ) ^ 341 := mul_pos (by positivity) (pow_pos hmZ _)
+  have h3 : (2 : ℤ) ^ Γ.Apre m ≤ 2 ^ 172 * (m : ℤ) ^ 341 * (2 ^ (Γ.Apre m - m) - 1) :=
+    le_trans hgap (mul_le_mul_of_nonneg_left hle hc.le)
+  have h4 : (2 : ℤ) ^ Γ.Apre m < 2 ^ 172 * (m : ℤ) ^ 341 * 2 ^ (Γ.Apre m - m) := by
+    linarith
+  have h2 : (2 : ℤ) ^ Γ.Apre m = 2 ^ m * 2 ^ (Γ.Apre m - m) := by
+    rw [← pow_add, Nat.add_sub_cancel' hAm]
+  rw [h2] at h4
+  exact lt_of_mul_lt_mul_right h4 (by positivity)
+
+/-- **No 1-cycle with the gap for `m ≥ 2^13`** (exact threshold `m ≥ 4287`, computed outside Lean):
+`2^m < 2^172 m^341` is impossible there. -/
+theorem no_one_cycle_of_gap (hq1 : Γ.q = 1)
+    (hgap : (2 : ℤ) ^ Γ.Apre m ≤ 2 ^ 172 * (m : ℤ) ^ 341 * (2 ^ Γ.Apre m - 3 ^ m))
+    (hones : ∀ k, k < m - 1 → Γ.a k = 1) (hm : 2 ^ 13 ≤ m) : False := by
+  have h := Γ.one_cycle_pow_lt hq1 hgap hones
+  have hR : (2 : ℝ) ^ m < 2 ^ 172 * (m : ℝ) ^ 341 := by exact_mod_cast h
+  have hm' : 8192 ≤ m := by
+    norm_num at hm
+    exact hm
+  have hmR : (8192 : ℝ) ≤ m := by exact_mod_cast hm'
+  have hm0 : (0 : ℝ) < m := by linarith
+  have hm341 : (m : ℝ) ^ 341 ≠ 0 := pow_ne_zero _ hm0.ne'
+  have hl := Real.log_lt_log (by positivity) hR
+  rw [Real.log_pow, Real.log_mul (by positivity : (2 : ℝ) ^ 172 ≠ 0) hm341, Real.log_pow,
+    Real.log_pow] at hl
+  push_cast at hl
+  have hx : (0 : ℝ) < (m : ℝ) / 8192 := by positivity
+  have ht := Real.log_le_sub_one_of_pos hx
+  rw [Real.log_div hm0.ne' (by norm_num), show (8192 : ℝ) = 2 ^ 13 by norm_num, Real.log_pow] at ht
+  push_cast at ht
+  have hl2a := Real.log_two_gt_d9
+  have hl2b := Real.log_two_lt_d9
+  have hp : (m : ℝ) * 0.6931471803 ≤ m * Real.log 2 := mul_le_mul_of_nonneg_left hl2a.le hm0.le
+  linarith
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

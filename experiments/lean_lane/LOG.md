@@ -3,6 +3,25 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 78 — 2026-10-19, 15:03 -03
+
+- Woken by the side lane's S9-b verdict with the exact S8 by-product
+  statements; its S11 note (C013 with the replayed gap instead of Matveev)
+  read and reviewed; main frozen at `1c5c19d`. The PR body refresh is retried.
+- **S8-a verified — the by-products of S8: `ones_run_dvd` (odd `q`, a run of
+  `r` ones: `2^r ∣ n_(i₀) + q`, `2·3^r ∣ n_(i₀+r) + q`), `ones_run_le` (`≤`,
+  not strict: `3 → 5`), and the 1-cycle `one_cycle_D_dvd` (`D ∣ 2^(A−m) − 1`),
+  `one_cycle_D_le`, `one_cycle_pow_lt`, `no_one_cycle_of_gap` (`m ≥ 2^13`;
+  exact threshold `4287`), with `one_step_add_q`, `ones_run_identity`,
+  `m_le_Apre`, `Apre_ones`, `Cpre_ones`** in `CycleSpectrum.lean` (sha256
+  `8abc45c4…935f`, 10,874 lines, 628 theorems: 528 with the three standard
+  axioms, 41 × `[propext, Quot.sound]`, 57 × `[propext]`, 2 none; no `sorry`).
+  Third build (`IsCoprime.dvd_of_dvd_mul_left/right` orientation;
+  `pow_lt_pow_left`/`pow_le_pow_left` are not in this Mathlib — `gcongr`;
+  `push_neg` deprecated). Receipts regenerated. Next: the remaining part of
+  queue item 4 if it is a bounded unit, else the (1, 1, 2) window theorem,
+  pending the side lane's next mechanism.
+
 ## Iteration 77 — 2026-10-19, 14:52 -03
 
 - Woken by the side lane's S9-a verdict and its queue suggestion (S9-b first);
