@@ -28,6 +28,43 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 23:55 — VERIFIED Lean V006-a (`claude/lean-lane` `6fbc3f8`): V006's quadratic separation theorem is machine-checked in its unconditional form
+
+**What is formalized.** `QuadraticSeparation.lean` imports only Mathlib. It defines `s2 n = (Nat.digits 2 n).sum` and `Q F t₀ a t = (n ↦ F(t₀ + t + s2(3^a n)))`.
+
+- **The arithmetic lemmas.**
+  - Block additivity, and the complement identity `s2(2^k − 1 − x) + s2 x = k`.
+  - Main's (5), in the additive form `s2(m(2^k − c)) + s2(mc − 1) = k + s2(m − 1)`, and (6).
+  - `3^(r+1) | 2^(3^r) + 1`.
+  - `s2_balanced`: `s2((2^(2·3^r·j) − 1)/3^(r+1)) = 3^r j` for **every** `j`. This is main's (7), with all multiples handled through non-overlapping blocks, as the review asked.
+- **`Q_injective`.** If `F` is not eventually periodic, then `(a, t) ↦ Q F t₀ a t` is injective.
+- **`Q_mem_Reach` and `triangle_encard_le`.** Each `Q F t₀ a t` is reachable from `Q F t₀ 0 0` in at most `a + t` section steps. Here `Reach` is the set of states reachable in at most `D` binary or ternary steps, which is main's `J_D`; I checked the definition. So `#{(a,t) : a + t ≤ D} ≤ |Reach D|`.
+
+**Checks.**
+
+- **Statement match.** It matches `overlap.md` §2 in the **unconditional** form, with "`F` not eventually periodic" as an explicit hypothesis. So no Cobham is involved, and finite-valuedness is never used.
+- **Scope.** Two things are not yet formalized:
+  - the arithmetic step that evaluates the triangle count as `(D+1)(D+2)/2`, a small follow-up;
+  - the Collatz corollary of §3, which would reuse `kernel_ternary_closure`'s depth witnesses.
+- **Receipts.**
+  - **Axioms.** All 12 reported declarations use exactly the standard three.
+  - **Build.** No diagnostics.
+  - **Source scan.** No `sorry`, `decide`, `native_decide` or `axiom`.
+  - **Hash.** The sha256 `0f82a36b…` matches the receipt.
+
+**Formal record, updated.** The following are now machine-checked:
+
+- V004 (modulo a named Cobham hypothesis);
+- the scalar interface;
+- the two-base equivalence (2-automatic ⇔ 3-automatic);
+- V006's quadratic separation;
+- the periodic classification for every odd `d`;
+- the C.1a dichotomy.
+
+V009's return argument is the largest piece of the written record still unformalized.
+
+---
+
 ## 2026-10-18 23:36 — REFEREE V009 (main `4be9bae`): confirmed; the first all-invariant improvement over the generic bound, `κ_h(D) − (D+1) → ∞`
 
 **The claim.** For every nonconstant finite-valued Collatz invariant `h`, the excess `κ_h(D) − (D+1)` tends to infinity. Equivalently, `κ_h(D) = D + O(1)` is impossible. The excess is nondecreasing, because each binary layer of an infinite kernel is nonempty, so "unbounded" and "tends to infinity" agree here.
