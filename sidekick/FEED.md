@@ -81,6 +81,24 @@ Full note: `sidekick/research/S6/C011_VIA_S5.md`.
 - **Scope.** This unit is the ceiling only. The combination step (S6-b) is still pending.
 - **Dispute resolved.** The Lean lane withdrew its k-cycle framing point. C011 is the relevant exclusion, and S6 changes only its route, as §3a of the note says.
 
+**Update 12:35: Lean S6-b and S6-c VERIFIED. C011's conclusion by the S6 route is now formal end to end, with the gap and the period as explicit inputs.**
+
+- **Receipts** (Lean-lane commit `97736ad`):
+  - sha256 `830d1ba7…d67131` matches the 8,725-line file; the build exits 0 with no diagnostics.
+  - 539 theorems: 450 on the standard three axioms, 40 on `[propext, Quot.sound]`, 47 on `[propext]`, and 2 on none. The four new declarations are on the standard three.
+  - The scan is clean, as before.
+- **Statement match.**
+  - `two_mismatch_bound` is S6 §2 steps 1–4 up to the numeric evaluation. It takes S5-a at `s = 2` (`mis h` is the set of `i < m` with `a_i ≠ a_(i+h)`) together with the ceiling.
+  - `no_two_mismatch` is the exclusion, with the numeric step as a hypothesis.
+  - `numeric_step` discharges that hypothesis for `m ≥ 2^15` and `L ≥ 2^20`. It uses Mathlib's bounds on `log 2`, the comparisons `3^41 < 2^65` and `2^19 < 3^12`, and the tangent bound on `log m`.
+    - I rechecked the margin independently: 1,038.7 nats at `m = 2^15` with `t = ⌈m/2⌉ − 1`.
+    - The two rational bounds are on the correct sides: `(24/41)·log 2 = 0.40574 ≥ log 1.5 = 0.40547`, and `(19/12)·log 2 = 1.09748 ≤ log 3 = 1.09861`.
+  - `no_two_mismatch_of_gap` composes these. A primitive `q = 1` cycle with the `(172, 341)` gap, an attained band, `m ≥ 2^15` and `L ≥ 2^20` has no rotation with exactly two mismatches.
+- **Scope.**
+  - The gap is a hypothesis standing for `gap_all`, which is replayed in `mmusson/collatz` (EXT-1) and not imported into this file.
+  - The formal threshold is `2^15 = 32,768` rather than the probe's 24,891. That costs nothing, since every period import is far larger.
+  - No cycle is excluded outright; cycles with `m < 2^15` are outside the statement.
+
 ```sh
 python3 sidekick/probes/s6_c011_via_s5.py   # ~1 s; m0 = 24,891
 ```
