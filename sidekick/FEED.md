@@ -279,6 +279,21 @@ Full note: `sidekick/research/S7/THREE_MISMATCHES.md`.
   - The orders are handled as natural numbers: `e_c < e_a`, or `e_a < e_c < e_b`. As the independent review found, condition P is not needed. `d ≤ h` is unused here; `h ≤ j` suffices.
 - **Remaining: S7-d.** It composes everything into `no_three_mismatch_of_gap` (primitive, `q = 1`, gap `(172, 341)`, band attained, `m ≥ 2^19`, `L ≥ 2^20`): a numeric `T`, `hsep_of_runs`, conditions W and A, the structure and witness lemmas, the uniform bound on `τ′` and `τ″`, and the numeric contradiction F.
 
+**Update 13:53: Lean S7-d part 1 VERIFIED. S7's numeric conditions W, A and F are formal at `m ≥ 2^19` as real lemmas.**
+
+- **Receipts** (Lean-lane file sha256 `10a4ec83…cf6a06fd`, 9,880 lines, at `430de45`):
+  - 591 theorems: 493 on the standard three axioms, 41 on `[propext, Quot.sound]`, 55 on `[propext]`, and 2 on none. The three new declarations are on the standard three.
+  - Exit 0; the scan is clean. `set_option exponentiation.threshold 1100` only lets `norm_num` evaluate the large powers.
+- **Statement match.**
+  - `log_three_bounds` gives `1054 log 2 < 665 log 3` and `306 log 3 < 485 log 2`.
+  - `numeric_WA` derives condition W (`2(m − j) + 2(T + 1) ≤ m + 1`, i.e. `σ ≥ 2d − 1`) and condition A (`3X_c + 1 ≤ A − m`).
+    - Its inputs are the run bound for `T`, the longest run (`3t* ≥ m − 3`), the climb inequality at the maximum (`hjlow`), `D > 0`, and the `L`-bound from the gap with the tangent bound on `log m`.
+  - `numeric_F` derives the final contradiction from `m − 3 ≤ τ + 2T` and the Step 5 witness inequality.
+- **Independent recheck of F at `m = 2^19`** (natural logs, worst-case `ℓ`):
+  - `T ≤ 197,705`, so `τ ≥ 128,875`.
+  - The witness allows only `τ < 122,330`, a gap of 6,545, consistent with the probe's +6,556.
+- **Remaining.** The assembly `no_three_mismatch_of_gap`. With S6-b/c and `mis_card_ne_one`, it gives `ρ ≥ 4` formally, given the gap, for `m ≥ 2^19` and `L ≥ 2^20`.
+
 ```sh
 python3 sidekick/probes/s7_three_mismatch.py   # ~15 s; m0 = 452,695
 ```
