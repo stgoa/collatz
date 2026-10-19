@@ -1,0 +1,58 @@
+{
+  "anchors": 14,
+  "checked_markdown": [
+    "AGENTS.md",
+    "README.md",
+    "VIEWPOINT_MAP.md",
+    "docs/QUANTITATIVE_RIGIDITY_BRIEF.md",
+    "docs/RESEARCH_LOG.md",
+    "docs/RESULTS.md",
+    "docs/VIEWPOINT_LOG.md",
+    "experiments/viewpoints/V005/REPORT.md",
+    "experiments/viewpoints/V005/direct_sections.md",
+    "experiments/viewpoints/V006/QUADRATIC_REVIEW.md",
+    "experiments/viewpoints/V006/REPORT.md",
+    "experiments/viewpoints/V006/overlap.md",
+    "experiments/viewpoints/V007/INDEPENDENT_REVIEW.md",
+    "experiments/viewpoints/V007/REPORT.md",
+    "experiments/viewpoints/V007/separator.md",
+    "experiments/viewpoints/V008/INDEPENDENT_REVIEW.md",
+    "experiments/viewpoints/V008/REPORT.md",
+    "experiments/viewpoints/V008/ROOT_REVIEW.md",
+    "experiments/viewpoints/V008/linear_joint.md",
+    "experiments/viewpoints/V008/side_review.md",
+    "experiments/viewpoints/V008/two_exit.md"
+  ],
+  "errors": [],
+  "frozen": {
+    "collatz_research_20261017/right_aligned_reduction.tex": {
+      "sha256": "35709cfff84f4baa11563360adc171986ea410af4a8e1a9acb9eb7457def1f8d",
+      "unchanged": true
+    },
+    "docs/RESULTS.md from R1 onward": {
+      "sha256": "89ecd33a0528585e5b3b2cc41af4a60103e32a3389c9e0570e1c1d4af58913ee",
+      "unchanged": true
+    },
+    "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md": {
+      "sha256": "5cd7fd5f12ce50d6001ec6b322017bb1777aa88ecb675f4393248c2bf224c5ea",
+      "unchanged": true
+    },
+    "experiments/residual_progress/resolved_rules/resolved_rules.py": {
+      "sha256": "4d91d83e93499b07079e48f2fc0e3765fffb99498c18228ab57f56732062b7aa",
+      "unchanged": true
+    }
+  },
+  "frozen_baseline": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "local_links": 547,
+  "markdown_files": 21,
+  "scope": "Changed Markdown local links/anchors and exact frozen comparisons. Source hashes bind the written proofs/reviews; they do not certify mathematics or a formal replay. No existing executable evidence changed.",
+  "source_sha256": {
+    "experiments/viewpoints/V008/INDEPENDENT_REVIEW.md": "11de60e9443ef14835ea742f8dd6f8bd95c8e6c926ed057f63f02f7321c94fad",
+    "experiments/viewpoints/V008/REPORT.md": "ce0b2a30fa29fe794218b7f9183336100f8078fd3839cfc8fde83ab7fac3de21",
+    "experiments/viewpoints/V008/ROOT_REVIEW.md": "a5fb7aa3fd0a90047fe26b782f70fe60ad7af9b24c1ec7f669310a26bd45aeca",
+    "experiments/viewpoints/V008/linear_joint.md": "2491ded3f44c21411e1e3796c3b2a242e9b0b79051a9b4055d16eb51cb0a6c13",
+    "experiments/viewpoints/V008/side_review.md": "c43a52e6d2d71a7c99787675e220e3327e81891d64ee48942cde447774f97632",
+    "experiments/viewpoints/V008/two_exit.md": "dfd1b636dcd47fee550a68efa12a11a4f5cd161f73524fd16e59db10b4ac965e"
+  },
+  "status": "PASS"
+}

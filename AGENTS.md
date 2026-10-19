@@ -9,7 +9,7 @@ by the strict full-classification goal in `docs/GLOBAL_RIGIDITY_BRIEF.md`.
 V004 supplies its written proof, using the finite-kernel characterization
 and Cobham. The activated `docs/QUANTITATIVE_RIGIDITY_BRIEF.md` now requires
 that every nonconstant finite-valued invariant have unbounded
-`kappa_h(D)/(D+1)`. V005–V007 supply partial results; the goal is active and
+`kappa_h(D)/(D+1)`. V005–V008 supply partial results; the goal is active and
 unresolved. Read the latest report and V004's proof before extending the work.
 This does not authorize resuming the dispatcher search or assuming
 regularity of an actual bad set.
@@ -72,6 +72,15 @@ tests. This selection is not evidence of a superior convergence method.
 - The union of the ternary kernels of b and c(n)=b(2n) is binary-closed under all three scalar identities. Together with V005 reconstruction this excludes ternary automaticity of every positive binary h-section of a nonconstant invariant. It does not assert reconstruction from an arbitrary ternary cylinder.
 - In an exact joint section graph where every vertex has infinite kernels in both bases, no finite nonempty forward interior has exactly one exit. The proof retains all returns to the interior, derives a unique escaping binary digit, and uses finite T_1 closure and whole-sequence evaluation to rule out both propagated tails.
 - Every joint shell therefore has at least two vertices. This remains linear; the factor4 depth conversion is weaker than the generic binary D+1 bound. The arbitrary finite-width problem is unresolved. A two-exit calculation must retain destination labels; Boolean support alone loses the singleton proof's essential information. Do not substitute this theorem for the full unbounded-ratio goal.
+
+### V008 boundary controls and growth scope
+
+- The generic V007 theorem cannot be extended to exclude every finite two-exit interior under two-base infinitude alone. V008's irrational-rotation block stretch is an actual affine section graph satisfying those hypotheses; it fails a full Collatz root identity and has quadratic joint growth. Preserve destination labels in all finite-boundary equations. No recurrent small-layer or linear-growth counterexample is supplied.
+- The full three scalar identities and `|J_1(b)|<=3` force b constant, for any output alphabet. The corrected seven-row proof gives a binary-closed family with one common output and needs no Cobham. This applies to the first joint ball only; root relations cannot simply be imposed at every descendant.
+- Cumulative O(D) growth does not give long uniformly bounded-width intervals from counting and bounded degree alone. Use the proved suffix-record consequence: for each C'>C, arbitrarily late r satisfy `|B_(r+t) minus B_r|<=C't` for all t>=0. The triangular-peak profile is only an abstract graph control, not an affine counterexample.
+- `kappa_h(D)=D+O(1)` is equivalent to eventual singleton binary layers for an infinite kernel. Such a binary layer need not be a singleton joint exit; ternary depth cost is measured from the root, not from the current state. Even an unbounded additive excess would fall short of the active unbounded-ratio goal.
+- V005's constancy application and the Collatz corollaries in V006/V007 inherit the published Cobham input through V004. Their reconstruction, explicit nonperiodic-F distinctness and generic separator arguments have separate elementary scopes. Keep written classical dependencies distinct from Lean hypotheses and replay status.
+- D8's fixed-epsilon rate gain is a diagnostic only. Its proposed automatic abandonment after two batches does not override the user's active goal. Reconsider mechanisms without substituting a smaller completion criterion or an unrelated programme.
 
 ## Historical Phase 6 results and controls
 

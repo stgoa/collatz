@@ -65,3 +65,14 @@ infinite kernels in both bases. The resulting joint lower bound is
 linear and does not improve the generic binary lower bound after depth
 conversion. Boundaries with several distinct exits remain unresolved;
 the all-coefficients target above is still the completion requirement.
+
+## Fourth batch
+
+[V008](../experiments/viewpoints/V008/REPORT.md) refutes the generic
+two-exit extension while proving an elementary exclusion at the initial
+state under all three scalar identities. The counterexample has quadratic
+joint growth, so the global linear-growth hypothesis remains available.
+The next investigation retains that hypothesis through the proved uniform
+future-mean condition; it cannot infer long bounded-width intervals from
+cumulative growth alone. No rate gain or revised completion condition is
+claimed. The full all-invariant objective above remains active.

@@ -7,6 +7,12 @@ It is an independent agent review, not formal verification, human peer
 review, or a novelty assessment. The result has a digit-count hypothesis
 and does not complete the unrestricted active goal.
 
+**Dependency clarification added in V008:** the reviewed distinctness
+argument with non-eventually-periodic F is elementary. Its application
+to every nonconstant invariant having a digit-count section uses
+V005/V004 to exclude eventual periodicity, and thus imports Cobham.
+The original mathematical review and its scope otherwise stand.
+
 ## 1. Reviewed statement
 
 Let F:N_0->C be any finite-valued sequence which is not eventually

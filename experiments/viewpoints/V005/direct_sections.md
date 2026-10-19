@@ -5,6 +5,11 @@ This note does not assume that an actual component indicator has any regularity.
 It uses the all-positive-integer color equations from V004, with absorber 1
 retained. The value at 0 is defined to be h(1).
 
+**Dependency clarification (V008):** the final constancy step of the
+local automaticity lemma invokes V004, including its published Cobham
+input. The reconstruction and quantitative counting argument are
+elementary; their use of that constancy conclusion inherits the input.
+
 ## 1. Objects and the exact depth comparison
 
 Write

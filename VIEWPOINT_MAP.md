@@ -1,6 +1,6 @@
 # Find a better language for Collatz
 
-**Quantitative rigidity active, 2026-10-18. V004's finite-state classification is proved; V005–V007 leave the stronger all-invariant growth target open. Collatz remains open.**
+**Quantitative rigidity active, 2026-10-18. V004's finite-state classification is proved; V005–V008 leave the stronger all-invariant growth target open. Collatz remains open.**
 The [current brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) requires an unbounded
 ratio of binary-section count to depth for every nonconstant invariant.
 The [completed brief](docs/GLOBAL_RIGIDITY_BRIEF.md) required the full
@@ -145,6 +145,28 @@ possible linear coefficient; singleton or two-exit results alone cannot
 complete it. The parallel literature audit supplies no applicable general
 growth theorem under the present hypotheses.
 
+## V008: the two-exit test changes the required mechanism
+
+The [report](experiments/viewpoints/V008/REPORT.md) gives an actual sequence
+with two exits and infinite kernels in both bases at every vertex. It
+obeys all radix laws, fails a full Collatz root identity and has quadratic
+joint growth. This refutes a generic exclusion of every finite two-exit
+interior, while leaving the linear-growth question intact.
+
+The three full scalar identities do force constancy if the initial joint
+ball has at most three states. The exhaustive corrected argument is
+elementary, with no Cobham dependency, and gives no asymptotic gain.
+Separately, linear cumulative growth supplies arbitrarily late cuts whose
+entire future has a uniform cumulative mean bound. It does not supply
+long intervals of bounded layer width; an explicit bounded-degree graph
+control disproves that counting inference.
+
+Use the genuine cumulative bound and full root information in subsequent
+tests. Do not proceed through fixed boundary cardinalities as if the
+singleton theorem automatically generalized. Near-minimal binary growth
+has a precise eventual single-vertex-tail formulation that can test this
+mechanism, but the full target remains every possible linear coefficient.
+
 ## Comparison
 
 Each linked card records objects, structural gain, translated gap, example,
@@ -164,7 +186,7 @@ cycle controls, cheapest test and a genuinely partial milestone.
 | V10. [Rational denominator layers](experiments/viewpoints/V001/rational_layers.md) | Related maps become layers of one rational system; target and lattice changes are explicit | A property of the denominator-one layer that forces useful progress | Control bookkeeping; defer as an independent route |
 | V11. [Occupation measures](experiments/viewpoints/V002/statistical_languages.md#v11-occupation-measures-recurrence-versus-escape-of-mass) | Cycle mass and escape of mass are different phenomena | Tightness uniform in the seed range; cycle identification remains separate | Diagnostic only until a quantitative mechanism is proposed |
 | V12. [Information of actual integer ensembles](experiments/viewpoints/V002/statistical_languages.md#v12-conditional-information-of-realized-paths-rather-than-symbolic-entropy) | Merging, conditioning and endpoint concentration are separate | A quantitative first-passage law with integer endpoints | Retain as a separate statistical alternative; literature comparison first |
-| V13. [Arithmetic regularity of component colorings](experiments/viewpoints/V007/REPORT.md) | Full finite-state rigidity, local reconstruction and singleton-exit exclusion | Control boundaries with several exits and exclude linear binary-section growth | Quantitative goal active; test a boundary with two distinct exits |
+| V13. [Arithmetic regularity of component colorings](experiments/viewpoints/V008/REPORT.md) | Full finite-state rigidity and exact distinctions between generic boundaries and full root equations | Use the global cumulative bound to exclude linear binary-section growth | Quantitative goal active; generic two-exit extension refuted, uniform future mean retained |
 | V14. [Two-dimensional base conversion](experiments/viewpoints/V003/carry_boundary.md) | Binary and ternary data share one complete carry boundary | Growing frontier, finite integer support and nonlocal bootstrap | Tested and closed: no additional relation; require a new whole-frontier proposal to reopen |
 
 These are related lenses, not fourteen independent possible proofs. In particular,

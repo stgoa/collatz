@@ -1,5 +1,28 @@
 # Research log
 
+## 2026-10-18 — V008: the two-exit extension fails at generic scope
+
+The [new batch](../experiments/viewpoints/V008/REPORT.md) supplies an exact
+affine section graph with two exits and infinite kernels in both bases
+everywhere. It has quadratic joint growth and fails a full Collatz root
+identity. Thus the singleton theorem cannot be extended by boundary size
+alone. Under all three root identities, a separate elementary argument
+does force constancy if the first joint ball has at most three states.
+One inconsistent unpublished draft row was removed during independent
+review; the corrected case proof and counterexample passed.
+
+A parallel counting argument retains a uniform future cumulative bound
+after arbitrarily late cuts. An abstract graph with recurrent layer peaks
+shows why cumulative linear growth cannot simply be replaced by long
+bounded-width intervals. No universal growth-rate improvement is proved.
+The full quantitative goal remains active; further work must use the
+global bound or more root information.
+
+The read-only side pin isb567f2b. Its Cobham attribution note was accepted
+and made explicit in V005–V007; its fixed-epsilon milestone is diagnostic,
+while automatic abandonment of the user's goal was rejected. Historical
+mathematics, executable evidence and the open LaTeX file remain unchanged.
+
 ## 2026-10-18 — V007: singleton exits are impossible
 
 The [new batch](../experiments/viewpoints/V007/REPORT.md) proves that no

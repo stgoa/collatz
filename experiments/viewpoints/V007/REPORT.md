@@ -6,6 +6,11 @@ This bounded pass addresses its proposed singleton separator test. It
 does not assume a digit-count section, regularity of the nonabsorbing set,
 or a classification of every graph with linear growth.
 
+**Dependency clarification (V008):** the generic separator theorem under
+infinitude in both bases is elementary. Obtaining that infinitude from
+Collatz invariance invokes V005/V004, including the published Cobham
+theorem. The Collatz application therefore inherits that classical input.
+
 ## Result and why it matters
 
 The [written theorem](separator.md) excludes a finite forward interior

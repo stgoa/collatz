@@ -2,7 +2,7 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-18): V004 proves every finite-valued binary-automatic Collatz invariant constant. The active next goal is to exclude every linear bound on binary-section complexity. V005–V007 supply partial results; that quantitative goal and Collatz remain open.**
+**Current standing (2026-10-18): V004 proves every finite-valued binary-automatic Collatz invariant constant. The active next goal is to exclude every linear bound on binary-section complexity. V005–V008 supply partial results; that quantitative goal and Collatz remain open.**
 
 The [quantitative brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) asks for an
 unbounded ratio of section count to binary depth for every nonconstant
@@ -14,11 +14,16 @@ supplies such a section for an arbitrary invariant; an exact linear-growth
 control shows why extraction from weaker premises fails.
 [V007](experiments/viewpoints/V007/REPORT.md) now excludes a finite interior
 with a single exit anywhere in the full section graph. It uses all radix
-relations and proves infinitude in both bases at every section. Several
-exits remain unresolved; the resulting joint linear bound does not improve
-the generic binary growth bound. The next bounded test keeps the distinct
-states in a two-exit boundary. The complete all-invariant bound remains
-the completion requirement.
+relations and proves infinitude in both bases at every section.
+[V008](experiments/viewpoints/V008/REPORT.md) refutes the generic extension
+to two exits with an actual sequence example. The full Collatz equations
+do exclude that small configuration at the initial state, by an elementary
+case argument, but no asymptotic rate improves. Future work must use the
+global growth bound or propagate more of the root equations, rather than
+exclude boundary sizes one by one. The complete all-invariant bound
+remains the completion requirement. The Collatz applications in V005–V007
+inherit the published Cobham theorem through V004; V008's first-shell
+argument has a direct constant-output finish.
 
 We explored Grothendieck-style changes of viewpoint through **breadth before
 depth**. Fourteen views and two rounds of bounded comparisons support a
