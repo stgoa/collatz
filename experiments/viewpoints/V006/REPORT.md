@@ -6,6 +6,11 @@ proofs, controls and next obligations in85a07c2. This batch makes further
 progress through a quadratic separation theorem and exact checks of the
 proposed generalizations. It does not lower the completion threshold.
 
+**Dependency clarification (V008):** the distinctness theorem for
+non-eventually-periodic F is elementary. Applying it to an arbitrary
+nonconstant invariant with a digit-count section excludes eventually
+periodic F via V005/V004, and therefore uses the published Cobham theorem.
+
 ## 1. A quadratic theorem, with its hypothesis explicit
 
 For any finite-valued F which is not eventually periodic, all sequences

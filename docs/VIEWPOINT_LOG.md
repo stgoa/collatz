@@ -1,5 +1,79 @@
 # Viewpoint exploration log
 
+## V008 — Two-exit counterexample and the actual growth hypothesis, 2026-10-18
+
+**Progress; full quantitative goal active and unresolved.** The preceding
+turn delivered V007 at `b24020f8c64aab28a11326bf542e5a05530aa022` and was
+progress. This [bounded comparison](../experiments/viewpoints/V008/REPORT.md)
+changes the proposed separator mechanism rather than extending a false
+generic claim. It does not improve the universal asymptotic rate.
+
+### Three independent calculations
+
+The separator lane derived the boundary equation with each destination
+retained, then constructed an actual two-exit counterexample: an
+irrational-rotation coloring stretched into constant blocks of length6.
+Every affine section has irrational natural frequency, hence infinite
+kernels in both bases, by a rational finite-matrix averaging argument.
+All radix identities hold. The example fails `b(4n+2)=b(n)` at n=1,
+and its zero sections give a triangular quadratic lower bound. It refutes
+only the generic finite two-exit exclusion, not the Collatz goal or a
+claim using recurrent bounded layers and linear growth.
+
+Root separately proved that all three scalar identities force constancy
+when the first joint ball has at most three states. The first reviewer
+found one inconsistent unpublished draft row: an omitted radix identity
+forces two declared distinct states equal. Removing the row leaves an
+exhaustive seven-row table. The reviewer also identified the direct
+constant-output finish, eliminating any need for Cobham in this small
+root theorem. A second independent review checked the corrected result.
+It concerns only the initial shell and supplies no asymptotic gain.
+
+The growth lane proved that a cumulative linear bound yields arbitrarily
+late cuts with a uniform future cumulative bound for every larger
+coefficient. It also gave a bounded-degree graph profile with linear total
+size but recurrent peaks of every height, refuting an inference to long
+uniformly bounded-width intervals. Root verified its explicit13N bound,
+root/degree conditions and suffix-maximum argument. This control is not
+an affine section graph. A focused S-adic source audit found missing
+presentation and recognizability premises; no theorem was imported.
+
+### Decision and exact remaining task
+
+Do not proceed through successive finite separator sizes. Use the global
+growth assumption and retain root-specific equations and destination
+labels. The eventual singleton binary-tail diagnostic is precise under
+`kappa_h(D)=D+O(1)`, but its exclusion would still be weaker than the active
+unbounded ratio. Generic joint singleton results cannot be applied to
+binary layers: ternary transitions may jump several levels and return
+into the old graph. No regularity of an actual bad set is assumed.
+
+The [independent review](../experiments/viewpoints/V008/INDEPENDENT_REVIEW.md)
+records the symbolic checks. The proofs identify entire functions, not
+matching prefixes. This prose-only batch changes no executable evidence;
+the Phase6 finite gate was not rerun. Local links and the exact frozen
+ledger/dispatcher/LaTeX comparisons are recorded separately.
+
+### External input and attribution correction
+
+Fetched and read DIRECTIONS and newest FEED at
+`b567f2bfc9ec581d42bbd35c5231324f7865a01e`. The side lane correctly noted
+that standalone V005–V007 summaries did not spell out their inherited
+Cobham dependency. The existing proofs already invoked V004. Dated
+clarifications now distinguish their elementary generic arguments from
+the Collatz applications importing the published theorem; no historical
+mathematical error or new unproved premise was found. No new Lean replay
+was performed.
+
+D8's fixed-epsilon universal improvement is accepted as a diagnostic,
+not a replacement success condition; V008 does not achieve it. The
+automatic two-batch abandonment rule is rejected because it conflicts
+with the user's active objective. The narrower d-uniformity suggestion
+for nonperiodic invariants is unproved here. D1/D2/D5/D7 remain retained
+with scope, D3 rejected, D4 deferred and D6 historical. The
+[side assessment](../experiments/viewpoints/V008/side_review.md) records
+the decisions. The full goal remains open, with no external blocker.
+
 ## V007 — Reverse closure and a singleton-exit theorem, 2026-10-18
 
 **Progress; full quantitative goal active and unresolved.** The preceding

@@ -4,6 +4,11 @@
 the active goal remains open.** Collatz convergence, novelty and formal
 verification of these results are not claimed.
 
+**Dependency clarification (V008):** the automatic-cylinder constancy
+conclusion uses V004 and therefore imports the published Cobham theorem.
+The affine reconstruction itself is elementary. This records a dependency
+already present in the proof, not a new hypothesis about the invariant.
+
 ## The goal and why it is a further milestone
 
 V004 excludes every finite-valued binary-automatic Collatz invariant. The

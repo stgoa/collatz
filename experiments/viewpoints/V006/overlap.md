@@ -7,6 +7,11 @@ of digit-count type. It does not assert that every linearly growing
 section family has such a section. No novelty or formal-verification
 claim is made.
 
+**Dependency clarification (V008):** distinctness with F explicitly not
+eventually periodic is elementary. The Collatz corollary excludes the
+eventually periodic case through V005/V004 and inherits their published
+Cobham input. No independent formal replay of that input is asserted.
+
 The argument was developed in parallel with the coordinating lane's
 joint-growth investigation. All functions below are entire sequences on
 nonnegative integers; finite-prefix agreement is not used as equality.

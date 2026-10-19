@@ -7,6 +7,11 @@ binary/ternary section graphs under an explicit infinitude hypothesis; the
 full Collatz identities supply that hypothesis, rather than being replaced
 by a weaker return loop.
 
+**Dependency clarification (V008):** the generic theorem under (I) is
+elementary. Its Collatz application derives (I) through V005/V004 and
+therefore uses the published Cobham theorem. The written application is
+distinct from the Lean lane's assembly with Cobham as an explicit input.
+
 ## 1. Objects, hypotheses, and claim
 
 Use the five transitions and six identities of

@@ -44,14 +44,16 @@ reconstruction gives a polynomial all-depth complexity bound; and binary
 growth controls joint binary/ternary section growth. Exact counterexamples
 refute descendant-infinitude and separate-base-growth shortcuts. The full
 Collatz identities have a three-equation scalar interface, with the growth
-step still missing. The activated unbounded-ratio goal remains open.
+step still missing. The constancy conclusion imports Cobham through V004;
+the reconstruction is elementary. The activated unbounded-ratio goal remains open.
 The separate Lean lane reports a V004 derivation conditional on Cobham;
 main inspected the statement and source receipt, without independent replay.
 
 V006 proves a [scoped quadratic lower bound](../experiments/viewpoints/V006/overlap.md):
 all mixed states `F(t+s_2(3^a*n))` are distinct when F is not eventually
-periodic. One positive digit-count section therefore forces quadratic
-growth of an invariant's binary kernel. The missing extraction hypothesis
+periodic. This distinctness argument is elementary. One positive digit-count
+section forces quadratic growth of a nonconstant invariant's binary kernel,
+using Cobham through V005/V004 to exclude eventually periodic F. The missing extraction hypothesis
 is not assumed. An adjacent11-pair control rejects extraction from weaker
 binary premises. A separate action counterexample rejects importing linear
 semigroup growth from a linear rooted orbit. The full radix graph is
@@ -64,7 +66,19 @@ exclude a finite forward interior with one exit. This forces at least two
 new joint states per depth, still a linear bound, and gives no improved
 binary growth rate after depth conversion. Larger finite boundaries and
 the full unbounded-ratio target remain open. The result has written
-independent review; novelty and formal verification are unclaimed.
+independent review; novelty and formal verification are unclaimed. The
+generic separator theorem is elementary; its Collatz application imports
+Cobham through the V005/V004 infinitude argument.
+
+V008 supplies an [exact two-exit counterexample and full-root distinction](../experiments/viewpoints/V008/REPORT.md).
+The generic two-exit extension of V007 is false even for an actual section
+graph with infinite kernels in both bases everywhere. The example has
+quadratic joint growth and fails the Collatz root identities. Those full
+identities force constancy when the first joint ball has at most three
+states, by an elementary corrected case proof. Linear cumulative growth
+has a uniform future-mean consequence, but a bounded-degree graph control
+rejects a stronger bounded-layer inference. No universal asymptotic rate
+improvement is proved. The quantitative goal remains open.
 
 S.1 now has a [written stopping calibration](../experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md)
 with explicit finite horizons, integer cutoffs and a separate W5 pullback.

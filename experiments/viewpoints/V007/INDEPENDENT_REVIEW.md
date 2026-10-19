@@ -6,6 +6,11 @@ to the finite interior. This is a mathematical source audit, not formal
 verification or a novelty assessment. The full quantitative target is
 still open.
 
+**Dependency clarification added in V008:** the generic separator proof
+is elementary under its stated infinitude hypothesis. The Collatz
+application establishes that hypothesis using V005/V004 and inherits
+their published Cobham input. This source review did not formally replay it.
+
 ## Hypotheses and reverse closure
 
 The vertices must be entire sequences with the five exact section
