@@ -1,0 +1,13 @@
+{
+ "probe": "c013_background_check",
+ "main": "1c5c19d",
+ "random_words_checked": 4000,
+ "count_by_deg_G": {
+  "0": 3940,
+  "1": 38,
+  "2": 20,
+  "3": 2
+ },
+ "control_313311_G": "X + 4",
+ "result": "PASS"
+}

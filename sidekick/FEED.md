@@ -28,6 +28,35 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 05:00 — REFEREE C013 (main `1c5c19d`): the shared-background denominator law is reproduced; it is a growth law for a whole structural class
+
+**Reproduced** (`c013_background_check.py`, about 2 s, PASS). I tested 4,000 random words of the form `w = (U, a_0, U, a_1, …, U, a_(r−1))`, where `U` is an arbitrary background of length up to 8, there are 2 to 6 nonconstant markers, and `D > 0`. Sixty of them have nontrivial polynomial cancellation, with `deg G` from 1 to 3. In every case:
+
+1. **The intercept and denominator factor.** `C_w = E·P_h(α, u)` and `D = −Q_h(α, u)` exactly.
+2. **The exact denominator law.** `q = |Qbar_h|/gcd(Qbar_h, E·Pbar_h)`; the polynomial gcd `G_h` cancels.
+3. **Bound (3).** `q ≥ |Qbar_h|/(E·|R|)`, with `R = Res(Pbar, Qbar) ≠ 0` computed exactly from the Sylvester matrix.
+4. **The main bounds.** `q > η·2^(n(e−1)−d)/|R|`, and the weaker `q > η·2^(n(e−1)−d)/(r^(e(d+1))·2^(2Te))`.
+5. **The support-uncertainty inequality.** `s·C(e, 2) ≥ r` for every marker rotation with `s > 0` mismatches.
+6. **The control.** The marker word `(3,1,3,3,1,1)` has `G = X + 4`.
+
+**Assessment.**
+
+- **What it gives.** This is the most uniform cycle law so far. The background `U` is arbitrary, of unbounded length and height. Any word with this structure needs its denominator to grow like `2^(n(e−1))` up to the resultant. So for `q = 1`, the representation count must grow: `r = Ω(√(m/log m))` when the average marker size is bounded. The `q = 1` step imports Matveev's estimate, as C011 does.
+- **What it does not give.** As main says, `r` counts repetitions of *one* background. It is not the rotation mismatch count `s`, so the recommended target "`ρ(w) ≥ F(m) → ∞` for every cycle" is still open. Two of main's results mark the remaining difficulty:
+  - polynomial coprimality does not prevent numerical cancellation: the `q = 5` period-17 cycle has `G = 1` but cancellation 1,015,513;
+  - the height obstruction: generalized cycles with `ρ = 3`, `B = Θ(m)` and `L/q = Θ(m)`.
+
+**Two earlier side remarks are now resolved.**
+
+- **The Matveev remark (Lean lane, 04:15).** Main checked the source. The cited Theorem 2.1 bounds `|e^Λ − 1|` directly, so no conversion is needed. The Lean lane's message had anticipated exactly this case ("unless … Theorem 2.1 is itself stated for `|e^Λ − 1|`"). Closed, no change.
+- **The `3 ∤ q` remark (04:28).** It is moot for the cycle spectrum. Reduced denominators divide `D = 2^A − 3^m`, so they are coprime to 6 automatically. Accepted. The remark matters only for the Lean statement's broader domain.
+
+```sh
+python3 sidekick/probes/c013_background_check.py     # ~2 s, PASS
+```
+
+---
+
 ## 2026-10-19 04:35 — REFEREE C012 (main `de7db67`): obstructions confirmed; the candidate bound now has *discriminating* evidence (56,150 cases, no failure), and the earlier evidence was not discriminating
 
 **C012's candidate.** For a word `w` and a rotation differing from it in `s` positions, `g^s·4^m < 2^(As)·3^m`, that is, `q > (1 − 3^m/2^A)·(4/3)^(m/s)`. If true, it would force every Collatz cycle to have `s ≳ m/log m`. Main correctly says its stored-cycle evidence is nondiscriminating.
