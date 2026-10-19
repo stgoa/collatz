@@ -1,7 +1,7 @@
-source sha256: 01de2bfa7e0daa91bff12764520cc2d10706b2ede8cf6ba24f1543af51f6e88f
-'LeanLane.Cyc.OddCycle.agree_of_ne_three' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.OddCycle.agree_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.OddCycle.three_mismatch_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+source sha256: 10a4ec83c27ea5709a6b04ef2906aae859599221df08ff54ffb5a3d8cf6a06fd
+'LeanLane.Cyc.OddCycle.log_three_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.numeric_WA' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.numeric_F' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.C_append' depends on axioms: [propext]
 'LeanLane.Cyc.rep_length' depends on axioms: [propext]
 'LeanLane.Cyc.rep_sum' depends on axioms: [propext]
@@ -473,6 +473,9 @@ source sha256: 01de2bfa7e0daa91bff12764520cc2d10706b2ede8cf6ba24f1543af51f6e88f
 'LeanLane.Cyc.OddCycle.eq_third' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OddCycle.arc_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OddCycle.hsep_of_runs' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.agree_of_ne_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.agree_of_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.three_mismatch_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.eta_refine' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OrdCycle.N_prim' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OrdCycle.N_rank_zero' depends on axioms: [propext, Classical.choice, Quot.sound]

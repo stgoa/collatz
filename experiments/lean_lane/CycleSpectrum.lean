@@ -8197,6 +8197,98 @@ theorem three_mismatch_witness (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ
 
 end OddCycle
 
+/-! ### S7-d (part 1): the numeric conditions of S7 at `m ≥ 2^19`, over the reals
+
+Pure real arithmetic, with natural logarithms. Inputs: `log 2`'s decimal bounds, the rational bounds
+`1054/665 < log₂ 3 < 485/306` (from `2^1054 < 3^665` and `3^306 < 2^485`), and the hypotheses that
+the assembly (part 2) will supply: the uniform run bound `T log 3 ≤ log(L/2) + (m−1)κ` with
+`κ = log(3/2) + e`, `e = log(1 + 1/(3L)) ≤ 1/(3·2^20)`; the longest run `3 t* ≥ m − 3`; the witness
+of the longest run against the excess ceiling at the maximum, `log 2 + t* log 3 + X_c log 2 <
+log L + jκ`; `D > 0` as `m log 3 < A log 2`; and the `L`-bound `log L ≤ 172 log 2 + 342 log m − log 3`
+with the tangent bound `log m ≤ 19 log 2 + m/2^19 − 1`. `numeric_WA` gives condition W
+(`2(m − j) + 2(T+1) ≤ m + 1`) and condition A (`3 X_c + 1 ≤ A − m`); `numeric_F` derives `False` from
+the Step 5–6 data `m − 3 ≤ τ + 2T` and `τ log 3 < log(L/2) + (τ + T + 1)κ`. -/
+
+namespace OddCycle
+
+set_option exponentiation.threshold 1100 in
+theorem log_three_bounds :
+    1054 * Real.log 2 < 665 * Real.log 3 ∧ 306 * Real.log 3 < 485 * Real.log 2 := by
+  have hn1 : (2 : ℕ) ^ 1054 < 3 ^ 665 := by norm_num
+  have hn2 : (3 : ℕ) ^ 306 < 2 ^ 485 := by norm_num
+  have hr1 : (2 : ℝ) ^ 1054 < 3 ^ 665 := by exact_mod_cast hn1
+  have hr2 : (3 : ℝ) ^ 306 < 2 ^ 485 := by exact_mod_cast hn2
+  constructor
+  · have h := Real.log_lt_log (by positivity) hr1
+    rw [Real.log_pow, Real.log_pow] at h
+    push_cast at h
+    linarith
+  · have h := Real.log_lt_log (by positivity) hr2
+    rw [Real.log_pow, Real.log_pow] at h
+    push_cast at h
+    linarith
+
+/-- Conditions W and A of S7 at `m ≥ 2^19`. -/
+theorem numeric_WA (m j T ts Xc A lL e : ℝ) (hm : 2 ^ 19 ≤ m) (hj0 : 0 ≤ j) (hj : j + 1 ≤ m)
+    (hT0 : 0 ≤ T)
+    (hT : T * Real.log 3 ≤ lL - Real.log 2 + (m - 1) * (Real.log 3 - Real.log 2 + e))
+    (hts0 : 0 ≤ ts) (hts : m - 3 ≤ 3 * ts) (hXc0 : 0 ≤ Xc)
+    (hjlow : Real.log 2 + ts * Real.log 3 + Xc * Real.log 2 <
+      lL + j * (Real.log 3 - Real.log 2 + e))
+    (hA0 : 0 ≤ A) (hA : m * Real.log 3 < A * Real.log 2)
+    (hlL : lL ≤ 172 * Real.log 2 + 342 * (19 * Real.log 2 + (m / 2 ^ 19 - 1)) - Real.log 3)
+    (he : e ≤ 1 / (3 * 2 ^ 20)) :
+    2 * (m - j) + 2 * (T + 1) ≤ m + 1 ∧ 3 * Xc + 1 ≤ A - m := by
+  have hl2a := Real.log_two_gt_d9
+  have hl2b := Real.log_two_lt_d9
+  obtain ⟨hl3a, hl3b⟩ := log_three_bounds
+  have hκup : Real.log 3 - Real.log 2 + e ≤
+      (179 / 306) * 0.6931471808 + 1 / (3 * 2 ^ 20) := by linarith
+  have hl3lo : (1054 / 665) * 0.6931471803 ≤ Real.log 3 := by linarith
+  have p1 : j * (Real.log 3 - Real.log 2 + e) ≤
+      j * ((179 / 306) * 0.6931471808 + 1 / (3 * 2 ^ 20)) := mul_le_mul_of_nonneg_left hκup hj0
+  have p2 : ts * ((1054 / 665) * 0.6931471803) ≤ ts * Real.log 3 :=
+    mul_le_mul_of_nonneg_left hl3lo hts0
+  have p3 : T * ((1054 / 665) * 0.6931471803) ≤ T * Real.log 3 :=
+    mul_le_mul_of_nonneg_left hl3lo hT0
+  have p4 : (m - 1) * (Real.log 3 - Real.log 2 + e) ≤
+      (m - 1) * ((179 / 306) * 0.6931471808 + 1 / (3 * 2 ^ 20)) :=
+    mul_le_mul_of_nonneg_left hκup (by linarith)
+  have p5 : m * ((1054 / 665) * 0.6931471803) ≤ m * Real.log 3 :=
+    mul_le_mul_of_nonneg_left hl3lo (by linarith)
+  have p6 : A * Real.log 2 ≤ A * 0.6931471808 := mul_le_mul_of_nonneg_left hl2b.le hA0
+  have p7 : Xc * 0.6931471803 ≤ Xc * Real.log 2 := mul_le_mul_of_nonneg_left hl2a.le hXc0
+  constructor
+  · linarith
+  · linarith
+
+/-- Condition F of S7 at `m ≥ 2^19`: the Step 5–6 data are contradictory. -/
+theorem numeric_F (m T τ lL e : ℝ) (hm : 2 ^ 19 ≤ m) (hT0 : 0 ≤ T)
+    (hT : T * Real.log 3 ≤ lL - Real.log 2 + (m - 1) * (Real.log 3 - Real.log 2 + e))
+    (hτ0 : 0 ≤ τ) (hτ : m - 3 ≤ τ + 2 * T)
+    (hwit : τ * Real.log 3 < lL - Real.log 2 + (τ + T + 1) * (Real.log 3 - Real.log 2 + e))
+    (hlL : lL ≤ 172 * Real.log 2 + 342 * (19 * Real.log 2 + (m / 2 ^ 19 - 1)) - Real.log 3)
+    (he : e ≤ 1 / (3 * 2 ^ 20)) : False := by
+  have hl2a := Real.log_two_gt_d9
+  have hl2b := Real.log_two_lt_d9
+  obtain ⟨hl3a, hl3b⟩ := log_three_bounds
+  have hκup : Real.log 3 - Real.log 2 + e ≤
+      (179 / 306) * 0.6931471808 + 1 / (3 * 2 ^ 20) := by linarith
+  have hl3lo : (1054 / 665) * 0.6931471803 ≤ Real.log 3 := by linarith
+  have p1 : τ * ((1054 / 665) * 0.6931471803) ≤ τ * Real.log 3 :=
+    mul_le_mul_of_nonneg_left hl3lo hτ0
+  have p2 : (τ + T + 1) * (Real.log 3 - Real.log 2 + e) ≤
+      (τ + T + 1) * ((179 / 306) * 0.6931471808 + 1 / (3 * 2 ^ 20)) :=
+    mul_le_mul_of_nonneg_left hκup (by linarith)
+  have p3 : T * ((1054 / 665) * 0.6931471803) ≤ T * Real.log 3 :=
+    mul_le_mul_of_nonneg_left hl3lo hT0
+  have p4 : (m - 1) * (Real.log 3 - Real.log 2 + e) ≤
+      (m - 1) * ((179 / 306) * 0.6931471808 + 1 / (3 * 2 ^ 20)) :=
+    mul_le_mul_of_nonneg_left hκup (by linarith)
+  linarith
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

@@ -3,6 +3,29 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 73 — 2026-10-19, 13:51 -03
+
+- Woken by the sidekick's messages (`f5efd81`…`16ed9b5`): **S7-c part 2
+  verified** by the side lane; S7-d guidance received; **S8 headline withdrawn
+  by its author** (the survivors fail rotation `2h`); the run law at rotation
+  `2h` confirmed available (parametric lemmas); this lane's S8 review gap
+  recorded; S10 preliminary noted. Main frozen at `1c5c19d`. Monitor re-armed
+  on expiry. The PR body refresh still fails (GitHub GraphQL error, five
+  attempts).
+- **S7-d (part 1) verified — the numeric conditions of S7 at `m ≥ 2^19` over
+  `ℝ`: `log_three_bounds` (`1054/665 < log₂3 < 485/306`), `numeric_WA`
+  (conditions W and A from the run bound, the longest run, the
+  witness-versus-ceiling inequality at the maximum, `D > 0` and the `L`-bound)
+  and `numeric_F` (the final contradiction from `m − 3 ≤ τ + 2T` and the
+  witness inequality)** in `CycleSpectrum.lean` (sha256 `10a4ec83…06fd`, 9880
+  lines, 591 theorems: 493 with the three standard axioms, 41 × `[propext,
+  Quot.sound]`, 55 × `[propext]`, 2 none; no `sorry`). Third build (`norm_num`
+  does not evaluate real powers above its exponent threshold 256: evaluate in
+  `ℕ` under `set_option exponentiation.threshold 1100` and cast). The
+  `linarith` steps closed at the first attempt after bounding seven products
+  by numerals. Receipts regenerated. Next: S7-d part 2, the assembly
+  `no_three_mismatch_of_gap`.
+
 ## Iteration 72 — 2026-10-19, 13:40 -03
 
 - Woken by the sidekick's messages (`f07182b`…`f5efd81`): **S7-c part 1
