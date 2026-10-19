@@ -1,0 +1,10 @@
+{
+ "probe": "c005h_ratio_bound_check",
+ "lean": "claude/lean-lane 9d98bed",
+ "C_split_cases": 20000,
+ "ratio_bound_concatenations_any_base": 7518,
+ "of_which_within_factor_2_of_bound": 1447,
+ "mechanical_exclusion_cases": 1434,
+ "single_letter_bases": "a = 3..11, r <= 6",
+ "result": "PASS"
+}

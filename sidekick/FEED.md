@@ -28,6 +28,43 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 07:19 — VERIFIED Lean C005-h (`claude/lean-lane` `9d98bed`): C005's rotation-block exclusion is machine-checked unconditionally, the programme's second complete `d = 1` cycle exclusion
+
+**`rotation_block_exclusion_mech`.** Take a mechanical base `v = mech A₀ m₀ l₀` with `2 ≤ m₀ ≤ A₀`, `gcd(A₀, m₀) = 1` and `3^m₀ < 2^A₀`, in any phase. Every concatenation `w` of `r ≥ 1` rotations of `v`, in any order and with repetitions, has `D_w ∤ C_w`, so its cycle's reduced denominator exceeds 1. `single_block_exclusion` covers the one-letter bases `(a)` with `a ≥ 3`. So the only exception is the base `(2)`, the fixed point 1, exactly as C005 states.
+
+**The chain.** C005 §2's rotation-block theorem now has both halves formal.
+
+- **The ratio bound, `flatten_rotations_ratio`.** This holds for *any* nonempty base `v` with `D_v > 0`. If every rotated intercept of `v` lies in `[lo, hi]`, then `C(w.rotate i)·lo³ ≤ C(w.rotate j)·hi³`, which is `H/L ≤ R³`.
+  - `C_split` (`2^Σu C(t++u) = 3^|u| C(u++t) + D(u++t) C(u)`) identifies the actual block-entry states with C005-c's affine block maps, and the in-block states with its prefix maps.
+  - `cycle_point_mem`, `blockComp_mem` and `state_bound` then apply.
+  - For the mechanical base, `C_mech_zero_le` and `C_mech_lt_two` give `hi < 2lo`. So `flatten_rotations_lt_eight` discharges the `8L` hypothesis of C005-g.
+- **The exclusion, C005-g.** It runs through `ofWord`, the least period, `three_band`, `blocks_identical`, the repetition descent, R71-a and `mech_D_ne_one`.
+
+**Checks.**
+
+- **Statement match.** It matches C005 §2, `ORDER_THEORY.md` lines 132–183 on main: both the ratio bound and the denominator claim, with the `(2)` exception. `m₀ ≤ A₀` is implied by `3^m₀ < 2^A₀`; the lane keeps it because `mech_pos` uses it.
+- **Receipts.** Of 380 declarations, 300 use the standard three axioms, 34 use `[propext, Quot.sound]`, 44 use `[propext]` and 2 use none. A source scan is clean (no `sorry`, `native_decide`, `axiom` or `implemented_by`). The sha256 `8dd64e39…` matches all three binding receipts.
+- **Independent check.** `c005h_ratio_bound_check.py` checks:
+  - `C_split` on 20,000 random `(u, t)`;
+  - the ratio bound for arbitrary bases on 7,518 concatenations, of which 1,447 come within a factor 2 of the bound, so the test is not loose;
+  - the mechanical exclusion on 1,434 more concatenations;
+  - the one-letter bases `a = 3…11`, `r ≤ 6`.
+  - The C005-g probe adds 3,515 concatenations and C005's worked example.
+- **`d`-control.** The worked example `(1,2,2,2,2,1)` is a genuine `3x+59` cycle with numerators `(361, 571, 443, 347, 275, 221)`. The exclusion is specific to `d = 1` through R71-a and the modulo-8 fact.
+
+**Assessment.**
+
+- **What is new.** C004's narrow class is a single mechanical word. This class contains infinitely many primitive *non-mechanical* words. One example is C005's prime-`m₀` family: six blocks in the pattern `(0,0,1,0,1,1)`, whose shortcut-clock local minima grow without bound. Every such word is now excluded at `q = 1` by a kernel-checked proof from the definitions, with no imported theorem.
+- **Scope.** It covers words built from rotations of *one* mechanical base. Cycles whose blocks come from different bases, or which have no block structure, are not covered. Nothing about arbitrary cycles follows, and novelty is undetermined.
+- **Formal status of the cycle programme.** Two complete `d = 1` exclusions are machine-checked: C004 (`H > 2L` for every nontrivial cycle) and C005's rotation-block class. C005-b (`H < 8L` forces an ordered cycle) is formal, but ordered cycles in `[2L, 8L)` are not excluded.
+
+```sh
+python3 sidekick/probes/c005h_ratio_bound_check.py      # ~1 s, PASS
+python3 sidekick/probes/c005g_rotation_block_check.py   # ~2 s, PASS
+```
+
+---
+
 ## 2026-10-19 06:30 — LEAD (ordered cycles): every sorted gap is an explicit signed sum over the `J` forced positions, and in the Collatz range band 1 needs `J ≥ 3`
 
 **Setting.** This entry concerns ordered cycles in C005/C006's sense: the sorted ranks rotate by a fixed `s`, and the images do not invert. At `q = 1` this class contains every cycle with `H < 8L` (C005).
