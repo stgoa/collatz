@@ -47,3 +47,11 @@ reconstruction, graph growth, and quantitative two-base mechanisms. Written
 local consequences and rejected shortcuts are progress only. The goal
 remains active until the full unbounded-ratio statement is proved and
 verified at its actual quantifier scope.
+
+## Second batch
+
+[V006](../experiments/viewpoints/V006/REPORT.md) proves quadratic growth
+if an invariant has one positive section of digit-count type. It also
+shows that weaker binary graph assumptions do not supply that section.
+The next overlap test retains all radix identities and the three root
+relations. The full all-invariant target above is unchanged and unresolved.

@@ -9,8 +9,8 @@ by the strict full-classification goal in `docs/GLOBAL_RIGIDITY_BRIEF.md`.
 V004 supplies its written proof, using the finite-kernel characterization
 and Cobham. The activated `docs/QUANTITATIVE_RIGIDITY_BRIEF.md` now requires
 that every nonconstant finite-valued invariant have unbounded
-`kappa_h(D)/(D+1)`. V005 supplies partial results; the goal is active and
-unresolved. Read its report and V004's proof before extending the work.
+`kappa_h(D)/(D+1)`. V005/V006 supply partial results; the goal is active and
+unresolved. Read the latest report and V004's proof before extending the work.
 This does not authorize resuming the dispatcher search or assuming
 regularity of an actual bad set.
 
@@ -57,6 +57,15 @@ tests. This selection is not evidence of a superior convergence method.
 - For b(n)=h(2n+1), joint sections of total depth D lie in positive binary sections of h through1+4D. The complete scalar interface is `b(3n)=b(4n)`, `b(3n+2)=b(2n+1)`, `b(4n+2)=b(n)` for all n>=0. It is an equivalent interface, not a growth theorem.
 - Compare joint-growth rigidity and overlap control using all three identities before deepening. A finite-rank or periodicity premise must be proved, not imported from a linear count alone. The full target is false for d5/d61 periodic divisibility invariants.
 - The Lean lane's V004 assembly statement, reported build, axiom receipt and matching source hash were inspected in V005. Main did not independently replay it; Cobham remains an explicit hypothesis. Do not describe this as formal verification of V005 or completion of the quantitative goal.
+
+### V006 quadratic scope and graph interface
+
+- For non-eventually-periodic F, all `F(t+s_2(3^a*n))` are distinct. One positive h-section of digit-count form gives `kappa_h(K+4D)>=(D+1)(D+2)/2`. The theorem does not supply that form for an arbitrary invariant. Do not mark the all-invariant goal complete from this conditional quadratic bound.
+- The balanced quotient `(2^K-1)/3^r` has K/2 ones for K a multiple of `2*3^(r-1)`. Prove arbitrary multiples by repeated blocks; `2^(K/2)=-1 mod3^r` does not hold for every such multiple.
+- The adjacent11-pair control has linear whole-kernel growth, every section nonautomatic, doubling and the binary return, but no digit-count section. It fails full invariance at3. Thus the reduced binary premises do not justify digit-count extraction.
+- Linear rooted orbit growth does not imply linear transformation-semigroup growth, low global pattern complexity or finite operator rank. The exact T/U counterexample in V006 must be addressed before importing a theorem with those stronger premises.
+- The full graph has five transitions and six identities `T_j E_i=E_l T_k` with `2j+i=3l+k`, plus zero-output compatibility at every vertex. Root b satisfies `T_0 b=E_0 E_0 b`, `T_2 b=E_1 b`, `E_1 E_0 b=b`. Preserve composition order and whole-function distinguishability. These are a faithful interface, not a new growth theorem.
+- Linear joint growth would give arbitrarily distant separating layers of uniformly bounded size. Test the full radix/root constraints there; a repeated singleton-layer case alone would still be partial. Keep the unrestricted goal intact and do not assume a classification of all linear-growth graphs.
 
 ## Historical Phase 6 results and controls
 

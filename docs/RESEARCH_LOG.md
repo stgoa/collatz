@@ -1,5 +1,22 @@
 # Research log
 
+## 2026-10-18 — V006: a conditional quadratic bound
+
+The [new batch](../experiments/viewpoints/V006/REPORT.md) proves that all
+`F(t+s_2(3^a*n))` are distinct for non-eventually-periodic F. One positive
+digit-count section of an invariant therefore forces quadratic growth.
+The full goal remains open because no general extraction theorem supplies
+such a section. An exact11-pair control rules out extraction from the
+reduced binary hypotheses; an action control separates linear orbit
+growth from exponential transformation growth.
+
+The preferred next bounded test uses the complete radix graph and its
+necessary small separating layers. Proof reviews and finite replay passed;
+the frozen ledger body, dispatcher and LaTeX source remain unchanged.
+The read-only side pin isb999b7b; its new Lean density report was not
+adopted as a quantitative premise. The [viewpoint log](VIEWPOINT_LOG.md)
+records checks, corrections and the unresolved completion requirement.
+
 ## 2026-10-18 — V005: quantitative rigidity remains open
 
 The user activated the [quantitative goal](QUANTITATIVE_RIGIDITY_BRIEF.md):
