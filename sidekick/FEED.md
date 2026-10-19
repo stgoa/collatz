@@ -33,7 +33,7 @@ Status words follow `AGENTS.md`.
 Full note: `sidekick/research/S8/FOUR_MISMATCH_MAP.md`. A negative map, kept so the next mechanism is chosen knowing the exact obstruction.
 
 - **The words.** They run along one `h`-chain with arcs `[V][1^a][2^b][1^c]`: one huge letter, and an evenly spread arc of 2s (`h/m ≈ √2 − 1`, `b ≈ 1.6m/ℓ`). The rotation by `h` has exactly four mismatches.
-- **The constraints evaluated** are every inequality S7 uses (end and start witnesses, the signs, the excess-tracked ceiling), plus a new one of the same kind: comparison with the fixed point `−1`. A run of `r` ones ending at `e` forces `n_e + 1 ≥ 2·3^r`, so runs of ones near the minimum are at most about `0.63ℓ` long.
+- **The constraints evaluated** are every inequality S7 uses (end and start witnesses, the signs, the excess-tracked ceiling), plus a new one of the same kind: comparison with the fixed point `−1`. A run of `r` ones ending at `e` forces `n_e + 1 ≥ 2·3^r`, so a run of ones starting at height `y` lasts at most about `y − 1` steps, and the run leaving the minimum is shorter than `ℓ − 1`. *[Corrected 13:13: this first said "at most about `0.63ℓ`", which ignored the run's own gain. The tables come from the exact inequality and are unaffected.]*
 - **Result.** At `m = 10^6` and `4·10^6` (above `m0 = 452,695`), with the worst case `ℓ = ℓ*`, every constraint holds with 2,028 and 3,872 bits to spare.
   - At `m = 10^6` the margin stays positive down to `ℓ = 200`, about the scale of a Rhin-type irrationality measure.
   - At `ℓ = 71` this family fails in the search; that is not an exclusion.

@@ -14,7 +14,8 @@ S7 excludes `s = 3` using only inequalities between sizes, along the maximal adm
 S8 adds one constraint of the same kind, a comparison with the integer fixed point `−1` (word `1^∞`).
 - On a run of `r` ones, `n + 1` is multiplied by `3/2` at each step, so `3^r | n_e + 1` at the run's end `e`.
 - So **a run of `r` ones ending at `e` forces `1 + r log₂ 3 < y_e`.**
-- Near the minimum (`y ≈ ℓ`) this caps runs of ones at about `0.63ℓ`. Letters `≥ 2` must therefore be dense right after the minimum.
+- A run of ones starting at height `y` gains `0.585` per step, so it can last at most about `y − 1` steps (`1 + 1.585r < y + 0.585r`). In particular, the run starting at the minimum has length below `ℓ − 1`, and letters `≥ 2` must recur at gaps of order `ℓ` early in the climb. *[Corrected 13:13: the first version said "about `0.63ℓ`", which ignored the run's own gain. The probe evaluates the exact inequality, so the tables are unaffected.]*
+- Consistency: reducing `C(w)` mod `D` for this family gives the same constraint. For the first 2, at position `p₀` after the minimum, the reduced representative is below `D` when `p₀ ≳ ℓ`. So "reduce mod `D` to a small number" adds nothing beyond the comparison with `−1` here.
 - The same device works with any integer cycle as the comparison orbit: `{1}`, `{−1}`, `{−5, −7}` and the `−17` cycle.
 
 ## 2. Explicit four-mismatch words meet every constraint
