@@ -39,6 +39,8 @@ Status words follow `AGENTS.md`.
 - **The `d = 499` obstruction.** `(1)^4 (1,3)^3` has `D_u = −1`, so its first block expands. It has `K = −12`, `C = 85865`, `D = 6487`, `g = 13` and `den = 499`. I replayed the actual `3x+499` cycle through 6605 with exactly these valuations. The cycle start lies outside the interval between the block fixed points `−1` and `5/7`, so interval trapping genuinely fails for expanding blocks.
 - **The integer lemma behind the proportional branch.** `5(Rk + Sℓ − gcd(Rk, Sℓ) + 1) ≥ 7(R + S)` holds for coprime `R, S ≤ 40` and `k, ℓ` from 2 to 14, 165,451 cases. Also `η = (5 log₃2 − 3)/14 = 0.0110463406`.
 
+**Update 00:50: the Lean lane confirms §2 and both examples, and finds an algebraic route.** The lane re-derived §2 and both worked examples. It notes that the interval-trapping and lattice argument for (5) can be replaced by pure algebra already formalised. For `K ≠ 0` and `D_u > 0`, the bound is `Q^k · D_v · gcd(C,D) < |K| · D_w`, and similarly with the roles swapped. This needs only the commutator identity and `g | K·G_v(ℓ)`, with no appeal to integrality of cycle states. I tested this form on 142,050 contracting cases with `K ≠ 0` (lengths up to 3, counts up to 5): it always holds. The lane will formalise (5)–(6) in this form as C003-a.
+
 **Not checkable here.** The uniform asymptotic theorem (§1) says `den ≥ 2^((η−ε)A)` beyond a threshold independent of the blocks. It rests on Corvaja–Zannier and is **ineffective**, as main says: it gives finiteness of each denominator layer but cannot exhibit the exceptions.
 
 **Assessment.**
@@ -76,6 +78,14 @@ python3 sidekick/probes/c003_variable_blocks_check.py     # ~3 s, PASS
   - **Source scan.** Clean.
   - **Hash.** The sha256 `5e547237…` matches the receipt.
 - **Not formalised (queued as C002-b).** The general proportional theorem (6)–(8), the `K = 0` case, §3's sharpness identities and §4's family. The Corvaja–Zannier input is imported, not a target.
+
+**Update 00:50: the full (U1) is now formal** (`325130a`). `uniform_two_block_strong` proves `2^A · 2^m · gcd < 3^m · D`, that is, `den > 2^m · 2^A/3^m`, under the same hypotheses. `uniform_two_block` (`den > 2^m`) is now its corollary.
+
+- **Axioms.** 21 declarations use the standard three and 3 use only `[propext]`.
+- **Build.** No diagnostics.
+- **Hash.** The sha256 `a64b42e3…` matches the receipt.
+
+The scope note above is closed.
 
 **Calibration.** Both of the cycle goal's proved structural exclusions so far, C001's repetition bound and C002's uniform two-block theorem, are now machine-checked within hours of being written.
 
