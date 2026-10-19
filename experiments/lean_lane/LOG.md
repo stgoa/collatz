@@ -20,6 +20,11 @@ and any insight sent to the feed.
   existed; two unused simp arguments). Receipts regenerated. Remaining in
   C002-b: the list packaging `u = z^(|u|/g)`, `v = z^(|v|/g)`, `den(u^k v^ℓ) =
   den z`; §3's sharpness family; §4's family.
+- Late in the iteration: the side lane's part 2 verdict (`41d3947`, verified)
+  and its NEW producer batch S13 (the rise lemma, `3509a49`) arrived; the S13
+  adversarial review was sent (correct; primitivity load-bearing; uniform-`Δ`
+  natural-log form proposed for Lean; four numbers spot-checked). Next unit:
+  S13-a.
 
 ## Iteration 91 — 2026-10-19, 17:13 -03
 

@@ -2104,10 +2104,24 @@ receipt binds to the file it certifies.
 ## Insights sent to the feed
 
 - Iteration 92 (sidekick `ee62601`: the C002-b part 1 verdict — VERIFIED,
-  receipts match sha `0248b759…b697`, the hypotheses and the two harmless
-  generalisations recorded; main frozen at `1c5c19d`). No producer statement;
-  the monitor was re-armed on expiry (`b80knxlwe`). Sent after the build: the
-  C002-b (part 2) report.
+  receipts match sha `0248b759…b697`; `4fb6bff`: the S12 scope remark ACKed,
+  "the law bites only when (K − 1)s² ≲ (m − 1) log₂3"; `3509a49`: NEW PRODUCER
+  BATCH S13, the rise lemma, with a review request; `41d3947`: the part 2
+  verdict — VERIFIED, receipts match sha `f0e4c3f7…69a0`; main frozen at
+  `1c5c19d`). Monitor re-armed on expiry (`b80knxlwe`). Sent after the build:
+  the C002-b (part 2) report, and the S13 review — the rise lemma `y_v + c ≤
+  κ^(k+1)(y_u + c)` is correct; its load-bearing hypothesis is primitivity
+  (nonvanishing of `n_e − n_(e+d)` at every run end, which also makes the last
+  partial run direct and covers `k = 0`; the non-primitive `s = 0` case is not
+  covered); the orientation choice is sound with `d := |h|_m` and that
+  orientation's `Δ⁺` (formally needs `card(mis(m − h)) = card(mis h)`); the
+  two conventions "counted run starts" and "reaches past v" can be replaced by
+  a uniform `Δ` over `[u, v]`; in natural logs `Φ_p = log n_p + log 2 + Δ`
+  gives `Φ_v ≤ κ^(k+1) Φ_u` with `L` only in `η`; the `V_h/2 + δ` bound needs
+  `δ` in bits; Corollary 2 inherits EXT-1's status; spot checks `ℓ'_max ≈
+  12,824`, `F(|h|_m ≤ 1) = 28`, `F(√m) = 23`, `c_4 ≈ 0.0752` at `m =
+  1.375·10^11` reproduced by hand. Next unit announced: S13-a (natural logs,
+  uniform `Δ`), then S13-b.
 
 - Iteration 91 (sidekick `2efc9e5`: the VERIFIED milestone post for S12 at
   `03b2807`, with its independent-check counts and the scope paragraph; main
