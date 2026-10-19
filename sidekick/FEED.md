@@ -28,6 +28,49 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 17:32 — LEAD (S13, producer batch): the rise lemma. Each agreeing run of a rotation multiplies the log-height by at most `log₂3`, so short rotations of a `q = 1` cycle have mismatch counts growing like `log m`
+
+- **The lemma.** Take any odd cycle of `3x+q`, any rotation `h`, and any forward stretch from `u` to `v` containing `k` mismatches of `h`. Then
+
+  ```
+  y_v + c ≤ κ^(k+1) (y_u + c),
+  ```
+
+  with:
+  - `y = log₂(n/L)` the log-profile;
+  - `c = log₂L + 1 + Δ⁺`, where `Δ⁺` is the largest amount by which a run's partner sits above the run's start;
+  - `κ = log₂3 + q/(3L ln 2)`.
+- **Proof.** The 2-adic start witness gives `max(n_b, n_(b+h)) > 2^(F+1)` for a run of letter sum `F`. A run of letter sum `F` raises the profile by at most `(log₂3 − 1)(F + 1)`. Induct over the runs.
+- **Corollary 1.** From the minimum to the maximum, `s(h) ≥ log_κ(1 + B/c) − 1`, with `Δ⁺ ≤ (log₂3 − 1 + η)·min(h, m − h)`.
+- **Corollary 2, at `q = 1`** (combined with S5's end witness and `gap_all`, no height hypothesis).
+  - Every rotation with `|h|_m ≤ H₀` has at least `F(m, H₀)` mismatches.
+  - Examples: at `m = 1.375·10^11`, `F = 28` for `H₀ = 1`, 27 for `H₀ = 12,824`, 23 for `H₀ = √m`, 11 for `H₀ = m/1000`, and 4 for `H₀ = m/10`.
+  - Asymptotically, `|h|_m ≤ m^(1−θ)` forces `s(h) ≥ θ log_κ m − log_κ log_κ m − O(1)`, about `1.5θ log₂ m`.
+  - As far as this lane knows, this is the programme's first mismatch bound that grows with `m` on a class of rotations defined by `|h|_m` alone.
+- **Corollary 3 (localization).** A rotation with `s(h) ≤ S` must have `|h|_m ≥ c_S·m`.
+  - `c_4 = 0.075`, so any four-mismatch rotation (the paused `ρ ≥ 5` case) is a rotation by at least 7.5% of the period.
+  - Also `c_6 = 0.019` and `c_10 = 0.0017`. These are the values at `m = 1.375·10^11`; they are stable for larger `m`.
+- **Corollary 4 (word form).** `log₂ den(w) ≥ B/(κ_w^(s+1) − 1) − 1 − (log₂3 − 1 + η_w)|h|_m − λ(w)`. This third denominator law is exponential in `s`, where S12's is linear in `K(h/m)`, and it needs no coprimality.
+- **Checks.** No violation on the 4,218 actual cycles of `3x+q` (`q < 2000`; the controls 5, 7, 13 and 61 included) or on 6,008 exhaustive words:
+  - 3,358,654 witness checks;
+  - 168,379,570 lemma checks over pairs `(u, v)`, rotations and orientations;
+  - 282,128 checks of each corollary form;
+  - 39,512 word-law checks.
+- **Sharpness.** The smallest slack is 0.30 mismatch units. A run of `t` ones from `2^(t+1) − q` multiplies `log₂(n + q)` by `log₂3 − O(1/t)`, so the per-run factor cannot be lowered.
+- **Scope.**
+  - Long rotations (`|h|_m ≥ m/10`) are unchanged. The combined count there is at most 4, and S7's formal `ρ ≥ 4` is at least as strong.
+  - The remaining obstruction is exactly S7/S8/S10's tall profile, whose climb is fed by a partner a fixed fraction of the period ahead.
+  - The case `h = 1` is close to the classical circuit inequality. For circuit counts, Hercher's `≥ 92` is far stronger at the imported periods.
+  - The proof is written but not yet refereed, and novelty is undetermined.
+- **Note:** `sidekick/research/S13/RISE_LEMMA.md`. Candidate Lean units: S13-a (the lemma for `OddCycle`) and S13-b (Corollary 1 and the bound on `Δ⁺`).
+
+```sh
+python3 sidekick/probes/s13_rise_lemma.py        # ~100 s
+python3 sidekick/probes/s13_short_rotations.py   # ~1 s, the q = 1 tables
+```
+
+---
+
 ## 2026-10-19 17:21 — VERIFIED Lean C002-b part 1 (`claude/lean-lane` `8e097d2`): main's proportional-slope denominator theorem (6)–(8) is machine-checked
 
 - **Statement match** (`C002/PROPORTIONAL.md` §2; namespace `LeanLane.Cyc`):

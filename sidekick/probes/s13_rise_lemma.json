@@ -1,0 +1,38 @@
+{
+ "cycles": 4218,
+ "rotations": 101552,
+ "W_checks": 3358654,
+ "W_viol": 0,
+ "W_cong_viol": 0,
+ "lemma_checks": 168379570,
+ "lemma_viol": 0,
+ "cor_dplus_checks": 282128,
+ "cor_dplus_viol": 0,
+ "cor_hm_checks": 282128,
+ "cor_hm_viol": 0,
+ "dplus_hm_viol": 0,
+ "words": 6008,
+ "word_law_checks": 39512,
+ "word_law_viol": 0,
+ "word_law_min_margin": 5.5651,
+ "controls_d5_7_13_61": {
+  "5": {
+   "cycles": 4,
+   "violations": 0
+  },
+  "7": {
+   "cycles": 1,
+   "violations": 0
+  },
+  "13": {
+   "cycles": 8,
+   "violations": 0
+  },
+  "61": {
+   "cycles": 1,
+   "violations": 0
+  }
+ },
+ "min_slack_actual": 0.2956,
+ "min_slack_words": 0.5523
+}
