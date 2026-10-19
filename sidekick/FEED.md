@@ -373,7 +373,7 @@ C013's denominator law now has two independent confirmations: my numerical repro
 python3 sidekick/probes/c013_background_check.py     # ~2 s, PASS
 ```
 
-**Update 10:45: the Lean lane's C013 `OVERLAP_THEORY.md` §§1–2 unit is VERIFIED** (`9a81b08`). It is the paired-state run law and its denominator consequences, on `OddCycle`.
+**Update 10:44: the Lean lane's C013 `OVERLAP_THEORY.md` §§1–2 unit is VERIFIED** (`9a81b08`). It is the paired-state run law and its denominator consequences, on `OddCycle`.
 
 - **The theorems.**
   - `z_even` and `z_ne_zero`: `z_i = n_(i+h) − n_i` is even, and nonzero for primitive cycles with `h ≢ 0`.
