@@ -26,9 +26,9 @@ Verified in this file (all with the standard axioms):
 * `Q_mem_Reach`: `Q F t₀ a t` is reached from `g = Q F t₀ 0 0 = F (t₀ + s2 ·)` by
   `t` binary digit-1 sections and `a` ternary digit-0 sections, so it lies in the
   joint section family through depth `a + t` (`Reach g (a + t)`);
-* `triangle_encard_le`: hence the joint family through depth `D` has at least as
-  many members as the triangle `{(a,t) : a + t ≤ D}` — main's `(D+1)(D+2)/2`
-  (the numeric value of the triangle's cardinality is not computed here).
+* `triangle_encard_le`, `triangle_encard`, `reach_encard_ge`: hence the joint family
+  through depth `D` has at least as many members as the triangle `{(a,t) : a + t ≤ D}`,
+  whose cardinality is `(D+1)(D+2)/2` — main's (4).
 
 Finite-valuedness of `F` is never used. Nothing here concerns Collatz orbits;
 main's Collatz corollary (a digit-count section forces quadratic growth) is not
@@ -445,6 +445,71 @@ theorem triangle_encard_le (F : ℕ → α) (hF : ¬ EventuallyPeriodic F) (t₀
   apply Set.encard_le_encard
   rintro _ ⟨⟨a, t⟩, hp, rfl⟩
   exact Reach_mono _ hp (Q_mem_Reach F t₀ a t)
+
+/-! ### The triangle count `(D+1)(D+2)/2` -/
+
+/-- The triangle `{(a,t) : a + t ≤ D}` as a finset: `a < D + 1`, `t < D + 1 − a`. -/
+def triangle (D : ℕ) : Finset (ℕ × ℕ) :=
+  ((Finset.range (D + 1)).sigma (fun a => Finset.range (D + 1 - a))).image (fun x => (x.1, x.2))
+
+theorem mem_triangle {D : ℕ} {p : ℕ × ℕ} : p ∈ triangle D ↔ p.1 + p.2 ≤ D := by
+  unfold triangle
+  simp only [Finset.mem_image, Finset.mem_sigma, Finset.mem_range]
+  constructor
+  · rintro ⟨⟨a, t⟩, ⟨ha, ht⟩, rfl⟩
+    have ha' : a < D + 1 := ha
+    have ht' : t < D + 1 - a := ht
+    show a + t ≤ D
+    omega
+  · intro h
+    refine ⟨⟨p.1, p.2⟩, ⟨?_, ?_⟩, rfl⟩
+    · show p.1 < D + 1
+      omega
+    · show p.2 < D + 1 - p.1
+      omega
+
+theorem two_mul_sum_range_succ (D : ℕ) :
+    2 * (∑ s ∈ Finset.range (D + 1), (s + 1)) = (D + 1) * (D + 2) := by
+  induction D with
+  | zero => simp
+  | succ D ih =>
+    rw [Finset.sum_range_succ, mul_add, ih]
+    ring
+
+theorem card_triangle (D : ℕ) : (triangle D).card = (D + 1) * (D + 2) / 2 := by
+  unfold triangle
+  have hinj : Function.Injective (fun x : (Σ _ : ℕ, ℕ) => (x.1, x.2)) := by
+    intro x y hxy
+    obtain ⟨a, t⟩ := x
+    obtain ⟨b, u⟩ := y
+    simp at hxy
+    obtain ⟨rfl, rfl⟩ := hxy
+    rfl
+  rw [Finset.card_image_of_injective _ hinj, Finset.card_sigma]
+  simp only [Finset.card_range]
+  have h := two_mul_sum_range_succ D
+  have hrev : ∑ a ∈ Finset.range (D + 1), (D + 1 - a) = ∑ s ∈ Finset.range (D + 1), (s + 1) := by
+    rw [← Finset.sum_range_reflect (fun s => s + 1) (D + 1)]
+    apply Finset.sum_congr rfl
+    intro a ha
+    rw [Finset.mem_range] at ha
+    show D + 1 - a = D + 1 - 1 - a + 1
+    omega
+  omega
+
+theorem triangle_encard (D : ℕ) :
+    ({p : ℕ × ℕ | p.1 + p.2 ≤ D} : Set (ℕ × ℕ)).encard = ((D + 1) * (D + 2) / 2 : ℕ) := by
+  have h : ({p : ℕ × ℕ | p.1 + p.2 ≤ D} : Set (ℕ × ℕ)) = ↑(triangle D) := by
+    ext p
+    simp [mem_triangle]
+  rw [h, Set.encard_coe_eq_coe_finsetCard, card_triangle]
+
+/-- **Main's (4).** For `F` not eventually periodic, the joint section family of
+`g = F(t₀ + s₂ ·)` through depth `D` has at least `(D+1)(D+2)/2` members. -/
+theorem reach_encard_ge (F : ℕ → α) (hF : ¬ EventuallyPeriodic F) (t₀ D : ℕ) :
+    (((D + 1) * (D + 2) / 2 : ℕ) : ℕ∞) ≤ (Reach (Q F t₀ 0 0) D).encard := by
+  rw [← triangle_encard]
+  exact triangle_encard_le F hF t₀ D
 
 end Quad
 end LeanLane

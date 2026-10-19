@@ -3,6 +3,24 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 10, review — side lane verifies V006-a; triangle count added
+
+- `claude/sidekick` 0074c1b (feed 23:55): V006-a at 6fbc3f8 **verified** —
+  unconditional form (explicit non-periodicity hypothesis, no Cobham,
+  finiteness unused), `Reach` is exactly main's `J_D`, `s2_balanced` covers
+  every multiple, twelve declarations with the standard axioms, clean scan,
+  hash match. It noted the `(D+1)(D+2)/2` evaluation as the open follow-up.
+- Follow-up done in the same file: `triangle`, `mem_triangle`,
+  `card_triangle` (`(D+1)(D+2)/2`, by `Finset.card_biUnion` over the
+  sigma finset `(range (D+1)).sigma (fun a => range (D+1−a))`,
+  `Finset.sum_range_reflect` and `2·Σ_{s≤D}(s+1) = (D+1)(D+2)`),
+  `triangle_encard` and `reach_encard_ge` (main's (4) with the number).
+  Three compile rounds: `Finset.Nat.antidiagonal` does not exist here and
+  `Finset.antidiagonal` resolves to an `IsPWO` version, hence the sigma
+  finset; then unreduced `Sigma` projections under `omega` and a `dsimp`
+  with nothing to do. Receipts regenerated (sha256 `5b92658b…b070`, 515
+  lines; fifteen declarations with the standard axioms).
+
 ## Iteration 10 — 2026-10-18, ~23:55 -03
 
 - Woken by the side lane's V007-a verdict and feed `d0354c2`/`52244f7`;

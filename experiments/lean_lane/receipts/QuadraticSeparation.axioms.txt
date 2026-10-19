@@ -1,4 +1,7 @@
 'LeanLane.Quad.Q_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Quad.reach_encard_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Quad.triangle_encard' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Quad.card_triangle' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Quad.triangle_encard_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Quad.Q_mem_Reach' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Quad.not_lt_of_Q_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -12,6 +15,9 @@
 'LeanLane.Quad.s2_add_pow_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
 @LeanLane.Quad.Q_injective : ∀ {α : Type u_1} (F : ℕ → α),
   ¬LeanLane.Quad.EventuallyPeriodic F → ∀ (t₀ : ℕ), Function.Injective fun p => LeanLane.Quad.Q F t₀ p.1 p.2
+@LeanLane.Quad.reach_encard_ge : ∀ {α : Type u_1} (F : ℕ → α),
+  ¬LeanLane.Quad.EventuallyPeriodic F →
+    ∀ (t₀ D : ℕ), ↑((D + 1) * (D + 2) / 2) ≤ (LeanLane.Quad.Reach (LeanLane.Quad.Q F t₀ 0 0) D).encard
 @LeanLane.Quad.triangle_encard_le : ∀ {α : Type u_1} (F : ℕ → α),
   ¬LeanLane.Quad.EventuallyPeriodic F →
     ∀ (t₀ D : ℕ), {p | p.1 + p.2 ≤ D}.encard ≤ (LeanLane.Quad.Reach (LeanLane.Quad.Q F t₀ 0 0) D).encard
@@ -32,3 +38,5 @@ def LeanLane.Quad.Step.{u_1} : {α : Type u_1} → (ℕ → α) → (ℕ → α)
 fun {α} s s' => (∃ i < 2, s' = fun n => s (2 * n + i)) ∨ ∃ j < 3, s' = fun n => s (3 * n + j)
 def LeanLane.Quad.Reach.{u_1} : {α : Type u_1} → (ℕ → α) → ℕ → Set (ℕ → α) :=
 fun {α} g x => Nat.brecOn x (LeanLane.Quad.Reach._f g)
+def LeanLane.Quad.triangle : ℕ → Finset (ℕ × ℕ) :=
+fun D => Finset.image (fun x => (x.fst, x.snd)) ((Finset.range (D + 1)).sigma fun a => Finset.range (D + 1 - a))
