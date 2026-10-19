@@ -16,7 +16,7 @@ These are proposals, not instructions. Main verifies them before relying on any 
 | D5 | Replace the draft's approval gates with the no-waiting protocol | closed: the no-waiting protocol is persisted in `AGENTS.md` and `ROUTE_MAP.md` (`b901e11`) |
 | D6 | Each calibration must feed an attempt on its route's open node | accepted (P6-003) |
 | D7 | An audit standard for external results before they become premises (C.1a) | accepted; items 1–4 met by two independent replays (main `5a11fcb` on macOS; lane 3 `5260896` on Linux): standard axioms only, statements identical. The comparator `--paranoid` run passes all six kernels on the four-theorem export. A whole-library `lake check --paranoid` remains unresolved (nanoda ran out of memory; con-leche and con-ron reject without a reason); that check is not the authors' specified certificate |
-| D8 | A first quantitative milestone and a stopping rule for the quantitative-rigidity goal | proposed (22:40) |
+| D8 | A first quantitative milestone and a stopping rule for the quantitative-rigidity goal | partly accepted (V008): part 1 is kept as a progress diagnostic, not a success condition. Main also notes that an unbounded additive excess would be a weaker strengthening. Part 2 (automatic abandonment) is rejected because the goal is the user's active objective. The underlying point, no width-by-width exclusions, is accepted, and V008 refutes the generic two-exit case. The side lane does not pursue the dispute |
 
 ---
 

@@ -28,6 +28,34 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 23:01 — REFEREE V008 (main `9d66b69`): the two-exit counterexample is confirmed and the batch is honestly scoped; D8 partly accepted
+
+**1. The generic two-exit counterexample: reproduced.** Let `p(n) = 1_{nα} < α` with `α = (√5−1)/2`, and `s(n) = p(⌊n/6⌋)`.
+
+- **Exits.** Both binary children of `s` equal `u(n) = p(⌊n/3⌋)`, and all three ternary children equal `v(n) = p(⌊n/2⌋)`. Checked exactly for `n < 10⁴`. The sequences `s`, `u` and `v` are pairwise distinct, so `{s}` is an interior with two exits.
+- **Infinite kernels.** The frequency of 1s is `α` (0.61805 empirically), which is irrational. An automatic sequence whose frequency exists has a rational one, so every vertex has infinite kernels in both bases.
+- **Not a Collatz invariant.** It fails the root equation `s(4n+2) = s(n)` at `n = 1` (`s(6) = 0`, `s(1) = 1`).
+
+So the radix laws and two-base infinitude alone do not exclude two-exit boundaries. Main draws the right conclusion: separator widths cannot be excluded one at a time.
+
+**2. Other results, read but not independently replayed.**
+
+- **First-shell theorem.** The three scalar equations together with `|J_1(b)| ≤ 3` force `b` constant. The proof is elementary and needs no Cobham. Two reviews by main check it, including the correction of a draft row.
+- **Uniform tail bound.** If `|B_D| ≤ C(D+1)`, then for every `C' > C` there are arbitrarily late cuts `r` with `|B_(r+t) \ B_r| ≤ C't` for all `t`. This is the standard maximisation argument.
+- **Control.** The bounded-degree control rules out the "long uniformly thin stretches" shortcut.
+
+None of these gives a rate improvement for all invariants, and main says so.
+
+**3. Directions.** Main has added dated notes to V005, V006, V007 and `RESULTS.md` stating that their Collatz applications inherit Cobham through V004. That closes my 22:32 and 22:40 scope notes.
+
+D8 is partly accepted.
+
+- **Part 1 is kept as a diagnostic.** The `(1+ε)` gain is now a progress diagnostic, not a success condition. Main also notes, correctly, that an unbounded additive excess would be a weaker strengthening.
+- **Part 2 is rejected.** Automatic abandonment conflicts with the user's active goal. I am not pursuing the dispute. Main accepted the methodological point, and V008 already acts on it.
+- **Main's transfer point is fair.** A `d`-uniform growth theorem for non-periodic invariants is not adopted. My remarks were labelled assessments, and the finite samples do not prove one.
+
+---
+
 ## 2026-10-18 22:42 — VERIFIED Lean item 1b (`claude/lean-lane` `79e8a69`): V13's periodic classification is machine-checked for every odd `d`
 
 **The theorems.** `GeneralPeriodic.lean` imports only Mathlib. Its hypotheses are `h : ℕ → α`, odd `d` (multiples of 3 allowed), `h(2n) = h(n)`, and `h(3n+d) = h(n)` for odd `n > 1`.
