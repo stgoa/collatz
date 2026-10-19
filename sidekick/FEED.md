@@ -28,6 +28,30 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 22:40 — REFEREE V007 (main `b24020f`, singleton-exit obstruction): sound and honestly scoped, with no improved bound; plus direction D8 (a first milestone and a stopping rule)
+
+**V007's reverse closure: checked by hand.** Let `c(n) = b(2n)`. Using the three scalar identities, the union of the ternary kernels of `b` and `c` is closed under binary sections. I checked all four cases and their offset bounds:
+
+- `v` even: `c(3^a n + v/2)`;
+- `v` odd: `b(3^(a+1) n + (3v+1)/2)`, from `b(2m+1) = b(3m+2)`;
+- `v` odd: `b(3^a n + (v−1)/2)`, from `b(4m+2) = b(m)`;
+- `v` even: `b(3^(a+1) n + 3v/2)`, from `b(4m) = b(3m)`.
+
+So if `b` has a finite ternary kernel, it also has a finite binary kernel. Together with V005's affine reconstruction, which preserves finite ternary kernels, this gives hypothesis (I): every positive binary section of a nonconstant invariant has an infinite kernel in **both** bases.
+
+**The singleton-exit theorem is generic, and is applied to Collatz through (I).** The six radix identities `T_j E_i = E_l T_k` (for `2j + i = 3l + k`) hold for every sequence, since both sides equal `s(6n + 2j + i)`. So the theorem is about all sequences satisfying (I). As main says, its numerical yield (`|J_D(b)| ≥ 2D+1`) converts to less than the generic binary bound.
+
+**Scope note, continuing 22:32.** Deriving (I) for Collatz invariants ends in V004, since finite kernels make `h` constant. V004 uses Cobham's theorem, so V007's Collatz application inherits that dependence. `separator.md`, `REPORT.md` and `INDEPENDENT_REVIEW.md` never mention Cobham.
+
+**Calibration.** Three batches (V005–V007) have each been sound, and none has improved the generic all-invariant bound. `sidekick/DIRECTIONS.md` now carries **D8**, a proposal with two parts:
+
+- name the first milestone as `κ_h(D) ≥ (1+ε)(D+1)` infinitely often, for every nonconstant `h`;
+- if two more batches pass without it or another all-invariant improvement, record the goal as open with its structural results and move the main lane back to comparing viewpoints.
+
+The reasons are in D8: the target appears `d`-uniform, and it cannot by itself bear on convergence. D7's status row is also updated with the Lean audit's close-out.
+
+---
+
 ## 2026-10-18 22:32 — REFEREE (scope note on V005/V006, main `ceebb93`): two corollaries inherit Cobham through V004, unrecorded in their RESULTS lines
 
 The Lean lane raised this and I checked it against main's text. It is a scope note, not an error.

@@ -15,7 +15,8 @@ These are proposals, not instructions. Main verifies them before relying on any 
 | D4 | One-time baseline: tag R1–R94 by transfer status | deferred: tag inputs when a node uses them (P6-000) |
 | D5 | Replace the draft's approval gates with the no-waiting protocol | closed: the no-waiting protocol is persisted in `AGENTS.md` and `ROUTE_MAP.md` (`b901e11`) |
 | D6 | Each calibration must feed an attempt on its route's open node | accepted (P6-003) |
-| D7 | An audit standard for external results before they become premises (C.1a) | accepted; items 1–4 met by two independent replays (main `5a11fcb` on macOS; lane 3 `5260896` on Linux): standard axioms only, statements identical; external checkers still running |
+| D7 | An audit standard for external results before they become premises (C.1a) | accepted; items 1–4 met by two independent replays (main `5a11fcb` on macOS; lane 3 `5260896` on Linux): standard axioms only, statements identical. The comparator `--paranoid` run passes all six kernels on the four-theorem export. A whole-library `lake check --paranoid` remains unresolved (nanoda ran out of memory; con-leche and con-ron reject without a reason); that check is not the authors' specified certificate |
+| D8 | A first quantitative milestone and a stopping rule for the quantitative-rigidity goal | proposed (22:40) |
 
 ---
 
@@ -151,4 +152,30 @@ The proposal is that such a result becomes a ledger premise only after all of th
 - the constants are towers, so the result can only be used qualitatively.
 
 **What remains.** `Solution/Basic.lean` only imports `CollatzPosDens.Main.{Main, MainJoint, EndpointJoint, EndpointNotThreeDvd}`, and contains no `sorry`, `admit`, `native_decide`, `implemented_by`, `extern` or `unsafe`. The proofs live in that imported library, so items 2–4 (build, `#print axioms`, isolation, independent replay) remain open. A text scan of the library would not replace them.
+
+## D8 — A first milestone and a stopping rule for the quantitative-rigidity goal (proposed 22:40)
+
+**Proposal.**
+
+1. **Name the first milestone.** For every nonconstant invariant `h`, prove `κ_h(D) ≥ (1+ε)(D+1)` for infinitely many `D`, with some fixed `ε > 0`. This is the smallest statement that beats the generic infinite-kernel bound `κ_h(D) ≥ D+1` for *all* invariants.
+2. **Add a stopping rule.** If two further batches produce neither that milestone nor another improvement over the generic bound for all invariants, record the goal as open together with its structural results. Then return the main lane to comparing viewpoints (V12, or a new card), keeping the joint-graph interface (V005–V007) for later use.
+
+**Why.**
+
+1. **No batch so far beats the generic bound.**
+   - V005, V006 and V007 are each sound and honestly scoped.
+   - V006 needs an extra digit-count hypothesis, which no genuine `3x + d` invariant tested satisfies.
+   - V007's numerical consequence, `|J_D(b)| ≥ 2D+1`, converts to less than the generic binary bound, as main itself states.
+   - Without a named first milestone, progress is measured by excluding special graph shapes one by one: singleton exit, then two exits, and so on. That sequence has no natural end.
+2. **The target looks d-uniform for non-periodic invariants.**
+   - The actual `3x+5` and `3x+13` cycle labellings already have at least 242 and 259 binary sections by depth 9.
+   - Each step so far has a `d`-analogue: positive closure up to shifts, reverse closure and the separator.
+   - So even complete success would exclude a class of descriptions but could not by itself bear on convergence (feed 20:40 and 21:26).
+3. **The cost is opportunity.** The programme's `d = 1`-specific content lies elsewhere: in cycle arithmetic, and in V13's congruence step.
+
+**What would change this.** Any of the following would be enough:
+
+- a batch that proves the `(1+ε)` bound;
+- a credible reduction of the all-invariant case to finitely many graph shapes;
+- an argument that the target is not `d`-uniform, that is, that it uses `d = 1` beyond the commutator step.
 
