@@ -69,6 +69,15 @@ Full note: `sidekick/research/S9/DENOMINATOR_LAW.md`.
   - The S5 entry and the S5 and S7 notes had called (I1) "sharp in the exponent" there. All three are amended with markers.
   - S9 §4's "different normalisations" is replaced by this reconciliation.
 
+**Update 13:34: a second literature check (extended search, calibration only).**
+
+- **Result.** No result on Hamming distance between a cycle's parity vector and its rotations was found. This bears on S7's novelty, which stays undetermined.
+- **Related, in a different setting:** a preprint, ["A drift-sensitive complexity bound for rational points of the 3x+1 conjugacy map"](https://www.researchgate.net/publication/415049049_A_DRIFT-SENSITIVE_COMPLEXITY_BOUND_FOR_RATIONAL_POINTS_OF_THE_3x_1_CONJUGACY_MAP).
+  - It concerns infinite aperiodic parity words under the Bernstein–Lagarias map. The bound reads `p_v(L) > L/(g*(v) + ε)`, where `g*` is a drift-excursion quantity.
+  - It is a factor-complexity lower bound in the periodicity-conjecture setting, close in spirit to S9 §5's repeat form for cyclic cycle words. Only the abstract was read.
+- **Also found:** an unreviewed repository, [periodicity-conjecture-bridge](https://github.com/innerlightr-wq/periodicity-conjecture-bridge), that excludes classes of aperiodic parity words (e.g. complementary symmetric Rote sequences). It was not checked.
+- **Background:** [Rozier, arXiv 1805.00133](https://arxiv.org/pdf/1805.00133) on parity sequences in the 2-adic integers.
+
 ```sh
 python3 sidekick/probes/s9_denominator_law.py   # ~30 s
 ```
