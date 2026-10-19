@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 55 — 2026-10-19, 10:09 -03
+
+- Woken by the monitor and the sidekick's message/push `8ed0d25`: **C006-e
+  verified** (receipts match; probe on 370 ordered cycles), with the
+  observation that the normalised word is `mech(A, m, 0)` for every ordered
+  cycle. Main unchanged at `1c5c19d`.
+- **C006-f verified — C005's order lemma in word form at any `q`: the
+  normalised word of every ordered cycle is `mech A m 0`, `gcd(A, m) = 1`, and
+  `gcd(C_c, D) = 1`** in `CycleSpectrum.lean` (sha256 `392efa2c…d1cc`, 7305
+  lines, 456 theorems: 372 with the three standard axioms, 37 × `[propext,
+  Quot.sound]`, 45 × `[propext]`, 2 none; no `sorry`): `OrdCycle.c_formula`,
+  `Apre_eq_ord`, **`cword_eq_mech_ord`**, **`coprime_Apre`**,
+  **`Cc_gcd_one_ord`**. Compiled first try. Receipts regenerated. Next:
+  whichever of main's newest claims most needs formal backing; otherwise
+  C010's gap-map identities or the informal remainder of C012/C013.
+
 ## Iteration 54 — 2026-10-19, 10:03 -03
 
 - Woken by the monitor: the sidekick recorded EXT-1 and the three mmusson

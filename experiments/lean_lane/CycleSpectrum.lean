@@ -7236,6 +7236,69 @@ theorem run_bound_c {r₀ t : ℕ} (hr₀ : r₀ < m) (hrun : ∀ k, k < t → �
     _ = 2 ^ Ω.Γ.B * (Ω.Γ.q * Ω.Γ.Cpre m) := by rw [Ω.Γ.cycle_identity]
     _ ≤ 2 ^ Ω.Γ.B * (Ω.Γ.q * Ω.Γ.Cc m) := mul_le_mul_of_nonneg_left hle (by positivity)
 
+/-! #### C006-f: the normalised word of every ordered cycle is the phase-`0` mechanical word
+
+Side lane's observation on all 370 tested ordered cycles, and C005's order lemma: with the
+minimum at rank `0` and ranks advancing by `s`, `c_i = q′ + ⌊(i+1)s/m⌋ − ⌊is/m⌋` (`a_formula`), so
+the normalised word read from the minimum is `mech A m 0` with `A = Σ a_i = mq′ + s`, for every
+ordered cycle at any `q`; `gcd(s, m) = 1` (`coprime_numHigh`) gives `gcd(A, m) = 1`, and R71-a
+gives `gcd(C_c, D) = 1`. C006-e's `cword_eq_mech`/`Cc_gcd_one` needed `q = 1`, `B ≤ 2` only to
+obtain the ordering through `three_band`. -/
+
+/-- The letter formula on an ordered cycle: `c_i = q′ + ⌊(i+1)s/m⌋ − ⌊is/m⌋`. -/
+theorem c_formula (i : ℕ) :
+    Ω.Γ.c i = Ω.q' + (((i + 1) * Ω.N.numHigh) / m - (i * Ω.N.numHigh) / m) := by
+  have h := Ω.N.a_formula Ω.numHigh_lt Ω.N_rank_zero i
+  rw [Ω.N_q] at h
+  exact h
+
+/-- `A = m q′ + s` on an ordered cycle. -/
+theorem Apre_eq_ord : Ω.Γ.Apre m = m * Ω.q' + Ω.N.numHigh := by
+  have h := Ω.N.sum_a
+  rw [Ω.N_q] at h
+  have hsum : ∑ i ∈ Finset.range m, Ω.N.a i = Ω.Γ.Apre m := by
+    show ∑ i ∈ Finset.range m, Ω.Γ.c i = Ω.Γ.Apre m
+    rw [Ω.Γ.sum_c]
+    rfl
+  rw [← hsum]
+  exact h
+
+/-- **C005's order lemma, word form**: the normalised word of an ordered cycle, read from the
+minimum, is the phase-`0` mechanical word of total `A`, at any `q`. -/
+theorem cword_eq_mech_ord : (List.range m).map Ω.Γ.c = mech (Ω.Γ.Apre m) m 0 := by
+  have hm := Ω.Γ.hm
+  have hA := Ω.Apre_eq_ord
+  unfold mech diffWord
+  apply List.map_congr_left
+  intro j _
+  show Ω.Γ.c j = ((j + 1) * Ω.Γ.Apre m) / m - (j * Ω.Γ.Apre m) / m
+  rw [Ω.c_formula j, hA,
+    show (j + 1) * (m * Ω.q' + Ω.N.numHigh) = m * ((j + 1) * Ω.q') + (j + 1) * Ω.N.numHigh by ring,
+    show j * (m * Ω.q' + Ω.N.numHigh) = m * (j * Ω.q') + j * Ω.N.numHigh by ring,
+    Nat.mul_add_div hm, Nat.mul_add_div hm, show (j + 1) * Ω.q' = j * Ω.q' + Ω.q' by ring]
+  have hmono : j * Ω.N.numHigh / m ≤ (j + 1) * Ω.N.numHigh / m :=
+    Nat.div_le_div_right (Nat.mul_le_mul_right Ω.N.numHigh (Nat.le_succ j))
+  rw [Nat.add_assoc (j * Ω.q'), Nat.add_sub_add_left, Nat.add_sub_assoc hmono]
+
+/-- `gcd(A, m) = 1` for every ordered cycle, from `gcd(s, m) = 1`. -/
+theorem coprime_Apre : Nat.Coprime (Ω.Γ.Apre m) m := by
+  rw [Ω.Apre_eq_ord, Nat.add_comm, Nat.coprime_add_mul_left_left]
+  exact Ω.N.coprime_numHigh Ω.N_prim Ω.hm2
+
+/-- R71-a on every ordered cycle: `gcd(C_c, D) = 1` (positive letters give `m ≤ A`). -/
+theorem Cc_gcd_one_ord (hapos : ∀ i, 1 ≤ Ω.Γ.a i) :
+    Int.gcd (Ω.Γ.Cc m) ((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) = 1 := by
+  have hm := Ω.Γ.hm
+  have hAm : m ≤ Ω.Γ.Apre m := by
+    unfold OddCycle.Apre
+    calc m = ∑ _i ∈ Finset.range m, 1 := by simp
+      _ ≤ ∑ i ∈ Finset.range m, Ω.Γ.a i := Finset.sum_le_sum (fun i _ => hapos i)
+  have hC : Ω.Γ.Cc m = C (mech (Ω.Γ.Apre m) m 0) := by
+    rw [← Ω.cword_eq_mech_ord]
+    exact (Ω.Γ.cword_prefix m).2.symm
+  rw [hC, ← D_mech hm (Ω.Γ.Apre m) 0 hm]
+  exact mech_gcd_one Ω.hm2 (Ω.Γ.Apre m) hAm Ω.coprime_Apre
+
 end OrdCycle
 
 end Cyc
