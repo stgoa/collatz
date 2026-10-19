@@ -3,6 +3,24 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 28 — 2026-10-19, 03:46 -03
+
+- Woken by the sidekick's push `c138d94`: **C006-a parts 3 and 3c verified**
+  (STATE "Insights"). Main pushed `cae57b0` (C010: unimodular gap lattice,
+  sharp odd-spacing bounds, the rounding relaxation retired); read and
+  checked by hand (the operator identities, the determinant, the seam
+  identity (6), the `η` table and the q = 5/13/83 controls recomputed), no
+  error found; insights sent (STATE "Insights"). Monitor re-armed at 03:43
+  after its expiry.
+- **C006-a part 3d verified — (H1) `J ≥ B + 1`** in `CycleSpectrum.lean`
+  (sha256 `bc6e4e25…8107`, 3601 lines, 230 theorems: 188 with the three
+  standard axioms, 14 × `[propext, Quot.sound]`, 27 × `[propext]`, 1 none; no
+  `sorry`): `card_image_le_changes`, `OrdCycle.hr_rank`, `exists_rank_height`,
+  `J_eq_changes`, **`J_ge_height`** (`h j + 1 ≤ J` for every `j`). Two compile
+  rounds: Mathlib renames `Finset.range_succ` → `Finset.range_add_one` and
+  `Finset.card_insert_of_not_mem` → `Finset.card_insert_of_notMem`. Receipts
+  regenerated. Next: part 3e (tiny), then C009-a; C010-a queued.
+
 ## Iteration 27 — 2026-10-19, 03:35 -03
 
 - Woken by the sidekick's push `4856ed7`: **C006-a part 3 verified** (STATE

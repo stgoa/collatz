@@ -3277,6 +3277,30 @@ theorem exists_run {m : ℕ} (hm : 0 < m) (forced : ℕ → Prop) [DecidablePred
   rw [Finset.card_range] at hcard
   omega
 
+/-- Adjacent changes bound the number of distinct values: a sequence on `{0, …, n}` takes at
+most `1 + #{r < n : f(r+1) ≠ f r}` distinct values (the counting step of C006's (H1)). -/
+theorem card_image_le_changes (f : ℕ → ℕ) (n : ℕ) :
+    ((Finset.range (n + 1)).image f).card
+      ≤ 1 + ((Finset.range n).filter (fun r => f (r + 1) ≠ f r)).card := by
+  induction n with
+  | zero => simp
+  | succ n ih =>
+    conv_lhs => rw [Finset.range_add_one, Finset.image_insert]
+    conv_rhs => rw [Finset.range_add_one, Finset.filter_insert]
+    by_cases h : f (n + 1) ≠ f n
+    · have hn : n ∉ (Finset.range n).filter (fun r => f (r + 1) ≠ f r) := fun hmem =>
+        lt_irrefl n (Finset.mem_range.mp (Finset.mem_filter.mp hmem).1)
+      rw [ite_eq_left h, Finset.card_insert_of_notMem hn]
+      have h1 := Finset.card_insert_le (f (n + 1)) ((Finset.range (n + 1)).image f)
+      omega
+    · rw [ite_eq_right h]
+      have h' : f (n + 1) = f n := not_not.mp h
+      have hmem : f (n + 1) ∈ (Finset.range (n + 1)).image f := by
+        rw [h']
+        exact Finset.mem_image_of_mem f (Finset.mem_range.mpr (Nat.lt_succ_self n))
+      rw [Finset.card_insert_of_mem hmem]
+      exact ih
+
 /-- An ordered primitive odd cycle with `m ≥ 2`, together with its exponent window: C006's
 domain (order of the normalised successor is the hypothesis `hord`). -/
 structure OrdCycle (m : ℕ) where
@@ -3513,6 +3537,63 @@ theorem exists_zero_run :
 theorem G1_first : (2 : ℤ) ^ ((m - 1) / Ω.J) < 2 ^ Ω.Γ.B * Ω.Γ.n 0 := by
   obtain ⟨r₀, hr₀, hrun⟩ := Ω.exists_zero_run
   exact Ω.run_bound_L hr₀ hrun
+
+/-! #### C006's (H1): `J ≥ B + 1` in sorted order -/
+
+/-- The height of the state of rank `rank i` is the height of state `i`. -/
+theorem hr_rank {i : ℕ} (hi : i < m) : Ω.hr (Ω.N.rank i) = Ω.Γ.h i := by
+  unfold hr
+  have hr := Ω.N.idx_spec Ω.N_prim (Ω.N.rank_lt i)
+  have hx : Ω.N.x (Ω.N.idx (Ω.N.rank i)) = Ω.N.x i := Ω.N.x_eq_of_rank_eq hr.1 hi hr.2
+  rw [Ω.N_x, Ω.N_x] at hx
+  exact (Ω.Γ.Z_inj hx).1
+
+/-- Under `q ≤ L` and positive valuations every height up to an attained one is the height of
+some ranked state. -/
+theorem exists_rank_height (hqL : Ω.Γ.q ≤ Ω.Γ.n 0) (hapos : ∀ i, 1 ≤ Ω.Γ.a i) {j b : ℕ}
+    (hb : b ≤ Ω.Γ.h j) : ∃ r, r < m ∧ Ω.hr r = b := by
+  obtain ⟨i, _, hi⟩ := Ω.Γ.exists_height_eq hqL hapos hb
+  refine ⟨Ω.N.rank (i % m), Ω.N.rank_lt _, ?_⟩
+  rw [Ω.hr_rank (Nat.mod_lt _ Ω.Γ.hm), Ω.Γ.h_mod, hi]
+
+/-- `J` is one plus the number of adjacent sorted-height changes (the seam counted once). -/
+theorem J_eq_changes :
+    Ω.J = 1 + ((Finset.range (m - 1)).filter (fun r => Ω.hr (r + 1) ≠ Ω.hr r)).card := by
+  rw [Ω.J_eq]
+  have hm := Ω.Γ.hm
+  have hsplit : Finset.range m = insert (m - 1) (Finset.range (m - 1)) := by
+    conv_lhs => rw [show m = (m - 1) + 1 by omega]
+    exact Finset.range_add_one
+  have hfeq : (Finset.range (m - 1)).filter (fun r => Ω.T r ≠ 0)
+      = (Finset.range (m - 1)).filter (fun r => Ω.hr (r + 1) ≠ Ω.hr r) := by
+    apply Finset.filter_congr
+    intro r hr
+    have hr1 : r + 1 < m := by
+      have := Finset.mem_range.mp hr
+      omega
+    exact not_congr (Ω.T_eq_zero_iff hr1)
+  have hnot : m - 1 ∉ (Finset.range (m - 1)).filter (fun r => Ω.T r ≠ 0) := fun hmem =>
+    lt_irrefl (m - 1) (Finset.mem_range.mp (Finset.mem_filter.mp hmem).1)
+  rw [hsplit, Finset.filter_insert, ite_eq_left (ne_of_gt Ω.T_seam_pos),
+    Finset.card_insert_of_notMem hnot, hfeq, add_comm]
+
+/-- **C006's (H1), `J ≥ B + 1`:** under `q ≤ L` and positive valuations, every attained height
+`h_j` satisfies `h_j + 1 ≤ J` (all heights `0, …, h_j` occur, so the sorted height list has at
+least `h_j` changes, plus the seam). -/
+theorem J_ge_height (hqL : Ω.Γ.q ≤ Ω.Γ.n 0) (hapos : ∀ i, 1 ≤ Ω.Γ.a i) (j : ℕ) :
+    Ω.Γ.h j + 1 ≤ Ω.J := by
+  have hm := Ω.Γ.hm
+  have hsub : Finset.range (Ω.Γ.h j + 1) ⊆ (Finset.range m).image Ω.hr := by
+    intro b hb
+    obtain ⟨r, hr, hrb⟩ :=
+      Ω.exists_rank_height hqL hapos (Nat.lt_succ_iff.mp (Finset.mem_range.mp hb))
+    exact Finset.mem_image.mpr ⟨r, Finset.mem_range.mpr hr, hrb⟩
+  have h1 := Finset.card_le_card hsub
+  rw [Finset.card_range] at h1
+  have h2 := card_image_le_changes Ω.hr (m - 1)
+  rw [show m - 1 + 1 = m by omega] at h2
+  rw [Ω.J_eq_changes]
+  omega
 
 end OrdCycle
 
