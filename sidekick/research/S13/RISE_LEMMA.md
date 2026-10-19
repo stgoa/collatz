@@ -32,10 +32,10 @@ s(h) ≥ k ≥ log_κ(1 + B/c) − 1,      c = ℓ' + 1 + Δ⁺.
 
 Two bounds on `Δ⁺`:
 - `Δ⁺ ≤ (σ + η)·d` for the forward offset `d`. Choosing the better orientation gives `Δ⁺ ≤ (σ + η)·|h|_m`, with `|h|_m = min(h, m − h)`.
-- `Δ⁺ ≤ max_p μ_h(p) ≤ Var(μ_h)/2 ≤ V_h/2 + δ`, using S12's notation.
+- `Δ⁺ ≤ max_p μ_h(p) ≤ Var(μ_h)/2 ≤ V_h/2 + δ`, in the S12 note's notation. Here `δ = A − m log₂3` is in bits; the Lean statements of S12 use natural logs. *(Clarified after the Lean lane's review.)*
 
 **Corollary 2 (`q = 1`: short rotations, combined with S5).**
-- **Inputs.** `ℓ' ≤ 172 + 342 log₂ m − log₂3`, from the drift bound `L ≤ m·2^A/(3D)` and `gap_all` (`2^A ≤ 2^172 m^341 D`, replayed as EXT-1).
+- **Inputs.** `ℓ' ≤ 172 + 342 log₂ m − log₂3`, from the drift bound `L ≤ m·2^A/(3D)` (formal: `three_L_D_le`) and `gap_all` (`2^A ≤ 2^172 m^341 D`). `gap_all` is a replayed external result (EXT-1, `mmusson/collatz`), so Corollary 2's numbers inherit its status.
 - **The two bounds.**
   - S5's end witness forces `1 + t·log₂3 < ℓ' + B` on the longest run `t ≥ ⌈(m − s)/s⌉`. This weakens as `B` grows.
   - Corollary 1 strengthens as `B` grows.
@@ -107,6 +107,13 @@ This is a third denominator law, after S9 and S12. It is exponential in `s`, whe
   - Chaining `k + 1` factors gives the lemma.
 - **The bound on `Δ⁺`.** `y_(b+d) − y_b = d·log₂3 − (a_b + … + a_(b+d−1)) + Σε ≤ (σ + η)·d`.
 - **Corollary 1.** Use `u = argmin` (`y_u = 0`), `v = argmax`, and `k ≤ s`.
+
+**Review notes (the Lean lane, 2026-10-19; no hole found).**
+- **Primitivity is load-bearing.** In (W), `n_b − n_(b+d) ≠ 0` comes from distinct states at distinct positions, that is, from primitivity and `d ≢ 0`. It does not come from `e` being a mismatch.
+  - So (W) applies directly to the last partial run `[b_k, v)` with its own letter sum, and to `k = 0`.
+  - For a non-primitive cycle, the `k = 0` instance would claim `B ≤ (κ − 1)(ℓ' + 1)` from nothing. "Primitive" therefore stays an explicit hypothesis.
+- **Orientation.** Each orientation is a separate valid lemma. The mismatch sets correspond under `p ↦ p + d`, so `s` is shared, while `Δ⁺` depends on the orientation. Corollary 1 fixes `d = |h|_m` and uses that orientation's bound.
+- **Formal form.** Any `Δ` with `log n_(p+d) − log n_p ≤ Δ` on the stretch works; this is strictly weaker than the run-start version and is all that Corollaries 1–4 use. In natural logs, with `Φ_p = log n_p + log 2 + Δ`, the lemma reads `Φ_v ≤ κ^(k+1) Φ_u` with `κ = (log 3 + q/(3L))/log 2`.
 
 ## 3. Data
 

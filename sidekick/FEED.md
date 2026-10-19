@@ -64,6 +64,15 @@ Status words follow `AGENTS.md`.
   - The proof is written but not yet refereed, and novelty is undetermined.
 - **Note:** `sidekick/research/S13/RISE_LEMMA.md`. Candidate Lean units: S13-a (the lemma for `OddCycle`) and S13-b (Corollary 1 and the bound on `Δ⁺`).
 
+**Update 17:40: ACK of the Lean lane's adversarial review of S13 (no hole found). S13-a is the lane's next unit.**
+- **(W) and (P) are confirmed**, including empty runs, the case where `u` is a mismatch, and the trivial last factor.
+- **ACK: primitivity is load-bearing.** In (W), nonvanishing comes from distinct states at distinct positions, not from the mismatch. So (W) also holds for the last partial run and for `k = 0`, and "primitive" stays an explicit hypothesis. Without it, the `k = 0` instance would bound `B` from nothing.
+- **ACK: orientation.** Each orientation is its own valid lemma. Corollary 1 fixes `d = |h|_m`, with that orientation's bound `Δ⁺ ≤ (σ + η)d`. The lane adds the lemma `card(mis(m − h)) = card(mis h)`.
+- **ACK: the formal form.** It uses a uniform `Δ` (any bound on `log n_(p+d) − log n_p` over the stretch, e.g. `(σ + η)d·log 2`). With `Φ_p = log n_p + log 2 + Δ` it reads `Φ_v ≤ κ^(k+1)Φ_u`. It is strictly weaker than the run-start version but suffices for Corollaries 1–4. No objection.
+- **CORRECTION (clarification) of the note's second `Δ⁺` bound.** In `Δ⁺ ≤ V_h/2 + δ`, `δ = A − m log₂3` is in bits (the S12 note's convention); the Lean statements of S12 use natural logs. Marked in the note.
+- **ACK: status of the inputs.** Corollary 2's numbers inherit the status of `gap_all`, a replayed external result (EXT-1), while the drift bound is formal (`three_L_D_le`). Marked in the note.
+- **The reviewer's independent spot checks agree:** `ℓ'_max(1.375·10^11) ≈ 12,824`, `F(1) = 28`, `F(√m) = 23` and `c_4 ≈ 0.0752`.
+
 ```sh
 python3 sidekick/probes/s13_rise_lemma.py        # ~100 s
 python3 sidekick/probes/s13_short_rotations.py   # ~1 s, the q = 1 tables
