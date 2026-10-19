@@ -5744,6 +5744,71 @@ theorem mech_cycle_state_bound {A k : ℕ} (hk : 0 < k) (hpos : 3 ^ k < 2 ^ A)
       _ = OddCycle.gcdCD (mech A k 0) * (6 * Γ.n i) := by ring
   exact lt_of_mul_lt_mul_left h' hg.le
 
+/-! ### R71-d: the reduced denominator exceeds `1` once `k ≥ 3`
+
+R71 §3's "for `k > 6`, `d > 1`", with the exact threshold: by `den_mech`, `den = 2^{A/g} − 3^{k/g}`;
+`den = 1` is excluded by `mech_D_ne_one` when `k/g ≥ 2`, and when `k/g = 1` it forces `A/g = 2`,
+i.e. `A = 2k`, which `2^A < 2·3^k` excludes for `k ≥ 3` (`4^k ≥ 2·3^k`). So the high-control
+cycles avoid the absorber `q` from `k = 3` on; `k = 1, 2` give `den = 1`. -/
+
+theorem two_mul_three_pow_le_four_pow {k : ℕ} (hk : 3 ≤ k) : 2 * 3 ^ k ≤ 4 ^ k := by
+  induction k with
+  | zero => omega
+  | succ n ih =>
+    rcases Nat.lt_or_ge n 3 with h | h
+    · have hn : n = 2 := by omega
+      subst hn
+      norm_num
+    · have := ih h
+      calc 2 * 3 ^ (n + 1) = 3 * (2 * 3 ^ n) := by ring
+        _ ≤ 3 * 4 ^ n := Nat.mul_le_mul_left 3 this
+        _ ≤ 4 * 4 ^ n := Nat.mul_le_mul_right _ (by norm_num)
+        _ = 4 ^ (n + 1) := by ring
+
+/-- R71 §3's remark with the exact threshold: for `k ≥ 3` and `3^k < 2^A < 2·3^k`, the reduced
+denominator of the mechanical word exceeds `1`. -/
+theorem den_mech_gt_one {A k l : ℕ} (hk3 : 3 ≤ k) (hl : l < k) (hpos : 3 ^ k < 2 ^ A)
+    (hsmall : 2 ^ A < 2 * 3 ^ k) : 1 < den (mech A k l) := by
+  have hk : 0 < k := by omega
+  have hkA : k < A := by
+    have h2 : 2 ^ k ≤ 3 ^ k := Nat.pow_le_pow_left (by norm_num) k
+    exact (Nat.pow_lt_pow_iff_right (by norm_num)).mp (lt_of_le_of_lt h2 hpos)
+  rw [den_mech hk hkA.le hl]
+  obtain ⟨g, hg⟩ : ∃ g, g = Nat.gcd A k := ⟨_, rfl⟩
+  rw [← hg]
+  have hgpos : 0 < g := by rw [hg]; exact Nat.gcd_pos_of_pos_right _ hk
+  have hgA : g ∣ A := by rw [hg]; exact Nat.gcd_dvd_left _ _
+  have hgk : g ∣ k := by rw [hg]; exact Nat.gcd_dvd_right _ _
+  have hA : A = g * (A / g) := (Nat.mul_div_cancel' hgA).symm
+  have hk' : k = g * (k / g) := (Nat.mul_div_cancel' hgk).symm
+  have hAm : k / g ≤ A / g := Nat.div_le_div_right hkA.le
+  have hpos₀ : 3 ^ (k / g) < 2 ^ (A / g) := by
+    have : (3 ^ (k / g)) ^ g < (2 ^ (A / g)) ^ g := by
+      rw [← pow_mul, ← pow_mul, Nat.mul_comm (k / g), Nat.mul_comm (A / g), ← hk', ← hA]
+      exact hpos
+    exact (Nat.pow_lt_pow_iff_left hgpos.ne').mp this
+  have hpos₀' : (3 : ℤ) ^ (k / g) < 2 ^ (A / g) := by exact_mod_cast hpos₀
+  rcases Nat.lt_or_ge (k / g) 2 with h1 | h2
+  · have hk1 : k / g = 1 := by
+      have : 0 < k / g := Nat.div_pos (Nat.le_of_dvd hk hgk) hgpos
+      omega
+    have hgk' : k = g := by rw [hk1, Nat.mul_one] at hk'; exact hk'
+    rw [hk1, pow_one] at hpos₀'
+    rw [hk1, pow_one]
+    by_contra hle
+    rw [not_lt] at hle
+    have heq : (2 : ℤ) ^ (A / g) = 4 := by linarith
+    have heqN : 2 ^ (A / g) = 4 := by exact_mod_cast heq
+    have hA2 : A / g = 2 :=
+      Nat.pow_right_injective (le_refl 2) (heqN.trans (by norm_num : (4 : ℕ) = 2 ^ 2))
+    have hA' : A = 2 * k := by rw [hA, hA2, hgk']; ring
+    rw [hA', pow_mul] at hsmall
+    norm_num at hsmall
+    have := two_mul_three_pow_le_four_pow hk3
+    omega
+  · have hne := mech_D_ne_one h2 (A / g) hAm
+    omega
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
@@ -6816,6 +6881,53 @@ theorem J_ge_three (hapos : ∀ i, 1 ≤ Ω.Γ.a i) (hq' : Ω.q' = 1) (hB1 : ∀
   unfold OddCycle.c at hc
   rw [hhi, hhi0] at hc
   omega
+
+/-! #### C006-b: the `e_run` form of the run bound
+
+C006's proof of (G1): along a zero-forcing run of length `t`, "multiplying (G3) yields
+`2^{e_run} G_end = 3^t G_start`, where `e_run` is the sum of its rank exponents and
+`e_run ≥ t`. Since `G_start` is a positive integer and `2` and `3` are coprime,
+`G_start ≥ 2^{e_run} ≥ 2^t`", hence `L > 2^{e_run − B}` for each run. `run_bound` (C006-a) kept
+only `2^t`; with S1-a's `gap_unroll` the exponent sum `e_run = E r₀ t` is exact. -/
+
+/-- Along a zero-forcing run, `2^{e_run} ∣ Δ_{r₀}`, hence `2^{e_run} ≤ Δ_{r₀}`. -/
+theorem run_bound_E {r₀ t : ℕ} (hr₀ : r₀ < m) (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0) :
+    (2 : ℤ) ^ Ω.E r₀ t ≤ Ω.N.gap r₀ := by
+  have h := Ω.gap_unroll hr₀ t
+  have hS : Ω.jsum r₀ t = 0 := by
+    rw [Ω.jsum_eq_sum]
+    apply Finset.sum_eq_zero
+    intro i hi
+    rw [hrun i (Finset.mem_range.mp hi), mul_zero]
+  rw [hS, add_zero] at h
+  have hdvd : (2 : ℤ) ^ Ω.E r₀ t ∣ 3 ^ t * Ω.N.gap r₀ := ⟨_, h.symm⟩
+  have hcop : IsCoprime ((2 : ℤ) ^ Ω.E r₀ t) (3 ^ t) := by
+    apply IsCoprime.pow
+    exact ⟨-1, 1, by norm_num⟩
+  exact Int.le_of_dvd (Ω.N.gap_pos Ω.N_prim Ω.N_rank_zero hr₀) (hcop.dvd_of_dvd_mul_left hdvd)
+
+/-- C006's `L > 2^{e_run − B}`, cleared, for each zero-forcing run. -/
+theorem run_bound_E_L {r₀ t : ℕ} (hr₀ : r₀ < m) (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0) :
+    (2 : ℤ) ^ Ω.E r₀ t < 2 ^ Ω.Γ.B * Ω.Γ.n 0 :=
+  lt_of_le_of_lt (Ω.run_bound_E hr₀ hrun) (Ω.run_bound hr₀ hrun).2
+
+/-- `e_run ≥ t`: every rank exponent is at least `1`. -/
+theorem E_ge (r₀ t : ℕ) : t ≤ Ω.E r₀ t := by
+  unfold E
+  have hq : 1 ≤ Ω.N.q := Ω.q'_pos
+  calc t = ∑ _k ∈ Finset.range t, 1 := by simp
+    _ ≤ ∑ k ∈ Finset.range t, Ω.N.e (Ω.orb r₀ k) := by
+      apply Finset.sum_le_sum
+      intro k _
+      unfold NarrowCycle.e
+      split_ifs <;> omega
+
+/-- (G1)'s first inequality in `e_run` form: some run of length `⌊(m−1)/J⌋` has
+`2^{e_run} < 2^B L` with `e_run ≥ ⌊(m−1)/J⌋`. -/
+theorem G1_first_E : ∃ r₀, r₀ < m ∧ (m - 1) / Ω.J ≤ Ω.E r₀ ((m - 1) / Ω.J) ∧
+    (2 : ℤ) ^ Ω.E r₀ ((m - 1) / Ω.J) < 2 ^ Ω.Γ.B * Ω.Γ.n 0 := by
+  obtain ⟨r₀, hr₀, hrun⟩ := Ω.exists_zero_run
+  exact ⟨r₀, hr₀, Ω.E_ge r₀ _, Ω.run_bound_E_L hr₀ hrun⟩
 
 end OrdCycle
 

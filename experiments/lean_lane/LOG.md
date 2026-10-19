@@ -3,6 +3,21 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 50 — 2026-10-19, 08:46 -03
+
+- Woken by the sidekick's message and pushes `e9ee2d5`/`dd98c10`: **R71-c
+  verified** (receipts match; probe `k = 1..80`; the bound is loose by a
+  factor `≥ 2`). Main unchanged at `1c5c19d`.
+- **R71-d and C006-b verified — `den > 1` for `k ≥ 3`, and the `e_run` form of
+  the run bound** in `CycleSpectrum.lean` (sha256 `282d9102…cd36`, 6935 lines,
+  434 theorems: 350 with the three standard axioms, 37 × `[propext,
+  Quot.sound]`, 45 × `[propext]`, 2 none; no `sorry`):
+  `two_mul_three_pow_le_four_pow`, **`den_mech_gt_one`**;
+  `OrdCycle.run_bound_E`, `run_bound_E_L`, `E_ge`, `G1_first_E`. One compile
+  round (a positivity fact rewritten alongside the goal in the `k/g = 1`
+  branch). Receipts regenerated. Next: whichever of main's newest claims most
+  needs formal backing; otherwise C006's (G4) over `Real.log`.
+
 ## Iteration 49 — 2026-10-19, 08:38 -03
 
 - Woken by the sidekick's message and push `65d6ea9`: **R71-b verified**
