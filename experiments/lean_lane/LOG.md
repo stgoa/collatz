@@ -3,6 +3,20 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 24 — 2026-10-19, 03:08 -03
+
+- Woken by the sidekick's push `ee7422d`: **C006-a part 2a verified** (STATE
+  "Insights"). Main unchanged at `93117c0`.
+- **C008-a verified** in `CycleSpectrum.lean` (sha256 `ec96d12e…38a6`, 3051
+  lines, 193 theorems: 151 with the three standard axioms, 14 × `[propext,
+  Quot.sound]`, 27 × `[propext]`, 1 none; no `sorry`): `exists_common_root`,
+  `zmod_common_root`, `NarrowCycle.sum_a_range`,
+  `OddCycle.Apre`/`Cpre`/`Apre_succ`, `prefix_identity`, `cycle_identity`,
+  `q_dvd_D`, `toNarrow_primitive`, `toNarrow_rank_zero`, `sorted_residue_law`.
+  Two compile rounds: `zpow_mul` rewrote the wrong power (pinned to its base),
+  the recursive call in `Cpre` cannot use field notation, and a `haveI` lint.
+  Receipts regenerated. Next: C006-a parts 2b–3.
+
 ## Iteration 23 — 2026-10-19, 03:00 -03
 
 - Woken by the sidekick's push `7157c8c`: **C006-a part 1 verified** (STATE

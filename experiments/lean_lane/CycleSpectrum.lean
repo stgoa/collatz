@@ -2256,6 +2256,22 @@ theorem high_idx_iff (hp : N.Primitive) {r : ℕ} (hr : r < m) :
   have h := N.idx_spec hp hr
   rw [N.high_iff_rank h.1, h.2]
 
+/-- Prefix sums of the mechanical word: `Σ_{j<i} c_j = ⌊iA/m⌋` with `A = mq + h` (started at
+the minimum). -/
+theorem sum_a_range (hh : N.numHigh < m) (h0 : N.rank 0 = 0) (i : ℕ) :
+    ∑ j ∈ Finset.range i, N.a j = (i * (m * N.q + N.numHigh)) / m := by
+  have hf : ∀ j, N.a j = N.q + (((j + 1) * N.numHigh) / m - (j * N.numHigh) / m) :=
+    N.a_formula hh h0
+  simp_rw [hf]
+  rw [Finset.sum_add_distrib, Finset.sum_const, Finset.card_range, smul_eq_mul]
+  have hmono : Monotone fun j : ℕ => (j * N.numHigh) / m :=
+    fun a b hab => Nat.div_le_div_right (Nat.mul_le_mul_right _ hab)
+  rw [Finset.sum_range_tsub hmono i]
+  simp only [zero_mul, Nat.zero_div, Nat.sub_zero]
+  rw [show i * (m * N.q + N.numHigh) = i * N.numHigh + m * (i * N.q) by ring,
+    Nat.add_mul_div_left _ _ N.hm]
+  ring
+
 end NarrowCycle
 
 /-! ### C005 `ORDER_THEORY.md` §2: the inversion formula (2) and the three-band observation -/
@@ -2407,6 +2423,47 @@ theorem exists_eq_of_step_le (f : ℕ → ℕ) (h0 : f 0 = 0) (hstep : ∀ i, f 
     · obtain ⟨i, hi, hfi⟩ := ih (by have := hstep j; omega)
       exact ⟨i, Nat.le_succ_of_le hi, hfi⟩
     · exact ⟨j + 1, le_refl _, by omega⟩
+
+/-! ### C008 `INDEPENDENT_MATCHING.md` §1: the cyclicity of `⟨2, 3⟩` -/
+
+/-- C008's cyclicity, abstractly: in a commutative group, if `x^A = y^m` with `gcd(A, m) = 1`,
+then `x` and `y` are powers of one element `t` with `t^m = x` and `t^A = y`, so `⟨x, y⟩ = ⟨t⟩`
+is cyclic. -/
+theorem exists_common_root {G : Type*} [CommGroup G] (x y : G) {A m : ℕ} (hAm : Nat.Coprime A m)
+    (h : x ^ A = y ^ m) : ∃ t : G, t ^ m = x ∧ t ^ A = y := by
+  obtain ⟨u, v, huv⟩ : ∃ u v : ℤ, u * (m : ℤ) + v * (A : ℤ) = 1 := by
+    obtain ⟨u, v, huv⟩ := Nat.isCoprime_iff_coprime.mpr hAm.symm
+    exact ⟨u, v, huv⟩
+  have hx : x ^ (A : ℤ) = y ^ (m : ℤ) := by
+    rw [zpow_natCast, zpow_natCast]
+    exact h
+  refine ⟨x ^ u * y ^ v, ?_, ?_⟩
+  · calc (x ^ u * y ^ v) ^ m = (x ^ u * y ^ v) ^ (m : ℤ) := (zpow_natCast _ _).symm
+      _ = x ^ (u * (m : ℤ)) * y ^ (v * (m : ℤ)) := by rw [mul_zpow, ← zpow_mul, ← zpow_mul]
+      _ = x ^ (u * (m : ℤ)) * (y ^ (m : ℤ)) ^ v := by rw [mul_comm v, zpow_mul y]
+      _ = x ^ (u * (m : ℤ)) * (x ^ (A : ℤ)) ^ v := by rw [hx]
+      _ = x ^ (u * (m : ℤ) + v * (A : ℤ)) := by rw [← zpow_mul, ← zpow_add, mul_comm (A : ℤ)]
+      _ = x := by rw [huv, zpow_one]
+  · calc (x ^ u * y ^ v) ^ A = (x ^ u * y ^ v) ^ (A : ℤ) := (zpow_natCast _ _).symm
+      _ = x ^ (u * (A : ℤ)) * y ^ (v * (A : ℤ)) := by rw [mul_zpow, ← zpow_mul, ← zpow_mul]
+      _ = (x ^ (A : ℤ)) ^ u * y ^ (v * (A : ℤ)) := by rw [mul_comm u, zpow_mul x]
+      _ = (y ^ (m : ℤ)) ^ u * y ^ (v * (A : ℤ)) := by rw [hx]
+      _ = y ^ (u * (m : ℤ) + v * (A : ℤ)) := by rw [← zpow_mul, ← zpow_add, mul_comm (m : ℤ)]
+      _ = y := by rw [huv, zpow_one]
+
+/-- C008's cyclicity of `⟨2, 3⟩` modulo `N`: if `N ∣ 2^A − 3^m` with `gcd(A, m) = 1` and `N`
+coprime to `2` and `3`, the units `2` and `3` of `ZMod N` are powers of one unit `t` with
+`t^m = 2`, `t^A = 3`. -/
+theorem zmod_common_root {N A m : ℕ} (hN2 : Nat.Coprime 2 N) (hN3 : Nat.Coprime 3 N)
+    (hAm : Nat.Coprime A m) (hdvd : (N : ℤ) ∣ (2 : ℤ) ^ A - 3 ^ m) :
+    ∃ t : (ZMod N)ˣ, t ^ m = ZMod.unitOfCoprime 2 hN2 ∧ t ^ A = ZMod.unitOfCoprime 3 hN3 := by
+  have : NeZero N := ⟨fun h => by subst h; simp at hN2⟩
+  apply exists_common_root _ _ hAm
+  apply Units.ext
+  simp only [Units.val_pow_eq_pow_val, ZMod.coe_unitOfCoprime]
+  have h := (ZMod.intCast_zmod_eq_zero_iff_dvd ((2 : ℤ) ^ A - 3 ^ m) N).mpr hdvd
+  push_cast at h ⊢
+  linear_combination h
 
 /-- An actual odd cycle of the raw `3x+q` map, listed from its minimum `n 0`, with dyadic
 heights `h i` (`2^{h_i} n_0 ≤ n_i < 2^{h_i+1} n_0`) bounded by `B`: C005 §1's data. -/
@@ -2894,6 +2951,99 @@ positive valuations, reaching height `h_j` from `h_0 = 0` visits all heights `0,
 theorem exists_height_eq (hqL : Γ.q ≤ Γ.n 0) (hapos : ∀ i, 1 ≤ Γ.a i) {j b : ℕ}
     (hb : b ≤ Γ.h j) : ∃ i, i ≤ j ∧ Γ.h i = b :=
   exists_eq_of_step_le Γ.h Γ.h_zero (fun i => Γ.h_succ_le hqL i (hapos i)) hb
+
+/-! #### C008 `INDEPENDENT_MATCHING.md` §1 on actual cycles: the cycle identities and the
+sorted-rank residue law -/
+
+/-- The prefix totals `A_i = Σ_{j<i} a_j`. -/
+def Apre (i : ℕ) : ℕ := ∑ j ∈ Finset.range i, Γ.a j
+
+/-- The prefix intercepts `C_i = Σ_{j<i} 3^{i−1−j} 2^{A_j}`, by `C_{i+1} = 3 C_i + 2^{A_i}`. -/
+def Cpre : ℕ → ℤ
+  | 0 => 0
+  | i + 1 => 3 * Cpre i + 2 ^ Γ.Apre i
+
+theorem Apre_succ (i : ℕ) : Γ.Apre (i + 1) = Γ.Apre i + Γ.a i := by
+  unfold Apre
+  rw [Finset.sum_range_succ]
+
+/-- The exact prefix identity `2^{A_i} n_i = 3^i n_0 + q C_i`. -/
+theorem prefix_identity (i : ℕ) :
+    (2 : ℤ) ^ Γ.Apre i * Γ.n i = 3 ^ i * Γ.n 0 + Γ.q * Γ.Cpre i := by
+  induction i with
+  | zero => simp [Apre, Cpre]
+  | succ i ih =>
+    rw [Γ.Apre_succ, pow_add]
+    simp only [Cpre]
+    calc (2 : ℤ) ^ Γ.Apre i * 2 ^ Γ.a i * Γ.n (i + 1)
+        = 2 ^ Γ.Apre i * (2 ^ Γ.a i * Γ.n (i + 1)) := by ring
+      _ = 2 ^ Γ.Apre i * (3 * Γ.n i + Γ.q) := by rw [Γ.arrow i]
+      _ = 3 * (2 ^ Γ.Apre i * Γ.n i) + Γ.q * 2 ^ Γ.Apre i := by ring
+      _ = 3 * (3 ^ i * Γ.n 0 + Γ.q * Γ.Cpre i) + Γ.q * 2 ^ Γ.Apre i := by rw [ih]
+      _ = 3 ^ (i + 1) * Γ.n 0 + Γ.q * (3 * Γ.Cpre i + 2 ^ Γ.Apre i) := by ring
+
+/-- The cycle identity `(2^A − 3^m) n_0 = q C_m`, `A = Σ_{j<m} a_j` (C005's (4), C006's (2)). -/
+theorem cycle_identity : ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * Γ.n 0 = Γ.q * Γ.Cpre m := by
+  have h := Γ.prefix_identity m
+  rw [show Γ.n m = Γ.n 0 by simpa using Γ.nper 0] at h
+  linarith
+
+/-- For a reduced cycle (`q` coprime to its minimum), `q ∣ 2^A − 3^m`: C008's `Q ∣ D`. -/
+theorem q_dvd_D (hcop : IsCoprime Γ.q (Γ.n 0)) : Γ.q ∣ (2 : ℤ) ^ Γ.Apre m - 3 ^ m := by
+  have h : Γ.q ∣ ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * Γ.n 0 := ⟨Γ.Cpre m, Γ.cycle_identity⟩
+  exact hcop.dvd_of_dvd_mul_right h
+
+theorem toNarrow_primitive (hord : ∀ i j, Γ.Z i < Γ.Z j ↔ Γ.F i < Γ.F j) (q' : ℕ)
+    (hq1 : (2 : ℤ) ^ q' * Γ.lo ≤ Γ.F 0) (hq2 : Γ.F 0 < 2 ^ (q' + 1) * Γ.lo)
+    (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) :
+    (Γ.toNarrow hord q' hq1 hq2).Primitive := by
+  unfold NarrowCycle.Primitive
+  intro i j hi hj h
+  exact hprim i j hi hj (Γ.Z_inj h).2
+
+theorem toNarrow_rank_zero (hord : ∀ i j, Γ.Z i < Γ.Z j ↔ Γ.F i < Γ.F j) (q' : ℕ)
+    (hq1 : (2 : ℤ) ^ q' * Γ.lo ≤ Γ.F 0) (hq2 : Γ.F 0 < 2 ^ (q' + 1) * Γ.lo) :
+    (Γ.toNarrow hord q' hq1 hq2).rank 0 = 0 := by
+  unfold NarrowCycle.rank
+  apply Finset.sum_eq_zero
+  intro j _
+  show (if Γ.Z j < Γ.Z 0 then 1 else 0) = 0
+  rw [Γ.Z_zero]
+  exact ite_eq_right (not_lt.mpr (Γ.Z_lower j))
+
+/-- C008's sorted-rank law (R1) in integer form: for an ordered primitive cycle, at time
+`i < m` the state has sorted rank `(i h) mod m` and `2^{P_i} z_[rank_i] ≡ 3^i z_[0] (mod q)`,
+with `P_i = Σ_{j<i} c_j = ⌊iA/m⌋` (`A = mq' + h`). Dividing by the unit `2^{P_i}` modulo `q`
+and substituting `2 = t^m`, `3 = t^A` gives the prose's `z_[j] ≡ L t^j`. -/
+theorem sorted_residue_law (hord : ∀ i j, Γ.Z i < Γ.Z j ↔ Γ.F i < Γ.F j) (q' : ℕ)
+    (hq1 : (2 : ℤ) ^ q' * Γ.lo ≤ Γ.F 0) (hq2 : Γ.F 0 < 2 ^ (q' + 1) * Γ.lo) (hm2 : 2 ≤ m)
+    (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {i : ℕ} (hi : i < m) :
+    (2 : ℤ) ^ Γ.P i * (Γ.toNarrow hord q' hq1 hq2).y
+        ((i * (Γ.toNarrow hord q' hq1 hq2).numHigh) % m)
+      ≡ 3 ^ i * Γ.Z 0 [ZMOD Γ.q] ∧
+    Γ.P i = (i * (m * q' + (Γ.toNarrow hord q' hq1 hq2).numHigh)) / m := by
+  set N := Γ.toNarrow hord q' hq1 hq2 with hN
+  have hp : N.Primitive := Γ.toNarrow_primitive hord q' hq1 hq2 hprim
+  have h0 : N.rank 0 = 0 := Γ.toNarrow_rank_zero hord q' hq1 hq2
+  have hh := N.numHigh_lt hp hm2
+  have hx : ∀ j, N.x j = Γ.Z j := fun _ => rfl
+  have ha : ∀ j, N.a j = Γ.c j := fun _ => rfl
+  have hq : N.q = q' := rfl
+  have hyi : N.y ((i * N.numHigh) % m) = Γ.Z i := by
+    have hr := N.idx_spec hp (Nat.mod_lt (i * N.numHigh) N.hm)
+    have hri : N.rank i = (i * N.numHigh) % m := by
+      rw [N.rank_formula hh i, h0, Nat.zero_add]
+    unfold NarrowCycle.y
+    rw [← hx]
+    exact N.x_eq_of_rank_eq hr.1 hi (hr.2.trans hri.symm)
+  refine ⟨?_, ?_⟩
+  · rw [hyi]
+    exact Γ.residue_law i
+  · have := N.sum_a_range hh h0 i
+    rw [hq] at this
+    unfold P
+    simp_rw [← ha]
+    exact this
 
 end OddCycle
 
