@@ -1,8 +1,7 @@
-source sha256: 2d600c057c977ea6e417f963eb70ed0af86904b52e0f6c30894df4750013fabe
-'LeanLane.Cyc.OddCycle.prod_arrow' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.OddCycle.log_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.OddCycle.G4' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.OddCycle.L_mul_delta_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+source sha256: 12831a3679d3076ec1e738451ae25ec9b61cfc2243d0485126d12bcd325283dd
+'LeanLane.Cyc.OrdCycle.delta_ge_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OrdCycle.G2_of_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OrdCycle.G2_of_gap_collatz' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.C_append' depends on axioms: [propext]
 'LeanLane.Cyc.rep_length' depends on axioms: [propext]
 'LeanLane.Cyc.rep_sum' depends on axioms: [propext]
@@ -357,6 +356,10 @@ source sha256: 2d600c057c977ea6e417f963eb70ed0af86904b52e0f6c30894df4750013fabe
 'LeanLane.Cyc.mech_cycle_state_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.two_mul_three_pow_le_four_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.den_mech_gt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.prod_arrow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.log_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.G4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.L_mul_delta_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.eta_refine' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OrdCycle.N_prim' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OrdCycle.N_rank_zero' depends on axioms: [propext, Classical.choice, Quot.sound]

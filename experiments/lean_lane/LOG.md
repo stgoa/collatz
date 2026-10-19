@@ -3,6 +3,29 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 52 — 2026-10-19, 09:06 -03
+
+- Woken by the sidekick's message and pushes `670701d`/`395908c`: **C006-c
+  verified** (receipts match; probe on 93 actual cycles), plus a literature
+  calibration: Knight's Christoffel exclusion, the mmusson/collatz Lean
+  library, Fernández–Ibáñez. Read the library's README and the
+  headers/statements of fifteen files through the GitHub API (not built);
+  answered the side lane's two questions; corrected the claim labels of R71-a
+  and C004-c to "known theorem, formalised here" and added a Literature
+  calibration section to STATE. Main unchanged at `1c5c19d`. Monitor re-armed
+  at 08:52.
+- **C006-d verified — (G2) conditional on an explicit linear-form gap `2^A ≤
+  2^c m^μ (2^A − 3^m)`** in `CycleSpectrum.lean` (sha256 `12831a36…83dd`, 7112
+  lines, 441 theorems: 357 with the three standard axioms, 37 × `[propext,
+  Quot.sound]`, 45 × `[propext]`, 2 none; no `sorry`):
+  `OrdCycle.delta_ge_gap`, **`G2_of_gap`**, `G2_of_gap_collatz`. Compiled
+  first try. Receipts regenerated. The hypothesis has the shape of
+  mmusson/collatz's claimed-unconditional `gap_all` (`c = 172`, `μ = 341`);
+  replaying that library in the container (different toolchain, v4.34.0-rc2)
+  is a possible future unit, not started. Next: whichever of main's newest
+  claims most needs formal backing; otherwise the `C_c` form of (G1)'s second
+  inequality or C010's gap-map identities.
+
 ## Iteration 51 — 2026-10-19, 08:54 -03
 
 - Woken by the sidekick's message and pushes `c702560`/`af3492c`: **R71-d and

@@ -7032,6 +7032,80 @@ theorem G1_first_E : ∃ r₀, r₀ < m ∧ (m - 1) / Ω.J ≤ Ω.E r₀ ((m - 1
   obtain ⟨r₀, hr₀, hrun⟩ := Ω.exists_zero_run
   exact ⟨r₀, hr₀, Ω.E_ge r₀ _, Ω.run_bound_E_L hr₀ hrun⟩
 
+/-! #### C006-d: (G2) conditional on an explicit linear-form gap
+
+C006's (G2) imports `δ ≥ c₀ m^{−K₀}` from linear forms in two logarithms (Bugeaud/Matveev).
+Here the import is an explicit hypothesis in the integer shape of the Collatz literature's
+Böhm–Sontacchi gap bounds, `2^A ≤ 2^c m^μ (2^A − 3^m)` (the shape of mmusson/collatz's
+`gap_all`, which claims `c = 172`, `μ = 341` unconditionally — read, not replayed here), and the
+conclusion is (G2) cleared: `3 · 2^{⌊(m−1)/J⌋} < 2^{B+c} q m^{μ+1}`. Steps: `log x ≥ 1 − 1/x`
+gives `δ ≥ (2^A − 3^m)/2^A`, so the gap gives `2^c m^μ δ ≥ 1`; (G4) gives `3Lδ ≤ mq`; (G1) gives
+`2^{⌊(m−1)/J⌋} < 2^B L`. For Collatz (`q = 1`, `B ≤ 2`): `3 · 2^{⌊(m−1)/J⌋} < 2^{c+2} m^{μ+1}`,
+i.e. `J > (m − 1)/(c + 3 + (μ+1) log₂ m)`. -/
+
+/-- `δ ≥ (2^A − 3^m)/2^A`: `log x ≥ 1 − 1/x` at `x = 2^A/3^m`. -/
+theorem delta_ge_gap :
+    ((2 : ℝ) ^ Ω.Γ.Apre m - 3 ^ m) / 2 ^ Ω.Γ.Apre m ≤
+      (Ω.Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3 := by
+  have h2 : (0 : ℝ) < 2 ^ Ω.Γ.Apre m := by positivity
+  have h3 : (0 : ℝ) < 3 ^ m := by positivity
+  have hx : (0 : ℝ) < 2 ^ Ω.Γ.Apre m / 3 ^ m := div_pos h2 h3
+  have hlog := Real.one_sub_inv_le_log_of_pos hx
+  rw [Real.log_div h2.ne' h3.ne', Real.log_pow, Real.log_pow, inv_div] at hlog
+  have heq : ((2 : ℝ) ^ Ω.Γ.Apre m - 3 ^ m) / 2 ^ Ω.Γ.Apre m = 1 - 3 ^ m / 2 ^ Ω.Γ.Apre m := by
+    rw [sub_div, div_self h2.ne']
+  rw [heq]
+  exact hlog
+
+/-- **(G2), conditional on an explicit linear-form gap**: if `2^A ≤ 2^c m^μ (2^A − 3^m)`, then
+`3 · 2^{⌊(m−1)/J⌋} < 2^{B+c} q m^{μ+1}`. -/
+theorem G2_of_gap {c μ : ℕ}
+    (hgap : (2 : ℤ) ^ Ω.Γ.Apre m ≤ 2 ^ c * (m : ℤ) ^ μ * (2 ^ Ω.Γ.Apre m - 3 ^ m)) :
+    (3 : ℤ) * 2 ^ ((m - 1) / Ω.J) < 2 ^ (Ω.Γ.B + c) * Ω.Γ.q * (m : ℤ) ^ (μ + 1) := by
+  have hA : (0 : ℝ) < 2 ^ Ω.Γ.Apre m := by positivity
+  have hgapR : (2 : ℝ) ^ Ω.Γ.Apre m ≤
+      2 ^ c * (m : ℝ) ^ μ * (2 ^ Ω.Γ.Apre m - 3 ^ m) := by exact_mod_cast hgap
+  have hδ := Ω.delta_ge_gap
+  have hL := Ω.Γ.L_mul_delta_le
+  have hG1R : (2 : ℝ) ^ ((m - 1) / Ω.J) < 2 ^ Ω.Γ.B * (Ω.Γ.n 0 : ℝ) := by
+    exact_mod_cast Ω.G1_first
+  have hn0 : (0 : ℝ) < Ω.Γ.n 0 := by exact_mod_cast Ω.Γ.npos
+  have hkey : (1 : ℝ) ≤
+      2 ^ c * (m : ℝ) ^ μ * ((Ω.Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) := by
+    have h1 : (1 : ℝ) ≤ 2 ^ c * (m : ℝ) ^ μ * ((2 ^ Ω.Γ.Apre m - 3 ^ m) / 2 ^ Ω.Γ.Apre m) := by
+      rw [← mul_div_assoc]
+      exact (one_le_div hA).mpr hgapR
+    exact h1.trans (mul_le_mul_of_nonneg_left hδ (by positivity))
+  have h3n : (0 : ℝ) ≤ 3 * (Ω.Γ.n 0 : ℝ) := by linarith
+  have h3L : 3 * (Ω.Γ.n 0 : ℝ) ≤ 2 ^ c * Ω.Γ.q * (m : ℝ) ^ (μ + 1) := by
+    calc 3 * (Ω.Γ.n 0 : ℝ) = 3 * (Ω.Γ.n 0 : ℝ) * 1 := by ring
+      _ ≤ 3 * (Ω.Γ.n 0 : ℝ) *
+          (2 ^ c * (m : ℝ) ^ μ * ((Ω.Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) :=
+        mul_le_mul_of_nonneg_left hkey h3n
+      _ = 2 ^ c * (m : ℝ) ^ μ *
+          (3 * (Ω.Γ.n 0 : ℝ) * ((Ω.Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) := by ring
+      _ ≤ 2 ^ c * (m : ℝ) ^ μ * ((m : ℝ) * Ω.Γ.q) := mul_le_mul_of_nonneg_left hL (by positivity)
+      _ = 2 ^ c * Ω.Γ.q * (m : ℝ) ^ (μ + 1) := by ring
+  have hfin : (3 : ℝ) * 2 ^ ((m - 1) / Ω.J) < 2 ^ (Ω.Γ.B + c) * Ω.Γ.q * (m : ℝ) ^ (μ + 1) := by
+    calc (3 : ℝ) * 2 ^ ((m - 1) / Ω.J) < 3 * (2 ^ Ω.Γ.B * (Ω.Γ.n 0 : ℝ)) :=
+          mul_lt_mul_of_pos_left hG1R (by norm_num)
+      _ = 2 ^ Ω.Γ.B * (3 * (Ω.Γ.n 0 : ℝ)) := by ring
+      _ ≤ 2 ^ Ω.Γ.B * (2 ^ c * Ω.Γ.q * (m : ℝ) ^ (μ + 1)) :=
+          mul_le_mul_of_nonneg_left h3L (by positivity)
+      _ = 2 ^ (Ω.Γ.B + c) * Ω.Γ.q * (m : ℝ) ^ (μ + 1) := by rw [pow_add]; ring
+  exact_mod_cast hfin
+
+/-- The Collatz instance (`q = 1`, `B ≤ 2`, the `H < 8L` band): `3 · 2^{⌊(m−1)/J⌋} < 2^{c+2} m^{μ+1}`. -/
+theorem G2_of_gap_collatz {c μ : ℕ} (hq1 : Ω.Γ.q = 1) (hB : Ω.Γ.B ≤ 2)
+    (hgap : (2 : ℤ) ^ Ω.Γ.Apre m ≤ 2 ^ c * (m : ℤ) ^ μ * (2 ^ Ω.Γ.Apre m - 3 ^ m)) :
+    (3 : ℤ) * 2 ^ ((m - 1) / Ω.J) < 2 ^ (c + 2) * (m : ℤ) ^ (μ + 1) := by
+  have h := Ω.G2_of_gap hgap
+  rw [hq1, mul_one] at h
+  have hpow : (2 : ℤ) ^ (Ω.Γ.B + c) ≤ 2 ^ (c + 2) := pow_le_pow_right₀ (by norm_num) (by omega)
+  have hm : (0 : ℤ) ≤ (m : ℤ) ^ (μ + 1) := by positivity
+  calc (3 : ℤ) * 2 ^ ((m - 1) / Ω.J) < 2 ^ (Ω.Γ.B + c) * (m : ℤ) ^ (μ + 1) := h
+    _ ≤ 2 ^ (c + 2) * (m : ℤ) ^ (μ + 1) := mul_le_mul_of_nonneg_right hpow hm
+
 end OrdCycle
 
 end Cyc
