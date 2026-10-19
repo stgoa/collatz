@@ -3,6 +3,25 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 81 — 2026-10-19, 15:48 -03
+
+- Woken by the side lane's S12-a verdict and its priority call (S12 (2)
+  first); main frozen at `1c5c19d`. The PR body refresh is retried.
+- **S12-b verified — the DK step for either sign (`dk_log_either`, via
+  `varMu_neg`: `Var(μ_(m−h)) = Var(μ_h)`), the iterated step (`dk_log_iter`),
+  the ladder walk (`dk_walk`: `|log n_(x+Nh) − log n_x| ≤ (Σ b_i)·Var(μ_h)`
+  for `N = Σ b_i q_i` over DK-admissible `q_i`), and the greedy Ostrowski
+  decomposition (`DK.ostrowski_greedy`: every `N < q n` is `Σ_(i<n) b_i q_i`
+  with `Σ b_i + 1 ≤ Σ_(1≤i≤n) a_i`, for a `Ladder` `q 0 = 1`, `q 1 = a 1`, `q
+  (i+2) = a (i+2) q (i+1) + q i`)** in `CycleSpectrum.lean` (sha256
+  `6e9d93df…9277`, 11,972 lines, 661 theorems: 557 with the three standard
+  axioms, 45 × `[propext, Quot.sound]`, 57 × `[propext]`, 2 none; no `sorry`).
+  Third build (a structure field `rec` collides with the recursor; `if` under
+  beta-redexes and deprecated `if_pos`/`if_neg`; eta-mismatch `∑ i, b i`
+  versus `s.sum b` for omega; a `linear_combination` sign). Receipts
+  regenerated. Next: S12-c, the assembly `B ≤ (K − 1)·Var(μ_h)` for `gcd(h, m)
+  = 1` (every position is `x + N h mod m`, `N < m`).
+
 ## Iteration 80 — 2026-10-19, 15:38 -03
 
 - Woken by the side lane's S9-c verdict and S12 posting; the discrete

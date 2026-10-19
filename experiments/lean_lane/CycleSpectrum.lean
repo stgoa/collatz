@@ -10163,6 +10163,224 @@ theorem dk_log {q p h r : ℕ} (hq : 0 < q) (hr : q * h = p * m + r) (hqr : q * 
 
 end OddCycle
 
+/-! ### S12-b: Denjoy–Koksma for either sign, the greedy Ostrowski ladder, and the ladder walk
+
+The first half of S12 (2). `varMu h` is the variation of `μ_h(t) = log n_{t+h} − log n_t` over a
+period; it is invariant under `h ↦ m − h` (`varMu_neg`: `μ_{m−h}(t) = −μ_h(t − h)`), which gives
+the DK step for either sign of `q h − p m` (`dk_log_either`, replacing `h` by `m − h` and reading the
+chain backwards). Iterating a block `c` times gives `|log n_{x + c q h} − log n_x| ≤ c·Var`
+(`dk_log_iter`), and a whole ladder `N = Σ_{i<n} b_i q_i` of admissible denominators gives
+`|log n_{x + N h} − log n_x| ≤ (Σ b_i)·Var` (`dk_walk`). The arithmetic half: for a
+continued-fraction denominator ladder `q 0 = 1`, `q 1 = a 1`, `q (i+2) = a (i+2) q (i+1) + q i`
+with partial quotients `a i ≥ 1` (`Ladder`), every `N < q n` has a greedy decomposition
+`N = Σ_{i<n} b_i q_i` with `Σ_{i<n} b_i + 1 ≤ Σ_{1 ≤ i ≤ n} a i` (`ostrowski_greedy`): the side lane's
+`Σ b_i ≤ K − 1`. The DK admissibility of the convergents (`|q_i h − p_i m| < m/q_i`) is taken as a
+hypothesis on the ladder, not derived from continued-fraction theory. The assembly into the height
+bound `B ≤ (K − 1)·Var(μ_h)` for `gcd(h, m) = 1` is the second half (S12-c). -/
+
+namespace DK
+
+/-- A continued-fraction denominator ladder: `q 0 = 1`, `q 1 = a 1`,
+`q (i+2) = a (i+2) q (i+1) + q i`, with all partial quotients `a i ≥ 1` for `i ≥ 1`. -/
+structure Ladder (q a : ℕ → ℕ) : Prop where
+  q0 : q 0 = 1
+  q1 : q 1 = a 1
+  step : ∀ i, q (i + 2) = a (i + 2) * q (i + 1) + q i
+  apos : ∀ i, 1 ≤ i → 1 ≤ a i
+
+theorem ladder_mono {q a : ℕ → ℕ} (L : Ladder q a) : ∀ i, q i ≤ q (i + 1) := by
+  intro i
+  cases i with
+  | zero =>
+    show q 0 ≤ q 1
+    rw [L.q0, L.q1]
+    exact L.apos 1 le_rfl
+  | succ i =>
+    show q (i + 1) ≤ q (i + 2)
+    rw [L.step i]
+    have ha : 0 < a (i + 2) := L.apos (i + 2) (by omega)
+    have : q (i + 1) ≤ a (i + 2) * q (i + 1) := Nat.le_mul_of_pos_left _ ha
+    omega
+
+theorem ladder_pos {q a : ℕ → ℕ} (L : Ladder q a) : ∀ i, 1 ≤ q i := by
+  intro i
+  induction i with
+  | zero => rw [L.q0]
+  | succ i ih => exact le_trans ih (ladder_mono L i)
+
+/-- **The greedy Ostrowski decomposition.** Every `N < q n` (`n ≥ 1`) is `Σ_{i<n} b i q i` with
+`Σ_{i<n} b i + 1 ≤ Σ_{1 ≤ i ≤ n} a i`. -/
+theorem ostrowski_greedy {q a : ℕ → ℕ} (L : Ladder q a) : ∀ n, 1 ≤ n → ∀ N, N < q n →
+    ∃ b : ℕ → ℕ, N = ∑ i ∈ Finset.range n, b i * q i ∧
+      ∑ i ∈ Finset.range n, b i + 1 ≤ ∑ i ∈ Finset.Icc 1 n, a i := by
+  intro n hn
+  induction n, hn using Nat.le_induction with
+  | base =>
+    intro N hN
+    rw [L.q1] at hN
+    refine ⟨fun _ => N, ?_, ?_⟩
+    · simp [L.q0]
+    · simp only [Finset.sum_range_one, Finset.Icc_self, Finset.sum_singleton]
+      omega
+  | succ n hn ih =>
+    intro N hN
+    have hqn : 1 ≤ q n := ladder_pos L n
+    obtain ⟨b', hb'1, hb'2⟩ := ih (N % q n) (Nat.mod_lt N hqn)
+    have hdiv : N / q n ≤ a (n + 1) := by
+      obtain ⟨k, rfl⟩ := Nat.exists_eq_succ_of_ne_zero (by omega : n ≠ 0)
+      have hN' : N < q (k + 2) := hN
+      rw [L.step k] at hN'
+      have hmono := ladder_mono L k
+      have h1 : N < (a (k + 2) + 1) * q (k + 1) := by
+        calc N < a (k + 2) * q (k + 1) + q k := hN'
+          _ ≤ a (k + 2) * q (k + 1) + q (k + 1) := by omega
+          _ = (a (k + 2) + 1) * q (k + 1) := by ring
+      exact Nat.le_of_lt_succ ((Nat.div_lt_iff_lt_mul hqn).mpr h1)
+    have e1 : (fun i => if i = n then N / q n else b' i) n = N / q n := by simp
+    have e2 : ∀ i ∈ Finset.range n, (fun i => if i = n then N / q n else b' i) i = b' i := by
+      intro i hi
+      have hne : i ≠ n := (Finset.mem_range.mp hi).ne
+      simp [hne]
+    have e3 : ∑ i ∈ Finset.range n, (fun i => if i = n then N / q n else b' i) i * q i =
+        ∑ i ∈ Finset.range n, b' i * q i :=
+      Finset.sum_congr rfl (fun i hi => by rw [e2 i hi])
+    refine ⟨fun i => if i = n then N / q n else b' i, ?_, ?_⟩
+    · rw [Finset.sum_range_succ, e1, e3, ← hb'1]
+      exact (Nat.mod_add_div' N (q n)).symm
+    · have e1' : (if n = n then N / q n else b' n) = N / q n := by simp
+      have e4' : (∑ x ∈ Finset.range n, if x = n then N / q n else b' x) =
+          ∑ i ∈ Finset.range n, b' i :=
+        Finset.sum_congr rfl (fun i hi => by
+          have hne : i ≠ n := (Finset.mem_range.mp hi).ne
+          simp [hne])
+      rw [Finset.sum_range_succ, e1', e4', Finset.sum_Icc_succ_top (by omega : 1 ≤ n + 1)]
+      omega
+
+end DK
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- The variation of the height profile `μ_h(t) = log n_{t+h} − log n_t` over a period. -/
+noncomputable def varMu (h : ℕ) : ℝ :=
+  ∑ t ∈ Finset.range m, |(Real.log (Γ.n (t + 1 + h)) - Real.log (Γ.n (t + 1))) -
+    (Real.log (Γ.n (t + h)) - Real.log (Γ.n t))|
+
+/-- `Var(μ_{m−h}) = Var(μ_h)`: `μ_{m−h}(t) = −μ_h(t − h)`, a shift of a sign change. -/
+theorem varMu_neg {h : ℕ} (hhm : h ≤ m) : Γ.varMu (m - h) = Γ.varMu h := by
+  unfold varMu
+  have hg : ∀ s, |(Real.log (Γ.n (s + m + 1 + h)) - Real.log (Γ.n (s + m + 1))) -
+      (Real.log (Γ.n (s + m + h)) - Real.log (Γ.n (s + m)))| =
+      |(Real.log (Γ.n (s + 1 + h)) - Real.log (Γ.n (s + 1))) -
+        (Real.log (Γ.n (s + h)) - Real.log (Γ.n s))| := by
+    intro s
+    rw [show s + m + 1 + h = s + 1 + h + m by omega, show s + m + 1 = s + 1 + m by omega,
+      show s + m + h = s + h + m by omega, Γ.nper, Γ.nper, Γ.nper, Γ.nper]
+  have hsh : ∑ t ∈ Finset.range m,
+      |(Real.log (Γ.n (m - h + t + 1 + h)) - Real.log (Γ.n (m - h + t + 1))) -
+        (Real.log (Γ.n (m - h + t + h)) - Real.log (Γ.n (m - h + t)))| =
+      ∑ t ∈ Finset.range m, |(Real.log (Γ.n (t + 1 + h)) - Real.log (Γ.n (t + 1))) -
+        (Real.log (Γ.n (t + h)) - Real.log (Γ.n t))| :=
+    DK.sum_range_shift (fun s => |(Real.log (Γ.n (s + 1 + h)) - Real.log (Γ.n (s + 1))) -
+      (Real.log (Γ.n (s + h)) - Real.log (Γ.n s))|) hg (m - h)
+  rw [← hsh]
+  apply Finset.sum_congr rfl
+  intro t _
+  rw [show m - h + t + 1 + h = t + 1 + m by omega, show m - h + t + h = t + m by omega, Γ.nper,
+    Γ.nper, show m - h + t + 1 = t + 1 + (m - h) by omega, show m - h + t = t + (m - h) by omega,
+    ← abs_neg]
+  congr 1
+  ring
+
+/-- S12 (1) for either sign of `q h − p m`: `|log n_{x+qh} − log n_x| ≤ Var(μ_h)`. -/
+theorem dk_log_either {q p h r : ℕ} (hq : 0 < q) (hhm : h ≤ m)
+    (hr : q * h = p * m + r ∨ p * m = q * h + r) (hqr : q * r < m) (hcop : Nat.Coprime p q)
+    (x : ℕ) : |Real.log (Γ.n (x + q * h)) - Real.log (Γ.n x)| ≤ Γ.varMu h := by
+  rcases hr with hr | hr
+  · exact Γ.dk_log hq hr hqr hcop x
+  · have hrm : r < m := lt_of_le_of_lt (Nat.le_mul_of_pos_left r hq) hqr
+    have hpq : p ≤ q := by
+      have h1 : q * h ≤ q * m := Nat.mul_le_mul_left q hhm
+      have h2 : p * m < (q + 1) * m := by
+        calc p * m = q * h + r := hr
+          _ < q * m + m := by omega
+          _ = (q + 1) * m := by ring
+      exact Nat.le_of_lt_succ (Nat.lt_of_mul_lt_mul_right h2)
+    have hr' : q * (m - h) = (q - p) * m + r := by
+      zify [hhm, hpq] at hr ⊢
+      linear_combination hr
+    have hcop' : Nat.Coprime (q - p) q := by
+      have e : q = q - p + p := (Nat.sub_add_cancel hpq).symm
+      have h1 : Nat.Coprime p (q - p) := by
+        have h2 := hcop
+        rw [e] at h2
+        exact Nat.coprime_add_self_right.mp h2
+      have h3 : Nat.Coprime (q - p) (q - p + p) := Nat.coprime_self_add_right.mpr h1.symm
+      rwa [← e] at h3
+    have hdk := Γ.dk_log hq hr' hqr hcop' (x + q * h)
+    have hsum : x + q * h + q * (m - h) = x + q * m := by
+      rw [Nat.add_assoc, ← Nat.mul_add, Nat.add_sub_cancel' hhm]
+    have hper : Γ.n (x + q * m) = Γ.n x := by
+      rw [← Γ.n_mod (x + q * m), Nat.add_mul_mod_self_right, Γ.n_mod]
+    rw [hsum, hper, abs_sub_comm] at hdk
+    have hvar := Γ.varMu_neg hhm
+    unfold varMu at hvar
+    unfold varMu
+    rw [← hvar]
+    exact hdk
+
+/-- Repeating a DK block `c` times: `|log n_{x + c q h} − log n_x| ≤ c · Var(μ_h)`. -/
+theorem dk_log_iter {q p h r : ℕ} (hq : 0 < q) (hhm : h ≤ m)
+    (hr : q * h = p * m + r ∨ p * m = q * h + r) (hqr : q * r < m) (hcop : Nat.Coprime p q) :
+    ∀ c x, |Real.log (Γ.n (x + c * (q * h))) - Real.log (Γ.n x)| ≤ (c : ℝ) * Γ.varMu h := by
+  intro c
+  induction c with
+  | zero =>
+    intro x
+    simp
+  | succ c ih =>
+    intro x
+    have h1 := ih x
+    have h2 := Γ.dk_log_either hq hhm hr hqr hcop (x + c * (q * h))
+    rw [show x + (c + 1) * (q * h) = x + c * (q * h) + q * h by ring]
+    push_cast
+    calc |Real.log (Γ.n (x + c * (q * h) + q * h)) - Real.log (Γ.n x)|
+        ≤ |Real.log (Γ.n (x + c * (q * h) + q * h)) - Real.log (Γ.n (x + c * (q * h)))| +
+          |Real.log (Γ.n (x + c * (q * h))) - Real.log (Γ.n x)| := abs_sub_le _ _ _
+      _ ≤ Γ.varMu h + (c : ℝ) * Γ.varMu h := add_le_add h2 h1
+      _ = ((c : ℝ) + 1) * Γ.varMu h := by ring
+
+/-- Walking a ladder of admissible denominators: `|log n_{x + N h} − log n_x| ≤ (Σ b_i)·Var(μ_h)`
+for `N = Σ_{i<n} b_i q_i`. -/
+theorem dk_walk {h : ℕ} (hhm : h ≤ m) (q b : ℕ → ℕ) (n : ℕ)
+    (hadm : ∀ i, i < n → 0 < q i ∧ ∃ p r, (q i * h = p * m + r ∨ p * m = q i * h + r) ∧
+      q i * r < m ∧ Nat.Coprime p (q i)) :
+    ∀ x, |Real.log (Γ.n (x + (∑ i ∈ Finset.range n, b i * q i) * h)) - Real.log (Γ.n x)| ≤
+      (∑ i ∈ Finset.range n, (b i : ℝ)) * Γ.varMu h := by
+  induction n with
+  | zero =>
+    intro x
+    simp
+  | succ n ih =>
+    intro x
+    have hadm' : ∀ i, i < n → 0 < q i ∧ ∃ p r, (q i * h = p * m + r ∨ p * m = q i * h + r) ∧
+        q i * r < m ∧ Nat.Coprime p (q i) := fun i hi => hadm i (Nat.lt_succ_of_lt hi)
+    have h1 := ih hadm' x
+    obtain ⟨hqn, p, r, hr, hqr, hcop⟩ := hadm n (Nat.lt_succ_self n)
+    set S := ∑ i ∈ Finset.range n, b i * q i with hS
+    have h2 := Γ.dk_log_iter hqn hhm hr hqr hcop (b n) (x + S * h)
+    rw [Finset.sum_range_succ, Finset.sum_range_succ, ← hS,
+      show x + (S + b n * q n) * h = x + S * h + b n * (q n * h) by ring]
+    calc |Real.log (Γ.n (x + S * h + b n * (q n * h))) - Real.log (Γ.n x)|
+        ≤ |Real.log (Γ.n (x + S * h + b n * (q n * h))) - Real.log (Γ.n (x + S * h))| +
+          |Real.log (Γ.n (x + S * h)) - Real.log (Γ.n x)| := abs_sub_le _ _ _
+      _ ≤ (b n : ℝ) * Γ.varMu h + (∑ i ∈ Finset.range n, (b i : ℝ)) * Γ.varMu h :=
+          add_le_add h2 h1
+      _ = (∑ i ∈ Finset.range n, (b i : ℝ) + (b n : ℝ)) * Γ.varMu h := by ring
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
