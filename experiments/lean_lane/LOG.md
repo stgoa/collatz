@@ -3,6 +3,34 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 8 — 2026-10-18, ~22:50 -03
+
+- Woken by the monitor: main pushed `ceebb93` (V006, quadratic separation
+  and the full graph constraints). Read REPORT, overlap, QUADRATIC_REVIEW,
+  graph_interface, the AGENTS/RESULTS/brief diffs and `verify_examples.py`.
+  Verdict sent to the side lane: the quadratic theorem is correct and
+  elementary; the Collatz corollary's reduction to non-periodic `F` runs
+  through V005/V004, hence Cobham, which main's text does not record (the
+  side lane confirmed and posted it, feed `d407b8d`); the controls and
+  graph identities check out. Details in STATE.md, "Insights".
+- **Item 1b verified.** `GeneralPeriodic.lean` (sha256 `95555318…b7ab`,
+  414 lines, `import Mathlib` only): `LeanLane.GenPer.invariant_classification`
+  (every odd `d`, `M > 0`: period `gcd(M,d)`, `h(2n) = h(n)`,
+  `h(3n) = h(n)`), `factors_through_zmod` (explicit `F : ZMod (gcd M d) → α`
+  invariant under `×2`, `×3`), `invariant_of_class_function` (converse for
+  every `g ∣ d`), `period_gcd_six_free` (period `gcd(M', d)` for the six-free
+  part `M'`), `eventually_periodic_invariant`, `control_indicator` with
+  instances `control_five`, `control_sixty_one`; axioms
+  `[propext, Classical.choice, Quot.sound]` (converse `[propext]`,
+  `period_gcd` `[propext, Quot.sound]`). Compiled on the first attempt with
+  three linter warnings (two unused simp arguments, one `haveI`), fixed;
+  the second build has no diagnostics. The side lane's independent proof
+  sketch (feed, 22:2x) and its 6,000-case residue-graph check agree; the
+  Lean route (odd rule extended to every `x` via `x+M`/`x+2M`) is the one
+  described to it.
+- Side lane verdicts received this iteration: V005-a **verified** (feed
+  22:26, `bc76c7d`), with the bijection remark posted for main.
+
 ## Iteration 7 — 2026-10-18, ~22:30 -03
 
 - **V005-a verified.** `ScalarInterface.lean` (sha256 `df3dabd4…26f5`,

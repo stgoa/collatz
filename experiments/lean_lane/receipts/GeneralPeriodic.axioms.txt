@@ -1,0 +1,56 @@
+'LeanLane.GenPer.invariant_classification' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.GenPer.period_gcd_of_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.GenPer.three_mul_of_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.GenPer.invariant_of_class_function' depends on axioms: [propext]
+'LeanLane.GenPer.period_gcd_six_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.GenPer.eventually_periodic_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.GenPer.factors_through_zmod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.GenPer.control_indicator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.GenPer.control_five' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.GenPer.control_sixty_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.GenPer.tri_all' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.GenPer.period_div_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.GenPer.period_d_of_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.GenPer.period_gcd' depends on axioms: [propext, Quot.sound]
+@LeanLane.GenPer.invariant_classification : ∀ {α : Type u_1} (h : ℕ → α) {d M : ℕ},
+  Odd d →
+    0 < M →
+      (∀ (n : ℕ), h (n + M) = h n) →
+        (∀ (n : ℕ), h (2 * n) = h n) →
+          (∀ (n : ℕ), Odd n → 1 < n → h (3 * n + d) = h n) →
+            (∀ (n : ℕ), h (n + M.gcd d) = h n) ∧ (∀ (n : ℕ), h (2 * n) = h n) ∧ ∀ (n : ℕ), h (3 * n) = h n
+@LeanLane.GenPer.invariant_of_class_function : ∀ {α : Type u_1} (F : ℕ → α) {d g : ℕ},
+  g ∣ d →
+    (∀ (n : ℕ), F (n + g) = F n) →
+      (∀ (n : ℕ), F (2 * n) = F n) →
+        (∀ (n : ℕ), F (3 * n) = F n) → (∀ (n : ℕ), F (2 * n) = F n) ∧ ∀ (n : ℕ), Odd n → 1 < n → F (3 * n + d) = F n
+@LeanLane.GenPer.period_gcd_six_free : ∀ {α : Type u_1} (h : ℕ → α) {d : ℕ},
+  Odd d →
+    (∀ (n : ℕ), h (2 * n) = h n) →
+      (∀ (n : ℕ), Odd n → 1 < n → h (3 * n + d) = h n) →
+        ∀ {a b M' : ℕ}, Odd M' → (∀ (n : ℕ), h (n + 2 ^ a * 3 ^ b * M') = h n) → ∀ (n : ℕ), h (n + M'.gcd d) = h n
+@LeanLane.GenPer.eventually_periodic_invariant : ∀ {α : Type u_1} (h : ℕ → α) {d M N : ℕ},
+  Odd d →
+    0 < M →
+      (∀ (n : ℕ), N ≤ n → h (n + M) = h n) →
+        (∀ (n : ℕ), h (2 * n) = h n) →
+          (∀ (n : ℕ), Odd n → 1 < n → h (3 * n + d) = h n) →
+            (∀ (n : ℕ), 0 < n → h (n + M.gcd d) = h n) ∧ ∀ (n : ℕ), 0 < n → h (3 * n) = h n
+@LeanLane.GenPer.factors_through_zmod : ∀ {α : Type u_1} (h : ℕ → α) {d M : ℕ},
+  Odd d →
+    0 < M →
+      (∀ (n : ℕ), h (n + M) = h n) →
+        (∀ (n : ℕ), h (2 * n) = h n) →
+          (∀ (n : ℕ), Odd n → 1 < n → h (3 * n + d) = h n) →
+            ∃ F,
+              (∀ (n : ℕ), h n = F ↑n) ∧
+                (∀ (z : ZMod (M.gcd d)), F (2 * z) = F z) ∧ ∀ (z : ZMod (M.gcd d)), F (3 * z) = F z
+@LeanLane.GenPer.control_indicator : ∀ {d : ℕ},
+  Odd d →
+    ¬3 ∣ d →
+      (∀ (n : ℕ), LeanLane.GenPer.indicator d (n + d) = LeanLane.GenPer.indicator d n) ∧
+        (∀ (n : ℕ), LeanLane.GenPer.indicator d (2 * n) = LeanLane.GenPer.indicator d n) ∧
+          (∀ (n : ℕ), Odd n → 1 < n → LeanLane.GenPer.indicator d (3 * n + d) = LeanLane.GenPer.indicator d n) ∧
+            (1 < d → LeanLane.GenPer.indicator d 1 ≠ LeanLane.GenPer.indicator d d)
+def LeanLane.GenPer.indicator : ℕ → ℕ → Bool :=
+fun d n => decide (d ∣ n)
