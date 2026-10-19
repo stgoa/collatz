@@ -3,6 +3,23 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 45 — 2026-10-19, 07:48 -03
+
+- Woken by the sidekick's message and pushes `a95a9cf`/`dc7876c`: **S1-a
+  verified** (receipts match; dictionary confirmed; probe on 33 actual ordered
+  `3x+q` cycles). Main unchanged at `1c5c19d`. Monitor re-armed at 07:45.
+- **S1-b verified — the run-start gaps of a reduced ordered cycle are jointly
+  coprime to `q`** in `CycleSpectrum.lean` (sha256 `bb6c6e5d…6cba`, 6309
+  lines, 399 theorems: 318 with the three standard axioms, 35 × `[propext,
+  Quot.sound]`, 44 × `[propext]`, 2 none; no `sorry`):
+  `OrdCycle.isCoprime_q_two`, `isCoprime_q_three`, **`dvd_gap_run_iff`**,
+  `orb_add`, `orb_pred_succ`, `orb_surj`, **`exists_run_start`**,
+  **`dvd_all_gaps_isUnit`**, **`run_start_gaps_coprime`** (`Odd q`, `IsCoprime
+  q (n 0)`, `d ∣ q`, `d` divides every run-start gap ⇒ `IsUnit d`). Compiled
+  first try. Receipts regenerated. Next: whichever of main's newest claims
+  most needs formal backing; otherwise R71's repeated case or C006's
+  `(G4)`/`e_run`.
+
 ## Iteration 44 — 2026-10-19, 07:30 -03
 
 - Woken by the sidekick's message and push `444de54`: **C005-h verified** as a

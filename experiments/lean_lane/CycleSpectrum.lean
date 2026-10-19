@@ -6176,6 +6176,133 @@ theorem D_dvd_forcing_sum {r₀ : ℕ} (hr₀ : r₀ < m) :
       ∑ i ∈ Finset.range m, 3 ^ (m - 1 - i) * 2 ^ Ω.E r₀ i * Ω.T (Ω.orb r₀ i) :=
   ⟨Ω.N.gap r₀, (Ω.gap_closed_form hr₀).symm⟩
 
+/-! #### S1-b: the gcd consequence — the run-start gaps are jointly coprime to `q`
+
+Side lane's "`gcd(C, D) = gcd(D, the J run-start gaps)`" in the integer normalisation. For a
+reduced cycle (`gcd(q, n_0) = 1`, `q` odd), with `D = g q`, `Ẑ_i = g Z_i` and the feed's gaps
+`G_r = g Δ_r`, the statement is `gcd(q, {Δ_r : r a run start}) = 1`: a divisor of `q` dividing
+every run-start gap is a unit. Inside a run the gaps change by `3/2^e` only (`gap_rec` with
+`T = 0`), so divisibility by a divisor of `q` is constant along a run (`dvd_gap_run_iff`); every
+rank lies in the run of some run start (`exists_run_start`, anchored at the rank after the seam);
+and a divisor of `q` dividing every gap divides `Σ_r Δ_r = Z_0 = 2^B n_0`, hence `n_0`, hence is a
+unit (`dvd_all_gaps_isUnit`). -/
+
+theorem isCoprime_q_two (hq : Odd Ω.Γ.q) : IsCoprime Ω.Γ.q 2 := by
+  obtain ⟨k, hk⟩ := hq
+  exact ⟨1, -k, by rw [hk]; ring⟩
+
+theorem isCoprime_q_three (hred : IsCoprime Ω.Γ.q (Ω.Γ.n 0)) : IsCoprime Ω.Γ.q 3 := by
+  have h3 : IsCoprime (3 : ℤ) (2 ^ Ω.Γ.Apre m - 3 ^ m) := by
+    rw [← Ω.Γ.D_word]
+    exact isCoprime_three_D (by rw [Ω.Γ.word_length]; exact Ω.Γ.hm)
+  exact (h3.of_isCoprime_of_dvd_right (Ω.Γ.q_dvd_D hred)).symm
+
+/-- Along a zero-forcing run, divisibility of the gaps by a divisor of `q` is constant. -/
+theorem dvd_gap_run_iff {d : ℤ} (hd2 : IsCoprime d 2) (hd3 : IsCoprime d 3) {r₀ : ℕ}
+    (hr₀ : r₀ < m) (t : ℕ) (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0) :
+    d ∣ Ω.N.gap (Ω.orb r₀ t) ↔ d ∣ Ω.N.gap r₀ := by
+  induction t with
+  | zero => rw [Ω.orb_zero hr₀]
+  | succ t ih =>
+    have hG : (2 : ℤ) ^ Ω.N.e (Ω.orb r₀ t) * Ω.N.gap (Ω.orb r₀ (t + 1)) =
+        3 * Ω.N.gap (Ω.orb r₀ t) := by
+      rw [Ω.orb_succ, Ω.gap_rec (Ω.orb_lt r₀ t), hrun t (Nat.lt_succ_self t), add_zero]
+    rw [← ih (fun k hk => hrun k (Nat.lt_succ_of_lt hk))]
+    constructor
+    · intro h
+      have h' : d ∣ 3 * Ω.N.gap (Ω.orb r₀ t) := by
+        rw [← hG]
+        exact h.mul_left _
+      exact hd3.dvd_of_dvd_mul_left h'
+    · intro h
+      have h' : d ∣ 2 ^ Ω.N.e (Ω.orb r₀ t) * Ω.N.gap (Ω.orb r₀ (t + 1)) := by
+        rw [hG]
+        exact h.mul_left _
+      exact hd2.pow_right.dvd_of_dvd_mul_left h'
+
+theorem orb_add (r a b : ℕ) : Ω.orb (Ω.orb r a) b = Ω.orb r (a + b) := by
+  unfold orb
+  rw [Nat.mod_add_mod, Nat.add_mul, Nat.add_assoc]
+
+/-- `orb r (m − 1)` is the orbit predecessor of `r`: it undoes one step. -/
+theorem orb_pred_succ {r : ℕ} (hr : r < m) : Ω.orb (Ω.orb r 1) (m - 1) = r := by
+  have hm := Ω.Γ.hm
+  rw [Ω.orb_add, show 1 + (m - 1) = m by omega, Ω.orb_m hr]
+
+/-- The orbit from any rank visits every rank within `m` steps. -/
+theorem orb_surj {r₀ : ℕ} (hr₀ : r₀ < m) {r : ℕ} (hr : r < m) :
+    ∃ j, j < m ∧ Ω.orb r₀ j = r := by
+  obtain ⟨i, hi, hri⟩ := Ω.N.exists_rank_eq Ω.N_prim hr₀
+  obtain ⟨i', hi', hri'⟩ := Ω.N.exists_rank_eq Ω.N_prim hr
+  refine ⟨(i' + m - i) % m, Nat.mod_lt _ Ω.Γ.hm, ?_⟩
+  rw [← hri, ← Ω.orb_zero_eq_rank, Ω.orb_orb, ← Ω.orb_mod, Nat.add_mod, Nat.mod_mod,
+    ← Nat.add_mod, show i + (i' + m - i) = i' + m by omega, Nat.add_mod_right,
+    Nat.mod_eq_of_lt hi', Ω.orb_zero_eq_rank, hri']
+
+/-- Every rank is reached from a run start (a rank whose orbit predecessor is forced) along a
+zero-forcing run; the run starts are found from the rank after the seam. -/
+theorem exists_run_start {r : ℕ} (hr : r < m) :
+    ∃ r' t, r' < m ∧ Ω.T (Ω.orb r' (m - 1)) ≠ 0 ∧ (∀ k, k < t → Ω.T (Ω.orb r' k) = 0) ∧
+      Ω.orb r' t = r := by
+  classical
+  have hm := Ω.Γ.hm
+  obtain ⟨r₁, hr₁⟩ : ∃ r₁, r₁ = Ω.orb (m - 1) 1 := ⟨_, rfl⟩
+  have hr₁m : r₁ < m := by rw [hr₁]; exact Ω.orb_lt _ _
+  have hpred : Ω.orb r₁ (m - 1) = m - 1 := by rw [hr₁]; exact Ω.orb_pred_succ (by omega)
+  obtain ⟨j, hj, hrj⟩ := Ω.orb_surj hr₁m hr
+  obtain ⟨P, hP⟩ : ∃ P : ℕ → Prop, ∀ i, P i ↔ (i = 0 ∨ Ω.T (Ω.orb r₁ (i - 1)) ≠ 0) :=
+    ⟨_, fun _ => Iff.rfl⟩
+  have hP0 : P 0 := (hP 0).mpr (Or.inl rfl)
+  obtain ⟨j₀, hj₀⟩ : ∃ j₀, j₀ = Nat.findGreatest P j := ⟨_, rfl⟩
+  have hj₀le : j₀ ≤ j := by rw [hj₀]; exact Nat.findGreatest_le j
+  have hPj₀ : P j₀ := by rw [hj₀]; exact Nat.findGreatest_spec (Nat.zero_le j) hP0
+  refine ⟨Ω.orb r₁ j₀, j - j₀, Ω.orb_lt _ _, ?_, ?_, ?_⟩
+  · rcases Nat.eq_zero_or_pos j₀ with h0 | hpos
+    · rw [h0, Ω.orb_zero hr₁m, hpred]
+      exact ne_of_gt Ω.T_seam_pos
+    · rcases (hP j₀).mp hPj₀ with h0 | hT
+      · omega
+      · rw [Ω.orb_add, show j₀ + (m - 1) = (j₀ - 1) + m by omega, ← Ω.orb_add,
+          Ω.orb_m (Ω.orb_lt _ _)]
+        exact hT
+  · intro k hk
+    have hnot : ¬ P (j₀ + k + 1) :=
+      Nat.findGreatest_is_greatest (by rw [← hj₀]; omega) (by omega)
+    have h2 : Ω.T (Ω.orb r₁ (j₀ + k)) = 0 := by
+      by_contra hne
+      exact hnot ((hP _).mpr (Or.inr (by rwa [show j₀ + k + 1 - 1 = j₀ + k by omega])))
+    rw [Ω.orb_add]
+    exact h2
+  · rw [Ω.orb_add, show j₀ + (j - j₀) = j by omega, hrj]
+
+/-- A divisor of `q` dividing every sorted gap of a reduced cycle (`q` odd) is a unit:
+`Σ_r Δ_r = Z_0 = 2^B n_0` and `gcd(q, n_0) = 1`. -/
+theorem dvd_all_gaps_isUnit (hq : Odd Ω.Γ.q) (hred : IsCoprime Ω.Γ.q (Ω.Γ.n 0)) {d : ℤ}
+    (hd : d ∣ Ω.Γ.q) (hall : ∀ r, r < m → d ∣ Ω.N.gap r) : IsUnit d := by
+  have hsum := Ω.N.sum_gap Ω.N_prim Ω.N_rank_zero
+  rw [Ω.N_x, Ω.Γ.Z_zero] at hsum
+  unfold OddCycle.lo at hsum
+  have hdsum : d ∣ ∑ r ∈ Finset.range m, Ω.N.gap r :=
+    Finset.dvd_sum (fun r hr => hall r (Finset.mem_range.mp hr))
+  rw [hsum] at hdsum
+  have hd2 : IsCoprime d 2 := (Ω.isCoprime_q_two hq).of_isCoprime_of_dvd_left hd
+  have hdn : d ∣ Ω.Γ.n 0 := hd2.pow_right.dvd_of_dvd_mul_left hdsum
+  exact hred.isUnit_of_dvd' hd hdn
+
+/-- **S1-b**: for a reduced ordered cycle (`gcd(q, n_0) = 1`, `q` odd), the run-start gaps are
+jointly coprime to `q`: a divisor of `q` dividing the gap at every run start (a rank whose orbit
+predecessor is forced) is a unit. In the word normalisation (`D = g q`, `G_r = g Δ_r`) this is the
+side lane's `gcd(C, D) = gcd(D, the J run-start gaps)`. -/
+theorem run_start_gaps_coprime (hq : Odd Ω.Γ.q) (hred : IsCoprime Ω.Γ.q (Ω.Γ.n 0)) {d : ℤ}
+    (hd : d ∣ Ω.Γ.q) (hstart : ∀ r, r < m → Ω.T (Ω.orb r (m - 1)) ≠ 0 → d ∣ Ω.N.gap r) :
+    IsUnit d := by
+  have hd2 : IsCoprime d 2 := (Ω.isCoprime_q_two hq).of_isCoprime_of_dvd_left hd
+  have hd3 : IsCoprime d 3 := (Ω.isCoprime_q_three hred).of_isCoprime_of_dvd_left hd
+  refine Ω.dvd_all_gaps_isUnit hq hred hd (fun r hr => ?_)
+  obtain ⟨r', t, hr', hT, hrun, hrt⟩ := Ω.exists_run_start hr
+  rw [← hrt, Ω.dvd_gap_run_iff hd2 hd3 hr' t hrun]
+  exact hstart r' hr' hT
+
 end OrdCycle
 
 end Cyc
