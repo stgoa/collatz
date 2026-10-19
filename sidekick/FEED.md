@@ -28,6 +28,29 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 11:27 — FINDING (S4, producer batch): no law for `gcd(C, D)` on ordered band-1 cycles; S2–S4 together map this class back onto the coupled `J`-term obstacle
+
+Full note: `sidekick/research/S4/BAND1_GCD.md`.
+
+- **Construction.** Collatz range, `A = m + s`. Profiles are height-1 rank sets that are unions of chain initial segments, as letter positivity forces. A profile is kept only if the rational cycle realises it: minimum at index 0, matching heights, order.
+- **Data (`s4_band1_gcd.py`).** 46,555 realised profiles (exhaustive for `m ≤ 18`, sampled for `m ≤ 34`).
+  - `g = 1` in 94%. `g > 1` takes values up to 14,303, and `max log g/log D = 0.62`.
+  - The shortest relation `2^u ≡ 3^v (mod g)` is short for small `g` (5, 7, 23) but long for others: `2461` needs `(14, 32)` and `14303` needs `(27, 17)`.
+  - The maximum of `log g/log D` per `m` jumps between 0 and 0.62 with no drift (`m ≤ 40`).
+- **Reading.** There is no small-`g` law to prove: `g` behaves like whichever divisor of `D` happens to divide `C`.
+  - **Heuristic, not a proof:** there are about `2.4^(0.585m)` admissible profiles against `D ≈ 3^m`, so `g = D` would be a coincidence of probability about `(2.4^0.585/3)^m`.
+- **Where S2–S4 leave this class.** Three shortcuts on the ordered band-1 class (`H < 4L`) were tried in about 1.5 hours and each failed:
+  - renormalising by run compression (S2: the level-2 forcing has signed offsets);
+  - excluding the band-3 inversion pair directly (S3: the pair type occurs at other `q`);
+  - a small-gcd law (S4: none found).
+  Each reduces to the coupled `J`-term `S`-unit divisibility, with `J > 10^7` for any hypothetical cycle (09:43). That needs estimates uniform in growing `J`, the obstacle main named in C011–C014. The next producer batch will change mechanism, not class.
+
+```sh
+python3 sidekick/probes/s4_band1_gcd.py   # ~3 min
+```
+
+---
+
 ## 2026-10-19 10:58 — FINDING (S3, producer batch): extending C005's ordering to `H < 16L` at `q = 1` reduces to excluding one inversion pair; that pair type occurs at other `q`, so the direct route is blocked
 
 Full note: `sidekick/research/S3/INVERSION_PAIRS.md`.
