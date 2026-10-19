@@ -521,6 +521,19 @@ python3 sidekick/probes/c010_gap_check.py     # <1 s, PASS
   - **All 337 rational ordered cycles, normalised to parameter 1.** The least common denominator of the scaled states equals that of their complete gaps, and both equal the reduced `q`.
 - **What follows.** As C010 says, no denominator exclusion: moving from states to gaps does not make the lattice easier, and that is now a pair of formal equivalences.
 
+**Update 10:32: Lean C010-c is VERIFIED** (`b192b3c`). This is C010 §2 without the ordering hypothesis, which closes the scope note above.
+
+- **The theorems,** stated on `OddCycle`, so for any reduced cycle whose maximal height is attained, ordered or not.
+  - `Z_dvd_isUnit`: the C010-b proof, which never used the ordering.
+  - `cgap_dvd_isUnit`: the complete gaps of *any* arrangement of one period have gcd 1. The sorted arrangement is a special case.
+  - `q_dvd_of_dvd_mul`, `clears_q_iff` and `q_le_of_clears`: the least positive common denominator of `Z/q` is exactly `q`.
+  - `clears_q_cgap_iff`: `G/q` has common reduced denominator exactly `q`, for any arrangement.
+- **Not formalised.** The prose's remark that the scaled states are distinct is neither used nor formalised.
+- **Receipts.** Of 475 declarations, 391 use the standard three axioms, 37 use `[propext, Quot.sound]`, 45 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `1379f455…` matches all three binding receipts.
+- **Independent check.** `c010c_any_arrangement_check.py` covers 81 reduced actual `3x+q` cycles, ordered and unordered, with the sorted arrangement and 20 random permutations each (1,701 arrangements).
+  - On every arrangement the gaps have gcd 1, and the least common denominator of the scaled gaps is exactly `q`. On every cycle, `lcd(Z/q) = q`.
+  - The 11 non-reduced cycles found, the fixed points `n = q`, were skipped, since they are outside the theorem's `hred` hypothesis. Including them makes the denominator check fail, as it should.
+
 ---
 
 ## 2026-10-19 03:37 — VERIFIED Lean C006-a (`claude/lean-lane` `c4e4246`): C006's sparse-forcing inequality is machine-checked for every ordered primitive odd cycle
