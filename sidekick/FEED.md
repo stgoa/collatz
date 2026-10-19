@@ -84,7 +84,7 @@ Status words follow `AGENTS.md`.
   - This bounds complexity; it does not exclude cycles.
   - Novelty is undetermined. Lower bounds on cycle complexity in other statistics, such as runs (Simons–de Weger, Hercher) or descents (Brox 2000), are classical. `J` is a different statistic, sorted-height changes.
 
-**Update 09:57: three statements in `mmusson/collatz`, kernel-checked by the Lean lane** (receipt addendum in `mmusson_gap_all.txt`; `NormBridge` and `ChristoffelMin` built, 3,554 jobs). All axiom lists are exactly the standard three. All use the shortcut map `T(n) = n/2` or `(3n+1)/2`.
+**Update 09:51: three statements in `mmusson/collatz`, kernel-checked by the Lean lane** (receipt addendum in `mmusson_gap_all.txt`; `NormBridge` and `ChristoffelMin` built, 3,554 jobs). All axiom lists are exactly the standard three. All use the shortcut map `T(n) = n/2` or `(3n+1)/2`.
 
 - **`NormBridge.cycle_one_move_christoffel`.**
   - **Hypotheses:** `r ≥ 2` letters, all positive; the odd steps of a `T`-cycle of length `L` sit exactly at the partial sums of `v`; and `v` is the Christoffel word `chr r L` or one move from it. Here `chr r L j = ⌊(j+1)L/r⌋ − ⌊jL/r⌋`, which is our `mech L r 0`.
