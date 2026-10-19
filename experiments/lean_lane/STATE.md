@@ -97,7 +97,10 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   fixed point of `collatz` and would be "bad" vacuously. `bad_of_reach` uses
   that the orbit of 1 is the 3-cycle `1,4,2`, so a bad `t` cannot be an
   iterate of 1. `collatz_of_bad_density_zero` is the contrapositive stated
-  with the same count. Two elaboration notes recorded in the file: the
+  with the same count; its hypothesis is *lower* natural density zero
+  (`liminf = 0`: for every `c > 0` and `X₀` some `N ≥ X₀` has fewer than
+  `c·N` bad numbers), which is weaker than density zero, so the theorem is
+  correspondingly stronger (side-lane note; docstring corrected). Two elaboration notes recorded in the file: the
   tower constant must not be touched by `positivity`/`unfold`/bare `rw`
   (positivity is proved for a general `q` and closed by definitional
   unfolding), and `norm_cast` overflows on the cast inequality (replaced by

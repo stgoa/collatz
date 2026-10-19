@@ -21,9 +21,10 @@ Here `Bad n` means that `n` never reaches `1` under the ordinary map
   has positive lower natural density. The witnesses are
   `collatzDensityDep t` and `collatzDensityThresholdDep t` for the bad target
   `t = 3m + 1`, `m` the odd part of the given bad `n`.
-* `collatz_of_bad_density_zero`: if the bad set has natural density zero
-  (for every `c > 0` and every `X₀` some `N ≥ X₀` has fewer than `c · N` bad
-  numbers below it), then every positive integer reaches `1`.
+* `collatz_of_bad_density_zero`: if the bad set has *lower* natural density
+  zero (for every `c > 0` and every `X₀` some `N ≥ X₀` has fewer than `c · N`
+  bad numbers below it; this is weaker than natural density zero), then every
+  positive integer reaches `1`.
 
 Clock and map: iterates of `collatz`, exactly as in the imported theorem.
 Nothing here proves that any `n` is bad or that none is; Collatz remains open.
@@ -119,8 +120,10 @@ theorem bad_positive_lower_density (hex : ∃ n, 0 < n ∧ Bad n) :
     obtain ⟨k, hk⟩ := hodd
     omega
 
-/-- **Dichotomy, contrapositive.** If the bad set has natural density zero, every
-positive integer reaches `1` under the ordinary Collatz map. -/
+/-- **Dichotomy, contrapositive.** If the bad set has *lower* natural density zero
+(for every `c > 0` and every `X₀`, some `N ≥ X₀` has fewer than `c · N` bad numbers
+below it — the negation of the positive branch's conclusion, weaker than density
+zero), every positive integer reaches `1` under the ordinary Collatz map. -/
 theorem collatz_of_bad_density_zero
     (hzero : ∀ c : ℚ, 0 < c → ∀ X₀ : ℕ, ∃ N, X₀ ≤ N ∧
       (#{n ∈ range N | 0 < n ∧ Bad n} : ℚ) < c * N) :

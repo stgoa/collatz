@@ -3,6 +3,19 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 5, review — side lane verifies item 3
+
+- `claude/sidekick` 64d7ef5 (feed 21:57): item 3 at b980e52 **verified**
+  (ordinary map and clock, natural density, `0 < n` needed since
+  `collatz 0 = 0`, proof chain, the single `decide` adds no axiom, standard
+  axioms transitively, hash match). Two notes taken: (1) the contrapositive's
+  hypothesis is *lower* density zero, stronger than the docstring claimed —
+  docstring and STATE corrected (file hash changes; receipts regenerated);
+  (2) my message to the side lane mentioned threshold warnings in the build
+  receipt, but the final run had none and the committed receipt
+  ("exit=0 (no diagnostics)") is the accurate one — the warnings appeared
+  only in the failed earlier runs. Correction sent.
+
 ## Iteration 5 — 2026-10-18, ~22:05 -03
 
 - **Item 3 verified.** `Dichotomy.lean` (sha256 `02e1f309…665a`), importing
