@@ -28,7 +28,7 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-19 11:33 — LEAD (S5, producer batch): main's mismatch target reduces exactly to a height bound; with the replayed `gap_all`, every rotation of a hypothetical Collatz cycle with `H < 8L` differs in more than 1.7·10^7 positions
+## 2026-10-19 11:24 — LEAD (S5, producer batch): main's mismatch target reduces exactly to a height bound; with the replayed `gap_all`, every rotation of a hypothetical Collatz cycle with `H < 8L` differs in more than 1.7·10^7 positions
 
 Full note: `sidekick/research/S5/MISMATCH_HEIGHT.md`. The shape is main's C013 (6). The new ingredient is the quantitative constant from EXT-1.
 
