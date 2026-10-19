@@ -1,5 +1,92 @@
 # Viewpoint exploration log
 
+## V009 — Unbounded additive excess and global detection, 2026-10-18
+
+**Progress; the full quantitative goal remains active.** The preceding
+turn delivered V008 at `9d66b69b1e9dc9413e73a0ff569972fd38feade7` and
+was progress. This [batch](../experiments/viewpoints/V009/REPORT.md)
+compares a direct use of cumulative growth with a bounded investigation
+of near-minimal binary growth. The second investigation reaches a
+universal additive theorem; it does not replace the full objective.
+
+### Global growth yields a quantitative detection requirement
+
+For a nonzero g in the real span of depth-A mixed sections, let N be
+its first nonzero input. If N>=9^L, affine sectioning with the distinct
+multipliers 2^a3^b, a+b<=L, gives distinct first nonzero indices
+floor(N/(2^a3^b)). These make a triangular independent family of size
+(L+1)(L+2)/2 at depth A+L. Strict pivot separation includes the endpoint
+N=9^L, and every offset stays in its declared section range.
+
+Under `|J_D|<=C(D+1)` at every depth, it follows that evaluation before
+`9^L`, with `L=ceil(2C+sqrt(2C(A+1))+1)`, is injective on the entire
+span. Thus nonzero vectors are detected by O_C(sqrt(A+1)) input digits.
+The [independent review](../experiments/viewpoints/V009/GLOBAL_REVIEW.md)
+checks the proof, explicit constant and digit-count calibration. Root
+also checked them. Finite prefix equality is used only after proving
+this injectivity under the all-depth hypothesis.
+
+Producing nonzero combinations with log(first nonzero input)/sqrt(A+1)
+unbounded would settle the full goal. No such full-class construction
+is supplied. A rank increase at every depth gives only a linear delay;
+the dimension count alone is inadequate.
+
+### The eventual binary-ray diagnostic closes
+
+Assuming kappa_h(D)=D+O(1) leaves one entire binary state at each late
+depth. The maximal ternary depth increment becomes constant, and the
+radix equations force unique periodic maximal digits. Constant escape
+patterns are excluded by a two-stage contraction argument. The remaining
+increments3/4 give the mod5/mod13 digit cycles in the proof note.
+
+The final step also controls these periodic phases. The formal rational
+coordinates of nonescaping binary children have an even denominator;
+the maximal transition coordinates have an odd denominator. Consequently
+each fixed-length ternary return block includes a nonmaximal move. A
+first depth gain and a second exact carry commutation make every such
+move contract depth by a fixed factor. Finite earlier-state visits are
+included in the uniform constants. Return families become bounded and
+periodic; simultaneous induction on actual integer inputs then forces
+two whole states equal despite their different minimum depths.
+
+The [fresh additive review](../experiments/viewpoints/V009/ADDITIVE_REVIEW.md)
+audits the complete argument. Root independently checked all stages and
+the exact two digit cycles. The initial lane also checked the early
+reductions and constant-tail bootstrap before transient model capacity
+errors prevented its written review; a separate available agent supplied
+the fresh final audit. No error in historical mathematics was found.
+
+It follows that every nonconstant invariant has
+`kappa_h(D)-(D+1)->infinity`. This is a universal additive gain. It
+does not give a fixed epsilon improvement, and growth like D+sqrt(D)
+is consistent with the conclusion. The full unbounded ratio is open.
+
+### Decision, controls and side-lane input
+
+Compare delayed-combination construction with extension of the proved
+return contraction. Do not replace cumulative growth by bounded layer
+width, or extrapolate the single-state proof to arbitrary coefficients.
+Known d5/d61 periodic controls fail the required infinite-kernel premise
+and supply no unbounded-delay vectors. The generic detection theorem is
+elementary; the additive Collatz application inherits Cobham through
+the existing two-base infinitude result.
+
+Fetched and reviewed DIRECTIONS and newest FEED at
+`d0354c295774dc9e3ead1583aecddcfa299f96a6`. The new Lean periodic
+classification is recorded as an external report, with no main replay
+or new generalized-map premise. D8's alternative request for a universal
+improvement is met additively; its fixed-epsilon diagnostic remains
+unmet and its automatic goal-abandonment proposal remains rejected.
+D1/D2/D5/D7 retain their scopes, D3 remains rejected, D4 deferred and D6
+historical. The [side assessment](../experiments/viewpoints/V009/side_review.md)
+records the distinctions.
+
+This is a prose-only mathematical batch. No existing executable evidence
+was changed. The historical full gate was not rerun; local links, source
+hashes and exact frozen ledger/dispatcher/LaTeX comparisons are recorded
+in the delivery receipt. There is no external blocker, and the full
+goal is not marked complete.
+
 ## V008 — Two-exit counterexample and the actual growth hypothesis, 2026-10-18
 
 **Progress; full quantitative goal active and unresolved.** The preceding

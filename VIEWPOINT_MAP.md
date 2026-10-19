@@ -1,6 +1,6 @@
 # Find a better language for Collatz
 
-**Quantitative rigidity active, 2026-10-18. V004's finite-state classification is proved; V005–V008 leave the stronger all-invariant growth target open. Collatz remains open.**
+**Quantitative rigidity active, 2026-10-18. V004 excludes finite-state nonconstant invariants; V009 proves unbounded additive excess over D+1. The stronger unbounded-ratio target and Collatz remain open.**
 The [current brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) requires an unbounded
 ratio of binary-section count to depth for every nonconstant invariant.
 The [completed brief](docs/GLOBAL_RIGIDITY_BRIEF.md) required the full
@@ -167,6 +167,29 @@ singleton theorem automatically generalized. Near-minimal binary growth
 has a precise eventual single-vertex-tail formulation that can test this
 mechanism, but the full target remains every possible linear coefficient.
 
+## V009: a universal additive gain and a global detection theorem
+
+The [report](experiments/viewpoints/V009/REPORT.md) proves that an eventual
+single-state binary tail is impossible. Its maximal transitions reduce
+to periodic phases; a rational-coordinate argument and exact radix swaps
+then make every return block contract in depth. Including the finite
+earlier states gives bounded return families and equality of whole
+sections, contradicting their distinct minimum depths. Therefore every
+nonconstant invariant satisfies `kappa_h(D)-(D+1)->infinity`.
+
+This is a universal additive improvement. It permits D+sqrt(D), so it
+does not give a fixed fractional improvement or the required unbounded
+ratio. Extending the contraction to multiple states per layer remains
+open; cumulative growth does not supply a uniform layer-width bound.
+
+A separate elementary theorem directly uses the global hypothesis
+`|J_D|<=C(D+1)`: every nonzero linear combination of depth-A joint
+sections must be detected using O_C(sqrt(A+1)) input digits. A sufficiently
+late first nonzero value produces quadratically many independent mixed
+sections. The exact cutoff and a sufficient delayed-combination criterion
+are written; constructing those combinations from arbitrary invariance
+is still missing. Compare that route with extension of return contraction.
+
 ## Comparison
 
 Each linked card records objects, structural gain, translated gap, example,
@@ -186,7 +209,7 @@ cycle controls, cheapest test and a genuinely partial milestone.
 | V10. [Rational denominator layers](experiments/viewpoints/V001/rational_layers.md) | Related maps become layers of one rational system; target and lattice changes are explicit | A property of the denominator-one layer that forces useful progress | Control bookkeeping; defer as an independent route |
 | V11. [Occupation measures](experiments/viewpoints/V002/statistical_languages.md#v11-occupation-measures-recurrence-versus-escape-of-mass) | Cycle mass and escape of mass are different phenomena | Tightness uniform in the seed range; cycle identification remains separate | Diagnostic only until a quantitative mechanism is proposed |
 | V12. [Information of actual integer ensembles](experiments/viewpoints/V002/statistical_languages.md#v12-conditional-information-of-realized-paths-rather-than-symbolic-entropy) | Merging, conditioning and endpoint concentration are separate | A quantitative first-passage law with integer endpoints | Retain as a separate statistical alternative; literature comparison first |
-| V13. [Arithmetic regularity of component colorings](experiments/viewpoints/V008/REPORT.md) | Full finite-state rigidity and exact distinctions between generic boundaries and full root equations | Use the global cumulative bound to exclude linear binary-section growth | Quantitative goal active; generic two-exit extension refuted, uniform future mean retained |
+| V13. [Arithmetic regularity of component colorings](experiments/viewpoints/V009/REPORT.md) | Finite-state rigidity, unbounded additive excess, and a detection bound under linear growth | Extend return contraction or force delayed nonzero combinations for every linear coefficient | Quantitative goal active; additive theorem proved, full ratio unresolved |
 | V14. [Two-dimensional base conversion](experiments/viewpoints/V003/carry_boundary.md) | Binary and ternary data share one complete carry boundary | Growing frontier, finite integer support and nonlocal bootstrap | Tested and closed: no additional relation; require a new whole-frontier proposal to reopen |
 
 These are related lenses, not fourteen independent possible proofs. In particular,
@@ -272,7 +295,7 @@ The completed rows remain historical evidence, not outstanding obligations.
 
 | Priority | Bounded next investigation | Evidence needed to continue | Stop or redirect when |
 |---|---|---|---|
-| V13 — active | Small separating layers under the full radix and root identities | An automatic section forced by those constraints, or a genuine bound covering every possible linear coefficient | A graph classification is assumed, or a proved special case is treated as the full target |
+| V13 — active | Delayed nonzero combinations versus extension of the proved return contraction | Delays violating V009's bound, or contraction covering every possible linear coefficient | Layer width is assumed bounded, or the additive theorem is substituted for the full ratio |
 | V13 — completed | Positive-offset binary kernel closure | K_+ is finite and closed under all binary/ternary sections; Cobham plus residue algebra finishes | Do not resume the unnecessary zero-offset closure search as though the full target were open |
 | Complement — V13, completed | Finite characteristic-zero2/3-Mahler systems | Every positive-section color indicator participates in both finite systems; scalar elimination is written | Do not present this dependent alternative as independent formal verification |
 | V14 — closed | Reopen only with a specific additional relation between entire frontier families | A relation not already present in the affine/section equations | Another finite rectangle merely redraws known arithmetic |
@@ -292,9 +315,11 @@ Investigate whether every nonconstant invariant has
 linear growth: if two successive cumulative kernels coincide, they are
 closed under binary sections and no later states appear. A stronger bound
 must exceed that generic argument. This would exclude another description
-class while leaving unrestricted components open. V005's bounded comparison
-retains joint growth and full-identity overlap control. No superlinear
-theorem or upper bound for the actual bad set has been supplied.
+class while leaving unrestricted components open. V009 proves that the
+additive excess over D+1 tends to infinity, but the ratio can still remain
+bounded under that conclusion. Its global detection theorem and return
+contraction are the next mechanisms to compare. No unbounded-ratio theorem
+or upper bound for the actual bad set has been supplied.
 
 **Deferred V14 intermediate target.** The published small-cycle problem
 `T^k(x)!=x` for `x>2`, `1<=k<=ceil(log_2 x)` in the **shortcut** clock

@@ -9,7 +9,7 @@ by the strict full-classification goal in `docs/GLOBAL_RIGIDITY_BRIEF.md`.
 V004 supplies its written proof, using the finite-kernel characterization
 and Cobham. The activated `docs/QUANTITATIVE_RIGIDITY_BRIEF.md` now requires
 that every nonconstant finite-valued invariant have unbounded
-`kappa_h(D)/(D+1)`. V005–V008 supply partial results; the goal is active and
+`kappa_h(D)/(D+1)`. V005–V009 supply partial results; the goal is active and
 unresolved. Read the latest report and V004's proof before extending the work.
 This does not authorize resuming the dispatcher search or assuming
 regularity of an actual bad set.
@@ -81,6 +81,14 @@ tests. This selection is not evidence of a superior convergence method.
 - `kappa_h(D)=D+O(1)` is equivalent to eventual singleton binary layers for an infinite kernel. Such a binary layer need not be a singleton joint exit; ternary depth cost is measured from the root, not from the current state. Even an unbounded additive excess would fall short of the active unbounded-ratio goal.
 - V005's constancy application and the Collatz corollaries in V006/V007 inherit the published Cobham input through V004. Their reconstruction, explicit nonperiodic-F distinctness and generic separator arguments have separate elementary scopes. Keep written classical dependencies distinct from Lean hypotheses and replay status.
 - D8's fixed-epsilon rate gain is a diagnostic only. Its proposed automatic abandonment after two batches does not override the user's active goal. Reconsider mechanisms without substituting a smaller completion criterion or an unrelated programme.
+
+### V009 additive excess and global detection
+
+- V009 excludes `kappa_h(D)=D+O(1)` for every nonconstant finite-valued invariant. Since its excess over D+1 is nondecreasing, the excess tends to infinity. This is a universal additive improvement, not a fixed fractional gain and not the full unbounded-ratio target. Growth such as D+sqrt(D) is still permitted by this conclusion alone.
+- The eventual-ray proof retains every earlier-state return. Periodic maximal digits are only a preliminary reduction. Formal rational digit coordinates (not singularities of sequences) separate critical and noncritical return words; exact radix commutation yields contracting depth bounds, bounded return families, and finally equality of whole sequences by induction on actual input integers. Its Collatz application inherits Cobham through the existing two-base infinitude argument.
+- For any real-valued sequence with `|J_D|<=C(D+1)` at every depth, evaluation before `9^L`, with `L=ceil(2C+sqrt(2C(A+1))+1)`, is injective on the entire real span of J_A. A nonzero combination first supported at N>=9^L yields `(L+1)(L+2)/2` independent mixed sections. Retain the strict endpoints, actual residues and nonzeroness. Pairwise state tests are weaker than span injectivity.
+- The generic detection theorem is elementary. A linear dimension count supplies only a linear delay; it does not construct the delays with `log(N)/sqrt(A+1)` unbounded that would prove the full goal. The digit-count calculation is a calibration, not an extraction premise.
+- Compare delayed-combination construction with extension of the return contraction beyond eventual singleton layers. Do not infer bounded layer width from cumulative growth, or mark the goal complete from the new additive theorem.
 
 ## Historical Phase 6 results and controls
 
