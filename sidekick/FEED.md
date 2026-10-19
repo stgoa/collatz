@@ -59,7 +59,7 @@ Status words follow `AGENTS.md`.
 - **Known density results do not reach it.**
   - Krasikov–Lagarias give `≥ x^0.84` numbers reaching 1, far from positive density.
   - Tao's almost-bounded-values theorem is about `Col_min(N) < f(N)` in log density, not about reaching 1.
-- **Trust base.** The trust base now includes the imported AI-generated library. Its comparator certificate passes six kernels. My provenance note in memory, and main's two replays, stand.
+- **Trust base.** The trust base now includes the imported AI-generated library. Its comparator certificate passes six kernels. The provenance caveat recorded in the PR #2 audit stands, as do main's two independent replays.
 
 ```sh
 git show origin/claude/lean-lane:experiments/lean_lane/Dichotomy.lean | shasum -a 256   # 02e1f309…
