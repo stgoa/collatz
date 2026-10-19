@@ -3121,6 +3121,35 @@ theorem q_dvd_D (hcop : IsCoprime Γ.q (Γ.n 0)) : Γ.q ∣ (2 : ℤ) ^ Γ.Apre 
   have h : Γ.q ∣ ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * Γ.n 0 := ⟨Γ.Cpre m, Γ.cycle_identity⟩
   exact hcop.dvd_of_dvd_mul_right h
 
+theorem Cpre_succ (i : ℕ) : Γ.Cpre (i + 1) = 3 * Γ.Cpre i + 2 ^ Γ.Apre i := rfl
+
+/-- The prefix intercepts are positive from index `1` on. -/
+theorem Cpre_pos (i : ℕ) : 0 < Γ.Cpre (i + 1) := by
+  induction i with
+  | zero =>
+    rw [Γ.Cpre_succ]
+    simp only [Cpre]
+    positivity
+  | succ i ih =>
+    rw [Γ.Cpre_succ (i + 1)]
+    have h2 : (0 : ℤ) < 2 ^ Γ.Apre (i + 1) := by positivity
+    linarith
+
+/-- `D = 2^A − 3^m` is positive for a positive cycle: `D n_0 = q C_m` with `q, C_m, n_0 > 0`. -/
+theorem D_pos : 0 < (2 : ℤ) ^ Γ.Apre m - 3 ^ m := by
+  have h := Γ.cycle_identity
+  have hC : 0 < Γ.Cpre m := by
+    have h1 := Γ.Cpre_pos (m - 1)
+    have hm := Γ.hm
+    rw [show m - 1 + 1 = m by omega] at h1
+    exact h1
+  have hqC : 0 < Γ.q * Γ.Cpre m := mul_pos Γ.hq hC
+  have hn := Γ.npos
+  by_contra hD
+  rw [not_lt] at hD
+  have : ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * Γ.n 0 ≤ 0 := mul_nonpos_of_nonpos_of_nonneg hD hn.le
+  linarith
+
 theorem toNarrow_primitive (hord : ∀ i j, Γ.Z i < Γ.Z j ↔ Γ.F i < Γ.F j) (q' : ℕ)
     (hq1 : (2 : ℤ) ^ q' * Γ.lo ≤ Γ.F 0) (hq2 : Γ.F 0 < 2 ^ (q' + 1) * Γ.lo)
     (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) :
@@ -3594,6 +3623,24 @@ theorem J_ge_height (hqL : Ω.Γ.q ≤ Ω.Γ.n 0) (hapos : ∀ i, 1 ≤ Ω.Γ.a 
   rw [show m - 1 + 1 = m by omega] at h2
   rw [Ω.J_eq_changes]
   omega
+
+/-! #### (G1)'s second inequality, in the true-intercept form -/
+
+/-- (G1)'s second inequality with the true weighted intercept `C_h = C_m` (the chronological
+intercept at the minimum, `D L = q C_h`): `D · 2^{⌊(m−1)/J⌋} < 2^B q C_h`, i.e.
+`q > (D/C_h) 2^{⌈m/J⌉−1−B}`. C006 states the weaker `C_c` form through `C_h ≤ C_c`, which is
+not formalised here. -/
+theorem G1_second :
+    ((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) * 2 ^ ((m - 1) / Ω.J)
+      < 2 ^ Ω.Γ.B * (Ω.Γ.q * Ω.Γ.Cpre m) := by
+  have hD := Ω.Γ.D_pos
+  have h1 := Ω.G1_first
+  have hc := Ω.Γ.cycle_identity
+  calc ((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) * 2 ^ ((m - 1) / Ω.J)
+      < ((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) * (2 ^ Ω.Γ.B * Ω.Γ.n 0) :=
+        mul_lt_mul_of_pos_left h1 hD
+    _ = 2 ^ Ω.Γ.B * (((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) * Ω.Γ.n 0) := by ring
+    _ = 2 ^ Ω.Γ.B * (Ω.Γ.q * Ω.Γ.Cpre m) := by rw [hc]
 
 end OrdCycle
 

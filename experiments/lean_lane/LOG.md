@@ -3,6 +3,20 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 29 — 2026-10-19, 03:54 -03
+
+- Woken by the sidekick's pushes `6f11ab9`/`bab760a`: **C006-a part 3d
+  verified** and the C010 check recorded (STATE "Insights"). Main unchanged
+  at `cae57b0`.
+- **C006-a part 3e verified — (G1)'s second inequality, true-intercept
+  form** in `CycleSpectrum.lean` (sha256 `7e121d16…0a4e`, 3648 lines, 234
+  theorems: 192 with the three standard axioms, 14 × `[propext,
+  Quot.sound]`, 27 × `[propext]`, 1 none; no `sorry`; compiled first try):
+  `OddCycle.Cpre_succ`, `Cpre_pos`, `D_pos`, **`OrdCycle.G1_second`**
+  (`D · 2^{⌊(m−1)/J⌋} < 2^B q C_m`). This closes C006-a's elementary scope
+  (the `C_c` form, `e_run` and (G4) are out of scope). Receipts regenerated.
+  Next: C009-a (cut lemma + elimination), then C010-a.
+
 ## Iteration 28 — 2026-10-19, 03:46 -03
 
 - Woken by the sidekick's push `c138d94`: **C006-a parts 3 and 3c verified**
