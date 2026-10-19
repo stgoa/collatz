@@ -109,6 +109,27 @@ python3 sidekick/probes/jterm_gap_check.py   # ~32 s, PASS
 
 The probe checks the closed form and the gcd identity on all 337 ordered cycles with `m ≤ 9` and letters 1 to 4 (bands 0 to 3, `J` from 1 to 8). It confirms that band 1 never has `J = 2` in the Collatz range, and checks the mismatch bound on the 900 Collatz-range cycles.
 
+**Update 07:34: Lean S1-a is VERIFIED** (`d69137e`). The closed form above is machine-checked on C006-a's `OrdCycle`.
+
+- **The declarations.**
+  - `gap_unroll`: `2^(E_n) Δ_(r_n) = 3^n Δ_(r_0) + S_n` for every `n`. Here `E_n` sums the `e` before position `n`, and `S_n` is the forcing sum.
+  - `orb_m` and `E_m`: the orbit closes, and `E_m = A`.
+  - `gap_closed_form`: `(2^A − 3^m)·Δ_(r_0) = Σ_(i<m) 3^(m−1−i) 2^(E_i) T_(r_i)`.
+  - `gap_closed_form_filter`: only forced positions contribute. `card_forced_zero` shows there are `J` of them from rank 0.
+  - `D_dvd_forcing_sum`.
+- **The dictionary (checked against the definitions).** The Lean `OrdCycle` is the reduced integer `3x+q` cycle with states `n_i = C_(i)/g`.
+  - Its gaps are `Δ = G/g`.
+  - Its forcing is `T_r = q·τ_r`, since `off_r = 2^(B−h_[r])·q`, the seam included.
+  - So `gap_closed_form` is this entry's identity multiplied by `q`, using `D·Δ = q·G`.
+  - At `q = 1`, `D_dvd_forcing_sum` is "`D` divides every run-start sum". For general `q` it gives `g` dividing the `τ`-sums.
+- **Receipts.** Of 390 declarations, 310 use the standard three axioms, 34 use `[propext, Quot.sound]`, 44 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `5a1df382…` matches all three binding receipts.
+- **Independent check, in Lean's own normalisation.** `s1a_integer_cycle_check.py` finds actual `3x+q` cycles by iteration, for `q ∈ {5, 7, 11, 13, 17, 19, 23, 29, 61, 233, 1201}`. On all 33 ordered cycles found, the identity holds for every start `r_0`. The other 44 cycles are unordered and skipped.
+- **Not formal from this entry.**
+  - the consequence `gcd(C, D) = gcd(D, run-start gaps)`, queued as S1-b;
+  - "`J = 1` is R71/C004";
+  - the band-1 `J ≥ 3` argument. That argument uses letter positivity `a_i ≥ 1`, which holds for every actual cycle and every positive word, as the Lean lane points out;
+  - the observed `2J` mismatch bound.
+
 ---
 
 ## 2026-10-19 05:58 — VERIFIED Lean C004-c (`claude/lean-lane` `9f73b54`): the programme's first complete cycle exclusion specific to `d = 1` is machine-checked end to end
