@@ -36,11 +36,15 @@ Every constraint (1)–(5) is evaluated exactly on the word, and the margin is t
 | 1,000,003 | 3,000 | 542 | +1,226 | (5) |
 | 1,000,003 | 1,000 | 1,604 | +354 | (5) |
 | 1,000,003 | 200 | 8,004 | +111 | (5) |
-| 1,000,003 | 71 | 22,540 | −3,184 | (1) end witnesses |
+| 1,000,003 | 71 | 22,540 | −3,184 | (1) end witnesses (`h/m ≈ 0.4142`, just outside the window) |
+| 1,000,003 | 71 | 35,235 | +33 | (5), with `h/m ≈ 0.4393 = [0; 2, 3, 1, 1, …]` |
+| 1,000,003 | 100 | 16,011 | +55 | (5), same `h` |
 
 - **Both test periods are above S7's threshold** (`m0 = 452,695`).
 - **At `ℓ = ℓ*`**, the worst case allowed by `gap_all`, every constraint holds with thousands of bits to spare. So **no argument built only from (1)–(5) can exclude `s = 4`.**
-- **The survival extends down to `ℓ = 200`.** That is the scale a published irrationality measure for `log₂ 3` would give (Rhin-type, `ℓ ≲ 4.1 log₂ m + O(1)`; not formal).
+- **Survival holds for every `ℓ` tested, from 71 to `ℓ*`.** The rotation fraction must sit inside the LP window `[(1−r)², 1 − (1−r)²]`, where `r` drops as the 2-density `≈ 1.6/ℓ` grows, and must have bounded partial quotients. `[0; 2, 3, 1, 1, …] ≈ 0.4393` works at `ℓ = 71`.
+- **The first `ℓ = 71` failure** below belonged to `h/m ≈ √2 − 1`, which lies just outside that window at `ℓ = 71`.
+- **Earlier wording (superseded):** the survival extends down to `ℓ = 200`. That is the scale a published irrationality measure for `log₂ 3` would give (Rhin-type, `ℓ ≲ 4.1 log₂ m + O(1)`; not formal).
   - At `ℓ = 71` this single-chain family fails in the search. The 2-density `1.6/ℓ` lowers the slope enough to push `h/m ≈ 0.4142` out of the feasible window.
   - That is a statement about one family and one choice of `h`, not an exclusion.
 

@@ -42,6 +42,8 @@ Full note: `sidekick/research/S8/FOUR_MISMATCH_MAP.md`. A negative map, kept so 
   - Abel-summed over the mismatches, the mod-`D` shadow is C012's coupled system: `Σ_k (2^(W_k) − 2^(W_(k+1)))·3^(m−e_k−1) 2^(A_(e_k+1)) n_(e_k+1) ≡ 0 (mod D)`.
 - **By-product (known result, new route).** Reducing mod `D` gives `D | 2^(A−m) − 1` for the word `1^(m−1)V`. With `gap_all`, that rules out Steiner's 1-cycles once `2^m > 2^172 m^341`. It shows the "reduce mod `D` to a small nonzero number" device worth trying on the S8 survivors.
 
+**Update 13:11: the S8 map also holds at the smallest admissible minimum.** With `h/m = [0; 2, 3, 1, 1, …] ≈ 0.4393` (bounded partial quotients, inside the LP window), four-mismatch words at `m = 10^6` meet every constraint at `ℓ = 71` (margin +33 bits, `b = 35,235`) and at `ℓ = 100` (+55). So for every `ℓ` from 71 to `ℓ*`, the size method cannot exclude `s = 4`. The `ℓ = 71` failure in the first table belonged to `h/m ≈ √2 − 1`, which is just outside the window there.
+
 ```sh
 python3 sidekick/probes/s8_four_mismatch_map.py   # ~10 s
 ```
@@ -136,6 +138,20 @@ Full note: `sidekick/research/S7/THREE_MISMATCHES.md`.
 - **CORRECTION (citation).** Eliahou's 17,087,915 bounds the total cycle length `A`, not the number `m` of odd steps. In odd steps it gives `m ≳ 1.08·10^7`.
   - The 12:40 entry and the S6 entry wrote `m ≥ 17,087,915`. Both notes are now corrected.
   - The conclusions are unchanged, since `1.08·10^7 ≥ 452,695`.
+
+**Update 13:11: Lean S7-b part 3a VERIFIED (Step 4, the alignment lemma, with Step 3's window structure as hypotheses).**
+
+- **Receipts** (Lean-lane commit `973e3ff`):
+  - sha256 `e8128174…0505128` matches the 9,334-line file; exit 0 with no diagnostics.
+  - 576 theorems: 478 on the standard three axioms, 41 on `[propext, Quot.sound]`, 55 on `[propext]`, and 2 on none. The four new declarations are on the standard three. The scan is clean.
+- **Statement match.**
+  - `dexcess j = Σ_(i ∈ [j, m))(a_i − 1)` is `X_d`.
+  - `excess_add_dexcess` is `X_c + X_d + m = A`.
+  - `dexcess_le_two_excess` is the two excess-transfer estimates. Its hypotheses are `d ≤ h ≤ j = m − d` (`hdh`, `hhj`); `e_b ∈ W`; every other position of `W` agreeing (`hW`); every position of `W − h` other than `e_a` agreeing (`hW'`); and `e_b ≠ e_a + h`.
+  - `alignment` concludes `e_b = e_a + h` under `3X_c < A − m`, which is condition A combined with `X_c < X*`.
+  - That is Step 4 as written.
+- **Note.** `e_a` is not required to lie in `W − h`. If it does not, the hypotheses force `X_d ≤ 2X_c` and contradict `hA`, so the lemma is still sound.
+- **Scope.** Still to come: part 3b (the window structure from the spacing bound), then S7-c and S7-d.
 
 ```sh
 python3 sidekick/probes/s7_three_mismatch.py   # ~15 s; m0 = 452,695
