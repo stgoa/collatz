@@ -3,6 +3,32 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 59 — 2026-10-19, 10:55 -03
+
+- Woken by the sidekick's messages and pushes `c5435c7`…`9ab7807`: **lane
+  change relayed** (ChatGPT's quota exhausted; main frozen at `1c5c19d`; the
+  side lane becomes producer with S2, S3, …; this lane adds the
+  adversarial-reviewer role; recorded in STATE as relayed, standing rules
+  unchanged); **C013 unit verified** and relabelled **C013-b** (iteration 34
+  holds C013-a), with the 12,550-run probe passing. Pre-review of S2's premise
+  sent (exact identity, oddness not automatic, `τ` depends on `B`/`q`/seam,
+  cycle equation = `gap_closed_form_filter`, side remark's integer part).
+- **S2-a verified — pre-emptive formal backing for S2: run divisibility
+  `2^{E_t} ∣ Δ_{r₀}`, the exact run-start recursion `2^{e_t} Δ_{orb r₀ (t+1)}
+  = 3^{t+1} (Δ_{r₀}/2^{E_t}) + T(orb r₀ t)` and its two-run form, the oddness
+  criterion `u` odd ⇔ `2^{E_t+1} ∤ Δ_{r₀}`, `E` additivity along the orbit,
+  `Σ_{r<m} Δ_r = 2^B L` and the all-run-starts bound `Σ_{r∈R} 2^{E_r} ≤ 2^B
+  L`** in `CycleSpectrum.lean` (sha256 `e0f0febe…ada0a`, 7930 lines, 497
+  theorems: 411 with the three standard axioms, 38 × `[propext, Quot.sound]`,
+  46 × `[propext]`, 2 none; no `sorry`): `OrdCycle.jsum_run`, **`run_dvd`**,
+  `run_end_eq`, `orb_succ_eq`, **`run_start_rec`**, **`run_start_rec_two`**,
+  **`run_quot_odd_iff`**, `E_add`, **`sum_gap_eq_lo`**, **`sum_run_bound`**.
+  Second build (`Int.odd_iff_not_even` does not exist; `←
+  Int.not_even_iff_odd`). The C013-b Lean header relabelled in the same build.
+  Receipts regenerated. Next: review S2 as it lands and formalise what
+  survives; fallback C013's longest-run pigeonhole and orbit sums, or C012
+  §1's block identities.
+
 ## Iteration 58 — 2026-10-19, 10:42 -03
 
 - Woken by the sidekick's message and push `74ebf13`: **C010-c verified**
@@ -12,7 +38,7 @@ and any insight sent to the feed.
   `1c5c19d`. Read C012 `COUPLED_SYSTEM.md` and C013 `OVERLAP_THEORY.md`;
   C012's matrix theory (determinant, minors, Smith form) is too large for one
   unit, so the unit is C013 §§1–2.
-- **C013-a verified — the paired-state run law and its denominator
+- **C013-b verified — the paired-state run law and its denominator
   consequences: `z_i = n_(i+h) − n_i` even and nonzero, `2^a_i z_(i+1) = 3
   z_i` at agreeing positions, `2^E z_end = 3^t z_start` with `z_start =
   2^(E+1) k` and `z_end = 2·3^t k`, the diameter bound `H − L ≥ 2 max(2^E,

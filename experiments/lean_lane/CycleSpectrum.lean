@@ -6273,9 +6273,9 @@ theorem clears_q_cgap_iff (hred : IsCoprime Γ.q (Γ.n 0)) (hB : ∃ i, Γ.h i =
 
 end OddCycle
 
-/-! ### C013-a: the paired-state run law and its denominator consequences
+/-! ### C013-b: the paired-state run law and its denominator consequences
 
-C013 `OVERLAP_THEORY.md` §§1–2 on `OddCycle`. For a rotation `h` the paired differences are
+C013 `OVERLAP_THEORY.md` §§1–2 on `OddCycle` (C013-a is the earlier list-level block-identity unit). For a rotation `h` the paired differences are
 `z_i = n_{i+h} − n_i`: even (`z_even`), and nonzero for a nonidentity rotation of a primitive cycle
 (`z_ne_zero`). At an agreeing position `a_i = a_{i+h}` subtraction of the two arrows gives
 `2^{a_i} z_{i+1} = 3 z_i` (2, `z_step`); over `t` agreeing positions with valuation sum `E`,
@@ -7809,6 +7809,120 @@ theorem gap_dvd_isUnit (hred : IsCoprime Ω.Γ.q (Ω.Γ.n 0)) (hB : ∃ i, Ω.Γ
     rw [Ω.Γ.h_mod, Ω.Γ.n_mod]
   rw [hZ]
   exact hy _ (Ω.N.rank_lt _)
+
+/-! #### S2-a (pre-emptive, for the side lane's S2 "renormalisation of ordered cycles"): the exact
+run-start recursion
+
+For a run start `r₀` with `t` zero-forcing steps (`T(orb r₀ k) = 0` for `k < t`) and the forced step
+at `orb r₀ t`: `2^{E_t} ∣ Δ_{r₀}` (`run_dvd`, the divisibility inside C006-b's `run_bound_E`); the
+run law in quotient form `Δ_{orb r₀ t} = 3^t (Δ_{r₀}/2^{E_t})` (`run_end_eq`); the exact recursion
+`2^{e_t} Δ_{orb r₀ (t+1)} = 3^{t+1} (Δ_{r₀}/2^{E_t}) + T(orb r₀ t)` (`run_start_rec`, S1's
+`gap_unroll` at `n = t+1`); its two-run form `2^{e_t + E′} u′ = 3^{t+1} u + T(orb r₀ t)` with
+`u = Δ_{r₀}/2^{E_t}` and `u′ = Δ_{r₁}/2^{E′}` for the next run start `r₁ = orb r₀ (t+1)` with `t′`
+zero-forcing steps (`run_start_rec_two`); the oddness criterion `Odd u ↔ ¬ 2^{E_t+1} ∣ Δ_{r₀}`
+(`run_quot_odd_iff`: S1 gives only `2^{E_t} ∣ Δ_{r₀}`, so "odd parts" is an extra condition); the
+additivity of `E` along the orbit (`E_add`, for the product bookkeeping `Π 2^{E′} = 2^A`); the gap
+sum `Σ_{r<m} Δ_r = 2^B L` (`sum_gap_eq_lo`); and the all-run-starts bound `Σ_{r ∈ R} 2^{E_r} ≤ 2^B L`
+for any set `R` of run starts (`sum_run_bound`, the integer part of the side remark). -/
+
+theorem jsum_run {r₀ t : ℕ} (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0) : Ω.jsum r₀ t = 0 := by
+  rw [Ω.jsum_eq_sum]
+  apply Finset.sum_eq_zero
+  intro i hi
+  rw [hrun i (Finset.mem_range.mp hi), mul_zero]
+
+/-- The run divisibility: `2^{E_t}` divides the run-start gap. -/
+theorem run_dvd {r₀ t : ℕ} (hr₀ : r₀ < m) (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0) :
+    (2 : ℤ) ^ Ω.E r₀ t ∣ Ω.N.gap r₀ := by
+  have h := Ω.gap_unroll hr₀ t
+  rw [Ω.jsum_run hrun, add_zero] at h
+  have hdvd : (2 : ℤ) ^ Ω.E r₀ t ∣ 3 ^ t * Ω.N.gap r₀ := ⟨_, h.symm⟩
+  have hcop : IsCoprime ((2 : ℤ) ^ Ω.E r₀ t) (3 ^ t) := IsCoprime.pow ⟨-1, 1, by norm_num⟩
+  exact hcop.dvd_of_dvd_mul_left hdvd
+
+/-- The run law in quotient form: `Δ_{orb r₀ t} = 3^t (Δ_{r₀}/2^{E_t})`. -/
+theorem run_end_eq {r₀ t : ℕ} (hr₀ : r₀ < m) (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0) :
+    Ω.N.gap (Ω.orb r₀ t) = 3 ^ t * (Ω.N.gap r₀ / 2 ^ Ω.E r₀ t) := by
+  have h := Ω.gap_unroll hr₀ t
+  rw [Ω.jsum_run hrun, add_zero] at h
+  obtain ⟨u, hu⟩ := Ω.run_dvd hr₀ hrun
+  have h2 : (0 : ℤ) < 2 ^ Ω.E r₀ t := by positivity
+  rw [hu, Int.mul_ediv_cancel_left _ h2.ne']
+  rw [hu] at h
+  have h3 : (2 : ℤ) ^ Ω.E r₀ t * Ω.N.gap (Ω.orb r₀ t) = 2 ^ Ω.E r₀ t * (3 ^ t * u) := by
+    rw [h]
+    ring
+  exact mul_left_cancel₀ h2.ne' h3
+
+theorem orb_succ_eq (r₀ t : ℕ) : (Ω.orb r₀ t + Ω.N.numHigh) % m = Ω.orb r₀ (t + 1) := by
+  rw [← Ω.orb_add r₀ t 1]
+  unfold orb
+  rw [one_mul]
+
+/-- The exact run-start recursion (the side lane's S2 identity (a)):
+`2^{e_t} Δ_{orb r₀ (t+1)} = 3^{t+1} (Δ_{r₀}/2^{E_t}) + T(orb r₀ t)`. -/
+theorem run_start_rec {r₀ t : ℕ} (hr₀ : r₀ < m) (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0) :
+    (2 : ℤ) ^ Ω.N.e (Ω.orb r₀ t) * Ω.N.gap (Ω.orb r₀ (t + 1)) =
+      3 ^ (t + 1) * (Ω.N.gap r₀ / 2 ^ Ω.E r₀ t) + Ω.T (Ω.orb r₀ t) := by
+  have h := Ω.gap_rec (Ω.orb_lt r₀ t)
+  rw [Ω.orb_succ_eq, Ω.run_end_eq hr₀ hrun] at h
+  rw [h]
+  ring
+
+/-- The two-run form of S2's identity: with `u = Δ_{r₀}/2^{E_t}` and `u′ = Δ_{r₁}/2^{E′}` for the
+next run start `r₁ = orb r₀ (t+1)` with `t′` zero-forcing steps,
+`2^{e_t + E′} u′ = 3^{t+1} u + T(orb r₀ t)`. -/
+theorem run_start_rec_two {r₀ t t' : ℕ} (hr₀ : r₀ < m)
+    (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0)
+    (hrun' : ∀ k, k < t' → Ω.T (Ω.orb (Ω.orb r₀ (t + 1)) k) = 0) :
+    (2 : ℤ) ^ (Ω.N.e (Ω.orb r₀ t) + Ω.E (Ω.orb r₀ (t + 1)) t') *
+        (Ω.N.gap (Ω.orb r₀ (t + 1)) / 2 ^ Ω.E (Ω.orb r₀ (t + 1)) t') =
+      3 ^ (t + 1) * (Ω.N.gap r₀ / 2 ^ Ω.E r₀ t) + Ω.T (Ω.orb r₀ t) := by
+  have h := Ω.run_start_rec hr₀ hrun
+  obtain ⟨u', hu'⟩ := Ω.run_dvd (Ω.orb_lt r₀ (t + 1)) hrun'
+  have h2 : (0 : ℤ) < 2 ^ Ω.E (Ω.orb r₀ (t + 1)) t' := by positivity
+  rw [hu', Int.mul_ediv_cancel_left _ h2.ne', pow_add]
+  rw [hu'] at h
+  rw [← h]
+  ring
+
+/-- `u = Δ_{r₀}/2^{E_t}` is odd iff the run-start gap has 2-adic valuation exactly `E_t`. -/
+theorem run_quot_odd_iff {r₀ t : ℕ} (hr₀ : r₀ < m) (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0) :
+    Odd (Ω.N.gap r₀ / 2 ^ Ω.E r₀ t) ↔ ¬ (2 : ℤ) ^ (Ω.E r₀ t + 1) ∣ Ω.N.gap r₀ := by
+  obtain ⟨u, hu⟩ := Ω.run_dvd hr₀ hrun
+  have h2 : (0 : ℤ) < 2 ^ Ω.E r₀ t := by positivity
+  rw [hu, Int.mul_ediv_cancel_left _ h2.ne', pow_succ, mul_dvd_mul_iff_left h2.ne',
+    ← Int.not_even_iff_odd, even_iff_two_dvd]
+
+/-- `E` is additive along the orbit: `E r₀ (a + b) = E r₀ a + E (orb r₀ a) b`. -/
+theorem E_add (r₀ a b : ℕ) : Ω.E r₀ (a + b) = Ω.E r₀ a + Ω.E (Ω.orb r₀ a) b := by
+  unfold E
+  rw [Finset.sum_range_add]
+  congr 1
+  apply Finset.sum_congr rfl
+  intro k _
+  rw [Ω.orb_add]
+
+/-- The gap sum: `Σ_{r<m} Δ_r = Z_0 = 2^B L` (C010-b's `sum_cgap` on the sorted states). -/
+theorem sum_gap_eq_lo : ∑ r ∈ Finset.range m, Ω.N.gap r = Ω.Γ.lo := by
+  rw [Ω.N.sum_gap Ω.N_prim Ω.N_rank_zero, Ω.N_x]
+  unfold OddCycle.Z OddCycle.lo
+  rw [Ω.Γ.h_zero, Nat.sub_zero]
+
+/-- The all-run-starts bound: for any set `R` of run starts with run lengths `t r`,
+`Σ_{r ∈ R} 2^{E_r} ≤ Σ_{r ∈ R} Δ_r ≤ Σ_{r<m} Δ_r = 2^B L`. -/
+theorem sum_run_bound (R : Finset ℕ) (hR : ∀ r ∈ R, r < m) (t : ℕ → ℕ)
+    (hrun : ∀ r ∈ R, ∀ k, k < t r → Ω.T (Ω.orb r k) = 0) :
+    ∑ r ∈ R, (2 : ℤ) ^ Ω.E r (t r) ≤ Ω.Γ.lo := by
+  calc ∑ r ∈ R, (2 : ℤ) ^ Ω.E r (t r) ≤ ∑ r ∈ R, Ω.N.gap r :=
+        Finset.sum_le_sum (fun r hr => Ω.run_bound_E (hR r hr) (hrun r hr))
+    _ ≤ ∑ r ∈ Finset.range m, Ω.N.gap r := by
+        apply Finset.sum_le_sum_of_subset_of_nonneg
+        · intro r hr
+          exact Finset.mem_range.mpr (hR r hr)
+        · intro r hr _
+          exact (Ω.N.gap_pos Ω.N_prim Ω.N_rank_zero (Finset.mem_range.mp hr)).le
+    _ = Ω.Γ.lo := Ω.sum_gap_eq_lo
 
 end OrdCycle
 

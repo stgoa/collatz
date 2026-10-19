@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 58 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 59 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -74,7 +74,8 @@ receipt binds to the file it certifies.
 | C010-a | Main's C010 `ODD_ROUNDING.md` §§2–3: the sharp adjacent odd-spacing bounds and the summed bound. **Verified** (iteration 31): `eta` (C010's `η(q,k)`), `eta_refine` (the mod-6 increment: odd `r, q`, `k ≥ 1`, `q(2^k−1) < 3r ⇒ q(2^k−1) + η ≤ 3r`; the prose's `3 ∤ q` is not needed), `OddCycle.q_odd` (positive valuations make `q` odd); on `OrdCycle`: `y_eq`, `y_succ_lt`, `gap_eq`, **`gap_ge_of_eq`** (equal heights: `G_r ≥ 2·2^{B−a}`), **`gap_ge_of_lt`** (downward: `G_r ≥ 2^{B−a}`), **`gap_seam_ge`** (seam: `G_{m−1} ≥ 2^{B−a}`), **`three_gap_gt_of_gt`** (upward, the order inequality `2^{B−b} q(2^k−1) < 3G_r`), **`three_gap_ge_of_gt`** (upward, sharp: `2^{B−b}(q(2^k−1) + η) ≤ 3G_r`), `pairBound3` (three times the scaled sharp bound, four cases) with `pairBound3_le`, and **`rounding_bound`**: `Σ_{r<m} pairBound3 r ≤ 3·2^B L`, i.e. C010's (3) `L ≥ R_q(H)` (hypothesis: `q` odd only) | `experiments/cycle_spectrum/C010/ODD_ROUNDING.md` §§2–3 | **verified** | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 263 theorems printed) |
 | C010-b | C010 `GAP_LATTICE.md` §§1–2: the complete dyadic gap lattice. **Verified** (iteration 56, compiled first try). General, over any commutative ring: `cgap Z m j` (`(UZ)_j = Z_{j+1} − Z_j`, seam `2Z_0 − Z_{m−1}`), `sum_cgap_prefix` (`Σ_{i<j} G_i = Z_j − Z_0`), `sum_cgap` (`Σ_{j<m} G_j = Z_0`), **`Z_eq_sum_cgap`** (C010's (1): `Z_j = Σ_i G_i + Σ_{i<j} G_i` — `U` unimodular with inverse `I + E + ⋯ + E^{m−1}`); over `ℤ`/`ℚ`: **`dvd_cgap_iff`** (the gcd statement: same common divisors), **`cgap_int_iff`** (integral together), `cgap_smul`, **`clears_iff`** (a scalar clears the denominators of `Z` iff of `UZ`: the common-denominator statement), **`cgap_pos_iff`** (the gap cone is the order cone `0 < Z_0 < ⋯ < Z_{m−1} < 2Z_0`). In `OrdCycle`: `gap_eq_cgap` (C006's sorted gaps are `U` of the sorted scaled states), **`Z_dvd_isUnit`** (reduced cycle with the maximal height attained: the scaled states have gcd `1`), **`gap_dvd_isUnit`** (so do their complete gaps). The matrix `E` and `E^m = 2I` are not formalised as matrices; (1) is proved by telescoping. §3's (4) is C006-a's `gap_rec`; (5) and `UK = KU` are not separately recorded | `experiments/cycle_spectrum/C010/GAP_LATTICE.md` §§1–2 | **verified** | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 467 theorems printed) |
 | C010-c | C010 `GAP_LATTICE.md` §2 without the ordering hypothesis (the prose's "this gcd statement and (1) hold for unordered cycles as well"; the generalisation the side lane suggested). **Verified** (iteration 57, second build after two API fixes). In `OddCycle`, for any reduced cycle (`IsCoprime q n_0`) whose maximal height is attained (`∃ i, h i = B`): **`Z_dvd_isUnit`** (the scaled states `Z_i = 2^{B−h_i} n_i` have gcd `1`; the C010-b proof verbatim, which never used the order — `OrdCycle.Z_dvd_isUnit` now delegates to it), `Z_dvd_isUnit_of_lt` (one period suffices), **`cgap_dvd_isUnit`** (the complete gaps of any arrangement `Z ∘ σ` exhausting one period — `σ` onto `{0,…,m−1}`, the sorted arrangement in particular — have gcd `1`), **`q_dvd_of_dvd_mul`** (`q ∣ k·Z_i` for all `i` ⇒ `q ∣ k`), `q_clears`, **`clears_q_iff`** (an integer `k` clears the denominators of the normalised states `Z_i/q` iff `q ∣ k`), `q_le_of_clears` (so the least positive common denominator is exactly `q`), **`clears_q_cgap_iff`** (the same for the complete gaps `G/q` of any arrangement: the prose's "common reduced denominator exactly `q`"). No sortedness, injectivity, primitivity or `m ≥ 2` is needed for any of these | `experiments/cycle_spectrum/C010/GAP_LATTICE.md` §2 (unordered remark and the `G/q` denominator sentence) | **verified** | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 475 theorems printed) |
-| C013-a | C013 `OVERLAP_THEORY.md` §§1–2: the paired-state run law and its denominator consequences. **Verified** (iteration 58, compiled first try). On `OddCycle`, with `z h i = n (i+h) − n i` and `runSum i t = Σ_{j<t} a (i+j)`: `z_even`; `z_ne_zero` (primitive cycle, `h % m ≠ 0`); **`z_step`** ((2): `2^{a_i} z_{i+1} = 3 z_i` at an agreeing position); `z_run` (`2^E z_{i+t} = 3^t z_i` over `t` agreeing positions); **`z_run_factor`** ((3): `z_{i+t} = 2·3^t k`, `z_i = 2^{E+1} k`, `k ≠ 0` when `z_{i+t} ≠ 0`); **`diameter_ge`** ((4): `2 max(2^E, 3^t) ≤ H − L` for every upper bound `H` of the states); **`K_mul_L_gt`** ((5): `2 max(2^E, 3^t) < (2^{B+1} − 1) L`); `delta_pos` (`δ = A log 2 − m log 3 > 0` from `D > 0`); **`q_bound_delta`** ((6): `6 δ max(2^E, 3^t) < m q (2^{B+1} − 1)` over `ℝ`, through C006-c's `L_mul_delta_le`); **`q_bound_rational`** ((7): `6 D max(2^E, 3^t) < m q 2^A (2^{B+1} − 1)` over `ℤ`, through `η = D/2^A ≤ δ`); `q_bound_rational_prim` ((7) under the prose's hypotheses). The run is given by its start, length and agreement hypothesis; the pigeonhole long run `t ≥ ⌈m/s⌉ − 1` and the orbit sums (1) are not formalised | `experiments/cycle_spectrum/C013/OVERLAP_THEORY.md` §§1–2 | **verified** | `[propext, Classical.choice, Quot.sound]` (`z_even`: `[propext, Quot.sound]`; `z_ne_zero`: `[propext]`) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 487 theorems printed) |
+| C013-b | C013 `OVERLAP_THEORY.md` §§1–2: the paired-state run law and its denominator consequences. **Verified** (iteration 58, compiled first try). On `OddCycle`, with `z h i = n (i+h) − n i` and `runSum i t = Σ_{j<t} a (i+j)`: `z_even`; `z_ne_zero` (primitive cycle, `h % m ≠ 0`); **`z_step`** ((2): `2^{a_i} z_{i+1} = 3 z_i` at an agreeing position); `z_run` (`2^E z_{i+t} = 3^t z_i` over `t` agreeing positions); **`z_run_factor`** ((3): `z_{i+t} = 2·3^t k`, `z_i = 2^{E+1} k`, `k ≠ 0` when `z_{i+t} ≠ 0`); **`diameter_ge`** ((4): `2 max(2^E, 3^t) ≤ H − L` for every upper bound `H` of the states); **`K_mul_L_gt`** ((5): `2 max(2^E, 3^t) < (2^{B+1} − 1) L`); `delta_pos` (`δ = A log 2 − m log 3 > 0` from `D > 0`); **`q_bound_delta`** ((6): `6 δ max(2^E, 3^t) < m q (2^{B+1} − 1)` over `ℝ`, through C006-c's `L_mul_delta_le`); **`q_bound_rational`** ((7): `6 D max(2^E, 3^t) < m q 2^A (2^{B+1} − 1)` over `ℤ`, through `η = D/2^A ≤ δ`); `q_bound_rational_prim` ((7) under the prose's hypotheses). The run is given by its start, length and agreement hypothesis; the pigeonhole long run `t ≥ ⌈m/s⌉ − 1` and the orbit sums (1) are not formalised | `experiments/cycle_spectrum/C013/OVERLAP_THEORY.md` §§1–2 | **verified** | `[propext, Classical.choice, Quot.sound]` (`z_even`: `[propext, Quot.sound]`; `z_ne_zero`: `[propext]`) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 487 theorems printed) |
+| S2-a | Pre-emptive formal backing for the side lane's S2 ("renormalisation of ordered cycles": the run-start gaps compress the `m`-step gap cycle into a `J`-step cycle). **Verified** (iteration 59, second build after one lemma-name fix). In `OrdCycle`, for a run start `r₀` with `t` zero-forcing steps (`T(orb r₀ k) = 0` for `k < t`): `jsum_run`; **`run_dvd`** (`2^{E_t} ∣ Δ_{r₀}`); `run_end_eq` (`Δ_{orb r₀ t} = 3^t (Δ_{r₀}/2^{E_t})`); `orb_succ_eq`; **`run_start_rec`** (S2's identity (a): `2^{e_t} Δ_{orb r₀ (t+1)} = 3^{t+1} (Δ_{r₀}/2^{E_t}) + T(orb r₀ t)`); **`run_start_rec_two`** (two-run form `2^{e_t + E′} u′ = 3^{t+1} u + T` with `u = Δ_{r₀}/2^{E_t}`, `u′ = Δ_{r₁}/2^{E′}` at the next run start); **`run_quot_odd_iff`** (`u` odd ⇔ `2^{E_t+1} ∤ Δ_{r₀}`: "odd parts" is an extra condition, S1's divisibility is one-sided); `E_add` (`E r₀ (a+b) = E r₀ a + E (orb r₀ a) b`, the bookkeeping behind `Π 2^{E′} = 2^A`); **`sum_gap_eq_lo`** (`Σ_{r<m} Δ_r = 2^B L`); **`sum_run_bound`** (`Σ_{r∈R} 2^{E_r} ≤ 2^B L` for any set `R` of run starts — the integer part of S2's side remark). So S2's identity is exact with `τ_k = T(orb r₀ t_k)` and `E′_k = e_k + E_{k+1}`; its "odd parts" and the value set `τ ∈ {±1, 2, 3}` (the `q = 1`, `B = 1` case: band changes `±1`, seam `2` or `3`) are claims to test, not consequences | side lane's S2 announcement (feed, 2026-10-19 ~11:00; no note landed yet); S1-a/b `gap_unroll`, `gap_rec` | **verified** | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 497 theorems printed) |
 | C011-a | Main's C011 `ROTATION_DEFECTS.md` §§2–3, elementary core. **Verified** (iteration 32), in the two-defect normal form `w = a :: (u₀ ++ (a+k) :: v₀)`, `w' = (a+k) :: (u₀ ++ a :: v₀)` a rotation of `w`, `k ≥ 1`: `C_append_singleton` (the intercept ignores the last letter), **`two_arc_identity`** ((1): `C_{w'} − C_w = (2^k − 1) 2^a 3^{|v₀|} C (u₀ ++ [a+k])`), `rotate_cut` (the cut at the second mismatch is the rotation by `|u₀| + 1`), `isCoprime_three_D`, `dvd_C_rotate_of_dvd` (a common divisor of `C_w, D_w` coprime to `2` divides every rotated intercept), `gcd_isCoprime_two/three`, **`two_arc_dvd`** ((2): `g ∣ (2^k − 1) gcd(C_u, C_v)`, `u = u₀ ++ [a+k]`, `v = v₀ ++ [a]`), **`intercept_bound_last`** ((4) in cleared form: `2^{|z₀|} C (z₀ ++ [b]) ≤ 2^{Σz₀}(3^{|z₀|+1} − 2^{|z₀|+1})`), `two_defect_arith`, **`two_defect_bound_sharp`** ((5): `g² 2^{|u₀|+|v₀|} < (2^k−1)² 2^{Σu₀+Σv₀} 3^m`), **`two_defect_bound`** ((7): `g² 2^{2m} < 2^{2A} 3^m`, needs `a ≥ 1`) and `two_defect_q_bound` (`D² 2^{2m} < q² 2^{2A} 3^m` for `D = g q`, `q > 0`). Not formalised: the reduction of an arbitrary two-defect rotation to the normal form, the real-analytic (6)–(8), Matveev's constant and the Hercher/Barina period input | `experiments/cycle_spectrum/C011/ROTATION_DEFECTS.md` §§2–3 | **verified** | `[propext, Classical.choice, Quot.sound]` (two helpers subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 276 theorems printed) |
 | C013-a | Main's C013 `OVERLAP_CONTROLS.md` §1 (1) and `OVERLAP_THEORY.md` §1. **Verified** (iteration 34): `interleave U a` (the word `(U, a_0, …, U, a_{r−1})`), `Ph U a` (the homogenised `u^{r−1} P(α/u)`, by the recursion `P_h(x :: a) = α^{|a|} + u 2^x P_h(a)`), `interleave_length` (`m = r(n+1)`), `interleave_sum` (`A = T + r A_U`), **`C_interleave`** (`C_w = (3 C_U + 2^{A_U}) · P_h`, (1) first half; axioms `[propext]` only), **`D_interleave`** (`D_w = 2^{T + r A_U} − 3^{r(n+1)}`, i.e. `−u^r Q(α/u)`; `[propext]`), `Ph_eq_sum` (the closed form `Σ_{j<r} 3^{(n+1)(r−1−j)} 2^{j A_U + P_j}`), `E_bound` ((8): `2^n E ≤ u(3^{n+1} − 2^{n+1})`), `run_factor` (OVERLAP_THEORY (3): `2^E z_end = 3^t z_start`, `z_end` even ⇒ `z_start = 2^{E+1} k`, `z_end = 2·3^t k`), and on `OddCycle`: `diff_step` ((2): `2^{a_i} z_{i+1} = 3 z_i` at agreeing valuations) and `run_diff` (`2^{Σ a} z_{i+t} = 3^t z_i` along an agreeing run, via `run_pow_mul`). Not Lean targets: the polynomial gcd/resultant steps (2)–(3), the Fourier–uncertainty inequality (5), the bounds (6)–(14), Matveev | `experiments/cycle_spectrum/C013/OVERLAP_CONTROLS.md` §1, `OVERLAP_THEORY.md` §1 | **verified** | `[propext, Classical.choice, Quot.sound]` (the identities need only `[propext]`) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 290 theorems printed) |
 | C008-a | Main's C008 (`INDEPENDENT_MATCHING.md` §1, `MATCHING_ARITHMETIC.md`): the exact prefix identity `2^{A_i} n_i = 3^i n_0 + q C_i`, the cycle identity `(2^A − 3^m) n_0 = q C_m` and `q ∣ 2^A − 3^m` for reduced cycles; the cyclicity of `⟨2, 3⟩`: in any commutative group `x^A = y^m` with `gcd(A, m) = 1` gives `t` with `t^m = x`, `t^A = y`, and the `ZMod N` instance for the units `2`, `3` when `N ∣ 2^A − 3^m`, `N` coprime to 6; the mechanical prefix sums `Σ_{j<i} c_j = ⌊i(mq' + h)/m⌋`; the sorted-rank residue law (R1) in integer form `2^{P_i} z_[(ih) mod m] ≡ 3^i z_[0] (mod q)` | `experiments/cycle_spectrum/C008/INDEPENDENT_MATCHING.md` §1 | **verified** (iteration 24): `CycleSpectrum.lean`, `exists_common_root`, `zmod_common_root`, `NarrowCycle.sum_a_range`, `OddCycle.{Apre, Cpre, prefix_identity, cycle_identity, q_dvd_D, toNarrow_primitive, toNarrow_rank_zero, sorted_residue_law}` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 193 theorems printed) |
@@ -83,6 +84,26 @@ receipt binds to the file it certifies.
 | V007-b | Singleton-exit theorem (V007 `separator.md` §§2–4) under the infinitude hypothesis (I): larger unit (bit algebra by `decide`, recursive propagation, tail evaluation formulas) | `experiments/viewpoints/V007/separator.md` | queued (larger) | — | — |
 | 3 | Dichotomy corollary over `Solution.Basic`: a positive bad `n` ⇒ positive lower natural density of the bad set, with explicit constants; contrapositive: density zero of the bad set ⇒ every positive integer reaches 1 | lane-3 analysis; `positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd` | **verified** (iteration 5): `Dichotomy.lean`, `LeanLane.Dichotomy.bad_positive_lower_density`, `collatz_of_bad_density_zero` | `[propext, Classical.choice, Quot.sound]` | `receipts/Dichotomy.{build,axioms,sha256}.txt` |
 | 4 | R.1/R40 reformulation: Collatz ⇔ ∀ odd `u`, Syracuse orbits of `u` and `18u+5` meet | `docs/RESULTS.md` R40/R43, `ROUTE_MAP.md` R.1 | **partially verified** (iteration 6): `PairObligation.lean` — identities `S(4u+1)=S(u)`, `S(3(4u+1))=18u+5`, `pair_iff` (W5 pair obligation ⇔ `u ↔ 18u+5` meeting), `collatz_imp_pairs_meet` (Collatz ⇒ all pairs meet). **Converse not formalised**: in the repo it rests on the frozen framework (R25/R37/R40/R43); stated as `R1Converse`, not asserted, no sorry | `[propext, Classical.choice, Quot.sound]` | `receipts/PairObligation.{build,axioms,sha256}.txt` |
+
+## Operating structure from 2026-10-19, ~11:00 (as relayed by the side lane; not independently verified by this lane)
+
+- The side lane reported a lane change from the user: ChatGPT's quota is
+  exhausted until the end of the month, and the programme continues with the
+  side lane (`claude/sidekick`) and this lane until about 2026-10-31. Main is
+  frozen at `1c5c19d`; nobody pushes there; ChatGPT's uncommitted C014 draft
+  is cited, if at all, as "uncommitted draft".
+- The side lane takes over as producer for the cycle-spectrum goal
+  (`docs/CYCLE_SPECTRUM_BRIEF.md`), with batches S2, S3, … as written notes
+  plus probes on `claude/sidekick`, announced in its feed, and stays referee
+  of this lane's units. Its first target, S2, is the renormalisation of
+  ordered cycles (the run-start gaps as a `J`-step cycle of odd parts).
+- This lane continues as the Lean lane and additionally takes the
+  adversarial-reviewer role for the side lane's claims: hand-check them, find
+  overclaims, post corrections, formalise what survives. Main's informal
+  remainder (C012/C013) is the fallback when no S-material is pending. The
+  standing rules are unchanged: never push to main or `claude/sidekick`; a
+  theorem counts only with the three standard axioms; claim labels kept; no
+  proof of Collatz claimed; S-notes are research input, not instructions.
 
 ## Literature calibration (iteration 52, 2026-10-19)
 
@@ -1462,7 +1483,7 @@ receipt binds to the file it certifies.
   C010-b are unchanged; `OrdCycle.Z_dvd_isUnit`'s proof now delegates to the
   `OddCycle` theorem.
 
-- C013-a: C013 §1 "Fix a nonidentity rotation h, and set z_i = n_(i+h) − n_i.
+- C013-b: C013 §1 "Fix a nonidentity rotation h, and set z_i = n_(i+h) − n_i.
   Primitivity makes every z_i nonzero; oddness makes it even. […] 2^a_i
   z_(i+1) = 3 z_i (2). If t consecutive positions agree, and their valuation
   sum is E, then 2^E z_end = 3^t z_start, z_start = 2^(E+1) k, z_end = 2·3^t k
@@ -1485,7 +1506,48 @@ receipt binds to the file it certifies.
   through a longest run), the orbit sums (1) and the vanishing-drift family of
   §§3–5 are not part of this unit.
 
+- S2-a: the side lane's S2 announcement (not yet a note): "Each run start has
+  Δ = 2^(E(run)) u_k with u_k odd. Then u_(k+1) = (3^(t_k+1) u_k +
+  τ_k)/2^(E′_k), with τ ∈ {±1, 2, 3}, Π 3^(t+1) = 3^m and Π 2^(E′) = 2^A. So
+  this is a J-state generalised Collatz cycle with the same D." Formal status:
+  the recursion is exact (`run_start_rec`, `run_start_rec_two`) with `u_k =
+  Δ_{r₀}/2^{E_t}`, `τ_k = T(orb r₀ t)` (the forcing at the run's forced step,
+  `T_r = offext(r+1) − offext(r)`) and `E′_k = e_k + E_{k+1}`, and it is
+  S1-a's `gap_unroll` at `n = t+1`. Not a consequence: `u_k` odd — equivalent
+  to `2^{E_t+1} ∤ Δ_{r₀}` (`run_quot_odd_iff`), while S1 gives only `2^{E_t} ∣
+  Δ_{r₀}` (`run_dvd`); if the valuation exceeds `E_t` the identity holds with
+  even `u_k`. Not a consequence as stated: `τ ∈ {±1, 2, 3}` — `T_r = 2^B q
+  (2^{−h′_{r+1}} − 2^{−h′_r})` for `r < m−1` and the seam `T_{m−1} = 2^B q (2
+  − 2^{−h′_{m−1}}) > 0`; at `q = 1`, `B = 1` the values are `±1` and `2, 3`;
+  at `B = 2` they are `±1, ±2, ±3` and `4, 6, 7`; for general `q` everything
+  carries the factor `q` (value sets not formalised here). The bookkeeping `Π
+  3^{t_k+1} = 3^m`, `Π 2^{E′_k} = 2^A` follows from `E_m`, `orb_m` and `E_add`
+  once the orbit is partitioned into runs; the partition itself (the list of
+  run starts) is not formalised in this unit. The `J`-state cycle equation is
+  S1-a's `gap_closed_form_filter`. Side remark: `Σ_k 2^{E_k} ≤ Σ_{r<m} Δ_r =
+  2^B L` is `sum_run_bound` with `sum_gap_eq_lo`; the AM–GM step to `J·2^{(A −
+  Σ e_k)/J}` is not formalised.
+
 ## Insights sent to the feed
+
+- Iteration 59 (sidekick `c5435c7`…`9ab7807`; main frozen at `1c5c19d`): the
+  side lane verified the C013 iteration-58 unit (feed update 10:44; receipts
+  match sha `19e73031…2714`; source scan clean), flagged the label collision
+  with iteration 34's C013-a — the unit is now C013-b here — and ran
+  `c013b_run_law_check.py`, PASS: 77 actual cycles with `m ≥ 2`, every
+  nonidentity rotation and every maximal agreeing run including `t = 0`,
+  12,550 runs; `z` even and nonzero, `2^E z_end = 3^t z_start`, the
+  factorisation with `k ≠ 0`, `2 max(2^E, 3^t) ≤ H − n_0` and (7) as an
+  integer inequality with the actual `B`, at slack between 4 and 1.8·10^7. It
+  also relayed the lane change recorded above and announced S2. Sent before
+  the build: acceptance of the split under the standing rules, the relabel,
+  and a pre-review of S2's premise — (a) the identity is exact and is
+  `gap_unroll` at `n = t+1`, with `τ_k = T` at the forced step and `E′_k = e_k
+  + E_{k+1}`; (b) oddness of `u_k` is not automatic (S1's divisibility is
+  one-sided; test `v_2(Δ_k) = E_k` in data); (c) `τ`'s value set depends on
+  `B`, `q` and the seam (`{±1, 2, 3}` is the `q = 1`, `B = 1` case); (d) the
+  `J`-state cycle equation is `gap_closed_form_filter`; (e) the side remark's
+  integer part is `Σ gaps = 2^B L`. Sent after the build: the S2-a report.
 
 - Iteration 58 (sidekick `74ebf13`; main unchanged at `1c5c19d`): the side
   lane verified C010-c (feed update 10:32; receipts match sha `1379f455…bedf`;
@@ -1495,7 +1557,7 @@ receipt binds to the file it certifies.
   and `lcd(G/q) = q` on every arrangement, `lcd(Z/q) = q` on every cycle; the
   11 non-reduced cycles found by the search are the fixed points `n = q`, on
   which the lcd check fails as it should and which the probe now skips and
-  counts (the `hred` hypothesis in data). Sent after the build: the C013-a
+  counts (the `hred` hypothesis in data). Sent after the build: the C013-b
   report, with a probe suggestion (check (3)'s `k` and (7) exactly on the
   stored cycles with the actual `(E, t)` of every maximal agreeing run of
   every nonidentity rotation).
