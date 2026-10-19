@@ -9283,6 +9283,402 @@ theorem no_one_cycle_of_gap (hq1 : Γ.q = 1)
 
 end OddCycle
 
+/-! ### S9-c: the three-mismatch denominator law at general `q` (S9 §2 (ii), linear form)
+
+S7's chain with the global-drift ceiling in place of the per-step ceiling, for an arbitrary
+`OddCycle` with letters `≥ 1`: no gap hypothesis and no hypothesis on `L/q`. The single size variable
+is `Λ = log L + δ`, `δ = A log 2 − m log 3`. The drift ceiling gives `log n_k ≤ log L + k log(3/2) + δ`
+(`n_le_drift`, `log_of_drift_bound`); the witness of the first run in S7 Step 5 becomes
+`2·3^τ < L (3/2)^{τ+τ′+1} 2^A/3^m` (`three_mismatch_witness_drift`, the two ceiling calls of
+`three_mismatch_witness` replaced). The numeric conditions W, A and F hold for `m ≥ 2^19` whenever
+`Λ ≤ (m/70) log 2` (`numeric_WA_drift`, `numeric_F_drift`; the supremum of the admissible ratio is
+`Λ₃(m)/m = 0.014570…` for every `m ≥ 2^19`, `1/70 = 0.0142857…`, with W binding: margins at `2^19`
+of about `348`, `195,000` and `4,395` positions). Hence a rotation `1 ≤ h < m` with exactly three
+mismatches forces `Λ > (m/70) log 2` (`no_three_mismatch_of_small_drift`), and with
+`log L ≤ log q + λ`, `λ = log(m 2^A/(3D))` (`three_L_D_le`):
+`(m/70) log 2 < log q + δ + λ` (`three_mismatch_denominator_law`). In bits: `log₂ q > m/70 − δ(w) −
+λ(w)`, S9 (ii) with the explicit constant `1/70` in place of `Λ₃(m)`. The identification `q = den(w)`
+is the programme's (C008/C009), not re-proved here. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- The drift ceiling without the excess: `n_k ≤ L (3/2)^k · 2^A/3^m` for `k ≤ m`. -/
+theorem n_le_drift (hapos : ∀ i, 1 ≤ Γ.a i) {k : ℕ} (hk : k ≤ m) :
+    (Γ.n k : ℝ) ≤ Γ.n 0 * (3 / 2 : ℝ) ^ k * ((2 : ℝ) ^ Γ.Apre m / 3 ^ m) := by
+  have hR : (Γ.n k : ℝ) * 2 ^ Γ.Apre k * 3 ^ m ≤ Γ.n 0 * 3 ^ k * 2 ^ Γ.Apre m := by
+    exact_mod_cast Γ.global_drift hk
+  have hAk := Γ.Apre_eq_excess_add hapos k
+  have hnk : (0 : ℝ) ≤ Γ.n k := by exact_mod_cast (lt_of_lt_of_le Γ.npos (Γ.nmin k)).le
+  have h3m : (0 : ℝ) < 3 ^ m := by positivity
+  have h2k : (0 : ℝ) < 2 ^ k := by positivity
+  have hkA : k ≤ Γ.Apre k := by
+    rw [hAk]
+    omega
+  have h2 : (2 : ℝ) ^ k ≤ 2 ^ Γ.Apre k := pow_le_pow_right₀ (by norm_num) hkA
+  have h1 : (Γ.n k : ℝ) * (2 ^ k * 3 ^ m) ≤ Γ.n 0 * 3 ^ k * 2 ^ Γ.Apre m := by
+    calc (Γ.n k : ℝ) * (2 ^ k * 3 ^ m) = Γ.n k * 2 ^ k * 3 ^ m := by ring
+      _ ≤ Γ.n k * 2 ^ Γ.Apre k * 3 ^ m :=
+          mul_le_mul_of_nonneg_right (mul_le_mul_of_nonneg_left h2 hnk) h3m.le
+      _ ≤ Γ.n 0 * 3 ^ k * 2 ^ Γ.Apre m := hR
+  have e : Γ.n 0 * (3 / 2 : ℝ) ^ k * ((2 : ℝ) ^ Γ.Apre m / 3 ^ m) =
+      Γ.n 0 * 3 ^ k * 2 ^ Γ.Apre m / (2 ^ k * 3 ^ m) := by
+    rw [div_pow]
+    field_simp
+  rw [e, le_div_iff₀ (mul_pos h2k h3m)]
+  exact h1
+
+/-- Logarithmic form of a drift bound `2·3^t < L (3/2)^k 2^A/3^m`. -/
+theorem log_of_drift_bound {t k : ℕ}
+    (hb : 2 * (3 : ℝ) ^ t < Γ.n 0 * (3 / 2 : ℝ) ^ k * ((2 : ℝ) ^ Γ.Apre m / 3 ^ m)) :
+    Real.log 2 + t * Real.log 3 <
+      Real.log (Γ.n 0) + k * (Real.log 3 - Real.log 2) +
+        ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) := by
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have h3t : (3 : ℝ) ^ t ≠ 0 := by positivity
+  have h32 : (3 / 2 : ℝ) ^ k ≠ 0 := by positivity
+  have h2A : (2 : ℝ) ^ Γ.Apre m ≠ 0 := by positivity
+  have h3m : (3 : ℝ) ^ m ≠ 0 := by positivity
+  have hq : (2 : ℝ) ^ Γ.Apre m / 3 ^ m ≠ 0 := div_ne_zero h2A h3m
+  have hn32 : Γ.n 0 * (3 / 2 : ℝ) ^ k ≠ 0 := mul_ne_zero hn0.ne' h32
+  have hl := Real.log_lt_log (by positivity) hb
+  rw [Real.log_mul (by norm_num : (2 : ℝ) ≠ 0) h3t, Real.log_pow, Real.log_mul hn32 hq,
+    Real.log_mul hn0.ne' h32, Real.log_pow, Real.log_div h2A h3m, Real.log_pow, Real.log_pow,
+    Real.log_div (by norm_num : (3 : ℝ) ≠ 0) (by norm_num : (2 : ℝ) ≠ 0)] at hl
+  linarith
+
+/-- S7 Step 5 with the drift ceiling: the three runs and the witness of the first,
+`2·3^τ < L (3/2)^{τ+τ′+1} 2^A/3^m`. -/
+theorem three_mismatch_witness_drift (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {j h e_a : ℕ} (hjm : j < m) (hh1 : 1 ≤ h) (hhm : h < m)
+    (hs : (Γ.mis h).card = 3) (hea1 : j - h ≤ e_a) (hea2 : e_a < m - h) (hdown : Γ.down h e_a)
+    (hup : Γ.up h (e_a + h)) (hhj : h ≤ j)
+    (hW : ∀ i, j ≤ i → i < m → i ≠ e_a + h → Γ.agree h i)
+    (hW' : ∀ k, j - h ≤ k → k < m - h → k ≠ e_a → Γ.agree h k) :
+    ∃ τ τ' τ'' i₁ i₂ i₃ : ℕ, τ + τ' + τ'' = m - 3 ∧
+      (∀ k, k < τ → Γ.agree h (i₁ + k)) ∧ (∀ k, k < τ' → Γ.agree h (i₂ + k)) ∧
+      (∀ k, k < τ'' → Γ.agree h (i₃ + k)) ∧
+      2 * (3 : ℝ) ^ τ < Γ.n 0 * (3 / 2 : ℝ) ^ (τ + τ' + 1) *
+        ((2 : ℝ) ^ Γ.Apre m / 3 ^ m) := by
+  have hm := Γ.hm
+  have hh : h % m ≠ 0 := by
+    rw [Nat.mod_eq_of_lt hhm]
+    omega
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have hA3 : (0 : ℝ) ≤ (2 : ℝ) ^ Γ.Apre m / 3 ^ m := by positivity
+  set e_b := e_a + h with heb_def
+  have heb : e_b < m := by omega
+  have hea_mem : e_a ∈ Γ.mis h := Γ.down_mem_mis (by omega) hdown
+  have heb_mem : e_b ∈ Γ.mis h := Γ.up_mem_mis heb hup
+  have hab : e_a ≠ e_b := by omega
+  obtain ⟨e_c, h3⟩ := Γ.third_mismatch hs hea_mem heb_mem hab
+  have hec_mem' : e_c ∈ ((Γ.mis h).erase e_a).erase e_b := by
+    rw [h3]
+    exact Finset.mem_singleton_self e_c
+  have hec_mem : e_c ∈ Γ.mis h := Finset.mem_of_mem_erase (Finset.mem_of_mem_erase hec_mem')
+  have hcb : e_c ≠ e_b := (Finset.mem_erase.mp hec_mem').1
+  have hca : e_c ≠ e_a := (Finset.mem_erase.mp (Finset.mem_of_mem_erase hec_mem')).1
+  have hec_lt : e_c < m := Γ.mis_lt_m hec_mem
+  have hec_na : ¬ Γ.agree h e_c := by
+    unfold mis at hec_mem
+    rw [Finset.mem_filter] at hec_mem
+    exact hec_mem.2
+  -- `e_c` is not in `W = [j, m)` and not in `W − h = [j − h, m − h)`
+  have hec_notW : e_c < j := by
+    by_contra hge
+    exact hec_na (hW e_c (by omega) hec_lt hcb)
+  have hec_notW' : e_c < j - h ∨ m - h ≤ e_c := by
+    by_contra hno
+    exact hec_na (hW' e_c (by omega) (by omega) hca)
+  -- the agreement helper for positions below `2m`
+  have hagr : ∀ p, p < 2 * m → p ≠ e_a → p ≠ e_b → p ≠ e_c → p ≠ e_a + m → p ≠ e_b + m →
+      p ≠ e_c + m → Γ.agree h p :=
+    fun p => Γ.agree_of_pos hs hea_mem heb_mem hec_mem hab hca.symm hcb.symm p
+  have hzc : Γ.z h e_c ≠ 0 := Γ.z_ne_zero hprim hh e_c
+  rcases Nat.lt_or_gt_of_ne hca with hc1 | hc2
+  · -- Order 1: `e_c < e_a`. Runs: `(e_b, e_c + m)`, `(e_a, e_b)`, `(e_c, e_a)`.
+    refine ⟨m - e_b + e_c - 1, h - 1, e_a - e_c - 1, e_b + 1, e_a + 1, e_c + 1, by omega,
+      ?_, ?_, ?_, ?_⟩
+    · intro k hk
+      exact hagr (e_b + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
+        (by omega)
+    · intro k hk
+      exact hagr (e_a + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
+        (by omega)
+    · intro k hk
+      exact hagr (e_c + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
+        (by omega)
+    · have hrun : ∀ k, k < m - e_b + e_c - 1 → Γ.agree h (e_b + 1 + k) := by
+        intro k hk
+        exact hagr (e_b + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega)
+          (by omega) (by omega)
+      have hend : e_b + 1 + (m - e_b + e_c - 1) = e_c + m := by omega
+      have hzend : Γ.z h (e_b + 1 + (m - e_b + e_c - 1)) ≠ 0 := by
+        rw [hend, Γ.z_per]
+        exact hzc
+      have hw := Γ.witness_gt (m - e_b + e_c - 1) hrun hzend
+      have hpos : 0 < Γ.z h e_c := by
+        have := (Γ.z_pos_run (m - e_b + e_c - 1) hrun).mpr hup.2
+        rwa [hend, Γ.z_per] at this
+      rw [hend, Γ.nper, Nat.add_right_comm e_c m h, Γ.nper] at hw
+      have hle : Γ.n e_c ≤ Γ.n (e_c + h) := by
+        unfold z at hpos
+        linarith
+      rw [max_eq_right hle] at hw
+      have hwR : 2 * (3 : ℝ) ^ (m - e_b + e_c - 1) < Γ.n (e_c + h) := by exact_mod_cast hw
+      have hkm : e_c + h ≤ m := by omega
+      have hcl := Γ.n_le_drift hapos hkm
+      have hidx : e_c + h ≤ m - e_b + e_c - 1 + (h - 1) + 1 := by omega
+      calc 2 * (3 : ℝ) ^ (m - e_b + e_c - 1) < Γ.n (e_c + h) := hwR
+        _ ≤ Γ.n 0 * (3 / 2 : ℝ) ^ (e_c + h) * ((2 : ℝ) ^ Γ.Apre m / 3 ^ m) := hcl
+        _ ≤ Γ.n 0 * (3 / 2 : ℝ) ^ (m - e_b + e_c - 1 + (h - 1) + 1) *
+            ((2 : ℝ) ^ Γ.Apre m / 3 ^ m) :=
+            mul_le_mul_of_nonneg_right
+              (mul_le_mul_of_nonneg_left (pow_le_pow_right₀ (by norm_num) hidx) hn0.le) hA3
+  · -- Order 2: `e_a < e_c < e_b`. Runs: `(e_a, e_c)`, `(e_b, e_a + m)`, `(e_c, e_b)`.
+    have hc2b : e_c < e_b := by omega
+    refine ⟨e_c - e_a - 1, m - e_b + e_a - 1, e_b - e_c - 1, e_a + 1, e_b + 1, e_c + 1, by omega,
+      ?_, ?_, ?_, ?_⟩
+    · intro k hk
+      exact hagr (e_a + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
+        (by omega)
+    · intro k hk
+      exact hagr (e_b + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
+        (by omega)
+    · intro k hk
+      exact hagr (e_c + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
+        (by omega)
+    · have hrun : ∀ k, k < e_c - e_a - 1 → Γ.agree h (e_a + 1 + k) := by
+        intro k hk
+        exact hagr (e_a + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega)
+          (by omega) (by omega)
+      have hend : e_a + 1 + (e_c - e_a - 1) = e_c := by omega
+      have hzend : Γ.z h (e_a + 1 + (e_c - e_a - 1)) ≠ 0 := by
+        rw [hend]
+        exact hzc
+      have hw := Γ.witness_gt (e_c - e_a - 1) hrun hzend
+      have hneg1 : Γ.z h (e_a + 1) < 0 := by
+        have hne : Γ.z h (e_a + 1) ≠ 0 := Γ.z_ne_zero hprim hh (e_a + 1)
+        exact lt_of_le_of_ne (not_lt.mp hdown.2) hne
+      have hneg : Γ.z h e_c < 0 := by
+        have := (Γ.z_neg_run (e_c - e_a - 1) hrun).mpr hneg1
+        rwa [hend] at this
+      rw [hend] at hw
+      have hle : Γ.n (e_c + h) ≤ Γ.n e_c := by
+        unfold z at hneg
+        linarith
+      rw [max_eq_left hle] at hw
+      have hwR : 2 * (3 : ℝ) ^ (e_c - e_a - 1) < Γ.n e_c := by exact_mod_cast hw
+      have hcl := Γ.n_le_drift hapos hec_lt.le
+      have hidx : e_c ≤ e_c - e_a - 1 + (m - e_b + e_a - 1) + 1 := by omega
+      calc 2 * (3 : ℝ) ^ (e_c - e_a - 1) < Γ.n e_c := hwR
+        _ ≤ Γ.n 0 * (3 / 2 : ℝ) ^ e_c * ((2 : ℝ) ^ Γ.Apre m / 3 ^ m) := hcl
+        _ ≤ Γ.n 0 * (3 / 2 : ℝ) ^ (e_c - e_a - 1 + (m - e_b + e_a - 1) + 1) *
+            ((2 : ℝ) ^ Γ.Apre m / 3 ^ m) :=
+            mul_le_mul_of_nonneg_right
+              (mul_le_mul_of_nonneg_left (pow_le_pow_right₀ (by norm_num) hidx) hn0.le) hA3
+
+/-- Conditions W and A of S7 in the drift formulation, for `m ≥ 2^19` and `Λ ≤ (m/70) log 2`. -/
+theorem numeric_WA_drift (m j T ts Xc A Λ : ℝ) (hm : 2 ^ 19 ≤ m) (hj0 : 0 ≤ j) (hj : j + 1 ≤ m)
+    (hT0 : 0 ≤ T) (hT : T * Real.log 3 ≤ Λ - Real.log 2 + (m - 1) * (Real.log 3 - Real.log 2))
+    (hts0 : 0 ≤ ts) (hts : m - 3 ≤ 3 * ts) (hXc0 : 0 ≤ Xc)
+    (hjlow : Real.log 2 + ts * Real.log 3 + Xc * Real.log 2 < Λ + j * (Real.log 3 - Real.log 2))
+    (hA0 : 0 ≤ A) (hA : m * Real.log 3 < A * Real.log 2) (hΛ : Λ ≤ m / 70 * Real.log 2) :
+    2 * (m - j) + 2 * (T + 1) ≤ m + 1 ∧ 3 * Xc + 1 ≤ A - m := by
+  have hl2a := Real.log_two_gt_d9
+  have hl2b := Real.log_two_lt_d9
+  obtain ⟨hl3a, hl3b⟩ := log_three_bounds
+  have hκup : Real.log 3 - Real.log 2 ≤ (179 / 306) * 0.6931471808 := by linarith
+  have hl3lo : (1054 / 665) * 0.6931471803 ≤ Real.log 3 := by linarith
+  have p1 : j * (Real.log 3 - Real.log 2) ≤ j * ((179 / 306) * 0.6931471808) :=
+    mul_le_mul_of_nonneg_left hκup hj0
+  have p2 : ts * ((1054 / 665) * 0.6931471803) ≤ ts * Real.log 3 :=
+    mul_le_mul_of_nonneg_left hl3lo hts0
+  have p3 : T * ((1054 / 665) * 0.6931471803) ≤ T * Real.log 3 :=
+    mul_le_mul_of_nonneg_left hl3lo hT0
+  have p4 : (m - 1) * (Real.log 3 - Real.log 2) ≤ (m - 1) * ((179 / 306) * 0.6931471808) :=
+    mul_le_mul_of_nonneg_left hκup (by linarith)
+  have p5 : m * ((1054 / 665) * 0.6931471803) ≤ m * Real.log 3 :=
+    mul_le_mul_of_nonneg_left hl3lo (by linarith)
+  have p6 : A * Real.log 2 ≤ A * 0.6931471808 := mul_le_mul_of_nonneg_left hl2b.le hA0
+  have p7 : Xc * 0.6931471803 ≤ Xc * Real.log 2 := mul_le_mul_of_nonneg_left hl2a.le hXc0
+  have p8 : m / 70 * Real.log 2 ≤ m / 70 * 0.6931471808 :=
+    mul_le_mul_of_nonneg_left hl2b.le (by linarith)
+  constructor
+  · linarith
+  · linarith
+
+/-- Condition F of S7 in the drift formulation: the Step 5–6 data are contradictory for `m ≥ 2^19`
+and `Λ ≤ (m/70) log 2`. -/
+theorem numeric_F_drift (m T τ Λ : ℝ) (hm : 2 ^ 19 ≤ m) (hT0 : 0 ≤ T)
+    (hT : T * Real.log 3 ≤ Λ - Real.log 2 + (m - 1) * (Real.log 3 - Real.log 2))
+    (hτ0 : 0 ≤ τ) (hτ : m - 3 ≤ τ + 2 * T)
+    (hwit : τ * Real.log 3 < Λ - Real.log 2 + (τ + T + 1) * (Real.log 3 - Real.log 2))
+    (hΛ : Λ ≤ m / 70 * Real.log 2) : False := by
+  have hl2a := Real.log_two_gt_d9
+  have hl2b := Real.log_two_lt_d9
+  obtain ⟨hl3a, hl3b⟩ := log_three_bounds
+  have hκup : Real.log 3 - Real.log 2 ≤ (179 / 306) * 0.6931471808 := by linarith
+  have hl3lo : (1054 / 665) * 0.6931471803 ≤ Real.log 3 := by linarith
+  have p1 : τ * ((1054 / 665) * 0.6931471803) ≤ τ * Real.log 3 :=
+    mul_le_mul_of_nonneg_left hl3lo hτ0
+  have p2 : (τ + T + 1) * (Real.log 3 - Real.log 2) ≤
+      (τ + T + 1) * ((179 / 306) * 0.6931471808) :=
+    mul_le_mul_of_nonneg_left hκup (by linarith)
+  have p3 : T * ((1054 / 665) * 0.6931471803) ≤ T * Real.log 3 :=
+    mul_le_mul_of_nonneg_left hl3lo hT0
+  have p4 : (m - 1) * (Real.log 3 - Real.log 2) ≤ (m - 1) * ((179 / 306) * 0.6931471808) :=
+    mul_le_mul_of_nonneg_left hκup (by linarith)
+  have p8 : m / 70 * Real.log 2 ≤ m / 70 * 0.6931471808 :=
+    mul_le_mul_of_nonneg_left hl2b.le (by linarith)
+  linarith
+
+/-- **S7 in the drift formulation.** For a primitive cycle with letters `≥ 1`, `m ≥ 2^19` and
+`Λ = log L + δ ≤ (m/70) log 2`, no rotation `1 ≤ h < m` has exactly three mismatches. No gap
+hypothesis and no hypothesis on `L/q`. -/
+theorem no_three_mismatch_of_small_drift (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) (hm : 2 ^ 19 ≤ m)
+    (hΛ : Real.log (Γ.n 0) + ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) ≤
+      (m : ℝ) / 70 * Real.log 2)
+    {h : ℕ} (hh1 : 1 ≤ h) (hhm : h < m) : (Γ.mis h).card ≠ 3 := by
+  intro hs
+  have hmpos := Γ.hm
+  have hh : h % m ≠ 0 := by
+    rw [Nat.mod_eq_of_lt hhm]
+    omega
+  -- the maximum
+  obtain ⟨j, hjm', hjmax⟩ :=
+    Finset.exists_max_image (Finset.range m) Γ.n ⟨0, Finset.mem_range.mpr hmpos⟩
+  have hjm : j < m := Finset.mem_range.mp hjm'
+  have hj : ∀ i, Γ.n i ≤ Γ.n j := fun i => by
+    rw [← Γ.n_mod i]
+    exact hjmax (i % m) (Finset.mem_range.mpr (Nat.mod_lt _ hmpos))
+  -- a longest agreeing run `T`, realised at `i`
+  obtain ⟨i, T, hrun, hTbound⟩ := Γ.exists_longest_run hprim hh
+  have hzT : Γ.z h (i + T) ≠ 0 := Γ.z_ne_zero hprim hh (i + T)
+  -- Step 1: the spacing bound and `3T ≥ m − 3`
+  have hsep := Γ.hsep_of_runs hTbound hs
+  have hpig := Γ.pigeonhole (Γ.exists_mis hprim hh) hTbound
+  rw [hs] at hpig
+  -- the witness of the longest run, below the maximum, against the drift ceiling
+  have hw := Γ.witness_gt T (fun k hk => hrun k hk) hzT
+  have hwj : 2 * (3 : ℤ) ^ T < Γ.n j := lt_of_lt_of_le hw (max_le (hj _) (hj _))
+  have hwjR : 2 * (3 : ℝ) ^ T < Γ.n j := by exact_mod_cast hwj
+  have hnj : (0 : ℝ) < Γ.n j := by exact_mod_cast lt_of_lt_of_le Γ.npos (Γ.nmin j)
+  have h3T : (3 : ℝ) ^ T ≠ 0 := by positivity
+  have hlw := Real.log_lt_log (by positivity) hwjR
+  rw [Real.log_mul (by norm_num : (2 : ℝ) ≠ 0) h3T, Real.log_pow] at hlw
+  have hg := Γ.global_drift_log hapos hjm.le
+  have hlog32 : 0 ≤ Real.log 3 - Real.log 2 := by
+    have := Real.log_le_log (by norm_num : (0 : ℝ) < 2) (by norm_num : (2 : ℝ) ≤ 3)
+    linarith
+  have hlog2 : 0 < Real.log 2 := Real.log_pos (by norm_num)
+  have hX : (0 : ℝ) ≤ Γ.excess j * Real.log 2 := mul_nonneg (Nat.cast_nonneg _) hlog2.le
+  have hjR : (j : ℝ) + 1 ≤ m := by exact_mod_cast (hjm : j + 1 ≤ m)
+  have hjκ := mul_le_mul_of_nonneg_right (by linarith : (j : ℝ) ≤ (m : ℝ) - 1) hlog32
+  have hmR : (2 : ℝ) ^ 19 ≤ m := by exact_mod_cast hm
+  -- hypotheses of the numeric lemmas
+  have hT : (T : ℝ) * Real.log 3 ≤
+      (Real.log (Γ.n 0) + ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) - Real.log 2 +
+        ((m : ℝ) - 1) * (Real.log 3 - Real.log 2) := by
+    linarith
+  have hjlow : Real.log 2 + (T : ℝ) * Real.log 3 + (Γ.excess j : ℝ) * Real.log 2 <
+      (Real.log (Γ.n 0) + ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) +
+        (j : ℝ) * (Real.log 3 - Real.log 2) := by
+    linarith
+  have hts : (m : ℝ) - 3 ≤ 3 * (T : ℝ) := by
+    have h' : (m : ℝ) ≤ ((T : ℝ) + 1) * 3 := by exact_mod_cast hpig
+    linarith
+  have hA : (m : ℝ) * Real.log 3 < (Γ.Apre m : ℝ) * Real.log 2 := by
+    have hD := Γ.D_pos
+    have hDR : (3 : ℝ) ^ m < 2 ^ Γ.Apre m := by
+      have : (3 : ℤ) ^ m < 2 ^ Γ.Apre m := by linarith
+      exact_mod_cast this
+    have := Real.log_lt_log (by positivity) hDR
+    rwa [Real.log_pow, Real.log_pow] at this
+  obtain ⟨hWr, hAr⟩ := numeric_WA_drift (m : ℝ) j T T (Γ.excess j) (Γ.Apre m)
+    (Real.log (Γ.n 0) + ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) hmR (Nat.cast_nonneg j)
+    hjR (Nat.cast_nonneg T) hT (Nat.cast_nonneg T) hts (Nat.cast_nonneg _) hjlow
+    (Nat.cast_nonneg _) hA hΛ
+  have hWnat : 2 * (m - j) + 2 * (T + 1) ≤ m + 1 := by
+    have h' : ((2 * (m - j) + 2 * (T + 1) : ℕ) : ℝ) ≤ ((m + 1 : ℕ) : ℝ) := by
+      push_cast [Nat.cast_sub hjm.le]
+      linarith
+    exact_mod_cast h'
+  have hσ : 2 * (m - j) ≤ m - 2 * (T + 1) + 1 := by omega
+  have hσd : m - j ≤ m - 2 * (T + 1) := by omega
+  have hmA : m ≤ Γ.Apre m := Γ.m_le_Apre hapos
+  have hAnat : 3 * Γ.excess j < Γ.Apre m - m := by
+    have h' : ((3 * Γ.excess j + 1 : ℕ) : ℝ) ≤ ((Γ.Apre m - m : ℕ) : ℝ) := by
+      push_cast [Nat.cast_sub hmA]
+      linarith
+    have h'' : 3 * Γ.excess j + 1 ≤ Γ.Apre m - m := by exact_mod_cast h'
+    omega
+  -- Steps 2–4: the aligned pair and its windows
+  obtain ⟨e_a, e_b, hea, heb, hea1, hea2, heb1, heb2, hdown, hup, _, hhj, halign⟩ :=
+    Γ.three_mismatch_structure hprim hj hjm hh1 hhm hsep hσ hapos hAnat
+  subst halign
+  have hW : ∀ i, j ≤ i → i < m → i ≠ e_a + h → Γ.agree h i := by
+    intro i hi1 hi2 hi3
+    exact Γ.agree_of_window hsep hσd heb heb1 (by omega) (by omega) hi1 (by omega) hi3
+  have hW' : ∀ k, j - h ≤ k → k < m - h → k ≠ e_a → Γ.agree h k := by
+    intro k hk1 hk2 hk3
+    exact Γ.agree_of_window hsep hσd hea hea1 (by omega) (by omega) hk1 (by omega) hk3
+  -- Step 5: the three runs and the witness of the first, with the drift ceiling
+  obtain ⟨τ, τ', τ'', _, i₂, i₃, hsum, _, hr2, hr3, hwitR⟩ :=
+    Γ.three_mismatch_witness_drift hprim hapos hjm hh1 hhm hs hea1 hea2 hdown hup hhj hW hW'
+  have hτ'T : τ' ≤ T := hTbound i₂ τ' hr2
+  have hτ''T : τ'' ≤ T := hTbound i₃ τ'' hr3
+  have hwlog := Γ.log_of_drift_bound hwitR
+  push_cast at hwlog
+  have hτ'R : (τ' : ℝ) ≤ T := by exact_mod_cast hτ'T
+  have hwit : (τ : ℝ) * Real.log 3 <
+      (Real.log (Γ.n 0) + ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) - Real.log 2 +
+        ((τ : ℝ) + T + 1) * (Real.log 3 - Real.log 2) := by
+    have := mul_le_mul_of_nonneg_right hτ'R hlog32
+    linarith
+  have hmτ : m ≤ τ + 2 * T + 3 := by omega
+  have hτR : (m : ℝ) - 3 ≤ (τ : ℝ) + 2 * T := by
+    have : (m : ℝ) ≤ (τ : ℝ) + 2 * T + 3 := by exact_mod_cast hmτ
+    linarith
+  -- Step 6
+  exact numeric_F_drift (m : ℝ) T τ
+    (Real.log (Γ.n 0) + ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) hmR (Nat.cast_nonneg T)
+    hT (Nat.cast_nonneg τ) hτR hwit hΛ
+
+/-- **S9 (ii), the three-mismatch denominator law** (natural logarithms, explicit constant). For a
+primitive cycle with odd `q`, `m ≥ 2^19`, and a rotation `1 ≤ h < m` with exactly three mismatches,
+`(m/70) log 2 < log q + δ + λ`, where `δ = A log 2 − m log 3` and
+`λ = log m + A log 2 − log 3 − log D`, `D = 2^A − 3^m`. In bits: `log₂ q > m/70 − δ(w) − λ(w)`. -/
+theorem three_mismatch_denominator_law (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hq : Odd Γ.q) (hm : 2 ^ 19 ≤ m) {h : ℕ} (hh1 : 1 ≤ h) (hhm : h < m)
+    (hs : (Γ.mis h).card = 3) :
+    (m : ℝ) / 70 * Real.log 2 <
+      Real.log (Γ.q) + ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) +
+        (Real.log m + (Γ.Apre m : ℝ) * Real.log 2 - Real.log 3 -
+          Real.log ((2 : ℝ) ^ Γ.Apre m - 3 ^ m)) := by
+  have hapos : ∀ i, 1 ≤ Γ.a i := Γ.a_pos_of_odd hq
+  by_contra hle
+  have hle' := not_lt.mp hle
+  -- `log L ≤ log q + λ`
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have hD : (0 : ℝ) < (2 : ℝ) ^ Γ.Apre m - 3 ^ m := by exact_mod_cast Γ.D_pos
+  have hqR : (0 : ℝ) < Γ.q := by exact_mod_cast Γ.hq
+  have hm0 : (0 : ℝ) < m := by exact_mod_cast Γ.hm
+  have hA2 : (0 : ℝ) < 2 ^ Γ.Apre m := by positivity
+  have h3n0 : (0 : ℝ) < 3 * Γ.n 0 := mul_pos (by norm_num) hn0
+  have hmq : (0 : ℝ) < m * Γ.q := mul_pos hm0 hqR
+  have hl3 := Real.log_le_log (mul_pos h3n0 hD) Γ.three_L_D_le
+  rw [Real.log_mul h3n0.ne' hD.ne', Real.log_mul (by norm_num : (3 : ℝ) ≠ 0) hn0.ne',
+    Real.log_mul hmq.ne' hA2.ne', Real.log_mul hm0.ne' hqR.ne', Real.log_pow] at hl3
+  have hΛ : Real.log (Γ.n 0) + ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) ≤
+      (m : ℝ) / 70 * Real.log 2 := by
+    linarith
+  exact Γ.no_three_mismatch_of_small_drift hprim hapos hm hΛ hh1 hhm hs
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

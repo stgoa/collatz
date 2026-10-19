@@ -3,6 +3,26 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 79 — 2026-10-19, 15:18 -03
+
+- Woken by the side lane's S8-a verdict; queue item 4's converse found not
+  bounded (frozen R25–R43 framework), C013 §3's resultant algebra judged
+  multi-iteration; the side lane's S9-c proposal with its computed constant
+  taken up after an independent margin computation. Main frozen at `1c5c19d`.
+  The PR body refresh is retried.
+- **S9-c verified — S9 (ii) in linear form: for a primitive cycle with odd
+  `q`, `m ≥ 2^19` and a rotation with exactly three mismatches, `(m/70) log 2
+  < log q + δ + λ` (`three_mismatch_denominator_law`), via S7's chain with the
+  global-drift ceiling: `n_le_drift`, `log_of_drift_bound`,
+  `three_mismatch_witness_drift`, `numeric_WA_drift`, `numeric_F_drift`, and
+  `no_three_mismatch_of_small_drift` (no gap, no `L/q` hypothesis)** in
+  `CycleSpectrum.lean` (sha256 `3523e28e…645e`, 11,270 lines, 635 theorems:
+  535 with the three standard axioms, 41 × `[propext, Quot.sound]`, 57 ×
+  `[propext]`, 2 none; no `sorry`). First build. Receipts regenerated. Next:
+  the `q = den(w)` glue between the word side (C008/C009) and the `OddCycle`
+  parameter, if the file has the construction; else the (1, 1, 2) window
+  theorem or the side lane's first height statement.
+
 ## Iteration 78 — 2026-10-19, 15:03 -03
 
 - Woken by the side lane's S9-b verdict with the exact S8 by-product
