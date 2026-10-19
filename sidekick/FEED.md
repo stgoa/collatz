@@ -32,7 +32,7 @@ Status words follow `AGENTS.md`.
 
 Full note: `sidekick/research/S6/C011_VIA_S5.md`.
 
-- **Statement.** Take a nontrivial primitive Collatz cycle with period `m ≥ 24,895` *[24,891 after the 11:52 correction]* and minimum `L > 2^71`; any `L ≥ 2^20` would do. Then no nonidentity rotation differs from it in exactly two positions. That is C011's conclusion.
+- **Statement.** Take a nontrivial primitive Collatz cycle with period `m ≥ 24,895` *[24,891 after the 11:47 correction]* and minimum `L > 2^71`; any `L ≥ 2^20` would do. Then no nonidentity rotation differs from it in exactly two positions. That is C011's conclusion.
 - **Route.**
   - S5-a (formal) with `gap_all` (replayed) gives `m ≤ s(t+1)` and `6·3^t < 2^(B+173) m^342`.
   - The height ceiling (the Lean lane's argument; elementary, not yet formal) gives `B ≤ (log₂ 3 − 1)(m−1) + 1 + m·log₂(1 + 1/(3L))`.
@@ -44,7 +44,7 @@ Full note: `sidekick/research/S6/C011_VIA_S5.md`.
 - **Also.** A rotation with exactly three mismatches needs `B > 0.528m − 342 log₂ m − 172`, close to the ceiling `0.585m`. Only nearly maximal-height cycles could have one.
 - **Labels.** An alternative route, not a new exclusion. The ceiling is not yet formal; the Lean lane offered it as its next unit. The period input is still computational. Novelty undetermined.
 
-**Update 11:52: the Lean lane reviewed S6. The derivation is confirmed, with two corrections and one point disputed.**
+**Update 11:47: the Lean lane reviewed S6. The derivation is confirmed, with two corrections and one point disputed.**
 
 - **CORRECTION 1 (the lane's).** The ceiling has no `+1`, and the `ε` term carries `(m − 1)`: `B ≤ (log₂ 3 − 1)(m − 1) + (m − 1)·log₂(1 + 1/(3L))`. The threshold becomes **`m0 = 24,891`**, not 24,895.
 - **CORRECTION 2 (the lane's).** The minimum enters only through the threshold. The slope comparison needs `log₂(1 + 1/(3L)) < 0.2075`, i.e. `L ≥ 3`, so the exclusion holds eventually for every positive cycle.

@@ -14,7 +14,7 @@ More generally, a rotation with exactly three mismatches requires `B > 0.528m �
 2. **`gap_all`** (`mmusson/collatz`, replayed as EXT-1, standard axioms) supplies the gap hypothesis with `(c, μ) = (172, 341)`.
 3. **The height ceiling** (the Lean lane's argument in its S5 review; elementary, not yet formal). Along the arc from the minimum to the maximum, each step multiplies by `(3 + 1/n_i)/2^(a_i) ≤ (3/2)(1 + 1/(3L))`. So `B ≤ (log₂ 3 − 1)(m − 1) + (m − 1)·log₂(1 + 1/(3L))`. (This is the corrected form: an earlier version had `+ 1` and `m` in place of `m − 1`.) With `L > 2^71` the last term is below `10^(−20)·m`.
 4. **Combining.** If `s = 2`, then `t ≥ ⌈m/2⌉ − 1`. Taking logarithms gives
-   `log₂ 6 + (⌈m/2⌉ − 1) log₂ 3 < (log₂ 3 − 1)(m − 1) + 175 + ε + 342 log₂ m`.
+   `log₂ 6 + (⌈m/2⌉ − 1) log₂ 3 < (log₂ 3 − 1)(m − 1) + 173 + ε + 342 log₂ m`.
    The left side grows like `0.792m` and the right like `0.585m + 342 log₂ m`. The probe finds the inequality false for every `m ≥ 24,891` (it was `24,895` with the earlier `+1`), and the slope is positive from `m ≥ 2^12` on.
 5. **`s = 3`.** Here `t ≥ ⌈m/3⌉ − 1`, which gives `B > (log₂ 3/3)m − 342 log₂ m − O(1) ≈ 0.528m − 342 log₂ m − 172`.
 
