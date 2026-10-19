@@ -3,7 +3,8 @@
 Inputs: C013-b (Lean, 9a81b08): for any agreeing run (t, E) of a word with a nonidentity rotation of a
 primitive cycle, 6 D max(2^E, 3^t) < m q 2^A (2^(B+1) - 1). Pigeonhole: a rotation with s mismatches has an
 agreeing run of length >= ceil((m - s)/s). gap_all (mmusson, replayed EXT-1): 2^A <= 2^172 m^341 D.
-At q = 1 these give  3^t < 2^(B+173) m^342 / 6  and  s > m / (1 + (B + 342 log2 m + 172 - log2 6) / log2 3).
+At q = 1 these give  3^t < 2^(B+173) m^342 / 6  and  s > m / (1 + (B + 342 log2 m + 173 - log2 6) / log2 3)
+= log2(3) m / (B + 342 log2 m + 172)  (constant corrected at 11:4x after the Lean lane review; was 172 - log2 6).
 
 Checks: (a) on actual 3x+q cycles (odd q < 200, 3 not dividing q), for every nonidentity rotation h: the
 longest maximal agreeing run t_max(h) >= ceil((m - s_h)/s_h) and (7) holds for that run (exact integers);
@@ -20,7 +21,7 @@ from s1a_integer_cycle_check import cycles, step  # noqa: E402
 
 
 def s_bound(m, B):
-    return m / (1 + (B + 342 * math.log2(m) + 172 - math.log2(6)) / math.log2(3))
+    return m / (1 + (B + 342 * math.log2(m) + 173 - math.log2(6)) / math.log2(3))   # = log2(3) m / (B + 342 log2 m + 172)
 
 
 def main():

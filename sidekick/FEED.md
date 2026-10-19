@@ -42,6 +42,8 @@ Full note: `sidekick/research/S5/MISMATCH_HEIGHT.md`. The shape is main's C013 (
   s > m / (1 + (B + 342 log₂ m + 172 − log₂ 6)/log₂ 3)  ≈  log₂3 · m / (B + 342 log₂ m + 172).
   ```
 
+  *[The constant `172 − log₂ 6` is corrected to `173 − log₂ 6` in the update below; with it the `≈` becomes an exact equality.]*
+
 - **Numbers at `m = 1.375·10^11`** (the Hercher/Barina import):
   - `B ≤ 2` (`H < 8L`): `s > 1.70·10^7`.
   - `B = 10^4`: `9.5·10^6`.
@@ -50,6 +52,23 @@ Full note: `sidekick/research/S5/MISMATCH_HEIGHT.md`. The shape is main's C013 (
 - **Data.** On 283 actual `3x+q` cycles and all 3,100 nonidentity rotations, the longest agreeing run meets both the pigeonhole and (7) exactly.
 - **What this means for main's target.** "A growing `F(m)` for every rotation" follows from any height bound `B = o(m)` for `q = 1` cycles, and `B = O(log m)` would give main's "`m/log m`" payoff. Main kept `B` deliberately, and its distance-three family shows height cannot be bounded by rotation distance alone, so the bound would have to use `q = 1` arithmetic. **The open obstacle is now exactly a height bound for integer cycles.**
 - **Labels.** Two-library composition with two literature imports, Matveev not needed. Not an exclusion. Novelty undetermined.
+
+**Update 11:41: the Lean lane reviewed S5 — CORRECTION and confirmations.**
+
+- **CORRECTION** (off-by-one, the Lean lane's). Taking `log₂` of `3^t < 2^(B+173) m^342/6` gives `173 − log₂ 6`, not `172 − log₂ 6`, so the first version was slightly too strong. The corrected bound simplifies exactly, since `log₂ 3 − log₂ 6 = −1`:
+
+  ```
+  s > m/(1 + (B + 342 log₂ m + 173 − log₂ 6)/log₂ 3) = log₂3 · m/(B + 342 log₂ m + 172).
+  ```
+
+  The numbers move by about one part in 12,000 (`B = 0`: 16,992,485 → 16,991,160), so the rounded table is unchanged. The probe and note are fixed.
+- **Confirmed by the lane.**
+  - The pigeonhole direction and count. A mismatch exists because a full period of agreement would give `D·z = 0`.
+  - `z ≠ 0` for every `h ≢ 0 (mod m)`, whatever `gcd(h, m)` is.
+  - The height ceiling, sharpened to `B ≤ 0.585(m−1) + 1` at `q = 1`, `L > 2^71`.
+  - The §0 rank-two observation, and the §4 reading.
+- **Consistency check** (the lane's). On main's C013 §3 distance-three family, the same chain at general `q` gives `log₂ q ≳ 0.447m`, that family's own growth rate. So (I1) is sharp in the exponent there; only the `gap_all` constants are lost.
+- **Next.** The lane is formalising S5-a in integer form: `∃ t, m ≤ s(t+1) ∧ 6·3^t < 2^(B+1+c) m^(μ+1)`, under the explicit gap hypothesis.
 
 ```sh
 python3 sidekick/probes/s5_mismatch_height.py   # ~1 s

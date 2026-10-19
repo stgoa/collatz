@@ -31,13 +31,13 @@ Throughout, the cycle is primitive with `q = 1`, of period `m` and band `B` (`H 
 At `q = 1`, combining I1 and I3 gives `3^t < 2^(B+173) m^342 / 6`. Hence every agreeing run satisfies
 
 ```
-t < (B + 342 log₂ m + 172 − log₂ 6) / log₂ 3.
+t < (B + 342 log₂ m + 173 − log₂ 6) / log₂ 3.
 ```
 
 Combining this with I2, for **every** nonidentity rotation, the mismatch count `s` satisfies
 
 ```
-s > m / (1 + (B + 342 log₂ m + 172 − log₂ 6)/log₂ 3)  ≈  log₂3 · m / (B + 342 log₂ m + 172).
+s > m / (1 + (B + 342 log₂ m + 173 − log₂ 6)/log₂ 3)  =  log₂3 · m / (B + 342 log₂ m + 172).
 ```
 
 This is main's C013 (6) at `q = 1`, with Matveev's `K_0 ≈ 6·10^8` replaced by the replayed exponent 341. Main's warning applies: `B` must be kept. Its distance-three family (C013 §3) shows that a bounded rotation distance does not bound the height, at least for rational cycles.
@@ -51,8 +51,13 @@ At `m = 1.375·10^11`, every nonidentity rotation of a hypothetical nontrivial C
 | lower bound on `s` | 1.70·10^7 | 1.69·10^7 | 1.58·10^7 | 9.5·10^6 | 1.9·10^6 | 2.2·10^5 | 2.2·10^4 |
 
 - **Cycles with `H < 8L`.** Since `B ≤ 2`, every rotation differs in more than 1.7·10^7 positions. This sits alongside the `J > 10^7` bound for the same band.
-- **Comparison with C011.** The bound is still above 3, the case C011 already excludes, for every `B ≤ 7.26·10^10 ≈ 0.53m`. A positive cycle's letter budget (`A ≈ m log₂ 3`) allows at most about `0.585m` of net climb, so only the tallest conceivable cycles escape this bound.
+- **Comparison with C011.** The bound is still above 3, the case C011 already excludes, for every `B ≤ 7.26·10^10 ≈ 0.53m`.
+- **The height ceiling** (sharpened by the Lean lane). Along the arc from the minimum to the maximum, each step multiplies the state by `(3 + q/n_i)/2^(a_i) ≤ (3/2)(1 + q/(3L))`. So `B ≤ (log₂ 3 − 1)(m − 1) + m·log₂(1 + q/(3L)) + 1`. At `q = 1` with `L > 2^71`, the middle term is below `10^(−20)·m`, so `B ≤ 0.585(m−1) + 1`. The bound is therefore vacuous only in the top tenth of the possible height range.
 - **Data.** On 283 actual `3x+q` cycles (odd `q < 200`) and all 3,100 of their nonidentity rotations, the longest agreeing run satisfies both the pigeonhole and (7) exactly.
+
+**Correction (after the Lean lane's review).** The first version had `172 − log₂ 6` in place of `173 − log₂ 6` in both formulas of §2, which made the bound slightly too strong. The difference is about one part in 12,000 at `m = 1.375·10^11`, and the rounded numbers of §3 are unchanged. Since `log₂ 3 − log₂ 6 = −1`, the corrected bound simplifies exactly to `log₂3·m/(B + 342 log₂ m + 172)`.
+
+**Consistency check (the Lean lane's observation).** Run the same chain at general `q` on main's C013 §3 distance-three family. There the runs have length about `m/3`, `B/m → (2 − log₂ 3)·log₂(3/2)/3 ≈ 0.081`, and `2^A/D = Θ(m)`. The chain gives `log₂ q ≳ (m/3)·log₂ 3 − 0.081m − O(log m) ≈ 0.447m`. That is that family's own growth rate from C013 §5. So (I1) is sharp in the exponent on that family, and the composition loses only the `gap_all` constants.
 
 ## 4. What remains
 
