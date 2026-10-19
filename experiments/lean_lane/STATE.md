@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 31 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 32 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -47,7 +47,7 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | C009-a | Main's C009 `EXCURSION_ARITHMETIC.md` §§1–2: the cut lemma and the elimination. **Verified** (iteration 30): `C_take_drop`/`sum_take_drop` (prefix–tail composition `C_w = 3^{ℓ−j} C_j + 2^{P_j} C_tail`), `cut_dvd` (the integrality step `2^{P_j} ∣ 3^j x + q C_j`, cancelling the unit `3^{ℓ−j}`), the cut states `cutState w q x j = (3^j x + q C_j)/2^{P_j}` with `cutState_spec`, `cutState_zero` (`u_0 = x`), `cutState_last` (`u_ℓ = y`), `cutState_arrow` (`2^{a_j} u_{j+1} = 3u_j + q`), `cutState_pos`, `cutState_odd`, bundled as **`cut_lemma`** (hypotheses: positive word, `q > 0` odd, `x > 0`, `y` odd, `2^a y = 3^ℓ x + q C_w`; oddness of `x` is a consequence, not a hypothesis); **`elimination`** (C009's (3): `D_{E++P} x = q C_{E++P}` with `C_{E++P} = 3^r C_E + 2^a C_P`); `D_dvd_C_of_cycle` (necessity at `q = 1`); `isCoprime_two_D`, `dvd_C_rotate` (`D ∣ C_{(i)}` propagates to every phase), `odd_quot_rotate` (every `C_{(i)}/D` is odd); `integer_cycle_of_dvd` and **`cylinders_of_dvd`** (sufficiency at `q = 1`: `D > 0` and `D x = C` give the positive odd integer cycle through `x` with every cut state a positive odd integer and exact arrows). The `k`-block Smith form of §2 is not formalised | `experiments/cycle_spectrum/C009/EXCURSION_ARITHMETIC.md` §§1–2 | **verified** | `[propext, Classical.choice, Quot.sound]` (two helpers `[propext]`) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 251 theorems printed) |
 | C009-b | The one-point deletion theorem of `FIRST_RETURN_ORDER.md` as a statement about the first-return permutation on `{0, …, m−1} \ {0}` under `j ↦ j + s mod m` | `experiments/cycle_spectrum/C009/FIRST_RETURN_ORDER.md` | queued (fiddly) | — | — |
 | C010-a | Main's C010 `ODD_ROUNDING.md` §§2–3: the sharp adjacent odd-spacing bounds and the summed bound. **Verified** (iteration 31): `eta` (C010's `η(q,k)`), `eta_refine` (the mod-6 increment: odd `r, q`, `k ≥ 1`, `q(2^k−1) < 3r ⇒ q(2^k−1) + η ≤ 3r`; the prose's `3 ∤ q` is not needed), `OddCycle.q_odd` (positive valuations make `q` odd); on `OrdCycle`: `y_eq`, `y_succ_lt`, `gap_eq`, **`gap_ge_of_eq`** (equal heights: `G_r ≥ 2·2^{B−a}`), **`gap_ge_of_lt`** (downward: `G_r ≥ 2^{B−a}`), **`gap_seam_ge`** (seam: `G_{m−1} ≥ 2^{B−a}`), **`three_gap_gt_of_gt`** (upward, the order inequality `2^{B−b} q(2^k−1) < 3G_r`), **`three_gap_ge_of_gt`** (upward, sharp: `2^{B−b}(q(2^k−1) + η) ≤ 3G_r`), `pairBound3` (three times the scaled sharp bound, four cases) with `pairBound3_le`, and **`rounding_bound`**: `Σ_{r<m} pairBound3 r ≤ 3·2^B L`, i.e. C010's (3) `L ≥ R_q(H)` (hypothesis: `q` odd only) | `experiments/cycle_spectrum/C010/ODD_ROUNDING.md` §§2–3 | **verified** | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 263 theorems printed) |
-| C011-a | Main's C011 `ROTATION_DEFECTS.md` §§2–3, elementary core: the two-arc identity (1) as a list identity (`C ([a+k] ++ u₀ ++ [a] ++ v₀) − C ([a] ++ u₀ ++ [a+k] ++ v₀) = (2^k − 1) 2^a 3^{|v₀|} C (u₀ ++ [a+k])`), rotation invariance of `g = gcd(C_w, D)`, the divisibility (2) `g ∣ (2^k − 1) gcd(C_u, C_v)`, the intercept bound (4) `C_z < 2^{S−l−(b−1)} 3^l`, and the integer forms `g² < (2^k−1)² 2^{A−m−k} 3^m`, `g² < 2^{2A−2m} 3^m` (hence `q² 2^{2A−2m} 3^m > D²`). Not Lean targets: the real-analytic (6)–(8), Matveev's constant and the Hercher/Barina period input | `experiments/cycle_spectrum/C011/ROTATION_DEFECTS.md` §§2–3 | queued | — | — |
+| C011-a | Main's C011 `ROTATION_DEFECTS.md` §§2–3, elementary core. **Verified** (iteration 32), in the two-defect normal form `w = a :: (u₀ ++ (a+k) :: v₀)`, `w' = (a+k) :: (u₀ ++ a :: v₀)` a rotation of `w`, `k ≥ 1`: `C_append_singleton` (the intercept ignores the last letter), **`two_arc_identity`** ((1): `C_{w'} − C_w = (2^k − 1) 2^a 3^{|v₀|} C (u₀ ++ [a+k])`), `rotate_cut` (the cut at the second mismatch is the rotation by `|u₀| + 1`), `isCoprime_three_D`, `dvd_C_rotate_of_dvd` (a common divisor of `C_w, D_w` coprime to `2` divides every rotated intercept), `gcd_isCoprime_two/three`, **`two_arc_dvd`** ((2): `g ∣ (2^k − 1) gcd(C_u, C_v)`, `u = u₀ ++ [a+k]`, `v = v₀ ++ [a]`), **`intercept_bound_last`** ((4) in cleared form: `2^{|z₀|} C (z₀ ++ [b]) ≤ 2^{Σz₀}(3^{|z₀|+1} − 2^{|z₀|+1})`), `two_defect_arith`, **`two_defect_bound_sharp`** ((5): `g² 2^{|u₀|+|v₀|} < (2^k−1)² 2^{Σu₀+Σv₀} 3^m`), **`two_defect_bound`** ((7): `g² 2^{2m} < 2^{2A} 3^m`, needs `a ≥ 1`) and `two_defect_q_bound` (`D² 2^{2m} < q² 2^{2A} 3^m` for `D = g q`, `q > 0`). Not formalised: the reduction of an arbitrary two-defect rotation to the normal form, the real-analytic (6)–(8), Matveev's constant and the Hercher/Barina period input | `experiments/cycle_spectrum/C011/ROTATION_DEFECTS.md` §§2–3 | **verified** | `[propext, Classical.choice, Quot.sound]` (two helpers subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 276 theorems printed) |
 | C008-a | Main's C008 (`INDEPENDENT_MATCHING.md` §1, `MATCHING_ARITHMETIC.md`): the exact prefix identity `2^{A_i} n_i = 3^i n_0 + q C_i`, the cycle identity `(2^A − 3^m) n_0 = q C_m` and `q ∣ 2^A − 3^m` for reduced cycles; the cyclicity of `⟨2, 3⟩`: in any commutative group `x^A = y^m` with `gcd(A, m) = 1` gives `t` with `t^m = x`, `t^A = y`, and the `ZMod N` instance for the units `2`, `3` when `N ∣ 2^A − 3^m`, `N` coprime to 6; the mechanical prefix sums `Σ_{j<i} c_j = ⌊i(mq' + h)/m⌋`; the sorted-rank residue law (R1) in integer form `2^{P_i} z_[(ih) mod m] ≡ 3^i z_[0] (mod q)` | `experiments/cycle_spectrum/C008/INDEPENDENT_MATCHING.md` §1 | **verified** (iteration 24): `CycleSpectrum.lean`, `exists_common_root`, `zmod_common_root`, `NarrowCycle.sum_a_range`, `OddCycle.{Apre, Cpre, prefix_identity, cycle_identity, q_dvd_D, toNarrow_primitive, toNarrow_rank_zero, sorted_residue_law}` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 193 theorems printed) |
 | C002-b | The proportional-slope theorem (6)–(8) in its general `(r, s)` form, the `K = 0` characterisation, the rotating mechanical family of §4; the unequal-slope application is an imported ineffective theorem and is not a Lean target | same, §§2–4 | queued | — | — |
 | V006-a | Quadratic separation (main's V006 `overlap.md` §2): for `F` not eventually periodic, the states `Q_(a,t) = F(t₀ + t + s₂(3^a n))` are pairwise distinct (`(a,t) ↦ Q_(a,t)` injective); `Q_(a,t)` lies in the joint section family through depth `a + t`; hence that family through depth `D` has at least `(D+1)(D+2)/2` members (main's (4)); with the digit-count identities (5), (6), (7) (block additivity, complement, balanced quotient, `3^(r+1) ∣ 2^(3^r) + 1`) | `experiments/viewpoints/V006/overlap.md` §2, `QUADRATIC_REVIEW.md` | **verified** (iteration 10): `QuadraticSeparation.lean`, `LeanLane.Quad.Q_injective`, `Q_mem_Reach`, `triangle_encard_le`, `card_triangle`, `reach_encard_ge`, `s2_mul_pow_sub`, `s2_mul_pow_sub_one`, `s2_balanced`, `three_pow_dvd` | `[propext, Classical.choice, Quot.sound]` | `receipts/QuadraticSeparation.{build,axioms,sha256}.txt` |
@@ -789,7 +789,65 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   `R_q` and the rounded denominator bound (4) are bookkeeping on top of this
   and are not formalised; §4's controls were checked by hand in iteration 28.
 
+- C011-a: `ROTATION_DEFECTS.md` §2 cuts so that the mismatches sit at
+  positions `0` and `ℓ` with `w_0 = a`, `w_ℓ = a + k`, `w'_0 = a + k`,
+  `w'_ℓ = a` and `w'` a rotation of `w`; in list form this is the normal form
+  `w = a :: (u₀ ++ (a + k) :: v₀)`, `w' = (a + k) :: (u₀ ++ a :: v₀)` with
+  `ℓ = |u₀| + 1`, `u = u₀ ++ [a + k]` and `v = v₀ ++ [a]` (the prose's
+  `v = (w_{ℓ+1}, …, w_{m−1}, w_0)`). `two_arc_identity` is (1) verbatim
+  (`C_{w'} − C_w = (2^k − 1) 2^a 3^{m−1−ℓ} C_u`, `m − 1 − ℓ = |v₀|`), a direct
+  computation from `C_append`. The prose's "recut at the other mismatch and
+  exchange comparison roles" is `rotate_cut`: the words cut at position `ℓ`
+  are the rotations by `|u₀| + 1` of `w` and of `w'` (the latter is the
+  rotation of `w` by `r + |u₀| + 1`), and the same identity with `u₀, v₀`
+  exchanged gives `(2^k − 1) 2^a 3^{|u₀|} C (v₀ ++ [a + k])`, where
+  `C (v₀ ++ [a + k]) = C (v₀ ++ [a]) = C_v` because an intercept ignores its
+  last letter (`C_append_singleton`) — exactly the prose's remark. "All
+  rotated intercepts are divisible by `g`, and `g` is coprime to `6`" is
+  `dvd_C_rotate_of_dvd` with `gcd_isCoprime_two/three` (from `D_w` odd and
+  prime to `3`), and removing the powers of `2` and `3` is the
+  `IsCoprime … |>.dvd_of_dvd_mul_left` step; (2) is `two_arc_dvd`, with
+  `gcd((2^k−1) C_u, (2^k−1) C_v) = (2^k−1) gcd(C_u, C_v)`
+  (`Int.gcd_mul_left`). §3's (4) is `intercept_bound_last`: stated for
+  `z = z₀ ++ [b]` in cleared form `2^{l−1} C_z ≤ 2^{S−b}(3^l − 2^l)`
+  (`l = |z₀| + 1`, `S − b = Σz₀`), which is `C_z ≤ 2^{S−l−(b−1)}(3^l − 2^l)`;
+  it follows from the older `two_pow_mul_C_le` (the bound without the
+  last-letter gain) applied to `z₀`. (5) is `two_defect_bound_sharp`:
+  `g² 2^{|u₀|+|v₀|} < (2^k − 1)² 2^{Σu₀+Σv₀} 3^m`, i.e. `g² < (2^k−1)²
+  2^{A−m−k−2a+2} 3^m` since `A − m − k − 2a + 2 = Σu₀ + Σv₀ − |u₀| − |v₀|`;
+  the arithmetic (`g ≤ (2^k−1) gcd ≤ (2^k−1) √(C_u C_v)`) is
+  `two_defect_arith`, done with `gcd ≤ C_u`, `gcd ≤ C_v` instead of the
+  square root. (7) is `two_defect_bound`: `g² 2^{2m} < 2^{2A} 3^m`, where the
+  prose's `k ≤ A − m` and `a ≥ 1` enter as the exponent comparison
+  `2k + Σu₀ + Σv₀ + |u₀| + |v₀| + 4 ≤ 2A` (positive arcs give `|u₀| ≤ Σu₀`,
+  `|v₀| ≤ Σv₀`); with `D = g q` this is `two_defect_q_bound`,
+  `D² 2^{2m} < q² 2^{2A} 3^m`, the cleared form of
+  `q > (1 − 3^m/2^A)(2/√3)^m` and the `s = 2` case of C012's candidate
+  `g^s 4^m < 2^{As} 3^m`. Not formalised: the reduction of an arbitrary
+  two-defect rotation to the normal form (§1's swap/primitivity argument),
+  the finiteness argument (8)–(9), the §4 classification, the §5 family, and
+  the imported inputs of `EXCLUSION.md` (all checked by hand in iteration 30).
+
 ## Insights sent to the feed
+
+- Iteration 32 (sidekick `3529355`/`380bfdf`; main `de7db67`): the side
+  lane verified C010-a (feed update 04:28) and confirmed numerically that
+  `3 ∤ q` is not needed. Main pushed C012 (`de7db67`, coupled rotation
+  bounds): `REPORT.md`, `COUPLED_SYSTEM.md` and `COUPLED_OBSTRUCTIONS.md`
+  §§1–3 read and checked by hand — the block identities (1), `det B =
+  (−1)^{s−1} D`, `M = −D B'^{−1} H B^{−1}` and (5) `|det M| = D^{s−2}
+  Π|β'_i − β_i|`, the `D^{k−2}` divisibility of `k`-minors via the rank-two
+  decomposition (7), the local Smith form, the family `w_{r,t}` (`m =
+  (3r+1)t`, `A = (5r+2)t`, `s = 2r`, (10)), the small example (`C = 5095`,
+  `D = 1909 = 23·83`, `g = 1`, all seven states and the arrows, `c = (1, 7,
+  1, 37)`, the entries `M_{0,1} = 162`, `M_{0,3} = 64`, `det = −2^{10}
+  1909²`), the three-defect family `(3, U, 4, U, 5, U)` (`m = 9t + 3`,
+  `A = 15t + 12`, `A < 2m ⇔ t > 2`, signed differences `1, 1, −2`), the
+  corrected `C_{(5, 2^n)} = 32·4^n − 31·3^n ≡ 1`, and the counting bound
+  `binom(3t, t) ≥ 3^t`. No error found; the candidate `g^s 4^m < 2^{As} 3^m`
+  is correctly labelled open, and its `s = 2` case is exactly the lane's
+  `two_defect_bound`. Sent after the build: the C011-a report and this C012
+  check.
 
 - Iteration 31 (sidekick `3cc0bf1`; main unchanged at `b896512`): the side
   lane recorded the C011 check with the Matveev precision remark (feed

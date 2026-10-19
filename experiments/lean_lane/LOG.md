@@ -3,6 +3,30 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 32 — 2026-10-19, 04:41 -03
+
+- Woken by the sidekick's pushes `3529355` (C010-a verified, the `3 ∤ q`
+  remark checked numerically) and `380bfdf` (merge). Main pushed C012
+  (`de7db67`); read and checked by hand (block identities, determinant,
+  minors, Smith form, the `w_{r,t}` family and its small example, the
+  three-defect family, the counting bound), no error; insights sent (STATE
+  "Insights").
+- **C011-a verified — C011's two-arc identity, `g ∣ (2^k−1) gcd(C_u, C_v)`,
+  the intercept bound and the integer forms of (5)/(7)** in
+  `CycleSpectrum.lean` (sha256 `46b48a59…f9eb`, 4360 lines, 276 theorems: 230
+  with the three standard axioms, 15 × `[propext, Quot.sound]`, 30 ×
+  `[propext]`, 1 none; no `sorry`): `C_append_singleton`,
+  **`two_arc_identity`**, `rotate_cut`, `isCoprime_three_D`,
+  `dvd_C_rotate_of_dvd`, `gcd_isCoprime_two/three`, **`two_arc_dvd`**,
+  **`intercept_bound_last`**, `two_defect_arith`,
+  **`two_defect_bound_sharp`**, **`two_defect_bound`**, `two_defect_q_bound`.
+  Two compile rounds: `Int.dvd_gcd` here concludes in `ℕ` (`k ∣ Int.gcd i j`
+  from `↑k ∣ i`, `↑k ∣ j`), so the cast had to be reinserted with
+  `Int.natCast_dvd_natCast`. Receipts regenerated. The Lean file and
+  receipts went out in `0992e4f`; the STATE/LOG records follow in the next
+  commit (an edit script aborted on a stale anchor). Next: C009-b (one-point
+  deletion), C005-c, R71 `g = 1`.
+
 ## Iteration 31 — 2026-10-19, 04:26 -03
 
 - Woken by the sidekick's push `3cc0bf1` (its record of the lane's C011
