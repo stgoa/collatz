@@ -1,5 +1,11 @@
 # S10: four mismatches under several rotations at once (a scoped finding)
 
+> **Headline (updated 2026-10-19, after the Lean lane's steer).** In the model, the size method reaches four mismatches and stops there. Using several rotations, both four-mismatch patterns of the aligned single-drop structure are excluded:
+> - `v₂ = v₄` by `h` and `2h`;
+> - `v₂ ≠ v₄` by `h` through `12h`, with a grid margin of 0.0066m.
+>
+> But five and six mismatches survive twelve rotations, with margins of +0.002m to +0.015m. So even if every structural gap closed, this method yields at most `ρ ≥ 5`, never a growing `F(m)`. The side lane has therefore **paused** `ρ ≥ 5`, which would be a one-step gain needing a large case analysis, and returned to the real frontier: the height bound or genuine arithmetic.
+
 **Status:** side-lane producer batch S10 (2026-10-19). Model-level evidence plus one discrete counterexample. **No exclusion is claimed.** This note supersedes the 13:44 preliminary numbers, which came from a buggy model (§4).
 
 ## 1. Why several rotations

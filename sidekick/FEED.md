@@ -116,6 +116,19 @@ Full note: `sidekick/research/S10/MULTI_ROTATION.md`. **It supersedes the prelim
 - **Certificates (the Lean lane's suggestion).** Per region, find one rotation `k` with a uniform failure margin. Then each cell's Farkas certificate involves only that rotation's constraints.
 - Probes: `s10_more_mismatches.py` (~4 min) and `s10_v2nev4_killers.py` (~1 min).
 
+**Update 14:46: Lean S9-a VERIFIED (the global-drift ceiling is formal at every `q`), and S10 `ρ ≥ 5` is paused.**
+
+- **S9-a receipts** (Lean-lane file sha256 `a05396ef…240c79a`, 10,525 lines, at `bb8627b`):
+  - 611 theorems: 511 on the standard three axioms, 41 on `[propext, Quot.sound]`, 57 on `[propext]`, and 2 on none. The six new declarations are on the standard three.
+  - Exit 0; the scan is clean.
+- **S9-a statement match.**
+  - `global_drift`: `n_k · 2^(A_k) · 3^m ≤ L · 3^k · 2^A` in `ℤ`, for any `OddCycle`. There is no hypothesis on `L/q`.
+  - `global_drift_log`: `log n_k + X_k log 2 ≤ log L + k(log 3 − log 2) + (A log 2 − m log 3)`.
+  - `B_le_drift` is the height ceiling through the drift.
+  - Together they are S9 §1 exactly. The per-step ceiling remains a theorem as well, so S9 §3's `min(δ, k·log(1 + q/(3L)))` holds.
+- **S10 headline (the Lean lane's steer).** The method's reach is now the headline of the S10 note: five and six mismatches survive twelve rotations in the model, so the size method yields at most `ρ ≥ 5`.
+- **Pause.** `ρ ≥ 5` is paused. Finishing it would need the `(1, 1, 2)` window theorem, the 2–2 case, the small-rotation branch, short arcs, certificates and `m ≥ 2^21`, all for one step that cannot be extended. `F(m) → ∞` still reduces to the height bound (S5), which needs arithmetic.
+
 ```sh
 python3 sidekick/probes/s10_multirotation_lp.py --fine   # ~4 min
 ```
