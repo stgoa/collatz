@@ -12305,6 +12305,395 @@ theorem rise_from_min_uniform (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.
 
 end OddCycle
 
+/-! ### S13-c: subadditivity of the mismatch count, the orientation lemma, and the mean-zero partner bound
+
+Side lane's S13 §1, Corollaries 5–6 (`55cf217`, `1d87059`), and the orientation remark. (i) The
+shift `i ↦ (i + h) mod m` carries `mis h` into `mis k` whenever `h + k ≡ 0 (mod m)`, injectively on
+`[0, m)`, so `|mis h| ≤ |mis k|` (`mis_card_le_of_add_mod`) and `|mis (m − h)| = |mis h|`
+(`mis_card_neg`): both orientations of a rotation have the same mismatch count. (ii) If
+`a_i = a_(i+h₁)` and `a_(i+h₁) = a_(i+h₁+h₂)` then `a_i = a_(i+h₁+h₂)`; so the shift by `h₁` carries
+`mis (h₁ + h₂) \ mis h₁` into `mis h₂`, and `|mis (h₁ + h₂)| ≤ |mis h₁| + |mis h₂|` (`mis_card_add`),
+with the difference form `|mis (h₁ + (m − h₂))| ≤ |mis h₁| + |mis h₂|` (`mis_card_sub`): Corollary
+5's subadditivity. (iii) The partner offset `μ_h(t) = log n_(t+h) − log n_t` has mean zero over a
+period (`sum_mu_eq_zero`), so some `μ_h(t₁) ≤ 0` (`exists_mu_nonpos`); the two arcs from `x` to `y`
+and from `y` around to `x + m` each have variation at least `|μ_h(y) − μ_h(x)|` and together exhaust
+the period (`two_abs_sub_le_varMu`), whence `μ_h(t₀) ≤ Var(μ_h)/2` for every `t₀`
+(`mu_le_half_varMu`): Corollary 6's `Δ⁺ ≤ max μ ≤ Var/2`. (iv) With `Δ = Var(μ_d)/2` the rise lemma
+from the minimum gives `log n_j − log n₀ ≤ (κ^(s+1) − 1)(log n₀ + log 2 + Var(μ_d)/2)`
+(`forced_variation`), and S12-d's `Var(μ_d) ≤ V_d log 2 + 2δ` turns it into
+`log n_j − log n₀ ≤ (κ^(s+1) − 1)(log n₀ + log 2 + (V_d log 2 + 2δ)/2)` (`forced_letter_variation`),
+Corollary 6's inequality in natural logs. The step "some letter is at least `V_d/s`" is left for
+S13-d. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- The shift by `h` carries `mis h` into `mis k` when `h + k ≡ 0 (mod m)`: `|mis h| ≤ |mis k|`. -/
+theorem mis_card_le_of_add_mod {h k : ℕ} (hk : (h + k) % m = 0) :
+    (Γ.mis h).card ≤ (Γ.mis k).card := by
+  have hm := Γ.hm
+  apply Finset.card_le_card_of_injOn (fun i => (i + h) % m)
+  · intro i hi
+    obtain ⟨hi1, hi2⟩ := Finset.mem_filter.mp hi
+    refine Finset.mem_filter.mpr ⟨Finset.mem_range.mpr (Nat.mod_lt _ hm), ?_⟩
+    intro hag
+    apply hi2
+    have e1 : Γ.a ((i + h) % m) = Γ.a (i + h) := Γ.a_mod _
+    have e2 : Γ.a ((i + h) % m + k) = Γ.a i := by
+      rw [← Γ.a_mod ((i + h) % m + k), Nat.mod_add_mod, Nat.add_assoc, Nat.add_mod, hk,
+        Nat.add_zero, Nat.mod_mod, Γ.a_mod]
+    have hag' : Γ.a ((i + h) % m) = Γ.a ((i + h) % m + k) := hag
+    rw [e1, e2] at hag'
+    exact hag'.symm
+  · intro i hi j hj hij
+    have hi' : i < m := Finset.mem_range.mp (Finset.mem_filter.mp (Finset.mem_coe.mp hi)).1
+    have hj' : j < m := Finset.mem_range.mp (Finset.mem_filter.mp (Finset.mem_coe.mp hj)).1
+    have h1 : i ≡ j [MOD m] := Nat.ModEq.add_right_cancel' h hij
+    rw [Nat.ModEq, Nat.mod_eq_of_lt hi', Nat.mod_eq_of_lt hj'] at h1
+    exact h1
+
+/-- **The orientation lemma**: `|mis (m − h)| = |mis h|` for `h ≤ m`. -/
+theorem mis_card_neg {h : ℕ} (hh : h ≤ m) : (Γ.mis (m - h)).card = (Γ.mis h).card := by
+  apply le_antisymm
+  · exact Γ.mis_card_le_of_add_mod (by rw [Nat.sub_add_cancel hh, Nat.mod_self])
+  · exact Γ.mis_card_le_of_add_mod (by rw [Nat.add_sub_cancel' hh, Nat.mod_self])
+
+/-- **Subadditivity of the mismatch count**: `|mis (h₁ + h₂)| ≤ |mis h₁| + |mis h₂|`. -/
+theorem mis_card_add (h₁ h₂ : ℕ) :
+    (Γ.mis (h₁ + h₂)).card ≤ (Γ.mis h₁).card + (Γ.mis h₂).card := by
+  have hm := Γ.hm
+  have hsdiff : ((Γ.mis (h₁ + h₂)) \ (Γ.mis h₁)).card ≤ (Γ.mis h₂).card := by
+    apply Finset.card_le_card_of_injOn (fun i => (i + h₁) % m)
+    · intro i hi
+      obtain ⟨hi1, hi2⟩ := Finset.mem_sdiff.mp hi
+      obtain ⟨hr, hna⟩ := Finset.mem_filter.mp hi1
+      have hag1 : Γ.a i = Γ.a (i + h₁) := by
+        by_contra hno
+        exact hi2 (Finset.mem_filter.mpr ⟨hr, hno⟩)
+      refine Finset.mem_filter.mpr ⟨Finset.mem_range.mpr (Nat.mod_lt _ hm), ?_⟩
+      intro hag2
+      apply hna
+      have e1 : Γ.a ((i + h₁) % m) = Γ.a (i + h₁) := Γ.a_mod _
+      have e2 : Γ.a ((i + h₁) % m + h₂) = Γ.a (i + (h₁ + h₂)) := by
+        rw [← Γ.a_mod ((i + h₁) % m + h₂), Nat.mod_add_mod, Nat.add_assoc, Γ.a_mod]
+      have hag2' : Γ.a ((i + h₁) % m) = Γ.a ((i + h₁) % m + h₂) := hag2
+      rw [e1, e2] at hag2'
+      exact hag1.trans hag2'
+    · intro i hi j hj hij
+      have hi' : i < m :=
+        Finset.mem_range.mp (Finset.mem_filter.mp (Finset.mem_sdiff.mp (Finset.mem_coe.mp hi)).1).1
+      have hj' : j < m :=
+        Finset.mem_range.mp (Finset.mem_filter.mp (Finset.mem_sdiff.mp (Finset.mem_coe.mp hj)).1).1
+      have h1 : i ≡ j [MOD m] := Nat.ModEq.add_right_cancel' h₁ hij
+      rw [Nat.ModEq, Nat.mod_eq_of_lt hi', Nat.mod_eq_of_lt hj'] at h1
+      exact h1
+  calc (Γ.mis (h₁ + h₂)).card
+      ≤ ((Γ.mis (h₁ + h₂)) \ (Γ.mis h₁)).card + (Γ.mis h₁).card :=
+        Finset.card_le_card_sdiff_add_card
+    _ ≤ (Γ.mis h₂).card + (Γ.mis h₁).card := by omega
+    _ = (Γ.mis h₁).card + (Γ.mis h₂).card := Nat.add_comm _ _
+
+/-- Corollary 5's difference form: `|mis (h₁ − h₂)| ≤ |mis h₁| + |mis h₂|`, the difference taken as
+`h₁ + (m − h₂)`. -/
+theorem mis_card_sub (h₁ : ℕ) {h₂ : ℕ} (hh₂ : h₂ ≤ m) :
+    (Γ.mis (h₁ + (m - h₂))).card ≤ (Γ.mis h₁).card + (Γ.mis h₂).card := by
+  have := Γ.mis_card_add h₁ (m - h₂)
+  rw [Γ.mis_card_neg hh₂] at this
+  exact this
+
+/-- The partner offset `μ_h(t) = log n_(t+h) − log n_t` has mean zero over a period. -/
+theorem sum_mu_eq_zero (h : ℕ) :
+    ∑ t ∈ Finset.range m, (Real.log (Γ.n (t + h)) - Real.log (Γ.n t)) = 0 := by
+  rw [Finset.sum_sub_distrib]
+  have hper : ∀ t, Real.log (Γ.n (t + m)) = Real.log (Γ.n t) := fun t => by rw [Γ.nper]
+  have hshift : ∑ t ∈ Finset.range m, Real.log (Γ.n (h + t)) = ∑ t ∈ Finset.range m, Real.log (Γ.n t) :=
+    DK.sum_range_shift (fun t => Real.log (Γ.n t)) hper h
+  have e : ∑ t ∈ Finset.range m, Real.log (Γ.n (t + h))
+      = ∑ t ∈ Finset.range m, Real.log (Γ.n (h + t)) := by
+    apply Finset.sum_congr rfl
+    intro t _
+    rw [Nat.add_comm t h]
+  rw [e, hshift, sub_self]
+
+/-- Some partner offset is `≤ 0`. -/
+theorem exists_mu_nonpos (h : ℕ) :
+    ∃ t, t < m ∧ Real.log (Γ.n (t + h)) - Real.log (Γ.n t) ≤ 0 := by
+  by_contra hno
+  have hpos : ∀ t ∈ Finset.range m, 0 < Real.log (Γ.n (t + h)) - Real.log (Γ.n t) := by
+    intro t ht
+    by_contra hle
+    exact hno ⟨t, Finset.mem_range.mp ht, not_lt.mp hle⟩
+  have := Finset.sum_pos hpos ⟨0, Finset.mem_range.mpr Γ.hm⟩
+  rw [Γ.sum_mu_eq_zero] at this
+  exact lt_irrefl _ this
+
+/-- The two arcs from `x` to `y` and from `y` around to `x + m` each have variation at least
+`|μ_h(y) − μ_h(x)|`, and together they exhaust a period: `2|μ_h(y) − μ_h(x)| ≤ Var(μ_h)`. -/
+theorem two_abs_sub_le_varMu (h : ℕ) {x y : ℕ} (hxy : x ≤ y) (hyx : y ≤ x + m) :
+    2 * |(Real.log (Γ.n (y + h)) - Real.log (Γ.n y)) -
+        (Real.log (Γ.n (x + h)) - Real.log (Γ.n x))| ≤ Γ.varMu h := by
+  set μ : ℕ → ℝ := fun t => Real.log (Γ.n (t + h)) - Real.log (Γ.n t) with hμ
+  have hμper : ∀ t, μ (t + m) = μ t := by
+    intro t
+    show Real.log (Γ.n (t + m + h)) - Real.log (Γ.n (t + m))
+      = Real.log (Γ.n (t + h)) - Real.log (Γ.n t)
+    rw [show t + m + h = t + h + m by omega, Γ.nper, Γ.nper]
+  have hJper : ∀ t, |μ (t + m + 1) - μ (t + m)| = |μ (t + 1) - μ t| := by
+    intro t
+    rw [show t + m + 1 = t + 1 + m by omega, hμper, hμper]
+  have h1 : |μ y - μ x| ≤ ∑ s ∈ Finset.Ico x y, |μ (s + 1) - μ s| :=
+    DK.abs_sub_le_sum_jumps μ hxy
+  have h2 : |μ (x + m) - μ y| ≤ ∑ s ∈ Finset.Ico y (x + m), |μ (s + 1) - μ s| :=
+    DK.abs_sub_le_sum_jumps μ hyx
+  rw [hμper, abs_sub_comm] at h2
+  have hsum : ∑ s ∈ Finset.Ico x y, |μ (s + 1) - μ s|
+      + ∑ s ∈ Finset.Ico y (x + m), |μ (s + 1) - μ s| = Γ.varMu h := by
+    have hshift : ∑ t ∈ Finset.range m, |μ (x + t + 1) - μ (x + t)|
+        = ∑ t ∈ Finset.range m, |μ (t + 1) - μ t| :=
+      DK.sum_range_shift (fun s => |μ (s + 1) - μ s|) hJper x
+    rw [Finset.sum_Ico_consecutive _ hxy hyx, Finset.sum_Ico_eq_sum_range,
+      Nat.add_sub_cancel_left]
+    calc ∑ k ∈ Finset.range m, |μ (x + k + 1) - μ (x + k)|
+        = ∑ t ∈ Finset.range m, |μ (t + 1) - μ t| := hshift
+      _ = Γ.varMu h := rfl
+  calc 2 * |μ y - μ x| = |μ y - μ x| + |μ y - μ x| := two_mul _
+    _ ≤ ∑ s ∈ Finset.Ico x y, |μ (s + 1) - μ s|
+        + ∑ s ∈ Finset.Ico y (x + m), |μ (s + 1) - μ s| := add_le_add h1 h2
+    _ = Γ.varMu h := hsum
+
+/-- **Corollary 6's partner bound**: `μ_h(t₀) ≤ Var(μ_h)/2` for every position `t₀`. -/
+theorem mu_le_half_varMu (h t₀ : ℕ) :
+    Real.log (Γ.n (t₀ + h)) - Real.log (Γ.n t₀) ≤ Γ.varMu h / 2 := by
+  have hm := Γ.hm
+  obtain ⟨t₁, ht₁, hneg⟩ := Γ.exists_mu_nonpos h
+  have hred : Real.log (Γ.n (t₀ + h)) - Real.log (Γ.n t₀)
+      = Real.log (Γ.n (t₀ % m + h)) - Real.log (Γ.n (t₀ % m)) := by
+    rw [Γ.n_mod t₀, ← Γ.n_mod (t₀ % m + h), Nat.mod_add_mod, Γ.n_mod]
+  rw [hred]
+  set t := t₀ % m with ht
+  have htm : t < m := Nat.mod_lt _ hm
+  have key : 2 * |(Real.log (Γ.n (t + h)) - Real.log (Γ.n t)) -
+      (Real.log (Γ.n (t₁ + h)) - Real.log (Γ.n t₁))| ≤ Γ.varMu h := by
+    rcases le_or_gt t₁ t with hle | hlt
+    · exact Γ.two_abs_sub_le_varMu h hle (by omega)
+    · have := Γ.two_abs_sub_le_varMu h hlt.le (by omega : t₁ ≤ t + m)
+      rw [abs_sub_comm] at this
+      exact this
+  have habs := le_abs_self ((Real.log (Γ.n (t + h)) - Real.log (Γ.n t)) -
+    (Real.log (Γ.n (t₁ + h)) - Real.log (Γ.n t₁)))
+  linarith
+
+/-- **Corollary 6's inequality, natural logs.** From the minimum, for `j ≤ m` and `s = |mis d|`:
+`log n_j − log n₀ ≤ (κ^(s+1) − 1)(log n₀ + log 2 + Var(μ_d)/2)`. -/
+theorem forced_variation (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {d : ℕ} (hh : d % m ≠ 0) {j : ℕ} (hj : j ≤ m) :
+    Real.log (Γ.n j) - Real.log (Γ.n 0) ≤
+      (Γ.kappa ^ ((Γ.mis d).card + 1) - 1) *
+        (Real.log (Γ.n 0) + Real.log 2 + Γ.varMu d / 2) := by
+  have hΔ0 : 0 ≤ Γ.varMu d / 2 := by
+    have := Γ.varMu_nonneg d
+    linarith
+  have h := Γ.rise_from_min hprim hapos hh hΔ0 (fun p => Γ.mu_le_half_varMu d p) hj
+  unfold Phi at h
+  linarith
+
+/-- With S12-d's `Var(μ_d) ≤ V_d log 2 + 2δ`: the forced-variation law in terms of the letter
+variation `V_d`, `δ = A log 2 − m log 3`. -/
+theorem forced_letter_variation (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {d : ℕ} (hh : d % m ≠ 0) {j : ℕ} (hj : j ≤ m) :
+    Real.log (Γ.n j) - Real.log (Γ.n 0) ≤
+      (Γ.kappa ^ ((Γ.mis d).card + 1) - 1) *
+        (Real.log (Γ.n 0) + Real.log 2 +
+          ((Γ.Vh d : ℝ) * Real.log 2 + 2 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) / 2) := by
+  have h := Γ.forced_variation hprim hapos hh hj
+  have hV := Γ.varMu_le_Vh d
+  have h1 : (1 : ℝ) ≤ Γ.kappa ^ ((Γ.mis d).card + 1) := one_le_pow₀ Γ.one_le_kappa
+  have hk : 0 ≤ Γ.kappa ^ ((Γ.mis d).card + 1) - 1 := by linarith
+  calc Real.log (Γ.n j) - Real.log (Γ.n 0)
+      ≤ (Γ.kappa ^ ((Γ.mis d).card + 1) - 1) *
+          (Real.log (Γ.n 0) + Real.log 2 + Γ.varMu d / 2) := h
+    _ ≤ (Γ.kappa ^ ((Γ.mis d).card + 1) - 1) *
+          (Real.log (Γ.n 0) + Real.log 2 +
+            ((Γ.Vh d : ℝ) * Real.log 2 + 2 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) / 2) :=
+        mul_le_mul_of_nonneg_left (by linarith) hk
+
+end OddCycle
+
+/-! ### S13-d: the averaging step, Corollary 6 with a letter bound, Corollary 7's mechanism, and the logarithmic form of Corollary 1
+
+Side lane's S13 §1 (Corollaries 6–7 and Corollary 1's explicit form). (i) `V_d = Σ_t |a_t − a_(t+d)|`
+has only the `s = |mis d|` mismatch positions as nonzero terms, so `V_d ≤ s · M` for any bound `M`
+on the letter differences (`Vh_le_card_mul`), some position carries at least the average
+(`exists_card_mul_ge_Vh`), a letter difference is at most the larger letter (`natAbs_sub_le_max`),
+hence some letter satisfies `s · a_q ≥ V_d` (`exists_letter_card_mul_ge_Vh`), and `V_d ≤ s · A` for
+a uniform letter bound `A` (`Vh_le_card_mul_of_le`). (ii) Corollary 6 with a letter bound:
+`log n_j − log n₀ ≤ (κ^(s+1) − 1)(log n₀ + log 2 + (s A log 2 + 2δ)/2)` (`forced_letter_bound`).
+(iii) Corollary 7's mechanism: S5's end witness `log 2 + T log 3 < log n_max` on the longest
+agreeing run, `T ≥ (m − 1)/s`, against the rise bound at the maximum, gives for every rotation with
+`s ≥ 1` mismatches and all letters `≤ A`:
+`log 2 + ((m − 1)/s) log 3 < log n₀ + (κ^(s+1) − 1)(log n₀ + log 2 + (s A log 2 + 2δ)/2)`
+(`rise_endwitness_combination`). At `q = 1`, with `log n₀` bounded through the drift ceiling and
+`gap_all` (EXT-1), this fails for small `s` once `A` is small, which is the prose's
+`ρ ≥ 1 + max{S : f(S) > a_max}`; the numerical thresholds themselves are not Lean targets.
+(iv) The logarithmic form of Corollary 1 (S13-b): with `C = log n₀ + log 2 + Δ` and
+`B = log n_j − log n₀`, `log(1 + B/C) ≤ (s + 1) log κ` (`log_rise_from_min`), i.e.
+`s ≥ log_κ(1 + B/C) − 1` since `κ > 1`; the orientation is `mis_card_neg`. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- `V_d ≤ |mis d| · M` for any bound `M` on the letter differences at positions below `m`. -/
+theorem Vh_le_card_mul {d M : ℕ}
+    (hM : ∀ p, p < m → Int.natAbs ((Γ.a p : ℤ) - Γ.a (p + d)) ≤ M) :
+    Γ.Vh d ≤ (Γ.mis d).card * M := by
+  unfold Vh
+  have hsub : Γ.mis d ⊆ Finset.range m := by
+    unfold mis
+    exact Finset.filter_subset _ _
+  have hzero : ∀ t ∈ Finset.range m, t ∉ Γ.mis d →
+      Int.natAbs ((Γ.a t : ℤ) - Γ.a (t + d)) = 0 := by
+    intro t ht hnot
+    have hag : Γ.agree d t := by
+      by_contra hna
+      exact hnot (Finset.mem_filter.mpr ⟨ht, hna⟩)
+    have hagZ : (Γ.a t : ℤ) = Γ.a (t + d) := by exact_mod_cast hag
+    rw [hagZ, sub_self, Int.natAbs_zero]
+  rw [← Finset.sum_subset hsub hzero]
+  calc ∑ t ∈ Γ.mis d, Int.natAbs ((Γ.a t : ℤ) - Γ.a (t + d))
+      ≤ ∑ _t ∈ Γ.mis d, M :=
+        Finset.sum_le_sum (fun t ht => hM t (Finset.mem_range.mp (hsub ht)))
+    _ = (Γ.mis d).card * M := by rw [Finset.sum_const, smul_eq_mul]
+
+/-- Some position carries at least the average: `V_d ≤ |mis d| · |a_p − a_(p+d)|`. -/
+theorem exists_card_mul_ge_Vh (d : ℕ) :
+    ∃ p, p < m ∧ Γ.Vh d ≤ (Γ.mis d).card * Int.natAbs ((Γ.a p : ℤ) - Γ.a (p + d)) := by
+  obtain ⟨p, hp, hmax⟩ := Finset.exists_max_image (Finset.range m)
+    (fun t => Int.natAbs ((Γ.a t : ℤ) - Γ.a (t + d))) ⟨0, Finset.mem_range.mpr Γ.hm⟩
+  refine ⟨p, Finset.mem_range.mp hp, ?_⟩
+  exact Γ.Vh_le_card_mul (fun t ht => hmax t (Finset.mem_range.mpr ht))
+
+/-- A letter difference is at most the larger letter. -/
+theorem natAbs_sub_le_max (x y : ℕ) : Int.natAbs ((x : ℤ) - y) ≤ max x y := by omega
+
+/-- **Some letter is at least the average letter variation**: `V_d ≤ |mis d| · a_q` for some `q`. -/
+theorem exists_letter_card_mul_ge_Vh (d : ℕ) : ∃ q, Γ.Vh d ≤ (Γ.mis d).card * Γ.a q := by
+  obtain ⟨p, -, hp⟩ := Γ.exists_card_mul_ge_Vh d
+  have h1 := natAbs_sub_le_max (Γ.a p) (Γ.a (p + d))
+  rcases le_total (Γ.a p) (Γ.a (p + d)) with h | h
+  · refine ⟨p + d, ?_⟩
+    rw [max_eq_right h] at h1
+    exact hp.trans (Nat.mul_le_mul_left _ h1)
+  · refine ⟨p, ?_⟩
+    rw [max_eq_left h] at h1
+    exact hp.trans (Nat.mul_le_mul_left _ h1)
+
+/-- With a uniform letter bound `A`: `V_d ≤ |mis d| · A`. -/
+theorem Vh_le_card_mul_of_le {d A : ℕ} (hA : ∀ p, Γ.a p ≤ A) :
+    Γ.Vh d ≤ (Γ.mis d).card * A := by
+  apply Γ.Vh_le_card_mul
+  intro p _
+  calc Int.natAbs ((Γ.a p : ℤ) - Γ.a (p + d)) ≤ max (Γ.a p) (Γ.a (p + d)) :=
+        natAbs_sub_le_max _ _
+    _ ≤ A := max_le (hA p) (hA (p + d))
+
+/-- **Corollary 6 with a letter bound.** For `j ≤ m`, `s = |mis d|` and all letters `≤ A`:
+`log n_j − log n₀ ≤ (κ^(s+1) − 1)(log n₀ + log 2 + (s A log 2 + 2δ)/2)`. -/
+theorem forced_letter_bound (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {d : ℕ} (hh : d % m ≠ 0) {j : ℕ} (hj : j ≤ m) {A : ℕ}
+    (hA : ∀ p, Γ.a p ≤ A) :
+    Real.log (Γ.n j) - Real.log (Γ.n 0) ≤
+      (Γ.kappa ^ ((Γ.mis d).card + 1) - 1) *
+        (Real.log (Γ.n 0) + Real.log 2 +
+          ((((Γ.mis d).card * A : ℕ) : ℝ) * Real.log 2 +
+            2 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) / 2) := by
+  have h := Γ.forced_letter_variation hprim hapos hh hj
+  have hV : (Γ.Vh d : ℝ) ≤ (((Γ.mis d).card * A : ℕ) : ℝ) := by
+    exact_mod_cast Γ.Vh_le_card_mul_of_le hA
+  have h1 : (1 : ℝ) ≤ Γ.kappa ^ ((Γ.mis d).card + 1) := one_le_pow₀ Γ.one_le_kappa
+  have hk : 0 ≤ Γ.kappa ^ ((Γ.mis d).card + 1) - 1 := by linarith
+  have h2 : (0 : ℝ) < Real.log 2 := Real.log_pos (by norm_num)
+  have hVl : (Γ.Vh d : ℝ) * Real.log 2 ≤ (((Γ.mis d).card * A : ℕ) : ℝ) * Real.log 2 :=
+    mul_le_mul_of_nonneg_right hV h2.le
+  calc Real.log (Γ.n j) - Real.log (Γ.n 0) ≤ _ := h
+    _ ≤ _ := mul_le_mul_of_nonneg_left (by linarith) hk
+
+/-- **Corollary 7's mechanism**: S5's end witness on the longest agreeing run against the rise bound
+at the maximum. For a primitive cycle with letters `≥ 1`, a rotation `d ≢ 0` with `s ≥ 1` mismatches
+and all letters `≤ A`:
+`log 2 + ((m − 1)/s) log 3 < log n₀ + (κ^(s+1) − 1)(log n₀ + log 2 + (s A log 2 + 2δ)/2)`. -/
+theorem rise_endwitness_combination (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {d : ℕ} (hh : d % m ≠ 0) {s : ℕ} (hs1 : 1 ≤ s)
+    (hs : (Γ.mis d).card = s) {A : ℕ} (hA : ∀ p, Γ.a p ≤ A) :
+    Real.log 2 + (((m - 1) / s : ℕ) : ℝ) * Real.log 3 <
+      Real.log (Γ.n 0) + (Γ.kappa ^ (s + 1) - 1) *
+        (Real.log (Γ.n 0) + Real.log 2 +
+          (((s * A : ℕ) : ℝ) * Real.log 2 +
+            2 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) / 2) := by
+  have hmpos := Γ.hm
+  obtain ⟨i, T, hrun, hTbound⟩ := Γ.exists_longest_run hprim hh
+  have hpig := Γ.pigeonhole (Γ.exists_mis hprim hh) hTbound
+  rw [hs] at hpig
+  have hT : (m - 1) / s ≤ T := by
+    have h1 : (m - 1) / s < T + 1 := by
+      rw [Nat.div_lt_iff_lt_mul hs1]
+      omega
+    omega
+  obtain ⟨j, hjm', hjmax⟩ :=
+    Finset.exists_max_image (Finset.range m) Γ.n ⟨0, Finset.mem_range.mpr hmpos⟩
+  have hj : ∀ k, Γ.n k ≤ Γ.n j := fun k => by
+    rw [← Γ.n_mod k]
+    exact hjmax (k % m) (Finset.mem_range.mpr (Nat.mod_lt _ hmpos))
+  have hjm : j ≤ m := (Finset.mem_range.mp hjm').le
+  have hw := Γ.witness_gt T (fun k hk => hrun k hk) (Γ.z_ne_zero hprim hh (i + T))
+  have hwj : 2 * (3 : ℤ) ^ T < Γ.n j := lt_of_lt_of_le hw (max_le (hj _) (hj _))
+  have hwjR : 2 * (3 : ℝ) ^ T < Γ.n j := by exact_mod_cast hwj
+  have h3T : (3 : ℝ) ^ T ≠ 0 := by positivity
+  have hlw := Real.log_lt_log (by positivity) hwjR
+  rw [Real.log_mul (by norm_num : (2 : ℝ) ≠ 0) h3T, Real.log_pow] at hlw
+  have hrise := Γ.forced_letter_bound hprim hapos hh hjm hA
+  rw [hs] at hrise
+  have hTR : (((m - 1) / s : ℕ) : ℝ) ≤ T := by exact_mod_cast hT
+  have hlog3 : 0 < Real.log 3 := Real.log_pos (by norm_num)
+  have hTlog := mul_le_mul_of_nonneg_right hTR hlog3.le
+  linarith
+
+/-- **The logarithmic form of Corollary 1** (S13-b): with `C = log n₀ + log 2 + Δ` and
+`B = log n_j − log n₀`, `log(1 + B/C) ≤ (s + 1) log κ`, i.e. `s ≥ log_κ(1 + B/C) − 1`. -/
+theorem log_rise_from_min (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {d : ℕ} (hh : d % m ≠ 0) {Δ : ℝ} (hΔ0 : 0 ≤ Δ)
+    (hΔ : ∀ p, Real.log (Γ.n (p + d)) - Real.log (Γ.n p) ≤ Δ) {j : ℕ} (hj : j ≤ m) :
+    Real.log (1 + (Real.log (Γ.n j) - Real.log (Γ.n 0)) /
+        (Real.log (Γ.n 0) + Real.log 2 + Δ))
+      ≤ (((Γ.mis d).card + 1 : ℕ) : ℝ) * Real.log Γ.kappa := by
+  have h := Γ.rise_from_min hprim hapos hh hΔ0 hΔ hj
+  unfold Phi at h
+  have h2 : (0 : ℝ) < Real.log 2 := Real.log_pos (by norm_num)
+  have hn1 : (1 : ℤ) ≤ Γ.n 0 := by
+    have := Γ.npos
+    omega
+  have hn1R : (1 : ℝ) ≤ Γ.n 0 := by exact_mod_cast hn1
+  have hlog0 : 0 ≤ Real.log (Γ.n 0) := Real.log_nonneg hn1R
+  have hC : 0 < Real.log (Γ.n 0) + Real.log 2 + Δ := by linarith
+  have hB : 0 ≤ Real.log (Γ.n j) - Real.log (Γ.n 0) := by
+    have hle : (Γ.n 0 : ℝ) ≤ Γ.n j := by exact_mod_cast Γ.nmin j
+    have := Real.log_le_log (Γ.n_cast_pos 0) hle
+    linarith
+  have hratio : 1 + (Real.log (Γ.n j) - Real.log (Γ.n 0)) /
+      (Real.log (Γ.n 0) + Real.log 2 + Δ) ≤ Γ.kappa ^ ((Γ.mis d).card + 1) := by
+    rw [← div_self hC.ne', ← add_div, div_le_iff₀ hC]
+    linarith
+  have hpos : 0 < 1 + (Real.log (Γ.n j) - Real.log (Γ.n 0)) /
+      (Real.log (Γ.n 0) + Real.log 2 + Δ) := by
+    have := div_nonneg hB hC.le
+    linarith
+  have := Real.log_le_log hpos hratio
+  rw [Real.log_pow] at this
+  exact this
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
