@@ -1,5 +1,46 @@
 # Cycle spectrum programme log
 
+## C004 — Intrinsic geometry and two exact obstructions, 2026-10-19
+
+**Progress; headline active and open.** Baseline C003 is
+`7270d956e1f7037e48b92493024f4f1baefd61d8`. The selected mechanism
+uses all cyclic rotations and their state sizes, with no repeated-block
+hypothesis. The [report](../experiments/cycle_spectrum/C004/REPORT.md)
+links proofs, controls, independent review and exact checks.
+
+Every primitive positive rational cycle with largest odd state H<2L
+is mechanical, and conversely. Its coprime totals give exact denominator
+D=2^A-3^m. At odd parameter d, these cycles are exactly the mechanical
+ones with positive D dividing d. Thus a hypothetical nontrivial d1
+integer cycle has H>2L. This recognizes R71's existing class through
+intrinsic geometry; no larger excluded word set or novelty is claimed.
+
+The full cyclic matrix has one Smith obstruction; appending the constant
+column has final factor g=gcd(C,D). All rotations give the same integer
+lattice condition. The exact one-letter cut gcd includes an extra factor,
+which is one at valuations1/2. Bare divisibilities cannot be multiplied
+as independent filters. Meanwhile the d5 cycle19,31,49 refutes the
+proposed universal pair gap<2. Coprime mechanical upper approximants
+prove every pair gap can be arbitrarily large, even with H<2L.
+
+All 2,459 source cycles, 333 parameters, 36,912 rotations and eleven
+fixtures are replayed. There are 28 distinct normalized gap failures.
+The 105 narrow nontrivial source instances represent eleven normalized
+cycles. Separate checks cover 86,442 positive short words, 340 small
+matrices and 156 mechanical examples. Independent written review and
+finite replay are distinct from formal verification.
+
+Side pin `fe7377a1284cfd443a9f2c2861b20958164c0dfa` reports C001-b and
+C002-a Lean work. Main did not replay those builds. Its discrepancy
+lead is retained only with the m/L error and finite-window convention;
+exclusion for every finite ceiling would restate the full cycle task.
+The [side review](../experiments/cycle_spectrum/C004/SIDE_REVIEW.md)
+records the scope assessment. Earlier mathematics and C001–C003 stay intact.
+
+**Next:** an order/cancellation constraint that survives several dyadic
+ranges. Neither a fixed range for all cycles nor independence of the
+rotated congruences is available. The headline is unchanged.
+
 ## C003 — Uniform restrictions across changing blocks, 2026-10-19
 
 **Progress; headline active and open.** C002 was delivered at

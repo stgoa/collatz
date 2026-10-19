@@ -114,3 +114,19 @@ identity, with a real consequence for possible denominator-1 cycles.
 Another fixed motif count or an effective exceptional cutoff for the
 current subclass would not close that coverage gap. This is a direction
 within the existing headline; the completion standard remains unchanged.
+
+## C004: intrinsic geometry and what fails beyond it
+
+[C004](../experiments/cycle_spectrum/C004/REPORT.md) tests all rotations
+and their sizes. It proves that H<2L, for odd-cycle maximum H and
+minimum L, is equivalent to mechanical coding. This supplies the exact
+narrow-cycle spectrum D=2^A-3^m dividing d and the necessary H>2L
+condition for any nontrivial d1 integer cycle. The excluded word class
+is the one already handled by R71; the gain is its intrinsic recognition.
+
+All rotation integrality equations are one Smith obstruction, while a
+universal close-pair bound is false at arbitrarily large gaps. The next
+mechanism must use ordered states across several dyadic ranges together
+with arithmetic cancellation, retaining dependence rather than treating
+rotations as independent events. No bound placing all cycles in a fixed
+range is assumed. Wide cycles and the headline remain unresolved.

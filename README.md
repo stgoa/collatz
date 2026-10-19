@@ -4,45 +4,52 @@ This repository is the persistent record of the Collatz programme: definitions, 
 
 ## Current programme: cycle denominators across 3x+d
 
-**Current standing (2026-10-19): C003 proves that every bounded
-denominator layer contains finitely many nondegenerate two-block
-representations u^k v^ell with k,ell>=2, even as both blocks vary.
-An elementary companion theorem excludes integer cycles at every size
-when both blocks contract and a block with the larger valuation total
-appears at least three times. All-cycle exclusion remains open.**
+**Current standing (2026-10-19): C004 classifies every positive
+rational cycle whose largest odd state is less than twice its smallest:
+its valuation word is mechanical, with an exact denominator. Therefore
+any nontrivial integer Collatz cycle must span a ratio greater than two.
+Wider cycles and the all-cycle headline remain open.**
 
 The active [cycle-spectrum goal](docs/CYCLE_SPECTRUM_BRIEF.md) studies
 integer cycles across the positive `3x+d` family through the reduced
-denominators of rational `3x+1` cycles. The question is which word
-structures can make that denominator equal 1. Rotations and repetitions
-must be distinguished from new primitive cycles. Divergence is separate.
+denominators of rational `3x+1` cycles. Rotations, repetitions and scaled
+copies must be distinguished from new primitive cycles. Divergence is
+separate from this cycle goal.
 
-[C003's report](experiments/cycle_spectrum/C003/REPORT.md) gives both
-proofs. The general two-repetition bound uses published S-unit estimates
-and leaves an unknown finite cutoff. The contracting result is effective:
-with K!=0 its denominator exceeds 2 to the larger block length. K=0
-retains powers of a common cycle. Arbitrary cycle words need not have
-these repeated-block forms. C002's equal-total theorem remains useful,
-including repetition counts (1,2) outside the new contracting theorem.
+[C004's report](experiments/cycle_spectrum/C004/REPORT.md) gives the
+classification and exact parameter spectrum: a primitive cycle in that
+ratio range has coprime totals (A,m), denominator `2^A-3^m`, and exists
+at an odd parameter d exactly when that denominator divides d. This
+identifies the already-known mechanical class by an intrinsic geometric
+condition; it does not expand the excluded word class beyond R71.
 
-The checker replays all 2,459 cycles over 333 parameters from
-[C001](experiments/cycle_spectrum/C001/REPORT.md), tests every rotation
-and 1,694,160 decompositions, and checks 243,878 positive generated
-realizations. The actual sample has zero cases eligible for the strong
-contracting theorem; 153,696 generated checks exercise it. The actual
-d499 cycle disproves extending its interval-trapping argument to an
-expanding block. These are finite checks, separate from the written
-proofs. No exhaustive census, novelty or formal verification is claimed.
+Two attempted shortcuts fail. All rotation congruences encode one
+integer-lattice obstruction, so they cannot be treated as independent
+filters. A universal close-pair bound is false: rational cycles can
+have every pair of odd states arbitrarily far apart, even while their
+largest/smallest ratio is below two. Their denominators vary.
 
-**Next:** seek an arithmetic restriction on arbitrary cyclic words,
-using cancellation across all rotations together with the sizes of
-their cycle points. It must give a necessary condition beyond the cycle
-identity itself. Another motif count would leave the coverage gap.
-The [cycle log](docs/CYCLE_SPECTRUM_LOG.md) records the active work;
-each batch must include actual-cycle tests and a theorem or an exact
-obstruction. The separate Lean lane's reported C001 algebra checks
-strengthen the validation record; main has not independently replayed
-that build here, and it does not supply the missing cycle restriction.
+The checker replays 2,459 actual cycles across 333 parameters and all
+36,912 rotations. The 105 narrow nontrivial instances represent eleven
+normalized cycles. It also checks 86,442 positive short-word realizations,
+small integer matrices and a mechanical family with large pair gaps.
+Written proofs, finite checks and source reviews are separate; novelty
+and formal verification of C004 are unclaimed.
+
+[C003](experiments/cycle_spectrum/C003/REPORT.md) remains the uniform
+two-block result: bounded denominator layers are finite for nondegenerate
+`u^k v^ell`, k,ell>=2, even while the blocks vary, with an ineffective
+general threshold. Its contracting theorem and C002's equal-total theorem
+provide effective exclusions under their separate repetition conditions.
+
+**Next:** investigate order and cancellation when cycle states occupy
+several dyadic ranges. The new restriction must retain information lost
+by bare gcd intersection and absolute spacing. No bound placing every
+cycle inside a fixed range is supplied. Each batch must produce a theorem
+or exact obstruction and actual-cycle tests; the
+[cycle log](docs/CYCLE_SPECTRUM_LOG.md) records the work. The separate
+Lean lane reports further C001/C002 checks; main has not independently
+replayed those builds in C004.
 
 ## Previous language programme: arithmetic regularity
 

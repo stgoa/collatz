@@ -1,0 +1,133 @@
+{
+  "baseline_commit": "7270d956e1f7037e48b92493024f4f1baefd61d8",
+  "checked_at_utc": "2026-10-19T04:02:30.827214+00:00",
+  "delivery_boundary": "Commit and push occur after this receipt and are verified separately.",
+  "frozen_commit": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "generated_counts": {
+    "mechanical_gap_family": {
+      "adjacent_gap_lower_bounds": 20085,
+      "cases": 156,
+      "noncoprime_totals_skipped": 100,
+      "point_lower_bounds": 20241,
+      "raw_arrows": 20241
+    },
+    "short_word_spread": {
+      "fixed_points": 3,
+      "mechanical_words": 368,
+      "negative_D": 938,
+      "nontrivial_primitive_spread_checks": 297,
+      "positive_realizations": 86442,
+      "primitive_displayed_words": 86106,
+      "proper_power_mechanical_words": 68,
+      "proper_power_words": 336,
+      "raw_arrows": 663079,
+      "spread_equivalence_checks": 86442,
+      "words": 87380
+    },
+    "small_generated_matrices": {
+      "augmented_maximal_minors": 1592,
+      "matrices": 340,
+      "negative_D_matrices": 23,
+      "positive_matrices": 317,
+      "positive_raw_arrows": 1173,
+      "square_minors": 18964
+    }
+  },
+  "historical_full_gate": {
+    "command": "python3 scripts/verify_all.py --cpp --transfer-controls",
+    "field_count": 119,
+    "independent_cpp": "PASS: 4096 and 262144",
+    "phase6_transfer_controls": "PASS: eleven exact raw cycles, eight nonprincipal controls, four fixed-d controls, fourteen d1 samples and fail-closed checks; setup label none",
+    "status": "PASS"
+  },
+  "markdown_checks": {
+    "errors": [],
+    "existing_local_links": 570,
+    "files": 14
+  },
+  "preservation": {
+    "C001_tree_unchanged": true,
+    "C002_tree_unchanged": true,
+    "C003_tree_unchanged": true,
+    "R1_onward_ledger_body_byte_identical": true,
+    "files_byte_identical": [
+      "collatz_research_20261017/right_aligned_reduction.tex",
+      "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md",
+      "experiments/residual_progress/resolved_rules/resolved_rules.py"
+    ],
+    "git_diff_check": "PASS",
+    "tracked_changes_confined_to_current_docs": [
+      "AGENTS.md",
+      "README.md",
+      "VIEWPOINT_MAP.md",
+      "docs/CYCLE_SPECTRUM_BRIEF.md",
+      "docs/CYCLE_SPECTRUM_LOG.md",
+      "docs/RESEARCH_LOG.md",
+      "docs/RESULTS.md",
+      "docs/VIEWPOINT_LOG.md"
+    ]
+  },
+  "proof_scope": "Written and independently agent-reviewed; no novelty or formal-verification claim. Narrow classification identifies the existing mechanical class. Wide cycles and the headline remain open.",
+  "reviewed_lattice_source_sha256": "c3687aab765f7665862cc3c5b5a08ec6c622b1625ab43f5051260d85a78059f7",
+  "root_fresh_checker_replay": {
+    "counts": {
+      "adjacent_rotation_checks": 36912,
+      "all_rotation_gcd_checks": 2459,
+      "direct_rotation_checks": 36912,
+      "distinct_gap_at_least2": 28,
+      "distinct_nontrivial_spread_mechanical_checks": 11,
+      "distinct_normalized_cycles": 1184,
+      "distinct_normalized_fixed_cycles": 8,
+      "distinct_normalized_nontrivial_cycles": 1176,
+      "general_one_letter_cut_exact_gcd_checks": 36466,
+      "normalized_raw_arrows": 36912,
+      "odd_lattice_gap_checks": 2013,
+      "one_letter_cut_checks": 36466,
+      "primitive_kernel_vector_gcd_checks": 2459,
+      "rotation_coefficients_gcd_checks": 2459,
+      "source_cycles": 2459,
+      "source_fixed_cycles": 446,
+      "source_gap_at_least2": 183,
+      "source_gap_equal2": 0,
+      "source_nontrivial_cycles": 2013,
+      "source_nontrivial_spread_mechanical_checks": 105,
+      "source_raw_arrows": 36912,
+      "source_spread_equivalence_checks": 2459,
+      "unit_one_letter_cut_exact_gcd_checks": 27816
+    },
+    "largest_gap": {
+      "denominator": 29,
+      "gap": {
+        "denominator": 29,
+        "numerator": 626
+      },
+      "m": 41,
+      "minimum": {
+        "denominator": 29,
+        "numerator": 3811
+      }
+    },
+    "status": "PASS"
+  },
+  "side_review_pin": "fe7377a1284cfd443a9f2c2861b20958164c0dfa",
+  "source_sha256": {
+    "AGENTS.md": "319df7e2b9e0242fb3f2757708b2e27ce1577cb28106066272f18be00f4b0fc0",
+    "README.md": "c2a8d8f91803f44a104e55fb2d53e2d564a177206422883dc9e40bd30e382654",
+    "VIEWPOINT_MAP.md": "99d8a73b5753316db7651fd076c66f5e946d0d55b39fde648aee01458ef761a1",
+    "docs/CYCLE_SPECTRUM_BRIEF.md": "4c8bc194fb34cacb5db43f05016fa71c445e390b553a8f751290c26160a4beca",
+    "docs/CYCLE_SPECTRUM_LOG.md": "111e31b346ffb1d4e03efbee4226a8f30235256797cabf00e717d35755325351",
+    "docs/RESEARCH_LOG.md": "75ca01abe71df7c93f0a1ccda46776387bd9439c6d18357d0e1917e73a0cfde1",
+    "docs/RESULTS.md": "aa3fae9799a74bc4644e565ddfb8bda295548a045bc275a4ff9b31296bf0fdaf",
+    "docs/VIEWPOINT_LOG.md": "88b8971e836ecebe73376162880ca4ab422498d61cdb1e39766dba063092a8eb",
+    "experiments/cycle_spectrum/C004/INDEPENDENT_REVIEW.md": "0cbc0a92a8c4d9a48bbd5574f9ede96ea740b43fca6ed3cdf4be8fecec7bcd0a",
+    "experiments/cycle_spectrum/C004/REPORT.md": "068bb10064961ae8e02d6547ed1e3583d7f3ff590c622803cfb0e38a3804ef59",
+    "experiments/cycle_spectrum/C004/ROOT_REVIEW.md": "b5e67715f2447ae7e4ffba6447c37153dfedc4f8efa256273112dbfdb4ef8f75",
+    "experiments/cycle_spectrum/C004/ROTATION_LATTICE.md": "c3687aab765f7665862cc3c5b5a08ec6c622b1625ab43f5051260d85a78059f7",
+    "experiments/cycle_spectrum/C004/SIDE_REVIEW.md": "cc2a31a5e6728808bf6f13f564cd88b6d0048688955af26e4ba2d7c3cb003a7c",
+    "experiments/cycle_spectrum/C004/SIZE_PROBE.md": "39274dd433cb6625f8c8e5c238cf854c54bc5225035d589c4170ce2a2835b13c",
+    "experiments/cycle_spectrum/C004/check_rotations.py": "30fb6c9624f3abc5820808a141dc92d57c2b44aa2658ec63ae42c3b7c8aaf338",
+    "experiments/cycle_spectrum/C004/full_gate.json": "10a42beae3aec02a370ce90f6b5d2a8d2c307261646116868211b95d77fd6c2d",
+    "experiments/cycle_spectrum/C004/rotation_audit.json": "9344d448a670a4038ac9019a93d195e22a3bb3566a65687e9df9d1a1d4c3342a"
+  },
+  "status": "PASS"
+}

@@ -64,6 +64,32 @@ assuming regularity of an actual bad set.
   counterexample but is not a theorem. The naive random-residue model's
   divergent prediction refutes that model, not the exact denominator
   criterion. Lean reports are separate from main's independent replay.
+- C004 classifies primitive positive rational odd-only cycles with H<2L
+  exactly as mechanical valuation words. Sorting the states gives two
+  adjacent valuation exponents and a rank shift by the number of high-
+  exponent states. Coprime(A,m) follows from primitivity; the exact
+  reduced denominator is D=2^A-3^m. Repeated words must first reduce
+  to their primitive totals. At any odd d, these cycles correspond to
+  coprime(A,m) with positive D dividing d, including fixed points.
+  This identifies R71's existing class intrinsically; it is not a new
+  exclusion of wide words. A hypothetical nontrivial d1 cycle has H>2L;
+  equality is impossible for common odd numerators.
+- The C004 cyclic matrix has Smith form diag(1,...,1,D); the augmented
+  matrix has final factor g=gcd(C,D). All rotation integrality conditions
+  are one obstruction. The one-letter cut formula is
+  gcd(D,K_i)=g*gcd(D/g,2^a_i-3); retain the extra factor. It equals g
+  at valuations1/2. The valuation1 maximum-state argument is for d1.
+  Kernel solutions require positive odd scaling to realize raw odd
+  cycles, and scaling coprime to6 on the supported parameter domain.
+- Universal pair gap<2 is refuted by the d5 cycle19,31,49. More strongly,
+  coprime mechanical upper approximants give every pair gap arbitrarily
+  large, even with H<2L; their denominators vary. Odd-lattice bounds are
+  lower bounds on spacing, not the missing upper bounds. Retain the
+  exact actual counterexamples and do not revive a height-only shortcut.
+- The side lane's bounded-discrepancy estimate retains m/L and its
+  window horizon. A ratio bound alone does not remove that term.
+  Exclusion for every finite discrepancy ceiling (on one-period windows)
+  would be the full cycle headline, not a smaller completion condition.
 
 - Read `README.md`, the cycle brief, `docs/CYCLE_SPECTRUM_LOG.md`, the latest C-series report and relevant sources. `VIEWPOINT_MAP.md`, `docs/VIEWPOINT_LOG.md` and `ROUTE_MAP.md` preserve prior obligations and comparisons without restricting the active cycle programme.
 - Use bounded parallel investigations to test the selected mechanism. Do not substitute another language survey or dispatcher expansion for the cycle goal.
