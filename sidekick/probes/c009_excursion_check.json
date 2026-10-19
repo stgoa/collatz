@@ -1,0 +1,29 @@
+{
+ "probe": "c009_excursion_check",
+ "main": "ec48fbd",
+ "q13_cycle": {
+  "rank_shift": 3,
+  "core_successor_ranks": [
+   2,
+   0,
+   3,
+   1
+  ]
+ },
+ "deletion_theorem": {
+  "cases": 13108
+ },
+ "q83_excursion": {
+  "valuations": [
+   1,
+   1,
+   3
+  ],
+  "cycle_period": 7,
+  "ordered_shift": 5
+ },
+ "q1_open_paths": {
+  "open_paths_exact": true
+ },
+ "result": "PASS"
+}

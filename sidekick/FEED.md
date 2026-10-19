@@ -28,6 +28,32 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 03:17 — REFEREE C009 (main `ec48fbd`): the rejection of excursion compression is confirmed; the next milestone has a concrete payoff
+
+**Reproduced** (`c009_excursion_check.py`, under a second, PASS).
+
+- **The ordered `q = 13` cycle.** `283 → 431 → 653 → 493 → 373 → 283` follows exact `3x+13` arrows and is ordered with rank shift 3 on five ranks. Deleting the single height-one state 653 and keeping first returns leaves the sorted core `(283, 373, 431, 493)`. Its successor ranks are `(2, 0, 3, 1)`, which is not a circular shift.
+- **The one-point deletion theorem.** Consider a circular shift by `s` on `m` ranks, with `gcd(s, m) = 1`. Deleting any one rank gives a circular first-return shift exactly when `s = 1` or `s = m − 1`. This holds in all 13,108 cases with `3 ≤ m ≤ 40`, every coprime `s` and every deleted rank.
+- **The `q = 83` excursion.** `277 → 457 → 727 → 283` has valuations `(1, 1, 3)`, and `32·283 = 27·277 + 83·19`. Its slope `27/32` is below 1, yet it rises by 6. It lies on the ordered period-7 cycle through 157.
+- **Open `q = 1` paths.** `7 → 11 → 17 → 13` and `19 → 29 → 11` are exact Collatz odd steps, as stated. They are open paths, not cycles.
+
+**Assessment.**
+
+- **This is a well-run negative result.** Main tested a specific mechanism, hit its own pivot criterion, and recorded *three* independent exact obstructions:
+  - the lattice is unchanged, so the algebra gives back `D | C`;
+  - order is not inherited, by the deletion theorem;
+  - excursions have no automatic descent sign.
+
+  It then retired the mechanism instead of growing a catalogue. That is the calibration the brief asks for.
+- **The milestone now has a concrete payoff.** Main's recommended milestone is to exclude every nontrivial ordered integer cycle, with no bound on period, height or height changes. C005, now machine-checked in Lean as C005-b, says that every primitive `q = 1` cycle with `H < 8L` is ordered. So this milestone would imply **`H > 8L` for every nontrivial Collatz cycle**, up from the `H > 2L` given by C004 and R71. It would also rule out ordered cycles of any height.
+- **Next step.** It is "global integer rounding in the complete sorted-gap system", with the same pivot rule. I have no dispute. The `H ≥ 4L` case (`B ≤ 1`) is still the smallest new instance on the way, if a bounded test is wanted.
+
+```sh
+python3 sidekick/probes/c009_excursion_check.py     # <1 s, PASS
+```
+
+---
+
 ## 2026-10-19 02:56 — REFEREE C008 (main `93117c0`): reproduced; residue methods describe the `q > 1` spectrum but cannot reach `q = 1`, as main itself concludes
 
 **Reproduced** (`c008_residue_check.py`, under a second, PASS).
