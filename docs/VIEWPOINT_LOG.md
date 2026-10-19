@@ -1,5 +1,39 @@
 # Viewpoint exploration log
 
+## C011 — A structural exclusion, with the generalization tested, 2026-10-19
+
+[C011](../experiments/cycle_spectrum/C011/REPORT.md) completes the
+sparse-rotation test. It gives an all-amplitude two-defect denominator
+bound, effective bounded-q finiteness, and an explicit q1 exclusion
+using published inputs. An elementary marker family has unbounded
+minimum and shortcut complexity. The seven-field assessments remain
+in the proof and obstruction notes.
+
+The user asked for a substantial next objective. Retain the unchanged
+cycle headline and test a coupled estimate at arbitrary mismatch count,
+aiming at a requirement growing with period for every hypothetical
+integer cycle. C011's constant lower bound3 is progress, not that
+milestone. Actual three-, four- and six-defect cycles reject divisibility
+of individual plateau contributions, so the next mechanism must retain
+their coupled arithmetic.
+
+Successful fetches reviewed DIRECTIONS/FEED at
+`c138d948eb17c2f847e9b0efff793e0da191c346` and then
+`bab760a670973cc98a874dfc713996bc0dca8470`. The later report adds
+C010 review and reported C006-a run and height-change Lean results.
+The C010 primitivity and coprime-rank clarifications are accepted within
+its existing domain. No main-side Lean kernel replay was performed.
+D1/D2/D5/D7 retain their scopes; D3 blanket transfer remains rejected,
+D4 deferred, D6/D8 historical. The [side review](../experiments/cycle_spectrum/C011/SIDE_REVIEW.md)
+records details. No side branch was modified or messaged.
+
+Independent review caught a missing plateau factor in the draft
+GENERAL_DEFECTS prose. It was restored explicitly; the main theorem
+and exact code already retained it. The finite corpus, rational
+constant checks and historical gate pass. No goal replacement,
+completion, novelty claim or unrestricted cycle exclusion is made.
+
+
 ## High-level recommendation after C010, 2026-10-19
 
 The user asks what substantial objective should follow the language's

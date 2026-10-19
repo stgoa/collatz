@@ -1,5 +1,30 @@
 # Research log
 
+## 2026-10-19 — C011: Complete two-defect exclusion and the coupling obstruction
+
+The [batch](../experiments/cycle_spectrum/C011/REPORT.md) proves an
+amplitude-free denominator bound from both mismatch arcs and their
+terminal valuations. Bounded denominator implies bounded period, then
+bounded A-k, then bounded total valuation. An explicit application of
+Matveev and published Hercher/Barina inputs excludes all denominator-one
+words with a two-defect rotation, at every period and height. Published
+computations remain imported inputs; no independent replay is claimed.
+
+A marker family has unbounded rational minimum and shortcut local-minimum
+count and is excluded without the analytic or computational inputs. A
+separate exact family permits arbitrary prescribed cancellation divisors
+with only two unit mismatches, refuting an absolute-gcd shortcut.
+The full stored corpus and all11 fixtures pass;192 two-defect rotations
+check the arc bounds. The complete119-field historical gate passes.
+
+The next test concerns coupled sums at arbitrary mismatch counts. Actual
+q97/q233/q359 cycles demonstrate that divisibility of a sum gives no
+termwise divisibility. A growing mismatch requirement is still open;
+C011 gives only the constant bound3. Keep the original all-cycle goal
+active and avoid successive fixed-count targets. The reported external
+Lean work remains separate from main-side proof and finite replay.
+
+
 ## 2026-10-19 — C010: complete integer gaps and sharp rounding limits
 
 [C010](../experiments/cycle_spectrum/C010/REPORT.md) proves a necessary

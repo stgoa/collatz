@@ -7,6 +7,23 @@ work. It is not the current completion requirement.
 
 ## Headline
 
+[C011](../experiments/cycle_spectrum/C011/REPORT.md) now excludes q1
+for every word with a two-defect rotation, at arbitrary period, height
+and amplitude, under its explicit published inputs. It also proves
+effective bounded-denominator finiteness for the entire class. This is
+progress toward the success ladder, not completion of the headline.
+
+The next mechanism is a coupled estimate for arbitrary mismatch counts.
+A growing lower bound on the mismatch count of every rotation of any
+hypothetical nontrivial integer cycle is a proposed intermediate
+milestone. No such bound is proved. Exact generalized cycles reject
+termwise divisibility as soon as three mismatches occur. Preserve those
+controls and compare another mechanism if the coupled estimate loses
+its gain; do not substitute fixed-count classifications for this target.
+
+### Previous mechanisms and unchanged objective
+
+
 [C010](../experiments/cycle_spectrum/C010/REPORT.md) completes the
 global gap/rounding probe. Full gap integrality is equivalent to the
 original legal integer state system; the displayed sharp spacing

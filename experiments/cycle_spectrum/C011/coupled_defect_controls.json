@@ -1,0 +1,178 @@
+{
+  "cases": [
+    {
+      "C": 85,
+      "D": 485,
+      "g": 5,
+      "intercept_difference": 100,
+      "mismatch_count": 3,
+      "plateaus": [
+        {
+          "prefix_difference": 2,
+          "residue": 1,
+          "start": 1,
+          "stop_exclusive": 2,
+          "value": 36
+        },
+        {
+          "prefix_difference": 1,
+          "residue": 4,
+          "start": 2,
+          "stop_exclusive": 3,
+          "value": 64
+        }
+      ],
+      "prefix_difference": [
+        0,
+        2,
+        1
+      ],
+      "q": 97,
+      "quotient": 20,
+      "shift": 1,
+      "states": [
+        17,
+        37,
+        13
+      ],
+      "word": [
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "C": 10745,
+      "D": 1631,
+      "g": 7,
+      "intercept_difference": 9324,
+      "mismatch_count": 4,
+      "plateaus": [
+        {
+          "prefix_difference": 1,
+          "residue": 6,
+          "start": 2,
+          "stop_exclusive": 3,
+          "value": 972
+        },
+        {
+          "prefix_difference": 2,
+          "residue": 1,
+          "start": 4,
+          "stop_exclusive": 7,
+          "value": 8352
+        }
+      ],
+      "prefix_difference": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        2,
+        2,
+        0
+      ],
+      "q": 233,
+      "quotient": 1332,
+      "shift": 3,
+      "states": [
+        1535,
+        2419,
+        3745,
+        2867,
+        4417,
+        3371,
+        5173,
+        1969
+      ],
+      "word": [
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "C": 15257,
+      "D": 26207,
+      "g": 73,
+      "intercept_difference": 20732,
+      "mismatch_count": 6,
+      "plateaus": [
+        {
+          "prefix_difference": 1,
+          "residue": 23,
+          "start": 2,
+          "stop_exclusive": 3,
+          "value": 972
+        },
+        {
+          "prefix_difference": 2,
+          "residue": 19,
+          "start": 3,
+          "stop_exclusive": 4,
+          "value": 3888
+        },
+        {
+          "prefix_difference": 1,
+          "residue": 3,
+          "start": 6,
+          "stop_exclusive": 7,
+          "value": 1536
+        },
+        {
+          "prefix_difference": 3,
+          "residue": 28,
+          "start": 7,
+          "stop_exclusive": 8,
+          "value": 14336
+        }
+      ],
+      "prefix_difference": [
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        3
+      ],
+      "q": 359,
+      "quotient": 284,
+      "shift": 1,
+      "states": [
+        209,
+        493,
+        919,
+        779,
+        337,
+        685,
+        1207,
+        995
+      ],
+      "word": [
+        1,
+        1,
+        2,
+        3,
+        1,
+        1,
+        2,
+        4
+      ]
+    }
+  ],
+  "schema": "C011-coupled-defects-v1",
+  "scope": "Three exact actual-cycle counterexamples to termwise divisibility; no obstruction to coupled estimates is claimed.",
+  "source_sha256": {
+    "experiments/cycle_spectrum/C001/actual_cycles.json": "28d067d3f82585a3701616adce3b57cae994541c4ddd3b4859d2bcf2307e44f2",
+    "experiments/cycle_spectrum/C011/check_coupled_defects.py": "6d6cdf4ebdc75bee9b46638bf998748aa89f985c514296f1388f9b959e57a0bb"
+  },
+  "status": "PASS"
+}

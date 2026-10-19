@@ -1,0 +1,133 @@
+{
+  "baseline_commit": "cae57b0d248c0178e3347a934e73b5f0586bcfe8",
+  "batch_file_sha256": {
+    "ARITHMETIC_REVIEW.md": "6673e88d3c2a7260694bb344abe97b844bb0c1c60a2e1de0d609ea694835f20b",
+    "DEFECT_OBSTRUCTIONS.md": "a769a6a5238b123dd561c3097adb00aaa6556c8cdfc18e535fd8234ad523ea79",
+    "EXACT_CHECKER_REVIEW.md": "8358696c5857bb0ddbbe1ae00033337b61c8438341344df0bb5d32e431336613",
+    "EXCLUSION.md": "0edfdb40ffbb05b43c1e88bd26555ceaf8311135ea31a5ff122761d045f68032",
+    "GENERAL_DEFECTS.md": "c1edc51a9714114c9cd92cc86c90b49031e035d7e392953aa3b1b06083a57ac7",
+    "INDEPENDENT_REVIEW.md": "ab0d96795bfe15a70d43834ffb343a77c9ab3dfba88b615f789b68c5b470ff59",
+    "LITERATURE.md": "7f617777d2159cfa350f31c788a2596a87ec01f6c787c89f88a64a5a44addc8c",
+    "REPORT.md": "9cb803c404459311dbcb8ae014ef1a9675b0df6c3dcfcca79149722b6262cf7e",
+    "ROOT_REVIEW.md": "c4667c73abef4ac57709ba4e43984ab73e6b392f8594c6d2733014793856af56",
+    "ROTATION_DEFECTS.md": "9b390b7f8e456bbf52f3563cf7fe4243cf052846a1175dc0d4098a11ba59c801",
+    "SIDE_REVIEW.md": "17237b115e206a585da0ba9b7f64fd7a7cf5fc272943ad37e6adefaa330eca8c",
+    "check_coupled_defects.py": "6d6cdf4ebdc75bee9b46638bf998748aa89f985c514296f1388f9b959e57a0bb",
+    "check_delivery.py": "1c6c9d87280dc7d24f8b51e5b0e514d441c11dc1abb8a85a03a298e59ae9a68b",
+    "check_exclusion_constants.py": "f63bb7621e6e22d4fee13abea2f356a8871d1b07dcc3ad8ba4ba41642cad1ac7",
+    "check_rotation_defects.py": "ba9a2b7fb269d619378c4c7b25d3cb6430e5a8078ea5658e0d81b71ba2d855ad",
+    "coupled_defect_controls.json": "061810c3261b299f3db1ff941ae6b31498667dd442058a61387a330e97c41f94",
+    "exclusion_constants.json": "bbf7e8616bff39574d05ca075fe26c78a0dc88ac6380f55e73861dc26407225f",
+    "historical_gate.json": "10a42beae3aec02a370ce90f6b5d2a8d2c307261646116868211b95d77fd6c2d",
+    "rotation_defect_audit.json": "1eee49577e35bf5f28aac0ba2a572c8a863266575c4a0e2a4babf2f233d9844d"
+  },
+  "frozen_commit": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "goal_status": "All-cycle objective active; the two-defect class is excluded under declared inputs.",
+  "historical_gate": {
+    "command": "python3 scripts/verify_all.py --cpp --transfer-controls",
+    "fields": 119,
+    "status": "PASS"
+  },
+  "independent_reviews": {
+    "DEFECT_OBSTRUCTIONS.md": [
+      "ARITHMETIC_REVIEW.md"
+    ],
+    "EXCLUSION.md": [
+      "INDEPENDENT_REVIEW.md"
+    ],
+    "GENERAL_DEFECTS.md": [
+      "EXACT_CHECKER_REVIEW.md"
+    ],
+    "ROTATION_DEFECTS.md": [
+      "ARITHMETIC_REVIEW.md",
+      "INDEPENDENT_REVIEW.md"
+    ],
+    "check_coupled_defects.py": [
+      "EXACT_CHECKER_REVIEW.md"
+    ],
+    "check_exclusion_constants.py": [
+      "INDEPENDENT_REVIEW.md"
+    ],
+    "check_rotation_defects.py": [
+      "INDEPENDENT_REVIEW.md",
+      "EXACT_CHECKER_REVIEW.md"
+    ],
+    "coupled_defect_controls.json": [
+      "EXACT_CHECKER_REVIEW.md"
+    ],
+    "exclusion_constants.json": [
+      "INDEPENDENT_REVIEW.md"
+    ],
+    "rotation_defect_audit.json": [
+      "INDEPENDENT_REVIEW.md",
+      "EXACT_CHECKER_REVIEW.md"
+    ]
+  },
+  "markdown_checks": {
+    "checked_local_links": 640,
+    "errors": [],
+    "files": 19
+  },
+  "preservation": {
+    "C001_C010_files_unchanged": 127,
+    "R1_onward_byte_identical": true,
+    "frozen_files_byte_identical": [
+      "collatz_research_20261017/right_aligned_reduction.tex",
+      "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md",
+      "experiments/residual_progress/resolved_rules/resolved_rules.py"
+    ],
+    "git_diff_check": "PASS"
+  },
+  "reviewed_pins": {
+    "DEFECT_OBSTRUCTIONS.md": "a769a6a5238b123dd561c3097adb00aaa6556c8cdfc18e535fd8234ad523ea79",
+    "EXCLUSION.md": "0edfdb40ffbb05b43c1e88bd26555ceaf8311135ea31a5ff122761d045f68032",
+    "GENERAL_DEFECTS.md": "c1edc51a9714114c9cd92cc86c90b49031e035d7e392953aa3b1b06083a57ac7",
+    "ROTATION_DEFECTS.md": "9b390b7f8e456bbf52f3563cf7fe4243cf052846a1175dc0d4098a11ba59c801",
+    "check_coupled_defects.py": "6d6cdf4ebdc75bee9b46638bf998748aa89f985c514296f1388f9b959e57a0bb",
+    "check_exclusion_constants.py": "f63bb7621e6e22d4fee13abea2f356a8871d1b07dcc3ad8ba4ba41642cad1ac7",
+    "check_rotation_defects.py": "ba9a2b7fb269d619378c4c7b25d3cb6430e5a8078ea5658e0d81b71ba2d855ad",
+    "coupled_defect_controls.json": "061810c3261b299f3db1ff941ae6b31498667dd442058a61387a330e97c41f94",
+    "exclusion_constants.json": "bbf7e8616bff39574d05ca075fe26c78a0dc88ac6380f55e73861dc26407225f",
+    "rotation_defect_audit.json": "1eee49577e35bf5f28aac0ba2a572c8a863266575c4a0e2a4babf2f233d9844d"
+  },
+  "reviewed_side_commits": [
+    "c138d948eb17c2f847e9b0efff793e0da191c346",
+    "bab760a670973cc98a874dfc713996bc0dca8470"
+  ],
+  "saved_coverage": {
+    "coupled_actual_controls": 3,
+    "fixtures": 11,
+    "marker": {
+      "all_rotation_checks": 1012,
+      "cases": 8,
+      "half_period_two_arc_checks": 8,
+      "mechanical_prefix_bounds": 510,
+      "raw_cycle_arrows": 1020
+    },
+    "rotations": {
+      "adjusted_quadratic_bounds": 192,
+      "amplitude_free_quadratic_bounds": 192,
+      "cycles_with_two_defects": 108,
+      "normalized_arrows": 28831,
+      "normalized_cycles": 1185,
+      "rotations": 27646,
+      "two_arc_identities": 384,
+      "two_defect_rotations": 192,
+      "word_positions_compared": 1481154
+    },
+    "source_cycles": 2459,
+    "source_parameters": 333
+  },
+  "scope": "Saved evidence consistency and preservation; not a mathematical or formal replay.",
+  "status": "PASS",
+  "top_document_sha256": {
+    "AGENTS.md": "b1d2e6101ac96bebefdcea23de3e6ffecb9bcf358d995116e051b43f1ed21255",
+    "README.md": "318a046ce8cc940447b87451fe1204ad8c178f544977e68a34ca651f42da3d55",
+    "VIEWPOINT_MAP.md": "bfb66a33cfb17f417a1a2fab0b07d84e83b2742b849c618e001f51743f099047",
+    "docs/CYCLE_SPECTRUM_BRIEF.md": "1f2b07d81d5312c460364cf4d286461d316a5ffc5a7cbaca4e5ef82ede4dea44",
+    "docs/CYCLE_SPECTRUM_LOG.md": "e03144221fb5645676bf04c4de3c43d9e7b7813f091738251ec591627ff84665",
+    "docs/RESEARCH_LOG.md": "7a0a69e9657d7c2703027a120eade25cea52157b901c15118e7cdf9f752d8517",
+    "docs/RESULTS.md": "981058cd394b4caac6abe32359d738ea056a82ea5616784fde289781927c3faa",
+    "docs/VIEWPOINT_LOG.md": "9ba8b6f6492291883ca9e22c13ab0a9e325709ec4631bf6ae4e4c8f3565b9401"
+  }
+}

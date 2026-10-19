@@ -4,7 +4,36 @@ This repository is the persistent record of the Collatz programme: definitions, 
 
 ## Current programme: cycle denominators across 3x+d
 
-**Current standing (2026-10-19): C010 derives an all-height odd-spacing
+**Current standing (2026-10-19): C011 excludes every positive cycle word
+that differs from some nonidentity rotation in exactly two positions.
+No period, height or mismatch-amplitude bound is required. The full
+cycle goal remains open.**
+
+[C011's report](experiments/cycle_spectrum/C011/REPORT.md) derives a
+uniform cancellation bound from both arcs between the mismatches.
+It proves that every bounded-denominator layer of this whole class is
+finite, effectively in principle. An explicit application excludes
+denominator one using published logarithm and integer-cycle bounds;
+the underlying published computations were not independently rerun.
+A separate infinite marker family is excluded elementarily and has
+unbounded minimum and shortcut local-minimum count.
+
+The argument permits all actual generalized cycles. Exact replay covers
+2,459 raw instances at333 parameters,1,185 normalized cycles and all11
+fixtures. The historical119-field gate passes. Written proof, agent
+review, finite checking and external published inputs remain distinct;
+novelty and formal verification are unclaimed.
+
+**Next:** control the combined contributions from an arbitrary number
+of rotation differences. Actual cycles show that their sum can be
+divisible by the cycle gcd while no individual contribution is. Seek a
+single quantitative restriction forcing rotation mismatch count to grow
+with period for every hypothetical integer cycle. This is an intermediate
+target under the unchanged all-cycle headline. C011 supplies only the
+constant lower bound3; a ladder of fixed-count exclusions is insufficient.
+
+
+**Previous standing (C010): derives an all-height odd-spacing
 inequality and rejects its use for universal cycle exclusion. Exact
 rational cycles pass every displayed spacing bound with arbitrarily
 large slack. Full integer gap coordinates retain the original lattice
@@ -18,7 +47,7 @@ some rational shapes, but19 noninteger corpus examples pass every
 circular pair bound after rescaling to additive1. An infinite mechanical
 family gives arbitrarily large slack; these are known noninteger cycles.
 
-The next bounded mechanism returns to full cyclic word arithmetic:
+C010 selected full cyclic word arithmetic as its next mechanism:
 test whether sparse differences between a word and a rotation yield
 a uniform bound on numerator cancellation beyond the fixed-block
 results. This changes the mechanism while retaining the all-cycle

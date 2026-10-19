@@ -1,0 +1,56 @@
+{
+  "certificate": {
+    "boundary_margin": [
+      2450000000,
+      1
+    ],
+    "coefficient_used": 600000000,
+    "derivative_lower": [
+      373,
+      2750
+    ],
+    "exp_07_lower": [
+      24162857,
+      12000000
+    ],
+    "exp_11_lower": [
+      36015101,
+      12000000
+    ],
+    "exp_27_lower": [
+      1000598329286902589035885601284756183793,
+      2200564853618691905945600000
+    ],
+    "log2_lower": [
+      56,
+      81
+    ],
+    "log_2_over_sqrt3_lower": [
+      1,
+      7
+    ],
+    "matveev_coefficient_upper": [
+      598752000,
+      1
+    ],
+    "period_boundary": 137500000000,
+    "published_seed_limit_exclusive": 2361183241434822606848,
+    "required_seed_endpoint": 1770887431076116955136,
+    "sqrt2_upper": [
+      10,
+      7
+    ]
+  },
+  "published_inputs": {
+    "convergence_verification": "https://link.springer.com/article/10.1007/s11227-025-07337-0",
+    "correction": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Hercher/corrigendum.pdf",
+    "matveev": "https://link.springer.com/article/10.1007/s12188-025-00293-9",
+    "odd_period": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Hercher/hercher5.pdf"
+  },
+  "schema": "C011-exclusion-constants-v2",
+  "scope": "Rational constant and monotonicity checks only; no replay of Matveev or the published cycle lower bound.",
+  "source_sha256": {
+    "check_exclusion_constants.py": "f63bb7621e6e22d4fee13abea2f356a8871d1b07dcc3ad8ba4ba41642cad1ac7"
+  },
+  "status": "PASS"
+}
