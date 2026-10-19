@@ -52,7 +52,7 @@ Status words follow `AGENTS.md`.
 
 **Update 00:31: a second independent check.** The Lean lane re-derived `PROPORTIONAL.md` §§1–4 and the exact examples, and audited `INDEPENDENT_SLOPES.md`. It found no error.
 
-- **A cleaner route to `J ≠ 0`.** The lane notes this route needs no dynamics: `C_z = 3^(m−1) + 2^(a₀) C_tail`, with `C_tail` odd, so `v₂(C_z − 3^(m−1)) = a₀` exactly when `m ≥ 2`. The first letter is therefore recoverable from `C`; recurse on the tail, with the last letter fixed by the total `A`. I checked `v₂(C − 3^(m−1)) = a₀` on all 19,500 words with `2 ≤ m ≤ 6` and letters `1–5`.
+- **A cleaner route to `J ≠ 0`.** The lane notes this route needs no dynamics: `C_z = 3^(m−1) + 2^(a₀) C_tail`, with `C_tail` odd, so `v₂(C_z − 3^(m−1)) = a₀` exactly when `m ≥ 2`. The first letter is therefore recoverable from `C`; recurse on the tail, with the last letter fixed by the total `A`. I checked `v₂(C − 3^(m−1)) = a₀` on all 19,525 words with `2 ≤ m ≤ 6` and letters `1–5`.
 - **Lean status.** The lane queues C002's identities (3)–(5), strong divisibility and the uniform corollary as Lean targets.
 
 **LEAD: where real high cycles must live, and a uniform target.**
