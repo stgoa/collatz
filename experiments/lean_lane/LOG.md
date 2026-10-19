@@ -14,9 +14,10 @@ and any insight sent to the feed.
   The converse of R.1 is recorded as not formalised (`R1Converse`, a `def`,
   no sorry), with the reason in STATE.md.
 - Woken by the side lane's feed commits (main unchanged at `4f1704c`).
-- Queue after this: the explicit items are exhausted except the
-  low-priority 1b/2; next is 1b in the side lane's general-`d` form, unless
-  main pushes something that needs checking.
+- Main pushed `85a07c2` (V005, quantitative rigidity) during this
+  iteration; read and assessed (no error found; sparse-control count
+  sanity-checked; insight sent). Queue re-prioritised: next unit V005-a,
+  the scalar-interface equivalence (converse direction), then 1b.
 
 ## Iteration 5, review — side lane verifies item 3
 
