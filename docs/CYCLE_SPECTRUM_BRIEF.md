@@ -7,11 +7,28 @@ work. It is not the current completion requirement.
 
 ## Headline
 
-The latest [C009 probe](../experiments/cycle_spectrum/C009/REPORT.md)
+[C010](../experiments/cycle_spectrum/C010/REPORT.md) completes the
+global gap/rounding probe. Full gap integrality is equivalent to the
+original legal integer state system; the displayed sharp spacing
+relaxation admits noninteger rational cycles with arbitrarily large
+slack. The next bounded mechanism tests full-word cancellation through
+sparse differences between a word and a rotation. Ordered q1 exclusion
+remains an open intermediate target; the original headline is unchanged.
+
+**Recommendation after C010:** prioritize a uniform arithmetic law for
+whole-word cancellation. A successful intermediate theorem must exclude
+denominator one for a structurally defined infinite class beyond the
+existing block and mechanical exclusions, with no fixed period or
+height cap. Its relevance must survive those parameters growing;
+another named motif or the identity D|C alone is insufficient. Retain
+ordered-cycle exclusion as an open benchmark, not the presumed mechanism.
+This recommendation does not activate a replacement goal.
+
+The preceding [C009 probe](../experiments/cycle_spectrum/C009/REPORT.md)
 rejects automatic recursion through excursions. Exact compression adds
 no independent congruence, circular order can fail under first return,
 and excursion slopes do not determine drift. The next bounded test
-will seek global integer rounding inequalities in the full sorted-gap
+was to seek global integer rounding inequalities in the full sorted-gap
 system, with all oddness and seam constraints. The original headline
 and the all-height ordered q1 milestone remain unresolved.
 

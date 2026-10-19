@@ -1,5 +1,45 @@
 # Viewpoint exploration log
 
+## High-level recommendation after C010, 2026-10-19
+
+The user asks what substantial objective should follow the language's
+initial lemmas and mentions Fable's parallel Lean work. C010 now supplies
+the promised test of global gap rounding, with an infinite exact
+obstruction to its displayed relaxation. Recommend whole-word arithmetic
+rigidity with a new denominator-one consequence, uniform in period and
+height. Sparse rotation differences are the next bounded mechanism.
+Demote ordered q1 exclusion from the presumed route to an open benchmark;
+its conditional H>8L payoff remains. No replacement goal is activated.
+
+An additional fetch reviewed DIRECTIONS/FEED at
+`4856ed7c3eb03fcc2dcbadbb9d799ebc08887860` and Lean STATE at
+`a1e1054ff8d509a84f7f373068b2d6e324987a82`. The reported C006 gap
+recurrence and per-run formalization strengthen verification coverage.
+They do not supply the missing exclusion. Main did not kernel-replay
+them; D1–D8 dispositions are unchanged.
+
+## C010 — The full lattice survives; local rounding still loses it, 2026-10-19
+
+[C010](../experiments/cycle_spectrum/C010/REPORT.md) gives an explicit
+integer inverse for complete dyadic gaps and shows exact lowbits are
+automatic after legal full gap integrality. Its sharp all-height
+rounding inequality is valid, but noninteger rational cycles satisfy
+every displayed circular spacing bound with arbitrarily large slack.
+This completes the promised discrimination of the gap mechanism.
+
+Retain the exact order interface and necessary bound. Retire the local
+spacing relaxation as a universal exclusion route; do not expand a
+fixed-band catalogue. The next bounded mechanism returns to cyclic-word
+differences and full numerator cancellation, within the same cycle goal.
+The ordered q1 milestone, all-cycle headline and divergence remain open.
+
+Fetch succeeded. DIRECTIONS and FEED at
+`0448ab3d463db61e261e4998e8604dbfb756947a` were reviewed; DIRECTIONS
+is unchanged. The new C009 referee agrees with the exact controls and
+conditional H>8L payoff. D1/D2/D5/D7 are retained with their scopes,
+D3's blanket transfer remains rejected, D4 deferred, and D6/D8
+historical. Reported Lean results remain separate from main kernel replay.
+
 ## Strategic question after C009, 2026-10-19
 
 The user asks for a substantial high-level objective after the language's

@@ -4,6 +4,21 @@ Last updated: 2026-10-19. This ledger summarizes scope; the linked proof notes a
 
 ## Current programme and preserved Phase6 standing
 
+C010's [gap and rounding results](../experiments/cycle_spectrum/C010/REPORT.md)
+give the exact integer inverse of the complete dyadic gap map E-I,
+where E^m=2I. Positivity corresponds to the normalized order cone,
+and the common denominator is preserved. For legal positive valuations,
+integer gaps already force exact odd numerators, lowbits and heights.
+The sharp necessary inequality q(C_h/D-V/3)>=Gamma_(q mod6) retains
+all heights and the seam. It rejects some rational shapes but cannot
+exclude q1 universally: q5/q13 rescalings pass all displayed pair
+bounds, and the C004 mechanical family has seam3^(m-1)/D and
+arbitrarily large slack. The lower bound can tend to zero. This is a
+scoped obstruction to the local-spacing relaxation, not to arbitrary
+integer cuts or future global inequalities. No new integer cycle class
+is excluded, and no novelty, formal verification or record gain is
+claimed. Historical R-series mathematics below remains unchanged.
+
 C009's [excursion audit](../experiments/cycle_spectrum/C009/REPORT.md)
 proves that exact positive odd endpoint equations reconstruct every
 internal odd valuation cylinder. Any number of compressed return blocks

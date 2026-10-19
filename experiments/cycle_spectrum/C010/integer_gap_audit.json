@@ -1,0 +1,3335 @@
+{
+  "clock": "Primitive positive raw odd-only cycles without an absorber. q is the reduced denominator; d-scalings are checked separately.",
+  "existing": {
+    "C007_new_distinct_cycles": 1,
+    "all_gap_records_sha256": "bf86b6660f21e404844ad187e4e49b6edf10d00781871513be7e696485c772e9",
+    "all_source_checks_sha256": "d2cb7450f95b98ed1310e4a2bfa9ea09ee7174ee3935901ba5ca8bb0b625ed21",
+    "counts": {
+      "actual_sharp_circular_pair_checks": 7022,
+      "actual_sharp_local_rounding_checks": 474,
+      "actual_sharp_rounding_equalities": 1,
+      "coordinate_gcd_one": 1185,
+      "noninteger_rescaled_additive_one_local_pass": 19,
+      "normalized_arrows": 28831,
+      "normalized_cycles": 1185,
+      "ordered_arrows": 474,
+      "ordered_cycles": 52,
+      "ordered_nonfixed_cycles": 51,
+      "ordered_wide_cycles": 47,
+      "rescaled_additive_one_all_circular_pairs_pass": 20,
+      "rescaled_additive_one_circular_pair_failures": 235,
+      "rescaled_additive_one_local_fail": 32,
+      "rescaled_additive_one_local_pass": 20,
+      "rescaled_additive_one_odd_ceiled_sum_pass": 28,
+      "rescaled_additive_one_sum_fail": 21,
+      "rescaled_additive_one_sum_pass": 31
+    },
+    "fixture_controls": [
+      {
+        "d": 5,
+        "fixture_id": 1,
+        "gap_record_sha256": "dbea24e42b94655859a1040a1285a2ac605f97d78711b58bd1315b175b90d7fc",
+        "reduced_q": 5,
+        "scale": 1,
+        "states": [
+          1
+        ]
+      },
+      {
+        "d": 5,
+        "fixture_id": 2,
+        "gap_record_sha256": "fb1ae4129511e5135d4f63815bd810fed3be656f788f2be50901ae6dc8cf655a",
+        "reduced_q": 5,
+        "scale": 1,
+        "states": [
+          19,
+          31,
+          49
+        ]
+      },
+      {
+        "d": 5,
+        "fixture_id": 3,
+        "gap_record_sha256": "39fb5970b793dff212777f1a9bca8bd9e1348e508f33440cf1203ea43f5a492a",
+        "reduced_q": 5,
+        "scale": 1,
+        "states": [
+          23,
+          37,
+          29
+        ]
+      },
+      {
+        "d": 5,
+        "fixture_id": 4,
+        "gap_record_sha256": "5a9f22cfb9d0edd21e7b2fda3f5d090f7dad64d25aeb5e4acedc978620c72ab3",
+        "reduced_q": 5,
+        "scale": 1,
+        "states": [
+          187,
+          283,
+          427,
+          643,
+          967,
+          1453,
+          1091,
+          1639,
+          2461,
+          1847,
+          2773,
+          2081,
+          781,
+          587,
+          883,
+          1327,
+          1993
+        ]
+      },
+      {
+        "d": 5,
+        "fixture_id": 5,
+        "gap_record_sha256": "28515cbf686c7c64a914f187ea3a44ff8b116a59986be029499958a578632232",
+        "reduced_q": 5,
+        "scale": 1,
+        "states": [
+          347,
+          523,
+          787,
+          1183,
+          1777,
+          667,
+          1003,
+          1507,
+          2263,
+          3397,
+          2549,
+          1913,
+          359,
+          541,
+          407,
+          613,
+          461
+        ]
+      },
+      {
+        "d": 7,
+        "fixture_id": 6,
+        "gap_record_sha256": "a7669d9c341a04d8b76dbaccfd76de78c1517645562800238e1460eb51897bf4",
+        "reduced_q": 7,
+        "scale": 1,
+        "states": [
+          5,
+          11
+        ]
+      },
+      {
+        "d": 13,
+        "fixture_id": 7,
+        "gap_record_sha256": "eed0fd526a473832c561dc2be6cfbe6593b6ffe12ca57e665854de4c881600dd",
+        "reduced_q": 13,
+        "scale": 1,
+        "states": [
+          1
+        ]
+      },
+      {
+        "d": 13,
+        "fixture_id": 8,
+        "gap_record_sha256": "4e230bf67528515e8cf41d4002baf2177b6671f1e750dcb0c405b08bdb60c2d0",
+        "reduced_q": 13,
+        "scale": 1,
+        "states": [
+          131,
+          203,
+          311,
+          473,
+          179,
+          275,
+          419,
+          635,
+          959,
+          1445,
+          1087,
+          1637,
+          1231,
+          1853,
+          1393
+        ]
+      },
+      {
+        "d": 13,
+        "fixture_id": 9,
+        "gap_record_sha256": "906d0655892fd1ffb1f99531a44a2c23910aab031d846747db0e9eef0765c545",
+        "reduced_q": 13,
+        "scale": 1,
+        "states": [
+          211,
+          323,
+          491,
+          743,
+          1121
+        ]
+      },
+      {
+        "d": 61,
+        "fixture_id": 10,
+        "gap_record_sha256": "cceebcaaaacc1ce21461c5214db8e4c3f0cdc637097301b53ce10705b9ebaf4c",
+        "reduced_q": 61,
+        "scale": 1,
+        "states": [
+          1
+        ]
+      },
+      {
+        "d": 61,
+        "fixture_id": 11,
+        "gap_record_sha256": "eae8786acc412812768fec44f2cd9054fa45603723ba7fcb11d32c4de48af148",
+        "reduced_q": 61,
+        "scale": 1,
+        "states": [
+          235,
+          383,
+          605,
+          469,
+          367,
+          581,
+          451,
+          707,
+          1091,
+          1667,
+          2531,
+          3827,
+          5771,
+          8687,
+          13061,
+          9811,
+          14747,
+          22151,
+          33257,
+          12479,
+          18749,
+          14077,
+          10573,
+          7945,
+          2987,
+          4511,
+          6797,
+          5113,
+          1925,
+          1459,
+          2219,
+          3359,
+          5069,
+          3817,
+          1439,
+          2189,
+          1657,
+          629,
+          487,
+          761,
+          293
+        ]
+      }
+    ],
+    "scaled_source_instances": 1275,
+    "scope": "Every stored raw source instance and every reduced normalized cycle was checked. All eleven raw fixture controls retain their own parameter and scaling. The additive-one rescalings with q>1 remain rational cycles with common denominator q, even when every local and summed rounding inequality passes.",
+    "selected_controls": [
+      {
+        "A": 2,
+        "B": 0,
+        "L": 1,
+        "actual_rounding_bounds": [
+          [
+            1,
+            1
+          ]
+        ],
+        "actual_rounding_slacks": [
+          [
+            0,
+            1
+          ]
+        ],
+        "additive_one_all_circular_pairs_pass": true,
+        "additive_one_all_local_bounds_pass": true,
+        "additive_one_circular_pair_failures": 0,
+        "additive_one_common_denominator": 1,
+        "additive_one_minimum": [
+          1,
+          1
+        ],
+        "additive_one_odd_ceiled_sum_bound": 1,
+        "additive_one_odd_ceiled_sum_pass": true,
+        "additive_one_rounding_bounds": [
+          [
+            1,
+            1
+          ]
+        ],
+        "additive_one_rounding_slacks": [
+          [
+            0,
+            1
+          ]
+        ],
+        "additive_one_sum_bound_pass": true,
+        "circular_pair_checks": 0,
+        "circular_pair_checks_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "coordinate_gcd": 1,
+        "forcing_without_q": [
+          1
+        ],
+        "gamma": [
+          1,
+          1
+        ],
+        "linear_sum_identity": 1,
+        "m": 1,
+        "normalized_gaps": [
+          [
+            1,
+            1
+          ]
+        ],
+        "odd_ceiled_sum_bound": 1,
+        "ordered_domain": true,
+        "q": 1,
+        "rank_shift": 1,
+        "scaled_gaps": [
+          1
+        ],
+        "scaled_states": [
+          1
+        ],
+        "sorted_heights": [
+          0
+        ],
+        "states": [
+          1
+        ],
+        "summed_bound": [
+          1,
+          1
+        ],
+        "upward_variation": [
+          0,
+          1
+        ],
+        "word": [
+          2
+        ]
+      },
+      {
+        "A": 5,
+        "B": 1,
+        "L": 19,
+        "actual_rounding_bounds": [
+          [
+            3,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "actual_rounding_slacks": [
+          [
+            4,
+            1
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            6,
+            1
+          ]
+        ],
+        "additive_one_all_circular_pairs_pass": true,
+        "additive_one_all_local_bounds_pass": true,
+        "additive_one_circular_pair_failures": 0,
+        "additive_one_common_denominator": 5,
+        "additive_one_minimum": [
+          19,
+          5
+        ],
+        "additive_one_odd_ceiled_sum_bound": 3,
+        "additive_one_odd_ceiled_sum_pass": true,
+        "additive_one_rounding_bounds": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "additive_one_rounding_slacks": [
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "additive_one_sum_bound_pass": true,
+        "circular_pair_checks": 6,
+        "circular_pair_checks_sha256": "f6c7b39ebec08d820dfd9feeaf685dc2ed407c8142a2957f3ece9165e94ab40b",
+        "coordinate_gcd": 1,
+        "forcing_without_q": [
+          -1,
+          1,
+          2
+        ],
+        "gamma": [
+          13,
+          6
+        ],
+        "linear_sum_identity": 10,
+        "m": 3,
+        "normalized_gaps": [
+          [
+            11,
+            2
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            7,
+            1
+          ]
+        ],
+        "odd_ceiled_sum_bound": 3,
+        "ordered_domain": true,
+        "q": 5,
+        "rank_shift": 2,
+        "scaled_gaps": [
+          11,
+          13,
+          14
+        ],
+        "scaled_states": [
+          38,
+          49,
+          62
+        ],
+        "sorted_heights": [
+          0,
+          1,
+          0
+        ],
+        "states": [
+          19,
+          31,
+          49
+        ],
+        "summed_bound": [
+          3,
+          1
+        ],
+        "upward_variation": [
+          1,
+          2
+        ],
+        "word": [
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "A": 27,
+        "B": 3,
+        "L": 347,
+        "actual_rounding_bounds": [
+          [
+            2,
+            1
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            13,
+            8
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "actual_rounding_slacks": [
+          [
+            10,
+            1
+          ],
+          [
+            16,
+            1
+          ],
+          [
+            33,
+            2
+          ],
+          [
+            13,
+            1
+          ],
+          [
+            16,
+            1
+          ],
+          [
+            39,
+            2
+          ],
+          [
+            33,
+            2
+          ],
+          [
+            31,
+            2
+          ],
+          [
+            23,
+            1
+          ],
+          [
+            21,
+            1
+          ],
+          [
+            16,
+            1
+          ],
+          [
+            23,
+            1
+          ],
+          [
+            51,
+            2
+          ],
+          [
+            21,
+            1
+          ],
+          [
+            45,
+            2
+          ],
+          [
+            59,
+            2
+          ],
+          [
+            26,
+            1
+          ]
+        ],
+        "additive_one_all_circular_pairs_pass": true,
+        "additive_one_all_local_bounds_pass": true,
+        "additive_one_circular_pair_failures": 0,
+        "additive_one_common_denominator": 5,
+        "additive_one_minimum": [
+          347,
+          5
+        ],
+        "additive_one_odd_ceiled_sum_bound": 13,
+        "additive_one_odd_ceiled_sum_pass": true,
+        "additive_one_rounding_bounds": [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "additive_one_rounding_slacks": [
+          [
+            2,
+            5
+          ],
+          [
+            14,
+            5
+          ],
+          [
+            31,
+            10
+          ],
+          [
+            11,
+            5
+          ],
+          [
+            63,
+            20
+          ],
+          [
+            19,
+            5
+          ],
+          [
+            31,
+            10
+          ],
+          [
+            27,
+            10
+          ],
+          [
+            22,
+            5
+          ],
+          [
+            19,
+            5
+          ],
+          [
+            8,
+            5
+          ],
+          [
+            21,
+            5
+          ],
+          [
+            49,
+            10
+          ],
+          [
+            19,
+            5
+          ],
+          [
+            41,
+            10
+          ],
+          [
+            57,
+            10
+          ],
+          [
+            22,
+            5
+          ]
+        ],
+        "additive_one_sum_bound_pass": true,
+        "circular_pair_checks": 272,
+        "circular_pair_checks_sha256": "3b7a030b566c4a238fa93e45312451b79f207db6335bb24b0456a53e58460d13",
+        "coordinate_gcd": 1,
+        "forcing_without_q": [
+          0,
+          -6,
+          2,
+          4,
+          -7,
+          1,
+          6,
+          -6,
+          2,
+          4,
+          0,
+          -6,
+          2,
+          4,
+          -6,
+          6,
+          8
+        ],
+        "gamma": [
+          241,
+          24
+        ],
+        "linear_sum_identity": 40,
+        "m": 17,
+        "normalized_gaps": [
+          [
+            12,
+            1
+          ],
+          [
+            71,
+            4
+          ],
+          [
+            67,
+            4
+          ],
+          [
+            27,
+            2
+          ],
+          [
+            141,
+            8
+          ],
+          [
+            157,
+            8
+          ],
+          [
+            67,
+            4
+          ],
+          [
+            69,
+            4
+          ],
+          [
+            93,
+            4
+          ],
+          [
+            43,
+            2
+          ],
+          [
+            18,
+            1
+          ],
+          [
+            99,
+            4
+          ],
+          [
+            103,
+            4
+          ],
+          [
+            43,
+            2
+          ],
+          [
+            97,
+            4
+          ],
+          [
+            119,
+            4
+          ],
+          [
+            27,
+            1
+          ]
+        ],
+        "odd_ceiled_sum_bound": 17,
+        "ordered_domain": true,
+        "q": 5,
+        "rank_shift": 10,
+        "scaled_gaps": [
+          96,
+          142,
+          134,
+          108,
+          141,
+          157,
+          134,
+          138,
+          186,
+          172,
+          144,
+          198,
+          206,
+          172,
+          194,
+          238,
+          216
+        ],
+        "scaled_states": [
+          2776,
+          2872,
+          3014,
+          3148,
+          3256,
+          3397,
+          3554,
+          3688,
+          3826,
+          4012,
+          4184,
+          4328,
+          4526,
+          4732,
+          4904,
+          5098,
+          5336
+        ],
+        "sorted_heights": [
+          0,
+          0,
+          2,
+          1,
+          0,
+          3,
+          2,
+          0,
+          2,
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          2,
+          0
+        ],
+        "states": [
+          347,
+          523,
+          787,
+          1183,
+          1777,
+          667,
+          1003,
+          1507,
+          2263,
+          3397,
+          2549,
+          1913,
+          359,
+          541,
+          407,
+          613,
+          461
+        ],
+        "summed_bound": [
+          33,
+          2
+        ],
+        "upward_variation": [
+          31,
+          8
+        ],
+        "word": [
+          1,
+          1,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4,
+          1,
+          2,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "A": 4,
+        "B": 1,
+        "L": 5,
+        "additive_one_common_denominator": 7,
+        "coordinate_gcd": 1,
+        "m": 2,
+        "ordered_domain": false,
+        "q": 7,
+        "scaled_gaps": [
+          1,
+          9
+        ],
+        "scaled_states": [
+          10,
+          11
+        ],
+        "sorted_heights": [
+          0,
+          1
+        ],
+        "states": [
+          5,
+          11
+        ],
+        "word": [
+          1,
+          3
+        ]
+      },
+      {
+        "A": 8,
+        "B": 1,
+        "L": 283,
+        "actual_rounding_bounds": [
+          [
+            5,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "actual_rounding_slacks": [
+          [
+            41,
+            1
+          ],
+          [
+            46,
+            1
+          ],
+          [
+            56,
+            1
+          ],
+          [
+            60,
+            1
+          ],
+          [
+            72,
+            1
+          ]
+        ],
+        "additive_one_all_circular_pairs_pass": true,
+        "additive_one_all_local_bounds_pass": true,
+        "additive_one_circular_pair_failures": 0,
+        "additive_one_common_denominator": 13,
+        "additive_one_minimum": [
+          283,
+          13
+        ],
+        "additive_one_odd_ceiled_sum_bound": 7,
+        "additive_one_odd_ceiled_sum_pass": true,
+        "additive_one_rounding_bounds": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "additive_one_rounding_slacks": [
+          [
+            37,
+            13
+          ],
+          [
+            40,
+            13
+          ],
+          [
+            32,
+            13
+          ],
+          [
+            36,
+            13
+          ],
+          [
+            60,
+            13
+          ]
+        ],
+        "additive_one_sum_bound_pass": true,
+        "circular_pair_checks": 20,
+        "circular_pair_checks_sha256": "5c2506ed513a8a5ee38f5c83a092f03a41450ece6af48573e9c6fc7190feca64",
+        "coordinate_gcd": 1,
+        "forcing_without_q": [
+          -1,
+          1,
+          0,
+          0,
+          2
+        ],
+        "gamma": [
+          35,
+          6
+        ],
+        "linear_sum_identity": 26,
+        "m": 5,
+        "normalized_gaps": [
+          [
+            87,
+            2
+          ],
+          [
+            93,
+            2
+          ],
+          [
+            58,
+            1
+          ],
+          [
+            62,
+            1
+          ],
+          [
+            73,
+            1
+          ]
+        ],
+        "odd_ceiled_sum_bound": 9,
+        "ordered_domain": true,
+        "q": 13,
+        "rank_shift": 3,
+        "scaled_gaps": [
+          87,
+          93,
+          116,
+          124,
+          146
+        ],
+        "scaled_states": [
+          566,
+          653,
+          746,
+          862,
+          986
+        ],
+        "sorted_heights": [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "states": [
+          283,
+          431,
+          653,
+          493,
+          373
+        ],
+        "summed_bound": [
+          8,
+          1
+        ],
+        "upward_variation": [
+          1,
+          2
+        ],
+        "word": [
+          1,
+          1,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "A": 12,
+        "B": 2,
+        "L": 157,
+        "actual_rounding_bounds": [
+          [
+            85,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "actual_rounding_slacks": [
+          [
+            7,
+            2
+          ],
+          [
+            27,
+            2
+          ],
+          [
+            32,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            42,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            30,
+            1
+          ]
+        ],
+        "additive_one_all_circular_pairs_pass": false,
+        "additive_one_all_local_bounds_pass": false,
+        "additive_one_circular_pair_failures": 18,
+        "additive_one_common_denominator": 83,
+        "additive_one_minimum": [
+          157,
+          83
+        ],
+        "additive_one_odd_ceiled_sum_bound": 9,
+        "additive_one_odd_ceiled_sum_pass": false,
+        "additive_one_rounding_bounds": [
+          [
+            3,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "additive_one_rounding_slacks": [
+          [
+            -75,
+            166
+          ],
+          [
+            -7,
+            83
+          ],
+          [
+            -50,
+            83
+          ],
+          [
+            -37,
+            83
+          ],
+          [
+            -122,
+            83
+          ],
+          [
+            -160,
+            83
+          ],
+          [
+            -52,
+            83
+          ]
+        ],
+        "additive_one_sum_bound_pass": false,
+        "circular_pair_checks": 42,
+        "circular_pair_checks_sha256": "e6ea3384b41100c9d0db32df9e84a771a40d0ffbe2cc989c224b7d19ec358d27",
+        "coordinate_gcd": 1,
+        "forcing_without_q": [
+          -3,
+          1,
+          0,
+          2,
+          0,
+          0,
+          4
+        ],
+        "gamma": [
+          29,
+          4
+        ],
+        "linear_sum_identity": 332,
+        "m": 7,
+        "normalized_gaps": [
+          [
+            99,
+            4
+          ],
+          [
+            55,
+            4
+          ],
+          [
+            33,
+            1
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            44,
+            1
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            31,
+            1
+          ]
+        ],
+        "odd_ceiled_sum_bound": 29,
+        "ordered_domain": true,
+        "q": 83,
+        "rank_shift": 5,
+        "scaled_gaps": [
+          99,
+          55,
+          132,
+          18,
+          176,
+          24,
+          124
+        ],
+        "scaled_states": [
+          628,
+          727,
+          782,
+          914,
+          932,
+          1108,
+          1132
+        ],
+        "sorted_heights": [
+          0,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "states": [
+          157,
+          277,
+          457,
+          727,
+          283,
+          233,
+          391
+        ],
+        "summed_bound": [
+          28,
+          1
+        ],
+        "upward_variation": [
+          3,
+          4
+        ],
+        "word": [
+          1,
+          1,
+          1,
+          3,
+          2,
+          1,
+          3
+        ]
+      },
+      {
+        "A": 13,
+        "B": 1,
+        "L": 1907,
+        "actual_rounding_bounds": [
+          [
+            79,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "actual_rounding_slacks": [
+          [
+            154,
+            1
+          ],
+          [
+            190,
+            1
+          ],
+          [
+            172,
+            1
+          ],
+          [
+            256,
+            1
+          ],
+          [
+            252,
+            1
+          ],
+          [
+            230,
+            1
+          ],
+          [
+            342,
+            1
+          ],
+          [
+            260,
+            1
+          ]
+        ],
+        "additive_one_all_circular_pairs_pass": false,
+        "additive_one_all_local_bounds_pass": false,
+        "additive_one_circular_pair_failures": 7,
+        "additive_one_common_denominator": 233,
+        "additive_one_minimum": [
+          1907,
+          233
+        ],
+        "additive_one_odd_ceiled_sum_bound": 13,
+        "additive_one_odd_ceiled_sum_pass": false,
+        "additive_one_rounding_bounds": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "additive_one_rounding_slacks": [
+          [
+            77,
+            233
+          ],
+          [
+            74,
+            233
+          ],
+          [
+            -292,
+            233
+          ],
+          [
+            -208,
+            233
+          ],
+          [
+            -212,
+            233
+          ],
+          [
+            -234,
+            233
+          ],
+          [
+            -122,
+            233
+          ],
+          [
+            28,
+            233
+          ]
+        ],
+        "additive_one_sum_bound_pass": false,
+        "circular_pair_checks": 56,
+        "circular_pair_checks_sha256": "290155fb4dd6035108b10fdd0ef81aeb640e93f7cae782e3384c61b88a636d8d",
+        "coordinate_gcd": 1,
+        "forcing_without_q": [
+          -1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "gamma": [
+          73,
+          6
+        ],
+        "linear_sum_identity": 466,
+        "m": 8,
+        "normalized_gaps": [
+          [
+            387,
+            2
+          ],
+          [
+            381,
+            2
+          ],
+          [
+            174,
+            1
+          ],
+          [
+            258,
+            1
+          ],
+          [
+            254,
+            1
+          ],
+          [
+            232,
+            1
+          ],
+          [
+            344,
+            1
+          ],
+          [
+            261,
+            1
+          ]
+        ],
+        "odd_ceiled_sum_bound": 51,
+        "ordered_domain": true,
+        "q": 233,
+        "rank_shift": 5,
+        "scaled_gaps": [
+          387,
+          381,
+          348,
+          516,
+          508,
+          464,
+          688,
+          522
+        ],
+        "scaled_states": [
+          3814,
+          4201,
+          4582,
+          4930,
+          5446,
+          5954,
+          6418,
+          7106
+        ],
+        "sorted_heights": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "states": [
+          1907,
+          2977,
+          2291,
+          3553,
+          2723,
+          4201,
+          3209,
+          2465
+        ],
+        "summed_bound": [
+          51,
+          1
+        ],
+        "upward_variation": [
+          1,
+          2
+        ],
+        "word": [
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "A": 65,
+        "B": 7,
+        "L": 7055,
+        "actual_rounding_bounds": [
+          [
+            301,
+            32
+          ],
+          [
+            31,
+            128
+          ],
+          [
+            1,
+            128
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            31,
+            16
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            301,
+            32
+          ],
+          [
+            31,
+            128
+          ],
+          [
+            1,
+            128
+          ],
+          [
+            11,
+            8
+          ],
+          [
+            31,
+            32
+          ],
+          [
+            1,
+            32
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            69,
+            16
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            147,
+            16
+          ],
+          [
+            31,
+            64
+          ],
+          [
+            1,
+            64
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            31,
+            8
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            301,
+            32
+          ],
+          [
+            11,
+            64
+          ],
+          [
+            1,
+            64
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            31,
+            16
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            69,
+            8
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            31,
+            8
+          ],
+          [
+            31,
+            32
+          ],
+          [
+            1,
+            32
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            31,
+            8
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "actual_rounding_slacks": [
+          [
+            2137,
+            16
+          ],
+          [
+            6589,
+            64
+          ],
+          [
+            7333,
+            64
+          ],
+          [
+            321,
+            2
+          ],
+          [
+            223,
+            2
+          ],
+          [
+            229,
+            2
+          ],
+          [
+            150,
+            1
+          ],
+          [
+            1071,
+            8
+          ],
+          [
+            7391,
+            64
+          ],
+          [
+            8527,
+            64
+          ],
+          [
+            719,
+            4
+          ],
+          [
+            493,
+            4
+          ],
+          [
+            529,
+            4
+          ],
+          [
+            365,
+            2
+          ],
+          [
+            140,
+            1
+          ],
+          [
+            1039,
+            8
+          ],
+          [
+            155,
+            1
+          ],
+          [
+            381,
+            2
+          ],
+          [
+            2201,
+            16
+          ],
+          [
+            301,
+            2
+          ],
+          [
+            212,
+            1
+          ],
+          [
+            151,
+            1
+          ],
+          [
+            149,
+            1
+          ],
+          [
+            195,
+            1
+          ],
+          [
+            191,
+            1
+          ],
+          [
+            4937,
+            32
+          ],
+          [
+            1403,
+            8
+          ],
+          [
+            241,
+            1
+          ],
+          [
+            331,
+            2
+          ],
+          [
+            349,
+            2
+          ],
+          [
+            236,
+            1
+          ],
+          [
+            769,
+            4
+          ],
+          [
+            173,
+            1
+          ],
+          [
+            813,
+            4
+          ],
+          [
+            266,
+            1
+          ],
+          [
+            184,
+            1
+          ],
+          [
+            799,
+            4
+          ],
+          [
+            1117,
+            4
+          ],
+          [
+            825,
+            4
+          ],
+          [
+            395,
+            2
+          ],
+          [
+            487,
+            2
+          ]
+        ],
+        "additive_one_all_circular_pairs_pass": true,
+        "additive_one_all_local_bounds_pass": true,
+        "additive_one_circular_pair_failures": 0,
+        "additive_one_common_denominator": 29,
+        "additive_one_minimum": [
+          7055,
+          29
+        ],
+        "additive_one_odd_ceiled_sum_bound": 9,
+        "additive_one_odd_ceiled_sum_pass": true,
+        "additive_one_rounding_bounds": [
+          [
+            11,
+            32
+          ],
+          [
+            3,
+            128
+          ],
+          [
+            1,
+            128
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            16
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            11,
+            32
+          ],
+          [
+            3,
+            128
+          ],
+          [
+            1,
+            128
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            3,
+            32
+          ],
+          [
+            1,
+            32
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            3,
+            16
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            7,
+            16
+          ],
+          [
+            3,
+            64
+          ],
+          [
+            1,
+            64
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            11,
+            32
+          ],
+          [
+            1,
+            64
+          ],
+          [
+            1,
+            64
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            16
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            3,
+            32
+          ],
+          [
+            1,
+            32
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "additive_one_rounding_slacks": [
+          [
+            133,
+            29
+          ],
+          [
+            6561,
+            1856
+          ],
+          [
+            7319,
+            1856
+          ],
+          [
+            293,
+            58
+          ],
+          [
+            108,
+            29
+          ],
+          [
+            451,
+            116
+          ],
+          [
+            143,
+            29
+          ],
+          [
+            2133,
+            464
+          ],
+          [
+            7363,
+            1856
+          ],
+          [
+            8513,
+            1856
+          ],
+          [
+            355,
+            58
+          ],
+          [
+            243,
+            58
+          ],
+          [
+            1051,
+            232
+          ],
+          [
+            179,
+            29
+          ],
+          [
+            1111,
+            232
+          ],
+          [
+            1025,
+            232
+          ],
+          [
+            148,
+            29
+          ],
+          [
+            187,
+            29
+          ],
+          [
+            2187,
+            464
+          ],
+          [
+            2401,
+            464
+          ],
+          [
+            205,
+            29
+          ],
+          [
+            144,
+            29
+          ],
+          [
+            291,
+            58
+          ],
+          [
+            181,
+            29
+          ],
+          [
+            3047,
+            464
+          ],
+          [
+            154,
+            29
+          ],
+          [
+            2799,
+            464
+          ],
+          [
+            227,
+            29
+          ],
+          [
+            162,
+            29
+          ],
+          [
+            691,
+            116
+          ],
+          [
+            229,
+            29
+          ],
+          [
+            190,
+            29
+          ],
+          [
+            166,
+            29
+          ],
+          [
+            799,
+            116
+          ],
+          [
+            259,
+            29
+          ],
+          [
+            729,
+            116
+          ],
+          [
+            1591,
+            232
+          ],
+          [
+            1103,
+            116
+          ],
+          [
+            797,
+            116
+          ],
+          [
+            194,
+            29
+          ],
+          [
+            473,
+            58
+          ]
+        ],
+        "additive_one_sum_bound_pass": true,
+        "circular_pair_checks": 1640,
+        "circular_pair_checks_sha256": "ad40fb45371cf249662fa717e837b58082af285dcd33bb4a4c7dea2f6162e81f",
+        "coordinate_gcd": 1,
+        "forcing_without_q": [
+          -124,
+          -3,
+          31,
+          0,
+          -24,
+          24,
+          96,
+          -124,
+          -3,
+          31,
+          -16,
+          -12,
+          12,
+          48,
+          -56,
+          24,
+          96,
+          -120,
+          -6,
+          30,
+          32,
+          -48,
+          48,
+          64,
+          -124,
+          -2,
+          30,
+          0,
+          -24,
+          24,
+          96,
+          -112,
+          0,
+          48,
+          -48,
+          -12,
+          12,
+          48,
+          -48,
+          16,
+          224
+        ],
+        "gamma": [
+          371,
+          64
+        ],
+        "linear_sum_identity": 3712,
+        "m": 41,
+        "normalized_gaps": [
+          [
+            4575,
+            32
+          ],
+          [
+            13209,
+            128
+          ],
+          [
+            14667,
+            128
+          ],
+          [
+            161,
+            1
+          ],
+          [
+            1815,
+            16
+          ],
+          [
+            1833,
+            16
+          ],
+          [
+            601,
+            4
+          ],
+          [
+            4585,
+            32
+          ],
+          [
+            14813,
+            128
+          ],
+          [
+            17055,
+            128
+          ],
+          [
+            1449,
+            8
+          ],
+          [
+            3975,
+            32
+          ],
+          [
+            4233,
+            32
+          ],
+          [
+            1461,
+            8
+          ],
+          [
+            2309,
+            16
+          ],
+          [
+            2079,
+            16
+          ],
+          [
+            621,
+            4
+          ],
+          [
+            3195,
+            16
+          ],
+          [
+            8835,
+            64
+          ],
+          [
+            9633,
+            64
+          ],
+          [
+            849,
+            4
+          ],
+          [
+            1239,
+            8
+          ],
+          [
+            1193,
+            8
+          ],
+          [
+            391,
+            2
+          ],
+          [
+            6413,
+            32
+          ],
+          [
+            9885,
+            64
+          ],
+          [
+            11225,
+            64
+          ],
+          [
+            483,
+            2
+          ],
+          [
+            2679,
+            16
+          ],
+          [
+            2793,
+            16
+          ],
+          [
+            945,
+            4
+          ],
+          [
+            1607,
+            8
+          ],
+          [
+            693,
+            4
+          ],
+          [
+            1627,
+            8
+          ],
+          [
+            2159,
+            8
+          ],
+          [
+            5919,
+            32
+          ],
+          [
+            6393,
+            32
+          ],
+          [
+            2235,
+            8
+          ],
+          [
+            1681,
+            8
+          ],
+          [
+            1581,
+            8
+          ],
+          [
+            975,
+            4
+          ]
+        ],
+        "odd_ceiled_sum_bound": 75,
+        "ordered_domain": true,
+        "q": 29,
+        "rank_shift": 24,
+        "scaled_gaps": [
+          18300,
+          13209,
+          14667,
+          20608,
+          14520,
+          14664,
+          19232,
+          18340,
+          14813,
+          17055,
+          23184,
+          15900,
+          16932,
+          23376,
+          18472,
+          16632,
+          19872,
+          25560,
+          17670,
+          19266,
+          27168,
+          19824,
+          19088,
+          25024,
+          25652,
+          19770,
+          22450,
+          30912,
+          21432,
+          22344,
+          30240,
+          25712,
+          22176,
+          26032,
+          34544,
+          23676,
+          25572,
+          35760,
+          26896,
+          25296,
+          31200
+        ],
+        "scaled_states": [
+          903040,
+          921340,
+          934549,
+          949216,
+          969824,
+          984344,
+          999008,
+          1018240,
+          1036580,
+          1051393,
+          1068448,
+          1091632,
+          1107532,
+          1124464,
+          1147840,
+          1166312,
+          1182944,
+          1202816,
+          1228376,
+          1246046,
+          1265312,
+          1292480,
+          1312304,
+          1331392,
+          1356416,
+          1382068,
+          1401838,
+          1424288,
+          1455200,
+          1476632,
+          1498976,
+          1529216,
+          1554928,
+          1577104,
+          1603136,
+          1637680,
+          1661356,
+          1686928,
+          1722688,
+          1749584,
+          1774880
+        ],
+        "sorted_heights": [
+          0,
+          5,
+          7,
+          2,
+          2,
+          4,
+          2,
+          0,
+          5,
+          7,
+          2,
+          3,
+          5,
+          3,
+          1,
+          4,
+          2,
+          0,
+          4,
+          6,
+          2,
+          1,
+          3,
+          1,
+          0,
+          5,
+          6,
+          2,
+          2,
+          4,
+          2,
+          0,
+          3,
+          3,
+          1,
+          3,
+          5,
+          3,
+          1,
+          3,
+          2
+        ],
+        "states": [
+          7055,
+          10597,
+          7955,
+          11947,
+          17935,
+          26917,
+          20195,
+          30307,
+          45475,
+          68227,
+          102355,
+          153547,
+          230335,
+          345517,
+          259145,
+          97183,
+          145789,
+          109349,
+          82019,
+          123043,
+          184579,
+          276883,
+          415339,
+          623023,
+          934549,
+          700919,
+          1051393,
+          98569,
+          36967,
+          55465,
+          20803,
+          31219,
+          46843,
+          70279,
+          105433,
+          39541,
+          29663,
+          44509,
+          33389,
+          25049,
+          9397
+        ],
+        "summed_bound": [
+          2375,
+          32
+        ],
+        "upward_variation": [
+          453,
+          64
+        ],
+        "word": [
+          1,
+          2,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          5,
+          3,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          3,
+          2,
+          1,
+          2,
+          2,
+          3,
+          2
+        ]
+      }
+    ],
+    "source_cycles": 2459,
+    "source_parameters": 333,
+    "source_raw_arrows": 36912
+  },
+  "independent_grid": {
+    "all_integer_vectors_sha256": "4ba58a8cf39180b7932861517ad23bb74a0dda7c2297887043c7977e0fce8769",
+    "counts": {
+      "coprime_rank_determinants": 46,
+      "independent_sharp_bound_checks": 1428,
+      "integer_vectors": 19530,
+      "rank_operator_commutations": 131835,
+      "rational_vectors": 78120,
+      "unimodular_determinants": 12
+    },
+    "integer_grid": {
+      "dimensions": [
+        1,
+        6
+      ],
+      "entries": [
+        -2,
+        2
+      ]
+    },
+    "matrix_controls": [
+      {
+        "D": 1,
+        "det_M": 1,
+        "det_U": 1,
+        "m": 1,
+        "s": 1
+      },
+      {
+        "D": -1,
+        "det_M": 1,
+        "det_U": -1,
+        "m": 2,
+        "s": 1
+      },
+      {
+        "D": -11,
+        "det_M": -11,
+        "det_U": 1,
+        "m": 3,
+        "s": 1
+      },
+      {
+        "D": 5,
+        "det_M": 5,
+        "det_U": 1,
+        "m": 3,
+        "s": 2
+      },
+      {
+        "D": -49,
+        "det_M": 49,
+        "det_U": -1,
+        "m": 4,
+        "s": 1
+      },
+      {
+        "D": 47,
+        "det_M": -47,
+        "det_U": -1,
+        "m": 4,
+        "s": 3
+      },
+      {
+        "D": -179,
+        "det_M": -179,
+        "det_U": 1,
+        "m": 5,
+        "s": 1
+      },
+      {
+        "D": -115,
+        "det_M": -115,
+        "det_U": 1,
+        "m": 5,
+        "s": 2
+      },
+      {
+        "D": 13,
+        "det_M": 13,
+        "det_U": 1,
+        "m": 5,
+        "s": 3
+      },
+      {
+        "D": 269,
+        "det_M": 269,
+        "det_U": 1,
+        "m": 5,
+        "s": 4
+      },
+      {
+        "D": -601,
+        "det_M": 601,
+        "det_U": -1,
+        "m": 6,
+        "s": 1
+      },
+      {
+        "D": 1319,
+        "det_M": -1319,
+        "det_U": -1,
+        "m": 6,
+        "s": 5
+      },
+      {
+        "D": -1931,
+        "det_M": -1931,
+        "det_U": 1,
+        "m": 7,
+        "s": 1
+      },
+      {
+        "D": -1675,
+        "det_M": -1675,
+        "det_U": 1,
+        "m": 7,
+        "s": 2
+      },
+      {
+        "D": -1163,
+        "det_M": -1163,
+        "det_U": 1,
+        "m": 7,
+        "s": 3
+      },
+      {
+        "D": -139,
+        "det_M": -139,
+        "det_U": 1,
+        "m": 7,
+        "s": 4
+      },
+      {
+        "D": 1909,
+        "det_M": 1909,
+        "det_U": 1,
+        "m": 7,
+        "s": 5
+      },
+      {
+        "D": 6005,
+        "det_M": 6005,
+        "det_U": 1,
+        "m": 7,
+        "s": 6
+      },
+      {
+        "D": -6049,
+        "det_M": 6049,
+        "det_U": -1,
+        "m": 8,
+        "s": 1
+      },
+      {
+        "D": -4513,
+        "det_M": 4513,
+        "det_U": -1,
+        "m": 8,
+        "s": 3
+      },
+      {
+        "D": 1631,
+        "det_M": -1631,
+        "det_U": -1,
+        "m": 8,
+        "s": 5
+      },
+      {
+        "D": 26207,
+        "det_M": -26207,
+        "det_U": -1,
+        "m": 8,
+        "s": 7
+      },
+      {
+        "D": -18659,
+        "det_M": -18659,
+        "det_U": 1,
+        "m": 9,
+        "s": 1
+      },
+      {
+        "D": -17635,
+        "det_M": -17635,
+        "det_U": 1,
+        "m": 9,
+        "s": 2
+      },
+      {
+        "D": -11491,
+        "det_M": -11491,
+        "det_U": 1,
+        "m": 9,
+        "s": 4
+      },
+      {
+        "D": -3299,
+        "det_M": -3299,
+        "det_U": 1,
+        "m": 9,
+        "s": 5
+      },
+      {
+        "D": 45853,
+        "det_M": 45853,
+        "det_U": 1,
+        "m": 9,
+        "s": 7
+      },
+      {
+        "D": 111389,
+        "det_M": 111389,
+        "det_U": 1,
+        "m": 9,
+        "s": 8
+      },
+      {
+        "D": -57001,
+        "det_M": 57001,
+        "det_U": -1,
+        "m": 10,
+        "s": 1
+      },
+      {
+        "D": -50857,
+        "det_M": 50857,
+        "det_U": -1,
+        "m": 10,
+        "s": 3
+      },
+      {
+        "D": 72023,
+        "det_M": -72023,
+        "det_U": -1,
+        "m": 10,
+        "s": 7
+      },
+      {
+        "D": 465239,
+        "det_M": -465239,
+        "det_U": -1,
+        "m": 10,
+        "s": 9
+      },
+      {
+        "D": -173051,
+        "det_M": -173051,
+        "det_U": 1,
+        "m": 11,
+        "s": 1
+      },
+      {
+        "D": -168955,
+        "det_M": -168955,
+        "det_U": 1,
+        "m": 11,
+        "s": 2
+      },
+      {
+        "D": -160763,
+        "det_M": -160763,
+        "det_U": 1,
+        "m": 11,
+        "s": 3
+      },
+      {
+        "D": -144379,
+        "det_M": -144379,
+        "det_U": 1,
+        "m": 11,
+        "s": 4
+      },
+      {
+        "D": -111611,
+        "det_M": -111611,
+        "det_U": 1,
+        "m": 11,
+        "s": 5
+      },
+      {
+        "D": -46075,
+        "det_M": -46075,
+        "det_U": 1,
+        "m": 11,
+        "s": 6
+      },
+      {
+        "D": 84997,
+        "det_M": 84997,
+        "det_U": 1,
+        "m": 11,
+        "s": 7
+      },
+      {
+        "D": 347141,
+        "det_M": 347141,
+        "det_U": 1,
+        "m": 11,
+        "s": 8
+      },
+      {
+        "D": 871429,
+        "det_M": 871429,
+        "det_U": 1,
+        "m": 11,
+        "s": 9
+      },
+      {
+        "D": 1920005,
+        "det_M": 1920005,
+        "det_U": 1,
+        "m": 11,
+        "s": 10
+      },
+      {
+        "D": -523249,
+        "det_M": 523249,
+        "det_U": -1,
+        "m": 12,
+        "s": 1
+      },
+      {
+        "D": -400369,
+        "det_M": 400369,
+        "det_U": -1,
+        "m": 12,
+        "s": 5
+      },
+      {
+        "D": -7153,
+        "det_M": 7153,
+        "det_U": -1,
+        "m": 12,
+        "s": 7
+      },
+      {
+        "D": 7857167,
+        "det_M": -7857167,
+        "det_U": -1,
+        "m": 12,
+        "s": 11
+      }
+    ],
+    "rational_denominators": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "rounding_checks_sha256": "0591233dbb3370f18673aab276573e88e6fab7f883b4c7d36ffdbbd4329a2a65",
+    "scope": "Signed vectors verify the exact linear coordinate identities without positivity or cycle assumptions. Common denominator is the least common denominator, including unreduced test inputs. The determinant grid is finite evidence, not a substitute for the written unimodularity and rank-matrix proofs."
+  },
+  "mechanical_complete_gaps": {
+    "cases": [
+      {
+        "A": 5,
+        "additive_one_all_circular_pairs_pass": false,
+        "additive_one_circular_pair_failures": 2,
+        "additive_one_minimum_gap_greater_than_two": false,
+        "additive_one_rounded_sum": 5,
+        "all_heights_zero": true,
+        "complete_gap_record_sha256": "47ce3ee5cc27773e157906878fd3bbc6b12f74df3454d97db2752928442a6acd",
+        "m": 3,
+        "minimum_rational_gap": [
+          6,
+          5
+        ],
+        "minimum_rational_state": [
+          23,
+          5
+        ],
+        "pair_checks_sha256": "edc85bdc63983437fcfa1237541bf6822285a0b2803ebd8c272d6edfe667629f",
+        "q": 5,
+        "reduced_denominator": 5,
+        "seam_gap_formula": "3^(m-1)",
+        "seam_gap_numerator": 9,
+        "strict_gap_lower_bound": [
+          9,
+          10
+        ]
+      },
+      {
+        "A": 8,
+        "additive_one_all_circular_pairs_pass": true,
+        "additive_one_circular_pair_failures": 0,
+        "additive_one_minimum_gap_greater_than_two": true,
+        "additive_one_rounded_sum": 9,
+        "all_heights_zero": true,
+        "complete_gap_record_sha256": "73eab810e349bb21bff973a25e20e2655f313cec8d4d7239c5c7157fe56b5428",
+        "m": 5,
+        "minimum_rational_gap": [
+          48,
+          13
+        ],
+        "minimum_rational_state": [
+          319,
+          13
+        ],
+        "pair_checks_sha256": "a892312a8bae6d1f29ab898755c59ca4324e8fc459ffca68f856e8f646d23bcb",
+        "q": 13,
+        "reduced_denominator": 13,
+        "seam_gap_formula": "3^(m-1)",
+        "seam_gap_numerator": 81,
+        "strict_gap_lower_bound": [
+          81,
+          26
+        ]
+      },
+      {
+        "A": 65,
+        "additive_one_all_circular_pairs_pass": true,
+        "additive_one_circular_pair_failures": 0,
+        "additive_one_minimum_gap_greater_than_two": true,
+        "additive_one_rounded_sum": 81,
+        "all_heights_zero": true,
+        "complete_gap_record_sha256": "607d4589f4ef02adbc4d9c9230ec79db610ce53b1d275a16b7bf8a00d5e5d9af",
+        "m": 41,
+        "minimum_rational_gap": [
+          6232805962420322304,
+          420491770248316829
+        ],
+        "minimum_rational_state": [
+          364625035073295549935,
+          420491770248316829
+        ],
+        "pair_checks_sha256": "171342bb9d803c20f3c4b550dbb9f60b708192cb99a4e8680b828df02f67986c",
+        "q": 420491770248316829,
+        "reduced_denominator": 420491770248316829,
+        "seam_gap_formula": "3^(m-1)",
+        "seam_gap_numerator": 12157665459056928801,
+        "strict_gap_lower_bound": [
+          12157665459056928801,
+          840983540496633658
+        ]
+      },
+      {
+        "A": 485,
+        "additive_one_all_circular_pairs_pass": true,
+        "additive_one_circular_pair_failures": 0,
+        "additive_one_minimum_gap_greater_than_two": true,
+        "additive_one_rounded_sum": 611,
+        "all_heights_zero": true,
+        "complete_gap_record_sha256": "fa8bf05e6b3bcb9645a0aedab90acbc45e4a97ed146ec1e9b37f12c88326dd44",
+        "m": 306,
+        "minimum_rational_gap": [
+          16684127920765110155157728813115989509152381825062017852850436394918551071630323472349950339496868939035368022724144450737182716651817170020335616,
+          102065376400825306534437391838939444403106454408085639783964140880896699835673006969445010534504805079858638689074275443284439551032910142670903
+        ],
+        "minimum_rational_state": [
+          7354633538021290453874882945256172703046156698372336425942296210701760404381837071347564343508839058241347238835805360680085682985812972554209794797,
+          102065376400825306534437391838939444403106454408085639783964140880896699835673006969445010534504805079858638689074275443284439551032910142670903
+        ],
+        "pair_checks_sha256": "d507fe774528ac68acbeb0e0f27028a81e23955af35e8ddde88cf05ee232b42b",
+        "q": 102065376400825306534437391838939444403106454408085639783964140880896699835673006969445010534504805079858638689074275443284439551032910142670903,
+        "reduced_denominator": 102065376400825306534437391838939444403106454408085639783964140880896699835673006969445010534504805079858638689074275443284439551032910142670903,
+        "seam_gap_formula": "3^(m-1)",
+        "seam_gap_numerator": 33264629411236975365892224653847460779850678036956997062569686189043666314132275612293450095832412757344867719065312552403683594062064073219538243,
+        "strict_gap_lower_bound": [
+          33264629411236975365892224653847460779850678036956997062569686189043666314132275612293450095832412757344867719065312552403683594062064073219538243,
+          204130752801650613068874783677878888806212908816171279567928281761793399671346013938890021069009610159717277378148550886568879102065820285341806
+        ]
+      }
+    ],
+    "complete_records_sha256": "d81ccb31f4bc706f0e53aafd7a59faf41999ce2d8b8165c17f5c89f74bd43645",
+    "counts": {
+      "cycles": 4,
+      "exact_seam_checks": 4,
+      "interior_monomials": 351,
+      "noninteger_shapes_passing_all_pair_bounds": 3,
+      "phase_intercept_summands": 95351,
+      "proper_circular_pair_checks": 94996,
+      "raw_cycle_arrows": 355
+    },
+    "scope": "Four generated exact primitive mechanical cycles with reduced denominator D, not new census discoveries. All phases, raw arrows, interior monomials and exact seams were checked. The written upper-approximation argument proves arbitrarily large full gaps; these four finite cases do not establish that limit by themselves. Additive-one rescaling keeps denominator D and is never labeled an integer cycle."
+  },
+  "rejection_controls": {
+    "rejected_inputs": 5,
+    "zero_valuation_affine_control": {
+      "chronological_valuations": [
+        0,
+        3,
+        2
+      ],
+      "observed_lowbits": [
+        8,
+        2,
+        1
+      ],
+      "prescribed_powers": [
+        2,
+        2,
+        1
+      ],
+      "raw_states": [
+        4,
+        13,
+        5
+      ],
+      "scope": "The affine loop has valuation zero and even states; its integral sorted-gap solution is not an odd-only cycle. Positive valuation hypotheses are required before deriving the exact lowbits from integrality.",
+      "sorted_scaled_states": [
+        8,
+        10,
+        13
+      ]
+    }
+  },
+  "schema": "C010-integer-gaps-v1",
+  "scope": "Integer gap coordinates are an invertible integer change of variables retaining the exact denominator obstruction. Local odd rounding and its sum are necessary inequalities; rational additive-one controls can pass them. No new denominator-one exclusion, universal cycle classification, novelty claim, or formal verification is asserted.",
+  "source_sha256": {
+    "experiments/cycle_spectrum/C001/actual_cycles.json": "28d067d3f82585a3701616adce3b57cae994541c4ddd3b4859d2bcf2307e44f2",
+    "experiments/cycle_spectrum/C004/SIZE_PROBE.md": "39274dd433cb6625f8c8e5c238cf854c54bc5225035d589c4170ce2a2835b13c",
+    "experiments/cycle_spectrum/C007/height_denominator_audit.json": "b35a18cb4209b5d0afd104f5c9e38926dc2de5dbef890cc324cf05ae83ce4ceb",
+    "experiments/cycle_spectrum/C009/check_excursions.py": "a7631d433cd5952d8a27de3eb41addb8d01784da410064fb9e479d5cff3e17cb",
+    "experiments/cycle_spectrum/C010/check_integer_gaps.py": "87221a51c008668a8e36513096080cfc352ad16a86ba842976342a1c7deead78",
+    "experiments/phase6/cycle_fixtures.json": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+  },
+  "status": "PASS"
+}

@@ -1,5 +1,22 @@
 # Find a better language for Collatz
 
+[C010](experiments/cycle_spectrum/C010/REPORT.md) completes the full
+integer-gap test. The gap coordinates have an integer inverse and
+preserve the common denominator exactly. Sharp local odd-spacing
+bounds give a necessary global inequality, but an infinite known
+rational family passes them all with arbitrarily large slack. Retire
+that relaxation as an exclusion mechanism; preserve order as an
+interface without assuming it is decisive. The next bounded test
+concerns sparse cyclic-word differences and numerator cancellation.
+No goal replacement or new q1 exclusion is claimed.
+
+The high-level recommendation after this test is to seek a uniform
+arithmetic restriction with a new denominator-one consequence. Ordered
+cycle exclusion is retained as a benchmark, with lower priority until
+a new ingredient addresses integrality. Formalization of the existing
+interface strengthens its verification but does not select the next
+discovery mechanism.
+
 [C009](experiments/cycle_spectrum/C009/REPORT.md) rejects automatic
 excursion compression: exact block closure preserves the lattice but
 adds no congruence, and induced first-return order can fail on actual
