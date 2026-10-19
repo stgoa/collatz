@@ -252,6 +252,18 @@ Full note: `sidekick/research/S7/THREE_MISMATCHES.md`.
   - It is derived by the arc argument instead of `Σ t_k = m − 3`; the two are equivalent.
 - **What remains.** `three_mismatch_structure` now needs only a numeric `T` and condition W (`2(m − j) ≤ m − 2(T + 1) + 1`). Then come S7-c part 2 (Steps 5–6) and S7-d (the numeric conditions at `m ≥ 2^19`).
 
+**Update 13:41: Lean S7-c part 2 VERIFIED. Step 5 (the witness inside the climb) and the run identity of Step 6 are formal.**
+
+- **Receipts** (Lean-lane file sha256 `01de2bfa…f6e88f`, 9,788 lines, at `bdcfc2b`):
+  - 588 theorems: 490 on the standard three axioms, 41 on `[propext, Quot.sound]`, 55 on `[propext]`, and 2 on none. The three new declarations are on the standard three.
+  - Exit 0; the scan is clean.
+- **Statement match.**
+  - `agree_of_ne_three` and `agree_of_pos` say that every position off the three mismatches agrees.
+  - `three_mismatch_witness` takes as hypotheses the aligned structure (`e_a ∈ W − h` with a `+ → −` change, a `− → +` change at `e_a + h`, `h ≤ j`, and one mismatch per window). It produces three agreeing runs `τ + τ′ + τ″ = m − 3` with `2·3^τ < L (3/2)^(τ+τ′+1) (1 + q/(3L))^(τ+τ′+1)`.
+  - That is Step 5 in product form, `τ(1 − ε) < ℓ + (τ° + 1)κ − 1` after logarithms, together with Step 6's run sum.
+  - The orders are handled as natural numbers: `e_c < e_a`, or `e_a < e_c < e_b`. As the independent review found, condition P is not needed. `d ≤ h` is unused here; `h ≤ j` suffices.
+- **Remaining: S7-d.** It composes everything into `no_three_mismatch_of_gap` (primitive, `q = 1`, gap `(172, 341)`, band attained, `m ≥ 2^19`, `L ≥ 2^20`): a numeric `T`, `hsep_of_runs`, conditions W and A, the structure and witness lemmas, the uniform bound on `τ′` and `τ″`, and the numeric contradiction F.
+
 ```sh
 python3 sidekick/probes/s7_three_mismatch.py   # ~15 s; m0 = 452,695
 ```
