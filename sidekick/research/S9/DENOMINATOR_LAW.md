@@ -74,8 +74,21 @@ Write `λ(w) = log₂(m 2^A/(3D))`. Every primitive positive word `w` satisfies 
 - **Tightness cannot be tested.** The laws could only be tight for hypothetical small-denominator words, which the data cannot produce. So the table is a consistency check, not evidence of strength.
 - **A note on main's family.** Main's C013 §5 describes it as "that family's own growth rate" `≈ 0.447m`. This probe finds `log₂ den(w)/m ≈ 1.53–1.58` on its members, i.e. `den ≈ D`. The two quantities may be different normalisations; this lane has not reconciled them.
 
+## 5. Remark: the repeat form (`s10_repeat_complexity.py`)
+
+- **The repeat law.** Two occurrences of the same factor of length `t` at cyclic offset `h` form an agreeing run of the rotation by `h`. So the run law gives `max(n_e, n_(e+h)) > 2·3^t`, and with the global-drift ceiling, `t < T = (Λ + (m−1) log₂(3/2) − 1)/log₂ 3`.
+- **Complexity.** In complexity terms `p_w(n) = m` for every `n ≥ T`, so **no factor of length `T` repeats**. At `q = 1`, `T ≈ 0.369m + O(log m)`.
+- **Excluded word classes.** Any word with `p(T) < m` is excluded for large `m`. That covers Sturmian/Christoffel words (Knight's theorem, for large `m`), 2-interval rotation codings (`p(n) ≤ 2n`), and 3-interval-exchange codings (`p(n) = 2n + 1`).
+- **What counting cannot reach.** Codings of a rotation by `k ≥ 3` intervals have only `p(n) ≤ kn`, so counting alone does not exclude them. Three-mismatch chain words are such codings and need S7.
+- **Data.**
+  - On all 3,918 actual `3x+q` cycles with `q < 2,000`, the longest repeat obeys `2·3^t < H`.
+  - The ratio `(1 + t log₂ 3)/log₂ H` reaches 0.97 (`q = 1,723`, `m = 219`, `t = 10`). So the witness bound is nearly sharp on actual cycles.
+  - Random rotation codings repeat far beyond `T` (generic rotation numbers have good rational approximations). Only badly approximable rotation numbers, like those of S8's survivors, keep the longest repeat short.
+- **Novelty.** This is S5's uniform run bound read as a statement about repeats. What is new is the packaging, not the inequality.
+
 ## Reproduce
 
 ```sh
 python3 sidekick/probes/s9_denominator_law.py   # ~30 s
+python3 sidekick/probes/s10_repeat_complexity.py   # ~7 s, the repeat form (§5)
 ```

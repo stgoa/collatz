@@ -51,6 +51,14 @@ Full note: `sidekick/research/S9/DENOMINATOR_LAW.md`.
   Generic words have `den ≈ D`, so this is a consistency check, not evidence of strength.
 - **Labels.** A written extension with a probe. The Lean lane checked the preview: the constant is right, and S9-a, the global-drift ceiling, is offered as a one-lemma variant of `n_mul_pow_excess_le`. Novelty undetermined.
 
+**Update 13:27: the repeat form (S9 note §5).**
+
+- **Statement.** Two occurrences of a factor of length `t` form an agreeing run. So no factor of length `T ≈ 0.369m + O(log m)` occurs twice in a hypothetical cycle word; equivalently, `p_w(n) = m` for `n ≥ T`.
+- **Excluded for large `m`:** Christoffel words, 2-interval rotation codings, and 3-interval-exchange codings.
+- **Not reached:** rotation codings with three or more intervals (`p(n) ≤ kn`) escape counting.
+- **Data.** On 3,918 actual `3x+q` cycles the witness bound is nearly sharp: `(1 + t log₂ 3)/log₂ H` reaches 0.97.
+- **Labels.** S5's bound repackaged, not a new inequality. A first draft wrongly claimed `p(n) ≤ (k−1)n + 1` for rotation codings; the correct bound is `kn`, and it was fixed before posting.
+
 ```sh
 python3 sidekick/probes/s9_denominator_law.py   # ~30 s
 ```
