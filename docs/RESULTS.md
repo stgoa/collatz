@@ -57,6 +57,15 @@ binary premises. A separate action counterexample rejects importing linear
 semigroup growth from a linear rooted orbit. The full radix graph is
 faithfully represented, but its general growth problem remains open.
 
+V007 proves an [arbitrary-depth singleton-exit exclusion](../experiments/viewpoints/V007/separator.md).
+Every joint section of a nonconstant invariant has infinite kernels in
+both bases, using a new reverse-closure argument. The exact radix identities
+exclude a finite forward interior with one exit. This forces at least two
+new joint states per depth, still a linear bound, and gives no improved
+binary growth rate after depth conversion. Larger finite boundaries and
+the full unbounded-ratio target remain open. The result has written
+independent review; novelty and formal verification are unclaimed.
+
 S.1 now has a [written stopping calibration](../experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md)
 with explicit finite horizons, integer cutoffs and a separate W5 pullback.
 Its ordinary estimate transfers to each fixed supported `3x+d` map and does

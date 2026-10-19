@@ -55,3 +55,13 @@ if an invariant has one positive section of digit-count type. It also
 shows that weaker binary graph assumptions do not supply that section.
 The next overlap test retains all radix identities and the three root
 relations. The full all-invariant target above is unchanged and unresolved.
+
+## Third batch
+
+[V007](../experiments/viewpoints/V007/REPORT.md) excludes a finite forward
+interior with a single exit at any depth of the joint graph. The full
+scalar identities also force every positive binary section to have
+infinite kernels in both bases. The resulting joint lower bound is
+linear and does not improve the generic binary lower bound after depth
+conversion. Boundaries with several distinct exits remain unresolved;
+the all-coefficients target above is still the completion requirement.

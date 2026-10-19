@@ -2,7 +2,7 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-18): V004 proves every finite-valued binary-automatic Collatz invariant constant. The active next goal is to exclude every linear bound on binary-section complexity. V005/V006 supply partial results; that quantitative goal and Collatz remain open.**
+**Current standing (2026-10-18): V004 proves every finite-valued binary-automatic Collatz invariant constant. The active next goal is to exclude every linear bound on binary-section complexity. V005–V007 supply partial results; that quantitative goal and Collatz remain open.**
 
 The [quantitative brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) asks for an
 unbounded ratio of section count to binary depth for every nonconstant
@@ -11,10 +11,14 @@ reconstruction and rejects two growth shortcuts.
 [V006](experiments/viewpoints/V006/REPORT.md) proves a quadratic bound if
 even one positive section depends only on binary digit count. No argument
 supplies such a section for an arbitrary invariant; an exact linear-growth
-control shows why extraction from weaker premises fails. The next bounded
-probe retains every binary/ternary radix relation and tests whether small
-separating layers can persist in the full section graph. The complete
-all-invariant bound remains the completion requirement.
+control shows why extraction from weaker premises fails.
+[V007](experiments/viewpoints/V007/REPORT.md) now excludes a finite interior
+with a single exit anywhere in the full section graph. It uses all radix
+relations and proves infinitude in both bases at every section. Several
+exits remain unresolved; the resulting joint linear bound does not improve
+the generic binary growth bound. The next bounded test keeps the distinct
+states in a two-exit boundary. The complete all-invariant bound remains
+the completion requirement.
 
 We explored Grothendieck-style changes of viewpoint through **breadth before
 depth**. Fourteen views and two rounds of bounded comparisons support a
