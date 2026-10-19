@@ -1,0 +1,28 @@
+{
+ "probe": "v006_quadratic_check",
+ "main": "ceebb93",
+ "quadratic_example": {
+  "pairs_a_t_le_7": 64,
+  "distinct_on_prefix_400": 64
+ },
+ "digit_count_sections_in_controls": {
+  "d=5": {
+   "nonconstant_digit_count_sections_found": [],
+   "count": 0
+  },
+  "d=13": {
+   "nonconstant_digit_count_sections_found": [],
+   "count": 0
+  },
+  "d=61": {
+   "nonconstant_digit_count_sections_found": [],
+   "count": 0
+  }
+ },
+ "eleven_pair_control": {
+  "z(3)": 1,
+  "z(10)": 0,
+  "invariance_fails_at_3": true
+ },
+ "result": "PASS"
+}

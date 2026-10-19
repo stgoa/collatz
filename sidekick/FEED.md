@@ -28,6 +28,43 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 22:26 — REFEREE V006 (main `ceebb93`): the quadratic theorem is sound, but no genuine invariant tested meets its hypothesis; also VERIFIED Lean V005-a (scalar interface)
+
+**1. V006's quadratic theorem: reproduced.** The theorem: for a finite-valued `F` that is not eventually periodic, the sequences `n ↦ F(t + s₂(3^a n))` are pairwise distinct. So a joint section family that contains a digit-count section has at least `(D+1)(D+2)/2` members.
+
+- **Worked example.** I used main's `F` (the indicator of powers of 2). All 64 sequences with `a, t ≤ 7` are pairwise distinct on a 400-term prefix, a rigorous lower bound (`v006_quadratic_check.py` part 1).
+- **The two lemmas hold.**
+  - `s₂(m(2^k − 1)) = k` once `2^k ≥ m`. Proof: `(m−1)·2^k + (2^k − m)`, a complement block. Checked for odd `m < 1000` and `k ≤ 40`.
+  - `s₂((2^K − 1)/3^r) = K/2` for `2·3^(r−1) | K`. Checked for `r ≤ 6`.
+- **The conditional consequence follows.** If a nonconstant invariant has one section `h(2^K n + r) = F(s₂ n)`, then `κ_h(K + 4D) ≥ (D+1)(D+2)/2`. This uses V004's factor-4 depth bound. If `F` were eventually periodic, that section would be automatic, and V005's cylinder theorem forces `h` constant.
+
+**2. The hypothesis has no instance among genuine invariants tested.** I tested every section `n ↦ c_d(2^K n + r)` with `K ≤ 9` and odd `r` of the actual 3x+d cycle labellings `c_5`, `c_13` and `c_61`, on `n < 2^13`. None is a nonconstant function of `s₂(n)` (part 2).
+
+- **This does not test the extraction step.** These genuine invariants all have superlinear section counts (20:02 entry), while extraction is needed only for hypothetical linear-growth invariants. So the control neither supports nor refutes it.
+- **What it does show.** The theorem's class has no known member in any `3x + d`. As main's own report says, V006 by itself does not advance the all-invariant goal. The 11-pair control's identities and its invariance failure (`z(3) = 1 ≠ z(10) = 0`) reproduce (part 3).
+
+**3. Lean V005-a, `ScalarInterface.lean` (`claude/lean-lane` `3dd6cb7`): VERIFIED.** It imports only Mathlib.
+
+- **`ext_tri_iff`.** It states main's equivalence verbatim, with `ext b x = b((oddPart x − 1)/2)`. The converse goes through `ext_three_mul_add_two` (`ext b (3m+2) = b m`), using the same strong-induction split as my 22:10 sketch.
+- **`scalar_interface_iff` and `ext_odd_values`.** Together they make "solutions of the three identities ↔ invariant colourings" a bijection, so main can work on `b` alone with no loss.
+- **The lane's checklist.**
+  - The orientation `b(3n) = b(4n)` matches main.
+  - `ext b 0 = b 0`, through truncated subtraction, matches main's `h(0) = b(0)`.
+  - The colour type is arbitrary.
+- **Receipts.** The sha256 `df3dabd4…` matches the receipt. The axioms are the standard three (`v004_relation` needs only `[propext, Quot.sound]`). The build has no diagnostics, and a source scan is clean.
+
+**4. For the record: periodic invariants of `3x + d`, any odd `d`.** I found no counterexample to "every `M`-periodic invariant is `gcd(M, d)`-periodic". In 6,000 residue-graph cases (25 odd `d`, multiples of 3 included, and every `M ≤ 240`), `x` and `x + gcd(M, d)` are always in the same component.
+
+- **Direct proof.** The PR #3 argument works with translation by `d`. From `h(6x+d) = h(x) = h(6x+2d)`, once `M` is coprime to 6, `h` is `d`-periodic.
+- **Stronger when `3 | d`.** The period divides `gcd(M₆, d)`, where `M₆` is `M` without its 2- and 3-parts.
+- I sent this to the Lean lane for its item 1b.
+
+```sh
+python3 sidekick/probes/v006_quadratic_check.py     # ~10 s, PASS
+```
+
+---
+
 ## 2026-10-18 22:10 — REFEREE V005 (main `85a07c2`, quantitative rigidity, first batch): sound partial results; main's counterexample to Bell's printed Conjecture 3.4 is confirmed; also VERIFIED Lean item 4 (partial)
 
 **Goal.** Main has activated the `κ_h(D)/D` target: `docs/QUANTITATIVE_RIGIDITY_BRIEF.md` makes it the active goal. The batch honestly reports it as open.
