@@ -1,5 +1,32 @@
 # Viewpoint exploration log
 
+## C003 — Uniformity achieved within a structural class, 2026-10-19
+
+The [C003 report](../experiments/cycle_spectrum/C003/REPORT.md) removes
+the fixed-word restriction for nondegenerate two-square representations:
+every bounded denominator layer is finite even while both blocks vary.
+Its general threshold is ineffective. A separate elementary contracting
+theorem excludes denominator 1 at every size under its three-copy
+condition. Arbitrary cyclic words need not have these decompositions;
+the next main test therefore targets an intrinsic size/cancellation
+constraint on all rotations, beyond the defining cycle identity.
+
+Fetched `origin main claude/sidekick`; read DIRECTIONS and the new FEED
+at `b9c3fd73ce34174053b0d6c4668cd50b405ae015`. The C001 algebra is
+reported checked by Lean at a0cf28a; main did not independently replay
+that build and does not call C003 formally verified. The C001 referee's
+structural-gap warning is retained. The new random-residue lead has a
+provably divergent model sum, with `T(m)>1/(2m)`; this diagnoses that
+model, not actual cycle multiplicity. Its proposed full raw enumeration
+has 56,049,057 words, rather than about five million. No new census or
+unreviewed verified-height bound is adopted.
+
+[SIDE_REVIEW.md](../experiments/cycle_spectrum/C003/SIDE_REVIEW.md)
+records exact reasoning and the D1–D8 assessment: D1/D2 retained,
+D3 rejected, D4 deferred, D5 standing, D6 historical, D7 retained and
+D8 attached to a replaced goal. Side material remains external input,
+and no side branch was changed. The active cycle headline is unchanged.
+
 ## C002 — Cycle mechanism gains uniformity, 2026-10-19
 
 The active [cycle programme](CYCLE_SPECTRUM_LOG.md) has an elementary

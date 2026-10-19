@@ -15,6 +15,20 @@ The [route map](../ROUTE_MAP.md) and [Phase6 ledger](PHASE6_LEDGER.md)
 retain earlier obligations, grades and completed evidence. Viewpoint
 recommendations are distinct from the written mathematical results below.
 
+C003 supplies [uniform restrictions for changing blocks](../experiments/cycle_spectrum/C003/REPORT.md).
+For positive whole D and K!=0, every bounded denominator layer contains
+finitely many representations `u^k v^ell` with k,ell>=2 even as u,v vary.
+The combined exponential rate `(5*log_3(2)-3)/14` is positive, but the
+threshold is ineffective. Published S-unit estimates and the retained
+proportional common factor are explicit dependencies. Separately, if both
+blocks contract and a block of maximum binary power Q_* occurs t_*>=3
+times, `den>2^max(m_u,m_v)*Q_*^(t_*-3)>1`, with effective bounded-layer
+enumeration. This does not contain C002's counts (1,2). The d499 mixed
+cycle breaks the interval-trapping extension; K=0 retains every common
+cycle. Arbitrary word structure remains an unproved bridge. Independent
+written review, exact checks and corrected draft issues are linked;
+neither the headline nor novelty or formal verification is claimed.
+
 C002 supplies a [uniform two-block exclusion](../experiments/cycle_spectrum/C002/REPORT.md):
 if different words u,v have the same positive totals (A,m), `2^A>3^m`,
 and k+ell>=3, then `den(u^k v^ell)>2^(A+m)/3^m>2^m>1`. The bound is

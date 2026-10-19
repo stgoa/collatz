@@ -1,5 +1,48 @@
 # Cycle spectrum programme log
 
+## C003 — Uniform restrictions across changing blocks, 2026-10-19
+
+**Progress; headline active and open.** C002 was delivered at
+`e14a4e361bd01d93fc48eaa4f2684300dad194e9`. This batch removes its
+fixed-block limitation for nondegenerate `u^k v^ell`, k,ell>=2, with
+positive whole-cycle D. The [report](../experiments/cycle_spectrum/C003/REPORT.md)
+links the written proofs, reviews and exact receipts.
+
+Every bounded denominator layer has finitely many representations in
+that whole varying-word class. A fixed ambient S-unit group gives
+uniform unequal-slope growth; the proportional branch retains its
+shared factor and uses a sharp coprime integer inequality. The combined
+positive exponent is `(5*log_3(2)-3)/14`; the general threshold remains
+ineffective. K=0 retains all common-cycle powers.
+
+An elementary theorem gives exclusion at every size when both blocks
+contract and a block of maximum valuation total occurs at least three
+times: `den>2^max(m_u,m_v)*Q_*^(t_*-3)`. It gives effective finite
+enumeration for its bounded denominator layers. It covers unequal-total
+cases but does not contain C002's equal-total counts (1,2). The actual
+d499 cycle disproves extending its interval trapping to expanding blocks.
+
+The checker replays 2,459 actual cycles at 333 parameters, every rotation
+and 1,694,160 decompositions, plus 243,878 positive generated realizations
+and 4,650,456 arrows. Actual data has zero cases eligible for the strong
+three-copy theorem; 153,696 generated checks exercise it. The sharp
+integer lemma has 78,287 bounded checks. Root replay and the historical
+119-field gate pass. Finite evidence does not verify asymptotic inputs.
+
+The reviewed side pin is `b9c3fd73ce34174053b0d6c4668cd50b405ae015`.
+Its C001 Lean algebra report is external validation, not main's replay.
+The [side review](../experiments/cycle_spectrum/C003/SIDE_REVIEW.md)
+proves divergence of the proposed naive random-residue model and corrects
+the raw word-enumeration estimate; no model is adopted as a cycle theorem.
+Draft example arithmetic and two report scope issues were corrected and
+documented before delivery. Historical results and C001/C002 are preserved.
+
+**Next:** seek a restriction intrinsic to arbitrary cyclic valuation
+words, coupling cancellation at all cuts with rotated cycle-point sizes.
+Require a consequence beyond the cycle identity. Improving effective
+mixed-block exceptions is secondary: it would still leave the word-
+structure gap. No replacement goal or full-cycle proof is claimed.
+
 ## C002 — Two growing blocks and a uniform exclusion, 2026-10-19
 
 **Progress; headline active and open.** C001 was delivered at

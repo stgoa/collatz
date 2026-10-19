@@ -94,3 +94,23 @@ uniform when the block totals differ. This is a proposed mechanism under
 the existing headline, not a new completion criterion. Arbitrary primitive
 words and the all-cycle conclusion remain unresolved; Lean validation
 of earlier results does not supply that missing implication.
+
+## C003: changing blocks, and the remaining coverage gap
+
+[C003](../experiments/cycle_spectrum/C003/REPORT.md) resolves the next
+uniformity question for nondegenerate two-block powers: with k,ell>=2,
+positive whole D and K!=0, every bounded denominator layer is finite
+even while both words vary. The general exponential lower bound has an
+ineffective threshold. Separately, both blocks contracting and a block
+of maximum valuation total repeated at least three times give an
+elementary all-size denominator bound greater than 1. Actual cycles,
+generated positive realizations and common-cycle exceptions are retained.
+
+The next main mechanism should apply to arbitrary primitive cyclic
+words: determine what a small reduced denominator forces simultaneously
+on their rotated coefficients and cycle-point sizes. The intermediate
+milestone is a quantitative restriction beyond the defining cycle
+identity, with a real consequence for possible denominator-1 cycles.
+Another fixed motif count or an effective exceptional cutoff for the
+current subclass would not close that coverage gap. This is a direction
+within the existing headline; the completion standard remains unchanged.
