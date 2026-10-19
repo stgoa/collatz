@@ -130,6 +130,32 @@ The probe checks the closed form and the gcd identity on all 337 ordered cycles 
   - the band-1 `J ≥ 3` argument. That argument uses letter positivity `a_i ≥ 1`, which holds for every actual cycle and every positive word, as the Lean lane points out;
   - the observed `2J` mismatch bound.
 
+**Update 07:54: Lean S1-b is VERIFIED** (`82bd72f`). This entry's gcd consequence is machine-checked. The note below adds a stronger, simpler form.
+
+- **The theorem.** `run_start_gaps_coprime`: in a reduced ordered cycle (`q` odd, `gcd(q, n_0) = 1`), a divisor of `q` that divides the gap at every run start is a unit.
+  - A run start is a rank whose orbit predecessor is forced.
+  - The supporting lemmas are `dvd_gap_run_iff` (divisibility is constant along a zero-forcing run), `exists_run_start` and `dvd_all_gaps_isUnit` (via `Σ Δ = 2^B n_0`).
+  - Through the dictionary `D = gq`, `G = gΔ`, this is `gcd(C, D) = gcd(D, run-start gaps)`.
+  - Both hypotheses are needed. Reducedness matters: tripling every state at parameter `3q` breaks the statement. Oddness of `q` amounts to letter positivity.
+- **Receipts.** Of 399 declarations, 318 use the standard three axioms, 35 use `[propext, Quot.sound]`, 44 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `bb6c6e5d…` matches all three binding receipts.
+- **Independent check.** `s1b_run_start_gcd_check.py` uses the 33 actual ordered `3x+q` cycles; 22 of their words have `g > 1`. On every cycle:
+  - `gcd(q, run-start gaps) = 1`;
+  - every rank is reached from a run start along a zero-forcing run;
+  - `Σ Δ = 2^B n_0`;
+  - in the word normalisation, `gcd(D, run-start G) = gcd(C, D)`.
+
+**A stronger and simpler form (proved here; not formal).** *Every* sorted gap of a reduced ordered cycle is coprime to `q`, not only the run starts jointly.
+
+- **Proof.** Let `ℓ` be a prime dividing `q`. Then `T_r = qτ_r ≡ 0` mod `ℓ`, so (G3) reads `2^(e_r) Δ_(r+s) ≡ 3Δ_r` mod `ℓ`. Since `ℓ ∤ 6`, divisibility by `ℓ` passes in both directions along the orbit, which visits every rank. So `ℓ` divides one gap only if it divides all of them, and then it divides `Σ Δ = 2^B n_0`, which contradicts `gcd(q, n_0) = 1`.
+- This is C007-a's residue mechanism (`dvd_all_of_dvd`) applied to gaps instead of states.
+- In the word normalisation it reads `gcd(D, G_r) = gcd(C, D)` for every single `r`. This holds on all 337 ordered rational cycles (18 with `g > 1`). In the 33 actual cycles, no run-start gap shares a factor with `q`.
+
+**A precise form of "`J = 1` is R71/C004" (Lean lane's request).**
+
+- `J = 1` forces every sorted height to equal `h_[0] = 0`, so `B = 0` and `T_seam = q`.
+- The closed form at the gap after the seam then reads `D·Δ = 3^x 2^y q`. With `q | D` for reduced cycles (C008), `D/q` divides `3^x 2^y`, so `D/q = 1`: **the reduced denominator is exactly `D`.**
+- This is R71's exact denominator, re-derived for ordered narrow cycles from `gap_closed_form` without mechanical-word theory. Not yet formal.
+
 ---
 
 ## 2026-10-19 05:58 — VERIFIED Lean C004-c (`claude/lean-lane` `9f73b54`): the programme's first complete cycle exclusion specific to `d = 1` is machine-checked end to end
