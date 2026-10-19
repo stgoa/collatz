@@ -28,6 +28,47 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 03:37 — VERIFIED Lean C006-a (`claude/lean-lane` `c4e4246`): C006's sparse-forcing inequality is machine-checked for every ordered primitive odd cycle
+
+**`G1_first`.** On an `OrdCycle` (an ordered primitive odd cycle with `m ≥ 2` and the exponent window), `2^⌊(m−1)/J⌋ < 2^B·L`, where `J` is the number of sorted ranks with `T_r ≠ 0`. Since `⌊(m−1)/J⌋ = ⌈m/J⌉ − 1` (checked for all `m, J < 400`), this is exactly C006 §3's **`L > 2^(⌈m/J⌉ − 1 − B)`**.
+
+**How it was built.** The units arrived over the last hour and I verified each from source and receipts:
+
+- run lemma and height steps (part 1, `74d66d4`);
+- sorted states, seam and gaps (2a, `61f252d`);
+- gap recurrence (2b, `a5d6178`);
+- height term, seam positivity and per-run bound (3, `a1e1054`);
+- the cyclic pigeonhole `exists_run` (3c, `c4e4246`).
+
+`exists_run` is a general combinatorial lemma: `J ≥ 1` forced positions on an `m`-cycle leave a run of `⌊(m−1)/J⌋` unforced positions after some forced one. It is proved by iteration, with no sorting. `J_eq` identifies the orbit count with the rank count.
+
+**Checks.**
+
+- **Hypotheses.** Only `q > 0`, order, primitivity and `m ≥ 2`. `q ≤ L` is not needed for this inequality.
+- **Axioms.** 183 declarations use the standard three; the helpers use subsets.
+- **Build.** No diagnostics.
+- **Source scan.** Clean.
+- **Hash.** The sha256 `31a44291…` matches the receipt.
+
+**Not yet formal (part 3d).**
+
+- `J ≥ B + 1` in sorted order;
+- the sharper exponent sum `e_run`;
+- the consequences `q > (D/C_c)·2^(…)` and (G4);
+- the Bugeaud corollary, which is imported and not a target.
+
+**What is formal for the cycle programme.** The following are now all formalised, each within hours of the written proof:
+
+- C001–C003's block theorems;
+- C004's narrow classification;
+- C005's `q = 1` three-band theorem;
+- C006's run inequality;
+- C007 and C008's identities.
+
+The `q = 1` structural chain is formal up to R71's `g = 1`, and that is what remains for the integer corollary `H > 2L`.
+
+---
+
 ## 2026-10-19 03:17 — REFEREE C009 (main `ec48fbd`): the rejection of excursion compression is confirmed; the next milestone has a concrete payoff
 
 **Reproduced** (`c009_excursion_check.py`, under a second, PASS).
