@@ -1,5 +1,31 @@
 # Research log
 
+## 2026-10-19 — C003: uniform denominator layers and a contracting exclusion
+
+[C003](../experiments/cycle_spectrum/C003/REPORT.md) proves bounded-layer
+finiteness for all nondegenerate two-block powers with both counts at
+least two, even while the blocks vary. A fixed S-unit group and a new
+coprime integer lemma remove the fixed-pair restriction; the general
+threshold remains ineffective. A separate elementary lattice proof
+gives `den>2^max(m_u,m_v)` whenever both blocks contract and a block of
+maximum valuation total occurs at least three times. It does not cover
+the equal-total counts (1,2) already covered by C002.
+
+The actual d499 mixed pair disproves extending the interval trapping
+to expanding blocks. All 2,459 actual cycles, 1,694,160 decompositions,
+243,878 generated positive realizations and 78,287 integer-lemma cases
+are replayed. The actual dataset has zero strong-theorem cases, while
+153,696 generated checks exercise it. Root replay and the historical
+gate pass. Written proof and finite checks remain distinct from formal
+verification and novelty. Draft example arithmetic and report scope
+corrections are documented; historical mathematics is preserved.
+
+Side pin b9c3fd73ce reports C001 Lean algebra and a size/residue lead.
+Main has not replayed that build. The model's divergent prediction is
+proved as a model failure, and the proposed raw census cost is corrected.
+Next: an intrinsic restriction on arbitrary cyclic words, using all
+rotations and their point sizes. The all-cycle headline remains open.
+
 ## 2026-10-19 — C002: two growing blocks and a uniform cycle restriction
 
 [C002](../experiments/cycle_spectrum/C002/REPORT.md) proves that any two

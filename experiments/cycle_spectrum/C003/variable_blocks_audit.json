@@ -1,0 +1,331 @@
+{
+  "actual_cycles": {
+    "all_size_exponent_diagnostic": {
+      "comparison": "den^16 < 2^(5*A), i.e. den < 2^((5/16)*A)",
+      "counterexample_count": 0,
+      "counterexamples": [],
+      "eligible": 154,
+      "scope": "Diagnostic for unequal slopes,K!=0,k,ell>=2,positive D; absence of finite counterexamples proves no all-size inequality. The exponent5/16 is below log_3(2)/2 because2^8>3^5.",
+      "worst_exact_ratio": {
+        "A": 8,
+        "K": -2,
+        "actual_parameter": 13,
+        "canonical_minimum": 283,
+        "denominator": 13,
+        "ell": 3,
+        "k": 2,
+        "ratio_denominator": 1099511627776,
+        "ratio_numerator": 665416609183179841,
+        "rotation": 0,
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      }
+    },
+    "both_ge3_mixed_direction_examples": [
+      {
+        "C_u": 1,
+        "C_v": 5,
+        "D_u": -1,
+        "D_v": 7,
+        "G_u": 65,
+        "G_v": 481,
+        "K": -12,
+        "actual_parameter": 499,
+        "cancellation": 13,
+        "canonical_minimum": 6605,
+        "common_geometric_gcd": 13,
+        "cut": 4,
+        "denominator": 499,
+        "ell": 3,
+        "k": 4,
+        "proposed_power_bound": 4,
+        "rotation": 0,
+        "source": 6605,
+        "u": [
+          1
+        ],
+        "v": [
+          1,
+          3
+        ]
+      },
+      {
+        "C_u": 1,
+        "C_v": 11,
+        "D_u": -1,
+        "D_v": 7,
+        "G_u": 65,
+        "G_v": 481,
+        "K": -18,
+        "actual_parameter": 499,
+        "cancellation": 13,
+        "canonical_minimum": 6605,
+        "common_geometric_gcd": 13,
+        "cut": 4,
+        "denominator": 499,
+        "ell": 3,
+        "k": 4,
+        "proposed_power_bound": 4,
+        "rotation": 1,
+        "source": 10157,
+        "u": [
+          1
+        ],
+        "v": [
+          3,
+          1
+        ]
+      },
+      {
+        "C_u": 5,
+        "C_v": 1,
+        "D_u": 7,
+        "D_v": -1,
+        "G_u": 481,
+        "G_v": 65,
+        "K": 12,
+        "actual_parameter": 499,
+        "cancellation": 13,
+        "canonical_minimum": 6605,
+        "common_geometric_gcd": 13,
+        "cut": 6,
+        "denominator": 499,
+        "ell": 4,
+        "k": 3,
+        "proposed_power_bound": 4,
+        "rotation": 4,
+        "source": 35465,
+        "u": [
+          1,
+          3
+        ],
+        "v": [
+          1
+        ]
+      },
+      {
+        "C_u": 11,
+        "C_v": 1,
+        "D_u": 7,
+        "D_v": -1,
+        "G_u": 481,
+        "G_v": 65,
+        "K": 18,
+        "actual_parameter": 499,
+        "cancellation": 13,
+        "canonical_minimum": 6605,
+        "common_geometric_gcd": 13,
+        "cut": 6,
+        "denominator": 499,
+        "ell": 4,
+        "k": 3,
+        "proposed_power_bound": 4,
+        "rotation": 5,
+        "source": 53447,
+        "u": [
+          3,
+          1
+        ],
+        "v": [
+          1
+        ]
+      }
+    ],
+    "counts": {
+      "K_zero": 0,
+      "baseline_cuts": 1637490,
+      "both_contracting_nonzeroK_ge2": 4,
+      "contracting_commutator_checks": 1256140,
+      "contracting_lattice_height_checks": 2512280,
+      "decompositions": 1694160,
+      "den_not_above_geometric_gcd": 0,
+      "den_not_above_geometric_maximum": 0,
+      "den_not_above_geometric_minimum": 0,
+      "proportional_exact_denominator_checks": 23696,
+      "rotations": 36912,
+      "small_prefix_completeness_checks": 47461,
+      "source_arrows": 36912,
+      "universal_commutator_upper_checks": 1694160
+    },
+    "decomposition_sha256": "31a12221555a650074971213c6074207034c55b4538c6bebd6ec59663f88a13d",
+    "eligible_examples": [],
+    "geometric_comparison_examples": [],
+    "groups": {
+      "k_ell_ge1|proportional|both_contracting": 23696,
+      "k_ell_ge1|unequal|both_contracting": 1232444,
+      "k_ell_ge1|unequal|has_expanding_block": 438020,
+      "k_ell_ge2|unequal|both_contracting": 4,
+      "k_ell_ge2|unequal|has_expanding_block": 150,
+      "k_ell_ge3|unequal|has_expanding_block": 4
+    },
+    "proposed_uniform_counterexamples": [],
+    "scope": "Every rotation and every exact power decomposition; rotations and scaled repeats are not distinct primitive cycles.",
+    "source_cycles": 2459,
+    "source_parameters": 333,
+    "worst_power_ratio": null
+  },
+  "baseline_commit": "e14a4e361bd01d93fc48eaa4f2684300dad194e9",
+  "clock": "raw odd-only recurrence; state1 is not absorbed",
+  "coprime_slope_integer_lemma": {
+    "cases": 78287,
+    "domain": {
+      "R_S": [
+        1,
+        32
+      ],
+      "coprime": true,
+      "k_ell": [
+        2,
+        12
+      ]
+    },
+    "equalities": [
+      {
+        "H": 6,
+        "L": 12,
+        "R": 2,
+        "S": 3,
+        "ell": 2,
+        "gap": 0,
+        "k": 3
+      },
+      {
+        "H": 6,
+        "L": 12,
+        "R": 3,
+        "S": 2,
+        "ell": 3,
+        "gap": 0,
+        "k": 2
+      }
+    ],
+    "inequality": "5*(L-H+1)>=7*(R+S), L=R*k+S*ell,H=gcd(R*k,S*ell)",
+    "scope": "Exact bounded integer checks only; the universal lemma requires its written proof and the S-unit asymptotic input is not numerically verified.",
+    "smallest_gap": {
+      "H": 6,
+      "L": 12,
+      "R": 2,
+      "S": 3,
+      "ell": 2,
+      "gap": 0,
+      "k": 3
+    },
+    "verification_sha256": "bb5e0bd168bd4a6ab2656229adc6eef29f36db1c9eaeed617657472ae2ad9bee"
+  },
+  "generated": {
+    "all_size_exponent_diagnostic": {
+      "comparison": "den^16 < 2^(5*A), i.e. den < 2^((5/16)*A)",
+      "counterexample_count": 0,
+      "counterexamples": [],
+      "eligible": 150622,
+      "scope": "Diagnostic for unequal slopes,K!=0,k,ell>=2,positive D; absence of finite counterexamples proves no all-size inequality. The exponent5/16 is below log_3(2)/2 because2^8>3^5.",
+      "worst_exact_ratio": {
+        "A": 8,
+        "K": -2,
+        "denominator": 13,
+        "ell": 3,
+        "k": 2,
+        "ratio_denominator": 1099511627776,
+        "ratio_numerator": 665416609183179841,
+        "u": [
+          1
+        ],
+        "v": [
+          2
+        ]
+      }
+    },
+    "counts": {
+      "K_zero_positive": 3384,
+      "actual_arrows": 4650456,
+      "both_ge3_maximum_length_checks": 90912,
+      "contracting_commutator_checks": 204552,
+      "contracting_lattice_height_checks": 409104,
+      "den_not_above_geometric_gcd": 0,
+      "den_not_above_geometric_maximum": 0,
+      "den_not_above_geometric_minimum": 0,
+      "maximum_power_uniform_checks": 153696,
+      "negative_D": 10138,
+      "positive_D": 243878,
+      "primitive_displayed_words": 240464,
+      "proper_power_words": 3414,
+      "proportional_exact_denominator_checks": 25056,
+      "universal_commutator_upper_checks": 254016,
+      "words": 254016
+    },
+    "distinct_positive_parameters": 2741,
+    "domain": {
+      "base_lengths": [
+        1,
+        3
+      ],
+      "exponents": [
+        1,
+        6
+      ],
+      "ordered_base_pairs": 7056,
+      "valuations": [
+        1,
+        4
+      ]
+    },
+    "geometric_comparison_examples": [],
+    "groups": {
+      "k_ell_ge1|proportional|both_contracting|K0": 3384,
+      "k_ell_ge1|proportional|both_contracting|K_nonzero": 25056,
+      "k_ell_ge1|unequal|both_contracting|K_nonzero": 179496,
+      "k_ell_ge1|unequal|has_expanding_block|K_nonzero": 35942,
+      "k_ell_ge2|proportional|both_contracting|K0": 2350,
+      "k_ell_ge2|proportional|both_contracting|K_nonzero": 17400,
+      "k_ell_ge2|unequal|both_contracting|K_nonzero": 124650,
+      "k_ell_ge2|unequal|has_expanding_block|K_nonzero": 25972,
+      "k_ell_ge3|proportional|both_contracting|K0": 1504,
+      "k_ell_ge3|proportional|both_contracting|K_nonzero": 11136,
+      "k_ell_ge3|unequal|both_contracting|K_nonzero": 79776,
+      "k_ell_ge3|unequal|has_expanding_block|K_nonzero": 16988
+    },
+    "mixed_direction_maximum_length_counterexample_count": 0,
+    "mixed_direction_maximum_length_counterexamples": [],
+    "scope": "Each positive word is realized at its reduced denominator and every raw arrow checked; proper powers are retained as controls.",
+    "verification_sha256": "c8e02f6f063b86a565ce7f53b888133fc809a4e0d00ff435e9243deace85a3a2",
+    "worst_contracting_maximum_length_ratio": {
+      "C_u": 23,
+      "C_v": 37,
+      "D_u": 5,
+      "D_v": 5,
+      "G_u": 2617,
+      "G_v": 2617,
+      "K": 70,
+      "cancellation": 91595,
+      "denominator": 7493,
+      "ell": 3,
+      "k": 3,
+      "maximum_length_bound": 8,
+      "minimum": 27095,
+      "numerator": 47575,
+      "u": [
+        1,
+        2,
+        2
+      ],
+      "v": [
+        2,
+        2,
+        1
+      ]
+    }
+  },
+  "limits": "Finite evidence for the separate written theorem; no universal inference from absence of a counterexample; expanding blocks excluded.",
+  "proposal": "Written contracting theorem: den>2^max(len(u),len(v)) when K!=0 and both exponents>=3; stronger maximum-Q exponent and lattice-height inequalities checked too.",
+  "schema": "C003-variable-blocks-v1",
+  "source_sha256": {
+    "C001/actual_cycles.json": "28d067d3f82585a3701616adce3b57cae994541c4ddd3b4859d2bcf2307e44f2",
+    "C001/scan_cycles.py": "32bf38b6ac5d9b592d4deba1cab4cfbf15598cb15d32275c134373853b06626f",
+    "check_variable_blocks.py": "fd2779d1a807328231ecfb06adcf01d032880205483cc69f558a93124a5a0d70"
+  },
+  "status": "finite observations"
+}

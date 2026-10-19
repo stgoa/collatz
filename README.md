@@ -4,42 +4,45 @@ This repository is the persistent record of the Collatz programme: definitions, 
 
 ## Current programme: cycle denominators across 3x+d
 
-**Current standing (2026-10-19): C002 gives a uniform cycle exclusion:
-different valuation blocks with the same length m and total A, repeated
-k and ell times with k+ell>=3, have reduced denominator greater than
-2^m whenever 2^A>3^m. The blocks and their lengths may vary freely.
-All-cycle exclusion and Collatz convergence remain open.**
+**Current standing (2026-10-19): C003 proves that every bounded
+denominator layer contains finitely many nondegenerate two-block
+representations u^k v^ell with k,ell>=2, even as both blocks vary.
+An elementary companion theorem excludes integer cycles at every size
+when both blocks contract and a block with the larger valuation total
+appears at least three times. All-cycle exclusion remains open.**
 
-The user replaced the quantitative-rigidity goal with the
-[cycle-spectrum goal](docs/CYCLE_SPECTRUM_BRIEF.md). Integer cycles across
-the positive `3x+d` family are organized by the reduced denominators of
-rational `3x+1` cycles. The question is which word structures can make
-that denominator equal 1. Rotations and repetitions must be distinguished
-from new primitive cycles.
+The active [cycle-spectrum goal](docs/CYCLE_SPECTRUM_BRIEF.md) studies
+integer cycles across the positive `3x+d` family through the reduced
+denominators of rational `3x+1` cycles. The question is which word
+structures can make that denominator equal 1. Rotations and repetitions
+must be distinguished from new primitive cycles. Divergence is separate.
 
-[C002's report](experiments/cycle_spectrum/C002/REPORT.md) gives the proof,
-an explicit finite enumeration bound for every bounded denominator layer
-within that class, and a complete fixed-pair growth result for two repeated
-blocks. Proportional slopes have an elementary bound; unequal slopes use
-published S-unit estimates and have no effective threshold here. The
-common-cycle exception is retained. Arbitrary cycle words need not have
-the covered structure, so the universal gap remains explicit.
+[C003's report](experiments/cycle_spectrum/C003/REPORT.md) gives both
+proofs. The general two-repetition bound uses published S-unit estimates
+and leaves an unknown finite cutoff. The contracting result is effective:
+with K!=0 its denominator exceeds 2 to the larger block length. K=0
+retains powers of a common cycle. Arbitrary cycle words need not have
+these repeated-block forms. C002's equal-total theorem remains useful,
+including repetition counts (1,2) outside the new contracting theorem.
 
 The checker replays all 2,459 cycles over 333 parameters from
-[C001](experiments/cycle_spectrum/C001/REPORT.md), then checks 433,074
-positive word-cycle realizations at 5,003 parameters. Large cancellation
-really occurs; thirteen failures of a proposed constant bound are saved.
-Neither experiment is an exhaustive cycle census. A primitive nonbalanced
-subfamily has unbounded minima and local-minimum counts; no general
-published-record improvement, novelty or formal verification is claimed.
+[C001](experiments/cycle_spectrum/C001/REPORT.md), tests every rotation
+and 1,694,160 decompositions, and checks 243,878 positive generated
+realizations. The actual sample has zero cases eligible for the strong
+contracting theorem; 153,696 generated checks exercise it. The actual
+d499 cycle disproves extending its interval-trapping argument to an
+expanding block. These are finite checks, separate from the written
+proofs. No exhaustive census, novelty or formal verification is claimed.
 
-**Next:** seek a denominator restriction that survives changing the
-blocks' totals, with a precise structural class and actual-cycle controls.
-Increasing a fixed catalogue alone would not address that uniformity
-gap. The [cycle log](docs/CYCLE_SPECTRUM_LOG.md) records the active work;
+**Next:** seek an arithmetic restriction on arbitrary cyclic words,
+using cancellation across all rotations together with the sizes of
+their cycle points. It must give a necessary condition beyond the cycle
+identity itself. Another motif count would leave the coverage gap.
+The [cycle log](docs/CYCLE_SPECTRUM_LOG.md) records the active work;
 each batch must include actual-cycle tests and a theorem or an exact
-obstruction. The separate Lean lane's reported checks strengthen the
-validation record; they do not supply the missing cycle restriction.
+obstruction. The separate Lean lane's reported C001 algebra checks
+strengthen the validation record; main has not independently replayed
+that build here, and it does not supply the missing cycle restriction.
 
 ## Previous language programme: arithmetic regularity
 

@@ -1,0 +1,138 @@
+{
+  "baseline_commit": "e14a4e361bd01d93fc48eaa4f2684300dad194e9",
+  "checked_at_utc": "2026-10-19T03:44:28.468573+00:00",
+  "delivery_boundary": "Commit and push are performed after this receipt; this file does not claim their outcome.",
+  "frozen_commit": "9190ccf2519acc56446dd027c6cbf8d45dcceeb6",
+  "historical_full_gate": {
+    "command": "python3 scripts/verify_all.py --cpp --transfer-controls",
+    "field_count": 119,
+    "independent_cpp": "PASS: 4096 and 262144",
+    "phase6_transfer_controls": "PASS: eleven exact raw cycles, eight nonprincipal controls, four fixed-d controls, fourteen d1 samples and fail-closed checks; setup label none",
+    "status": "PASS"
+  },
+  "integer_lemma_finite_checks": 78287,
+  "markdown_checks": {
+    "errors": [],
+    "existing_local_links": 563,
+    "files": 14
+  },
+  "preservation": {
+    "C001_tree_unchanged": true,
+    "C002_tree_unchanged": true,
+    "R1_onward_ledger_body_byte_identical": true,
+    "files_byte_identical": [
+      "collatz_research_20261017/right_aligned_reduction.tex",
+      "experiments/residual_progress/resolved_rules/RESOLVED_RULES.md",
+      "experiments/residual_progress/resolved_rules/resolved_rules.py"
+    ],
+    "git_diff_check": "PASS",
+    "tracked_changes_confined_to_current_docs": [
+      "AGENTS.md",
+      "README.md",
+      "VIEWPOINT_MAP.md",
+      "docs/CYCLE_SPECTRUM_BRIEF.md",
+      "docs/CYCLE_SPECTRUM_LOG.md",
+      "docs/RESEARCH_LOG.md",
+      "docs/RESULTS.md",
+      "docs/VIEWPOINT_LOG.md"
+    ]
+  },
+  "proof_scope": "Written and independently agent-reviewed; published estimates explicit; no formal verification or novelty claim. General threshold ineffective; arbitrary word gap open.",
+  "root_fresh_checker_replay": {
+    "counts": {
+      "K_zero": 0,
+      "baseline_cuts": 1637490,
+      "both_contracting_nonzeroK_ge2": 4,
+      "contracting_commutator_checks": 1256140,
+      "contracting_lattice_height_checks": 2512280,
+      "decompositions": 1694160,
+      "den_not_above_geometric_gcd": 0,
+      "den_not_above_geometric_maximum": 0,
+      "den_not_above_geometric_minimum": 0,
+      "proportional_exact_denominator_checks": 23696,
+      "rotations": 36912,
+      "small_prefix_completeness_checks": 47461,
+      "source_arrows": 36912,
+      "universal_commutator_upper_checks": 1694160
+    },
+    "generated_counts": {
+      "K_zero_positive": 3384,
+      "actual_arrows": 4650456,
+      "both_ge3_maximum_length_checks": 90912,
+      "contracting_commutator_checks": 204552,
+      "contracting_lattice_height_checks": 409104,
+      "den_not_above_geometric_gcd": 0,
+      "den_not_above_geometric_maximum": 0,
+      "den_not_above_geometric_minimum": 0,
+      "maximum_power_uniform_checks": 153696,
+      "negative_D": 10138,
+      "positive_D": 243878,
+      "primitive_displayed_words": 240464,
+      "proper_power_words": 3414,
+      "proportional_exact_denominator_checks": 25056,
+      "universal_commutator_upper_checks": 254016,
+      "words": 254016
+    },
+    "generated_worst": {
+      "C_u": 23,
+      "C_v": 37,
+      "D_u": 5,
+      "D_v": 5,
+      "G_u": 2617,
+      "G_v": 2617,
+      "K": 70,
+      "cancellation": 91595,
+      "denominator": 7493,
+      "ell": 3,
+      "k": 3,
+      "maximum_length_bound": 8,
+      "minimum": 27095,
+      "numerator": 47575,
+      "u": [
+        1,
+        2,
+        2
+      ],
+      "v": [
+        2,
+        2,
+        1
+      ]
+    },
+    "groups": {
+      "k_ell_ge1|proportional|both_contracting": 23696,
+      "k_ell_ge1|unequal|both_contracting": 1232444,
+      "k_ell_ge1|unequal|has_expanding_block": 438020,
+      "k_ell_ge2|unequal|both_contracting": 4,
+      "k_ell_ge2|unequal|has_expanding_block": 150,
+      "k_ell_ge3|unequal|has_expanding_block": 4
+    },
+    "mixed_failures": 0,
+    "status": "PASS"
+  },
+  "side_review_pin": "b9c3fd73ce34174053b0d6c4668cd50b405ae015",
+  "source_sha256": {
+    "AGENTS.md": "290f4479ff6facb0e52189b4ea2a41accfe130c633cb005c64996a23a83c0fc6",
+    "README.md": "a66a9e5c4cf482a00b4b5502420002b3937f5e75956effa9080e04e00e8f594d",
+    "VIEWPOINT_MAP.md": "77755b5cbb53565ee24f56297649575e3bf439910e517967532a6129bc3db7a8",
+    "docs/CYCLE_SPECTRUM_BRIEF.md": "17dcae41c51da3e22aa39c60758b68989a35feb340ef44bc55386bc7052729f3",
+    "docs/CYCLE_SPECTRUM_LOG.md": "e5530ff90b79ce3e36266917233077f07ce8fb3813c996a70b4235bb37abef8c",
+    "docs/RESEARCH_LOG.md": "f6dfa82e68703ce01c93ce0f3e255aa2ad48dd511503482cb832a4ba26383767",
+    "docs/RESULTS.md": "d4be6315389b98f5ceb6d8d0c2ec41eb4538ad2f333546f5d0a9ca64e82c27b7",
+    "docs/VIEWPOINT_LOG.md": "3d1afb3d55160492f9c511f53fdfc196fbc97de6db2c70b0cf8222791f0ad42f",
+    "experiments/cycle_spectrum/C003/INDEPENDENT_REVIEW.md": "c200a9bb90b1609c6711c1d475de775317ec16d201a055341335f54dcfce82bc",
+    "experiments/cycle_spectrum/C003/PROPORTIONAL_UNIFORM.md": "8cae39054741d9127d30039899dc590e6a4025dc3cc7322888cd2def51cffcbf",
+    "experiments/cycle_spectrum/C003/REPORT.md": "0cb3347369e085058ad8fe2afbae76bcde41b4fa2e246624ab761f6af08a5d74",
+    "experiments/cycle_spectrum/C003/ROOT_REVIEW.md": "613409f6e574c87aa817d59adb0cd80328ee28f436d1c2a0fa922fe194fcd6e6",
+    "experiments/cycle_spectrum/C003/SIDE_REVIEW.md": "9d31465d06c6cc006fa87a681b241caf8d34b06ea95b29ea4da1576d5a7b481a",
+    "experiments/cycle_spectrum/C003/UNEQUAL_PROBE.md": "8c7509e92dddffe58aa720f668a581d9d6beb0303daee3a09cd54a3a90fc9d49",
+    "experiments/cycle_spectrum/C003/check_variable_blocks.py": "fd2779d1a807328231ecfb06adcf01d032880205483cc69f558a93124a5a0d70",
+    "experiments/cycle_spectrum/C003/full_gate.json": "10a42beae3aec02a370ce90f6b5d2a8d2c307261646116868211b95d77fd6c2d",
+    "experiments/cycle_spectrum/C003/variable_blocks_audit.json": "fa4b9a71045e17b2a22f0c81673b78f0c2a36be7bd2bbc9f0e4310a56aef4fa1"
+  },
+  "status": "PASS",
+  "strong_contracting_theorem_finite_coverage": {
+    "actual_eligible_cases": 0,
+    "generated_checks": 153696
+  }
+}

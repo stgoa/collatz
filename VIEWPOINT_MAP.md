@@ -1,10 +1,11 @@
 # Find a better language for Collatz
 
-**Historical viewpoint map, updated 2026-10-18.** The user has replaced
+**Historical viewpoint map, updated 2026-10-19.** The user has replaced
 the quantitative goal with the [cycle-spectrum programme](docs/CYCLE_SPECTRUM_BRIEF.md).
-[C002](experiments/cycle_spectrum/C002/REPORT.md) extends the repeated-block
-mechanism to two growing blocks and gives a uniform exclusion when their
-totals agree. It tests the claims across the generalized family. Current
+[C003](experiments/cycle_spectrum/C003/REPORT.md) gives bounded-denominator
+finiteness for nondegenerate two-block repetitions even as the blocks vary,
+and an effective exclusion under its contracting repetition condition.
+Arbitrary word structure and the general finite exceptions remain open. Current
 decisions are in the [cycle log](docs/CYCLE_SPECTRUM_LOG.md). The roadmap
 below records the earlier language selection and its subsequent results;
 its statements about active targets describe those earlier stages.

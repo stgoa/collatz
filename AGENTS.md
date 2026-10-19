@@ -42,6 +42,28 @@ assuming regularity of an actual bad set.
 - C002's rotated mechanical family has every state>m/12 without an extra
   exponent condition. Its odd-only minimum count is `(k+ell)(2m-A)-1`,
   while its shortcut count is `(k+ell)(A-m)`. Keep these clocks separate.
+- C003 removes fixed-word dependence for `u^k v^ell`, k,ell>=2,
+  positive whole D and K!=0: every bounded denominator layer has finitely
+  many representations even while both words vary. One fixed ambient
+  S-unit group supplies uniform unequal-slope estimates. The proportional
+  branch retains the common power-gap factor and the coprime integer
+  lemma. The combined rate is `(5*log_3(2)-3)/14>0`, with an ineffective
+  threshold; this does not eliminate every denominator-1 exception.
+- C003's elementary all-size bound requires both D_u,D_v>0 and K!=0.
+  If a block attaining `Q_*=max(2^A_u,2^A_v)` occurs t_*>=3 times,
+  the other at least once, then `den>2^max(m_u,m_v)*Q_*^(t_*-3)`.
+  The maximum-length bound uses a monotone fixed-point envelope. The
+  actual d499 mixed pair has a state outside the pure fixed-point
+  interval, so the trapping argument cannot be extended unchanged to
+  expanding blocks. Zero actual sample cases satisfy the strong theorem;
+  generated tests supply its nonvacuous finite coverage.
+- C003 does not contain all C002 exclusions: C002 also covers equal-total
+  counts (1,2). Arbitrary cyclic words need not admit either pattern.
+  Prioritize an intrinsic restriction on unrestricted words over another
+  motif count. A stronger all-size exponent diagnostic found no finite
+  counterexample but is not a theorem. The naive random-residue model's
+  divergent prediction refutes that model, not the exact denominator
+  criterion. Lean reports are separate from main's independent replay.
 
 - Read `README.md`, the cycle brief, `docs/CYCLE_SPECTRUM_LOG.md`, the latest C-series report and relevant sources. `VIEWPOINT_MAP.md`, `docs/VIEWPOINT_LOG.md` and `ROUTE_MAP.md` preserve prior obligations and comparisons without restricting the active cycle programme.
 - Use bounded parallel investigations to test the selected mechanism. Do not substitute another language survey or dispatcher expansion for the cycle goal.
