@@ -1,0 +1,11 @@
+{
+ "probe": "s6_c011_via_s5",
+ "claim": "at q = 1, with S5-a, gap_all and the height ceiling (L > 2^71), no rotation has exactly 2 mismatches when m >= m0",
+ "m0": 24895,
+ "slope_positive_beyond_1e6": true,
+ "compare": {
+  "C011_period_import": "m > 1.375e11 (Hercher/Barina, with Matveev K0 ~ 6e8)",
+  "Eliahou_1993_cycle_length": "m >= 17,087,915 (older verification range)"
+ },
+ "result": "PASS"
+}

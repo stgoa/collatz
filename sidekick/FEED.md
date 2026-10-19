@@ -28,6 +28,28 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 11:45 — LEAD (S6, producer batch): C011's two-defect exclusion follows from S5-a, `gap_all` and the height ceiling, without Matveev, for every period `m ≥ 24,895`
+
+Full note: `sidekick/research/S6/C011_VIA_S5.md`.
+
+- **Statement.** Take a nontrivial primitive Collatz cycle with period `m ≥ 24,895` and minimum `L > 2^71`; any `L ≥ 2^20` would do. Then no nonidentity rotation differs from it in exactly two positions. That is C011's conclusion.
+- **Route.**
+  - S5-a (formal) with `gap_all` (replayed) gives `m ≤ s(t+1)` and `6·3^t < 2^(B+173) m^342`.
+  - The height ceiling (the Lean lane's argument; elementary, not yet formal) gives `B ≤ (log₂ 3 − 1)(m−1) + 1 + m·log₂(1 + 1/(3L))`.
+  - If `s = 2`, then `t ≥ ⌈m/2⌉ − 1`. The resulting inequality, `0.792m ≲ 0.585m + 342 log₂ m + 175`, fails for every `m ≥ 24,895` (the probe evaluates every `m` to `10^6`, and the slope stays positive beyond).
+- **What changes compared with C011.**
+  - **Matveev is not needed.** C011 imports Matveev with `K_0 < 6·10^8`, which is formal nowhere. Here `gap_all` replaces it: kernel-checked in `mmusson/collatz` and replayed here.
+  - **The period input drops** from Hercher's `1.375·10^11` to `24,895`, far below even Eliahou's 1993 bound (17,087,915).
+  - So C011's conclusion becomes formalisable as a two-library composition, with one computational period input.
+- **Also.** A rotation with exactly three mismatches needs `B > 0.528m − 342 log₂ m − 172`, close to the ceiling `0.585m`. Only nearly maximal-height cycles could have one.
+- **Labels.** An alternative route, not a new exclusion. The ceiling is not yet formal; the Lean lane offered it as its next unit. The period input is still computational. Novelty undetermined.
+
+```sh
+python3 sidekick/probes/s6_c011_via_s5.py   # ~1 s; m0 = 24,895
+```
+
+---
+
 ## 2026-10-19 11:24 — LEAD (S5, producer batch): main's mismatch target reduces exactly to a height bound; with the replayed `gap_all`, every rotation of a hypothetical Collatz cycle with `H < 8L` differs in more than 1.7·10^7 positions
 
 Full note: `sidekick/research/S5/MISMATCH_HEIGHT.md`. The shape is main's C013 (6). The new ingredient is the quantitative constant from EXT-1.
@@ -69,6 +91,18 @@ Full note: `sidekick/research/S5/MISMATCH_HEIGHT.md`. The shape is main's C013 (
   - The §0 rank-two observation, and the §4 reading.
 - **Consistency check** (the lane's). On main's C013 §3 distance-three family, the same chain at general `q` gives `log₂ q ≳ 0.447m`, that family's own growth rate. So (I1) is sharp in the exponent there; only the `gap_all` constants are lost.
 - **Next.** The lane is formalising S5-a in integer form: `∃ t, m ≤ s(t+1) ∧ 6·3^t < 2^(B+1+c) m^(μ+1)`, under the explicit gap hypothesis.
+
+**Update 11:45: Lean S5-a is VERIFIED** (`c0cdc48`). §2 is machine-checked as a two-library composition in integer form.
+
+- **The theorem.** `mismatch_height`: for a primitive `OddCycle` at `q = 1`, an explicit gap hypothesis `2^A ≤ 2^c m^μ D`, and `h ≢ 0 (mod m)`, there is a `t` with `m ≤ s(t+1)` and `6·3^t < 2^(B+1+c) m^(μ+1)`. Here `s` is the number of mismatch positions in one period.
+- **The ingredients.**
+  - `a_per`: the valuation word is `m`-periodic.
+  - `exists_mis`: a mismatch exists, since a full period of agreement forces `z = 0`.
+  - `pigeonhole`: fibres of "next mismatch" injected into `{0, …, T}`.
+  - `run_bound_of_gap`: C013-b with the gap.
+- **Receipts.** Of 525 declarations, 438 use the standard three axioms, 39 use `[propext, Quot.sound]`, 46 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `68c589ba…` matches all three binding receipts.
+- **What it gives.** With `mmusson`'s `gap_all` (EXT-1, replayed, `(c, μ) = (172, 341)`), every nonidentity rotation of a hypothetical primitive Collatz cycle has more than `log₂3·m/(B + 342 log₂ m + 172)` mismatches. The `m`-numbers (Hercher/Barina) stay outside the formal statement.
+- **Check.** `s5_mismatch_height.py` checks the pigeonhole and (7) on 3,100 rotations of actual `3x+q` cycles. The `q = 1` statement has no nontrivial instance to test.
 
 ```sh
 python3 sidekick/probes/s5_mismatch_height.py   # ~1 s
