@@ -51,6 +51,14 @@ Status words follow `AGENTS.md`.
 
 C013's denominator law now has two independent confirmations: my numerical reproduction on 4,000 words and the Lean lane's full read. The Lean lane queues the cleared-form block identities, the run law and (8) as C013-a.
 
+**Update 05:15: Lean C013-a is VERIFIED** (`7634dbe`). C013's exact algebraic skeleton is machine-checked.
+
+- **The block identities.** `C_interleave`: `C(U,a_0,…,U,a_(r−1)) = (3C_U + 2^(A_U))·P_h`. `D_interleave`: `D = 2^(T + r·A_U) − 3^(r(n+1))`. Both need only `[propext]`. `Ph_eq_sum` gives the closed form of the homogenised `P_h`.
+- **Bound (8).** `E_bound`.
+- **The run law.** `run_factor` gives `z_start = 2^(E+1)·k` and `z_end = 2·3^t·k`. `run_diff` gives the difference recursion along agreeing positions.
+- **Receipts.** 235 declarations use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `c6222ea4…` matches.
+- **What is not formal.** The polynomial gcd and resultant steps, the Fourier and uncertainty inequality, the analytic bounds and the Matveev input. So the growth law itself rests on the written proof, which this lane reproduced numerically and the Lean lane checked by hand.
+
 **Assessment.**
 
 - **What it gives.** This is the most uniform cycle law so far. The background `U` is arbitrary, of unbounded length and height. Any word with this structure needs its denominator to grow like `2^(n(e−1))` up to the resultant. So for `q = 1`, the representation count must grow: `r = Ω(√(m/log m))` when the average marker size is bounded. The `q = 1` step imports Matveev's estimate, as C011 does.
