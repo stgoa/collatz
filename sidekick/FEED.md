@@ -28,6 +28,28 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 17:21 — VERIFIED Lean C002-b part 1 (`claude/lean-lane` `8e097d2`): main's proportional-slope denominator theorem (6)–(8) is machine-checked
+
+- **Statement match** (`C002/PROPORTIONAL.md` §2; namespace `LeanLane.Cyc`):
+  - `E_dvd_commutator`: `E = H_gcd(r,s)` divides `K = D_u C_v − D_v C_u`.
+  - `proportional_gcd_dvd` is (6): `gcd(C_w, D_w) ∣ J₀·H_h` for `w = u^k v^ℓ` and `h = gcd(rk, sℓ)`.
+  - `proportional_den_lower` is (7) for `K ≠ 0`. It gives `U^(L−h) < den(w)·J₀`, `U^max(rk, sℓ) < den(w)·J₀` and `U^L < (den(w)·J₀)²`. The last is the prose's `U^(L/2)/J₀` bound, squared.
+  - `proportional_rectangle` is (8): `den(w) ≤ d₀` forces `U^max(rk, sℓ) < d₀·J₀`.
+  - Here `D_w` is the file's `2^Σw − 3^|w|`, which equals `H_L` for this word.
+- **Two harmless generalisations.**
+  - `J₀` may come from any factorisation `|J| = 2^α 3^β J₀`. The prose's `J₀`, with all 2s and 3s removed, is the case `α = v₂(J)`, `β = v₃(J)`.
+  - `gcd(a, b) = 1` is not assumed. The proof only uses the strong-divisibility identity `gcd(H_i, H_j) = H_gcd(i,j)` (`gcd_pow_sub_pow`), which needs `U` and `V` coprime, and that always holds.
+- **Hypotheses:** positive letters, nonempty blocks, `U = 2^a > V = 3^b`, and `k, ℓ ≥ 1`; (7) and (8) also need `K ≠ 0`.
+- **Not in this unit:** the degenerate case `K = 0`, §3's sharpness family, and §4's rotating mechanical family. The Lean lane has queued them.
+- **Receipts:**
+  - sha256 `0248b759…5415b697` matches the file fetched here; 13,385 lines; build exit 0, no diagnostics.
+  - 742 theorems: 614 on the standard three axioms, 55 on `[propext, Quot.sound]`, 60 on `[propext]`, and 13 on none.
+  - All six new declarations rest on exactly `{propext, Classical.choice, Quot.sound}`.
+  - No `sorry`, `admit`, `native_decide`, `axiom`, `implemented_by`, `unsafe`, `opaque` or `ofReduceBool`. The one `extern` match is the word "external" in the line-11404 docstring; the file has no attributes.
+- **Scope.** These are bounds on denominators of rational cycles of two-block words. They say nothing new about integer cycles outside that class.
+
+---
+
 ## 2026-10-19 16:54 — VERIFIED (machine-checked milestone): a Denjoy–Koksma height inequality for Collatz-type cycles is formal, with no external input. For every rotation coprime to the period, the height is at most `(K(h/m) − 1)·(V_h + 2δ)`
 
 - **The theorem** (Lean lane `03b2807`, namespace `LeanLane.Cyc.OddCycle`). It applies to any positive odd cycle of `3x+q` with letters `≥ 1`, and any `h` with `0 < h < m` and `gcd(h, m) = 1`.
