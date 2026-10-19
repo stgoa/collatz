@@ -11236,6 +11236,163 @@ theorem conv_adm {r a : ℕ → ℕ} {n : ℕ} (E : EuclidData r a n) (ha : ∀ 
 
 end DK
 
+/-! ### S12-f (part 2): the Euclidean algorithm for `h/m` and the ladder supply
+
+The remainders `rem 0 = m`, `rem 1 = h`, `rem (i+2) = rem i mod rem (i+1)` and the quotients
+`quot (i+1) = rem i div rem (i+1)` (floored at `1`, which only matters past termination) form
+Euclidean data up to the termination index `n = termIndex m h`, the least `n` with `rem (n+1) = 0`
+(`rem_exists_zero`: the remainders strictly decrease while positive). Before `n` the remainders are
+positive and nonincreasing (`rem_pos_of_lt_termIndex`, `rem_succ_le`), so the steps are exact
+(`euclidData_rem`); the gcd is invariant along the algorithm (`gcd_rem`), so `rem n = 1` for `h`
+coprime to `m` (`rem_termIndex`), and the Euclidean identity at `n − 1` gives `q n = m`
+(`convQ_termIndex`). **`ladder_of_coprime`**: for `0 < h < m` with `gcd(h, m) = 1`, the convergent
+denominators of `h/m` form a `Ladder` ending at `m` whose denominators are DK-admissible — the
+hypothesis of `height_le_varMu` and `dk_denominator_law`, now supplied. Part 3 states the height tool
+with only `gcd(h, m) = 1`. -/
+
+namespace DK
+
+/-- Euclidean remainders of `(m, h)`. -/
+def rem (m h : ℕ) : ℕ → ℕ
+  | 0 => m
+  | 1 => h
+  | i + 2 => rem m h i % rem m h (i + 1)
+
+theorem rem_zero (m h : ℕ) : rem m h 0 = m := by rw [rem]
+theorem rem_one (m h : ℕ) : rem m h 1 = h := by rw [rem]
+theorem rem_succ_succ (m h i : ℕ) : rem m h (i + 2) = rem m h i % rem m h (i + 1) := by rw [rem]
+
+/-- The partial quotients, floored at `1` (irrelevant before termination). -/
+def quot (m h : ℕ) (i : ℕ) : ℕ := max 1 (rem m h (i - 1) / rem m h i)
+
+theorem one_le_quot (m h i : ℕ) : 1 ≤ quot m h i := le_max_left _ _
+
+theorem quot_succ_eq {m h i : ℕ} (hpos : 0 < rem m h (i + 1))
+    (hle : rem m h (i + 1) ≤ rem m h i) : quot m h (i + 1) = rem m h i / rem m h (i + 1) := by
+  unfold quot
+  rw [Nat.add_sub_cancel]
+  exact max_eq_right ((Nat.le_div_iff_mul_le hpos).mpr (by rw [one_mul]; exact hle))
+
+theorem rem_lt {m h i : ℕ} (hpos : 0 < rem m h (i + 1)) : rem m h (i + 2) < rem m h (i + 1) := by
+  rw [rem_succ_succ]
+  exact Nat.mod_lt _ hpos
+
+/-- While positive, the remainders strictly decrease: `rem (i+1) + i ≤ rem 1`. -/
+theorem rem_add_le (m h : ℕ) : ∀ i, (∀ j, j < i → 0 < rem m h (j + 1)) →
+    rem m h (i + 1) + i ≤ rem m h 1 := by
+  intro i
+  induction i with
+  | zero =>
+    intro _
+    simp
+  | succ i ih =>
+    intro hpos
+    have h1 := ih (fun j hj => hpos j (Nat.lt_succ_of_lt hj))
+    have h2 := rem_lt (hpos i (Nat.lt_succ_self i))
+    show rem m h (i + 2) + (i + 1) ≤ rem m h 1
+    omega
+
+theorem rem_exists_zero (m h : ℕ) : ∃ k, rem m h (k + 1) = 0 := by
+  by_contra hno
+  have hpos : ∀ k, 0 < rem m h (k + 1) := fun k => Nat.pos_of_ne_zero (fun h0 => hno ⟨k, h0⟩)
+  have h1 := rem_add_le m h (rem m h 1) (fun j _ => hpos j)
+  have h2 := hpos (rem m h 1)
+  omega
+
+/-- The termination index: the least `n` with `rem (n+1) = 0`. -/
+def termIndex (m h : ℕ) : ℕ := Nat.find (rem_exists_zero m h)
+
+theorem rem_termIndex_succ (m h : ℕ) : rem m h (termIndex m h + 1) = 0 :=
+  Nat.find_spec (rem_exists_zero m h)
+
+theorem rem_pos_of_lt_termIndex {m h j : ℕ} (hj : j < termIndex m h) : 0 < rem m h (j + 1) :=
+  Nat.pos_of_ne_zero (Nat.find_min (rem_exists_zero m h) hj)
+
+theorem termIndex_pos {m h : ℕ} (hh : 0 < h) : 0 < termIndex m h := by
+  apply Nat.pos_of_ne_zero
+  intro h0
+  have h1 := rem_termIndex_succ m h
+  rw [h0] at h1
+  simp only [Nat.zero_add, rem_one] at h1
+  omega
+
+theorem rem_succ_le {m h i : ℕ} (hi : i < termIndex m h) (hhm : h ≤ m) :
+    rem m h (i + 1) ≤ rem m h i := by
+  cases i with
+  | zero =>
+    show rem m h 1 ≤ rem m h 0
+    rw [rem_one, rem_zero]
+    exact hhm
+  | succ k =>
+    have hpos : 0 < rem m h (k + 1) := rem_pos_of_lt_termIndex (by omega)
+    exact (rem_lt hpos).le
+
+/-- The remainders and quotients are Euclidean data up to the termination index. -/
+theorem euclidData_rem (m h : ℕ) (hhm : h ≤ m) :
+    EuclidData (rem m h) (quot m h) (termIndex m h) := by
+  constructor
+  intro i hi
+  have hpos : 0 < rem m h (i + 1) := rem_pos_of_lt_termIndex hi
+  have hle : rem m h (i + 1) ≤ rem m h i := rem_succ_le hi hhm
+  rw [quot_succ_eq hpos hle, rem_succ_succ, Nat.mul_comm]
+  exact (Nat.div_add_mod (rem m h i) (rem m h (i + 1))).symm
+
+/-- The gcd is invariant along the algorithm. -/
+theorem gcd_rem (m h : ℕ) : ∀ i, Nat.gcd (rem m h i) (rem m h (i + 1)) = Nat.gcd m h := by
+  intro i
+  induction i with
+  | zero => rw [rem_zero, rem_one]
+  | succ i ih =>
+    rw [← ih]
+    show Nat.gcd (rem m h (i + 1)) (rem m h (i + 2)) = Nat.gcd (rem m h i) (rem m h (i + 1))
+    rw [rem_succ_succ, Nat.gcd_comm (rem m h (i + 1)), ← Nat.gcd_rec, Nat.gcd_comm]
+
+theorem rem_termIndex {m h : ℕ} (hcop : Nat.Coprime h m) : rem m h (termIndex m h) = 1 := by
+  have hg := gcd_rem m h (termIndex m h)
+  rw [rem_termIndex_succ, Nat.gcd_zero_right] at hg
+  rw [hg, Nat.gcd_comm]
+  exact hcop
+
+/-- The last convergent denominator is `m`. -/
+theorem convQ_termIndex {m h : ℕ} (hh : 0 < h) (hhm : h ≤ m) (hcop : Nat.Coprime h m) :
+    convQ (quot m h) (termIndex m h) = m := by
+  have E := euclidData_rem m h hhm
+  have hn := termIndex_pos (m := m) hh
+  obtain ⟨k, hk⟩ : ∃ k, termIndex m h = k + 1 := ⟨termIndex m h - 1, by omega⟩
+  have hid := conv_identity E k (by omega)
+  have h1 : rem m h (k + 1) = 1 := by
+    rw [← hk]
+    exact rem_termIndex hcop
+  have h0 : rem m h (k + 2) = 0 := by
+    rw [show k + 2 = termIndex m h + 1 by omega]
+    exact rem_termIndex_succ m h
+  rw [hk]
+  rw [rem_zero, h1, h0] at hid
+  omega
+
+/-- **The ladder of `h/m`.** For `0 < h < m` coprime to `m`: the convergent denominators of `h/m`
+form a `Ladder` ending at `m` whose denominators are DK-admissible. -/
+theorem ladder_of_coprime {m h : ℕ} (hh : 0 < h) (hhm : h < m) (hcop : Nat.Coprime h m) :
+    Ladder (convQ (quot m h)) (quot m h) ∧ 1 ≤ termIndex m h ∧
+      convQ (quot m h) (termIndex m h) = m ∧
+      ∀ i, i < termIndex m h → ∃ p r,
+        (convQ (quot m h) i * h = p * m + r ∨ p * m = convQ (quot m h) i * h + r) ∧
+        convQ (quot m h) i * r < m ∧ Nat.Coprime p (convQ (quot m h) i) := by
+  have E := euclidData_rem m h hhm.le
+  refine ⟨ladder_convQ _ (fun i _ => one_le_quot m h i), termIndex_pos hh,
+    convQ_termIndex hh hhm.le hcop, ?_⟩
+  intro i hi
+  refine ⟨convP (quot m h) i, rem m h (i + 1), ?_, ?_, conv_coprime _ i⟩
+  · have h1 := conv_approx_either E hi.le
+    rw [rem_one, rem_zero] at h1
+    exact h1
+  · have h2 := conv_adm E (fun i _ => one_le_quot m h i)
+      (by rw [rem_one, rem_zero]; exact hhm) (fun j hj => rem_pos_of_lt_termIndex hj) i hi
+    rw [rem_zero] at h2
+    exact h2
+
+end DK
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

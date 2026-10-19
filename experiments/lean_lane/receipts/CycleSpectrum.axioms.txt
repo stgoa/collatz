@@ -1,19 +1,21 @@
-source sha256: efc57f90684bd007199c2931004ba5e13c429feb47388ad7f1c741de752bb2c5
-'LeanLane.Cyc.DK.convQ_zero' does not depend on any axioms
-'LeanLane.Cyc.DK.convQ_one' does not depend on any axioms
-'LeanLane.Cyc.DK.convQ_succ_succ' does not depend on any axioms
-'LeanLane.Cyc.DK.convP_zero' does not depend on any axioms
-'LeanLane.Cyc.DK.convP_one' does not depend on any axioms
-'LeanLane.Cyc.DK.convP_succ_succ' does not depend on any axioms
-'LeanLane.Cyc.DK.ladder_convQ' does not depend on any axioms
-'LeanLane.Cyc.DK.convQ_pos' depends on axioms: [propext, Quot.sound]
-'LeanLane.Cyc.DK.convQ_lt_succ' depends on axioms: [propext, Quot.sound]
-'LeanLane.Cyc.DK.conv_det' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.DK.conv_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.DK.conv_approx' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.DK.conv_approx_either' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.DK.conv_identity' depends on axioms: [propext, Quot.sound]
-'LeanLane.Cyc.DK.conv_adm' depends on axioms: [propext, Quot.sound]
+source sha256: dc3319fc36fa9b5cff13dcbd6ba78c714ea56442ad22210aab06f13147faa2a9
+'LeanLane.Cyc.DK.rem_zero' does not depend on any axioms
+'LeanLane.Cyc.DK.rem_one' does not depend on any axioms
+'LeanLane.Cyc.DK.rem_succ_succ' does not depend on any axioms
+'LeanLane.Cyc.DK.one_le_quot' depends on axioms: [propext]
+'LeanLane.Cyc.DK.quot_succ_eq' depends on axioms: [propext]
+'LeanLane.Cyc.DK.rem_lt' does not depend on any axioms
+'LeanLane.Cyc.DK.rem_add_le' depends on axioms: [propext, Quot.sound]
+'LeanLane.Cyc.DK.rem_exists_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.rem_termIndex_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.rem_pos_of_lt_termIndex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.termIndex_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.rem_succ_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.euclidData_rem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.gcd_rem' depends on axioms: [propext, Quot.sound]
+'LeanLane.Cyc.DK.rem_termIndex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.convQ_termIndex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.ladder_of_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.C_append' depends on axioms: [propext]
 'LeanLane.Cyc.rep_length' depends on axioms: [propext]
 'LeanLane.Cyc.rep_sum' depends on axioms: [propext]
@@ -598,6 +600,21 @@ source sha256: efc57f90684bd007199c2931004ba5e13c429feb47388ad7f1c741de752bb2c5
 'LeanLane.Cyc.OddCycle.word_two_mismatch_law'' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OddCycle.word_three_mismatch_law'' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OddCycle.word_dk_denominator_law'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.convQ_zero' does not depend on any axioms
+'LeanLane.Cyc.DK.convQ_one' does not depend on any axioms
+'LeanLane.Cyc.DK.convQ_succ_succ' does not depend on any axioms
+'LeanLane.Cyc.DK.convP_zero' does not depend on any axioms
+'LeanLane.Cyc.DK.convP_one' does not depend on any axioms
+'LeanLane.Cyc.DK.convP_succ_succ' does not depend on any axioms
+'LeanLane.Cyc.DK.ladder_convQ' does not depend on any axioms
+'LeanLane.Cyc.DK.convQ_pos' depends on axioms: [propext, Quot.sound]
+'LeanLane.Cyc.DK.convQ_lt_succ' depends on axioms: [propext, Quot.sound]
+'LeanLane.Cyc.DK.conv_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.conv_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.conv_approx' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.conv_approx_either' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.conv_identity' depends on axioms: [propext, Quot.sound]
+'LeanLane.Cyc.DK.conv_adm' depends on axioms: [propext, Quot.sound]
 'LeanLane.Cyc.eta_refine' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OrdCycle.N_prim' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OrdCycle.N_rank_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
