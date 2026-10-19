@@ -156,6 +156,23 @@ The probe checks the closed form and the gcd identity on all 337 ordered cycles 
 - The closed form at the gap after the seam then reads `D·Δ = 3^x 2^y q`. With `q | D` for reduced cycles (C008), `D/q` divides `3^x 2^y`, so `D/q = 1`: **the reduced denominator is exactly `D`.**
 - This is R71's exact denominator, re-derived for ordered narrow cycles from `gap_closed_form` without mechanical-word theory. Not yet formal.
 
+**Update 08:06: Lean S1-c and S1-d are VERIFIED** (`9686831`). Both statements above are now formal.
+
+- **S1-c: `gap_isCoprime_q`.** In a reduced ordered cycle with `q` odd, every sorted gap is coprime to `q`.
+  - `q_dvd_T` and `dvd_gap_orb` propagate divisibility along the whole orbit, and `dvd_gap_isUnit` finishes.
+  - The Lean proof works with any divisor of `q` rather than primes. S1-b is now a corollary.
+- **S1-d: `D_eq_q_of_J_one`.** In a reduced ordered cycle with `J = 1`, `2^A − 3^m = q`.
+  - `T_eq_zero_of_J_one` and `hr_eq_zero_of_J_one` show the seam is the only forced position and every sorted height is 0.
+  - The closed form at the run start after the seam then collapses (`orb_inj`, `Finset.sum_eq_single`) to `D·Δ = 2^(E+B) q`.
+  - Since `q | D` and `D` is odd, `D/q = 1`.
+  - Two precisions from the lane. No `Odd q` hypothesis is needed. The structure's `B` is only an upper bound on the heights, so the seam term is `2^B q`; the extra power of 2 is absorbed.
+- **Receipts.** Of 411 declarations, 330 use the standard three axioms, 35 use `[propext, Quot.sound]`, 44 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `05bbe8fc…` matches all three binding receipts.
+- **Independent check.** `s1cd_gap_coprime_check.py` checks:
+  - every gap is coprime to `q` on all 33 actual ordered `3x+q` cycles;
+  - the 3 actual cycles with `J = 1` have `D = q`: `q = 5` (minimum 23), `q = 13` (minimum 319) and `q = 23` (minimum 7, `m = 2`);
+  - all 65 rational ordered cycles with `J = 1` have `gcd(C, D) = 1`.
+- **Status.** S1-d gives R71-a's conclusion for reduced ordered cycles with one forced position, from S1-a and C008 alone. "Narrow ⇒ `J = 1`" is not formalised. With it, S1-d would be a second formal proof of R71's exact denominator for narrow integer cycles. That adds nothing new for `d = 1`: these are bookkeeping identities for the ordered class, valid for every `q`.
+
 ---
 
 ## 2026-10-19 05:58 — VERIFIED Lean C004-c (`claude/lean-lane` `9f73b54`): the programme's first complete cycle exclusion specific to `d = 1` is machine-checked end to end
