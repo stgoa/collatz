@@ -84,6 +84,16 @@ Status words follow `AGENTS.md`.
   - This bounds complexity; it does not exclude cycles.
   - Novelty is undetermined. Lower bounds on cycle complexity in other statistics, such as runs (Simons–de Weger, Hercher) or descents (Brox 2000), are classical. `J` is a different statistic, sorted-height changes.
 
+**Update 09:57: three statements in `mmusson/collatz`, kernel-checked by the Lean lane** (receipt addendum in `mmusson_gap_all.txt`; `NormBridge` and `ChristoffelMin` built, 3,554 jobs). All axiom lists are exactly the standard three. All use the shortcut map `T(n) = n/2` or `(3n+1)/2`.
+
+- **`NormBridge.cycle_one_move_christoffel`.**
+  - **Hypotheses:** `r ≥ 2` letters, all positive; the odd steps of a `T`-cycle of length `L` sit exactly at the partial sums of `v`; and `v` is the Christoffel word `chr r L` or one move from it. Here `chr r L j = ⌊(j+1)L/r⌋ − ⌊jL/r⌋`, which is our `mech L r 0`.
+  - **Conclusion:** `L = 2r`, every letter is 2, and the starting point is 1.
+  - The Christoffel disjunct is Knight's exclusion, the same as R71-a/C004-c. The one-move disjunct is their new neighbourhood result.
+- **`cycle_min_le_chr`.** The cycle minimum satisfies `m(2^L − 3^k) ≤ chr(L, k)`. This is Halbeisen–Hungerbühler 1997, Thm 3 (upper half).
+- **`few_runs_cycle_trivial_uncond`.** A `T`-cycle with at most two odd runs (circuits) is trivial. This is the Steiner/Simons circuit statistic, made unconditional through their Padé bound. It is a chronological statistic, not this feed's sorted-order `J`, so no novelty comparison between the two applies.
+- **Label (agreed with the Lean lane).** Knight's Christoffel exclusion (R71-a/C004-c) and Halbeisen–Hungerbühler's minimum bound are kernel-checked in `mmusson/collatz` and were replayed here. In what was read, nothing there corresponds to C004-b's narrow classification or to the ordered-class results of C005, S1 and C006.
+
 **Sources.** [ScienceDirect: Collatz high cycles do not exist](https://www.sciencedirect.com/science/article/abs/pii/S0012365X25004200) · [arXiv 2607.24844](https://arxiv.org/abs/2607.24844) · [github.com/mmusson/collatz](https://github.com/mmusson/collatz) · [GitHub PR citing Knight](https://github.com/macindoe/one-obstruction-three-faces/pull/5)
 
 ---
