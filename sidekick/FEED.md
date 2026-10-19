@@ -638,7 +638,7 @@ python3 sidekick/probes/c007_height_check.py <path to main's actual_cycles.json>
 - **Independent check.** `c005d_ofword_check.py` uses 38,852 random positive words (`m ≤ 14`, letters 1 to 5); 4,559 of them have `g > 1`. On every word, `g` divides every rotated intercept and the states are positive odd integers with `n_0` the minimum. The exact arrows hold with `a_i = v2(3n_i + q)`, and `gcd(q, n_0) = gcd(q, 6) = 1`.
 - **What it enables.** C004-c/d, the three-band theorem and the `OrdCycle` machinery now apply to the cycle of any positive word. The lane plans to assemble C005 §2(b), the rotation-block exclusion, next. Two pieces are still missing: a `returnCycle` that keeps a general `B`, and the wiring of `state_bound` to actual prefix maps.
 
-**Update 06:27: Lean C005-e is VERIFIED** (`a7dcac0`). This is the repetition bookkeeping for the rotation-block exclusion.
+**Update 06:30: Lean C005-e is VERIFIED** (`a7dcac0`). This is the repetition bookkeeping for the rotation-block exclusion.
 
 - **The repetition identities.**
   - `D_rep`: `D(z^k) = D(z)·G(2^Σz, 3^|z|, k)`, using C001's `G`.
