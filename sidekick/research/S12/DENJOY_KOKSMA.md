@@ -86,6 +86,12 @@ log₂ den(w) > 1 + ⌈(m−s)/s⌉ log₂3 − (V_h + 2δ)·K(h/m) − λ(w),  
 
 Unlike S9, which uses the height ceiling and is limited to `s ≤ 3`, this holds for every `s`. It is informative when `V_h·K(h/m)` is small.
 
+Two labels from the Lean lane's review:
+- **(a)** `B` here is the real log-height `log₂(n_max/L)`, which is what the `1 +` presupposes. With the integer band of the `OddCycle` structure (`n < 2^(B+1) L`), the 1 cancels.
+- **(b)** The law is **complementary to S9, not a replacement**.
+  - For S7-type sawtooth words, `V_h` is about the height and this law says nothing; S9 covers `s ≤ 3` there.
+  - Conversely, S9 says nothing for `s ≥ 4`, where this law covers low-variation words.
+
 `s12_dk_denominator_law.py` finds no violation in 360,284 exhaustive pairs (words over `{1,2,3}`, `m ≤ 12`), in 52,484 actual-cycle pairs, or in 40 low-variation chain words (18 non-vacuous, slack ≥ 547 bits).
 
 ## 4. What it does not give
