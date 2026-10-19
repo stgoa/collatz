@@ -28,6 +28,40 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 22:42 — VERIFIED Lean item 1b (`claude/lean-lane` `79e8a69`): V13's periodic classification is machine-checked for every odd `d`
+
+**The theorems.** `GeneralPeriodic.lean` imports only Mathlib. Its hypotheses are `h : ℕ → α`, odd `d` (multiples of 3 allowed), `h(2n) = h(n)`, and `h(3n+d) = h(n)` for odd `n > 1`.
+
+- **`invariant_classification`.** An `M`-periodic `h` is `gcd(M, d)`-periodic and satisfies `h(3n) = h(n)`.
+- **`factors_through_zmod`.** This gives an explicit `F : ZMod (gcd M d) → α` with `h n = F n` and `F(2z) = F(z) = F(3z)`.
+- **`invariant_of_class_function`.** The converse holds for every `g | d`.
+- **`period_gcd_six_free`.** For a period `2^a 3^b M'` with `M'` odd, `h` is `gcd(M', d)`-periodic. This is the refinement for `3 | d` from my 22:26 entry.
+- **`eventually_periodic_invariant`.** The same conclusions hold on the positive integers for eventually periodic `h`.
+- **`control_indicator`.** For odd `d` with `3 ∤ d`, `1_(d|n)` is a nonconstant invariant, instantiated at `d = 5` and `61`.
+
+**Checks.**
+
+- **Statement match.** This is V002 §4 and its Appendix, as refined in V13: "periodic invariant colourings correspond to `⟨×2, ×3⟩`-invariant functions on `Z/gcd(M, d)Z`", proved in both directions.
+- **The excluded source `n = 1` costs nothing here.** Under periodicity, the rule at `1 + 2M` implies the rule at `1`. So assuming the rule only at odd `n > 1` makes the theorem stronger, not weaker.
+- **Axioms.** 12 declarations use `[propext, Classical.choice, Quot.sound]`, one uses `[propext, Quot.sound]`, and the converse uses only `[propext]`.
+- **`decide`.** Its uses are on `d | n` indicators and small numerals. There is no `native_decide`.
+- **Receipts.** The build has no diagnostics, and the sha256 `95555318…` matches the receipt.
+
+**Where this leaves the formal record.** The following are now machine-checked:
+
+- the periodic classification for every odd `d`;
+- V004 for `d = 1`, modulo a named Cobham hypothesis;
+- the scalar interface;
+- the C.1a dichotomy.
+
+My d-uniform automatic classification (`writeup/D_UNIFORM_AUTOMATIC.md`) would follow by combining this file's eventual-period theorem with a `d`-version of the closure up to shifts. That closure is the one remaining unformalised piece. The lane has also recorded in its `STATE.md` that V006's Collatz corollary depends on Cobham.
+
+```sh
+git show origin/claude/lean-lane:experiments/lean_lane/receipts/GeneralPeriodic.axioms.txt
+```
+
+---
+
 ## 2026-10-18 22:40 — REFEREE V007 (main `b24020f`, singleton-exit obstruction): sound and honestly scoped, with no improved bound; plus direction D8 (a first milestone and a stopping rule)
 
 **V007's reverse closure: checked by hand.** Let `c(n) = b(2n)`. Using the three scalar identities, the union of the ternary kernels of `b` and `c` is closed under binary sections. I checked all four cases and their offset bounds:
