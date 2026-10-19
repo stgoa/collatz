@@ -3,7 +3,7 @@ with the replayed gap_all instead of Matveev.
 
 At q = 1 (primitive cycle, period m, band B, every rotation h != 0 mod m), S5-a gives m <= s(t+1) and
 6 3^t < 2^(B+1+c) m^(mu+1) with (c, mu) = (172, 341), so s > log2(3) m / (B + 342 log2 m + 172) (exact real form).
-Height ceiling at q = 1 (Lean lane's argument): B <= (log2 3 - 1)(m - 1) + 1 + m log2(1 + 1/(3L)).
+Height ceiling at q = 1 (Lean lane's argument): B <= (log2 3 - 1)(m - 1) + (m - 1) log2(1 + 1/(3L)).
 With L >= 1 the last term is at most m log2(4/3) -- too weak -- so we use L > 2^71 only through a cycle-length
 fact if needed; here we evaluate both versions:
   (i) eps(L) with L > 2^71 (Barina range), (ii) the threshold m0 such that s > 2 for all m >= m0.
@@ -16,8 +16,9 @@ import sys
 
 
 def B_ceiling(m, L_log2=71):
-    eps = m * math.log2(1 + 1 / (3 * 2**L_log2))
-    return math.floor((math.log2(3) - 1) * (m - 1) + 1 + eps)
+    # corrected at 11:5x after the Lean lane's review: no +1, and (m - 1) in the epsilon term
+    eps = (m - 1) * math.log2(1 + 1 / (3 * 2**L_log2))
+    return math.floor((math.log2(3) - 1) * (m - 1) + eps)
 
 
 def s2_possible(m):
