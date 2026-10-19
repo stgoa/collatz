@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 84 — 2026-10-19, 16:09 -03
+
+- Woken by the side lane's S12-d verdict; the word side scoped (the `ofWord`
+  reduced cycle already carries `q = den(w)`), so S9-d is the glue only; main
+  frozen at `1c5c19d`. The PR body refresh is retried.
+- **S9-d verified — the denominator laws for words: `word_two_mismatch_law`
+  and `word_three_mismatch_law` for a positive word with `D_w > 0`, minimal
+  first rotation and distinct rotated intercepts, with `den(w)` in place of
+  `q`; glue lemmas `ofWord_den`, `ofWord_Apre`, `ofWord_D`, `gcdCD_mul_den`,
+  `den_odd`, `sum_pos_of_pos`, `ofWord_mis`** in `CycleSpectrum.lean` (sha256
+  `c704ec93…85fb`, 12,310 lines, 683 theorems: 577 with the three standard
+  axioms, 47 × `[propext, Quot.sound]`, 57 × `[propext]`, 2 none; no `sorry`).
+  Second build (section variables not included when used only in proofs; a
+  missing `(m − 1) log(3/2)` term). Receipts regenerated. Next: the S12
+  denominator corollary for every mismatch count (S12-e).
+
 ## Iteration 83 — 2026-10-19, 16:01 -03
 
 - Woken by the side lane's S12-c verdict; main frozen at `1c5c19d`. Monitor

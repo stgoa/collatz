@@ -10615,6 +10615,110 @@ theorem varMu_le_Vh (h : ℕ) :
 
 end OddCycle
 
+/-! ### S9-d: the denominator laws for words (the `q = den(w)` glue)
+
+`ofWord w` is the reduced integer cycle of a positive word `w` with `D_w > 0` whose first rotation
+is minimal; its parameter is `q = D_w/gcd(C_w, D_w) = den(w)` (`ofWord_den`), its letters are those
+of `w` (`ofWord_a`, `ofWord_word`), `A = Σ w` (`ofWord_Apre`) and `2^A − 3^m = D_w` (`ofWord_D`);
+`den(w)` is odd (`den_odd`) and the mismatch set of a rotation is the letter mismatch set of `w`
+(`ofWord_mis`). Hence S9 (i) and (ii) read as statements about words: for a primitive positive
+word (distinct rotated intercepts) with a rotation `h` having exactly two letter mismatches,
+`log 2 + ⌈(m−2)/2⌉ log 3 < log den(w) + (m − 1) log(3/2) + δ(w) + λ(w)` (`word_two_mismatch_law`),
+and with exactly three and `m ≥ 2^19`, `(m/70) log 2 < log den(w) + δ(w) + λ(w)`
+(`word_three_mismatch_law`), where `δ(w) = Σw · log 2 − m log 3` and
+`λ(w) = log m + Σw · log 2 − log 3 − log(2^{Σw} − 3^m)`. The minimal-rotation hypothesis is a
+normalisation (every word has one); no gap and no `L/q` hypothesis enter. -/
+
+namespace OddCycle
+
+theorem ofWord_den (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) (hD : 0 < D w)
+    (hmin : ∀ i, C w ≤ C (w.rotate i)) : (ofWord w hw0 hpos hD hmin).q = den w := rfl
+
+theorem ofWord_Apre (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) (hD : 0 < D w)
+    (hmin : ∀ i, C w ≤ C (w.rotate i)) :
+    (ofWord w hw0 hpos hD hmin).Apre w.length = w.sum := by
+  rw [← (ofWord w hw0 hpos hD hmin).word_sum, ofWord_word]
+
+theorem ofWord_D (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) (hD : 0 < D w)
+    (hmin : ∀ i, C w ≤ C (w.rotate i)) :
+    (2 : ℤ) ^ (ofWord w hw0 hpos hD hmin).Apre w.length - 3 ^ w.length = D w := by
+  rw [← (ofWord w hw0 hpos hD hmin).D_word, ofWord_word]
+
+theorem gcdCD_mul_den (w : List ℕ) : gcdCD w * den w = D w :=
+  Int.mul_ediv_cancel' (gcdCD_dvd_D w)
+
+theorem den_odd (w : List ℕ) (hz : 1 ≤ w.sum) : Odd (den w) := by
+  rw [← Int.not_even_iff_odd]
+  intro he
+  have h2 : (2 : ℤ) ∣ den w := even_iff_two_dvd.mp he
+  have h3 : (2 : ℤ) ∣ D w := by
+    rw [← gcdCD_mul_den w]
+    exact Dvd.dvd.mul_left h2 _
+  exact D_odd hz h3
+
+theorem sum_pos_of_pos (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) : 1 ≤ w.sum := by
+  obtain ⟨x, v, hxv⟩ := List.exists_cons_of_ne_nil hw0
+  have hx : 1 ≤ x := hpos x (by rw [hxv]; simp)
+  rw [hxv, List.sum_cons]
+  omega
+
+/-- The mismatch set of the reduced cycle is the letter mismatch set of the word. -/
+theorem ofWord_mis (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) (hD : 0 < D w)
+    (hmin : ∀ i, C w ≤ C (w.rotate i)) (h : ℕ) : (ofWord w hw0 hpos hD hmin).mis h =
+    (Finset.range w.length).filter
+      (fun i => (w.rotate i).headD 0 ≠ (w.rotate (i + h)).headD 0) := by
+  ext i
+  unfold mis
+  rw [Finset.mem_filter, Finset.mem_filter]
+  exact Iff.rfl
+
+/-- **S9 (i) for words.** -/
+theorem word_two_mismatch_law (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x)
+    (hD : 0 < D w) (hmin : ∀ i, C w ≤ C (w.rotate i))
+    (hdist : ∀ i j, i < w.length → j < w.length → C (w.rotate i) = C (w.rotate j) → i = j)
+    {h : ℕ} (hh : h % w.length ≠ 0)
+    (hs : ((Finset.range w.length).filter
+      (fun i => (w.rotate i).headD 0 ≠ (w.rotate (i + h)).headD 0)).card = 2) :
+    Real.log 2 + (((w.length - 1) / 2 : ℕ) : ℝ) * Real.log 3 <
+      Real.log (den w) + ((w.length : ℝ) - 1) * (Real.log 3 - Real.log 2) +
+        ((w.sum : ℝ) * Real.log 2 - w.length * Real.log 3) +
+        (Real.log w.length + (w.sum : ℝ) * Real.log 2 - Real.log 3 -
+          Real.log ((2 : ℝ) ^ w.sum - 3 ^ w.length)) := by
+  have hq : Odd (ofWord w hw0 hpos hD hmin).q := by
+    rw [ofWord_den]
+    exact den_odd w (sum_pos_of_pos w hw0 hpos)
+  have hprim := ofWord_primitive w hw0 hpos hD hmin hdist
+  have hs' : ((ofWord w hw0 hpos hD hmin).mis h).card = 2 := by
+    rw [ofWord_mis]
+    exact hs
+  have key := (ofWord w hw0 hpos hD hmin).two_mismatch_denominator_law_odd hprim hq hh hs'
+  rw [ofWord_Apre, ofWord_den] at key
+  exact key
+
+/-- **S9 (ii) for words**, with the explicit constant `1/70` and `m ≥ 2^19`. -/
+theorem word_three_mismatch_law (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x)
+    (hD : 0 < D w) (hmin : ∀ i, C w ≤ C (w.rotate i))
+    (hdist : ∀ i j, i < w.length → j < w.length → C (w.rotate i) = C (w.rotate j) → i = j)
+    (hm : 2 ^ 19 ≤ w.length) {h : ℕ} (hh1 : 1 ≤ h) (hhm : h < w.length)
+    (hs : ((Finset.range w.length).filter
+      (fun i => (w.rotate i).headD 0 ≠ (w.rotate (i + h)).headD 0)).card = 3) :
+    (w.length : ℝ) / 70 * Real.log 2 <
+      Real.log (den w) + ((w.sum : ℝ) * Real.log 2 - w.length * Real.log 3) +
+        (Real.log w.length + (w.sum : ℝ) * Real.log 2 - Real.log 3 -
+          Real.log ((2 : ℝ) ^ w.sum - 3 ^ w.length)) := by
+  have hq : Odd (ofWord w hw0 hpos hD hmin).q := by
+    rw [ofWord_den]
+    exact den_odd w (sum_pos_of_pos w hw0 hpos)
+  have hprim := ofWord_primitive w hw0 hpos hD hmin hdist
+  have hs' : ((ofWord w hw0 hpos hD hmin).mis h).card = 3 := by
+    rw [ofWord_mis]
+    exact hs
+  have key := (ofWord w hw0 hpos hD hmin).three_mismatch_denominator_law hprim hq hm hh1 hhm hs'
+  rw [ofWord_Apre, ofWord_den] at key
+  exact key
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
