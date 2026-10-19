@@ -2,7 +2,44 @@
 
 This repository is the persistent record of the Collatz programme: definitions, proofs, failed approaches, finite certificates, and executable checks. Future work should start here rather than reconstructing the programme from chat memory.
 
-**Current standing (2026-10-18): V004 excludes finite-state nonconstant invariants. V009 proves every nonconstant invariant has an unbounded additive excess over the generic binary-section count D+1. The stronger goal of excluding every linear bound, and Collatz itself, remain open.**
+## Current programme: cycle denominators across 3x+d
+
+**Current standing (2026-10-19): C001 proves bounded, periodic denominator
+cancellation for two fixed blocks with different fixed points, when one
+block repeats arbitrarily many times before the other.
+It excludes an infinite primitive, nonbalanced word family with unbounded
+minima and unbounded numbers of local minima. All-cycle exclusion and
+Collatz convergence remain open.**
+
+The user replaced the quantitative-rigidity goal with the
+[cycle-spectrum goal](docs/CYCLE_SPECTRUM_BRIEF.md). Integer cycles across
+the positive `3x+d` family are organized by the reduced denominators of
+rational `3x+1` cycles. The question is which word structures can make
+that denominator equal 1. Rotations and repetitions must be distinguished
+from new primitive cycles.
+
+[C001's report](experiments/cycle_spectrum/C001/REPORT.md) contains the
+written theorem, independent review, primary-source comparison and
+exact experiments. A scan of 333 parameters and 832,500 seeds found 2,459
+raw cycles; all eleven stored controls were rediscovered. A separate
+word experiment checks 239,345 positive cycles. Neither is an exhaustive
+classification of all cycles. The primitive perturbed-mechanical family
+is outside the direct balanced and fixed-count hypotheses examined in
+the literature audit; no general record improvement or novelty is claimed.
+
+**Next:** test two growing repeated blocks. Their shared geometric
+factors can permit large cancellation, so the next mechanism must
+distinguish proportional slopes from independent slopes. The
+[cycle log](docs/CYCLE_SPECTRUM_LOG.md) records the active work; each batch
+must include actual-cycle tests and a theorem or an exact obstruction.
+
+## Previous language programme: arithmetic regularity
+
+The following overview records the previous sequence of goals. Its
+quantitative target is still unresolved and has been replaced as the
+active objective. V004 excludes finite-state nonconstant invariants.
+V009 proves an unbounded additive excess over the generic count D+1;
+it does not exclude every linear bound.
 
 The [quantitative brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) asks for an
 unbounded ratio of section count to binary depth for every nonconstant

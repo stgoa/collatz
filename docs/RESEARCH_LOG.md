@@ -1,5 +1,30 @@
 # Research log
 
+## 2026-10-18 — C001: cycle spectra and bounded cancellation
+
+The user replaced the quantitative target with the cycle half of Collatz
+through the whole 3x+d family. The [first batch](../experiments/cycle_spectrum/C001/REPORT.md)
+proves a uniform gcd bound for `u^k v` and periodic cancellation in k.
+A primitive, nonbalanced perturbed-mechanical family has denominator
+greater than 1 for all m>=13,k>=2. With the extra exponent condition,
+its rational minimum and shortcut minimum count are both unbounded.
+The exact d485 cycle refutes removing the coprime-block premise from
+the sharper gcd equality. A draft positivity overstatement was corrected;
+no historical result was changed.
+
+The independent scan records 2,459 cycles over 333 parameters from 832,500
+seeds. Every historical fixture is rediscovered. The separate word
+experiment checks 239,345 positive cycles and 6,264,270 arrows, plus the
+explicit periodic spectrum and perturbed-mechanical family. Counts,
+caps, clocks, raw state 1 and scaling are explicit. Classical affine
+algebra is attributed; novelty and a general cycle-record improvement
+are unclaimed. The frozen R-series and LaTeX source remain unchanged.
+
+The side pin is a15cd42. Its V009 confirmation and Lean report remain
+external evidence. The next test allows both blocks to grow and retains
+their common geometric factors. The all-cycle headline is active and
+open; divergence remains separate.
+
 ## 2026-10-18 — V009: a universal additive complexity gain
 
 The [batch](../experiments/viewpoints/V009/REPORT.md) proves that every

@@ -1,16 +1,36 @@
 # Result ledger
 
-Last updated: 2026-10-18. This ledger summarizes scope; the linked proof notes and exact data contain the supporting arguments.
+Last updated: 2026-10-19. This ledger summarizes scope; the linked proof notes and exact data contain the supporting arguments.
 
 ## Current programme and preserved Phase6 standing
 
 R1–R94 below are frozen infrastructure. The active
-[quantitative-rigidity brief](QUANTITATIVE_RIGIDITY_BRIEF.md) develops the
-language selected through [VIEWPOINT_MAP.md](../VIEWPOINT_MAP.md), with
-exploration decisions in [VIEWPOINT_LOG.md](VIEWPOINT_LOG.md).
+[cycle-spectrum brief](CYCLE_SPECTRUM_BRIEF.md) studies rational-cycle
+denominators across 3x+d; see [CYCLE_SPECTRUM_LOG.md](CYCLE_SPECTRUM_LOG.md).
+The [quantitative-rigidity brief](QUANTITATIVE_RIGIDITY_BRIEF.md) remains
+unresolved historical work after the user's explicit replacement. Earlier
+language decisions are in [VIEWPOINT_MAP.md](../VIEWPOINT_MAP.md) and
+[VIEWPOINT_LOG.md](VIEWPOINT_LOG.md).
 The [route map](../ROUTE_MAP.md) and [Phase6 ledger](PHASE6_LEDGER.md)
 retain earlier obligations, grades and completed evidence. Viewpoint
 recommendations are distinct from the written mathematical results below.
+
+C001 supplies the [repeated-block denominator theorem](../experiments/cycle_spectrum/C001/REPETITION_SPECTRUM.md):
+for `w=u^k v`, every numerator cancellation divisor divides
+`K=D_u*C_v-D_v*C_u` when K is nonzero, and the cancellation factor is
+periodic in k. K=0 is the common primitive-cycle case. An exact gcd
+formula requires coprime block denominators; a d485 cycle refutes
+omitting this premise. Perturbed mechanical words `u_m^k 2`, m>=13,k>=2,
+are primitive, nonbalanced and have denominator greater than 1. Under
+the stated height condition their rational minima exceed m/10 and
+shortcut minima number k(A-m)+1. This is outside the direct hypotheses
+of the cited balanced and fixed-count exclusions; general record
+improvement and novelty are unclaimed. Independent proof review,
+2,459 actual-cycle certificates and 239,345 word-cycle checks are in
+the [report](../experiments/cycle_spectrum/C001/REPORT.md).
+The headline cycle exclusion and divergence remain open.
+
+The V-series entries below preserve earlier stages and completion criteria.
 
 V002 recommends arithmetic regularity of component colorings after comparing
 fourteen viewpoints and testing the first shortlist. Its

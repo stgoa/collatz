@@ -1,21 +1,34 @@
 # Instructions for agents working in this repository
 
-## Active goal — quantitative rigidity of component colorings
+## Active goal — cycle denominators across the 3x+d family
 
-The user replaced the previous prove-or-narrow goal on 2026-10-18. V001/V002
-completed a broad language comparison and selected arithmetic regularity.
-The partial-result goal in `docs/ARITHMETIC_REGULARITY_BRIEF.md` was followed
-by the strict full-classification goal in `docs/GLOBAL_RIGIDITY_BRIEF.md`.
-V004 supplies its written proof, using the finite-kernel characterization
-and Cobham. The activated `docs/QUANTITATIVE_RIGIDITY_BRIEF.md` now requires
-that every nonconstant finite-valued invariant have unbounded
-`kappa_h(D)/(D+1)`. V005–V009 supply partial results; the goal is active and
-unresolved. Read the latest report and V004's proof before extending the work.
-This does not authorize resuming the dispatcher search or assuming
-regularity of an actual bad set.
+The user replaced the quantitative-rigidity goal on 2026-10-18. The active
+`docs/CYCLE_SPECTRUM_BRIEF.md` seeks to exclude nontrivial Collatz cycles
+by studying reduced denominators of positive rational cycles across the
+whole 3x+d family. Start with that brief and the latest C-series report.
+V001–V009 and their unresolved quantitative target remain historical
+evidence. This does not authorize resuming the dispatcher search or
+assuming regularity of an actual bad set.
 
-- Start with `VIEWPOINT_MAP.md` and `docs/VIEWPOINT_LOG.md`, then the result ledger and relevant sources. `ROUTE_MAP.md` is historical evidence and a collection of obligations; it does not restrict the available directions.
-- Use bounded parallel investigations and compare their mathematical gains before deepening. Reconsider the statistical alternative or broaden representations if the chosen language repeatedly reproduces existing obligations. Do not expand dispatcher families or run large automaton catalogues.
+- Each batch chooses one bold mechanism, tests it at scale on actual cycles
+  across many d, and proves something or records an exact obstruction.
+  No notes-only or consolidation batches. Preserve the user's success
+  ladder, including an explicit comparison with published cycle results.
+- For cycle spectra use the raw odd-only map, with no absorbing state.
+  Positive words require `2^A>3^m`; quotient rotations and repetitions
+  correctly. Denominator 1 is allowed for every repetition of `(2)`.
+  Known cycles at d5/7/13 and the other tested d must survive every claim.
+- C001's fixed-block bound is `gcd(C_(u^k v),D_(u^k v)) | K`, where
+  `K=D_u*C_v-D_v*C_u`. K=0 is the common-fixed-point/repetition case.
+  Only when `gcd(D_u,D_v)=1` does cancellation equal `gcd(D_w,K)`.
+  Preserve the d485 counterexample when dropping that premise.
+- The perturbed mechanical family in C001 is primitive and nonbalanced.
+  Its odd-only local-minimum count and shortcut local-minimum count differ;
+  Hercher's record uses the latter. Exceeding those scoped records is not
+  an assertion of novelty against all literature or a result for all words.
+
+- Read `README.md`, the cycle brief, `docs/CYCLE_SPECTRUM_LOG.md`, the latest C-series report and relevant sources. `VIEWPOINT_MAP.md`, `docs/VIEWPOINT_LOG.md` and `ROUTE_MAP.md` preserve prior obligations and comparisons without restricting the active cycle programme.
+- Use bounded parallel investigations to test the selected mechanism. Do not substitute another language survey or dispatcher expansion for the cycle goal.
 - Every candidate records seven fields: objects, structural gain, translated unresolved gap, worked example, known-cycle controls, cheapest meaningful next test, and a genuinely intermediate milestone. Reject a milestone that is only an equivalent formulation of all of Collatz.
 - Separate a useful language, a proposed inequality, a written argument and a verified finite example. A sophisticated name, analogy or notational change earns no preference. Explain exactly which information is retained or lost.
 - After the initial survey, shortlist a few candidates for slightly deeper bounded discrimination probes. Expand or combine viewpoints when they merely relocate the same obstacle. Record rejection reasons and remaining assumptions; do not settle prematurely on a familiar framework.

@@ -1,7 +1,16 @@
 # Find a better language for Collatz
 
-**Quantitative rigidity active, 2026-10-18. V004 excludes finite-state nonconstant invariants; V009 proves unbounded additive excess over D+1. The stronger unbounded-ratio target and Collatz remain open.**
-The [current brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) requires an unbounded
+**Historical viewpoint map, updated 2026-10-18.** The user has replaced
+the quantitative goal with the [cycle-spectrum programme](docs/CYCLE_SPECTRUM_BRIEF.md).
+[C001](experiments/cycle_spectrum/C001/REPORT.md) proves a repeated-block
+denominator theorem and tests it across the generalized family. Current
+decisions are in the [cycle log](docs/CYCLE_SPECTRUM_LOG.md). The roadmap
+below records the earlier language selection and its subsequent results;
+its statements about active targets describe those earlier stages.
+
+V004 excludes finite-state nonconstant invariants; V009 proves unbounded
+additive excess over D+1. The stronger unbounded-ratio target and Collatz
+remain open. The [previous brief](docs/QUANTITATIVE_RIGIDITY_BRIEF.md) requires an unbounded
 ratio of binary-section count to depth for every nonconstant invariant.
 The [completed brief](docs/GLOBAL_RIGIDITY_BRIEF.md) required the full
 finite-state classification. The [partial-result brief](docs/ARITHMETIC_REGULARITY_BRIEF.md)
