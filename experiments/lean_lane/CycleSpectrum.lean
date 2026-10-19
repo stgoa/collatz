@@ -12520,6 +12520,180 @@ theorem forced_letter_variation (hprim : ∀ i j, i < m → j < m → Γ.n i = �
 
 end OddCycle
 
+/-! ### S13-d: the averaging step, Corollary 6 with a letter bound, Corollary 7's mechanism, and the logarithmic form of Corollary 1
+
+Side lane's S13 §1 (Corollaries 6–7 and Corollary 1's explicit form). (i) `V_d = Σ_t |a_t − a_(t+d)|`
+has only the `s = |mis d|` mismatch positions as nonzero terms, so `V_d ≤ s · M` for any bound `M`
+on the letter differences (`Vh_le_card_mul`), some position carries at least the average
+(`exists_card_mul_ge_Vh`), a letter difference is at most the larger letter (`natAbs_sub_le_max`),
+hence some letter satisfies `s · a_q ≥ V_d` (`exists_letter_card_mul_ge_Vh`), and `V_d ≤ s · A` for
+a uniform letter bound `A` (`Vh_le_card_mul_of_le`). (ii) Corollary 6 with a letter bound:
+`log n_j − log n₀ ≤ (κ^(s+1) − 1)(log n₀ + log 2 + (s A log 2 + 2δ)/2)` (`forced_letter_bound`).
+(iii) Corollary 7's mechanism: S5's end witness `log 2 + T log 3 < log n_max` on the longest
+agreeing run, `T ≥ (m − 1)/s`, against the rise bound at the maximum, gives for every rotation with
+`s ≥ 1` mismatches and all letters `≤ A`:
+`log 2 + ((m − 1)/s) log 3 < log n₀ + (κ^(s+1) − 1)(log n₀ + log 2 + (s A log 2 + 2δ)/2)`
+(`rise_endwitness_combination`). At `q = 1`, with `log n₀` bounded through the drift ceiling and
+`gap_all` (EXT-1), this fails for small `s` once `A` is small, which is the prose's
+`ρ ≥ 1 + max{S : f(S) > a_max}`; the numerical thresholds themselves are not Lean targets.
+(iv) The logarithmic form of Corollary 1 (S13-b): with `C = log n₀ + log 2 + Δ` and
+`B = log n_j − log n₀`, `log(1 + B/C) ≤ (s + 1) log κ` (`log_rise_from_min`), i.e.
+`s ≥ log_κ(1 + B/C) − 1` since `κ > 1`; the orientation is `mis_card_neg`. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- `V_d ≤ |mis d| · M` for any bound `M` on the letter differences at positions below `m`. -/
+theorem Vh_le_card_mul {d M : ℕ}
+    (hM : ∀ p, p < m → Int.natAbs ((Γ.a p : ℤ) - Γ.a (p + d)) ≤ M) :
+    Γ.Vh d ≤ (Γ.mis d).card * M := by
+  unfold Vh
+  have hsub : Γ.mis d ⊆ Finset.range m := by
+    unfold mis
+    exact Finset.filter_subset _ _
+  have hzero : ∀ t ∈ Finset.range m, t ∉ Γ.mis d →
+      Int.natAbs ((Γ.a t : ℤ) - Γ.a (t + d)) = 0 := by
+    intro t ht hnot
+    have hag : Γ.agree d t := by
+      by_contra hna
+      exact hnot (Finset.mem_filter.mpr ⟨ht, hna⟩)
+    have hagZ : (Γ.a t : ℤ) = Γ.a (t + d) := by exact_mod_cast hag
+    rw [hagZ, sub_self, Int.natAbs_zero]
+  rw [← Finset.sum_subset hsub hzero]
+  calc ∑ t ∈ Γ.mis d, Int.natAbs ((Γ.a t : ℤ) - Γ.a (t + d))
+      ≤ ∑ _t ∈ Γ.mis d, M :=
+        Finset.sum_le_sum (fun t ht => hM t (Finset.mem_range.mp (hsub ht)))
+    _ = (Γ.mis d).card * M := by rw [Finset.sum_const, smul_eq_mul]
+
+/-- Some position carries at least the average: `V_d ≤ |mis d| · |a_p − a_(p+d)|`. -/
+theorem exists_card_mul_ge_Vh (d : ℕ) :
+    ∃ p, p < m ∧ Γ.Vh d ≤ (Γ.mis d).card * Int.natAbs ((Γ.a p : ℤ) - Γ.a (p + d)) := by
+  obtain ⟨p, hp, hmax⟩ := Finset.exists_max_image (Finset.range m)
+    (fun t => Int.natAbs ((Γ.a t : ℤ) - Γ.a (t + d))) ⟨0, Finset.mem_range.mpr Γ.hm⟩
+  refine ⟨p, Finset.mem_range.mp hp, ?_⟩
+  exact Γ.Vh_le_card_mul (fun t ht => hmax t (Finset.mem_range.mpr ht))
+
+/-- A letter difference is at most the larger letter. -/
+theorem natAbs_sub_le_max (x y : ℕ) : Int.natAbs ((x : ℤ) - y) ≤ max x y := by omega
+
+/-- **Some letter is at least the average letter variation**: `V_d ≤ |mis d| · a_q` for some `q`. -/
+theorem exists_letter_card_mul_ge_Vh (d : ℕ) : ∃ q, Γ.Vh d ≤ (Γ.mis d).card * Γ.a q := by
+  obtain ⟨p, -, hp⟩ := Γ.exists_card_mul_ge_Vh d
+  have h1 := natAbs_sub_le_max (Γ.a p) (Γ.a (p + d))
+  rcases le_total (Γ.a p) (Γ.a (p + d)) with h | h
+  · refine ⟨p + d, ?_⟩
+    rw [max_eq_right h] at h1
+    exact hp.trans (Nat.mul_le_mul_left _ h1)
+  · refine ⟨p, ?_⟩
+    rw [max_eq_left h] at h1
+    exact hp.trans (Nat.mul_le_mul_left _ h1)
+
+/-- With a uniform letter bound `A`: `V_d ≤ |mis d| · A`. -/
+theorem Vh_le_card_mul_of_le {d A : ℕ} (hA : ∀ p, Γ.a p ≤ A) :
+    Γ.Vh d ≤ (Γ.mis d).card * A := by
+  apply Γ.Vh_le_card_mul
+  intro p _
+  calc Int.natAbs ((Γ.a p : ℤ) - Γ.a (p + d)) ≤ max (Γ.a p) (Γ.a (p + d)) :=
+        natAbs_sub_le_max _ _
+    _ ≤ A := max_le (hA p) (hA (p + d))
+
+/-- **Corollary 6 with a letter bound.** For `j ≤ m`, `s = |mis d|` and all letters `≤ A`:
+`log n_j − log n₀ ≤ (κ^(s+1) − 1)(log n₀ + log 2 + (s A log 2 + 2δ)/2)`. -/
+theorem forced_letter_bound (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {d : ℕ} (hh : d % m ≠ 0) {j : ℕ} (hj : j ≤ m) {A : ℕ}
+    (hA : ∀ p, Γ.a p ≤ A) :
+    Real.log (Γ.n j) - Real.log (Γ.n 0) ≤
+      (Γ.kappa ^ ((Γ.mis d).card + 1) - 1) *
+        (Real.log (Γ.n 0) + Real.log 2 +
+          ((((Γ.mis d).card * A : ℕ) : ℝ) * Real.log 2 +
+            2 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) / 2) := by
+  have h := Γ.forced_letter_variation hprim hapos hh hj
+  have hV : (Γ.Vh d : ℝ) ≤ (((Γ.mis d).card * A : ℕ) : ℝ) := by
+    exact_mod_cast Γ.Vh_le_card_mul_of_le hA
+  have h1 : (1 : ℝ) ≤ Γ.kappa ^ ((Γ.mis d).card + 1) := one_le_pow₀ Γ.one_le_kappa
+  have hk : 0 ≤ Γ.kappa ^ ((Γ.mis d).card + 1) - 1 := by linarith
+  have h2 : (0 : ℝ) < Real.log 2 := Real.log_pos (by norm_num)
+  have hVl : (Γ.Vh d : ℝ) * Real.log 2 ≤ (((Γ.mis d).card * A : ℕ) : ℝ) * Real.log 2 :=
+    mul_le_mul_of_nonneg_right hV h2.le
+  calc Real.log (Γ.n j) - Real.log (Γ.n 0) ≤ _ := h
+    _ ≤ _ := mul_le_mul_of_nonneg_left (by linarith) hk
+
+/-- **Corollary 7's mechanism**: S5's end witness on the longest agreeing run against the rise bound
+at the maximum. For a primitive cycle with letters `≥ 1`, a rotation `d ≢ 0` with `s ≥ 1` mismatches
+and all letters `≤ A`:
+`log 2 + ((m − 1)/s) log 3 < log n₀ + (κ^(s+1) − 1)(log n₀ + log 2 + (s A log 2 + 2δ)/2)`. -/
+theorem rise_endwitness_combination (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {d : ℕ} (hh : d % m ≠ 0) {s : ℕ} (hs1 : 1 ≤ s)
+    (hs : (Γ.mis d).card = s) {A : ℕ} (hA : ∀ p, Γ.a p ≤ A) :
+    Real.log 2 + (((m - 1) / s : ℕ) : ℝ) * Real.log 3 <
+      Real.log (Γ.n 0) + (Γ.kappa ^ (s + 1) - 1) *
+        (Real.log (Γ.n 0) + Real.log 2 +
+          (((s * A : ℕ) : ℝ) * Real.log 2 +
+            2 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) / 2) := by
+  have hmpos := Γ.hm
+  obtain ⟨i, T, hrun, hTbound⟩ := Γ.exists_longest_run hprim hh
+  have hpig := Γ.pigeonhole (Γ.exists_mis hprim hh) hTbound
+  rw [hs] at hpig
+  have hT : (m - 1) / s ≤ T := by
+    have h1 : (m - 1) / s < T + 1 := by
+      rw [Nat.div_lt_iff_lt_mul hs1]
+      omega
+    omega
+  obtain ⟨j, hjm', hjmax⟩ :=
+    Finset.exists_max_image (Finset.range m) Γ.n ⟨0, Finset.mem_range.mpr hmpos⟩
+  have hj : ∀ k, Γ.n k ≤ Γ.n j := fun k => by
+    rw [← Γ.n_mod k]
+    exact hjmax (k % m) (Finset.mem_range.mpr (Nat.mod_lt _ hmpos))
+  have hjm : j ≤ m := (Finset.mem_range.mp hjm').le
+  have hw := Γ.witness_gt T (fun k hk => hrun k hk) (Γ.z_ne_zero hprim hh (i + T))
+  have hwj : 2 * (3 : ℤ) ^ T < Γ.n j := lt_of_lt_of_le hw (max_le (hj _) (hj _))
+  have hwjR : 2 * (3 : ℝ) ^ T < Γ.n j := by exact_mod_cast hwj
+  have h3T : (3 : ℝ) ^ T ≠ 0 := by positivity
+  have hlw := Real.log_lt_log (by positivity) hwjR
+  rw [Real.log_mul (by norm_num : (2 : ℝ) ≠ 0) h3T, Real.log_pow] at hlw
+  have hrise := Γ.forced_letter_bound hprim hapos hh hjm hA
+  rw [hs] at hrise
+  have hTR : (((m - 1) / s : ℕ) : ℝ) ≤ T := by exact_mod_cast hT
+  have hlog3 : 0 < Real.log 3 := Real.log_pos (by norm_num)
+  have hTlog := mul_le_mul_of_nonneg_right hTR hlog3.le
+  linarith
+
+/-- **The logarithmic form of Corollary 1** (S13-b): with `C = log n₀ + log 2 + Δ` and
+`B = log n_j − log n₀`, `log(1 + B/C) ≤ (s + 1) log κ`, i.e. `s ≥ log_κ(1 + B/C) − 1`. -/
+theorem log_rise_from_min (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {d : ℕ} (hh : d % m ≠ 0) {Δ : ℝ} (hΔ0 : 0 ≤ Δ)
+    (hΔ : ∀ p, Real.log (Γ.n (p + d)) - Real.log (Γ.n p) ≤ Δ) {j : ℕ} (hj : j ≤ m) :
+    Real.log (1 + (Real.log (Γ.n j) - Real.log (Γ.n 0)) /
+        (Real.log (Γ.n 0) + Real.log 2 + Δ))
+      ≤ (((Γ.mis d).card + 1 : ℕ) : ℝ) * Real.log Γ.kappa := by
+  have h := Γ.rise_from_min hprim hapos hh hΔ0 hΔ hj
+  unfold Phi at h
+  have h2 : (0 : ℝ) < Real.log 2 := Real.log_pos (by norm_num)
+  have hn1 : (1 : ℤ) ≤ Γ.n 0 := by
+    have := Γ.npos
+    omega
+  have hn1R : (1 : ℝ) ≤ Γ.n 0 := by exact_mod_cast hn1
+  have hlog0 : 0 ≤ Real.log (Γ.n 0) := Real.log_nonneg hn1R
+  have hC : 0 < Real.log (Γ.n 0) + Real.log 2 + Δ := by linarith
+  have hB : 0 ≤ Real.log (Γ.n j) - Real.log (Γ.n 0) := by
+    have hle : (Γ.n 0 : ℝ) ≤ Γ.n j := by exact_mod_cast Γ.nmin j
+    have := Real.log_le_log (Γ.n_cast_pos 0) hle
+    linarith
+  have hratio : 1 + (Real.log (Γ.n j) - Real.log (Γ.n 0)) /
+      (Real.log (Γ.n 0) + Real.log 2 + Δ) ≤ Γ.kappa ^ ((Γ.mis d).card + 1) := by
+    rw [← div_self hC.ne', ← add_div, div_le_iff₀ hC]
+    linarith
+  have hpos : 0 < 1 + (Real.log (Γ.n j) - Real.log (Γ.n 0)) /
+      (Real.log (Γ.n 0) + Real.log 2 + Δ) := by
+    have := div_nonneg hB hC.le
+    linarith
+  have := Real.log_le_log hpos hratio
+  rw [Real.log_pow] at this
+  exact this
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

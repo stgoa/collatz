@@ -1,5 +1,5 @@
 exit=0 (no diagnostics)
 source: experiments/lean_lane/CycleSpectrum.lean
-source sha256: f0177f3c9ca122df2e619661cbc454821fd671b2477032a3a2fb1684c5d302a4
+source sha256: af0787d15a3cd52511f95375aeee178fb0c4f8e83d6354ebd1559778166316ec
 toolchain: leanprover/lean4:v4.35.0-rc2, Mathlib 065356127b1dc0016f66b7283ce0ce2c4055aa55 (container leanaudit, lake env lean)
-built: 2026-10-19T21:06:43Z
+built: 2026-10-19T21:17:43Z

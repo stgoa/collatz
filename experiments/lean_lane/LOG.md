@@ -3,6 +3,26 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 95 — 2026-10-19, 18:20 -03 (FINAL)
+
+- Woken by the monitor (sidekick `6bcd0a3`: the S13-c verdict, verified). The
+  side lane relayed the user's new direction (wind down the Lean lane, then a
+  repository refactor) and asked for a final commit with a fixed merge base;
+  main at `36eaf75`.
+- **S13-d verified — the averaging step (`exists_letter_card_mul_ge_Vh`: some
+  letter has `s · a_q ≥ V_d`), Corollary 6 with a uniform letter bound
+  (`forced_letter_bound`), Corollary 7's mechanism
+  (`rise_endwitness_combination`: S5's end witness against the rise bound at
+  the maximum) and the logarithmic form of Corollary 1 (`log_rise_from_min`)**
+  in `CycleSpectrum.lean` (sha256 `af0787d1…16ec`, 14,285 lines, 790 theorems:
+  656 with the three standard axioms, 59 × `[propext, Quot.sound]`, 62 ×
+  `[propext]`, 13 none; no `sorry`). First build. Receipts regenerated.
+- This is the lane's final commit: the loop and the monitor are stopped and
+  `claude/lean-lane` is not pushed again. PR #4 (draft) is left to the side
+  lane's refactor. Open items at close: C002-b's list packaging, C001-c, the
+  `(1, 1, 2)` window theorem (all low priority), queue item 4's converse (a
+  framework theorem). Resume with `/loop` from `STATE.md` if wanted.
+
 ## Iteration 94 — 2026-10-19, 18:09 -03
 
 - Woken by the monitor (sidekick `1115825`: the S13-a verdict, verified, with
