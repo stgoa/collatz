@@ -3,6 +3,30 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 64 — 2026-10-19, 11:50 -03
+
+- Woken by the sidekick's messages and pushes `a3c4d91`…`790725e`: **S5-a
+  verified** by the side lane; **S6 reviewed** (derivation correct; ceiling
+  corrected to no `+1` and `(m − 1)` in the `ε` term; `L ≥ 3` suffices
+  eventually). **Error of this lane withdrawn**: the suggestion that
+  two-mismatch words fall under the `k`-cycle exclusions — refuted by the side
+  lane's near-periodic example `(122)^a 1222 (122)^b` (two mismatches under
+  rotation by `3`, about `m/3` local minima). Main frozen at `1c5c19d`.
+- **S6-a verified — the height ceiling: `n_{i+1} ≤ (3/2)^{[a_i=1]} (1 +
+  q/(3L)) n_i`, `n_j ≤ L (3/2)^{u_j} (1 + q/(3L))^j`, `h_j log 2 ≤ u_j (log 3
+  − log 2) + j log(1 + q/(3L))`, and `B log 2 ≤ (m−1)(log 3 − log 2) + (m−1)
+  log(1 + q/(3L))` when `B` is attained, with letters `≥ 1` automatic at `q =
+  1`** in `CycleSpectrum.lean` (sha256 `da2bf768…74a0`, 8601 lines, 535
+  theorems: 446 with the three standard axioms, 40 × `[propext, Quot.sound]`,
+  47 × `[propext]`, 2 none; no `sorry`): `OddCycle.eps_nonneg`,
+  `one_add_eps_pos`, `a_pos_of_odd`, `ones` (def), `ones_succ`, `ones_le`,
+  **`n_succ_le`**, **`n_le_climb`**, **`h_le_climb`**, **`B_le_ceiling`**,
+  **`B_le_ceiling_q1`**. Second build (`positivity` fails on `Int`-cast signs
+  and on metavariable goals inside `rw`; `unfold` of a recursive def gives a
+  `match`, use an `rfl` equation). Receipts regenerated. Next: S6-b, the
+  composition excluding `s = 2` with the numeric step as an explicit
+  hypothesis, then its discharge.
+
 ## Iteration 63 — 2026-10-19, 11:36 -03
 
 - Woken by the sidekick's messages and pushes `2858b07`…`47c2fa8`: **S2-c

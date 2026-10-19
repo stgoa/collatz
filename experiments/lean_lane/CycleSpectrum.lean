@@ -6836,6 +6836,180 @@ theorem mismatch_height (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j �
 
 end OddCycle
 
+/-! ### S6-a: the height ceiling `B ≤ (log₂3 − 1)(m − 1) + (m − 1) log₂(1 + q/(3L))`
+
+Each arrow multiplies the state by `(3 + q/n_i)/2^{a_i} ≤ (3/2)^{[a_i = 1]} (1 + q/(3L))` when
+`a_i ≥ 1` (`n_succ_le`), so from the minimum `n_0 = L` one has
+`n_j ≤ L (3/2)^{u_j} (1 + q/(3L))^j` with `u_j` the number of letters `1` among `a_0, …, a_{j−1}`
+(`n_le_climb`), hence `h_j log 2 ≤ u_j (log 3 − log 2) + j log(1 + q/(3L))` (`h_le_climb`), and
+when the band `B` is attained, `B log 2 ≤ (m − 1)(log 3 − log 2) + (m − 1) log(1 + q/(3L))`
+(`B_le_ceiling`). For `q` odd the letters are automatically positive (`a_pos_of_odd`), so at
+`q = 1` the ceiling needs no letter hypothesis (`B_le_ceiling_q1`); with `L > 2^71` its last term
+is below `10^{−20} m`: the ceiling `B ≤ 0.585 (m − 1)` of the side lane's S5/S6. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+theorem eps_nonneg : (0 : ℝ) ≤ Γ.q / (3 * Γ.n 0) := by
+  have hq : (0 : ℝ) ≤ Γ.q := by exact_mod_cast Γ.hq.le
+  have hn : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  exact div_nonneg hq (by linarith)
+
+theorem one_add_eps_pos : (0 : ℝ) < 1 + Γ.q / (3 * Γ.n 0) := by
+  linarith [Γ.eps_nonneg]
+
+/-- With `q` odd every letter is positive: `3 n_i + q` is even and `n_{i+1}` is odd. -/
+theorem a_pos_of_odd (hq : Odd Γ.q) (i : ℕ) : 1 ≤ Γ.a i := by
+  by_contra h0
+  have ha : Γ.a i = 0 := by omega
+  have harrow := Γ.arrow i
+  rw [ha, pow_zero, one_mul] at harrow
+  have heven : Even (3 * Γ.n i + Γ.q) := (Odd.mul ⟨1, by norm_num⟩ (Γ.nodd i)).add_odd hq
+  rw [← harrow] at heven
+  exact (Int.not_even_iff_odd.mpr (Γ.nodd (i + 1))) heven
+
+/-- The number of letters `1` among `a_0, …, a_{j−1}`. -/
+def ones : ℕ → ℕ
+  | 0 => 0
+  | j + 1 => ones j + if Γ.a j = 1 then 1 else 0
+
+theorem ones_succ (j : ℕ) : Γ.ones (j + 1) = Γ.ones j + if Γ.a j = 1 then 1 else 0 := rfl
+
+theorem ones_le (j : ℕ) : Γ.ones j ≤ j := by
+  induction j with
+  | zero => simp [ones]
+  | succ j ih =>
+    rw [Γ.ones_succ]
+    split_ifs <;> omega
+
+/-- One arrow multiplies the state by at most `(3/2)^{[a_i = 1]} (1 + q/(3L))`. -/
+theorem n_succ_le (hapos : ∀ i, 1 ≤ Γ.a i) (i : ℕ) :
+    (Γ.n (i + 1) : ℝ) ≤
+      (3 / 2 : ℝ) ^ (if Γ.a i = 1 then 1 else 0) * (1 + Γ.q / (3 * Γ.n 0)) * Γ.n i := by
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have hni : (0 : ℝ) < Γ.n i := by exact_mod_cast Γ.npos.trans_le (Γ.nmin i)
+  have hq : (0 : ℝ) < Γ.q := by exact_mod_cast Γ.hq
+  have hle : (Γ.n 0 : ℝ) ≤ Γ.n i := by exact_mod_cast Γ.nmin i
+  have harrow : (2 : ℝ) ^ Γ.a i * Γ.n (i + 1) = 3 * Γ.n i + Γ.q := by exact_mod_cast Γ.arrow i
+  have h1 : (3 * Γ.n i + Γ.q : ℝ) ≤ 3 * Γ.n i * (1 + Γ.q / (3 * Γ.n 0)) := by
+    have h2 : (Γ.q : ℝ) ≤ Γ.n i * Γ.q / Γ.n 0 := by
+      rw [le_div_iff₀ hn0]
+      nlinarith
+    have e : 3 * (Γ.n i : ℝ) * (1 + Γ.q / (3 * Γ.n 0)) = 3 * Γ.n i + Γ.n i * Γ.q / Γ.n 0 := by
+      ring
+    linarith
+  have hA : (0 : ℝ) < 2 ^ Γ.a i := by positivity
+  have hpow : (3 : ℝ) / 2 ^ Γ.a i ≤ (3 / 2 : ℝ) ^ (if Γ.a i = 1 then 1 else 0) := by
+    split_ifs with h
+    · rw [h, pow_one, pow_one]
+    · have h2 : 2 ≤ Γ.a i := by
+        have := hapos i
+        omega
+      have h4 : (4 : ℝ) ≤ 2 ^ Γ.a i := by
+        calc (4 : ℝ) = 2 ^ 2 := by norm_num
+          _ ≤ 2 ^ Γ.a i := pow_le_pow_right₀ (by norm_num) h2
+      rw [pow_zero, div_le_one hA]
+      linarith
+  have hn1 : (Γ.n (i + 1) : ℝ) = (3 * Γ.n i + Γ.q) / 2 ^ Γ.a i := by
+    rw [eq_div_iff hA.ne', mul_comm]
+    exact harrow
+  have hε : (0 : ℝ) ≤ 1 + Γ.q / (3 * Γ.n 0) := Γ.one_add_eps_pos.le
+  rw [hn1]
+  calc (3 * Γ.n i + Γ.q : ℝ) / 2 ^ Γ.a i
+      ≤ 3 * Γ.n i * (1 + Γ.q / (3 * Γ.n 0)) / 2 ^ Γ.a i := div_le_div_of_nonneg_right h1 hA.le
+    _ = (3 / 2 ^ Γ.a i) * (1 + Γ.q / (3 * Γ.n 0)) * Γ.n i := by ring
+    _ ≤ (3 / 2 : ℝ) ^ (if Γ.a i = 1 then 1 else 0) * (1 + Γ.q / (3 * Γ.n 0)) * Γ.n i :=
+        mul_le_mul_of_nonneg_right (mul_le_mul_of_nonneg_right hpow hε) hni.le
+
+/-- The climb bound from the minimum: `n_j ≤ L (3/2)^{u_j} (1 + q/(3L))^j`. -/
+theorem n_le_climb (hapos : ∀ i, 1 ≤ Γ.a i) (j : ℕ) :
+    (Γ.n j : ℝ) ≤ Γ.n 0 * (3 / 2 : ℝ) ^ Γ.ones j * (1 + Γ.q / (3 * Γ.n 0)) ^ j := by
+  induction j with
+  | zero => simp [ones]
+  | succ j ih =>
+    have hstep := Γ.n_succ_le hapos j
+    have hε : (0 : ℝ) ≤ 1 + Γ.q / (3 * Γ.n 0) := Γ.one_add_eps_pos.le
+    have hc : (0 : ℝ) ≤ (3 / 2 : ℝ) ^ (if Γ.a j = 1 then 1 else 0) * (1 + Γ.q / (3 * Γ.n 0)) :=
+      mul_nonneg (pow_nonneg (by norm_num) _) hε
+    calc (Γ.n (j + 1) : ℝ)
+        ≤ (3 / 2 : ℝ) ^ (if Γ.a j = 1 then 1 else 0) * (1 + Γ.q / (3 * Γ.n 0)) * Γ.n j := hstep
+      _ ≤ (3 / 2 : ℝ) ^ (if Γ.a j = 1 then 1 else 0) * (1 + Γ.q / (3 * Γ.n 0)) *
+          (Γ.n 0 * (3 / 2 : ℝ) ^ Γ.ones j * (1 + Γ.q / (3 * Γ.n 0)) ^ j) :=
+          mul_le_mul_of_nonneg_left ih hc
+      _ = Γ.n 0 * (3 / 2 : ℝ) ^ Γ.ones (j + 1) * (1 + Γ.q / (3 * Γ.n 0)) ^ (j + 1) := by
+          rw [Γ.ones_succ, pow_add, pow_succ]
+          ring
+
+/-- The height bound: `h_j log 2 ≤ u_j (log 3 − log 2) + j log(1 + q/(3L))`. -/
+theorem h_le_climb (hapos : ∀ i, 1 ≤ Γ.a i) (j : ℕ) :
+    (Γ.h j : ℝ) * Real.log 2 ≤ (Γ.ones j : ℝ) * (Real.log 3 - Real.log 2) +
+      (j : ℝ) * Real.log (1 + Γ.q / (3 * Γ.n 0)) := by
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have hlo : (2 : ℝ) ^ Γ.h j * Γ.n 0 ≤ Γ.n j := by exact_mod_cast Γ.hlo j
+  have hclimb := Γ.n_le_climb hapos j
+  have h1 : (2 : ℝ) ^ Γ.h j ≤ (3 / 2 : ℝ) ^ Γ.ones j * (1 + Γ.q / (3 * Γ.n 0)) ^ j := by
+    have h2 : (2 : ℝ) ^ Γ.h j * Γ.n 0 ≤
+        (3 / 2 : ℝ) ^ Γ.ones j * (1 + Γ.q / (3 * Γ.n 0)) ^ j * Γ.n 0 := by
+      calc (2 : ℝ) ^ Γ.h j * Γ.n 0 ≤ Γ.n j := hlo
+        _ ≤ Γ.n 0 * (3 / 2 : ℝ) ^ Γ.ones j * (1 + Γ.q / (3 * Γ.n 0)) ^ j := hclimb
+        _ = (3 / 2 : ℝ) ^ Γ.ones j * (1 + Γ.q / (3 * Γ.n 0)) ^ j * Γ.n 0 := by ring
+    exact le_of_mul_le_mul_right h2 hn0
+  have hε := Γ.one_add_eps_pos
+  have hlog := Real.log_le_log (by positivity) h1
+  rw [Real.log_pow, Real.log_mul (by positivity : ((3 / 2 : ℝ) ^ Γ.ones j) ≠ 0)
+    (pow_pos hε j).ne', Real.log_pow, Real.log_pow,
+    Real.log_div (by norm_num : (3 : ℝ) ≠ 0) (by norm_num : (2 : ℝ) ≠ 0)] at hlog
+  linarith
+
+/-- **The height ceiling**: when the band `B` is attained,
+`B log 2 ≤ (m − 1)(log 3 − log 2) + (m − 1) log(1 + q/(3L))`. -/
+theorem B_le_ceiling (hapos : ∀ i, 1 ≤ Γ.a i) (hB : ∃ i, Γ.h i = Γ.B) :
+    (Γ.B : ℝ) * Real.log 2 ≤ ((m : ℝ) - 1) * (Real.log 3 - Real.log 2) +
+      ((m : ℝ) - 1) * Real.log (1 + Γ.q / (3 * Γ.n 0)) := by
+  obtain ⟨i, hi⟩ := hB
+  have hm := Γ.hm
+  have hj : i % m ≤ m - 1 := by
+    have := Nat.mod_lt i hm
+    omega
+  have hji : Γ.h (i % m) = Γ.B := by rw [Γ.h_mod, hi]
+  have hcl := Γ.h_le_climb hapos (i % m)
+  rw [hji] at hcl
+  have hjm : ((i % m : ℕ) : ℝ) ≤ (m : ℝ) - 1 := by
+    have h3 : ((i % m : ℕ) : ℝ) ≤ ((m - 1 : ℕ) : ℝ) := by exact_mod_cast hj
+    rw [Nat.cast_sub (by omega), Nat.cast_one] at h3
+    exact h3
+  have hones : (Γ.ones (i % m) : ℝ) ≤ (m : ℝ) - 1 := by
+    have h2 : (Γ.ones (i % m) : ℝ) ≤ ((i % m : ℕ) : ℝ) := by exact_mod_cast Γ.ones_le (i % m)
+    linarith
+  have hlog32 : 0 ≤ Real.log 3 - Real.log 2 := by
+    have := Real.log_le_log (by norm_num : (0 : ℝ) < 2) (by norm_num : (2 : ℝ) ≤ 3)
+    linarith
+  have hlogε : 0 ≤ Real.log (1 + Γ.q / (3 * Γ.n 0)) := by
+    apply Real.log_nonneg
+    linarith [Γ.eps_nonneg]
+  calc (Γ.B : ℝ) * Real.log 2
+      ≤ (Γ.ones (i % m) : ℝ) * (Real.log 3 - Real.log 2) +
+        ((i % m : ℕ) : ℝ) * Real.log (1 + Γ.q / (3 * Γ.n 0)) := hcl
+    _ ≤ ((m : ℝ) - 1) * (Real.log 3 - Real.log 2) +
+        ((m : ℝ) - 1) * Real.log (1 + Γ.q / (3 * Γ.n 0)) :=
+        add_le_add (mul_le_mul_of_nonneg_right hones hlog32)
+          (mul_le_mul_of_nonneg_right hjm hlogε)
+
+/-- The ceiling at `q = 1`, with no letter hypothesis. -/
+theorem B_le_ceiling_q1 (hq1 : Γ.q = 1) (hB : ∃ i, Γ.h i = Γ.B) :
+    (Γ.B : ℝ) * Real.log 2 ≤ ((m : ℝ) - 1) * (Real.log 3 - Real.log 2) +
+      ((m : ℝ) - 1) * Real.log (1 + 1 / (3 * Γ.n 0)) := by
+  have hodd : Odd Γ.q := by
+    rw [hq1]
+    exact odd_one
+  have h := Γ.B_le_ceiling (Γ.a_pos_of_odd hodd) hB
+  rw [hq1] at h
+  push_cast at h
+  exact h
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
