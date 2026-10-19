@@ -70,6 +70,8 @@ python3 sidekick/probes/c010_gap_check.py     # <1 s, PASS
 - **Source scan.** Clean.
 - **Hash.** The sha256 `31a44291…` matches the receipt.
 
+**Update 03:49: part 3d is VERIFIED** (`3854bcf`). C006's (H1), `J ≥ B + 1`, is now machine-checked for ordered primitive odd cycles. Here `J` is 1 plus the number of adjacent changes of sorted height, and every height up to `B` is attained in sorted order. Of the declarations, 188 use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `bc6e4e25…` matches. The Lean lane also read C010 and found no error. Still open from the list below: the `e_run` exponent sum and the consequences for `q`.
+
 **Not yet formal (part 3d).**
 
 - `J ≥ B + 1` in sorted order;
