@@ -1,5 +1,29 @@
 # Research log
 
+## 2026-10-19 — C004: narrow-cycle classification and failed rotation shortcuts
+
+[C004](../experiments/cycle_spectrum/C004/REPORT.md) proves that primitive
+positive rational cycles with odd-state maximum less than twice their
+minimum are exactly mechanical. Their denominator is the full primitive
+2^A-3^m; at odd d it must divide d. This forces H>2L for any nontrivial
+d1 integer cycle, but identifies the class already excluded by R71.
+Wide cycles remain open.
+
+The simultaneous rotation equations have one Smith obstruction; an exact
+cut formula shows why the gcd conditions are dependent. Absolute pair
+spacing does not rescue the method: the actual d5 cycle19,31,49 refutes
+gap<2, and a written mechanical construction makes every pair gap
+arbitrarily large with varying denominators. All 2,459 stored cycles,
+36,912 rotations, 86,442 positive short words, 340 matrices and 156
+mechanical examples are checked. Source reviews and finite evidence
+remain separate from novelty and formal verification.
+
+Side pin fe7377a128 reports further C001/C002 Lean checks; main has not
+replayed them. The discrepancy lead retains m/L and its horizon; a
+universal finite-ceiling exclusion would be the headline itself. Next
+work must retain ordered-state information across several dyadic ranges.
+Earlier batches and frozen mathematics are preserved.
+
 ## 2026-10-19 — C003: uniform denominator layers and a contracting exclusion
 
 [C003](../experiments/cycle_spectrum/C003/REPORT.md) proves bounded-layer

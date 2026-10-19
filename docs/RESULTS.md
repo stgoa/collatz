@@ -15,6 +15,20 @@ The [route map](../ROUTE_MAP.md) and [Phase6 ledger](PHASE6_LEDGER.md)
 retain earlier obligations, grades and completed evidence. Viewpoint
 recommendations are distinct from the written mathematical results below.
 
+C004 supplies an [intrinsic narrow-cycle classification](../experiments/cycle_spectrum/C004/REPORT.md):
+for primitive positive rational odd-only cycles, H<2L iff the valuation
+word is mechanical. Its coprime totals have exact denominator D=2^A-3^m;
+at odd d these cycles correspond exactly to positive D dividing d,
+including fixed points. A nontrivial integer d1 cycle must have H>2L.
+This identifies the existing R71 class by geometry rather than extending
+the excluded word set. The full cyclic matrix has one Smith obstruction;
+all rotated gcd conditions are dependent, with the exact one-letter cut
+formula retaining its extra factor. The universal pair-gap proposal is
+refuted, and mechanical upper approximants give arbitrarily large pair
+gaps even with H<2L. Denominators vary. Written review and exact finite
+checks are linked; wide cycles, novelty and formal verification remain
+unresolved or unclaimed as appropriate.
+
 C003 supplies [uniform restrictions for changing blocks](../experiments/cycle_spectrum/C003/REPORT.md).
 For positive whole D and K!=0, every bounded denominator layer contains
 finitely many representations `u^k v^ell` with k,ell>=2 even as u,v vary.

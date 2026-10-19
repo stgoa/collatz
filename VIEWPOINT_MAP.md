@@ -2,10 +2,10 @@
 
 **Historical viewpoint map, updated 2026-10-19.** The user has replaced
 the quantitative goal with the [cycle-spectrum programme](docs/CYCLE_SPECTRUM_BRIEF.md).
-[C003](experiments/cycle_spectrum/C003/REPORT.md) gives bounded-denominator
-finiteness for nondegenerate two-block repetitions even as the blocks vary,
-and an effective exclusion under its contracting repetition condition.
-Arbitrary word structure and the general finite exceptions remain open. Current
+[C004](experiments/cycle_spectrum/C004/REPORT.md) identifies cycles with
+odd-state ratio below two exactly as mechanical. It also proves dependence
+of all rotation congruences and rejects a universal close-pair bound.
+Wide cycles and the all-cycle headline remain open. Current
 decisions are in the [cycle log](docs/CYCLE_SPECTRUM_LOG.md). The roadmap
 below records the earlier language selection and its subsequent results;
 its statements about active targets describe those earlier stages.

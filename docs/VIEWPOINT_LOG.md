@@ -1,5 +1,31 @@
 # Viewpoint exploration log
 
+## C004 — Geometry identifies the mechanical class, 2026-10-19
+
+The [C004 report](../experiments/cycle_spectrum/C004/REPORT.md) proves
+the intrinsic equivalence H<2L iff mechanical coding, with exact narrow
+parameter spectrum. This locates R71's already-excluded class through
+state order. Wider cycles remain outside the exclusion. Two tempting
+extensions are rejected exactly: rotation congruences have one Smith
+obstruction, and rational cycles can have all pair gaps arbitrarily
+large even inside the narrow ratio range.
+
+Fetched `origin main claude/sidekick`; read the new FEED at
+`fe7377a1284cfd443a9f2c2861b20958164c0dfa`. DIRECTIONS is unchanged
+from the previously read pin and its current table was checked. The
+feed reports Lean C001-b at 0cde415 and C002-a at cf15b22. The latter
+formal statement is den>2^m, not the stronger written factor in C002.
+Main did not replay those builds; they do not verify C004.
+
+The bounded-oscillation lead gives a valid discrepancy estimate with
+an m/L error. That dependence cannot be dropped, nor can its implication
+be reversed without proof. On finite one-period windows, excluding
+integer cycles below every finite discrepancy ceiling would be the
+headline, not a smaller intermediate goal. The
+[side review](../experiments/cycle_spectrum/C004/SIDE_REVIEW.md) retains
+these distinctions and the D1–D8 assessment. Side material is external
+input; no side branch was modified. The active goal is unchanged.
+
 ## C003 — Uniformity achieved within a structural class, 2026-10-19
 
 The [C003 report](../experiments/cycle_spectrum/C003/REPORT.md) removes
