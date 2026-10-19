@@ -7861,6 +7861,146 @@ theorem three_mismatch_structure (hprim : ∀ i j, i < m → j < m → Γ.n i = 
 
 end OddCycle
 
+/-! ### S7-c (part 1): Step 1 — the uniform run bound and the spacing bound from three mismatches
+
+Every agreeing run with `z ≠ 0` at its end has `2·3^t < H ≤ L (3/2)^{m−1} (1 + q/(3L))^{m−1}`
+(`run_bound_max`: the witness is a state, hence at most the maximum, which the ceiling bounds), so
+all runs are bounded by one `T`. With exactly three mismatches, the forward arc from one mismatch to
+another holds at most one mismatch in its interior (`third_mismatch`, `eq_third`), so it consists of
+at most two agreeing runs and two steps: its length is at most `2(T + 1)` (`arc_le`). Hence distinct
+mismatches have both arcs at least `σ = m − 2(T + 1)` (`hsep_of_runs`), the spacing bound used by
+S7-b part 3b. This is the only place where `s = 3` enters. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- Step 1, the uniform run bound: `2·3^t < L (3/2)^{m−1} (1 + q/(3L))^{m−1}` for every agreeing
+run with `z ≠ 0` at its end. -/
+theorem run_bound_max (hapos : ∀ i, 1 ≤ Γ.a i) {j : ℕ} (hj : ∀ i, Γ.n i ≤ Γ.n j) (hjm : j < m)
+    {h i t : ℕ} (hagree : ∀ k, k < t → Γ.a (i + k) = Γ.a (i + k + h)) (hz : Γ.z h (i + t) ≠ 0) :
+    2 * (3 : ℝ) ^ t < Γ.n 0 * (3 / 2 : ℝ) ^ (m - 1) * (1 + Γ.q / (3 * Γ.n 0)) ^ (m - 1) := by
+  have hw := Γ.witness_gt t hagree hz
+  have hmax : max (Γ.n (i + t)) (Γ.n (i + t + h)) ≤ Γ.n j := max_le (hj _) (hj _)
+  have h1 : 2 * (3 : ℤ) ^ t < Γ.n j := lt_of_lt_of_le hw hmax
+  have h1R : 2 * (3 : ℝ) ^ t < Γ.n j := by exact_mod_cast h1
+  have hcl := Γ.n_le_climb hapos j
+  have hones : Γ.ones j ≤ m - 1 := (Γ.ones_le j).trans (by omega)
+  have hj1 : j ≤ m - 1 := by omega
+  have hε := Γ.one_add_eps_pos
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have h2 : (3 / 2 : ℝ) ^ Γ.ones j ≤ (3 / 2 : ℝ) ^ (m - 1) :=
+    pow_le_pow_right₀ (by norm_num) hones
+  have h3 : (1 + (Γ.q : ℝ) / (3 * Γ.n 0)) ^ j ≤ (1 + (Γ.q : ℝ) / (3 * Γ.n 0)) ^ (m - 1) :=
+    pow_le_pow_right₀ (by linarith [Γ.eps_nonneg]) hj1
+  calc 2 * (3 : ℝ) ^ t < Γ.n j := h1R
+    _ ≤ Γ.n 0 * (3 / 2 : ℝ) ^ Γ.ones j * (1 + Γ.q / (3 * Γ.n 0)) ^ j := hcl
+    _ ≤ Γ.n 0 * (3 / 2 : ℝ) ^ (m - 1) * (1 + Γ.q / (3 * Γ.n 0)) ^ (m - 1) :=
+        mul_le_mul (mul_le_mul_of_nonneg_left h2 hn0.le) h3 (pow_pos hε j).le
+          (mul_nonneg hn0.le (by positivity))
+
+/-- With exactly three mismatches, removing two leaves one. -/
+theorem third_mismatch {h e₁ e₂ : ℕ} (hs : (Γ.mis h).card = 3) (h₁ : e₁ ∈ Γ.mis h)
+    (h₂ : e₂ ∈ Γ.mis h) (hne : e₁ ≠ e₂) : ∃ e₃, ((Γ.mis h).erase e₁).erase e₂ = {e₃} := by
+  have hc : (((Γ.mis h).erase e₁).erase e₂).card = 1 := by
+    rw [Finset.card_erase_of_mem (Finset.mem_erase.mpr ⟨hne.symm, h₂⟩),
+      Finset.card_erase_of_mem h₁, hs]
+  exact Finset.card_eq_one.mp hc
+
+/-- Any mismatch other than `e₁, e₂` is the third one. -/
+theorem eq_third {h e₁ e₂ e₃ r : ℕ} (h3 : ((Γ.mis h).erase e₁).erase e₂ = {e₃}) (hr : r ∈ Γ.mis h)
+    (hr1 : r ≠ e₁) (hr2 : r ≠ e₂) : r = e₃ := by
+  have hmem : r ∈ ((Γ.mis h).erase e₁).erase e₂ :=
+    Finset.mem_erase.mpr ⟨hr2, Finset.mem_erase.mpr ⟨hr1, hr⟩⟩
+  rw [h3, Finset.mem_singleton] at hmem
+  exact hmem
+
+/-- The forward arc from a mismatch `e₁` to another mismatch `e₂` (`(e₁ + L) % m = e₂`, `0 < L < m`)
+has length at most `2(T + 1)` when every agreeing run has length `≤ T` and there are exactly three
+mismatches. -/
+theorem arc_le {h T : ℕ} (hT : ∀ i t, (∀ k, k < t → Γ.agree h (i + k)) → t ≤ T)
+    (hs : (Γ.mis h).card = 3) {e₁ e₂ L : ℕ} (h₁ : e₁ ∈ Γ.mis h) (h₂ : e₂ ∈ Γ.mis h) (hne : e₁ ≠ e₂)
+    (hL0 : 0 < L) (hLm : L < m) (hL : (e₁ + L) % m = e₂) : L ≤ 2 * (T + 1) := by
+  have hm := Γ.hm
+  have he1 : e₁ < m := by
+    unfold mis at h₁
+    rw [Finset.mem_filter, Finset.mem_range] at h₁
+    exact h₁.1
+  obtain ⟨e₃, h3⟩ := Γ.third_mismatch hs h₁ h₂ hne
+  have hres : ∀ k, 1 ≤ k → k < L → ¬ Γ.agree h (e₁ + k) → (e₁ + k) % m = e₃ := by
+    intro k hk1 hkL hna
+    have hmem : (e₁ + k) % m ∈ Γ.mis h := by
+      unfold mis
+      rw [Finset.mem_filter, Finset.mem_range, Γ.agree_mod]
+      exact ⟨Nat.mod_lt _ hm, hna⟩
+    apply Γ.eq_third h3 hmem
+    · intro heq
+      have h0 : (e₁ + k) % m = (e₁ + 0) % m := by
+        rw [heq, Nat.add_zero, Nat.mod_eq_of_lt he1]
+      have hk : k % m = 0 % m := Nat.ModEq.add_left_cancel' e₁ h0
+      rw [Nat.zero_mod, Nat.mod_eq_of_lt (by omega : k < m)] at hk
+      omega
+    · intro heq
+      rw [← hL] at heq
+      have hk : k % m = L % m := Nat.ModEq.add_left_cancel' e₁ heq
+      rw [Nat.mod_eq_of_lt (by omega : k < m), Nat.mod_eq_of_lt hLm] at hk
+      omega
+  by_cases hex : ∃ k₀, 1 ≤ k₀ ∧ k₀ < L ∧ ¬ Γ.agree h (e₁ + k₀)
+  · obtain ⟨k₀, hk₀1, hk₀L, hk₀⟩ := hex
+    have huniq : ∀ k, 1 ≤ k → k < L → ¬ Γ.agree h (e₁ + k) → k = k₀ := by
+      intro k hk1 hkL hna
+      have e1 := hres k hk1 hkL hna
+      have e2 := hres k₀ hk₀1 hk₀L hk₀
+      have hk : k % m = k₀ % m := Nat.ModEq.add_left_cancel' e₁ (e1.trans e2.symm)
+      rwa [Nat.mod_eq_of_lt (by omega : k < m), Nat.mod_eq_of_lt (by omega : k₀ < m)] at hk
+    have hrun1 : k₀ - 1 ≤ T := by
+      apply hT (e₁ + 1) (k₀ - 1)
+      intro k hk
+      by_contra hna
+      have := huniq (k + 1) (by omega) (by omega)
+        (by rw [show e₁ + (k + 1) = e₁ + 1 + k by omega]; exact hna)
+      omega
+    have hrun2 : L - 1 - k₀ ≤ T := by
+      apply hT (e₁ + k₀ + 1) (L - 1 - k₀)
+      intro k hk
+      by_contra hna
+      have := huniq (k₀ + 1 + k) (by omega) (by omega)
+        (by rw [show e₁ + (k₀ + 1 + k) = e₁ + k₀ + 1 + k by omega]; exact hna)
+      omega
+    omega
+  · have hall : ∀ k, 1 ≤ k → k < L → Γ.agree h (e₁ + k) := by
+      intro k hk1 hkL
+      by_contra hna
+      exact hex ⟨k, hk1, hkL, hna⟩
+    have hrun : L - 1 ≤ T := by
+      apply hT (e₁ + 1) (L - 1)
+      intro k hk
+      rw [show e₁ + 1 + k = e₁ + (k + 1) by omega]
+      exact hall (k + 1) (by omega) (by omega)
+    omega
+
+/-- Step 1's spacing bound: with every agreeing run of length `≤ T` and exactly three mismatches,
+distinct mismatches `e₁ < e₂` have both arcs at least `m − 2(T + 1)`. -/
+theorem hsep_of_runs {h T : ℕ} (hT : ∀ i t, (∀ k, k < t → Γ.agree h (i + k)) → t ≤ T)
+    (hs : (Γ.mis h).card = 3) : ∀ e₁ e₂, e₁ ∈ Γ.mis h → e₂ ∈ Γ.mis h → e₁ < e₂ →
+      m - 2 * (T + 1) ≤ e₂ - e₁ ∧ m - 2 * (T + 1) ≤ m + e₁ - e₂ := by
+  intro e₁ e₂ h₁ h₂ hlt
+  have hm := Γ.hm
+  have he2 : e₂ < m := by
+    unfold mis at h₂
+    rw [Finset.mem_filter, Finset.mem_range] at h₂
+    exact h₂.1
+  have hA1 : (e₁ + (e₂ - e₁)) % m = e₂ := by
+    rw [Nat.add_sub_cancel' hlt.le, Nat.mod_eq_of_lt he2]
+  have hA2 : (e₂ + (m - (e₂ - e₁))) % m = e₁ := by
+    rw [show e₂ + (m - (e₂ - e₁)) = e₁ + m by omega, Nat.add_mod_right,
+      Nat.mod_eq_of_lt (by omega)]
+  have hL1 := Γ.arc_le hT hs h₁ h₂ hlt.ne (by omega) (by omega) hA1
+  have hL2 := Γ.arc_le hT hs h₂ h₁ hlt.ne' (by omega) (by omega) hA2
+  omega
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

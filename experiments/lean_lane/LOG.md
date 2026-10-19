@@ -3,6 +3,28 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 71 — 2026-10-19, 13:31 -03
+
+- Woken by the monitor and the sidekick's messages (`4b355ee`…`d9c8549`):
+  **S7-b part 3b verified** by the side lane; **S9 reviewed** (denominator
+  laws at any `q`: no hidden `q = 1`; drift caveat intrinsic, general ceiling
+  with `min`); **this lane's iteration-63 "sharp in exponent" remark
+  corrected** (both bounds are lower bounds; the family's `den ≈ D`). Main
+  frozen at `1c5c19d`.
+- **S7-c (part 1) verified — Step 1: every agreeing run with `z ≠ 0` at its
+  end has `2·3^t < L (3/2)^{m−1} (1 + q/(3L))^{m−1}`; with exactly three
+  mismatches the forward arc between two of them is at most `2(T + 1)` for any
+  uniform run bound `T`, so distinct mismatches have both arcs at least `m −
+  2(T + 1)` (the spacing hypothesis of part 3b)** in `CycleSpectrum.lean`
+  (sha256 `fa53df45…ecce`, 9592 lines, 585 theorems: 487 with the three
+  standard axioms, 41 × `[propext, Quot.sound]`, 55 × `[propext]`, 2 none; no
+  `sorry`): `OddCycle.run_bound_max`, `third_mismatch`, `eq_third`,
+  **`arc_le`**, **`hsep_of_runs`**. Second build (an unascribed real literal
+  defaulted to `ℤ`). Receipts regenerated. Next: S7-c part 2 — Step 5 (the
+  witness index of the third run, `n_le_climb` at it) and Step 6 (the count `m
+  − 3 ≤ 2 t_max + τ_max`); then S7-d (the numeric conditions W, A, F at `m ≥
+  2^19`).
+
 ## Iteration 70 — 2026-10-19, 13:20 -03
 
 - Woken by the sidekick's messages and pushes `52f0303`…`aa2130d`: **S7-b part
