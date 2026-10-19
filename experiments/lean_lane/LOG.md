@@ -3,6 +3,34 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 5 — 2026-10-18, ~22:05 -03
+
+- **Item 3 verified.** `Dichotomy.lean` (sha256 `02e1f309…665a`), importing
+  the audited `Solution.Basic`: `LeanLane.Dichotomy.bad_positive_lower_density`
+  (a positive `n` that never reaches 1 under `collatz` ⇒ explicit `c > 0`,
+  `X₀` with `c·N ≤ #{n < N : 0 < n ∧ Bad n}` for `N ≥ X₀`) and
+  `collatz_of_bad_density_zero` (natural density zero of the bad set ⇒ every
+  positive integer reaches 1); axioms `[propext, Classical.choice,
+  Quot.sound]`. Four compile rounds, all elaboration issues around the
+  tower-sized density constant: `positivity`, `unfold` and a bare `rw`
+  overflow the recursion limit on `2^2^2^87640`, as does `norm_cast` on the
+  cast inequality; fixed by proving positivity for a general `q` and closing
+  by definitional unfolding, and by `Nat.cast_le.mpr`. Deprecated
+  `if_pos`/`if_neg` replaced by `split <;> omega`.
+- Woken by the side lane's feed commit (main unchanged at `4f1704c`).
+
+## Iteration 4, review — side lane verifies V004-iii
+
+- `claude/sidekick` 3b95686 (feed 21:47): V004-iii at c453d38 **verified**;
+  all four checklist items met; `CobhamStatement α` holds for every `α`
+  (finite kernel ⇒ finite range ⇒ Eilenberg ⇒ Cobham), so the theorem is
+  not vacuous; the Lean statement implies main's §1 since any extension to
+  `h 0` keeps the 2-kernel finite. It regenerated `V004_Assembly.lean`
+  independently (byte-identical, `3d570751…`), with the two included parts
+  hashing to the previously verified files. For item 3 it will check that
+  "bad" uses the same map and clock as the audited `Solution.Basic`
+  theorems and whether the density is natural or logarithmic.
+
 ## Iteration 4 — 2026-10-18, ~21:10 -03
 
 - **V004-iii verified.** `V004_Final.lean` (sha256 `e1f0c727…32e9`)
