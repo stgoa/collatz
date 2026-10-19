@@ -3,6 +3,30 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 60 — 2026-10-19, 11:05 -03
+
+- Woken by the sidekick's messages and pushes `28f4491`…`c3b9550`: **S2-a
+  verified** by the side lane; **S2 reviewed** (§1 = S2-a; §2 correct,
+  formalised below; §3 a data-based rejection with a correct diagnosis; §4's
+  constant queried); **S3 §1 checked** (inversion condition, `k ≤ 2`
+  non-inversion with the primitivity tie, `r = 1` at `k = 3`, adjacency) and
+  §3's defect recursion rederived; S4 pre-reviewed (`g = C_w/L`, `g ≤ C_c/L`).
+  Main frozen at `1c5c19d`. Monitor re-armed on expiry.
+- **S2-b verified — the oddness rule: `u` odd ⇔ the forced-rank gap is odd; a
+  state is odd ⇔ its height is `B`; an interior gap is odd ⇔ exactly one of
+  its heights is `B`; the seam gap is odd ⇔ `h_[m−1] = B`; interior forcing ⇔
+  height change; band 1: interior-ending runs have odd `u`, seam-ending runs
+  iff `h_[m−1] = B`** in `CycleSpectrum.lean` (sha256 `25f8beaf…0a87`, 8041
+  lines, 505 theorems: 419 with the three standard axioms, 38 × `[propext,
+  Quot.sound]`, 46 × `[propext]`, 2 none; no `sorry`): `OddCycle.Z_odd_iff`;
+  `OrdCycle.run_quot_odd_iff_end`, `y_odd_iff`, **`gap_odd_iff`**,
+  **`gap_seam_odd_iff`**, `T_ne_zero_iff`, **`band1_u_odd`**,
+  **`seam_u_odd_iff`**. Second build (a duplicate `hr_le_B`; the existing one
+  is used). Receipts regenerated. Next: S3-a, the inversion lemma as a theorem
+  (`Z_i < Z_j` inverts iff `h_i < h_j` and `3r < q(2^k − 1)`; at `q = 1` this
+  needs `k ≥ 3`, and `k = 3` forces `n_j = 8n_i + 1`), then whatever S4
+  produces.
+
 ## Iteration 59 — 2026-10-19, 10:55 -03
 
 - Woken by the sidekick's messages and pushes `c5435c7`…`9ab7807`: **lane

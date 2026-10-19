@@ -6489,6 +6489,29 @@ theorem q_bound_rational_prim (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.
 
 end OddCycle
 
+/-! ### S2-b (part 1): parity of a scaled state -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- A scaled state `Z_i = 2^{B−h_i} n_i` is odd iff its height is `B`. -/
+theorem Z_odd_iff (i : ℕ) : Odd (Γ.Z i) ↔ Γ.h i = Γ.B := by
+  unfold OddCycle.Z
+  constructor
+  · intro h
+    by_contra hne
+    have hlt : Γ.h i < Γ.B := lt_of_le_of_ne (Γ.hB i) hne
+    have hpos : Γ.B - Γ.h i ≠ 0 := Nat.sub_ne_zero_of_lt hlt
+    have heven : Even ((2 : ℤ) ^ (Γ.B - Γ.h i) * Γ.n i) :=
+      (even_two.pow_of_ne_zero hpos).mul_right _
+    exact (Int.not_even_iff_odd.mpr h) heven
+  · intro h
+    rw [h, Nat.sub_self, pow_zero, one_mul]
+    exact Γ.nodd i
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
@@ -7923,6 +7946,94 @@ theorem sum_run_bound (R : Finset ℕ) (hR : ∀ r ∈ R, r < m) (t : ℕ → �
         · intro r hr _
           exact (Ω.N.gap_pos Ω.N_prim Ω.N_rank_zero (Finset.mem_range.mp hr)).le
     _ = Ω.Γ.lo := Ω.sum_gap_eq_lo
+
+/-! #### S2-b (part 2): the oddness rule of the side lane's S2 §2
+
+`u = Δ_{r₀}/2^{E_t}` is odd iff the gap at the run's forced rank is odd (`run_quot_odd_iff_end`,
+from the run law `Δ_{orb r₀ t} = 3^t u`); a sorted state is odd iff its height is `B` (`y_odd_iff`);
+an interior gap is odd iff exactly one of its two heights equals `B` (`gap_odd_iff`); the seam gap
+`2 y_0 − y_{m−1}` is odd iff the top sorted height is `B` (`gap_seam_odd_iff`); interior forcing is a
+change of height (`T_ne_zero_iff`); hence in band `1` every run ending at an interior forced rank
+has odd `u` (`band1_u_odd`), and a seam-ending run has odd `u` iff the top sorted height is `B`
+(`seam_u_odd_iff`). -/
+
+/-- `u = Δ_{r₀}/2^{E_t}` is odd iff the gap at the forced rank `orb r₀ t` is odd. -/
+theorem run_quot_odd_iff_end {r₀ t : ℕ} (hr₀ : r₀ < m)
+    (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0) :
+    Odd (Ω.N.gap r₀ / 2 ^ Ω.E r₀ t) ↔ Odd (Ω.N.gap (Ω.orb r₀ t)) := by
+  rw [Ω.run_end_eq hr₀ hrun, Int.odd_mul]
+  constructor
+  · intro h
+    exact ⟨Odd.pow ⟨1, by norm_num⟩, h⟩
+  · intro h
+    exact h.2
+
+/-- The sorted state of rank `r` is odd iff its height is `B`. -/
+theorem y_odd_iff (r : ℕ) : Odd (Ω.N.y r) ↔ Ω.hr r = Ω.Γ.B := by
+  unfold NarrowCycle.y hr
+  rw [Ω.N_x]
+  exact Ω.Γ.Z_odd_iff _
+
+/-- S2 §2: an interior gap is odd iff exactly one of its two heights equals `B`. -/
+theorem gap_odd_iff {r : ℕ} (hr1 : r + 1 < m) :
+    Odd (Ω.N.gap r) ↔ (Ω.hr (r + 1) = Ω.Γ.B ↔ ¬ Ω.hr r = Ω.Γ.B) := by
+  unfold NarrowCycle.gap
+  rw [Ω.N.yext_of_lt hr1, Ω.N.yext_of_lt (by omega), Int.odd_sub, Ω.y_odd_iff,
+    ← Int.not_odd_iff_even, Ω.y_odd_iff]
+
+/-- S2 §2: the seam gap `2 y_0 − y_{m−1}` is odd iff the top sorted height is `B`. -/
+theorem gap_seam_odd_iff : Odd (Ω.N.gap (m - 1)) ↔ Ω.hr (m - 1) = Ω.Γ.B := by
+  have hm := Ω.Γ.hm
+  have h2 : ¬ Odd (2 * Ω.N.y 0) := Int.not_odd_iff_even.mpr (even_two_mul _)
+  unfold NarrowCycle.gap
+  rw [show m - 1 + 1 = m by omega, Ω.N.yext_m, Ω.N.yext_of_lt (by omega), Int.odd_sub,
+    ← Ω.y_odd_iff]
+  constructor
+  · intro h
+    by_contra hno
+    exact h2 (h.mpr (Int.not_odd_iff_even.mp hno))
+  · intro ho
+    exact ⟨fun h => absurd h h2, fun he => absurd ho (Int.not_odd_iff_even.mpr he)⟩
+
+/-- Interior forcing is exactly a change of height between consecutive ranks. -/
+theorem T_ne_zero_iff {r : ℕ} (hr1 : r + 1 < m) : Ω.T r ≠ 0 ↔ Ω.hr r ≠ Ω.hr (r + 1) := by
+  unfold T offext
+  rw [ite_eq_left hr1, ite_eq_left (by omega : r < m)]
+  unfold off
+  constructor
+  · intro h heq
+    apply h
+    rw [heq]
+    ring
+  · intro hne h0
+    apply hne
+    have hq := Ω.Γ.hq
+    have h1 : (2 : ℤ) ^ (Ω.Γ.B - Ω.hr (r + 1)) * Ω.Γ.q = 2 ^ (Ω.Γ.B - Ω.hr r) * Ω.Γ.q := by
+      linarith
+    have h2 := mul_right_cancel₀ hq.ne' h1
+    have h3 : Ω.Γ.B - Ω.hr (r + 1) = Ω.Γ.B - Ω.hr r :=
+      Nat.pow_right_injective (le_refl 2) (by exact_mod_cast h2)
+    have hb1 := Ω.hr_le_B r
+    have hb2 := Ω.hr_le_B (r + 1)
+    omega
+
+/-- S2 §2, band `1`: a run ending at an interior forced rank has odd `u` (the two heights differ
+and both are at most `1`, so exactly one equals `B = 1`). -/
+theorem band1_u_odd (hB1 : Ω.Γ.B = 1) {r₀ t : ℕ} (hr₀ : r₀ < m)
+    (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0) (hint : Ω.orb r₀ t + 1 < m)
+    (hT : Ω.T (Ω.orb r₀ t) ≠ 0) : Odd (Ω.N.gap r₀ / 2 ^ Ω.E r₀ t) := by
+  rw [Ω.run_quot_odd_iff_end hr₀ hrun, Ω.gap_odd_iff hint]
+  have hne := (Ω.T_ne_zero_iff hint).mp hT
+  have h1 := Ω.hr_le_B (Ω.orb r₀ t)
+  have h2 := Ω.hr_le_B (Ω.orb r₀ t + 1)
+  rw [hB1] at h1 h2 ⊢
+  constructor <;> intro h <;> omega
+
+/-- S2 §2: a run ending at the seam has odd `u` iff the top sorted height is `B`. -/
+theorem seam_u_odd_iff {r₀ t : ℕ} (hr₀ : r₀ < m) (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0)
+    (hseam : Ω.orb r₀ t = m - 1) :
+    Odd (Ω.N.gap r₀ / 2 ^ Ω.E r₀ t) ↔ Ω.hr (m - 1) = Ω.Γ.B := by
+  rw [Ω.run_quot_odd_iff_end hr₀ hrun, hseam, Ω.gap_seam_odd_iff]
 
 end OrdCycle
 
