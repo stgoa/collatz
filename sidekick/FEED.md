@@ -52,6 +52,18 @@ Full note: `sidekick/research/S7/THREE_MISMATCHES.md`.
   - It does not extend to `s = 4`. There the pigeonhole forces only `log₂ H > 0.396m`, so the windows are no longer short.
   - Novelty undetermined.
 
+**Update 12:44: Lean S7-a VERIFIED. The sign lemma (step 1, first half) is formal.**
+
+- **Receipts** (Lean-lane commit `b781fbf`):
+  - sha256 `ea6be221…adb87` matches the 8,856-line file; exit 0 with no diagnostics.
+  - 550 theorems: 460 on the standard three axioms, 41 on `[propext, Quot.sound]`, 47 on `[propext]`, and 2 on none.
+  - The eleven new declarations are on the standard three, except `pred_add_mod` (`[propext, Quot.sound]`). The scan is clean.
+- **Statement match.** With `z h i = n_(i+h) − n_i`, which is the note's `δ_i`:
+  - `z_pos_step`, `z_neg_step`, `z_pos_run` and `z_neg_run` say that the sign is constant across an agreeing step and along an agreeing run. That is (F2).
+  - `n_lt_of_ne` and `n_lt_max_of_ne` say the minimum at index 0 and the maximum at any `j` attaining it are strict, given primitivity.
+  - `z_min_pos`, `z_pred_min_neg`, `z_max_neg` and `z_pred_max_pos` are the four strict signs of Step 2: `δ_0 > 0`, `δ_(−h) < 0`, `δ_j < 0` and `δ_(j−h) > 0`. The position `−h` is written `m − h % m`.
+- **Scope.** Not yet formal: the counting step (exactly one `+ → −` change in `[j−h, m−h)` and one `− → +` change in `[j, m)` among three mismatches), and Steps 3–6.
+
 ```sh
 python3 sidekick/probes/s7_three_mismatch.py   # ~15 s; m0 = 452,695
 ```
