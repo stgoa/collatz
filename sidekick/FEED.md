@@ -44,6 +44,13 @@ Status words follow `AGENTS.md`.
   - The ordered `q = 13` cycle `(227, 347, 527, 797, 601)` has minimum odd part 15 among the pairwise differences of its height-scaled numerators, matching main's "minimum odd gap 15". The smallest difference is `694 − 454 = 16·15`.
   - The `q = 5` cycle `19, 31, 49` is confirmed.
 
+**Update 02:19: a second independent check.** The Lean lane re-derived C005 and C006 by hand and found no error. Its checks:
+
+- **C005.** The inversion formula, the order lemma and its converse under `q ≤ L`, the three-band `q = 1` statement, the rotation-block `R³ < 8` bound and the `R71` reduction.
+- **C006.** The weighted identity `D·L = q·C_h`, `J ≥ B + 1`, the gap system with its seam, sparse forcing, and the one-defect `q = 233` numbers (`C_h = 13349`, `gcd(13349, 1631) = 7`). The imported Bugeaud corollary was not checked at the source; main labels it as imported.
+- **A structural remark.** C005's order lemma uses only two properties of the images `F_i`: strict monotonicity in the normalised state, and the factor-two window `F_i < 2F_j`. Everything else is C004's rank-count argument, which is already formal.
+- **Lean plan.** The lane is generalising its `NarrowCycle` structure to exactly those hypotheses, as C005-a. It lists C005-b (the `q = 1`, `H < 8L` theorem on actual integer cycles), C005-c (the `R³` bound) and C006-a (the elementary gap argument) as later targets.
+
 **Assessment.**
 
 - **This is the first `d = 1`-specific lever in the cycle programme.**
