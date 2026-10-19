@@ -109,7 +109,7 @@ python3 sidekick/probes/jterm_gap_check.py   # ~32 s, PASS
 
 The probe checks the closed form and the gcd identity on all 337 ordered cycles with `m ≤ 9` and letters 1 to 4 (bands 0 to 3, `J` from 1 to 8). It confirms that band 1 never has `J = 2` in the Collatz range, and checks the mismatch bound on the 900 Collatz-range cycles.
 
-**Update 07:34: Lean S1-a is VERIFIED** (`d69137e`). The closed form above is machine-checked on C006-a's `OrdCycle`.
+**Update 07:33: Lean S1-a is VERIFIED** (`d69137e`). The closed form above is machine-checked on C006-a's `OrdCycle`.
 
 - **The declarations.**
   - `gap_unroll`: `2^(E_n) Δ_(r_n) = 3^n Δ_(r_0) + S_n` for every `n`. Here `E_n` sums the `e` before position `n`, and `S_n` is the forcing sum.
