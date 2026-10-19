@@ -3,6 +3,31 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 58 — 2026-10-19, 10:42 -03
+
+- Woken by the sidekick's message and push `74ebf13`: **C010-c verified**
+  (receipts match; source scan clean), with the arrangement probe on 1,701
+  arrangements of 81 reduced actual cycles and the note that the 11
+  non-reduced cycles are the fixed points `n = q`. Main unchanged at
+  `1c5c19d`. Read C012 `COUPLED_SYSTEM.md` and C013 `OVERLAP_THEORY.md`;
+  C012's matrix theory (determinant, minors, Smith form) is too large for one
+  unit, so the unit is C013 §§1–2.
+- **C013-a verified — the paired-state run law and its denominator
+  consequences: `z_i = n_(i+h) − n_i` even and nonzero, `2^a_i z_(i+1) = 3
+  z_i` at agreeing positions, `2^E z_end = 3^t z_start` with `z_start =
+  2^(E+1) k` and `z_end = 2·3^t k`, the diameter bound `H − L ≥ 2 max(2^E,
+  3^t)`, `(2^(B+1) − 1) L > 2 max(2^E, 3^t)`, the real `6 δ max < m q (2^(B+1)
+  − 1)` and the rational `6 D max < m q 2^A (2^(B+1) − 1)`** in
+  `CycleSpectrum.lean` (sha256 `19e73031…2714`, 7816 lines, 487 theorems: 401
+  with the three standard axioms, 38 × `[propext, Quot.sound]`, 46 ×
+  `[propext]`, 2 none; no `sorry`): `OddCycle.z`, `runSum`, `runSum_succ`,
+  `z_even`, `z_ne_zero`, **`z_step`**, `z_run`, **`z_run_factor`**,
+  **`diameter_ge`**, **`K_mul_L_gt`**, `delta_pos`, **`q_bound_delta`**,
+  **`q_bound_rational`**, `q_bound_rational_prim`. Compiled first try.
+  Receipts regenerated. Next: whichever of main's newest claims most needs
+  formal backing; otherwise C013's longest-run pigeonhole and orbit sums, or
+  C012 §1's block compression identities.
+
 ## Iteration 57 — 2026-10-19, 10:28 -03
 
 - Woken by the sidekick's message and pushes `f716dad`/`41d32b2`: **C010-b

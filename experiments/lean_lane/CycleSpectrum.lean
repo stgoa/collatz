@@ -6273,6 +6273,222 @@ theorem clears_q_cgap_iff (hred : IsCoprime Γ.q (Γ.n 0)) (hB : ∃ i, Γ.h i =
 
 end OddCycle
 
+/-! ### C013-a: the paired-state run law and its denominator consequences
+
+C013 `OVERLAP_THEORY.md` §§1–2 on `OddCycle`. For a rotation `h` the paired differences are
+`z_i = n_{i+h} − n_i`: even (`z_even`), and nonzero for a nonidentity rotation of a primitive cycle
+(`z_ne_zero`). At an agreeing position `a_i = a_{i+h}` subtraction of the two arrows gives
+`2^{a_i} z_{i+1} = 3 z_i` (2, `z_step`); over `t` agreeing positions with valuation sum `E`,
+`2^E z_end = 3^t z_start` (`z_run`) and, by coprimality and evenness, `z_start = 2^{E+1} k`,
+`z_end = 2·3^t k` with `k ≠ 0` when the differences are (3, `z_run_factor`). Both endpoints are
+bounded by the diameter, so `H − L ≥ 2 max(2^E, 3^t)` for every upper bound `H` of the states
+(4, `diameter_ge`); with `n_j < 2^{B+1} L` this is `(2^{B+1} − 1) L > 2 max(2^E, 3^t)`
+(5, `K_mul_L_gt`); with (G4)'s `3 L δ ≤ m q` and `δ > 0` it is the real inequality
+`6 δ max(2^E, 3^t) < m q (2^{B+1} − 1)` (6, `q_bound_delta`), and `η = D/2^A ≤ δ` gives the
+rational `6 D max(2^E, 3^t) < m q 2^A (2^{B+1} − 1)` (7, `q_bound_rational`). The run is given by
+its start `i`, its length `t` and the agreement hypothesis; the pigeonhole choice of a long run
+(`t ≥ ⌈m/s⌉ − 1`) and the orbit sums (1) are not part of this unit. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- The paired difference `z_i = n_{i+h} − n_i` for the rotation `h`. -/
+def z (h i : ℕ) : ℤ := Γ.n (i + h) - Γ.n i
+
+/-- The valuation sum `E` of the run of length `t` starting at `i`. -/
+def runSum (i t : ℕ) : ℕ := ∑ j ∈ Finset.range t, Γ.a (i + j)
+
+theorem runSum_succ (i t : ℕ) : Γ.runSum i (t + 1) = Γ.runSum i t + Γ.a (i + t) := by
+  unfold runSum
+  rw [Finset.sum_range_succ]
+
+theorem z_even (h i : ℕ) : Even (Γ.z h i) := by
+  unfold z
+  exact (Γ.nodd _).sub_odd (Γ.nodd _)
+
+/-- Primitivity makes every paired difference of a nonidentity rotation nonzero. -/
+theorem z_ne_zero (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {h : ℕ}
+    (hh : h % m ≠ 0) (i : ℕ) : Γ.z h i ≠ 0 := by
+  intro hz
+  have heq : Γ.n (i + h) = Γ.n i := by
+    unfold z at hz
+    exact sub_eq_zero.mp hz
+  rw [← Γ.n_mod (i + h), ← Γ.n_mod i] at heq
+  have hmod := hprim _ _ (Nat.mod_lt _ Γ.hm) (Nat.mod_lt _ Γ.hm) heq
+  apply hh
+  have h2 := Nat.sub_mod_eq_zero_of_mod_eq hmod
+  rwa [Nat.add_sub_cancel_left] at h2
+
+/-- (2): at an agreeing position the paired differences satisfy the homogeneous arrow. -/
+theorem z_step {h i : ℕ} (ha : Γ.a i = Γ.a (i + h)) :
+    (2 : ℤ) ^ Γ.a i * Γ.z h (i + 1) = 3 * Γ.z h i := by
+  have h1 := Γ.arrow i
+  have h2 := Γ.arrow (i + h)
+  rw [← ha] at h2
+  unfold z
+  rw [Nat.add_right_comm i 1 h]
+  linear_combination h2 - h1
+
+/-- The run law: over `t` agreeing positions starting at `i`, `2^E z_{i+t} = 3^t z_i`. -/
+theorem z_run {h i : ℕ} (t : ℕ) (hagree : ∀ j, j < t → Γ.a (i + j) = Γ.a (i + j + h)) :
+    (2 : ℤ) ^ Γ.runSum i t * Γ.z h (i + t) = 3 ^ t * Γ.z h i := by
+  induction t with
+  | zero => simp [runSum]
+  | succ t ih =>
+    have ih' := ih (fun j hj => hagree j (Nat.lt_succ_of_lt hj))
+    have hstep := Γ.z_step (h := h) (i := i + t) (hagree t (Nat.lt_succ_self t))
+    rw [runSum_succ, pow_add, pow_succ, ← Nat.add_assoc]
+    linear_combination (2 : ℤ) ^ Γ.runSum i t * hstep + 3 * ih'
+
+/-- (3): the endpoints of an agreeing run are `z_end = 2·3^t k` and `z_start = 2^{E+1} k` for one
+integer `k`, which is nonzero when `z_end` is. -/
+theorem z_run_factor {h i : ℕ} (t : ℕ) (hagree : ∀ j, j < t → Γ.a (i + j) = Γ.a (i + j + h)) :
+    ∃ k : ℤ, Γ.z h (i + t) = 2 * 3 ^ t * k ∧ Γ.z h i = 2 ^ (Γ.runSum i t + 1) * k ∧
+      (Γ.z h (i + t) ≠ 0 → k ≠ 0) := by
+  have hrun := Γ.z_run t hagree
+  have hcop : IsCoprime ((3 : ℤ) ^ t) (2 ^ Γ.runSum i t) :=
+    IsCoprime.pow ⟨1, -1, by norm_num⟩
+  have hdvd3 : (3 : ℤ) ^ t ∣ Γ.z h (i + t) := by
+    have h3 : (3 : ℤ) ^ t ∣ 2 ^ Γ.runSum i t * Γ.z h (i + t) := by
+      rw [hrun]
+      exact dvd_mul_right _ _
+    exact hcop.dvd_of_dvd_mul_left h3
+  obtain ⟨k', hk'⟩ := hdvd3
+  have hk'even : Even k' := by
+    have he := Γ.z_even h (i + t)
+    rw [hk'] at he
+    rcases Int.even_mul.mp he with h3 | h3
+    · exact absurd h3 (Int.not_even_iff_odd.mpr (Odd.pow ⟨1, by norm_num⟩))
+    · exact h3
+  obtain ⟨k, hk⟩ := hk'even
+  refine ⟨k, ?_, ?_, ?_⟩
+  · rw [hk', hk]
+    ring
+  · have h3pos : (0 : ℤ) < 3 ^ t := by positivity
+    have h4 : (3 : ℤ) ^ t * Γ.z h i = 3 ^ t * (2 ^ (Γ.runSum i t + 1) * k) := by
+      rw [← hrun, hk', hk]
+      ring
+    exact mul_left_cancel₀ h3pos.ne' h4
+  · intro hne hk0
+    apply hne
+    rw [hk', hk, hk0]
+    ring
+
+/-- (4): both run endpoints are bounded by the diameter, so `H − L ≥ 2 max(2^E, 3^t)` for every
+upper bound `H` of the states, when the run's differences are nonzero. -/
+theorem diameter_ge {h i : ℕ} (t : ℕ) (hagree : ∀ j, j < t → Γ.a (i + j) = Γ.a (i + j + h))
+    (hz : Γ.z h (i + t) ≠ 0) {H : ℤ} (hH : ∀ j, Γ.n j ≤ H) :
+    2 * max ((2 : ℤ) ^ Γ.runSum i t) (3 ^ t) ≤ H - Γ.n 0 := by
+  obtain ⟨k, hend, hstart, hk⟩ := Γ.z_run_factor t hagree
+  have hk1 : (1 : ℤ) ≤ |k| := Int.one_le_abs (hk hz)
+  have hbound : ∀ j, |Γ.z h j| ≤ H - Γ.n 0 := by
+    intro j
+    unfold z
+    rw [abs_le]
+    constructor
+    · linarith [hH j, Γ.nmin (j + h)]
+    · linarith [hH (j + h), Γ.nmin j]
+  rw [mul_max_of_nonneg _ _ (by norm_num : (0 : ℤ) ≤ 2)]
+  apply max_le
+  · have hb := hbound i
+    rw [hstart, abs_mul, abs_of_pos (by positivity : (0 : ℤ) < 2 ^ (Γ.runSum i t + 1))] at hb
+    have h3 : (2 : ℤ) ^ (Γ.runSum i t + 1) * 1 ≤ 2 ^ (Γ.runSum i t + 1) * |k| :=
+      mul_le_mul_of_nonneg_left hk1 (by positivity)
+    have h4 : (2 : ℤ) ^ (Γ.runSum i t + 1) = 2 * 2 ^ Γ.runSum i t := by ring
+    linarith
+  · have hb := hbound (i + t)
+    rw [hend, abs_mul, abs_of_pos (by positivity : (0 : ℤ) < 2 * 3 ^ t)] at hb
+    have h3 : (2 : ℤ) * 3 ^ t * 1 ≤ 2 * 3 ^ t * |k| :=
+      mul_le_mul_of_nonneg_left hk1 (by positivity)
+    linarith
+
+/-- (5): `(2^{B+1} − 1) L > 2 max(2^E, 3^t)`, from (4) with the height bound `n_j < 2^{B+1} L`. -/
+theorem K_mul_L_gt {h i : ℕ} (t : ℕ) (hagree : ∀ j, j < t → Γ.a (i + j) = Γ.a (i + j + h))
+    (hz : Γ.z h (i + t) ≠ 0) :
+    2 * max ((2 : ℤ) ^ Γ.runSum i t) (3 ^ t) < (2 ^ (Γ.B + 1) - 1) * Γ.n 0 := by
+  have hH : ∀ j, Γ.n j ≤ 2 ^ (Γ.B + 1) * Γ.n 0 - 1 := by
+    intro j
+    have h1 := Γ.hhi j
+    have h2 : (2 : ℤ) ^ (Γ.h j + 1) ≤ 2 ^ (Γ.B + 1) :=
+      pow_le_pow_right₀ (by norm_num) (Nat.succ_le_succ (Γ.hB j))
+    have h3 := mul_le_mul_of_nonneg_right h2 Γ.npos.le
+    exact Int.le_sub_one_iff.mpr (lt_of_lt_of_le h1 h3)
+  have h4 := Γ.diameter_ge t hagree hz hH
+  have h5 : (2 ^ (Γ.B + 1) - 1) * Γ.n 0 = (2 : ℤ) ^ (Γ.B + 1) * Γ.n 0 - Γ.n 0 := by ring
+  linarith
+
+/-- `δ = A log 2 − m log 3 > 0`, from `D > 0`. -/
+theorem delta_pos : 0 < (Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3 := by
+  have hD := Γ.D_pos
+  have h1 : (3 : ℝ) ^ m < 2 ^ Γ.Apre m := by
+    have h0 : (3 : ℤ) ^ m < 2 ^ Γ.Apre m := by linarith
+    exact_mod_cast h0
+  have h2 := Real.log_lt_log (by positivity) h1
+  rw [Real.log_pow, Real.log_pow] at h2
+  linarith
+
+/-- (6): the real denominator inequality retaining the height,
+`6 δ max(2^E, 3^t) < m q (2^{B+1} − 1)`. -/
+theorem q_bound_delta {h i : ℕ} (t : ℕ) (hagree : ∀ j, j < t → Γ.a (i + j) = Γ.a (i + j + h))
+    (hz : Γ.z h (i + t) ≠ 0) :
+    6 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) *
+        max ((2 : ℝ) ^ Γ.runSum i t) (3 ^ t) <
+      (m : ℝ) * Γ.q * (2 ^ (Γ.B + 1) - 1) := by
+  have hδ := Γ.delta_pos
+  have hL := Γ.L_mul_delta_le
+  have h5 : 2 * max ((2 : ℝ) ^ Γ.runSum i t) (3 ^ t) < (2 ^ (Γ.B + 1) - 1) * Γ.n 0 := by
+    exact_mod_cast Γ.K_mul_L_gt t hagree hz
+  have hK : (0 : ℝ) < 2 ^ (Γ.B + 1) - 1 := by
+    have h2 : (2 : ℝ) ≤ 2 ^ (Γ.B + 1) := by
+      calc (2 : ℝ) = 2 ^ 1 := by norm_num
+        _ ≤ 2 ^ (Γ.B + 1) := pow_le_pow_right₀ (by norm_num) (by omega)
+    linarith
+  set δ := (Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3 with hδdef
+  set M := max ((2 : ℝ) ^ Γ.runSum i t) (3 ^ t) with hM
+  set K := (2 : ℝ) ^ (Γ.B + 1) - 1 with hKdef
+  calc 6 * δ * M = 3 * δ * (2 * M) := by ring
+    _ < 3 * δ * (K * Γ.n 0) := mul_lt_mul_of_pos_left h5 (by linarith)
+    _ = K * (3 * Γ.n 0 * δ) := by ring
+    _ ≤ K * (m * Γ.q) := mul_le_mul_of_nonneg_left hL hK.le
+    _ = m * Γ.q * K := by ring
+
+/-- (7): the rational consequence `6 D max(2^E, 3^t) < m q 2^A (2^{B+1} − 1)`, through
+`η = D/2^A ≤ δ` (`log x ≤ x − 1` at `x = 3^m/2^A`). -/
+theorem q_bound_rational {h i : ℕ} (t : ℕ) (hagree : ∀ j, j < t → Γ.a (i + j) = Γ.a (i + j + h))
+    (hz : Γ.z h (i + t) ≠ 0) :
+    6 * ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * max ((2 : ℤ) ^ Γ.runSum i t) (3 ^ t) <
+      (m : ℤ) * Γ.q * 2 ^ Γ.Apre m * (2 ^ (Γ.B + 1) - 1) := by
+  have h6 := Γ.q_bound_delta t hagree hz
+  have hA : (0 : ℝ) < 2 ^ Γ.Apre m := by positivity
+  have hx : (0 : ℝ) < 3 ^ m / 2 ^ Γ.Apre m := by positivity
+  have hlog := Real.log_le_sub_one_of_pos hx
+  rw [Real.log_div (by positivity) (by positivity), Real.log_pow, Real.log_pow] at hlog
+  set δ := (Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3 with hδdef
+  have h1 : (1 - δ) * 2 ^ Γ.Apre m ≤ 3 ^ m :=
+    (le_div_iff₀ hA).mp (by linarith)
+  have hD : (2 : ℝ) ^ Γ.Apre m - 3 ^ m ≤ δ * 2 ^ Γ.Apre m := by
+    linear_combination h1
+  have hM : (0 : ℝ) ≤ max ((2 : ℝ) ^ Γ.runSum i t) (3 ^ t) := le_max_of_le_left (by positivity)
+  have hreal : 6 * ((2 : ℝ) ^ Γ.Apre m - 3 ^ m) * max ((2 : ℝ) ^ Γ.runSum i t) (3 ^ t) <
+      (m : ℝ) * Γ.q * 2 ^ Γ.Apre m * (2 ^ (Γ.B + 1) - 1) := by
+    calc 6 * ((2 : ℝ) ^ Γ.Apre m - 3 ^ m) * max ((2 : ℝ) ^ Γ.runSum i t) (3 ^ t)
+        ≤ 6 * (δ * 2 ^ Γ.Apre m) * max ((2 : ℝ) ^ Γ.runSum i t) (3 ^ t) :=
+          mul_le_mul_of_nonneg_right (mul_le_mul_of_nonneg_left hD (by norm_num)) hM
+      _ = 6 * δ * max ((2 : ℝ) ^ Γ.runSum i t) (3 ^ t) * 2 ^ Γ.Apre m := by ring
+      _ < (m : ℝ) * Γ.q * (2 ^ (Γ.B + 1) - 1) * 2 ^ Γ.Apre m := mul_lt_mul_of_pos_right h6 hA
+      _ = (m : ℝ) * Γ.q * 2 ^ Γ.Apre m * (2 ^ (Γ.B + 1) - 1) := by ring
+  exact_mod_cast hreal
+
+/-- (7) under the prose's hypotheses: a primitive cycle and a nonidentity rotation. -/
+theorem q_bound_rational_prim (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {h : ℕ}
+    (hh : h % m ≠ 0) {i : ℕ} (t : ℕ) (hagree : ∀ j, j < t → Γ.a (i + j) = Γ.a (i + j + h)) :
+    6 * ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * max ((2 : ℤ) ^ Γ.runSum i t) (3 ^ t) <
+      (m : ℤ) * Γ.q * 2 ^ Γ.Apre m * (2 ^ (Γ.B + 1) - 1) :=
+  Γ.q_bound_rational t hagree (Γ.z_ne_zero hprim hh _)
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
