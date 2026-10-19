@@ -3,6 +3,27 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 66 — 2026-10-19, 12:41 -03
+
+- Woken by the sidekick's message (`43e0e25`): **S6-b/c verified** by the side
+  lane (independent recheck of the numeric step); **S7 sketch pre-reviewed**
+  (three-mismatch exclusion at `q = 1`: step (1) right, (2) constants agree,
+  (3) right with both window conditions, (4) three questions on the witness).
+  Main frozen at `1c5c19d`.
+- **S7-a verified — the sign lemma: `z` keeps its sign across an agreeing
+  position and along an agreeing run; strict extremes in a primitive cycle;
+  `δ_0 > 0`, `δ_{−h} < 0`, `δ_j < 0`, `δ_{j−h} > 0`** in `CycleSpectrum.lean`
+  (sha256 `ea6be221…db87`, 8856 lines, 550 theorems: 460 with the three
+  standard axioms, 41 × `[propext, Quot.sound]`, 47 × `[propext]`, 2 none; no
+  `sorry`): `OddCycle.z_pos_step`, `z_neg_step`, **`z_pos_run`**,
+  **`z_neg_run`**, `n_lt_of_ne`, `n_lt_max_of_ne`, **`z_min_pos`**,
+  `pred_add_mod`, **`z_pred_min_neg`**, **`z_max_neg`**, **`z_pred_max_pos`**.
+  Second build (`mul_neg_iff_of_pos_left` does not exist — use
+  `mul_neg_of_pos_of_neg` and `neg_of_mul_neg_right`; a lemma with no `Γ` in
+  its statement cannot use `Γ.hm`). Receipts regenerated. Next: review the S7
+  note when it lands; the sign-change counting and the excess-transfer lemma
+  are the formal candidates if (3)–(4) survive.
+
 ## Iteration 65 — 2026-10-19, 12:07 -03
 
 - Woken by the sidekick's message (`f2921dc`): **S6-a verified** by the side

@@ -7134,6 +7134,137 @@ theorem no_two_mismatch_of_gap (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ
     (fun t hmt => numeric_step hm (by exact_mod_cast hL) t hmt) hh
 end OddCycle
 
+/-! ### S7-a: the sign lemma for the paired differences (the side lane's S7 step (1))
+
+At an agreeing position `2^{a_i} z_{i+1} = 3 z_i`, so `z_{i+1}` and `z_i` have the same sign
+(`z_pos_step`, `z_neg_step`), hence the sign is constant along an agreeing run (`z_pos_run`,
+`z_neg_run`). In a primitive cycle the extremes are strict (`n_lt_of_ne`, `n_lt_max_of_ne`), so for
+a nonidentity rotation `δ_0 = n_h − n_0 > 0`, `δ_{−h} = n_0 − n_{−h} < 0` (`z_min_pos`,
+`z_pred_min_neg`), and at an index `j` attaining the maximum `δ_j < 0`, `δ_{j−h} > 0` (`z_max_neg`,
+`z_pred_max_pos`); the position `−h` is `m − h % m`. Sign changes therefore happen only at
+mismatches, and a nonidentity rotation has at least one `+→−` and one `−→+` change; the counting
+of changes among the mismatches is not formalised here. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+theorem z_pos_step {h i : ℕ} (ha : Γ.a i = Γ.a (i + h)) : 0 < Γ.z h (i + 1) ↔ 0 < Γ.z h i := by
+  have hs := Γ.z_step ha
+  have hp : (0 : ℤ) < 2 ^ Γ.a i := by positivity
+  rw [← mul_pos_iff_of_pos_left hp, hs, mul_pos_iff_of_pos_left (by norm_num : (0 : ℤ) < 3)]
+
+theorem z_neg_step {h i : ℕ} (ha : Γ.a i = Γ.a (i + h)) : Γ.z h (i + 1) < 0 ↔ Γ.z h i < 0 := by
+  have hs := Γ.z_step ha
+  have hp : (0 : ℤ) < 2 ^ Γ.a i := by positivity
+  constructor
+  · intro h1
+    have h2 : (2 : ℤ) ^ Γ.a i * Γ.z h (i + 1) < 0 := mul_neg_of_pos_of_neg hp h1
+    linarith
+  · intro h1
+    have h2 : (2 : ℤ) ^ Γ.a i * Γ.z h (i + 1) < 0 := by linarith
+    exact neg_of_mul_neg_right h2 hp.le
+
+theorem z_pos_run {h i : ℕ} (t : ℕ) (hagree : ∀ j, j < t → Γ.a (i + j) = Γ.a (i + j + h)) :
+    0 < Γ.z h (i + t) ↔ 0 < Γ.z h i := by
+  induction t with
+  | zero => simp
+  | succ t ih =>
+    rw [← Nat.add_assoc, Γ.z_pos_step (hagree t (Nat.lt_succ_self t))]
+    exact ih (fun j hj => hagree j (Nat.lt_succ_of_lt hj))
+
+theorem z_neg_run {h i : ℕ} (t : ℕ) (hagree : ∀ j, j < t → Γ.a (i + j) = Γ.a (i + j + h)) :
+    Γ.z h (i + t) < 0 ↔ Γ.z h i < 0 := by
+  induction t with
+  | zero => simp
+  | succ t ih =>
+    rw [← Nat.add_assoc, Γ.z_neg_step (hagree t (Nat.lt_succ_self t))]
+    exact ih (fun j hj => hagree j (Nat.lt_succ_of_lt hj))
+
+/-- The minimum is strict in a primitive cycle. -/
+theorem n_lt_of_ne (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {i : ℕ}
+    (hi : i % m ≠ 0) : Γ.n 0 < Γ.n i := by
+  rcases (Γ.nmin i).lt_or_eq with hlt | heq
+  · exact hlt
+  · exfalso
+    apply hi
+    apply hprim (i % m) 0 (Nat.mod_lt _ Γ.hm) Γ.hm
+    rw [Γ.n_mod]
+    exact heq.symm
+
+/-- An index attaining the maximum is a strict maximum in a primitive cycle. -/
+theorem n_lt_max_of_ne (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {j : ℕ}
+    (hj : ∀ i, Γ.n i ≤ Γ.n j) {i : ℕ} (hi : i % m ≠ j % m) : Γ.n i < Γ.n j := by
+  rcases (hj i).lt_or_eq with hlt | heq
+  · exact hlt
+  · exfalso
+    apply hi
+    apply hprim (i % m) (j % m) (Nat.mod_lt _ Γ.hm) (Nat.mod_lt _ Γ.hm)
+    rw [Γ.n_mod, Γ.n_mod]
+    exact heq
+
+/-- `δ_0 = n_h − n_0 > 0`. -/
+theorem z_min_pos (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {h : ℕ}
+    (hh : h % m ≠ 0) : 0 < Γ.z h 0 := by
+  unfold z
+  rw [Nat.zero_add]
+  linarith [Γ.n_lt_of_ne hprim hh]
+
+/-- The position `−h` is `m − h % m`, and `(m − h % m) + h ≡ 0`. -/
+theorem pred_add_mod (hm : 0 < m) (h : ℕ) : (m - h % m + h) % m = 0 := by
+  have h1 := Nat.div_add_mod h m
+  have h2 := Nat.mod_lt h hm
+  have e : m - h % m + h = m * (h / m + 1) := by
+    rw [Nat.mul_succ]
+    omega
+  rw [e, Nat.mul_mod_right]
+
+/-- `δ_{−h} = n_0 − n_{−h} < 0`. -/
+theorem z_pred_min_neg (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {h : ℕ}
+    (hh : h % m ≠ 0) : Γ.z h (m - h % m) < 0 := by
+  unfold z
+  have h1 : Γ.n (m - h % m + h) = Γ.n 0 := by
+    rw [← Γ.n_mod, pred_add_mod Γ.hm]
+  have h2 : (m - h % m) % m ≠ 0 := by
+    have := Nat.mod_lt h Γ.hm
+    have hpos : 0 < h % m := Nat.pos_of_ne_zero hh
+    rw [Nat.mod_eq_of_lt (by omega)]
+    omega
+  rw [h1]
+  linarith [Γ.n_lt_of_ne hprim h2]
+
+/-- `δ_j = n_{j+h} − n_j < 0` at an index `j` attaining the maximum. -/
+theorem z_max_neg (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {j : ℕ}
+    (hj : ∀ i, Γ.n i ≤ Γ.n j) {h : ℕ} (hh : h % m ≠ 0) : Γ.z h j < 0 := by
+  unfold z
+  have hne : (j + h) % m ≠ j % m := by
+    intro heq
+    apply hh
+    have := Nat.sub_mod_eq_zero_of_mod_eq heq
+    rwa [Nat.add_sub_cancel_left] at this
+  linarith [Γ.n_lt_max_of_ne hprim hj hne]
+
+/-- `δ_{j−h} = n_j − n_{j−h} > 0` at an index `j` attaining the maximum; the position `j − h` is
+`j + (m − h % m)`. -/
+theorem z_pred_max_pos (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {j : ℕ}
+    (hj : ∀ i, Γ.n i ≤ Γ.n j) {h : ℕ} (hh : h % m ≠ 0) : 0 < Γ.z h (j + (m - h % m)) := by
+  unfold z
+  have h1 : Γ.n (j + (m - h % m) + h) = Γ.n j := by
+    rw [← Γ.n_mod, Nat.add_assoc, Nat.add_mod, pred_add_mod Γ.hm, Nat.add_zero, Nat.mod_mod, Γ.n_mod]
+  have h2 : (j + (m - h % m)) % m ≠ j % m := by
+    intro heq
+    have h3 := Nat.mod_lt h Γ.hm
+    have hpos : 0 < h % m := Nat.pos_of_ne_zero hh
+    have h4 : (m - h % m) % m = 0 := by
+      have := Nat.sub_mod_eq_zero_of_mod_eq (Nat.add_comm j (m - h % m) ▸ heq)
+      rwa [Nat.add_sub_cancel] at this
+    rw [Nat.mod_eq_of_lt (by omega)] at h4
+    omega
+  rw [h1]
+  linarith [Γ.n_lt_max_of_ne hprim hj h2]
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
