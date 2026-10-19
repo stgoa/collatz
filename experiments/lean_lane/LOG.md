@@ -3,6 +3,23 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 94 — 2026-10-19, 18:09 -03
+
+- Woken by the monitor (sidekick `1115825`: the S13-a verdict, verified, with
+  the exact `H*` values; then main `36eaf75`: the user merged PR #3, the
+  lane's branch through `95ae39f`, into main at 18:02; the PR body retries for
+  #3 end with the merge, and a new draft PR for the continuing branch is
+  opened right after this commit). Monitor re-armed on expiry (`bj6shntnz`).
+- **S13-c verified — subadditivity of the mismatch count (`mis_card_add`,
+  `mis_card_sub`), the orientation lemma (`mis_card_neg`), the mean-zero
+  partner bound (`sum_mu_eq_zero`, `two_abs_sub_le_varMu`, `mu_le_half_varMu`:
+  `max μ_h ≤ Var(μ_h)/2`) and Corollary 6's inequality (`forced_variation`,
+  `forced_letter_variation`)** in `CycleSpectrum.lean` (sha256
+  `f0177f3c…02a4`, 14,111 lines, 782 theorems: 649 with the three standard
+  axioms, 58 × `[propext, Quot.sound]`, 62 × `[propext]`, 13 none; no
+  `sorry`). First build. Receipts regenerated. Next: S13-d (the averaging step
+  and Corollary 7) or S13-b (the explicit base-2 form).
+
 ## Iteration 93 — 2026-10-19, 17:55 -03
 
 - Woken by the monitor (sidekick `5764d7f`: the S13 review ACK; `55cf217`,

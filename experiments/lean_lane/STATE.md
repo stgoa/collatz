@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 93 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 94 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -114,7 +114,8 @@ receipt binds to the file it certifies.
 | C002-b (part 1) | **Main's proportional-slope denominator theorem (6)–(8).** Blocks `Σu = ar`, `|u| = br`, `Σv = as`, `|v| = bs`, `U = 2^a > V = 3^b`, `w = u^k v^ℓ`, `k, ℓ ≥ 1`, `H_j = U^j − V^j`, `h = gcd(rk, sℓ)`, `L = rk + sℓ`, `E = H_gcd(r,s)`. **`E_dvd_commutator`** (`E ∣ K = D_u C_v − D_v C_u`); **`proportional_gcd_dvd`** ((6): with `K = E J` and any factorisation `|J| = 2^α 3^β J₀`, `gcd(C_w, D_w) ∣ J₀ H_h`, via `D_u G_u(k) = H_M`, `D_v G_v(ℓ) = H_N`, the strong divisibility `gcd(H_M, H_N) = H_h` (`gcd_pow_sub_pow`), C002-a's `g ∣ |K| gcd(G_u, G_v)` and the coprimality of `g` to `6`); **`proportional_den_lower`** ((7), `K ≠ 0`: `U^(L−h) < den(w) J₀`, `U^max(rk,sℓ) < den(w) J₀`, `U^L < (den(w) J₀)²`); **`proportional_rectangle`** ((8): `den(w) ≤ d₀ ⇒ U^max(rk,sℓ) < d₀ J₀`); helpers `pow_sub_pow_dvd_of_dvd` (`x^e − y^e ∣ x^n − y^n` for `e ∣ n`) and `pow_sub_pow_mul_pow_lt` (`H_h U^(L−h) < H_L`, difference `V^h (U^(L−h) − V^(L−h))`). `gcd(a, b) = 1` not needed. **Verified** (iteration 91, first build). | `experiments/cycle_spectrum/C002/PROPORTIONAL.md` §2, (6)–(8) | **verified** | `[propext, Classical.choice, Quot.sound]` (all 6 new declarations) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 742 theorems printed) |
 | C002-b (part 2) | **The degenerate case `K = 0`, in integer form.** `three_C_add_D` (`3 C_(a::z) + D_(a::z) = 2^a C_(z ++ [a])`), `three_C_add_D_rotate` (`3 C_w + D_w = 2^(w₀) C(rot w)`), `two_pow_mul_odd_inj` (the exact power of `2` in an odd multiple is unique), `pos_rotate`, `D_odd'` (`D_w` odd), **`K0_step`** (`C_u D_v = C_v D_u` ⇒ equal first letters and `K = 0` for the rotated pair), `K0_rotate`, **`K0_letters`** (`K = 0` ⇒ `(rot^i u)₀ = (rot^i v)₀` for every `i`: the two infinite valuation words coincide), `period_gcd` (two periods of a sequence give their gcd as a period), `rotate_add_len`, **`K0_common_period`** (`K = 0` ⇒ both words have the period `gcd(|u|, |v|)`), and the three controls `den_122`, `den_13`, `den_4` (`den (1,2,2) = 5`, `den (1,3) = 7`, `den (4) = 13`). Not yet: the list packaging `u = z^(|u|/g)`, `v = z^(|v|/g)` with `z = u.take g`, and `den(u^k v^ℓ) = den z`. **Verified** (iteration 92, second build: `D_rotate` already existed; two unused simp arguments). | `experiments/cycle_spectrum/C002/PROPORTIONAL.md` §2, "Degenerate case K=0" | **verified** | `[propext, Classical.choice, Quot.sound]` (`two_pow_mul_odd_inj`, `K0_step`, `K0_rotate`, `K0_letters`, `K0_common_period`, `den_122`, `den_13`, `den_4`); subsets: `[propext, Quot.sound]` (`three_C_add_D_rotate`, `pos_rotate`, `period_gcd`), `[propext]` (`three_C_add_D`, `rotate_add_len`), `D_odd'` on `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 756 theorems printed) |
 | S13-a | **The rise lemma** (side lane's S13 §§1–2), in natural logs with a uniform `Δ`. `eta` (`η = q/(3 n₀)`), `kappa` (`κ = (log 3 + η)/log 2`), `Phi Δ p` (`Φ_p = log n_p + log 2 + Δ`); `eps_le_eta`, `kappa_mul_log2`, `one_le_kappa`, `Phi_nonneg`, `le_runSum`, `runSum_mono`; (P) **`rise_bound`** (`log n_(i+t) − log n_i ≤ t (log 3 + η) − F log 2`), **`rise_le_mul`** (`log n_(p+d) − log n_p ≤ d (log 3 + η − log 2)`, the uniform `Δ`); (W) **`witness_two_pow`** (`2^(F+1) ∣ n_(i+d) − n_i` on an agreeing run, from `z_run_factor`), **`witness_log`** (`(F + 1) log 2 ≤ log n_i + Δ`; the nonvanishing is `z_ne_zero`, i.e. primitivity); **`run_step`** (`Φ_(u+s) ≤ κ Φ_u` for `s ≤ t + 1` when `[u, u+t)` agrees); **`rise_lemma`** (`Φ_v ≤ κ^(k+1) Φ_u`, `k` the number of mismatches of `[u, v)`; induction on `k`, splitting at the least mismatch); **`rise_from_min`** (`Φ_j ≤ κ^(s+1) Φ_0` for `j ≤ m`, `s = |mis d|`: Corollary 1 in natural logs) and **`rise_from_min_uniform`** (with `Δ = d (log 3 + η − log 2)`). **Verified** (iteration 93, second build: `Finset.range_subset` has a different shape here; `le_or_lt` is `le_or_gt`). | `sidekick/research/S13/RISE_LEMMA.md` §§1–2 (`3509a49`; review ACK `5764d7f`) | **verified** | `[propext, Classical.choice, Quot.sound]` (all 16 new declarations) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 772 theorems printed) |
-| S13 (rest) | S13-b: the orientation lemma `|mis (m − h)| = |mis h|` and the explicit `s(h) ≥ log_κ(1 + B/c) − 1` with `c = ℓ' + 1 + (σ + η)|h|_m` (the base-2 rearrangement of `rise_from_min_uniform`); S13-c: Corollary 5's subadditivity `s(h₁ − h₂) ≤ s(h₁) + s(h₂)`, the mean-zero step `max μ_d ≤ Var(μ_d)/2`, and Corollary 6's forced letter `V_h ≥ 2 (B/(κ^(s+1) − 1) − ℓ' − 1 − δ)` with a letter `≥ V_h/s`; Corollary 7 (`ρ ≥ 1 + max{S : f(S) > a_max}`) is a logical corollary of 6. The numerical thresholds of Corollaries 2, 3, 5–7 inherit EXT-1 (`gap_all`). | S13 §1 (`55cf217`, `1d87059`, `2def4d0`) | queued | — | — |
+| S13-c | **Subadditivity, the orientation lemma and the mean-zero partner bound** (side lane's S13 §1, Corollaries 5–6, and the orientation remark). **`mis_card_le_of_add_mod`** (`h + k ≡ 0 (mod m)` ⇒ `|mis h| ≤ |mis k|`, by the shift `i ↦ (i + h) mod m`), **`mis_card_neg`** (`|mis (m − h)| = |mis h|` for `h ≤ m`: both orientations have the same mismatch count), **`mis_card_add`** (`|mis (h₁ + h₂)| ≤ |mis h₁| + |mis h₂|`), **`mis_card_sub`** (`|mis (h₁ + (m − h₂))| ≤ |mis h₁| + |mis h₂|`, Corollary 5's subadditivity in difference form); `sum_mu_eq_zero` (`Σ_t μ_h(t) = 0`), `exists_mu_nonpos`, **`two_abs_sub_le_varMu`** (`2|μ_h(y) − μ_h(x)| ≤ Var(μ_h)` for `x ≤ y ≤ x + m`: the two arcs exhaust a period), **`mu_le_half_varMu`** (`μ_h(t₀) ≤ Var(μ_h)/2` for every `t₀`: Corollary 6's `Δ⁺ ≤ max μ ≤ Var/2`); **`forced_variation`** (`log n_j − log n₀ ≤ (κ^(s+1) − 1)(log n₀ + log 2 + Var(μ_d)/2)` for `j ≤ m`, `s = |mis d|`) and **`forced_letter_variation`** (the same with `(V_d log 2 + 2δ)/2`, via S12-d's `varMu_le_Vh`): Corollary 6's inequality in natural logs. **Verified** (iteration 94, first build). | `sidekick/research/S13/RISE_LEMMA.md` §1, Corollaries 5–6 (`55cf217`, `1d87059`) | **verified** | `[propext, Classical.choice, Quot.sound]` (all 10 new declarations) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 782 theorems printed) |
+| S13 (rest) | S13-b: the explicit `s(h) ≥ log_κ(1 + B/c) − 1` with `c = ℓ' + 1 + (σ + η)|h|_m` (the base-2 rearrangement of `rise_from_min_uniform`, using `mis_card_neg` for the orientation); S13-d: the averaging step `V_d ≤ |mis d| · max_p |a_p − a_(p+d)|`, so some letter is `≥ V_d/s`, and Corollary 7 (`ρ ≥ 1 + max{S : f(S) > a_max}`) as a logical corollary of `forced_letter_variation`. The numerical thresholds of Corollaries 2, 3, 5–7 inherit EXT-1 (`gap_all`). | S13 §1 (`55cf217`, `1d87059`, `2def4d0`) | queued (S13-c done) | — | — |
 | V006-a | Quadratic separation (main's V006 `overlap.md` §2): for `F` not eventually periodic, the states `Q_(a,t) = F(t₀ + t + s₂(3^a n))` are pairwise distinct (`(a,t) ↦ Q_(a,t)` injective); `Q_(a,t)` lies in the joint section family through depth `a + t`; hence that family through depth `D` has at least `(D+1)(D+2)/2` members (main's (4)); with the digit-count identities (5), (6), (7) (block additivity, complement, balanced quotient, `3^(r+1) ∣ 2^(3^r) + 1`) | `experiments/viewpoints/V006/overlap.md` §2, `QUADRATIC_REVIEW.md` | **verified** (iteration 10): `QuadraticSeparation.lean`, `LeanLane.Quad.Q_injective`, `Q_mem_Reach`, `triangle_encard_le`, `card_triangle`, `reach_encard_ge`, `s2_mul_pow_sub`, `s2_mul_pow_sub_one`, `s2_balanced`, `three_pow_dvd` | `[propext, Classical.choice, Quot.sound]` | `receipts/QuadraticSeparation.{build,axioms,sha256}.txt` |
 | V007-b | Singleton-exit theorem (V007 `separator.md` §§2–4) under the infinitude hypothesis (I): larger unit (bit algebra by `decide`, recursive propagation, tail evaluation formulas) | `experiments/viewpoints/V007/separator.md` | queued (larger) | — | — |
 | 3 | Dichotomy corollary over `Solution.Basic`: a positive bad `n` ⇒ positive lower natural density of the bad set, with explicit constants; contrapositive: density zero of the bad set ⇒ every positive integer reaches 1 | lane-3 analysis; `positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd` | **verified** (iteration 5): `Dichotomy.lean`, `LeanLane.Dichotomy.bad_positive_lower_density`, `collatz_of_bad_density_zero` | `[propext, Classical.choice, Quot.sound]` | `receipts/Dichotomy.{build,axioms,sha256}.txt` |
@@ -2124,7 +2125,41 @@ receipt binds to the file it certifies.
   constraint on any primitive positive cycle of `3x + q`; it says nothing by
   itself about the existence of cycles, and no convergence claim follows.
 
+- S13-c: Corollary 5's subadditivity is stated for the sum `h₁ + h₂`
+  (`mis_card_add`) and for the difference as `h₁ + (m − h₂)` (`mis_card_sub`),
+  the natural-number form of `h₁ − h₂ (mod m)`; the proof is the prose's
+  contrapositive through `a_i = a_(i+h₁) = a_(i+h₁+h₂)`, with the shift `i ↦
+  (i + h₁) mod m` injective on `[0, m)` (`Nat.ModEq.add_right_cancel'`). The
+  orientation lemma `mis_card_neg` is the general shift statement
+  `mis_card_le_of_add_mod` applied both ways; it is what Corollary 1 needs to
+  pass from `s(h)` to the better orientation `d = |h|_m`. The mean-zero step
+  is in natural logs on `μ_h(t) = log n_(t+h) − log n_t`: the sum over a
+  period vanishes (`DK.sum_range_shift`), some value is `≤ 0`, and the two
+  arcs from `x` to `y` and from `y` to `x + m` give `2|μ_h(y) − μ_h(x)| ≤
+  Var(μ_h)` (`DK.abs_sub_le_sum_jumps` twice, `Finset.sum_Ico_consecutive`,
+  the shift invariance of the period sum of the jumps); hence `max μ_h ≤
+  Var(μ_h)/2`, which is the prose's `Δ⁺ ≤ max μ ≤ Var/2` (the run-start
+  maximum is a maximum over positions). `forced_variation` is Corollary 6's
+  inequality in natural logs before dividing by `κ^(s+1) − 1`: `B_nat ≤
+  (κ^(s+1) − 1)(log n₀ + log 2 + Var/2)`; `forced_letter_variation`
+  substitutes S12-d's `Var(μ_d) ≤ V_d log 2 + 2δ` (`δ = A log 2 − m log 3`
+  natural; the prose's `δ` is in bits). The averaging step `V_d ≤ s · max |a_p
+  − a_(p+d)|` and the statement "some letter is `≥ V_d/s`" are not yet formal
+  (S13-d); the counts of Corollary 5 (`156, 540, 1695`) and the thresholds
+  `0.0220m` etc. are numerical consequences with EXT-1 inputs and are not Lean
+  targets. Hypotheses as in S13-a; no convergence claim.
+
 ## Insights sent to the feed
+
+- Iteration 94 (sidekick `1115825`: the S13-a verdict — VERIFIED, receipts
+  match sha `33085b09…3296`, and the exact `H*` values behind Corollary 5's
+  counts: `H*(4)/m = 0.0752456`, `H*(8)/m = 0.0054519`, ratio `155.82`, so
+  `156` is right and my rounding remark is resolved; main moved from `1c5c19d`
+  to `36eaf75`: the user merged the lane's PR #3 into main at 18:02, so main
+  now contains the lane's work through `95ae39f` — not a producer claim; the
+  PR body retries for #3 end with the merge, and a new draft PR for the
+  continuing branch is opened right after this commit). Sent after the build:
+  the S13-c report.
 
 - Iteration 93 (sidekick `5764d7f`: ACK of the S13 review — primitivity
   explicit, orientation fixed, the uniform-`Δ` formal form accepted, `δ` in
