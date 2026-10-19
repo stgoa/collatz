@@ -48,6 +48,22 @@ Full note: `sidekick/research/S12/DENJOY_KOKSMA.md`.
 - **First formalizable statement.** Step (1) at a single convergent denominator. It is offered to the Lean lane.
 - **Labels.** A new tool for the height frontier, conditional in its consequence. Novelty undetermined.
 
+**Update 15:20: a denominator law for any number of mismatches (S12's corollary in the programme's language).**
+
+- **The law.** Chain the longest-run witness, S12's height bound and the `L`-bound. For a primitive word with a rotation `h`, `gcd(h, m) = 1`, having `s` mismatches:
+
+  ```
+  log₂ den(w) > 1 + ⌈(m−s)/s⌉ log₂3 − (V_h + 2δ)·K(h/m) − λ(w).
+  ```
+
+  The height ceiling is no longer needed: S12 bounds the height.
+- **What it means.** For low-variation words (small letter jumps at the mismatches) with tame `h/m`, the denominator is exponentially large for every fixed `s`, not only `s ≤ 3` as in S9.
+- **Checks** (`s12_dk_denominator_law.py`, ~6 s). There are no violations on:
+  - every primitive word over `{1,2,3}` up to length 12 with every coprime rotation (360,284 pairs);
+  - all actual cycles with `q < 2,000` (52,484 pairs);
+  - random near-critical low-variation chain words with 4–10 mismatches up to `m = 3,200` (18 non-vacuous cases, slack ≥ 547 bits).
+- **Scope.** The law is conditional on small `V_h·K`. Tall words with a big jump at a mismatch make it vacuous, as in S12 §4.
+
 ```sh
 python3 sidekick/probes/s12_denjoy_koksma.py   # ~23 s
 ```
@@ -269,6 +285,22 @@ Full note: `sidekick/research/S9/DENOMINATOR_LAW.md`.
   - Law (iii)'s bound on `λ(w)` from the gap is not included.
   - Law (ii), for three mismatches, is skipped.
   - At `q = 1` the law is weaker than S6's exclusion. Its content is the general-`q` family.
+
+**Update 15:20: Lean S9-c VERIFIED. Law (ii), the three-mismatch denominator law in the linear form `log₂ q > m/70 − δ(w) − λ(w)`, is formal.**
+
+- **Receipts** (Lean-lane file sha256 `3523e28e…15e3645e`, 11,270 lines, at `901b3c9`):
+  - 635 theorems: 535 on the standard three axioms, 41 on `[propext, Quot.sound]`, 57 on `[propext]`, and 2 on none. The seven new declarations are on the standard three.
+  - Exit 0, first build; the scan is clean.
+- **Statement match.**
+  - `n_le_drift`: `n_k ≤ L (3/2)^k · 2^A/3^m`.
+  - `three_mismatch_witness_drift`: S7 Step 5 with the drift ceiling.
+  - `numeric_WA_drift` and `numeric_F_drift`, at `Λ ≤ (m/70) log 2` and `m ≥ 2^19`.
+  - `no_three_mismatch_of_small_drift`: `log L + δ ≤ (m/70) log 2` implies `|mis h| ≠ 3`, with no gap and no `L/q` hypothesis.
+  - `three_mismatch_denominator_law`: `(m/70) log 2 < log q + δ + λ`, at odd `q` with `|mis h| = 3` and `m ≥ 2^19`.
+  - The constant `1/70` matches this lane's computation, `sup Λ₃(m)/m = 0.01457`.
+- **The formal package.** With S9-b: a primitive `3x+q` cycle whose word has a rotation with exactly two (any `m`) or three (`m ≥ 2^19`) mismatches satisfies `log₂ q > Φ_s(m) − δ(w) − λ(w)`, with `Φ₂ ≈ 0.2075m` and `Φ₃ = m/70`.
+  - Missing glue: the identification `q = den(w)`. The Lean lane is checking whether the file's word objects support it (S9-d).
+- **Remark (the Lean lane's).** A uniform constant needs `λ(w)` kept symbolic. In the per-step formulation with the gap substituted, even `log₂ q ≤ m/128` fails condition W at `2^19` by about 7,300.
 
 ```sh
 python3 sidekick/probes/s9_denominator_law.py   # ~30 s

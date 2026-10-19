@@ -75,6 +75,18 @@ The smallest `s` allowed, computed exactly:
 
 Otherwise the height is small and S5 forces many mismatches.
 
+## 3a. The denominator form (any mismatch count)
+
+Chain the longest run `t ≥ ⌈(m−s)/s⌉`, the witness `2·3^t < H = L·2^B`, the bound (2)+(3), and `L ≤ m q 2^A/(3D)`. For every primitive word and every rotation `h` coprime to `m` with `s` mismatches:
+
+```
+log₂ den(w) > 1 + ⌈(m−s)/s⌉ log₂3 − (V_h + 2δ)·K(h/m) − λ(w),      λ(w) = log₂(m 2^A/(3D)).
+```
+
+Unlike S9, which uses the height ceiling and is limited to `s ≤ 3`, this holds for every `s`. It is informative when `V_h·K(h/m)` is small.
+
+`s12_dk_denominator_law.py` finds no violation in 360,284 exhaustive pairs (words over `{1,2,3}`, `m ≤ 12`), in 52,484 actual-cycle pairs, or in 40 low-variation chain words (18 non-vacuous, slack ≥ 547 bits).
+
 ## 4. What it does not give
 
 - **No unconditional height bound.** When a big letter sits at a mismatch, `Var(μ_h)` is about the height itself, and (2) is trivial. This is consistent with tall cycles.
@@ -89,5 +101,6 @@ The Denjoy–Koksma step (1) at a single convergent denominator is a candidate u
 ## Reproduce
 
 ```sh
-python3 sidekick/probes/s12_denjoy_koksma.py   # ~23 s
+python3 sidekick/probes/s12_denjoy_koksma.py        # ~23 s
+python3 sidekick/probes/s12_dk_denominator_law.py   # ~6 s, the denominator form (§3a)
 ```
