@@ -28,6 +28,57 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 22:10 — REFEREE V005 (main `85a07c2`, quantitative rigidity, first batch): sound partial results; main's counterexample to Bell's printed Conjecture 3.4 is confirmed; also VERIFIED Lean item 4 (partial)
+
+**Goal.** Main has activated the `κ_h(D)/D` target: `docs/QUANTITATIVE_RIGIDITY_BRIEF.md` makes it the active goal. The batch honestly reports it as open.
+
+**1. The sparse control refutes Bell's Conjecture 3.4 as printed. Confirmed.**
+
+- **The conjecture.** I extracted the text from the CIRM PDF (Bell, "Cobham's theorem and its extensions", Actes des rencontres du CIRM 1, 2009).
+  - Definition 4 is the cumulative count `G(f;k;m)` of distinct sections `f(k^a n + b)`, `a ≤ m`, `b < k^a`, exactly main's `G_k`.
+  - Definition 5 is `Dim_k = limsup log G / log m`.
+  - Conjecture 3.4 says that a finite-valued `f` with `Dim_k` and `Dim_ℓ` both finite, for multiplicatively independent `k` and `ℓ`, is eventually periodic.
+- **The example.** For `f = 1_{6^(2^j)}`, I computed `G_2` and `G_3` **exactly**, not from finite prefixes, using `v_p(6^e) = e` (`v005_sparse_growth_check.py`).
+  - Zero-offset sections are `D+1` distinct infinite sets.
+  - Every other section is empty or a singleton `{⌊6^e/p^a⌋}`.
+  - Results: `G_2 = 2273`, `G_3 = 1631` at `D = 1000`. The largest slopes over the tested `D` are 2.32 and 1.74, inside main's bounds `5D+3` and `3D+3`.
+  - So both dimensions equal 1, and `f` is not eventually periodic.
+- **Why the count is linear.** A single-point section `⌊6^e/2^a⌋` becomes `δ_0` once `a > e·log₂6`, so each `e` contributes at most about `1.6e` distinct functions. The Lean lane flagged this as easy to get wrong.
+- **Literature.** A quick search found no published correction, consistent with main's bounded search. Novelty is undetermined.
+
+**2. This supersedes part of my 21:26 note.** I wrote that excluding linear growth of `b` "in both bases" would be a linear-complexity Cobham theorem. Main's example shows the *separate* two-base version is false. Any route of that kind has to use the **joint** family `b(2^i 3^j n + r)`, as V005 now does (`J_D(b) ⊆ K⁺_(1+4D)(h)`, matching my d-uniform closure), or the scalar identities themselves.
+
+**3. The scalar interface is equivalent to the invariant equations. Checked by hand.** Suppose `b(3n) = b(4n)`, `b(3n+2) = b(2n+1)` and `b(4n+2) = b(n)`. Set `h(x) = b((oddpart x − 1)/2)`. Then `h(3n+1) = h(n)` for odd `n` reduces to `h(3m+2) = b(m)`, which follows by strong induction on `m`:
+
+- `m` odd uses identity 2;
+- `m ≡ 0 (mod 4)` uses identity 1;
+- `m ≡ 2 (mod 4)` uses identity 3 and recurses to `m' = (m − 2)/4`.
+
+The forward direction is already Lean-checked (B1, B2, B4 in `OddEventuallyPeriodic.lean`). The lane has queued the converse.
+
+**Calibration.**
+
+- **This is a self-contained problem in automata theory.**
+  - The quantitative reconstruction bound `κ_h(D) ≤ 1 + (C_g κ_g(D−1))^M` is polynomial, so it cannot exclude linear growth, as main says.
+  - The real question is whether the three scalar identities force non-overlapping section families.
+- **It still does not touch the convergence problem**, for the reasons in my 21:26 note: the analogue for `3x + d` should hold verbatim for non-periodic invariants.
+
+**Lean item 4, partial (`claude/lean-lane` `2789674`): VERIFIED.**
+
+- **Theorems.** `PairObligation.lean` uses `collatzAccel n = (3n+1)/2^(v₂(3n+1))` from the audited library. I checked its definition in `StatementAudit.lean` on main.
+  - `S(4u+1) = S(u)` and `S(3(4u+1)) = 18u+5` for all `u`.
+  - `pair_iff`: the W5 obligation at `w = 4u+1` is exactly "the orbits of `u` and `18u+5` meet".
+  - `collatz_imp_pairs_meet`: the easy direction of R.1.
+- **Receipts.** Axioms are the standard three. The `decide` uses only evaluate `collatz^[3] 1 = 1` and the parity of 4 and 2. The sha256 `3b0e6d2e…` matches the receipt, and the build has no diagnostics.
+- **Scope.** The converse of R.1 is stated as a `Prop` (`R1Converse`) and not asserted. There is no `sorry`.
+- **The lane's remark, checked.** A minimal-counterexample argument for the converse stalls. A preimage `(2^a m − 1)/3 ≡ 23 (mod 36)` of a component minimum `m` forces `a = 1` (from `2^a m ≡ 70 mod 108`) and `m ≡ 35 (mod 54)`. So R.1's `⇐` direction carries the whole frozen framework (R25, R37, R40, R43), and "R.1 is a reformulation" holds only for the `⇒` direction.
+
+```sh
+python3 sidekick/probes/v005_sparse_growth_check.py     # exact G_2, G_3; PASS
+```
+
+---
+
 ## 2026-10-18 21:57 — VERIFIED Lean queue item 3 (`claude/lean-lane` `b980e52`): the empty-or-positive dichotomy is machine-checked over the audited C.1a library
 
 **The theorems.** `experiments/lean_lane/Dichotomy.lean` imports `Solution.Basic` from AxiomMath `CollatzPosDens` @`3a38bfbb`, the library audited in PR #2. Write `Bad n := ∀ k, collatz^[k] n ≠ 1`, using the ordinary map.
