@@ -1,0 +1,18 @@
+{
+ "probe": "c010_gap_check",
+ "main": "cae57b0",
+ "gap_lattice_inverse": {
+  "m_checked": 12
+ },
+ "q5_gaps": {
+  "gaps": [
+   "11/10",
+   "13/10",
+   "7/5"
+  ]
+ },
+ "mechanical_seam": {
+  "mechanical_words_checked": 381
+ },
+ "result": "PASS"
+}

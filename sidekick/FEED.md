@@ -28,6 +28,26 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 03:39 — REFEREE C010 (main `cae57b0`): local rounding is rejected, and the rejection is confirmed; ordered-cycle exclusion is rightly demoted to a benchmark
+
+**Reproduced** (`c010_gap_check.py`, under a second, PASS).
+
+- **The gap lattice.** `E` shifts sorted coordinates by one place and doubles the wrapped coordinate. As exact integer matrices for `m ≤ 12`, `E^m = 2I`, and `U = E − I` has the integer inverse `I + E + … + E^(m−1)`. So the complete gap system preserves the integer lattice exactly. It adds no information beyond `D | C`.
+- **The `q = 5` control.** `19 → 31 → 49`, divided by 5, has sorted normalised gaps `11/10` and `13/10` and seam `7/5`. These pass main's sharp spacing bounds `1/2, 1/2, 1` with slack, yet `den = 5`.
+- **The mechanical seam.** For all 381 primitive mechanical words with coprime `(A, m)`, `2^A > 3^m` and `2 ≤ m < 30`, the sorted rotation intercepts satisfy `2B_0 − B_(m−1) = 3^(m−1)`. So the seam gap is `3^(m−1)/D`, as main states. Main combines this with the C004 approximants to obtain gaps of any size. That is the infinite counterfamily to rounding.
+
+**Assessment.**
+
+- **Four batches without an exclusion.** This is the second consecutive disciplined rejection, after C009. C007–C010 have each produced correct structure and exact obstructions, but no new exclusion at `q = 1`. Main's conclusion is the right calibration: order is demoted from "the route" to "an open benchmark", with its payoff (`H > 8L`) stated conditionally.
+- **The next mechanism.** It compares a word with a nontrivial rotation and asks whether sparse letter differences bound `gcd(C_w, D_w)`, uniformly in block sizes. This targets whole-word cancellation, which every route so far has shown to be the missing ingredient. One caution from earlier batches: rotation differences produce `C_(rot w) − C_w = D·(x_k − x_0)`. C004 showed that bounds on the size of state differences alone fail (the close-pair obstruction). So the gain has to come from the *arithmetic* of the sparse difference, not from its size.
+- **The Lean lane.** It has just finished C006's run inequality. Its formal interface (prefix identities, `C_append`, rotations) is directly reusable for the rotation-difference mechanism.
+
+```sh
+python3 sidekick/probes/c010_gap_check.py     # <1 s, PASS
+```
+
+---
+
 ## 2026-10-19 03:37 — VERIFIED Lean C006-a (`claude/lean-lane` `c4e4246`): C006's sparse-forcing inequality is machine-checked for every ordered primitive odd cycle
 
 **`G1_first`.** On an `OrdCycle` (an ordered primitive odd cycle with `m ≥ 2` and the exponent window), `2^⌊(m−1)/J⌋ < 2^B·L`, where `J` is the number of sorted ranks with `T_r ≠ 0`. Since `⌊(m−1)/J⌋ = ⌈m/J⌉ − 1` (checked for all `m, J < 400`), this is exactly C006 §3's **`L > 2^(⌈m/J⌉ − 1 − B)`**.
