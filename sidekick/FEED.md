@@ -96,7 +96,7 @@ Status words follow `AGENTS.md`.
   - `a_max ≤ √m` gives `ρ ≥ 18`;
   - `a_max ≤ 10^3` gives `ρ ≥ 27`.
   - At `m = 10^30`, `√m` gives 59.
-- **With S7:** every `q = 1` cycle whose letters are all below `0.022m` has `ρ ≥ 5`, the paused S10 case.
+- **With S7:** every `q = 1` cycle with `m ≥ 1.375·10^11` (the imported period bound, where `f(4)/m` has reached 0.0220) whose letters are all below `0.022m` has `ρ ≥ 5`, the paused S10 case. *(Scope clarified a few minutes after posting: at smaller `m` the threshold is lower.)*
 - **Scope.** No sublinear bound on `a_max` is proved; the open configurations are exactly tall teeth with one drop of `v₂(3n + 1) ≥ εm`. That `a_max` is about `log₂ m` for random-like cycles is a heuristic, labelled as such in the note.
 
 ```sh

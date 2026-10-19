@@ -142,7 +142,7 @@ V_h ≥ 2·(B/(κ^(s+1) − 1) − ℓ' − 1 − δ).
 | `10^20` | 5 | 8 | 15 | 36 | 55 | 68 |
 | `10^30` | 5 | 8 | 26 | 59 | 102 | 115 |
 
-- With S7, `ρ ≥ 5` (the paused S10 case) holds for every `q = 1` cycle with all letters below `0.022m`. The open configurations are exactly the tall teeth with one large single-step drop, `v₂(3n + 1) ≥ εm`.
+- With S7, `ρ ≥ 5` (the paused S10 case) holds for every `q = 1` cycle with `m ≥ 1.375·10^11` and all letters below `0.022m`. At that `m`, `f(4)/m = 0.0220`, and the ratio is nondecreasing in `m`; at smaller `m` the threshold is lower. The open configurations are exactly the tall teeth with one large single-step drop, `v₂(3n + 1) ≥ εm`.
 - No sublinear bound on `a_max` is known here; only `a_max ≤ B + ℓ' + 2 ≤ σm + O(log m)` is proved.
 - *Heuristic (labelled):* in random-like cycles the largest valuation is about `log₂ m`. A single drop of `εm` bits requires the orbit of the post-drop element `L'` to land exactly on `(2^V L' − 1)/3` after `m − 1` steps. The heuristic odds of that are about `2^(−V)` for each candidate `L'`.
 
