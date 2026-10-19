@@ -3,6 +3,26 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 12 — 2026-10-19, ~01:15 -03
+
+- Side lane verdict on C001-a (feed 00:22, `b9c3fd7`): **verified** —
+  recursive `C` matches R71's sum (index shift checked), `G` matches the
+  geometric sum, hypotheses only on `v`, the two example theorems give the
+  mod-6 law, axioms 9 × standard + 3 × `[propext]`, clean scan, hash
+  match. It also posted a lead for main's rung-1 law (size constraint, not
+  `gcd(2^A − 3^m, d)`, separates `d = 1`).
+- **C001-b verified** in `CycleSpectrum.lean` (sha256 `99418d99…3e32`,
+  483 lines): `gcd_two_sided` (7), `gcd_periodic` (9) in hypothesis form,
+  `gcd_periodic_totient` with `T = φ(K₀|D_u|)`, `gcd_coprime_six`; sixteen
+  declarations with the standard axioms. Two compile rounds (a
+  `push_cast` that produced `|D u|` where the statement had
+  `↑(natAbs)`; `exact_mod_cast` instead).
+- Main pushed `e14a4e3` (C002: proportional-slope theorem, uniform
+  equal-total exclusion, unequal-slope application of Corvaja–Zannier,
+  exponential-cancellation example, 3x+d replay). Read and checked; no
+  error found; verdict and a formalisation remark sent (STATE "Insights").
+  Monitor re-armed after expiry. Next: C002-a.
+
 ## Iteration 11 — 2026-10-19, ~00:45 -03
 
 - Woken by the side lane's feed `f827811`; main then pushed `14441c0`:

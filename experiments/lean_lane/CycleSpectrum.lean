@@ -291,5 +291,193 @@ theorem gcd_example (k : ℕ) :
     (by norm_num [D, Int.isCoprime_iff_gcd_eq_one])
   rwa [show D [1, 1, 3] * C [2] - D [2] * C [1, 1, 3] = -14 by norm_num [C, D]] at h
 
+/-! ### Main's (7): the two-sided bound without a coprimality premise -/
+
+/-- The cancellation factor is coprime to `6`. -/
+theorem gcd_coprime_six (u v : List ℕ) (k : ℕ) (hv : ∀ a ∈ v, 1 ≤ a) (hv0 : v ≠ []) :
+    Nat.Coprime (Int.gcd (C (rep u k ++ v)) (D (rep u k ++ v))) 6 := by
+  have hgD : ((Int.gcd (C (rep u k ++ v)) (D (rep u k ++ v)) : ℕ) : ℤ) ∣ D (rep u k ++ v) :=
+    Int.gcd_dvd_right _ _
+  set g : ℕ := Int.gcd (C (rep u k ++ v)) (D (rep u k ++ v)) with hg
+  have hsum : 1 ≤ (rep u k ++ v).sum := by
+    rw [List.sum_append]
+    have := one_le_sum_of_ne_nil hv0 hv
+    omega
+  have hlen : 1 ≤ (rep u k ++ v).length := by
+    rw [List.length_append]
+    have : 1 ≤ v.length := List.length_pos_of_ne_nil hv0
+    omega
+  have h2 : ¬ 2 ∣ g := fun h =>
+    D_odd hsum ((by exact_mod_cast h : (2 : ℤ) ∣ (g : ℤ)).trans hgD)
+  have h3 : ¬ 3 ∣ g := fun h =>
+    D_not_three_dvd hlen ((by exact_mod_cast h : (3 : ℤ) ∣ (g : ℤ)).trans hgD)
+  show Nat.Coprime g (2 * 3)
+  exact Nat.Coprime.mul_right ((Nat.Prime.coprime_iff_not_dvd Nat.prime_two).mpr h2).symm
+    ((Nat.Prime.coprime_iff_not_dvd Nat.prime_three).mpr h3).symm
+
+/-- **Main's (7).** With `H = gcd(D_k, K)` and `e = gcd(H, |D_u|)`:
+`H/e ∣ gcd(C_k, D_k) ∣ H`, with no coprimality premise. -/
+theorem gcd_two_sided (u v : List ℕ) (k : ℕ) (hv : ∀ a ∈ v, 1 ≤ a) (hv0 : v ≠ []) :
+    Int.gcd (D (rep u k ++ v)) (D u * C v - D v * C u)
+        / Nat.gcd (Int.gcd (D (rep u k ++ v)) (D u * C v - D v * C u)) (D u).natAbs
+      ∣ Int.gcd (C (rep u k ++ v)) (D (rep u k ++ v)) ∧
+    Int.gcd (C (rep u k ++ v)) (D (rep u k ++ v))
+      ∣ Int.gcd (D (rep u k ++ v)) (D u * C v - D v * C u) := by
+  have hHD : ((Int.gcd (D (rep u k ++ v)) (D u * C v - D v * C u) : ℕ) : ℤ) ∣
+      D (rep u k ++ v) := Int.gcd_dvd_left _ _
+  have hHK : ((Int.gcd (D (rep u k ++ v)) (D u * C v - D v * C u) : ℕ) : ℤ) ∣
+      D u * C v - D v * C u := Int.gcd_dvd_right _ _
+  set H : ℕ := Int.gcd (D (rep u k ++ v)) (D u * C v - D v * C u) with hH
+  refine ⟨?_, Int.dvd_gcd (Int.gcd_dvd_right _ _) (gcd_dvd_K u v k hv hv0)⟩
+  have hdvd : (H : ℤ) ∣ D u * C (rep u k ++ v) := by
+    have e : D u * C (rep u k ++ v)
+        = C u * D (rep u k ++ v) + (2 ^ u.sum) ^ k * (D u * C v - D v * C u) := by
+      have := commutator u v k
+      linear_combination this
+    rw [e]
+    exact dvd_add (dvd_mul_of_dvd_right hHD _) (dvd_mul_of_dvd_right hHK _)
+  have hdvdN : H ∣ (D u).natAbs * (C (rep u k ++ v)).natAbs := by
+    rw [← Int.natAbs_mul]
+    exact Int.natCast_dvd.mp hdvd
+  set e : ℕ := Nat.gcd H (D u).natAbs with he
+  have hsum : 1 ≤ (rep u k ++ v).sum := by
+    rw [List.sum_append]
+    have := one_le_sum_of_ne_nil hv0 hv
+    omega
+  have hDw0 : D (rep u k ++ v) ≠ 0 := fun h0 => D_odd hsum (h0 ▸ dvd_zero 2)
+  have hH0 : 0 < H := Int.gcd_pos_of_ne_zero_left _ hDw0
+  have he0 : 0 < e := Nat.gcd_pos_of_pos_left _ hH0
+  have heH : e ∣ H := Nat.gcd_dvd_left _ _
+  have heD : e ∣ (D u).natAbs := Nat.gcd_dvd_right _ _
+  have hcop : Nat.Coprime (H / e) ((D u).natAbs / e) := Nat.coprime_div_gcd_div_gcd he0
+  have hdiv : H / e ∣ (D u).natAbs / e * (C (rep u k ++ v)).natAbs := by
+    apply Nat.dvd_of_mul_dvd_mul_left he0
+    rw [Nat.mul_div_cancel' heH, ← mul_assoc, Nat.mul_div_cancel' heD]
+    exact hdvdN
+  have h1 : H / e ∣ (C (rep u k ++ v)).natAbs := hcop.dvd_of_dvd_mul_left hdiv
+  have h2 : H / e ∣ (D (rep u k ++ v)).natAbs :=
+    (Nat.div_dvd_of_dvd heH).trans (Int.natCast_dvd.mp hHD)
+  exact Nat.dvd_gcd h1 h2
+
+/-! ### Main's (9): the cancellation factor is periodic in `k` -/
+
+/-- Cancelling a nonzero factor `a` presented through `|a|`. -/
+theorem dvd_of_mul_natAbs_dvd {n : ℕ} {a X : ℤ} (ha : a ≠ 0)
+    (h : ((n * a.natAbs : ℕ) : ℤ) ∣ a * X) : (n : ℤ) ∣ X := by
+  have h' : n * a.natAbs ∣ a.natAbs * X.natAbs := by
+    rw [← Int.natAbs_mul]
+    exact Int.natCast_dvd.mp h
+  rw [mul_comm] at h'
+  exact Int.natCast_dvd.mpr (Nat.dvd_of_mul_dvd_mul_left (Int.natAbs_pos.mpr ha) h')
+
+/-- **Main's (9).** Write `|K| = 2^a 3^b K₀`. If `Q^T ≡ P^T ≡ 1 (mod K₀|D_u|)`, then the
+cancellation factor has period `T`: `gcd(C_{k+T}, D_{k+T}) = gcd(C_k, D_k)` for every `k`. -/
+theorem gcd_periodic (u v : List ℕ) (hu : ∀ a ∈ u, 1 ≤ a) (hu0 : u ≠ [])
+    (hv : ∀ a ∈ v, 1 ≤ a) (hv0 : v ≠ []) (a b K₀ : ℕ)
+    (hK : (D u * C v - D v * C u).natAbs = 2 ^ a * 3 ^ b * K₀) (T : ℕ)
+    (hQ : (2 ^ u.sum) ^ T ≡ 1 [MOD K₀ * (D u).natAbs])
+    (hP : (3 ^ u.length) ^ T ≡ 1 [MOD K₀ * (D u).natAbs]) (k : ℕ) :
+    Int.gcd (C (rep u (k + T) ++ v)) (D (rep u (k + T) ++ v))
+      = Int.gcd (C (rep u k ++ v)) (D (rep u k ++ v)) := by
+  have hDu : D u ≠ 0 := fun h0 => D_odd (one_le_sum_of_ne_nil hu0 hu) (h0 ▸ dvd_zero 2)
+  -- the two congruences, in `ℤ`
+  have hQZ : ((K₀ * (D u).natAbs : ℕ) : ℤ) ∣ ((2 : ℤ) ^ u.sum) ^ T - 1 := by
+    have := hQ.symm.dvd
+    exact_mod_cast this
+  have hPZ : ((K₀ * (D u).natAbs : ℕ) : ℤ) ∣ ((3 : ℤ) ^ u.length) ^ T - 1 := by
+    have := hP.symm.dvd
+    exact_mod_cast this
+  have hK₀L : (K₀ : ℤ) ∣ ((K₀ * (D u).natAbs : ℕ) : ℤ) := by
+    push_cast
+    exact dvd_mul_right _ _
+  have hK₀Q : (K₀ : ℤ) ∣ ((2 : ℤ) ^ u.sum) ^ T - 1 := hK₀L.trans hQZ
+  have hK₀P : (K₀ : ℤ) ∣ ((3 : ℤ) ^ u.length) ^ T - 1 := hK₀L.trans hPZ
+  -- `K₀ ∣ G_{k+T} − G_k`
+  have hGdiff : D u * (G (2 ^ u.sum) (3 ^ u.length) (k + T) - G (2 ^ u.sum) (3 ^ u.length) k)
+      = (2 ^ u.sum) ^ k * (((2 : ℤ) ^ u.sum) ^ T - 1)
+        - (3 ^ u.length) ^ k * (((3 : ℤ) ^ u.length) ^ T - 1) := by
+    have h1 := G_mul (2 ^ u.sum) (3 ^ u.length) (k + T)
+    have h2 := G_mul (2 ^ u.sum) (3 ^ u.length) k
+    simp only [D]
+    linear_combination h1 - h2
+  have hK₀G : (K₀ : ℤ) ∣ G (2 ^ u.sum) (3 ^ u.length) (k + T) - G (2 ^ u.sum) (3 ^ u.length) k := by
+    apply dvd_of_mul_natAbs_dvd hDu
+    rw [hGdiff]
+    exact dvd_sub (dvd_mul_of_dvd_right hQZ _) (dvd_mul_of_dvd_right hPZ _)
+  -- `C` and `D` are periodic modulo `K₀`
+  have hC : (K₀ : ℤ) ∣ C (rep u (k + T) ++ v) - C (rep u k ++ v) := by
+    rw [C_w, C_w]
+    have e : (3 ^ v.length * (C u * G (2 ^ u.sum) (3 ^ u.length) (k + T))
+          + (2 ^ u.sum) ^ (k + T) * C v)
+        - (3 ^ v.length * (C u * G (2 ^ u.sum) (3 ^ u.length) k) + (2 ^ u.sum) ^ k * C v)
+        = 3 ^ v.length * C u
+            * (G (2 ^ u.sum) (3 ^ u.length) (k + T) - G (2 ^ u.sum) (3 ^ u.length) k)
+          + (2 ^ u.sum) ^ k * (((2 : ℤ) ^ u.sum) ^ T - 1) * C v := by ring
+    rw [e]
+    exact dvd_add (dvd_mul_of_dvd_right hK₀G _)
+      (dvd_mul_of_dvd_left (dvd_mul_of_dvd_right hK₀Q _) _)
+  have hD : (K₀ : ℤ) ∣ D (rep u (k + T) ++ v) - D (rep u k ++ v) := by
+    rw [D_w, D_w]
+    have e : (2 ^ v.sum * (2 ^ u.sum) ^ (k + T) - 3 ^ v.length * (3 ^ u.length) ^ (k + T))
+        - (2 ^ v.sum * (2 ^ u.sum) ^ k - 3 ^ v.length * (3 ^ u.length) ^ k)
+        = 2 ^ v.sum * (2 ^ u.sum) ^ k * (((2 : ℤ) ^ u.sum) ^ T - 1)
+          - 3 ^ v.length * (3 ^ u.length) ^ k * (((3 : ℤ) ^ u.length) ^ T - 1) := by ring
+    rw [e]
+    exact dvd_sub (dvd_mul_of_dvd_right hK₀Q _) (dvd_mul_of_dvd_right hK₀P _)
+  -- both cancellation factors divide `K₀`
+  have hg_dvd : ∀ j, Int.gcd (C (rep u j ++ v)) (D (rep u j ++ v)) ∣ K₀ := by
+    intro j
+    have h1 : Int.gcd (C (rep u j ++ v)) (D (rep u j ++ v)) ∣ 2 ^ a * 3 ^ b * K₀ := by
+      rw [← hK]
+      exact Int.natCast_dvd.mp (gcd_dvd_K u v j hv hv0)
+    have h6 := gcd_coprime_six u v j hv hv0
+    have hcop : Nat.Coprime (Int.gcd (C (rep u j ++ v)) (D (rep u j ++ v))) (2 ^ a * 3 ^ b) :=
+      Nat.Coprime.mul_right (Nat.Coprime.pow_right _ (h6.coprime_dvd_right (by norm_num)))
+        (Nat.Coprime.pow_right _ (h6.coprime_dvd_right (by norm_num)))
+    exact hcop.dvd_of_dvd_mul_left h1
+  have hgT := hg_dvd (k + T)
+  have hgk := hg_dvd k
+  apply Nat.dvd_antisymm
+  · apply Int.dvd_gcd
+    · have h1 : ((Int.gcd (C (rep u (k + T) ++ v)) (D (rep u (k + T) ++ v)) : ℕ) : ℤ) ∣
+          C (rep u (k + T) ++ v) := Int.gcd_dvd_left _ _
+      have h2 := (Int.natCast_dvd_natCast.mpr hgT).trans hC
+      exact (dvd_sub_right h1).mp h2
+    · have h1 : ((Int.gcd (C (rep u (k + T) ++ v)) (D (rep u (k + T) ++ v)) : ℕ) : ℤ) ∣
+          D (rep u (k + T) ++ v) := Int.gcd_dvd_right _ _
+      have h2 := (Int.natCast_dvd_natCast.mpr hgT).trans hD
+      exact (dvd_sub_right h1).mp h2
+  · apply Int.dvd_gcd
+    · have h1 : ((Int.gcd (C (rep u k ++ v)) (D (rep u k ++ v)) : ℕ) : ℤ) ∣
+          C (rep u k ++ v) := Int.gcd_dvd_left _ _
+      have h2 := (Int.natCast_dvd_natCast.mpr hgk).trans hC
+      exact (dvd_sub_left h1).mp h2
+    · have h1 : ((Int.gcd (C (rep u k ++ v)) (D (rep u k ++ v)) : ℕ) : ℤ) ∣
+          D (rep u k ++ v) := Int.gcd_dvd_right _ _
+      have h2 := (Int.natCast_dvd_natCast.mpr hgk).trans hD
+      exact (dvd_sub_left h1).mp h2
+
+/-- **Main's (9) with the explicit period `φ(K₀|D_u|)`**, for `K₀` coprime to `6`. -/
+theorem gcd_periodic_totient (u v : List ℕ) (hu : ∀ a ∈ u, 1 ≤ a) (hu0 : u ≠ [])
+    (hv : ∀ a ∈ v, 1 ≤ a) (hv0 : v ≠ []) (a b K₀ : ℕ)
+    (hK : (D u * C v - D v * C u).natAbs = 2 ^ a * 3 ^ b * K₀) (hK₀ : Nat.Coprime K₀ 6)
+    (k : ℕ) :
+    Int.gcd (C (rep u (k + Nat.totient (K₀ * (D u).natAbs)) ++ v))
+        (D (rep u (k + Nat.totient (K₀ * (D u).natAbs)) ++ v))
+      = Int.gcd (C (rep u k ++ v)) (D (rep u k ++ v)) := by
+  have hodd := D_odd (one_le_sum_of_ne_nil hu0 hu)
+  have hnot3 := D_not_three_dvd (List.length_pos_of_ne_nil hu0)
+  have h2 : ¬ 2 ∣ (D u).natAbs := fun h => hodd (by exact_mod_cast Int.natCast_dvd.mpr h)
+  have h3 : ¬ 3 ∣ (D u).natAbs := fun h => hnot3 (by exact_mod_cast Int.natCast_dvd.mpr h)
+  apply gcd_periodic u v hu hu0 hv hv0 a b K₀ hK
+  · apply Nat.ModEq.pow_totient
+    apply Nat.Coprime.pow_left
+    exact Nat.Coprime.mul_right (hK₀.coprime_dvd_right (by norm_num)).symm
+      ((Nat.Prime.coprime_iff_not_dvd Nat.prime_two).mpr h2)
+  · apply Nat.ModEq.pow_totient
+    apply Nat.Coprime.pow_left
+    exact Nat.Coprime.mul_right (hK₀.coprime_dvd_right (by norm_num)).symm
+      ((Nat.Prime.coprime_iff_not_dvd Nat.prime_three).mpr h3)
+
 end Cyc
 end LeanLane
