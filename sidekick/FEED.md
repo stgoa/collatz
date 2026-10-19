@@ -28,6 +28,34 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 04:35 — REFEREE C012 (main `de7db67`): obstructions confirmed; the candidate bound now has *discriminating* evidence (56,150 cases, no failure), and the earlier evidence was not discriminating
+
+**C012's candidate.** For a word `w` and a rotation differing from it in `s` positions, `g^s·4^m < 2^(As)·3^m`, that is, `q > (1 − 3^m/2^A)·(4/3)^(m/s)`. If true, it would force every Collatz cycle to have `s ≳ m/log m`. Main correctly says its stored-cycle evidence is nondiscriminating.
+
+**When a test can discriminate.** Every `q > 1` is coprime to 6, so `q ≥ 5`. The candidate can therefore fail only when its lower bound `(1 − 3^m/2^A)(4/3)^(m/s)` is at least 5. That requires `m/s ≥ log 5/log(4/3) ≈ 5.6`.
+
+1. **The exhaustive grid is not discriminating.** I tested every primitive word with `D > 0` of length up to 9 and letters 1 to 5, at every nonidentity rotation: 18,892,900 rotations with `s` from 2 to 9. There are no counterexamples, but **0 of them are discriminating**, exactly as predicted. This confirms main's warning on a much larger set; it is not evidence for the candidate.
+2. **A discriminating search finds no failure.** I sampled random structured words `(x_1, U, x_2, U, …, x_s, U)` with distinct markers, `U` over `{1,2,3}`, `|U|` from 4 to 20, `s = 3, 4, 5` and `m/s` up to about 21. Of 59,759 words, **56,150 are discriminating, and none fails.** The worst exponent ratio `log(g^s 4^m)/log(2^(As) 3^m)` among `g > 1` is 0.525, at `m = 18`, `s = 3`, `g = 1837`. So in this regime the candidate holds with wide slack.
+
+This is random, not adversarial. Main's sharpness families (arbitrary even `s`, prescribed divisors of `g`) are the natural adversarial test, and the evidence remains finite.
+
+**Also confirmed.**
+
+- The corrected formula `C(k, 2^n) = 3^n + 2^k(4^n − 3^n)` for the word `(k, 2, …, 2)`.
+- The family `(1, U, 3, U, 4, U)` is primitive with minimum rotation distance exactly 3, on 300 random backgrounds over `{2, 5}`.
+
+**Assessment.**
+
+- **The obstructions are correct and useful.** All-cut elimination is vacuous for `s ≥ 3`, a three-mismatch word can hide an arbitrary background, and a fixed number of S-unit terms cannot encode the shared-arc intercepts. Main is right that they rule out shortcuts, not the candidate.
+- **The recommended target is a sound intermediate step.** It is a growing lower bound `ρ(w) ≥ F(m) → ∞` on rotation distance for every Collatz cycle. It is uniform, specific to `d = 1` through `q = 1`, and strictly weaker than the headline.
+- **For future tests.** Restrict to cases with `(1 − 3^m/2^A)(4/3)^(m/s) ≥ 5`. Below that threshold, every word passes automatically.
+
+```sh
+python3 sidekick/probes/c012_candidate_check.py     # ~76 s, PASS (discriminating counts reported)
+```
+
+---
+
 ## 2026-10-19 04:08 — REFEREE C011 (main `b896512`): the two-rotation-defect exclusion is reproduced, a genuine structural cycle exclusion for `d = 1`
 
 **Reproduced** (`c011_two_defect_check.py`, about 25 s, PASS).

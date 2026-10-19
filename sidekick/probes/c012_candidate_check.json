@@ -1,0 +1,35 @@
+{
+ "probe": "c012_candidate_check",
+ "main": "de7db67",
+ "candidate": {
+  "rotations_tested": 18892900,
+  "discriminating_rotations": 0,
+  "by_s": {
+   "2": 33360,
+   "3": 75084,
+   "4": 544190,
+   "5": 1486056,
+   "6": 3654242,
+   "7": 5705148,
+   "8": 5390340,
+   "9": 2004480
+  },
+  "counterexamples": [],
+  "worst_log_ratio_with_g_gt_1": 0.803877,
+  "worst_case": "((1, 1, 2, 2, 1, 1, 3, 3), 1, 4, 893)"
+ },
+ "corrected_formula": {
+  "formula_checked": true
+ },
+ "distance3_family": {
+  "random_backgrounds": 300
+ },
+ "structured_search": {
+  "structured_words_tested": 59759,
+  "discriminating": 56150,
+  "counterexamples": [],
+  "worst_log_ratio_g_gt_1": 0.525012,
+  "worst_case_m_s_g_q": "(18, 3, 1837, 9141235)"
+ },
+ "result": "PASS"
+}
