@@ -10381,6 +10381,92 @@ theorem dk_walk {h : ℕ} (hhm : h ≤ m) (q b : ℕ → ℕ) (n : ℕ)
 
 end OddCycle
 
+/-! ### S12-c: the height bound `B ≤ (K − 1)·Var(μ_h)` (S12 (2) assembled)
+
+For `gcd(h, m) = 1` every position is `x + N h (mod m)` with `N < m` (`DK.exists_chain_index`: the
+map `N ↦ (x + N h) mod m` is injective on `[0, m)`, hence onto). For a continued-fraction ladder
+`(q, a)` of `h/m` with `q n = m` whose denominators `q i`, `i < n`, are DK-admissible for `h`, the
+greedy decomposition `N = Σ_{i<n} b_i q_i` with `Σ b_i ≤ K − 1` (`ostrowski_greedy`) and the ladder
+walk (`dk_walk`) give `|log n_y − log n_x| ≤ (K − 1)·Var(μ_h)` for all positions `x, y`
+(`height_le_varMu`), `K = Σ_{1 ≤ i ≤ n} a_i` the sum of the partial quotients; relative to the
+minimum `n_0` this is the side lane's `B ≤ Var(μ_h)·(K − 1)` with `B = log(n_max/L)`
+(`height_le_varMu'`). The admissibility of the convergents is a hypothesis on the ladder (supplied by
+continued-fraction theory, not derived here); the inequality itself uses nothing about the cycle
+beyond periodicity. -/
+
+namespace DK
+
+/-- For `gcd(h, m) = 1`, every residue is `(x + N h) mod m` for some `N < m`. -/
+theorem exists_chain_index {m h : ℕ} (hm : 0 < m) (hcop : Nat.Coprime h m) (x y : ℕ) :
+    ∃ N, N < m ∧ (x + N * h) % m = y % m := by
+  have hinj : Set.InjOn (fun N => (x + N * h) % m) (↑(Finset.range m) : Set ℕ) := by
+    intro N hN N' hN' heq
+    rw [Finset.mem_coe, Finset.mem_range] at hN hN'
+    have h1 : N * h ≡ N' * h [MOD m] := Nat.ModEq.add_left_cancel' x heq
+    have h2 : N ≡ N' [MOD m] := Nat.ModEq.cancel_right_of_coprime hcop.symm.gcd_eq_one h1
+    unfold Nat.ModEq at h2
+    rwa [Nat.mod_eq_of_lt hN, Nat.mod_eq_of_lt hN'] at h2
+  have himg : (Finset.range m).image (fun N => (x + N * h) % m) = Finset.range m := by
+    apply Finset.eq_of_subset_of_card_le
+    · intro r hr
+      rw [Finset.mem_image] at hr
+      obtain ⟨N, _, rfl⟩ := hr
+      exact Finset.mem_range.mpr (Nat.mod_lt _ hm)
+    · rw [Finset.card_image_of_injOn hinj]
+  have hy : y % m ∈ (Finset.range m).image (fun N => (x + N * h) % m) := by
+    rw [himg]
+    exact Finset.mem_range.mpr (Nat.mod_lt _ hm)
+  rw [Finset.mem_image] at hy
+  obtain ⟨N, hN, hNy⟩ := hy
+  exact ⟨N, Finset.mem_range.mp hN, hNy⟩
+
+end DK
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+theorem varMu_nonneg (h : ℕ) : 0 ≤ Γ.varMu h := by
+  unfold varMu
+  exact Finset.sum_nonneg (fun _ _ => abs_nonneg _)
+
+/-- **S12 (2), the height bound.** For a ladder `(q, a)` with `q n = m`, `n ≥ 1`, whose denominators
+`q i` (`i < n`) are DK-admissible for the rotation `h`, with `gcd(h, m) = 1` and `h ≤ m`: for all
+positions `x, y`, `|log n_y − log n_x| ≤ (K − 1)·Var(μ_h)`, `K = Σ_{1 ≤ i ≤ n} a i`. -/
+theorem height_le_varMu {h : ℕ} (hhm : h ≤ m) (hcop : Nat.Coprime h m) {q a : ℕ → ℕ}
+    (L : DK.Ladder q a) {n : ℕ} (hn : 1 ≤ n) (hqn : q n = m)
+    (hadm : ∀ i, i < n → ∃ p r, (q i * h = p * m + r ∨ p * m = q i * h + r) ∧ q i * r < m ∧
+      Nat.Coprime p (q i)) (x y : ℕ) :
+    |Real.log (Γ.n y) - Real.log (Γ.n x)| ≤
+      (((∑ i ∈ Finset.Icc 1 n, a i : ℕ) : ℝ) - 1) * Γ.varMu h := by
+  obtain ⟨N, hN, hNy⟩ := DK.exists_chain_index Γ.hm hcop x y
+  rw [← hqn] at hN
+  obtain ⟨b, hb1, hb2⟩ := DK.ostrowski_greedy L n hn N hN
+  have hadm' : ∀ i, i < n → 0 < q i ∧ ∃ p r, (q i * h = p * m + r ∨ p * m = q i * h + r) ∧
+      q i * r < m ∧ Nat.Coprime p (q i) := fun i hi => ⟨DK.ladder_pos L i, hadm i hi⟩
+  have hw := Γ.dk_walk hhm q b n hadm' x
+  rw [← hb1] at hw
+  have hny : Γ.n y = Γ.n (x + N * h) := by
+    rw [← Γ.n_mod y, ← hNy, Γ.n_mod]
+  rw [hny]
+  refine hw.trans (mul_le_mul_of_nonneg_right ?_ (Γ.varMu_nonneg h))
+  have hK : ((∑ i ∈ Finset.range n, b i : ℕ) : ℝ) + 1 ≤ ((∑ i ∈ Finset.Icc 1 n, a i : ℕ) : ℝ) := by
+    exact_mod_cast hb2
+  push_cast at hK ⊢
+  linarith
+
+/-- The side lane's form: relative to the minimum `n_0`, `log(n_y/L) ≤ (K − 1)·Var(μ_h)`, so the real
+height `B = log(n_max/L)` satisfies `B ≤ (K − 1)·Var(μ_h)`. -/
+theorem height_le_varMu' {h : ℕ} (hhm : h ≤ m) (hcop : Nat.Coprime h m) {q a : ℕ → ℕ}
+    (L : DK.Ladder q a) {n : ℕ} (hn : 1 ≤ n) (hqn : q n = m)
+    (hadm : ∀ i, i < n → ∃ p r, (q i * h = p * m + r ∨ p * m = q i * h + r) ∧ q i * r < m ∧
+      Nat.Coprime p (q i)) (y : ℕ) :
+    Real.log (Γ.n y) - Real.log (Γ.n 0) ≤
+      (((∑ i ∈ Finset.Icc 1 n, a i : ℕ) : ℝ) - 1) * Γ.varMu h :=
+  le_trans (le_abs_self _) (Γ.height_le_varMu hhm hcop L hn hqn hadm 0 y)
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

@@ -3,6 +3,20 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 82 — 2026-10-19, 15:53 -03
+
+- Woken by the side lane's S12-b verdict; main frozen at `1c5c19d`. The PR
+  body refresh is retried.
+- **S12-c verified — S12 (2) assembled: `DK.exists_chain_index` (coprime
+  rotations reach every residue within `m` chain steps), `height_le_varMu`
+  (ladder with `q n = m`, admissible denominators, `gcd(h, m) = 1`: `|log n_y
+  − log n_x| ≤ (K − 1)·Var(μ_h)` for all `x, y`), `height_le_varMu'` (the side
+  lane's `B ≤ Var·(K − 1)` relative to the minimum)** in `CycleSpectrum.lean`
+  (sha256 `789a2f7c…5b55`, 12,058 lines, 665 theorems: 561 with the three
+  standard axioms, 45 × `[propext, Quot.sound]`, 57 × `[propext]`, 2 none; no
+  `sorry`). First build. Receipts regenerated. Next: S12-d (`Var(μ_h) ≤ V_h
+  log 2 + 2δ`), then S9-d.
+
 ## Iteration 81 — 2026-10-19, 15:48 -03
 
 - Woken by the side lane's S12-a verdict and its priority call (S12 (2)
