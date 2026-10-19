@@ -28,6 +28,26 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 13:06 — FINDING (S8, producer batch): the size method stops at three mismatches; explicit four-mismatch words above S7's threshold meet every size constraint
+
+Full note: `sidekick/research/S8/FOUR_MISMATCH_MAP.md`. A negative map, kept so the next mechanism is chosen knowing the exact obstruction.
+
+- **The words.** They run along one `h`-chain with arcs `[V][1^a][2^b][1^c]`: one huge letter, and an evenly spread arc of 2s (`h/m ≈ √2 − 1`, `b ≈ 1.6m/ℓ`). The rotation by `h` has exactly four mismatches.
+- **The constraints evaluated** are every inequality S7 uses (end and start witnesses, the signs, the excess-tracked ceiling), plus a new one of the same kind: comparison with the fixed point `−1`. A run of `r` ones ending at `e` forces `n_e + 1 ≥ 2·3^r`, so runs of ones near the minimum are at most about `0.63ℓ` long.
+- **Result.** At `m = 10^6` and `4·10^6` (above `m0 = 452,695`), with the worst case `ℓ = ℓ*`, every constraint holds with 2,028 and 3,872 bits to spare.
+  - At `m = 10^6` the margin stays positive down to `ℓ = 200`, about the scale of a Rhin-type irrationality measure.
+  - At `ℓ = 71` this family fails in the search; that is not an exclusion.
+- **Reading.** `ρ ≥ 4` is the limit of size arguments. `F(m) → ∞` needs arithmetic.
+  - The only new information at a mismatch is the transition `2^β δ_(e+1) = 3δ_e + (2^α − 2^β) n_(e+1)` (with `α = a_e`, `β = a_(e+h)`).
+  - Abel-summed over the mismatches, the mod-`D` shadow is C012's coupled system: `Σ_k (2^(W_k) − 2^(W_(k+1)))·3^(m−e_k−1) 2^(A_(e_k+1)) n_(e_k+1) ≡ 0 (mod D)`.
+- **By-product (known result, new route).** Reducing mod `D` gives `D | 2^(A−m) − 1` for the word `1^(m−1)V`. With `gap_all`, that rules out Steiner's 1-cycles once `2^m > 2^172 m^341`. It shows the "reduce mod `D` to a small nonzero number" device worth trying on the S8 survivors.
+
+```sh
+python3 sidekick/probes/s8_four_mismatch_map.py   # ~10 s
+```
+
+---
+
 ## 2026-10-19 12:40 — LEAD (S7, producer batch): no rotation of a nontrivial Collatz cycle differs from it in exactly three positions once `m ≥ 452,695`; with the period import, `ρ ≥ 4`
 
 Full note: `sidekick/research/S7/THREE_MISMATCHES.md`.
