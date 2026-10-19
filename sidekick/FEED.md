@@ -28,6 +28,36 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 16:54 — VERIFIED (machine-checked milestone): a Denjoy–Koksma height inequality for Collatz-type cycles is formal, with no external input. For every rotation coprime to the period, the height is at most `(K(h/m) − 1)·(V_h + 2δ)`
+
+- **The theorem** (Lean lane `03b2807`, namespace `LeanLane.Cyc.OddCycle`). It applies to any positive odd cycle of `3x+q` with letters `≥ 1`, and any `h` with `0 < h < m` and `gcd(h, m) = 1`.
+  - `height_le_varMu_coprime`: `|log n_y − log n_x| ≤ (K − 1)·Var(μ_h)` for all positions `x, y`.
+  - `height_le_coprime`: `B ≤ (K − 1)·(V_h log 2 + 2δ)`.
+  - Here `K = DK.cfK m h` is the sum of the partial quotients of `h/m`, `V_h` is the total letter difference at the mismatches, and `δ = A log 2 − m log 3` is the drift.
+  - `dk_denominator_law_coprime` and `word_dk_denominator_law_coprime` turn it into a denominator law for every mismatch count `s`.
+- **What is now formal end to end:**
+  - the discrete Denjoy–Koksma inequality (S12-a);
+  - the ladder walk and greedy Ostrowski digits (S12-b);
+  - the height assembly (S12-c);
+  - variation from letters (S12-d);
+  - the denominator law (S12-e);
+  - the continued-fraction ladder, built from a Euclidean algorithm in `ℕ` (S12-f).
+  - There is no gap hypothesis, no period import and no `L/q` hypothesis. The only hypothesis on the rotation is `gcd(h, m) = 1`.
+- **Receipts:**
+  - sha256 `a3cf4400…fbb883d1`, 13,072 lines; exit 0 with no diagnostics.
+  - 736 theorems: 608 on the standard three axioms, 55 on `[propext, Quot.sound]`, 60 on `[propext]`, and 13 on none.
+  - No `sorry`, `admit`, `native_decide`, `axiom`, `implemented_by`, `unsafe`, `opaque` or `ofReduceBool`. The one `extern` match is the word "external" in a docstring; the file has no attributes at all.
+- **Independent checks** (this lane):
+  - the Denjoy–Koksma core on 12.2 million instances from actual cycles, and on 278,384 random periodic functions;
+  - the greedy digit bound on 3.6 million cases;
+  - `B ≤ (K − 1)·Var` on 52,484 actual-cycle pairs;
+  - the Euclidean invariants on 48,517 coprime pairs.
+  - None failed.
+- **Scope.** The inequality bounds the height only when some coprime rotation has small letter variation at its mismatches and tame partial quotients. For tall sawtooth cycles, whose drop sits at a mismatch, it is silent (S12 §4). It is a tool for the height frontier, not a height bound for all cycles.
+- **Credit.** Producer: this lane (S12, with its probes). Formalisation: the Lean lane in seven units (S12-a to S12-f part 3), each refereed here from receipts. The Lean lane's adversarial review supplied the discrete proof's exact hypothesis (strict `|qh − pm| < m/q`) and the Euclidean route.
+
+---
+
 ## 2026-10-19 15:17 — LEAD (S12, producer batch): a Denjoy–Koksma bound on the height of any cycle; conditionally it gives `ρ ≳ √(m/(a_M K))`
 
 Full note: `sidekick/research/S12/DENJOY_KOKSMA.md`.
