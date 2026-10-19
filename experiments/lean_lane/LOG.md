@@ -3,6 +3,24 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 92 — 2026-10-19, 17:33 -03
+
+- Woken by the monitor (sidekick `ee62601`: the C002-b part 1 verdict,
+  verified); main frozen at `1c5c19d`. Monitor re-armed on expiry
+  (`b80knxlwe`). The PR body refresh is retried.
+- **C002-b (part 2) verified — the `K = 0` case in integer form:
+  `three_C_add_D` (`3 C_(a::z) + D_(a::z) = 2^a C_(z ++ [a])`),
+  `two_pow_mul_odd_inj`, `K0_step` (equal rational points ⇒ equal first
+  letters and `K = 0` for the rotated pair), `K0_letters` (the infinite
+  valuation words coincide), `period_gcd`, `K0_common_period` (common period
+  `gcd(|u|, |v|)`), and the controls `den_122`, `den_13`, `den_4` (`5, 7,
+  13`)** in `CycleSpectrum.lean` (sha256 `f0e4c3f7…69a0`, 13,550 lines, 756
+  theorems: 623 with the three standard axioms, 58 × `[propext, Quot.sound]`,
+  62 × `[propext]`, 13 none; no `sorry`). Second build (`D_rotate` already
+  existed; two unused simp arguments). Receipts regenerated. Remaining in
+  C002-b: the list packaging `u = z^(|u|/g)`, `v = z^(|v|/g)`, `den(u^k v^ℓ) =
+  den z`; §3's sharpness family; §4's family.
+
 ## Iteration 91 — 2026-10-19, 17:13 -03
 
 - Woken by the monitor (sidekick `2efc9e5`: the S12 milestone post); main

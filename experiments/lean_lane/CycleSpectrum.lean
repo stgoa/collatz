@@ -11794,6 +11794,171 @@ theorem proportional_rectangle (a b r s : ℕ) (u v : List ℕ) (hu : ∀ x ∈ 
 
 end Proportional
 
+/-! ### C002-b (part 2): the degenerate case `K = 0` — exact-valuation determinism in integer form
+
+Main's C002 §2, "Degenerate case `K = 0`": `C_u/D_u = C_v/D_v` means both words are return words of
+the same positive rational point, and determinism of the exact valuation makes their infinite
+valuation words identical, so `u` and `v` are powers of one primitive word in the same phase. Integer
+form, with no rational dynamics: for a positive word `u = a :: z`,
+`3 C_u + D_u = 2^a · C(z ++ [a])` (`three_C_add_D`), where `C(z ++ [a])` and `D_u` are odd, so `a` is
+the exact power of `2` in `3 C_u + D_u` — the valuation of `3 x₀ + 1` at `x₀ = C_u/D_u` — and
+`C(rot u)/D_u` is the next point. If `K = 0`, i.e. `C_u D_v = C_v D_u`, then
+`(3 C_u + D_u) D_v = (3 C_v + D_v) D_u` (`D` is rotation invariant, the file's `D_rotate`); the exact
+power of two of an odd multiple is unique
+(`two_pow_mul_odd_inj`), so the first letters agree and `K = 0` persists for the rotated pair
+(`K0_step`). By induction every rotation has equal first letters (`K0_letters`): the two infinite
+periodic valuation words coincide, hence each word has the period `gcd(|u|, |v|)`
+(`K0_common_period`, through the elementary two-period lemma `period_gcd`). The list-level packaging
+`u = z^(|u|/g)`, `v = z^(|v|/g)` with `z = u.take g` and the invariance `den(u^k v^ℓ) = den(z)` are
+the remaining part. The prose's three controls keep their denominators: `den (1,2,2) = 5`,
+`den (1,3) = 7`, `den (4) = 13` (`den_122`, `den_13`, `den_4`). -/
+
+section KZero
+
+/-- The first-step identity `3 C_(a::z) + D_(a::z) = 2^a · C_(z ++ [a])`. -/
+theorem three_C_add_D (a : ℕ) (z : List ℕ) :
+    3 * C (a :: z) + D (a :: z) = 2 ^ a * C (z ++ [a]) := by
+  rw [C_append]
+  simp only [C, D, List.sum_cons, List.length_cons, List.length_nil, pow_zero, mul_zero, add_zero]
+  ring
+
+/-- The first-step identity in rotation form: `3 C_w + D_w = 2^(w₀) · C(rot w)`. -/
+theorem three_C_add_D_rotate (w : List ℕ) (hw : w ≠ []) :
+    3 * C w + D w = 2 ^ (w.headD 0) * C (w.rotate 1) := by
+  obtain ⟨a, z, rfl⟩ := List.exists_cons_of_ne_nil hw
+  rw [List.headD_cons, List.rotate_cons_succ, List.rotate_zero]
+  exact three_C_add_D a z
+
+/-- The exact power of `2` in an odd multiple is unique. -/
+theorem two_pow_mul_odd_inj {a b : ℕ} {o o' : ℤ} (ho : Odd o) (ho' : Odd o')
+    (h : 2 ^ a * o = 2 ^ b * o') : a = b := by
+  by_contra hne
+  rcases Nat.lt_or_gt_of_ne hne with hlt | hlt
+  · have h2 : (2 : ℤ) ^ b = 2 ^ a * 2 ^ (b - a) := by
+      rw [← pow_add, Nat.add_sub_cancel' hlt.le]
+    rw [h2, mul_assoc] at h
+    have h3 : o = 2 ^ (b - a) * o' := mul_left_cancel₀ (pow_ne_zero a two_ne_zero) h
+    have h4 : Even o := by
+      rw [h3]
+      exact (Int.even_pow.mpr ⟨even_two, by omega⟩).mul_right _
+    exact (Int.not_even_iff_odd.mpr ho) h4
+  · have h2 : (2 : ℤ) ^ a = 2 ^ b * 2 ^ (a - b) := by
+      rw [← pow_add, Nat.add_sub_cancel' hlt.le]
+    rw [h2, mul_assoc] at h
+    have h3 : 2 ^ (a - b) * o = o' := mul_left_cancel₀ (pow_ne_zero b two_ne_zero) h
+    have h4 : Even o' := by
+      rw [← h3]
+      exact (Int.even_pow.mpr ⟨even_two, by omega⟩).mul_right _
+    exact (Int.not_even_iff_odd.mpr ho') h4
+
+/-- Positive letters survive rotation. -/
+theorem pos_rotate {w : List ℕ} (hw : ∀ x ∈ w, 1 ≤ x) (i : ℕ) : ∀ x ∈ w.rotate i, 1 ≤ x :=
+  fun x hx => hw x (List.mem_rotate.mp hx)
+
+/-- `D_w` is odd for a nonempty positive word. -/
+theorem D_odd' {w : List ℕ} (hw : w ≠ []) (hpos : ∀ x ∈ w, 1 ≤ x) : Odd (D w) :=
+  Int.not_even_iff_odd.mp
+    (fun he => D_odd (one_le_sum_of_ne_nil hw hpos) (even_iff_two_dvd.mp he))
+
+/-- **The `K = 0` step**: equal rational points have equal first letters, and the rotated pair again
+has `K = 0`. -/
+theorem K0_step {u v : List ℕ} (hu : ∀ x ∈ u, 1 ≤ x) (hv : ∀ x ∈ v, 1 ≤ x) (hu0 : u ≠ [])
+    (hv0 : v ≠ []) (hK : C u * D v = C v * D u) :
+    u.headD 0 = v.headD 0 ∧
+      C (u.rotate 1) * D (v.rotate 1) = C (v.rotate 1) * D (u.rotate 1) := by
+  have h1 : (3 * C u + D u) * D v = (3 * C v + D v) * D u := by linear_combination 3 * hK
+  rw [three_C_add_D_rotate u hu0, three_C_add_D_rotate v hv0] at h1
+  have hou : Odd (C (u.rotate 1) * D v) :=
+    (C_odd (NarrowCycle.rotate_ne_nil hu0 1) (pos_rotate hu 1)).mul (D_odd' hv0 hv)
+  have hov : Odd (C (v.rotate 1) * D u) :=
+    (C_odd (NarrowCycle.rotate_ne_nil hv0 1) (pos_rotate hv 1)).mul (D_odd' hu0 hu)
+  have h2 : 2 ^ (u.headD 0) * (C (u.rotate 1) * D v)
+      = 2 ^ (v.headD 0) * (C (v.rotate 1) * D u) := by
+    rw [← mul_assoc, ← mul_assoc]
+    exact h1
+  have hhead : u.headD 0 = v.headD 0 := two_pow_mul_odd_inj hou hov h2
+  refine ⟨hhead, ?_⟩
+  rw [hhead] at h2
+  have h3 := mul_left_cancel₀ (pow_ne_zero _ two_ne_zero) h2
+  rw [D_rotate, D_rotate]
+  exact h3
+
+/-- `K = 0` persists along all rotations. -/
+theorem K0_rotate {u v : List ℕ} (hu : ∀ x ∈ u, 1 ≤ x) (hv : ∀ x ∈ v, 1 ≤ x) (hu0 : u ≠ [])
+    (hv0 : v ≠ []) (hK : C u * D v = C v * D u) :
+    ∀ i, C (u.rotate i) * D (v.rotate i) = C (v.rotate i) * D (u.rotate i) := by
+  intro i
+  induction i with
+  | zero => simpa only [List.rotate_zero] using hK
+  | succ i ih =>
+    have h := (K0_step (pos_rotate hu i) (pos_rotate hv i) (NarrowCycle.rotate_ne_nil hu0 i)
+      (NarrowCycle.rotate_ne_nil hv0 i) ih).2
+    simp only [List.rotate_rotate] at h
+    exact h
+
+/-- **`K = 0` ⇒ the two infinite valuation words coincide**: every rotation has equal first
+letters. -/
+theorem K0_letters {u v : List ℕ} (hu : ∀ x ∈ u, 1 ≤ x) (hv : ∀ x ∈ v, 1 ≤ x) (hu0 : u ≠ [])
+    (hv0 : v ≠ []) (hK : C u * D v = C v * D u) :
+    ∀ i, (u.rotate i).headD 0 = (v.rotate i).headD 0 := fun i =>
+  (K0_step (pos_rotate hu i) (pos_rotate hv i) (NarrowCycle.rotate_ne_nil hu0 i)
+    (NarrowCycle.rotate_ne_nil hv0 i) (K0_rotate hu hv hu0 hv0 hK i)).1
+
+/-- Two periods of a sequence give their gcd as a period. -/
+theorem period_gcd {α : Type*} (f : ℕ → α) : ∀ m n : ℕ, (∀ i, f (i + m) = f i) →
+    (∀ i, f (i + n) = f i) → ∀ i, f (i + Nat.gcd m n) = f i := by
+  intro m n
+  induction m, n using Nat.gcd.induction with
+  | H0 n =>
+    intro _ hn i
+    rw [Nat.gcd_zero_left]
+    exact hn i
+  | H1 m n _ ih =>
+    intro hm hn i
+    rw [Nat.gcd_rec]
+    apply ih ?_ hm
+    intro j
+    have hmul : ∀ q j, f (j + m * q) = f j := by
+      intro q
+      induction q with
+      | zero => intro j; simp
+      | succ q ihq =>
+        intro j
+        rw [Nat.mul_add_one, ← Nat.add_assoc, hm, ihq]
+    have h := hn j
+    rw [← Nat.mod_add_div n m, ← Nat.add_assoc, hmul] at h
+    exact h
+
+/-- Shifting the rotation index by the length does nothing. -/
+theorem rotate_add_len (w : List ℕ) (i : ℕ) : w.rotate (i + w.length) = w.rotate i := by
+  rw [← List.rotate_mod, Nat.add_mod_right, List.rotate_mod]
+
+/-- **`K = 0` ⇒ both valuation words have the common period `gcd(|u|, |v|)`.** -/
+theorem K0_common_period {u v : List ℕ} (hu : ∀ x ∈ u, 1 ≤ x) (hv : ∀ x ∈ v, 1 ≤ x)
+    (hu0 : u ≠ []) (hv0 : v ≠ []) (hK : C u * D v = C v * D u) :
+    (∀ i, (u.rotate (i + Nat.gcd u.length v.length)).headD 0 = (u.rotate i).headD 0) ∧
+      (∀ i, (v.rotate (i + Nat.gcd u.length v.length)).headD 0 = (v.rotate i).headD 0) := by
+  have hl := K0_letters hu hv hu0 hv0 hK
+  have hpu : ∀ i, (u.rotate (i + u.length)).headD 0 = (u.rotate i).headD 0 := fun i => by
+    rw [rotate_add_len]
+  have hpv : ∀ i, (v.rotate (i + v.length)).headD 0 = (v.rotate i).headD 0 := fun i => by
+    rw [rotate_add_len]
+  have hpu' : ∀ i, (u.rotate (i + v.length)).headD 0 = (u.rotate i).headD 0 := fun i => by
+    rw [hl, hpv, ← hl]
+  have hpv' : ∀ i, (v.rotate (i + u.length)).headD 0 = (v.rotate i).headD 0 := fun i => by
+    rw [← hl, hpu, hl]
+  exact ⟨period_gcd (fun i => (u.rotate i).headD 0) u.length v.length hpu hpu',
+    period_gcd (fun i => (v.rotate i).headD 0) u.length v.length hpv' hpv⟩
+
+/-- The prose's three `K = 0` controls keep their denominators. -/
+theorem den_122 : den [1, 2, 2] = 5 := by norm_num [den, OddCycle.gcdCD, C, D]
+
+theorem den_13 : den [1, 3] = 7 := by norm_num [den, OddCycle.gcdCD, C, D]
+
+theorem den_4 : den [4] = 13 := by norm_num [den, OddCycle.gcdCD, C, D]
+
+end KZero
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
