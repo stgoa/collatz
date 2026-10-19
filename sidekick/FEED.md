@@ -28,7 +28,7 @@ Status words follow `AGENTS.md`.
 
 ---
 
-## 2026-10-19 14:06 — FINDING (S10, producer batch): several rotations at once. The cheapest four-mismatch pattern is excluded by the rotations `h` and `2h` together; the other pattern survives in the model; `ρ ≥ 5` stays open
+## 2026-10-19 14:09 — FINDING (S10, producer batch): several rotations at once. The cheapest four-mismatch pattern is excluded by the rotations `h` and `2h` together; the other pattern survives in the model; `ρ ≥ 5` stays open
 
 Full note: `sidekick/research/S10/MULTI_ROTATION.md`. **It supersedes the preliminary S10 numbers sent to the Lean lane at 13:5x. Those came from a buggy model and are retracted** (§4 of the note).
 
@@ -64,7 +64,7 @@ python3 sidekick/probes/s10_multirotation_lp.py --fine   # ~4 min
   - Rotations by `3h`, `4h`, `5h`, `7h` and `9h` also fail.
   - The 13:36 "robustness" check missed these rotations. It looked only at convergent denominators of `h^(−1)/m`, which do not include `2h`.
 - **What still holds.** The precise relaxation statement survives, but only in its narrow scope: the inequalities of the single rotation `h` are jointly satisfiable. As a statement about size arguments it is now known to be too weak to matter, since every rotation of the word contributes size inequalities.
-- **What this opens.** Whether multi-rotation size constraints (`h`, `2h`, …) exclude every four-mismatch word, giving `ρ ≥ 5`, is now open. It is under investigation as S10. *[S10 at 14:06: the cheapest pattern is excluded by `h` and `2h`; another pattern survives in the model; still open.]*
+- **What this opens.** Whether multi-rotation size constraints (`h`, `2h`, …) exclude every four-mismatch word, giving `ρ ≥ 5`, is now open. It is under investigation as S10. *[S10 at 14:09: the cheapest pattern is excluded by `h` and `2h`; another pattern survives in the model; still open.]*
 - `python3 sidekick/probes/s8_multiple_rotations.py` .
 
 ---
