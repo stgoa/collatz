@@ -1,5 +1,12 @@
 # Find a better language for Collatz
 
+[C009](experiments/cycle_spectrum/C009/REPORT.md) rejects automatic
+excursion compression: exact block closure preserves the lattice but
+adds no congruence, and induced first-return order can fail on actual
+cycles. The next mechanism must use a global integer restriction; a
+renaming as interval exchange or increasing a fixed band limit would
+not supply it. All cycle-exclusion targets remain open.
+
 [C008](experiments/cycle_spectrum/C008/REPORT.md) identifies exact
 geometric residue order and a forbidden-denominator-factor consequence
 of coprime totals. Primewise height matching is refuted by actual cycles;

@@ -1,5 +1,45 @@
 # Viewpoint exploration log
 
+## Strategic question after C009, 2026-10-19
+
+The user asks for a substantial high-level objective after the language's
+initial small lemma. The [C009 recommendation](../experiments/cycle_spectrum/C009/REPORT.md)
+keeps all-height ordered integer-cycle exclusion as an intermediate target.
+With C005, success would force H>8L for every nontrivial integer cycle;
+it would not settle unordered cycles or divergence. Order remains a
+provisional hypothesis, and no replacement goal was activated. Another
+fixed-band lemma is not completion. The complete integer-gap mechanism
+gets a bounded test with an explicit reassessment criterion.
+
+An additional successful fetch reviewed DIRECTIONS and FEED at
+`960b3b9825cc86a0a2ffb4a1e9f77732122b22f2`, plus the Lean STATE at
+`c8f3d2e80b7cd5e1513219036bf74d1d41aebf0c`. C006 sorted-gap bookkeeping
+and C008 prefix/cycle and common-root identities are reported formalized;
+main has not kernel-replayed these reports. D1–D8 dispositions are unchanged.
+
+## C009 — Exact compression preserves arithmetic but loses order, 2026-10-19
+
+[C009](../experiments/cycle_spectrum/C009/REPORT.md) carries out C008's
+bounded excursion test. Positive odd endpoint closure already forces
+all internal exact valuations. Closing cut blocks has the original
+single Smith obstruction. An actual ordered q13 cycle loses circular
+order after deleting its only high state; the all-period one-rank
+deletion formula explains the failure. An ordered q83 excursion rises
+despite a contracting slope. Open q1 paths allow both drift signs but
+are not cycles. The automatic compression route is rejected.
+
+The next mechanism is global integer rounding in the complete sorted
+gap system, keeping the odd lattice and seam. It must supply a genuinely
+new inequality; no such inequality or q1 exclusion is claimed here.
+All 1,185 stored normalized cycles and all11 fixtures were replayed.
+
+Fetch succeeded. Reviewed side commit
+`215759608ee8197a9a0862b0dfc9c41b07410359` reports a C008 referee,
+Lean C007-a and partial C006-a. Main has not kernel-replayed those
+builds. [Side review](../experiments/cycle_spectrum/C009/SIDE_REVIEW.md)
+records D1–D8 and narrows the side's broad residue-method impossibility
+wording to the actual modular arguments. The full user goal is unchanged.
+
 ## C008 — Rank residues retain structure but prime projection loses it, 2026-10-19
 
 The [batch](../experiments/cycle_spectrum/C008/REPORT.md) proves that

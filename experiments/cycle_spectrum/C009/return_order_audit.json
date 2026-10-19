@@ -1,0 +1,227 @@
+{
+  "actual_controls": [
+    {
+      "core": [
+        283,
+        373,
+        431,
+        493
+      ],
+      "first_return_is_rotation": false,
+      "heights": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "q": 13,
+      "returns": [
+        {
+          "A": 1,
+          "C": 1,
+          "slope": [
+            3,
+            2
+          ],
+          "source": 283,
+          "target": 431,
+          "target_rank": 2,
+          "word": [
+            1
+          ]
+        },
+        {
+          "A": 2,
+          "C": 1,
+          "slope": [
+            3,
+            4
+          ],
+          "source": 373,
+          "target": 283,
+          "target_rank": 0,
+          "word": [
+            2
+          ]
+        },
+        {
+          "A": 3,
+          "C": 5,
+          "slope": [
+            9,
+            8
+          ],
+          "source": 431,
+          "target": 493,
+          "target_rank": 3,
+          "word": [
+            1,
+            2
+          ]
+        },
+        {
+          "A": 2,
+          "C": 1,
+          "slope": [
+            3,
+            4
+          ],
+          "source": 493,
+          "target": 373,
+          "target_rank": 1,
+          "word": [
+            2
+          ]
+        }
+      ],
+      "states": [
+        283,
+        431,
+        653,
+        493,
+        373
+      ],
+      "word": [
+        1,
+        1,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "core": [
+        157,
+        233,
+        277,
+        283
+      ],
+      "first_return_is_rotation": false,
+      "heights": [
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "q": 83,
+      "returns": [
+        {
+          "A": 1,
+          "C": 1,
+          "slope": [
+            3,
+            2
+          ],
+          "source": 157,
+          "target": 277,
+          "target_rank": 2,
+          "word": [
+            1
+          ]
+        },
+        {
+          "A": 4,
+          "C": 5,
+          "slope": [
+            9,
+            16
+          ],
+          "source": 233,
+          "target": 157,
+          "target_rank": 0,
+          "word": [
+            1,
+            3
+          ]
+        },
+        {
+          "A": 5,
+          "C": 19,
+          "slope": [
+            27,
+            32
+          ],
+          "source": 277,
+          "target": 283,
+          "target_rank": 3,
+          "word": [
+            1,
+            1,
+            3
+          ]
+        },
+        {
+          "A": 2,
+          "C": 1,
+          "slope": [
+            3,
+            4
+          ],
+          "source": 283,
+          "target": 233,
+          "target_rank": 1,
+          "word": [
+            2
+          ]
+        }
+      ],
+      "states": [
+        157,
+        277,
+        457,
+        727,
+        283,
+        233,
+        391
+      ],
+      "word": [
+        1,
+        1,
+        1,
+        3,
+        2,
+        1,
+        3
+      ]
+    }
+  ],
+  "clock": "raw odd-only; no absorber",
+  "deletion": {
+    "checked_arrows": 6250510,
+    "exact_rows_sha256": "9264139dd9832fac202db676d865bc81cd5508ffbaba3002d375e5675a385399",
+    "interior_nonrotations": 98912,
+    "maximum_m": 80,
+    "nearest_neighbor_rotations": 6476,
+    "permutations": 105388
+  },
+  "endpoints": {
+    "exact_arrows": 76464,
+    "lifts_per_word_parameter": 3,
+    "parameters": [
+      1,
+      5,
+      7,
+      13
+    ],
+    "positive_odd_endpoint_pairs": 16368,
+    "scope": "Open positive paths constructed from endpoint congruences, not new cycles.",
+    "valuation_alphabet": [
+      1,
+      4
+    ],
+    "word_lengths": [
+      1,
+      5
+    ]
+  },
+  "scope": "Finite checks of written reconstruction and deletion theorems and exact controls; no q1 cycle exclusion.",
+  "source_sha256": {
+    "FIRST_RETURN_ORDER.md": "10a7f10d396a8631c197f3203af498467d92551ad35f4e9ded63c7c621d354fa",
+    "check_return_order.py": "58b016702d0292a5294027dd75139b36dad171fc2e314971ae07a46fb2a59355"
+  },
+  "status": "PASS"
+}
