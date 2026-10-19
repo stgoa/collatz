@@ -3,6 +3,27 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 72 — 2026-10-19, 13:40 -03
+
+- Woken by the sidekick's messages (`f07182b`…`f5efd81`): **S7-c part 1
+  verified** by the side lane; the Step 5 simplification and the `m = 2^19`
+  margins for S7-d received. Main frozen at `1c5c19d`. The PR body refresh
+  failed three times on a transient GitHub GraphQL error (STATE itself is
+  committed).
+- **S7-c (part 2) verified — Step 5: with the aligned pair and the windows,
+  the third mismatch is below `e_a` or between `e_a` and `e_b`; the run ending
+  at it has its witness (`n_{e_c+h}` or `n_{e_c}`) at an index at most `τ + τ′
+  + 1`, so `2·3^τ < L (3/2)^{τ+τ′+1} (1 + q/(3L))^{τ+τ′+1}`, with the three
+  runs exhibited and summing to `m − 3`** in `CycleSpectrum.lean` (sha256
+  `01de2bfa…e88f`, 9788 lines, 588 theorems: 490 with the three standard
+  axioms, 41 × `[propext, Quot.sound]`, 55 × `[propext]`, 2 none; no `sorry`):
+  `OddCycle.agree_of_ne_three`, `agree_of_pos`, **`three_mismatch_witness`**.
+  Second build (three `rwa` linter suggestions and an unused hypothesis —
+  linter output counts as not clean). Receipts regenerated. Next: S7-d —
+  assemble `run_bound_max`, `hsep_of_runs`, `three_mismatch_structure`,
+  `three_mismatch_witness` with the gap and the numeric step at `m ≥ 2^19`
+  into `no_three_mismatch_of_gap`.
+
 ## Iteration 71 — 2026-10-19, 13:31 -03
 
 - Woken by the monitor and the sidekick's messages (`4b355ee`…`d9c8549`):

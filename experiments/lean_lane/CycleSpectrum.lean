@@ -8001,6 +8001,202 @@ theorem hsep_of_runs {h T : ℕ} (hT : ∀ i t, (∀ k, k < t → Γ.agree h (i 
 
 end OddCycle
 
+/-! ### S7-c (part 2): Step 5 — the third run's witness, and the run sums of Step 6
+
+With the aligned pair `e_a`, `e_b = e_a + h` and the window structure, the third mismatch `e_c` lies
+either below `e_a` (order 1) or strictly between `e_a` and `e_b` (order 2), since the windows hold no
+other mismatch. The three agreeing runs between consecutive mismatches have lengths summing to
+`m − 3`. In order 1 the run from `e_b + 1` ends at `e_c` (mod `m`), where `δ > 0` by sign
+persistence from the `−→+` change at `e_b`, so its witness is `n_{e_c + h}` with `e_c + h < e_b` —
+an honest index, no wrap — and `e_c + h ≤ τ + τ′ + 1` where `τ′ = h − 1` is the run between `e_a`
+and `e_b`. In order 2 the run from `e_a + 1` ends at `e_c`, where `δ < 0` from the `+→−` change at
+`e_a`, so the witness is `n_{e_c}` with `e_c ≤ τ + τ′ + 1`, `τ′` the wrapping run from `e_b + 1`.
+Either way `2·3^τ < L (3/2)^{τ+τ′+1} (1 + q/(3L))^{τ+τ′+1}` (`three_mismatch_witness`): S7's
+`τ (1 − ε) < ℓ + (τ° + 1)κ − 1` in product form, with the three runs exhibited for Step 6. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- With exactly three mismatches `e_a, e_b, e_c`, every position whose residue is none of them
+agrees. -/
+theorem agree_of_ne_three {h e_a e_b e_c : ℕ} (hs : (Γ.mis h).card = 3) (ha : e_a ∈ Γ.mis h)
+    (hb : e_b ∈ Γ.mis h) (hc : e_c ∈ Γ.mis h) (hab : e_a ≠ e_b) (hac : e_a ≠ e_c) (hbc : e_b ≠ e_c)
+    (i : ℕ) (h1 : i % m ≠ e_a) (h2 : i % m ≠ e_b) (h3 : i % m ≠ e_c) : Γ.agree h i := by
+  have hsub : ({e_a, e_b, e_c} : Finset ℕ) ⊆ Γ.mis h := by
+    intro x hx
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hx
+    rcases hx with rfl | rfl | rfl <;> assumption
+  have hcard : ({e_a, e_b, e_c} : Finset ℕ).card = 3 :=
+    Finset.card_eq_three.mpr ⟨e_a, e_b, e_c, hab, hac, hbc, rfl⟩
+  have heq : ({e_a, e_b, e_c} : Finset ℕ) = Γ.mis h :=
+    Finset.eq_of_subset_of_card_le hsub (by rw [hs, hcard])
+  by_contra hna
+  have hmem : i % m ∈ Γ.mis h := by
+    unfold mis
+    rw [Finset.mem_filter, Finset.mem_range, Γ.agree_mod]
+    exact ⟨Nat.mod_lt _ Γ.hm, hna⟩
+  rw [← heq] at hmem
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hmem
+  rcases hmem with h' | h' | h'
+  · exact h1 h'
+  · exact h2 h'
+  · exact h3 h'
+
+/-- A position below `2m` whose two possible residues avoid the three mismatches agrees. -/
+theorem agree_of_pos {h e_a e_b e_c : ℕ} (hs : (Γ.mis h).card = 3) (ha : e_a ∈ Γ.mis h)
+    (hb : e_b ∈ Γ.mis h) (hc : e_c ∈ Γ.mis h) (hab : e_a ≠ e_b) (hac : e_a ≠ e_c) (hbc : e_b ≠ e_c)
+    (p : ℕ) (hp : p < 2 * m) (h1 : p ≠ e_a) (h2 : p ≠ e_b) (h3 : p ≠ e_c) (h1' : p ≠ e_a + m)
+    (h2' : p ≠ e_b + m) (h3' : p ≠ e_c + m) : Γ.agree h p := by
+  apply Γ.agree_of_ne_three hs ha hb hc hab hac hbc p
+  all_goals
+    rcases Nat.lt_or_ge p m with hlt | hge
+    · rwa [Nat.mod_eq_of_lt hlt]
+    · rw [Nat.mod_eq_sub_mod hge, Nat.mod_eq_of_lt (by omega)]; omega
+
+/-- **Step 5 and the runs of Step 6.** Under the structure of `three_mismatch_structure` (an aligned
+pair `e_a`, `e_b = e_a + h` with `h ≤ j`, each window holding exactly its mismatch) and exactly
+three mismatches: there are three agreeing runs `τ, τ′, τ″` (with their start indices) summing to
+`m − 3`, the first ending at the third mismatch, with the witness bound
+`2·3^τ < L (3/2)^{τ+τ′+1} (1 + q/(3L))^{τ+τ′+1}`. -/
+theorem three_mismatch_witness (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hapos : ∀ i, 1 ≤ Γ.a i) {j h e_a : ℕ} (hjm : j < m) (hh1 : 1 ≤ h) (hhm : h < m)
+    (hs : (Γ.mis h).card = 3) (hea1 : j - h ≤ e_a) (hea2 : e_a < m - h) (hdown : Γ.down h e_a)
+    (hup : Γ.up h (e_a + h)) (hhj : h ≤ j)
+    (hW : ∀ i, j ≤ i → i < m → i ≠ e_a + h → Γ.agree h i)
+    (hW' : ∀ k, j - h ≤ k → k < m - h → k ≠ e_a → Γ.agree h k) :
+    ∃ τ τ' τ'' i₁ i₂ i₃ : ℕ, τ + τ' + τ'' = m - 3 ∧
+      (∀ k, k < τ → Γ.agree h (i₁ + k)) ∧ (∀ k, k < τ' → Γ.agree h (i₂ + k)) ∧
+      (∀ k, k < τ'' → Γ.agree h (i₃ + k)) ∧
+      2 * (3 : ℝ) ^ τ < Γ.n 0 * (3 / 2 : ℝ) ^ (τ + τ' + 1) *
+        (1 + Γ.q / (3 * Γ.n 0)) ^ (τ + τ' + 1) := by
+  have hm := Γ.hm
+  have hh : h % m ≠ 0 := by
+    rw [Nat.mod_eq_of_lt hhm]
+    omega
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have hε := Γ.one_add_eps_pos
+  have hεR : (1 : ℝ) ≤ 1 + Γ.q / (3 * Γ.n 0) := by linarith [Γ.eps_nonneg]
+  set e_b := e_a + h with heb_def
+  have heb : e_b < m := by omega
+  have hea_mem : e_a ∈ Γ.mis h := Γ.down_mem_mis (by omega) hdown
+  have heb_mem : e_b ∈ Γ.mis h := Γ.up_mem_mis heb hup
+  have hab : e_a ≠ e_b := by omega
+  obtain ⟨e_c, h3⟩ := Γ.third_mismatch hs hea_mem heb_mem hab
+  have hec_mem' : e_c ∈ ((Γ.mis h).erase e_a).erase e_b := by
+    rw [h3]
+    exact Finset.mem_singleton_self e_c
+  have hec_mem : e_c ∈ Γ.mis h := Finset.mem_of_mem_erase (Finset.mem_of_mem_erase hec_mem')
+  have hcb : e_c ≠ e_b := (Finset.mem_erase.mp hec_mem').1
+  have hca : e_c ≠ e_a := (Finset.mem_erase.mp (Finset.mem_of_mem_erase hec_mem')).1
+  have hec_lt : e_c < m := by
+    unfold mis at hec_mem
+    rw [Finset.mem_filter, Finset.mem_range] at hec_mem
+    exact hec_mem.1
+  have hec_na : ¬ Γ.agree h e_c := by
+    unfold mis at hec_mem
+    rw [Finset.mem_filter] at hec_mem
+    exact hec_mem.2
+  -- `e_c` is not in `W = [j, m)` and not in `W − h = [j − h, m − h)`
+  have hec_notW : e_c < j := by
+    by_contra hge
+    exact hec_na (hW e_c (by omega) hec_lt hcb)
+  have hec_notW' : e_c < j - h ∨ m - h ≤ e_c := by
+    by_contra hno
+    exact hec_na (hW' e_c (by omega) (by omega) hca)
+  -- the agreement helper for positions below `2m`
+  have hagr : ∀ p, p < 2 * m → p ≠ e_a → p ≠ e_b → p ≠ e_c → p ≠ e_a + m → p ≠ e_b + m →
+      p ≠ e_c + m → Γ.agree h p :=
+    fun p => Γ.agree_of_pos hs hea_mem heb_mem hec_mem hab hca.symm hcb.symm p
+  have hzc : Γ.z h e_c ≠ 0 := Γ.z_ne_zero hprim hh e_c
+  rcases Nat.lt_or_gt_of_ne hca with hc1 | hc2
+  · -- Order 1: `e_c < e_a`. Runs: `(e_b, e_c + m)`, `(e_a, e_b)`, `(e_c, e_a)`.
+    refine ⟨m - e_b + e_c - 1, h - 1, e_a - e_c - 1, e_b + 1, e_a + 1, e_c + 1, by omega,
+      ?_, ?_, ?_, ?_⟩
+    · intro k hk
+      exact hagr (e_b + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
+        (by omega)
+    · intro k hk
+      exact hagr (e_a + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
+        (by omega)
+    · intro k hk
+      exact hagr (e_c + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
+        (by omega)
+    · have hrun : ∀ k, k < m - e_b + e_c - 1 → Γ.agree h (e_b + 1 + k) := by
+        intro k hk
+        exact hagr (e_b + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega)
+          (by omega) (by omega)
+      have hend : e_b + 1 + (m - e_b + e_c - 1) = e_c + m := by omega
+      have hzend : Γ.z h (e_b + 1 + (m - e_b + e_c - 1)) ≠ 0 := by
+        rw [hend, Γ.z_per]
+        exact hzc
+      have hw := Γ.witness_gt (m - e_b + e_c - 1) hrun hzend
+      have hpos : 0 < Γ.z h e_c := by
+        have := (Γ.z_pos_run (m - e_b + e_c - 1) hrun).mpr hup.2
+        rwa [hend, Γ.z_per] at this
+      rw [hend, Γ.nper, Nat.add_right_comm e_c m h, Γ.nper] at hw
+      have hle : Γ.n e_c ≤ Γ.n (e_c + h) := by
+        unfold z at hpos
+        linarith
+      rw [max_eq_right hle] at hw
+      have hwR : 2 * (3 : ℝ) ^ (m - e_b + e_c - 1) < Γ.n (e_c + h) := by exact_mod_cast hw
+      have hcl := Γ.n_le_climb hapos (e_c + h)
+      have hidx : e_c + h ≤ m - e_b + e_c - 1 + (h - 1) + 1 := by omega
+      have hones : Γ.ones (e_c + h) ≤ m - e_b + e_c - 1 + (h - 1) + 1 :=
+        (Γ.ones_le _).trans hidx
+      calc 2 * (3 : ℝ) ^ (m - e_b + e_c - 1) < Γ.n (e_c + h) := hwR
+        _ ≤ Γ.n 0 * (3 / 2 : ℝ) ^ Γ.ones (e_c + h) * (1 + Γ.q / (3 * Γ.n 0)) ^ (e_c + h) := hcl
+        _ ≤ Γ.n 0 * (3 / 2 : ℝ) ^ (m - e_b + e_c - 1 + (h - 1) + 1) *
+            (1 + Γ.q / (3 * Γ.n 0)) ^ (m - e_b + e_c - 1 + (h - 1) + 1) :=
+            mul_le_mul (mul_le_mul_of_nonneg_left (pow_le_pow_right₀ (by norm_num) hones) hn0.le)
+              (pow_le_pow_right₀ hεR hidx) (pow_pos hε _).le (mul_nonneg hn0.le (by positivity))
+  · -- Order 2: `e_a < e_c < e_b`. Runs: `(e_a, e_c)`, `(e_b, e_a + m)`, `(e_c, e_b)`.
+    have hc2b : e_c < e_b := by omega
+    refine ⟨e_c - e_a - 1, m - e_b + e_a - 1, e_b - e_c - 1, e_a + 1, e_b + 1, e_c + 1, by omega,
+      ?_, ?_, ?_, ?_⟩
+    · intro k hk
+      exact hagr (e_a + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
+        (by omega)
+    · intro k hk
+      exact hagr (e_b + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
+        (by omega)
+    · intro k hk
+      exact hagr (e_c + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega) (by omega)
+        (by omega)
+    · have hrun : ∀ k, k < e_c - e_a - 1 → Γ.agree h (e_a + 1 + k) := by
+        intro k hk
+        exact hagr (e_a + 1 + k) (by omega) (by omega) (by omega) (by omega) (by omega)
+          (by omega) (by omega)
+      have hend : e_a + 1 + (e_c - e_a - 1) = e_c := by omega
+      have hzend : Γ.z h (e_a + 1 + (e_c - e_a - 1)) ≠ 0 := by
+        rw [hend]
+        exact hzc
+      have hw := Γ.witness_gt (e_c - e_a - 1) hrun hzend
+      have hneg1 : Γ.z h (e_a + 1) < 0 := by
+        have hne : Γ.z h (e_a + 1) ≠ 0 := Γ.z_ne_zero hprim hh (e_a + 1)
+        exact lt_of_le_of_ne (not_lt.mp hdown.2) hne
+      have hneg : Γ.z h e_c < 0 := by
+        have := (Γ.z_neg_run (e_c - e_a - 1) hrun).mpr hneg1
+        rwa [hend] at this
+      rw [hend] at hw
+      have hle : Γ.n (e_c + h) ≤ Γ.n e_c := by
+        unfold z at hneg
+        linarith
+      rw [max_eq_left hle] at hw
+      have hwR : 2 * (3 : ℝ) ^ (e_c - e_a - 1) < Γ.n e_c := by exact_mod_cast hw
+      have hcl := Γ.n_le_climb hapos e_c
+      have hidx : e_c ≤ e_c - e_a - 1 + (m - e_b + e_a - 1) + 1 := by omega
+      have hones : Γ.ones e_c ≤ e_c - e_a - 1 + (m - e_b + e_a - 1) + 1 :=
+        (Γ.ones_le _).trans hidx
+      calc 2 * (3 : ℝ) ^ (e_c - e_a - 1) < Γ.n e_c := hwR
+        _ ≤ Γ.n 0 * (3 / 2 : ℝ) ^ Γ.ones e_c * (1 + Γ.q / (3 * Γ.n 0)) ^ e_c := hcl
+        _ ≤ Γ.n 0 * (3 / 2 : ℝ) ^ (e_c - e_a - 1 + (m - e_b + e_a - 1) + 1) *
+            (1 + Γ.q / (3 * Γ.n 0)) ^ (e_c - e_a - 1 + (m - e_b + e_a - 1) + 1) :=
+            mul_le_mul (mul_le_mul_of_nonneg_left (pow_le_pow_right₀ (by norm_num) hones) hn0.le)
+              (pow_le_pow_right₀ hεR hidx) (pow_pos hε _).le (mul_nonneg hn0.le (by positivity))
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
