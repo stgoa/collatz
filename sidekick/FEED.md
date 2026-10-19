@@ -28,6 +28,46 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 21:57 — VERIFIED Lean queue item 3 (`claude/lean-lane` `b980e52`): the empty-or-positive dichotomy is machine-checked over the audited C.1a library
+
+**The theorems.** `experiments/lean_lane/Dichotomy.lean` imports `Solution.Basic` from AxiomMath `CollatzPosDens` @`3a38bfbb`, the library audited in PR #2. Write `Bad n := ∀ k, collatz^[k] n ≠ 1`, using the ordinary map.
+
+- **`bad_positive_lower_density`.** If some `n > 0` is bad, then for explicit `c > 0` and `X₀`, every `N ≥ X₀` has `c·N ≤ #{n < N : 0 < n ∧ Bad n}`.
+- **`collatz_of_bad_density_zero`.** If the bad set has lower density zero, every `n > 0` reaches 1.
+
+**Checks.**
+
+- **Statement match.** This is my S1 card's dichotomy (VIEWPOINTS.md), "B is empty or has positive lower density", in natural density.
+  - **Map and clock.** Ordinary-map iterates, matching the imported theorem. The accelerated clock is not used.
+  - **Why `0 < n` is needed.** `collatz 0 = 0`.
+  - **Scope.** The log-density passage is not formalised, and the lane's `STATE.md` says so.
+- **The second theorem is stronger than its docstring.** Its hypothesis, "for every `c > 0` and `X₀` some `N ≥ X₀` has fewer than `c·N` bad numbers", is *lower* density zero, weaker than natural density zero.
+- **Proof, checked by reading.**
+  - A bad `n` gives the bad target `t = 3m + 1` with `3 ∤ t`, where `m` is the odd part of `n`.
+  - Anything reaching a bad `t` is bad (`bad_of_reach`). The case "reached 1 first" is excluded because every iterate of 1 returns to 1.
+  - The audited theorem's counted set (odd, reaches `t`) is a subset of the bad set.
+  - The constant `collatzDensityDep t` unfolds to `1/(t^4 · 2^2^2^87640)`. This is the tower constant recorded on the S1 card. Its positivity is proved without evaluating the tower.
+- **`decide`.** The single use is `collatz^[3] 1 = 1`, which the kernel evaluates in three steps. It adds no axiom.
+- **Source scan.** No `sorry`, `native_decide`, `admit`, `axiom` or `set_option`.
+- **Axioms.** Exactly `[propext, Classical.choice, Quot.sound]`, transitively through the imported library.
+- **Build.** `exit=0 (no diagnostics)`.
+- **Hash.** The sha256 `02e1f309…` matches the receipt.
+
+**Calibration.**
+
+- **This is a restatement of the goal, not progress on it.** Proving that the bad set has lower density zero is now formally equivalent to Collatz, so any "density" milestone for `B` must stop strictly short of lower density zero.
+- **Known density results do not reach it.**
+  - Krasikov–Lagarias give `≥ x^0.84` numbers reaching 1, far from positive density.
+  - Tao's almost-bounded-values theorem is about `Col_min(N) < f(N)` in log density, not about reaching 1.
+- **Trust base.** The trust base now includes the imported AI-generated library. Its comparator certificate passes six kernels. My provenance note in memory, and main's two replays, stand.
+
+```sh
+git show origin/claude/lean-lane:experiments/lean_lane/Dichotomy.lean | shasum -a 256   # 02e1f309…
+git show origin/claude/lean-lane:experiments/lean_lane/receipts/Dichotomy.axioms.txt
+```
+
+---
+
 ## 2026-10-18 21:47 — VERIFIED Lean V004-iii (`claude/lean-lane` `c453d38`): main's V004 theorem is machine-checked, modulo one named classical hypothesis that is true
 
 **The theorem.** `LeanLane.V004.automatic_rigidity`, in `V004_Assembly.lean`:
