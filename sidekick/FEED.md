@@ -28,6 +28,23 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 10:59 — FINDING (S3, producer batch): extending C005's ordering to `H < 16L` at `q = 1` reduces to excluding one inversion pair; that pair type occurs at other `q`, so the direct route is blocked
+
+Full note: `sidekick/research/S3/INVERSION_PAIRS.md`.
+
+- **The reduction (exact).** By C005's inversion lemma at `q = 1`, height gaps `k ≤ 2` never invert, and `k = 3` inverts only for `r = 1`. So a `q = 1` cycle with `H < 16L` is ordered unless it contains a pair `(n, 8n+1)` at heights `(0, 3)`, which is automatically sorted-adjacent. Without such a pair, `three_band`, C006-f and the 09:43 `J` bound would all extend to `H < 16L`.
+- **Why the direct route is blocked.**
+  - At `q = 1` the pair's orbit `8n+1 → 6n+1 → 9n+2 → (27n+7)/2^v → …` is forced, but each step only adds a 2-adic congruence on `n`.
+  - In general the pair satisfies a defect recursion `n_(t+h) = 2^(K_t) n_t − c_t`, with `c_(t+1) = (2^(K_t) + 3c_t − 1)/2^(a_(t+h))`, that must close at `(3, −1)`. This is C013's overlap problem with a dyadic scale.
+  - **Data** (`s3_inversion_pairs.py`: odd `q < 400`, 719 cycles): there are actual inversions at every height gap `k = 1…11`, including 37 pairs `(n, 8n+1)` at height gap exactly 3, e.g. `(q, n) = (121, 35)`, `(175, 29)`, `(181, 23)`. So the inversion lemma cannot exclude the pair; doing so at `q = 1` needs global `q = 1` arithmetic.
+- **Next, S4: a law hunt.** On ordered band-1 cycles, the earlier data had `g = gcd(C, D) ∈ {1, 5, 7, 23}`, each of the form `2^a − 3^b` with small exponents. S4 asks whether `g` is always small or has a recognisable structure. A provable bound with `g < D` would exclude band 1 at `q = 1`.
+
+```sh
+python3 sidekick/probes/s3_inversion_pairs.py   # ~37 s
+```
+
+---
+
 ## 2026-10-19 10:52 — FINDING (S2, producer batch): renormalising ordered cycles by run compression is rejected; the exact obstruction is the sign of the level-2 forcing
 
 **Context.** Since this morning (user decision), ChatGPT is out until the end of the month and `main` is frozen at `1c5c19d`. This lane now produces for the cycle-spectrum goal. The Lean lane formalises and reviews adversarially. Batches are numbered S2, S3, …; S1 is the `J`-term lead. Full note: `sidekick/research/S2/RENORMALISATION.md`.
@@ -55,6 +72,19 @@ So the run starts form a `J`-state cycle of a generalised Collatz map with the s
 - **What survives.** The §1 identities remain as bookkeeping, and the all-run-starts sum gives a constant-factor (≈1.58) improvement of the `J` bound.
 
 **Next producer target, S3.** Extend C005's ordering from `H < 8L` to `H < 16L` at `q = 1`. At height gap `k = 3`, the only possible `q = 1` inversion is a pair `(n, 8n+1)` with `n` of height 0. Its orbit is forced: `8n+1 → 6n+1 → 9n+2 → …`. S3 will either exclude such pairs in a nontrivial cycle or record exactly what they require.
+
+**Update 10:59: Lean S2-a is VERIFIED** (`9a30082`).
+
+- **The theorems.**
+  - `run_dvd`: the run-start gap is divisible by `2^E`.
+  - `run_end_eq`: the run law in quotient form.
+  - `run_start_rec` and `run_start_rec_two`: §1's identity exactly, with `τ_k = T` at the forced step and `E′_k = e_k + E_(k+1)`.
+  - `run_quot_odd_iff`: `u` is odd exactly when `2^(E+1)` does not divide the run-start gap.
+  - `E_add`, `sum_gap_eq_lo` (`Σ Δ = 2^B L`) and `sum_run_bound` (`Σ 2^(E) ≤ 2^B L`).
+- **Receipts.** Of 497 declarations, 411 use the standard three axioms, 38 use `[propext, Quot.sound]`, 46 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `e0f0febe…` matches all three binding receipts.
+- **Data.** `s2_ucycle_explore.py` checks the recursion and records the oddness pattern above, which the lane asked for.
+- **Still informal.** The parity rule of §2 (forced gap odd exactly when one adjacent height equals `B`), which is the natural S2-b, and the partition of the orbit into runs.
+- **Bookkeeping.** The lane relabelled its iteration-58 unit as C013-b, as agreed.
 
 ```sh
 python3 sidekick/probes/s2_ucycle_explore.py   # ~15 s; identities PASS; oddness, spread and level-2 counts
