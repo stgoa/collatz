@@ -3,6 +3,21 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 83 — 2026-10-19, 16:01 -03
+
+- Woken by the side lane's S12-c verdict; main frozen at `1c5c19d`. Monitor
+  re-armed on expiry. The PR body refresh is retried.
+- **S12-d verified — S12 (3): `log_step` (`log n_(t+1) − log n_t = log 3 − a_t
+  log 2 + ε_t`), `sum_eps` (`Σ ε_t = A log 2 − m log 3`), `varMu_le` and
+  `varMu_le_Vh` (`Var(μ_h) ≤ V_h log 2 + 2δ`), with `eps`, `eps_nonneg'`,
+  `eps_per`, `sum_eps_shift`, `Vh`, `Vh_cast`, `n_cast_pos`** in
+  `CycleSpectrum.lean` (sha256 `52619fc9…900b`, 12,206 lines, 674 theorems:
+  570 with the three standard axioms, 45 × `[propext, Quot.sound]`, 57 ×
+  `[propext]`, 2 none; no `sorry`). Second build (`abs_add_le`;
+  `Nat.cast_natAbs` + `Int.cast_abs`). Receipts regenerated. S12's height tool
+  is now formal end to end given the ladder of convergents. Next: S9-d, the `q
+  = den(w)` glue.
+
 ## Iteration 82 — 2026-10-19, 15:53 -03
 
 - Woken by the side lane's S12-b verdict; main frozen at `1c5c19d`. The PR

@@ -10467,6 +10467,154 @@ theorem height_le_varMu' {h : ℕ} (hhm : h ≤ m) (hcop : Nat.Coprime h m) {q a
 
 end OddCycle
 
+/-! ### S12-d: the variation bound `Var(μ_h) ≤ V_h log 2 + 2δ` (S12 (3))
+
+The height step of a cycle is `log n_{t+1} − log n_t = log 3 − a_t log 2 + ε_t` with the correction
+`ε_t = log(1 + q/(3 n_t)) ≥ 0` (`log_step`, from the arrow `2^{a_t} n_{t+1} = 3 n_t + q`), and the
+corrections sum to the drift: `Σ_{t<m} ε_t = A log 2 − m log 3 = δ` (`sum_eps`, telescoping over the
+period). Hence `μ_h(t+1) − μ_h(t) = (a_t − a_{t+h}) log 2 + (ε_{t+h} − ε_t)`, and summing
+`|·| ≤ |a_t − a_{t+h}| log 2 + ε_{t+h} + ε_t` over a period gives `Var(μ_h) ≤ V_h log 2 + 2δ`
+(`varMu_le`, `varMu_le_Vh`), with `V_h = Σ_t |a_t − a_{t+h}|` the letter variation of the rotation
+(`Vh`; only the mismatches contribute). This is the side lane's (3) in natural logarithms. With
+S12-a/b/c, the height tool reads: `B ≤ (K − 1)·(V_h log 2 + 2δ)` for every rotation `h` coprime
+to `m`, given the ladder of its convergents. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+theorem n_cast_pos (t : ℕ) : (0 : ℝ) < Γ.n t := by
+  exact_mod_cast lt_of_lt_of_le Γ.npos (Γ.nmin t)
+
+/-- The per-step correction `ε_t = log(1 + q/(3 n_t))`. -/
+noncomputable def eps (t : ℕ) : ℝ := Real.log (1 + (Γ.q : ℝ) / (3 * (Γ.n t : ℝ)))
+
+theorem eps_nonneg' (t : ℕ) : 0 ≤ Γ.eps t := by
+  unfold eps
+  apply Real.log_nonneg
+  have hq : (0 : ℝ) ≤ Γ.q := by exact_mod_cast Γ.hq.le
+  have hn := Γ.n_cast_pos t
+  have h1 : (0 : ℝ) ≤ (Γ.q : ℝ) / (3 * (Γ.n t : ℝ)) := div_nonneg hq (by linarith)
+  linarith
+
+theorem eps_per (t : ℕ) : Γ.eps (t + m) = Γ.eps t := by
+  unfold eps
+  rw [Γ.nper]
+
+/-- The height step: `log n_{t+1} − log n_t = log 3 − a_t log 2 + ε_t`. -/
+theorem log_step (t : ℕ) :
+    Real.log (Γ.n (t + 1)) - Real.log (Γ.n t) =
+      Real.log 3 - (Γ.a t : ℝ) * Real.log 2 + Γ.eps t := by
+  have hn := Γ.n_cast_pos t
+  have hn1 := Γ.n_cast_pos (t + 1)
+  have hq : (0 : ℝ) < Γ.q := by exact_mod_cast Γ.hq
+  have h3n : (0 : ℝ) < 3 * (Γ.n t : ℝ) := mul_pos (by norm_num) hn
+  have harrow : (2 : ℝ) ^ Γ.a t * Γ.n (t + 1) = 3 * Γ.n t + Γ.q := by exact_mod_cast Γ.arrow t
+  have hfac : (3 : ℝ) * Γ.n t + Γ.q = 3 * Γ.n t * (1 + (Γ.q : ℝ) / (3 * (Γ.n t : ℝ))) := by
+    rw [mul_add, mul_one, mul_comm (3 * (Γ.n t : ℝ)) ((Γ.q : ℝ) / (3 * (Γ.n t : ℝ))),
+      div_mul_cancel₀ _ h3n.ne']
+  have h1pos : (0 : ℝ) < 1 + (Γ.q : ℝ) / (3 * (Γ.n t : ℝ)) := by
+    have := div_pos hq h3n
+    linarith
+  have h2a : (2 : ℝ) ^ Γ.a t ≠ 0 := by positivity
+  have hl := congrArg Real.log harrow
+  rw [Real.log_mul h2a hn1.ne', Real.log_pow, hfac, Real.log_mul h3n.ne' h1pos.ne',
+    Real.log_mul (by norm_num : (3 : ℝ) ≠ 0) hn.ne'] at hl
+  unfold eps
+  linarith
+
+/-- The corrections sum to the drift: `Σ_{t<m} ε_t = A log 2 − m log 3`. -/
+theorem sum_eps : ∑ t ∈ Finset.range m, Γ.eps t =
+    (Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3 := by
+  have htel : ∑ t ∈ Finset.range m, (Real.log (Γ.n (t + 1)) - Real.log (Γ.n t)) = 0 := by
+    rw [Finset.sum_range_sub (fun t => Real.log (Γ.n t)) m]
+    show Real.log (Γ.n m) - Real.log (Γ.n 0) = 0
+    rw [show Γ.n m = Γ.n 0 by simpa using Γ.nper 0, sub_self]
+  have h2 : ∑ t ∈ Finset.range m, (Real.log (Γ.n (t + 1)) - Real.log (Γ.n t)) =
+      ∑ t ∈ Finset.range m, (Real.log 3 - (Γ.a t : ℝ) * Real.log 2 + Γ.eps t) :=
+    Finset.sum_congr rfl (fun t _ => Γ.log_step t)
+  rw [h2, Finset.sum_add_distrib, Finset.sum_sub_distrib, Finset.sum_const, Finset.card_range,
+    nsmul_eq_mul, ← Finset.sum_mul] at htel
+  have hA : ((Γ.Apre m : ℕ) : ℝ) = ∑ t ∈ Finset.range m, (Γ.a t : ℝ) := by
+    unfold Apre
+    exact Nat.cast_sum _ _
+  rw [hA]
+  linarith
+
+/-- The shifted corrections have the same sum. -/
+theorem sum_eps_shift (h : ℕ) :
+    ∑ t ∈ Finset.range m, Γ.eps (t + h) = ∑ t ∈ Finset.range m, Γ.eps t := by
+  have hsh : ∑ t ∈ Finset.range m, Γ.eps (h + t) = ∑ t ∈ Finset.range m, Γ.eps t :=
+    DK.sum_range_shift Γ.eps Γ.eps_per h
+  rw [← hsh]
+  apply Finset.sum_congr rfl
+  intro t _
+  rw [Nat.add_comm]
+
+/-- **S12 (3)**: `Var(μ_h) ≤ (Σ_t |a_t − a_{t+h}|) log 2 + 2δ`, `δ = A log 2 − m log 3`. -/
+theorem varMu_le (h : ℕ) :
+    Γ.varMu h ≤ (∑ t ∈ Finset.range m, |(Γ.a t : ℝ) - (Γ.a (t + h) : ℝ)|) * Real.log 2 +
+      2 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) := by
+  have hlog2 : 0 ≤ Real.log 2 := Real.log_nonneg (by norm_num)
+  have hpt : ∀ t, |(Real.log (Γ.n (t + 1 + h)) - Real.log (Γ.n (t + 1))) -
+      (Real.log (Γ.n (t + h)) - Real.log (Γ.n t))| ≤
+      |(Γ.a t : ℝ) - (Γ.a (t + h) : ℝ)| * Real.log 2 + (Γ.eps (t + h) + Γ.eps t) := by
+    intro t
+    have e1 := Γ.log_step t
+    have e2 := Γ.log_step (t + h)
+    rw [show t + h + 1 = t + 1 + h by omega] at e2
+    have heq : (Real.log (Γ.n (t + 1 + h)) - Real.log (Γ.n (t + 1))) -
+        (Real.log (Γ.n (t + h)) - Real.log (Γ.n t)) =
+        ((Γ.a t : ℝ) - (Γ.a (t + h) : ℝ)) * Real.log 2 + (Γ.eps (t + h) - Γ.eps t) := by
+      linarith
+    rw [heq]
+    have hε1 := Γ.eps_nonneg' t
+    have hε2 := Γ.eps_nonneg' (t + h)
+    have habs : |Γ.eps (t + h) - Γ.eps t| ≤ Γ.eps (t + h) + Γ.eps t := by
+      rw [abs_le]
+      constructor <;> linarith
+    calc |((Γ.a t : ℝ) - (Γ.a (t + h) : ℝ)) * Real.log 2 + (Γ.eps (t + h) - Γ.eps t)|
+        ≤ |((Γ.a t : ℝ) - (Γ.a (t + h) : ℝ)) * Real.log 2| + |Γ.eps (t + h) - Γ.eps t| :=
+          abs_add_le _ _
+      _ = |(Γ.a t : ℝ) - (Γ.a (t + h) : ℝ)| * Real.log 2 + |Γ.eps (t + h) - Γ.eps t| := by
+          rw [abs_mul, abs_of_nonneg hlog2]
+      _ ≤ |(Γ.a t : ℝ) - (Γ.a (t + h) : ℝ)| * Real.log 2 + (Γ.eps (t + h) + Γ.eps t) := by
+          linarith
+  unfold varMu
+  calc ∑ t ∈ Finset.range m, |(Real.log (Γ.n (t + 1 + h)) - Real.log (Γ.n (t + 1))) -
+        (Real.log (Γ.n (t + h)) - Real.log (Γ.n t))|
+      ≤ ∑ t ∈ Finset.range m, (|(Γ.a t : ℝ) - (Γ.a (t + h) : ℝ)| * Real.log 2 +
+          (Γ.eps (t + h) + Γ.eps t)) := Finset.sum_le_sum (fun t _ => hpt t)
+    _ = (∑ t ∈ Finset.range m, |(Γ.a t : ℝ) - (Γ.a (t + h) : ℝ)|) * Real.log 2 +
+          (∑ t ∈ Finset.range m, Γ.eps (t + h) + ∑ t ∈ Finset.range m, Γ.eps t) := by
+        rw [Finset.sum_add_distrib, Finset.sum_add_distrib, Finset.sum_mul]
+    _ = (∑ t ∈ Finset.range m, |(Γ.a t : ℝ) - (Γ.a (t + h) : ℝ)|) * Real.log 2 +
+          2 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) := by
+        rw [Γ.sum_eps_shift, Γ.sum_eps]
+        ring
+
+/-- The letter variation of the rotation `h`: `V_h = Σ_t |a_t − a_{t+h}|` (only mismatches contribute). -/
+def Vh (h : ℕ) : ℕ := ∑ t ∈ Finset.range m, Int.natAbs ((Γ.a t : ℤ) - (Γ.a (t + h) : ℤ))
+
+theorem Vh_cast (h : ℕ) :
+    (Γ.Vh h : ℝ) = ∑ t ∈ Finset.range m, |(Γ.a t : ℝ) - (Γ.a (t + h) : ℝ)| := by
+  unfold Vh
+  rw [Nat.cast_sum]
+  apply Finset.sum_congr rfl
+  intro t _
+  rw [Nat.cast_natAbs, Int.cast_abs]
+  push_cast
+  rfl
+
+/-- **S12 (3) with the integer letter variation**: `Var(μ_h) ≤ V_h log 2 + 2δ`. -/
+theorem varMu_le_Vh (h : ℕ) :
+    Γ.varMu h ≤ (Γ.Vh h : ℝ) * Real.log 2 +
+      2 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) := by
+  rw [Γ.Vh_cast]
+  exact Γ.varMu_le h
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
