@@ -7422,6 +7422,222 @@ theorem h_add_excess_le (hapos : ∀ i, 1 ≤ Γ.a i) (k : ℕ) :
 
 end OddCycle
 
+/-! ### S7-b (part 2): counting the sign changes (the side lane's S7 Step 2, by telescoping)
+
+With `σ_i = [z_i > 0]`, the telescoping sum `Σ_{i<m} (σ_{i+1} − σ_i) = 0` (periodicity) shows that
+the `+→−` changes (`down`) and the `−→+` changes (`up`) in one period are equinumerous
+(`card_down_eq_card_up`); a change happens only at a mismatch (`down_mem_mis`, `up_mem_mis`, from
+`z_pos_step`); a discrete intermediate-value step (`exists_down`, `exists_up`) locates a `+→−` change
+in the window `[j − h, m − h)` and a `−→+` change in `[j, m)` from the four strict signs of S7-a
+(`exists_down_window`, `exists_up_window`). With exactly three mismatches there is exactly one
+change of each kind, and the third mismatch has no change (`three_mismatch_changes`). -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+theorem z_per (h i : ℕ) : Γ.z h (i + m) = Γ.z h i := by
+  unfold z
+  rw [Nat.add_right_comm i m h, Γ.nper, Γ.nper]
+
+/-- The sign indicator `σ_i = [z_i > 0]`, as an integer. -/
+def sgn (h i : ℕ) : ℤ := if 0 < Γ.z h i then 1 else 0
+
+theorem sgn_per (h i : ℕ) : Γ.sgn h (i + m) = Γ.sgn h i := by
+  unfold sgn
+  rw [Γ.z_per]
+
+/-- A `+→−` change at `i`. -/
+abbrev down (h i : ℕ) : Prop := 0 < Γ.z h i ∧ ¬ 0 < Γ.z h (i + 1)
+
+/-- A `−→+` change at `i`. -/
+abbrev up (h i : ℕ) : Prop := ¬ 0 < Γ.z h i ∧ 0 < Γ.z h (i + 1)
+
+theorem down_per (h i : ℕ) : Γ.down h (i + m) ↔ Γ.down h i := by
+  unfold down
+  rw [Γ.z_per, Nat.add_right_comm i m 1, Γ.z_per]
+
+theorem up_per (h i : ℕ) : Γ.up h (i + m) ↔ Γ.up h i := by
+  unfold up
+  rw [Γ.z_per, Nat.add_right_comm i m 1, Γ.z_per]
+
+theorem sgn_succ_sub (h i : ℕ) :
+    Γ.sgn h (i + 1) - Γ.sgn h i =
+      (if Γ.up h i then (1 : ℤ) else 0) - (if Γ.down h i then (1 : ℤ) else 0) := by
+  unfold sgn up down
+  by_cases h1 : 0 < Γ.z h i <;> by_cases h2 : 0 < Γ.z h (i + 1) <;> simp [h1, h2]
+
+theorem sum_sgn_tele (h : ℕ) : ∑ i ∈ Finset.range m, (Γ.sgn h (i + 1) - Γ.sgn h i) = 0 := by
+  rw [Finset.sum_range_sub (fun i => Γ.sgn h i) m]
+  have := Γ.sgn_per h 0
+  rw [Nat.zero_add] at this
+  rw [this, sub_self]
+
+/-- The `+→−` and `−→+` changes in one period are equinumerous. -/
+theorem card_down_eq_card_up (h : ℕ) :
+    ((Finset.range m).filter (Γ.down h)).card = ((Finset.range m).filter (Γ.up h)).card := by
+  have h1 := Γ.sum_sgn_tele h
+  have h2 : ∑ i ∈ Finset.range m, (Γ.sgn h (i + 1) - Γ.sgn h i) =
+      ∑ i ∈ Finset.range m,
+        ((if Γ.up h i then (1 : ℤ) else 0) - (if Γ.down h i then (1 : ℤ) else 0)) :=
+    Finset.sum_congr rfl (fun i _ => Γ.sgn_succ_sub h i)
+  rw [h2, Finset.sum_sub_distrib, Finset.sum_boole, Finset.sum_boole] at h1
+  have h3 : (((Finset.range m).filter (Γ.up h)).card : ℤ) =
+      (((Finset.range m).filter (Γ.down h)).card : ℤ) := by linarith
+  exact_mod_cast h3.symm
+
+/-- A change happens only at a mismatch. -/
+theorem down_mem_mis {h i : ℕ} (hi : i < m) (hd : Γ.down h i) : i ∈ Γ.mis h := by
+  unfold mis
+  rw [Finset.mem_filter, Finset.mem_range]
+  refine ⟨hi, fun ha => ?_⟩
+  exact hd.2 ((Γ.z_pos_step ha).mpr hd.1)
+
+theorem up_mem_mis {h i : ℕ} (hi : i < m) (hu : Γ.up h i) : i ∈ Γ.mis h := by
+  unfold mis
+  rw [Finset.mem_filter, Finset.mem_range]
+  refine ⟨hi, fun ha => ?_⟩
+  exact hu.1 ((Γ.z_pos_step ha).mp hu.2)
+
+/-- Discrete intermediate value: `z_a > 0` and `z_{a+d} ≤ 0` give a `+→−` change in `[a, a + d)`. -/
+theorem exists_down {h a d : ℕ} (ha : 0 < Γ.z h a) (hb : ¬ 0 < Γ.z h (a + d)) :
+    ∃ i, a ≤ i ∧ i < a + d ∧ Γ.down h i := by
+  classical
+  have hex : ∃ k, k ≤ d ∧ ¬ 0 < Γ.z h (a + k) := ⟨d, le_refl d, hb⟩
+  obtain ⟨k, hkd, hkz, hkmin⟩ : ∃ k, k ≤ d ∧ ¬ 0 < Γ.z h (a + k) ∧
+      ∀ k', k' < k → k' ≤ d → 0 < Γ.z h (a + k') :=
+    ⟨Nat.find hex, (Nat.find_spec hex).1, (Nat.find_spec hex).2, fun k' hk' hk'd => by
+      by_contra hneg
+      exact Nat.find_min hex hk' ⟨hk'd, hneg⟩⟩
+  have hk0 : k ≠ 0 := by
+    intro h0
+    rw [h0, Nat.add_zero] at hkz
+    exact hkz ha
+  obtain ⟨k', rfl⟩ := Nat.exists_eq_succ_of_ne_zero hk0
+  refine ⟨a + k', Nat.le_add_right a k', by omega, hkmin k' (Nat.lt_succ_self k') (by omega), ?_⟩
+  rw [Nat.add_assoc]
+  exact hkz
+
+/-- Discrete intermediate value: `z_a ≤ 0` and `z_{a+d} > 0` give a `−→+` change in `[a, a + d)`. -/
+theorem exists_up {h a d : ℕ} (ha : ¬ 0 < Γ.z h a) (hb : 0 < Γ.z h (a + d)) :
+    ∃ i, a ≤ i ∧ i < a + d ∧ Γ.up h i := by
+  classical
+  have hex : ∃ k, k ≤ d ∧ 0 < Γ.z h (a + k) := ⟨d, le_refl d, hb⟩
+  obtain ⟨k, hkd, hkz, hkmin⟩ : ∃ k, k ≤ d ∧ 0 < Γ.z h (a + k) ∧
+      ∀ k', k' < k → k' ≤ d → ¬ 0 < Γ.z h (a + k') :=
+    ⟨Nat.find hex, (Nat.find_spec hex).1, (Nat.find_spec hex).2, fun k' hk' hk'd hpos =>
+      Nat.find_min hex hk' ⟨hk'd, hpos⟩⟩
+  have hk0 : k ≠ 0 := by
+    intro h0
+    rw [h0, Nat.add_zero] at hkz
+    exact ha hkz
+  obtain ⟨k', rfl⟩ := Nat.exists_eq_succ_of_ne_zero hk0
+  refine ⟨a + k', Nat.le_add_right a k', by omega, hkmin k' (Nat.lt_succ_self k') (by omega), ?_⟩
+  rw [Nat.add_assoc]
+  exact hkz
+
+/-- Step 2, first half: a `+→−` change in the window `[j − h, m − h)`, written as naturals as
+`[j + (m − h % m), j + (m − h % m) + (m − j))`, for an index `j < m` attaining the maximum. -/
+theorem exists_down_window (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {j : ℕ}
+    (hj : ∀ i, Γ.n i ≤ Γ.n j) (hjm : j < m) {h : ℕ} (hh : h % m ≠ 0) :
+    ∃ i, j + (m - h % m) ≤ i ∧ i < j + (m - h % m) + (m - j) ∧ Γ.down h i := by
+  apply Γ.exists_down (Γ.z_pred_max_pos hprim hj hh)
+  have e : j + (m - h % m) + (m - j) = (m - h % m) + m := by omega
+  rw [e, Γ.z_per]
+  exact not_lt.mpr (Γ.z_pred_min_neg hprim hh).le
+
+/-- Step 2, second half: a `−→+` change in the window `[j, m)`. -/
+theorem exists_up_window (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {j : ℕ}
+    (hj : ∀ i, Γ.n i ≤ Γ.n j) (hjm : j < m) {h : ℕ} (hh : h % m ≠ 0) :
+    ∃ i, j ≤ i ∧ i < j + (m - j) ∧ Γ.up h i := by
+  apply Γ.exists_up (not_lt.mpr (Γ.z_max_neg hprim hj hh).le)
+  have e : j + (m - j) = 0 + m := by omega
+  rw [e, Γ.z_per]
+  exact Γ.z_min_pos hprim hh
+
+/-- Every `+→−` change position reduces modulo `m` to one in the period. -/
+theorem down_mod (h i : ℕ) : Γ.down h (i % m) ↔ Γ.down h i := by
+  have hm := Γ.hm
+  conv_rhs => rw [← Nat.mod_add_div i m]
+  induction (i / m) with
+  | zero => simp
+  | succ t ih => rw [Nat.mul_succ, ← Nat.add_assoc, Γ.down_per, ih]
+
+theorem up_mod (h i : ℕ) : Γ.up h (i % m) ↔ Γ.up h i := by
+  have hm := Γ.hm
+  conv_rhs => rw [← Nat.mod_add_div i m]
+  induction (i / m) with
+  | zero => simp
+  | succ t ih => rw [Nat.mul_succ, ← Nat.add_assoc, Γ.up_per, ih]
+
+/-- Step 2, conclusion for exactly three mismatches: exactly one `+→−` change and one `−→+`
+change in the period, and some mismatch has no change. -/
+theorem three_mismatch_changes (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {j : ℕ}
+    (hj : ∀ i, Γ.n i ≤ Γ.n j) (hjm : j < m) {h : ℕ} (hh : h % m ≠ 0)
+    (hs : (Γ.mis h).card = 3) :
+    ((Finset.range m).filter (Γ.down h)).card = 1 ∧
+      ((Finset.range m).filter (Γ.up h)).card = 1 ∧
+      ∃ e ∈ Γ.mis h, ¬ Γ.down h e ∧ ¬ Γ.up h e := by
+  classical
+  set D := (Finset.range m).filter (Γ.down h) with hD
+  set U := (Finset.range m).filter (Γ.up h) with hU
+  have hDU : D.card = U.card := Γ.card_down_eq_card_up h
+  have hDm : D ⊆ Γ.mis h := by
+    intro i hi
+    rw [hD, Finset.mem_filter, Finset.mem_range] at hi
+    exact Γ.down_mem_mis hi.1 hi.2
+  have hUm : U ⊆ Γ.mis h := by
+    intro i hi
+    rw [hU, Finset.mem_filter, Finset.mem_range] at hi
+    exact Γ.up_mem_mis hi.1 hi.2
+  have hdisj : Disjoint D U := by
+    rw [Finset.disjoint_left]
+    intro i hiD hiU
+    rw [hD, Finset.mem_filter] at hiD
+    rw [hU, Finset.mem_filter] at hiU
+    exact hiU.2.1 hiD.2.1
+  have hsub : D ∪ U ⊆ Γ.mis h := Finset.union_subset hDm hUm
+  have hcard : D.card + U.card ≤ 3 := by
+    rw [← Finset.card_union_of_disjoint hdisj, ← hs]
+    exact Finset.card_le_card hsub
+  have hDpos : 0 < D.card := by
+    obtain ⟨i, _, _, hdown⟩ := Γ.exists_down_window hprim hj hjm hh
+    apply Finset.card_pos.mpr
+    refine ⟨i % m, ?_⟩
+    rw [hD, Finset.mem_filter, Finset.mem_range]
+    exact ⟨Nat.mod_lt _ Γ.hm, (Γ.down_mod h i).mpr hdown⟩
+  have hD1 : D.card = 1 := by omega
+  have hU1 : U.card = 1 := by omega
+  refine ⟨hD1, hU1, ?_⟩
+  have hlt : (D ∪ U).card < (Γ.mis h).card := by
+    rw [Finset.card_union_of_disjoint hdisj, hD1, hU1, hs]
+    norm_num
+  by_contra hno
+  have hsub2 : Γ.mis h ⊆ D ∪ U := by
+    intro e hem
+    by_contra hen
+    have hem' := hem
+    unfold mis at hem'
+    rw [Finset.mem_filter, Finset.mem_range] at hem'
+    apply hno
+    refine ⟨e, hem, ?_, ?_⟩
+    · intro hd
+      apply hen
+      have heD : e ∈ D := by
+        rw [hD, Finset.mem_filter, Finset.mem_range]
+        exact ⟨hem'.1, hd⟩
+      exact Finset.mem_union_left U heD
+    · intro hu
+      apply hen
+      have heU : e ∈ U := by
+        rw [hU, Finset.mem_filter, Finset.mem_range]
+        exact ⟨hem'.1, hu⟩
+      exact Finset.mem_union_right D heU
+  have := Finset.card_le_card hsub2
+  omega
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

@@ -3,6 +3,30 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 68 — 2026-10-19, 13:01 -03
+
+- Woken by the sidekick's message (`4a17854`): **S7-b part 1 verified** by the
+  side lane; its telescoping suggestion for the counting lemma adopted. Main
+  frozen at `1c5c19d`.
+- **S7-b (part 2) verified — the sign-change counting: `σ_i = [z_i > 0]`
+  telescopes over a period, so the `+→−` and `−→+` changes are equinumerous; a
+  change happens only at a mismatch; discrete intermediate value locates a
+  `+→−` change in `[j − h, m − h)` and a `−→+` change in `[j, m)`; with
+  exactly three mismatches there is exactly one change of each kind and a
+  mismatch without change** in `CycleSpectrum.lean` (sha256 `60c3aa13…9ce2`,
+  9229 lines, 572 theorems: 474 with the three standard axioms, 41 ×
+  `[propext, Quot.sound]`, 55 × `[propext]`, 2 none; no `sorry`):
+  `OddCycle.z_per`, `sgn`, `sgn_per`, `down`, `up`, `down_per`, `up_per`,
+  `sgn_succ_sub`, `sum_sgn_tele`, **`card_down_eq_card_up`**,
+  **`down_mem_mis`**, **`up_mem_mis`**, **`exists_down`**, **`exists_up`**,
+  **`exists_down_window`**, **`exists_up_window`**, `down_mod`, `up_mod`,
+  **`three_mismatch_changes`**. Third build
+  (`Finset.exists_mem_notMem_of_card_lt_card` is the current name of the
+  card-lt lemma — replaced by a direct subset-cardinality contradiction; a
+  membership proof must be stated before `Finset.mem_union_left`). Receipts
+  regenerated. Next: S7-b part 3 — window disjointness (`d ≤ h ≤ m − d`) and
+  alignment (`e_a + h = e_b`) by excess transfer; then S7-c, S7-d.
+
 ## Iteration 67 — 2026-10-19, 12:50 -03
 
 - Woken by the sidekick's messages and pushes `d978b57`…`e4d97ad`: **S7-a
