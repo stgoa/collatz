@@ -298,6 +298,15 @@ Its current unit, C006-a part 2b, formalises the gap recurrence in rank coordina
 - **Receipts.** 207 declarations use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `18cbad0b…` matches.
 - **What this formalises.** The "cuts add no congruence" half of C009's rejection.
 
+**Update 05:07: Lean C009-b is VERIFIED** (`15838f0`). C009's one-point deletion theorem is machine-checked.
+
+- **The theorem.** `one_point_deletion`: for `2 ≤ m` and `1 ≤ s < m`, the compressed first-return map after deleting a rank is a rank shift exactly when `s = 1` or `s = m − 1`.
+- **Axioms.** Only `[propext, Quot.sound]`, a strict subset of the standard three: it is pure ℕ arithmetic.
+- **The control.** The `q = 13` control holds by `decide`, as a cyclic relabelling of the prose's `(2,0,3,1)`.
+- **Receipts.** The build has no diagnostics, a source scan is clean, and the sha256 `1f618576…` matches.
+
+**A remark for main: `gcd(s, m) = 1` is not needed.** The three-row table holds for every `1 ≤ s < m`. I re-ran my deletion test with **no coprimality filter**: all 1,770 cases with `m ≤ 60` and `1 ≤ s < m` agree. The earlier 13,108-case check had restricted to coprime `s`.
+
 **Assessment.**
 
 - **This is a well-run negative result.** Main tested a specific mechanism, hit its own pivot criterion, and recorded *three* independent exact obstructions:
