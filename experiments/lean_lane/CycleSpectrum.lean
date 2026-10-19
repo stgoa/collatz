@@ -5912,6 +5912,111 @@ theorem L_mul_delta_le :
 
 end OddCycle
 
+/-! ### C006-e: the normalised intercept `C_c` and `C_h ≤ C_c`
+
+C006 writes (G1)'s second inequality with `C_c`, the intercept of the normalised word
+`c_i = a_i + h_{i+1} − h_i`, using `D L = q C_h ≤ q C_c`, where `C_h = Σ_j M_j/2^{h_j}` is the
+chronological intercept (`Cpre m`): the prefix sums of `c` are `P_j = A_j + h_j` (`Ppre_eq`), so
+`C_h ≤ C_c` termwise (`Cpre_le_Cc`) and `D L ≤ q C_c` (`D_mul_n_le`). At `q = 1`, `B ≤ 2` the
+normalised word is the phase-`0` mechanical word of total `A` (`three_band`; `cword_eq_mech`), so
+`C_c = C(mech A m 0)` and R71-a gives `gcd(C_c, D) = 1` (`Cc_gcd_one`) — C006's "`Y_0 = C_c/D` is
+the lower mechanical minimum". The `OrdCycle` consequences (`G1_second_c`, `run_bound_c`) follow
+after the `OrdCycle` section. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- Prefix sums of the normalised word `c`. -/
+def Ppre (i : ℕ) : ℕ := ∑ j ∈ Finset.range i, Γ.c j
+
+theorem Ppre_succ (i : ℕ) : Γ.Ppre (i + 1) = Γ.Ppre i + Γ.c i := by
+  unfold Ppre
+  rw [Finset.sum_range_succ]
+
+/-- `P_i = A_i + h_i`: the normalised prefix sums carry the height. -/
+theorem Ppre_eq (i : ℕ) : Γ.Ppre i = Γ.Apre i + Γ.h i := by
+  induction i with
+  | zero => simp [Ppre, Apre, Γ.h_zero]
+  | succ i ih =>
+    rw [Γ.Ppre_succ, Γ.Apre_succ, ih]
+    have := Γ.h_le_a_add i
+    unfold c
+    omega
+
+/-- The intercept of the normalised word's prefixes, `C_c = Σ 3^{m−1−j} 2^{P_j}`, as a Horner
+recurrence. -/
+def Cc : ℕ → ℤ
+  | 0 => 0
+  | i + 1 => 3 * Cc i + 2 ^ Γ.Ppre i
+
+theorem Cc_succ (i : ℕ) : Γ.Cc (i + 1) = 3 * Γ.Cc i + 2 ^ Γ.Ppre i := rfl
+
+/-- The normalised word `(c_0, …, c_{i−1})` has total `P_i` and intercept `C_c(i)`. -/
+theorem cword_prefix (i : ℕ) :
+    ((List.range i).map Γ.c).sum = Γ.Ppre i ∧ C ((List.range i).map Γ.c) = Γ.Cc i := by
+  induction i with
+  | zero => simp [Ppre, Cc, C]
+  | succ i ih =>
+    obtain ⟨h1, h2⟩ := ih
+    rw [List.range_succ, List.map_append, List.map_singleton, List.sum_append,
+      List.sum_singleton, C_append_singleton, h1, h2, Γ.Ppre_succ, Γ.Cc_succ]
+    exact ⟨rfl, rfl⟩
+
+/-- `C_h ≤ C_c`: termwise `2^{A_j} ≤ 2^{A_j + h_j}`. -/
+theorem Cpre_le_Cc (i : ℕ) : Γ.Cpre i ≤ Γ.Cc i := by
+  induction i with
+  | zero => simp [Cpre, Cc]
+  | succ i ih =>
+    rw [Γ.Cpre_succ, Γ.Cc_succ, Γ.Ppre_eq]
+    have h2 : (2 : ℤ) ^ Γ.Apre i ≤ 2 ^ (Γ.Apre i + Γ.h i) :=
+      pow_le_pow_right₀ (by norm_num) (Nat.le_add_right _ _)
+    linarith
+
+/-- C006's comparison `L ≤ q C_c/D`, cleared: `D L ≤ q C_c`, from the cycle identity `D L = q C_h`. -/
+theorem D_mul_n_le : ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * Γ.n 0 ≤ Γ.q * Γ.Cc m := by
+  rw [Γ.cycle_identity]
+  exact mul_le_mul_of_nonneg_left (Γ.Cpre_le_Cc m) Γ.hq.le
+
+/-- At `q = 1`, `B ≤ 2` (`m ≥ 2`, primitive), the normalised word is the phase-`0` mechanical word
+of total `A = Σ a_i` (`three_band`). -/
+theorem cword_eq_mech (hq1 : Γ.q = 1) (hB2 : Γ.B ≤ 2) (hm2 : 2 ≤ m)
+    (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) :
+    (List.range m).map Γ.c = mech (Γ.Apre m) m 0 := by
+  obtain ⟨q', h', -, hc, hsum, -⟩ := Γ.three_band hq1 hB2 hm2 hprim
+  have hm : 0 < m := by omega
+  have hA : Γ.Apre m = m * q' + h' := by unfold Apre; exact hsum
+  unfold mech diffWord
+  apply List.map_congr_left
+  intro j _
+  show Γ.c j = ((j + 1) * Γ.Apre m) / m - (j * Γ.Apre m) / m
+  rw [hc j, hA,
+    show (j + 1) * (m * q' + h') = m * ((j + 1) * q') + (j + 1) * h' by ring,
+    show j * (m * q' + h') = m * (j * q') + j * h' by ring, Nat.mul_add_div hm, Nat.mul_add_div hm,
+    show (j + 1) * q' = j * q' + q' by ring]
+  have hmono : j * h' / m ≤ (j + 1) * h' / m :=
+    Nat.div_le_div_right (Nat.mul_le_mul_right h' (Nat.le_succ j))
+  rw [Nat.add_assoc (j * q'), Nat.add_sub_add_left, Nat.add_sub_assoc hmono]
+
+/-- R71-a on the normalised word: at `q = 1`, `B ≤ 2`, with positive letters, `gcd(C_c, D) = 1`. -/
+theorem Cc_gcd_one (hq1 : Γ.q = 1) (hB2 : Γ.B ≤ 2) (hm2 : 2 ≤ m)
+    (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) (hapos : ∀ i, 1 ≤ Γ.a i) :
+    Int.gcd (Γ.Cc m) ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) = 1 := by
+  obtain ⟨_, _, -, -, -, hcop⟩ := Γ.three_band hq1 hB2 hm2 hprim
+  have hm : 0 < m := by omega
+  have hAm : m ≤ Γ.Apre m := by
+    unfold Apre
+    calc m = ∑ _i ∈ Finset.range m, 1 := by simp
+      _ ≤ ∑ i ∈ Finset.range m, Γ.a i := Finset.sum_le_sum (fun i _ => hapos i)
+  have hcop' : Nat.Coprime (Γ.Apre m) m := by unfold Apre; exact hcop
+  have hC : Γ.Cc m = C (mech (Γ.Apre m) m 0) := by
+    rw [← Γ.cword_eq_mech hq1 hB2 hm2 hprim]
+    exact (Γ.cword_prefix m).2.symm
+  rw [hC, ← D_mech hm (Γ.Apre m) 0 hm]
+  exact mech_gcd_one hm2 (Γ.Apre m) hAm hcop'
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
@@ -7105,6 +7210,31 @@ theorem G2_of_gap_collatz {c μ : ℕ} (hq1 : Ω.Γ.q = 1) (hB : Ω.Γ.B ≤ 2)
   have hm : (0 : ℤ) ≤ (m : ℤ) ^ (μ + 1) := by positivity
   calc (3 : ℤ) * 2 ^ ((m - 1) / Ω.J) < 2 ^ (Ω.Γ.B + c) * (m : ℤ) ^ (μ + 1) := h
     _ ≤ 2 ^ (c + 2) * (m : ℤ) ^ (μ + 1) := mul_le_mul_of_nonneg_right hpow hm
+
+/-! #### C006-e (continued): (G1)'s second inequality in C006's `C_c` form -/
+
+/-- (G1)'s second inequality in C006's `C_c` form: `D · 2^{⌊(m−1)/J⌋} < 2^B q C_c`. -/
+theorem G1_second_c :
+    ((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) * 2 ^ ((m - 1) / Ω.J) < 2 ^ Ω.Γ.B * (Ω.Γ.q * Ω.Γ.Cc m) := by
+  have hle : Ω.Γ.q * Ω.Γ.Cpre m ≤ Ω.Γ.q * Ω.Γ.Cc m :=
+    mul_le_mul_of_nonneg_left (Ω.Γ.Cpre_le_Cc m) Ω.Γ.hq.le
+  calc ((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) * 2 ^ ((m - 1) / Ω.J)
+      < 2 ^ Ω.Γ.B * (Ω.Γ.q * Ω.Γ.Cpre m) := Ω.G1_second
+    _ ≤ 2 ^ Ω.Γ.B * (Ω.Γ.q * Ω.Γ.Cc m) := mul_le_mul_of_nonneg_left hle (by positivity)
+
+/-- C006's `q > (D/C_c) 2^{e_run − B}`, cleared: `D · 2^{e_run} < 2^B q C_c` for each
+zero-forcing run. -/
+theorem run_bound_c {r₀ t : ℕ} (hr₀ : r₀ < m) (hrun : ∀ k, k < t → Ω.T (Ω.orb r₀ k) = 0) :
+    ((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) * 2 ^ Ω.E r₀ t < 2 ^ Ω.Γ.B * (Ω.Γ.q * Ω.Γ.Cc m) := by
+  have hD := Ω.Γ.D_pos
+  have h1 := Ω.run_bound_E_L hr₀ hrun
+  have hle : Ω.Γ.q * Ω.Γ.Cpre m ≤ Ω.Γ.q * Ω.Γ.Cc m :=
+    mul_le_mul_of_nonneg_left (Ω.Γ.Cpre_le_Cc m) Ω.Γ.hq.le
+  calc ((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) * 2 ^ Ω.E r₀ t
+      < ((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) * (2 ^ Ω.Γ.B * Ω.Γ.n 0) := mul_lt_mul_of_pos_left h1 hD
+    _ = 2 ^ Ω.Γ.B * (((2 : ℤ) ^ Ω.Γ.Apre m - 3 ^ m) * Ω.Γ.n 0) := by ring
+    _ = 2 ^ Ω.Γ.B * (Ω.Γ.q * Ω.Γ.Cpre m) := by rw [Ω.Γ.cycle_identity]
+    _ ≤ 2 ^ Ω.Γ.B * (Ω.Γ.q * Ω.Γ.Cc m) := mul_le_mul_of_nonneg_left hle (by positivity)
 
 end OrdCycle
 

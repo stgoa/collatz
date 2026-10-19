@@ -3,6 +3,25 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 54 — 2026-10-19, 10:03 -03
+
+- Woken by the monitor: the sidekick recorded EXT-1 and the three mmusson
+  statement checks (feed 09:43, 09:51) with the agreed labels. Main unchanged
+  at `1c5c19d`. Monitor re-armed at 09:59.
+- **C006-e verified — the normalised intercept `C_c`, `C_h ≤ C_c`, the
+  mechanical link at `q = 1` and the `C_c` forms of (G1)** in
+  `CycleSpectrum.lean` (sha256 `935508e4…0629`, 7242 lines, 451 theorems: 367
+  with the three standard axioms, 37 × `[propext, Quot.sound]`, 45 ×
+  `[propext]`, 2 none; no `sorry`): `OddCycle.Ppre`, `Ppre_succ`,
+  **`Ppre_eq`**, `Cc`, `Cc_succ`, `cword_prefix`, **`Cpre_le_Cc`**,
+  **`D_mul_n_le`**, **`cword_eq_mech`**, **`Cc_gcd_one`**;
+  `OrdCycle.G1_second_c`, `run_bound_c`. Two compile rounds (a `+ 0` that `rw
+  [Nat.add_zero]` would not remove — stated away by `show`; an `omega` atom
+  mismatch `j.succ` vs `j + 1` inside `/ m` — replaced by
+  `Nat.add_sub_add_left`/`Nat.add_sub_assoc`). Receipts regenerated. Next:
+  whichever of main's newest claims most needs formal backing; otherwise
+  C010's gap-map identities.
+
 ## Iteration 53 — 2026-10-19, 09:41 -03
 
 - Woken by the sidekick's message and pushes `2df3ccc`/`2bc1961`: **C006-d
