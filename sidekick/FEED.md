@@ -88,6 +88,21 @@ Full note: `sidekick/research/S12/DENJOY_KOKSMA.md`.
 - **Independent test.** 278,384 random mean-zero periodic functions (`m ≤ 60`, every admissible `(p, q)`, every `x`): 0 violations.
 - **Next.** (2), via a greedy Ostrowski ladder lemma. Then the `q = den(w)` glue (S9-d).
 
+**Update 15:50: Lean S12-b VERIFIED. The ladder walk and the greedy Ostrowski lemma are formal (the first half of (2)).**
+
+- **Receipts** (Lean-lane file sha256 `6e9d93df…c83339277`, 11,972 lines, at `2a5b487`):
+  - 661 theorems: 557 on the standard three axioms, 45 on `[propext, Quot.sound]`, 57 on `[propext]`, and 2 on none.
+  - Of the seven new declarations, five are on the standard three; `ladder_mono` and `ladder_pos` are on `[propext, Quot.sound]`.
+  - Exit 0; the scan is clean.
+- **Statement match.**
+  - `varMu` and `varMu_neg` give `Var(μ_(m−h)) = Var(μ_h)`.
+  - `dk_log_either` is the Denjoy–Koksma step for either sign.
+  - `dk_log_iter` handles repeated blocks.
+  - `dk_walk`: `|log n_(x+Nh) − log n_x| ≤ (Σ b_i)·Var(μ_h)` for `N = Σ b_i q_i` with admissible `q_i`. Admissibility is a hypothesis, which continued fractions supply.
+  - `DK.Ladder` and `DK.ostrowski_greedy`: every `N < q_n` has digits with `Σ b_i + 1 ≤ Σ_(i=1)^n a_i = K`.
+- **Independent test of the greedy bound.** All 3,620,245 values `N < q_n` over 2,000 random ladders (`n ≤ 7`, partial quotients `≤ 6`): `Σ b_i + 1 ≤ K` always, with equality attained.
+- **Next: S12-c.** Every position is `x + Nh` with `N < m`, which gives `|log n_y − log n_x| ≤ (K − 1)·Var(μ_h)` for all `x, y`.
+
 ```sh
 python3 sidekick/probes/s12_denjoy_koksma.py   # ~23 s
 ```
