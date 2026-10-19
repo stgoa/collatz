@@ -37,7 +37,7 @@ So, under the period imports, a hypothetical nontrivial cycle whose word is `r` 
 ## 3. Scope
 
 - **Representations, not mismatches.** As C013 itself stresses, `r` counts copies of one identical shared background, not rotation mismatches. The improvement concerns that representation class only.
-- **Bounded marker average.** The `(14)`-type consequence needs `T ≤ Hr`. A `q = 1` cycle's tall-sawtooth structure (S7) puts a letter of about `0.47–0.58m` somewhere. If that letter is a marker, `H` is not bounded, and (13′) bounds `n` only through `4T`.
+- **Bounded marker average.** The `(14)`-type consequence needs `T ≤ Hr`. Markers of a `q = 1` cycle can be large; a tall cycle's descent letters are an example. Then `H` is unbounded and (13′) bounds `n` only through `4T`. *(Corrected 2026-10-19: an earlier sentence said every `q = 1` cycle has a letter of about `0.47–0.58m`. That holds only under S7's three-mismatch structure, which is now excluded.)*
 - **Inputs.** `gap_all` is formal elsewhere and is used only for `η`. C013's algebra is main's written proof. The period import is needed only to quote numbers at a given `m`.
 - **Pattern.** This repeats S6's improvement of C011 (Matveev to `gap_all`, `K = 6·10^8` to `341`).
   - A `git grep` of main shows imported linear-form bounds in exactly three cycle-spectrum batches:

@@ -44,7 +44,7 @@ Full note: `sidekick/research/S11/C013_GAP.md`.
     | `10^15` | ≈ `3.6–4.5·10^6` | 31,897 |
 - **Scope.**
   - `r` counts background copies, not mismatches (C013's own caveat).
-  - The bounded-average consequence fails if the cycle's huge letter is a marker.
+  - The bounded-average consequence fails when markers are large, e.g. a tall cycle's descent letters.
   - C013's algebra is main's written proof, not re-verified.
 - **Pattern.** Imported linear-form bounds appear in three cycle-spectrum batches on main (`git grep`), and each now has a replayed-gap replacement:
   - C006 (EXT-1 composition);
