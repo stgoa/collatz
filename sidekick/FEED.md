@@ -28,6 +28,36 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 12:40 — LEAD (S7, producer batch): no rotation of a nontrivial Collatz cycle differs from it in exactly three positions once `m ≥ 452,695`; with the period import, `ρ ≥ 4`
+
+Full note: `sidekick/research/S7/THREE_MISMATCHES.md`.
+
+- **Statement.** Take a primitive `q = 1` cycle with `m ≥ 452,695` and `L > 2^71`. Then no nonidentity rotation of its valuation word differs from it in exactly three positions.
+  - Together with C011/S6 (exactly two; formal as S6-b/c for `m ≥ 2^15`) and any period import above 452,695, every rotation of a hypothetical nontrivial cycle differs in **at least four** positions. That is main's `ρ(w) ≥ 4`, up from C011's `ρ ≥ 3`.
+  - The period import can be Eliahou's 17,087,915 or the Hercher/Barina bound.
+- **Route.** The proof is elementary apart from `gap_all`, which is used only to bound `ℓ = log₂ L ≤ 172 + 342 log₂ m − log₂ 3` via `L ≤ m 2^A/(3D)`.
+  1. **Signs.** `δ_i = n_(i+h) − n_i` keeps its sign along agreeing runs. The extremes force one `+ → −` change in `[j−h, m−h)` and one `− → +` change in `[j, m)`, where `j` is the position of the maximum. With three mismatches these are the only two changes.
+  2. **Sizes** (S5 at `s = 3` plus the ceiling).
+     - Every run is at most about `0.369m` long, hence at least about `0.262m`.
+     - The descent window `[j, m)` is shorter than about `0.097m`, and the climb excess is below about `0.057m` (both up to `O(ℓ)`).
+  3. **Alignment.** The windows are disjoint, since `d ≤ h ≤ m − d`. The descent letters other than one are copies (shift `±h`) of climb letters. An excess count then forces `e_a + h = e_b =: x`. The whole descent is one letter of size about `0.47m`.
+  4. **The third witness lies inside the climb.** The third run ends at a mismatch whose larger compared state sits at index `x − (t° + 1)`, a full run before `x`. The ceiling from the minimum then caps that run at about `ℓ + 0.585 t_max`, so `m − 3 ≤ 2t_max + τ_max ≈ 0.954m + 2.63ℓ`. That fails for `m ≥ 452,695`; the binding condition is the windows' disjointness.
+- **Controls** (exact, `q`-independent claims).
+  - The sample is 616 actual `3x+q` cycles (odd `q < 400`, including `q = 5, 7, 13, 61`), with 196 three-mismatch rotations and 287 two-mismatch rotations.
+  - The sign location, exactly two changes at `s = 3`, the witness bounds and the `q`-ceiling hold on all of them.
+  - Alignment holds in 78 cases, and the witness identity holds in each.
+  - At `q > 1` the size input fails (`log₂ L / m ≈ 1.6`), and three-mismatch rotations exist, as in main's C013 §3 family. The proof uses `q = 1` only through `ℓ = O(log m)`.
+- **Labels.**
+  - This is a written proof with a numeric threshold, not yet adversarially reviewed. The Lean lane pre-reviewed the sketch: it accepted the sign and size steps, sharpened the alignment, and asked for the witness step in detail (now in the note). It is formalising the sign lemma as S7-a.
+  - It does not extend to `s = 4`. There the pigeonhole forces only `log₂ H > 0.396m`, so the windows are no longer short.
+  - Novelty undetermined.
+
+```sh
+python3 sidekick/probes/s7_three_mismatch.py   # ~15 s; m0 = 452,695
+```
+
+---
+
 ## 2026-10-19 11:40 — LEAD (S6, producer batch): C011's two-defect exclusion follows from S5-a, `gap_all` and the height ceiling, without Matveev, for every period `m ≥ 24,895`
 
 Full note: `sidekick/research/S6/C011_VIA_S5.md`.
