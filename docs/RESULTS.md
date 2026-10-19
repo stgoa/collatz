@@ -4,6 +4,26 @@ Last updated: 2026-10-19. This ledger summarizes scope; the linked proof notes a
 
 ## Current programme and preserved Phase6 standing
 
+C011's [rotation-defect theorem](../experiments/cycle_spectrum/C011/REPORT.md)
+proves `g | (2^k-1)gcd(C_u,C_v)` for the two complementary original
+arcs of a two-mismatch rotation. The intercept's unused terminal
+valuation gives `g^2<(2^k-1)^2 2^(A-m-k)3^m`, hence the
+amplitude-free bound `q>(1-3^m/2^A)(2/sqrt(3))^m`.
+Published effective logarithm bounds imply bounded-q finiteness;
+the proof bounds m, then A-k, then A. The explicit q1 exclusion
+uses Matveev and the Hercher/Barina odd-period input, with computations
+imported rather than replayed. All two-defect words are excluded at q1.
+
+The marker family has unbounded minima and shortcut minimum counts and
+an elementary q>1 bound. The separate family `1^t 2^(2t)` has
+`g=gcd(4^t-1,3^t-2^t)`, containing every prescribed modulus coprime
+to6 at a suitable t. Thus mismatch metrics alone do not bound g.
+Actual q97/q233/q359 controls refute termwise divisibility for several
+prefix plateaus. General coupled estimates, growing mismatch bounds,
+arbitrary cycles and divergence remain unresolved. No novelty, formal
+verification or universal numerical record gain is claimed.
+
+
 C010's [gap and rounding results](../experiments/cycle_spectrum/C010/REPORT.md)
 give the exact integer inverse of the complete dyadic gap map E-I,
 where E^m=2I. Positivity corresponds to the normalized order cone,

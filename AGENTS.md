@@ -19,6 +19,24 @@ assuming regularity of an actual bad set.
   intermediate theorem needs a new q1 consequence uniform in period and
   height, beyond the existing block/mechanical classes. Reported Lean
   interface results do not supply that missing consequence.
+- C011 excludes q1 whenever a nonidentity rotation has exactly two
+  mismatches, with no amplitude, period, height or shift-gcd restriction.
+  Both original arcs and their unused terminal valuations are essential:
+  g divides (2^k-1)gcd(C_u,C_v), not necessarily exactly that gcd.
+  Keep the extra reduced-q factor in the general cut identity. The bound
+  q>(1-3^m/2^A)(2/sqrt(3))^m gives bounded-q finiteness only after
+  bounding m, then A-k, then A. Its explicit all-size q1 application
+  imports Matveev and the Hercher/Barina odd-period bound; their published
+  computations were not independently rerun. The trivial repeated(2)
+  words have zero rotation defects and remain allowed.
+- The C011 two-unit-defect family has unbounded cancellation, including
+  every prescribed modulus coprime to6; mismatch metrics alone do not
+  bound g. Actual q97/q233/q359 controls refute termwise divisibility
+  of plateau contributions at three/four/six mismatches. Preserve the
+  factor2^abs(delta)-1 in every plateau. The next test seeks a coupled
+  estimate for arbitrary mismatch count, not a fixed-count ladder.
+  C011 gives a constant lower bound3 on nontrivial q1 rotation distances;
+  a bound growing with period and full cycle exclusion remain open.
 - For cycle spectra use the raw odd-only map, with no absorbing state.
   Positive words require `2^A>3^m`; quotient rotations and repetitions
   correctly. Denominator 1 is allowed for every repetition of `(2)`.

@@ -1,5 +1,23 @@
 # Find a better language for Collatz
 
+[C011](experiments/cycle_spectrum/C011/REPORT.md) gives a genuine
+all-size denominator-one exclusion for words with a two-position
+rotation difference, with no amplitude restriction. Both complementary
+arc intercepts are needed. The same estimate gives effective finiteness
+at bounded denominator throughout this class. The explicit q1 finish
+imports published analytic and computational inputs with checked clocks.
+
+This still leaves arbitrary words. The next bounded test must handle
+coupled contributions at an arbitrary mismatch count; termwise
+arithmetic fails already in an actual three-mismatch q97 cycle.
+A bound forcing rotation mismatch count to grow with period would be a
+substantial intermediate result. It is unproved, and it does not replace
+the active all-cycle headline. Fable's reported Lean work supports
+verification of stable interfaces and does not supply this estimate.
+
+## Earlier decisions through C010
+
+
 [C010](experiments/cycle_spectrum/C010/REPORT.md) completes the full
 integer-gap test. The gap coordinates have an integer inverse and
 preserve the common denominator exactly. Sharp local odd-spacing
