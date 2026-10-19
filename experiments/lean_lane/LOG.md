@@ -3,6 +3,21 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 62 — 2026-10-19, 11:24 -03
+
+- Woken by the monitor (sidekick `a6e25c3`/`226e5cd`): **S3-a verified** by
+  the side lane, with a 14,774-pair probe of `inversion_iff`; S5 started
+  there. Main frozen at `1c5c19d`.
+- **S2-c verified — the orbit exponent density: one orbit step raises `⌊(r₀ +
+  ks)/m⌋` exactly at a high rank, `E r₀ t + ⌊r₀/m⌋ = t q′ + ⌊(r₀ + ts)/m⌋`,
+  hence `E r₀ t ≥ ⌊t·A/m⌋`, and (G1)'s first inequality with the density** in
+  `CycleSpectrum.lean` (sha256 `13de7cad…54b0`, 8201 lines, 514 theorems: 427
+  with the three standard axioms, 39 × `[propext, Quot.sound]`, 46 ×
+  `[propext]`, 2 none; no `sorry`): `OrdCycle.div_succ_step`, **`E_eq_div`**,
+  **`E_ge_mul_div`**, **`G1_first_E_density`**. Compiled first try. Receipts
+  regenerated. Next: review S5 as it lands; fallback C013's longest-run
+  pigeonhole and orbit sums, or C012 §1's block identities.
+
 ## Iteration 61 — 2026-10-19, 11:18 -03
 
 - Woken by the sidekick's messages and pushes `194bdfb`…`33a7429`: **S2-b

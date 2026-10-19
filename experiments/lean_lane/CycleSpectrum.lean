@@ -8133,6 +8133,68 @@ theorem seam_u_odd_iff {r₀ t : ℕ} (hr₀ : r₀ < m) (hrun : ∀ k, k < t �
     Odd (Ω.N.gap r₀ / 2 ^ Ω.E r₀ t) ↔ Ω.hr (m - 1) = Ω.Γ.B := by
   rw [Ω.run_quot_odd_iff_end hr₀ hrun, hseam, Ω.gap_seam_odd_iff]
 
+/-! #### S2-c: the orbit exponent density `E ≥ ⌊tA/m⌋` (the side lane's corrected S2 §4)
+
+Along the rank orbit `r ↦ (r + s) % m` (`s = numHigh`) a wrap happens exactly at a high rank
+(`r ≥ m − s`), where the exponent is `q′ + 1` instead of `q′`; `t` steps from `r₀` wrap
+`⌊(r₀ + ts)/m⌋ − ⌊r₀/m⌋` times (`div_succ_step`), so `E r₀ t + ⌊r₀/m⌋ = t q′ + ⌊(r₀ + ts)/m⌋`
+(`E_eq_div`) and, for `r₀ < m`, `E r₀ t ≥ ⌊t·A/m⌋` with `A = m q′ + s` (`E_ge_mul_div`), a
+strengthening of C006-b's `E_ge` (`t ≤ E`) by the factor `A/m`. Applied to the pigeonhole run of
+length `⌊(m−1)/J⌋` it gives (G1)'s first inequality with the density (`G1_first_E_density`). -/
+
+/-- One orbit step adds `1` to the quotient `⌊(r₀ + ks)/m⌋` exactly at a high rank. -/
+theorem div_succ_step (r₀ k : ℕ) :
+    (r₀ + (k + 1) * Ω.N.numHigh) / m =
+      (r₀ + k * Ω.N.numHigh) / m + (if m - Ω.N.numHigh ≤ Ω.orb r₀ k then 1 else 0) := by
+  have hm := Ω.Γ.hm
+  have hs := Ω.numHigh_lt
+  have hmd := Nat.mod_add_div (r₀ + k * Ω.N.numHigh) m
+  have hX1 : r₀ + (k + 1) * Ω.N.numHigh =
+      (r₀ + k * Ω.N.numHigh) % m + Ω.N.numHigh + m * ((r₀ + k * Ω.N.numHigh) / m) := by
+    rw [Nat.add_mul, one_mul]
+    omega
+  rw [hX1, Nat.add_mul_div_left _ _ hm]
+  unfold orb
+  have hr : (r₀ + k * Ω.N.numHigh) % m < m := Nat.mod_lt _ hm
+  split_ifs with h
+  · have hpos : 0 < ((r₀ + k * Ω.N.numHigh) % m + Ω.N.numHigh) / m :=
+      Nat.div_pos (by omega) hm
+    have hlt : ((r₀ + k * Ω.N.numHigh) % m + Ω.N.numHigh) / m < 2 :=
+      Nat.div_lt_of_lt_mul (by omega)
+    omega
+  · rw [Nat.div_eq_of_lt (by omega)]
+    omega
+
+/-- `E r₀ t + ⌊r₀/m⌋ = t q′ + ⌊(r₀ + ts)/m⌋`: the exponent total counts the wraps. -/
+theorem E_eq_div (r₀ t : ℕ) :
+    Ω.E r₀ t + r₀ / m = t * Ω.q' + (r₀ + t * Ω.N.numHigh) / m := by
+  induction t with
+  | zero => simp [E]
+  | succ t ih =>
+    rw [Ω.E_succ, Ω.div_succ_step, Nat.add_mul, one_mul]
+    unfold NarrowCycle.e
+    rw [Ω.N_q]
+    split_ifs <;> omega
+
+/-- S2 §4 (corrected): `E r₀ t ≥ ⌊t·A/m⌋` for every run start `r₀ < m` and length `t`. -/
+theorem E_ge_mul_div {r₀ : ℕ} (hr₀ : r₀ < m) (t : ℕ) : t * Ω.Γ.Apre m / m ≤ Ω.E r₀ t := by
+  have hm := Ω.Γ.hm
+  have h := Ω.E_eq_div r₀ t
+  rw [Nat.div_eq_of_lt hr₀, Nat.add_zero] at h
+  rw [Ω.Apre_eq_ord, Nat.mul_add, ← Nat.mul_assoc, Nat.mul_comm t m, Nat.mul_assoc,
+    Nat.mul_add_div hm, h]
+  have hle : t * Ω.N.numHigh / m ≤ (r₀ + t * Ω.N.numHigh) / m :=
+    Nat.div_le_div_right (Nat.le_add_left _ _)
+  omega
+
+/-- (G1)'s first inequality with the density: some zero-forcing run of length `⌊(m−1)/J⌋` has
+`2^E < 2^B L` with `E ≥ ⌊⌊(m−1)/J⌋·A/m⌋`. -/
+theorem G1_first_E_density : ∃ r₀, r₀ < m ∧
+    (m - 1) / Ω.J * Ω.Γ.Apre m / m ≤ Ω.E r₀ ((m - 1) / Ω.J) ∧
+    (2 : ℤ) ^ Ω.E r₀ ((m - 1) / Ω.J) < 2 ^ Ω.Γ.B * Ω.Γ.n 0 := by
+  obtain ⟨r₀, hr₀, hrun⟩ := Ω.exists_zero_run
+  exact ⟨r₀, hr₀, Ω.E_ge_mul_div hr₀ _, Ω.run_bound_E_L hr₀ hrun⟩
+
 end OrdCycle
 
 end Cyc
