@@ -152,6 +152,22 @@ assuming regularity of an actual bad set.
   The proposed all-period ordered q1 milestone remains subordinate to
   the active all-cycle headline. No new goal is activated by advice.
 
+- C008 proves sorted normalized residues `L*t^j` and raw residues
+  `L*t^(j+m H_j)` modulo reduced q>1 in the ordered q<=L domain.
+  Coprime totals imply cyclic `<2,3>` and forbid factors35/65/91 in q;
+  this is an existing-coprimality consequence, with no q1 exclusion.
+  Normalized Hall holds for B<=2 and raw Hall for B<=1 when q>1.
+  Proper-divisor Hall is false (B3 normalized, B2 raw); keep full q
+  distinct from its factors. Full matching, especially q1, remains open.
+  Distinct normalized rank residues alone do not imply raw matching.
+  Larger B may have a deficient pair of nonadjacent bands. Do not
+  replace the all-height q1 milestone with successive q>1 band cases.
+- C008's 946,001-profile extension adds no new small-q cycles and is
+  not fresh positive evidence for Hall. Its 1,185-cycle replay includes
+  q1/residue0 and all raw fixtures. Reported Lean b60fd21 verifies only
+  C005's q1 three-band structural statement, not cycle exclusion; main
+  has not independently replayed it. Preserve written/finite/formal scope.
+
 - Read `README.md`, the cycle brief, `docs/CYCLE_SPECTRUM_LOG.md`, the latest C-series report and relevant sources. `VIEWPOINT_MAP.md`, `docs/VIEWPOINT_LOG.md` and `ROUTE_MAP.md` preserve prior obligations and comparisons without restricting the active cycle programme.
 - Use bounded parallel investigations to test the selected mechanism. Do not substitute another language survey or dispatcher expansion for the cycle goal.
 - Every candidate records seven fields: objects, structural gain, translated unresolved gap, worked example, known-cycle controls, cheapest meaningful next test, and a genuinely intermediate milestone. Reject a milestone that is only an equivalent formulation of all of Collatz.

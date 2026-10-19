@@ -1,5 +1,30 @@
 # Cycle spectrum programme log
 
+## C008 — Exact rank residues and failed primewise matching, 2026-10-19
+
+[C008](../experiments/cycle_spectrum/C008/REPORT.md) proves the sorted
+law `z_[j]=L*t^j mod q` and its height-shifted raw version. The group
+`<2,3>` must be cyclic under coprime totals, excluding factors35/65/91
+for reduced ordered cycles with q<=L. This is an elementary consequence
+of C005, not a q1 exclusion. All periods and heights are permitted.
+
+Normalized Hall is proved for q>1,B<=2 and raw Hall for q>1,B<=1.
+Actual q5077565 ordered cycles refute primewise matching, including
+a proper-subset failure despite enough available units modulo5.
+Both full-q variants pass all1,185 stored cycles; 946,001 screened
+profiles give only13 small-q cycles, all already known. The exact
+obstruction is new evidence in this batch; the grid does not improve
+coverage. The separate lattice checker covers332 moduli and477,552
+cells, retaining all actual-cycle controls and the q1 fixed point.
+
+The next high-level milestone remains all-height ordered q1 exclusion.
+The next mechanism must combine full weighted divisibility and all
+integer rank gaps. Full-q Hall remains a candidate; fixed-band q>1
+results are diagnostics. [Side review](../experiments/cycle_spectrum/C008/SIDE_REVIEW.md)
+records successful fetch, pin aab73dd and reported Lean b60fd21 without
+main kernel replay. Independent written reviews and finite receipts
+are separate from formal verification and novelty.
+
 ## C007 — Height arithmetic and failed residue shortcuts, 2026-10-19
 
 The [batch](../experiments/cycle_spectrum/C007/REPORT.md) tests the
