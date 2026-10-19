@@ -28,6 +28,39 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-18 21:26 — REFEREE (main's two candidate follow-ups in `VIEWPOINT_MAP.md`): both are d-uniform, and each needs a tool beyond the published state of the art
+
+Main's map asks for a comparison of the quantitative-complexity target with the V12 statistical alternative before it activates a new goal. These are assessments with sources, not results.
+
+**1. The `κ_h(D)/D → ∞` target (superlinear binary-kernel growth for every nonconstant invariant `h`).**
+
+- **The best known quantitative Cobham theorem is far too weak.** Mol–Rampersad–Shallit–Stipulanti, "Cobham's theorem and automaticity" (IJFCS 2019, arXiv:1809.00679), make Krebs' proof explicit.
+  - Their common-prefix bound for aperiodic `a`- and `b`-automatic sequences with `m` and `n` states is doubly exponential, `θ^(θ^(C m⁴ n⁴))` (Cor. 6).
+  - The resulting `b`-automaticity lower bound for an aperiodic `a`-automatic sequence is only about `(log log n)^(1/4)` (Cor. 7).
+  - Byszewski–Konieczny–Krawczyk (arXiv:1908.11244, Combinatorica) characterize common factors, but with no quantitative bound; their compactness proof is not effective.
+- **The generic linear bound is tight for non-automatic sequences.** The indicator of `{2^(2^k)}` is not 2-automatic and has `κ(D) = D + 3`. So the target needs invariance-specific input, not just "non-automatic".
+- **A two-base route would itself be new automata theory.** Through V004's closure, linear binary growth of `h` forces linear growth of `b = h(2n+1)` in *both* bases 2 and 3, with ternary depth `k` landing in binary depth `≤ 4k+1`. Excluding that for non-periodic `b` would be a linear-complexity Cobham theorem. I found no such theorem; the published bounds are many orders weaker.
+- **It is d-uniform.** For `3x+5` and `3x+13`, the actual cycle labellings have at least 242 and 259 sections by depth 9 (rigorous lower bounds from distinct prefixes). Their counts grow at a ratio of about 1.8 per level. So the target's d-analogue is consistent with genuine separations, and a proof would not distinguish `d = 1`.
+
+**2. The V12 target (power bounds `X^(-η)` for the failure mass and the endpoint collision mass of first passage below `X^(1/4)`).**
+
+- **It asks for a better rate than Tao proves.** The published rate in Tao's theorem (arXiv:1909.03562v7, Thm 3.1) is `(log x)^(-c)`, with `c` unspecified. A power saving needs improving the rate-limiting steps:
+  - the `O_A(m^(-A))` decay of Prop 1.17, where `m ≍ log x`;
+  - the `log^(0.6..0.8) x` windows of §5.
+- **The explicit-Tao lane found the problem gets worse when made explicit.** It found Tao's §5 window empty below `log x ≈ 6.27e13`.
+- **Easy parts and hard parts.** The first `≍ ½ log₂ X` odd steps are governed by exactly equidistributed 2-adic bits. They reach about `X^0.79` with power-small failure, as in Terras, Everett and Korec. Descending further to `X^(1/4)` is exactly Tao's mixing problem.
+- **It is also d-uniform**, as main's own card says ("may hold for cycle controls too").
+
+**Calibration consequence.**
+
+- **Cycles and divergence split by `d`.** Cycles exist for `d = 5, 7, 13, 61`, so excluding cycles at `d = 1` must use `d = 1` arithmetic. Hercher's `m ≤ 91` programme does this, through the Diophantine form of `2^A − 3^m`. Divergent orbits are not known for any `d`, so d-uniform tools can at most target divergence.
+- **Neither candidate reaches individual orbits.** V004 and both follow-ups are d-uniform. Of the two, only V12 bears on divergence, and only in density: an "almost all" statement cannot exclude a single divergent orbit.
+- **Assessment.** Both candidates relocate the obstacle. The `κ` target is the cleaner self-contained problem, with a modest payoff: it excludes one more description class. V12 is closer to (II), but it is research-hard at the level of strengthening Tao's rate.
+
+Sources: arXiv:1809.00679 (Cor. 6–7); arXiv:1908.11244 (Thm C); arXiv:1909.03562v7 (Thm 3.1, Prop 1.17, §5); this branch's `automatic_rigidity_control.json` and `fable_L4_window_check.py`.
+
+---
+
 ## 2026-10-18 20:55 — VERIFIED Lean V004-ii (`claude/lean-lane` `d6195bf`): the K_+ ternary closure is machine-checked
 
 **What is formalized.** `LeanLane.Kernel.kernel_ternary_closure`, under the same two rules as V004-i. For `1 ≤ a`, `0 < r < 2^a` and `j < 3` there exist `a' ≥ 1` and `0 < r' < 2^a'` with `h(2^a(3n+j) + r) = h(2^a' n + r')` for every `n`, including `n = 0`.
