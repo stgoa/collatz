@@ -28,6 +28,34 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 14:06 — FINDING (S10, producer batch): several rotations at once. The cheapest four-mismatch pattern is excluded by the rotations `h` and `2h` together; the other pattern survives in the model; `ρ ≥ 5` stays open
+
+Full note: `sidekick/research/S10/MULTI_ROTATION.md`. **It supersedes the preliminary S10 numbers sent to the Lean lane at 13:5x. Those came from a buggy model and are retracted** (§4 of the note).
+
+- **Idea.** Every rotation of the same cycle word gives witness inequalities on the same profile. The formal lemmas are parametric in the rotation, as the Lean lane confirmed.
+- **Model.** A single huge letter at the top, the aligned pair `X − h`, `X`, two inner mismatches, all arcs long, slope `log₂(3/2)`, and `ℓ/m → 0`.
+- **Excluded in the model.** In the pattern where the arcs beside `V` agree (`v₂ = v₄`), which contains the S8 family:
+  - every configuration feasible for the rotation `h` fails `2h` (grid: by ≥ 0.0219m; random search: best −0.0097m);
+  - the discrete S8 words fail `2h` by about `2·10^5` bits.
+- **Not excluded.**
+  - **`v₂ ≠ v₄`** survives `h, …, 8h` in the model, with margins shrinking to +0.0002m. The model ignores the slope cost of the letters `≥ 3` this pattern needs, and short arcs.
+  - **Generic all-long-arc configurations** survive `h, …, 4h` (+0.013m). They fit a tall profile only when `|h|_m < d`, the small-rotation branch outside S7's structure.
+- **The bug.** `X − kh` was placed at `1 − kh` while `X = 1 − 10⁻⁹`, so a witness partner could wrap to the minimum. That made constraints spuriously hard.
+  - Retracted: the preliminary "0 feasible" counts for `v₂ ≠ v₄` and the margin −0.0089m.
+  - Unaffected: the `v₂ = v₄` conclusion and the discrete counterexample.
+- **Status.** `ρ ≥ 5` by size inequalities is neither established nor refuted. S8's headline stays withdrawn.
+- **Next steps** (with the Lean lane's review points):
+  - exact Farkas certificates per linear cell, instead of grids;
+  - the finite-`m` threshold against `ℓ*`;
+  - the `s = 4` sign-change dichotomy, which the Lean lane will formalise;
+  - the `v₂ ≠ v₄` pattern with its true slope costs.
+
+```sh
+python3 sidekick/probes/s10_multirotation_lp.py --fine   # ~4 min
+```
+
+---
+
 ## 2026-10-19 13:44 — COUNTEREXAMPLE (to this lane's S8 headline): the S8 "survivor" words fail the size constraints of the rotation by 2h
 
 - **What fails.** S8 (13:06) exhibited four-mismatch words, of shape `[V][1^a][2^b][1^c]` along one `h`-chain, that meet every size inequality *of the rotation by `h`*. Its headline was "the size method stops at three mismatches". That headline is **withdrawn**.
@@ -36,7 +64,7 @@ Status words follow `AGENTS.md`.
   - Rotations by `3h`, `4h`, `5h`, `7h` and `9h` also fail.
   - The 13:36 "robustness" check missed these rotations. It looked only at convergent denominators of `h^(−1)/m`, which do not include `2h`.
 - **What still holds.** The precise relaxation statement survives, but only in its narrow scope: the inequalities of the single rotation `h` are jointly satisfiable. As a statement about size arguments it is now known to be too weak to matter, since every rotation of the word contributes size inequalities.
-- **What this opens.** Whether multi-rotation size constraints (`h`, `2h`, …) exclude every four-mismatch word, giving `ρ ≥ 5`, is now open. It is under investigation as S10.
+- **What this opens.** Whether multi-rotation size constraints (`h`, `2h`, …) exclude every four-mismatch word, giving `ρ ≥ 5`, is now open. It is under investigation as S10. *[S10 at 14:06: the cheapest pattern is excluded by `h` and `2h`; another pattern survives in the model; still open.]*
 - `python3 sidekick/probes/s8_multiple_rotations.py` .
 
 ---
