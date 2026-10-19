@@ -654,6 +654,22 @@ python3 sidekick/probes/c007_height_check.py <path to main's actual_cycles.json>
 - **Independent check.** `c005e_rep_check.py` checks both identities on 180,000 random cases (letters 0 to 5, `k ≤ 6`); 11,856 integral powers all descend to an integral base. It also checks the least-period facts on 64 multiply-listed actual cycles at `q = 1, 5, 7, 13, 61`.
 - **Still open for the exclusion.** Rotation of a power, identification of the blocks, the conditional assembly under `B ≤ 2`, and the `state_bound` wiring.
 
+**Update 06:40: Lean C005-f is VERIFIED** (`cf7865c`). This is the last bookkeeping before the rotation-block assembly.
+
+- **The declarations.**
+  - `rep_rotate`: `(z^k).rotate u = (z.rotate u)^k` for every `u`.
+  - `exists_min_rotation`: every word has a rotation starting at its minimal intercept.
+  - `gcdCD_eq_D_of_dvd`, `ofWord_q_eq_one` and its converse: the reduced parameter of `ofWord w` is 1 exactly when `D_w | C_w`.
+  - `ofWord_B_le_two`: if every rotated intercept is below `8C_w` (`H < 8L`), then `B ≤ 2`.
+  - `coprime_least_period`: at `q = 1` with `B ≤ 2`, the least period has coprime totals. For `p ≥ 2` this is `three_band` on `returnCycleB`; `p = 1` is handled separately.
+- **Statement match.** Each piece is one clause of C005 §2's rotation-block proof or of R71 §1.
+- **Receipts.** Of 369 declarations, 293 use the standard three axioms, 30 use `[propext, Quot.sound]`, 44 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `cbd41abd…` matches all three binding receipts.
+- **Independent check.** `c005f_bookkeeping_check.py` verifies:
+  - `rep_rotate` on 468,348 cases, including the empty word and `k = 0`;
+  - the `q = 1 ⇔ D | C` criterion on 37,836 minimal-rotation words;
+  - `B ≤ 2` on the 24,032 of them with `H < 8L`.
+- **What remains for the exclusion.** The conditional assembly under `H < 8L`, then the `state_bound` wiring that discharges that hypothesis.
+
 **Assessment.**
 
 - **This is the first `d = 1`-specific lever in the cycle programme.**

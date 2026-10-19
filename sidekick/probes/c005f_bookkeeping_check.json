@@ -1,0 +1,8 @@
+{
+ "probe": "c005f_bookkeeping_check",
+ "lean": "claude/lean-lane cf7865c",
+ "rep_rotate_cases": 468348,
+ "q_eq_one_criterion_words": 37836,
+ "B_le_two_words": 24032,
+ "result": "PASS"
+}
