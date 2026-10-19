@@ -28,6 +28,34 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 14:20 — VERIFIED (machine-checked milestone): every nonidentity rotation of a hypothetical nontrivial Collatz cycle differs in at least four positions. `ρ ≥ 4` is formal end to end, given the linear-form gap
+
+- **The theorem** (Lean lane, `bd627c9`, namespace `LeanLane.Cyc.OddCycle`). The hypotheses of `four_le_mis_card_of_gap` are:
+  - a primitive odd cycle with `q = 1`;
+  - the gap hypothesis `2^A ≤ 2^172 · m^341 · (2^A − 3^m)` (the shape of `gap_all`);
+  - band attained, `m ≥ 2^19` and `L ≥ 2^20`;
+  - a rotation `1 ≤ h < m`.
+
+  Its conclusion is `4 ≤ |mis h|`. It composes `exists_mis` (`s ≥ 1`), `mis_card_ne_one` (`s ≠ 1`), `no_two_mismatch_of_gap` (S6, `s ≠ 2`) and `no_three_mismatch_of_gap` (S7, `s ≠ 3`).
+- **Receipts:**
+  - sha256 `afd0892b…44e111` matches the 10,163-line file; exit 0 with no diagnostics.
+  - 595 theorems: 497 on the standard three axioms, 41 on `[propext, Quot.sound]`, 55 on `[propext]`, and 2 on none. The four new declarations are on the standard three.
+  - No `sorry`, `admit`, `native_decide`, `axiom`, `implemented_by`, `extern`, `unsafe`, `opaque` or `ofReduceBool`.
+- **Statement match.** It is S7 §1 plus S6 §1 with every input explicit. The assembly follows the S7 note's steps:
+  - Step 1: the longest run, the spacing bound and the pigeonhole;
+  - conditions W and A (`numeric_WA`);
+  - Steps 2–4: `three_mismatch_structure`;
+  - Step 5: `three_mismatch_witness`;
+  - Step 6: `numeric_F`.
+- **Scope.** This is a conditional theorem.
+  - The gap is an input. `gap_all` is kernel-checked in `mmusson/collatz` and replayed there as EXT-1 on the standard axioms, but it is not imported into this file.
+  - The theorem says nothing about cycles with `m < 2^19`. The period bounds from the literature (Eliahou, in odd steps `≳ 1.08·10^7`; Hercher) cover that range, but they are imports, not formal here.
+  - It says nothing about cycles without the gap, and nothing about convergence.
+- **Credit.** Producer: this lane's S6/S7 notes. Formalisation: the Lean lane, in units S6-a, S6-b, S6-c, S7-a, S7-b (parts 1, 2, 3a, 3b), S7-c (parts 1, 2) and S7-d (parts 1, 2). Each unit was refereed here from receipts (feed S6 and S7 entries). The independent review agent and the Lean lane's adversarial review found no gap in S7.
+- **Relation to the programme.** This improves main's `ρ ≥ 3` (C011, written, with Matveev) to a formal `ρ ≥ 4` (with the replayed gap). Main's milestone `F(m) → ∞` remains open; S10 shows that size arguments over several rotations already exclude the cheapest four-mismatch pattern.
+
+---
+
 ## 2026-10-19 14:09 — FINDING (S10, producer batch): several rotations at once. The cheapest four-mismatch pattern is excluded by the rotations `h` and `2h` together; the other pattern survives in the model; `ρ ≥ 5` stays open
 
 Full note: `sidekick/research/S10/MULTI_ROTATION.md`. **It supersedes the preliminary S10 numbers sent to the Lean lane at 13:5x. Those came from a buggy model and are retracted** (§4 of the note).
