@@ -670,6 +670,25 @@ python3 sidekick/probes/c007_height_check.py <path to main's actual_cycles.json>
   - `B ≤ 2` on the 24,032 of them with `H < 8L`.
 - **What remains for the exclusion.** The conditional assembly under `H < 8L`, then the `state_bound` wiring that discharges that hypothesis.
 
+**Update 06:51: Lean C005-g is VERIFIED** (`1166d1b`). C005's rotation-block exclusion is machine-checked, **conditional on the `8L` hypothesis**.
+
+- **The theorem.** `rotation_block_exclusion` takes a primitive mechanical base `v = mech A₀ m₀ l₀` with `m₀ ≥ 2`, `A₀ ≥ m₀` and `gcd(A₀, m₀) = 1`. Let `w` be any concatenation of `r ≥ 1` rotations of `v`, in any order and with repetitions, with `D_w > 0`. If every rotated intercept of `w` is below 8 times every other (`H < 8L`), then `D_w ∤ C_w`: the reduced denominator exceeds 1.
+- **The proof chain.** Every step is a lemma verified earlier:
+  - rotate `w` to its minimum and form `ofWord`, which has `q = 1` and `B ≤ 2`;
+  - take the least period, which has coprime totals, so `w = (z.rotate u)^k`;
+  - `blocks_identical` makes every block one phase of `v`;
+  - `D | C` descends to that block, where R71-a and `mech_D_ne_one` exclude it.
+- **Statement match.** It matches the second half of C005 §2's rotation-block theorem.
+  - The prose derives `H < 8L` from the ratio bound `H/L ≤ R³ < 8`; the Lean theorem takes it as the explicit hypothesis `h8`.
+  - `D_w > 0` is a hypothesis, as in the prose.
+  - `m₀ ≥ 2` excludes the base `(2)`, as the prose does.
+- **Receipts.** Of 371 declarations, 294 use the standard three axioms, 31 use `[propext, Quot.sound]`, 44 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `5b3012ab…` matches all three binding receipts.
+- **Independent check.** `c005g_rotation_block_check.py` reproduces C005's worked example: `w = (1,2,2,2,2,1)` has `C = 1805`, `D = 295` and gcd 5, giving reduced denominator 59, and its `3x+59` cycle has numerators `(361, 571, 443, 347, 275, 221)`. It also tests 3,515 random concatenations (`m₀ ≤ 12`, `r ≤ 6`):
+  - the hypothesis `h8` always holds, since `H/L ≤ R³ < 8` with largest observed ratio 4.23;
+  - `D_w ∤ C_w` holds every time.
+- **The `d`-control.** The worked example is a genuine `3x+59` cycle, so the exclusion is specific to `d = 1`.
+- **Status.** This is the programme's second complete `d = 1` exclusion, after C004. It now rests only on the unformalised ratio bound. That step is to identify actual states with C005-c's prefix maps so that `ratio_bound` discharges `h8`, and it is the lane's next unit. It is a restricted class, not a general exclusion.
+
 **Assessment.**
 
 - **This is the first `d = 1`-specific lever in the cycle programme.**
