@@ -11481,6 +11481,319 @@ theorem word_dk_denominator_law_coprime (w : List ℕ) (hw0 : w ≠ []) (hpos : 
 
 end OddCycle
 
+/-! ### C002-b (part 1): the proportional-slope denominator theorem (6)–(8)
+
+Main's C002 `PROPORTIONAL.md` §2. Blocks `u, v` whose valuation slopes have a common ratio:
+`Σu = a r`, `|u| = b r`, `Σv = a s`, `|v| = b s`, with `U = 2^a`, `V = 3^b`, `H_j = U^j − V^j`, and the
+word `w = u^k v^ℓ` with `M = rk`, `N = sℓ`, `L = M + N`, `h = gcd(M, N)`, `e = gcd(r, s)`, `E = H_e`.
+`E ∣ K` for the commutator `K = D_u C_v − D_v C_u` (`E_dvd_commutator`). Writing `K = E J` and
+`|J| = 2^α 3^β J₀` for any factorisation (the prose's `J₀`, the part of `|J|` prime to `6`, is the case
+`α = v₂(J)`, `β = v₃(J)`; `J₀ = |J|` is also allowed): (6) `gcd(C_w, D_w) ∣ J₀ H_h`
+(`proportional_gcd_dvd`), from the quotient identities `D_u G_u(k) = H_M`, `D_v G_v(ℓ) = H_N`, the
+strong divisibility `gcd(H_M, H_N) = H_h` (`gcd_pow_sub_pow`) and C002-a's `g ∣ |K| gcd(G_u, G_v)`
+(`gcd_dvd_K_mul_gcd`), the factors `2` and `3` removed because `g ∣ D_w` is prime to `6`
+(`gcd_coprime_six'`); (7) for `K ≠ 0`, `den(w) J₀ > U^(L−h) ≥ U^max(M,N)` and `(den(w) J₀)² > U^L`
+(`proportional_den_lower`), from `H_L > H_h U^(L−h)` (`pow_sub_pow_mul_pow_lt`: the difference is
+`V^h (U^(L−h) − V^(L−h))`) and `h ≤ min(M, N)`; (8) a bound `den(w) ≤ d₀` forces
+`U^max(rk, sℓ) < d₀ J₀` (`proportional_rectangle`). Hypotheses: positive letters, `U > V`, `k, ℓ ≥ 1`;
+`gcd(a, b) = 1` is not needed (every representation of the common slope works, the reduced one being
+the prose's). The degenerate case `K = 0` (both blocks powers of one primitive word) and §4's family
+are not part of this unit. -/
+
+section Proportional
+
+/-- `x^e − y^e ∣ x^n − y^n` when `e ∣ n`. -/
+theorem pow_sub_pow_dvd_of_dvd (x y : ℤ) {e n : ℕ} (h : e ∣ n) :
+    x ^ e - y ^ e ∣ x ^ n - y ^ n := by
+  obtain ⟨t, rfl⟩ := h
+  rw [pow_mul, pow_mul]
+  exact sub_dvd_pow_sub_pow _ _ _
+
+/-- The strict geometric gap `H_h · U^(L−h) < H_L` for `0 < V < U` and `h < L`: the difference is
+`V^h (U^(L−h) − V^(L−h))`. -/
+theorem pow_sub_pow_mul_pow_lt {U V : ℤ} (hV : 0 < V) (hUV : V < U) {h L : ℕ} (hL : h < L) :
+    (U ^ h - V ^ h) * U ^ (L - h) < U ^ L - V ^ L := by
+  have eU : U ^ L = U ^ h * U ^ (L - h) := by rw [← pow_add, Nat.add_sub_cancel' hL.le]
+  have eV : V ^ L = V ^ h * V ^ (L - h) := by rw [← pow_add, Nat.add_sub_cancel' hL.le]
+  have hlt : V ^ (L - h) < U ^ (L - h) := pow_lt_pow_left₀ hUV hV.le (by omega)
+  have hpos : 0 < V ^ h * (U ^ (L - h) - V ^ (L - h)) :=
+    mul_pos (pow_pos hV h) (sub_pos.mpr hlt)
+  have key : U ^ L - V ^ L - (U ^ h - V ^ h) * U ^ (L - h)
+      = V ^ h * (U ^ (L - h) - V ^ (L - h)) := by
+    rw [eU, eV]; ring
+  linarith
+
+/-- `E = H_gcd(r,s)` divides the commutator `K = D_u C_v − D_v C_u` of proportional blocks
+(`Σu = a r`, `|u| = b r`, `Σv = a s`, `|v| = b s`). -/
+theorem E_dvd_commutator (a b r s : ℕ) (u v : List ℕ) (hus : u.sum = a * r)
+    (hul : u.length = b * r) (hvs : v.sum = a * s) (hvl : v.length = b * s) :
+    ((2 : ℤ) ^ a) ^ Nat.gcd r s - ((3 : ℤ) ^ b) ^ Nat.gcd r s ∣ D u * C v - D v * C u := by
+  have hDu : ((2 : ℤ) ^ a) ^ Nat.gcd r s - ((3 : ℤ) ^ b) ^ Nat.gcd r s ∣ D u := by
+    rw [D, hus, hul, pow_mul, pow_mul]
+    exact pow_sub_pow_dvd_of_dvd _ _ (Nat.gcd_dvd_left r s)
+  have hDv : ((2 : ℤ) ^ a) ^ Nat.gcd r s - ((3 : ℤ) ^ b) ^ Nat.gcd r s ∣ D v := by
+    rw [D, hvs, hvl, pow_mul, pow_mul]
+    exact pow_sub_pow_dvd_of_dvd _ _ (Nat.gcd_dvd_right r s)
+  exact (hDu.mul_right _).sub (hDv.mul_right _)
+
+/-- **C002's (6).** Proportional blocks with `U = 2^a > V = 3^b`, `k, ℓ ≥ 1`, `K = E J` and any
+factorisation `|J| = 2^α 3^β J₀`: `gcd(C_w, D_w) ∣ J₀ · H_h` for `w = u^k v^ℓ`, `h = gcd(rk, sℓ)`. -/
+theorem proportional_gcd_dvd (a b r s : ℕ) (u v : List ℕ) (hu : ∀ x ∈ u, 1 ≤ x)
+    (hv : ∀ x ∈ v, 1 ≤ x) (hu0 : u ≠ []) (hv0 : v ≠ []) (hus : u.sum = a * r)
+    (hul : u.length = b * r) (hvs : v.sum = a * s) (hvl : v.length = b * s)
+    (hUV : (3 : ℤ) ^ b < 2 ^ a) (k l : ℕ) (hk : 1 ≤ k) (hl : 1 ≤ l) (J : ℤ)
+    (hJ : D u * C v - D v * C u
+      = (((2 : ℤ) ^ a) ^ Nat.gcd r s - ((3 : ℤ) ^ b) ^ Nat.gcd r s) * J)
+    (α β J0 : ℕ) (hJ0 : J.natAbs = 2 ^ α * 3 ^ β * J0) :
+    (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ)
+      ∣ (J0 : ℤ) * (((2 : ℤ) ^ a) ^ Nat.gcd (r * k) (s * l)
+          - ((3 : ℤ) ^ b) ^ Nat.gcd (r * k) (s * l)) := by
+  -- positivity of the data
+  have hr : 1 ≤ r := by
+    have h1 := List.length_pos_of_ne_nil hu0
+    rw [hul] at h1
+    by_contra h
+    rw [show r = 0 by omega, mul_zero] at h1
+    exact absurd h1 (lt_irrefl 0)
+  have he : 0 < Nat.gcd r s := Nat.gcd_pos_of_pos_left _ hr
+  have hh : 0 < Nat.gcd (r * k) (s * l) := Nat.gcd_pos_of_pos_left _ (Nat.mul_pos hr hk)
+  have hV : (0 : ℤ) < 3 ^ b := by positivity
+  have hE : (0 : ℤ) < ((2 : ℤ) ^ a) ^ Nat.gcd r s - ((3 : ℤ) ^ b) ^ Nat.gcd r s :=
+    sub_pos.mpr (pow_lt_pow_left₀ hUV hV.le he.ne')
+  have hH : (0 : ℤ) < ((2 : ℤ) ^ a) ^ Nat.gcd (r * k) (s * l)
+      - ((3 : ℤ) ^ b) ^ Nat.gcd (r * k) (s * l) :=
+    sub_pos.mpr (pow_lt_pow_left₀ hUV hV.le hh.ne')
+  -- the block denominators and the quotient identities `D_u G_u(k) = H_M`, `D_v G_v(ℓ) = H_N`
+  have hDu : D u = ((2 : ℤ) ^ a) ^ r - ((3 : ℤ) ^ b) ^ r := by
+    rw [D, hus, hul, pow_mul, pow_mul]
+  have hDv : D v = ((2 : ℤ) ^ a) ^ s - ((3 : ℤ) ^ b) ^ s := by
+    rw [D, hvs, hvl, pow_mul, pow_mul]
+  have hGu : D u * G (2 ^ u.sum) (3 ^ u.length) k
+      = ((2 : ℤ) ^ a) ^ (r * k) - ((3 : ℤ) ^ b) ^ (r * k) := by
+    rw [D, G_mul, hus, hul]
+    ring
+  have hGv : D v * G (2 ^ v.sum) (3 ^ v.length) l
+      = ((2 : ℤ) ^ a) ^ (s * l) - ((3 : ℤ) ^ b) ^ (s * l) := by
+    rw [D, G_mul, hvs, hvl]
+    ring
+  -- `E` divides both block denominators
+  have hEu : ((2 : ℤ) ^ a) ^ Nat.gcd r s - ((3 : ℤ) ^ b) ^ Nat.gcd r s ∣ D u := by
+    rw [hDu]
+    exact pow_sub_pow_dvd_of_dvd _ _ (Nat.gcd_dvd_left r s)
+  have hEv : ((2 : ℤ) ^ a) ^ Nat.gcd r s - ((3 : ℤ) ^ b) ^ Nat.gcd r s ∣ D v := by
+    rw [hDv]
+    exact pow_sub_pow_dvd_of_dvd _ _ (Nat.gcd_dvd_right r s)
+  obtain ⟨tu, htu⟩ := hEu
+  obtain ⟨tv, htv⟩ := hEv
+  -- C002-a's divisibility `g ∣ |K| gcd(G_u, G_v)`, in `ℤ`
+  have hgK := gcd_dvd_K_mul_gcd u v k l hu hu0 hv hv0 hk hl
+  have hgKZ : (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ)
+      ∣ ((D u * C v - D v * C u).natAbs : ℤ)
+        * (Int.gcd (G (2 ^ u.sum) (3 ^ u.length) k) (G (2 ^ v.sum) (3 ^ v.length) l) : ℤ) := by
+    exact_mod_cast Int.natCast_dvd_natCast.mpr hgK
+  -- the words' positivity data, for the coprimality to `6`
+  have hsum : 1 ≤ (rep u k ++ rep v l).sum := by
+    rw [List.sum_append, rep_sum, rep_sum]
+    have h1 := Nat.mul_pos hk (one_le_sum_of_ne_nil hu0 hu)
+    omega
+  have hlen : 1 ≤ (rep u k ++ rep v l).length := by
+    rw [List.length_append, rep_length, rep_length]
+    have h1 := Nat.mul_pos hk (List.length_pos_of_ne_nil hu0)
+    omega
+  have hc6 := gcd_coprime_six' (rep u k ++ rep v l) hsum hlen
+  -- abbreviations
+  set E : ℤ := ((2 : ℤ) ^ a) ^ Nat.gcd r s - ((3 : ℤ) ^ b) ^ Nat.gcd r s with hEdef
+  set Gu : ℤ := G (2 ^ u.sum) (3 ^ u.length) k with hGudef
+  set Gv : ℤ := G (2 ^ v.sum) (3 ^ v.length) l with hGvdef
+  set HM : ℤ := ((2 : ℤ) ^ a) ^ (r * k) - ((3 : ℤ) ^ b) ^ (r * k) with hHMdef
+  set HN : ℤ := ((2 : ℤ) ^ a) ^ (s * l) - ((3 : ℤ) ^ b) ^ (s * l) with hHNdef
+  set Hh : ℤ := ((2 : ℤ) ^ a) ^ Nat.gcd (r * k) (s * l)
+    - ((3 : ℤ) ^ b) ^ Nat.gcd (r * k) (s * l) with hHhdef
+  set g : ℕ := Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) with hgdef
+  -- `E (t_u G_u) = H_M`, `E (t_v G_v) = H_N`
+  have hX : E * (tu * Gu) = HM := by rw [← mul_assoc, ← htu, hGu]
+  have hY : E * (tv * Gv) = HN := by rw [← mul_assoc, ← htv, hGv]
+  -- strong divisibility: `gcd(H_M, H_N) = H_h`
+  have hcop23 : IsCoprime ((2 : ℤ) ^ a) ((3 : ℤ) ^ b) :=
+    (Int.isCoprime_iff_gcd_eq_one.mpr (by decide)).pow
+  have hsd : Int.gcd HM HN = Hh.natAbs :=
+    gcd_pow_sub_pow ((2 : ℤ) ^ a) ((3 : ℤ) ^ b) hcop23 (r * k) (s * l)
+  -- `gcd(G_u, G_v) ∣ gcd(t_u G_u, t_v G_v)` and `E · gcd(t_u G_u, t_v G_v) = H_h`
+  have hdiv : (Int.gcd Gu Gv : ℤ) ∣ ((Int.gcd (tu * Gu) (tv * Gv) : ℕ) : ℤ) := by
+    apply Int.natCast_dvd_natCast.mpr
+    apply Int.dvd_gcd
+    · exact (Int.gcd_dvd_left _ _).trans (Dvd.intro_left tu rfl)
+    · exact (Int.gcd_dvd_right _ _).trans (Dvd.intro_left tv rfl)
+  have hEg : E * (Int.gcd (tu * Gu) (tv * Gv) : ℤ) = Hh := by
+    have h1 : Int.gcd (E * (tu * Gu)) (E * (tv * Gv)) = E.natAbs * Int.gcd (tu * Gu) (tv * Gv) :=
+      Int.gcd_mul_left E _ _
+    rw [hX, hY, hsd] at h1
+    have h2 : ((Hh.natAbs : ℕ) : ℤ) = ((E.natAbs : ℕ) : ℤ) * (Int.gcd (tu * Gu) (tv * Gv) : ℤ) := by
+      exact_mod_cast h1
+    rw [Int.natAbs_of_nonneg hH.le, Int.natAbs_of_nonneg hE.le] at h2
+    exact h2.symm
+  have hEgdvd : E * (Int.gcd Gu Gv : ℤ) ∣ Hh := by
+    rw [← hEg]
+    exact mul_dvd_mul_left E hdiv
+  -- `|K| = E · 2^α 3^β J₀`
+  have hKabs : ((D u * C v - D v * C u).natAbs : ℤ) = E * ((2 : ℤ) ^ α * 3 ^ β * J0) := by
+    rw [Int.natCast_natAbs, hJ, abs_mul, abs_of_pos hE, ← Int.natCast_natAbs, hJ0]
+    push_cast
+    ring
+  -- assemble: `g ∣ 2^α 3^β J₀ · (E gcd(G_u, G_v)) ∣ 2^α 3^β · (J₀ H_h)`
+  have hg1 : (g : ℤ) ∣ ((2 : ℤ) ^ α * 3 ^ β) * ((J0 : ℤ) * Hh) := by
+    have h2 : ((D u * C v - D v * C u).natAbs : ℤ) * (Int.gcd Gu Gv : ℤ)
+        = ((2 : ℤ) ^ α * 3 ^ β * J0) * (E * (Int.gcd Gu Gv : ℤ)) := by
+      rw [hKabs]
+      ring
+    rw [h2] at hgKZ
+    have h3 := hgKZ.trans (mul_dvd_mul_left ((2 : ℤ) ^ α * 3 ^ β * J0) hEgdvd)
+    have h4 : ((2 : ℤ) ^ α * 3 ^ β * J0) * Hh = ((2 : ℤ) ^ α * 3 ^ β) * ((J0 : ℤ) * Hh) := by
+      ring
+    rw [h4] at h3
+    exact h3
+  -- remove the factors `2` and `3`
+  have hcopN : Nat.Coprime g (2 ^ α * 3 ^ β) :=
+    Nat.Coprime.mul_right ((hc6.coprime_dvd_right (by norm_num : 2 ∣ 6)).pow_right α)
+      ((hc6.coprime_dvd_right (by norm_num : 3 ∣ 6)).pow_right β)
+  have hcopZ : IsCoprime (g : ℤ) ((2 : ℤ) ^ α * 3 ^ β) := by
+    have := Nat.isCoprime_iff_coprime.mpr hcopN
+    push_cast at this
+    exact this
+  exact hcopZ.dvd_of_dvd_mul_left hg1
+
+/-- **C002's (7).** For `K ≠ 0`: `den(w) J₀ > U^(L−h) ≥ U^max(rk, sℓ)`, and the half-exponent
+bound `(den(w) J₀)² > U^L`. -/
+theorem proportional_den_lower (a b r s : ℕ) (u v : List ℕ) (hu : ∀ x ∈ u, 1 ≤ x)
+    (hv : ∀ x ∈ v, 1 ≤ x) (hu0 : u ≠ []) (hv0 : v ≠ []) (hus : u.sum = a * r)
+    (hul : u.length = b * r) (hvs : v.sum = a * s) (hvl : v.length = b * s)
+    (hUV : (3 : ℤ) ^ b < 2 ^ a) (k l : ℕ) (hk : 1 ≤ k) (hl : 1 ≤ l) (J : ℤ)
+    (hJ : D u * C v - D v * C u
+      = (((2 : ℤ) ^ a) ^ Nat.gcd r s - ((3 : ℤ) ^ b) ^ Nat.gcd r s) * J)
+    (hK : D u * C v - D v * C u ≠ 0)
+    (α β J0 : ℕ) (hJ0 : J.natAbs = 2 ^ α * 3 ^ β * J0) :
+    ((2 : ℤ) ^ a) ^ (r * k + s * l - Nat.gcd (r * k) (s * l))
+        < den (rep u k ++ rep v l) * J0 ∧
+      ((2 : ℤ) ^ a) ^ max (r * k) (s * l) < den (rep u k ++ rep v l) * J0 ∧
+      ((2 : ℤ) ^ a) ^ (r * k + s * l) < (den (rep u k ++ rep v l) * J0) ^ 2 := by
+  have hg := proportional_gcd_dvd a b r s u v hu hv hu0 hv0 hus hul hvs hvl hUV k l hk hl J hJ
+    α β J0 hJ0
+  -- `J₀ ≥ 1`
+  have hJ0pos : (1 : ℤ) ≤ J0 := by
+    have hne : J0 ≠ 0 := by
+      intro h0
+      rw [h0, mul_zero] at hJ0
+      have hJz : J = 0 := Int.natAbs_eq_zero.mp hJ0
+      rw [hJz, mul_zero] at hJ
+      exact hK hJ
+    exact_mod_cast Nat.one_le_iff_ne_zero.mpr hne
+  -- positivity of the data
+  have hr : 1 ≤ r := by
+    have h1 := List.length_pos_of_ne_nil hu0
+    rw [hul] at h1
+    by_contra h
+    rw [show r = 0 by omega, mul_zero] at h1
+    exact absurd h1 (lt_irrefl 0)
+  have hs : 1 ≤ s := by
+    have h1 := List.length_pos_of_ne_nil hv0
+    rw [hvl] at h1
+    by_contra h
+    rw [show s = 0 by omega, mul_zero] at h1
+    exact absurd h1 (lt_irrefl 0)
+  have hM : 0 < r * k := Nat.mul_pos hr hk
+  have hN : 0 < s * l := Nat.mul_pos hs hl
+  have hh : 0 < Nat.gcd (r * k) (s * l) := Nat.gcd_pos_of_pos_left _ hM
+  have hh1 : Nat.gcd (r * k) (s * l) ≤ r * k := Nat.gcd_le_left _ hM
+  have hh2 : Nat.gcd (r * k) (s * l) ≤ s * l := Nat.gcd_le_right _ hN
+  have hL : Nat.gcd (r * k) (s * l) < r * k + s * l := by omega
+  have hV : (0 : ℤ) < 3 ^ b := by positivity
+  have hU1 : (1 : ℤ) ≤ 2 ^ a := one_le_pow₀ (by norm_num)
+  have hHh : (0 : ℤ) < ((2 : ℤ) ^ a) ^ Nat.gcd (r * k) (s * l)
+      - ((3 : ℤ) ^ b) ^ Nat.gcd (r * k) (s * l) :=
+    sub_pos.mpr (pow_lt_pow_left₀ hUV hV.le hh.ne')
+  -- `D_w = U^L − V^L > 0`, the reduced denominator and the cancellation factor
+  have hDw : D (rep u k ++ rep v l)
+      = ((2 : ℤ) ^ a) ^ (r * k + s * l) - ((3 : ℤ) ^ b) ^ (r * k + s * l) := by
+    rw [D, List.sum_append, List.length_append, rep_sum, rep_sum, rep_length, rep_length,
+      hus, hul, hvs, hvl]
+    ring
+  have hDpos : 0 < D (rep u k ++ rep v l) := by
+    rw [hDw]
+    exact sub_pos.mpr (pow_lt_pow_left₀ hUV hV.le (by omega))
+  have hlen : 1 ≤ (rep u k ++ rep v l).length := by
+    rw [List.length_append, rep_length, rep_length]
+    have h1 := Nat.mul_pos hk (List.length_pos_of_ne_nil hu0)
+    omega
+  have hw0 : rep u k ++ rep v l ≠ [] := List.ne_nil_of_length_pos hlen
+  have hgpos : (0 : ℤ) < OddCycle.gcdCD (rep u k ++ rep v l) := OddCycle.gcdCD_pos _ hw0
+  have hden : OddCycle.gcdCD (rep u k ++ rep v l) * den (rep u k ++ rep v l)
+      = D (rep u k ++ rep v l) := OddCycle.gcdCD_mul_den _
+  have hdenpos : 0 < den (rep u k ++ rep v l) :=
+    Int.ediv_pos_of_pos_of_dvd hDpos hgpos.le (OddCycle.gcdCD_dvd_D _)
+  have hg' : OddCycle.gcdCD (rep u k ++ rep v l)
+      ∣ (J0 : ℤ) * (((2 : ℤ) ^ a) ^ Nat.gcd (r * k) (s * l)
+          - ((3 : ℤ) ^ b) ^ Nat.gcd (r * k) (s * l)) := hg
+  have hgle : OddCycle.gcdCD (rep u k ++ rep v l)
+      ≤ (J0 : ℤ) * (((2 : ℤ) ^ a) ^ Nat.gcd (r * k) (s * l)
+          - ((3 : ℤ) ^ b) ^ Nat.gcd (r * k) (s * l)) :=
+    Int.le_of_dvd (mul_pos (by linarith) hHh) hg'
+  -- the chain `H_h U^(L−h) < H_L = D_w = den · g ≤ den · J₀ H_h`
+  have hgap := pow_sub_pow_mul_pow_lt hV hUV hL
+  have h7a : ((2 : ℤ) ^ a) ^ (r * k + s * l - Nat.gcd (r * k) (s * l))
+      < den (rep u k ++ rep v l) * J0 := by
+    have h1 : ((2 : ℤ) ^ a) ^ (r * k + s * l - Nat.gcd (r * k) (s * l))
+          * (((2 : ℤ) ^ a) ^ Nat.gcd (r * k) (s * l) - ((3 : ℤ) ^ b) ^ Nat.gcd (r * k) (s * l))
+        < (den (rep u k ++ rep v l) * J0)
+          * (((2 : ℤ) ^ a) ^ Nat.gcd (r * k) (s * l)
+            - ((3 : ℤ) ^ b) ^ Nat.gcd (r * k) (s * l)) := by
+      calc ((2 : ℤ) ^ a) ^ (r * k + s * l - Nat.gcd (r * k) (s * l))
+            * (((2 : ℤ) ^ a) ^ Nat.gcd (r * k) (s * l) - ((3 : ℤ) ^ b) ^ Nat.gcd (r * k) (s * l))
+          = (((2 : ℤ) ^ a) ^ Nat.gcd (r * k) (s * l) - ((3 : ℤ) ^ b) ^ Nat.gcd (r * k) (s * l))
+            * ((2 : ℤ) ^ a) ^ (r * k + s * l - Nat.gcd (r * k) (s * l)) := mul_comm _ _
+        _ < ((2 : ℤ) ^ a) ^ (r * k + s * l) - ((3 : ℤ) ^ b) ^ (r * k + s * l) := hgap
+        _ = D (rep u k ++ rep v l) := hDw.symm
+        _ = den (rep u k ++ rep v l) * OddCycle.gcdCD (rep u k ++ rep v l) := by
+          rw [← hden]; ring
+        _ ≤ den (rep u k ++ rep v l) * ((J0 : ℤ) * (((2 : ℤ) ^ a) ^ Nat.gcd (r * k) (s * l)
+              - ((3 : ℤ) ^ b) ^ Nat.gcd (r * k) (s * l))) :=
+          mul_le_mul_of_nonneg_left hgle hdenpos.le
+        _ = (den (rep u k ++ rep v l) * J0)
+            * (((2 : ℤ) ^ a) ^ Nat.gcd (r * k) (s * l)
+              - ((3 : ℤ) ^ b) ^ Nat.gcd (r * k) (s * l)) := by ring
+    exact lt_of_mul_lt_mul_right h1 hHh.le
+  have hmax : max (r * k) (s * l) ≤ r * k + s * l - Nat.gcd (r * k) (s * l) := by omega
+  have h7b : ((2 : ℤ) ^ a) ^ max (r * k) (s * l) < den (rep u k ++ rep v l) * J0 :=
+    lt_of_le_of_lt (pow_le_pow_right₀ hU1 hmax) h7a
+  have h2max : r * k + s * l ≤ 2 * max (r * k) (s * l) := by omega
+  have h7c : ((2 : ℤ) ^ a) ^ (r * k + s * l) < (den (rep u k ++ rep v l) * J0) ^ 2 := by
+    calc ((2 : ℤ) ^ a) ^ (r * k + s * l)
+        ≤ ((2 : ℤ) ^ a) ^ (2 * max (r * k) (s * l)) := pow_le_pow_right₀ hU1 h2max
+      _ = ((2 : ℤ) ^ a) ^ max (r * k) (s * l) * ((2 : ℤ) ^ a) ^ max (r * k) (s * l) := by
+        rw [two_mul, pow_add]
+      _ < (den (rep u k ++ rep v l) * J0) * (den (rep u k ++ rep v l) * J0) :=
+        mul_self_lt_mul_self (by positivity) h7b
+      _ = (den (rep u k ++ rep v l) * J0) ^ 2 := (sq _).symm
+  exact ⟨h7a, h7b, h7c⟩
+
+/-- **C002's (8).** A bound `den(w) ≤ d₀` confines both repetition counts to the finite rectangle
+`U^max(rk, sℓ) < d₀ J₀`. -/
+theorem proportional_rectangle (a b r s : ℕ) (u v : List ℕ) (hu : ∀ x ∈ u, 1 ≤ x)
+    (hv : ∀ x ∈ v, 1 ≤ x) (hu0 : u ≠ []) (hv0 : v ≠ []) (hus : u.sum = a * r)
+    (hul : u.length = b * r) (hvs : v.sum = a * s) (hvl : v.length = b * s)
+    (hUV : (3 : ℤ) ^ b < 2 ^ a) (k l : ℕ) (hk : 1 ≤ k) (hl : 1 ≤ l) (J : ℤ)
+    (hJ : D u * C v - D v * C u
+      = (((2 : ℤ) ^ a) ^ Nat.gcd r s - ((3 : ℤ) ^ b) ^ Nat.gcd r s) * J)
+    (hK : D u * C v - D v * C u ≠ 0)
+    (α β J0 : ℕ) (hJ0 : J.natAbs = 2 ^ α * 3 ^ β * J0) (d0 : ℤ)
+    (hd : den (rep u k ++ rep v l) ≤ d0) :
+    ((2 : ℤ) ^ a) ^ max (r * k) (s * l) < d0 * J0 := by
+  have h := (proportional_den_lower a b r s u v hu hv hu0 hv0 hus hul hvs hvl hUV k l hk hl J hJ
+    hK α β J0 hJ0).2.1
+  have hJ0 : (0 : ℤ) ≤ J0 := by positivity
+  exact lt_of_lt_of_le h (mul_le_mul_of_nonneg_right hd hJ0)
+
+end Proportional
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

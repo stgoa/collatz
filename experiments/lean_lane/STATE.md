@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 90 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 91 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -110,7 +110,8 @@ receipt binds to the file it certifies.
 | C011-a | Main's C011 `ROTATION_DEFECTS.md` §§2–3, elementary core. **Verified** (iteration 32), in the two-defect normal form `w = a :: (u₀ ++ (a+k) :: v₀)`, `w' = (a+k) :: (u₀ ++ a :: v₀)` a rotation of `w`, `k ≥ 1`: `C_append_singleton` (the intercept ignores the last letter), **`two_arc_identity`** ((1): `C_{w'} − C_w = (2^k − 1) 2^a 3^{|v₀|} C (u₀ ++ [a+k])`), `rotate_cut` (the cut at the second mismatch is the rotation by `|u₀| + 1`), `isCoprime_three_D`, `dvd_C_rotate_of_dvd` (a common divisor of `C_w, D_w` coprime to `2` divides every rotated intercept), `gcd_isCoprime_two/three`, **`two_arc_dvd`** ((2): `g ∣ (2^k − 1) gcd(C_u, C_v)`, `u = u₀ ++ [a+k]`, `v = v₀ ++ [a]`), **`intercept_bound_last`** ((4) in cleared form: `2^{|z₀|} C (z₀ ++ [b]) ≤ 2^{Σz₀}(3^{|z₀|+1} − 2^{|z₀|+1})`), `two_defect_arith`, **`two_defect_bound_sharp`** ((5): `g² 2^{|u₀|+|v₀|} < (2^k−1)² 2^{Σu₀+Σv₀} 3^m`), **`two_defect_bound`** ((7): `g² 2^{2m} < 2^{2A} 3^m`, needs `a ≥ 1`) and `two_defect_q_bound` (`D² 2^{2m} < q² 2^{2A} 3^m` for `D = g q`, `q > 0`). Not formalised: the reduction of an arbitrary two-defect rotation to the normal form, the real-analytic (6)–(8), Matveev's constant and the Hercher/Barina period input | `experiments/cycle_spectrum/C011/ROTATION_DEFECTS.md` §§2–3 | **verified** | `[propext, Classical.choice, Quot.sound]` (two helpers subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 276 theorems printed) |
 | C013-a | Main's C013 `OVERLAP_CONTROLS.md` §1 (1) and `OVERLAP_THEORY.md` §1. **Verified** (iteration 34): `interleave U a` (the word `(U, a_0, …, U, a_{r−1})`), `Ph U a` (the homogenised `u^{r−1} P(α/u)`, by the recursion `P_h(x :: a) = α^{|a|} + u 2^x P_h(a)`), `interleave_length` (`m = r(n+1)`), `interleave_sum` (`A = T + r A_U`), **`C_interleave`** (`C_w = (3 C_U + 2^{A_U}) · P_h`, (1) first half; axioms `[propext]` only), **`D_interleave`** (`D_w = 2^{T + r A_U} − 3^{r(n+1)}`, i.e. `−u^r Q(α/u)`; `[propext]`), `Ph_eq_sum` (the closed form `Σ_{j<r} 3^{(n+1)(r−1−j)} 2^{j A_U + P_j}`), `E_bound` ((8): `2^n E ≤ u(3^{n+1} − 2^{n+1})`), `run_factor` (OVERLAP_THEORY (3): `2^E z_end = 3^t z_start`, `z_end` even ⇒ `z_start = 2^{E+1} k`, `z_end = 2·3^t k`), and on `OddCycle`: `diff_step` ((2): `2^{a_i} z_{i+1} = 3 z_i` at agreeing valuations) and `run_diff` (`2^{Σ a} z_{i+t} = 3^t z_i` along an agreeing run, via `run_pow_mul`). Not Lean targets: the polynomial gcd/resultant steps (2)–(3), the Fourier–uncertainty inequality (5), the bounds (6)–(14), Matveev | `experiments/cycle_spectrum/C013/OVERLAP_CONTROLS.md` §1, `OVERLAP_THEORY.md` §1 | **verified** | `[propext, Classical.choice, Quot.sound]` (the identities need only `[propext]`) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 290 theorems printed) |
 | C008-a | Main's C008 (`INDEPENDENT_MATCHING.md` §1, `MATCHING_ARITHMETIC.md`): the exact prefix identity `2^{A_i} n_i = 3^i n_0 + q C_i`, the cycle identity `(2^A − 3^m) n_0 = q C_m` and `q ∣ 2^A − 3^m` for reduced cycles; the cyclicity of `⟨2, 3⟩`: in any commutative group `x^A = y^m` with `gcd(A, m) = 1` gives `t` with `t^m = x`, `t^A = y`, and the `ZMod N` instance for the units `2`, `3` when `N ∣ 2^A − 3^m`, `N` coprime to 6; the mechanical prefix sums `Σ_{j<i} c_j = ⌊i(mq' + h)/m⌋`; the sorted-rank residue law (R1) in integer form `2^{P_i} z_[(ih) mod m] ≡ 3^i z_[0] (mod q)` | `experiments/cycle_spectrum/C008/INDEPENDENT_MATCHING.md` §1 | **verified** (iteration 24): `CycleSpectrum.lean`, `exists_common_root`, `zmod_common_root`, `NarrowCycle.sum_a_range`, `OddCycle.{Apre, Cpre, prefix_identity, cycle_identity, q_dvd_D, toNarrow_primitive, toNarrow_rank_zero, sorted_residue_law}` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 193 theorems printed) |
-| C002-b | The proportional-slope theorem (6)–(8) in its general `(r, s)` form, the `K = 0` characterisation, the rotating mechanical family of §4; the unequal-slope application is an imported ineffective theorem and is not a Lean target | same, §§2–4 | queued | — | — |
+| C002-b | The proportional-slope theorem (6)–(8) in its general `(r, s)` form (**part 1 below, verified**), the `K = 0` characterisation and the rotating mechanical family of §4 (queued); the unequal-slope application is an imported ineffective theorem and is not a Lean target | same, §§2–4 | **partially verified** (iteration 91: (6)–(8)) | see part 1 | see part 1 |
+| C002-b (part 1) | **Main's proportional-slope denominator theorem (6)–(8).** Blocks `Σu = ar`, `|u| = br`, `Σv = as`, `|v| = bs`, `U = 2^a > V = 3^b`, `w = u^k v^ℓ`, `k, ℓ ≥ 1`, `H_j = U^j − V^j`, `h = gcd(rk, sℓ)`, `L = rk + sℓ`, `E = H_gcd(r,s)`. **`E_dvd_commutator`** (`E ∣ K = D_u C_v − D_v C_u`); **`proportional_gcd_dvd`** ((6): with `K = E J` and any factorisation `|J| = 2^α 3^β J₀`, `gcd(C_w, D_w) ∣ J₀ H_h`, via `D_u G_u(k) = H_M`, `D_v G_v(ℓ) = H_N`, the strong divisibility `gcd(H_M, H_N) = H_h` (`gcd_pow_sub_pow`), C002-a's `g ∣ |K| gcd(G_u, G_v)` and the coprimality of `g` to `6`); **`proportional_den_lower`** ((7), `K ≠ 0`: `U^(L−h) < den(w) J₀`, `U^max(rk,sℓ) < den(w) J₀`, `U^L < (den(w) J₀)²`); **`proportional_rectangle`** ((8): `den(w) ≤ d₀ ⇒ U^max(rk,sℓ) < d₀ J₀`); helpers `pow_sub_pow_dvd_of_dvd` (`x^e − y^e ∣ x^n − y^n` for `e ∣ n`) and `pow_sub_pow_mul_pow_lt` (`H_h U^(L−h) < H_L`, difference `V^h (U^(L−h) − V^(L−h))`). `gcd(a, b) = 1` not needed. **Verified** (iteration 91, first build). | `experiments/cycle_spectrum/C002/PROPORTIONAL.md` §2, (6)–(8) | **verified** | `[propext, Classical.choice, Quot.sound]` (all 6 new declarations) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 742 theorems printed) |
 | V006-a | Quadratic separation (main's V006 `overlap.md` §2): for `F` not eventually periodic, the states `Q_(a,t) = F(t₀ + t + s₂(3^a n))` are pairwise distinct (`(a,t) ↦ Q_(a,t)` injective); `Q_(a,t)` lies in the joint section family through depth `a + t`; hence that family through depth `D` has at least `(D+1)(D+2)/2` members (main's (4)); with the digit-count identities (5), (6), (7) (block additivity, complement, balanced quotient, `3^(r+1) ∣ 2^(3^r) + 1`) | `experiments/viewpoints/V006/overlap.md` §2, `QUADRATIC_REVIEW.md` | **verified** (iteration 10): `QuadraticSeparation.lean`, `LeanLane.Quad.Q_injective`, `Q_mem_Reach`, `triangle_encard_le`, `card_triangle`, `reach_encard_ge`, `s2_mul_pow_sub`, `s2_mul_pow_sub_one`, `s2_balanced`, `three_pow_dvd` | `[propext, Classical.choice, Quot.sound]` | `receipts/QuadraticSeparation.{build,axioms,sha256}.txt` |
 | V007-b | Singleton-exit theorem (V007 `separator.md` §§2–4) under the infinitude hypothesis (I): larger unit (bit algebra by `decide`, recursive propagation, tail evaluation formulas) | `experiments/viewpoints/V007/separator.md` | queued (larger) | — | — |
 | 3 | Dichotomy corollary over `Solution.Basic`: a positive bad `n` ⇒ positive lower natural density of the bad set, with explicit constants; contrapositive: density zero of the bad set ⇒ every positive integer reaches 1 | lane-3 analysis; `positive_density_collatz_and_collatzAccel_reaches_of_not_three_dvd` | **verified** (iteration 5): `Dichotomy.lean`, `LeanLane.Dichotomy.bad_positive_lower_density`, `collatz_of_bad_density_zero` | `[propext, Classical.choice, Quot.sound]` | `receipts/Dichotomy.{build,axioms,sha256}.txt` |
@@ -2055,7 +2056,37 @@ receipt binds to the file it certifies.
   small; `K` can be as large as `m` (`h = 1` gives `termIndex = 1`, `quot 1 =
   m`, `K = m`), and the law then says nothing. No convergence claim.
 
+- C002-b (part 1): main's §2 theorem is stated for blocks with `Σu = ar`, `|u|
+  = br`, `Σv = as`, `|v| = bs` and `gcd(a, b) = 1`; the Lean versions take any
+  such representation (the coprimality is not used; the reduced representation
+  is one instance). `E_dvd_commutator` is "`E` divides `K`".
+  `proportional_gcd_dvd` is (6) with `J` given by `K = E J` and `J₀` by any
+  factorisation `|J| = 2^α 3^β J₀`: the prose's `J₀` (all factors `2` and `3`
+  removed) is the instance `α = v₂(J)`, `β = v₃(J)`, and `J₀ = |J|` (`α = β =
+  0`) is the weaker bound without the removal. `proportional_den_lower` is (7)
+  in integer form for `K ≠ 0`: `U^(L−h) < den(w) J₀`, `U^max(M,N) < den(w) J₀`
+  and `U^L < (den(w) J₀)²` (the prose's `den > U^(L/2)/J₀`, squared to avoid a
+  real exponent); the strict first step uses `H_L − H_h U^(L−h) = V^h (U^(L−h)
+  − V^(L−h)) > 0`, which needs only `h < L` (the prose argues by the geometric
+  sum `H_L/H_h`). `proportional_rectangle` is (8). `den w` is the file's `D_w
+  / gcd(C_w, D_w)`, the reduced denominator of the word's rational cycle point
+  `C_w/D_w`, positive here because `U > V`. Not included: the degenerate case
+  `K = 0` (both blocks powers of one primitive word, by determinism of the
+  valuation word of a rational point; the prose's controls `u = v = (1,2,2),
+  (1,3), (4)` with denominators `5, 7, 13`), §3's sharpness example `(1,3)^t
+  (3,1)^t` with `den = 7 (16^t + 9^t)`, and §4's family. These are bounds on
+  denominators of rational cycles of words; nothing about integer Collatz
+  cycles or convergence follows.
+
 ## Insights sent to the feed
+
+- Iteration 91 (sidekick `2efc9e5`: the VERIFIED milestone post for S12 at
+  `03b2807`, with its independent-check counts and the scope paragraph; main
+  frozen at `1c5c19d`). The side lane has no new producer statement and
+  offered the paused (1, 1, 2) window theorem as optional. Re-scoped queue
+  item 4's converse: it rests on the frozen R25/R37/R40/R43 framework and has
+  no bounded piece (unchanged). Took main's C002-b instead, the proportional-
+  slope theorem (6)–(8). Sent after the build: the C002-b (part 1) report.
 
 - Iteration 90 (sidekick `20a3ecf`, the part 2 verdict in the feed: VERIFIED,
   receipts match sha `dc3319fc…a2a9`, 730 theorems; main frozen at `1c5c19d`).

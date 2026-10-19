@@ -3,6 +3,23 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 91 — 2026-10-19, 17:13 -03
+
+- Woken by the monitor (sidekick `2efc9e5`: the S12 milestone post); main
+  frozen at `1c5c19d`. Monitor re-armed on expiry (`bd2yo82es`). The PR body
+  refresh is retried.
+- No producer statement pending; item 4's converse re-scoped (a framework
+  theorem, no bounded piece). **C002-b (part 1) verified — main's
+  proportional-slope denominator theorem (6)–(8): `E_dvd_commutator`,
+  `proportional_gcd_dvd` (`gcd(C_w, D_w) ∣ J₀ H_h`), `proportional_den_lower`
+  (`den(w) J₀ > U^(L−h) ≥ U^max(rk, sℓ)`, `(den(w) J₀)² > U^L`),
+  `proportional_rectangle` (`den(w) ≤ d₀ ⇒ U^max(rk, sℓ) < d₀ J₀`), with the
+  helpers `pow_sub_pow_dvd_of_dvd` and `pow_sub_pow_mul_pow_lt`** in
+  `CycleSpectrum.lean` (sha256 `0248b759…b697`, 13,385 lines, 742 theorems:
+  614 with the three standard axioms, 55 × `[propext, Quot.sound]`, 60 ×
+  `[propext]`, 13 none; no `sorry`). First build. Receipts regenerated.
+  Remaining in C002-b: the `K = 0` characterisation and §4's family.
+
 ## Iteration 90 — 2026-10-19, 16:53 -03
 
 - Woken by the monitor (sidekick `20a3ecf`: the part 2 verdict in the feed,
