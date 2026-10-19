@@ -6017,6 +6017,135 @@ theorem Cc_gcd_one (hq1 : Γ.q = 1) (hB2 : Γ.B ≤ 2) (hm2 : 2 ≤ m)
 
 end OddCycle
 
+/-! ### C010-b: the complete dyadic gap lattice (GAP_LATTICE.md §§1–2)
+
+C010 §1: for `Z = (Z_0, …, Z_{m−1})` the dyadic shift `(EZ)_j = Z_{j+1}` (`j < m−1`),
+`(EZ)_{m−1} = 2Z_0`, and `U = E − I`; `G = UZ` are the complete gaps with the seam
+`G_{m−1} = 2Z_0 − Z_{m−1}`. `U` is unimodular with inverse `I + E + ⋯ + E^{m−1}`:
+`Z_0 = Σ_j G_j`, `Z_j = Σ_i G_i + Σ_{i<j} G_i` (1). Hence a vector and its complete gaps have the
+same common divisors (the gcd statement), are integral together, a scalar clears the denominators
+of one iff of the other (the common-denominator statement), and `G > 0` exactly on the normalised
+order cone `0 < Z_0 < Z_1 < ⋯ < Z_{m−1} < 2Z_0`. §2: for a reduced cycle whose maximal height is
+attained, the scaled states have gcd `1`, hence so do their complete gaps. Here `cgap Z m` is `UZ`
+on indices `< m`; the matrix `E` is not formalised and (1) is proved by telescoping. -/
+
+section GapLattice
+
+variable {R : Type*} [CommRing R]
+
+/-- The complete gaps `(UZ)_j = Z_{j+1} − Z_j` for `j + 1 < m`, and the seam `2Z_0 − Z_{m−1}`. -/
+def cgap (Z : ℕ → R) (m j : ℕ) : R := if j + 1 < m then Z (j + 1) - Z j else 2 * Z 0 - Z j
+
+/-- Telescoping below the seam: `Σ_{i<j} G_i = Z_j − Z_0` for `j < m`. -/
+theorem sum_cgap_prefix (Z : ℕ → R) {m j : ℕ} (hj : j < m) :
+    ∑ i ∈ Finset.range j, cgap Z m i = Z j - Z 0 := by
+  induction j with
+  | zero => simp
+  | succ j ih =>
+    rw [Finset.sum_range_succ, ih (by omega)]
+    unfold cgap
+    rw [ite_eq_left hj]
+    ring
+
+/-- `Σ_{j<m} G_j = Z_0`: the seam closes the telescope. -/
+theorem sum_cgap (Z : ℕ → R) {m : ℕ} (hm : 0 < m) :
+    ∑ j ∈ Finset.range m, cgap Z m j = Z 0 := by
+  obtain ⟨k, rfl⟩ : ∃ k, m = k + 1 := ⟨m - 1, by omega⟩
+  rw [Finset.sum_range_succ, sum_cgap_prefix Z (Nat.lt_succ_self k)]
+  unfold cgap
+  rw [ite_eq_right (lt_irrefl (k + 1))]
+  ring
+
+/-- C010's (1): `Z_j = Σ_i G_i + Σ_{i<j} G_i` — `U` is unimodular with inverse
+`I + E + ⋯ + E^{m−1}`. -/
+theorem Z_eq_sum_cgap (Z : ℕ → R) {m j : ℕ} (hj : j < m) :
+    Z j = ∑ i ∈ Finset.range m, cgap Z m i + ∑ i ∈ Finset.range j, cgap Z m i := by
+  rw [sum_cgap Z (by omega), sum_cgap_prefix Z hj]
+  ring
+
+end GapLattice
+
+/-- The gcd statement: an integer vector and its complete gaps have the same common divisors. -/
+theorem dvd_cgap_iff (Z : ℕ → ℤ) {m : ℕ} (hm : 0 < m) (d : ℤ) :
+    (∀ j, j < m → d ∣ cgap Z m j) ↔ (∀ i, i < m → d ∣ Z i) := by
+  constructor
+  · intro h i hi
+    rw [Z_eq_sum_cgap Z hi]
+    exact dvd_add (Finset.dvd_sum (fun j hj => h j (Finset.mem_range.mp hj)))
+      (Finset.dvd_sum (fun j hj => h j (by have := Finset.mem_range.mp hj; omega)))
+  · intro h j hj
+    unfold cgap
+    split_ifs with hj1
+    · exact dvd_sub (h _ hj1) (h j hj)
+    · exact dvd_sub ((h 0 hm).mul_left 2) (h j hj)
+
+/-- Integrality transfers both ways: a rational vector has integer entries iff its complete gaps
+do. -/
+theorem cgap_int_iff (Z : ℕ → ℚ) {m : ℕ} (hm : 0 < m) :
+    (∀ i, i < m → ∃ z : ℤ, Z i = z) ↔ (∀ j, j < m → ∃ z : ℤ, cgap Z m j = z) := by
+  constructor
+  · intro h j hj
+    unfold cgap
+    split_ifs with hj1
+    · obtain ⟨a, ha⟩ := h _ hj1
+      obtain ⟨b, hb⟩ := h j hj
+      exact ⟨a - b, by rw [ha, hb]; norm_cast⟩
+    · obtain ⟨a, ha⟩ := h 0 hm
+      obtain ⟨b, hb⟩ := h j hj
+      exact ⟨2 * a - b, by rw [ha, hb]; norm_cast⟩
+  · intro h i hi
+    rw [Z_eq_sum_cgap Z hi]
+    have hs : ∀ n, n ≤ m → ∃ z : ℤ, ∑ j ∈ Finset.range n, cgap Z m j = z := by
+      intro n hn
+      induction n with
+      | zero => exact ⟨0, by simp⟩
+      | succ n ih =>
+        obtain ⟨a, ha⟩ := ih (by omega)
+        obtain ⟨b, hb⟩ := h n (by omega)
+        exact ⟨a + b, by rw [Finset.sum_range_succ, ha, hb]; norm_cast⟩
+    obtain ⟨a, ha⟩ := hs m le_rfl
+    obtain ⟨b, hb⟩ := hs i hi.le
+    exact ⟨a + b, by rw [ha, hb]; norm_cast⟩
+
+theorem cgap_smul (Z : ℕ → ℚ) (k : ℚ) (m j : ℕ) :
+    cgap (fun i => k * Z i) m j = k * cgap Z m j := by
+  unfold cgap
+  split_ifs <;> ring
+
+/-- C010 §1's last statement: a scalar clears the denominators of `Z` iff it clears those of
+`UZ`, so the least positive common denominator is the same for states and complete gaps. -/
+theorem clears_iff (Z : ℕ → ℚ) {m : ℕ} (hm : 0 < m) (k : ℚ) :
+    (∀ i, i < m → ∃ z : ℤ, k * Z i = z) ↔ (∀ j, j < m → ∃ z : ℤ, k * cgap Z m j = z) := by
+  have h := cgap_int_iff (fun i => k * Z i) hm
+  simp only [cgap_smul] at h
+  exact h
+
+/-- The gap cone is the normalised order cone: all complete gaps positive iff
+`0 < Z_0 < Z_1 < ⋯ < Z_{m−1} < 2Z_0`. -/
+theorem cgap_pos_iff (Z : ℕ → ℤ) {m : ℕ} (hm : 0 < m) :
+    (∀ j, j < m → 0 < cgap Z m j) ↔
+      (0 < Z 0 ∧ (∀ j, j + 1 < m → Z j < Z (j + 1)) ∧ Z (m - 1) < 2 * Z 0) := by
+  constructor
+  · intro h
+    refine ⟨?_, fun j hj => ?_, ?_⟩
+    · rw [← sum_cgap Z hm]
+      exact Finset.sum_pos (fun j hj => h j (Finset.mem_range.mp hj)) ⟨0, Finset.mem_range.mpr hm⟩
+    · have := h j (by omega)
+      unfold cgap at this
+      rw [ite_eq_left hj] at this
+      linarith
+    · have := h (m - 1) (by omega)
+      unfold cgap at this
+      rw [ite_eq_right (by omega : ¬ (m - 1 + 1 < m))] at this
+      linarith
+  · rintro ⟨h0, hinc, hseam⟩ j hj
+    unfold cgap
+    split_ifs with hj1
+    · linarith [hinc j hj1]
+    · have hjm : j = m - 1 := by omega
+      rw [hjm]
+      linarith
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
@@ -7298,6 +7427,64 @@ theorem Cc_gcd_one_ord (hapos : ∀ i, 1 ≤ Ω.Γ.a i) :
     exact (Ω.Γ.cword_prefix m).2.symm
   rw [hC, ← D_mech hm (Ω.Γ.Apre m) 0 hm]
   exact mech_gcd_one Ω.hm2 (Ω.Γ.Apre m) hAm Ω.coprime_Apre
+
+/-! #### C010-b (continued): the sorted scaled states and their complete gaps have gcd `1` -/
+
+/-- The sorted gaps of C006 are the complete gaps `UZ` of the sorted scaled states. -/
+theorem gap_eq_cgap {r : ℕ} (hr : r < m) : Ω.N.gap r = cgap Ω.N.y m r := by
+  unfold NarrowCycle.gap NarrowCycle.yext cgap
+  rcases Nat.lt_or_ge (r + 1) m with h1 | h1
+  · rw [ite_eq_left h1, ite_eq_left hr, ite_eq_left h1]
+  · have hr1 : r + 1 = m := by omega
+    rw [ite_eq_right (by omega : ¬ (r + 1 < m)), ite_eq_left hr,
+      ite_eq_right (by omega : ¬ (r + 1 < m)), hr1, Nat.sub_self]
+
+/-- C010 §2: for a reduced cycle whose maximal height is attained, the scaled states `Z_i` have
+no common divisor but units — a common divisor is odd (some `Z_i` is odd), divides every
+numerator, hence `q` by an arrow, against reduction. -/
+theorem Z_dvd_isUnit (hred : IsCoprime Ω.Γ.q (Ω.Γ.n 0)) (hB : ∃ i, Ω.Γ.h i = Ω.Γ.B) {d : ℤ}
+    (hd : ∀ i, d ∣ Ω.Γ.Z i) : IsUnit d := by
+  obtain ⟨i₀, hi₀⟩ := hB
+  have hodd : Odd (Ω.Γ.Z i₀) := by
+    unfold OddCycle.Z
+    rw [hi₀, Nat.sub_self, pow_zero, one_mul]
+    exact Ω.Γ.nodd i₀
+  have hdodd : Odd d := by
+    by_contra h
+    rw [Int.not_odd_iff_even] at h
+    exact (Int.not_even_iff_odd.mpr hodd) (h.trans_dvd (hd i₀))
+  have hd2 : IsCoprime d 2 := by
+    obtain ⟨k, hk⟩ := hdodd
+    exact ⟨1, -k, by rw [hk]; ring⟩
+  have hn : ∀ i, d ∣ Ω.Γ.n i := fun i => hd2.pow_right.dvd_of_dvd_mul_left (hd i)
+  have hq : d ∣ Ω.Γ.q := by
+    have harrow := Ω.Γ.arrow 0
+    have hqe : Ω.Γ.q = 2 ^ Ω.Γ.a 0 * Ω.Γ.n 1 - 3 * Ω.Γ.n 0 := by linarith
+    rw [hqe]
+    exact dvd_sub ((hn 1).mul_left _) ((hn 0).mul_left 3)
+  exact hred.isUnit_of_dvd' hq (hn 0)
+
+/-- C010 §2: the complete gap vector of the sorted scaled states has gcd `1` as well. -/
+theorem gap_dvd_isUnit (hred : IsCoprime Ω.Γ.q (Ω.Γ.n 0)) (hB : ∃ i, Ω.Γ.h i = Ω.Γ.B) {d : ℤ}
+    (hd : ∀ r, r < m → d ∣ Ω.N.gap r) : IsUnit d := by
+  have hy : ∀ i, i < m → d ∣ Ω.N.y i := by
+    rw [← dvd_cgap_iff Ω.N.y Ω.Γ.hm d]
+    intro j hj
+    rw [← Ω.gap_eq_cgap hj]
+    exact hd j hj
+  apply Ω.Z_dvd_isUnit hred hB
+  intro i
+  have hi : i % m < m := Nat.mod_lt i Ω.Γ.hm
+  have hidx : Ω.N.idx (Ω.N.rank (i % m)) = i % m :=
+    Ω.N.rank_inj Ω.N_prim (Ω.N.idx_spec Ω.N_prim (Ω.N.rank_lt _)).1 hi
+      (Ω.N.idx_spec Ω.N_prim (Ω.N.rank_lt _)).2
+  have hZ : Ω.Γ.Z i = Ω.N.y (Ω.N.rank (i % m)) := by
+    unfold NarrowCycle.y
+    rw [hidx, Ω.N_x]
+    unfold OddCycle.Z
+    rw [Ω.Γ.h_mod, Ω.Γ.n_mod]
+  rw [hZ]
+  exact hy _ (Ω.N.rank_lt _)
 
 end OrdCycle
 

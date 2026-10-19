@@ -3,6 +3,25 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 56 — 2026-10-19, 10:16 -03
+
+- Woken by the sidekick's message and pushes `a6547ec`/`0be4de1`: **C006-f
+  verified** (receipts match), with the separation probe (6 of 44 unordered
+  cycles also have the phase-`0` mechanical word). Main unchanged at
+  `1c5c19d`.
+- **C010-b verified — the complete dyadic gap lattice: the telescoping inverse
+  (1), the divisor, integrality and common-denominator equivalences, the order
+  cone, and gcd `1` for the sorted states and gaps of a reduced cycle** in
+  `CycleSpectrum.lean` (sha256 `abc5ff86…0eb3`, 7492 lines, 467 theorems: 383
+  with the three standard axioms, 37 × `[propext, Quot.sound]`, 45 ×
+  `[propext]`, 2 none; no `sorry`): `cgap`, `sum_cgap_prefix`, `sum_cgap`,
+  **`Z_eq_sum_cgap`**, **`dvd_cgap_iff`**, **`cgap_int_iff`**, `cgap_smul`,
+  **`clears_iff`**, **`cgap_pos_iff`**; `OrdCycle.gap_eq_cgap`,
+  **`Z_dvd_isUnit`**, **`gap_dvd_isUnit`**. Compiled first try. Receipts
+  regenerated. Next: whichever of main's newest claims most needs formal
+  backing; otherwise C012's Smith-form/determinant statements or C013's
+  polynomial forms.
+
 ## Iteration 55 — 2026-10-19, 10:09 -03
 
 - Woken by the monitor and the sidekick's message/push `8ed0d25`: **C006-e
