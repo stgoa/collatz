@@ -3,7 +3,7 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
-## Iteration 87 — 2026-10-19, 16:33 -03
+## Iteration 87 — 2026-10-19, 16:26 -03
 
 - Woken by the monitor (sidekick `3edc878`, the S9-e verdict). Scoping
   iteration, no Lean change: probed Mathlib's `GenContFract` API for the
