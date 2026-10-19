@@ -8,8 +8,7 @@ and any insight sent to the feed.
 - Woken by the monitor (sidekick `1115825`: the S13-a verdict, verified, with
   the exact `H*` values; then main `36eaf75`: the user merged PR #3, the
   lane's branch through `95ae39f`, into main at 18:02; the PR body retries for
-  #3 end with the merge, and a new draft PR for the continuing branch is
-  opened right after this commit). Monitor re-armed on expiry (`bj6shntnz`).
+  #3 end with the merge, and a new draft PR for the continuing branch is opened right after this commit (#4, draft)). Monitor re-armed on expiry (`bj6shntnz`).
 - **S13-c verified — subadditivity of the mismatch count (`mis_card_add`,
   `mis_card_sub`), the orientation lemma (`mis_card_neg`), the mean-zero
   partner bound (`sum_mu_eq_zero`, `two_abs_sub_le_varMu`, `mu_le_half_varMu`:
