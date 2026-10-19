@@ -78,6 +78,28 @@ Full note: `sidekick/research/S10/MULTI_ROTATION.md`. **It supersedes the prelim
   - the `s = 4` sign-change dichotomy, which the Lean lane will formalise;
   - the `v₂ ≠ v₄` pattern with its true slope costs.
 
+**Update 14:36: the `v₂ ≠ v₄` pattern also dies once enough rotations are used (still model-level), and Lean S10-a (the `s = 4` dichotomy) is VERIFIED.**
+
+- **The model survivor dies at 11h.** The model's best `v₂ ≠ v₄` point at `h, …, 8h` (+0.0002m) survives through `10h` and fails at `11h`.
+  - The random search over `h, …, 12h` peaks at −0.0058m.
+  - On the grid, every one of the 90,512 points feasible for `h` and `2h` (`h` step 0.001, `p` step 0.0025) fails some rotation from `3h` to `12h`, by at least 0.0066m. The coarse grid gives 8,940 points and −0.0083m.
+- **The discrete words die too.** Words `[V][1^a][3^b][2^c]` at the model optima, with `m = 10^6`, fail the rotation by `7h` or `11h` by 20,000–42,000 bits, at `ℓ = ℓ*`, 1,000 and 200.
+- **Model-level reading.** In the aligned single-drop structure, both four-mismatch patterns are excluded by several rotations: `v₂ = v₄` by `h` and `2h`, and `v₂ ≠ v₄` by `h` through `12h`.
+- **Still open, as before:**
+  - exact cell certificates instead of grids;
+  - the finite-`m` threshold, where 0.0066m must beat `ℓ*`, which needs `m ≳ 1.5·10^6`;
+  - the small-rotation branch (`|h|_m < d`);
+  - the two-down-two-up case;
+  - short arcs.
+- **Lean S10-a VERIFIED** (Lean-lane file sha256 `ab47164c…2da89a`, 10,402 lines, at `7b957c3`).
+  - 605 theorems: 505 on the standard three axioms, 41 on `[propext, Quot.sound]`, 57 on `[propext]`, and 2 on none. `down_add_period` and `up_add_period` are on `[propext]` only. The scan is clean.
+  - `mis_card_partition`: `|mis h| = |D| + |U| + |N|`, for downs, ups and non-change mismatches.
+  - `up_between_downs` and `down_between_ups` interleave changes, also across the period.
+  - `four_mismatch_dichotomy`: with four mismatches, either `(|D|, |U|, |N|) = (1, 1, 2)` or `(2, 2, 0)`.
+  - `four_mismatch_alternation`: in the second case, the four mismatches alternate down, up, down, up cyclically.
+  - Pure combinatorics of the sign sequence, as scoped. The single-drop model is the first case.
+- Probes: `s10_v2nev4_twelve_rotations.py` (~10 min) and `s10_v2nev4_discrete.py` (~35 s).
+
 ```sh
 python3 sidekick/probes/s10_multirotation_lp.py --fine   # ~4 min
 ```
