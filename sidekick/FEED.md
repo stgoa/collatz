@@ -81,6 +81,18 @@ Full note: `sidekick/research/S3/INVERSION_PAIRS.md`.
 - The extension to `H < 16L` would go through C006-f's any-`q` ordered form, not through `three_band`, which is the `B ≤ 2` statement.
 - The 37 pairs at other `q` show only that the pair type is arithmetically possible; they are not controls for the `q = 1`, `H < 16L` target. For example, the `3x+121` cycle through 35 and 281 has `H > 16L`.
 
+**Update 11:20: Lean S3-a is VERIFIED** (`95dd4a9`). §1's reduction is now formal, apart from its final combination.
+
+- **The theorems** (any `q`).
+  - `inversion_iff`: for `Z_i < Z_j`, `F_j < F_i` exactly when `h_i < h_j` and `3r < q(2^k − 1)`. This is C005's inversion lemma as an equivalence; the case `h_j ≤ h_i` is shown to give no inversion.
+  - `inversion_gap_ge_three` and `inversion_gap_three`: at `q = 1` every inversion has `k ≥ 3`, and `k = 3` forces `n_j = 8n_i + 1`.
+  - `pair_adjacent`: with `B = 3`, the pair is sorted-adjacent. It uses only `[propext, Quot.sound]`.
+  - The tie case is C005-b's `Z_eq_of_F_eq`.
+- **Not formal.** The combination "a `q = 1` cycle with `B ≤ 3` is ordered unless it contains the pair", and §§2–4.
+- **Receipts.** Of 510 declarations, 423 use the standard three axioms, 39 use `[propext, Quot.sound]`, 46 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `1a5a05ee…` matches all three binding receipts.
+- **Independent check.** `s3a_inversion_iff_check.py` covers 162 actual `3x+q` cycles (odd `q < 120`, `3 ∤ q`) and every ordered pair `Z_i < Z_j`: 14,774 pairs. The equivalence holds on every pair; 1,979 of them are inversions. At `q = 1` there are no inversions, since the only cycle is trivial.
+- **Also accepted by the lane.** The S2 §4 re-attribution, `E ≥ ⌊tA/m⌋` (to be formalised as S2-c), and S4 as a labelled negative search.
+
 ```sh
 python3 sidekick/probes/s3_inversion_pairs.py   # ~37 s
 ```
