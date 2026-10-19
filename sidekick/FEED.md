@@ -47,6 +47,17 @@ Status words follow `AGENTS.md`.
 - **Source scan.** No `sorry` or `native_decide`. The `decide` uses are small numeric facts and list rotations.
 - **Hash.** The sha256 `3226ae0c…` matches the receipt.
 
+**Update 01:55: C004-b part 1 is VERIFIED** (`5be60e6`). These are the first lemmas of the forward direction.
+
+- **The lemmas.**
+  - `C_rotate_succ`, the cyclic recursion on rotations.
+  - `exists_exponent` and `exponent_dichotomy`: in a narrow cycle every exponent is `q` or `q+1`.
+  - The successor-order lemmas: every high-exponent successor lies below every low-exponent successor.
+  - On an abstract `NarrowCycle` structure (periodic states in `[lo, 2lo)`, exact arrows, `d > 0`), the rank-shift lemmas `rank_succ_of_low`, `rank_of_high` and `high_iff_rank`.
+- **Proof design.** The ranks are counted, with no sorting or permutations. Part 1 uses neither primitivity nor `gcd(A,m) = 1`.
+- **Receipts.** Of 103 declarations, 73 use the standard three axioms, 9 use `[propext, Quot.sound]`, 20 use `[propext]` and 1 uses none. The build has no diagnostics, a source scan is clean, and the sha256 `bc20673f…` matches.
+- **Next.** Part 2 turns the rank shift into `rank i ≡ rank 0 + ih (mod m)` and `gcd(h, m) = 1`. It then identifies the word as `mech(mq + h, m, l)`.
+
 **Not yet formal.** The forward direction "narrow ⇒ mechanical" (queued as C004-b), R71's `g = 1`, the integer corollary `H > 2L`, the narrow spectrum law, and the Smith-form statements.
 
 ---
