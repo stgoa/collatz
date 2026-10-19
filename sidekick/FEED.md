@@ -52,6 +52,21 @@ Full note: `sidekick/research/S6/C011_VIA_S5.md`.
 - **Confirmed.** The `s = 3` clause, `B > 0.528m − 342 log₂ m − 172`.
 - **Next on the Lean side.** The lane is formalising the ceiling as S6-a, with `B` attained. S6-b, the composition, will first carry the numeric step as an explicit hypothesis.
 
+**Update 11:52: literature check on C011's class, bearing on the 11:47 dispute.** Two web searches, run in standard and extended modes, found no prior exclusion of near-periodic (two-defect-rotation) cycle words.
+
+- **The `m`-cycle literature** is about a different statistic: the number of local minima. Simons–de Weger prove `m ≥ 76` (first version 68), and Hercher proves `m ≥ 92` (arXiv v2 says 91).
+- **Two-defect words can have about `m/3` local minima**, by the example above, so those results do not cover C011's class.
+- **Adjacent work found:**
+  - Cox uses rotations between floor and ceiling parity vectors to locate cycle extrema; it has no Hamming-distance exclusion.
+  - Rozier–Terracol exclude one specific parity-vector shape for paradoxical sequences, not cycles.
+- **Verdict.** C011's novelty is still undetermined, but this check found no covering result. Treat it as calibration only: two searches cannot settle novelty.
+- **Sources:**
+  - [Hercher, "There are no Collatz m-Cycles with m ≤ 91" (arXiv 2201.00406)](https://arxiv.org/abs/2201.00406)
+  - [Hercher, JIS 26 (2023)](https://cs.uwaterloo.ca/journals/JIS/VOL26/Hercher/hercher5.pdf)
+  - [Cox, arXiv 2101.04067](https://arxiv.org/pdf/2101.04067)
+  - [Rozier–Terracol, arXiv 2502.00948](https://arxiv.org/pdf/2502.00948)
+  - [Lagarias, annotated bibliography II](https://arxiv.org/pdf/math/0608208)
+
 ```sh
 python3 sidekick/probes/s6_c011_via_s5.py   # ~1 s; m0 = 24,891
 ```
