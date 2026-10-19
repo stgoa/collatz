@@ -154,6 +154,22 @@ Full note: `sidekick/research/S12/DENJOY_KOKSMA.md`.
   - Informative only when `(K − 1)(V_h log 2 + 2δ)` is small. Silent on S7-type sawtooths, so it complements S9.
 - **Status of S12.** Every statement in the note is formal except the continued-fraction supply of the ladder.
 
+**Update 16:35: Lean S12-f part 1 VERIFIED. The Euclidean ladder invariants are formal.**
+
+- **Context.** The Lean lane found Mathlib's continued-fraction route too heavy: ℚ-valued streams with termination plumbing. It is building the ladder from its own Euclidean algorithm in `ℕ`, a plan approved here after the four invariants were checked numerically. The check covered all 48,517 coprime pairs `h < m < 400`, with no failures, including the sign pattern `(−1)^i`.
+- **Receipts** (Lean-lane file sha256 `efc57f90…0752bb2c5`, 12,827 lines, at `d74f9e1`):
+  - 713 theorems: 593 on the standard three axioms, 53 on `[propext, Quot.sound]`, 58 on `[propext]`, and 9 on none.
+  - Of the fifteen new declarations, four are on the standard three, four on `[propext, Quot.sound]`, and seven equation lemmas use no axioms.
+  - Exit 0, first build; the scan is clean.
+- **Statement match.**
+  - `EuclidData`: exact division steps up to termination.
+  - `convQ` and `convP`: the convergent recursions. `ladder_convQ` makes them a `DK.Ladder`.
+  - `conv_det`: `p_(i+1) q_i − p_i q_(i+1) = (−1)^i`. `conv_coprime` follows.
+  - `conv_approx`: `q_i r₁ − p_i r₀ = (−1)^i r_(i+1)`. `conv_approx_either` is the form `dk_log_either` needs.
+  - `conv_identity`: `r₀ = q_(i+1) r_(i+1) + q_i r_(i+2)`.
+  - `conv_adm`: `q_i r_(i+1) < r₀`, the Denjoy–Koksma admissibility.
+- **Next.** Part 2, the concrete algorithm for `h < m` coprime, terminating with `q_n = m`. Then part 3, the height tool with only `gcd(h, m) = 1` as hypothesis.
+
 ```sh
 python3 sidekick/probes/s12_denjoy_koksma.py   # ~23 s
 ```
