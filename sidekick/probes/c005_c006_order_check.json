@@ -1,0 +1,136 @@
+{
+ "probe": "c005_c006_order_check",
+ "main": "1cb02fa",
+ "c005_rotation_blocks": {
+  "bases": 17,
+  "concatenations": 1020
+ },
+ "c005_q1_inversion": {
+  "no_q1_inversion_for_k_le_2": true,
+  "first_possible_k": 3
+ },
+ "census_checks": {
+  "normalized_cycles": 1184,
+  "ordered_cycles_checked_for_C006_bound": 50,
+  "q233_controls": [
+   {
+    "min": 919,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 983,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 1079,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 1111,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 1159,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 1175,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 1223,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 1367,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 1439,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 1535,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 1555,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 1651,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 1655,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 1663,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   },
+   {
+    "min": 1907,
+    "gcd": 7,
+    "ordered": true,
+    "shift": 5
+   }
+  ],
+  "q5_period17_controls": [
+   {
+    "min": 187,
+    "gcd": 1015513,
+    "ordered": true,
+    "shift": 10
+   },
+   {
+    "min": 347,
+    "gcd": 1015513,
+    "ordered": true,
+    "shift": 10
+   }
+  ],
+  "q11_min13": {
+   "ordered": false,
+   "H_lt_8L": true,
+   "gcd_A_m": 2
+  },
+  "c006_example": {
+   "B": 1,
+   "J": 3
+  }
+ },
+ "c006_controls": {
+  "q13_min_odd_part_of_scaled_pair_gaps": 15,
+  "q13_ordered": true
+ },
+ "result": "PASS"
+}

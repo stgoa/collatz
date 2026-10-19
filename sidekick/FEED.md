@@ -28,6 +28,36 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 02:13 — REFEREE C005 + C006 (main `1cb02fa`): reproduced; the dyadic-order mechanism is the first cycle ingredient that is genuinely specific to `q = 1`
+
+**Reproduced** (`c005_c006_order_check.py`, under a second, PASS).
+
+- **C005's rotation-block theorem.** Take any primitive mechanical base `v ≠ (2)` with coprime totals and `2^A0 > 3^m0`. Every concatenation of rotations of `v` has `den > 1`. I tested 1,020 concatenations of 2 to 6 randomly phased blocks over 17 bases, with no exceptions.
+- **The `q = 1` order lemma.** An inversion between normalised states needs `3r < q(2^k − 1)` with `r ≥ 1` odd. At `q = 1` that forces `k ≥ 3`. So a `q = 1` cycle with `H < 8L` has no inversions: its normalised successor is a rank rotation.
+- **C005's controls, on the census.**
+  - All 15 normalised `q = 233` cycles of period 8 have cancellation 7, strict order and rank shift 5. Main's report mentions one of them.
+  - Both `q = 5` cycles of period 17 (minima 187 and 347) have cancellation 1,015,513, strict order and rank shift 10.
+  - The `q = 11` cycle with minimum 13 has an inversion despite `H < 8L`, and `gcd(A, m) = 2`. This is exactly why the lemma needs `q = 1`.
+- **C006's worked example.** The `q = 233` cycle `1663 → 2611 → 4033 → 3083 → 4741 → 1807 → 2827 → 4357` has valuations `(1,1,2,1,3,1,1,3)`, `B = 1` and `J = 3`. The rational bound gives `q > 208768/14501`, so `q ≥ 15`.
+- **C006's bound on every ordered census cycle.** All 50 normalised cycles that are ordered and have `q ≤ L` satisfy `L > 2^(⌈m/J⌉ − 1 − B)` and `B + 1 ≤ J`.
+- **C006's controls.**
+  - The ordered `q = 13` cycle `(227, 347, 527, 797, 601)` has minimum odd part 15 among the pairwise differences of its height-scaled numerators, matching main's "minimum odd gap 15". The smallest difference is `694 − 454 = 16·15`.
+  - The `q = 5` cycle `19, 31, 49` is confirmed.
+
+**Assessment.**
+
+- **This is the first `d = 1`-specific lever in the cycle programme.**
+  - Every earlier cycle result was arithmetic of words, valid for all denominators. C005's inversion lemma uses `q = 1` (more precisely, small `q` relative to the height gap), and the `q = 11` control shows it fails without that.
+  - Combined with C004, it gives a ladder of structure for hypothetical Collatz cycles. Below `2L` the pattern is mechanical, which is excluded. Below `8L` it is ordered, with mechanical normalised exponents. That case is not excluded, because the height weights can cancel, as the `q = 233` and `q = 5` controls show.
+- **C006 restricts complexity; it does not exclude.** With Baker's two-logarithm bound, an ordered cycle at fixed `q` needs `J ≥ √m − O_q(log m)` height changes, and `(q, J)` bounded gives finitely many cycles. It is effective in principle, but it is not an exclusion.
+- **A next fixed rung.** Prove that every nontrivial Collatz cycle has `H ≥ 4L`. That is the `B ≤ 1` case of main's ordered-cycle target. Such a cycle is ordered by C005, and its heights are only 0 or 1, so the weighted intercept has the simplest possible structure. Main's "one-defect profiles" probe is the natural first step.
+
+```sh
+python3 sidekick/probes/c005_c006_order_check.py <path to main's actual_cycles.json>   # <1 s, PASS
+```
+
+---
+
 ## 2026-10-19 02:11 — VERIFIED Lean C004-b (`claude/lean-lane` `8db3feb`): C004's narrow-cycle classification is machine-checked in both directions
 
 **`is_mech_of_narrow`.** Take a word `w` with `m ≥ 2`, `D_w > 0`, `C(w.rotate i) < 2·C(w.rotate j)` for all `i, j`, and distinct rotated intercepts. Then `w = mech(w.sum, m, l)` for some phase `l < m`, and `gcd(w.sum, m) = 1`.
