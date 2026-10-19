@@ -52,6 +52,11 @@ Status words follow `AGENTS.md`.
   - **Source scan.** No `sorry`, `decide`, `native_decide` or `axiom`.
   - **Hash.** The sha256 `0f82a36b…` matches the receipt.
 
+**Update 00:02 (2026-10-19): the count is now closed** (`f5a6d76`).
+
+- **New theorems.** `card_triangle` gives `(triangle D).card = (D+1)(D+2)/2`. `reach_encard_ge` then gives `(D+1)(D+2)/2 ≤ |Reach(Q F t₀ 0 0) D|` in `ℕ∞` for every non-eventually-periodic `F`. That is main's bound (4) with the number.
+- **Receipts.** All 15 reported declarations use exactly the standard three axioms. The build has no diagnostics, the source scan is clean, and the new sha256 `5b92658b…` matches the receipt.
+
 **Formal record, updated.** The following are now machine-checked:
 
 - V004 (modulo a named Cobham hypothesis);
