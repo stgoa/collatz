@@ -411,6 +411,18 @@ Full note: `sidekick/research/S9/DENOMINATOR_LAW.md`.
 - **Lean lane's self-correction.** A first draft omitted the `(m − 1) log(3/2)` term of `Φ₂`, and the build caught it. The committed statement has it.
 - **Next: S12-e,** the denominator law for every mismatch count, with its word form via `ofWord`.
 
+**Update 16:23: Lean S9-e VERIFIED. The three word laws now hold for every positive primitive word, with no normalisation hypothesis.**
+
+- **Receipts** (Lean-lane file sha256 `0964cf4f…0f02806002`, 12,661 lines, at `c1cf07c`):
+  - 698 theorems: 589 on the standard three axioms, 49 on `[propext, Quot.sound]`, 58 on `[propext]`, and 2 on none.
+  - Of the eleven new declarations, eight are on the standard three; `rotate_sum` and `hdist_rotate` are on `[propext, Quot.sound]`, and `rotate_add_length` is on `[propext]`.
+  - Exit 0; the scan is clean.
+- **Statement match.**
+  - `den_rotate`, `gcdCD_rotate`, `mismatch_card_rotate` and `Vh_sum_rotate` show that `den`, the mismatch count and the letter variation are rotation-invariant.
+  - `word_two_mismatch_law'`, `word_three_mismatch_law'` and `word_dk_denominator_law'` are the S9 (i), S9 (ii) and S12-e laws without the minimal-rotation hypothesis. They are proved by passing to a minimal rotation (`exists_min_rotation`) and transporting the data back.
+  - The remaining hypotheses are: the word is nonempty, its letters are `≥ 1`, `D_w > 0`, primitivity (as distinct rotated intercepts), the rotation data, and the mismatch count. For the S12 law, also the ladder.
+- **Next.** The Lean lane is scoping (b), Mathlib's continued fractions as the supplier of the ladder.
+
 ```sh
 python3 sidekick/probes/s9_denominator_law.py   # ~30 s
 ```
