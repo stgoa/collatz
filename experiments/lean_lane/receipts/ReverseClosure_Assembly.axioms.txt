@@ -1,0 +1,29 @@
+'LeanLane.RevClos.binary_automatic_of_ternary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RevClos.ternary_automatic_of_binary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RevClos.automatic_two_iff_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RevClos.constant_of_ternary_automatic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RevClos.kernel2_subset_union' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RevClos.union_binary_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RevClos.kernel3_c_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RevClos.kernel2_ext_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RevClos.ext_automatic_of_automatic' depends on axioms: [propext, Classical.choice, Quot.sound]
+@LeanLane.RevClos.automatic_two_iff_three : ∀ {α : Type u_1} (b : ℕ → α),
+  (∀ (n : ℕ), b (3 * n) = b (4 * n)) →
+    (∀ (n : ℕ), b (3 * n + 2) = b (2 * n + 1)) →
+      (∀ (n : ℕ), b (4 * n + 2) = b n) → (LeanLane.V004.KAutomatic 2 b ↔ LeanLane.V004.KAutomatic 3 b)
+@LeanLane.RevClos.constant_of_ternary_automatic : ∀ {α : Type u_1},
+  LeanLane.V004.CobhamStatement α →
+    ∀ (b : ℕ → α),
+      (∀ (n : ℕ), b (3 * n) = b (4 * n)) →
+        (∀ (n : ℕ), b (3 * n + 2) = b (2 * n + 1)) →
+          (∀ (n : ℕ), b (4 * n + 2) = b n) → LeanLane.V004.KAutomatic 3 b → ∀ (n : ℕ), b n = b 0
+@LeanLane.RevClos.kernel2_ext_subset : ∀ {α : Type u_1} (b : ℕ → α),
+  LeanLane.V004.Kernel 2 (LeanLane.Scalar.ext b) ⊆ {LeanLane.Scalar.ext b} ∪ LeanLane.V004.Kernel 2 b
+@LeanLane.RevClos.union_binary_closed : ∀ {α : Type u_1} (b : ℕ → α),
+  (∀ (n : ℕ), b (3 * n) = b (4 * n)) →
+    (∀ (n : ℕ), b (3 * n + 2) = b (2 * n + 1)) →
+      (∀ (n : ℕ), b (4 * n + 2) = b n) →
+        ∀ g ∈ LeanLane.V004.Kernel 3 b ∪ LeanLane.V004.Kernel 3 (LeanLane.RevClos.c b),
+          ∀ i < 2, (fun n => g (2 * n + i)) ∈ LeanLane.V004.Kernel 3 b ∪ LeanLane.V004.Kernel 3 (LeanLane.RevClos.c b)
+def LeanLane.RevClos.c.{u_1} : {α : Type u_1} → (ℕ → α) → ℕ → α :=
+fun {α} b n => b (2 * n)

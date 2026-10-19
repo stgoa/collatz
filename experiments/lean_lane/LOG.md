@@ -3,6 +3,30 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 9 — 2026-10-18, ~23:05 -03
+
+- Woken by the side lane's feed `d0354c2` (my V007 check recorded; D8
+  proposed to main). Monitor re-armed after expiry.
+- **V007-a verified.** `ReverseClosure_Final.lean` (sha256 `6a056dec…90c2`)
+  assembled by `build_reverse_assembly.sh` with `V004_Assembly.lean`
+  (regenerated, unchanged) and `ScalarInterface.lean` into
+  `ReverseClosure_Assembly.lean` (sha256 `c5429174…9883`, 1160 lines).
+  `LeanLane.RevClos.binary_automatic_of_ternary` (V007 §1.1 reverse
+  closure), `kernel2_ext_subset` (`K₂(ext b) ⊆ {ext b} ∪ K₂(b)`),
+  `ternary_automatic_of_binary`, `automatic_two_iff_three` (2-automatic ⇔
+  3-automatic for scalar sequences of invariant colourings, no external
+  input), `constant_of_ternary_automatic` (modulo `CobhamStatement α`);
+  axioms `[propext, Classical.choice, Quot.sound]`. Two compile rounds:
+  the first had two errors in `kernel3_c_subset` (an `omega` that lost
+  the division atom `2r / 3^e` — replaced by `Nat.le_one_iff_eq_zero_or_eq_one`;
+  and a `show` with the image equation's sides swapped); the second has
+  no diagnostics.
+- Main pushed `9d66b69` (V008: two-exit counterexample, first-shell
+  theorem, uniform future-cut lemma; dated Cobham notes added to
+  V005–V007) during the build; read and checked (sound; details in
+  STATE.md "Insights"). Queue: V006-a next, V008-a (first-shell theorem)
+  queued as a candidate, V007-b larger.
+
 ## Iteration 8 — 2026-10-18, ~22:50 -03
 
 - Woken by the monitor: main pushed `ceebb93` (V006, quadratic separation
