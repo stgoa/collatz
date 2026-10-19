@@ -11070,6 +11070,172 @@ theorem word_dk_denominator_law' (w : List ℕ) (hw0 : w ≠ []) (hpos : ∀ x �
 
 end OddCycle
 
+/-! ### S12-f (part 1): convergents from Euclidean data — the ladder invariants
+
+Abstract Euclidean data: remainders `r` and quotients `a` with exact steps
+`r i = a (i+1) · r (i+1) + r (i+2)` for `i < n` (`EuclidData`). The convergent denominators and
+numerators follow the ladder recursion from the quotients (`convQ`, `convP`: `q 0 = 1`, `q 1 = a 1`,
+`p 0 = 0`, `p 1 = 1`). Without any hypothesis: the determinant identity
+`p (i+1) q i − p i q (i+1) = (−1)^i` (`conv_det`), hence `gcd(p i, q i) = 1` (`conv_coprime`); with
+quotients `≥ 1`, `convQ a` is a `Ladder` (`ladder_convQ`), positive and strictly increasing from
+index `1` (`convQ_lt_succ`). With the Euclidean steps: the approximation identity
+`q i · r 1 − p i · r 0 = (−1)^i r (i+1)` for `i ≤ n` (`conv_approx`), its either-sign form
+(`conv_approx_either`, the hypothesis shape of `dk_log_either`), the Euclidean identity
+`r 0 = q (i+1) r (i+1) + q i r (i+2)` for `i < n` (`conv_identity`), and the admissibility
+`q i · r (i+1) < r 0` for `i < n` when `r 1 < r 0` and the remainders before termination are
+positive (`conv_adm`). Part 2 instantiates this with the Euclidean algorithm for `h/m`; part 3
+removes the ladder hypothesis from the height tool. -/
+
+namespace DK
+
+/-- Euclidean data: exact steps `r i = a (i+1) · r (i+1) + r (i+2)` for `i < n`. -/
+structure EuclidData (r a : ℕ → ℕ) (n : ℕ) : Prop where
+  step : ∀ i, i < n → r i = a (i + 1) * r (i + 1) + r (i + 2)
+
+/-- Convergent denominators: `q 0 = 1`, `q 1 = a 1`, `q (i+2) = a (i+2) q (i+1) + q i`. -/
+def convQ (a : ℕ → ℕ) : ℕ → ℕ
+  | 0 => 1
+  | 1 => a 1
+  | i + 2 => a (i + 2) * convQ a (i + 1) + convQ a i
+
+/-- Convergent numerators: `p 0 = 0`, `p 1 = 1`, `p (i+2) = a (i+2) p (i+1) + p i`. -/
+def convP (a : ℕ → ℕ) : ℕ → ℕ
+  | 0 => 0
+  | 1 => 1
+  | i + 2 => a (i + 2) * convP a (i + 1) + convP a i
+
+theorem convQ_zero (a : ℕ → ℕ) : convQ a 0 = 1 := by rw [convQ]
+theorem convQ_one (a : ℕ → ℕ) : convQ a 1 = a 1 := by rw [convQ]
+theorem convQ_succ_succ (a : ℕ → ℕ) (i : ℕ) :
+    convQ a (i + 2) = a (i + 2) * convQ a (i + 1) + convQ a i := by rw [convQ]
+theorem convP_zero (a : ℕ → ℕ) : convP a 0 = 0 := by rw [convP]
+theorem convP_one (a : ℕ → ℕ) : convP a 1 = 1 := by rw [convP]
+theorem convP_succ_succ (a : ℕ → ℕ) (i : ℕ) :
+    convP a (i + 2) = a (i + 2) * convP a (i + 1) + convP a i := by rw [convP]
+
+/-- The convergent denominators form a ladder when the quotients are `≥ 1`. -/
+theorem ladder_convQ (a : ℕ → ℕ) (ha : ∀ i, 1 ≤ i → 1 ≤ a i) : Ladder (convQ a) a :=
+  ⟨convQ_zero a, convQ_one a, convQ_succ_succ a, ha⟩
+
+theorem convQ_pos (a : ℕ → ℕ) (ha : ∀ i, 1 ≤ i → 1 ≤ a i) (i : ℕ) : 1 ≤ convQ a i :=
+  ladder_pos (ladder_convQ a ha) i
+
+/-- From index `1` on the denominators strictly increase. -/
+theorem convQ_lt_succ (a : ℕ → ℕ) (ha : ∀ i, 1 ≤ i → 1 ≤ a i) (i : ℕ) :
+    convQ a (i + 1) < convQ a (i + 2) := by
+  rw [convQ_succ_succ]
+  have h1 := convQ_pos a ha i
+  have h2 : 0 < a (i + 2) := ha (i + 2) (by omega)
+  have h3 : convQ a (i + 1) ≤ a (i + 2) * convQ a (i + 1) := Nat.le_mul_of_pos_left _ h2
+  omega
+
+/-- The determinant identity `p (i+1) q i − p i q (i+1) = (−1)^i`. -/
+theorem conv_det (a : ℕ → ℕ) : ∀ i,
+    (convP a (i + 1) : ℤ) * convQ a i - convP a i * convQ a (i + 1) = (-1) ^ i := by
+  intro i
+  induction i with
+  | zero => simp [convQ_zero, convQ_one, convP_zero, convP_one]
+  | succ i ih =>
+    show (convP a (i + 2) : ℤ) * convQ a (i + 1) - convP a (i + 1) * convQ a (i + 2) =
+      (-1) ^ (i + 1)
+    rw [convQ_succ_succ, convP_succ_succ]
+    push_cast
+    linear_combination -ih
+
+/-- `gcd(p i, q i) = 1`. -/
+theorem conv_coprime (a : ℕ → ℕ) (i : ℕ) : Nat.Coprime (convP a i) (convQ a i) := by
+  rw [← Nat.isCoprime_iff_coprime]
+  have h := conv_det a i
+  have h2 : ((-1 : ℤ) ^ i) ^ 2 = 1 := by
+    rcases neg_one_pow_eq_or ℤ i with h1 | h1 <;> rw [h1] <;> norm_num
+  refine ⟨(-1) ^ i * (-(convQ a (i + 1) : ℤ)), (-1) ^ i * (convP a (i + 1) : ℤ), ?_⟩
+  linear_combination (-1 : ℤ) ^ i * h + h2
+
+/-- The approximation identity `q i · r 1 − p i · r 0 = (−1)^i r (i+1)` for `i ≤ n`. -/
+theorem conv_approx {r a : ℕ → ℕ} {n : ℕ} (E : EuclidData r a n) : ∀ i, i ≤ n →
+    (convQ a i : ℤ) * r 1 - convP a i * r 0 = (-1) ^ i * r (i + 1) := by
+  have key : ∀ i, (i ≤ n → (convQ a i : ℤ) * r 1 - convP a i * r 0 = (-1) ^ i * r (i + 1)) ∧
+      (i + 1 ≤ n → (convQ a (i + 1) : ℤ) * r 1 - convP a (i + 1) * r 0 =
+        (-1) ^ (i + 1) * r (i + 2)) := by
+    intro i
+    induction i with
+    | zero =>
+      constructor
+      · intro _
+        simp [convQ_zero, convP_zero]
+      · intro h1
+        have hs : (r 0 : ℤ) = a 1 * r 1 + r 2 := by exact_mod_cast E.step 0 (by omega)
+        rw [convQ_one, convP_one]
+        push_cast
+        linear_combination -hs
+    | succ i ih =>
+      constructor
+      · exact ih.2
+      · intro h2
+        have e1 := ih.1 (by omega)
+        have e2 := ih.2 (by omega)
+        have hs : (r (i + 1) : ℤ) = a (i + 2) * r (i + 2) + r (i + 3) := by
+          exact_mod_cast E.step (i + 1) (by omega)
+        show (convQ a (i + 2) : ℤ) * r 1 - convP a (i + 2) * r 0 = (-1) ^ (i + 2) * r (i + 3)
+        rw [convQ_succ_succ, convP_succ_succ]
+        push_cast
+        linear_combination (a (i + 2) : ℤ) * e2 + e1 + (-1 : ℤ) ^ i * hs
+  intro i hi
+  exact (key i).1 hi
+
+/-- The either-sign form of the approximation identity. -/
+theorem conv_approx_either {r a : ℕ → ℕ} {n : ℕ} (E : EuclidData r a n) {i : ℕ} (hi : i ≤ n) :
+    convQ a i * r 1 = convP a i * r 0 + r (i + 1) ∨
+      convP a i * r 0 = convQ a i * r 1 + r (i + 1) := by
+  have h := conv_approx E i hi
+  rcases neg_one_pow_eq_or ℤ i with h1 | h1
+  · left
+    rw [h1, one_mul] at h
+    have h' : (convQ a i : ℤ) * r 1 = convP a i * r 0 + r (i + 1) := by linarith
+    exact_mod_cast h'
+  · right
+    rw [h1] at h
+    have h' : (convP a i : ℤ) * r 0 = convQ a i * r 1 + r (i + 1) := by linarith
+    exact_mod_cast h'
+
+/-- The Euclidean identity `r 0 = q (i+1) r (i+1) + q i r (i+2)` for `i < n`. -/
+theorem conv_identity {r a : ℕ → ℕ} {n : ℕ} (E : EuclidData r a n) : ∀ i, i < n →
+    r 0 = convQ a (i + 1) * r (i + 1) + convQ a i * r (i + 2) := by
+  intro i
+  induction i with
+  | zero =>
+    intro h0
+    rw [convQ_one, convQ_zero, one_mul]
+    exact E.step 0 h0
+  | succ i ih =>
+    intro h1
+    have e := ih (by omega)
+    have hs : r (i + 1) = a (i + 2) * r (i + 2) + r (i + 3) := E.step (i + 1) h1
+    show r 0 = convQ a (i + 2) * r (i + 2) + convQ a (i + 1) * r (i + 3)
+    rw [convQ_succ_succ, e, hs]
+    ring
+
+/-- Admissibility of the convergent denominators: `q i · r (i+1) < r 0` for `i < n`. -/
+theorem conv_adm {r a : ℕ → ℕ} {n : ℕ} (E : EuclidData r a n) (ha : ∀ i, 1 ≤ i → 1 ≤ a i)
+    (h10 : r 1 < r 0) (hpos : ∀ j, j < n → 0 < r (j + 1)) :
+    ∀ i, i < n → convQ a i * r (i + 1) < r 0 := by
+  intro i hi
+  rcases Nat.eq_zero_or_pos i with hi0 | hi0
+  · subst hi0
+    rw [convQ_zero, one_mul]
+    exact h10
+  · obtain ⟨k, rfl⟩ := Nat.exists_eq_succ_of_ne_zero hi0.ne'
+    have hid : r 0 = convQ a (k + 2) * r (k + 2) + convQ a (k + 1) * r (k + 3) :=
+      conv_identity E (k + 1) hi
+    have hlt := convQ_lt_succ a ha k
+    have hr : 0 < r (k + 2) := hpos (k + 1) hi
+    have hmul : convQ a (k + 1) * r (k + 2) < convQ a (k + 2) * r (k + 2) :=
+      Nat.mul_lt_mul_of_pos_right hlt hr
+    show convQ a (k + 1) * r (k + 2) < r 0
+    omega
+
+end DK
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

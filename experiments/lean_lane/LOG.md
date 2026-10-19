@@ -3,6 +3,21 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 88 — 2026-10-19, 16:34 -03
+
+- Woken by the side lane's approval of the Euclidean route; main frozen at
+  `1c5c19d`. The PR body refresh is retried.
+- **S12-f (part 1) verified — convergents from Euclidean data: `EuclidData`,
+  `convQ`/`convP`, `ladder_convQ`, `conv_det` (determinant `(−1)^i`),
+  `conv_coprime`, `conv_approx` and `conv_approx_either` (`q_i r_1 − p_i r_0 =
+  (−1)^i r_(i+1)`), `conv_identity` (`r_0 = q_(i+1) r_(i+1) + q_i r_(i+2)`),
+  `conv_adm` (`q_i r_(i+1) < r_0`)** in `CycleSpectrum.lean` (sha256
+  `efc57f90…b2c5`, 12,827 lines, 713 theorems: 593 with the three standard
+  axioms, 53 × `[propext, Quot.sound]`, 58 × `[propext]`, 9 none; no `sorry`).
+  First build. Receipts regenerated. Next: part 2, the Euclidean algorithm for
+  `h/m` (remainders `r i`, quotients, termination at `r_n = 1`, `r_(n+1) = 0`,
+  `q_n = m`).
+
 ## Iteration 87 — 2026-10-19, 16:26 -03
 
 - Woken by the monitor (sidekick `3edc878`, the S9-e verdict). Scoping

@@ -1,12 +1,19 @@
-source sha256: 0964cf4f3f984945e05329c0fd70a21bf062e273319bffd07fa3080f02806002
-'LeanLane.Cyc.OddCycle.gcdCD_rotate' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.OddCycle.den_rotate' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.OddCycle.rotate_sum' depends on axioms: [propext, Quot.sound]
-'LeanLane.Cyc.OddCycle.rotate_add_length' depends on axioms: [propext]
-'LeanLane.Cyc.OddCycle.hdist_rotate' depends on axioms: [propext, Quot.sound]
-'LeanLane.Cyc.OddCycle.sum_range_shift_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.OddCycle.mismatch_card_rotate' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeanLane.Cyc.OddCycle.Vh_sum_rotate' depends on axioms: [propext, Classical.choice, Quot.sound]
+source sha256: efc57f90684bd007199c2931004ba5e13c429feb47388ad7f1c741de752bb2c5
+'LeanLane.Cyc.DK.convQ_zero' does not depend on any axioms
+'LeanLane.Cyc.DK.convQ_one' does not depend on any axioms
+'LeanLane.Cyc.DK.convQ_succ_succ' does not depend on any axioms
+'LeanLane.Cyc.DK.convP_zero' does not depend on any axioms
+'LeanLane.Cyc.DK.convP_one' does not depend on any axioms
+'LeanLane.Cyc.DK.convP_succ_succ' does not depend on any axioms
+'LeanLane.Cyc.DK.ladder_convQ' does not depend on any axioms
+'LeanLane.Cyc.DK.convQ_pos' depends on axioms: [propext, Quot.sound]
+'LeanLane.Cyc.DK.convQ_lt_succ' depends on axioms: [propext, Quot.sound]
+'LeanLane.Cyc.DK.conv_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.conv_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.conv_approx' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.conv_approx_either' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.DK.conv_identity' depends on axioms: [propext, Quot.sound]
+'LeanLane.Cyc.DK.conv_adm' depends on axioms: [propext, Quot.sound]
 'LeanLane.Cyc.C_append' depends on axioms: [propext]
 'LeanLane.Cyc.rep_length' depends on axioms: [propext]
 'LeanLane.Cyc.rep_sum' depends on axioms: [propext]
@@ -580,6 +587,14 @@ source sha256: 0964cf4f3f984945e05329c0fd70a21bf062e273319bffd07fa3080f02806002
 'LeanLane.Cyc.OddCycle.dk_denominator_law' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OddCycle.ofWord_Vh' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OddCycle.word_dk_denominator_law' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.gcdCD_rotate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.den_rotate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.rotate_sum' depends on axioms: [propext, Quot.sound]
+'LeanLane.Cyc.OddCycle.rotate_add_length' depends on axioms: [propext]
+'LeanLane.Cyc.OddCycle.hdist_rotate' depends on axioms: [propext, Quot.sound]
+'LeanLane.Cyc.OddCycle.sum_range_shift_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.mismatch_card_rotate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.Cyc.OddCycle.Vh_sum_rotate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OddCycle.word_two_mismatch_law'' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OddCycle.word_three_mismatch_law'' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Cyc.OddCycle.word_dk_denominator_law'' depends on axioms: [propext, Classical.choice, Quot.sound]
