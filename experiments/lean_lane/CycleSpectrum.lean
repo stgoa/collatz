@@ -8289,6 +8289,289 @@ theorem numeric_F (m T τ lL e : ℝ) (hm : 2 ^ 19 ≤ m) (hT0 : 0 ≤ T)
 
 end OddCycle
 
+/-! ### S7-d (part 2): the three-mismatch exclusion assembled (S7; with S6, `ρ ≥ 4` given the gap)
+
+The assembly of S7 for a primitive cycle with `q = 1`, the linear-form gap
+`2^A ≤ 2^172 m^341 (2^A − 3^m)`, `m ≥ 2^19`, `L ≥ 2^20` and a rotation `1 ≤ h < m`. Let `T` be the
+length of a longest agreeing run (runs are shorter than `m`, so it exists). Step 1: `T` bounds every
+run, so the mismatches are spaced by `σ = m − 2(T + 1)` (`hsep_of_runs`), and the witness of the
+longest run gives the run bound in log form; the pigeonhole gives `3T ≥ m − 3`, and the same witness
+against the maximum `n_j` (`witness_gt`, `n_mul_pow_excess_le`) gives the climb inequality.
+`D > 0` gives `m log 3 < A log 2`; the gap with `L_mul_delta_le` gives `3L ≤ 2^172 m^342`, hence
+the `L`-bound with the tangent bound on `log m`; `L ≥ 2^20` gives `log(1 + 1/(3L)) ≤ 1/(3·2^20)`.
+`numeric_WA` then yields conditions W and A, `three_mismatch_structure` the aligned pair with its
+windows, `three_mismatch_witness` the three runs with the witness of the first, and `numeric_F`
+the contradiction (`no_three_mismatch_of_gap`). With `exists_mis`, `mis_card_ne_one` and S6's
+`no_two_mismatch_of_gap`, every rotation then has at least four mismatches
+(`four_le_mis_card_of_gap`). -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- Logarithmic form of a bound `2·3^t·2^x < L (3/2)^k (1 + ε)^k`. -/
+theorem log_of_bound {t x k : ℕ}
+    (hb : 2 * (3 : ℝ) ^ t * 2 ^ x < Γ.n 0 * (3 / 2 : ℝ) ^ k * (1 + Γ.q / (3 * Γ.n 0)) ^ k) :
+    Real.log 2 + t * Real.log 3 + x * Real.log 2 <
+      Real.log (Γ.n 0) + k * (Real.log 3 - Real.log 2 + Real.log (1 + Γ.q / (3 * Γ.n 0))) := by
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have hε := Γ.one_add_eps_pos
+  have h3t : (3 : ℝ) ^ t ≠ 0 := by positivity
+  have h2x : (2 : ℝ) ^ x ≠ 0 := by positivity
+  have h23 : 2 * (3 : ℝ) ^ t ≠ 0 := by positivity
+  have h32 : (3 / 2 : ℝ) ^ k ≠ 0 := by positivity
+  have hεk : ((1 : ℝ) + Γ.q / (3 * Γ.n 0)) ^ k ≠ 0 := (pow_pos hε k).ne'
+  have hn32 : Γ.n 0 * (3 / 2 : ℝ) ^ k ≠ 0 := mul_ne_zero hn0.ne' h32
+  have hl := Real.log_lt_log (by positivity) hb
+  rw [Real.log_mul h23 h2x, Real.log_mul (by norm_num : (2 : ℝ) ≠ 0) h3t, Real.log_pow,
+    Real.log_pow, Real.log_mul hn32 hεk, Real.log_mul hn0.ne' h32, Real.log_pow, Real.log_pow,
+    Real.log_div (by norm_num : (3 : ℝ) ≠ 0) (by norm_num : (2 : ℝ) ≠ 0)] at hl
+  linarith
+
+/-- Logarithmic form of a bound `2·3^t < L (3/2)^k (1 + ε)^k`. -/
+theorem log_of_bound' {t k : ℕ}
+    (hb : 2 * (3 : ℝ) ^ t < Γ.n 0 * (3 / 2 : ℝ) ^ k * (1 + Γ.q / (3 * Γ.n 0)) ^ k) :
+    Real.log 2 + t * Real.log 3 <
+      Real.log (Γ.n 0) + k * (Real.log 3 - Real.log 2 + Real.log (1 + Γ.q / (3 * Γ.n 0))) := by
+  have hb0 : 2 * (3 : ℝ) ^ t * 2 ^ (0 : ℕ) <
+      Γ.n 0 * (3 / 2 : ℝ) ^ k * (1 + Γ.q / (3 * Γ.n 0)) ^ k := by
+    rw [pow_zero, mul_one]
+    exact hb
+  have h := Γ.log_of_bound hb0
+  rw [Nat.cast_zero, zero_mul, add_zero] at h
+  exact h
+
+/-- **S7 assembled (three-mismatch exclusion).** For a primitive cycle with `q = 1`, the
+linear-form gap `2^A ≤ 2^172 m^341 (2^A − 3^m)`, `m ≥ 2^19`, `L ≥ 2^20` and a rotation
+`1 ≤ h < m`, the rotation does not have exactly three mismatches. -/
+theorem no_three_mismatch_of_gap (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hq1 : Γ.q = 1)
+    (hgap : (2 : ℤ) ^ Γ.Apre m ≤ 2 ^ 172 * (m : ℤ) ^ 341 * (2 ^ Γ.Apre m - 3 ^ m))
+    (hm : 2 ^ 19 ≤ m) (hL : (2 : ℤ) ^ 20 ≤ Γ.n 0) {h : ℕ} (hh1 : 1 ≤ h) (hhm : h < m) :
+    (Γ.mis h).card ≠ 3 := by
+  classical
+  intro hs
+  have hmpos := Γ.hm
+  have hh : h % m ≠ 0 := by
+    rw [Nat.mod_eq_of_lt hhm]
+    omega
+  have hapos : ∀ i, 1 ≤ Γ.a i := Γ.a_pos_of_odd (by rw [hq1]; exact odd_one)
+  -- the maximum
+  obtain ⟨j, hjm', hjmax⟩ :=
+    Finset.exists_max_image (Finset.range m) Γ.n ⟨0, Finset.mem_range.mpr hmpos⟩
+  have hjm : j < m := Finset.mem_range.mp hjm'
+  have hj : ∀ i, Γ.n i ≤ Γ.n j := fun i => by
+    rw [← Γ.n_mod i]
+    exact hjmax (i % m) (Finset.mem_range.mpr (Nat.mod_lt _ hmpos))
+  -- a longest agreeing run `T`, realised at `i`
+  have hne := Γ.exists_mis hprim hh
+  have hlt : ∀ i t, (∀ k, k < t → Γ.agree h (i + k)) → t < m := by
+    intro i t hrun
+    by_contra hge
+    have hall : ∀ k, k < m → Γ.agree h (i + k) :=
+      fun k hk => hrun k (lt_of_lt_of_le hk (not_lt.mp hge))
+    exact Γ.z_ne_zero hprim hh i (Γ.z_eq_zero_of_agree_period hall)
+  obtain ⟨P, hP⟩ : ∃ P : ℕ → Prop, ∀ t, P t ↔ ∃ i, i < m ∧ ∀ k, k < t → Γ.agree h (i + k) :=
+    ⟨_, fun _ => Iff.rfl⟩
+  have hP0 : P 0 := (hP 0).mpr ⟨0, hmpos, fun k hk => absurd hk (Nat.not_lt_zero k)⟩
+  have hPT : P (Nat.findGreatest P m) := Nat.findGreatest_spec (Nat.zero_le m) hP0
+  have hTbound : ∀ i' t, (∀ k, k < t → Γ.agree h (i' + k)) → t ≤ Nat.findGreatest P m := by
+    intro i' t hrun'
+    have hrun'' : ∀ k, k < t → Γ.agree h (i' % m + k) := by
+      intro k hk
+      rw [← Γ.agree_mod, Nat.mod_add_mod, Γ.agree_mod]
+      exact hrun' k hk
+    exact Nat.le_findGreatest (hlt i' t hrun').le
+      ((hP t).mpr ⟨i' % m, Nat.mod_lt _ hmpos, hrun''⟩)
+  generalize Nat.findGreatest P m = T at hPT hTbound
+  obtain ⟨i, _, hrun⟩ := (hP T).mp hPT
+  have hzT : Γ.z h (i + T) ≠ 0 := Γ.z_ne_zero hprim hh (i + T)
+  -- Step 1: the spacing bound and `3T ≥ m − 3`
+  have hsep := Γ.hsep_of_runs hTbound hs
+  have hpig := Γ.pigeonhole hne hTbound
+  rw [hs] at hpig
+  -- the real quantities
+  have hn0 : (0 : ℝ) < Γ.n 0 := by exact_mod_cast Γ.npos
+  have hmR : (2 : ℝ) ^ 19 ≤ m := by exact_mod_cast hm
+  have hm0 : (0 : ℝ) < m := by exact_mod_cast hmpos
+  have hqR : (Γ.q : ℝ) = 1 := by
+    rw [hq1]
+    exact Int.cast_one
+  have hLR : (2 : ℝ) ^ 20 ≤ Γ.n 0 := by exact_mod_cast hL
+  have hε := Γ.one_add_eps_pos
+  have hlog32 : 0 ≤ Real.log 3 - Real.log 2 := by
+    have := Real.log_le_log (by norm_num : (0 : ℝ) < 2) (by norm_num : (2 : ℝ) ≤ 3)
+    linarith
+  have he0 : 0 ≤ Real.log (1 + Γ.q / (3 * Γ.n 0)) :=
+    Real.log_nonneg (by linarith [Γ.eps_nonneg])
+  have hκ0 : 0 ≤ Real.log 3 - Real.log 2 + Real.log (1 + Γ.q / (3 * Γ.n 0)) := by linarith
+  have he : Real.log (1 + Γ.q / (3 * Γ.n 0)) ≤ 1 / (3 * 2 ^ 20) := by
+    have h1 := Real.log_le_sub_one_of_pos hε
+    have h2 : (Γ.q : ℝ) / (3 * Γ.n 0) ≤ 1 / (3 * 2 ^ 20) := by
+      rw [hqR]
+      apply one_div_le_one_div_of_le (by positivity)
+      linarith
+    linarith
+  -- the run bound in log form (hypothesis `hT` of the numeric lemmas)
+  have hb := Γ.run_bound_max hapos hj hjm (fun k hk => hrun k hk) hzT
+  have hTlog := Γ.log_of_bound' hb
+  rw [Nat.cast_sub (by omega : 1 ≤ m), Nat.cast_one] at hTlog
+  have hT : (T : ℝ) * Real.log 3 ≤ Real.log (Γ.n 0) - Real.log 2 +
+      ((m : ℝ) - 1) * (Real.log 3 - Real.log 2 + Real.log (1 + Γ.q / (3 * Γ.n 0))) := by
+    linarith
+  -- the longest run against the maximum (hypothesis `hjlow`)
+  have hw := Γ.witness_gt T (fun k hk => hrun k hk) hzT
+  have hwj : 2 * (3 : ℤ) ^ T < Γ.n j := lt_of_lt_of_le hw (max_le (hj _) (hj _))
+  have hwjR : 2 * (3 : ℝ) ^ T < Γ.n j := by exact_mod_cast hwj
+  have hcl := Γ.n_mul_pow_excess_le hapos j
+  have hprod : 2 * (3 : ℝ) ^ T * 2 ^ Γ.excess j <
+      Γ.n 0 * (3 / 2 : ℝ) ^ j * (1 + Γ.q / (3 * Γ.n 0)) ^ j :=
+    lt_of_lt_of_le (mul_lt_mul_of_pos_right hwjR (by positivity)) hcl
+  have hjlow := Γ.log_of_bound hprod
+  -- `3T ≥ m − 3` (hypothesis `hts`)
+  have hts : (m : ℝ) - 3 ≤ 3 * (T : ℝ) := by
+    have h' : (m : ℝ) ≤ ((T : ℝ) + 1) * 3 := by exact_mod_cast hpig
+    linarith
+  -- `D > 0` (hypothesis `hA`)
+  have hA : (m : ℝ) * Real.log 3 < (Γ.Apre m : ℝ) * Real.log 2 := by
+    have hD := Γ.D_pos
+    have hDR : (3 : ℝ) ^ m < 2 ^ Γ.Apre m := by
+      have : (3 : ℤ) ^ m < 2 ^ Γ.Apre m := by linarith
+      exact_mod_cast this
+    have := Real.log_lt_log (by positivity) hDR
+    rwa [Real.log_pow, Real.log_pow] at this
+  -- the `L`-bound (hypothesis `hlL`)
+  have hlL : Real.log (Γ.n 0) ≤
+      172 * Real.log 2 + 342 * (19 * Real.log 2 + ((m : ℝ) / 2 ^ 19 - 1)) - Real.log 3 := by
+    have hA2 : (0 : ℝ) < 2 ^ Γ.Apre m := by positivity
+    have h3m : (0 : ℝ) < 3 ^ m := by positivity
+    have hgapR : (2 : ℝ) ^ Γ.Apre m ≤ 2 ^ 172 * (m : ℝ) ^ 341 * (2 ^ Γ.Apre m - 3 ^ m) := by
+      exact_mod_cast hgap
+    have hδ : ((2 : ℝ) ^ Γ.Apre m - 3 ^ m) / 2 ^ Γ.Apre m ≤
+        (Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3 := by
+      have hx : (0 : ℝ) < 2 ^ Γ.Apre m / 3 ^ m := div_pos hA2 h3m
+      have hlog := Real.one_sub_inv_le_log_of_pos hx
+      rw [Real.log_div hA2.ne' h3m.ne', Real.log_pow, Real.log_pow, inv_div] at hlog
+      have heq : ((2 : ℝ) ^ Γ.Apre m - 3 ^ m) / 2 ^ Γ.Apre m = 1 - 3 ^ m / 2 ^ Γ.Apre m := by
+        rw [sub_div, div_self hA2.ne']
+      rw [heq]
+      exact hlog
+    have hkey : (1 : ℝ) ≤
+        2 ^ 172 * (m : ℝ) ^ 341 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3) := by
+      have h1 : (1 : ℝ) ≤
+          2 ^ 172 * (m : ℝ) ^ 341 * ((2 ^ Γ.Apre m - 3 ^ m) / 2 ^ Γ.Apre m) := by
+        rw [← mul_div_assoc]
+        exact (one_le_div hA2).mpr hgapR
+      exact h1.trans (mul_le_mul_of_nonneg_left hδ (by positivity))
+    have hLδ := Γ.L_mul_delta_le
+    rw [hqR, mul_one] at hLδ
+    have h3n : (0 : ℝ) ≤ 3 * (Γ.n 0 : ℝ) := by linarith
+    have h3L : 3 * (Γ.n 0 : ℝ) ≤ 2 ^ 172 * (m : ℝ) ^ 342 := by
+      calc 3 * (Γ.n 0 : ℝ) = 3 * (Γ.n 0 : ℝ) * 1 := by ring
+        _ ≤ 3 * (Γ.n 0 : ℝ) *
+            (2 ^ 172 * (m : ℝ) ^ 341 * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) :=
+          mul_le_mul_of_nonneg_left hkey h3n
+        _ = 2 ^ 172 * (m : ℝ) ^ 341 *
+            (3 * (Γ.n 0 : ℝ) * ((Γ.Apre m : ℝ) * Real.log 2 - m * Real.log 3)) := by ring
+        _ ≤ 2 ^ 172 * (m : ℝ) ^ 341 * m := mul_le_mul_of_nonneg_left hLδ (by positivity)
+        _ = 2 ^ 172 * (m : ℝ) ^ 342 := by ring
+    have hlogL : Real.log 3 + Real.log (Γ.n 0) ≤ 172 * Real.log 2 + 342 * Real.log m := by
+      have hm342 : (m : ℝ) ^ 342 ≠ 0 := pow_ne_zero _ hm0.ne'
+      have h2172 : (2 : ℝ) ^ 172 ≠ 0 := by positivity
+      have h := Real.log_le_log (by linarith) h3L
+      rw [Real.log_mul (by norm_num : (3 : ℝ) ≠ 0) hn0.ne', Real.log_mul h2172 hm342,
+        Real.log_pow, Real.log_pow] at h
+      push_cast at h
+      linarith
+    have htan : Real.log m ≤ 19 * Real.log 2 + ((m : ℝ) / 2 ^ 19 - 1) := by
+      have h219 : (0 : ℝ) < 2 ^ 19 := by positivity
+      have hx : (0 : ℝ) < (m : ℝ) / 2 ^ 19 := div_pos hm0 h219
+      have h := Real.log_le_sub_one_of_pos hx
+      rw [Real.log_div hm0.ne' h219.ne', Real.log_pow] at h
+      push_cast at h
+      linarith
+    linarith
+  -- conditions W and A
+  have hj0 : (0 : ℝ) ≤ j := Nat.cast_nonneg j
+  have hjR : (j : ℝ) + 1 ≤ m := by
+    have : j + 1 ≤ m := hjm
+    exact_mod_cast this
+  have hT0 : (0 : ℝ) ≤ T := Nat.cast_nonneg T
+  have hXc0 : (0 : ℝ) ≤ Γ.excess j := Nat.cast_nonneg _
+  have hA0 : (0 : ℝ) ≤ Γ.Apre m := Nat.cast_nonneg _
+  obtain ⟨hWr, hAr⟩ := numeric_WA (m : ℝ) j T T (Γ.excess j) (Γ.Apre m) (Real.log (Γ.n 0))
+    (Real.log (1 + Γ.q / (3 * Γ.n 0))) hmR hj0 hjR hT0 hT hT0 hts hXc0 hjlow hA0 hA hlL he
+  have hWnat : 2 * (m - j) + 2 * (T + 1) ≤ m + 1 := by
+    have h' : ((2 * (m - j) + 2 * (T + 1) : ℕ) : ℝ) ≤ ((m + 1 : ℕ) : ℝ) := by
+      push_cast [Nat.cast_sub hjm.le]
+      linarith
+    exact_mod_cast h'
+  have hσ : 2 * (m - j) ≤ m - 2 * (T + 1) + 1 := by omega
+  have hσd : m - j ≤ m - 2 * (T + 1) := by omega
+  have hmA : m ≤ Γ.Apre m := by
+    have := Γ.excess_add_dexcess hapos hjm.le
+    omega
+  have hAnat : 3 * Γ.excess j < Γ.Apre m - m := by
+    have h' : ((3 * Γ.excess j + 1 : ℕ) : ℝ) ≤ ((Γ.Apre m - m : ℕ) : ℝ) := by
+      push_cast [Nat.cast_sub hmA]
+      linarith
+    have h'' : 3 * Γ.excess j + 1 ≤ Γ.Apre m - m := by exact_mod_cast h'
+    omega
+  -- Steps 2–4: the aligned pair and its windows
+  obtain ⟨e_a, e_b, hea, heb, hea1, hea2, heb1, heb2, hdown, hup, _, hhj, halign⟩ :=
+    Γ.three_mismatch_structure hprim hj hjm hh1 hhm hsep hσ hapos hAnat
+  subst halign
+  have hW : ∀ i, j ≤ i → i < m → i ≠ e_a + h → Γ.agree h i := by
+    intro i hi1 hi2 hi3
+    exact Γ.agree_of_window hsep hσd heb heb1 (by omega) (by omega) hi1 (by omega) hi3
+  have hW' : ∀ k, j - h ≤ k → k < m - h → k ≠ e_a → Γ.agree h k := by
+    intro k hk1 hk2 hk3
+    exact Γ.agree_of_window hsep hσd hea hea1 (by omega) (by omega) hk1 (by omega) hk3
+  -- Step 5: the three runs and the witness of the first
+  obtain ⟨τ, τ', τ'', _, i₂, i₃, hsum, _, hr2, hr3, hwitR⟩ :=
+    Γ.three_mismatch_witness hprim hapos hjm hh1 hhm hs hea1 hea2 hdown hup hhj hW hW'
+  have hτ'T : τ' ≤ T := hTbound i₂ τ' hr2
+  have hτ''T : τ'' ≤ T := hTbound i₃ τ'' hr3
+  have hwlog := Γ.log_of_bound' hwitR
+  push_cast at hwlog
+  have hτ'R : (τ' : ℝ) ≤ T := by exact_mod_cast hτ'T
+  have hwit : (τ : ℝ) * Real.log 3 < Real.log (Γ.n 0) - Real.log 2 +
+      ((τ : ℝ) + T + 1) * (Real.log 3 - Real.log 2 + Real.log (1 + Γ.q / (3 * Γ.n 0))) := by
+    have := mul_le_mul_of_nonneg_right hτ'R hκ0
+    linarith
+  have hmτ : m ≤ τ + 2 * T + 3 := by omega
+  have hτR : (m : ℝ) - 3 ≤ (τ : ℝ) + 2 * T := by
+    have : (m : ℝ) ≤ (τ : ℝ) + 2 * T + 3 := by exact_mod_cast hmτ
+    linarith
+  -- Step 6
+  exact numeric_F (m : ℝ) T τ (Real.log (Γ.n 0)) (Real.log (1 + Γ.q / (3 * Γ.n 0))) hmR hT0 hT
+    (Nat.cast_nonneg τ) hτR hwit hlL he
+
+/-- **`ρ ≥ 4` given the gap (S6 and S7 assembled).** Under the hypotheses of
+`no_three_mismatch_of_gap`, with the height exponent attained (`hB`), every rotation `1 ≤ h < m`
+has at least four mismatches. -/
+theorem four_le_mis_card_of_gap (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j)
+    (hq1 : Γ.q = 1)
+    (hgap : (2 : ℤ) ^ Γ.Apre m ≤ 2 ^ 172 * (m : ℤ) ^ 341 * (2 ^ Γ.Apre m - 3 ^ m))
+    (hB : ∃ i, Γ.h i = Γ.B) (hm : 2 ^ 19 ≤ m) (hL : (2 : ℤ) ^ 20 ≤ Γ.n 0) {h : ℕ} (hh1 : 1 ≤ h)
+    (hhm : h < m) : 4 ≤ (Γ.mis h).card := by
+  have hh : h % m ≠ 0 := by
+    rw [Nat.mod_eq_of_lt hhm]
+    omega
+  have h0 : 0 < (Γ.mis h).card := by
+    obtain ⟨p, hp⟩ := Γ.exists_mis hprim hh
+    apply Finset.card_pos.mpr
+    refine ⟨p % m, ?_⟩
+    unfold mis
+    rw [Finset.mem_filter, Finset.mem_range, Γ.agree_mod]
+    exact ⟨Nat.mod_lt _ Γ.hm, hp⟩
+  have h1 := Γ.mis_card_ne_one h
+  have h2 := Γ.no_two_mismatch_of_gap hprim hq1 hgap hB (le_trans (by norm_num) hm) hL hh
+  have h3 := Γ.no_three_mismatch_of_gap hprim hq1 hgap hm hL hh1 hhm
+  omega
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

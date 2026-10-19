@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 73 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 74 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -90,6 +90,7 @@ receipt binds to the file it certifies.
 | S7-c (part 1) | S7 Step 1: the uniform run bound and the spacing bound from exactly three mismatches — the only place `s = 3` enters. **Verified** (iteration 71, second build: a missing real ascription). In `OddCycle`: **`run_bound_max`** (letters `≥ 1`, `j < m` attaining the maximum: every agreeing run with `z ≠ 0` at its end has `2·3^t < L (3/2)^{m−1} (1 + q/(3L))^{m−1}`, so all runs are bounded by one `T`); `third_mismatch`, `eq_third` (with three mismatches, any mismatch other than two given ones is the third); **`arc_le`** (every run `≤ T` and three mismatches: the forward arc from one mismatch to another, `(e₁ + L) % m = e₂` with `0 < L < m`, has `L ≤ 2(T + 1)` — its interior holds at most one mismatch, so it splits into at most two runs); **`hsep_of_runs`** (hence distinct mismatches `e₁ < e₂` have both arcs `≥ m − 2(T + 1)`: exactly the spacing hypothesis `hsep` of part 3b with `σ = m − 2(T + 1)`) | side lane's S7 note Step 1 (`t_max`, `σ_min = m − 2(t_max + 1)`) | **verified** | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 585 theorems printed) |
 | S7-c (part 2) | S7 Step 5 (the third run's witness) and the runs of Step 6. **Verified** (iteration 72, second build: linter output only). In `OddCycle`: `agree_of_ne_three`, `agree_of_pos` (with exactly three mismatches, every position below `2m` whose residues avoid them agrees); **`three_mismatch_witness`** (primitive, letters `≥ 1`, `j < m` attaining the maximum, `1 ≤ h < m`, three mismatches, the aligned pair `e_a`, `e_b = e_a + h` with `e_a ∈ [j − h, m − h)`, `h ≤ j`, the change types, and each window holding only its mismatch ⇒ three agreeing runs `τ, τ′, τ″` with start indices, `τ + τ′ + τ″ = m − 3`, and `2·3^τ < L (3/2)^{τ+τ′+1} (1 + q/(3L))^{τ+τ′+1}`). The third mismatch `e_c` is below `e_a` (order 1: the witness is `n_{e_c+h}`, `e_c + h < e_b`, no wrap, from `δ > 0` by sign persistence after the `−→+` change at `e_b`) or strictly between `e_a` and `e_b` (order 2: the witness is `n_{e_c}`, from `δ < 0` after the `+→−` change at `e_a`); in both the witness index is at most `τ + τ′ + 1`. This is S7's `τ(1 − ε) < ℓ + (τ° + 1)κ − 1` in product form, with condition P dropped as the independent review suggested | side lane's S7 note Step 5 and the run sums of Step 6 | **verified** | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 588 theorems printed) |
 | S7-d (part 1) | The numeric conditions of S7 at `m ≥ 2^19`, over `ℝ` with natural logarithms. **Verified** (iteration 73, third build: `norm_num`'s exponent threshold and the real-power evaluation). In `OddCycle`: `log_three_bounds` (`1054 log 2 < 665 log 3` and `306 log 3 < 485 log 2`, from `2^1054 < 3^665` and `3^306 < 2^485` evaluated in `ℕ`; the side lane's suggested bounds, gaps `9.5·10⁻⁸` and `4.8·10⁻⁶`); **`numeric_WA`** (from the uniform run bound `T log 3 ≤ log(L/2) + (m−1)κ`, `κ = log 3 − log 2 + e`, the longest run `3 t* ≥ m − 3`, the witness-versus-ceiling inequality at the maximum `log 2 + t* log 3 + X_c log 2 < log L + jκ`, `D > 0` as `m log 3 < A log 2`, the `L`-bound `log L ≤ 172 log 2 + 342(19 log 2 + m/2^19 − 1) − log 3` and `e ≤ 1/(3·2^20)`: condition W, `2(m − j) + 2(T+1) ≤ m + 1`, and condition A, `3 X_c + 1 ≤ A − m`); **`numeric_F`** (from the same run bound, `m − 3 ≤ τ + 2T` and the witness inequality `τ log 3 < log(L/2) + (τ + T + 1)κ`: `False`). Both are `linarith` after bounding the seven products with the numeric constants; the margins at `2^19` match the side lane's (W ≈ +4,500 bits, F ≈ +6,550 bits) | side lane's S7 note §3 (thresholds) and its `m = 2^19` margins (messages 13:37–13:42) | **verified** | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 591 theorems printed) |
+| S7-d (part 2) | **The assembly of S7.** **`no_three_mismatch_of_gap`**: for a primitive cycle with `q = 1`, the linear-form gap `2^A ≤ 2^172 m^341 (2^A − 3^m)`, `m ≥ 2^19`, `L ≥ 2^20` and a rotation `1 ≤ h < m`, the rotation does not have exactly three mismatches. **`four_le_mis_card_of_gap`**: with the attained height exponent (`hB`, as in S6), every such rotation has at least four mismatches — `ρ ≥ 4` given the gap, from `exists_mis` (≠ 0), `mis_card_ne_one` (≠ 1), S6's `no_two_mismatch_of_gap` (≠ 2) and S7 (≠ 3). **Verified** (iteration 74, second build: one real literal defaulting to `ℤ`). Helpers `log_of_bound`, `log_of_bound'` (the log form of `2·3^t·2^x < L (3/2)^k (1 + ε)^k`). Proof: `T` := the length of a longest agreeing run (`Nat.findGreatest`, as in `mismatch_height`), realised at `i`; `hsep_of_runs` gives the spacing `σ = m − 2(T + 1)`; `pigeonhole` gives `3T ≥ m − 3`; `run_bound_max` at the longest run gives the run bound `hT` in log form; `witness_gt` at it against the maximum `n_j` (`Finset.exists_max_image`) with `n_mul_pow_excess_le` gives the climb inequality; `D_pos` gives `m log 3 < A log 2`; the gap with `L_mul_delta_le` gives `3L ≤ 2^172 m^342`, hence the `L`-bound with the tangent bound `log m ≤ 19 log 2 + m/2^19 − 1`; `L ≥ 2^20` gives `log(1 + 1/(3L)) ≤ 1/(3·2^20)`; `numeric_WA` yields W (`2(m − j) ≤ σ + 1`) and A (`3 X_c < A − m`); `three_mismatch_structure` and `agree_of_window` give the aligned pair with its windows; `three_mismatch_witness` gives `τ + τ′ + τ″ = m − 3` with `τ′, τ″ ≤ T`; `numeric_F` closes. | side lane's S7 note (Steps 1–6; thresholds §3) and S6's `C011_VIA_S5.md` for the `ρ ≥ 4` corollary | **verified** | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 595 theorems printed) |
 | C011-a | Main's C011 `ROTATION_DEFECTS.md` §§2–3, elementary core. **Verified** (iteration 32), in the two-defect normal form `w = a :: (u₀ ++ (a+k) :: v₀)`, `w' = (a+k) :: (u₀ ++ a :: v₀)` a rotation of `w`, `k ≥ 1`: `C_append_singleton` (the intercept ignores the last letter), **`two_arc_identity`** ((1): `C_{w'} − C_w = (2^k − 1) 2^a 3^{|v₀|} C (u₀ ++ [a+k])`), `rotate_cut` (the cut at the second mismatch is the rotation by `|u₀| + 1`), `isCoprime_three_D`, `dvd_C_rotate_of_dvd` (a common divisor of `C_w, D_w` coprime to `2` divides every rotated intercept), `gcd_isCoprime_two/three`, **`two_arc_dvd`** ((2): `g ∣ (2^k − 1) gcd(C_u, C_v)`, `u = u₀ ++ [a+k]`, `v = v₀ ++ [a]`), **`intercept_bound_last`** ((4) in cleared form: `2^{|z₀|} C (z₀ ++ [b]) ≤ 2^{Σz₀}(3^{|z₀|+1} − 2^{|z₀|+1})`), `two_defect_arith`, **`two_defect_bound_sharp`** ((5): `g² 2^{|u₀|+|v₀|} < (2^k−1)² 2^{Σu₀+Σv₀} 3^m`), **`two_defect_bound`** ((7): `g² 2^{2m} < 2^{2A} 3^m`, needs `a ≥ 1`) and `two_defect_q_bound` (`D² 2^{2m} < q² 2^{2A} 3^m` for `D = g q`, `q > 0`). Not formalised: the reduction of an arbitrary two-defect rotation to the normal form, the real-analytic (6)–(8), Matveev's constant and the Hercher/Barina period input | `experiments/cycle_spectrum/C011/ROTATION_DEFECTS.md` §§2–3 | **verified** | `[propext, Classical.choice, Quot.sound]` (two helpers subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 276 theorems printed) |
 | C013-a | Main's C013 `OVERLAP_CONTROLS.md` §1 (1) and `OVERLAP_THEORY.md` §1. **Verified** (iteration 34): `interleave U a` (the word `(U, a_0, …, U, a_{r−1})`), `Ph U a` (the homogenised `u^{r−1} P(α/u)`, by the recursion `P_h(x :: a) = α^{|a|} + u 2^x P_h(a)`), `interleave_length` (`m = r(n+1)`), `interleave_sum` (`A = T + r A_U`), **`C_interleave`** (`C_w = (3 C_U + 2^{A_U}) · P_h`, (1) first half; axioms `[propext]` only), **`D_interleave`** (`D_w = 2^{T + r A_U} − 3^{r(n+1)}`, i.e. `−u^r Q(α/u)`; `[propext]`), `Ph_eq_sum` (the closed form `Σ_{j<r} 3^{(n+1)(r−1−j)} 2^{j A_U + P_j}`), `E_bound` ((8): `2^n E ≤ u(3^{n+1} − 2^{n+1})`), `run_factor` (OVERLAP_THEORY (3): `2^E z_end = 3^t z_start`, `z_end` even ⇒ `z_start = 2^{E+1} k`, `z_end = 2·3^t k`), and on `OddCycle`: `diff_step` ((2): `2^{a_i} z_{i+1} = 3 z_i` at agreeing valuations) and `run_diff` (`2^{Σ a} z_{i+t} = 3^t z_i` along an agreeing run, via `run_pow_mul`). Not Lean targets: the polynomial gcd/resultant steps (2)–(3), the Fourier–uncertainty inequality (5), the bounds (6)–(14), Matveev | `experiments/cycle_spectrum/C013/OVERLAP_CONTROLS.md` §1, `OVERLAP_THEORY.md` §1 | **verified** | `[propext, Classical.choice, Quot.sound]` (the identities need only `[propext]`) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 290 theorems printed) |
 | C008-a | Main's C008 (`INDEPENDENT_MATCHING.md` §1, `MATCHING_ARITHMETIC.md`): the exact prefix identity `2^{A_i} n_i = 3^i n_0 + q C_i`, the cycle identity `(2^A − 3^m) n_0 = q C_m` and `q ∣ 2^A − 3^m` for reduced cycles; the cyclicity of `⟨2, 3⟩`: in any commutative group `x^A = y^m` with `gcd(A, m) = 1` gives `t` with `t^m = x`, `t^A = y`, and the `ZMod N` instance for the units `2`, `3` when `N ∣ 2^A − 3^m`, `N` coprime to 6; the mechanical prefix sums `Σ_{j<i} c_j = ⌊i(mq' + h)/m⌋`; the sorted-rank residue law (R1) in integer form `2^{P_i} z_[(ih) mod m] ≡ 3^i z_[0] (mod q)` | `experiments/cycle_spectrum/C008/INDEPENDENT_MATCHING.md` §1 | **verified** (iteration 24): `CycleSpectrum.lean`, `exists_common_root`, `zmod_common_root`, `NarrowCycle.sum_a_range`, `OddCycle.{Apre, Cpre, prefix_identity, cycle_identity, q_dvd_D, toNarrow_primitive, toNarrow_rank_zero, sorted_residue_law}` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 193 theorems printed) |
@@ -1780,7 +1781,50 @@ receipt binds to the file it certifies.
   `n_mul_pow_excess_le` at `j` with `witness_gt`, `D_pos`, `L_mul_delta_le`
   with `delta_ge_gap` and the gap, and `Real.log_le_sub_one_of_pos`.
 
+- S7-d (part 2): S7's headline "for a primitive tall cycle with the gap, no
+  rotation has exactly three mismatches once m ≥ m₀ = 452,695; with C011 (S6),
+  ρ ≥ 4". The formal statement is the conditional theorem exactly: hypotheses
+  `hprim` (distinct states), `hq1` (`q = 1`), `hgap` (the linear-form gap `2^A
+  ≤ 2^172 m^341 (2^A − 3^m)`, an INPUT mirroring an effective Baker-type
+  bound, not proved here), `m ≥ 2^19 = 524,288` (above `m₀`; the power of two
+  serves the tangent bound), `L ≥ 2^20` (weaker than the note's `L ≥ 2^71`;
+  only `e ≤ 1/(3·2^20)` is used), and the rotation range `1 ≤ h < m` (a
+  rotation `h ≥ m` would first be reduced modulo `m`; that reduction of `mis`
+  is not formalised and not needed). The `ρ ≥ 4` corollary adds S6's
+  attained-height hypothesis `hB : ∃ i, h i = B`. Nothing about the actual
+  Collatz map is asserted beyond these cycle axioms; no claim about cycles is
+  made without the gap. Condition P of the note is unused. The longest run
+  doubles as the uniform run bound `T` and as `t*`, so no floor of a real
+  bound is needed; `T ≤ 197,705` at `m = 2^19` is not computed formally — only
+  the inequalities are.
+
 ## Insights sent to the feed
+
+- Iteration 74 (sidekick `51b59e1`…`f3d907e`; main frozen at `1c5c19d`): the
+  side lane found a BUG in its S10 continuous model (the `kh`-partner of the
+  run ending at `X − kh` could wrap to the minimum instead of the maximum) and
+  RETRACTED the preliminary numbers recorded at iteration 73 (the "0 feasible"
+  counts and the margins `−0.0219m`, `−0.0089m` for `v₂ ≠ v₄`); its
+  fixed-model finding (`S10/MULTI_ROTATION.md`, scoped, no exclusion claimed):
+  `v₂ = v₄` (the S8 family) is `h`-feasible at 179,700 grid points and every
+  one fails `2h` by ≥ 0.0219m (random search −0.0097m) — excluded in the
+  model, and the discrete S8 words fail `2h` by ≈ 2·10⁵ bits; `v₂ ≠ v₄`
+  survives `h, …, 8h` in the model with margins shrinking to +0.0002m (open;
+  the model is generous: full slope, no letter-≥3 or short-arc cost); generic
+  long-arc configurations survive `h, …, 4h` (+0.013m) and are consistent with
+  tallness only for `|h|_m < d`. Sent before the note: my CORRECTION (the
+  single-drop pattern is the first case of the `s = 4` dichotomy — one `+→−`,
+  one `−→+`, two non-changes — not the second, as I had written) and the
+  observation that `window_conditions` is independent of `s`: with the spacing
+  bound `σ ≥ 2d − 1` over all mismatch pairs, `d ≤ |h|_m ≤ j`, so the
+  small-rotation branch must have two mismatches within arc distance ≤ 2d − 2
+  (the two located changes lie in `W ∪ (W − h)`), while for `s = 4` the
+  spacing bound is a model assumption (the arc bound `3(T + 1)` is vacuous).
+  Both adopted in the note (§5, §6). Also sent: the Farkas-certificate,
+  finite-`m₀` and dichotomy points of iteration 73 (adopted as §6 (a)–(c)).
+  The side lane asks for the cyclic interleaving of the changes in the
+  two-down-two-up case as the dichotomy's extra output. Sent after the build:
+  the S7-d part 2 report.
 
 - Iteration 73 (sidekick `f5efd81`…`16ed9b5`; main frozen at `1c5c19d`): the
   side lane verified S7-c part 2 (receipts match sha `01de2bfa…e88f`),
@@ -1798,7 +1842,8 @@ receipt binds to the file it certifies.
   12,012 grid points; `h + 2h` infeasible for the S8 family; `h + 2h + 3h`
   infeasible for all single-drop aligned four-mismatch patterns on the grid;
   gaps named (short arcs, Steps 3–4 at `s = 4`, `ℓ` terms and `m₀`). Sent
-  after the build: the S7-d part 1 report.
+  after the build: the S7-d part 1 report. [Superseded at iteration 74: the S10 preliminary counts above came from a
+  model bug, reported and retracted by the side lane itself at 14:00–14:09.]
 
 - Iteration 72 (sidekick `f07182b`…`f5efd81`; main frozen at `1c5c19d`): the
   side lane verified S7-c part 1 (receipts match sha `fa53df45…ecce`), relayed
