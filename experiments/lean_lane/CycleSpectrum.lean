@@ -7743,6 +7743,124 @@ theorem alignment (hapos : ∀ i, 1 ≤ Γ.a i) {j h e_a e_b : ℕ} (hjm : j < m
 
 end OddCycle
 
+/-! ### S7-b (part 3b): the window structure from the spacing bound (S7 Step 3), and Steps 3–4 assembled
+
+The spacing bound is the hypothesis `hsep`: distinct mismatches `e₁ < e₂` have both arcs at least
+`σ` (`σ ≤ e₂ − e₁` and `σ ≤ m + e₁ − e₂`). With `σ ≥ 2d − 1`, `d = m − j`, and the two located
+mismatches (a `+→−` change in `[j − h, m − h)`, a `−→+` change in `[j, m)`), both window conditions
+`d ≤ h ≤ j` hold (`window_conditions`: otherwise the two windows overlap in an arc of at most `2d − 1`
+positions containing both). With `σ ≥ d`, a window of length `d` holds at most one mismatch
+(`unique_in_window`), so every other position of the window agrees (`agree_of_window`). Assembled
+with S7-b part 2 (the located changes) and part 3a (alignment): for a primitive cycle, an index `j`
+attaining the maximum, a rotation `1 ≤ h < m`, the spacing bound and condition A, there are
+mismatches `e_a ∈ [j − h, m − h)` (a `+→−` change) and `e_b ∈ [j, m)` (a `−→+` change) with
+`d ≤ h ≤ j` and `e_b = e_a + h` (`three_mismatch_structure`). The spacing bound itself comes from
+S7 Step 1 (`t_max`) and is supplied in S7-c/S7-d. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- Step 3: both window conditions `d ≤ h ≤ j` from the spacing bound `σ ≥ 2d − 1`. -/
+theorem window_conditions {j h σ e_a' e_b : ℕ} (hjm : j < m) (hhm : h < m)
+    (hsep : ∀ e₁ e₂, e₁ ∈ Γ.mis h → e₂ ∈ Γ.mis h → e₁ < e₂ → σ ≤ e₂ - e₁ ∧ σ ≤ m + e₁ - e₂)
+    (hσ : 2 * (m - j) ≤ σ + 1)
+    (hea1 : j + (m - h) ≤ e_a') (hea2 : e_a' < j + (m - h) + (m - j)) (hea : e_a' % m ∈ Γ.mis h)
+    (heb1 : j ≤ e_b) (heb2 : e_b < m) (heb : e_b ∈ Γ.mis h) (hne : e_a' % m ≠ e_b) :
+    m - j ≤ h ∧ h ≤ j := by
+  have hm := Γ.hm
+  have hmod := Nat.mod_add_div e_a' m
+  have hlt := Nat.mod_lt e_a' hm
+  have hq : e_a' / m ≤ 1 := by
+    have h2 : e_a' / m < 2 := (Nat.div_lt_iff_lt_mul hm).mpr (by omega)
+    omega
+  generalize he : e_a' % m = e_a at hea hne hmod hlt
+  have hpair : (e_a < e_b → σ ≤ e_b - e_a ∧ σ ≤ m + e_a - e_b) ∧
+      (e_b < e_a → σ ≤ e_a - e_b ∧ σ ≤ m + e_b - e_a) :=
+    ⟨fun hlt' => hsep e_a e_b hea heb hlt', fun hlt' => hsep e_b e_a heb hea hlt'⟩
+  rcases Nat.le_one_iff_eq_zero_or_eq_one.mp hq with h0 | h1
+  · rw [h0, Nat.mul_zero, Nat.add_zero] at hmod
+    rcases Nat.lt_or_gt_of_ne hne with hlt' | hlt'
+    · have := hpair.1 hlt'
+      omega
+    · have := hpair.2 hlt'
+      omega
+  · rw [h1, Nat.mul_one] at hmod
+    rcases Nat.lt_or_gt_of_ne hne with hlt' | hlt'
+    · have := hpair.1 hlt'
+      omega
+    · have := hpair.2 hlt'
+      omega
+
+/-- With spacing `σ ≥ d`, a window of length `d` contains at most one mismatch. -/
+theorem unique_in_window {h σ lo d : ℕ}
+    (hsep : ∀ e₁ e₂, e₁ ∈ Γ.mis h → e₂ ∈ Γ.mis h → e₁ < e₂ → σ ≤ e₂ - e₁ ∧ σ ≤ m + e₁ - e₂)
+    (hσ : d ≤ σ) {e₁ e₂ : ℕ} (h₁ : e₁ ∈ Γ.mis h) (h₂ : e₂ ∈ Γ.mis h)
+    (hlo₁ : lo ≤ e₁) (hhi₁ : e₁ < lo + d) (hlo₂ : lo ≤ e₂) (hhi₂ : e₂ < lo + d) : e₁ = e₂ := by
+  by_contra hne
+  rcases Nat.lt_or_gt_of_ne hne with hlt | hlt
+  · have := hsep e₁ e₂ h₁ h₂ hlt
+    omega
+  · have := hsep e₂ e₁ h₂ h₁ hlt
+    omega
+
+/-- Every position of a window other than its unique mismatch agrees. -/
+theorem agree_of_window {h σ lo d e : ℕ}
+    (hsep : ∀ e₁ e₂, e₁ ∈ Γ.mis h → e₂ ∈ Γ.mis h → e₁ < e₂ → σ ≤ e₂ - e₁ ∧ σ ≤ m + e₁ - e₂)
+    (hσ : d ≤ σ) (he : e ∈ Γ.mis h) (hlo : lo ≤ e) (hhi : e < lo + d) (hd : lo + d ≤ m)
+    {i : ℕ} (hlo' : lo ≤ i) (hhi' : i < lo + d) (hne : i ≠ e) : Γ.agree h i := by
+  by_contra hna
+  have hi : i ∈ Γ.mis h := by
+    unfold mis
+    rw [Finset.mem_filter, Finset.mem_range]
+    exact ⟨by omega, hna⟩
+  exact hne (Γ.unique_in_window hsep hσ hi he hlo' hhi' hlo hhi)
+
+/-- **S7 Steps 2–4 assembled.** For a primitive cycle, an index `j < m` attaining the maximum, a
+rotation `1 ≤ h < m`, the spacing bound `σ ≥ 2d − 1` between distinct mismatches, positive letters
+and condition A: there are a `+→−` mismatch `e_a ∈ [j − h, m − h)` and a `−→+` mismatch
+`e_b ∈ [j, m)` with `d ≤ h ≤ j` and `e_b = e_a + h`. -/
+theorem three_mismatch_structure (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {j : ℕ}
+    (hj : ∀ i, Γ.n i ≤ Γ.n j) (hjm : j < m) {h : ℕ} (hh1 : 1 ≤ h) (hhm : h < m) {σ : ℕ}
+    (hsep : ∀ e₁ e₂, e₁ ∈ Γ.mis h → e₂ ∈ Γ.mis h → e₁ < e₂ → σ ≤ e₂ - e₁ ∧ σ ≤ m + e₁ - e₂)
+    (hσ : 2 * (m - j) ≤ σ + 1) (hapos : ∀ i, 1 ≤ Γ.a i) (hA : 3 * Γ.excess j < Γ.Apre m - m) :
+    ∃ e_a e_b, e_a ∈ Γ.mis h ∧ e_b ∈ Γ.mis h ∧ j - h ≤ e_a ∧ e_a < m - h ∧ j ≤ e_b ∧ e_b < m ∧
+      Γ.down h e_a ∧ Γ.up h e_b ∧ m - j ≤ h ∧ h ≤ j ∧ e_b = e_a + h := by
+  have hm := Γ.hm
+  have hh : h % m ≠ 0 := by
+    rw [Nat.mod_eq_of_lt hhm]
+    omega
+  obtain ⟨e_a', hea1, hea2, hdown'⟩ := Γ.exists_down_window hprim hj hjm hh
+  obtain ⟨e_b, heb1, heb2, hup⟩ := Γ.exists_up_window hprim hj hjm hh
+  rw [Nat.mod_eq_of_lt hhm] at hea1 hea2
+  have hdown : Γ.down h (e_a' % m) := (Γ.down_mod h e_a').mpr hdown'
+  have hea : e_a' % m ∈ Γ.mis h := Γ.down_mem_mis (Nat.mod_lt _ hm) hdown
+  have heb2' : e_b < m := by omega
+  have heb : e_b ∈ Γ.mis h := Γ.up_mem_mis heb2' hup
+  have hne : e_a' % m ≠ e_b := by
+    intro heq
+    rw [heq] at hdown
+    exact hup.1 hdown.1
+  obtain ⟨hdh, hhj⟩ := Γ.window_conditions hjm hhm hsep hσ hea1 hea2 hea heb1 heb2' heb hne
+  -- under `h ≤ j`, `e_a' ≥ m`, so its residue is `e_a' − m ∈ [j − h, m − h)`
+  have hea'm : m ≤ e_a' := by omega
+  have hres : e_a' % m = e_a' - m := by
+    have h2 : e_a' - m < m := by omega
+    rw [Nat.mod_eq_sub_mod hea'm, Nat.mod_eq_of_lt h2]
+  rw [hres] at hdown hea hne
+  have hdpos : 1 ≤ m - j := by omega
+  have hσd : m - j ≤ σ := by omega
+  have hW : ∀ i, j ≤ i → i < m → i ≠ e_b → Γ.agree h i := by
+    intro i hi1 hi2 hi3
+    exact Γ.agree_of_window hsep hσd heb heb1 (by omega) (by omega) hi1 (by omega) hi3
+  have hW' : ∀ k, j - h ≤ k → k < m - h → k ≠ e_a' - m → Γ.agree h k := by
+    intro k hk1 hk2 hk3
+    exact Γ.agree_of_window hsep hσd hea (by omega) (by omega) (by omega) hk1 (by omega) hk3
+  have halign := Γ.alignment hapos hjm hdh hhj ⟨heb1, heb2'⟩ hW hW' hA
+  exact ⟨e_a' - m, e_b, hea, heb, by omega, by omega, heb1, heb2', hdown, hup, hdh, hhj, halign⟩
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

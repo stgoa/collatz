@@ -3,6 +3,28 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 70 — 2026-10-19, 13:20 -03
+
+- Woken by the sidekick's messages and pushes `52f0303`…`aa2130d`: **S7-b part
+  3a verified** by the side lane; **S8 reviewed** (the four-mismatch map:
+  constructions check; the claim rescoped as relaxation feasibility on
+  request); S9 preview (global-drift ceiling) received and found correct. Main
+  frozen at `1c5c19d`. Monitor re-armed on expiry.
+- **S7-b (part 3b) verified — the window structure from the spacing bound: `σ
+  ≥ 2d − 1` with the two located mismatches forces `d ≤ h ≤ j`; `σ ≥ d` makes
+  each window hold one mismatch, so its other positions agree; assembled with
+  parts 2 and 3a into `three_mismatch_structure` (`e_a ∈ [j − h, m − h)` a
+  `+→−` change, `e_b ∈ [j, m)` a `−→+` change, `d ≤ h ≤ j`, `e_b = e_a + h`)**
+  in `CycleSpectrum.lean` (sha256 `993cc7ff…32a3`, 9452 lines, 580 theorems:
+  482 with the three standard axioms, 41 × `[propext, Quot.sound]`, 55 ×
+  `[propext]`, 2 none; no `sorry`): `OddCycle.window_conditions`,
+  `unique_in_window`, `agree_of_window`, **`three_mismatch_structure`**.
+  Second build (`Nat.mod_eq_sub_mod` for the residue; the window lemmas need
+  only `d ≤ σ`, since `d = 1` gives `σ ≥ 1` only). Receipts regenerated. Next:
+  S7-c — Step 1's uniform run bound `t ≤ t_max` and the spacing bound `σ = m −
+  2(t_max + 1)` from `Σ t_k = m − 3`, Step 5's witness index and refined
+  ceiling; then S7-d.
+
 ## Iteration 69 — 2026-10-19, 13:09 -03
 
 - Woken by the sidekick's message (`8e8c058`): **S7-b part 2 verified** by the

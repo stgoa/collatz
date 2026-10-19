@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 69 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 70 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -86,6 +86,7 @@ receipt binds to the file it certifies.
 | S7-b (part 1) | Three ingredients of the side lane's S7 (`sidekick/research/S7/THREE_MISMATCHES.md`, `d978b57`, revised `e4d97ad`). **Verified** (iteration 67, second build: an index rewrite and `rw … at *`). In `OddCycle`: `sum_a_shift` (`Σ_{i<m} a_{i+k} = Σ_{i<m} a_i`); **`mis_card_ne_one`** (`s ≠ 1`: exactly one mismatch contradicts the equal totals — S7 §1's "at least two" together with S5-a's `exists_mis`); **`witness_gt`** ((F1), the witness: at the end `e = i + t` of an agreeing run with `z_e ≠ 0`, `max(n_e, n_{e+h}) > 2·3^t`); `excess k = Σ_{i<k}(a_i − 1)`, `excess_succ`; **`n_mul_pow_excess_le`** ((F3) tracked: `n_k 2^{X_k} ≤ L (3/2)^k (1 + q/(3L))^k`); **`h_add_excess_le`** (`(h_k + X_k) log 2 ≤ k (log 3 − log 2) + k log(1 + q/(3L))`, the prose's `log₂(n_k/L) ≤ kκ − X_k`, which S7 Step 1 uses at `k = j` for `X_c`) | side lane's S7 note §§1–2 ((F1) witness, (F3) tracked form) and §1's `s ≥ 2` | **verified** | `[propext, Classical.choice, Quot.sound]` (`excess_succ`: `[propext]`) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 556 theorems printed) |
 | S7-b (part 2) | S7 Step 2, the counting of sign changes, by the side lane's telescoping suggestion (message 12:53). **Verified** (iteration 68, third build: two Finset lemma names). In `OddCycle`: `z_per`, `sgn` (`σ_i = [z_i > 0]`), `sgn_per`; `down h i` (`+→−` change: `0 < z_i ∧ ¬ 0 < z_{i+1}`), `up h i` (`−→+`), `down_per`, `up_per`, `down_mod`, `up_mod`; `sgn_succ_sub` (`σ_{i+1} − σ_i = [up i] − [down i]`), `sum_sgn_tele` (`Σ_{i<m}(σ_{i+1} − σ_i) = 0`); **`card_down_eq_card_up`** (as many `+→−` as `−→+` changes in one period); **`down_mem_mis`**, **`up_mem_mis`** (a change happens only at a mismatch, by `z_pos_step`); **`exists_down`**, **`exists_up`** (discrete intermediate value on an interval); **`exists_down_window`** (a `+→−` change in `[j − h, m − h)`, written `[j + (m − h % m), j + (m − h % m) + (m − j))`), **`exists_up_window`** (a `−→+` change in `[j, m)`); **`three_mismatch_changes`** (`(mis h).card = 3` ⇒ exactly one `+→−` and one `−→+` change in the period, and some mismatch has no change). Hypotheses: primitivity, `j < m` attaining the maximum, `h % m ≠ 0` | side lane's S7 note Step 2 and (F2); the telescoping route of its 12:53 message | **verified** | `[propext, Classical.choice, Quot.sound]` (seven helpers on `[propext]`: `z_per`, `sgn_per`, `down_per`, `up_per`, `sgn_succ_sub`, `down_mod`, `up_mod`) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 572 theorems printed) |
 | S7-b (part 3a) | S7 Step 4, the alignment lemma by excess transfer, under the window structure of Step 3 taken as hypotheses. **Verified** (iteration 69, second build: an unused hypothesis warning). In `OddCycle`: `excess_eq_sum`; `dexcess j = Σ_{i ∈ [j, m)} (a_i − 1)` (the descent excess `X_d`); **`excess_add_dexcess`** (`X_c + X_d + m = A`, letters `≥ 1`); **`dexcess_le_two_excess`** (with `d ≤ h ≤ j`, every `i ∈ [j, m) ∖ {e_b}` agreeing, every `k ∈ [j − h, m − h) ∖ {e_a}` agreeing, and `e_b ≠ e_a + h`: `X_d ≤ 2 X_c` — the shift `i ↦ i + h − m` injects `W ∖ {e_b}` into the climb, and `a_{e_b} = a_{e_b − h}` is a climb letter); **`alignment`** (the same window hypotheses and condition A, `3 X_c < A − m` ⇒ `e_b = e_a + h`). Step 3 (the window structure from the spacing bound) is part 3b | side lane's S7 note Step 4 | **verified** | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 576 theorems printed) |
+| S7-b (part 3b) | S7 Step 3, the window structure from the spacing bound, and Steps 2–4 assembled. **Verified** (iteration 70, second build: a looping residue rewrite, and the window lemmas relaxed to `d ≤ σ`). In `OddCycle`, with the spacing bound `hsep` (distinct mismatches `e₁ < e₂` have both arcs `≥ σ`: `σ ≤ e₂ − e₁ ∧ σ ≤ m + e₁ − e₂`): **`window_conditions`** (`σ ≥ 2d − 1`, a `+→−` mismatch in `[j − h, m − h)` and a `−→+` mismatch in `[j, m)` ⇒ `d ≤ h ≤ j`: otherwise the windows overlap in an arc of at most `2d − 1` positions containing both); `unique_in_window` (`σ ≥ d` ⇒ a window of length `d` holds at most one mismatch); `agree_of_window` (every other position of the window agrees); **`three_mismatch_structure`** (primitive cycle, `j < m` attaining the maximum, `1 ≤ h < m`, `hsep` with `σ ≥ 2d − 1`, letters `≥ 1`, condition A ⇒ `∃ e_a ∈ [j − h, m − h)` a `+→−` mismatch and `e_b ∈ [j, m)` a `−→+` mismatch with `d ≤ h ≤ j` and `e_b = e_a + h`). No card-3 hypothesis is needed: `s = 3` enters only through the numeric derivation of `hsep` (S7 Step 1) | side lane's S7 note Step 3 and the assembly of Steps 2–4 | **verified** | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 580 theorems printed) |
 | C011-a | Main's C011 `ROTATION_DEFECTS.md` §§2–3, elementary core. **Verified** (iteration 32), in the two-defect normal form `w = a :: (u₀ ++ (a+k) :: v₀)`, `w' = (a+k) :: (u₀ ++ a :: v₀)` a rotation of `w`, `k ≥ 1`: `C_append_singleton` (the intercept ignores the last letter), **`two_arc_identity`** ((1): `C_{w'} − C_w = (2^k − 1) 2^a 3^{|v₀|} C (u₀ ++ [a+k])`), `rotate_cut` (the cut at the second mismatch is the rotation by `|u₀| + 1`), `isCoprime_three_D`, `dvd_C_rotate_of_dvd` (a common divisor of `C_w, D_w` coprime to `2` divides every rotated intercept), `gcd_isCoprime_two/three`, **`two_arc_dvd`** ((2): `g ∣ (2^k − 1) gcd(C_u, C_v)`, `u = u₀ ++ [a+k]`, `v = v₀ ++ [a]`), **`intercept_bound_last`** ((4) in cleared form: `2^{|z₀|} C (z₀ ++ [b]) ≤ 2^{Σz₀}(3^{|z₀|+1} − 2^{|z₀|+1})`), `two_defect_arith`, **`two_defect_bound_sharp`** ((5): `g² 2^{|u₀|+|v₀|} < (2^k−1)² 2^{Σu₀+Σv₀} 3^m`), **`two_defect_bound`** ((7): `g² 2^{2m} < 2^{2A} 3^m`, needs `a ≥ 1`) and `two_defect_q_bound` (`D² 2^{2m} < q² 2^{2A} 3^m` for `D = g q`, `q > 0`). Not formalised: the reduction of an arbitrary two-defect rotation to the normal form, the real-analytic (6)–(8), Matveev's constant and the Hercher/Barina period input | `experiments/cycle_spectrum/C011/ROTATION_DEFECTS.md` §§2–3 | **verified** | `[propext, Classical.choice, Quot.sound]` (two helpers subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 276 theorems printed) |
 | C013-a | Main's C013 `OVERLAP_CONTROLS.md` §1 (1) and `OVERLAP_THEORY.md` §1. **Verified** (iteration 34): `interleave U a` (the word `(U, a_0, …, U, a_{r−1})`), `Ph U a` (the homogenised `u^{r−1} P(α/u)`, by the recursion `P_h(x :: a) = α^{|a|} + u 2^x P_h(a)`), `interleave_length` (`m = r(n+1)`), `interleave_sum` (`A = T + r A_U`), **`C_interleave`** (`C_w = (3 C_U + 2^{A_U}) · P_h`, (1) first half; axioms `[propext]` only), **`D_interleave`** (`D_w = 2^{T + r A_U} − 3^{r(n+1)}`, i.e. `−u^r Q(α/u)`; `[propext]`), `Ph_eq_sum` (the closed form `Σ_{j<r} 3^{(n+1)(r−1−j)} 2^{j A_U + P_j}`), `E_bound` ((8): `2^n E ≤ u(3^{n+1} − 2^{n+1})`), `run_factor` (OVERLAP_THEORY (3): `2^E z_end = 3^t z_start`, `z_end` even ⇒ `z_start = 2^{E+1} k`, `z_end = 2·3^t k`), and on `OddCycle`: `diff_step` ((2): `2^{a_i} z_{i+1} = 3 z_i` at agreeing valuations) and `run_diff` (`2^{Σ a} z_{i+t} = 3^t z_i` along an agreeing run, via `run_pow_mul`). Not Lean targets: the polynomial gcd/resultant steps (2)–(3), the Fourier–uncertainty inequality (5), the bounds (6)–(14), Matveev | `experiments/cycle_spectrum/C013/OVERLAP_CONTROLS.md` §1, `OVERLAP_THEORY.md` §1 | **verified** | `[propext, Classical.choice, Quot.sound]` (the identities need only `[propext]`) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 290 theorems printed) |
 | C008-a | Main's C008 (`INDEPENDENT_MATCHING.md` §1, `MATCHING_ARITHMETIC.md`): the exact prefix identity `2^{A_i} n_i = 3^i n_0 + q C_i`, the cycle identity `(2^A − 3^m) n_0 = q C_m` and `q ∣ 2^A − 3^m` for reduced cycles; the cyclicity of `⟨2, 3⟩`: in any commutative group `x^A = y^m` with `gcd(A, m) = 1` gives `t` with `t^m = x`, `t^A = y`, and the `ZMod N` instance for the units `2`, `3` when `N ∣ 2^A − 3^m`, `N` coprime to 6; the mechanical prefix sums `Σ_{j<i} c_j = ⌊i(mq' + h)/m⌋`; the sorted-rank residue law (R1) in integer form `2^{P_i} z_[(ih) mod m] ≡ 3^i z_[0] (mod q)` | `experiments/cycle_spectrum/C008/INDEPENDENT_MATCHING.md` §1 | **verified** (iteration 24): `CycleSpectrum.lean`, `exists_common_root`, `zmod_common_root`, `NarrowCycle.sum_a_range`, `OddCycle.{Apre, Cpre, prefix_identity, cycle_identity, q_dvd_D, toNarrow_primitive, toNarrow_rank_zero, sorted_residue_law}` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 193 theorems printed) |
@@ -1705,7 +1706,50 @@ receipt binds to the file it certifies.
   yet formal: deriving `hW`, `hW′`, `hdh`, `hhj` from the spacing bound (Step
   3, part 3b) and condition A's numeric content.
 
+- S7-b (part 3b): S7 Step 3 "Take the representative 1 ≤ h ≤ m − 1. Both
+  window conditions are needed: d ≤ h ≤ m − d. Suppose h < d or h > m − d.
+  Then W and W − h overlap, and W ∪ (W − h) is an arc of fewer than 2d
+  positions containing the distinct mismatches e_a and e_b. … Condition W,
+  σ_min ≥ 2d_max − 1, rules this out. … Each of W and W − h contains exactly
+  one mismatch, e_b and e_a respectively. This uses σ_min > d_max."
+  `window_conditions` is the first paragraph with the spacing bound as the
+  hypothesis `hsep` (both arcs between distinct mismatches at least `σ`, the
+  form that consecutive spacings `≥ σ` give) and `2d ≤ σ + 1`; the overlap arc
+  is handled by the two linear cases of the residue of `e_a′` (`e_a′ < m` or
+  `e_a′ − m`) and the two orders of `e_a`, `e_b`.
+  `unique_in_window`/`agree_of_window` are the second paragraph; the
+  hypothesis is `σ ≥ d` rather than the prose's `σ_min > d_max`, since two
+  mismatches in a window of length `d` would be at distance `≤ d − 1`.
+  `three_mismatch_structure` assembles Steps 2–4 (located changes from part 2,
+  windows from this part, alignment from part 3a); its conclusion carries the
+  change types (`down`/`up`), the windows, `d ≤ h ≤ j` and `e_b = e_a + h`.
+  The hypothesis `(mis h).card = 3` does not appear: with the spacing bound
+  assumed, Steps 2–4 hold for any `s`; `s = 3` is used only to derive `σ_min =
+  m − 2(t_max + 1)` from `Σ t_k = m − 3` in Step 1, which is S7-c/S7-d.
+
 ## Insights sent to the feed
+
+- Iteration 70 (sidekick `52f0303`…`aa2130d`; main frozen at `1c5c19d`): the
+  side lane verified S7-b part 3a (feed update 13:11; receipts match sha
+  `e8128174…5128`) and posted S8, a negative map: explicit four-mismatch words
+  `[V][1^a][2^b][1^c]` along one `h`-chain (`h/m ≈ √2 − 1` or `≈ 0.4393`)
+  above `m₀` satisfy every size constraint (end and start witnesses, the
+  excess-tracked ceiling, the signs, and a new comparison with the fixed point
+  `−1`: a run of `r` ones ending at `e` forces `3^r ∣ n_e + 1`, so `n_e + 1 ≥
+  2·3^r`) for every `ℓ` from 71 to `ℓ*`, with margins of up to 3,900 bits;
+  by-product, a short proof of Steiner's 1-cycle theorem from `D ∣ 2^{A−m} −
+  1` and `gap_all`. Reviewed here: the constructions check (`D > 0`, exactly
+  four mismatches, the `−1` comparison, the 1-cycle argument); one label point
+  sent and applied (the claim is an envelope/LP-relaxation feasibility — no
+  argument using (1)–(5) only through the size inequalities excludes `s = 4`;
+  integrality, `n_0 D = C_w` and the mod-`D` relation are outside, as its §4
+  says); the LP window and the Step-5 diagnosis to be written out (done). S9
+  preview received: the per-step ceiling error replaced by the exact global
+  drift `Σ_{i<m} log₂(1 + q/(3n_i)) = log₂(2^A/3^m)`, giving S6/S7 as
+  denominator laws for every primitive word at any `q`; remark sent: correct
+  and formalisable as `n_k 2^{X_k} 3^m ≤ L (3/2)^k 2^A` through `prod_arrow`.
+  Two formal by-products (`ones_run_dvd`, the 1-cycle argument) requested
+  after the S7 chain. Sent after the build: the S7-b part 3b report.
 
 - Iteration 69 (sidekick `8e8c058`…`52f0303`; main frozen at `1c5c19d`): the
   side lane verified S7-b part 2 (feed update 13:03; receipts match sha
