@@ -45,6 +45,20 @@ Full note: `sidekick/research/S4/BAND1_GCD.md`.
   - a small-gcd law (S4: none found).
   Each reduces to the coupled `J`-term `S`-unit divisibility, with `J > 10^7` for any hypothetical cycle (09:43). That needs estimates uniform in growing `J`, the obstacle main named in C011–C014. The next producer batch will change mechanism, not class.
 
+**Update 11:12: framing and a structural test, following the Lean lane's pre-review.**
+
+- **Framing (exact).** `g = C_w/n_0`, because `n_0 D = q C_w` and `q = D/g`. So `g < D` is just `q > 1`.
+  - The formal bound `g ≤ C_c/n_0` (C006-e) is tight up to the trivial factor `C_w/C_c ∈ [1/2, 1]` in band 1; observed `[0.59, 0.99]`.
+  - So S4's question is exactly C006's (G1)/(G2) comparison, and S4 adds no new quantity, only the negative data.
+- **Specificity.** The observation "`g ∈ {5, 7, 23}` has the form `2^a − 3^b`" carries little weight: six of the ten numbers coprime to 6 below 30 have that form.
+- **Structural test.** `s4b_block_divisor_test.py` is exhaustive for `m ≤ 18`: 1,413 profiles with `g > 1`.
+  - `g` divides some proper cyclic block denominator `2^(A_u) − 3^|u|` in 1,213 of them (86%) and in none of the 200 others. Examples: `g = 31` at `(m, A) = (12, 23)` and `g = 79` at `(14, 23)`.
+  - So there is no block-divisor law either.
+
+```sh
+python3 sidekick/probes/s4b_block_divisor_test.py   # ~40 s
+```
+
 ```sh
 python3 sidekick/probes/s4_band1_gcd.py   # ~3 min
 ```
@@ -61,6 +75,11 @@ Full note: `sidekick/research/S3/INVERSION_PAIRS.md`.
   - In general the pair satisfies a defect recursion `n_(t+h) = 2^(K_t) n_t − c_t`, with `c_(t+1) = (2^(K_t) + 3c_t − 1)/2^(a_(t+h))`, that must close at `(3, −1)`. This is C013's overlap problem with a dyadic scale.
   - **Data** (`s3_inversion_pairs.py`: odd `q < 400`, 719 cycles): there are actual inversions at every height gap `k = 1…11`, including 37 pairs `(n, 8n+1)` at height gap exactly 3, e.g. `(q, n) = (121, 35)`, `(175, 29)`, `(181, 23)`. So the inversion lemma cannot exclude the pair; doing so at `q = 1` needs global `q = 1` arithmetic.
 - **Next, S4: a law hunt.** On ordered band-1 cycles, the earlier data had `g = gcd(C, D) ∈ {1, 5, 7, 23}`, each of the form `2^a − 3^b` with small exponents. S4 asks whether `g` is always small or has a recognisable structure. A provable bound with `g < D` would exclude band 1 at `q = 1`.
+
+**Update 11:12: the Lean lane checked §1 by hand.** The reduction is correct; it will formalise the inversion lemma as S3-a. Two precisions are accepted.
+
+- The extension to `H < 16L` would go through C006-f's any-`q` ordered form, not through `three_band`, which is the `B ≤ 2` statement.
+- The 37 pairs at other `q` show only that the pair type is arithmetically possible; they are not controls for the `q = 1`, `H < 16L` target. For example, the `3x+121` cycle through 35 and 281 has `H > 16L`.
 
 ```sh
 python3 sidekick/probes/s3_inversion_pairs.py   # ~37 s
@@ -92,7 +111,7 @@ So the run starts form a `J`-state cycle of a generalised Collatz map with the s
 - **Spread.** `max u/min u` reaches 240 in actual band-1 cycles and 2.5·10^7 in rational ones.
 - **Order at level 2.** The gap cycle itself, normalised by its own minimum and heights, is unordered in 20 of 31 actual ordered cycles with `m ≥ 3` (ordered in 9, tied in 2) and in 278 of 334 rational ones. Its band reaches 18.
 - **The cause.** The level-2 forcing `T` takes both signs: a height rise gives `T < 0`, a fall `T > 0`. C005's inversion lemma (2), which makes low bands ordered, needs one uniform positive offset. So naive iteration `J → J₂ → …` is rejected.
-- **What survives.** The §1 identities remain as bookkeeping, and the all-run-starts sum gives a constant-factor (≈1.58) improvement of the `J` bound.
+- **What survives.** The §1 identities remain as bookkeeping, and the all-run-starts sum gives a constant-factor (≈1.58) improvement of the `J` bound. *[Attribution corrected at 11:12; see below.]*
 
 **Next producer target, S3.** Extend C005's ordering from `H < 8L` to `H < 16L` at `q = 1`. At height gap `k = 3`, the only possible `q = 1` inversion is a pair `(n, 8n+1)` with `n` of height 0. Its orbit is forced: `8n+1 → 6n+1 → 9n+2 → …`. S3 will either exclude such pairs in a nontrivial cycle or record exactly what they require.
 
@@ -108,6 +127,19 @@ So the run starts form a `J`-state cycle of a generalised Collatz map with the s
 - **Data.** `s2_ucycle_explore.py` checks the recursion and records the oddness pattern above, which the lane asked for.
 - **Still informal.** The parity rule of §2 (forced gap odd exactly when one adjacent height equals `B`), which is the natural S2-b, and the partition of the orbit into runs.
 - **Bookkeeping.** The lane relabelled its iteration-58 unit as C013-b, as agreed.
+
+**Update 11:12: CORRECTION and Lean S2-b.**
+
+- **CORRECTION** (prompted by the Lean lane's review). The "≈1.58" improvement does not come from summing over all runs: that adds only `−log₂ J`, about 0.2% at `J ≈ 10^7`.
+  - The factor `A/m ≈ log₂ 3` comes from `E ≥ ⌊tA/m⌋` along the rank orbit, the mechanical density of high ranks, applied to the longest run.
+  - It gives `J ≳ (A/m)(m−1)/(175 + 342 log₂ m)`, about `1.7·10^7` at the literature `m`. It is minor and not formalised.
+  - The note's §4 is rewritten accordingly.
+- **Lean S2-b is VERIFIED** (`daecf36`). The §2 parity rule is now a theorem.
+  - `Z_odd_iff`: a scaled state is odd exactly when its height equals `B`.
+  - `gap_odd_iff`: an interior gap is odd exactly when one of its two heights equals `B`.
+  - `gap_seam_odd_iff`, `T_ne_zero_iff`, `run_quot_odd_iff_end`, `band1_u_odd` and `seam_u_odd_iff` complete the rule.
+  - **Receipts.** Of 505 declarations, 419 use the standard three axioms, 38 use `[propext, Quot.sound]`, 46 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `25f8beaf…` matches all three binding receipts.
+  - The lane also accepted §3 as a finite-data rejection with a correct diagnosis.
 
 ```sh
 python3 sidekick/probes/s2_ucycle_explore.py   # ~15 s; identities PASS; oddness, spread and level-2 counts

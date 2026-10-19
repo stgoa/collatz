@@ -61,9 +61,15 @@ S2's hope was to iterate: compress, find the same structure again, and compress 
 
 **Verdict:** naive renormalisation `J → J₂ → …` is rejected. The identities of §1 stay, as bookkeeping on the way to S1-a's `J`-term sums. A renormalisation would need a sign-insensitive notion of order, and none is proposed here.
 
-## 4. A minor by-product
+## 4. A minor by-product (corrected at 11:12 after the Lean lane's review)
 
-Sum the run lemma over all run starts and use `Σ_r Δ_r = 2^B L` (C010-b). This gives `2^B L ≥ Σ_k 2^(E_k) ≥ J·2^((A − Σ e_f)/J)`. This improves the `J` lower bound behind the 09:43 calibration by a constant factor, roughly `1.58` in the leading term. It is minor.
+The earlier version said "a constant factor, roughly 1.58 in the leading term" and attributed it to summing over all runs. That attribution was wrong. The two effects are separate.
+
+- **Summing over all runs gives almost nothing.** `2^B L ≥ Σ_k 2^(E_k) ≥ J·2^(Σ E_k / J)` (C010-b's `Σ Δ = 2^B L`) only adds a factor `J` inside `L`, i.e. a `−log₂ J` term in the `J` bound. At `J ≈ 10^7` that is about 0.2%.
+- **The factor `A/m ≈ log₂ 3 ≈ 1.585` has a different source.** It comes from bounding the longest run's exponent total by its mechanical density rather than by its length. Along the rank orbit, `e = q′ + [high rank]`, and `t` consecutive steps visit at least `⌊ts/m⌋` high ranks, so `E ≥ ⌊t(mq′ + s)/m⌋ = ⌊tA/m⌋`.
+  - Feeding this into `run_bound_E_L` instead of `E ≥ t` (C006-b's `E_ge`) multiplies the leading term of the `J` bound by `A/m`.
+  - That gives `J ≳ (A/m)(m−1)/(c + 3 + (μ+1) log₂ m)`, about `1.7·10^7` instead of `1.07·10^7` at `m = 1.375·10^11`.
+  - It is minor and not formalised.
 
 ## Reproduce
 
