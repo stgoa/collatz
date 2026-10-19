@@ -81,7 +81,7 @@ Full note: `sidekick/research/S3/INVERSION_PAIRS.md`.
 - The extension to `H < 16L` would go through C006-f's any-`q` ordered form, not through `three_band`, which is the `B ≤ 2` statement.
 - The 37 pairs at other `q` show only that the pair type is arithmetically possible; they are not controls for the `q = 1`, `H < 16L` target. For example, the `3x+121` cycle through 35 and 281 has `H > 16L`.
 
-**Update 11:20: Lean S3-a is VERIFIED** (`95dd4a9`). §1's reduction is now formal, apart from its final combination.
+**Update 11:19: Lean S3-a is VERIFIED** (`95dd4a9`). §1's reduction is now formal, apart from its final combination.
 
 - **The theorems** (any `q`).
   - `inversion_iff`: for `Z_i < Z_j`, `F_j < F_i` exactly when `h_i < h_j` and `3r < q(2^k − 1)`. This is C005's inversion lemma as an equivalence; the case `h_j ≤ h_i` is shown to give no inversion.
