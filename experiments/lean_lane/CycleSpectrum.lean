@@ -6146,6 +6146,133 @@ theorem cgap_pos_iff (Z : ℕ → ℤ) {m : ℕ} (hm : 0 < m) :
       rw [hjm]
       linarith
 
+/-! ### C010-c: §2 without the ordering hypothesis — gcd `1` of the scaled states of any reduced
+cycle, of the complete gaps of any arrangement of one period, and the exact common denominator
+`q` of the states normalised to parameter `1` -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- C010 §2 for an arbitrary reduced cycle (no ordering hypothesis) whose maximal height is
+attained: the scaled states `Z_i` have no common divisor but units — a common divisor is odd
+(some `Z_i` is odd), divides every numerator, hence `q` by an arrow, against reduction. -/
+theorem Z_dvd_isUnit (hred : IsCoprime Γ.q (Γ.n 0)) (hB : ∃ i, Γ.h i = Γ.B) {d : ℤ}
+    (hd : ∀ i, d ∣ Γ.Z i) : IsUnit d := by
+  obtain ⟨i₀, hi₀⟩ := hB
+  have hodd : Odd (Γ.Z i₀) := by
+    unfold OddCycle.Z
+    rw [hi₀, Nat.sub_self, pow_zero, one_mul]
+    exact Γ.nodd i₀
+  have hdodd : Odd d := by
+    by_contra h
+    rw [Int.not_odd_iff_even] at h
+    exact (Int.not_even_iff_odd.mpr hodd) (h.trans_dvd (hd i₀))
+  have hd2 : IsCoprime d 2 := by
+    obtain ⟨k, hk⟩ := hdodd
+    exact ⟨1, -k, by rw [hk]; ring⟩
+  have hn : ∀ i, d ∣ Γ.n i := fun i => hd2.pow_right.dvd_of_dvd_mul_left (hd i)
+  have hq : d ∣ Γ.q := by
+    have harrow := Γ.arrow 0
+    have hqe : Γ.q = 2 ^ Γ.a 0 * Γ.n 1 - 3 * Γ.n 0 := by linarith
+    rw [hqe]
+    exact dvd_sub ((hn 1).mul_left _) ((hn 0).mul_left 3)
+  exact hred.isUnit_of_dvd' hq (hn 0)
+
+/-- The same with the divisibility assumed on one period only. -/
+theorem Z_dvd_isUnit_of_lt (hred : IsCoprime Γ.q (Γ.n 0)) (hB : ∃ i, Γ.h i = Γ.B) {d : ℤ}
+    (hd : ∀ i, i < m → d ∣ Γ.Z i) : IsUnit d := by
+  apply Γ.Z_dvd_isUnit hred hB
+  intro i
+  rw [← Γ.Z_mod i]
+  exact hd _ (Nat.mod_lt i Γ.hm)
+
+/-- C010 §2 for unordered cycles: the complete gaps of any arrangement `Z ∘ σ` of the scaled
+states that exhausts one period — the sorted arrangement in particular — have gcd `1`. -/
+theorem cgap_dvd_isUnit (hred : IsCoprime Γ.q (Γ.n 0)) (hB : ∃ i, Γ.h i = Γ.B) {σ : ℕ → ℕ}
+    (hσ : ∀ i, i < m → ∃ j, j < m ∧ σ j = i) {d : ℤ}
+    (hd : ∀ j, j < m → d ∣ cgap (fun i => Γ.Z (σ i)) m j) : IsUnit d := by
+  have hZ : ∀ i, i < m → d ∣ Γ.Z (σ i) := (dvd_cgap_iff (fun i => Γ.Z (σ i)) Γ.hm d).mp hd
+  apply Γ.Z_dvd_isUnit_of_lt hred hB
+  intro i hi
+  obtain ⟨j, hj, rfl⟩ := hσ i hi
+  exact hZ j hj
+
+/-- If `q` divides every `k Z_i` then `q ∣ k` (the `Z_i` have gcd `1`). -/
+theorem q_dvd_of_dvd_mul (hred : IsCoprime Γ.q (Γ.n 0)) (hB : ∃ i, Γ.h i = Γ.B) {k : ℤ}
+    (hk : ∀ i, Γ.q ∣ k * Γ.Z i) : Γ.q ∣ k := by
+  obtain ⟨g, hg⟩ : ∃ g : ℤ, g = Int.gcd Γ.q k := ⟨_, rfl⟩
+  have hgpos : 0 < Int.gcd Γ.q k := Int.gcd_pos_of_ne_zero_left k Γ.hq.ne'
+  have hg0 : g ≠ 0 := by rw [hg]; exact_mod_cast hgpos.ne'
+  obtain ⟨q', hq'⟩ : g ∣ Γ.q := by rw [hg]; exact Int.gcd_dvd_left Γ.q k
+  obtain ⟨k', hk'⟩ : g ∣ k := by rw [hg]; exact Int.gcd_dvd_right Γ.q k
+  have hcop : IsCoprime q' k' := by
+    have h := Int.gcd_div_gcd_div_gcd hgpos
+    rw [← hg] at h
+    have e1 : Γ.q / g = q' := by rw [hq']; exact Int.mul_ediv_cancel_left q' hg0
+    have e2 : k / g = k' := by rw [hk']; exact Int.mul_ediv_cancel_left k' hg0
+    rw [e1, e2] at h
+    exact Int.isCoprime_iff_gcd_eq_one.mpr h
+  have hq'Z : ∀ i, q' ∣ Γ.Z i := by
+    intro i
+    have h := hk i
+    rw [hq', hk', mul_assoc] at h
+    exact hcop.dvd_of_dvd_mul_left ((mul_dvd_mul_iff_left hg0).mp h)
+  have hu : IsUnit q' := Γ.Z_dvd_isUnit hred hB hq'Z
+  rw [hq']
+  exact hu.mul_right_dvd.mpr ⟨k', hk'⟩
+
+/-- `q` itself clears the denominators of the states normalised to parameter `1`. -/
+theorem q_clears (i : ℕ) : ∃ z : ℤ, (Γ.q : ℚ) * ((Γ.Z i : ℚ) / Γ.q) = z := by
+  refine ⟨Γ.Z i, ?_⟩
+  have hq : (Γ.q : ℚ) ≠ 0 := by exact_mod_cast Γ.hq.ne'
+  rw [mul_comm, div_mul_cancel₀ _ hq]
+
+/-- C010 §2: after normalising the parameter to `1`, an integer `k` clears the denominators of
+all scaled states `Z_i/q` iff `q ∣ k`. -/
+theorem clears_q_iff (hred : IsCoprime Γ.q (Γ.n 0)) (hB : ∃ i, Γ.h i = Γ.B) (k : ℤ) :
+    (∀ i, i < m → ∃ z : ℤ, (k : ℚ) * ((Γ.Z i : ℚ) / Γ.q) = z) ↔ Γ.q ∣ k := by
+  have hq : (Γ.q : ℚ) ≠ 0 := by exact_mod_cast Γ.hq.ne'
+  constructor
+  · intro hk
+    apply Γ.q_dvd_of_dvd_mul hred hB
+    intro i
+    obtain ⟨z, hz⟩ := hk (i % m) (Nat.mod_lt i Γ.hm)
+    rw [Γ.Z_mod] at hz
+    have h1 : (k : ℚ) * (Γ.Z i : ℚ) = (z : ℚ) * (Γ.q : ℚ) := by
+      rw [← hz, mul_assoc, div_mul_cancel₀ _ hq]
+    have h2 : k * Γ.Z i = z * Γ.q := by exact_mod_cast h1
+    exact Dvd.intro z (by rw [h2, mul_comm])
+  · rintro ⟨t, ht⟩ i hi
+    refine ⟨t * Γ.Z i, ?_⟩
+    rw [ht]
+    push_cast
+    rw [mul_comm (Γ.q : ℚ) (t : ℚ), mul_assoc, mul_comm (Γ.q : ℚ), div_mul_cancel₀ _ hq]
+
+/-- The least positive common denominator of the normalised states is exactly `q`. -/
+theorem q_le_of_clears (hred : IsCoprime Γ.q (Γ.n 0)) (hB : ∃ i, Γ.h i = Γ.B) {k : ℤ}
+    (hk0 : 0 < k) (hk : ∀ i, i < m → ∃ z : ℤ, (k : ℚ) * ((Γ.Z i : ℚ) / Γ.q) = z) : Γ.q ≤ k :=
+  Int.le_of_dvd hk0 ((Γ.clears_q_iff hred hB k).mp hk)
+
+/-- C010 §2 for unordered cycles: for any arrangement of one period, `k` clears the denominators
+of the complete gaps of the normalised scaled states iff `q ∣ k` — the common reduced
+denominator of `G/q` is exactly `q`. -/
+theorem clears_q_cgap_iff (hred : IsCoprime Γ.q (Γ.n 0)) (hB : ∃ i, Γ.h i = Γ.B) {σ : ℕ → ℕ}
+    (hσ : ∀ i, i < m → ∃ j, j < m ∧ σ j = i) (k : ℤ) :
+    (∀ j, j < m → ∃ z : ℤ, (k : ℚ) * cgap (fun i => (Γ.Z (σ i) : ℚ) / Γ.q) m j = z) ↔
+      Γ.q ∣ k := by
+  rw [← clears_iff (fun i => (Γ.Z (σ i) : ℚ) / Γ.q) Γ.hm (k : ℚ), ← Γ.clears_q_iff hred hB k]
+  constructor
+  · intro h i hi
+    obtain ⟨j, hj, rfl⟩ := hσ i hi
+    exact h j hj
+  · intro h j hj
+    obtain ⟨z, hz⟩ := h (σ j % m) (Nat.mod_lt _ Γ.hm)
+    rw [Γ.Z_mod] at hz
+    exact ⟨z, hz⟩
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
@@ -7439,30 +7566,11 @@ theorem gap_eq_cgap {r : ℕ} (hr : r < m) : Ω.N.gap r = cgap Ω.N.y m r := by
     rw [ite_eq_right (by omega : ¬ (r + 1 < m)), ite_eq_left hr,
       ite_eq_right (by omega : ¬ (r + 1 < m)), hr1, Nat.sub_self]
 
-/-- C010 §2: for a reduced cycle whose maximal height is attained, the scaled states `Z_i` have
-no common divisor but units — a common divisor is odd (some `Z_i` is odd), divides every
-numerator, hence `q` by an arrow, against reduction. -/
+/-- C010 §2 on an ordered cycle: the scaled states have gcd `1` (the `OddCycle` statement
+`OddCycle.Z_dvd_isUnit` of C010-c needs no ordering). -/
 theorem Z_dvd_isUnit (hred : IsCoprime Ω.Γ.q (Ω.Γ.n 0)) (hB : ∃ i, Ω.Γ.h i = Ω.Γ.B) {d : ℤ}
-    (hd : ∀ i, d ∣ Ω.Γ.Z i) : IsUnit d := by
-  obtain ⟨i₀, hi₀⟩ := hB
-  have hodd : Odd (Ω.Γ.Z i₀) := by
-    unfold OddCycle.Z
-    rw [hi₀, Nat.sub_self, pow_zero, one_mul]
-    exact Ω.Γ.nodd i₀
-  have hdodd : Odd d := by
-    by_contra h
-    rw [Int.not_odd_iff_even] at h
-    exact (Int.not_even_iff_odd.mpr hodd) (h.trans_dvd (hd i₀))
-  have hd2 : IsCoprime d 2 := by
-    obtain ⟨k, hk⟩ := hdodd
-    exact ⟨1, -k, by rw [hk]; ring⟩
-  have hn : ∀ i, d ∣ Ω.Γ.n i := fun i => hd2.pow_right.dvd_of_dvd_mul_left (hd i)
-  have hq : d ∣ Ω.Γ.q := by
-    have harrow := Ω.Γ.arrow 0
-    have hqe : Ω.Γ.q = 2 ^ Ω.Γ.a 0 * Ω.Γ.n 1 - 3 * Ω.Γ.n 0 := by linarith
-    rw [hqe]
-    exact dvd_sub ((hn 1).mul_left _) ((hn 0).mul_left 3)
-  exact hred.isUnit_of_dvd' hq (hn 0)
+    (hd : ∀ i, d ∣ Ω.Γ.Z i) : IsUnit d :=
+  Ω.Γ.Z_dvd_isUnit hred hB hd
 
 /-- C010 §2: the complete gap vector of the sorted scaled states has gcd `1` as well. -/
 theorem gap_dvd_isUnit (hred : IsCoprime Ω.Γ.q (Ω.Γ.n 0)) (hB : ∃ i, Ω.Γ.h i = Ω.Γ.B) {d : ℤ}
