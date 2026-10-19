@@ -1,6 +1,6 @@
 # Lean lane — STATE
 
-**Updated: 2026-10-19, iteration 14 of the Lean lane. Main's active goal
+**Updated: 2026-10-19, iteration 15 of the Lean lane. Main's active goal
 changed on 2026-10-19 (`14441c0`) from quantitative rigidity to the
 cycle-spectrum programme (`docs/CYCLE_SPECTRUM_BRIEF.md`, C-series); the
 V-series rows below are its retained historical evidence. Branch
@@ -37,8 +37,8 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | C001-c | The `K = 0` characterisation (needs the exact-valuation dynamics) and the perturbed mechanical family of §3 (needs R71's word bounds) | same, §§2–3 | queued | — | — |
 | C002-a | Two growing blocks (main's C002 `PROPORTIONAL.md`): identities (1)–(4) for `u^k v^ℓ`, the divisibility (5) `g ∣ |K|·gcd(G_u(k), G_v(ℓ))` with no coprimality premise, strong divisibility `gcd(U^i − V^i, U^j − V^j) = |U^gcd − V^gcd|` for coprime `U, V`, the intercept facts (`C > 0`, `C` odd, `C` injective on positive words of fixed length and total, the bound (U2) `2^m C_z ≤ 2^A(3^m − 2^m)`), and **the uniform equal-total exclusion (U1)**: for distinct positive words of the same length `m` and total `A` with `2^A > 3^m`, `k, ℓ ≥ 1`, `k + ℓ ≥ 3`, the reduced denominator of `u^k v^ℓ` exceeds `2^m · 2^A/3^m` (`2^A · 2^m · gcd(C, D) < 3^m · D`, the prose's full bound) and hence `2^m` | `experiments/cycle_spectrum/C002/PROPORTIONAL.md` §§1–2 | **verified** (iteration 13): `CycleSpectrum.lean`, `LeanLane.Cyc.commutator_two_u`, `commutator_two_v`, `gcd_dvd_K_mul_gcd`, `gcd_pow_sub_pow`, `C_injective`, `two_pow_mul_C_le`, `uniform_two_block_strong`, `uniform_two_block` | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated) |
 | C003-a | Main's C003 effective theorem (`PROPORTIONAL_UNIFORM.md`): the fixed-pair bounds (5) `den(u^k v^ℓ) > Q^k D_v/|K|` and `> S^ℓ D_u/|K|` for contracting blocks with `K ≠ 0`, `k, ℓ ≥ 1`; the intercept/fixed-point bounds (7)–(9); and the uniform bound (6) `den > 2^M Q_*^{t_*−3}` (`M = max(m_u, m_v)`, the `Q_*` block repeated `t_* ≥ 3` times, the other at least once) — proved purely algebraically from the commutator identities (3)–(4) and `g ∣ K·G_v(ℓ)`, `g ∣ K·G_u(k)`, without the integrality of cycle states | `experiments/cycle_spectrum/C003/PROPORTIONAL_UNIFORM.md` §§2–3 | **verified** (iteration 14): `CycleSpectrum.lean`, `LeanLane.Cyc.fixed_pair_bound_u`, `fixed_pair_bound_v`, `two_pow_mul_C_lt`, `F_mono`, `two_pow_mul_C_lt_M`, `K_bound`, `uniform_bound_u`, `uniform_bound_v`, `uniform_bound_max_u` (helpers `G_pos`, `gcd_dvd_K_mul_Gv`, `gcd_dvd_K_mul_Gu`, `D_two_pos`) | `[propext, Classical.choice, Quot.sound]` | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 51 theorems printed) |
-| C004-a | Main's C004 (`ROTATION_LATTICE.md`): the one-letter cut identities (6) `2^{a_i} K_i = (2^{a_i} − 3) C_i − D` (this is C001's commutator identity at `k = 1`, already `LeanLane.Cyc.commutator`) and (7) `gcd(D, K_i) = g · gcd(D/g, 2^{a_i} − 3)`; the reverse narrow direction of §3: for a mechanical word with `gcd(A, m) = 1`, every phase intercept satisfies `C_0 ≤ C_l < 2 C_0`, hence `H < 2L` | `experiments/cycle_spectrum/C004/ROTATION_LATTICE.md` §§2–3 | **next** | — | — |
-| C004-b | The forward narrow-cycle theorem (sorted ranks shift by `h`, `gcd(h, m) = 1`, the word is mechanical with `A = mq + h`) and the Smith forms `diag(1, …, 1, D)`, `diag(1, …, 1, g)` of §2 | same, §§2–3 | queued (larger; Smith normal form is thin in Mathlib) | — | — |
+| C004-a | Main's C004 (`ROTATION_LATTICE.md`): the one-letter cut identities (6) `2^{a_i} K_i = (2^{a_i} − 3) C_i − D` (the `k = 1` case of `commutator`) and (7) `gcd(D, K_i) = g · gcd(D/g, 2^{a_i} − 3)` for `a_i ≥ 1`; the reverse narrow direction of §3: the phase words `mech A m l` (`a_j = ⌊((j+1)A + l)/m⌋ − ⌊(jA + l)/m⌋`) have length `m`, total `A`, `D = 2^A − 3^m`, intercepts `C_0 ≤ C_l < 2 C_0` for `l < m`, and every rotation of `mech A m l` is the phase `(l + iA) mod m`; hence every rotation of the mechanical word has intercept in `[C_0, 2C_0)` with the common `D`: `H < 2L` (no coprimality of `A, m` is needed for the inequalities) | `experiments/cycle_spectrum/C004/ROTATION_LATTICE.md` §§2–3 | **verified** (iteration 15): `CycleSpectrum.lean`, `LeanLane.Cyc.cut_identity`, `cut_gcd`, `mech`, `C_diffWord`, `C_mech`, `D_mech`, `mech_pos`, `C_mech_zero_le`, `C_mech_lt_two`, `mech_rotate`, `narrow_mech` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 75 theorems printed) |
+| C004-b | The forward narrow-cycle theorem (a primitive rational cycle with `H < 2L` has sorted ranks shifted by `h`, `gcd(h, m) = 1`, and its word is `mech (mq + h) m l` for some phase) — larger finite-combinatorics unit; the Smith forms `diag(1, …, 1, D)`, `diag(1, …, 1, g)` of §2 stay queued separately (Smith normal form is thin in Mathlib) | same, §§2–3 | **next** (forward direction), unless main pushes a claim that needs backing first | — | — |
 | C002-b | The proportional-slope theorem (6)–(8) in its general `(r, s)` form, the `K = 0` characterisation, the rotating mechanical family of §4; the unequal-slope application is an imported ineffective theorem and is not a Lean target | same, §§2–4 | queued | — | — |
 | V006-a | Quadratic separation (main's V006 `overlap.md` §2): for `F` not eventually periodic, the states `Q_(a,t) = F(t₀ + t + s₂(3^a n))` are pairwise distinct (`(a,t) ↦ Q_(a,t)` injective); `Q_(a,t)` lies in the joint section family through depth `a + t`; hence that family through depth `D` has at least `(D+1)(D+2)/2` members (main's (4)); with the digit-count identities (5), (6), (7) (block additivity, complement, balanced quotient, `3^(r+1) ∣ 2^(3^r) + 1`) | `experiments/viewpoints/V006/overlap.md` §2, `QUADRATIC_REVIEW.md` | **verified** (iteration 10): `QuadraticSeparation.lean`, `LeanLane.Quad.Q_injective`, `Q_mem_Reach`, `triangle_encard_le`, `card_triangle`, `reach_encard_ge`, `s2_mul_pow_sub`, `s2_mul_pow_sub_one`, `s2_balanced`, `three_pow_dvd` | `[propext, Classical.choice, Quot.sound]` | `receipts/QuadraticSeparation.{build,axioms,sha256}.txt` |
 | V007-b | Singleton-exit theorem (V007 `separator.md` §§2–4) under the infinitude hypothesis (I): larger unit (bit algebra by `decide`, recursive propagation, tail evaluation formulas) | `experiments/viewpoints/V007/separator.md` | queued (larger) | — | — |
@@ -354,8 +354,52 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
   proportional-slope comparison, the Corvaja–Zannier branch (ineffective,
   imported) and the `d = 499` expanding-block example. The worked example
   `(1,2,2)^3(2)` (`C = 213341`, `D = 72023`, gcd 1) is an `example`.
+- C004-a: `ROTATION_LATTICE.md` §2 states (6) `2^{a_i} K_i = (2^{a_i} − 3) C_i
+  − D` and (7) `gcd(D, K_i) = g · gcd(d₀, 2^{a_i} − 3)` for the one-letter cut
+  `u = (a_i)`, `v` the rest, `K_i = D_u C_v − D_v C_u`. The Lean `cut_identity
+  a v` is (6) for the rotation `a :: v` (so `C_u = 1`, `D_u = 2^a − 3`, `K =
+  (2^a − 3) C_v − D_v`), pure algebra and the `k = 1` instance of C001's
+  `commutator`; `cut_gcd a v (ha : 1 ≤ a)` is (7) with `g = Int.gcd (C w) (D
+  w)` and `d₀ = D w / g` (exact integer division), for `a ≥ 1` so that `D_w`
+  is odd and `2^a` is a unit modulo `D_w` (the prose's words are positive, so
+  every cut is covered). The proof is the prose's chain `gcd(D, K) = gcd(D,
+  2^a K) = gcd(D, (2^a − 3) C_w − D) = gcd(D, (2^a − 3) C_w) = g · gcd(d₀,
+  (2^a − 3) n) = g · gcd(d₀, 2^a − 3)` with `gcd(n, d₀) = 1`; the corollaries
+  (`= g` at letters 1 and 2; every nontrivial `d = 1` cycle has a letter 1)
+  are not formalised. §3's reverse direction: the prose takes the mechanical
+  word with `gcd(A, m) = 1` and shows `C_0 ≤ C_l < 2C_0` for its phases from
+  `0 ≤ ⌊(jA + l)/m⌋ − ⌊jA/m⌋ ≤ 1` with the `j = 0` summand fixed. The Lean
+  `mech A m l` is the phase-`l` word `a_j = ⌊((j+1)A + l)/m⌋ − ⌊(jA + l)/m⌋`,
+  `j < m` (`diffWord` of the prefix sums `F(j) = ⌊(jA + l)/m⌋`);
+  `mech_length`, `mech_sum` (total `A` for `l < m`), `D_mech` (`D = 2^A −
+  3^m`), `mech_pos` (`A ≥ m` gives a positive valuation word); `C_diffWord` is
+  R71's sum `2^{F 0} C(diffWord F m) = Σ_{j<m} 3^{m−1−j} 2^{F j}` for monotone
+  `F`, so `C_mech` gives `C_l = Σ_{j<m} 3^{m−1−j} 2^{⌊(jA + l)/m⌋}`;
+  `C_mech_zero_le` and `C_mech_lt_two` are `C_0 ≤ C_l` and `C_l < 2C_0` for `0
+  < m`, `l < m` (the strict bound by `Finset.sum_lt_sum`, strict at the common
+  `j = 0` summand `3^{m−1}`), with no coprimality hypothesis — the prose's
+  `gcd(A, m) = 1` makes the `m` rotations distinct states but is not needed
+  for the inequalities. `mech_rotate` proves `(mech A m l).rotate i = mech A m
+  ((l + iA) mod m)` (the prose's "every phase is a cyclic rotation", used in
+  the direction every rotation is a phase), by `List.ext_getElem` and the fact
+  that `⌊(N + A)/m⌋ − ⌊N/m⌋` depends only on `N mod m`. `narrow_mech` packages
+  the result: every rotation of `mech A m 0` has its intercept in `[C_0,
+  2C_0)` and `D = 2^A − 3^m`; for `D > 0` all states `C_i/D` lie in `[L, 2L)`,
+  i.e. `H < 2L`. Not formalised: the forward direction (narrow ⇒ mechanical),
+  the Smith forms, R71's `g = 1`, the integer corollary `H > 2L` and the
+  narrow spectrum law. Controls: `mech 5 3 0 = (1,2,2)` with rotations
+  `(2,2,1)`, `(2,1,2)` and intercepts `23, 37, 29` (C004's table), by `decide`
+  and `norm_num`; the `(1,2,2)` cut has `K = −14`, (6) reads `−28 = −28`, and
+  both sides of (7) are `1`.
 
 ## Insights sent to the feed
+
+- Iteration 15 (sidekick `2ea1c7f`; main unchanged at `61cf54a`): the side
+  lane verified C003-a (feed 01:19 — statement match with C003 §2, block `u`
+  nonempty because `D_u > 0`, the `Q` tie covered by either lemma; axioms 39 ×
+  standard, 3 × `[propext, Quot.sound]`, 9 × `[propext]`; clean build and
+  scan; hash match) and recorded the C004 notes. Nothing new from main to
+  check; the C004-a report (below) was sent after the build.
 
 - Iteration 14 (on main `61cf54a`, C004): `REPORT.md`, `ROTATION_LATTICE.md`
   in full, `SIDE_REVIEW.md` and `SIZE_PROBE.md` §§1–2 read. Checked by

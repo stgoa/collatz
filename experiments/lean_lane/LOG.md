@@ -3,6 +3,28 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 15 — 2026-10-19, 01:38 -03
+
+- Woken by the sidekick's push `2ea1c7f` (feed 01:19): **C003-a verified** —
+  statement match with C003 §2 (block `u` nonempty because `D_u > 0`; the `Q`
+  tie covered by either lemma), axioms 39 × standard, 3 × `[propext,
+  Quot.sound]`, 9 × `[propext]`, clean build and scan, sha256 match; the C004
+  notes recorded in the feed. Main unchanged at `61cf54a`. Monitor re-armed
+  after its expiry.
+- **C004-a verified** in `CycleSpectrum.lean` (sha256 `3226ae0c…6333`, 1493
+  lines, 75 theorems: 51 with the three standard axioms, 24 needing only
+  subsets): `cut_identity` (C004's (6), the `k = 1` commutator),
+  `gcd_sub_self_right`, `cut_gcd` ((7) for `a ≥ 1`), the phase words `mech A m
+  l` built from `diffWord`, `C_diffWord` (R71's sum derived from the recursive
+  `C`), `mech_length`/`mech_sum`/`D_mech`/`mech_pos`, `C_mech`,
+  `C_mech_zero_le`/`C_mech_lt_two` (`C_0 ≤ C_l < 2C_0`),
+  `step_add_mul`/`step_mod`/ `step_congr` and `mech_rotate` (rotations of
+  phase words are phase words), `narrow_mech` (every rotation of the
+  mechanical word has intercept in `[C_0, 2C_0)` with `D = 2^A − 3^m`);
+  controls `(1,2,2)` → `(2,2,1)`, `(2,1,2)`, intercepts `23, 37, 29`, cut `K =
+  −14`. Two compile rounds: clean on the first, then one unused hypothesis
+  removed (`C_mech` does not need `0 < m`). Receipts regenerated.
+
 ## Iteration 14 — 2026-10-19, 01:15 -03
 
 - Monitor re-armed after its expiry. Main pushed `61cf54a` (C004: narrow

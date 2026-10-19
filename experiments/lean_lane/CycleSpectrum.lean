@@ -1226,5 +1226,268 @@ example : C (rep [1, 2, 2] 3 ++ rep [2] 1) = 213341 ∧ D (rep [1, 2, 2] 3 ++ re
     Int.gcd (C (rep [1, 2, 2] 3 ++ rep [2] 1)) (D (rep [1, 2, 2] 3 ++ rep [2] 1)) = 1 := by
   norm_num [rep, C, D]
 
+/-! ### One-letter cuts (main's C004 `ROTATION_LATTICE.md` §2, (6)–(7)) -/
+
+/-- C004's (6): cut the first letter `a` off `w = a :: v`, so `u = (a)`, `C_u = 1`,
+`D_u = 2^a − 3` and `K = D_u C_v − D_v C_u`; then `2^a K = (2^a − 3) C_w − D_w`. This is
+the `k = 1` case of `commutator`. -/
+theorem cut_identity (a : ℕ) (v : List ℕ) :
+    (2 : ℤ) ^ a * ((2 ^ a - 3) * C v - D v) = (2 ^ a - 3) * C (a :: v) - D (a :: v) := by
+  simp only [C, D, List.sum_cons, List.length_cons, pow_succ, pow_add]
+  ring
+
+/-- `gcd(a, b − a) = gcd(a, b)` for integers. -/
+theorem gcd_sub_self_right (a b : ℤ) : Int.gcd a (b - a) = Int.gcd a b := by
+  apply Nat.dvd_antisymm
+  · refine Int.dvd_gcd (Int.gcd_dvd_left _ _) ?_
+    have h := dvd_add (Int.gcd_dvd_right a (b - a)) (Int.gcd_dvd_left a (b - a))
+    rwa [sub_add_cancel] at h
+  · exact Int.dvd_gcd (Int.gcd_dvd_left _ _)
+      (dvd_sub (Int.gcd_dvd_right _ _) (Int.gcd_dvd_left _ _))
+
+/-- C004's (7): for `w = a :: v` with `a ≥ 1`, `g = gcd(C_w, D_w)` and `d₀ = D_w/g`,
+`gcd(D_w, K) = g · gcd(d₀, 2^a − 3)`, where `K = (2^a − 3) C_v − D_v` is the one-letter cut
+commutator. -/
+theorem cut_gcd (a : ℕ) (v : List ℕ) (ha : 1 ≤ a) :
+    Int.gcd (D (a :: v)) ((2 ^ a - 3) * C v - D v)
+      = Int.gcd (C (a :: v)) (D (a :: v))
+        * Int.gcd (D (a :: v) / (Int.gcd (C (a :: v)) (D (a :: v)) : ℤ)) (2 ^ a - 3) := by
+  have hsum : 1 ≤ (a :: v).sum := by
+    simp only [List.sum_cons]; omega
+  have hDodd : ¬ (2 : ℤ) ∣ D (a :: v) := D_odd hsum
+  have hD0 : D (a :: v) ≠ 0 := fun h => hDodd (by rw [h]; exact dvd_zero 2)
+  set g : ℕ := Int.gcd (C (a :: v)) (D (a :: v)) with hg
+  have hgpos : 0 < g := Int.gcd_pos_of_ne_zero_right _ hD0
+  have hgC : (g : ℤ) ∣ C (a :: v) := Int.gcd_dvd_left _ _
+  have hgD : (g : ℤ) ∣ D (a :: v) := Int.gcd_dvd_right _ _
+  have hcop : Int.gcd (C (a :: v) / g) (D (a :: v) / g) = 1 := Int.gcd_div_gcd_div_gcd hgpos
+  set n : ℤ := C (a :: v) / g with hn
+  set d₀ : ℤ := D (a :: v) / g with hd₀
+  have hCw : C (a :: v) = g * n := (Int.mul_ediv_cancel' hgC).symm
+  have hDw : D (a :: v) = g * d₀ := (Int.mul_ediv_cancel' hgD).symm
+  -- Step 1: `2^a` is a unit modulo the odd `D_w`.
+  have step1 : Int.gcd (D (a :: v)) ((2 ^ a - 3) * C v - D v)
+      = Int.gcd (D (a :: v)) (2 ^ a * ((2 ^ a - 3) * C v - D v)) := by
+    apply Nat.dvd_antisymm
+    · exact Int.dvd_gcd (Int.gcd_dvd_left _ _)
+        (dvd_mul_of_dvd_right (Int.gcd_dvd_right _ _) _)
+    · have hD : ((Int.gcd (D (a :: v)) (2 ^ a * ((2 ^ a - 3) * C v - D v)) : ℕ) : ℤ)
+          ∣ D (a :: v) := Int.gcd_dvd_left _ _
+      have hK : ((Int.gcd (D (a :: v)) (2 ^ a * ((2 ^ a - 3) * C v - D v)) : ℕ) : ℤ)
+          ∣ 2 ^ a * ((2 ^ a - 3) * C v - D v) := Int.gcd_dvd_right _ _
+      have h2 : ¬ 2 ∣ Int.gcd (D (a :: v)) (2 ^ a * ((2 ^ a - 3) * C v - D v)) := fun h2 =>
+        hDodd ((by exact_mod_cast h2 : (2 : ℤ) ∣
+          ((Int.gcd (D (a :: v)) (2 ^ a * ((2 ^ a - 3) * C v - D v)) : ℕ) : ℤ)).trans hD)
+      have hcop2 : IsCoprime
+          ((Int.gcd (D (a :: v)) (2 ^ a * ((2 ^ a - 3) * C v - D v)) : ℕ) : ℤ) ((2 : ℤ) ^ a) := by
+        have := Nat.isCoprime_iff_coprime.mpr (Nat.Coprime.pow_right a
+          ((Nat.Prime.coprime_iff_not_dvd Nat.prime_two).mpr h2).symm)
+        exact_mod_cast this
+      exact Int.dvd_gcd hD (hcop2.dvd_of_dvd_mul_left hK)
+  -- Step 2: the cut identity, then `gcd(D, X − D) = gcd(D, X)`.
+  have step2 : Int.gcd (D (a :: v)) (2 ^ a * ((2 ^ a - 3) * C v - D v))
+      = Int.gcd (D (a :: v)) ((2 ^ a - 3) * C (a :: v)) := by
+    rw [cut_identity, gcd_sub_self_right]
+  -- Step 3: factor out `g`.
+  have step3 : Int.gcd (D (a :: v)) ((2 ^ a - 3) * C (a :: v))
+      = g * Int.gcd d₀ ((2 ^ a - 3) * n) := by
+    rw [hDw, hCw, show (2 ^ a - 3 : ℤ) * (g * n) = g * ((2 ^ a - 3) * n) by ring,
+      Int.gcd_mul_left, Int.natAbs_natCast]
+  -- Step 4: cancel `n`, which is coprime to `d₀`.
+  have step4 : Int.gcd d₀ ((2 ^ a - 3) * n) = Int.gcd d₀ (2 ^ a - 3) := by
+    apply Nat.dvd_antisymm
+    · have hcopn : IsCoprime ((Int.gcd d₀ ((2 ^ a - 3) * n) : ℕ) : ℤ) n :=
+        (Int.isCoprime_iff_gcd_eq_one.mpr hcop).symm.of_isCoprime_of_dvd_left
+          (Int.gcd_dvd_left _ _)
+      exact Int.dvd_gcd (Int.gcd_dvd_left _ _)
+        (hcopn.dvd_of_dvd_mul_right (Int.gcd_dvd_right _ _))
+    · exact Int.dvd_gcd (Int.gcd_dvd_left _ _)
+        (dvd_mul_of_dvd_left (Int.gcd_dvd_right _ _) _)
+  rw [step1, step2, step3, step4]
+
+/-- The `d = 5` control `(1,2,2)`: `K = −14`, (6) reads `−28 = −28`, and both sides of (7)
+are `1`. -/
+example : (2 : ℤ) ^ 1 * ((2 ^ 1 - 3) * C [2, 2] - D [2, 2]) = -28 ∧
+    (2 ^ 1 - 3 : ℤ) * C [1, 2, 2] - D [1, 2, 2] = -28 ∧
+    Int.gcd (D [1, 2, 2]) ((2 ^ 1 - 3) * C [2, 2] - D [2, 2]) = 1 ∧
+    Int.gcd (C [1, 2, 2]) (D [1, 2, 2]) = 1 := by
+  norm_num [C, D]
+
+/-! ### Mechanical words and their phases (C004 `ROTATION_LATTICE.md` §3, reverse direction) -/
+
+/-- The word of successive differences `F(j+1) − F(j)`, `j < m`. -/
+def diffWord (F : ℕ → ℕ) (m : ℕ) : List ℕ := (List.range m).map fun j => F (j + 1) - F j
+
+/-- The phase-`l` mechanical word of total `A` and length `m`,
+`a_j = ⌊((j+1)A + l)/m⌋ − ⌊(jA + l)/m⌋`; phase `0` is R71's mechanical word. -/
+def mech (A m l : ℕ) : List ℕ := diffWord (fun j => (j * A + l) / m) m
+
+theorem diffWord_zero (F : ℕ → ℕ) : diffWord F 0 = [] := rfl
+
+theorem diffWord_succ (F : ℕ → ℕ) (m : ℕ) :
+    diffWord F (m + 1) = (F 1 - F 0) :: diffWord (fun j => F (j + 1)) m := by
+  simp [diffWord, List.range_succ_eq_map, List.map_map, Function.comp_def]
+
+theorem length_diffWord (F : ℕ → ℕ) (m : ℕ) : (diffWord F m).length = m := by
+  simp [diffWord]
+
+theorem sum_map_range (f : ℕ → ℕ) :
+    ∀ m, ((List.range m).map f).sum = ∑ j ∈ Finset.range m, f j
+  | 0 => by simp
+  | m + 1 => by
+    rw [List.range_succ, List.map_append, List.sum_append, Finset.sum_range_succ,
+      sum_map_range f m]
+    simp
+
+theorem sum_diffWord (F : ℕ → ℕ) (hF : Monotone F) (m : ℕ) :
+    (diffWord F m).sum = F m - F 0 := by
+  rw [diffWord, sum_map_range, Finset.sum_range_tsub hF]
+
+/-- The closed form of the intercept: `2^{F 0} · C(diffWord F m) = ∑_{j<m} 3^{m−1−j} 2^{F j}`
+(R71's sum, with `F j` the prefix sums). -/
+theorem C_diffWord (F : ℕ → ℕ) (hF : Monotone F) :
+    ∀ m, (2 : ℤ) ^ F 0 * C (diffWord F m)
+      = ∑ j ∈ Finset.range m, (3 : ℤ) ^ (m - (j + 1)) * 2 ^ F j
+  | 0 => by simp [diffWord_zero, C]
+  | m + 1 => by
+    have ih : (2 : ℤ) ^ F 1 * C (diffWord (fun j => F (j + 1)) m)
+        = ∑ j ∈ Finset.range m, (3 : ℤ) ^ (m - (j + 1)) * 2 ^ F (j + 1) :=
+      C_diffWord (fun j => F (j + 1)) (fun _ _ h => hF (Nat.add_le_add_right h 1)) m
+    have h01 : F 0 ≤ F 1 := hF (Nat.zero_le 1)
+    have hpow : (2 : ℤ) ^ F 0 * 2 ^ (F 1 - F 0) = 2 ^ F 1 := by
+      rw [← pow_add, Nat.add_sub_of_le h01]
+    rw [diffWord_succ, Finset.sum_range_succ']
+    simp only [C, length_diffWord, Nat.add_sub_add_right, zero_add, Nat.add_sub_cancel]
+    rw [← ih, ← hpow]
+    ring
+
+theorem mech_monotone (A m l : ℕ) : Monotone fun j : ℕ => (j * A + l) / m :=
+  fun _ _ h => Nat.div_le_div_right (Nat.add_le_add_right (Nat.mul_le_mul_right A h) l)
+
+theorem mech_length (A m l : ℕ) : (mech A m l).length = m := by
+  simp [mech, diffWord]
+
+theorem mech_sum {m : ℕ} (hm : 0 < m) (A l : ℕ) (hl : l < m) : (mech A m l).sum = A := by
+  rw [mech, sum_diffWord _ (mech_monotone A m l)]
+  simp only [zero_mul, zero_add]
+  rw [show m * A + l = l + m * A by ring, Nat.add_mul_div_left _ _ hm, Nat.div_eq_of_lt hl]
+  simp
+
+/-- Every phase word has `D = 2^A − 3^m`. -/
+theorem D_mech {m : ℕ} (hm : 0 < m) (A l : ℕ) (hl : l < m) : D (mech A m l) = 2 ^ A - 3 ^ m := by
+  rw [D, mech_sum hm A l hl, mech_length]
+
+/-- For `A ≥ m` the mechanical words are positive valuation words. -/
+theorem mech_pos {m : ℕ} (hm : 0 < m) (A l : ℕ) (hAm : m ≤ A) : ∀ x ∈ mech A m l, 1 ≤ x := by
+  intro x hx
+  simp only [mech, diffWord, List.mem_map, List.mem_range] at hx
+  obtain ⟨j, -, rfl⟩ := hx
+  have h1 : (j * A + l + m) / m ≤ ((j + 1) * A + l) / m :=
+    Nat.div_le_div_right (by nlinarith)
+  rw [Nat.add_div_right _ hm] at h1
+  omega
+
+/-- The intercept of the phase-`l` word, `l < m`, as R71's sum. -/
+theorem C_mech {m : ℕ} (A l : ℕ) (hl : l < m) :
+    C (mech A m l) = ∑ j ∈ Finset.range m, (3 : ℤ) ^ (m - (j + 1)) * 2 ^ ((j * A + l) / m) := by
+  have h := C_diffWord (fun j => (j * A + l) / m) (mech_monotone A m l) m
+  simp only [zero_mul, zero_add, Nat.div_eq_of_lt hl, pow_zero, one_mul] at h
+  exact h
+
+theorem phase_floor_le (m A l j : ℕ) : j * A / m ≤ (j * A + l) / m :=
+  Nat.div_le_div_right (Nat.le_add_right _ _)
+
+theorem phase_floor_le_succ {m : ℕ} (hm : 0 < m) (A l j : ℕ) (hl : l < m) :
+    (j * A + l) / m ≤ j * A / m + 1 := by
+  rw [← Nat.add_div_right _ hm]
+  exact Nat.div_le_div_right (by omega)
+
+/-- `C_0 ≤ C_l`: each summand of phase `l` is at least the matching summand of phase `0`. -/
+theorem C_mech_zero_le {m : ℕ} (hm : 0 < m) (A l : ℕ) (hl : l < m) :
+    C (mech A m 0) ≤ C (mech A m l) := by
+  rw [C_mech A 0 hm, C_mech A l hl]
+  apply Finset.sum_le_sum
+  intro j _
+  simp only [add_zero]
+  exact mul_le_mul_of_nonneg_left (pow_le_pow_right₀ (by norm_num) (phase_floor_le m A l j))
+    (by positivity)
+
+/-- `C_l < 2 C_0`: each summand of phase `l` is at most twice the matching summand of phase
+`0`, and the `j = 0` summand `3^{m−1}` is the same in both. -/
+theorem C_mech_lt_two {m : ℕ} (hm : 0 < m) (A l : ℕ) (hl : l < m) :
+    C (mech A m l) < 2 * C (mech A m 0) := by
+  rw [C_mech A 0 hm, C_mech A l hl, Finset.mul_sum]
+  apply Finset.sum_lt_sum
+  · intro j _
+    have h := phase_floor_le_succ hm A l j hl
+    simp only [add_zero]
+    calc (3 : ℤ) ^ (m - (j + 1)) * 2 ^ ((j * A + l) / m)
+        ≤ 3 ^ (m - (j + 1)) * 2 ^ (j * A / m + 1) :=
+          mul_le_mul_of_nonneg_left (pow_le_pow_right₀ (by norm_num) h) (by positivity)
+      _ = 2 * (3 ^ (m - (j + 1)) * 2 ^ (j * A / m)) := by ring
+  · refine ⟨0, Finset.mem_range.mpr hm, ?_⟩
+    simp only [zero_mul, zero_add, Nat.div_eq_of_lt hl, Nat.zero_div, pow_zero, mul_one]
+    have : (0 : ℤ) < 3 ^ (m - 1) := by positivity
+    linarith
+
+/-! #### Rotations of a phase word are phase words -/
+
+theorem step_add_mul {m : ℕ} (hm : 0 < m) (A r q : ℕ) :
+    (r + m * q + A) / m - (r + m * q) / m = (r + A) / m - r / m := by
+  rw [show r + m * q + A = r + A + m * q by ring, Nat.add_mul_div_left _ _ hm,
+    Nat.add_mul_div_left _ _ hm, Nat.add_sub_add_right]
+
+theorem step_mod {m : ℕ} (hm : 0 < m) (A N : ℕ) :
+    (N + A) / m - N / m = (N % m + A) / m - N % m / m := by
+  have h := step_add_mul hm A (N % m) (N / m)
+  rwa [Nat.mod_add_div] at h
+
+theorem step_congr {m : ℕ} (hm : 0 < m) (A : ℕ) {N₁ N₂ : ℕ} (h : N₁ % m = N₂ % m) :
+    (N₁ + A) / m - N₁ / m = (N₂ + A) / m - N₂ / m := by
+  rw [step_mod hm A N₁, step_mod hm A N₂, h]
+
+/-- Rotating the phase-`l` word by `i` letters gives the phase `(l + iA) mod m`; in particular
+every rotation of the mechanical word `mech A m 0` is the phase word of `iA mod m`. -/
+theorem mech_rotate {m : ℕ} (hm : 0 < m) (A l i : ℕ) :
+    (mech A m l).rotate i = mech A m ((l + i * A) % m) := by
+  apply List.ext_getElem
+  · simp [mech_length]
+  · intro k hk₁ hk₂
+    rw [List.getElem_rotate]
+    simp only [mech, diffWord, List.getElem_map, List.getElem_range, List.length_map,
+      List.length_range]
+    have e1 : ((k + i) % m + 1) * A + l = (k + i) % m * A + l + A := by ring
+    have e2 : (k + 1) * A + (l + i * A) % m = k * A + (l + i * A) % m + A := by ring
+    rw [e1, e2]
+    apply step_congr hm
+    have h1 : (k + i) % m * A + l ≡ (k + i) * A + l [MOD m] :=
+      ((Nat.mod_modEq (k + i) m).mul_right A).add_right l
+    have h2 : k * A + (l + i * A) % m ≡ k * A + (l + i * A) [MOD m] :=
+      (Nat.mod_modEq (l + i * A) m).add_left (k * A)
+    have e3 : (k + i) * A + l = k * A + (l + i * A) := by ring
+    have h2' : (k + i) * A + l ≡ k * A + (l + i * A) % m [MOD m] := by
+      rw [e3]; exact h2.symm
+    exact h1.trans h2'
+
+/-- **C004 §3, reverse direction.** Every rotation of the mechanical word has its intercept in
+`[C_0, 2 C_0)` and the common `D = 2^A − 3^m`; so, when `D > 0`, all states `C_i/D` of the
+mechanical cycle lie in `[L, 2L)` with `L = C_0/D`: a mechanical cycle is narrow, `H < 2L`.
+No coprimality of `A` and `m` is needed for the inequalities. -/
+theorem narrow_mech {m : ℕ} (hm : 0 < m) (A i : ℕ) :
+    C (mech A m 0) ≤ C ((mech A m 0).rotate i)
+      ∧ C ((mech A m 0).rotate i) < 2 * C (mech A m 0)
+      ∧ D ((mech A m 0).rotate i) = 2 ^ A - 3 ^ m := by
+  rw [mech_rotate hm A 0 i]
+  have hl : (0 + i * A) % m < m := Nat.mod_lt _ hm
+  exact ⟨C_mech_zero_le hm A _ hl, C_mech_lt_two hm A _ hl, D_mech hm A _ hl⟩
+
+/-- The `d = 5` control: `mech 5 3 0 = (1,2,2)`, rotations `(2,2,1)`, `(2,1,2)`, intercepts
+`23, 37, 29` (C004's table), `37 < 2 · 23`. -/
+example : mech 5 3 0 = [1, 2, 2] ∧ (mech 5 3 0).rotate 1 = [2, 2, 1] ∧
+    (mech 5 3 0).rotate 2 = [2, 1, 2] := by decide
+
+example : C [1, 2, 2] = 23 ∧ C [2, 2, 1] = 37 ∧ C [2, 1, 2] = 29 ∧ D [1, 2, 2] = 5 := by
+  norm_num [C, D]
+
 end Cyc
 end LeanLane
