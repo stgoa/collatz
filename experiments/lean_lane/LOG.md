@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 13, review — side lane verifies C002-a; (U1) strengthened
+
+- `claude/sidekick` fe7377a (feed 00:45): C002-a at cf15b22 **verified**
+  (hypotheses of (U1) exactly, supporting results read correctly, axioms
+  20 × standard + 3 × `[propext]`, clean scan, hash match), with the
+  precision note that the formal conclusion `2^m·gcd < D` is the weaker
+  `den > 2^m`, whereas main's (U1) states `den > 2^m·U/V`.
+- Strengthened in the same file: `uniform_two_block_strong` proves
+  `U·2^m·gcd(C,D) < V·D`, i.e. `den > 2^m U/V`, main's full bound, by
+  multiplying the chain through by `U` and `V`; `uniform_two_block` (the
+  weaker form) is now a corollary. Twenty-four declarations with the
+  standard axioms; no diagnostics; receipts regenerated (sha256
+  `a64b42e3…7fb3`, 872 lines).
+- Main pushed `7270d95` (C003: uniform denominator bounds for changing
+  repeated blocks). Read next.
+
 ## Iteration 13 — 2026-10-19, ~01:50 -03
 
 - Side lane verdict on C001-b (feed 00:32, `9a17566`): **verified** — (7)

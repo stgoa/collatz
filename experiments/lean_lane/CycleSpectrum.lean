@@ -737,15 +737,16 @@ theorem pow_sub_pow_lower (U V : ℤ) (hV : 0 < V) (hUV : V < U) {h n : ℕ} (hh
     mul_pos (pow_pos hV h) (sub_pos.mpr (pow_lt_pow_left₀ hUV hV.le (by omega)))
   linarith
 
-/-- **C002's (U1).** Two distinct positive words `u ≠ v` of the same length `m` and total
-`A`, with `2^A > 3^m`, and `k, ℓ ≥ 1`, `k + ℓ ≥ 3`: the reduced denominator of
-`u^k v^ℓ` exceeds `2^m`, i.e. `2^m · gcd(C, D) < D`. -/
-theorem uniform_two_block (u v : List ℕ) (hu : ∀ a ∈ u, 1 ≤ a) (hv : ∀ a ∈ v, 1 ≤ a)
+/-- **C002's (U1), full form.** Two distinct positive words `u ≠ v` of the same length `m`
+and total `A`, with `U = 2^A > V = 3^m`, and `k, ℓ ≥ 1`, `k + ℓ ≥ 3`: the reduced
+denominator of `u^k v^ℓ` exceeds `2^m · U/V`, i.e. `U · 2^m · gcd(C, D) < V · D`. -/
+theorem uniform_two_block_strong (u v : List ℕ) (hu : ∀ a ∈ u, 1 ≤ a) (hv : ∀ a ∈ v, 1 ≤ a)
     (hu0 : u ≠ []) (huv : u ≠ v) (hlen : u.length = v.length) (hsum : u.sum = v.sum)
     (hUV : (3 : ℤ) ^ u.length < 2 ^ u.sum) (k l : ℕ) (hk : 1 ≤ k) (hl : 1 ≤ l)
     (hn : 3 ≤ k + l) :
-    (2 : ℤ) ^ u.length * (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ)
-      < D (rep u k ++ rep v l) := by
+    (2 : ℤ) ^ u.sum
+        * (2 ^ u.length * (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ))
+      < 3 ^ u.length * D (rep u k ++ rep v l) := by
   have hv0 : v ≠ [] := fun h => hu0 (List.length_eq_zero_iff.mp (hlen.trans (by simp [h])))
   -- the common block data
   have hDv : D v = D u := by simp [D, hlen, hsum]
@@ -815,27 +816,57 @@ theorem uniform_two_block (u v : List ℕ) (hu : ∀ a ∈ u, 1 ≤ a) (hv : ∀
   have hlow := pow_sub_pow_lower ((2 : ℤ) ^ u.sum) (3 ^ u.length) (by positivity) hUV
     (show Nat.gcd k l < k + l by omega)
   have h2m : (0 : ℤ) < 2 ^ u.length := by positivity
+  have h2A : (0 : ℤ) < 2 ^ u.sum := by positivity
+  have h3m : (0 : ℤ) < 3 ^ u.length := by positivity
   have hU2 : (2 : ℤ) ^ u.sum * 2 ^ u.sum ≤ ((2 : ℤ) ^ u.sum) ^ (k + l - Nat.gcd k l) := by
     rw [← pow_two]
     exact pow_le_pow_right₀ (one_le_pow₀ (by norm_num)) (by omega)
-  calc (2 : ℤ) ^ u.length * ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ)
-      ≤ 2 ^ u.length * (|C v - C u|
+  calc (2 : ℤ) ^ u.sum
+        * (2 ^ u.length * ((Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℕ) : ℤ))
+      ≤ 2 ^ u.sum * (2 ^ u.length * (|C v - C u|
+          * (((2 : ℤ) ^ u.sum) ^ Nat.gcd k l - (3 ^ u.length) ^ Nat.gcd k l))) :=
+        mul_le_mul_of_nonneg_left (mul_le_mul_of_nonneg_left hg_le h2m.le) h2A.le
+    _ = 2 ^ u.sum * ((2 ^ u.length * |C v - C u|)
+          * (((2 : ℤ) ^ u.sum) ^ Nat.gcd k l - (3 ^ u.length) ^ Nat.gcd k l)) := by ring
+    _ < 2 ^ u.sum * ((2 ^ u.sum * 3 ^ u.length)
           * (((2 : ℤ) ^ u.sum) ^ Nat.gcd k l - (3 ^ u.length) ^ Nat.gcd k l)) :=
-        mul_le_mul_of_nonneg_left hg_le h2m.le
-    _ = (2 ^ u.length * |C v - C u|)
-          * (((2 : ℤ) ^ u.sum) ^ Nat.gcd k l - (3 ^ u.length) ^ Nat.gcd k l) := by ring
-    _ < (2 ^ u.sum * 3 ^ u.length)
-          * (((2 : ℤ) ^ u.sum) ^ Nat.gcd k l - (3 ^ u.length) ^ Nat.gcd k l) :=
-        mul_lt_mul_of_pos_right hJbound hHh
-    _ < (2 ^ u.sum * 2 ^ u.sum)
-          * (((2 : ℤ) ^ u.sum) ^ Nat.gcd k l - (3 ^ u.length) ^ Nat.gcd k l) := by
-        apply mul_lt_mul_of_pos_right _ hHh
-        exact mul_lt_mul_of_pos_left hUV (by positivity)
-    _ ≤ ((2 : ℤ) ^ u.sum) ^ (k + l - Nat.gcd k l)
-          * (((2 : ℤ) ^ u.sum) ^ Nat.gcd k l - (3 ^ u.length) ^ Nat.gcd k l) :=
-        mul_le_mul_of_nonneg_right hU2 hHh.le
-    _ < ((2 : ℤ) ^ u.sum) ^ (k + l) - (3 ^ u.length) ^ (k + l) := hlow
-    _ = D (rep u k ++ rep v l) := hDw.symm
+        mul_lt_mul_of_pos_left (mul_lt_mul_of_pos_right hJbound hHh) h2A
+    _ = 3 ^ u.length * ((2 ^ u.sum * 2 ^ u.sum)
+          * (((2 : ℤ) ^ u.sum) ^ Nat.gcd k l - (3 ^ u.length) ^ Nat.gcd k l)) := by ring
+    _ ≤ 3 ^ u.length * (((2 : ℤ) ^ u.sum) ^ (k + l - Nat.gcd k l)
+          * (((2 : ℤ) ^ u.sum) ^ Nat.gcd k l - (3 ^ u.length) ^ Nat.gcd k l)) :=
+        mul_le_mul_of_nonneg_left (mul_le_mul_of_nonneg_right hU2 hHh.le) h3m.le
+    _ < 3 ^ u.length * (((2 : ℤ) ^ u.sum) ^ (k + l) - (3 ^ u.length) ^ (k + l)) :=
+        mul_lt_mul_of_pos_left hlow h3m
+    _ = 3 ^ u.length * D (rep u k ++ rep v l) := by rw [hDw]
+
+/-- **C002's (U1), weaker form.** Under the same hypotheses the reduced denominator exceeds
+`2^m`, i.e. `2^m · gcd(C, D) < D`. -/
+theorem uniform_two_block (u v : List ℕ) (hu : ∀ a ∈ u, 1 ≤ a) (hv : ∀ a ∈ v, 1 ≤ a)
+    (hu0 : u ≠ []) (huv : u ≠ v) (hlen : u.length = v.length) (hsum : u.sum = v.sum)
+    (hUV : (3 : ℤ) ^ u.length < 2 ^ u.sum) (k l : ℕ) (hk : 1 ≤ k) (hl : 1 ≤ l)
+    (hn : 3 ≤ k + l) :
+    (2 : ℤ) ^ u.length * (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ)
+      < D (rep u k ++ rep v l) := by
+  have hstrong := uniform_two_block_strong u v hu hv hu0 huv hlen hsum hUV k l hk hl hn
+  have hv0 : v ≠ [] := fun h => hu0 (List.length_eq_zero_iff.mp (hlen.trans (by simp [h])))
+  have hsumw : 1 ≤ (rep u k ++ rep v l).sum := by
+    rw [List.sum_append, rep_sum, rep_sum]
+    have := Nat.mul_le_mul hl (one_le_sum_of_ne_nil hv0 hv)
+    omega
+  have hDw0 : D (rep u k ++ rep v l) ≠ 0 := fun h0 => D_odd hsumw (h0 ▸ dvd_zero 2)
+  have hgpos : (0 : ℤ) < (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ) := by
+    exact_mod_cast Int.gcd_pos_of_ne_zero_right _ hDw0
+  have h2m : (0 : ℤ) < 2 ^ u.length := by positivity
+  have h3m : (0 : ℤ) < 3 ^ u.length := by positivity
+  rcases lt_or_ge ((2 : ℤ) ^ u.length
+      * (Int.gcd (C (rep u k ++ rep v l)) (D (rep u k ++ rep v l)) : ℤ)) (D (rep u k ++ rep v l))
+    with h | h
+  · exact h
+  · exfalso
+    have p1 := mul_le_mul_of_nonneg_left h h3m.le
+    have p2 := mul_lt_mul_of_pos_right hUV (mul_pos h2m hgpos)
+    linarith
 
 end Cyc
 end LeanLane
