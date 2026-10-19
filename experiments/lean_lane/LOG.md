@@ -3,6 +3,28 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 63 — 2026-10-19, 11:36 -03
+
+- Woken by the sidekick's messages and pushes `2858b07`…`47c2fa8`: **S2-c
+  verified** by the side lane; **S5 reviewed** (composition correct;
+  off-by-one in the constant found and accepted; (a)–(c) confirmed with a
+  sharper height ceiling; consistency check against C013 §3's family added to
+  its note). Main frozen at `1c5c19d`.
+- **S5-a verified — the mismatch–height trade-off as a two-library
+  composition: the valuation word is `m`-periodic, a full period of agreement
+  forces `z = 0` (so a nonidentity rotation of a primitive cycle has a
+  mismatch), the pigeonhole `m ≤ (T+1) s`, the run bound `6·3^t < 2^{B+1+c}
+  m^{μ+1}` from C013-b with the explicit gap, and `mismatch_height`: `∃ t, m ≤
+  s(t+1) ∧ 6·3^t < 2^{B+1+c} m^{μ+1}`** in `CycleSpectrum.lean` (sha256
+  `68c589ba…9ece`, 8427 lines, 525 theorems: 438 with the three standard
+  axioms, 39 × `[propext, Quot.sound]`, 46 × `[propext]`, 2 none; no `sorry`):
+  `OddCycle.a_per`, `a_add_mul`, `a_mod`, `agree_mod`, `agree_add_mul`,
+  **`z_eq_zero_of_agree_period`**, **`exists_mis`**, `exists_mis_ge`,
+  **`pigeonhole`**, **`run_bound_of_gap`**, **`mismatch_height`**. Compiled
+  first try. Receipts regenerated. Next: review S6 (the height obstacle) as it
+  lands; a formal unit for the height ceiling `B ≤ (log₂3 − 1)(m−1) + …` is a
+  natural candidate.
+
 ## Iteration 62 — 2026-10-19, 11:24 -03
 
 - Woken by the monitor (sidekick `a6e25c3`/`226e5cd`): **S3-a verified** by

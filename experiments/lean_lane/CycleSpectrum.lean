@@ -6610,6 +6610,232 @@ theorem pair_adjacent (hB3 : Γ.B = 3) {i j : ℕ} (hi : Γ.h i = 0) (hj : Γ.h 
 
 end OddCycle
 
+/-! ### S5-a: the mismatch–height trade-off (the side lane's S5 §2) as a two-library composition
+
+For a primitive cycle at `q = 1`, a nonidentity rotation `h` with mismatch set
+`mis h = {i < m : a_i ≠ a_{i+h}}` of size `s`, and the explicit gap `2^A ≤ 2^c m^μ D` (the shape of
+mmusson/collatz's `gap_all`, EXT-1): some `t` has `m ≤ s(t+1)` and `6 · 3^t < 2^{B+1+c} m^{μ+1}`
+(`mismatch_height`). Ingredients: the valuation word is `m`-periodic (`a_per`, `a_mod`); a full
+period of agreement forces `z = 0` by the run law, so a nonidentity rotation of a primitive cycle
+has a mismatch (`z_eq_zero_of_agree_period`, `exists_mis`); the pigeonhole `m ≤ (T+1)·s` when every
+agreeing run has length `≤ T` (`pigeonhole`: the fibres of "next mismatch" inject into `{0,…,T}`);
+and (I1)+(I3), C013-b's `q_bound_rational` with the gap, at any run with `z ≠ 0`
+(`run_bound_of_gap`: `6 · 3^t < 2^{B+1+c} m^{μ+1}`). Taking `t` the longest run gives the theorem.
+The real-logarithm form `(m − s) log₂ 3 < s (B + 1 + c + (μ+1) log₂ m − log₂ 6) + O(s)` follows
+and is not restated. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+/-- The valuation word is `m`-periodic: the arrows at `i` and `i + m` have the same source and
+target. -/
+theorem a_per (i : ℕ) : Γ.a (i + m) = Γ.a i := by
+  have h1 := Γ.arrow (i + m)
+  have h2 := Γ.arrow i
+  rw [Γ.nper i, Nat.add_right_comm i m 1, Γ.nper (i + 1)] at h1
+  have hn : 0 < Γ.n (i + 1) := Γ.npos.trans_le (Γ.nmin _)
+  have h3 : (2 : ℤ) ^ Γ.a (i + m) * Γ.n (i + 1) = 2 ^ Γ.a i * Γ.n (i + 1) := by
+    rw [h1, h2]
+  have h4 : (2 : ℤ) ^ Γ.a (i + m) = 2 ^ Γ.a i := mul_right_cancel₀ hn.ne' h3
+  exact Nat.pow_right_injective (le_refl 2) (by exact_mod_cast h4)
+
+theorem a_add_mul (k t : ℕ) : Γ.a (k + m * t) = Γ.a k := by
+  induction t with
+  | zero => simp
+  | succ t ih => rw [Nat.mul_succ, ← Nat.add_assoc, Γ.a_per, ih]
+
+theorem a_mod (k : ℕ) : Γ.a (k % m) = Γ.a k := by
+  conv_rhs => rw [← Nat.mod_add_div k m]
+  rw [Γ.a_add_mul]
+
+/-- The agreement predicate of the rotation `h` at position `i`: `a_i = a_{i+h}`. -/
+abbrev agree (h i : ℕ) : Prop := Γ.a i = Γ.a (i + h)
+
+theorem agree_mod (h i : ℕ) : Γ.agree h (i % m) ↔ Γ.agree h i := by
+  unfold agree
+  rw [Γ.a_mod i, ← Γ.a_mod (i % m + h), Nat.mod_add_mod, Γ.a_mod]
+
+theorem agree_add_mul (h k t : ℕ) : Γ.agree h (k + m * t) ↔ Γ.agree h k := by
+  unfold agree
+  rw [Γ.a_add_mul, Nat.add_right_comm k (m * t) h, Γ.a_add_mul]
+
+/-- The mismatch positions of the rotation `h` in one period; their number is `s`. -/
+def mis (h : ℕ) : Finset ℕ := (Finset.range m).filter (fun i => ¬ Γ.agree h i)
+
+/-- A full period of agreement forces `z = 0`: `2^E z = 3^m z` with `2^E ≠ 3^m`. -/
+theorem z_eq_zero_of_agree_period {h i : ℕ} (hall : ∀ j, j < m → Γ.agree h (i + j)) :
+    Γ.z h i = 0 := by
+  have hrun := Γ.z_run (h := h) (i := i) m (fun j hj => hall j hj)
+  have hper : Γ.z h (i + m) = Γ.z h i := by
+    unfold z
+    rw [Nat.add_right_comm i m h, Γ.nper, Γ.nper]
+  rw [hper] at hrun
+  have h2 : ((2 : ℤ) ^ Γ.runSum i m - 3 ^ m) * Γ.z h i = 0 := by linear_combination hrun
+  rcases mul_eq_zero.mp h2 with h3 | h3
+  · exfalso
+    have h4 : (2 : ℤ) ^ Γ.runSum i m = 3 ^ m := by linarith
+    have hodd : Odd ((3 : ℤ) ^ m) := Odd.pow ⟨1, by norm_num⟩
+    rcases Nat.eq_zero_or_pos (Γ.runSum i m) with hE | hE
+    · rw [hE, pow_zero] at h4
+      have hm0 : m = 0 := by
+        by_contra hm0
+        have h5 : (3 : ℤ) ^ 1 ≤ 3 ^ m :=
+          pow_le_pow_right₀ (by norm_num) (Nat.one_le_iff_ne_zero.mpr hm0)
+        linarith
+      exact absurd hm0 Γ.hm.ne'
+    · have heven : Even ((2 : ℤ) ^ Γ.runSum i m) := even_two.pow_of_ne_zero hE.ne'
+      rw [h4] at heven
+      exact (Int.not_even_iff_odd.mpr hodd) heven
+  · exact h3
+
+/-- A nonidentity rotation of a primitive cycle has a mismatch. -/
+theorem exists_mis (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) {h : ℕ}
+    (hh : h % m ≠ 0) : ∃ p, ¬ Γ.agree h p := by
+  by_contra hno
+  have hall : ∀ j, j < m → Γ.agree h (0 + j) := fun j _ => by
+    by_contra hna
+    exact hno ⟨_, hna⟩
+  exact Γ.z_ne_zero hprim hh 0 (Γ.z_eq_zero_of_agree_period hall)
+
+/-- A mismatch recurs at or after every position (periodicity). -/
+theorem exists_mis_ge {h p : ℕ} (hp : ¬ Γ.agree h p) (x : ℕ) :
+    ∃ y, x ≤ y ∧ ¬ Γ.agree h y := by
+  refine ⟨p + m * x, ?_, ?_⟩
+  · exact le_trans (Nat.le_mul_of_pos_left x Γ.hm) (Nat.le_add_left _ _)
+  · rw [Γ.agree_add_mul]
+    exact hp
+
+/-- The pigeonhole (I2): if a mismatch exists and every agreeing run has length `≤ T`, then
+`m ≤ (T + 1) · s`. -/
+theorem pigeonhole {h : ℕ} (hne : ∃ p, ¬ Γ.agree h p) {T : ℕ}
+    (hT : ∀ i t, (∀ j, j < t → Γ.agree h (i + j)) → t ≤ T) :
+    m ≤ (T + 1) * (Γ.mis h).card := by
+  obtain ⟨p, hp⟩ := hne
+  have hex : ∀ x, ∃ y, x ≤ y ∧ ¬ Γ.agree h y := Γ.exists_mis_ge hp
+  obtain ⟨nxt, hnxt⟩ : ∃ nxt : ℕ → ℕ, ∀ x, x ≤ nxt x ∧ ¬ Γ.agree h (nxt x) ∧
+      ∀ y, x ≤ y → y < nxt x → Γ.agree h y :=
+    ⟨fun x => Nat.find (hex x), fun x => ⟨(Nat.find_spec (hex x)).1, (Nat.find_spec (hex x)).2,
+      fun y hxy hy => by
+        by_contra hna
+        exact absurd (Nat.find_min' (hex x) ⟨hxy, hna⟩) (not_le.mpr hy)⟩⟩
+  have hd : ∀ x, nxt x - x ≤ T := by
+    intro x
+    have hge := (hnxt x).1
+    apply hT x (nxt x - x)
+    intro j hj
+    exact (hnxt x).2.2 (x + j) (Nat.le_add_right x j) (by omega)
+  have hg : ∀ x, nxt x % m ∈ Γ.mis h := by
+    intro x
+    unfold mis
+    rw [Finset.mem_filter, Finset.mem_range, Γ.agree_mod]
+    exact ⟨Nat.mod_lt _ Γ.hm, (hnxt x).2.1⟩
+  have hfib : ∀ y ∈ (Finset.range m).image (fun x => nxt x % m),
+      ((Finset.range m).filter (fun x => nxt x % m = y)).card ≤ T + 1 := by
+    intro y _
+    have hmaps : ∀ x ∈ (Finset.range m).filter (fun x => nxt x % m = y),
+        nxt x - x ∈ Finset.range (T + 1) := by
+      intro x _
+      rw [Finset.mem_range]
+      exact Nat.lt_succ_of_le (hd x)
+    have hinj : Set.InjOn (fun x => nxt x - x)
+        ((Finset.range m).filter (fun x => nxt x % m = y)) := by
+      intro x hx x' hx' hxx'
+      have hx2 := Finset.mem_filter.mp (Finset.mem_coe.mp hx)
+      have hx2' := Finset.mem_filter.mp (Finset.mem_coe.mp hx')
+      have hxm : x < m := Finset.mem_range.mp hx2.1
+      have hxm' : x' < m := Finset.mem_range.mp hx2'.1
+      have e1 : nxt x = x + (nxt x - x) := (Nat.add_sub_cancel' (hnxt x).1).symm
+      have e2 : nxt x' = x' + (nxt x' - x') := (Nat.add_sub_cancel' (hnxt x').1).symm
+      have hmod : nxt x % m = nxt x' % m := hx2.2.trans hx2'.2.symm
+      rw [e1, e2] at hmod
+      simp only at hxx'
+      rw [← hxx'] at hmod
+      have h3 : x % m = x' % m := Nat.ModEq.add_right_cancel' _ hmod
+      rwa [Nat.mod_eq_of_lt hxm, Nat.mod_eq_of_lt hxm'] at h3
+    calc ((Finset.range m).filter (fun x => nxt x % m = y)).card
+        ≤ (Finset.range (T + 1)).card := Finset.card_le_card_of_injOn _ hmaps hinj
+      _ = T + 1 := Finset.card_range _
+  have hmain := Finset.card_le_mul_card_image (Finset.range m) (T + 1) hfib
+  rw [Finset.card_range] at hmain
+  have himg : (Finset.range m).image (fun x => nxt x % m) ⊆ Γ.mis h := by
+    intro y hy
+    rw [Finset.mem_image] at hy
+    obtain ⟨x, _, rfl⟩ := hy
+    exact hg x
+  calc m ≤ (T + 1) * ((Finset.range m).image (fun x => nxt x % m)).card := hmain
+    _ ≤ (T + 1) * (Γ.mis h).card := Nat.mul_le_mul_left _ (Finset.card_le_card himg)
+
+/-- (I1)+(I3) at `q = 1`: with the explicit gap `2^A ≤ 2^c m^μ D`, every agreeing run of length `t`
+of a rotation with `z ≠ 0` at its end has `6 · 3^t < 2^{B+1+c} m^{μ+1}`. -/
+theorem run_bound_of_gap (hq1 : Γ.q = 1) {c μ : ℕ}
+    (hgap : (2 : ℤ) ^ Γ.Apre m ≤ 2 ^ c * (m : ℤ) ^ μ * (2 ^ Γ.Apre m - 3 ^ m))
+    {h i : ℕ} (t : ℕ) (hagree : ∀ j, j < t → Γ.a (i + j) = Γ.a (i + j + h))
+    (hz : Γ.z h (i + t) ≠ 0) :
+    6 * (3 : ℤ) ^ t < 2 ^ (Γ.B + 1 + c) * (m : ℤ) ^ (μ + 1) := by
+  have h7 := Γ.q_bound_rational t hagree hz
+  rw [hq1, mul_one] at h7
+  have hD := Γ.D_pos
+  have hmax : (3 : ℤ) ^ t ≤ max ((2 : ℤ) ^ Γ.runSum i t) (3 ^ t) := le_max_right _ _
+  have hK : (2 : ℤ) ^ (Γ.B + 1) - 1 ≤ 2 ^ (Γ.B + 1) := by linarith
+  have hm0 : (0 : ℤ) ≤ m := by positivity
+  have h1 : 6 * ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * 3 ^ t <
+      (m : ℤ) * 2 ^ Γ.Apre m * 2 ^ (Γ.B + 1) := by
+    calc 6 * ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * 3 ^ t
+        ≤ 6 * ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * max ((2 : ℤ) ^ Γ.runSum i t) (3 ^ t) :=
+          mul_le_mul_of_nonneg_left hmax (mul_nonneg (by norm_num) hD.le)
+      _ < (m : ℤ) * 2 ^ Γ.Apre m * (2 ^ (Γ.B + 1) - 1) := h7
+      _ ≤ (m : ℤ) * 2 ^ Γ.Apre m * 2 ^ (Γ.B + 1) :=
+          mul_le_mul_of_nonneg_left hK (by positivity)
+  have h2 : (m : ℤ) * 2 ^ Γ.Apre m * 2 ^ (Γ.B + 1) ≤
+      (m : ℤ) * (2 ^ c * (m : ℤ) ^ μ * (2 ^ Γ.Apre m - 3 ^ m)) * 2 ^ (Γ.B + 1) :=
+    mul_le_mul_of_nonneg_right (mul_le_mul_of_nonneg_left hgap hm0) (by positivity)
+  have h3 : ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * (6 * 3 ^ t) <
+      ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * (2 ^ (Γ.B + 1 + c) * (m : ℤ) ^ (μ + 1)) := by
+    calc ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * (6 * 3 ^ t)
+        = 6 * ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * 3 ^ t := by ring
+      _ < (m : ℤ) * 2 ^ Γ.Apre m * 2 ^ (Γ.B + 1) := h1
+      _ ≤ (m : ℤ) * (2 ^ c * (m : ℤ) ^ μ * (2 ^ Γ.Apre m - 3 ^ m)) * 2 ^ (Γ.B + 1) := h2
+      _ = ((2 : ℤ) ^ Γ.Apre m - 3 ^ m) * (2 ^ (Γ.B + 1 + c) * (m : ℤ) ^ (μ + 1)) := by ring
+  exact lt_of_mul_lt_mul_left h3 hD.le
+
+/-- **S5 §2 in integer form.** For a primitive cycle at `q = 1` with the explicit gap
+`2^A ≤ 2^c m^μ D` and any rotation `h` with `h % m ≠ 0`, writing `s` for the number of mismatches,
+some `t` has `m ≤ s (t + 1)` and `6 · 3^t < 2^{B+1+c} m^{μ+1}`. -/
+theorem mismatch_height (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ.n j → i = j) (hq1 : Γ.q = 1)
+    {c μ : ℕ} (hgap : (2 : ℤ) ^ Γ.Apre m ≤ 2 ^ c * (m : ℤ) ^ μ * (2 ^ Γ.Apre m - 3 ^ m))
+    {h : ℕ} (hh : h % m ≠ 0) :
+    ∃ t, m ≤ (Γ.mis h).card * (t + 1) ∧
+      6 * (3 : ℤ) ^ t < 2 ^ (Γ.B + 1 + c) * (m : ℤ) ^ (μ + 1) := by
+  classical
+  have hne := Γ.exists_mis hprim hh
+  have hlt : ∀ i t, (∀ j, j < t → Γ.agree h (i + j)) → t < m := by
+    intro i t hrun
+    by_contra hge
+    have hall : ∀ j, j < m → Γ.agree h (i + j) :=
+      fun j hj => hrun j (lt_of_lt_of_le hj (not_lt.mp hge))
+    exact Γ.z_ne_zero hprim hh i (Γ.z_eq_zero_of_agree_period hall)
+  obtain ⟨P, hP⟩ : ∃ P : ℕ → Prop, ∀ t, P t ↔ ∃ i, i < m ∧ ∀ j, j < t → Γ.agree h (i + j) :=
+    ⟨_, fun _ => Iff.rfl⟩
+  have hP0 : P 0 := (hP 0).mpr ⟨0, Γ.hm, fun j hj => absurd hj (Nat.not_lt_zero j)⟩
+  have hPT : P (Nat.findGreatest P m) := Nat.findGreatest_spec (Nat.zero_le m) hP0
+  obtain ⟨i, _, hrun⟩ := (hP _).mp hPT
+  refine ⟨Nat.findGreatest P m, ?_, ?_⟩
+  · have hTbound : ∀ i' t, (∀ j, j < t → Γ.agree h (i' + j)) → t ≤ Nat.findGreatest P m := by
+      intro i' t hrun'
+      have hrun'' : ∀ j, j < t → Γ.agree h (i' % m + j) := by
+        intro j hj
+        rw [← Γ.agree_mod, Nat.mod_add_mod, Γ.agree_mod]
+        exact hrun' j hj
+      exact Nat.le_findGreatest (hlt i' t hrun').le
+        ((hP t).mpr ⟨i' % m, Nat.mod_lt _ Γ.hm, hrun''⟩)
+    have hpig := Γ.pigeonhole hne hTbound
+    rw [Nat.mul_comm] at hpig
+    exact hpig
+  · exact Γ.run_bound_of_gap hq1 hgap _ (fun j hj => hrun j hj) (Γ.z_ne_zero hprim hh _)
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
