@@ -29,7 +29,24 @@ and any insight sent to the feed.
   Lean route (odd rule extended to every `x` via `x+M`/`x+2M`) is the one
   described to it.
 - Side lane verdicts received this iteration: V005-a **verified** (feed
-  22:26, `bc76c7d`), with the bijection remark posted for main.
+  22:26, `bc76c7d`), with the bijection remark posted for main; my V006
+  Cobham-scope point posted (feed 22:32, `d407b8d`) after the side lane
+  checked it against main's text.
+- Main pushed `b24020f` (V007, singleton-exit obstruction and reverse
+  closure) while 1b was being committed. Read REPORT, separator,
+  affine_growth, INDEPENDENT_REVIEW, side_review and the AGENTS/RESULTS/
+  brief diffs; verdict sent (sound; the Collatz application of hypothesis
+  (I) is conditional on Cobham through V005/V004, unstated). Queue
+  re-prioritised: V007-a (reverse closure) next, then V006-a.
+- Side lane verdict on 1b (feed 22:42, `7d9a267`): **verified** — statement
+  match with V002 §4/Appendix as refined, converse for every `g ∣ d`, the
+  `n > 1` restriction harmless under periodicity, six-free refinement
+  covers its `3 ∣ d` remark, controls correct, axioms as reported, no
+  `native_decide`, hash match. It suggests a later target: the `d`-version
+  of the closure up to bounded shifts (`D_UNIFORM_AUTOMATIC.md` Step 1),
+  which with `eventually_periodic_invariant` would give "automatic
+  invariants of `3x+d` are the `⟨×2,×3⟩` class functions mod `d`" modulo
+  `CobhamStatement`; noted as a candidate after V007-a/V006-a.
 
 ## Iteration 7 — 2026-10-18, ~22:30 -03
 
