@@ -18,6 +18,14 @@ and any insight sent to the feed.
   `j.succ` exponent that `ring` does not unfold — pass `hj` as
   `j + 1 ≤ w.length` by `show` instead. Receipts regenerated. Next: C010-a
   (sharp odd-spacing bounds and `L ≥ R_q(H)`), then C009-b.
+- Addendum 04:15: main pushed C011 (`b896512`, two-rotation-defect
+  exclusion) during the build; read and checked by hand (identities (1)–(4),
+  the amplitude-free bound (7), the finiteness argument, the §4
+  classification, the marker family, the q = 359/5/7/13/97 controls and
+  EXCLUSION's constants); no error; one precision remark on the Matveev step
+  sent with the formalisable pieces (STATE "Insights"). The sidekick
+  verified C009-a (`5a3c1f6`, 04:09). Monitor re-armed at 04:14 after its
+  expiry. C011-a queued after C010-a.
 
 ## Iteration 29 — 2026-10-19, 03:54 -03
 

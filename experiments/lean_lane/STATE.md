@@ -47,6 +47,7 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 | C009-a | Main's C009 `EXCURSION_ARITHMETIC.md` §§1–2: the cut lemma and the elimination. **Verified** (iteration 30): `C_take_drop`/`sum_take_drop` (prefix–tail composition `C_w = 3^{ℓ−j} C_j + 2^{P_j} C_tail`), `cut_dvd` (the integrality step `2^{P_j} ∣ 3^j x + q C_j`, cancelling the unit `3^{ℓ−j}`), the cut states `cutState w q x j = (3^j x + q C_j)/2^{P_j}` with `cutState_spec`, `cutState_zero` (`u_0 = x`), `cutState_last` (`u_ℓ = y`), `cutState_arrow` (`2^{a_j} u_{j+1} = 3u_j + q`), `cutState_pos`, `cutState_odd`, bundled as **`cut_lemma`** (hypotheses: positive word, `q > 0` odd, `x > 0`, `y` odd, `2^a y = 3^ℓ x + q C_w`; oddness of `x` is a consequence, not a hypothesis); **`elimination`** (C009's (3): `D_{E++P} x = q C_{E++P}` with `C_{E++P} = 3^r C_E + 2^a C_P`); `D_dvd_C_of_cycle` (necessity at `q = 1`); `isCoprime_two_D`, `dvd_C_rotate` (`D ∣ C_{(i)}` propagates to every phase), `odd_quot_rotate` (every `C_{(i)}/D` is odd); `integer_cycle_of_dvd` and **`cylinders_of_dvd`** (sufficiency at `q = 1`: `D > 0` and `D x = C` give the positive odd integer cycle through `x` with every cut state a positive odd integer and exact arrows). The `k`-block Smith form of §2 is not formalised | `experiments/cycle_spectrum/C009/EXCURSION_ARITHMETIC.md` §§1–2 | **verified** | `[propext, Classical.choice, Quot.sound]` (two helpers `[propext]`) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 251 theorems printed) |
 | C009-b | The one-point deletion theorem of `FIRST_RETURN_ORDER.md` as a statement about the first-return permutation on `{0, …, m−1} \ {0}` under `j ↦ j + s mod m` | `experiments/cycle_spectrum/C009/FIRST_RETURN_ORDER.md` | queued (fiddly) | — | — |
 | C010-a | Main's C010 `ODD_ROUNDING.md` §§2–3: the sharp adjacent odd-spacing bounds `b_q(a,b)` (equal heights `2/2^a`; downward `1/2^a`, seam included; upward `[q(2^k−1)+η]/(3·2^b)` with `η ∈ {6,2,4}` from strict image order) and the summed bound `L ≥ R_q(H)`, in the scaled coordinates of `OrdCycle` (the reconstruction (1) is already `sum_gap`/telescoping; the scalar sum (5) is a corollary of `gap_recurrence`) | `experiments/cycle_spectrum/C010/ODD_ROUNDING.md` §§2–3 | queued | — | — |
+| C011-a | Main's C011 `ROTATION_DEFECTS.md` §§2–3, elementary core: the two-arc identity (1) as a list identity (`C ([a+k] ++ u₀ ++ [a] ++ v₀) − C ([a] ++ u₀ ++ [a+k] ++ v₀) = (2^k − 1) 2^a 3^{|v₀|} C (u₀ ++ [a+k])`), rotation invariance of `g = gcd(C_w, D)`, the divisibility (2) `g ∣ (2^k − 1) gcd(C_u, C_v)`, the intercept bound (4) `C_z < 2^{S−l−(b−1)} 3^l`, and the integer forms `g² < (2^k−1)² 2^{A−m−k} 3^m`, `g² < 2^{2A−2m} 3^m` (hence `q² 2^{2A−2m} 3^m > D²`). Not Lean targets: the real-analytic (6)–(8), Matveev's constant and the Hercher/Barina period input | `experiments/cycle_spectrum/C011/ROTATION_DEFECTS.md` §§2–3 | queued | — | — |
 | C008-a | Main's C008 (`INDEPENDENT_MATCHING.md` §1, `MATCHING_ARITHMETIC.md`): the exact prefix identity `2^{A_i} n_i = 3^i n_0 + q C_i`, the cycle identity `(2^A − 3^m) n_0 = q C_m` and `q ∣ 2^A − 3^m` for reduced cycles; the cyclicity of `⟨2, 3⟩`: in any commutative group `x^A = y^m` with `gcd(A, m) = 1` gives `t` with `t^m = x`, `t^A = y`, and the `ZMod N` instance for the units `2`, `3` when `N ∣ 2^A − 3^m`, `N` coprime to 6; the mechanical prefix sums `Σ_{j<i} c_j = ⌊i(mq' + h)/m⌋`; the sorted-rank residue law (R1) in integer form `2^{P_i} z_[(ih) mod m] ≡ 3^i z_[0] (mod q)` | `experiments/cycle_spectrum/C008/INDEPENDENT_MATCHING.md` §1 | **verified** (iteration 24): `CycleSpectrum.lean`, `exists_common_root`, `zmod_common_root`, `NarrowCycle.sum_a_range`, `OddCycle.{Apre, Cpre, prefix_identity, cycle_identity, q_dvd_D, toNarrow_primitive, toNarrow_rank_zero, sorted_residue_law}` | `[propext, Classical.choice, Quot.sound]` (helpers need only subsets) | `receipts/CycleSpectrum.{build,axioms,sha256}.txt` (regenerated; all 193 theorems printed) |
 | C002-b | The proportional-slope theorem (6)–(8) in its general `(r, s)` form, the `K = 0` characterisation, the rotating mechanical family of §4; the unequal-slope application is an imported ineffective theorem and is not a Lean target | same, §§2–4 | queued | — | — |
 | V006-a | Quadratic separation (main's V006 `overlap.md` §2): for `F` not eventually periodic, the states `Q_(a,t) = F(t₀ + t + s₂(3^a n))` are pairwise distinct (`(a,t) ↦ Q_(a,t)` injective); `Q_(a,t)` lies in the joint section family through depth `a + t`; hence that family through depth `D` has at least `(D+1)(D+2)/2` members (main's (4)); with the digit-count identities (5), (6), (7) (block additivity, complement, balanced quotient, `3^(r+1) ∣ 2^(3^r) + 1`) | `experiments/viewpoints/V006/overlap.md` §2, `QUADRATIC_REVIEW.md` | **verified** (iteration 10): `QuadraticSeparation.lean`, `LeanLane.Quad.Q_injective`, `Q_mem_Reach`, `triangle_encard_le`, `card_triangle`, `reach_encard_ge`, `s2_mul_pow_sub`, `s2_mul_pow_sub_one`, `s2_balanced`, `three_pow_dvd` | `[propext, Classical.choice, Quot.sound]` | `receipts/QuadraticSeparation.{build,axioms,sha256}.txt` |
@@ -761,10 +762,29 @@ Container `leanaudit` (Rancher Desktop, linux/aarch64): elan home
 
 ## Insights sent to the feed
 
-- Iteration 30 (sidekick `f01ac0e`; main unchanged at `cae57b0`): the side
-  lane verified C006-a part 3e (feed update 03:56). Nothing new from main.
+- Iteration 30 (sidekick `f01ac0e` → `5a3c1f6`; main `b896512`): the side
+  lane verified C006-a part 3e (feed update 03:56) and then C009-a (feed
+  update 04:09, "the 'cuts add no congruence' half of C009's rejection").
   Sent after the build: the C009-a report, including the observation that
-  the cut lemma's "`x` odd" hypothesis is redundant.
+  the cut lemma's "`x` odd" hypothesis is redundant. Main pushed C011
+  (`b896512`, the two-rotation-defect exclusion): `ROTATION_DEFECTS.md`,
+  `EXCLUSION.md` and `GENERAL_DEFECTS.md` read in full and checked by hand —
+  the swap/primitivity/one-orbit structure, the two-arc identity (1)
+  `C_{w'} − C_w = (2^k − 1) 2^a 3^{m−1−ℓ} C_u` (re-derived), the
+  rotation-invariance of `g` behind (2) `g ∣ (2^k − 1) gcd(C_u, C_v)`, the
+  gcd identity (3), the intercept bound (4) `C_z < 2^{S−l−(b−1)} 3^l`, (5)–(7)
+  including `k ≤ A − m`, the finiteness argument (8)–(9), the adjacent-case
+  mechanical classification (§4), the marker family `(3, b_n, 4, b_n)` (two
+  unit mismatches, `2^A/3^m > 128/9`, `q > (8/3) 2^{(m+1)/2}`, states
+  `> n/128`), the controls q = 359 (`D = 73·359`, `C = 73·209`, both arcs
+  with intercept 73), q = 5/7/13, the `1^t 2^{2t}` family at t = 2 (`g = 5`)
+  and the q = 97 coupled control (`100 = 36 + 64`), and EXCLUSION's constants
+  (`K_0 < 598,752,000`, `A < 2m`, `F(M) = 2.45·10^9`, `F' > 373/2750`). No
+  error found. One precision remark sent: Matveev bounds `δ = A log 2 −
+  m log 3`, while EXCLUSION (1) displays the bound for `log(1 − e^{−δ})`;
+  the passage costs at most `log 2`, absorbed by the margin. Formalisable
+  pieces listed (C011-a: the two-arc identity as a list identity, rotation
+  invariance of `g`, (2), (4), and the integer forms of (5)/(7)).
 
 - Iteration 29 (sidekick `bab760a`; main unchanged at `cae57b0`): the side
   lane verified C006-a part 3d (feed update 03:49, `6f11ab9`) and recorded
