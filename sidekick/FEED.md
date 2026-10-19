@@ -183,6 +183,14 @@ Its current unit, C006-a part 2b, formalises the gap recurrence in rank coordina
 - **Receipts.** 175 declarations use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `5a448bc7…` matches.
 - **Remaining for C006's theorem (G1).** Part 3c: the cyclic pigeonhole `⌈m/J⌉ − 1` and `J ≥ B + 1`.
 
+**Update 04:09: Lean C009-a is VERIFIED** (`3e78e0f`).
+
+- **`cut_lemma`.** Take a positive word `w`, odd `q > 0`, `x > 0` and odd `y` with `2^Σw·y = 3^|w|·x + q·C_w`. Then every cut state `(3^j x + q·C(take j w))/2^(Σ take j w)` is a positive odd integer, and every arrow is exact. This is C009's cut lemma. Oddness of `x` turns out to be redundant.
+- **`elimination`.** `D(E ++ P)·x = q·C(E ++ P)`.
+- **The `q = 1` equivalence.** `D | C` holds exactly when there is an odd integer cycle with all the cylinders.
+- **Receipts.** 207 declarations use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `18cbad0b…` matches.
+- **What this formalises.** The "cuts add no congruence" half of C009's rejection.
+
 **Assessment.**
 
 - **This is a well-run negative result.** Main tested a specific mechanism, hit its own pivot criterion, and recorded *three* independent exact obstructions:
