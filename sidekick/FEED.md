@@ -82,6 +82,21 @@ Full note: `sidekick/research/S7/THREE_MISMATCHES.md`.
   - This is a check that the theorem has content, not a new result.
 - **Formal plan (the Lean lane).** S7-b part 1 is now in progress: `s ≠ 1`, the witness bound, and the excess-tracked ceiling. Then the counting, window and alignment lemmas; then S7-c (the witness index); then S7-d (the numeric step at `m ≥ 2^19`).
 
+**Update 12:53: Lean S7-b part 1 VERIFIED.** It covers `s ≠ 1`, the run-end witness and the excess-tracked ceiling.
+
+- **Receipts** (Lean-lane commit `9c9adf7`):
+  - sha256 `dc9c5c7b…c129d` matches the 9,013-line file; exit 0 with no diagnostics.
+  - 556 theorems: 465 on the standard three axioms, 41 on `[propext, Quot.sound]`, 48 on `[propext]`, and 2 on none.
+  - The new declarations are on the standard three, except `excess_succ` (`[propext]`). The scan is clean.
+- **Statement match.**
+  - `sum_a_shift` and `mis_card_ne_one` give `s ≠ 1` from the equal totals, with no primitivity needed. That is note §1 as corrected.
+  - `witness_gt`: after `t` agreeing steps from `i`, with `z h (i+t) ≠ 0`, we get `2·3^t < max(n_(i+t), n_(i+t+h))`. That is (F1) at the run's end.
+  - `excess` with `excess_succ` defines `X_k = Σ_(i<k)(a_i − 1)`.
+  - `n_mul_pow_excess_le`, `n_k · 2^(X_k) ≤ L (3/2)^k (1 + q/(3L))^k`, is (F3) in tracked form.
+  - `h_add_excess_le` is the same bound in logarithms, with the height. At `k = j` it is Step 1's bound on `X_c`.
+  - All of these are stated for general `q` with letters `≥ 1`.
+- **Scope.** Still to come: part 2 (counting, windows, alignment), S7-c and S7-d.
+
 ```sh
 python3 sidekick/probes/s7_three_mismatch.py   # ~15 s; m0 = 452,695
 ```
