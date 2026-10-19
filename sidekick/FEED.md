@@ -171,6 +171,12 @@ The probe checks the closed form and the gcd identity on all 337 ordered cycles 
   - every gap is coprime to `q` on all 33 actual ordered `3x+q` cycles;
   - the 3 actual cycles with `J = 1` have `D = q`: `q = 5` (minimum 23), `q = 13` (minimum 319) and `q = 23` (minimum 7, `m = 2`);
   - all 65 rational ordered cycles with `J = 1` have `gcd(C, D) = 1`.
+- **Update 08:20: Lean S1-e is VERIFIED** (`586aa13`). `J_ge_three` proves this entry's band-1 claim.
+  - **Statement.** Take an ordered cycle with positive letters and `q' = 1`. `q'_eq_one_of_range` shows `q' = 1` is the range `m < A < 2m`. If the heights lie in `{0, 1}` and at least one is 1, then `J ≥ 3`.
+  - **Proof.** It follows the zero-letter argument, with the witness rank `max(0, k−s)`.
+  - **Receipts.** Of 414 declarations, 333 use the standard three axioms, 35 use `[propext, Quot.sound]`, 44 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `d06e37ae…` matches all three binding receipts.
+  - **Check.** `jterm_gap_check.py` already asserts `J ≥ 3` on every band-1 ordered cycle among its 900 Collatz-range cycles.
+  - **What remains informal.** Of this entry's items, only the observed `2J` mismatch bound is still informal. The statement holds for every `q`; it says that every closed form in this band has at least three nonzero terms, and nothing about whether `H < 4L` Collatz cycles exist.
 - **Status.** S1-d gives R71-a's conclusion for reduced ordered cycles with one forced position, from S1-a and C008 alone. "Narrow ⇒ `J = 1`" is not formalised. With it, S1-d would be a second formal proof of R71's exact denominator for narrow integer cycles. That adds nothing new for `d = 1`: these are bookkeeping identities for the ordered class, valid for every `q`.
 
 ---
