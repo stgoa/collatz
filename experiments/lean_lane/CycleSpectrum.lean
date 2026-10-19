@@ -7638,6 +7638,111 @@ theorem three_mismatch_changes (hprim : ∀ i j, i < m → j < m → Γ.n i = Γ
 
 end OddCycle
 
+/-! ### S7-b (part 3a): the alignment lemma (S7 Step 4) under the window structure
+
+With `d ≤ h ≤ j` (`d = m − j`), the descent window `W = [j, m)` having the single mismatch `e_b` and
+the window `W − h = [j − h, m − h)` having the single mismatch `e_a`: every `i ∈ W ∖ {e_b}` agrees,
+so `a_i = a_{i+h} = a_{i+h−m}` with `i + h − m ∈ [0, j)` and the shift injective, hence
+`Σ_{W∖{e_b}} (a_i − 1) ≤ X_c`; if `e_b ≠ e_a + h` then `e_b − h ∈ W − h` agrees, so `a_{e_b}` is a
+climb letter and `a_{e_b} − 1 ≤ X_c`; together `X_d ≤ 2 X_c` (`dexcess_le_two_excess`). Since
+`X_c + X_d = A − m` (`excess_add_dexcess`), condition A, `3 X_c < A − m`, forces the alignment
+`e_b = e_a + h` (`alignment`). The window structure itself (Step 3) is part 3b. -/
+
+namespace OddCycle
+
+variable {m : ℕ} (Γ : OddCycle m)
+
+theorem excess_eq_sum (j : ℕ) : Γ.excess j = ∑ i ∈ Finset.range j, (Γ.a i - 1) := by
+  induction j with
+  | zero => simp [excess]
+  | succ j ih => rw [Γ.excess_succ, ih, Finset.sum_range_succ]
+
+/-- The descent excess `X_d = Σ_{i ∈ [j, m)} (a_i − 1)`. -/
+def dexcess (j : ℕ) : ℕ := ∑ i ∈ Finset.Ico j m, (Γ.a i - 1)
+
+/-- `X_c + X_d = A − m` (letters `≥ 1`), in additive form. -/
+theorem excess_add_dexcess (hapos : ∀ i, 1 ≤ Γ.a i) {j : ℕ} (hj : j ≤ m) :
+    Γ.excess j + Γ.dexcess j + m = Γ.Apre m := by
+  rw [Γ.excess_eq_sum]
+  unfold dexcess Apre
+  rw [Finset.sum_range_add_sum_Ico _ hj]
+  have h1 : ∑ i ∈ Finset.range m, (Γ.a i - 1) + ∑ _i ∈ Finset.range m, (1 : ℕ) =
+      ∑ i ∈ Finset.range m, Γ.a i := by
+    rw [← Finset.sum_add_distrib]
+    apply Finset.sum_congr rfl
+    intro i _
+    have := hapos i
+    omega
+  rw [Finset.sum_const, Finset.card_range, smul_eq_mul, mul_one] at h1
+  exact h1
+
+/-- Step 4's excess transfer: `X_d ≤ 2 X_c` when `e_b ≠ e_a + h`. -/
+theorem dexcess_le_two_excess {j h e_a e_b : ℕ} (hjm : j < m)
+    (hdh : m - j ≤ h) (hhj : h ≤ j) (heb : j ≤ e_b ∧ e_b < m)
+    (hW : ∀ i, j ≤ i → i < m → i ≠ e_b → Γ.agree h i)
+    (hW' : ∀ k, j - h ≤ k → k < m - h → k ≠ e_a → Γ.agree h k)
+    (hne : e_b ≠ e_a + h) : Γ.dexcess j ≤ 2 * Γ.excess j := by
+  rw [Γ.excess_eq_sum]
+  unfold dexcess
+  have hmem : e_b ∈ Finset.Ico j m := Finset.mem_Ico.mpr heb
+  rw [← Finset.add_sum_erase _ _ hmem]
+  have hpart1 : ∑ i ∈ (Finset.Ico j m).erase e_b, (Γ.a i - 1) ≤
+      ∑ k ∈ Finset.range j, (Γ.a k - 1) := by
+    have hinj : ∀ x ∈ (Finset.Ico j m).erase e_b, ∀ y ∈ (Finset.Ico j m).erase e_b,
+        x + h - m = y + h - m → x = y := by
+      intro x hx y hy hxy
+      rw [Finset.mem_erase, Finset.mem_Ico] at hx hy
+      omega
+    have heq : ∑ i ∈ (Finset.Ico j m).erase e_b, (Γ.a i - 1) =
+        ∑ k ∈ ((Finset.Ico j m).erase e_b).image (fun i => i + h - m), (Γ.a k - 1) := by
+      rw [Finset.sum_image hinj]
+      apply Finset.sum_congr rfl
+      intro i hi
+      rw [Finset.mem_erase, Finset.mem_Ico] at hi
+      have hag : Γ.agree h i := hW i hi.2.1 hi.2.2 hi.1
+      unfold agree at hag
+      have hper : Γ.a (i + h) = Γ.a (i + h - m) := by
+        have e : i + h = (i + h - m) + m := by omega
+        calc Γ.a (i + h) = Γ.a ((i + h - m) + m) := by rw [← e]
+          _ = Γ.a (i + h - m) := Γ.a_per _
+      rw [hag, hper]
+    rw [heq]
+    apply Finset.sum_le_sum_of_subset_of_nonneg
+    · intro k hk
+      rw [Finset.mem_image] at hk
+      obtain ⟨i, hi, rfl⟩ := hk
+      rw [Finset.mem_erase, Finset.mem_Ico] at hi
+      rw [Finset.mem_range]
+      omega
+    · intro k _ _
+      exact Nat.zero_le _
+  have hpart2 : Γ.a e_b - 1 ≤ ∑ k ∈ Finset.range j, (Γ.a k - 1) := by
+    have hk1 : j - h ≤ e_b - h := by omega
+    have hk2 : e_b - h < m - h := by omega
+    have hk3 : e_b - h ≠ e_a := by omega
+    have hag : Γ.agree h (e_b - h) := hW' (e_b - h) hk1 hk2 hk3
+    unfold agree at hag
+    rw [Nat.sub_add_cancel (by omega : h ≤ e_b)] at hag
+    rw [← hag]
+    apply Finset.single_le_sum (fun k _ => Nat.zero_le (Γ.a k - 1))
+    rw [Finset.mem_range]
+    omega
+  omega
+
+/-- Step 4, the alignment: with condition A, `3 X_c < A − m`, the two located mismatches satisfy
+`e_b = e_a + h`. -/
+theorem alignment (hapos : ∀ i, 1 ≤ Γ.a i) {j h e_a e_b : ℕ} (hjm : j < m) (hdh : m - j ≤ h)
+    (hhj : h ≤ j) (heb : j ≤ e_b ∧ e_b < m)
+    (hW : ∀ i, j ≤ i → i < m → i ≠ e_b → Γ.agree h i)
+    (hW' : ∀ k, j - h ≤ k → k < m - h → k ≠ e_a → Γ.agree h k)
+    (hA : 3 * Γ.excess j < Γ.Apre m - m) : e_b = e_a + h := by
+  by_contra hne
+  have h1 := Γ.dexcess_le_two_excess hjm hdh hhj heb hW hW' hne
+  have h2 := Γ.excess_add_dexcess hapos hjm.le
+  omega
+
+end OddCycle
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp

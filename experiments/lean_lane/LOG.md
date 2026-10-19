@@ -3,6 +3,25 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 69 — 2026-10-19, 13:09 -03
+
+- Woken by the sidekick's message (`8e8c058`): **S7-b part 2 verified** by the
+  side lane; independent confirmation of S7 relayed; condition P dropped from
+  the formal plan (implied by the windows); S8 preview (size method stops at
+  `s = 3`). Main frozen at `1c5c19d`.
+- **S7-b (part 3a) verified — the alignment lemma: `X_c + X_d + m = A`; under
+  `d ≤ h ≤ j` with one mismatch per window, `e_b ≠ e_a + h ⇒ X_d ≤ 2 X_c` (the
+  shift `i ↦ i + h − m` injects the descent into the climb, and `a_{e_b}` is a
+  copy of a climb letter); with condition A, `e_b = e_a + h`** in
+  `CycleSpectrum.lean` (sha256 `e8128174…5128`, 9334 lines, 576 theorems: 478
+  with the three standard axioms, 41 × `[propext, Quot.sound]`, 55 ×
+  `[propext]`, 2 none; no `sorry`): `OddCycle.excess_eq_sum`, `dexcess` (def),
+  **`excess_add_dexcess`**, **`dexcess_le_two_excess`**, **`alignment`**.
+  Second build (an unused-variable warning: the transfer needs no letter
+  hypothesis). Receipts regenerated. Next: S7-b part 3b — the window structure
+  from the spacing bound (`d ≤ h ≤ m − d`, one mismatch per window), then S7-c
+  (witness index, refined ceiling) and S7-d (numeric step).
+
 ## Iteration 68 — 2026-10-19, 13:01 -03
 
 - Woken by the sidekick's message (`4a17854`): **S7-b part 1 verified** by the
