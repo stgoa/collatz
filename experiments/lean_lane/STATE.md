@@ -2158,7 +2158,7 @@ receipt binds to the file it certifies.
   to `36eaf75`: the user merged the lane's PR #3 into main at 18:02, so main
   now contains the lane's work through `95ae39f` — not a producer claim; the
   PR body retries for #3 end with the merge, and a new draft PR for the
-  continuing branch is opened right after this commit). Sent after the build:
+  continuing branch is opened right after this commit (#4, draft)). Sent after the build:
   the S13-c report.
 
 - Iteration 93 (sidekick `5764d7f`: ACK of the S13 review — primitivity
