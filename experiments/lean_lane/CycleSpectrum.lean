@@ -6468,6 +6468,128 @@ theorem D_eq_q_of_J_one (hred : IsCoprime Ω.Γ.q (Ω.Γ.n 0)) (hJ : Ω.J = 1) :
     · omega
   rw [hD', hD'1, mul_one]
 
+/-! #### S1-e: in band 1 with `m < A < 2m`, at least three forced positions
+
+Side lane (feed 06:30, proved in prose): for an ordered cycle with positive letters, base exponent
+`q' = 1` (equivalently `m < A < 2m`, the Collatz range) and heights in `{0, 1}` with some height
+`1`, `J ≥ 3`. A non-wrapping step has `c = 1`, and `a_i = c_i + h_i − h_{i+1} ≥ 1` means the
+height cannot rise on it; if `J = 2` the sorted heights were `0^k 1^{m−k}`, and the rank
+`r* = max(0, k − s)` is low (`r* < m − s`), has height `0`, and its successor rank `r* + s ≥ k`
+has height `1`: a zero letter. -/
+
+/-- `hr` is constant on a stretch without adjacent changes. -/
+theorem hr_eq_of_no_change (a d : ℕ) (hno : ∀ r, a ≤ r → r < a + d → Ω.hr (r + 1) = Ω.hr r) :
+    Ω.hr (a + d) = Ω.hr a := by
+  induction d with
+  | zero => rfl
+  | succ d ih =>
+    rw [← Nat.add_assoc, hno (a + d) (Nat.le_add_right a d) (by omega)]
+    exact ih (fun r hr1 hr2 => hno r hr1 (by omega))
+
+/-- `q' = 1` is the Collatz range `m < A < 2m` (from `A = m q' + s`, `0 < s < m`). -/
+theorem q'_eq_one_of_range (h1 : m < Ω.Γ.Apre m) (h2 : Ω.Γ.Apre m < 2 * m) : Ω.q' = 1 := by
+  have hsum : ∑ i ∈ Finset.range m, Ω.N.a i = Ω.Γ.Apre m := by
+    show ∑ i ∈ Finset.range m, Ω.Γ.c i = Ω.Γ.Apre m
+    rw [Ω.Γ.sum_c]
+    rfl
+  have hA := Ω.N.sum_a
+  rw [hsum, Ω.N_q] at hA
+  have hs := Ω.numHigh_lt
+  rcases Nat.lt_or_ge Ω.q' 1 with h0 | h0
+  · have hz : Ω.q' = 0 := by omega
+    rw [hz, Nat.mul_zero, Nat.zero_add] at hA
+    omega
+  · rcases Nat.lt_or_ge Ω.q' 2 with h1' | h2'
+    · omega
+    · have := Nat.mul_le_mul_left m h2'
+      omega
+
+/-- **S1-e**: an ordered cycle with positive letters, `q' = 1` and heights in `{0, 1}` with some
+height `1` has at least three forced positions. -/
+theorem J_ge_three (hapos : ∀ i, 1 ≤ Ω.Γ.a i) (hq' : Ω.q' = 1) (hB1 : ∀ i, Ω.Γ.h i ≤ 1)
+    {j : ℕ} (hj : Ω.Γ.h j = 1) : 3 ≤ Ω.J := by
+  have hm := Ω.Γ.hm
+  have hs0 := Ω.numHigh_pos
+  have hsm := Ω.numHigh_lt
+  have hhr1 : ∀ r, Ω.hr r ≤ 1 := fun r => hB1 _
+  have hj' : Ω.Γ.h (j % m) = 1 := by rw [Ω.Γ.h_mod]; exact hj
+  obtain ⟨r₁, hr₁m, hr₁⟩ : ∃ r₁, r₁ < m ∧ Ω.hr r₁ = 1 :=
+    ⟨Ω.N.rank (j % m), Ω.N.rank_lt _, by rw [Ω.hr_rank (Nat.mod_lt j hm)]; exact hj'⟩
+  by_contra hJ
+  rw [not_le] at hJ
+  have hJc := Ω.J_eq_changes
+  have hcard : ((Finset.range (m - 1)).filter (fun r => Ω.hr (r + 1) ≠ Ω.hr r)).card ≤ 1 := by
+    omega
+  have huniq := Finset.card_le_one.mp hcard
+  -- a change below `r₁`
+  have hex : ∃ r, r < r₁ ∧ Ω.hr (r + 1) ≠ Ω.hr r := by
+    by_contra hno
+    have hno' : ∀ r, r < r₁ → Ω.hr (r + 1) = Ω.hr r := fun r hr => by
+      by_contra hne
+      exact hno ⟨r, hr, hne⟩
+    have := Ω.hr_eq_of_no_change 0 r₁ (fun r _ hr => hno' r (by omega))
+    rw [Nat.zero_add, Ω.hr_zero] at this
+    omega
+  obtain ⟨r₀, hr₀, hch⟩ := hex
+  have hr₀S : r₀ ∈ (Finset.range (m - 1)).filter (fun r => Ω.hr (r + 1) ≠ Ω.hr r) :=
+    Finset.mem_filter.mpr ⟨Finset.mem_range.mpr (by omega), hch⟩
+  -- the sorted heights are `0^k 1^(m−k)` with `k = r₀ + 1`
+  have hlow : ∀ r, r ≤ r₀ → Ω.hr r = 0 := by
+    intro r hr
+    have := Ω.hr_eq_of_no_change 0 r (fun r' _ hr' => by
+      by_contra hne
+      have hmem : r' ∈ (Finset.range (m - 1)).filter (fun r => Ω.hr (r + 1) ≠ Ω.hr r) :=
+        Finset.mem_filter.mpr ⟨Finset.mem_range.mpr (by omega), hne⟩
+      have := huniq r' hmem r₀ hr₀S
+      omega)
+    rw [Nat.zero_add, Ω.hr_zero] at this
+    exact this
+  have hhigh : ∀ r, r₀ + 1 ≤ r → r < m → Ω.hr r = Ω.hr (r₀ + 1) := by
+    intro r hr1 hr2
+    have := Ω.hr_eq_of_no_change (r₀ + 1) (r - (r₀ + 1)) (fun r' hr' hr'' => by
+      by_contra hne
+      have hmem : r' ∈ (Finset.range (m - 1)).filter (fun r => Ω.hr (r + 1) ≠ Ω.hr r) :=
+        Finset.mem_filter.mpr ⟨Finset.mem_range.mpr (by omega), hne⟩
+      have := huniq r' hmem r₀ hr₀S
+      omega)
+    rw [show r₀ + 1 + (r - (r₀ + 1)) = r by omega] at this
+    exact this
+  have hk1 : Ω.hr (r₀ + 1) = 1 := by
+    have h0 := hlow r₀ le_rfl
+    have h1 := hhr1 (r₀ + 1)
+    omega
+  -- the low rank `r*` below `k` whose successor rank is at least `k`
+  obtain ⟨r', hr'⟩ : ∃ r', r' = if Ω.N.numHigh ≤ r₀ + 1 then r₀ + 1 - Ω.N.numHigh else 0 :=
+    ⟨_, rfl⟩
+  have hr'k : r' < r₀ + 1 := by rw [hr']; split_ifs <;> omega
+  have hr'low : r' + Ω.N.numHigh < m := by rw [hr']; split_ifs <;> omega
+  have hr'succ : r₀ + 1 ≤ r' + Ω.N.numHigh := by rw [hr']; split_ifs <;> omega
+  have hh0 : Ω.hr r' = 0 := hlow r' (by omega)
+  have hh1 : Ω.hr (r' + Ω.N.numHigh) = 1 := by rw [hhigh _ hr'succ hr'low]; exact hk1
+  -- its index, the successor index, and the zero letter
+  obtain ⟨hi, hri⟩ := Ω.N.idx_spec Ω.N_prim (show r' < m by omega)
+  have hrank1 : Ω.N.rank (Ω.N.idx r' + 1) = r' + Ω.N.numHigh := by
+    rw [← Ω.orb_zero_eq_rank, Ω.orb_succ, Ω.orb_zero_eq_rank, hri]
+    exact Nat.mod_eq_of_lt hr'low
+  have hi1 : Ω.N.idx r' + 1 < m := by
+    by_contra hge
+    have heq : Ω.N.idx r' + 1 = m := by omega
+    rw [heq, ← Ω.orb_zero_eq_rank, Ω.orb_m hm] at hrank1
+    omega
+  have hhi : Ω.Γ.h (Ω.N.idx r' + 1) = 1 := by
+    rw [← Ω.hr_rank hi1, hrank1]
+    exact hh1
+  have hhi0 : Ω.Γ.h (Ω.N.idx r') = 0 := hh0
+  have hc : Ω.Γ.c (Ω.N.idx r') = 1 := by
+    have he := Ω.N.e_eq Ω.N_prim (show r' < m by omega)
+    unfold NarrowCycle.e at he
+    rw [ite_eq_right (by omega : ¬ (m - Ω.N.numHigh ≤ r')), Ω.N_q, hq'] at he
+    exact he.symm
+  have hca := hapos (Ω.N.idx r')
+  unfold OddCycle.c at hc
+  rw [hhi, hhi0] at hc
+  omega
+
 end OrdCycle
 
 end Cyc

@@ -3,6 +3,23 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 47 — 2026-10-19, 08:18 -03
+
+- Woken by the monitor and the sidekick's message/push `41d96db`: **S1-c/d
+  verified** (receipts match; probe on the 33 actual ordered cycles and the 65
+  rational `J = 1` cycles), with the band-1 `J ≥ 3` statement suggested as the
+  next unit. Main unchanged at `1c5c19d`. Monitor re-armed at 08:18.
+- **S1-e verified — in band 1 with `m < A < 2m` an ordered cycle has at least
+  three forced positions** in `CycleSpectrum.lean` (sha256 `d06e37ae…977b`,
+  6596 lines, 414 theorems: 333 with the three standard axioms, 35 ×
+  `[propext, Quot.sound]`, 44 × `[propext]`, 2 none; no `sorry`):
+  `OrdCycle.hr_eq_of_no_change`, `q'_eq_one_of_range`, **`J_ge_three`** (`∀ i,
+  1 ≤ a i`, `q' = 1`, `∀ i, h i ≤ 1`, `h j = 1` ⇒ `3 ≤ J`). One compile round:
+  `push_neg` is deprecated in this Mathlib (warning = not clean); replaced by
+  a direct `by_contra`. Receipts regenerated. Next: whichever of main's newest
+  claims most needs formal backing; otherwise R71's repeated case (`den(z^k) =
+  den(z)`) or C006's `(G4)`/`e_run`.
+
 ## Iteration 46 — 2026-10-19, 08:04 -03
 
 - Woken by the sidekick's message and pushes `96e0518`/`e49c71e`: **S1-b
