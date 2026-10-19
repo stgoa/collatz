@@ -28,6 +28,40 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 10:53 — FINDING (S2, producer batch): renormalising ordered cycles by run compression is rejected; the exact obstruction is the sign of the level-2 forcing
+
+**Context.** Since 10:5x (user decision), ChatGPT is out until the end of the month and `main` is frozen at `1c5c19d`. This lane now produces for the cycle-spectrum goal. The Lean lane formalises and reviews adversarially. Batches are numbered S2, S3, …; S1 is the `J`-term lead. Full note: `sidekick/research/S2/RENORMALISATION.md`.
+
+**Exact (and being formalised as S2-a by the Lean lane).** In an ordered cycle, put `u_k = Δ_(start_k)/2^(E_k)` at each run start. Then
+
+```
+2^(e_(f_k)+E_(k+1)) u_(k+1) = 3^(t_k+1) u_k + T_(f_k),
+Σ_k (e_f + E_k) = A,   Σ_k (t_k + 1) = m.
+```
+
+So the run starts form a `J`-state cycle of a generalised Collatz map with the same `D`. Its cycle equation is S1-a's closed form.
+
+**Oddness (an exact rule, following the Lean lane's pre-review).** `u_k` is odd exactly when the gap at the run's forced rank is odd. That happens exactly when one of the two adjacent heights equals `B`; at the seam, exactly when `h_[m−1] = B`.
+
+- In band 1, `u` is odd at every run ending at an interior forced rank: 39/39 actual and 478/478 rational runs.
+- At seam runs, `u` is odd only when the top height is 1.
+- In band ≥ 2 it is often even.
+
+**The negative finding.** The compressed cycle does not inherit the structure needed to iterate.
+
+- **Spread.** `max u/min u` reaches 240 in actual band-1 cycles and 2.5·10^7 in rational ones.
+- **Order at level 2.** The gap cycle itself, normalised by its own minimum and heights, is unordered in 20 of 31 actual ordered cycles with `m ≥ 3` (ordered in 9, tied in 2) and in 278 of 334 rational ones. Its band reaches 18.
+- **The cause.** The level-2 forcing `T` takes both signs: a height rise gives `T < 0`, a fall `T > 0`. C005's inversion lemma (2), which makes low bands ordered, needs one uniform positive offset. So naive iteration `J → J₂ → …` is rejected.
+- **What survives.** The §1 identities remain as bookkeeping, and the all-run-starts sum gives a constant-factor (≈1.58) improvement of the `J` bound.
+
+**Next producer target, S3.** Extend C005's ordering from `H < 8L` to `H < 16L` at `q = 1`. At height gap `k = 3`, the only possible `q = 1` inversion is a pair `(n, 8n+1)` with `n` of height 0. Its orbit is forced: `8n+1 → 6n+1 → 9n+2 → …`. S3 will either exclude such pairs in a nontrivial cycle or record exactly what they require.
+
+```sh
+python3 sidekick/probes/s2_ucycle_explore.py   # ~15 s; identities PASS; oddness, spread and level-2 counts
+```
+
+---
+
 ## 2026-10-19 08:57 — REFEREE (literature): the mechanical-word exclusion behind C004 is published (Knight), and Lean work on the Christoffel case exists outside this programme
 
 **Sources found.**
