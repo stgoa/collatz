@@ -2588,6 +2588,90 @@ theorem q_ne_one_of_not_coprime (hB2 : Γ.B ≤ 2) (hm2 : 2 ≤ m)
   obtain ⟨_, _, _, _, _, hcop⟩ := Γ.three_band hq1 hB2 hm2 hprim
   exact hg hcop
 
+/-! #### C007 `HEIGHT_DENOMINATOR.md` §§2–3: the modular lemma and the min–top inequality -/
+
+/-- The prefix sums `P_i = Σ_{j<i} c_j` of the normalised word. -/
+def P (i : ℕ) : ℕ := ∑ j ∈ Finset.range i, Γ.c j
+
+/-- C007's modular lemma (2) in integer form: `2^{P_i} Z_i ≡ 3^i Z_0 (mod q)`, i.e.
+`z_i ≡ L 3^i 2^{−P_i}` once the powers of two are inverted modulo `q`; the height profile does
+not appear. -/
+theorem residue_law (i : ℕ) : (2 : ℤ) ^ Γ.P i * Γ.Z i ≡ 3 ^ i * Γ.Z 0 [ZMOD Γ.q] := by
+  induction i with
+  | zero => simp [P]
+  | succ i ih =>
+    have harrow := Γ.c_arrow i
+    have hP : Γ.P (i + 1) = Γ.P i + Γ.c i := by
+      unfold P
+      rw [Finset.sum_range_succ]
+    rw [hP, pow_add, mul_assoc, harrow]
+    unfold F
+    have e : (2 : ℤ) ^ Γ.P i * (3 * Γ.Z i + 2 ^ (Γ.B - Γ.h i) * Γ.q)
+        = 3 * (2 ^ Γ.P i * Γ.Z i) + Γ.q * (2 ^ Γ.P i * 2 ^ (Γ.B - Γ.h i)) := by ring
+    rw [e, pow_succ]
+    calc 3 * (2 ^ Γ.P i * Γ.Z i) + Γ.q * (2 ^ Γ.P i * 2 ^ (Γ.B - Γ.h i))
+        ≡ 3 * (3 ^ i * Γ.Z 0) + 0 [ZMOD Γ.q] :=
+          Int.ModEq.add (Int.ModEq.mul_left 3 ih)
+            (Int.modEq_zero_iff_dvd.mpr (dvd_mul_right _ _))
+      _ = 3 ^ i * 3 * Γ.Z 0 := by ring
+
+/-- C007's modular lemma: when `3 ∤ q`, no numerator is divisible by `3`. -/
+theorem three_not_dvd (hq3 : ¬ (3 : ℤ) ∣ Γ.q) (i : ℕ) : ¬ (3 : ℤ) ∣ Γ.n i := by
+  intro h3
+  have harrow := Γ.arrow (i + m - 1)
+  have hidx : i + m - 1 + 1 = i + m := by
+    have := Γ.hm
+    omega
+  rw [hidx, Γ.nper] at harrow
+  have h1 : (3 : ℤ) ∣ 3 * Γ.n (i + m - 1) + Γ.q := by
+    rw [← harrow]
+    exact dvd_mul_of_dvd_right h3 _
+  have h2 := dvd_sub h1 (dvd_mul_right 3 (Γ.n (i + m - 1)))
+  rw [add_sub_cancel_left] at h2
+  exact hq3 h2
+
+/-- A divisor of `q` coprime to `2` that divides one numerator divides the next. -/
+theorem dvd_succ_of_dvd {p : ℤ} (hp : p ∣ Γ.q) (hp2 : IsCoprime p 2) {i : ℕ} (hi : p ∣ Γ.n i) :
+    p ∣ Γ.n (i + 1) := by
+  have harrow := Γ.arrow i
+  have h1 : p ∣ (2 : ℤ) ^ Γ.a i * Γ.n (i + 1) := by
+    rw [harrow]
+    exact dvd_add (dvd_mul_of_dvd_right hi 3) hp
+  exact hp2.pow_right.dvd_of_dvd_mul_left h1
+
+/-- Hence such a divisor divides every numerator: a reduced cycle (numerators with no common
+factor) has all numerators coprime to `q` — C007's "every numerator is a unit modulo `6q`",
+together with `three_not_dvd` and oddness. -/
+theorem dvd_all_of_dvd {p : ℤ} (hp : p ∣ Γ.q) (hp2 : IsCoprime p 2) {i : ℕ} (hi : p ∣ Γ.n i)
+    (j : ℕ) : p ∣ Γ.n j := by
+  have hk : ∀ k, p ∣ Γ.n (i + k) := by
+    intro k
+    induction k with
+    | zero => simpa using hi
+    | succ k ih => exact Γ.dvd_succ_of_dvd hp hp2 ih
+  have hle : i ≤ j + m * i := le_trans (Nat.le_mul_of_pos_left i Γ.hm) (Nat.le_add_left _ _)
+  have := hk (j + m * i - i)
+  rw [Nat.add_sub_of_le hle, Γ.n_add_mul] at this
+  exact this
+
+/-- C007's min–top inequality (3): in an ordered cycle every state above the minimum
+satisfies `q(2^{h_j} − 1) < 3(n_j − 2^{h_j} n_0)`; at the top band `h_j = B` this is
+`3r > q(2^B − 1)` with `r = n_j − 2^B L`. -/
+theorem min_top (hord : ∀ i j, Γ.Z i < Γ.Z j ↔ Γ.F i < Γ.F j) {j : ℕ} (hj : Γ.Z 0 < Γ.Z j) :
+    Γ.q * (2 ^ Γ.h j - 1) < 3 * (Γ.n j - 2 ^ Γ.h j * Γ.n 0) := by
+  have hF := (hord 0 j).mp hj
+  have hsub := Γ.F_sub_of_le (i := 0) (j := j) (by rw [Γ.h_zero]; exact Nat.zero_le _)
+  rw [Γ.h_zero, Nat.sub_zero] at hsub
+  have hpos : (0 : ℤ) < 2 ^ (Γ.B - Γ.h j) := by positivity
+  have hprod : 0 < 2 ^ (Γ.B - Γ.h j)
+      * (3 * (Γ.n j - 2 ^ Γ.h j * Γ.n 0) - Γ.q * (2 ^ Γ.h j - 1)) := by
+    rw [← hsub]
+    linarith
+  by_contra hneg
+  rw [not_lt] at hneg
+  have hX : 3 * (Γ.n j - 2 ^ Γ.h j * Γ.n 0) - Γ.q * (2 ^ Γ.h j - 1) ≤ 0 := by linarith
+  nlinarith
+
 end OddCycle
 
 end Cyc

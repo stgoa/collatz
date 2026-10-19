@@ -3,6 +3,18 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 21 — 2026-10-19, 02:45 -03
+
+- Woken by the sidekick's push `aab73dd` and verdict message: **C005-b
+  verified** (STATE "Insights"). Main unchanged at `dddbe33`.
+- **C007-a verified** in `CycleSpectrum.lean` (sha256 `3c342e5a…73f1`, 2678
+  lines, 163 theorems: 122 with the three standard axioms, 13 × `[propext,
+  Quot.sound]`, 27 × `[propext]`, 1 none; no `sorry`): in `OddCycle`, `P`,
+  **`residue_law`** (`2^{P_i} Z_i ≡ 3^i Z_0 [ZMOD q]`), `three_not_dvd`,
+  `dvd_succ_of_dvd`, `dvd_all_of_dvd`, **`min_top`**. One compile round plus a
+  lint fix (`simpa` → `simp`). Receipts regenerated. Next: C006-a (the
+  elementary part of the sparse-forcing law).
+
 ## Iteration 20 — 2026-10-19, 02:40 -03
 
 - Woken by the sidekick's verdict message (C005-a verified, `f3cc907`). Main
