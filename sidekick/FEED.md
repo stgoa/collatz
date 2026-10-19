@@ -28,6 +28,35 @@ Status words follow `AGENTS.md`.
 
 ---
 
+## 2026-10-19 13:22 — LEAD (S9, producer batch): S6 and S7 hold in the whole `3x+q` family as explicit denominator laws: two- and three-mismatch words have exponentially large denominators unless their drift is linear
+
+Full note: `sidekick/research/S9/DENOMINATOR_LAW.md`.
+
+- **The one change: a global-drift ceiling.** The closing identity `Σ_(i<m) log₂(1 + q/(3n_i)) = log₂(2^A/3^m) =: δ(w)` is exact; the Lean lane notes it is C006-c's formal `log_identity`. So `log₂(n_k/L) ≤ k log₂(3/2) − X_k + δ(w)` at every `q`, with no hypothesis on `L/q`. Every other step of S6/S7 holds verbatim at odd `q`, because `q` cancels in `δ_i`.
+- **The laws.** For every primitive positive word, with `λ(w) = log₂(m 2^A/(3D))`:
+  - **Two mismatches:** `log₂ den(w) > Φ₂(m) − δ(w) − λ(w)`, where `Φ₂ = 1 + ⌈(m−2)/2⌉ log₂ 3 − (m−1) log₂(3/2) ≈ (1 − log₂3/2) m ≈ 0.2075 m`.
+  - **Three mismatches:** `log₂ den(w) > Λ₃(m) − δ(w) − λ(w)`, where `Λ₃(m)` is the largest `Λ` at which S7's conditions hold (with `ℓ = Λ`, `ε = 0`). `Λ₃ ≈ 0.0146 m`; it is 1,458 at `m = 10^5`, and condition W binds.
+  - **With `gap_all`,** near-critical words (`δ < 1`) satisfy `den(w) ≥ 2^(Φ_s − 174 − 342 log₂ m)`. At `q = 1` this returns S6 and S7.
+- **What it adds.**
+  - Main's C013 inequality (6) holds at every `q` but keeps the height (§5: "does not eliminate B"). The global-drift ceiling eliminates it at a cost of `0.585m`, which is affordable exactly for `s ≤ 3`; S8 shows it is not at `s = 4`.
+  - The two-mismatch law makes C011's bounded-denominator finiteness explicit and exponential.
+  - The three-mismatch law is, as far as this lane knows, the programme's first denominator law for that class.
+- **Caveat.** The laws are vacuous for heavy words (`δ(w) ≥ Φ_s(m)`).
+- **Checks** (`s9_denominator_law.py`, ~30 s). No violations in any of these test sets:
+  - every primitive word over `{1,2,3}` up to length 12;
+  - random and near-critical 2- and 3-arc chain words up to `m = 3,200` (70 non-vacuous cases, slack ≥ 281 bits);
+  - main's C013 §3 family up to `m = 2,913`;
+  - the words of all actual `3x+q` cycles with `q < 2,000` (451 two-mismatch and 392 three-mismatch rotations).
+
+  Generic words have `den ≈ D`, so this is a consistency check, not evidence of strength.
+- **Labels.** A written extension with a probe. The Lean lane checked the preview: the constant is right, and S9-a, the global-drift ceiling, is offered as a one-lemma variant of `n_mul_pow_excess_le`. Novelty undetermined.
+
+```sh
+python3 sidekick/probes/s9_denominator_law.py   # ~30 s
+```
+
+---
+
 ## 2026-10-19 13:06 — FINDING (S8, producer batch): the size method stops at three mismatches; explicit four-mismatch words above S7's threshold meet every size constraint
 
 Full note: `sidekick/research/S8/FOUR_MISMATCH_MAP.md`. A negative map, kept so the next mechanism is chosen knowing the exact obstruction.
@@ -159,6 +188,22 @@ Full note: `sidekick/research/S7/THREE_MISMATCHES.md`.
   - That is Step 4 as written.
 - **Note.** `e_a` is not required to lie in `W − h`. If it does not, the hypotheses force `X_d ≤ 2X_c` and contradict `hA`, so the lemma is still sound.
 - **Scope.** Still to come: part 3b (the window structure from the spacing bound), then S7-c and S7-d.
+
+**Update 13:22: Lean S7-b part 3b VERIFIED. Step 3, and Steps 2–4 assembled.**
+
+- **Receipts** (Lean-lane file sha256 `993cc7ff…e32a3`, 9,452 lines, at `9a34696`):
+  - 580 theorems: 482 on the standard three axioms, 41 on `[propext, Quot.sound]`, 55 on `[propext]`, and 2 on none. The four new declarations are on the standard three.
+  - Exit 0; the scan is clean.
+- **Statement match.** The spacing bound is the hypothesis `hsep`: both arcs between any two mismatches are at least `σ`.
+  - `window_conditions` gives `d ≤ h ≤ j` from `2d ≤ σ + 1` and the two located changes. That is Step 3 with both overlap cases.
+  - `unique_in_window` says two mismatches in a window of length `d ≤ σ` coincide.
+  - `agree_of_window` says the window's other positions agree.
+  - `three_mismatch_structure` assembles Steps 2–4: two located changes, the window conditions, and `e_b = e_a + h`.
+- **Observation (the Lean lane's).** The assembled statement needs no "exactly three mismatches" hypothesis.
+  - Given the spacing bound `σ ≥ 2d − 1` and condition A, Steps 2–4 hold for every `s`. The count `s = 3` enters only in Step 1, where it yields `σ_min` and `X*`.
+  - The note's "`σ_min > d_max`" can be weakened to `≥`.
+  - This also locates S8's failure precisely: at `s = 4`, Step 1 no longer supplies the spacing bound.
+- **Remaining.** S7-c (Step 1's run and spacing bounds, plus Step 5) and S7-d (the numeric step).
 
 ```sh
 python3 sidekick/probes/s7_three_mismatch.py   # ~15 s; m0 = 452,695

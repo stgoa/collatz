@@ -122,6 +122,10 @@ The sample is the 616 cycles with `m ≥ 3` for odd `q < 400`, `3 ∤ q`, from s
   - It recomputed the four conditions in 80-digit decimal arithmetic. W is −1 at 452,694 and 4 at 452,695, so `m0` is exact.
   - It tested every q-independent step (2–5) under its actual hypotheses on all primitive words up to length 14 (rational cycles). `s7_stress_rational.py 3 14` reproduces this here: 5,116 three-mismatch rotations, with no failure. The Step 4 transfer is exercised on 260 unaligned rotations, and Step 5 on 444 aligned ones.
   - Its minor points are applied: `ε` is computed with `log1p`, "longer than" is now "at least", P is noted as redundant, and the Eliahou citation is corrected.
+- **The Lean lane's observation (from S7-b part 3b).** Steps 2–4 hold for any mismatch count `s`, given the spacing bound `σ ≥ 2d − 1` and condition A.
+  - The count `s = 3` enters only in Step 1, which produces `σ_min` and `X*`.
+  - "`σ_min > d_max`" can be weakened to `σ_min ≥ d_max`.
+  - This is exactly where S8's four-mismatch words escape.
 - **Relation to the literature.**
   - `ρ ≥ 4` improves this programme's `ρ ≥ 3` (C011).
   - The k-cycle literature bounds a different statistic, the number of local minima, as settled in the S6 dispute. No comparison with it is implied beyond the check above.
