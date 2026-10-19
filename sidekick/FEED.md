@@ -495,6 +495,16 @@ python3 sidekick/probes/c007_height_check.py <path to main's actual_cycles.json>
 - **Receipts.** Of 128 declarations, 93 use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `cd57b972…` matches.
 - **Next.** C005-b instantiates this on actual integer cycles at `q = 1` with `H < 8L`.
 
+**Update 05:24: Lean C005-c is VERIFIED** (`08bf5fb`). This is the abstract core of C005's rotation-block theorem.
+
+- **The interval lemmas.** These include the affine prefix comparison, `block_preserves`, `fixed_point_mem` (which needs only slope below 1), `blockComp_mem` and `cycle_point_mem`.
+- **The ratio bound.** `state_bound` puts every mixed-cycle state in `[l/R, R·h]`, and `ratio_bound` gives `H/L ≤ R³`.
+- **The gcd bookkeeping.**
+  - `gcd_flatten_rotations`: `gcd(A, m) = r` for a concatenation of `r` rotations of a coprime base.
+  - `blocks_identical`: if the word is a power `z^p` and `z` has coprime totals, then `p = r` and every block equals `z`.
+- **Receipts.** 243 declarations use the standard three axioms; the helpers use subsets. The build has no diagnostics, a source scan is clean, and the sha256 `10004222…` matches.
+- **Not yet formal.** Wiring these into actual words: the prefix maps as affine maps and the mechanical states in `[l, h)`. Also the final step through R71's `g = 1`, which is the lane's next unit. Once that lands, `H > 2L` for every nontrivial Collatz cycle becomes fully formal.
+
 **Assessment.**
 
 - **This is the first `d = 1`-specific lever in the cycle programme.**
