@@ -1,4 +1,4 @@
-"""S13 corollaries 5 and 6: the low mismatch spectrum is sparse, and a low-mismatch rotation forces a huge letter.
+"""S13 corollaries 5-7: the low mismatch spectrum is sparse, a low-mismatch rotation forces a huge letter, and so\nrho -> infinity follows from a sublinear bound on the largest letter.
 
 (5) Subadditivity: s(h1 - h2) <= s(h1) + s(h2) (if a_i != a_(i+h1-h2) then i is in mis(h1) or i+h1-h2 is in
     mis(h2)). With Corollary 3 (s <= S forces |h|_m >= H*(S)), any two rotations with at most S mismatches
@@ -104,10 +104,31 @@ def tables():
     return out
 
 
+def forced(m, S):
+    """Corollary 6 at q = 1 with S5's height: a rotation with <= S mismatches forces a letter >= forced(m, S)."""
+    ell = ellmax(m)
+    Bmin = math.ceil((m - S) / S) * LOG3 - ell + 1
+    return 1 + 2 * (Bmin / (KAP ** (S + 1) - 1) - ell - 1) / S
+
+
+def rho_lower(m, amax):
+    """Corollary 7: every rotation has >= S + 1 mismatches whenever forced(m, S) > amax (forced decreases in S)."""
+    S = 2
+    while forced(m, S + 1) > amax:
+        S += 1
+    return S + 1
+
+
 def main():
     st = checks()
     print(json.dumps(st, indent=1))
     out = tables()
+    out["rho_from_max_letter"] = {}
+    for m in (int(1.375e11), 10**15, 10**20, 10**30):
+        row = {lab: rho_lower(m, am) for lab, am in (("10", 10), ("1e3", 10**3), ("1e6", 10**6), ("sqrt_m", m**0.5),
+                                                      ("m^0.75", m**0.75), ("m/1000", m / 1000), ("m/100", m / 100))}
+        out["rho_from_max_letter"][str(m)] = row
+        print("rho lower bound from a_max <=", m, row)
     out["checks"] = st
     Path(__file__).with_suffix(".json").write_text(json.dumps(out, indent=1))
     return 0 if st["subadd_viol"] == st["letter_viol"] == 0 else 1

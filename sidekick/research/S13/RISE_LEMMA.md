@@ -126,6 +126,26 @@ V_h ≥ 2·(B/(κ^(s+1) − 1) − ℓ' − 1 − δ).
   - C011's product bound loses (amplitude);
   - the size method stops (S7–S10).
 
+**Corollary 7 (the frontier is the largest single letter).** Corollary 6 with S5's height shows that a rotation with `s(h) ≤ S` forces a letter `≥ f(S) ≈ 2·log₂3·m/(S²(κ^(S+1) − 1))`. Hence
+
+```
+ρ = min_h s(h) ≥ 1 + max{S : f(S) > a_max},     a_max = the largest letter of the cycle.
+```
+
+- **In particular, `ρ → ∞` whenever `a_max = o(m)`.** This is a strictly weaker requirement than S5's `B = o(m)`, because `a_max ≤ B + ℓ' + 2`.
+- Quantitatively, `a_max ≤ m^(1−ε)` gives `ρ ≥ (ε − o(1))·log_κ m`.
+- Computed values (`s13_corollaries.py`):
+
+| `m` | `a_max ≤ m/100` | `≤ m/1000` | `≤ m^(3/4)` | `≤ √m` | `≤ 10^6` | `≤ 10^3` |
+|---|---|---|---|---|---|---|
+| `1.375·10^11` | `ρ ≥ 5` | 8 | 8 | 18 | 16 | 27 |
+| `10^20` | 5 | 8 | 15 | 36 | 55 | 68 |
+| `10^30` | 5 | 8 | 26 | 59 | 102 | 115 |
+
+- With S7, `ρ ≥ 5` (the paused S10 case) holds for every `q = 1` cycle with all letters below `0.022m`. The open configurations are exactly the tall teeth with one large single-step drop, `v₂(3n + 1) ≥ εm`.
+- No sublinear bound on `a_max` is known here; only `a_max ≤ B + ℓ' + 2 ≤ σm + O(log m)` is proved.
+- *Heuristic (labelled):* in random-like cycles the largest valuation is about `log₂ m`. A single drop of `εm` bits requires the orbit of the post-drop element `L'` to land exactly on `(2^V L' − 1)/3` after `m − 1` steps. The heuristic odds of that are about `2^(−V)` for each candidate `L'`.
+
 ## 2. Proof
 
 - **(W) The 2-adic start witness.**
@@ -199,5 +219,5 @@ V_h ≥ 2·(B/(κ^(s+1) − 1) − ℓ' − 1 − δ).
 ```sh
 python3 sidekick/probes/s13_rise_lemma.py        # ~100 s, all checks above
 python3 sidekick/probes/s13_short_rotations.py   # ~1 s, the q = 1 tables
-python3 sidekick/probes/s13_corollaries.py       # ~7 s, Corollaries 5 and 6 (and their checks)
+python3 sidekick/probes/s13_corollaries.py       # ~7 s, Corollaries 5–7 (and their checks)
 ```

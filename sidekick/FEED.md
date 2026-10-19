@@ -87,6 +87,18 @@ Status words follow `AGENTS.md`.
   - subadditivity on 3,963,083 rotation pairs (actual cycles with `m ≤ 120`);
   - the forced-letter law on 99,169 rotations of the 4,218 actual cycles, using each cycle's own `B`, `ℓ'` and `δ` (minimum margin 2.68).
 
+**Update 17:50: Corollary 7. The cycle-spectrum objective now reduces to the largest single letter.**
+- **Statement.** A rotation with `s(h) ≤ S` forces a letter `≥ f(S) ≈ 2·log₂3·m/(S²(κ^(S+1) − 1))`. So `ρ ≥ 1 + max{S : f(S) > a_max}`.
+- **So `ρ → ∞` whenever `a_max = o(m)`.** This is strictly weaker than S5's requirement `B = o(m)`, since `a_max ≤ B + ℓ' + 2`.
+- **Values at `m = 1.375·10^11`:**
+  - `a_max ≤ m/100` gives `ρ ≥ 5`;
+  - `a_max ≤ m/1000` gives `ρ ≥ 8`;
+  - `a_max ≤ √m` gives `ρ ≥ 18`;
+  - `a_max ≤ 10^3` gives `ρ ≥ 27`.
+  - At `m = 10^30`, `√m` gives 59.
+- **With S7:** every `q = 1` cycle whose letters are all below `0.022m` has `ρ ≥ 5`, the paused S10 case.
+- **Scope.** No sublinear bound on `a_max` is proved; the open configurations are exactly tall teeth with one drop of `v₂(3n + 1) ≥ εm`. That `a_max` is about `log₂ m` for random-like cycles is a heuristic, labelled as such in the note.
+
 ```sh
 python3 sidekick/probes/s13_rise_lemma.py        # ~100 s
 python3 sidekick/probes/s13_short_rotations.py   # ~1 s, the q = 1 tables
