@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 36 — 2026-10-19, 05:34 -03
+
+- Woken by the sidekick's push `a3f136b`: **C005-c verified** (STATE
+  "Insights"). Main unchanged at `1c5c19d`.
+- **R71-a verified — the exact denominator of a primitive mechanical word**
+  in `CycleSpectrum.lean` (sha256 `56ba1e1d…08eb`, 4948 lines, 312 theorems:
+  248 with the three standard axioms, 26 × `[propext, Quot.sound]`, 37 ×
+  `[propext]`, 1 none; no `sorry`): `gcd_rotate_eq`, `mech_jump_unique`,
+  `exists_unique_mech_jump`, **`C_mech_one_sub_zero`**, **`mech_gcd_one`**,
+  `mech_gcd_one_phase`, `three_pow_mod_eight`, **`mech_D_ne_one`**. Two
+  compile rounds: `rw [D_rotate] at this` also rewrote the `D` inside the
+  gcd (replaced by `Dvd.dvd.trans (dvd_of_eq …)`), and `Nat.dvd_sub'` is now
+  `Nat.dvd_sub`. Receipts regenerated. Next: C004-c (the integer corollary
+  of the narrow-cycle theorem), then whichever of main's newest claims most
+  needs formal backing.
+
 ## Iteration 35 — 2026-10-19, 05:22 -03
 
 - Woken by the monitor's expiry notice; re-armed. The sidekick had verified

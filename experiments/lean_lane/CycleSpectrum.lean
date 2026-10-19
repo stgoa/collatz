@@ -4240,6 +4240,178 @@ theorem blocks_identical (v : List ℕ) (hcop : Nat.Coprime v.sum v.length)
     rw [hi, List.length_rotate, hzl]
   · rw [hw, hp]
 
+/-! ### R71: the exact denominator of a primitive mechanical word
+
+R71 (`BALANCED_DENOMINATORS.md` §2, primitive case): for `gcd(A, m) = 1`, every phase word is a
+rotation of phase `0`, so all `gcd(B_l, D)` agree; passing from phase `0` to phase `1` raises
+exactly one prefix floor, so `B_1 − B_0 = 3^{m−1−j} 2^{⌊jA/m⌋}` for the unique `j` with
+`jA ≡ −1 (mod m)`; since `gcd(D, 6) = 1` the common gcd is `1`, and the reduced denominator is
+`D = 2^A − 3^m` itself. Here `B_l = C (mech A m l)`. The modulo-`8` exclusion of denominator `1`
+follows; the repeated case (`gcd(A, m) > 1` reduces to the primitive parameters) is not
+formalised. -/
+
+/-- `gcd(C_{(i)}, D)` is the same for every rotation (positive total): each divides the other
+through the recurrence `2^{a} C_{(i+1)} = 3 C_{(i)} + D`. -/
+theorem gcd_rotate_eq {w : List ℕ} (hw0 : w ≠ []) (hsum : 1 ≤ w.sum) (i : ℕ) :
+    Int.gcd (C (w.rotate i)) (D (w.rotate i)) = Int.gcd (C w) (D w) := by
+  have hlen : 0 < w.length := List.length_pos_of_ne_nil hw0
+  have hinv : (w.rotate i).rotate (w.length - i % w.length) = w := by
+    have hr := Nat.mod_lt i hlen
+    have hd := Nat.div_add_mod i w.length
+    have heq : i + (w.length - i % w.length) = w.length * (i / w.length + 1) := by
+      rw [Nat.mul_succ]
+      omega
+    rw [List.rotate_rotate, heq, List.rotate_length_mul]
+  have hsum' : 1 ≤ (w.rotate i).sum := by rwa [(List.rotate_perm w i).sum_eq]
+  have hw0' : w.rotate i ≠ [] := fun h => hw0 (List.rotate_eq_nil_iff.mp h)
+  apply Nat.dvd_antisymm
+  · have h1 := dvd_C_rotate_of_dvd hw0' (gcd_isCoprime_two hsum') (Int.gcd_dvd_left _ _)
+      (Int.gcd_dvd_right _ _) (w.length - i % w.length)
+    rw [hinv] at h1
+    have h2 : ((Int.gcd (C (w.rotate i)) (D (w.rotate i)) : ℕ) : ℤ) ∣ D w :=
+      (Int.gcd_dvd_right (C (w.rotate i)) (D (w.rotate i))).trans (dvd_of_eq (D_rotate w i))
+    exact Int.dvd_gcd h1 h2
+  · have h1 := dvd_C_rotate_of_dvd hw0 (gcd_isCoprime_two hsum) (Int.gcd_dvd_left _ _)
+      (Int.gcd_dvd_right _ _) i
+    have h2 : ((Int.gcd (C w) (D w) : ℕ) : ℤ) ∣ D (w.rotate i) :=
+      (Int.gcd_dvd_right (C w) (D w)).trans (dvd_of_eq (D_rotate w i).symm)
+    exact Int.dvd_gcd h1 h2
+
+/-- Uniqueness of the jump index: two `j, j' < m` with `m ∣ jA + 1` and `m ∣ j'A + 1` agree
+when `gcd(A, m) = 1`. -/
+theorem mech_jump_unique {m A j j' : ℕ} (hcop : Nat.Coprime A m) (hj : j < m) (hj' : j' < m)
+    (h : m ∣ j * A + 1) (h' : m ∣ j' * A + 1) : j' = j := by
+  have hcop' : Nat.Coprime m A := hcop.symm
+  rcases le_total j j' with hle | hle
+  · have hd : m ∣ (j' - j) * A := by
+      have := Nat.dvd_sub h' h
+      rwa [show j' * A + 1 - (j * A + 1) = (j' - j) * A by rw [Nat.sub_mul]; omega] at this
+    have := Nat.eq_zero_of_dvd_of_lt (hcop'.dvd_of_dvd_mul_right hd) (by omega)
+    omega
+  · have hd : m ∣ (j - j') * A := by
+      have := Nat.dvd_sub h h'
+      rwa [show j * A + 1 - (j' * A + 1) = (j - j') * A by rw [Nat.sub_mul]; omega] at this
+    have := Nat.eq_zero_of_dvd_of_lt (hcop'.dvd_of_dvd_mul_right hd) (by omega)
+    omega
+
+/-- Existence and uniqueness of the jump index (R71: "among `j = 0, …, k−1` there is exactly one
+`j` with `jA ≡ k − 1 (mod k)`"). -/
+theorem exists_unique_mech_jump {m : ℕ} (hm : 2 ≤ m) (A : ℕ) (hcop : Nat.Coprime A m) :
+    ∃ j, j < m ∧ m ∣ j * A + 1 ∧ ∀ j', j' < m → m ∣ j' * A + 1 → j' = j := by
+  obtain ⟨i, _, hiA⟩ := Nat.exists_mul_mod_eq_one_of_coprime hcop (by omega)
+  have hiA' : A * i ≡ 1 [MOD m] := by
+    show A * i % m = 1 % m
+    rw [Nat.mod_eq_of_lt (by omega : 1 < m)]
+    exact hiA
+  have hjlt : (m - 1) * i % m < m := Nat.mod_lt _ (by omega)
+  have hjd : m ∣ (m - 1) * i % m * A + 1 := by
+    have h1 : (m - 1) * i % m * A ≡ (m - 1) * i * A [MOD m] := (Nat.mod_modEq _ _).mul_right A
+    have h2 : (m - 1) * i * A ≡ (m - 1) * 1 [MOD m] := by
+      rw [show (m - 1) * i * A = (m - 1) * (A * i) by ring]
+      exact Nat.ModEq.mul_left (m - 1) hiA'
+    have h3 : (m - 1) * i % m * A + 1 ≡ (m - 1) * 1 + 1 [MOD m] := (h1.trans h2).add_right 1
+    rw [show (m - 1) * 1 + 1 = m by omega] at h3
+    exact Nat.modEq_zero_iff_dvd.mp (h3.trans (Nat.modEq_zero_iff_dvd.mpr dvd_rfl))
+  exact ⟨_, hjlt, hjd, fun j' hj' h' => mech_jump_unique hcop hjlt hj' hjd h'⟩
+
+/-- R71's (4): `B_1 − B_0 = 3^{m−1−j} 2^{⌊jA/m⌋}` for the unique `j < m` with `m ∣ jA + 1`
+("passing from `l = 0` to `l = 1` increases precisely one prefix floor"). -/
+theorem C_mech_one_sub_zero {m : ℕ} (hm : 2 ≤ m) (A : ℕ) (hcop : Nat.Coprime A m) :
+    ∃ j, j < m ∧ C (mech A m 1) - C (mech A m 0) = 3 ^ (m - (j + 1)) * 2 ^ (j * A / m) := by
+  obtain ⟨j, hj, hjd, huniq⟩ := exists_unique_mech_jump hm A hcop
+  refine ⟨j, hj, ?_⟩
+  rw [C_mech A 1 (by omega), C_mech A 0 (by omega), ← Finset.sum_sub_distrib]
+  have hterm : ∀ x ∈ Finset.range m,
+      (3 : ℤ) ^ (m - (x + 1)) * 2 ^ ((x * A + 1) / m) - 3 ^ (m - (x + 1)) * 2 ^ ((x * A + 0) / m)
+        = if x = j then (3 : ℤ) ^ (m - (x + 1)) * 2 ^ (x * A / m) else 0 := by
+    intro x hx
+    rw [Nat.succ_div, add_zero]
+    by_cases hdx : m ∣ x * A + 1
+    · rw [ite_eq_left hdx, pow_add, pow_one,
+        ite_eq_left (huniq x (Finset.mem_range.mp hx) hdx)]
+      ring
+    · rw [ite_eq_right hdx, add_zero, ite_eq_right (fun h => hdx (by rw [h]; exact hjd))]
+      ring
+  rw [Finset.sum_congr rfl hterm, Finset.sum_ite_eq', ite_eq_left (Finset.mem_range.mpr hj)]
+
+/-- **R71's exact denominator, primitive case.** For `m ≥ 2`, `A ≥ m` and `gcd(A, m) = 1`, the
+phase-`0` mechanical word has `gcd(C, D) = 1`: its rational cycle has reduced denominator
+exactly `D = 2^A − 3^m`. -/
+theorem mech_gcd_one {m : ℕ} (hm : 2 ≤ m) (A : ℕ) (hAm : m ≤ A) (hcop : Nat.Coprime A m) :
+    Int.gcd (C (mech A m 0)) (D (mech A m 0)) = 1 := by
+  have hm0 : 0 < m := by omega
+  have hsum : 1 ≤ (mech A m 0).sum := by rw [mech_sum hm0 A 0 hm0]; omega
+  have hlen : 1 ≤ (mech A m 0).length := by rw [mech_length]; omega
+  have hw0 : mech A m 0 ≠ [] := fun h => by
+    have := congrArg List.length h
+    rw [mech_length, List.length_nil] at this
+    omega
+  have hg2 := gcd_isCoprime_two hsum
+  have hg3 := gcd_isCoprime_three hlen
+  obtain ⟨i, _, hiA⟩ := Nat.exists_mul_mod_eq_one_of_coprime hcop (by omega)
+  have hrot : (mech A m 0).rotate i = mech A m 1 := by
+    rw [mech_rotate hm0 A 0 i, zero_add, mul_comm, hiA]
+  have hC1 : ((Int.gcd (C (mech A m 0)) (D (mech A m 0)) : ℕ) : ℤ) ∣ C (mech A m 1) := by
+    have := dvd_C_rotate_of_dvd hw0 hg2 (Int.gcd_dvd_left _ _) (Int.gcd_dvd_right _ _) i
+    rwa [hrot] at this
+  have hC0 : ((Int.gcd (C (mech A m 0)) (D (mech A m 0)) : ℕ) : ℤ) ∣ C (mech A m 0) :=
+    Int.gcd_dvd_left _ _
+  obtain ⟨j, _, hdiff⟩ := C_mech_one_sub_zero hm A hcop
+  have hdvd : ((Int.gcd (C (mech A m 0)) (D (mech A m 0)) : ℕ) : ℤ)
+      ∣ (3 : ℤ) ^ (m - (j + 1)) * 2 ^ (j * A / m) := by
+    rw [← hdiff]
+    exact dvd_sub hC1 hC0
+  have hcop' : IsCoprime ((Int.gcd (C (mech A m 0)) (D (mech A m 0)) : ℕ) : ℤ)
+      ((3 : ℤ) ^ (m - (j + 1)) * 2 ^ (j * A / m)) :=
+    (hg3.pow_right).mul_right (hg2.pow_right)
+  have h1 : ((Int.gcd (C (mech A m 0)) (D (mech A m 0)) : ℕ) : ℤ) ∣ ((1 : ℕ) : ℤ) :=
+    hcop'.dvd_of_dvd_mul_left (by rw [Nat.cast_one, mul_one]; exact hdvd)
+  exact Nat.dvd_one.mp (Int.natCast_dvd_natCast.mp h1)
+
+/-- Every phase word is a rotation of phase `0`, so `gcd(C, D) = 1` for every phase `l < m` in
+the primitive case. -/
+theorem mech_gcd_one_phase {m : ℕ} (hm : 2 ≤ m) (A : ℕ) (hAm : m ≤ A) (hcop : Nat.Coprime A m)
+    {l : ℕ} (hl : l < m) : Int.gcd (C (mech A m l)) (D (mech A m l)) = 1 := by
+  have hm0 : 0 < m := by omega
+  have hsum : 1 ≤ (mech A m 0).sum := by rw [mech_sum hm0 A 0 hm0]; omega
+  have hw0 : mech A m 0 ≠ [] := fun h => by
+    have := congrArg List.length h
+    rw [mech_length, List.length_nil] at this
+    omega
+  obtain ⟨i, _, hiA⟩ := Nat.exists_mul_mod_eq_one_of_coprime hcop (by omega)
+  have hrot : (mech A m 0).rotate (l * i) = mech A m l := by
+    rw [mech_rotate hm0 A 0 (l * i), zero_add, show l * i * A = l * (A * i) by ring,
+      Nat.mul_mod, hiA, mul_one, Nat.mod_mod, Nat.mod_eq_of_lt hl]
+  rw [← hrot, gcd_rotate_eq hw0 hsum, mech_gcd_one hm A hAm hcop]
+
+/-- `3^m ≡ 1` or `3 (mod 8)`. -/
+theorem three_pow_mod_eight (m : ℕ) : 3 ^ m % 8 = 1 ∨ 3 ^ m % 8 = 3 := by
+  induction m with
+  | zero => left; rfl
+  | succ m ih =>
+    rw [pow_succ, Nat.mul_mod]
+    rcases ih with h | h <;> rw [h] <;> decide
+
+/-- R71's exclusion: `D = 2^A − 3^m ≠ 1` for `m ≥ 2`, `A ≥ m` (modulo `8` for `A ≥ 3`; `A = 2`
+forces `m = 2` and `4 ≠ 10`). With `mech_gcd_one` this is "their only positive integer case is
+the all-`2` word", whose cycle is the fixed point `1`. -/
+theorem mech_D_ne_one {m : ℕ} (hm : 2 ≤ m) (A : ℕ) (hAm : m ≤ A) : (2 : ℤ) ^ A - 3 ^ m ≠ 1 := by
+  intro h
+  have hN : 2 ^ A = 3 ^ m + 1 := by
+    have : (2 : ℤ) ^ A = 3 ^ m + 1 := by linarith
+    exact_mod_cast this
+  rcases Nat.lt_or_ge A 3 with hA | hA
+  · have hA2 : A = 2 := by omega
+    have hm2 : m = 2 := by omega
+    subst hA2
+    subst hm2
+    norm_num at hN
+  · have h8 : 8 ∣ 2 ^ A := by
+      have := pow_dvd_pow 2 hA
+      simpa using this
+    have h3 := three_pow_mod_eight m
+    omega
+
 /-! ### C010: sharp odd-spacing bounds on the complete dyadic circle
 
 C010 (`ODD_ROUNDING.md` §§2–3) bounds each complete sorted gap `Δ_r` from below by a sharp
