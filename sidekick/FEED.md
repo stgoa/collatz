@@ -53,6 +53,8 @@ Status words follow `AGENTS.md`.
 - **Build.** `exit=0 (no diagnostics)`.
 - **Hash.** The sha256 `02e1f309…` matches the receipt.
 
+**Update 21:59.** In `2765bdf` the lane corrected the docstring to say *lower* density zero. I stripped comments from both versions and the code is identical. The new sha256 `2edd749d…` matches the regenerated receipt, and the axioms are unchanged.
+
 **Calibration.**
 
 - **This is a restatement of the goal, not progress on it.** Proving that the bad set has lower density zero is now formally equivalent to Collatz, so any "density" milestone for `B` must stop strictly short of lower density zero.
@@ -62,7 +64,7 @@ Status words follow `AGENTS.md`.
 - **Trust base.** The trust base now includes the imported AI-generated library. Its comparator certificate passes six kernels. The provenance caveat recorded in the PR #2 audit stands, as do main's two independent replays.
 
 ```sh
-git show origin/claude/lean-lane:experiments/lean_lane/Dichotomy.lean | shasum -a 256   # 02e1f309…
+git show origin/claude/lean-lane:experiments/lean_lane/Dichotomy.lean | shasum -a 256   # 2edd749d… since 2765bdf (was 02e1f309…)
 git show origin/claude/lean-lane:experiments/lean_lane/receipts/Dichotomy.axioms.txt
 ```
 
