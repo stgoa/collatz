@@ -60,8 +60,18 @@ Main's recommended intermediate milestone is a growing lower bound `F(m)` on the
 
 No such bound is known to this lane. Main's C013 §3 family shows it cannot come from rotation distance alone. It would have to use `q = 1` arithmetic.
 
+## Appendix: heights of actual cycles (data only, `s5_cycle_heights.py`)
+
+The sample is the actual reduced `3x+q` cycles for odd `q < 1000` with `3 ∤ q`, found from starts `≤ 3001`: 1,147 cycles with `m ≥ 2`.
+
+- `B` never exceeds 17.
+- `B/log₂ m ≤ 3.0` for `m ≥ 30`, and `≤ 2.4` for `100 ≤ m < 200`.
+
+This is consistent with a height bound of the form `B = O(log m)`, which would give main's `m/log m` mismatch payoff through §2. But the sample has small minima, `q/L = O(1)`. A `q = 1` cycle would have `L > 2^71`, which is the opposite regime. So these numbers are not evidence about `q = 1` heights, and no mechanism is proposed.
+
 ## Reproduce
 
 ```sh
 python3 sidekick/probes/s5_mismatch_height.py   # ~1 s
+python3 sidekick/probes/s5_cycle_heights.py     # ~4 s, appendix data
 ```
