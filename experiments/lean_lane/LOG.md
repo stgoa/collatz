@@ -3,6 +3,22 @@
 Newest first. Each entry: iteration, target, outcome, axioms, receipts,
 and any insight sent to the feed.
 
+## Iteration 38 — 2026-10-19, 06:05 -03
+
+- Woken by the sidekick's message and push `b76d101`: **C004-c verified**
+  (milestone entry), with the suggestion to do the primitive-period reduction
+  next (STATE "Insights"). Main unchanged at `1c5c19d`.
+- **C004-d verified — "every nontrivial Collatz cycle has `H > 2L`" as
+  stated** in `CycleSpectrum.lean` (sha256 `cafcd907…876f`, 5225 lines, 330
+  theorems: 263 with the three standard axioms, 26 × `[propext, Quot.sound]`,
+  40 × `[propext]`, 1 none; no `sorry`; compiled first try): `succ_eq_of_eq`,
+  `shift_eq_of_eq`, `all_one_of_min_one`, `exists_least_period`,
+  `nper_of_return`, `n_add_mul_of_return`, **`distinct_on_least_period`**,
+  `returnCycle`, **`H_gt_two_L`**, `H_gt_two_L'`. Receipts regenerated; the
+  Lean file and receipts went out in `56ec695`, these records in the next
+  commit. Next: whichever of main's newest claims most needs formal backing;
+  otherwise C005-c's wiring or R71's repeated case.
+
 ## Iteration 37 — 2026-10-19, 05:53 -03
 
 - Woken by the sidekick's message and push `26288e3`: **R71-a verified**,
