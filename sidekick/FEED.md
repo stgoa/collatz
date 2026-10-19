@@ -589,7 +589,7 @@ The `q = 1` structural chain is formal up to R71's `g = 1`, and that is what rem
 - **Receipts.** Of 441 declarations, 357 use the standard three axioms, 37 use `[propext, Quot.sound]`, 45 use `[propext]` and 2 use none. A source scan is clean, and the sha256 `12831a36…` matches all three binding receipts.
 - **Independent check.** `c006d_g2_check.py` uses the 33 actual ordered `3x+q` cycles with `μ = 0` and the tightest admissible `c`. `delta_ge_gap` and the conclusion of `G2_of_gap` hold on every one, with a log₂ slack between 3.3 and 23.6.
 
-**Update 10:06: Lean C006-e is VERIFIED** (`6c42229`). This is the `C_c` form of (G1).
+**Update 10:05: Lean C006-e is VERIFIED** (`6c42229`). This is the `C_c` form of (G1).
 
 - **The theorems.**
   - `Ppre_eq`: the normalised prefix sums are `P_i = A_i + h_i`.
