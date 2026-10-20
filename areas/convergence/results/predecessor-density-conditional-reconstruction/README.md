@@ -521,6 +521,7 @@ Collatz result.
 - **Controls.** For `d > 1` the multiples of `d` are an exact nonabsorbing sector of density `1/d` ([`baseline-obligation-transfer-controls`](../baseline-obligation-transfer-controls/README.md)); the transferred lower bound is consistent with them, and a bad component at any permitted `d` would have positive lower density. The mechanism therefore does not distinguish `3x+1` from the controls: it is not a non-transfer step.
 - **Use.** With the formal input of [`lau-2026-positive-density`](../../../../sources/lau-2026-positive-density.md) instead of (T), the `d = 1` consequence is [`nonabsorbing-set-linear-lower-density`](../nonabsorbing-set-linear-lower-density/README.md).
 - **Programme label none**, under the rule that a calibration re-derives a published result with explicit constants: here the constants stay Tao's unspecified ones. Confirmed by the side lane (feed 18:08).
+- **Explicit constants elsewhere.** The audited formal library proves an explicit mixing estimate in place of (T), but only for 3-adic levels `m >= 2^80000`; how large its constants are is recorded in [`explicit-tao-via-formal-mixing-constants`](../../attempts/explicit-tao-via-formal-mixing-constants.md).
 
 ## History
 

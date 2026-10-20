@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**193 results, 23 attempts, 29 questions, 27 sources.**
+**196 results, 25 attempts, 31 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -15,6 +15,7 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 | [`bad-set-half-descent-transport`](areas/convergence/questions/bad-set-half-descent-transport.md) | convergence | Odd-only 3x+1 map S absorbed at 1; B the positive odd nonabsorbing seeds; L(n) the first odd iterate <= n/2 of odd n > 1; G(B) = {odd n > 1 : L(n) in B}; for f… | 0 |
 | [`canonical-rigidity-bounded-invariants`](areas/convergence/questions/canonical-rigidity-bounded-invariants.md) | convergence | Let K be the positive canonical roots of elementary-bridge-quotient-normal-form and T = nu S its quotient map (odd-only 3x+1, absorbing at 1). For a bounded re… | 0 |
 | [`common-tail-comparison-after-r92`](areas/convergence/questions/common-tail-comparison-after-r92.md) | convergence | Odd-only 3x+1 map S, absorbing at 1. On the original coupled cell Q(ell) = 70506316836123 + 3 2^45 ell, ell >= 0 (b(ell) = Q(ell)/3, retained critical basis of… | 0 |
+| [`explicit-almost-all-descent-threshold`](areas/convergence/questions/explicit-almost-all-descent-threshold.md) | convergence | Ordinary Collatz map (or, equivalently for this purpose, the odd-only clock on odd N). For delta in (0,1), find an explicit C(delta) such that all but logarith… | 0 |
 | [`exposure-absorption-giant-component`](areas/convergence/questions/exposure-absorption-giant-component/README.md) | convergence | Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus; G_d(N) the first d forward arrows exposed from every nonzero source of A_N. Is there a constant c… | 0 |
 | [`five-ray-annular-current-supply`](areas/convergence/questions/five-ray-annular-current-supply.md) | convergence | Odd-only 3x+1 map, absorbing at 1; A_N = Π^R_(64N) − Π^R_N the six-band annulus of disjoint-annular-recursion. For every N = a·2^r·64^k with a ∈ {12, 14, 16, 1… | 0 |
 | [`five-ray-complementary-profile-completion`](areas/convergence/questions/five-ray-complementary-profile-completion.md) | convergence | Odd-only 3x+1 map, absorbing at 1. For every cutoff N = a 2^b, a in (12, 14, 16, 18, 21), b >= 9, and using only a supplied exact current for U_N (the odd seed… | 0 |
@@ -23,6 +24,7 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 | [`packet-current-supply`](areas/convergence/questions/packet-current-supply.md) | convergence | Odd-only clock, absorbing at 1. Prove that for every integer N ≥ 8 there are finite signed measures J_N, ζ_N with Π^R_N = (I − P)J_N + ζ_N and ζ_N ≤ 0 pointwis… | 0 |
 | [`predecessor-exponent-certificate-replay`](areas/convergence/questions/predecessor-exponent-certificate-replay.md) | convergence | Calibration target (Phase 6 route node C.1): for the shortcut map C and every fixed positive a not divisible by 3, Krasikov-Lagarias (2003, Theorem 6.1) prove… | 0 |
 | [`residual-pair-864z-257-supply`](areas/convergence/questions/residual-pair-864z-257-supply.md) | convergence | Odd-only 3x+1 map S, absorbing at 1. On the original coupled family z = 471104208005 + 2^14 3^16 ell, ell >= 0, with Q = (2^31 z - 665034679)/3^15, b = Q/3 and… | 0 |
+| [`tao-architecture-reoptimisation`](areas/convergence/questions/tao-architecture-reoptimisation.md) | convergence | In Tao's argument (arXiv 1909.03562v7, Sections 5-7), the exponents 0.6, 0.7, 0.8 and 0.1 of log x, the divisor 100 in m_0 = floor((alpha-1) log x/100), alpha… | 0 |
 | [`unabsorbed-count-power-saving`](areas/convergence/questions/unabsorbed-count-power-saving.md) | convergence | Odd-only 3x+1 map S absorbing at 1; tau_1 the absorbed odd-arrow hitting time of 1 (infinite for a nonconvergent orbit). Produce constants 0 < epsilon < 0.84,… | 0 |
 | [`uniform-current-cost`](areas/convergence/questions/uniform-current-cost.md) | convergence | Odd-only clock, absorbing at 1. With m = floor(2·ceil(log₂N)/9) and Π̂_(m,N) the exact-source packet family of packet-currents-snapshot, construct finite curre… | 0 |
 | [`universal-w5-quotient-stopping`](areas/convergence/questions/universal-w5-quotient-stopping.md) | convergence | Odd-only 3x+1 map S, absorbing at 1; nu, T = nu S and rho(w) = nu(3w) as in elementary-bridge-quotient-normal-form and critical-image-rank-composition; W5 = {w… | 0 |
@@ -87,6 +89,8 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`exact-current-minimality`](areas/convergence/results/exact-current-minimality.md) | An exact current is dominated pointwise by every one-sided certificate, but cheapest one-… | reviewed | reviewed | — |  |
 | [`exact-current-prefix-criterion`](areas/convergence/results/exact-current-prefix-criterion.md) | Exact currents at all cutoffs up to M are equivalent to convergence of the odd seeds up t… | written | written | — |  |
 | [`exit18-return-integer-cylinders`](areas/convergence/results/exit18-return-integer-cylinders/README.md) | Every finite mixed exit-18 return word has a complete integer cylinder; eventually period… | written | written | — |  |
+| [`explicit-one-round-descent`](areas/convergence/results/explicit-one-round-descent.md) | One round of explicit Syracuse descent outside an explicitly counted exceptional set | written | written | — |  |
+| [`explicit-valuation-large-deviations`](areas/convergence/results/explicit-valuation-large-deviations/README.md) | Explicit large deviations for Syracuse valuation sums, with exact integer counts | written | written | — |  |
 | [`exponent-eleven-exit-continuation`](areas/convergence/results/exponent-eleven-exit-continuation/README.md) | The whole exponent-eleven exit row and an exact undo of a named full-block continuation | written | written | — |  |
 | [`exponent-eleven-fifteen-rule-classification`](areas/convergence/results/exponent-eleven-fifteen-rule-classification/README.md) | The whole exponent-eleven family under the fifteen-rule dispatcher, and an exact zero-cur… | written | written | — |  |
 | [`exposure-potential-boundary-flux`](areas/convergence/results/exposure-potential-boundary-flux/README.md) | On an exposed graph, positive component masses are exact dual obstructions, and the scale… | written | written | — |  |
@@ -166,6 +170,7 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`signed-path-collapse-capacity`](areas/convergence/results/signed-path-collapse-capacity/README.md) | The restricted graph E0 is a union of paths; signed collapse and intermediate capacity be… | written | written | — |  |
 | [`sparse-paired-exact-current-criterion`](areas/convergence/results/sparse-paired-exact-current-criterion.md) | Exact currents at arbitrarily sparse pairs of cutoffs N_j, N_j − 1 imply Collatz converge… | written | written | — |  |
 | [`supplied-path-saturation-core`](areas/convergence/results/supplied-path-saturation-core/README.md) | Supplied absorption paths through N saturate to an infinite target set whose first Syracu… | written | written | — |  |
+| [`tao-printed-window-vacuity`](areas/convergence/results/tao-printed-window-vacuity/README.md) | With its printed parameters, Tao's first-passage window is empty below log x ≈ 6.27·10^13… | reviewed | reviewed | `tao-2019-almost-all` |  |
 | [`tripling-doubling-pair-decomposition`](areas/convergence/results/tripling-doubling-pair-decomposition/README.md) | After the run bridge, every complementary root reduces exactly to tripling and doubling p… | written | written | — |  |
 | [`twelve-family-rho-dispatcher`](areas/convergence/results/twelve-family-rho-dispatcher/README.md) | Twelve conditional strict-rank families under one fixed-priority dispatcher | written | written | — |  |
 | [`two-inverse-phases-intermediate-increase`](areas/convergence/results/two-inverse-phases-intermediate-increase/README.md) | Two inverse phases cross an intermediate increase and reach strict rank decrease | written | written | — |  |
@@ -185,6 +190,8 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`annular-bottom-cancellation-attempt`](areas/convergence/attempts/annular-bottom-cancellation-attempt.md) | Proving the annular obligation by cancelling positive and negative mass above the bottom | reviewed |
 | [`c2a-two-level-residue-relaxation`](areas/convergence/attempts/c2a-two-level-residue-relaxation.md) | Bounding the actual nonabsorbing set by its exact two-level ternary residue system | written |
 | [`cylinder-certificates-outer-residual`](areas/convergence/attempts/cylinder-certificates-outer-residual/README.md) | Fixed-bit 2-adic cylinder certificates (descent, merger, halving) cannot complete the outer residual | written |
+| [`explicit-tao-almost-all-constants`](areas/convergence/attempts/explicit-tao-almost-all-constants.md) | Making Tao's almost-all theorem explicit enough to meet the verified range | written |
+| [`explicit-tao-via-formal-mixing-constants`](areas/convergence/attempts/explicit-tao-via-formal-mixing-constants.md) | Reading explicit mixing constants for Tao's argument off the machine-checked positive-density library | reviewed |
 | [`matched-density-gap-combination`](areas/convergence/attempts/matched-density-gap-combination.md) | Combining the fixed-target predecessor density with Tao's almost-bounded theorem to exclude a nonabsorbing co… | written |
 | [`retained-lower-currents-adjacent-source`](areas/convergence/attempts/retained-lower-currents-adjacent-source.md) | Retained lower currents and joint rewrites do not escape the adjacent-source interface | written |
 | [`rho-sigma-rank-mixing`](areas/convergence/attempts/rho-sigma-rank-mixing/README.md) | Mixing the rho and sigma dispatchers: finite dependency graphs are acyclic, but no common rank is found | written |
@@ -313,7 +320,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`krasikov-2003-predecessors`](sources/krasikov-2003-predecessors.md) | Krasikov–Lagarias: predecessor counts at least X^0.84 | cited | 1 |
 | [`lagarias-1985-survey`](sources/lagarias-1985-survey.md) | Lagarias (1985): survey of the 3x+1 problem | cited | 0 |
 | [`languasco-2025-two-primes`](sources/languasco-2025-two-primes.md) | Languasco–Luca–Moree–Togbe: rational form of Matveev's bound | cited | 2 |
-| [`lau-2026-positive-density`](sources/lau-2026-positive-density.md) | Lau / AxiomMath: explicit positive lower density of predecessors (Lean) | replayed | 2 |
+| [`lau-2026-positive-density`](sources/lau-2026-positive-density.md) | Lau / AxiomMath: explicit positive lower density of predecessors (Lean) | replayed | 4 |
 | [`matveev-2000-linear-forms`](sources/matveev-2000-linear-forms.md) | Matveev (2000): explicit lower bound for linear forms in logarithms | cited | 2 |
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
@@ -322,7 +329,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
 | [`steiner-1977-one-cycles`](sources/steiner-1977-one-cycles.md) | Steiner (1977): no nontrivial 1-cycles | cited | 0 |
-| [`tao-2019-almost-all`](sources/tao-2019-almost-all.md) | Tao: almost all Collatz orbits attain almost bounded values | cited | 2 |
+| [`tao-2019-almost-all`](sources/tao-2019-almost-all.md) | Tao: almost all Collatz orbits attain almost bounded values | cited | 5 |
 | [`terras-1976-stopping-time`](sources/terras-1976-stopping-time.md) | Terras (1976): a stopping time problem on the positive integers | cited | 0 |
 
 ## Legacy IDs
@@ -511,6 +518,13 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 | S11 | [`shared-background-copies-via-gap`](areas/cycles/results/shared-background-copies-via-gap/README.md) |
 | S12 | [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) |
 | S13 | [`rise-lemma`](areas/cycles/results/rise-lemma/README.md) |
+| TAO-L1 | [`explicit-valuation-large-deviations`](areas/convergence/results/explicit-valuation-large-deviations/README.md) |
+| TAO-L2 | [`explicit-valuation-large-deviations`](areas/convergence/results/explicit-valuation-large-deviations/README.md) |
+| TAO-L3 | [`explicit-one-round-descent`](areas/convergence/results/explicit-one-round-descent.md) |
+| TAO-L4 | [`tao-printed-window-vacuity`](areas/convergence/results/tao-printed-window-vacuity/README.md) |
+| TAO-L4-b | [`explicit-tao-via-formal-mixing-constants`](areas/convergence/attempts/explicit-tao-via-formal-mixing-constants.md) |
+| TAO-L5 | [`explicit-almost-all-descent-threshold`](areas/convergence/questions/explicit-almost-all-descent-threshold.md) |
+| TAO-L6 | [`explicit-almost-all-descent-threshold`](areas/convergence/questions/explicit-almost-all-descent-threshold.md) |
 
 ## Recent activity
 

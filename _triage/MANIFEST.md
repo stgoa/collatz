@@ -323,15 +323,15 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B14-convergence-phase6 | `reviews/side_lane/p6_001_stopping_check.*` | 2 | node fixed-factor-stopping-explicit-constants |
 | B14-convergence-phase6 | `reviews/side_lane/p6_002_transport_check.*` | 2 | node arbitrary-target-linear-transport-barrier |
 | B14-convergence-phase6 | `reviews/side_lane/p6_003_growth_norm_check.*` | 2 | node growth-norm-transport-barrier |
-| B15-convergence-explicit-tao | `experiments/explicit_tao/LOG.md` | 1 | pending |
-| B15-convergence-explicit-tao | `experiments/explicit_tao/README.md` | 1 | pending |
-| B15-convergence-explicit-tao | `experiments/explicit_tao/STATE.md` | 1 | pending |
-| B15-convergence-explicit-tao | `experiments/explicit_tao/check_L2.py` | 1 | pending |
-| B15-convergence-explicit-tao | `experiments/explicit_tao/check_L4_window.py` | 1 | pending |
-| B15-convergence-explicit-tao | `experiments/explicit_tao/lemmas` | 3 | pending |
-| B15-convergence-explicit-tao | `experiments/explicit_tao/receipts` | 2 | pending |
-| B15-convergence-explicit-tao | `reviews/side_lane/fable_L2_check.*` | 2 | pending |
-| B15-convergence-explicit-tao | `reviews/side_lane/fable_L4_window_check.*` | 2 | pending |
+| B15-convergence-explicit-tao | `experiments/explicit_tao/LOG.md` | 1 | archive archive/convergence-explicit-tao/LOG.md (absorbed into explicit-tao-almost-all-constants) |
+| B15-convergence-explicit-tao | `experiments/explicit_tao/README.md` | 1 | node explicit-tao-almost-all-constants |
+| B15-convergence-explicit-tao | `experiments/explicit_tao/STATE.md` | 1 | archive archive/convergence-explicit-tao/STATE.md (absorbed into explicit-tao-almost-all-constants, explicit-almost-all-descent-threshold, tao-architecture-reoptimisation) |
+| B15-convergence-explicit-tao | `experiments/explicit_tao/check_L2.py` | 1 | node explicit-valuation-large-deviations |
+| B15-convergence-explicit-tao | `experiments/explicit_tao/check_L4_window.py` | 1 | node tao-printed-window-vacuity |
+| B15-convergence-explicit-tao | `experiments/explicit_tao/lemmas` | 3 | node explicit-valuation-large-deviations, explicit-one-round-descent, tao-printed-window-vacuity, explicit-tao-via-formal-mixing-constants |
+| B15-convergence-explicit-tao | `experiments/explicit_tao/receipts` | 2 | node explicit-valuation-large-deviations, tao-printed-window-vacuity |
+| B15-convergence-explicit-tao | `reviews/side_lane/fable_L2_check.*` | 2 | node explicit-valuation-large-deviations |
+| B15-convergence-explicit-tao | `reviews/side_lane/fable_L4_window_check.*` | 2 | node tao-printed-window-vacuity |
 | B16-invariants-viewpoints | `experiments/viewpoints/LOG.md` | 1 | pending |
 | B16-invariants-viewpoints | `experiments/viewpoints/MAP.md` | 1 | pending |
 | B16-invariants-viewpoints | `experiments/viewpoints/README.md` | 1 | pending |
