@@ -25,6 +25,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 2026-10-19 04:45 (in the C012 referee entry): COUPLED_OBSTRUCTIONS.md sections 1-3 read by hand, no error; the three-defect family, the corrected C(5, 2^n) = 32·4^n − 31·3^n and the counting bound checked"
+    link: ../../../archive/side-lane/FEED.md
   - by: Claude side lane (Opus)
     date: 2026-10-19
     link: coupled-defect-matrix-smith-form/c012_candidate_check.py

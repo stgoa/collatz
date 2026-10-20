@@ -39,6 +39,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 05:03: the run law re-derived by hand, no error; Lean unit C013-b verified (iteration 58; called C013-a iteration 58 in the lane's STATE)"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, rotation-distance, height, formal]
 ---
 
@@ -66,7 +67,7 @@ No circular order and no `q ≤ L` are assumed; the actual height `B` is retaine
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean unit C013-b (legacy `lean/STATE.md`, iteration 58; the lane's STATE labels it a second "C013-a"), on `OddCycle` with no order hypothesis and nothing comparing `q` with `L`; axioms `propext`, `Classical.choice`, `Quot.sound` (`z_even`: `propext`, `Quot.sound`; `z_ne_zero`: `propext`); receipts `lean/receipts/CycleSpectrum.*`. "Nonidentity rotation" is `h % m ≠ 0`; "primitive" is `hprim : ∀ i j < m, n i = n j → i = j` (used only through `k ≠ 0`); a run is `(i, t, hagree)` with `hagree : ∀ j < t, a (i+j) = a (i+j+h)`.
+`lean/CycleSpectrum.lean`, Lean unit C013-b (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../archive/lean-lane/STATE.md), iteration 58; the lane's STATE labels it a second "C013-a"), on `OddCycle` with no order hypothesis and nothing comparing `q` with `L`; axioms `propext`, `Classical.choice`, `Quot.sound` (`z_even`: `propext`, `Quot.sound`; `z_ne_zero`: `propext`); receipts `lean/receipts/CycleSpectrum.*`. "Nonidentity rotation" is `h % m ≠ 0`; "primitive" is `hprim : ∀ i j < m, n i = n j → i = j` (used only through `k ≠ 0`); a run is `(i, t, hagree)` with `hagree : ∀ j < t, a (i+j) = a (i+j+h)`.
 
 - `z_even`, `z_ne_zero`: part 1. `z_step`: (2). `z_run`: `2^E·z_(i+t) = 3^t·z_i`. `z_run_factor` (with `run_factor`): (3), `k ≠ 0` when `z_(i+t) ≠ 0`.
 - `diameter_ge`: (4), stated for every upper bound `H` of the states (equivalent). `K_mul_L_gt`: (5) as `2·max < K_B·L`.

@@ -38,6 +38,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "C004 re-derived by hand with no error (feed 01:19); Lean units C004-a, C004-b, C004-c, C004-d (with R71-a) verified, 2026-10-19"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [C004]
 tags: [cycles, narrow-cycles, mechanical-words, christoffel, formal]
 ---
@@ -94,7 +95,7 @@ Finite checks do not prove the classification; they support the implementation.
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean units C004-a, C004-b, C004-c, C004-d and R71-a (legacy `lean/STATE.md`). Axioms `propext`, `Classical.choice`, `Quot.sound`; receipts `lean/receipts/CycleSpectrum.*`. No external input is used.
+`lean/CycleSpectrum.lean`, Lean units C004-a, C004-b, C004-c, C004-d and R71-a (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../../archive/lean-lane/STATE.md)). Axioms `propext`, `Classical.choice`, `Quot.sound`; receipts `lean/receipts/CycleSpectrum.*`. No external input is used.
 
 - **(i), mechanical ⇒ narrow.** `LeanLane.Cyc.narrow_mech`: every rotation of `mech A m 0` has `C_0 ≤ C_i < 2C_0` and the common `D = 2^A − 3^m`; with `mech_rotate` (every rotation of a phase word is a phase word) this is the reverse direction for every phase. No coprimality is needed for the inequalities.
 - **(i), narrow ⇒ mechanical.** `LeanLane.Cyc.NarrowCycle.is_mech_of_narrow`: a word `w` of length `m ≥ 2` with `D_w > 0`, distinct rotated intercepts (the `m` states `C(w.rotate i)/D` are distinct, i.e. primitive) and `C(w.rotate i) < 2·C(w.rotate j)` for all `i, j` (exactly `H < 2L` for the states `C_i/D`, which share `D > 0`) satisfies `w = mech w.sum m l` for some phase `l < m` and `gcd(w.sum, m) = 1`. Letter positivity is not assumed; it follows from `D_w > 0`.

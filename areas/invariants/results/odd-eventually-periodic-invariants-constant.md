@@ -24,6 +24,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-18
     scope: "Feed 20:49: Lean V004-i read from source and receipts; statement match confirmed, and the Lean proof's different route (integer identities, period 3K to K, translation by 1/2) checked by hand"
+    link: ../../../archive/side-lane/FEED.md
 aliases: [V004-c]
 tags: [invariants, colourings, periodic, rigidity, formal]
 ---

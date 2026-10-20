@@ -20,6 +20,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-18
     scope: "VIEWPOINTS.md referee sheet and feed 18:24: V14 'relocates (main closed it in V003: no new relation)'; the difficulty lands at a growing frontier, finite support and a nonlocal bootstrap (closest literature: Collatz as a quasi-cellular automaton, Cloney-Goles-Vichniac 1987)"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [V003-e, VP-V14]
 tags: [invariants, viewpoints, base-conversion, carries, rejected-mechanism]
 ---

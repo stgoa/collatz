@@ -29,6 +29,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Review of S12 §3a (labels (a) real versus integer height, (b) complementary to S9) and the scope remark on h = 1 (feed 17:32); formalised as S12-e, S9-e and S12-f part 3"
+    link: ../../../../archive/side-lane/FEED.md
 tags: [cycles, denominator, denjoy-koksma, 3x+d, formal]
 ---
 

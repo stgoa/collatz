@@ -59,6 +59,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed update 12:48: adversarial review of Steps 3-5, line by line, found no gap ('given the four numeric conditions W, A, P, F at ℓ = ℓ*(m), the written proof excludes s = 3'); four explicitness points applied. Lean units S7-a, S7-b (parts 1, 2, 3a, 3b), S7-c (parts 1, 2) and S7-d (parts 1, 2) verified (iterations 66-74)"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [S07]
 tags: [cycles, rotation-distance, exclusion, linear-forms, formal]
 ---

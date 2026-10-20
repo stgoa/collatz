@@ -26,9 +26,11 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 2026-10-19 02:41, VERIFIED Lean C005-b: statement match with ORDER_THEORY.md section 2's three-band theorem and receipts checked; feed 02:13: the q = 11 control (inversion with H < 8L, gcd(A, m) = 2) shows the lemma needs q = 1"
+    link: ../../../archive/side-lane/FEED.md
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "C005 re-derived by hand (feed 02:13, update 02:19); Lean unit C005-b verified (iteration 20)"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, dyadic-order, three-band, collatz-specific, formal]
 ---
 

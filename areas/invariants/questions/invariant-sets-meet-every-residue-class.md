@@ -21,7 +21,7 @@ tags: [invariants, viewpoints, residues, profinite, rigidity, open]
 
 ## Question
 
-As in the claim: the "intermediate milestone" of the side lane's viewpoint card S2 (×2×3 rigidity as a theoretical home for V13; side-lane referee sheet `archive/side_lane/VIEWPOINTS.md`, legacy path, and feed 19:13 of 2026-10-18). The side lane proposed it as a bounded computation plus a V13-style argument; residue-level closure needs the parity and mod-3 data of members, so work modulo `6M`.
+As in the claim: the "intermediate milestone" of the side lane's viewpoint card S2 (×2×3 rigidity as a theoretical home for V13; side-lane referee sheet [`archive/side-lane/VIEWPOINTS.md`](../../../archive/side-lane/VIEWPOINTS.md), and feed 19:13 of 2026-10-18 in [`archive/side-lane/FEED.md`](../../../archive/side-lane/FEED.md)). The side lane proposed it as a bounded computation plus a V13-style argument; residue-level closure needs the parity and mod-3 data of members, so work modulo `6M`.
 
 ## Why it matters
 
@@ -39,4 +39,4 @@ From the card: (i) a literature check on affine-semigroup versions of Furstenber
 
 ## History
 
-- New node by the B16 migration (Claude, Opus 5.5) from the side lane's card S2 (Claude side lane, Opus, 2026-10-18 19:13; `archive/side_lane/VIEWPOINTS.md`, legacy path, migrated by a later batch) at commit `be73a66`. The side lane's other card, S1 (formerly labelled V11 on its sheet), is the same statement as [`nonabsorbing-set-linear-lower-density`](../../convergence/results/nonabsorbing-set-linear-lower-density/README.md) and is not a separate node.
+- New node by the B16 migration (Claude, Opus 5.5) from the side lane's card S2 (Claude side lane, Opus, 2026-10-18 19:13; [`archive/side-lane/VIEWPOINTS.md`](../../../archive/side-lane/VIEWPOINTS.md), legacy path `archive/side_lane/VIEWPOINTS.md`) at commit `be73a66`. The side lane's other card, S1 (formerly labelled V11 on its sheet), is the same statement as [`nonabsorbing-set-linear-lower-density`](../../convergence/results/nonabsorbing-set-linear-lower-density/README.md) and is not a separate node.

@@ -15,7 +15,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B02-lean | `lean/Dichotomy.lean` | 1 | restored to `lean/Dichotomy.lean` |
 | B02-lean | `lean/GeneralPeriodic.lean` | 1 | restored to `lean/GeneralPeriodic.lean` |
 | B02-lean | `lean/KernelClosure.lean` | 1 | restored to `lean/KernelClosure.lean` |
-| B17-leftovers | `lean/LOG.md` | 1 | pending |
+| B17-leftovers | `lean/LOG.md` | 1 | archive `archive/lean-lane/LOG.md` |
 | B02-lean | `lean/OddEventuallyPeriodic.lean` | 1 | restored to `lean/OddEventuallyPeriodic.lean` |
 | B02-lean | `lean/PairObligation.lean` | 1 | restored to `lean/PairObligation.lean` |
 | B02-lean | `lean/PeriodicRigidity.lean` | 1 | restored to `lean/PeriodicRigidity.lean` |
@@ -23,7 +23,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B02-lean | `lean/README.md` | 1 | restored to `lean/README.md` |
 | B02-lean | `lean/ReverseClosure_Assembly.lean` | 1 | restored to `lean/ReverseClosure_Assembly.lean` |
 | B02-lean | `lean/ReverseClosure_Final.lean` | 1 | restored to `lean/ReverseClosure_Final.lean` |
-| B17-leftovers | `lean/STATE.md` | 1 | pending |
+| B17-leftovers | `lean/STATE.md` | 1 | archive `archive/lean-lane/STATE.md` (every unit's statement match is in its node's `## Lean` section; five units spot-checked) |
 | B02-lean | `lean/ScalarInterface.lean` | 1 | restored to `lean/ScalarInterface.lean` |
 | B02-lean | `lean/V004_Assembly.lean` | 1 | restored to `lean/V004_Assembly.lean` |
 | B02-lean | `lean/V004_Final.lean` | 1 | restored to `lean/V004_Final.lean` |
@@ -353,25 +353,25 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B16-invariants-viewpoints | `reviews/side_lane/v009_escape_check.*` | 2 | node additive-section-excess-unbounded |
 | B16-invariants-viewpoints | `reviews/side_lane/v13_coloring_check.*` | 2 | node periodic-invariant-colourings-classification |
 | B16-invariants-viewpoints | `reviews/side_lane/viewpoint_v001_check.*` | 2 | node viewpoint-language-survey |
-| B17-leftovers | `.github` | 6 | pending |
-| B17-leftovers | `AGENTS.md` | 1 | pending |
-| B17-leftovers | `CLAUDE.md` | 1 | pending |
-| B17-leftovers | `CONTRIBUTING.md` | 1 | pending |
-| B17-leftovers | `README.md` | 1 | pending |
-| B17-leftovers | `archive/AGENTS_2026-10-19.md` | 1 | pending |
-| B17-leftovers | `archive/COLLATZ_PROGRAMME_MASTER_HANDOFF.md` | 1 | pending |
-| B17-leftovers | `archive/README.md` | 1 | pending |
-| B17-leftovers | `archive/README_2026-10-19.md` | 1 | pending |
-| B17-leftovers | `archive/docs` | 2 | pending |
-| B17-leftovers | `archive/side_lane` | 9 | pending |
-| B17-leftovers | `docs/CONVENTIONS.md` | 1 | pending |
-| B17-leftovers | `docs/FRONTIER.md` | 1 | pending |
-| B17-leftovers | `docs/HISTORY.md` | 1 | pending |
-| B17-leftovers | `docs/RESULTS.md` | 1 | pending |
-| B17-leftovers | `docs/STATUS.md` | 1 | pending |
-| B17-leftovers | `experiments/README.md` | 1 | pending |
-| B17-leftovers | `reviews/README.md` | 1 | pending |
-| B17-leftovers | `reviews/side_lane/README.*` | 1 | pending |
+| B17-leftovers | `.github` | 6 | archive `archive/pre-migration-2026-10-20/github/` (superseded by the root `.github/`) |
+| B17-leftovers | `AGENTS.md` | 1 | archive `archive/pre-migration-2026-10-20/AGENTS.md` |
+| B17-leftovers | `CLAUDE.md` | 1 | archive `archive/pre-migration-2026-10-20/CLAUDE.md` |
+| B17-leftovers | `CONTRIBUTING.md` | 1 | archive `archive/pre-migration-2026-10-20/CONTRIBUTING.md` |
+| B17-leftovers | `README.md` | 1 | archive `archive/pre-migration-2026-10-20/README.md` |
+| B17-leftovers | `archive/AGENTS_2026-10-19.md` | 1 | archive `archive/pre-restructure-2026-10-19/AGENTS.md` |
+| B17-leftovers | `archive/COLLATZ_PROGRAMME_MASTER_HANDOFF.md` | 1 | archive `archive/handoff/COLLATZ_PROGRAMME_MASTER_HANDOFF.md` |
+| B17-leftovers | `archive/README.md` | 1 | archive `archive/pre-restructure-2026-10-19/ARCHIVE_README.md` (its old-to-new map folded into `archive/README.md`) |
+| B17-leftovers | `archive/README_2026-10-19.md` | 1 | archive `archive/pre-restructure-2026-10-19/README.md` |
+| B17-leftovers | `archive/docs` | 2 | archive `archive/pre-restructure-2026-10-19/docs/` |
+| B17-leftovers | `archive/side_lane` | 9 | archive `archive/side-lane/` |
+| B17-leftovers | `docs/CONVENTIONS.md` | 1 | archive `archive/pre-migration-2026-10-20/docs/CONVENTIONS.md` (notation in `conventions/NOTATION.md`, external inputs in `sources/`, ID glossary in MAP.md aliases; its fixture list added to NOTATION §3) |
+| B17-leftovers | `docs/FRONTIER.md` | 1 | archive `archive/pre-migration-2026-10-20/docs/FRONTIER.md`; node linear-form-gap-own-proof (the one open target without a question node) |
+| B17-leftovers | `docs/HISTORY.md` | 1 | archive `archive/HISTORY.md` (updated with the migration) |
+| B17-leftovers | `docs/RESULTS.md` | 1 | archive `archive/pre-migration-2026-10-20/docs/RESULTS.md` (superseded by MAP.md) |
+| B17-leftovers | `docs/STATUS.md` | 1 | archive `archive/pre-migration-2026-10-20/docs/STATUS.md` (superseded by MAP.md and the area overviews) |
+| B17-leftovers | `experiments/README.md` | 1 | archive `archive/pre-migration-2026-10-20/experiments/README.md` (index of the legacy lines, superseded by MAP.md and the overviews) |
+| B17-leftovers | `reviews/README.md` | 1 | archive `archive/pre-migration-2026-10-20/reviews/README.md` (legacy review rules, superseded by AGENTS.md §3 and §7) |
+| B17-leftovers | `reviews/side_lane/README.*` | 1 | archive `archive/side-lane/PROBES_README.md` |
 | B11-residual-R40-R60 | `reviews/side_lane/backward_word_rule.*` | 2 | node negative-cycle-backward-word (new side-lane node) |
 | B09-residual-R11-R24 | `reviews/side_lane/chain_cancellation_scan.*` | 2 | node delayed-release-cancellation |
 | B12-residual-R61-R77 | `reviews/side_lane/closure_frontier_meter.*` | 2 | node fifteen-family-rho-dispatcher |
@@ -383,7 +383,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B11-residual-R40-R60 | `reviews/side_lane/expanded_union_meter.*` | 2 | node two-inverse-phases-intermediate-increase (evidence: measurement) |
 | B10-residual-R25-R39 | `reviews/side_lane/fibre_count_check.*` | 2 | node absorbed-fibre-uniform-counts |
 | B12-residual-R61-R77 | `reviews/side_lane/itinerary_complexity_general.*` | 2 | node divergent-orbit-itinerary-complexity |
-| B17-leftovers | `reviews/side_lane/jterm_gap_check.*` | 2 | pending |
+| B17-leftovers | `reviews/side_lane/jterm_gap_check.*` | 2 | node ordered-gap-closed-form (certificate) |
 | B10-residual-R25-R39 | `reviews/side_lane/pair_merge_controls.*` | 2 | node tripling-doubling-pair-decomposition |
 | B09-residual-R11-R24 | `reviews/side_lane/q1_giant_component.*` | 2 | node exposure-absorption-giant-component |
 | B09-residual-R11-R24 | `reviews/side_lane/q2_end_depth.*` | 2 | node unbounded-exposure-depth-necessary |
@@ -393,7 +393,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B09-residual-R11-R24 | `reviews/side_lane/slow_cluster_probe.*` | 2 | node exposure-absorption-giant-component |
 | B11-residual-R40-R60 | `reviews/side_lane/union_acceptance_meter.*` | 2 | node critical-image-rank-composition (evidence: measurement) |
 | B11-residual-R40-R60 | `reviews/side_lane/union_gap_map.*` | 2 | node critical-image-rank-composition (evidence: measurement) |
-| B17-leftovers | `scripts/check_lean_receipts.py` | 1 | pending |
-| B17-leftovers | `scripts/check_links.py` | 1 | pending |
-| B17-leftovers | `scripts/run_checks.py` | 1 | pending |
-| B17-leftovers | `scripts/verify_all.py` | 1 | pending |
+| B17-leftovers | `scripts/check_lean_receipts.py` | 1 | archive `archive/pre-migration-2026-10-20/scripts/check_lean_receipts.py` (superseded by `tools/check_lean_receipts.py`) |
+| B17-leftovers | `scripts/check_links.py` | 1 | archive `archive/pre-migration-2026-10-20/scripts/check_links.py` (superseded by `tools/check.py`) |
+| B17-leftovers | `scripts/run_checks.py` | 1 | archive `archive/pre-migration-2026-10-20/scripts/run_checks.py` (superseded by `tools/run_certificates.py`) |
+| B17-leftovers | `scripts/verify_all.py` | 1 | archive `archive/pre-migration-2026-10-20/scripts/verify_all.py` (superseded by `tools/legacy_replay.py`; replay outcome in `archive/README.md`) |

@@ -22,9 +22,11 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 2026-10-19 02:13, REFEREE C005 + C006: all 15 normalised q = 233 period-8 cycles have cancellation 7, strict order and rank shift 5; both q = 5 period-17 cycles (minima 187 and 347) have cancellation 1,015,513, strict order and rank shift 10"
+    link: ../../../archive/side-lane/FEED.md
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 02:13, update 02:19: re-derived the weighted identity D·L = q·C_h and the one-defect q = 233 numbers (C_h = 13349, gcd(13349, 1631) = 7) with no error"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, dyadic-order, cancellation, counterexample]
 ---
 

@@ -27,6 +27,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed update 13:17 (the 1-cycle by-product checks out) and Lean unit S8-a verified (iteration 78; convention checked: V is the last letter a_(m−1) read from the minimum n_0)"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, one-cycles, linear-forms, known-result, formal]
 ---
 

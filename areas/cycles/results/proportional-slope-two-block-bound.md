@@ -29,9 +29,11 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "PROPORTIONAL.md sections 1-4 re-derived by hand with no error found (feed 2026-10-19 00:26, update 00:31); Lean unit C002-b part 1 verified (feed 17:21): (6)-(8) machine-checked"
+    link: ../../../archive/side-lane/FEED.md
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 17:21, VERIFIED Lean C002-b part 1: statement match of (6)-(8) and receipts checked; feed 00:26 REFEREE C002 checked the sharpness examples for t <= 40"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, denominators, two-blocks, strong-divisibility, formal]
 ---
 
@@ -67,7 +69,7 @@ Written proof: `PROPORTIONAL.md` §§1–2 in [`equal-total-two-block-exclusion`
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean unit C002-b part 1 (legacy `lean/STATE.md`), section `Proportional`:
+`lean/CycleSpectrum.lean`, Lean unit C002-b part 1 (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../archive/lean-lane/STATE.md)), section `Proportional`:
 
 - `LeanLane.Cyc.E_dvd_commutator`: `E | K` for proportional blocks.
 - `proportional_gcd_dvd`: (6), with `K = E·J` given as a hypothesis and **any** factorisation `|J| = 2^α·3^β·J_0` (so `J_0` is at least the prime-to-6 part; the exact prime-to-6 part is one instance).

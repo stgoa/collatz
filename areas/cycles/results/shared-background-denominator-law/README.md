@@ -41,6 +41,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 05:03: OVERLAP_CONTROLS.md read in full, no error; block identities, exact q law with Gauss's lemma, h | R via Bezout, the Fourier identification, the uncertainty inequality, root separation and bounds (6)-(10), and the (X + 4)²(X³ + 128) control re-derived. Lean unit C013-a verified (iteration 34)"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [C013]
 tags: [cycles, rotation-distance, resultants, finiteness, conditional]
 ---

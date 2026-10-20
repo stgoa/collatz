@@ -31,6 +31,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 03:19: deletion table re-derived by hand; Lean unit C009-b verified (iteration 33)"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, dyadic-order, permutations, formal]
 ---
 
@@ -58,7 +59,7 @@ For `2 ≤ s ≤ m − 2` both regular groups are nonempty and their shifts diff
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean unit C009-b (legacy `lean/STATE.md`, iteration 33), axioms `propext`, `Quot.sound` only; receipts `lean/receipts/CycleSpectrum.*`.
+`lean/CycleSpectrum.lean`, Lean unit C009-b (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../archive/lean-lane/STATE.md), iteration 33), axioms `propext`, `Quot.sound` only; receipts `lean/receipts/CycleSpectrum.*`.
 
 - `LeanLane.Cyc.retMap m s j`: the first-return map on old ranks after deleting rank 0 (`(j+s) mod m`, or `(j+2s) mod m` when the first step lands on 0); `compMap m s j = retMap m s (j+1) − 1`, compressed to `{0, …, m−2}`; `IsRankShift m s` is `∃ c, ∀ j < m − 1, compMap m s j = (j + c) mod (m − 1)`.
 - `LeanLane.Cyc.one_point_deletion`: for `2 ≤ m`, `1 ≤ s < m`, `IsRankShift m s ↔ s = 1 ∨ s = m − 1`. This is the claim with the deleted rank fixed at 0 (the prose's own normalisation); no coprimality hypothesis.

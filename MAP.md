@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**217 results, 28 attempts, 35 questions, 27 sources.**
+**217 results, 28 attempts, 36 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -34,6 +34,7 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 | [`height-denominator-candidate`](areas/cycles/questions/height-denominator-candidate/README.md) | cycles | Prove or refute: every primitive positive rational cycle of the raw odd-only 3x+1 map (written as a reduced odd numerator cycle 3n_i + q = 2^(a_i)·n_(i+1), q o… | 0 |
 | [`height-residue-hall-matching`](areas/cycles/questions/height-residue-hall-matching.md) | cycles | Prove or refute, for every primitive positive ordered cycle of the raw odd-only map (q ≤ L, m > 1, circular normalised successor order) with reduced odd denomi… | 0 |
 | [`largest-letter-sublinear`](areas/cycles/questions/largest-letter-sublinear.md) | cycles | Prove or refute: every hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map, of period m, has all valuations a_i = v₂(3n_i + 1) ≤ f(m)… | 0 |
+| [`linear-form-gap-own-proof`](areas/cycles/questions/linear-form-gap-own-proof.md) | cycles | Give a proof inside this repository (a complete written proof, and ideally a Lean proof under the pinned toolchain with the standard axioms only) of the effect… | 0 |
 | [`local-minima-cycle-exclusion-replay`](areas/cycles/questions/local-minima-cycle-exclusion-replay.md) | cycles | Calibration target (Phase 6 route node Y.1): reproduce, in this repository, one published exclusion of nontrivial cycles of the 3x+1 shortcut map with a bounde… | 0 |
 | [`one-height-defect-ordered-cycles`](areas/cycles/questions/one-height-defect-ordered-cycles.md) | cycles | Ordered odd-only cycles at q = 1 with one chronological height h_t = 1 and all other heights 0: legality forces c_(t−1) = 2, and reduced denominator 1 would re… | 0 |
 | [`ordered-cycle-denominator-one`](areas/cycles/questions/ordered-cycle-denominator-one.md) | cycles | Prove or refute: every nontrivial primitive positive rational cycle of the raw odd-only 3x+1 map whose dyadically normalised successor preserves circular order… | 0 |

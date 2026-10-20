@@ -58,4 +58,4 @@ A verifier needs one evaluation of `S` per row: add `J(y)` at `y`, subtract it a
 ## History
 
 - Split at migration from the inherited snapshot `experiments/packet_currents/collatz_packet_currents/research_note.md` §§3–5 (part of legacy `R1`) at commit `be73a66`, by the B07 migration (Claude, Opus 5.5), because later results cite the identity on its own. Alias `R1-b` is new; the legacy ledger has only `R1`.
-- The same identities appear in the origin document `archive/COLLATZ_PROGRAMME_MASTER_HANDOFF.md` §7 (legacy path, not yet migrated) and in the proof of Theorem 3 of [`papers/right-aligned-reduction`](../../../papers/right-aligned-reduction/README.md).
+- The same identities appear in the origin document [`archive/handoff/COLLATZ_PROGRAMME_MASTER_HANDOFF.md`](../../../archive/handoff/COLLATZ_PROGRAMME_MASTER_HANDOFF.md) §7 (legacy path `archive/COLLATZ_PROGRAMME_MASTER_HANDOFF.md`) and in the proof of Theorem 3 of [`papers/right-aligned-reduction`](../../../papers/right-aligned-reduction/README.md).

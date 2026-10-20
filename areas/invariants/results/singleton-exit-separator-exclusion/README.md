@@ -27,6 +27,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-18
     scope: "Feed 22:40 (REFEREE V007): reverse closure checked by hand (all four cases and offset bounds); the singleton theorem is generic and applied to Collatz through (I); same Cobham scope note"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [V007]
 tags: [invariants, section-graph, quantitative-rigidity, separators, conditional]
 ---

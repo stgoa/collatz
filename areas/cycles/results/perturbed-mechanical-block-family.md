@@ -22,7 +22,8 @@ evidence:
 reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-19
-    scope: "Side-lane feed (legacy archive/side_lane/FEED.md), entry 2026-10-19 00:18, REFEREE C001: w = u_m^k 2 is primitive and den(w) > 3·(3^m)^(k−1)/(2m) for all 192 pairs 13 <= m <= 60, 2 <= k <= 5 (c001_spectrum_check.py part 4); the batch judged correct. The height and local-minimum statements were not separately re-derived there"
+    scope: "Side-lane feed (archive/side-lane/FEED.md, legacy archive/side_lane/FEED.md), entry 2026-10-19 00:18, REFEREE C001: w = u_m^k 2 is primitive and den(w) > 3·(3^m)^(k−1)/(2m) for all 192 pairs 13 <= m <= 60, 2 <= k <= 5 (c001_spectrum_check.py part 4); the batch judged correct. The height and local-minimum statements were not separately re-derived there"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, mechanical-words, high-cycles, local-minima, clocks]
 ---
 

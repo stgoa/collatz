@@ -35,6 +35,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 03:49: ODD_ROUNDING.md read in full, every pair bound re-derived, no error; Lean unit C010-a verified (iteration 31)"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, dyadic-order, gap-lattice, rounding, formal]
 ---
 
@@ -68,7 +69,7 @@ The legacy note assumes `q` coprime to 6 and `q ≤ L`; only `q` odd (forced by 
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean unit C010-a (legacy `lean/STATE.md`, iteration 31), axioms `propext`, `Classical.choice`, `Quot.sound`; receipts `lean/receipts/CycleSpectrum.*`. Stated on `OrdCycle` (ordered primitive odd cycle, `m ≥ 2`) in scaled coordinates `G_r = 2^B·Δ_r`:
+`lean/CycleSpectrum.lean`, Lean unit C010-a (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../archive/lean-lane/STATE.md), iteration 31), axioms `propext`, `Classical.choice`, `Quot.sound`; receipts `lean/receipts/CycleSpectrum.*`. Stated on `OrdCycle` (ordered primitive odd cycle, `m ≥ 2`) in scaled coordinates `G_r = 2^B·Δ_r`:
 
 - `gap_ge_of_eq`: `2·2^(B−a) ≤ G_r` (equal heights); `gap_ge_of_lt`: `2^(B−a) ≤ G_r` (downward); `gap_seam_ge`: `2^(B−a) ≤ G_(m−1)` with `G_(m−1) = 2y_0 − y_(m−1)`, `y_0 = 2^B·L`.
 - Upward: `three_gap_gt_of_gt` (`2^(B−b)·q(2^k − 1) < 3G_r`, the prose's `3r > q(2^k − 1)`), sharpened by `three_gap_ge_of_gt` through `eta_refine` (odd `r, q`, `k ≥ 1`, `q(2^k − 1) < 3r ⇒ q(2^k − 1) + η ≤ 3r`; `3 ∤ q` not needed). `OddCycle.q_odd`: positive valuations make `q` odd.

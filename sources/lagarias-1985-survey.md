@@ -19,7 +19,7 @@ Lagarias's 1985 survey of the `3x+1` problem. The legacy record gives only autho
 
 ## What we use
 
-- **Theorem B** (the Chernoff step): calibrated by explicit-Tao L2 (`experiments/explicit_tao/lemmas/L2_valuation_tail.md`), which proves its own explicit version with a finite certificate.
+- **Theorem B** (the Chernoff step): calibrated by explicit-Tao L2 ([`explicit-valuation-large-deviations`](../areas/convergence/results/explicit-valuation-large-deviations/README.md), legacy `experiments/explicit_tao/lemmas/L2_valuation_tail.md`), which proves its own explicit version with a finite certificate.
 - **Theorems D and F**, as benchmarks for Phase 6 audit L1a: with `θ = 1/log₂3` and `h = −θ·log₂θ − (1−θ)·log₂(1−θ) ≈ 0.949955527188`, the density of seeds with shortcut stopping time `σ > k` is at most `2^(−(1−h)k)`, and the count with infinite `σ` up to `X` is at most `c_1·X^h` for an unspecified `c_1`. The primary TeX formulas were checked because the HTML shows equations as images. These are not reproduced, and they bound strict stopping exceptions, not the nonabsorbing basin.
 - General orientation (2-adic conjugacy, periodicity conjecture), "throughout".
 

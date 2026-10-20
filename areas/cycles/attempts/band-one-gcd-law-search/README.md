@@ -17,12 +17,13 @@ authors:
 created: 2026-10-19
 depends_on: [band-one-three-forced-positions, ordered-gap-closed-form, ordered-cycle-sparse-forcing]
 evidence:
-  - "s4_band1_gcd.py, s4_band1_gcd.json: side-lane exploration probe (about 3 min): profile construction, realisation test, g statistics and per-m trend. Fails at its new path: it imports the side-lane helper jterm_gap_check from its own folder (legacy reviews/side_lane/, migrated by a later batch). Passed at be73a66 as reviews/side_lane/s4_band1_gcd.py (archive/legacy-checker-run-be73a66.md)"
+  - "s4_band1_gcd.py, s4_band1_gcd.json: side-lane exploration probe (about 3 min): profile construction, realisation test, g statistics and per-m trend. Fails at its new path: it imports the side-lane helper jterm_gap_check from its own folder (now in ../../results/ordered-gap-closed-form/, moved there at the B17 migration). Passed at be73a66 as reviews/side_lane/s4_band1_gcd.py (archive/legacy-checker-run-be73a66.md)"
   - "s4b_block_divisor_test.py, s4b_block_divisor_test.json: side-lane exploration probe (about 40-50 s), exhaustive for m ≤ 18: 1,413 profiles with g > 1, g divides some proper cyclic block denominator 2^(A_u) − 3^|u| in 1,213. Imports s4_band1_gcd from this folder and fails with it at the new path. Passed at be73a66 as reviews/side_lane/s4b_block_divisor_test.py (archive/legacy-checker-run-be73a66.md)"
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Pre-review of S4 (feed update 11:11: framing g = C_w/n_0, so g < D is just q > 1, and the question is C006's (G1)/(G2) comparison) and acceptance of S4 as a labelled negative search (feed update 11:19 to the S3 entry)"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [S04]
 tags: [cycles, ordered-cycles, band-one, gcd, negative-search]
 ---

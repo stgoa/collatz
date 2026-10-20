@@ -26,7 +26,7 @@ evidence:
 reviewed_by:
   - by: Claude PR1 lane (Opus)
     date: 2026-10-17
-    link: progress-measures-control-3x-61.md
+    link: ../progress-measures-control-3x-61.md
     scope: "Finite only (ledger C1/C4, NOTE §11): with independent code, Φ(A_96) = 17 at exposure depths 20–27 and 0 at depth 28. The written duality, monotonicity and flux arguments were not re-derived, so the status stays written"
 aliases: [R10]
 tags: [convergence, packet-currents, annular, duality, progress-potential, boundary-flux]

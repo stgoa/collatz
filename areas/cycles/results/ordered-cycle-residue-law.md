@@ -29,9 +29,11 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 2026-10-19 02:41, update 02:53: the Lean lane re-derived the modular lemma, the min-to-top inequality and the q = 5 height-residue sets with no error; Lean unit C007-a verified (update 02:46, iteration 21)"
+    link: ../../../archive/side-lane/FEED.md
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 02:28, REFEREE C007: the modular identity holds at all 28,823 states of every normalised census cycle with q > 1; feed 02:46: C007-a statement match and receipts checked"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, residues, dyadic-order, formal]
 ---
 

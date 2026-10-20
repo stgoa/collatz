@@ -41,6 +41,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 03:49: GAP_LATTICE.md read in full, no error; Lean units C010-b (iteration 56) and C010-c (iteration 57) verified"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, gap-lattice, formal]
 ---
 
@@ -64,7 +65,7 @@ Consequently `G > 0` entrywise iff `0 < Z_0 < Z_1 < … < Z_(m−1) < 2Z_0` (the
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean units C010-b (iteration 56) and C010-c (iteration 57) (legacy `lean/STATE.md`), axioms `propext`, `Classical.choice`, `Quot.sound`; receipts `lean/receipts/CycleSpectrum.*`.
+`lean/CycleSpectrum.lean`, Lean units C010-b (iteration 56) and C010-c (iteration 57) (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../archive/lean-lane/STATE.md)), axioms `propext`, `Classical.choice`, `Quot.sound`; receipts `lean/receipts/CycleSpectrum.*`.
 
 - (i), over any commutative ring: `cgap Z m j` defines the complete gaps; `Z_eq_sum_cgap` is (1), proved by telescoping (`sum_cgap_prefix`, `sum_cgap`). Over `ℤ`/`ℚ`: `dvd_cgap_iff` (same common divisors), `cgap_int_iff` (integral together), `clears_iff` (a scalar clears `Z` iff it clears `UZ`), `cgap_pos_iff` (gap cone = order cone). The matrix `E` and `E^m = 2I` are not stated as matrices; their content is carried by (1).
 - (ii), on `OddCycle` (no order assumed), with hypotheses `IsCoprime q n_0` (reduction) and `∃ i, h_i = B` (maximal height attained, because the structure's `B` is only an upper bound): `Z_dvd_isUnit` (gcd 1), `cgap_dvd_isUnit` (complete gaps of any arrangement `Z ∘ σ` with `σ` onto one period have gcd 1), `q_dvd_of_dvd_mul`, `clears_q_iff` and `q_le_of_clears` (least positive common denominator of `Z/q` is `q`), `clears_q_cgap_iff` (the same for `G/q`). On ordered cycles, `OrdCycle.gap_eq_cgap` identifies the sorted gaps of [`ordered-cycle-sparse-forcing`](ordered-cycle-sparse-forcing/README.md) with these complete gaps, and `OrdCycle.gap_dvd_isUnit` is the sorted case.

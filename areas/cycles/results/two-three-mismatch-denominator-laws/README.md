@@ -42,6 +42,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed S9 entry, update 13:29: inventory of where q enters (only through the factor q in (I1), the ceiling's drift and L ≤ mq·2^A/(3D)); no hidden q = 1; the drift caveat is intrinsic; correction (c) on C013's 0.447m. Lean units S9-a to S9-e verified (iterations 76-86)"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [S09]
 tags: [cycles, rotation-distance, denominator, 3x+d, formal]
 ---

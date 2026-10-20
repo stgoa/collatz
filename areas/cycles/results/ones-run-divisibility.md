@@ -22,6 +22,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed update 13:17 (S8 review: constraint (5) checks out) and 15:06 (Lean unit S8-a verified, iteration 78), with the correction that the size form holds with ≤, not <"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, comparison-orbit, formal]
 ---
 

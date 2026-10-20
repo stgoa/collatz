@@ -31,6 +31,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-18
     scope: "Side-lane feed 2026-10-18 18:08 (D7 status, main bff8938): main's replay meets D7 items 1-4 (a source build of the library in a network-denied macOS sandbox with Mathlib from its official cache; #print axioms on all four theorems shows only propext, Classical.choice and Quot.sound; the statements match the side lane's own reading of Challenge/Basic.lean, feed 16:57). Caveat recorded there: the same kernel and prebuilt Mathlib were used. A reading of main's receipts, not a rerun"
+    link: ../../../../archive/side-lane/FEED.md
   - by: Claude audit lane (Opus)
     date: 2026-10-18
     link: ../../../../lean/audit/README.md

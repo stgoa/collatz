@@ -35,6 +35,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Lean unit C003-a verified (feed 01:19): (5) and (6) machine-checked as pure algebra from the commutator identities, with C003 section 2's hypotheses; statement match checked by the side lane"
+    link: ../../../../archive/side-lane/FEED.md
 tags: [cycles, denominators, two-blocks, effective, formal]
 ---
 
@@ -69,7 +70,7 @@ Written proof: [`PROPORTIONAL_UNIFORM.md`](PROPORTIONAL_UNIFORM.md) §§1–3. I
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean unit C003-a (legacy `lean/STATE.md`):
+`lean/CycleSpectrum.lean`, Lean unit C003-a (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../../archive/lean-lane/STATE.md)):
 
 - `LeanLane.Cyc.fixed_pair_bound_u`, `fixed_pair_bound_v`: for `D_u, D_v > 0` and `K ≠ 0`, `Q^k·D_v·gcd(C_w, D_w) < |K|·D_w`, and symmetrically; this is (5) in cleared form.
 - `uniform_bound_u`, `uniform_bound_v`, `uniform_bound_max_u`: (6) in cleared form, `2^max(m_u, m_v)·Q_*^(k−3)·gcd < D_w`, for the block `u` attaining `Q_*`, `k ≥ 3`, `ℓ ≥ 1` (and the symmetric version); the tie `Q_u = Q_v` is covered by either lemma.

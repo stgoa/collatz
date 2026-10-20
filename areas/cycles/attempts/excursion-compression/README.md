@@ -30,6 +30,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 03:19: C009 read in full, no error; cut lemma, elimination, deletion table and every number in the q = 13, q = 83 and q = 1 controls re-derived by hand. Lean units C009-a and C009-b verified"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [C009]
 tags: [cycles, dyadic-order, excursions, rejected-mechanism]
 ---

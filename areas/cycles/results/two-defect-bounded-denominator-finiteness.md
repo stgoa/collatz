@@ -22,6 +22,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 2026-10-19 04:14: ROTATION_DEFECTS.md read in full, inequalities (5)-(9) and the finiteness argument re-derived by hand, no error"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, rotation-distance, two-defect, finiteness, conditional]
 ---
 

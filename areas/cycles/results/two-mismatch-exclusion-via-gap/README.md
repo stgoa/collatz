@@ -26,6 +26,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed update 11:47: the derivation confirmed, with two corrections (the ceiling has no +1 and carries m − 1, threshold 24,891; the minimum enters only through the threshold) and one disputed point (k-cycle framing), withdrawn by the lane at 11:59. Lean units S6-a, S6-b and S6-c verified (iterations 64-65)"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [S06]
 tags: [cycles, rotation-distance, two-defect, exclusion, linear-forms, formal]
 ---

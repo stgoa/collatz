@@ -27,6 +27,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-18
     scope: "Finite only (side-lane feed 2026-10-18 15:38 on main's working copy and 15:52 on committed b901e11, CONFIRMED setup label none): all 11 cycles in cycle_fixtures.json re-verified with the side lane's own 3x+d step, every arrow, every exact valuation, distinctness before closure and the stated minimum; they agree with the side lane's own scan of starts below 20,000, which also lists further d = 13 five-cycles with minima 227, 251, 259, 283, 287 and 319. The feed's 15:39 entry agrees that almost-all arrival at 1 does not transfer to d > 1 because the multiples of d have positive density and never reach 1. The harness code was not separately reviewed; the status stays written"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [P6-000]
 tags: [convergence, phase6, transfer-controls, 3x-plus-d, negative-controls, fixture]
 ---
@@ -43,7 +44,7 @@ The three route nodes whose baseline analogues are tested are [`universal-w5-quo
 
 This matters at `d = 7`: the raw path is `1 → 5 → 11 → 5`, while the absorbed map fixes 1. The older packet control [`affine_controls.py`](../locally-collatz-like-control-barrier/affine_controls.py) uses absorbers `{1, d}` for work and currents. That convention suits its own certificate, but it is **not** imported here. Here 61 remains a nonabsorbing fixed point of `T_61`.
 
-**Exact fixtures.** The candidate minima came from side-lane `DIRECTIONS.md` at commit `f244b7a5b77a51f8dd7e6bccf2c6d5f18932df88`. The main lane independently reconstructs and checks every arrow, its exact valuation, distinctness before closure, and the minimum. The fixture is a list of specific cycles; it does not claim all cycles or reproduce the side lane's starting-value scan.
+**Exact fixtures.** The candidate minima came from side-lane `DIRECTIONS.md` (now [`archive/side-lane/DIRECTIONS.md`](../../../../archive/side-lane/DIRECTIONS.md)) at commit `f244b7a5b77a51f8dd7e6bccf2c6d5f18932df88`. The main lane independently reconstructs and checks every arrow, its exact valuation, distinctness before closure, and the minimum. The fixture is a list of specific cycles; it does not claim all cycles or reproduce the side lane's starting-value scan.
 
 | d | Raw cycle minimum | Odd-only length |
 |---|---:|---:|

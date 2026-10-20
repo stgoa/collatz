@@ -29,16 +29,18 @@ lean:
   - LeanLane.Cyc.OrdCycle.run_start_gaps_coprime
   - LeanLane.Cyc.OrdCycle.dvd_gap_isUnit
   - LeanLane.Cyc.OrdCycle.gap_isCoprime_q
-certificates: [s1a_integer_cycle_check.py, s1b_run_start_gcd_check.py]
+certificates: [s1a_integer_cycle_check.py, s1b_run_start_gcd_check.py, s1cd_gap_coprime_check.py, jterm_gap_check.py]
 evidence:
   - "Side-lane feed entry 2026-10-19 06:30 (LEAD, ordered cycles) with its updates 07:33, 07:51 and 08:06: the written statements and proofs (archived with the side-lane feed)"
-  - "s1a_integer_cycle_check.json, s1b_run_start_gcd_check.json: receipts of the two certificates (written only when an output path is given)"
-  - "s1cd_gap_coprime_check.py, s1cd_gap_coprime_check.json: side-lane check of Lean units S1-c and S1-d (every gap coprime to q on the 33 actual ordered 3x+q cycles; the 3 actual J = 1 cycles have D = q; the 65 rational ordered J = 1 cycles have gcd(C, D) = 1). Fails at its new path: it imports the side-lane helper jterm_gap_check from its own folder (legacy reviews/side_lane/jterm_gap_check.py, migrated by a later batch). Passed at be73a66 as reviews/side_lane/s1cd_gap_coprime_check.py (archive/legacy-checker-run-be73a66.md)"
+  - "s1a_integer_cycle_check.json, s1b_run_start_gcd_check.json, s1cd_gap_coprime_check.json, jterm_gap_check.json: receipts of the four certificates (written only when an output path is given; at the B17 migration s1cd and jterm, run with an output path, reproduced their committed receipts byte for byte)"
+  - "s1cd_gap_coprime_check.py: side-lane check of Lean units S1-c and S1-d (every gap coprime to q on the 33 actual ordered 3x+q cycles; the 3 actual J = 1 cycles have D = q; the 65 rational ordered J = 1 cycles have gcd(C, D) = 1). It imports the side-lane helper jterm_gap_check from its own folder; since the B17 migration moved jterm_gap_check.py here (legacy reviews/side_lane/jterm_gap_check.py), it passes at its new path and is a certificate. Passed at be73a66 as reviews/side_lane/s1cd_gap_coprime_check.py (archive/legacy-checker-run-be73a66.md)"
+  - "jterm_gap_check.py: side-lane probe behind the S1 lead (legacy reviews/side_lane/, moved here byte-identical at the B17 migration); also imported as a helper by side-lane checks in other node folders (local-odd-rounding-exclusion, ordered-cycle-run-renormalisation, band-one-gcd-law-search, ordered-cycle-sparse-forcing), which look for it in their own folder and fail there"
   - "Helper modules: s1a_integer_cycle_check.py (the function cycles(q, N) that finds actual 3x+q cycles by iteration) is imported by side-lane checks in other node folders (ordered-cycle-sparse-forcing, local-odd-rounding-exclusion, shared-background-denominator-law, the S-series nodes); those imports look in their own folder and fail there"
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Lean units S1-a (iteration 44), S1-b (iteration 45) and S1-c (iteration 46) verified, with the dictionary between the feed's word normalisation and OrdCycle checked against the definitions (legacy lean/STATE.md rows S1-a to S1-c and their notes)"
+    link: ../../../../archive/lean-lane/STATE.md
 aliases: [S1]
 tags: [cycles, dyadic-order, ordered-cycles, gap-system, formal]
 ---
@@ -81,7 +83,10 @@ From the side-lane feed entry of 2026-10-19 06:30 and its updates (lightly edite
 - [`s1a_integer_cycle_check.py`](s1a_integer_cycle_check.py) (about 1 s): finds the actual `3x+q` cycles by iteration for `q ∈ {5, 7, 11, 13, 17, 19, 23, 29, 61, 233, 1201}`; on all 33 ordered cycles found, the closed form 1 holds for every start `r_0` (exact integers, Lean's own normalisation); the 44 unordered cycles are skipped.
 - [`s1b_run_start_gcd_check.py`](s1b_run_start_gcd_check.py) (about 1 s): on the same 33 ordered cycles (22 of their words have `g > 1`): `gcd(q, run-start gaps) = 1`, every rank is reached from a run start along a zero-forcing run, `Σ Δ = 2^B·n_0`, and in the word normalisation `gcd(D, run-start G) = gcd(C, D)`; no single run-start gap shares a factor with `q`.
 
-Both use `assert` for their checks and exit 0 at the new path. The feed also reports the closed form and the gcd identity on all 337 rational ordered cycles with `m ≤ 9` and letters 1–4 (`jterm_gap_check.py`, legacy `reviews/side_lane/`, migrated by a later batch), and `gcd(D, G_r) = gcd(C, D)` for every `r` on those 337 cycles (18 with `g > 1`).
+- [`s1cd_gap_coprime_check.py`](s1cd_gap_coprime_check.py) (about 15 s): on the 33 actual ordered `3x+q` cycles every gap is coprime to `q`; the 3 actual `J = 1` cycles have `D = q`; the 65 rational ordered `J = 1` cycles have `gcd(C, D) = 1`.
+- [`jterm_gap_check.py`](jterm_gap_check.py) (about 35 s): on all 337 rational ordered cycles with `m ≤ 9` and letters 1–4, the recurrence (G3), the closed form 1 from every start and `gcd(C, D) = gcd(D, run-start gaps)`; band 1 has `J = 2` in 27 of them, none in the Collatz range `m < A < 2m`, and there the `J = 2` identity of [`band-one-three-forced-positions`](../band-one-three-forced-positions.md) holds; on the 900 ordered Collatz-range cycles with `m ≤ 12` and letters 1–3, band 1 has `J ≥ 3` and the adjacent-rank rotation differs from the word in at most `2J` positions.
+
+All four use `assert` for their checks and exit 0 at the new path. The feed also reports `gcd(D, G_r) = gcd(C, D)` for every `r` on the 337 rational cycles (18 with `g > 1`).
 
 ## Lean
 
@@ -97,11 +102,12 @@ Not formalised: that the run starts are exactly `J` in number; the word-level co
 
 - **What this is not.** An exact reformulation for the ordered class, valid for every `q`, not an exclusion. No novelty is claimed.
 - **Consequences recorded elsewhere.** `J = 1` gives `D = q` ([`single-forced-position-denominator`](../single-forced-position-denominator.md)); in the Collatz range band 1 needs `J ≥ 3` ([`band-one-three-forced-positions`](../band-one-three-forced-positions.md)); the run starts form a `J`-state generalised Collatz cycle ([`run-start-gap-recursion`](../run-start-gap-recursion.md)).
-- **Link to rotation distance (observed, not proved).** The rotation that moves each state to the next sorted rank differs from the word in at most `2J` positions: this held on all 900 ordered Collatz-range cycles tested (`m ≤ 12`, letters 1–3), with equality attained (`jterm_gap_check.py`). A proof sketch gives `2J + 2` (the exponent word's rotation contributes 2 mismatches, each sorted height change at most 2 more). If true, main's target "every rotation has mismatch count `≥ F(m)`" ([`rotation-distance-growth`](../../questions/rotation-distance-growth.md)) would imply `J ≥ F(m)/2` for ordered `q = 1` cycles. Not formalised; heuristic as a general statement.
+- **Link to rotation distance (observed, not proved).** The rotation that moves each state to the next sorted rank differs from the word in at most `2J` positions: this held on all 900 ordered Collatz-range cycles tested (`m ≤ 12`, letters 1–3), with equality attained ([`jterm_gap_check.py`](jterm_gap_check.py)). A proof sketch gives `2J + 2` (the exponent word's rotation contributes 2 mismatches, each sorted height change at most 2 more). If true, main's target "every rotation has mismatch count `≥ F(m)`" ([`rotation-distance-growth`](../../questions/rotation-distance-growth.md)) would imply `J ≥ F(m)/2` for ordered `q = 1` cycles. Not formalised; heuristic as a general statement.
 - **Calibration (feed update 08:22, not backed by a committed script).** Combining C006's `L > 2^(floor((m−1)/J) − B)` with an upper bound on `L` from Matveev (`K_0 < 6·10^8`, [`matveev-2000-linear-forms`](../../../../sources/matveev-2000-linear-forms.md)) and the period bound `m > 1.375·10^11` ([`hercher-2023-cycle-length`](../../../../sources/hercher-2023-cycle-length.md), [`barina-2025-convergence-2-71`](../../../../sources/barina-2025-convergence-2-71.md)), the side lane estimated that every hypothetical nontrivial Collatz cycle with `H < 8L` has `J ≥ 6`, and in general `J > (m−1)/(K_0·log₂(2em) + log₂ m + 2)`. So fixed-`J` statements exclude nothing new at `q = 1`; the closed form can help only through estimates uniform in a `J` that grows with `m`. The formal gap version of this `J` bound is in [`ordered-cycle-height-change-growth`](../ordered-cycle-height-change-growth.md).
 - **Controls.** The 33 actual ordered `3x+q` cycles (including `q = 5, 7, 13, 61`) satisfy both statements, as they must: neither uses `q = 1`.
 
 ## History
 
 - Created from the side-lane feed entry "LEAD (ordered cycles): every sorted gap is an explicit signed sum over the `J` forced positions, and in the Collatz range band 1 needs `J ≥ 3`" (2026-10-19 06:30, index convention fixed 06:40) and its updates 07:33 (Lean S1-a), 07:51 (Lean S1-b, the stronger single-gap form) and 08:06 (Lean S1-c/d), by the B05 migration (Claude, Opus 5.5). The legacy S1 has no folder of its own; its probes `reviews/side_lane/s1a_integer_cycle_check.{py,json}`, `s1b_run_start_gcd_check.{py,json}` and `s1cd_gap_coprime_check.{py,json}` moved here at commit `be73a66`.
+- B17 migration (2026-10-20): the side-lane probe `jterm_gap_check.{py,json}` moved here byte-identical from legacy `reviews/side_lane/` (it was the one side-lane probe left outside the B04/B05 moves). With it in place, `s1cd_gap_coprime_check.py` passes at its new path; both became certificates.
 - Authorship: side lane (Claude, Opus); formalisation by the Lean lane (Claude, Fable). The 06:40 fix made `E_i` the sum of the exponents *before* orbit position `i` (`E_0 = 0`), which is the Lean `E`.

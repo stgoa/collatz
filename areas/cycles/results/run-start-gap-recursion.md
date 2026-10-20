@@ -40,6 +40,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Lean units S2-a (iteration 59) and S2-b (iteration 60) verified, statement match recorded in the legacy lean/STATE.md notes S2-a and S2-b; the lane's pre-review fixed that oddness of u is an extra condition, not a consequence"
+    link: ../../../archive/lean-lane/STATE.md
 tags: [cycles, ordered-cycles, gap-system, formal]
 ---
 

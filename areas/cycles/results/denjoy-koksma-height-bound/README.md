@@ -56,6 +56,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed S12 entry, update 15:23: adversarial review of step (1); it holds exactly in the discrete setting under gcd(p, q) = 1, 1 ≤ q < m and the strict |qh − pm| < m/q, which every proper convergent satisfies; Ostrowski digits give the sharper K − 1. Formalised as S12-a to S12-f (iterations 80-90)"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [S12]
 tags: [cycles, height, denjoy-koksma, continued-fractions, formal]
 ---

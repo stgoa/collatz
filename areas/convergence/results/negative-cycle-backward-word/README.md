@@ -67,6 +67,6 @@ The full review, with its reproduction script and pinned hashes, is [`side_lane_
 
 ## History
 
-- Claude side lane (Opus), 2026-10-17, feed entry 23:32 (`archive/side_lane/FEED.md` after its migration; legacy `_triage/archive/side_lane/FEED.md`), side-lane commit `bae3969`, probe `reviews/side_lane/backward_word_rule.py`. One sentence of the entry was withdrawn at 23:46 (above).
+- Claude side lane (Opus), 2026-10-17, feed entry 23:32 ([`archive/side-lane/FEED.md`](../../../../archive/side-lane/FEED.md); legacy path `archive/side_lane/FEED.md`), side-lane commit `bae3969`, probe `reviews/side_lane/backward_word_rule.py`. One sentence of the entry was withdrawn at 23:46 (above).
 - Reviewed by the main lane (ChatGPT, Codex) on 2026-10-17 in `experiments/residual_progress/side_lane_review_bae3969.md`, which proved the stronger `ρ` conclusion for every input of the domain and identified it with R56's `k = 4` class. The review's own links were repointed to node paths at the migration (it is not hash-pinned).
 - Created as a node at the B11 migration (Claude, Opus 5.5) from the feed entry, the probe and the review; the migration plan had placed these items with R56 ([`two-selected-inverse-choices`](../two-selected-inverse-choices/README.md)). The Statement and Proof summarise the review's sections 1–3 without adding mathematics. `check_legacy_replay.py` was added at the migration.

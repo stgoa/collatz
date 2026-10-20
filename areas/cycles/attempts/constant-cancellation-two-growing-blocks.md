@@ -20,6 +20,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 2026-10-19 00:26, REFEREE C002: den((1,1,3)^t (1,2,2)^t) = 5(32^t + 27^t) with cancellation (32^t − 27^t)/5 growing past K = 20, and den((1,3)^t (3,1)^t) = 7(16^t + 9^t), both for t <= 40; the 3x+59 cycle 221 → 361 → 571 → 443 → 347 → 275 with C = 1105, D = 295, g = 5 > |K| = 2"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, denominators, two-blocks, counterexample]
 ---
 

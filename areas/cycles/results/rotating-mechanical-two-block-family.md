@@ -22,9 +22,11 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 2026-10-19 00:26, REFEREE C002: for 13 <= m <= 30 and k, ℓ <= 3, the word is primitive, every rational state exceeds m/12, and den > 1 once k + ℓ >= 3 (numerical check)"
+    link: ../../../archive/side-lane/FEED.md
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 00:26, update 00:31: the Lean lane re-derived PROPORTIONAL.md sections 1-4 by hand and found no error. Not formalised (queued under C002-b)"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, mechanical-words, two-blocks, local-minima, clocks]
 ---
 

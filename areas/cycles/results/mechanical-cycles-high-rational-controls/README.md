@@ -35,6 +35,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Lean units R71-c (iteration 49) and R71-d (iteration 50) verified in lean/CycleSpectrum.lean with the standard axioms; statement match recorded in the legacy lean/STATE.md, which also found the exact threshold k >= 3 for den > 1 (see Lean)"
+    link: ../../../../archive/lean-lane/STATE.md
 aliases: [R71-c, R71-d]
 tags: [cycles, mechanical-words, controls, three-x-plus-d, formal]
 ---
@@ -69,7 +70,7 @@ The argument is §3 of the legacy note, reproduced in [`mechanical-word-exact-de
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean units R71-c and R71-d (legacy `lean/STATE.md`; namespace `LeanLane.Cyc`). Axioms `propext`, `Classical.choice`, `Quot.sound` (some helpers fewer); receipts `lean/receipts/CycleSpectrum.*`. No external input.
+`lean/CycleSpectrum.lean`, Lean units R71-c and R71-d (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../../archive/lean-lane/STATE.md); namespace `LeanLane.Cyc`). Axioms `propext`, `Classical.choice`, `Quot.sound` (some helpers fewer); receipts `lean/receipts/CycleSpectrum.*`. No external input.
 
 - **(5).** `mech_state_bound`: `0 < k`, `l < k`, `3^k < 2^A < 2·3^k` ⇒ `k·D(mech A k l) < 6·C(mech A k l)`, i.e. every phase state `C/D` exceeds `k/6`; since the rotations of a mechanical word are its phases (`mech_rotate`), this is every state. The termwise bound is `mech_term_lower` (`3^j ≤ 2^(⌊(jA+l)/k⌋+1)` when `3^k ≤ 2^A`, by comparing `k`-th powers instead of the real quantity `2^(A/k)/3 ≥ 1`) and `mech_summand_lower` (each summand of `C` is at least `3^(k−1)/2`); the prose's strict per-term `>` becomes `≥`, and strictness comes from `D < 3^k`.
 - **Bit length.** `exists_total`: for every `k ≥ 1`, `A = log₂(3^k) + 1` satisfies `3^k < 2^A < 2·3^k` (equality `2^A = 2·3^k` is excluded by parity).

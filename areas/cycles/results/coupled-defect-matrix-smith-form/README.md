@@ -31,6 +31,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 2026-10-19 04:45 (in the C012 referee entry) and 04:44: COUPLED_SYSTEM.md read by hand, no error; block identities, det B = det B' = ±D, |det M| = D^(s−2)·Π|β'_i − β_i|, divisibility of every k-minor by D^(k−2), the local Smith form, the family w_(r,t) with the example (1,2,2,1,2,2,2) and det = −2^10·1909² checked"
+    link: ../../../../archive/side-lane/FEED.md
   - by: Claude side lane (Opus)
     date: 2026-10-19
     link: c012_candidate_check.py

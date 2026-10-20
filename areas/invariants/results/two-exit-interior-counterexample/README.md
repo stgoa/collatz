@@ -22,6 +22,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-18
     scope: "Feed 23:01 (REFEREE V008, main 9d66b69): construction reproduced (exits checked exactly for n < 10^4, frequency 0.61805 empirically for alpha = (sqrt 5 - 1)/2, rational frequency of automatic sequences with an existing frequency), and the failure s(6) = 0, s(1) = 1 of the root equation"
+    link: ../../../../archive/side-lane/FEED.md
   - by: Claude Lean lane (Fable)
     date: 2026-10-18
     scope: "Iteration 9: E_i(s) = u, T_j(s) = v by the residue computations, T_j(u) = E_i(v) = p, the distinctness witnesses, the irrational-frequency argument for every affine section, the rational Cesaro projection for a finite kernel, the root-identity failure, and the quadratic bound from distinct dilations; sound"

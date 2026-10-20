@@ -21,6 +21,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-18
     scope: "Side-lane feed 2026-10-18 19:44, CONFIRMED at claude/explicit-tao a00a6c1 as a calibration: the quoted Lean statements agree with the main lane's independently written lau_scope.md section 3.2 (now in lau-density-formal-replay): the Fourier decay C_* n^(-10241/4096) with C_* = (160 D_*)^(10241/4096), mixing only for 2^80000 <= m <= q, N_* = 6103914 and the challenge constants; the order of magnitude checks out (3^(2^80000) has about 10^24082 digits); the conclusion that this route adds only the trivial row follows. The lead itself came from the side lane (feed 19:39)"
+    link: ../../../archive/side-lane/FEED.md
 aliases: [TAO-L4-b]
 tags: [convergence, explicit-tao, mixing, lean, external-library, calibration, explicit-constants]
 ---

@@ -60,6 +60,7 @@ The log-height `B = log₂(H/L)` links the lines: by the mismatch–height trade
 - [`cycle-height-bound`](questions/cycle-height-bound.md): is the height `B = o(m)`? A stronger sufficient condition.
 - [`rotation-distance-at-least-5`](questions/rotation-distance-at-least-5.md): exclude four-mismatch rotations.
 - [`rotation-defect-denominator-candidate`](questions/rotation-defect-denominator-candidate.md): a uniform denominator estimate for many mismatches.
+- [`linear-form-gap-own-proof`](questions/linear-form-gap-own-proof.md): prove here the replayed gap EXT-1 that the strongest mismatch results assume.
 - Ordered cycles: [`ordered-cycle-denominator-one`](questions/ordered-cycle-denominator-one.md), [`height-denominator-candidate`](questions/height-denominator-candidate/README.md), [`height-residue-hall-matching`](questions/height-residue-hall-matching.md), [`one-height-defect-ordered-cycles`](questions/one-height-defect-ordered-cycles.md).
 
 ## Dead ends

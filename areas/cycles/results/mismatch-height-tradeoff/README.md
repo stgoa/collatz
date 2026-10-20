@@ -29,6 +29,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed update 11:35: S5 reviewed; one off-by-one corrected (173 − log₂ 6, not 172 − log₂ 6); confirmed the pigeonhole direction and count, z ≠ 0 for every h ≢ 0, the height ceiling (sharpened), the section 0 rank-two observation and the section 4 reading. Lean unit S5-a verified (iteration 63)"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [S05]
 tags: [cycles, rotation-distance, height, linear-forms, formal]
 ---

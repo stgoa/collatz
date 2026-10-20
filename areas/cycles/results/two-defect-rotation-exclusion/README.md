@@ -35,6 +35,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 04:14: ROTATION_DEFECTS.md, EXCLUSION.md and GENERAL_DEFECTS.md read in full, no error; the swap structure, two-arc identity, (5)-(9), the finiteness argument, the adjacent classification, the marker family, all controls and every numerical constant of EXCLUSION.md section 4 (K_0, 2.45e9, 373/2750) re-derived. Lean unit C011-a verified (iteration 32)"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [C011]
 tags: [cycles, rotation-distance, two-defect, exclusion, conditional]
 ---

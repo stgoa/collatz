@@ -40,6 +40,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 03:01: C008 re-derived by hand with no error (sorted-rank law from P_i = floor(iA/m), ord(t) ≥ 4, ⟨2,3⟩ mod 35 ≅ Z/2 × Z/12 not cyclic); Lean unit C008-a verified (iteration 24)"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [C008]
 tags: [cycles, dyadic-order, residues, denominator-spectrum]
 ---
@@ -88,7 +89,7 @@ For the forbidden factors: if `35 | q`, modulo 7 `2 = 3^2` and `ord_7(3) = 6` gi
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean unit C008-a (legacy `lean/STATE.md`), axioms `propext`, `Classical.choice`, `Quot.sound` (helpers subsets); receipts `lean/receipts/CycleSpectrum.*`. It covers parts 1 and 2 but not part 3, so the node is `reviewed`, not `formal`.
+`lean/CycleSpectrum.lean`, Lean unit C008-a (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../../archive/lean-lane/STATE.md)), axioms `propext`, `Classical.choice`, `Quot.sound` (helpers subsets); receipts `lean/receipts/CycleSpectrum.*`. It covers parts 1 and 2 but not part 3, so the node is `reviewed`, not `formal`.
 
 - `exists_common_root`: in any commutative group, `x^A = y^m` with `gcd(A, m) = 1` gives `t` with `t^m = x`, `t^A = y`. `zmod_common_root`: for `N` coprime to 6 with `N | 2^A − 3^m` and `gcd(A, m) = 1`, there is a unit `t` of `ZMod N` with `t^m = 2`, `t^A = 3`; so `⟨2,3⟩` is cyclic modulo every such `N` (part 2).
 - `OddCycle.prefix_identity`, `OddCycle.cycle_identity` (`(2^A − 3^m)·n_0 = q·C_m`) and `OddCycle.q_dvd_D` (`q | 2^A − 3^m` for reduced cycles).

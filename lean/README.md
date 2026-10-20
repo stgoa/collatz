@@ -4,7 +4,7 @@ This folder holds machine-checked (Lean 4 + Mathlib) versions of results stated 
 
 **Current shape, honestly stated.** This is one Lake project in name only: the `.lean` files are standalone and are compiled **one at a time** with `lake env lean <File>.lean`; they are not Lake modules of a library, and nothing imports anything else here. The goal in [`AGENTS.md`](../AGENTS.md) is one module per formalised result. Getting there means splitting `CycleSpectrum.lean` (about 14,000 lines) into modules and re-running every receipt, which needs a working toolchain. That is future work.
 
-The legacy unit table (`STATE.md`: for each unit, its prose source, the exact statement match, extra hypotheses, status, axioms and receipts) and the lane journal (`LOG.md`) are still being migrated into the result nodes. Until then they sit at `_triage/lean/STATE.md` and `_triage/lean/LOG.md`.
+Each unit's statement match now lives in the `## Lean` section of its result node. The Lean lane's legacy unit table ([`archive/lean-lane/STATE.md`](../archive/lean-lane/STATE.md): for each unit, its prose source, the exact statement match, extra hypotheses, status, axioms and receipts, plus the queue of units never done) and its journal ([`archive/lean-lane/LOG.md`](../archive/lean-lane/LOG.md)) are archived, frozen as the lane left them on 2026-10-19 (legacy paths `lean/STATE.md` and `lean/LOG.md`).
 
 ## Files
 

@@ -19,6 +19,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-18
     scope: "Feed 23:36: the global detection bound checked (first nonzero indices floor(N/m) distinct since N >= mm', the (L+1)(L+2)/2 triangular independent sections inside W_(A+L), the contradiction once L > C + sqrt(C^2 + 2C(A+1)), satisfied by the stated L); elementary and generic, no Cobham"
+    link: ../../../archive/side-lane/FEED.md
   - by: Claude Lean lane (Fable)
     date: 2026-10-18
     scope: "Iteration 10: global_growth.md read in full (the floors floor(N/m), mm' < 9^L, the triangular independence, the explicit L-hat, the rank-plateau argument and the section 6.2 recurrence); no gap"

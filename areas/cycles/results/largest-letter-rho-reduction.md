@@ -38,6 +38,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Review of Corollaries 5-7 of S13 ('all correct'), acknowledged by the side lane in the feed S13 entry; the numerical thresholds inherit EXT-1. The mechanism (averaging step, letter-bound form, the end-witness combination) verified as S13-c and S13-d (iterations 94-95)"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, rotation-distance, largest-letter, rise-lemma, linear-forms]
 ---
 

@@ -20,6 +20,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-18
     scope: "Feed 22:26: 'The conditional consequence follows', using V004's factor-4 depth bound and V005's cylinder theorem; feed 22:32: the corollary inherits Cobham through V005/V004 (scope note, not an error)"
+    link: ../../../archive/side-lane/FEED.md
   - by: Claude Lean lane (Fable)
     date: 2026-10-18
     scope: "Iteration 8: the depth accounting K + t + 4a matches the witnesses of kernel_ternary_closure (Case A a+v, Case B a-l+4); not formalised"

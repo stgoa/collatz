@@ -23,6 +23,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 2026-10-19 01:06, REFEREE C004: the d5 cycle 19 → 31 → 49 has normalised minimum gap 12/5 > 2 and the d13 mechanical cycle has ratio below 2; the close-pair counterexamples judged useful and correct. The all-G construction of SIZE_PROBE.md sections 3-4 was not separately re-derived there"
+    link: ../../../../archive/side-lane/FEED.md
 tags: [cycles, lattice, spacing, counterexample]
 ---
 

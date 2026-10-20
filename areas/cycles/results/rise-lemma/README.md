@@ -41,6 +41,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed S13 entry, update 17:40: adversarial review of S13 §§1-2, no hole found; (W) and (P) confirmed including empty runs, a mismatch at u and the trivial last factor; primitivity load-bearing; orientation; the uniform-Δ formal form. Lean units S13-a (iteration 93) and S13-d's log_rise_from_min (iteration 95) verified"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [S13]
 tags: [cycles, rotation-distance, height, rise-lemma, formal]
 ---

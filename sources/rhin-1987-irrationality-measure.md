@@ -26,7 +26,7 @@ The historical bound, as recorded in the programme handoff:
 
 used with `u_0 = 0`, often weakened to exponent 14, as a lower bound on `|A·ln 2 − m·ln 3|`.
 
-Where it was used: proof architectures of the earlier residual-progress programme recorded in the master handoff (legacy `archive/COLLATZ_PROGRAMME_MASTER_HANDOFF.md`, e.g. the all-word contractive-cylinder barrier for `n > 127` and the `N < K + 2^23·R·P_0^15` restricted obstruction). The handoff states it is **not needed** by the newer packet/current route. In the cycle-spectrum line (S07, S08) a Rhin-type measure is mentioned only as a hypothetical improvement of `m0`; it is not a premise there, and none is formal.
+Where it was used: proof architectures of the earlier residual-progress programme recorded in the master handoff ([`archive/handoff/COLLATZ_PROGRAMME_MASTER_HANDOFF.md`](../archive/handoff/COLLATZ_PROGRAMME_MASTER_HANDOFF.md), legacy `archive/COLLATZ_PROGRAMME_MASTER_HANDOFF.md`, e.g. the all-word contractive-cylinder barrier for `n > 127` and the `N < K + 2^23·R·P_0^15` restricted obstruction). The handoff states it is **not needed** by the newer packet/current route. In the cycle-spectrum line (S07, S08) a Rhin-type measure is mentioned only as a hypothetical improvement of `m0`; it is not a premise there, and none is formal.
 
 ## How it is checked
 

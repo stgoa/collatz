@@ -39,6 +39,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 04:14: ROTATION_DEFECTS.md read in full, no error; swap structure, automatic primitivity, two-arc identity, g | (2^k − 1)·gcd(C_u, C_v), the intercept bound, (5)-(9) and the adjacent-defect classification re-derived; Lean unit C011-a verified (iteration 32)"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, rotation-distance, two-defect, cancellation]
 ---
 
@@ -80,7 +81,7 @@ g² < 2^(A−m+k)·3^m ≤ 2^(2A−2m)·3^m,   g < 2^A·(√3/2)^m,   q > (1 −
 
 ## Lean
 
-Lean unit C011-a, `lean/CycleSpectrum.lean` (legacy `lean/STATE.md`, iteration 32), axioms `propext`, `Classical.choice`, `Quot.sound` (two helpers subsets); receipts `lean/receipts/CycleSpectrum.*`. Not `formal`: the Lean statements are in the two-defect **normal form** `w = a :: (u₀ ++ (a+k) :: v₀)`, `w' = (a+k) :: (u₀ ++ a :: v₀)` with `w'` a rotation of `w`, and the reduction of an arbitrary two-defect rotation to that form (part 1), identity (3), the real-analytic forms (6) and the adjacent classification (5) are not formalised.
+Lean unit C011-a, `lean/CycleSpectrum.lean` (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../archive/lean-lane/STATE.md), iteration 32), axioms `propext`, `Classical.choice`, `Quot.sound` (two helpers subsets); receipts `lean/receipts/CycleSpectrum.*`. Not `formal`: the Lean statements are in the two-defect **normal form** `w = a :: (u₀ ++ (a+k) :: v₀)`, `w' = (a+k) :: (u₀ ++ a :: v₀)` with `w'` a rotation of `w`, and the reduction of an arbitrary two-defect rotation to that form (part 1), identity (3), the real-analytic forms (6) and the adjacent classification (5) are not formalised.
 
 - `two_arc_identity`: `C_(w') − C_w = (2^k − 1)·2^a·3^|v₀|·C(u₀ ++ [a+k])`; `rotate_cut` gives the recut as a rotation, and `C_append_singleton` the last-letter remark.
 - `dvd_C_rotate_of_dvd` (a common divisor of `C_w, D_w` coprime to 2 divides every rotated intercept) and `two_arc_dvd`: (2).

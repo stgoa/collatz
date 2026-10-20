@@ -46,7 +46,10 @@ A cycle of the odd-only `3x+d` map is a sequence of odd positive integers `n_0, 
 
 Any argument about cycles of `3x+1` must stay consistent with the **actual** nontrivial cycles of other members of the `3x+d` family, such as those of `3x+5`, `3x+7`, `3x+13` and `3x+61`. An argument that would also exclude them is wrong, or it uses a hypothesis they fail; the node must say which.
 
-The controls are cheap to generate: enumerate the cycles of `3x+d` for small odd `d` from small seeds. A shared fixture node with a certificate will hold the corpus.
+The controls are cheap to generate: enumerate the cycles of `3x+d` for small odd `d` from small seeds. Shared fixtures:
+- [`actual-cycles-3x-d-corpus`](../areas/cycles/results/actual-cycles-3x-d-corpus/README.md): every cycle reached from odd seeds `≤ 5000` for the 333 parameters `d ≤ 999` coprime to 6, with replay certificates;
+- `cycle_fixtures.json` in [`baseline-obligation-transfer-controls`](../areas/convergence/results/baseline-obligation-transfer-controls/README.md): eleven exact raw `3x+d` cycles;
+- `s1a_integer_cycle_check.py` in [`ordered-gap-closed-form`](../areas/cycles/results/ordered-gap-closed-form/README.md): a helper that finds the actual `3x+q` cycles by iteration, imported by several side-lane checks.
 
 ## 4. Writing math in Markdown
 

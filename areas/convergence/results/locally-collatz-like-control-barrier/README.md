@@ -21,7 +21,7 @@ depends_on: [right-aligned-fixed-core-remainder]
 certificates: [main_claims_audit.py, progress_measures_audit.py, attempt_probes.py]
 evidence:
   - "NOTE.md: the PR1 lane's note (C1–C5), with the written proofs of Lemmas 1–4 and the corollary of §12; kept, links updated at migration"
-  - "affine_controls.py, negative_controls_audit.json: the controls of this node and the certificate checker (python3 <this folder>/affine_controls.py --check CERT.json). Fails at the new path: it imports right_aligned_packets from its parent folder, which no longer holds it. Passed on 2026-10-17 inside the legacy gate scripts/verify_all.py --cpp, run in a temporary copy of the legacy layout (legacy archive/docs/RESEARCH_LOG.md)"
+  - "affine_controls.py, negative_controls_audit.json: the controls of this node and the certificate checker (python3 <this folder>/affine_controls.py --check CERT.json). Fails at the new path: it imports right_aligned_packets from its parent folder, which no longer holds it. Passed on 2026-10-17 inside the legacy gate scripts/verify_all.py --cpp, run in a temporary copy of the legacy layout (archive/pre-restructure-2026-10-19/docs/RESEARCH_LOG.md, legacy archive/docs/RESEARCH_LOG.md)"
   - "reduction_audit.py, reduction_audit.json: the independent audit of R2–R4 and the minimality checks (right-aligned-reduction-independent-checks, exact-current-minimality). Fails at the new path: it reads ../collatz_packet_currents/data, now in packet-currents-snapshot/. Passed on 2026-10-17 inside scripts/verify_all.py"
   - "check_review_scope.py, review_scope_audit.json: the main lane's checker for the PR1 review's counterexamples (exact-current-minimality). Fails at the new path: it loads experiments/annular_construction/arithmetic/check_arithmetic_reductions.py relative to the repository root (that script now lives in universal-annular-partial-current/ and itself no longer runs there). Passed in the legacy gate (verify_all.py, everything passed at 9dbc71a per archive/legacy-checker-run-be73a66.md; at be73a66 the gate stopped earlier)"
   - "PR1_REVIEW.md: the main lane's review of the PR1 claims, with its later reassessments; HANDOFF_FOR_MAIN.md: the PR1 lane's hand-off to the main lane. Links into unmigrated legacy folders were turned into code spans at migration and restored as node links by the later residual-progress batches (B09, B10, B12)"
@@ -33,6 +33,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-17
     scope: "Feed 2026-10-17 19:03 (ACK: PR1 review accepted) and the TOOL entry: the controls (d, N) = (61, 213), (−1, 16) and the T_61 increments are adopted as regression tests for any generic argument or checker"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [PR1-C2]
 tags: [convergence, packet-currents, negative-controls, 3x+d, barrier]
 ---

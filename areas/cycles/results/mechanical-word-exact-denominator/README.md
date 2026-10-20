@@ -47,6 +47,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Lean units R71-a (iteration 36) and R71-b (iteration 48) verified in lean/CycleSpectrum.lean with the standard axioms; statement match recorded in the legacy lean/STATE.md (see Lean)"
+    link: ../../../../archive/lean-lane/STATE.md
 aliases: [R71, R71-a, R71-b]
 tags: [cycles, mechanical-words, christoffel, denominators, formal]
 ---
@@ -283,7 +284,7 @@ with total valuation A. No theorem from that preprint is required above.
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean units R71-a and R71-b (legacy `lean/STATE.md`; namespace `LeanLane.Cyc`). Axioms `propext`, `Classical.choice`, `Quot.sound` (some helpers fewer); receipts `lean/receipts/CycleSpectrum.*`. No external input. In the file, `mech A m l` is the word above (with `m` for `k`), `C` the recursive intercept (`C_mech` recovers the closed sum `B_l`), `D w = 2^(Σw) − 3^|w|`, and `den w = D w / gcd(C w, D w)` is the reduced denominator.
+`lean/CycleSpectrum.lean`, Lean units R71-a and R71-b (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../../archive/lean-lane/STATE.md); namespace `LeanLane.Cyc`). Axioms `propext`, `Classical.choice`, `Quot.sound` (some helpers fewer); receipts `lean/receipts/CycleSpectrum.*`. No external input. In the file, `mech A m l` is the word above (with `m` for `k`), `C` the recursive intercept (`C_mech` recovers the closed sum `B_l`), `D w = 2^(Σw) − 3^|w|`, and `den w = D w / gcd(C w, D w)` is the reduced denominator.
 
 - **(3), every word and phase.** `den_mech`: for `0 < k ≤ A` and `l < k`, `den (mech A k l) = 2^(A / gcd A k) − 3^(k / gcd A k)`. It needs no hypothesis `2^A > 3^k`; the prose assumes it only to make the cycle positive. "Every state" is the same number because the rotations of a mechanical word are its phases (`mech_rotate`, unit C004-b) and `gcd(C, D)` is rotation invariant (`gcd_rotate_eq`).
 - **Primitive case.** `mech_gcd_one` and `mech_gcd_one_phase` (`m ≥ 2`, `A ≥ m`, `gcd(A, m) = 1` ⇒ `gcd(C, D) = 1` for every phase), through `exists_unique_mech_jump` (exactly one `j < m` with `m | jA + 1`) and `C_mech_one_sub_zero` (the note's (4): `B_1 − B_0 = 3^(m−1−j)·2^⌊jA/m⌋`); `mech_gcd_one_phase'` extends it to `k_0 = 1`, where the word is `(A_0)` and `C = 1`.

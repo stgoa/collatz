@@ -27,9 +27,11 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 2026-10-19 02:13, update 02:19: C006 re-derived by hand with no error; the imported Bugeaud corollary was not checked at the source. Lean unit C006-d verified (2026-10-19, iteration 52): (G2) with the linear-form gap as an explicit hypothesis"
+    link: ../../../archive/side-lane/FEED.md
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 02:13, REFEREE C005 + C006: C006 assessed as restricting complexity, not excluding cycles; with Baker's two-logarithm bound an ordered cycle at fixed q needs J >= √m − O_q(log m)"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, dyadic-order, linear-forms, complexity, conditional]
 ---
 

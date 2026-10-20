@@ -25,6 +25,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed S9 entry, update 13:29: reviewed S9 and found no hidden q = 1; the closing identity is C006-c's formal log_identity; the drift caveat is intrinsic. Lean unit S9-a verified (iteration 76)"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, height, drift, 3x+d, formal]
 ---
 

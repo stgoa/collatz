@@ -31,6 +31,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-17
     scope: "Feed 2026-10-17 19:03, 'ACK: PR1 review accepted': the minimality lemma is a lower bound under its cycle hypothesis; minimum-cost one-sided certificates are not unique; the δ_21 − δ_3 example is valid and the A_768 numbers match the side lane's own receipts (J0(5) = −55, ‖J0⁺‖₁ = 53758, 40,106 rows)"
+    link: ../../../archive/side-lane/FEED.md
 aliases: [PR1-C3]
 tags: [convergence, packet-currents, minimality, certificates]
 ---

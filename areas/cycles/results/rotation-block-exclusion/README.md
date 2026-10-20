@@ -47,6 +47,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "C005 re-derived by hand with no error (feed 02:13, update 02:19); Lean units C005-a to C005-h verified, the theorem unconditional from C005-h (iteration 43)"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [C005]
 tags: [cycles, mechanical-words, rotation-blocks, dyadic-order, formal]
 ---
@@ -88,7 +89,7 @@ The main-lane checkers no longer run at this path (see `evidence`). Their receip
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean units C005-c to C005-h, using C004-b, C005-a/b and R71-a (legacy `lean/STATE.md`). Axioms `propext`, `Classical.choice`, `Quot.sound`; receipts `lean/receipts/CycleSpectrum.*`. No external input.
+`lean/CycleSpectrum.lean`, Lean units C005-c to C005-h, using C004-b, C005-a/b and R71-a (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../../archive/lean-lane/STATE.md)). Axioms `propext`, `Classical.choice`, `Quot.sound`; receipts `lean/receipts/CycleSpectrum.*`. No external input.
 
 - `LeanLane.Cyc.OddCycle.rotation_block_exclusion_mech`: for `v = mech A_0 m_0 l_0` with `2 ≤ m_0 ≤ A_0`, `gcd(A_0, m_0) = 1`, `l_0 < m_0`, `3^m_0 < 2^A_0`, and `blocks` a nonempty list of rotations of `v`, `¬ D(flatten blocks) ∣ C(flatten blocks)`, i.e. the reduced denominator exceeds 1. `m_0 ≤ A_0` is implied by `3^m_0 < 2^A_0`; it is kept because a helper uses it. Every primitive mechanical word with coprime totals and `m_0 ≥ 2` is a phase `mech A_0 m_0 l_0`.
 - `LeanLane.Cyc.single_block_exclusion`: the one-letter bases `(a)`, `a ≥ 3` (the `m_0 = 1` mechanical words other than `(2)`): every concatenation of copies has `D ∤ C`. Together these give exactly "unless the base is `(2)`".

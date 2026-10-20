@@ -28,6 +28,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed update 13:17: reviewed S8; the words, constraint (5) and the 1-cycle by-product check out; scoped the claim to a relaxation-feasibility statement for the single rotation h. The lane later recorded (legacy lean/STATE.md, iteration 73) that its review did not raise other rotations of the same word, a gap in that review; the side lane found the failing rotation 2h itself"
+    link: ../../../../archive/lean-lane/STATE.md
 aliases: [S08]
 tags: [cycles, rotation-distance, size-method, withdrawn]
 ---

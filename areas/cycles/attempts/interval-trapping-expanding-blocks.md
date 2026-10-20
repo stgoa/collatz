@@ -21,6 +21,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 2026-10-19 00:48, REFEREE C003: the actual 3x+499 cycle through 6605 replayed with exactly these valuations; its start lies outside the interval between the block fixed points, so interval trapping genuinely fails for expanding blocks"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, two-blocks, expanding-blocks, counterexample]
 ---
 

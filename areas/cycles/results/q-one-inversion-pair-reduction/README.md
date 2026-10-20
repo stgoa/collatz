@@ -27,6 +27,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed update 11:11: section 1 of the S03 note checked by hand, the reduction is correct (with two precisions: the extension to H < 16L would go through C006-f's any-q ordered form, not three_band; the 37 pairs at other q are not controls for the q = 1 target). Lean unit S3-a verified (iteration 61)"
+    link: ../../../../archive/side-lane/FEED.md
 tags: [cycles, dyadic-order, inversion, formal]
 ---
 

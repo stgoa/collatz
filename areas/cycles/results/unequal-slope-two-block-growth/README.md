@@ -21,7 +21,8 @@ evidence:
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
-    scope: "Side-lane feed (legacy archive/side_lane/FEED.md), 2026-10-19 00:26, update 00:31: the Lean lane audited INDEPENDENT_SLOPES.md and found no error. The Corvaja–Zannier inputs themselves were not re-proved; the side lane's REFEREE notes that this part relies on Corvaja–Zannier and is ineffective"
+    scope: "Side-lane feed (archive/side-lane/FEED.md, legacy archive/side_lane/FEED.md), 2026-10-19 00:26, update 00:31: the Lean lane audited INDEPENDENT_SLOPES.md and found no error. The Corvaja–Zannier inputs themselves were not re-proved; the side lane's REFEREE notes that this part relies on Corvaja–Zannier and is ineffective"
+    link: ../../../../archive/side-lane/FEED.md
 tags: [cycles, denominators, two-blocks, s-units, ineffective, conditional]
 ---
 

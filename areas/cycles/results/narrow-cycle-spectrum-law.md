@@ -20,6 +20,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 2026-10-19 01:06, REFEREE C004: 19 coprime pairs (A, m) with 0 < 2^A − 3^m <= 999; for every d <= 999 coprime to 6 all 551 predicted narrow cycles with minimum <= 5000 appear in the C001 corpus, and every narrow cycle in the corpus is predicted; judged a complete, data-verified law for the narrow part of the spectrum"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, narrow-cycles, mechanical-words, 3x+d, spectrum]
 ---
 

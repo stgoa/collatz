@@ -32,10 +32,11 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-19
     link: c002_two_block_check.py
-    scope: "Side-lane feed (legacy archive/side_lane/FEED.md), entry 2026-10-19 00:26, REFEREE C002 at main e14a4e3: the uniform theorem re-derived by hand and checked on 434,350 exhaustive and 3,902 random cases; ingredients and exact examples checked; verdict correct"
+    scope: "Side-lane feed (archive/side-lane/FEED.md, legacy archive/side_lane/FEED.md), entry 2026-10-19 00:26, REFEREE C002 at main e14a4e3: the uniform theorem re-derived by hand and checked on 434,350 exhaustive and 3,902 random cases; ingredients and exact examples checked; verdict correct"
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Lean unit C002-a verified (feed 00:45, update 00:50): uniform_two_block_strong proves the full bound under exactly C002's hypotheses; the Lean lane had also re-derived PROPORTIONAL.md sections 1-4 by hand and found no error (feed 00:26, update 00:31)"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [C002]
 tags: [cycles, denominators, two-blocks, uniform, formal]
 ---
@@ -100,7 +101,7 @@ Generated blocks have lengths 1–3, valuations 1–4 and both repetition counts
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean unit C002-a (legacy `lean/STATE.md`):
+`lean/CycleSpectrum.lean`, Lean unit C002-a (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../../archive/lean-lane/STATE.md)):
 
 - `LeanLane.Cyc.uniform_two_block_strong`: for nonempty `u ≠ v` with positive entries, `u.length = v.length`, `u.sum = v.sum`, `3^m < 2^A`, `k, ℓ ≥ 1`, `k + ℓ ≥ 3`, it proves `2^A · (2^m · gcd(C_w, D_w)) < 3^m · D_w` for `w = rep u k ++ rep v ℓ`. Dividing by `gcd · 3^m` this is exactly `den(w) > 2^m·2^A/3^m`. The hypotheses are the prose's; `v ≠ []` follows from equal length.
 - `uniform_two_block`: the weaker `2^m · gcd < D_w`, i.e. `den(w) > 2^m`, as a corollary.

@@ -17,11 +17,12 @@ authors:
 created: 2026-10-19
 depends_on: [run-start-gap-recursion, ordered-gap-closed-form, dyadic-order-lemma]
 evidence:
-  - "s2_ucycle_explore.py, s2_ucycle_explore.json: side-lane exploration probe (about 15-20 s): checks the run-start identity and the bookkeeping on the 33 actual and 337 rational ordered cycles (m ≤ 9, letters 1-4), and records the oddness, spread and level-2 order counts quoted here. Fails at its new path: it imports the side-lane helpers s1a_integer_cycle_check (now in ../../results/ordered-gap-closed-form/) and jterm_gap_check (legacy reviews/side_lane/, migrated by a later batch) from its own folder. Passed at be73a66 as reviews/side_lane/s2_ucycle_explore.py (archive/legacy-checker-run-be73a66.md)"
+  - "s2_ucycle_explore.py, s2_ucycle_explore.json: side-lane exploration probe (about 15-20 s): checks the run-start identity and the bookkeeping on the 33 actual and 337 rational ordered cycles (m ≤ 9, letters 1-4), and records the oddness, spread and level-2 order counts quoted here. Fails at its new path: it imports the side-lane helpers s1a_integer_cycle_check (now in ../../results/ordered-gap-closed-form/) and jterm_gap_check (also in ../../results/ordered-gap-closed-form/, since the B17 migration) from its own folder. Passed at be73a66 as reviews/side_lane/s2_ucycle_explore.py (archive/legacy-checker-run-be73a66.md)"
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Pre-review of the S2 announcement (points (b) and (c), incorporated) and feed update 11:11: section 3 accepted as a finite-data rejection with a correct diagnosis; section 1 formalised as S2-a and section 2 as S2-b; the section 4 attribution corrected at the lane's prompting and formalised as S2-c"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [S02]
 tags: [cycles, ordered-cycles, gap-system, renormalisation, rejected-mechanism]
 ---

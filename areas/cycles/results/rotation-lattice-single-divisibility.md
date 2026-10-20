@@ -27,9 +27,11 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 2026-10-19 01:19: C004 re-derived by hand with no error, including det B_w = ±D, the Smith argument via Cramer minors, the cut identity and gcd formula, and the letter-1 lemma. Lean unit C004-a verified the cut identity (6) and gcd formula (7); the Smith forms were not formalised"
+    link: ../../../archive/side-lane/FEED.md
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 01:06, REFEREE C004: the cut formula holds for every one-letter cut of 3,000 random words; the all-rotation dependence judged a useful, correct negative"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, smith-normal-form, rotations, denominators]
 ---
 

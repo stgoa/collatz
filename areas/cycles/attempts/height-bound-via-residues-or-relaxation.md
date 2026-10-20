@@ -23,9 +23,11 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 2026-10-19 02:28, REFEREE C007: the ordered q = 5 cycle from 187 has raw residue 2 at heights 0, 1, 2 and 3 (residue sets {2,3}, {2,3}, {1,2,3}, {1,2,3,4}); the two exact obstructions judged valuable and neither a counterexample to the law"
+    link: ../../../archive/side-lane/FEED.md
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 02:41, update 02:53: the Lean lane's read of C007 found no error (modular lemma, min-to-top inequality, q = 5 height-residue sets)"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, residues, dyadic-order, relaxation]
 ---
 

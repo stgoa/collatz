@@ -21,6 +21,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 2026-10-19 04:14: GENERAL_DEFECTS.md read in full, no error; the q = 97 coupling 100 = 36 + 64 and the other controls re-derived"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, rotation-distance, cancellation, counterexample]
 ---
 

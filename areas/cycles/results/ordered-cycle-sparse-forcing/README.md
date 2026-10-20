@@ -31,7 +31,7 @@ lean:
 evidence:
   - "ORDER_RIGIDITY.md: the written proofs (ordered interface, Green comparison, sparse-forcing law (G1), (H1), (G4), controls, generic baselines)"
   - "check_order_rigidity.py, order_rigidity_audit.json, root_replay.json: main-lane finite checker, receipt and root replay record. The checker fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json', the fixtures from experiments/phase6/ (cycle_fixtures.json, now in ../../../convergence/results/baseline-obligation-transfer-controls/, byte-identical), and pins C005/check_order.py and C005/order_audit.json by old path. Passed at be73a66 as experiments/cycle_spectrum/C006/check_order_rigidity.py (archive/legacy-checker-run-be73a66.md)"
-  - "c006b_erun_check.py, c006c_g4_check.py, c006d_g2_check.py, c006e_cc_check.py, c006f_order_word_check.py and their .json receipts: side-lane independent checks of Lean units R71-d and C006-b to C006-f. All fail at their new path: they import helper modules from their own folder (s1a_integer_cycle_check and s1b_run_start_gcd_check, now in ../ordered-gap-closed-form/ (B05); r71c_state_bound_check, now in ../mechanical-cycles-high-rational-controls/ (B12), and jterm_gap_check, migrated by a later batch). Passed at be73a66 as reviews/side_lane/c006b_erun_check.py, c006c_g4_check.py, c006d_g2_check.py, c006e_cc_check.py, c006f_order_word_check.py (archive/legacy-checker-run-be73a66.md)"
+  - "c006b_erun_check.py, c006c_g4_check.py, c006d_g2_check.py, c006e_cc_check.py, c006f_order_word_check.py and their .json receipts: side-lane independent checks of Lean units R71-d and C006-b to C006-f. All fail at their new path: they import helper modules from their own folder (s1a_integer_cycle_check and s1b_run_start_gcd_check, now in ../ordered-gap-closed-form/ (B05); r71c_state_bound_check, now in ../mechanical-cycles-high-rational-controls/ (B12), and jterm_gap_check, now in ../ordered-gap-closed-form/ (B17)). Passed at be73a66 as reviews/side_lane/c006b_erun_check.py, c006c_g4_check.py, c006d_g2_check.py, c006e_cc_check.py, c006f_order_word_check.py (archive/legacy-checker-run-be73a66.md)"
   - "../rotation-block-exclusion/c005_c006_order_check.py, parts (4)-(6): side-lane REFEREE check of C006 on the corpus"
   - "LITERATURE.md: inspected primary input for the analytic corollary and scoped comparisons; INDEPENDENT_REVIEW.md, ROOT_REVIEW.md: main-lane reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed; DELIVERY_STATUS.md: record of a failed publication attempt"
   - "delivery_checks.json, full_gate.json: historical delivery receipt and historical finite gate"
@@ -43,6 +43,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "C006 re-derived by hand with no error (feed 02:13, update 02:19): weighted identity, J >= B + 1, gap system with seam, sparse forcing; Lean units C006-a (iterations 22-29), C006-b, C006-c, C006-e verified"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [C006]
 tags: [cycles, dyadic-order, sparse-forcing, complexity, formal]
 ---
@@ -92,7 +93,7 @@ In detail: with the sorted gaps `Δ_j`, `G_j = 2^B·Δ_j ∈ Z_(>0)` and forcing
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean units C006-a, C006-b, C006-c and C006-e (legacy `lean/STATE.md`). Axioms `propext`, `Classical.choice`, `Quot.sound`; receipts `lean/receipts/CycleSpectrum.*`. No external input.
+`lean/CycleSpectrum.lean`, Lean units C006-a, C006-b, C006-c and C006-e (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../../archive/lean-lane/STATE.md)). Axioms `propext`, `Classical.choice`, `Quot.sound`; receipts `lean/receipts/CycleSpectrum.*`. No external input.
 
 The domain is the structure `OrdCycle m`: an `OddCycle` (odd periodic numerators, `n_0` the positive minimum, exact arrows `2^(a_i)·n_(i+1) = 3n_i + q`, heights bounded by `B`) whose scaled normalised states `Z_i` and images `F_i` satisfy `Z_i < Z_j ⇔ F_i < F_j` (the ordered hypothesis), with its exponent window, `m ≥ 2`, and distinct states over one period.
 

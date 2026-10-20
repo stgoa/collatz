@@ -23,7 +23,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-19
     link: ../repeated-block-cancellation-bound/c001_spectrum_check.py
-    scope: "Side-lane feed (legacy archive/side_lane/FEED.md), entry 2026-10-19 00:18, REFEREE C001: an independent raw scan (state 1 not absorbing) over all 67 values d <= 199 coprime to 6 with odd seeds <= 5000 finds exactly the same cycles per d as this file, compared by minimum state. Parameters 199 < d <= 999 were not independently rescanned"
+    scope: "Side-lane feed (archive/side-lane/FEED.md, legacy archive/side_lane/FEED.md), entry 2026-10-19 00:18, REFEREE C001: an independent raw scan (state 1 not absorbing) over all 67 values d <= 199 coprime to 6 with odd seeds <= 5000 finds exactly the same cycles per d as this file, compared by minimum state. Parameters 199 < d <= 999 were not independently rescanned"
 aliases: [C001-corpus]
 tags: [cycles, 3x+d, controls, corpus, enumeration]
 ---

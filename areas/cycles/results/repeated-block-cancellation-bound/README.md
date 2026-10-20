@@ -43,10 +43,11 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-19
     link: c001_spectrum_check.py
-    scope: "Side-lane feed (legacy archive/side_lane/FEED.md), entry 2026-10-19 00:18, REFEREE C001 at main 14441c0: identities (1)-(3) re-derived by hand; divisibility, two-sided bound, exact coprime formula and periodicity checked on random blocks; worked law for k <= 80; the d = 485 counterexample; verdict correct and reproduced"
+    scope: "Side-lane feed (archive/side-lane/FEED.md, legacy archive/side_lane/FEED.md), entry 2026-10-19 00:18, REFEREE C001 at main 14441c0: identities (1)-(3) re-derived by hand; divisibility, two-sided bound, exact coprime formula and periodicity checked on random blocks; worked law for k <= 80; the d = 485 counterexample; verdict correct and reproduced"
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Lean units C001-a and C001-b verified (feed entries 00:22 and 00:32): identity (3), g_k | K, the bound, the coprime formula (6), the two-sided bound (7), periodicity (9) and the worked examples are machine-checked; the K = 0 characterisation was queued (C001-c) and later partly covered by C002-b part 2"
+    link: ../../../../archive/side-lane/FEED.md
 aliases: [C001]
 tags: [cycles, denominators, repeated-blocks, commutator, 3x+d]
 ---
@@ -123,7 +124,7 @@ These finite checks support the implementation; they do not replace the universa
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean units C001-a and C001-b (legacy `lean/STATE.md`), plus part of C002-b:
+`lean/CycleSpectrum.lean`, Lean units C001-a and C001-b (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../../archive/lean-lane/STATE.md)), plus part of C002-b:
 
 - `LeanLane.Cyc.commutator` is identity (3), over ℤ, for every `k ≥ 0`.
 - `gcd_dvd_K` and `gcd_le_natAbs_K`: `g_k | K` and `g_k ≤ |K|` for `K ≠ 0`; `gcd_coprime_six`: `g_k` is coprime to 6. The only hypotheses are that `v` is nonempty with positive entries.

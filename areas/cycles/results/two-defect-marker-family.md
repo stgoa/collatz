@@ -26,6 +26,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 04:14: the marker family re-derived by hand, including β > n/12, every state above n/128 and the local-minimum count, no error"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, rotation-distance, two-defect, mechanical-words]
 ---
 

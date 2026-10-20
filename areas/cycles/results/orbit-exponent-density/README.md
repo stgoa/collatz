@@ -26,6 +26,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Lean unit S2-c verified (iteration 62), statement match recorded in the legacy lean/STATE.md note S2-c; the lane's review had prompted the re-attribution of the A/m factor to this density"
+    link: ../../../../archive/lean-lane/STATE.md
 tags: [cycles, ordered-cycles, mechanical-words, formal]
 ---
 

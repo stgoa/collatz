@@ -33,6 +33,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed S13 entry, update 17:40: review of S13 with independent spot checks (ℓ'_max(1.375·10^11) ≈ 12,824, F(1) = 28, F(√m) = 23, c_4 ≈ 0.0752); later review of Corollaries 5-7 ('all correct'), with the rounding-sensitive count |E_4| ≤ 156 restated exactly. Subadditivity and the orientation lemma verified as S13-c (iteration 94)"
+    link: ../../../../archive/side-lane/FEED.md
 tags: [cycles, rotation-distance, rise-lemma, linear-forms]
 ---
 

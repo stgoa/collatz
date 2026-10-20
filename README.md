@@ -33,7 +33,7 @@ Each node declares its status (`proposed` → `written` → `reviewed` → `form
 | [`papers/`](papers/) | Typeset expositions of groups of nodes |
 | [`conventions/`](conventions/) | The node schema, notation and templates |
 | [`tools/`](tools/) | The checker, the map generator and the certificate runner |
-| [`archive/`](archive/) | Frozen history that does not fit the graph |
+| [`archive/`](archive/) | Frozen history that does not fit the graph; how the project came to be is in [`archive/HISTORY.md`](archive/HISTORY.md) |
 
 ## Verify
 

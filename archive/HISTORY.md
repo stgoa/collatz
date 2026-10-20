@@ -1,12 +1,14 @@
 # History
 
+*Kept as `docs/HISTORY.md` until the 2026-10-20 migration, which moved it here and added the last section. Paths in the earlier sections are those of their time; their links point to where those documents are archived now.*
+
 How this repository came to be, and who (or what) did the work. All research here was produced by AI agents directed by the repository owner, over a few days in October 2026. Each agent worked in its own "lane" (a branch with a role).
 
 ## Timeline
 
 | Date (2026) | Event |
 |---|---|
-| Oct 17 | The repository starts from a ChatGPT conversation's hand-off: [`archive/COLLATZ_PROGRAMME_MASTER_HANDOFF.md`](../archive/COLLATZ_PROGRAMME_MASTER_HANDOFF.md) and the packet-currents snapshot (`experiments/packet_currents/`). The **main lane** (ChatGPT/Codex, working on `main`) develops the *packet currents* programme, R1–R94. |
+| Oct 17 | The repository starts from a ChatGPT conversation's hand-off: [`archive/handoff/COLLATZ_PROGRAMME_MASTER_HANDOFF.md`](handoff/COLLATZ_PROGRAMME_MASTER_HANDOFF.md) and the packet-currents snapshot (`experiments/packet_currents/`). The **main lane** (ChatGPT/Codex, working on `main`) develops the *packet currents* programme, R1–R94. |
 | Oct 17 | An **independent audit lane** (Claude) adds negative controls C1–C5 and a review, merged as PR #1. The same session continues as the **side lane** on `claude/sidekick`, an independent reviewer that posts verdicts in a feed. |
 | Oct 18 | The main lane pivots to **Phase 6**, which grades named proof obligations on a route map. A Claude **audit lane** builds and checks an external positive-density Lean development (PR #2, merged). An **explicit-Tao lane** (Claude) closes its first leg with a scoped barrier. |
 | Oct 18 | The **viewpoints** programme (V001–V009) explores invariant colourings; V004 proves finite-state rigidity. The **Lean lane** (Claude Fable) begins formalising the main lane's results. |
@@ -25,7 +27,7 @@ How this repository came to be, and who (or what) did the work. All research her
 | Explicit Tao | Claude | Making Tao (2019) explicit | `experiments/explicit_tao/` |
 | PR1 lane | Claude | Negative controls for the packet-currents claims | `experiments/packet_currents/negative_controls/` |
 
-The lanes cross-checked one another: the side lane refereed the main lane's batches and every Lean unit, and the Lean lane reviewed the side lane's results adversarially. The records of that traffic are in [`archive/side_lane/FEED.md`](../archive/side_lane/FEED.md), [`lean/LOG.md`](../lean/LOG.md) and the review files inside each batch folder.
+The lanes cross-checked one another: the side lane refereed the main lane's batches and every Lean unit, and the Lean lane reviewed the side lane's results adversarially. The records of that traffic are in [`archive/side-lane/FEED.md`](side-lane/FEED.md), [`archive/lean-lane/LOG.md`](lean-lane/LOG.md) and the review files inside each batch folder.
 
 ## The 2026-10-19 restructure
 
@@ -36,7 +38,7 @@ Before the restructure, the content was spread over four branches. The root held
 
 The restructure:
 - merged `claude/sidekick`, `claude/lean-lane` and `claude/explicit-tao` into `main` with true merges, so every commit is preserved, then deleted those branches;
-- moved files with `git mv` into the layout described in the [README](../README.md). [`archive/README.md`](../archive/README.md) gives the old-to-new path map;
+- moved files with `git mv` into the layout described in the [README](pre-migration-2026-10-20/README.md). [`archive/README.md`](pre-restructure-2026-10-19/ARCHIVE_README.md) gives the old-to-new path map;
 - **kept every checked artefact byte-identical.**
   - Many checkers pin SHA-256 hashes of each other's sources, data and notes, so `experiments/` keeps its path.
   - The dated upload folder `collatz_research_20261017/` became `experiments/packet_currents/`.
@@ -46,6 +48,23 @@ The restructure:
   - The notes whose hashes are re-verified by a running checker were not touched.
   - Relative links and plain-text paths in the other Markdown files were rewritten automatically.
   - Every checker that passed before the move was re-run after it;
-- replaced the agent rules with a short [`AGENTS.md`](../AGENTS.md) and added [`CONTRIBUTING.md`](../CONTRIBUTING.md), the status pages in `docs/`, CI, and the MIT license.
+- replaced the agent rules with a short [`AGENTS.md`](pre-migration-2026-10-20/AGENTS.md) and added [`CONTRIBUTING.md`](pre-migration-2026-10-20/CONTRIBUTING.md), the status pages in `docs/`, CI, and the MIT license.
 
-The previous `README.md` and `AGENTS.md` are kept in [`archive/`](../archive/). Their links were updated to the new layout; their text is otherwise unchanged.
+The previous `README.md` and `AGENTS.md` are kept in [`archive/`](pre-restructure-2026-10-19/). Their links were updated to the new layout; their text is otherwise unchanged.
+
+## The 2026-10-20 knowledge-graph migration
+
+*Added at the last migration batch (B17), 2026-10-20.*
+
+The 2026-10-19 layout still kept research as programme folders with hand-maintained indexes (`docs/STATUS.md`, `FRONTIER.md`, `RESULTS.md`), which have to be updated by hand and go stale (the reason the new [`AGENTS.md`](../AGENTS.md) §3 gives for banning them). Starting on the evening of 2026-10-19, Claude agents (Opus 5.5) migrated the repository, batch by batch, into a **knowledge graph**; the last batch landed on 2026-10-20.
+
+**What changed.**
+- Every claim, failed approach, open target and external input became a **node**: one Markdown file with YAML frontmatter under `areas/<area>/{results,attempts,questions}/` or `sources/` (schema: [`conventions/SCHEMA.md`](../conventions/SCHEMA.md)). Legacy IDs (`C011`, `S13`, `R71`, `V004`, `P6-…`, `TAO-…`) became `aliases`. The migration ended with 308 nodes: 217 results, 28 attempts, 36 questions and 27 sources.
+- [`MAP.md`](../MAP.md) is generated from the frontmatter and replaces the hand-written indexes; each area has a short hand-written `OVERVIEW.md`. Statuses were mapped conservatively: a proof became `reviewed` only with a review by a different lane on record, `formal` only with a statement match recorded in the node's `## Lean` section, and heuristics and extrapolations stayed `proposed` or became questions.
+- `scripts/` gave way to [`tools/`](../tools/): `check.py`, `build_map.py`, `run_certificates.py` and `legacy_replay.py`. The old rules, front door, status pages, scripts, feeds, journals and the Lean lane's unit table went to this folder ([`README.md`](README.md) lists each item and where its content now lives).
+
+**How.** The whole tree at commit `be73a66` was first parked under a temporary `_triage/` folder, after every legacy checker had been run once at that commit as a reference ([`legacy-checker-run-be73a66.md`](legacy-checker-run-be73a66.md)), and a manifest gave every legacy unit a row. Seventeen batches (B01 sources, B02 Lean, B03–B06 cycles, B07–B15 convergence, B16 invariants, B17 leftovers) then worked one at a time. From B04 on, each batch made two commits: a move commit containing only byte-identical `git mv`s, so that `git log --follow` traces every file, and an edit commit that rewrote the moved report into its node, wrote the frontmatter, and set the manifest row to the unit's fate (node, archive, or dropped with a reason). Forward references between batches waited in a follow-ups ledger until their target existed.
+
+**Scripts and receipts.** No legacy script or receipt was edited. Because the scripts load and hash each other by their pre-migration paths, most no longer run where they now live. `tools/legacy_replay.py` rebuilds the pre-migration tree in a temporary directory from `tools/legacy_paths.json` (legacy path → current path, regenerated after each commit; rewritten notes map to null and are restored from git at `be73a66`) and requires exit 0 with every file byte-identical afterwards. A script that passes in place is a node certificate; one that only passes by replay is wrapped in a node's `check_legacy_replay.py` (59 nodes have one); the rest are `evidence`, citing the reference run.
+
+**The legacy gate.** At the end, `python3 tools/legacy_replay.py scripts/verify_all.py` replayed the frozen programmes' gate of the 2026-10-19 layout (about 10.5 minutes). It failed exactly where the reference run at `be73a66` failed: `residual_progress/history_frontier/check_history_frontier.py` reports a receipt mismatch, because its receipt pins the hash of `native_history_audit.json`, which was regenerated at the 2026-10-19 restructure (the gate last passed in full at `9dbc71a`). The gate stops at its first failure, so its later stages were not reached in the replay; the nodes' own certificates and `check_legacy_replay.py` wrappers cover the scripts individually. The failure was recorded, not fixed: receipts are frozen.

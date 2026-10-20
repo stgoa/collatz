@@ -31,9 +31,11 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 2026-10-19 03:19: cut lemma and elimination re-derived by hand; Lean unit C009-a verified (iteration 30)"
+    link: ../../../archive/side-lane/FEED.md
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 04:09: Lean C009-a VERIFIED, statement match and receipts (sha256 18cbad0b…) checked"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, cylinders, excursions, formal]
 ---
 
@@ -53,7 +55,7 @@ For a positive valuation word `w = (w_0, …, w_(ℓ−1))` put `P_j = Σ_(i<j) 
 
 ## Lean
 
-`lean/CycleSpectrum.lean`, Lean unit C009-a (legacy `lean/STATE.md`, iteration 30), axioms `propext`, `Classical.choice`, `Quot.sound` (two helpers `propext` only); receipts `lean/receipts/CycleSpectrum.*`. No external input.
+`lean/CycleSpectrum.lean`, Lean unit C009-a (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../archive/lean-lane/STATE.md), iteration 30), axioms `propext`, `Classical.choice`, `Quot.sound` (two helpers `propext` only); receipts `lean/receipts/CycleSpectrum.*`. No external input.
 
 - `LeanLane.Cyc.cut_lemma` is (1): hypotheses positive word, `q > 0` odd, `x > 0`, `y` odd and `2^(Σw)·y = 3^|w|·x + q·C_w`; conclusions for `cutState w q x j = (3^j·x + q·C(take j w))/2^(Σ take j w)`: `u_0 = x`, `u_ℓ = y`, the cleared identity, positivity, oddness and the exact arrow. The prose's "x odd" is not assumed; it is a consequence.
 - `LeanLane.Cyc.elimination` is (2) with `C_(E++P) = 3^r·C_E + 2^a·C_P` (`C_append`).

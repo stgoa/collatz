@@ -23,6 +23,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-18
     scope: "Feed 22:10: the converse checked by hand (strong induction on E(m), cases m odd, 4l, 4l+2); feed 22:26: Lean V005-a read from source and receipts, statement match, orientation b(3n) = b(4n) and ext b 0 = b 0 confirmed"
+    link: ../../../archive/side-lane/FEED.md
 aliases: [V005-a]
 tags: [invariants, scalar-interface, colourings, formal]
 ---

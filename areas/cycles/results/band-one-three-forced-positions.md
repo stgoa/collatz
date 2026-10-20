@@ -16,11 +16,12 @@ lean:
   - LeanLane.Cyc.OrdCycle.J_ge_three
 evidence:
   - "Side-lane feed entry 2026-10-19 06:30 ('In the Collatz range, band 1 forces J ≥ 3 (proved)') and update 08:20 (Lean S1-e)"
-  - "jterm_gap_check.py (legacy reviews/side_lane/, migrated by a later batch): asserts J ≥ 3 on every band-1 ordered cycle among its 900 Collatz-range cycles (m ≤ 12, letters 1-3), and reports 27 cases with J = 2 outside the Collatz range (A ≥ 2m)"
+  - "ordered-gap-closed-form/jterm_gap_check.py (a certificate of that node since the B17 migration; legacy reviews/side_lane/jterm_gap_check.py): asserts J ≥ 3 on every band-1 ordered cycle among its 900 Collatz-range cycles (m ≤ 12, letters 1-3), and reports 27 cases with J = 2 outside the Collatz range (A ≥ 2m)"
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Lean unit S1-e verified (iteration 47), statement checked against the feed's argument (legacy lean/STATE.md row S1-e and its note); the lane pointed out that the argument uses letter positivity, now an explicit hypothesis"
+    link: ../../../archive/lean-lane/STATE.md
 tags: [cycles, ordered-cycles, gap-system, band-one, formal]
 ---
 
@@ -41,7 +42,7 @@ Side-lane feed, 2026-10-19 06:30 (lightly edited). Take `m < A < 2m`. Then a non
 ## Remarks
 
 - **Scope.** An ordered-class statement for every `q`: every closed form of [`ordered-gap-closed-form`](ordered-gap-closed-form/README.md) in this band has at least three nonzero terms. Nothing about whether `H < 4L` Collatz cycles exist follows.
-- **Outside the Collatz range** (`A ≥ 2m`), `J = 2` occurs; there, in 27 tested cases, `gcd(C, D) = gcd(2^(u1) − 3^(v1), 2^(u2) − 3^(v2))` with `(u1 + u2, v1 + v2) = (A, m)` (observed by `jterm_gap_check.py`, not proved).
+- **Outside the Collatz range** (`A ≥ 2m`), `J = 2` occurs; there, in 27 tested cases, `gcd(C, D) = gcd(2^(u1) − 3^(v1), 2^(u2) − 3^(v2))` with `(u1 + u2, v1 + v2) = (A, m)` (observed by [`jterm_gap_check.py`](ordered-gap-closed-form/jterm_gap_check.py), not proved).
 - Novelty: none claimed.
 
 ## History

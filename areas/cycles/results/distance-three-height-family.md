@@ -24,6 +24,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 2026-10-19 05:03: OVERLAP_THEORY.md sections 1-3 read in full, no error; the run law and the ρ = 3 height family re-derived by hand"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, rotation-distance, height, counterexample]
 ---
 

@@ -20,11 +20,12 @@ lean:
   - LeanLane.Cyc.OrdCycle.D_eq_q_of_J_one
 evidence:
   - "Side-lane feed entry 2026-10-19 06:30, update 07:51 ('A precise form of J = 1 is R71/C004') and update 08:06 (Lean S1-d)"
-  - "ordered-gap-closed-form/s1cd_gap_coprime_check.py: side-lane check; the 3 actual cycles with J = 1 have D = q (q = 5, minimum 23; q = 13, minimum 319; q = 23, minimum 7, m = 2), and all 65 rational ordered cycles with J = 1 have gcd(C, D) = 1. Fails at its new path (imports jterm_gap_check, see that node); passed at be73a66 as reviews/side_lane/s1cd_gap_coprime_check.py (archive/legacy-checker-run-be73a66.md)"
+  - "ordered-gap-closed-form/s1cd_gap_coprime_check.py: side-lane check; the 3 actual cycles with J = 1 have D = q (q = 5, minimum 23; q = 13, minimum 319; q = 23, minimum 7, m = 2), and all 65 rational ordered cycles with J = 1 have gcd(C, D) = 1. A certificate of that node since the B17 migration moved its helper jterm_gap_check beside it; passed at be73a66 as reviews/side_lane/s1cd_gap_coprime_check.py (archive/legacy-checker-run-be73a66.md)"
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Lean unit S1-d verified (iteration 46), statement checked against the feed's 07:51 argument (legacy lean/STATE.md row S1-d and its note)"
+    link: ../../../archive/lean-lane/STATE.md
 tags: [cycles, ordered-cycles, gap-system, exact-denominator, formal]
 ---
 

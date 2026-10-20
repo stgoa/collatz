@@ -19,6 +19,7 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed S13 entry, update 17:40: adversarial review of S13 §§1-2 with no hole found; the uniform-Δ form of the lemma 'suffices for Corollaries 1-4'. The corollary's own algebra is not formalised"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, denominator, rise-lemma, 3x+d]
 ---
 

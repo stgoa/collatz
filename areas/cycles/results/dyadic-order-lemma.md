@@ -31,9 +31,11 @@ reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
     scope: "Feed 2026-10-19 02:13, update 02:19: the inversion formula, the order lemma and its converse under q <= L re-derived by hand with no error. Lean units C005-a (order lemma in abstract form, inversion formula over Q) and C006-f (the word form at any q) verified; the converse is not formalised"
+    link: ../../../archive/side-lane/FEED.md
   - by: Claude side lane (Opus)
     date: 2026-10-19
     scope: "Feed 02:13, REFEREE C005 + C006: the q = 1 inversion arithmetic and the order controls (q = 233, q = 5, q = 11) reproduced on the corpus"
+    link: ../../../archive/side-lane/FEED.md
 tags: [cycles, dyadic-order, normalisation, mechanical-words]
 ---
 
