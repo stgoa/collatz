@@ -87,7 +87,7 @@ For every check script you move:
 
 ## 7. Commit
 
-Make one commit for the batch, on your branch, with message `Migrate <batch>: <one line>`. The body lists the nodes created, with their statuses, and anything archived or dropped. End it with the Co-Authored-By line you were given.
+Work in the main worktree, on branch `refactor/pristine`. Batches run one at a time. Stage only your own paths (for example `git add areas/cycles _triage MAP.md`). Never run `git add -A` at the root: the untracked `sidekick/` folder must stay untracked. Make one commit for the batch, with message `Migrate <batch>: <one line>`. The body lists the nodes created, with their statuses, and anything archived or dropped. End it with the Co-Authored-By line you were given.
 
 Do not push. Do not touch files outside your batch, except:
 - `MAP.md` (regenerated);
