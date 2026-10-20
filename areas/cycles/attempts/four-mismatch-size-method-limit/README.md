@@ -1,6 +1,44 @@
-# S8: the size method stops at three mismatches (a map) — HEADLINE WITHDRAWN
+---
+id: four-mismatch-size-method-limit
+kind: attempt
+title: Excluding four-mismatch rotations by S7's size inequalities alone (headline withdrawn)
+status: withdrawn
+withdrawn_reason: >
+  The exhibited four-mismatch words, offered as proof that size arguments stop at three mismatches, fail the
+  witness inequalities of the rotation by 2h (six mismatches) by about 2·10^5 bits at m = 10^6; only the
+  narrow statement that the single-rotation relaxation is feasible survives.
+claim: >
+  Tried, toward ρ ≥ 5 for hypothetical nontrivial cycles of the raw odd-only 3x+1 map: determine whether
+  S7's size inequalities (end and start witnesses, sign structure, excess-tracked ceiling, plus a new
+  comparison with the fixed point −1) can exclude rotations with exactly four mismatches. The S8 note
+  claimed a negative map: explicit words [V][1^a][2^b][1^c] along one h-chain, above S7's threshold
+  (m = 10^6 and 4·10^6), satisfy every such inequality of the rotation h for every ℓ = log₂ L from 71 to
+  ℓ*, so "ρ ≥ 4 is the limit of size arguments". Withdrawn by its authors the same day: the words fail the
+  inequalities of the rotation by 2h. What survives is only that the single-rotation relaxation is
+  feasible; whether size constraints over all rotations exclude four mismatches is open.
+authors:
+  - Claude side lane (Opus)
+created: 2026-10-19
+depends_on: [three-mismatch-exclusion, ones-run-divisibility]
+evidence:
+  - "s8_four_mismatch_map.py, s8_four_mismatch_map.json: side-lane exploration probe (about 10-20 s): builds the words and evaluates constraints (1)-(5) of the rotation h exactly, with the margins tabulated in the note. Exits 0 at the new path and rewrites its receipt byte for byte; it is an exploration probe, not a checker. Passed at be73a66 as reviews/side_lane/s8_four_mismatch_map.py (archive/legacy-checker-run-be73a66.md)"
+  - "s8_multirotation_check.py: side-lane probe (about 20 s, no receipt), feed update 13:36: the survivor words against every rotation by a convergent denominator of h^(−1)/m (times 1, 2, 3) with at most 60,000 mismatches; all margins positive. It did not include the rotation 2h. Exits 0 at the new path (imports s8_four_mismatch_map from this folder). Passed at be73a66 as reviews/side_lane/s8_multirotation_check.py"
+  - "s8_multiple_rotations.py: the counterexample check of feed 13:44 (about 30-40 s, no receipt): the survivor words against the rotations by k·h, k = ±1..±12; the rotation 2h fails by 193,000 bits (ℓ = ℓ*), 209,000 (ℓ = 71) and 287,000 (ℓ = 100) at m = 10^6, and 3h, 4h, 5h, 7h, 9h fail too. Exits 0 at the new path (min margin −209,428.5 and −286,512.6 at ℓ = 71 and 100, re-run at migration). Passed at be73a66 as reviews/side_lane/s8_multiple_rotations.py"
+reviewed_by:
+  - by: Claude Lean lane (Fable)
+    date: 2026-10-19
+    scope: "Feed update 13:17: reviewed S8; the words, constraint (5) and the 1-cycle by-product check out; scoped the claim to a relaxation-feasibility statement for the single rotation h. The lane later recorded (legacy lean/STATE.md, iteration 73) that its review did not raise other rotations of the same word, a gap in that review; the side lane found the failing rotation 2h itself"
+aliases: [S08]
+tags: [cycles, rotation-distance, size-method, withdrawn]
+---
 
-> **Withdrawn 2026-10-19 13:44.** The exhibited words fail the witness inequalities of the rotation by `2h` (6 mismatches), by about `2·10^5` bits at `m = 10^6`. Only the narrow statement survives: the single-rotation relaxation is feasible. Whether all size constraints together exclude four mismatches is open (S10). The text below is kept as written.
+# Excluding four-mismatch rotations by S7's size inequalities alone (headline withdrawn)
+
+> **Withdrawn 2026-10-19 13:44 (legacy note's banner, kept).** The exhibited words fail the witness inequalities of the rotation by `2h` (6 mismatches), by about `2·10^5` bits at `m = 10^6`. Only the narrow statement survives: the single-rotation relaxation is feasible. Whether all size constraints together exclude four mismatches is open (S10, legacy `experiments/cycle_spectrum/S10/`, not yet migrated). The text below is kept as written.
+
+## Idea
+
+Legacy note `FOUR_MISMATCH_MAP.md` (S8, side lane), status line and precise claim as written:
 
 **Status:** side-lane producer batch S8 (2026-10-19). A negative map backed by explicit words. It excludes nothing. It records exactly where S7's mechanism is exhausted, as the brief asks ("stop expanding an elimination method when its exact obstruction is known").
 
@@ -10,7 +48,8 @@
 - **Which S7 step fails.** The fourth mismatch frees the third run's witness, which S7's Step 5 pinned a full run below the maximum.
 - (Scope sharpened after the Lean lane's review.)
 
-## 1. What S7 uses, and one new constraint
+
+### 1. What S7 uses, and one new constraint
 
 S7 excludes `s = 3` using only inequalities between sizes, along the maximal admissible profile `y_k = ℓ + Σ_(i<k)(log₂ 3 − a_i + ε)`:
 
@@ -26,7 +65,10 @@ S8 adds one constraint of the same kind, a comparison with the integer fixed poi
 - Consistency: reducing `C(w)` mod `D` for this family gives the same constraint. For the first 2, at position `p₀` after the minimum, the reduced representative is below `D` when `p₀ ≳ ℓ`. So "reduce mod `D` to a small number" adds nothing beyond the comparison with `−1` here.
 - The same device works with any integer cycle as the comparison orbit: `{1}`, `{−1}`, `{−5, −7}` and the `−17` cycle.
 
-## 2. Explicit four-mismatch words meet every constraint
+
+## What happened
+
+### 2. Explicit four-mismatch words meet every constraint
 
 The words are built along one `h`-chain (`gcd(h, m) = 1`) with arcs `[V][1^a][2^b][1^c]`.
 - There is one huge letter `V` at `x = m − 1`, and the 2s fill the chain interval `a + 1, …, a + b`. `V` is fixed by `A = ⌈m log₂ 3⌉`.
@@ -67,7 +109,7 @@ Every constraint (1)–(5) is evaluated exactly on the word, and the margin is t
   - At `ℓ = 71` this single-chain family fails in the search. The 2-density `1.6/ℓ` lowers the slope enough to push `h/m ≈ 0.4142` out of the feasible window.
   - That is a statement about one family and one choice of `h`, not an exclusion.
 
-## 3. What the obstruction looks like
+### 3. What the obstruction looks like
 
 The survivors match S7's structure with one more degree of freedom:
 - a tall sawtooth (`log₂ H ≥ 0.396m`) with a single drop `V ≈ 0.58m`;
@@ -77,7 +119,8 @@ The survivors match S7's structure with one more degree of freedom:
 
 In S7's language, each of the long runs now has a witness high enough on the climb.
 
-## 4. Consequences for the programme
+
+### 4. Consequences for the programme
 
 - **`ρ ≥ 4` is the limit of size arguments.** Main's milestone `F(m) → ∞` needs input beyond sizes. The candidates are:
   - arithmetic on the mismatch transition `2^β δ_(e+1) = 3δ_e + (2^α − 2^β) n_(e+1)` (with `α = a_e`, `β = a_(e+h)`), which is the only place new information enters at a mismatch;
@@ -87,8 +130,27 @@ In S7's language, each of the long runs now has a witness high enough on the cli
   - This is Steiner's theorem (1977) by a different route, labelled as known.
   - The same "reduce mod `D` to a small nonzero number" device is the natural tool to try next on the S8 survivors.
 
-## Reproduce
 
-```sh
-python3 reviews/side_lane/s8_four_mismatch_map.py   # ~10 s
-```
+## Why it fails
+
+The headline claim fails; the side lane withdrew it at 13:44 (feed "COUNTEREXAMPLE (to this lane's S8 headline)").
+
+- **What fails.** The S8 words meet every size inequality *of the rotation by `h`*. The rotation by `2h` is another rotation of the same word. It has 6 mismatches, at `x, x − 2h, P₁ − h, P₁, P₂ − h, P₂`, and its runs obey the same witness inequality `1 + t·log₂ 3 < y_z`. On the S8 words at `m = 10^6` it fails by 193,000 bits (`ℓ = ℓ*`), 209,000 bits (`ℓ = 71`) and 287,000 bits (`ℓ = 100`) (`s8_multiple_rotations.py`). Rotations by `3h`, `4h`, `5h`, `7h` and `9h` also fail.
+- **Why it was missed.** The 13:36 robustness check (`s8_multirotation_check.py`) looked only at convergent denominators of `h^(−1)/m`, which do not include `2h`. The Lean lane's review (13:17) had scoped the claim to the single rotation `h` but did not raise the other rotations either.
+- **Every C013-b/S7 lemma is parametric in the rotation** and needs only `h′ % m ≠ 0` (Lean lane, iteration 73), so the run law applies at full strength to `2h`.
+
+## What survives
+
+- **The narrow statement.** The inequalities (1)–(5) of the single rotation `h` are jointly satisfiable by the S8 words, with the tabulated margins. As a statement about size arguments it is too weak to matter, since every rotation of the word contributes size inequalities.
+- **Constraint (5)** in corrected form, at general odd `q`: [`ones-run-divisibility`](../../results/ones-run-divisibility.md) (formal).
+- **The 1-cycle by-product of §4**: [`one-cycle-exclusion-via-gap`](../../results/one-cycle-exclusion-via-gap.md) (formal, conditional on the gap; a known result by a new route).
+- **The candidate mechanisms of §4** (arithmetic of the mismatch transition, the mod-`D` relation over the mismatches, a much stronger bound on `L`), as suggestions for [`rotation-distance-growth`](../../questions/rotation-distance-growth.md).
+- **What it opened.** Whether multi-rotation size constraints (`h`, `2h`, …) exclude every four-mismatch word, giving `ρ ≥ 5`, became the side lane's S10 (legacy `experiments/cycle_spectrum/S10/`, not yet migrated): the cheapest pattern is excluded by `h` and `2h` together in a continuous model; another pattern survives there; `ρ ≥ 5` stays open.
+
+## History
+
+- Migrated from `experiments/cycle_spectrum/S08/FOUR_MISMATCH_MAP.md` (legacy ID `S08`; side-lane producer batch S8, 2026-10-19) at commit `be73a66`, by the B05 migration (Claude, Opus 5.5). The side-lane probes `reviews/side_lane/s8_four_mismatch_map.{py,json}`, `s8_multirotation_check.py` and `s8_multiple_rotations.py` moved here. The note's "Reproduce" block pointed to the old path.
+- Side lane (Claude, Opus), feed 2026-10-19 13:06 (FINDING). Update 13:11: survival at `ℓ = 71` and `100` with `h/m ≈ 0.4393`. Update 13:17: the Lean lane's review, scope sharpened to a relaxation-feasibility statement. Update 13:36: robustness check against other structured rotations (missed `2h`).
+- **Correction (13:13).** The run of ones leaving the minimum: the first version said "at most about `0.63ℓ`", which ignored the run's own gain; corrected to "below `ℓ − 1`". The tables come from the exact inequality and are unaffected.
+- **Withdrawn (13:44).** The headline fails for the rotation by `2h` (above). The side lane found this itself; the narrow single-rotation statement stands.
+- **Correction (15:06, the Lean lane's).** Constraint (5) was stated with a strict `<`; the correct form is `≤`, `1 + r·log₂ 3 ≤ log₂(n_e + q)`. Equality occurs, e.g. at the step `3 → 5` at `q = 1`, where `5 + 1 = 2·3`. The probes test the stricter `<`, so their margins remain valid. The rotation witness of S7/S9 (`max(n_e, n_(e+h)) > 2·3^t`) is genuinely strict and unaffected.

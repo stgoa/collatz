@@ -78,7 +78,7 @@ The statement matches the claim above, which is per run. Not in this unit (and n
 
 - **Using a long run.** If the rotation has `s` mismatches, they split the `m − s` agreeing positions into `s` cyclic runs, so some run has `t ≥ ceil(m/s) − 1` (pigeonhole, written, not in Lean), giving `q > 6δ·3^(ceil(m/s)−1)/(m·K_B)`. The actual `E, t` of each run should be used rather than averages. The differences also satisfy the zero orbit sums `Σ z_i = 0` over each orbit of `+h` (written).
 - **The height cannot be dropped.** (6) retains `B`; replacing it by a function of `s` would change the statement. [`distance-three-height-family`](distance-three-height-family.md) shows that bounded rotation distance, `q ≤ L` and vanishing drift do not bound `B`.
-- **Later use.** The side lane's S05, S06, S07 and S13 (legacy `experiments/cycle_spectrum/S05/` etc., not yet migrated) build on this run law with the replayed gap EXT-1; e.g. C013-b's `q_bound_rational` is the base of S5-a.
+- **Later use.** The side lane's S05 ([`mismatch-height-tradeoff`](mismatch-height-tradeoff/README.md)), S06 ([`two-mismatch-exclusion-via-gap`](two-mismatch-exclusion-via-gap/README.md)), S07 ([`three-mismatch-exclusion`](three-mismatch-exclusion/README.md)) and S13 (legacy `experiments/cycle_spectrum/S13/`, not yet migrated) build on this run law with the replayed gap EXT-1; e.g. C013-b's `q_bound_rational` is the base of S5-a.
 - **Novelty.** Elementary; none claimed.
 
 ## History

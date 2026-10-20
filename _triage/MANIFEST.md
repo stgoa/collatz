@@ -72,30 +72,30 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B04-cycles-C008-C014 | `reviews/side_lane/c012_candidate_check.*` | 2 | node coupled-defect-matrix-smith-form |
 | B04-cycles-C008-C014 | `reviews/side_lane/c013_background_check.*` | 2 | node shared-background-denominator-law |
 | B04-cycles-C008-C014 | `reviews/side_lane/c013b_run_law_check.*` | 2 | node shared-background-denominator-law |
-| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S02` | 1 | pending |
-| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S03` | 1 | pending |
-| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S04` | 1 | pending |
-| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S05` | 1 | pending |
-| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S06` | 1 | pending |
-| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S07` | 1 | pending |
-| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S08` | 1 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s1a_integer_cycle_check.*` | 2 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s1b_run_start_gcd_check.*` | 2 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s1cd_gap_coprime_check.*` | 2 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s2_ucycle_explore.*` | 2 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s2c_density_check.*` | 2 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s3_inversion_pairs.*` | 2 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s3a_inversion_iff_check.*` | 2 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s4_band1_gcd.*` | 2 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s4b_block_divisor_test.*` | 2 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s5_cycle_heights.*` | 1 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s5_mismatch_height.*` | 2 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s6_c011_via_s5.*` | 2 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s7_stress_rational.*` | 1 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s7_three_mismatch.*` | 2 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s8_four_mismatch_map.*` | 2 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s8_multiple_rotations.*` | 1 | pending |
-| B05-cycles-S02-S08 | `reviews/side_lane/s8_multirotation_check.*` | 1 | pending |
+| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S02` | 1 | node ordered-cycle-run-renormalisation, run-start-gap-recursion, orbit-exponent-density |
+| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S03` | 1 | node band-three-ordering-extension, q-one-inversion-pair-reduction |
+| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S04` | 1 | node band-one-gcd-law-search |
+| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S05` | 1 | node mismatch-height-tradeoff, cycle-height-ceiling, cycle-height-bound |
+| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S06` | 1 | node two-mismatch-exclusion-via-gap, cycle-height-ceiling |
+| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S07` | 1 | node three-mismatch-exclusion |
+| B05-cycles-S02-S08 | `experiments/cycle_spectrum/S08` | 1 | node four-mismatch-size-method-limit, ones-run-divisibility, one-cycle-exclusion-via-gap |
+| B05-cycles-S02-S08 | `reviews/side_lane/s1a_integer_cycle_check.*` | 2 | node ordered-gap-closed-form (with single-forced-position-denominator, band-one-three-forced-positions from the S1 feed entry) |
+| B05-cycles-S02-S08 | `reviews/side_lane/s1b_run_start_gcd_check.*` | 2 | node ordered-gap-closed-form |
+| B05-cycles-S02-S08 | `reviews/side_lane/s1cd_gap_coprime_check.*` | 2 | node ordered-gap-closed-form (also evidence for single-forced-position-denominator) |
+| B05-cycles-S02-S08 | `reviews/side_lane/s2_ucycle_explore.*` | 2 | node ordered-cycle-run-renormalisation |
+| B05-cycles-S02-S08 | `reviews/side_lane/s2c_density_check.*` | 2 | node orbit-exponent-density |
+| B05-cycles-S02-S08 | `reviews/side_lane/s3_inversion_pairs.*` | 2 | node band-three-ordering-extension |
+| B05-cycles-S02-S08 | `reviews/side_lane/s3a_inversion_iff_check.*` | 2 | node q-one-inversion-pair-reduction |
+| B05-cycles-S02-S08 | `reviews/side_lane/s4_band1_gcd.*` | 2 | node band-one-gcd-law-search |
+| B05-cycles-S02-S08 | `reviews/side_lane/s4b_block_divisor_test.*` | 2 | node band-one-gcd-law-search |
+| B05-cycles-S02-S08 | `reviews/side_lane/s5_cycle_heights.*` | 1 | node mismatch-height-tradeoff |
+| B05-cycles-S02-S08 | `reviews/side_lane/s5_mismatch_height.*` | 2 | node mismatch-height-tradeoff |
+| B05-cycles-S02-S08 | `reviews/side_lane/s6_c011_via_s5.*` | 2 | node two-mismatch-exclusion-via-gap |
+| B05-cycles-S02-S08 | `reviews/side_lane/s7_stress_rational.*` | 1 | node three-mismatch-exclusion |
+| B05-cycles-S02-S08 | `reviews/side_lane/s7_three_mismatch.*` | 2 | node three-mismatch-exclusion |
+| B05-cycles-S02-S08 | `reviews/side_lane/s8_four_mismatch_map.*` | 2 | node four-mismatch-size-method-limit |
+| B05-cycles-S02-S08 | `reviews/side_lane/s8_multiple_rotations.*` | 1 | node four-mismatch-size-method-limit |
+| B05-cycles-S02-S08 | `reviews/side_lane/s8_multirotation_check.*` | 1 | node four-mismatch-size-method-limit |
 | B06-cycles-S09-S13 | `experiments/cycle_spectrum/BRIEF.md` | 1 | pending |
 | B06-cycles-S09-S13 | `experiments/cycle_spectrum/LOG.md` | 1 | pending |
 | B06-cycles-S09-S13 | `experiments/cycle_spectrum/README.md` | 1 | pending |

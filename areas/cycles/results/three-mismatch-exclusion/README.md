@@ -1,16 +1,91 @@
-# S7: no rotation with exactly three mismatches at `q = 1`
+---
+id: three-mismatch-exclusion
+kind: result
+title: No rotation of a nontrivial 3x+1 cycle differs from it in exactly three positions, so ρ ≥ 4
+status: formal
+claim: >
+  Raw odd-only 3x+1 map (q = 1). Let a primitive integer cycle of period m ≥ 2^19, minimum L ≥ 2^20 satisfy
+  the linear-form gap 2^A ≤ 2^172·m^341·(2^A − 3^m). Then no rotation h with 1 ≤ h < m of its valuation word
+  differs from it in exactly three positions; if moreover its band is attained, every such rotation differs in
+  at least four positions (ρ(w) ≥ 4), combining the exclusion of zero and one mismatch (primitivity, equal
+  totals) and of exactly two (two-mismatch-exclusion-via-gap). The written threshold is m ≥ 452,695, from a
+  numerical scan. With the replayed gap_all (EXT-1), Barina's L > 2^71 and a period bound above 2^19
+  (Hercher 2023, or Eliahou 1993 in odd steps), every hypothetical nontrivial integer cycle has ρ(w) ≥ 4.
+authors:
+  - Claude side lane (Opus)
+created: 2026-10-19
+depends_on: [two-mismatch-exclusion-via-gap, mismatch-height-tradeoff, cycle-height-ceiling, paired-state-run-law]
+assumes: [musson-collatz-gap-all, hercher-2023-cycle-length, barina-2025-convergence-2-71]
+lean:
+  - LeanLane.Cyc.OddCycle.z_pos_step
+  - LeanLane.Cyc.OddCycle.z_neg_step
+  - LeanLane.Cyc.OddCycle.z_pos_run
+  - LeanLane.Cyc.OddCycle.z_neg_run
+  - LeanLane.Cyc.OddCycle.z_min_pos
+  - LeanLane.Cyc.OddCycle.z_pred_min_neg
+  - LeanLane.Cyc.OddCycle.z_max_neg
+  - LeanLane.Cyc.OddCycle.z_pred_max_pos
+  - LeanLane.Cyc.OddCycle.sum_a_shift
+  - LeanLane.Cyc.OddCycle.mis_card_ne_one
+  - LeanLane.Cyc.OddCycle.witness_gt
+  - LeanLane.Cyc.OddCycle.n_mul_pow_excess_le
+  - LeanLane.Cyc.OddCycle.h_add_excess_le
+  - LeanLane.Cyc.OddCycle.card_down_eq_card_up
+  - LeanLane.Cyc.OddCycle.down_mem_mis
+  - LeanLane.Cyc.OddCycle.up_mem_mis
+  - LeanLane.Cyc.OddCycle.exists_down_window
+  - LeanLane.Cyc.OddCycle.exists_up_window
+  - LeanLane.Cyc.OddCycle.three_mismatch_changes
+  - LeanLane.Cyc.OddCycle.excess_add_dexcess
+  - LeanLane.Cyc.OddCycle.dexcess_le_two_excess
+  - LeanLane.Cyc.OddCycle.alignment
+  - LeanLane.Cyc.OddCycle.window_conditions
+  - LeanLane.Cyc.OddCycle.unique_in_window
+  - LeanLane.Cyc.OddCycle.agree_of_window
+  - LeanLane.Cyc.OddCycle.three_mismatch_structure
+  - LeanLane.Cyc.OddCycle.run_bound_max
+  - LeanLane.Cyc.OddCycle.arc_le
+  - LeanLane.Cyc.OddCycle.hsep_of_runs
+  - LeanLane.Cyc.OddCycle.three_mismatch_witness
+  - LeanLane.Cyc.OddCycle.log_three_bounds
+  - LeanLane.Cyc.OddCycle.numeric_WA
+  - LeanLane.Cyc.OddCycle.numeric_F
+  - LeanLane.Cyc.OddCycle.no_three_mismatch_of_gap
+  - LeanLane.Cyc.OddCycle.four_le_mis_card_of_gap
+evidence:
+  - "s7_three_mismatch.py, s7_three_mismatch.json: side-lane probe (about 15-25 s): Part 1 scans the conditions W, A, P, F for every m ≤ 10^7 at the worst case ℓ = ℓ*(m) and finds m0 = 452,695; Part 2 checks the q-independent steps on 616 actual 3x+q cycles. Fails at its new path: it imports the side-lane helper s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/); with that folder on PYTHONPATH it exits 0 and rewrites its receipt byte for byte (checked at migration). Passed at be73a66 as reviews/side_lane/s7_three_mismatch.py (archive/legacy-checker-run-be73a66.md)"
+  - "s7_stress_rational.py: the independent review agent's stress test, as a side-lane probe (no receipt). Needs arguments: run as python3 <this folder>/s7_stress_rational.py 3 14 (about 30 s), it tests Steps 2-5 on every primitive word over {1, 2, 3} up to length 14 and reports 5,116 three-mismatch rotations with no failure (re-run at migration: same counts, fails: []). Fails bare (exit 1 at be73a66 as reviews/side_lane/s7_stress_rational.py, archive/legacy-checker-run-be73a66.md)"
+reviewed_by:
+  - by: Claude Lean lane (Fable)
+    date: 2026-10-19
+    scope: "Feed update 12:48: adversarial review of Steps 3-5, line by line, found no gap ('given the four numeric conditions W, A, P, F at ℓ = ℓ*(m), the written proof excludes s = 3'); four explicitness points applied. Lean units S7-a, S7-b (parts 1, 2, 3a, 3b), S7-c (parts 1, 2) and S7-d (parts 1, 2) verified (iterations 66-74)"
+aliases: [S07]
+tags: [cycles, rotation-distance, exclusion, linear-forms, formal]
+---
 
-**Status:** side-lane producer batch S7 (2026-10-19). A written proof from elementary steps, plus the replayed `gap_all` and two imports (Barina's minimum, a period bound). There is a probe for the threshold and controls on actual `3x+q` cycles. The Lean lane reviewed it adversarially and found no gap (§5a). The sign lemma is formal (S7-a). Novelty undetermined.
+# No rotation of a nontrivial 3x+1 cycle differs from it in exactly three positions, so ρ ≥ 4
 
-## 1. Statement
+## Statement
 
-Take a nontrivial primitive Collatz cycle (`q = 1`) with period `m ≥ 452,695` and minimum `L > 2^71`. Then **no nonidentity rotation of its valuation word differs from it in exactly three positions**.
+Raw odd-only `3x+1` map (`q = 1`), primitive integer cycle of period `m`, minimum `L`, total `A`, `D = 2^A − 3^m`. Assume the linear-form gap `2^A ≤ 2^172·m^341·D` (`gap_all`, [`musson-collatz-gap-all`](../../../../sources/musson-collatz-gap-all.md)).
 
-- Every nonidentity rotation differs in at least one position, by primitivity. It never differs in exactly one, because the totals agree: `Σ a_i = Σ a_(i+h)`. (The Lean lane is formalising this as `mis_card_ne_one`.)
-- C011 (main), or S6 (formal as S6-b/c for `m ≥ 2^15`), excludes exactly two.
+1. **Formal form.** If `m ≥ 2^19 = 524,288` and `L ≥ 2^20`, then no rotation `1 ≤ h < m` of the valuation word differs from it in exactly three positions. If moreover the band is attained, every such rotation differs in at least four positions: `ρ(w) ≥ 4`.
+2. **Written form.** The exclusion of exactly three holds for `m ≥ 452,695` and `L > 2^71`.
+3. **Applied.** With Barina's `L > 2^71` ([`barina-2025-convergence-2-71`](../../../../sources/barina-2025-convergence-2-71.md)) and a period bound above `2^19` ([`hercher-2023-cycle-length`](../../../../sources/hercher-2023-cycle-length.md); Eliahou's bound, [`eliahou-1993-cycle-length`](../../../../sources/eliahou-1993-cycle-length.md), gives `m ≳ 1.08·10^7` odd steps), every hypothetical nontrivial Collatz cycle has `ρ(w) ≥ 4`, improving `ρ ≥ 3` of [`two-defect-rotation-exclusion`](../two-defect-rotation-exclusion/README.md) and [`two-mismatch-exclusion-via-gap`](../two-mismatch-exclusion-via-gap/README.md).
+
+**Notation in this node.** As in the legacy note, `δ_i = n_(i+h) − n_i` is the state difference of the rotation (the `z_i` of [`paired-state-run-law`](../paired-state-run-law.md)), not the drift `δ` of `conventions/NOTATION.md`; `ℓ = log₂ L`; `ε = log₂(1 + 1/(3L))`; `κ = log₂(3/2) + ε`.
+
+## Proof
+
+Legacy note `THREE_MISMATCHES.md` (S7, side lane), §§1–3, lightly edited. Its status line read: "A written proof from elementary steps, plus the replayed `gap_all` and two imports (Barina's minimum, a period bound). There is a probe for the threshold and controls on actual `3x+q` cycles. The Lean lane reviewed it adversarially and found no gap (§5a). The sign lemma is formal (S7-a). Novelty undetermined."
+
+### 1. The surrounding counts
+
+- Every nonidentity rotation differs in at least one position, by primitivity. It never differs in exactly one, because the totals agree: `Σ a_i = Σ a_(i+h)` (Lean `mis_card_ne_one`).
+- C011 (main, [`two-defect-rotation-exclusion`](../two-defect-rotation-exclusion/README.md)), or S6 ([`two-mismatch-exclusion-via-gap`](../two-mismatch-exclusion-via-gap/README.md), formal as S6-b/c for `m ≥ 2^15`), excludes exactly two.
 - So with any period import above 452,695, for example Eliahou's bound (total cycle length `A ≥ 17,087,915`, so `m ≳ 1.08·10^7` odd steps) or the Hercher/Barina bound used in C011, **every nonidentity rotation of a hypothetical nontrivial Collatz cycle differs in at least four positions**. In main's notation that is `ρ(w) ≥ 4`; C011 gave `ρ(w) ≥ 3`.
 
-## 2. Setting and four standing facts
+### 2. Setting and four standing facts
 
 - **The cycle.** Odd states `n_i` (indices mod `m`), all distinct. The arrows are `2^(a_i) n_(i+1) = 3n_i + 1` with every `a_i ≥ 1`, and `A = Σ a_i`, `D = 2^A − 3^m > 0`. Index 0 is the minimum `L`, `j` is the position of the maximum `H`, and `ℓ = log₂ L`. (This `ℓ` is the logarithm of the minimum. It is not the additive constant in S5's trade-off.)
 - **The rotation.** For a rotation `h ≢ 0`, put `δ_i = n_(i+h) − n_i`. It is nonzero (distinct states) and even.
@@ -32,7 +107,7 @@ Take a nontrivial primitive Collatz cycle (`q = 1`) with period `m ≥ 452,695` 
 - `Σ log(1 + 1/(3n_i)) = log(2^A/3^m) ≥ D/2^A`, and the left side is at most `m/(3L)`. So `L ≤ m 2^A/(3D)`.
 - With `gap_all` (`2^A ≤ 2^172 m^341 D`; replayed as EXT-1), `ℓ ≤ ℓ*(m) = 172 + 342 log₂ m − log₂ 3`. The formal pieces are the Lean lane's `L_mul_delta_le` and `delta_ge_gap`, plus the gap.
 
-## 3. Proof (`s = 3`)
+### 3. Proof (`s = 3`)
 
 **Step 1 (sizes).**
 - Each witness has `n_z ≤ H ≤ L·2^((m−1)κ)`. So every run satisfies `t ≤ t_max`, the largest integer below `T = (ℓ + (m−1)κ − 1)/log₂ 3 ≈ 0.369m + 0.631ℓ`. This `t_max` is a uniform bound on every run, not the length of the longest one.
@@ -82,7 +157,24 @@ Take a nontrivial primitive Collatz cycle (`q = 1`) with period `m ≥ 452,695` 
 - Beyond the scan the margins grow linearly. Condition W's margin is about `0.069m − 4.68ℓ*(m)`, which increases for `m > 3.4·10^4`, and the others behave alike.
 - Hence `m0 = 452,695`.
 
-## 4. Numbers (`s7_three_mismatch.py`, Part 1)
+## Lean
+
+`lean/CycleSpectrum.lean`, Lean units S7-a to S7-d (iterations 66–74); axioms `propext`, `Classical.choice`, `Quot.sound` (`pred_add_mod`: `propext`, `Quot.sound`; seven periodicity helpers on `propext` only); receipts `lean/receipts/CycleSpectrum.*`. In `OddCycle`, with `z h i = n_(i+h) − n_i` (the note's `δ_i`):
+
+- **S7-a (F2, signs).** `z_pos_step`, `z_neg_step`, `z_pos_run`, `z_neg_run` (the sign is constant across an agreeing step and run); `z_min_pos`, `z_pred_min_neg`, `z_max_neg`, `z_pred_max_pos` (the four strict signs of Step 2 at `0`, `−h`, `j`, `j − h`; `−h` is written `m − h % m`).
+- **S7-b part 1.** `sum_a_shift`, `mis_card_ne_one` (`s ≠ 1` from the equal totals, no primitivity); `witness_gt` ((F1) at a run's end: `2·3^t < max(n_(i+t), n_(i+t+h))`); `n_mul_pow_excess_le`, `h_add_excess_le` ((F3) tracked, for any `q` with letters `≥ 1`).
+- **S7-b part 2 (Step 2).** `card_down_eq_card_up` (as many `+→−` as `−→+` changes, by the telescoping sum `sum_sgn_tele`), `down_mem_mis`, `up_mem_mis`, `exists_down_window`, `exists_up_window`, `three_mismatch_changes` (with three mismatches exactly one change of each kind and a third mismatch with no change).
+- **S7-b parts 3a/3b (Steps 3–4).** `excess_add_dexcess` (`X_c + X_d + m = A`), `dexcess_le_two_excess`, `alignment`; `window_conditions` (`2d ≤ σ + 1` ⇒ `d ≤ h ≤ j`), `unique_in_window`, `agree_of_window`, `three_mismatch_structure` (Steps 2–4 assembled; it needs no card-3 hypothesis, only the spacing bound and condition A).
+- **S7-c (Steps 1, 5, 6).** `run_bound_max` (uniform run bound), `arc_le`, `hsep_of_runs` (the spacing `σ = m − 2(T + 1)`, the only place `s = 3` enters), `three_mismatch_witness` (Step 5 in product form, with the three runs and their sum `m − 3`; the orders are the cases `e_c < e_a` and `e_a < e_c < e_b`, and condition P is not needed).
+- **S7-d (numbers and assembly).** `log_three_bounds` (`1054·log 2 < 665·log 3`, `306·log 3 < 485·log 2`), `numeric_WA` (conditions W and A at `m ≥ 2^19`), `numeric_F` (the final contradiction); **`no_three_mismatch_of_gap`**: primitive, `q = 1`, `2^A ≤ 2^172·m^341·(2^A − 3^m)`, `m ≥ 2^19`, `L ≥ 2^20`, `1 ≤ h < m` ⇒ the rotation does not have exactly three mismatches; **`four_le_mis_card_of_gap`**: with the attained band `hB`, `4 ≤ |mis h|`, from `exists_mis`, `mis_card_ne_one`, `no_two_mismatch_of_gap` and `no_three_mismatch_of_gap`.
+
+**Statement match.** Part 1 of the Statement is exactly `no_three_mismatch_of_gap` and `four_le_mis_card_of_gap`. The gap is an input mirroring an effective Baker-type bound (`gap_all`, replayed in `mmusson/collatz` as EXT-1, not imported into this file). The formal threshold `2^19` is above the written `m0 = 452,695` and serves the tangent bound on `log m`; `L ≥ 2^20` is weaker than the note's `L > 2^71` (only `ε ≤ 1/(3·2^20)` is used). A rotation `h ≥ m` would first be reduced modulo `m` (not formalised, not needed). Condition P of the note is unused. The longest run doubles as the uniform run bound `T` and as `t*`. Nothing is asserted about cycles with `m < 2^19` or without the gap. The side lane refereed each unit from receipts (feed S7 entry, updates 12:44–13:53, and the 14:20 milestone entry); at `m = 2^19` it rechecked F independently: `T ≤ 197,705.6`, so `τ ≥ 128,873.9`, while the witness allows only `τ < 122,318.5`, a gap of 6,555.4 (the probe gives +6,556). *[That entry first quoted hand-rounded values, corrected within the minute.]*
+
+## Remarks
+
+The rest of the legacy note (§§4–6), lightly edited.
+
+### 4. Numbers (`s7_three_mismatch.py`, Part 1)
 
 The conditions are evaluated at the worst case `ℓ = ℓ*(m)`. Each entry is a margin, and positive means the condition holds.
 
@@ -93,7 +185,7 @@ The conditions are evaluated at the worst case `ℓ = ℓ*(m)`. Each entry is a 
 | 17,087,915 | 1.13·10^6 | 7.07·10^6 | 9.11·10^6 | 7.6·10^5 | 6.31·10^6 | 1.67·10^6 | 4.46·10^6 |
 | 1.14·10^11 (Hercher) | 7.8·10^9 | 4.7·10^10 | 6.1·10^10 | 5.2·10^9 | 4.2·10^10 | 1.1·10^10 | 3.0·10^10 |
 
-## 5. Controls on actual `3x+q` cycles (Part 2)
+### 5. Controls on actual `3x+q` cycles (Part 2)
 
 The sample is the 616 cycles with `m ≥ 3` for odd `q < 400`, `3 ∤ q`, from starts up to 3,001. It includes the controls `q = 5, 7, 13, 61`.
 
@@ -108,7 +200,7 @@ The sample is the 616 cycles with `m ≥ 3` for odd `q < 400`, `3 ∤ q`, from s
   - The same holds for main's C013 §3 distance-three family of rational cycles. *[Corrected 13:29: an earlier version wrote `log₂ q ≈ 0.447m`. That is C013 §5's lower bound; the actual denominators are `den ≈ D`, `log₂ den ≈ 1.55m` (S9).]*
   - The proof uses `q = 1` only through `ℓ = O(log m)` (F4) and `ε ≈ 0`.
 
-## 5a. Review and a consistency check
+### 5a. Review and a consistency check
 
 - **The Lean lane's review** (2026-10-19, of `d978b57`) attacked Steps 3–5 line by line and found no gap.
   - It asked for four points to be made explicit, now done: the wrap case of Step 3; that `X*` and `d*` use the worst case `t*`; that the witness index `z` is an integer in `[0, m)` with `n_z = n_(e_c+h)`; and that `s ≠ 1` comes from the equal totals, not from primitivity.
@@ -130,7 +222,7 @@ The sample is the 616 cycles with `m ≥ 3` for odd `q < 400`, `3 ∤ q`, from s
   - `ρ ≥ 4` improves this programme's `ρ ≥ 3` (C011).
   - The k-cycle literature bounds a different statistic, the number of local minima, as settled in the S6 dispute. No comparison with it is implied beyond the check above.
 
-## 6. Limits and what it does not give
+### 6. Limits and what it does not give
 
 - **The output is `ρ ≥ 4`, not a growing `F(m)`.** At `s = 4`, the pigeonhole gives only `log₂ H > 0.396m`. Then the descent window can be about `0.32m` and the runs need not be bounded below. Steps 3–4 fail, so a new idea is needed.
   - Step 5's device does extend: each run's witness sits at a computable position, and witnesses far inside the climb are cheap. A bound for general `s` would need the witnesses to be spread out.
@@ -145,9 +237,11 @@ The sample is the 616 cycles with `m ≥ 3` for odd `q < 400`, `3 ∤ q`, from s
   - the refined ceiling at the witness (S6-a's `n_le_climb` at a position).
   - The numeric step has the same shape as S6-b's `numeric_step`.
 
-## Reproduce
+## History
 
-```sh
-python3 reviews/side_lane/s7_three_mismatch.py   # ~15 s: threshold scan to 10^7, then 616 control cycles
-python3 reviews/side_lane/s7_stress_rational.py 3 14   # ~30 s: every primitive word over {1,2,3} up to length 14
-```
+- Migrated from `experiments/cycle_spectrum/S07/THREE_MISMATCHES.md` (legacy ID `S07`; side-lane producer batch S7, 2026-10-19) at commit `be73a66`, by the B05 migration (Claude, Opus 5.5). The side-lane probes `reviews/side_lane/s7_three_mismatch.{py,json}` and `s7_stress_rational.py` moved here. The note's "Reproduce" block pointed to the old paths; the scripts now sit in this folder (see `evidence`).
+- Side lane (Claude, Opus), feed 2026-10-19 12:40 ("a written proof with a numeric threshold, not yet adversarially reviewed"; the Lean lane had pre-reviewed the sketch, accepted the sign and size steps, sharpened the alignment, and asked for the witness step in detail).
+- **Review (12:48).** The Lean lane's adversarial review found no gap; four explicitness points were applied (the wrap case of Step 3; `X*` and `d*` at the worst case `t*`; the witness index `z` an integer in `[0, m)` with `n_z = n_(e_c+h)`; `s ≠ 1` from the equal totals, not from primitivity — **correction:** §1 had credited primitivity).
+- **Review (13:03).** An independent review agent (unnamed in the record) found no gap, recomputed `m0` exactly, and stress-tested Steps 2–5; its minor points were applied (`ε` via `log1p`, "at least" wording, P noted as redundant). **Correction (citation):** Eliahou's 17,087,915 bounds the total cycle length `A`, not `m`; in odd steps `m ≳ 1.08·10^7`. Conclusions unchanged.
+- **Correction (13:29).** §5 first wrote `log₂ q ≈ 0.447m` for the distance-three family; corrected as quoted in §5 (see also [`distance-three-height-family`](../distance-three-height-family.md)).
+- Formalised by the Lean lane (Claude, Fable) as S7-a to S7-d against the note at legacy commits `d978b57` (revised `e4d97ad`); the milestone "`ρ ≥ 4` formal end to end, given the linear-form gap" was recorded in the feed at 14:20 (Lean-lane commit `bd627c9`).

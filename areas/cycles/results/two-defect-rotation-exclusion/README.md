@@ -101,7 +101,7 @@ So (2) implies `log q > 0`, contradicting `q = 1`. QED.
 
 ## Lean
 
-Not `formal`. The elementary core is Lean unit C011-a (see [`two-defect-cancellation-bound`](../two-defect-cancellation-bound.md)); `LeanLane.Cyc.two_defect_q_bound` is `D²·2^(2m) < q²·2^(2A)·3^m`, the cleared form of (4), in the two-defect normal form. The step to `q = 1` uses (1) and (2), which are not Lean targets here. Separately, the side lane's S06 (legacy `experiments/cycle_spectrum/S06/`, not yet migrated) re-derives this exclusion without Matveev from the replayed linear-form gap EXT-1 ([`musson-collatz-gap-all`](../../../../sources/musson-collatz-gap-all.md)) for `m ≥ 24,891` and minimum `> 2^71`; its Lean units S6-b/c were verified (feed 2026-10-19 12:35), formal given the gap and the period input.
+Not `formal`. The elementary core is Lean unit C011-a (see [`two-defect-cancellation-bound`](../two-defect-cancellation-bound.md)); `LeanLane.Cyc.two_defect_q_bound` is `D²·2^(2m) < q²·2^(2A)·3^m`, the cleared form of (4), in the two-defect normal form. The step to `q = 1` uses (1) and (2), which are not Lean targets here. Separately, the side lane's S06 ([`two-mismatch-exclusion-via-gap`](../two-mismatch-exclusion-via-gap/README.md)) re-derives this exclusion without Matveev from the replayed linear-form gap EXT-1 ([`musson-collatz-gap-all`](../../../../sources/musson-collatz-gap-all.md)) for `m ≥ 24,891` and minimum `> 2^71`; its Lean units S6-b/c were verified (feed 2026-10-19 12:35), formal given the gap and the period input.
 
 ## Remarks
 

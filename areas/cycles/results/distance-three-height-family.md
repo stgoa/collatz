@@ -57,7 +57,7 @@ B/m → ((2 − log₂3)·log₂(3/2))/3 > 0.                                   
 
 - **What it refutes.** A uniform polynomial conversion from normalised minimum to height (e.g. `B = O(s + log m)` or `H ≤ q·poly(m)`) based only on actual overlap, positive exact arrows, `q ≤ L` and small positive drift at bounded rotation distance. So the height term of [`paired-state-run-law`](paired-state-run-law.md) cannot be dropped.
 - **What it does not refute.** A height bound that also uses arithmetic at fixed `q` or at `q = 1`; here `q → ∞`. It is not presented as a new fixed-family exclusion.
-- **Correction recorded in the side feed.** The side lane's S05 entry first called its general-`q` chain "sharp in the exponent" on this family, using `log₂ q ≳ 0.447m`; corrected at 13:29 the same day (a correction first raised by the Lean lane): `0.447m` is the lower bound of part 5, while the family's actual denominators are about `D`.
+- **Correction recorded in the side feed.** The side lane's S05 entry ([`mismatch-height-tradeoff`](mismatch-height-tradeoff/README.md)) first called its general-`q` chain "sharp in the exponent" on this family, using `log₂ q ≳ 0.447m`; corrected at 13:29 the same day (a correction first raised by the Lean lane): `0.447m` is the lower bound of part 5, while the family's actual denominators are about `D`.
 - **Novelty.** None claimed.
 
 ## History
