@@ -180,8 +180,8 @@ combination is a checked relational summary of a variable-length exit,
 followed by a proof-overlap audit. This remains a proposal for a bounded
 next experiment, not a selection of a universal proof strategy.
 
-Local anchors: [R25](../../residual_progress/bridge_normal_form/BRIDGE_NORMAL_FORM.md),
-[R31](../../residual_progress/bounded_run_cycles/BOUNDED_RUN_GROWTH.md),
-[R49](../../residual_progress/inverse_scope/INVERSE_SCOPE.md),
-[packet obstruction](../../current_construction/obstructions/functional_graph_currents.md),
-[aggregate depth obstruction](../../residual_progress/templates/UNBOUNDED_EXPOSURE_DEPTH.md).
+Local anchors: [R25](../../../convergence/results/elementary-bridge-quotient-normal-form/README.md),
+[R31](../../../convergence/results/bounded-runs-exclude-finite-label-potentials/README.md),
+[R49](../../../convergence/results/inverse-only-exclusions-short-forward/README.md),
+[packet obstruction](../../../convergence/results/orbit-component-current-criterion/README.md),
+[aggregate depth obstruction](../../../convergence/results/unbounded-exposure-depth-necessary/README.md).

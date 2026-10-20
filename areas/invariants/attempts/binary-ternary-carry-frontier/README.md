@@ -1,13 +1,40 @@
-# V003 — One complete conversion rectangle and its carry frontier
+---
+id: binary-ternary-carry-frontier
+kind: attempt
+title: Binary/ternary carry diagrams (base conversion) as a language for invariant colourings
+status: written
+claim: >
+  Tried (viewpoint card V14, then V003's bounded test): represent the 3x+1 map as Stérin–Woods' two-dimensional
+  base-conversion diagram (sum/carry cells with a non-local +1 bootstrap) and look for a new relation between
+  binary and ternary section data across a complete carry frontier. Verdict: on one complete conversion rectangle
+  (ternary 12 = 5 to binary 101, giving 3*5 + 1 = 16) eliminating the internal cells recovers exactly the existing
+  affine arrow and the V13 section identities; no new closure relation, no finite bound on frontier families. The
+  test was closed; reopen only with a specific relation between whole frontier families.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+evidence:
+  - "base_conversion.md: the V14 viewpoint card (objects, structural gain, translated gap, local-rule example, d = 5 control, next test, the published small-cycle milestone)"
+  - "../../results/digit-count-invariant-colourings-constant/verify_examples.py: V003's bounded replay includes the carry patch (key carry_patch of its receipt); ../../results/periodic-invariant-colourings-classification/verify_examples.py includes the V14 card's base-conversion trace"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    scope: "VIEWPOINTS.md referee sheet and feed 18:24: V14 'relocates (main closed it in V003: no new relation)'; the difficulty lands at a growing frontier, finite support and a nonlocal bootstrap (closest literature: Collatz as a quasi-cellular automaton, Cloney-Goles-Vichniac 1987)"
+aliases: [V003-e, VP-V14]
+tags: [invariants, viewpoints, base-conversion, carries, rejected-mechanism]
+---
 
-**Outcome: exact boundary bookkeeping; no new section closure.** This bounded
-V14 test converts the integer 5 from ternary to binary, fills the carry
-frontier, and derives the next binary sum row. It exposes the information a
-valid cut must retain. On this example the resulting relation is already
-contained in V13's invariant identities and the guarded affine arrow.
-No simulator, broad search, novelty claim or convergence inference is used.
+# Binary/ternary carry diagrams (base conversion) as a language for invariant colourings
 
-## 1. Source rules and conventions
+## Idea
+
+Viewpoint card V14 ([`base_conversion.md`](base_conversion.md)): Stérin–Woods ([*The Collatz process embeds a base conversion algorithm*, v4](https://arxiv.org/html/2007.06979v4)) show that the Collatz process embeds a quasi-cellular automaton converting ternary to binary, with sum/carry cells and a non-local bootstrap for the `+1`. Binary and ternary data then share one complete carry boundary, which might supply relations between binary and ternary sections of an invariant colouring beyond those of [`periodic-invariant-colourings-classification`](../../results/periodic-invariant-colourings-classification/README.md) (card V13). The survey retained it for one complementary probe ([`viewpoint-language-survey`](../viewpoint-language-survey/README.md)).
+
+## What happened
+
+V003's bounded test: one complete conversion rectangle (the legacy note follows, lightly edited). Its outcome line: "exact boundary bookkeeping; no new section closure. This bounded V14 test converts the integer 5 from ternary to binary, fills the carry frontier, and derives the next binary sum row. It exposes the information a valid cut must retain. On this example the resulting relation is already contained in V13's invariant identities and the guarded affine arrow. No simulator, broad search, novelty claim or convergence inference is used."
+
+### 1. Source rules and conventions
 
 The primary source is Stérin–Woods,
 [*The Collatz process embeds a base conversion algorithm*, v4](https://arxiv.org/html/2007.06979v4),
@@ -32,7 +59,7 @@ We use the paper's raw diagram to read the first odd arrow 5→1, then stop
 the repository's trajectory at 1. Parallel update count, a transducer's
 number of digit transitions, and Collatz clocks remain separate.
 
-## 2. Initial boundary: ternary 12 represents 5
+### 2. Initial boundary: ternary 12 represents 5
 
 The canonical base-3' encoding of `12` is `1,bar1`, namely states 10,11.
 Use the following complete initial data:
@@ -65,7 +92,7 @@ The bottom sum bits, read left to right, are therefore `...000101`: the
 binary representation of 5. At this stage the bottom sums alone are not
 the full carry frontier.
 
-## 3. Bootstrap and the complete upper patch
+### 3. Bootstrap and the complete upper patch
 
 The remainder at (-1,0) is 1. At (0,0), the west half-defined 1 and the
 entire undefined east ray meet the bootstrap predicate. It inserts **01**
@@ -119,7 +146,9 @@ The corresponding odd-only path has one arrow, of valuation 4. Five
 nontrivial horizontal digit transitions in the table are neither of those
 clock counts. No parallel-update count is asserted.
 
-## 4. Comparison with V13 and guarded affine data
+## Why it fails
+
+### 4. Comparison with V13 and guarded affine data
 
 The first completed column has value 8, so an invariant coloring gives
 `h(8)=h(5)`. This is exactly the n=2 instance of the existing identity
@@ -156,7 +185,7 @@ remainder and carry data clearly. In this test, eliminating its internal
 cells leaves precisely ordinary arithmetic and (2), without an additional
 restriction or a smaller unbounded family of boundary states.
 
-## 5. Control scope and decision
+### 5. Control scope and decision
 
 No generalized d=5 tile rule was constructed. The arithmetic control
 19→31→49→19 remains external to this d=1 diagram; importing that cycle
@@ -180,3 +209,16 @@ constant tails closed by (1). Every value in the rectangle is determined
 from the stated input and bootstrap. The calculation is a finite exact
 example with symbolic constant tails, not a formal verification of the
 published automaton or any all-input classification.
+
+## What survives
+
+- A checked fixture: the carry example has three division sweeps, four shortcut Collatz arrows, one odd-only arrow and five horizontal digit transitions; none is substituted for a parallel-update count.
+- The exact list of zero and carry information that must cross a cut.
+- The card's published milestone, the small-cycle question of Stérin–Woods (exclude `T^k(x) = x` for every integer `x > 2` and `1 ≤ k ≤ ⌈log₂ x⌉`, shortcut clock), was recorded as a deferred target, not adopted: it leaves divergence and longer cycles, and a new proposal would first have to show that a boundary argument contributes beyond the periodic affine equation. The `d = 5` check on the card is external arithmetic; no generalised `d = 5` tile construction was tested.
+- The side lane's verdict on the card: relocates (a growing frontier, finite support and a nonlocal bootstrap).
+
+## History
+
+- Migrated from `experiments/viewpoints/V003/carry_boundary.md` (legacy ID V003, report §4 "Complete carry frontier") at commit `be73a66`, by the B16 migration (Claude, Opus 5.5); the V14 card `experiments/viewpoints/V002/base_conversion.md` moved here. Text kept; sections regrouped under the attempt headings.
+- Main lane (ChatGPT/Codex), 2026-10-18 (card at main `cdfb143`, test at `2ac44ef`). Main-lane review: [`PROOF_REVIEW.md`](../../results/digit-count-invariant-colourings-constant/PROOF_REVIEW.md) (the carry calculation was produced by the reviewer and spot-checked by the coordinating agent).
+- **Link repair in kept notes (B16 migration, 2026-10-20).** In `base_conversion.md`, only link targets were changed: relative links to legacy paths now point to the corresponding nodes or to `archive/invariants-viewpoints/`. No text changed. Any `delivery_checks.json` hashes describe historical versions of these notes; no script in the repository checks them.

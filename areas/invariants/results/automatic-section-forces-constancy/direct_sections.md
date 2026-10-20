@@ -76,7 +76,7 @@ constancy step uses V004. No claim of novelty is made.
 ### Uniform reconstruction on ternary units
 
 Follow the fixed K-bit raw shortcut parity word associated with r mod2^K.
-As in [V003's predecessor proof](../V003/cylinder_rigidity.md), let j be its
+As in [V003's predecessor proof](../monochromatic-cylinder-forces-constancy.md), let j be its
 number of odd branches and write
 
 ```

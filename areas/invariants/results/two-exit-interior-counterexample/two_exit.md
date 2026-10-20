@@ -9,7 +9,7 @@ completion standard.
 ## 1. The boundary equations with destinations retained
 
 Keep the whole-sequence graph and notation from
-[V007/separator.md](../V007/separator.md):
+[V007/separator.md](../singleton-exit-separator-exclusion/separator.md):
 
 ```
 E_i(f)(n)=f(2n+i),   i=0,1,

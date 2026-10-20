@@ -1,13 +1,29 @@
-# Automatic invariant colorings of 3x+d: a d-uniform classification
+---
+id: d-uniform-automatic-invariant-colourings
+kind: result
+title: For gcd(d, 6) = 1 the binary-automatic invariant colourings of 3x+d are the functions of n mod d constant on x2, x3 orbits
+status: written
+claim: >
+  Let d >= 1 with gcd(d, 6) = 1 and C finite. If h : positive integers -> C is binary automatic and satisfies
+  h(2n) = h(n) (n >= 1) and h(3n+d) = h(n) (odd n >= 1; for d = 1 odd n > 1 suffices), then h(n) = F(n mod d) for
+  some F : Z/dZ -> C constant on the orbits of multiplication by 2 and by 3; conversely every such F gives an
+  invariant periodic, hence automatic, colouring. For d = 1 this is V004. Assumes Cobham's theorem and the
+  finite-kernel characterisation. The value d = 1 enters only in the commutator step (translation by d/4).
+authors:
+  - Claude side lane (Opus)
+created: 2026-10-18
+depends_on: [binary-automatic-invariant-colourings-constant, periodic-invariant-colourings-classification]
+assumes: [cobham-recognizability-theorem, eilenberg-finite-kernel]
+evidence:
+  - "binary-automatic-invariant-colourings-constant/v004_rigidity_check.py parts (e)-(f) and its receipt: Step 1 rewrites compared on the actual cycle labellings c_d (35,433 comparisons for d = 5, 59,055 for d = 13, 200,787 for d = 61, no mismatch; offset shift bounds S = 1, 1, 2, 8 for d = 5, 7, 13, 61 at a <= 12); 707 residue-graph cases for the finish"
+  - "../questions/section-count-depth-ratio-unbounded/automatic_rigidity_control.py: the d = 5 and d = 13 cycle labellings' growing 2-kernels (calibration remark 3)"
+aliases: [V004-d]
+tags: [invariants, automatic, cobham, 3x+d, controls, rigidity]
+---
 
-**Status: written proof (side lane, 2026-10-18), not formally verified, novelty undetermined.** It uses the same two classical inputs as main's V004 theorem (`experiments/viewpoints/V004/GLOBAL_RIGIDITY.md`, main `f54b741`) and nothing else:
+# For gcd(d, 6) = 1 the binary-automatic invariant colourings of 3x+d are the functions of n mod d constant on x2, x3 orbits
 
-- Eilenberg's finite-kernel characterization (Allouche–Shallit Thm 6.6.2; Adamczewski–Bell Thm 7.1 as cited by main);
-- Cobham's theorem (Allouche–Shallit Thm 11.2.2; Adamczewski–Bell Thm 2.1).
-
-The proof follows main's argument step by step. The only change is that offsets may leave `(0, 2^a)` by a bounded amount. Main's `side_review.md` deferred this "d-uniform candidate" because main's closure uses positive offsets that are specific to `+1`. This note supplies the missing argument.
-
-Finite checks are in `reviews/side_lane/v004_rigidity_check.py`, parts (e) and (f), with receipt `v004_rigidity_check.json`.
+The side lane's note, kept with light edits. Its status line read: "written proof (side lane, 2026-10-18), not formally verified, novelty undetermined." It uses the same two classical inputs as the main lane's V004 theorem ([`binary-automatic-invariant-colourings-constant`](binary-automatic-invariant-colourings-constant/README.md)) and nothing else: Eilenberg's finite-kernel characterisation ([`eilenberg-finite-kernel`](../../../sources/eilenberg-finite-kernel.md)) and Cobham's theorem ([`cobham-recognizability-theorem`](../../../sources/cobham-recognizability-theorem.md)). The proof follows V004 step by step; the only change is that offsets may leave `(0, 2^a)` by a bounded amount. The main lane's V004 side review had deferred this "d-uniform candidate" because its closure uses positive offsets specific to `+1`.
 
 ## Statement
 
@@ -71,9 +87,13 @@ On `Z/gZ`, where `d ≡ 0`, this reads `q̄(2^(-k)·3x) = q̄(x)` for every `k �
 
 Therefore `h(n) = h(odd part of n) = q̄(n mod g)`. ∎
 
-## Checks
+## Certificates
 
-Probe: `python3 reviews/side_lane/v004_rigidity_check.py`, which reports PASS.
+None attached to this node. The finite checks below are parts (e) and (f) of the side lane's [`v004_rigidity_check.py`](binary-automatic-invariant-colourings-constant/v004_rigidity_check.py), a certificate of [`binary-automatic-invariant-colourings-constant`](binary-automatic-invariant-colourings-constant/README.md).
+
+### Checks
+
+Probe: `v004_rigidity_check.py` (in the V004 node's folder), which reports PASS.
 
 - **(e) Closure on actual colorings.** Every Step-1 rewrite (states with `a ≤ 7`, 31 consecutive `n` each) was compared on the actual cycle labelling `c_d`. That labelling is a genuine nonconstant invariant coloring.
   - For `d = 5`: 35,433 comparisons; cycles through 1, 5, 19, 23, 187 and 347.
@@ -85,7 +105,9 @@ Probe: `python3 reviews/side_lane/v004_rigidity_check.py`, which reports PASS.
   - Adding the valuation edges `x ~ 2^(-k)(3x+d)` leaves exactly the `⟨2, 3⟩`-orbits, which is V13's periodic classification.
   - The two orbit counts can differ: 3 versus 2 orbits on `Z/13Z`, and 6 versus 4 on `Z/65Z`. That is why Step 4 is needed.
 
-## What it says about the programme
+## Remarks
+
+### What it says about the programme
 
 These are calibration remarks, not results.
 
@@ -93,7 +115,15 @@ These are calibration remarks, not results.
 2. **Real separations in 3x+5 are non-automatic.** For `3x + 5`, the theorem shows that the actual cycle partition among non-multiples of 5 is non-automatic. That partition has at least five cycles: through 1, 19, 23, 187 and 347. These are genuine separations, not hypothetical ones. Being non-automatic is therefore not evidence that a separation does not exist.
 3. **The proposed κ(D)/D target.** This is main's possible next milestone. The `d = 5` and `d = 13` cycle labellings already have at least 242 and 259 distinct binary sections by depth 9. These are rigorous lower bounds from distinct 60-term prefixes, computed in `automatic_rigidity_control.py`. So the d-analogue of the target is not contradicted, and a proof that never uses `d = 1` beyond Step 3 would hold equally for those real separations. Turning any complexity lower bound into convergence still needs an upper bound on the complexity of the actual bad set. None is known or suggested.
 
-## Literature boundary
+### Literature boundary
 
 - **Shallit–Wilson** (Bull. EATCS 46, 1992) prove that the binary ancestors of a fixed `x` reached within a bounded number of odd steps form a regular language. This is the fixed-depth ancestor language, as Stérin's arXiv:1907.00775 abstract describes it. It does not concern unbounded invariant classes, and so does not overlap V004 or this note. Main's V003 literature note draws the same distinction.
 - **No source was found** for the classification of automatic invariant colorings for general `d`. This is a search outcome, not a novelty claim.
+
+- **Not reviewed or formalised.** No proof-level review by another lane is on record. Of its steps, Steps 2–4 for `d = 1` and the periodic classification (Step 4's `⟨×2, ×3⟩` conclusion is the periodic classification at modulus `g`) are formal elsewhere ([`odd-eventually-periodic-invariants-constant`](odd-eventually-periodic-invariants-constant.md), [`periodic-invariant-colourings-classification`](periodic-invariant-colourings-classification/README.md)); the side lane noted (feed 22:42) that the `d`-version of the closure up to shifts (Step 1) is the one remaining unformalised piece.
+- The main lane did not adopt a `d`-uniform growth theorem for non-periodic invariants (feed 23:01, "main's transfer point is fair").
+
+## History
+
+- Migrated from `experiments/viewpoints/V004/D_UNIFORM_AUTOMATIC.md` (legacy ID V004; the side lane's write-up, first committed on the side-lane branch as `writeup/D_UNIFORM_AUTOMATIC.md` and placed in the V004 folder at the 2026-10-19 restructure) at commit `be73a66`, by the B16 migration (Claude, Opus 5.5). Text kept; the status paragraph rewritten as the introduction above, the checks moved under Certificates, the programme remarks and literature boundary under Remarks.
+- Claude side lane (Opus), 2026-10-18 (feed 20:40, REFEREE V004).

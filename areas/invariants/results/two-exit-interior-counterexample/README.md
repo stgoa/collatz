@@ -1,13 +1,51 @@
-# V008 — Boundary size alone cannot prove the growth theorem
+---
+id: two-exit-interior-counterexample
+kind: result
+title: An irrational-rotation sequence has a two-exit interior with infinite kernels in both bases, so separator widths cannot be excluded generically
+status: reviewed
+claim: >
+  Let 0 < alpha < 1 be irrational, p(n) = 1 if {n alpha} < alpha and 0 otherwise, and s(n) = p(floor(n/6)). Both
+  binary sections of s equal u(n) = p(floor(n/3)) and all three ternary sections equal v(n) = p(floor(n/2)); s, u, v
+  are distinct, so {s} is a finite forward interior with exactly two exits in its joint binary/ternary section graph;
+  every reachable section has irrational frequency alpha, hence infinite kernels in both bases; the graph obeys all
+  six radix identities. So the generic two-exit analogue of singleton-exit-separator-exclusion is false. s is not a
+  3x+1 invariant (s(4n+2) = s(n) fails at n = 1) and has at least D(D-1)/2 joint sections through depth D, so it is
+  neither a Collatz counterexample nor a linear-growth example.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+evidence:
+  - "two_exit.md: the construction, the destination-valued boundary equations for any finite number of exits (section 1), the rational-frequency argument for finite kernels (section 2.2), the root-identity failure and the quadratic count (section 4)"
+  - "INDEPENDENT_REVIEW.md: main-lane second-agent review of the counterexample and the corrected first-shell theorem; side_review.md: the main lane's read of the side-lane feed at sidekick b567f2b (accepting the Cobham attribution for V005-V007)"
+  - "delivery_checks.json: historical delivery receipt; no script in the repository regenerates it"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    scope: "Feed 23:01 (REFEREE V008, main 9d66b69): construction reproduced (exits checked exactly for n < 10^4, frequency 0.61805 empirically for alpha = (sqrt 5 - 1)/2, rational frequency of automatic sequences with an existing frequency), and the failure s(6) = 0, s(1) = 1 of the root equation"
+  - by: Claude Lean lane (Fable)
+    date: 2026-10-18
+    scope: "Iteration 9: E_i(s) = u, T_j(s) = v by the residue computations, T_j(u) = E_i(v) = p, the distinctness witnesses, the irrational-frequency argument for every affine section, the rational Cesaro projection for a finite kernel, the root-identity failure, and the quadratic bound from distinct dilations; sound"
+aliases: [V008]
+tags: [invariants, section-graph, counterexample, quantitative-rigidity]
+---
 
-**Progress; the full unbounded-ratio goal remains active and unresolved.**
-The preceding batch V007 was delivered at
-`b24020f8c64aab28a11326bf542e5a05530aa022` and made progress by excluding
-singleton exits. V008 compares its proposed two-exit extension with an
-investigation using the full cumulative growth hypothesis. No universal
-asymptotic rate improvement is claimed.
+# An irrational-rotation sequence has a two-exit interior with infinite kernels in both bases, so separator widths cannot be excluded generically
 
-## 1. The generic two-exit extension is refuted
+## Statement
+
+With `0 < α < 1` irrational,
+
+```
+p(n) = 1_{{nα} < α},      s(n) = p(⌊n/6⌋).
+```
+
+Both binary children of `s` equal `u(n) = p(⌊n/3⌋)`; all three ternary children equal `v(n) = p(⌊n/2⌋)`. The states `s, u, v` are distinct, so the finite interior `{s}` has exactly two exits. Every reachable section has irrational natural frequency `α`, and a finite kernel with an existing frequency has rational frequency, so every vertex has infinite kernels in both bases. The graph of entire sequences obeys all six radix laws and the zero-output conditions. Hence the generic two-exit analogue of [`singleton-exit-separator-exclusion`](../singleton-exit-separator-exclusion/README.md) fails. `s` is not a Collatz invariant: `s(4n+2) = s(n)` fails at `n = 1` (`s(6) = 0`, `s(1) = 1`). Its zero sections already give at least `D(D−1)/2` distinct states through joint depth `D`.
+
+## Proof
+
+The written proof is [`two_exit.md`](two_exit.md) §§2–4. The legacy V008 report follows, lightly edited; its §2 is the node [`first-shell-three-state-rigidity`](../first-shell-three-state-rigidity.md) and its §3 the node [`linear-growth-uniform-future-cuts`](../linear-growth-uniform-future-cuts.md).
+
+### 1. The generic two-exit extension is refuted
 
 The [exact construction](two_exit.md) takes an irrational rotation
 coloring p and repeats each value six times:
@@ -36,7 +74,9 @@ sections already supply at least `D(D-1)/2` distinct states through joint
 depth D. It is therefore neither a Collatz invariant nor a linear-growth
 counterexample, and it supplies no recurrent bounded-layer example.
 
-## 2. The full root equations give an elementary finite-depth exclusion
+## Remarks
+
+### 2. The full root equations give an elementary finite-depth exclusion
 
 Root derived the [first-shell theorem](ROOT_REVIEW.md): for any output
 alphabet, the three scalar equations
@@ -63,7 +103,7 @@ The [root review](ROOT_REVIEW.md) records the correction explicitly, and
 a second review independently checks the final table and constant-output
 finish. No historical theorem was found false or altered.
 
-## 3. Use the growth assumption in its actual strength
+### 3. Use the growth assumption in its actual strength
 
 The parallel [growth analysis](linear_joint.md) proves a useful uniform
 version of the small-layer observation. If `|B_D|<=C(D+1)`, then for every
@@ -88,7 +128,7 @@ The source audit checks one finitary S-adic rigidity result. Its symbolic
 presentation and recognizability hypotheses have not been supplied by
 our rooted count, so it is not imported as a growth theorem.
 
-## 4. Comparison and next action
+### 4. Comparison and next action
 
 | Proposed mechanism | Outcome | Decision |
 |---|---|---|
@@ -112,7 +152,7 @@ of the actual nonabsorbing set is assumed. Future graph limits or finite
 presentations must retain whole-sequence distinctions; finite-prefix
 convergence alone cannot provide an automatic actual section.
 
-## 5. Verification and dependency scope
+### 5. Verification and dependency scope
 
 Root checked the two-exit construction, the irrational-frequency proof,
 all multiplier witnesses and the layer-profile and envelope calculations.
@@ -140,3 +180,9 @@ This is a prose-only mathematical batch. Existing executable evidence,
 the frozen R-series body, dispatcher and open LaTeX source remain
 unchanged. The historical Phase6 finite gate was not rerun; mathematical
 reviews, local links and exact frozen comparisons are recorded separately.
+
+## History
+
+- Migrated from `experiments/viewpoints/V008/REPORT.md` (legacy ID V008) at commit `be73a66`, by the B16 migration (Claude, Opus 5.5). Report text kept under Proof (§1) and Remarks (§§2–5); Statement added. The legacy line index listed V008 as "`refuted` (proposed extension)": the refuted statement is the generic two-exit extension, and the refutation is this proved counterexample. The V008 notes moved here.
+- Main lane (ChatGPT/Codex), 2026-10-18, main commit `9d66b69`; the fourth batch of the quantitative goal. The batch also added the dated Cobham clarifications to the V005–V007 reports.
+- **Link repair in kept notes (B16 migration, 2026-10-20).** In `two_exit.md`, only link targets were changed: relative links to legacy paths now point to the corresponding nodes or to `archive/invariants-viewpoints/`. No text changed. Any `delivery_checks.json` hashes describe historical versions of these notes; no script in the repository checks them.

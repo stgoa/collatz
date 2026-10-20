@@ -38,7 +38,7 @@ E_1(E_0(b))=b.                                      (3)
 ```
 
 The order in the last relation matters: its sequence is b(4n+2).
-These three relations are exactly the [V005 scalar interface](../V005/scalar_interface.md).
+These three relations are exactly the [V005 scalar interface](../scalar-interface-three-identities.md).
 In particular, a collision among zero-digit dilations is already present
 at b. The generic collision obtained by comparing a triangular number
 of exponent pairs with a linear ball gives no missing additive control

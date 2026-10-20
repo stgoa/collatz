@@ -24,7 +24,7 @@ source and receipt at `3dd6cb7`, including the strong-induction converse
 and the value at zero. This batch read that assessment; it did not fetch,
 compile or independently replay the Lean artifact. The mathematical
 scalar interface used here remains the independently reviewed written
-[V005 argument](../V005/scalar_interface.md). The reported formal work
+[V005 argument](../scalar-interface-three-identities.md). The reported formal work
 adds no quantitative growth bound.
 
 ## Direction decisions

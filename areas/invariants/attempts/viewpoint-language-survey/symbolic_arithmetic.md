@@ -6,12 +6,12 @@ No theorem, novelty, formal-verification or convergence claim is made here.
 The examples below are elementary exact calculations; proposed tests remain unperformed.
 
 Read before comparison: current `README.md`, `archive/docs/RESULTS.md`, and the source notes for
-[R25](../../residual_progress/bridge_normal_form/BRIDGE_NORMAL_FORM.md),
-[R31](../../residual_progress/bounded_run_cycles/BOUNDED_RUN_GROWTH.md),
-[R49](../../residual_progress/inverse_scope/INVERSE_SCOPE.md),
-[integer prefixes](../../residual_progress/integer_prefix/INTEGER_PREFIXES.md),
-[itinerary complexity](../../residual_progress/itinerary_complexity/ITINERARY_COMPLEXITY.md),
-and [P6-003](../../phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md).
+[R25](../../../convergence/results/elementary-bridge-quotient-normal-form/README.md),
+[R31](../../../convergence/results/bounded-runs-exclude-finite-label-potentials/README.md),
+[R49](../../../convergence/results/inverse-only-exclusions-short-forward/README.md),
+[integer prefixes](../../../convergence/results/exit18-return-integer-cylinders/README.md),
+[itinerary complexity](../../../convergence/results/same-seed-factor-complexity-bound/README.md),
+and [P6-003](../../../convergence/results/growth-norm-transport-barrier/README.md).
 The cached independent feed was read at
 `54bb81b89e8eb2d8bfc25aa263147669d28e5c19`; no finding from it is used as a premise.
 

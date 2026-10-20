@@ -25,11 +25,11 @@ certificate supply.
 
 ## 2. Successful comparison: R80/R81 already has the exact relation
 
-[R80](../../residual_progress/native_history/HIGH_HISTORY.md) gives a smaller
+[R80](../../../convergence/results/high-smaller-origin-history/README.md) gives a smaller
 origin despite inverse obstructions through every prescribed depth D, with
 the seed changing with D. Its merger clocks are nevertheless fixed. The
 complete fixed-word cell is proved in
-[R81](../../residual_progress/history_lifting/HISTORY_LIFTING.md): for every
+[R81](../../../convergence/results/fixed-word-history-cells/README.md): for every
 integer k>=0,
 
 ```
@@ -72,7 +72,7 @@ or the signed smaller-rank requests of the frozen compiler.
 ## 3. Unresolved comparison: R93 already carries a joint invariant
 
 Use the complete family and notation of
-[R93](../../residual_progress/two_source_history/TWO_SOURCE_HISTORY.md):
+[R93](../../../convergence/results/two-source-normalisation-first-departure/README.md):
 
 ```
 z=471104208005+2^14*3^16*ell,   ell>=0,

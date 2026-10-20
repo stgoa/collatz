@@ -9,10 +9,10 @@ Throughout, `S_d` acts on positive odd integers, with `S_d(1)=1`; time counts
 odd arrows. Put `S=S_1`. The d=5 control is `19 -> 31 -> 49 -> 19`.
 Probability laws below are positive laws on actual integer seeds, never signed
 packet currents. Unsubscripted `log` is natural; Shannon examples use bits.
-Existing constraints include [R31](../../residual_progress/bounded_run_cycles/BOUNDED_RUN_GROWTH.md),
-[R49](../../residual_progress/inverse_scope/INVERSE_SCOPE.md), the
-[integer-prefix result](../../residual_progress/integer_prefix/INTEGER_PREFIXES.md)
-and [P6-003](../../phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md).
+Existing constraints include [R31](../../../convergence/results/bounded-runs-exclude-finite-label-potentials/README.md),
+[R49](../../../convergence/results/inverse-only-exclusions-short-forward/README.md), the
+[integer-prefix result](../../../convergence/results/exit18-return-integer-cylinders/README.md)
+and [P6-003](../../../convergence/results/growth-norm-transport-barrier/README.md).
 
 ## V11. Occupation measures: recurrence versus escape of mass
 

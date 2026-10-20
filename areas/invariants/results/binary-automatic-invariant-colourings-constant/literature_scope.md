@@ -35,7 +35,7 @@ is not needed in the central proof, which uses elementary residue algebra.
 
 ## Bounded prior-work search
 
-The [V003 literature note](../V003/literature.md) remains the baseline,
+The [V003 literature note](../digit-count-invariant-colourings-constant/literature.md) remains the baseline,
 including the distinction between fixed-depth ancestor languages, an
 entire basin, and invariant color classes. That review did not locate
 the exact single-base classification in primary literature.

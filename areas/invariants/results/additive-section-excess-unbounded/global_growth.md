@@ -6,7 +6,7 @@ at its actual strength and preserves entire affine sections. It supplies
 a quantitative restriction on any proposed linear-growth invariant, but
 does not prove that such an invariant cannot exist. The active target
 remains the full unbounded ratio in
-[the quantitative brief](../briefs/QUANTITATIVE_RIGIDITY_BRIEF.md).
+[the quantitative brief](../../../../archive/invariants-viewpoints/briefs/QUANTITATIVE_RIGIDITY_BRIEF.md).
 
 ## 1. Setup and the new restriction
 

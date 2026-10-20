@@ -74,5 +74,5 @@ silently replaced by +d. These controls are excluded at a named hypothesis.
 
 Order, positions and patterns of bits can carry information beyond their
 count. No actual hypothetical bad-set indicator has been shown to factor
-through s_2. The mixed-section problem in [kernel_probe.md](kernel_probe.md)
+through s_2. The mixed-section problem in [kernel_probe.md](../binary-kernel-first-ternary-image.md)
 remains the main target; this theorem supplies one rigorous partial answer.

@@ -1,10 +1,25 @@
-# V003 — A monochromatic binary cylinder forces constancy
+---
+id: monochromatic-cylinder-forces-constancy
+kind: result
+title: An invariant colouring of 3x+d that is eventually constant on one dyadic residue class is constant
+status: written
+claim: >
+  Fix a positive odd d with 3 not dividing d. If h(2n) = h(n) for all n >= 1, h(3n+d) = h(n) for odd n > 1, and h is
+  constant on all sufficiently large members of some residue class r mod 2^K (K >= 0), then h is constant. The proof
+  shows that every positive odd target coprime to 3 has arbitrarily large predecessors, respecting absorption at 1,
+  in every binary residue class. At d = 1 this is a known consequence of Monks's arithmetic-progression sufficiency
+  theorem (which needs any one monochromatic progression, not only a dyadic one); it is not claimed as new.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+evidence:
+  - "../digit-count-invariant-colourings-constant/verify_examples.py: V003's bounded replay includes cylinder examples (key cylinders of its receipt)"
+  - "../digit-count-invariant-colourings-constant/literature.md, section L5: the published precedent (Monks 2006, Theorem 1.1; Monks-Monks-Monks-Monks, Theorem 4.1)"
+aliases: [V003-d]
+tags: [invariants, colourings, sufficiency, cylinders, known-result]
+---
 
-**Status: elementary rederivation of a known consequence.** At d=1 this is
-covered by the stronger published arithmetic-progression sufficiency theorem;
-see [literature.md](literature.md#l5-one-monochromatic-progression-is-already-covered-by-sufficiency).
-It is not a new theorem being claimed. Its use here is to identify which
-automatic descriptions are already eliminated by established work.
+# An invariant colouring of 3x+d that is eventually constant on one dyadic residue class is constant
 
 ## Statement
 
@@ -17,7 +32,9 @@ predecessors in each binary residue class, respecting absorption at1. This
 also explains transfer to d=5 and61. The stronger arbitrary-modulus d=1
 statement does not transfer unchanged.
 
-## Exact predecessor construction
+## Proof
+
+### Exact predecessor construction
 
 For this construction only, use the **raw shortcut** map: even n goes to
 n/2, odd n to (3n+d)/2. Specify the first K parity bits of the residue r.
@@ -59,7 +76,11 @@ a as above; its predecessors in the monochromatic cylinder force that color
 to agree with the cylinder's color. This proves the claim, including its
 sufficiently-large version.
 
-## Automatic interpretation and controls
+## Remarks
+
+**Status in the legacy note:** "elementary rederivation of a known consequence." At `d = 1` this is covered by the stronger published arithmetic-progression sufficiency theorem ([`monks-2006-sufficiency`](../../../sources/monks-2006-sufficiency.md), Theorem 1.1; see [literature.md](digit-count-invariant-colourings-constant/literature.md#l5-one-monochromatic-progression-is-already-covered-by-sufficiency)): an invariant colouring constant on **any one** infinite arithmetic progression is constant. It is not a new theorem; its use is to identify which automatic descriptions are already eliminated by established work. The written proof above covers every positive odd `d` coprime to 3, where the arbitrary-progression `d = 1` statement does not transfer unchanged (the multiples of `d` form a monochromatic progression of the nonconstant control `1_{d|n}`).
+
+### Automatic interpretation and controls
 
 A constant binary-kernel member is a monochromatic cylinder, so an invariant
 coloring with such a member is constant. In particular, a most-significant-
@@ -83,8 +104,13 @@ binary section equal to t or its complement, so none is constant. It fails
 the Collatz identity at5 and is only a control on the insufficient
 automaticity hypothesis.
 
-The separate [scaling counterexample](literature.md#l6-two-scaling-invariances-do-not-imply-periodicity)
+The separate [scaling counterexample](digit-count-invariant-colourings-constant/literature.md#l6-two-scaling-invariances-do-not-imply-periodicity)
 does have constant binary sections, such as g(8n+1)=+1. Its role is to
 refute inference of full ternary-kernel finiteness from binary automaticity
 and dilation invariances alone. It also fails actual Collatz invariance;
 neither example is a nonconstant invariant under all the stated hypotheses.
+
+## History
+
+- Migrated from `experiments/viewpoints/V003/cylinder_rigidity.md` (legacy ID V003; report §4, "Monochromatic cylinders") at commit `be73a66`, by the B16 migration (Claude, Opus 5.5). Text kept; the opening status paragraph moved into Remarks.
+- Main lane (ChatGPT/Codex), 2026-10-18, main commit `2ac44ef`. Main-lane review only (`../digit-count-invariant-colourings-constant/PROOF_REVIEW.md`).

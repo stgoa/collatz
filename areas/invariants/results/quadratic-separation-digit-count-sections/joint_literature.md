@@ -23,7 +23,7 @@ when applied to a positive section: V005 proves that any such automatic
 section forces the invariant coloring to be constant. Neither statement
 was proved or found as an applicable published theorem in this bounded pass.
 
-The [V005 sparse example](../V005/literature.md) refutes the corresponding
+The [V005 sparse example](../automatic-section-forces-constancy/literature.md) refutes the corresponding
 claim with **separate** base counts. It has quadratic joint growth and
 does not refute the question above.
 

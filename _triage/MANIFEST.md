@@ -332,27 +332,27 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B15-convergence-explicit-tao | `experiments/explicit_tao/receipts` | 2 | node explicit-valuation-large-deviations, tao-printed-window-vacuity |
 | B15-convergence-explicit-tao | `reviews/side_lane/fable_L2_check.*` | 2 | node explicit-valuation-large-deviations |
 | B15-convergence-explicit-tao | `reviews/side_lane/fable_L4_window_check.*` | 2 | node tao-printed-window-vacuity |
-| B16-invariants-viewpoints | `experiments/viewpoints/LOG.md` | 1 | pending |
-| B16-invariants-viewpoints | `experiments/viewpoints/MAP.md` | 1 | pending |
-| B16-invariants-viewpoints | `experiments/viewpoints/README.md` | 1 | pending |
-| B16-invariants-viewpoints | `experiments/viewpoints/V001` | 7 | pending |
-| B16-invariants-viewpoints | `experiments/viewpoints/V002` | 8 | pending |
-| B16-invariants-viewpoints | `experiments/viewpoints/V003` | 12 | pending |
-| B16-invariants-viewpoints | `experiments/viewpoints/V004` | 12 | pending |
-| B16-invariants-viewpoints | `experiments/viewpoints/V005` | 10 | pending |
-| B16-invariants-viewpoints | `experiments/viewpoints/V006` | 11 | pending |
-| B16-invariants-viewpoints | `experiments/viewpoints/V007` | 6 | pending |
-| B16-invariants-viewpoints | `experiments/viewpoints/V008` | 7 | pending |
-| B16-invariants-viewpoints | `experiments/viewpoints/V009` | 7 | pending |
-| B16-invariants-viewpoints | `experiments/viewpoints/briefs` | 5 | pending |
-| B16-invariants-viewpoints | `reviews/side_lane/automatic_rigidity_control.*` | 2 | pending |
-| B16-invariants-viewpoints | `reviews/side_lane/v003_digit_count_check.*` | 2 | pending |
-| B16-invariants-viewpoints | `reviews/side_lane/v004_rigidity_check.*` | 2 | pending |
-| B16-invariants-viewpoints | `reviews/side_lane/v005_sparse_growth_check.*` | 2 | pending |
-| B16-invariants-viewpoints | `reviews/side_lane/v006_quadratic_check.*` | 2 | pending |
-| B16-invariants-viewpoints | `reviews/side_lane/v009_escape_check.*` | 2 | pending |
-| B16-invariants-viewpoints | `reviews/side_lane/v13_coloring_check.*` | 2 | pending |
-| B16-invariants-viewpoints | `reviews/side_lane/viewpoint_v001_check.*` | 2 | pending |
+| B16-invariants-viewpoints | `experiments/viewpoints/LOG.md` | 1 | archive archive/invariants-viewpoints/LOG.md |
+| B16-invariants-viewpoints | `experiments/viewpoints/MAP.md` | 1 | archive archive/invariants-viewpoints/MAP.md |
+| B16-invariants-viewpoints | `experiments/viewpoints/README.md` | 1 | archive archive/invariants-viewpoints/README.md |
+| B16-invariants-viewpoints | `experiments/viewpoints/V001` | 7 | node viewpoint-language-survey |
+| B16-invariants-viewpoints | `experiments/viewpoints/V002` | 8 | node periodic-invariant-colourings-classification, viewpoint-language-survey, binary-ternary-carry-frontier, occupation-measure-tightness, capped-first-passage-power-bounds |
+| B16-invariants-viewpoints | `experiments/viewpoints/V003` | 12 | node digit-count-invariant-colourings-constant, binary-kernel-first-ternary-image, scaling-invariant-character-not-eventually-periodic, monochromatic-cylinder-forces-constancy, binary-ternary-carry-frontier |
+| B16-invariants-viewpoints | `experiments/viewpoints/V004` | 12 | node binary-automatic-invariant-colourings-constant, positive-offset-kernel-ternary-closure, odd-eventually-periodic-invariants-constant, d-uniform-automatic-invariant-colourings |
+| B16-invariants-viewpoints | `experiments/viewpoints/V005` | 10 | node automatic-section-forces-constancy, scalar-interface-three-identities, sparse-indicator-linear-growth-in-both-bases |
+| B16-invariants-viewpoints | `experiments/viewpoints/V006` | 11 | node quadratic-separation-digit-count-sections, digit-count-section-forces-quadratic-growth |
+| B16-invariants-viewpoints | `experiments/viewpoints/V007` | 6 | node singleton-exit-separator-exclusion, reverse-closure-two-base-automaticity |
+| B16-invariants-viewpoints | `experiments/viewpoints/V008` | 7 | node two-exit-interior-counterexample, first-shell-three-state-rigidity, linear-growth-uniform-future-cuts |
+| B16-invariants-viewpoints | `experiments/viewpoints/V009` | 7 | node additive-section-excess-unbounded, linear-growth-short-detection |
+| B16-invariants-viewpoints | `experiments/viewpoints/briefs` | 5 | archive archive/invariants-viewpoints/briefs; node section-count-depth-ratio-unbounded, quantitative-rigidity-programme |
+| B16-invariants-viewpoints | `reviews/side_lane/automatic_rigidity_control.*` | 2 | node section-count-depth-ratio-unbounded |
+| B16-invariants-viewpoints | `reviews/side_lane/v003_digit_count_check.*` | 2 | node digit-count-invariant-colourings-constant |
+| B16-invariants-viewpoints | `reviews/side_lane/v004_rigidity_check.*` | 2 | node binary-automatic-invariant-colourings-constant |
+| B16-invariants-viewpoints | `reviews/side_lane/v005_sparse_growth_check.*` | 2 | node sparse-indicator-linear-growth-in-both-bases |
+| B16-invariants-viewpoints | `reviews/side_lane/v006_quadratic_check.*` | 2 | node quadratic-separation-digit-count-sections |
+| B16-invariants-viewpoints | `reviews/side_lane/v009_escape_check.*` | 2 | node additive-section-excess-unbounded |
+| B16-invariants-viewpoints | `reviews/side_lane/v13_coloring_check.*` | 2 | node periodic-invariant-colourings-classification |
+| B16-invariants-viewpoints | `reviews/side_lane/viewpoint_v001_check.*` | 2 | node viewpoint-language-survey |
 | B17-leftovers | `.github` | 6 | pending |
 | B17-leftovers | `AGENTS.md` | 1 | pending |
 | B17-leftovers | `CLAUDE.md` | 1 | pending |

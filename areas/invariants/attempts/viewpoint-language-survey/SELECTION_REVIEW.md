@@ -7,8 +7,8 @@ complementary probe and actual integer-ensemble information (V12) as an
 independent alternative. No claim of a better convergence proof strategy,
 novel theorem, or regularity of the actual nonabsorbing set is made.
 
-The [living map](../MAP.md) is the user-facing comparison;
-the [brief](../briefs/VIEWPOINT_BRIEF.md) is the unchanged goal.
+The [living map](../../../../archive/invariants-viewpoints/MAP.md) is the user-facing comparison;
+the [brief](../../../../archive/invariants-viewpoints/briefs/VIEWPOINT_BRIEF.md) is the unchanged goal.
 
 ## Why this choice earned a recommendation
 
@@ -21,10 +21,10 @@ the [brief](../briefs/VIEWPOINT_BRIEF.md) is the unchanged goal.
 | Intermediate milestone | Classify finite-valued base-2-automatic invariant colorings | No automaticity theorem for an actual bad set; the proposed one-base classification is unproved here |
 | Explicit limits | d=5 and d=61 admit the stated divisibility colorings; all clocks/domains are recorded | These simple colorings do not classify every nonprincipal basin in the controls |
 
-The [proof and card](invariant_colors.md) supply the details. The
-[example verifier](verify_examples.py) checks 480 finite quotient partitions
+The [proof and card](../../results/periodic-invariant-colourings-classification/README.md) supply the details. The
+[example verifier](../../results/periodic-invariant-colourings-classification/verify_examples.py) checks 480 finite quotient partitions
 and exact examples; it is not the all-modulus proof. The separate
-[receipt](verification.json) states its finite scope.
+[receipt](../../results/periodic-invariant-colourings-classification/verification.json) states its finite scope.
 
 Compared with V13, V14 supplies a meaningful shared binary/ternary boundary
 representation but no new boundary-completion estimate. V12 supplies exact

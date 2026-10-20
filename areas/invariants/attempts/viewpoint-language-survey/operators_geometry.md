@@ -7,10 +7,10 @@ All deterministic times count odd Syracuse arrows, with 1 absorbed.
 Write \(S_d(n)=(3n+d)/2^{v_2(3n+d)}\) for odd \(n>1\), where
 \(d>0\) is odd and coprime to 3; \(S=S_1\).
 
-Relevant existing constraints are [R7](../../../archive/docs/RESULTS.md), the
-[finite-cone compiler](../../residual_progress/duality/FINITE_CONE.md),
-[arbitrary-target transport barriers](../../phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md),
-and the [actual-basin density audit](../../phase6/linear_density_audit/next_upper_attempt.md).
+Relevant existing constraints are [R7](../../../convergence/results/orbit-component-current-criterion/README.md), the
+[finite-cone compiler](../../../convergence/results/finite-rational-cone-integer-certificate/README.md),
+[arbitrary-target transport barriers](../../../convergence/results/growth-norm-transport-barrier/README.md),
+and the [actual-basin density audit](../../../convergence/attempts/matched-density-gap-combination.md).
 No new universal current supply, distribution estimate, or novelty claim
 is supplied here. Published frameworks below are background; the proposed
 Collatz applications have not inherited their conclusions automatically.

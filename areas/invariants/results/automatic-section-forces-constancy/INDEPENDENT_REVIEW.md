@@ -8,8 +8,8 @@ or human peer review. The full superlinear-complexity goal remains open.
 
 - [Direct-section note](direct_sections.md), Sections 1–4, including the
   quantitative reconstruction added to Section 2.
-- [V003 cylinder predecessor construction](../V003/cylinder_rigidity.md).
-- [V004 global finite-state rigidity](../V004/GLOBAL_RIGIDITY.md).
+- [V003 cylinder predecessor construction](../monochromatic-cylinder-forces-constancy.md).
+- [V004 global finite-state rigidity](../binary-automatic-invariant-colourings-constant/README.md).
 
 No historical mathematical result is corrected or replaced by this review.
 
@@ -208,7 +208,7 @@ The active goal remains open.
 ### Complete scalar interface — PASS
 
 The direct-section reviewer also checked the three-equation interface in
-[scalar_interface.md](scalar_interface.md). The converse's induction covers
+[scalar_interface.md](../scalar-interface-three-identities.md). The converse's induction covers
 odd n, n=0 modulo4 and n=2 modulo4; the last case uses only E(m) with m<n.
 Doubling then gives the required odd-source invariant equation. Stripping
 the binary valuation of a positive section offset gives the stated exact

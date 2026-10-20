@@ -44,7 +44,7 @@ infinite binary boundaries admits 2-adic points, including noninteger rational
 cycles. Local consistency of every finite patch therefore does not establish
 one finite positive-integer boundary for an infinite diagram. This is the
 same quantifier obstruction exposed by the repository's frozen
-[integer-prefix theorem](../../residual_progress/integer_prefix/INTEGER_PREFIXES.md),
+[integer-prefix theorem](../../../convergence/results/exit18-return-integer-cylinders/README.md),
 now visible geometrically. Any proposed tiling compactness argument must retain
 the finite-support condition and the bootstrap boundary.
 

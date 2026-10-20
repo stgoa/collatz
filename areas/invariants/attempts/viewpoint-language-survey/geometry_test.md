@@ -5,7 +5,7 @@ estimate.** This bounded test proves an elementary local bound and compares
 two tiny domains. It does not establish a growing-domain absorption average,
 and does not justify a deeper potential-theory investigation. No novelty is
 claimed. It continues the exact convention in
-[the V001 probe](../V001/potential_probe.md); the frozen R7 component criterion
+[the V001 probe](potential_probe.md); the frozen R7 component criterion
 and R10 boundary-flux warning remain applicable.
 
 ## 1. Domain, absorber and exact inverse tails
@@ -172,7 +172,7 @@ still retain their conductances 1/11, 1/81 and 1/129.
 For d=61, the simplest direct control is S_61(61)=61. Removing this
 self-loop does not connect its component to 1 or assign it positive
 voltage. The separately certified 41-cycle with minimum 235 in the
-[frozen negative-control record](../../packet_currents/negative_controls/NOTE.md)
+[frozen negative-control record](../../../convergence/results/locally-collatz-like-control-barrier/NOTE.md)
 is a nonprincipal control with the same conclusion. These are statements
 for the designated absorber **1**, without enlarging it to include cycles.
 

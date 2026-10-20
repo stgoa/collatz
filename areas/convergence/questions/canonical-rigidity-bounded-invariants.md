@@ -32,4 +32,8 @@ None. The closest published formulation is Berg–Meinardus's analytic encoding 
 
 ## Suggested attacks
 
-A Phase 6 barrier here would be a proof that a named proposed regularity condition does not follow from the coefficient relations; an equivalent reformulation without such a result gives nothing. The invariants area studies related rigidity questions for periodic and automatic invariants.
+A Phase 6 barrier here would be a proof that a named proposed regularity condition does not follow from the coefficient relations; an equivalent reformulation without such a result gives nothing. The invariants area proves rigidity for restricted classes of invariant colourings of the ordinary map (not of this quotient): periodic invariants are constant ([`periodic-invariant-colourings-classification`](../../invariants/results/periodic-invariant-colourings-classification/README.md), formal), and so are binary-automatic ones, given Cobham's theorem ([`binary-automatic-invariant-colourings-constant`](../../invariants/results/binary-automatic-invariant-colourings-constant/README.md), formal), with a complementary finite 2- and 3-Mahler derivation in its `mahler_route.md`; for `3x+d` the automatic ones are exactly functions of `n mod d` ([`d-uniform-automatic-invariant-colourings`](../../invariants/results/d-uniform-automatic-invariant-colourings.md)). Each needs a regularity hypothesis that the component indicators are not known to satisfy, which is exactly the gap named above; the quantitative version is open as [`section-count-depth-ratio-unbounded`](../../invariants/questions/section-count-depth-ratio-unbounded/README.md).
+
+## History
+
+- 2026-10-20, B16 migration (Claude, Opus 5.5): the general pointer to the invariants area in Suggested attacks replaced by links to its rigidity nodes (FOLLOWUPS row from B14).

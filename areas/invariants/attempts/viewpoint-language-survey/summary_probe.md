@@ -142,16 +142,16 @@ in this probe. Simply adding (5) to a state record is not the milestone.
 
 ## 5. Novelty and portfolio decision
 
-* [R31](../../residual_progress/bounded_run_cycles/BOUNDED_RUN_GROWTH.md)
+* [R31](../../../convergence/results/bounded-runs-exclude-finite-label-potentials/README.md)
   already supplies the affine identity, exact cylinders, and arbitrarily
   long guarded growth. Formula (3) is its immediate exact-counter reading.
-* [R77](../../residual_progress/itinerary_complexity/ITINERARY_COMPLEXITY.md)
+* [R77](../../../convergence/results/same-seed-factor-complexity-bound/README.md)
   already gives the general fixed-word repetition formula and distinguishes
   single-word exit from multiword survival.
 * R53 and R57 already combine valuation counters with complete exit
   interfaces on other phases. Repeating that pattern is not a new language
   breakthrough.
-* [R93](../../residual_progress/two_source_history/TWO_SOURCE_HISTORY.md)
+* [R93](../../../convergence/results/two-source-normalisation-first-departure/README.md)
   already carries two actual histories and a complete lower-departure
   interface. Its unresolved signed residual is the standard this proposal
   must improve upon.

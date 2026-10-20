@@ -15,7 +15,7 @@ distinct from the Lean lane's assembly with Cobham as an explicit input.
 ## 1. Objects, hypotheses, and claim
 
 Use the five transitions and six identities of
-[V006/graph_interface.md](../V006/graph_interface.md):
+[V006/graph_interface.md](../quadratic-separation-digit-count-sections/graph_interface.md):
 
 ```
 E_i(s)(n)=s(2n+i),     i=0,1,

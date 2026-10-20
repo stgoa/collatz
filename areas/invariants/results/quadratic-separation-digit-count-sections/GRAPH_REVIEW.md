@@ -6,7 +6,7 @@ theorem or complete the quantitative goal.
 
 Reviewed [graph_interface.md](graph_interface.md), including composition
 order, reconstruction from an abstract graph and the separating-layer
-argument, against the [V005 scalar equivalence](../V005/scalar_interface.md).
+argument, against the [V005 scalar equivalence](../scalar-interface-three-identities.md).
 
 ## Radix identities and the root equations
 

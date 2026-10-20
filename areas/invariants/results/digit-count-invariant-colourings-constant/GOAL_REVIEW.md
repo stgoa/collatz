@@ -1,13 +1,13 @@
 # V003 — Audit against the arithmetic-regularity goal
 
-**Scope:** the unchanged [user goal](../briefs/ARITHMETIC_REGULARITY_BRIEF.md)
+**Scope:** the unchanged [user goal](../../../../archive/invariants-viewpoints/briefs/ARITHMETIC_REGULARITY_BRIEF.md)
 asks for a demonstrated mathematical gain from arithmetic regularity, or a
 decisive scoped reason to redirect it. Its principal research aim is the
 binary-automatic classification. It explicitly accepts a rigorous partial
 classification or structural gain as an outcome. We retain that full aim
 and report it as open; we do not claim to have completed that classification.
 
-The [report](REPORT.md) delivers the strongest justified results from the
+The [report](README.md) delivers the strongest justified results from the
 bounded investigations and recommends the next investigation. The table
 below separates substantive evidence from repository delivery. Completion
 of the goal requires the delivery checks and push recorded in the log.

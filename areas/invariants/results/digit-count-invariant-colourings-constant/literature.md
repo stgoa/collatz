@@ -2,7 +2,7 @@
 
 **Status: bounded primary-source check, 2026-10-18.** Read against main
 `c47d91b`, the current `README.md`, and
-[V13](../V002/invariant_colors.md). No novelty claim and no classification
+[V13](../periodic-invariant-colourings-classification/README.md). No novelty claim and no classification
 of the single-base automatic case is established by this note. Search
 results advertising Collatz proofs or repository assertions were not adopted.
 
@@ -175,7 +175,7 @@ Lambda_(3,1) F = Lambda_(4,1) F.
 ```
 
 Thus both nonzero ternary sections of h are binary-kernel sections.
-The subsequent [kernel probe](kernel_probe.md), sections 3–4, strengthens
+The subsequent [kernel probe](../binary-kernel-first-ternary-image.md), sections 3–4, strengthens
 this further. Writing `K=K_2(h)` and `f_t(n)=h(3^t n)`, it proves
 
 ```

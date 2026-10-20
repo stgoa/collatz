@@ -13,7 +13,7 @@ infinite kernels in both bases. Its elementary proof passed the separate
 [source-level audit](INDEPENDENT_REVIEW.md). The singleton case is settled
 under that hypothesis; arbitrary finite separator size remains open.
 
-The object is the graph in [V006's interface](../V006/graph_interface.md):
+The object is the graph in [V006's interface](../quadratic-separation-digit-count-sections/graph_interface.md):
 vertices are entire finite-valued sequences; its two binary and three
 ternary transitions satisfy all six radix identities and the leading-zero
 output conditions. The Collatz root has the additional three scalar
@@ -128,18 +128,18 @@ route: no linear bound on the example's entire joint orbit was checked.
 
 ### Previously audited imports remain unavailable
 
-[V006's source audit](../V006/joint_literature.md) already explains why
+[V006's source audit](../quadratic-separation-digit-count-sections/joint_literature.md) already explains why
 linear-growth semigroup structure theorems do not directly apply to a
 single rooted orbit. Equality of two states provides a one-sided action
 congruence, not the two-sided congruence needed for a semigroup quotient.
 The separate-base counterexample in
-[V005](../V005/literature.md) has at least quadratic mixed growth. Neither
+[V005](../automatic-section-forces-constancy/literature.md) has at least quadratic mixed growth. Neither
 gap is repaired by calling the action rational or affine.
 
 ## 3. Independent audit: reverse closure gives two-base infinitude
 
 This section checks the new elementary reverse-closure lemma independently
-against [the scalar interface](../V005/scalar_interface.md). Put
+against [the scalar interface](../scalar-interface-three-identities.md). Put
 
 ```
 c(n)=b(2n),
@@ -167,7 +167,7 @@ then so is c by closure under fixed affine extraction. This union is
 finite, hence b is binary-automatic. The reconstruction of h from its
 odd section and V004 then force h to be constant.
 
-The [V005 local reconstruction](../V005/direct_sections.md#2-a-local-automaticity-lemma)
+The [V005 local reconstruction](../automatic-section-forces-constancy/direct_sections.md#2-a-local-automaticity-lemma)
 also works if its positive-offset binary section
 g(n)=h(2^K n+r) is ternary-automatic. Its exact color identities are
 unchanged. Fixed affine extraction and fixed-modulus interleaving preserve

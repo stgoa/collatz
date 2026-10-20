@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**196 results, 25 attempts, 31 questions, 27 sources.**
+**217 results, 28 attempts, 35 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -40,6 +40,10 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 | [`rotation-defect-denominator-candidate`](areas/cycles/questions/rotation-defect-denominator-candidate.md) | cycles | Prove or refute: for every positive valuation word w of length m with total A, D = 2^A − 3^m > 0 and g = gcd(C_w, D), and every nonidentity rotation differing… | 0 |
 | [`rotation-distance-at-least-5`](areas/cycles/questions/rotation-distance-at-least-5.md) | cycles | Prove or refute: no nonidentity rotation of the valuation word of a hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map differs from i… | 0 |
 | [`rotation-distance-growth`](areas/cycles/questions/rotation-distance-growth.md) | cycles | Find an explicit F(m) → ∞ such that the primitive valuation word w of every hypothetical nontrivial integer cycle of the odd-only 3x+1 map (period m) satisfies… | 0 |
+| [`capped-first-passage-power-bounds`](areas/invariants/questions/capped-first-passage-power-bounds.md) | invariants | Odd-only 3x+1 map S, time in odd arrows. Draw N logarithmically on the odd integers of [X, 2X]; follow its orbit until the first state <= X^(1/4), capped at ce… | 0 |
+| [`invariant-sets-meet-every-residue-class`](areas/invariants/questions/invariant-sets-meet-every-residue-class.md) | invariants | For the 3x+1 map on the positive integers, let B be a nonempty union of orbit components (closed under the forward map and under all inverse branches; 1 absorb… | 0 |
+| [`occupation-measure-tightness`](areas/invariants/questions/occupation-measure-tightness.md) | invariants | Odd-only 3x+1 map S on positive odd integers with S(1) = 1, time counted in odd arrows. For a seed n let m_(n,T) = T^(-1) sum_(j<T) delta_(S^j(n)) be its empir… | 0 |
+| [`section-count-depth-ratio-unbounded`](areas/invariants/questions/section-count-depth-ratio-unbounded/README.md) | invariants | Let h be a finite-valued colouring of the positive integers with h(2n) = h(n) for n >= 1 and h(3n+1) = h(n) for positive odd n > 1 (1 absorbing), extended by h… | 0 |
 
 ## Area: convergence
 
@@ -300,6 +304,40 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 
 Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 
+### Results
+
+| Result | Title | Status | Chain | Rests on | Lean |
+|---|---|---|---|---|---|
+| [`additive-section-excess-unbounded`](areas/invariants/results/additive-section-excess-unbounded/README.md) | Every nonconstant 3x+1 invariant has binary section count exceeding D+1 by an unbounded a… | reviewed | written | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
+| [`automatic-section-forces-constancy`](areas/invariants/results/automatic-section-forces-constancy/README.md) | One automatic positive binary section of a 3x+1 invariant forces constancy, with a polyno… | written | written | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
+| [`binary-automatic-invariant-colourings-constant`](areas/invariants/results/binary-automatic-invariant-colourings-constant/README.md) | Every finite-valued binary-automatic invariant colouring of 3x+1 is constant, given Cobha… | formal | formal | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` | yes |
+| [`binary-kernel-first-ternary-image`](areas/invariants/results/binary-kernel-first-ternary-image.md) | The first ternary image of a finite binary kernel of a 3x+1 invariant adds at most the on… | written | written | — |  |
+| [`d-uniform-automatic-invariant-colourings`](areas/invariants/results/d-uniform-automatic-invariant-colourings.md) | For gcd(d, 6) = 1 the binary-automatic invariant colourings of 3x+d are the functions of… | written | written | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
+| [`digit-count-invariant-colourings-constant`](areas/invariants/results/digit-count-invariant-colourings-constant/README.md) | A 3x+1 invariant colouring that depends only on the binary digit count is constant | reviewed | reviewed | — |  |
+| [`digit-count-section-forces-quadratic-growth`](areas/invariants/results/digit-count-section-forces-quadratic-growth.md) | A nonconstant 3x+1 invariant with one digit-count section has quadratically many binary s… | reviewed | written | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
+| [`first-shell-three-state-rigidity`](areas/invariants/results/first-shell-three-state-rigidity.md) | A sequence with the three scalar identities and at most three distinct first-shell sectio… | written | written | — |  |
+| [`linear-growth-short-detection`](areas/invariants/results/linear-growth-short-detection.md) | Linear joint section growth forces every nonzero combination of depth-A sections to be de… | reviewed | reviewed | — |  |
+| [`linear-growth-uniform-future-cuts`](areas/invariants/results/linear-growth-uniform-future-cuts.md) | A linear cumulative bound on a rooted section graph gives arbitrarily late cuts with a un… | reviewed | reviewed | — |  |
+| [`monochromatic-cylinder-forces-constancy`](areas/invariants/results/monochromatic-cylinder-forces-constancy.md) | An invariant colouring of 3x+d that is eventually constant on one dyadic residue class is… | written | written | — |  |
+| [`odd-eventually-periodic-invariants-constant`](areas/invariants/results/odd-eventually-periodic-invariants-constant.md) | A 3x+1 invariant colouring whose odd values are eventually periodic is constant | formal | formal | — | yes |
+| [`periodic-invariant-colourings-classification`](areas/invariants/results/periodic-invariant-colourings-classification/README.md) | Periodic invariant colourings of 3x+d factor through gcd(M, d), so for 3x+1 they are cons… | formal | formal | — | yes |
+| [`positive-offset-kernel-ternary-closure`](areas/invariants/results/positive-offset-kernel-ternary-closure.md) | The positive-offset binary sections of a 3x+1 invariant are closed under binary and terna… | formal | formal | — | yes |
+| [`quadratic-separation-digit-count-sections`](areas/invariants/results/quadratic-separation-digit-count-sections/README.md) | Mixed sections of a non-eventually-periodic digit-count sequence are pairwise distinct, g… | formal | formal | — | yes |
+| [`reverse-closure-two-base-automaticity`](areas/invariants/results/reverse-closure-two-base-automaticity.md) | For the odd-value sequence of a 3x+1 invariant, 2-automatic and 3-automatic are equivalent | formal | formal | `cobham-recognizability-theorem` | yes |
+| [`scalar-interface-three-identities`](areas/invariants/results/scalar-interface-three-identities.md) | Three identities on the odd values are equivalent to 3x+1 invariance of a colouring | formal | formal | — | yes |
+| [`scaling-invariant-character-not-eventually-periodic`](areas/invariants/results/scaling-invariant-character-not-eventually-periodic.md) | A binary-automatic character invariant under doubling and tripling need not be eventually… | written | written | — |  |
+| [`singleton-exit-separator-exclusion`](areas/invariants/results/singleton-exit-separator-exclusion/README.md) | The joint section graph of a nonconstant 3x+1 invariant has no finite forward interior wi… | reviewed | written | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
+| [`sparse-indicator-linear-growth-in-both-bases`](areas/invariants/results/sparse-indicator-linear-growth-in-both-bases/README.md) | A non-eventually-periodic indicator with linear section growth in both bases 2 and 3 | reviewed | reviewed | — |  |
+| [`two-exit-interior-counterexample`](areas/invariants/results/two-exit-interior-counterexample/README.md) | An irrational-rotation sequence has a two-exit interior with infinite kernels in both bas… | reviewed | reviewed | — |  |
+
+### Attempts (approaches that failed or stalled)
+
+| Attempt | Title | Status |
+|---|---|---|
+| [`binary-ternary-carry-frontier`](areas/invariants/attempts/binary-ternary-carry-frontier/README.md) | Binary/ternary carry diagrams (base conversion) as a language for invariant colourings | written |
+| [`quantitative-rigidity-programme`](areas/invariants/attempts/quantitative-rigidity-programme.md) | Five batches toward superlinear section growth of 3x+1 invariants, which reached only an additive gain | written |
+| [`viewpoint-language-survey`](areas/invariants/attempts/viewpoint-language-survey/README.md) | A breadth-first survey of fourteen candidate languages for Collatz, ending in the choice of invariant colouri… | reviewed |
+
 ## Sources (external inputs)
 
 | Source | Title | Status | Used by |
@@ -309,9 +347,9 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 3 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
-| [`cobham-recognizability-theorem`](sources/cobham-recognizability-theorem.md) | Cobham's theorem: sets recognizable in two independent bases | cited | 0 |
+| [`cobham-recognizability-theorem`](sources/cobham-recognizability-theorem.md) | Cobham's theorem: sets recognizable in two independent bases | cited | 3 |
 | [`corvaja-2005-s-unit-height`](sources/corvaja-2005-s-unit-height.md) | Corvaja–Zannier: height of a rational function at S-unit points | cited | 2 |
-| [`eilenberg-finite-kernel`](sources/eilenberg-finite-kernel.md) | Eilenberg's finite-kernel characterisation of automatic sequences | cited | 0 |
+| [`eilenberg-finite-kernel`](sources/eilenberg-finite-kernel.md) | Eilenberg's finite-kernel characterisation of automatic sequences | cited | 2 |
 | [`eliahou-1993-cycle-length`](sources/eliahou-1993-cycle-length.md) | Eliahou (1993): lower bound on nontrivial cycle length | cited | 0 |
 | [`everett-1977-stopping-time`](sources/everett-1977-stopping-time.md) | Everett (1977): density one of integers with finite stopping time | cited | 0 |
 | [`halbeisen-1997-rational-cycles`](sources/halbeisen-1997-rational-cycles.md) | Halbeisen–Hungerbühler (1997): optimal bounds for rational Collatz cycles | cited | 0 |
@@ -525,6 +563,36 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 | TAO-L4-b | [`explicit-tao-via-formal-mixing-constants`](areas/convergence/attempts/explicit-tao-via-formal-mixing-constants.md) |
 | TAO-L5 | [`explicit-almost-all-descent-threshold`](areas/convergence/questions/explicit-almost-all-descent-threshold.md) |
 | TAO-L6 | [`explicit-almost-all-descent-threshold`](areas/convergence/questions/explicit-almost-all-descent-threshold.md) |
+| V001 | [`viewpoint-language-survey`](areas/invariants/attempts/viewpoint-language-survey/README.md) |
+| V002 | [`periodic-invariant-colourings-classification`](areas/invariants/results/periodic-invariant-colourings-classification/README.md) |
+| V002-b | [`viewpoint-language-survey`](areas/invariants/attempts/viewpoint-language-survey/README.md) |
+| V003 | [`digit-count-invariant-colourings-constant`](areas/invariants/results/digit-count-invariant-colourings-constant/README.md) |
+| V003-b | [`binary-kernel-first-ternary-image`](areas/invariants/results/binary-kernel-first-ternary-image.md) |
+| V003-c | [`scaling-invariant-character-not-eventually-periodic`](areas/invariants/results/scaling-invariant-character-not-eventually-periodic.md) |
+| V003-d | [`monochromatic-cylinder-forces-constancy`](areas/invariants/results/monochromatic-cylinder-forces-constancy.md) |
+| V003-e | [`binary-ternary-carry-frontier`](areas/invariants/attempts/binary-ternary-carry-frontier/README.md) |
+| V004 | [`binary-automatic-invariant-colourings-constant`](areas/invariants/results/binary-automatic-invariant-colourings-constant/README.md) |
+| V004-b | [`positive-offset-kernel-ternary-closure`](areas/invariants/results/positive-offset-kernel-ternary-closure.md) |
+| V004-c | [`odd-eventually-periodic-invariants-constant`](areas/invariants/results/odd-eventually-periodic-invariants-constant.md) |
+| V004-d | [`d-uniform-automatic-invariant-colourings`](areas/invariants/results/d-uniform-automatic-invariant-colourings.md) |
+| V005 | [`automatic-section-forces-constancy`](areas/invariants/results/automatic-section-forces-constancy/README.md) |
+| V005-a | [`scalar-interface-three-identities`](areas/invariants/results/scalar-interface-three-identities.md) |
+| V005-b | [`sparse-indicator-linear-growth-in-both-bases`](areas/invariants/results/sparse-indicator-linear-growth-in-both-bases/README.md) |
+| V006 | [`quadratic-separation-digit-count-sections`](areas/invariants/results/quadratic-separation-digit-count-sections/README.md) |
+| V006-a | [`quadratic-separation-digit-count-sections`](areas/invariants/results/quadratic-separation-digit-count-sections/README.md) |
+| V006-b | [`digit-count-section-forces-quadratic-growth`](areas/invariants/results/digit-count-section-forces-quadratic-growth.md) |
+| V007 | [`singleton-exit-separator-exclusion`](areas/invariants/results/singleton-exit-separator-exclusion/README.md) |
+| V007-a | [`reverse-closure-two-base-automaticity`](areas/invariants/results/reverse-closure-two-base-automaticity.md) |
+| V008 | [`two-exit-interior-counterexample`](areas/invariants/results/two-exit-interior-counterexample/README.md) |
+| V008-b | [`first-shell-three-state-rigidity`](areas/invariants/results/first-shell-three-state-rigidity.md) |
+| V008-c | [`linear-growth-uniform-future-cuts`](areas/invariants/results/linear-growth-uniform-future-cuts.md) |
+| V009 | [`additive-section-excess-unbounded`](areas/invariants/results/additive-section-excess-unbounded/README.md) |
+| V009-b | [`linear-growth-short-detection`](areas/invariants/results/linear-growth-short-detection.md) |
+| VP-S2 | [`invariant-sets-meet-every-residue-class`](areas/invariants/questions/invariant-sets-meet-every-residue-class.md) |
+| VP-V11 | [`occupation-measure-tightness`](areas/invariants/questions/occupation-measure-tightness.md) |
+| VP-V12 | [`capped-first-passage-power-bounds`](areas/invariants/questions/capped-first-passage-power-bounds.md) |
+| VP-V13 | [`section-count-depth-ratio-unbounded`](areas/invariants/questions/section-count-depth-ratio-unbounded/README.md) |
+| VP-V14 | [`binary-ternary-carry-frontier`](areas/invariants/attempts/binary-ternary-carry-frontier/README.md) |
 
 ## Recent activity
 
