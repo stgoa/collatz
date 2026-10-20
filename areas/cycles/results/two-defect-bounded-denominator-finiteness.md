@@ -50,7 +50,7 @@ Bounded length alone does not give finitely many words, so the valuations must a
 ## Remarks
 
 - **Refinements.** (6) of [`two-defect-cancellation-bound`](two-defect-cancellation-bound.md) gives `q > c'·2^((m−k)/2)·m^(−K')` directly, a stronger rate under any amplitude ceiling or `k ≤ (1 − ε)m`. These are not needed for the finiteness theorem.
-- **What it does not give.** It leaves finitely many exceptions at `q = 1`; the all-size exclusion needs explicit constants and the period bound, [`two-defect-rotation-exclusion`](two-defect-rotation-exclusion/README.md). The side lane's S09 (legacy `experiments/cycle_spectrum/S09/`, not yet migrated) later made the bounded-denominator finiteness explicit and exponential (feed 2026-10-19 13:22).
+- **What it does not give.** It leaves finitely many exceptions at `q = 1`; the all-size exclusion needs explicit constants and the period bound, [`two-defect-rotation-exclusion`](two-defect-rotation-exclusion/README.md). The side lane's S09 ([`two-three-mismatch-denominator-laws`](two-three-mismatch-denominator-laws/README.md)) later made the bounded-denominator finiteness explicit and exponential (feed 2026-10-19 13:22).
 - **Controls.** The actual `3x+d` cycles with two-defect words are finitely many at each `d`, consistent with the statement.
 
 ## History

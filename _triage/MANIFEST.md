@@ -96,33 +96,33 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B05-cycles-S02-S08 | `reviews/side_lane/s8_four_mismatch_map.*` | 2 | node four-mismatch-size-method-limit |
 | B05-cycles-S02-S08 | `reviews/side_lane/s8_multiple_rotations.*` | 1 | node four-mismatch-size-method-limit |
 | B05-cycles-S02-S08 | `reviews/side_lane/s8_multirotation_check.*` | 1 | node four-mismatch-size-method-limit |
-| B06-cycles-S09-S13 | `experiments/cycle_spectrum/BRIEF.md` | 1 | pending |
-| B06-cycles-S09-S13 | `experiments/cycle_spectrum/LOG.md` | 1 | pending |
-| B06-cycles-S09-S13 | `experiments/cycle_spectrum/README.md` | 1 | pending |
-| B06-cycles-S09-S13 | `experiments/cycle_spectrum/S09` | 1 | pending |
-| B06-cycles-S09-S13 | `experiments/cycle_spectrum/S10` | 1 | pending |
-| B06-cycles-S09-S13 | `experiments/cycle_spectrum/S11` | 1 | pending |
-| B06-cycles-S09-S13 | `experiments/cycle_spectrum/S12` | 1 | pending |
-| B06-cycles-S09-S13 | `experiments/cycle_spectrum/S13` | 1 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/c0_basin_classify.*` | 1 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/c0_basin_receipt.*` | 2 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/fixed_h_check.*` | 2 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/negative_cycle_shadows.*` | 2 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/rho_prefix_plans.*` | 2 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/s10_more_mismatches.*` | 1 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/s10_multirotation_lp.*` | 2 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/s10_repeat_complexity.*` | 2 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/s10_v2nev4_discrete.*` | 1 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/s10_v2nev4_killers.*` | 1 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/s10_v2nev4_twelve_rotations.*` | 1 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/s11_c013_gap.*` | 2 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/s12_denjoy_koksma.*` | 2 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/s12_dk_denominator_law.*` | 2 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/s13_corollaries.*` | 2 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/s13_rise_lemma.*` | 2 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/s13_short_rotations.*` | 2 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/s9_denominator_law.*` | 2 | pending |
-| B06-cycles-S09-S13 | `reviews/side_lane/transfer_3xd.*` | 2 | pending |
+| B06-cycles-S09-S13 | `experiments/cycle_spectrum/BRIEF.md` | 1 | archive archive/cycle-spectrum/BRIEF.md |
+| B06-cycles-S09-S13 | `experiments/cycle_spectrum/LOG.md` | 1 | archive archive/cycle-spectrum/LOG.md |
+| B06-cycles-S09-S13 | `experiments/cycle_spectrum/README.md` | 1 | dropped: content summarised in areas/cycles/OVERVIEW.md (index superseded by MAP.md); git rm |
+| B06-cycles-S09-S13 | `experiments/cycle_spectrum/S09` | 1 | node two-three-mismatch-denominator-laws, global-drift-ceiling, cycle-word-repeat-bound |
+| B06-cycles-S09-S13 | `experiments/cycle_spectrum/S10` | 1 | node multi-rotation-four-mismatch-exclusion, four-mismatch-sign-dichotomy (from Lean S10-a) |
+| B06-cycles-S09-S13 | `experiments/cycle_spectrum/S11` | 1 | node shared-background-copies-via-gap |
+| B06-cycles-S09-S13 | `experiments/cycle_spectrum/S12` | 1 | node denjoy-koksma-height-bound, denjoy-koksma-denominator-law |
+| B06-cycles-S09-S13 | `experiments/cycle_spectrum/S13` | 1 | node rise-lemma, short-rotation-mismatch-growth, rise-lemma-denominator-law, largest-letter-rho-reduction; questions largest-letter-sublinear, rotation-distance-at-least-5 |
+| B09-convergence-residual-1 | `reviews/side_lane/c0_basin_classify.*` | 1 | pending (moved from B06: classifies the c0 basin for main's deeper-window candidate and R91, residual progress; not cycle material) |
+| B09-convergence-residual-1 | `reviews/side_lane/c0_basin_receipt.*` | 2 | pending (moved from B06: wrapper of c0_basin_classify.c, deeper_window/R91; not cycle material) |
+| B11-convergence-residual-3 | `reviews/side_lane/fixed_h_check.*` | 2 | pending (moved from B06: checks main's fixed-h depth theorem, phase_depth/FIXED_H_DEPTH.md; not cycle material) |
+| B11-convergence-residual-3 | `reviews/side_lane/negative_cycle_shadows.*` | 2 | pending (moved from B06: R53/R54 blocks as 2-adic shadows of the negative cycles, imports phase_rank and continued_rules; not cycle material) |
+| B09-convergence-residual-1 | `reviews/side_lane/rho_prefix_plans.*` | 2 | pending (moved from B06: quotient-prefix plans for R43/R51/R62, critical_rank; not cycle material) |
+| B06-cycles-S09-S13 | `reviews/side_lane/s10_more_mismatches.*` | 1 | node multi-rotation-four-mismatch-exclusion |
+| B06-cycles-S09-S13 | `reviews/side_lane/s10_multirotation_lp.*` | 2 | node multi-rotation-four-mismatch-exclusion |
+| B06-cycles-S09-S13 | `reviews/side_lane/s10_repeat_complexity.*` | 2 | node cycle-word-repeat-bound |
+| B06-cycles-S09-S13 | `reviews/side_lane/s10_v2nev4_discrete.*` | 1 | node multi-rotation-four-mismatch-exclusion |
+| B06-cycles-S09-S13 | `reviews/side_lane/s10_v2nev4_killers.*` | 1 | node multi-rotation-four-mismatch-exclusion |
+| B06-cycles-S09-S13 | `reviews/side_lane/s10_v2nev4_twelve_rotations.*` | 1 | node multi-rotation-four-mismatch-exclusion |
+| B06-cycles-S09-S13 | `reviews/side_lane/s11_c013_gap.*` | 2 | node shared-background-copies-via-gap |
+| B06-cycles-S09-S13 | `reviews/side_lane/s12_denjoy_koksma.*` | 2 | node denjoy-koksma-height-bound |
+| B06-cycles-S09-S13 | `reviews/side_lane/s12_dk_denominator_law.*` | 2 | node denjoy-koksma-denominator-law |
+| B06-cycles-S09-S13 | `reviews/side_lane/s13_corollaries.*` | 2 | node short-rotation-mismatch-growth (also evidence for largest-letter-rho-reduction) |
+| B06-cycles-S09-S13 | `reviews/side_lane/s13_rise_lemma.*` | 2 | node rise-lemma |
+| B06-cycles-S09-S13 | `reviews/side_lane/s13_short_rotations.*` | 2 | node short-rotation-mismatch-growth |
+| B06-cycles-S09-S13 | `reviews/side_lane/s9_denominator_law.*` | 2 | node two-three-mismatch-denominator-laws |
+| B09-convergence-residual-1 | `reviews/side_lane/transfer_3xd.*` | 2 | pending (moved from B06: transfer of main's R23/R54/18u+5 identities to 3x+d; residual-progress framework, not cycle material) |
 | B07-convergence-packet-currents | `experiments/packet_currents/README.md` | 1 | pending |
 | B07-convergence-packet-currents | `experiments/packet_currents/collatz_packet_currents` | 32 | pending |
 | B07-convergence-packet-currents | `experiments/packet_currents/negative_controls` | 15 | pending |

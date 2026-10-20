@@ -34,7 +34,7 @@ tags: [cycles, rotation-distance, size-method, withdrawn]
 
 # Excluding four-mismatch rotations by S7's size inequalities alone (headline withdrawn)
 
-> **Withdrawn 2026-10-19 13:44 (legacy note's banner, kept).** The exhibited words fail the witness inequalities of the rotation by `2h` (6 mismatches), by about `2·10^5` bits at `m = 10^6`. Only the narrow statement survives: the single-rotation relaxation is feasible. Whether all size constraints together exclude four mismatches is open (S10, legacy `experiments/cycle_spectrum/S10/`, not yet migrated). The text below is kept as written.
+> **Withdrawn 2026-10-19 13:44 (legacy note's banner, kept).** The exhibited words fail the witness inequalities of the rotation by `2h` (6 mismatches), by about `2·10^5` bits at `m = 10^6`. Only the narrow statement survives: the single-rotation relaxation is feasible. Whether all size constraints together exclude four mismatches is open (S10, [`multi-rotation-four-mismatch-exclusion`](../multi-rotation-four-mismatch-exclusion/README.md)). The text below is kept as written.
 
 ## Idea
 
@@ -145,7 +145,7 @@ The headline claim fails; the side lane withdrew it at 13:44 (feed "COUNTEREXAMP
 - **Constraint (5)** in corrected form, at general odd `q`: [`ones-run-divisibility`](../../results/ones-run-divisibility.md) (formal).
 - **The 1-cycle by-product of §4**: [`one-cycle-exclusion-via-gap`](../../results/one-cycle-exclusion-via-gap.md) (formal, conditional on the gap; a known result by a new route).
 - **The candidate mechanisms of §4** (arithmetic of the mismatch transition, the mod-`D` relation over the mismatches, a much stronger bound on `L`), as suggestions for [`rotation-distance-growth`](../../questions/rotation-distance-growth.md).
-- **What it opened.** Whether multi-rotation size constraints (`h`, `2h`, …) exclude every four-mismatch word, giving `ρ ≥ 5`, became the side lane's S10 (legacy `experiments/cycle_spectrum/S10/`, not yet migrated): the cheapest pattern is excluded by `h` and `2h` together in a continuous model; another pattern survives there; `ρ ≥ 5` stays open.
+- **What it opened.** Whether multi-rotation size constraints (`h`, `2h`, …) exclude every four-mismatch word, giving `ρ ≥ 5`, became the side lane's S10 ([`multi-rotation-four-mismatch-exclusion`](../multi-rotation-four-mismatch-exclusion/README.md)): the cheapest pattern is excluded by `h` and `2h` together in a continuous model; another pattern survives there; `ρ ≥ 5` stays open.
 
 ## History
 

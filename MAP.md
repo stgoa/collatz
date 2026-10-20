@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**50 results, 14 attempts, 7 questions, 26 sources.**
+**61 results, 15 attempts, 9 questions, 26 sources.**
 
 ## Frontier: open questions
 
@@ -13,9 +13,11 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 | [`cycle-height-bound`](areas/cycles/questions/cycle-height-bound.md) | cycles | Prove or refute: every hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map, of period m, minimum L and maximum H, has height B = floor… | 0 |
 | [`height-denominator-candidate`](areas/cycles/questions/height-denominator-candidate/README.md) | cycles | Prove or refute: every primitive positive rational cycle of the raw odd-only 3x+1 map (written as a reduced odd numerator cycle 3n_i + q = 2^(a_i)·n_(i+1), q o… | 0 |
 | [`height-residue-hall-matching`](areas/cycles/questions/height-residue-hall-matching.md) | cycles | Prove or refute, for every primitive positive ordered cycle of the raw odd-only map (q ≤ L, m > 1, circular normalised successor order) with reduced odd denomi… | 0 |
+| [`largest-letter-sublinear`](areas/cycles/questions/largest-letter-sublinear.md) | cycles | Prove or refute: every hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map, of period m, has all valuations a_i = v₂(3n_i + 1) ≤ f(m)… | 0 |
 | [`one-height-defect-ordered-cycles`](areas/cycles/questions/one-height-defect-ordered-cycles.md) | cycles | Ordered odd-only cycles at q = 1 with one chronological height h_t = 1 and all other heights 0: legality forces c_(t−1) = 2, and reduced denominator 1 would re… | 0 |
 | [`ordered-cycle-denominator-one`](areas/cycles/questions/ordered-cycle-denominator-one.md) | cycles | Prove or refute: every nontrivial primitive positive rational cycle of the raw odd-only 3x+1 map whose dyadically normalised successor preserves circular order… | 0 |
 | [`rotation-defect-denominator-candidate`](areas/cycles/questions/rotation-defect-denominator-candidate.md) | cycles | Prove or refute: for every positive valuation word w of length m with total A, D = 2^A − 3^m > 0 and g = gcd(C_w, D), and every nonidentity rotation differing… | 0 |
+| [`rotation-distance-at-least-5`](areas/cycles/questions/rotation-distance-at-least-5.md) | cycles | Prove or refute: no nonidentity rotation of the valuation word of a hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map differs from i… | 0 |
 | [`rotation-distance-growth`](areas/cycles/questions/rotation-distance-growth.md) | cycles | Find an explicit F(m) → ∞ such that the primitive valuation word w of every hypothetical nontrivial integer cycle of the odd-only 3x+1 map (period m) satisfies… | 0 |
 
 ## Area: convergence
@@ -37,12 +39,18 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`contracting-two-block-effective-exclusion`](areas/cycles/results/contracting-two-block-effective-exclusion/README.md) | Contracting two-block words with a block repeated three times have denominator above 2^M | formal | formal | — | yes |
 | [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) | The coupled mismatch-cut system has determinant ±D^(s−2)·Π(β'_i − β_i) and only two indep… | reviewed | reviewed | — |  |
 | [`cycle-height-ceiling`](areas/cycles/results/cycle-height-ceiling.md) | The height of a cycle is at most (log₂3 − 1)(m − 1) plus a term in q/L, by climbing from… | formal | formal | — | yes |
+| [`cycle-word-repeat-bound`](areas/cycles/results/cycle-word-repeat-bound/README.md) | No long factor repeats in a cycle word: the run bound as a factor-complexity statement | written | written | `musson-collatz-gap-all` |  |
+| [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) | A denominator law for any number of mismatches, from the Denjoy–Koksma height bound | formal | reviewed | — | yes |
+| [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) | A Denjoy–Koksma height bound: B ≤ (K(h/m) − 1)·(V_h + 2δ) for every rotation coprime to t… | formal | formal | — | yes |
 | [`distance-three-height-family`](areas/cycles/results/distance-three-height-family.md) | Rotation distance three, q ≤ L and vanishing drift do not bound the height of a cycle | reviewed | reviewed | — |  |
 | [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) | Dyadic normalisation of a cycle, the exact inversion formula and the order lemma | reviewed | reviewed | — | yes |
 | [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) | Two different equal-total blocks repeated at least three times never give an integer cycle | formal | formal | — | yes |
 | [`excursion-cut-lemma`](areas/cycles/results/excursion-cut-lemma.md) | An exact endpoint relation forces every intermediate odd state, and closing two blocks gi… | formal | formal | — | yes |
 | [`fixed-defect-unbounded-cancellation`](areas/cycles/results/fixed-defect-unbounded-cancellation.md) | Two unit rotation defects allow arbitrarily large cancellation: the family 1^t 2^(2t) | reviewed | reviewed | — |  |
+| [`four-mismatch-sign-dichotomy`](areas/cycles/results/four-mismatch-sign-dichotomy.md) | A rotation with four mismatches has one sign change of each kind, or two of each in alter… | formal | formal | — | yes |
 | [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines.md) | Order-free baselines for cycle minima and denominators (extremal, packing, product) | written | written | — |  |
+| [`global-drift-ceiling`](areas/cycles/results/global-drift-ceiling.md) | The global-drift ceiling: log₂(n_k/L) ≤ k·log₂(3/2) − X_k + δ at every q, with no hypothe… | formal | formal | — | yes |
+| [`largest-letter-rho-reduction`](areas/cycles/results/largest-letter-rho-reduction.md) | A low-mismatch rotation forces a letter of linear size, so ρ → ∞ follows from a largest l… | reviewed | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `musson-collatz-gap-all` | yes |
 | [`mismatch-height-tradeoff`](areas/cycles/results/mismatch-height-tradeoff/README.md) | Mismatch–height trade-off at q = 1: every rotation differs in more than log₂3·m/(B + 342… | formal | reviewed | `musson-collatz-gap-all` | yes |
 | [`narrow-cycle-spectrum-law`](areas/cycles/results/narrow-cycle-spectrum-law.md) | Narrow-cycle spectrum of 3x+d: one cycle per coprime (A, m) with 0 < 2^A − 3^m dividing d | reviewed | reviewed | — |  |
 | [`narrow-cycles-are-mechanical`](areas/cycles/results/narrow-cycles-are-mechanical/README.md) | A cycle with H < 2L is exactly a mechanical word, so every nontrivial 3x+1 cycle has H >… | formal | formal | — | yes |
@@ -62,12 +70,16 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`proportional-slope-two-block-bound`](areas/cycles/results/proportional-slope-two-block-bound.md) | Proportional-slope two-block words have an explicit exponential denominator bound | formal | formal | — | yes |
 | [`q-one-inversion-pair-reduction`](areas/cycles/results/q-one-inversion-pair-reduction/README.md) | At q = 1 an image inversion needs height gap at least 3, and at gap 3 it is a sorted-adja… | formal | reviewed | — | yes |
 | [`repeated-block-cancellation-bound`](areas/cycles/results/repeated-block-cancellation-bound/README.md) | A fixed defect bounds the denominator cancellation of repeated-block words | reviewed | reviewed | — | yes |
+| [`rise-lemma`](areas/cycles/results/rise-lemma/README.md) | The rise lemma: each agreeing run of a rotation multiplies the log-height by at most log₂3 | formal | reviewed | — | yes |
+| [`rise-lemma-denominator-law`](areas/cycles/results/rise-lemma-denominator-law.md) | A denominator law exponential in the mismatch count, for every rotation (the rise lemma's… | reviewed | reviewed | — |  |
 | [`rotated-residual-resultant-invariance`](areas/cycles/results/rotated-residual-resultant-invariance.md) | Unreviewed draft: rotated residual resultants agree away from 2 and 3, and their size can… | proposed | proposed | — |  |
 | [`rotating-mechanical-two-block-family`](areas/cycles/results/rotating-mechanical-two-block-family.md) | Mechanical block and its rotation: u_m^k v_m^ℓ has growing minima and no denominator 1 | reviewed | reviewed | — |  |
 | [`rotation-block-exclusion`](areas/cycles/results/rotation-block-exclusion/README.md) | Concatenations of rotations of one mechanical word are never integer 3x+1 cycles | formal | reviewed | — | yes |
 | [`rotation-lattice-single-divisibility`](areas/cycles/results/rotation-lattice-single-divisibility.md) | Integrality of all rotated cycle states is a single divisibility condition | reviewed | reviewed | — | yes |
 | [`run-start-gap-recursion`](areas/cycles/results/run-start-gap-recursion.md) | The run starts of an ordered cycle's gap system form a J-state generalised Collatz cycle,… | formal | reviewed | — | yes |
+| [`shared-background-copies-via-gap`](areas/cycles/results/shared-background-copies-via-gap/README.md) | C013's q = 1 restriction with the replayed gap instead of Matveev: tens of thousands of b… | written | written | `hercher-2023-cycle-length`, `languasco-2025-two-primes`, `matveev-2000-linear-forms`, `musson-collatz-gap-all` |  |
 | [`shared-background-denominator-law`](areas/cycles/results/shared-background-denominator-law/README.md) | A word built from one repeated background between nonconstant markers has denominator gro… | reviewed | reviewed | `languasco-2025-two-primes`, `matveev-2000-linear-forms` | yes |
+| [`short-rotation-mismatch-growth`](areas/cycles/results/short-rotation-mismatch-growth/README.md) | Short rotations of a 3x+1 cycle have mismatch counts growing like log m, and the low mism… | reviewed | reviewed | `musson-collatz-gap-all` | yes |
 | [`single-forced-position-denominator`](areas/cycles/results/single-forced-position-denominator.md) | A reduced ordered cycle with a single forced position has D = q | formal | reviewed | — | yes |
 | [`small-band-height-residue-matching`](areas/cycles/results/small-band-height-residue-matching.md) | Height-residue matching holds for ordered cycles with q > 1 in at most three (normalised)… | written | written | — |  |
 | [`three-band-collatz-cycles-are-ordered`](areas/cycles/results/three-band-collatz-cycles-are-ordered.md) | A 3x+1 cycle with H < 8L is dyadically ordered with mechanical normalised word and gcd(A,… | formal | reviewed | — | yes |
@@ -79,6 +91,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`two-defect-marker-family`](areas/cycles/results/two-defect-marker-family.md) | The words (3, b_n, 4, b_n) are never integer 3x+1 cycles, with growing minimum and local-… | reviewed | reviewed | — |  |
 | [`two-defect-rotation-exclusion`](areas/cycles/results/two-defect-rotation-exclusion/README.md) | No nontrivial 3x+1 cycle has a rotation differing from it in exactly two positions (ρ ≥ 3) | reviewed | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `languasco-2025-two-primes`, `matveev-2000-linear-forms` | yes |
 | [`two-mismatch-exclusion-via-gap`](areas/cycles/results/two-mismatch-exclusion-via-gap/README.md) | C011's two-mismatch exclusion without Matveev: from the trade-off, the replayed gap and t… | formal | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `musson-collatz-gap-all` | yes |
+| [`two-three-mismatch-denominator-laws`](areas/cycles/results/two-three-mismatch-denominator-laws/README.md) | Two- and three-mismatch words have exponentially large denominators unless their drift is… | formal | reviewed | — | yes |
 | [`unequal-slope-two-block-growth`](areas/cycles/results/unequal-slope-two-block-growth/README.md) | Unequal-slope two-block words have denominator 2^((1−o(1))·A), ineffectively | reviewed | reviewed | `corvaja-2005-s-unit-height` |  |
 
 ### Attempts (approaches that failed or stalled)
@@ -95,6 +108,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`interval-trapping-expanding-blocks`](areas/cycles/attempts/interval-trapping-expanding-blocks.md) | Interval trapping of block starts when one block expands | reviewed |
 | [`local-odd-rounding-exclusion`](areas/cycles/attempts/local-odd-rounding-exclusion/README.md) | Excluding ordered denominator-one cycles by integer rounding of the complete sorted gaps | reviewed |
 | [`mechanical-normalized-word-transfer`](areas/cycles/attempts/mechanical-normalized-word-transfer.md) | Transferring the mechanical-word denominator theorem to a mechanical normalised word | reviewed |
+| [`multi-rotation-four-mismatch-exclusion`](areas/cycles/attempts/multi-rotation-four-mismatch-exclusion/README.md) | Excluding four-mismatch rotations with the size inequalities of several rotations at once (paused) | written |
 | [`ordered-cycle-run-renormalisation`](areas/cycles/attempts/ordered-cycle-run-renormalisation/README.md) | Renormalising ordered cycles by compressing the sorted-gap cycle to its run starts | reviewed |
 | [`ordered-cycle-shortcuts`](areas/cycles/attempts/ordered-cycle-shortcuts.md) | Four shortcuts toward excluding ordered denominator-one cycles, each refuted by an exact control | written |
 | [`primewise-height-residue-matching`](areas/cycles/attempts/primewise-height-residue-matching.md) | Proving height-residue matching one prime factor of q at a time | reviewed |
@@ -118,7 +132,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`eliahou-1993-cycle-length`](sources/eliahou-1993-cycle-length.md) | Eliahou (1993): lower bound on nontrivial cycle length | cited | 0 |
 | [`everett-1977-stopping-time`](sources/everett-1977-stopping-time.md) | Everett (1977): density one of integers with finite stopping time | cited | 0 |
 | [`halbeisen-1997-rational-cycles`](sources/halbeisen-1997-rational-cycles.md) | Halbeisen–Hungerbühler (1997): optimal bounds for rational Collatz cycles | cited | 0 |
-| [`hercher-2023-cycle-length`](sources/hercher-2023-cycle-length.md) | Hercher (2023): no Collatz m-cycles with m ≤ 91, and the period bound | cited | 3 |
+| [`hercher-2023-cycle-length`](sources/hercher-2023-cycle-length.md) | Hercher (2023): no Collatz m-cycles with m ≤ 91, and the period bound | cited | 4 |
 | [`knight-2026-high-cycles`](sources/knight-2026-high-cycles.md) | Knight: Collatz high cycles do not exist | cited | 0 |
 | [`krasikov-2003-predecessors`](sources/krasikov-2003-predecessors.md) | Krasikov–Lagarias: predecessor counts at least X^0.84 | cited | 0 |
 | [`lagarias-1985-survey`](sources/lagarias-1985-survey.md) | Lagarias (1985): survey of the 3x+1 problem | cited | 0 |
@@ -128,7 +142,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 4 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 8 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
 | [`steiner-1977-one-cycles`](sources/steiner-1977-one-cycles.md) | Steiner (1977): no nontrivial 1-cycles | cited | 0 |
@@ -162,7 +176,12 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 | S06 | [`two-mismatch-exclusion-via-gap`](areas/cycles/results/two-mismatch-exclusion-via-gap/README.md) |
 | S07 | [`three-mismatch-exclusion`](areas/cycles/results/three-mismatch-exclusion/README.md) |
 | S08 | [`four-mismatch-size-method-limit`](areas/cycles/attempts/four-mismatch-size-method-limit/README.md) |
+| S09 | [`two-three-mismatch-denominator-laws`](areas/cycles/results/two-three-mismatch-denominator-laws/README.md) |
 | S1 | [`ordered-gap-closed-form`](areas/cycles/results/ordered-gap-closed-form/README.md) |
+| S10 | [`multi-rotation-four-mismatch-exclusion`](areas/cycles/attempts/multi-rotation-four-mismatch-exclusion/README.md) |
+| S11 | [`shared-background-copies-via-gap`](areas/cycles/results/shared-background-copies-via-gap/README.md) |
+| S12 | [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) |
+| S13 | [`rise-lemma`](areas/cycles/results/rise-lemma/README.md) |
 
 ## Recent activity
 
@@ -181,13 +200,13 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-19: [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) reviewed by Claude Lean lane (Fable)
 - 2026-10-19: [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) reviewed by Claude side lane (Opus)
 - 2026-10-19: [`cycle-height-ceiling`](areas/cycles/results/cycle-height-ceiling.md) added (result)
+- 2026-10-19: [`cycle-word-repeat-bound`](areas/cycles/results/cycle-word-repeat-bound/README.md) added (result)
+- 2026-10-19: [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) added (result)
+- 2026-10-19: [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) reviewed by Claude Lean lane (Fable)
+- 2026-10-19: [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) added (result)
+- 2026-10-19: [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) reviewed by Claude Lean lane (Fable)
 - 2026-10-19: [`distance-three-height-family`](areas/cycles/results/distance-three-height-family.md) added (result)
 - 2026-10-19: [`distance-three-height-family`](areas/cycles/results/distance-three-height-family.md) reviewed by Claude Lean lane (Fable)
 - 2026-10-19: [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) added (result)
 - 2026-10-19: [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) reviewed by Claude Lean lane (Fable)
 - 2026-10-19: [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) reviewed by Claude side lane (Opus)
-- 2026-10-19: [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) added (result)
-- 2026-10-19: [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) reviewed by Claude side lane (Opus)
-- 2026-10-19: [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) reviewed by Claude Lean lane (Fable)
-- 2026-10-19: [`excursion-cut-lemma`](areas/cycles/results/excursion-cut-lemma.md) added (result)
-- 2026-10-19: [`excursion-cut-lemma`](areas/cycles/results/excursion-cut-lemma.md) reviewed by Claude Lean lane (Fable)
