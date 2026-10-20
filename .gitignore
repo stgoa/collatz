@@ -2,9 +2,10 @@ __pycache__/
 *.py[cod]
 .DS_Store
 /build/
-experiments/packet_currents/collatz_packet_currents/independent_verifier
+**/collatz_packet_currents/independent_verifier
 *.aux
 *.log
 *.out
 *.toc
 *.synctex.gz
+.lake/
