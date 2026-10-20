@@ -47,7 +47,7 @@ C011 gives its own shift-graph argument and does not import an unread
 classification as a proof of the arithmetic estimate.
 
 The affine word formula, rational realization and concatenation algebra
-are classical background, audited in [C001's literature note](../C001/LITERATURE.md).
+are classical background, audited in [C001's literature note](../repeated-block-cancellation-bound/LITERATURE.md).
 The adjacent unit-defect case is the already covered mechanical class.
 The two-arc proof explicitly distinguishes that case from separated
 mismatches and from extra gcd factors.

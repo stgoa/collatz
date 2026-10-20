@@ -75,7 +75,7 @@ directly. This proves finiteness of the entire represented words, with
 arbitrary U, rather than finiteness only at fixed U.
 
 The logarithm estimate was checked against the imported estimate in
-[C011/EXCLUSION.md, equation (1)](../C011/EXCLUSION.md): here D>0 and
+[C011/EXCLUSION.md, equation (1)](../two-defect-rotation-exclusion/EXCLUSION.md): here D>0 and
 `A<2m` justify `B=2m` and `K=600,000,000`. This review does not reprove
 Matveev or independently recheck its publication. No published numerical
 integer-cycle period bound is needed by the C013 argument.

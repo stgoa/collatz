@@ -13,15 +13,15 @@ family and counting proof; it does not claim that small mismatch count
 implies a bounded number of independent arithmetic terms.
 
 The existing affine word convention and common-denominator identity are
-recorded in [C004](../C004/ROTATION_LATTICE.md). The proposed application
+recorded in [C004](../narrow-cycles-are-mechanical/ROTATION_LATTICE.md). The proposed application
 of S-unit estimates must address the varying shared-arc intercepts;
-[C003](../C003/REPORT.md)'s fixed-group reasoning cannot simply be
+[C003](../two-block-uniform-denominator-growth/README.md)'s fixed-group reasoning cannot simply be
 reused with those numbers treated as fixed coefficients. The obstruction
 proved here keeps its bounded-arity and bounded-exponent hypotheses.
 It is not a theorem excluding every use of S-unit methods.
 
 The earlier logarithm and cycle-record inputs remain documented in
-[C011's source audit](../C011/LITERATURE.md). No new analytic consequence
+[C011's source audit](../two-defect-rotation-exclusion/LITERATURE.md). No new analytic consequence
 is claimed in C012. In particular, this batch neither improves a
 universal cycle record nor excludes a new class of integer cycles.
 Its all-size contribution is an exact obstruction to the proposed

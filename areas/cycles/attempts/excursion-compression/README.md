@@ -1,85 +1,62 @@
-# C009 — Excursion compression does not supply the missing obstruction
+---
+id: excursion-compression
+kind: attempt
+title: Compressing an ordered cycle at its excursions above the minimum band
+status: reviewed
+claim: >
+  Tried, toward excluding ordered denominator-one cycles of the raw odd-only 3x+1 map: cut a primitive
+  ordered cycle at each visit to its minimum dyadic band [L, 2L), compress each positive-height
+  excursion by its exact affine relation, and use the excursion congruences, an induced ordered
+  return map, or a drift sign to force descent or a new denominator restriction. Verdict: rejected.
+  The exact block system has Smith form diag(1, …, 1, D) and gives back only D | C at q = 1; circular
+  order is not inherited by the height-zero first-return map (ordered q = 13 cycle 283 → 431 → 653 →
+  493 → 373, and the one-point deletion theorem); and excursions have no automatic descent sign
+  (q = 13 and q = 83 controls, including a contracting excursion that rises). No cycle is excluded.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-19
+depends_on: [excursion-cut-lemma, one-point-deletion-rank-shift, dyadic-order-lemma]
+certificates: [check_return_order.py, c009_excursion_check.py]
+evidence:
+  - "EXCURSION_ARITHMETIC.md: written cut lemma, elimination, k-block Smith form and controls (sections 1-3); FIRST_RETURN_ORDER.md: the one-point deletion theorem and its q = 13 and q = 83 controls (hash-pinned by check_return_order.py's receipt)"
+  - "check_excursions.py, excursions_audit.json: main-lane excursion checker and receipt (8.2 MB: 2,593 first returns, 28,831 prefix cylinders over the 1,185 normalised cycles). Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json', C007's census and experiments/phase6/cycle_fixtures.json by old path. Passed at be73a66 as experiments/cycle_spectrum/C009/check_excursions.py (archive/legacy-checker-run-be73a66.md)"
+  - "check_delivery.py, delivery_checks.json: historical delivery check and receipt; pinned to the historical commits that produced it, fails at HEAD by design (it failed at be73a66 too)"
+  - "INDEPENDENT_EXCURSION.md, ARITHMETIC_REVIEW.md, CHECKER_REVIEW.md, ROOT_REVIEW.md: main-lane independent argument and reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed; LITERATURE.md: literature scope; historical_gate.json: historical finite gate"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-19
+    link: c009_excursion_check.py
+    scope: "Feed 2026-10-19 03:17, REFEREE C009 at main ec48fbd: the q = 13 cycle and its non-shift core (2,0,3,1), the deletion theorem on 13,108 cases (m ≤ 40, coprime s) and 1,770 cases without coprimality (m ≤ 60), the q = 83 excursion and the two open q = 1 paths reproduced; rejection confirmed"
+  - by: Claude Lean lane (Fable)
+    date: 2026-10-19
+    scope: "Feed 03:19: C009 read in full, no error; cut lemma, elimination, deletion table and every number in the q = 13, q = 83 and q = 1 controls re-derived by hand. Lean units C009-a and C009-b verified"
+aliases: [C009]
+tags: [cycles, dyadic-order, excursions, rejected-mechanism]
+---
 
-**Status: the proposed automatic compression mechanism is rejected by
-written arithmetic and exact actual-cycle counterexamples. No new
-denominator-one cycle exclusion is obtained. The full cycle-spectrum
-goal remains active.** The previous C008 turn was progress: its published
-results and counterexamples selected the present bounded test.
+# Compressing an ordered cycle at its excursions above the minimum band
 
-## Mechanism tested
+## Idea
 
-Cut an ordered primitive positive odd cycle at each visit to its minimum
-dyadic band `[L,2L)`. Try to use exact excursion congruences and a simpler
-ordered return map to force descent or an additional denominator
-restriction. Keep the original complement closing every excursion;
-all statements use the raw odd-only clock without an absorber.
+After the residue route ([`height-residue-hall-matching`](../../questions/height-residue-hall-matching.md)) proved unable to reach `q = 1`, the next bounded test toward [`ordered-cycle-denominator-one`](../../questions/ordered-cycle-denominator-one.md) was to cut an ordered primitive positive odd cycle at each visit to its minimum band `[L, 2L)`, keep each positive-height excursion's exact integer affine relation `2^(A_seg)·n_exit = 3^(length)·n_entry + q·C_seg` together with the complementary path that closes the cycle, and try to obtain descent, an inherited ordered return map (for induction on height), or a denominator restriction beyond `D | C_h`. Raw odd-only clock throughout, no absorber.
 
-Three parts of this proposed mechanism fail in precisely different ways.
+## What happened
 
-### Exact cuts preserve the lattice but add no congruence
+Three parts of the mechanism fail in different ways (legacy report, lightly edited).
 
-For a positive valuation block with length ell, total A and exact
-intercept C, positive odd endpoints satisfying
+**Exact cuts preserve the lattice but add no congruence.** For a positive valuation block with exact intercept, positive odd endpoints satisfying `2^A·y = 3^ℓ·x + q·C` already force every intermediate state to be an odd integer with the prescribed exact valuation ([`excursion-cut-lemma`](../../results/excursion-cut-lemma.md)). Closing `k` such blocks gives a cyclic integer matrix with rows `−3^(ℓ_j)·x_j + 2^(a_j)·x_(j+1) = q·C_j`, determinant `±D`, and Smith form `diag(1, …, 1, D)` (written proof, [`EXCURSION_ARITHMETIC.md`](EXCURSION_ARITHMETIC.md) §2: at a prime dividing `D`, deleting the closing row and column leaves a triangular minor that is a power of 3; the augmented maximal minors are `D` and the Cramer numerators `q·C_(i)`, with gcd `gcd(D, q·g)`). Its integrality condition at `q = 1` is the original `D | C`: the block form of the single-obstruction calculation of [`rotation-lattice-single-divisibility`](../../results/rotation-lattice-single-divisibility.md). Scaling states and parameter together by `q` leaves heights, excursion membership and sorted-rank inequalities unchanged, so cut algebra plus legal shape is exactly the original word test. Replacing the true weighted intercept by the unweighted mechanical one loses the lattice: in the `q = 13` control it sends 431 to `1985/4` instead of 493.
 
-```text
-2^A y = 3^ell x + q C
+**Circular order is not inherited.** The exact ordered `q = 13` cycle
+
+```
+n = (283, 431, 653, 493, 373),  a = (1,1,2,2,2),  h = (0,0,1,0,0),  A = 8, m = 5
 ```
 
-already force every intermediate state to be an odd integer with the
-prescribed exact valuation. The [written proof](EXCURSION_ARITHMETIC.md)
-uses each prefix of the true intercept. Its exact cylinder has modulus
-`2^(A+1)`; the odd endpoint is essential.
+has sorted normalised states `283, 653/2, 373, 431, 493`, strictly increasing scaled images `862, 986, 1132, 1306, 1492`, and normalised successor shift 3 on five ranks. Deleting 653 and keeping first returns leaves the sorted core `(283, 373, 431, 493)` with successor ranks `(2, 0, 3, 1)`, not a circular shift. The general reason is [`one-point-deletion-rank-shift`](../../results/one-point-deletion-rank-shift.md): deleting one rank from a shift by `s` yields a shift only for `s = 1` or `s = m − 1`.
 
-Closing any number of such blocks has a cyclic integer matrix with
-Smith form `diag(1,...,1,D)`, where `D=2^A_total-3^m`. Its integrality
-condition at q1 is the original `D|C_full`. This is the block form of
-C004's single-obstruction calculation. It supplies no independent
-filter. Replacing the true weighted intercept by the unweighted
-mechanical one *does* lose the lattice: in the q13 control below it
-sends431 to1985/4 instead of493.
+**Excursions have no automatic descent sign.** In the `q = 13` cycle, `431 → 653 → 493` rises (slope `9/8`). A contracting slope is not enough either: the ordered `q = 83` cycle `(157, 277, 457, 727, 283, 233, 391)` has the excursion `277 → 457 → 727 → 283` with `32·283 = 27·277 + 83·19`, slope `27/32 < 1`, yet it rises by 6. At `q = 1`, the **open paths** (not cycles) `7 → 11 → 17 → 13` and `19 → 29 → 11` show rising and falling excursions with locally increasing sorted images.
 
-### Circular order is not inherited
-
-The exact ordered q13 cycle
-
-```text
-283 -> 431 -> 653 -> 493 -> 373 -> 283
-```
-
-has one state above its minimum band. Its full normalized successor is
-a shift by3 on five sorted ranks. Delete653 and retain first returns:
-the sorted core `(283,373,431,493)` has successor ranks `(2,0,3,1)`,
-which is not a circular shift.
-
-The [one-point deletion theorem](FIRST_RETURN_ORDER.md) proves the
-general obstruction: inducing a coprime shift s on m ranks after
-deleting one rank preserves a circular shift exactly when s=1 or s=m-1.
-Interior shifts produce two different regular rank displacements.
-This holds at all periods under its hypotheses; it does not assert
-actual Collatz cycles at every period or exclude q1 cycles.
-
-### Excursions have no automatic descent sign
-
-In the q13 cycle, `431 -> 653 -> 493` rises and has slope9/8. A
-contracting slope is also insufficient: the ordered q83 cycle with
-minimum157 has excursion `277 -> 457 -> 727 -> 283`, satisfying
-`32*283=27*277+83*19`. Its slope27/32 is below1, yet it rises by6.
-
-Even at q1, open positive odd paths can have either sign while their
-sorted normalized images increase locally: `7 -> 11 -> 17 -> 13`
-has a rising excursion, and `19 -> 29 -> 11` a falling one. These
-are explicitly **open paths**, not counterexamples to cycle exclusion.
-They show why local excursion shape and local order alone cannot
-supply a signed drift assertion.
-
-## Exact finite evidence
-
-[The excursion checker](check_excursions.py) retains all 2,459 original
-source cycles across333 parameters, all11 fixtures, scaling data, and
-the C007 addition, giving1,185 distinct normalized cycles. It checks
-2,593 first returns and28,831 prefix cylinders with complementary
-closure. The ordered domain contains51 nonfixed cycles and the q1
-fixed point:
+Finite evidence ([`excursions_audit.json`](excursions_audit.json)): over the 1,185 normalised cycles, 2,593 first returns and 28,831 prefix cylinders with complementary closure. In the ordered domain (51 nonfixed cycles and the `q = 1` fixed point):
 
 | Ordered-domain observation | Count |
 | --- | ---: |
@@ -90,67 +67,24 @@ fixed point:
 | Contracting positive excursions that rise | 2 |
 | Cycles whose induced core loses circular order | 12 |
 
-The [independent checker](check_return_order.py) verifies the deletion
-formula on105,388 finite permutations through m80, totaling6,250,510
-arrows. It also reconstructs16,368 positive odd endpoint pairs across
-q1/5/7/13 and76,464 exact arrows. These constructed paths are not counted
-as cycles. Two actual controls are replayed independently.
+## Why it fails
 
-The [independent argument](INDEPENDENT_EXCURSION.md),
-[arithmetic review](ARITHMETIC_REVIEW.md), [checker review](CHECKER_REVIEW.md)
-and [root review](ROOT_REVIEW.md) separate proofs, author runs,
-independent runs and preservation. The historical gate is separately
-recorded. No novelty, formal verification or cycle-record improvement
-is claimed; see [literature scope](LITERATURE.md).
+The exact algebra returns the old divisibility condition, the proposed ordered induction class is not closed under compression, and local excursion shape carries no drift sign. The bounded pass reached its own pivot criterion ("if one bounded symbolic pass merely recovers `D | C_h`, pivot"). This rejects the automatic recursion and a local drift proof; it does not exclude a `q = 1`-specific argument that couples the **joint** shape and divisibility conditions, and does not decide divergence.
 
-## Decision and next mechanism
+## What survives
 
-The bounded excursion pass reached its pivot criterion. Exact algebra
-returns the old divisibility condition, and the proposed ordered
-induction class is not closed under the compression. Reject that
-automatic recursion and a local drift proof. Do not enlarge an
-excursion catalogue or a fixed-band ladder as a substitute.
+- [`excursion-cut-lemma`](../../results/excursion-cut-lemma.md) (formal) and [`one-point-deletion-rank-shift`](../../results/one-point-deletion-rank-shift.md) (formal).
+- The controls: the ordered `q = 13` five-cycle, the `q = 83` contracting-but-rising excursion, the `q = 5` cycle `(19, 31, 49)` under a one-excursion cut (`D = 5`, `C = 31`), and the `d = 7` cycle `(5, 11)` outside `q ≤ L`.
+- The legacy next step: global integer rounding in the complete sorted-gap system, tried in [`local-odd-rounding-exclusion`](../local-odd-rounding-exclusion/README.md).
+- **Payoff of the target, as recorded in the legacy report.** [`three-band-collatz-cycles-are-ordered`](../../results/three-band-collatz-cycles-are-ordered.md) says every primitive `q = 1` cycle with `H < 8L` is ordered, so excluding all nontrivial ordered integer cycles would give `H > 8L` for every nontrivial Collatz cycle (equality is impossible for odd states). This is an implication inside the repository, not a novelty claim.
 
-The next bounded mechanism should use **global integer rounding in
-the complete sorted-gap system**, retaining every height, odd-state
-condition and the dyadic seam. A useful cut must distinguish the
-integer lattice from the rationally rescaled q5/q13 controls and yield
-an inequality beyond `D|C_h`. Pure real inequalities are already
-insufficient by C007; identifying the same congruence again is not
-progress. No such new rounding inequality is asserted here.
+## Certificates
 
-The intermediate all-height ordered q1 exclusion and the headline
-exclusion of all nontrivial cycles remain open. Unordered cycles and
-possible divergent orbits are separate unresolved questions. The
-[side review](SIDE_REVIEW.md) records reported Lean progress without
-importing an unverified formal premise.
+- [`check_return_order.py`](check_return_order.py) (about 4 s): checks the deletion formula on 105,388 finite permutations through `m = 80` (6,250,510 arrows), reconstructs 16,368 positive odd endpoint pairs across `q = 1, 5, 7, 13` with 76,464 exact arrows (constructed paths, not counted as cycles), and replays the two actual controls; it recomputes and compares its receipt [`return_order_audit.json`](return_order_audit.json), which pins `FIRST_RETURN_ORDER.md` by SHA-256.
+- [`c009_excursion_check.py`](c009_excursion_check.py) (under a second; side lane, independent code): the `q = 13` cycle and its non-shift core, the deletion theorem for `3 ≤ m ≤ 40`, the `q = 83` excursion and the open `q = 1` paths; it rewrites [`c009_excursion_check.json`](c009_excursion_check.json) identically.
 
-## High-level recommendation after the user's question
+## History
 
-The next substantial milestone should be a complete exclusion of
-nontrivial integer cycles whose dyadically normalized successor preserves
-circular order, without any bound on period, height or height changes.
-This is the existing intermediate target under the all-cycle headline;
-this recommendation does not activate a replacement goal.
-
-The payoff is explicit. C005 proves that any hypothetical primitive q1
-cycle with H<8L has that order. Completing the proposed exclusion would
-therefore imply H>8L for every nontrivial integer cycle (H=8L is impossible
-for positive odd endpoints), and would also exclude ordered cycles with
-arbitrarily large height range. This is an implication within our ledger,
-not a claim of novelty or an improvement over a published numerical record.
-Unordered cycles and divergence would remain open.
-
-Order is a working hypothesis, not an established explanation of Collatz.
-C007's candidate also survives unordered controls, and C009 refutes the
-automatic recursion. The next bounded discrimination is the complete
-integer-gap rounding mechanism above. If it supplies only the old
-divisibility identity, needs an unproved complexity bound or fails an
-exact control, retire that mechanism and reassess the role of order.
-Further fixed-band lemmas do not complete the all-size milestone.
-
-Fable's Lean lane is useful for validating stable statements and exposing
-hidden premises. Its reported V004 assembly retains Cobham as an explicit
-hypothesis; its cycle work formalizes specific algebraic and order results.
-Neither substitutes for the missing global argument. The latest branch
-pins and scopes are recorded in the side review.
+- Migrated from `experiments/cycle_spectrum/C009/` (legacy ID `C009`; `REPORT.md`, notes `EXCURSION_ARITHMETIC.md`, `FIRST_RETURN_ORDER.md`) at commit `be73a66`, by the B04 migration (Claude, Opus 5.5). The side-lane check `reviews/side_lane/c009_excursion_check.{py,json}` moved here. All C009 scripts, receipts and notes stay in this folder. Parts became [`excursion-cut-lemma`](../../results/excursion-cut-lemma.md) and [`one-point-deletion-rank-shift`](../../results/one-point-deletion-rank-shift.md).
+- Main lane (ChatGPT/Codex), 2026-10-19, main commit `ec48fbd`. The side lane called it "a well-run negative result" (feed 03:17).
+- **Link repair in pinned notes (2026-10-19, B04 migration).** `EXCURSION_ARITHMETIC.md` and `LITERATURE.md` linked to `../C004/` and `../C001/` legacy paths; only those link targets were repointed. Their SHA-256 values pinned in `check_delivery.py`, `delivery_checks.json` and the review notes (`7d4a0f74…`, `ee6fd4f8…`) describe the `be73a66` versions; `check_delivery.py` already fails by design. No mathematical text changed.

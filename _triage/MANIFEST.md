@@ -56,22 +56,22 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B03-cycles-C001-C007 | `reviews/side_lane/c006e_cc_check.*` | 2 | node ordered-cycle-sparse-forcing |
 | B03-cycles-C001-C007 | `reviews/side_lane/c006f_order_word_check.*` | 2 | node ordered-cycle-sparse-forcing |
 | B03-cycles-C001-C007 | `reviews/side_lane/c007_height_check.*` | 2 | node height-denominator-candidate |
-| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C008` | 15 | pending |
-| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C009` | 16 | pending |
-| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C010` | 15 | pending |
-| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C011` | 20 | pending |
-| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C012` | 16 | pending |
-| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C013` | 15 | pending |
-| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C014` | 7 | pending |
-| B04-cycles-C008-C014 | `reviews/side_lane/c008_residue_check.*` | 2 | pending |
-| B04-cycles-C008-C014 | `reviews/side_lane/c009_excursion_check.*` | 2 | pending |
-| B04-cycles-C008-C014 | `reviews/side_lane/c010_gap_check.*` | 2 | pending |
-| B04-cycles-C008-C014 | `reviews/side_lane/c010b_gap_lattice_check.*` | 2 | pending |
-| B04-cycles-C008-C014 | `reviews/side_lane/c010c_any_arrangement_check.*` | 2 | pending |
-| B04-cycles-C008-C014 | `reviews/side_lane/c011_two_defect_check.*` | 2 | pending |
-| B04-cycles-C008-C014 | `reviews/side_lane/c012_candidate_check.*` | 2 | pending |
-| B04-cycles-C008-C014 | `reviews/side_lane/c013_background_check.*` | 2 | pending |
-| B04-cycles-C008-C014 | `reviews/side_lane/c013b_run_law_check.*` | 2 | pending |
+| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C008` | 15 | node ordered-cycle-sorted-rank-residues, small-band-height-residue-matching, primewise-height-residue-matching, height-residue-hall-matching |
+| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C009` | 16 | node excursion-compression, excursion-cut-lemma, one-point-deletion-rank-shift |
+| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C010` | 15 | node local-odd-rounding-exclusion, complete-gap-lattice-equivalence, odd-spacing-rounding-bound |
+| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C011` | 20 | node two-defect-rotation-exclusion, two-defect-cancellation-bound, two-defect-bounded-denominator-finiteness, two-defect-marker-family, fixed-defect-unbounded-cancellation, termwise-plateau-divisibility |
+| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C012` | 16 | node coupled-defect-matrix-smith-form, three-defect-arbitrary-background, rotation-defect-denominator-candidate, rotation-distance-growth |
+| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C013` | 15 | node shared-background-denominator-law, paired-state-run-law, distance-three-height-family |
+| B04-cycles-C008-C014 | `experiments/cycle_spectrum/C014` | 7 | node compatible-arcs-common-partition-limits, rotated-residual-resultant-invariance |
+| B04-cycles-C008-C014 | `reviews/side_lane/c008_residue_check.*` | 2 | node ordered-cycle-sorted-rank-residues |
+| B04-cycles-C008-C014 | `reviews/side_lane/c009_excursion_check.*` | 2 | node excursion-compression |
+| B04-cycles-C008-C014 | `reviews/side_lane/c010_gap_check.*` | 2 | node local-odd-rounding-exclusion |
+| B04-cycles-C008-C014 | `reviews/side_lane/c010b_gap_lattice_check.*` | 2 | node local-odd-rounding-exclusion |
+| B04-cycles-C008-C014 | `reviews/side_lane/c010c_any_arrangement_check.*` | 2 | node local-odd-rounding-exclusion |
+| B04-cycles-C008-C014 | `reviews/side_lane/c011_two_defect_check.*` | 2 | node two-defect-rotation-exclusion |
+| B04-cycles-C008-C014 | `reviews/side_lane/c012_candidate_check.*` | 2 | node coupled-defect-matrix-smith-form |
+| B04-cycles-C008-C014 | `reviews/side_lane/c013_background_check.*` | 2 | node shared-background-denominator-law |
+| B04-cycles-C008-C014 | `reviews/side_lane/c013b_run_law_check.*` | 2 | node shared-background-denominator-law |
 | B05-cycles-S02-S08 | `experiments/cycle_spectrum/S02` | 1 | pending |
 | B05-cycles-S02-S08 | `experiments/cycle_spectrum/S03` | 1 | pending |
 | B05-cycles-S02-S08 | `experiments/cycle_spectrum/S04` | 1 | pending |

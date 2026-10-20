@@ -143,7 +143,7 @@ a supplied finite rational solution can be checked.
 ## 5. Arbitrarily large slack survives every displayed spacing cut
 
 The finite rational controls are not an accident of short periods.
-The persisted [C004 spacing construction](../C004/SIZE_PROBE.md)
+The persisted [C004 spacing construction](../close-pair-lattice-criterion/SIZE_PROBE.md)
 already supplies primitive mechanical rational cycles with arbitrarily
 large distances between distinct states. Its seam has a particularly
 simple exact value, which extends that obstruction to the complete

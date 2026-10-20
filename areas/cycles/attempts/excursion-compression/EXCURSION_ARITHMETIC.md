@@ -18,7 +18,7 @@ D = 2^A−3^m > 0.
 
 The full intercept is `C=C_m`. Its rotation at phase `i` is `C_(i)`,
 and `2^a_i C_(i+1)=3C_(i)+D`. All `C_(i)` and `D` are odd. As in
-[C004](../C004/ROTATION_LATTICE.md), their rational cycle is
+[C004](../../results/narrow-cycles-are-mechanical/ROTATION_LATTICE.md), their rational cycle is
 `C_(i)/D`, with reduced denominator `q_0=D/g`, where
 `g=gcd(C,D)=gcd(C_(i),D)`.
 

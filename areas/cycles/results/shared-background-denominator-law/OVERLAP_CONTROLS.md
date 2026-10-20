@@ -4,7 +4,7 @@
 The polynomial identities, Fourier estimate and resultant bounds below are
 elementary. Effective denominator finiteness and the denominator-one
 restriction use the explicit Matveev estimate already sourced in
-[C011/EXCLUSION.md](../C011/EXCLUSION.md). No novelty, human review or formal
+[C011/EXCLUSION.md](../two-defect-rotation-exclusion/EXCLUSION.md). No novelty, human review or formal
 verification is claimed. The clock is raw positive odd-only, without an
 absorber. The results do not exclude every nontrivial integer cycle.
 
@@ -239,7 +239,7 @@ Because theta>=2 and e>=2, equation (9) implies
 * If A>=2m, then `eta>=1-(3/4)^m>=1/4`; thus
   `2^n<4 Q_*/C_0`, an effective bound on n.
 * If A<2m, the explicit positive-rational Matveev estimate in
-  [C011, equation (1)](../C011/EXCLUSION.md) gives
+  [C011, equation (1)](../two-defect-rotation-exclusion/EXCLUSION.md) gives
 
   ```text
   log eta > -K(1+log(2m)),       K=600,000,000,
@@ -348,7 +348,7 @@ Its exact raw states are
 ```
 
 These data are retained in the fixture with minimum 347 in
-[C005/mechanical_blocks_audit.json](../C005/mechanical_blocks_audit.json).
+[C005/mechanical_blocks_audit.json](../rotation-block-exclusion/mechanical_blocks_audit.json).
 Apply the marker polynomial construction directly to this valuation
 word. Since gcd(17,27)=1, `Q=X^17-2^27` is irreducible over the
 rationals, so G=1 and e=17. Nevertheless evaluation at X=3 has the

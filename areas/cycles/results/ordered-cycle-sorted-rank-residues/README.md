@@ -1,122 +1,109 @@
-# C008 — Sorted residue structure and the limit of primewise matching
+---
+id: ordered-cycle-sorted-rank-residues
+kind: result
+title: Ordered cycles have sorted residues L·t^j mod q, so ⟨2,3⟩ mod q is cyclic and 35, 65, 91 never divide q
+status: reviewed
+claim: >
+  Raw odd-only clock, no absorption. Let a primitive positive ordered cycle (q ≤ L, m > 1, circular
+  normalised successor order) have reduced odd denominator q > 1 coprime to 6, totals (A, m) and
+  rank shift s, so A = m + s and gcd(A, m) = 1. For every divisor Q > 1 of q, choose um + vA = 1 and
+  t = 2^u·3^v mod Q: then t^m ≡ 2, t^A ≡ 3, and the sorted normalised states satisfy
+  z_[j] ≡ L·t^j (mod Q) for 0 ≤ j < m, with ord_Q(t) ≥ 4. Consequently the subgroup ⟨2,3⟩ of
+  (Z/qZ)^× is cyclic; more generally, if d | q and e(d) = gcd(ord_d(2), a, b) > 1 (b the least
+  positive exponent with 3^b ∈ ⟨2⟩ mod d, 2^a ≡ 3^b), no such ordered cycle exists. In particular
+  35, 65 and 91 never divide q. Nothing is said at q = 1.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-19
+depends_on: [dyadic-order-lemma, ordered-cycle-residue-law]
+lean:
+  - LeanLane.Cyc.exists_common_root
+  - LeanLane.Cyc.zmod_common_root
+  - LeanLane.Cyc.NarrowCycle.sum_a_range
+  - LeanLane.Cyc.OddCycle.prefix_identity
+  - LeanLane.Cyc.OddCycle.cycle_identity
+  - LeanLane.Cyc.OddCycle.q_dvd_D
+  - LeanLane.Cyc.OddCycle.sorted_residue_law
+evidence:
+  - "MATCHING_ARITHMETIC.md: main written proofs (section 3: the cyclicity theorem, the relation lattice and the forbidden factors; sections 1-2 belong to small-band-height-residue-matching)"
+  - "INDEPENDENT_MATCHING.md: independent main-lane proof of the sorted-rank law (R1), T ≥ 4, and the two primewise counterexamples"
+  - "check_residue_spectrum.py, residue_spectrum_audit.json: main-lane relation-lattice checker (332 moduli up to 1000, 477,552 finite cells) and receipt. Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json' and C007's census by old path. Passed at be73a66 as experiments/cycle_spectrum/C008/check_residue_spectrum.py (archive/legacy-checker-run-be73a66.md)"
+  - "check_height_matching.py, height_matching_audit.json: main-lane matching checker and receipt (3.4 MB; all 1,185 normalised cycles, 2,459 source cycles, 11 fixtures, 946,001 screened profiles). Fails at its new path for the same reason (it also loads experiments/phase6/cycle_fixtures.json). Passed at be73a66 as experiments/cycle_spectrum/C008/check_height_matching.py"
+  - "c008_residue_check.py, c008_residue_check.json: side-lane REFEREE check. Needs the corpus path as argument, so it fails bare (exit 1 bare at be73a66 as reviews/side_lane/c008_residue_check.py, archive/legacy-checker-run-be73a66.md). Run as python3 <this folder>/c008_residue_check.py areas/cycles/results/actual-cycles-3x-d-corpus/actual_cycles.json it exits 0 and reproduces its receipt byte for byte (checked at migration)"
+  - "check_delivery.py, delivery_checks.json: historical delivery check and receipt; the script is pinned to the historical commits that produced it and fails at HEAD by design (it failed at be73a66 too)"
+  - "ARITHMETIC_REVIEW.md, CHECKER_REVIEW.md, ROOT_REVIEW.md: main-lane reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed; LITERATURE.md: bounded literature scope; historical_gate.json: historical finite gate"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-19
+    link: c008_residue_check.py
+    scope: "Feed 2026-10-19 02:56, REFEREE C008 at main 93117c0: sorted-rank law on all 50 ordered census cycles with q > 1, cyclicity of ⟨2,3⟩ mod q, noncyclicity mod 35, 65, 91, no ordered census cycle with those factors, and both primewise counterexamples reproduced. Feed 03:09: Lean C008-a statement match and receipts checked"
+  - by: Claude Lean lane (Fable)
+    date: 2026-10-19
+    scope: "Feed 03:01: C008 re-derived by hand with no error (sorted-rank law from P_i = floor(iA/m), ord(t) ≥ 4, ⟨2,3⟩ mod 35 ≅ Z/2 × Z/12 not cyclic); Lean unit C008-a verified (iteration 24)"
+aliases: [C008]
+tags: [cycles, dyadic-order, residues, denominator-spectrum]
+---
 
-**Status: written elementary structural results and exact counterexamples;
-full height-residue matching and every ordered denominator-one exclusion
-remain open.** Raw positive odd cycles are used throughout, with no
-absorber. This batch tests one mechanism: assign different residues to
-different dyadic height levels, modulo the actual reduced denominator.
+# Ordered cycles have sorted residues L·t^j mod q, so ⟨2,3⟩ mod q is cyclic and 35, 65, 91 never divide q
 
-## What changed
+## Statement
 
-Let a primitive numerator cycle satisfy `3n_i+q=2^a_i n_(i+1)`, with
-`q` reduced and coprime to 6. Let `L=min n_i`,
-`h_i=floor(log_2(n_i/L))`, `B=max h_i`, and `z_i=n_i/2^h_i`.
-The ordered domain requires `q<=L` and circular normalized successor
-order, equivalently increasing images `3z_i+q/2^h_i` in sorted z order.
-For a nonfixed cycle, C005 gives `A=m+s`, `gcd(A,m)=1`, where s is
-the successor rank shift.
+Use raw positive odd-only cycles, no absorber. Let a primitive cycle satisfy `3n_i + q = 2^(a_i)·n_(i+1)`, `a_i ≥ 1`, with `q` reduced and coprime to 6, `L = min n_i`, `h_i = floor(log₂(n_i/L))`, `B = max h_i`, `z_i = n_i/2^(h_i)`. The **ordered domain** requires `q ≤ L`, `m > 1` and circular normalised successor order, equivalently increasing images `3z_i + q/2^(h_i)` in sorted `z` order ([`dyadic-order-lemma`](../dyadic-order-lemma.md)). There the normalised word is the lower mechanical word, `A = m + s` and `gcd(A, m) = 1`, where `s` is the successor rank shift.
 
-The [independent arithmetic note](INDEPENDENT_MATCHING.md) proves the
-exact sorted-rank law. Choose `um+vA=1` and put `t=2^u3^v mod q`.
-For `q>1`,
+1. **Sorted-rank law.** For every divisor `Q > 1` of `q`, choose integers `u, v` with `um + vA = 1` and put `t = 2^u·3^v mod Q`. Then
 
-```text
-t^m=2, t^A=3,
-z_[j] = L t^j (mod q),
-n_[j] = L t^(j+m H_j) (mod q).
+```
+t^m ≡ 2,   t^A ≡ 3,
+z_[j] ≡ L·t^j          (mod Q),   0 ≤ j < m,          (R1)
+n_[j] ≡ L·t^(j + m·H_j) (mod Q),
 ```
 
-Thus normalized collisions occur precisely at equal rank classes modulo
-`T=ord_q(t)`. Distinct normalized ranks modulo T make normalized
-matching automatic; this observation does not remove the height shift
-from raw residues. Neither formula supplies a bound on the admissible
-height profile.
+where `z_[j]` is the `j`-th smallest normalised state and `H_j` its height. Normalised collisions occur exactly at equal rank classes modulo `T = ord_Q(t)`, and `T ≥ 4`.
 
-The [main proof](MATCHING_ARITHMETIC.md) supplies a second consequence:
-`<2,3>` modulo q must be cyclic. More generally, if a divisor d of q has
-noncyclic `<2,3>`, q cannot occur in this ordered domain. In particular,
-**35, 65 and 91 cannot divide q**, at any period or height. The proof
-is elementary and follows from the already established coprime totals;
-no novelty or new denominator-one exclusion is claimed. The exact
-relation-lattice test is `e(d)=gcd(ord_d(2),a,b)>1`, with
-`2^a=3^b mod d` and b the least positive exponent entering `<2>`.
+2. **Cyclicity.** The subgroup `⟨2,3⟩` of `(Z/qZ)^×` is cyclic (it equals `⟨t⟩`).
 
-For `q>1`, normalized height sets have distinct representatives when
-`B<=2`; raw sets do when `B<=1`. The independent proof also shows these
-small-band assertions for every divisor `Q>1` of q. They do not extend
-to q1: its only residue is zero, so the central arithmetic case is
-still missing. Minimal Hall failures can involve two nonadjacent bands,
-even when B is larger than two.
+3. **Forbidden factors.** For `d > 1` coprime to 6 put `n = ord_d(2)`, let `b` be the least positive integer with `3^b ∈ ⟨2⟩ mod d`, and `0 ≤ a < n` with `2^a ≡ 3^b (mod d)`. The relation lattice `{(A, m) : 2^A ≡ 3^m mod d}` is `Z(n, 0) + Z(a, b)`; with `e(d) = gcd(n, a, b)`,
 
-## A precise failed shortcut
+```
+e(d) > 1  and  d | q   ⇒   no ordered primitive cycle.          (5)
+```
 
-The assertion that each prime factor separately permits height matching
-is false. Two exact ordered cycles have reduced
-`q=2^27-3^17=5,077,565`, period17 and `q<=L`:
+`⟨2,3⟩ mod d` has Smith invariant factors `e(d)` and `nb/e(d)`. In particular **35, 65 and 91 never divide `q`** in the ordered domain, at any period or height:
 
-| Minimum L | B | Failure modulo the proper divisor5 |
-| ---: | ---: | --- |
-| 446400719 | 3 | Normalized levels {1,3} have only residue {4}; raw levels {1,2,3} have only {2,3}. |
-| 365289811 | 2 | Every raw height set is {1,4}, so three heights cannot be matched. |
+| `d` | `n = ord_d(2)` | `a` | `b` | `e(d)` |
+| ---: | ---: | ---: | ---: | ---: |
+| 35 | 12 | 10 | 2 | 2 |
+| 65 | 12 | 4 | 4 | 4 |
+| 91 | 12 | 0 | 6 | 6 |
 
-Both raw and normalized graphs match at the full reduced q. The first
-counterexample even has four levels and four available units modulo5;
-its failure concerns a proper subset, beyond a global cardinality test.
-The second retracts the initially considered raw B2 general-divisor
-extension. These are actual positive cycles with exact valuations and
-verified order, not formal height profiles. Full words, states and
-proofs are in the independent note and [finite receipt](height_matching_audit.json).
+The statement gives no conclusion at `q = 1`, where every residue is 0, and does not rule out prime reduced denominators, whose unit groups are cyclic.
 
-## Evidence and its limits
+## Proof
 
-- Both full-q matchings pass on all 1,185 stored normalized cycles,
-  including q1 with its sole residue0. Of these, 51 are nonfixed ordered
-  cycles. Only 11 raw and 4 normalized ordered graphs have overlapping
-  height sets; many other passes follow automatically from disjointness.
-- All eleven raw transfer fixtures and all 2,459 source cycles across
-  333 parameters are checked, including 1,275 scaled instances and
-  36,912 source arrows. Primitive cycles and scaled copies stay separate.
-- A targeted extension screens 946,001 positive profiles across 17
-  selected coprime totals through period17. Only 13 realize reduced
-  q<=31; all were already known. This adds **no new substantive finite
-  evidence** for full-q matching. Bounds and selection are in the receipt.
-- A [separate implementation](check_residue_spectrum.py) checks the
-  exact relation lattice at 332 moduli through1000, in 477,552 finite
-  cells, and independently checks all stored cycles and sorted residues.
-  Actual cycles with factors35/65/91 survive outside the theorem domain.
-- [Root review](ROOT_REVIEW.md), [checker review](CHECKER_REVIEW.md),
-  [arithmetic review](ARITHMETIC_REVIEW.md), the historical gate and
-  delivery receipt distinguish written reasoning, finite checking and
-  preservation. No C008 formal verification is claimed.
+Written proofs: [`MATCHING_ARITHMETIC.md`](MATCHING_ARITHMETIC.md) §3 and [`INDEPENDENT_MATCHING.md`](INDEPENDENT_MATCHING.md) §1 (legacy text, lightly edited).
 
-## Decision and next mechanism
+Since `Q | D = 2^A − 3^m`, `2^A ≡ 3^m (mod Q)`; Bezout gives `t^m = 2^(um)·3^(vm) = 2^(um+vA) = 2` and likewise `t^A = 3`, so `⟨2,3⟩ = ⟨t⟩`. The normalised arrow gives `z_i ≡ L·3^i·2^(−P_i) (mod Q)` from the phase at `L` ([`ordered-cycle-residue-law`](../ordered-cycle-residue-law.md)); substituting `3 = t^A`, `2 = t^m` gives `z_i ≡ L·t^(Ai − mP_i)`, and mechanicality `P_i = floor(iA/m)` gives `Ai − mP_i ≡ is (mod m)`, the sorted rank of phase `i`. Primitivity makes these ranks a permutation. Orders `T = 1, 2, 3` would make `Q` divide `gcd(2^T − 1, 3^T − 1) = 1`, so `T ≥ 4`.
 
-The high-level intermediate target remains: **exclude all nontrivial
-ordered positive integer cycles, without bounds on period, height or
-height-change complexity.** It is subordinate to the active all-cycle
-headline. The new q>1 results do not close any q1 case.
+For the forbidden factors: if `35 | q`, modulo 7 `2 = 3^2` and `ord_7(3) = 6` give `m ≡ 2A (mod 6)`, hence `m` even; modulo 5 `3 = 2^3` and `ord_5(2) = 4` give `A ≡ 3m (mod 4)`, hence `A` even, contradicting `gcd(A, m) = 1`. If `65 | q`, modulo 13 `3 = 2^4` gives `4 | A`, and modulo 5 then `4 | m`. If `91 | q`, modulo 13 gives `4 | A` and `A ≡ m (mod 3)`; modulo 7 gives `m` even and `m ≡ −A (mod 3)`, so 3 divides both. The lattice description: the image of 3 in `⟨2,3⟩/⟨2⟩` has order `b`, so every relation has `b | m`, and then `A ≡ a(m/b) (mod n)`; every relation has both coordinates divisible by `e(d)`.
 
-The next bounded attempt should target the full integer obstruction:
-combine `D|C_h` at q1 with all sorted-rank gap inequalities and the
-height legality constraints. The primewise matching route is rejected;
-the full-q Hall statement is retained only as an unproved sufficient
-mechanism. Proving another fixed-band q>1 case may diagnose a proof,
-but is not the next high-level goal. Repeatedly increasing B would
-leave the central case untouched.
+## Lean
 
-One bounded way to test the missing integer mechanism is to cut at a
-positive-height excursion between height-zero states. Retain its exact
-integer affine relation
-`2^A_seg*n_exit=3^length*n_entry+q*C_seg`, its valuation cylinders,
-the complementary path closing the cycle, and every sorted-rank
-inequality. Valid open excursions alone cannot be excluded. The desired
-gain is a consequence at q1 that is not just the original closure
-identity or a bounded-height case. If one bounded symbolic pass merely
-recovers `D|C_h` with no additional restriction, pivot the mechanism;
-do not treat that reformulation as progress or expand a band ladder.
+`lean/CycleSpectrum.lean`, Lean unit C008-a (legacy `lean/STATE.md`), axioms `propext`, `Classical.choice`, `Quot.sound` (helpers subsets); receipts `lean/receipts/CycleSpectrum.*`. It covers parts 1 and 2 but not part 3, so the node is `reviewed`, not `formal`.
 
-Fable's reported Lean work now includes C005's q1 three-band structural
-theorem on actual odd cycles, not their exclusion. Main has not replayed
-that build; it supplies no new premise here. See [side review](SIDE_REVIEW.md).
-The [literature scope](LITERATURE.md) records primary-source checks and
-the absence of a novelty or cycle-record claim.
+- `exists_common_root`: in any commutative group, `x^A = y^m` with `gcd(A, m) = 1` gives `t` with `t^m = x`, `t^A = y`. `zmod_common_root`: for `N` coprime to 6 with `N | 2^A − 3^m` and `gcd(A, m) = 1`, there is a unit `t` of `ZMod N` with `t^m = 2`, `t^A = 3`; so `⟨2,3⟩` is cyclic modulo every such `N` (part 2).
+- `OddCycle.prefix_identity`, `OddCycle.cycle_identity` (`(2^A − 3^m)·n_0 = q·C_m`) and `OddCycle.q_dvd_D` (`q | 2^A − 3^m` for reduced cycles).
+- `NarrowCycle.sum_a_range` (`P_i = floor(iA/m)`) and `OddCycle.sorted_residue_law`, the integer form of (R1): `2^(P_i)·z_[(ih) mod m] ≡ 3^i·z_[0] (mod q)`. The final substitution to `z_[j] ≡ L·t^j` is not written out in Lean.
+- Not formalised: the forbidden factors 35, 65, 91 and the lattice test (5), `T ≥ 4`, and the counterexample cycles.
+
+## Remarks
+
+- **Scope.** This restricts the ordered spectrum for `q > 1`. Cyclicity is an elementary consequence of the coprime totals of ordered cycles ([`dyadic-order-lemma`](../dyadic-order-lemma.md)) and is not evidence for residue matching. At `q = 1` all residue information disappears, so no argument of this kind reaches [`ordered-cycle-denominator-one`](../../questions/ordered-cycle-denominator-one.md); the legacy report and the side-lane referee both say so.
+- **Controls.** The ordered domain matters: the raw `q = 35` cycle `(13, 37, 73, 127)` has word `(1,1,1,5)`, totals `(8, 4)` and `L = 13 < q`; it lies outside the theorem and has the expected common factor in its totals. Actual cycles with factors 35, 65, 91 survive outside the ordered domain (receipt `residue_spectrum_audit.json`). For the ordered `q = 5`, period-17 cycle, `s = 10`, `A = 27`, `t ≡ 2 (mod 5)`, and the sorted residues repeat every four ranks.
+- **Related.** The small-band matching theorem from the same batch: [`small-band-height-residue-matching`](../small-band-height-residue-matching.md); the refuted primewise route: [`primewise-height-residue-matching`](../../attempts/primewise-height-residue-matching.md); the open full matching proposal: [`height-residue-hall-matching`](../../questions/height-residue-hall-matching.md).
+- **Novelty.** The side-lane referee calls cyclicity "a genuine, if elementary, new necessary condition in the spectrum law"; the legacy report claims no novelty. Novelty undetermined.
+
+## History
+
+- Migrated from `experiments/cycle_spectrum/C008/` (legacy ID `C008`; `REPORT.md`, proofs `MATCHING_ARITHMETIC.md` §3 and `INDEPENDENT_MATCHING.md` §1) at commit `be73a66`, by the B04 migration (Claude, Opus 5.5). The side-lane check `reviews/side_lane/c008_residue_check.{py,json}` moved here. All C008 scripts, receipts and notes stay in this folder. Parts of the legacy report became [`small-band-height-residue-matching`](../small-band-height-residue-matching.md), [`primewise-height-residue-matching`](../../attempts/primewise-height-residue-matching.md) and [`height-residue-hall-matching`](../../questions/height-residue-hall-matching.md).
+- Main lane (ChatGPT/Codex), 2026-10-19, main commit `93117c0`. Formalised in part by the Lean lane (Claude Lean lane, Fable) as C008-a, iteration 24.
+- **Link repair in pinned notes (2026-10-19, B04 migration).** `MATCHING_ARITHMETIC.md` linked to `../C006/` and `../C007/` legacy paths; only those link targets were repointed to the migrated notes. Its SHA-256 pinned in `check_delivery.py`, `delivery_checks.json` and the review notes (`aefff8c4…`) therefore describes the `be73a66` version; `check_delivery.py` already fails by design. No mathematical text changed.

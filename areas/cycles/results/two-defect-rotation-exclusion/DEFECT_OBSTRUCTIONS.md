@@ -195,7 +195,7 @@ rotation-cut factor: the one-step multiplier defect is `2-3=-1`.
 ## 5. Relation to the persisted programme and scope
 
 This is a special case of the two-block setup in
-[C002](../C002/INDEPENDENT_SLOPES.md), with fixed blocks `u=(1)`
+[C002](../unequal-slope-two-block-growth/INDEPENDENT_SLOPES.md), with fixed blocks `u=(1)`
 and `v=(2)`, repetition counts `t,2t`, and determinant `K=-2`.
 Both repetition counts grow. It is therefore not covered by C001's
 constant bound for `u^k v` with the second block fixed. The `u`

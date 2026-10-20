@@ -13,7 +13,7 @@ gcd(n_0,...,n_(m−1))=1.
 Write `L=min n_i`, `h_i=floor(log_2(n_i/L))`, `B=max h_i`, and
 `z_i=n_i/2^h_i`. The **ordered domain** means `q<=L`, `m>1`, and strictly
 increasing `F_i=3z_i+q2^(−h_i)` in sorted `z` order. By
-[C005–C006](../C006/ORDER_RIGIDITY.md), the normalized word
+[C005–C006](../ordered-cycle-sparse-forcing/ORDER_RIGIDITY.md), the normalized word
 `c_i=a_i+h_(i+1)−h_i` then belongs to `{1,2}`, is the lower mechanical
 word with totals `(A,m)`, and satisfies `gcd(A,m)=1`. All height labels
 `0,...,B` occur.
@@ -29,7 +29,7 @@ For `q=1`, take the sole residue class `0`. The **full Hall proposal** says
 that both families admit distinct representatives for all levels `0,...,B`.
 At `q=1`, this would force `B=0`; C004 would then exclude every
 nontrivial ordered integer cycle. This sufficient mechanism is not proved.
-The finite matching receipts in [C007](../C007/RESIDUE_MATCHING.md) cover
+The finite matching receipts in [C007](../../questions/height-denominator-candidate/RESIDUE_MATCHING.md) cover
 only their stated cycles with `q>1`.
 
 ## 1. Exact small-band matching theorem
@@ -39,7 +39,7 @@ the normalized residue graph has a full matching when `B<=2`; the raw
 residue graph has a full matching when `B<=1`.
 
 First, every numerator is a unit modulo `q`, by the propagation argument
-in [C007](../C007/HEIGHT_DENOMINATOR.md). The normalized arrow gives
+in [C007](../../questions/height-denominator-candidate/HEIGHT_DENOMINATOR.md). The normalized arrow gives
 
 ```
 2^c_i Z_(i+1) = 3 Z_i (mod q),  c_i in {1,2}.    (2)

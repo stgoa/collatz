@@ -33,7 +33,7 @@ Exact integer cutting planes can exclude individual fractional profiles;
 a uniform argument over all profiles remains missing.
 
 No novelty or improvement over published cycle records is claimed.
-The [C001 primary audit](../C001/LITERATURE.md) retains the precise
+The [C001 primary audit](../../results/repeated-block-cancellation-bound/LITERATURE.md) retains the precise
 Simons–de Weger and Hercher scopes and clock conventions. C010's gap
 count is not their shortcut local-minimum count, and this batch excludes
 no new universal integer-cycle class.

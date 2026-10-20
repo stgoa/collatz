@@ -13,7 +13,7 @@ Use primitive raw positive odd-only cycles, with no absorber, written
 positive and coprime to 6. Assume `q<=L=min n_i` and strictly increasing
 `F=3z+q2^-h` in increasing `z=n/2^h`, with
 `h=floor(log_2(n/L))`. The full rank shift and true weighted intercept are
-those of [C006](../C006/ORDER_RIGIDITY.md). Here `m>1`.
+those of [C006](../../results/ordered-cycle-sparse-forcing/ORDER_RIGIDITY.md). Here `m>1`.
 
 ## 1. The seam in the existing gap recurrence is correct
 

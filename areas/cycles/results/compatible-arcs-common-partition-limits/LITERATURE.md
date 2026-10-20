@@ -28,7 +28,7 @@ comparison uses exact integer inequalities. The exponent of 3 removed
 from the quotient is derived by factoring a geometric sum; no
 unproved prime distribution or uniform gcd estimate is used.
 
-The [C011 source audit](../C011/LITERATURE.md) remains the record for
+The [C011 source audit](../two-defect-rotation-exclusion/LITERATURE.md) remains the record for
 Matveev and the Hercher/Barina inputs to its two-defect exclusion.
 C014 neither improves a universal numerical cycle record nor supplies
 a new all-size q1 exclusion. Its resultant obstruction already occurs
@@ -36,7 +36,7 @@ inside C011's excluded two-defect class, whereas its prime-period
 coverage family has rotation distance three. These are controls on
 proposed reductions, not claims that published cycle exclusions fail.
 
-The [C013 common-background theorem](../C013/OVERLAP_CONTROLS.md)
+The [C013 common-background theorem](../shared-background-denominator-law/OVERLAP_CONTROLS.md)
 remains valid. C014 explains why its representation hypothesis cannot
 be supplied merely by changing cuts or repeating a prime-period word.
 The general denominator candidate and growing rotation-distance target

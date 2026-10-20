@@ -19,7 +19,7 @@ D=2^A-3^m>0,           g=gcd(C_w,D),        q=D/g.
 The rational cycle has states `C_i/D` over its rotations. Its reduced
 numerators `C_i/g` are positive odd integers and give an actual `3x+q`
 cycle. These are the conventions and exact identities of
-[C004](../C004/ROTATION_LATTICE.md).
+[C004](../narrow-cycles-are-mechanical/ROTATION_LATTICE.md).
 
 ## 1. Two defects, their amplitude, and automatic primitivity
 
@@ -170,7 +170,7 @@ other valuations or the two arc lengths has been added.
 ### Every bounded denominator layer of the two-defect class is finite
 
 The published effective two-logarithm bound used in
-[C006](../C006/ORDER_RIGIDITY.md) supplies absolute effective `c_0>0`
+[C006](../ordered-cycle-sparse-forcing/ORDER_RIGIDITY.md) supplies absolute effective `c_0>0`
 and `K_0>0` such that `delta>=c_0 m^-K_0` when `A<2m`.
 Its inputs are the fixed algebraic numbers 2 and 3, degree 1, and
 integer coefficients `(A,-m)`. Decrease `c_0` to at most 1. Then
@@ -260,7 +260,7 @@ at 1. Hence `b-b^*` is invariant under a coprime shift and is constant;
 its total is zero, so it vanishes. This proves the classification.
 
 For `k=1`, `a+b_i^*` is the mechanical valuation word, up to phase;
-[R71](../../residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md)
+R71 (`experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md`, not yet migrated)
 already gives its exact denominator `D`. For `k>1` the same binary
 mask has a nonconsecutive letter substitution, so it need not be a
 mechanical valuation word. With separated defects, even the binary

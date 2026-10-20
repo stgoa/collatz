@@ -23,7 +23,7 @@ the missing integer obstruction.
 
 C009 improves no numerical cycle record and excludes no new
 denominator-one word class. The Simons–de Weger and Hercher comparisons
-and clock distinctions in [C001's primary audit](../C001/LITERATURE.md)
+and clock distinctions in [C001's primary audit](../../results/repeated-block-cancellation-bound/LITERATURE.md)
 remain the relevant historical record. Neither the number of returns
 to one dyadic band nor the number of deleted normalized ranks is
 automatically the shortcut local-minimum count used in those papers.
