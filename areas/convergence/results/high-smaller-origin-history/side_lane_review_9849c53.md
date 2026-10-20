@@ -36,12 +36,12 @@ remain supported by the written proofs and main's separate certificates.
 The dependency hashes match the preceding pinned review. The new feed also
 accepts that the informal average-valuation complexity refinement needs
 explicit window and prefix hypotheses; it is not promoted as a theorem.
-The earlier [general-spacing review](side_lane_review_fcc7e88.md) stands.
+The earlier [general-spacing review](../divergent-orbit-itinerary-complexity/side_lane_review_fcc7e88.md) stands.
 
 ## Opinion and research decision
 
 Retain the merged PR's negative controls and conditional minimality lemma.
-The [exact counterexamples](../packet_currents/negative_controls/PR1_REVIEW.md)
+The [exact counterexamples](../locally-collatz-like-control-barrier/PR1_REVIEW.md)
 still refute its broad no-alternative-certificate conclusion. These controls
 make early numerical compression an inadequate progress test; they do not
 make exact constructive comparisons pointless.

@@ -27,7 +27,7 @@ file hashes, commands, outputs, timings and scope.
 All three generated Python receipts are **byte-identical** to the pinned
 receipts. R64 now explicitly requires 85 tests and zero skipped cells, fixing
 the earlier vacuous-PASS risk identified in the
-[previous review](side_lane_review_cbe77bc.md).
+[previous review](../lifted-inverse-ray-cycle/side_lane_review_cbe77bc.md).
 
 For R88, the independent C enumeration checks every canonical 3<=p<=133704987
 for 22 quotient steps against four targets, accepting a hit on target a only
@@ -56,7 +56,7 @@ receipt totals specify the actual sampling.
 The 33.4-million-state R88 scan is a different computation from R91's
 1,732,883 rational-origin classification. This focused review also did not
 rerun that latter classification. Its universal inverse-word conclusion rests
-on the [written finite reduction and complete classification](shadow_precision/SHADOW_PRECISION.md),
+on the [written finite reduction and complete classification](../rational-basin-precision-barrier/README.md),
 not on the new side samples.
 
 ## What the merged PR establishes
@@ -77,7 +77,7 @@ J=delta21-delta3 with residual-[5] have minimum positive cost 1. For actual
 A_768, removing the negative row J0(5)=-55 preserves minimum positive
 cost 53758 and removes one of 40106 current rows. Thus the original broad
 claim that alternative certificates cannot help is false; the
-[persisted PR review](../packet_currents/negative_controls/PR1_REVIEW.md)
+[persisted PR review](../locally-collatz-like-control-barrier/PR1_REVIEW.md)
 and corrected handoff already acknowledge this.
 
 The negative control is substantive. A separate bounded reconstruction
@@ -107,7 +107,7 @@ histories beyond that precision, a later common target, or genuinely different
 retained signed history. Its success criterion is a complete remaining family
 with every signed premise below the **original** rank and a proved termination
 or closure mechanism. At the start of this review the deeper-window draft
-was pending. The subsequent independent [R92 proof and complete classification](deeper_window/DEEPER_WINDOW.md)
+was pending. The subsequent independent [R92 proof and complete classification](../fourteen-step-window-original-source/README.md)
 resolve that window: through12r+19 quotient steps, the only origin no larger
 than Q is Q itself at12r+18. The side probes do not establish R92. The
 synthesis's broad phrase that no fixed procedure finishes

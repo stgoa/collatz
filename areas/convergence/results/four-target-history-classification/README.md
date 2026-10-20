@@ -1,21 +1,72 @@
-# R88 — A complete four-target history cell and its exact precision limit
+---
+id: four-target-history-classification
+kind: result
+title: "On a whole remaining cell, only the original source reaches the direct target and its first three futures within their ternary precision"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1, canonical quotient T = nu S. For every m >= 0 let Q = 133704987 + 3 2^33 m,
+  n = 385940463 + 64 3^19 m (the whole k = 85 + 16384m cell of the R84 progression after the R87 repair), and y_a
+  = 3^a (n+1)/2^a - 1, a = 0, 1, 2, 3. For each a, the canonical origins p <= Q with T^d(p) = y_a, 0 <= d <= 19+a,
+  consist exactly of p = Q at d = 18+a; ordinary histories from smaller origins to these targets, and to raw r =
+  2n+1 within 19 ordinary arrows, are excluded too. Every inverse ray and word within the horizons is covered: an
+  exact uniform anchor cutoff (c <= 133704987) and four complete finite inverse trees (64/78/89/101 states) prove
+  it for all m. Consequently no single fixed quotient inverse word, and no fixed ordinary valuation word, of any
+  length gives a strictly smaller origin throughout the cell. The existing comparison T^18(Q) = n, S^23(Q) =
+  S^5(n) with K = L_23(Q) - L_5(n) is kept, and supplied H_v, H_b would give div(K + H_v - H_b) = P(b) - P(v) with
+  the higher P(v) premise unresolved. Not an all-depth exclusion at a fixed source; m-dependent valuations, finer
+  cells, later targets and signed comparisons remain open.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [elementary-bridge-quotient-normal-form, finite-anchor-history-classification, failed-w9-leader-reduction, later-target-twenty-step-descent]
+certificates: [check_history_cell_recompute.py]
+evidence:
+  - "check_history_cell_scope.py, history_cell_scope.py, history_cell_scope_audit.json: the legacy implementation, checker and receipt: the four complete trees with every retained edge and first-excluded ray child, 28 lifts, 1024 canonical-arithmetic cases, three full signed 23/5 comparisons, 20 domain and cap rejections, and the hashes of the local sources and of four notes. Its receipt pins the SHA-256 of this node's legacy note HISTORY_CELL_SCOPE.md and of the legacy notes bridge_normal_form/BRIDGE_NORMAL_FORM.md, history_frontier/HISTORY_FRONTIER.md and w9_history_repair/W9_HISTORY_REPAIR.md, all now edited READMEs, so it fails at its new path and in a legacy replay (it already failed in the replay at this migration, because BRIDGE_NORMAL_FORM.md was edited by an earlier batch). Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a. Its audit is recomputed by check_history_cell_recompute.py; history_cell_scope.py is also loaded by the legacy checker of ../rational-basin-precision-barrier/"
+  - "r88_anchor_exhaustive.c: side-lane C program (Claude side lane, 2026-10-18 05:52): exhaustive forward iteration of every canonical p <= 133704987 (33,426,246 states) for 22 quotient steps against the four targets at m = 0. Needs a C compiler (build line in its header), so it is evidence, not a certificate. Not part of the be73a66 reference run (archive/legacy-checker-run-be73a66.md lists Python scripts only); the side-lane feed reports a compiled run of about 5 s, and the main lane reproduced it in side_lane_review_86ead16.md (in ../binary-return-exit-control/): exactly four hits, all p = Q at depths 18-21, 4.96 s"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: r88_anchor_exhaustive.c
+    scope: "Finite only (side-lane feed entry 2026-10-18 05:52, VERIFIED (exhaustive), main 7a477ad): '**R88 anchor (`m = 0`), by exhaustive forward search.** This is independent of main's inverse-tree certificates. ... Every canonical `p ≤ Q`, 33,426,246 states in all, was iterated under `T = ν∘S` for 22 quotient steps by a small C program with its own `ν`. Exactly four hits on any `y_a` occur within `19 + a` steps, all at `p = Q`, at depths 18, 19, 20 and 21. That is precisely R88's claim at this anchor. The all-`m` lift rests on main's written argument and was not re-proved.' Also 'For m ∈ {0, 1, 2, 3} and 300 random m < 2⁴⁰ ... Q is canonical, T¹⁸(Q) = n > Q, and S²³(Q) = S⁵(n).' Reproduced by the main lane in side_lane_review_86ead16.md. The status stays written"
+aliases: [R88]
+tags: [convergence, outer-residual, smaller-origin-history, anchor-certificate, inverse-barrier, fixed-word]
+---
+
+# On a whole remaining cell, only the original source reaches the direct target and its first three futures within their ternary precision
+
+## Statement
+
+Odd-only clock, 1 absorbing; canonical quotient `T = νS` with the inverse table of [`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md) (R25).
+
+For `m ≥ 0` put `Q = 133704987 + 3·2^33·m`, `n = 385940463 + 64·3^19·m`, `b = Q/3`, `v = n/3`, `r = 2n + 1`: the whole `k = 85 + 16384m` cell of the R84 family ([`later-target-twenty-step-descent`](../later-target-twenty-step-descent/README.md)) after the R87 repair ([`failed-w9-leader-reduction`](../failed-w9-leader-reduction/README.md)). Here `v < Q < n`. Let `y_a = 3^a(n + 1)/2^a − 1`, `a = 0, 1, 2, 3`.
+
+1. **Existing comparison.** The ordinary word from `Q` to `r` is `(1,2,1,1,1,1,1,2,2,1,1,2,2,1,1,3,1,2)` (length 18, total 26), `T^18(Q) = n`, `S^23(Q) = S^5(n)`, `K = L_23(Q) − L_5(n)`, `div K = [Q] − [n]`; with supplied `H_v, H_b`, `div(K + H_v − H_b) = P(b) − P(v)`, leaving the higher premise `P(v)` (rank `n > Q`).
+2. **Four-target theorem.** For every `m ≥ 0` and each `a`, the canonical `p ≤ Q` and `0 ≤ d ≤ 19 + a` with `T^d(p) = y_a` are exactly `p = Q`, `d = 18 + a`. The same strict exclusion holds for ordinary histories to these targets and to raw `r` within 19 arrows. Every inverse ray and word is covered.
+3. **Proof structure.** An exact uniform anchor cutoff `c + 1 < 133704989 + 1226171/387420489` gives `c ≤ 133704987`; four complete finite inverse trees (64, 78, 89, 101 states, sole origin at depths 18–21) and the lifting argument (as in [`finite-anchor-history-classification`](../finite-anchor-history-classification/README.md), R82) prove 2 for all `m`. The trees are part of the proof, not a sample.
+4. **Fixed words.** A fixed quotient inverse word valid for every `m` has length at most `19 + a`; hence no one fixed word, quotient or ordinary, of any length gives a strictly smaller origin throughout the cell.
+
+Not an all-depth exclusion at any fixed `m`; fixed clocks with valuations varying in `m`, finer cells, input-dependent words, later targets and signed comparisons remain open.
+
+## Proof
+
+The legacy note "R88 — A complete four-target history cell and its exact precision limit" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written lifting proof plus complete finite inverse-tree certificates;
 no terminal-current supply, novelty claim, or convergence claim.**
 
 This result concerns one whole remaining cell after the
-[R87 repair](../w9_history_repair/W9_HISTORY_REPAIR.md) and the existing
+[R87 repair](../failed-w9-leader-reduction/README.md) and the existing
 returning forward comparison. It is not an all-depth exclusion at a fixed
 positive source. The four finite anchor certificates below, together with
 the lifting proof, establish an assertion for every integer parameter in
 the cell. No forward absorption table or unknown smaller input is assumed.
 
 We use the absorbed odd Syracuse map S and the canonical normal form nu of
-[R25](../bridge_normal_form/BRIDGE_NORMAL_FORM.md), with T=nu S on canonical
+[R25](../elementary-bridge-quotient-normal-form/README.md), with T=nu S on canonical
 states. State and current row 1 are killed. All inverse targets here exceed
 1, so the absorbed self-loop at 1 contributes no inverse history.
 
-## 1. The whole cell and the existing signed comparison
+### 1. The whole cell and the existing signed comparison
 
 For every integer m>=0 put
 
@@ -85,7 +136,7 @@ positive premise. Equation (4) does not discard the lower zero-source
 relations that may occur in a different old compiler composition; it is a
 separate exact source identity. No terminal H or P input is supplied here.
 
-## 2. Exact statement
+### 2. Exact statement
 
 For a=0,1,2,3 define the four targets
 
@@ -113,7 +164,7 @@ these targets. An ordinary history from p<Q to raw r within19 steps is
 also excluded because nu(r)=n. We do not assert uniqueness of arbitrary
 noncanonical origins equal to Q from the quotient classification.
 
-## 3. A uniform exact cutoff at the anchor
+### 3. A uniform exact cutoff at the anchor
 
 The complete inverse branches of T, recalled from R25, are as follows.
 Each nonpoint base continues through every nonnegative index by
@@ -173,10 +224,10 @@ C_infinity = QP*(N0+1)/NP
 Thus c<Q0+2. Since c is odd and Q0 is odd, c<=Q0. This includes p=Q;
 there is no strict-inequality rounding omission. Formula (8), not a blanket
 anchor-minus-one cutoff, is the sufficient exact bound used here. See the
-[R82 cutoff theorem](../history_frontier/HISTORY_FRONTIER.md) for the
+[R82 cutoff theorem](../finite-anchor-history-classification/README.md) for the
 general distinction.
 
-## 4. Complete finite certificates at all four anchors
+### 4. Complete finite certificates at all four anchors
 
 The elementary bound T(x)<=(3x+1)/2 yields
 
@@ -215,7 +266,7 @@ not from the implementation's branch table. The four sole-hit words have
 exact origin increment QP when the target increment is NP_a. Their lifts
 are therefore Q0+QP*m=Q(m). Combined with (8), this proves (6) for every m.
 
-## 5. Consequence for one fixed word, without a depth restriction
+### 5. Consequence for one fixed word, without a depth restriction
 
 A fixed quotient inverse word of length d has multiplier 2^E/3^d, with
 integer E>=d. If the same word is legal at y_a(m) for **every** m>=0, the
@@ -239,7 +290,7 @@ words, later or differently normalized targets, or arbitrary signed
 comparisons. The ordinary 23/5 relation in (2) illustrates why clocks and
 valuation words must not be identified.
 
-## 6. Reproduction, scope and the remaining task
+### 6. Reproduction, scope and the remaining task
 
 Run from the repository root:
 
@@ -265,3 +316,19 @@ The original-rank problem remains: construct a genuinely different or
 input-dependent comparison that supplies P(v), or another exact signed
 closure. Replacing Q by the larger n would merely rename a failed
 original-rank comparison as local descent.
+
+## Certificates
+
+[`check_history_cell_recompute.py`](check_history_cell_recompute.py) (written at the B13 migration; standard library). No legacy check of this node passes any more: its legacy checker pins the SHA-256 of notes that are now edited READMEs, and no other legacy check of it passes (it has no side-lane probe, or only a C program that needs a compiler). The certificate rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, replaces each pinned note by a placeholder, imports the unmodified legacy checker there and runs its audit, and requires the result to equal the committed receipt after removing only those note hashes; every other value, including the hashes of the pinned code and data, must agree. It writes nothing in the repository. It rebuilds the four complete trees, the lifts, the symbolic paths, the signed 23/5 comparisons and the rejection controls (about 3 s). The side-lane C program `r88_anchor_exhaustive.c` needs a compiler and is evidence only. The command in the legacy text names `experiments/residual_progress/history_cell_scope/`.
+
+## Remarks
+
+- The REPORT records two bounded scratch explorations before this result (a direct/future fixed-word probe and an adaptive ternary refinement covering 57/729 of the classes); they were not promoted and are not premises.
+- Replacing `Q` by the larger `n` would only rename a failed original-rank comparison as local descent; the remaining task is a different or input-dependent comparison that supplies `P(v)`.
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/history_cell_scope/HISTORY_CELL_SCOPE.md` (legacy ID R88) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written lifting proof with complete finite inverse-tree certificates; no terminal-current supply".
+- The side-lane C program `reviews/side_lane/r88_anchor_exhaustive.c` moved here.
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `7a477ad`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

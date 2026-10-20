@@ -1,11 +1,60 @@
-# Guarded native-W9 growth, exact exits, and inverse undos
+---
+id: native-growth-original-rank-exit-obstruction
+kind: result
+title: "Guarded native critical-nine growth has exact return counts, and its exit fails the original rank for r >= 1"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; retained critical basis of R75. On G = {b = 905 mod 8192}, U(b) =
+  (729b+223)/512 and Y(b) = 217b+223 satisfy Y(U(b)) = (729/512) Y(b); the integers with at least r complete
+  guarded returns form one cylinder mod 2^(13+9r), and a fixed positive b makes exactly floor((v2(Y(b)) - 13)/9)
+  complete returns, followed by one more native comparison. The full s-step current has requests {U^s(b): 1} +
+  A_(U^s(b)) - A_b with a unique growing leader, ordinary clocks (6s+3, 3) and quotient clock 6s. All nine final
+  binary phases H = 13..21 are classified. On the whole H17 family v2(Y(b)) = 9r+17, with c = U^(r+1)(b), z =
+  (9c-1)/16, the exit has requests {z:1} + A_z - A_b, ordinary clocks (6r+12, 4) and quotient clock 6r+8; its
+  leading rank 3z is below 3b exactly when r = 0 and above it for every r >= 1, and the two standard base-ray
+  inverses restore the preceding growing comparison (k4) and the exit comparison (k8) row for row. The nonblocked
+  local W9 bound (27M+23)/32 gives a stop only at a smaller rank or an unhandled leaf. No accepted pair domain,
+  absorption search or positive infinite trajectory follows.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [common-critical-rank-basis, critical-nine-elimination, base-inverse-phases-increasing-pairs, native-critical-nine-continuation]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_nine_growth.py, nine_growth.py, nine_growth_audit.json: the legacy implementation, checker and receipt: 123 cylinders, 216 exit-phase cases, 27 full H17 comparisons, 24 full returns, 54 inverse undos, 383 local bounds, 16 rejections, complete failed-current tables at r = 1, 2 (78/134 rows). Fails at its new path: nine_growth.py loads ../critical_basis/ and ../nonselected_inverse/ (now ../common-critical-rank-basis/, ../base-inverse-phases-increasing-pairs/) by their pre-migration folder names; and Its receipt pins the SHA-256 of this node's legacy note NATIVE_NINE_GROWTH.md, now an edited README, so it fails at its new path and in a legacy replay. Passed at be73a66 as experiments/residual_progress/native_nine_growth/check_nine_growth.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged)"
+  - "../high-smaller-origin-history/batch_r78_r80_check.py: side-lane probe of R78-R80, replayed by this node's check_legacy_replay.py (see reviewed_by)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: ../high-smaller-origin-history/batch_r78_r80_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 03:31, VERIFIED, main 3b0c8a5), with the lane's own step, ν and selected: '**R79.** Take 3,000 seeds, half of them forced to have a deep `v2(Y)`, with `Y(b) = 217b + 223`. In every case `Y(U(b)) = (729/512)·Y(b)`. The number of consecutive returns `U^s(b) ∈ G` equals `⌊(v2(Y(b)) − 13)/9⌋`. Membership in `G` is exactly `v2(Y) ≥ 13`.' The exit theorem, the signed currents and the inverse undos were not rebuilt. The status stays written"
+aliases: [R79]
+tags: [convergence, outer-residual, critical-nine, native-history, original-rank, growing-block]
+---
+
+# Guarded native critical-nine growth has exact return counts, and its exit fails the original rank for r >= 1
+
+## Statement
+
+Odd-only clock, 1 absorbing; the retained critical basis of [`common-critical-rank-basis`](../common-critical-rank-basis/README.md) (R75), formal plans `[x] = div H_x + Σ A_x(v)P(v)`. Put `G = {b > 0 : b ≡ 905 (mod 8192)}`, `U(b) = (729b + 223)/512`, `Y(b) = 217b + 223`.
+
+1. **Guarded return.** For `b ∈ G`, `3b` has six ordinary arrows `(1,2,1,1,1,2)` to `6U(b) + 1`, whose normal form is `3U(b)`. `Y(U(b)) = 729·Y(b)/512`, so `U(b) ∈ G` iff `v2(Y(b)) ≥ 22`. When `c = U(b) ∈ G`, the full prescribed R40/R75 return is, row for row, `C_b = D_b + H_c − H_b` with requests `{c: +1} + A_c − A_b`.
+2. **Exact count.** The integers with at least `r` complete returns are one cylinder mod `2^(13+9r)`; a fixed positive `b` makes exactly `⌊(v2(217b + 223) − 13)/9⌋` complete returns, then one more native comparison. The full `s`-step current has requests `{U^s(b): +1} + A_(U^s(b)) − A_b`, ordinary clocks `(6s + 3, 3)`, quotient clock `6s`; its leader grows.
+3. **Exit phases.** The nine final binary phases `H = 13..21` of the next local R40 step are classified completely.
+4. **H17 exit.** On `v2(217b + 223) = 9r + 17`, with `c = U^(r+1)(b)`, `z = (9c − 1)/16`, the exit is `E_(b,z) + H_z − H_b` with requests `{z: +1} + A_z − A_b`, ordinary clocks `(6r + 12, 4)`, quotient clock `6r + 8`. Its leading rank `3z` is below `3b` exactly when `r = 0` (already covered by R78/R52) and above `3b` for every `r ≥ 1`.
+5. **Inverse undos.** The two base inverse rays of [`base-inverse-phases-increasing-pairs`](../base-inverse-phases-increasing-pairs/README.md) restore, row for row, the preceding growing comparison (k4) and the exit comparison itself (k8).
+6. **Local stop.** Nonblocked local W9 plans have every rank at most `(27M + 23)/32`; a chain of them stops below any original rank `N > 23/5`, but only at a smaller rank or an unhandled W5 or blocked W9 leaf.
+
+## Proof
+
+The legacy note "Guarded native-W9 growth, exact exits, and inverse undos" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written scoped theorem and finite exact-current audit.** This gives
 no new accepted pair domain. It separates local contraction from decrease
 below an original rank, and proves two precise inverse undos. A finite end of
 the specified growing guard does not itself supply the final pair current.
 
-Use the [retained critical basis](../critical_basis/CRITICAL_BASIS.md), with
+Use the [retained critical basis](../common-critical-rank-basis/README.md), with
 `P(b)=[3b]−[b]`, `rho(b)=nu(3b)`, and the deterministic formal absorption plans
 
     [x] = div H_x + sum A_x(v) P(v).
@@ -13,9 +62,9 @@ Use the [retained critical basis](../critical_basis/CRITICAL_BASIS.md), with
 Both W5 and W9 inputs are retained. Every request of H_x has rank at most
 nu(x). Currents here are integer signed tables. Missing pair inputs remain
 premises. The native a5 interface is recorded separately in
-[Native W9 continuation](../native_nine/NATIVE_NINE_CONTINUATION.md).
+[Native W9 continuation](../native-critical-nine-continuation/README.md).
 
-## 1. Complete guarded return and its exact current
+### 1. Complete guarded return and its exact current
 
 Put
 
@@ -59,7 +108,7 @@ composed pair comparison is exactly
 This is a row-for-row identity, not only equality of divergence. Its unique
 largest request is c with coefficient+1 and rank3c>3b.
 
-## 2. Exact finite count at one positive seed
+### 2. Exact finite count at one positive seed
 
 For r>=0 define
 
@@ -97,7 +146,7 @@ three-arrow prefixes cancel. Every b_s>b. Every other request in (8) has
 rank below3b_s. Thus the growing request cannot disappear through cancellation
 with the displayed helpers.
 
-## 3. Complete binary exit phases
+### 3. Complete binary exit phases
 
 At the last guarded source write
 
@@ -124,7 +173,7 @@ For H16, `3z+1=2^(k+3)t` and k>=1, which proves the stated exact selection
 test. The other lines follow directly from (9). These are local binary
 phases, not success claims at the original starting rank.
 
-## 4. The H17 exit can decrease locally and increase globally
+### 4. The H17 exit can decrease locally and increase globally
 
 Fix r>=0 and any positive b with
 
@@ -172,10 +221,10 @@ rank is asserted. The leading request nevertheless exceeds all of them.
 The accepted r0 cases are already covered by the native/R52 continuation;
 this theorem adds no accepted domain.
 
-## 5. The two standard inverse choices do not repair this exit
+### 5. The two standard inverse choices do not repair this exit
 
 Apply the two base inverse rays of
-[the nonselected interface](../nonselected_inverse/NONSELECTED_INVERSE_PHASES.md)
+[the nonselected interface](../base-inverse-phases-increasing-pairs/README.md)
 to the leading P(z). Their exact point depths are
 
     h4=v3(4z+1)=1,        h8=v3(8z+1)=0.                     (14)
@@ -198,7 +247,7 @@ These claims concern precisely the two base rays and the deterministic
 formal H. Higher rays, different words, supplied histories and joint
 comparisons remain available.
 
-## 6. Why a local W9 contraction is only a stopping interface
+### 6. Why a local W9 contraction is only a stopping interface
 
 For a nonblocked local W9 plan at input c, let M=3c. Every retained request
 has rank at most
@@ -223,7 +272,7 @@ rank or an unhandled W5/blocked W9 leaf**. It does not prove all leaves can
 be expanded by the same bound. Equations (8) and (13) show exactly why the
 blocked native continuation cannot be included under (15).
 
-## 7. Unpromoted higher-ray direction
+### 7. Unpromoted higher-ray direction
 
 There is an arithmetic route worth separating from the proved procedure.
 At the H17 upper root3z, the two complete quotient inverse rays have bases
@@ -247,7 +296,7 @@ original-rank inequalities, capacity-independent signed cancellations and
 explicit premise supply would still need to be completed. The checker
 records only the small modular arithmetic; it generates no huge paths.
 
-## 8. Evidence and reproduction
+### 8. Evidence and reproduction
 
 Run `python3 experiments/residual_progress/native_nine_growth/check_nine_growth.py`.
 The default verifies the stored receipt; `--write-receipt` refreshes it
@@ -256,3 +305,18 @@ divergence, all nine binary exit phases, complete cylinders and exact counts,
 full return and inverse-undo rows, local contraction bounds and invalid-input
 rejections. It stores concrete unfinished H17 current tables at r1 andr2.
 No absorption search or acceptance dispatcher is added.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B13 migration; standard library). The legacy scripts load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the side-lane probe `batch_r78_r80_check.py` from [`high-smaller-origin-history`](../high-smaller-origin-history/README.md) (under 1 s, receipt reproduced byte for byte), which checks the return identity and the exact return count on 3,000 seeds. The legacy checker `check_nine_growth.py` is not replayed: it pins the hash of this node's note, now an edited README (see `evidence`). The command in the legacy text names `experiments/residual_progress/native_nine_growth/`.
+
+## Remarks
+
+- Section 7 of the legacy note (the higher-ray congruences) was an unpromoted direction; it is completed on explicit all-return-count subfamilies in [`history-beyond-prescribed-growth`](../history-beyond-prescribed-growth/README.md) (R83). The whole H17 exit type remains open.
+- The affine fixed point of `U` is the negative rational `−223/217`; no positive infinite trajectory follows from the cylinders.
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/native_nine_growth/NATIVE_NINE_GROWTH.md` (legacy ID R79) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written scoped growth/exit theorem and exact-current audit; no new accepted pair domain".
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `3b0c8a5`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

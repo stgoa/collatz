@@ -13,7 +13,7 @@ and the side lane, and a GitHub merged-PR query. The query returned only
 2026-10-17 21:30:44 UTC as `ba6b3371fabd7fcabebb442d7c89ea3ed5c02149`.
 That commit is already an ancestor of current main. Its original PR body
 still contains the broad certificate-minimality conclusion; the corrected
-repository note and [review](../packet_currents/negative_controls/PR1_REVIEW.md)
+repository note and [review](../locally-collatz-like-control-barrier/PR1_REVIEW.md)
 retain the valid lemma and explicit counterexamples to the overstatement.
 
 Keep the false-map controls, independent arithmetic and conditional

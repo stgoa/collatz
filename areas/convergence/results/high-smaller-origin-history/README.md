@@ -1,4 +1,55 @@
-# A high common tail supplies a decreasing critical-nine family
+---
+id: high-smaller-origin-history
+kind: result
+title: "A smaller origin meeting the target above its height gives a decreasing plan on a blocked critical-nine family"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; F(x) = 4x+1; quotient T = nu S; retained critical basis of R75. For D >=
+  12, t >= 0 let q = 11547 + 2^17 3^D t, b = q/3, p = 11391 + 2^36 3^(D-12) t, y = (3q+1)/2. Then b < p < q < y,
+  p, q, y are canonical, b lies in the blocked W9 d4/noncanonical-upper row, the thirteen-arrow word
+  (1^6,2,2,1^4,2) from p ends at F^2(y) = 24q+13 with every intermediate state above q (peak 32q+17), and S^2(q) =
+  S^14(p) = (9q+5)/8 > q (quotient clocks (1,13)). With K = delta_q - L_p - delta_x + delta_y (div K = [q]-[p]),
+  the pair current K + J_p - J_b requests A_p - A_b, all ranks at most p < q, conditional on those smaller inputs
+  being supplied; old W5-only H_p, H_b also pass. A supplied 4892-state forward-closed canonical table proves that
+  no canonical origin below 11547 reaches 11547 at any depth; with R49's lifting, for t > 0 every canonical
+  ancestor of q at depth 1..D is above q, over all inverse rays (the seed changes with D). The R44/R52 endpoint
+  comparisons keep a genuine higher request on the whole family. No universal history access, W5 coverage or
+  dispatcher change is claimed.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [common-critical-rank-basis, inverse-only-exclusions-short-forward, returning-forward-interface, returning-second-forward-interface]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_native_history.py, native_history.py, native_history_audit.json, anchor_certificate.json: the legacy constructor, checker, receipt and the 4892-state anchor table: all anchor edges, 54 family/native plans, 54 W5-frontier variants, 54 actual R44/R52 failures, 88 base inverse words, 18 varied words, 11 rejections, two supplied conversions with 46/229 rows and all 5/9 input tables. Fails at its new path: native_history.py loads ../critical_basis/, ../resolved_rules/ and ../returning_continuation/ (now ../common-critical-rank-basis/, ../seventeen-family-rho-dispatcher/, ../returning-second-forward-interface/) by their pre-migration folder names; and Its receipt pins the SHA-256 of this node's legacy note HIGH_HISTORY.md, now an edited README, so it fails at its new path and in a legacy replay (with the anchor table). Passed at be73a66 as experiments/residual_progress/native_history/check_native_history.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged)"
+  - "batch_r78_r80_check.py, batch_r78_r80_check.json: side-lane probe (Claude side lane, 2026-10-18 03:31) of R78, R79 and R80; native-critical-nine-continuation and native-growth-original-rank-exit-obstruction replay it from this folder. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/) and fibre_count_check from its own folder (now ../absorbed-fibre-uniform-counts/). Passed at be73a66 as reviews/side_lane/batch_r78_r80_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+  - "side_lane_review_9849c53.md: the main lane's pinned review (2026-10-18) of side commit 9849c53: byte-identical reproduction of batch_r78_r80_check under a 60 s cap, confirming that the anchor certificate is a complete closure, not a bounded search, and that the probe does not rebuild the signed current tables or prove the family quantifiers"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: batch_r78_r80_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 03:31, VERIFIED, main 3b0c8a5): '**R80.** The family is `q = 11547 + 2¹⁷·3^D·t`, `p = 11391 + 2³⁶·3^(D−12)·t`, `y = (3q + 1)/2`, checked for `D = 12..16` and `t = 0..5` (30 cases)': b < p < q < y with p, q, y canonical, the thirteen valuations, every state after p above q with peak 32q + 17, and S²(q) = S¹⁴(p) = (9q + 5)/8 > q; '**R80 anchor.** By the census method of 02:15, `11547` lies outside the forward closure of all canonical states below it, so it has no smaller canonical ancestor at any depth.' The signed current tables and the all-depth lift were not rebuilt (side_lane_review_9849c53.md). The status stays written"
+aliases: [R80]
+tags: [convergence, outer-residual, critical-nine, smaller-origin-history, inverse-barrier, anchor-certificate]
+---
+
+# A smaller origin meeting the target above its height gives a decreasing plan on a blocked critical-nine family
+
+## Statement
+
+Odd-only clock `S`, 1 absorbing, `F(x) = 4x + 1`, quotient `T = νS`; the retained critical basis of [`common-critical-rank-basis`](../common-critical-rank-basis/README.md) (R75), `[s] = div J_s + Σ_v A_s(v)P(v)`, `A_s(v) ≠ 0 ⇒ ρ(v) ≤ ν(s)`.
+
+For `D ≥ 12`, `t ≥ 0` put `q = 11547 + 2^17·3^D·t`, `b = q/3`, `p = 11391 + 2^36·3^(D−12)·t`, `y = (3q + 1)/2`.
+
+1. **Family.** `b < p < q < y`, `ρ(b) = q`, `p, q, y` are canonical, and `b` lies in R75's blocked local W9 row (`d = 4`, `3z` noncanonical).
+2. **High merger.** The ordinary word `(1,1,1,1,1,1,2,2,1,1,1,1,2)` from `p` ends at `F²(y) = 24q + 13`; every intermediate state after `p` is above `q` (peak `32q + 17`); `S²(q) = S^14(p) = (9q + 5)/8 > q`. Ordinary clocks `(2, 14)`, quotient clocks `(1, 13)`.
+3. **Decreasing plan.** With `K = δ_q − L_p − δ_x + δ_y`, `x = F²(y)`, `div K = [q] − [p]`, the current `K + J_p − J_b` gives `P(b)` with requests `A_p − A_b`, every rank at most `p < q`, including negative coefficients. The same `K` with the old W5-only plans `H_p − H_b` also passes. The smaller inputs remain premises.
+4. **Anchor exclusion.** A supplied, arithmetically checked forward-closed table of 4892 canonical states contains every canonical origin below 11547 and excludes 11547, so no smaller canonical origin reaches 11547 at any depth. By the lifting theorem of [`inverse-only-exclusions-short-forward`](../inverse-only-exclusions-short-forward/README.md) (R49), for `t > 0` every canonical ancestor of `q` at depths `1..D` is above `q`, over every inverse ray and index. Only the anchor has an all-depth conclusion; increasing `D` changes the seed.
+5. **Old comparisons fail.** The R44 and R52 endpoint plans ([`returning-forward-interface`](../returning-forward-interface/README.md), [`returning-second-forward-interface`](../returning-second-forward-interface/README.md)) keep a genuine higher request on the whole family, also in the native basis. Failure of the full seventeen-rule dispatcher is recorded only for four finite samples.
+
+## Proof
+
+The legacy note "A high common tail supplies a decreasing critical-nine family" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **R80 — written conditional family theorem and finite exact certificates.**
 A complete arithmetic progression in the blocked W9 row has a smaller
@@ -9,15 +60,15 @@ prescribed depth, with the seed varying with that depth. Terminal pair
 currents remain supplied premises. This is neither universal W9 supply nor
 a Collatz proof; no novelty or formal-verification claim is made.
 
-Dependencies are the [native critical basis](../critical_basis/CRITICAL_BASIS.md),
-the [complete inverse lifting theorem](../inverse_scope/INVERSE_SCOPE.md),
-the [R44 returning interface](../returning_phase/RETURNING_FORWARD_INTERFACE.md), and
-the [R52 second-block interface](../returning_continuation/RETURNING_SECOND_BLOCK.md).
+Dependencies are the [native critical basis](../common-critical-rank-basis/README.md),
+the [complete inverse lifting theorem](../inverse-only-exclusions-short-forward/README.md),
+the [R44 returning interface](../returning-forward-interface/README.md), and
+the [R52 second-block interface](../returning-second-forward-interface/README.md).
 Use ordinary odd-only Syracuse S, absorbed at1, killed atoms [1]=0,
 F(x)=4x+1, and the canonical quotient T=nu S. All currents below use ordinary
 S arrows, even when a quotient clock is also stated.
 
-## 1. Complete cylinder and smaller origin
+### 1. Complete cylinder and smaller origin
 
 For integers D>=12 and t>=0 set
 
@@ -47,7 +98,7 @@ is already fixed by q=11547 modulo2048:3z=95 modulo128,
 v2(3z+1)=5, and (3z+1)/32=3 modulo4. Thus its ordinary local continuation
 has the higher E_return request u=(3q+3)/4, rather than a descending W9 rule.
 
-## 2. Prescribed high merger, including every phase
+### 2. Prescribed high merger, including every phase
 
 The ordinary path from p has the exact word
 
@@ -105,7 +156,7 @@ comparison with the high history of the smaller origin p; it does not
 assume that q itself first descends, or that a lower-origin history is
 available without its supplied absorption premise.
 
-## 3. Exact signed current and original rank
+### 3. Exact signed current and original rank
 
 Let L_p be the13-arrow current in(4), and x=F^2(y). Define
 
@@ -136,7 +187,7 @@ the blocked W9 parent and preserves the original rank q throughout. The
 compiler verifies every supplied pair current before substituting it.
 
 R75 supplies a convenient common interface with no compulsory W9 elimination
-overhead. The earlier [history scope audit](../adjacent_history/HISTORY_SCOPE.md)
+overhead. The earlier [history scope audit](../../attempts/retained-lower-currents-adjacent-source.md)
 correctly identified an obstacle to the particular old W5-only H compiler;
 that general obstacle is absent from(9). **This particular merger does not
 require that improvement.** Here p=127 modulo512, a complementary canonical
@@ -151,7 +202,7 @@ Its parent is still W9, and this does not change the old W5 dispatcher.
 Neither interface proves that all unknown orbits enter a supplied lower
 history in bounded time.
 
-## 4. Arbitrarily deep complete inverse exclusion on the same family
+### 4. Arbitrarily deep complete inverse exclusion on the same family
 
 The stored [anchor certificate](anchor_certificate.json) is an exact table
 Q of4892 canonical states, maximum3012713, with every canonical origin
@@ -188,7 +239,7 @@ asserts only the indicated depth D. Increasing D changes q; it establishes
 no permanently excluded positive trajectory. There is no conflict between
 (7) and(12): p reaches the future state of q, and does not reach q itself.
 
-## 5. Comparison with the existing returning rules
+### 5. Comparison with the existing returning rules
 
 For the blocked higher request u=(3q+3)/4, R44 has a=7 and endpoint
 
@@ -212,7 +263,7 @@ claim for the whole family, and the old W5 dispatcher is unchanged. This
 result adds a proved native W9 comparison; it does not claim a new W5-only
 coverage theorem or defeat every possible forward comparison.
 
-## 6. Reproduction and remaining obligation
+### 6. Reproduction and remaining obligation
 
 Run from the repository root:
 
@@ -232,3 +283,19 @@ pair inputs remain explicit, and the complement of this W9 cylinder remains
 unresolved. A high common tail can supply progress where the stated direct
 and inverse comparisons fail; universal availability of such a tail is not
 proved.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B13 migration; standard library). The legacy scripts load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the side-lane probe `batch_r78_r80_check.py` (under 1 s, receipt reproduced byte for byte), which checks the R80 family on 30 cases and the complete forward closure below the anchor 11547. The legacy checker `check_native_history.py` is not replayed: it pins the hash of this node's note, now an edited README (see `evidence`). The command in the legacy text names `experiments/residual_progress/native_history/`.
+
+## Remarks
+
+- The maximal fixed-word cell of this merger is [`fixed-word-history-cells`](../fixed-word-history-cells/README.md) (R81); the sharp one-step-future classification from the same anchor table is [`finite-anchor-history-classification`](../finite-anchor-history-classification/README.md) (R82).
+- The older history audit [`retained-lower-currents-adjacent-source`](../../attempts/retained-lower-currents-adjacent-source.md) limits a specific W5-only compiler; this particular family passes with both frontiers.
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/native_history/HIGH_HISTORY.md` (legacy ID R80) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written conditional whole-family theorem, finite all-depth anchor certificate and exact supplied-current demonstrations".
+- The main lane's review `side_lane_review_9849c53.md` (`experiments/residual_progress/`, 2026-10-18) moved here with the side-lane probe it reproduces.
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `3b0c8a5`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

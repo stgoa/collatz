@@ -1,4 +1,53 @@
-# Accumulated ternary precision cannot supply a smaller original history
+---
+id: rational-basin-precision-barrier
+kind: result
+title: "A finite rational basin bounds every inverse word at c0, so no smaller original source reaches the repeated target within 12r + 5 steps"
+status: written
+claim: >
+  Computer-assisted. Odd-only 3x+1 map S, absorbing at 1, canonical quotient T = nu S, extended to the signed
+  canonical quotient on rationals with reduced denominator D = 7153. At c0 = -899841/7153, every legal finite
+  quotient inverse word of length d and affine slope lambda, with arbitrary ray indices, satisfies lambda
+  (3^12/2^19)^max(0, ceil((d-5)/12)) >= 1, with equality for reversed complete twelve-step cycles. Proof: a first
+  strict counterword must start at a primitive odd canonical -u/7153 with 7153 < u < 7277133 (written reduction),
+  and two independent exact implementations (signed Python, positive-magnitude C++) classify all 1,732,883
+  eligible origins, with no cap reached: only 19 reach c0, all with first-hit score >= 1, every other origin being
+  resolved by a path to a classified state, another cycle or the invariant region x > -1. Written corollary: on
+  the original coupled cell v0 = 67839005952677 + 2^18 3^18 ell, Q = 70506316836123 + 3 2^45 ell, if at least r
+  guarded Phi returns are available and n_r = 3 Phi^r(v0), no positive canonical p <= Q reaches n_r in d <= 12r+5
+  quotient steps (every inverse ray and word; also ordinary histories), via p >= n0 + 1 - (243/32) 2^(7r) > Q; Q
+  itself reaches n_r at depth 18+12r. No all-depth positive exclusion, exclusion of longer histories, later
+  targets or signed currents, and no terminal supply.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [elementary-bridge-quotient-normal-form, binary-return-exit-control, retained-history-w9-reduction]
+certificates: [check_shadow_precision_recompute.py]
+evidence:
+  - "check_shadow_precision.py, shadow_precision.py, shadow_precision_audit.json, independent_basin.cpp: the legacy Python classifier, checker, receipt and the independent C++ classifier (compiled and compared only with --cpp): the full 1,732,883-origin basin with its 19 hit records, the c0 cycle, the branch inequalities, 306 positive inverse words on 21 families through r = 128, and 14 invalid-domain rejections. Fails at its new path: the checker loads ../history_cell_scope/history_cell_scope.py (now ../four-target-history-classification/) by its pre-migration path, and its receipt pins the SHA-256 of this node's legacy note SHADOW_PRECISION.md and of ../phi_exit_control/PHI_EXIT_CONTROL.md, now edited READMEs. Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a; A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged). Its Python audit is recomputed by check_shadow_precision_recompute.py; the C++ comparison needs a compiler and is not part of the certificate"
+  - "c0_basin_classify.c, c0_basin_receipt.py, c0_basin_receipt.json: the side lane's independent C classification (Claude side lane, 2026-10-18 06:34) of the c0 basin on R91's universe and on the larger deeper-window universe 7153 < u < 741545113, with its wrapper and receipt; fourteen-step-window-original-source cites it. The wrapper compiles the C program with cc, so it is evidence, not a certificate. Passed at be73a66 as reviews/side_lane/c0_basin_receipt.py (archive/legacy-checker-run-be73a66.md, exit 0, 8.8 s)"
+  - "side_lane_review_8ed32bc.md, side_lane_review_8ed32bc.json: the main lane's pinned review (2026-10-18) of side commit 8ed32bc: byte-identical reproduction of c0_basin_receipt in 5.71 s, source inspection of the signed-quotient convention and overflow range, and the scope note that the floating minimum-slope diagnostic is not an exact certificate and that the C program does not verify R92's suffix proof"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: c0_basin_classify.c
+    scope: "Finite only (side-lane feed entry 2026-10-18 06:34, FINDING (exhaustive, independent C)): '**Validation on R91's universe** (`7153 < u < 7277133`). Every published figure matches exactly: 1,732,883 eligible origins; 19 in the c₀ basin; largest intermediate numerator 1,049,066,989,135; smallest weighted slope μ = 1.' and 'Neither the candidate's reduction (§§2–5) nor the R91 theorem is re-proved; this entry supplies only the exhaustive finite table the candidate requires.' Reproduced by the main lane in side_lane_review_8ed32bc.md, which notes that the minimum slope is a floating-point diagnostic. The status stays written"
+aliases: [R91]
+tags: [convergence, outer-residual, computer-assisted, rational-shadow, inverse-barrier, ternary-precision]
+---
+
+# A finite rational basin bounds every inverse word at c0, so no smaller original source reaches the repeated target within 12r + 5 steps
+
+## Statement
+
+**Computer-assisted.** Odd-only clock, 1 absorbing; canonical quotient `T = νS` with the complete inverse table of [`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md) (R25), extended to a deterministic signed quotient on rationals `−u/D` with reduced denominator `D = 7153`. Put `A = 3^12`, `M = 2^19`, `γ = A/M`, `B = 299947`, `c0 = −3B/D = −899841/7153`, `k(d) = max(0, ⌈(d − 5)/12⌉)`.
+
+1. **All-word slope theorem.** Every legal finite quotient inverse word at `c0`, of length `d` and slope `λ`, with arbitrary ray indices, satisfies `λ·γ^k(d) ≥ 1`. Reversing complete twelve-step cycles of `c0` gives equality.
+2. **How it is proved.** A first word with score below 1 must start at a primitive odd canonical `−u/D` with `7153 < u < 7277133` (written reduction, independent of the word length). Two independent exact classifiers resolve all 1,732,883 eligible origins with no cap: 19 reach `c0`, each with first-hit score at least 1; every other origin reaches a classified state, a different cycle, or the invariant region `x > −1`. The largest visited numerator is 1,049,066,989,135. This finite classification is the computer-assisted step.
+3. **Positive corollary (written).** On the original coupled cell of [`binary-return-exit-control`](../binary-return-exit-control/README.md) (R90), `v0 = 67839005952677 + 2^18·3^18·ℓ`, `Q = 70506316836123 + 3·2^45·ℓ`, suppose at least `r` guarded returns, and let `n_r = 3Φ^r(v0)`. No positive canonical `p ≤ Q` reaches `n_r` in `d ≤ 12r + 5` quotient steps, over every inverse ray and word, with no bound on intermediate heights; the same holds for ordinary histories. The bound is `p ≥ n0 + 1 − (243/32)·2^(7r) > Q`, using `n0 > 2Q` and `L(v0) ≥ 81·2^(19r+18)`, for every eligible source. The original `Q` reaches `n_r` at depth `18 + 12r`, thirteen steps beyond the window.
+
+## Proof
+
+The legacy note "Accumulated ternary precision cannot supply a smaller original history" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **R91 — computer-assisted inverse-word theorem and written positive-source
 corollary.** A finite, completely classified rational-shadow graph supplies
@@ -9,13 +58,13 @@ exclude longer histories, different future targets, arbitrary signed currents,
 or absorption of a fixed positive source. No novelty is asserted.
 
 Use absorbed odd Syracuse S, the canonical normal form nu, and T=nu S from
-[R25](../bridge_normal_form/BRIDGE_NORMAL_FORM.md). The positive family and
+[R25](../elementary-bridge-quotient-normal-form/README.md). The positive family and
 its exact growing return are those of
-[R90](../phi_exit_control/PHI_EXIT_CONTROL.md), built from the retained cell in
-[R89](../retained_history/RETAINED_HISTORY.md). This result preserves that
+[R90](../binary-return-exit-control/README.md), built from the retained cell in
+[R89](../retained-history-w9-reduction/README.md). This result preserves that
 original source cutoff rather than comparing only with the growing endpoint.
 
-## 1. The complete rational inverse-word theorem
+### 1. The complete rational inverse-word theorem
 
 Set
 
@@ -45,7 +94,7 @@ Thus no word in this entire precision budget gains a factor below1/3, or
 even below1, relative to reversing the available growing returns. This is a
 slope theorem at one explicit rational centre, not a global rank theorem.
 
-## 2. Exact signed quotient and unrestricted inverse branches
+### 2. Exact signed quotient and unrestricted inverse branches
 
 For x=N/D with N odd and gcd(N,D)=1, all residue statements use modular
 inverses of D. Define
@@ -103,7 +152,7 @@ x=-1 is excluded by the reduced denominator. A detected other cycle also
 certifies nonmembership in the c0 basin. Neither test presumes general
 termination of the signed map.
 
-## 3. Why the arbitrary-word question has a finite origin universe
+### 3. Why the arbitrary-word question has a finite origin universe
 
 The following reduction makes the finite calculation exhaustive. It also
 records how the bound depends on the proposed score threshold.
@@ -140,7 +189,7 @@ The largest possible odd numerator is7277131. Intermediate states need not
 remain below this bound. The finite calculation follows their actual paths;
 it does not impose(7) as an intermediate height cap.
 
-## 4. Complete finite basin classification
+### 4. Complete finite basin classification
 
 The signed forward orbit of c0 has exactly twelve states. The table displays
 positive numerators u, so the actual states are -u/D; e is the arrow's inverse
@@ -200,7 +249,7 @@ classification, and invariance under further c0 cycles prove(2). This is the
 computer-assisted part of the theorem. A capped or incomplete classification
 would not prove it.
 
-## 5. Positive sources: all inverse words through the gained precision
+### 5. Positive sources: all inverse words through the gained precision
 
 Return to the original positive coupled cell. For ell>=0 put
 
@@ -229,7 +278,7 @@ prefix of length18+12r ends at n_r. The algebraic centre identity is
 steps. This includes every inverse ray and every inverse word in that
 horizon, without a height bound on its intermediate states.
 
-### Shadow legality
+#### Shadow legality
 
 Lift any such actual inverse word to a shadow starting at c0. Before its
 j-th inverse step, the actual-shadow difference has ternary order at least
@@ -239,7 +288,7 @@ canonical, with reduced denominator D, and strictly below-1. Thus the actual
 word is one of those covered by(2). Its slope satisfies lambda>=gamma^(-r),
 since k(d)<=r.
 
-### Intercept and original-cutoff bound
+#### Intercept and original-cutoff bound
 
 For the prefix slopes lambda_j, (5) gives lambda_j>=(2/3)^j. Summing the
 possible negative affine offsets yields
@@ -277,7 +326,7 @@ An ordinary history from a positive odd p<=Q to n_r in at most12r+5 arrows
 is also impossible: T^d(nu(p))=nu(S^d(p))=n_r and nu(p)<=p. Absorption at1
 creates no exception because the positive target n_r is greater than1.
 
-## 6. What this excludes, and what it leaves open
+### 6. What this excludes, and what it leaves open
 
 The accumulated ternary precision does not, by itself, supply a smaller
 original partner at the repeated target. Every allowed word within that
@@ -298,7 +347,7 @@ still has the explicit clock bound12r+5 because that is the available
 ternary precision linking an actual word to the shadow. These are distinct
 quantifiers and should not be conflated.
 
-## 7. Reproduction and evidence
+### 7. Reproduction and evidence
 
 Run `python3 experiments/residual_progress/shadow_precision/check_shadow_precision.py`.
 Add `--cpp` to compile and compare the independent C++ classifier in temporary
@@ -312,3 +361,20 @@ converted to an absorption current; this theorem constructs no terminal
 current. Default replay compares the stored audit receipt; regeneration is
 explicit. Any cap or arithmetic-range failure is an unresolved computation,
 not a nonmembership result.
+
+## Certificates
+
+[`check_shadow_precision_recompute.py`](check_shadow_precision_recompute.py) (written at the B13 migration; standard library). No legacy check of this node passes any more: its legacy checker pins the SHA-256 of notes that are now edited READMEs, and no other legacy check of it passes (it has no side-lane probe, or only a C program that needs a compiler). The certificate rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, replaces each pinned note by a placeholder, imports the unmodified legacy checker there and runs its audit, and requires the result to equal the committed receipt after removing only those note hashes; every other value, including the hashes of the pinned code and data, must agree. It writes nothing in the repository. It reruns the exact Python classification of all 1,732,883 origins and the other checks of the receipt (about 15 s). The independent C++ classifier `independent_basin.cpp` and the side lane's C classifier `c0_basin_classify.c` need a compiler and are evidence only. The commands in the legacy text name `experiments/residual_progress/shadow_precision/`.
+
+## Remarks
+
+- The universal word quantifier rests on the first-counterword reduction plus the exhaustive finite basin, not on the 306 positive samples. The result is computer-assisted in that sense.
+- It excludes the specific proposal that accumulated ternary precision supplies a smaller history at the repeated target; longer histories, later targets, deeper digits and signed comparisons remain open. The fourteen further steps are settled by [`fourteen-step-window-original-source`](../fourteen-step-window-original-source/README.md) (R92).
+- The main lane's REPORT records two independent mathematical reviews and a source/C++ review, all by its own agents. The side lane reproduced the finite classification independently only later (feed 06:34, `8ed32bc`).
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/shadow_precision/SHADOW_PRECISION.md` (legacy ID R91) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "computer-assisted inverse-word theorem with a written positive-source corollary".
+- The side-lane C program and wrapper `reviews/side_lane/c0_basin_classify.c`, `c0_basin_receipt.*` and the main lane's review `side_lane_review_8ed32bc.*` (`experiments/residual_progress/`) moved here.
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `a94533a`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

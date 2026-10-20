@@ -1,4 +1,53 @@
-# A smaller-origin history beyond every native H17 growth depth
+---
+id: history-beyond-prescribed-growth
+kind: result
+title: "For every prescribed number of native returns, explicit cells have a smaller-origin history meeting above the root"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; retained critical basis of R75; the H17 exit of R79 with U(b) =
+  (729b+223)/512. For each r >= 0 put s = r+1 and choose the unique 0 < L < 3^(6s+2) with 64^L = 217/8272 mod
+  3^(6s+4), h = 11L + 8s. Two exact positive CRT cells have v2(217b+223) = 9r+17 (exactly r returns), c = U^s(b) =
+  137 mod 1024 and exact point order h on the second quotient inverse ray of q = 3(9c-1)/16; their endpoint p
+  satisfies p < b for every positive member (slope 9 (131072/177147)^L / 18^s <= 1/2 with a strictly negative
+  omitted intercept term). The ordinary words (1,2,1),(1,1,2,1,1,3)^s,(1,1,3) from 3b and 1^h,2,6L+3,1,2,1 from p
+  meet at M = (2187c+925)/512 > 3b, clocks (6r+12, h+5), and the prefix difference plus H_p - H_b requests A_p -
+  A_b, all ranks below 3b, with every smaller input a supplied premise. First values (r,L,h) = (0,740,8148),
+  (1,2028089,22308995). For r >= 1 the two-ray/point procedure with deterministic H succeeds exactly when h >= 1
+  and p < 3b, decided over all ray indices by a proved finite cutoff; at b = 96797577 all six admissible rays
+  fail, while a supplied absorption witness exists there, so this limits the procedure, not the current. Not
+  coverage of the whole H17 exit type.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [native-growth-original-rank-exit-obstruction, common-critical-rank-basis]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_growth_escape.py, growth_escape.py, growth_escape_audit.json: the legacy constructor, checker and receipt: 20 symbolic depths through 64, 160 modular phases, four exact terminal-unit/index cells, six exhaustive failure cases, 21 rejections, a capped-decision check, and the fully materialised r = 0 comparison (8165 rows) with its supplied 31041/39181-arrow absorption paths compiled to a 129-row pair current, stored losslessly. Fails at its new path: growth_escape.py loads ../native_nine_growth/ (now ../native-growth-original-rank-exit-obstruction/) by its pre-migration folder name; and Its receipt pins the SHA-256 of this node's legacy note NATIVE_GROWTH_ESCAPE.md, now an edited README, so it fails at its new path and in a legacy replay. Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a; A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged)"
+  - "../fixed-word-history-cells/batch_r81_r83_check.py: side-lane probe of R81 and R83, replayed by this node's check_legacy_replay.py (see reviewed_by)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: ../fixed-word-history-cells/batch_r81_r83_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 04:08, VERIFIED, main 1d58f50): '**R83.** For `s = 1`, an exhaustive search over `0 < L < 3⁸` finds `L = 740` as the unique solution of `64^L ≡ 217/8272 (mod 3¹⁰)`. For `s = 2`, `L = 2028089` solves the congruence mod `3¹⁶`. It is unique below `3¹⁴` because 64 has order exactly `3¹⁴` there. Both give `h = 11L + 8s`: 8148 and 22308995. The CRT cells, the two words and the 8165-row comparison were not rebuilt.' The status stays written"
+aliases: [R83]
+tags: [convergence, outer-residual, smaller-origin-history, native-history, crt-construction, inverse-ray]
+---
+
+# For every prescribed number of native returns, explicit cells have a smaller-origin history meeting above the root
+
+## Statement
+
+Odd-only clock, 1 absorbing; `F(x) = 4x + 1`; retained critical basis of [`common-critical-rank-basis`](../common-critical-rank-basis/README.md) (R75), `[x] = div H_x + Σ A_x(v)P(v)`; the H17 exit of [`native-growth-original-rank-exit-obstruction`](../native-growth-original-rank-exit-obstruction/README.md) (R79): `U(b) = (729b + 223)/512`, `v2(217b + 223) = 9r + 17`, `s = r + 1`, `c = U^s(b)`, `z = (9c − 1)/16`, `q = 3z`, `Q = 3b`.
+
+1. **All-ray decision for one procedure.** Follow either complete quotient inverse ray of `q` at index `L` by its maximal point chain, of length `h = v3(a + 1)`, ending at `p = 2^h(a + 1)/3^h − 1`, then deterministic `H`. For `r ≥ 1` the plan `E + I + H_p − H_b` (requests `A_p − A_b`) has all ranks below `Q` iff `h ≥ 1` and `p < Q`. All indices `L` are decided by the finite cutoff `64^L ≤ ⌊(9P_0 − 2)/(9a_0 + 7)⌋`, `J_0 = ⌊log₂(Q − 1)⌋ − 1`, `P_0 = ⌊3^J_0(Q − 1)/2^J_0⌋`. At `b = 96797577` only `L = 0, 1, 2` on each ray qualify and all six fail; a supplied absorption witness for the same `b` shows this limits the procedure, not the existence of the current.
+2. **Escape after any growth depth.** For every `r ≥ 0` let `L` be the unique solution in `0 < L < 3^(6s+2)` of `64^L ≡ 217/8272 (mod 3^(6s+4))` and `h = 11L + 8s`. Two complete positive CRT cells have exactly `r` returns, `c ≡ 137 (mod 1024)`, and exact point order `h` on the second ray. On them `p < b` for every positive member: the slope is `9·(131072/177147)^L/18^s ≤ 1/2` and the omitted intercept term is negative.
+3. **High meeting.** The ordinary words `(1,2,1), (1,1,2,1,1,3)^s, (1,1,3)` from `3b` and `1^h, 2, 6L + 3, 1, 2, 1` from `p` meet at `M = (2187c + 925)/512 > 3b`, clocks `(6r + 12, h + 5)`; so `p < b < 3b < M`. Their exact prefix difference plus `H_p − H_b` requests only ranks below `3b`; every smaller input, including negative coefficients, remains a supplied premise.
+
+First values: `(r, L, h) = (0, 740, 8148)` and `(1, 2028089, 22308995)`.
+
+## Proof
+
+The legacy note "A smaller-origin history beyond every native H17 growth depth" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written conditional construction and exact finite replay.** For every
 prescribed number of R79 growing returns, an explicit infinite arithmetic
@@ -10,7 +59,7 @@ for the precise point-inverse procedure is included below. No dispatcher is
 changed, no universal terminal supply is proved, and no novelty is asserted.
 
 Use the absorbed odd map S, `F(x)=4x+1`, elementary minimum nu, and retained
-critical basis `W5 union W9` from [R75](../critical_basis/CRITICAL_BASIS.md).
+critical basis `W5 union W9` from [R75](../common-critical-rank-basis/README.md).
 Write the exact formal absorption identity as
 
     [x] = div H_x + sum A_x(v) P(v),   P(v)=[3v]−[v],
@@ -19,9 +68,9 @@ Write the exact formal absorption identity as
 These H identities retain missing pair inputs. An actual absorption current
 must be supplied when a constructor requests one.
 
-## 1. The full H17 exit and its exact two inverse rays
+### 1. The full H17 exit and its exact two inverse rays
 
-Recall [R79](../native_nine_growth/NATIVE_NINE_GROWTH.md). Put
+Recall [R79](../native-growth-original-rank-exit-obstruction/README.md). Put
 
     U(b)=(729b+223)/512,       Y(b)=217b+223.
 
@@ -78,7 +127,7 @@ arrows; these are precisely the three remaining rows of q's old four-arrow
 prefix. In ray0 the merger already has q-clock4. This proves equality of
 current rows, not only of their divergences.
 
-## 2. A complete decision for this all-ray procedure
+### 2. A complete decision for this all-ray procedure
 
 Suppose r>=1. For each ray and L, (4) has all remaining critical ranks below
 Q **if and only if h>=1 and p<Q**.
@@ -127,7 +176,7 @@ fixed positive input. The checker also stores a finite absorption witness
 for this same b, so this is an obstruction to the named inference procedure,
 not to existence of the pair current.
 
-## 3. Exact ternary freedom after any prescribed growth depth
+### 3. Exact ternary freedom after any prescribed growth depth
 
 We now construct an accepted infinite subfamily for **every r>=0** using
 ray1. Let s=r+1 and
@@ -181,7 +230,7 @@ Every integer in it has exact h, not merely a lower bound. Its modulus is
 `2^(9s+10)*3^(h−6s−1)`. There are two terminal-unit cells. No sample search
 is used to establish their existence.
 
-## 4. A uniform parameter choice makes the endpoint smaller than b
+### 4. A uniform parameter choice makes the endpoint smaller than b
 
 Choose in (11)
 
@@ -222,7 +271,7 @@ The first values of `(r,L,h)` are `(0,740,8148)` and
 returns exact symbolic descriptors and enforces a separate materialization
 cap; finite arithmetic tests at larger r do not expand those huge paths.
 
-## 5. The meeting occurs above the original rank
+### 5. The meeting occurs above the original rank
 
 Condition (12) supplies a stronger exact history statement. The original
 root Q=3b has valuation word
@@ -254,7 +303,7 @@ This is a smaller-origin **future-history** comparison. The endpoint M is
 not itself assumed absorbed, and a high meeting does not violate the
 original-rank test on the supplied inputs.
 
-## 6. Reproduction and finite evidence
+### 6. Reproduction and finite evidence
 
 Run `python3 experiments/residual_progress/native_growth_escape/check_growth_escape.py`.
 Default replay compares the stored receipt; `--write-receipt` refreshes it.
@@ -273,3 +322,18 @@ materializations are rejected. These finite inputs supply only the stored
 example; the all-r theorem remains conditional on the explicitly smaller
 inputs. Other members of the full H17 exit type remain open, as the
 all-ray failure witness makes concrete.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B13 migration; standard library). The legacy scripts load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the side-lane probe `batch_r81_r83_check.py` from [`fixed-word-history-cells`](../fixed-word-history-cells/README.md) (under 1 s, receipt reproduced byte for byte), which recomputes the parameters `(L, h)` for `s = 1, 2`. The legacy checker `check_growth_escape.py` is not replayed: it pins the hash of this node's note, now an edited README (see `evidence`). The command in the legacy text names `experiments/residual_progress/native_growth_escape/`.
+
+## Remarks
+
+- The same cutoff argument is reused at later exit targets in the attempt [`two-ray-point-procedure-later-target`](../../attempts/two-ray-point-procedure-later-target/README.md).
+- The fixed-clock barrier [`bounded-history-clock-exclusion`](../bounded-history-clock-exclusion/README.md) (R85) does not contradict this construction, which uses later future targets and very long partner words.
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/native_growth_escape/NATIVE_GROWTH_ESCAPE.md` (legacy ID R83) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written conditional all-return-count CRT construction, complete scoped failure and full supplied finite demonstration".
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `1d58f50`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

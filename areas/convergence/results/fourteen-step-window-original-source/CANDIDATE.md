@@ -1,7 +1,7 @@
 # Candidate finite-boundary reduction beyond the R91 precision horizon
 
 **Historical research candidate, 2026-10-18. Resolved by R92.**
-The [completed proof and classification](DEEPER_WINDOW.md) independently
+The [completed proof and classification](README.md) independently
 audits this reduction, adds a selective congruence, classifies every required
 boundary origin and enumerates every legal suffix. The sole origin p<=Q in
 the full extended window is Q itself. The original draft below is preserved
@@ -17,8 +17,8 @@ universal certificate algorithm.
 
 Dependencies are the frozen R90/R91 statements in:
 
-- [R90: complete Phi exits](../phi_exit_control/PHI_EXIT_CONTROL.md)
-- [R91: shadow precision barrier](../shadow_precision/SHADOW_PRECISION.md)
+- [R90: complete Phi exits](../binary-return-exit-control/README.md)
+- [R91: shadow precision barrier](../rational-basin-precision-barrier/README.md)
 
 The purpose is to reduce one precisely bounded extension of their history
 question, uniformly in the number of growing returns, to finite boundary

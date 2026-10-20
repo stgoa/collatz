@@ -1,4 +1,47 @@
-# What the nonzero lower relation in the immediate self-loop supplies
+---
+id: immediate-self-loop-lower-relations
+kind: result
+title: "The immediate blocked-W9 self-loop of R75 is zero except on u = 453 mod 576, where it reuses an accepted W9 rule"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; the retained critical basis and returning class E of R75 with formal plans
+  [x] = div H_x + sum A_x(v) P(v). For u in E put b = (4u-3)/9, y = u/3, s = S(y). The sum K of the local R40
+  current and the R75 returning conversion is exactly, row for row, K = H_y - delta_y - H_s with requests {b:+1} +
+  A_y - A_s. Both K and A_y - A_s vanish unless u = 453 mod 576; on that whole progression, with v = (u-3)/18 = 25
+  mod 32 and z = (9v+1)/2, K = H_v - delta_(3v) - H_z and A_y - A_s = {v:+1} + A_v - A_z, whose unique highest
+  critical rank is rho(v) = 3v with coefficient +1, and K is nonzero. Every such v already lies in the accepted
+  (nonblocked) local W9 domain, so orienting the relation supplies no new accepted domain; the parent b keeps
+  coefficient +1. Scoped to the immediate loop only; longer comparisons and other currents are outside it.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [common-critical-rank-basis, critical-nine-elimination]
+certificates: [check_lower_loop_recompute.py]
+evidence:
+  - "check_lower_loop.py, lower_loop.py, lower_loop_audit.json: the legacy implementation, checker and receipt: 894 returning inputs (218 nonzero, 676 zero), 64 progression boundaries, the u = 453 example (b = 201, lower vector {5: 1, 25: 1}, 14-row current) and 6 rejections. Fails at its new path: lower_loop.py loads ../critical_basis/ (now ../common-critical-rank-basis/) by its pre-migration folder name; and Its receipt pins the SHA-256 of this node's legacy note LOWER_LOOP_SCOPE.md, now an edited README, so it fails at its new path and in a legacy replay. Passed at be73a66 as experiments/residual_progress/lower_loop_scope/check_lower_loop.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged). Its audit is recomputed by check_lower_loop_recompute.py"
+aliases: [R78-b]
+tags: [convergence, outer-residual, critical-basis, critical-nine, self-loop, scope]
+---
+
+# The immediate blocked-W9 self-loop of R75 is zero except on u = 453 mod 576, where it reuses an accepted W9 rule
+
+## Statement
+
+Odd-only clock, 1 absorbing; notation and exact currents of [`common-critical-rank-basis`](../common-critical-rank-basis/README.md) (R75), with formal plans `[x] = div H_x + Σ A_x(v)P(v)`; `E` the returning class.
+
+For `u ∈ E` put `b = (4u − 3)/9`, `y = u/3 = (3b + 1)/4`, `s = S(y)`. The sum `K` of the local R40 current ([`critical-nine-elimination`](../critical-nine-elimination/README.md)) and the R75 returning conversion is, row for row,
+
+    K = H_y − δ_y − H_s,   requests {b: +1} + A_y − A_s.
+
+1. **Classification.** `K` and `A_y − A_s` both vanish unless `u ≡ 453 (mod 576)`.
+2. **The nonzero case.** On that whole progression put `v = (u − 3)/18 ≡ 25 (mod 32)`, `z = (9v + 1)/2`. Then `K = H_v − δ_(3v) − H_z` and `A_y − A_s = {v: +1} + A_v − A_z`; the unique largest critical rank is `ρ(v) = 3v`, coefficient `+1`, and `K ≠ 0`.
+3. **Scope.** Oriented at `v`, the relation is the single arrow `3v → z` followed by existing formal plans; every such `v` has `v2(9v − 1) ≥ 5` and is already in R75's accepted local W9 domain. No new pair coverage follows, and the parent `b` keeps coefficient `+1`.
+
+This concerns the immediate self-loop only, not longer loops, other source representations or other signed cancellations.
+
+## Proof
+
+The legacy note "What the nonzero lower relation in the immediate self-loop supplies" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written scope classification and finite exact audit.** This identifies
 all lower relations left by the immediate blocked-W9/E composition in R75.
@@ -6,7 +49,7 @@ Its nonzero cases give already decreasing W9 comparisons. It supplies no new
 accepted domain and does not concern arbitrary longer loops or other currents.
 
 Use the notation and exact currents of the
-[critical-basis compiler](../critical_basis/CRITICAL_BASIS.md). Write the
+[critical-basis compiler](../common-critical-rank-basis/README.md). Write the
 original critical formal absorption plans as
 
     [x] = div H_x + sum A_x(v) P(v).
@@ -14,7 +57,7 @@ original critical formal absorption plans as
 All missing pair currents remain premises. This note preserves the nonzero
 counterexample in R75; it does not reinstate the refuted universal-zero claim.
 
-## 1. The full immediate-loop identity
+### 1. The full immediate-loop identity
 
 Let u belong to E_return, and set
 
@@ -36,7 +79,7 @@ signed rows, rather than just the divergence. In particular
 
     div K = -sum (A_y-A_s)(v) P(v).                  (2)
 
-## 2. Complete zero/nonzero classification
+### 2. Complete zero/nonzero classification
 
 **Theorem.** Both K and A_y−A_s vanish unless
 
@@ -85,7 +128,7 @@ The pair sources are linearly independent on finite critical supports:
 the atom at the largest upper endpoint 3w has no larger index to cancel it.
 This also proves K is nonzero. ∎
 
-## 3. What orienting the relation accomplishes
+### 3. What orienting the relation accomplishes
 
 Equation (3) gives the valid conditional comparison
 
@@ -101,7 +144,7 @@ This settles the immediate-loop simplification only. Longer comparisons,
 alternative source representations and useful signed cancellations remain
 outside the classification.
 
-## 4. Reproduction
+### 4. Reproduction
 
 Run `python3 experiments/residual_progress/lower_loop_scope/check_lower_loop.py`.
 The default replay verifies the stored receipt; `--write-receipt` refreshes
@@ -110,3 +153,19 @@ one-arrow divergences, progression boundaries, all stated zero cases,
 large exact inputs, already accepted W9 targets, and rejection controls.
 Finite checks support the implementation; the universal classification
 rests on the proof above. No absorption search is used.
+
+## Certificates
+
+[`check_lower_loop_recompute.py`](check_lower_loop_recompute.py) (written at the B13 migration; standard library). No legacy check of this node passes any more: its legacy checker pins the SHA-256 of notes that are now edited READMEs, and no other legacy check of it passes (it has no side-lane probe, or only a C program that needs a compiler). The certificate rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, replaces each pinned note by a placeholder, imports the unmodified legacy checker there and runs its audit, and requires the result to equal the committed receipt after removing only those note hashes; every other value, including the hashes of the pinned code and data, must agree. It writes nothing in the repository. It recomputes the 894-input classification, the 64 progression cases, the `u = 453` example and the 6 rejections (about 15 s). The command in the legacy text names `experiments/residual_progress/lower_loop_scope/`.
+
+## Remarks
+
+- This settles the immediate-loop simplification only. It preserves the nonzero counterexample of [`common-critical-rank-basis`](../common-critical-rank-basis/README.md) (`u = 453`, `b = 201`) and does not reinstate the refuted universal-zero claim.
+- The ledger lists this result as a supplement to R75 inside the R78 entry; the alias R78-b follows the migration plan. The main R78 result is [`native-critical-nine-continuation`](../native-critical-nine-continuation/README.md).
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/lower_loop_scope/LOWER_LOOP_SCOPE.md` (legacy ID R78-b) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written scope classification and finite exact audit (the ledger records it as a supplement to R75 under R78)".
+- The main lane's own proof, checker and default-replay review passed (archive/convergence-residual-progress/REPORT.md); that review was internal to the main lane.
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `3b0c8a5`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

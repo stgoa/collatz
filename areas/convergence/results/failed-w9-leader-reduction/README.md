@@ -1,13 +1,54 @@
-# A bounded repair of every failed critical-nine history request
+---
+id: failed-w9-leader-reduction
+kind: result
+title: "At the original threshold, two critical-nine substitutions reduce every failed R84 leader to at most one higher W5 input"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; retained critical basis of R75; the local R40 identity P(w) = div L_w + sum
+  l_w(v) P(v). For odd Q >= 11547 and w in W9 with Q <= 3w and 32w < 33Q, the full vector l_w has at most one
+  request of rank >= Q, with coefficient exactly +1, decided completely by d = v2(9w-1), z = 3^h (9w-1)/2^d and
+  the canonicality of 3z and of f = (9z+1)/4 (odd d always passes); the only possible W9 leader is z, with 16z <
+  9w. Applying R40 only to a high W9 request, at the same Q, at most two substitutions leave either no request of
+  rank >= Q or exactly one W5 request of rank >= Q with coefficient +1 (factor bound 8019/8192 relative to Q).
+  Every failed W9 leader of the R84 decision lies in this window, so the full signed procedure either passes the
+  original q or retains precisely one higher W5 input. On every even-depth noncanonical-upper branch the named R46
+  maximal inverse (D = h+1, j = 1, origin 3w) restores the self-request, P(w) = div(J_w - V - J_Y) + ({w:+1} + A_w
+  - A_Y).P, with a lower identity that need not vanish (w = 201). The bound counts W9 substitutions, not clocks;
+  no supply of the final W5 request or of the smaller signed premises.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [critical-nine-elimination, common-critical-rank-basis, later-target-twenty-step-descent, variable-depth-inverse-escape-barrier]
+certificates: [check_w9_history_repair_recompute.py]
+evidence:
+  - "check_w9_history_repair.py, w9_history_repair.py, w9_history_repair_audit.json: the legacy implementation, checker and receipt: 865 generic Q/w cases, 72 threshold cases, 72 exact-depth cells through depth 128, 72 R84 repairs among 517 examined indices, 51 full inverse undos with the nonzero w = 201 fixture, 37 rejections, three supplied outputs (k = 5, 38, 53) with 166/49/61 rows. Fails at its new path: w9_history_repair.py loads ../history_transition/ (now ../later-target-twenty-step-descent/) by its pre-migration folder name, and, through it, the B11-B12 modules; and Its receipt pins the SHA-256 of this node's legacy note W9_HISTORY_REPAIR.md, now an edited README, so it fails at its new path and in a legacy replay. Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a; A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged). Its audit is recomputed by check_w9_history_repair_recompute.py"
+aliases: [R87]
+tags: [convergence, outer-residual, critical-nine, original-rank, bounded-reduction, inverse-undo]
+---
+
+# At the original threshold, two critical-nine substitutions reduce every failed R84 leader to at most one higher W5 input
+
+## Statement
+
+Odd-only clock, 1 absorbing; `P(w) = [3w] − [w]`; the retained plans `[s] = div J_s + Σ A_s(v)P(v)` of [`common-critical-rank-basis`](../common-critical-rank-basis/README.md) (R75) and the local identity `P(w) = div L_w + Σ l_w(v)P(v)` of [`critical-nine-elimination`](../critical-nine-elimination/README.md) (R40), with `d = v2(9w − 1)`, `h = ⌊(d − 4)/2⌋`, `z = 3^h(9w − 1)/2^d`.
+
+1. **Complete local decision.** Let odd `Q ≥ 11547` and `w ∈ W9` satisfy `Q ≤ 3w`, `32w < 33Q`. Then `l_w` has at most one request of rank `≥ Q`, with coefficient `+1`, given by an exhaustive table: never for odd `d`; for even `d`, `4z + 1` when `3z` is noncanonical and `6z + 1 ≥ Q`; `z` when `3z` is complementary canonical and `3z ≥ Q`; `(2f + 1)/3` when `3z ≡ 1 (mod 8)`, `3z ≥ Q` and `f = (9z + 1)/4 ≥ Q` is critical; never otherwise. All other requests are below `Q`.
+2. **Two substitutions.** Substituting R40 only into a high W9 request, keeping `Q` fixed, at most two substitutions leave no request of rank `≥ Q` or exactly one W5 request of rank `≥ Q`, coefficient `+1`; a high W9 child obeys `16z < 9w`, and two consecutive ones would give `3w_2 < (8019/8192)Q`. This bounds W9 substitutions, not ordinary or quotient clocks.
+3. **R84 leaders.** Every failed W9 leader of [`later-target-twenty-step-descent`](../later-target-twenty-step-descent/README.md) (R84) satisfies 1 with `Q = q`; so the whole procedure either passes the original `q` or keeps exactly one higher W5 input. Examples: `k = 21` keeps the W5 input `18839525` of rank `56518575 > q = 33041691`.
+4. **Inverse undo.** For every `w ∈ W9` in the even-depth branch with `3z` noncanonical, the maximal inverse of [`variable-depth-inverse-escape-barrier`](../variable-depth-inverse-escape-barrier/README.md) (R46) has `D = h + 1`, `j = 1`, origin `3w`, and substitution gives, row for row, `P(w) = div(J_w − V − J_Y) + ({w: +1} + A_w − A_Y)·P`. The lower relation need not vanish (`w = 201`: 14 rows, vector `{201: 1, 25: 1, 5: 1}`). This excludes progress from that exact undo, not other words or histories.
+
+## Proof
+
+The legacy note "A bounded repair of every failed critical-nine history request" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written proof and finite exact certificates.** This composes the
-existing [R40 local identity](../w9_closure/CRITICAL_NINE_ELIMINATION.md) and
-[R75 critical absorption plans](../critical_basis/CRITICAL_BASIS.md) at the
+existing [R40 local identity](../critical-nine-elimination/README.md) and
+[R75 critical absorption plans](../common-critical-rank-basis/README.md) at the
 original threshold. It is a complete decision for the specified bounded
 reduction, not supply of its terminal currents, a new local orbit identity,
 or a change to the seventeen-family dispatcher. Collatz remains open.
 
-## 1. Definitions and exact local identity
+### 1. Definitions and exact local identity
 
 Use the positive odd Syracuse map S, absorbed at1, and kill atoms at1.
 Write P(w)=[3w]−[w], W5={w>0:w=5 mod8}, W9={w>0:w=9 mod16},
@@ -40,7 +81,7 @@ multiplicities, the odd-depth sibling rows and both absorption plans.
 The implementation imports these rows rather than reconstructing a
 different source. For even d, C=2 mod3 and z>=5.
 
-## 2. Complete local decision at the original threshold
+### 2. Complete local decision at the original threshold
 
 **Theorem.** Let Q>=11547 be odd, and let positive w in W9 satisfy
 
@@ -109,7 +150,7 @@ cancel against a lower request, since all lower requests are strict.
 This proves the complete table. The same bounds show H_w is strict:
 w=1 mod8 first moves to (3w+1)/4<Q. □
 
-## 3. Two substitutions remove every high W9 request
+### 3. Two substitutions remove every high W9 request
 
 **Theorem.** Under (3), apply (2) only to the unique request with rank
 at least Q if it is in W9. Keep Q fixed throughout. After at most two
@@ -147,9 +188,9 @@ The theorem does not provide any of the final P(v) currents, including
 the possible W5 leader. A finite output is conditional until every
 remaining signed input has been supplied and checked.
 
-## 4. Application to every failed W9 case of R84
+### 4. Application to every failed W9 case of R84
 
-The [complete thirteenth-target phase](../history_transition/HISTORY_TRANSITION.md)
+The [complete thirteenth-target phase](../later-target-twenty-step-descent/README.md)
 starts with
 
     q=11547+3*2^19*k,   b=q/3,   R=70237+2*3^14*k,   k>=0.
@@ -197,7 +238,7 @@ substitution; k=38 after two. At k=21 the final W5 input18839525 has
 rank56518575>q33041691. At k=1062 two substitutions leave W5 input
 1607200797, rank2410801195>q1670393115. These failures are retained.
 
-## 5. The natural upper inverse is an exact undo
+### 5. The natural upper inverse is an exact undo
 
 This statement holds for **every positive w in W9** in the even-depth,
 noncanonical-3z branch, independently of (3) or R84. Put
@@ -238,7 +279,7 @@ The receipt stores those rows. This is an undo of the specified inverse
 word, not an exclusion of every possible smaller-origin history or
 other signed comparison.
 
-## 6. Reproduction and limitations
+### 6. Reproduction and limitations
 
 Run from the repository root without Python optimization:
 
@@ -272,3 +313,18 @@ current rows, with every input and output table stored. There are37
 explicit rejection controls. Finite supply generation is capped at10000
 ordinary arrows and2048 state bits per absorbed source. Default replay
 uses the stored supplies and performs no absorption discovery.
+
+## Certificates
+
+[`check_w9_history_repair_recompute.py`](check_w9_history_repair_recompute.py) (written at the B13 migration; standard library). No legacy check of this node passes any more: its legacy checker pins the SHA-256 of notes that are now edited READMEs, and no other legacy check of it passes (it has no side-lane probe, or only a C program that needs a compiler). The certificate rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, replaces each pinned note by a placeholder, imports the unmodified legacy checker there and runs its audit, and requires the result to equal the committed receipt after removing only those note hashes; every other value, including the hashes of the pinned code and data, must agree. It writes nothing in the repository. It recomputes all the counts above and the three supplied outputs from the stored supplies (about 10 s). The command in the legacy text names `experiments/residual_progress/w9_history_repair/`.
+
+## Remarks
+
+- [`retained-history-w9-reduction`](../retained-history-w9-reduction/README.md) (R89) enlarges the window by retaining the lower history and needs at most three W9 nodes.
+- The main lane's REPORT notes that the proof's normalisation explanation was corrected before freezing, and that the review confirmed that the two-substitution bound concerns high-W9 replacements, not ordinary clocks or elimination of all lower W9 premises.
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/w9_history_repair/W9_HISTORY_REPAIR.md` (legacy ID R87) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written complete local decision and bounded conditional reduction".
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `2a37f31`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

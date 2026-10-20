@@ -1,4 +1,54 @@
-# A complete thirteenth-target transition at the original rank
+---
+id: later-target-twenty-step-descent
+kind: result
+title: "The thirteenth-target transition of the 11547 family has a complete original-rank decision, with first descent as late as step 20"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1, T = nu S; retained critical basis of R75. For every q = 11547 + 3 2^19 k, k
+  >= 0, the first thirteen ordinary valuations are exactly (1,2,1,1,1,1,1,2,2,1,1,2,2), with canonical sources and
+  raw endpoint R = 70237 + 2 3^14 k; 4(R-1) < 25(q-1). For the full native plan prefix_13(q) + J_R - J_(q/3) with
+  signed requests A_R - A_(q/3), the no-pair transitions above q are A(x) = (3x+1)/4, B(x) = (3x-1)/8, C(x) =
+  (3x+1)/16 on exact guards; only fourteen above-threshold templates occur (A^j, j <= 6; A^i B A^j, i+j <= 2; C),
+  and within seven transitions the procedure either reaches a normal form below q (then every signed request is
+  below q) or exposes a unique highest critical request of rank >= q with coefficient +1 that the negative
+  frontier cannot cancel: an if-and-only-if decision for this plan. The classes k = 12 mod 16 and k = 20 mod 32
+  succeed, k = 1 mod 4 and k = 7 mod 8 fail; R81's cell meets the family exactly when 3^11 divides k. Every member
+  keeps the old R44/R52 higher endpoint 55495 + 2^7 3^10 k. On k = 9954 mod 16384 the first quotient descent is
+  exactly step 20; ordinary clocks are (ell+beta, beta) with ell = 13..20, no uniform twenty-step ordinary bound.
+  Failed leaves and terminal supply stay open; not a whole-dispatcher nonrecognition claim.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [common-critical-rank-basis, critical-tripling-domain-equivalence, fixed-word-history-cells, returning-forward-interface, returning-second-forward-interface]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_history_transition.py, history_transition.py, history_transition_audit.json: the legacy constructor, checker and receipt: 1024 full plans, 70 template instances covering all fourteen words, 144 progression cases, 20 sharp cases, 66 actual old failures, 26 rejections, three supplied outputs outside R81 with 148/153/172 rows. Fails at its new path: history_transition.py loads ../critical_basis/ and ../returning_continuation/ (now ../common-critical-rank-basis/, ../returning-second-forward-interface/) by their pre-migration folder names, and it is loaded in turn by the legacy w9_history_repair/ code (now ../failed-w9-leader-reduction/); and Its receipt pins the SHA-256 of this node's legacy note HISTORY_TRANSITION.md, now an edited README, so it fails at its new path and in a legacy replay. Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a; A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged)"
+  - "batch_r84_r85_check.py, batch_r84_r85_check.json: side-lane probe (Claude side lane, 2026-10-18 04:36) of R84 and R85; bounded-history-clock-exclusion replays it from this folder. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/) and fibre_count_check from its own folder (now ../absorbed-fibre-uniform-counts/). Passed at be73a66 as reviews/side_lane/batch_r84_r85_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+  - "side_lane_review_b9203ff.md: the main lane's pinned review (2026-10-18) of side commits 49083cb and b9203ff: byte-identical reproductions of batch_r81_r83_check, r56_selected_inverse_check and batch_r84_r85_check, the coverage defect in the R81 probe's ternary-minimality branch (cited from fixed-word-history-cells), and the research decision after PR1"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: batch_r84_r85_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 04:36, VERIFIED, main 355c173), with the lane's own step and ν: '**R84, prefix.** On 3,000 random `k`, `q = 11547 + 3·2¹⁹·k` has first thirteen ordinary valuations exactly `(1,2,1,1,1,1,1,2,2,1,1,2,2)`. The raw endpoint is `R = 70237 + 2·3¹⁴·k`, and `4(R − 1) < 25(q − 1)`.' '**R84, sharp descent.** On 300 random `k ≡ 9954 (mod 16384)`, the first quotient step with `T^n(q) < q` is exactly `n = 20`.' 'R84's full decision procedure (the 14 templates and its success and failure classes) was not rebuilt.' The status stays written"
+aliases: [R84]
+tags: [convergence, outer-residual, smaller-origin-history, original-rank, decision-procedure, quotient-clock]
+---
+
+# The thirteenth-target transition of the 11547 family has a complete original-rank decision, with first descent as late as step 20
+
+## Statement
+
+Odd-only clock, 1 absorbing, `T = νS`; the retained critical basis of [`common-critical-rank-basis`](../common-critical-rank-basis/README.md) (R75), `[x] = div J_x + Σ A_x(v)P(v)`.
+
+1. **Phase.** For every `q = 11547 + 3·2^19·k`, `k ≥ 0`, `b = q/3 ∈ W9`, the first thirteen ordinary valuations are exactly `(1,2,1,1,1,1,1,2,2,1,1,2,2)` (total 18), all sources canonical, ending at `R = 70237 + 2·3^14·k`; and `4(R − 1) < 25(q − 1)`.
+2. **Complete decision.** For the plan `C_k = L_q + J_R − J_b`, requests `A_R − A_b`: above `q` the only no-pair transitions are `A(x) = (3x + 1)/4` (`x ≡ 1 mod 8`), `B(x) = (3x − 1)/8` (`x ≡ 3 mod 16`), `C(x) = (3x + 1)/16` (`x ≡ 5 mod 32`). Every raw state with normal form at least `q` follows one of fourteen templates `A^j` (`j ≤ 6`), `A^i B A^j` (`i + j ≤ 2`), `C`; within seven transitions the procedure stops. It succeeds iff every nonzero request of the whole plan is below `q`; otherwise a unique highest critical request of rank `≥ q`, coefficient `+1`, survives and the negative frontier (ranks `≤ b < q`) cannot cancel it.
+3. **Initial rows.** `k ≡ 12 (mod 16)` and `k ≡ 20 (mod 32)` succeed entirely; `k ≡ 1 (mod 4)` and `k ≡ 7 (mod 8)` fail; the other rows are decided by 2.
+4. **Sharpness.** On `k = 9954 + 2^14·t` the first quotient descent is exactly step 20. Successful leaves have quotient clock `ℓ = 13..20` and ordinary clocks `(ℓ + β, β)` with terminal padding `β`; no uniform twenty-arrow ordinary bound is asserted.
+5. **Relation to earlier comparisons.** The family meets the cell of [`fixed-word-history-cells`](../fixed-word-history-cells/README.md) (R81) exactly when `3^11 | k`, so whole successful subprogressions are new. Every member keeps the old R44/R52 higher endpoint `f = 55495 + 2^7·3^10·k`, `ρ(v) = f > q` ([`returning-forward-interface`](../returning-forward-interface/README.md), [`returning-second-forward-interface`](../returning-second-forward-interface/README.md)); this is not a claim about the whole seventeen-family dispatcher.
+
+## Proof
+
+The legacy note "A complete thirteenth-target transition at the original rank" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **R84 — written complete decision for one conditional comparison.**
 The entire binary target phase below has a finite arithmetic decision:
@@ -12,14 +62,14 @@ the seventeen-family dispatcher, or supply unknown terminal currents.
 No new local orbit identity or novelty is asserted.
 
 Use absorbed odd Syracuse S, elementary minimum nu and T=nu S. Retain
-the [R75 critical basis](../critical_basis/CRITICAL_BASIS.md)
+the [R75 critical basis](../common-critical-rank-basis/README.md)
 W5 union W9, P(w)=[3w]−[w], rho(w)=nu(3w), and the exact identity
 
     [x]=div J_x+sum A_x(v)P(v),       rho(v)<=nu(x).       (1)
 
 Both signs and every multiplicity are retained. All atoms at1 are killed.
 
-## 1. The entire next normalization phase
+### 1. The entire next normalization phase
 
 For every integer k>=0 put
 
@@ -59,7 +109,7 @@ The following uniform inequality keeps the affine intercept:
 
 It holds separately for the constant and k coefficients in (2).
 
-## 2. Fourteen possible above-threshold templates give an exact decision
+### 2. Fourteen possible above-threshold templates give an exact decision
 
 At a raw state x, initially R, let n=nu(x).
 
@@ -129,7 +179,7 @@ rank at most b<q<=n and cannot cancel this first pair. This proves both
 directions, the unique-leader claim and termination of this exact decision.
 It proves nothing about later choices at a failed critical leaf.
 
-## 3. Exact currents and the two clocks
+### 3. Exact currents and the two clocks
 
 Let j be the number of transitions, x the final raw state, n=nu(x),
 and ell=13+j. Add the explicit transition currents to L_q and then N_x;
@@ -171,7 +221,7 @@ No uniform twenty-arrow ordinary bound is asserted.
 Every exact current for a successful plan still requires all signed
 terminal P(v) inputs in (9). Missing or malformed supplies are rejected.
 
-## 4. Complete initial rows, and a sharp whole family
+### 4. Complete initial rows, and a sharp whole family
 
 The following cases partition every k>=0:
 
@@ -221,10 +271,10 @@ is exactly step20 on all of (12). Formula(10) retains its variable
 ordinary padding. This is sharp for the specified forward descent,
 not a lower bound for every other history or current construction.
 
-## 5. Which earlier claims this extends
+### 5. Which earlier claims this extends
 
 Membership of q from (2) in [R81's maximal paired-word
-cell](../history_lifting/HISTORY_LIFTING.md) is exactly3^11|k.
+cell](../fixed-word-history-cells/README.md) is exactly3^11|k.
 The successful full progressions k12 mod16 and k20 mod32 are not
 confined to that cell. Adding, for example, k1 mod3 gives infinite
 subprogressions wholly outside it. These comparisons reach a new
@@ -247,7 +297,7 @@ particular endpoint comparisons, not nonrecognition by the entire
 seventeen-family dispatcher. R75/R37 already supplied the formal
 identities used here. No new local orbit identity is claimed.
 
-## 6. Reproduction and limitations
+### 6. Reproduction and limitations
 
 Run:
 
@@ -259,3 +309,18 @@ The --write-receipt option prepares only designated finite demonstrations
 under stated arrow/bit caps. All failure coefficients and signs remain visible.
 The receipt pins this proof and every reachable local source module.
 No universal coverage, terminal-current supply or Collatz proof follows.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B13 migration; standard library). The legacy scripts load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the side-lane probe `batch_r84_r85_check.py` (about 1 s, receipt reproduced byte for byte): 3,000 thirteen-arrow prefixes, the inequality `4(R − 1) < 25(q − 1)`, and 300 sharp twentieth-step descents. The legacy checker `check_history_transition.py` is not replayed: it pins the hash of this node's note, now an edited README (see `evidence`). The command in the legacy text names `experiments/residual_progress/history_transition/`.
+
+## Remarks
+
+- Every failed W9 leader of this decision is reduced, at the same original rank, to at most one higher W5 input by [`failed-w9-leader-reduction`](../failed-w9-leader-reduction/README.md) (R87).
+- R75 and R37 ([`critical-tripling-domain-equivalence`](../critical-tripling-domain-equivalence/README.md)) already supply the formal identities; no new local orbit identity or novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/history_transition/HISTORY_TRANSITION.md` (legacy ID R84) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written complete decision for one conditional comparison; terminal currents remain supplied".
+- The main lane's review `side_lane_review_b9203ff.md` (`experiments/residual_progress/`, 2026-10-18) moved here with the side-lane probe it reproduces; it also records the correction to the R81 probe's coverage, cited from [`fixed-word-history-cells`](../fixed-word-history-cells/README.md).
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `355c173`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

@@ -1,4 +1,52 @@
-# Complete fixed-word history lifting at the original critical rank
+---
+id: fixed-word-history-cells
+kind: result
+title: "Every merger with two fixed exact valuation words lies in one maximal integer cell, with an exact smaller-origin test"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1. If positive odd anchors q0, p0 have exact ordinary valuation words alpha,
+  beta (lengths a, b, totals A, B) with equal endpoints, then all positive odd pairs with the same exact words and
+  a common endpoint are exactly q = q0 + M k, p = p0 + P k (k integer, q, p > 0), M = 2^(A+1) 3^max(b-a,0), P =
+  2^(B+1) 3^max(a-b,0), and M is minimal; p < q holds for every k >= 0 if and only if p0 < q0 and P <= M (in
+  general exactly when (q0 - p0) + (M - P) k > 0). If rho(w) = q for a critical input w in W5 u W9 and p < q, the
+  full current N_(3w) + K + J_p - J_w (div K = [q]-[p]) requests A_p - A_w with every rank below q; every terminal
+  current remains a premise. For R80's words (1,2) and (1^6,2,2,1^4,2,6) the entire cell is q = 11547 + 16 3^12 k,
+  p = 11391 + 2^23 k, k >= 0 (gap 156 + 114448k, period 8192 times smaller than R80's), with ordinary clocks
+  (2,14), quotient clocks (1,13) and peak 32q+17; its local W9 row is blocked exactly as stated by the phase test
+  (17)-(18), and on k = 3072 mod 4096, outside the old cell, the R44/R52 requests stay genuinely high while the
+  history plan is strict. Raw paired origins only; no universal word selection, terminal supply or seventeen-rule
+  nonrecognition.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [common-critical-rank-basis, high-smaller-origin-history, returning-forward-interface, returning-second-forward-interface]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_history_lifting.py, history_lifting.py, history_lifting_audit.json: the legacy compiler, checker and receipt: 18 specifications, 189 lifts, 592 memberships, 191 native plans, 62 old-phase records with 38 genuine high requests, 19 rejections, three supplied outputs (b = 3849, 2838201, 8707133193) with 46/100/108 rows and their 5/7/12 input tables; 35 sources pinned. Fails at its new path: history_lifting.py loads ../critical_basis/ and ../returning_continuation/ (now ../common-critical-rank-basis/, ../returning-second-forward-interface/) by their pre-migration folder names; and Its receipt pins the SHA-256 of this node's legacy note HISTORY_LIFTING.md, now an edited README, so it fails at its new path and in a legacy replay. Passed at be73a66 as experiments/residual_progress/history_lifting/check_history_lifting.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged)"
+  - "batch_r81_r83_check.py, batch_r81_r83_check.json: side-lane probe (Claude side lane, 2026-10-18 04:08, coverage corrected 05:13) of R81 and R83; history-beyond-prescribed-growth replays it from this folder. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/). Passed at be73a66 as reviews/side_lane/batch_r81_r83_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: batch_r81_r83_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 04:08, VERIFIED, main 1d58f50, coverage claim corrected at 05:13): '**R81, R80's cell.** ... It was checked for `k = 0..3000` and 300 random large `k`, 3,301 lifts in all. Every lift follows both words and meets, `S²(q) = S¹⁴(p)`, and the gap is `156 + 114448k`.' and 400 random anchor pairs with lifts k = 0..40; 'Halving the 2-part breaks some lift.' Per the 05:13 correction: 'Only binary minimality was tested by execution. Ternary minimality follows from coupled integrality instead.' Signed currents and the blocked-phase decision were not rebuilt (the main lane's review side_lane_review_b9203ff.md in later-target-twenty-step-descent found the coverage defect). The status stays written"
+aliases: [R81]
+tags: [convergence, outer-residual, smaller-origin-history, merger-cells, original-rank, critical-nine]
+---
+
+# Every merger with two fixed exact valuation words lies in one maximal integer cell, with an exact smaller-origin test
+
+## Statement
+
+Odd-only clock, 1 absorbing. A word means **exact** valuations; a word of total `A` has a cylinder modulo `2^(A+1)`, including the extra bit.
+
+1. **Maximal cell.** Let positive odd `q0, p0` have exact words `α, β` of lengths `a, b` and totals `A, B`, with equal endpoints. Put `M = 2^(A+1)·3^max(b−a,0)`, `P = 2^(B+1)·3^max(a−b,0)`. All positive odd pairs with the same words and a common endpoint are exactly `q = q0 + M·k`, `p = p0 + P·k`, `k ∈ ℤ`, `q, p > 0`; `M` is minimal. Smaller origins occur at every `k ≥ 0` iff `p0 < q0` and `P ≤ M`; in general exactly when `(q0 − p0) + (M − P)k > 0`. Equal and expansive slopes are realised (`q = 739, p = 725`; `q = 21, p = 19`).
+2. **Original-rank transport.** For a critical `w ∈ W5 ∪ W9` with `ρ(w) = q` and `p < q`, `C = N_(3w) + K + J_p − J_w` (`div K = [q] − [p]`) has `div C = P(w) − Σ c(v)P(v)`, `c = A_p − A_w`, every rank below `q`; all terminal currents remain premises.
+3. **The R80 cell.** For `α = (1,2)`, `β = (1,1,1,1,1,1,2,2,1,1,1,1,2,6)` the entire cell is `q = 11547 + 16·3^12·k`, `p = 11391 + 2^23·k`, `k ≥ 0`, with `q − p = 156 + 114448k`, ordinary clocks `(2, 14)`, quotient clocks `(1, 13)` and peak `32q + 17`.
+4. **Blocked phase.** On this cell the local W9 row is nonblocked for odd `k`; for even `k`, with `Z = 6496 + 3^14·k`, `H = v2(Z)`, it is blocked exactly when `Z/2^H ≡ 3^H (mod 4)`. On `k ≡ 3072 (mod 4096)`, outside the old R80 cell, the R44 and R52 plans keep a genuine higher request (also with native `H`), while the history plan of 2 is strict.
+
+## Proof
+
+The legacy note "Complete fixed-word history lifting at the original critical rank" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written arithmetic lifting theorem and conditional compiler.** This
 classifies every positive integer merger with two prescribed ordinary
@@ -16,7 +64,7 @@ The word means **exact** positive valuations at every arrow, not lower
 bounds. Its cylinder has modulus2^(A+1), including the extra bit. The empty
 word is allowed: a=A=c_alpha=0 and its cylinder is all odd integers.
 
-The [retained critical basis](../critical_basis/CRITICAL_BASIS.md) supplies
+The [retained critical basis](../common-critical-rank-basis/README.md) supplies
 finite formal identities
 
     [s]=div J_s+sum_v A_s(v)P(v),
@@ -27,7 +75,7 @@ No unknown current is supplied by (2). Every remaining signed coefficient,
 positive or negative, must be retained or supplied by a checked exact pair
 current.
 
-## 1. The exact cell, including the slope boundary
+### 1. The exact cell, including the slope boundary
 
 **Theorem.** Suppose positive odd anchors q0,p0 have exact valuation words
 alpha,beta, of lengths a,b and totals A,B respectively, and their endpoints
@@ -95,7 +143,7 @@ word(6) and p19 with word(1,3,1,2,3,4) meet at1 but have slope256/243;
 only k0 is smaller among their nonnegative cell indices. These examples
 prevent silently replacing P<=M by P<M or ignoring the intercept.
 
-## 2. Full original-rank source transport
+### 2. Full original-rank source transport
 
 Let Q_alpha,Q_beta denote the exact prefix currents at a pair in (4), and
 put
@@ -120,7 +168,7 @@ normalization argument. Also a complete finite conditional expansion does
 not supply its terminal pair currents. The theorem introduces no dispatcher
 priority or assumption that every target admits suitable words.
 
-## 3. The maximal cell of the R80 high-history merger
+### 3. The maximal cell of the R80 high-history merger
 
 Take
 
@@ -173,7 +221,7 @@ the twelve exact inequalities `3^j*2^(19-A_j)>3^12` hold. The maximum is
 32q+17. Thus this remains a high-history comparison rather than an asserted
 direct descent of the displayed target prefix.
 
-## 4. Exact blocked phase and a larger genuine old-failure subdomain
+### 4. Exact blocked phase and a larger genuine old-failure subdomain
 
 The whole cell (13) must **not** be labeled blocked. For k odd,
 `v2(3q-1)>=5`, so the local W9 row is nonblocked. For k even its local depth
@@ -219,30 +267,30 @@ entire condition in(19) can be decided exactly from the canonical phase of
 f; no claim of classification is made for other returning parameters, or
 for every rule in the unchanged seventeen-family dispatcher.
 
-## 5. Relation to earlier closure and inverse results
+### 5. Relation to earlier closure and inverse results
 
 This is an arithmetic compiler for prescribed paired histories, not a new
 logical notion of absorption.
 
-- The [elementary-fibre theorem](../absorbed_fibers/ABSORBED_FIBERS.md)
+- The [elementary-fibre theorem](../absorbed-fibre-uniform-counts/README.md)
   starts from one supplied finite cutoff and handles its infinite elementary
   closure. Here p grows with q; no fixed finite supply is asserted to cover
   the entire lifted cell.
-- [R29 saturation](../known_saturation/KNOWN_SATURATION.md) already allows a
+- [R29 saturation](../supplied-path-saturation-core/README.md) already allows a
   checked bridge into supplied history. Equations(3)-(10) parameterize exact
   finite bridges on their maximal integer cell and prove their original-rank
   premises; they do not strengthen the abstract bridge inference.
-- [R49 inverse lifting](../inverse_scope/INVERSE_SCOPE.md) concerns complete
+- [R49 inverse lifting](../inverse-only-exclusions-short-forward/README.md) concerns complete
   ancestor exclusion. A path from a smaller origin to a future state of q
   does not imply a smaller ancestor of q itself. No new all-ray exclusion is
   claimed here.
-- [R68](../adjacent_recursion/NATIVE_HEIGHT_SEPARATION.md) and
-  [R80](../native_history/HIGH_HISTORY.md) already use fixed high paired
+- [R68](../native-height-inverse-obstruction/README.md) and
+  [R80](../high-smaller-origin-history/README.md) already use fixed high paired
   histories. The general cell and slope theorem makes that construction
   reusable; (13) removes unnecessary precision from the R80 cell. The
   complement and universal existence of useful paired words remain open.
 
-## 6. Reproduction and evidence
+### 6. Reproduction and evidence
 
 Run from the repository root:
 
@@ -266,3 +314,18 @@ b8707133193, producing46,100,108 current rows with all5,7,12 terminal-input
 tables retained. The last example belongs to (21), outside the old R80
 cell. The hash set pins35 reachable source/proof files. Fixture discovery
 is capped at10,000 arrows and4,096 bits; default replay reads those supplies.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B13 migration; standard library). The legacy scripts load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the side-lane probe `batch_r81_r83_check.py` (under 1 s, receipt reproduced byte for byte): 3,301 lifts of the R80 cell and 400 random merger cells with binary minimality. The legacy checker `check_history_lifting.py` is not replayed: it pins the hash of this node's note, now an edited README (see `evidence`). The command in the legacy text names `experiments/residual_progress/history_lifting/`.
+
+## Remarks
+
+- The fixed-word restriction is essential: a single fixed pair of words cannot implement a ternary subdivision of the later coupled cell ([`common-tail-comparison-after-r92`](../../questions/common-tail-comparison-after-r92.md), Known progress), and one fixed word cannot give a smaller origin throughout the cell of [`four-target-history-classification`](../four-target-history-classification/README.md) (R88).
+- The side lane's first feed entry claimed a ternary-minimality test that never executed; the main lane's review (`side_lane_review_b9203ff.md` in [`later-target-twenty-step-descent`](../later-target-twenty-step-descent/README.md)) found it and the side lane corrected it at 05:13. Ternary minimality rests on coupled integrality, as written in section 1.
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/history_lifting/HISTORY_LIFTING.md` (legacy ID R81) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written maximal-cell theorem, conditional signed compiler and exact supplied-current audit".
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `1d58f50`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

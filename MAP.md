@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**166 results, 20 attempts, 19 questions, 27 sources.**
+**184 results, 21 attempts, 21 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -12,11 +12,13 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 |---|---|---|---|
 | [`annular-component-progress-lemma`](areas/convergence/questions/annular-component-progress-lemma.md) | convergence | Odd-only 3x+1 map, absorbing at 1; A_N the annulus of disjoint-annular-recursion on the thirty five-ray sequences; Φ the exposure potential of exposure-potenti… | 0 |
 | [`aperiodic-exit18-return-survivors`](areas/convergence/questions/aperiodic-exit18-return-survivors.md) | convergence | Odd-only 3x+1 map S, absorbing at 1. In the two-return subsystem of exit18-return-integer-cylinders (guard G = {w = 40529845 mod 2^26}, returns V(w) = (3^12 w… | 0 |
+| [`common-tail-comparison-after-r92`](areas/convergence/questions/common-tail-comparison-after-r92.md) | convergence | Odd-only 3x+1 map S, absorbing at 1. On the original coupled cell Q(ell) = 70506316836123 + 3 2^45 ell, ell >= 0 (b(ell) = Q(ell)/3, retained critical basis of… | 0 |
 | [`exposure-absorption-giant-component`](areas/convergence/questions/exposure-absorption-giant-component/README.md) | convergence | Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus; G_d(N) the first d forward arrows exposed from every nonzero source of A_N. Is there a constant c… | 0 |
 | [`five-ray-annular-current-supply`](areas/convergence/questions/five-ray-annular-current-supply.md) | convergence | Odd-only 3x+1 map, absorbing at 1; A_N = Π^R_(64N) − Π^R_N the six-band annulus of disjoint-annular-recursion. For every N = a·2^r·64^k with a ∈ {12, 14, 16, 1… | 0 |
 | [`five-ray-complementary-profile-completion`](areas/convergence/questions/five-ray-complementary-profile-completion.md) | convergence | Odd-only 3x+1 map, absorbing at 1. For every cutoff N = a 2^b, a in (12, 14, 16, 18, 21), b >= 9, and using only a supplied exact current for U_N (the odd seed… | 0 |
 | [`normalised-quotient-termination`](areas/convergence/questions/normalised-quotient-termination.md) | convergence | Odd-only 3x+1 map S, absorbing at 1; nu the elementary-bridge normal form and B its canonical minima (q = 1 mod 8, or a complementary climber q = 2^a t - 1, a… | 0 |
 | [`packet-current-supply`](areas/convergence/questions/packet-current-supply.md) | convergence | Odd-only clock, absorbing at 1. Prove that for every integer N ≥ 8 there are finite signed measures J_N, ζ_N with Π^R_N = (I − P)J_N + ζ_N and ζ_N ≤ 0 pointwis… | 0 |
+| [`residual-pair-864z-257-supply`](areas/convergence/questions/residual-pair-864z-257-supply.md) | convergence | Odd-only 3x+1 map S, absorbing at 1. On the original coupled family z = 471104208005 + 2^14 3^16 ell, ell >= 0, with Q = (2^31 z - 665034679)/3^15, b = Q/3 and… | 0 |
 | [`uniform-current-cost`](areas/convergence/questions/uniform-current-cost.md) | convergence | Odd-only clock, absorbing at 1. With m = floor(2·ceil(log₂N)/9) and Π̂_(m,N) the exact-source packet family of packet-currents-snapshot, construct finite curre… | 0 |
 | [`universal-w5-tripling-currents`](areas/convergence/questions/universal-w5-tripling-currents.md) | convergence | Odd-only 3x+1 map S on positive odd integers, absorbing at 1, killed atom [1] = 0; P(w) = [3w] - [w]; W5 = {w = 5 mod 8}. Prove or refute: for every w in W5 th… | 0 |
 | [`cycle-height-bound`](areas/cycles/questions/cycle-height-bound.md) | cycles | Prove or refute: every hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map, of period m, minimum L and maximum H, has height B = floor… | 0 |
@@ -48,6 +50,8 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`auxiliary-normalisation-remainder`](areas/convergence/results/auxiliary-normalisation-remainder/README.md) | A terminating, order-independent auxiliary normalization of the annulus leaves at least 2… | written | written | — |  |
 | [`base-inverse-phases-increasing-pairs`](areas/convergence/results/base-inverse-phases-increasing-pairs/README.md) | The two base inverse rays on the nonselected critical-five domain decrease rank on two te… | written | written | — |  |
 | [`binary-residue-projection-information-loss`](areas/convergence/results/binary-residue-projection-information-loss.md) | Every fixed binary-residue view eventually sees each annular band as the zero measure | written | written | — |  |
+| [`binary-return-exit-control`](areas/convergence/results/binary-return-exit-control/README.md) | The guarded Phi return has an exact binary countdown and a complete nineteen-row exit tab… | written | written | — |  |
+| [`bounded-history-clock-exclusion`](areas/convergence/results/bounded-history-clock-exclusion/README.md) | No uniformly bounded pair of history clocks reaches every critical input, even over all i… | written | written | — |  |
 | [`bounded-packet-certificate-obstruction`](areas/convergence/results/bounded-packet-certificate-obstruction.md) | Some actual right-aligned packet needs more than H current rows, for every H | written | written | — |  |
 | [`bounded-runs-exclude-finite-label-potentials`](areas/convergence/results/bounded-runs-exclude-finite-label-potentials/README.md) | Repeating the eight-step word (1,2,1,1,1,1,2,2) gives arbitrarily many increasing run ret… | written | written | — |  |
 | [`bounded-source-cluster-local-bound`](areas/convergence/results/bounded-source-cluster-local-bound/README.md) | All annular sources on one E0 path lie within a sharp span of 63 arrows, but forbidden ex… | written | written | — |  |
@@ -68,24 +72,34 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`divergent-orbit-itinerary-complexity`](areas/convergence/results/divergent-orbit-itinerary-complexity/README.md) | A nonrepeating odd-only orbit has valuation-itinerary complexity at least L/log2(3/2) asy… | reviewed | reviewed | — |  |
 | [`dyadic-cutoff-core-remainder`](areas/convergence/results/dyadic-cutoff-core-remainder.md) | At dyadic cutoffs N = 2^b the core remainder is 6-periodic in b, so the transfer error li… | written | written | — |  |
 | [`elementary-bridge-quotient-normal-form`](areas/convergence/results/elementary-bridge-quotient-normal-form/README.md) | Sibling and halving identities generate exactly the components {F^k(q), F^k(2q+1)}, with… | written | written | — |  |
+| [`even-exit-smaller-target-cone`](areas/convergence/results/even-exit-smaller-target-cone/README.md) | After an even complementary exit, the raw smaller target lies below the source exactly on… | written | written | — |  |
 | [`exact-current-minimality`](areas/convergence/results/exact-current-minimality.md) | An exact current is dominated pointwise by every one-sided certificate, but cheapest one-… | reviewed | reviewed | — |  |
 | [`exact-current-prefix-criterion`](areas/convergence/results/exact-current-prefix-criterion.md) | Exact currents at all cutoffs up to M are equivalent to convergence of the odd seeds up t… | written | written | — |  |
 | [`exit18-return-integer-cylinders`](areas/convergence/results/exit18-return-integer-cylinders/README.md) | Every finite mixed exit-18 return word has a complete integer cylinder; eventually period… | written | written | — |  |
 | [`exponent-eleven-exit-continuation`](areas/convergence/results/exponent-eleven-exit-continuation/README.md) | The whole exponent-eleven exit row and an exact undo of a named full-block continuation | written | written | — |  |
 | [`exponent-eleven-fifteen-rule-classification`](areas/convergence/results/exponent-eleven-fifteen-rule-classification/README.md) | The whole exponent-eleven family under the fifteen-rule dispatcher, and an exact zero-cur… | written | written | — |  |
 | [`exposure-potential-boundary-flux`](areas/convergence/results/exposure-potential-boundary-flux/README.md) | On an exposed graph, positive component masses are exact dual obstructions, and the scale… | written | written | — |  |
+| [`failed-w9-leader-reduction`](areas/convergence/results/failed-w9-leader-reduction/README.md) | At the original threshold, two critical-nine substitutions reduce every failed R84 leader… | written | written | — |  |
 | [`fifteen-family-rho-dispatcher`](areas/convergence/results/fifteen-family-rho-dispatcher/README.md) | Fifteen conditional strict-rank families under one fixed-priority dispatcher | written | written | — |  |
+| [`finite-anchor-history-classification`](areas/convergence/results/finite-anchor-history-classification/README.md) | A finite absorbing anchor table classifies every smaller canonical history within a terna… | written | written | — |  |
 | [`finite-current-certificate-identity`](areas/convergence/results/finite-current-certificate-identity.md) | A finite signed current with (I − P)J = μ controls the stopping work of μ at every horizon | written | written | — |  |
 | [`finite-rational-cone-integer-certificate`](areas/convergence/results/finite-rational-cone-integer-certificate/README.md) | A finite rational cone compiles supplied five-ray packet certificates into an exact integ… | written | written | — |  |
 | [`five-ray-current-criterion`](areas/convergence/results/five-ray-current-criterion/README.md) | Finite current certificates on five dyadic rays of cutoffs are equivalent to Collatz conv… | reviewed | written | — |  |
 | [`five-ray-profile-completion-suffices`](areas/convergence/results/five-ray-profile-completion-suffices/README.md) | Completing the complementary outer profile at every interleaved five-ray cutoff would pro… | written | written | — |  |
 | [`fixed-ternary-order-unbounded-depth`](areas/convergence/results/fixed-ternary-order-unbounded-depth/README.md) | With the ternary order fixed at h = 2, every exposure depth still has complete positive c… | written | written | — |  |
+| [`fixed-word-history-cells`](areas/convergence/results/fixed-word-history-cells/README.md) | Every merger with two fixed exact valuation words lies in one maximal integer cell, with… | written | written | — |  |
 | [`forward-blocks-low-exponent-tests`](areas/convergence/results/forward-blocks-low-exponent-tests/README.md) | Complete forward blocks on the nonselected critical-five domain, with exact low-exponent… | written | written | — |  |
+| [`four-target-history-classification`](areas/convergence/results/four-target-history-classification/README.md) | On a whole remaining cell, only the original source reaches the direct target and its fir… | written | written | — |  |
+| [`fourteen-step-window-original-source`](areas/convergence/results/fourteen-step-window-original-source/README.md) | Fourteen more inverse-history steps admit only the original source at the repeated target | written | written | — |  |
 | [`growing-prefix-unhandled-leading-input`](areas/convergence/results/growing-prefix-unhandled-leading-input/README.md) | Arbitrarily long growing prefixes keep an unhandled leading input for the seven direct ru… | written | written | — |  |
 | [`guarded-cycle-exit-phases`](areas/convergence/results/guarded-cycle-exit-phases/README.md) | Exact guarded cycles and all exit phases on the R54 entry phase, with a descending exit a… | written | written | — |  |
 | [`halving-coalescence-return`](areas/convergence/results/halving-coalescence-return/README.md) | A halving identity certifies the selected half of the outer residual from smaller seeds,… | written | written | — |  |
+| [`high-smaller-origin-history`](areas/convergence/results/high-smaller-origin-history/README.md) | A smaller origin meeting the target above its height gives a decreasing plan on a blocked… | written | written | — |  |
+| [`history-beyond-prescribed-growth`](areas/convergence/results/history-beyond-prescribed-growth/README.md) | For every prescribed number of native returns, explicit cells have a smaller-origin histo… | written | written | — |  |
+| [`immediate-self-loop-lower-relations`](areas/convergence/results/immediate-self-loop-lower-relations/README.md) | The immediate blocked-W9 self-loop of R75 is zero except on u = 453 mod 576, where it reu… | written | written | — |  |
 | [`inverse-only-exclusions-short-forward`](areas/convergence/results/inverse-only-exclusions-short-forward/README.md) | Inverse-only descent cannot enlarge a forward-closed history, while short forward steps e… | written | written | — |  |
 | [`joint-source-unbounded-frontier`](areas/convergence/results/joint-source-unbounded-frontier/README.md) | The complete joint-source interface of the R39 pair keeps an unbounded positive frontier… | written | written | — |  |
+| [`later-target-twenty-step-descent`](areas/convergence/results/later-target-twenty-step-descent/README.md) | The thirteenth-target transition of the 11547 family has a complete original-rank decisio… | written | written | — |  |
 | [`lifted-inverse-ray-cycle`](areas/convergence/results/lifted-inverse-ray-cycle/README.md) | A lifted inverse ray with the rotated minus-twenty-five cycle: a complete threshold table… | written | written | — |  |
 | [`local-packet-calibration-extension`](areas/convergence/results/local-packet-calibration-extension/README.md) | Inner absorption gives an automatic one-sided packet input whose residual is exactly the… | written | written | — |  |
 | [`locally-collatz-like-control-barrier`](areas/convergence/results/locally-collatz-like-control-barrier/README.md) | The packet criterion fails on 3x+d maps with cycles, including 3x+61, which looks like Co… | reviewed | reviewed | — |  |
@@ -97,6 +111,8 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`mixed-exit-growing-reentry`](areas/convergence/results/mixed-exit-growing-reentry/README.md) | Complete exits of the mixed growing block, and a natural continuation that re-enters at g… | written | written | — |  |
 | [`mixed-rank-growing-blocks`](areas/convergence/results/mixed-rank-growing-blocks/README.md) | Arbitrarily long growing blocks from two valid comparisons of different ranks, with an ex… | written | written | — |  |
 | [`mixed-shrinking-pair-rules`](areas/convergence/results/mixed-shrinking-pair-rules/README.md) | Three recursive branches O, E1, E2 for the tripling pair P(w) = delta_(3w) - delta_w give… | written | written | — |  |
+| [`native-critical-nine-continuation`](areas/convergence/results/native-critical-nine-continuation/README.md) | Native critical-nine continuation at the original rank: complete native and next-A2 decis… | written | written | — |  |
+| [`native-growth-original-rank-exit-obstruction`](areas/convergence/results/native-growth-original-rank-exit-obstruction/README.md) | Guarded native critical-nine growth has exact return counts, and its exit fails the origi… | written | written | — |  |
 | [`native-height-inverse-obstruction`](areas/convergence/results/native-height-inverse-obstruction/README.md) | Adjacent currents: an all-ray inverse barrier at the native height, with a fixed forward… | written | written | — |  |
 | [`negative-cycle-backward-word`](areas/convergence/results/negative-cycle-backward-word/README.md) | The backward word of the negative cycle -17 gives an exact seven-arrow ancestor and stric… | reviewed | written | — |  |
 | [`no-finite-affine-valuation-rank`](areas/convergence/results/no-finite-affine-valuation-rank/README.md) | No finite affine-valuation rank for the two fixed mixed phases | written | written | — |  |
@@ -107,14 +123,17 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`outer-residual-strong-induction-support`](areas/convergence/results/outer-residual-strong-induction-support/README.md) | The outer residual roots are exactly the shell climbers not reached from [1, N] in one or… | written | written | — |  |
 | [`packet-currents-snapshot`](areas/convergence/results/packet-currents-snapshot/README.md) | Exact-source ternary packets, with all-horizon current certificates at two named cutoffs… | written | written | — |  |
 | [`prefix-rule-cylinder-rate-barrier`](areas/convergence/results/prefix-rule-cylinder-rate-barrier/README.md) | The D, M and H valuation-prefix recognizers leave undecided binary cylinders at the exact… | written | written | — |  |
+| [`prescribed-ternary-child-unbounded-clocks`](areas/convergence/results/prescribed-ternary-child-unbounded-clocks/README.md) | The prescribed ternary child of the coupled cell cannot be reached at uniformly bounded c… | written | written | — |  |
 | [`progress-measures-control-3x-61`](areas/convergence/results/progress-measures-control-3x-61.md) | On 3x+61 the annular progress measures behave like those of 3x+1, yet a positive componen… | reviewed | reviewed | — |  |
 | [`qualitative-current-criterion`](areas/convergence/results/qualitative-current-criterion.md) | Collatz convergence is equivalent to finite current certificates for the right-aligned pa… | reviewed | written | — |  |
 | [`quotient-prefix-plans-rho-decreasing`](areas/convergence/results/quotient-prefix-plans-rho-decreasing/README.md) | Quotient-orbit prefixes stopped below (8 rho(w) - 5)/9 are strict-rho plans for every W5… | reviewed | written | — |  |
 | [`rank-excess-absorption-classification`](areas/convergence/results/rank-excess-absorption-classification/README.md) | The unique rank excess in formal absorption, and a complete strict-rank domain in the fif… | written | written | — |  |
+| [`rational-basin-precision-barrier`](areas/convergence/results/rational-basin-precision-barrier/README.md) | A finite rational basin bounds every inverse word at c0, so no smaller original source re… | written | written | — |  |
 | [`ray-index-decision-count-obstruction`](areas/convergence/results/ray-index-decision-count-obstruction/README.md) | Every inverse-ray index of a two-rotation cycle/point procedure is decidable, and it acce… | written | written | — |  |
 | [`reflected-negative-annulus-control`](areas/convergence/results/reflected-negative-annulus-control.md) | A reflected annulus on the negative integers has zero work and zero band masses yet admit… | written | written | — |  |
 | [`release-source-packing`](areas/convergence/results/release-source-packing/README.md) | Two further disjoint cancellation families raise the universal partial current's removed… | written | written | — |  |
 | [`retained-graph-complement-constructor`](areas/convergence/results/retained-graph-complement-constructor/README.md) | Retaining every cutoff arrow absorbs all seeds up to N and 47/72 of the outer shell, leav… | written | written | — |  |
+| [`retained-history-w9-reduction`](areas/convergence/results/retained-history-w9-reduction/README.md) | Retaining the strict lower history gives a sharp three-node critical-nine reduction on a… | written | written | — |  |
 | [`returning-forward-interface`](areas/convergence/results/returning-forward-interface/README.md) | A complete forward interface on the returning W5 row, with strict-rank subdomains and arb… | written | written | — |  |
 | [`returning-second-forward-interface`](areas/convergence/results/returning-second-forward-interface/README.md) | A second complete forward run before requesting inputs on the returning W5 row | written | written | — |  |
 | [`right-aligned-fixed-core-remainder`](areas/convergence/results/right-aligned-fixed-core-remainder/README.md) | Grouping depth-one source lifts from the right leaves a remainder only on the core {5, 7,… | reviewed | reviewed | — |  |
@@ -134,6 +153,7 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`twelve-family-rho-dispatcher`](areas/convergence/results/twelve-family-rho-dispatcher/README.md) | Twelve conditional strict-rank families under one fixed-priority dispatcher | written | written | — |  |
 | [`two-inverse-phases-intermediate-increase`](areas/convergence/results/two-inverse-phases-intermediate-increase/README.md) | Two inverse phases cross an intermediate increase and reach strict rank decrease | written | written | — |  |
 | [`two-selected-inverse-choices`](areas/convergence/results/two-selected-inverse-choices/README.md) | Two selected inverse choices give exact strict-rank domains and escape arbitrarily long f… | written | written | — |  |
+| [`two-source-normalisation-first-departure`](areas/convergence/results/two-source-normalisation-first-departure/README.md) | Both original histories normalise the coupled pair to [864z - 257] - [z], with a complete… | written | written | — |  |
 | [`unbounded-exposure-depth-necessary`](areas/convergence/results/unbounded-exposure-depth-necessary/README.md) | For every fixed exposure depth D, infinitely many required-ray annuli have a complete pos… | written | written | — |  |
 | [`uniform-fixed-word-pair-exclusion`](areas/convergence/results/uniform-fixed-word-pair-exclusion/README.md) | No uniformly smaller affine W5 partner with four fixed valuation words on the whole mixed… | written | written | — |  |
 | [`universal-annular-partial-current`](areas/convergence/results/universal-annular-partial-current/README.md) | Every annulus A_N has an explicit partial current that removes positive mass 73N/48 + O(1… | written | written | — |  |
@@ -149,6 +169,7 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`cylinder-certificates-outer-residual`](areas/convergence/attempts/cylinder-certificates-outer-residual/README.md) | Fixed-bit 2-adic cylinder certificates (descent, merger, halving) cannot complete the outer residual | written |
 | [`retained-lower-currents-adjacent-source`](areas/convergence/attempts/retained-lower-currents-adjacent-source.md) | Retained lower currents and joint rewrites do not escape the adjacent-source interface | written |
 | [`rho-sigma-rank-mixing`](areas/convergence/attempts/rho-sigma-rank-mixing/README.md) | Mixing the rho and sigma dispatchers: finite dependency graphs are acyclic, but no common rank is found | written |
+| [`two-ray-point-procedure-later-target`](areas/convergence/attempts/two-ray-point-procedure-later-target/README.md) | The two-ray/point inverse procedure also fails at later Phi-exit targets | written |
 
 ### Closed questions
 
@@ -410,10 +431,29 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 | R76 | [`uniform-fixed-word-pair-exclusion`](areas/convergence/results/uniform-fixed-word-pair-exclusion/README.md) |
 | R77 | [`same-seed-factor-complexity-bound`](areas/convergence/results/same-seed-factor-complexity-bound/README.md) |
 | R77-b | [`divergent-orbit-itinerary-complexity`](areas/convergence/results/divergent-orbit-itinerary-complexity/README.md) |
+| R78 | [`native-critical-nine-continuation`](areas/convergence/results/native-critical-nine-continuation/README.md) |
+| R78-b | [`immediate-self-loop-lower-relations`](areas/convergence/results/immediate-self-loop-lower-relations/README.md) |
+| R79 | [`native-growth-original-rank-exit-obstruction`](areas/convergence/results/native-growth-original-rank-exit-obstruction/README.md) |
 | R8 | [`universal-annular-partial-current`](areas/convergence/results/universal-annular-partial-current/README.md) |
 | R8-b | [`affine-common-tail-tree-lifting`](areas/convergence/results/affine-common-tail-tree-lifting/README.md) |
+| R80 | [`high-smaller-origin-history`](areas/convergence/results/high-smaller-origin-history/README.md) |
+| R81 | [`fixed-word-history-cells`](areas/convergence/results/fixed-word-history-cells/README.md) |
+| R82 | [`finite-anchor-history-classification`](areas/convergence/results/finite-anchor-history-classification/README.md) |
+| R83 | [`history-beyond-prescribed-growth`](areas/convergence/results/history-beyond-prescribed-growth/README.md) |
+| R84 | [`later-target-twenty-step-descent`](areas/convergence/results/later-target-twenty-step-descent/README.md) |
+| R85 | [`bounded-history-clock-exclusion`](areas/convergence/results/bounded-history-clock-exclusion/README.md) |
+| R86 | [`even-exit-smaller-target-cone`](areas/convergence/results/even-exit-smaller-target-cone/README.md) |
+| R87 | [`failed-w9-leader-reduction`](areas/convergence/results/failed-w9-leader-reduction/README.md) |
+| R88 | [`four-target-history-classification`](areas/convergence/results/four-target-history-classification/README.md) |
+| R89 | [`retained-history-w9-reduction`](areas/convergence/results/retained-history-w9-reduction/README.md) |
 | R9 | [`annular-root-collapse-contraction`](areas/convergence/results/annular-root-collapse-contraction.md) |
 | R9-b | [`outer-profile-closure-obstruction`](areas/convergence/results/outer-profile-closure-obstruction.md) |
+| R90 | [`binary-return-exit-control`](areas/convergence/results/binary-return-exit-control/README.md) |
+| R91 | [`rational-basin-precision-barrier`](areas/convergence/results/rational-basin-precision-barrier/README.md) |
+| R92 | [`fourteen-step-window-original-source`](areas/convergence/results/fourteen-step-window-original-source/README.md) |
+| R93 | [`two-source-normalisation-first-departure`](areas/convergence/results/two-source-normalisation-first-departure/README.md) |
+| R94 | [`prescribed-ternary-child-unbounded-clocks`](areas/convergence/results/prescribed-ternary-child-unbounded-clocks/README.md) |
+| R94-b | [`two-ray-point-procedure-later-target`](areas/convergence/attempts/two-ray-point-procedure-later-target/README.md) |
 | S02 | [`ordered-cycle-run-renormalisation`](areas/cycles/attempts/ordered-cycle-run-renormalisation/README.md) |
 | S03 | [`band-three-ordering-extension`](areas/cycles/attempts/band-three-ordering-extension/README.md) |
 | S04 | [`band-one-gcd-law-search`](areas/cycles/attempts/band-one-gcd-law-search/README.md) |

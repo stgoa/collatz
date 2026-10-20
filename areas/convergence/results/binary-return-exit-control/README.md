@@ -1,4 +1,58 @@
-# Complete control of the guarded Phi exits
+---
+id: binary-return-exit-control
+kind: result
+title: "The guarded Phi return has an exact binary countdown and a complete nineteen-row exit table at the original rank"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; retained critical basis of R75. Put A = 3^12, M = 2^19, B = 299947, D =
+  7153, Phi(v) = (Av+B)/M, L(v) = Dv+B. On the guard v = 133797 mod 2^18 (equivalently 2^18 | L(v)) the raw word
+  from 6v+1 and the word from 3v both have twelve arrows and end at 6Phi(v)+1 on v = 133797 mod 2^19; L(Phi(v)) =
+  (A/M) L(v), T^12(3v) = 3Phi(v) on the re-entry cylinder, and a fixed guarded positive v has exactly
+  floor((v2(L(v)) - 18)/19) complete re-entries, each consuming 19 binary digits, gaining 12 ternary digits and
+  increasing v; every prescribed count occurs in the original coupled R89 cell, which is not invariant under Phi.
+  At the maximal exit h = v2(L(v)) in 18..36, all 19 rows have an exact fixed ordinary prefix followed by one
+  arbitrary valuation a >= p, with complete cylinders and pullbacks to the original parameter, and the raw
+  endpoint test against the ORIGINAL Q is an exact affine inequality whose fixed (h, a) template fails for large
+  r. The existing comparison has quotient clock 18+12r, ordinary clocks (23+12r, 5) and a unique highest request
+  P(v_r) with coefficient +1; a fresh forward continuation to an exit y gives prefix(Q, L) + J_y - J_(Q/3) with
+  every high request positive, so extending this history creates no negative high cancellation. Each fixed exit
+  cell's terminal image is a tail of one residue class mod a power of 3, so unconditional absorption of one whole
+  cell would already imply Collatz; conditional strict-premise pair repair is a distinct target. No decreasing
+  measure across exits and no terminal supply.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [retained-history-w9-reduction, common-critical-rank-basis]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_phi_exit_control.py, phi_exit_control.py, phi_exit_control_audit.json: the legacy module, checker and receipt: 10 full return comparisons, all 19 rows, 171 signed exit comparisons, 15 modular ancestor certificates, 29 rejections, three stored exit plans with 156/283/498 rows, 65 controls where the raw y >= Q but the native plan descends; 37 local sources pinned. Fails at its new path: phi_exit_control.py loads ../retained_history/ (now ../retained-history-w9-reduction/) by its pre-migration folder name, and is loaded in turn by the legacy deeper_window/ and later_target_probe/ code; and Its receipt pins the SHA-256 of this node's legacy note PHI_EXIT_CONTROL.md, now an edited README, so it fails at its new path and in a legacy replay. Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a; A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged)"
+  - "r90_phi_return_check.py, r90_phi_return_check.json: side-lane probe (Claude side lane, 2026-10-18 06:27) of the return words, the quotient identity and the re-entry counts. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/). Passed at be73a66 as reviews/side_lane/r90_phi_return_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+  - "side_lane_review_86ead16.md, side_lane_review_86ead16.json: the main lane's pinned review (2026-10-18) of side commit 86ead16: byte-identical reproductions of r90_phi_return_check, batch_r61_r67_check and r64_lifted_cycle_check, the full output of r88_anchor_exhaustive.c (cited from four-target-history-classification), a replay of the PR1 minimality and 3x+61 controls, and the strategic assessment at R90/R91; it records that the side lane had not reproduced R91 at that commit"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: r90_phi_return_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 06:27, VERIFIED, main a94533a), with the lane's own step and ν: '**Return words.** On 2,000 random `v ≡ 133797 (mod 2¹⁹)`, both words end at `6Φ(v) + 1`'; '**Quotient identity.** On 500 members of the re-entry cylinder `v ≡ 102642092709 (mod 2³⁷)` ... `T¹²(3v) = 3Φ(v)` and `L(Φ(v)) = (3¹²/2¹⁹)·L(v)`'; '**Re-entry count.** On 3,000 guarded seeds, half of them forced to have a deep `v2(L)`, the number of complete re-entries found by direct iteration equals `⌊(v2(L(v)) − 18)/19⌋`.' The exit table, the signed comparisons and the ancestor-cover argument were not rebuilt; reproduced by the main lane in side_lane_review_86ead16.md. The status stays written"
+aliases: [R90]
+tags: [convergence, outer-residual, retained-history, binary-countdown, original-rank, exit-classification]
+---
+
+# The guarded Phi return has an exact binary countdown and a complete nineteen-row exit table at the original rank
+
+## Statement
+
+Odd-only clock `S`, 1 absorbing, quotient `T = νS`; the retained critical basis of [`common-critical-rank-basis`](../common-critical-rank-basis/README.md) (R75). Put `A = 3^12`, `M = 2^19`, `B = 299947`, `D = A − M = 7153`, `Φ(v) = (Av + B)/M`, `L(v) = Dv + B`.
+
+1. **Return.** The broad guard is `v ≡ 133797 (mod 2^18)`, i.e. `2^18 | L(v)`. On `v ≡ 133797 (mod 2^19)` the words `(1,1,1,1,3,1,4,1,2,1,1,2)` from `6v + 1` and `(1,1,1,2,1,1,4,1,2,1,1,2)` from `3v` both end at `6Φ(v) + 1`. `L(Φ(v)) = (A/M)L(v)`, and on the re-entry cylinder `T^12(3v) = 3Φ(v)`.
+2. **Countdown.** A fixed guarded positive `v` makes exactly `⌊(v2(L(v)) − 18)/19⌋` consecutive re-entries; each consumes 19 binary digits, gains 12 ternary digits and increases `v`. Every prescribed count occurs on the original coupled cell of [`retained-history-w9-reduction`](../retained-history-w9-reduction/README.md) (R89), `v0 = 67839005952677 + 2^18·3^18·ℓ`, `Q = 70506316836123 + 3·2^45·ℓ`, but that cell is not invariant under `Φ`.
+3. **Signed comparison.** `T^(18+12i)(Q) = 3v_i`, `S^(23+12i)(Q) = S^5(3v_i)`; the full pair plan keeps a unique highest request `P(v_i)`, coefficient `+1`, rank `3v_i > Q`.
+4. **Exits.** At the maximal exit `h = v2(L(v)) ∈ {18, …, 36}` all 19 rows have an exact fixed prefix followed by one arbitrary valuation `a ≥ p`, with complete cylinders and exact pullbacks to `ℓ`. The raw endpoint test against the original `Q` is an exact affine inequality; for fixed `(h, a)` it fails for all large `r`. Native normalisation can still succeed above `Q`.
+5. **No negative high cancellation.** A fresh forward continuation to an exit `y` gives `prefix(Q, L) + J_y − J_(Q/3)` with vector `A_y − A_(Q/3)`; every request of rank `≥ Q` is positive.
+6. **Ancestor cover.** Each fixed exit cell's terminal image is a tail of one residue class modulo `3^(L+1)`, so unconditional absorption of one whole cell would already imply Collatz. This is not an equivalence for the pair currents, nor an obstruction to conditional repair.
+
+## Proof
+
+The legacy note "Complete control of the guarded Phi exits" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written arithmetic classification and conditional finite-current
 construction. No universal current supply or whole-type termination is proved.**
@@ -9,7 +63,7 @@ clocks. The raw endpoint test is a complete arithmetic test for that endpoint;
 it is not a test for all possible current constructions. The ancestor-cover
 statement concerns unconditional absorption, not pair currents alone.
 
-The inputs come from the [retained-history cell](../retained_history/RETAINED_HISTORY.md).
+The inputs come from the [retained-history cell](../retained-history-w9-reduction/README.md).
 Use the odd-only Syracuse map S with absorption at1, elementary normal form nu,
 and quotient T=nu composed with S on canonical states. Write P(w)=[3w]-[w].
 The native critical-basis plan is [s]=div J_s+A_s.P, with nonnegative integral
@@ -17,7 +71,7 @@ coefficients A_s and every request rank rho(u)=nu(3u) at most nu(s). Both W5 and
 W9 input types remain available. A finite formal current becomes an actual
 pair current only after every remaining signed pair premise is supplied.
 
-## Exact return and its guards
+### Exact return and its guards
 
 Put
 
@@ -69,7 +123,7 @@ prefix, as in the retained-history construction. This verifies the quotient
 clock separately from the ordinary words. The ordinary twelve-step endpoint
 is 6Phi(v)+1.
 
-## Maximal repetitions, growth, and original-cell intersection
+### Maximal repetitions, growth, and original-cell intersection
 
 For a positive guarded v, let h=v2(L(v)). Since L(v)>0, h is finite. The exact
 maximum number of consecutive guarded re-entries is
@@ -106,7 +160,7 @@ The original raw cell has period 128*3^19, so it is not invariant under this
 return. Arbitrarily long repetitions use different starting
 integers and the broader binary guard, not invariance of the original cell.
 
-## Full signed comparison at the fixed original threshold
+### Full signed comparison at the fixed original threshold
 
 For the original m and Q=133704987+3*2^33*m, set b=Q/3. Let v_i=Phi^i(v_0).
 The original ordinary 18-prefix ends at 6v_0+1. Concatenating the exact raw words
@@ -132,7 +186,7 @@ All remaining ranks are below 3v_i, but they are NOT claimed below the fixed
 original Q for arbitrary i. This is why an increasing raw return does not by
 itself establish a repeated admissible R89 original-Q plan or a supply theorem.
 
-## Maximal-exit parameters and the fixed original threshold
+### Maximal-exit parameters and the fixed original threshold
 
 Put V0=67839005952677, VP=2^18*3^18. The original coupled sources are
 
@@ -149,7 +203,7 @@ h=v2(Dv+B) in {18,...,36}. Its complete exit cylinder is
 Every prescribed r,h occurs in the original cell. The next section refines
 this cylinder by the exact first variable valuation, including its extra bit.
 
-## Nineteen complete prefixes, followed by one arbitrary valuation
+### Nineteen complete prefixes, followed by one arbitrary valuation
 
 Let W=(1,1,1,1,3,1,4,1,2,1,1,2), the twelve-arrow raw return word.
 The table gives the maximal fixed ordinary prefix from 6v+1 on the entire
@@ -200,7 +254,7 @@ Divide the difference from the original v0 base by 2^18, then invert 3^18,
 to obtain the exact original l progression. This determines *exactly* r
 re-entries, exit h, and next valuation a, not just lower bounds.
 
-## Complete raw-target test, keeping original Q
+### Complete raw-target test, keeping original Q
 
 For the listed fixed prefix, define its affine constant c by
 x=(6*3^ell*v+c)/2^E. Initialize c=1,E=0; an arrow of valuation e changes
@@ -226,7 +280,7 @@ Therefore the raw-target stop cannot work on that fixed exit template for
 arbitrarily large r. A variable exit valuation can compensate; no argument
 here forces it to be large enough.
 
-## Signed inputs: forward history creates no negative high cancellation
+### Signed inputs: forward history creates no negative high cancellation
 
 The concatenated ordinary path from the original Q to y has length
 
@@ -244,7 +298,7 @@ relations stay below the original Q and likewise cannot cancel those high
 requests. A new cancellation needs another comparison or a separate retained
 history. This does not exclude progress by a potential on positive vectors.
 
-## A scope fact: each fixed exit cell is an unconditional ancestor cover
+### A scope fact: each fixed exit cell is an unconditional ancestor cover
 
 For fixed r,h,a, let L be the total ordinary word length above, and E_total
 its total valuation sum. The original Q step is 3*2^45. The exact word fixes
@@ -276,7 +330,7 @@ Elementary justification of the unit generator: v3(4^(3^j)-1)=j+1 by the
 binomial induction. Hence 2 has order 2*3^(K-1) modulo3^K, the entire number
 of units.
 
-## Why the gained ternary order does not automatically make a long point chain
+### Why the gained ternary order does not automatically make a long point chain
 
 The rational centre of the raw word is -1792529/7153. Every finite ordinary
 word applied to that centre remains a rational with reduced denominator
@@ -287,7 +341,7 @@ ternary precision exceeds it. The latter grows with r, but the former does
 not. With variable a, high point depth is a separate congruence in 2^a; it is
 not a consequence of r alone. Multi-ray inverse words are outside this claim.
 
-## Consequences and unresolved obligation
+### Consequences and unresolved obligation
 
 The binary budget is a well-founded countdown for consecutive Phi re-entries.
 It does not control how another branch changes the affine centre or replenishes
@@ -302,7 +356,7 @@ comparisons. It does not exclude multi-ray inverse words, later targets,
 nonlocal histories, or richer progress measures. The separate first-ray/point
 scratch obstruction is intentionally not part of this result.
 
-## Executable interface and verification
+### Executable interface and verification
 
 `phi_exit_control.py` exports:
 
@@ -344,3 +398,19 @@ is descending, preserving the non-necessity of the raw stop. Reachable source
 pinning covers37 local files. Generation and default replay each took about
 1.5 seconds. These are conditional comparisons; no terminal inputs were
 supplied or silently discarded.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B13 migration; standard library). The legacy scripts load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the side-lane probe `r90_phi_return_check.py` (under 1 s, receipt reproduced byte for byte): the two return words on 2,000 guarded inputs, the quotient identity on 500 re-entry inputs, and the re-entry count on 3,000 seeds. The legacy checker `check_phi_exit_control.py` is not replayed: it pins the hash of this node's note, now an edited README (see `evidence`). The command in the legacy text names `experiments/residual_progress/phi_exit_control/`.
+
+## Remarks
+
+- The countdown proves departure from one subsystem only; it gives no decreasing measure across subsequent exits. R67's count ([`mixed-rank-growing-blocks`](../mixed-rank-growing-blocks/README.md)) includes the last guarded step whose image may leave the guard; this one counts complete returns. The two conventions differ (side_lane_review_86ead16.md).
+- The unpromoted first-ray/point scratch obstruction mentioned in the note is not part of this result.
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/phi_exit_control/PHI_EXIT_CONTROL.md` (legacy ID R90) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written arithmetic classification and conditional signed construction; terminal supply remains open".
+- The main lane's review `side_lane_review_86ead16.md` and its record `.json` (`experiments/residual_progress/`, 2026-10-18) moved here with the side-lane probe they reproduce.
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `a94533a`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

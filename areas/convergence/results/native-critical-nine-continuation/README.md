@@ -1,4 +1,54 @@
-# A native-rank continuation for critical-nine inputs
+---
+id: native-critical-nine-continuation
+kind: result
+title: "Native critical-nine continuation at the original rank: complete native and next-A2 decisions"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1, [1] = 0; P(w) = [3w] - [w], W5 = {w = 5 mod 8}, W9 = {w = 9 mod 16}, rho(w)
+  = nu(3w), retained critical basis of R75 with formal plans [s] = div J_s + A_s.P. For every positive b = 905 mod
+  8192 put t = (27b+13)/128, n = 3b, c = (27t-1)/4, m = 3c: the six ordinary arrows from n have valuations
+  (1,2,1,1,1,2) and end at selected r = (81t-1)/2 with nu(r) = m, and the full signed plan C_b = G + N_r + L_c +
+  J_c - J_b with requests l_c + A_c - A_b has every rank below the original n if and only if not (D = v2(9c-1) in
+  {4,6} and 3z noncanonical); each failure keeps exactly one higher request with coefficient +1. In the D6 failure
+  the k4 inverse plus the E conversion returns the request b (+1) with a possibly nonzero lower current, and the
+  k8 inverse leaves the higher W9 input c. The next forward block gives the signed vector A_f + A_c - A_ell - A_b;
+  on the whole next-initial-exponent A = 2 domain it is strict at the original n exactly when the next depth d is
+  odd, or even d >= 6, or f is selected; other A are unclassified. The successful first-stage rows were already
+  implicit in R52. Conditional on supplied currents for every signed request; no universal supply, new local orbit
+  identity or dispatcher change.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [critical-nine-elimination, complementary-run-bridges, returning-second-forward-interface, selected-critical-five-forward-tables, two-selected-inverse-choices, common-critical-rank-basis]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_native_nine.py, native_nine.py, native_nine_audit.json: the legacy constructor, checker and receipt: 383 nonblocked local-bound cases, 226 native cases, 150 full two-ray substitutions, 134 next-A2 cells, 30 exact rational boundary checks, 13 rejections, 16 other-A cases recorded as unresolved, three supplied outputs P(905), P(517001), P(779145) with 43/97/102 rows and their 3/8/6 input tables; 36 reachable sources pinned. Fails at its new path: native_nine.py loads ../critical_basis/, ../returning_continuation/, ../selected_forward/ and ../selected_inverse/ (now ../common-critical-rank-basis/, ../returning-second-forward-interface/, ../selected-critical-five-forward-tables/, ../two-selected-inverse-choices/) by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/native_nine/check_native_nine.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "../high-smaller-origin-history/batch_r78_r80_check.py: side-lane probe of R78-R80, replayed by this node's check_legacy_replay.py (see reviewed_by)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: ../high-smaller-origin-history/batch_r78_r80_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 03:31, VERIFIED, main 3b0c8a5), with the lane's own step, ν and selected: '**R78.** Take 2,000 random `b ≡ 905 (mod 8192)`. Then `t = (27b + 13)/128 ≡ 191 (mod 1728)`. From `3b` the six ordinary arrows have valuations `(1,2,1,1,1,2)` and end at `r = (81t − 1)/2`. This `r` is selected, with `ν(r) = 3c`, where `c = (27t − 1)/4 = U(b) = (729b + 223)/512`.' The signed plans and the decisions (6) and (18) were not rebuilt; reproduced by the main lane in side_lane_review_9849c53.md. The status stays written"
+aliases: [R78]
+tags: [convergence, outer-residual, critical-nine, critical-basis, original-rank, native-history]
+---
+
+# Native critical-nine continuation at the original rank: complete native and next-A2 decisions
+
+## Statement
+
+Odd-only clock, 1 absorbing, `[1] = 0`; `P(w) = [3w] − [w]`, `W5 = {w ≡ 5 mod 8}`, `W9 = {w ≡ 9 mod 16}`, `ρ(w) = ν(3w)`; `[s] = div J_s + Σ_v A_s(v)P(v)` the retained critical formal plans of [`common-critical-rank-basis`](../common-critical-rank-basis/README.md) (R75), `A_s(v) ≠ 0 ⇒ ρ(v) ≤ ν(s)`; `(L_c, l_c)` the local plan of [`critical-nine-elimination`](../critical-nine-elimination/README.md) (R40) without its recursive W9 elimination.
+
+1. **Local bound.** For `c ∈ W9`, `M = 3c`, every request of `l_c` has `ρ(v) ≤ (27M + 23)/32`, unless `D = v2(9c − 1) = 4` and `3z` is noncanonical.
+2. **Native interface.** For every positive `b ≡ 905 (mod 8192)`, with `t = (27b + 13)/128`, `n = 3b`, `c = (27t − 1)/4`, `m = 3c`, the six ordinary arrows from `n` have valuations `(1,2,1,1,1,2)` and end at selected `r = (81t − 1)/2`, `ν(r) = m`. The full plan `C_b = G + N_r + L_c + J_c − J_b`, requests `l_c + A_c − A_b`, has all ranks below the **original** `n` if and only if not (`D ∈ {4, 6}` and `3z` noncanonical). Each failure keeps exactly one higher request, coefficient `+1`. The successful rows were already implicit in R52 ([`returning-second-forward-interface`](../returning-second-forward-interface/README.md)).
+3. **D6 inverse alternatives.** In the D6 failure, the k4 inverse and the E conversion give the full current `J_c − L_(c,ℓ) − J_ℓ` with requests `{b:1} + A_c − A_ℓ` (`ℓ = (Q + 2)/3`); the lower current need not vanish. The k8 inverse leaves the higher W9 input `c`. Neither is progress at the original rank.
+4. **Next forward block.** It leaves the signed vector `A_f + A_c − A_ℓ − A_b`. On the whole next-initial-exponent `A = 2` domain it is strict at `n` exactly when the next depth `d` is odd, or even `d ≥ 6`, or `f` is selected; canonical `d = 2, 4` keep a genuine higher critical request. Other `A` are unclassified. At `b = 4187017` the locally accepted `d = 4` child has endpoint `12732427` above the original `n = 12561051`.
+
+Every statement is conditional on supplied currents for all signed requests.
+
+## Proof
+
+The legacy note "A native-rank continuation for critical-nine inputs" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written proof, conditional finite compiler, and bounded executable
 checks.** This composes existing R40/R52/R55/R56 comparisons in the retained
@@ -23,13 +73,13 @@ These are finite formal identities, not supplied absorption currents. Their
 construction terminates by decreasing the canonical seed. All coefficients
 and currents here are integers; negative requests require exact supplied
 currents just as positive requests do. References are the
-[critical basis](../critical_basis/CRITICAL_BASIS.md),
-[critical-nine local identity](../w9_closure/CRITICAL_NINE_ELIMINATION.md),
-[second returning block](../returning_continuation/RETURNING_SECOND_BLOCK.md),
-[selected forward interface](../selected_forward/SELECTED_FORWARD.md), and
-[selected inverse interface](../selected_inverse/SELECTED_INVERSE.md).
+[critical basis](../common-critical-rank-basis/README.md),
+[critical-nine local identity](../critical-nine-elimination/README.md),
+[second returning block](../returning-second-forward-interface/README.md),
+[selected forward interface](../selected-critical-five-forward-tables/README.md), and
+[selected inverse interface](../two-selected-inverse-choices/README.md).
 
-## 1. A bound for the retained local critical-nine plan
+### 1. A bound for the retained local critical-nine plan
 
 For `c in W9`, put `M=3c`, `D=v2(9c-1)`. Let `(L_c,l_c)` be R40's local
 plan, **without** its recursive elimination of W9 requests:
@@ -60,7 +110,7 @@ high bound `L` to `(3L+1)/4`, which decreases it. These facts prove (2),
 including all lower requests. The finite receipt includes equality cases;
 no sharpness assumption is needed later.
 
-## 2. The whole native a5 interface
+### 2. The whole native a5 interface
 
 Fix any positive
 
@@ -127,7 +177,7 @@ The odd-D bounds are smaller; later even-D bounds decrease by the recurrence
 in Section1. All strict positive signs hold for t at its stated minimum191.
 This proves the full-domain statement, without sampling assumptions.
 
-### Relation to existing successful rules
+#### Relation to existing successful rules
 
 The old first R44 test fails throughout (3), since m is a W9 critical root
 and `(9m+5)/8>q`; the first sigma endpoint test also fails since m>n. The
@@ -145,7 +195,7 @@ interface, not newly discovered W5 dispatcher coverage. The original-parent
 rank discipline is the same as R62, but R62's published low-exponent tables
 concern a different restricted initial-a3 family.
 
-### The D4 higher-nine request
+#### The D4 higher-nine request
 
 In the failed D4 case, applying R75's E conversion to its high request
 leaves a unique higher W9 input
@@ -159,7 +209,7 @@ requires both D4 and noncanonical `3z`; `b=905 mod8192` alone does not imply
 those guards. `d4_return` retains the entire current and lower signed list.
 No universal zero-current cancellation is asserted.
 
-## 3. The full D6 failure and the two prescribed inverse alternatives
+### 3. The full D6 failure and the two prescribed inverse alternatives
 
 Retain (3) and assume D6 with noncanonical `3z`. Define
 
@@ -190,7 +240,7 @@ For R56's two choices the valuations are fixed throughout this domain:
 
 Indeed `4c+1=27t` and t=2 mod3, whereas `8c+1=2 mod3`.
 
-### Choice k4: a full signed return to the original request
+#### Choice k4: a full signed return to the original request
 
 The k4 inverse endpoint is `q=16t-1`; the actual q-to-Q word is
 
@@ -234,7 +284,7 @@ K is `sum_v(A_ell(v)-A_c(v))P(v)`, exactly as (15) requires after the
 P(b) self-request cancels. K need not be zero: a nonzero lower identity
 must not be discarded or described as a zero-current tautology.
 
-### Choice k8: a higher-nine request
+#### Choice k8: a higher-nine request
 
 The k8 inverse endpoint is `eta=16c+1`. Its formal critical plan begins by
 reaching and normalizing to m=3c, so its request vector is
@@ -244,7 +294,7 @@ as a return to p; retaining the critical basis exposes the higher-nine
 request directly. Neither of these two inverse choices certifies b at its
 original rank. No assertion is made about every other comparison at p.
 
-## 4. A descending next forward block, at the original rank
+### 4. A descending next forward block, at the original rank
 
 For the same full D6 failure, write its canonical Q as
 `Q=2^A s-1`, with s odd and A>=2, and put
@@ -323,7 +373,7 @@ For A2 these are `(floor(d/2)+11,1)` and `(d/2+10,0)`. They do not measure
 the entire pair current: L and the formal normalizers/absorption currents
 in (17) remain explicit with their own rows.
 
-## 5. Exact parameter families, conditional compilation, and evidence
+### 5. Exact parameter families, conditional compilation, and evidence
 
 For any integer D>=4, solve
 
@@ -393,3 +443,18 @@ higher input is p10060189 with local rank15090283. Its next A2/d4 canonical
 endpoint12732427 is below that local rank but above the original
 n12561051. The old local R55 plan accepts p; the original-rank compiler
 correctly rejects this substitution for b.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B13 migration; standard library). The legacy scripts load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the legacy checker `check_native_nine.py` (about 20 s; the counts above, compared with `native_nine_audit.json`) and the side-lane probe `batch_r78_r80_check.py` from [`high-smaller-origin-history`](../high-smaller-origin-history/README.md) (under 1 s, receipt reproduced byte for byte). The commands in the legacy text name `experiments/residual_progress/native_nine/`.
+
+## Remarks
+
+- The supplement on the immediate self-loop of R75 is [`immediate-self-loop-lower-relations`](../immediate-self-loop-lower-relations/README.md) (R78-b); the guarded growth of the native interface and its exits are [`native-growth-original-rank-exit-obstruction`](../native-growth-original-rank-exit-obstruction/README.md) (R79).
+- The W5 dispatcher [`seventeen-family-rho-dispatcher`](../seventeen-family-rho-dispatcher/README.md) is unchanged; `one_step` accepts only the proved domains (6) and (18).
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/native_nine/NATIVE_NINE_CONTINUATION.md` (legacy ID R78) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written conditional composition theorem and complete decisions on the stated domains; universal supply remains open".
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `3b0c8a5`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

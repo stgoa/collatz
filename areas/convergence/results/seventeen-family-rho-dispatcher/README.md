@@ -165,7 +165,7 @@ obligation.
 
 ## Remarks
 
-- This is the frozen W5 dispatcher of the later legacy rounds: R75 ([`common-critical-rank-basis`](../common-critical-rank-basis/README.md)) and the native/history rounds R78–R94 (`experiments/residual_progress/native_nine/` onwards, migrated by a later batch) leave it unchanged.
+- This is the frozen W5 dispatcher of the later legacy rounds: R75 ([`common-critical-rank-basis`](../common-critical-rank-basis/README.md)) and the native/history rounds R78–R94 (from [`native-critical-nine-continuation`](../native-critical-nine-continuation/README.md) to [`prescribed-ternary-child-unbounded-clocks`](../prescribed-ternary-child-unbounded-clocks/README.md)) leave it unchanged.
 - Novelty undetermined (none claimed).
 
 ## History

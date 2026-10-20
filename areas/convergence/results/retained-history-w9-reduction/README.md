@@ -1,4 +1,54 @@
-# A larger original-rank W9 window from retained lower histories
+---
+id: retained-history-w9-reduction
+kind: result
+title: "Retaining the strict lower history gives a sharp three-node critical-nine reduction on a larger window"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; retained critical basis of R75. For odd Q >= 11547 and C in W9 with Q <= 3C
+  and 3C+1 < 4Q, keep the original lower history H_C and only the actual upper prefix U from 3C to F (F = 4(3z)+1
+  for odd d, 6z+1 for even d): the plan U + J_F - J_C has request vector A_F - A_C, every lower request strict at
+  Q and at most one request of rank >= Q, with coefficient +1; a high W9 index z obeys 16z < 9C and 4z < 3Q, so
+  the R87 window applies, and at most three W9 nodes leave only lower premises and possibly one higher W5 input.
+  The family C = 585 + 4096j, Q = 441 + 3072j, j >= 4 needs all three nodes for this procedure (j = 4: 16969 ->
+  9545 -> 5369 at Q = 12729); sharpness among all constructions is not asserted, and the boundary C = 15401, Q =
+  11551 is rejected. On R88's retained cell the first H4 block has second depth d = 2 + v2(E), E = 162818633 +
+  3^22 m; on the subcell m = 2736 + 4096l the high vector +P(a) - P(b) has an exact strict plan for P(b) from the
+  retained lower history, whose substitution with its negative coefficient cancels to the upper-only plan, an
+  actual 25-arrow path Q -> X; the inherited lower zero-source relations D + E0 + Fv remain explicit. The finite
+  continuation on that subcell ends in zero or one high W5 request (l = 4, l = 13 remain unresolved), and the
+  proposed recurrent contraction fails (slope 3^12/2^19 > 1; the named point inverse returns to Z). Conditional on
+  every signed terminal input; no supply.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [common-critical-rank-basis, critical-nine-elimination, failed-w9-leader-reduction, complementary-run-bridges, returning-forward-interface, later-target-twenty-step-descent, four-target-history-classification, signed-pair-frontier-normalisation]
+certificates: [r89_retained_cell_check.py]
+evidence:
+  - "check_retained_history.py, retained_history.py, retained_history_audit.json: the legacy constructor, checker and receipt: 656 enlarged-window cases, nine threshold controls, 66 first-run plans, 60 exact-depth cells through 128, four inherited origins, 68 coupled decisions, nine signed-history cancellations, 35 rejections, three supplied outputs with 43/154/232 rows, the 22-row nonzero inherited lower relation; 37 local sources pinned. Fails at its new path: retained_history.py loads ../complementary_bridge/run_bridge.py and ../frontier_progress/ (now ../complementary-run-bridges/, ../signed-pair-frontier-normalisation/) by their pre-migration paths, and is loaded in turn by the legacy phi_exit_control/ code (now ../binary-return-exit-control/); and Its receipt pins the SHA-256 of this node's legacy note RETAINED_HISTORY.md, now an edited README, so it fails at its new path and in a legacy replay. Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a; A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: r89_retained_cell_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 09:07, VERIFIED, main 9190ccf): 'This uses this branch's own `S` and `ν`. The planner (`J_s`, `A_s`, the dispatcher) is not rebuilt, so statements about which plans pass are not checked here.' Checked: the window on 4,000 random W9 pairs, the three-node family for j = 4..399 (j = 4 chain 16969 → 9545 → 5369 at Q = 12729), the retained cell and its depth progressions, and on the subcell m = 2736 + 4096l (46 values of l) the 25-arrow path S²⁵(Q) = X and S²⁷(Q) = Z. The status stays written"
+aliases: [R89]
+tags: [convergence, outer-residual, critical-nine, retained-history, original-rank, bounded-reduction]
+---
+
+# Retaining the strict lower history gives a sharp three-node critical-nine reduction on a larger window
+
+## Statement
+
+Odd-only clock, 1 absorbing, `T = νS`; the retained critical basis of [`common-critical-rank-basis`](../common-critical-rank-basis/README.md) (R75), `[s] = div J_s + A_s·P`; `d = v2(9C − 1)`, `h = ⌊(d − 4)/2⌋`, `z = 3^h(9C − 1)/2^d`.
+
+1. **Larger window.** For odd `Q ≥ 11547` and `C ∈ W9` with `Q ≤ 3C` and `3C + 1 < 4Q`, let `U` be the actual upper prefix of length `h + 2` from `3C` to `F` (`F = 4(3z) + 1` for odd `d`, `6z + 1` for even `d`). Then `P(C) = div(U + J_F − J_C) + (A_F − A_C)·P`, every request of `A_C` is strict at `Q`, and at most one request has rank `≥ Q`, coefficient `+1`. A high W9 request is `z`, with `16z < 9C` and `4z < 3Q`, so the R87 window ([`failed-w9-leader-reduction`](../failed-w9-leader-reduction/README.md)) applies: at most three W9 nodes in all leave only lower premises and possibly one higher W5 input. This bounds W9 nodes, not ordinary clocks.
+2. **Three nodes are needed for this procedure.** `C = 585 + 4096j`, `Q = 441 + 3072j`, `j ≥ 4`; at `j = 4` the chain is `16969 → 9545 → 5369` at `Q = 12729`. The strict boundary matters: `C = 15401`, `Q = 11551` has `S(C) = Q` and is rejected.
+3. **The retained cell.** On the cell of [`four-target-history-classification`](../four-target-history-classification/README.md) (R88), `Q = 133704987 + 3·2^33·m`, `v = 128646821 + 64·3^18·m`, the full old R87-plus-R44 plan keeps exactly `+P(v)` above `Q`; the first H4 block at `3v` has second depth `d = 2 + v2(E)`, `E = 162818633 + 3^22·m`, every depth is realised, and odd `d ≥ 9` and even `d ≥ 16` pass outright.
+4. **Negative-history repair.** On `m = 2736 + 4096l`, the usual composition has high vector `+P(a) − P(b)` (`β = (9E − 1)/64`, `a = 12β + 1`, `b = 4β + 1`); the retained lower history gives an exact strict plan for `P(b)`, and its substitution with coefficient `−1` cancels exactly to the upper-only plan `K + U + J_X − J_v`, leaving `+P(a)`. The fresh comparison is the actual 25-arrow path `Q → X`, then two arrows to `Z = (81β + 7)/4`. The inherited lower zero-source relations `D + E0 + Fv` stay explicit (they need not vanish).
+5. **Continuation.** Both parities of the subcell end in a strict plan or one high W5 request, `+1`; `l = 4` and `l = 13` keep explicit failed leaves. A recurrent contraction fails: on the canonical-`Z` depth-2 branch the return has slope `3^12/2^19 > 1` relative to `6v + 1`, and the named maximal point inverse returns exactly to `Z`.
+
+## Proof
+
+The legacy note "A larger original-rank W9 window from retained lower histories" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written conditional construction and complete bounded reduction.**
 The main theorem enlarges the R87 window by using the already strict lower
@@ -17,16 +67,16 @@ Native formal absorption is
 
 where every integer request, including a negative coefficient after
 composition, remains a premise. Its individual ranks are at most nu(s).
-Dependencies are the [retained critical basis](../critical_basis/CRITICAL_BASIS.md),
-[complete W9 local identity](../w9_closure/CRITICAL_NINE_ELIMINATION.md),
-[R87 bounded repair](../w9_history_repair/W9_HISTORY_REPAIR.md),
-[R26 full run](../complementary_bridge/RUN_BLOCK_BRIDGES.md),
-[R44 returning interface](../returning_phase/RETURNING_FORWARD_INTERFACE.md),
-and [R84 native decision](../history_transition/HISTORY_TRANSITION.md).
+Dependencies are the [retained critical basis](../common-critical-rank-basis/README.md),
+[complete W9 local identity](../critical-nine-elimination/README.md),
+[R87 bounded repair](../failed-w9-leader-reduction/README.md),
+[R26 full run](../complementary-run-bridges/README.md),
+[R44 returning interface](../returning-forward-interface/README.md),
+and [R84 native decision](../later-target-twenty-step-descent/README.md).
 The executable construction is [retained_history.py](retained_history.py).
 No external theorem or novelty claim is imported.
 
-## 1. Main theorem: the larger complete W9 window
+### 1. Main theorem: the larger complete W9 window
 
 Let Q>=11547 be odd and C in W9 satisfy
 
@@ -64,7 +114,7 @@ made at the same original Q throughout. It is not a supply theorem for
 the remaining W5 input. In particular, a positive self-request cannot be
 dropped merely because other coefficients are negative.
 
-### Proof of the full rank bound
+#### Proof of the full rank bound
 
 C=1 mod8, and its first ordinary step is (3C+1)/4<Q. Hence every formal
 request in J_C,A_C is strict. This is precisely the history that the
@@ -115,7 +165,7 @@ common-tail clocks(h+3,1); even d to its raw endpoint has clocks(h+2,0).
 The supplied absorption currents have their own rows and are not assigned
 one artificial orbit clock.
 
-### Three nodes are necessary for this chosen interface
+#### Three nodes are necessary for this chosen interface
 
 For every j>=4 set
 
@@ -134,7 +184,7 @@ The strict boundary in(1) matters. C15401,Q11551 satisfy C<4Q/3 but
 S(C)=Q, and H_C contains a request of rank Q. The constructor rejects
 that boundary rather than assuming the lower history is strict.
 
-## 2. A complete retained cell and its first H4 block
+### 2. A complete retained cell and its first H4 block
 
 The originating R84 index k=85 mod256 is the whole R44 a4 subtype after
 the initial R87 d4/noncanonical-upper replacement. Write k=85+256j.
@@ -199,7 +249,7 @@ when3E is canonical1 mod8, H_(6E+1) takes a forward arrow before its first
 critical request. For example m10 has a different high index117740030521.
 The implementation retains the exact full formal coefficients.
 
-## 3. The coupled high requests have a strict negative-history repair
+### 3. The coupled high requests have a strict negative-history repair
 
 A more explicit subcell is
 
@@ -258,7 +308,7 @@ At l0, the exact high pair is
     a=144886626971197, rho(a)=217329940456795,
     b=48295542323733,  rho(b)=72443313485599.
 
-## 4. The inherited lower relations do not disappear
+### 4. The inherited lower relations do not disappear
 
 Use superscript5 for the older fully expanded W5 absorption. In section2
 let Y0=2z0+1, and define
@@ -277,7 +327,7 @@ nonzero combined relation in its evidence. A fresh direct comparison can
 be chosen independently; it must not be described as silently deleting
 unknown signed inputs from the inherited plan.
 
-## 5. Complete finite continuation on the coupled cell
+### 5. Complete finite continuation on the coupled cell
 
 After the fresh27-arrow path reaches Z, parity of s in(11) is exhaustive.
 
@@ -330,7 +380,7 @@ returns8(2g+1)/27-1=Z exactly; that inverse undoes this full run. Alternative
 histories, unbounded adaptive comparisons, and further signed identities
 remain open.
 
-## 6. Reproduction and evidence scope
+### 6. Reproduction and evidence scope
 
 Run
 
@@ -351,3 +401,19 @@ ranges and output sizes are recorded in
 [retained_history_audit.json](retained_history_audit.json). These checks
 support the stated algebra; neither the finite checks nor the conditional
 compiler establish universal current supply.
+
+## Certificates
+
+[`r89_retained_cell_check.py`](r89_retained_cell_check.py) (the side-lane probe; it imports nothing from the repository and passes in place, under 1 s): the window on 4,000 random W9 pairs, the three-node family, the retained cell and its depth progressions, and the 25- and 27-arrow paths on 46 subcell parameters, against `r89_retained_cell_check.json`. It does not rebuild the planner. The legacy checker `check_retained_history.py` pins the hash of this node's note, now an edited README (see `evidence`). The command in the legacy text names `experiments/residual_progress/retained_history/`.
+
+## Remarks
+
+- The `l = 0` source of this subcell, `Q = 70506316836123`, `v = 67839005952677`, is the original coupled source of [`binary-return-exit-control`](../binary-return-exit-control/README.md) (R90) through [`prescribed-ternary-child-unbounded-clocks`](../prescribed-ternary-child-unbounded-clocks/README.md) (R94).
+- The R73 normaliser guards of [`signed-pair-frontier-normalisation`](../signed-pair-frontier-normalisation/README.md) do not reduce `a` or `b` (`a ≡ 61`, `b ≡ 21 mod 128`); that excludes those two identities only.
+- The main lane's REPORT records a separate independent mathematical audit of the widened window and a final package review, both by the main lane's own agents.
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/retained_history/RETAINED_HISTORY.md` (legacy ID R89) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written conditional construction; complete bounded reduction with explicit terminal premises".
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `7a477ad`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

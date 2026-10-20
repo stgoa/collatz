@@ -1,7 +1,68 @@
-# Only the original source survives fourteen more inverse-history steps
+---
+id: fourteen-step-window-original-source
+kind: result
+title: "Fourteen more inverse-history steps admit only the original source at the repeated target"
+status: written
+claim: >
+  Computer-assisted. Odd-only 3x+1 map S, absorbing at 1, canonical quotient T = nu S. On the original coupled
+  cell of R90 (v0 = 67839005952677 + 2^18 3^18 ell, Q = 70506316836123 + 3 2^45 ell), for every source with at
+  least r guarded Phi returns and n_r = 3 Phi^r(v0): among positive canonical p <= Q and depths 0 <= d <= 12r+19,
+  T^d(p) = n_r holds exactly for p = Q at d = 12r+18, uniformly in ell and r, with all ray indices and
+  intermediate heights allowed. Proof: written affine bounds (prefix score below 102 at h = 12r+5, whole-word
+  score below 1/2) and the exact selective congruence 243u = 899841 2^m mod 7153, m = 8..14, reduce the boundary
+  origins to 33,995 canonical candidates, all classified by an exact signed Python classifier with no cap (exactly
+  16 relevant first-hit tails); an independent C++ classification of all 176,754,119 canonical origins with 7153 <
+  u < 741545113 finds the same 16 tails; the boundary states are r-independent affine functions of ell, and a
+  complete enumeration of suffixes of length <= 14 and cost <= 21 leaves only (9Q+5)/8 (always above Q) and Q
+  itself. Extends R91 by fourteen steps; supplies no current and is not an all-depth exclusion; longer histories,
+  later targets and signed comparisons stay open.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [rational-basin-precision-barrier, binary-return-exit-control, elementary-bridge-quotient-normal-form]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_deeper_window.py, deeper_window.py, sparse_basin.py, deeper_window_audit.json, full_basin_audit.json, independent_basin.cpp: the legacy selective classifier, suffix enumeration, checker, receipts and the independent C++ full-interval classifier (compiled only with --cpp): the 33,995-origin selective basin, 224 first-hit arrows, 21 positive guarded families through r = 128, 303 boundary lifts, 42 terminal histories, 24 affine interval cases, 24 rejections, three cap-abort checks. Fails at its new path: it loads ../phi_exit_control/ and ../shadow_precision/ (now ../binary-return-exit-control/, ../rational-basin-precision-barrier/) by their pre-migration folder names, and its receipt pins the hashes of this node's legacy note DEEPER_WINDOW.md and of SHADOW_PRECISION.md and PHI_EXIT_CONTROL.md, now edited READMEs. It also fails in a replay with the notes unedited: its receipt pins a hash of ../binary-return-exit-control/phi_exit_control_audit.json that predates the regeneration of that receipt at the be73a66 rename (as for history_frontier in archive/legacy-checker-run-be73a66.md). Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a"
+  - "CANDIDATE.md: the historical unpromoted draft (2026-10-18, commit b2731dd) of the finite-boundary reduction, resolved by this result; kept as evidence, with its three links repointed to nodes"
+  - "r92_inverse_tree_check.py, r92_inverse_tree_check.json: side-lane probe (Claude side lane, 2026-10-18 07:02): independent inverse-tree search at two concrete sources and a brute-force check of the R25 inverse table (cited from elementary-bridge-quotient-normal-form). Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/). Passed at be73a66 as reviews/side_lane/r92_inverse_tree_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+  - "../rational-basin-precision-barrier/c0_basin_classify.c: the side lane's C classification of the larger universe 7153 < u < 741545113, whose 16 tails with m in 8..14 agree with the ones used here (see reviewed_by)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: r92_inverse_tree_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 07:02, VERIFIED, main 61fd041), with the lane's own step and ν: '**`ℓ = 0`, `r = 0`** (`Q = 70506316836123`, depth at most 19). The only canonical `p ≤ Q` reaching `n₀` is `p = Q`, at depth 18. The search tree has 63 nodes.' '**The least `ℓ` with `r = 1`** (`ℓ = 398166`, `Q ≈ 4.2·10¹⁹`, depth at most 31). The only such `p` is `p = Q`, at depth 30.' Two concrete sources only; the uniform statement rests on the written reduction. The status stays written"
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: ../rational-basin-precision-barrier/c0_basin_classify.c
+    scope: "Finite only (side-lane feed entries 2026-10-18 06:34 and 07:02): the independent C classification of the candidate universe 7153 < u < 741545113: 'All 176,754,119 eligible origins are classified, with none left unknown' and '1,939 lie in the c₀ basin'; 'R92's sixteen boundary tails (the same `u`, `d₀`, `E₀` and `m` in each case), its full-interval counts (176,754,119 origins and 1,939 hits) and its largest numerator (`23,508,760,799,607,151`) coincide with this branch's independent classification'. 'The suffix step, with its affine inequalities `p ≤ Q` and the source guards, has **not** been run here.' The status stays written"
+aliases: [R92]
+tags: [convergence, outer-residual, computer-assisted, rational-shadow, inverse-barrier, ternary-precision]
+---
+
+# Fourteen more inverse-history steps admit only the original source at the repeated target
+
+## Statement
+
+**Computer-assisted.** Odd-only clock, 1 absorbing; canonical quotient `T = νS`, its complete inverse table ([`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md), R25) and the signed rational quotient of [`rational-basin-precision-barrier`](../rational-basin-precision-barrier/README.md) (R91). Put `A = 3^12`, `M = 2^19`, `D = 7153`, `B = 299947`, `Φ(v) = (Av + B)/M`, `L(v) = Dv + B`, `c0 = −899841/7153`.
+
+**Theorem.** For every `ℓ ≥ 0`, with `v0 = 67839005952677 + 2^18·3^18·ℓ`, `Q = 70506316836123 + 3·2^45·ℓ`, and every `r ≥ 0` with `v2(L(v0)) ≥ 19r + 18`, put `n_r = 3Φ^r(v0)`. For every positive canonical `p ≤ Q` and every `0 ≤ d ≤ 12r + 19`: `T^d(p) = n_r` iff `p = Q` and `d = 12r + 18`. All inverse ray indices and intermediate heights are allowed.
+
+The proof extends R91 (which covers `d ≤ 12r + 5`) through fourteen more steps:
+
+1. written affine bounds keep the intercepts and force the boundary score `μ_h < 102` and the whole-word score `< 1/2`;
+2. the exact selective congruence `243u ≡ 899841·2^m (mod 7153)`, `m = 8..14`, with `7153 < u < 7153 + (2^m/243)(892688 + 12·3^12)`, leaves 67,992 odd and 33,995 canonical candidates;
+3. an exact signed Python classifier resolves all of them with no cap: exactly 16 relevant first-hit tails. An independent C++ classification of all 176,754,119 canonical origins with `7153 < u < 741545113` (1,939 hits) recovers the same 16;
+4. the boundary states are affine in `ℓ` with coefficient `2^(m+18)·3^14`, independent of `r` once `r ≥ k0`, which fixes every branch decision for the next fourteen steps;
+5. a complete enumeration of suffixes of length at most 14 and exponent cost at most 21 (7,036 states) leaves exactly two endpoints with score below `1/2`: `(9Q + 5)/8`, always above `Q`, and `Q` itself, the known self-history.
+
+It supplies no current and is not an all-depth exclusion at a fixed source.
+
+## Proof
+
+The legacy note "Only the original source survives fourteen more inverse-history steps" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **R92 — written reduction with a complete finite rational-basin certificate.**
-This result extends [R91](../shadow_precision/SHADOW_PRECISION.md) on the
+This result extends [R91](../rational-basin-precision-barrier/README.md) on the
 same positive coupled family. It includes every quotient inverse word and
 every inverse ray through the stated window, uniformly over the growing
 return count. The only source no larger than the original Q is Q itself,
@@ -12,10 +73,10 @@ No novelty, human peer review, or formal verification is asserted.
 The historical [candidate](CANDIDATE.md) is superseded by this proof and the
 complete selective classification below. The proof uses the canonical
 quotient T and normal form nu of
-[R25](../bridge_normal_form/BRIDGE_NORMAL_FORM.md), with the positive return
-family and clocks of [R90](../phi_exit_control/PHI_EXIT_CONTROL.md).
+[R25](../elementary-bridge-quotient-normal-form/README.md), with the positive return
+family and clocks of [R90](../binary-return-exit-control/README.md).
 
-## 1. Statement at the original source
+### 1. Statement at the original source
 
 Set
 
@@ -55,7 +116,7 @@ R91 already excludes p<=Q at d<=h. It remains to classify
 
     h<d<=h+14.                                           (3)
 
-## 2. Actual-rank bounds before finite enumeration
+### 2. Actual-rank bounds before finite enumeration
 
 The complete inverse table from R25, also valid at the signed rational
 centre c0, has bases (a*x+b)/3:
@@ -123,7 +184,7 @@ Thus every actual p<=Q in this window must satisfy
 These bounds retain the affine intercept. Neither one is an inference from
 an asymptotic slope or a finite sample of source sizes.
 
-## 3. Finite boundary universe and exact selective congruence
+### 3. Finite boundary universe and exact selective congruence
 
 The first h inverse steps share a legal shadow word from c0: before each
 branch decision their actual-shadow difference is divisible by3. All
@@ -189,7 +250,7 @@ Their exact counts are:
 
 No assumption about the larger basin was used to select these candidates.
 
-## 4. Complete rational-basin certificate
+### 4. Complete rational-basin certificate
 
 The signed quotient is the exact deterministic map in R91. A nonhit is
 certified by its path to an already classified state, a detected other
@@ -239,7 +300,7 @@ sixteen rows. Every selective candidate outcome is compared, including
 nonhits. This broader calculation is an independent crosscheck; the smaller
 complete33,995-origin certificate already suffices for the proof.
 
-## 5. Compression to r-independent affine boundaries
+### 5. Compression to r-independent affine boundaries
 
 The forward path of each shadow origin is deterministic. An inverse word
 of length h consists of r-k0 complete inverse c0 cycles, followed by that
@@ -265,7 +326,7 @@ These source sets are nested as r increases. A suffix eligible at any
 r>=k0 must therefore be eligible on the k0 guard; this does not authorize
 discarding the stronger guard when constructing an actual history.
 
-## 6. Complete finite suffix enumeration and the two outputs
+### 6. Complete finite suffix enumeration and the two outputs
 
 Let a remaining suffix have length t<=14 and binary exponent sum E_s.
 Its inverse slope is2^E_s/3^t. The boundary score is at least1, so (8)
@@ -317,7 +378,7 @@ The self-return has d=h+13=12r+18. The fifteen other first-hit tails have
 no suffix satisfying (8). R91 covers d<=h, and (8)-(15) exhaust every
 possible p<=Q in the remaining window. This proves (1).
 
-## 7. Reproduction and limits
+### 7. Reproduction and limits
 
 Run
 
@@ -345,3 +406,21 @@ The original Q is retained as equality, not counted as a smaller supplied
 premise. The result adds no accepted current rule and does not show that a
 fixed positive source lacks a history at all depths. Collatz and universal
 terminal current supply remain open here.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B13 migration; standard library). The legacy scripts load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the side-lane probe `r92_inverse_tree_check.py` (under 1 s, receipt reproduced byte for byte): complete inverse trees from `n_r` at the two concrete sources `ℓ = 0, r = 0` and the least `ℓ` with `r = 1`, and the brute-force check of the R25 inverse table. The legacy checker `check_deeper_window.py` cannot be replayed (see `evidence`); the computer-assisted classification itself is not re-run by any certificate of this node, and the C++ and C classifiers need a compiler. The commands in the legacy text name `experiments/residual_progress/deeper_window/`.
+
+## Remarks
+
+- The original `Q` is retained as equality, not counted as a smaller supplied premise.
+- The [historical candidate](CANDIDATE.md) proposed this reduction before the classification existed; this result supersedes it.
+- The research template written alongside this result is the question [`common-tail-comparison-after-r92`](../../questions/common-tail-comparison-after-r92.md); the R92 decision was to pivot to later meeting targets or different signed histories.
+- The main lane's REPORT records independent proof and source reviews and a separate reproduction of the C++ receipt and the unpruned suffix enumeration, all by the main lane's own agents.
+- No novelty, human peer review or formal verification is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/deeper_window/DEEPER_WINDOW.md` (legacy ID R92) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "computer-assisted finite-window theorem, uniform in the source and return count (the note: written reduction with a complete finite rational-basin certificate)".
+- The historical draft `CANDIDATE.md` (added at `b2731dd`) stays in this folder as evidence. The research template `NEXT_TARGET.md` of the same folder became the question [`common-tail-comparison-after-r92`](../../questions/common-tail-comparison-after-r92.md). The side-lane probe `reviews/side_lane/r92_inverse_tree_check.*` moved here.
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `61fd041`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

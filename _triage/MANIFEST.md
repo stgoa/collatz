@@ -104,8 +104,8 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B06-cycles-S09-S13 | `experiments/cycle_spectrum/S11` | 1 | node shared-background-copies-via-gap |
 | B06-cycles-S09-S13 | `experiments/cycle_spectrum/S12` | 1 | node denjoy-koksma-height-bound, denjoy-koksma-denominator-law |
 | B06-cycles-S09-S13 | `experiments/cycle_spectrum/S13` | 1 | node rise-lemma, short-rotation-mismatch-growth, rise-lemma-denominator-law, largest-letter-rho-reduction; questions largest-letter-sublinear, rotation-distance-at-least-5 |
-| B13-residual-R78-R94 | `reviews/side_lane/c0_basin_classify.*` | 1 | pending |
-| B13-residual-R78-R94 | `reviews/side_lane/c0_basin_receipt.*` | 2 | pending |
+| B13-residual-R78-R94 | `reviews/side_lane/c0_basin_classify.*` | 1 | node rational-basin-precision-barrier (cited from fourteen-step-window-original-source) |
+| B13-residual-R78-R94 | `reviews/side_lane/c0_basin_receipt.*` | 2 | node rational-basin-precision-barrier (cited from fourteen-step-window-original-source) |
 | B09-residual-R11-R24 | `reviews/side_lane/fixed_h_check.*` | 2 | node fixed-ternary-order-unbounded-depth |
 | B11-residual-R40-R60 | `reviews/side_lane/negative_cycle_shadows.*` | 2 | node growing-prefix-unhandled-leading-input (evidence: finite enumeration and measurement) |
 | B12-residual-R61-R77 | `reviews/side_lane/rho_prefix_plans.*` | 2 | node quotient-prefix-plans-rho-decreasing |
@@ -153,7 +153,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B10-residual-R25-R39 | `experiments/residual_progress/bounded_run_cycles` | 4 | node bounded-runs-exclude-finite-label-potentials |
 | B10-residual-R25-R39 | `experiments/residual_progress/bridge_normal_form` | 4 | node elementary-bridge-quotient-normal-form, normalised-quotient-termination |
 | B10-residual-R25-R39 | `experiments/residual_progress/check_pair_domain_external.py` | 1 | node tripling-doubling-pair-decomposition |
-| B13-residual-R78-R94 | `experiments/residual_progress/child_history_scope` | 3 | pending |
+| B13-residual-R78-R94 | `experiments/residual_progress/child_history_scope` | 3 | node prescribed-ternary-child-unbounded-clocks |
 | B09-residual-R11-R24 | `experiments/residual_progress/closure` | 5 | node local-packet-calibration-extension |
 | B09-residual-R11-R24 | `experiments/residual_progress/complement` | 5 | node retained-graph-complement-constructor |
 | B09-residual-R11-R24 | `experiments/residual_progress/complement_recursion` | 5 | node annular-complement-outer-descent |
@@ -164,7 +164,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B11-residual-R40-R60 | `experiments/residual_progress/critical_rank` | 7 | node critical-image-rank-composition (rules_union.py attached) |
 | B11-residual-R40-R60 | `experiments/residual_progress/cycle_inverse` | 4 | node maximal-inverse-cycle-continuation |
 | B10-residual-R25-R39 | `experiments/residual_progress/cylinder_barrier` | 4 | node prefix-rule-cylinder-rate-barrier |
-| B13-residual-R78-R94 | `experiments/residual_progress/deeper_window` | 9 | pending |
+| B13-residual-R78-R94 | `experiments/residual_progress/deeper_window` | 9 | node fourteen-step-window-original-source, common-tail-comparison-after-r92 (NEXT_TARGET.md) |
 | B12-residual-R61-R77 | `experiments/residual_progress/defect_normal_form` | 4 | node adjacent-source-defect-equivalence |
 | B12-residual-R61-R77 | `experiments/residual_progress/defect_resolution` | 4 | node absorption-defect-original-rank-resolution |
 | B11-residual-R40-R60 | `experiments/residual_progress/deferred_rank` | 4 | node deferred-original-rank-testing |
@@ -184,12 +184,12 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B12-residual-R61-R77 | `experiments/residual_progress/side_lane_review_678e565.json` | 1 | node scaling-transfer-to-3x-plus-d |
 | B12-residual-R61-R77 | `experiments/residual_progress/side_lane_review_678e565.md` | 1 | node scaling-transfer-to-3x-plus-d |
 | B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_767af32.md` | 1 | node two-selected-inverse-choices (main-lane direction note; links repointed) |
-| B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_86ead16.json` | 1 | pending |
-| B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_86ead16.md` | 1 | pending |
-| B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_8ed32bc.json` | 1 | pending |
-| B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_8ed32bc.md` | 1 | pending |
-| B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_9849c53.md` | 1 | pending |
-| B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_b9203ff.md` | 1 | pending |
+| B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_86ead16.json` | 1 | node binary-return-exit-control |
+| B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_86ead16.md` | 1 | node binary-return-exit-control |
+| B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_8ed32bc.json` | 1 | node rational-basin-precision-barrier |
+| B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_8ed32bc.md` | 1 | node rational-basin-precision-barrier |
+| B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_9849c53.md` | 1 | node high-smaller-origin-history |
+| B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_b9203ff.md` | 1 | node later-target-twenty-step-descent |
 | B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_bae3969.md` | 1 | node negative-cycle-backward-word (its reviewed_by: main-lane review of the side-lane backward word) |
 | B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_c2319c9.json` | 1 | node rank-excess-absorption-classification (evidence: main-lane reproduction of r58_excess_check) |
 | B12-residual-R61-R77 | `experiments/residual_progress/side_lane_review_cbe77bc.json` | 1 | node lifted-inverse-ray-cycle |
@@ -210,9 +210,9 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B12-residual-R61-R77 | `reviews/side_lane/batch_r68_r70_check.*` | 2 | node native-height-inverse-obstruction |
 | B12-residual-R61-R77 | `reviews/side_lane/batch_r73_r74_check.*` | 2 | node exit18-return-integer-cylinders |
 | B12-residual-R61-R77 | `reviews/side_lane/batch_r75_r77_check.*` | 2 | node common-critical-rank-basis |
-| B13-residual-R78-R94 | `reviews/side_lane/batch_r78_r80_check.*` | 2 | pending |
-| B13-residual-R78-R94 | `reviews/side_lane/batch_r81_r83_check.*` | 2 | pending |
-| B13-residual-R78-R94 | `reviews/side_lane/batch_r84_r85_check.*` | 2 | pending |
+| B13-residual-R78-R94 | `reviews/side_lane/batch_r78_r80_check.*` | 2 | node high-smaller-origin-history (replayed by native-critical-nine-continuation, native-growth-original-rank-exit-obstruction) |
+| B13-residual-R78-R94 | `reviews/side_lane/batch_r81_r83_check.*` | 2 | node fixed-word-history-cells (replayed by history-beyond-prescribed-growth) |
+| B13-residual-R78-R94 | `reviews/side_lane/batch_r84_r85_check.*` | 2 | node later-target-twenty-step-descent (replayed by bounded-history-clock-exclusion) |
 | B09-residual-R11-R24 | `reviews/side_lane/r24_check.*` | 2 | node five-ray-profile-completion-suffices |
 | B11-residual-R40-R60 | `reviews/side_lane/r42_joint_frontier_check.*` | 2 | node joint-source-unbounded-frontier (reviewed_by; certificate) |
 | B11-residual-R40-R60 | `reviews/side_lane/r49_ancestor_free.*` | 2 | node inverse-only-exclusions-short-forward (reviewed_by; census as evidence) |
@@ -225,20 +225,20 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B12-residual-R61-R77 | `reviews/side_lane/r71a_mech_gcd_check.*` | 2 | node mechanical-word-exact-denominator |
 | B12-residual-R61-R77 | `reviews/side_lane/r71b_den_mech_check.*` | 2 | node mechanical-word-exact-denominator |
 | B12-residual-R61-R77 | `reviews/side_lane/r71c_state_bound_check.*` | 2 | node mechanical-cycles-high-rational-controls |
-| B13-residual-R78-R94 | `reviews/side_lane/r82_anchor_lift_check.*` | 2 | pending |
-| B13-residual-R78-R94 | `reviews/side_lane/r86_even_exit_check.*` | 2 | pending |
-| B13-residual-R78-R94 | `reviews/side_lane/r88_anchor_exhaustive.*` | 1 | pending |
-| B13-residual-R78-R94 | `reviews/side_lane/r89_retained_cell_check.*` | 2 | pending |
-| B13-residual-R78-R94 | `reviews/side_lane/r90_phi_return_check.*` | 2 | pending |
-| B13-residual-R78-R94 | `reviews/side_lane/r92_inverse_tree_check.*` | 2 | pending |
-| B13-residual-R78-R94 | `reviews/side_lane/r93_r94_check.*` | 2 | pending |
+| B13-residual-R78-R94 | `reviews/side_lane/r82_anchor_lift_check.*` | 2 | node finite-anchor-history-classification |
+| B13-residual-R78-R94 | `reviews/side_lane/r86_even_exit_check.*` | 2 | node even-exit-smaller-target-cone |
+| B13-residual-R78-R94 | `reviews/side_lane/r88_anchor_exhaustive.*` | 1 | node four-target-history-classification |
+| B13-residual-R78-R94 | `reviews/side_lane/r89_retained_cell_check.*` | 2 | node retained-history-w9-reduction |
+| B13-residual-R78-R94 | `reviews/side_lane/r90_phi_return_check.*` | 2 | node binary-return-exit-control |
+| B13-residual-R78-R94 | `reviews/side_lane/r92_inverse_tree_check.*` | 2 | node fourteen-step-window-original-source (reviewed_by also on elementary-bridge-quotient-normal-form) |
+| B13-residual-R78-R94 | `reviews/side_lane/r93_r94_check.*` | 2 | node two-source-normalisation-first-departure (replayed by prescribed-ternary-child-unbounded-clocks, two-ray-point-procedure-later-target) |
 | B09-residual-R11-R24 | `reviews/side_lane/release_families_check.*` | 2 | node release-source-packing |
 | B09-residual-R11-R24 | `reviews/side_lane/residual_cylinder_core.*` | 2 | node cylinder-certificates-outer-residual |
 | B09-residual-R11-R24 | `reviews/side_lane/residual_vs_induction.*` | 2 | node outer-residual-strong-induction-support |
 | B10-residual-R25-R39 | `reviews/side_lane/run_bridge_check.*` | 2 | node complementary-run-bridges |
 | B11-residual-R40-R60 | `experiments/residual_progress/double_inverse` | 9 | node two-inverse-phases-intermediate-increase (expanded_union.py attached) |
 | B09-residual-R11-R24 | `experiments/residual_progress/duality` | 4 | node finite-rational-cone-integer-certificate |
-| B13-residual-R78-R94 | `experiments/residual_progress/even_exit_history` | 4 | pending |
+| B13-residual-R78-R94 | `experiments/residual_progress/even_exit_history` | 4 | node even-exit-smaller-target-cone |
 | B10-residual-R25-R39 | `experiments/residual_progress/even_pair_closure` | 6 | node coupled-even-pair-recursion |
 | B11-residual-R40-R60 | `experiments/residual_progress/exact_absorption_bound` | 4 | node rank-excess-absorption-classification |
 | B12-residual-R61-R77 | `experiments/residual_progress/exit_continuation` | 4 | node exponent-eleven-exit-continuation |
@@ -246,11 +246,11 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B09-residual-R11-R24 | `experiments/residual_progress/forcing` | 4 | node actual-graph-current-compiler |
 | B11-residual-R40-R60 | `experiments/residual_progress/forward_continuation` | 6 | node low-block-continuation-prescribed-growth |
 | B12-residual-R61-R77 | `experiments/residual_progress/frontier_progress` | 4 | node signed-pair-frontier-normalisation |
-| B13-residual-R78-R94 | `experiments/residual_progress/history_cell_scope` | 4 | pending |
-| B13-residual-R78-R94 | `experiments/residual_progress/history_cover_scope` | 4 | pending |
-| B13-residual-R78-R94 | `experiments/residual_progress/history_frontier` | 4 | pending |
-| B13-residual-R78-R94 | `experiments/residual_progress/history_lifting` | 4 | pending |
-| B13-residual-R78-R94 | `experiments/residual_progress/history_transition` | 4 | pending |
+| B13-residual-R78-R94 | `experiments/residual_progress/history_cell_scope` | 4 | node four-target-history-classification |
+| B13-residual-R78-R94 | `experiments/residual_progress/history_cover_scope` | 4 | node bounded-history-clock-exclusion |
+| B13-residual-R78-R94 | `experiments/residual_progress/history_frontier` | 4 | node finite-anchor-history-classification |
+| B13-residual-R78-R94 | `experiments/residual_progress/history_lifting` | 4 | node fixed-word-history-cells |
+| B13-residual-R78-R94 | `experiments/residual_progress/history_transition` | 4 | node later-target-twenty-step-descent |
 | B12-residual-R61-R77 | `experiments/residual_progress/integer_prefix` | 4 | node exit18-return-integer-cylinders, aperiodic-exit18-return-survivors |
 | B10-residual-R25-R39 | `experiments/residual_progress/inverse_ancestry` | 6 | node decreasing-inverse-ancestry |
 | B11-residual-R40-R60 | `experiments/residual_progress/inverse_escape` | 4 | node variable-depth-inverse-escape-barrier |
@@ -258,16 +258,16 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B12-residual-R61-R77 | `experiments/residual_progress/itinerary_complexity` | 4 | node same-seed-factor-complexity-bound |
 | B11-residual-R40-R60 | `experiments/residual_progress/joint_frontier` | 6 | node joint-source-unbounded-frontier |
 | B10-residual-R25-R39 | `experiments/residual_progress/known_saturation` | 5 | node supplied-path-saturation-core |
-| B13-residual-R78-R94 | `experiments/residual_progress/later_target_probe` | 3 | pending |
+| B13-residual-R78-R94 | `experiments/residual_progress/later_target_probe` | 3 | node two-ray-point-procedure-later-target |
 | B12-residual-R61-R77 | `experiments/residual_progress/lattice_cycles` | 4 | node mechanical-word-exact-denominator, mechanical-cycles-high-rational-controls, scaling-transfer-to-3x-plus-d |
-| B13-residual-R78-R94 | `experiments/residual_progress/lower_loop_scope` | 4 | pending |
+| B13-residual-R78-R94 | `experiments/residual_progress/lower_loop_scope` | 4 | node immediate-self-loop-lower-relations |
 | B10-residual-R25-R39 | `experiments/residual_progress/merger_scope` | 4 | node merger-catalogue-scope |
 | B12-residual-R61-R77 | `experiments/residual_progress/mixed_exit` | 4 | node mixed-exit-growing-reentry |
 | B12-residual-R61-R77 | `experiments/residual_progress/mixed_rank_recursion` | 4 | node mixed-rank-growing-blocks |
-| B13-residual-R78-R94 | `experiments/residual_progress/native_growth_escape` | 4 | pending |
-| B13-residual-R78-R94 | `experiments/residual_progress/native_history` | 5 | pending |
-| B13-residual-R78-R94 | `experiments/residual_progress/native_nine` | 4 | pending |
-| B13-residual-R78-R94 | `experiments/residual_progress/native_nine_growth` | 4 | pending |
+| B13-residual-R78-R94 | `experiments/residual_progress/native_growth_escape` | 4 | node history-beyond-prescribed-growth |
+| B13-residual-R78-R94 | `experiments/residual_progress/native_history` | 5 | node high-smaller-origin-history |
+| B13-residual-R78-R94 | `experiments/residual_progress/native_nine` | 4 | node native-critical-nine-continuation |
+| B13-residual-R78-R94 | `experiments/residual_progress/native_nine_growth` | 4 | node native-growth-original-rank-exit-obstruction |
 | B11-residual-R40-R60 | `experiments/residual_progress/nonselected_forward` | 4 | node forward-blocks-low-exponent-tests |
 | B11-residual-R40-R60 | `experiments/residual_progress/nonselected_inverse` | 6 | node base-inverse-phases-increasing-pairs |
 | B11-residual-R40-R60 | `experiments/residual_progress/nonselected_multiples` | 6 | node nonselected-multiples-inverse-interface |
@@ -277,7 +277,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B10-residual-R25-R39 | `experiments/residual_progress/paired_completion` | 5 | node mixed-shrinking-pair-rules |
 | B09-residual-R11-R24 | `experiments/residual_progress/phase_depth` | 3 | node fixed-ternary-order-unbounded-depth |
 | B11-residual-R40-R60 | `experiments/residual_progress/phase_rank` | 5 | node sigma-rank-removes-absorption-overhead |
-| B13-residual-R78-R94 | `experiments/residual_progress/phi_exit_control` | 4 | pending |
+| B13-residual-R78-R94 | `experiments/residual_progress/phi_exit_control` | 4 | node binary-return-exit-control |
 | B11-residual-R40-R60 | `experiments/residual_progress/rank_mixing` | 3 | node rho-sigma-rank-mixing (attempt) |
 | B12-residual-R61-R77 | `experiments/residual_progress/refined_obstruction` | 5 | node exponent-eleven-fifteen-rule-classification, lifted-inverse-ray-cycle |
 | B12-residual-R61-R77 | `experiments/residual_progress/refined_rules` | 4 | node fifteen-family-rho-dispatcher |
@@ -286,7 +286,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B09-residual-R11-R24 | `experiments/residual_progress/release_packing` | 3 | node release-source-packing |
 | B09-residual-R11-R24 | `experiments/residual_progress/residual_return` | 5 | node halving-coalescence-return |
 | B12-residual-R61-R77 | `experiments/residual_progress/resolved_rules` | 4 | node seventeen-family-rho-dispatcher |
-| B13-residual-R78-R94 | `experiments/residual_progress/retained_history` | 4 | pending |
+| B13-residual-R78-R94 | `experiments/residual_progress/retained_history` | 4 | node retained-history-w9-reduction |
 | B11-residual-R40-R60 | `experiments/residual_progress/returning_continuation` | 4 | node returning-second-forward-interface |
 | B11-residual-R40-R60 | `experiments/residual_progress/returning_phase` | 4 | node returning-forward-interface |
 | B11-residual-R40-R60 | `experiments/residual_progress/rule_avoidance` | 4 | node growing-prefix-unhandled-leading-input |
@@ -295,15 +295,15 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B11-residual-R40-R60 | `experiments/residual_progress/selected_forward` | 4 | node selected-critical-five-forward-tables |
 | B11-residual-R40-R60 | `experiments/residual_progress/selected_inverse` | 4 | node two-selected-inverse-choices |
 | B11-residual-R40-R60 | `experiments/residual_progress/selected_rules` | 4 | node twelve-family-rho-dispatcher (own node, alias R57-b) |
-| B13-residual-R78-R94 | `experiments/residual_progress/shadow_precision` | 5 | pending |
+| B13-residual-R78-R94 | `experiments/residual_progress/shadow_precision` | 5 | node rational-basin-precision-barrier |
 | B09-residual-R11-R24 | `experiments/residual_progress/sufficient_sets` | 3 | node five-ray-profile-completion-suffices, ansari-sieve-step-counterexample |
 | B09-residual-R11-R24 | `experiments/residual_progress/templates` | 11 | node unbounded-exposure-depth-necessary, depth-32-aggregate-exposure-obstruction, depth-32-obstruction-infinite-family |
 | B09-residual-R11-R24 | `experiments/residual_progress/transport` | 3 | node root-transport-normal-form |
 | B10-residual-R25-R39 | `experiments/residual_progress/tripling_equivalence` | 4 | node critical-tripling-domain-equivalence |
-| B13-residual-R78-R94 | `experiments/residual_progress/two_source_history` | 4 | pending |
+| B13-residual-R78-R94 | `experiments/residual_progress/two_source_history` | 4 | node two-source-normalisation-first-departure, residual-pair-864z-257-supply |
 | B12-residual-R61-R77 | `experiments/residual_progress/uniform_pair_scope` | 4 | node uniform-fixed-word-pair-exclusion |
 | B11-residual-R40-R60 | `experiments/residual_progress/w9_closure` | 6 | node critical-nine-elimination; its open premise became question universal-w5-tripling-currents |
-| B13-residual-R78-R94 | `experiments/residual_progress/w9_history_repair` | 4 | pending |
+| B13-residual-R78-R94 | `experiments/residual_progress/w9_history_repair` | 4 | node failed-w9-leader-reduction |
 | B09-residual-R11-R24 | `experiments/residual_progress/window_components` | 3 | node bounded-source-cluster-local-bound |
 | B14-convergence-phase6 | `experiments/phase6/LEDGER.md` | 1 | pending |
 | B14-convergence-phase6 | `experiments/phase6/LITERATURE.md` | 1 | pending |

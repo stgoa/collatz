@@ -26,6 +26,11 @@ certificates: [check_normal_form.py]
 evidence:
   - "normal_form.py: the legacy library (normalization, exact bridges, quotient transport, the inverse-ray description, finite inverse enumeration, exact counts), imported by check_normal_form.py from this folder. Later legacy scripts load it by its pre-migration path experiments/residual_progress/bridge_normal_form/normal_form.py and therefore fail at their new paths: in this batch the scripts of complementary-run-bridges, absorbed-fibre-uniform-counts, supplied-path-saturation-core, bounded-runs-exclude-finite-label-potentials, merger-catalogue-scope, critical-tripling-domain-equivalence and odd-h-pair-interface-compiler; later, experiments/residual_progress/history_cell_scope/ (which also hashes this note under its legacy name BRIDGE_NORMAL_FORM.md) and experiments/phase6/stopping_calibration/check_calibration.py"
   - "normal_form_audit.json: the receipt of check_normal_form.py"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: ../fourteen-step-window-original-source/r92_inverse_tree_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 07:02, VERIFIED, main 61fd041), with the lane's own step and ν: '**R25 inverse table.** For all 750 canonical targets `x < 3000`, the canonical `y < 2·10⁵` with `T(y) = x` were found by scanning every `y`. They equal exactly the table's predecessors below that bound: the point branch `(2x − 1)/3` when `x ≡ 2 (mod 3)`, and the two ray bases for each residue class, extended by `p → 64p + 49`.' The inverse table only, below the stated bounds; the components, normal form and quotient theorems were not rechecked. The status stays written"
 aliases: [R25]
 tags: [convergence, outer-residual, normal-form, quotient, bridges, inverse-branches, counting]
 ---
@@ -396,7 +401,7 @@ of its complementary branch.
 ## Remarks
 
 - **Scope.** The component theorem limits only the sibling and halving identities. The open target is termination of `T`, which is equivalent to Collatz: [`normalised-quotient-termination`](../../questions/normalised-quotient-termination.md). The normalised run bridges of [`complementary-run-bridges`](../complementary-run-bridges/README.md) and the fibre count of [`absorbed-fibre-uniform-counts`](../absorbed-fibre-uniform-counts/README.md) build on this quotient.
-- **Side-lane finite check.** On 2026-10-18 07:02 the side lane checked the inverse table by brute force: for all 750 canonical targets `x < 3000`, the canonical `y < 2·10⁵` with `T(y) = x` are exactly the table's predecessors below that bound (side-lane feed; probe `reviews/side_lane/r92_inverse_tree_check.py`, which a later batch migrates with R92). It is not yet recorded under `reviewed_by`.
+- **Side-lane finite check.** On 2026-10-18 07:02 the side lane checked the inverse table by brute force: for all 750 canonical targets `x < 3000`, the canonical `y < 2·10⁵` with `T(y) = x` are exactly the table's predecessors below that bound (side-lane feed; probe [`r92_inverse_tree_check.py`](../fourteen-step-window-original-source/r92_inverse_tree_check.py) in [`fourteen-step-window-original-source`](../fourteen-step-window-original-source/README.md)). It is recorded under `reviewed_by` with that finite scope.
 - **Controls.** The identities used are exact arithmetic of `3x+1`; the counting and inverse statements make no claim about other `3x+d`.
 - No novelty is claimed.
 

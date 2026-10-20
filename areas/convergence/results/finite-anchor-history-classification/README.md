@@ -1,4 +1,50 @@
-# Complete smaller-history classification within ternary precision
+---
+id: finite-anchor-history-classification
+kind: result
+title: "A finite absorbing anchor table classifies every smaller canonical history within a ternary horizon"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1, canonical quotient T = nu S. Let Q be a checked finite absorbing canonical
+  T-table containing every canonical origin c <= N. For canonical Y > 1, canonical y >= Y with y = Y mod 3^K and
+  threshold q >= 2, put n = ceil((q+1)(Y+1)/(y+1)) - 2. If n <= N, every canonical a < q with T^d(a) = y for some
+  0 <= d <= K is the lift a = c + lambda_c (y - Y) of a supplied origin c <= n whose unique path visits Y, with d
+  = d_c its length and lambda_c its inverse slope; every inverse ray and index within the horizon K is covered,
+  and nothing is claimed beyond K or at Y = 1. For an affine endpoint y = g q + h on q >= b, the anchor bound
+  ceil(max(b+1, (Y+1)/g)) - 2 suffices (exactly b - 1 for a canonical valuation-one prefix); the contracting paths
+  465 -> ... -> 11 and 497 -> 11 refute the unrestricted smaller-anchor shortcut (safe cutoff 538). From R80's
+  4892-state table, 11391 is the only canonical origin below 11547 reaching 17321, at quotient depth 13 with slope
+  2^20/3^13; hence for q = 11547 + 16 3^D t (D >= 1, t >= 0) the one-step future of q has no smaller origin within
+  D+1 steps when D <= 11, and exactly p = 11391 + 2^23 3^(D-12) t at depth 13 when D >= 12 (all depths at t = 0).
+  Not a universal history-access theorem.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [elementary-bridge-quotient-normal-form, decreasing-w5-phase-inverse-barrier, high-smaller-origin-history, common-critical-rank-basis]
+certificates: [r82_anchor_lift_check.py]
+evidence:
+  - "check_history_frontier.py, history_frontier.py, history_frontier_audit.json: the legacy compiler, checker and receipt: the full anchor, 44 lifted histories, 23 finite inverse trees, 36 shadow words including large rays, 10 cutoff controls, 16 rejections, two supplied currents reconstructed from R80. Fails at its new path: history_frontier.py loads ../native_history/ (now ../high-smaller-origin-history/) by its pre-migration folder name, and its receipt pins this node's legacy note HISTORY_FRONTIER.md, now an edited README. Failed at be73a66 already: it pins the hash of native_history_audit.json, which was regenerated at the be73a66 rename (archive/legacy-checker-run-be73a66.md, where scripts/verify_all.py stops at this step); it passed at 9dbc71a"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: r82_anchor_lift_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 08:07, VERIFIED, main 9190ccf), with the lane's own T = ν∘S and without reading main's code or anchor table: '**Anchor classification.** Every canonical `c < 11547` (2,887 origins) was followed forward with `T` to 1. Exactly one reaches `Y = 17321 = T(11547)`: `c = 11391`, at depth 13'; the lifted family by independent inverse-tree search for D = 1..14 with six values of t (84 cases); the contracting control (6); and the theorem on 300 random instances (random canonical anchor Y < 3000, horizon K ≤ 6, q < 4000). The general all-ray proof is the written argument. The status stays written"
+aliases: [R82]
+tags: [convergence, outer-residual, smaller-origin-history, anchor-certificate, inverse-barrier, ternary-precision]
+---
+
+# A finite absorbing anchor table classifies every smaller canonical history within a ternary horizon
+
+## Statement
+
+Odd-only clock, 1 absorbing; canonical quotient `T = νS` with the complete inverse branches `x → αx + β` of [`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md) (R25) and [`decreasing-w5-phase-inverse-barrier`](../decreasing-w5-phase-inverse-barrier/README.md) (R41), `α > 0`, `α − β ≥ 1`.
+
+1. **Finite-anchor theorem.** Let `Q` be a finite canonical `T`-table, closed and absorbing, containing every canonical origin `c ≤ N`. Fix canonical `Y > 1`, canonical `y ≥ Y` with `y ≡ Y (mod 3^K)`, and `q ≥ 2`; put `n = ⌈(q + 1)(Y + 1)/(y + 1)⌉ − 2`. If `n ≤ N`, the complete set of `(a, d)` with `a` canonical, `a < q`, `0 ≤ d ≤ K`, `T^d(a) = y` is `{(c + λ_c(y − Y), d_c)}` over the supplied origins `c ≤ n` whose unique path visits `Y`, with `d_c ≤ K` and `a < q`. Every inverse ray and index is covered. Nothing is claimed beyond `K` or at `Y = 1`.
+2. **Affine cutoff.** For `y = gq + h` on `q ≥ b` with `Y = gb + h > 1`, an anchor table through `⌈max(b + 1, (Y + 1)/g)⌉ − 2` suffices; for a canonical valuation-one prefix this is exactly `b − 1`. The contracting pair `465 → 43 → 65 → 49 → 9 → 7 → 11`, `497 → 11` lifts to smaller partners `p < q` with larger anchor 497, refuting the unrestricted smaller-anchor shortcut; the safe cutoff there is 538.
+3. **The R80 future.** In the 4892-state table of [`high-smaller-origin-history`](../high-smaller-origin-history/README.md), exactly one canonical origin below 11547 reaches `17321 = T(11547)`: `11391`, at depth 13, slope `2^20/3^13`. Hence for `q = 11547 + 16·3^D·t`, `D ≥ 1`, `t > 0`, the smaller canonical origins reaching `y = (3q + 1)/2` within `D + 1` quotient steps are none for `D ≤ 11` and exactly `p = 11391 + 2^23·3^(D−12)·t`, at depth 13, for `D ≥ 12`. At `t = 0` this holds at every depth. The same table excludes smaller ancestors of `q` through `D`.
+
+## Proof
+
+The legacy note "Complete smaller-history classification within ternary precision" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **R82 — written finite-anchor completeness theorem and exact finite audit.**
 This reduces all inverse rays and all depths within a stated ternary horizon
@@ -7,13 +53,13 @@ result for the enlarged R80 family. It does not prove universal access to a
 smaller history or exclude additional comparisons beyond that horizon.
 
 Use absorbed odd Syracuse S, canonical minimum nu, and T=nu S from
-[R25](../bridge_normal_form/BRIDGE_NORMAL_FORM.md). Its complete inverse
+[R25](../elementary-bridge-quotient-normal-form/README.md). Its complete inverse
 branches are `x -> alpha*x+beta`, including every nonnegative ray index,
 with alpha>0 and alpha-beta>=1. The exact formulas and inequality are in
-[R41](../critical_inverse/CRITICAL_INVERSE.md). The finite table below is
+[R41](../decreasing-w5-phase-inverse-barrier/README.md). The finite table below is
 a supplied premise, checked by arithmetic; no unknown orbit is searched.
 
-## 1. A finite anchor table controls every smaller inverse history
+### 1. A finite anchor table controls every smaller inverse history
 
 Let Q be a finite canonical edge table, closed under T, with every vertex
 reaching1. It contains every canonical origin c<=N. Extra states are
@@ -79,7 +125,7 @@ At greater depths the shadow branch can cease to be integral or legal.
 The condition Y>1 also matters: repeated visits to the absorbing1 would
 produce arbitrarily long anchor words rather than one path per origin.
 
-## 2. The cutoff for a fixed affine forward comparison
+### 2. The cutoff for a fixed affine forward comparison
 
 Suppose a canonical target prefix has affine endpoint y=gq+h, g>0,
 on a stated domain q>=b, and Y=gb+h>1. Then
@@ -121,9 +167,9 @@ The anchor bound in (5) is393216/729, giving the safe origin cutoff538.
 This example refutes the unrestricted smaller-anchor shortcut. It is not
 claimed as a new accepted W5 domain.
 
-## 3. A unique smaller history on the enlarged R80 progression
+### 3. A unique smaller history on the enlarged R80 progression
 
-Use the exact [R80 anchor table](../native_history/anchor_certificate.json),
+Use the exact [R80 anchor table](../high-smaller-origin-history/anchor_certificate.json),
 verified to have4892 canonical states, to include every2887 canonical
 origin below b=11547, to be absorbing and forward-closed, and to exclude b.
 Set Y=(3b+1)/2=17321.
@@ -168,7 +214,7 @@ row. At the quotient clock,13 is the sharp smaller-history length to the
 specified one-step future y; this is not an optimality claim over later
 target steps, other sources, or arbitrary currents.
 
-## 4. Current construction and evidence
+### 4. Current construction and evidence
 
 Every canonical arrow x->T(x) has the ordinary current
 `delta_x+N_(S(x))`. Summing it over a retained partner path gives a checked
@@ -189,3 +235,18 @@ The default performs no absorption search outside supplied finite tables.
 Run `python3 experiments/residual_progress/history_frontier/check_history_frontier.py`.
 The receipt pins the proof, checker, anchor and reachable local source files.
 No universal current supply, Collatz proof or novelty claim is made.
+
+## Certificates
+
+[`r82_anchor_lift_check.py`](r82_anchor_lift_check.py) (the side-lane probe; it imports nothing from the repository and passes in place, about 1 s): it reclassifies the anchor table from scratch by forward iteration, rebuilds the lifted R80 family by independent inverse-tree search for `D = 1..14`, checks the contracting control (6), and compares inverse trees with the lift formula on 300 random instances, against `r82_anchor_lift_check.json`. The legacy checker `check_history_frontier.py` already failed at `be73a66` (see `evidence`). The command in the legacy text names `experiments/residual_progress/history_frontier/`.
+
+## Remarks
+
+- At the quotient clock, 13 is the sharp smaller-history length to the specified one-step future; this is not optimality over later targets, other sources or arbitrary currents.
+- The same finite-anchor method gives the complete four-target classification of [`four-target-history-classification`](../four-target-history-classification/README.md) (R88).
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/history_frontier/HISTORY_FRONTIER.md` (legacy ID R82) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written completeness theorem within a stated ternary horizon and exact finite-table classification".
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `1d58f50`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

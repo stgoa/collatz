@@ -1,4 +1,44 @@
-# A later Phi-exit target still defeats the two-ray/point procedure
+---
+id: two-ray-point-procedure-later-target
+kind: attempt
+title: "The two-ray/point inverse procedure also fails at later Phi-exit targets"
+status: written
+claim: >
+  Tried: at a later exit target y of the original coupled source Q (odd-only 3x+1 map, absorbing at 1; quotient T
+  = nu S; native formal absorption), replace the native plan by either complete quotient inverse ray of y followed
+  by its maximal point chain, or by the direct point chain, with native absorption at the origin, deciding all ray
+  indices by the finite cutoff of R83. Verdict: at r = 4 (exit row 18, next valuation 3, S^78(Q) = y) all 23 ray
+  candidates and the direct-point plan fail the original-rank test and the native W5 leader is not recognised by
+  the fixed seventeen rules; at r = 8 (S^126(Q) = y) all 37 ray candidates fail, but the existing R44 forward rule
+  repairs the native leader at the original rank. So the one-ray/point procedure is incomplete at later targets
+  too; a failed inverse method is not a missing-current theorem. Words with several ray choices, further forward
+  moves, later targets and supplied histories are not covered; no new accepted family.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [history-beyond-prescribed-growth, binary-return-exit-control, returning-forward-interface, seventeen-family-rho-dispatcher, common-critical-rank-basis]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_later_target_probe.py, later_target_probe_audit.json: the legacy probe and receipt: the complete r = 4 and r = 8 controls, both ray cutoffs, every shorter point stop against its maximal completion, the full signed vectors, and the verified R44 repair at r = 8. Fails at its new path: it loads ../phi_exit_control/ and ../resolved_rules/ (now ../../results/binary-return-exit-control/, ../../results/seventeen-family-rho-dispatcher/) by their pre-migration folder names, and its receipt pins the hashes of this note and of ../native_growth_escape/NATIVE_GROWTH_ESCAPE.md (now ../../results/history-beyond-prescribed-growth/README.md), both edited. Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a; A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged)"
+  - "../../results/two-source-normalisation-first-departure/r93_r94_check.py: side-lane probe of R93, R94 and this probe, replayed by this node's check_legacy_replay.py (see reviewed_by)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: ../../results/two-source-normalisation-first-departure/r93_r94_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 07:33, VERIFIED): '**Paths.** `S⁷⁸(Q) = y` (cost 122) at `r = 4`, and `S¹²⁶(Q) = y` (cost 198) at `r = 8`.'; the r = 4 witness z = ν(y) > Q and its high native request; the ray cutoffs J = 122 and 196 with allowed indices L ≤ (11, 10) and L ≤ (18, 17); 'All 23 and 37 maximal endpoints, respectively, exceed `Q`.' 'The seventeen-family dispatcher result and the R44 repair are not checked here.'"
+aliases: [R94-b]
+tags: [convergence, outer-residual, inverse-ray, later-target, original-rank, procedure-limit]
+---
+
+# The two-ray/point inverse procedure also fails at later Phi-exit targets
+
+## Idea
+
+[`history-beyond-prescribed-growth`](../../results/history-beyond-prescribed-growth/README.md) (R83) decides the two complete quotient inverse rays, followed by point inverses and native absorption, over every ray index by a finite cutoff, and finds the procedure failing at a fixed H17 input. Its algebra does not depend on the target, so the same decision can be run at a genuinely later target: the maximal exits of the guarded return of [`binary-return-exit-control`](../../results/binary-return-exit-control/README.md) (R90). Perhaps the ternary precision gained by the returns lets one of these rays reach a smaller origin there. This is the third hypothesis of the R93/R94 batch.
+
+## What happened
+
+The legacy note "A later Phi-exit target still defeats the two-ray/point procedure" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes).
 
 **Status: exact finite witness and a reusable probe for an existing method.**
 The r4 witness retains a native W5 request unhandled by the fixed seventeen
@@ -11,12 +51,12 @@ and supplied histories remain available. No new theorem number, universal
 terminal supply, or novelty claim is proposed.
 
 The cutoff argument is the one already proved in
-[R83](../native_growth_escape/NATIVE_GROWTH_ESCAPE.md), sections1–2. Its algebra
+[R83](../../results/history-beyond-prescribed-growth/README.md), sections1–2. Its algebra
 does not depend on the H17 target. This probe applies it to an arbitrary
 positive canonical target y and odd threshold Q>=3. It does not repeat the
 R92 same-target finite-window search.
 
-## 1. What is decided, without a ray cap
+### 1. What is decided, without a ray cap
 
 Let T be the canonical quotient, and let H_x,A_x be the native formal
 absorption identity
@@ -91,7 +131,7 @@ exactly those possible ray indices, without an arbitrary search cap. All
 larger indices fail (4). The argument is inherited from R83; the executable
 reuse for a general canonical target is the change here.
 
-## 2. An r4 native leader unhandled by the fixed seventeen rules
+### 2. An r4 native leader unhandled by the fixed seventeen rules
 
 Take r=4, exit guard order18, next valuation3, and index0 in R90's exact
 exit progression. The ordinary source and later target are
@@ -130,10 +170,10 @@ native W5 leader is tested against the fixed seventeen rules. Further
 expansion of other high pairs, W9 repair, multi-ray words and later targets
 are outside this probe; their possibilities are not ruled out.
 
-## 3. The r8 control and its existing repair
+### 3. The r8 control and its existing repair
 
 Use the complete original coupled family and exit parameters of
-[R90](../phi_exit_control/PHI_EXIT_CONTROL.md). Take r=8, exit guard order18,
+[R90](../../results/binary-return-exit-control/README.md). Take r=8, exit guard order18,
 next valuation3, and index0 in that complete exit progression. Then
 
     Q=210065029006409577911756714191833302426696026205209908227355,
@@ -191,7 +231,7 @@ premises. This is an already available repair, not a new accepted family or
 supplied terminal current. It also provides a concrete control against
 misreading a two-ray/point failure as absence of a valid current comparison.
 
-## 4. Why the proposed tuned subfamily was not promoted
+### 4. Why the proposed tuned subfamily was not promoted
 
 For this exit row, a prescribed ordinary predecessor exponent can be tuned
 to the fixed ternary digits of y, and the remaining source digits can force
@@ -206,7 +246,7 @@ decreasing quantity, and every terminal signed premise supplied or below the
 original Q. The existing R44 repair handles this witness, and the two-ray
 probe alone does not establish coverage of the remaining row inputs.
 
-## Reproduction
+### Reproduction
 
 Run `python3 experiments/residual_progress/later_target_probe/check_later_target_probe.py`.
 Default replay verifies the stored receipt; `--write` refreshes it. The
@@ -215,3 +255,21 @@ derives the two ray cutoffs, checks every shorter stop, and pins its reachable
 local source files. It searches for no absorption current and modifies no
 dispatcher. Resource exhaustion is an error, never a negative mathematical
 conclusion.
+
+Certificate: [`check_legacy_replay.py`](check_legacy_replay.py) (written at the B13 migration; standard library) replays, in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, the side-lane probe `r93_r94_check.py` from [`two-source-normalisation-first-departure`](../../results/two-source-normalisation-first-departure/README.md) (about 2 s, receipt reproduced byte for byte), which checks both paths, the ray cutoffs and all 23 and 37 maximal endpoints independently. The legacy probe `check_later_target_probe.py` pins the hashes of edited notes and is evidence only. The command in the legacy text names `experiments/residual_progress/later_target_probe/`.
+
+## Why it fails
+
+At the r = 4 control every one of the 23 admissible ray candidates and the direct point-only plan keeps a high request above the original `Q`, and the native W5 leader is outside the fixed seventeen rules of [`seventeen-family-rho-dispatcher`](../../results/seventeen-family-rho-dispatcher/README.md). At r = 8 all 37 ray candidates fail as well. The procedure (one ray choice, then points, then native absorption) is therefore incomplete at later targets too. This is a limit of that procedure, not a theorem that no current exists: at r = 8 the existing rule of [`returning-forward-interface`](../../results/returning-forward-interface/README.md) (R44) already repairs the native leader at the original rank.
+
+## What survives
+
+- The finite ray cutoff of R83 applies to an arbitrary canonical target `y` and odd threshold `Q ≥ 3`; the executable reuse is the change here.
+- The distinction between the direct point-only comparison and native priority at `y ≡ 1 (mod 8)`; both full signed plans are kept.
+- A tuned ordinary predecessor exponent can force arbitrarily long point prefixes on subfamilies (R83's source-tuning mechanism), but this gives no coverage of a fixed source and was not promoted to a whole-row repair.
+- The whole-row obligation is unchanged: a closed domain, a decreasing quantity and every terminal signed premise supplied or below the original `Q`; see [`residual-pair-864z-257-supply`](../../questions/residual-pair-864z-257-supply.md).
+
+## History
+
+- Migrated from `experiments/residual_progress/later_target_probe/LATER_TARGET_PROBE.md` (the ledger reports it inside R94; alias R94-b here) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, probe and receipt moved byte-identical; the note became this README. Legacy status: "exact finite witness and a reusable probe for an existing method".
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `9190ccf`. The REPORT records independent proof, source and default-replay review by the main lane's own agents.

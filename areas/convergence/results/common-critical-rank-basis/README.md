@@ -345,7 +345,7 @@ the finite receipt checks the implementation and its exact examples.
 
 ## Remarks
 
-- **Hub.** `critical_basis.py` is imported by seven later legacy history folders (R78–R94, migrated by a later batch), which load it by its legacy path.
+- **Hub.** `critical_basis.py` is imported by the legacy code of seven later nodes, which load it by its legacy path: [`native-critical-nine-continuation`](../native-critical-nine-continuation/README.md), [`immediate-self-loop-lower-relations`](../immediate-self-loop-lower-relations/README.md), [`native-growth-original-rank-exit-obstruction`](../native-growth-original-rank-exit-obstruction/README.md), [`high-smaller-origin-history`](../high-smaller-origin-history/README.md), [`fixed-word-history-cells`](../fixed-word-history-cells/README.md), [`later-target-twenty-step-descent`](../later-target-twenty-step-descent/README.md) and [`even-exit-smaller-target-cone`](../even-exit-smaller-target-cone/README.md).
 - The blocked `d = 4` W9 branch and the unresolved nonreturning `W5` inputs are the next supply obligation of [`universal-w5-tripling-currents`](../../questions/universal-w5-tripling-currents.md); re-expanding a `W9` input into a higher `W5` request recreates the old difficulty.
 - [`uniform-fixed-word-pair-exclusion`](../uniform-fixed-word-pair-exclusion/README.md) (R76) excludes one fixed-word pair model; this construction uses an additional source type outside it.
 - Novelty undetermined (none claimed).

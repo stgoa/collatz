@@ -1,19 +1,72 @@
-# The actual lower history and a complete two-source exit interface
+---
+id: two-source-normalisation-first-departure
+kind: result
+title: "Both original histories normalise the coupled pair to [864z - 257] - [z], with a complete first-departure interface for the lower path"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1. On the entire original coupled family put z = 471104208005 + 2^14 3^16 ell;
+  then v0 = 144z - 43, Q = (2^31 z - 665034679)/3^15, and the actual ordinary paths satisfy S^18(Q) = 864z - 257
+  and S^16(Q/3) = z, so P(Q/3) = div(I(Q,18) - I(Q/3,16)) + [864z-257] - [z] exactly, with no helper current
+  assumed. The upper return is conjugate to Psi(z) = (3^12 z - 53)/2^19; with n = v2(7153z - 53), one complete
+  re-entry is legal exactly when n >= 33, the maximum count is floor((n-14)/19), and n = 19r + h - 4 at the upper
+  exit h in 18..36; integrality of Psi(z) gives no lower-source path to it, leaving the explicit defect [Psi(z)] -
+  [z]. The rational lower shadow from 53/7153 has a complete 448-state certificate (71-step/cost-146 preperiod,
+  377-step/cost-739 cycle, every state below 115, every prefix slope at most 1, extended to all prefixes by the
+  cycle contraction); hence the actual lower path follows it while the cumulative cost stays below n, and its
+  first departure is classified exactly (short branch, or long branch with an arbitrary extra j >= 1), with
+  complete extra-bit cylinders for every row and every upper repetition count. Every matching lower state is below
+  z + 115, and the last matching state and its next 12 arrows stay below the ORIGINAL Q. The signed comparisons
+  keep a residual upper source above Q and a lower source below Q; they supply neither the residual current nor a
+  new accepted domain.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [retained-history-w9-reduction, binary-return-exit-control]
+certificates: [r93_r94_check.py]
+evidence:
+  - "check_two_source_history.py, two_source_history.py, two_source_history_audit.json: the legacy constructor, checker and receipt: the complete 448-state rational certificate, 64 initial identities, 3520 exact departures, 180 joint upper/lower cases through r = 128, 739 periodic phases, three full unfinished tables, 19 rejection controls. It imports only its sibling module, but its receipt pins the SHA-256 of this node's legacy note TWO_SOURCE_HISTORY.md by file name, which is now an edited README, so it fails at its new path and in a legacy replay. Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a; A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged)"
+  - "r93_r94_check.py, r93_r94_check.json: side-lane probe (Claude side lane, 2026-10-18 07:33, with the 07:36 update) of R93, R94, the later-target probe and the scaling remark of the R92 template; prescribed-ternary-child-unbounded-clocks and the attempt two-ray-point-procedure-later-target replay it from this folder. It imports nothing from the repository and passes at its new path. Passed at be73a66 as reviews/side_lane/r93_r94_check.py (archive/legacy-checker-run-be73a66.md, exit 0)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: r93_r94_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 07:33, VERIFIED, main working copy on 61fd041, committed unchanged as 9190ccf), with the lane's own integer and rational Syracuse code: '**Cell identities.** `v = 144z − 43`, `Q = (2³¹z − 665034679)/3¹⁵` and `Y(z) = 864z − 257 = 6v + 1` hold as affine identities in `ℓ`'; the upper coordinate identities and the return criterion on exact orders n = 14..80; the lower shadow ('448 states: preperiod 71 (cost 146) and cycle 377 (cost 739)', largest numerator 819533 < 115·7153); the departures for every exact order n = 14..1000 and 1,584 long-branch cases; 209 joint cases. Finite instances; the all-n classification rests on the written argument. The status stays written"
+aliases: [R93]
+tags: [convergence, outer-residual, retained-history, two-source, rational-shadow, original-rank]
+---
+
+# Both original histories normalise the coupled pair to [864z - 257] - [z], with a complete first-departure interface for the lower path
+
+## Statement
+
+Odd-only clock `S`, 1 absorbing; only ordinary steps are used. `I(x, t)` is the current of the first `t` ordinary arrows from `x`.
+
+1. **Two-source normalisation.** On the original coupled family of [`retained-history-w9-reduction`](../retained-history-w9-reduction/README.md) (R89) and [`binary-return-exit-control`](../binary-return-exit-control/README.md) (R90), put `z = 471104208005 + 2^14·3^16·ℓ`. Then `v = 144z − 43`, `Q = (2^31·z − 665034679)/3^15`, `S^18(Q) = 864z − 257` (word of length 18, cost 26) and `S^16(b) = z` for `b = Q/3` (length 16, cost 31), so `P(b) = div(I(Q, 18) − I(b, 16)) + [864z − 257] − [z]`, with no helper current.
+2. **Upper coordinate.** `Φ(144z − 43) = 144Ψ(z) − 43` with `Ψ(z) = (3^12·z − 53)/2^19`. With `n = v2(7153z − 53)`, one complete guarded re-entry is legal iff `n ≥ 33`; the maximum count is `⌊(n − 14)/19⌋`, and `n = 19r + h − 4` with exit row `h ∈ 18..36`. Integrality of `Ψ(z)` gives no lower path to it: `[Y(z)] − [z] = div I(Y(z), 12) + ([Y(Ψz)] − [Ψz]) + ([Ψz] − [z])`, with the last defect a missing comparison.
+3. **Lower shadow certificate.** The rational orbit of `53/7153` has 448 states: preperiod 71 (cost 146), cycle 377 (cost 739), every numerator below `115·7153`, every prefix with `3^i ≤ 2^(E_i)`; the cycle multiplier `3^377/2^739 < 1` extends the slope bound to all prefixes.
+4. **First departure.** Along every matching prefix `x_i = (3^i/2^(E_i))(z − 53/D) + N_i/D < z + 115`. The first differing valuation is exactly `n − E_i` (short branch) or `e + j` with an arbitrary `j ≥ 1` (long branch), and every row has a complete extra-bit cylinder in `ℓ`, for every upper repetition count.
+5. **Window below Q.** The last matching state and its next 12 actual arrows (the departing one and at most eleven more) stay below the original `Q`.
+
+The full signed comparisons keep a positive residual source above `Q` and a negative one below `Q`; they are unfinished.
+
+## Proof
+
+The legacy note "The actual lower history and a complete two-source exit interface" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written arithmetic proof, exact finite rational-orbit certificate,
 and unfinished comparison currents. No terminal pair current or new accepted
 domain is supplied.** Ordinary steps below use the odd-only Syracuse map S,
 absorbed at1. The quotient clock is not used in this package.
 
-The [retained-history family](../retained_history/RETAINED_HISTORY.md) and
-[guarded upper return](../phi_exit_control/PHI_EXIT_CONTROL.md) leave a positive
+The [retained-history family](../retained-history-w9-reduction/README.md) and
+[guarded upper return](../binary-return-exit-control/README.md) leave a positive
 high source. This note retains the actual lower-source path instead of
 immediately replacing it by its formal absorption plan. It gives a common
 coordinate for both sources and completely specifies the lower path's first
 departure from its forced rational itinerary. The final positive source still
 needs a comparison or supplied current.
 
-## 1. Exact normalization of both sources
+### 1. Exact normalization of both sources
 
 For every integer ell>=0 put
 
@@ -49,7 +102,7 @@ divergence is [x]-[S^t(x)]. With P(b)=[3b]-[b], (1) gives
 No helper pair is assumed in (2). Its two-atom residual is explicit and is
 not claimed to have a supplied current.
 
-## 2. A legal coordinate for every guarded upper return
+### 2. A legal coordinate for every guarded upper return
 
 Write
 
@@ -95,7 +148,7 @@ nonempty forward word has a positive affine intercept, whereas Psi's
 intercept is -53/M. This statement does not exclude variable words,
 unequal-time mergers, or signed comparisons using additional sources.
 
-## 3. A finite certificate controls every forced lower prefix
+### 3. A finite certificate controls every forced lower prefix
 
 Consider the positive odd-denominator rational Syracuse orbit starting at
 53/D. Its numerator map is
@@ -140,7 +193,7 @@ This holds for arbitrarily many rational shadow cycles when n grows; each
 actual positive integer has finite n and therefore eventually leaves the
 forced itinerary. No claim is made about its entire subsequent trajectory.
 
-## 4. Complete first-departure classification and cylinders
+### 4. Complete first-departure classification and cylinders
 
 Let i be the unique index with
 
@@ -187,7 +240,7 @@ adds19 shadow cycles and739 upper returns. The free long-branch valuation j
 is unbounded and remains explicit. Finite phase labels alone do not prove
 termination after these departures.
 
-## 5. The first departure and eleven further arrows remain below Q
+### 5. The first departure and eleven further arrows remain below Q
 
 For every positive odd x and integer t>=0,
 
@@ -223,7 +276,7 @@ These are unfinished comparisons, not supplied pair currents. Assuming
 absorption below Q could discharge the negative source, but would still leave
 the positive source's continuation unresolved.
 
-## 6. What this does and does not complete
+### 6. What this does and does not complete
 
 This is an exact normalization and a complete first-departure interface for
 the retained lower source across all upper guarded return counts. It does not
@@ -239,7 +292,7 @@ Any use of an absorption or pair current beyond the actual displayed paths
 must state and supply it. The negative controls and the distinction between
 changing sources and one fixed source remain in force.
 
-## Reproduction
+### Reproduction
 
 Run from the repository root:
 
@@ -251,3 +304,19 @@ rational orbit, exact integer paths and divergences, all departure branches,
 complete valuation bits, and rejected invalid or capped requests. The stored
 path comparisons are explicitly unfinished. No dispatcher or frozen earlier
 result is modified by this package.
+
+## Certificates
+
+[`r93_r94_check.py`](r93_r94_check.py) (the side-lane probe; it imports nothing from the repository and passes in place, about 2 s): the cell identities, the upper coordinate and return criterion, the 448-state lower shadow, the departures for every exact order `n = 14..1000`, the 209 joint cases, the R94 centres and cylinders, the later-target controls and the scaling remark, against `r93_r94_check.json`. The legacy checker `check_two_source_history.py` pins the hash of this node's note, now an edited README (see `evidence`). The command in the legacy text names `experiments/residual_progress/two_source_history/`.
+
+## Remarks
+
+- The next obligation, a comparison after this departure interface that supplies the positive residual with a proved original-rank decrease or another terminating construction, is the question [`residual-pair-864z-257-supply`](../../questions/residual-pair-864z-257-supply.md), the line's final open target.
+- Assuming absorption below `Q` could discharge the negative source, but would still leave the positive source unresolved.
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/two_source_history/TWO_SOURCE_HISTORY.md` (legacy ID R93) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written arithmetic proof with a finite rational-orbit certificate; unfinished comparison currents".
+- The side-lane probe `reviews/side_lane/r93_r94_check.*` moved here.
+- Main lane (ChatGPT, Codex), 2026-10-18, first committed in `9190ccf`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.

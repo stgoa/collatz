@@ -4,7 +4,7 @@
 `61fd041bf837a276a1cca5a37dec9749c2bb6cb6`; the reviewed side commit is
 `8ed32bc45912c7621227280013f32ae1387ff386`. This is newer work on the optional
 `claude/sidekick` feed. The merged PR1 and its scope correction are covered
-by the [previous assessment](side_lane_review_86ead16.md).
+by the [previous assessment](../binary-return-exit-control/side_lane_review_86ead16.md).
 
 ## What was reproduced
 
@@ -23,7 +23,7 @@ in the [reproduction record](side_lane_review_8ed32bc.json).
 The origin conditions are oddness, coprimality with7153 and canonicality
 of `-u/7153`. The larger computation has134 hits at first-hit depths
 `d0=12k0+5`; precisely16 have adjusted cost `m=E0-19k0` in8..14.
-Their complete list agrees with the [R92 boundary list](deeper_window/DEEPER_WINDOW.md).
+Their complete list agrees with the [R92 boundary list](../fourteen-step-window-original-source/README.md).
 The largest intermediate numerator is23,508,760,799,607,151.
 No height cap is used. The implementation's path cap4096 was not reached;
 its longest new segment is235. New-segment lengths depend on caching and
