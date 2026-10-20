@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**0 results, 0 attempts, 0 questions, 0 sources.**
+**0 results, 0 attempts, 0 questions, 26 sources.**
 
 ## Frontier: open questions
 
@@ -21,3 +21,70 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 ## Area: invariants
 
 Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
+
+## Sources (external inputs)
+
+| Source | Title | Status | Used by |
+|---|---|---|---|
+| [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) | Adamczewski–Bell: a problem about Mahler functions | cited | 0 |
+| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 0 |
+| [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
+| [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 0 |
+| [`cobham-recognizability-theorem`](sources/cobham-recognizability-theorem.md) | Cobham's theorem: sets recognizable in two independent bases | cited | 0 |
+| [`corvaja-2005-s-unit-height`](sources/corvaja-2005-s-unit-height.md) | Corvaja–Zannier: height of a rational function at S-unit points | cited | 0 |
+| [`eilenberg-finite-kernel`](sources/eilenberg-finite-kernel.md) | Eilenberg's finite-kernel characterisation of automatic sequences | cited | 0 |
+| [`eliahou-1993-cycle-length`](sources/eliahou-1993-cycle-length.md) | Eliahou (1993): lower bound on nontrivial cycle length | cited | 0 |
+| [`everett-1977-stopping-time`](sources/everett-1977-stopping-time.md) | Everett (1977): density one of integers with finite stopping time | cited | 0 |
+| [`halbeisen-1997-rational-cycles`](sources/halbeisen-1997-rational-cycles.md) | Halbeisen–Hungerbühler (1997): optimal bounds for rational Collatz cycles | cited | 0 |
+| [`hercher-2023-cycle-length`](sources/hercher-2023-cycle-length.md) | Hercher (2023): no Collatz m-cycles with m ≤ 91, and the period bound | cited | 0 |
+| [`knight-2026-high-cycles`](sources/knight-2026-high-cycles.md) | Knight: Collatz high cycles do not exist | cited | 0 |
+| [`krasikov-2003-predecessors`](sources/krasikov-2003-predecessors.md) | Krasikov–Lagarias: predecessor counts at least X^0.84 | cited | 0 |
+| [`lagarias-1985-survey`](sources/lagarias-1985-survey.md) | Lagarias (1985): survey of the 3x+1 problem | cited | 0 |
+| [`languasco-2025-two-primes`](sources/languasco-2025-two-primes.md) | Languasco–Luca–Moree–Togbe: rational form of Matveev's bound | cited | 0 |
+| [`lau-2026-positive-density`](sources/lau-2026-positive-density.md) | Lau / AxiomMath: explicit positive lower density of predecessors (Lean) | replayed | 0 |
+| [`matveev-2000-linear-forms`](sources/matveev-2000-linear-forms.md) | Matveev (2000): explicit lower bound for linear forms in logarithms | cited | 0 |
+| [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
+| [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
+| [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 0 |
+| [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
+| [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
+| [`steiner-1977-one-cycles`](sources/steiner-1977-one-cycles.md) | Steiner (1977): no nontrivial 1-cycles | cited | 0 |
+| [`tao-2019-almost-all`](sources/tao-2019-almost-all.md) | Tao: almost all Collatz orbits attain almost bounded values | cited | 0 |
+| [`terras-1976-stopping-time`](sources/terras-1976-stopping-time.md) | Terras (1976): a stopping time problem on the positive integers | cited | 0 |
+
+## Legacy IDs
+
+Older documents cite results by series numbers (C011, S13, R71, V004, …). This table resolves them.
+
+| Legacy ID | Node |
+|---|---|
+| EXT-1 | [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) |
+
+## Recent activity
+
+- 2026-10-19: [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) added (source)
+- 2026-10-19: [`corvaja-2005-s-unit-height`](sources/corvaja-2005-s-unit-height.md) added (source)
+- 2026-10-19: [`languasco-2025-two-primes`](sources/languasco-2025-two-primes.md) added (source)
+- 2026-10-19: [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) added (source)
+- 2026-10-18: [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) added (source)
+- 2026-10-18: [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) added (source)
+- 2026-10-18: [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) added (source)
+- 2026-10-18: [`cobham-recognizability-theorem`](sources/cobham-recognizability-theorem.md) added (source)
+- 2026-10-18: [`eilenberg-finite-kernel`](sources/eilenberg-finite-kernel.md) added (source)
+- 2026-10-18: [`eliahou-1993-cycle-length`](sources/eliahou-1993-cycle-length.md) added (source)
+- 2026-10-18: [`everett-1977-stopping-time`](sources/everett-1977-stopping-time.md) added (source)
+- 2026-10-18: [`hercher-2023-cycle-length`](sources/hercher-2023-cycle-length.md) added (source)
+- 2026-10-18: [`knight-2026-high-cycles`](sources/knight-2026-high-cycles.md) added (source)
+- 2026-10-18: [`lagarias-1985-survey`](sources/lagarias-1985-survey.md) added (source)
+- 2026-10-18: [`lau-2026-positive-density`](sources/lau-2026-positive-density.md) added (source)
+- 2026-10-18: [`matveev-2000-linear-forms`](sources/matveev-2000-linear-forms.md) added (source)
+- 2026-10-18: [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) added (source)
+- 2026-10-18: [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) added (source)
+- 2026-10-18: [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) added (source)
+- 2026-10-18: [`steiner-1977-one-cycles`](sources/steiner-1977-one-cycles.md) added (source)
+- 2026-10-17: [`halbeisen-1997-rational-cycles`](sources/halbeisen-1997-rational-cycles.md) added (source)
+- 2026-10-17: [`krasikov-2003-predecessors`](sources/krasikov-2003-predecessors.md) added (source)
+- 2026-10-17: [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) added (source)
+- 2026-10-17: [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) added (source)
+- 2026-10-17: [`tao-2019-almost-all`](sources/tao-2019-almost-all.md) added (source)

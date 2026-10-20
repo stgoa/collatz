@@ -9,7 +9,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 
 | Batch | Legacy unit | Files | Fate |
 |---|---|---|---|
-| B01-sources | `docs/LITERATURE.md` | 1 | pending |
+| B01-sources | `docs/LITERATURE.md` | 1 | node adamczewski-2013-mahler-functions, barina-2025-convergence-2-71, berg-1994-analytic-encoding, bugeaud-2022-two-logarithms, cobham-recognizability-theorem, corvaja-2005-s-unit-height, eilenberg-finite-kernel, eliahou-1993-cycle-length, everett-1977-stopping-time, halbeisen-1997-rational-cycles, hercher-2023-cycle-length, knight-2026-high-cycles, krasikov-2003-predecessors, lagarias-1985-survey, languasco-2025-two-primes, lau-2026-positive-density, matveev-2000-linear-forms, mazur-2026-predecessor-density, monks-2006-sufficiency, monks-2013-strongly-sufficient, musson-collatz-gap-all, rhin-1987-irrationality-measure, simons-2005-m-cycles, steiner-1977-one-cycles, tao-2019-almost-all, terras-1976-stopping-time |
 | B02-lean | `lean/audit` | 18 | restored to `lean/audit` |
 | B02-lean | `lean/CycleSpectrum.lean` | 1 | restored to `lean/CycleSpectrum.lean` |
 | B02-lean | `lean/Dichotomy.lean` | 1 | restored to `lean/Dichotomy.lean` |
