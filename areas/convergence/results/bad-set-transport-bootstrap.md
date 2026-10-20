@@ -1,12 +1,37 @@
-# Actual-B transport: next-attempt design only
+---
+id: bad-set-transport-bootstrap
+kind: result
+title: What a half-descent transport inequality for the actual nonabsorbing set would give, and why it fails for 3x+d
+status: written
+claim: >
+  Odd-only 3x+1 map S absorbed at 1; B the nonabsorbing positive odd seeds; for odd n > 1, L(n) the first odd
+  iterate <= n/2, E = {odd n > 1 : L(n) undefined}, G(B) = {odd n > 1 : L(n) in B}; F, e, g the counts of B, E, G(B)
+  through X weighted by fixed positive residue weights w_r modulo M; C_alpha(X) = max_(1<=Y<=X) F(Y)/Y^alpha (a
+  finite maximum). (a) B = E disjoint-union G(B), so F = e + g. (b) Explicit S.1 input: for each supported d and
+  integer X >= 32^9, E_d(X) <= (4 + 2d) X^(39/40). (c) Bootstrap: if the transport premise
+  (P) g(X) <= kappa X^alpha C_alpha(floor(X/2)) holds for all X >= X0 with 0 <= kappa < 1, and e(X) <= D X^beta
+  with beta < alpha, then B(X) <= (Cstar/w_min) X^alpha with Cstar = max(C0, D X0^(beta-alpha)/(1-kappa)); and (P)
+  with e(X) = o(X) alone (even kappa < 2^(1-alpha)) gives B(X) = o(X). (d) For every fixed supported d > 1 the
+  analogue of (P) is false for the actual nonabsorbing set B_d, because the odd multiples of d give
+  limsup F_d(X)/X >= w_min/(2d) > 0 while S.1 gives e_d = o(X). Premise (P) itself is unproved for d = 1.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [fixed-factor-stopping-explicit-constants, arbitrary-target-linear-transport-barrier, baseline-obligation-transfer-controls]
+tags: [convergence, phase6, stopping-time, transport, nonabsorbing-set, conditional, negative-control]
+---
 
-**Status: open candidate; no new research batch or proved transport estimate
-is claimed.** Prepared during P6-003 verification and retained for the
-next fresh side-lane review. This is not an additional accepted result.
-The elementary conditional bootstrap and the negative control below are
-derivations; the proposed inequality for ordinary Collatz remains unproved.
+# What a half-descent transport inequality for the actual nonabsorbing set would give, and why it fails for 3x+d
 
-## 1. The distinction from arbitrary targets
+## Statement
+
+After [`arbitrary-target-linear-transport-barrier`](arbitrary-target-linear-transport-barrier/README.md) and [`growth-norm-transport-barrier`](growth-norm-transport-barrier/README.md) closed two arbitrary-target methods, the natural next premise is one restricted to the actual nonabsorbing set `B`, which is fully invariant (`1_B(n) = 1_B(S(n))`), unlike the constructed targets of those barriers. This node records the exact interface, the explicit input S.1 supplies, the conditional consequences of a transport inequality (P) for `B`, and the negative control proving that (P)'s `3x+d` analogue is false. The open premise itself is [`bad-set-half-descent-transport`](../questions/bad-set-half-descent-transport.md). Notation and the precise statements (a)–(d) are in the claim and in §§1–4 below; (S1b) is (b), the bootstrap (1)–(2) and the limsup argument (3) are (c), and §4 is (d).
+
+The legacy note was "next-attempt design only": it earned no Phase 6 batch label and claims no transport estimate. Its derivations are complete and are recorded here as such.
+
+## Proof
+
+### 1. The distinction from arbitrary targets
 
 Use ordinary odd-only Syracuse, absorbed at 1. All X below are integer cutoffs. Let B be the positive odd
 integers that never reach 1. For n>1 let L(n) be the first odd iterate at
@@ -39,7 +64,7 @@ w_min B(X)<=F(X)<=w_max B(X), so a finite weighted power norm has the same
 growth exponent as an ordinary count. Merely choosing weights cannot
 justify finiteness of either global norm.
 
-## 2. A concrete transport premise
+### 2. A concrete transport premise
 
 For example, fix alpha=99/100. Seek explicitly specified M, positive
 rational weights, an integer X0>=2 and a rational 0<=kappa<1 such that
@@ -55,7 +80,7 @@ does not hide the desired finite global norm in its hypotheses. The
 whole first-half map, including arbitrary input-dependent odd clocks,
 must be covered. A finite word catalogue alone does not establish (P).
 
-### Conditional power bootstrap with an explicit constant
+#### Conditional power bootstrap with an explicit constant
 
 Suppose additionally that, for constants D>=0 and 0<=beta<alpha,
 
@@ -96,7 +121,7 @@ C0<=(w_max/2)(X0-1)^(1-alpha): there are at most Y/2 odd bad seeds through
 Y, since 1 is excluded. Supplied verification of the initial interval can
 sharpen this finite unconditional bound.
 
-### Explicit input from existing S.1, not a new calibration result
+#### Explicit input from existing S.1, not a new calibration result
 
 Put beta=39/40 and r=16807/18432. Exact integer checks give
 
@@ -151,7 +176,7 @@ convenient explicit consequence of existing S.1; it supplies none of
 (P). The missing new step remains the proposed transport inequality,
 including its all-cutoff quantifier and actual B-invariance.
 
-### A density consequence using only the existing S.1 input
+#### A density consequence using only the existing S.1 input
 
 In fact (P), together with e(X)=o(X), already implies F(X)=o(X).
 This avoids requiring (E) for a density-only conclusion.
@@ -185,7 +210,7 @@ weights preserve this conclusion. This density argument would even work
 for kappa<2^(1-alpha); the sharper range in (P) gives the simple constant
 (1) for the power bootstrap.
 
-## 3. Why a finite residue vector is not automatically closed
+### 3. Why a finite residue vector is not automatically closed
 
 Let B_u^(j)(X) count odd bad n<=X with n=u mod3^j. For d=1, exact inverse
 arithmetic gives
@@ -220,7 +245,7 @@ growth, not an upper bound on B. A positive vector or spectral-radius
 calculation must be tied to the correct inequality direction. See
 [their primary paper, Sections 2–6](https://arxiv.org/html/math/0205002v1).
 
-## 4. A negative control that tests the premise without assuming finite norm
+### 4. A negative control that tests the premise without assuming finite norm
 
 For each fixed supported d>1, let B_d be the actual nonabsorbing odd set
 for S_d absorbed only at 1. Every positive odd multiple of d belongs to
@@ -249,7 +274,7 @@ alpha-norm cannot be refuted merely by pointing to the multiples-of-d
 set: that set has infinite alpha-norm for alpha<1 and would violate the
 premise. The truncated form (P) avoids this loophole.
 
-## 5. What would this give toward convergence?
+### 5. What would this give toward convergence?
 
 The established Krasikov–Lagarias predecessor bound has exponent0.84.
 An upper bound with exponent99/100 alone does not contradict it. If a
@@ -288,11 +313,12 @@ a Collatz-equivalent criterion: convergence makes B empty, while (P)
 would force convergence. It must not be described as an easier theorem
 merely because it has been written as a weighted inequality.
 
-## Recommendation
+## Remarks
 
-Keep (P) as a precise open next attempt. Before searching for weights,
-write a sound finite inequality system that incorporates actual
-invariance, ternary-lift constraints, and the complete first-half map.
-Test the same claimed reasoning on B_d, where Section4 proves it must
-fail. Do not publish an additional weighted arbitrary-target barrier as
-if it settled this B-specific premise. No such settlement is supplied.
+- **Recommendation of the legacy note.** Keep (P) as a precise open next attempt. Before searching for weights, write a sound finite inequality system that incorporates actual invariance, ternary-lift constraints and the complete first-half map. Test the same claimed reasoning on `B_d`, where §4 proves it must fail. Do not publish an additional weighted arbitrary-target barrier as if it settled this `B`-specific premise.
+- **Not easier than Collatz.** With the audited linear lower bound of [`nonabsorbing-set-linear-lower-density`](nonabsorbing-set-linear-lower-density/README.md) (which postdates this note; §5 still calls the Mazur claim an external candidate under audit), either the power bound (2) for any `alpha < 1` or the density conclusion after (3) would rule out a nonempty `B`, so (P) would be a Collatz-equivalent criterion: convergence makes `B` empty, and (P) would force convergence. Writing it as a weighted inequality does not make it easier.
+- The first attempt on the upper side, [`c2a-two-level-residue-relaxation`](../attempts/c2a-two-level-residue-relaxation.md), shows that the leading-coefficient relaxation of the exact residue system (§3's identity (4)) admits a positive-density profile, so it cannot prove (P).
+
+## History
+
+Migrated from `experiments/phase6/NEXT_ATTEMPT.md` at commit `be73a66`. ChatGPT main lane, 2026-10-18, prepared during the P6-003 verification and retained for the next side-lane review; no batch label. The two exact integer comparisons in (S1a) were checked exactly when it was written.

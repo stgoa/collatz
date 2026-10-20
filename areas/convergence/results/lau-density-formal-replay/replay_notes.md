@@ -4,7 +4,7 @@ Status: **execution completed**. Source compilation, statement/axiom checks, and
 replay into the same Lean kernel passed. See [formal_replay.json](formal_replay.json).
 The numbered sections retain the chronological configuration review and execution
 requirements; their historical pending language is superseded by that receipt.
-See [lau_scope.md](lau_scope.md) for the mathematical statement and source pin.
+See [lau_scope.md, now this node's README](README.md) for the mathematical statement and source pin.
 
 ## Pins reviewed
 

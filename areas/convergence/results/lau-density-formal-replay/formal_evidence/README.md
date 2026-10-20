@@ -6,7 +6,7 @@ and hashes are in [formal_replay.json](../formal_replay.json). This is independe
 of the author pipeline, but uses the same kernel implementation. It is not a
 second-kernel verification or an independent rebuild of every Mathlib dependency.
 
-The pinned source and dependencies are described in [lau_scope.md](../lau_scope.md)
+The pinned source and dependencies are described in [lau_scope.md](../README.md)
 and [replay_notes.md](../replay_notes.md). `source_snapshot.json` compares all753
 original archive files. `static_source_audit.json` is a lexical/import scan;
 `statements_status.json` and `statements.log` contain actual eight axiom reports

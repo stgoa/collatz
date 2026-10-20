@@ -2,7 +2,7 @@
 
 **Status:** written statement-alignment audit and transfer proof, using
 the imported mixing theorem and the arithmetic derivations in
-[audit_notes.md](audit_notes.md) and [terminal_audit.md](terminal_audit.md).
+[audit_notes.md](audit_notes.md) and [terminal_audit.md](README.md) (this node's README).
 This is not an independent proof of Tao's theorem or a formal replay.
 The transferred statement concerns positive predecessor density, not
 universal absorption. No novelty claim is made.

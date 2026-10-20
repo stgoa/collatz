@@ -24,9 +24,9 @@ Parts referenced:
 
 ## What we use
 
-- **P6-004 (route node C.1a):** Proposition 1.14 is the explicit external input of the written conditional reconstruction of linear predecessor density (`audit_notes.md`, `terminal_audit.md`, `transfer_scope.md`), with Tao's unspecified constants. A qualitative transfer to each fixed `d` coprime to 6 is argued in `transfer_scope.md`; no verbatim `3x+d` version of the full theorem is imported.
+- **P6-004 (route node C.1a):** Proposition 1.14 is the explicit external input of the written conditional reconstruction of linear predecessor density ([predecessor-density-conditional-reconstruction](../areas/convergence/results/predecessor-density-conditional-reconstruction/README.md); legacy `audit_notes.md`, `terminal_audit.md`, `transfer_scope.md`), with Tao's unspecified constants. A qualitative transfer to each fixed `d` coprime to 6 is argued in `transfer_scope.md`; no verbatim `3x+d` version of the full theorem is imported.
 - **Explicit-Tao line** (`experiments/explicit_tao/`) and the earlier programme's analytic branch: the theorem is the calibration target and transport background; the analytic candidate needed the paired envelope around (7.5), Lemma 7.2 and Proposition 7.3, not just a marginal mixing statement.
-- Elsewhere (Phase 6 audit L2, residual-progress sufficient-sets audit) it is comparison only: it concerns orbit minima in logarithmic density, not arrival at 1 within a horizon, and does not discharge C.2.
+- Elsewhere (Phase 6 audit L2, [route-literature-transfer-audit](../areas/convergence/results/route-literature-transfer-audit.md); the attempt [matched-density-gap-combination](../areas/convergence/attempts/matched-density-gap-combination.md); residual-progress sufficient-sets audit) it is comparison only: it concerns orbit minima in logarithmic density, not arrival at 1 within a horizon, and does not discharge C.2.
 
 ## How it is checked
 

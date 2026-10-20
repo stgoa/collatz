@@ -1,21 +1,48 @@
-# S.2 — A barrier to arbitrary-target linear counting transport
+---
+id: arbitrary-target-linear-transport-barrier
+kind: result
+title: No finite constant bounds first-half transport into arbitrary target sets with a uniform o(X) error
+status: written
+claim: >
+  Fix positive odd d with gcd(d,6) = 1; S_d the odd-only map (3n+d)/2^v2(3n+d) absorbed at 1; for odd n > 1
+  let L_d(n) be its first odd iterate <= n/2 (any finite input-dependent time) and M_(d,X)(y) the number of odd
+  n, 1 < n <= X, with L_d(n) = y. For every fixed odd h >= max(3,d) and every finite kappa >= 0 there is no
+  function e(X) = o(X) such that sum_(y in A) M_(d,X)(y) <= kappa |A| + e(X) for all large X and every target
+  set A in {odd y : h <= y <= X/2}; explicit one-arrow sources n = (2^a y - d)/3, a = 3..J, give excess
+  (J - 2 - 3 kappa) t at X = 2^(J+1) t. For d = 1 only: no bound kappa |A| + o(X^alpha) holds uniformly for
+  arbitrary targets with |A| <= 3X^alpha, nor for subsets of the fixed set {6 ceil(j^(q/p)) + 1}, alpha = p/q,
+  whose counts are at most Y^alpha at every cutoff Y. With e = 0, the single target 5 (d = 1) and the
+  nonabsorbing target 19 (d = 5) have unboundedly many one-arrow first-half preimages. A scoped barrier for this
+  named method only: bounds in a global growth norm, weighted or B-specific estimates are not addressed.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [baseline-obligation-transfer-controls]
+certificates: [check_transport.py, p6_002_transport_check.py]
+evidence:
+  - "transport_audit.json: the receipt of check_transport.py: 150 general cases / 2,640 arrows, 12 exact linear gaps, 9 sparse cases, 227 hereditary counts / 864 arrows, two finite basin classifications and 11 rejection checks; exploratory first-passage searches distinguish complete cycles from an exhausted cap, which counts as unresolved"
+  - "verification.json: the main lane's P6-002 gate record (full python3 scripts/verify_all.py --cpp --transfer-controls, exit 0, 117 report fields, checked source hashes); its three 'independent model reviews' were the main lane's own agents, not independent"
+  - "p6_002_transport_check.py, p6_002_transport_check.json: the side lane's independent probe (under reviewed_by); it imports nothing from the main lane and passes at its new path"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: p6_002_transport_check.py
+    scope: "Side-lane feed 2026-10-18 16:32, CONFIRMED label barrier at main de32608: 'The proof is correct and elementary.' The probe (nothing imported from main) checks the construction in 1,122 cases (d in {1, 5, 7, 13, 61}, J = 3..8, t <= 40: every n(a, y) odd and below X_t with v2(3n + d) = a, S_d(n) = y and 2y < n, all sources distinct, the exact counts N_t and |A_t|), brute force at 78 cutoffs (the full transported mass into A_t, computed by iterating every odd n <= X_t with cycles detected for d = 5 and 61, is at least N_t), the sparse count formula (15) for alpha in {1/2, 1/3, 2/3, 3/4} and every Y <= 3*10^4 with one-arrow preimages, and both singleton controls. Observation: a target y has about log2(X/y)/2 one-arrow first-half preimages up to X, so the natural transport weight is logarithmic; weighted and B-specific transport stay open. Recorded with its proof verdict; the status stays written under this migration's rule for main-lane work"
+aliases: [P6-002]
+tags: [convergence, phase6, stopping-time, transport, barrier, 3x-plus-d]
+---
 
-**Batch P6-002. Proposed label: barrier. Status: written proof, with exact
-finite checks.** The named method is to iterate first-half descent using a
-constant linear bound on the number of sources transported into **every**
-target subset, with an error that is uniform over those subsets and is
-`o(X)`. The theorem below refutes that bound for every finite constant,
-already using one ordinary odd arrow. It does not refute a bound restricted
-to the actual nonabsorbing set, weighted counting, or estimates that depend
-on the target's scale or arithmetic structure.
+# No finite constant bounds first-half transport into arbitrary target sets with a uniform o(X) error
 
-This result attaches to [S.2](../ROUTE_MAP.md). The batch read the
-side lane at `ade50f97bf187003f25fbc4d9e5430b53d2f2527`. A search of the
-frozen research proofs and results index found no earlier first-half
-transport statement with these quantifiers. Earlier fixed-depth barriers
-address different methods. This is not a novelty claim.
+## Statement
 
-## 1. Definitions and the exact exceptional-set recurrence
+The named method is to iterate first-half descent with a constant linear bound on the number of sources transported into **every** target subset, with an error uniform over those subsets and `o(X)`. The theorem in §2 below refutes that bound for every finite constant, already with one ordinary odd arrow; the sparse refinements of §2 (at `d = 1`) and the zero-error singleton controls of §3 sharpen it. It does not refute a bound restricted to the actual nonabsorbing set, weighted counting, or estimates that depend on the target's scale or arithmetic structure.
+
+This is a Phase 6 **barrier** for route node S.2, [`universal-w5-quotient-stopping`](../../questions/universal-w5-quotient-stopping.md). The legacy note records that a search of the frozen research proofs and results index found no earlier first-half transport statement with these quantifiers; earlier fixed-depth barriers address different methods. This is not a novelty claim.
+
+## Proof
+
+### 1. Definitions and the exact exceptional-set recurrence
 
 In this section use ordinary `d=1` Syracuse, absorbed at 1. All times count
 odd-only arrows. For each positive odd `n>1`, put
@@ -67,7 +94,7 @@ A density estimate for E alone does not bound its inverse closure. The
 remaining sections test one specific proposal for controlling that closure.
 They do not assume that B or E is nonempty for d=1.
 
-## 2. The proposed transport inequality
+### 2. The proposed transport inequality
 
 For transfer, fix any positive odd d with `gcd(d,6)=1`, and let `S_d` be
 the odd map `(3n+d)/2^v2(3n+d)`, absorbed at 1. Define `L_d` on odd `n>1`
@@ -91,7 +118,7 @@ kappa. In particular it fails for d=1 even with target 1 excluded. No
 assumption about unbounded trajectories, convergence or the supply of
 missing currents is used.
 
-### Exact construction
+#### Exact construction
 
 Fix an integer `J>=3`. For an integer `t>=ceil(h/6)`, set
 
@@ -132,7 +159,7 @@ Distinct pairs `(a,y)` give distinct n: (7) recovers a as the exact
 valuation and y as the odd part. Hence all of these sources can be added
 with their full multiplicities; they are not repeated counts of one seed.
 
-### Exact counts, without an unspecified remainder
+#### Exact counts, without an unspecified remainder
 
 Let `r_a in {1,5}` be the odd residue modulo 6 whose residue modulo 3 is
 `d*(-1)^a`. Put
@@ -191,7 +218,7 @@ N_t-m|A_t| = t+m-floor(J/2)+1.                         (12)
 This grows linearly with t. A finite constant multiplying arbitrary-set
 cardinality cannot absorb the many available inverse valuation classes.
 
-### Sparse targets at the parent cutoff
+#### Sparse targets at the parent cutoff
 
 The same exact construction gives a further scoped consequence. Fix a
 rational `alpha=p/q` with integers `0<p<q`. For every sufficiently large
@@ -225,7 +252,7 @@ growth-norm estimates. Here J grows with j;
 this sparse construction is distinct from the preceding fixed-J proof
 against a uniform `o(X)` error.
 
-### A fixed target set with hereditary sparsity
+#### A fixed target set with hereditary sparsity
 
 Still at d=1, fix the same rational `alpha=p/q in (0,1)` and define the
 infinite set
@@ -279,7 +306,7 @@ smaller quantity `|A_X|`. In (17), increasing J also decreases the
 coefficient of `X^alpha` in `|A_X|`. Nor does it refute an estimate that
 uses additional structure of the actual nonabsorbing set B.
 
-## 3. Fixed singleton controls for the zero-error version
+### 3. Fixed singleton controls for the zero-error version
 
 There are also simpler obstructions to (3) with `e=0`. For ordinary
 Collatz, for every integer `j>=1` put
@@ -313,7 +340,14 @@ This control does not assume a nonabsorbing target exists at d=1. These
 two families test the asserted arrows and actual integer multiplicities;
 they are not a generalized canonical-rank argument.
 
-## 4. What is excluded, and what remains open
+## Certificates
+
+- [`check_transport.py`](check_transport.py) (under a second): `python3 areas/convergence/results/arbitrary-target-linear-transport-barrier/check_transport.py` verifies actual one-arrow paths, exact valuation bits, all source multiplicities, the floor counts, the `d = 1` specialisation, the singleton controls and bounded instances of (1)–(2), and compares with [`transport_audit.json`](transport_audit.json). Exploratory first-passage searches distinguish complete cycles from an exhausted cap; a cap is unresolved and fails any expected certificate. No finite scan proves a universal search terminates; the proof of the obstruction is the explicit construction and count above.
+- [`p6_002_transport_check.py`](p6_002_transport_check.py) (about 7 s) is the side lane's independent probe, with receipt [`p6_002_transport_check.json`](p6_002_transport_check.json).
+
+## Remarks
+
+**What is excluded, and what remains open.**
 
 The exact d=1 recurrence (2) motivates trying to combine a bound on E(X)
 with an estimate that transports every small target set at uniformly
@@ -355,19 +389,8 @@ arbitrary-target estimate refuted here. This note supplies an elementary
 explicit obstruction for (3); it neither re-proves Tao's result nor claims
 to close S.2.
 
-## 5. Verification and persistence
+The next method tested at S.2 was a global power-growth norm: [`growth-norm-transport-barrier`](../growth-norm-transport-barrier/README.md). A premise restricted to the actual nonabsorbing set is the open [`bad-set-half-descent-transport`](../../questions/bad-set-half-descent-transport.md).
 
-Run the focused exact replay:
+## History
 
-```
-python3 -B experiments/phase6/stopping_transport/check_transport.py
-```
-
-The [checker](check_transport.py) verifies actual one-arrow paths, exact
-valuation bits, all source multiplicities, the floor counts, the d=1
-specialization, the singleton controls and bounded instances of (1)–(2).
-Its [receipt](transport_audit.json) records finite ranges and outcomes.
-Exploratory first-passage searches distinguish complete cycles from an
-exhausted cap; a cap is unresolved and fails any expected certificate.
-No finite scan proves a universal search terminates. The proof of the
-transport obstruction is the explicit construction and count above.
+Migrated from `experiments/phase6/stopping_transport/STOPPING_TRANSPORT.md` (legacy batch `P6-002`, route node S.2), with `check_transport.py`, `transport_audit.json`, `verification.json` and the side-lane probe `reviews/side_lane/p6_002_transport_check.py` with its receipt, at commit `be73a66`. ChatGPT main lane, 2026-10-18, pushed as `de32608`; the batch read the side lane at `ade50f97bf187003f25fbc4d9e5430b53d2f2527`. Programme label **barrier**, confirmed by the side lane at `602386ca` (feed 16:32). A final scope correction during the main lane's own review confined the sparse refinements to `d = 1`; only the main `o(X)` obstruction is asserted for every supported fixed `d`. The batch's secondary attempt (a congruence-closure separation, already covered by the frozen Monks sufficient-sets audit, now [`five-ray-profile-completion-suffices`](../five-ray-profile-completion-suffices/README.md)) was graded **none/redundant**; see [`universal-w5-quotient-stopping`](../../questions/universal-w5-quotient-stopping.md).

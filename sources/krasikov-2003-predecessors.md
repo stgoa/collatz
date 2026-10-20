@@ -22,7 +22,7 @@ Krasikov and Lagarias, *Bounds for the 3x+1 problem using difference inequalitie
 
 ## What we use
 
-The fixed-target bound `π_a(X) ≥ X^0.84` for `a` coprime to 3, for `d = 1` only (transfer to `3x+d` unchecked). Legacy use: Phase 6 route node C.1 (audit L3: an eventual upper bound `C·X^(0.84−ε)` on unabsorbed counts would contradict it), and the earlier programme's "external amplification input" (master handoff). In the residual-progress sufficient-sets audit it is a comparison: the theorem is asymptotic and target-dependent and certifies no finite exit. It is no longer the strongest audited lower premise; see [lau-2026-positive-density](lau-2026-positive-density.md).
+The fixed-target bound `π_a(X) ≥ X^0.84` for `a` coprime to 3, for `d = 1` only (transfer to `3x+d` unchecked). Legacy use: Phase 6 route node C.1 ([predecessor-exponent-certificate-replay](../areas/convergence/questions/predecessor-exponent-certificate-replay.md); audit L3 of [route-literature-transfer-audit](../areas/convergence/results/route-literature-transfer-audit.md), and part (ii) of [nonabsorbing-set-linear-lower-density](../areas/convergence/results/nonabsorbing-set-linear-lower-density/README.md): an eventual upper bound `C·X^(0.84−ε)` on unabsorbed counts would contradict it), and the earlier programme's "external amplification input" (master handoff). In the residual-progress sufficient-sets audit it is a comparison: the theorem is asymptotic and target-dependent and certifies no finite exit. It is no longer the strongest audited lower premise; see [lau-2026-positive-density](lau-2026-positive-density.md).
 
 ## How it is checked
 

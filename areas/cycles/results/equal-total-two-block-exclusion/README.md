@@ -24,7 +24,7 @@ lean:
 certificates: [c002_two_block_check.py]
 evidence:
   - "PROPORTIONAL.md: the written proof (section 1 identities, section 2 'Uniform equal-total corollary'); it also holds the proofs used by proportional-slope-two-block-bound and rotating-mechanical-two-block-family"
-  - "check_two_blocks.py, two_blocks_audit.json: main-lane finite checker and receipt. Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json' and the fixtures from experiments/phase6/. Passed at be73a66 as experiments/cycle_spectrum/C002/check_two_blocks.py (archive/legacy-checker-run-be73a66.md)"
+  - "check_two_blocks.py, two_blocks_audit.json: main-lane finite checker and receipt. Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json' and the fixtures from experiments/phase6/ (cycle_fixtures.json, now in ../../../convergence/results/baseline-obligation-transfer-controls/, byte-identical). Passed at be73a66 as experiments/cycle_spectrum/C002/check_two_blocks.py (archive/legacy-checker-run-be73a66.md)"
   - "c002_two_block_check.json: receipt of the side-lane check (rewritten identically on each run)"
   - "INDEPENDENT_REVIEW.md, ROOT_REVIEW.md: main-lane reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed"
   - "delivery_checks.json, full_gate.json: historical delivery receipt and historical finite gate"

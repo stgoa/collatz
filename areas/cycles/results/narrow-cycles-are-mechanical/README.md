@@ -25,7 +25,7 @@ lean:
 certificates: [c004c_bridge_check.py]
 evidence:
   - "ROTATION_LATTICE.md: the written proofs (sections 1-4); it also holds the proofs of rotation-lattice-single-divisibility and narrow-cycle-spectrum-law"
-  - "check_rotations.py, rotation_audit.json: main-lane finite checker and receipt. Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json' and the fixtures from experiments/phase6/. Passed at be73a66 as experiments/cycle_spectrum/C004/check_rotations.py (archive/legacy-checker-run-be73a66.md)"
+  - "check_rotations.py, rotation_audit.json: main-lane finite checker and receipt. Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json' and the fixtures from experiments/phase6/ (cycle_fixtures.json, now in ../../../convergence/results/baseline-obligation-transfer-controls/, byte-identical). Passed at be73a66 as experiments/cycle_spectrum/C004/check_rotations.py (archive/legacy-checker-run-be73a66.md)"
   - "c004_narrow_check.py, c004_narrow_check.json: side-lane independent check (REFEREE C004). Needs the corpus path as argument, so it fails bare (passed with its argument; exit 1 bare at be73a66 as reviews/side_lane/c004_narrow_check.py, archive/legacy-checker-run-be73a66.md). Run as python3 <this folder>/c004_narrow_check.py areas/cycles/results/actual-cycles-3x-d-corpus/actual_cycles.json it exits 0 and reproduces its receipt byte for byte (checked at migration)"
   - "c004c_bridge_check.json: receipt of the side-lane bridge check (written only when an output path is given)"
   - "INDEPENDENT_REVIEW.md, ROOT_REVIEW.md: main-lane reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed"

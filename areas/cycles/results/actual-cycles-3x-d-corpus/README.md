@@ -16,7 +16,7 @@ authors:
 created: 2026-10-19
 evidence:
   - "actual_cycles.json: the corpus (4.4 MB; kept because later results pin its SHA-256 28d067d3f82585a3701616adce3b57cae994541c4ddd3b4859d2bcf2307e44f2 and load it by path)"
-  - "scan_cycles.py: scanner and replayer; default mode replays every saved certificate, --scan reruns discovery. It fails at its new path: it loads experiments/phase6/cycle_fixtures.json relative to its old location (ROOT = HERE.parents[2]). Passed at be73a66 as experiments/cycle_spectrum/C001/scan_cycles.py (it does not appear in the be73a66 reference table archive/legacy-checker-run-be73a66.md; the legacy C001 delivery receipt records its replay and a fresh discovery as PASS)"
+  - "scan_cycles.py: scanner and replayer; default mode replays every saved certificate, --scan reruns discovery. It fails at its new path: it loads experiments/phase6/cycle_fixtures.json (now in ../../../convergence/results/baseline-obligation-transfer-controls/, byte-identical) relative to its old location (ROOT = HERE.parents[2]). Passed at be73a66 as experiments/cycle_spectrum/C001/scan_cycles.py (it does not appear in the be73a66 reference table archive/legacy-checker-run-be73a66.md; the legacy C001 delivery receipt records its replay and a fresh discovery as PASS)"
   - "../repeated-block-cancellation-bound/c001_spectrum_check.py, part 5: side-lane independent raw scan compared with this file"
   - "../repeated-block-cancellation-bound/delivery_checks.json: legacy delivery record (actual_cycle_replay and fresh_discovery PASS)"
 reviewed_by:
@@ -44,7 +44,7 @@ The scanner [`scan_cycles.py`](scan_cycles.py) follows raw positive odd `3x+d` o
 | Repeated-prefix decompositions tested | 2,371 |
 | Capped or unprocessed seeds in this run | 0 |
 
-Every cycle has its complete integer states, exact valuations, numerator, denominator, scaling, discovery seed and replay certificate. All eleven historical fixtures (legacy `experiments/phase6/cycle_fixtures.json`) were independently rediscovered. **The finite discovery is not a complete census of cycles even for these fixed `d`:** a scan bounded by seed size misses cycles whose minimum exceeds the seed range. For example, the `3x+29` cycle with minimum 7055 is absent here and was found later ([`ordered-cycle-height-census`](../ordered-cycle-height-census.md)).
+Every cycle has its complete integer states, exact valuations, numerator, denominator, scaling, discovery seed and replay certificate. All eleven historical fixtures (legacy `experiments/phase6/cycle_fixtures.json`, now the fixture of [`baseline-obligation-transfer-controls`](../../../convergence/results/baseline-obligation-transfer-controls/README.md)) were independently rediscovered. **The finite discovery is not a complete census of cycles even for these fixed `d`:** a scan bounded by seed size misses cycles whose minimum exceeds the seed range. For example, the `3x+29` cycle with minimum 7055 is absent here and was found later ([`ordered-cycle-height-census`](../ordered-cycle-height-census.md)).
 
 Some controls, including the principal fixed point at `d` itself:
 

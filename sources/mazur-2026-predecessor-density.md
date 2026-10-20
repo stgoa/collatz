@@ -22,7 +22,7 @@ Lech Mazur, [*Positive Lower Density of Collatz Predecessors*, v1.0](https://www
 
 The claim: every fixed target `a > 0` with `3 ∤ a` has a set of distinct predecessors of positive lower natural density, without assuming that `a` reaches 1.
 
-Legacy use: Phase 6 batch P6-004 (route node C.1a) **audited** this chain: `audit_notes.md` and `terminal_audit.md` independently re-derive the weighted-history residue histogram and the terminal counting chain, conditional on Tao's mixing estimate ([tao-2019-almost-all](tao-2019-almost-all.md), corrected v7). The written reconstruction does not check Mazur's entire explicit-constant recipe. The formal input actually accepted by P6-004 is the separate [lau-2026-positive-density](lau-2026-positive-density.md); the Mazur manuscript is not itself a premise of any result.
+Legacy use: Phase 6 batch P6-004 (route node C.1a) **audited** this chain: `audit_notes.md` and `terminal_audit.md` (now [predecessor-density-conditional-reconstruction](../areas/convergence/results/predecessor-density-conditional-reconstruction/README.md)) independently re-derive the weighted-history residue histogram and the terminal counting chain, conditional on Tao's mixing estimate ([tao-2019-almost-all](tao-2019-almost-all.md), corrected v7). The written reconstruction does not check Mazur's entire explicit-constant recipe. The formal input actually accepted by P6-004 is the separate [lau-2026-positive-density](lau-2026-positive-density.md); the Mazur manuscript is not itself a premise of any result.
 
 ## How it is checked
 

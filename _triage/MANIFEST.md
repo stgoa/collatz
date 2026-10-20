@@ -305,24 +305,24 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B11-residual-R40-R60 | `experiments/residual_progress/w9_closure` | 6 | node critical-nine-elimination; its open premise became question universal-w5-tripling-currents |
 | B13-residual-R78-R94 | `experiments/residual_progress/w9_history_repair` | 4 | node failed-w9-leader-reduction |
 | B09-residual-R11-R24 | `experiments/residual_progress/window_components` | 3 | node bounded-source-cluster-local-bound |
-| B14-convergence-phase6 | `experiments/phase6/LEDGER.md` | 1 | pending |
-| B14-convergence-phase6 | `experiments/phase6/LITERATURE.md` | 1 | pending |
-| B14-convergence-phase6 | `experiments/phase6/NEXT_ATTEMPT.md` | 1 | pending |
-| B14-convergence-phase6 | `experiments/phase6/README.md` | 1 | pending |
-| B14-convergence-phase6 | `experiments/phase6/REPORT.md` | 1 | pending |
-| B14-convergence-phase6 | `experiments/phase6/ROUTE_MAP.md` | 1 | pending |
-| B14-convergence-phase6 | `experiments/phase6/cycle_fixtures.json` | 1 | pending |
-| B14-convergence-phase6 | `experiments/phase6/growth_norm_transport` | 7 | pending |
-| B14-convergence-phase6 | `experiments/phase6/linear_density_audit` | 43 | pending |
-| B14-convergence-phase6 | `experiments/phase6/setup_verification.json` | 1 | pending |
-| B14-convergence-phase6 | `experiments/phase6/side_lane_review_e4f8231.json` | 1 | pending |
-| B14-convergence-phase6 | `experiments/phase6/stopping_calibration` | 5 | pending |
-| B14-convergence-phase6 | `experiments/phase6/stopping_transport` | 4 | pending |
-| B14-convergence-phase6 | `experiments/phase6/transfer_controls.py` | 1 | pending |
-| B14-convergence-phase6 | `experiments/phase6/transfer_controls_audit.json` | 1 | pending |
-| B14-convergence-phase6 | `reviews/side_lane/p6_001_stopping_check.*` | 2 | pending |
-| B14-convergence-phase6 | `reviews/side_lane/p6_002_transport_check.*` | 2 | pending |
-| B14-convergence-phase6 | `reviews/side_lane/p6_003_growth_norm_check.*` | 2 | pending |
+| B14-convergence-phase6 | `experiments/phase6/LEDGER.md` | 1 | archive archive/convergence-phase6/LEDGER.md |
+| B14-convergence-phase6 | `experiments/phase6/LITERATURE.md` | 1 | node route-literature-transfer-audit |
+| B14-convergence-phase6 | `experiments/phase6/NEXT_ATTEMPT.md` | 1 | node bad-set-transport-bootstrap, bad-set-half-descent-transport |
+| B14-convergence-phase6 | `experiments/phase6/README.md` | 1 | node baseline-obligation-transfer-controls |
+| B14-convergence-phase6 | `experiments/phase6/REPORT.md` | 1 | archive archive/convergence-phase6/REPORT.md |
+| B14-convergence-phase6 | `experiments/phase6/ROUTE_MAP.md` | 1 | archive archive/convergence-phase6/ROUTE_MAP.md; its open nodes became node universal-w5-quotient-stopping (S.2, R.2), predecessor-exponent-certificate-replay (C.1), unabsorbed-count-power-saving (C.2), nonabsorbed-fraction-arbitrarily-small (C.2a), canonical-rigidity-bounded-invariants (H.2), local-minima-cycle-exclusion-replay (Y.1), canonical-quotient-cycle-exclusion (Y.2); C.3 is part (ii) of nonabsorbing-set-linear-lower-density |
+| B14-convergence-phase6 | `experiments/phase6/cycle_fixtures.json` | 1 | node baseline-obligation-transfer-controls |
+| B14-convergence-phase6 | `experiments/phase6/growth_norm_transport` | 7 | node growth-norm-transport-barrier (README.md archived as archive/convergence-phase6/growth_norm_transport_README.md) |
+| B14-convergence-phase6 | `experiments/phase6/linear_density_audit` | 43 | node lau-density-formal-replay, predecessor-density-conditional-reconstruction, nonabsorbing-set-linear-lower-density, c2a-two-level-residue-relaxation, matched-density-gap-combination; StatementAudit.lean moved to lean/audit/phase6/ |
+| B14-convergence-phase6 | `experiments/phase6/setup_verification.json` | 1 | node baseline-obligation-transfer-controls |
+| B14-convergence-phase6 | `experiments/phase6/side_lane_review_e4f8231.json` | 1 | node growth-norm-transport-barrier |
+| B14-convergence-phase6 | `experiments/phase6/stopping_calibration` | 5 | node fixed-factor-stopping-explicit-constants |
+| B14-convergence-phase6 | `experiments/phase6/stopping_transport` | 4 | node arbitrary-target-linear-transport-barrier |
+| B14-convergence-phase6 | `experiments/phase6/transfer_controls.py` | 1 | node baseline-obligation-transfer-controls |
+| B14-convergence-phase6 | `experiments/phase6/transfer_controls_audit.json` | 1 | node baseline-obligation-transfer-controls |
+| B14-convergence-phase6 | `reviews/side_lane/p6_001_stopping_check.*` | 2 | node fixed-factor-stopping-explicit-constants |
+| B14-convergence-phase6 | `reviews/side_lane/p6_002_transport_check.*` | 2 | node arbitrary-target-linear-transport-barrier |
+| B14-convergence-phase6 | `reviews/side_lane/p6_003_growth_norm_check.*` | 2 | node growth-norm-transport-barrier |
 | B15-convergence-explicit-tao | `experiments/explicit_tao/LOG.md` | 1 | pending |
 | B15-convergence-explicit-tao | `experiments/explicit_tao/README.md` | 1 | pending |
 | B15-convergence-explicit-tao | `experiments/explicit_tao/STATE.md` | 1 | pending |

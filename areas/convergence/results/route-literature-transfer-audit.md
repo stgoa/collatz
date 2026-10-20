@@ -1,13 +1,38 @@
-# Phase 6 literature and transfer audit
+---
+id: route-literature-transfer-audit
+kind: result
+title: "Scope of the published benchmarks for the Phase 6 routes: what each theorem states, what it does not, and how it transfers to 3x+d"
+status: written
+claim: >
+  A scoped literature audit (read 2026-10-18) of the published results behind the Phase 6 routes, with their
+  quantifiers, clocks and corrections, and three short derivations. (L1) Korec 1994, Theorem 1, with c = 4/5
+  (log_4 3 < 4/5 since 3^5 < 4^4; n^(4/5) <= n/2 for n >= 32) directly implies that odd n with an odd-only iterate
+  <= n/2 have relative natural density one; Borovkov-Pfeifer Corollary 2 gives the exact fixed-k densities of
+  {n : C^k(n) < n/2}. (L1a, L2, L3, L4, L5) Lagarias's stopping-tail counts, Tao's almost-bounded theorem
+  (logarithmic density, orbit minima, corrected v7), Krasikov-Lagarias's X^0.84 predecessor bound, the
+  Simons-de Weger and Hercher local-minima cycle exclusions (with Hercher's 2026 corrigendum) and the
+  Berg-Meinardus analytic formulation do not supply, by citation, any of the open route nodes S.2, C.2, Y.2 or
+  H.2; each gap is stated. (Transfer) The parity-vector bijection transfers to each fixed odd d; almost-all
+  arrival at 1 does not (for d > 1 the odd multiples of d have positive density and never reach 1), so the
+  blanket claim that almost-all statements transfer to 3x+d is rejected. No published theorem is re-proved
+  here except the elementary Korec corollary, and no novelty is claimed.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [baseline-obligation-transfer-controls, quotient-prefix-plans-rho-decreasing]
+aliases: [P6-L1, P6-L1a, P6-L2, P6-L3, P6-L3a, P6-L4, P6-L5]
+tags: [convergence, phase6, literature, transfer, 3x-plus-d, stopping-time, density, predecessors]
+---
 
-**Status: setup reference, not a new mathematical result.** Read on 18 October
-2026 against side proposal commit
-`f244b7a5b77a51f8dd7e6bccf2c6d5f18932df88`. The route map is maintained under
-the user's authorization for autonomous research. References are primary papers, publisher records, or
-author-hosted copies. A cited published theorem has not thereby been
-independently re-proved or formally verified here. No novelty claim is made.
+# Scope of the published benchmarks for the Phase 6 routes: what each theorem states, what it does not, and how it transfers to 3x+d
 
-## L1 — Terras and Everett: stopping-time calibration
+## Statement
+
+Phase 6's literature audit was read on 18 October 2026 against side-lane proposal commit `f244b7a5b77a51f8dd7e6bccf2c6d5f18932df88`. References are primary papers, publisher records or author-hosted copies. A cited published theorem has not thereby been re-proved or formally verified here. Each section below states one published benchmark with its exact quantifiers and clock, the obligation it leaves for the route node it matches, and its transfer status to `3x+d`. The source nodes for the works the repository relies on are [`terras-1976-stopping-time`](../../../sources/terras-1976-stopping-time.md), [`everett-1977-stopping-time`](../../../sources/everett-1977-stopping-time.md), [`lagarias-1985-survey`](../../../sources/lagarias-1985-survey.md), [`tao-2019-almost-all`](../../../sources/tao-2019-almost-all.md), [`krasikov-2003-predecessors`](../../../sources/krasikov-2003-predecessors.md), [`mazur-2026-predecessor-density`](../../../sources/mazur-2026-predecessor-density.md), [`lau-2026-positive-density`](../../../sources/lau-2026-positive-density.md), [`simons-2005-m-cycles`](../../../sources/simons-2005-m-cycles.md), [`hercher-2023-cycle-length`](../../../sources/hercher-2023-cycle-length.md) and [`berg-1994-analytic-encoding`](../../../sources/berg-1994-analytic-encoding.md). Korec (1994), Borovkov–Pfeifer and Inselmann are cited in the text only; no node rests on them.
+
+## Proof
+
+### L1 — Terras and Everett: stopping-time calibration
 
 The classical benchmark is that the set of positive integers having an iterate
 strictly below their starting value has natural density one. Everett states
@@ -63,7 +88,7 @@ shortcut horizon. This is stronger than Korec's exponent range; neither
 statement is a count of starts failing to reach the fixed target1.
 P6-001's independently proved conservative calibration is unchanged.
 
-## L1a — Published power counts for strict stopping exceptions
+### L1a — Published power counts for strict stopping exceptions
 
 Lagarias's 1985 survey, [Theorem D](https://www.cecm.sfu.ca/organics/papers/lagarias/paper/html/theorem-D.html)
 and [Theorem F](https://www.cecm.sfu.ca/organics/papers/lagarias/paper/html/theorem-F.html),
@@ -81,7 +106,7 @@ closure follows by changing the set's name. P6-002 examines one specific
 endpoint transport premise; its failure is proved directly by exact
 one-arrow sources, independently of these published estimates.
 
-## L2 — Tao: almost bounded values, logarithmic density
+### L2 — Tao: almost bounded values, logarithmic density
 
 [Tao's paper](https://arxiv.org/html/1909.03562v3), Theorem 1.3, proves that
 for **every** function `f(n)` tending to positive infinity, the minimum of
@@ -120,7 +145,7 @@ statement remains the growing-threshold logarithmic-density theorem. New
 analytic imports must use the corrected version; P6-001/003 prove their
 finite-cylinder arguments directly and do not rely on that corrected lemma.
 
-## L3 — Krasikov–Lagarias: the predecessor lower bound
+### L3 — Krasikov–Lagarias: the predecessor lower bound
 
 In [Krasikov–Lagarias, Theorem 6.1](https://arxiv.org/pdf/math/0205002), define
 `pi_a(X)=#{1<=n<=X: C^j(n)=a for some j>=0}`, with the shortcut map `C`.
@@ -150,7 +175,7 @@ an eventual upper bound `C X^(0.84-epsilon)` for the unabsorbed count, with
 fixed `C<infinity`, `epsilon>0`, would contradict C.1. Neither an unweighted
 source-support count nor a signed annular mass is automatically this count.
 
-## L3a — Linear predecessor density: audited formal input
+### L3a — Linear predecessor density: audited formal input
 
 [Mazur's predecessor manuscript](https://www.proofatlas.ai/papers/positive-lower-density-collatz-predecessors/paper-v1.pdf)
 asserts positive lower natural density of distinct predecessors of every
@@ -176,7 +201,7 @@ independently inside the reviewed offline sandbox:4102 jobs completed.
 An independent namespace copy of all four challenge statements and their
 definitions compiled against the solution. All eight actual axiom reports
 contain exactly propext, Classical.choice and Quot.sound. The challenge's
-intentional placeholders were not imported. The [audit record](linear_density_audit/README.md)
+intentional placeholders were not imported. The [audit record](lau-density-formal-replay/README.md)
 separates this execution evidence from static inspection, cached dependency
 trust and the additional fresh-kernel replay. Source and dependency pins,
 logs, source checksums and statement output are retained.
@@ -203,7 +228,7 @@ open. Positive predecessor density is not a proof of Collatz, and the
 historical exponent0.84 should not be described as the strongest audited
 lower premise now available here.
 
-## L4 — Simons–de Weger and Hercher: cycle minima
+### L4 — Simons–de Weger and Hercher: cycle minima
 
 [Simons–de Weger (2005)](https://math.deweger.net/papers/%5B35%5DSidW-3n%2B1-ActaArith%5B2005%5D.pdf)
 exclude nontrivial cycles with `1<=m<=68`, where `m` counts local minima
@@ -226,7 +251,7 @@ local minima, and exceptional base states before these bounds can be used.
 Y.2 must state a precise new class or bound. Excluding cycles leaves the
 possibility of unbounded nonperiodic orbits unresolved.
 
-## L5 — Berg–Meinardus, analytic encoding, and the repository quotient
+### L5 — Berg–Meinardus, analytic encoding, and the repository quotient
 
 [Berg–Meinardus (1994)](https://link.springer.com/article/10.1007/BF03323136)
 give equivalent analytic formulations of Collatz using orbit generating
@@ -253,9 +278,9 @@ multiple components supply nonconstant invariant indicators. A `d`-dependent
 quotient must be defined and validated before asserting literal transfer of
 the repository's `nu` and `T`.
 
-## R.1 and R.2 — local sufficient tests versus global equivalence
+### R.1 and R.2 — local sufficient tests versus global equivalence
 
-The reviewed repository [stopping-threshold argument](../residual_progress/side_lane_review_33c3829.md)
+The reviewed repository [stopping-threshold argument](quotient-prefix-plans-rho-decreasing/README.md)
 already proves that universal finite hitting of `9x+5<8q`, with
 `q=nu(3w)`, `w=5 mod8`, supplies strict-`rho` induction. Conversely,
 Collatz sends every such quotient orbit to 1, which passes that threshold.
@@ -267,7 +292,7 @@ this exact quotient threshold or the exact `u` versus `18u+5` merger
 reformulation was verified in this audit; L1 and L5 are method-level
 comparisons, not evidence of novelty.
 
-## Decision on blanket transfer claims
+### Decision on blanket transfer claims
 
 The wording “all almost-all statements transfer to `3x+d`” is rejected.
 Every transfer label needs a specified assertion, density, domain, clock,
@@ -281,3 +306,13 @@ statement neither proves transfer nor establishes Phase 6 outcome (a).
 These source checks establish the literature matches and scope of proposed
 obligations. They do not earn a calibration label until the published
 result has been re-derived with the constants required by the selected node.
+
+## Remarks
+
+- Each L-section feeds a node: L1 the calibration [`fixed-factor-stopping-explicit-constants`](fixed-factor-stopping-explicit-constants/README.md) (S.1); L1a and L2 the barriers [`arbitrary-target-linear-transport-barrier`](arbitrary-target-linear-transport-barrier/README.md) and [`growth-norm-transport-barrier`](growth-norm-transport-barrier/README.md) and the open [`universal-w5-quotient-stopping`](../questions/universal-w5-quotient-stopping.md) (S.2); L3 the questions [`predecessor-exponent-certificate-replay`](../questions/predecessor-exponent-certificate-replay.md) (C.1) and [`unabsorbed-count-power-saving`](../questions/unabsorbed-count-power-saving.md) (C.2) and the interface [`nonabsorbing-set-linear-lower-density`](nonabsorbing-set-linear-lower-density/README.md) (C.3); L3a the audit [`lau-density-formal-replay`](lau-density-formal-replay/README.md) and the reconstruction [`predecessor-density-conditional-reconstruction`](predecessor-density-conditional-reconstruction/README.md) (C.1a); L4 the cycle questions [`local-minima-cycle-exclusion-replay`](../../cycles/questions/local-minima-cycle-exclusion-replay.md) (Y.1) and [`canonical-quotient-cycle-exclusion`](../../cycles/questions/canonical-quotient-cycle-exclusion.md) (Y.2); L5 the question [`canonical-rigidity-bounded-invariants`](../questions/canonical-rigidity-bounded-invariants.md) (H.2).
+- The L3a section was added during P6-003 and completed after P6-004; it records the formal replay, not an article-level match. The provenance of both 2026 sources (AI-generated mathematics on Hexagon and ProofAtlas) is recorded in their source nodes.
+- The side lane did not check Y.1's reference to Hercher's 2026 corrigendum (feed 15:38).
+
+## History
+
+Migrated from `experiments/phase6/LITERATURE.md` (Phase 6 audits L1–L5, with L1a and L3a) at commit `be73a66`. ChatGPT main lane, 2026-10-18 (graded with the P6-000 setup; L3a added in P6-003/P6-004).

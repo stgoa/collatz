@@ -1,18 +1,36 @@
-# Preparatory upper attempt: matching two density estimates
+---
+id: matched-density-gap-combination
+kind: attempt
+title: Combining the fixed-target predecessor density with Tao's almost-bounded theorem to exclude a nonabsorbing component
+status: written
+claim: >
+  Tried (Phase 6, prepared during P6-004 verification, toward C.2a), for the odd-only 3x+1 map absorbed at 1: show
+  that the fixed-target positive lower predecessor density (constants lambda_a > 0), Tao's almost-bounded theorem in
+  its fixed-threshold tightness form (upper logarithmic tail tau(H) -> 0), exact invariance of the nonabsorbing set
+  B and a supplied finite absorption interval through V together exclude a nonempty B. They give only the necessary
+  comparison 0 < lambda_a <= liminf ell_X(B) <= limsup ell_X(B) <= tau(V) for a bad ternary-unit target a, and in
+  particular lambda_(S(m)) <= tau(m-1) at the least bad seed m; the sufficient strict "matched density gap"
+  L(S(m)) > U(m-1) is unproved. Verdict: none. A countermodel (an explicit deterministic map T_r on the positive odd
+  integers, not an affine Syracuse map) has all five listed properties and a bad set of logarithmic density
+  log(1 + 1/r)/log 2 > 0, so no proof can use only those properties; exact affine or distributional information is
+  needed.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [predecessor-density-conditional-reconstruction, baseline-obligation-transfer-controls]
+assumes: [tao-2019-almost-all]
+tags: [convergence, phase6, nonabsorbing-set, density, tao, countermodel, attempt]
+---
 
-**Status: candidate / none.** This is a bounded follow-up prepared during
-P6-004 verification, separate from the completed two-level attempt in
-[c2a_attempt.md](c2a_attempt.md). No new batch, accepted barrier, non-transfer
-step, or Collatz proof is claimed. The exact checker and its receipt have
-not been changed for this note.
+# Combining the fixed-target predecessor density with Tao's almost-bounded theorem to exclude a nonabsorbing component
 
-The question is whether the fixed-target positive lower-density ingredient,
-Tao's almost-bounded theorem, exact nonabsorbing-set invariance, and a
-supplied finite absorption interval jointly give an upper estimate strong
-enough to exclude a bad component. They give the density comparison below.
-They do not currently give the strict comparison it would require.
+## Idea
 
-## 1. Definitions and the two imported inputs
+A nonempty nonabsorbing set `B` has positive lower predecessor density at a bad target ([`nonabsorbing-set-linear-lower-density`](../results/nonabsorbing-set-linear-lower-density/README.md); qualitatively, [`predecessor-density-conditional-reconstruction`](../results/predecessor-density-conditional-reconstruction/README.md)), while Tao's theorem ([`tao-2019-almost-all`](../../../sources/tao-2019-almost-all.md), Theorems 1.3 and 1.6) makes almost every orbit dip below any slowly growing threshold. The question was whether these two density statements, plus invariance of `B` and a verified initial interval, already give the upper estimate C.2a ([`nonabsorbed-fraction-arbitrarily-small`](../questions/nonabsorbed-fraction-arbitrarily-small.md)). The legacy note was a bounded follow-up, separate from [`c2a-two-level-residue-relaxation`](c2a-two-level-residue-relaxation.md); its status was "candidate / none".
+
+## What happened
+
+### 1. Definitions and the two imported inputs
 
 Use ordinary odd-only Syracuse S, absorbed at 1. All iteration counts below
 are odd arrows; no finite or uniform bound on a hitting time is assumed.
@@ -42,7 +60,7 @@ all-integer formulation and explain the fixed-threshold distinction.
 See the [corrected primary paper, v7](https://arxiv.org/html/1909.03562v7).
 
 The second input remains the literature-qualified ingredient audited in
-[terminal_audit.md](terminal_audit.md): for each fixed positive odd a with
+[terminal_audit.md](../results/predecessor-density-conditional-reconstruction/README.md): for each fixed positive odd a with
 3 not dividing a, there is a constant lambda_a>0 such that
 
 ```
@@ -54,7 +72,7 @@ The constant and threshold depend on a; no uniform positive lower bound
 in a is supplied. This note does not re-prove that ingredient or upgrade
 its independent formal-verification status.
 
-## 2. The exact upper constraint that follows
+### 2. The exact upper constraint that follows
 
 Suppose a finite certificate establishes absorption of every positive odd
 seed through V. Exact invariance gives B contained in {h>V}. Hence
@@ -110,7 +128,7 @@ constants by tau(V). A uniform positive lower constant would restrict
 the number of such components; the current input provides no such
 uniformity and the sum need not vanish.
 
-## 3. A precise candidate, and why it is missing
+### 3. A precise candidate, and why it is missing
 
 If B is nonempty, let m=min B and a=S(m). Then a is a positive odd
 ternary unit in B, a>=m, and all smaller seeds absorb. Applying (4) with
@@ -143,7 +161,9 @@ diverging f cannot keep f(n) below a fixed unknown minimum m indefinitely.
 The candidate is recorded as a testable missing quantitative step, not as
 an easier theorem or an accepted reformulation of convergence.
 
-## 4. A countermodel to using only these aggregate inputs
+## Why it fails
+
+**A countermodel to using only these aggregate inputs.**
 
 The following elementary model isolates the scope of the gap. It is
 **not** an affine Syracuse map. It does not model exact valuation
@@ -212,7 +232,7 @@ these properties. This is preparatory evidence about a specified method;
 it is not automatically a Phase 6 barrier award and does not rule out a
 proof using the full Tao machinery or exact Syracuse arithmetic.
 
-## 5. The d=5 and d=61 controls
+**The d=5 and d=61 controls.**
 
 These controls use S_d(n)=(3n+d)/2^v2(3n+d), absorbed **only at 1**.
 For every fixed positive odd d and positive odd u,
@@ -260,7 +280,7 @@ eventually beating every diverging threshold cannot distinguish it from
 absorption. Neither cycle contains 1. The scaled-sector fixed points 5
 and 61 give separate, simpler controls.
 
-## 6. Verification and decision
+**Verification and decision.**
 
 Only bounded focused checks were made:
 
@@ -278,3 +298,11 @@ claim of a new actual-B estimate was made. Outcome remains **none**.
 The practical next obligation is an affine/arithmetic upper constraint
 or a proved matched density gap. Merely combining the two qualitative
 density statements does not supply it.
+
+## What survives
+
+The necessary comparisons (3)–(6), in particular `lambda_(S(m)) <= tau(m-1)` at the least bad seed, and the exact finite-target approximation (5), which is where invariance of `B` helps. The candidate "matched density gap" of §3 stays a testable missing quantitative step, not an accepted reformulation: certified functions `L` (a lower bound in (2) for every eligible target) and `U` (an upper bound for the tail (1) at every fixed threshold) with `L(S(m)) > U(m-1)` for every possible least bad seed beyond the verified base. The countermodel shows that any proof must use exact Syracuse arithmetic, valuation cylinders, ternary transfer laws or Tao's full first-passage machinery, not just the aggregate properties.
+
+## History
+
+Migrated from `experiments/phase6/linear_density_audit/next_upper_attempt.md` (prepared during the P6-004 verification) at commit `be73a66`. ChatGPT main lane, 2026-10-18. No batch label, no new barrier claimed; outcome **none**.

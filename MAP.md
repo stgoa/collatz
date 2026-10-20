@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**184 results, 21 attempts, 21 questions, 27 sources.**
+**193 results, 23 attempts, 29 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -12,19 +12,27 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 |---|---|---|---|
 | [`annular-component-progress-lemma`](areas/convergence/questions/annular-component-progress-lemma.md) | convergence | Odd-only 3x+1 map, absorbing at 1; A_N the annulus of disjoint-annular-recursion on the thirty five-ray sequences; Φ the exposure potential of exposure-potenti… | 0 |
 | [`aperiodic-exit18-return-survivors`](areas/convergence/questions/aperiodic-exit18-return-survivors.md) | convergence | Odd-only 3x+1 map S, absorbing at 1. In the two-return subsystem of exit18-return-integer-cylinders (guard G = {w = 40529845 mod 2^26}, returns V(w) = (3^12 w… | 0 |
+| [`bad-set-half-descent-transport`](areas/convergence/questions/bad-set-half-descent-transport.md) | convergence | Odd-only 3x+1 map S absorbed at 1; B the positive odd nonabsorbing seeds; L(n) the first odd iterate <= n/2 of odd n > 1; G(B) = {odd n > 1 : L(n) in B}; for f… | 0 |
+| [`canonical-rigidity-bounded-invariants`](areas/convergence/questions/canonical-rigidity-bounded-invariants.md) | convergence | Let K be the positive canonical roots of elementary-bridge-quotient-normal-form and T = nu S its quotient map (odd-only 3x+1, absorbing at 1). For a bounded re… | 0 |
 | [`common-tail-comparison-after-r92`](areas/convergence/questions/common-tail-comparison-after-r92.md) | convergence | Odd-only 3x+1 map S, absorbing at 1. On the original coupled cell Q(ell) = 70506316836123 + 3 2^45 ell, ell >= 0 (b(ell) = Q(ell)/3, retained critical basis of… | 0 |
 | [`exposure-absorption-giant-component`](areas/convergence/questions/exposure-absorption-giant-component/README.md) | convergence | Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus; G_d(N) the first d forward arrows exposed from every nonzero source of A_N. Is there a constant c… | 0 |
 | [`five-ray-annular-current-supply`](areas/convergence/questions/five-ray-annular-current-supply.md) | convergence | Odd-only 3x+1 map, absorbing at 1; A_N = Π^R_(64N) − Π^R_N the six-band annulus of disjoint-annular-recursion. For every N = a·2^r·64^k with a ∈ {12, 14, 16, 1… | 0 |
 | [`five-ray-complementary-profile-completion`](areas/convergence/questions/five-ray-complementary-profile-completion.md) | convergence | Odd-only 3x+1 map, absorbing at 1. For every cutoff N = a 2^b, a in (12, 14, 16, 18, 21), b >= 9, and using only a supplied exact current for U_N (the odd seed… | 0 |
+| [`nonabsorbed-fraction-arbitrarily-small`](areas/convergence/questions/nonabsorbed-fraction-arbitrarily-small.md) | convergence | Odd-only 3x+1 map S absorbing at 1; tau_1(n) the number of odd arrows from odd n to 1 (infinite if never). Prove: for every rational epsilon > 0 and every inte… | 0 |
 | [`normalised-quotient-termination`](areas/convergence/questions/normalised-quotient-termination.md) | convergence | Odd-only 3x+1 map S, absorbing at 1; nu the elementary-bridge normal form and B its canonical minima (q = 1 mod 8, or a complementary climber q = 2^a t - 1, a… | 0 |
 | [`packet-current-supply`](areas/convergence/questions/packet-current-supply.md) | convergence | Odd-only clock, absorbing at 1. Prove that for every integer N ≥ 8 there are finite signed measures J_N, ζ_N with Π^R_N = (I − P)J_N + ζ_N and ζ_N ≤ 0 pointwis… | 0 |
+| [`predecessor-exponent-certificate-replay`](areas/convergence/questions/predecessor-exponent-certificate-replay.md) | convergence | Calibration target (Phase 6 route node C.1): for the shortcut map C and every fixed positive a not divisible by 3, Krasikov-Lagarias (2003, Theorem 6.1) prove… | 0 |
 | [`residual-pair-864z-257-supply`](areas/convergence/questions/residual-pair-864z-257-supply.md) | convergence | Odd-only 3x+1 map S, absorbing at 1. On the original coupled family z = 471104208005 + 2^14 3^16 ell, ell >= 0, with Q = (2^31 z - 665034679)/3^15, b = Q/3 and… | 0 |
+| [`unabsorbed-count-power-saving`](areas/convergence/questions/unabsorbed-count-power-saving.md) | convergence | Odd-only 3x+1 map S absorbing at 1; tau_1 the absorbed odd-arrow hitting time of 1 (infinite for a nonconvergent orbit). Produce constants 0 < epsilon < 0.84,… | 0 |
 | [`uniform-current-cost`](areas/convergence/questions/uniform-current-cost.md) | convergence | Odd-only clock, absorbing at 1. With m = floor(2·ceil(log₂N)/9) and Π̂_(m,N) the exact-source packet family of packet-currents-snapshot, construct finite curre… | 0 |
+| [`universal-w5-quotient-stopping`](areas/convergence/questions/universal-w5-quotient-stopping.md) | convergence | Odd-only 3x+1 map S, absorbing at 1; nu, T = nu S and rho(w) = nu(3w) as in elementary-bridge-quotient-normal-form and critical-image-rank-composition; W5 = {w… | 0 |
 | [`universal-w5-tripling-currents`](areas/convergence/questions/universal-w5-tripling-currents.md) | convergence | Odd-only 3x+1 map S on positive odd integers, absorbing at 1, killed atom [1] = 0; P(w) = [3w] - [w]; W5 = {w = 5 mod 8}. Prove or refute: for every w in W5 th… | 0 |
+| [`canonical-quotient-cycle-exclusion`](areas/cycles/questions/canonical-quotient-cycle-exclusion.md) | cycles | Odd-only 3x+1 map S, absorbing at 1; T = nu S the canonical quotient of elementary-bridge-quotient-normal-form on its positive canonical roots. Show that T has… | 0 |
 | [`cycle-height-bound`](areas/cycles/questions/cycle-height-bound.md) | cycles | Prove or refute: every hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map, of period m, minimum L and maximum H, has height B = floor… | 0 |
 | [`height-denominator-candidate`](areas/cycles/questions/height-denominator-candidate/README.md) | cycles | Prove or refute: every primitive positive rational cycle of the raw odd-only 3x+1 map (written as a reduced odd numerator cycle 3n_i + q = 2^(a_i)·n_(i+1), q o… | 0 |
 | [`height-residue-hall-matching`](areas/cycles/questions/height-residue-hall-matching.md) | cycles | Prove or refute, for every primitive positive ordered cycle of the raw odd-only map (q ≤ L, m > 1, circular normalised successor order) with reduced odd denomi… | 0 |
 | [`largest-letter-sublinear`](areas/cycles/questions/largest-letter-sublinear.md) | cycles | Prove or refute: every hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map, of period m, has all valuations a_i = v₂(3n_i + 1) ≤ f(m)… | 0 |
+| [`local-minima-cycle-exclusion-replay`](areas/cycles/questions/local-minima-cycle-exclusion-replay.md) | cycles | Calibration target (Phase 6 route node Y.1): reproduce, in this repository, one published exclusion of nontrivial cycles of the 3x+1 shortcut map with a bounde… | 0 |
 | [`one-height-defect-ordered-cycles`](areas/cycles/questions/one-height-defect-ordered-cycles.md) | cycles | Ordered odd-only cycles at q = 1 with one chronological height h_t = 1 and all other heights 0: legality forces c_(t−1) = 2, and reduced denominator 1 would re… | 0 |
 | [`ordered-cycle-denominator-one`](areas/cycles/questions/ordered-cycle-denominator-one.md) | cycles | Prove or refute: every nontrivial primitive positive rational cycle of the raw odd-only 3x+1 map whose dyadically normalised successor preserves circular order… | 0 |
 | [`rotation-defect-denominator-candidate`](areas/cycles/questions/rotation-defect-denominator-candidate.md) | cycles | Prove or refute: for every positive valuation word w of length m with total A, D = 2^A − 3^m > 0 and g = gcd(C_w, D), and every nonidentity rotation differing… | 0 |
@@ -47,8 +55,11 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`annular-complement-outer-descent`](areas/convergence/results/annular-complement-outer-descent/README.md) | A capacity-checked annular block certifies its negative atoms and the outer roots whose e… | written | written | — |  |
 | [`annular-root-collapse-contraction`](areas/convergence/results/annular-root-collapse-contraction.md) | Collapsing 4x+1 chains to their roots contracts every annulus to 19/22 of its norm in one… | written | written | — |  |
 | [`ansari-sieve-step-counterexample`](areas/convergence/results/ansari-sieve-step-counterexample/README.md) | A displayed set identity in the proof of Ansari's recursive sieve lemma fails at n = 1 | written | written | — |  |
+| [`arbitrary-target-linear-transport-barrier`](areas/convergence/results/arbitrary-target-linear-transport-barrier/README.md) | No finite constant bounds first-half transport into arbitrary target sets with a uniform… | written | written | — |  |
 | [`auxiliary-normalisation-remainder`](areas/convergence/results/auxiliary-normalisation-remainder/README.md) | A terminating, order-independent auxiliary normalization of the annulus leaves at least 2… | written | written | — |  |
+| [`bad-set-transport-bootstrap`](areas/convergence/results/bad-set-transport-bootstrap.md) | What a half-descent transport inequality for the actual nonabsorbing set would give, and… | written | written | — |  |
 | [`base-inverse-phases-increasing-pairs`](areas/convergence/results/base-inverse-phases-increasing-pairs/README.md) | The two base inverse rays on the nonselected critical-five domain decrease rank on two te… | written | written | — |  |
+| [`baseline-obligation-transfer-controls`](areas/convergence/results/baseline-obligation-transfer-controls/README.md) | Exact 3x+d cycles refute the ordinary descent, absorption and no-cycle analogues of three… | written | written | — |  |
 | [`binary-residue-projection-information-loss`](areas/convergence/results/binary-residue-projection-information-loss.md) | Every fixed binary-residue view eventually sees each annular band as the zero measure | written | written | — |  |
 | [`binary-return-exit-control`](areas/convergence/results/binary-return-exit-control/README.md) | The guarded Phi return has an exact binary countdown and a complete nineteen-row exit tab… | written | written | — |  |
 | [`bounded-history-clock-exclusion`](areas/convergence/results/bounded-history-clock-exclusion/README.md) | No uniformly bounded pair of history clocks reaches every critical input, even over all i… | written | written | — |  |
@@ -86,12 +97,14 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`finite-rational-cone-integer-certificate`](areas/convergence/results/finite-rational-cone-integer-certificate/README.md) | A finite rational cone compiles supplied five-ray packet certificates into an exact integ… | written | written | — |  |
 | [`five-ray-current-criterion`](areas/convergence/results/five-ray-current-criterion/README.md) | Finite current certificates on five dyadic rays of cutoffs are equivalent to Collatz conv… | reviewed | written | — |  |
 | [`five-ray-profile-completion-suffices`](areas/convergence/results/five-ray-profile-completion-suffices/README.md) | Completing the complementary outer profile at every interleaved five-ray cutoff would pro… | written | written | — |  |
+| [`fixed-factor-stopping-explicit-constants`](areas/convergence/results/fixed-factor-stopping-explicit-constants/README.md) | Fixed-factor stopping with explicit horizons and cutoffs, and its W5 pullback (a calibrat… | written | written | — |  |
 | [`fixed-ternary-order-unbounded-depth`](areas/convergence/results/fixed-ternary-order-unbounded-depth/README.md) | With the ternary order fixed at h = 2, every exposure depth still has complete positive c… | written | written | — |  |
 | [`fixed-word-history-cells`](areas/convergence/results/fixed-word-history-cells/README.md) | Every merger with two fixed exact valuation words lies in one maximal integer cell, with… | written | written | — |  |
 | [`forward-blocks-low-exponent-tests`](areas/convergence/results/forward-blocks-low-exponent-tests/README.md) | Complete forward blocks on the nonselected critical-five domain, with exact low-exponent… | written | written | — |  |
 | [`four-target-history-classification`](areas/convergence/results/four-target-history-classification/README.md) | On a whole remaining cell, only the original source reaches the direct target and its fir… | written | written | — |  |
 | [`fourteen-step-window-original-source`](areas/convergence/results/fourteen-step-window-original-source/README.md) | Fourteen more inverse-history steps admit only the original source at the repeated target | written | written | — |  |
 | [`growing-prefix-unhandled-leading-input`](areas/convergence/results/growing-prefix-unhandled-leading-input/README.md) | Arbitrarily long growing prefixes keep an unhandled leading input for the seven direct ru… | written | written | — |  |
+| [`growth-norm-transport-barrier`](areas/convergence/results/growth-norm-transport-barrier/README.md) | First-half transport cannot contract any power-growth norm on arbitrary targets, although… | written | written | — |  |
 | [`guarded-cycle-exit-phases`](areas/convergence/results/guarded-cycle-exit-phases/README.md) | Exact guarded cycles and all exit phases on the R54 entry phase, with a descending exit a… | written | written | — |  |
 | [`halving-coalescence-return`](areas/convergence/results/halving-coalescence-return/README.md) | A halving identity certifies the selected half of the outer residual from smaller seeds,… | written | written | — |  |
 | [`high-smaller-origin-history`](areas/convergence/results/high-smaller-origin-history/README.md) | A smaller origin meeting the target above its height gives a decreasing plan on a blocked… | written | written | — |  |
@@ -100,6 +113,7 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`inverse-only-exclusions-short-forward`](areas/convergence/results/inverse-only-exclusions-short-forward/README.md) | Inverse-only descent cannot enlarge a forward-closed history, while short forward steps e… | written | written | — |  |
 | [`joint-source-unbounded-frontier`](areas/convergence/results/joint-source-unbounded-frontier/README.md) | The complete joint-source interface of the R39 pair keeps an unbounded positive frontier… | written | written | — |  |
 | [`later-target-twenty-step-descent`](areas/convergence/results/later-target-twenty-step-descent/README.md) | The thirteenth-target transition of the 11547 family has a complete original-rank decisio… | written | written | — |  |
+| [`lau-density-formal-replay`](areas/convergence/results/lau-density-formal-replay/README.md) | An offline replay of the AxiomMath positive-density Lean development confirms its four st… | written | written | `lau-2026-positive-density` |  |
 | [`lifted-inverse-ray-cycle`](areas/convergence/results/lifted-inverse-ray-cycle/README.md) | A lifted inverse ray with the rotated minus-twenty-five cycle: a complete threshold table… | written | written | — |  |
 | [`local-packet-calibration-extension`](areas/convergence/results/local-packet-calibration-extension/README.md) | Inner absorption gives an automatic one-sided packet input whose residual is exactly the… | written | written | — |  |
 | [`locally-collatz-like-control-barrier`](areas/convergence/results/locally-collatz-like-control-barrier/README.md) | The packet criterion fails on 3x+d maps with cycles, including 3x+61, which looks like Co… | reviewed | reviewed | — |  |
@@ -116,12 +130,14 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`native-height-inverse-obstruction`](areas/convergence/results/native-height-inverse-obstruction/README.md) | Adjacent currents: an all-ray inverse barrier at the native height, with a fixed forward… | written | written | — |  |
 | [`negative-cycle-backward-word`](areas/convergence/results/negative-cycle-backward-word/README.md) | The backward word of the negative cycle -17 gives an exact seven-arrow ancestor and stric… | reviewed | written | — |  |
 | [`no-finite-affine-valuation-rank`](areas/convergence/results/no-finite-affine-valuation-rank/README.md) | No finite affine-valuation rank for the two fixed mixed phases | written | written | — |  |
+| [`nonabsorbing-set-linear-lower-density`](areas/convergence/results/nonabsorbing-set-linear-lower-density/README.md) | A nonempty nonabsorbing set inherits every fixed-target predecessor lower bound, so it is… | written | written | `krasikov-2003-predecessors`, `lau-2026-positive-density` | yes |
 | [`nonselected-multiples-inverse-interface`](areas/convergence/results/nonselected-multiples-inverse-interface/README.md) | A complete two-block inverse interface for nonselected multiples of three in W5 | written | written | — |  |
 | [`odd-h-pair-interface-compiler`](areas/convergence/results/odd-h-pair-interface-compiler/README.md) | Every odd-h paired run has one exact tripling child, shrinking for h >= 7, and the missin… | written | written | — |  |
 | [`orbit-component-current-criterion`](areas/convergence/results/orbit-component-current-criterion/README.md) | A finite current exists exactly when every nonabsorbing orbit component has the right tot… | written | written | — |  |
 | [`outer-profile-closure-obstruction`](areas/convergence/results/outer-profile-closure-obstruction.md) | Forward pushforwards of the annulus need ever finer ternary moduli, so no fixed-modulus p… | written | written | — |  |
 | [`outer-residual-strong-induction-support`](areas/convergence/results/outer-residual-strong-induction-support/README.md) | The outer residual roots are exactly the shell climbers not reached from [1, N] in one or… | written | written | — |  |
 | [`packet-currents-snapshot`](areas/convergence/results/packet-currents-snapshot/README.md) | Exact-source ternary packets, with all-horizon current certificates at two named cutoffs… | written | written | — |  |
+| [`predecessor-density-conditional-reconstruction`](areas/convergence/results/predecessor-density-conditional-reconstruction/README.md) | Conditional on Tao's mixing theorem, every target not divisible by 3 has predecessors of… | written | written | `tao-2019-almost-all` |  |
 | [`prefix-rule-cylinder-rate-barrier`](areas/convergence/results/prefix-rule-cylinder-rate-barrier/README.md) | The D, M and H valuation-prefix recognizers leave undecided binary cylinders at the exact… | written | written | — |  |
 | [`prescribed-ternary-child-unbounded-clocks`](areas/convergence/results/prescribed-ternary-child-unbounded-clocks/README.md) | The prescribed ternary child of the coupled cell cannot be reached at uniformly bounded c… | written | written | — |  |
 | [`progress-measures-control-3x-61`](areas/convergence/results/progress-measures-control-3x-61.md) | On 3x+61 the annular progress measures behave like those of 3x+1, yet a positive componen… | reviewed | reviewed | — |  |
@@ -139,6 +155,7 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`right-aligned-fixed-core-remainder`](areas/convergence/results/right-aligned-fixed-core-remainder/README.md) | Grouping depth-one source lifts from the right leaves a remainder only on the core {5, 7,… | reviewed | reviewed | — |  |
 | [`right-aligned-reduction-independent-checks`](areas/convergence/results/right-aligned-reduction-independent-checks.md) | An independent implementation reproduces the right-aligned packets and checks R2–R4 (and… | reviewed | reviewed | — |  |
 | [`root-transport-normal-form`](areas/convergence/results/root-transport-normal-form/README.md) | Root collapse and transport reduce to four normal forms, and explicit top-band atoms surv… | written | written | — |  |
+| [`route-literature-transfer-audit`](areas/convergence/results/route-literature-transfer-audit.md) | Scope of the published benchmarks for the Phase 6 routes: what each theorem states, what… | written | written | — |  |
 | [`same-seed-factor-complexity-bound`](areas/convergence/results/same-seed-factor-complexity-bound/README.md) | A fixed positive survivor of the exit-18 return system has factor complexity above 18.28… | written | written | — |  |
 | [`selected-critical-five-forward-tables`](areas/convergence/results/selected-critical-five-forward-tables/README.md) | Complete forward tables for selected critical-five inputs, with infinite decreasing domai… | written | written | — |  |
 | [`seventeen-family-rho-dispatcher`](areas/convergence/results/seventeen-family-rho-dispatcher/README.md) | Seventeen conditional strict-rank families with fixed inner resolvers | written | written | — |  |
@@ -166,7 +183,9 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | Attempt | Title | Status |
 |---|---|---|
 | [`annular-bottom-cancellation-attempt`](areas/convergence/attempts/annular-bottom-cancellation-attempt.md) | Proving the annular obligation by cancelling positive and negative mass above the bottom | reviewed |
+| [`c2a-two-level-residue-relaxation`](areas/convergence/attempts/c2a-two-level-residue-relaxation.md) | Bounding the actual nonabsorbing set by its exact two-level ternary residue system | written |
 | [`cylinder-certificates-outer-residual`](areas/convergence/attempts/cylinder-certificates-outer-residual/README.md) | Fixed-bit 2-adic cylinder certificates (descent, merger, halving) cannot complete the outer residual | written |
+| [`matched-density-gap-combination`](areas/convergence/attempts/matched-density-gap-combination.md) | Combining the fixed-target predecessor density with Tao's almost-bounded theorem to exclude a nonabsorbing co… | written |
 | [`retained-lower-currents-adjacent-source`](areas/convergence/attempts/retained-lower-currents-adjacent-source.md) | Retained lower currents and joint rewrites do not escape the adjacent-source interface | written |
 | [`rho-sigma-rank-mixing`](areas/convergence/attempts/rho-sigma-rank-mixing/README.md) | Mixing the rho and sigma dispatchers: finite dependency graphs are acyclic, but no common rank is found | written |
 | [`two-ray-point-procedure-later-target`](areas/convergence/attempts/two-ray-point-procedure-later-target/README.md) | The two-ray/point inverse procedure also fails at later Phi-exit targets | written |
@@ -291,10 +310,10 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`halbeisen-1997-rational-cycles`](sources/halbeisen-1997-rational-cycles.md) | Halbeisen–Hungerbühler (1997): optimal bounds for rational Collatz cycles | cited | 0 |
 | [`hercher-2023-cycle-length`](sources/hercher-2023-cycle-length.md) | Hercher (2023): no Collatz m-cycles with m ≤ 91, and the period bound | cited | 4 |
 | [`knight-2026-high-cycles`](sources/knight-2026-high-cycles.md) | Knight: Collatz high cycles do not exist | cited | 0 |
-| [`krasikov-2003-predecessors`](sources/krasikov-2003-predecessors.md) | Krasikov–Lagarias: predecessor counts at least X^0.84 | cited | 0 |
+| [`krasikov-2003-predecessors`](sources/krasikov-2003-predecessors.md) | Krasikov–Lagarias: predecessor counts at least X^0.84 | cited | 1 |
 | [`lagarias-1985-survey`](sources/lagarias-1985-survey.md) | Lagarias (1985): survey of the 3x+1 problem | cited | 0 |
 | [`languasco-2025-two-primes`](sources/languasco-2025-two-primes.md) | Languasco–Luca–Moree–Togbe: rational form of Matveev's bound | cited | 2 |
-| [`lau-2026-positive-density`](sources/lau-2026-positive-density.md) | Lau / AxiomMath: explicit positive lower density of predecessors (Lean) | replayed | 0 |
+| [`lau-2026-positive-density`](sources/lau-2026-positive-density.md) | Lau / AxiomMath: explicit positive lower density of predecessors (Lean) | replayed | 2 |
 | [`matveev-2000-linear-forms`](sources/matveev-2000-linear-forms.md) | Matveev (2000): explicit lower bound for linear forms in logarithms | cited | 2 |
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
@@ -303,7 +322,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
 | [`steiner-1977-one-cycles`](sources/steiner-1977-one-cycles.md) | Steiner (1977): no nontrivial 1-cycles | cited | 0 |
-| [`tao-2019-almost-all`](sources/tao-2019-almost-all.md) | Tao: almost all Collatz orbits attain almost bounded values | cited | 0 |
+| [`tao-2019-almost-all`](sources/tao-2019-almost-all.md) | Tao: almost all Collatz orbits attain almost bounded values | cited | 2 |
 | [`terras-1976-stopping-time`](sources/terras-1976-stopping-time.md) | Terras (1976): a stopping time problem on the positive integers | cited | 0 |
 
 ## Legacy IDs
@@ -326,6 +345,31 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 | C012 | [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) |
 | C013 | [`shared-background-denominator-law`](areas/cycles/results/shared-background-denominator-law/README.md) |
 | EXT-1 | [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) |
+| P6-000 | [`baseline-obligation-transfer-controls`](areas/convergence/results/baseline-obligation-transfer-controls/README.md) |
+| P6-001 | [`fixed-factor-stopping-explicit-constants`](areas/convergence/results/fixed-factor-stopping-explicit-constants/README.md) |
+| P6-002 | [`arbitrary-target-linear-transport-barrier`](areas/convergence/results/arbitrary-target-linear-transport-barrier/README.md) |
+| P6-003 | [`growth-norm-transport-barrier`](areas/convergence/results/growth-norm-transport-barrier/README.md) |
+| P6-004 | [`lau-density-formal-replay`](areas/convergence/results/lau-density-formal-replay/README.md) |
+| P6-C.1 | [`predecessor-exponent-certificate-replay`](areas/convergence/questions/predecessor-exponent-certificate-replay.md) |
+| P6-C.1a | [`lau-density-formal-replay`](areas/convergence/results/lau-density-formal-replay/README.md) |
+| P6-C.1a-b | [`predecessor-density-conditional-reconstruction`](areas/convergence/results/predecessor-density-conditional-reconstruction/README.md) |
+| P6-C.2 | [`unabsorbed-count-power-saving`](areas/convergence/questions/unabsorbed-count-power-saving.md) |
+| P6-C.2a | [`nonabsorbed-fraction-arbitrarily-small`](areas/convergence/questions/nonabsorbed-fraction-arbitrarily-small.md) |
+| P6-C.2a-b | [`c2a-two-level-residue-relaxation`](areas/convergence/attempts/c2a-two-level-residue-relaxation.md) |
+| P6-C.3 | [`nonabsorbing-set-linear-lower-density`](areas/convergence/results/nonabsorbing-set-linear-lower-density/README.md) |
+| P6-H.2 | [`canonical-rigidity-bounded-invariants`](areas/convergence/questions/canonical-rigidity-bounded-invariants.md) |
+| P6-L1 | [`route-literature-transfer-audit`](areas/convergence/results/route-literature-transfer-audit.md) |
+| P6-L1a | [`route-literature-transfer-audit`](areas/convergence/results/route-literature-transfer-audit.md) |
+| P6-L2 | [`route-literature-transfer-audit`](areas/convergence/results/route-literature-transfer-audit.md) |
+| P6-L3 | [`route-literature-transfer-audit`](areas/convergence/results/route-literature-transfer-audit.md) |
+| P6-L3a | [`route-literature-transfer-audit`](areas/convergence/results/route-literature-transfer-audit.md) |
+| P6-L4 | [`route-literature-transfer-audit`](areas/convergence/results/route-literature-transfer-audit.md) |
+| P6-L5 | [`route-literature-transfer-audit`](areas/convergence/results/route-literature-transfer-audit.md) |
+| P6-R.2 | [`universal-w5-quotient-stopping`](areas/convergence/questions/universal-w5-quotient-stopping.md) |
+| P6-S.1 | [`fixed-factor-stopping-explicit-constants`](areas/convergence/results/fixed-factor-stopping-explicit-constants/README.md) |
+| P6-S.2 | [`universal-w5-quotient-stopping`](areas/convergence/questions/universal-w5-quotient-stopping.md) |
+| P6-Y.1 | [`local-minima-cycle-exclusion-replay`](areas/cycles/questions/local-minima-cycle-exclusion-replay.md) |
+| P6-Y.2 | [`canonical-quotient-cycle-exclusion`](areas/cycles/questions/canonical-quotient-cycle-exclusion.md) |
 | PR1-C1 | [`right-aligned-reduction-independent-checks`](areas/convergence/results/right-aligned-reduction-independent-checks.md) |
 | PR1-C2 | [`locally-collatz-like-control-barrier`](areas/convergence/results/locally-collatz-like-control-barrier/README.md) |
 | PR1-C3 | [`exact-current-minimality`](areas/convergence/results/exact-current-minimality.md) |
