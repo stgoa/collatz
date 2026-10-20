@@ -19,11 +19,11 @@ import nodes  # noqa: E402
 import schema as S  # noqa: E402
 
 ROOT = nodes.ROOT
-# Trees whose contents are not held to the conventions: frozen history and the migration holding area.
-EXEMPT = ("archive/", "_triage/", ".lake/", "lean/.lake/")
+# Trees whose contents are not held to the conventions: frozen history and build output.
+EXEMPT = ("archive/", ".lake/", "lean/.lake/")
 ROOT_FILES = {"README.md", "AGENTS.md", "CLAUDE.md", "CONTRIBUTING.md", "LICENSE", "MAP.md",
               ".gitignore", ".gitattributes"}
-ROOT_DIRS = {"areas", "sources", "lean", "papers", "conventions", "tools", "archive", ".github", "_triage"}
+ROOT_DIRS = {"areas", "sources", "lean", "papers", "conventions", "tools", "archive", ".github"}
 
 
 def exempt(rel: str) -> bool:
@@ -238,8 +238,6 @@ def check_links(errors: list):
             resolved = (p.parent / path).resolve()
             if not resolved.exists():
                 errors.append(f"{rel}: broken link `{target}`")
-            elif resolved.is_relative_to(ROOT / "_triage"):
-                errors.append(f"{rel}: link into the temporary `_triage/` folder: `{target}`")
 
 
 def top_level_entries() -> list[tuple[str, bool]]:
