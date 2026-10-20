@@ -15,7 +15,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B02-lean | `lean/Dichotomy.lean` | 1 | pending |
 | B02-lean | `lean/GeneralPeriodic.lean` | 1 | pending |
 | B02-lean | `lean/KernelClosure.lean` | 1 | pending |
-| B02-lean | `lean/LOG.md` | 1 | pending |
+| B16-leftovers | `lean/LOG.md` | 1 | pending |
 | B02-lean | `lean/OddEventuallyPeriodic.lean` | 1 | pending |
 | B02-lean | `lean/PairObligation.lean` | 1 | pending |
 | B02-lean | `lean/PeriodicRigidity.lean` | 1 | pending |
@@ -23,7 +23,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B02-lean | `lean/README.md` | 1 | pending |
 | B02-lean | `lean/ReverseClosure_Assembly.lean` | 1 | pending |
 | B02-lean | `lean/ReverseClosure_Final.lean` | 1 | pending |
-| B02-lean | `lean/STATE.md` | 1 | pending |
+| B16-leftovers | `lean/STATE.md` | 1 | pending |
 | B02-lean | `lean/ScalarInterface.lean` | 1 | pending |
 | B02-lean | `lean/V004_Assembly.lean` | 1 | pending |
 | B02-lean | `lean/V004_Final.lean` | 1 | pending |
