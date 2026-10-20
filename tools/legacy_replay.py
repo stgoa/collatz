@@ -5,8 +5,10 @@ Before the 2026-10-19/20 migration, the research scripts lived under `experiment
 `lean/`. They load each other's files by those paths and pin each other's hashes. The migration moved
 every file byte-identically into node folders, so most of them no longer run where they now live.
 This tool rebuilds the old tree in a temporary directory from `tools/legacy_paths.json`
-(legacy path -> current path, one entry per moved file) and runs legacy scripts there. Nothing in the
-repository is written.
+(legacy path -> current path, one entry per legacy file) and runs legacy scripts there. Files that
+were rewritten during the migration (mostly notes whose hashes legacy receipts pin) map to null and
+are restored with their original bytes from git at be73a66, so their checkers still pass when the
+history is available. Nothing in the repository is written.
 
 A replay passes when every script exits 0 **and** every copied file is byte-identical afterwards,
 so a checker that rewrites its receipt must reproduce it exactly.
@@ -27,11 +29,13 @@ commit be73a66. Standard library only.
 from __future__ import annotations
 
 import filecmp
+import io
 import json
 import os
 import shutil
 import subprocess
 import sys
+import tarfile
 import tempfile
 from pathlib import Path
 
@@ -49,8 +53,8 @@ def update_map() -> int:
     """Map every legacy file at LEGACY_COMMIT to its current path, following byte-identical moves.
 
     A legacy file maps to a current file when git sees an exact rename (100% similarity), or when the
-    path is unchanged and the content identical. Files that were rewritten (node READMEs) or removed
-    are left out: legacy code does not load them, and a checker that hashes them fails honestly.
+    path is unchanged and the content identical. Files that were rewritten (node READMEs whose legacy
+    notes are hash-pinned) or removed map to null; the replay restores their original bytes from git.
     """
     head = "HEAD"
     out = subprocess.run(["git", "diff", "--find-renames=100%", "--name-status", "-z", LEGACY_COMMIT, head],
@@ -78,18 +82,43 @@ def update_map() -> int:
             mapping[path] = renames[path]
         elif path not in changed:
             mapping[path] = path
+        else:
+            mapping[path] = None          # rewritten or removed: restored from git at replay time
     # Only research material is replayed; documentation at the old root is not needed.
     mapping = {k: v for k, v in sorted(mapping.items())
-               if k.startswith(("experiments/", "reviews/", "lean/", "papers/", "scripts/"))
-               and not v.startswith("_triage/")}
+               if k.startswith(("experiments/", "reviews/", "lean/", "papers/", "scripts/"))}
     MAP.write_text(json.dumps(mapping, indent=0, sort_keys=True) + "\n", encoding="utf-8")
     print(f"{MAP.relative_to(ROOT)}: {len(mapping)} legacy files mapped")
     return 0
 
 
-def build(tmp: Path, mapping: dict[str, str]) -> dict[Path, Path]:
+def restore_from_git(tmp: Path, paths: list[str]) -> Path | None:
+    """Extract the original bytes of `paths` at LEGACY_COMMIT into tmp; return a pristine copy's root."""
+    if not paths:
+        return None
+    try:
+        blob = subprocess.run(["git", "archive", LEGACY_COMMIT, "--", *paths], cwd=ROOT,
+                              capture_output=True, check=True).stdout
+    except (OSError, subprocess.CalledProcessError):
+        print(f"note: git history at {LEGACY_COMMIT} is unavailable; {len(paths)} rewritten legacy "
+              "files are absent from the replay, and checkers that hash them will fail")
+        return None
+    pristine = tmp.parent / (tmp.name + "-git")
+    for target in (tmp, pristine):
+        with tarfile.open(fileobj=io.BytesIO(blob)) as tar:
+            try:
+                tar.extractall(target, filter="data")
+            except TypeError:            # Python without extraction filters
+                tar.extractall(target)
+    return pristine
+
+
+def build(tmp: Path, mapping: dict[str, str | None]) -> dict[Path, Path]:
+    """Lay out the legacy tree in tmp. Returns {copied file: reference file} for the final comparison."""
     copied = {}
     for legacy, current in mapping.items():
+        if current is None:
+            continue
         src = ROOT / current
         if not src.is_file():
             continue
@@ -97,6 +126,11 @@ def build(tmp: Path, mapping: dict[str, str]) -> dict[Path, Path]:
         dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, dest)
         copied[dest] = src
+    from_git = [legacy for legacy, current in mapping.items() if current is None]
+    pristine = restore_from_git(tmp, from_git)
+    if pristine is not None:
+        for legacy in from_git:
+            copied[tmp / legacy] = pristine / legacy
     return copied
 
 
@@ -111,7 +145,8 @@ def main(scripts: list[str], args: dict[str, list[str]] | None = None) -> int:
     failures = []
     env = {k: v for k, v in os.environ.items() if k not in ("PYTHONOPTIMIZE", "PYTHONPATH")}
     with tempfile.TemporaryDirectory() as name:
-        tmp = Path(name)
+        tmp = Path(name) / "legacy"
+        tmp.mkdir()
         copied = build(tmp, mapping)
         for script in scripts:
             path = tmp / script
