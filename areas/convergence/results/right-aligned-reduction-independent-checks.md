@@ -45,8 +45,8 @@ The PR1 lane built the right-aligned packets of [`right-aligned-fixed-core-remai
 | Lemma 2 (`505/512`) | ratio bounds algebraic for `N ≥ 16`; numeric maximum ratio 0.96751 | `16 ≤ N ≤ 2·10^4` |
 | Partition (6) | non-vacuous test with orbit indicators `f_z(x) = 1[z ∈ orbit(x)]`, `z ∈ {27, 31, 41, 47, 91, 103}` | `8 ≤ N ≤ 4000` |
 | Least-exception arithmetic | `n_1 ∈ {r, r+1}`, `n_2 < r`; the predecessor of Lemma 3 | odd `r ≤ 10^6` |
-| Five rays (legacy R5) | exact cutoffs `(n_0, n_1, n_2) = (M/4 − 1, 3M/2, 3M/4)`, upper targets, comparison exponents, every target with exponent below 3 lies below 96, constant `< 89/90` | `a ∈ {12, 14, 16, 18, 21}`, `3 ≤ b ≤ 400` |
-| Annular recursion (legacy R6) | `Π_(64N) − Π_N` matches the six-band table mod 18 in `(Q, 64Q)`, `η_(64N) = η_N`, `supp Π_N ⊂ (1, Q)`, band totals 0, `Σ A_N = 0`, `Σ y·A_N(y) = 63Q`, `‖A_N‖₁ = 99N/2`, `‖A_N⁺‖₁ = 99N/4`, `|supp A_N| = 267N/8` | 68 cutoffs `N ∈ {8, 16, …, 512, 768, 1024, 2048, 4096}` |
+| Five rays ([`five-ray-current-criterion`](five-ray-current-criterion/README.md), legacy R5) | exact cutoffs `(n_0, n_1, n_2) = (M/4 − 1, 3M/2, 3M/4)`, upper targets, comparison exponents, every target with exponent below 3 lies below 96, constant `< 89/90` | `a ∈ {12, 14, 16, 18, 21}`, `3 ≤ b ≤ 400` |
+| Annular recursion ([`disjoint-annular-recursion`](disjoint-annular-recursion/README.md), legacy R6) | `Π_(64N) − Π_N` matches the six-band table mod 18 in `(Q, 64Q)`, `η_(64N) = η_N`, `supp Π_N ⊂ (1, Q)`, band totals 0, `Σ A_N = 0`, `Σ y·A_N(y) = 63Q`, `‖A_N‖₁ = 99N/2`, `‖A_N⁺‖₁ = 99N/4`, `|supp A_N| = 267N/8` | 68 cutoffs `N ∈ {8, 16, …, 512, 768, 1024, 2048, 4096}` |
 
 All checks passed; no discrepancy was found. The partition test is needed because at `d = 1` the counting identity can only be tested with `e ≡ 0`; the orbit indicators satisfy `f_z(x) = f_z(Sx) + 1[x = z]`, giving `B_f(N) = B_f(n_0) − 1[z ≤ n_0] + B_(f,5 mod 6)(n_1) + B_(f,1 mod 6)(n_2) + 1[z ≤ N]`.
 
@@ -58,9 +58,9 @@ Exact integer computation by the scripts listed under `evidence`, with receipts.
 
 - **What this is not.** It is a finite, model-assisted check, not human peer review or formal verification; the general statements rest on their written proofs. Alongside these checks the PR1 lane re-derived the written arguments of the fixed-core theorem and of the qualitative criterion and found no gap, and re-read the five-ray proof (legacy `NOTE.md` §§6 and 10). Those re-derivations are recorded as reviews on [`right-aligned-fixed-core-remainder`](right-aligned-fixed-core-remainder/README.md) and [`qualitative-current-criterion`](qualitative-current-criterion.md), not as a claim of this node.
 - **A by-product.** Lemma 3, that the `N^(3/2)` maximum principle is load-bearing, is recorded in [`qualitative-current-criterion`](qualitative-current-criterion.md).
-- **Legacy R9 and R10.** The same lane also cross-checked two later main-lane claims; those checks are in [`progress-measures-control-3x-61`](progress-measures-control-3x-61.md).
+- **Legacy R9 and R10.** The same lane also cross-checked two later main-lane claims, [`annular-root-collapse-contraction`](annular-root-collapse-contraction.md) and [`exposure-potential-boundary-flux`](exposure-potential-boundary-flux/README.md); those checks are in [`progress-measures-control-3x-61`](progress-measures-control-3x-61.md). The re-read of the five-ray proof is recorded as a review on [`five-ray-current-criterion`](five-ray-current-criterion/README.md); the finite R6 checks as a finite-scope review on [`disjoint-annular-recursion`](disjoint-annular-recursion/README.md).
 
 ## History
 
-- Migrated from the legacy ledger entry C1 ("Independent audit of R2–R4 and of main's R5, R6, R9, R10"; `archive/docs/RESULTS.md`, legacy path) and `experiments/packet_currents/negative_controls/NOTE.md` §§6 and 10, at commit `be73a66`, by the B07 migration (Claude, Opus 5.5). Alias `PR1-C1`, not `C1`, to keep the PR1 series apart from the cycle series. The R5 and R6 nodes belong to a later migration batch (B08).
+- Migrated from the legacy ledger entry C1 ("Independent audit of R2–R4 and of main's R5, R6, R9, R10"; `archive/docs/RESULTS.md`, legacy path) and `experiments/packet_currents/negative_controls/NOTE.md` §§6 and 10, at commit `be73a66`, by the B07 migration (Claude, Opus 5.5). Alias `PR1-C1`, not `C1`, to keep the PR1 series apart from the cycle series. The R5 and R6 nodes were migrated by B08.
 - PR1 lane (Claude, Opus), 2026-10-17. Main-lane review in `PR1_REVIEW.md` the same day.

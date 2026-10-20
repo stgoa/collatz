@@ -130,16 +130,16 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B07-convergence-packet-currents | `experiments/packet_currents/right_aligned_packets.py` | 1 | node right-aligned-fixed-core-remainder (certificate; also cited by qualitative-current-criterion, dyadic-cutoff-core-remainder) |
 | B07-convergence-packet-currents | `papers/README.md` | 1 | dropped: merged into `papers/README.md` (its build hint and paper row); the legacy file was removed |
 | B07-convergence-packet-currents | `papers/right_aligned_reduction` | 1 | paper `papers/right-aligned-reduction/right-aligned-reduction.tex` (renamed, byte-identical); presents finite-current-certificate-identity, right-aligned-fixed-core-remainder, qualitative-current-criterion, dyadic-cutoff-core-remainder |
-| B08-convergence-current-annular | `experiments/annular_construction/README.md` | 1 | pending |
-| B08-convergence-current-annular | `experiments/annular_construction/REPORT.md` | 1 | pending |
-| B08-convergence-current-annular | `experiments/annular_construction/arithmetic` | 5 | pending |
-| B08-convergence-current-annular | `experiments/annular_construction/components` | 10 | pending |
-| B08-convergence-current-annular | `experiments/annular_construction/duality` | 5 | pending |
-| B08-convergence-current-annular | `experiments/current_construction/README.md` | 1 | pending |
-| B08-convergence-current-annular | `experiments/current_construction/REPORT.md` | 1 | pending |
-| B08-convergence-current-annular | `experiments/current_construction/frontier` | 3 | pending |
-| B08-convergence-current-annular | `experiments/current_construction/obstructions` | 12 | pending |
-| B08-convergence-current-annular | `experiments/current_construction/recursive` | 4 | pending |
+| B08-convergence-current-annular | `experiments/annular_construction/README.md` | 1 | archive archive/convergence-annular-construction/README.md |
+| B08-convergence-current-annular | `experiments/annular_construction/REPORT.md` | 1 | archive archive/convergence-annular-construction/REPORT.md |
+| B08-convergence-current-annular | `experiments/annular_construction/arithmetic` | 5 | node universal-annular-partial-current, annular-root-collapse-contraction, outer-profile-closure-obstruction |
+| B08-convergence-current-annular | `experiments/annular_construction/components` | 10 | node affine-common-tail-tree-lifting |
+| B08-convergence-current-annular | `experiments/annular_construction/duality` | 5 | node exposure-potential-boundary-flux, binary-residue-projection-information-loss, reflected-negative-annulus-control, annular-component-progress-lemma |
+| B08-convergence-current-annular | `experiments/current_construction/README.md` | 1 | archive archive/convergence-current-construction/README.md |
+| B08-convergence-current-annular | `experiments/current_construction/REPORT.md` | 1 | archive archive/convergence-current-construction/REPORT.md; its open obligation became node five-ray-annular-current-supply |
+| B08-convergence-current-annular | `experiments/current_construction/frontier` | 3 | node five-ray-current-criterion, mesh-maximum-principle-alternative-grids, sparse-paired-exact-current-criterion |
+| B08-convergence-current-annular | `experiments/current_construction/obstructions` | 12 | node orbit-component-current-criterion, bounded-packet-certificate-obstruction, whole-packet-historical-certificates, uniform-aggregate-exposure-depth, five-ray-current-criterion (sparse_ray_independent_audit.md, check_five_rays_independent.py) |
+| B08-convergence-current-annular | `experiments/current_construction/recursive` | 4 | node disjoint-annular-recursion, exact-current-prefix-criterion |
 | B10-residual-R25-R39 | `experiments/residual_progress/PAIR_DOMAIN_REVIEW.md` | 1 | pending |
 | B09-residual-R11-R24 | `experiments/residual_progress/README.md` | 1 | pending |
 | B09-residual-R11-R24 | `experiments/residual_progress/REPORT.md` | 1 | pending |

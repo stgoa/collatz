@@ -33,7 +33,7 @@ tags: [convergence, packet-currents, annular, attempt]
 
 ## Idea
 
-The legacy programme reduced Collatz convergence to supplying finite currents with nonpositive residual for the right-aligned packets on five dyadic rays, and then for the 64-fold annular increments `A_N` (legacy R5, R6; [`qualitative-current-criterion`](../results/qualitative-current-criterion.md), [`packet-current-supply`](../questions/packet-current-supply.md)). If the positive and negative mass of `A_N` cancelled above some height `Q/C`, the bottom of the dynamics would not matter and an almost scale-free problem would remain. The PR1 lane tried this directly, using the main lane's results R5–R13 together with its own controls.
+The legacy programme reduced Collatz convergence to supplying finite currents with nonpositive residual for the right-aligned packets on five dyadic rays, and then for the 64-fold annular increments `A_N` ([`five-ray-current-criterion`](../results/five-ray-current-criterion/README.md), [`disjoint-annular-recursion`](../results/disjoint-annular-recursion/README.md), legacy R5, R6; [`qualitative-current-criterion`](../results/qualitative-current-criterion.md), [`packet-current-supply`](../questions/packet-current-supply.md)). If the positive and negative mass of `A_N` cancelled above some height `Q/C`, the bottom of the dynamics would not matter and an almost scale-free problem would remain. The PR1 lane tried this directly, using the main lane's results R5–R13 together with its own controls.
 
 ## What happened
 
@@ -58,7 +58,7 @@ From legacy `NOTE.md` §12, kept as written except for the scope corrections of 
 
 ## Why it fails
 
-The tested exact currents do not annihilate above the bottom, each orbit class must be excluded separately at full strength, and generic arguments do not separate `3x+1` from `3x+61`. One possible direction the lane named is `d = 1`-specific self-similarity (the main lane's annular recursion, legacy R6) together with a proved rule for continuing unresolved components: `T_61` has no exact `×64` recursion, and the negative integers fail because of their small cycles. But the source recurrence contains the expanding `3N/2` term, and every exceptional status propagates upward along valuation-1 climbs, so an induction on scale never closes without controlling climbs, which is the classical problem. This is not an exhaustive classification of possible proofs.
+The tested exact currents do not annihilate above the bottom, each orbit class must be excluded separately at full strength, and generic arguments do not separate `3x+1` from `3x+61`. One possible direction the lane named is `d = 1`-specific self-similarity (the main lane's annular recursion [`disjoint-annular-recursion`](../results/disjoint-annular-recursion/README.md), legacy R6) together with a proved rule for continuing unresolved components: `T_61` has no exact `×64` recursion, and the negative integers fail because of their small cycles. But the source recurrence contains the expanding `3N/2` term, and every exceptional status propagates upward along valuation-1 climbs, so an induction on scale never closes without controlling climbs, which is the classical problem. This is not an exhaustive classification of possible proofs.
 
 **Correction (2026-10-17, the main lane's review, `PR1_REVIEW.md` §4).** The original note drew stronger conclusions, which are withdrawn:
 

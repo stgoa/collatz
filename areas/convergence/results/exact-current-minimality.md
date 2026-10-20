@@ -22,7 +22,7 @@ evidence:
   - "locally-collatz-like-control-barrier/NOTE.md §5 (Lemma 4, with the corrected scope) and HANDOFF_FOR_MAIN.md §2: the PR1 lane's proof"
   - "locally-collatz-like-control-barrier/PR1_REVIEW.md §§2–3: the main lane's review, the two counterexamples to uniqueness and the minimality argument by hitting indicators"
   - "locally-collatz-like-control-barrier/reduction_audit.py, reduction_audit.json (stored_currents_equal_forward_aggregate; 60 monotonicity spot checks at N = 32, 100, 513). Fails at its new path; passed on 2026-10-17 in the legacy gate"
-  - "locally-collatz-like-control-barrier/check_review_scope.py, review_scope_audit.json (main lane): the δ_21 − δ_3 example by its three arrows and the full A_768 current (transport cap 256, extinction depth 124, 40,106 rows). Fails at its new path (needs experiments/annular_construction/ at the repository root); passed in the legacy gate and was rerun by the main lane several times on 2026-10-17 and 2026-10-18"
+  - "locally-collatz-like-control-barrier/check_review_scope.py, review_scope_audit.json (main lane): the δ_21 − δ_3 example by its three arrows and the full A_768 current (transport cap 256, extinction depth 124, 40,106 rows). Fails at its new path (needs experiments/annular_construction/ at the repository root; its check_arithmetic_reductions.py is now in universal-annular-partial-current/); passed in the legacy gate and was rerun by the main lane several times on 2026-10-17 and 2026-10-18"
 reviewed_by:
   - by: ChatGPT main lane (Codex)
     date: 2026-10-17
@@ -66,7 +66,7 @@ so some predecessor `x` has `K(x) < 0`, i.e. `x ∈ F⁻`. Since `F⁻` is finit
 
 - **Scope after review.** The lemma is a cost **lower bound** relative to a finite exact current, under the no-cycle hypothesis on the difference support; that hypothesis must stay attached to the uniqueness statement. It does not make one-sided certificates unique, does not prescribe how a constructor must work, and does not eliminate structural certificate searches. A formal infinite forward sum is not automatically a finite certificate: the canonical exact current exists as a finite object only when every source terminates.
 - **Why the construction method stays open** (legacy `PR1_REVIEW.md` §3). For every state `x`, the source `δ_x − P δ_x` has the one-row exact current `δ_x`, with no assertion about the future of `Sx`. One-sided certificates, algebraic descriptions, modular lemmas and finite searches remain possible routes to the sufficient hypothesis of [`qualitative-current-criterion`](qualitative-current-criterion.md).
-- **Complement.** The main lane's per-packet row lower bound (legacy R7, `experiments/current_construction/`, not yet migrated) and Lemma 4 are complementary: every certificate dominates the forced current pointwise, and that forced current is itself large for individual packets.
+- **Complement.** The main lane's per-packet row lower bound ([`bounded-packet-certificate-obstruction`](bounded-packet-certificate-obstruction.md), legacy R7) and Lemma 4 are complementary: every certificate dominates the forced current pointwise, and that forced current is itself large for individual packets.
 - Novelty undetermined.
 
 ## History

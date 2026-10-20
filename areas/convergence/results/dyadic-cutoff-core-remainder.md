@@ -59,7 +59,7 @@ The "direct arithmetic at `b = 3, …, 8`" base cases are checked by [`right_ali
 
 ## Remarks
 
-- **Scope.** The equivalence [`qualitative-current-criterion`](qualitative-current-criterion.md) quantifies over every integer cutoff; this dyadic computation alone does not establish its hypothesis. The legacy programme's separate sampling theorem (legacy R5, five dyadic rays, `experiments/current_construction/`, not yet migrated) handles that.
+- **Scope.** The equivalence [`qualitative-current-criterion`](qualitative-current-criterion.md) quantifies over every integer cutoff; this dyadic computation alone does not establish its hypothesis. The separate sampling theorem [`five-ray-current-criterion`](five-ray-current-criterion/README.md) (legacy R5, five dyadic rays) handles that.
 - **A sign guard.** Do not infer that all packet work is nonpositive: `H_39(Π^R_32) = 57`, checked exactly by the certificate above. The criterion is boundedness above for each cutoff, not a universal zero upper bound. The PR1 lane's table of the all-horizon work `W(N) = sup_L H_L(Π^R_N)` (legacy `NOTE.md` §7) shows `W(N)` small at dyadic `N` (`W(512) = 193`, `W(1024) = 8`, `W(2048) = 12`), consistent with (8), while the forced current cost is not (finite observation).
 - Novelty undetermined.
 

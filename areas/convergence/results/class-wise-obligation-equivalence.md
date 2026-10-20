@@ -7,13 +7,13 @@ claim: >
   Odd-only 3x+1 map S, absorbing at 1. Let K be a set of odd positive integers with x ∈ K ⇔ S(x) ∈ K for
   x > 1, 1 ∉ K, and K ∩ [1, 12096) = ∅. Then K = ∅ ⇔ ⟨1_K, Π_M⟩ ≤ 0 for every M on the legacy five-ray grid
   G_5 = {a·2^b : a ∈ {12, 14, 16, 18, 21}, b ≥ 3} ⇔ ⟨1_K, A_N⟩ ≤ 0 for every 64-fold increment A_N on the
-  legacy 30 sequences N = a·2^r·64^k. Rests on the legacy five-ray maximum principle (R5) and annular
-  recursion (R6), not yet migrated. The obligation is thus equivalent, basin by basin, to the absence of
+  legacy 30 sequences N = a·2^r·64^k. Rests on the five-ray maximum principle (five-ray-current-criterion,
+  R5) and the annular recursion (disjoint-annular-recursion, R6). The obligation is thus equivalent, basin by basin, to the absence of
   nontrivial cycles and of divergent orbits, each at full strength; this gives no proof of either.
 authors:
   - Claude PR1 lane (Opus)
 created: 2026-10-17
-depends_on: [qualitative-current-criterion]
+depends_on: [qualitative-current-criterion, five-ray-current-criterion, disjoint-annular-recursion]
 evidence:
   - "locally-collatz-like-control-barrier/NOTE.md §12.2, HANDOFF_FOR_MAIN.md §6: the written proof"
   - "locally-collatz-like-control-barrier/attempt_probes.py, attempt_probes.json (classwise_controls): a certificate of that node (exits 0 at its new path and rewrites its receipt byte for byte)"
@@ -30,10 +30,10 @@ tags: [convergence, packet-currents, equivalence, five-rays]
 
 ## Statement
 
-Odd-only clock, absorbing at 1, packets `Π_M = Π^R_M` of [`right-aligned-fixed-core-remainder`](right-aligned-fixed-core-remainder/README.md). Two legacy main-lane results enter, both not yet migrated (`experiments/current_construction/`, batch B08):
+Odd-only clock, absorbing at 1, packets `Π_M = Π^R_M` of [`right-aligned-fixed-core-remainder`](right-aligned-fixed-core-remainder/README.md). Two main-lane results enter:
 
-- **Five rays (legacy R5).** Statement 4 of [`qualitative-current-criterion`](qualitative-current-criterion.md) may be restricted to the grid `G_5 = {a·2^b : a ∈ {12, 14, 16, 18, 21}, b ≥ 3}`; its proof is a maximum principle on the grid that uses, of the exceptional indicator, only the counting identity, monotonicity of the count, and vanishing below 96.
-- **Annular recursion (legacy R6).** For `8 | N`, `Π_(64N) = Π_N + A_N`; the grid splits into 30 sequences `N = a·2^(r+6k)`, `r = 3, …, 8`, with initial cutoffs at most 5376 and packet endpoints below 12096.
+- **Five rays ([`five-ray-current-criterion`](five-ray-current-criterion/README.md), legacy R5).** Statement 4 of [`qualitative-current-criterion`](qualitative-current-criterion.md) may be restricted to the grid `G_5 = {a·2^b : a ∈ {12, 14, 16, 18, 21}, b ≥ 3}`; its proof is a maximum principle on the grid that uses, of the exceptional indicator, only the counting identity, monotonicity of the count, and vanishing below 96.
+- **Annular recursion ([`disjoint-annular-recursion`](disjoint-annular-recursion/README.md), legacy R6).** For `8 | N`, `Π_(64N) = Π_N + A_N`; the grid splits into 30 sequences `N = a·2^(r+6k)`, `r = 3, …, 8`, with initial cutoffs at most 5376 and packet endpoints below 12096.
 
 **Corollary (PR1 lane).** Let `K` be a set of odd positive integers with `x ∈ K ⟺ S(x) ∈ K` for `x > 1`, `1 ∉ K`, and `K ∩ [1, 12096) = ∅`. The following are equivalent:
 
@@ -56,10 +56,11 @@ If `3x+1` has a nontrivial cycle, the basin of that cycle is such a `K`, by the 
 ## Remarks
 
 - **What it does not say.** The corollary gives no separate leverage on either classical problem, and it does not supply the missing certificates ([`packet-current-supply`](../questions/packet-current-supply.md)). The main lane's review notes that equivalence to the original problem is not itself a theorem that the formulation is useless; the PR1 lane's stronger reading ("no separate leverage", "no room") is an assessment of an approach, recorded in [`annular-bottom-cancellation-attempt`](../attempts/annular-bottom-cancellation-attempt.md).
-- **Conditional on unmigrated nodes.** Until R5 and R6 are migrated, this node cannot list them under `depends_on`; its chain strength is that of R5's written maximum principle and R6's identity (both written, both cross-checked on finite ranges in [`right-aligned-reduction-independent-checks`](right-aligned-reduction-independent-checks.md)).
+- **Chain strength.** The node rests on [`five-ray-current-criterion`](five-ray-current-criterion/README.md) (reviewed by the PR1 lane) and [`disjoint-annular-recursion`](disjoint-annular-recursion/README.md) (written; cross-checked on finite ranges in [`right-aligned-reduction-independent-checks`](right-aligned-reduction-independent-checks.md)).
 - Novelty undetermined.
 
 ## History
 
 - Migrated from the legacy ledger entry C5 (first half; `archive/docs/RESULTS.md`, legacy path) and `experiments/packet_currents/negative_controls/NOTE.md` §12.2, at commit `be73a66`, by the B07 migration (Claude, Opus 5.5). Alias `PR1-C5`; the attempt half of C5 is [`annular-bottom-cancellation-attempt`](../attempts/annular-bottom-cancellation-attempt.md) (`PR1-C5-b`).
 - PR1 lane (Claude, Opus), 2026-10-17. Main-lane review in `PR1_REVIEW.md` the same day.
+- 2026-10-20 (B08 migration): the R5 and R6 nodes now exist; added them to `depends_on`, linked them in the Statement, and replaced the remark "Conditional on unmigrated nodes" by a chain-strength remark. No change to the claim's content.

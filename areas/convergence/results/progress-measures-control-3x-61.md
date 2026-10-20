@@ -32,12 +32,12 @@ tags: [convergence, packet-currents, negative-controls, progress-measures, 3x+61
 
 ## Statement
 
-The legacy main-lane rounds R9 and R10 (commit `ce56699`; not yet migrated, `experiments/annular_construction/` and `experiments/residual_progress/`) measure partial progress on the annular increments `A_N = Π_(64N) − Π_N` of `3x+1` in two ways:
+The legacy main-lane rounds R9 and R10 (commit `ce56699`) measure partial progress on the annular increments `A_N = Π_(64N) − Π_N` of `3x+1` in two ways:
 
-- **(R9)** a one-pass root compression `R`, collapsing chains `F(x) = 4x + 1`, with exact norm `‖P A_N‖₁ = ‖R A_N‖₁ = 171N/4 − |c_N| ≤ (19/22)·‖A_N‖₁`, where `c_N` is the annular mass of the chain rooted at 1 and `|c_N| ≤ 3`;
-- **(R10)** the exposure potential `Φ`, the positive mass of exposed components not containing 1.
+- **(R9, [`annular-root-collapse-contraction`](annular-root-collapse-contraction.md))** a one-pass root compression `R`, collapsing chains `F(x) = 4x + 1`, with exact norm `‖P A_N‖₁ = ‖R A_N‖₁ = 171N/4 − |c_N| ≤ (19/22)·‖A_N‖₁`, where `c_N` is the annular mass of the chain rooted at 1 and `|c_N| ≤ 3`;
+- **(R10, [`exposure-potential-boundary-flux`](exposure-potential-boundary-flux/README.md))** the exposure potential `Φ`, the positive mass of exposed components not containing 1.
 
-The legacy open obligation was to prove that every positive `Φ`-plateau ends.
+The legacy open obligation was to prove that every positive `Φ`-plateau ends ([`annular-component-progress-lemma`](../questions/annular-component-progress-lemma.md)).
 
 **Control (finite certificates).** For `T_61` (the map of [`locally-collatz-like-control-barrier`](locally-collatz-like-control-barrier/README.md)), the increments `A'_N = Π'_(64N) − Π'_N` behave as follows (exposure followed to depth 400):
 
@@ -62,7 +62,7 @@ Exact finite computation by `progress_measures_audit.py` (folder [`locally-colla
 
 - The control says nothing for or against a progress lemma for `3x+1`; the receipt's scope reads "No progress lemma is proved or refuted for 3x+1".
 - *Observation, not in the receipt:* the PR1 lane also reproduced the main lane's uncommitted transport numbers of 2026-10-17 18:00 (`‖P^k A_96‖₁ = 4752, 4103, 3533, 3124` for `k = 0…3`; norm 13 and positive mass 4 at both `P^79 A_96` and `P^80 A_96`; the nine-row table of `R P^78 A_96`). These are not certified here.
-- When the R9 and R10 nodes are migrated (batches B08 and B09), this node should cite them.
+- The R9 and R10 nodes record this cross-audit as a finite-scope review.
 
 ## History
 

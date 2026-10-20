@@ -1,219 +1,84 @@
-# Finite currents: exact component criteria and a bounded-template obstruction
+---
+id: orbit-component-current-criterion
+kind: result
+title: A finite current exists exactly when every nonabsorbing orbit component has the right total mass
+status: written
+claim: >
+  Any set X with a deterministic map S and an absorbing state o; finite measures on X \ {o}, P pushes along S
+  and discards mass at o; two states are in the same orbit component if S^a(x) = S^b(y) for some a, b ≥ 0.
+  For a finite measure μ with component masses m_C: (1) a finite exact current μ = (I − P)J exists iff m_C = 0
+  for every nonabsorbing component C; (2) finite J and ζ ≤ 0 with μ = (I − P)J + ζ exist iff m_C ≤ 0 for every
+  nonabsorbing C; (3) sup_L H_L(μ) < ∞ iff the sum of the nonabsorbing masses is ≤ 0, which is weaker. Exposing
+  d forward arrows from every source while retaining historical intersections, for d = 0, 1, 2, …, is a
+  semidecision procedure complete for current existence: it succeeds at some finite depth iff a certificate of
+  the required type exists; a depth cap returns "unresolved", never nonexistence. Applied to the odd-only 3x+1
+  map absorbing at 1, it characterises what the packet certificates detect; it proves no termination.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: []
+certificates: [verify_obstructions.py]
+evidence:
+  - "audit.json: the legacy receipt of verify_obstructions.py (the script prints its report and writes no file; scripts/verify_all.py compared the two at be73a66)"
+aliases: [R7]
+tags: [convergence, packet-currents, currents, orbit-components, duality, semidecision]
+---
 
-Written proof, 17 October 2026. These elementary arguments have not been
-human-reviewed or formally verified. No novelty claim is made. No universal
-Collatz constructor is proved.
+# A finite current exists exactly when every nonabsorbing orbit component has the right total mass
 
-## 1. The distinction between current existence and bounded work
+## Statement
 
-Let `X` be a set with deterministic map `S` and an absorbing state `o`.
-Measures have finite support in `X \ {o}`, and `P` pushes along `S` while
-discarding mass at `o`. Currents are finite signed measures with divergence
-`(I-P)J`. Coefficients may be real; integer source coefficients admit integer
-constructions below.
+Let `X` be a set with a deterministic map `S` and an absorbing state `o`. Measures have finite support in `X \ {o}`, and `P` pushes along `S` while discarding mass at `o`. Currents are finite signed measures `J` with divergence `(I − P)J`. Coefficients may be real; integer source coefficients admit integer constructions below.
 
-Two states belong to the same **orbit component** if
-`S^a(x)=S^b(y)` for some nonnegative integers `a,b`. This is an equivalence
-relation: transitivity follows by advancing both identified orbit segments
-until their shared middle orbit has reached both meeting times. Equivalently,
-these are the connected components after ignoring arrow directions. There is
-one absorbing component, consisting of states that reach `o`; the others
-are nonabsorbing components. Every finite subset of one component has a
-common forward descendant, with possibly different arrival times.
-
-For a finite measure `mu`, write `m_C = sum_(x in C) mu(x)`.
+Two states belong to the same **orbit component** if `S^a(x) = S^b(y)` for some nonnegative integers `a, b`. This is an equivalence relation: transitivity follows by advancing both identified orbit segments until their shared middle orbit has reached both meeting times. Equivalently, these are the connected components after ignoring arrow directions. There is one absorbing component, the states that reach `o`; the others are nonabsorbing. Every finite subset of one component has a common forward descendant, with possibly different arrival times. For a finite measure `μ` write `m_C = Σ_(x ∈ C) μ(x)`.
 
 **Theorem 1.**
 
-1. A finite exact current `mu=(I-P)J` exists if and only if `m_C=0` for
-   every nonabsorbing orbit component `C`.
-2. A finite signed current and nonpositive finite residual
-   `mu=(I-P)J+zeta`, `zeta<=0`, exist if and only if `m_C<=0` for every
-   nonabsorbing orbit component `C`.
+1. A finite exact current `μ = (I − P)J` exists if and only if `m_C = 0` for every nonabsorbing orbit component `C`.
+2. A finite signed current and nonpositive finite residual, `μ = (I − P)J + ζ` with `ζ ≤ 0`, exist if and only if `m_C ≤ 0` for every nonabsorbing orbit component `C`.
 
-**Proof.** The component indicator `1_C` is invariant under `S` for every
-nonabsorbing component. Pairing a finite divergence with this indicator gives
-zero. Pairing the residual gives a nonpositive number. These are the necessary
-conditions.
-
-For sufficiency, only finitely many components meet the support of `mu`.
-In an absorbing component, follow each source to `o`. In each other component,
-choose a common descendant `z_C` and finite paths from every source to it.
-A source of weight `c` contributes current `c` along its path, whose divergence
-is `c(delta_x-delta_(z_C))`. Summing gives
-
-`mu = (I-P)J + sum_C m_C delta_(z_C)`.
-
-The sum is over the finitely many nonabsorbing source components. It vanishes
-under condition 1 and is nonpositive under condition 2. All paths are finite,
-so the resulting current is finite. The argument is an existence proof;
-it does not provide a decidable component-membership oracle. QED.
-
-Let `tau` be the hitting time of `o`, `h_L=min(L,tau)`, and
-`H_L(mu)=sum_x mu(x)h_L(x)`. For all `L` beyond the largest finite hitting
-time among the finitely many sources,
-
-`H_L(mu) = L sum_(C nonabsorbing) m_C + sum_(tau(x)<infinity) mu(x)tau(x)`.
-
-Consequently `sup_L H_L(mu)<infinity` holds if and only if the **sum** of
-nonabsorbing component masses is nonpositive. That is weaker than requiring
-each individual mass to be nonpositive. The fixed-measure implications must
-not be confused with the repository's equivalence after quantifying over
-**every** right-packet cutoff.
-
-There is a concrete arithmetic example outside the positive-integer domain.
-Extend the odd Syracuse formula to negative odd integers, retaining absorption
-only at positive `1`. The cycles are `-1 -> -1` and `-5 -> -7 -> -5`.
-For `mu=delta_(-1)-delta_(-5)`, `H_L(mu)=0` at every horizon, but the
-`{-1}` component has mass `+1`. Hence neither type of current exists.
-This is a negative-integer example, not a claimed counterexample on positive
-Collatz states.
-
-## 2. A complete search when a certificate exists
-
-For each depth `d=0,1,2,...`, expose the first `d` forward arrows from every
-source, retaining previously visited states. Compute connected components of
-this finite graph with arrow directions ignored. If every component that
-does not contain `o` has source mass zero, an exact certificate can be formed.
-If all those masses are nonpositive, a one-sided certificate can be formed.
-
-To construct it, choose one anchor per finite component (`o` when available),
-choose an undirected spanning tree, and route each source's coefficient to
-that anchor. Traversing an original arrow backwards gives a negative current
-on that arrow. The divergence of a routed source is exactly its source mass
-minus its anchor mass. The residual is the component mass at its anchor.
-
-Every reported success is a finite, checkable certificate. If a certificate
-of either type exists, Theorem 1 supplies finitely many paths that connect
-each required source component, or connect it to `o`. At a sufficiently large
-finite depth those paths have been exposed, so the corresponding search
-succeeds. Thus the search is a **semidecision procedure complete for current
-existence**. A depth cap returns unresolved, never nonexistence.
-
-This also explains why synchronous transport alone is incomplete for this
-purpose. On the nonabsorbing ray `S(n)=n+1`,
-`delta_2-delta_3=(I-P)delta_2`, but `P^d(delta_2-delta_3)` is nonzero at every
-depth. Recording historical intersections finds the unequal-time cancellation.
-
-For the entire right-aligned family, proving that this complete semidecision
-search always terminates remains equivalent to proving the repository's
-universal current criterion. Completeness removes an algorithmic deficiency;
-it does not prove the missing universal existence hypothesis.
-
-## 3. No bounded-size current catalogue for individual actual packets
-
-The conclusion here concerns **individual triples**, even though those triples
-occur in the actual right-aligned family. It does not exclude cancellations
-across different triples in the aggregated measure `Pi_right_N`.
-
-**Theorem 2.** For every integer `H>=0`, let
-
-`K=2H+7`, `y=9*2^K-1`, and `N=4*2^K+5`.
-
-The measure
-
-`mu_y=2 delta_y-delta_(y+6)-delta_(y+12)`
-
-is the last valuation-1 triple in source component 1 at cutoff `N`, under
-the repository's right-aligned construction. Any finite exact current for
-`mu_y`, or any finite current with everywhere nonpositive residual for it,
-has strictly more than `H` nonzero rows.
-
-**Proof of packet membership.** For valuation `a=1`, source and endpoint
-lifts are `x_t=3+4t`, `y_t=5+6t`, with `t>=0`. Put
-`t=3*2^(K-1)-1`, so `y_t=y` and `t=2 mod 3`. The component-1 cutoff is
-
-`n1=floor((3N+1)/2)=6*2^K+8`.
-
-Its final lift is `t+2`, since its source is `6*2^K+7`, while the next
-source exceeds `n1`. There are `t+3=3*2^(K-1)+2` lifts. Right alignment
-therefore leaves the first two and groups the rest into triples beginning at
-indices `2 mod 3`. The three source residues modulo 3 are `2,0,1`, giving
-the coefficients `2,-1,-1` claimed.
-
-**Proof of delayed separation.** Consider first the integer base orbits
-starting at `-1`, `5`, and `11`. Their exact valuations and states are
+**Work.** Let `τ` be the hitting time of `o`, `h_L = min(L, τ)` and `H_L(μ) = Σ_x μ(x)·h_L(x)`. For all `L` beyond the largest finite hitting time among the finitely many sources,
 
 ```
--1 -> -1 -> -1 -> ...      valuations 1,1,1,...
- 5 ->  1 ->  1 -> ...      valuations 4,2,2,...
-11 -> 17 -> 13 -> 5 -> 1   valuations 1,2,3,4, then 2,2,...
+H_L(μ) = L·Σ_(C nonabsorbing) m_C + Σ_(τ(x) < ∞) μ(x)·τ(x).
 ```
 
-The last display uses the ordinary formula at 1, which fixes 1; the actual
-positive perturbations below never equal 1 within the window. For each base
-orbit let `z_j` be its state and `A_j` its accumulated valuation. For
-`0<=j<=H`, each `A_j<=2H+2`. Exact branch arithmetic therefore gives
+So `sup_L H_L(μ) < ∞` holds if and only if the **sum** of nonabsorbing component masses is nonpositive, which is weaker than each individual mass being nonpositive.
 
-`S^j(z_0+9*2^K)=z_j+9*3^j*2^(K-A_j)`.
+**Theorem (complete semidecision search).** For `d = 0, 1, 2, …`, expose the first `d` forward arrows from every source, retaining previously visited states, and compute the connected components of this finite graph with arrow directions ignored. If every component not containing `o` has source mass zero, an exact certificate can be formed; if all those masses are nonpositive, a one-sided certificate can be formed. If a certificate of either type exists, the search of that type succeeds at some finite depth. A depth cap returns unresolved, never nonexistence.
 
-This follows by induction: before each division the perturbation is divisible
-by at least one more power of 2 than the base numerator's exact valuation.
-The displayed bound in fact leaves at least five bits at every state.
+## Proof
 
-All the first `H+1` states of `y` are thus `-1=31 mod 32`. The states
-from `y+6` and `y+12` have residues in `{1,5,11,13,17}` modulo 32. There
-is no equality between these orbit segments, and the segment from `y` does
-not reach the absorber 1.
+From §§1–2 of the legacy note `functional_graph_currents.md`, kept as written.
 
-**Proof that separation bounds certificate size.** Suppose `J` had at most
-`H` nonzero rows. Form the finite undirected graph consisting of its nonzero
-arrows, including their endpoints and the absorber if reached. Let `D` be
-the component containing `y`. If `D` contains neither of the two negative
-sources nor the absorber, summing the identity over `D` gives
+**Theorem 1.** The component indicator `1_C` is invariant under `S` for every nonabsorbing component. Pairing a finite divergence with this indicator gives zero; pairing the residual gives a nonpositive number. These are the necessary conditions.
 
-`2=sum_D mu_y=sum_D zeta<=0`,
+For sufficiency, only finitely many components meet the support of `μ`. In an absorbing component, follow each source to `o`. In each other component, choose a common descendant `z_C` and finite paths from every source to it. A source of weight `c` contributes current `c` along its path, whose divergence is `c·(δ_x − δ_(z_C))`. Summing gives
 
-an impossibility (with `zeta=0` for the exact case). Consequently `D` has
-an undirected path from `y` to a negative source or to the absorber. The path
-has at most `H` edges. In a deterministic graph, any undirected simple path
-has its arrows directed toward a single meeting vertex: two arrows pointing
-away from an interior vertex would violate outdegree at most one. Its two
-endpoints therefore meet under forward iteration with each arrival time at
-most `H`; when one endpoint is the absorber, the other reaches it within
-`H` steps. This contradicts the separation just established. QED.
-
-In particular, a finite catalogue of per-triple current templates whose
-expansions each have a uniformly bounded number of rows cannot certify every
-actual right packet. Recursive templates with unbounded expansion, templates
-using cancellations across packets, and constructions with unrestricted
-certificate size are not excluded. The logarithmic lower bound here is small
-relative to the arbitrary per-cutoff cost permitted by the qualitative
-criterion; its purpose is to rule out an overly narrow local search strategy.
-
-## 4. A useful local identity remains valid
-
-For every integer `t>=0`, set `x=69+256t`. The first two Syracuse iterates are
-
-`S^2(x)=5+18t`, and `S^2(x+6)=85+288t=16 S^2(x)+5`.
-
-Because `3(16u+5)+1=16(3u+1)`, their odd parts agree, so
-`S^3(x)=S^3(x+6)`. This yields an exact current for
-`delta_x-delta_(x+6)` using at most six rows. The valuation of the third
-step need not be bounded or fixed on the whole cylinder. This example and
-Theorem 2 are compatible: the single residue cylinder is useful, but a
-bounded-size per-packet catalogue cannot cover all packets.
-
-## Reproducibility
-
-Run:
-
-```sh
-python3 experiments/current_construction/obstructions/verify_obstructions.py
+```
+μ = (I − P)J + Σ_C m_C·δ_(z_C),
 ```
 
-The script checks the finite-graph constructor on every deterministic map
-on three nonabsorbing vertices and every source measure with coefficients
-in `{-1,0,1}`; verifies the negative-cycle and unequal-time examples; checks
-the delayed-separation formulas at selected depths; verifies actual packet
-membership arithmetically without materializing the huge cutoff; and checks
-the local coalescence identity on a finite range. Finite checks support the
-implementations. The universal statements above rely on the written proofs.
+the sum over the finitely many nonabsorbing source components. It vanishes under condition 1 and is nonpositive under condition 2. All paths are finite, so the current is finite. The argument is an existence proof; it does not provide a decidable component-membership oracle. ∎
 
-Actual checks on 17 October 2026: the command above passed all 1,728 finite
-map/measure cases in both certificate modes, the 10,000 coalescence parameters
-`0..9999`, and obstruction depths `0,1,2,4,8,16,32,64,128`. The persisted
-receipt is `audit.json` in this directory. The repository command
-`python3 scripts/verify_all.py --cpp` also passed: archive and 31 manifest
-entries, both stored Python certificates, the unchanged right-aligned receipt,
-and independent C++ checks at cutoffs 4096 and 262144.
+The work formula follows by splitting the sources into those with finite and infinite hitting time.
+
+**Search.** To construct the certificate at a successful depth, choose one anchor per finite component (`o` when available), choose an undirected spanning tree, and route each source's coefficient to that anchor. Traversing an original arrow backwards gives a negative current on that arrow. The divergence of a routed source is exactly its source mass minus its anchor mass; the residual is the component mass at its anchor. Every reported success is a finite, checkable certificate. If a certificate of either type exists, Theorem 1 supplies finitely many paths that connect each required source component, or connect it to `o`. At a sufficiently large finite depth those paths have been exposed, so the corresponding search succeeds. ∎
+
+## Certificates
+
+[`verify_obstructions.py`](verify_obstructions.py) (main lane, under 1 s, standard library; checks by `assert`, so run it without `-O`; prints its report). For this node it checks the finite-graph constructor on every deterministic map on three nonabsorbing vertices and every source measure with coefficients in `{−1, 0, 1}` (1,728 cases, both certificate modes), and the negative-cycle and unequal-time examples below. The same run checks the delayed-separation formulas and the local coalescence identity of [`bounded-packet-certificate-obstruction`](../bounded-packet-certificate-obstruction.md). Its output matches the legacy receipt [`audit.json`](audit.json).
+
+## Remarks
+
+- **A separation example outside the positive integers.** Extend the odd Syracuse formula to negative odd integers, retaining absorption only at positive 1. The cycles are `−1 → −1` and `−5 → −7 → −5`. For `μ = δ_(−1) − δ_(−5)`, `H_L(μ) = 0` at every horizon, but the `{−1}` component has mass `+1`; hence neither type of current exists. This is a negative-integer example, not a claimed counterexample on positive Collatz states. A fully certified annular version is [`reflected-negative-annulus-control`](../reflected-negative-annulus-control.md).
+- **Bounded work for one measure versus the equivalence.** The fixed-measure implications must not be confused with [`qualitative-current-criterion`](../qualitative-current-criterion.md), which quantifies over **every** packet cutoff.
+- **Synchronous transport is incomplete.** On the nonabsorbing ray `S(n) = n + 1`, `δ_2 − δ_3 = (I − P)δ_2`, but `P^d(δ_2 − δ_3)` is nonzero at every depth. Recording historical intersections finds the unequal-time cancellation.
+- **What completeness does not give.** For the entire right-aligned family, proving that this search always terminates remains equivalent to the universal current criterion ([`packet-current-supply`](../../questions/packet-current-supply.md)). Completeness removes an algorithmic deficiency; it does not prove the missing universal existence hypothesis. Finite runs on whole packets are [`whole-packet-historical-certificates`](../whole-packet-historical-certificates/README.md); the restricted, exposed-graph form of Theorem 1 and its potential `Φ` are in [`exposure-potential-boundary-flux`](../exposure-potential-boundary-flux/README.md).
+- **Controls.** The PR1 lane's `d = −1` control overlaps the negative-integer example; its locally Collatz-like controls `d = 13, 61`, the induction barrier and the minimality lemma are not in this note ([`locally-collatz-like-control-barrier`](../locally-collatz-like-control-barrier/README.md), [`exact-current-minimality`](../exact-current-minimality.md)).
+- The theorem is elementary graph duality. Novelty undetermined.
+
+## History
+
+- Migrated from `experiments/current_construction/obstructions/functional_graph_currents.md` §§1–2 (legacy ID R7) at commit `be73a66`, by the B08 migration (Claude, Opus 5.5); its §§3–4 became [`bounded-packet-certificate-obstruction`](../bounded-packet-certificate-obstruction.md). The checker and receipt moved byte-identical. Legacy status: "written graph theorem, complete semidecision algorithm, and finite checks"; the note says "These elementary arguments have not been human-reviewed or formally verified".
+- Main lane (ChatGPT, Codex), 2026-10-17. The round report records "independent model reviews" of the component criterion by the main lane's own agents; no review from another lane is on record.
