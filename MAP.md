@@ -4,11 +4,15 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**0 results, 0 attempts, 0 questions, 26 sources.**
+**20 results, 6 attempts, 3 questions, 26 sources.**
 
 ## Frontier: open questions
 
-None recorded yet.
+| Question | Area | Claim | Results resting on it |
+|---|---|---|---|
+| [`height-denominator-candidate`](areas/cycles/questions/height-denominator-candidate/README.md) | cycles | Prove or refute: every primitive positive rational cycle of the raw odd-only 3x+1 map (written as a reduced odd numerator cycle 3n_i + q = 2^(a_i)·n_(i+1), q o… | 0 |
+| [`one-height-defect-ordered-cycles`](areas/cycles/questions/one-height-defect-ordered-cycles.md) | cycles | Ordered odd-only cycles at q = 1 with one chronological height h_t = 1 and all other heights 0: legality forces c_(t−1) = 2, and reduced denominator 1 would re… | 0 |
+| [`ordered-cycle-denominator-one`](areas/cycles/questions/ordered-cycle-denominator-one.md) | cycles | Prove or refute: every nontrivial primitive positive rational cycle of the raw odd-only 3x+1 map whose dyadically normalised successor preserves circular order… | 0 |
 
 ## Area: convergence
 
@@ -17,6 +21,42 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 ## Area: cycles
 
 Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
+
+### Results
+
+| Result | Title | Status | Chain | Rests on | Lean |
+|---|---|---|---|---|---|
+| [`actual-cycles-3x-d-corpus`](areas/cycles/results/actual-cycles-3x-d-corpus/README.md) | Corpus of actual 3x+d cycles: every d ≤ 999 coprime to 6, odd seeds ≤ 5000 | reviewed | reviewed | — |  |
+| [`contracting-two-block-effective-exclusion`](areas/cycles/results/contracting-two-block-effective-exclusion/README.md) | Contracting two-block words with a block repeated three times have denominator above 2^M | formal | formal | — | yes |
+| [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) | Dyadic normalisation of a cycle, the exact inversion formula and the order lemma | reviewed | reviewed | — | yes |
+| [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) | Two different equal-total blocks repeated at least three times never give an integer cycle | formal | formal | — | yes |
+| [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines.md) | Order-free baselines for cycle minima and denominators (extremal, packing, product) | written | written | — |  |
+| [`narrow-cycle-spectrum-law`](areas/cycles/results/narrow-cycle-spectrum-law.md) | Narrow-cycle spectrum of 3x+d: one cycle per coprime (A, m) with 0 < 2^A − 3^m dividing d | reviewed | reviewed | — |  |
+| [`narrow-cycles-are-mechanical`](areas/cycles/results/narrow-cycles-are-mechanical/README.md) | A cycle with H < 2L is exactly a mechanical word, so every nontrivial 3x+1 cycle has H >… | formal | formal | — | yes |
+| [`ordered-cycle-height-census`](areas/cycles/results/ordered-cycle-height-census.md) | Bounded 3x+d census for d ≤ 97: a new 3x+29 cycle, and B ≤ q − 1 on all 1,185 normalised… | reviewed | reviewed | — |  |
+| [`ordered-cycle-height-change-growth`](areas/cycles/results/ordered-cycle-height-change-growth.md) | Ordered cycles: bounded q and J leave finitely many, and J ≥ √m − O_q(log m) | reviewed | reviewed | `bugeaud-2022-two-logarithms` | yes |
+| [`ordered-cycle-residue-law`](areas/cycles/results/ordered-cycle-residue-law.md) | Cycle numerators are units mod 6q, normalised residues forget heights, and the min–top in… | formal | reviewed | — | yes |
+| [`ordered-cycle-sparse-forcing`](areas/cycles/results/ordered-cycle-sparse-forcing/README.md) | In an ordered cycle, few sorted height changes force an exponentially large minimum | formal | reviewed | — | yes |
+| [`perturbed-mechanical-block-family`](areas/cycles/results/perturbed-mechanical-block-family.md) | A primitive nonbalanced family u_m^k (2) with growing minima and denominator above 1 | reviewed | reviewed | — |  |
+| [`proportional-slope-two-block-bound`](areas/cycles/results/proportional-slope-two-block-bound.md) | Proportional-slope two-block words have an explicit exponential denominator bound | formal | formal | — | yes |
+| [`repeated-block-cancellation-bound`](areas/cycles/results/repeated-block-cancellation-bound/README.md) | A fixed defect bounds the denominator cancellation of repeated-block words | reviewed | reviewed | — | yes |
+| [`rotating-mechanical-two-block-family`](areas/cycles/results/rotating-mechanical-two-block-family.md) | Mechanical block and its rotation: u_m^k v_m^ℓ has growing minima and no denominator 1 | reviewed | reviewed | — |  |
+| [`rotation-block-exclusion`](areas/cycles/results/rotation-block-exclusion/README.md) | Concatenations of rotations of one mechanical word are never integer 3x+1 cycles | formal | reviewed | — | yes |
+| [`rotation-lattice-single-divisibility`](areas/cycles/results/rotation-lattice-single-divisibility.md) | Integrality of all rotated cycle states is a single divisibility condition | reviewed | reviewed | — | yes |
+| [`three-band-collatz-cycles-are-ordered`](areas/cycles/results/three-band-collatz-cycles-are-ordered.md) | A 3x+1 cycle with H < 8L is dyadically ordered with mechanical normalised word and gcd(A,… | formal | reviewed | — | yes |
+| [`two-block-uniform-denominator-growth`](areas/cycles/results/two-block-uniform-denominator-growth/README.md) | Two-block words u^k v^ℓ with k, ℓ ≥ 2 have denominators growing uniformly in the total, i… | written | written | `corvaja-2005-s-unit-height` |  |
+| [`unequal-slope-two-block-growth`](areas/cycles/results/unequal-slope-two-block-growth/README.md) | Unequal-slope two-block words have denominator 2^((1−o(1))·A), ineffectively | reviewed | reviewed | `corvaja-2005-s-unit-height` |  |
+
+### Attempts (approaches that failed or stalled)
+
+| Attempt | Title | Status |
+|---|---|---|
+| [`close-pair-lattice-criterion`](areas/cycles/attempts/close-pair-lattice-criterion/README.md) | Excluding denominator 1 by a universal close pair: some two states less than 2 apart | reviewed |
+| [`constant-cancellation-two-growing-blocks`](areas/cycles/attempts/constant-cancellation-two-growing-blocks.md) | A constant cancellation bound for two growing repeated blocks | reviewed |
+| [`height-bound-via-residues-or-relaxation`](areas/cycles/attempts/height-bound-via-residues-or-relaxation.md) | Proving B ≤ q − 1 from disjoint height residues or from real order inequalities | reviewed |
+| [`interval-trapping-expanding-blocks`](areas/cycles/attempts/interval-trapping-expanding-blocks.md) | Interval trapping of block starts when one block expands | reviewed |
+| [`mechanical-normalized-word-transfer`](areas/cycles/attempts/mechanical-normalized-word-transfer.md) | Transferring the mechanical-word denominator theorem to a mechanical normalised word | reviewed |
+| [`ordered-cycle-shortcuts`](areas/cycles/attempts/ordered-cycle-shortcuts.md) | Four shortcuts toward excluding ordered denominator-one cycles, each refuted by an exact control | written |
 
 ## Area: invariants
 
@@ -29,9 +69,9 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) | Adamczewski–Bell: a problem about Mahler functions | cited | 0 |
 | [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 0 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
-| [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 0 |
+| [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 1 |
 | [`cobham-recognizability-theorem`](sources/cobham-recognizability-theorem.md) | Cobham's theorem: sets recognizable in two independent bases | cited | 0 |
-| [`corvaja-2005-s-unit-height`](sources/corvaja-2005-s-unit-height.md) | Corvaja–Zannier: height of a rational function at S-unit points | cited | 0 |
+| [`corvaja-2005-s-unit-height`](sources/corvaja-2005-s-unit-height.md) | Corvaja–Zannier: height of a rational function at S-unit points | cited | 2 |
 | [`eilenberg-finite-kernel`](sources/eilenberg-finite-kernel.md) | Eilenberg's finite-kernel characterisation of automatic sequences | cited | 0 |
 | [`eliahou-1993-cycle-length`](sources/eliahou-1993-cycle-length.md) | Eliahou (1993): lower bound on nontrivial cycle length | cited | 0 |
 | [`everett-1977-stopping-time`](sources/everett-1977-stopping-time.md) | Everett (1977): density one of integers with finite stopping time | cited | 0 |
@@ -59,32 +99,39 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 | Legacy ID | Node |
 |---|---|
+| C001 | [`repeated-block-cancellation-bound`](areas/cycles/results/repeated-block-cancellation-bound/README.md) |
+| C001-corpus | [`actual-cycles-3x-d-corpus`](areas/cycles/results/actual-cycles-3x-d-corpus/README.md) |
+| C002 | [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) |
+| C004 | [`narrow-cycles-are-mechanical`](areas/cycles/results/narrow-cycles-are-mechanical/README.md) |
+| C005 | [`rotation-block-exclusion`](areas/cycles/results/rotation-block-exclusion/README.md) |
+| C006 | [`ordered-cycle-sparse-forcing`](areas/cycles/results/ordered-cycle-sparse-forcing/README.md) |
+| C007 | [`height-denominator-candidate`](areas/cycles/questions/height-denominator-candidate/README.md) |
 | EXT-1 | [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) |
 
 ## Recent activity
 
-- 2026-10-19: [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) added (source)
-- 2026-10-19: [`corvaja-2005-s-unit-height`](sources/corvaja-2005-s-unit-height.md) added (source)
-- 2026-10-19: [`languasco-2025-two-primes`](sources/languasco-2025-two-primes.md) added (source)
-- 2026-10-19: [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) added (source)
-- 2026-10-18: [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) added (source)
-- 2026-10-18: [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) added (source)
-- 2026-10-18: [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) added (source)
-- 2026-10-18: [`cobham-recognizability-theorem`](sources/cobham-recognizability-theorem.md) added (source)
-- 2026-10-18: [`eilenberg-finite-kernel`](sources/eilenberg-finite-kernel.md) added (source)
-- 2026-10-18: [`eliahou-1993-cycle-length`](sources/eliahou-1993-cycle-length.md) added (source)
-- 2026-10-18: [`everett-1977-stopping-time`](sources/everett-1977-stopping-time.md) added (source)
-- 2026-10-18: [`hercher-2023-cycle-length`](sources/hercher-2023-cycle-length.md) added (source)
-- 2026-10-18: [`knight-2026-high-cycles`](sources/knight-2026-high-cycles.md) added (source)
-- 2026-10-18: [`lagarias-1985-survey`](sources/lagarias-1985-survey.md) added (source)
-- 2026-10-18: [`lau-2026-positive-density`](sources/lau-2026-positive-density.md) added (source)
-- 2026-10-18: [`matveev-2000-linear-forms`](sources/matveev-2000-linear-forms.md) added (source)
-- 2026-10-18: [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) added (source)
-- 2026-10-18: [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) added (source)
-- 2026-10-18: [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) added (source)
-- 2026-10-18: [`steiner-1977-one-cycles`](sources/steiner-1977-one-cycles.md) added (source)
-- 2026-10-17: [`halbeisen-1997-rational-cycles`](sources/halbeisen-1997-rational-cycles.md) added (source)
-- 2026-10-17: [`krasikov-2003-predecessors`](sources/krasikov-2003-predecessors.md) added (source)
-- 2026-10-17: [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) added (source)
-- 2026-10-17: [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) added (source)
-- 2026-10-17: [`tao-2019-almost-all`](sources/tao-2019-almost-all.md) added (source)
+- 2026-10-19: [`actual-cycles-3x-d-corpus`](areas/cycles/results/actual-cycles-3x-d-corpus/README.md) added (result)
+- 2026-10-19: [`actual-cycles-3x-d-corpus`](areas/cycles/results/actual-cycles-3x-d-corpus/README.md) reviewed by Claude side lane (Opus)
+- 2026-10-19: [`contracting-two-block-effective-exclusion`](areas/cycles/results/contracting-two-block-effective-exclusion/README.md) added (result)
+- 2026-10-19: [`contracting-two-block-effective-exclusion`](areas/cycles/results/contracting-two-block-effective-exclusion/README.md) reviewed by Claude side lane (Opus)
+- 2026-10-19: [`contracting-two-block-effective-exclusion`](areas/cycles/results/contracting-two-block-effective-exclusion/README.md) reviewed by Claude Lean lane (Fable)
+- 2026-10-19: [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) added (result)
+- 2026-10-19: [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) reviewed by Claude Lean lane (Fable)
+- 2026-10-19: [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) reviewed by Claude side lane (Opus)
+- 2026-10-19: [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) added (result)
+- 2026-10-19: [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) reviewed by Claude side lane (Opus)
+- 2026-10-19: [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) reviewed by Claude Lean lane (Fable)
+- 2026-10-19: [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines.md) added (result)
+- 2026-10-19: [`narrow-cycle-spectrum-law`](areas/cycles/results/narrow-cycle-spectrum-law.md) added (result)
+- 2026-10-19: [`narrow-cycle-spectrum-law`](areas/cycles/results/narrow-cycle-spectrum-law.md) reviewed by Claude side lane (Opus)
+- 2026-10-19: [`narrow-cycles-are-mechanical`](areas/cycles/results/narrow-cycles-are-mechanical/README.md) added (result)
+- 2026-10-19: [`narrow-cycles-are-mechanical`](areas/cycles/results/narrow-cycles-are-mechanical/README.md) reviewed by Claude side lane (Opus)
+- 2026-10-19: [`narrow-cycles-are-mechanical`](areas/cycles/results/narrow-cycles-are-mechanical/README.md) reviewed by Claude Lean lane (Fable)
+- 2026-10-19: [`ordered-cycle-height-census`](areas/cycles/results/ordered-cycle-height-census.md) added (result)
+- 2026-10-19: [`ordered-cycle-height-census`](areas/cycles/results/ordered-cycle-height-census.md) reviewed by Claude side lane (Opus)
+- 2026-10-19: [`ordered-cycle-height-change-growth`](areas/cycles/results/ordered-cycle-height-change-growth.md) added (result)
+- 2026-10-19: [`ordered-cycle-height-change-growth`](areas/cycles/results/ordered-cycle-height-change-growth.md) reviewed by Claude Lean lane (Fable)
+- 2026-10-19: [`ordered-cycle-height-change-growth`](areas/cycles/results/ordered-cycle-height-change-growth.md) reviewed by Claude side lane (Opus)
+- 2026-10-19: [`ordered-cycle-residue-law`](areas/cycles/results/ordered-cycle-residue-law.md) added (result)
+- 2026-10-19: [`ordered-cycle-residue-law`](areas/cycles/results/ordered-cycle-residue-law.md) reviewed by Claude Lean lane (Fable)
+- 2026-10-19: [`ordered-cycle-residue-law`](areas/cycles/results/ordered-cycle-residue-law.md) reviewed by Claude side lane (Opus)

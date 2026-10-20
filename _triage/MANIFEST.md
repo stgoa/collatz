@@ -32,30 +32,30 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B02-lean | `lean/lakefile.toml` | 1 | restored to `lean/lakefile.toml` |
 | B02-lean | `lean/lean-toolchain` | 1 | restored to `lean/lean-toolchain` |
 | B02-lean | `lean/receipts` | 35 | restored to `lean/receipts` |
-| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C001` | 12 | pending |
-| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C002` | 10 | pending |
-| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C003` | 10 | pending |
-| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C004` | 10 | pending |
-| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C005` | 14 | pending |
-| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C006` | 12 | pending |
-| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C007` | 13 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c001_spectrum_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c002_two_block_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c003_variable_blocks_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c004_narrow_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c004c_bridge_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c005_c006_order_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c005d_ofword_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c005e_rep_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c005f_bookkeeping_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c005g_rotation_block_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c005h_ratio_bound_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c006b_erun_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c006c_g4_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c006d_g2_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c006e_cc_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c006f_order_word_check.*` | 2 | pending |
-| B03-cycles-C001-C007 | `reviews/side_lane/c007_height_check.*` | 2 | pending |
+| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C001` | 12 | node repeated-block-cancellation-bound, perturbed-mechanical-block-family, actual-cycles-3x-d-corpus |
+| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C002` | 10 | node equal-total-two-block-exclusion, proportional-slope-two-block-bound, unequal-slope-two-block-growth, rotating-mechanical-two-block-family, constant-cancellation-two-growing-blocks |
+| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C003` | 10 | node two-block-uniform-denominator-growth, contracting-two-block-effective-exclusion, interval-trapping-expanding-blocks |
+| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C004` | 10 | node narrow-cycles-are-mechanical, narrow-cycle-spectrum-law, rotation-lattice-single-divisibility, close-pair-lattice-criterion |
+| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C005` | 14 | node rotation-block-exclusion, dyadic-order-lemma, three-band-collatz-cycles-are-ordered, mechanical-normalized-word-transfer, ordered-cycle-denominator-one |
+| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C006` | 12 | node ordered-cycle-sparse-forcing, ordered-cycle-height-change-growth, generic-cycle-minimum-baselines, ordered-cycle-shortcuts, mechanical-normalized-word-transfer, one-height-defect-ordered-cycles |
+| B03-cycles-C001-C007 | `experiments/cycle_spectrum/C007` | 13 | node height-denominator-candidate, ordered-cycle-residue-law, ordered-cycle-height-census, height-bound-via-residues-or-relaxation |
+| B03-cycles-C001-C007 | `reviews/side_lane/c001_spectrum_check.*` | 2 | node repeated-block-cancellation-bound |
+| B03-cycles-C001-C007 | `reviews/side_lane/c002_two_block_check.*` | 2 | node equal-total-two-block-exclusion |
+| B03-cycles-C001-C007 | `reviews/side_lane/c003_variable_blocks_check.*` | 2 | node contracting-two-block-effective-exclusion |
+| B03-cycles-C001-C007 | `reviews/side_lane/c004_narrow_check.*` | 2 | node narrow-cycles-are-mechanical |
+| B03-cycles-C001-C007 | `reviews/side_lane/c004c_bridge_check.*` | 2 | node narrow-cycles-are-mechanical |
+| B03-cycles-C001-C007 | `reviews/side_lane/c005_c006_order_check.*` | 2 | node rotation-block-exclusion |
+| B03-cycles-C001-C007 | `reviews/side_lane/c005d_ofword_check.*` | 2 | node rotation-block-exclusion |
+| B03-cycles-C001-C007 | `reviews/side_lane/c005e_rep_check.*` | 2 | node rotation-block-exclusion |
+| B03-cycles-C001-C007 | `reviews/side_lane/c005f_bookkeeping_check.*` | 2 | node rotation-block-exclusion |
+| B03-cycles-C001-C007 | `reviews/side_lane/c005g_rotation_block_check.*` | 2 | node rotation-block-exclusion |
+| B03-cycles-C001-C007 | `reviews/side_lane/c005h_ratio_bound_check.*` | 2 | node rotation-block-exclusion |
+| B03-cycles-C001-C007 | `reviews/side_lane/c006b_erun_check.*` | 2 | node ordered-cycle-sparse-forcing |
+| B03-cycles-C001-C007 | `reviews/side_lane/c006c_g4_check.*` | 2 | node ordered-cycle-sparse-forcing |
+| B03-cycles-C001-C007 | `reviews/side_lane/c006d_g2_check.*` | 2 | node ordered-cycle-sparse-forcing |
+| B03-cycles-C001-C007 | `reviews/side_lane/c006e_cc_check.*` | 2 | node ordered-cycle-sparse-forcing |
+| B03-cycles-C001-C007 | `reviews/side_lane/c006f_order_word_check.*` | 2 | node ordered-cycle-sparse-forcing |
+| B03-cycles-C001-C007 | `reviews/side_lane/c007_height_check.*` | 2 | node height-denominator-candidate |
 | B04-cycles-C008-C014 | `experiments/cycle_spectrum/C008` | 15 | pending |
 | B04-cycles-C008-C014 | `experiments/cycle_spectrum/C009` | 16 | pending |
 | B04-cycles-C008-C014 | `experiments/cycle_spectrum/C010` | 15 | pending |
