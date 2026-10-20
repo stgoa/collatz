@@ -22,8 +22,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [signed-path-collapse-capacity, disjoint-annular-recursion]
+certificates: [check_legacy_replay.py]
 evidence:
-  - "check_window_components.py, window_components_audit.json: the legacy constructors (cluster_at_source, collapse_annulus, compile_guard, sharp_component) and checker (complete clusters against full-root grouping at N = 8, 16, 24, 96, 160, 168, 384, 768; all current identities and limits; sharp-span examples at t = 1, 2, 3, 9 with all 64 coefficients and slope checks; 14 affine-guard translations; forbidden edges through 8193; source-empty exit targets at k = 1, 3, 5, 31). Fails at its new path: it loads experiments/residual_progress/alternating/check_alternating_paths.py relative to the repository root (now ../signed-path-collapse-capacity/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/window_components/check_window_components.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
+  - "check_window_components.py, window_components_audit.json: the legacy constructors (cluster_at_source, collapse_annulus, compile_guard, sharp_component) and checker (complete clusters against full-root grouping at N = 8, 16, 24, 96, 160, 168, 384, 768; all current identities and limits; sharp-span examples at t = 1, 2, 3, 9 with all 64 coefficients and slope checks; 14 affine-guard translations; forbidden edges through 8193; source-empty exit targets at k = 1, 3, 5, 31). Fails at its new path: it loads experiments/residual_progress/alternating/check_alternating_paths.py relative to the repository root (now ../signed-path-collapse-capacity/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/window_components/check_window_components.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "../auxiliary-normalisation-remainder/batch_r15_r18_r21_r29_check.py: side-lane probe, a certificate of that node, which also checks the adjusted-height arithmetic below (passes at its new path)"
 reviewed_by:
   - by: Claude side lane (Opus)
@@ -333,7 +334,9 @@ certificates remain open.
 
 ## Certificates
 
-No certificate runs in this folder: the legacy checker loads the `E0` constructors of [`signed-path-collapse-capacity`](../signed-path-collapse-capacity/README.md) by their pre-migration path and is evidence only. The adjusted-height arithmetic, the sharp path for `t = 1..5` and the forbidden-edge classification below `2·10⁵` are certified by the side-lane script [`batch_r15_r18_r21_r29_check.py`](../auxiliary-normalisation-remainder/batch_r15_r18_r21_r29_check.py), a certificate of [`auxiliary-normalisation-remainder`](../auxiliary-normalisation-remainder/README.md). The command in the legacy text names `experiments/residual_progress/window_components/`.
+No certificate ran in this folder before the B18 replay revival: the legacy checker loads the `E0` constructors of [`signed-path-collapse-capacity`](../signed-path-collapse-capacity/README.md) by their pre-migration path and was evidence only until the B18 replay revival (below). The adjusted-height arithmetic, the sharp path for `t = 1..5` and the forbidden-edge classification below `2·10⁵` are certified by the side-lane script [`batch_r15_r18_r21_r29_check.py`](../auxiliary-normalisation-remainder/batch_r15_r18_r21_r29_check.py), a certificate of [`auxiliary-normalisation-remainder`](../auxiliary-normalisation-remainder/README.md). The command in the legacy text names `experiments/residual_progress/window_components/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_window_components.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 14 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

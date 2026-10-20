@@ -19,11 +19,11 @@ depends_on: [two-defect-cancellation-bound]
 assumes: [languasco-2025-two-primes, matveev-2000-linear-forms, hercher-2023-cycle-length, barina-2025-convergence-2-71]
 lean:
   - LeanLane.Cyc.two_defect_q_bound
-certificates: [check_exclusion_constants.py, c011_two_defect_check.py]
+certificates: [check_exclusion_constants.py, c011_two_defect_check.py, check_legacy_replay.py]
 evidence:
   - "EXCLUSION.md: the written proof of the exclusion with its published inputs (sections 2-5); ROTATION_DEFECTS.md: the two-arc theorem, finiteness, adjacent classification and marker family; DEFECT_OBSTRUCTIONS.md: the 1^t 2^(2t) counterfamily; GENERAL_DEFECTS.md: the coupled-difference identity and the q = 97, 233, 359 controls"
-  - "check_rotation_defects.py, rotation_defect_audit.json: main-lane checker and receipt (27,646 rotations, 1,481,154 word positions, 192 two-defect rotations with 384 oriented arc identities, 108 eligible actual cycles of which 22 have unit-amplitude two-defect rotations; 51 cancellation-family examples, twelve moduli, nineteen repetition controls, eight marker cases with 1,020 exact arrows). Fails at its new path: it imports HERE.parent/'C009/check_excursions.py'. Passed at be73a66 as experiments/cycle_spectrum/C011/check_rotation_defects.py (archive/legacy-checker-run-be73a66.md)"
-  - "check_coupled_defects.py, coupled_defect_controls.json: main-lane check of the q = 97, 233, 359 coupled controls. Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json'. Passed at be73a66 as experiments/cycle_spectrum/C011/check_coupled_defects.py"
+  - "check_rotation_defects.py, rotation_defect_audit.json: main-lane checker and receipt (27,646 rotations, 1,481,154 word positions, 192 two-defect rotations with 384 oriented arc identities, 108 eligible actual cycles of which 22 have unit-amplitude two-defect rotations; 51 cancellation-family examples, twelve moduli, nineteen repetition controls, eight marker cases with 1,020 exact arrows). Fails at its new path: it imports HERE.parent/'C009/check_excursions.py'. Passed at be73a66 as experiments/cycle_spectrum/C011/check_rotation_defects.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+  - "check_coupled_defects.py, coupled_defect_controls.json: main-lane check of the q = 97, 233, 359 coupled controls. Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json'. Passed at be73a66 as experiments/cycle_spectrum/C011/check_coupled_defects.py. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "check_delivery.py, delivery_checks.json: historical delivery check and receipt; pinned to the historical commits that produced it, fails at HEAD by design (it failed at be73a66 too)"
   - "exclusion_constants.json: receipt of check_exclusion_constants.py; c011_two_defect_check.json: receipt of the side-lane check"
   - "ARITHMETIC_REVIEW.md, INDEPENDENT_REVIEW.md, EXACT_CHECKER_REVIEW.md, ROOT_REVIEW.md: main-lane reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed; LITERATURE.md: primary-source audit of the published inputs; historical_gate.json: historical finite gate"
@@ -99,6 +99,8 @@ So (2) implies `log q > 0`, contradicting `q = 1`. QED.
 
 - [`check_exclusion_constants.py`](check_exclusion_constants.py) (under a second): checks the rational estimates `K_0 < 598,752,000`, the boundary margin 2,450,000,000, the derivative bound `373/2750` and the endpoint containment, and compares with [`exclusion_constants.json`](exclusion_constants.json). It does not replay the imported theorem or computations.
 - [`c011_two_defect_check.py`](c011_two_defect_check.py) (about 30 s; side lane, independent code): the theorem's elementary core on every primitive positive word with `D > 0`, length ≤ 9 and letters 1–5 (20,431 words with a two-defect rotation, 33,360 rotations: swapped pair, `den > 1`, `g² < (2^k − 1)²·2^(A−m−k)·3^m`, `den > (1 − 3^m/2^A)(2/√3)^m` in exact integer form); the marker family for `r = 2..6`; the `1^t 2^(2t)` counterfamily for `t ≤ 60`. It rewrites [`c011_two_defect_check.json`](c011_two_defect_check.json) identically.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy checks `check_rotation_defects.py`, `check_coupled_defects.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 22 s). It checks finite steps only; the status is unchanged.
 
 ## Lean
 

@@ -20,9 +20,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [retained-graph-complement-constructor, halving-coalescence-return, annular-complement-outer-descent]
-certificates: [check_induction_recompute.py]
+certificates: [check_induction_recompute.py, check_legacy_replay.py]
 evidence:
-  - "r24_check.py, r24_check.json: side-lane probe (Claude side lane, 2026-10-17): the ordered cutoffs' ratios and divisibility over 355 cutoffs and the base (every odd seed <= 6144 reaches 1). Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/). Passed at be73a66 as reviews/side_lane/r24_check.py (archive/legacy-checker-run-be73a66.md, exit 0)"
+  - "r24_check.py, r24_check.json: side-lane probe (Claude side lane, 2026-10-17): the ordered cutoffs' ratios and divisibility over 355 cutoffs and the base (every odd seed <= 6144 reaches 1). Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/). Passed at be73a66 as reviews/side_lane/r24_check.py (archive/legacy-checker-run-be73a66.md, exit 0). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "../halving-coalescence-return/halving_return_audit.json: the legacy receipt in which the main lane reconstructed and checked the base U_6144"
 reviewed_by:
   - by: Claude side lane (Opus)
@@ -209,7 +209,9 @@ every possible short comparison with an arbitrary supplied absorption graph.
 ## Certificates
 
 - [`check_induction_recompute.py`](check_induction_recompute.py) (written at the B09 migration, under 1 s, standard library). Checks the 355 ordered cutoffs with `9 ≤ b ≤ 79` (ratio pattern `7/6, 8/7, 9/8, 7/6, 8/7`, all below `3/2`; divisibility by 512; the pattern is periodic in `b`, which is the general statement) and the base: every odd seed `≤ 6144` reaches 1 (cycle detection and a step cap).
-- The legacy folder had no checker for this note; the side-lane probe `r24_check.py` is evidence only.
+- The legacy folder had no checker for this note; the side-lane probe `r24_check.py` was evidence only until the B18 replay revival (below).
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `r24_check.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 13 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

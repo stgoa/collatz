@@ -22,9 +22,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-18
 depends_on: [common-critical-rank-basis, critical-nine-elimination, failed-w9-leader-reduction, complementary-run-bridges, returning-forward-interface, later-target-twenty-step-descent, four-target-history-classification, signed-pair-frontier-normalisation]
-certificates: [r89_retained_cell_check.py]
+certificates: [r89_retained_cell_check.py, check_legacy_replay.py]
 evidence:
-  - "check_retained_history.py, retained_history.py, retained_history_audit.json: the legacy constructor, checker and receipt: 656 enlarged-window cases, nine threshold controls, 66 first-run plans, 60 exact-depth cells through 128, four inherited origins, 68 coupled decisions, nine signed-history cancellations, 35 rejections, three supplied outputs with 43/154/232 rows, the 22-row nonzero inherited lower relation; 37 local sources pinned. Fails at its new path: retained_history.py loads ../complementary_bridge/run_bridge.py and ../frontier_progress/ (now ../complementary-run-bridges/, ../signed-pair-frontier-normalisation/) by their pre-migration paths, and is loaded in turn by the legacy phi_exit_control/ code (now ../binary-return-exit-control/); and Its receipt pins the SHA-256 of this node's legacy note RETAINED_HISTORY.md, now an edited README, so it fails at its new path and in a legacy replay. Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a; A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged)"
+  - "check_retained_history.py, retained_history.py, retained_history_audit.json: the legacy constructor, checker and receipt: 656 enlarged-window cases, nine threshold controls, 66 first-run plans, 60 exact-depth cells through 128, four inherited origins, 68 coupled decisions, nine signed-history cancellations, 35 rejections, three supplied outputs with 43/154/232 rows, the 22-row nonzero inherited lower relation; 37 local sources pinned. Fails at its new path: retained_history.py loads ../complementary_bridge/run_bridge.py and ../frontier_progress/ (now ../complementary-run-bridges/, ../signed-pair-frontier-normalisation/) by their pre-migration paths, and is loaded in turn by the legacy phi_exit_control/ code (now ../binary-return-exit-control/); and Its receipt pins the SHA-256 of this node's legacy note RETAINED_HISTORY.md, now an edited README, so it fails at its new path and in a legacy replay at earlier migrations (before rewritten notes were restored from git). Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a; A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-18
@@ -405,6 +405,8 @@ compiler establish universal current supply.
 ## Certificates
 
 [`r89_retained_cell_check.py`](r89_retained_cell_check.py) (the side-lane probe; it imports nothing from the repository and passes in place, under 1 s): the window on 4,000 random W9 pairs, the three-node family, the retained cell and its depth progressions, and the 25- and 27-arrow paths on 46 subcell parameters, against `r89_retained_cell_check.json`. It does not rebuild the planner. The legacy checker `check_retained_history.py` pins the hash of this node's note, now an edited README (see `evidence`). The command in the legacy text names `experiments/residual_progress/retained_history/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_retained_history.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 18 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

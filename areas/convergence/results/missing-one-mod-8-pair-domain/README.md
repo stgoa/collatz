@@ -21,9 +21,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [elementary-bridge-quotient-normal-form, mixed-shrinking-pair-rules, tripling-doubling-pair-decomposition]
-certificates: [check_pair_one_recompute.py]
+certificates: [check_pair_one_recompute.py, check_legacy_replay.py]
 evidence:
-  - "check_pair_one.py, pair_one.py, pair_one_audit.json, pair_315_current.csv: the legacy constructor and checker (direct domains over 4096 inputs, mixed-word cylinders, modular exponent lifts, four actual Mersenne bridges, the a = 659 supplied-input conversion with a 10000-step input cap, and the small current for 315 from a supplied path of 105). Fails at its new path: pair_one.py loads ../paired_completion/mixed_pairs.py (now ../mixed-shrinking-pair-rules/, which itself no longer runs) by its pre-migration path. Passed at be73a66 as experiments/residual_progress/pair_one/check_pair_one.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The later coupled-even-pair-recursion loads pair_one.py by its old path"
+  - "check_pair_one.py, pair_one.py, pair_one_audit.json, pair_315_current.csv: the legacy constructor and checker (direct domains over 4096 inputs, mixed-word cylinders, modular exponent lifts, four actual Mersenne bridges, the a = 659 supplied-input conversion with a 10000-step input cap, and the small current for 315 from a supplied path of 105). Fails at its new path: pair_one.py loads ../paired_completion/mixed_pairs.py (now ../mixed-shrinking-pair-rules/, which itself no longer runs) by its pre-migration path. Passed at be73a66 as experiments/residual_progress/pair_one/check_pair_one.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The later coupled-even-pair-recursion loads pair_one.py by its old path. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-17
@@ -252,6 +252,8 @@ for the present rule, despite entering parent branch B.
 
 - [`check_pair_one_recompute.py`](check_pair_one_recompute.py) (written at the B10 migration, under 1 s, standard library). With its own `S` and canonical test it checks: both branch identities, the child bounds and canonicity for every A and B input among the 4096 odd `w ≡ 1 (mod 8)` below 32768, and the domain counts 256, 128 and 3712 of [`pair_one_audit.json`](pair_one_audit.json); the two terminal exponent lifts `1699` and `659 (mod 4096)` by exhaustion; the four actual Mersenne mergers (`a = 659, 1699, 4755, 5795`) at the receipt's clocks by direct iteration; and that [`pair_315_current.csv`](pair_315_current.csv) is the actual path of 315 to 1. It does not rebuild the mixed-word acceptances, the current hashes or the supplied `a = 659` conversion (legacy checker, evidence only).
 - The command in the legacy text names `experiments/residual_progress/pair_one/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_pair_one.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 13 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

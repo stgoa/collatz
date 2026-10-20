@@ -20,8 +20,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [disjoint-annular-recursion, annular-root-collapse-contraction]
+certificates: [check_legacy_replay.py]
 evidence:
-  - "check_root_transport.py, root_transport_audit.json: the legacy checker (conjugacy arithmetic on odd states through 4097; operator identities and surviving-atom formulas at N = 8, 96, 168, 384 through depth 12; the exact N = 96 counterexamples through depth 80, with all four plateau measures stored) and the reusable bounded constructor collapsed_transport_current(measure, steps). Fails at its new path: it loads experiments/annular_construction/arithmetic/check_arithmetic_reductions.py relative to the repository root (now ../universal-annular-partial-current/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/transport/check_root_transport.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
+  - "check_root_transport.py, root_transport_audit.json: the legacy checker (conjugacy arithmetic on odd states through 4097; operator identities and surviving-atom formulas at N = 8, 96, 168, 384 through depth 12; the exact N = 96 counterexamples through depth 80, with all four plateau measures stored) and the reusable bounded constructor collapsed_transport_current(measure, steps). Fails at its new path: it loads experiments/annular_construction/arithmetic/check_arithmetic_reductions.py relative to the repository root (now ../universal-annular-partial-current/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/transport/check_root_transport.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 aliases: [R12]
 tags: [convergence, packet-currents, annular, root-collapse, transport, obstruction]
 ---
@@ -303,7 +304,9 @@ component, with the exact residual and boundary contributions retained.
 
 ## Certificates
 
-No certificate runs at this path; the legacy checker is evidence only (it loads the annular-arithmetic module by its pre-migration path). The legacy text's command names `experiments/residual_progress/transport/`. The `19/22` failure and the plateau at `N = 96` are finite computations recorded in the legacy receipt `root_transport_audit.json`.
+No certificate ran at this path before the B18 replay revival; the legacy checker was evidence only until the B18 replay revival (below) (it loads the annular-arithmetic module by its pre-migration path). The legacy text's command names `experiments/residual_progress/transport/`. The `19/22` failure and the plateau at `N = 96` are finite computations recorded in the legacy receipt `root_transport_audit.json`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_root_transport.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 12 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

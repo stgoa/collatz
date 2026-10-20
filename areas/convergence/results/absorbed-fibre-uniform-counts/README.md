@@ -18,9 +18,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [elementary-bridge-quotient-normal-form]
-certificates: [fibre_count_check.py]
+certificates: [fibre_count_check.py, check_legacy_replay.py]
 evidence:
-  - "check_fibers.py, fibers.py, fiber_audit.json: the legacy constructor (band_count, telescope_count, conditional certificates) and checker (912 small bands, 42 boundary bands at odd cutoffs, 18 high bands with multipliers through 2^512, 56 conditional current conversions including F-exponents 128, supplied absorption through 96 discovered with a 1000-step cap per seed). Fails at its new path: fibers.py loads ../bridge_normal_form/normal_form.py (now ../elementary-bridge-quotient-normal-form/) by its pre-migration path. Passed at be73a66 as experiments/residual_progress/absorbed_fibers/check_fibers.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
+  - "check_fibers.py, fibers.py, fiber_audit.json: the legacy constructor (band_count, telescope_count, conditional certificates) and checker (912 small bands, 42 boundary bands at odd cutoffs, 18 high bands with multipliers through 2^512, 56 conditional current conversions including F-exponents 128, supplied absorption through 96 discovered with a 1000-step cap per seed). Fails at its new path: fibers.py loads ../bridge_normal_form/normal_form.py (now ../elementary-bridge-quotient-normal-form/) by its pre-migration path. Passed at be73a66 as experiments/residual_progress/absorbed_fibers/check_fibers.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "fibre_count_check.py is also the import hub of the side lane: run_bridge_check and quotient_iteration_probe (../complementary-run-bridges/), batch_r33_r36_check (../mixed-shrinking-pair-rules/), batch_436f51f_check (../critical-tripling-domain-equivalence/) and about 19 later probes import it from their own folder, so they fail at their new paths"
 reviewed_by:
   - by: Claude side lane (Opus)
@@ -290,7 +290,9 @@ claim is used.
 ## Certificates
 
 - [`fibre_count_check.py`](fibre_count_check.py) (side-lane probe, about 10 s, standard library, fixed seed; it checks by `assert` and refuses to run under `-O`). It rebuilds `ν` by descent and checks the count bound (12) by brute force for `X` up to `N·2^14` and by the component count up to `X = N·2^512`, for `N ∈ {8, 13, 64, 100, 257, 1000}`. It rewrites [`fibre_count_check.json`](fibre_count_check.json) on every run; the run at the migration reproduced it byte for byte. Passed at `be73a66` as `reviews/side_lane/fibre_count_check.py` (archive/legacy-checker-run-be73a66.md, exit 0).
-- The legacy main-lane checker is evidence only (see `evidence`). The command in the legacy text names `experiments/residual_progress/absorbed_fibers/`.
+- The legacy main-lane checker was evidence only until the B18 replay revival (below) (see `evidence`). The command in the legacy text names `experiments/residual_progress/absorbed_fibers/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_fibers.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 14 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

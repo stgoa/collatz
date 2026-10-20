@@ -20,8 +20,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [delayed-release-cancellation, depth-32-aggregate-exposure-obstruction, depth-32-obstruction-infinite-family]
+certificates: [check_legacy_replay.py]
 evidence:
-  - "check_coverage.py, coverage_audit.json: the legacy checker (rederives the 70 symbolic traces with their translation checks, the exceptional-class attachments, the 135-comparison lift at N = 393216, and the finite representative scan with the 21 stored partial certificates; caps 2000 vertices and 30000 queries, all finished; about 0.6 s). Fails at its new path: it imports inverse_exposure_probe and the release checker from ../templates/ and ../release/ (now ../unbounded-exposure-depth-necessary/ and ../delayed-release-cancellation/). Passed at be73a66 as experiments/residual_progress/release_coverage/check_coverage.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
+  - "check_coverage.py, coverage_audit.json: the legacy checker (rederives the 70 symbolic traces with their translation checks, the exceptional-class attachments, the 135-comparison lift at N = 393216, and the finite representative scan with the 21 stored partial certificates; caps 2000 vertices and 30000 queries, all finished; about 0.6 s). Fails at its new path: it imports inverse_exposure_probe and the release checker from ../templates/ and ../release/ (now ../unbounded-exposure-depth-necessary/ and ../delayed-release-cancellation/). Passed at be73a66 as experiments/residual_progress/release_coverage/check_coverage.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 aliases: [R19]
 tags: [convergence, packet-currents, annular, exposure-depth, delayed-release, obstruction, refutation]
 ---
@@ -397,7 +398,9 @@ certificates, not that any phase is unfillable at all depths.
 
 ## Certificates
 
-No certificate runs at this path; the legacy checker imports the inverse oracle and the release checker from folders that moved and is evidence only. Its symbolic verifier is the one certified (for the depth-32 family) by [`check_symbolic_lift.py`](../unbounded-exposure-depth-necessary/check_symbolic_lift.py). The command in the legacy text names `experiments/residual_progress/release_coverage/`.
+No certificate ran at this path before the B18 replay revival; the legacy checker imports the inverse oracle and the release checker from folders that moved and was evidence only until the B18 replay revival (below). Its symbolic verifier is the one certified (for the depth-32 family) by [`check_symbolic_lift.py`](../unbounded-exposure-depth-necessary/check_symbolic_lift.py). The command in the legacy text names `experiments/residual_progress/release_coverage/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_coverage.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 13 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

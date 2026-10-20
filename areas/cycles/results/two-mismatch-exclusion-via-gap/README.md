@@ -20,8 +20,9 @@ lean:
   - LeanLane.Cyc.OddCycle.no_two_mismatch
   - LeanLane.Cyc.OddCycle.numeric_step
   - LeanLane.Cyc.OddCycle.no_two_mismatch_of_gap
+certificates: [check_legacy_replay.py]
 evidence:
-  - "s6_c011_via_s5.py, s6_c011_via_s5.json: side-lane probe (about 1 s): evaluates the s = 2 inequality at the ceiling for every m ≤ 10^6 and the slope beyond, giving m0 = 24,891. It exits 0 at the new path and leaves its receipt unchanged, but it never fails (it reports 'CHECK' instead of exiting non-zero) and does not compare with its receipt, so it is kept as evidence. Its receipt's comparison field still says 'Eliahou_1993_cycle_length: m >= 17,087,915', the uncorrected reading (see History). Passed at be73a66 as reviews/side_lane/s6_c011_via_s5.py (archive/legacy-checker-run-be73a66.md)"
+  - "s6_c011_via_s5.py, s6_c011_via_s5.json: side-lane probe (about 1 s): evaluates the s = 2 inequality at the ceiling for every m ≤ 10^6 and the slope beyond, giving m0 = 24,891. It exits 0 at the new path and leaves its receipt unchanged, but it never fails (it reports 'CHECK' instead of exiting non-zero) and does not compare with its receipt, so it is kept as evidence. Its receipt's comparison field still says 'Eliahou_1993_cycle_length: m >= 17,087,915', the uncorrected reading (see History). Passed at be73a66 as reviews/side_lane/s6_c011_via_s5.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19

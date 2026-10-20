@@ -18,10 +18,10 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [unbounded-exposure-depth-necessary, delayed-release-cancellation, disjoint-annular-recursion]
-certificates: [check_barrier_recompute.py]
+certificates: [check_barrier_recompute.py, check_legacy_replay.py]
 evidence:
-  - "check_fixed_h.py, fixed_h_audit.json: the legacy checker (regenerates the complete finite barrier certificate, recovers the full exposed components at five CRT cutoffs with D = 1, 2, 5, 8, 12 and three required-ladder examples with the inverse oracle, and checks the ladder exponents by digit lifting through D = 64; about 0.1 s). Fails at its new path: it imports inverse_exposure_probe from ../templates/ (now ../unbounded-exposure-depth-necessary/). Passed at be73a66 as experiments/residual_progress/phase_depth/check_fixed_h.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
-  - "fixed_h_check.py, fixed_h_check.json: side-lane probe (Claude side lane, 2026-10-17): rebuilds the barrier data and the theorem with independent code. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/) and delayed_release_check, depth_probe from its own folder (now ../delayed-release-cancellation/, ../unbounded-exposure-depth-necessary/). Passed at be73a66 as reviews/side_lane/fixed_h_check.py (archive/legacy-checker-run-be73a66.md, exit 0)"
+  - "check_fixed_h.py, fixed_h_audit.json: the legacy checker (regenerates the complete finite barrier certificate, recovers the full exposed components at five CRT cutoffs with D = 1, 2, 5, 8, 12 and three required-ladder examples with the inverse oracle, and checks the ladder exponents by digit lifting through D = 64; about 0.1 s). Fails at its new path: it imports inverse_exposure_probe from ../templates/ (now ../unbounded-exposure-depth-necessary/). Passed at be73a66 as experiments/residual_progress/phase_depth/check_fixed_h.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+  - "fixed_h_check.py, fixed_h_check.json: side-lane probe (Claude side lane, 2026-10-17): rebuilds the barrier data and the theorem with independent code. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/) and delayed_release_check, depth_probe from its own folder (now ../delayed-release-cancellation/, ../unbounded-exposure-depth-necessary/). Passed at be73a66 as reviews/side_lane/fixed_h_check.py (archive/legacy-checker-run-be73a66.md, exit 0). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-17
@@ -420,6 +420,8 @@ infinite isolation for any individual positive integer cutoff.
 
 - [`check_barrier_recompute.py`](check_barrier_recompute.py) (written at the B09 migration, under 1 s, standard library). Recomputes the finite barrier certificate and compares it with `finite_barrier_certificate` in the legacy receipt `fixed_h_audit.json`: the 54-state orbit union (every orbit reaches 1), exactly the 22 candidate triples, and for each of the twelve `c_0 > 1` the full `T_−` orbit into one of the two cycles; and for every `D = 1..64` an exponent `e` with `2^e ≡ 10 (mod 3^(D+2))`, `6 | e`. It does not recompute the complete exposed components (they need the inverse oracle; legacy checker, evidence only).
 - The command in the legacy text names `experiments/residual_progress/phase_depth/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy checks `check_fixed_h.py`, `fixed_h_check.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 28 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

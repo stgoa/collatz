@@ -30,14 +30,14 @@ lean:
   - LeanLane.Cyc.gcd_example
   - LeanLane.Cyc.K0_letters
   - LeanLane.Cyc.K0_common_period
-certificates: [check_spectrum.py]
+certificates: [check_spectrum.py, check_legacy_replay.py]
 evidence:
   - "REPETITION_SPECTRUM.md: the complete written proof (sections 1-2)"
   - "repetition_spectrum.py: finite constructors imported by check_spectrum.py; not a checker"
   - "spectrum_audit.json: receipt of check_spectrum.py"
   - "INDEPENDENT_REVIEW.md, SIDE_REVIEW.md, LITERATURE.md: main-lane review, side-input assessment and bounded literature audit"
   - "delivery_checks.json, full_gate.json: historical delivery receipt and historical finite gate (scripts/verify_all.py at the time); no script here regenerates them"
-  - "c001_spectrum_check.py: side-lane independent check; exits 0 when run bare but then skips its part (5) and rewrites c001_spectrum_check.json with compared_with_main false; run with the corpus path (areas/cycles/results/actual-cycles-3x-d-corpus/actual_cycles.json) as argument it exits 0 and reproduces its committed receipt byte for byte (checked at migration). Passed bare at be73a66 as reviews/side_lane/c001_spectrum_check.py (archive/legacy-checker-run-be73a66.md)"
+  - "c001_spectrum_check.py: side-lane independent check; exits 0 when run bare but then skips its part (5) and rewrites c001_spectrum_check.json with compared_with_main false; run with the corpus path (areas/cycles/results/actual-cycles-3x-d-corpus/actual_cycles.json) as argument it exits 0 and reproduces its committed receipt byte for byte (checked at migration). Passed bare at be73a66 as reviews/side_lane/c001_spectrum_check.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "c001_spectrum_check.json: receipt of the side-lane check, written with the corpus argument"
 reviewed_by:
   - by: Claude side lane (Opus)
@@ -121,6 +121,8 @@ The actual `3x+485` cycle is `49 → 79 → 361 → 49`, with valuations 3, 1, 5
 - [`check_spectrum.py`](check_spectrum.py) (about 15 s): regenerates the finite word experiment in memory and compares it with [`spectrum_audit.json`](spectrum_audit.json), including the source hashes of itself and of [`repetition_spectrum.py`](repetition_spectrum.py). It refuses optimised Python (`-O`), since its checks use assertions. The receipt covers 26,628 block pairs and 239,345 positive word cycles, replaying 6,264,270 odd arrows; 238,328 nonzero-`K` divisibilities and 212,522 exact coprime-block formulas, plus 1,017 common-fixed-point repetitions; 3,235 distinct denominators; 128 certified modular periods; the mod-6 law through `k = 256`; and 306 perturbed mechanical examples (see [`perturbed-mechanical-block-family`](../perturbed-mechanical-block-family.md)). Its finite box restricts `u` to `2^sum(u) > 3^len(u)`; the general algebra also permits negative `D_u`, which the box does not cover. Repeated words and repeated denominators are counted as test cases, not as new primitive cycles.
 
 These finite checks support the implementation; they do not replace the universal proofs.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `c001_spectrum_check.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 13 s). `c001_spectrum_check.py` runs with the arguments recorded in `ARGS`. It checks finite steps only; the status is unchanged.
 
 ## Lean
 

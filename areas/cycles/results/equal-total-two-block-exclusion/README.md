@@ -21,10 +21,10 @@ lean:
   - LeanLane.Cyc.gcd_pow_sub_pow
   - LeanLane.Cyc.C_injective
   - LeanLane.Cyc.two_pow_mul_C_le
-certificates: [c002_two_block_check.py]
+certificates: [c002_two_block_check.py, check_legacy_replay.py]
 evidence:
   - "PROPORTIONAL.md: the written proof (section 1 identities, section 2 'Uniform equal-total corollary'); it also holds the proofs used by proportional-slope-two-block-bound and rotating-mechanical-two-block-family"
-  - "check_two_blocks.py, two_blocks_audit.json: main-lane finite checker and receipt. Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json' and the fixtures from experiments/phase6/ (cycle_fixtures.json, now in ../../../convergence/results/baseline-obligation-transfer-controls/, byte-identical). Passed at be73a66 as experiments/cycle_spectrum/C002/check_two_blocks.py (archive/legacy-checker-run-be73a66.md)"
+  - "check_two_blocks.py, two_blocks_audit.json: main-lane finite checker and receipt. Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json' and the fixtures from experiments/phase6/ (cycle_fixtures.json, now in ../../../convergence/results/baseline-obligation-transfer-controls/, byte-identical). Passed at be73a66 as experiments/cycle_spectrum/C002/check_two_blocks.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "c002_two_block_check.json: receipt of the side-lane check (rewritten identically on each run)"
   - "INDEPENDENT_REVIEW.md, ROOT_REVIEW.md: main-lane reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed"
   - "delivery_checks.json, full_gate.json: historical delivery receipt and historical finite gate"
@@ -79,7 +79,7 @@ Since `n ≥ 3` implies `n − h ≥ 2`, and `|J| < UV/2^m`, the claimed bound f
 
 - [`c002_two_block_check.py`](c002_two_block_check.py) (about 10 s; side lane, independent code): the uniform inequality on every case with `m ≤ 4`, `A ≤ 2m + 2`, `k, ℓ ≤ 6` plus random pairs with `m ≤ 9`; the ingredients `0 < C_z ≤ 2^(A−m)(3^m − 2^m)`, injectivity of `C` on equal-shape words and the intermediate bound; the exact examples of [`constant-cancellation-two-growing-blocks`](../../attempts/constant-cancellation-two-growing-blocks.md) for `t ≤ 40`; the `d = 59` cycle; and the rotating mechanical family for `13 ≤ m ≤ 30`, `k, ℓ ≤ 3`. It rewrites `c002_two_block_check.json` on every run, with identical content.
 
-The main lane's checker [`check_two_blocks.py`](check_two_blocks.py) no longer runs at this path (see `evidence`). Its receipt [`two_blocks_audit.json`](two_blocks_audit.json) records:
+The main lane's checker [`check_two_blocks.py`](check_two_blocks.py) no longer runs at this path (see `evidence`; it is replayed in the legacy layout, below). Its receipt [`two_blocks_audit.json`](two_blocks_audit.json) records:
 
 | Check | Scope |
 | --- | ---: |
@@ -98,6 +98,8 @@ The main lane's checker [`check_two_blocks.py`](check_two_blocks.py) no longer r
 | Rotating-mechanical examples | 590, including block lengths 256 and 512 |
 
 Generated blocks have lengths 1–3, valuations 1–4 and both repetition counts 1–8; expanding blocks are included. Realizations can repeat the same primitive cycle: 427,028 cases have primitive displayed words and 6,046 have proper-power words. These are case counts, not distinct cycles. There are **zero eligible equal-total `k + ℓ ≥ 3` decompositions** in the canonical actual-cycle sample: the uniform inequality is exercised by the generated integer cycles and the rotating examples. The actual sample exercises 459 proportional bounds and the general elimination identity. The finite tests do not verify the imported asymptotic theorem of [`unequal-slope-two-block-growth`](../unequal-slope-two-block-growth/README.md).
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_two_blocks.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 43 s). It checks finite steps only; the status is unchanged.
 
 ## Lean
 

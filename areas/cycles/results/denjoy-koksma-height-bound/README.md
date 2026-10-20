@@ -50,8 +50,9 @@ lean:
   - LeanLane.Cyc.OddCycle.height_le_varMu_coprime
   - LeanLane.Cyc.OddCycle.height_le_varMu_coprime'
   - LeanLane.Cyc.OddCycle.height_le_coprime
+certificates: [check_legacy_replay.py]
 evidence:
-  - "s12_denjoy_koksma.py, s12_denjoy_koksma.json: side-lane probe (about 23 s): on every actual 3x+q cycle with odd q < 2,000 and every rotation coprime to m, checks (1) at every convergent denominator and start (12,229,083 instances), and (2), (3) on 52,484 pairs; no violation. Fails at its new path: it imports s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/); with that folder on PYTHONPATH it exits 0 and leaves its receipt byte-identical (checked at migration). Passed at be73a66 as reviews/side_lane/s12_denjoy_koksma.py (archive/legacy-checker-run-be73a66.md)"
+  - "s12_denjoy_koksma.py, s12_denjoy_koksma.json: side-lane probe (about 23 s): on every actual 3x+q cycle with odd q < 2,000 and every rotation coprime to m, checks (1) at every convergent denominator and start (12,229,083 instances), and (2), (3) on 52,484 pairs; no violation. Fails at its new path: it imports s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/); with that folder on PYTHONPATH it exits 0 and leaves its receipt byte-identical (checked at migration). Passed at be73a66 as reviews/side_lane/s12_denjoy_koksma.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
@@ -116,6 +117,8 @@ None run by CI; `s12_denjoy_koksma.py` is a probe (see `evidence`). The test set
 | (3) | 52,484 pairs | 0 | — |
 
 The side lane's independent checks at formalisation time (feed 15:39–16:54) add: the Denjoy–Koksma core on 278,384 random mean-zero periodic functions (`m ≤ 60`, every admissible `(p, q)`, every `x`), the greedy digit bound on 3,620,245 cases, `B ≤ (K − 1)·Var` on the 52,484 actual-cycle pairs (largest ratio 0.165), and the Euclidean invariants on 48,517 coprime pairs `h < m < 400`; none failed. Those scripts were not committed.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `s12_denjoy_koksma.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 40 s). It checks finite steps only; the status is unchanged.
 
 ## Lean
 

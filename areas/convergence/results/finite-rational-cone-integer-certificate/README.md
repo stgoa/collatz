@@ -23,9 +23,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [five-ray-current-criterion, right-aligned-fixed-core-remainder]
-certificates: [check_cone_recompute.py]
+certificates: [check_cone_recompute.py, check_legacy_replay.py]
 evidence:
-  - "check_finite_cone.py, finite_cone_audit.json: the legacy checker (rational comparison constants, seven integer tail bounds, every transpose equation, rounded and unrounded measure coefficients, four full single-cutoff boundary identities (6) at N = 96, 112, 192, 5376, the strict-gap implication on 216000 finite integer cases, and the four cone plans). Fails at its new path: it loads experiments/packet_currents/right_aligned_packets.py relative to the repository root (now ../right-aligned-fixed-core-remainder/right_aligned_packets.py). Passed at be73a66 as experiments/residual_progress/duality/check_finite_cone.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
+  - "check_finite_cone.py, finite_cone_audit.json: the legacy checker (rational comparison constants, seven integer tail bounds, every transpose equation, rounded and unrounded measure coefficients, four full single-cutoff boundary identities (6) at N = 96, 112, 192, 5376, the strict-gap implication on 216000 finite integer cases, and the four cone plans). Fails at its new path: it loads experiments/packet_currents/right_aligned_packets.py relative to the repository root (now ../right-aligned-fixed-core-remainder/right_aligned_packets.py). Passed at be73a66 as experiments/residual_progress/duality/check_finite_cone.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "finite_cone.py: the legacy library finite_forcing_plan(m, B) returning the exact cone weights (runs without error but checks nothing on its own). check_cone_recompute.py imports it from this folder; the legacy compiler of actual-graph-current-compiler loads it by its old path ../duality/finite_cone.py"
 aliases: [R11]
 tags: [convergence, packet-currents, five-rays, finite-cone, integer-gap, conditional, constructive]
@@ -327,8 +327,10 @@ certificates. Neither finite demonstration proves the universal inputs exist.
 
 ## Certificates
 
-- [`check_cone_recompute.py`](check_cone_recompute.py) (written at the B09 migration, under 1 s, standard library). It imports the unchanged legacy library `finite_cone.py` from this folder and recomputes the comparison constant `λ(35/27) < 1`, the seven tail-bound exponents, the four cone plans (`m = 97` with `B = 8, 9, 10`, and `m = 1001`): block, packet count, largest cutoff, exact `T`, the forcing flag, every boundary coefficient and the 30 packet weights at `m = 97, B = 9`; it checks the measure identity (4) coefficient by coefficient for each plan and compares everything with the legacy receipt `finite_cone_audit.json`. It does not recheck the single-cutoff identities (6) or the 216000-case integer-gap audit; those are evidence only (the legacy checker no longer runs at this path).
+- [`check_cone_recompute.py`](check_cone_recompute.py) (written at the B09 migration, under 1 s, standard library). It imports the unchanged legacy library `finite_cone.py` from this folder and recomputes the comparison constant `λ(35/27) < 1`, the seven tail-bound exponents, the four cone plans (`m = 97` with `B = 8, 9, 10`, and `m = 1001`): block, packet count, largest cutoff, exact `T`, the forcing flag, every boundary coefficient and the 30 packet weights at `m = 97, B = 9`; it checks the measure identity (4) coefficient by coefficient for each plan and compares everything with the legacy receipt `finite_cone_audit.json`. It does not recheck the single-cutoff identities (6) or the 216000-case integer-gap audit; those were evidence only until the B18 replay revival (below) (the legacy checker no longer runs at this path).
 - The commands in the legacy text name the pre-migration path `experiments/residual_progress/duality/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_finite_cone.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 10 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

@@ -20,8 +20,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [finite-rational-cone-integer-certificate, right-aligned-fixed-core-remainder]
+certificates: [check_legacy_replay.py]
 evidence:
-  - "check_local_extension.py, local_extension.py, local_extension_audit.json, outer_96_current.csv: the legacy implementation (source split, automatic input, local conversion, finite component count) and its checker (64 complete source identities at N = 8, 16, ..., 512; 16640 pointwise scale coefficients; the finite examples at N = 24, 96, 384; the stored 102-row outer current at N = 96; the no-progress feedback at N = 8, 24, 96). Fails at its new path: local_extension.py loads ../forcing/actual_graph_compiler.py by its pre-migration path (now ../actual-graph-current-compiler/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/closure/check_local_extension.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy constructor of retained-graph-complement-constructor loads local_extension.py by its old path ../closure/"
+  - "check_local_extension.py, local_extension.py, local_extension_audit.json, outer_96_current.csv: the legacy implementation (source split, automatic input, local conversion, finite component count) and its checker (64 complete source identities at N = 8, 16, ..., 512; 16640 pointwise scale coefficients; the finite examples at N = 24, 96, 384; the stored 102-row outer current at N = 96; the no-progress feedback at N = 8, 24, 96). Fails at its new path: local_extension.py loads ../forcing/actual_graph_compiler.py by its pre-migration path (now ../actual-graph-current-compiler/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/closure/check_local_extension.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy constructor of retained-graph-complement-constructor loads local_extension.py by its old path ../closure/. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 aliases: [R14]
 tags: [convergence, packet-currents, local-extension, conditional, circularity, obstruction]
 ---
@@ -327,7 +328,9 @@ induction.
 
 ## Certificates
 
-No certificate runs at this path; the legacy checker is evidence only. The finite examples recorded in its receipt: at `N = 24` the input `ζ = −δ_31 − δ_47` leaves exactly the outer seeds 27 and 31 unabsorbed (bound (7) is sharp, both sides 2); at `N = 96` the exact input closes the whole complement and the 102-row outer current [`outer_96_current.csv`](outer_96_current.csv) has divergence 1 at each odd state 97..143; at `N = 384` the residual budget 5 leaves the four outer seeds 447, 495, 511, 559. The commands in the legacy text name `experiments/residual_progress/closure/`.
+No certificate ran at this path before the B18 replay revival; the legacy checker was evidence only until the B18 replay revival (below). The finite examples recorded in its receipt: at `N = 24` the input `ζ = −δ_31 − δ_47` leaves exactly the outer seeds 27 and 31 unabsorbed (bound (7) is sharp, both sides 2); at `N = 96` the exact input closes the whole complement and the 102-row outer current [`outer_96_current.csv`](outer_96_current.csv) has divergence 1 at each odd state 97..143; at `N = 384` the residual budget 5 leaves the four outer seeds 447, 495, 511, 559. The commands in the legacy text name `experiments/residual_progress/closure/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_local_extension.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 9 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

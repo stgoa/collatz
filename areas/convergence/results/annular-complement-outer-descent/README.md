@@ -21,8 +21,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [retained-graph-complement-constructor, delayed-release-cancellation, universal-annular-partial-current, release-source-packing, affine-common-tail-tree-lifting]
+certificates: [check_legacy_replay.py]
 evidence:
-  - "check_transfer.py, transfer.py, transfer_audit.json, outer_9183_current.csv: the legacy constructor and checker (positive-source ancestor formulas and exact catalogue coverage at M = 8, 16, ..., 512, 768, 6144: 353280 positive atoms, 164 matched roots; five actual transfers at M = 8, 96, 168, 384, 768 with capped supplied lower absorption; 170 symbolic descent branches for qualifying 2 <= h <= 32 and both congruences, including the coefficient-2 example; about 3 s) and the stored 61-row current for delta_9183 that upgrades the N = 6144 packet residual by one unit. Fails at its new path: transfer.py loads ../complement/complement_constructor.py, ../release_packing/release_packing.py and ../release/check_release.py by their pre-migration paths (now ../retained-graph-complement-constructor/, ../release-source-packing/, ../delayed-release-cancellation/). Passed at be73a66 as experiments/residual_progress/complement_recursion/check_transfer.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy constructor of halving-coalescence-return loads transfer.py by its old path"
+  - "check_transfer.py, transfer.py, transfer_audit.json, outer_9183_current.csv: the legacy constructor and checker (positive-source ancestor formulas and exact catalogue coverage at M = 8, 16, ..., 512, 768, 6144: 353280 positive atoms, 164 matched roots; five actual transfers at M = 8, 96, 168, 384, 768 with capped supplied lower absorption; 170 symbolic descent branches for qualifying 2 <= h <= 32 and both congruences, including the coefficient-2 example; about 3 s) and the stored 61-row current for delta_9183 that upgrades the N = 6144 packet residual by one unit. Fails at its new path: transfer.py loads ../complement/complement_constructor.py, ../release_packing/release_packing.py and ../release/check_release.py by their pre-migration paths (now ../retained-graph-complement-constructor/, ../release-source-packing/, ../delayed-release-cancellation/). Passed at be73a66 as experiments/residual_progress/complement_recursion/check_transfer.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy constructor of halving-coalescence-return loads transfer.py by its old path. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 aliases: [R20]
 tags: [convergence, packet-currents, outer-residual, transfer, conditional, constructive]
 ---
@@ -315,7 +316,9 @@ in the development environment; no runtime bound is part of the theorem.
 
 ## Certificates
 
-No certificate runs at this path; the legacy constructor loads three modules from folders that moved and is evidence only. The stored current [`outer_9183_current.csv`](outer_9183_current.csv) (61 rows, `M = 96`) can be checked by hand against the Syracuse map. The command in the legacy text names `experiments/residual_progress/complement_recursion/`.
+No certificate ran at this path before the B18 replay revival; the legacy constructor loads three modules from folders that moved and was evidence only until the B18 replay revival (below). The stored current [`outer_9183_current.csv`](outer_9183_current.csv) (61 rows, `M = 96`) can be checked by hand against the Syracuse map. The command in the legacy text names `experiments/residual_progress/complement_recursion/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_transfer.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 11 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

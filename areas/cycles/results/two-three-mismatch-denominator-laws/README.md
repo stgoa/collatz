@@ -36,8 +36,9 @@ lean:
   - LeanLane.Cyc.OddCycle.mismatch_card_rotate
   - LeanLane.Cyc.OddCycle.word_two_mismatch_law'
   - LeanLane.Cyc.OddCycle.word_three_mismatch_law'
+certificates: [check_legacy_replay.py]
 evidence:
-  - "s9_denominator_law.py, s9_denominator_law.json: side-lane probe (about 30 s): computes Λ₃(m) and checks laws (i) and (ii) on every primitive word over {1,2,3} up to length 12, random two- and three-arc chain words up to m = 1,600, near-critical chain words up to m = 3,200, main's C013 §3 distance-three family, and the words of actual 3x+q cycles (odd q < 2,000); no violation. Fails at its new path: it imports s7_three_mismatch from its own folder (now in ../three-mismatch-exclusion/), which imports s1a_integer_cycle_check (now in ../ordered-gap-closed-form/); with both folders on PYTHONPATH it exits 0 and leaves its receipt byte-identical (checked at migration). Passed at be73a66 as reviews/side_lane/s9_denominator_law.py (archive/legacy-checker-run-be73a66.md)"
+  - "s9_denominator_law.py, s9_denominator_law.json: side-lane probe (about 30 s): computes Λ₃(m) and checks laws (i) and (ii) on every primitive word over {1,2,3} up to length 12, random two- and three-arc chain words up to m = 1,600, near-critical chain words up to m = 3,200, main's C013 §3 distance-three family, and the words of actual 3x+q cycles (odd q < 2,000); no violation. Fails at its new path: it imports s7_three_mismatch from its own folder (now in ../three-mismatch-exclusion/), which imports s1a_integer_cycle_check (now in ../ordered-gap-closed-form/); with both folders on PYTHONPATH it exits 0 and leaves its receipt byte-identical (checked at migration). Passed at be73a66 as reviews/side_lane/s9_denominator_law.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
@@ -105,6 +106,8 @@ None run by CI. `s9_denominator_law.py` (§4 of the legacy note, about 30 s) is 
 - **Slack.** Generic words have `den(w) ≈ D`, so the slack is large; it is 281 bits or more in every non-vacuous case.
 - **Tightness cannot be tested.** The laws could only be tight for hypothetical small-denominator words, which the data cannot produce. So the table is a consistency check, not evidence of strength.
 - **A note on main's family.** Reconciled with the Lean lane: there is no conflict. C013 §5's `≈ 0.447m` is a lower bound (`liminf (log q)/b`), derived from the same inequality as (I1). This probe measures the actual denominators: `den ≈ D`, `log₂ den/m ≈ 1.53–1.58`. So the lower bounds agree with each other, and the actual value lies far above both. Earlier S5/S7 wording called the bound sharp on the family; that is corrected (see History).
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `s9_denominator_law.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 56 s). It checks finite steps only; the status is unchanged.
 
 ## Lean
 

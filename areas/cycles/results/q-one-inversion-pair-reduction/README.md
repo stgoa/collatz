@@ -20,9 +20,10 @@ lean:
   - LeanLane.Cyc.OddCycle.inversion_gap_ge_three
   - LeanLane.Cyc.OddCycle.inversion_gap_three
   - LeanLane.Cyc.OddCycle.pair_adjacent
+certificates: [check_legacy_replay.py]
 evidence:
   - "../../attempts/band-three-ordering-extension/README.md, 'What happened' section 1: the written reduction (legacy S03 note section 1)"
-  - "s3a_inversion_iff_check.py, s3a_inversion_iff_check.json: side-lane check of Lean unit S3-a on 162 actual 3x+q cycles (odd q < 120, 3 ∤ q) and all 14,774 ordered pairs Z_i < Z_j (1,979 inversions): the equivalence holds on every pair. Fails at its new path: it imports the side-lane helper s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/). Passed at be73a66 as reviews/side_lane/s3a_inversion_iff_check.py (archive/legacy-checker-run-be73a66.md)"
+  - "s3a_inversion_iff_check.py, s3a_inversion_iff_check.json: side-lane check of Lean unit S3-a on 162 actual 3x+q cycles (odd q < 120, 3 ∤ q) and all 14,774 ordered pairs Z_i < Z_j (1,979 inversions): the equivalence holds on every pair. Fails at its new path: it imports the side-lane helper s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/). Passed at be73a66 as reviews/side_lane/s3a_inversion_iff_check.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19

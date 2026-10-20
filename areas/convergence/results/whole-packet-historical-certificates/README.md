@@ -17,9 +17,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [orbit-component-current-criterion, right-aligned-fixed-core-remainder]
-certificates: [check_stored_currents.py]
+certificates: [check_stored_currents.py, check_legacy_replay.py]
 evidence:
-  - "whole_packet_demo.py, whole_packet_audit.json, and the four CSV tables: the legacy experiment that ran the searches, rebuilt each packet, checked every divergence, compared exact historical currents with synchronous ones, and checked the stored tables and its receipt. Fails at its new path: it imports verify_obstructions from its own folder (now ../orbit-component-current-criterion/) and loads experiments/packet_currents/right_aligned_packets.py relative to the repository root (now ../right-aligned-fixed-core-remainder/). Passed at be73a66 as experiments/current_construction/obstructions/whole_packet_demo.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
+  - "whole_packet_demo.py, whole_packet_audit.json, and the four CSV tables: the legacy experiment that ran the searches, rebuilt each packet, checked every divergence, compared exact historical currents with synchronous ones, and checked the stored tables and its receipt. Fails at its new path: it imports verify_obstructions from its own folder (now ../orbit-component-current-criterion/) and loads experiments/packet_currents/right_aligned_packets.py relative to the repository root (now ../right-aligned-fixed-core-remainder/). Passed at be73a66 as experiments/current_construction/obstructions/whole_packet_demo.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "The depth table, the unlinked-source counts and the synchronous comparison rest on that legacy run and its receipt; check_stored_currents.py re-checks only the two stored tables (part (a))"
 aliases: [R7-c]
 tags: [convergence, packet-currents, right-aligned, finite-certificate, historical-search]
@@ -66,6 +66,8 @@ Exact finite computation. The searches, divergence checks and depth table come f
 ## Certificates
 
 [`check_stored_currents.py`](check_stored_currents.py) (written at the migration, under 1 s, standard library). It rebuilds `Π^R_65536` (34,716 atoms) and `Π^R_2053` (1,086 atoms) with the constructor of [`right-aligned-fixed-core-remainder`](../right-aligned-fixed-core-remainder/README.md), and checks `Π^R_N = (I − P)J + Z` exactly for [`exact_65536.csv`](exact_65536.csv) with the empty residual [`exact_residual_65536.csv`](exact_residual_65536.csv), and for [`one_sided_2053.csv`](one_sided_2053.csv) with [`one_sided_residual_2053.csv`](one_sided_residual_2053.csv), together with the row counts, positive costs, residual sign and residual mass of part (a).
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `whole_packet_demo.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 34 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

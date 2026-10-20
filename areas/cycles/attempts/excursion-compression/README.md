@@ -16,10 +16,10 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-19
 depends_on: [excursion-cut-lemma, one-point-deletion-rank-shift, dyadic-order-lemma]
-certificates: [check_return_order.py, c009_excursion_check.py]
+certificates: [check_return_order.py, c009_excursion_check.py, check_legacy_replay.py]
 evidence:
   - "EXCURSION_ARITHMETIC.md: written cut lemma, elimination, k-block Smith form and controls (sections 1-3); FIRST_RETURN_ORDER.md: the one-point deletion theorem and its q = 13 and q = 83 controls (hash-pinned by check_return_order.py's receipt)"
-  - "check_excursions.py, excursions_audit.json: main-lane excursion checker and receipt (8.2 MB: 2,593 first returns, 28,831 prefix cylinders over the 1,185 normalised cycles). Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json', C007's census and experiments/phase6/cycle_fixtures.json (now in ../../../convergence/results/baseline-obligation-transfer-controls/, byte-identical) by old path. Passed at be73a66 as experiments/cycle_spectrum/C009/check_excursions.py (archive/legacy-checker-run-be73a66.md)"
+  - "check_excursions.py, excursions_audit.json: main-lane excursion checker and receipt (8.2 MB: 2,593 first returns, 28,831 prefix cylinders over the 1,185 normalised cycles). Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json', C007's census and experiments/phase6/cycle_fixtures.json (now in ../../../convergence/results/baseline-obligation-transfer-controls/, byte-identical) by old path. Passed at be73a66 as experiments/cycle_spectrum/C009/check_excursions.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "check_delivery.py, delivery_checks.json: historical delivery check and receipt; pinned to the historical commits that produced it, fails at HEAD by design (it failed at be73a66 too)"
   - "INDEPENDENT_EXCURSION.md, ARITHMETIC_REVIEW.md, CHECKER_REVIEW.md, ROOT_REVIEW.md: main-lane independent argument and reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed; LITERATURE.md: literature scope; historical_gate.json: historical finite gate"
 reviewed_by:
@@ -83,6 +83,8 @@ The exact algebra returns the old divisibility condition, the proposed ordered i
 
 - [`check_return_order.py`](check_return_order.py) (about 4 s): checks the deletion formula on 105,388 finite permutations through `m = 80` (6,250,510 arrows), reconstructs 16,368 positive odd endpoint pairs across `q = 1, 5, 7, 13` with 76,464 exact arrows (constructed paths, not counted as cycles), and replays the two actual controls; it recomputes and compares its receipt [`return_order_audit.json`](return_order_audit.json), which pins `FIRST_RETURN_ORDER.md` by SHA-256.
 - [`c009_excursion_check.py`](c009_excursion_check.py) (under a second; side lane, independent code): the `q = 13` cycle and its non-shift core, the deletion theorem for `3 ≤ m ≤ 40`, the `q = 83` excursion and the open `q = 1` paths; it rewrites [`c009_excursion_check.json`](c009_excursion_check.json) identically.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_excursions.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 12 s). It checks finite steps only; the status is unchanged.
 
 ## History
 

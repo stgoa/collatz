@@ -7,7 +7,8 @@ requiring exit 0 and every file byte-identical afterwards. Nothing in the reposi
 Run from the repository root: python3 <this file>. Exits 1 on any failure.
 
 What this node replays:
-  - reviews/side_lane/r90_phi_return_check.py: the side-lane probe of R90: 2,000 return-word pairs, 500 quotient identities and 3,000 re-entry counts, receipt reproduced byte for byte. The legacy checker check_phi_exit_control.py is not replayed: it pins the hash of this node's note, now an edited README.
+  - reviews/side_lane/r90_phi_return_check.py: the side-lane probe of R90: 2,000 return-word pairs, 500 quotient identities and 3,000 re-entry counts, receipt reproduced byte for byte. The legacy checker check_phi_exit_control.py was not replayed when this file was written (it pins the hash of this node's note, now an edited README, and the replay did not yet restore rewritten notes from git); it is replayed now (below).
+  - experiments/residual_progress/phi_exit_control/check_phi_exit_control.py: the legacy module, checker and receipt: 10 full return comparisons, all 19 rows, 171 signed exit comparisons, 15 modular ancestor certificates, 29 rejections, three stored exit plans with 156/283/498 rows ... (added at the B18-replay-revival migration).
 """
 import sys
 from pathlib import Path
@@ -15,7 +16,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "tools"))
 import legacy_replay  # noqa: E402
 
-SCRIPTS = ['reviews/side_lane/r90_phi_return_check.py']
+SCRIPTS = ['reviews/side_lane/r90_phi_return_check.py', 'experiments/residual_progress/phi_exit_control/check_phi_exit_control.py']
 
 if __name__ == "__main__":
     sys.exit(legacy_replay.main(SCRIPTS))

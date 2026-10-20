@@ -20,9 +20,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [elementary-bridge-quotient-normal-form, complementary-run-bridges]
-certificates: [check_bounded_runs_recompute.py]
+certificates: [check_bounded_runs_recompute.py, check_legacy_replay.py]
 evidence:
-  - "check_bounded_runs.py, bounded_runs.py, bounded_runs_audit.json: the legacy constructor and checker (the affine table, 57 parameter cylinders through 128 repetitions, 21 required-ray examples, six finite-modulus label repetitions, every valuation, canonical phase, return and finite-current divergence). Fails at its new path: bounded_runs.py loads ../bridge_normal_form/normal_form.py (now ../elementary-bridge-quotient-normal-form/) and ../complementary_bridge/run_bridge.py (now ../complementary-run-bridges/) by their pre-migration paths. Passed at be73a66 as experiments/residual_progress/bounded_run_cycles/check_bounded_runs.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The later odd-h-pair-interface-compiler loads bounded_runs.py by its old path"
+  - "check_bounded_runs.py, bounded_runs.py, bounded_runs_audit.json: the legacy constructor and checker (the affine table, 57 parameter cylinders through 128 repetitions, 21 required-ray examples, six finite-modulus label repetitions, every valuation, canonical phase, return and finite-current divergence). Fails at its new path: bounded_runs.py loads ../bridge_normal_form/normal_form.py (now ../elementary-bridge-quotient-normal-form/) and ../complementary_bridge/run_bridge.py (now ../complementary-run-bridges/) by their pre-migration paths. Passed at be73a66 as experiments/residual_progress/bounded_run_cycles/check_bounded_runs.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The later odd-h-pair-interface-compiler loads bounded_runs.py by its old path. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-17
@@ -217,6 +217,8 @@ The universal claims rest on the proofs above.
 
 - [`check_bounded_runs_recompute.py`](check_bounded_runs_recompute.py) (written at the B10 migration, under 1 s, standard library). With its own Syracuse step, canonical test, `ν` and `f_★` it checks, against [`bounded_runs_audit.json`](bounded_runs_audit.json): the affine prefix table of the word, `3^j > 2^(A_j)` on every row, `4513·27 + 9221 = 2^17` and the `Ψ` identity as an exact rational identity; the 57 cylinder samples (`r = 1, …, 16, 32, 64, 128`; offsets 0, 1, 7), with the word, canonical states, alternating labels, increasing returns, `Ψ` endpoints and the receipt's bit lengths, row counts and SHA-256 hashes; the 21 required-ray witnesses; and the six finite-modulus label repetitions. It does not rerun the legacy constructor or its current bookkeeping (legacy checker, evidence only).
 - The command in the legacy text names `experiments/residual_progress/bounded_run_cycles/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_bounded_runs.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 10 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

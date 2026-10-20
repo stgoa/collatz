@@ -26,11 +26,11 @@ lean:
   - LeanLane.Cyc.D_interleave
   - LeanLane.Cyc.Ph_eq_sum
   - LeanLane.Cyc.E_bound
-certificates: [c013_background_check.py]
+certificates: [c013_background_check.py, check_legacy_replay.py]
 evidence:
   - "OVERLAP_CONTROLS.md: the written proofs (sections 1-6), including both cancellation controls; OVERLAP_THEORY.md: the paired-state run law and the distance-three height family (paired-state-run-law, distance-three-height-family)"
-  - "check_overlap.py, overlap_audit.json: main-lane checker and receipt. Fails at its new path: it imports HERE.parent/'C012/check_coupled_system.py'. Passed at be73a66 as experiments/cycle_spectrum/C013/check_overlap.py (about 26 s; archive/legacy-checker-run-be73a66.md)"
-  - "c013b_run_law_check.py, c013b_run_law_check.json: side-lane check of Lean unit C013-b (12,550 agreeing runs on 77 actual cycles). Fails at the new path: it imports the side-lane helper module s1a_integer_cycle_check from its own folder; that helper now lives in ../ordered-gap-closed-form/ (B05). Passed at be73a66 as reviews/side_lane/c013b_run_law_check.py; its receipt is written only when an output path is given"
+  - "check_overlap.py, overlap_audit.json: main-lane checker and receipt. Fails at its new path: it imports HERE.parent/'C012/check_coupled_system.py'. Passed at be73a66 as experiments/cycle_spectrum/C013/check_overlap.py (about 26 s; archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+  - "c013b_run_law_check.py, c013b_run_law_check.json: side-lane check of Lean unit C013-b (12,550 agreeing runs on 77 actual cycles). Fails at the new path: it imports the side-lane helper module s1a_integer_cycle_check from its own folder; that helper now lives in ../ordered-gap-closed-form/ (B05). Passed at be73a66 as reviews/side_lane/c013b_run_law_check.py; its receipt is written only when an output path is given. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "check_delivery.py, delivery_checks.json: historical delivery check and receipt; pinned to the historical commits that produced it. It passed until be73a66 and fails after the move, as designed"
   - "THEORY_REVIEW.md, OBSTRUCTION_REVIEW.md, EXACT_REVIEW.md, INDEPENDENT_CHECKER_REVIEW.md, ROOT_REVIEW.md: main-lane reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed; LITERATURE.md: sources and record comparison; historical_gate.json: historical finite gate (119 fields)"
 reviewed_by:
@@ -86,6 +86,8 @@ Written proof: [`OVERLAP_CONTROLS.md`](OVERLAP_CONTROLS.md) §§1–4 (legacy te
 ## Certificates
 
 - [`c013_background_check.py`](c013_background_check.py) (about 2 s; side lane, independent code, fixed seed): on 4,000 random words with background length ≤ 8, 2–6 nonconstant markers and `D > 0` (60 with nontrivial polynomial cancellation, `deg G` from 1 to 3): (1), the exact law (2), bound (3) with `R` from the Sylvester matrix, both forms of (10), the uncertainty inequality (5), and the `(3,1,3,3,1,1)` control `G = X + 4`. It rewrites [`c013_background_check.json`](c013_background_check.json) identically.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy checks `check_overlap.py`, `c013b_run_law_check.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 36 s). It checks finite steps only; the status is unchanged.
 
 ## Lean
 

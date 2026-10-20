@@ -16,9 +16,10 @@ authors:
 created: 2026-10-19
 depends_on: [unequal-slope-two-block-growth, proportional-slope-two-block-bound]
 assumes: [corvaja-2005-s-unit-height]
+certificates: [check_legacy_replay.py]
 evidence:
   - "UNEQUAL_PROBE.md: the written proof (Theorems 1-2, the integer lemma (8), the proportional square bound, the determinant route and its limits)"
-  - "check_variable_blocks.py, variable_blocks_audit.json: main-lane finite checker and receipt. Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json'. Passed at be73a66 as experiments/cycle_spectrum/C003/check_variable_blocks.py (archive/legacy-checker-run-be73a66.md)"
+  - "check_variable_blocks.py, variable_blocks_audit.json: main-lane finite checker and receipt. Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json'. Passed at be73a66 as experiments/cycle_spectrum/C003/check_variable_blocks.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "INDEPENDENT_REVIEW.md, ROOT_REVIEW.md: main-lane reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed"
   - "delivery_checks.json, full_gate.json: historical delivery receipt and historical finite gate"
   - "../contracting-two-block-effective-exclusion/c003_variable_blocks_check.py, part (4): side-lane check of the coprime integer lemma (8) and of η"
@@ -69,7 +70,7 @@ The imported inputs are exactly Input A (Corollary 1, Eq. (1.3)) and Input B (Pr
 
 ## Certificates
 
-None runs at the new path. The main-lane checker [`check_variable_blocks.py`](check_variable_blocks.py) recomputes [`variable_blocks_audit.json`](variable_blocks_audit.json) by default (see `evidence` for why it now fails). The receipt records:
+None runs at the new path (they are replayed in the legacy layout, below). The main-lane checker [`check_variable_blocks.py`](check_variable_blocks.py) recomputes [`variable_blocks_audit.json`](variable_blocks_audit.json) by default (see `evidence` for why it now fails). The receipt records:
 
 | Check | Scope |
 | --- | --- |
@@ -85,6 +86,8 @@ None runs at the new path. The main-lane checker [`check_variable_blocks.py`](ch
 | Common-cycle controls | 3,384 positive generated `K = 0` cases retained. |
 
 No finite test verifies the imported asymptotic estimates. A deliberately stronger all-size exponent diagnostic, testing for `den^16 < 2^(5A)`, found no failures in 154 actual and 150,622 generated unequal-slope decompositions; its absence of counterexamples does not remove the ineffective cutoff. The actual mixed-direction cases with both counts at least three are four representations of the same `d = 499` cycle ([`interval-trapping-expanding-blocks`](../../attempts/interval-trapping-expanding-blocks.md)).
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_variable_blocks.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 48 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

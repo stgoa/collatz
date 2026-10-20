@@ -21,9 +21,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [disjoint-annular-recursion]
-certificates: [check_normal_form_recompute.py, batch_r15_r18_r21_r29_check.py]
+certificates: [check_normal_form_recompute.py, batch_r15_r18_r21_r29_check.py, check_legacy_replay.py]
 evidence:
-  - "check_auxiliary_normal_form.py, auxiliary_normal_form_audit.json: the legacy constructor and checker (first_pass, normalize, annular_first_profile; direct normalization against first-pass-then-normalize with equal current tables; exact divergence, flow recurrence, residue support, height bounds and leaf counts at every multiple of 8 through 512, plus 768 and 6144; the short-ancestor classification through 4097). Fails at its new path: it loads experiments/annular_construction/arithmetic/check_arithmetic_reductions.py relative to the repository root (now ../universal-annular-partial-current/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/auxiliary/check_auxiliary_normal_form.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy checker of signed-path-collapse-capacity loads it by its old path"
+  - "check_auxiliary_normal_form.py, auxiliary_normal_form_audit.json: the legacy constructor and checker (first_pass, normalize, annular_first_profile; direct normalization against first-pass-then-normalize with equal current tables; exact divergence, flow recurrence, residue support, height bounds and leaf counts at every multiple of 8 through 512, plus 768 and 6144; the short-ancestor classification through 4097). Fails at its new path: it loads experiments/annular_construction/arithmetic/check_arithmetic_reductions.py relative to the repository root (now ../universal-annular-partial-current/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/auxiliary/check_auxiliary_normal_form.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy checker of signed-path-collapse-capacity loads it by its old path. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "batch_r15_r18_r21_r29_check.json: receipt of the side-lane probe batch_r15_r18_r21_r29_check.py, rewritten by every run (reproduced byte for byte at the migration)"
 reviewed_by:
   - by: Claude side lane (Opus)
@@ -368,7 +368,9 @@ The positive remainder and its required continuation are still open.
 
 - [`check_normal_form_recompute.py`](check_normal_form_recompute.py) (written at the B09 migration, under 1 s, standard library). Rebuilds `A_N` from the six-band table and checks: the short-ancestor lemma and the exact rule paths for every odd `y ≤ 4097`; for every multiple of 8 through 512 and 768, the first-pass mass `21N/4` at multiples of 3 with nonnegative coefficients, positive first-pass coefficients below `64N` and negative current rows below `96N`; full normalization at `N = 8, 96, 168, 384` with the masses of the table in §6 below (initial, terminal, terminal at multiples of 3), terminal residues and the divergence identity.
 - [`batch_r15_r18_r21_r29_check.py`](batch_r15_r18_r21_r29_check.py) (side lane, about 3 s): the short-ancestor classification and moves for odd `y < 10⁶`, and the finite arithmetic of [`signed-path-collapse-capacity`](../signed-path-collapse-capacity/README.md) (R18), [`bounded-source-cluster-local-bound`](../bounded-source-cluster-local-bound/README.md) (R21) and [`supplied-path-saturation-core`](../supplied-path-saturation-core/README.md) (R29). It rewrites its receipt on every run; the run at the migration reproduced it byte for byte.
-- The legacy checker is evidence only. The command in the legacy text names `experiments/residual_progress/auxiliary/`.
+- The legacy checker was evidence only until the B18 replay revival (below). The command in the legacy text names `experiments/residual_progress/auxiliary/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_auxiliary_normal_form.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 16 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

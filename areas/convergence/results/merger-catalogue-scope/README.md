@@ -22,9 +22,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [elementary-bridge-quotient-normal-form, absorbed-fibre-uniform-counts, prefix-rule-cylinder-rate-barrier, supplied-path-saturation-core, disjoint-annular-recursion]
-certificates: [check_merger_recompute.py]
+certificates: [check_merger_recompute.py, check_legacy_replay.py]
 evidence:
-  - "check_merger_scope.py, merger_scope_audit.json: the legacy checker (16384 successor-bound cases, the incomparable sets, 128 escape-cylinder representatives, six required-ray escape roots, six members of the early-cancellation family through a = 199, and the two independently reproduced sign/climb tables at N = 6144 and 9216, with absorption searches capped at 1000 steps per new path). Fails at its new path: it loads ../bridge_normal_form/normal_form.py (now ../elementary-bridge-quotient-normal-form/) and, from ROOT = HERE.parents[2], experiments/current_construction/recursive/check_annular_recursion.py (now ../disjoint-annular-recursion/check_annular_recursion.py, which also fails at its new path) by their pre-migration paths. Passed at be73a66 as experiments/residual_progress/merger_scope/check_merger_scope.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
+  - "check_merger_scope.py, merger_scope_audit.json: the legacy checker (16384 successor-bound cases, the incomparable sets, 128 escape-cylinder representatives, six required-ray escape roots, six members of the early-cancellation family through a = 199, and the two independently reproduced sign/climb tables at N = 6144 and 9216, with absorption searches capped at 1000 steps per new path). Fails at its new path: it loads ../bridge_normal_form/normal_form.py (now ../elementary-bridge-quotient-normal-form/) and, from ROOT = HERE.parents[2], experiments/current_construction/recursive/check_annular_recursion.py (now ../disjoint-annular-recursion/check_annular_recursion.py, which also fails at its new path) by their pre-migration paths. Passed at be73a66 as experiments/residual_progress/merger_scope/check_merger_scope.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "external_review.json: the main lane's reproduction (at side-lane commit ceb94fc) of the side-lane probe r24_check.py (now ../five-ray-profile-completion-suffices/r24_check.py) with source and dependency hashes; a review of that side-lane probe, not of this result"
 reviewed_by:
   - by: Claude side lane (Opus)
@@ -513,6 +513,8 @@ The reproduced evidence and its primary pinned receipt remain tied to
 
 - [`check_merger_recompute.py`](check_merger_recompute.py) (written at the B10 migration, about 1 s, standard library). With its own `S` and `ν` it checks, against [`merger_scope_audit.json`](merger_scope_audit.json): the successor bound for all 16,384 odd `x < 32768`; the incomparable sets at `N = 8`; the 128 escape-cylinder representatives (canonical prefixes, `128·S⁶(x) = 729x + 665`, row hash); the six required-ray escape roots; the early-cancellation family at `a = 19, 37, 55, 73, 109, 199`; and both sign/climb tables at `N = 6144, 9216` with the witness pair `35497, 141989`. The six-band annular row table it uses is the published table of [`disjoint-annular-recursion`](../disjoint-annular-recursion/README.md), copied as constants and said so in its docstring.
 - The command in the legacy text names `experiments/residual_progress/merger_scope/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_merger_scope.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 14 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

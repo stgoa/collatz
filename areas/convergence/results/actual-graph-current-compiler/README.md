@@ -18,8 +18,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [finite-rational-cone-integer-certificate]
+certificates: [check_legacy_replay.py]
 evidence:
-  - "actual_graph_compiler.py, forcing_demo_audit.json: the legacy compiler compile_inputs(plan, provider) and its default run, which regenerates the thirty inputs deterministically, verifies the full rational identity and the strict bound, compares the receipt (hashes of the complete numerator tables, discovery depths, unlinked-source counts) and checks every row of the stored current. Fails at its new path: it loads ../duality/finite_cone.py and experiments/packet_currents/right_aligned_packets.py by their pre-migration paths (now ../finite-rational-cone-integer-certificate/finite_cone.py and ../right-aligned-fixed-core-remainder/right_aligned_packets.py). Passed at be73a66 as experiments/residual_progress/forcing/actual_graph_compiler.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy checker of local-packet-calibration-extension loads it by its old path ../forcing/"
+  - "actual_graph_compiler.py, forcing_demo_audit.json: the legacy compiler compile_inputs(plan, provider) and its default run, which regenerates the thirty inputs deterministically, verifies the full rational identity and the strict bound, compares the receipt (hashes of the complete numerator tables, discovery depths, unlinked-source counts) and checks every row of the stored current. Fails at its new path: it loads ../duality/finite_cone.py and experiments/packet_currents/right_aligned_packets.py by their pre-migration paths (now ../finite-rational-cone-integer-certificate/finite_cone.py and ../right-aligned-fixed-core-remainder/right_aligned_packets.py). Passed at be73a66 as experiments/residual_progress/forcing/actual_graph_compiler.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy checker of local-packet-calibration-extension loads it by its old path ../forcing/. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "forced_U112_current.csv: the extracted 95-row nonnegative integer current for U_112, written by actual_graph_compiler.py --write-receipt"
 aliases: [R11-b]
 tags: [convergence, packet-currents, finite-cone, finite-certificate, constructive]
@@ -133,7 +134,9 @@ certificates needed to apply the compiler to an arbitrary unresolved annulus.
 
 ## Certificates
 
-No certificate runs at this path. The legacy compiler `actual_graph_compiler.py` (which regenerates and checks everything above) loads two modules by their pre-migration paths; it is evidence only. The stored current [`forced_U112_current.csv`](forced_U112_current.csv) can be checked by hand: each row is an odd state and its integer current, and the divergence `J − PJ` must be the counting measure of the odd states 3..111. The commands in the legacy text name the pre-migration path `experiments/residual_progress/forcing/`.
+No certificate ran at this path before the B18 replay revival. The legacy compiler `actual_graph_compiler.py` (which regenerates and checks everything above) loads two modules by their pre-migration paths; it was evidence only until the B18 replay revival (below). The stored current [`forced_U112_current.csv`](forced_U112_current.csv) can be checked by hand: each row is an odd state and its integer current, and the divergence `J − PJ` must be the counting measure of the odd states 3..111. The commands in the legacy text name the pre-migration path `experiments/residual_progress/forcing/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `actual_graph_compiler.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 11 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

@@ -20,9 +20,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [local-packet-calibration-extension]
-certificates: [check_profile_recompute.py]
+certificates: [check_profile_recompute.py, check_legacy_replay.py]
 evidence:
-  - "check_complement.py, complement_constructor.py, complement_audit.json, improved_packet_24_current.csv: the legacy constructor improve_packet(N, inner_current) and its checker (the entire cutoff graph against the classification at 131 cutoffs, the 36-phase mass formula, eight supplied-input conversions with capped input search, and a stored improved packet current at N = 24). Fails at its new path: complement_constructor.py loads ../closure/local_extension.py by its pre-migration path (now ../local-packet-calibration-extension/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/complement/check_complement.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy transfer of annular-complement-outer-descent loads complement_constructor.py by its old path"
+  - "check_complement.py, complement_constructor.py, complement_audit.json, improved_packet_24_current.csv: the legacy constructor improve_packet(N, inner_current) and its checker (the entire cutoff graph against the classification at 131 cutoffs, the 36-phase mass formula, eight supplied-input conversions with capped input search, and a stored improved packet current at N = 24). Fails at its new path: complement_constructor.py loads ../closure/local_extension.py by its pre-migration path (now ../local-packet-calibration-extension/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/complement/check_complement.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy transfer of annular-complement-outer-descent loads complement_constructor.py by its old path. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 aliases: [R17]
 tags: [convergence, packet-currents, outer-residual, conditional, partial-extension]
 ---
@@ -278,6 +278,8 @@ The finite examples supplement the written universal conditional proof.
 
 - [`check_profile_recompute.py`](check_profile_recompute.py) (written at the B09 migration, under 1 s, standard library). For every multiple of 8 through 1024 it builds the `K_N`-only graph (one arrow from every odd `1 < x < 3N/2`) and checks that its components avoiding `[1, N]` are exactly the table of item 3; it checks the floor formula (3) against the profile, the 36 phase values, the period-288 increment 25 and the two-sided bound through `N = 3168`, and the ladder mass `25N/288 − 4/3` for `k ≤ 6`. It does not rebuild supplied inner currents or the packet conversion (legacy checker, evidence only).
 - The commands in the legacy text name `experiments/residual_progress/complement/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_complement.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 10 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

@@ -22,11 +22,11 @@ lean:
   - LeanLane.Cyc.mech_D_ne_one
   - LeanLane.Cyc.OddCycle.narrow_integer_cycle
   - LeanLane.Cyc.OddCycle.H_gt_two_L
-certificates: [c004c_bridge_check.py]
+certificates: [c004c_bridge_check.py, check_legacy_replay.py]
 evidence:
   - "ROTATION_LATTICE.md: the written proofs (sections 1-4); it also holds the proofs of rotation-lattice-single-divisibility and narrow-cycle-spectrum-law"
-  - "check_rotations.py, rotation_audit.json: main-lane finite checker and receipt. Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json' and the fixtures from experiments/phase6/ (cycle_fixtures.json, now in ../../../convergence/results/baseline-obligation-transfer-controls/, byte-identical). Passed at be73a66 as experiments/cycle_spectrum/C004/check_rotations.py (archive/legacy-checker-run-be73a66.md)"
-  - "c004_narrow_check.py, c004_narrow_check.json: side-lane independent check (REFEREE C004). Needs the corpus path as argument, so it fails bare (passed with its argument; exit 1 bare at be73a66 as reviews/side_lane/c004_narrow_check.py, archive/legacy-checker-run-be73a66.md). Run as python3 <this folder>/c004_narrow_check.py areas/cycles/results/actual-cycles-3x-d-corpus/actual_cycles.json it exits 0 and reproduces its receipt byte for byte (checked at migration)"
+  - "check_rotations.py, rotation_audit.json: main-lane finite checker and receipt. Fails at its new path: it loads the corpus as HERE.parent/'C001/actual_cycles.json' and the fixtures from experiments/phase6/ (cycle_fixtures.json, now in ../../../convergence/results/baseline-obligation-transfer-controls/, byte-identical). Passed at be73a66 as experiments/cycle_spectrum/C004/check_rotations.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+  - "c004_narrow_check.py, c004_narrow_check.json: side-lane independent check (REFEREE C004). Needs the corpus path as argument, so it fails bare (passed with its argument; exit 1 bare at be73a66 as reviews/side_lane/c004_narrow_check.py, archive/legacy-checker-run-be73a66.md). Run as python3 <this folder>/c004_narrow_check.py areas/cycles/results/actual-cycles-3x-d-corpus/actual_cycles.json it exits 0 and reproduces its receipt byte for byte (checked at migration). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "c004c_bridge_check.json: receipt of the side-lane bridge check (written only when an output path is given)"
   - "INDEPENDENT_REVIEW.md, ROOT_REVIEW.md: main-lane reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed"
   - "delivery_checks.json, full_gate.json: historical delivery receipt and historical finite gate"
@@ -77,7 +77,7 @@ For the integer corollary: R71's exact denominator theorem ([`mechanical-word-ex
 
 - [`c004c_bridge_check.py`](c004c_bridge_check.py) (about 2 s; side lane, independent code): finds actual cycles of `T_q(n) = (3n+q)/2^v₂(3n+q)` by direct iteration (`q = 1` and the controls `q = 5, 7, 13, 61`), lists each from its minimum as in Lean's `OddCycle`, and checks the cycle identity `D·n_0 = q·C(w)` and its rotated form `q·C(w.rotate i) = D·n_i`; that narrow cycles are exactly rotations of the mechanical word with coprime totals (or `m = 1`); that at `q = 1` the only narrow cycle is the fixed point 1, while the controls have narrow cycles with `m ≥ 2` and `m = 1` cycles other than `n_0 = 1`; and that primitivity is needed for "`m = 1`" (the doubled fixed point `(2, 2)`).
 
-The main-lane checker [`check_rotations.py`](check_rotations.py) no longer runs at this path (see `evidence`). Its receipt [`rotation_audit.json`](rotation_audit.json) records:
+The main-lane checker [`check_rotations.py`](check_rotations.py) no longer runs at this path (see `evidence`; it is replayed in the legacy layout, below). Its receipt [`rotation_audit.json`](rotation_audit.json) records:
 
 | Check | Coverage |
 | --- | --- |
@@ -92,6 +92,8 @@ The main-lane checker [`check_rotations.py`](check_rotations.py) no longer runs 
 | Mechanical gap checks | 156 coprime upper approximants; 20,241 points and 20,085 adjacent gaps. |
 
 Finite checks do not prove the classification; they support the implementation.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy checks `check_rotations.py`, `c004_narrow_check.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 22 s). `c004_narrow_check.py` runs with the arguments recorded in `ARGS`. It checks finite steps only; the status is unchanged.
 
 ## Lean
 

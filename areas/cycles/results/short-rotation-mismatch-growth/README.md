@@ -25,10 +25,10 @@ lean:
   - LeanLane.Cyc.OddCycle.mis_card_le_of_add_mod
   - LeanLane.Cyc.OddCycle.mis_card_add
   - LeanLane.Cyc.OddCycle.mis_card_sub
-certificates: [s13_short_rotations.py]
+certificates: [s13_short_rotations.py, check_legacy_replay.py]
 evidence:
   - "s13_short_rotations.py, s13_short_rotations.json: computes F(m, H₀) (exact integer search over s, bisection over B), the localization thresholds c_S and the asymptotic table from ℓ'_max = 172 + 342·log₂m − log₂3 and η at L = 2^20 (about 1 s). Exits 0 at its new path and leaves its receipt byte-identical. Passed at be73a66 as reviews/side_lane/s13_short_rotations.py (archive/legacy-checker-run-be73a66.md)"
-  - "s13_corollaries.py, s13_corollaries.json: side-lane probe for Corollaries 5-7 (about 7 s): subadditivity on 3,963,083 rotation pairs of actual 3x+q cycles (m ≤ 120), the forced-letter law on 99,169 rotations of 4,218 actual cycles, and the q = 1 tables (sparsity, forced letter, ρ from the largest letter); no violation. Fails at its new path: it imports s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/); with that folder on PYTHONPATH it exits 0 and leaves its receipt byte-identical (checked at migration). It also imports s13_short_rotations from this folder. Passed at be73a66 as reviews/side_lane/s13_corollaries.py (archive/legacy-checker-run-be73a66.md)"
+  - "s13_corollaries.py, s13_corollaries.json: side-lane probe for Corollaries 5-7 (about 7 s): subadditivity on 3,963,083 rotation pairs of actual 3x+q cycles (m ≤ 120), the forced-letter law on 99,169 rotations of 4,218 actual cycles, and the q = 1 tables (sparsity, forced letter, ρ from the largest letter); no violation. Fails at its new path: it imports s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/); with that folder on PYTHONPATH it exits 0 and leaves its receipt byte-identical (checked at migration). It also imports s13_short_rotations from this folder. Passed at be73a66 as reviews/side_lane/s13_corollaries.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
@@ -107,6 +107,8 @@ Legacy S13 note §1, Corollaries 2, 3 and 5 (side lane). The combination is Coro
 ## Certificates
 
 `s13_short_rotations.py` recomputes every table above except Corollary 5's (thresholds `c_S`, `F(m, H₀)` and the asymptotic values) and rewrites its receipt; at migration it exited 0 and left the receipt byte-identical. Corollary 5's counts and the subadditivity check are in `s13_corollaries.py` (see `evidence`).
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `s13_corollaries.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 24 s). It checks finite steps only; the status is unchanged.
 
 ## Lean
 

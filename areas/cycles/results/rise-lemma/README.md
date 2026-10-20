@@ -35,8 +35,9 @@ lean:
   - LeanLane.Cyc.OddCycle.rise_from_min_uniform
   - LeanLane.Cyc.OddCycle.mis_card_neg
   - LeanLane.Cyc.OddCycle.log_rise_from_min
+certificates: [check_legacy_replay.py]
 evidence:
-  - "s13_rise_lemma.py, s13_rise_lemma.json: side-lane probe (about 100 s): checks (W), the lemma for every pair (u, v) (m ≤ 64) or from the minimum (larger m), every rotation and both orientations, Corollary 1, the bound on Δ⁺, and Corollary 4 on exhaustive words; no violation (counts in Certificates). Fails at its new path: it imports s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/); with that folder on PYTHONPATH it exits 0 and leaves its receipt byte-identical (checked at migration). Passed at be73a66 as reviews/side_lane/s13_rise_lemma.py (archive/legacy-checker-run-be73a66.md)"
+  - "s13_rise_lemma.py, s13_rise_lemma.json: side-lane probe (about 100 s): checks (W), the lemma for every pair (u, v) (m ≤ 64) or from the minimum (larger m), every rotation and both orientations, Corollary 1, the bound on Δ⁺, and Corollary 4 on exhaustive words; no violation (counts in Certificates). Fails at its new path: it imports s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/); with that folder on PYTHONPATH it exits 0 and leaves its receipt byte-identical (checked at migration). Passed at be73a66 as reviews/side_lane/s13_rise_lemma.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
@@ -113,6 +114,8 @@ None run by CI; `s13_rise_lemma.py` (about 100 s) is a probe (see `evidence`). I
 - **Sharpness.** The smallest slack over all lemma checks is 0.30 mismatch units on actual cycles and 0.55 on words.
 - **Why the factor is right.** A run of `t` ones from `n = 2^(t+1) − q` ends at `2·3^t − q`. So one run multiplies `log₂(n + q)` by `log₂3 − O(1/t)`, and the per-run factor `log₂3` cannot be lowered.
 - **Example.** The near-tight checks are such runs. The `3x+499` cycle of length 50 climbs from `1549 = 2^11 − 499` through nine `1`s with no mismatch of `h = 1`, with slack 0.32.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `s13_rise_lemma.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 142 s). It checks finite steps only; the status is unchanged.
 
 ## Lean
 

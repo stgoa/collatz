@@ -17,8 +17,9 @@ authors:
 created: 2026-10-19
 depends_on: [paired-state-run-law, global-drift-ceiling, mismatch-height-tradeoff]
 assumes: [musson-collatz-gap-all]
+certificates: [check_legacy_replay.py]
 evidence:
-  - "s10_repeat_complexity.py, s10_repeat_complexity.json: side-lane probe (about 7 s): (i) checks the repeat inequality 2·3^t < H on every actual 3x+q cycle with q < 2,000; (ii) on random k-interval rotation codings (k = 2, 3, 4) measures the longest repeated factor against T(m, ℓ*). Fails at its new path: it imports s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/); with that folder on PYTHONPATH it exits 0 and leaves its receipt byte-identical (checked at migration). Passed at be73a66 as reviews/side_lane/s10_repeat_complexity.py (archive/legacy-checker-run-be73a66.md). Despite its s10_ prefix it belongs to S9 §5"
+  - "s10_repeat_complexity.py, s10_repeat_complexity.json: side-lane probe (about 7 s): (i) checks the repeat inequality 2·3^t < H on every actual 3x+q cycle with q < 2,000; (ii) on random k-interval rotation codings (k = 2, 3, 4) measures the longest repeated factor against T(m, ℓ*). Fails at its new path: it imports s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/); with that folder on PYTHONPATH it exits 0 and leaves its receipt byte-identical (checked at migration). Passed at be73a66 as reviews/side_lane/s10_repeat_complexity.py (archive/legacy-checker-run-be73a66.md). Despite its s10_ prefix it belongs to S9 §5. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 tags: [cycles, rotation-distance, factor-complexity, 3x+d]
 ---
 

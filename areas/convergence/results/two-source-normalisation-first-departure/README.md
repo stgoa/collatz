@@ -22,9 +22,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-18
 depends_on: [retained-history-w9-reduction, binary-return-exit-control]
-certificates: [r93_r94_check.py]
+certificates: [r93_r94_check.py, check_legacy_replay.py]
 evidence:
-  - "check_two_source_history.py, two_source_history.py, two_source_history_audit.json: the legacy constructor, checker and receipt: the complete 448-state rational certificate, 64 initial identities, 3520 exact departures, 180 joint upper/lower cases through r = 128, 739 periodic phases, three full unfinished tables, 19 rejection controls. It imports only its sibling module, but its receipt pins the SHA-256 of this node's legacy note TWO_SOURCE_HISTORY.md by file name, which is now an edited README, so it fails at its new path and in a legacy replay. Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a; A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged)"
+  - "check_two_source_history.py, two_source_history.py, two_source_history_audit.json: the legacy constructor, checker and receipt: the complete 448-state rational certificate, 64 initial identities, 3520 exact departures, 180 joint upper/lower cases through r = 128, 739 periodic phases, three full unfinished tables, 19 rejection controls. It imports only its sibling module, but its receipt pins the SHA-256 of this node's legacy note TWO_SOURCE_HISTORY.md by file name, which is now an edited README, so it fails at its new path and in a legacy replay at earlier migrations (before rewritten notes were restored from git). Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a; A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "r93_r94_check.py, r93_r94_check.json: side-lane probe (Claude side lane, 2026-10-18 07:33, with the 07:36 update) of R93, R94, the later-target probe and the scaling remark of the R92 template; prescribed-ternary-child-unbounded-clocks and the attempt two-ray-point-procedure-later-target replay it from this folder. It imports nothing from the repository and passes at its new path. Passed at be73a66 as reviews/side_lane/r93_r94_check.py (archive/legacy-checker-run-be73a66.md, exit 0)"
 reviewed_by:
   - by: Claude side lane (Opus)
@@ -308,6 +308,8 @@ result is modified by this package.
 ## Certificates
 
 [`r93_r94_check.py`](r93_r94_check.py) (the side-lane probe; it imports nothing from the repository and passes in place, about 2 s): the cell identities, the upper coordinate and return criterion, the 448-state lower shadow, the departures for every exact order `n = 14..1000`, the 209 joint cases, the R94 centres and cylinders, the later-target controls and the scaling remark, against `r93_r94_check.json`. The legacy checker `check_two_source_history.py` pins the hash of this node's note, now an edited README (see `evidence`). The command in the legacy text names `experiments/residual_progress/two_source_history/`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `check_two_source_history.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 17 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

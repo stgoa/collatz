@@ -16,11 +16,11 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-19
 depends_on: [complete-gap-lattice-equivalence, odd-spacing-rounding-bound, narrow-cycles-are-mechanical, ordered-cycle-sparse-forcing, mechanical-word-exact-denominator]
-certificates: [c010_gap_check.py]
+certificates: [c010_gap_check.py, check_legacy_replay.py]
 evidence:
   - "GAP_LATTICE.md: the lattice equivalence (sections 1-2), the unchanged ordered operator (section 3), what integrality still accomplishes (section 4) and the all-size slack family (section 5); ODD_ROUNDING.md: the rounding bound and the q = 5, 13, 83 controls; ROUNDING_PROBE.md: independent main-lane lowbit argument and seam audit"
-  - "check_integer_gaps.py, integer_gap_audit.json: main-lane checker and receipt (2,459 source cycles, 1,185 normalised, 52 ordered cases, 474 adjacent gap equations, 7,022 circular pair bounds). Fails at its new path: it imports HERE.parent/'C009/check_excursions.py' and hashes ../C004/SIZE_PROBE.md by old path. Passed at be73a66 as experiments/cycle_spectrum/C010/check_integer_gaps.py (archive/legacy-checker-run-be73a66.md)"
-  - "c010b_gap_lattice_check.py, c010b_gap_lattice_check.json and c010c_any_arrangement_check.py, c010c_any_arrangement_check.json: side-lane checks of Lean units C010-b and C010-c. Both fail at the new path: they import the side-lane helper modules s1a_integer_cycle_check and jterm_gap_check from their own folder; s1a_integer_cycle_check now lives in ../../results/ordered-gap-closed-form/ (B05), jterm_gap_check in ../../results/ordered-gap-closed-form/ too, since the B17 migration (legacy reviews/side_lane/jterm_gap_check.py). Passed at be73a66 as reviews/side_lane/c010b_gap_lattice_check.py and c010c_any_arrangement_check.py; their receipts are written only when an output path is given"
+  - "check_integer_gaps.py, integer_gap_audit.json: main-lane checker and receipt (2,459 source cycles, 1,185 normalised, 52 ordered cases, 474 adjacent gap equations, 7,022 circular pair bounds). Fails at its new path: it imports HERE.parent/'C009/check_excursions.py' and hashes ../C004/SIZE_PROBE.md by old path. Passed at be73a66 as experiments/cycle_spectrum/C010/check_integer_gaps.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+  - "c010b_gap_lattice_check.py, c010b_gap_lattice_check.json and c010c_any_arrangement_check.py, c010c_any_arrangement_check.json: side-lane checks of Lean units C010-b and C010-c. Both fail at the new path: they import the side-lane helper modules s1a_integer_cycle_check and jterm_gap_check from their own folder; s1a_integer_cycle_check now lives in ../../results/ordered-gap-closed-form/ (B05), jterm_gap_check in ../../results/ordered-gap-closed-form/ too, since the B17 migration (legacy reviews/side_lane/jterm_gap_check.py). Passed at be73a66 as reviews/side_lane/c010b_gap_lattice_check.py and c010c_any_arrangement_check.py; their receipts are written only when an output path is given. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "check_delivery.py, delivery_checks.json: historical delivery check and receipt; pinned to the historical commits that produced it, fails at HEAD by design (it failed at be73a66 too)"
   - "ARITHMETIC_REVIEW.md, INDEPENDENT_REVIEW.md, EXACT_CHECKER_REVIEW.md, ROOT_REVIEW.md: main-lane reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed; LITERATURE.md: literature scope; historical_gate.json: historical finite gate"
 reviewed_by:
@@ -77,6 +77,8 @@ Exact gap integrality is equivalent to the original lattice condition, and the l
 ## Certificates
 
 - [`c010_gap_check.py`](c010_gap_check.py) (under a second; side lane, independent code): exact integer matrices `E^m = 2I` and the inverse of `U` for `m ≤ 12`, the `q = 5` control against the sharp bounds, and the seam identity `2B_0 − B_(m−1) = 3^(m−1)` on all 381 primitive mechanical words with coprime `(A, m)`, `2^A > 3^m` and `2 ≤ m < 30`; it rewrites [`c010_gap_check.json`](c010_gap_check.json) identically.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy checks `check_integer_gaps.py`, `c010b_gap_lattice_check.py`, `c010c_any_arrangement_check.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 47 s). It checks finite steps only; the status is unchanged.
 
 ## History
 

@@ -20,7 +20,7 @@ created: 2026-10-19
 depends_on: [narrow-cycles-are-mechanical]
 evidence:
   - "COMPATIBLE_ARCS.md: the draft's written arguments for (i)-(iii) and the q = 269 five-cycle example; OVERLAP_OBSTRUCTION.md: the rotated-resultant draft (rotated-residual-resultant-invariance); SIDE_REVIEW.md: the draft's read of the side-lane feed, including a proposed correction of C013's evidence labels; LITERATURE.md: source scope"
-  - "check_overlap_arithmetic.py, overlap_arithmetic_audit.json: the draft's checker and receipt. Fails at its new path: it imports HERE.parent/'C013/check_overlap.py' and reads side-lane files from git at a fixed side commit by their old sidekick/ paths. Passed at be73a66 as experiments/cycle_spectrum/C014/check_overlap_arithmetic.py (about 21 s; archive/legacy-checker-run-be73a66.md). A passing draft checker is not a review"
+  - "check_overlap_arithmetic.py, overlap_arithmetic_audit.json: the draft's checker and receipt. Fails at its new path: it imports HERE.parent/'C013/check_overlap.py' and reads side-lane files from git at a fixed side commit by their old sidekick/ paths. Passed at be73a66 as experiments/cycle_spectrum/C014/check_overlap_arithmetic.py (about 21 s; archive/legacy-checker-run-be73a66.md). A passing draft checker is not a review. Fails under replay (B18-replay-revival): it runs git show for side-lane files from inside the temporary legacy tree, which is not a git checkout"
   - "historical_gate.json: historical finite gate copied into the draft folder"
 tags: [cycles, rotation-distance, work-in-progress, unreviewed]
 ---

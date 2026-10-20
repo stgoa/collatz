@@ -18,12 +18,12 @@ authors:
   - Claude PR1 lane (Opus)
 created: 2026-10-17
 depends_on: [right-aligned-fixed-core-remainder]
-certificates: [main_claims_audit.py, progress_measures_audit.py, attempt_probes.py]
+certificates: [main_claims_audit.py, progress_measures_audit.py, attempt_probes.py, check_legacy_replay.py]
 evidence:
   - "NOTE.md: the PR1 lane's note (C1–C5), with the written proofs of Lemmas 1–4 and the corollary of §12; kept, links updated at migration"
-  - "affine_controls.py, negative_controls_audit.json: the controls of this node and the certificate checker (python3 <this folder>/affine_controls.py --check CERT.json). Fails at the new path: it imports right_aligned_packets from its parent folder, which no longer holds it. Passed on 2026-10-17 inside the legacy gate scripts/verify_all.py --cpp, run in a temporary copy of the legacy layout (archive/pre-restructure-2026-10-19/docs/RESEARCH_LOG.md, legacy archive/docs/RESEARCH_LOG.md)"
-  - "reduction_audit.py, reduction_audit.json: the independent audit of R2–R4 and the minimality checks (right-aligned-reduction-independent-checks, exact-current-minimality). Fails at the new path: it reads ../collatz_packet_currents/data, now in packet-currents-snapshot/. Passed on 2026-10-17 inside scripts/verify_all.py"
-  - "check_review_scope.py, review_scope_audit.json: the main lane's checker for the PR1 review's counterexamples (exact-current-minimality). Fails at the new path: it loads experiments/annular_construction/arithmetic/check_arithmetic_reductions.py relative to the repository root (that script now lives in universal-annular-partial-current/ and itself no longer runs there). Passed in the legacy gate (verify_all.py, everything passed at 9dbc71a per archive/legacy-checker-run-be73a66.md; at be73a66 the gate stopped earlier)"
+  - "affine_controls.py, negative_controls_audit.json: the controls of this node and the certificate checker (python3 <this folder>/affine_controls.py --check CERT.json). Fails at the new path: it imports right_aligned_packets from its parent folder, which no longer holds it. Passed on 2026-10-17 inside the legacy gate scripts/verify_all.py --cpp, run in a temporary copy of the legacy layout (archive/pre-restructure-2026-10-19/docs/RESEARCH_LOG.md, legacy archive/docs/RESEARCH_LOG.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+  - "reduction_audit.py, reduction_audit.json: the independent audit of R2–R4 and the minimality checks (right-aligned-reduction-independent-checks, exact-current-minimality). Fails at the new path: it reads ../collatz_packet_currents/data, now in packet-currents-snapshot/. Passed on 2026-10-17 inside scripts/verify_all.py. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+  - "check_review_scope.py, review_scope_audit.json: the main lane's checker for the PR1 review's counterexamples (exact-current-minimality). Fails at the new path: it loads experiments/annular_construction/arithmetic/check_arithmetic_reductions.py relative to the repository root (that script now lives in universal-annular-partial-current/ and itself no longer runs there). Passed in the legacy gate (verify_all.py, everything passed at 9dbc71a per archive/legacy-checker-run-be73a66.md; at be73a66 the gate stopped earlier). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "PR1_REVIEW.md: the main lane's review of the PR1 claims, with its later reassessments; HANDOFF_FOR_MAIN.md: the PR1 lane's hand-off to the main lane. Links into unmigrated legacy folders were turned into code spans at migration and restored as node links by the later residual-progress batches (B09, B10, B12)"
 reviewed_by:
   - by: ChatGPT main lane (Codex)
@@ -96,6 +96,8 @@ Each runs from the repository root in 1–2 s, standard library, checks by `asse
 - [`attempt_probes.py`](attempt_probes.py) → [`attempt_probes.json`](attempt_probes.json): [`class-wise-obligation-equivalence`](../class-wise-obligation-equivalence.md) and [`annular-bottom-cancellation-attempt`](../../attempts/annular-bottom-cancellation-attempt.md).
 
 The table and scans above are in [`negative_controls_audit.json`](negative_controls_audit.json), written by `affine_controls.py`, which does not run at this path (see `evidence`).
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy checks `affine_controls.py`, `reduction_audit.py`, `check_review_scope.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 61 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

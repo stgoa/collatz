@@ -23,8 +23,9 @@ lean:
   - LeanLane.Cyc.OddCycle.word_dk_denominator_law'
   - LeanLane.Cyc.OddCycle.dk_denominator_law_coprime
   - LeanLane.Cyc.OddCycle.word_dk_denominator_law_coprime
+certificates: [check_legacy_replay.py]
 evidence:
-  - "s12_dk_denominator_law.py, s12_dk_denominator_law.json: side-lane probe (about 6 s): no violation on every primitive word over {1,2,3} up to length 12 with every coprime rotation (360,284 pairs), on 52,484 actual-cycle pairs (odd q < 2,000), and on 40 random near-critical low-variation chain words with 4-10 mismatches up to m = 3,200 (18 non-vacuous, slack ≥ 547 bits). Fails at its new path: it imports s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/); with that folder on PYTHONPATH it exits 0 and leaves its receipt byte-identical (checked at migration). Passed at be73a66 as reviews/side_lane/s12_dk_denominator_law.py (archive/legacy-checker-run-be73a66.md)"
+  - "s12_dk_denominator_law.py, s12_dk_denominator_law.json: side-lane probe (about 6 s): no violation on every primitive word over {1,2,3} up to length 12 with every coprime rotation (360,284 pairs), on 52,484 actual-cycle pairs (odd q < 2,000), and on 40 random near-critical low-variation chain words with 4-10 mismatches up to m = 3,200 (18 non-vacuous, slack ≥ 547 bits). Fails at its new path: it imports s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/); with that folder on PYTHONPATH it exits 0 and leaves its receipt byte-identical (checked at migration). Passed at be73a66 as reviews/side_lane/s12_dk_denominator_law.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19
@@ -56,6 +57,8 @@ Two labels from the Lean lane's review:
 ## Certificates
 
 None run by CI; `s12_dk_denominator_law.py` is a probe (see `evidence`): no violation in 360,284 exhaustive pairs (words over `{1,2,3}`, `m ≤ 12`), in 52,484 actual-cycle pairs, or in 40 low-variation chain words (18 non-vacuous, slack ≥ 547 bits).
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `s12_dk_denominator_law.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 24 s). It checks finite steps only; the status is unchanged.
 
 ## Lean
 

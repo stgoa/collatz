@@ -17,9 +17,9 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-17
 depends_on: [retained-graph-complement-constructor]
-certificates: [check_support_recompute.py]
+certificates: [check_support_recompute.py, check_legacy_replay.py]
 evidence:
-  - "residual_vs_induction.py, residual_vs_induction.json: side-lane probe (Claude side lane, 2026-10-17) that found the identity and checked it exactly at N = 96, 768, 6144, 9216, 49152, 98304 (support 7, 61, 490, 736, 3925, 7850). Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/). Passed at be73a66 as reviews/side_lane/residual_vs_induction.py (archive/legacy-checker-run-be73a66.md, exit 0). The side-lane probes coalescence_check and excursion_merge_probe import its R from their own folders"
+  - "residual_vs_induction.py, residual_vs_induction.json: side-lane probe (Claude side lane, 2026-10-17) that found the identity and checked it exactly at N = 96, 768, 6144, 9216, 49152, 98304 (support 7, 61, 490, 736, 3925, 7850). Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/). Passed at be73a66 as reviews/side_lane/residual_vs_induction.py (archive/legacy-checker-run-be73a66.md, exit 0). The side-lane probes coalescence_check and excursion_merge_probe import its R from their own folders. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "side_lane_review_20261017_latest.md, side_lane_review_20261017_latest.json: the main lane's review (2026-10-17, side-lane commit 9a0c28d) of the side lane's residual-cylinder and induction feed: §2 is the written proof of this identity for every allowed N; §§3–4 scope the cylinder dynamic programs (cylinder-certificates-outer-residual); §5 corrects the reading of the fixed-h barrier (fixed-ternary-order-unbounded-depth); §6 rechecks the induction of five-ray-profile-completion-suffices. The receipt holds pinned source hashes, exact fractions and the six comparisons with the main lane's residual constructor"
 aliases: [R17-b]
 tags: [convergence, packet-currents, outer-residual, strong-induction]
@@ -51,6 +51,8 @@ The endpoint `9N/8` is a multiple of 9, never one of these `7 (mod 12)` roots. T
 ## Certificates
 
 [`check_support_recompute.py`](check_support_recompute.py) (written at the B09 migration, under 1 s, standard library). Checks the identity for every multiple of 8 through 4096 and at the six cutoffs of the side-lane receipt, that no support element is `2 (mod 3)`, that `|supp R_N| − 23N/288` stays in `[−3, 3]` (the largest deviation found is `11/9`), and reproduces the receipt rows (support, mass, roots divisible by 3) at `N = 96, 768, 6144, 9216, 49152, 98304`.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy check `residual_vs_induction.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 10 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

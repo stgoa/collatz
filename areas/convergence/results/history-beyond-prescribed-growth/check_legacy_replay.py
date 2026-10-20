@@ -7,7 +7,8 @@ requiring exit 0 and every file byte-identical afterwards. Nothing in the reposi
 Run from the repository root: python3 <this file>. Exits 1 on any failure.
 
 What this node replays:
-  - reviews/side_lane/batch_r81_r83_check.py: the side-lane probe of R81 and R83 (from ../fixed-word-history-cells/): the parameters (L, h) = (740, 8148) and (2028089, 22308995), receipt reproduced byte for byte. The legacy checker check_growth_escape.py is not replayed: it pins the hash of this node's note, now an edited README.
+  - reviews/side_lane/batch_r81_r83_check.py: the side-lane probe of R81 and R83 (from ../fixed-word-history-cells/): the parameters (L, h) = (740, 8148) and (2028089, 22308995), receipt reproduced byte for byte. The legacy checker check_growth_escape.py was not replayed when this file was written (it pins the hash of this node's note, now an edited README, and the replay did not yet restore rewritten notes from git); it is replayed now (below).
+  - experiments/residual_progress/native_growth_escape/check_growth_escape.py: the legacy constructor, checker and receipt: 20 symbolic depths through 64, 160 modular phases, four exact terminal-unit/index cells, six exhaustive failure cases, 21 rejections, a capped-decision check ... (added at the B18-replay-revival migration).
 """
 import sys
 from pathlib import Path
@@ -15,7 +16,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "tools"))
 import legacy_replay  # noqa: E402
 
-SCRIPTS = ['reviews/side_lane/batch_r81_r83_check.py']
+SCRIPTS = ['reviews/side_lane/batch_r81_r83_check.py', 'experiments/residual_progress/native_growth_escape/check_growth_escape.py']
 
 if __name__ == "__main__":
     sys.exit(legacy_replay.main(SCRIPTS))

@@ -19,11 +19,11 @@ authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-19
 depends_on: [two-defect-cancellation-bound]
-certificates: [c012_candidate_check.py]
+certificates: [c012_candidate_check.py, check_legacy_replay.py]
 evidence:
   - "COUPLED_SYSTEM.md: the written proofs (sections 1-7); COUPLED_OBSTRUCTIONS.md: the three-defect family, S-unit escape and counting theorem (three-defect-arbitrary-background)"
-  - "check_coupled_system.py, coupled_system_audit.json: main-lane checker and receipt (all 27,646 nonidentity rotations of the 1,185 normalised cycles and 11 fixtures; selected determinants and minors). Fails at its new path: it imports HERE.parent/'C009/check_excursions.py'. Passed at be73a66 as experiments/cycle_spectrum/C012/check_coupled_system.py (about 98 s; archive/legacy-checker-run-be73a66.md)"
-  - "check_shared_arcs.py, shared_arc_audit.json: main-lane shared-arc checker and receipt (350 fixed-total backgrounds, 3,582 backgrounds with A < 2m, seven prime sets; 177,288 raw arrows, 173,349 rotations). Fails at its new path because it imports check_coupled_system.py, which fails. Passed at be73a66 as experiments/cycle_spectrum/C012/check_shared_arcs.py"
+  - "check_coupled_system.py, coupled_system_audit.json: main-lane checker and receipt (all 27,646 nonidentity rotations of the 1,185 normalised cycles and 11 fixtures; selected determinants and minors). Fails at its new path: it imports HERE.parent/'C009/check_excursions.py'. Passed at be73a66 as experiments/cycle_spectrum/C012/check_coupled_system.py (about 98 s; archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+  - "check_shared_arcs.py, shared_arc_audit.json: main-lane shared-arc checker and receipt (350 fixed-total backgrounds, 3,582 backgrounds with A < 2m, seven prime sets; 177,288 raw arrows, 173,349 rotations). Fails at its new path because it imports check_coupled_system.py, which fails. Passed at be73a66 as experiments/cycle_spectrum/C012/check_shared_arcs.py. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "check_delivery.py, delivery_checks.json: historical delivery check and receipt; pinned to the historical commits that produced it, fails at HEAD by design (it failed at be73a66 too)"
   - "c012_candidate_check.json: receipt of the side-lane candidate check"
   - "EXACT_REVIEW.md, INDEPENDENT_CHECKER_REVIEW.md, INDEPENDENT_THEORY_REVIEW.md, ROOT_REVIEW.md: main-lane reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed; LITERATURE.md: literature scope; historical_gate.json: historical finite gate"
@@ -78,6 +78,8 @@ This first example is mechanical (already in the narrow class); it is an arithme
 ## Certificates
 
 - [`c012_candidate_check.py`](c012_candidate_check.py) (about 80 s; side lane, independent code, fixed seed): checks the corrected formula `C(k, 2^n) = 3^n + 2^k(4^n − 3^n)` for the word `(k, 2, …, 2)`; that `(1, U, 3, U, 4, U)` with `U` over `{2, 5}` is primitive with minimum rotation distance exactly 3 (300 random backgrounds); and tests the candidate of [`rotation-defect-denominator-candidate`](../../questions/rotation-defect-denominator-candidate.md) on 18,892,900 rotations of all primitive words of length ≤ 9 with letters 1–5 (0 discriminating, as predicted) and on 59,759 structured words (56,150 discriminating, no failure). It rewrites [`c012_candidate_check.json`](c012_candidate_check.json) identically. The candidate passes are finite evidence, not part of this node's claim.
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy checks `check_coupled_system.py`, `check_shared_arcs.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 100 s). It checks finite steps only; the status is unchanged.
 
 ## Remarks
 

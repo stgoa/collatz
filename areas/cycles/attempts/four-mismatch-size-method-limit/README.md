@@ -20,10 +20,11 @@ authors:
   - Claude side lane (Opus)
 created: 2026-10-19
 depends_on: [three-mismatch-exclusion, ones-run-divisibility]
+certificates: [check_legacy_replay.py]
 evidence:
   - "s8_four_mismatch_map.py, s8_four_mismatch_map.json: side-lane exploration probe (about 10-20 s): builds the words and evaluates constraints (1)-(5) of the rotation h exactly, with the margins tabulated in the note. Exits 0 at the new path and rewrites its receipt byte for byte; it is an exploration probe, not a checker. Passed at be73a66 as reviews/side_lane/s8_four_mismatch_map.py (archive/legacy-checker-run-be73a66.md)"
-  - "s8_multirotation_check.py: side-lane probe (about 20 s, no receipt), feed update 13:36: the survivor words against every rotation by a convergent denominator of h^(−1)/m (times 1, 2, 3) with at most 60,000 mismatches; all margins positive. It did not include the rotation 2h. Exits 0 at the new path (imports s8_four_mismatch_map from this folder). Passed at be73a66 as reviews/side_lane/s8_multirotation_check.py"
-  - "s8_multiple_rotations.py: the counterexample check of feed 13:44 (about 30-40 s, no receipt): the survivor words against the rotations by k·h, k = ±1..±12; the rotation 2h fails by 193,000 bits (ℓ = ℓ*), 209,000 (ℓ = 71) and 287,000 (ℓ = 100) at m = 10^6, and 3h, 4h, 5h, 7h, 9h fail too. Exits 0 at the new path (min margin −209,428.5 and −286,512.6 at ℓ = 71 and 100, re-run at migration). Passed at be73a66 as reviews/side_lane/s8_multiple_rotations.py"
+  - "s8_multirotation_check.py: side-lane probe (about 20 s, no receipt), feed update 13:36: the survivor words against every rotation by a convergent denominator of h^(−1)/m (times 1, 2, 3) with at most 60,000 mismatches; all margins positive. It did not include the rotation 2h. Exits 0 at the new path (imports s8_four_mismatch_map from this folder). Passed at be73a66 as reviews/side_lane/s8_multirotation_check.py. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+  - "s8_multiple_rotations.py: the counterexample check of feed 13:44 (about 30-40 s, no receipt): the survivor words against the rotations by k·h, k = ±1..±12; the rotation 2h fails by 193,000 bits (ℓ = ℓ*), 209,000 (ℓ = 71) and 287,000 (ℓ = 100) at m = 10^6, and 3h, 4h, 5h, 7h, 9h fail too. Exits 0 at the new path (min margin −209,428.5 and −286,512.6 at ℓ = 71 and 100, re-run at migration). Passed at be73a66 as reviews/side_lane/s8_multiple_rotations.py. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
 reviewed_by:
   - by: Claude Lean lane (Fable)
     date: 2026-10-19

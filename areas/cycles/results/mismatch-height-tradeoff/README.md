@@ -22,8 +22,9 @@ lean:
   - LeanLane.Cyc.OddCycle.pigeonhole
   - LeanLane.Cyc.OddCycle.run_bound_of_gap
   - LeanLane.Cyc.OddCycle.mismatch_height
+certificates: [check_legacy_replay.py]
 evidence:
-  - "s5_mismatch_height.py, s5_mismatch_height.json: side-lane probe (about 1 s): (a) on 283 actual 3x+q cycles (odd q < 200, 3 ∤ q) and all 3,100 nonidentity rotations, the longest agreeing run meets the pigeonhole and C013 (7) in exact integers; (b) the q = 1 bound at m = 1.375·10^11 by band, and the largest band keeping it above 3. Fails at its new path: it imports the side-lane helper s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/). Passed at be73a66 as reviews/side_lane/s5_mismatch_height.py (archive/legacy-checker-run-be73a66.md)"
+  - "s5_mismatch_height.py, s5_mismatch_height.json: side-lane probe (about 1 s): (a) on 283 actual 3x+q cycles (odd q < 200, 3 ∤ q) and all 3,100 nonidentity rotations, the longest agreeing run meets the pigeonhole and C013 (7) in exact integers; (b) the q = 1 bound at m = 1.375·10^11 by band, and the largest band keeping it above 3. Fails at its new path: it imports the side-lane helper s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/). Passed at be73a66 as reviews/side_lane/s5_mismatch_height.py (archive/legacy-checker-run-be73a66.md). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "s5_cycle_heights.py: side-lane data probe for the appendix (about 4 s, no receipt; prints only). Fails at its new path for the same import. Passed at be73a66 as reviews/side_lane/s5_cycle_heights.py (archive/legacy-checker-run-be73a66.md)"
 reviewed_by:
   - by: Claude Lean lane (Fable)
