@@ -2,7 +2,7 @@
 id: fixed-factor-stopping-explicit-constants
 kind: result
 title: Fixed-factor stopping with explicit horizons and cutoffs, and its W5 pullback (a calibration)
-status: written
+status: reviewed
 claim: >
   Fix positive odd d with gcd(d,6) = 1; S_d the odd-only map (3n+d)/2^v2(3n+d) absorbed at 1, odd-arrow clock;
   F_d(X,K) the number of positive odd n <= X (seed 1 included) with S_d^j(n) > n/2 for every 0 <= j <= K. For
@@ -28,7 +28,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-18
     link: p6_001_stopping_check.py
-    scope: "Side-lane feed 2026-10-18 16:13, CONFIRMED label calibration at main 546e891: 'I checked the proof line by line and ran this branch's own code.' The probe checks the parity lemma (length-k parity words biject onto residues mod 2^k; on odd residues p - 1 is exactly Binomial(k - 1, 1/2), k <= 14, d in {1, 5, 7, 13, 61}, 70 cases), the bad-class bound delta <= (8/7)(16807/18432)^m in exact rationals for m = 9..120 with least m = 34, 59 for tolerances 1/10, 1/100 (horizons 170, 295), good words (m = 9, d in {1, 5, 61}: 1,095 random odd n >= Z with p <= 27 satisfy C^45(n) < n/2, and the p-th odd iterate equals oddpart(C^45(n))), the W5 pullback (all 25,000 w in W5 below 2*10^5: q = nu(3w) in {3w, (3w-1)/2} on the stated branch, q >= 7, injective, T^j(q) = nu(S^j(q)), half-descent implies 9T^j(q) + 5 < 8q in 22,601 cases within 24 steps) and the cited Borovkov-Pfeifer densities for k = 6..16. Scope note: the constants are explicit but very loose (epsilon = 1/10 needs X >= ~10^50, epsilon = 1/100 needs X >= ~10^88); the statement carries over to every d, the pullback is specific to d = 1. Recorded here as a finite check with a proof-reading verdict; the status stays written under this migration's rule for main-lane work"
+    scope: "Side-lane feed 2026-10-18 16:13, CONFIRMED label calibration at main 546e891: 'I checked the proof line by line and ran this branch's own code.' The probe checks the parity lemma (length-k parity words biject onto residues mod 2^k; on odd residues p - 1 is exactly Binomial(k - 1, 1/2), k <= 14, d in {1, 5, 7, 13, 61}, 70 cases), the bad-class bound delta <= (8/7)(16807/18432)^m in exact rationals for m = 9..120 with least m = 34, 59 for tolerances 1/10, 1/100 (horizons 170, 295), good words (m = 9, d in {1, 5, 61}: 1,095 random odd n >= Z with p <= 27 satisfy C^45(n) < n/2, and the p-th odd iterate equals oddpart(C^45(n))), the W5 pullback (all 25,000 w in W5 below 2*10^5: q = nu(3w) in {3w, (3w-1)/2} on the stated branch, q >= 7, injective, T^j(q) = nu(S^j(q)), half-descent implies 9T^j(q) + 5 < 8q in 22,601 cases within 24 steps) and the cited Borovkov-Pfeifer densities for k = 6..16. Scope note: the constants are explicit but very loose (epsilon = 1/10 needs X >= ~10^50, epsilon = 1/100 needs X >= ~10^88); the statement carries over to every d, the pullback is specific to d = 1. Recorded with its proof-reading verdict, which makes the node reviewed"
 aliases: [P6-001, P6-S.1]
 tags: [convergence, phase6, stopping-time, density, calibration, explicit-constants, w5]
 ---
@@ -413,3 +413,4 @@ These finite checks keep the raw and absorbed maps apart, all cutoff ceilings, a
 ## History
 
 Migrated from `experiments/phase6/stopping_calibration/STOPPING_CALIBRATION.md` (legacy batch `P6-001`, route node S.1), with `calibration.py`, `check_calibration.py`, `calibration_audit.json`, `verification.json` and the side-lane probe `reviews/side_lane/p6_001_stopping_check.py` with its receipt, at commit `be73a66`. ChatGPT main lane, 2026-10-18, pushed as `546e891`; programme label **calibration**, confirmed by the side lane at `0ed286c5` (feed 16:13). The same feed confirmed the batch's secondary S.2 preparation as **none** (a bounded-prefix obstruction already implied by R25/R31; see [`universal-w5-quotient-stopping`](../../questions/universal-w5-quotient-stopping.md)). The legacy note read the side lane at `b1785fb2dcf121586e99be95c90b94afcf1e9733`; its directions supported S.1 as a calibration but are not premises.
+- 2026-10-20: status raised from `written` to `reviewed` at the B14 review: the `reviewed_by` entry by a different lane records a proof-level verdict (`_triage/BATCH_BRIEF.md` §4).

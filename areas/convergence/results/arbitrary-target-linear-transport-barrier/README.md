@@ -2,7 +2,7 @@
 id: arbitrary-target-linear-transport-barrier
 kind: result
 title: No finite constant bounds first-half transport into arbitrary target sets with a uniform o(X) error
-status: written
+status: reviewed
 claim: >
   Fix positive odd d with gcd(d,6) = 1; S_d the odd-only map (3n+d)/2^v2(3n+d) absorbed at 1; for odd n > 1
   let L_d(n) be its first odd iterate <= n/2 (any finite input-dependent time) and M_(d,X)(y) the number of odd
@@ -27,7 +27,7 @@ reviewed_by:
   - by: Claude side lane (Opus)
     date: 2026-10-18
     link: p6_002_transport_check.py
-    scope: "Side-lane feed 2026-10-18 16:32, CONFIRMED label barrier at main de32608: 'The proof is correct and elementary.' The probe (nothing imported from main) checks the construction in 1,122 cases (d in {1, 5, 7, 13, 61}, J = 3..8, t <= 40: every n(a, y) odd and below X_t with v2(3n + d) = a, S_d(n) = y and 2y < n, all sources distinct, the exact counts N_t and |A_t|), brute force at 78 cutoffs (the full transported mass into A_t, computed by iterating every odd n <= X_t with cycles detected for d = 5 and 61, is at least N_t), the sparse count formula (15) for alpha in {1/2, 1/3, 2/3, 3/4} and every Y <= 3*10^4 with one-arrow preimages, and both singleton controls. Observation: a target y has about log2(X/y)/2 one-arrow first-half preimages up to X, so the natural transport weight is logarithmic; weighted and B-specific transport stay open. Recorded with its proof verdict; the status stays written under this migration's rule for main-lane work"
+    scope: "Side-lane feed 2026-10-18 16:32, CONFIRMED label barrier at main de32608: 'The proof is correct and elementary.' The probe (nothing imported from main) checks the construction in 1,122 cases (d in {1, 5, 7, 13, 61}, J = 3..8, t <= 40: every n(a, y) odd and below X_t with v2(3n + d) = a, S_d(n) = y and 2y < n, all sources distinct, the exact counts N_t and |A_t|), brute force at 78 cutoffs (the full transported mass into A_t, computed by iterating every odd n <= X_t with cycles detected for d = 5 and 61, is at least N_t), the sparse count formula (15) for alpha in {1/2, 1/3, 2/3, 3/4} and every Y <= 3*10^4 with one-arrow preimages, and both singleton controls. Observation: a target y has about log2(X/y)/2 one-arrow first-half preimages up to X, so the natural transport weight is logarithmic; weighted and B-specific transport stay open. Recorded with its proof verdict, which makes the node reviewed"
 aliases: [P6-002]
 tags: [convergence, phase6, stopping-time, transport, barrier, 3x-plus-d]
 ---
@@ -394,3 +394,4 @@ The next method tested at S.2 was a global power-growth norm: [`growth-norm-tran
 ## History
 
 Migrated from `experiments/phase6/stopping_transport/STOPPING_TRANSPORT.md` (legacy batch `P6-002`, route node S.2), with `check_transport.py`, `transport_audit.json`, `verification.json` and the side-lane probe `reviews/side_lane/p6_002_transport_check.py` with its receipt, at commit `be73a66`. ChatGPT main lane, 2026-10-18, pushed as `de32608`; the batch read the side lane at `ade50f97bf187003f25fbc4d9e5430b53d2f2527`. Programme label **barrier**, confirmed by the side lane at `602386ca` (feed 16:32). A final scope correction during the main lane's own review confined the sparse refinements to `d = 1`; only the main `o(X)` obstruction is asserted for every supported fixed `d`. The batch's secondary attempt (a congruence-closure separation, already covered by the frozen Monks sufficient-sets audit, now [`five-ray-profile-completion-suffices`](../five-ray-profile-completion-suffices/README.md)) was graded **none/redundant**; see [`universal-w5-quotient-stopping`](../../questions/universal-w5-quotient-stopping.md).
+- 2026-10-20: status raised from `written` to `reviewed` at the B14 review: the `reviewed_by` entry by a different lane records a proof-level verdict (`_triage/BATCH_BRIEF.md` §4).
