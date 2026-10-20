@@ -87,7 +87,13 @@ For every check script you move:
 
 ## 7. Commit
 
-Work in the main worktree, on branch `refactor/pristine`. Batches run one at a time. Stage only your own paths (for example `git add areas/cycles _triage MAP.md`). Never run `git add -A` at the root: the untracked `sidekick/` folder must stay untracked. Make one commit for the batch, with message `Migrate <batch>: <one line>`. The body lists the nodes created, with their statuses, and anything archived or dropped. End it with the Co-Authored-By line you were given.
+**Two commits per batch, so that `git log --follow` traces every file.**
+1. A **move commit**, `Migrate <batch> (1/2): move files`. It contains only `git mv`s: each legacy report moves to its node path (`.../<id>/README.md` or `.../<id>.md`) and each script or receipt to its node folder, all byte-identical, with no edits.
+2. An **edit commit**, `Migrate <batch> (2/2): <one line>`, with the frontmatter, the rewrites, new files, the manifest and MAP.md.
+
+**Forward references:** when a node needs a target owned by a later batch, add a row to `_triage/FOLLOWUPS.md`. When your batch creates a target listed there, resolve its rows and delete them.
+
+Work in the main worktree, on branch `refactor/pristine`. Batches run one at a time. Stage only your own paths (for example `git add areas/cycles _triage MAP.md`). Never run `git add -A` at the root: the untracked `sidekick/` folder must stay untracked. In the edit commit's message, the body lists the nodes created, with their statuses, and anything archived or dropped. End it with the Co-Authored-By line you were given.
 
 Do not push. Do not touch files outside your batch, except:
 - `MAP.md` (regenerated);
