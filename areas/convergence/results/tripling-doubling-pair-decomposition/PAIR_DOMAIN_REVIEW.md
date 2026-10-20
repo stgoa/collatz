@@ -4,7 +4,7 @@ The remote review still finds only [PR1](https://github.com/stgoa/collatz/pull/1
 merged as `ba6b337`, already incorporated into main. At this review both
 main and origin/main were `1603bf3`. The newer independent feed was read at
 `dbb0dea5930ec667b70b5dfcbb595e5d566451b0`; that branch was left unchanged.
-The [earlier review](../packet_currents/negative_controls/PR1_REVIEW.md)
+The [earlier review](../locally-collatz-like-control-barrier/PR1_REVIEW.md)
 retains its negative controls and the cycle-qualified minimality lemma,
 with explicit counterexamples to the stronger uniqueness wording.
 
@@ -90,7 +90,7 @@ Those new receipts were read but not independently reproduced in this
 batch and are not premises of its results. The side branch was unchanged.
 
 **Decision: keep exact currents and pivot the induction to rho(w)=nu(3w).**
-The [rank theorem](critical_rank/CRITICAL_IMAGE_RANK.md) explains why some
+The rank theorem (legacy R43, `experiments/residual_progress/critical_rank/CRITICAL_IMAGE_RANK.md`, not yet migrated) explains why some
 larger pair indices still make genuine progress. R44–R46 remove further
 complete arithmetic domains and compose with R41 under this common rank.
 The merged audit's controls remain mandatory tests of claims intended to
@@ -107,7 +107,7 @@ independent finite checks of R46 and three rank examples. Its exact probe,
 normalizer dependency and unchanged control module were inspected and run
 in temporary storage under a60-second cap. The published receipt matched:
 33333 inverse-word cases and1112 complete small depth4 targets. The
-[pinned reproduction](side_lane_review_3d69784.json) retains source hashes
+pinned reproduction (legacy `experiments/residual_progress/side_lane_review_3d69784.json`, not yet migrated) retains source hashes
 and notes the header's untested2549 value; main verifies that value separately.
 The probe does not independently reprove R43 composition or R44/R45 domains.
 The external branch was unchanged.
@@ -128,7 +128,7 @@ The latest user-requested remote refresh still finds only merged
 `ba6b3371fabd7fcabebb442d7c89ea3ed5c02149`; main remains at `a06ef3c`
 before this batch's delivery. Its original PR description retains the
 overbroad C3 wording, so the corrected repository note and
-[explicit review](../packet_currents/negative_controls/PR1_REVIEW.md)
+[explicit review](../locally-collatz-like-control-barrier/PR1_REVIEW.md)
 should govern interpretation. The later feed explicitly accepts that
 correction.
 

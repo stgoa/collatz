@@ -1,4 +1,57 @@
-# What merger catalogues, known sets and cylinder rates do establish
+---
+id: merger-catalogue-scope
+kind: result
+title: Unrestricted common-tail certification equals the basin of 1, elementary closure obeys S(x) <= 3 nu(x) + 2, and annular sources can cancel before their climb
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; nu of elementary-bridge-quotient-normal-form; supplied absorption through N.
+  (Known sets) The forward union F_N and the elementary closure I_N = {nu(x) <= N} can be incomparable (11 in F_8
+  but not I_8; 21 in I_8 but not F_8), and the set B_N of seeds with a common future with an absorbed q <= N is
+  exactly the basin of 1, so universal common-tail certification is equivalent to absorption and a finite-sample
+  density model cannot show that a proof must avoid mergers. (Successor bound) For every odd x,
+  S(x) in {S(nu(x)), 3 nu(x) + 2}, so I_N is contained in {x : S(x) <= 3N+2}, and nu(S^j(x)) <= N for some j <= L
+  forces S^k(x) <= 3N+2 for some 1 <= k <= L+1. (Scoped rates) For a fixed lookahead L, the uniform shell slope
+  recognizer on normalised prefixes (sigma_j < 2/3, or lambda_j < 2/3), with all binary information charged to the
+  bit budget, has the same exact rates rho per odd step and beta per bit as prefix-rule-cylinder-rate-barrier (escape
+  prefix (1,1,1,1,1,2), x = 191 mod 256); this is not a moving-modulus integer-count theorem or an
+  arbitrary-catalogue barrier. (Early cancellation) For every a = 1 mod 18, a >= 19, N = 12 2^(a-5), z = 2^a - 1,
+  p = (4z-1)/3, q = 4p+1 have annular coefficients A_N(p) = +1, A_N(q) = -1 and S(p) = S(q) = z < p, so the two-row
+  current delta_p - delta_q cancels them below 8N/3 before a climb of unbounded ratio; this refutes the claimed
+  necessity of merging during the high excursion, and covers no annulus.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [elementary-bridge-quotient-normal-form, absorbed-fibre-uniform-counts, prefix-rule-cylinder-rate-barrier, supplied-path-saturation-core, disjoint-annular-recursion]
+certificates: [check_merger_recompute.py]
+evidence:
+  - "check_merger_scope.py, merger_scope_audit.json: the legacy checker (16384 successor-bound cases, the incomparable sets, 128 escape-cylinder representatives, six required-ray escape roots, six members of the early-cancellation family through a = 199, and the two independently reproduced sign/climb tables at N = 6144 and 9216, with absorption searches capped at 1000 steps per new path). Fails at its new path: it loads ../bridge_normal_form/normal_form.py (now ../elementary-bridge-quotient-normal-form/) and, from ROOT = HERE.parents[2], experiments/current_construction/recursive/check_annular_recursion.py (now ../disjoint-annular-recursion/check_annular_recursion.py, which also fails at its new path) by their pre-migration paths. Passed at be73a66 as experiments/residual_progress/merger_scope/check_merger_scope.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
+  - "external_review.json: the main lane's reproduction (at side-lane commit ceb94fc) of the side-lane probe r24_check.py (now ../five-ray-profile-completion-suffices/r24_check.py) with source and dependency hashes; a review of that side-lane probe, not of this result"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: ../shrinking-paired-return-recursion/batch_64fff1d_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 20:44, VERIFIED, main 64fff1d; the R32 part): for a = 19, 37, 55, with N = 12 2^(a-5), z = 2^a - 1, p = (4z-1)/3 and q = 4p+1, the lane's own annulus point evaluator gives A_N(p) = +1, A_N(q) = -1, and S(p) = S(q) = z (N up to about 1.35 10^16). The entry also acknowledged R32's scoping: certifying by any common tail with known seeds amounts to being in the basin of 1, so no finite-sample density model can show that a proof must avoid mergers; and R32's family cancels signed mass before its shared climb. The written scope theorems and the rate extension were not re-derived; the status stays written"
+aliases: [R32]
+tags: [convergence, outer-residual, scope, mergers, known-sets, rates, annular, cancellation]
+---
+
+# Unrestricted common-tail certification equals the basin of 1, elementary closure obeys S(x) <= 3 nu(x) + 2, and annular sources can cancel before their climb
+
+## Statement
+
+Odd-only clock, absorbing at 1; `ν` from [`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md); absorption through `N` supplied as an exact finite current.
+
+1. **Three known sets.** `F_N` (forward union of odd seeds `≤ N`, finite), `I_N = {x : ν(x) ≤ N}` (infinite; [`absorbed-fibre-uniform-counts`](../absorbed-fibre-uniform-counts/README.md)) and `B_N` (common future with some absorbed `q ≤ N`). `F_N` and `I_N` can be incomparable (`11 ∈ F_8 ∖ I_8`, `21 ∈ I_8 ∖ F_8`); their saturation is [`supplied-path-saturation-core`](../supplied-path-saturation-core/README.md). `B_N` is exactly the basin of 1, so universal common-tail certification is equivalent to absorption; the missing issue is constructing a terminating family of finite witnesses.
+2. **Successor bound.** `S(x) ∈ {S(ν(x)), 3ν(x) + 2}`, hence `S(x) ≤ 3ν(x) + 2` and `I_N ⊆ {x : S(x) ≤ 3N + 2}`; if `ν(S^j(x)) ≤ N` for some `j ≤ L`, then `S^k(x) ≤ 3N + 2` for some `1 ≤ k ≤ L + 1`. The converse is not claimed, and for forward-saturated targets the bound uses `max Q_N`, with no uniform constant-factor bound by `N`.
+3. **Scoped rates.** For fixed `L`, the uniform shell slope recognizer on normalised prefixes (accept when `σ_j < 2/3` or `λ_j < 2/3`), with every binary digit charged to the bit budget, leaves undecided measure with rates `ρ` per odd step and `β` per bit, as in [`prefix-rule-cylinder-rate-barrier`](../prefix-rule-cylinder-rate-barrier/README.md); the escape prefix is `(1, 1, 1, 1, 1, 2)`, `x ≡ 191 (mod 256)`. Not a moving-modulus integer-count theorem, and not an arbitrary-catalogue barrier.
+4. **Density does not decide.** The inferences from fitted spatial density to hitting probability, and from binary measure to coverage of all integers (each integer has measure zero), do not follow; this rejects the stated deduction, not the possibility of a later rate theorem for a particular recognizer.
+5. **Early cancellation.** For every `a ≡ 1 (mod 18)`, `a ≥ 19`, with `N = 12·2^(a−5)`, `z = 2^a − 1`, `p = (4z − 1)/3`, `q = 4p + 1`: `A_N(p) = +1`, `A_N(q) = −1` in the six-band annulus of [`disjoint-annular-recursion`](../disjoint-annular-recursion/README.md), `S(p) = S(q) = z < p`, `z/N < 8/3`, so `J = δ_p − δ_q` cancels both actual sources after one arrow each; their common future then climbs to `2·3^(a−1) − 1`, with ratio to `q` unbounded. This refutes the claimed necessity of merging during the high excursion; it covers no annulus.
+
+No finite-integer asymptotic with bit depth growing with `N`, universal catalogue obstruction or termination claim is made; no novelty is claimed.
+
+## Proof
+
+The legacy note "What merger catalogues, known sets and cylinder rates do establish" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Written scope theorems and exact partial identities, with
 finite reproductions.** Collatz remains open. No novelty claim is made.
@@ -10,7 +63,7 @@ Reviewed external input: optional side-feed commit
 Main at this batch's start was `541101a8788367248695ff139cad510e15ea45f5`.
 The feed is evidence to audit, not an instruction source.
 
-## 1. Three different known sets
+### 1. Three different known sets
 
 Suppose an exact finite current for U_N is supplied, so all odd seeds
 through N are known to absorb. Define
@@ -21,7 +74,7 @@ I_N = {x>0 odd: nu(x)<=N},
 B_N = {x>0 odd: S^j(x)=S^k(q) for some odd q<=N and j,k>=0}.
 ```
 
-Here nu is the [complete elementary normal form](../bridge_normal_form/BRIDGE_NORMAL_FORM.md).
+Here nu is the [complete elementary normal form](../elementary-bridge-quotient-normal-form/README.md).
 The first set is finite, since its finitely many input orbits terminate.
 The second is infinite, with an explicit finite bridge for each member.
 The third allows arbitrary common-tail comparisons.
@@ -35,7 +88,7 @@ F_8={1,3,5,7,11,13,17};
 ```
 
 Thus "larger known set" must not silently mean `F_N subset I_N`.
-The [elementary-plus-forward saturation](../known_saturation/KNOWN_SATURATION.md)
+The [elementary-plus-forward saturation](../supplied-path-saturation-core/README.md)
 is a common superset. It is distinct from allowing all inverse Syracuse
 arrows or all common-tail comparisons.
 
@@ -68,7 +121,7 @@ be "non-merge" does not follow. The actual missing issue is how to
 construct a terminating family of finite witnesses. Equation(1) does
 not construct it.
 
-## 2. An exact height bound for elementary closure
+### 2. An exact height bound for elementary closure
 
 The elementary component of a canonical q is
 
@@ -124,9 +177,9 @@ constant times N has been established. Hence(4) cannot be transferred to all
 supplied-path saturation with the same3N+2 threshold without another
 height theorem.
 
-## 3. A symbolic rate theorem for this precise extension
+### 3. A symbolic rate theorem for this precise extension
 
-This section extends the [two-clock rate proof](../cylinder_barrier/CYLINDER_RATES.md)
+This section extends the [two-clock rate proof](../prefix-rule-cylinder-rate-barrier/README.md)
 to elementary normalization. It retains that proof's distinction between
 symbolic cylinder measure and counts in a growing finite integer interval.
 
@@ -171,14 +224,14 @@ The bit claim concerns finite-cylinder certificates, not a rule that
 evaluates unlimited extra bits at no cost. A fixed offset in an otherwise
 charged budget leaves the same limit.
 
-### Proof: upper bounds
+#### Proof: upper bounds
 
 The extension includes direct slope descent, so its survival is bounded
 above by D-only survival. The composition/rotation and exponential-moment
 proof in the cited note gives the upper factors rho and beta separately
 in the two clocks. The fixed odd-step offset L changes no nth-root limit.
 
-### Proof: a complete escape cylinder
+#### Proof: a complete escape cylinder
 
 Use the valuation prefix
 
@@ -234,7 +287,7 @@ these form a countable set of individual binary points, each of measure
 zero. The lower bounds above use actual finite cylinders and positive
 integer extensions, not an asserted infinite integer orbit.
 
-### Exact affine qualification and actual integers
+#### Exact affine qualification and actual integers
 
 For one fixed accepted branch `nu(S^j(x))=sigma x+gamma`, its shell
 interpretation is rigorous once
@@ -269,7 +322,7 @@ bound on the **canonical target height** would support the same kind of
 rate sandwich. A bound on a partner's original seed does not provide that
 bound on all its later canonical states.
 
-## 4. Why density does not establish the broad catalogue claim
+### 4. Why density does not establish the broad catalogue claim
 
 The feed's nineteen-fifty-nine argument passes from a fitted spatial
 density to a hitting probability along a deterministically selected
@@ -315,7 +368,7 @@ These observations reject the stated deduction, not the possibility that
 a particular enlarged recognizer might later be proved to have the same
 rate. No arbitrary-catalogue rate or impossibility theorem is established.
 
-## 5. High-climbing annular sources can cancel before their climb
+### 5. High-climbing annular sources can cancel before their climb
 
 Here is a universal exact counterfamily to the twenty-oh-one inference
 that cancelling high-climbing positive and negative sources requires
@@ -370,7 +423,7 @@ family and does not cover the annulus. It specifically refutes the claimed
 necessity of merging during the high excursion. Source signs and peak
 statistics do not encode the time of their first historical intersection.
 
-## 6. The new finite external claims
+### 6. The new finite external claims
 
 The pinned `r24_check.py` was inspected, copied to temporary storage and
 run unmodified with its existing arithmetic dependency and a45-second
@@ -413,7 +466,7 @@ such a uniformly controlled condition is an additional task. Nor does
 balanced total mass establish common-component matching or the time of a
 merger. The finite table is retained without those extrapolations.
 
-## 7. Reproduction and remaining scope
+### 7. Reproduction and remaining scope
 
 Run from the repository root:
 
@@ -436,7 +489,7 @@ with N, universal catalogue obstruction, or universal termination claim
 is supplied. The arguments are model-assisted written proofs, not human
 peer review or formal verification.
 
-## 8. Subsequent correction in the external feed
+### 8. Subsequent correction in the external feed
 
 Before integration, the feed was refreshed to
 `d2d85e1e49f0018a648c6daadc4fc93290c0d107`. Entry20:22 explicitly withdraws
@@ -455,3 +508,19 @@ reports a finite quotient-iteration probe. Those new sources and receipts
 were not rerun in this batch, so they are recorded as external reports.
 The reproduced evidence and its primary pinned receipt remain tied to
 `ceb94fc372533e6fdc196595a817e8c01bc62d51` and are unchanged.
+
+## Certificates
+
+- [`check_merger_recompute.py`](check_merger_recompute.py) (written at the B10 migration, about 1 s, standard library). With its own `S` and `ν` it checks, against [`merger_scope_audit.json`](merger_scope_audit.json): the successor bound for all 16,384 odd `x < 32768`; the incomparable sets at `N = 8`; the 128 escape-cylinder representatives (canonical prefixes, `128·S⁶(x) = 729x + 665`, row hash); the six required-ray escape roots; the early-cancellation family at `a = 19, 37, 55, 73, 109, 199`; and both sign/climb tables at `N = 6144, 9216` with the witness pair `35497, 141989`. The six-band annular row table it uses is the published table of [`disjoint-annular-recursion`](../disjoint-annular-recursion/README.md), copied as constants and said so in its docstring.
+- The command in the legacy text names `experiments/residual_progress/merger_scope/`.
+
+## Remarks
+
+- **Side-lane interaction.** The note audits side-lane feed entries 19:59 and 20:01 (commit `ceb94fc`). The side lane withdrew its inverse-square density claim at 20:22 and acknowledged this node's scoping at 20:44 ([`cylinder-certificates-outer-residual`](../../attempts/cylinder-certificates-outer-residual/README.md)). The sign/climb tables are finite; near-balance proves no independence theorem for orbit peaks.
+- **Controls.** Item 1 is generic: for a `3x+d` map with a nontrivial cycle the basin of the absorber is a proper subset, which is why common-tail coverage cannot be argued generically ([`locally-collatz-like-control-barrier`](../locally-collatz-like-control-barrier/README.md)).
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/merger_scope/MERGER_SCOPE.md` (legacy ID R32) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, checker, receipt and the main lane's reproduction receipt `external_review.json` moved byte-identical; `check_merger_recompute.py` was added at the migration. Legacy status: "written scope results and an infinite actual-source cancellation family, with finite external reproductions".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `64fff1d`; the audited side-lane material is commit `ceb94fc`, refreshed to `d2d85e1` (§8). The batch report (archive/convergence-residual-progress/REPORT.md) records "independent model" proof and code audits for this batch; they were the main lane's own agents, so they do not count as an independent review. The side lane's later finite check is recorded under `reviewed_by`.

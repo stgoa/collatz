@@ -1,4 +1,56 @@
-# A coupled recursion for part of the missing even-return domain
+---
+id: coupled-even-pair-recursion
+kind: result
+title: A coupled source C(v) = delta_(18v+3) - delta_v recurses where the split pair catalogue provably fails, closing two d = 4 entry domains of the even-return obligation
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; P(u) = delta_(3u) - delta_u, D(u) = delta_(2u+1) - delta_u. (Obligation) For
+  a complementary root with even d = 2k, the remaining obligation after the run bridge is
+  Q_k(w) = D(3^k w) + sum_(j<k) P(3^j w), an identity of sources only. (Split obstruction) The split catalogue at
+  d = 4 (elementary D(9w), then separate calls for P(w) and P(3w) by the mixed-shrinking-pair-rules recognizer, with
+  the missing-one-mod-8-pair-domain entries for 1-mod-8 inputs) accepts exactly when w = 105 mod 256 and R33 accepts
+  (9w-1)/16; R33 never accepts both P(v) and P(6v+1) (infinite descent). This is an algorithm-specific
+  obstruction. (Coupled recursion) For v = 19 mod 32, t = (3v-1)/8 < 3v/8, an explicit local current has divergence
+  C(v) - C(t) (child added); every positive v = 39 mod 8192 has S^5(18v+3) = S^7(v); the cylinders c_r mod
+  2^(13+3r) give exactly r coupled rewrites then the terminal rule, with S^(r+5)(18v+3) = S^(r+7)(v); the
+  recognizer terminates on every input. (Entries) Two complete d = 4 entry domains (B: w = 105 mod 256 with R33
+  accepting v; A: w = 17 mod 128 with the coupled C(v) accepted) give J_x with div J_x = delta_x - delta_q and
+  S^(a+l+2)(x) = S^(a+l+2)(q) for complementary x, q = (x-1)/2, with complete original cylinders for every a, old
+  return 9w > x for a >= 5, and fixed-cylinder weighted R_N counts within 6 of 25N/(72 L_a); with a supplied current
+  for q (absorption below N is an input) x is certified at weight 1 or 2. The joint recognizer remains partial.
+  This does not close all d4, all even d, or R37's critical domain.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [elementary-bridge-quotient-normal-form, complementary-run-bridges, mixed-shrinking-pair-rules, tripling-doubling-pair-decomposition, missing-one-mod-8-pair-domain]
+certificates: [check_even_pairs_recompute.py]
+evidence:
+  - "check_even_pairs.py, even_pairs.py, even_pair_audit.json, branch_A_weight2_current.csv, branch_B_weight2_current.csv: the legacy constructor and checker (57 joint cylinders through depth 64, 8192 split-catalogue inputs and 8192 simultaneous-child failures, 384 original cylinders, 12 actual required-ray sources with both weights, 24 exact weighted counts, two supplied-current conversions with a 10000-arrow cap on the lower inputs). Fails at its new path: even_pairs.py loads ../pair_one/pair_one.py (now ../missing-one-mod-8-pair-domain/, which itself no longer runs) by its pre-migration path. Passed at be73a66 as experiments/residual_progress/even_pair_closure/check_even_pairs.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The later legacy experiments/residual_progress/joint_frontier/ loads even_pairs.py by its old path"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: ../critical-tripling-domain-equivalence/batch_436f51f_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 21:31, VERIFIED, main 436f51f; the R39 part): for all 6,250 v = 19 mod 32 below 200,000, with t = (3v-1)/8 < 3v/8, the pairs 18v+3 ~ 18t+3 and v ~ t each meet at a state other than 1 within 3 steps; the terminal cylinder v = 39 mod 8192 satisfies S^5(18v+3) = S^7(v). The split-catalogue proposition, the entry constructions and the counts were not re-derived; the status stays written"
+aliases: [R39]
+tags: [convergence, outer-residual, pair-recursion, doubling-pairs, coupled-sources, cylinders, conditional, constructive]
+---
+
+# A coupled source C(v) = delta_(18v+3) - delta_v recurses where the split pair catalogue provably fails, closing two d = 4 entry domains of the even-return obligation
+
+## Statement
+
+Odd-only clock, absorbing at 1, `div = I − P`, `F(z) = 4z + 1`; `P(u) = δ_(3u) − δ_u`, `D(u) = δ_(2u+1) − δ_u`.
+
+1. **Even-return obligation.** For complementary `x = 2^a t − 1` with `3^(a−1)t − 1 = 2^d w`, `d = 2k`, the run bridge of [`complementary-run-bridges`](../complementary-run-bridges/README.md) and the half prefix `q → w` leave exactly `Q_k(w) = D(3^k w) + Σ_(j<k) P(3^j w)` (an identity of sources). `D(u)` is elementary exactly when `u` is canonical ([`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md)); universal `D` is Collatz-equivalent ([`tripling-doubling-pair-decomposition`](../tripling-doubling-pair-decomposition/README.md)), and R34's decreasing inverse chain leaves the whole even domain unchanged.
+2. **Split-catalogue obstruction (`d = 4`).** The split catalogue (elementary `D(9w)`, then separate calls for `P(w)` and `P(3w)` by the recognizer of [`mixed-shrinking-pair-rules`](../mixed-shrinking-pair-rules/README.md), with the entries of [`missing-one-mod-8-pair-domain`](../missing-one-mod-8-pair-domain/README.md) for `1 (mod 8)` inputs) accepts exactly when `w ≡ 105 (mod 256)` and R33 accepts `(9w − 1)/16`. R33 never accepts both `P(v)` and `P(6v + 1)` (simultaneous acceptance repeats at a strictly smaller parameter). This is an algorithm-specific obstruction, not one to exact currents.
+3. **Coupled recursion.** For `v ≡ 3 (mod 4)` let `C(v) = δ_(18v+3) − δ_v`. For `v ≡ 19 (mod 32)`, `t = (3v − 1)/8` (`0 < t < 3v/8`, `t ≡ 3 mod 4`): `S(18v + 3) = 2(18t + 3) + 1`, `S(v) = F(t)`, and an explicit `L_v` has `div L_v = C(v) − C(t)`; the child current is added, and `t` may be `7 (mod 8)`, the class the split recognizers lose. Every positive `v ≡ 39 (mod 8192)` has words `(2,2,3,6)` and `(1,1,2,1,4,1)` and `S^5(18v + 3) = S^7(v)` (the modulus 4096 does not suffice). The cylinders `c_r mod 2^(13+3r)` of (5) perform exactly `r` rewrites then terminate, with `S^(r+5)(18v + 3) = S^(r+7)(v)`. The recognizer terminates on every input, returning a current or unresolved.
+4. **Two `d = 4` entries.** **B:** `w ≡ 105 (mod 256)`, R33 accepting `v = (9w − 1)/16`. **A:** `w ≡ 17 (mod 128)`, the coupled recognizer accepting `C(v)`, `v = 3(w − 1)/16` (first class `w ≡ 932625 mod 1048576`). Both construct `δ_f − δ_w` with `f = 18w + 1`, and then `J_x` with `div J_x = δ_x − δ_q`, `S^(a+l+2)(x) = S^(a+l+2)(q)`, `q = (x − 1)/2 < N`. Each parent cylinder gives complete original cylinders (11) for every `a ≥ 2`; the old return `9w` exceeds `x` for `a ≥ 5`, unboundedly. For each fixed cylinder the weighted `R_N` mass is within 6 of `25N/(72 L_a)` (not a global asymptotic), with actual sources of both weights on the required ray. With a supplied current for `q` (absorption below `N` is the input), `x` is certified at weight `c = 1` or `2`.
+
+The joint recognizer remains partial. This does not close all `d = 4`, all even `d`, or R37's critical domain ([`critical-tripling-domain-equivalence`](../critical-tripling-domain-equivalence/README.md)). No novelty is claimed.
+
+## Proof
+
+The legacy note "A coupled recursion for part of the missing even-return domain" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status:** written exact identities, a partial terminating constructor, complete
 infinite cylinders, and checked finite currents. Collatz and universal completion
@@ -6,14 +58,14 @@ of the even-return domain remain open. No novelty claim is made.
 
 This note uses the odd Syracuse map, absorbed at1, and killed atoms at1. Write
 `div=(I-P)` and `F(z)=4z+1`. It builds on [R25's complete elementary
-classification](../bridge_normal_form/BRIDGE_NORMAL_FORM.md),
-[R26's complete complementary run](../complementary_bridge/RUN_BLOCK_BRIDGES.md),
-[R33's mixed pair recursion](../paired_completion/MIXED_SHRINKING_RULES.md), and
-[R36's two entry branches](../pair_one/MISSING_PAIR_DOMAIN.md). The new mechanism
+classification](../elementary-bridge-quotient-normal-form/README.md),
+[R26's complete complementary run](../complementary-run-bridges/README.md),
+[R33's mixed pair recursion](../mixed-shrinking-pair-rules/README.md), and
+[R36's two entry branches](../missing-one-mod-8-pair-domain/README.md). The new mechanism
 retains a **sum** of two pair obligations that the old separate recognizers can
 never accept simultaneously.
 
-## 1. The full even-return obligation and its helper gap
+### 1. The full even-return obligation and its helper gap
 
 Every complementary root has unique parameters
 
@@ -52,7 +104,7 @@ modulo3. Hence `v3(nu(f)+1)=0`: R34's strictly decreasing canonical inverse
 chain leaves the whole even domain unchanged. The construction below addresses
 part of that gap by explicit currents.
 
-## 2. An exhaustive failure of the separate pair catalogue at d=4
+### 2. An exhaustive failure of the separate pair catalogue at d=4
 
 Define a particular **split catalogue** as follows. It attempts to certify
 `Q_2(w)` by elementary D(9w), a call for P(w), and a separate call for P(3w).
@@ -92,7 +144,7 @@ valuation3 and child5 modulo8, so fails. Inputs5 and7 modulo8 are outside the
 catalogue. This proves the proposition. It is an obstruction to the named
 split algorithm, not to exact currents for those sources.
 
-## 3. Retaining the coupled source escapes that obstruction
+### 3. Retaining the coupled source escapes that obstruction
 
 For every positive `v=3 mod4` define
 
@@ -141,7 +193,7 @@ selected partner in (4) agrees with `18t+3` after two arrows at equal clock;
 F(t) agrees with t after one arrow at equal clock. No assumption that either
 trajectory reaches1 is used.
 
-### A complete terminal cylinder
+#### A complete terminal cylinder
 
 For every positive `v=39 mod8192`, the two exact prefix words are
 
@@ -163,7 +215,7 @@ Replacing8192 by4096 changes the left closing valuation at v4135, so that
 weaker cylinder would not preserve the stated words. The final shared
 valuation after z/F(z) is not fixed and is not silently charged as one bit.
 
-### A closed recursive family
+#### A closed recursive family
 
 For each integer `r≥0`, let `(c_r,M_r)` be
 
@@ -192,7 +244,7 @@ The first recursive class is `v=43795 mod65536`. Its first child is7 modulo8,
 so the split catalogue provably cannot reproduce it. The new constructor
 uses its joint source instead.
 
-## 4. Two complete d=4 entries into smaller-half comparisons
+### 4. Two complete d=4 entries into smaller-half comparisons
 
 Keep the complementary x of Section1, now with `d=4`, and put
 
@@ -201,7 +253,7 @@ f=18w+1,     q=(x−1)/2,
 S^(a+1)(x)=f,     S^(a−1)(q)=w.                        (7)
 ```
 
-### B: the complete successful split branch
+#### B: the complete successful split branch
 
 Let `w=105 mod256` and `v=(9w−1)/16`. Then v is11 modulo16. Suppose R33
 constructs P(v) with clock ell, so `S^ell(3v)=S^(ell+1)(v)` and `ell≥3`.
@@ -225,7 +277,7 @@ terminal cylinder gives a complete B parent provided its child residue is
 11 modulo16. Arbitrary recursive depths occur, for example words beginning
 with E1 or E2 and then any permitted continuation.
 
-### A: the joint recursion succeeds where separate P calls cannot
+#### A: the joint recursion succeeds where separate P calls cannot
 
 Let `w=17 mod128`, `v=3(w−1)/16`, and suppose the coupled C(v) constructor
 accepts. Here v is3 modulo8, so its depth in (5) is at least1. Write
@@ -242,7 +294,7 @@ This constructs `δ_f−δ_w`. If C(v)'s clock is ell, (9) implies exactly (8).
 For a depth-r joint child, `ell=r+5`. The first w cylinder is
 `w=932625 mod1048576`, with r1.
 
-### Exact original clock and lower input
+#### Exact original clock and lower input
 
 In both entries, combine the R26 prefix in (7), the current `δ_f−δ_w`, and
 the **negative** of the q-to-w prefix. The result J_x satisfies
@@ -257,7 +309,7 @@ equal clock `a+r+7`. Only q is an absorption input. For every actual R_N
 source, `x<3N/2`, so `q<N`. No unknown larger return is used as an induction
 input, irrespective of the heights of these prescribed prefixes.
 
-## 5. Complete original cylinders and actual source multiplicities
+### 5. Complete original cylinders and actual source multiplicities
 
 Suppose either entry has a complete w cylinder `w=b mod m`, where m is a
 power of2. For every integer `a≥2`, set
@@ -314,7 +366,7 @@ large cutoffs on the required ray `N=12*2^b` contain actual sources. The
 constructor gives explicit witnesses using `b=log2(L_a)+4`; larger b also
 work by the same interval-length and CRT bounds.
 
-## 6. Supplied-current interface and evidence
+### 6. Supplied-current interface and evidence
 
 Given any checked finite signed current H for q, the exact signed expression
 `c(J_x+H)` has divergence `cδ_x`. Existing finite-graph extraction converts
@@ -350,7 +402,7 @@ two supplied lower currents alone uses a10000-arrow cap. The bridge
 construction itself follows only its prescribed finite arithmetic rules.
 No full-cutoff absorption scan is used for these high witnesses.
 
-## 7. What remains open
+### 7. What remains open
 
 This closes two explicit d4 entry domains, with unbounded recursive depth
 and equal-clock bridges to smaller half seeds. It also fully characterizes
@@ -364,3 +416,19 @@ fractional reduction is asserted. The critical tripling domains identified
 elsewhere in this batch are not exhausted by these entries. A complete
 recursion must prove progress for all remaining states while preserving
 both the current signs and a valid smaller supplied-input dependency.
+
+## Certificates
+
+- [`check_even_pairs_recompute.py`](check_even_pairs_recompute.py) (written at the B10 migration, under 1 s, standard library). With its own `S` and `ν` it checks, against [`even_pair_audit.json`](even_pair_audit.json): the 57 joint cylinders (depths 0–16, 32, 64), with the recursion (5), the terminal words and clock, and the divergence `[18v + 3] − [v]` of the assembled current, plus bits, clock, rows and SHA-256 of every receipt row, and that modulus 4096 loses the left terminal word (`v = 4135`); the A-entry original cylinders (11) for `a = 2, 5, 8, 32` and joint depths 1, 2, 8, 32 with their equal clocks and old returns; the six A-entry actual sources, and for the six B-entry sources the stored root's weight, `d = 4`, `w ≡ 105 (mod 256)` and clock; the twelve A-entry fixed-cylinder counts against explicit enumeration and the bound (13); and both stored weight-2 currents [`branch_A_weight2_current.csv`](branch_A_weight2_current.csv) and [`branch_B_weight2_current.csv`](branch_B_weight2_current.csv) (positive, divergence exactly `2[root]`, rows and hash). It does not rebuild the B entry, the split-catalogue success set or the 8192 paired nonacceptances, which need the R33 recognizer (legacy checker, evidence only).
+- The command in the legacy text names `experiments/residual_progress/even_pair_closure/`.
+
+## Remarks
+
+- **What remains.** The general `D` helper on its noncanonical actual inputs, the unresolved outcomes of the joint recognizer, and the critical tripling domain of [`critical-tripling-domain-equivalence`](../critical-tripling-domain-equivalence/README.md). The later legacy R40–R42 rounds (`experiments/residual_progress/w9_closure/`, `critical_inverse/`, `joint_frontier/`, not yet migrated) continue from here.
+- **Controls.** The coupled rewrite uses exact `3x+1` valuation identities; the generic merger statement it would replace fails on the control maps ([`tripling-doubling-pair-decomposition`](../tripling-doubling-pair-decomposition/README.md), Remarks).
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/even_pair_closure/EVEN_PAIR_CLOSURE.md` (legacy ID R39) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts, receipt and the two stored currents moved byte-identical; `check_even_pairs_recompute.py` was added at the migration. Legacy status: "written exact identities and partial constructor, complete cylinders and stored finite currents".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `436f51f`. The batch's "independent model audits" (R37–R39) were the main lane's own agents. The side lane's finite check is recorded under `reviewed_by`.

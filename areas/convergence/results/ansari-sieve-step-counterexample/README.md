@@ -77,7 +77,7 @@ python3 experiments/residual_progress/sufficient_sets/check_recursive_sieve.py
 
 ## Remarks
 
-- **Consequence for this repository.** The lemma, the resulting sieve and the reported verification extension are not used as premises. The elementary definition and the smaller-seed induction principle are unaffected. The later reductions of the line (legacy R37, R38, `experiments/residual_progress/tripling_equivalence/` and `odd_pair_closure/`, not yet migrated) have their own explicit currents and input dependencies.
+- **Consequence for this repository.** The lemma, the resulting sieve and the reported verification extension are not used as premises. The elementary definition and the smaller-seed induction principle are unaffected. The later reductions of the line ([`critical-tripling-domain-equivalence`](../critical-tripling-domain-equivalence/README.md), R37, and [`odd-h-pair-interface-compiler`](../odd-h-pair-interface-compiler/README.md), R38) have their own explicit currents and input dependencies.
 - The check was made before importing the sieve, as part of the sufficient-set audit of [`five-ray-profile-completion-suffices`](../five-ray-profile-completion-suffices/README.md). The primary PDF and the finite set arithmetic were read separately (legacy research log).
 
 ## History

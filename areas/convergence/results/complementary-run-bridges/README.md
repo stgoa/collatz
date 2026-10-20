@@ -1,11 +1,65 @@
-# Complete run-block bridges for the complementary family
+---
+id: complementary-run-bridges
+kind: result
+title: Complete run-block bridges on the complementary family certify about 55.28% of its leading mass after normalisation, leaving an explicit residual with unbounded returns
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1. (Bridges) Every complementary root x = 2^a t - 1 (a >= 2, t odd,
+  t = -3^a mod 4) of halving-coalescence-return, with d = v2(3^(a-1) t - 1) >= 2 and w = (3^(a-1) t - 1)/2^d, has
+  an exact finite bridge current D_x with div D_x = delta_x - delta_f(x), where for odd d
+  S^(a+(d-1)/2)(x) = S(z), z = f(x) = 3^((d-1)/2) w, and for even d S^(a+d/2-1)(x) = f(x) = 2 3^(d/2) w + 1
+  (= 3 mod 4); the cases exhaust the complementary family and the (a, d) cylinders (10) partition it. (Constructor,
+  conditional) For 8 | N, given a supplied exact U_N current (absorption below N is an input), every complementary
+  root with f_star(x) = nu(f(x)) < N (nu of elementary-bridge-quotient-normal-form) is certified at its full
+  coefficient 1 or 2, giving Pi_N = div(J - T_N) - (R'_N - V_star,N). (Counts) Exact CRT counts in O(log^4 N) terms;
+  the raw rule removes alpha N + O(log^2 N), alpha ~ 0.0150802551 (about 34.7449% of the leading mass 25N/576), and
+  the normalised rule removes beta N + O(log^4 N), beta ~ 0.0239925182 (about 55.2788%), leaving
+  (25/576 - beta) N + O(log^4 N), 25/576 - beta ~ 0.0194102596, uniformly in 8 | N; both proportions are one-pass
+  statements, not iterable contractions. (Limits) For a = 7 mod 16, a >= 7, the required-ray root x = 2^a - 1 has
+  canonical return f_star(x) = (3^a - 3)/8 with f_star(x)/x unbounded; the label transitions 27 -> 31 -> 91 with
+  labels (2,2), (5,4), (2,2) both increase height, so no strictly decreasing function of (a, d), and no
+  lexicographic label-then-height potential, decreases on every transition. Universal closure is open.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [retained-graph-complement-constructor, halving-coalescence-return, elementary-bridge-quotient-normal-form]
+certificates: [check_run_bridge_recompute.py]
+evidence:
+  - "check_run_bridge.py, run_bridge.py, run_bridge_audit.json, outer_187_double_current.csv: the legacy constructor (both run branches, exact cylinders, weighted floor counts, rational series bounds, supplied-current conversion) and checker (4096 complementary seeds below 32768, 2883 parameter branches, 68 exact normalized counts, seven supplied-input conversions at N = 24 to 6144 with a 1000-step input cap, two full packet upgrades at N = 96 and 768, the stored coefficient-2 current at root 187). Fails at its new path: run_bridge.py loads ../residual_return/halving_return.py (now ../halving-coalescence-return/, which itself no longer runs) and ../bridge_normal_form/normal_form.py (now ../elementary-bridge-quotient-normal-form/) by their pre-migration paths. Passed at be73a66 as experiments/residual_progress/complementary_bridge/check_run_bridge.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Later legacy scripts load run_bridge.py by its old path: in this batch those of supplied-path-saturation-core, shrinking-paired-return-recursion, bounded-runs-exclude-finite-label-potentials, decreasing-inverse-ancestry and tripling-doubling-pair-decomposition; later, experiments/residual_progress/retained_history/, returning_continuation/, nonselected_forward/ and selected_cycle_exit/"
+  - "run_bridge_check.py, run_bridge_check.json: side-lane probe (Claude side lane, 2026-10-17): rebuilds the return formulas and checks bridges for all 25,002 complementary roots below 200000 and the coverage at three cutoffs with its own nu. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/), and fibre_count_check and residual_vs_induction from its own folder (now ../absorbed-fibre-uniform-counts/ and ../outer-residual-strong-induction-support/). Passed at be73a66 as reviews/side_lane/run_bridge_check.py (archive/legacy-checker-run-be73a66.md, exit 0)"
+  - "quotient_iteration_probe.py, quotient_iteration_probe.json: side-lane probe (Claude side lane, 2026-10-17 20:27, FINDING): iterates the quotient map q -> nu(S(q)) in a 2-adic random model (60,000 random 200-bit starts) and on the 1775 roots of the actual remainder at N = 98304. Finite data and model estimates; no termination claim. Fails at its new path for the same imports as run_bridge_check.py, and it imports run_bridge_check from its own folder (still here). Passed at be73a66 as reviews/side_lane/quotient_iteration_probe.py (archive/legacy-checker-run-be73a66.md, exit 0)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: run_bridge_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 20:26, VERIFIED, main 541101a): the return formulas rebuilt from the statement; for all 25,002 complementary roots below 200000, 25,000 share a state with f(x) before 1 (16,661 with f(x) on the orbit of x, 8,339 one step off; at most 19 steps on the x side) and the remaining two (x = 75, 184111) enter 1 through F-siblings of the absorbing class; with the lane's own nu, the certified complementary mass is 146 of 269 at N = 6144 (reproducing main's 146/123 exactly), 1184 of 2132 at 49152 and 2367 of 4269 at 98304, approaching main's ~0.01941 N remainder. The written proofs of the formulas, the counts and the series bounds were not re-derived; the status stays written"
+aliases: [R26]
+tags: [convergence, outer-residual, run-bridges, normal-form, counting, conditional, constructive]
+---
+
+# Complete run-block bridges on the complementary family certify about 55.28% of its leading mass after normalisation, leaving an explicit residual with unbounded returns
+
+## Statement
+
+Odd-only clock, absorbing at 1. Every complementary root of [`halving-coalescence-return`](../halving-coalescence-return/README.md) is `x = 2^a t − 1` with `a ≥ 2`, `t` odd, `t ≡ −3^a (mod 4)`; put `d = v₂(3^(a−1)t − 1) ≥ 2`, `w = (3^(a−1)t − 1)/2^d`.
+
+1. **Run bridges.** For odd `d`, `S^(a+(d−1)/2)(x) = S(z)` with `z = 3^((d−1)/2)·w`; for even `d`, `S^(a+d/2−1)(x) = r = 2·3^(d/2)·w + 1 ≡ 3 (mod 4)`. With `f(x) = z` or `r`, an explicit finite current `D_x` has `div D_x = δ_x − δ_f(x)`. These cases exhaust the complementary family; the exact valuation cylinders (10), modulo `2^(a+d+1)`, partition it. The exact shrinking condition `f(x) < x` is (6); it is not assumed to hold.
+2. **Conditional constructor.** For `8 | N` and a supplied exact `U_N` current, every complementary root with `f_★(x) = ν(f(x)) < N` (`ν` from [`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md)) is certified with its full coefficient, by an actual nonnegative absorption current on specified edges: `Π_N = div(J − T_N) − (R'_N − V_★,N)`. No unknown future is searched; absorption below `N` is the input.
+3. **Counts.** `|V_N|` (raw rule, `f(x) < N`) and `|V_★,N|` (normalised rule) are exact CRT sums in `O(log² N)` and `O(log⁴ N)` terms. `|V_N| = αN + O(log² N)` with `α ≈ 0.0150802551` (about 34.7449% of the leading complementary mass `25N/576`) and the explicit bound (14); `|V_★,N| = βN + O(log⁴ N)` with `β ≈ 0.0239925182` (about 55.2788%), and `|R'_N − V_★,N| = (25/576 − β)N + O(log⁴ N)`, `25/576 − β ≈ 0.0194102596`, with exact rational enclosures in the receipt. These are one-pass statements; neither proportion may be iterated without a new closure theorem.
+4. **Limits.** For `a ≡ 7 (mod 16)`, `a ≥ 7`, the actual weight-1 root `x = 2^a − 1` at `N = 12·2^(a−4)` has `f_★(x) = f(x) = (3^a − 3)/8 ≡ 1 (mod 8)`, and `f_★(x)/x → ∞`. The transitions `27 → 31 → 91` (labels `(2,2)`, `(5,4)`, `(2,2)`, all returns canonical) both increase height, so no strictly decreasing function of `(a, d)`, and no lexicographic potential with a label rank first and height second, decreases on every transition. This rules out that strategy only.
+
+Universal closure of the residual is open. No novelty, human review or formal verification is claimed.
+
+## Proof
+
+The legacy note "Complete run-block bridges for the complementary family" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Written arithmetic construction and exact finite checks.**
 Absorption through the stated lower cutoff is supplied. This is a partial
 constructor with an explicit remaining profile; universal closure is open.
 No novelty, human review, or formal verification is claimed.
 
-## 1. The entire complementary parameter domain
+### 1. The entire complementary parameter domain
 
 Use odd-only Syracuse S, absorbing at1, and killed divergence div=I-P.
 Every complementary R23 root is uniquely
@@ -60,7 +114,7 @@ where f(x)=z or r respectively. Current rows at1 are omitted, and repeated
 rows retain their exact multiplicities. The common state in (3) need not
 be below the known cutoff.
 
-## 2. Exact shrinking conditions and the universal local constructor
+### 2. Exact shrinking conditions and the universal local constructor
 
 For either branch set `b=floor(d/2)`, C=3^b and A=C*3^(a-1).
 The exact conditions for f(x)<x are
@@ -120,7 +174,7 @@ Every weight2 root is removed with weight2. If distinct roots use the same
 known target, add their target multiplicities; absorption paths are reusable
 proof inputs. No annular source capacity is being spent in this construction.
 
-## 3. Exact cylinders and finite count for every cutoff
+### 3. Exact cylinders and finite count for every cutoff
 
 For each a,d>=2, the exact valuation condition is
 
@@ -165,7 +219,7 @@ In particular a+d<3A_N. Thus the formula uses O(log^2 N) exact arithmetic
 counts and no orbit searches. `mass_formula` implements this exact sum;
 `selected_profile` independently evaluates every actual weighted root.
 
-## 4. Proved leading coefficient, not a finite-density extrapolation
+### 4. Proved leading coefficient, not a finite-density extrapolation
 
 Write the leading slope of f relative to x as
 
@@ -229,12 +283,12 @@ bound in (13). These are uniform integer-count statements derived from
 the exact cylinders, rather than an extrapolation of scans with growing
 bit depth.
 
-## 5. The full rule: normalize the return before testing its height
+### 5. The full rule: normalize the return before testing its height
 
 The preceding alpha is a useful exact baseline. The actual constructor
 uses every available elementary bridge before applying the cutoff test.
 Let nu be the canonical normal form from
-[the elementary-bridge proof](../bridge_normal_form/BRIDGE_NORMAL_FORM.md):
+[the elementary-bridge proof](../elementary-bridge-quotient-normal-form/README.md):
 strip `F(y)=4y+1` while the current state is5 modulo8, then halve once
 by R23 if the resulting root is selected. Its canonical outputs are1
 modulo8 or complementary3 modulo4. The supplied normal-form module
@@ -260,7 +314,7 @@ The explicit prefixes are187->281->211, then211->317->119 and
 105->79->119. Thus the known path from105 supplies all two units at187,
 even though211>N. The stored current certifies exactly2 delta_187.
 
-### Exact count through canonical targets
+#### Exact count through canonical targets
 
 Every elementary bridge class has exactly the two rays
 
@@ -312,7 +366,7 @@ possible F-depths, and O(log N) canonical classes per count. Consequently
 the full `normalized_mass_formula` uses O(log^4 N) elementary arithmetic
 terms. It includes every normalization depth and every parameter class.
 
-### A rigorous leading coefficient for the full normalized rule
+#### A rigorous leading coefficient for the full normalized rule
 
 Within each (a,d) cylinder, w advances by an odd multiple of2, so its
 remaining binary digits, and those of u=3^floor(d/2)w, range uniformly
@@ -377,7 +431,7 @@ complementary leading mass. Its own remaining profile is explicit and
 must still be solved; neither this proportion nor (18) may be iterated
 without a new closure theorem.
 
-## 6. Why these complete bridges do not close the family
+### 6. Why these complete bridges do not close the family
 
 The target can grow without bound relative to the starting root. For every
 `a=3 modulo4`, a>=7, take
@@ -423,7 +477,7 @@ possibly after processing known smaller targets in a broader finite graph.
 The construction presently leaves them unchanged. It never treats a merely
 smaller-than-x target as already absorbed when only U_N was supplied.
 
-## 7. Reproduction
+### 7. Reproduction
 
 ```
 python3 experiments/residual_progress/complementary_bridge/check_run_bridge.py
@@ -435,3 +489,19 @@ exact cylinders, weighted floor counts, rational series bounds, and actual
 supplied-current conversions. Finite input discovery is capped at1000
 odd steps per seed; it is evidence for those inputs only. The constructor
 itself follows only the fixed prefixes specified by a,d and supplied paths.
+
+## Certificates
+
+- [`check_run_bridge_recompute.py`](check_run_bridge_recompute.py) (written at the B10 migration, about 1 s, standard library). With its own Syracuse step, selected test and normal form it checks, against [`run_bridge_audit.json`](run_bridge_audit.json): the run formulas, the cylinders (10) and `ν(f(x)) ≤ f(x)` for all 4096 complementary seeds below 32768; the 2883 parameter cases (labels, the shrinking test (6), and that odd-`d` branches with `a ≤ 5` shrink); all 68 weighted profile counts (prior complementary mass, raw and normalised removal, remainder, weight-2 roots) and the bound (14); the exact enclosures of `α`, `β` and `25/576 − β` at `K = 64` and the nested enclosures at `K = 4, …, 64`; the six unbounded returns, the label cycle, and the coefficient-2 example with [`outer_187_double_current.csv`](outer_187_double_current.csv) (divergence `2δ_187`, rows and SHA-256 as in the receipt). It does not rebuild the seven supplied-input conversions or the packet upgrades (legacy checker, evidence only).
+- The command in the legacy text names `experiments/residual_progress/complementary_bridge/`.
+
+## Remarks
+
+- **Side-lane finite data (heuristic part labelled).** Iterating the quotient `q ↦ ν(S(q))` (feed 2026-10-17 20:27, `quotient_iteration_probe.py`): in a 2-adic random model its mean drift is about 3.5 times stronger than raw `S` (−1.41 against −0.41 bits per step), but the decay rate of staying high is the same within noise (0.903 against 0.902 per step); on the 1775 roots of the actual remainder at `N = 98304`, raw `S` needs median 10, 90th percentile 25, maximum 81 steps to reach `≤ N`, the quotient median 5, 17, 66, and the slowest roots are the same under both (for example 134379: 66 quotient steps against 72 raw). Finite data and model estimates; no termination claim. Whether iterating the quotient always terminates is [`normalised-quotient-termination`](../../questions/normalised-quotient-termination.md).
+- **What comes next.** Supplied-history saturation ([`supplied-path-saturation-core`](../supplied-path-saturation-core/README.md)), shrinking pair recursions on the post-run pair ([`shrinking-paired-return-recursion`](../shrinking-paired-return-recursion/README.md), [`tripling-doubling-pair-decomposition`](../tripling-doubling-pair-decomposition/README.md)) and inverse ancestry ([`decreasing-inverse-ancestry`](../decreasing-inverse-ancestry/README.md)) extend this rule; [`bounded-runs-exclude-finite-label-potentials`](../bounded-runs-exclude-finite-label-potentials/README.md) sharpens the label obstruction of §6. The target is [`five-ray-complementary-profile-completion`](../../questions/five-ray-complementary-profile-completion.md).
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/complementary_bridge/RUN_BLOCK_BRIDGES.md` (legacy ID R26) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical, with the side-lane probes `reviews/side_lane/run_bridge_check.*` and `quotient_iteration_probe.*`; `check_run_bridge_recompute.py` was added at the migration. Legacy status: "written conditional constructor and uniform counting theorem; an explicit residual remains".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `541101a`. The batch report (archive/convergence-residual-progress/REPORT.md) records "independent model" proof and code audits for this batch; they were the main lane's own agents, so they do not count as an independent review. The side lane's finite check is recorded under `reviewed_by`.

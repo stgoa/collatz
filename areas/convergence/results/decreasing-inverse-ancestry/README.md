@@ -1,4 +1,60 @@
-# Complete decreasing inverse ancestry and new lower-seed bridges
+---
+id: decreasing-inverse-ancestry
+kind: result
+title: Complete decreasing canonical inverse chains extend the run-bridge cutoff test to lower partners of unbounded-height returns
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; B, nu and the canonical predecessors are those of
+  elementary-bridge-quotient-normal-form, and f is the return of complementary-run-bridges (R26). (Inverse
+  chain) For canonical q, with h = v3(q+1) and eta(q) = 2^h (q+1)/3^h - 1, the states q_j = 2^j (q+1)/3^j - 1,
+  0 <= j <= h, form the unique maximal strictly decreasing canonical inverse path, with S(q_j) = q_(j-1) by
+  valuation-1 arrows; its nonpositive current has divergence delta_q - delta_eta(q). The canonical valuation-1
+  components are finite paths with a unique minimum p, 3 not dividing p+1. This local minimum is not a global
+  ancestor minimum: q = 91 + 419904j has the smaller ancestor 27 + 131072j although eta(q) = q.
+  (Extension) For 8 | N and conditional on a supplied exact U_N current (absorption below N is an input), every
+  complementary root x with eta(nu(f(x))) < N is certified with its full source weight. Even-d returns have
+  h = 0 and are unchanged; for odd d = 2b+1 and elementary stratum k, h = min(b, v3(2k+1)) when the two
+  differ, with an exact formula in the resonant case. (Families) Every x = 19199 mod 65536 has
+  S^9(x) = S^2(p), p = (2187x - 117)/4096; for every h >= 2 an explicit complete binary cylinder modulo 2^K
+  has p = lambda x + beta < 2x/3 while the old return q exceeds x with slope at least (3/2)^h 4/9, merger
+  S^(a+b)(x) = S^(h+1)(p), and, for each fixed h, weighted R_N source count within 6 of 25N/(72 2^K); no
+  uniform density for their union is asserted. (Count) The extended profile has an exact finite count with at
+  most O(log^5 N) arithmetic operations; no leading coefficient is claimed. Recognized targets lie in the
+  supplied-history saturation of supplied-path-saturation-core. Universal coverage, Collatz convergence and
+  novelty are not claimed.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [elementary-bridge-quotient-normal-form, complementary-run-bridges, supplied-path-saturation-core]
+certificates: [check_inverse_ancestry_recompute.py]
+evidence:
+  - "check_inverse_ancestry.py, inverse_ancestry.py, inverse_ancestry_audit.json, root84735_current.csv, large_h2_weight2_current.csv: the legacy constructor (inverse chain, canonical components, extended bridge, exact cell count, large-return families, ray witnesses, full-profile and single-root conversions) and checker (4096 canonical targets below 16384, inverse depths 1 to 128, 2048 return branches, 32 members of the small cylinder, 12 required-ray witnesses for h = 2 to 7, eight exact profile counts through N = 65536, three full-profile conversions and two stored new-root currents with a 5000-step input cap, 33 counterfamily cases). Fails at its new path: inverse_ancestry.py loads ../complementary_bridge/run_bridge.py by its pre-migration path (now ../complementary-run-bridges/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/inverse_ancestry/check_inverse_ancestry.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: ../mixed-shrinking-pair-rules/batch_r33_r36_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 21:06, VERIFIED, main 1603bf3; the R34 part): eta(q) = 2^h(q+1)/3^h - 1 with h = v3(q+1) satisfies S^h(eta(q)) = q for every odd q < 20000; on the cylinder x = 19199 (mod 65536) the numerators of q and p are exact, and S^9(x) = S^2(p); root 84735 gives q = 67865 > N and p = 45243 < N at N = 65536. The written arguments were not re-derived; the status stays written"
+aliases: [R34]
+tags: [convergence, outer-residual, complementary-family, inverse-ancestry, normal-form, conditional, constructive]
+---
+
+# Complete decreasing canonical inverse chains extend the run-bridge cutoff test to lower partners of unbounded-height returns
+
+## Statement
+
+Odd-only clock `S`, absorbing at 1 (algebraically `S(1) = 1`; current rows and measures at 1 are killed). `B`, the normal form `ν` and the canonical predecessors are those of [`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md) (R25); `f` is the complementary return of [`complementary-run-bridges`](../complementary-run-bridges/README.md) (R26).
+
+1. **Inverse chain.** For canonical `q` put `h = v₃(q+1)`, `η(q) = 2^h·(q+1)/3^h − 1`. The only canonical predecessor smaller than `q` is `L(q) = (2q−1)/3`, present exactly when `q ≡ 2 (mod 3)`, with `S(L(q)) = q`. Hence `q_j = 2^j·(q+1)/3^j − 1` (`0 ≤ j ≤ h`) is the unique maximal strictly decreasing canonical inverse path, `η` is idempotent, and `J_q = −Σ_(j=1..h) δ_(q_j)` has divergence `δ_q − δ_(η(q))`. The canonical valuation-1 components are finite paths `p_j = 3^j·(p+1)/2^j − 1`, `0 ≤ j < v₂(p+1)`, with unique minimum `p`, `3 ∤ p+1`. This is not a global ancestor minimum: `q = 91 + 419904j` has the ancestor `27 + 131072j < q` after eight canonical arrows although `η(q) = q`.
+2. **Extension (conditional: a finite exact `U_N` current is supplied, `8 | N`).** For a complementary root `x` with `q = ν(f(x))` and `p = η(q) < N`, the bridge `D_x + J_q` and the supplied path of `p` give a nonnegative integral current certifying `x` with its full `R_N` weight. Since `η(q) ≤ q` the test contains R26's. Even `d` gives `h = 0` (no improvement). For odd `d = 2b+1` and elementary stratum `k`, `h = v₃(V) − 1` with `V` of (7), and `h = min(b, v₃(2k+1))` when `b ≠ v₃(2k+1)`.
+3. **Small cylinder.** For `x ≡ 19199 (mod 65536)`: `q = (6561x+3745)/8192`, `p = (2187x−117)/4096`, `S^9(x) = S^2(p)`; every actual `R_N` source there has `p < N`. At `N = 65536`, root 84735 has `q = 67865 > N`, `p = 45243 < N`.
+4. **Unbounded-return families.** For every `h ≥ 2`, `k = (3^h−1)/2`, `b = h+1`, `d = 2h+3` and the unique `a` with `4/9 ≤ λ = 3^a/2^(a+h+2+3^h) < 2/3`, the complete binary cylinder (14) modulo `2^K`, `K = a+d+2k+3`, has `p = λx + β` with `−5/9 < β < −7/192`, old return `q = Λx + Λ − 1/3 + c/4^k`, `Λ = (3/2)^h λ ≥ 1`, `c = 1/3 − 3^(h+1)/2^d > 0`, so `q > x`, and merger `S^(a+b)(x) = S^(h+1)(p)`. For each fixed `h` the weighted `R_N` mass in the cylinder is within 6 of `25N/(72·2^K)`; actual sources of both weights occur on infinitely many required cutoffs. No uniform density for the union over `h` is asserted.
+5. **Count.** The whole extended profile has an exact finite count with at most `O(log⁵ N)` arithmetic operations (bit complexity not included); at `N = 65536` it certifies 1563 weighted units versus 1562 for R26. No leading coefficient is claimed.
+
+Recognized targets lie in the supplied-history saturation of [`supplied-path-saturation-core`](../supplied-path-saturation-core/README.md); the originating seeds need not. Universal coverage, Collatz convergence and novelty are not claimed.
+
+## Proof
+
+The legacy note "Complete decreasing inverse ancestry and new lower-seed bridges" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Written arithmetic proofs and finite certificates.** This is a
 partial extension of the R26 complementary-return rule. It supplies complete
@@ -7,12 +63,12 @@ exact finite count for the extended rule. It leaves every even-d return
 unchanged. Universal coverage, Collatz convergence, and novelty are not claimed.
 
 Use the odd-only Syracuse map S, absorbing at1; current divergence is killed
-at1. The [R25 canonical set B and normal form nu](../bridge_normal_form/BRIDGE_NORMAL_FORM.md)
-and [R26 return f](../complementary_bridge/RUN_BLOCK_BRIDGES.md) are used without
+at1. The [R25 canonical set B and normal form nu](../elementary-bridge-quotient-normal-form/README.md)
+and [R26 return f](../complementary-run-bridges/README.md) are used without
 changing their domains. Lower absorption currents are supplied. The independent
 feed, unchanged at the parent's reviewed pin, is not a premise of this note.
 
-## 1. Every strictly decreasing canonical inverse chain
+### 1. Every strictly decreasing canonical inverse chain
 
 For canonical q define
 
@@ -67,7 +123,7 @@ keeps the inverse orientation. There is no positive current cost for this
 particular bridge; this says nothing about the cost after other currents
 are added or cancelled.
 
-### The whole finite component, not just one chain
+#### The whole finite component, not just one chain
 
 Consider only valuation1 arrows whose sources and targets are canonical.
 Their undirected components are finite paths. Every component has a unique
@@ -98,7 +154,7 @@ not constant on these path components: eta(T(7))=7 whereas eta(T(17))=1,
 although eta(7)=eta(17)=7. A later forward move must retain the exit position;
 there is no one-step semiconjugacy analogous to R25's nu.
 
-## 2. A complete arithmetic extension of the R26 cutoff test
+### 2. A complete arithmetic extension of the R26 cutoff test
 
 Throughout the annular profile and counting interfaces, assume `8|N` and
 N>=8. All targets are odd, so p<N and p<=N are equivalent here. For a
@@ -128,14 +184,14 @@ certifies exactly the selected weighted submeasure.
 
 Since eta(q)<=q, the new test includes R26's old test. Its recognized
 return targets are contained in
-[R29's exact supplied-history saturation](../known_saturation/KNOWN_SATURATION.md):
+[R29's exact supplied-history saturation](../supplied-path-saturation-core/README.md):
 S^h(p)=q and p<N make q a supplied forward-history state. This is an explicit
 arithmetic way to recognize such history without constructing the whole
 finite Q_N table. It does not enlarge that known target set. The originating
 seed x is certified by the separate R26 bridge into that target; it is not
 asserted that x already belongs to the supplied-history closure.
 
-### Exactly which return branches can improve
+#### Exactly which return branches can improve
 
 Write R26's complementary parameters as a>=2, odd t, d>=2,
 `w=(3^(a-1)t-1)/2^d`, and b=floor(d/2).
@@ -184,7 +240,7 @@ In particular k=0 always has h=0. These statements cover every elementary
 stratum of every R26 return; no independence assumption between binary and
 ternary conditions is used.
 
-## 3. A small complete cylinder beyond the old cutoff rule
+### 3. A small complete cylinder beyond the old cutoff rule
 
 For every positive x in the binary cylinder
 
@@ -234,7 +290,7 @@ This is a count for the stated extra subfamily, not a new global residual
 fraction. For example, at the required cutoff N=65536, root84735 has
 q=67865>N and p=45243<N. Its exact certificate is stored.
 
-## 4. Complete families with arbitrarily high old canonical returns
+### 4. Complete families with arbitrarily high old canonical returns
 
 Fix any h>=2 and set
 
@@ -310,7 +366,7 @@ b=h+1. The bridge can be taken as the difference of these two prefix
 currents. Replacing the known p prefix by the x prefix directly yields a
 nonnegative absorption current, with source weight preserved.
 
-### Actual weighted sources and required rays
+#### Actual weighted sources and required rays
 
 Intersect the binary residue r moduloP=2^K with the four original source
 rows, retaining all their weights:
@@ -345,7 +401,7 @@ N+9*2^K<=35N/32<9N/8. The endpoints are actual odd source states,
 and both constructions stay below3N/2. The stored h=2 example retains
 weight2, including both units in its resulting current.
 
-## 5. Exact count of the whole extended rule
+### 5. Exact count of the whole extended rule
 
 The implementation also counts every root certified by p<N, without
 enumerating roots or following absorption. R26 already supplies for each
@@ -377,7 +433,7 @@ operations; bit complexity is not included in that statement. Usually r
 already fixes h<E and there is only one depth to inspect. No leading
 coefficient for the full extended profile is claimed in this batch.
 
-## 6. Reproduction and remaining obligation
+### 6. Reproduction and remaining obligation
 
 ```
 python3 experiments/residual_progress/inverse_ancestry/check_inverse_ancestry.py
@@ -413,3 +469,20 @@ represented there. It does not lower every global ancestor minimum and leaves al
 even-d failed returns unresolved. Its decreasing inverse parameter proves
 only termination of this recognizer. A universal complementary-root
 construction still needs additional arithmetic information or mergers.
+
+## Certificates
+
+- [`check_inverse_ancestry_recompute.py`](check_inverse_ancestry_recompute.py) (written at the B10 migration, about 0.5 s, standard library). It rebuilds `S`, `ν`, the R26 return and `R_N` itself and checks: the inverse chain, the six ray minima and `L(q)` for all 4096 canonical `q < 16384`, and depths 1 to 128; formulas (7) and (8) on all 2048 complementary returns below 16384 (1364 with even `d`); the 32 stored members of cylinder (9) with their words and numerators; for `h = 2, …, 7` and both weights, the family parameters, `K`, the ray witness, its exact weighted source count against the receipt and against (18), `p = λx + β`, the order `p < N < x < q`, and the words of (17); the old and extended masses and the extra root at the eight receipt cutoffs, by explicit enumeration of `R_N`; the divergence and positivity of the two stored new-root currents; and the 33 counterfamily cases. It does not rebuild the full-profile conversions from supplied `U_N` currents or the bridge-current hashes (legacy checker, evidence only).
+- The command in the legacy text names `experiments/residual_progress/inverse_ancestry/`.
+
+## Remarks
+
+- **Scope.** The rule is partial: even-`d` returns are untouched, the decreasing inverse parameter proves only termination of this recognizer, and stopping at `η` cannot replace complete inverse search (the `27 + 131072j` family). The extended test certifies one more root than R26 at `N = 65536` and none at `N = 6144`.
+- **Controls.** The arguments are exact arithmetic identities for the `3x+1` step together with a supplied absorption current; no statement about other `3x+d` maps is made, and the conditional application inherits whatever the supplied input asserts.
+- **Novelty.** Novelty undetermined (none claimed).
+- **Next obligation.** A universal complementary-root construction still needs additional arithmetic information or mergers: [`five-ray-complementary-profile-completion`](../../questions/five-ray-complementary-profile-completion.md).
+
+## History
+
+- Migrated from `experiments/residual_progress/inverse_ancestry/INVERSE_ANCESTRY.md` (legacy ID R34) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts, receipt and the two stored currents moved byte-identical; `check_inverse_ancestry_recompute.py` was added at the migration. Legacy status: "written arithmetic extension, exact full-profile counting formula and finite currents" (the note itself opens "Written arithmetic proofs and finite certificates").
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `1603bf3`. The legacy index's "independent proof/code/count audits" were the main lane's own agents. The side lane's finite check is recorded under `reviewed_by`.

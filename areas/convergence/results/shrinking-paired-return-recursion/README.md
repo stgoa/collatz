@@ -1,4 +1,56 @@
-# A decreasing paired recurrence beyond the normalized return
+---
+id: shrinking-paired-return-recursion
+kind: result
+title: A decreasing paired recursion merges 3w with w on complete cylinders of every recursive depth, resolving infinite subfamilies of the unbounded run-bridge returns
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1. (Pair identity) For w = 3 mod 8 with h = v2(3w-1) = 2k+2 even (k >= 1) and
+  z = 3^k (3w-1)/2^h: S^k(3w) = 4z+1 and S^(k+1)(w) = 2z+1. If z is canonical (elementary-bridge-quotient-normal-form),
+  S^(k+A)(3w) = S^(k+A+1)(w) with A = v2(2z+2), giving an explicit finite current with divergence delta_(3w) - delta_w;
+  if z = 101 mod 128, the child w' = (3z+1)/16 = 3 mod 8 satisfies 0 < w' < w/4 and the current for w is the
+  explicit current (7) minus the child's (orientation reverses). The recognizer always terminates and returns
+  unresolved for odd h and for other noncanonical z; unresolved proves nothing. (Cylinders) For every r >= 0 an
+  explicit cylinder modulo 2^(8r+7) has exactly r recursive k = 1 branches then w = 59 mod 128, with
+  S^(3r+3)(3w) = S^(3r+4)(w). (Actual roots) For a = 7 mod 16 the complementary root x = 2^a - 1 at
+  N = 12 2^(a-4) has S^(a-1)(q) = w = (3^(a-1)-1)/8 for q = 2^(a-1)-1 < N, and for every a in the explicit class
+  a = a_r mod 2^(8r+8) (a_0 = 199 mod 256, a_1 = 2887 mod 65536, ...), a >= 7,
+  S^(a+3r+3)(2^a - 1) = S^(a+3r+3)(2^(a-1) - 1); also a = 39 mod 2^20 merges at time a + 8. Given a supplied exact
+  current for q (absorption below N is an input), x is certified with its full coefficient although its normalised
+  return f/x is unbounded. Partial: a = 7 and a = 23 stay unresolved; no coverage of all remaining roots is claimed.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [halving-coalescence-return, elementary-bridge-quotient-normal-form, complementary-run-bridges]
+certificates: [check_paired_return_recompute.py]
+evidence:
+  - "check_paired_return.py, paired_return.py, paired_return_audit.json, mersenne_39_current.csv: the legacy constructor and checker (4096 w values, 72 terminal cylinders, 56 recursive integer cases through depth 64, 65 exponent lifts, eight actual Mersenne bridges, the a = 39 supplied-current conversion with a 5000-step cap on the lower path). Fails at its new path: paired_return.py loads ../complementary_bridge/run_bridge.py (now ../complementary-run-bridges/, which itself no longer runs) by its pre-migration path. Passed at be73a66 as experiments/residual_progress/second_return/check_paired_return.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The later mixed-shrinking-pair-rules loads paired_return.py by its old path"
+  - "batch_64fff1d_check.py, batch_64fff1d_check.json: side-lane probe (Claude side lane, 2026-10-17) of concrete identities in R30, R31 (bounded-runs-exclude-finite-label-potentials) and R32 (merger-catalogue-scope). Fails at its new path: it imports affine_controls and progress_measures_audit from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/). Passed at be73a66 as reviews/side_lane/batch_64fff1d_check.py (archive/legacy-checker-run-be73a66.md, exit 0). The committed probe is 3654 bytes, while the main lane's reproduction below pinned a 3648-byte version; the receipt matches the pinned hash"
+  - "side_lane_review_e3111d3.json: the main lane's reproduction (at side-lane commit e3111d3) of batch_64fff1d_check.py with its pinned dependencies, source hashes and outputs, and an independent check of main's sharper clocks; a review of that side-lane probe, not of this result. Hygiene flag: its materialization_directory field records a machine-specific temporary path; the receipt is a byte-identical legacy artefact and cannot be edited"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: batch_64fff1d_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 20:44, VERIFIED, main 64fff1d; the R30 part): S^k(3w) = 4z+1 and S^(k+1)(w) = 2z+1 for all 10,922 w = 3 mod 8 below 2^18 with h even; for z = 101 mod 128 the child w' = (3z+1)/16 is 3 mod 8 with 0 < w' < w/4; Mersenne mergers at a = 199 and 455 (205 and 461 steps) and a = 2887 (2896 steps); the a = 39 example merges at step 47 = a + 8. The lane's r labels are one above main's recursion depth and its merger times three steps later than main's prescribed clocks (corrected in the main lane's reproduction receipt). The written recursion and lifting proofs were not re-derived; the status stays written"
+aliases: [R30]
+tags: [convergence, outer-residual, pair-recursion, shrinking, mergers, conditional, constructive]
+---
+
+# A decreasing paired recursion merges 3w with w on complete cylinders of every recursive depth, resolving infinite subfamilies of the unbounded run-bridge returns
+
+## Statement
+
+Odd-only clock, absorbing at 1, `div = I − P`; `ν` and the canonical set `B` from [`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md).
+
+1. **Comparison state from below.** For `a ≡ 7 (mod 16)`, `a ≥ 7`, `x = 2^a − 1` is an actual weight-1 complementary root at `N = 12·2^(a−4)`; with `q = 2^(a−1) − 1 < N` and `w = (3^(a−1) − 1)/8`, `S^(a−1)(q) = w` and `S^a(x) = 4f + 1` where `f = 3w` is the normalised return of [`complementary-run-bridges`](../complementary-run-bridges/README.md) (unbounded relative to `x`). A supplied current for `q` certifies `w`; what remains is a bridge between `3w` and `w`.
+2. **Pair identity.** For `w ≡ 3 (mod 8)` with `h = v₂(3w − 1) = 2k + 2` even, `z = 3^k(3w − 1)/2^h`: `S^k(3w) = 4z + 1`, `S^(k+1)(w) = 2z + 1`. **Terminal:** if `z ∈ B`, `S^(k+A)(3w) = S^(k+A+1)(w)` with `A = v₂(2z + 2)`, and subtracting the prescribed path currents gives `div J_w = δ_(3w) − δ_w`. **Recursive:** if `z ≡ 101 (mod 128)`, the child `w' = (3z + 1)/16 ≡ 3 (mod 8)` has `0 < w' < w/4`, and `J_w` is the explicit current (7) **minus** `J_(w')`. The parameter strictly decreases, so the recognizer terminates; odd `h` and other noncanonical `z` are returned unresolved, which proves nothing.
+3. **Complete cylinders.** For every `r ≥ 0`, the residue `c_r` modulo `2^(8r+7)` of (13) defines a cylinder whose members have exactly `r` recursive `k = 1` branches then `w ≡ 59 (mod 128)`, with `S^(3r+3)(3w) = S^(3r+4)(w)`.
+4. **Actual roots.** For every `a ≡ a_r` modulo `2^(8r+8)` (`a_0 = 199 mod 256`, `a_1 = 2887 mod 65536`, …), `a ≥ 7`: `S^(a+3r+3)(2^a − 1) = S^(a+3r+3)(2^(a−1) − 1)`. The class `a ≡ 39 (mod 2^20)` merges at time `a + 8`. Given a supplied exact current for `q` (absorption below `N` is the input), `B_x = D_x + J_w − H_(q,w)` with `div B_x = δ_x − δ_q` certifies `x` at its full coefficient.
+
+This is a partial construction: `a = 7` and `a = 23` are unresolved, and no coverage of all remaining roots is claimed. No novelty, human review or formal verification is claimed.
+
+## Proof
+
+The legacy note "A decreasing paired recurrence beyond the normalized return" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Written arithmetic proof and finite certificates.** The rule
 below is a partial construction with complete parameter domains. Its recursive
@@ -10,10 +62,10 @@ human review, or formal verification is claimed.
 Use the odd-only Syracuse map S, absorbing at1, and killed divergence
 `div=I-P`. All currents below are finite integer currents with their signs
 retained. Let nu and the canonical set B be as in
-[R25](../bridge_normal_form/BRIDGE_NORMAL_FORM.md): B consists of1 modulo8
+[R25](../elementary-bridge-quotient-normal-form/README.md): B consists of1 modulo8
 and complementary3-modulo4 roots.
 
-## 1. The obstruction supplies a useful large comparison state
+### 1. The obstruction supplies a useful large comparison state
 
 For a>=7 with a=7 modulo16 put
 
@@ -53,7 +105,7 @@ The next task is consequently to construct a finite signed bridge between
 3w and w. The following rule applies to general w, not just the exponential
 values in (2).
 
-## 2. A complete paired run identity
+### 2. A complete paired run identity
 
 Let w be any positive integer with w=3 modulo8, and put
 
@@ -80,7 +132,7 @@ valuation2. The identity
 gives terminal exponents2 and1. This proves all valuations in (3), not
 only endpoint equalities.
 
-### Terminal branch: z is canonical
+#### Terminal branch: z is canonical
 
 If z belongs to B, the elementary bridge for2z+1 has minimum z.
 For z=1 modulo8 this is the selected run of length2; for a complementary
@@ -103,7 +155,7 @@ from4z+1 to z to the left prefix in (3), append R23's bridge from2z+1
 to z to the right prefix, and subtract. There is no search past these
 prescribed finite prefixes.
 
-### Recursive branch: z=101 modulo128
+#### Recursive branch: z=101 modulo128
 
 In this branch write
 
@@ -159,7 +211,7 @@ Thus every accepted pair has a computed integer l with
 local pieces (7); the checker independently verifies the corresponding
 complete path equality.
 
-## 3. Complete cylinders with arbitrarily deep recursion
+### 3. Complete cylinders with arbitrarily deep recursion
 
 The simple terminal class is
 
@@ -225,7 +277,7 @@ division is integral: the same fixed-point formula reduces the required
 power of27 by one. This yields the stored tests through r=64 without
 constructing the much larger exponential seeds below.
 
-## 4. Every recursive depth occurs in R26's actual obstruction family
+### 4. Every recursive depth occurs in R26's actual obstruction family
 
 For a=7 modulo16, the map `w=(3^(a-1)-1)/8` runs through every residue
 3 modulo8 modulo any fixed power of2 as a runs through a suitable binary
@@ -283,7 +335,7 @@ The new information is the exact pair relation and the already supplied
 path from q to w. The rules leave, for example, a=7 and a=23 unresolved.
 They establish no coverage of all remaining R26 roots.
 
-## 5. Current construction, signs, and supplied absorption
+### 5. Current construction, signs, and supplied absorption
 
 Let D_x be R26's explicit current with divergence `delta_x-delta_f`,
 let H_(q,w) be the path in (2), and let J_w be the accepted paired current.
@@ -325,7 +377,7 @@ the current stored in `mersenne_39_current.csv` using only the nonzero
 rows of the summed supplied and explicit currents. The separate arithmetic
 constructor never performs an unbounded absorption search.
 
-## 6. Reproduction and scope
+### 6. Reproduction and scope
 
 ```
 python3 experiments/residual_progress/second_return/check_paired_return.py
@@ -343,3 +395,20 @@ positive partial construction, not merely a finite density observation.
 Its remaining obligation is also precise: handle the odd-h branch and
 the noncanonical z classes other than101 modulo128, or find a separate
 finite bridge for them. The present written proof does neither.
+
+## Certificates
+
+- [`check_paired_return_recompute.py`](check_paired_return_recompute.py) (written at the B10 migration, about 2 s, standard library). With its own Syracuse step and canonical test it checks, against [`paired_return_audit.json`](paired_return_audit.json): the pair identities and the child bound for every `w ≡ 3 (mod 8)` below 32768, the recognizer's accepted, terminal, recursive and unresolved counts, and every accepted merger by direct iteration; the 72 terminal cylinders (11); the 56 recursive witnesses with their clocks; the exponent lifts (15) for depths 0–64, the tabulated classes `a_r` and the `a ≡ 39 (mod 2^20)` class; the eight actual Mersenne roots (`a = 39, 135, 199, 263, 423, 455, 711, 2887`) with the same-clock mergers, and the unresolved `a = 7, 23`; and the `a = 39` conversion, including that [`mersenne_39_current.csv`](mersenne_39_current.csv) is the orbit path of `x` (191 rows, divergence `δ_x` with the row at 1 killed) and the receipt hashes. It does not rebuild the signed bridge currents (legacy checker, evidence only).
+- The command in the legacy text names `experiments/residual_progress/second_return/`.
+
+## Remarks
+
+- **Clock correction.** The main lane's reproduction receipt records: "The external r labels for a199/455/2887 are one above main R30 recursion depth. Their checked times are three steps later than main prescribed mergers and remain valid, but do not recheck the sharper clocks. Main prescribed clocks202,458,2893 and47 were checked independently here. No earliest-merger claim is made."
+- **Remaining obligation.** The odd-`h` branch and the noncanonical `z` classes other than `101 (mod 128)`. [`mixed-shrinking-pair-rules`](../mixed-shrinking-pair-rules/README.md) adds an odd branch and a second even branch; [`tripling-doubling-pair-decomposition`](../tripling-doubling-pair-decomposition/README.md) shows that tripling pairs `δ_(3u) − δ_u` and doubling pairs are the general remaining comparisons.
+- **Controls.** A universal certificate for the tripling pair would force `w` and `3w` to share a future; this fails on the `3x+d` control maps ([`tripling-doubling-pair-decomposition`](../tripling-doubling-pair-decomposition/README.md), Remarks), so any completion must use arithmetic of `3x+1`.
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/second_return/SHRINKING_PAIRS.md` (legacy ID R30) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical, with the side-lane probe `reviews/side_lane/batch_64fff1d_check.*` and the main lane's reproduction receipt `experiments/residual_progress/side_lane_review_e3111d3.json`; `check_paired_return_recompute.py` was added at the migration. Legacy status: "written partial construction with decreasing parameter, complete infinite cylinders, and finite currents".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `64fff1d`. The batch report (archive/convergence-residual-progress/REPORT.md) records "independent model" proof and code audits for this batch; they were the main lane's own agents, so they do not count as an independent review. The side lane's finite check is recorded under `reviewed_by`.

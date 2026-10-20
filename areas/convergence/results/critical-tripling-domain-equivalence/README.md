@@ -1,11 +1,61 @@
-# The exact critical domain for tripling-pair currents
+---
+id: critical-tripling-domain-equivalence
+kind: result
+title: Tripling currents on the binary domain W = {5 mod 8} u {9 mod 16} biject onto the critical induction seeds and are already equivalent to Collatz convergence
+status: written
+claim: >
+  Odd-only 3x+1 map S on positive odd integers (state 1 killed); B, nu of elementary-bridge-quotient-normal-form;
+  P(w) = [3w] - [w] a signed source. (Critical seeds) Every positive odd seed reduces to a smaller one by a proved
+  elementary or ordinary step unless it lies in C = {q in B : q = 3 mod 4, q != 2 mod 3}. (Bijection) With
+  W = {w odd : w = 5 mod 8 or w = 9 mod 16}, g(w) = nu(3w) is a bijection W -> C with w < g(w) and inverse q/3
+  (q = 0 mod 3) or (2q+1)/3 (q = 1 mod 3). (Equivalence) The following are equivalent: every positive odd integer
+  reaches 1; every w in W has a finite integer current with divergence P(w); every positive odd w has one (no
+  uniform cost, height, clock or computability assumption). So restricted universal tripling is full-strength
+  convergence, not a helper lemma. (Formal plans) Adjoining a formal edge 3w -- w for every odd w to the complete
+  elementary identity graph makes it connected, with a terminating normaliser whose rows satisfy
+  v - 1 <= (2/3)(q - 1), so the number of requested pair inputs is logarithmic in the start; these are conditional
+  plans: an actual current is obtained only after every missing pair input is supplied and checked, and the bound
+  says nothing about the cost of the inputs. The ordinary arrow identities use 3x+1 specifically.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [elementary-bridge-quotient-normal-form]
+certificates: [check_tripling_recompute.py]
+evidence:
+  - "check_tripling.py, tripling.py, tripling_audit.json: the legacy plan constructor (local steps with exact boundaries, static and critical decreasing plans, compile_plan accepting only checked supplied pair currents) and checker (16,384 local steps, 6,144 inputs of W, 2,731 critical inverse inputs, 2,048 formal plans, 40 compiled examples from 34 distinct supplied pair currents found by capped absorption searches on bounded sample inputs). Fails at its new path: tripling.py loads ../bridge_normal_form/normal_form.py (now ../elementary-bridge-quotient-normal-form/) by its pre-migration path. Passed at be73a66 as experiments/residual_progress/tripling_equivalence/check_tripling.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). tripling.py is also loaded by its old path by the later legacy experiments/residual_progress/w9_closure/, finite_centres/ and by experiments/phase6/stopping_calibration/check_calibration.py"
+  - "batch_436f51f_check.py, batch_436f51f_check.json: side-lane probe (Claude side lane, 2026-10-17) of R37, R38 (odd-h-pair-interface-compiler), R39 (coupled-even-pair-recursion) and negative controls on W. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/) and fibre_count_check from its own folder (now ../absorbed-fibre-uniform-counts/). Passed at be73a66 as reviews/side_lane/batch_436f51f_check.py (archive/legacy-checker-run-be73a66.md, exit 0). The main lane's reproduction of it, with three W5 control witnesses, is ../tripling-doubling-pair-decomposition/side_lane_review_1a2dfc5.json (kept there because check_pair_domain_external.py reads it)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: batch_436f51f_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 21:31, VERIFIED, main 436f51f; the R37 part): with the lane's own nu and Syracuse step, all 16,668 critical roots below 200,000 map back into W under the stated inverse (q/3 or (2q+1)/3), the inverse is always smaller than q, and nu(3w) = q recovers the root; all 16,668 images of W below 200,000 are critical and distinct. The entry also acknowledged that universal currents for P on W are equivalent to Collatz. The written equivalence and the plan termination were not re-derived; the status stays written"
+aliases: [R37]
+tags: [convergence, outer-residual, tripling-pairs, critical-domain, collatz-equivalent, conditional-plans]
+---
+
+# Tripling currents on the binary domain W = {5 mod 8} u {9 mod 16} biject onto the critical induction seeds and are already equivalent to Collatz convergence
+
+## Statement
+
+Odd-only clock on positive odd integers, `S(1) = 1` for path algebra, state 1 killed, `[x]` the killed point mass; `B`, `ν` and the elementary currents `N_x` (`div N_x = [x] − [ν(x)]`) from [`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md); `P(w) = [3w] − [w]` is a source, not a supplied current.
+
+1. **Critical seeds.** A noncanonical `x` reduces to `ν(x) < x`; a canonical `q ≡ 1 (mod 8)`, `q > 1`, has `S(q) < q`; a canonical `q ≡ 2 (mod 3)` has the smaller predecessor `(2q − 1)/3`. The only remaining least-counterexample seeds are `C = {q ∈ B : q ≡ 3 (mod 4), q ≢ 2 (mod 3)}`.
+2. **Bijection.** With `W = {w odd : w ≡ 5 (mod 8) or w ≡ 9 (mod 16)}`, `g(w) = ν(3w)` is a bijection `W → C`, `w < g(w)`, with inverse `q/3` (`q ≡ 0 mod 3`) or `(2q + 1)/3` (`q ≡ 1 mod 3`).
+3. **Equivalence.** These are equivalent: (i) every positive odd integer reaches 1; (ii) every `w ∈ W` has a finite integer current with divergence `P(w)`; (iii) every positive odd `w` has one. No uniform cost, height, clock or computability is assumed in (ii). Completing (ii) is therefore a full-strength convergence problem, not a helper lemma.
+4. **Conditional formal plans.** In the complete elementary identity graph with a formal edge `3w — w` for every odd `w`, a terminating normaliser connects every vertex, each row satisfying `v − 1 ≤ (2/3)(q − 1)`, so a plan requests at most logarithmically many pair inputs. A plan yields an actual current only once every missing pair input is supplied and checked; the bound concerns neither the cost of `J_w` nor the work to find it. This does not contradict the disconnected graph of [`tripling-doubling-pair-decomposition`](../tripling-doubling-pair-decomposition/README.md), which grants tripling only at `w ≡ 3 (mod 8)`.
+
+Neither universal pair existence nor convergence is proved; the identities use `3x+1` specifically. No novelty or formal verification is claimed.
+
+## Proof
+
+The legacy note "The exact critical domain for tripling-pair currents" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Written equivalence and conditional finite compiler; bounded
 checks.** Neither universal pair existence nor Collatz convergence is proved.
 No novelty or formal verification is claimed. This note uses only the proved
-[elementary normal form](../bridge_normal_form/BRIDGE_NORMAL_FORM.md) and
+[elementary normal form](../elementary-bridge-quotient-normal-form/README.md) and
 ordinary Syracuse arrows. It sharpens the scope discussion in
-[the general pair decomposition](../pair_scope/PAIR_SCOPE.md).
+[the general pair decomposition](../tripling-doubling-pair-decomposition/README.md).
 
 Write `S(x)=(3x+1)/2^v2(3x+1)` on positive odd integers, with S(1)=1 for
 path algebra. Kill state1 in measures and currents. For a finite integer
@@ -19,7 +69,7 @@ Here P(w) is a signed **source**, not an already supplied current. An exact
 pair current must have precisely that divergence. No synchronised merger
 clock is required by this note.
 
-## 1. Elementary components and the remaining induction seeds
+### 1. Elementary components and the remaining induction seeds
 
 Recall the canonical set B:
 
@@ -60,7 +110,7 @@ C={q in B: q=3 modulo4 and q is not2 modulo3}.          (1)
 This is a reduction of the possible least counterexample, not a claim that
 each earlier operation decreases on every unrestricted orbit.
 
-## 2. A bijection with two binary tripling domains
+### 2. A bijection with two binary tripling domains
 
 Define
 
@@ -98,7 +148,7 @@ integers, and both formulas in (3) give w<q. This proves the theorem.
 The apparent binary simplicity of W does not mean that its tripling
 currents are known. For instance its first inputs include5,9,13,21,25.
 
-## 3. Restricted universal tripling is already Collatz-equivalent
+### 3. Restricted universal tripling is already Collatz-equivalent
 
 The following statements are equivalent:
 
@@ -139,7 +189,7 @@ induction. Completing it is a full-strength convergence problem, not a proved
 helper lemma. Proved partial constructions on W can still be useful if they
 leave a smaller, explicitly described unresolved family.
 
-## 4. All tripling edges connect the complete elementary identity graph
+### 4. All tripling edges connect the complete elementary identity graph
 
 For a separate operation-set statement, form an undirected **formal** graph
 using all proved elementary identities and an added edge `3w--w` for every
@@ -190,7 +240,7 @@ is asserted here for the smaller graph generated by F and tripling alone.
 Nor does it contradict the earlier disconnected graph that grants tripling
 only at w=3 modulo8: the operation sets differ.
 
-## 5. Executable boundary checks and finite evidence
+### 5. Executable boundary checks and finite evidence
 
 `tripling.py` implements both decreasing plans. For each local step from x
 to v it returns an explicit elementary/ordinary current C and either no
@@ -231,3 +281,20 @@ construction certifies individual roots; it makes no simultaneous source
 capacity claim for an annular submeasure. Ordinary arrow identities and the
 elementary bridges specifically use3x+1; generalized odd maps are not
 automatically covered by this theorem.
+
+## Certificates
+
+- [`check_tripling_recompute.py`](check_tripling_recompute.py) (written at the B10 migration, about 1 s, standard library). With its own `S` and `ν` it checks, against [`tripling_audit.json`](tripling_audit.json): the bijection in both directions for every odd `w < 32768` in `W` (6144 images) and every critical `q < 32768` (2731 inverses), with the receipt's domain and inverse hashes; the 16,384 local steps (`div C = [x] − [v] − P(w)` exactly, `v < x`, the bound (5), critical requests in `W`) and their hash; the complete formal plans for odd `x < 2048` in both modes with the logarithmic bound and hash; and the 40 compiled examples (divergence exactly `[x]`), the 34 supplied pair inputs, the two stored final current tables (seeds 27 and 31) and the receipt hashes, and that a plan with absent or zero pair inputs is rejected.
+- The command in the legacy text names `experiments/residual_progress/tripling_equivalence/`.
+
+## Remarks
+
+- **Controls on `W`.** The generic statement that `w` and `3w` share a future fails on `W` for every control map (feed 2026-10-17 21:31; counts below 4000): `3x−1`, 336 cases (e.g. `w = 5`, cycle `{5, 7}`, against 15, trivial); `3x+13`, 285 (e.g. `w = 41` against 123, cycle at 259); `3x+61`, 57 (e.g. `w = 133` against 399, the 41-cycle). The main lane's checker [`check_pair_domain_external.py`](../tripling-doubling-pair-decomposition/check_pair_domain_external.py) re-verifies three such `W5` witnesses. Restricting the input domain therefore does not remove the need for specific `3x+1` arithmetic.
+- **Later checks.** The side lane later rebuilt the R37 planner as restated in R40 (feed 2026-10-17 21:53, probe `reviews/side_lane/batch_r40_r41_check.py`, migrated with R40): for all odd `x < 200000` it terminates, every request lies in `W5 ∪ W9` and strictly decreases, and `u ≤ (2x + 1)/3`. It is not yet recorded under `reviewed_by`.
+- **What uses it.** [`odd-h-pair-interface-compiler`](../odd-h-pair-interface-compiler/README.md) connects the odd-`h` interface to the critical roots; the later legacy rounds R40–R46 (`experiments/residual_progress/w9_closure/`, `critical_rank/`, not yet migrated) eliminate the `W9` half and rank the `W5` requests. The Collatz-equivalence agrees with the class-wise picture of [`class-wise-obligation-equivalence`](../class-wise-obligation-equivalence.md).
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/tripling_equivalence/TRIPLING_EQUIVALENCE.md` (legacy ID R37) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical, with the side-lane probe `reviews/side_lane/batch_436f51f_check.*`. The plan placed the main lane's reproduction receipt `side_lane_review_1a2dfc5.json` here; it is in [`tripling-doubling-pair-decomposition`](../tripling-doubling-pair-decomposition/README.md) because the checker there reads it. `check_tripling_recompute.py` was added at the migration. Legacy status: "written equivalence and explicit conditional compiler; finite checks".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `436f51f`. The batch's "independent model" proof and code reviews of R37–R39 (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents. The side lane's finite check is recorded under `reviewed_by`.

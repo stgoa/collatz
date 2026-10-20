@@ -286,21 +286,21 @@ The more recent side-feed work was reviewed at
 not an additional merged PR.
 
 The constructive pivot now has further results. The
-complete elementary normal form (legacy `experiments/residual_progress/bridge_normal_form/BRIDGE_NORMAL_FORM.md`, not yet migrated)
+complete elementary normal form ([`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md))
 gives a genuine quotient and exhausts what sibling and halving identities
 alone can do. The
-normalized run construction (legacy `experiments/residual_progress/complementary_bridge/RUN_BLOCK_BRIDGES.md`, not yet migrated)
+normalized run construction ([`complementary-run-bridges`](../complementary-run-bridges/README.md))
 certifies about55.2788% of the previous complementary leading mass, with
 uniform exact counting and full weights. It also gives explicit
 counterfamilies to the resulting height and two-label rank candidates.
 
 The new feed's proposed merger barrier is narrower than its synthesis
-suggests. The audit (legacy `experiments/residual_progress/cylinder_barrier/CYLINDER_RATES.md`, not yet migrated)
+suggests. The audit ([`prefix-rule-cylinder-rate-barrier`](../prefix-rule-cylinder-rate-barrier/README.md))
 proves equal exponential rates for the specified symbolic D/M/H rules,
 corrects a finite-bit H omission, and distinguishes those rates from
 constant-factor comparisons and actual growing-interval counts.
 The finite known-forward-set experiment does not exhaust available
-targets: the infinite known-set theorem (legacy `experiments/residual_progress/absorbed_fibers/ABSORBED_FIBERS.md`, not yet migrated)
+targets: the infinite known-set theorem ([`absorbed-fibre-uniform-counts`](../absorbed-fibre-uniform-counts/README.md))
 supplies N/4+O(log N) certifiable states in every bandX,2X), uniformly
 at arbitrary height X>=N. That count alone is not an orbit hitting proof.
 
@@ -322,7 +322,7 @@ probes were read but were not independently rerun in this batch.
 
 **Recommendation: pursue shrinking arithmetic comparisons with supplied
 smaller-seed paths.** The new
-[paired construction (legacy `experiments/residual_progress/second_return/SHRINKING_PAIRS.md`, not yet migrated)
+[paired construction](../shrinking-paired-return-recursion/README.md)
 reduces its parameter to less than one quarter on recursive branches,
 and gives exact smaller-seed mergers for infinite families at every
 recursive depth. Those families had unbounded normalized return height.
@@ -330,13 +330,13 @@ This is a concrete partial advance, while odd-h and other branches
 remain unresolved. It supplies no new global coverage or termination
 theorem.
 
-The complete supplied-path table (legacy `experiments/residual_progress/known_saturation/KNOWN_SATURATION.md`, not yet migrated)
+The complete supplied-path table ([`supplied-path-saturation-core`](../supplied-path-saturation-core/README.md))
 makes known history reusable without discarding larger known targets.
 Its finite examples were already in that history, which is explicitly
-recorded. The repeated bounded-run proof (legacy `experiments/residual_progress/bounded_run_cycles/BOUNDED_RUN_GROWTH.md`, not yet migrated)
+recorded. The repeated bounded-run proof ([`bounded-runs-exclude-finite-label-potentials`](../bounded-runs-exclude-finite-label-potentials/README.md))
 rules out finite-label, height-monotone strict progress on every return,
 so the next proof needs richer arithmetic or intermediate increases.
-The scope audit (legacy `experiments/residual_progress/merger_scope/MERGER_SCOPE.md`, not yet migrated)
+The scope audit ([`merger-catalogue-scope`](../merger-catalogue-scope/README.md))
 retains the valid fixed-rule rate statements and refutes the inference
 that high future climbers must cancel while high. These results support
 the focused constructive pivot; they do not justify abandoning finite
@@ -355,7 +355,7 @@ storage with both exact pinned dependencies and a 45-second process cap.
 The published receipt matches exactly: 10,922 paired-prefix cases, six
 repeated-word depths, four Mersenne comparisons, and three actual annular
 cancellation examples. Source hashes, dependency comparisons and outputs
-are in the reproduction receipt (legacy `experiments/residual_progress/side_lane_review_e3111d3.json`, not yet migrated).
+are in the reproduction receipt ([`side_lane_review_e3111d3.json`](../shrinking-paired-return-recursion/side_lane_review_e3111d3.json)).
 These are finite implementation checks; the infinite statements depend
 on their written proofs.
 

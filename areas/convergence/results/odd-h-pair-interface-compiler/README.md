@@ -1,4 +1,58 @@
-# A complete shrinking interface for high odd h, and the exact remaining domain
+---
+id: odd-h-pair-interface-compiler
+kind: result
+title: Every odd-h paired run has one exact tripling child, shrinking for h >= 7, and the missing odd-pair domain compiles finite inputs to exact absorption currents through a critical-seed bijection
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; P(w) = [3w] - [w], Q(z) = [6z+1] - [z]; B, nu of
+  elementary-bridge-quotient-normal-form. (Interface) For every odd z, with u = z if 3z is canonical and u = 4z+1
+  otherwise, an explicit current E_z has div E_z = Q(z) - P(u); for z != 3 mod 8 the child lies in W of
+  critical-tripling-domain-equivalence. For every w = 3 mod 8 with odd h = v2(3w-1) = 2k+3, an explicit L_w has
+  div L_w = P(w) - P(u) with a single child; the direct child is below w/2, the nondirect child is below 7w/8 when
+  h >= 7, and for h = 3, 5 nondirect children expand ((3w+1)/2, (9w+5)/8; infinite actual families), with parent
+  clock k+1+max(l, A). (Static scope) Under the whole static R35 catalogue, Q(z)'s endpoints are connected iff
+  z = 3 mod 8 (an operation-set statement). (Compiler) g(z) = nu(6z+1) is a bijection from the odd z != 3 mod 8
+  onto the critical roots, z <= g(z)/3; exact or one-sided Q currents for I_M = {z : g(z) <= M} compile to an exact
+  nonnegative U_M current using only supplied graph rows, and U_M supplies them conversely; the universal statement
+  is therefore Collatz-equivalent, and the finite compiler supplies none of its missing inputs. (Ternary scope)
+  Actual odd-h parameters range over exactly Zplus = {z : unit3(z) = 1}, whose critical images are the phases (12);
+  for x in the class (14) (R31's repeated word plus x = 10 mod 27), arbitrarily long growing actual weight-2 prefixes
+  avoid every descending covered-phase substitution, even after elementary normalization and decreasing
+  valuation-one inversion. This excludes a bounded test using those operations. It does not prove logical
+  insufficiency of universal Zplus currents or exclude full supplied-history closure.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [elementary-bridge-quotient-normal-form, bounded-runs-exclude-finite-label-potentials, mixed-shrinking-pair-rules, tripling-doubling-pair-decomposition, critical-tripling-domain-equivalence]
+certificates: [check_odd_interface_recompute.py]
+evidence:
+  - "check_odd_interface.py, odd_interface.py, odd_interface_audit.json, compiler128_inputs.json, compiler128_current.csv: the legacy interface, compiler and checker (8192 Q interfaces and static labels, 2731 odd-h reductions below 32768, 528 Zplus parameter cases through k = 32, 171 parent clocks, 14 expanding examples, 16 actual weight-2 ray witnesses through 128 repeated word pairs, compilations through M = 64, 128, 512 in exact and one-sided modes with a 2000-step cap on test-input discovery, the stored M = 128 inputs and U_128 current). Fails at its new path: odd_interface.py loads ../bridge_normal_form/normal_form.py (now ../elementary-bridge-quotient-normal-form/) and ../bounded_run_cycles/bounded_runs.py (now ../bounded-runs-exclude-finite-label-potentials/, which itself no longer runs) by their pre-migration paths. Passed at be73a66 as experiments/residual_progress/odd_pair_closure/check_odd_interface.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: ../critical-tripling-domain-equivalence/batch_436f51f_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 21:31, VERIFIED, main 436f51f; the R38 part): for all 100,000 odd z < 200000, nu(6z+1) = nu(3u) and nu(z) = nu(u), where u = z if 3z is canonical and u = 4z+1 otherwise, so Q(z) - P(u) is elementary. The entry also acknowledged that universal currents for P on W are equivalent to Collatz. The reduction, compiler and ternary-scope proofs were not re-derived; the status stays written"
+aliases: [R38]
+tags: [convergence, outer-residual, pair-recursion, tripling-pairs, critical-domain, compiler, collatz-equivalent, scope]
+---
+
+# Every odd-h paired run has one exact tripling child, shrinking for h >= 7, and the missing odd-pair domain compiles finite inputs to exact absorption currents through a critical-seed bijection
+
+## Statement
+
+Odd-only clock, absorbing at 1, `div = I − P`, `[x]` the killed point mass; `P(w) = [3w] − [w]`, `Q(z) = [6z + 1] − [z]`, `F(z) = 4z + 1`; `B`, `ν` from [`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md); `W` and the critical set `C_crit` from [`critical-tripling-domain-equivalence`](../critical-tripling-domain-equivalence/README.md).
+
+1. **Elementary child.** For odd `z`, let `u = z` if `3z` is canonical, `u = 4z + 1` otherwise. An explicit `E_z` has `div E_z = Q(z) − P(u)`; the child current is added. For `z ≢ 3 (mod 8)`, `u ∈ W`.
+2. **Complete odd-`h` reduction.** For `w ≡ 3 (mod 8)`, `h = v₂(3w − 1) = 2k + 3`, `z = 3^k (3w − 1)/2^h`, the prefixes of [`mixed-shrinking-pair-rules`](../mixed-shrinking-pair-rules/README.md) and (1) give `L_w` with `div L_w = P(w) − P(u)`, covering every odd `h` and every `z`. Decrease: direct `u = z < w/2`; nondirect `u = 4z + 1 < 7w/8` for `h ≥ 7`; for `h = 3` and `h = 5` nondirect children are `(3w + 1)/2 > w` and `(9w + 5)/8 > w` on the infinite families (6). Parent clock `k + 1 + max(ℓ, A)`.
+3. **Static scope.** Under every hypothetical `P(v)`, `v ≡ 3 (mod 8)`, plus all elementary identities (the catalogue of [`tripling-doubling-pair-decomposition`](../tripling-doubling-pair-decomposition/README.md)), `Q(z)`'s endpoints are connected iff `z ≡ 3 (mod 8)`. An operation-set statement, not a nonconvergence theorem.
+4. **Critical bijection and finite compiler.** `g(z) = ν(6z + 1)` (`= 3z` or `6z + 1`) is a bijection from odd `z ≢ 3 (mod 8)` onto `C_crit`, with `z ≤ g(z)/3`. For `I_M = {z : g(z) ≤ M}`, supplied exact or one-sided (`ρ_z ≤ 0`) `Q` currents compile, by strong induction and finite graph extraction, to an exact nonnegative `U_M` current using only supplied rows; conversely `U_M` supplies exact `Q` inputs for `I_M`. The universal statement is therefore Collatz-equivalent, and the finite compiler supplies none of its missing inputs.
+5. **Ternary scope.** Actual odd-`h` parameters range over exactly `Z₊ = {z : unit₃(z) = 1}`; their critical images are the phases (12), and the complementary phases (13) cannot be silently supplied by that restriction. For `x` in the class (14) (the repeated word of [`bounded-runs-exclude-finite-label-potentials`](../bounded-runs-exclude-finite-label-potentials/README.md) with `x ≡ 10 mod 27`), arbitrarily long growing actual weight-2 prefixes on the required rays avoid every descending covered-phase substitution, even after elementary normalization and decreasing valuation-one inversion. This excludes a bounded test using those operations. It does not prove logical insufficiency of universal `Z₊` currents or exclude full supplied-history closure (e.g. 31 is an omitted critical phase reached from 27).
+
+This is not a universal pair constructor or a proof of Collatz. No novelty or human or formal verification is claimed.
+
+## Proof
+
+The legacy note "A complete shrinking interface for high odd h, and the exact remaining domain" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Written arithmetic interface, finite conditional compiler,
 and scoped obstruction.** Every odd-h paired run now has one exact tripling
@@ -17,13 +71,13 @@ F(z)=4z+1.
 ```
 
 The elementary canonical set B and normal form nu are those of
-[R25](../bridge_normal_form/BRIDGE_NORMAL_FORM.md). All currents below are
+[R25](../elementary-bridge-quotient-normal-form/README.md). All currents below are
 finite signed integer currents. A bridge does not assume absorption of its
-endpoints. The [R33 rule](../paired_completion/MIXED_SHRINKING_RULES.md)
+endpoints. The [R33 rule](../mixed-shrinking-pair-rules/README.md)
 already handles the special odd-h residue z=3 modulo8. The present result
 gives the complete interface, including its failures of decrease.
 
-## 1. Every Q pair has one elementary tripling child
+### 1. Every Q pair has one elementary tripling child
 
 For every positive odd z define
 
@@ -67,10 +121,10 @@ W={u=5 modulo8} union {u=9 modulo16}.                 (3)
 Indeed a direct child has3z complementary canonical; then z=1 modulo4,
 and its1-mod8 case must be9 modulo16. A nondirect child is always5
 modulo8. For z=3 modulo8 the direct child is z itself. The separate
-[tripling-domain theorem](../tripling_equivalence/TRIPLING_EQUIVALENCE.md)
+[tripling-domain theorem](../critical-tripling-domain-equivalence/README.md)
 classifies W; (2) does not assume any of its unproved universal currents.
 
-## 2. Complete actual odd-h reduction and its exact decrease threshold
+### 2. Complete actual odd-h reduction and its exact decrease threshold
 
 Let w>0, w=3 modulo8, and
 
@@ -143,7 +197,7 @@ ell_parent=k+1+max(ell,A).                           (7)
 The maximum cannot be omitted for general residues. Finite signed-current
 composition (4) itself does not require a merger clock or future search.
 
-## 3. What the static catalogue can and cannot do
+### 3. What the static catalogue can and cannot do
 
 Grant the entire formal R35 catalogue: all elementary identities and
 every hypothetical P(v) for v=3 modulo8, in both directions. It includes
@@ -168,7 +222,7 @@ chi(z)<=z. Thus no additional missing residue can be closed by that
 whole static catalogue, even using larger intermediate vertices.
 This is an operation-set statement, not a nonconvergence theorem.
 
-## 4. A complete critical-seed bijection and finite input compiler
+### 4. A complete critical-seed bijection and finite input compiler
 
 Define the critical set
 
@@ -235,7 +289,7 @@ compiler proves no method for supplying its Q inputs. Its finite input
 list is exact for this stated induction, not a claim that every input is
 logically indispensable under all possible additional arguments.
 
-## 5. The actual odd-h restriction covers a specified ternary half
+### 5. The actual odd-h restriction covers a specified ternary half
 
 Put
 
@@ -282,7 +336,7 @@ its seeds are unabsorbed: for example31 is an omitted critical phase but
 is reached from27, a covered critical phase. Full supplied-history reuse
 can certify it. The following result scopes a bounded phase-driven test.
 
-## 6. Arbitrarily long growing returns avoid the covered phase
+### 6. Arbitrarily long growing returns avoid the covered phase
 
 For every r>=1 let
 
@@ -338,7 +392,7 @@ known-history saturation, an upward inverse excursion, cross-pair currents,
 other branches, or a construction whose depth depends on the seed. It
 does not prove logical insufficiency of universal Zplus certificates.
 
-## 7. Reproduction and next obligation
+### 7. Reproduction and next obligation
 
 ```
 python3 experiments/residual_progress/odd_pair_closure/check_odd_interface.py
@@ -364,3 +418,20 @@ The next constructive target is the W-domain child currents needed by the
 complete high-h interface, together with the low-h expanding interfaces.
 The critical bijections locate the remaining inputs exactly. They provide
 neither those currents nor a universally decreasing recursion on them.
+
+## Certificates
+
+- [`check_odd_interface_recompute.py`](check_odd_interface_recompute.py) (written at the B10 migration, about 1 s, standard library). With its own `S` and `ν` it checks, against [`odd_interface_audit.json`](odd_interface_audit.json), [`compiler128_inputs.json`](compiler128_inputs.json) and [`compiler128_current.csv`](compiler128_current.csv): interface (2) and the static-label scope for every odd `z < 16384`, with the critical bijection and phase (12); the 5461 critical targets below 65536; the 528 `Z₊` parameter cases; every odd-`h` reduction below 32768 with the decrease bounds, the 171 parent clocks and the 14 expanding examples; the compiler index sets and exact inputs for `M = 64, 128, 512` and the stored `M = 128` inputs; the stored `U_128` current (positive, divergence exactly the sum of `[x]` over odd `3 ≤ x ≤ 127`, rows and hash); and the four stored delayed-ray seeds for `r = 1, 2`; all receipt hashes match. It does not rebuild the one-sided compilations or the delayed rays with `r ≥ 4` (legacy checker, evidence only).
+- The command in the legacy text names `experiments/residual_progress/odd_pair_closure/`.
+
+## Remarks
+
+- **Next target.** The `W`-domain child currents needed by the high-`h` interface and the low-`h` expanding interfaces. The later legacy rounds R40–R46 (`experiments/residual_progress/w9_closure/`, `critical_rank/`, not yet migrated) pursue them.
+- **Controls.** Universal `Q` or `P` certificates are Collatz-equivalent; the generic merger statements they replace fail on the `3x+d` control maps ([`critical-tripling-domain-equivalence`](../critical-tripling-domain-equivalence/README.md), Remarks).
+- **Related.** The legacy R24-b audit [`ansari-sieve-step-counterexample`](../ansari-sieve-step-counterexample/README.md) notes that these reductions have their own explicit currents and input dependencies.
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/odd_pair_closure/ODD_PAIR_INTERFACE.md` (legacy ID R38) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts, receipt and stored compiler data moved byte-identical; `check_odd_interface_recompute.py` was added at the migration. Legacy status: "written complete arithmetic interface, conditional compiler and scoped obstruction; finite checks".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `436f51f`. The batch's "independent model" proof and code reviews of R37–R39 (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents. The side lane's finite check is recorded under `reviewed_by`.

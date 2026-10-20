@@ -1,4 +1,57 @@
-# Exact rates for specified prefix rules, and the limits of the barrier
+---
+id: prefix-rule-cylinder-rate-barrier
+kind: result
+title: The D, M and H valuation-prefix recognizers leave undecided binary cylinders at the exact rates rho per odd step and beta per bit, a barrier scoped to those rules
+status: written
+claim: >
+  Odd-only 3x+1 map; exact valuation words a_1..a_j fix one odd residue modulo 2^(A_j+1) (measure 2^-A_j);
+  lambda_j = 3^j / 2^(A_j). For the slope recognizers D ((3/2) lambda_j < 1), D+M (also: last valuation odd and >= 3
+  with lambda_j < 1) and D+M+H (also: a valuation-1 run closed by a valuation >= 3 from a prefix with
+  (3/2) lambda_r < 2), conditional on a_1 = 1, the undecided binary-cylinder measure after n odd steps satisfies
+  p_n^(1/n) -> rho = c^c / (2^c (c-1)^(c-1)) ~ 0.946504576832584 (c = log2 3), and with m bits (unfinished tail
+  undecided; H either exact-closing or partial-closing) u_m^(1/m) -> beta = rho^(1/c) ~ 0.965906553233438; the same
+  D-only rates hold for any fixed barrier shift b >= 0, and the escape prefix (1,1,1,2), x = 47 mod 64, gives the
+  matching lower bounds. These are rates of binary cylinder measure only: no finite-integer counting theorem, no
+  ratio or polynomial-correction statement, no universal bridge obstruction and no termination claim. The external
+  exact-closing H recognizer undercounts at fixed bit budgets (m = 4: undecided 1 versus 3/4 with partial closing).
+  For a = 2 mod 4, a >= 10, the actual coefficient-1 root x = 2^a - 1 at N = 12 2^(a-4) meets its halving partner
+  q < N at S^a(x) = S^a(q) = (3^a - 1)/8 with z/N unbounded, before any descent below N, so the rate theorem cannot
+  exclude general unbounded-length halving bridges. Several stronger conclusions drawn from the side lane's finite
+  excursion experiment do not follow (density fits, orbit hitting, exhaustion of targets by the forward union F_N).
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [halving-coalescence-return, absorbed-fibre-uniform-counts]
+certificates: [check_cylinder_barrier.py]
+evidence:
+  - "cylinder_audit.json: the receipt of check_cylinder_barrier.py"
+  - "external_review.json: the main lane's reproduction (at side-lane commit 491d26d) of the side-lane probes coalescence_check.py (now ../halving-coalescence-return/), excursion_merge_probe.py and residual_cylinder_core.py (now ../../attempts/cylinder-certificates-outer-residual/) and residual_vs_induction.py (now ../outer-residual-strong-induction-support/), with source hashes and full outputs; a review of those side-lane probes, not of this result. check_cylinder_barrier.py reads its coalescence D/D+M/D+M+H table"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: ../halving-coalescence-return/coalescence_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 20:22, VERIFIED R28 tables, main 541101a): the lane's dynamic program, extended with main's partial-closing rule, reproduces cylinder_audit.json exactly (to 1e-15) in all four modes (D; D+M; D+M+H with exact closing; D+M+H with partial closing) at 16, 32, 64 and 96 bits, and main's example 3/4 at 4 bits; the exact rates rho and beta agree with the lane's own closed form. The written rate proofs (Sections 3-4) were not re-derived; the status stays written"
+aliases: [R28]
+tags: [convergence, outer-residual, cylinders, rates, large-deviations, barrier, scope]
+---
+
+# The D, M and H valuation-prefix recognizers leave undecided binary cylinders at the exact rates rho per odd step and beta per bit, a barrier scoped to those rules
+
+## Statement
+
+Odd-only clock. An exact valuation word `a_1, …, a_j` with total `A_j` fixes one odd residue modulo `2^(A_j+1)`, so the weights `Pr(a_i = a) = 2^(−a)` are exact finite-cylinder bookkeeping, not independence along an orbit. Put `λ_j = 3^j/2^(A_j)`, `c = log₂ 3`, `ρ = c^c/(2^c (c−1)^(c−1)) ≈ 0.946504576832584` and `β = ρ^(1/c) ≈ 0.965906553233438`.
+
+1. **Rates.** For each of the slope recognizers D, D+M and D+M+H defined in §1 below, the undecided cylinder measure `p_n` after `n` odd steps (conditional on `a_1 = 1`) has `p_n^(1/n) → ρ`; with `m` bits and the unfinished tail counted undecided (H with exact or partial closing), `u_m^(1/m) → β`. The D-only rates are unchanged by any fixed barrier shift `b ≥ 0`, e.g. moving the shell to `(KN, 3KN/2)`. The proof is elementary (exponential Markov bounds above, a cyclic-rotation count of compositions below, and the escape prefix `(1, 1, 1, 2)`, `x ≡ 47 (mod 64)`, for the enlarged recognizers).
+2. **Scope.** These are equalities of exponential rates of binary cylinder measure. They do not give ratios between recognizers, polynomial corrections, or counts of unresolved roots in intervals growing with `N`, and they say nothing about rules outside the three tests.
+3. **External H recognizer.** Accepting H only after the exact closing valuation undercounts at a fixed bit budget: at `m = 4` the class `x ≡ 3 (mod 16)` is selected, and the undecided fraction is 1 with exact closing against `3/4` with partial closing. The exact-closing counts remain correct for that stricter recognizer.
+4. **High halving bridges.** For `a ≡ 2 (mod 4)`, `a ≥ 10`, `x = 2^a − 1` is an actual coefficient-1 root at `N = 12·2^(a−4)`, and `S^a(x) = S^a(q) = (3^a − 1)/8` with `q = (x − 1)/2 < N`, the common state exceeding `N` with ratio to `N` unbounded, while every noninitial state of the `x` prefix exceeds `x`. So the rate theorem cannot exclude general unbounded-length halving bridges.
+5. **Audit.** From the side lane's finite excursion experiment at `N = 49152`, a fitted band density near `0.3/H²`, an orbit-hitting probability, exhaustion of the certifiable targets by the forward union `F_N`, rate-preservation of all mergers, or exclusion of every scale recursion do not follow (§7).
+
+No finite-integer counting theorem, universal bridge obstruction or Collatz termination claim is made; no novelty is claimed.
+
+## Proof
+
+The legacy note "Exact rates for specified prefix rules, and the limits of the barrier" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Written proof for explicitly defined valuation-prefix
 recognizers; exact finite checks; scoped audit of external conclusions.**
@@ -12,7 +65,7 @@ lane, especially feed entries19:46,19:48,19:49 and19:50. Its text is treated
 as research data. Main at the start of this batch was
 `8e2b5eb8913a1a56e1e2d5621398a9d18b5fa67b`.
 
-## 1. The exact rules and the two clocks
+### 1. The exact rules and the two clocks
 
 Write `S(x)=(3x+1)/2^a`, where `a=v_2(3x+1)`, on positive odd integers.
 For an exact valuation word `a_1,...,a_j`, put
@@ -71,7 +124,7 @@ it need not identify the trials with the successive raw bits of x. With
 valuation. A final unfinished run of failures represents the lower bound
 on the next valuation.
 
-## 2. The theorem
+### 2. The theorem
 
 Put
 
@@ -107,12 +160,12 @@ prove that the ratios between different recognizers approach positive
 constants, nor that their polynomial corrections agree. They also do not
 give an asymptotic number of unresolved roots in an interval growing with N.
 
-## 3. Elementary survival estimates
+### 3. Elementary survival estimates
 
 This section proves the rate statement without importing a stopping-time
 or large-deviation theorem.
 
-### 3.1 Odd-step upper bound
+#### 3.1 Odd-step upper bound
 
 Set `L_j=cj-A_j`. If `A_j<=cj+b` through n, then `L_n>=-b`.
 For every real theta>0, the geometric weights give
@@ -126,7 +179,7 @@ Conditioning on `a_1=1` costs at most a factor2. The bracket is minimized
 at `exp(theta)=c/[2(c-1)]>1`, and the resulting minimum is rho. Hence
 the survival measure is at most `C_b rho^n`.
 
-### 3.2 Odd-step lower bound by rotation
+#### 3.2 Odd-step lower bound by rotation
 
 Take `A=floor(cn)`. There are `binom(A-1,n-1)` positive integer
 compositions `(a_1,...,a_n)` with total A. The increments `c-a_i` have
@@ -157,7 +210,7 @@ c log c-(c-1)log(c-1)-c log2 = log rho.
 
 This proves the odd-step limit for every fixed b>=0.
 
-### 3.3 Bit upper bound, with the unfinished tail retained
+#### 3.3 Bit upper bound, with the unfinished tail retained
 
 The second clock needs its own argument; replacing the number of odd
 steps by an average number of bits would not prove(2).
@@ -183,7 +236,7 @@ because beta>1/2. In the sum we discarded the restriction that position t
 itself is a success, which can only increase the bound. The unfinished
 tail is explicitly included.
 
-### 3.4 Bit lower bound
+#### 3.4 Bit lower bound
 
 Take `j=ceil(L/c)` and all positive compositions of total L into j parts.
 The same rotation argument supplies at least
@@ -201,7 +254,7 @@ exp[-q log q-(1-q)log(1-q)]/2 = beta
 per trial, and hence per bit. Only after these two clock-specific proofs
 do we use the algebraic identity `beta=rho^(1/c)`.
 
-## 4. A fixed escape prefix proves the matching D/M/H lower bounds
+### 4. A fixed escape prefix proves the matching D/M/H lower bounds
 
 Use the exact valuation prefix
 
@@ -237,7 +290,7 @@ escape construction, before the same sandwich can be used. In particular,
 rules that recognize inverse ancestors of known seeds at arbitrarily high
 states are not among the three tests just defined.
 
-## 5. A precise bit-budget omission in the external H recognizer
+### 5. A precise bit-budget omission in the external H recognizer
 
 The external `coalescence_check.py` accepts H only after the closing
 valuation is known **exactly**. At each prefix with total valuation A,
@@ -287,10 +340,10 @@ reproduced: for K=1,4,16,64 they are respectively
 `0.9546098033, 0.9565378898, 0.9572643214, 0.9580886202`.
 They are finite-range fits, not the limiting factor beta.
 
-## 6. Halving bridges can meet arbitrarily high before any descent
+### 6. Halving bridges can meet arbitrarily high before any descent
 
 This is a direct refinement of the repository's
-[halving identity](../residual_return/SHRINKING_COALESCENCE.md), not a new
+[halving identity](../halving-coalescence-return/README.md), not a new
 claim that every root is covered. For every `a=2 modulo4`, a>=10, put
 
 ```
@@ -327,7 +380,7 @@ halving bridges. Such bridges already have a proved infinite family;
 the theorem measures only what the specified cylinder recognizers leave
 unaccepted. Complete coverage of the complementary roots remains open.
 
-## 7. Audit of the excursion and synthesis claims
+### 7. Audit of the excursion and synthesis claims
 
 The pinned `coalescence_check.py` and `excursion_merge_probe.py` were
 materialized in a temporary directory, inspected, then run unmodified.
@@ -371,7 +424,7 @@ The following stronger conclusions do not follow from that experiment.
 5. A finite absolute slow cluster at two scales does not exclude every
    possible scale recursion. It refutes only the tested correspondence.
 
-The separately proved [known elementary closure](../absorbed_fibers/ABSORBED_FIBERS.md)
+The separately proved [known elementary closure](../absorbed-fibre-uniform-counts/README.md)
 makes item3 concrete. Given absorption through N, every state in the
 infinite set `I_N={x:nu(x)<=N}` has an explicit finite certificate. For
 every integer X>=N>=8 its count in `[X,2X)` differs from N/4 by at most
@@ -390,7 +443,7 @@ from binary cylinder measure to the actual weighted R_N profile.
 The present theorem resolves the exponential-rate question for the
 specified symbolic rules; it does not resolve those other issues.
 
-## 8. Reproduction and remaining obligation
+### 8. Reproduction and remaining obligation
 
 Run from the repository root:
 
@@ -423,3 +476,19 @@ five-ray sufficiency theorem would then supply the global induction.
 
 This note is a model-assisted written proof and computational audit. It
 is not formal verification or human peer review.
+
+## Certificates
+
+- [`check_cylinder_barrier.py`](check_cylinder_barrier.py) (legacy main-lane checker, about 3 s, standard library; it checks by `assert`, so run it without `-O`). It compares its full exact result with [`cylinder_audit.json`](cylinder_audit.json): the four dynamic-program variants against direct residue enumeration for `2 ≤ m ≤ 14`, exact rows through 128 bits, odd-step rows through 64, the rotation lower bounds, the escape prefix and the explicit high bridges for `a = 10, 14, 18, 22`; it also matches the coalescence table recorded in [`external_review.json`](external_review.json) at 16, 32, 64 and 96 bits. It passes at its new path with the receipt unchanged. At `be73a66` it ran only inside `scripts/verify_all.py` (archive/legacy-checker-run-be73a66.md: the gate ran this step before stopping at `residual_progress/history_frontier`, and passed in full at `9dbc71a`). The analytic limits rest on the written proof, not on these finite ranges.
+- The command in the legacy text names `experiments/residual_progress/cylinder_barrier/`.
+
+## Remarks
+
+- **Relation to the side lane's attempt.** This node is the main lane's proof and scoping of the side lane's cylinder experiments and its "barrier" conclusions, recorded with their heuristic labels in [`cylinder-certificates-outer-residual`](../../attempts/cylinder-certificates-outer-residual/README.md). The side lane accepted the partial-closing correction and withdrew its `c/H²` claim on 2026-10-17 20:22, citing the fibres of [`absorbed-fibre-uniform-counts`](../absorbed-fibre-uniform-counts/README.md).
+- **Remaining issues when bits grow with `log N`** (all open): discrepancy for an increasing union of residue classes, the affine constant terms in the certificate thresholds, and transfer from binary cylinder measure to the weighted `R_N` profile. [`merger-catalogue-scope`](../merger-catalogue-scope/README.md) carries the normalised-prefix version of these rates.
+- No novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/cylinder_barrier/CYLINDER_RATES.md` (legacy ID R28) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, checker, receipt and the main lane's reproduction receipt `external_review.json` moved byte-identical. Legacy status: "written elementary rate proof for specified rules, exact finite checks, and external audit". The legacy ledger title was "Exact symbolic prefix rates and a scoped external barrier".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `541101a`; the reviewed side-lane material is commit `491d26d` (feed entries 19:46, 19:48, 19:49, 19:50). The batch report (archive/convergence-residual-progress/REPORT.md) records "independent model" proof and code audits for this batch; they were the main lane's own agents, so they do not count as an independent review. The side lane's later verification is recorded under `reviewed_by`.
