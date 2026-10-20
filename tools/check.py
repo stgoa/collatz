@@ -14,6 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_map  # noqa: E402
+import check_lean_receipts  # noqa: E402
 import nodes  # noqa: E402
 import schema as S  # noqa: E402
 
@@ -267,6 +268,8 @@ def main(argv):
     check_nodes(g, errors, warnings)
     check_references(g, errors, warnings)
     check_lean(errors)
+    if (ROOT / "lean" / "receipts").is_dir() and check_lean_receipts.main() != 0:
+        errors.append("Lean receipts do not match the sources: see the output of tools/check_lean_receipts.py above")
     check_links(errors)
     check_root(errors)
     if not errors:

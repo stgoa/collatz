@@ -10,28 +10,28 @@ Batches run in order, one commit each. The batch letter in the first column says
 | Batch | Legacy unit | Files | Fate |
 |---|---|---|---|
 | B01-sources | `docs/LITERATURE.md` | 1 | pending |
-| B02-lean | `lean/audit` | 18 | pending |
-| B02-lean | `lean/CycleSpectrum.lean` | 1 | pending |
-| B02-lean | `lean/Dichotomy.lean` | 1 | pending |
-| B02-lean | `lean/GeneralPeriodic.lean` | 1 | pending |
-| B02-lean | `lean/KernelClosure.lean` | 1 | pending |
+| B02-lean | `lean/audit` | 18 | restored to `lean/audit` |
+| B02-lean | `lean/CycleSpectrum.lean` | 1 | restored to `lean/CycleSpectrum.lean` |
+| B02-lean | `lean/Dichotomy.lean` | 1 | restored to `lean/Dichotomy.lean` |
+| B02-lean | `lean/GeneralPeriodic.lean` | 1 | restored to `lean/GeneralPeriodic.lean` |
+| B02-lean | `lean/KernelClosure.lean` | 1 | restored to `lean/KernelClosure.lean` |
 | B16-leftovers | `lean/LOG.md` | 1 | pending |
-| B02-lean | `lean/OddEventuallyPeriodic.lean` | 1 | pending |
-| B02-lean | `lean/PairObligation.lean` | 1 | pending |
-| B02-lean | `lean/PeriodicRigidity.lean` | 1 | pending |
-| B02-lean | `lean/QuadraticSeparation.lean` | 1 | pending |
-| B02-lean | `lean/README.md` | 1 | pending |
-| B02-lean | `lean/ReverseClosure_Assembly.lean` | 1 | pending |
-| B02-lean | `lean/ReverseClosure_Final.lean` | 1 | pending |
+| B02-lean | `lean/OddEventuallyPeriodic.lean` | 1 | restored to `lean/OddEventuallyPeriodic.lean` |
+| B02-lean | `lean/PairObligation.lean` | 1 | restored to `lean/PairObligation.lean` |
+| B02-lean | `lean/PeriodicRigidity.lean` | 1 | restored to `lean/PeriodicRigidity.lean` |
+| B02-lean | `lean/QuadraticSeparation.lean` | 1 | restored to `lean/QuadraticSeparation.lean` |
+| B02-lean | `lean/README.md` | 1 | restored to `lean/README.md` |
+| B02-lean | `lean/ReverseClosure_Assembly.lean` | 1 | restored to `lean/ReverseClosure_Assembly.lean` |
+| B02-lean | `lean/ReverseClosure_Final.lean` | 1 | restored to `lean/ReverseClosure_Final.lean` |
 | B16-leftovers | `lean/STATE.md` | 1 | pending |
-| B02-lean | `lean/ScalarInterface.lean` | 1 | pending |
-| B02-lean | `lean/V004_Assembly.lean` | 1 | pending |
-| B02-lean | `lean/V004_Final.lean` | 1 | pending |
-| B02-lean | `lean/build_assembly.sh` | 1 | pending |
-| B02-lean | `lean/build_reverse_assembly.sh` | 1 | pending |
-| B02-lean | `lean/lakefile.toml` | 1 | pending |
-| B02-lean | `lean/lean-toolchain` | 1 | pending |
-| B02-lean | `lean/receipts` | 35 | pending |
+| B02-lean | `lean/ScalarInterface.lean` | 1 | restored to `lean/ScalarInterface.lean` |
+| B02-lean | `lean/V004_Assembly.lean` | 1 | restored to `lean/V004_Assembly.lean` |
+| B02-lean | `lean/V004_Final.lean` | 1 | restored to `lean/V004_Final.lean` |
+| B02-lean | `lean/build_assembly.sh` | 1 | restored to `lean/build_assembly.sh` |
+| B02-lean | `lean/build_reverse_assembly.sh` | 1 | restored to `lean/build_reverse_assembly.sh` |
+| B02-lean | `lean/lakefile.toml` | 1 | restored to `lean/lakefile.toml` |
+| B02-lean | `lean/lean-toolchain` | 1 | restored to `lean/lean-toolchain` |
+| B02-lean | `lean/receipts` | 35 | restored to `lean/receipts` |
 | B03-cycles-C001-C007 | `experiments/cycle_spectrum/C001` | 12 | pending |
 | B03-cycles-C001-C007 | `experiments/cycle_spectrum/C002` | 10 | pending |
 | B03-cycles-C001-C007 | `experiments/cycle_spectrum/C003` | 10 | pending |

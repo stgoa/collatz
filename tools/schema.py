@@ -49,8 +49,8 @@ ID_MAX = 64
 ALIAS_RE = r"^[A-Za-z0-9][A-Za-z0-9._-]*$"
 DATE_RE = r"^\d{4}-\d{2}-\d{2}$"
 
-# Lean hygiene: forbidden tokens in lean/**/*.lean (comments included, to keep the rule simple).
+# Lean hygiene: forbidden tokens in lean/**/*.lean, matched after comments are stripped (tools/check.py).
 LEAN_FORBIDDEN = (
-    r"\bsorry\b", r"\badmit\b", r"^\s*axiom\b", r"\bnative_decide\b", r"\bimplemented_by\b",
+    r"\bsorry\b", r"\badmit\b", r"^\s*(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+|noncomputable\s+)*axiom\b", r"\bnative_decide\b", r"\bimplemented_by\b",
     r"@\[extern", r"\bunsafe\b", r"\bopaque\b",
 )
