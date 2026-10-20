@@ -12,7 +12,7 @@ claim: >
 authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-19
-depends_on: [narrow-cycles-are-mechanical]
+depends_on: [narrow-cycles-are-mechanical, mechanical-word-exact-denominator]
 evidence:
   - "../narrow-cycles-are-mechanical/ROTATION_LATTICE.md, section 3 'Exact narrow-cycle spectrum': the written proof"
   - "../narrow-cycles-are-mechanical/c004_narrow_check.py, part (2): side-lane comparison with the corpus"
@@ -39,13 +39,13 @@ The statement classifies this narrow subfamily; it does not enumerate all soluti
 
 ## Proof
 
-From [`narrow-cycles-are-mechanical`](narrow-cycles-are-mechanical/README.md): a primitive narrow cycle with `m > 1` has a mechanical word with `gcd(A, m) = 1` and reduced denominator exactly `D`, so it is an integer `3x+d` cycle after scaling exactly when `D | d`. Conversely, R71 gives `g = 1`, the phase words are distinct rotations when `m > 1`, and the scale `d/D` is odd. Written proof: [`ROTATION_LATTICE.md`](narrow-cycles-are-mechanical/ROTATION_LATTICE.md) §3, "Exact narrow-cycle spectrum".
+From [`narrow-cycles-are-mechanical`](narrow-cycles-are-mechanical/README.md): a primitive narrow cycle with `m > 1` has a mechanical word with `gcd(A, m) = 1` and reduced denominator exactly `D`, so it is an integer `3x+d` cycle after scaling exactly when `D | d`. Conversely, R71 ([`mechanical-word-exact-denominator`](mechanical-word-exact-denominator/README.md)) gives `g = 1`, the phase words are distinct rotations when `m > 1`, and the scale `d/D` is odd. Written proof: [`ROTATION_LATTICE.md`](narrow-cycles-are-mechanical/ROTATION_LATTICE.md) §3, "Exact narrow-cycle spectrum".
 
 ## Remarks
 
 - **Controls.** At `d = 5`, `(A, m) = (5, 3)` gives the cycle `(23, 37, 29)`; at `d = 13`, `(8, 5)` gives `319, 367, 421, 485, 557`. The actual corpus contains 105 source instances of narrow nontrivial cycles representing 11 normalised cycles, all mechanical with coprime totals and `g = 1` ([`narrow-cycles-are-mechanical`](narrow-cycles-are-mechanical/README.md), Certificates).
 - **Not formalised.** The side lane's VERIFIED entries list the narrow spectrum law as not yet formal; the classification and `g = 1` it rests on are formal.
-- R71 (legacy `experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md`) is not yet migrated, so it is not listed under `depends_on`.
+- R71 is [`mechanical-word-exact-denominator`](mechanical-word-exact-denominator/README.md) (legacy `BALANCED_DENOMINATORS.md`); linked at the B12 migration.
 
 ## History
 

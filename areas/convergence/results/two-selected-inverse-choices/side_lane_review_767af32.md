@@ -63,7 +63,7 @@ The present batch supplies concrete structure for that task:
   for a maximal inverse-cycle word and its maximal valuation1 continuation.
   These words can cross arbitrary prescribed forward-growth depth on
   complete families.
-- R61 (`experiments/residual_progress/exit_continuation/ELEVEN_EXIT_CONTINUATION.md`) proves that one
+- [R61](../exponent-eleven-exit-continuation/README.md) proves that one
   natural continuation procedure returns the identical unfinished current
   on full families. Its limitation concerns that procedure and the old
   twelve rules; other comparisons remain available.

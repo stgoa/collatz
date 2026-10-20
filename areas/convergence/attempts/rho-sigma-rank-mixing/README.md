@@ -69,7 +69,7 @@ It does not fail by a counterexample; it stalls. The surveyed graphs have no cyc
 ## What survives
 
 - The two separately valid inductions: [`low-block-continuation-prescribed-growth`](../../results/low-block-continuation-prescribed-growth/README.md) (the `ρ` dispatcher, later [`twelve-family-rho-dispatcher`](../../results/twelve-family-rho-dispatcher/README.md)) and [`sigma-rank-removes-absorption-overhead`](../../results/sigma-rank-removes-absorption-overhead/README.md).
-- The exact compatibility criterion between them is the later legacy R62 (`experiments/residual_progress/defect_resolution/`, not yet migrated): a `σ`-valid plan at a returning parent is `ρ`-valid, and at a nonreturning parent the nondecreasing-`ρ` requests are exactly the returning `u` in an explicit window.
+- The exact compatibility criterion between them is the later R62 ([`absorption-defect-original-rank-resolution`](../../results/absorption-defect-original-rank-resolution/README.md)): a `σ`-valid plan at a returning parent is `ρ`-valid, and at a nonreturning parent the nondecreasing-`ρ` requests are exactly the returning `u` in an explicit window.
 - The main lane's chosen direction after this survey: new complete arithmetic domains ([`selected-critical-five-forward-tables`](../../results/selected-critical-five-forward-tables/README.md), [`two-selected-inverse-choices`](../../results/two-selected-inverse-choices/README.md)).
 
 ## History

@@ -13,7 +13,7 @@ claim: >
 authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-19
-depends_on: [equal-total-two-block-exclusion, proportional-slope-two-block-bound]
+depends_on: [equal-total-two-block-exclusion, proportional-slope-two-block-bound, mechanical-cycles-high-rational-controls]
 evidence:
   - "../equal-total-two-block-exclusion/PROPORTIONAL.md, section 4: the written proof"
   - "../equal-total-two-block-exclusion/two_blocks_audit.json: 590 rotating-mechanical examples, including block lengths 256 and 512 (historical receipt)"
@@ -50,7 +50,7 @@ Both counts and the rational minimum grow without bound with `m`, with `k, ℓ` 
 
 Written proof: `PROPORTIONAL.md` §4 in [`equal-total-two-block-exclusion`](equal-total-two-block-exclusion/README.md) ([file](equal-total-two-block-exclusion/PROPORTIONAL.md)). Outline:
 
-- R71 gives every state of either pure cycle above `m/6`. With `x_u = C_u/Δ`, `x_v = C_v/Δ` and first letter `a_0 = 1`, `x_v = (3x_u + 1)/2`, so `x_u < x_v < 2x_u` and `x_u > m/6 > 1`.
+- R71 ([`mechanical-cycles-high-rational-controls`](mechanical-cycles-high-rational-controls/README.md)) gives every state of either pure cycle above `m/6`. With `x_u = C_u/Δ`, `x_v = C_v/Δ` and first letter `a_0 = 1`, `x_v = (3x_u + 1)/2`, so `x_u < x_v < 2x_u` and `x_u > m/6 > 1`.
 - Both block maps have slope `q = V/U < 1`. The return equations give `x = x_u + (x_v − x_u)(1 − z)/(1 − tz)` for the state before the first `u` (`t = q^k`, `z = q^ℓ`), so `x_u < x, y < x_v`, and every intermediate block start lies in `(x_u, x_v)`. A prefix of `u` from a start above `x_u` exceeds the corresponding pure-`u` state, hence `m/6`; a prefix of `v` starts above `x_u > x_v/2` and exceeds half the corresponding pure-`v` state, hence `m/12`. A rotated prefix need not itself have slope above one-half; the argument compares its input with half its own pure-cycle input and uses a positive affine map.
 - Rotation gives `J = C_v − C_u = (C_u + Δ)/2 > 0`; R71's term estimate gives `C_u < (2m/3)V`, and `x_u > 1` gives `C_u > Δ`, so `J < C_u < (2m/3)V`. In the reduced notation of [`proportional-slope-two-block-bound`](proportional-slope-two-block-bound.md) (`c_0 = gcd(A, m)`, `r = s = c_0`), its `U_base^(L−h_theorem)` is the full-block `U^(n−h)`; for `n ≥ 3`, `n − h ≥ 2` and (7) yields claim 2.
 - `3/2 < A/m < 27/17 + 1/13 < 5/3`. `u` begins `(1,2,1,2)`, ends `(1,2,2)`, has no cyclic `(1,1)` or `(2,2,2)`; `v` begins `(2,1,2)` and ends `(2,2,1)`. In `w` the `u`-to-`v` boundary creates exactly one cyclic `(2,2,2)` and the `v`-to-`u` boundary exactly one cyclic `(1,1)`; the unique `(2,2,2)` proves primitivity. Factors `(1,2,1)` and `(2,2,2)` (sums 4 and 6) exclude mechanical; shortcut factors `11011` and `01010` exclude balance.
@@ -60,7 +60,7 @@ Written proof: `PROPORTIONAL.md` §4 in [`equal-total-two-block-exclusion`](equa
 
 - **Clocks.** The two counts use different clocks and must not be exchanged.
 - **Scope.** A primitive, unbalanced rational family with growing minima and a varying denominator, not a fixed-`d` counterexample. It exceeds any fixed local-minimum-count cutoff and lies outside the direct balanced/Christoffel hypotheses examined in the C001 literature audit; it does not improve a general published record, and no novelty is claimed.
-- **Dependency not yet linked.** The proof uses R71's mechanical size bound and term estimate (legacy `experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md`, not yet migrated).
+- **Dependency.** The proof uses R71's mechanical size bound and term estimate, [`mechanical-cycles-high-rational-controls`](mechanical-cycles-high-rational-controls/README.md) (legacy `BALANCED_DENOMINATORS.md` §3); linked at the B12 migration.
 - The one-block analogue is [`perturbed-mechanical-block-family`](perturbed-mechanical-block-family.md).
 
 ## History

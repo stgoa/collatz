@@ -1,4 +1,53 @@
-# The complete absorption defect as an adjacent-source interface
+---
+id: adjacent-source-defect-equivalence
+kind: result
+title: "The whole returning absorption defect is an adjacent-source comparison, modulo strictly smaller helpers"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; P(u) = [3u] - [u], rho(u) = nu(3u). The R58 exceptional canonical seeds n,
+  the returning inputs u in E and the positive canonical q = 31 mod 108 are in bijection (q = (9n+5)/8, u =
+  (2q+1)/3), and n -> 8z+1 -> 6z+1 = q are two ordinary arrows of valuations 1 and 2. With D(q) = [q+2] - [q] there
+  is an exact identity P(u) = div K - D(q) + sum c(v) P(v) in which every helper has rho(v) <= (3q+7)/4 < n =
+  (8q-5)/9; so a supplied D(q) current gives P(u) and conversely, with the same strictly smaller helpers, and the
+  two conversions compose to the identity row for row. The adjacent current remains a premise with coefficient -1.
+  Eliminating returning requests from any finite H_s terminates and leaves nonreturning pairs and adjacent sources
+  of native height at most nu(s); at the exceptional leading source the height equals nu(s), so this change of
+  basis is not strict progress, and the transported old rule at 4629 raises a height from 6171 to 6591. Maximal
+  inverse-(1,2) normalisation adds no W5 domain and does not define a quotient dynamics. No accepted domain is
+  added and no adjacent current is supplied; a source gap of two bounds neither merger time nor certificate size.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [rank-excess-absorption-classification, decreasing-w5-phase-inverse-barrier, critical-image-rank-composition, sigma-rank-removes-absorption-overhead]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_adjacent_defect.py, adjacent_defect.py, adjacent_defect_audit.json: the legacy constructor and checker: 512 complete defect plans, 1024 mixed absorption plans, 4096 W5 inverse-normalisation cases, both counterexamples (4629 and the kappa quotient), eight invalid or missing-supply rejections and three bidirectional supplied conversions at u = 21, 93, 4629 (pair outputs 40, 15, 94 rows; adjacent outputs 45, 14, 104 rows). Fails at its new path: adjacent_defect.py loads ../critical_rank/ (now ../critical-image-rank-composition/), ../exact_absorption_bound/ (now ../rank-excess-absorption-classification/) and ../returning_phase/ (now ../returning-forward-interface/) by their pre-migration folder names; it is loaded in turn by the later legacy adjacent_recursion/ code (native-height-inverse-obstruction). Passed at be73a66 as experiments/residual_progress/defect_normal_form/check_adjacent_defect.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "../exponent-eleven-exit-continuation/batch_r61_r67_check.py: side-lane probe of R61, R65, R66 and R67 (see reviewed_by)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: ../exponent-eleven-exit-continuation/batch_r61_r67_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 06:14, VERIFIED), with the lane's own step, nu and selected: all 10,000 canonical q = 31 (mod 108) below about 2.16e6 satisfy the triple bijection n = (8q-5)/9, u = (2q+1)/3, z = (q-1)/6 = (3n-1)/16 = (u-1)/4, with n = 27 (mod 96), z = 5 (mod 18), 3z noncanonical, n an R58 exceptional seed, u a returning input, and the two ordinary arrows n ->(1) 8z+1 ->(2) 6z+1 = q. The adjacent identity, helper bounds and conversions were not rebuilt; the status stays written"
+aliases: [R65]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, adjacent-source, absorption-defect]
+---
+
+# The whole returning absorption defect is an adjacent-source comparison, modulo strictly smaller helpers
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ν`, `P(u) = [3u] − [u]`, `ρ(u) = ν(3u)`; formal plans `[x] = div J_x + Σ A_x(v)P(v)` with signed integer coefficients; killed atom `[1] = 0`.
+
+1. **Domains.** The R58 exceptional canonical seeds `n` ([`rank-excess-absorption-classification`](../rank-excess-absorption-classification/README.md)), the returning inputs `u ∈ E` and the positive canonical `q ≡ 31 (mod 108)` are in bijection: `q = (9n+5)/8`, `u = (2q+1)/3`, `z = (q−1)/6`; and `n → 8z+1 → 6z+1 = q` are two ordinary arrows with valuations `(1, 2)`.
+2. **Adjacent identity.** With `D(q) = [q+2] − [q]`, `P(u) = div K − D(q) + Σ c(v)P(v)`, where every helper has `ρ(v) ≤ (3q+7)/4 < n = (8q−5)/9`. A supplied `D(q)` current gives `P(u)` and conversely, with the same smaller helpers; the two conversions compose to the original current row for row. The adjacent current stays a premise with coefficient `−1`.
+3. **Mixed basis.** Eliminating returning requests from any finite `H_s` terminates and leaves nonreturning pairs and adjacent sources of native height at most `ν(s)`. At the exceptional leading source the height equals `ν(s)`, so the change of basis is not strict progress; the transported old R44 rule at `u = 4629` keeps `P(2197)` at rank `6591 > 6171`.
+4. **Limits of simpler moves.** Maximal inverse-`(1,2)` normalisation adds no `W5` domain and is not a quotient dynamics (`κ(27) = κ(31)` but `κ(T27) ≠ κ(T31)`); the two static pair identities `P(z)`, `P(2z+1)` miss the upper component.
+
+No accepted domain is added and no adjacent current is supplied. A constant source gap of two bounds neither merger time, nor exposure depth, nor certificate size.
+
+## Proof
+
+The legacy note "The complete absorption defect as an adjacent-source interface" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written triangular reformulation and exact conditional compiler.**
 This covers the entire R58 exceptional branch, with every helper strictly
@@ -13,12 +62,12 @@ Write the unchanged formal absorption plan as
     [x]=div J_x + sum_v A_x(v) P(v).
 
 All coefficients are signed integers. The dependencies are the
-[unique-excess theorem](../exact_absorption_bound/EXACT_ABSORPTION_BOUND.md),
-[returning inverse identity](../critical_inverse/CRITICAL_INVERSE.md),
-[original-rho compiler](../critical_rank/CRITICAL_IMAGE_RANK.md), and the
-[separate sigma rank](../phase_rank/PHASE_RANK.md).
+[unique-excess theorem](../rank-excess-absorption-classification/README.md),
+[returning inverse identity](../decreasing-w5-phase-inverse-barrier/README.md),
+[original-rho compiler](../critical-image-rank-composition/README.md), and the
+[separate sigma rank](../sigma-rank-removes-absorption-overhead/README.md).
 
-## 1. Exact domains and the ordinary defect path
+### 1. Exact domains and the ordinary defect path
 
 The following three domains are in bijection:
 
@@ -51,7 +100,7 @@ Thus consecutive raw R58 defect lifts cannot form a longer chain. ∎
 This last fact does not discharge P(u). Converting q to its formal H
 plan requests P(u) again, and the old inverse returns the original n.
 
-## 2. A complete adjacent-source theorem
+### 2. A complete adjacent-source theorem
 
 For every q in the domain above define
 
@@ -105,7 +154,7 @@ not give a path from q. Likewise(4) is an equality of finite currents
 with missing premises, not a claim of a common-tail clock for P(u).
 The supplied adjacent current can have arbitrarily large or unknown cost.
 
-### Checked conversion in both directions
+#### Checked conversion in both directions
 
 Given exact currents C_D for D(q) and C_v for every nonzero helper,
 
@@ -126,7 +175,7 @@ equivalent modulo strictly smaller old-rho inputs. This is an exact
 remaining joint type. The constancy of the source gap does not prove
 that its current exists universally.
 
-## 3. Every formal absorption plan admits a height-bounded mixed basis
+### 3. Every formal absorption plan admits a height-bounded mixed basis
 
 Replace an E_return request in H_s by(4), with its full signed multiplier,
 and combine equal requests. Repeat at the largest remaining E_return
@@ -160,9 +209,9 @@ from(4) have rank at most5209 and cannot cancel this term. Thus even
 the fully transported old rule violates the proposed height induction.
 Every useful transferred rule must be checked in its chosen rank.
 
-## 4. Why simpler normalization or two smaller pair identities do not close it
+### 4. Why simpler normalization or two smaller pair identities do not close it
 
-### Maximal inverse-G normalization adds no W5 domain
+#### Maximal inverse-G normalization adds no W5 domain
 
 For canonical q, the ordinary word(1,2) has inverse `(8q-5)/9` whenever
 q=4 mod9. The predecessor is positive canonical and smaller. The maximal
@@ -187,7 +236,7 @@ but kappa(T27)=41 and kappa(T31)=47. One cannot define its dynamics by
 choosing an arbitrary representative. This is a limitation of that
 proposed quotient, not of ordinary unequal-time current identities.
 
-### Static use of P(z) and P(2z+1) misses the upper component
+#### Static use of P(z) and P(2z+1) misses the upper component
 
 For the entire actual z domain, q=6z+1 is canonical. It differs from
 each elementary minimum of
@@ -207,7 +256,7 @@ supplied currents and extracting further paths. Their retained histories
 may already connect q to a known component, which is additional evidence
 not represented by these two pair boundaries alone.
 
-## 5. Evidence and scope
+### 5. Evidence and scope
 
 `adjacent_defect.py` provides the complete-domain interface, both checked
 conversions, and finite elimination of returning requests into the mixed
@@ -228,3 +277,18 @@ detection, a10000-step cap and a512-bit cap; symbolic APIs do not search.
 The adjacent current remains a premise in every symbolic result. This is
 not a sixteenth accepted rule, universal completion, a bounded-depth
 certificate theorem, or a novelty claim.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B12 migration; standard library). The legacy scripts of this folder load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the legacy checker `check_adjacent_defect.py` (about 7 s; the counts of section 5 of the note and the three stored bidirectional conversions, compared with `adjacent_defect_audit.json`). The commands in the legacy text name `experiments/residual_progress/defect_normal_form/`.
+
+## Remarks
+
+- **Continued in** [`native-height-inverse-obstruction`](../native-height-inverse-obstruction/README.md) (R68: an all-ray inverse barrier at the native height `n` and a fixed forward certificate on one family) and the failed-hypothesis audit [`retained-lower-currents-adjacent-source`](../../attempts/retained-lower-currents-adjacent-source.md). The adjacent domain remains open.
+- Not a rule of [`seventeen-family-rho-dispatcher`](../seventeen-family-rho-dispatcher/README.md).
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/defect_normal_form/ADJACENT_DEFECT_INTERFACE.md` (legacy ID R65) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written triangular equivalence and checked conversion in both directions; no new accepted domain".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `793e835`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

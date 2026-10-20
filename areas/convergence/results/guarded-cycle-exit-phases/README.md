@@ -330,7 +330,7 @@ failure to meet the cap would leave that demonstration unresolved.
 
 ## Remarks
 
-- The guarded cycle is the 2-adic shadow of the negative 7-cycle through `−17` ([`negative-cycle-backward-word`](../negative-cycle-backward-word/README.md)); the exponent-eleven exit is the later legacy R61 (`experiments/residual_progress/exit_continuation/`, not yet migrated).
+- The guarded cycle is the 2-adic shadow of the negative 7-cycle through `−17` ([`negative-cycle-backward-word`](../negative-cycle-backward-word/README.md)); the exponent-eleven exit is the later R61 ([`exponent-eleven-exit-continuation`](../exponent-eleven-exit-continuation/README.md)).
 - Third among the selected rules of [`twelve-family-rho-dispatcher`](../twelve-family-rho-dispatcher/README.md). Novelty undetermined (none claimed).
 
 ## History

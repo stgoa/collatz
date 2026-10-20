@@ -50,7 +50,7 @@ Side-lane feed, update 07:51 (lightly edited). `J = 1` forces every sorted heigh
 
 ## Remarks
 
-- **Relation to R71.** This is R71-a's conclusion (`gcd(C, D) = 1`, the exact denominator of mechanical words; see [`narrow-cycles-are-mechanical`](narrow-cycles-are-mechanical/README.md)) for reduced ordered cycles with one forced position. "Narrow (`H < 2L`) ⇒ `J = 1`" is not formalised; with it, this would be a second formal proof of R71's exact denominator for narrow integer cycles. It adds nothing new for `d = 1`: these are bookkeeping identities for the ordered class, valid for every `q`.
+- **Relation to R71.** This is R71-a's conclusion (`gcd(C, D) = 1`, the exact denominator of mechanical words, [`mechanical-word-exact-denominator`](mechanical-word-exact-denominator/README.md); see also [`narrow-cycles-are-mechanical`](narrow-cycles-are-mechanical/README.md)) for reduced ordered cycles with one forced position. "Narrow (`H < 2L`) ⇒ `J = 1`" is not formalised; with it, this would be a second formal proof of R71's exact denominator for narrow integer cycles. It adds nothing new for `d = 1`: these are bookkeeping identities for the ordered class, valid for every `q`.
 - **Controls.** The actual `J = 1` cycles at `q = 5, 13, 23` have `D = q`, consistent with the claim.
 - Novelty: none claimed.
 

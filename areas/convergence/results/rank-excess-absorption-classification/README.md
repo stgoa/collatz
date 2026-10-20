@@ -238,7 +238,7 @@ module/checker source hashes; these counts are finite evidence only.
 
 ## Remarks
 
-- The exceptional seeds are the later legacy R65's adjacent-defect domain (`experiments/residual_progress/defect_normal_form/`, not yet migrated), and R62 resolves the unique defect in the original rank (`defect_resolution/`). The main lane's 2026-10-18 note `side_lane_review_767af32.md` (in [`two-selected-inverse-choices`](../two-selected-inverse-choices/README.md)) names this classification as structure for a complete recursion.
+- The exceptional seeds are the later R65's adjacent-defect domain ([`adjacent-source-defect-equivalence`](../adjacent-source-defect-equivalence/README.md)), and R62 resolves the unique defect in the original rank ([`absorption-defect-original-rank-resolution`](../absorption-defect-original-rank-resolution/README.md)). The main lane's 2026-10-18 note `side_lane_review_767af32.md` (in [`two-selected-inverse-choices`](../two-selected-inverse-choices/README.md)) names this classification as structure for a complete recursion.
 - Novelty undetermined (none claimed).
 
 ## History

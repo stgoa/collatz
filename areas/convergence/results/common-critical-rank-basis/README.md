@@ -1,4 +1,55 @@
-# A common decreasing compiler by retaining both critical pair types
+---
+id: common-critical-rank-basis
+kind: result
+title: "Keeping both critical pair types lets sigma rules and rho rules share one strict rank after translation"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; P(w) = [3w] - [w], W = W5 u W9, rho(w) = nu(3w). R37's unexpanded critical
+  absorption plan [s] = div Jhat_s + sum Ahat_s(v) P(v) requests only ranks <= nu(s). For every returning u in E,
+  with q = (3u-1)/2, n = (4u-3)/3 = sigma(u), b = n/3 in W9, the current C_u = N_(3u) - D_(n,q) + Jhat_b - Jhat_u
+  gives P(u) = div C_u + P(b) + sum (Ahat_b - Ahat_u) P, with unique highest request b (+1), rho(b) = n < q, all
+  others below n. Replacing every signed returning child of any sigma-valid W5 plan by this identity yields a
+  rho-valid plan in W; every old rho-valid W5 plan stays valid unchanged; so both collections can be used under one
+  strict rank after translation (the original incompatible edges are not claimed to share a rank). On the whole R67
+  guard, q = 3w compares to f = (729w + 147)/256 < q at ordinary clocks (6, 1), giving a decreasing plan whose unique
+  highest input is the W9 pair f/3 of rank f. The local W9 rule is rho-valid except exactly at d = v2(9b-1) = 4 with
+  3z noncanonical, where returning to E restores the self-request P(b) (+1); a universal zero-current undo is false
+  (u = 453, b = 201). This enlarges the induction universe; it adds no W5-only coverage and supplies no terminal
+  currents.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [critical-tripling-domain-equivalence, critical-nine-elimination, critical-image-rank-composition, sigma-rank-removes-absorption-overhead, decreasing-w5-phase-inverse-barrier, mixed-rank-growing-blocks]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_critical_basis.py, critical_basis.py, critical_basis_audit.json: the legacy constructor and checker: 512 critical H plans, 256 complete E conversions, 512 W9 local classifications, 116 sigma translations, 32 unchanged rho plans, eight whole-guard cases with binary depths through 159, the coefficient -3 request, the 4629 incompatibility, the 453/201 nonzero undo, a finite conditional closure, three supplied conversions (40, 86 and 15 rows) and the rejection checks; 32 reachable sources pinned. Fails at its new path: critical_basis.py loads ../phase_rank/ (now ../sigma-rank-removes-absorption-overhead/) and, through the shared loaders, the B10-B11 modules by their pre-migration folder names; it is loaded in turn by seven later legacy history folders. Passed at be73a66 as experiments/residual_progress/critical_basis/check_critical_basis.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "batch_r75_r77_check.py, batch_r75_r77_check.json: side-lane probe (Claude side lane, 2026-10-18 02:53) of R75's returning-class translation arithmetic and R77's same-seed bounds; same-seed-factor-complexity-bound replays it from this folder. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/) and fibre_count_check from its own folder (now ../absorbed-fibre-uniform-counts/). Passed at be73a66 as reviews/side_lane/batch_r75_r77_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: batch_r75_r77_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 02:53, VERIFIED, main e9effe1), with the lane's own step and selected: 3,000 random returning inputs u = 5 (mod 8), u = 3 (mod 9) with 3u selected: n = (4u-3)/3 = sigma(u) is an integer, b = n/3 = 9 (mod 16) lies in W9, the ordinary path n -> q = (3u-1)/2 has valuations (1, 2), and rho(b) = 3b = n < q. The u = 453 example and the current C_u rest on main's plans and were not rebuilt; reproduced by the main lane in side_lane_review_fcc7e88.md (in divergent-orbit-itinerary-complexity). The status stays written"
+aliases: [R75]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, sigma-rank, critical-basis]
+---
+
+# Keeping both critical pair types lets sigma rules and rho rules share one strict rank after translation
+
+## Statement
+
+Odd-only clock, 1 absorbing, `[1] = 0`; `P(w) = [3w] − [w]`; `W5 = {w ≡ 5 mod 8}`, `W9 = {w ≡ 9 mod 16}`, `W = W5 ∪ W9`; `ρ(w) = ν(3w)`; `σ` the rank of [`sigma-rank-removes-absorption-overhead`](../sigma-rank-removes-absorption-overhead/README.md); `E` the returning class.
+
+1. **Critical basis.** The unexpanded critical absorption plan of [`critical-tripling-domain-equivalence`](../critical-tripling-domain-equivalence/README.md) (R37), `[s] = div Ĵ_s + Σ Â_s(v)P(v)` with `v ∈ W`, requests only ranks `≤ ν(s)`.
+2. **Returning interface.** For `u ∈ E` put `q = (3u − 1)/2`, `n = (4u − 3)/3 = σ(u)`, `b = n/3 ∈ W9`. With `C_u = N_(3u) − D_(n,q) + Ĵ_b − Ĵ_u`, `P(u) = div C_u + P(b) + Σ (Â_b − Â_u)P`; the unique highest request is `b` (`+1`), `ρ(b) = n < q`, all others below `n`.
+3. **Translation.** Replacing every signed returning child of any `σ`-valid `W5` plan by 2 yields a `ρ`-valid plan in `W`; every old `ρ`-valid `W5` plan stays valid unchanged. Both collections can therefore be used under one strict `ρ` after translation. The original incompatible edges are not claimed to share a rank.
+4. **Whole R67 guard.** On the guard of [`mixed-rank-growing-blocks`](../mixed-rank-growing-blocks/README.md), `q = 3w` has an ordinary comparison to `f = (729w + 147)/256 < q` at clocks `(6, 1)`; the critical plans give a decreasing rule whose unique highest input is the `W9` pair `f/3` of rank `f`.
+5. **Blocked W9 branch.** The local `W9` rule is `ρ`-valid except exactly at `d = v2(9b − 1) = 4` with `3z` noncanonical; there, returning to `E` restores the self-request `P(b)` (`+1`). A universal row-for-row zero-current undo is false: `u = 453`, `b = 201` leaves `{201: 1, 5: 1, 25: 1}` and a nonzero 14-row current.
+
+This enlarges the induction universe and the rule-selection policy. It adds no coverage to the unchanged seventeen-family `W5` dispatcher and supplies no terminal currents.
+
+## Proof
+
+The legacy note "A common decreasing compiler by retaining both critical pair types" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written conditional compilation theorem and finite exact certificates.**
 Every old sigma-valid W5 plan can be translated into a rho-valid plan in the
@@ -11,16 +62,16 @@ coverage to the unchanged seventeen-family W5-only dispatcher and supplies
 no universal currents. Collatz remains open; no novelty or formal-verification
 claim is made.
 
-Dependencies are the [critical bijection and formal plans](../tripling_equivalence/TRIPLING_EQUIVALENCE.md),
-[complete W9 interface](../w9_closure/CRITICAL_NINE_ELIMINATION.md),
-[critical-image rank](../critical_rank/CRITICAL_IMAGE_RANK.md),
-[separate sigma rank](../phase_rank/PHASE_RANK.md),
-[returning inverse](../critical_inverse/CRITICAL_INVERSE.md),
-and [R67 mixed block](../mixed_rank_recursion/MIXED_GROWING_BLOCK.md).
+Dependencies are the [critical bijection and formal plans](../critical-tripling-domain-equivalence/README.md),
+[complete W9 interface](../critical-nine-elimination/README.md),
+[critical-image rank](../critical-image-rank-composition/README.md),
+[separate sigma rank](../sigma-rank-removes-absorption-overhead/README.md),
+[returning inverse](../decreasing-w5-phase-inverse-barrier/README.md),
+and [R67 mixed block](../mixed-rank-growing-blocks/README.md).
 The new proof combines these established source identities; it does not
 import an external convergence result.
 
-## 1. Keep the complete critical source basis
+### 1. Keep the complete critical source basis
 
 Use positive odd Syracuse S, absorbed at1, and killed atoms [1]=0. Define
 
@@ -57,7 +108,7 @@ Their **ranked induction hypotheses differ**. A W9 input below the current
 critical rank cannot simply be replaced by any W5 plan that requests a
 higher critical rank.
 
-## 2. Every returning W5 input has a smaller critical-nine interface
+### 2. Every returning W5 input has a smaller critical-nine interface
 
 Let E be the complete returning domain: u in W5, u=3 modulo9, and selected3u.
 Set
@@ -98,7 +149,7 @@ Only the inverse comparison in(5) has the stated two-arrow clock. The full
 conditional current also contains normalizers and formal absorption currents;
 it must not be labelled a two-arrow merger between3u and u.
 
-## 3. Translate the whole sigma rule collection into one rho induction
+### 3. Translate the whole sigma rule collection into one rho induction
 
 Suppose a finite old W5 plan has exact source
 
@@ -136,7 +187,7 @@ It is correctly rejected as an input to the sigma translator. Thus this
 compiler does not discard useful old rho rules merely to impose sigma on
 the original W5 universe.
 
-### Finite conditional closure
+#### Finite conditional closure
 
 A rule-selection policy may return any finite exact plan whose critical
 request ranks strictly decrease, or stop at an explicitly unresolved input.
@@ -152,7 +203,7 @@ incorrect supplies are rejected. Optional resource caps reject the computation;
 they do not certify any remaining input. This gives an executable common-rank
 interface, not a universal rule selector or a convergence proof.
 
-## 4. Exactly which W9 local branch remains blocked
+### 4. Exactly which W9 local branch remains blocked
 
 For b in W9, retain the full critical requests in R40's local plan rather
 than recursively eliminating every W9 request. Its only possible request
@@ -200,7 +251,7 @@ Its divergence is -P(5)-P(25), as required by(12). The fourteen-row certificate
 is stored and checked. Thus a universal row-for-row zero-current undo would
 be false; the universal self-request statement is the sufficient obstruction.
 
-## 5. The entire R67 guard has a decreasing rule in this basis
+### 5. The entire R67 guard has a decreasing rule in this basis
 
 For every positive
 
@@ -246,7 +297,7 @@ explicit earlier input in the enlarged induction, and its blocked branch is
 exactly(11). Focusing only on eliminating the later growing R67 pair would
 impose an unnecessary extra requirement on every possible constructor.
 
-## 6. Executable interface, evidence, and remaining work
+### 6. Executable interface, evidence, and remaining work
 
 [critical_basis.py](critical_basis.py) exports:
 
@@ -287,3 +338,19 @@ symbolic compiler do not search for unknown absorption. The receipt pins every
 reachable dynamically imported local source, including modules absent from
 sys.modules. Universal quantifiers come from the written arguments above;
 the finite receipt checks the implementation and its exact examples.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B12 migration; standard library). The legacy scripts of this folder load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the legacy checker `check_critical_basis.py` (about 6 s; the counts of section 6 of the note and the stored supplied conversions, compared with `critical_basis_audit.json`) and the side-lane probe `batch_r75_r77_check.py` (under 1 s, receipt reproduced byte for byte). The commands in the legacy text name `experiments/residual_progress/critical_basis/`.
+
+## Remarks
+
+- **Hub.** `critical_basis.py` is imported by seven later legacy history folders (R78–R94, migrated by a later batch), which load it by its legacy path.
+- The blocked `d = 4` W9 branch and the unresolved nonreturning `W5` inputs are the next supply obligation of [`universal-w5-tripling-currents`](../../questions/universal-w5-tripling-currents.md); re-expanding a `W9` input into a higher `W5` request recreates the old difficulty.
+- [`uniform-fixed-word-pair-exclusion`](../uniform-fixed-word-pair-exclusion/README.md) (R76) excludes one fixed-word pair model; this construction uses an additional source type outside it.
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/critical_basis/CRITICAL_BASIS.md` (legacy ID R75) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/batch_r75_r77_check.*` (R75 and R77) moved here. Legacy status: "written source-basis and rule-translation theorem with an exact conditional compiler; terminal current supply remains open".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `e9effe1`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

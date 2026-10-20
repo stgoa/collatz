@@ -12,7 +12,7 @@ claim: >
 authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-19
-depends_on: [three-band-collatz-cycles-are-ordered, narrow-cycles-are-mechanical]
+depends_on: [three-band-collatz-cycles-are-ordered, narrow-cycles-are-mechanical, mechanical-word-exact-denominator]
 lean:
   - LeanLane.Cyc.OddCycle.rotation_block_exclusion_mech
   - LeanLane.Cyc.single_block_exclusion
@@ -101,7 +101,7 @@ The prose's `H/L ≤ R³` for the rational cycle is the cleared intercept inequa
 
 - **Scope.** This removes the two-block-order restriction within this rotation class, but does not contain all C002/C003 cases, which admit nonmechanical blocks. Arbitrary cycles need not have a common mechanical block decomposition. Cycles whose blocks come from different bases, or which have no block structure, are not covered. No general denominator growth or fixed-denominator finiteness follows.
 - **An infinite nonmechanical family** (written, `ORDER_THEORY.md` §2 and [`LITERATURE.md`](LITERATURE.md)): for every prime `m_0 ≥ 13` and `A_0 = bit_length(3^m_0)`, take the lower mechanical base `v_0` and its one-letter left shift `v_1`, concatenated in the label pattern `(0,0,1,0,1,1)`. The word is primitive with totals `(6A_0, 6m_0)` (gcd 6), so not mechanical; every rational state exceeds `l/R > m_0/12 > 1`; its shortcut-clock parity word has `6(A_0 − m_0)` local minima (a shortcut count, not an odd-only count). Minimum and minima count grow without bound, so the family lies outside the direct hypotheses of fixed-count exclusions ([`simons-2005-m-cycles`](../../../../sources/simons-2005-m-cycles.md), [`hercher-2023-cycle-length`](../../../../sources/hercher-2023-cycle-length.md)) and the mechanical/high-cycle exclusion ([`knight-2026-high-cycles`](../../../../sources/knight-2026-high-cycles.md)). This is not a new universal record or a novelty claim; searches for concatenations of Christoffel/mechanical rotations did not establish novelty.
-- **Controls.** The worked example is a genuine `3x+59` cycle; the exclusion uses `d = 1` through R71's `g = 1` and the mod-8 fact `2^A − 3^m ≠ 1`.
+- **Controls.** The worked example is a genuine `3x+59` cycle; the exclusion uses `d = 1` through R71's `g = 1` ([`mechanical-word-exact-denominator`](../mechanical-word-exact-denominator/README.md)) and the mod-8 fact `2^A − 3^m ≠ 1`.
 - **Related.** The order criterion and its failed shortcut: [`dyadic-order-lemma`](../dyadic-order-lemma.md), [`mechanical-normalized-word-transfer`](../../attempts/mechanical-normalized-word-transfer.md). Next target: [`ordered-cycle-denominator-one`](../../questions/ordered-cycle-denominator-one.md).
 - **Literature.** Not found in the sources read: C005's rotation-block class (side-lane literature referee, feed 08:57). Novelty undetermined.
 

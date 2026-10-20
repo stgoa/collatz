@@ -1,4 +1,49 @@
-# No finite affine-valuation rank for the two fixed phases
+---
+id: no-finite-affine-valuation-rank
+kind: result
+title: No finite affine-valuation rank for the two fixed mixed phases
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w); W5 split into the two fixed phases E (w = 3 mod 9, selected
+  3w) and W (its complement). No potential Phi_p(x) = C_p h_p(x)^alpha_p 2^(sum_i beta_(p,i) v2(f_(p,i)(x))), with
+  C_p > 0, h_p a positive increasing affine height, alpha_p >= 0, finitely many rational affine forms f_(p,i)
+  nonzero on the phase and arbitrary real weights beta_(p,i) (or its logarithm), is simultaneously nonincreasing on
+  both leading dependency edges of every guarded R67 block, strictly decreasing from the first to the last W state
+  of each block, and nonincreasing from parent to the retained positive leading request on every R44 comparison of
+  the balanced returning-ray CRT families (L = 1 mod 3, L >= 1, every exact binary order H >= 26), whose parents
+  have infinitely many distinct centres (exact reduced ternary denominator order a - 1 on L = 4 mod 9). Other phase
+  partitions, nonlinear forms, negative height exponents, infinitely many centres, nonmonomial or amortised signed
+  potentials and rule sets omitting these comparisons are not covered; no universal current is supplied.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [mixed-rank-growing-blocks, returning-forward-interface, critical-image-rank-composition, valuation-debt-reset-obstruction]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_finite_centres.py, finite_centres.py, finite_centres_audit.json: the legacy constructor and checker: 192 exact CRT cases (L = 1, 4, ..., 70; H = 26, 27, 64, 256), 48 complete signed R44 plans with independent divergence and both clocks, 24 distinct balanced parent poles through L = 211, three finite-list pole examples, four mixed-block stabilisation cases, twelve rejections and two supplied conversions stored in full (parent 189106655349: 3 supplied pairs, 158 rows; parent 3688333493785941: 13 pairs, 211 rows); 41 reachable local sources hashed. Fails at its new path: finite_centres.py loads ../arithmetic_progress/ (now ../valuation-debt-reset-obstruction/), ../critical_inverse/ (now ../decreasing-w5-phase-inverse-barrier/), ../critical_rank/ (now ../critical-image-rank-composition/), ../mixed_rank_recursion/ (now ../mixed-rank-growing-blocks/), ../phase_rank/ (now ../sigma-rank-removes-absorption-overhead/), ../returning_phase/ (now ../returning-forward-interface/), ../tripling_equivalence/ (now ../critical-tripling-domain-equivalence/) and ../w9_closure/ by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/finite_centres/check_finite_centres.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+aliases: [R72]
+tags: [convergence, outer-residual, tripling-pairs, mixed-rank, potential-obstruction, valuation-debt]
+---
+
+# No finite affine-valuation rank for the two fixed mixed phases
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ρ(w) = ν(3w)`; the two fixed phases `E` (`w ≡ 3 mod 9` with selected `3w`) and `W` (its complement in `W5`) of [`valuation-debt-reset-obstruction`](../valuation-debt-reset-obstruction/README.md).
+
+For `p ∈ {W, E}` let `Φ_p(x) = C_p·h_p(x)^(α_p)·2^(Σ_i β_(p,i)·v2(f_(p,i)(x)))`, with `C_p > 0`, `h_p` a positive increasing affine height, `α_p ≥ 0`, finitely many rational affine forms `f_(p,i)` nonzero at every input of the phase, and arbitrary real weights `β_(p,i)`. No such choice (nor its additive logarithm) has all three properties:
+
+1. nonincrease along both actual leading dependency edges of every guarded R67 block ([`mixed-rank-growing-blocks`](../mixed-rank-growing-blocks/README.md));
+2. strict decrease from the first to the last `W` state of each block;
+3. nonincrease from the parent to the retained positive leading request on every R44 comparison ([`returning-forward-interface`](../returning-forward-interface/README.md)) of the balanced returning-ray CRT families (`L ≡ 1 mod 3`, `L ≥ 1`, every exact binary order `H ≥ 26`).
+
+Those families are complete infinite progressions; their parents have infinitely many distinct valuation centres (exact reduced ternary denominator order `a − 1` on `L ≡ 4 mod 9`), and each R44 plan has the unique highest request `P(u)` with coefficient `+1`, all requests strictly decreasing the original `ρ`.
+
+Not covered: other phase partitions, nonlinear valuation forms, negative height exponents, infinitely many centres, nonmonomial, history-dependent or amortised signed-frontier potentials, or omitting one of the named rule families. No universal current is supplied and no dispatcher changes.
+
+## Proof
+
+The legacy note "No finite affine-valuation rank for the two fixed phases" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written scoped obstruction, exact conditional-current construction,
 and bounded executable audit.** No potential in the class defined in Section1
@@ -9,15 +54,15 @@ powers. It supplies no universal pair current and changes no dispatcher.
 Collatz convergence remains open. No novelty or formal-verification claim is
 made.
 
-Dependencies are the [R67 mixed block](../mixed_rank_recursion/MIXED_GROWING_BLOCK.md),
-[R44 returning interface](../returning_phase/RETURNING_FORWARD_INTERFACE.md),
-[R43 formal absorption bound](../critical_rank/CRITICAL_IMAGE_RANK.md), and
-[R69 two-centre obstruction](../arithmetic_progress/VALUATION_DEBT.md).
+Dependencies are the [R67 mixed block](../mixed-rank-growing-blocks/README.md),
+[R44 returning interface](../returning-forward-interface/README.md),
+[R43 formal absorption bound](../critical-image-rank-composition/README.md), and
+[R69 two-centre obstruction](../valuation-debt-reset-obstruction/README.md).
 All source coefficients are signed integers. Use the ordinary odd Syracuse
 map S, absorbed at1, and write T=nu S for the separately clocked canonical
 quotient. Pair currents have source P(w)=[3w]-[w], with [1]=0.
 
-## 1. The precise potential class and requirements
+### 1. The precise potential class and requirements
 
 Let W5 be the positive integers congruent to5 modulo8. Partition it into the
 same **two fixed phases** used in R69:
@@ -57,7 +102,7 @@ would be stronger, and does not avoid it. This is an obstruction to the
 specified rank class and rule requirements, not to all currents or to
 choosing a different set of rules.
 
-## 2. What the mixed block forces on arbitrary finite lists
+### 2. What the mixed block forces on arbitrary finite lists
 
 Put
 
@@ -126,7 +171,7 @@ nor overlooks bounded changes at other centres. Those changes have become
 exact constants before applying the argument. The conclusion concerns net
 weight after combining all forms at a centre.
 
-## 3. Complete balanced returning-ray families
+### 3. Complete balanced returning-ray families
 
 Fix any integer L>=1 with L=1 modulo3 and set p=4^L. Let a be the least
 integer a>=3 for which
@@ -179,7 +224,7 @@ Here -1/27<kappa<1. For positive integer u, (10) and(15) give
 The upper inequality uses integrality: w<4u+1. No unmentioned
 large-size threshold is needed.
 
-### Full current and the unique highest request
+#### Full current and the unique highest request
 
 Let z=nu(w), let N_s have source[s]-[nu(s)], and write the unchanged formal
 absorption plan as div H_s=[s]-sum_x A_s(x)P(x). Along R44's ordinary word
@@ -214,7 +259,7 @@ Selected halving also gives S^a(3w)=S^a(q), so the same ordinary(a,1)
 identity holds between3w and3u. The quotient statement in(20) starts atq.
 One must not call a-1 an ordinary path length to the normalized endpoint.
 
-## 4. Infinitely many necessary parent centres
+### 4. Infinitely many necessary parent centres
 
 Let gamma_L=g_L(theta_W). Exact substitution gives
 
@@ -255,7 +300,7 @@ The bound a>=3L+2 follows from
 (3/2)^a>=(3/2)4^L>(3/2)^(3L+1).
 The exact balanced subsequence(23) suffices for the theorem.
 
-## 5. Contradiction for any finite list
+### 5. Contradiction for any finite list
 
 Suppose(1) satisfies the three requirements of Section1. Section2 gives
 a common height exponent alpha and a strictly positive net child-centre
@@ -282,7 +327,7 @@ examples in the checker. The additive logarithmic form of(1) is excluded
 by the same argument. No search or asymptotic integer-density estimate is
 used in the proof. □
 
-## 6. Scope and reproducibility
+### 6. Scope and reproducibility
 
 The theorem permits different finite affine valuation lists in the two
 fixed phases. It does **not** cover arbitrary additional phase partitions,
@@ -322,3 +367,17 @@ quantifiers; finite checks audit implementation. The constructor is
 [finite_centres.py](finite_centres.py), the replay is
 [check_finite_centres.py](check_finite_centres.py), and the evidence is
 [finite_centres_audit.json](finite_centres_audit.json).
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B12 migration; standard library). The legacy scripts of this folder load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the legacy checker `check_finite_centres.py` (about 13 s; the counts of section 6 of the note and both stored supplied conversions, compared with `finite_centres_audit.json`). The commands in the legacy text name `experiments/residual_progress/finite_centres/`.
+
+## Remarks
+
+- This is the promoted form of the "stronger follow-up candidate" recorded during the R69–R71 round (archive/convergence-residual-progress/REPORT.md), after a durable proof and checker.
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/finite_centres/FINITE_CENTRES.md` (legacy ID R72) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written scoped impossibility theorem, with complete accepted comparisons and exact finite checks".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `aefdf60`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

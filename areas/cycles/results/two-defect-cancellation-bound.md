@@ -17,7 +17,7 @@ claim: >
 authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-19
-depends_on: []
+depends_on: [mechanical-word-exact-denominator]
 lean:
   - LeanLane.Cyc.two_arc_identity
   - LeanLane.Cyc.rotate_cut
@@ -72,7 +72,7 @@ using `D/√(2^A·3^m) = 2 sinh(δ/2)`, `δ = A·log 2 − m·log 3 > 0`.
 g² < 2^(A−m+k)·3^m ≤ 2^(2A−2m)·3^m,   g < 2^A·(√3/2)^m,   q > (1 − 3^m/2^A)·(2/√3)^m.     (7)
 ```
 
-5. **Adjacent defects.** If `ℓ = 1`, `C_u = 1` and `g | 2^k − 1` (10); at `k = 1`, `g = 1`. Here `gcd(r, m) = 1`, every letter is `a` or `a + k`, and the mask `b_i = (w_i − a)/k` equals the mechanical mask `floor(((i+1)t + φ)/m) − floor((it + φ)/m)` with `t = Σb_i`, `φ = m − 1 − t`, `rt ≡ 1 (mod m)`. For `k = 1` the word is the mechanical valuation word up to phase, already covered by R71's exact denominator `D` (legacy `experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md`, not yet migrated); for `k > 1`, or separated defects, the word need not be mechanical.
+5. **Adjacent defects.** If `ℓ = 1`, `C_u = 1` and `g | 2^k − 1` (10); at `k = 1`, `g = 1`. Here `gcd(r, m) = 1`, every letter is `a` or `a + k`, and the mask `b_i = (w_i − a)/k` equals the mechanical mask `floor(((i+1)t + φ)/m) − floor((it + φ)/m)` with `t = Σb_i`, `φ = m − 1 − t`, `rt ≡ 1 (mod m)`. For `k = 1` the word is the mechanical valuation word up to phase, already covered by R71's exact denominator `D` ([`mechanical-word-exact-denominator`](mechanical-word-exact-denominator/README.md)); for `k > 1`, or separated defects, the word need not be mechanical.
 
 ## Proof
 

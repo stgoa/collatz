@@ -1,4 +1,54 @@
-# The complete exponent-eleven exit and an exact continuation undo
+---
+id: exponent-eleven-exit-continuation
+kind: result
+title: "The whole exponent-eleven exit row and an exact undo of a named full-block continuation"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; nu, T = nu S, P(w) = [3w] - [w], rho(w) = nu(3w) on W5. (1) For every r >= 0
+  and positive odd s, q = 81*2^(11r+11) s - 17 has exactly r guarded R54 cycles before the R57 exit exponent 11, whose
+  endpoint is f = 3^(7r+10) s - 6; the exit bridge has boundary [q] - [f], quotient clock 7r+6 and ordinary
+  common-tail clocks S^(7r+7)(q) = S(f), and f > q exactly when r >= 16 (raw comparison with the original q only).
+  (2) For every r >= 16, A >= 5, K >= 0 a complete coprime CRT class of t makes f = 2^A t - 1 canonical with first
+  complete block (A,2) followed by at least K growing (2,2) blocks; both the original w = (2q+1)/3 and the leading
+  input v = f/3 lie outside all twelve direct domains of the dispatcher at 7206f9c. Appending any prescribed number
+  of these complete forward blocks and applying the named leading R41 inverses restores exactly the original
+  unfinished current and signed request vector, whose unique highest request is v with coefficient +1 and rank
+  f > q; strict-rho expansions of lower requests cannot create or cancel it. So no uniform number of appended
+  blocks followed by these exact inverses closes the row. Other inverse words, later rules, joint cancellation and
+  seed-dependent longer continuations are not excluded; the seed varies with K and no nonabsorbing orbit is
+  constructed.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [decreasing-w5-phase-inverse-barrier, critical-image-rank-composition, forward-blocks-low-exponent-tests, low-block-continuation-prescribed-growth, growing-prefix-unhandled-leading-input, guarded-cycle-exit-phases, twelve-family-rho-dispatcher]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_exit_continuation.py, exit_continuation.py, exit_continuation_audit.json: the legacy constructor and checker: 200 complete exponent-eleven exits (r = 0..24, odd s < 16), 19 CRT families, 40 exact complete-current undos, eight rejections and one full unfinished current fixture. Fails at its new path: exit_continuation.py loads ../double_inverse/ (now ../two-inverse-phases-intermediate-increase/), ../nonselected_inverse/ (now ../base-inverse-phases-increasing-pairs/), ../selected_cycle_exit/ (now ../guarded-cycle-exit-phases/) and ../selected_rules/ (now ../twelve-family-rho-dispatcher/) by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/exit_continuation/check_exit_continuation.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "batch_r61_r67_check.py, batch_r61_r67_check.json: side-lane probe (Claude side lane, 2026-10-18 06:14) of the finite arithmetic of R61, R65, R66 and R67; the R65-R67 nodes cite it from this folder. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/) and fibre_count_check from its own folder (now ../absorbed-fibre-uniform-counts/). Passed at be73a66 as reviews/side_lane/batch_r61_r67_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: batch_r61_r67_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 06:14, VERIFIED), with the lane's own step, nu and selected: 132 cases, r = 0..21, q = 81*2^(11r+11) s - 17 at exact binary order; the orbit runs r guarded copies of (1,1,1,2,1,1,4) to Q = 2^11 U - 17, U = 81*3^(7r) s; the exit gives nu(S^4(Q)) = 2592U - 21 with a = 2 and block depth 3; the endpoint is f = 3^(7r+10) s - 6, and f > q exactly when r >= 16. The CRT family, the twelve-rule exclusions and the current undo were not rebuilt; the status stays written"
+aliases: [R61]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, selected-phase, exact-undo]
+---
+
+# The whole exponent-eleven exit row and an exact undo of a named full-block continuation
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ν`, `T = νS`, `P(w) = [3w] − [w]`, `ρ(w) = ν(3w)` on `W5`; `H_x` the unchanged formal R43 absorption plan with integer current `J_x` and signed request vector `A_x`. The twelve rules are exactly the dispatcher [`twelve-family-rho-dispatcher`](../twelve-family-rho-dispatcher/README.md) at `7206f9c`.
+
+1. **The whole exit row.** For every `r ≥ 0` and positive odd `s`, `q = 81·2^(11r+11)s − 17` (with `w = (2q+1)/3`) has exactly `r` guarded R54 cycles ([`growing-prefix-unhandled-leading-input`](../growing-prefix-unhandled-leading-input/README.md)) before the R57 exit exponent 11 ([`guarded-cycle-exit-phases`](../guarded-cycle-exit-phases/README.md)). Its endpoint is `f = 3^(7r+10)s − 6`, the exit bridge has boundary `[q] − [f]`, quotient clock `7r+6` and ordinary common-tail clocks `S^(7r+7)(q) = S(f)`; and `f > q` if and only if `r ≥ 16`. This compares the raw `f` with the original `q` only.
+2. **A full family.** For every `r ≥ 16`, `A ≥ 5`, `K ≥ 0`, a complete coprime CRT class of `t` (formula (4) of the note) makes `f = 2^A t − 1` complementary canonical with first complete block `(A, 2)` and at least `K` further growing `(2, 2)` blocks, `q < f < g_0 < … < g_K`. Both `w` and the leading pair input `v = f/3` lie outside all twelve direct domains.
+3. **Exact undo.** Appending any prescribed number of these complete forward blocks and then applying the named leading R41 inverses ([`decreasing-w5-phase-inverse-barrier`](../decreasing-w5-phase-inverse-barrier/README.md)) restores exactly the original unfinished current and signed request vector `A_f − A_z`, whose unique highest request is `v` with coefficient `+1` and rank `f > q`. Strict-ρ expansions of lower requests cannot create or cancel it.
+
+So no uniform number of appended complete blocks, followed by these exact inverses and lower-request expansions, closes the exponent-eleven row. This does not exclude a longer seed-dependent continuation, other inverse words, joint cancellation, later rules or eventual absorption; the seed varies with `K`, and no positive divergent orbit is constructed.
+
+## Proof
+
+The legacy note "The complete exponent-eleven exit and an exact continuation undo" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written complete exit identity and scoped infinite-family
 obstruction, with unfinished integer currents retained.** The exponent11
@@ -23,14 +73,14 @@ request vector A_x:
 
 All requests remain premises. We use its exact elementary normalization
 identity H_x=N_x+H_nu(x), where div N_x=[x]-[nu(x)].
-Dependencies are [R41](../critical_inverse/CRITICAL_INVERSE.md),
-[R43](../critical_rank/CRITICAL_IMAGE_RANK.md),
-[R48](../nonselected_forward/NONSELECTED_FORWARD.md),
-[R53](../forward_continuation/FORWARD_CONTINUATION.md),
-[R57](../selected_cycle_exit/SELECTED_CYCLE_EXIT.md), and the fixed
-[twelve-rule dispatcher](../selected_rules/SELECTED_RULES.md).
+Dependencies are [R41](../decreasing-w5-phase-inverse-barrier/README.md),
+[R43](../critical-image-rank-composition/README.md),
+[R48](../forward-blocks-low-exponent-tests/README.md),
+[R53](../low-block-continuation-prescribed-growth/README.md),
+[R57](../guarded-cycle-exit-phases/README.md), and the fixed
+[twelve-rule dispatcher](../twelve-family-rho-dispatcher/README.md).
 
-## 1. The entire exit-exponent11 stratum
+### 1. The entire exit-exponent11 stratum
 
 For every integer r>=0 and every positive odd s, put
 
@@ -73,7 +123,7 @@ integer comparisons
 locate the transition between r15 and r16. The nonzero coefficient is
 a multiple of81, so the intercept11 cannot reverse either sign for s>=1.
 
-## 2. A full family with arbitrarily many further growing blocks
+### 2. A full family with arbitrarily many further growing blocks
 
 Fix **any** r>=16, A>=5, K>=0, and let M=7r+10. Take every positive
 integer t satisfying the complete coprime CRT conditions
@@ -120,7 +170,7 @@ The corresponding periods are
 This construction permits r, A and K to be chosen independently in their
 stated ranges. It is not a list of isolated examples.
 
-## 3. Both the original input and the exit's leading input are unhandled
+### 3. Both the original input and the exit's leading input are unhandled
 
 The original w is in R54's phase3445 mod3456, outside the original nine
 direct domains. R55 sees first parameters(4,2) and rejects its bound;
@@ -168,7 +218,7 @@ the full original exit plan
 has exactly one largest-rank request, namely v with coefficient+1 and
 rank f>q. No lower-rank strict-rho expansion can create v or cancel it.
 
-## 4. Complete inverse undo, including every current and auxiliary request
+### 4. Complete inverse undo, including every current and auxiliary request
 
 Convert any endpoint g_j to H_g_j after appending the blocks in Section2.
 There is an explicit finite sequence of valid R41 leading substitutions
@@ -219,7 +269,7 @@ longer continuation for a given seed, a different inverse word, arbitrary
 joint cancellation, a future broader direct rule, or any global Collatz
 proof. The finite bound K and the actual seed vary together.
 
-## 5. Executable evidence
+### 5. Executable evidence
 
 `exit_continuation.py` implements the whole exit identity, the complete
 CRT family, the appended currents, and the finite inverse-undo schedule.
@@ -233,3 +283,18 @@ Run `python3 experiments/residual_progress/exit_continuation/check_exit_continua
 No absorption discovery is used. Finite checks audit the implementation;
 the written argument supplies the infinite quantifiers. Universal supply
 on the remaining domain stays open.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B12 migration; standard library). The legacy scripts of this folder load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the legacy checker `check_exit_continuation.py` (about 60 s; the counts of section 5 of the note: 200 exits, 19 CRT families, 40 undos, eight rejections and the unfinished fixture, compared with `exit_continuation_audit.json`) and the side-lane probe `batch_r61_r67_check.py` (under 1 s, receipt reproduced byte for byte). The commands in the legacy text name `experiments/residual_progress/exit_continuation/`.
+
+## Remarks
+
+- **Reclassified later.** Under the enlarged fifteen-rule dispatcher the whole family is classified in [`exponent-eleven-fifteen-rule-classification`](../exponent-eleven-fifteen-rule-classification/README.md) (R63): the leading input stays outside all fifteen rules, and the original input is accepted exactly when R60's threshold passes. [`lifted-inverse-ray-cycle`](../lifted-inverse-ray-cycle/README.md) (R64) gives new descending comparisons inside every family, so this exclusion concerns only the named procedure.
+- The companion fifteen-family dispatcher of the same legacy round is [`fifteen-family-rho-dispatcher`](../fifteen-family-rho-dispatcher/README.md) (R61-b). The main lane's strategic re-assessment of the round is `side_lane_review_767af32.md` in [`two-selected-inverse-choices`](../two-selected-inverse-choices/README.md).
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/exit_continuation/ELEVEN_EXIT_CONTINUATION.md` (legacy ID R61) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/batch_r61_r67_check.*` moved here. Legacy status: "written exit identity and infinite-family limitation of a specified continuation procedure".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `d265d94`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

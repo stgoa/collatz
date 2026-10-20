@@ -62,7 +62,7 @@ or a denominator condition can distinguish words at arbitrary lengths.
 The probes do not establish transfer of every integer-domain hypothesis,
 the full packet source families, or a universal induction.
 
-The [mechanical-word denominator proof](lattice_cycles/BALANCED_DENOMINATORS.md)
+The [mechanical-word denominator proof](../../results/mechanical-word-exact-denominator/README.md)
 provides a precise illustration: for its full specified word class the
 reduced denominator is exactly`2^(A/g)-3^(k/g)`, where g=gcd(A,k).
 The only integral case is the constant valuation2 cycle. That restricted

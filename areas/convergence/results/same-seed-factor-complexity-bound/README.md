@@ -1,7 +1,55 @@
-# A fixed positive survivor must have many different return factors
+---
+id: same-seed-factor-complexity-bound
+kind: result
+title: "A fixed positive survivor of the exit-18 return system has factor complexity above 18.28 L, and small seeds exit within 37 returns"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; the V/R return subsystem of R74 on G = {w = 40529845 mod 2^26}, K =
+  311195/7153, Lambda = 3^24/2^37. Along any legal positive trajectory the states strictly increase and w_j + K <=
+  Lambda^j (w_0 + K); if a length-L factor repeats at positions i < j, then 2^(26+e) <= w_j - w_i < Lambda^j (w_0 +
+  K) with e >= 19L, overlapping factors included. Hence one fixed positive integer making infinitely many returns
+  has liminf p(L)/L >= 19/log2(Lambda) = 18.2850540694..., where p(L) counts the distinct length-L factors of its
+  itinerary; p(L) <= 18L + O(1) is impossible even along unbounded lengths (3^432 < 2^685). Every positive start
+  at most 260028359941009900571662033 makes fewer than 37 consecutive returns (exit from this subsystem only, not
+  absorption or descent). For a fixed nonempty word F(w) = (a w + c)/2^e the exact number of consecutive complete
+  copies from w in G is floor((v2((a - 2^e) w + c) - 26)/e). The survivor is a hypothesis: high-complexity
+  aperiodic survivors are not excluded, none is constructed, and no current or rule is added.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [exit18-return-integer-cylinders, mixed-rank-growing-blocks]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_itinerary_complexity.py, itinerary_complexity.py, itinerary_complexity_audit.json: the legacy implementation, checker and receipt: 62 affine words, 186 lifts, 630 copy cases including 90 zero-copy cases, 12 R67/R74 boundary cases, 32 finite positive traces, 11242 factor repeats including 524 overlapping ones, 45 exact threshold cases, 62 negative rational periodic words, 80 distinct-completion controls and 12 rejections. Fails at its new path and in a legacy replay: it loads ../integer_prefix/ (now ../exit18-return-integer-cylinders/) by its pre-migration folder name and its receipt pins the SHA-256 of this note and of ../integer_prefix/ (now ../exit18-return-integer-cylinders/)INTEGER_PREFIXES.md under their legacy names, both now edited READMEs. Passed at be73a66 as experiments/residual_progress/itinerary_complexity/check_itinerary_complexity.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); a replay with the two notes still byte-identical passed at this migration, before they were edited"
+  - "../common-critical-rank-basis/batch_r75_r77_check.py: side-lane probe of R75 and R77, replayed by this node's check_legacy_replay.py (see reviewed_by)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: ../common-critical-rank-basis/batch_r75_r77_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 02:53, VERIFIED, main e9effe1), with the lane's own step and selected: V(w) + K = (3^12/2^19)(w + K) and R(w) + K <= Lambda(w + K) for w > 0; in exact arithmetic floor(2^1305/3^768 - K) = 260028359941009900571662033; on 150 random legal V/R trajectories every repeated factor of length 1-3 (2,188 repeats) has w_j = w_i (mod 2^(26+e)) with e >= 19L and satisfies the growth bound; the fixed-word copy count matches direct iteration in all 200 cases for V, R, VR, RV, VVR. Reproduced by the main lane in side_lane_review_fcc7e88.md. The complexity bound itself follows from the written argument; the status stays written"
+aliases: [R77]
+tags: [convergence, outer-residual, mixed-rank, factor-complexity, two-adic-coding, same-seed]
+---
+
+# A fixed positive survivor of the exit-18 return system has factor complexity above 18.28 L, and small seeds exit within 37 returns
+
+## Statement
+
+Odd-only clock, 1 absorbing. The two-return subsystem of [`exit18-return-integer-cylinders`](../exit18-return-integer-cylinders/README.md): `G = {w > 0 : w ≡ 40529845 mod 2^26}`, `V(w) = (3^12 w + 311195)/2^19`, `R(w) = (3^24 w + 328537586155)/2^37`; `K = 311195/7153`, `Λ = 3^24/2^37`.
+
+1. **Spacing.** Along any legal positive trajectory the states strictly increase and `w_j + K ≤ Λ^j (w_0 + K)`. If a length-`L` factor `ω` repeats at positions `i < j`, both starts lie in its one complete cylinder, so `2^(26+e_ω) ≤ w_j − w_i < Λ^j (w_0 + K)`, with `e_ω ≥ 19L`; overlapping factors are included.
+2. **Complexity.** Hence one **fixed** positive integer making infinitely many returns has `liminf p(L)/L ≥ 19/log₂Λ = 18.2850540694…`, where `p(L)` counts the distinct length-`L` factors of its itinerary. Since `3^432 < 2^685`, `p(L) ≤ 18L + O(1)` is impossible, even along unbounded lengths.
+3. **Finite return bound.** Every positive start at most `⌊2^1305/3^768 − 311195/7153⌋ = 260028359941009900571662033` makes fewer than 37 consecutive returns. This is an exit from this subsystem, not absorption, Syracuse descent or termination of other comparisons.
+4. **Fixed-word repetition.** For a fixed nonempty word `F(w) = (aw + c)/2^e`, the exact number of consecutive complete copies from `w ∈ G` is `⌊(v2((a − 2^e)w + c) − 26)/e⌋`. For `V` this is one less than R67's guarded block count ([`mixed-rank-growing-blocks`](../mixed-rank-growing-blocks/README.md)).
+
+The infinite survivor is a hypothesis throughout: high-complexity aperiodic survivors are not excluded, none is constructed, and no current or dispatcher rule is added. A powers-of-three sequence with real limit 0 and 2-adic limit 1 shows that the two completions' limits cannot be identified.
+
+## Proof
+
+The legacy note "A fixed positive survivor must have many different return factors" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written conditional theorem and bounded exact replay.** In the
-two-return subsystem of [the complete prefix theorem](../integer_prefix/INTEGER_PREFIXES.md),
+two-return subsystem of [the complete prefix theorem](../exit18-return-integer-cylinders/README.md),
 any **one fixed positive integer** that makes infinitely many returns has
 factor complexity
 
@@ -23,7 +71,7 @@ the earlier finite-cylinder theorem may vary with the chosen word; that
 theorem is fully consistent with this result. No external theorem or
 novelty assertion is used here.
 
-## 1. The precise subsystem and a real height bound
+### 1. The precise subsystem and a real height bound
 
 Retain the R74 constants and complete positive domains:
 
@@ -64,7 +112,7 @@ There are no equal-state or absorbing cases on this positive domain:
 strict increase prohibits repeats, and 1 is not in G. Exiting this subsystem
 is not being identified with absorption or even Syracuse descent.
 
-## 2. Repeating a factor requires a large integer difference
+### 2. Repeating a factor requires a large integer difference
 
 For a finite word omega, write
 
@@ -97,7 +145,7 @@ are disjoint, or that their intervening path is periodic, was used.
 The word-specific precision e_omega can be retained; the uniform bound
 `e_omega>=19L` is enough for the next conclusion.
 
-## 3. The complexity bound for one hypothetical infinite survivor
+### 3. The complexity bound for one hypothetical infinite survivor
 
 Fix a positive integer w_0 in G and **assume** that its legal trajectory
 has infinitely many V/R returns. Its unique itinerary is then defined at
@@ -134,7 +182,7 @@ itinerary does not imply a linear factor-complexity bound; no such inference
 is made. Aperiodicity alone also supplies no bound on p(L). High-complexity
 aperiodic itineraries remain outside this obstruction.
 
-### A finite return bound without enumerating the seeds
+#### A finite return bound without enumerating the seeds
 
 There are only 2^L binary factors of length L. A legal prefix of length
 `2^L+L` has factors beginning at all positions `0,...,2^L`. If
@@ -161,7 +209,7 @@ It guarantees an exit from this **specified V/R subsystem**, not absorption,
 Syracuse descent, or termination of the larger research programme.
 It still permits an infinite survivor above this finite cutoff.
 
-## 4. Exact maximum repetition count for any fixed word
+### 4. Exact maximum repetition count for any fixed word
 
 There is also an exact finite version of the periodic exclusion. Fix a
 nonempty omega, put a=a_omega, c=c_omega, q=2^e_omega, and fix w in G.
@@ -206,7 +254,7 @@ These are complete V returns **ending in G**. R67's count of guarded
 growing blocks, whose final endpoint may leave G, is one greater.
 The two clocks and the off-by-one distinction must be preserved.
 
-## 5. Why real and 2-adic limits cannot be identified
+### 5. Why real and 2-adic limits cannot be identified
 
 Inverse-word expansions contract both in the real metric and the 2-adic
 metric. This alone does **not** identify their two limits as the same
@@ -231,7 +279,7 @@ negative rational periodic controls are tested separately. They show why
 the positivity, integrality and distinct-state hypotheses cannot be dropped.
 No rationality-implies-periodicity assertion is assumed or proved.
 
-## 6. Verification and boundaries
+### 6. Verification and boundaries
 
 Run `python3 experiments/residual_progress/itinerary_complexity/check_itinerary_complexity.py`.
 The default replays the adjacent receipt; `--write-receipt` refreshes it.
@@ -246,3 +294,18 @@ The infinite result depends on the written proof, not on these finite
 examples. The fixed survivor is a hypothesis throughout. No current is
 supplied for its higher leading pair, no accepted dispatcher is changed,
 and no claim is made about all positive Collatz trajectories.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B12 migration; standard library). The legacy scripts of this folder load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the side-lane probe `batch_r75_r77_check.py` from [`common-critical-rank-basis`](../common-critical-rank-basis/README.md) (under 1 s, receipt reproduced byte for byte), which checks the growth bound, the exact 37-return threshold, the spacing lemma on 2,188 repeated factors and the fixed-word copy count. The legacy checker `check_itinerary_complexity.py` cannot be replayed: its receipt pins the hashes of two notes that are now edited READMEs (see `evidence`). The commands in the legacy text name `experiments/residual_progress/itinerary_complexity/`.
+
+## Remarks
+
+- **General form.** The same exact-cylinder and growth mechanism for every odd-only orbit, with the weaker constant `1/log₂(3/2) = 1.7095…`, is the side lane's [`divergent-orbit-itinerary-complexity`](../divergent-orbit-itinerary-complexity/README.md) (R77-b), reviewed by the main lane.
+- This is the first constraint in the programme tying one integer seed across unboundedly many prefixes (side-lane feed 02:53); it narrows, but does not settle, [`aperiodic-exit18-return-survivors`](../../questions/aperiodic-exit18-return-survivors.md).
+- No external theorem or novelty is claimed.
+
+## History
+
+- Migrated from `experiments/residual_progress/itinerary_complexity/ITINERARY_COMPLEXITY.md` (legacy ID R77) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Editing this note and `INTEGER_PREFIXES.md` (now [`exit18-return-integer-cylinders`](../exit18-return-integer-cylinders/README.md)) breaks the legacy checker's pinned hashes; it passed a replay at this migration before the edits. Legacy status: "written conditional complexity theorem, exact fixed-word repetition formula, and finite all-seed bound for the specified R74 subsystem".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `e9effe1`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

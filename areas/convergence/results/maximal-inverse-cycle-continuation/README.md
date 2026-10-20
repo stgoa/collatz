@@ -297,7 +297,7 @@ checks are retained. These are finite evidence counts, not coverage estimates.
 ## Remarks
 
 - **Relation to the negative-cycle words** (section 5 of the note): the backward `−5` word is the R41 phase, the `−17` word with endpoint `−17` is exactly R56's `k = 4` domain ([`negative-cycle-backward-word`](../negative-cycle-backward-word/README.md)); the new operation is the composition of an expanding four-arrow inverse tail, maximal cycle inverses and the point continuation, tested against the original `q`. The permanent inverse-only exclusions of [`inverse-only-exclusions-short-forward`](../inverse-only-exclusions-short-forward/README.md) remain valid.
-- Appended to the later legacy fifteen-family dispatcher (`experiments/residual_progress/refined_rules/`, R61). Novelty undetermined (none claimed).
+- Appended to the later fifteen-family dispatcher [`fifteen-family-rho-dispatcher`](../fifteen-family-rho-dispatcher/README.md) (R61-b). Novelty undetermined (none claimed).
 
 ## History
 

@@ -16,7 +16,7 @@ The separate side branch advanced to
 `33c3829702fe35d0b112a3abdd5255c95b7e6b00`. Its two latest entries concern
 the original-rank stopping threshold and R62 compatibility. The branch was
 read without modification. The merged negative controls remain useful;
-the [existing PR review](../packet_currents/negative_controls/PR1_REVIEW.md)
+the [existing PR review](../locally-collatz-like-control-barrier/PR1_REVIEW.md)
 retains the exact counterexamples to the broad claim that alternative
 minimum-cost one-sided certificates cannot help.
 

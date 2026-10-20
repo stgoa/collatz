@@ -69,7 +69,7 @@ is needed beyond the exact cylinder identity already proved in the repo.
 ## Research decision
 
 Keep the negative controls and conditional minimality theorem, with the
-[PR1 scope corrections](../packet_currents/negative_controls/PR1_REVIEW.md).
+[PR1 scope corrections](../locally-collatz-like-control-barrier/PR1_REVIEW.md).
 They do not rule out alternative constructions. Keep repeated-factor
 spacing as a constraint on one fixed hypothetical survivor, without treating
 linear complexity growth as a termination proof.

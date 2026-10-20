@@ -316,7 +316,7 @@ universal strict descent or the existence of all remaining input currents.
 
 ## Remarks
 
-- Appended, with R58 and R60, to the later legacy fifteen-family dispatcher (`experiments/residual_progress/refined_rules/`, R61). The main lane's note `side_lane_review_767af32.md` (in [`two-selected-inverse-choices`](../two-selected-inverse-choices/README.md)) stresses that generic rewriting termination alone does not prove success.
+- Appended, with R58 and R60, to the later fifteen-family dispatcher [`fifteen-family-rho-dispatcher`](../fifteen-family-rho-dispatcher/README.md) (R61-b). The main lane's note `side_lane_review_767af32.md` (in [`two-selected-inverse-choices`](../two-selected-inverse-choices/README.md)) stresses that generic rewriting termination alone does not prove success.
 - Novelty undetermined (none claimed).
 
 ## History

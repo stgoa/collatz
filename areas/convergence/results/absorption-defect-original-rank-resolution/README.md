@@ -1,4 +1,54 @@
-# Resolve or retain the unique fifth-family rank defect
+---
+id: absorption-defect-original-rank-resolution
+kind: result
+title: "Sigma/rho compatibility and the original-rank resolution of the unique fifth-family absorption defect"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; P(w) = [3w] - [w], rho(w) = nu(3w), E the returning class. (1) Compatibility:
+  rho(u) = (9 sigma(u) + 5)/8 on E and rho = sigma off E; a finite exact sigma-valid plan with parent in E is
+  rho-valid, and for a parent outside E its whole nondecreasing-rho frontier is exactly the E-requests with
+  ceil((8 rho(w) - 5)/9) <= sigma(u) < rho(w). (2) Every failed R58 fifth-exponent plan has w = 4021 + 8192j, Q =
+  12063 + 24576j and one high request u = 8589 + 17496j with coefficient +1; substituting the whole first (R44) or
+  second (R26/R52) returning comparison gives exactly the final endpoint's formal requests at ranks >= Q, for every
+  exponent. (3) For defect exponent a = 3 the first comparison succeeds iff its endpoint r is noncanonical or 1 mod
+  8 (including the whole progression w = 53173 + 65536k); on the failed branch a closed table decides every depth
+  for second exponents A = 2, 3 against the original Q (higher A have the exact interface only). (4) Under the
+  fixed fifteen-rule resolver the family w = 44981 + 2^24 k keeps an unrecognised high u for every k, and for k
+  divisible by 81 the parent itself misses all fifteen direct domains. Scope: the fixed resolver and initial plan;
+  later rules, other interfaces and supplied history are not excluded, and no universal supply is proved.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [critical-image-rank-composition, returning-forward-interface, sigma-rank-removes-absorption-overhead, returning-second-forward-interface, complementary-run-bridges, rank-excess-absorption-classification, deferred-original-rank-testing, fifteen-family-rho-dispatcher]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_defect_resolution.py, defect_resolution.py, defect_resolution_audit.json: the legacy constructor and checker: 13 affine inequalities, 76 sigma-valid plans, 192 nonexceptional W9 roots, 64 complete a = 3 first decisions, 544 second A = 2/3 cells, four large cylinders through depth 129 and index 2^128, 90 arbitrary-A interfaces, 63 family members, 16 fixed-resolver instances, nine invalid or missing-supply calls, and four supplied conversions (21 distinct supplied pairs; 92, 52, 65 and 59 rows) with the unfinished 44981 fixture. Fails at its new path: defect_resolution.py loads ../phase_rank/ (now ../sigma-rank-removes-absorption-overhead/), ../refined_rules/ (now ../fifteen-family-rho-dispatcher/), ../returning_continuation/ (now ../returning-second-forward-interface/) and ../returning_phase/ (now ../returning-forward-interface/) by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/defect_resolution/check_defect_resolution.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "r62_compatibility_check.py, r62_compatibility_check.json: side-lane probe (Claude side lane, 2026-10-18 00:53) of identity (1) and the compatibility theorem on actual sigma plans. Fails at its new path: it imports backward_word_rule from its own folder (now ../negative-cycle-backward-word/), which loads main's B11 modules by their legacy paths. Passed at be73a66 as reviews/side_lane/r62_compatibility_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: r62_compatibility_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 00:53, VERIFIED, main 793e835): identity 8 rho(u) = 9 sigma(u) + 5 on 20,000 random E inputs; the theorem on 3,000 quotient-prefix sigma plans (1,000 each at 24, 40 and 64 bits): all 159 plans with an E parent are rho-valid, and for the 2,841 others the requests with rho(u) >= rho(w) are exactly the E-requests in window (2). Reproduced by the main lane in side_lane_review_33c3829.md. The defect interfaces, tables and the fixed-resolver family were not rebuilt; the status stays written"
+aliases: [R62]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, sigma-rank, absorption-defect]
+---
+
+# Sigma/rho compatibility and the original-rank resolution of the unique fifth-family absorption defect
+
+## Statement
+
+Odd-only clock, 1 absorbing; `P(w) = [3w] − [w]`, `ρ(w) = ν(3w)`; `σ` the separate rank of [`sigma-rank-removes-absorption-overhead`](../sigma-rank-removes-absorption-overhead/README.md); `E` the returning class (`u ≡ 5 mod 8`, `u ≡ 3 mod 9`, selected `3u`); formal plans `[s] = div H_s + Σ A_s(v)P(v)` with signed integer coefficients.
+
+1. **Compatibility.** `ρ(u) = (9σ(u)+5)/8` on `E` and `ρ = σ` off `E`. A finite exact `σ`-valid plan with parent in `E` is `ρ`-valid; for a parent outside `E` its whole nondecreasing-`ρ` frontier is exactly the `E`-requests with `⌈(8ρ(w)−5)/9⌉ ≤ σ(u) < ρ(w)`.
+2. **Defect interfaces.** Every failed fifth-exponent plan of [`rank-excess-absorption-classification`](../rank-excess-absorption-classification/README.md) has `w = 4021 + 8192j`, `Q = ρ(w) = 12063 + 24576j` and one request `u = 8589 + 17496j` at rank `≥ Q`, coefficient `+1`. Substituting the whole first (R44, [`returning-forward-interface`](../returning-forward-interface/README.md)) or second (R26/R52, [`returning-second-forward-interface`](../returning-second-forward-interface/README.md)) returning comparison gives exactly the final endpoint's formal requests at ranks `≥ Q`, for every exponent.
+3. **Decisions.** For defect exponent `a = 3`, the first comparison is strict in the original `Q` iff its endpoint `r` is noncanonical or `≡ 1 mod 8` (including the whole progression `w = 53173 + 65536k`). On the failed branch, a closed table decides every depth for second exponents `A = 2, 3`; higher `A` have the exact interface without a closed table.
+4. **Fixed-resolver family.** Under the fixed [`fifteen-family-rho-dispatcher`](../fifteen-family-rho-dispatcher/README.md), `w = 44981 + 2^24 k` keeps an unrecognised high `u` for every `k`; for `81 | k` the parent itself misses all fifteen direct domains.
+
+All tests use the original `Q`, not the larger child's rank. The limitation in 4 concerns that fixed resolver and initial plan; later rules, the second interface, other inverse words and supplied history are not excluded. No universal supply is proved.
+
+## Proof
+
+The legacy note "Resolve or retain the unique fifth-family rank defect" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written compatibility classification, complete local decision
 tables, and an infinite family unresolved by the fixed fifteen rules.**
@@ -9,16 +59,16 @@ is exact, but the closed table below covers only second exponents2 and3.
 
 Use the absorbed odd Syracuse map, `P(w)=[3w]-[w]`, and the unchanged formal
 absorption plan `[s]=div H_s+sum A_s(v)P(v)`. Requests retain their signed
-integer coefficients. Dependencies are [R43](../critical_rank/CRITICAL_IMAGE_RANK.md),
-[R44](../returning_phase/RETURNING_FORWARD_INTERFACE.md),
-[R51](../phase_rank/PHASE_RANK.md),
-[R52](../returning_continuation/RETURNING_SECOND_BLOCK.md),
-[R58](../exact_absorption_bound/EXACT_ABSORPTION_BOUND.md), and
-[R59](../deferred_rank/DEFERRED_RANK.md). The fixed resolver is the
-[fifteen-family dispatcher](../refined_rules/REFINED_RULES.md) at d265d94.
+integer coefficients. Dependencies are [R43](../critical-image-rank-composition/README.md),
+[R44](../returning-forward-interface/README.md),
+[R51](../sigma-rank-removes-absorption-overhead/README.md),
+[R52](../returning-second-forward-interface/README.md),
+[R58](../rank-excess-absorption-classification/README.md), and
+[R59](../deferred-original-rank-testing/README.md). The fixed resolver is the
+[fifteen-family dispatcher](../fifteen-family-rho-dispatcher/README.md) at d265d94.
 It never calls the new rules here.
 
-## 1. Precisely where sigma and rho can disagree
+### 1. Precisely where sigma and rho can disagree
 
 Write E for the returning class: `u=5 mod8`, `u=3 mod9`, and selected3u.
 The definitions give the exact relation
@@ -46,7 +96,7 @@ This does not license the reverse implication or arbitrary mixed rules.
 For a general non-E parent, (2) is a complete description of the requests
 that must be resolved or cancelled before the original-rho test succeeds.
 
-## 2. Exact interface for every failed fifth-exponent input
+### 2. Exact interface for every failed fifth-exponent input
 
 R58 classifies the failure of its complete fifth-exponent plan. Every
 failure has, for an integer j>=0,
@@ -90,7 +140,7 @@ construction. It is not a theorem that either choice always succeeds.
 The elementary normalizers remain currents with their own clocks. In
 particular, no single ordinary path is claimed for the entire P(w) plan.
 
-## 3. Complete first decision when the defect has a=3
+### 3. Complete first decision when the defect has a=3
 
 The a=3 defect class is exactly j=2 mod4. Its endpoint satisfies
 
@@ -118,7 +168,7 @@ half elementary normalization gives a stronger bound. Uniformly all
 requests have rank at most143731+177147k, below Q=159519+196608k by
 15788+19461k. The fixed dispatcher selects R44 at u on this whole branch.
 
-## 4. Complete second decisions for A=2 and A=3
+### 4. Complete second decisions for A=2 and A=3
 
 Remain in the failed a3 first branch, so r is complementary canonical.
 Write r=2^A v-1, with d=v2(3^(A-1)v-1)>=2, and let y be the complete
@@ -143,7 +193,7 @@ rank Q**, not merely decisions at the larger child rank R.
 In the last row selected y with n=7 mod8 fails. The R58 exception means
 exactly `n=27 mod48`, `v2(3n-1)=4`, and noncanonical3z for z=(3n-1)/16.
 
-### Quantitative consequence of complete W9 elimination
+#### Quantitative consequence of complete W9 elimination
 
 If n=3b is canonical, b in W9, n>=75, and the R58 exception is absent,
 then every request of H_n has rank at most
@@ -161,7 +211,7 @@ have bound(3n+5)/8. The exceptional depth4 request is absent by hypothesis.
 This uses the existing finite W9 recursion, with no assumption about its
 requested currents.
 
-### Proof of the table, including intercepts
+#### Proof of the table, including intercepts
 
 For odd d, increasing d by2 multiplies the raw endpoint formula by3/4.
 The largest relevant endpoints occur at d3:
@@ -205,7 +255,7 @@ The moduli are coprime. Then r=2^A v-1 has the required a3 parent phase;
 take the positive representatives with r>=73543 and recover
 j=(2r-28988)/59049. The modulus2^(d+1) retains the extra valuation bit.
 
-## 5. A whole family that the fixed fifteen-rule expansion cannot resolve
+### 5. A whole family that the fixed fifteen-rule expansion cannot resolve
 
 For every k>=0 set
 
@@ -249,7 +299,7 @@ it does not say that the new two-block interface, another inverse word,
 supplied history, or later rules cannot handle some members. No positive
 nonabsorbing orbit is asserted.
 
-## 6. Reproduction
+### 6. Reproduction
 
 `defect_resolution.py` retains exact current dictionaries, signed request
 lists, original-rank status, complete first/second parameters and the fixed
@@ -276,3 +326,18 @@ the complete unfinished44981 fixture. Fixture discovery has cycle
 detection and caps10000 odd steps/512 bits; fixed closure has a10000-node
 cap. A cap supplies no certificate. Source hashes and the frozen resolver
 hash are replayed by default.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B12 migration; standard library). The legacy scripts of this folder load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the legacy checker `check_defect_resolution.py` (about 20 s; the counts of section 6 of the note and the stored supplied conversions, compared with `defect_resolution_audit.json`) and the side-lane probe `r62_compatibility_check.py` (about 26 s, receipt reproduced byte for byte). The commands in the legacy text name `experiments/residual_progress/defect_resolution/`.
+
+## Remarks
+
+- **Uses downstream.** The compatibility window (1) is what the side lane's stopping threshold `(8ρ(w)−5)/9` removes ([`quotient-prefix-plans-rho-decreasing`](../quotient-prefix-plans-rho-decreasing/README.md), R62-b). The seventeen-family dispatcher [`seventeen-family-rho-dispatcher`](../seventeen-family-rho-dispatcher/README.md) appends this resolution as a rule; the returning defect is reformulated as an adjacent source in [`adjacent-source-defect-equivalence`](../adjacent-source-defect-equivalence/README.md) (R65).
+- One overstatement was corrected in the legacy round: the quantitative W9 bound (7) was first called sharp without an optimality theorem (archive/convergence-residual-progress/REPORT.md).
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/defect_resolution/DEFECT_RESOLUTION.md` (legacy ID R62) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/r62_compatibility_check.*` moved here. Legacy status: "written compatibility theorem, exact whole-domain interfaces, complete local tables and a scoped surviving family".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `793e835`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

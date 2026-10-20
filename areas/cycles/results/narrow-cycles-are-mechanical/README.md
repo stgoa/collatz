@@ -13,7 +13,7 @@ claim: >
 authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-19
-depends_on: []
+depends_on: [mechanical-word-exact-denominator]
 lean:
   - LeanLane.Cyc.narrow_mech
   - LeanLane.Cyc.mech_rotate
@@ -70,7 +70,7 @@ Written proof: [`ROTATION_LATTICE.md`](ROTATION_LATTICE.md) §3. It uses only or
 
 > Sort the states in `[L, 2L)`. Their values `3x + 1` also span a ratio less than two. The exact division powers therefore have two adjacent exponents, `q` or `q + 1`, separated by one threshold in sorted order; the high outputs precede the low outputs. The successor permutation is a cyclic shift of ranks by `h`, with `gcd(h, m) = 1` because the orbit visits all states. Following that shift gives the displayed floor-difference word, `a_i = q + floor((i+1)h/m) − floor(ih/m)`, with `A = mq + h`. Conversely, the mechanical phase coefficients are all less than twice their minimum, term by term (`0 ≤ floor((jA+l)/m) − floor(jA/m) ≤ 1`), so `C_0 ≤ C_l < 2C_0`.
 
-For the integer corollary: R71's exact denominator theorem gives `gcd(C, D) = 1` for a primitive mechanical word, and its elementary mod-8 argument shows `D = 2^A − 3^m = 1` cannot occur at `m > 1`; so the only integer mechanical cycle is the fixed point 1. R71 is the legacy `experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md` §2 (not yet migrated); its two needed facts are formal here as `mech_gcd_one_phase` and `mech_D_ne_one` (Lean unit R71-a).
+For the integer corollary: R71's exact denominator theorem ([`mechanical-word-exact-denominator`](../mechanical-word-exact-denominator/README.md)) gives `gcd(C, D) = 1` for a primitive mechanical word, and its elementary mod-8 argument shows `D = 2^A − 3^m = 1` cannot occur at `m > 1`; so the only integer mechanical cycle is the fixed point 1. R71 is [`mechanical-word-exact-denominator`](../mechanical-word-exact-denominator/README.md) (legacy `BALANCED_DENOMINATORS.md` §2); its two needed facts are formal here as `mech_gcd_one_phase` and `mech_D_ne_one` (Lean unit R71-a).
 
 ## Certificates
 
@@ -103,7 +103,7 @@ Finite checks do not prove the classification; they support the implementation.
 
 ## Remarks
 
-- **Scope of the gain.** The hypothesis is geometric and testable on any cycle. The excluded word class itself is the mechanical class already handled by R71. This is not a new general cycle-count record, nor an exclusion of the wider cycles left by the theorem. Every nontrivial cycle lies in `H > 2L`, where this says nothing more.
+- **Scope of the gain.** The hypothesis is geometric and testable on any cycle. The excluded word class itself is the mechanical class already handled by R71 ([`mechanical-word-exact-denominator`](../mechanical-word-exact-denominator/README.md)). This is not a new general cycle-count record, nor an exclusion of the wider cycles left by the theorem. Every nontrivial cycle lies in `H > 2L`, where this says nothing more.
 - **Literature.** The exclusion of mechanical (upper Christoffel) words as integer cycles is Knight's published theorem ([`knight-2026-high-cycles`](../../../../sources/knight-2026-high-cycles.md)), and is also kernel-checked in `mmusson/collatz` (`NormBridge.cycle_one_move_christoffel`; see [`musson-collatz-gap-all`](../../../../sources/musson-collatz-gap-all.md)). The Christoffel extremal minimum bound is Halbeisen–Hungerbühler ([`halbeisen-1997-rational-cycles`](../../../../sources/halbeisen-1997-rational-cycles.md)). These are re-derived here by another route, not assumed. The classification "narrow ⇔ mechanical" by rank dynamics was not found in the sources read; novelty undetermined. "First" in the side-lane milestone entries means first in this programme.
 - **Controls.** The `d = 5` cycle `(23, 37, 29)` (word `(1,2,2)`) is narrow and mechanical; the `d = 13` mechanical cycle has numerators `319, 367, 421, 485, 557` with ratio `557/319 < 2`; narrow cycles with `m ≥ 2` exist at `q = 5` (minimum 23, word `(1,2,2)`, `D = 5`) and `q = 13` (minimum 319, `m = 5`, `D = 13`), and every `q` has the narrow one-letter cycle `n_0 = q`. The only input specific to `d = 1` is that `2^A − 3^m = 1` has no solution with `m ≥ 2`; the `q = 5` and `q = 13` controls are exactly where that input fails.
 - **Related.** The narrow spectrum across all `d`: [`narrow-cycle-spectrum-law`](../narrow-cycle-spectrum-law.md). The all-rotation divisibility system: [`rotation-lattice-single-divisibility`](../rotation-lattice-single-divisibility.md). The rejected close-pair criterion: [`close-pair-lattice-criterion`](../../attempts/close-pair-lattice-criterion/README.md). The next rung (`H < 8L` forces order): [`three-band-collatz-cycles-are-ordered`](../three-band-collatz-cycles-are-ordered.md).

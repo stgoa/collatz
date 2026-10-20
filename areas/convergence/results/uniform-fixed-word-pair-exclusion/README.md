@@ -1,10 +1,51 @@
-# No uniform fixed-word affine pair descent on the complete mixed-growth guard
+---
+id: uniform-fixed-word-pair-exclusion
+kind: result
+title: No uniformly smaller affine W5 partner with four fixed valuation words on the whole mixed-growth guard
+status: written
+claim: >
+  Odd-only 3x+1 map S (S(1) = 1). On w(n) = 40529845 + 2^26 n, n >= 0 (the whole R67 guard), there is no affine u(n)
+  = alpha n + beta such that for every n >= 0 u(n) is an integer with 0 < u(n) < w(n) and u(n) = 5 mod 8, and there
+  are nonnegative j, ell, k, m with S^j(w(n)) = S^ell(u(n)) and S^k(3w(n)) = S^m(3u(n)) for every n, the four
+  complete ordinary valuation words being fixed independently of n (empty words and unequal clocks allowed). The
+  parent's maximal fixed paths have lengths 11 and 17; slope equality forces ell + v3(alpha) = j <= 11; two
+  independent exhaustive enumerations (1110 and 3401 nodes) find the same 43 lower candidates and no upper
+  intersection. Not excluded: fixed clocks with n-dependent intermediate valuations, input-dependent words or
+  clocks, refined progressions, non-affine or non-W5 partners, multiple pairs, general signed currents.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [mixed-rank-growing-blocks]
+certificates: [check_uniform_pair_recompute.py]
+evidence:
+  - "check_uniform_pair.py, uniform_pair.py, uniform_pair_audit.json: the legacy constructor (standalone, no file writes), independent checker and full candidate receipt: 1110 constructor nodes, 3401 independent nodes and 450 complete inverse words, the same 43 candidates, no upper intersection, 215 direct integer instances, 256 small affine paths, 12 domain boundaries, 20 rejections. Fails at its new path and in a legacy replay: its receipt pins the SHA-256 of its note under the legacy name UNIFORM_PAIR_SCOPE.md, which is now this edited README. Passed at be73a66 as experiments/residual_progress/uniform_pair_scope/check_uniform_pair.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); the same finite result is recomputed by check_uniform_pair_recompute.py"
+aliases: [R76]
+tags: [convergence, outer-residual, tripling-pairs, mixed-rank, exhaustive-search, fixed-word]
+---
+
+# No uniformly smaller affine W5 partner with four fixed valuation words on the whole mixed-growth guard
+
+## Statement
+
+Ordinary odd-only map `S(x) = (3x + 1)/2^v2(3x+1)`, `S(1) = 1`. On the whole guard `w(n) = 40529845 + 2^26·n`, `n ≥ 0`, of [`mixed-rank-growing-blocks`](../mixed-rank-growing-blocks/README.md), there is no affine `u(n) = αn + β` such that:
+
+1. for **every** `n ≥ 0`, `u(n)` is an integer, `0 < u(n) < w(n)` and `u(n) ≡ 5 (mod 8)`;
+2. there are nonnegative integers `j, ℓ, k, m` with `S^j(w(n)) = S^ℓ(u(n))` and `S^k(3w(n)) = S^m(3u(n))` for every `n ≥ 0`;
+3. the four complete ordinary valuation words in 2 are fixed independently of `n` (empty words and unequal clocks allowed).
+
+The parent's maximal fixed paths have lengths 11 (from `w`) and 17 (from `3w`); slope equality forces `ℓ + v3(α) = j ≤ 11`, and a proved slope bound caps every inverse valuation. Two independent exhaustive enumerations (1110 and 3401 nodes) find the same 43 lower candidates and no upper intersection.
+
+Not excluded: fixed clocks with `n`-dependent intermediate valuations, input-dependent words or clocks, binary or ternary subprogressions, non-affine or non-`W5` partners, multiple retained pairs, general signed currents.
+
+## Proof
+
+The legacy note "No uniform fixed-word affine pair descent on the complete mixed-growth guard" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status:** written exhaustive-search theorem with a finite exact certificate and
 an independent enumeration. This is a scoped exclusion of one comparison model,
 not a convergence theorem, a formal proof-assistant result, or a novelty claim.
 
-## 1. Exact statement and scope
+### 1. Exact statement and scope
 
 Use the ordinary odd Syracuse map
 
@@ -15,7 +56,7 @@ Let
     R=40529845, P=2^26, w(n)=R+Pn, for every integer n>=0.
 
 This is the complete positive guard of the
-[mixed-growth comparison](../mixed_rank_recursion/MIXED_GROWING_BLOCK.md).
+[mixed-growth comparison](../mixed-rank-growing-blocks/README.md).
 There is no affine function `u(n)=alpha*n+beta` satisfying, simultaneously:
 
 1. For **every** integer `n>=0`, `u(n)` is an integer, `0<u(n)<w(n)`, and
@@ -39,7 +80,7 @@ requirement fails the upper fixed-word requirement. The proof exhausts all
 possible clocks and valuations within this model; it does not impose a guessed
 search horizon or valuation cap.
 
-## 2. Affine domain and complete fixed paths
+### 2. Affine domain and complete fixed paths
 
 Integrality at `n=0,1` forces `alpha,beta` to be integers. The inequalities for all
 `n>=0` are equivalent to
@@ -85,7 +126,7 @@ member at each claimed fixed step. For example `(8,1)` has the single fixed
 step `(8,1)->(6,1)`, after which the next valuations split. Padding an absorbed
 member alone cannot create an additional whole-domain fixed word.
 
-## 3. Ternary order bounds every possible lower inverse depth
+### 3. Ternary order bounds every possible lower inverse depth
 
 After `j` lower-parent steps with total valuation `A`, its slope is
 
@@ -105,7 +146,7 @@ integrality to a ternary subprogression could admit rational `alpha` in the
 original `n` coordinate and invalidate (1), which is why that broader problem
 is outside this theorem.
 
-## 4. Complete inverse enumeration and valuation bound
+### 4. Complete inverse enumeration and valuation bound
 
 An ordinary inverse arrow of exact valuation `h>=1` from `(a,b)` is
 
@@ -147,7 +188,7 @@ path, including clock zero. **There are no affine intersections.** Equality of
 two affine states is equivalent to equality at every `n>=0`. This proves the
 theorem.
 
-## 5. Independent exhaustive verification
+### 5. Independent exhaustive verification
 
 The checker reconstructs the candidate set using a different search bound.
 For each exact pair of clocks `0<=ell<=j<=11`, it enumerates all inverse words
@@ -180,7 +221,7 @@ stored comparisons,256 small affine paths,12 partner-domain boundaries,
 and valuation-split cases. These finite checks supplement the completeness
 proof; they do not replace its all-`n` argument.
 
-## 6. Files, replay, and practical consequence
+### 6. Files, replay, and practical consequence
 
 All mathematical code is standalone Python using only the standard library.
 No repository resolver, supplied Collatz path, remote source, or external
@@ -212,3 +253,18 @@ supply a descent. A different attempt must add a resource outside the model,
 such as a valuation-dependent word, a refined domain, another partner class,
 or a joint signed comparison. This conclusion does not justify abandoning those
 alternatives or all single-partner reasoning. No dispatcher has been changed.
+
+## Certificates
+
+[`check_uniform_pair_recompute.py`](check_uniform_pair_recompute.py) (written at the B12 migration; standard library; about 1 s). The legacy checker `check_uniform_pair.py` pins the hash of its own note under the legacy name `UNIFORM_PAIR_SCOPE.md`, which became this edited README, so it fails at this path and in a legacy replay; no other legacy check covers this node. The new certificate imports the unmodified `uniform_pair.py` and `check_uniform_pair.py` from this folder, runs the legacy `audit()` (the constructor's 1110-node search, the independent 3401-node enumeration, the 43 candidates with their lower witnesses and complete upper words, 215 direct instances, 256 small paths, 12 domain boundaries and 20 rejections) with the note's hash entry replaced by the one recorded in the receipt, and requires the result to equal `uniform_pair_audit.json` exactly; it also requires the receipt's hashes of `uniform_pair.py` and `check_uniform_pair.py` to match the files here. The commands in the legacy text name `experiments/residual_progress/uniform_pair_scope/`.
+
+## Remarks
+
+- Promoted from the "next-batch candidate" of the R72–R74 round (archive/convergence-residual-progress/REPORT.md) after durable proof, independent enumeration and replay.
+- A different attempt must add a resource outside this model; [`common-critical-rank-basis`](../common-critical-rank-basis/README.md) (R75) does so with an additional source type.
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/uniform_pair_scope/UNIFORM_PAIR_SCOPE.md` (legacy ID R76) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical. Editing the note breaks the legacy checker's pinned hash; `check_uniform_pair_recompute.py` was added at the migration to recompute the receipt. Legacy status: "written exhaustive-search theorem with retained finite certificate and independent enumeration".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `e9effe1`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

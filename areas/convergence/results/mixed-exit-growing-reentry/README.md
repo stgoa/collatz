@@ -1,4 +1,52 @@
-# Complete mixed-block exits and a growing natural re-entry
+---
+id: mixed-exit-growing-reentry
+kind: result
+title: "Complete exits of the mixed growing block, and a natural continuation that re-enters at greater height"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; T = nu S, rho(w) = nu(3w), Y(w) = 7153 w + 311195. At the end of the maximal
+  guarded block of R67 (exit valuation e = 7..25 of Y), the next R26 first exponent is always 5 and its second depth
+  is 2 at e = 7, 3 + v2(243 z - 294023) >= 4 at e = 8, and 3 at e = 9..25; the composed current keeps every signed
+  helper, and its whole frontier at ranks >= the original 3 w0 is that of the raw endpoint. The exit-18-to-guard
+  subdomain has an exact congruence at every old count m. On w = 8515171531530858421 mod 2^63 the block has exactly
+  one copy and exit 18, and the natural continuation re-enters the guard at R(w) = (282429536481 w +
+  328537586155)/2^37 > w, with full current D + J_R(w) - J_w, unique higher request R(w) (+1), all other requests
+  below 3w, quotient clock 24 and ordinary common-tail clocks (30, 6); its returning R44 comparison is not
+  rho-descending, so this is not an accepted rule. Every r >= 1 copies occur on w = -C/E mod 2^(63+37(r-1)), and a
+  fixed positive seed makes exactly 1 + floor((v2(Ew+C) - 63)/37). No infinite positive path, failure of other exit
+  comparisons or nonexistence of a richer rank is asserted.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [mixed-rank-growing-blocks, complementary-run-bridges, returning-forward-interface, critical-image-rank-composition]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_mixed_exit.py, mixed_exit.py, mixed_exit_audit.json: the legacy constructor and checker: 114 exit-parameter cases, 19 full signed next-block plans, eight general re-entry plans, eight full copies of (15), eight repeated currents through eight re-entries, 24 repetition families through 128 copies, 37 exact re-entry maxima and nine rejections; full current tables for the least single-copy and a two-copy example. Fails at its new path: mixed_exit.py loads ../mixed_rank_recursion/ (now ../mixed-rank-growing-blocks/) by its pre-migration folder name; it is loaded in turn by the later legacy integer_prefix/ code. Passed at be73a66 as experiments/residual_progress/mixed_exit/check_mixed_exit.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "../native-height-inverse-obstruction/batch_r68_r70_check.py: side-lane probe of R68 and R70 (see reviewed_by), a certificate of that node"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: ../native-height-inverse-obstruction/batch_r68_r70_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 08:37, VERIFIED, main 9190ccf), with the lane's own S, nu and T, nothing imported from main: the guard w = 40529845 (mod 2^26) = -B/7153 with w = 5 (mod 8) and nu(3w) = 3w (200 samples); for m = 1..4 and every e = 7..25, 228 inputs with exact H, m = 1 + floor((H-26)/19), exit valuation e, 3w = 31 (mod 128), first R26 exponent 5 and the second-depth table; the re-entry theorem on 23 members of w = 8515171531530858421 (mod 2^63) (v2(Y) = 37, the two twelve-arrow words, R(w) odd, T^24(3w) = 3R(w), S^30(3w) = S^6(3R(w)), R(w) > w back in the guard); repetitions r = 1..6 (18 cases) with counts 1 + floor((h-63)/37) and the clocks. The signed currents and the non-descent of the continuation were not rebuilt; the status stays written"
+aliases: [R70]
+tags: [convergence, outer-residual, tripling-pairs, mixed-rank, exit-interface, negative-cycle-shadow]
+---
+
+# Complete exits of the mixed growing block, and a natural continuation that re-enters at greater height
+
+## Statement
+
+Odd-only clock, 1 absorbing; `T = νS` with its clock stated separately; `ρ(w) = ν(3w)`; `Y(w) = 7153w + 311195`; the guard `w ≡ 40529845 (mod 2^26)` of [`mixed-rank-growing-blocks`](../mixed-rank-growing-blocks/README.md).
+
+1. **Exit interface.** After the maximal guarded block (exit valuation `e = v2(Y(w)) ∈ 7..25`), the next R26 block ([`complementary-run-bridges`](../complementary-run-bridges/README.md)) has first exponent 5, and second depth 2 at `e = 7`, `3 + v2(243z − 294023) ≥ 4` at `e = 8`, 3 at `e = 9..25`. The composed current keeps every signed helper; its whole frontier at ranks `≥` the original `3w0` is exactly that of the raw endpoint.
+2. **Exit-18 re-entry.** The exit-18-to-guard subdomain has an exact congruence at every old count `m`. On `w ≡ 8515171531530858421 (mod 2^63)` the block has exactly one copy and exit 18, and the natural twelve-quotient-step continuation re-enters the guard at `R(w) = (282429536481w + 328537586155)/2^37 > w`, with current `D_w + J_R(w) − J_w`, unique higher request `R(w)` (`+1`), every other request below `3w`, quotient clock 24 and ordinary common-tail clocks `(30, 6)`. Its returning R44 comparison is **not** `ρ`-descending, so this is a failed natural extension, not an accepted rule.
+3. **Repetition.** Every `r ≥ 1` copies occur on `w ≡ −C/E (mod 2^(63+37(r−1)))` (`E = 3^24 − 2^37`, `C = 328537586155`); a fixed positive seed makes exactly `1 + ⌊(v2(Ew + C) − 63)/37⌋` copies.
+
+Maximality of the old guard followed by this continuation does not ensure progress. No infinite positive path, failure of other exit comparisons, failure of the current dispatcher or nonexistence of a richer well-founded rank is asserted.
+
+## Proof
+
+The legacy note "Complete mixed-block exits and a growing natural re-entry" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written proof and finite exact replay.** This is a complete exit
 interface and a scoped obstruction to treating a maximal guarded block as
@@ -7,13 +55,13 @@ rule. In particular, the returning comparison used at the re-entry is **not
 rho-descending**. Collatz convergence and universal closure remain open.
 
 The inputs are the exact constructions in
-[R67](../mixed_rank_recursion/MIXED_GROWING_BLOCK.md), the
-[R26 run bridge](../complementary_bridge/RUN_BLOCK_BRIDGES.md), and the existing
+[R67](../mixed-rank-growing-blocks/README.md), the
+[R26 run bridge](../complementary-run-bridges/README.md), and the existing
 formal absorption compiler. All clocks below use the odd Syracuse map
 `S(x)=(3x+1)/2^v2(3x+1)`, absorbed at1. Write `T=nu S` for the canonical
 quotient map. Its clock is stated separately.
 
-## 1. Notation and the complete nineteen-row exit interface
+### 1. Notation and the complete nineteen-row exit interface
 
 Put
 
@@ -83,7 +131,7 @@ Here `z>=A`, so the argument `243z−294023` is positive.
 This is a complete parameterized interface, not a claim that all nineteen
 rows descend after one block.
 
-## 2. The exact original-rank frontier after that block
+### 2. The exact original-rank frontier after that block
 
 Use killed atoms `[1]=0`, pair sources `P(v)=[3v]−[v]`, and the fixed
 formal absorption plan
@@ -126,7 +174,7 @@ The quotient statement is `T^(12m+4+floor(d/2))(3w0)=nu(f)`.
 The clocks (8) compare the raw `f`; normalization to `nu(f)` retains its
 own signed bridge. All are finite prescribed constructions.
 
-## 3. Complete exit18 re-entry condition
+### 3. Complete exit18 re-entry condition
 
 The natural continuation used here is explicit: after reaching an exit
 with `e=18`, perform the next twelve quotient steps, using the same
@@ -203,7 +251,7 @@ requests can exceed the original rank. They remain explicit in (13).
 The leading request `y` always has coefficient `+1` and strictly larger
 rank than every other request; no general original-rank descent follows.
 
-## 4. A full re-entry block with every helper below its original parent
+### 4. A full re-entry block with every helper below its original parent
 
 The particularly useful whole branch is `m=1`. Write
 
@@ -274,7 +322,7 @@ The least input is `8515171531530858421`; its re-entered input is
 `17498212027614261173`. These large numbers are fixed by the exact
 congruences, not found by an uncapped orbit search.
 
-### Why this is not another accepted mixed-rank rule
+#### Why this is not another accepted mixed-rank rule
 
 At the exit `v`, the first sigma plan is accepted. Its returning input is
 
@@ -299,7 +347,7 @@ It establishes that this natural extension of the maximal-exit procedure
 is not a descending rule. Silently declaring the intermediate returning
 plan accepted would erase exactly the unresolved issue.
 
-## 5. Arbitrarily many full exit-and-re-entry repetitions
+### 5. Arbitrarily many full exit-and-re-entry repetitions
 
 For every integer `r>=1`, all positive inputs in the complete progression
 
@@ -357,7 +405,7 @@ comparisons. They do not establish an infinite positive trajectory,
 failure of other comparisons, failure of the current dispatcher, or
 nonexistence of a richer well-founded rank.
 
-## 6. Reproduction and scope of the stored evidence
+### 6. Reproduction and scope of the stored evidence
 
 Run from the repository root:
 
@@ -388,3 +436,17 @@ larger requested pair is not stored as an absorption certificate.
 `compile_plan` rejects missing premises. The written proofs establish
 the universal quantified statements; the finite audit checks their
 implementation and recorded examples.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B12 migration; standard library). The legacy scripts of this folder load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the legacy checker `check_mixed_exit.py` (about 7 s; the counts of section 6 of the note and the stored current tables, compared with `mixed_exit_audit.json`). The side-lane probe of this result is a certificate of [`native-height-inverse-obstruction`](../native-height-inverse-obstruction/README.md). The commands in the legacy text name `experiments/residual_progress/mixed_exit/`.
+
+## Remarks
+
+- `−C/E` is the negative rational fixed point of `R`; the growing re-entries are its 2-adic shadow (side lane, feed 08:37). The integer realisation of every finite word in the two returns `V`, `R` is [`exit18-return-integer-cylinders`](../exit18-return-integer-cylinders/README.md) (R74).
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/mixed_exit/MIXED_EXIT_REENTRY.md` (legacy ID R70) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written full exit interface and scoped failure of a natural continuation; no new accepted rule".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `ea3278e`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

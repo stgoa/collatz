@@ -15,7 +15,7 @@ claim: >
 authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-19
-depends_on: [complete-gap-lattice-equivalence, odd-spacing-rounding-bound, narrow-cycles-are-mechanical, ordered-cycle-sparse-forcing]
+depends_on: [complete-gap-lattice-equivalence, odd-spacing-rounding-bound, narrow-cycles-are-mechanical, ordered-cycle-sparse-forcing, mechanical-word-exact-denominator]
 certificates: [c010_gap_check.py]
 evidence:
   - "GAP_LATTICE.md: the lattice equivalence (sections 1-2), the unchanged ordered operator (section 3), what integrality still accomplishes (section 4) and the all-size slack family (section 5); ODD_ROUNDING.md: the rounding bound and the q = 5, 13, 83 controls; ROUNDING_PROBE.md: independent main-lane lowbit argument and seam audit"
@@ -59,7 +59,7 @@ After [`excursion-compression`](../excursion-compression/README.md), the next bo
 B_(m−1) = 2B_0 − 3^(m−1),      2x_0 − x_(m−1) = 3^(m−1)/D.        (6)
 ```
 
-With `ε = A − m·log₂3 > 0` every complete gap, seam included, exceeds `3^(m−1)/(2D) = 1/[6(2^ε − 1)]`, using the interior-increment bound of [`narrow-cycles-are-mechanical`](../../results/narrow-cycles-are-mechanical/README.md) (`ROTATION_LATTICE.md`). The coprime upper approximations of [`close-pair-lattice-criterion`](../close-pair-lattice-criterion/README.md) (`SIZE_PROBE.md`) have `ε → 0` with `m` unbounded, so for every `K > 2` there is such a rational additive-one cycle with every complete gap above `K`, minimum above `mK`, and `q = D ≤ min B_l` at the raw parameter. Its denominator exceeds 1 (R71's exact denominator; `D ≡ 5` or `7 (mod 8)` once `A ≥ 3`). All sharp pair bounds (at most 2) hold with arbitrarily large slack, the adjacent sum `2m − 1` is already odd, and the rounded denominator bound `(2m − 1)D/B_0 < 2/K` tends to 0. These mechanical cycles are already known nonintegral; the point is that this rounding method cannot recover even their exclusion.
+With `ε = A − m·log₂3 > 0` every complete gap, seam included, exceeds `3^(m−1)/(2D) = 1/[6(2^ε − 1)]`, using the interior-increment bound of [`narrow-cycles-are-mechanical`](../../results/narrow-cycles-are-mechanical/README.md) (`ROTATION_LATTICE.md`). The coprime upper approximations of [`close-pair-lattice-criterion`](../close-pair-lattice-criterion/README.md) (`SIZE_PROBE.md`) have `ε → 0` with `m` unbounded, so for every `K > 2` there is such a rational additive-one cycle with every complete gap above `K`, minimum above `mK`, and `q = D ≤ min B_l` at the raw parameter. Its denominator exceeds 1 (R71's exact denominator, [`mechanical-word-exact-denominator`](../../results/mechanical-word-exact-denominator/README.md); `D ≡ 5` or `7 (mod 8)` once `A ≥ 3`). All sharp pair bounds (at most 2) hold with arbitrarily large slack, the adjacent sum `2m − 1` is already odd, and the rounded denominator bound `(2m − 1)D/B_0 < 2/K` tends to 0. These mechanical cycles are already known nonintegral; the point is that this rounding method cannot recover even their exclusion.
 
 Finite evidence ([`integer_gap_audit.json`](integer_gap_audit.json)): over the 52 ordered cases (51 nonfixed and the trivial cycle), all 474 adjacent gap equations and sharp bounds pass, all 7,022 proper circular pair bounds pass at actual parameters; after rescaling to additive 1, 19 noninteger cycles still pass every circular pair inequality; the summed bound passes 31/52 cases, and 28/52 after odd rounding.
 

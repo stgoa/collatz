@@ -1,11 +1,44 @@
-# What retained lower currents do and do not supply for the adjacent source
+---
+id: retained-lower-currents-adjacent-source
+kind: attempt
+title: Retained lower currents and joint rewrites do not escape the adjacent-source interface
+status: written
+claim: >
+  Tried, for the adjacent source D(q) = [q+2] - [q] of the odd-only 3x+1 map (absorbing at 1; canonical q = 31 mod
+  108, native height n = (8q-5)/9): close it by retained lower pair currents and their histories, by treating
+  lower-rho pair inputs as a supplied lower-height interval, or by two one-arrow joint rewrites. Verdict: the
+  positive endpoint q+2 is already affordable from pairs below n; on a finite graph G of retained actual arrows
+  (with the rows of H_(q+2) and the absorber 1), a current with divergence D(q) exists iff q lies in the
+  absorbing component iff q's whole forward path is in G, so the missing connection is at q. Lower pair rank is
+  not a supplied interval below n: at q = 1435, n = 1275, the fixed formal H_1179 (1179 < n) requests P(885) of
+  rho 1327 > n. The rewrites at q = 7 and q = 3 mod 8 keep the same missing branch, and R68 shows the transported
+  R44 rule is the old endpoint comparison. No accepted family or complete recursion; a scoped failed-hypothesis
+  audit, not a non-implication theorem, and not a limit on other uses of actual history.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [adjacent-source-defect-equivalence, native-height-inverse-obstruction, supplied-path-saturation-core]
+evidence:
+  - "The 1179 example was checked against the frozen formal constructor (now ../results/adjacent-source-defect-equivalence/adjacent_defect.py) with the inline Python snippet of section 2, which names the pre-migration path; the note records that these finite checks passed on 2026-10-18. No receipt is attached; the snippet is an exploration check, not a certificate"
+tags: [convergence, outer-residual, adjacent-source, supplied-history, failed-hypothesis]
+---
+
+# Retained lower currents and joint rewrites do not escape the adjacent-source interface
+
+## Idea
+
+After [`adjacent-source-defect-equivalence`](../results/adjacent-source-defect-equivalence/README.md) (R65) reduced the returning absorption defect to the adjacent source `D(q) = [q+2] − [q]`, with native height `n = (8q−5)/9`, three ways to close it looked available: reuse the absorbing histories retained inside already supplied lower pair currents ([`supplied-path-saturation-core`](../results/supplied-path-saturation-core/README.md)); treat "all supplied `P(v)` have `ρ(v) < n`" as a supplied current for every seed below `n`; or rewrite `D(q)` jointly by one ordinary arrow from each source.
+
+## What happened
+
+The legacy note "What retained lower currents do and do not supply for the adjacent source" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its Python snippet names the pre-migration path `experiments/residual_progress/defect_normal_form/adjacent_defect.py`, now [`adjacent_defect.py`](../results/adjacent-source-defect-equivalence/adjacent_defect.py).
 
 **Status: scoped failed-hypothesis audit.** No new accepted family or complete
 recursion is claimed. This records why the current history attempt did not
 escape the existing adjacent interface. It uses only the repository's
-[R65 interface](../defect_normal_form/ADJACENT_DEFECT_INTERFACE.md),
-[R68 separation](../adjacent_recursion/NATIVE_HEIGHT_SEPARATION.md), and
-[finite supplied-history construction](../known_saturation/KNOWN_SATURATION.md).
+[R65 interface](../results/adjacent-source-defect-equivalence/README.md),
+[R68 separation](../results/native-height-inverse-obstruction/README.md), and
+[finite supplied-history construction](../results/supplied-path-saturation-core/README.md).
 The independent side feed is not a premise.
 
 Use absorbed odd Syracuse S, elementary minimum nu, and
@@ -15,7 +48,7 @@ P(v)=[3v]-[v]. The remaining adjacent domain is canonical q=31 mod108,
 
 Every input comparison in this note is with this original native height n.
 
-## 1. The positive endpoint is already known from smaller pair inputs
+### 1. The positive endpoint is already known from smaller pair inputs
 
 R65 proves that the complete formal absorption plan H_(q+2) requests only
 pairs with rho at most (3q+7)/4<n. Supplying those actual exact currents
@@ -53,7 +86,7 @@ endpoint affordable. That endpoint is already affordable; the missing
 connection is the negative endpoint q. Neither a bounded component search
 nor unlimited entry into a known history has a new termination proof.
 
-## 2. Lower pair rank is not automatically a full lower height interval
+### 2. Lower pair rank is not automatically a full lower height interval
 
 The premise "all supplied P(v) have rho(v)<n" must not silently become a
 supplied U_(n-1) current. The fixed formal H construction can ask a larger
@@ -99,7 +132,7 @@ assert all(a.NORMAL.canonical(x) for x in (1179, 1275, 1327, 1435))
 These finite checks passed on2026-10-18. No unknown absorption search was
 used for them, and they do not replace the stated formal-plan scope.
 
-## 3. Two tempting joint rewrites retain the same missing branch
+### 3. Two tempting joint rewrites retain the same missing branch
 
 If q=7 mod8, taking one ordinary arrow from each source gives
 
@@ -123,3 +156,20 @@ row-for-row the original endpoint comparison. None of these operations
 creates a new decreasing native-height state. The next useful result
 must provide an actual connection across a complete remaining arithmetic
 type, or a new well-founded state that preserves every unresolved source.
+
+## Why it fails
+
+- **The missing connection is at `q`, not at `q + 2`.** Supplying the pairs below `n` already gives an absorption current for `q + 2`; a finite graph of retained actual arrows supports a current with divergence `D(q)` exactly when it contains the whole forward path of `q` to 1. Declaring the positive endpoint affordable finishes nothing, and neither a bounded component search nor unlimited entry into known history has a termination proof.
+- **Lower pair rank is not a lower-height interval.** The fixed formal `H` construction can request a larger rank at a smaller canonical seed: at `q = 1435`, `n = 1275`, `H_1179` requests `{21: +1, 885: +1}` with `ρ(885) = 1327 > n`. This refutes the automatic use of that compiler for every absorption below `n`; it is not a logical non-implication theorem, since another proved comparison or supplied history may certify 1179.
+- **The rewrites keep the same missing branch.** At `q ≡ 7 (mod 8)`, replacing `2h − 3` by `h − 2` is invalid (opposite elementary cases); at `q ≡ 3 (mod 8)`, splitting the comparison with `9t` requests `P(3t)`, whose critical rank must still be checked against `n`. [`native-height-inverse-obstruction`](../results/native-height-inverse-obstruction/README.md) (R68) proves that transporting the full R44 rule through R65 is row for row the original endpoint comparison.
+
+## What survives
+
+- The exact finite-component criterion of section 1 (divergence `D(q)` on a retained graph ⇔ `q` in the absorbing component ⇔ `q`'s forward path present), a test of what internal rows of supplied currents contribute.
+- Reuse of a supplied pair's own absorbing history is valid: with its smaller inputs available, `P(v)` and the absorption current of `v` give absorption of `3v`.
+- The next useful result must give an actual connection across a complete remaining arithmetic type, or a new well-founded state preserving every unresolved source. [`common-critical-rank-basis`](../results/common-critical-rank-basis/README.md) (R75) changes the source basis instead.
+
+## History
+
+- Migrated from `experiments/residual_progress/adjacent_history/HISTORY_SCOPE.md` (no legacy R-number; written in the R69–R71 round about the R65/R68 interface) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Legacy status: "scoped failed-hypothesis audit".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `ea3278e`. The side feed is not a premise.

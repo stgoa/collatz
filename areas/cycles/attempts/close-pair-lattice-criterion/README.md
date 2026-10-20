@@ -14,7 +14,7 @@ claim: >
 authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-19
-depends_on: [narrow-cycles-are-mechanical]
+depends_on: [narrow-cycles-are-mechanical, mechanical-word-exact-denominator]
 evidence:
   - "SIZE_PROBE.md: the written obstruction (sections 1-5) and its primary-source scope (section 6)"
   - "../../results/narrow-cycles-are-mechanical/rotation_audit.json: the 28 distinct normalised counterexamples and 156 coprime upper approximants with 20,085 adjacent gaps (historical receipt)"
@@ -66,4 +66,4 @@ The lattice inequalities (1) give only **lower** bounds on separation and width.
 
 ## History
 
-- Split from `experiments/cycle_spectrum/C004/` (legacy ID `C004`; `REPORT.md` §3, `SIZE_PROBE.md`, `ROTATION_LATTICE.md` §4) at commit `be73a66`, by the B03 migration (Claude, Opus 5.5). Main lane (ChatGPT/Codex), 2026-10-19. The construction develops R71's mechanical upper-approximant family (legacy `experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md`, not yet migrated).
+- Split from `experiments/cycle_spectrum/C004/` (legacy ID `C004`; `REPORT.md` §3, `SIZE_PROBE.md`, `ROTATION_LATTICE.md` §4) at commit `be73a66`, by the B03 migration (Claude, Opus 5.5). Main lane (ChatGPT/Codex), 2026-10-19. The construction develops R71's mechanical upper-approximant family ([`mechanical-word-exact-denominator`](../../results/mechanical-word-exact-denominator/README.md), legacy `BALANCED_DENOMINATORS.md`; linked at the B12 migration).

@@ -1,4 +1,55 @@
-# Integer realization of every mixed exit18 return word
+---
+id: exit18-return-integer-cylinders
+kind: result
+title: "Every finite mixed exit-18 return word has a complete integer cylinder; eventually periodic itineraries are negative"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w); G the R67 guard w = 40529845 mod 2^26, V(w) = (3^12 w +
+  311195)/2^19, R(w) = (3^24 w + 328537586155)/2^37. Returning to G by V has complete domain 2218391138229 mod 2^45,
+  by R the domain 8515171531530858421 mod 2^63; the domains are disjoint, and every maximal-count-m exit-18
+  re-entry of R70 is exactly V^(m-1) R. For every finite word omega over {V, R} with e = 19 #V + 37 #R and ell = 12
+  #V + 24 #R, the integers following omega with every state in G form exactly one residue class mod 2^(26+e);
+  every member is a positive realisation, any extra odd-modulus congruence can be added by CRT, and the seed may
+  depend on omega. The full currents telescope to D_(3w0,3wk) + J_wk - J_w0 with requests {wk: 1} + A_wk - A_w0
+  (quotient clock ell; ordinary clocks (ell+1, 1) or (ell+6, 6) after V or R). Every eventually periodic infinite
+  itinerary has a negative rational starting point, so a positive integer surviving forever needs an aperiodic
+  itinerary; for fixed m the integers making at least m returns have density 2^(-26) s^m (s = 2^(-19) + 2^(-37)),
+  and possible infinite survivors in [1, X] number at most 3 (X/2^26)^alpha. Neither sparsity nor the periodic
+  exclusion proves that no survivor exists; no accepted rule is added.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [mixed-rank-growing-blocks, mixed-exit-growing-reentry]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_integer_prefix.py, integer_prefix.py, integer_prefix_audit.json: the legacy constructor and checker: 510 finite words with 1530 positive lifts, 20 long words through 256 symbols, 108 odd-CRT cases, nine maximal-count lists, 310 eventually periodic points, 32 density/count checks, 30 full signed compositions, two complete unfinished current tables, 30 missing-supply rejections, three cap/exit cases and ten invalid-input rejections; 47 imported sources pinned. Fails at its new path: integer_prefix.py loads ../mixed_exit/ (now ../mixed-exit-growing-reentry/) by its pre-migration folder name; it is loaded in turn by the later legacy itinerary_complexity/ code. Passed at be73a66 as experiments/residual_progress/integer_prefix/check_integer_prefix.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "batch_r73_r74_check.py, batch_r73_r74_check.json: side-lane probe (Claude side lane, 2026-10-18 02:19) of R73's two pair identities and R74's word arithmetic; signed-pair-frontier-normalisation cites it from this folder. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/). Passed at be73a66 as reviews/side_lane/batch_r73_r74_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+  - "side_lane_review_d3a91fe.md: the main lane's pinned review (2026-10-18) of side commit d3a91fe: byte-identical reproduction of batch_r73_r74_check under a 30 s cap, with its scope limits"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: batch_r73_r74_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 02:19, VERIFIED, main aefdf60), with the lane's own odd-only step: 600 random words in V and R of length at most 12, three lifts each: the composition (3^ell w + c)/2^e with e = 19 #V + 37 #R and ell = 12 #V + 24 #R; every intermediate image an integer in G on the stated full domain; each point in the next symbol's stated domain; strict growth; every word's periodic fixed point a negative rational. Per the main lane's review (side_lane_review_d3a91fe.md): finite independent arithmetic, not a proof that the aperiodic survivor set is empty; the eventually periodic conclusion rests on the written pullback argument. The status stays written"
+aliases: [R74]
+tags: [convergence, outer-residual, mixed-rank, integer-cylinders, two-adic-coding, negative-cycle-shadow]
+---
+
+# Every finite mixed exit-18 return word has a complete integer cylinder; eventually periodic itineraries are negative
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ρ(w) = ν(3w)`. `G = {w > 0 : w ≡ 40529845 (mod 2^26)}` is the guard of [`mixed-rank-growing-blocks`](../mixed-rank-growing-blocks/README.md); `V(w) = (3^12 w + 311195)/2^19` and `R(w) = (3^24 w + 328537586155)/2^37` are its two returns (R67 and [`mixed-exit-growing-reentry`](../mixed-exit-growing-reentry/README.md)).
+
+1. **Two disjoint returns.** Returning to `G` by `V` has complete domain `2218391138229 mod 2^45`; by `R`, `8515171531530858421 mod 2^63`. The domains are disjoint, and every maximal-count-`m` exit-18 re-entry is exactly the word `V^(m−1)R`.
+2. **Complete cylinders.** For every finite word `ω` over `{V, R}` with `e = 19#V + 37#R`, `ℓ = 12#V + 24#R`, the positive integers following `ω` with every listed state in `G` form exactly one residue class mod `2^(26+e)`; all its members are realisations, and any extra congruence to an odd modulus can be added by CRT. So every finite list of maximal re-entry counts occurs; the seed may depend on the word.
+3. **Currents and clocks.** The full currents telescope to `D_(3w0,3wk) + J_wk − J_w0` with requests `{wk: 1} + A_wk − A_w0`; the leading request is larger than the original, and helpers can exceed the original rank. Quotient clock `ℓ`; ordinary common-tail clocks `(ℓ+1, 1)` or `(ℓ+6, 6)` when the last symbol is `V` or `R`.
+4. **Periodic words and density.** Every infinite word determines one 2-adic point; every eventually periodic one has a negative rational starting point, so a positive integer surviving forever needs an aperiodic itinerary. For fixed `m` the integers making at least `m` returns have natural density `2^(−26)·s^m`, `s = 2^(−19) + 2^(−37)`, with counting error below `2^m`; possible infinite survivors in `[1, X]` number at most `3(X/2^26)^α`, `α = log 2/log(2/s)`, for `X ≥ 2^26`.
+
+Neither the sparsity bound nor the periodic exclusion proves that no survivor exists: that is the open question [`aperiodic-exit18-return-survivors`](../../questions/aperiodic-exit18-return-survivors.md). No accepted rule is added.
+
+## Proof
+
+The legacy note "Integer realization of every mixed exit18 return word" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written whole-class prefix theorem, exact conditional-current
 constructor, and bounded replay.** Every finite sequence of the existing
@@ -8,11 +59,11 @@ starting point, so a hypothetical positive integer that survives forever
 must have an aperiodic itinerary. This does **not** exclude such an integer,
 prove termination of the return system, or supply its larger requested pair.
 
-The inputs are the proved [R67 growing comparison](../mixed_rank_recursion/MIXED_GROWING_BLOCK.md)
-and [R70 exit and re-entry interface](../mixed_exit/MIXED_EXIT_REENTRY.md).
+The inputs are the proved [R67 growing comparison](../mixed-rank-growing-blocks/README.md)
+and [R70 exit and re-entry interface](../mixed-exit-growing-reentry/README.md).
 No external theorem or empirical feed assertion is used. The optional feed
 was read at `7150f312e0b9bd1099fb617ee680acb22cf1187e`; its corrected transfer
-scope agrees with the distinction here. The [R71 denominator result](../lattice_cycles/BALANCED_DENOMINATORS.md)
+scope agrees with the distinction here. The [R71 denominator result](../../../cycles/results/mechanical-word-exact-denominator/README.md)
 concerns periodic cycle closure. Its integrality obstruction cannot simply
 be applied to a finite prefix without the closure equation.
 
@@ -23,7 +74,7 @@ argument below is an explicit scoped instance for these two returns, with
 their guards, signed currents and separate odd/quotient clocks. No novelty
 is claimed for 2-adic itinerary coding or finite-prefix realization.
 
-## 1. Two disjoint returns to the same guard
+### 1. Two disjoint returns to the same guard
 
 Use the positive pair indices and constants
 
@@ -64,7 +115,7 @@ A V return requires `v2(Y(w))>=45`. An R return has
 Both return maps strictly increase every positive input in their domains.
 Their real affine slopes are greater than1 and their offsets are positive.
 
-### This exhausts the existing exit18 re-entries
+#### This exhausts the existing exit18 re-entries
 
 The R70 return with maximal old-guard count `m>=1` is precisely
 
@@ -80,7 +131,7 @@ exactly R70's general formula. This covers every maximal depth m, but does
 not claim that other exit valuations return or that this subsystem exhausts
 all available Collatz comparisons.
 
-## 2. Every finite mixed word has a complete integer cylinder
+### 2. Every finite mixed word has a complete integer cylinder
 
 Let `omega` be any nonempty finite word over `{V,R}`. Set
 
@@ -136,7 +187,7 @@ In particular every prescribed finite list `m1,...,mk` of positive maximal
 old counts occurs: apply(4) to
 `V^(m1−1) R ... V^(mk−1) R`.
 
-## 3. Full signed currents and both clocks
+### 3. Full signed currents and both clocks
 
 Write the fixed formal absorption plan as
 
@@ -184,7 +235,7 @@ equal states. The result is exactly the path of length `ell+c_last` from
 current identity and the clocks. No clock is assigned to the extra formal
 absorption terms in(5).
 
-## 4. Periodic closure and the remaining aperiodic question
+### 4. Periodic closure and the remaining aperiodic question
 
 Every infinite symbolic word has nested cylinders(4), with precision tending
 to infinity. Consequently it determines exactly one odd 2-adic integer.
@@ -218,7 +269,7 @@ positive progression, whereas one positive integer satisfying all prefixes
 would have to equal the single 2-adic limit. Inferring the latter from the
 former, or excluding it merely by testing periodic words, is invalid.
 
-## 5. Exact prefix density, with a uniform counting error
+### 5. Exact prefix density, with a uniform counting error
 
 Distinct words of the same symbol length m have disjoint cylinders: at
 their first differing symbol the return domains are disjoint, and each
@@ -255,7 +306,7 @@ Indeed the two terms on the right of the counting bound are at most
 nonempty exceptional set. It does not prove termination on any untested
 integer and does not justify a probabilistic assertion about a fixed orbit.
 
-## 6. What the theorem changes
+### 6. What the theorem changes
 
 The entire existing exit18 re-entry class supports arbitrary finite mixed
 return words on the ordinary positive integer lattice. Exact finite-word
@@ -269,7 +320,7 @@ return branches, or a different signed-current construction. Neither this
 statement nor R71 implies that such a constraint is unavailable. No new
 accepted family is added to the seventeen-rule dispatcher.
 
-## 7. Executable interface and bounded verification
+### 7. Executable interface and bounded verification
 
 `integer_prefix.py` supplies `cylinder`, `family`, `odd_lift`,
 `maximal_counts`, `rational_point`, the complete signed `plan`, and a capped
@@ -282,3 +333,18 @@ The adjacent receipt records exact ranges, source hashes, full signed
 examples, and checks of the ordinary and quotient clocks. The default test
 replays the saved receipt; `--write-receipt` refreshes it. Mathematical
 quantifiers rest on the proofs above, not the bounded examples.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B12 migration; standard library). The legacy scripts of this folder load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the legacy checker `check_integer_prefix.py` (about 45 s; the counts of section 7 of the note and the stored current tables, compared with `integer_prefix_audit.json`) and the side-lane probe `batch_r73_r74_check.py` (under 1 s, receipt reproduced byte for byte). The commands in the legacy text name `experiments/residual_progress/integer_prefix/`.
+
+## Remarks
+
+- **Literature context, not a premise:** Bernstein and Lagarias's 2-adic conjugacy for the shortcut clock; no novelty is claimed for itinerary coding or finite-prefix realisation.
+- The mechanical-word denominators of [`mechanical-word-exact-denominator`](../../../cycles/results/mechanical-word-exact-denominator/README.md) (R71) concern periodic cycle closure; their integrality obstruction cannot be applied to a finite prefix without the closure equation.
+- The first same-seed constraint across unbounded prefixes is [`same-seed-factor-complexity-bound`](../same-seed-factor-complexity-bound/README.md) (R77).
+
+## History
+
+- Migrated from `experiments/residual_progress/integer_prefix/INTEGER_PREFIXES.md` (legacy ID R74) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/batch_r73_r74_check.*` and the main lane's review `experiments/residual_progress/side_lane_review_d3a91fe.md` moved here. The open aperiodic case became the question [`aperiodic-exit18-return-survivors`](../../questions/aperiodic-exit18-return-survivors.md). The legacy checker of R77 pinned this note's hash, so editing it makes that checker fail (see [`same-seed-factor-complexity-bound`](../same-seed-factor-complexity-bound/README.md)). Legacy status: "written complete prefix and counting theorem for the specified return subsystem; aperiodic integer survival remains open".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `aefdf60`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

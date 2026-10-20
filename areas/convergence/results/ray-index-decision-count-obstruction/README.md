@@ -1,4 +1,51 @@
-# A complete all-ray decision and its integer-density obstruction
+---
+id: ray-index-decision-count-obstruction
+kind: result
+title: "Every inverse-ray index of a two-rotation cycle/point procedure is decidable, and it accepts under 1/500 of its entry row"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). On the entry row v = 4089 + 6144n, w = 6901 + 10368n, q =
+  10351 + 15552n, take the inverse ray b_L = 64^L (8v+1) + 49(64^L - 1)/63 (ordinary tail (2, 6L+1, 1, 4) to q), the
+  named centre-17 or centre-25 seven-arrow rotation applied maximally, then all point inverses, ending at eta. The
+  full signed plan passes exactly when its canonical endpoint eta is below q, except the classified baseline
+  self-returns, which never pass; every failure retains a nondecreasing request +1. Explicit integer bounds on j,
+  k and b_L give a finite exhaustive decision over all L at each fixed entry (w = 6901 fails at every L). Also
+  v3(b_L - b_M) = v3(L - M). For L >= 1 success needs k >= 10L or j >= 8L, and for every N >= 1 the number of
+  accepted entries among n = 0..N-1 is at most S N + 5T^2 + 6T + 1 with T = floor(log2(15552 N)) and S < 1/500;
+  so the limsup accepted fraction is below 1/500 (no density is asserted). This bounds only this specified
+  procedure, not all inverse words, premature cycle stops, the existing rule union or other constructions.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [maximal-inverse-cycle-continuation, lifted-inverse-ray-cycle, two-selected-inverse-choices, critical-image-rank-composition]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_all_rays.py, all_rays.py, all_rays_audit.json: the legacy constructor and checker: 900 isometry comparisons, 15 finite permutations, 28 digit lifts, 576 affine checks, 66 full signed plans (12 descending, 22 nondecreasing failures, 32 baseline returns), all 1024 first entries exhaustively rejected, 16 rejections, and two supplied conversions stored in full (L = 1, w = 36641534965: 9 pair inputs, 102 rows; L = 3, w = 302362550859146911249525: 16 pair inputs, 443 rows). Fails at its new path: all_rays.py loads ../refined_obstruction/ (now ../exponent-eleven-fifteen-rule-classification/), ../critical_rank/ (now ../critical-image-rank-composition/), ../cycle_inverse/ (now ../maximal-inverse-cycle-continuation/) and ../selected_inverse/ (now ../two-selected-inverse-choices/) by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/all_ray_continuation/check_all_rays.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "../exponent-eleven-exit-continuation/batch_r61_r67_check.py: side-lane probe of R61, R65, R66 and R67 (see reviewed_by)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: ../exponent-eleven-exit-continuation/batch_r61_r67_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 06:14, VERIFIED), with the lane's own step, nu and selected: the identity v3(b_L - b_M) = v3(L - M) on 2,990 random pairs. The acceptance criterion, the ray cutoff and the counting theorem were not rebuilt; the status stays written"
+aliases: [R66]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, inverse-rays, counting-bound]
+---
+
+# Every inverse-ray index of a two-rotation cycle/point procedure is decidable, and it accepts under 1/500 of its entry row
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ρ(w) = ν(3w)`; formal plans with signed requests. Entry row: `v = 4089 + 6144n`, `w = 6901 + 10368n`, `q = ρ(w) = 10351 + 15552n` (`n ≥ 0`), the whole `3 | v` part of the R60 domain.
+
+1. **Procedure.** For every ray index `L ≥ 0`, `b_L = 64^L(8v+1) + 49(64^L − 1)/63` has ordinary path `(2, 6L+1, 1, 4)` to `q`. Apply the named centre-17 (`L ≡ 0 mod 3`) or centre-25 (`L ≡ 1 mod 3`) seven-arrow rotation maximally, then all point inverses, ending at `η` (at `L ≡ 2 mod 3`, `k = j = 0`). The full signed plan passes iff `η < q`, except the classified baseline self-returns, which never pass; every failure keeps a nondecreasing request `+1`.
+2. **Finite decision.** Explicit integer bounds on `j`, `k` and `b_L` (formula (9) of the note) make the search over all `L` exhaustive at each fixed entry; the entry `w = 6901` fails at every `L`. Independently `v3(b_L − b_M) = v3(L − M)`, so every ternary precision is attainable, but `b_L` grows like `64^L`.
+3. **Counting.** For `L ≥ 1`, success needs `k ≥ 10L` or `j ≥ 8L`. For every `N ≥ 1`, at most `S·N + 5T² + 6T + 1` of the entries `n = 0, …, N−1` are accepted, with `T = ⌊log₂(15552N)⌋` and an explicit `S < 1/500`. So the limsup accepted fraction is below `1/500`; no natural density is asserted.
+
+This bounds only the specified two-rotation maximal-cycle/point procedure: not other inverse words, premature cycle stops, forward or supplied-history methods, or the existing larger rule union. It extends [`maximal-inverse-cycle-continuation`](../maximal-inverse-cycle-continuation/README.md) (R60) and [`lifted-inverse-ray-cycle`](../lifted-inverse-ray-cycle/README.md) (R64).
+
+## Proof
+
+The legacy note "A complete all-ray decision and its integer-density obstruction" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written proof and exact conditional constructor.** On the complete
 entry progression below, every choice of ray index in a specified two-rotation,
@@ -8,8 +55,8 @@ integer-counting statement, not a probability assigned to an orbit. It leaves
 other inverse words, premature cycle stops, forward excursions, supplied-history
 methods and the existing larger rule union unrestricted. Collatz remains open.
 
-The procedure extends [R60](../cycle_inverse/CYCLE_INVERSE.md) and
-[R64](../refined_obstruction/LIFTED_CYCLE.md). Use their ordinary odd-only clock,
+The procedure extends [R60](../maximal-inverse-cycle-continuation/README.md) and
+[R64](../lifted-inverse-ray-cycle/README.md). Use their ordinary odd-only clock,
 absorbed at1, signed pair P(w)=[3w]-[w], elementary normal form nu and
 rho(w)=nu(3w). In the formal absorption plan write
 
@@ -19,7 +66,7 @@ where A_x is a signed sum of missing W5 pairs, not an available current.
 All constructors below retain those coefficients. No external theorem or
 novelty claim is used.
 
-## 1. The entire ray and the exact procedure
+### 1. The entire ray and the exact procedure
 
 Assume w>0, w=3445 mod3456 and v=(16w-13)/27 divisible by3. Equivalently,
 for a unique integer n>=0,
@@ -83,7 +130,7 @@ alternative point-only endpoint(2b_L-1)/3 exceeds q. If its cycle count is
 zero, both choices give the same point continuation. This observation does
 not permit arbitrary early stops in a positive cycle run.
 
-## 2. Complete current and failure vector
+### 2. Complete current and failure vector
 
 Let I be the negative current along(5), so div I=[q]-[eta]. Put z=nu(w), and
 return
@@ -127,7 +174,7 @@ An accepted plan is conditional on exact supplied currents for every nonzero
 pair request. The compiler rejects missing or malformed supplies. This is
 individual-pair composition, not annular source-capacity reuse.
 
-## 3. Exact all-L ternary structure
+### 3. Exact all-L ternary structure
 
 For fixed v and distinct nonnegative L,M,
 
@@ -150,7 +197,7 @@ Therefore arbitrarily high ternary precision can be forced by choosing L.
 It does **not** imply descent: b_L grows as64^L, and that growth must be
 paid for in the actual endpoint comparison.
 
-## 4. An explicit finite cutoff for all rays
+### 4. An explicit finite cutoff for all rays
 
 Fix one entry w and its q. Define exact integers
 
@@ -191,7 +238,7 @@ full vector retains P6901+1. Hence **every ray index fails** at this fixed
 entry under the defined procedure. This does not assert that P6901 lacks a
 current or that another arithmetic rule fails.
 
-## 5. A uniform barrier and an actual integer counting theorem
+### 5. A uniform barrier and an actual integer counting theorem
 
 For L>=1, acceptance requires
 
@@ -254,7 +301,7 @@ procedure universal on this entry row. It is not an upper bound on the
 accepted domain of the larger existing rule union, an obstruction to all
 inverse paths, an orbit-hitting claim, or a proof of divergence.
 
-## 6. Verification and next obligation
+### 6. Verification and next obligation
 
 Run `python3 experiments/residual_progress/all_ray_continuation/check_all_rays.py`.
 The replay checks modular isometry, digit lifts, exact affine/intercept
@@ -281,3 +328,18 @@ also checks16 invalid/missing-input rejections and preserves the distinction
 between a resource cap and mathematical exhaustion. Generation and default
 receipt replay passed. Source hashes cover the constructor, checker and
 named frozen dependencies; no previous receipt or dispatcher is modified.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B12 migration; standard library). The legacy scripts of this folder load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the legacy checker `check_all_rays.py` (about 4 s; the counts of section 6 of the note and both stored supplied conversions, compared with `all_rays_audit.json`). The commands in the legacy text name `experiments/residual_progress/all_ray_continuation/`.
+
+## Remarks
+
+- The counting bound is an integer statement about entries of one arithmetic row, not a probability for an orbit. The search bound is proved, not an experimental cap; an optional resource cap reports `capped`, never `exhausted`.
+- No rule is added to [`seventeen-family-rho-dispatcher`](../seventeen-family-rho-dispatcher/README.md). Main-lane decision of the round: pivot away from enlarging the named inverse-ray search (archive/convergence-residual-progress/REPORT.md).
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/all_ray_continuation/ALL_RAY_CONTINUATION.md` (legacy ID R66) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written theorem, conditional constructor and finite replay".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `a489973`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

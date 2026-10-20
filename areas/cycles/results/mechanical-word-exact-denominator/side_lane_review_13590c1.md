@@ -25,7 +25,7 @@ its all-length statement still rests on the written proof.
 The01:31 feed correction now explicitly acknowledges that division by d
 changes the integer domain to d^(-1)Z. This addresses the unsupported
 finite-base-only inference identified in the
-[previous review](side_lane_review_678e565.md). Identities transported on
+[previous review](../../attempts/scaling-transfer-to-3x-plus-d/side_lane_review_678e565.md). Identities transported on
 the rational domain do not automatically transport hypotheses that require
 integer states. The useful local covariance and rational-cycle controls
 remain intact. No universal convergence, stopping-time or novelty claim
@@ -37,7 +37,7 @@ The user's merged-PR question prompted another remote read. PR1,
 `ba6b3371fabd7fcabebb442d7c89ea3ed5c02149`, remains the only merged PR
 returned by GitHub and is already an ancestor of main. Its negative
 controls and the corrected certificate-minimality scope remain as recorded
-in the [PR review](../packet_currents/negative_controls/PR1_REVIEW.md).
+in the [PR review](../../../convergence/results/locally-collatz-like-control-barrier/PR1_REVIEW.md).
 
 The side feed subsequently advanced to
 `7150f312e0b9bd1099fb617ee680acb22cf1187e`. Its01:52 entry acknowledges

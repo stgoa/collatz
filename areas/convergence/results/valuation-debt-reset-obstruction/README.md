@@ -1,4 +1,45 @@
-# Valuation debt across actual current comparisons
+---
+id: valuation-debt-reset-obstruction
+kind: result
+title: "Valuation debt decreases on the growing block but resets on a valid R44 family: no two-phase monomial rank"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). With L_W(w) = 7153 w + 311195, L_E(u) = 7153 u + 656187, the
+  two leading edges of the R67 block obey L_E(u) = 3^7 L_W(w)/2^10 and L_W(v) = 3^5 L_E(u)/2^9, so the positive
+  integer L_phase 2^v2(L_phase) strictly decreases on those leading edges (not a full-current rank). For every H >=
+  26 the complete CRT progression v2(L_W(u)) = H, u = 13 mod 81 gives a returning parent w = (64u+5)/9 whose valid
+  R44 exponent-three plan has unique highest request P(u) with coefficient +1, all requests strictly below the
+  original rho, and whole frontier exactly P(u) + P((u-13)/72) - P((32u-11)/81); yet v2(L_E(w)) = 3 while v2(L_W(u))
+  = H. Hence no phase-dependent monomial C_p L_p^alpha_p 2^(beta_p H_p) with alpha_p >= 0 (or its logarithm), even
+  with both old centres in both phases, is nonincreasing on all these edges while strictly decreasing across every
+  block. Nonmonomial ranks, more centres, amortised or context-dependent potentials and other rule choices are not
+  excluded; a necessary pulled-back-centre condition is recorded without a closure theorem.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [mixed-rank-growing-blocks, returning-forward-interface, critical-image-rank-composition]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_valuation_debt.py, valuation_debt.py, valuation_debt_audit.json: the legacy constructor and checker: 14 exact leading transports, 24 full signed reset examples through H = 512, 35 rational-power illustrations, nine rejections and two supplied conversions stored in full (parent 61849410141 at H = 26: 3 supplied pairs, 180 rows; parent 1008756393712221 at H = 40: 3 pairs, 235 rows). Fails at its new path: valuation_debt.py loads ../mixed_rank_recursion/ (now ../mixed-rank-growing-blocks/), ../returning_phase/ (now ../returning-forward-interface/), ../phase_rank/ (now ../sigma-rank-removes-absorption-overhead/) and ../critical_rank/ (now ../critical-image-rank-composition/) by their pre-migration folder names; it is loaded in turn by the later legacy frontier_progress/ and finite_centres/ code. Passed at be73a66 as experiments/residual_progress/arithmetic_progress/check_valuation_debt.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+aliases: [R69]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, mixed-rank, potential-obstruction, valuation-debt]
+---
+
+# Valuation debt decreases on the growing block but resets on a valid R44 family: no two-phase monomial rank
+
+## Statement
+
+Odd-only clock, 1 absorbing; `P(w) = [3w] − [w]`, `ρ(w) = ν(3w)`; `E` the returning class and `W` its complement in `W5`. Put `D = 7153`, `L_W(w) = Dw + 311195`, `L_E(u) = Du + 656187`, `H_p = v2(L_p)`.
+
+1. **Local debt transport.** On the two leading edges `w → u → v` of the block of [`mixed-rank-growing-blocks`](../mixed-rank-growing-blocks/README.md), `L_E(u) = 3^7·L_W(w)/2^10` and `L_W(v) = 3^5·L_E(u)/2^9`; so `K(s) = L_phase(s)·2^(H_phase(s))` is a positive integer that strictly decreases on those leading edges. This is not a full-current rank.
+2. **Reset family.** For every `H ≥ 26`, the complete CRT progression `v2(L_W(u)) = H`, `u ≡ 13 (mod 81)` gives a returning parent `w = (64u + 5)/9` whose valid R44 exponent-three plan ([`returning-forward-interface`](../returning-forward-interface/README.md)) has unique highest request `P(u)`, coefficient `+1`, all requests strictly below the original `ρ`, and whole signed frontier exactly `P(u) + P((u−13)/72) − P((32u−11)/81)`. Yet `H_E(w) = 3` while `H_W(u) = H`.
+3. **No monomial repair.** No phase-dependent monomial `C_p·L_p^(α_p)·2^(β_p·H_p)` with `α_p ≥ 0` (or its additive logarithm), even evaluating both old centres in both phases, is nonincreasing on the leading edges and on every reset comparison while strictly decreasing across every completed block.
+
+Not excluded: nonmonomial ranks, more centres, an unbounded arithmetic state, amortised or context-dependent potentials, other rule choices. Section 4 of the proof records a necessary pulled-back-centre condition, without a closure theorem.
+
+## Proof
+
+The legacy note "Valuation debt across actual current comparisons" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written local progress theorem, whole-family obstruction, and exact
 conditional-current implementation.** The mixed growing block has an explicit
@@ -9,15 +50,15 @@ the proposed debt by an arbitrarily large amount. All signed helpers remain
 present. This is not an obstruction to every arithmetic potential, to a larger
 state, or to other current constructions. Collatz remains open.
 
-Dependencies: [R67's mixed block](../mixed_rank_recursion/MIXED_GROWING_BLOCK.md),
-[R44's returning forward plan](../returning_phase/RETURNING_FORWARD_INTERFACE.md),
-and [R43's absorption bounds](../critical_rank/CRITICAL_IMAGE_RANK.md).
+Dependencies: [R67's mixed block](../mixed-rank-growing-blocks/README.md),
+[R44's returning forward plan](../returning-forward-interface/README.md),
+and [R43's absorption bounds](../critical-image-rank-composition/README.md).
 Use positive W5 pair indices, P(w)=[3w]-[w], rho(w)=nu(3w), and ordinary
 odd-only Syracuse steps. E is the returning class w3mod9 with selected3w;
 W denotes its complement in W5, not a different set of allowed pair indices.
 No universal pair input is assumed.
 
-## 1. Exact binary debt transport through the growing block
+### 1. Exact binary debt transport through the growing block
 
 Set
 
@@ -53,7 +94,7 @@ that all other signed helpers decrease K nor that subsequent block exits
 obey this rule. The old rho/sigma validations of the full currents remain
 the ones proved in R67.
 
-## 2. A complete valid comparison that resets the debt
+### 2. A complete valid comparison that resets the debt
 
 For every integer H>=26 choose any positive integer u satisfying
 
@@ -118,7 +159,7 @@ sign. The checker retains the current equality as well as the coefficient
 cancellation. Negative helper coefficients remain mandatory exact inputs.
 
 That statement concerns this unchanged R44 compiler. The subsequent
-[R73 joint normalizer](../frontier_progress/SIGNED_FRONTIER_NORMAL_FORM.md)
+[R73 joint normalizer](../signed-pair-frontier-normalisation/README.md)
 constructs an explicit current for P(b)-P(a) and proves that the entire
 three-request frontier reduces to P(u), with the full current equality
 J_44-C_II(b)=C_I(w). It removes both helper premises by exact cancellation;
@@ -141,7 +182,7 @@ substantial original-height descent can create arbitrarily large debt.
 This family is already supplied as a conditional R44 rule. It is a
 progress-measure obstruction, not an additional coverage claim.
 
-## 3. No two-phase monomial repair of this type
+### 3. No two-phase monomial repair of this type
 
 Consider arbitrary positive constants C_W,C_E, real exponents alpha_W,
 alpha_E>=0, and arbitrary real beta_W,beta_E. Define on the two phases
@@ -197,7 +238,7 @@ rank, more centres, a context-dependent amortized argument, an unbounded
 arithmetic state or different rule choices. It also does not turn the
 leading-state function(4) into a full-current potential before rejecting it.
 
-## 4. What a finite set of valuation centres would have to preserve
+### 4. What a finite set of valuation centres would have to preserve
 
 The following elementary pole test clarifies a possible next state choice.
 Let a legal affine comparison be parent g(u) and child u on a complete CRT
@@ -247,7 +288,7 @@ exceed3u or cancel the proposed child, so legality and survival of that
 child would both need proof before inferring any need for infinitely many
 centres.
 
-## 5. Exact verification and supplied currents
+### 5. Exact verification and supplied currents
 
 Run `python3 experiments/residual_progress/arithmetic_progress/check_valuation_debt.py`.
 The checker verifies the actual two leading comparisons, all arithmetic
@@ -267,3 +308,17 @@ have cycle detection and caps of10000 ordinary arrows and4096 bits; they
 completed. Generation and default replay passed. These finite counts verify
 the implementation; the written CRT and exponent arguments supply the
 infinite quantifiers.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B12 migration; standard library). The legacy scripts of this folder load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the legacy checker `check_valuation_debt.py` (about 37 s; the counts of section 5 of the note and both stored supplied conversions, compared with `valuation_debt_audit.json`). The commands in the legacy text name `experiments/residual_progress/arithmetic_progress/`.
+
+## Remarks
+
+- **Sequels.** The finite-centre extension is [`no-finite-affine-valuation-rank`](../no-finite-affine-valuation-rank/README.md) (R72). The two lower helpers of the reset frontier are cancelled by an explicit current in [`signed-pair-frontier-normalisation`](../signed-pair-frontier-normalisation/README.md) (R73); the positive `P(u)` remains and still resets the debt.
+- Existing accepted domains are unchanged. Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/arithmetic_progress/VALUATION_DEBT.md` (legacy ID R69) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written local progress identity and scoped potential impossibility theorem; exact conditional currents".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `ea3278e`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

@@ -156,7 +156,7 @@ with the separate sigma induction is drawn.
 ## Remarks
 
 - **Measurement (side lane, finite).** The meter in this folder reports a size-stable accepted share of about 70% of sampled `W5`, up from about 43% for the seven-family union, mostly from R55; R56 is never the accepting rule in the samples and R57 accepts at most 0.2%, because of priority. These samples give no coverage theorem, and the meter's receipt is nondeterministic.
-- **Later uses.** It is the fixed resolver of [`deferred-original-rank-testing`](../deferred-original-rank-testing/README.md) and the reference for the "old twelve" exclusions of [`rank-excess-absorption-classification`](../rank-excess-absorption-classification/README.md) and [`maximal-inverse-cycle-continuation`](../maximal-inverse-cycle-continuation/README.md); the later legacy fifteen-family dispatcher (`experiments/residual_progress/refined_rules/`, R61) appends R58–R60.
+- **Later uses.** It is the fixed resolver of [`deferred-original-rank-testing`](../deferred-original-rank-testing/README.md) and the reference for the "old twelve" exclusions of [`rank-excess-absorption-classification`](../rank-excess-absorption-classification/README.md) and [`maximal-inverse-cycle-continuation`](../maximal-inverse-cycle-continuation/README.md); the later fifteen-family dispatcher [`fifteen-family-rho-dispatcher`](../fifteen-family-rho-dispatcher/README.md) (R61-b) appends R58–R60.
 - Novelty undetermined (none claimed).
 
 ## History

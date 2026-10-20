@@ -1,4 +1,53 @@
-# A lifted inverse ray and the rotated minus-twenty-five cycle
+---
+id: lifted-inverse-ray-cycle
+kind: result
+title: "A lifted inverse ray with the rotated minus-twenty-five cycle: a complete threshold table and new descending subrows"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). On the R60 domain (w = 3445 mod 3456, v0 = (16w-13)/27 = 0 mod
+  3, q = rho(w)) lift the base ray to b = 512 v0 + 113 (ordinary tail (2,7,1,4) to q), take the maximal number k of
+  inverse copies of the rotated cycle (1,1,2,1,1,4,1) (affine centre -25, inverse slope 2048/2187) and then the
+  maximal valuation-1 run j, giving eta. The full signed plan strictly decreases rho exactly in the table: k = 0
+  needs j >= 14; k = 1-6, j >= 13; then the threshold drops by one at k = 7, 13, 20, 26, 32, 38, 44, 50, 57, 63, 69,
+  75, and every j passes for k >= 81 (affine intercepts included). The special failed row k = 0, j = 1, eta = 0 mod
+  3 is exactly the old R56 ray-4 depth-0 plan, retaining the original request; every other failure retains a unique
+  higher request +1 of rank eta > q. Every feasible row has full CRT realizations, and inside every R61 (r, A, K)
+  family the subrows k = 0, j = 14 (18 ordinary arrows) and k = 1, j = 13 (24 arrows) pass below the original q and
+  miss all fifteen earlier direct rules. Accepted plans are conditional on their smaller pair inputs; this is not
+  universal supply or completeness among inverse words.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [exponent-eleven-fifteen-rule-classification, exponent-eleven-exit-continuation, elementary-bridge-quotient-normal-form, two-selected-inverse-choices, maximal-inverse-cycle-continuation]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "../exponent-eleven-fifteen-rule-classification/refined_obstruction.py, check_refined_obstruction.py, refined_obstruction_audit.json: the joint R63-R64 constructor, checker and receipt (section 6 of the note), kept in the R63 folder and replayed there"
+  - "r64_lifted_cycle_check.py, r64_lifted_cycle_check.json: side-lane probe (Claude side lane, 2026-10-18 05:36, hardened 06:27) of the lifted ray and its acceptance table at every boundary. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/). Passed at be73a66 as reviews/side_lane/r64_lifted_cycle_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+  - "side_lane_review_cbe77bc.md, side_lane_review_cbe77bc.json: the main lane's pinned review (2026-10-18) of side commit cbe77bc: byte-identical reproduction of the probe, with 85 boundary cells constructed and none skipped; finite evidence only"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: r64_lifted_cycle_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 05:36, VERIFIED; probe hardened at 06:27 to assert all 85 cells built), with the lane's own odd-only step: 85 CRT-built boundary cells k in {0, 1, 6, 7, 12, 13, 19, 20, ..., 75, 80, 81, 85} with j in {J-1, J, J+1}: the word from b to q is (2,7,1,4), the word from eta to q is exactly 1^j, C^k, 2,7,1,4 (up to about 600 arrows), and eta < q exactly when j >= J(k). Per the main lane's review (side_lane_review_cbe77bc.md): one seed per cell, remainders h - 7k only 0 or 1, no interior or large k, no full signed plans, W9 substitution, dispatcher priority or supply. The status stays written"
+aliases: [R64]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, inverse-rays, negative-cycle-shadow]
+---
+
+# A lifted inverse ray with the rotated minus-twenty-five cycle: a complete threshold table and new descending subrows
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ρ(w) = ν(3w)`; signed `P(w)` and formal `H` plans as in [`exponent-eleven-fifteen-rule-classification`](../exponent-eleven-fifteen-rule-classification/README.md). Domain: the R60 entry `w ≡ 3445 (mod 3456)`, `v0 = (16w − 13)/27 ≡ 0 (mod 3)`, `q = ρ(w) = (81v0 + 23)/32` ([`maximal-inverse-cycle-continuation`](../maximal-inverse-cycle-continuation/README.md)).
+
+1. **Construction.** Lift R56's base ray ([`two-selected-inverse-choices`](../two-selected-inverse-choices/README.md)) to `b = 512v0 + 113`, whose ordinary path to `q` has word `(2,7,1,4)`; take the maximal number `k` of inverse copies of the rotated cycle `C = (1,1,2,1,1,4,1)` (affine centre `−25`, inverse slope `2048/2187`) and then the maximal valuation-1 point run `j`, ending at `η`. The exact ordinary word `η → q` is `1^j, C^k, 2,7,1,4`.
+2. **Complete table.** The full signed plan strictly decreases `ρ` exactly when: `k = 0`, `j ≥ 14`; `k = 1–6`, `j ≥ 13`; `7–12`, `≥ 12`; `13–19`, `≥ 11`; `20–25`, `≥ 10`; `26–31`, `≥ 9`; `32–37`, `≥ 8`; `38–43`, `≥ 7`; `44–49`, `≥ 6`; `50–56`, `≥ 5`; `57–62`, `≥ 4`; `63–68`, `≥ 3`; `69–74`, `≥ 2`; `75–80`, `≥ 1`; every `j` for `k ≥ 81`. Finite affine intercepts are included. The row `k = 0, j = 1, η ≡ 0 (mod 3)` is exactly the old R56 ray-4 depth-0 plan and keeps the original request; every other failure keeps a unique higher request `+1` of rank `η > q`.
+3. **New subrows.** Every feasible row has full CRT realizations. Inside every R61 `(r, A, K)` family ([`exponent-eleven-exit-continuation`](../exponent-eleven-exit-continuation/README.md)), the subrows `k = 0, j = 14` (18 ordinary arrows) and `k = 1, j = 13` (24 arrows) pass below the original `q` and miss all fifteen earlier direct rules, at `w` and at the leading `v`.
+
+Accepted plans are conditional on their remaining smaller pair inputs. This is not universal supply, nor completeness among inverse words; the leading pair of the old exit representation stays unresolved by the fifteen rules.
+
+## Proof
+
+The legacy note "A lifted inverse ray and the rotated minus-twenty-five cycle" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written conditional theorem, complete arithmetic acceptance table,
 and exact integer-current constructor.** A nonzero quotient inverse-ray lift
@@ -8,14 +57,14 @@ R61 CRT family and is outside all fifteen previous direct rules. All failed
 plans remain explicit. This is a partial extension, not universal completion.
 
 Use the original rho, signed P(w), and formal H notation of
-[the companion classification](REFINED_ELEVEN.md). The complete quotient
-inverse branches come from [R25](../bridge_normal_form/BRIDGE_NORMAL_FORM.md).
+[the companion classification](../exponent-eleven-fifteen-rule-classification/README.md). The complete quotient
+inverse branches come from [R25](../elementary-bridge-quotient-normal-form/README.md).
 The base four-arrow interface comes from
-[R56](../selected_inverse/SELECTED_INVERSE.md); the maximal inverse method and
-full failure discipline are extended from [R60](../cycle_inverse/CYCLE_INVERSE.md).
+[R56](../two-selected-inverse-choices/README.md); the maximal inverse method and
+full failure discipline are extended from [R60](../maximal-inverse-cycle-continuation/README.md).
 Negative states identify affine words only; every constructed source is positive.
 
-## 1. Complete domain, lifted ray, and exact inverse words
+### 1. Complete domain, lifted ray, and exact inverse words
 
 Assume w>0, w=3445 mod3456, and
 
@@ -82,7 +131,7 @@ For k=0 put Z=256v0+57. Then p+1=2Z and b+25=2(Z+12).
 If h>=2, j=1. If j>=2, h=1. At h1,j1 the terminal point is0 mod3;
 at h>=2,j1 it is1 mod3. These are all zero-cycle cases, and j0 is impossible.
 
-## 2. Complete strict-rho table, including finite intercepts
+### 2. Complete strict-rho table, including finite intercepts
 
 For every k>=0 the full signed plan strictly decreases rho exactly in this table:
 
@@ -129,7 +178,7 @@ is positive throughout the boundary rectangle; reducing k or j increases eta.
 This proves every remaining failed cell. For k>=81,j0 already passes.
 No asymptotic slope approximation decides a finite case.
 
-## 3. Complete currents and failure vectors
+### 3. Complete currents and failure vectors
 
 Let I be the negative current of (3), so div I=[q]-[eta], and z=nu(w).
 Return the full plan
@@ -168,7 +217,7 @@ for each nonzero remaining P(u). Missing or malformed supplies are rejected.
 The theorem does not provide those inputs universally. Individual pair proofs
 are being composed; no annular source-capacity assertion is made.
 
-## 4. Every parameter row has full CRT realizations
+### 4. Every parameter row has full CRT realizations
 
 For k>=1 write b+25=2*3^(7k)*U, hence
 
@@ -190,7 +239,7 @@ For k0, impose(7) with k0 on U=256v0+69, and instead use these exact ternary
 conditions: U=6 mod9 for h1,j1; U=3^h*e mod3^(h+1) for h2..6,j1;
 or U=12+3^j*e mod3^(j+1) for h1,j>=2. These give every feasible zero-cycle row.
 
-## 5. New18-arrow and24-arrow comparisons inside every R61 family
+### 5. New18-arrow and24-arrow comparisons inside every R61 family
 
 Fix arbitrary r>=16,A>=5,K>=0. Retain the full binary condition(1) in
 the companion note, now with M=7r+10. The simplest new row is
@@ -237,7 +286,7 @@ construction certifies P(w) conditionally from smaller-rank pair inputs;
 it does not discard the leading request of the old exit representation.
 Different exact representations can have different unresolved premises.
 
-## 6. Verification and limitations
+### 6. Verification and limitations
 
 Run `python3 experiments/residual_progress/refined_obstruction/check_refined_obstruction.py`.
 It checks exact boundary inequalities, every maximal remainder, actual valuation
@@ -259,3 +308,18 @@ A third conversion, at the first r16,A5,K0 eighteen-arrow CRT fixture, has
 Finite fixture searches have a10000-arrow cap, cycle detection and a4096-bit
 cap; none supplies a universal premise. The R63 classifications and current
 undos in the same receipt have their separate stated scope.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B12 migration; standard library). The legacy scripts of this folder load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the side-lane probe `r64_lifted_cycle_check.py` (under 1 s, receipt reproduced byte for byte). The joint legacy checker of R63 and R64, `check_refined_obstruction.py`, is replayed by [`exponent-eleven-fifteen-rule-classification`](../exponent-eleven-fifteen-rule-classification/README.md), whose folder holds it. The commands in the legacy text name `experiments/residual_progress/refined_obstruction/`.
+
+## Remarks
+
+- Appended as a rule of [`seventeen-family-rho-dispatcher`](../seventeen-family-rho-dispatcher/README.md) (witness `36641534965`, `k = 0`, `j = 14`). The all-ray extension and its counting obstruction are [`ray-index-decision-count-obstruction`](../ray-index-decision-count-obstruction/README.md) (R66).
+- Negative cycle states only identify affine words; every constructed source is positive.
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/refined_obstruction/LIFTED_CYCLE.md` (legacy ID R64) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). The note moved byte-identical before editing; the joint constructor, checker and receipt went to [`exponent-eleven-fifteen-rule-classification`](../exponent-eleven-fifteen-rule-classification/README.md). The side-lane probe `reviews/side_lane/r64_lifted_cycle_check.*` and the main lane's review `experiments/residual_progress/side_lane_review_cbe77bc.md` and `.json` moved here; `check_legacy_replay.py` was added at the migration. Legacy status: "written conditional construction and full arithmetic classification for a specified inverse family".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `793e835`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

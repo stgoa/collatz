@@ -1,4 +1,50 @@
-# Adjacent currents: a native-height inverse barrier and forward separation
+---
+id: native-height-inverse-obstruction
+kind: result
+title: "Adjacent currents: an all-ray inverse barrier at the native height, with a fixed forward certificate on the same family"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; T = nu S; D(q) = [q+2] - [q] and native height n(q) = (8q-5)/9 on the R65
+  adjacent domain (canonical q = 31 mod 108). For every D >= 3, t >= 1 put q = 31 + 2^57 3^D t, n = 27 + 2^60
+  3^(D-2) t. Every canonical predecessor p with T^d(p) = q, 1 <= d <= D, over every inverse ray index, is either n
+  itself (d = 2, base ray then point inverse) or exceeds q; so no ordinary odd source below n reaches q in at most
+  D ordinary arrows. The same family keeps the fixed 35-arrow word from 31 to 23 (total valuation 56), ending at y =
+  23 + 2 3^(D+35) t with 8n - (9y+5) = 4 + 2 3^(D-2) t (2^62 - 3^39) > 0, and q+2 has one arrow to (3q+7)/4 < n;
+  together these give an exact conditional D(q) current whose signed helper requests all have rho < n (at q = 31 no
+  request remains). Transporting R44 through R65 is row for row the original endpoint comparison. The seed varies
+  with D; the whole adjacent domain stays open and no dispatcher coverage is claimed.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [adjacent-source-defect-equivalence, inverse-only-exclusions-short-forward, returning-forward-interface, rank-excess-absorption-classification, elementary-bridge-quotient-normal-form, decreasing-w5-phase-inverse-barrier]
+certificates: [check_legacy_replay.py, batch_r68_r70_check.py]
+evidence:
+  - "check_native_height.py, native_height.py, native_height_audit.json: the legacy constructor and checker: 2496 complete sampled inverse words through depth 5 (ray indices 0/1), three eight-branch words at ray indices 8/32/128, 120 paired binary runs, 120 transported-current identities, 48 family instances through D = 128, nine rejections, and two stored current demonstrations (q = 31: 45 rows, no supplied pair; q = 3891110078048108575: 345 rows from 15 supplied pairs). Fails at its new path: native_height.py loads ../defect_normal_form/ (now adjacent-source-defect-equivalence/) by its pre-migration folder name. Passed at be73a66 as experiments/residual_progress/adjacent_recursion/check_native_height.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "batch_r68_r70_check.py, batch_r68_r70_check.json: side-lane probe (Claude side lane, 2026-10-18 08:37) of R68 and R70 with the lane's own S, nu and T; self-contained, it runs in place and rewrites its receipt byte for byte (checked at migration); passed at be73a66 as reviews/side_lane/batch_r68_r70_check.py (archive/legacy-checker-run-be73a66.md, exit 0). mixed-exit-growing-reentry cites it from this folder"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: batch_r68_r70_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 08:37, VERIFIED, main 9190ccf), with the lane's own S, nu and T, nothing imported from main: the six-state anchor {1, 7, 9, 11, 17, 25} with its T-edges and T^2(27) = 31 through 41; the 35-arrow word from 31 to 23 with cost 56 and nu(23) = 11; for D = 3..12 and six values of t (60 cases) q and n = (8q-5)/9 canonical, q = 31 (mod 108), an inverse-tree search over every branch and ray index (at most 28 nodes) finding n at d = 2 as the only canonical a < q with T^d(a) = q, 1 <= d <= D; the same word from q ending at y, and 8n - (9y+5) > 0. Finite D only; the all-ray proof and the conditional current were not rebuilt; the status stays written"
+aliases: [R68]
+tags: [convergence, outer-residual, tripling-pairs, adjacent-source, native-height, inverse-barrier]
+---
+
+# Adjacent currents: an all-ray inverse barrier at the native height, with a fixed forward certificate on the same family
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ν`, `T = νS`; the complete canonical inverse branches of R25/R41. On the adjacent domain of [`adjacent-source-defect-equivalence`](../adjacent-source-defect-equivalence/README.md) (canonical `q ≡ 31 mod 108`), `D(q) = [q+2] − [q]` and its native height `n(q) = (8q − 5)/9`; missing pair currents must have rank strictly below `n`, not merely below `q`.
+
+1. **Inverse barrier.** For every `D ≥ 3`, `t ≥ 1` put `q = 31 + 2^57·3^D·t`, `n = 27 + 2^60·3^(D−2)·t`. Every canonical predecessor `p` with `T^d(p) = q`, `1 ≤ d ≤ D`, over every inverse ray index, is either `n` itself (`d = 2`: base ray then point inverse) or exceeds `q`. Hence no ordinary odd source below `n` reaches `q` in at most `D` ordinary arrows.
+2. **Forward certificate.** The same family keeps the fixed 35-arrow word from 31 to 23 (total valuation 56), ending at `y = 23 + 2·3^(D+35)·t`, with `8n − (9y + 5) = 4 + 2·3^(D−2)·t·(2^62 − 3^39) > 0`; and `q + 2` has one ordinary arrow to `(3q + 7)/4 < n`. Together they give an exact conditional `D(q)` current whose signed helper requests all have `ρ < n`; at `q = 31` no request remains.
+3. **Transport.** Transporting the R44 rule ([`returning-forward-interface`](../returning-forward-interface/README.md)) through R65 is row for row the original endpoint comparison.
+
+The seed varies with `D`, so this is not a permanent obstruction at one input. The whole adjacent domain stays open; no new dispatcher coverage is claimed.
+
+## Proof
+
+The legacy note "Adjacent currents: a native-height inverse barrier and forward separation" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written scoped separation theorem and finite exact certificates.**
 This does not close the whole adjacent-source domain or add a dispatcher
@@ -15,12 +61,12 @@ of R25/R41. For canonical `q=31 mod108`, let
     D(q)=[q+2]-[q],           n(q)=(8q-5)/9.
 
 Here n is the native height from
-[R65](../defect_normal_form/ADJACENT_DEFECT_INTERFACE.md). Missing pair
+[R65](../adjacent-source-defect-equivalence/README.md). Missing pair
 currents must have their original critical-image rank strictly below n,
 not merely below q. The all-ray affine argument extends the scoped
-[R49 inverse barrier](../inverse_scope/INVERSE_SCOPE.md).
+[R49 inverse barrier](../inverse-only-exclusions-short-forward/README.md).
 
-## 1. Why two tempting adjacent rewrites give no new recursion
+### 1. Why two tempting adjacent rewrites give no new recursion
 
 The ordinary word `(1,2)` takes n to q. Pulling the negative source q
 back along this word leaves `[q+2]-[n]`. Since q+2 has an ordinary
@@ -63,7 +109,7 @@ prefix always has a ordinary arrows. These are not a single ordinary
 clock for the signed source. Absorbing the known positive endpoint
 alone leaves exactly the R44 endpoint r. No recursive closure is proved.
 
-## 2. A six-state certificate at the native anchor
+### 2. A six-state certificate at the native anchor
 
 The canonical origins below27 and their entire T-forward closure are
 
@@ -86,7 +132,7 @@ In particular27 reaches31 only at its second quotient step: a later
 occurrence would force a return cycle through31. These finite data are
 stored and verified without an uncapped trajectory search.
 
-## 3. The complete all-ray native-height obstruction
+### 3. The complete all-ray native-height obstruction
 
 **Theorem.** Fix D>=3 and t>=1, and set
 
@@ -130,7 +176,7 @@ although the actual adjacent obligation requires strict descent below n.
 The theorem concerns the prescribed depth and varies q with D. It does
 not assert that every lifted q permanently misses smaller supplied history.
 
-## 4. The same family has a fixed forward conditional certificate
+### 4. The same family has a fixed forward conditional certificate
 
 Every q in (4) preserves word W because the exact cylinder modulus is
 `2^(56+1)`. Its endpoint is
@@ -163,7 +209,7 @@ therefore hold on the same full parameter family. This is a structural
 separation, not a new universal rule or a claim that these examples were
 outside every previous accepted domain.
 
-## 5. Reproduction and limits
+### 5. Reproduction and limits
 
 `native_height.py` implements the finite anchor verification, arbitrary
 all-ray shadow-word audit, the family (4), complete paired binary prefixes,
@@ -189,3 +235,20 @@ hashes; `--write-receipt` regenerates it after inspection.
 Universal closure of D(q) is still open. Retained lower history and new
 forward comparisons remain available; another inverse search or a renamed
 returning pair does not by itself establish the required native descent.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B12 migration; standard library). The legacy scripts of this folder load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the legacy checker `check_native_height.py` (about 6 s; the counts of section 5 of the note and the two stored current demonstrations, compared with `native_height_audit.json`). The commands in the legacy text name `experiments/residual_progress/adjacent_recursion/`.
+
+[`batch_r68_r70_check.py`](batch_r68_r70_check.py) (under 1 s; side lane, independent code with its own `S`, `ν` and `T`): the R68 anchor, word and family checks listed under `reviewed_by`, and the R70 exit table and re-entries of [`mixed-exit-growing-reentry`](../mixed-exit-growing-reentry/README.md). Self-contained; it runs at this path and rewrites its receipt byte for byte.
+
+## Remarks
+
+- The inverse barrier extends the scoped R49 barrier of [`inverse-only-exclusions-short-forward`](../inverse-only-exclusions-short-forward/README.md) to every ray index. The explicit smaller ancestor `n` is the point: a test asking only for descent below `q` would report progress, while the adjacent obligation needs descent below `n`.
+- The failed joint binary-run rewrite (section 1) and the related history audit are recorded in [`retained-lower-currents-adjacent-source`](../../attempts/retained-lower-currents-adjacent-source.md).
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/adjacent_recursion/NATIVE_HEIGHT_SEPARATION.md` (legacy ID R68) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/batch_r68_r70_check.*` (R68 and R70) moved here. Legacy status: "written all-ray separation and conditional adjacent-current construction".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `a489973`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

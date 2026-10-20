@@ -1,4 +1,51 @@
-# A complete growing block made from two valid rank comparisons
+---
+id: mixed-rank-growing-blocks
+kind: result
+title: "Arbitrarily long growing blocks from two valid comparisons of different ranks, with an exact finite guard count"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; P(w) = [3w] - [w], rho(w) = nu(3w), sigma the separate rank. On the whole
+  cylinder w = 40529845 mod 2^26, the accepted sigma fifth-exponent plan at w followed by the accepted rho R44
+  returning plan at its high child u has the exact combined current D_(3w,3V) + J_V - J_w, with requests {V: 1} +
+  A_V - A_w, V(w) = (531441 w + 311195)/524288 > w; every other request has rho < 3w, and D_(3w,3V) has quotient
+  length 12 and ordinary common-tail clocks (13, 1). For every m the progression w = -311195/7153 mod 2^(26+19(m-1))
+  admits m growing copies whose currents telescope (clocks (12m+1, 1)), and at any fixed positive guarded input the
+  maximal guarded count is exactly 1 + floor((v2(7153 w + 311195) - 26)/19), exiting at valuation 7..25. These
+  actual edges rule out a strictly decreasing potential with finitely many labels that is nondecreasing in height
+  within each label. Unbounded arithmetic state, other rule choices, richer cancellation, nontermination of fixed
+  dispatchers and infinite positive paths are not addressed; the terminal pair current stays missing.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [sigma-rank-removes-absorption-overhead, absorption-defect-original-rank-resolution, returning-forward-interface, rank-excess-absorption-classification, critical-nine-elimination, complementary-run-bridges]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_mixed_growth.py, mixed_growth.py, mixed_growth_audit.json: the legacy constructor and checker: 16 full macros, 12 complete prefixes through 16 copies (eight through four copies with every intermediate macro reconstructed), 27 arithmetic families through 256 copies and index 2^128, 76 exact guard exits, seven rejections, and the complete unfinished one- and two-copy currents (62 rows and six requests; 180 rows and 16 requests); the retained counterexample f = 1371 to extending the restricted absorption transport. Fails at its new path: mixed_growth.py loads ../defect_resolution/ (now ../absorption-defect-original-rank-resolution/) by its pre-migration folder name (and through it the R44, R51 and R52 modules); it is loaded in turn by the later legacy mixed_exit/, arithmetic_progress/ and finite_centres/ code. Passed at be73a66 as experiments/residual_progress/mixed_rank_recursion/check_mixed_growth.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "../exponent-eleven-exit-continuation/batch_r61_r67_check.py: side-lane probe of R61, R65, R66 and R67 (see reviewed_by)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: ../exponent-eleven-exit-continuation/batch_r61_r67_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 06:14, VERIFIED), with the lane's own step, nu and selected: on G = {w = 40529845 (mod 2^26)} the map V(w) = (531441 w + 311195)/524288 grows, and the maximal number of consecutive V-steps from G equals 1 + floor((v2(7153 w + 311195) - 26)/19) in all 3,000 cases. The combined current, its cancellation and the potential obstruction were not rebuilt; the status stays written"
+aliases: [R67]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, sigma-rank, mixed-rank, potential-obstruction]
+---
+
+# Arbitrarily long growing blocks from two valid comparisons of different ranks, with an exact finite guard count
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ν`, `T = νS`, `P(w) = [3w] − [w]`, `ρ(w) = ν(3w)`; `σ` the separate rank of [`sigma-rank-removes-absorption-overhead`](../sigma-rank-removes-absorption-overhead/README.md) (`σ = ρ` off the returning class `E`); formal plans `[x] = div J_x + Σ A_x(v)P(v)` with signed coefficients. Put `V(w) = (3^12 w + 311195)/2^19`.
+
+1. **One block.** On the whole cylinder `w ≡ 40529845 (mod 2^26)`, the accepted `σ` fifth-exponent plan at `w`, followed by the accepted `ρ` R44 returning plan ([`returning-forward-interface`](../returning-forward-interface/README.md)) at its high child `u = (2187w+1209)/1024`, has the exact combined current `C_w = D_(3w,3V) + J_V − J_w` and requests `{V: 1} + A_V − A_w`, with `V(w) > w`; every other request has `ρ < 3w`. `D_(3w,3V)` has quotient length 12 and ordinary common-tail clocks `(13, 1)`.
+2. **Repetition and guard.** For every `m ≥ 1`, the progression `w ≡ −311195/7153 (mod 2^(26+19(m−1)))` admits `m` growing copies; their currents telescope, with clocks `(12m+1, 1)`. At any fixed positive guarded input the maximal guarded count is exactly `1 + ⌊(v2(7153w + 311195) − 26)/19⌋`, and the exit valuation lies in `7..25`.
+3. **Potential obstruction.** These actual edges rule out a strictly decreasing potential with finitely many labels that is nondecreasing in height within each label.
+
+Not addressed: ranks with unbounded arithmetic state (the decreasing guard valuation is one), other rule choices, richer cancellation, nontermination of fixed-priority dispatchers, infinite positive paths. The terminal pair current stays missing.
+
+## Proof
+
+The legacy note "A complete growing block made from two valid rank comparisons" follows, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written exact interface, maximal guarded repetition theorem, and
 scoped obstruction to a common potential.** A sigma-decreasing comparison
@@ -16,16 +63,16 @@ P(w)=[3w]-[w], W5, and rho(w)=nu(3w). Formal absorption is
 
 with all integer signs retained. The sigma rank equals rho outside the
 returning class E and is4w/3−1 on E. Dependencies are the
-[separate sigma theorem](../phase_rank/PHASE_RANK.md),
-[complete defect interface](../defect_resolution/DEFECT_RESOLUTION.md),
-[returning forward current](../returning_phase/RETURNING_FORWARD_INTERFACE.md),
-[exact absorption bound](../exact_absorption_bound/EXACT_ABSORPTION_BOUND.md),
-and [critical-nine elimination](../w9_closure/CRITICAL_NINE_ELIMINATION.md).
-The finite [mixed-dispatch survey](../rank_mixing/RANK_MIXING.md) is not a
+[separate sigma theorem](../sigma-rank-removes-absorption-overhead/README.md),
+[complete defect interface](../absorption-defect-original-rank-resolution/README.md),
+[returning forward current](../returning-forward-interface/README.md),
+[exact absorption bound](../rank-excess-absorption-classification/README.md),
+and [critical-nine elimination](../critical-nine-elimination/README.md).
+The finite [mixed-dispatch survey](../../attempts/rho-sigma-rank-mixing/README.md) is not a
 premise: it studied fixed priorities, whereas this theorem follows two
 explicit available plan choices.
 
-## 1. The whole arithmetic cylinder
+### 1. The whole arithmetic cylinder
 
 Set
 
@@ -72,7 +119,7 @@ The inequalities include their offsets:
 Thus neither of these individual arrows is valid in both old ranks.
 The first increases rho; the second increases sigma.
 
-## 2. Exact combined current, not just an endpoint formula
+### 2. Exact combined current, not just an endpoint formula
 
 **Theorem.** Substitute the entire R44 current at u into the entire
 sigma fifth-exponent current at w. The resulting current C_w and signed
@@ -95,7 +142,7 @@ clocks(13,1). More precisely, its first twelve ordinary arrows have word
 Consequently S^13(q)=S(n). The whole P comparison also contains its formal
 absorption currents; no single clock is assigned to those supplied terms.
 
-### Proof of the signed cancellation
+#### Proof of the signed cancellation
 
 The first full R26 block has parameters(5,3), so its first five ordinary
 arrows have word1^4,2 and end at F(f). Its comparison to f is that path
@@ -145,7 +192,7 @@ request can equal v or cancel its coefficient+1. Finally(3) makes n a
 canonical direct W5 root; its R44 rank bound is exactly n<R, so the
 second chosen rule is indeed an accepted old-rho comparison. ∎
 
-## 3. Arbitrarily long prefixes and an exact finite maximum
+### 3. Arbitrarily long prefixes and an exact finite maximum
 
 For every integer m>=1 and i>=0 choose
 
@@ -174,7 +221,7 @@ finite termination of this specified guard. It does not show that all
 mixed comparisons terminate or that the exit pair is recognized.
 Other phases of either plan may remain applicable after this guard stops.
 
-### The complete finite-prefix source
+#### The complete finite-prefix source
 
 After substituting m leading requests, every signed term telescopes:
 
@@ -200,7 +247,7 @@ and expansions of its nonleading requests. It does not prohibit another
 comparison at w_m, another representation of the original source, or a
 rational signed-cycle solution involving different rows.
 
-## 4. What common potentials this actually rules out
+### 4. What common potentials this actually rules out
 
 Suppose a potential uses finitely many labels, and within any fixed label
 is nondecreasing as the positive critical height rho increases. It cannot
@@ -227,7 +274,7 @@ finitely many labels. Fixed priority dispatchers may select other plans;
 no assertion about their whole dependency graph is made. The seed in(9)
 changes with m, and no infinite positive growing orbit has been asserted.
 
-## 5. Reproduction and missing inputs
+### 5. Reproduction and missing inputs
 
 Run `python3 experiments/residual_progress/mixed_rank_recursion/check_mixed_growth.py`.
 The checker verifies both individually accepted plans, their exact full
@@ -247,3 +294,18 @@ arithmetic families through m256 and index2^128, and seventy-six exact
 guard valuations. These are bounded implementation checks. The arguments
 above provide the infinite quantifiers. Universal current supply, novelty,
 and formal or human verification remain unestablished.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B12 migration; standard library). The legacy scripts of this folder load sibling modules by their pre-migration paths, so they no longer run here. This certificate calls `tools/legacy_replay.py`, which rebuilds the pre-migration layout in a temporary directory from `tools/legacy_paths.json`, runs the unmodified legacy scripts there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied file unchanged. It writes nothing in the repository. It replays: the legacy checker `check_mixed_growth.py` (about 5 s; the counts of section 5 of the note and the stored unfinished currents, compared with `mixed_growth_audit.json`). The commands in the legacy text name `experiments/residual_progress/mixed_rank_recursion/`.
+
+## Remarks
+
+- The finite mixed-dispatch survey [`rho-sigma-rank-mixing`](../../attempts/rho-sigma-rank-mixing/README.md) is not a premise: it studied fixed priorities, whereas this theorem follows two explicit plan choices.
+- **Built on by** [`valuation-debt-reset-obstruction`](../valuation-debt-reset-obstruction/README.md) (R69), [`mixed-exit-growing-reentry`](../mixed-exit-growing-reentry/README.md) (R70), [`no-finite-affine-valuation-rank`](../no-finite-affine-valuation-rank/README.md) (R72), [`exit18-return-integer-cylinders`](../exit18-return-integer-cylinders/README.md) (R74), [`common-critical-rank-basis`](../common-critical-rank-basis/README.md) (R75, which avoids the forced detour through the larger `W5` request), [`uniform-fixed-word-pair-exclusion`](../uniform-fixed-word-pair-exclusion/README.md) (R76) and [`same-seed-factor-complexity-bound`](../same-seed-factor-complexity-bound/README.md) (R77).
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/mixed_rank_recursion/MIXED_GROWING_BLOCK.md` (legacy ID R67) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written exact signed interface and scoped potential obstruction".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `a489973`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

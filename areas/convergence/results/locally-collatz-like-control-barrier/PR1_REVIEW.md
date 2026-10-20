@@ -388,7 +388,7 @@ On18 October2026, a fresh GitHub read again returned PR1 as the sole merged
 PR, already incorporated in mainea3278e. The side feed at7150f312 is later
 independent work, not a second merged PR. It acknowledges the correction
 that rational covariance changes the integer lattice. The
-pinned735-word check (legacy `experiments/residual_progress/side_lane_review_13590c1.md`, not yet migrated)
+[pinned735-word check](../../../cycles/results/mechanical-word-exact-denominator/side_lane_review_13590c1.md)
 was independently reproduced unchanged.
 
 **Decision: a focused pivot toward joint signed-current cancellation and
@@ -397,18 +397,18 @@ remain decisive tests of claimed generic progress. The minimum-cost lemma
 does not prohibit alternative constructions, as the concrete examples above
 already show.
 
-The new normalizer (legacy `experiments/residual_progress/frontier_progress/SIGNED_FRONTIER_NORMAL_FORM.md`, not yet migrated)
+The [new normalizer](../signed-pair-frontier-normalisation/README.md)
 makes this direction concrete: its two exact pair identities remove both
 helper obligations in the entire R69 reset family, leaving one smaller pair
 and an eight-row current. Every sign is accounted for. The same normalizer
 leaves the R67 growing leader intact, so its own terminating simplification
 is not universal closure.
 
-The finite-centre theorem (legacy `experiments/residual_progress/finite_centres/FINITE_CENTRES.md`, not yet migrated)
+The [finite-centre theorem](../no-finite-affine-valuation-rank/README.md)
 rules out repairing the specified two-phase rank by adding any finite list
 of rational affine valuation centres. Its hypotheses allow richer joint
 states and different rule choices. The
-mixed-prefix theorem (legacy `experiments/residual_progress/integer_prefix/INTEGER_PREFIXES.md`, not yet migrated)
+[mixed-prefix theorem](../exit18-return-integer-cylinders/README.md)
 shows that every finite exit18 re-entry sequence has integer realizations.
 Its periodic limits are negative, but possible positive aperiodic survivors
 are still open. Neither a finite-prefix survey nor the sparse survivor bound
@@ -420,18 +420,18 @@ unbounded-prefix condition; more finite acceptance counts alone will not
 meet that obligation. This assessment preserves the exact-current programme
 and its controls without claiming the remaining problem is solved.
 
-The subsequent critical-basis result (legacy `experiments/residual_progress/critical_basis/CRITICAL_BASIS.md`, not yet migrated)
+The subsequent [critical-basis result](../common-critical-rank-basis/README.md)
 makes the change more precise: retain W9 inputs before translating sigma
 plans into rho-valid plans. The whole growing guard then has a smaller W9
 premise; its old higher W5 request need not be introduced. The auxiliary
 branch still needs a current, and its old elimination returns a self-request.
 This is a coherent conditional construction with explicit unfinished inputs.
-The same-seed result (legacy `experiments/residual_progress/itinerary_complexity/ITINERARY_COMPLEXITY.md`, not yet migrated)
+The [same-seed result](../same-seed-factor-complexity-bound/README.md)
 also excludes low-complexity infinite return words and proves an exact finite
 subsystem exit bound. It does not identify exit with absorption.
 
 The latest side probe, pinned at `d3a91fe`, was reproduced byte for byte;
-its review (legacy `experiments/residual_progress/side_lane_review_d3a91fe.md`, not yet migrated)
+[its review](../exit18-return-integer-cylinders/side_lane_review_d3a91fe.md)
 distinguishes endpoint checks from full-current and infinite assertions.
 These developments support keeping the current formulation while changing
 the intermediate source basis and the progress tests.
@@ -441,7 +441,7 @@ the intermediate source basis and the progress tests.
 A fresh remote and GitHub metadata check again identifies PR1, merged as
 `ba6b3371fabd7fcabebb442d7c89ea3ed5c02149`, as the only merged PR. It is
 already incorporated. New findings through side-branch commit `fcc7e882`
-were separately read and checked; the pinned review (legacy `experiments/residual_progress/side_lane_review_fcc7e88.md`, not yet migrated)
+were separately read and checked; the [pinned review](../divergent-orbit-itinerary-complexity/side_lane_review_fcc7e88.md)
 reproduces both new probes and records their limits.
 
 The focused pivot is now explicit: prioritize comparisons with the histories

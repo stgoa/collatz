@@ -32,7 +32,7 @@ tags: [cycles, dyadic-order, cancellation, counterexample]
 
 ## Idea
 
-By [`dyadic-order-lemma`](../results/dyadic-order-lemma.md), an ordered cycle has a mechanical normalised word `c` with coprime totals, and R71's exact denominator theorem gives `gcd(C_c, D) = 1` for mechanical words. If the original intercept behaved like `C_c`, ordered cycles would have reduced denominator `D > 1` and the ordered class would be excluded at `q = 1`.
+By [`dyadic-order-lemma`](../results/dyadic-order-lemma.md), an ordered cycle has a mechanical normalised word `c` with coprime totals, and R71's exact denominator theorem ([`mechanical-word-exact-denominator`](../results/mechanical-word-exact-denominator/README.md)) gives `gcd(C_c, D) = 1` for mechanical words. If the original intercept behaved like `C_c`, ordered cycles would have reduced denominator `D > 1` and the ordered class would be excluded at `q = 1`.
 
 ## What happened
 

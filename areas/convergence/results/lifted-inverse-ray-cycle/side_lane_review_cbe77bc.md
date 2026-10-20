@@ -21,7 +21,7 @@ For each representative the probe verifies:
 - the exact ordinary word `1^j,(1,1,2,1,1,4,1)^k,(2,7,1,4)` from `eta` to `q`;
 - agreement of `eta<q` with the stated threshold `j>=J(k)`.
 
-These are genuine arithmetic checks of the selected R64 boundaries. They agree with the scoped main theorem in [LIFTED_CYCLE.md](refined_obstruction/LIFTED_CYCLE.md).
+These are genuine arithmetic checks of the selected R64 boundaries. They agree with the scoped main theorem in [LIFTED_CYCLE.md](README.md).
 
 ## Limits
 
