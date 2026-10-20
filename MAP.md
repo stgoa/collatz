@@ -4,12 +4,14 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**61 results, 15 attempts, 9 questions, 26 sources.**
+**71 results, 16 attempts, 11 questions, 26 sources.**
 
 ## Frontier: open questions
 
 | Question | Area | Claim | Results resting on it |
 |---|---|---|---|
+| [`packet-current-supply`](areas/convergence/questions/packet-current-supply.md) | convergence | Odd-only clock, absorbing at 1. Prove that for every integer N ≥ 8 there are finite signed measures J_N, ζ_N with Π^R_N = (I − P)J_N + ζ_N and ζ_N ≤ 0 pointwis… | 0 |
+| [`uniform-current-cost`](areas/convergence/questions/uniform-current-cost.md) | convergence | Odd-only clock, absorbing at 1. With m = floor(2·ceil(log₂N)/9) and Π̂_(m,N) the exact-source packet family of packet-currents-snapshot, construct finite curre… | 0 |
 | [`cycle-height-bound`](areas/cycles/questions/cycle-height-bound.md) | cycles | Prove or refute: every hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map, of period m, minimum L and maximum H, has height B = floor… | 0 |
 | [`height-denominator-candidate`](areas/cycles/questions/height-denominator-candidate/README.md) | cycles | Prove or refute: every primitive positive rational cycle of the raw odd-only 3x+1 map (written as a reduced odd numerator cycle 3n_i + q = 2^(a_i)·n_(i+1), q o… | 0 |
 | [`height-residue-hall-matching`](areas/cycles/questions/height-residue-hall-matching.md) | cycles | Prove or refute, for every primitive positive ordered cycle of the raw odd-only map (q ≤ L, m > 1, circular normalised successor order) with reduced odd denomi… | 0 |
@@ -23,6 +25,27 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 ## Area: convergence
 
 Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
+
+### Results
+
+| Result | Title | Status | Chain | Rests on | Lean |
+|---|---|---|---|---|---|
+| [`class-wise-obligation-equivalence`](areas/convergence/results/class-wise-obligation-equivalence.md) | The five-ray packet obligation splits class by class into "no nontrivial cycles" and "no… | reviewed | written | — |  |
+| [`dyadic-cutoff-core-remainder`](areas/convergence/results/dyadic-cutoff-core-remainder.md) | At dyadic cutoffs N = 2^b the core remainder is 6-periodic in b, so the transfer error li… | written | written | — |  |
+| [`exact-current-minimality`](areas/convergence/results/exact-current-minimality.md) | An exact current is dominated pointwise by every one-sided certificate, but cheapest one-… | reviewed | reviewed | — |  |
+| [`finite-current-certificate-identity`](areas/convergence/results/finite-current-certificate-identity.md) | A finite signed current with (I − P)J = μ controls the stopping work of μ at every horizon | written | written | — |  |
+| [`locally-collatz-like-control-barrier`](areas/convergence/results/locally-collatz-like-control-barrier/README.md) | The packet criterion fails on 3x+d maps with cycles, including 3x+61, which looks like Co… | reviewed | reviewed | — |  |
+| [`packet-currents-snapshot`](areas/convergence/results/packet-currents-snapshot/README.md) | Exact-source ternary packets, with all-horizon current certificates at two named cutoffs… | written | written | — |  |
+| [`progress-measures-control-3x-61`](areas/convergence/results/progress-measures-control-3x-61.md) | On 3x+61 the annular progress measures behave like those of 3x+1, yet a positive componen… | reviewed | reviewed | — |  |
+| [`qualitative-current-criterion`](areas/convergence/results/qualitative-current-criterion.md) | Collatz convergence is equivalent to finite current certificates for the right-aligned pa… | reviewed | written | — |  |
+| [`right-aligned-fixed-core-remainder`](areas/convergence/results/right-aligned-fixed-core-remainder/README.md) | Grouping depth-one source lifts from the right leaves a remainder only on the core {5, 7,… | reviewed | reviewed | — |  |
+| [`right-aligned-reduction-independent-checks`](areas/convergence/results/right-aligned-reduction-independent-checks.md) | An independent implementation reproduces the right-aligned packets and checks R2–R4 (and… | reviewed | reviewed | — |  |
+
+### Attempts (approaches that failed or stalled)
+
+| Attempt | Title | Status |
+|---|---|---|
+| [`annular-bottom-cancellation-attempt`](areas/convergence/attempts/annular-bottom-cancellation-attempt.md) | Proving the annular obligation by cancelling positive and negative mass above the bottom | reviewed |
 
 ## Area: cycles
 
@@ -169,6 +192,17 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 | C012 | [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) |
 | C013 | [`shared-background-denominator-law`](areas/cycles/results/shared-background-denominator-law/README.md) |
 | EXT-1 | [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) |
+| PR1-C1 | [`right-aligned-reduction-independent-checks`](areas/convergence/results/right-aligned-reduction-independent-checks.md) |
+| PR1-C2 | [`locally-collatz-like-control-barrier`](areas/convergence/results/locally-collatz-like-control-barrier/README.md) |
+| PR1-C3 | [`exact-current-minimality`](areas/convergence/results/exact-current-minimality.md) |
+| PR1-C4 | [`progress-measures-control-3x-61`](areas/convergence/results/progress-measures-control-3x-61.md) |
+| PR1-C5 | [`class-wise-obligation-equivalence`](areas/convergence/results/class-wise-obligation-equivalence.md) |
+| PR1-C5-b | [`annular-bottom-cancellation-attempt`](areas/convergence/attempts/annular-bottom-cancellation-attempt.md) |
+| R1 | [`packet-currents-snapshot`](areas/convergence/results/packet-currents-snapshot/README.md) |
+| R1-b | [`finite-current-certificate-identity`](areas/convergence/results/finite-current-certificate-identity.md) |
+| R2 | [`right-aligned-fixed-core-remainder`](areas/convergence/results/right-aligned-fixed-core-remainder/README.md) |
+| R3 | [`qualitative-current-criterion`](areas/convergence/results/qualitative-current-criterion.md) |
+| R4 | [`dyadic-cutoff-core-remainder`](areas/convergence/results/dyadic-cutoff-core-remainder.md) |
 | S02 | [`ordered-cycle-run-renormalisation`](areas/cycles/attempts/ordered-cycle-run-renormalisation/README.md) |
 | S03 | [`band-three-ordering-extension`](areas/cycles/attempts/band-three-ordering-extension/README.md) |
 | S04 | [`band-one-gcd-law-search`](areas/cycles/attempts/band-one-gcd-law-search/README.md) |

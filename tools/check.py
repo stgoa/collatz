@@ -90,7 +90,10 @@ def check_nodes(g: nodes.Graph, errors: list, warnings: list):
                 errors.append(f"{rel}: certificate `{c}` is not a .py file in the node folder")
         if n.path.name == "README.md":
             for p in n.folder.rglob("*"):
-                if p.is_dir() and (p / "README.md").exists() and p != n.folder:
+                # A subfolder is a nested node only if its README.md has node frontmatter; an attached
+                # artefact folder may carry its own plain README (e.g. a byte-pinned inherited snapshot).
+                if (p.is_dir() and p != n.folder and (p / "README.md").is_file()
+                        and (p / "README.md").read_bytes().startswith(b"---")):
                     errors.append(f"{rel}: nested node folder {p.relative_to(ROOT)} is not allowed")
     for a, rel in seen_alias.items():
         if a in seen_ids:

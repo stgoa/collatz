@@ -1,6 +1,6 @@
 # Negative controls, an independent audit, and certificate minimality
 
-17 October 2026. Companion to [`right_aligned_reduction.tex`](../../../papers/right_aligned_reduction/right_aligned_reduction.tex).
+17 October 2026. Companion to [`right-aligned-reduction.tex`](../../../../papers/right-aligned-reduction/right-aligned-reduction.tex).
 Executables: [`affine_controls.py`](affine_controls.py), [`reduction_audit.py`](reduction_audit.py), [`main_claims_audit.py`](main_claims_audit.py), [`progress_measures_audit.py`](progress_measures_audit.py), [`attempt_probes.py`](attempt_probes.py).
 Receipts: the matching `*.json` files in this directory.
 Ledger entries: C1–C5 in `archive/docs/RESULTS.md`. The C-series is kept separate from the R-series used on main.

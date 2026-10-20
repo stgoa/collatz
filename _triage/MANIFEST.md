@@ -123,13 +123,13 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B06-cycles-S09-S13 | `reviews/side_lane/s13_short_rotations.*` | 2 | node short-rotation-mismatch-growth |
 | B06-cycles-S09-S13 | `reviews/side_lane/s9_denominator_law.*` | 2 | node two-three-mismatch-denominator-laws |
 | B09-convergence-residual-1 | `reviews/side_lane/transfer_3xd.*` | 2 | pending (moved from B06: transfer of main's R23/R54/18u+5 identities to 3x+d; residual-progress framework, not cycle material) |
-| B07-convergence-packet-currents | `experiments/packet_currents/README.md` | 1 | pending |
-| B07-convergence-packet-currents | `experiments/packet_currents/collatz_packet_currents` | 32 | pending |
-| B07-convergence-packet-currents | `experiments/packet_currents/negative_controls` | 15 | pending |
-| B07-convergence-packet-currents | `experiments/packet_currents/right_aligned_audit.json` | 1 | pending |
-| B07-convergence-packet-currents | `experiments/packet_currents/right_aligned_packets.py` | 1 | pending |
-| B07-convergence-packet-currents | `papers/README.md` | 1 | pending |
-| B07-convergence-packet-currents | `papers/right_aligned_reduction` | 1 | pending |
+| B07-convergence-packet-currents | `experiments/packet_currents/README.md` | 1 | node packet-currents-snapshot (became its README) |
+| B07-convergence-packet-currents | `experiments/packet_currents/collatz_packet_currents` | 32 | node packet-currents-snapshot (snapshot kept whole and byte-identical in its folder; also cited by finite-current-certificate-identity, uniform-current-cost) |
+| B07-convergence-packet-currents | `experiments/packet_currents/negative_controls` | 15 | node locally-collatz-like-control-barrier (whole folder, scripts import each other); also supports right-aligned-reduction-independent-checks, exact-current-minimality, progress-measures-control-3x-61, class-wise-obligation-equivalence, annular-bottom-cancellation-attempt |
+| B07-convergence-packet-currents | `experiments/packet_currents/right_aligned_audit.json` | 1 | node right-aligned-fixed-core-remainder (also cited by qualitative-current-criterion, dyadic-cutoff-core-remainder) |
+| B07-convergence-packet-currents | `experiments/packet_currents/right_aligned_packets.py` | 1 | node right-aligned-fixed-core-remainder (certificate; also cited by qualitative-current-criterion, dyadic-cutoff-core-remainder) |
+| B07-convergence-packet-currents | `papers/README.md` | 1 | dropped: merged into `papers/README.md` (its build hint and paper row); the legacy file was removed |
+| B07-convergence-packet-currents | `papers/right_aligned_reduction` | 1 | paper `papers/right-aligned-reduction/right-aligned-reduction.tex` (renamed, byte-identical); presents finite-current-certificate-identity, right-aligned-fixed-core-remainder, qualitative-current-criterion, dyadic-cutoff-core-remainder |
 | B08-convergence-current-annular | `experiments/annular_construction/README.md` | 1 | pending |
 | B08-convergence-current-annular | `experiments/annular_construction/REPORT.md` | 1 | pending |
 | B08-convergence-current-annular | `experiments/annular_construction/arithmetic` | 5 | pending |

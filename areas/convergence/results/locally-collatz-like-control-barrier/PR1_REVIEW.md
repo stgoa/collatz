@@ -224,13 +224,13 @@ The latest optional side feed, reviewed at
 delayed-release identities and reports sparse negative-source attachment
 in a depth16 search. Both new receipts were reproduced in temporary
 storage; exact integer height bounds give the same results. See the
-[review receipt](../../residual_progress/side_lane_review_20261017_2005.json).
+review receipt (legacy `experiments/residual_progress/side_lane_review_20261017_2005.json`, not yet migrated).
 These observations motivate testing coverage. They do not prove that
 later zero-cost attachment is impossible: a bounded search can miss a
 deeper backward source. Insufficient negative capacity also does not mean
 there are no source attachments at all.
 
-The next batch's [annular-to-complement transfer](../../residual_progress/complement_recursion/ANNULAR_COMPLEMENT_TRANSFER.md)
+The next batch's annular-to-complement transfer (legacy `experiments/residual_progress/complement_recursion/ANNULAR_COMPLEMENT_TRANSFER.md`, not yet migrated)
 makes the proposed progress test precise. Its positive annular atoms are
 already certified by smaller ancestors; a capacity-checked cancellation
 then certifies selected negative atoms and their outer predecessors.
@@ -248,14 +248,14 @@ second merged PR. The merged control and scope conclusions above stand.
 
 **Decision: focus the constructive work on the explicit complementary
 outer family.** The new
-[halving identity](../../residual_progress/residual_return/SHRINKING_COALESCENCE.md)
+halving identity (legacy `experiments/residual_progress/residual_return/SHRINKING_COALESCENCE.md`, not yet migrated)
 connects every selected root `x=2^a*t-1`, `t=3^a mod4`, to the smaller
 seed `(x-1)/2`. It reduces the leading residual mass by half and works
 through unbounded climbs. The opposite binary class remains unresolved.
-The [sparse induction](../../residual_progress/sufficient_sets/SUFFICIENT_SETS_AUDIT.md)
+The sparse induction (legacy `experiments/residual_progress/sufficient_sets/SUFFICIENT_SETS_AUDIT.md`, not yet migrated)
 shows exactly why a universal completion of that class would suffice.
 
-The [fixed-h obstruction](../../residual_progress/phase_depth/FIXED_H_DEPTH.md)
+The fixed-h obstruction (legacy `experiments/residual_progress/phase_depth/FIXED_H_DEPTH.md`, not yet migrated)
 rules out every depth bound depending only on the earlier ternary order,
 already when that order is2. This is a reason to change the proposed
 recursive state, not a reason to abandon exact currents.
@@ -267,7 +267,7 @@ Its finite-bit scans are reproducible, but only test the stated prefix
 rules, including a limited merger with one-step images of known seeds.
 They do not exhaust arbitrary common-tail bridges to supplied paths.
 The measured N^0.93 extrapolation is not a proved integer-count law.
-The [durable review](../../residual_progress/side_lane_review_20261017_latest.md)
+The durable review (legacy `experiments/residual_progress/side_lane_review_20261017_latest.md`, not yet migrated)
 records reproduced receipts, the additional direct-prefix checks, and
 these scope limits.
 
@@ -286,22 +286,22 @@ The more recent side-feed work was reviewed at
 not an additional merged PR.
 
 The constructive pivot now has further results. The
-[complete elementary normal form](../../residual_progress/bridge_normal_form/BRIDGE_NORMAL_FORM.md)
+complete elementary normal form (legacy `experiments/residual_progress/bridge_normal_form/BRIDGE_NORMAL_FORM.md`, not yet migrated)
 gives a genuine quotient and exhausts what sibling and halving identities
 alone can do. The
-[normalized run construction](../../residual_progress/complementary_bridge/RUN_BLOCK_BRIDGES.md)
+normalized run construction (legacy `experiments/residual_progress/complementary_bridge/RUN_BLOCK_BRIDGES.md`, not yet migrated)
 certifies about55.2788% of the previous complementary leading mass, with
 uniform exact counting and full weights. It also gives explicit
 counterfamilies to the resulting height and two-label rank candidates.
 
 The new feed's proposed merger barrier is narrower than its synthesis
-suggests. The [audit](../../residual_progress/cylinder_barrier/CYLINDER_RATES.md)
+suggests. The audit (legacy `experiments/residual_progress/cylinder_barrier/CYLINDER_RATES.md`, not yet migrated)
 proves equal exponential rates for the specified symbolic D/M/H rules,
 corrects a finite-bit H omission, and distinguishes those rates from
 constant-factor comparisons and actual growing-interval counts.
 The finite known-forward-set experiment does not exhaust available
-targets: the [infinite known-set theorem](../../residual_progress/absorbed_fibers/ABSORBED_FIBERS.md)
-supplies N/4+O(log N) certifiable states in every band[X,2X), uniformly
+targets: the infinite known-set theorem (legacy `experiments/residual_progress/absorbed_fibers/ABSORBED_FIBERS.md`, not yet migrated)
+supplies N/4+O(log N) certifiable states in every bandX,2X), uniformly
 at arbitrary height X>=N. That count alone is not an orbit hitting proof.
 
 **Decision:** continue the focused pivot toward exact bridges and
@@ -322,7 +322,7 @@ probes were read but were not independently rerun in this batch.
 
 **Recommendation: pursue shrinking arithmetic comparisons with supplied
 smaller-seed paths.** The new
-[paired construction](../../residual_progress/second_return/SHRINKING_PAIRS.md)
+[paired construction (legacy `experiments/residual_progress/second_return/SHRINKING_PAIRS.md`, not yet migrated)
 reduces its parameter to less than one quarter on recursive branches,
 and gives exact smaller-seed mergers for infinite families at every
 recursive depth. Those families had unbounded normalized return height.
@@ -330,13 +330,13 @@ This is a concrete partial advance, while odd-h and other branches
 remain unresolved. It supplies no new global coverage or termination
 theorem.
 
-The [complete supplied-path table](../../residual_progress/known_saturation/KNOWN_SATURATION.md)
+The complete supplied-path table (legacy `experiments/residual_progress/known_saturation/KNOWN_SATURATION.md`, not yet migrated)
 makes known history reusable without discarding larger known targets.
 Its finite examples were already in that history, which is explicitly
-recorded. The [repeated bounded-run proof](../../residual_progress/bounded_run_cycles/BOUNDED_RUN_GROWTH.md)
+recorded. The repeated bounded-run proof (legacy `experiments/residual_progress/bounded_run_cycles/BOUNDED_RUN_GROWTH.md`, not yet migrated)
 rules out finite-label, height-monotone strict progress on every return,
 so the next proof needs richer arithmetic or intermediate increases.
-The [scope audit](../../residual_progress/merger_scope/MERGER_SCOPE.md)
+The scope audit (legacy `experiments/residual_progress/merger_scope/MERGER_SCOPE.md`, not yet migrated)
 retains the valid fixed-rule rate statements and refutes the inference
 that high future climbers must cancel while high. These results support
 the focused constructive pivot; they do not justify abandoning finite
@@ -355,7 +355,7 @@ storage with both exact pinned dependencies and a 45-second process cap.
 The published receipt matches exactly: 10,922 paired-prefix cases, six
 repeated-word depths, four Mersenne comparisons, and three actual annular
 cancellation examples. Source hashes, dependency comparisons and outputs
-are in the [reproduction receipt](../../residual_progress/side_lane_review_e3111d3.json).
+are in the reproduction receipt (legacy `experiments/residual_progress/side_lane_review_e3111d3.json`, not yet migrated).
 These are finite implementation checks; the infinite statements depend
 on their written proofs.
 
@@ -373,7 +373,7 @@ supplied smaller-seed history. R35 records exactly what the restricted
 identity catalogue misses and why an unrestricted doubling-pair premise
 would already be equivalent to Collatz. R36 then resolves explicit parts
 of that missing domain by additional dynamic comparisons. See the
-[current result ledger](../../../archive/docs/RESULTS.md).
+current result ledger (legacy `archive/docs/RESULTS.md`).
 
 The parallel work supports the checks and preserves useful negative
 controls. It gives no reason to abandon finite signed certificates.
@@ -388,7 +388,7 @@ On18 October2026, a fresh GitHub read again returned PR1 as the sole merged
 PR, already incorporated in mainea3278e. The side feed at7150f312 is later
 independent work, not a second merged PR. It acknowledges the correction
 that rational covariance changes the integer lattice. The
-[pinned735-word check](../../residual_progress/side_lane_review_13590c1.md)
+pinned735-word check (legacy `experiments/residual_progress/side_lane_review_13590c1.md`, not yet migrated)
 was independently reproduced unchanged.
 
 **Decision: a focused pivot toward joint signed-current cancellation and
@@ -397,18 +397,18 @@ remain decisive tests of claimed generic progress. The minimum-cost lemma
 does not prohibit alternative constructions, as the concrete examples above
 already show.
 
-The [new normalizer](../../residual_progress/frontier_progress/SIGNED_FRONTIER_NORMAL_FORM.md)
+The new normalizer (legacy `experiments/residual_progress/frontier_progress/SIGNED_FRONTIER_NORMAL_FORM.md`, not yet migrated)
 makes this direction concrete: its two exact pair identities remove both
 helper obligations in the entire R69 reset family, leaving one smaller pair
 and an eight-row current. Every sign is accounted for. The same normalizer
 leaves the R67 growing leader intact, so its own terminating simplification
 is not universal closure.
 
-The [finite-centre theorem](../../residual_progress/finite_centres/FINITE_CENTRES.md)
+The finite-centre theorem (legacy `experiments/residual_progress/finite_centres/FINITE_CENTRES.md`, not yet migrated)
 rules out repairing the specified two-phase rank by adding any finite list
 of rational affine valuation centres. Its hypotheses allow richer joint
 states and different rule choices. The
-[mixed-prefix theorem](../../residual_progress/integer_prefix/INTEGER_PREFIXES.md)
+mixed-prefix theorem (legacy `experiments/residual_progress/integer_prefix/INTEGER_PREFIXES.md`, not yet migrated)
 shows that every finite exit18 re-entry sequence has integer realizations.
 Its periodic limits are negative, but possible positive aperiodic survivors
 are still open. Neither a finite-prefix survey nor the sparse survivor bound
@@ -420,18 +420,18 @@ unbounded-prefix condition; more finite acceptance counts alone will not
 meet that obligation. This assessment preserves the exact-current programme
 and its controls without claiming the remaining problem is solved.
 
-The subsequent [critical-basis result](../../residual_progress/critical_basis/CRITICAL_BASIS.md)
+The subsequent critical-basis result (legacy `experiments/residual_progress/critical_basis/CRITICAL_BASIS.md`, not yet migrated)
 makes the change more precise: retain W9 inputs before translating sigma
 plans into rho-valid plans. The whole growing guard then has a smaller W9
 premise; its old higher W5 request need not be introduced. The auxiliary
 branch still needs a current, and its old elimination returns a self-request.
 This is a coherent conditional construction with explicit unfinished inputs.
-The [same-seed result](../../residual_progress/itinerary_complexity/ITINERARY_COMPLEXITY.md)
+The same-seed result (legacy `experiments/residual_progress/itinerary_complexity/ITINERARY_COMPLEXITY.md`, not yet migrated)
 also excludes low-complexity infinite return words and proves an exact finite
 subsystem exit bound. It does not identify exit with absorption.
 
 The latest side probe, pinned at `d3a91fe`, was reproduced byte for byte;
-[its review](../../residual_progress/side_lane_review_d3a91fe.md)
+its review (legacy `experiments/residual_progress/side_lane_review_d3a91fe.md`, not yet migrated)
 distinguishes endpoint checks from full-current and infinite assertions.
 These developments support keeping the current formulation while changing
 the intermediate source basis and the progress tests.
@@ -441,7 +441,7 @@ the intermediate source basis and the progress tests.
 A fresh remote and GitHub metadata check again identifies PR1, merged as
 `ba6b3371fabd7fcabebb442d7c89ea3ed5c02149`, as the only merged PR. It is
 already incorporated. New findings through side-branch commit `fcc7e882`
-were separately read and checked; the [pinned review](../../residual_progress/side_lane_review_fcc7e88.md)
+were separately read and checked; the pinned review (legacy `experiments/residual_progress/side_lane_review_fcc7e88.md`, not yet migrated)
 reproduces both new probes and records their limits.
 
 The focused pivot is now explicit: prioritize comparisons with the histories
