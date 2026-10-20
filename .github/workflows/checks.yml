@@ -35,6 +35,8 @@ jobs:
         with: { fetch-depth: 0 }
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
+      - name: legacy path map is up to date
+        run: python3 tools/legacy_replay.py --check-map
       - name: run certificates
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.all_certificates }}" = "true" ]; then

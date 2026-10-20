@@ -22,6 +22,7 @@ Command line:
 
     python3 tools/legacy_replay.py <legacy script path> [...]   # replay these scripts
     python3 tools/legacy_replay.py --update-map                  # regenerate legacy_paths.json from git
+    python3 tools/legacy_replay.py --check-map                   # fail if the committed map is stale (CI)
 
 Each script runs from its own legacy folder, without -O, as `scripts/verify_all.py` ran them at
 commit be73a66. Standard library only.
@@ -49,13 +50,8 @@ def load_map() -> dict[str, str]:
     return json.loads(MAP.read_text(encoding="utf-8"))
 
 
-def update_map() -> int:
-    """Map every legacy file at LEGACY_COMMIT to its current path, following byte-identical moves.
-
-    A legacy file maps to a current file when git sees an exact rename (100% similarity), or when the
-    path is unchanged and the content identical. Files that were rewritten (node READMEs whose legacy
-    notes are hash-pinned) or removed map to null; the replay restores their original bytes from git.
-    """
+def compute_map() -> dict:
+    """The legacy map as it should be for the current HEAD (see update_map)."""
     head = "HEAD"
     out = subprocess.run(["git", "diff", "--find-renames=100%", "--name-status", "-z", LEGACY_COMMIT, head],
                          cwd=ROOT, capture_output=True, check=True).stdout.decode().split("\0")
@@ -85,8 +81,18 @@ def update_map() -> int:
         else:
             mapping[path] = None          # rewritten or removed: restored from git at replay time
     # Only research material is replayed; documentation at the old root is not needed.
-    mapping = {k: v for k, v in sorted(mapping.items())
+    return {k: v for k, v in sorted(mapping.items())
                if k.startswith(("experiments/", "reviews/", "lean/", "papers/", "scripts/"))}
+
+
+def update_map() -> int:
+    """Map every legacy file at LEGACY_COMMIT to its current path, following byte-identical moves.
+
+    A legacy file maps to a current file when git sees an exact rename (100% similarity), or when the
+    path is unchanged and the content identical. Files that were rewritten (node READMEs whose legacy
+    notes are hash-pinned) or removed map to null; the replay restores their original bytes from git.
+    """
+    mapping = compute_map()
     MAP.write_text(json.dumps(mapping, indent=0, sort_keys=True) + "\n", encoding="utf-8")
     print(f"{MAP.relative_to(ROOT)}: {len(mapping)} legacy files mapped")
     return 0
@@ -175,6 +181,14 @@ if __name__ == "__main__":
     argv = sys.argv[1:]
     if argv == ["--update-map"]:
         sys.exit(update_map())
+    if argv == ["--check-map"]:
+        fresh, current = compute_map(), load_map()
+        if fresh != current:
+            print("tools/legacy_paths.json is stale: run python3 tools/legacy_replay.py --update-map "
+                  "after committing (rewritten files must map to null)")
+            sys.exit(1)
+        print("tools/legacy_paths.json is up to date")
+        sys.exit(0)
     if not argv or argv[0].startswith("-"):
         print(__doc__)
         sys.exit(2)
