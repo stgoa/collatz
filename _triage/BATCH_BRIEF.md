@@ -35,7 +35,7 @@ Then decide what nodes the unit becomes.
 
 ## 3. Writing the node
 
-- **Frontmatter:** every required field. `created` is the date of the legacy original's first commit (`git log --diff-filter=A --format=%as -- <path> | tail -1`, run on the `_triage/` path).
+- **Frontmatter:** every required field. `created` is the date of the legacy original's first commit (`git log --follow --diff-filter=A --format=%as be73a66 -- <legacy path> | tail -1`; `--follow` traces earlier renames, and for a folder take the earliest date over its files).
 - **Body:** the sections of SCHEMA §6, in order.
   - The legacy text may be **lightly** edited: restructured into sections, notation aligned with NOTATION.md, links fixed, legacy status vocabulary replaced.
   - **Never change mathematical content, strengthen a claim, or drop a caveat, scope limit, correction or "heuristic" label.**
@@ -73,6 +73,7 @@ For every check script you move:
 2. If it exits 0, list it under `certificates`.
 3. Otherwise, or if it needs arguments or network access, list it under `evidence`, as: `<file>: passed at be73a66 as <old path> (archive/legacy-checker-run-be73a66.md)`. Use whatever is true for that script ("failed at be73a66 by design: pinned to a historical commit", "exploration probe, not a checker", …).
 4. Do not "fix" scripts to make them pass. Exploration scripts always go under `evidence`.
+5. If most of a node's finite checks went to evidence, you may write **one new, small certificate** in the node folder. It must use the standard library only, run from the repository root, and recompute what the legacy receipt certifies (or a stated part of it) from the committed data. Its docstring opens with "Written at the <batch> migration", and the node's `## Certificates` section says so. It must agree with the legacy receipt.
 
 ## 6. Bookkeeping
 
