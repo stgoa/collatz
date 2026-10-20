@@ -231,8 +231,11 @@ def check_links(errors: list):
             if path.startswith("/"):
                 errors.append(f"{rel}: absolute link `{target}`; use a relative path")
                 continue
-            if not (p.parent / path).exists():
+            resolved = (p.parent / path).resolve()
+            if not resolved.exists():
                 errors.append(f"{rel}: broken link `{target}`")
+            elif resolved.is_relative_to(ROOT / "_triage"):
+                errors.append(f"{rel}: link into the temporary `_triage/` folder: `{target}`")
 
 
 def top_level_entries() -> list[tuple[str, bool]]:

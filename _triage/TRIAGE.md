@@ -9,4 +9,4 @@ Migration happens in batches, one commit per batch. Each batch takes a slice of 
 
 [`MANIFEST.md`](MANIFEST.md) lists every item and its fate. When every row is done, this folder is deleted.
 
-Paths inside these files still refer to the old layout, so links and script loaders here are expected to be broken. Every checker was run at commit `be73a66`, and the results of that run are the reference for "this script passed".
+Paths inside these files still refer to the old layout, so links and script loaders here are expected to be broken. Every checker was run at commit `be73a66`; [`../archive/legacy-checker-run-be73a66.md`](../archive/legacy-checker-run-be73a66.md) records the results and is the reference for "this script passed". How a batch is done: [`BATCH_BRIEF.md`](BATCH_BRIEF.md).
