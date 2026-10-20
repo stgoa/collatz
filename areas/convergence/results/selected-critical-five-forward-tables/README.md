@@ -1,4 +1,47 @@
-# Selected critical-five inputs: complete forward interfaces
+---
+id: selected-critical-five-forward-tables
+kind: result
+title: "Complete forward tables for selected critical-five inputs, with infinite decreasing domains"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; original rank rho(w) = nu(3w), no sigma rule. For selected 3w and w = 5
+  mod 8, q = rho(w) = (3w-1)/2 = 2^A t - 1 is complementary canonical, A >= 2; applying the complete run-bridge
+  block, with its raw endpoint f and elementary normalisation, before requesting H gives the exact plan N_(3w) +
+  D_q + N_f - N_w + H_nu(f) - H_nu(w), which strictly decreases rho whenever the branchwise endpoint bound
+  B(nu(f)) < q. The first-block table is exact for A = 2, 3, 4; after the failed first A = 2, d = 2 block a
+  complete second-block table is exact for second exponents 2, 3, 4; all signed W5 requests and both clocks stay
+  explicit. Every selected w = 2 mod 3 is outside the old nine direct predicates, and for each A >= 2 an exact
+  CRT progression with large odd d passes (e.g. 221 mod 384, 2813 mod 3072); inside the R54 phase the whole
+  progression 10357 mod 13824 (A = 4, d = 3) decreases, while the proposed replacement 3445 mod 13824 is false
+  (counterexamples 58741 and 86389). Recognition of all remaining inputs and universal pair currents are not
+  proved.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [complementary-run-bridges, returning-forward-interface, forward-blocks-low-exponent-tests, low-block-continuation-prescribed-growth, growing-prefix-unhandled-leading-input, critical-image-rank-composition, elementary-bridge-quotient-normal-form]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_selected_forward.py, selected_forward.py, selected_forward_audit.json: the legacy constructor and checker: 2049 selected inputs below 32768, 256 second-block inputs, 683 old-rule exclusions, 78 CRT examples through A = 128, 128 progression points and four actual substitutions; two completed output currents and their supplied inputs are stored. The finite window has 905 new acceptances (no asymptotic coverage claim). Fails at its new path: selected_forward.py loads ../continued_rules/, ../critical_rank/ and ../nonselected_forward/ by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/selected_forward/check_selected_forward.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+aliases: [R55]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, selected-phase, forward-blocks]
+---
+
+# Complete forward tables for selected critical-five inputs, with infinite decreasing domains
+
+## Statement
+
+Odd-only clock, 1 absorbing; the rank is always `ρ(w) = ν(3w)`. Domain: `w ≡ 5 (mod 8)` with `3w` selected, so `q = ρ(w) = (3w − 1)/2 = 2^A t − 1` is complementary canonical, `A ≥ 2`.
+
+1. **Interface.** Apply the complete run-bridge block of [`complementary-run-bridges`](../complementary-run-bridges/README.md), including its raw endpoint `f` and elementary normalisation, before requesting `H`. The exact plan `N_(3w) + D_q + N_f − N_w + H_ν(f) − H_ν(w)` strictly decreases `ρ` whenever the complete branchwise endpoint bound `B(ν(f)) < q` (the table of [`returning-forward-interface`](../returning-forward-interface/README.md)).
+2. **Tables.** The first-block table is exact for `A = 2, 3, 4`. After the failed first `A = 2`, `d = 2` block, a complete second-block table is exact for second exponents 2, 3, 4. All signed `W5` requests and the ordinary and quotient clocks stay explicit.
+3. **New domains.** Every selected `w ≡ 2 (mod 3)` is outside the old nine direct predicates (proved directly from them). For each `A ≥ 2` an exact CRT progression with sufficiently large odd depth `d` passes (examples `221 (mod 384)`, `2813 (mod 3072)`). Inside the phase of [`growing-prefix-unhandled-leading-input`](../growing-prefix-unhandled-leading-input/README.md), the whole progression `10357 (mod 13824)` has `A = 4`, `d = 3` and decreases.
+4. **A refuted replacement.** The proposed progression `3445 (mod 13824)` is false: 58741 and 86389 are stored counterexamples; 3445 itself passes a different `A = 4`, `d = 4` branch. The maximal inverse of the first failed `A = 2`, `d = 2` endpoint exactly undoes that block, motivating the second forward comparison.
+
+It does not prove that the remaining inputs are recognised or that every pair current exists.
+
+## Proof
+
+The legacy note "Selected critical-five inputs: complete forward interfaces" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written proof, exact conditional constructors, and bounded replay.**
 This extends the old-rank forward method to every selected critical-five
@@ -12,11 +55,11 @@ finite selected-phase coverage gaps. Its finite coverage percentages and
 scale-uniform interpretations are not premises. The whole selected
 `w=2 mod3` exclusion below is proved directly from the existing predicates.
 
-## 1. Domain, endpoint, and exact current
+### 1. Domain, endpoint, and exact current
 
 Use the absorbed odd Syracuse map `S`, the elementary minimum `nu`, and
 `P(w)=[3w]-[w]`. Let `w=5 mod8` and suppose `3w` is selected in the sense of
-[R25](../bridge_normal_form/BRIDGE_NORMAL_FORM.md). Then
+[R25](../elementary-bridge-quotient-normal-form/README.md). Then
 
 \[
  q=\rho(w)=\nu(3w)=(3w-1)/2=2^A t-1,\qquad A\ge2,
@@ -33,7 +76,7 @@ Write
  u=(3^{A-1}t-1)/2^d,\quad b=\lfloor d/2\rfloor.
 \]
 
-The complete [R26 block](../complementary_bridge/RUN_BLOCK_BRIDGES.md) has
+The complete [R26 block](../complementary-run-bridges/README.md) has
 raw endpoint
 
 \[
@@ -63,7 +106,7 @@ and, when present, their F-ray rows. These normalizer currents are not zero
 ordinary elapsed time. The quotient clock starts at `q`, not at `3w`.
 
 For a canonical `n`, use the proved branchwise upper bound from
-[R44](../returning_phase/RETURNING_FORWARD_INTERFACE.md):
+[R44](../returning-forward-interface/README.md):
 
 | Canonical endpoint `n` | Bound `B(n)` on every missing request's `rho` |
 |---|---:|
@@ -86,7 +129,7 @@ is sufficient for a strict-`rho` pair reduction. The test is a sufficient
 criterion for the formal construction, not a necessary criterion for the
 existence of a pair current.
 
-## 2. Complete table for the three smallest initial exponents
+### 2. Complete table for the three smallest initial exponents
 
 Let `E` mean that the even raw endpoint `f` is selected and put `m=nu(f)`.
 For each row, (3) holds **if and only if** the displayed condition holds:
@@ -128,7 +171,7 @@ first passing value is `d=4`, where `q-f=(5t-7)/8`. If `f` is selected,
 The common bound is `(9f+1)/16`; already at `A=2,d=2`,
 `q-(9f+1)/16=(47t-25)/32>0`. This proves the first row. The remaining
 two rows follow from the same endpoint algebra as the complete A3/A4 table
-in [R48](../nonselected_forward/NONSELECTED_FORWARD.md), with the valid
+in [R48](../forward-blocks-low-exponent-tests/README.md), with the valid
 minima above. In particular the formerly exceptional `A3,t1` is an odd case
 already covered by (4). For clarity, the last failing/first passing raw
 differences are `(17t+7)/8` at A3d4, `(13t-37)/32` at A3d6;
@@ -137,7 +180,7 @@ At A4d4, (5) separates the passing residues1,7 from the failing residue3;
 at A4d2 all three fail. At A4d6 their common upper bound passes. Every
 strict sign holds at the stated least `t`, proving exhaustion. ∎
 
-## 3. A complete second block after the failed A2 case
+### 3. A complete second block after the failed A2 case
 
 The first A2 case fails exactly when `d=2` and `f` is canonical. Put
 
@@ -195,9 +238,9 @@ is exactly `-D_q`. Recognizing a higher-rank request through that inverse
 therefore restores the original obligation. The forward second block above
 is tested against the original `q`, before requesting any absorption input.
 
-## 4. Full new arithmetic domains
+### 4. Full new arithmetic domains
 
-### 4.1 The previously uncovered selected unit class
+#### 4.1 The previously uncovered selected unit class
 
 If selected `w=2 mod3`, then `q=7 mod9`. The R46 inverse classification
 therefore has `D=v3(q-1)=1`, unit `(q-1)/3=2 mod3`, spine value
@@ -247,9 +290,9 @@ Indeed set `v=1187+1296j`; then
 `(A,d)=(2,2)` and second `(B,e)=(2,3)`. This is again selected `w=2 mod3`,
 so the whole progression is new to the old nine domains.
 
-### 4.2 A full subphase of the R54 obstruction
+#### 4.2 A full subphase of the R54 obstruction
 
-The [R54 untouched phase](../rule_avoidance/RULE_AVOIDANCE.md) is
+The [R54 untouched phase](../growing-prefix-unhandled-leading-input/README.md) is
 `w=3456k-11`, `k>=1`, hence `q=5184k-17`. It has `A=4` and
 
 \[
@@ -277,7 +320,7 @@ itself the first depth is4, not3; that individual input passes the selected
 minimum1-mod8 branch. The corrected progression (12) uses the exact
 valuation established from (11).
 
-## 5. Reusable interface and verification
+### 5. Reusable interface and verification
 
 `selected_forward.py` provides:
 
@@ -310,3 +353,17 @@ not scale-uniform coverage claims. The small fixture inputs are
 discovered under explicit step/bit caps; the theorem does not depend on
 their finite absorption tests. The full repository gate belongs to the
 integrating parent batch.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B11 migration; standard library). The legacy scripts in this folder load their sibling modules by pre-migration folder names, so they no longer run here. This certificate rebuilds the legacy directory layout in a temporary directory from the node folders that now hold those files, runs the unmodified legacy checks there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied receipt unchanged. It writes nothing in the repository. It replays: the legacy checker `check_selected_forward.py` (about 12 s; the counts of section 5 and two stored outputs, compared with `selected_forward_audit.json`). The command in the legacy text names `experiments/residual_progress/selected_forward/`.
+
+## Remarks
+
+- The legacy note read the side-lane feed at `75b60f4` (finite selected-phase coverage gaps) as context; its percentages are not premises.
+- First in priority among the three selected rules of [`twelve-family-rho-dispatcher`](../twelve-family-rho-dispatcher/README.md); the side lane's sample attributes most of that dispatcher's growth (to about 70% of sampled `W5`) to this rule. Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/selected_forward/SELECTED_FORWARD.md` (legacy ID R55) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written full conditional interfaces, complete low-exponent tests and infinite decreasing arithmetic domains".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `7206f9c`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

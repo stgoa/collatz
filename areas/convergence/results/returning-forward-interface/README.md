@@ -1,4 +1,53 @@
-# A forward interface for the complete returning phase
+---
+id: returning-forward-interface
+kind: result
+title: "A complete forward interface on the returning W5 row, with strict-rank subdomains and arbitrarily long runs"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). On the whole returning row E_return = {w in W5 : w = 3
+  mod 9, 3w selected}, 3w = 2^a t - 1 (a >= 3, t = 3^a mod 4, 2^a t = 10 mod 27), q = rho(w) = 2^(a-1) t - 1
+  reaches r = (3^(a-1) t - 1)/2 by the exact word 1^(a-2),2, and with z = nu(w) the current N_(3w) + prefix -
+  N_w + H_r - H_z has boundary P(w) minus the signed difference of the two request vectors. Every lower request
+  has smaller rank; a complete canonical endpoint table bounds the upper ranks and gives a decidable sufficient
+  strict-rank test. The test holds on every a = 3 input with r noncanonical or r = 1 mod 8, and every a = 4
+  input with r noncanonical; for every a >= 3 and k >= 1 with 4^k (2^(a+3) - 20) > 3^(a+1) - 3, r = F^k(s) gives
+  complete nonempty CRT families with arbitrarily long rising runs. Prescribed absorption undoes only prefixes
+  through a-3, and the full R41 inverse at r undoes the whole run (failures of specified compositions, not of
+  all forward comparisons). Index decrease alone is insufficient: w = 6645 requests 4205 < w with rho(4205) =
+  12615 > 9967 = rho(6645), left unresolved.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [critical-image-rank-composition, decreasing-w5-phase-inverse-barrier, critical-nine-elimination, critical-tripling-domain-equivalence, elementary-bridge-quotient-normal-form]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_returning_phase.py, returning_phase.py, returning_phase_audit.json: the legacy constructor (forward_plan, compile_forward_plan, sibling_family) and checker: 2048 bounds, 228 returning inputs (126 rank-descending), 456 undo checks, 96 CRT examples through a = 128 and 12 actual substitutions. Fails at its new path: returning_phase.py loads ../critical_inverse/critical_inverse.py (now ../decreasing-w5-phase-inverse-barrier/) by its pre-migration folder name; returning_phase.py is itself loaded by its old path by later legacy rules. Passed at be73a66 as experiments/residual_progress/returning_phase/check_returning_phase.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "The side-lane probe touching this node is ../critical-image-rank-composition/batch_r43_r46_check.py (recorded under reviewed_by)."
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: ../critical-image-rank-composition/batch_r43_r46_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 22:16, VERIFIED, main a06ef3c), with the lane's own nu and Syracuse step. Only the rank values rho(6645) = 9967 and rho(4205) = 12615 of the index-versus-rank example were checked. The entry says: The R43 composition theorem and the R44/R45 accepted-domain classifications were not rebuilt here. The status stays written"
+aliases: [R44]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, returning-row, conditional-compiler]
+---
+
+# A complete forward interface on the returning W5 row, with strict-rank subdomains and arbitrarily long runs
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ρ(w) = ν(3w)`; `H_s` the formal absorption plan with request ranks at most `(9s+5)/8` ([`critical-image-rank-composition`](../critical-image-rank-composition/README.md)).
+
+1. **Whole-row interface.** On `E_return = {w ∈ W5 : w ≡ 3 (mod 9), 3w selected}` write `3w = 2^a t − 1`, `a ≥ 3`, `t ≡ 3^a (mod 4)`, `2^a t ≡ 10 (mod 27)`. Then `q = ρ(w) = 2^(a−1)t − 1` reaches `r = (3^(a−1)t − 1)/2 ≡ 4 (mod 9)` by the exact word `1^(a−2), 2`, and with `z = ν(w)` the current `L_w = N_(3w) + G − N_w + H_r − H_z` has `div L_w = P(w) − Σ (A_r(u) − A_z(u)) P(u)`. Every lower request has rank below `q`; a complete canonical endpoint table bounds the upper ranks and gives a decidable sufficient strict-rank test.
+2. **Subdomains.** The test holds on every `a = 3` input with `r` noncanonical or `r ≡ 1 (mod 8)`, and on every `a = 4` input with `r` noncanonical, with no size cap.
+3. **Long runs.** For every `a ≥ 3` and `k ≥ 1` with `4^k(2^(a+3) − 20) > 3^(a+1) − 3`, endpoints `r = F^k(s)` give complete nonempty CRT families (10)–(11) that pass; the initial path length `a − 1` and the ratio `r/w` are unbounded.
+4. **Undo loops.** Appending prescribed absorption undoes only the prefixes through `a − 3`; at `a − 2` the endpoint is `1 (mod 8)` and takes its forward step. The full R41 inverse at `r` undoes the entire run. These delimit failed recipes, not all forward comparisons.
+
+Index decrease alone does not give the common rank: `w = 6645` requests `4205 < w`, but `ρ(4205) = 12615 > 9967 = ρ(6645)`; that plan stays unresolved. Universal coverage of the returning row is open.
+
+## Proof
+
+The legacy note "A forward interface for the complete returning phase" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written conditional reduction and finite certificates.** The interface
 below is defined on the entire returning row of R41. Two complete subdomains,
@@ -12,13 +61,13 @@ Use the odd-only Syracuse map `S`, killed atoms `[1]=0`, and
 An elementary current `N_x` has divergence `[x]-[nu(x)]`.
 All currents and requests below are signed integer objects.
 
-Dependencies are the [elementary normal form](../bridge_normal_form/BRIDGE_NORMAL_FORM.md),
-[R37 formal absorption](../tripling_equivalence/TRIPLING_EQUIVALENCE.md),
-[R40 W9 elimination](../w9_closure/CRITICAL_NINE_ELIMINATION.md),
-[R41 returning phase](../critical_inverse/CRITICAL_INVERSE.md), and
-[critical-image rank bound](../critical_rank/CRITICAL_IMAGE_RANK.md).
+Dependencies are the [elementary normal form](../elementary-bridge-quotient-normal-form/README.md),
+[R37 formal absorption](../critical-tripling-domain-equivalence/README.md),
+[R40 W9 elimination](../critical-nine-elimination/README.md),
+[R41 returning phase](../decreasing-w5-phase-inverse-barrier/README.md), and
+[critical-image rank bound](../critical-image-rank-composition/README.md).
 
-## 1. Exact whole-domain parameters and two undo loops
+### 1. Exact whole-domain parameters and two undo loops
 
 The domain is exactly
 
@@ -62,7 +111,7 @@ Appending this inverse current cancels the entire forward current. This is
 the second complete undo loop. Neither observation rules out a different
 forward comparison; both delimit a failed recipe exactly.
 
-## 2. A complete signed interface with a different endpoint comparison
+### 2. A complete signed interface with a different endpoint comparison
 
 Write the finite formal W5 absorption plan of R41 as
 
@@ -97,7 +146,7 @@ signed coefficient, produces an exact current of divergence `P(w)`.
 The compiler rejects missing or incorrect currents and does not search
 for them.
 
-### A sharper complete endpoint bound
+#### A sharper complete endpoint bound
 
 Put `n=nu(r)`. Applying (5) after the first prescribed R37 step gives the
 following rational upper bounds on **every** rank requested by `H_r`:
@@ -119,7 +168,7 @@ These are all possible canonical minima. If the applicable bound is below
 `q`, (4) is a strictly rank-decreasing rule. This test is sufficient; an
 unresolved result is not a proof of impossibility or of nonconvergence.
 
-## 3. Two complete low-valuation subdomains
+### 3. Two complete low-valuation subdomains
 
 The rank test always succeeds on:
 
@@ -139,7 +188,7 @@ smaller than `q=8t-1` precisely when `13t>25`, again always true.
 The corresponding pair indices are also strictly below `w`.
 These assertions cover their entire parameter domains, without a size cap.
 
-## 4. Exact stratum thresholds and arbitrarily long successful runs
+### 4. Exact stratum thresholds and arbitrarily long successful runs
 
 Every endpoint has a unique elementary stratum
 
@@ -207,7 +256,7 @@ Thus the initial path length `a-1` is unbounded. Along these families,
 `(4/9)(3/2)^a`. A long or high first excursion therefore does not by
 itself defeat this rule. This does not cover every endpoint of such a run.
 
-## 5. Executable scope
+### 5. Executable scope
 
 `returning_phase.py` exports `forward_plan(w)` on the whole domain. Its
 `seed`, `rank`, `current`, and signed `coefficients` satisfy (4).
@@ -228,3 +277,18 @@ families, capped discovery only for specified demonstration inputs, and
 actual substituted currents. This finite evidence checks implementation;
 the arguments above give the unbounded quantifiers. Universal coverage of
 the remaining returning phase is open.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B11 migration; standard library). The legacy scripts in this folder load their sibling modules by pre-migration folder names, so they no longer run here. This certificate rebuilds the legacy directory layout in a temporary directory from the node folders that now hold those files, runs the unmodified legacy checks there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied receipt unchanged. It writes nothing in the repository. It replays: the legacy checker `check_returning_phase.py` (about 2 s; the counts of section 5 and the stored compiled currents, compared with `returning_phase_audit.json`). The command in the legacy text names `experiments/residual_progress/returning_phase/`.
+
+## Remarks
+
+- A second full run before requesting inputs is [`returning-second-forward-interface`](../returning-second-forward-interface/README.md); a separate rank on this row is [`sigma-rank-removes-absorption-overhead`](../sigma-rank-removes-absorption-overhead/README.md). The endpoint table is reused by [`forward-blocks-low-exponent-tests`](../forward-blocks-low-exponent-tests/README.md) and [`selected-critical-five-forward-tables`](../selected-critical-five-forward-tables/README.md).
+- A main-lane model review corrected the first undo endpoint from `a − 2` to `a − 3` before the commit (archive/convergence-residual-progress/REPORT.md); the migrated text has the corrected value.
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/returning_phase/RETURNING_FORWARD_INTERFACE.md` (legacy ID R44) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written whole-domain conditional identity and strict-rank rules on specified subdomains".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `a06ef3c`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

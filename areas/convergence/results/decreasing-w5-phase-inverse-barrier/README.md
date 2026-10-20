@@ -1,11 +1,61 @@
-# A whole decreasing critical phase, its returning branch, and an exhaustive inverse barrier
+---
+id: decreasing-w5-phase-inverse-barrier
+kind: result
+title: "A whole decreasing W5 phase, an exact returning self-request, and an exhaustive bounded-depth inverse barrier"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; nu, T = nu S and the canonical set of
+  elementary-bridge-quotient-normal-form; P(w) = [3w] - [w]. (Ancestor) Every positive odd q = 4 mod 9 has the
+  smaller ancestor p = 2^h (2q+1)/3^h - 1, h = v3(2q+1) >= 2, with exact valuation word 1^(h-1),2. (Phase) On E
+  = {w = 5 mod 8 : 3 | w, 3w selected} an explicit current reduces P(w) to P(v) plus absorption of v and nu(w),
+  both below w, with v < 8w/9; every formal absorption plan for s uses only W5 indices below s. After W9
+  elimination every input of E decreases exactly on E_good = {w in E : w != 3 mod 9}, so universal currents on
+  W5 minus E_good suffice for Collatz (and conversely); on the returning row w = 3 mod 9 the W9 rule requests
+  the original w with coefficient +1 (realised on w = 21 mod 2304). (Barrier) If canonical q > 1 has q = 1 mod
+  3^D, every predecessor of q under 1 to D quotient steps T, over all inverse branches and ray indices, exceeds
+  q; the least is (4q-1)/3. CRT gives infinitely many such critical q = 7 mod 32 at every D. This excludes
+  bounded-depth ancestor descent only, not forward excursions, supplied history, unequal-time mergers or
+  input-dependent unbounded inverse depth.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [critical-nine-elimination, critical-tripling-domain-equivalence, elementary-bridge-quotient-normal-form]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_critical_inverse.py, critical_inverse.py, critical_inverse_audit.json: the legacy constructor (whole-phase current, W5-only formal absorption plans, three-way classification, a compiler rejecting self-dependency, all inverse affine branches, supplied inverse-word lifting, CRT family) and checker: 1820 phase currents, 1024 W5 absorption plans, 683 E plans (455 descending, 228 self-dependent), 24 actual substitutions, 73 inverse affine cases including ray index 1024, 2478 finite inverse words, 27 CRT witnesses through depth 128 and six independent all-origin forward checks through depth 6; exact P69 and P117 tables are in the receipt. Fails at its new path: critical_inverse.py loads ../w9_closure/w9_closure.py (now ../critical-nine-elimination/) by its pre-migration folder name; critical_inverse.py is itself loaded by its old path by the later legacy returning_phase/, critical_rank/, inverse_escape/ and finite_centres/ code. Passed at be73a66 as experiments/residual_progress/critical_inverse/check_critical_inverse.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "The side-lane probe of this node is ../critical-nine-elimination/batch_r40_r41_check.py (recorded under reviewed_by)."
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: ../critical-nine-elimination/batch_r40_r41_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 21:53, VERIFIED, main 4a45eb0; the R41 part), with the lane's own nu and Syracuse step: for every odd q = 4 (mod 9) below 10^6, p = 2^h(2q+1)/3^h - 1 with h = v3(2q+1) >= 2 reaches q by the exact valuation word 1^(h-1), 2, and p < q; inverse barrier by brute force on 76 canonical q < 4000 with q = 1 (mod 3^D), D = 2, 3, searching all y < 2*10^6 with T^j(y) = q, j <= D: every such y is larger than q and the least is (4q-1)/3. The whole-phase current, the classification of E and the all-ray proof were not rebuilt; the status stays written"
+aliases: [R41]
+tags: [convergence, outer-residual, tripling-pairs, critical-domain, sufficient-set, inverse-barrier, scoped-obstruction]
+---
+
+# A whole decreasing W5 phase, an exact returning self-request, and an exhaustive bounded-depth inverse barrier
+
+## Statement
+
+Odd-only clock, 1 absorbing, `[1] = 0`; `ν`, the canonical set `B` and the quotient step `T = νS` of [`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md). A `T` step is a quotient step: its current can include a selected-halving bridge of unbounded length.
+
+1. **Ancestor.** Every positive odd `q ≡ 4 (mod 9)` has `p = 2^h(2q+1)/3^h − 1 < q`, `h = v3(2q+1) ≥ 2`, with exact ordinary word `1^(h−1), 2`. A least unabsorbed canonical root cannot be `4 (mod 9)`.
+2. **Whole phase.** On `E = {w ≡ 5 (mod 8) : 3 | w, 3w selected}`, with `q = (3w−1)/2` and `v` the critical pair index of `p`, `v < 8w/9` and the explicit current `N_(3w) + A − N_(3v) − N_w` has boundary `P(w) − P(v) − [v] + [ν(w)]`. The formal absorption plan of any seed `s` (R37 with [`critical-nine-elimination`](../critical-nine-elimination/README.md)) uses only `W5` indices below `s`.
+3. **Classification.** After `W9` elimination the plan strictly decreases exactly on `E_good = E ∩ {w ≢ 3 (mod 9)}`; universal currents on `W5 ∖ E_good` are equivalent to Collatz. On the returning row `w ≡ 3 (mod 9)` the `W9` rule requests the original `w` with coefficient `+1`; the cylinder `w ≡ 21 (mod 2304)` realises this, and `P(21)` is an exact tautology. These are loops in the recipe, not positive Collatz cycles; the compiler rejects them.
+4. **Barrier.** If canonical `q > 1` has `q ≡ 1 (mod 3^D)`, every canonical `p` with `T^d(p) = q`, `1 ≤ d ≤ D`, over all inverse branches and all ray indices, satisfies `p > q`; the least such predecessor is `(4q−1)/3`, and all off-spine predecessors exceed `4q+3`. The same holds for ordinary predecessors within `D` steps. CRT gives infinitely many critical `q ≡ 7 (mod 32)` (pair index `w ≡ 5 (mod 64)`) at every depth `D`.
+
+The barrier excludes bounded-depth ancestor descent even after complete elementary normalisation. It does not exclude forward excursions, supplied history, unequal-time mergers or input-dependent unbounded inverse depth. No positive seed is claimed to remain unresolved forever.
+
+## Proof
+
+The legacy note "A whole decreasing critical phase, its returning branch, and an exhaustive inverse barrier" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Written exact identities, a conditional decreasing constructor,
 and a complete bounded-depth obstruction.** These results do not complete the
 critical5-modulo8 pair domain or prove Collatz. They use the
-[complete elementary quotient](../bridge_normal_form/BRIDGE_NORMAL_FORM.md),
-the [critical-pair compiler](../tripling_equivalence/TRIPLING_EQUIVALENCE.md),
-and the [complete critical9 elimination](../w9_closure/CRITICAL_NINE_ELIMINATION.md).
+[complete elementary quotient](../elementary-bridge-quotient-normal-form/README.md),
+the [critical-pair compiler](../critical-tripling-domain-equivalence/README.md),
+and the [complete critical9 elimination](../critical-nine-elimination/README.md).
 No novelty or formal verification is claimed.
 
 Use positive odd integers and ordinary odd-only Syracuse S, with1 absorbing.
@@ -15,7 +65,7 @@ nu the elementary minimum, and `T=nu S` on B. **A T step is explicitly a
 quotient step**, not an extra ordinary-clock assertion: its finite current
 can include a selected-halving bridge of unbounded length.
 
-## 1. Every4-modulo9 target has a smaller exact ancestor
+### 1. Every4-modulo9 target has a smaller exact ancestor
 
 Let q>0 be odd and q=4 modulo9. Put
 
@@ -52,7 +102,7 @@ Thus a least unabsorbed canonical root cannot be4 modulo9. This is a
 whole arithmetic phase, not a finite scan. It does not justify assuming
 the absorption of p from a cutoff smaller than p.
 
-## 2. The exact induced branch on critical W5 inputs
+### 2. The exact induced branch on critical W5 inputs
 
 Consider the entire domain
 
@@ -106,7 +156,7 @@ absorption currents for v and z gives a P(w) current. Both absorption
 seeds are smaller than w. All signs and repeated input multiplicities in
 (5) are retained. This does not consume annular source capacity.
 
-### Absorption from smaller W5 inputs
+#### Absorption from smaller W5 inputs
 
 The R37 absorption plan for a seed s requests critical pair indices strictly
 below s. Every W9 index b in that plan comes from a canonical target3b,
@@ -116,7 +166,7 @@ elementary plans with no pair requests. Therefore a finite formal absorption
 plan for s uses **only W5 indices below s**. This plan still needs those
 currents supplied; its termination does not produce missing inputs.
 
-### Complete decrease classification within E
+#### Complete decrease classification within E
 
 The critical index v in (3) is W5 except in exactly one case:
 
@@ -148,7 +198,7 @@ to Collatz. This removes an entire domain without assuming any omitted
 current; it retains the returning w3-modulo9 row and every other unresolved
 W5 class.
 
-## 3. The returning row is an exact composition loop
+### 3. The returning row is an exact composition loop
 
 For the last row write w=3u. Its equivalent full conditions are
 
@@ -194,7 +244,7 @@ The implementation marks this outcome `self_dependency` and refuses to
 compile it as a decreasing certificate. Merely counting fewer unresolved
 pair types would hide this exact loop.
 
-## 4. Exhaustive inverse obstruction after all elementary normalization
+### 4. Exhaustive inverse obstruction after all elementary normalization
 
 **Theorem.** Let D>=1 and let q>1 be canonical with
 
@@ -212,7 +262,7 @@ This quantifies over **all** inverse branches, all unbounded ray indices,
 and all choices at subsequent levels. No greedy choice or height cap occurs.
 It already allows the complete elementary normalization at every T step.
 
-### The full inverse affine table
+#### The full inverse affine table
 
 Every canonical T predecessor is `a y+b`, with these base rows:
 
@@ -237,7 +287,7 @@ a_j-b_j=64^j(a-b-7/9)+7/9 >1.                       (8)
 
 All slopes are positive powers of2 divided by3.
 
-### Shadow every inverse word at the absorber
+#### Shadow every inverse word at the absorber
 
 Take any inverse word of length d<=D starting from q. Apply the same
 choices to a shadow starting from1. After i steps write its positive
@@ -290,7 +340,7 @@ The theorem also excludes every ordinary predecessor p<=q in at most D
 S steps, including noncanonical p: semiconjugacy would give
 `T^d(nu(p))=q`, contrary to (7), since nu(p)<=p.
 
-## 5. Infinite obstructions inside the fixed W5 binary class
+### 5. Infinite obstructions inside the fixed W5 binary class
 
 For every D>=1 impose the compatible CRT conditions
 
@@ -324,7 +374,7 @@ unequal-time pair mergers, supplied-history reuse, or general signed
 currents. The q changes with D. No positive seed is claimed to remain
 unresolved forever, and no universal depth bound is assumed elsewhere.
 
-## 6. Code, evidence, and remaining obligation
+### 6. Code, evidence, and remaining obligation
 
 Run from the repository root:
 
@@ -354,3 +404,18 @@ decreasing rules succeeds and when eliminating the other pair type returns
 the original obligation. Sections4-5 prevent closing the whole gap by a
 fixed amount of inverse preprocessing. A complete constructor needs a new
 rule or a proved unbounded recursion on those remaining states.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B11 migration; standard library). The legacy scripts in this folder load their sibling modules by pre-migration folder names, so they no longer run here. This certificate rebuilds the legacy directory layout in a temporary directory from the node folders that now hold those files, runs the unmodified legacy checks there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied receipt unchanged. It writes nothing in the repository. It replays: the legacy checker `check_critical_inverse.py` (about 2 s; the counts of section 6 of the note, compared with `critical_inverse_audit.json`). The command in the legacy text names `experiments/residual_progress/critical_inverse/`.
+
+## Remarks
+
+- **What uses it.** The `W5`-only absorption plan `H_s` defined here is the formal absorption used by every later critical-pair rule; [`critical-image-rank-composition`](../critical-image-rank-composition/README.md) bounds its request ranks. The returning row is attacked by [`returning-forward-interface`](../returning-forward-interface/README.md) and [`returning-second-forward-interface`](../returning-second-forward-interface/README.md); the barrier is extended by [`variable-depth-inverse-escape-barrier`](../variable-depth-inverse-escape-barrier/README.md) and [`inverse-only-exclusions-short-forward`](../inverse-only-exclusions-short-forward/README.md).
+- **Negative-cycle reading.** The shortest ancestor `p_2 = (8q − 5)/9` is the inverse of the return map `G(x) + 5 = (9/8)(x + 5)` of the negative cycle `{−5, −7}` (side-lane feed 2026-10-17 23:32; see [`negative-cycle-backward-word`](../negative-cycle-backward-word/README.md)).
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/critical_inverse/CRITICAL_INVERSE.md` (legacy ID R41) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written exact identities, conditional construction, sufficient-set refinement and scoped obstruction".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `4a45eb0`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

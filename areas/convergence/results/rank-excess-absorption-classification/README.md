@@ -1,4 +1,53 @@
-# The unique rank excess in formal absorption
+---
+id: rank-excess-absorption-classification
+kind: result
+title: "The unique rank excess in formal absorption, and a complete strict-rank domain in the fifth-exponent family"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w); H_s the unchanged formal absorption plan with full W9
+  elimination, n = nu(s). Every requested W5 rank is at most n, except precisely when canonical n = 27 mod 48,
+  v2(3n-1) = 4 and 3z is noncanonical for z = (3n-1)/16; then exactly one request lies above n, u = 4z+1, with
+  coefficient +1 and rho(u) = (9n+5)/8, and all others lie below n. At n = 1 there are no requests; for
+  noncanonical s even the exceptional rank is below s. The proof covers every recursive W9 branch and the small
+  v = 9 case. For the full fifth-exponent family w = 437 + 512m of sigma-rank-removes-absorption-overhead, the
+  unchanged forward current is strict in the original rho exactly unless m = 7 mod 16 and 3(2147 + 4374j) is
+  noncanonical, j = (m-7)/16 (ordinary clocks (6, 1), quotient clock 5); the full progression w = 4021 mod
+  294912 passes and is outside all twelve earlier direct domains. The retained failure w = 44981 still requests
+  96069 with rank 144103 > 134943; rho and sigma remain distinct. Missing currents are not supplied and no
+  universal coverage is claimed.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [critical-image-rank-composition, critical-nine-elimination, sigma-rank-removes-absorption-overhead, twelve-family-rho-dispatcher, forward-blocks-low-exponent-tests]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_exact_bound.py, exact_bound.py, exact_bound_audit.json: the legacy classifier and checker: 16384 odd seeds, 2048 W9 plans, 2048 fifth-family inputs (1983 descending, 65 unresolved), 69 new-progression examples through index 2^128, three complete supplied-current outputs with 12 distinct supplied pairs and seven rejection checks. Fails at its new path: exact_bound.py loads ../critical_rank/, ../nonselected_forward/ and ../selected_rules/ by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/exact_absorption_bound/check_exact_bound.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "r58_excess_check.py, r58_excess_check.json: side-lane probe (Claude side lane, 2026-10-18) testing the classification against main's committed R43 plans (critical_rank/rank_closure.absorption_plan at 7206f9c), not this node's module. Fails at its new path: it imports rank_closure from experiments/residual_progress/critical_rank/ by repository-relative path (now ../critical-image-rank-composition/). Passed at be73a66 as reviews/side_lane/r58_excess_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+  - "side_lane_review_c2319c9.json: the main lane's reproduction (2026-10-18) of the unmodified probe r58_excess_check.py at side-lane commit c2319c9 (main d265d94), PASS, scope 'Independent finite R58 probe reproduced unchanged; no universal proof inferred'. A main-lane review of a side-lane probe"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: r58_excess_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 00:16, VERIFIED, main working copy), tested against main's committed R43 plans, not this node's module: 112,000 seeds (every odd s in [3, 200001]; 3,000 random odd s at each of 40 and 64 bits; 3,000 random canonical exceptional n at each of those sizes) all match the classification: 103,773 ordinary cases, 8,227 exceptional cases with exactly the stated single u*, and 53,006 noncanonical seeds, all with requests below s. The fifth-family forward classification was not rebuilt; the status stays written"
+aliases: [R58]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, forward-blocks]
+---
+
+# The unique rank excess in formal absorption, and a complete strict-rank domain in the fifth-exponent family
+
+## Statement
+
+Odd-only clock, 1 absorbing; `W5`, `W9` from [`critical-nine-elimination`](../critical-nine-elimination/README.md); `ρ(w) = ν(3w)`; `H_s` the unchanged formal absorption plan with boundary `[s] − Σ h_s(u) P(u)` after complete `W9` elimination; `n = ν(s)`.
+
+1. **Unique excess.** Every requested `W5` rank is at most `n`, except precisely when canonical `n ≡ 27 (mod 48)`, `v2(3n − 1) = 4` and `3z` is noncanonical for `z = (3n − 1)/16`. Then exactly one request lies above `n`: `u = 4z + 1`, with coefficient `+1` and `ρ(u) = (9n+5)/8`; all others lie below `n`. At `n = 1` there are no requests. If `s` is noncanonical, even the exceptional rank is strictly below `s`. The proof includes every recursive `W9` branch and the small `v = 9` case. This refines the bound `(9ν(s)+5)/8` of [`critical-image-rank-composition`](../critical-image-rank-composition/README.md) in the same rank `ρ`.
+2. **Fifth-exponent family.** For the full family `w = 437 + 512m` of [`sigma-rank-removes-absorption-overhead`](../sigma-rank-removes-absorption-overhead/README.md), the unchanged forward current is strict in the original `ρ` exactly unless `m ≡ 7 (mod 16)` and `3(2147 + 4374j)` is noncanonical, `j = (m − 7)/16`. Ordinary clocks stay `(6, 1)`, the quotient clock 5.
+3. **New domain.** The full progression `w ≡ 4021 (mod 294912)` passes and is outside all twelve earlier direct domains ([`twelve-family-rho-dispatcher`](../twelve-family-rho-dispatcher/README.md)). The retained failure `w = 44981` still requests 96069 with rank `144103 > 134943`; `ρ` and `σ` remain distinct.
+
+It does not mix `ρ` with `σ`, supply missing currents or establish universal coverage.
+
+## Proof
+
+The legacy note "The unique rank excess in formal absorption" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written complete classification of above-seed requests, with a
 conditional forward rule on a complete arithmetic domain.** This refines
@@ -6,7 +55,7 @@ the R43 absorption bound while keeping the same rank rho. It does not mix
 rho with sigma, supply missing currents, or establish universal coverage.
 
 Use the absorbed odd Syracuse map S, the elementary minimum nu, W5 and W9
-from [R40](../w9_closure/CRITICAL_NINE_ELIMINATION.md), and
+from [R40](../critical-nine-elimination/README.md), and
 rho(w)=nu(3w). The unchanged formal plan H_s has boundary
 
     [s] = div H_s + sum_u h_s(u) P(u),    P(u)=[3u]-[u].       (1)
@@ -16,7 +65,7 @@ requests in (1) are premises. The existing general bound is
 rho(u)<=(9nu(s)+5)/8. Here we characterize exactly when a request can
 exceed nu(s), and use the characterization in the original rho order.
 
-## 1. Complete classification of the excess
+### 1. Complete classification of the excess
 
 For a canonical n define the exceptional condition
 
@@ -34,7 +83,7 @@ every request has rho<s even when its minimum is exceptional. At n=1
 there are no requests. The bound n outside (2) is an upper bound, not an
 assertion that some request always attains n.
 
-### Complete W9 elimination
+#### Complete W9 elimination
 
 First take a W9 input v. Its local R40 formulas have one possible
 exceptional W5 request u*=4z+1 in the even-depth upper-noncanonical row.
@@ -68,7 +117,7 @@ occurs exactly at d4 with 3z noncanonical. Its coefficient remains+1,
 since all other contributions have smaller rank. All signs and all
 recursive W9 branches have been retained.
 
-### Formal absorption from an arbitrary seed
+#### Formal absorption from an arbitrary seed
 
 Normalize to n. For canonical n=1 mod8, the first arrow reaches
 (3n+1)/4, so R43 bounds all its requests by(27n+29)/32<n (n>=9).
@@ -87,7 +136,7 @@ For noncanonical s, n<=(s-1)/2. Even the exceptional bound is at most
 (9s+1)/16<s for s>1. This completes the theorem. Normalization adds only
 its exact current and does not change the request vector.
 
-## 2. Complete original-rho classification on the fifth-exponent family
+### 2. Complete original-rho classification on the fifth-exponent family
 
 R51 proved a whole sigma domain. Here the same current is tested in rho.
 For every m>=0 set
@@ -129,7 +178,7 @@ All other H_f requests have rank<f<q. Also nu(w)<w/4, so every lower
 H_nu(w) request is below q. Hence the unique excess cannot cancel,
 and the theorem follows including both implications.
 
-### A complete new subdomain of the twelve-rule complement
+#### A complete new subdomain of the twelve-rule complement
 
 Every member of
 
@@ -153,7 +202,7 @@ The former sigma example w44981 remains a failure here: its retained
 child96069 has rho144103 above parent134943. The new classification
 therefore does not silently make the two rank systems interchangeable.
 
-## 3. Reproduction and exact supply
+### 3. Reproduction and exact supply
 
 `exact_bound.py` returns the exceptional input explicitly and checks its
 coefficient against the unchanged absorption implementation. It supplies
@@ -182,3 +231,17 @@ and593845 store complete30-,105- and119-row outputs and all12 distinct
 supplied pair currents. Fixture discovery is capped at10000 steps and1024
 bits with cycle detection. Default replay reproduces the receipt and its
 module/checker source hashes; these counts are finite evidence only.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B11 migration; standard library). The legacy scripts in this folder load their sibling modules by pre-migration folder names, so they no longer run here. This certificate rebuilds the legacy directory layout in a temporary directory from the node folders that now hold those files, runs the unmodified legacy checks there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied receipt unchanged. It writes nothing in the repository. It replays: the legacy checker `check_exact_bound.py` (about 12 s; the counts of section 3 and the three stored outputs, compared with `exact_bound_audit.json`) and the side-lane probe `r58_excess_check.py` (about 2 min, receipt reproduced byte for byte). The command in the legacy text names `experiments/residual_progress/exact_absorption_bound/`.
+
+## Remarks
+
+- The exceptional seeds are the later legacy R65's adjacent-defect domain (`experiments/residual_progress/defect_normal_form/`, not yet migrated), and R62 resolves the unique defect in the original rank (`defect_resolution/`). The main lane's 2026-10-18 note `side_lane_review_767af32.md` (in [`two-selected-inverse-choices`](../two-selected-inverse-choices/README.md)) names this classification as structure for a complete recursion.
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/exact_absorption_bound/EXACT_ABSORPTION_BOUND.md` (legacy ID R58) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/r58_excess_check.*` and the main lane's reproduction receipt `experiments/residual_progress/side_lane_review_c2319c9.json` moved here. Legacy status: "written classification and complete conditional forward domain".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `d265d94`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

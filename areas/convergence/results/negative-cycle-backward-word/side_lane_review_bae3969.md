@@ -17,7 +17,7 @@ number or novelty claim is assigned here.
 Merged PR1, `ba6b337`, was checked to be an ancestor of the repository base.
 It is the previously integrated PR, whose retained controls and corrected
 minimality scope are recorded in the existing
-[PR1 review](../packet_currents/negative_controls/PR1_REVIEW.md).
+[PR1 review](../locally-collatz-like-control-barrier/PR1_REVIEW.md).
 The new feed finding must not be presented as a newly merged PR. The
 parent's current remote review found no additional merged PR.
 
@@ -89,7 +89,7 @@ On selected W5 inputs,
     q=-17 mod2187  iff  w=718 mod729.                 (1)
 
 This is exactly the k4 accepted domain of
-[R56](selected_inverse/SELECTED_INVERSE.md), including its selection
+[R56](../two-selected-inverse-choices/README.md), including its selection
 hypothesis. To identify the paths, set t=(q+17)/2187 and use R56's v:
 
     v=(32q-23)/81=864t-7,

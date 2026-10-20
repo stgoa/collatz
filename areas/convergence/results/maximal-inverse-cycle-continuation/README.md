@@ -1,4 +1,53 @@
-# A maximal cycle inverse and its complete point continuation
+---
+id: maximal-inverse-cycle-continuation
+kind: result
+title: "Maximal inverse-cycle continuation on a failed selected row, with a complete descent table"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; original rank rho(w) = nu(3w), no sigma rule. On selected w = 3445 mod
+  3456 put v = (16w-13)/27, assume 3 | v, and set b = 8v+1, q = rho(w), k = floor(v3(b+17)/7), p = (2048/2187)^k
+  (b+17) - 17, j = v3(p+1), eta = 2^j (p+1)/3^j - 1. For k >= 1 the exact ordinary inverse comparison eta -> q
+  has word 1^j, (1,1,1,2,1,1,4)^k, 2,1,1,4 and length j+7k+4 (maximal repetitions of that cycle word and maximal
+  valuation-1 continuation, not maximality among all inverse choices). The full signed plan descends exactly for
+  k = 1..5 with j >= 3, k = 6..11 with j >= 2, k = 12..17 with j >= 1, and every k >= 18 (intercepts included);
+  failed k >= 1 rows retain a unique higher request of rank eta, and k = 0 retains the R56 original
+  self-request. Complete CRT families realise every permitted remainder; a fixed 14-arrow comparison at k = 1, j
+  = 3 has whole old-twelve-excluded families through every prescribed guarded forward depth L (some overlap R59,
+  so this is not an exclusion from the enlarged dispatcher). Supplied currents remain necessary for the
+  surviving smaller inputs; universal coverage is open.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-18
+depends_on: [two-selected-inverse-choices, critical-image-rank-composition, guarded-cycle-exit-phases, twelve-family-rho-dispatcher]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_cycle_inverse.py, cycle_inverse.py, cycle_inverse_audit.json: the legacy constructor and checker: 512 affine checks, seven exact threshold boundaries, 99 complete plans (57 descending, 30 higher-leading failures, 12 original self-requests), nine full old-twelve-exclusion families through L = 64, four long words, three actual substitutions with full first-two tables and eight rejections. Fails at its new path: cycle_inverse.py loads ../selected_inverse/selected_inverse.py and the checker ../selected_cycle_exit/ and ../selected_rules/ by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/cycle_inverse/check_cycle_inverse.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "r60_cycle_inverse_check.py, r60_cycle_inverse_check.json: side-lane probe (Claude side lane, 2026-10-18) of the maximal cycle inverse and its acceptance table. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/) and fibre_count_check from its own folder (now ../absorbed-fibre-uniform-counts/). Passed at be73a66 as reviews/side_lane/r60_cycle_inverse_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+  - "side_lane_review_64a5981.md, side_lane_review_64a5981.json: the main lane's pinned review (2026-10-18) of side-lane commit 64a5981: byte-identical replays of three side-lane probes, r60_cycle_inverse_check (this node), r86_even_exit_check (legacy R86) and batch_r81_r83_check (legacy R81/R83, with its coverage correction), each within its stated finite scope and listed limits. A review of side-lane probes, not of this node; the R81, R83 and R86 nodes (a later batch) cite it here"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: r60_cycle_inverse_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 04:59, VERIFIED), with the lane's own step and nu: 400 inputs built by CRT with prescribed k = 1..20 (h = 7k) and j = 0..4, four per cell: the ordinary word from eta to q = (81v+23)/32 is exactly 1^j, (1,1,1,2,1,1,4)^k, 2,1,1,4; the height formula eta = lambda q + beta holds exactly; eta < q holds in exactly the cells of the table, including the boundary cells at k = 5/6, 11/12, 17/18. Per the main lane's replay (side_lane_review_64a5981.md), not checked: k = 0, nonzero h - 7k remainders, j >= 5 or k >= 21, complete signed plans and current supply. The status stays written"
+aliases: [R60]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, selected-phase, inverse-rays, negative-cycle-shadow]
+---
+
+# Maximal inverse-cycle continuation on a failed selected row, with a complete descent table
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ν`; `P(w) = [3w] − [w]`; the original rank `ρ(w) = ν(3w)`; `H_s` keeps its signed `W5` requests. No `σ` rule is used. Domain: `w ≡ 3445 (mod 3456)` (the entry phase of [`growing-prefix-unhandled-leading-input`](../growing-prefix-unhandled-leading-input/README.md)), `v = (16w − 13)/27 ≡ 0 (mod 3)`, a row left by both choices of [`two-selected-inverse-choices`](../two-selected-inverse-choices/README.md).
+
+1. **Procedure.** Set `b = 8v + 1`, `q = ρ(w)`, `k = ⌊v3(b + 17)/7⌋`, `p = (2048/2187)^k·(b + 17) − 17`, `j = v3(p + 1)`, `η = 2^j(p + 1)/3^j − 1`. For `k ≥ 1` the exact ordinary inverse comparison `η → q` has word `1^j, (1,1,1,2,1,1,4)^k, 2,1,1,4` and length `j + 7k + 4`: maximal repetitions of the specified cycle word and maximal valuation-1 continuation, not maximality among all inverse choices.
+2. **Exact table.** The full signed plan descends exactly for `k = 1–5` with `j ≥ 3`, `k = 6–11` with `j ≥ 2`, `k = 12–17` with `j ≥ 1`, and every `k ≥ 18`, intercepts included. Failed `k ≥ 1` rows retain a unique higher request of rank `η`; `k = 0` retains the R56 original self-request.
+3. **Families.** Complete CRT families realise every permitted remainder. A fixed 14-arrow comparison at `k = 1`, `j = 3` has whole old-twelve-excluded families ([`twelve-family-rho-dispatcher`](../twelve-family-rho-dispatcher/README.md)) through every prescribed guarded forward depth `L` of [`guarded-cycle-exit-phases`](../guarded-cycle-exit-phases/README.md). Some overlap R59, so this is not an exclusion from the enlarged dispatcher; 11432437 is an actual R60 priority winner there.
+
+Supplied currents remain necessary for the surviving smaller inputs; universal coverage and current supply are open.
+
+## Proof
+
+The legacy note "A maximal cycle inverse and its complete point continuation" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written conditional theorem and exact constructor.** This classifies
 one specified inverse procedure on an entire previously failed R56 row. It
@@ -10,14 +59,14 @@ Use the absorbed odd Syracuse map `S`, elementary minimum `nu`,
 `P(w)=[3w]-[w]`, and the original rank `rho(w)=nu(3w)`. The formal absorption
 plan `H_s` retains its signed W5 requests. No sigma rule is used.
 
-Dependencies are the [R56 inverse interface](../selected_inverse/SELECTED_INVERSE.md),
-the [R43 rank/current compiler](../critical_rank/CRITICAL_IMAGE_RANK.md), and
-the [R57 exit interface](../selected_cycle_exit/SELECTED_CYCLE_EXIT.md).
+Dependencies are the [R56 inverse interface](../two-selected-inverse-choices/README.md),
+the [R43 rank/current compiler](../critical-image-rank-composition/README.md), and
+the [R57 exit interface](../guarded-cycle-exit-phases/README.md).
 The old-twelve exclusions refer to the fixed
-[selected dispatcher](../selected_rules/SELECTED_RULES.md) at commit7206f9c;
+[selected dispatcher](../twelve-family-rho-dispatcher/README.md) at commit7206f9c;
 they do not silently extend to a later enlarged dispatcher.
 
-## 1. Whole domain and prescribed inverse procedure
+### 1. Whole domain and prescribed inverse procedure
 
 Assume w is positive and
 
@@ -65,7 +114,7 @@ gives `eta!=2 mod3`. Positivity also follows from the integral expression
 `eta+1`, divisible by `2^(4+j)`; eta>=15. This proves (3). When the
 remainder `h-7k` is positive, j is automatically zero. ∎
 
-## 2. Exact, exhaustive acceptance table
+### 2. Exact, exhaustive acceptance table
 
 For k>=1 the entire formal comparison strictly decreases rho **if and only
 if** the row below holds:
@@ -110,7 +159,7 @@ This proves the complete table, including all intercepts. Equivalently,
 
 No limiting slope approximation is used to decide a finite input.
 
-## 3. Full signed plan and failure vectors
+### 3. Full signed plan and failure vectors
 
 Let I be the negative current of (3), so `div I=[q]-[eta]`. Write
 `z=nu(w)` and `div N_x=[x]-[nu(x)]`. The returned plan is
@@ -150,7 +199,7 @@ for every nonzero remaining request. It validates their boundaries and
 substitutes them with their signed multiplicities. Missing or malformed
 inputs are rejected. None of these inputs is assumed to exist universally.
 
-## 4. Complete CRT phases and genuinely new direct domains
+### 4. Complete CRT phases and genuinely new direct domains
 
 For k>=1 write
 
@@ -203,7 +252,7 @@ compositions or supplied-history closure. The new k=1,j=3 plan nevertheless
 has a fourteen-arrow ancestor below the original q for every L. The seed
 varies with L; no infinite positive growing orbit is asserted.
 
-## 5. Relation to the known negative-cycle words
+### 5. Relation to the known negative-cycle words
 
 The ordinary negative cycles are used only to identify affine words, not
 as actual positive sources. The full backward -5 word gives
@@ -220,7 +269,7 @@ continuation, tested against the original q. It does not merely relabel
 one bare rotated cycle. R49's permanent inverse-only exclusions remain
 valid; this procedure supplies no universal inverse completion.
 
-## 6. Reproduction and scope
+### 6. Reproduction and scope
 
 Run `python3 experiments/residual_progress/cycle_inverse/check_cycle_inverse.py`.
 The checker verifies the threshold constants, actual valuation words, full
@@ -240,3 +289,17 @@ conversions at215505781,827725813 and284897820661 have63,35 and91 output rows,
 using5,5 and10 supplied pairs respectively. The first two complete plans,
 input currents and outputs are stored. Eight designated invalid/missing-supply
 checks are retained. These are finite evidence counts, not coverage estimates.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B11 migration; standard library). The legacy scripts in this folder load their sibling modules by pre-migration folder names, so they no longer run here. This certificate rebuilds the legacy directory layout in a temporary directory from the node folders that now hold those files, runs the unmodified legacy checks there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied receipt unchanged. It writes nothing in the repository. It replays: the legacy checker `check_cycle_inverse.py` (about 11 s; the counts of section 6 and the stored tables, compared with `cycle_inverse_audit.json`) and the side-lane probe `r60_cycle_inverse_check.py` (under 1 s, receipt reproduced byte for byte). The command in the legacy text names `experiments/residual_progress/cycle_inverse/`.
+
+## Remarks
+
+- **Relation to the negative-cycle words** (section 5 of the note): the backward `−5` word is the R41 phase, the `−17` word with endpoint `−17` is exactly R56's `k = 4` domain ([`negative-cycle-backward-word`](../negative-cycle-backward-word/README.md)); the new operation is the composition of an expanding four-arrow inverse tail, maximal cycle inverses and the point continuation, tested against the original `q`. The permanent inverse-only exclusions of [`inverse-only-exclusions-short-forward`](../inverse-only-exclusions-short-forward/README.md) remain valid.
+- Appended to the later legacy fifteen-family dispatcher (`experiments/residual_progress/refined_rules/`, R61). Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/cycle_inverse/CYCLE_INVERSE.md` (legacy ID R60) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/r60_cycle_inverse_check.*` and the main lane's review `experiments/residual_progress/side_lane_review_64a5981.md` and `.json` moved here. Legacy status: "written word-domain, maximality and complete conditional-plan classification".
+- Main lane (ChatGPT, Codex), 2026-10-18, from commit `d265d94`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

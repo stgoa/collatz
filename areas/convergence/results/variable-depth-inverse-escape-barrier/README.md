@@ -1,4 +1,53 @@
-# Variable-depth inverse escape with strictly smaller W5 inputs
+---
+id: variable-depth-inverse-escape-barrier
+kind: result
+title: "A variable-depth two-block inverse escape with smaller W5 inputs, and fixed-precision inverse barriers"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; nu, T = nu S as in elementary-bridge-quotient-normal-form; rho(w) =
+  nu(3w). (Rule) For canonical q > 1, q = 1 mod 3, with D = v3(q-1), u = (q-1)/3^D, j = v3(4^D u + 2), p = 2^j
+  (4^D u + 2)/3^j - 1, the exact word 1^j, 2^D takes p to q, and p < q iff 2^(2D+j) < 3^(D+j). For selected W5
+  roots q = (3w-1)/2 with j >= 2 and that inequality, p = 7 mod 8 and one critical step plus the R43 absorption
+  bound give only W5 requests with smaller indices and smaller ranks; the D >= 2 domain has w = 1 mod 3, is
+  disjoint from R41's E, and every admissible (D, j) has a complete CRT family. (Barriers, quotient steps) Every
+  canonical q > 1, q = 1 mod 9, has no smaller quotient ancestor through depth 3; at depth 4 one exists iff q =
+  10 mod 81, uniquely (64q-73)/81 with word 1,1,2,2; R41's D-step barrier extends through D+1 for D >= 2; the
+  family q = 7 + 32*3^D t (D >= 2, t >= 1) has v3(q-1) = 1 but no smaller canonical ancestor through D steps,
+  including every inverse ray, and after k = 1 or 2 forward arrows still none through D+k steps. This excludes
+  depth bounds based only on that valuation and the specified short forward repair, not arbitrary excursions or
+  currents.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [decreasing-w5-phase-inverse-barrier, critical-image-rank-composition, elementary-bridge-quotient-normal-form]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_inverse_escape.py, inverse_escape.py, inverse_escape_audit.json: the legacy constructor and checker: 2731 word cases, 444 parameter examples through D = 256 and j = 182, 317 strict plans, 16 actual substitutions, 227 depth-4 targets, 3229 finite inverse words, 48 long-ray words and 15 complete small-origin checks; three full current tables are retained. Fails at its new path: inverse_escape.py loads ../critical_inverse/critical_inverse.py (now ../decreasing-w5-phase-inverse-barrier/) by its pre-migration folder name. Passed at be73a66 as experiments/residual_progress/inverse_escape/check_inverse_escape.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "The side-lane probe of this node is ../critical-image-rank-composition/batch_r43_r46_check.py (recorded under reviewed_by)."
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: ../critical-image-rank-composition/batch_r43_r46_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 22:16, VERIFIED, main a06ef3c), with the lane's own nu and Syracuse step. The two-block identity (the exact word 1^j, 2^D takes p to q, and p < q exactly when 2^(2D+j) < 3^(D+j)) for all 33,333 canonical q = 1 (mod 3) below 400000; the depth-4 law by complete brute force over quotient predecessors for all 1,112 canonical q = 1 (mod 18) below 40,000 (no ancestor y < q at depths 1-3; at depth 4 one exists exactly when q = 10 (mod 81), uniquely (64q-73)/81 with word 1, 1, 2, 2). The decreasing W5 rule, its CRT families and the fixed-precision barrier families were not rebuilt; the status stays written"
+aliases: [R46]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, inverse-rays, inverse-barrier, scoped-obstruction]
+---
+
+# A variable-depth two-block inverse escape with smaller W5 inputs, and fixed-precision inverse barriers
+
+## Statement
+
+Ordinary odd-only clock for currents, 1 absorbing; `ν`, `T = νS` from [`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md); quotient steps are counted only in the barrier statements.
+
+1. **Two-block rule.** For canonical `q > 1`, `q ≡ 1 (mod 3)`, set `D = v3(q−1)`, `u = (q−1)/3^D`, `j = v3(4^D u + 2)`, `p = 2^j(4^D u + 2)/3^j − 1`. The exact word `1^j, 2^D` takes `p` to `q`, and `p < q` iff `2^(2D+j) < 3^(D+j)`; parity excludes small-`u` exceptions.
+2. **Decreasing `W5` rule.** For selected `W5` roots `q = (3w−1)/2` with `j ≥ 2` and the strict inequality, `p ≡ 7 (mod 8)`; one critical step and the absorption bound of [`critical-image-rank-composition`](../critical-image-rank-composition/README.md) give only `W5` requests with smaller indices and smaller ranks. The `D ≥ 2` domain has `w ≡ 1 (mod 3)` and is disjoint from the `E` of [`decreasing-w5-phase-inverse-barrier`](../decreasing-w5-phase-inverse-barrier/README.md). Every admissible `(D, j)` has a complete CRT family.
+3. **Barriers (quotient steps).** Every canonical `q > 1`, `q ≡ 1 (mod 9)`, has no smaller quotient ancestor through depth 3; at depth 4 one exists iff `q ≡ 10 (mod 81)`, uniquely `(64q − 73)/81` with word `1, 1, 2, 2`. The `D`-step barrier of R41 extends through `D + 1` for `D ≥ 2`. The family `q = 7 + 32·3^D·t` (`D ≥ 2`, `t ≥ 1`) has `v3(q−1) = 1` but no smaller canonical ancestor through `D` steps, over every inverse ray; after `k = 1` or `2` forward arrows there is still none through `D + k` steps, equality only retracing the original path.
+
+The barriers exclude depth bounds based only on that ternary valuation and on the specified short forward repair. They do not exclude arbitrary excursions or currents. No universal input supply is claimed.
+
+## Proof
+
+The legacy note "Variable-depth inverse escape with strictly smaller W5 inputs" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written exact identities, a conditional constructor, and scoped
 complete-inverse obstructions.** This supplies no universal family of input
@@ -8,14 +57,14 @@ in Sections 1–3, rather than the examples or supporting barriers.
 Use ordinary odd Syracuse S, absorbed at1, for every current. Write `[x]` for
 `delta_x`, with `[1]=0`, and `P(w)=[3w]-[w]`. The canonical normal form nu and
 quotient T=nu S are those of
-[R25](../bridge_normal_form/BRIDGE_NORMAL_FORM.md). `N_x` denotes its explicit
+[R25](../elementary-bridge-quotient-normal-form/README.md). `N_x` denotes its explicit
 ordinary current `[x]-[nu(x)]`. Only Sections 4–6 count **quotient** steps.
 
 The construction depends on the exact smaller-input absorption compiler in
-[R41](../critical_inverse/CRITICAL_INVERSE.md), which in turn uses R37 and R40.
+[R41](../decreasing-w5-phase-inverse-barrier/README.md), which in turn uses R37 and R40.
 These are formal plans retaining their missing P inputs, not supplied currents.
 
-## 1. A complete two-block inverse rule
+### 1. A complete two-block inverse rule
 
 Let q>1 be any canonical odd integer with q=1 modulo3. Define
 
@@ -50,7 +99,7 @@ v2(p+1)=j+1.                                             (3)
 The negative of the finite p-to-q path gives an explicit integer current I
 with `div I=[q]-[p]`. This is valid whether or not p<q.
 
-### Exact descent criterion, including integer endpoints
+#### Exact descent criterion, including integer endpoints
 
 Put `lambda=2^(2D+j)/3^(D+j)`. From (1),
 
@@ -77,7 +126,7 @@ the exact inequality before this parity argument is
 This classification is complete for the prescribed maximal two-block word.
 Failure of (5) does not rule out another inverse word or a different current.
 
-## 2. A new whole domain with strictly smaller W5 requests
+### 2. A new whole domain with strictly smaller W5 requests
 
 Define W5 as the positive integers5 modulo8. Take w in W5 with3w selected,
 so its critical canonical image is `q=(3w-1)/2`, and compute (1). The rule
@@ -126,11 +175,11 @@ to the coefficient list, has exactly (7). All signs and repeated coefficients
 are retained. Shared current rows can cancel; missing premises cannot be
 silently supplied.
 
-### Compatibility with the common critical-image rank
+#### Compatibility with the common critical-image rank
 
 The plan also strictly decreases `rho(w)=nu(3w)=q` on every request.
 The leading child, when present, has rho(v)=p<q. The
-[critical-image absorption bound](../critical_rank/CRITICAL_IMAGE_RANK.md)
+[critical-image absorption bound](../critical-image-rank-composition/README.md)
 gives `rho(H_l)<=(9l+5)/8<=(3p+4)/4<p`, since p>=7. For the other input,
 z=nu(w)<=(w-1)/4 gives `rho(H_z)<=(9w+11)/32<q`. Thus this rule can be
 combined with other strict-rho rules even if those other rules increase
@@ -140,7 +189,7 @@ The new domain with D>=2 has w=1 modulo3, because
 `D=1+v3(w-1)`. It is therefore disjoint from R41's eligible domain E, where
 3 divides w. The D=1 accepted row recovers a previously handled part of E.
 
-### Sufficient-set consequence
+#### Sufficient-set consequence
 
 Let E_escape be the domain (6), restricted to D>=2. Universal finite exact
 P currents on
@@ -155,7 +204,7 @@ smaller W5 inputs. R40 then supplies W9, and R37 applies. Conversely Collatz
 supplies every current in (8). This removes a whole arithmetic domain from
 the universal premise; it does not establish that premise.
 
-## 3. Every block-length pair has a full exact congruence family
+### 3. Every block-length pair has a full exact congruence family
 
 For any D>=1 and j>=1, impose
 
@@ -177,7 +226,7 @@ accepted inputs when D>=2, with arbitrarily large exact word length. It is
 not an assumption that their later orbits converge. The rule constructs a
 finite conditional plan from the displayed word and lower-input plans only.
 
-### First sharp phase: exactly four quotient inverse steps
+#### First sharp phase: exactly four quotient inverse steps
 
 For **every** canonical q>1 with q=1 modulo9, a smaller canonical ancestor
 under1 through3 quotient steps is impossible. At depth4, a smaller ancestor
@@ -208,7 +257,7 @@ the maximal rule (6) therefore accepts it. If j>2, its maximal ancestor is
 different from p_2, but the minimal sufficient inverse depth is still4.
 The smallest critical example is w61, q91, p_2=71.
 
-## 4. The old barrier persists one step beyond its stated precision
+### 4. The old barrier persists one step beyond its stated precision
 
 For every D>=2 and canonical q>1 with q=1 modulo3^D, all canonical ancestors
 at depths1 through D+1 are greater than q. R41 covers depths<=D. At depthD,
@@ -224,7 +273,7 @@ The coefficient is at least5 for D>=2. D=1 is different: its immediate
 escape is exactly q4 modulo9, the phase already used in R41. Section 3
 shows that D=2 can first escape at depth4, and classifies that whole case.
 
-## 5. Fixed ternary precision does not bound inverse escape depth
+### 5. Fixed ternary precision does not bound inverse escape depth
 
 The constructive rule does not provide a depth bound depending only on
 v3(q-1). Here is a complete all-ray obstruction with that valuation fixed1.
@@ -264,7 +313,7 @@ and strict positivity persists. Thus lambda_i>(c_i+1)/8>=1, and
 `p_i=lambda_i*(q-7)+c_i>q`. This proves the full quantifier without scanning
 the tree. Taking t not divisible by3 additionally makes v3(q-7)=D exactly.
 
-## 6. One or two forward steps do not repair this fixed-phase barrier
+### 6. One or two forward steps do not repair this fixed-phase barrier
 
 For (12), the first two actual and quotient steps coincide:
 
@@ -310,7 +359,7 @@ an arbitrary forward excursion, unbounded input-dependent lookback,
 supplied-history reuse, unequal-time mergers, or general current inference.
 The seed changes with D; no fixed seed is proved permanently unresolved.
 
-## 7. Reproduction
+### 7. Reproduction
 
 Run from the repository root:
 
@@ -338,3 +387,17 @@ to1024), and15 independent small full-origin checks of the fixed-phase
 barrier. The depth4 check includes227 targets and27 descending cases, with
 every potential smaller canonical origin through8191 included. The unbounded
 quantifiers rest on the arguments above.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B11 migration; standard library). The legacy scripts in this folder load their sibling modules by pre-migration folder names, so they no longer run here. This certificate rebuilds the legacy directory layout in a temporary directory from the node folders that now hold those files, runs the unmodified legacy checks there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied receipt unchanged. It writes nothing in the repository. It replays: the legacy checker `check_inverse_escape.py` (about 2 s; the counts of section 7, compared with `inverse_escape_audit.json`). The command in the legacy text names `experiments/residual_progress/inverse_escape/`.
+
+## Remarks
+
+- Permanent all-depth versions of the barrier, and the forward escape that bypasses them, are [`inverse-only-exclusions-short-forward`](../inverse-only-exclusions-short-forward/README.md). The maximal inverse blocks defined here are reused by [`nonselected-multiples-inverse-interface`](../nonselected-multiples-inverse-interface/README.md), [`forward-blocks-low-exponent-tests`](../forward-blocks-low-exponent-tests/README.md) and [`two-selected-inverse-choices`](../two-selected-inverse-choices/README.md).
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/inverse_escape/INVERSE_ESCAPE.md` (legacy ID R46) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written exact two-block criterion, decreasing W5 rule and scoped complete-inverse obstructions".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `a06ef3c`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

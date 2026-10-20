@@ -1,4 +1,52 @@
-# Maximal selected cycles and a descending exit after any number of repetitions
+---
+id: guarded-cycle-exit-phases
+kind: result
+title: "Exact guarded cycles and all exit phases on the R54 entry phase, with a descending exit after any number of repetitions"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). For q = -17 mod 5184 in the entry phase of
+  growing-prefix-unhandled-leading-input write E = v2(q+17), u = (q+17)/2^E. Exactly r = floor((E-6)/11) guarded
+  cycles return to the entry phase, ending at Q = 3^(7r) 2^e u - 17 with e = E - 11r in 6..16; the guard needs E
+  >= 17, while the ordinary affine word alone is valid from E >= 12 and need not return. Each cycle's signed
+  quotient current equals the current of seven ordinary arrows with valuations 1,1,1,2,1,1,4, by cancellation
+  across its halving bridge. An eleven-row table processes every exit e = 6..16, with variable valuations and
+  full endpoint normalisation, accepting only when the endpoint's rho bound is below the original q. For every r
+  >= 0 and odd d >= 2r+5 an explicit nonempty CRT progression enters exactly r guarded cycles, exits at e = 12
+  and passes the strict bound (ordinary clocks (7r + (d-1)/2 + 6, 1), quotient clock 7r + (d-1)/2 + 5); an extra
+  coprime ternary condition makes every member fail R55, R56 and the old nine rules. Other exits remain
+  unresolved; the remaining inputs are premises and universal supply is open.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [growing-prefix-unhandled-leading-input, critical-image-rank-composition, complementary-run-bridges, returning-forward-interface, selected-critical-five-forward-tables, two-selected-inverse-choices]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_selected_exit.py, selected_exit.py, selected_exit_audit.json: the legacy constructor and checker: 352 complete exit cases, 264 maximal-cycle cases, 128 progression cases including 64 exclusions from R55/R56, and three actual supplied-current conversions; all three completed outputs and their 18 distinct supplied inputs are stored. Fails at its new path: selected_exit.py loads ../complementary_bridge/, ../returning_phase/, ../rule_avoidance/, ../selected_forward/ and ../selected_inverse/ by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/selected_cycle_exit/check_selected_exit.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "batch_r57_check.py, batch_r57_check.json: side-lane probe (Claude side lane, 2026-10-17) of the descending cycle-exit family. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/) and fibre_count_check from its own folder (now ../absorbed-fibre-uniform-counts/). Passed at be73a66 as reviews/side_lane/batch_r57_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: batch_r57_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 23:51, VERIFIED, main 7206f9c), with the lane's own nu and step: r = 0..4, odd d in {2r+5, 2r+7, 2r+9} and the first three positive members of progression (7), 45 inputs: q = 81*2^(11r+12) s - 17, w = (2q+1)/3 = 3445 (mod 3456), nu(3w) = q and v2(q+17) = 11r+12; each of the r guarded copies is the ordinary word (1,1,1,2,1,1,4) ending at Psi(x), seven quotient steps reaching the same point; the exit V = nu(S^4(Q)) = 3^(7r+8)*64s - 21 with a(V) = 2 and v2(3t-1) = d, the endpoint f = 3^b (3t-1)/2^d; T^(7r+b+5)(q) = nu(f), S^(7r+b+6)(q) = S(f) and (9f+5)/8 < q; the 15 inputs in subprogression (16) have v = (32q-23)/81 = 0 (mod 3). The eleven-row exit table and the R55/R56 exclusions were not rebuilt; the status stays written"
+aliases: [R57]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, selected-phase, negative-cycle-shadow]
+---
+
+# Exact guarded cycles and all exit phases on the R54 entry phase, with a descending exit after any number of repetitions
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ν`, `T = νS`; `ρ(w) = ν(3w)`; `H_s` the deterministic formal absorption plan with `ρ(u) ≤ (9ν(s)+5)/8`. Domain: the entry phase `q ≡ −17 (mod 5184)` of [`growing-prefix-unhandled-leading-input`](../growing-prefix-unhandled-leading-input/README.md).
+
+1. **Maximal guarded cycles.** With `E = v2(q+17)`, `u = (q+17)/2^E`, exactly `r = ⌊(E − 6)/11⌋` guarded cycles return to the entry phase, ending at `Q = 3^(7r)·2^e·u − 17`, `e = E − 11r ∈ {6, …, 16}`. The guard requires `E ≥ 17`; the ordinary affine word alone is valid from `E ≥ 12` and need not return to the phase. Each cycle's signed quotient current equals the current of seven ordinary arrows with valuations `1,1,1,2,1,1,4`, by cancellation across its halving bridge; this sharpens the clock accounting without identifying the intermediate ordinary and quotient states.
+2. **Exit table.** An eleven-row table processes every exit `e = 6, …, 16`, with variable valuations and full endpoint normalisation (the run bridge of [`complementary-run-bridges`](../complementary-run-bridges/README.md)), accepting only when the endpoint's `ρ` bound is below the original `q`.
+3. **Descending families.** For every `r ≥ 0` and odd `d ≥ 2r + 5` an explicit nonempty CRT progression enters exactly `r` guarded cycles, exits at `e = 12` and passes the strict bound; ordinary comparison clocks `(7r + (d−1)/2 + 6, 1)`, quotient clock `7r + (d−1)/2 + 5`. An additional coprime ternary condition makes every member fail [`selected-critical-five-forward-tables`](../selected-critical-five-forward-tables/README.md), [`two-selected-inverse-choices`](../two-selected-inverse-choices/README.md) and the old nine rules.
+
+It supplies further coverage at every repetition count; other exits remain unresolved. The complete exit interface covers the whole entry phase without asserting that every exit passes.
+
+## Proof
+
+The legacy note "Maximal selected cycles and a descending exit after any number of repetitions" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written infinite-family theorem, complete finite exit interface, and
 conditional integer-current construction.** Every prescribed number of the
@@ -18,11 +66,11 @@ It obeys
     rho(u) <= (9 nu(s)+5)/8 <= (9s+5)/8.                 (1)
 
 The h_s(u) are signed integers. No current for a missing P(u) is assumed.
-References: [R43](../critical_rank/CRITICAL_IMAGE_RANK.md),
-[R54](../rule_avoidance/RULE_AVOIDANCE.md), and the complete
-[R26 run bridge](../complementary_bridge/RUN_BLOCK_BRIDGES.md).
+References: [R43](../critical-image-rank-composition/README.md),
+[R54](../growing-prefix-unhandled-leading-input/README.md), and the complete
+[R26 run bridge](../complementary-run-bridges/README.md).
 
-## 1. Exact maximal copies of the guarded cycle
+### 1. Exact maximal copies of the guarded cycle
 
 The R54 entry phase is
 
@@ -74,7 +122,7 @@ two three-arrow prefixes; its negative prefix cancels the next three
 quotient arrows. This yields exactly (4), including all row coefficients.
 Consequently (3) is reached in both 7r ordinary and 7r quotient steps.
 
-## 2. Complete exit interface
+### 2. Complete exit interface
 
 Write Q=2^e U-17 with U odd and divisible81, and 6<=e<=16. Q has first
 binary exponent a=4. Its complete R26 parameter is
@@ -124,7 +172,7 @@ ordinary arrow. Formula (5), Y+1, and
 prove the table. All finite cases reduce to these integer identities;
 the implementation also retains the entire variable-depth branches.
 
-## 3. A descending full progression after every maximal repeat count
+### 3. A descending full progression after every maximal repeat count
 
 **Theorem.** For every integer r>=0, every odd d>=2r+5, and every positive
 integer s in the following exact progression, define
@@ -221,7 +269,7 @@ all already-known finite currents. `family(...,avoid_inverse=True)`
 constructs exactly this CRT subprogression; its w period is three times
 the period stated above.
 
-## 4. Full signed pair construction and its exact scope
+### 4. Full signed pair construction and its exact scope
 
 Let N_x be the elementary current with boundary[x]-[nu(x)], and let D
 be the full cycle-and-exit current from q to f constructed above. Put
@@ -252,7 +300,7 @@ of all possible currents. `one_step` returns only descending plans and
 can join a common-rho dispatcher. It does not belong to the separate
 sigma induction without a fresh compatibility check.
 
-## 5. Reproduction
+### 5. Reproduction
 
 Run `python3 experiments/residual_progress/selected_cycle_exit/check_selected_exit.py`.
 The receipt records finite checks of all eleven exit rows, maximal-cycle
@@ -275,3 +323,17 @@ tables and the18 distinct supplied pair-current tables are retained in
 [selected_exit_audit.json](selected_exit_audit.json). Demonstration input
 discovery is capped at10000 odd steps and4096 bits, with cycle detection;
 failure to meet the cap would leave that demonstration unresolved.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B11 migration; standard library). The legacy scripts in this folder load their sibling modules by pre-migration folder names, so they no longer run here. This certificate rebuilds the legacy directory layout in a temporary directory from the node folders that now hold those files, runs the unmodified legacy checks there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied receipt unchanged. It writes nothing in the repository. It replays: the legacy checker `check_selected_exit.py` (about 1 min; the counts of section 5 and the three stored outputs, compared with `selected_exit_audit.json`) and the side-lane probe `batch_r57_check.py` (under 1 s, receipt reproduced byte for byte). The command in the legacy text names `experiments/residual_progress/selected_cycle_exit/`.
+
+## Remarks
+
+- The guarded cycle is the 2-adic shadow of the negative 7-cycle through `−17` ([`negative-cycle-backward-word`](../negative-cycle-backward-word/README.md)); the exponent-eleven exit is the later legacy R61 (`experiments/residual_progress/exit_continuation/`, not yet migrated).
+- Third among the selected rules of [`twelve-family-rho-dispatcher`](../twelve-family-rho-dispatcher/README.md). Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/selected_cycle_exit/SELECTED_CYCLE_EXIT.md` (legacy ID R57) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/batch_r57_check.*` moved here. The plan's companion dispatcher `selected_rules/` became its own node [`twelve-family-rho-dispatcher`](../twelve-family-rho-dispatcher/README.md) (alias R57-b). Legacy status: "written complete exit interface, infinite arithmetic families and conditional finite currents".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `7206f9c`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

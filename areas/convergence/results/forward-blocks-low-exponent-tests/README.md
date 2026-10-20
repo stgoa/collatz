@@ -1,4 +1,49 @@
-# Complete forward blocks on the nonselected critical-five domain
+---
+id: forward-blocks-low-exponent-tests
+kind: result
+title: "Complete forward blocks on the nonselected critical-five domain, with exact low-exponent rank tests"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). For every w in W5 with 3w nonselected write q = 3w = 2^a
+  t - 1, d = v2(3^(a-1) t - 1), u = (3^(a-1) t - 1)/2^d. The complete-run-bridge endpoint is f = 3^floor(d/2) u
+  (d odd) or 2*3^(d/2) u + 1 (d even), with exact quotient return time a + floor(d/2) - 1 (odd d: ordinary
+  comparison clocks a + (d-1)/2 versus 1; even d: an ordinary path of length a + d/2 - 1). The formal current
+  D_q - N_w + H_f - H_nu(w) retains every signed W5 request, and the full canonical endpoint bound B(nu(f)) < q
+  of returning-forward-interface gives a strict-rho rule. For a = 3 the test accepts exactly odd d, even d >= 6,
+  or a selected even endpoint f; for a = 4 exactly odd d, even d >= 10, selected even f with d >= 6, or d = 4
+  with nu(f) != 3 mod 8 (all intercepts included). The classes 45 mod 384 and 741 mod 768 of multiples of three
+  lie inside, and for each a >= 3 an explicit large odd d and CRT progression give further accepted multiples of
+  3. For a canonical even endpoint the maximal inverse of variable-depth-inverse-escape-barrier (D = d/2, j =
+  a-1) returns exactly to q and cancels the current. These classify this sufficient test, not all possible
+  currents; universal endpoint coverage is open.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [complementary-run-bridges, critical-image-rank-composition, returning-forward-interface, variable-depth-inverse-escape-barrier]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_nonselected_forward.py, nonselected_forward.py, nonselected_forward_audit.json: the legacy constructor and checker: 2047 inputs, 1536 a = 3/4 decisions, 687 undo identities, 75 CRT examples through a = 128, 32 multiple-of-3 phase examples and 12 actual substitutions; three current tables are retained. Fails at its new path: nonselected_forward.py loads ../complementary_bridge/, ../inverse_escape/ and ../returning_phase/ (now ../complementary-run-bridges/, ../variable-depth-inverse-escape-barrier/, ../returning-forward-interface/) by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/nonselected_forward/check_nonselected_forward.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+aliases: [R48]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, forward-blocks, sufficient-set]
+---
+
+# Complete forward blocks on the nonselected critical-five domain, with exact low-exponent rank tests
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ρ(w) = ν(3w)`; `B = {w ∈ W5 : 3w nonselected}`.
+
+1. **Whole-domain interface.** Write `q = ρ(w) = 3w = 2^a t − 1` (`a ≥ 3`), `d = v2(3^(a−1)t − 1) ≥ 2`, `u = (3^(a−1)t − 1)/2^d`. The endpoint of the complete run bridge of [`complementary-run-bridges`](../complementary-run-bridges/README.md) is `f = 3^⌊d/2⌋·u` (odd `d`) or `2·3^(d/2)·u + 1` (even `d`), with exact quotient return time `a + ⌊d/2⌋ − 1`; odd `d` has ordinary comparison clocks `a + (d−1)/2` versus 1, even `d` an ordinary path of length `a + d/2 − 1`. The formal current `D_q − N_w + H_f − H_ν(w)` retains every signed `W5` request.
+2. **Sufficient test.** The full canonical endpoint bound `B(ν(f)) < q` of [`returning-forward-interface`](../returning-forward-interface/README.md) gives a strict-`ρ` rule.
+3. **Exact low-exponent classification of the test.** `a = 3`: accepted exactly for odd `d`, even `d ≥ 6`, or a selected even endpoint `f`. `a = 4`: exactly odd `d`, even `d ≥ 10`, selected even `f` with `d ≥ 6`, or `d = 4` with `ν(f) ≢ 3 (mod 8)`. All intercepts are included.
+4. **New domains.** The complete multiples-of-three classes `45 (mod 384)` and `741 (mod 768)` lie inside; for each `a ≥ 3` an explicit large odd `d` and CRT progression give further accepted multiples of 3.
+5. **Undo.** For a canonical even endpoint the maximal inverse of [`variable-depth-inverse-escape-barrier`](../variable-depth-inverse-escape-barrier/README.md) has `D = d/2`, `j = a − 1`, and its predecessor is exactly `q`: it reverses the block and cancels the current literally.
+
+These classify this sufficient test, not all possible currents. Universal endpoint coverage is open.
+
+## Proof
+
+The legacy note "Complete forward blocks on the nonselected critical-five domain" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written conditional interface, exact low-exponent classification,
 and finite certificates.** The rule is defined on every nonselected W5 pair.
@@ -8,12 +53,12 @@ closure is open. No novelty or human/formal verification claim is made.
 
 Use positive odd Syracuse `S`, absorbed at 1, killed atoms `[1]=0`,
 `P(w)=[3w]-[w]`, elementary minimum `nu`, and rank `rho(w)=nu(3w)`.
-The dependencies are the [R26 complete block](../complementary_bridge/RUN_BLOCK_BRIDGES.md),
-[R43 rank bound](../critical_rank/CRITICAL_IMAGE_RANK.md),
-[R44 endpoint table](../returning_phase/RETURNING_FORWARD_INTERFACE.md), and
-[R46 maximal inverse word](../inverse_escape/INVERSE_ESCAPE.md).
+The dependencies are the [R26 complete block](../complementary-run-bridges/README.md),
+[R43 rank bound](../critical-image-rank-composition/README.md),
+[R44 endpoint table](../returning-forward-interface/README.md), and
+[R46 maximal inverse word](../variable-depth-inverse-escape-barrier/README.md).
 
-## 1. The whole domain and exact clocks
+### 1. The whole domain and exact clocks
 
 Let
 
@@ -48,7 +93,7 @@ Indeed the even prefix ends at f; in the odd case the prefix one step
 shorter ends at `F(f)=4f+1`. Semiconjugacy and `nu(F(f))=nu(f)` prove
 (2). This variable-time acceleration is not assumed to decrease rank.
 
-## 2. A whole-domain signed current and a sufficient rank test
+### 2. A whole-domain signed current and a sufficient rank test
 
 Write the formal absorption plan as
 
@@ -90,7 +135,7 @@ The entire rule is an explicit special case of the R43 rank induction.
 It may be joined to any earlier strict-rho domains. No new bound on
 current cost, residual mass, or universal acceptance is inferred.
 
-## 3. Complete classification of this test for a=3 and a=4
+### 3. Complete classification of this test for a=3 and a=4
 
 For **every** member of B with `a=3`, the test accepts precisely when
 
@@ -153,7 +198,7 @@ corresponding differences are
 
 all negative. This proves (6), including all intercepts.
 
-## 4. Exact stratum conditions at any first exponent
+### 4. Exact stratum conditions at any first exponent
 
 Every raw endpoint has a unique elementary stratum
 
@@ -182,7 +227,7 @@ For a nonabsorbing `n=1 mod8` the sharper forward test is exactly
 These are exact integer inequalities, including offsets. The full table
 in Section 2 can be sharper; neither inequality is assumed universal.
 
-## 5. Nonempty successful multiples-of-three families for every a
+### 5. Nonempty successful multiples-of-three families for every a
 
 For every integer `a>=3`, choose an odd `d>=3` satisfying
 
@@ -224,7 +269,7 @@ accepted ternary phases exclude3|w. This is new whole-domain coverage
 within that specified union. It is not a claim that no other earlier
 certificate can happen to prove one of these inputs.
 
-## 6. An exact forward/inverse undo on the remaining even block
+### 6. An exact forward/inverse undo on the remaining even block
 
 For every even d with canonical raw endpoint f, R46's maximal inverse
 parameters at f are exactly
@@ -245,7 +290,7 @@ does not itself create a new comparison. This exact whole-domain undo
 does not rule out a different inverse word, another forward excursion,
 joint signed cancellation, or composition through other accepted rules.
 
-## 7. Implementation and finite evidence
+### 7. Implementation and finite evidence
 
 `nonselected_forward.py` exports `forward_plan(w)`, with fields
 `seed,rank,status,current,coefficients`. The exact boundary is (4);
@@ -263,3 +308,17 @@ the low-exponent table and its affine comparisons, exact long CRT cases,
 undo identities, capped discovery only for designated demonstration
 inputs, and actual supplied-current substitutions. Those checks audit
 the implementation; the written arguments give the universal quantifiers.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B11 migration; standard library). The legacy scripts in this folder load their sibling modules by pre-migration folder names, so they no longer run here. This certificate rebuilds the legacy directory layout in a temporary directory from the node folders that now hold those files, runs the unmodified legacy checks there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied receipt unchanged. It writes nothing in the repository. It replays: the legacy checker `check_nonselected_forward.py` (about 6 s; the counts of section 7 and three stored current tables, compared with `nonselected_forward_audit.json`). The command in the legacy text names `experiments/residual_progress/nonselected_forward/`.
+
+## Remarks
+
+- Continued through a second block by [`low-block-continuation-prescribed-growth`](../low-block-continuation-prescribed-growth/README.md); its whole-cylinder three-step plans contain those of [`inverse-only-exclusions-short-forward`](../inverse-only-exclusions-short-forward/README.md) section 5. Joined to the dispatcher in [`two-inverse-phases-intermediate-increase`](../two-inverse-phases-intermediate-increase/README.md).
+- Novelty undetermined; the legacy note also disclaims human or formal verification.
+
+## History
+
+- Migrated from `experiments/residual_progress/nonselected_forward/NONSELECTED_FORWARD.md` (legacy ID R48) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written whole-domain conditional interface and exact classification of its rank test for a3/a4".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `bcde58e`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

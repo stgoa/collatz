@@ -29,7 +29,7 @@ that separate the actual Collatz case from that control.
 The conditional minimality lemma remains valid with its finite-current
 and cycle hypotheses. Its broader conclusion that alternative certificates
 cannot help is unsupported. The existing
-[PR review](../packet_currents/negative_controls/PR1_REVIEW.md)
+[PR review](../locally-collatz-like-control-barrier/PR1_REVIEW.md)
 gives exact counterexamples, including 56 distinct one-sided minimum-cost
 certificates on the actual required annulus A768. The review checker was
 rerun in this batch and passed: positive cost53758 is retained after
@@ -37,7 +37,7 @@ removing row5. The displayed PR description still contains the older broad
 wording; the repository records the corrected scope.
 
 The newer seven-arrow inverse formula was already independently checked
-in the [preceding pinned review](side_lane_review_bae3969.md). Its exact
+in the [preceding pinned review](../negative-cycle-backward-word/side_lane_review_bae3969.md). Its exact
 domain is R56's first inverse class. It supports the forward/inverse
 comparison approach but adds no distinct domain to that result. The feed
 has withdrawn its unsupported positive-density inference about inverse
@@ -52,18 +52,18 @@ whole unresolved recursion.
 
 The present batch supplies concrete structure for that task:
 
-- [R58](exact_absorption_bound/EXACT_ABSORPTION_BOUND.md) identifies the
+- [R58](../rank-excess-absorption-classification/README.md) identifies the
   only way unchanged formal absorption can request a rank above its
   canonical seed. The exceptional request is unique and has coefficient+1.
-- [R59](deferred_rank/DEFERRED_RANK.md) allows larger intermediate
+- [R59](../deferred-original-rank-testing/README.md) allows larger intermediate
   requests to be expanded under a fixed already-proved resolver before
   testing the original rank. Formal expansion terminates, but it can
   retain an unresolved request. Two complete domains now pass this test.
-- [R60](cycle_inverse/CYCLE_INVERSE.md) gives an exact acceptance table
+- [R60](../maximal-inverse-cycle-continuation/README.md) gives an exact acceptance table
   for a maximal inverse-cycle word and its maximal valuation1 continuation.
   These words can cross arbitrary prescribed forward-growth depth on
   complete families.
-- [R61](exit_continuation/ELEVEN_EXIT_CONTINUATION.md) proves that one
+- R61 (`experiments/residual_progress/exit_continuation/ELEVEN_EXIT_CONTINUATION.md`) proves that one
   natural continuation procedure returns the identical unfinished current
   on full families. Its limitation concerns that procedure and the old
   twelve rules; other comparisons remain available.

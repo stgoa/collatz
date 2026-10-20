@@ -1,4 +1,55 @@
-# Two inverse choices escape part of the untouched selected phase
+---
+id: two-selected-inverse-choices
+kind: result
+title: Two selected inverse choices give exact strict-rank domains and escape arbitrarily long forward growth
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). For selected 3w with w = 5 mod 8, w = 16 mod 27, put q =
+  (3w-1)/2 and v = (16w-13)/27 = -7 mod 128; the inverse word 1, 2, 2 reaches q from 3v > q. From that state
+  choose k = 4 or 8, h = v3(kv+1), C = (kv+1)/3^h, r = 2^(h+1) C - 1; the full ordinary words r -> q are
+  1^h,2,1,1,4 and 1^h,2,3,2,2 (length h+4). Exactly h >= 3 (k = 4) or h >= 5 (k = 8) gives a strictly decreasing
+  complete rho plan, so the accepted domains are precisely w = 718 mod 729 or w = 4255 mod 6561 (W5 and
+  selection retained). After full W9 elimination every failed named plan is accounted for: h = 0, and h = 1 with
+  r = 0 mod 3, retain the original request with coefficient +1; the other failed positive-h cases retain a
+  unique higher-rank W5 request. Every accepted threshold and terminal ternary phase has a complete progression
+  inside the R54 entry phase, and for each forward depth L, CRT gives inputs with 7L growing quotient steps but
+  a seven-arrow (k = 4, h = 3) or nine-arrow (k = 8, h = 5) inverse comparison. The whole selected w = 16 mod 81
+  subphase has h = 0 for both choices and stays unresolved by them. Other inverse words are not exhausted and
+  universal coverage is not proved.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [critical-image-rank-composition, critical-nine-elimination, variable-depth-inverse-escape-barrier, growing-prefix-unhandled-leading-input, elementary-bridge-quotient-normal-form]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_selected_inverse.py, selected_inverse.py, selected_inverse_audit.json: the legacy constructor and checker: 300 eligible inputs, 600 signed plans, 102 affine comparisons, 192 progression cases through h = 128, 36 forward-depth intersections through 128 and four actual supplied-current conversions; two full output currents and their inputs are stored. Fails at its new path: selected_inverse.py loads ../critical_rank/rank_closure.py (now ../critical-image-rank-composition/) by its pre-migration folder name; it is itself loaded by its old path by the later legacy cycle_inverse/ and selected_rules/ code. Passed at be73a66 as experiments/residual_progress/selected_inverse/check_selected_inverse.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "r56_selected_inverse_check.py, r56_selected_inverse_check.json: side-lane probe (Claude side lane, 2026-10-18) of the two words and their exact thresholds. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/) and fibre_count_check from its own folder (now ../absorbed-fibre-uniform-counts/). Passed at be73a66 as reviews/side_lane/r56_selected_inverse_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+  - "side_lane_review_767af32.md: the main lane's parallel-work review and research decision of 2026-10-18 (side-lane pin 767af32): no new main-branch merge beyond PR1; the seven-arrow backward word was already checked in side_lane_review_bae3969.md (../negative-cycle-backward-word/) and its domain is this node's k = 4 class; decision to prioritise a complete recursion over further isolated families or acceptance percentages. Links repointed to nodes at the migration (not hash-pinned); its link to R61 (experiments/residual_progress/exit_continuation/, a later batch) is a code span until that node exists"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: r56_selected_inverse_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-18 04:30, VERIFIED), with the lane's own step and selected: on the domain w = 205 (mod 216) with 3w selected, 4,800 cases (prescribed h = 0..9 for each k by CRT on v, plus 2,000 random domain members): the ordinary word from r to q is exactly 1^h, 2, 1, 1, 4 (k = 4) and 1^h, 2, 3, 2, 2 (k = 8); identity (2), 32*3^h (r - q) = (k*2^(h+6) - 3^(h+4)) v + 2^(h+6) - 55*3^h, holds exactly; r < q iff h >= 3 (k = 4) and iff h >= 5 (k = 8). The signed plans, failure classification and forward-depth families were not rebuilt; the status stays written"
+aliases: [R56]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, selected-phase, inverse-rays]
+---
+
+# Two selected inverse choices give exact strict-rank domains and escape arbitrarily long forward growth
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ρ(w) = ν(3w)`; `H_s` the formal absorption plan of [`critical-image-rank-composition`](../critical-image-rank-composition/README.md). Domain: `w ≡ 5 (mod 8)`, `w ≡ 16 (mod 27)` (equivalently `w ≡ 205 (mod 216)`), `3w` selected; `q = (3w − 1)/2`, `v = (16w − 13)/27 ≡ −7 (mod 128)`, so `32q = 81v + 23`.
+
+1. **Two choices.** The inverse word `1, 2, 2` reaches `q` from `3v > q`. From there choose `k ∈ {4, 8}`, `h = v3(kv+1)`, `C = (kv+1)/3^h`, `r = 2^(h+1)C − 1`; the full ordinary words `r → q` are `1^h, 2, 1, 1, 4` and `1^h, 2, 3, 2, 2`, each of length `h + 4`.
+2. **Exact thresholds.** `h ≥ 3` (`k = 4`) or `h ≥ 5` (`k = 8`) gives a strictly decreasing complete `ρ` plan, so the accepted domains are precisely `w ≡ 718 (mod 729)` or `w ≡ 4255 (mod 6561)`, with the `W5` and selection conditions retained.
+3. **Failures.** After full `W9` elimination: `h = 0`, and `h = 1` with `r ≡ 0 (mod 3)`, retain the original request with coefficient `+1`; every other failed positive-`h` case retains a unique higher-rank `W5` request.
+4. **Escape through forward depth.** Every accepted threshold and terminal ternary phase has a complete progression inside the entry phase of [`growing-prefix-unhandled-leading-input`](../growing-prefix-unhandled-leading-input/README.md). For each forward depth `L`, CRT gives inputs with `7L` growing quotient steps but a seven-arrow (`k = 4`, `h = 3`) or nine-arrow (`k = 8`, `h = 5`) inverse comparison, outside the old procedure.
+
+The whole selected `w ≡ 16 (mod 81)` subphase has `h = 0` for both choices and stays unresolved by them. Other inverse words are not exhausted; no universal coverage or novelty is claimed.
+
+## Proof
+
+The legacy note "Two inverse choices escape part of the untouched selected phase" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written complete arithmetic interface and conditional construction.**
 This classifies both prescribed inverse choices, including their failed signed
@@ -12,13 +63,13 @@ unchanged R43 formal absorption plan. H_s retains its signed W5 requests;
 it is not an absorption certificate without supplied inputs. Its request
 ranks obey rho(u)<= (9s+5)/8, with rho(w)=nu(3w).
 
-Dependencies: [R25](../bridge_normal_form/BRIDGE_NORMAL_FORM.md),
-[R40](../w9_closure/CRITICAL_NINE_ELIMINATION.md),
-[R43](../critical_rank/CRITICAL_IMAGE_RANK.md),
-[R46](../inverse_escape/INVERSE_ESCAPE.md), and
-[R54](../rule_avoidance/RULE_AVOIDANCE.md).
+Dependencies: [R25](../elementary-bridge-quotient-normal-form/README.md),
+[R40](../critical-nine-elimination/README.md),
+[R43](../critical-image-rank-composition/README.md),
+[R46](../variable-depth-inverse-escape-barrier/README.md), and
+[R54](../growing-prefix-unhandled-leading-input/README.md).
 
-## 1. The complete starting domain and the two choices
+### 1. The complete starting domain and the two choices
 
 Let w be positive, w=5 mod8, w=16 mod27, with3w selected. Equivalently,
 w=205 mod216 and3w selected. Put
@@ -63,7 +114,7 @@ then b-to-p and the three p-to-q steps.
 Consequently the negative of this finite path is an explicit integer
 current I with div I=[q]-[r]. It is valid even when r>=q.
 
-## 2. Exact endpoint classification, with all small rows retained
+### 2. Exact endpoint classification, with all small rows retained
 
 Direct substitution gives
 
@@ -104,7 +155,7 @@ express exactly h>=3 and h>=5, respectively. They are disjoint, and both
 imply w=16 mod27. This is a whole ternary-domain statement, retaining the
 full binary selection hypothesis.
 
-## 3. Exact signed plans, successful and failed
+### 3. Exact signed plans, successful and failed
 
 Let z=nu(w)<w/4. The formal current
 
@@ -124,7 +175,7 @@ present with coefficient+1 and rank r>q. All other requests have smaller
 rank than r, so cancellation cannot remove it. This specific plan fails
 strict descent; this is not nonexistence of some other comparison.
 
-### The other failed rows return the original request
+#### The other failed rows return the original request
 
 For h0, and for h1 with r=0 mod3, the complete W9 elimination retains
 the original w with coefficient+1, with all other ranks below q. This
@@ -166,7 +217,7 @@ of(4), together with any other supplied strict-rho rules, would supply all
 W5 currents. The new rule removes(4) from the missing premise but does not
 establish universal supply on that complement.
 
-## 4. Complete cylinders and escape after arbitrarily long forward growth
+### 4. Complete cylinders and escape after arbitrarily long forward growth
 
 For every k in{4,8}, h>=1 and e in{1,2}, impose
 
@@ -198,7 +249,7 @@ prefix/H/rule procedure, whereas the new inverse branch supplies a new
 leading rule. The seed changes with L. Neither statement constructs one
 infinite positive growing orbit or covers the whole original phase.
 
-## 5. Implementation and evidence
+### 5. Implementation and evidence
 
 [selected_inverse.py](selected_inverse.py) exposes both successful and failed
 plans, their exact valuation words and every signed request. `one_step`
@@ -228,3 +279,18 @@ explicit missing premises.
 
 Finite checks audit the code; the infinite quantifiers follow from the
 arguments above. Universal completion on the remaining complement is open.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B11 migration; standard library). The legacy scripts in this folder load their sibling modules by pre-migration folder names, so they no longer run here. This certificate rebuilds the legacy directory layout in a temporary directory from the node folders that now hold those files, runs the unmodified legacy checks there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied receipt unchanged. It writes nothing in the repository. It replays: the legacy checker `check_selected_inverse.py` (about 5 s; the counts of section 5 and two stored outputs, compared with `selected_inverse_audit.json`) and the side-lane probe `r56_selected_inverse_check.py` (about 30 s, receipt reproduced byte for byte). The command in the legacy text names `experiments/residual_progress/selected_inverse/`.
+
+## Remarks
+
+- **Independent reading of the `k = 4` class.** The side lane's backward word of the negative cycle `−17` has exactly the domain `w ≡ 718 (mod 729)`; the main lane's review shows the feed's ancestor is this node's endpoint after three inverse point steps, and this rule goes at least as far ([`negative-cycle-backward-word`](../negative-cycle-backward-word/README.md)). It adds no coverage beyond this node.
+- **Main-lane decision of 2026-10-18.** [`side_lane_review_767af32.md`](side_lane_review_767af32.md) in this folder records the main lane's assessment after R58–R61 and its decision to prioritise a theorem handling the whole unresolved recursion. It is a direction note, not a review of this node.
+- The continuation of the failed rows is [`maximal-inverse-cycle-continuation`](../maximal-inverse-cycle-continuation/README.md); this rule is second among the selected rules of [`twelve-family-rho-dispatcher`](../twelve-family-rho-dispatcher/README.md). Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/selected_inverse/SELECTED_INVERSE.md` (legacy ID R56) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/r56_selected_inverse_check.*` and the main lane's note `experiments/residual_progress/side_lane_review_767af32.md` moved here; the plan's other R56 item, `side_lane_review_bae3969.md` with the probe `backward_word_rule.*`, went to the new side-lane node [`negative-cycle-backward-word`](../negative-cycle-backward-word/README.md). The links in `side_lane_review_767af32.md` were repointed to node paths. Legacy status: "written exhaustive classification of two specified inverse plans, exact decreasing domains and conditional constructors".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `7206f9c`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-17
     link: batch_436f51f_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 21:31, VERIFIED, main 436f51f; the R37 part): with the lane's own nu and Syracuse step, all 16,668 critical roots below 200,000 map back into W under the stated inverse (q/3 or (2q+1)/3), the inverse is always smaller than q, and nu(3w) = q recovers the root; all 16,668 images of W below 200,000 are critical and distinct. The entry also acknowledged that universal currents for P on W are equivalent to Collatz. The written equivalence and the plan termination were not re-derived; the status stays written"
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: ../critical-nine-elimination/batch_r40_r41_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 21:53, VERIFIED, main 4a45eb0; the R37 part, the planner as restated in R40), rebuilt with the lane's own nu and Syracuse step: normalize q = nu(x); if q = 1 (mod 8) step to S(q) < q; if q = 2 (mod 3) go to (2q-1)/3 < q; otherwise request u = q/3 or (2q+1)/3 and continue from u. Checked for all 99,999 odd x < 200000: it terminates, every request lies in W5 u W9, requests strictly decrease, and u <= (2x+1)/3. The equivalence and the compiler were not re-derived; the status stays written"
 aliases: [R37]
 tags: [convergence, outer-residual, tripling-pairs, critical-domain, collatz-equivalent, conditional-plans]
 ---
@@ -290,8 +294,8 @@ automatically covered by this theorem.
 ## Remarks
 
 - **Controls on `W`.** The generic statement that `w` and `3w` share a future fails on `W` for every control map (feed 2026-10-17 21:31; counts below 4000): `3x−1`, 336 cases (e.g. `w = 5`, cycle `{5, 7}`, against 15, trivial); `3x+13`, 285 (e.g. `w = 41` against 123, cycle at 259); `3x+61`, 57 (e.g. `w = 133` against 399, the 41-cycle). The main lane's checker [`check_pair_domain_external.py`](../tripling-doubling-pair-decomposition/check_pair_domain_external.py) re-verifies three such `W5` witnesses. Restricting the input domain therefore does not remove the need for specific `3x+1` arithmetic.
-- **Later checks.** The side lane later rebuilt the R37 planner as restated in R40 (feed 2026-10-17 21:53, probe `reviews/side_lane/batch_r40_r41_check.py`, migrated with R40): for all odd `x < 200000` it terminates, every request lies in `W5 ∪ W9` and strictly decreases, and `u ≤ (2x + 1)/3`. It is not yet recorded under `reviewed_by`.
-- **What uses it.** [`odd-h-pair-interface-compiler`](../odd-h-pair-interface-compiler/README.md) connects the odd-`h` interface to the critical roots; the later legacy rounds R40–R46 (`experiments/residual_progress/w9_closure/`, `critical_rank/`, not yet migrated) eliminate the `W9` half and rank the `W5` requests. The Collatz-equivalence agrees with the class-wise picture of [`class-wise-obligation-equivalence`](../class-wise-obligation-equivalence.md).
+- **Later checks.** The side lane later rebuilt the R37 planner as restated in R40 (feed 2026-10-17 21:53, probe [`batch_r40_r41_check.py`](../critical-nine-elimination/batch_r40_r41_check.py), in the folder of [`critical-nine-elimination`](../critical-nine-elimination/README.md)): for all odd `x < 200000` it terminates, every request lies in `W5 ∪ W9` and strictly decreases, and `u ≤ (2x + 1)/3`. It is recorded under `reviewed_by`.
+- **What uses it.** [`odd-h-pair-interface-compiler`](../odd-h-pair-interface-compiler/README.md) connects the odd-`h` interface to the critical roots; [`critical-nine-elimination`](../critical-nine-elimination/README.md) (R40) eliminates the `W9` half, leaving the open premise [`universal-w5-tripling-currents`](../../questions/universal-w5-tripling-currents.md), and [`critical-image-rank-composition`](../critical-image-rank-composition/README.md) (R43) and the later rules rank and reduce the `W5` requests. The Collatz-equivalence agrees with the class-wise picture of [`class-wise-obligation-equivalence`](../class-wise-obligation-equivalence.md).
 - Novelty undetermined (none claimed).
 
 ## History

@@ -90,7 +90,7 @@ Those new receipts were read but not independently reproduced in this
 batch and are not premises of its results. The side branch was unchanged.
 
 **Decision: keep exact currents and pivot the induction to rho(w)=nu(3w).**
-The rank theorem (legacy R43, `experiments/residual_progress/critical_rank/CRITICAL_IMAGE_RANK.md`, not yet migrated) explains why some
+The [rank theorem](../critical-image-rank-composition/README.md) explains why some
 larger pair indices still make genuine progress. R44–R46 remove further
 complete arithmetic domains and compose with R41 under this common rank.
 The merged audit's controls remain mandatory tests of claims intended to
@@ -107,7 +107,7 @@ independent finite checks of R46 and three rank examples. Its exact probe,
 normalizer dependency and unchanged control module were inspected and run
 in temporary storage under a60-second cap. The published receipt matched:
 33333 inverse-word cases and1112 complete small depth4 targets. The
-pinned reproduction (legacy `experiments/residual_progress/side_lane_review_3d69784.json`, not yet migrated) retains source hashes
+[pinned reproduction](../critical-image-rank-composition/side_lane_review_3d69784.json) retains source hashes
 and notes the header's untested2549 value; main verifies that value separately.
 The probe does not independently reprove R43 composition or R44/R45 domains.
 The external branch was unchanged.

@@ -1,4 +1,54 @@
-# R53: carry expanding forward blocks before requesting absorption
+---
+id: low-block-continuation-prescribed-growth
+kind: result
+title: "Low-block forward continuation through unbounded prescribed growth, and the nine-family rho dispatcher"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; original rank rho(w) = nu(3w). After a failed first forward block of
+  forward-blocks-low-exponent-tests with a = 3 or 4, the whole domain whose next canonical exponent is 2 has
+  exactly eight first-phase rows, and a full second block has an exact endpoint-test classification in each row
+  (all odd second depths pass; every affine intercept retained, including the odd generic bound (81n+133)/256).
+  The raw (a, d) = (2, 2) pattern is exactly x = 27 mod 32 with G(x) = (9x+5)/8 and maximal length
+  floor((v2(x+5) - 2)/3). In the remainder-4 stratum after a first (3, 2) block, w = (2^(3r+8) s - 11)/9 takes r
+  growing blocks to 16*9^(r+1) s - 5 before a final block; for every r >= 1 a complete CRT family with d = 4r+3
+  has a strict-rho endpoint, with all intermediate currents retained, ordinary clocks (4r+6, 1) and quotient
+  length 4r+5, and the extra condition w = 45 mod 81 excludes all seven earlier direct rules. The nine-family
+  dispatcher continued_rules.py adds R52 and this rule after the seven earlier ones, preserving every earlier
+  acceptance. These families do not cover all remaining W5 inputs; the separate sigma rules are not imported.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [forward-blocks-low-exponent-tests, two-inverse-phases-intermediate-increase, returning-second-forward-interface, nonselected-multiples-inverse-interface, complementary-run-bridges, critical-image-rank-composition]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_forward_continuation.py, forward_continuation.py, forward_continuation_audit.json, w4258701_inputs.json, w4258701_current.csv: the legacy constructor and checker: 570 complete table cases, 224 maximal runs, 56 CRT witnesses through r = 64 and three actual substitutions; the w = 4258701 fixture stores its six inputs and 65-row completed current. Fails at its new path: it puts ../double_inverse/ (now ../two-inverse-phases-intermediate-increase/) on sys.path and loads ../critical_rank/ and ../nonselected_forward/ by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/forward_continuation/check_forward_continuation.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "check_continued_rules.py, continued_rules.py, continued_rules_audit.json: the nine-family strict-rho dispatcher (legacy folder continued_rules/, which had no note): the seven rules of expanded_union.py followed by R52 (returning-second-forward-interface) and this rule; on 1024 inputs it preserves all 442 earlier acceptances and adds 51, with six actual substitutions. It does not import the sigma rules. Fails at its new path: continued_rules.py puts ../double_inverse/ on sys.path and loads ../forward_continuation/ and ../returning_continuation/ by their pre-migration folder names; continued_rules/ is itself loaded by its old path by the later legacy selected_forward/, selected_rules/ and rank_mixing/ code. Passed at be73a66 as experiments/residual_progress/continued_rules/check_continued_rules.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "batch_r53_check.py, batch_r53_check.json: side-lane probe (Claude side lane, 2026-10-17) of the delayed-exit family and the low-run law. Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/) and fibre_count_check from its own folder (now ../absorbed-fibre-uniform-counts/). Passed at be73a66 as reviews/side_lane/batch_r53_check.py (archive/legacy-checker-run-be73a66.md, exit 0); its receipt is reproduced byte for byte by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: batch_r53_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 23:45, VERIFIED, main 8764158), with the lane's own nu and step: for r = 1..6, d = 4r+3 and the first three members of progression (12) (18 inputs), w = (2^(3r+8) s - 11)/9 is in W5 with w = 13 (mod 32), w = 45 (mod 81) and 3w non-selected; the prefix word from q = 3w is (1,1,2) then (1,2)^r to x_r = 16*9^(r+1) s - 5, every boundary = 1 (mod 3) and above q; at x_r, a = 2 and v2(3t - 1) = 4r+3; T^(a+b-1)(x_r) = nu(y) with (9y+5)/8 < q. For 4,000 consecutive x = 27 (mod 32), S^2 = (9x+5)/8 with valuations (1,2) and maximal run length floor((v2(x+5) - 2)/3). The eight-row table and the dispatcher were not rebuilt; the status stays written"
+aliases: [R53]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, forward-blocks, dispatcher, negative-cycle-shadow]
+---
+
+# Low-block forward continuation through unbounded prescribed growth, and the nine-family rho dispatcher
+
+## Statement
+
+Odd-only clock, 1 absorbing; all ranks are the original `ρ(w) = ν(3w)`, not the `σ` of [`sigma-rank-removes-absorption-overhead`](../sigma-rank-removes-absorption-overhead/README.md). Domain: `w ∈ W5`, `3w` nonselected, `q = 3w`; run bridges as in [`complementary-run-bridges`](../complementary-run-bridges/README.md).
+
+1. **Compose before requesting `H`.** After a failed first block of [`forward-blocks-low-exponent-tests`](../forward-blocks-low-exponent-tests/README.md) with `a ∈ {3, 4}`, the whole domain whose next canonical exponent is 2 has exactly eight first-phase rows; a full second block has an exact endpoint-test classification in each row, and all odd second depths pass. Every affine intercept is retained, including the odd generic bound `(81n + 133)/256`.
+2. **Recurring low block.** The entire raw `(a, d) = (2, 2)` pattern is `x ≡ 27 (mod 32)`, with `G(x) = (9x+5)/8`; its maximal length is `⌊(v2(x+5) − 2)/3⌋` and its three exit phases are explicit.
+3. **Growth then descent.** In the remainder-4 stratum after a first `(3, 2)` block, `w = (2^(3r+8)s − 11)/9` takes `r` growing blocks to `16·9^(r+1)s − 5` before a final block. For every `r ≥ 1` a complete CRT family with `d = 4r + 3` has a strict-`ρ` endpoint below the original parent bound; all intermediate currents are retained before `H`; ordinary clocks `(4r + 6, 1)`, quotient length `4r + 5`. The extra condition `w ≡ 45 (mod 81)` excludes all seven earlier direct rules.
+4. **Nine-family dispatcher.** `continued_rules.py` adds [`returning-second-forward-interface`](../returning-second-forward-interface/README.md) (R52) and this rule after the seven rules of [`two-inverse-phases-intermediate-increase`](../two-inverse-phases-intermediate-increase/README.md), preserving every earlier acceptance; it does not import the `σ` rules.
+
+These families do not cover all remaining `W5` inputs or prove Collatz.
+
+## Proof
+
+The legacy note "R53: carry expanding forward blocks before requesting absorption" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written conditional construction, complete low-phase table, and
 finite certificates.** All ranks here are the original R43 rank
@@ -8,12 +58,12 @@ remaining W5 inputs or prove Collatz.
 
 Use killed odd atoms [1]=0, P(w)=[3w]−[w], elementary bridge N_x with
 divergence [x]−[ν(x)], and ordinary Syracuse S absorbed at1. The canonical
-quotient is T=νS. Dependencies: [R26 complete blocks](../complementary_bridge/RUN_BLOCK_BRIDGES.md),
-[R43 rank](../critical_rank/CRITICAL_IMAGE_RANK.md),
-[R48 first forward block](../nonselected_forward/NONSELECTED_FORWARD.md), and
-[R47 inverse multiples](../nonselected_multiples/NONSELECTED_MULTIPLES.md).
+quotient is T=νS. Dependencies: [R26 complete blocks](../complementary-run-bridges/README.md),
+[R43 rank](../critical-image-rank-composition/README.md),
+[R48 first forward block](../forward-blocks-low-exponent-tests/README.md), and
+[R47 inverse multiples](../nonselected-multiples-inverse-interface/README.md).
 
-## 1. Compose before requesting H
+### 1. Compose before requesting H
 
 Let w∈W5 with3w nonselected and q=3w. An R26 block at a complementary
 canonical x=2^a t−1 has parameters
@@ -43,7 +93,7 @@ remaining inputs give the requested P(w) current. No intermediate state
 has been assumed absorbed, and no universal termination is inferred from
 allowing an arbitrary finite number of blocks.
 
-## 2. Complete two-block table after a failed low first block
+### 2. Complete two-block table after a failed low first block
 
 Take the entire R48 domain with first exponent a=3 or4, assume its first
 endpoint test fails, and assume its canonical endpoint n has first
@@ -103,7 +153,7 @@ length is a+floor(d/2)−1+1+floor(e/2). Each block's ordinary clocks remain
 those in Section1; an intervening selected normalizer is a signed bridge,
 not a claim of zero ordinary elapsed time.
 
-## 3. A complete recurring low-block interface
+### 3. A complete recurring low-block interface
 
 The whole (a,d)=(2,2) domain is exactly x27mod32. Its raw endpoint is
 
@@ -130,7 +180,7 @@ does not make these blocks contract: each grows, and r is unbounded.
 It gives a complete arithmetic stopping rule for this repeated pattern,
 not for an arbitrary succession of different patterns.
 
-## 4. Arbitrarily long expanding prefixes followed by a decreasing exit
+### 4. Arbitrarily long expanding prefixes followed by a decreasing exit
 
 The remainder4 row gives a useful entire parameterized comparison. For
 r>=1 and positive odd s satisfying 2^(3r+8)s=11mod9, define
@@ -188,7 +238,7 @@ inside H_y retains its own explicit signed prefixes. When d=4r+3 the
 ordinary clocks are(4r+6,1). No unknown future has been exposed in deriving
 these currents or clocks.
 
-## 5. Whole new cylinders, outside all earlier seven direct rules
+### 5. Whole new cylinders, outside all earlier seven direct rules
 
 Fix r>=1 and any odd d satisfying(10). Impose the coprime congruences
 
@@ -211,7 +261,7 @@ height ratio. This is a direct-domain statement: it does not assert that
 no earlier supplied graph or recursively composed certificate covered a
 particular member.
 
-## 6. Executable interface, evidence, and limits
+### 6. Executable interface, evidence, and limits
 
 `forward_continuation.py` supplies `two_plan`, the complete `low_first_table`,
 `low_run`, `delayed_plan`, `delayed_family`, and `accepted_plan` for the old
@@ -239,3 +289,17 @@ The progress is a complete finite phase table and an unbounded-length
 arithmetic family that crosses intermediate growth. It is still partial.
 No closure theorem for arbitrary macro words, universal decrease, Collatz
 proof, novelty claim, or human/formal verification is supplied.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B11 migration; standard library). The legacy scripts in this folder load their sibling modules by pre-migration folder names, so they no longer run here. This certificate rebuilds the legacy directory layout in a temporary directory from the node folders that now hold those files, runs the unmodified legacy checks there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied receipt unchanged. It writes nothing in the repository. It replays: the legacy checkers `check_forward_continuation.py` (about 8 s; the counts of section 6 and the `w = 4258701` fixture, against `forward_continuation_audit.json`) and `check_continued_rules.py` (about 1 s; the nine-family replay, against `continued_rules_audit.json`), and the side-lane probe `batch_r53_check.py` (under 1 s, receipt reproduced byte for byte). The command in the legacy text names `experiments/residual_progress/forward_continuation/`.
+
+## Remarks
+
+- **Negative-cycle reading.** `G(x) + 5 = (9/8)(x + 5)` is the return map of the negative cycle `{−5, −7}` (side-lane feed 2026-10-17 23:32; [`negative-cycle-backward-word`](../negative-cycle-backward-word/README.md)); the growing blocks shadow it 2-adically. The negative cycle is not a positive source.
+- The dispatcher is extended to twelve families in [`twelve-family-rho-dispatcher`](../twelve-family-rho-dispatcher/README.md). Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/forward_continuation/FORWARD_CONTINUATION.md` (legacy ID R53) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The legacy folder `experiments/residual_progress/continued_rules/` (no note; the nine-family dispatcher and its checker and receipt) and the side-lane probe `reviews/side_lane/batch_r53_check.*` moved here. Legacy status: "written complete phase table, maximal repeated-block interface and infinite decreasing-exit families".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `8764158`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

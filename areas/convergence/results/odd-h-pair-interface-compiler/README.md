@@ -426,7 +426,7 @@ neither those currents nor a universally decreasing recursion on them.
 
 ## Remarks
 
-- **Next target.** The `W`-domain child currents needed by the high-`h` interface and the low-`h` expanding interfaces. The later legacy rounds R40–R46 (`experiments/residual_progress/w9_closure/`, `critical_rank/`, not yet migrated) pursue them.
+- **Next target.** The `W`-domain child currents needed by the high-`h` interface and the low-`h` expanding interfaces. The next rounds pursue them: [`critical-nine-elimination`](../critical-nine-elimination/README.md) (R40) eliminates the `W9` half (its exceptional parameter has ternary unit 2, outside this interface), and [`critical-image-rank-composition`](../critical-image-rank-composition/README.md) (R43) and the rules of R44–R46 ([`returning-forward-interface`](../returning-forward-interface/README.md), [`base-inverse-phases-increasing-pairs`](../base-inverse-phases-increasing-pairs/README.md), [`variable-depth-inverse-escape-barrier`](../variable-depth-inverse-escape-barrier/README.md)) rank and reduce the `W5` requests.
 - **Controls.** Universal `Q` or `P` certificates are Collatz-equivalent; the generic merger statements they replace fail on the `3x+d` control maps ([`critical-tripling-domain-equivalence`](../critical-tripling-domain-equivalence/README.md), Remarks).
 - **Related.** The legacy R24-b audit [`ansari-sieve-step-counterexample`](../ansari-sieve-step-counterexample/README.md) notes that these reductions have their own explicit currents and input dependencies.
 - Novelty undetermined (none claimed).

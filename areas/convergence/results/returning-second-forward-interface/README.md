@@ -1,4 +1,46 @@
-# A second full run before supplying the returning-phase inputs
+---
+id: returning-second-forward-interface
+kind: result
+title: A second complete forward run before requesting inputs on the returning W5 row
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; original rank rho(w) = nu(3w) throughout. On the whole returning row of
+  returning-forward-interface, compose the full returning prefix q -> r, complete normalisation r -> nu(r) and a
+  prescribed next forward block before requesting any absorption: the signed current N_(3w) + G + N_r + D - N_w
+  + H_f - H_nu(w) is accepted when the old-rho endpoint bound B(nu(f)) < rho(w). Quotient clocks add; the
+  intervening signed normaliser is not zero ordinary elapsed time; some previously good tests worsen on this
+  path, so prior accepted rules are kept. The entire first a = 3 failure is exactly complementary canonical r =
+  157 mod 243 (q = (8r-5)/9, w = (16r-1)/27); for next exponents A = 2, 3, 4 the endpoint test is classified
+  completely, including all affine offsets and arbitrarily large next d. For every original a >= 3 and second A
+  >= 2, exact CRT families with sufficiently large odd d fail R44 but pass the new comparison, outside all seven
+  earlier direct domains; no claim about all earlier supplied history follows, and universal coverage is open.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [returning-forward-interface, complementary-run-bridges, critical-image-rank-composition, elementary-bridge-quotient-normal-form]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_returning_continuation.py, returning_continuation.py, returning_continuation_audit.json: the legacy constructor and checker: 910 returning inputs, 768 exact low-exponent cells, 132 long families through a = A = 64 and eight actual conversions; three complete outputs stored. The bounded scan has 184 new acceptances and 23 cases where the alternate path worsens the old test (finite counts). Fails at its new path: returning_continuation.py loads ../returning_phase/, ../complementary_bridge/ and further siblings (now ../returning-forward-interface/, ../complementary-run-bridges/, ...) by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/returning_continuation/check_returning_continuation.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+aliases: [R52]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, returning-row, forward-blocks]
+---
+
+# A second complete forward run before requesting inputs on the returning W5 row
+
+## Statement
+
+Odd-only clock, 1 absorbing; the rank is the original `ρ(w) = ν(3w)` of [`critical-image-rank-composition`](../critical-image-rank-composition/README.md). The domain is the whole returning row of [`returning-forward-interface`](../returning-forward-interface/README.md): `w ∈ W5`, `w ≡ 3 (mod 9)`, `3w = 2^a t − 1` selected, `q = ρ(w) = 2^(a−1)t − 1`, `r = (3^(a−1)t − 1)/2`, `z = ν(w)`.
+
+1. **Interface.** Compose the full returning prefix `q → r`, the complete normalisation `r → ν(r)` and a prescribed next forward block (the run bridge of [`complementary-run-bridges`](../complementary-run-bridges/README.md), endpoint `f`) before requesting any `H`. The current `N_(3w) + G + N_r + D − N_w + H_f − H_ν(w)` has boundary `P(w)` minus its signed requests and is accepted when the endpoint bound `B(ν(f)) < ρ(w)`. Quotient clocks add; the intervening signed normaliser is not zero ordinary elapsed time. Some previously good tests worsen along this path, so earlier accepted rules are kept.
+2. **First failure.** The entire first `a = 3` failure corresponds exactly to complementary canonical `r ≡ 157 (mod 243)`, with `q = (8r − 5)/9`, `w = (16r − 1)/27`.
+3. **Classification.** For next exponents `A = 2, 3, 4` the endpoint test is classified completely, including all affine offsets and arbitrarily large next `d`.
+4. **Families.** For every original `a ≥ 3` and second `A ≥ 2`, exact CRT families with sufficiently large odd `d` fail R44 but pass the new comparison, keeping the full ternary modulus `3^(a+2)` and the exact binary bit `2^(d+1)`. They are outside all seven earlier direct domains.
+
+No claim about all earlier supplied history follows; universal coverage is open.
+
+## Proof
+
+The legacy note "A second full run before supplying the returning-phase inputs" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written conditional current interface, complete arithmetic subdomains,
 and finite certificates.** A first returning run can increase the canonical
@@ -12,7 +54,7 @@ The rank here is precisely R43's rho. No change of induction rank is made.
 The side feed at `8bc27dfeeba7804d57964b68f6149eb1f6f6c247` was read as
 external context; no sampled coverage statement is used in the proof.
 
-## 1. Complete interface on the returning row
+### 1. Complete interface on the returning row
 
 Let `w` belong to R44's entire returning row:
 
@@ -70,7 +112,7 @@ An alternative block can worsen a previously good test. This rule should
 therefore be added after existing accepted rules, not substituted for them.
 Its failures are not impossibility claims and could have other certificates.
 
-## 2. The exact first-failure image at a=3
+### 2. The exact first-failure image at a=3
 
 For a=3, R44 fails its bound test exactly when r is complementary canonical.
 The other endpoint classes pass its proved low-exponent test, whereas a
@@ -94,7 +136,7 @@ odd t, the selected binary phase and `w=3 mod9`. The weaker congruence
 All r in (3) exceed or equal157. For `r=2^A v-1`, `A=2,3,4`, this gives
 the useful uniform lower bound `v>=11`.
 
-## 3. Complete next-run classification for A=2,3,4
+### 3. Complete next-run classification for A=2,3,4
 
 On (3), let d and f be as in (1), and put m=nu(f). The exact test
 `B(f)<q` has the following classification. An endpoint described as selected
@@ -110,7 +152,7 @@ These are complete classifications of the stated endpoint-bound test,
 not classifications of all possible currents. In each row d may be
 arbitrarily large and v ranges over every allowed positive value.
 
-### Proof including intercepts
+#### Proof including intercepts
 
 In terms of v, `q=(2^(A+3)v-13)/9`. Odd-d endpoints scale by 3/4 under
 `d->d+2`. The generic bound `(9f+5)/8` at the worst value d=3 has positive
@@ -158,7 +200,7 @@ order m1,m3,m7 modulo8, are
 
 Their signs at v>=11 prove every row and every failure in the table.
 
-## 4. New full families for every pair of first exponents
+### 4. New full families for every pair of first exponents
 
 For every original `a>=3` and second `A>=2`, there is a complete nonempty
 congruence family in which the first R44 test fails and (2) passes.
@@ -218,7 +260,7 @@ q the exact parameters D=1,j=1: q=4 mod27 and
 This does not assert that none was already certified by supplied history
 or by a different finite comparison.
 
-## 5. Executable scope and checks
+### 5. Executable scope and checks
 
 `returning_continuation.py` exports `continuation_plan`, `recognized`,
 `compile_plan`, and `long_family(a,A,index=0,d=None)`. The constructor
@@ -248,7 +290,21 @@ and deterministic default replay both passed in approximately7.4 seconds
 in this environment. These are finite implementation checks, not estimates
 of asymptotic coverage or evidence that every remaining leaf is supplied.
 
-Dependencies: [first returning run](../returning_phase/RETURNING_FORWARD_INTERFACE.md),
-[complete second run](../complementary_bridge/RUN_BLOCK_BRIDGES.md),
-[elementary quotient](../bridge_normal_form/BRIDGE_NORMAL_FORM.md), and
-[common rank](../critical_rank/CRITICAL_IMAGE_RANK.md).
+Dependencies: [first returning run](../returning-forward-interface/README.md),
+[complete second run](../complementary-run-bridges/README.md),
+[elementary quotient](../elementary-bridge-quotient-normal-form/README.md), and
+[common rank](../critical-image-rank-composition/README.md).
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B11 migration; standard library). The legacy scripts in this folder load their sibling modules by pre-migration folder names, so they no longer run here. This certificate rebuilds the legacy directory layout in a temporary directory from the node folders that now hold those files, runs the unmodified legacy checks there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied receipt unchanged. It writes nothing in the repository. It replays: the legacy checker `check_returning_continuation.py` (about 8 s; the counts of section 5 and three stored outputs, compared with `returning_continuation_audit.json`). The command in the legacy text names `experiments/residual_progress/returning_continuation/`.
+
+## Remarks
+
+- Added after the seven earlier rules in the nine-family dispatcher (`continued_rules.py`, in [`low-block-continuation-prescribed-growth`](../low-block-continuation-prescribed-growth/README.md)). The legacy note read the side-lane feed at `8bc27df` as context only; no sampled coverage figure is a premise.
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/returning_continuation/RETURNING_SECOND_BLOCK.md` (legacy ID R52) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written conditional interface, exact low-exponent classification and complete CRT families".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `8764158`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

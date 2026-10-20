@@ -107,7 +107,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B13-residual-R78-R94 | `reviews/side_lane/c0_basin_classify.*` | 1 | pending |
 | B13-residual-R78-R94 | `reviews/side_lane/c0_basin_receipt.*` | 2 | pending |
 | B09-residual-R11-R24 | `reviews/side_lane/fixed_h_check.*` | 2 | node fixed-ternary-order-unbounded-depth |
-| B11-residual-R40-R60 | `reviews/side_lane/negative_cycle_shadows.*` | 2 | pending |
+| B11-residual-R40-R60 | `reviews/side_lane/negative_cycle_shadows.*` | 2 | node growing-prefix-unhandled-leading-input (evidence: finite enumeration and measurement) |
 | B12-residual-R61-R77 | `reviews/side_lane/rho_prefix_plans.*` | 2 | pending |
 | B06-cycles-S09-S13 | `reviews/side_lane/s10_more_mismatches.*` | 1 | node multi-rotation-four-mismatch-exclusion |
 | B06-cycles-S09-S13 | `reviews/side_lane/s10_multirotation_lp.*` | 2 | node multi-rotation-four-mismatch-exclusion |
@@ -158,16 +158,16 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B09-residual-R11-R24 | `experiments/residual_progress/complement` | 5 | node retained-graph-complement-constructor |
 | B09-residual-R11-R24 | `experiments/residual_progress/complement_recursion` | 5 | node annular-complement-outer-descent |
 | B10-residual-R25-R39 | `experiments/residual_progress/complementary_bridge` | 5 | node complementary-run-bridges |
-| B11-residual-R40-R60 | `experiments/residual_progress/continued_rules` | 3 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/continued_rules` | 3 | node low-block-continuation-prescribed-growth (nine-family dispatcher, no note) |
 | B12-residual-R61-R77 | `experiments/residual_progress/critical_basis` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/critical_inverse` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/critical_rank` | 7 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/cycle_inverse` | 4 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/critical_inverse` | 4 | node decreasing-w5-phase-inverse-barrier |
+| B11-residual-R40-R60 | `experiments/residual_progress/critical_rank` | 7 | node critical-image-rank-composition (rules_union.py attached) |
+| B11-residual-R40-R60 | `experiments/residual_progress/cycle_inverse` | 4 | node maximal-inverse-cycle-continuation |
 | B10-residual-R25-R39 | `experiments/residual_progress/cylinder_barrier` | 4 | node prefix-rule-cylinder-rate-barrier |
 | B13-residual-R78-R94 | `experiments/residual_progress/deeper_window` | 9 | pending |
 | B12-residual-R61-R77 | `experiments/residual_progress/defect_normal_form` | 4 | pending |
 | B12-residual-R61-R77 | `experiments/residual_progress/defect_resolution` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/deferred_rank` | 4 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/deferred_rank` | 4 | node deferred-original-rank-testing |
 | B10-residual-R25-R39 | `experiments/residual_progress/pair_domain_external_review.json` | 1 | node tripling-doubling-pair-decomposition |
 | B09-residual-R11-R24 | `experiments/residual_progress/side_lane_review.json` | 1 | node release-source-packing |
 | B12-residual-R61-R77 | `experiments/residual_progress/side_lane_review_13590c1.json` | 1 | pending |
@@ -178,20 +178,20 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B09-residual-R11-R24 | `experiments/residual_progress/side_lane_review_20261017_latest.md` | 1 | node outer-residual-strong-induction-support |
 | B12-residual-R61-R77 | `experiments/residual_progress/side_lane_review_33c3829.json` | 1 | pending |
 | B12-residual-R61-R77 | `experiments/residual_progress/side_lane_review_33c3829.md` | 1 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_3d69784.json` | 1 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_64a5981.json` | 1 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_64a5981.md` | 1 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_3d69784.json` | 1 | node critical-image-rank-composition (evidence: main-lane reproduction of batch_r43_r46_check) |
+| B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_64a5981.json` | 1 | node maximal-inverse-cycle-continuation (evidence; also covers R81/R83/R86 probes) |
+| B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_64a5981.md` | 1 | node maximal-inverse-cycle-continuation (evidence; also covers R81/R83/R86 probes) |
 | B12-residual-R61-R77 | `experiments/residual_progress/side_lane_review_678e565.json` | 1 | pending |
 | B12-residual-R61-R77 | `experiments/residual_progress/side_lane_review_678e565.md` | 1 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_767af32.md` | 1 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_767af32.md` | 1 | node two-selected-inverse-choices (main-lane direction note; links repointed) |
 | B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_86ead16.json` | 1 | pending |
 | B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_86ead16.md` | 1 | pending |
 | B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_8ed32bc.json` | 1 | pending |
 | B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_8ed32bc.md` | 1 | pending |
 | B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_9849c53.md` | 1 | pending |
 | B13-residual-R78-R94 | `experiments/residual_progress/side_lane_review_b9203ff.md` | 1 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_bae3969.md` | 1 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_c2319c9.json` | 1 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_bae3969.md` | 1 | node negative-cycle-backward-word (its reviewed_by: main-lane review of the side-lane backward word) |
+| B11-residual-R40-R60 | `experiments/residual_progress/side_lane_review_c2319c9.json` | 1 | node rank-excess-absorption-classification (evidence: main-lane reproduction of r58_excess_check) |
 | B12-residual-R61-R77 | `experiments/residual_progress/side_lane_review_cbe77bc.json` | 1 | pending |
 | B12-residual-R61-R77 | `experiments/residual_progress/side_lane_review_cbe77bc.md` | 1 | pending |
 | B12-residual-R61-R77 | `experiments/residual_progress/side_lane_review_d3a91fe.md` | 1 | pending |
@@ -201,11 +201,11 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B10-residual-R25-R39 | `reviews/side_lane/batch_64fff1d_check.*` | 2 | node shrinking-paired-return-recursion |
 | B09-residual-R11-R24 | `reviews/side_lane/batch_r15_r18_r21_r29_check.*` | 2 | node auxiliary-normalisation-remainder |
 | B10-residual-R25-R39 | `reviews/side_lane/batch_r33_r36_check.*` | 2 | node mixed-shrinking-pair-rules |
-| B11-residual-R40-R60 | `reviews/side_lane/batch_r40_r41_check.*` | 2 | pending |
-| B11-residual-R40-R60 | `reviews/side_lane/batch_r43_r46_check.*` | 2 | pending |
-| B11-residual-R40-R60 | `reviews/side_lane/batch_r51_r54_check.*` | 2 | pending |
-| B11-residual-R40-R60 | `reviews/side_lane/batch_r53_check.*` | 2 | pending |
-| B11-residual-R40-R60 | `reviews/side_lane/batch_r57_check.*` | 2 | pending |
+| B11-residual-R40-R60 | `reviews/side_lane/batch_r40_r41_check.*` | 2 | node critical-nine-elimination (reviewed_by there, in decreasing-w5-phase-inverse-barrier and critical-tripling-domain-equivalence) |
+| B11-residual-R40-R60 | `reviews/side_lane/batch_r43_r46_check.*` | 2 | node critical-image-rank-composition (reviewed_by in variable-depth-inverse-escape-barrier, returning-forward-interface, base-inverse-phases-increasing-pairs) |
+| B11-residual-R40-R60 | `reviews/side_lane/batch_r51_r54_check.*` | 2 | node sigma-rank-removes-absorption-overhead (reviewed_by there and in growing-prefix-unhandled-leading-input) |
+| B11-residual-R40-R60 | `reviews/side_lane/batch_r53_check.*` | 2 | node low-block-continuation-prescribed-growth (reviewed_by) |
+| B11-residual-R40-R60 | `reviews/side_lane/batch_r57_check.*` | 2 | node guarded-cycle-exit-phases (reviewed_by) |
 | B12-residual-R61-R77 | `reviews/side_lane/batch_r61_r67_check.*` | 2 | pending |
 | B12-residual-R61-R77 | `reviews/side_lane/batch_r68_r70_check.*` | 2 | pending |
 | B12-residual-R61-R77 | `reviews/side_lane/batch_r73_r74_check.*` | 2 | pending |
@@ -214,11 +214,11 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B13-residual-R78-R94 | `reviews/side_lane/batch_r81_r83_check.*` | 2 | pending |
 | B13-residual-R78-R94 | `reviews/side_lane/batch_r84_r85_check.*` | 2 | pending |
 | B09-residual-R11-R24 | `reviews/side_lane/r24_check.*` | 2 | node five-ray-profile-completion-suffices |
-| B11-residual-R40-R60 | `reviews/side_lane/r42_joint_frontier_check.*` | 2 | pending |
-| B11-residual-R40-R60 | `reviews/side_lane/r49_ancestor_free.*` | 2 | pending |
-| B11-residual-R40-R60 | `reviews/side_lane/r56_selected_inverse_check.*` | 2 | pending |
-| B11-residual-R40-R60 | `reviews/side_lane/r58_excess_check.*` | 2 | pending |
-| B11-residual-R40-R60 | `reviews/side_lane/r60_cycle_inverse_check.*` | 2 | pending |
+| B11-residual-R40-R60 | `reviews/side_lane/r42_joint_frontier_check.*` | 2 | node joint-source-unbounded-frontier (reviewed_by; certificate) |
+| B11-residual-R40-R60 | `reviews/side_lane/r49_ancestor_free.*` | 2 | node inverse-only-exclusions-short-forward (reviewed_by; census as evidence) |
+| B11-residual-R40-R60 | `reviews/side_lane/r56_selected_inverse_check.*` | 2 | node two-selected-inverse-choices (reviewed_by) |
+| B11-residual-R40-R60 | `reviews/side_lane/r58_excess_check.*` | 2 | node rank-excess-absorption-classification (reviewed_by) |
+| B11-residual-R40-R60 | `reviews/side_lane/r60_cycle_inverse_check.*` | 2 | node maximal-inverse-cycle-continuation (reviewed_by) |
 | B12-residual-R61-R77 | `reviews/side_lane/r62_compatibility_check.*` | 2 | pending |
 | B12-residual-R61-R77 | `reviews/side_lane/r64_lifted_cycle_check.*` | 2 | pending |
 | B12-residual-R61-R77 | `reviews/side_lane/r71_mechanical_check.*` | 2 | pending |
@@ -236,15 +236,15 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B09-residual-R11-R24 | `reviews/side_lane/residual_cylinder_core.*` | 2 | node cylinder-certificates-outer-residual |
 | B09-residual-R11-R24 | `reviews/side_lane/residual_vs_induction.*` | 2 | node outer-residual-strong-induction-support |
 | B10-residual-R25-R39 | `reviews/side_lane/run_bridge_check.*` | 2 | node complementary-run-bridges |
-| B11-residual-R40-R60 | `experiments/residual_progress/double_inverse` | 9 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/double_inverse` | 9 | node two-inverse-phases-intermediate-increase (expanded_union.py attached) |
 | B09-residual-R11-R24 | `experiments/residual_progress/duality` | 4 | node finite-rational-cone-integer-certificate |
 | B13-residual-R78-R94 | `experiments/residual_progress/even_exit_history` | 4 | pending |
 | B10-residual-R25-R39 | `experiments/residual_progress/even_pair_closure` | 6 | node coupled-even-pair-recursion |
-| B11-residual-R40-R60 | `experiments/residual_progress/exact_absorption_bound` | 4 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/exact_absorption_bound` | 4 | node rank-excess-absorption-classification |
 | B12-residual-R61-R77 | `experiments/residual_progress/exit_continuation` | 4 | pending |
 | B12-residual-R61-R77 | `experiments/residual_progress/finite_centres` | 4 | pending |
 | B09-residual-R11-R24 | `experiments/residual_progress/forcing` | 4 | node actual-graph-current-compiler |
-| B11-residual-R40-R60 | `experiments/residual_progress/forward_continuation` | 6 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/forward_continuation` | 6 | node low-block-continuation-prescribed-growth |
 | B12-residual-R61-R77 | `experiments/residual_progress/frontier_progress` | 4 | pending |
 | B13-residual-R78-R94 | `experiments/residual_progress/history_cell_scope` | 4 | pending |
 | B13-residual-R78-R94 | `experiments/residual_progress/history_cover_scope` | 4 | pending |
@@ -253,10 +253,10 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B13-residual-R78-R94 | `experiments/residual_progress/history_transition` | 4 | pending |
 | B12-residual-R61-R77 | `experiments/residual_progress/integer_prefix` | 4 | pending |
 | B10-residual-R25-R39 | `experiments/residual_progress/inverse_ancestry` | 6 | node decreasing-inverse-ancestry |
-| B11-residual-R40-R60 | `experiments/residual_progress/inverse_escape` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/inverse_scope` | 5 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/inverse_escape` | 4 | node variable-depth-inverse-escape-barrier |
+| B11-residual-R40-R60 | `experiments/residual_progress/inverse_scope` | 5 | node inverse-only-exclusions-short-forward |
 | B12-residual-R61-R77 | `experiments/residual_progress/itinerary_complexity` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/joint_frontier` | 6 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/joint_frontier` | 6 | node joint-source-unbounded-frontier |
 | B10-residual-R25-R39 | `experiments/residual_progress/known_saturation` | 5 | node supplied-path-saturation-core |
 | B13-residual-R78-R94 | `experiments/residual_progress/later_target_probe` | 3 | pending |
 | B12-residual-R61-R77 | `experiments/residual_progress/lattice_cycles` | 4 | pending |
@@ -268,17 +268,17 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B13-residual-R78-R94 | `experiments/residual_progress/native_history` | 5 | pending |
 | B13-residual-R78-R94 | `experiments/residual_progress/native_nine` | 4 | pending |
 | B13-residual-R78-R94 | `experiments/residual_progress/native_nine_growth` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/nonselected_forward` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/nonselected_inverse` | 6 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/nonselected_multiples` | 6 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/nonselected_forward` | 4 | node forward-blocks-low-exponent-tests |
+| B11-residual-R40-R60 | `experiments/residual_progress/nonselected_inverse` | 6 | node base-inverse-phases-increasing-pairs |
+| B11-residual-R40-R60 | `experiments/residual_progress/nonselected_multiples` | 6 | node nonselected-multiples-inverse-interface |
 | B10-residual-R25-R39 | `experiments/residual_progress/odd_pair_closure` | 6 | node odd-h-pair-interface-compiler |
 | B10-residual-R25-R39 | `experiments/residual_progress/pair_one` | 5 | node missing-one-mod-8-pair-domain |
 | B10-residual-R25-R39 | `experiments/residual_progress/pair_scope` | 4 | node tripling-doubling-pair-decomposition |
 | B10-residual-R25-R39 | `experiments/residual_progress/paired_completion` | 5 | node mixed-shrinking-pair-rules |
 | B09-residual-R11-R24 | `experiments/residual_progress/phase_depth` | 3 | node fixed-ternary-order-unbounded-depth |
-| B11-residual-R40-R60 | `experiments/residual_progress/phase_rank` | 5 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/phase_rank` | 5 | node sigma-rank-removes-absorption-overhead |
 | B13-residual-R78-R94 | `experiments/residual_progress/phi_exit_control` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/rank_mixing` | 3 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/rank_mixing` | 3 | node rho-sigma-rank-mixing (attempt) |
 | B12-residual-R61-R77 | `experiments/residual_progress/refined_obstruction` | 5 | pending |
 | B12-residual-R61-R77 | `experiments/residual_progress/refined_rules` | 4 | pending |
 | B09-residual-R11-R24 | `experiments/residual_progress/release` | 3 | node delayed-release-cancellation |
@@ -287,14 +287,14 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B09-residual-R11-R24 | `experiments/residual_progress/residual_return` | 5 | node halving-coalescence-return |
 | B12-residual-R61-R77 | `experiments/residual_progress/resolved_rules` | 4 | pending |
 | B13-residual-R78-R94 | `experiments/residual_progress/retained_history` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/returning_continuation` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/returning_phase` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/rule_avoidance` | 4 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/returning_continuation` | 4 | node returning-second-forward-interface |
+| B11-residual-R40-R60 | `experiments/residual_progress/returning_phase` | 4 | node returning-forward-interface |
+| B11-residual-R40-R60 | `experiments/residual_progress/rule_avoidance` | 4 | node growing-prefix-unhandled-leading-input |
 | B10-residual-R25-R39 | `experiments/residual_progress/second_return` | 5 | node shrinking-paired-return-recursion |
-| B11-residual-R40-R60 | `experiments/residual_progress/selected_cycle_exit` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/selected_forward` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/selected_inverse` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/selected_rules` | 4 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/selected_cycle_exit` | 4 | node guarded-cycle-exit-phases |
+| B11-residual-R40-R60 | `experiments/residual_progress/selected_forward` | 4 | node selected-critical-five-forward-tables |
+| B11-residual-R40-R60 | `experiments/residual_progress/selected_inverse` | 4 | node two-selected-inverse-choices |
+| B11-residual-R40-R60 | `experiments/residual_progress/selected_rules` | 4 | node twelve-family-rho-dispatcher (own node, alias R57-b) |
 | B13-residual-R78-R94 | `experiments/residual_progress/shadow_precision` | 5 | pending |
 | B09-residual-R11-R24 | `experiments/residual_progress/sufficient_sets` | 3 | node five-ray-profile-completion-suffices, ansari-sieve-step-counterexample |
 | B09-residual-R11-R24 | `experiments/residual_progress/templates` | 11 | node unbounded-exposure-depth-necessary, depth-32-aggregate-exposure-obstruction, depth-32-obstruction-infinite-family |
@@ -302,7 +302,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B10-residual-R25-R39 | `experiments/residual_progress/tripling_equivalence` | 4 | node critical-tripling-domain-equivalence |
 | B13-residual-R78-R94 | `experiments/residual_progress/two_source_history` | 4 | pending |
 | B12-residual-R61-R77 | `experiments/residual_progress/uniform_pair_scope` | 4 | pending |
-| B11-residual-R40-R60 | `experiments/residual_progress/w9_closure` | 6 | pending |
+| B11-residual-R40-R60 | `experiments/residual_progress/w9_closure` | 6 | node critical-nine-elimination; its open premise became question universal-w5-tripling-currents |
 | B13-residual-R78-R94 | `experiments/residual_progress/w9_history_repair` | 4 | pending |
 | B09-residual-R11-R24 | `experiments/residual_progress/window_components` | 3 | node bounded-source-cluster-local-bound |
 | B14-convergence-phase6 | `experiments/phase6/LEDGER.md` | 1 | pending |
@@ -372,7 +372,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B17-leftovers | `experiments/README.md` | 1 | pending |
 | B17-leftovers | `reviews/README.md` | 1 | pending |
 | B17-leftovers | `reviews/side_lane/README.*` | 1 | pending |
-| B11-residual-R40-R60 | `reviews/side_lane/backward_word_rule.*` | 2 | pending |
+| B11-residual-R40-R60 | `reviews/side_lane/backward_word_rule.*` | 2 | node negative-cycle-backward-word (new side-lane node) |
 | B09-residual-R11-R24 | `reviews/side_lane/chain_cancellation_scan.*` | 2 | node delayed-release-cancellation |
 | B12-residual-R61-R77 | `reviews/side_lane/closure_frontier_meter.*` | 2 | pending |
 | B09-residual-R11-R24 | `reviews/side_lane/coalescence_check.*` | 2 | node halving-coalescence-return |
@@ -380,7 +380,7 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B09-residual-R11-R24 | `reviews/side_lane/delayed_release_check.*` | 2 | node delayed-release-cancellation |
 | B09-residual-R11-R24 | `reviews/side_lane/depth_probe.*` | 2 | node unbounded-exposure-depth-necessary |
 | B09-residual-R11-R24 | `reviews/side_lane/excursion_merge_probe.*` | 2 | node cylinder-certificates-outer-residual |
-| B11-residual-R40-R60 | `reviews/side_lane/expanded_union_meter.*` | 2 | pending |
+| B11-residual-R40-R60 | `reviews/side_lane/expanded_union_meter.*` | 2 | node two-inverse-phases-intermediate-increase (evidence: measurement) |
 | B10-residual-R25-R39 | `reviews/side_lane/fibre_count_check.*` | 2 | node absorbed-fibre-uniform-counts |
 | B12-residual-R61-R77 | `reviews/side_lane/itinerary_complexity_general.*` | 2 | pending |
 | B17-leftovers | `reviews/side_lane/jterm_gap_check.*` | 2 | pending |
@@ -388,11 +388,11 @@ Batches run in order, one commit each. The batch letter in the first column says
 | B09-residual-R11-R24 | `reviews/side_lane/q1_giant_component.*` | 2 | node exposure-absorption-giant-component |
 | B09-residual-R11-R24 | `reviews/side_lane/q2_end_depth.*` | 2 | node unbounded-exposure-depth-necessary |
 | B10-residual-R25-R39 | `reviews/side_lane/quotient_iteration_probe.*` | 2 | node complementary-run-bridges |
-| B11-residual-R40-R60 | `reviews/side_lane/selected_rules_meter.*` | 2 | pending |
-| B11-residual-R40-R60 | `reviews/side_lane/sigma_stopping_plans.*` | 2 | pending |
+| B11-residual-R40-R60 | `reviews/side_lane/selected_rules_meter.*` | 2 | node twelve-family-rho-dispatcher (evidence: nondeterministic measurement) |
+| B11-residual-R40-R60 | `reviews/side_lane/sigma_stopping_plans.*` | 2 | node sigma-rank-removes-absorption-overhead (evidence: finding with validated sampled plans) |
 | B09-residual-R11-R24 | `reviews/side_lane/slow_cluster_probe.*` | 2 | node exposure-absorption-giant-component |
-| B11-residual-R40-R60 | `reviews/side_lane/union_acceptance_meter.*` | 2 | pending |
-| B11-residual-R40-R60 | `reviews/side_lane/union_gap_map.*` | 2 | pending |
+| B11-residual-R40-R60 | `reviews/side_lane/union_acceptance_meter.*` | 2 | node critical-image-rank-composition (evidence: measurement) |
+| B11-residual-R40-R60 | `reviews/side_lane/union_gap_map.*` | 2 | node critical-image-rank-composition (evidence: measurement) |
 | B17-leftovers | `scripts/check_lean_receipts.py` | 1 | pending |
 | B17-leftovers | `scripts/check_links.py` | 1 | pending |
 | B17-leftovers | `scripts/run_checks.py` | 1 | pending |

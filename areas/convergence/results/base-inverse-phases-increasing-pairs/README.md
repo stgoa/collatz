@@ -1,4 +1,51 @@
-# Complete base inverse phases on the nonselected critical-five domain
+---
+id: base-inverse-phases-increasing-pairs
+kind: result
+title: "The two base inverse rays on the nonselected critical-five domain decrease rank on two ternary phases, with increasing pair indices allowed"
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). For w in B = {w = 5 mod 8, 3w not selected} and k in {4,
+  8} put h = v3(kw+1), C = (kw+1)/3^h, p = 2^(h+1) C - 1; the base inverse bridge uses h valuation-1 arrows and
+  the quotient bridge from 2kw+1 to 3w, and p is complementary canonical for h > 0. The rank decreases exactly
+  when h >= 3 (k = 4) or h >= 5 (k = 8), so the whole accepted domain is G = {w in B : w = 20 mod 27 or w = 91
+  mod 243}; its leading child has rank p and every auxiliary request has smaller rank, so universal currents on
+  W5 minus G are equivalent to Collatz. The pair-index-decreasing subset is 17 classes mod 729 inside G (e.g. w
+  = 1613 requests 2549 yet rank drops 4839 -> 3823). For the other positive-h cases of these two base rays: h =
+  1, p = 0 mod 3 gives the literal zero-current request {w: 1}; every other failure retains a unique
+  largest-rank W5 child with coefficient +1. Other ray indices, words or forward comparisons are not excluded.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [critical-image-rank-composition, critical-nine-elimination, decreasing-w5-phase-inverse-barrier, elementary-bridge-quotient-normal-form]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_inverse_phases.py, inverse_phases.py, nonselected_inverse_audit.json, w1613_inputs.json, w1613_current.csv: the legacy constructor (exact parameters, bridge rows, conditional pair plans, phase test) and checker: 4096 nonselected inputs, 2731 positive-h plans, 288 exact parameter examples through h = 24, 911 self-returns and four actual substitutions; the w = 1613 inputs and current are stored. Fails at its new path: inverse_phases.py loads ../critical_rank/rank_closure.py (now ../critical-image-rank-composition/) by its pre-migration folder name. Passed at be73a66 as experiments/residual_progress/nonselected_inverse/check_inverse_phases.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+  - "The side-lane probe touching this node is ../critical-image-rank-composition/batch_r43_r46_check.py (recorded under reviewed_by)."
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: ../critical-image-rank-composition/batch_r43_r46_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 22:16, VERIFIED, main a06ef3c), with the lane's own nu and Syracuse step. Only the rank value rho(1613) = 4839 was checked. The entry says: The R43 composition theorem and the R44/R45 accepted-domain classifications were not rebuilt here. The status stays written"
+aliases: [R45]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, inverse-rays, sufficient-set]
+---
+
+# The two base inverse rays on the nonselected critical-five domain decrease rank on two ternary phases, with increasing pair indices allowed
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ρ(w) = ν(3w)`; `B = {w ∈ W5 : 3w not selected}`, so `q = 3w` is complementary canonical. For `k ∈ {4, 8}`: `b = 2kw + 1`, `h = v3(kw+1)`, `C = (kw+1)/3^h`, `p = 2^(h+1)C − 1`; `S^h(p) = b` with word `1^h` and `T^(h+1)(p) = q` (quotient steps).
+
+1. **Exact rank test.** For `h > 0`, `p` is complementary canonical with critical child `v`, and `ρ(v) = p < q` exactly when `h ≥ 3` (`k = 4`) or `h ≥ 5` (`k = 8`), with no small exceptions. The whole accepted domain is `G = {w ∈ B : w ≡ 20 (mod 27) or w ≡ 91 (mod 243)}`.
+2. **Constructor.** On `G` the current `A − N_(3v) − N_w` has boundary `P(w) − P(v) − [v] + [ν(w)]`; with the `W9` elimination and the absorption plans every request has rank below `ρ(w)`. Universal currents on `W5 ∖ G` are therefore equivalent to Collatz ([`critical-image-rank-composition`](../critical-image-rank-composition/README.md)).
+3. **Index versus rank.** The pair-index-decreasing subset is exactly 17 classes modulo 729, inside `G`; the rank-decreasing phase has 30. Example: `w = 1613` requests `v = 2549` yet `ρ` drops from 4839 to 3823.
+4. **Failures of these two rays.** `h = 1`, `p ≡ 0 (mod 3)` returns the literal request `{w: 1}` with zero current for both rays; every other failed positive-`h` case retains a unique largest-rank `W5` child with coefficient `+1`.
+
+Other ray indices, longer mixed inverse words, forward excursions or other signed currents are not excluded. Universal supply outside `G` is open.
+
+## Proof
+
+The legacy note "Complete base inverse phases on the nonselected critical-five domain" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written identities, an exact complete phase classification, and a
 conditional decreasing constructor.** Two complete ternary phases can
@@ -9,13 +56,13 @@ Collatz or exclude other inverse branches when this particular rule fails.
 
 Use positive odd integers, odd-only Syracuse S with1 absorbing, killed atoms
 [1]=0, F(x)=4x+1, P(w)=[3w]-[w], and div=I-S_*. The elementary minimum nu,
-canonical set, and selected-halving identities are [R25](../bridge_normal_form/BRIDGE_NORMAL_FORM.md).
-The complete W9 elimination is [R40](../w9_closure/CRITICAL_NINE_ELIMINATION.md).
+canonical set, and selected-halving identities are [R25](../elementary-bridge-quotient-normal-form/README.md).
+The complete W9 elimination is [R40](../critical-nine-elimination/README.md).
 The absorption plan H_s with only W5 inputs strictly below s is
-[R41](../critical_inverse/CRITICAL_INVERSE.md). These are formal plans until
+[R41](../decreasing-w5-phase-inverse-barrier/README.md). These are formal plans until
 their exact signed input currents are supplied.
 
-## 1. Domain and the two base inverse branches
+### 1. Domain and the two base inverse branches
 
 Consider the whole domain
 
@@ -58,7 +105,7 @@ one from q. For k4 let a=v2(q+1)>=3. The selected-halving bridge for2q+1
 gives coalescence after h+a+2 arrows from p and a+1 from q. These statements
 retain the two clocks; neither is silently replaced by the quotient clock.
 
-## 2. Exact rank decrease, including increasing pair indices
+### 2. Exact rank decrease, including increasing pair indices
 
 Define the positive integer rank rho(w)=nu(3w), as in the R37 critical
 bijection. On B, rho(w)=3w=q; on its critical child, rho(v)=p.
@@ -102,7 +149,7 @@ that p<w. For example the k4,p0,h3 case has p approximately64w/27>w but
 v approximately64w/81<w. Replacing v's bound with a bound on p would discard
 a legitimate decreasing branch.
 
-## 3. Exact conditional current and all input-rank bounds
+### 3. Exact conditional current and all input-rank bounds
 
 Let N_y be the elementary current with div N_y=[y]-[nu(y)]. Let A be the
 negative p-to-b prefix current followed by the negative bridge in (2), so
@@ -132,7 +179,7 @@ Since v<=(2p+1)/3, every input from H_v consequently satisfies
 where p>=7. Also z=nu(w)<w/4, so every H_z input has rank below q=3w.
 Thus every missing input in (7) has rank below rho(w), with all signs and
 multiplicities retained. The general interface and composition theorem are
-in the [critical-image rank proof](../critical_rank/CRITICAL_IMAGE_RANK.md).
+in the [critical-image rank proof](../critical-image-rank-composition/README.md).
 
 The entire rank-decreasing domain is exactly
 
@@ -145,7 +192,7 @@ induction on rho(w) constructs omitted inputs with (7), then R40 and R37
 apply. This reduces the missing premise; it does not supply the remaining
 currents. Combining G with other rules requires checking the same rank.
 
-### The narrower pair-index-decreasing subdomain
+#### The narrower pair-index-decreasing subdomain
 
 The pair-index-decreasing subdomain has a finite ternary description. Within B,
 the k4 rows are equivalent to
@@ -169,7 +216,7 @@ have increasing pair indices and cannot be justified by induction on w.
 The R43 finite compiler composes the rules only after verifying their
 common rho rank; no missing leaf is treated as an existing current.
 
-## 4. Complete failure classification for the other positive-h cases
+### 4. Complete failure classification for the other positive-h cases
 
 If h>=1 and the child v lies in W5 but the rank does not decrease, then
 rho(v)=p>q. Its supplied-input coefficient is exactly+1 and cannot cancel:
@@ -214,7 +261,7 @@ in the h1,p0 row, and an uncancelled larger W5 input in every other
 positive-h row. Nothing here rules out a different ray, a longer mixed
 inverse word, a forward excursion, or another signed current identity.
 
-## 5. Implementation and verification
+### 5. Implementation and verification
 
 [inverse_phases.py](inverse_phases.py) returns exact parameters, bridge rows,
 conditional pair plans, and the complete rank-decreasing phase test. It
@@ -232,3 +279,17 @@ substitutions and stored fixture hashes. The finite checks audit these
 implementations; the written arguments establish the quantified phase and
 induction statements. No universal certificate, novelty claim or formal
 verification is supplied.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B11 migration; standard library). The legacy scripts in this folder load their sibling modules by pre-migration folder names, so they no longer run here. This certificate rebuilds the legacy directory layout in a temporary directory from the node folders that now hold those files, runs the unmodified legacy checks there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied receipt unchanged. It writes nothing in the repository. It replays: the legacy checker `check_inverse_phases.py` (about 4 s; the counts of section 5 and the stored `w = 1613` fixture, compared with `nonselected_inverse_audit.json`). The command in the legacy text names `experiments/residual_progress/nonselected_inverse/`.
+
+## Remarks
+
+- The multiples-of-three part of `B`, where neither base ray has a valuation-1 continuation, is [`nonselected-multiples-inverse-interface`](../nonselected-multiples-inverse-interface/README.md); a second inverse phase after this one is [`two-inverse-phases-intermediate-increase`](../two-inverse-phases-intermediate-increase/README.md).
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/nonselected_inverse/NONSELECTED_INVERSE_PHASES.md` (legacy ID R45) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written classification of both specified base rays and strict-rank sufficient-set reduction".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `a06ef3c`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

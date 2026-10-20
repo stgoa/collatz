@@ -1,4 +1,47 @@
-# R47: complete two-block interface for nonselected multiples of three
+---
+id: nonselected-multiples-inverse-interface
+kind: result
+title: A complete two-block inverse interface for nonselected multiples of three in W5
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). For w = 5 mod 8 with 3 | w and 3w nonselected, put D =
+  v3(w), u = w/3^D; for k in {4, 8} the base predecessor b = 2kw+1 has maximal inverse blocks of lengths D and j
+  = v3(k 4^D u + 1), giving p = 2^(j+1)(k 4^D u + 1)/3^j - 1 and ordinary word 1^j, 2^D from p to b, then the
+  quotient bridge to 3w; exactly one k has j > 0. The endpoint decreases iff k 2^(2D+j+1) < 3^(D+j+1), which
+  forces j >= 4 and a W5 critical child, and the R43 bounds put every auxiliary input below the parent rank.
+  Every failed branch is classified after full formal substitution: j = 0 gives zero current and the sole
+  request w; a failed positive-j W5 child has the unique largest rank; j = 1, p = 0 mod 3 has a W9 return with
+  exact formal defect P(w) + H_C - e_C - H_(S(C)), C = (k 4^D u + 1)/3, whose parent or leading child is
+  uniquely largest according as C < 3w or C > 3w. Both terminal ternary phases have full CRT families at every D
+  (j = 2D+6 suffices); the accepted domain is outside the earlier four direct rule domains. Higher inverse rays
+  and other inverse words are outside this classification; remaining inputs are not supplied.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [base-inverse-phases-increasing-pairs, variable-depth-inverse-escape-barrier, critical-image-rank-composition, critical-nine-elimination, elementary-bridge-quotient-normal-form]
+certificates: [check_legacy_replay.py]
+evidence:
+  - "check_multiple_escape.py, multiple_escape.py, nonselected_multiples_audit.json, w16653_inputs.json, w16653_current.csv: the legacy constructor and checker: 682 inputs, 1364 plans, 240 CRT cases, 24 farther families and four actual substitutions; the stored w = 16653 example requests 31189 while rank falls 49959 -> 46783. Fails at its new path: multiple_escape.py loads ../nonselected_inverse/inverse_phases.py and ../inverse_escape/inverse_escape.py (now ../base-inverse-phases-increasing-pairs/ and ../variable-depth-inverse-escape-barrier/) by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/nonselected_multiples/check_multiple_escape.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+aliases: [R47]
+tags: [convergence, outer-residual, tripling-pairs, critical-rank, inverse-rays, sufficient-set]
+---
+
+# A complete two-block inverse interface for nonselected multiples of three in W5
+
+## Statement
+
+Odd-only clock, 1 absorbing; `ρ(w) = ν(3w)`. Domain: `w ≡ 5 (mod 8)`, `3 | w`, `3w` nonselected, so `q = 3w = ρ(w)`. Write `D = v3(w) ≥ 1`, `u = w/3^D`.
+
+1. **Interface.** For `k ∈ {4, 8}` the base predecessor `b = 2kw + 1` has maximal inverse blocks of lengths `D` and `j = v3(k·4^D·u + 1)`, giving `p = 2^(j+1)(k·4^D·u + 1)/3^j − 1` and the ordinary word `1^j, 2^D` from `p` to `b`; the final quotient bridge reaches `3w`. Exactly one `k` has `j > 0`.
+2. **Exact test.** `p < 3w` iff `k·2^(2D+j+1) < 3^(D+j+1)`; this forces `j ≥ 4` and a `W5` critical child, and the bounds of [`critical-image-rank-composition`](../critical-image-rank-composition/README.md) put every auxiliary input below the parent rank.
+3. **Failures.** At `j = 0` the current is zero and the sole request is `w`. A failed positive-`j` `W5` child has the unique largest rank. The `j = 1`, `p ≡ 0 (mod 3)` row has a `W9` return with exact formal defect `P(w) + H_C − e_C − H_(S(C))`, `C = (k·4^D·u + 1)/3`; the parent or the defect's leading child is uniquely largest according as `C < 3w` or `C > 3w`. No descent is hidden by cancellation.
+4. **Families.** Both terminal ternary phases have full CRT families at every `D` (`j = 2D + 6` is an explicit sufficient choice); the whole accepted domain is outside the earlier four direct rule domains.
+
+Higher inverse rays and other inverse words are outside this classification. The remaining inputs are not supplied.
+
+## Proof
+
+The legacy note "R47: complete two-block interface for nonselected multiples of three" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 **Status: written proof, exact conditional constructor, and bounded independent
 integer checks.** This removes a new, infinite arithmetic subdomain of the
@@ -6,11 +49,11 @@ remaining W5 requests. It does not supply the remaining requests or prove
 Collatz. The two base rays and the specified maximal blocks are exhausted;
 higher inverse rays and other inverse words are outside this classification.
 
-Dependencies are [R25 normal form](../bridge_normal_form/BRIDGE_NORMAL_FORM.md),
-[R40 W9 elimination](../w9_closure/CRITICAL_NINE_ELIMINATION.md),
-[R43 critical-image rank](../critical_rank/CRITICAL_IMAGE_RANK.md),
-[R45 base rays](../nonselected_inverse/NONSELECTED_INVERSE_PHASES.md), and
-[R46 inverse blocks](../inverse_escape/INVERSE_ESCAPE.md).
+Dependencies are [R25 normal form](../elementary-bridge-quotient-normal-form/README.md),
+[R40 W9 elimination](../critical-nine-elimination/README.md),
+[R43 critical-image rank](../critical-image-rank-composition/README.md),
+[R45 base rays](../base-inverse-phases-increasing-pairs/README.md), and
+[R46 inverse blocks](../variable-depth-inverse-escape-barrier/README.md).
 All actual currents use the odd-only Syracuse map S, with 1 absorbed.
 Write [x] for the atom at x, e_x for its outgoing current row, N_x for the
 elementary current with boundary [x]−[ν(x)], and P(w)=[3w]−[w].
@@ -18,7 +61,7 @@ A formal H_x has boundary [x] minus its explicitly retained W5 pair requests.
 The formal H used below is exactly the deterministic R43 absorption plan,
 including complete R40 substitution. It is not an assumed absorption current.
 
-## 1. Entire domain and both inverse branches
+### 1. Entire domain and both inverse branches
 
 Let w be any positive integer satisfying
 
@@ -61,7 +104,7 @@ they coalesce after D+j+a+2 and a+1 arrows respectively. These follow from
 b→F(q) and b→2q+1 respectively, followed by the elementary sibling bridge.
 No equality of these two clocks is asserted.
 
-## 2. Exact rank test, with no small endpoint exceptions
+### 2. Exact rank test, with no small endpoint exceptions
 
 The whole arithmetic descent criterion is
 
@@ -87,7 +130,7 @@ It belongs to W9 precisely when j1 and p0mod3; otherwise it belongs to W5.
 All cases satisfying (3) have j>=4, hence v∈W5 and ρ(v)=p<ρ(w).
 The index v itself need not decrease.
 
-## 3. Exact signed plan in the decreasing domain
+### 3. Exact signed plan in the decreasing domain
 
 Let B be the negative prefix current from p to b, followed by the negative
 elementary quotient bridge from b to q. Thus
@@ -132,13 +175,13 @@ The local current and supplied finite input fixtures are persisted. They
 certify this particular pair; their absorption discovery is capped and is
 not used to justify (1)–(8).
 
-## 4. Exhaustive failure classification for this interface
+### 4. Exhaustive failure classification for this interface
 
 Here “failure” means that the **full formal plan (8)** has a nondecreasing
 rank request after exact signed cancellation. It does not prohibit another
 inverse word, another representation of H, or later coupled cancellation.
 
-### 4.1. j0: literal self-return
+#### 4.1. j0: literal self-return
 
 Then p=s is canonical1mod8. Its deterministic absorption plan follows the
 D valuation2 arrows to b, then the canonical quotient arrow b→q. At q it
@@ -149,14 +192,14 @@ normalization cancels −N_w−H_z. Consequently the complete plan is exactly
 
 This includes the inactive branch of every input in the domain.
 
-### 4.2. j>0 with v∈W5 and (3) false
+#### 4.2. j>0 with v∈W5 and (3) false
 
 The request v has coefficient+1 and rank p>=q. All H_v requests have rank
 strictly below p; all H_z requests have rank below q. Therefore v is the
 unique largest-rank request and cannot cancel. This includes every j>=2
 failure and the j1,p1mod3 failures.
 
-### 4.3. j1,p0mod3: exact W9 return and a forward defect
+#### 4.3. j1,p0mod3: exact W9 return and a forward defect
 
 Here p=4C−1, C1mod3, and v=(4C−1)/3∈W9. Direct calculation gives
 
@@ -209,7 +252,7 @@ nondecrease after the complete formal W9 substitution, without a scan.
 Combining 4.1–4.3: for either base branch, the full plan is strictly
 rank-decreasing **if and only if** the integer slope test (3) holds.
 
-## 5. Infinite new cylinders for every ternary depth
+### 5. Infinite new cylinders for every ternary depth
 
 Fix any D>=1, k4 or8, j>=1, and c in{1,2}. The simultaneous congruences
 
@@ -234,7 +277,7 @@ selected3w; R45's decreasing phases have 3∤w. Every accepted input here is
 outside those direct domains. This does not claim it was absent from every
 previous finite supplied history or recursive closure.
 
-## 6. Reproduction and limits
+### 6. Reproduction and limits
 
 Run `python3 experiments/residual_progress/nonselected_multiples/check_multiple_escape.py`.
 The checker replays the stored receipt, tests both branches in a bounded
@@ -257,3 +300,16 @@ closed constructor for all W5 nor a proof that the remaining requests are
 absorbed. It does provide a complete arithmetic test for both prescribed
 two-block branches, with explicit failure interfaces and honest signed
 dependencies.
+
+## Certificates
+
+[`check_legacy_replay.py`](check_legacy_replay.py) (written at the B11 migration; standard library). The legacy scripts in this folder load their sibling modules by pre-migration folder names, so they no longer run here. This certificate rebuilds the legacy directory layout in a temporary directory from the node folders that now hold those files, runs the unmodified legacy checks there without `-O` (as `scripts/verify_all.py` did at `be73a66`), and requires exit 0 and every copied receipt unchanged. It writes nothing in the repository. It replays: the legacy checker `check_multiple_escape.py` (about 3 s; the counts of section 6 and the stored `w = 16653` fixture, compared with `nonselected_multiples_audit.json`). The command in the legacy text names `experiments/residual_progress/nonselected_multiples/`.
+
+## Remarks
+
+- Joined to the dispatcher in [`two-inverse-phases-intermediate-increase`](../two-inverse-phases-intermediate-increase/README.md) (`expanded_union.py`). Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/nonselected_multiples/NONSELECTED_MULTIPLES.md` (legacy ID R47) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written exact two-block classification, decreasing subdomains and retained failure vectors".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `bcde58e`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.

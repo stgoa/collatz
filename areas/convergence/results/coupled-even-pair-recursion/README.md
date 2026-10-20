@@ -424,7 +424,7 @@ both the current signs and a valid smaller supplied-input dependency.
 
 ## Remarks
 
-- **What remains.** The general `D` helper on its noncanonical actual inputs, the unresolved outcomes of the joint recognizer, and the critical tripling domain of [`critical-tripling-domain-equivalence`](../critical-tripling-domain-equivalence/README.md). The later legacy R40–R42 rounds (`experiments/residual_progress/w9_closure/`, `critical_inverse/`, `joint_frontier/`, not yet migrated) continue from here.
+- **What remains.** The general `D` helper on its noncanonical actual inputs, the unresolved outcomes of the joint recognizer, and the critical tripling domain of [`critical-tripling-domain-equivalence`](../critical-tripling-domain-equivalence/README.md). The next rounds continue from here: [`critical-nine-elimination`](../critical-nine-elimination/README.md) (R40), [`decreasing-w5-phase-inverse-barrier`](../decreasing-w5-phase-inverse-barrier/README.md) (R41) and [`joint-source-unbounded-frontier`](../joint-source-unbounded-frontier/README.md) (R42), which gives the complete interface of the joint source `C(v)` and an unbounded positive frontier for the prescribed joint block.
 - **Controls.** The coupled rewrite uses exact `3x+1` valuation identities; the generic merger statement it would replace fails on the control maps ([`tripling-doubling-pair-decomposition`](../tripling-doubling-pair-decomposition/README.md), Remarks).
 - No novelty is claimed.
 
