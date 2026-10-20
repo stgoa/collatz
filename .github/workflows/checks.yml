@@ -1,0 +1,73 @@
+name: checks
+
+# Fast checks on every PR. Research code runs only where something changed; full sweeps are manual.
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      all_certificates:
+        description: "Run every certificate in the repository (slow)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  graph:
+    name: schema, references, links, Lean hygiene, MAP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: python3 tools/check.py
+
+  certificates:
+    name: certificates of touched nodes
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: run certificates
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.all_certificates }}" = "true" ]; then
+            python3 tools/run_certificates.py --all
+          elif [ "${{ github.event_name }}" = "pull_request" ]; then
+            python3 tools/run_certificates.py --changed "origin/${{ github.base_ref }}"
+          else
+            python3 tools/run_certificates.py --changed HEAD~1
+          fi
+
+  graph-diff:
+    name: knowledge-graph summary
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: summarise
+        run: |
+          python3 tools/graph_diff.py "origin/${{ github.base_ref }}" > graph_diff.md
+          cat graph_diff.md >> "$GITHUB_STEP_SUMMARY"
+      - name: comment (same-repository PRs only; forks see the job summary)
+        if: github.event.pull_request.head.repo.full_name == github.repository
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = require('fs').readFileSync('graph_diff.md', 'utf8');
+            const marker = '<!-- graph-diff -->';
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo, issue_number: context.issue.number });
+            const old = comments.find(c => c.body.startsWith(marker));
+            const args = { ...context.repo, body: marker + '\n' + body };
+            if (old) await github.rest.issues.updateComment({ ...args, comment_id: old.id });
+            else await github.rest.issues.createComment({ ...args, issue_number: context.issue.number });
