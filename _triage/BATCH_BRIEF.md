@@ -68,12 +68,14 @@ External inputs (published bounds, outside Lean libraries) go under `assumes` as
 
 ## 5. Scripts: certificate or evidence
 
-For every check script you move:
-1. Run it at its new path from the repository root, with a 10-minute timeout: `python3 _triage/try_script.py <path> [<path> …]`.
-2. If it exits 0, list it under `certificates`.
-3. Otherwise, or if it needs arguments or network access, list it under `evidence`, as: `<file>: passed at be73a66 as <old path> (archive/legacy-checker-run-be73a66.md)`. Use whatever is true for that script ("failed at be73a66 by design: pinned to a historical commit", "exploration probe, not a checker", …).
-4. Do not "fix" scripts to make them pass. Exploration scripts always go under `evidence`.
-5. If most of a node's finite checks went to evidence, you may write **one new, small certificate** in the node folder. It must use the standard library only, run from the repository root, and recompute what the legacy receipt certifies (or a stated part of it) from the committed data. Its docstring opens with "Written at the <batch> migration", and the node's `## Certificates` section says so. It must agree with the legacy receipt.
+Legacy scripts load each other by their pre-migration paths, so most no longer run where they now live. **`tools/legacy_replay.py` replays them unmodified**: it rebuilds the pre-migration tree in a temporary directory from `tools/legacy_paths.json` and requires exit 0 with every file byte-identical afterwards.
+
+1. After your move commit, run `python3 tools/legacy_replay.py --update-map`. It regenerates the map from git, adding your moved files; include `tools/legacy_paths.json` in your edit commit.
+2. For each legacy check script of a node, first try it in place: `python3 _triage/try_script.py <current path>` (10-minute timeout). If it exits 0 and leaves its receipt unchanged (`git status`), list it under `certificates`.
+3. Otherwise replay it: `python3 tools/legacy_replay.py <legacy path> [...]` (legacy path = its path at `be73a66`, e.g. `experiments/residual_progress/nonselected_inverse/check_inverse_phases.py`). If the replay passes, the node gets **one** certificate `check_legacy_replay.py` that replays its scripts. Copy the shape of `areas/convergence/results/critical-image-rank-composition/check_legacy_replay.py`: the docstring names what each script checks, and `SCRIPTS` lists the legacy paths. Scripts that need arguments use `legacy_replay.main(SCRIPTS, args={...})`.
+4. A script that fails both ways, needs network access, or is exploration goes under `evidence`, as: `<file>: passed at be73a66 as <old path> (archive/legacy-checker-run-be73a66.md)`. Use whatever note is true for that script ("failed at be73a66 by design: pinned to a historical commit", "exploration probe, not a checker", …).
+5. Never edit legacy scripts or receipts, and do not "fix" scripts to make them pass.
+6. Only if a node has no passing legacy check at all may you write **one new, small certificate** in its folder. It must use the standard library only, run from the repository root, and recompute what the legacy receipt certifies (or a stated part of it) from the committed data. Its docstring opens with "Written at the <batch> migration", and the node's `## Certificates` section says so. It must agree with the legacy receipt.
 
 ## 6. Bookkeeping
 
@@ -97,7 +99,7 @@ For every check script you move:
 Work in the main worktree, on branch `refactor/pristine`. Batches run one at a time. Stage only your own paths (for example `git add areas/cycles _triage MAP.md`). Never run `git add -A` at the root: the untracked `sidekick/` folder must stay untracked. In the edit commit's message, the body lists the nodes created, with their statuses, and anything archived or dropped. End it with the Co-Authored-By line you were given.
 
 Do not push. Do not touch files outside your batch, except:
-- `MAP.md` (regenerated);
+- `MAP.md` and `tools/legacy_paths.json` (regenerated);
 - `_triage/MANIFEST.md` (your rows);
 - `archive/README.md` (your rows);
 - `sources/` (new sources only);
