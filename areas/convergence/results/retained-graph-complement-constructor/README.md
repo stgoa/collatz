@@ -1,4 +1,49 @@
-# A constructive improvement from the retained cutoff graph
+---
+id: retained-graph-complement-constructor
+kind: result
+title: Retaining every cutoff arrow absorbs all seeds up to N and 47/72 of the outer shell, leaving an explicit profile R_N of mass 25N/288 + O(1)
+status: written
+claim: >
+  Odd-only 3x+1 map, absorbing at 1; 8 | N, B = 3N/2; K_N the explicit current of local-packet-calibration-
+  extension. Conditional on a supplied finite exact current H for I_N (inner absorption is an input):
+  (Lower interval) the graph of the nonzero rows of K_N, H and E_N contains a path to 1 from every odd
+  1 < y <= N, using no new arrows. (Classification) The components of the K_N-only graph (support of K_N:
+  exactly the odd 1 < x < B) that contain no state <= N are exactly {x, t} for outer roots x = 3 mod 12 in
+  (N, B) and x = 7 mod 12 in (9N/8, B), and {p, x, t} for x = 7 or 19 mod 36 in (N, 9N/8), with
+  t = (3x+1)/2, p = (4x-1)/3. (Improved input) With the nonnegative profile R_N (weight 1 on the first two root
+  classes, weight 2 on the last), Pi_N = (I - P)J_improved - R_N with every row already in H, K_N or E_N;
+  |R_N| = 25N/288 + O(1), precisely 25N/288 - 19/9 <= |R_N| <= 25N/288 + 5/4 with |R_(N+288)| = |R_N| + 25, and
+  25N/288 - 4/3 on N = 96 64^k; so the construction closes 47N/288 + O(1) of the N/4 outer seeds. R_N vanishes
+  at N = 8 and is nonzero for every N >= 16: this does not finish an induction, supply its own inner
+  absorption, or exclude further connections in the supplied graph.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [local-packet-calibration-extension]
+certificates: [check_profile_recompute.py]
+evidence:
+  - "check_complement.py, complement_constructor.py, complement_audit.json, improved_packet_24_current.csv: the legacy constructor improve_packet(N, inner_current) and its checker (the entire cutoff graph against the classification at 131 cutoffs, the 36-phase mass formula, eight supplied-input conversions with capped input search, and a stored improved packet current at N = 24). Fails at its new path: complement_constructor.py loads ../closure/local_extension.py by its pre-migration path (now ../local-packet-calibration-extension/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/complement/check_complement.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy transfer of annular-complement-outer-descent loads complement_constructor.py by its old path"
+aliases: [R17]
+tags: [convergence, packet-currents, outer-residual, conditional, partial-extension]
+---
+
+# Retaining every cutoff arrow absorbs all seeds up to N and 47/72 of the outer shell, leaving an explicit profile R_N of mass 25N/288 + O(1)
+
+## Statement
+
+Fix `8 | N`, `N ≥ 8`, `B = 3N/2`; odd-only clock, absorbing at 1. Use `I_N`, `W_N = U_(3N/2) − U_N`, `L_N = 2U_(N/4) + W_N`, `K_N` and the automatic input `Π_N = (I − P)(H − K_N − E_N) − L_N` of [`local-packet-calibration-extension`](../local-packet-calibration-extension/README.md), where `(I − P)H = I_N` is **supplied** (inner absorption is an input). `G_K` has an arrow for every nonzero row of `K_N`; the retained graph `G` adds the rows of `H` and `E_N`, keeping rows that cancel in the sum.
+
+1. **Support lemma.** `supp K_N` is exactly the odd states `1 < x < B`.
+2. **Lower interval.** `G` contains a path to 1 from every odd `1 < y ≤ N` (for `y ≤ N/4`, lift by `F(x) = 4x + 1` into the inner interval and reuse the common successor); summing gives a nonnegative integral current for `U_N` on existing edges.
+3. **Classification.** The components of `G_K` containing no state `≤ N` are exactly: `{x, t}` for `x ≡ 3 (mod 12)` in `(N, B)`; `{x, t}` for `x ≡ 7 (mod 12)`, `x > 9N/8`; `{p, x, t}` for `x ≡ 7, 19 (mod 36)`, `x < 9N/8`, with `t = (3x + 1)/2 > B` and `p = (4x − 1)/3`. Roots `x ≡ 31 (mod 36)` below `9N/8` connect to the known interval.
+4. **Improved input.** With `R_N` = weight 1 on the first two classes and weight 2 on the third, and `Q_N` the high predecessors `p`, the measures `W_bad = (I − P)Q_N + R_N` and `W_good = W_N − W_bad` have coefficients in `{0, 1}`; `G` supplies `T_N` for `2U_(N/4) + W_good`, and `Π_N = (I − P)(H − K_N − E_N − T_N − Q_N) − R_N`, every row already in `H`, `K_N` or `E_N`.
+5. **Mass.** `|R_N|` is given by the floor formula (3); for `N = 8, …, 288` its values are `0, 1, 2, 2, 4, 4, 4, 4, 7, 6, 8, 7, 9, 10, 11, 9, 11, 13, 13, 13, 14, 15, 17, 16, 16, 17, 20, 18, 20, 20, 22, 22, 23, 22, 24, 25`, and `|R_(N+288)| = |R_N| + 25`; hence `25N/288 − 19/9 ≤ |R_N| ≤ 25N/288 + 5/4`, and `|R_N| = 25N/288 − 4/3` on `N = 96·64^k`. The guarantee closes `47N/288 + O(1)` of the `N/4` outer seeds (asymptotically 47/72 of the shell); the negative packet residual falls from `N/2 − 2` to `25N/288 + O(1)`.
+
+`R_N` vanishes at `N = 8` and is nonzero at every allowed `N ≥ 16`, so this does not finish a universal induction. More of its components may join 1 through the supplied `H` paths; the arithmetic profile deliberately does not assume that. No novelty is claimed.
+
+## Proof
+
+The legacy note "A constructive improvement from the retained cutoff graph" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Written conditional construction and exact finite certificates.**
 The input is a supplied finite exact current for the inner interval. The
@@ -27,7 +72,7 @@ Let `G_K` contain every nonzero row of `K_N` as an arrow, with both
 endpoints and 1. The retained graph `G` additionally contains the nonzero
 rows of H and E_N. Rows canceled in `H-K_N-E_N` are retained in G.
 
-## 1. The explicit current exposes every arrow below B
+### 1. The explicit current exposes every arrow below B
 
 **Lemma.** The support of K_N is exactly the odd states `1<x<B`.
 
@@ -40,7 +85,7 @@ with the counting-measure convention. QED.
 This fact concerns the explicit input graph. The scalar conversion that
 cancels the automatic certificate still returns the zero current.
 
-## 2. Inner absorption already supplies the entire lower interval
+### 2. Inner absorption already supplies the entire lower interval
 
 **Theorem.** G contains a path to 1 from every odd `1<y<=N`.
 These paths can be extracted without exposing any additional arrow.
@@ -71,7 +116,7 @@ The inverse of F must preserve odd states. In particular, an outer seed
 `y=1 modulo8` does not. Treating every `y=1 modulo4` as such a sibling
 would be an incorrect odd-domain extrapolation.
 
-## 3. The complete cutoff components missing the lower interval
+### 3. The complete cutoff components missing the lower interval
 
 The following is an exact classification of G_K components containing
 **no state at most N**, including 1. It does not classify components of
@@ -92,7 +137,7 @@ the additional predecessor `q=(8x-5)/9<N` connects its component to the
 known interval. The endpoint `9N/8` is a multiple of9, so it is never in
 these residue classes; there is no endpoint exception.
 
-### Proof of completeness
+#### Proof of completeness
 
 For a target v not divisible by3, its smallest positive odd predecessor
 is `(2v-1)/3` when `v=2 modulo3`, or `(4v-1)/3` when `v=1 modulo3`.
@@ -126,7 +171,7 @@ cases correspond respectively to `x=7,19,31 modulo36`. Other predecessors
 of x, p, or the boundary t are larger than B. This proves both the complete
 listed components and the absence of any overlooked incoming source. QED.
 
-## 4. An improved automatic input with exact source capacity
+### 4. An improved automatic input with exact source capacity
 
 Define a nonnegative profile R_N on outer roots as follows:
 
@@ -175,7 +220,7 @@ on an already absorbed component of G can be absorbed by path extraction.
 It must be checked on that actual finite graph. A residual's residue class
 alone does not imply membership in an absorbed component.
 
-## 5. Exact residual mass and what remains
+### 5. Exact residual mass and what remains
 
 Let C(a,b;r,m) count integers `a<x<b` congruent to r modulo m. Then
 
@@ -212,7 +257,7 @@ and identifies the remaining actual components. More of them may already
 join 1 through the supplied H paths; the fixed arithmetic profile deliberately
 retains them rather than assuming such extra connections universally.
 
-## 6. Reproduction
+### 6. Reproduction
 
 `complement_constructor.py` exports `improve_packet(N, inner_current)`.
 The input identity is checked, and every returned current and residual is
@@ -228,3 +273,19 @@ the adjacent receipt and a complete small improved-current table. The audit
 compares the entire cutoff graph against the claimed component classification,
 checks the exact 36-phase mass formula, and verifies actual packet conversions.
 The finite examples supplement the written universal conditional proof.
+
+## Certificates
+
+- [`check_profile_recompute.py`](check_profile_recompute.py) (written at the B09 migration, under 1 s, standard library). For every multiple of 8 through 1024 it builds the `K_N`-only graph (one arrow from every odd `1 < x < 3N/2`) and checks that its components avoiding `[1, N]` are exactly the table of item 3; it checks the floor formula (3) against the profile, the 36 phase values, the period-288 increment 25 and the two-sided bound through `N = 3168`, and the ladder mass `25N/288 − 4/3` for `k ≤ 6`. It does not rebuild supplied inner currents or the packet conversion (legacy checker, evidence only).
+- The commands in the legacy text name `experiments/residual_progress/complement/`.
+
+## Remarks
+
+- **Support identity.** The support of `R_N` is exactly the set of odd climbers `x ≡ 3 (mod 4)` in `(N, 3N/2)` not reached from `[1, N]` in one or two Syracuse steps: [`outer-residual-strong-induction-support`](../outer-residual-strong-induction-support/README.md). So completing `R_N` is a strong-induction step.
+- **Later rounds on this profile.** The annular transfer [`annular-complement-outer-descent`](../annular-complement-outer-descent/README.md) certifies roots whose exit is a negative source of a capacity-checked block; the halving identity [`halving-coalescence-return`](../halving-coalescence-return/README.md) certifies the selected half; completing the rest on the five rays would suffice ([`five-ray-profile-completion-suffices`](../five-ray-profile-completion-suffices/README.md)).
+- **Path extraction.** Any independently provided packet residual supported on an already absorbed component of `G` can be absorbed by path extraction; this must be checked on the actual finite graph, since a residue class alone does not imply membership.
+
+## History
+
+- Migrated from `experiments/residual_progress/complement/RETAINED_GRAPH_EXTENSION.md` (legacy ID R17) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical; `check_profile_recompute.py` was added at the migration. The note's code span `../closure/LOCAL_EXTENSION.md` is now [`local-packet-calibration-extension`](../local-packet-calibration-extension/README.md). Legacy status: "written conditional constructor, complete arithmetic graph classification, and finite current certificates. Inner absorption remains an input".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `2be37b7`. No review from another lane is on record; the main lane's later written proof of the support identity is in [`outer-residual-strong-induction-support`](../outer-residual-strong-induction-support/README.md).

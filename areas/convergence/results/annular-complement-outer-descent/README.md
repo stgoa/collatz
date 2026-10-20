@@ -1,11 +1,55 @@
-# Turning annular cancellation into a recursive complement reduction
+---
+id: annular-complement-outer-descent
+kind: result
+title: A capacity-checked annular block certifies its negative atoms and the outer roots whose exits they are, with explicit unbounded-excursion descents
+status: written
+claim: >
+  Odd-only 3x+1 map, absorbing at 1; 8 | M, N = 64M; A_M the six-band annulus; R_N the residual profile of
+  retained-graph-complement-constructor. Conditional on a supplied finite exact current H for U_N (known
+  absorption through N is an input): (Lemma) every positive atom of A_M has an explicit odd ancestor <= N
+  within two steps, so its path to 1 is already in the graph of H. (Transfer) For any supplied integer block
+  P - Q = (I - Push)J with disjoint P, Q >= 0, P <= A_M+, Q <= A_M-, Q = (I - Push)(H_P - J) certifies every
+  atom of Q; every root x of R_N has exit t = (3x+1)/2 in (3N/2, 9N/4), t = 5 or 11 mod 18, A_M(t) = -1, and
+  whenever Q(t) > 0 the root's entire coefficient (1 or 2) is certified, giving Pi_N = (I - P)(J_0 - T) -
+  R_remaining. (Coverage) The existing catalogue covers exactly the C_old(M) = N/9216 + O(1) roots
+  9183 + 768j, far below |R_N| = 25N/288 + O(1). (Descents) For every delayed-release family the root
+  t = (2v-1)/3 has R_N(t) = 1 and an exact first descent to N - 1 by the word (1^(r+1), 2^h, 3), of length
+  h + r + 2 <= 2h + 2, all intermediate states above N and peak above (4/3)^h N; an example at h = r = 3,
+  N = 36473856 certifies a coefficient-2 root 40480795 in ten arrows. Universal coverage of R_N, or a
+  decreasing parameter for its unhandled roots, is not proved.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [retained-graph-complement-constructor, delayed-release-cancellation, universal-annular-partial-current, release-source-packing, affine-common-tail-tree-lifting]
+evidence:
+  - "check_transfer.py, transfer.py, transfer_audit.json, outer_9183_current.csv: the legacy constructor and checker (positive-source ancestor formulas and exact catalogue coverage at M = 8, 16, ..., 512, 768, 6144: 353280 positive atoms, 164 matched roots; five actual transfers at M = 8, 96, 168, 384, 768 with capped supplied lower absorption; 170 symbolic descent branches for qualifying 2 <= h <= 32 and both congruences, including the coefficient-2 example; about 3 s) and the stored 61-row current for delta_9183 that upgrades the N = 6144 packet residual by one unit. Fails at its new path: transfer.py loads ../complement/complement_constructor.py, ../release_packing/release_packing.py and ../release/check_release.py by their pre-migration paths (now ../retained-graph-complement-constructor/, ../release-source-packing/, ../delayed-release-cancellation/). Passed at be73a66 as experiments/residual_progress/complement_recursion/check_transfer.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy constructor of halving-coalescence-return loads transfer.py by its old path"
+aliases: [R20]
+tags: [convergence, packet-currents, outer-residual, transfer, conditional, constructive]
+---
+
+# A capacity-checked annular block certifies its negative atoms and the outer roots whose exits they are, with explicit unbounded-excursion descents
+
+## Statement
+
+Fix `8 | M`, `N = 64M` (odd-only clock, absorbing at 1). A finite exact current `H` for `U_N` is **supplied** (it can itself be extracted from the inner-interval current by [`retained-graph-complement-constructor`](../retained-graph-complement-constructor/README.md)); no absorption above `N` is assumed. `Push` is the killed Syracuse pushforward; `R_N` is the residual profile of that node.
+
+1. **Lemma.** Every positive atom of `A_M` has an explicit odd ancestor `≤ N` at distance at most two (residues 11, 17 via `(2y − 1)/3`; residue 13 via `(8y − 5)/9 → (4y − 1)/3 → y`; band-5 residue 17 via `(4y − 5)/9 → (2y − 1)/3 → y`), so its whole path to 1 is already in the nonzero-row graph of `H`.
+2. **Transfer.** For a supplied integer block `μ = P − Q = (I − Push)J` with `P, Q ≥ 0` on disjoint states, `P ≤ A_M⁺`, `Q ≤ A_M⁻`, the graph of `H` supplies `H_P` with `(I − Push)H_P = P`, so `Q = (I − Push)(H_P − J)` and the graph of `H_P − J` contains actual paths to 1 from every atom of `Q` (no cycle hypothesis is needed: a finite weak component without 1 carries zero divergence). Every root `x` of `R_N` has exit `t = (3x + 1)/2 ∈ (3N/2, 9N/4)`, `t ≡ 5` or `11 (mod 18)`, `A_M(t) = −1`; whenever `Q(t) > 0`, appending `x → t` certifies the **entire** coefficient `R_N(x)` (1 or 2; a certified path may be reused with multiplicity 2 without reusing annular capacity). Then `R_N = (I − Push)T + R_remaining`, `R_remaining ≥ 0`, and `Π_N = (I − P)(J_0 − T) − R_remaining`.
+3. **Exact coverage of the existing catalogue.** The old five-source packing's negative top atoms `t = 13775 + 1152j` (`j = 9s` or `9s + 3`) give exactly the roots `x = 9183 + 768j`, `R_N(x) = 1`, so `C_old(M) = M/144 + O(1) = N/9216 + O(1)` roots; the other catalogue families, the release pairs and the release triples add none.
+4. **Shrinking branches.** For every delayed-release family ([`delayed-release-cancellation`](../delayed-release-cancellation/README.md)) at annular cutoff `M = 3X/128`, `N = 3X/2`: the root `t = (2v − 1)/3` satisfies `9N/8 < t < 3N/2`, `t ≡ 31 (mod 36)`, `R_N(t) = 1`, and has the exact first descent `t → ⋯ → N − 1` with word `(1^(r+1), 2^h, 3)`, length `h + r + 2 ≤ 2h + 2`, all intermediate states above `N`, peak above `(4/3)^h N`. When `M` is on `96·64^k`, `N` is on the next rung. At `h = r = 3`, `V = 155`, `X = 24315904`, `N = 36473856`, the root `40480795` has `R_N = 2` and a ten-arrow first descent to `36473855`.
+
+A constructive transfer and infinitely many nontrivial branches; it does not close the residual family or prove Collatz. No novelty is claimed.
+
+## Proof
+
+The legacy note "Turning annular cancellation into a recursive complement reduction" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Written conditional transfer theorem and explicit shrinking
 branches.** The known absorption input is only the odd seeds at most N.
 These results do not close the whole residual family or prove Collatz.
 No novelty is claimed. All clocks are odd-only Syracuse with absorption at1.
 
-## 1. Every positive annular source is already certified at the inner scale
+### 1. Every positive annular source is already certified at the inner scale
 
 Fix `8|M`, and set `N=64M`. Let A_M be the actual six-band annulus.
 Suppose a finite exact current H for U_N is supplied. This input can itself
@@ -41,7 +85,7 @@ This lemma is stronger than a bound on the raw positive-source height:
 positive annular sources up to `9N/4` are certified from ancestors below N.
 It imposes no absorption assumption on the negative sources.
 
-## 2. Transfer any capacity-checked partial annular current
+### 2. Transfer any capacity-checked partial annular current
 
 Suppose a finite integer block
 
@@ -111,7 +155,7 @@ a constructive transfer, not an assumption that all annular blocks or all
 their negative atoms are certifiable. Full closure would follow if supplied
 blocks covered every exit in (2); that coverage is presently unproved.
 
-## 3. Exact coverage of the existing combined catalogue
+### 3. Exact coverage of the existing combined catalogue
 
 This transfer identifies precisely which parts of the current catalogue
 help R_N. It does not infer coverage from the amount of annular mass removed.
@@ -153,7 +197,7 @@ C_old(M)=M/144+O(1)=N/9216+O(1).
 This is positive reusable coverage, but far smaller than the remaining
 mass `25N/288+O(1)`. It is not a complete recursive closure.
 
-## 4. A genuinely shrinking branch with arbitrarily large intermediate height
+### 4. A genuinely shrinking branch with arbitrarily large intermediate height
 
 The general delayed-release construction provides a second transfer with
 unbounded path length. Use its parameters h,r,X at annular cutoff
@@ -206,7 +250,7 @@ on the programme's actual residual scales. The already proved parameter
 congruences are reused; no claim is made for nonqualifying parameters or
 for every root of R_N.
 
-### A coefficient2 branch, checked with its full multiplicity
+#### A coefficient2 branch, checked with its full multiplicity
 
 The other negative source u may also have a remaining root
 `x=(2u-1)/3`, followed by `x->u->t->v->...->N-1`. Its R_N coefficient
@@ -232,7 +276,7 @@ earlier state exceeds N. The receipt stores the full current. This removes
 two actual residual units using a certified path; it does not duplicate
 the single annular coefficient at u.
 
-## 5. What a complete recursion must still supply
+### 5. What a complete recursion must still supply
 
 The transfer separates three tasks that were previously easy to conflate:
 
@@ -247,7 +291,7 @@ an infinite collection of nontrivial branches for the third. Universal
 coverage, or a proved decreasing parameter for the unhandled roots, remains
 open. Ordinary finite successful searches are not a termination proof.
 
-## 6. Reproduction
+### 6. Reproduction
 
 ```
 python3 experiments/residual_progress/complement_recursion/check_transfer.py
@@ -268,3 +312,18 @@ and checks the full packet update at N=6144. There are170 symbolic shrinking
 branches for qualifying2<=h<=32 and both congruence choices, including
 the full coefficient2 example above. The default checker takes about3 seconds
 in the development environment; no runtime bound is part of the theorem.
+
+## Certificates
+
+No certificate runs at this path; the legacy constructor loads three modules from folders that moved and is evidence only. The stored current [`outer_9183_current.csv`](outer_9183_current.csv) (61 rows, `M = 96`) can be checked by hand against the Syracuse map. The command in the legacy text names `experiments/residual_progress/complement_recursion/`.
+
+## Remarks
+
+- **Three tasks separated.** (1) a current identity for an actual annular submeasure with capacity; (2) whether its negative atoms cover the **exits of remaining roots**, not already absorbed states; (3) enough such identities, or another shrinking branch, for every remaining root. The first two now have an exact interface; universal coverage is open.
+- The branches need unbounded excursions, so a recursive scheme must allow them rather than a universal height ceiling.
+- The halving identity [`halving-coalescence-return`](../halving-coalescence-return/README.md) certifies a larger, complete binary class of roots; the remaining complementary profile on the five rays is the conditional target of [`five-ray-profile-completion-suffices`](../five-ray-profile-completion-suffices/README.md).
+
+## History
+
+- Migrated from `experiments/residual_progress/complement_recursion/ANNULAR_COMPLEMENT_TRANSFER.md` (legacy ID R20) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical; the note's code span `../release/DELAYED_RELEASE.md` is now [`delayed-release-cancellation`](../delayed-release-cancellation/README.md). Legacy status: "written conditional transfer theorem, explicit infinite descent families, and finite current certificates. Full residual coverage remains open".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `65093c4`. Its "independent model review" of the transfer was the main lane's own agents; no review from another lane is on record.

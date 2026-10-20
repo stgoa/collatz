@@ -1,4 +1,56 @@
-# Exact path collapse and why forward/backward alternation resets
+---
+id: signed-path-collapse-capacity
+kind: result
+title: The restricted graph E0 is a union of paths; signed collapse and intermediate capacity beat the shortcut normalizer, but naive alternation keeps mass N
+status: written
+claim: >
+  Odd-only 3x+1 map, absorbing at 1. Let E0 contain the valuation-1 arrows and the valuation-2 arrows from
+  sources = 2 mod 3. (Paths) Every vertex has in- and out-degree at most 1 in E0, no two consecutive arrows have
+  valuation 2, every two backward steps contract by less than 8/9, so every E0 component is a directed path
+  with a unique finite backward root (its forward path may be infinite). (Collapse) For finite integer
+  sources, the linear signed collapse B gives mu = (I - P)J_B + B mu exactly, and the capacity normalizer gives
+  mu = (I - P)J_cap + Z_cap with J_cap <= 0 and root residual max_j sum_(i<=j) a_i, the least possible among
+  nonpositive E0 currents with nonpositive residual away from the root, and no larger than the residual of
+  auxiliary-normalisation-remainder. (Alternation) Pushing normalized positive roots forward once and
+  renormalizing stabilizes in finitely many rounds, but for every annulus A_N (8 | N) the fixed point keeps at
+  least N positive mass. (Mersenne family) For N = 96 64^k, L = 12 + 6k, the states x_j = 3^j 2^(L-j) - 1
+  form a complete E0 component of root mass 2 with sources (-2, +2, +2), carried across its first forbidden
+  edge to w = (3^L - 1)/2^(2 + v2(L)) by an explicit current; for odd k, w = 1 mod 18 is a root and w/x_0 is
+  unbounded, so this exit rule gives no decreasing-height recursion. Forward path termination is not proved.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [auxiliary-normalisation-remainder, disjoint-annular-recursion]
+evidence:
+  - "check_alternating_paths.py, alternating_paths_audit.json: the legacy constructors (ancestry, signed_path_collapse, capacity_normalize, frontier_collapse, naive_round, mersenne_component) and checker (every odd state through 4097 against the incoming-edge classification and old unit roots; 20 full annuli at N = 8..128 by 8 and 160, 168, 384, 768; all divergence identities, signs, idempotence and frontier aggregation; the exact N persistent trap atoms; finite alternation with a 32-round cap; the component family at k = 0..8, 32, 128). Fails at its new path: it loads experiments/residual_progress/auxiliary/check_auxiliary_normal_form.py relative to the repository root (now ../auxiliary-normalisation-remainder/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/alternating/check_alternating_paths.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy checker of bounded-source-cluster-local-bound loads it by its old path"
+  - "../auxiliary-normalisation-remainder/batch_r15_r18_r21_r29_check.py: side-lane probe, a certificate of that node, which also checks the E0 arithmetic below (passes at its new path)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: ../auxiliary-normalisation-remainder/batch_r15_r18_r21_r29_check.py
+    scope: "Finite arithmetic only (side-lane feed entry 2026-10-18 11:32, VERIFIED, main 9190ccf): on all odd y < 10^6, E0 in- and out-degree at most 1 (brute force below 3000), no two consecutive valuation-2 arrows, two-step backward contraction below 8/9, no incoming arrow exactly on 1, 3, 7, 9, 15 mod 18; the Mersenne family for k <= 12 (E0 path, exit valuation 3 + v2(L), exit w, and w = 1 mod 18 for odd k). Statements needing A_N were not checked. The status stays written"
+aliases: [R18]
+tags: [convergence, packet-currents, annular, path-graph, normal-form, partial-current, obstruction]
+---
+
+# The restricted graph E0 is a union of paths; signed collapse and intermediate capacity beat the shortcut normalizer, but naive alternation keeps mass N
+
+## Statement
+
+Odd-only Syracuse `S`, killed at 1, pushforward `P`; finite integer measures on odd states greater than 1; `A_N` the six-band annulus, `8 | N`. `E0` contains exactly the arrows of valuation 1 and the arrows of valuation 2 whose source is `2 (mod 3)`.
+
+1. **Theorem 1 (paths).** In `E0` every vertex has at most one incoming arrow (`p(y) = (2y − 1)/3` if `y ≡ 2 (mod 3)`, `(4y − 1)/3` if `y ≡ 13 (mod 18)`) and one outgoing arrow; vertices without incoming arrow are exactly the inactive residues `{1, 3, 7, 9, 15} (mod 18)`. No two consecutive arrows have valuation 2, so `S²(x) > 9x/8`; every inverse chain terminates at a unique root within fewer than `12·bitlength(y) + 1` edges and stays below `4y/3`; `E0` has no cycles. Every component is a directed path with a unique finite backward root; its forward path may be infinite (no claim that it ends).
+2. **Signed collapse.** `B μ = Σ μ(y) δ_(b(y))` (root `b`) with the finite path current `J_B` gives `μ = (I − P)J_B + B μ`; `J_B` may have positive rows. A finite current on `E0` arrows can leave a nonpositive residual iff every complete `E0` component has nonpositive total source mass.
+3. **Intermediate capacity.** Processing positive arrivals edge by edge gives `μ = (I − P)J_cap + Z_cap(μ)` with `J_cap ≤ 0` and root coefficient `max_(0≤j≤m) Σ_(i≤j) a_i`, the least root residual among nonpositive `E0` currents with nonpositive residual away from the root; hence `‖Z_cap(μ)⁺‖₁ ≤ ‖Z(μ)⁺‖₁` for the normal form `Z` of [`auxiliary-normalisation-remainder`](../auxiliary-normalisation-remainder/README.md). The positive supports stay below `64N` for the annulus.
+4. **Theorem 2 (naive alternation).** `T(z) = Z(z − z⁺ + P z⁺)` reaches a fixed point in finitely many rounds; at a fixed point positive atoms sit in the trap classes `{3, 7, 15, 19, 27} (mod 36)`. For every `8 | N`, the exactly `N` states `q ∈ (48N, 64N)` with `q ≡ 15 (mod 24)` or `27 (mod 48)` stay positive forever, so the fixed point keeps positive mass at least `N`.
+5. **Frontier retention.** Aggregating a source segment at its furthest source gives `J_F`, `F μ` with `J_F − J_B = (Σ a_j)·Σ_(i<m) δ_(x_i)`; a next-edge constructor must retain the frontier.
+6. **Mersenne component family.** For `N = 96·64^k`, `L = 12 + 6k`, `x_j = 3^j 2^(L−j) − 1` (`0 ≤ j < L`) is a complete `E0` component whose annular source is exactly `−2δ_(x_1) + 2δ_(x_2) + 2δ_(x_3)` (so `B A_N(q) = 2` at its root `q = 2^L − 1`); its first forbidden edge leads to `w = (3^L − 1)/2^(2 + v_2(L))`, and `μ_k = (I − P)(−2δ_(x_1) + 2Σ_(j=3)^(L−1) δ_(x_j)) + 2δ_w` (positive cost `2L − 6`). For odd `k`, `w ≡ 1 (mod 18)` is already a root and `w/q → ∞`.
+
+These are partial constructions and scoped obstructions, not a complete annular constructor or a proof of Collatz; no novelty is claimed.
+
+## Proof
+
+The legacy note "Exact path collapse and why forward/backward alternation resets" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 Date: 2026-10-17. **Status: written elementary proofs and finite checks.**
 These are partial constructions and scoped obstructions, not a complete
@@ -8,9 +60,9 @@ Use odd Syracuse `S`, killed at1, and its pushforward `P`. Measures and
 currents have finite integer support on odd states greater than1. The source
 `A_N` is the six-band annulus, with `8|N`. The earlier normalizer `Z` and its
 four active residues are defined in
-[the auxiliary note](../auxiliary/AUXILIARY_NORMAL_FORM.md).
+[the auxiliary note](../auxiliary-normalisation-remainder/README.md).
 
-## 1. A path graph behind the short backward substitutions
+### 1. A path graph behind the short backward substitutions
 
 Define `E0` to contain precisely these Syracuse arrows `x -> S(x)`:
 
@@ -60,7 +112,7 @@ uses one `p` edge, and its residue13/17 rules use two `p` edges. The two-edge
 shortcut ignores any source coefficient at its intermediate vertex; this
 is the information the following constructions retain.
 
-## 2. A finite linear signed collapse, with exact current
+### 2. A finite linear signed collapse, with exact current
 
 Write `b(y)` for the root of `y` and define
 
@@ -101,7 +153,7 @@ divergence over that component; sufficiency is the construction above.
 This applies even when the component's unexposed forward continuation is
 infinite. It does not assert that the whole annulus satisfies this test.
 
-## 3. Using intermediate negative capacity at zero positive-current cost
+### 3. Using intermediate negative capacity at zero positive-current cost
 
 There is a second, nonlinear construction. Build the finite union of the
 sources' complete ancestral paths. Process vertices in decreasing distance
@@ -167,7 +219,7 @@ residuals are contained in the positive support of the old normal form.
 For the annulus they remain below64N. This inherits the old height bound;
 it is not an improvement on the programme's absorption cutoff.
 
-## 4. Why naive forward/backward alternation stops with positive mass
+### 4. Why naive forward/backward alternation stops with positive mass
 
 For a normalized source `z=Z(z)`, define one round by moving only its
 positive part forward and then normalizing again:
@@ -206,7 +258,7 @@ description follows from the two cases. Conversely, that description
 forces all units to return and gives zero accumulated round current.
 This proves finite stabilization, not absorption. □
 
-### A universal positive obstruction on the actual annulus
+#### A universal positive obstruction on the actual annulus
 
 For `8|N`, take all q in `(48N,64N)` satisfying either
 
@@ -233,7 +285,7 @@ This obstruction concerns the specified repeated normalization. It does
 not prohibit a retained-history construction, signed current cancellation,
 or transporting the unresolved mass beyond the immediately undone edge.
 
-## 5. Retain the exposed frontier, not just the root total
+### 5. Retain the exposed frontier, not just the root total
 
 The same finite source segment `x_0,...,x_m` can instead be aggregated at
 its *furthest supplied source*, retaining this path and the frontier x_m.
@@ -257,7 +309,7 @@ that frontier and cross a forbidden E0 edge when one is reached. No proof
 here guarantees that every positive component reaches such an exit, or
 that the exit joins enough negative source mass.
 
-## 6. An explicit growing-depth component current, without height descent
+### 6. An explicit growing-depth component current, without height descent
 
 For every integer `k>=0`, set
 
@@ -321,7 +373,7 @@ increase the next root height by an unbounded factor. A successful
 recursion needs another decreasing parameter or a proved cancellation
 mechanism across these path components.
 
-## 7. Executable interface, checks, and limits
+### 7. Executable interface, checks, and limits
 
 `check_alternating_paths.py` provides:
 
@@ -352,3 +404,18 @@ normalizer1414, and signed collapse1337. These are finite examples, not
 uniform contraction constants. Every returned positive remainder is
 retained. Neither the inverse-path termination proof nor the exact
 growing-depth component formula supplies universal annular certificates.
+
+## Certificates
+
+No certificate runs in this folder: the legacy checker loads [`auxiliary-normalisation-remainder`](../auxiliary-normalisation-remainder/README.md)'s checker by its pre-migration path and is evidence only. The finite `E0` arithmetic (degrees, contraction, inactive roots, the Mersenne exits for `k ≤ 12`) is certified for odd `y < 10⁶` by the side-lane script [`batch_r15_r18_r21_r29_check.py`](../auxiliary-normalisation-remainder/batch_r15_r18_r21_r29_check.py), a certificate of that node. The command in the legacy text names `experiments/residual_progress/alternating/`. At `N = 96` the legacy receipt records positive mass 1859 (shortcut normalizer), 1414 (capacity) and 1337 (signed collapse); these are finite examples, not contraction constants.
+
+## Remarks
+
+- An infinite forward `E0` path would grow at least geometrically every two steps and would be a divergent Syracuse orbit; nothing here excludes it.
+- The bounded source span of complete `E0` clusters and the behaviour at forbidden exits are in [`bounded-source-cluster-local-bound`](../bounded-source-cluster-local-bound/README.md). The pair of [`release-source-packing`](../release-source-packing/README.md) is an annular instance of item 3.
+- The next construction must retain the exposed frontier and use additional cancellation or a different decreasing parameter ([`annular-component-progress-lemma`](../../questions/annular-component-progress-lemma.md)).
+
+## History
+
+- Migrated from `experiments/residual_progress/alternating/ALTERNATING_PATHS.md` (legacy ID R18) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, checker and receipt moved byte-identical. Legacy status: "written finite constructors, a restricted optimality theorem, and scoped obstructions. Forward path termination remains unproved in general".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `2be37b7`. Its "independent model reviews" of the signed path arguments were the main lane's own agents; an integration review caught a missing `0 ≤ i < m` restriction on the frontier-current formula, now explicit. The side lane's finite check is recorded under `reviewed_by`.

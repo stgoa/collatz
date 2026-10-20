@@ -1,4 +1,56 @@
-# Complete annular source clusters have sharp span63
+---
+id: bounded-source-cluster-local-bound
+kind: result
+title: All annular sources on one E0 path lie within a sharp span of 63 arrows, but forbidden exits can lead into source-empty components
+status: written
+claim: >
+  Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus (8 | N, Q = 9N/4); E0 the restricted path graph
+  of signed-path-collapse-capacity. (Span) With the adjusted height h(x) = x for x = 1 mod 3 and x/2 for
+  x = 2 mod 3, every nonzero source has Q < h(x) < 32Q, and two nonzero sources on one E0 path have even
+  separation at most 58 or odd separation at most 63; the bound 63 is attained, for every t >= 1, by
+  x = 3 2^95 t - 5 with the word (1,2)^31,1 (exact cylinder modulus 2^95), Q = 18 floor(x/18). (Local
+  constructor) At most 63 predecessor and 63 successor queries from a source recover all sources of its
+  complete E0 component; prefix sums give an exact current placing the cluster mass at its last source, with
+  rows below 192N and ||J+||_1 <= 63 ||A_N+||_1 = 6237N/4 (a bound for this preprocessing only); a finite
+  arithmetic guard scheme with sufficient period 2^96 3^65 describes it. (Exits) A forbidden E0 edge x -> y of
+  valuation 2 lands on a smaller inactive root, and one of valuation >= 3 lands in a component whose root is
+  below x/4 (compared with the exit vertex x, not the last source). For N = 96 64^k with k odd, the first exit
+  of the Mersenne component enters an E0 component with no original annular source, so the rule that every
+  positive cluster's first forbidden exit joins negative source mass is false. Plateau termination is not
+  claimed.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [signed-path-collapse-capacity, disjoint-annular-recursion]
+evidence:
+  - "check_window_components.py, window_components_audit.json: the legacy constructors (cluster_at_source, collapse_annulus, compile_guard, sharp_component) and checker (complete clusters against full-root grouping at N = 8, 16, 24, 96, 160, 168, 384, 768; all current identities and limits; sharp-span examples at t = 1, 2, 3, 9 with all 64 coefficients and slope checks; 14 affine-guard translations; forbidden edges through 8193; source-empty exit targets at k = 1, 3, 5, 31). Fails at its new path: it loads experiments/residual_progress/alternating/check_alternating_paths.py relative to the repository root (now ../signed-path-collapse-capacity/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/window_components/check_window_components.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
+  - "../auxiliary-normalisation-remainder/batch_r15_r18_r21_r29_check.py: side-lane probe, a certificate of that node, which also checks the adjusted-height arithmetic below (passes at its new path)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: ../auxiliary-normalisation-remainder/batch_r15_r18_r21_r29_check.py
+    scope: "Finite arithmetic only (side-lane feed entry 2026-10-18 11:32, VERIFIED, main 9190ccf): for all odd x < 2 10^5 the adjusted-height factors (> 3/4 from type 1, > 3/2 from type 2, a shrinking step lands on type 2) and the numeric bounds behind 58 and 63; the sharp path for t = 1..5 (word (1,2)^31,1, cost 94, in E0, ends in (Q, 32Q)); each of the 16,666 valuation-2 forbidden edges lands on a smaller inactive root and each of the 25,000 with valuation >= 3 in a component rooted below x/4. Source and cluster masses (which need A_N) were not checked. The status stays written"
+aliases: [R21]
+tags: [convergence, packet-currents, annular, path-graph, local-bound, obstruction]
+---
+
+# All annular sources on one E0 path lie within a sharp span of 63 arrows, but forbidden exits can lead into source-empty components
+
+## Statement
+
+`A_N` is the six-band annulus, `8 | N`, `Q = 9N/4`; odd-only clock, absorbing at 1. `E0` is the restricted graph of [`signed-path-collapse-capacity`](../signed-path-collapse-capacity/README.md) (its components are paths with a unique finite backward root). A *source cluster* is the set of all nonzero `A_N` atoms in one complete `E0` component, with the zeros between them; it is not a complete exposed component of the unrestricted graph.
+
+1. **Span theorem.** With `h(x) = x` (`x ≡ 1 mod 3`) and `h(x) = x/2` (`x ≡ 2 mod 3`), every nonzero source has `Q < h(x) < 32Q` (the coefficient table vanishes on the relevant half-bands). Type-1 steps multiply `h` by more than `3/4`, type-2 steps by more than `3/2`, shrinking steps are never consecutive, and `(9/8)^29 < 32 < (9/8)^30`, `(3/4)(9/8)^31 < 32 < (3/4)(9/8)^32`. Hence two nonzero sources on one `E0` path have even separation `≤ 58` or odd separation `≤ 63`; a cluster occupies at most 64 consecutive positions.
+2. **Sharpness.** For `t ≥ 1`, `x = 3·2^95·t − 5`, `Q = 18⌊x/18⌋`, `N = 8⌊x/18⌋`, the word `(1,2)^31,1` (total valuation 94, cylinder modulus `2^95`) is realized exactly, with nonzero sources at both ends; it is the entire cluster, of mass 38 if `3 ∤ t` and 35 if `3 | t`.
+3. **Bounded constructor.** At most 63 predecessor and 63 successor `E0` queries from a source find every source of its component; the prefix-sum current places the cluster mass at its last source. All rows lie below `192N`; `‖J⁺‖₁ ≤ 63‖A_N⁺‖₁ = 6237N/4` (a partial-construction bound, not a cost bound for certificates). The guard period `M = 2^96·3^65` gives a finite arithmetic template description (sufficient, not minimal, and not closed under continuation).
+4. **Forbidden exits.** For a forbidden `E0` edge `x → y`: valuation 2 from `x ≡ 1 (mod 3)` or `0 (mod 3)` lands on an inactive root `y < x`; valuation `≥ 3` lands in a component with root `b(y) < x/4`. The comparison is with the exit vertex `x`, which may lie far above the last source; no cycle exclusion is assumed.
+5. **Source-empty exits.** For `N = 96·64^k`, `k` odd, the Mersenne cluster `(−2, +2, +2)` exits to `w = (3^L − 1)/8 ≡ 1 (mod 18)`, `w > 144N`, already a root; the whole target component has zero original source mass, so the transported mass 2 becomes an auxiliary source. This refutes the rule that a positive cluster's first forbidden exit always joins a negative source cluster.
+
+Universal local statements and a finite description; universal plateau termination and complete annular certificates remain open. No novelty is claimed.
+
+## Proof
+
+The legacy note "Complete annular source clusters have sharp span63" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 Date: 2026-10-17. **Status: written elementary proofs, executable finite
 preprocessing, and bounded checks.** This is a local description and
@@ -9,12 +61,12 @@ Use the odd Syracuse map S, absorbed at1. Let `8|N`, `Q=9N/4`, and use the
 six-band annulus `A_N`. The restricted graph `E0` consists of valuation1
 arrows and valuation2 arrows whose source is2 modulo3. Its components are
 paths with a unique finite backward root, as proved in
-[the path note](../alternating/ALTERNATING_PATHS.md). A *source cluster*
+[the path note](../signed-path-collapse-capacity/README.md). A *source cluster*
 means **all nonzero A_N atoms in one complete E0 component**, including
 zeros between them in its retained path. It is not a complete exposed
 component of the unrestricted Syracuse graph.
 
-## 1. An adjusted height gives a sharp uniform bound
+### 1. An adjusted height gives a sharp uniform bound
 
 No annular source is divisible by3. Define, for the other states,
 
@@ -65,7 +117,7 @@ Without the coefficient table's empty half-bands, a raw window
 `Q<x<64Q` would give only an even bound70 and odd bound75. The sharper
 bound genuinely uses the signed annular source's support.
 
-## 2. Sharpness, including the exact cylinder's extra bit
+### 2. Sharpness, including the exact cylinder's extra bit
 
 For each integer `t>=1`, set
 
@@ -109,7 +161,7 @@ all later t in that phase. The checker retains all64 coefficients and
 performs those exact slope checks. The sharp cluster remains positive;
 its finite local description does not settle its future.
 
-## 3. A bounded constructor that finds every source in a component
+### 3. A bounded constructor that finds every source in a component
 
 Starting from any nonzero source x, inspect at most63 E0 predecessor edges
 and63 E0 successor edges, stopping early at a missing edge. The theorem
@@ -145,7 +197,7 @@ Each original positive unit contributes to at most63 prefix rows; negative
 source units can only lower those rows. Every positive frontier mass is
 retained. This bound is **not** a cost bound for complete certificates.
 
-## 4. An exact finite arithmetic description
+### 4. An exact finite arithmetic description
 
 The bounded constructor gives a finite description even though an explicit
 list of all patterns would be very large.
@@ -201,7 +253,7 @@ parameters. It is not claimed to be a practical enumerated catalogue or
 to be closed under future transitions. In particular, M is a sufficient
 guard period, not an asserted minimal one.
 
-## 5. What a forbidden edge actually tells us
+### 5. What a forbidden edge actually tells us
 
 Let `x -> y=S(x)` be a forbidden E0 edge and let b(y) be the root of the
 target E0 component, with `b(1)=1`.
@@ -230,7 +282,7 @@ can grow arbitrarily far before reaching x. The target component also need
 not be different from the starting component without an additional cycle
 exclusion; no such exclusion is assumed here.
 
-### The first forbidden exit need not find negative annular source mass
+#### The first forbidden exit need not find negative annular source mass
 
 Use the already proved Mersenne family
 
@@ -256,7 +308,7 @@ required continuation: positive mass can enter components containing no
 annular source at all. A complete construction needs a rule for these
 auxiliary components and a proof of eventual progress.
 
-## 6. Reproduction and scope
+### 6. Reproduction and scope
 
 `check_window_components.py` provides `cluster_at_source`,
 `collapse_annulus`, `compile_guard`, and `sharp_component`. Every current
@@ -278,3 +330,17 @@ annulus is materialized for the sharp or delayed families.
 The source-span bound and finite arithmetic description are universal
 local statements. Universal plateau termination and complete annular
 certificates remain open.
+
+## Certificates
+
+No certificate runs in this folder: the legacy checker loads the `E0` constructors of [`signed-path-collapse-capacity`](../signed-path-collapse-capacity/README.md) by their pre-migration path and is evidence only. The adjusted-height arithmetic, the sharp path for `t = 1..5` and the forbidden-edge classification below `2·10⁵` are certified by the side-lane script [`batch_r15_r18_r21_r29_check.py`](../auxiliary-normalisation-remainder/batch_r15_r18_r21_r29_check.py), a certificate of [`auxiliary-normalisation-remainder`](../auxiliary-normalisation-remainder/README.md). The command in the legacy text names `experiments/residual_progress/window_components/`.
+
+## Remarks
+
+- **What a complete construction needs.** A rule for the auxiliary source-empty components and a proof of eventual progress ([`annular-component-progress-lemma`](../../questions/annular-component-progress-lemma.md)); additional local templates are useful only with an account of which unresolved roots they cover.
+- The sufficient-sets audit in [`five-ray-profile-completion-suffices`](../five-ray-profile-completion-suffices/README.md) found no primary theorem with the six-band window and the sharp 63-arrow span among the sources it read; that is not a proof of novelty. Novelty undetermined.
+
+## History
+
+- Migrated from `experiments/residual_progress/window_components/WINDOW_COMPONENTS.md` (legacy ID R21) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, checker and receipt moved byte-identical. Legacy status: "written universal local bound and finite preprocessing constructor; no universal exit or plateau termination claim".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `65093c4`. Its "independent model review" of the source-cluster proof was the main lane's own agents; integration review clarified the cutoff domain and the convention root(1) = 1. The side lane's finite check is recorded under `reviewed_by`.

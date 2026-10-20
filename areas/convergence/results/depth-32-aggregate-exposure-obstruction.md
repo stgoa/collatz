@@ -1,4 +1,47 @@
-# Complete aggregate exposure components and a depth-32 obstruction
+---
+id: depth-32-aggregate-exposure-obstruction
+kind: result
+title: An exact inverse oracle finds a complete positive depth-32 exposed component of a required annulus
+status: written
+claim: >
+  Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus (8 | N); G_D(N) the first D arrows exposed from
+  every nonzero source of A_N. (Oracle) A capped inverse-reachability recursion under the exact height bounds
+  B_r = floor(3^r 144N / 2^r) - 1 decides membership in G_D(N) exactly and saturates one complete component,
+  including every incoming arrow, without enumerating the O(N) source support; exceeding a cap returns
+  unresolved. (Finite obstruction) At N* = 96 2^24 = 12 2^27 and D = 32 the component of 144N* - 1 in the
+  entire G_32(N*) is the 35-vertex chain x_j = 3^j 64N*/2^j - 1 (0 <= j <= 34), whose only sources are
+  (64N* - 1, -2), (96N* - 1, +2), (144N* - 1, +2); its mass is 2 and it does not contain 1, so no current
+  supported on G_32(N*) represents A_(N*) with nonpositive residual, and no packed source cover by
+  common-tail trees of source-to-anchor depth <= 32 exists at that cutoff. (Naive chain fails) At N = 10368,
+  depth 2, the complete top component has 27 sources of total mass 0 (+22, -22) and is not linked to 1.
+  Deeper or different currents are not excluded.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [disjoint-annular-recursion, orbit-component-current-criterion]
+evidence:
+  - "unbounded-exposure-depth-necessary/check_inverse_exposure.py, unbounded-exposure-depth-necessary/inverse_exposure_probe.py, unbounded-exposure-depth-necessary/inverse_exposure_audit.json: the legacy oracle (inverse_exposure_probe.py: coefficient, predecessors, component) and its checker (48 comparisons with independent forward graphs at N = 8, 16, 96, 288, depths 1, 2, 4, 8; brute-force predecessors through 2047; both cap exits; the two full components above, stored vertex by vertex). The checker fails at its new path: it loads experiments/current_construction/recursive/check_annular_recursion.py relative to the repository root (now ../disjoint-annular-recursion/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/templates/check_inverse_exposure.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The scripts sit in the folder of unbounded-exposure-depth-necessary because the other template checkers import the oracle from their own folder"
+  - "unbounded-exposure-depth-necessary/check_symbolic_lift.py: a certificate of unbounded-exposure-depth-necessary that, among other things, reruns the integer oracle at q = 1, that is at N* and depth 32, and checks that the complete component is exactly the 35-vertex chain with sources (-2, +2, +2); it passes at its new path"
+aliases: [R13-b]
+tags: [convergence, packet-currents, annular, exposure-depth, inverse-oracle, obstruction, finite-certificate]
+---
+
+# An exact inverse oracle finds a complete positive depth-32 exposed component of a required annulus
+
+## Statement
+
+`A_N`, `8 | N`, is the six-band annulus of [`disjoint-annular-recursion`](disjoint-annular-recursion/README.md), `Q = 9N/4`, support in `(Q, 64Q)`; the map is odd-only Syracuse with absorption at 1. For `D ≥ 1`, `G_D(N)` contains the arrow `x → S(x)` exactly when `x ≠ 1` and some nonzero annular source reaches `x` in at most `D − 1` steps; this does not bound the length of an undirected component.
+
+1. **Dual test.** If a component `C` of `G_D(N)` does not contain 1 and `A_N(C) > 0`, no finite current supported on the whole `G_D(N)` gives `A_N = (I − P)J + ζ` with `ζ ≤ 0` (the component indicator is an exact dual witness, as in [`orbit-component-current-criterion`](orbit-component-current-criterion/README.md)). A finite packed catalogue of common-tail trees with maximal source-to-anchor depth `D` has all its arrows in `G_D(N)`, so a positive component excludes a complete packing (also fractional combinations) at that cutoff. The implication is one-way: recursive rewrites can leave `G_D(N)`.
+2. **Exact inverse oracle.** With `B_r = ⌊3^r·144N/2^r⌋ − 1`, the recursion `Reach(y, r)` over all predecessors `p = (2^a y − 1)/3 ≤ B_(r−1)` decides exactly whether a nonzero source reaches `y` within `r` steps; saturating outgoing and incoming exposed arrows from a source returns its entire component. Explicit vertex and query caps return `unresolved_cap`, never an obstruction.
+3. **Depth-32 obstruction.** At `N* = 96·2^24 = 1 610 612 736` and `D = 32`, the component of `144N* − 1` in the entire `G_32(N*)` is the increasing chain `x_j = 3^j·64N*/2^j − 1`, `0 ≤ j ≤ 34` (35 vertices, 34 arrows, all valuations 1), with source table `103079215103 → −2`, `154618822655 → +2`, `231928233983 → +2`; mass 2, not linked to 1; 9171 memoized decisions, below the caps.
+4. **Why the bare chain is not enough.** At `N = 10368`, depth 2, the complete component of the top source `1492991` has 34 vertices, 27 sources, positive and negative masses `22` and `−22`, and is not linked to 1.
+
+No obstruction at every depth, universal construction, Collatz proof or novelty claim is made here; the every-depth theorem is [`unbounded-exposure-depth-necessary`](unbounded-exposure-depth-necessary/README.md).
+
+## Proof
+
+The legacy note "Complete aggregate exposure components and a depth-32 obstruction" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 Date: 2026-10-17. Status: written algorithm-correctness argument and finite
 exact enumeration. No obstruction at every depth, universal construction,
@@ -9,7 +52,7 @@ The measure is the actual six-band annulus `A_N`, for positive `8|N`, with
 retained. The map is odd-only Syracuse with absorption at 1. In particular,
 the earlier obstruction for individual raw packets is not used here.
 
-## 1. The exposure depth of a template is a necessary test
+### 1. The exposure depth of a template is a necessary test
 
 For an integer `D>=1`, define the historical exposure graph `G_D(N)` by
 starting at **every nonzero source of A_N** and including its first `D`
@@ -43,7 +86,7 @@ unbounded recursive depth is allowed by the research programme. A finite
 obstruction at one `D` does not exclude a larger fixed depth, much less
 all finite catalogues.
 
-## 2. Exact inverse enumeration of one complete component
+### 2. Exact inverse enumeration of one complete component
 
 Materializing the whole annulus is unnecessary when a component is small.
 The following oracle tests membership in the exposure graph and saturates
@@ -103,7 +146,7 @@ Both vertex and memoized-query caps are explicit. Exceeding either returns
 is never interpreted as failure of current existence. This is a finite
 graph oracle, not a universal termination argument for current search.
 
-## 3. A complete depth-32 obstruction on a required ray
+### 3. A complete depth-32 obstruction on a required ray
 
 Set
 
@@ -145,7 +188,7 @@ every potential inverse source, together with exhaustive bounded inverse
 reachability. A current that uses deeper or different edges remains
 possible; no assertion about its nonexistence is made.
 
-## 4. Why the naive increasing-chain argument fails in general
+### 4. Why the naive increasing-chain argument fails in general
 
 For `N=10368`, the component of the top source `1492991` at exposure depth
 2 has 34 vertices, 33 arrows, and 27 annular sources. Its positive and
@@ -174,7 +217,7 @@ and all historical intersections must be included. In particular, the
 simple family `N=8*6^k` does not have an always-positive top component:
 the example above is `k=4`.
 
-## 5. Reproduction and remaining obligation
+### 5. Reproduction and remaining obligation
 
 Run from the repository root:
 
@@ -201,13 +244,28 @@ every exclusion of an additional inverse edge, across a parameter family.
 Lifting the positive chain alone is insufficient. No family of residuals
 closed under recursive template packing has been proved here.
 
-### Subsequent status
+#### Subsequent status
 
-The separate [infinite-family lift](INFINITE_COMPONENT_FAMILY.md) preserves
+The separate [infinite-family lift](depth-32-obstruction-infinite-family.md) preserves
 the **whole** depth-32 component over an infinite congruence family. The
-later [unbounded-depth theorem](UNBOUNDED_EXPOSURE_DEPTH.md) answers the
+later [unbounded-depth theorem](unbounded-exposure-depth-necessary/README.md) answers the
 historical open question above: for every fixed `D`, there are infinitely
 many required-ray annuli with a complete positive component in `G_D(N)`.
 That proof exhausts all competing inverse histories with a preserved
 arithmetic inequality; it does not extrapolate the finite scans here.
 Unbounded-depth recursive current constructions remain open.
+
+## Certificates
+
+This node has no folder of its own. The depth-32 component is rechecked by [`check_symbolic_lift.py`](unbounded-exposure-depth-necessary/check_symbolic_lift.py), a certificate of [`unbounded-exposure-depth-necessary`](unbounded-exposure-depth-necessary/README.md), which reruns the integer oracle at `N*`, depth 32, and compares the full node, arrow and source sets. The 48 forward-graph comparisons and the `N = 10368` component are in the legacy checker and receipt `check_inverse_exposure.py`, `inverse_exposure_audit.json` (same folder), evidence only. The commands in the legacy text name `experiments/residual_progress/templates/`.
+
+## Remarks
+
+- The open question in §5 of the legacy text ("does every fixed `D` admit a required-ray annulus with a positive component?") is answered by [`unbounded-exposure-depth-necessary`](unbounded-exposure-depth-necessary/README.md), as the legacy "Subsequent status" paragraph says. The intermediate infinite family is [`depth-32-obstruction-infinite-family`](depth-32-obstruction-infinite-family.md).
+- The annulus has `267N*/8 = 53 754 200 064` nonzero source atoms; the oracle does not enumerate them but uses the exact coefficient function at every potential inverse source.
+- Novelty undetermined.
+
+## History
+
+- Migrated from `experiments/residual_progress/templates/AGGREGATE_EXPOSURE.md` (legacy ID R13, its first part; alias R13-b here) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). The note moved byte-identical before editing; the folder's scripts went to [`unbounded-exposure-depth-necessary`](unbounded-exposure-depth-necessary/README.md). Legacy status: "written algorithm-correctness argument and finite exact enumeration".
+- Main lane (ChatGPT, Codex), 2026-10-17.

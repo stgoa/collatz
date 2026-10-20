@@ -1,4 +1,53 @@
-# A finite rational cone turns packet certificates into absorption paths
+---
+id: finite-rational-cone-integer-certificate
+kind: result
+title: A finite rational cone compiles supplied five-ray packet certificates into an exact integer absorption current
+status: written
+claim: >
+  Odd-only 3x+1 map, absorbing at 1; U_t counts the odd states 1 < x <= t. (Integer-component lemma) If a
+  finite signed integer measure mu satisfies mu = (I - P)J + Z with a finite rational current J and
+  ||Z+||_1 < 1, the finite graph of the current arrows, the sources and 1 supports an integer current for mu
+  with everywhere nonpositive residual; if mu >= 0, every source lies in the component of 1 and the graph
+  supplies its actual paths to 1. (Conditional compiler) Enumerate the five rays as N_k = a_i 2^b, k = 5b + i,
+  a in (12, 14, 16, 18, 21); with r = 35/27, lambda(r) = r^-10 + (r^3 + r^-2)/3 < 1, and the finite nonnegative
+  inverse of I - A on a block I = (15, ..., K) gives exact rational weights. Conditional on supplied, checked
+  finite currents Pi_(N_k) = (I - P)J_k + zeta_k with zeta_k <= 0 for every k in I, and on the known finite
+  absorption of the lower boundary counting measures and of the fixed-core remainders eta_(N_k), if the exact
+  upper boundary mass T is below 1 these finitely many inputs give a finite exact integer current for U_g
+  (g the first grid cutoff >= m) and actual halting paths for every odd seed <= g. An explicit sufficient
+  block has O(log m) cutoffs, the largest O(m^2.14682); for m = 97 the exact solve with B = 9 uses the 30
+  starting cutoffs through 5376 and gives T = 31562113241597/46422343855805 < 1. The input certificates are
+  not constructed; they may lie above the target scale, so using them in a decreasing induction would be
+  circular.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [five-ray-current-criterion, right-aligned-fixed-core-remainder]
+certificates: [check_cone_recompute.py]
+evidence:
+  - "check_finite_cone.py, finite_cone_audit.json: the legacy checker (rational comparison constants, seven integer tail bounds, every transpose equation, rounded and unrounded measure coefficients, four full single-cutoff boundary identities (6) at N = 96, 112, 192, 5376, the strict-gap implication on 216000 finite integer cases, and the four cone plans). Fails at its new path: it loads experiments/packet_currents/right_aligned_packets.py relative to the repository root (now ../right-aligned-fixed-core-remainder/right_aligned_packets.py). Passed at be73a66 as experiments/residual_progress/duality/check_finite_cone.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
+  - "finite_cone.py: the legacy library finite_forcing_plan(m, B) returning the exact cone weights (runs without error but checks nothing on its own). check_cone_recompute.py imports it from this folder; the legacy compiler of actual-graph-current-compiler loads it by its old path ../duality/finite_cone.py"
+aliases: [R11]
+tags: [convergence, packet-currents, five-rays, finite-cone, integer-gap, conditional, constructive]
+---
+
+# A finite rational cone compiles supplied five-ray packet certificates into an exact integer absorption current
+
+## Statement
+
+Use the odd-only map `S`, absorbing at 1, its killed pushforward `P`, and the counting measures `U_t` of the odd states `1 < x ≤ t`. `Π_N` is the right-aligned packet and `η_N` its fixed-core remainder (support in `{5, 7, 11, 13}`) from [`right-aligned-fixed-core-remainder`](../right-aligned-fixed-core-remainder/README.md); `K_N = ν_N + 3(U_N − U_(N/4))`.
+
+**Integer-component lemma (§1 below).** For a finite signed **integer** measure `μ` and a finite rational current with `μ = (I − P)J + Z`, `‖Z⁺‖₁ < 1`, the finite graph containing all current arrows, source states and 1 supports an integer current for `μ` with nonpositive residual. If `μ ≥ 0`, every nonzero source belongs to the component of 1 and the graph supplies its actual finite path to 1. The strict threshold and the integrality of `μ` are both essential.
+
+**Finite compiler theorem (§4).** On the five-ray grid `N_k = a_i·2^b`, `k = 5b + i`, the rounded comparison has shifts `−10, +3, −2` with weights `1, 1/3, 1/3`, and `r = 35/27` gives `λ(r) = 162742333796706147551/162889462677744140625 < 1`. Fix the interior block `I = {15, …, K}`, `K = 5B − 1`, and solve `w = (I − A)^(−T) e_(k*)` exactly. Suppose supplied, checked finite rational or integer currents satisfy `Π_(N_k) = (I − P)J_k + ζ_k`, `ζ_k ≤ 0`, for `k ∈ I`, together with the known finite absorption currents of the lower boundary counting measures and of `η_(N_k)`. If the exact upper boundary mass `T` of (5) is below 1, these finitely many inputs construct a finite exact **integer** current for `U_g` and actual halting paths for every odd seed at most `g`.
+
+**Size of the input block.** For a target `m`, an explicit sufficient block has `5(B − 3)` cutoffs, all `a_i·2^b` with `3 ≤ b < B`, the largest `21·2^(B−1) = O(m^(p/(p−1)))`, `p = 5 log₂(35/27) ≈ 1.87198`, `p/(p−1) ≈ 2.14682`. This bounds **which** input certificates suffice, not their size, cost, search time or existence. For `m = 97` (`g = 112`): the bound (2) selects `B = 10` (35 packets, mass `94871593415091/257308134588959`); the exact solve at `B = 9` uses the 30 starting cutoffs through 5376 with `T ≈ 0.6798906`; `B = 8` gives `T ≈ 1.2856977`, so that cone does not certify the target (not an impossibility result).
+
+Scope: a written conditional construction. It does not construct its required packet inputs, prove Collatz, or claim novelty.
+
+## Proof
+
+The legacy note "A finite rational cone turns packet certificates into absorption paths" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Written conditional construction and exact finite checks.**
 This note does not construct its required input packet currents universally,
@@ -10,7 +59,7 @@ All states are positive odd integers. The Syracuse map is
 `1<x<=t`. Currents may initially have rational coefficients. Their source
 measure will be integral when the rounding lemma is invoked.
 
-## 1. Less than one unit of positive residual can be rounded away
+### 1. Less than one unit of positive residual can be rounded away
 
 **Integer-component lemma.** Let `mu` be a finite signed **integer** measure.
 Suppose a finite rational current satisfies
@@ -48,7 +97,7 @@ also essential. This lemma does **not** authorize discarding a small positive
 integer residual in the all-horizon work argument. Instead it uses a
 rational identity and an integer obstruction on its entire finite graph.
 
-## 2. An exact rational comparison for the five rays
+### 2. An exact rational comparison for the five rays
 
 Let `(a_0,...,a_4)=(12,14,16,18,21)` and enumerate the grid by
 
@@ -102,7 +151,7 @@ five rays with `3<=b<B`. Their number is `5(B-3)` and their maximum is
 upper bound on **which input certificates suffice**, not on their size,
 cost, search time, or existence.
 
-## 3. A finite positive inverse gives explicit rational weights
+### 3. A finite positive inverse gives explicit rational weights
 
 Fix the interior index set `I={15,...,K}`, where `K=5B-1`. Define the finite
 nonnegative matrix A by putting weights `1,1/3,1/3` from row k to columns
@@ -159,7 +208,7 @@ T\le r^{k_*}\max_{\ell>K}\frac{N_\ell/2-1}{r^\ell}
 Thus (2) guarantees `T<1`; independently, any exact solve with `T<1`
 is sufficient even when (2) is not met.
 
-## 4. Restore actual cutoffs, packet currents, and every boundary flux
+### 4. Restore actual cutoffs, packet currents, and every boundary flux
 
 For each selected N, set
 
@@ -241,7 +290,7 @@ This is a conditional way to end every positive component plateau on that
 source. The universal availability of the requisite input packets remains
 the open obligation.
 
-## 5. A concrete finite cone and reproducible evidence
+### 5. A concrete finite cone and reproducible evidence
 
 For `m=97`, the first covering grid cutoff is `g=112`, `k_*=16`.
 
@@ -275,3 +324,20 @@ single-cutoff boundary identities, the strict-mass integer-component implication
 on an exhaustive finite family, and the stated finite cone examples. The separate
 `../forcing/` demonstration supplies and joins actual positive-integer packet
 certificates. Neither finite demonstration proves the universal inputs exist.
+
+## Certificates
+
+- [`check_cone_recompute.py`](check_cone_recompute.py) (written at the B09 migration, under 1 s, standard library). It imports the unchanged legacy library `finite_cone.py` from this folder and recomputes the comparison constant `λ(35/27) < 1`, the seven tail-bound exponents, the four cone plans (`m = 97` with `B = 8, 9, 10`, and `m = 1001`): block, packet count, largest cutoff, exact `T`, the forcing flag, every boundary coefficient and the 30 packet weights at `m = 97, B = 9`; it checks the measure identity (4) coefficient by coefficient for each plan and compares everything with the legacy receipt `finite_cone_audit.json`. It does not recheck the single-cutoff identities (6) or the 216000-case integer-gap audit; those are evidence only (the legacy checker no longer runs at this path).
+- The commands in the legacy text name the pre-migration path `experiments/residual_progress/duality/`.
+
+## Remarks
+
+- **What remains.** The compiler does not supply its own universal input certificates; the inputs may lie above the target scale. Its finite demonstration is [`actual-graph-current-compiler`](../actual-graph-current-compiler/README.md). Whether the inputs can be supplied by smaller absorbed seeds is examined in [`local-packet-calibration-extension`](../local-packet-calibration-extension/README.md): the automatic route is circular. The open targets are [`packet-current-supply`](../../questions/packet-current-supply.md) and [`five-ray-annular-current-supply`](../../questions/five-ray-annular-current-supply.md).
+- The subunit-defect part (b) of [`mesh-maximum-principle-alternative-grids`](../mesh-maximum-principle-alternative-grids.md) is the same strict integer gap in scalar form; this node turns it into an explicit finite current.
+- **Controls.** The lemma is stated for a general finite functional graph with a sink; the strict threshold is essential, since a positive unit source at a nonabsorbing fixed point has residual mass exactly 1 and no certificate. The compiler needs supplied inputs at every block cutoff, which the `3x+61` controls of [`locally-collatz-like-control-barrier`](../locally-collatz-like-control-barrier/README.md) cannot provide at their failing cutoffs.
+- Novelty undetermined (the legacy note asserts none).
+
+## History
+
+- Migrated from `experiments/residual_progress/duality/FINITE_CONE.md` (legacy ID R11; the ledger groups it with the `forcing/` demonstration, here [`actual-graph-current-compiler`](../actual-graph-current-compiler/README.md), alias R11-b) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_cone_recompute.py` was added at the migration. Legacy status: "written conditional constructive theorem; exact finite demonstration. Required packet inputs remain unproved universally".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `ce56699`. The round report says independent model reviews checked the root-1 convention, the integer gap and every boundary sign; those reviews were run by the main lane's own agents and are not counted as independent. No review from another lane is on record.

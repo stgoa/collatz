@@ -105,7 +105,7 @@ For (c): at a positive maximizer `n` and its next selected cutoff `M`, `B(n) ≤
 
 - **Superseded as the primary target.** These grids were the investigation's earlier choices; [`five-ray-current-criterion`](five-ray-current-criterion/README.md) has a much smaller finite base (96) and uses a ray-dependent comparison weight rather than a power. The 21-ray grid has fewer required families than the 30-ray grid; the 30-ray grid has simpler mantissas and a smaller base. No optimality of 21 is claimed.
 - **Splitting by 64.** Writing `b = r + 6k`, `r = 3, …, 8`, the 21-ray grid gives 126 fixed sequences under multiplication of the cutoff by 64. This reduces the family of required cutoffs; it is still an infinite universal existence/termination obligation, and finite certificates at some exponents do not establish it.
-- **Rational currents.** Part (b) is the seed of the legacy finite-rational-cone conversion (legacy R11, `experiments/residual_progress/duality/`, not yet migrated).
+- **Rational currents.** Part (b) is the seed of the finite-rational-cone conversion [`finite-rational-cone-integer-certificate`](finite-rational-cone-integer-certificate/README.md) (legacy R11).
 - The general mesh lemma rests on the written argument; the script checks only its constants and finite bases. Novelty undetermined.
 
 ## History

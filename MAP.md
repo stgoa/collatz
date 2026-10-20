@@ -4,16 +4,17 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**86 results, 16 attempts, 14 questions, 26 sources.**
+**106 results, 17 attempts, 16 questions, 27 sources.**
 
 ## Frontier: open questions
 
 | Question | Area | Claim | Results resting on it |
 |---|---|---|---|
 | [`annular-component-progress-lemma`](areas/convergence/questions/annular-component-progress-lemma.md) | convergence | Odd-only 3x+1 map, absorbing at 1; A_N the annulus of disjoint-annular-recursion on the thirty five-ray sequences; Φ the exposure potential of exposure-potenti… | 0 |
+| [`exposure-absorption-giant-component`](areas/convergence/questions/exposure-absorption-giant-component/README.md) | convergence | Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus; G_d(N) the first d forward arrows exposed from every nonzero source of A_N. Is there a constant c… | 0 |
 | [`five-ray-annular-current-supply`](areas/convergence/questions/five-ray-annular-current-supply.md) | convergence | Odd-only 3x+1 map, absorbing at 1; A_N = Π^R_(64N) − Π^R_N the six-band annulus of disjoint-annular-recursion. For every N = a·2^r·64^k with a ∈ {12, 14, 16, 1… | 0 |
+| [`five-ray-complementary-profile-completion`](areas/convergence/questions/five-ray-complementary-profile-completion.md) | convergence | Odd-only 3x+1 map, absorbing at 1. For every cutoff N = a 2^b, a in (12, 14, 16, 18, 21), b >= 9, and using only a supplied exact current for U_N (the odd seed… | 0 |
 | [`packet-current-supply`](areas/convergence/questions/packet-current-supply.md) | convergence | Odd-only clock, absorbing at 1. Prove that for every integer N ≥ 8 there are finite signed measures J_N, ζ_N with Π^R_N = (I − P)J_N + ζ_N and ζ_N ≤ 0 pointwis… | 0 |
-| [`uniform-aggregate-exposure-depth`](areas/convergence/questions/uniform-aggregate-exposure-depth.md) | convergence | Odd-only 3x+1 map, absorbing at 1; historical exposure of d forward steps from every nonzero source atom of the whole right-aligned packet Π^R_N (or annulus A_… | 0 |
 | [`uniform-current-cost`](areas/convergence/questions/uniform-current-cost.md) | convergence | Odd-only clock, absorbing at 1. With m = floor(2·ceil(log₂N)/9) and Π̂_(m,N) the exact-source packet family of packet-currents-snapshot, construct finite curre… | 0 |
 | [`cycle-height-bound`](areas/cycles/questions/cycle-height-bound.md) | cycles | Prove or refute: every hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map, of period m, minimum L and maximum H, has height B = floor… | 0 |
 | [`height-denominator-candidate`](areas/cycles/questions/height-denominator-candidate/README.md) | cycles | Prove or refute: every primitive positive rational cycle of the raw odd-only 3x+1 map (written as a reduced odd numerator cycle 3n_i + q = 2^(a_i)·n_(i+1), q o… | 0 |
@@ -33,29 +34,49 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 
 | Result | Title | Status | Chain | Rests on | Lean |
 |---|---|---|---|---|---|
+| [`actual-graph-current-compiler`](areas/convergence/results/actual-graph-current-compiler/README.md) | Thirty actual one-sided packet certificates compile into a 95-row integer absorption curr… | written | written | — |  |
 | [`affine-common-tail-tree-lifting`](areas/convergence/results/affine-common-tail-tree-lifting/README.md) | Finite common-tail Syracuse trees lift to affine families of exact currents, and one such… | written | written | — |  |
+| [`annular-complement-outer-descent`](areas/convergence/results/annular-complement-outer-descent/README.md) | A capacity-checked annular block certifies its negative atoms and the outer roots whose e… | written | written | — |  |
 | [`annular-root-collapse-contraction`](areas/convergence/results/annular-root-collapse-contraction.md) | Collapsing 4x+1 chains to their roots contracts every annulus to 19/22 of its norm in one… | written | written | — |  |
+| [`ansari-sieve-step-counterexample`](areas/convergence/results/ansari-sieve-step-counterexample/README.md) | A displayed set identity in the proof of Ansari's recursive sieve lemma fails at n = 1 | written | written | — |  |
+| [`auxiliary-normalisation-remainder`](areas/convergence/results/auxiliary-normalisation-remainder/README.md) | A terminating, order-independent auxiliary normalization of the annulus leaves at least 2… | written | written | — |  |
 | [`binary-residue-projection-information-loss`](areas/convergence/results/binary-residue-projection-information-loss.md) | Every fixed binary-residue view eventually sees each annular band as the zero measure | written | written | — |  |
 | [`bounded-packet-certificate-obstruction`](areas/convergence/results/bounded-packet-certificate-obstruction.md) | Some actual right-aligned packet needs more than H current rows, for every H | written | written | — |  |
+| [`bounded-source-cluster-local-bound`](areas/convergence/results/bounded-source-cluster-local-bound/README.md) | All annular sources on one E0 path lie within a sharp span of 63 arrows, but forbidden ex… | written | written | — |  |
 | [`class-wise-obligation-equivalence`](areas/convergence/results/class-wise-obligation-equivalence.md) | The five-ray packet obligation splits class by class into "no nontrivial cycles" and "no… | reviewed | written | — |  |
+| [`delayed-release-cancellation`](areas/convergence/results/delayed-release-cancellation/README.md) | After an arbitrarily long isolation, two further negative sources cancel the three-source… | written | written | — |  |
+| [`depth-32-aggregate-exposure-obstruction`](areas/convergence/results/depth-32-aggregate-exposure-obstruction.md) | An exact inverse oracle finds a complete positive depth-32 exposed component of a require… | written | written | — |  |
+| [`depth-32-obstruction-infinite-family`](areas/convergence/results/depth-32-obstruction-infinite-family.md) | The complete depth-32 obstruction lifts to every cutoff N = 96 2^24 q with q = 1 mod 3^22 | written | written | — |  |
 | [`disjoint-annular-recursion`](areas/convergence/results/disjoint-annular-recursion/README.md) | Multiplying the cutoff by 64 adds a disjoint six-band annulus A_N to the right-aligned pa… | written | written | — |  |
 | [`dyadic-cutoff-core-remainder`](areas/convergence/results/dyadic-cutoff-core-remainder.md) | At dyadic cutoffs N = 2^b the core remainder is 6-periodic in b, so the transfer error li… | written | written | — |  |
 | [`exact-current-minimality`](areas/convergence/results/exact-current-minimality.md) | An exact current is dominated pointwise by every one-sided certificate, but cheapest one-… | reviewed | reviewed | — |  |
 | [`exact-current-prefix-criterion`](areas/convergence/results/exact-current-prefix-criterion.md) | Exact currents at all cutoffs up to M are equivalent to convergence of the odd seeds up t… | written | written | — |  |
 | [`exposure-potential-boundary-flux`](areas/convergence/results/exposure-potential-boundary-flux/README.md) | On an exposed graph, positive component masses are exact dual obstructions, and the scale… | written | written | — |  |
 | [`finite-current-certificate-identity`](areas/convergence/results/finite-current-certificate-identity.md) | A finite signed current with (I − P)J = μ controls the stopping work of μ at every horizon | written | written | — |  |
+| [`finite-rational-cone-integer-certificate`](areas/convergence/results/finite-rational-cone-integer-certificate/README.md) | A finite rational cone compiles supplied five-ray packet certificates into an exact integ… | written | written | — |  |
 | [`five-ray-current-criterion`](areas/convergence/results/five-ray-current-criterion/README.md) | Finite current certificates on five dyadic rays of cutoffs are equivalent to Collatz conv… | reviewed | written | — |  |
+| [`five-ray-profile-completion-suffices`](areas/convergence/results/five-ray-profile-completion-suffices/README.md) | Completing the complementary outer profile at every interleaved five-ray cutoff would pro… | written | written | — |  |
+| [`fixed-ternary-order-unbounded-depth`](areas/convergence/results/fixed-ternary-order-unbounded-depth/README.md) | With the ternary order fixed at h = 2, every exposure depth still has complete positive c… | written | written | — |  |
+| [`halving-coalescence-return`](areas/convergence/results/halving-coalescence-return/README.md) | A halving identity certifies the selected half of the outer residual from smaller seeds,… | written | written | — |  |
+| [`local-packet-calibration-extension`](areas/convergence/results/local-packet-calibration-extension/README.md) | Inner absorption gives an automatic one-sided packet input whose residual is exactly the… | written | written | — |  |
 | [`locally-collatz-like-control-barrier`](areas/convergence/results/locally-collatz-like-control-barrier/README.md) | The packet criterion fails on 3x+d maps with cycles, including 3x+61, which looks like Co… | reviewed | reviewed | — |  |
 | [`mesh-maximum-principle-alternative-grids`](areas/convergence/results/mesh-maximum-principle-alternative-grids.md) | A mesh maximum principle reduces the current criterion to any grid of bounded ratio, with… | written | written | — |  |
 | [`orbit-component-current-criterion`](areas/convergence/results/orbit-component-current-criterion/README.md) | A finite current exists exactly when every nonabsorbing orbit component has the right tot… | written | written | — |  |
 | [`outer-profile-closure-obstruction`](areas/convergence/results/outer-profile-closure-obstruction.md) | Forward pushforwards of the annulus need ever finer ternary moduli, so no fixed-modulus p… | written | written | — |  |
+| [`outer-residual-strong-induction-support`](areas/convergence/results/outer-residual-strong-induction-support/README.md) | The outer residual roots are exactly the shell climbers not reached from [1, N] in one or… | written | written | — |  |
 | [`packet-currents-snapshot`](areas/convergence/results/packet-currents-snapshot/README.md) | Exact-source ternary packets, with all-horizon current certificates at two named cutoffs… | written | written | — |  |
 | [`progress-measures-control-3x-61`](areas/convergence/results/progress-measures-control-3x-61.md) | On 3x+61 the annular progress measures behave like those of 3x+1, yet a positive componen… | reviewed | reviewed | — |  |
 | [`qualitative-current-criterion`](areas/convergence/results/qualitative-current-criterion.md) | Collatz convergence is equivalent to finite current certificates for the right-aligned pa… | reviewed | written | — |  |
 | [`reflected-negative-annulus-control`](areas/convergence/results/reflected-negative-annulus-control.md) | A reflected annulus on the negative integers has zero work and zero band masses yet admit… | written | written | — |  |
+| [`release-source-packing`](areas/convergence/results/release-source-packing/README.md) | Two further disjoint cancellation families raise the universal partial current's removed… | written | written | — |  |
+| [`retained-graph-complement-constructor`](areas/convergence/results/retained-graph-complement-constructor/README.md) | Retaining every cutoff arrow absorbs all seeds up to N and 47/72 of the outer shell, leav… | written | written | — |  |
 | [`right-aligned-fixed-core-remainder`](areas/convergence/results/right-aligned-fixed-core-remainder/README.md) | Grouping depth-one source lifts from the right leaves a remainder only on the core {5, 7,… | reviewed | reviewed | — |  |
 | [`right-aligned-reduction-independent-checks`](areas/convergence/results/right-aligned-reduction-independent-checks.md) | An independent implementation reproduces the right-aligned packets and checks R2–R4 (and… | reviewed | reviewed | — |  |
+| [`root-transport-normal-form`](areas/convergence/results/root-transport-normal-form/README.md) | Root collapse and transport reduce to four normal forms, and explicit top-band atoms surv… | written | written | — |  |
+| [`short-delay-all-phase-obstruction`](areas/convergence/results/short-delay-all-phase-obstruction/README.md) | The three-source chain stays isolated in 17/18 and 53/54 of the ternary phases, refuting… | written | written | — |  |
+| [`signed-path-collapse-capacity`](areas/convergence/results/signed-path-collapse-capacity/README.md) | The restricted graph E0 is a union of paths; signed collapse and intermediate capacity be… | written | written | — |  |
 | [`sparse-paired-exact-current-criterion`](areas/convergence/results/sparse-paired-exact-current-criterion.md) | Exact currents at arbitrarily sparse pairs of cutoffs N_j, N_j − 1 imply Collatz converge… | written | written | — |  |
+| [`unbounded-exposure-depth-necessary`](areas/convergence/results/unbounded-exposure-depth-necessary/README.md) | For every fixed exposure depth D, infinitely many required-ray annuli have a complete pos… | written | written | — |  |
 | [`universal-annular-partial-current`](areas/convergence/results/universal-annular-partial-current/README.md) | Every annulus A_N has an explicit partial current that removes positive mass 73N/48 + O(1… | written | written | — |  |
 | [`whole-packet-historical-certificates`](areas/convergence/results/whole-packet-historical-certificates/README.md) | Whole-packet historical searches give an exact current at N = 65536 and a one-sided curre… | written | written | — |  |
 
@@ -64,6 +85,13 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | Attempt | Title | Status |
 |---|---|---|
 | [`annular-bottom-cancellation-attempt`](areas/convergence/attempts/annular-bottom-cancellation-attempt.md) | Proving the annular obligation by cancelling positive and negative mass above the bottom | reviewed |
+| [`cylinder-certificates-outer-residual`](areas/convergence/attempts/cylinder-certificates-outer-residual/README.md) | Fixed-bit 2-adic cylinder certificates (descent, merger, halving) cannot complete the outer residual | written |
+
+### Closed questions
+
+| Question | Title | Status | Answered by |
+|---|---|---|---|
+| [`uniform-aggregate-exposure-depth`](areas/convergence/questions/uniform-aggregate-exposure-depth.md) | Is there a uniform exposure depth that certifies every whole packet or annulus? | answered | `unbounded-exposure-depth-necessary` |
 
 ## Area: cycles
 
@@ -164,6 +192,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | Source | Title | Status | Used by |
 |---|---|---|---|
 | [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) | Adamczewski–Bell: a problem about Mahler functions | cited | 0 |
+| [`ansari-2025-recursive-sieve`](sources/ansari-2025-recursive-sieve.md) | Ansari (2025): recursively sufficient sets and a ternary-digit sieve | cited | 0 |
 | [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 3 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
@@ -221,7 +250,27 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 | R10 | [`exposure-potential-boundary-flux`](areas/convergence/results/exposure-potential-boundary-flux/README.md) |
 | R10-b | [`binary-residue-projection-information-loss`](areas/convergence/results/binary-residue-projection-information-loss.md) |
 | R10-c | [`reflected-negative-annulus-control`](areas/convergence/results/reflected-negative-annulus-control.md) |
+| R11 | [`finite-rational-cone-integer-certificate`](areas/convergence/results/finite-rational-cone-integer-certificate/README.md) |
+| R11-b | [`actual-graph-current-compiler`](areas/convergence/results/actual-graph-current-compiler/README.md) |
+| R12 | [`root-transport-normal-form`](areas/convergence/results/root-transport-normal-form/README.md) |
+| R13 | [`unbounded-exposure-depth-necessary`](areas/convergence/results/unbounded-exposure-depth-necessary/README.md) |
+| R13-b | [`depth-32-aggregate-exposure-obstruction`](areas/convergence/results/depth-32-aggregate-exposure-obstruction.md) |
+| R13-c | [`depth-32-obstruction-infinite-family`](areas/convergence/results/depth-32-obstruction-infinite-family.md) |
+| R14 | [`local-packet-calibration-extension`](areas/convergence/results/local-packet-calibration-extension/README.md) |
+| R15 | [`auxiliary-normalisation-remainder`](areas/convergence/results/auxiliary-normalisation-remainder/README.md) |
+| R16 | [`delayed-release-cancellation`](areas/convergence/results/delayed-release-cancellation/README.md) |
+| R16-b | [`release-source-packing`](areas/convergence/results/release-source-packing/README.md) |
+| R17 | [`retained-graph-complement-constructor`](areas/convergence/results/retained-graph-complement-constructor/README.md) |
+| R17-b | [`outer-residual-strong-induction-support`](areas/convergence/results/outer-residual-strong-induction-support/README.md) |
+| R18 | [`signed-path-collapse-capacity`](areas/convergence/results/signed-path-collapse-capacity/README.md) |
+| R19 | [`short-delay-all-phase-obstruction`](areas/convergence/results/short-delay-all-phase-obstruction/README.md) |
 | R2 | [`right-aligned-fixed-core-remainder`](areas/convergence/results/right-aligned-fixed-core-remainder/README.md) |
+| R20 | [`annular-complement-outer-descent`](areas/convergence/results/annular-complement-outer-descent/README.md) |
+| R21 | [`bounded-source-cluster-local-bound`](areas/convergence/results/bounded-source-cluster-local-bound/README.md) |
+| R22 | [`fixed-ternary-order-unbounded-depth`](areas/convergence/results/fixed-ternary-order-unbounded-depth/README.md) |
+| R23 | [`halving-coalescence-return`](areas/convergence/results/halving-coalescence-return/README.md) |
+| R24 | [`five-ray-profile-completion-suffices`](areas/convergence/results/five-ray-profile-completion-suffices/README.md) |
+| R24-b | [`ansari-sieve-step-counterexample`](areas/convergence/results/ansari-sieve-step-counterexample/README.md) |
 | R3 | [`qualitative-current-criterion`](areas/convergence/results/qualitative-current-criterion.md) |
 | R4 | [`dyadic-cutoff-core-remainder`](areas/convergence/results/dyadic-cutoff-core-remainder.md) |
 | R5 | [`five-ray-current-criterion`](areas/convergence/results/five-ray-current-criterion/README.md) |

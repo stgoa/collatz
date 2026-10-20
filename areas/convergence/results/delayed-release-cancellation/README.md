@@ -1,4 +1,65 @@
-# Exact cancellation after an arbitrarily long initial isolation
+---
+id: delayed-release-cancellation
+kind: result
+title: After an arbitrarily long isolation, two further negative sources cancel the three-source chain at zero positive cost
+status: written
+claim: >
+  Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus; G_D(N) the first D arrows exposed from every
+  nonzero source. For every h >= 2 with lambda = 4(4/3)^h(2/3)^r in (81/32, 27/8] (r the least such that
+  lambda <= 27/8; qualifying h are unbounded, and of any two consecutive h at least one qualifies), each choice
+  V in (47, 155) gives an arithmetic progression of X (with v_3(X-1) = h, 2^max(h+5,10) | X, and an explicit
+  size bound) such that, with N = 3X/128, the five actual sources u, v (coefficient -1 each, in the top band),
+  y_1 = 64N-1 (-2), y_2 = 96N-1 (+2), y_3 = 144N-1 (+2) satisfy mu = (I - P)J for an explicit current J <= 0
+  with L + 4 rows, L = h + r + 1 <= 2h + 1, ||J||_1 <= 4h + 10, all arrows in G_L(N), along the valuation word
+  (1^r, 2^h, 3) from v to y_1; the three-source chain is still a complete mass-2 component of G_D(N) for every
+  1 <= D <= h + 1. Each qualifying h has infinitely many realizations on N = 96 64^k. This sharpens the
+  ladder bound to d*(96 64^k) >= v_3(k+2) + 4. It certifies a five-source submeasure only: the rest of A_N,
+  and other sources that join the full component, are not accounted for. Two complete finite components
+  show a neutral first release (N = 60555264, mass 2 -> 2) and a resolving one (N = 340131840, mass 2 -> 0).
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [unbounded-exposure-depth-necessary, disjoint-annular-recursion]
+evidence:
+  - "check_release.py, release_audit.json: the legacy checker (both complete first-release components; divergence and actual source capacity for 22 parameter families with three representatives each and two required-ray representatives; the canonical-parameter dichotomy for 2 <= h <= 64; the precision refinement against the inverse oracle at D = h + 1 for 2 <= h <= 16 and six ladder cutoffs). Fails at its new path: it imports inverse_exposure_probe from ../templates/ (now ../unbounded-exposure-depth-necessary/). Passed at be73a66 as experiments/residual_progress/release/check_release.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy transfer of annular-complement-outer-descent loads it by its old path"
+  - "delayed_release_check.py, delayed_release_check.json: side-lane probe (Claude side lane, 2026-10-17): rebuilds the construction from its statement with its own A_N. Fails at its new path: it imports affine_controls and progress_measures_audit from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/), and it imports depth_probe from its own folder (now ../unbounded-exposure-depth-necessary/). Passed at be73a66 as reviews/side_lane/delayed_release_check.py (archive/legacy-checker-run-be73a66.md, exit 0)"
+  - "chain_cancellation_scan.py, chain_cancellation_scan.json: side-lane probe for the side lane's question Q3 (2026-10-17): a bounded depth-16 backward search for zero-cost cancellations of the chain block over all admissible classes at h = 2, 3. Finite data. Fails at its new path: it imports affine_controls and progress_measures_audit from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/), and it imports delayed_release_check from its own folder. Passed at be73a66 as reviews/side_lane/chain_cancellation_scan.py (archive/legacy-checker-run-be73a66.md, exit 0)"
+  - "side_lane_review_20261017_2005.json: the main lane's reproduction (at side-lane commit f12da944) of delayed_release_check, chain_cancellation_scan and depth_probe, with source hashes and outputs; a review of those side-lane probes, not of this result"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: delayed_release_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 19:13, VERIFIED, main 65093c4): for every qualifying h <= 12, both V and three members of each progression (16 families), the parameters, the six coefficients, the arrows u -> t -> v, the word (1^r, 2^h, 3) and (I - P)J = mu with J <= 0 and at most 2h + 5 rows; the ladder cutoff N = 96 64^89; the qualifying h <= 64; and, by full brute force, the sharpened isolation at depth h + 1 at six cutoffs. The written arguments were not re-derived, so the status stays written"
+aliases: [R16]
+tags: [convergence, packet-currents, annular, exposure-depth, delayed-release, partial-current, constructive]
+---
+
+# After an arbitrarily long isolation, two further negative sources cancel the three-source chain at zero positive cost
+
+## Statement
+
+Odd-only clock, absorbing at 1; `A_N` the six-band annulus, `G_D(N)` as in [`unbounded-exposure-depth-necessary`](../unbounded-exposure-depth-necessary/README.md), whose three-source chain `y_1 = 64N − 1` (−2), `y_2 = 96N − 1` (+2), `y_3 = 144N − 1` (+2) is the object here.
+
+**Parameters (§2).** For `h ≥ 2` let `r` be least with `λ = 4(4/3)^h(2/3)^r ≤ 27/8`, and keep `h` when `81/32 < λ ≤ 27/8` (two consecutive `h` cannot both fail, so qualifying `h` are unbounded). For `V ∈ {47, 155}`, the congruences (2)–(3) and the size condition (4) define an unbounded progression of `X` with `v_3(X − 1) = h` exactly and `2^max(h+5,10) | X`; put `N = 3X/128`, `v = 2^r(4^(h+1)U + 2)/3^r − 1` with `U = (X − 1)/3^h`, `t = (2v − 1)/3`, `u = (4t − 1)/3`.
+
+**Theorem (§§3–4).** `u, t, v` lie in the top band with `A_N(u) = A_N(v) = −1`, `A_N(t) = 0`; `u → t → v` has valuations 2, 1; `v` reaches `y_1` by the valuation word `(1^r, 2^h, 3)` without meeting the annulus elsewhere. With `L = h + r + 1` and `p_0 = v, …, p_L = y_1`,
+
+```
+μ = −δ_u − δ_v − 2δ_(y_1) + 2δ_(y_2) + 2δ_(y_3),
+J = −δ_u − δ_t − 2 Σ_(j<L) δ_(p_j) − 4δ_(y_1) − 2δ_(y_2),     (I − P)J = μ,
+```
+
+`J ≤ 0`, `L ≤ 2h + 1`, `|supp J| ≤ 2h + 5`, `‖J‖₁ ≤ 4h + 10`, all arrows in `G_L(N)`. Subtracting `μ` uses valid annular capacity and removes 4 units of positive mass at zero positive cost.
+
+**Delay and ladder (§5).** For `1 ≤ D ≤ h + 1` the chain is still the complete mass-2 component of `G_D(N)`. Each qualifying `h` has infinitely many cutoffs on `N = 96·64^k`; and `d*(96·64^k) ≥ v_3(k + 2) + 4` for every `k ≥ 0`. For `h = r = 2` the ladder indices are `k ≡ 575` or `89 (mod 729)`.
+
+**Witnesses (§6).** At `N = 60555264` (`h = 4`) the first release adds three sources of total 0 (mass stays 2 through depths 8 and 9); at `N = 340131840` (`h = 2`) the complete depth-5 component has exactly the five sources of `μ`, mass 0, and the nine-row current certifies that whole component.
+
+The construction certifies a five-source **submeasure**; other annular sources that join the exposed component later are not accounted for, no simultaneous packing with other catalogues is claimed, and it does not prove that every positive plateau ends.
+
+## Proof
+
+The legacy note "Exact cancellation after an arbitrarily long initial isolation" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 Date: 2026-10-17. Status: written elementary partial-current construction,
 with exact checks and two complete finite component witnesses. This does
@@ -10,9 +71,9 @@ annular measure `A_N`, with `8|N`, and write `G_D(N)` for the first `D`
 arrows exposed from **every** nonzero source. Historical intersections
 are retained. All coefficients below are actual annular coefficients.
 
-## 1. What changes at release
+### 1. What changes at release
 
-The previous [unbounded-depth theorem](../templates/UNBOUNDED_EXPOSURE_DEPTH.md)
+The previous [unbounded-depth theorem](../unbounded-exposure-depth-necessary/README.md)
 isolates three sources, of coefficients `-2,+2,+2`, on a rising chain.
 Its positive component mass is 2. A newly attached negative source need
 not reduce that mass: other sources can join through the same exposed
@@ -31,7 +92,7 @@ component certificate: a complete component claim is made only for the
 finite examples in Section 6. The construction does not account for the
 rest of `A_N` or prove that every positive plateau ends.
 
-## 2. Parameters and congruences
+### 2. Parameters and congruences
 
 Choose an integer `h>=2`. Let `r` be the least nonnegative integer such
 that
@@ -114,7 +175,7 @@ In particular, (6) consists of odd integers. More explicitly,
 | 47 | 11 | 13 | 5 |
 | 155 | 11 | 13 | 11 |
 
-## 3. The actual source coefficients and the exact paths
+### 3. The actual source coefficients and the exact paths
 
 Define the three original chain sources
 
@@ -194,7 +255,7 @@ only at its two endpoints `v,y_1`, and has no collision with `u,t,y_2,y_3`.
 Repeated states in this path would give a cycle followed by `y_1`, which
 is impossible for a deterministic map with these endpoint heights.
 
-## 4. A finite current of zero positive cost
+### 4. A finite current of zero positive cost
 
 Let `L=h+r+1`, and let `p_0=v,...,p_L=y_1` be the path (10). Define
 
@@ -245,9 +306,9 @@ Those catalogues may reuse `u` or `v`; combined source capacity would need
 a separate proof. This family removes a constant amount per chosen `X`,
 not a positive fraction of the whole annulus by itself.
 
-## 5. Unbounded initial delay and required-ray realizations
+### 5. Unbounded initial delay and required-ray realizations
 
-### A sharper form of the existing isolation argument
+#### A sharper form of the existing isolation argument
 
 If `h>=2`, `v_3(X-1)>=h`, and
 `2^max(D+4,10)` divides `X`, the existing complete-chain proof remains
@@ -303,7 +364,7 @@ Thus `G_(h+1)` has the complete mass-2 component, forcing
 `d_*>=h+2`. This is a lower bound on exposure required for the **whole
 annulus**, and does not assert that this depth is sufficient.
 
-### Each congruence family occurs on the required ladder
+#### Each congruence family occurs on the required ladder
 
 Put `M=h+r+4`. The residue for `X` in (3) is a unit modulo `3^M`.
 The integer 2 generates all units modulo `3^M`; an elementary proof is
@@ -344,7 +405,7 @@ k=575\pmod{729}\quad\hbox{or}\quad k=89\pmod{729}.
 
 In this case `v=(256X-265)/81` and `u=(2048X-2687)/729`.
 
-## 6. Two complete first-release witnesses
+### 6. Two complete first-release witnesses
 
 The bounded inverse oracle checks **every incoming historical source**.
 The receipt stores all vertices, arrows, source coefficients, caps, and
@@ -386,7 +447,7 @@ current is already in `G_5`: `v` is itself a source, so its outgoing
 history is exposed independently. This is why an ordinary single-path
 length must not be substituted for the historical graph's exposure clock.
 
-## 7. Reproduction and remaining question
+### 7. Reproduction and remaining question
 
 ```sh
 python3 experiments/residual_progress/release/check_release.py
@@ -412,3 +473,19 @@ component, or prove that its recursive use closes a specified residual
 family with a decreasing parameter. The isolated block can be canceled
 after arbitrarily long delay in these explicit families; a universal
 annular completion or termination theorem does not follow.
+
+## Certificates
+
+No certificate runs at this path; the legacy checker and both side-lane probes import modules from folders that moved, so all are evidence only. The commands in the legacy text name `experiments/residual_progress/release/`.
+
+## Remarks
+
+- **Side-lane finite data.** Coverage: the two families cover `2` of the `2·3^(r+3)` admissible unit classes of `U` modulo `3^(r+4)`, a fraction `1/3^(r+3)` (feed 2026-10-17 19:13, also proved in [`short-delay-all-phase-obstruction`](../short-delay-all-phase-obstruction/README.md)). Q3 (`chain_cancellation_scan.py`, feed 19:22): a depth-16 backward search finds sources of total coefficient `≤ −2` entering the chain in every representative of 11 of 486 classes at `h = 2` (20 of 1458 at `h = 3`), in some representatives of 34 (24), and in none of 441 (1414), and three further depth-7 classes at `h = 2` (`U ≡ 124, 610, 691`). The main lane reproduced these receipts and scoped them: absence within depth 16 does not exclude a deeper zero-cost attachment, and does not mean the inverse tree never re-enters the annulus.
+- The extra negative sources may lie **above** the positive source; a backward rule restricted to smaller ancestors misses them. Related packing identities are [`release-source-packing`](../release-source-packing/README.md).
+- The transfer of these families to exact outer-seed descents is in [`annular-complement-outer-descent`](../annular-complement-outer-descent/README.md); the all-phase extension of the short delay fails ([`short-delay-all-phase-obstruction`](../short-delay-all-phase-obstruction/README.md)).
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/release/DELAYED_RELEASE.md` (legacy ID R16; the ledger's R16 also covers [`release-source-packing`](../release-source-packing/README.md), alias R16-b) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, checker and receipt moved byte-identical, with the side-lane probes `reviews/side_lane/delayed_release_check.*`, `chain_cancellation_scan.*` and the main lane's reproduction receipt `experiments/residual_progress/side_lane_review_20261017_2005.json`. Legacy status: "written universal partial-current families, with complete finite component examples. Full component resolution at every parameter and complete annular certificates remain open".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `2be37b7`. Its "independent model reviews" of the release theorem and precision refinement were the main lane's own agents. The side lane's finite check is recorded under `reviewed_by`.

@@ -1,11 +1,63 @@
-# A complete halving family for the outer residual
+---
+id: halving-coalescence-return
+kind: result
+title: A halving identity certifies the selected half of the outer residual from smaller seeds, leaving a complementary profile of mass 25N/576 + O(log N)
+status: written
+claim: >
+  Odd-only 3x+1 map S, absorbing at 1. (Identity) Every odd x = 3 mod 4 is x = 2^a t - 1 with a = v2(x+1) >= 2,
+  t odd; if t = 3^a mod 4 ("selected"), then S^a(x) = S^a((x-1)/2), with an exact finite bridge current of
+  divergence delta_x - delta_((x-1)/2); the selected classes are x = 2^a - 1 (a even) or 3 2^a - 1 (a odd)
+  mod 2^(a+2), and for x > 3 neither prefix reaches 1 before step a. (Application) For 8 | N, conditional on a
+  supplied finite exact current H for U_N (absorption below N is an input), the selected part G_N of the
+  residual profile R_N of retained-graph-complement-constructor is certified using only H and the x-prefix
+  arrows, with full multiplicities, so Pi_N = (I - P)(J_0 - T) - R'_N. (Count) An exact CRT floor formula
+  gives |G_N| = 25N/576 + O(log N) and |R'_N| = 25N/576 + O(log N), with ||R'_N| - 25N/576| <= 6 floor(log2(3N/2));
+  with the retained graph this certifies asymptotically 119/144 of the original outer shell (one pass, not an
+  iterable contraction; at N = 6144, 263 of 532 units). (Complement) On the complementary branch
+  S^a(x) = 3 2^(d-1) w + 1 with w = S^(a-1)((x-1)/2), d >= 2; the smaller partner does not certify x, and the
+  same identity fails at x = 27 (S^2(27) = 31, S^2(13) = 1). Selected required-ray roots 2^a - 1 have
+  unbounded prefix length and height relative to N. Universal residual closure is open.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [retained-graph-complement-constructor]
+certificates: [check_halving_recompute.py]
+evidence:
+  - "check_halving_return.py, halving_return.py, halving_return_audit.json, outer_79_double_current.csv: the legacy constructor (selected-class test, finite bridge, logarithmic count, capacity-preserving conversion) and checker (8192 selected and 8192 complementary seeds below 65536, 1016 parameterized prefix cases, the profile at 512 cutoffs N = 8..4096, eight supplied-input conversions with a 1000-step input cap, large-parameter formula cases, the required-ray excursions, the complementary counterexample and the stored coefficient-2 current at root 79). Fails at its new path: halving_return.py loads ../complement_recursion/transfer.py by its pre-migration path (now ../annular-complement-outer-descent/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/residual_return/check_halving_return.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The finite base U_6144 used by five-ray-profile-completion-suffices is reconstructed in this receipt"
+  - "coalescence_check.py, coalescence_check.json: side-lane probe (Claude side lane, 2026-10-17): checks the identity and the coverage claim, then runs an exact cylinder dynamic program with descent, merger and halving certificates (see cylinder-certificates-outer-residual). Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/) and residual_vs_induction from its own folder (now ../outer-residual-strong-induction-support/). Passed at be73a66 as reviews/side_lane/coalescence_check.py (archive/legacy-checker-run-be73a66.md, exit 0)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: coalescence_check.py
+    scope: "Finite only (side-lane feed entry 2026-10-17 19:46, VERIFIED, main 8e2b5eb): the identity S^a(x) = S^a((x-1)/2) for every selected x < 2^21 and 2000 random selected 200-bit x; the remaining mass within 6A of 25N/576 at N = 96, 768, 6144, 49152, 98304 by explicit enumeration. The written proofs of the identity, the CRT count and the conversion were not re-derived; the status stays written"
+aliases: [R23]
+tags: [convergence, packet-currents, outer-residual, halving, coalescence, conditional, constructive]
+---
+
+# A halving identity certifies the selected half of the outer residual from smaller seeds, leaving a complementary profile of mass 25N/576 + O(log N)
+
+## Statement
+
+Odd-only clock, absorbing at 1 (write `S(1) = 1` algebraically and omit current rows at 1).
+
+1. **Halving identity.** Every odd `x ≡ 3 (mod 4)` is uniquely `x = 2^a t − 1`, `a = v_2(x + 1) ≥ 2`, `t` odd. If `t ≡ 3^a (mod 4)` (**selected**), then with `q = (x − 1)/2 < x/2`, `S^a(x) = S^a(q)`, and `D_x = Σ_(j<a) δ_(S^j x) − Σ_(j<a) δ_(S^j q)` has divergence `δ_x − δ_q`. The selected classes are `x ≡ 2^a − 1` (`a` even) or `3·2^a − 1` (`a` odd) modulo `2^(a+2)`: complete binary classes, not cylinders with a missing bit. For `x > 3` neither prefix reaches 1 before step `a`, so selected `x` and `q` have equal hitting times when finite.
+2. **Application (conditional: absorption below `N` is supplied).** For `8 | N`, let `G_N` be the profile `R_N` of [`retained-graph-complement-constructor`](../retained-graph-complement-constructor/README.md) restricted to selected roots, `R'_N = R_N − G_N`. Every selected root has `q < 3N/4 < N`; with the supplied `H`, `T_signed = B_N + H_Q` has divergence `G_N`, an exact nonnegative integral current `T` for `G_N` is extracted from its graph, and `Π_N = (I − P)(J_0 − T) − R'_N`. Only the first `a` arrows of each `x` prefix are new; coefficient-2 roots count twice throughout.
+3. **Count.** Formula (7) evaluates `|G_N|` exactly in `O(log N)` CRT terms; `|G_N| = 25N/576 + ε_N`, `|ε_N| ≤ 6(A − 1) + 25/216`, and `||R'_N| − 25N/576| ≤ 6A`, `A = ⌊log₂(3N/2)⌋`. With the retained graph, asymptotically `119/144` of the outer shell `N/4` is certified, leaving `25/144`; at `N = 6144`, 263 of 532 residual units. This is a one-pass statement: `R'_N` is a different profile, and repeated halving of its mass is unjustified.
+4. **Complementary branch.** For `t ≡ −3^a (mod 4)`, with `d = v_2(3^(a−1)t − 1) ≥ 2` and `w = (3^(a−1)t − 1)/2^d`, `S^(a−1)(q) = w` and `S^a(x) = 3·2^(d−1)·w + 1`; knowing the smaller partner does not connect `x` to it. The same-identity extension fails at the actual root `x = 27` (`N = 24`): `S²(27) = 31`, `S²(13) = 1`.
+5. **Excursions.** For even `a ≥ 8`, `x = 2^a − 1` is a selected root at the required cutoff `N = 12·2^(a−4)`; its first `a − 1` successors exceed `x`, and `S^(a−1)(x) = 2·3^(a−1) − 1`, so the height relative to `N` is unbounded while the bridge still closes after `a` arrows.
+
+Universal residual closure and Collatz remain open; no novelty is claimed (the halving identity uses precedented common-tail arithmetic).
+
+## Proof
+
+The legacy note "A complete halving family for the outer residual" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Written conditional construction, exact source profile, and finite
 checks.** The smaller absorption current is an input. Universal residual closure
 and Collatz remain open. No novelty claim is made. The clock is odd-only
 Syracuse, with absorption at1; algebraically write S(1)=1 and omit its current row.
 
-## 1. A halving identity with unbounded arithmetic prefix length
+### 1. A halving identity with unbounded arithmetic prefix length
 
 Every positive odd x=3 modulo4 has a unique representation
 
@@ -75,9 +127,9 @@ the smaller seed q, and retain the explicit finite bridge D_x. It is not a
 recurrence covering every odd seed. The smaller seed need not itself belong
 to the selected family; absorption through the stated lower cutoff is supplied.
 
-## 2. Apply the rule to the exact residual, retaining all coefficients
+### 2. Apply the rule to the exact residual, retaining all coefficients
 
-Fix `8|N`, N>=8. The [retained-graph construction](../complement/RETAINED_GRAPH_EXTENSION.md)
+Fix `8|N`, N>=8. The [retained-graph construction](../retained-graph-complement-constructor/README.md)
 leaves the following nonnegative R_N:
 
 ```
@@ -146,7 +198,7 @@ Twice their difference has divergence `2 delta_79-2 delta_39`.
 The full current for39 is available below N. The construction retains all
 two units at79 and does not assume absorption through269.
 
-## 3. Exact logarithmic floor formula and the remaining profile
+### 3. Exact logarithmic floor formula and the remaining profile
 
 Write C(L,H;r,m) for the number of integers strictly between rational L,H
 that equal r modulo m. Thus
@@ -205,7 +257,7 @@ halving construction certifies `119/144` asymptotically, leaving `25/144`.
 This fraction is a one-pass statement. The remaining R'_N is a different
 arithmetic profile, so repeatedly multiplying its mass by1/2 is unjustified.
 
-## 4. Exact complementary branch and the next obligation
+### 4. Exact complementary branch and the next obligation
 
 The entire remaining family has
 
@@ -239,7 +291,7 @@ Knowing their smaller partners are already certified does not provide that
 missing connection. This is the outstanding closure obligation, rather than
 an appeal to iterate the observed half-mass reduction.
 
-## 5. Arbitrarily long excursions already occur on a required ray
+### 5. Arbitrarily long excursions already occur on a required ray
 
 For every even a>=8, choose
 
@@ -267,7 +319,7 @@ the extra annular copy-index and band restrictions when the root lies in
 R_N. Its applicability also covers both coefficient1 and coefficient2 roots.
 This is why the present step is broader than adding another isolated block.
 
-## 6. Reproduction and limits
+### 6. Reproduction and limits
 
 Run from the repository root:
 
@@ -286,3 +338,19 @@ exact logarithmic count, and source-capacity-preserving current conversion.
 The receipt records the exact test ranges, current hashes, remaining mass,
 large-parameter arithmetic cases, and the complementary-branch counterexample.
 The written proof is not formal verification or human peer review.
+
+## Certificates
+
+- [`check_halving_recompute.py`](check_halving_recompute.py) (written at the B09 migration, about 1 s, standard library). Checks the identity and the class description for every selected `x < 2^16`; that explicit enumeration of `R_N` and of its selected part agrees with formula (7) for every multiple of 8 through 4096, with the bound `6A`; that formula (7) reproduces all 45 `large_exact_formula_cases` rows of the legacy receipt (cutoffs up to about `3·10^238`); the count 263 of 532 at `N = 6144`; and the complementary counterexample, the coefficient-2 example at `N = 72` (root 79) and the seven required-ray excursions of the receipt. It does not rebuild the supplied-input conversions (legacy checker, evidence only).
+- The command in the legacy text names `experiments/residual_progress/residual_return/`.
+
+## Remarks
+
+- **Coverage relative to the transfer.** The old packed annular roots `9183 + 768j` of [`annular-complement-outer-descent`](../annular-complement-outer-descent/README.md) are `223 (mod 256)`, in the `a = 5` selected class; halving removes the copy-index and band restrictions and covers both coefficient-1 and coefficient-2 roots.
+- **Side-lane finite data.** The side lane observed that a climber is selected exactly when the valuation after its run of 1s is at least 3, applied halving at every orbit state, and measured with an exact cylinder dynamic program that it removes a further ~28% of the uncertified roots at each bit depth without changing the fitted decay rate (feed 2026-10-17 19:46, numbers corrected at 20:22). These are finite counts and a heuristic rate; see [`cylinder-certificates-outer-residual`](../../attempts/cylinder-certificates-outer-residual/README.md).
+- **Next obligation.** Complete the complementary profile `R'_N`; on the five interleaved rays that would suffice for Collatz ([`five-ray-profile-completion-suffices`](../five-ray-profile-completion-suffices/README.md)).
+
+## History
+
+- Migrated from `experiments/residual_progress/residual_return/SHRINKING_COALESCENCE.md` (legacy ID R23) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical, with the side-lane probe `reviews/side_lane/coalescence_check.*`; `check_halving_recompute.py` was added at the migration. Legacy status: "written conditional construction, exact count, and checked finite currents".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `46198fb`. Its "independent model audits" of the halving construction and count were the main lane's own agents. The side lane's finite check is recorded under `reviewed_by`. The side lane first numbered this bridge R27; it corrected the numbering to R23 on 2026-10-18.

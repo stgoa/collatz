@@ -1,17 +1,66 @@
-# Sufficient sets and the R20 residual: primary-source audit
+---
+id: five-ray-profile-completion-suffices
+kind: result
+title: Completing the complementary outer profile at every interleaved five-ray cutoff would prove Collatz by induction
+status: written
+claim: >
+  Odd-only 3x+1 map, absorbing at 1. Order all cutoffs a 2^b, a in (12, 14, 16, 18, 21), b >= 9; consecutive
+  ratios are 7/6, 8/7, 9/8, 7/6, 8/7, all below 3/2, and every cutoff is divisible by 512. Suppose a rule
+  certifies, at every such N and using only a supplied exact current for U_N, every root of the complementary
+  profile R'_N of halving-coalescence-return (equivalently, by retained-graph-complement-constructor and
+  halving-coalescence-return, every remaining outer root of R_N). Then absorption extends from U_N to
+  U_(3N/2), which contains the next cutoff, and induction from the checked base U_6144 gives every positive
+  seed: the Collatz convergence statement. This is a conditional sufficiency statement; the universal
+  completion rule is not constructed. A single factor-64 ladder is too sparse for the step. Separate per-root
+  certificates may reuse already certified paths, while blocks combined into one annular submeasure need
+  joint capacity accounting. The cited sufficient-set and inverse-count theorems (Andaloro 2000, Monks 2006,
+  Monks et al. 2013, Krasikov-Lagarias 2003, Tao 2019) do not supply the needed height-controlled witnesses.
+  No novelty is claimed.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [retained-graph-complement-constructor, halving-coalescence-return, annular-complement-outer-descent]
+certificates: [check_induction_recompute.py]
+evidence:
+  - "r24_check.py, r24_check.json: side-lane probe (Claude side lane, 2026-10-17): the ordered cutoffs' ratios and divisibility over 355 cutoffs and the base (every odd seed <= 6144 reaches 1). Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ by repository-relative path (now ../locally-collatz-like-control-barrier/). Passed at be73a66 as reviews/side_lane/r24_check.py (archive/legacy-checker-run-be73a66.md, exit 0)"
+  - "../halving-coalescence-return/halving_return_audit.json: the legacy receipt in which the main lane reconstructed and checked the base U_6144"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-17
+    link: r24_check.py
+    scope: "Finite arithmetic (side-lane feed entry 2026-10-17 19:59, VERIFIED, main 8e2b5eb): over 355 ordered cutoffs the consecutive ratios lie in 7/6, 8/7, 9/8, so 3N/2 reaches the next cutoff, every cutoff is divisible by 512, and every odd seed <= 6144 reaches 1. The conditional step itself rests on the written constructions of R17 and R23, which were not re-derived; the status stays written"
+aliases: [R24]
+tags: [convergence, packet-currents, outer-residual, induction, sufficiency, literature-audit, conditional]
+---
+
+# Completing the complementary outer profile at every interleaved five-ray cutoff would prove Collatz by induction
+
+## Statement
+
+Odd-only Syracuse map, absorbing at 1. For `8 | M` and `N = 64M`, the remaining outer roots are the profile `R_N` of [`retained-graph-complement-constructor`](../retained-graph-complement-constructor/README.md), whose selected part is certified by [`halving-coalescence-return`](../halving-coalescence-return/README.md), leaving the complementary profile `R'_N`.
+
+**Conditional induction.** Order the cutoffs `12·2^b, 14·2^b, 16·2^b, 18·2^b, 21·2^b, 12·2^(b+1), …` from `b = 9`. Consecutive ratios are `7/6, 8/7, 9/8, 7/6, 8/7`, all at most `7/6 < 3/2`, and every cutoff is divisible by 512, so the annular-block transfer of [`annular-complement-outer-descent`](../annular-complement-outer-descent/README.md) (which needs `M = N/64` with `8 | M`) is available throughout. If at every such cutoff a rule certifies every root of `R'_N` from a supplied exact `U_N` current, then the retained-graph and halving constructions extend absorption to `U_(3N/2)`, which supplies the next cutoff's input by extracting already certified paths; from the checked base `U_6144`, induction gives every positive seed. No larger absorption input is needed. The rule has not been constructed.
+
+**Scope distinctions.** A single factor-64 ladder has too large a gap for this step; it must not be confused with the interleaved union. A direct root-path rule for every `8 | N ≥ 16` would also suffice (steps of 8); the annular-block alternative is stated only for `512 | N`. Independent certificates of individual roots may reuse an already certified positive source; combining blocks into one submeasure of `A_M` needs joint capacity bounds.
+
+**Literature audit.** The primary sources read (Andaloro 2000; Monks 2006; Monks, Monks, Monks and Monks 2013; Krasikov and Lagarias 2003; Tao 2019) prove qualitative sufficiency, residue reachability, eventual predecessor counts or almost-all descent; none supplies, for every `N` and every exit `t` of a remaining root, a witness already certified at that same `N`, inside the finite certified interval or the active annular bands, with sign and capacity control.
+
+## Proof
+
+The legacy note "Sufficient sets and the R20 residual: primary-source audit" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Status: literature audit and scoped reduction, not a Collatz proof.**
 This note checks whether published sufficient-set or inverse-tree results
 certify any part of the remaining R17/R20 outer profile. No novelty claim is
 made for the local constructions.
 
-## 1. Exact local question and clock conversion
+### 1. Exact local question and clock conversion
 
 Use the odd-only Syracuse map `S(x)=(3x+1)/2^v2(3x+1)`, absorbed at 1.
 For `8|M`, put `N=64M`, and assume the finite exact current for all odd
 seeds at most `N` that R20 explicitly requires. The R17 residual `R_N` is
 supported on odd roots `x` in `(N,3N/2)`, with coefficients 1 or 2 and
-the exact classes in [R17](../complement/RETAINED_GRAPH_EXTENSION.md),
+the exact classes in [R17](../retained-graph-complement-constructor/README.md),
 §4. Every such root has the valuation-one exit
 
 ```
@@ -48,7 +97,7 @@ deleting the intervening even steps gives the same odd states as `S`.
 Finite merger statements transfer, but step counts do not transfer
 unchanged. An even-state residue claim also needs translation.
 
-## 2. Verified primary theorems and exact mismatch
+### 2. Verified primary theorems and exact mismatch
 
 | Primary source | What is actually proved | Mapping to the R20 exit `t` | Missing property |
 |---|---|---|---|
@@ -63,7 +112,7 @@ their abstract. It is still an asymptotic, target-dependent statement. No estima
 has the joint quantifiers `for every N` and `for every t` in R20's finite
 exit set with an input witness already certified at that same `N`.
 
-## 3. Overlap and a useful logical barrier
+### 3. Overlap and a useful logical barrier
 
 **Precedented ingredients.** Finite parity/valuation words, inverse
 branches, coalescing affine families, and arithmetic-progression merger
@@ -95,9 +144,9 @@ annular input `M=N/64` with `8|M`. A universal completion would extend
 `U_N` to `U_(3N/2)`, hence supply the next cutoff's `U` current by
 extracting its already certified paths. The finite base `U_6144` is
 reconstructed and checked in the
-[halving receipt](../residual_return/halving_return_audit.json).
+[halving receipt](../halving-coalescence-return/halving_return_audit.json).
 Induction on this increasing unbounded sequence would therefore prove
-Collatz. By the [halving construction](../residual_return/SHRINKING_COALESCENCE.md),
+Collatz. By the [halving construction](../halving-coalescence-return/README.md),
 one need only complete its complementary profile `R'_N` at every cutoff
 in this sequence. That universal completion remains open.
 
@@ -117,7 +166,7 @@ source-empty auxiliary component, and its quarter-height inequality is
 relative to the possibly enormous exit vertex. Any imported modular or
 inverse theorem must also handle those auxiliary components.
 
-## 4. Concrete research interface left by the audit
+### 4. Concrete research interface left by the audit
 
 A potentially useful new theorem would be a **height- and capacity-controlled
 inverse statement**, not merely residue reachability:
@@ -143,7 +192,7 @@ must remain explicit. The unbounded annular exposure-depth theorem rules
 out a bounded-depth annular constructor; it does not by itself rule out
 every possible short comparison with an arbitrary supplied absorption graph.
 
-## 5. Checks and source boundary
+### 5. Checks and source boundary
 
 - Read `README.md`, `archive/docs/RESULTS.md` (R17, R20, R21), R17's retained-graph
   proof, R20's transfer proof, R21's source-cluster proof, and `AGENTS.md`.
@@ -156,3 +205,20 @@ every possible short comparison with an arbitrary supplied absorption graph.
   finding from it is used in this note.
 - This is a prose-only audit. It changes no mathematical implementation,
   stored certificate, shared result ledger, or LaTeX source.
+
+## Certificates
+
+- [`check_induction_recompute.py`](check_induction_recompute.py) (written at the B09 migration, under 1 s, standard library). Checks the 355 ordered cutoffs with `9 ≤ b ≤ 79` (ratio pattern `7/6, 8/7, 9/8, 7/6, 8/7`, all below `3/2`; divisibility by 512; the pattern is periodic in `b`, which is the general statement) and the base: every odd seed `≤ 6144` reaches 1 (cycle detection and a step cap).
+- The legacy folder had no checker for this note; the side-lane probe `r24_check.py` is evidence only.
+
+## Remarks
+
+- **The open target** is [`five-ray-complementary-profile-completion`](../../questions/five-ray-complementary-profile-completion.md). Under Collatz the required certificates exist, so it is equivalent to the convergence statement, not a weakening.
+- **Sources.** Monks 2006, Monks et al. 2013, Krasikov–Lagarias 2003 and Tao 2019 are [`monks-2006-sufficiency`](../../../../sources/monks-2006-sufficiency.md), [`monks-2013-strongly-sufficient`](../../../../sources/monks-2013-strongly-sufficient.md), [`krasikov-2003-predecessors`](../../../../sources/krasikov-2003-predecessors.md) and [`tao-2019-almost-all`](../../../../sources/tao-2019-almost-all.md); they are compared here, not assumed. Andaloro's paper has no source node (it is not an input). A displayed step of a further sieve paper was checked and fails: [`ansari-sieve-step-counterexample`](../ansari-sieve-step-counterexample/README.md).
+- **Precedent.** Finite parity words, inverse branches, coalescing affine families and progression mergers predate this programme (Andaloro's common-tail identities, Monks's backtracing formulas, attributed there to Wirsching). The halving identity uses precedented common-tail arithmetic; no novelty claim is made.
+- **The candidate interface of §4** ("a height- and capacity-controlled inverse statement") is a proof obligation, not an available theorem. The side lane's cylinder experiments on it are recorded in [`cylinder-certificates-outer-residual`](../../attempts/cylinder-certificates-outer-residual/README.md).
+
+## History
+
+- Migrated from `experiments/residual_progress/sufficient_sets/SUFFICIENT_SETS_AUDIT.md` (legacy ID R24; the folder's second note, `RECURSIVE_SIEVE_AUDIT.md`, became [`ansari-sieve-step-counterexample`](../ansari-sieve-step-counterexample/README.md), alias R24-b) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5), with the side-lane probe `reviews/side_lane/r24_check.*`; `check_induction_recompute.py` was added at the migration. Legacy status: "elementary written conditional sufficiency, with a checked finite base; universal completion remains open" (the note itself: "literature audit and scoped reduction, not a Collatz proof").
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `46198fb`. A draft confusion between one factor-64 ladder and the interleaved union was caught during review and corrected. The main lane's read-only check of §§3–4 (in [`side_lane_review_20261017_latest.md`](../outer-residual-strong-induction-support/side_lane_review_20261017_latest.md) §6) is its own and not independent. The side lane's finite check is recorded under `reviewed_by`. The note records that the side-lane feed at `125dd1cf` was skimmed and not used.

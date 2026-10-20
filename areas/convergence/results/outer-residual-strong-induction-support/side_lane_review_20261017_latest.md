@@ -34,7 +34,7 @@ counts quantify the remaining task; they do not establish that endpoint.
 ## 2. The residual-support identity is exact for every allowed cutoff
 
 Let `8|N`, `N>=8`, and let `R_N` be the profile in
-[R17's retained-graph construction](complement/RETAINED_GRAPH_EXTENSION.md).
+[R17's retained-graph construction](../retained-graph-complement-constructor/README.md).
 Write `S` for the odd-only map, absorbed at 1. Then
 
 \[
@@ -207,12 +207,12 @@ auxiliary histories protecting the component.
 After first integer arrival, the affine coefficient `c` can be rational;
 it should not be described as following an unrestricted integer cycle.
 The full arbitrary-depth conclusion rests on
-[the written fixed-h proof](phase_depth/FIXED_H_DEPTH.md), not on the
+[the written fixed-h proof](../fixed-ternary-order-unbounded-depth/README.md), not on the
 feed's finite brute-force samples.
 
 ## 6. Read-only check of the sufficient-set pivot
 
-Sections3–4 of [SUFFICIENT_SETS_AUDIT.md](sufficient_sets/SUFFICIENT_SETS_AUDIT.md)
+Sections3–4 of [SUFFICIENT_SETS_AUDIT.md](../five-ray-profile-completion-suffices/README.md)
 are logically consistent after their correction. Ordering the five rays
 from exponent9 gives successive ratios
 `7/6,8/7,9/8,7/6,8/7`, all below `3/2`. A universal completion of `R'_N`

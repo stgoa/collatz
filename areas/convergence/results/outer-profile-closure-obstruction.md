@@ -62,7 +62,7 @@ which lies in the original top band. The top-band coefficient is `âˆ’1` on `x â‰
 
 ## Remarks
 
-- **Scope.** This excludes a finite fixed-modulus profile ansatz under literal forward pushforward. It does not exclude growing moduli, a number of pieces growing with the scale, or algebraic current rewrites before further transport; it permits unequal-time cancellation; and it does not prove that aggregate historical exposure depths are unbounded ([`uniform-aggregate-exposure-depth`](../questions/uniform-aggregate-exposure-depth.md)).
+- **Scope.** This excludes a finite fixed-modulus profile ansatz under literal forward pushforward. It does not exclude growing moduli, a number of pieces growing with the scale, or algebraic current rewrites before further transport; it permits unequal-time cancellation; and it does not prove that aggregate historical exposure depths are unbounded ([`uniform-aggregate-exposure-depth`](../questions/uniform-aggregate-exposure-depth.md)); that was later proved by a different, inverse-history argument in [`unbounded-exposure-depth-necessary`](unbounded-exposure-depth-necessary/README.md).
 - **Consequence for constructions.** The original six-band fixed-modulus family is not closed under literal repeated pushforward. A successful closure must carry growing arithmetic information or change the representatives by exact currents (round report, now [`archive/convergence-annular-construction/REPORT.md`](../../../archive/convergence-annular-construction/REPORT.md)). The positive `+2` atoms are contributions that have not disappeared in a signed norm estimate such as [`annular-root-collapse-contraction`](annular-root-collapse-contraction.md).
 - Novelty undetermined.
 

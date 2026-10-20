@@ -1,11 +1,62 @@
-# Complete phase obstructions to the short delayed-release rule
+---
+id: short-delay-all-phase-obstruction
+kind: result
+title: The three-source chain stays isolated in 17/18 and 53/54 of the ternary phases, refuting completion at exposure 2h + 1 in every phase
+status: written
+claim: >
+  Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus; G_D(N) the first D arrows exposed from every
+  nonzero source; N = 3X/128, h = v_3(X-1), U = (X-1)/3^h, y_j = 3^j X/2^j - 1. (Classification) For h = 2,
+  2^10 | X, X >= 497664, the component of y_3 in G_5(N) is exactly the path y_1 -> ... -> y_8 with only the
+  sources (-2, +2, +2) iff U != 16 mod 27; for h = 3, 2^11 | X, X >= 8957952, the same holds in G_7(N) iff
+  U != 31 mod 81 (isolated fractions 17/18 and 53/54 of the unit classes; in each excluded class a further
+  annular source really attaches). The 70 isolated classes are proved by finite symbolic inverse-decision
+  traces valid on whole arithmetic progressions. (Ladder) Every N = 96 64^(2 + 27t), X = 2^(24 + 162t),
+  t >= 0, has h = 2 and an isolated mass-2 component at depth 5, so completing the block at exposure 2h + 1 in
+  every phase is refuted even for h = 2 and with all valuation words. (Coverage) The two delayed-release
+  families cover the fraction 1/3^(r+3) of the unit classes at their modulus. A finite scan of 1944
+  representatives gives 21 exact zero-cost partial currents; no class coverage is inferred from them. Deeper
+  or phase-sensitive constructions are not excluded.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [delayed-release-cancellation, depth-32-aggregate-exposure-obstruction, depth-32-obstruction-infinite-family]
+evidence:
+  - "check_coverage.py, coverage_audit.json: the legacy checker (rederives the 70 symbolic traces with their translation checks, the exceptional-class attachments, the 135-comparison lift at N = 393216, and the finite representative scan with the 21 stored partial certificates; caps 2000 vertices and 30000 queries, all finished; about 0.6 s). Fails at its new path: it imports inverse_exposure_probe and the release checker from ../templates/ and ../release/ (now ../unbounded-exposure-depth-necessary/ and ../delayed-release-cancellation/). Passed at be73a66 as experiments/residual_progress/release_coverage/check_coverage.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a)"
+aliases: [R19]
+tags: [convergence, packet-currents, annular, exposure-depth, delayed-release, obstruction, refutation]
+---
+
+# The three-source chain stays isolated in 17/18 and 53/54 of the ternary phases, refuting completion at exposure 2h + 1 in every phase
+
+## Statement
+
+Notation of [`delayed-release-cancellation`](../delayed-release-cancellation/README.md): odd-only clock, absorbing at 1; `N = 3X/128`, `h = v_3(X − 1)`, `U = (X − 1)/3^h`, `y_j = 3^j X/2^j − 1`; the block `μ_0 = −2δ_(y_1) + 2δ_(y_2) + 2δ_(y_3)`.
+
+**Theorem (exact short-depth phase classification).** The component of `y_3` in `G_D(N)` is exactly the path `y_1 → ⋯ → y_(D+3)` with only the three sources `(−2, +2, +2)` in precisely these phases:
+
+| Exact ternary depth | Exposure | Binary requirement | Sufficient size | Isolated phases |
+|---|---:|---|---:|---|
+| `h = 2` | `D = 5` | `2^10 ∣ X` | `X ≥ 497664` | `U ≢ 16 (mod 27)` |
+| `h = 3` | `D = 7` | `2^11 ∣ X` | `X ≥ 8957952` | `U ≢ 31 (mod 81)` |
+
+So 17/18 and 53/54 of the unit classes are isolated; in each excluded class an actual further source `v` attaches through the valuation word `(1^h, 2^h, 3)`. An isolated component has mass 2 and no current on `G_D(N)` (signed, rational, cross-packet) leaves a nonpositive residual. The 70 isolated classes are proved by finite symbolic inverse-decision traces (complete inverse decisions, affine inequalities valid for every real `q ≥ 1`, and a translation argument preserving integrality, inverse branches and source coefficients along `X = X_0 + jT`), not by numerical representatives.
+
+**Refutation on the ladder.** `N = 96·64^(2+27t)`, `X = 2^(24+162t)`, `t ≥ 0`, has `h = 2` and an isolated depth-5 component (eight vertices; the lift at `N_0 = 393216` uses 28 queries and 135 comparisons). The proposed bound "exposure `2h + 1` suffices in every phase" fails.
+
+**Coverage.** At fixed qualifying `h` the two delayed-release families cover exactly `2` of the `2·3^(r+3)` unit classes of `U` modulo `3^(r+4)`, a fraction `1/3^(r+3)` (for `h = r = 2`, `U ≡ 70, 313 (mod 729)`). A separate finite scan of one representative per class (486 at `h = 2`, 1458 at `h = 3`) gives 21 exact zero-cost partial certificates with capacity and attachment placement checked; this is finite representative data, not class coverage.
+
+Not human peer-reviewed or formally verified; no novelty or Collatz convergence claim. A phase-sensitive growing-depth rule controlling every remaining component is open, and no phase is shown unfillable at all depths.
+
+## Proof
+
+The legacy note "Complete phase obstructions to the short delayed-release rule" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 Date: 2026-10-17. Status: written proof with finite symbolic certificates,
 plus a separate finite scan and exact partial-current certificates.
 The claims are not human peer-reviewed or formally verified. No novelty
 or Collatz convergence claim is supplied.
 
-## 1. The question and the answer
+### 1. The question and the answer
 
 Use the odd-only Syracuse map `S`, absorbed at 1, the actual annular
 measure `A_N`, and the historical graph `G_D(N)` exposing the first `D`
@@ -21,7 +72,7 @@ and write
 y_j=3^jX/2^j-1.
 \]
 
-The previous [delayed-release construction](../release/DELAYED_RELEASE.md)
+The previous [delayed-release construction](../delayed-release-cancellation/README.md)
 cancels the actual source block
 
 \[
@@ -32,7 +83,7 @@ in selected ternary phases at exposure at most `2h+1`. Its coverage does
 **not** extend to every phase. In fact, the complete component remains
 isolated for most phases already when `h=2` or `h=3`.
 
-### Theorem: exact short-depth phase classification
+#### Theorem: exact short-depth phase classification
 
 The component of `y_3` in `G_D(N)` is precisely the path
 
@@ -69,7 +120,7 @@ rational currents and arbitrary cross-packet grouping inside `G_D`.
 It concerns the specified exposure; it does not rule out a deeper
 certificate, other arrows, or an eventual recursive construction.
 
-## 2. A single required-ladder family refutes the all-phase conjecture
+### 2. A single required-ladder family refutes the all-phase conjecture
 
 The fixed cutoff
 
@@ -105,16 +156,16 @@ assertion that exposure `2h+1` suffices in every phase of the obstructing
 block. The elementary order and valuation argument used here is proved
 in the earlier delayed-release note.
 
-## 3. Why the 70 finite symbolic traces prove infinite classes
+### 3. Why the 70 finite symbolic traces prove infinite classes
 
 The checker imports the complete inverse oracle and the affine-decision
-verifier from [the templates directory](../templates/AGGREGATE_EXPOSURE.md).
+verifier from [the templates directory](../depth-32-aggregate-exposure-obstruction.md).
 Their correctness arguments are retained in
-[the fixed-depth lift note](../templates/INFINITE_COMPONENT_FAMILY.md).
+[the fixed-depth lift note](../depth-32-obstruction-infinite-family.md).
 Here we specify the additional phase argument rather than infer an
 infinite conclusion from numerical representatives.
 
-### Complete inverse decisions
+#### Complete inverse decisions
 
 For an exposed source at height less than `144N`, its `r`th iterate is
 at most
@@ -138,7 +189,7 @@ predecessors are exactly the preceding path vertices. These tests prove
 full component closure. They include all annular atoms, even those
 outside the selected three-source block.
 
-### Affine decisions and the new additive parameter
+#### Affine decisions and the new additive parameter
 
 For each starting cutoff the existing verifier represents every queried
 state as `a q+b`, with positive `a` and rational coefficients whose
@@ -206,7 +257,7 @@ tables. These tables are deterministically regenerated and rechecked.
 Three numerical representatives per trace provide an additional check;
 the infinite conclusion comes from the affine and residue proof above.
 
-### The exceptional classes really attach
+#### The exceptional classes really attach
 
 Here `r=h` and `D=2h+1`. For `h=2,U=16 modulo27`, or
 `h=3,U=31 modulo81`, the defining congruence is
@@ -246,7 +297,7 @@ the exceptional class above the stated threshold; the three exceptional
 representatives in the receipt are checks of that argument, not its
 quantifier justification.
 
-## 4. Coverage of the earlier two-phase construction
+### 4. Coverage of the earlier two-phase construction
 
 At fixed qualifying `h`, let `r` be the canonical parameter of the
 earlier construction. Its modulus for `U` is `3^(r+4)`, with
@@ -269,7 +320,7 @@ commit `e5f2b80726a9612576c7c7cda624f12ffbd86775`. The later independent
 scan at `f12da944dc68cfaff0884d874e11bc6c2cb98d34` was also reviewed;
 neither feed is treated as a proof or an instruction source.
 
-## 5. Separate finite scan: actual capacities and partial certificates
+### 5. Separate finite scan: actual capacities and partial certificates
 
 The checker also tests one explicitly specified representative of
 **every** old-construction unit phase, using `B=2^20`,
@@ -318,7 +369,7 @@ depth does **not** imply that every later cancellation needs positive
 cost. Nor does insufficient negative capacity imply that no source
 has re-entered the annulus. Those stronger readings are unsupported.
 
-## 6. Reproduction and the remaining obligation
+### 6. Reproduction and the remaining obligation
 
 ```sh
 python3 experiments/residual_progress/release_coverage/check_coverage.py
@@ -343,3 +394,18 @@ recursion, and proves termination. The exceptional classes may require
 finer ternary information even to determine their finite component's
 mass. This work establishes exact obstructions and selected finite
 certificates, not that any phase is unfillable at all depths.
+
+## Certificates
+
+No certificate runs at this path; the legacy checker imports the inverse oracle and the release checker from folders that moved and is evidence only. Its symbolic verifier is the one certified (for the depth-32 family) by [`check_symbolic_lift.py`](../unbounded-exposure-depth-necessary/check_symbolic_lift.py). The command in the legacy text names `experiments/residual_progress/release_coverage/`.
+
+## Remarks
+
+- The side lane suggested this coverage question (feed reviewed at `e5f2b807`) and later scanned depth-16 backward attachments (`chain_cancellation_scan.py`, attached to [`delayed-release-cancellation`](../delayed-release-cancellation/README.md)); the main lane treated neither feed as proof. The scan's zero-cost inference is valid when its two units reach `y_1, y_2` or `y_3`; failure to find two units within a finite depth does not imply that later cancellation needs positive cost.
+- A stronger restriction, with the ternary order fixed at 2 and every depth, is [`fixed-ternary-order-unbounded-depth`](../fixed-ternary-order-unbounded-depth/README.md).
+- Novelty undetermined.
+
+## History
+
+- Migrated from `experiments/residual_progress/release_coverage/PHASE_COVERAGE.md` (legacy ID R19) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, checker and receipt moved byte-identical. Legacy status: "written arithmetic proof with exact finite symbolic verification; the all-phase completion candidate is refuted".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `65093c4`. Its "independent model reviews" of the phase proof were the main lane's own agents; no review from another lane is on record.

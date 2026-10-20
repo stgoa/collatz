@@ -1,4 +1,48 @@
-# Local packet inputs: constructive conversion and the remaining sign barrier
+---
+id: local-packet-calibration-extension
+kind: result
+title: Inner absorption gives an automatic one-sided packet input whose residual is exactly the unresolved complement
+status: written
+claim: >
+  Odd-only 3x+1 map, absorbing at 1; 8 | N; U_t counts odd 1 < x <= t; Pi_N the right-aligned packet, eta_N
+  its fixed-core remainder, K_N = nu_N + 3(U_N - U_(N/4)). (Split) D_N = 3U_N - 3U_(N/4) - U_(3N/2) - U_(3N/4)
+  = Pi_N + eta_N + (I - P)K_N = I_N - L_N with I_N = 2U_N - U_(N/4) - U_(3N/4) >= 0 and
+  L_N = 2U_(N/4) + (U_(3N/2) - U_N) >= 0. (Automatic input) Conditional on a supplied finite exact current H
+  for I_N (inner absorption is an input), Pi_N = (I - P)(H - K_N - E_N) - L_N. (Conversion) For any supplied
+  Pi_N = (I - P)J + zeta, zeta <= 0, L_N = (I - P)C - zeta with C = H - K_N - E_N - J; an exact input absorbs
+  every odd seed <= 3N/2, and on the nonzero-row graph of C the unabsorbed counts satisfy
+  2 M_low + M_out <= ||zeta^-||_1; feeding the automatic input back returns C = 0 and the whole complement.
+  (Coverage barrier) D_N(x) > 0 exactly when x <= N < 4x, so any positive scalar cone with residual budget
+  below 1 that covers a seed x uses a cutoff with x <= N < 4x, whose automatic input already needs x: this
+  particular induction is circular. Signed combinations of exact inputs, independent residual cancellation
+  and other graph connections are outside this scoped obstruction.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [finite-rational-cone-integer-certificate, right-aligned-fixed-core-remainder]
+evidence:
+  - "check_local_extension.py, local_extension.py, local_extension_audit.json, outer_96_current.csv: the legacy implementation (source split, automatic input, local conversion, finite component count) and its checker (64 complete source identities at N = 8, 16, ..., 512; 16640 pointwise scale coefficients; the finite examples at N = 24, 96, 384; the stored 102-row outer current at N = 96; the no-progress feedback at N = 8, 24, 96). Fails at its new path: local_extension.py loads ../forcing/actual_graph_compiler.py by its pre-migration path (now ../actual-graph-current-compiler/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/closure/check_local_extension.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy constructor of retained-graph-complement-constructor loads local_extension.py by its old path ../closure/"
+aliases: [R14]
+tags: [convergence, packet-currents, local-extension, conditional, circularity, obstruction]
+---
+
+# Inner absorption gives an automatic one-sided packet input whose residual is exactly the unresolved complement
+
+## Statement
+
+Fix `N ≥ 8` divisible by 8; odd-only clock, absorbing at 1. With `Π_N`, `η_N` (support in `{5, 7, 11, 13}`) from [`right-aligned-fixed-core-remainder`](../right-aligned-fixed-core-remainder/README.md), `E_N` the known finite core current with `(I − P)E_N = η_N`, and `K_N`, `D_N` as in [`finite-rational-cone-integer-certificate`](../finite-rational-cone-integer-certificate/README.md):
+
+1. **Split.** `D_N = Π_N + η_N + (I − P)K_N = I_N − L_N` with the nonnegative measures `I_N = 2U_N − U_(N/4) − U_(3N/4)` (inner interval `(N/4, N]`) and `L_N = 2U_(N/4) + W_N`, `W_N = U_(3N/2) − U_N`; `‖I_N‖₁ = N/2`, `‖L_N‖₁ = N/2 − 2`, `‖W_N‖₁ = N/4`.
+2. **Automatic input (conditional: inner absorption is an input).** If a finite current `H` with `(I − P)H = I_N` is supplied, then `Π_N = (I − P)(H − K_N − E_N) − L_N`.
+3. **Conversion.** For any supplied `Π_N = (I − P)J + ζ`, `ζ ≤ 0`, put `C = H − K_N − E_N − J`: then `L_N = (I − P)C − ζ` and `W_N = (I − P)C − 2U_(N/4) − ζ`. If `ζ = 0`, every odd seed `≤ 3N/2` is absorbed using existing rows. In general, on the graph of the nonzero rows of `C`, the numbers `M_low`, `M_out` of unabsorbed seeds in `(1, N/4]` and `(N, 3N/2]` satisfy `2M_low + M_out ≤ ‖ζ⁻‖₁` and `M_out ≤ ‖(−2U_(N/4) − ζ)⁺‖₁`.
+4. **No progress by feedback.** Substituting the automatic input gives `C = 0` and `−ζ = L_N`: the composition returns the unresolved complement unchanged (an algebraic statement about these two constructions only).
+5. **Coverage barrier.** `D_N(x)` is `0, −1, 2, 1, −2` on `N < 2x/3`, `2x/3 ≤ N < x`, `x ≤ N < 4x/3`, `4x/3 ≤ N < 4x`, `N ≥ 4x`. In any identity `μ = Σ α_N D_N + b − V + Z` with `α_N ≥ 0`, `V ≥ 0`, `b(x) = 0`, `‖Z⁺‖₁ ≤ ε < 1` and `μ(x) ≥ 1`, the weights on `x ≤ N < 4x` sum to at least `(1 − ε)/2`; for these cutoffs the automatic input already requires the absorption of `x`.
+
+The raw top packet atom `9N/4 − 1` is not an intrinsic dependency: `K_N` cancels it. No packet currents or inner absorption are supplied at arbitrary cutoffs; no Collatz or novelty claim.
+
+## Proof
+
+The legacy note "Local packet inputs: constructive conversion and the remaining sign barrier" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 2026-10-17. **Written conditional constructions, a scoped obstruction, and
 exact finite certificates.** These results do not supply packet currents or
@@ -12,7 +56,7 @@ certificate, but its negative residual retains the unknown complement.
 A better packet certificate can reduce that obligation; the conversion below
 quantifies exactly what must improve.
 
-## 1. Split the exact scale source into two nonnegative measures
+### 1. Split the exact scale source into two nonnegative measures
 
 Fix an integer `N>=8` divisible by 8. Let `U_t` count odd states `1<x<=t`,
 and retain the actual right-aligned packet source and core remainder:
@@ -55,7 +99,7 @@ The two negative regions in `L_N` are retained separately; no sign or
 multiplicity is suppressed. Let `E_N` be the known finite signed path
 current for the fixed core, so `(I-P)E_N=eta_N`.
 
-## 2. Inner absorption supplies a one-sided input immediately
+### 2. Inner absorption supplies a one-sided input immediately
 
 **Automatic input construction.** Suppose a finite current H is supplied
 with `(I-P)H=I_N`. Equivalently, the odd seeds in `(N/4,N]` have finite
@@ -75,7 +119,7 @@ This does not assume that all states below N converge. Only the indicated
 inner interval is required. Its paths can visit larger states; they must
 be actual supplied finite paths, not an unproved stopping-time assumption.
 
-## 3. A packet certificate returns a quantified complement certificate
+### 3. A packet certificate returns a quantified complement certificate
 
 Keep the supplied H. Suppose another checked finite packet identity is
 available:
@@ -151,7 +195,7 @@ to the outer identity and bound each component's residual mass by its
 positive part. These are statements on the finite graph E, not assertions
 that a finite component is globally invariant. QED.
 
-## 4. Feeding the automatic certificate back gives an exact no-progress identity
+### 4. Feeding the automatic certificate back gives an exact no-progress identity
 
 Substitute the automatic input from (4) into (6). One obtains
 
@@ -171,7 +215,7 @@ two formulas. It also does not rule out a different packet current with a
 better residual, cross-packet cancellation, or an independent arithmetic
 extension of the exposed graph.
 
-## 5. A precise coverage barrier for adaptive positive scale cones
+### 5. A precise coverage barrier for adaptive positive scale cones
 
 For an odd `x>1` and `8|N`, the exact coefficient of the unrounded scale
 measure is
@@ -232,7 +276,7 @@ would already require the new seed's absorption. This pinpoints the
 circularity of supplying those particular positive-cone inputs by the
 automatic inner-interval construction.
 
-### The raw top atom is not an intrinsic dependency
+#### The raw top atom is not an intrinsic dependency
 
 Every right-aligned packet at `8|N` has coefficient 2 at its largest
 state `9N/4-1`. Its unique source is `3N/2-1`, with first valuation 1 and
@@ -243,7 +287,7 @@ requires absorption through `9N/4` would be wrong. That height is an
 obstacle only to naive separate absorption of its raw sources. The genuine
 barrier for the scalar induction is (9)--(11) and the residual sign in (6).
 
-## 6. Actual positive-integer examples and reproduction
+### 6. Actual positive-integer examples and reproduction
 
 `local_extension.py` implements the exact source split, automatic input,
 local conversion, and finite component count. All input identities are
@@ -280,3 +324,18 @@ coefficients, the actual finite examples, and every claimed output identity.
 All discovery is capped. These finite checks supplement the general proofs;
 they do not establish universal packet supply or a strictly decreasing
 induction.
+
+## Certificates
+
+No certificate runs at this path; the legacy checker is evidence only. The finite examples recorded in its receipt: at `N = 24` the input `ζ = −δ_31 − δ_47` leaves exactly the outer seeds 27 and 31 unabsorbed (bound (7) is sharp, both sides 2); at `N = 96` the exact input closes the whole complement and the 102-row outer current [`outer_96_current.csv`](outer_96_current.csv) has divergence 1 at each odd state 97..143; at `N = 384` the residual budget 5 leaves the four outer seeds 447, 495, 511, 559. The commands in the legacy text name `experiments/residual_progress/closure/`.
+
+## Remarks
+
+- The conversion quantifies exactly what a better packet certificate must improve. The retained cutoff graph improves the automatic input in [`retained-graph-complement-constructor`](../retained-graph-complement-constructor/README.md).
+- The coverage barrier concerns the displayed positive cone and its residual budget; a favourable supplied residual can cancel more boundary mass after substitution (the resource measured by item 3). No general impossibility of an arithmetic constructor is claimed.
+- Novelty undetermined (none claimed).
+
+## History
+
+- Migrated from `experiments/residual_progress/closure/LOCAL_EXTENSION.md` (legacy ID R14) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical. Legacy status: "written constructive identities and a scoped positive-cone obstruction; finite certificates".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `a7b7b47`. The round report's "independent reviews" of the local conversion were run by the main lane's own agents and are not counted as independent.

@@ -224,13 +224,13 @@ The latest optional side feed, reviewed at
 delayed-release identities and reports sparse negative-source attachment
 in a depth16 search. Both new receipts were reproduced in temporary
 storage; exact integer height bounds give the same results. See the
-review receipt (legacy `experiments/residual_progress/side_lane_review_20261017_2005.json`, not yet migrated).
+review receipt ([`side_lane_review_20261017_2005.json`](../delayed-release-cancellation/side_lane_review_20261017_2005.json)).
 These observations motivate testing coverage. They do not prove that
 later zero-cost attachment is impossible: a bounded search can miss a
 deeper backward source. Insufficient negative capacity also does not mean
 there are no source attachments at all.
 
-The next batch's annular-to-complement transfer (legacy `experiments/residual_progress/complement_recursion/ANNULAR_COMPLEMENT_TRANSFER.md`, not yet migrated)
+The next batch's annular-to-complement transfer ([`annular-complement-outer-descent`](../annular-complement-outer-descent/README.md))
 makes the proposed progress test precise. Its positive annular atoms are
 already certified by smaller ancestors; a capacity-checked cancellation
 then certifies selected negative atoms and their outer predecessors.
@@ -248,14 +248,14 @@ second merged PR. The merged control and scope conclusions above stand.
 
 **Decision: focus the constructive work on the explicit complementary
 outer family.** The new
-halving identity (legacy `experiments/residual_progress/residual_return/SHRINKING_COALESCENCE.md`, not yet migrated)
+halving identity ([`halving-coalescence-return`](../halving-coalescence-return/README.md))
 connects every selected root `x=2^a*t-1`, `t=3^a mod4`, to the smaller
 seed `(x-1)/2`. It reduces the leading residual mass by half and works
 through unbounded climbs. The opposite binary class remains unresolved.
-The sparse induction (legacy `experiments/residual_progress/sufficient_sets/SUFFICIENT_SETS_AUDIT.md`, not yet migrated)
+The sparse induction ([`five-ray-profile-completion-suffices`](../five-ray-profile-completion-suffices/README.md))
 shows exactly why a universal completion of that class would suffice.
 
-The fixed-h obstruction (legacy `experiments/residual_progress/phase_depth/FIXED_H_DEPTH.md`, not yet migrated)
+The fixed-h obstruction ([`fixed-ternary-order-unbounded-depth`](../fixed-ternary-order-unbounded-depth/README.md))
 rules out every depth bound depending only on the earlier ternary order,
 already when that order is2. This is a reason to change the proposed
 recursive state, not a reason to abandon exact currents.
@@ -267,7 +267,7 @@ Its finite-bit scans are reproducible, but only test the stated prefix
 rules, including a limited merger with one-step images of known seeds.
 They do not exhaust arbitrary common-tail bridges to supplied paths.
 The measured N^0.93 extrapolation is not a proved integer-count law.
-The durable review (legacy `experiments/residual_progress/side_lane_review_20261017_latest.md`, not yet migrated)
+The durable review ([`side_lane_review_20261017_latest.md`](../outer-residual-strong-induction-support/side_lane_review_20261017_latest.md))
 records reproduced receipts, the additional direct-prefix checks, and
 these scope limits.
 

@@ -1,4 +1,56 @@
-# A terminating auxiliary normalization, with its exact positive obstruction
+---
+id: auxiliary-normalisation-remainder
+kind: result
+title: A terminating, order-independent auxiliary normalization of the annulus leaves at least 21N/4 positive mass at multiples of 3
+status: written
+claim: >
+  Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus (8 | N). (Lemma) An odd y > 1 has an odd
+  ancestor 1 < x < y at Syracuse distance one or two iff y = 5, 11, 13 or 17 mod 18; the moves
+  y -> (2y-1)/3 (y = 5, 11), (8y-5)/9 (y = 13), (4y-5)/9 (y = 17) are exact paths to such an ancestor below 8y/9.
+  (Normal form) Moving every positive coefficient along these rules terminates for every finite integer
+  measure (the potential sum x max(mu(x), 0) strictly decreases); the residual Z(mu) and the current J(mu) are
+  independent of the processing order, mu = (I - P)J(mu) + Z(mu), J(mu) <= 0, and every positive residual
+  coefficient is 1, 3, 7, 9 or 15 mod 18. (Annulus) For A_N, current rows lie below 96N and positive residual
+  states below 64N, while negative sources remain up to 144N; the first-pass residual has total mass exactly
+  21N/4 at multiples of 3, where no predecessor exists, so the terminal residual keeps at least 21N/4
+  positive mass and any completing continuation L needs ||L+||_1 >= 21N/4 (a cost of the continuation, not of
+  the final summed current). A literal half-scale residual recursion is impossible, and no fixed inverse depth
+  gives every inactive state a smaller ancestor. A universal partial normalization only; the positive remainder
+  is open.
+authors:
+  - ChatGPT main lane (Codex)
+created: 2026-10-17
+depends_on: [disjoint-annular-recursion]
+certificates: [check_normal_form_recompute.py, batch_r15_r18_r21_r29_check.py]
+evidence:
+  - "check_auxiliary_normal_form.py, auxiliary_normal_form_audit.json: the legacy constructor and checker (first_pass, normalize, annular_first_profile; direct normalization against first-pass-then-normalize with equal current tables; exact divergence, flow recurrence, residue support, height bounds and leaf counts at every multiple of 8 through 512, plus 768 and 6144; the short-ancestor classification through 4097). Fails at its new path: it loads experiments/annular_construction/arithmetic/check_arithmetic_reductions.py relative to the repository root (now ../universal-annular-partial-current/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/auxiliary/check_auxiliary_normal_form.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy checker of signed-path-collapse-capacity loads it by its old path"
+  - "batch_r15_r18_r21_r29_check.json: receipt of the side-lane probe batch_r15_r18_r21_r29_check.py, rewritten by every run (reproduced byte for byte at the migration)"
+reviewed_by:
+  - by: Claude side lane (Opus)
+    date: 2026-10-18
+    link: batch_r15_r18_r21_r29_check.py
+    scope: "Finite arithmetic only (side-lane feed entry 2026-10-18 11:32, VERIFIED, main 9190ccf): for every odd y < 10^6 a strictly smaller ancestor within two steps exists exactly on 5, 11, 13, 17 mod 18 (222,221 such y), and each stated move is an exact path below 8y/9. 'Statements that need the annular measure A_N are not checked here': not the residual profiles or the 21N/4 bound. The status stays written"
+aliases: [R15]
+tags: [convergence, packet-currents, annular, normal-form, partial-current, obstruction]
+---
+
+# A terminating, order-independent auxiliary normalization of the annulus leaves at least 21N/4 positive mass at multiples of 3
+
+## Statement
+
+Finite integer signed measures on odd states greater than 1, odd-only Syracuse map `S`, killed pushforward `P` (absorbing at 1). `A_N`, `8 | N`, is the six-band annulus of [`disjoint-annular-recursion`](../disjoint-annular-recursion/README.md).
+
+1. **Short-ancestor lemma.** An odd `y > 1` has an odd ancestor `1 < x < y` at distance one or two iff `y mod 18 ∈ {5, 11, 13, 17}`. The rules `q = (2y − 1)/3` (`y ≡ 5, 11`, valuation 1), `q = (8y − 5)/9` via `r = (4y − 1)/3` (`y ≡ 13`, valuations 1, 2) and `q = (4y − 5)/9` via `r = (2y − 1)/3` (`y ≡ 17`, valuations 1, 1) are exact, with `3 ≤ q < 8y/9`; their currents are nonpositive.
+2. **Termination and uniqueness.** Applying the rules to positive coefficients in any order terminates (the integer `Φ(μ) = Σ x·max(μ(x), 0)` strictly decreases; a lineage from height `≤ M` has at most `⌊log_(9/8)(M/3)⌋` replacements), and the final `Z(μ)`, `J(μ)` are order independent, with `μ = (I − P)J(μ) + Z(μ)`, `J(μ) ≤ 0`, and every positive residual coefficient in the classes `1, 3, 7, 9, 15 (mod 18)`.
+3. **The annulus.** The first pass gives an explicit nine-profile description of `B_N` (modulus 144); `J_1 ≤ 0` with rows below `96N`; every positive coefficient of `B_N`, and of the terminal `Z_N`, lies below `64N`; negative sources remain up to `144N`. For every horizon `H_L(A_N) ≤ H_L(Z_N)`.
+4. **Unavoidable remainder.** `Σ_(3|x) B_N(x) = 21N/4` exactly, all these coefficients are nonnegative, and `Σ_(3|x) Z_N(x) ≥ 21N/4`. A completion `Z_N = (I − P)L + W`, `W ≤ 0`, needs `‖L⁺‖₁ ≥ 21N/4`. This is not a lower bound on the positive cost of the final current `J_N + L`.
+5. **Limits.** `Z_N = Σ c_i Z_(M_i) + W` with `c_i ≥ 0`, `M_i ≤ N/2`, `W ≤ 0` is impossible; and for any fixed `D`, an odd `y ≡ 1 (mod 3^D)` has all its ancestors within `D` steps above `y`.
+
+The height bound does not improve the existing absorption cutoff `64N`; the normalization is a universal **partial** construction, not a complete annular certificate or a proof of Collatz. No novelty is claimed.
+
+## Proof
+
+The legacy note "A terminating auxiliary normalization, with its exact positive obstruction" follows, lightly edited (headings demoted one level, links pointed to nodes). Its commands name pre-migration paths; see Certificates.
 
 Date: 2026-10-17. Status: written elementary proofs and finite checks.
 This note constructs a universal **partial** normalization. It does not
@@ -14,7 +66,7 @@ The source `A_N` is the existing six-band annulus, with `8|N`, not an
 inherited deeper packet family. Auxiliary intermediate vertices are actual
 integer states; they need not be nonzero source atoms.
 
-## 1. Short backward chains with a smaller endpoint
+### 1. Short backward chains with a smaller endpoint
 
 Use the following rules. A chain `q,r,y` means `S(q)=r`, `S(r)=y`;
 a one-row chain means `S(q)=y`.
@@ -40,7 +92,7 @@ current is `-c delta_q` in the one-step case and
 and its divergence is `c delta_y-c delta_q`. Intermediate source
 coefficients are not spent; their divergence terms cancel exactly.
 
-### Exhaustiveness at depth two
+#### Exhaustiveness at depth two
 
 **Lemma.** An odd `y>1` has an odd ancestor `1<x<y` at Syracuse distance
 one or two if and only if `y modulo 18` belongs to `{5,11,13,17}`.
@@ -64,7 +116,7 @@ Consequently the terminal classes below describe precisely the obstruction
 to **all** strictly height-decreasing predecessor substitutions of length
 at most two, rather than an arbitrary subset of short rules.
 
-## 2. Universal termination and a unique normal form
+### 2. Universal termination and a unique normal form
 
 Let the active set be the four residue classes above, and write `f(y)=q`
 for the selected rule. Whenever an active state has positive current
@@ -126,7 +178,7 @@ the initial maximum `M`, giving the explicit finite visit cap `(M-1)//2`.
 Auxiliary current vertices can exceed the state being replaced; they are
 not residual arrivals and do not invalidate the decreasing potential.
 
-## 3. An exact replacement profile for the whole annulus
+### 3. An exact replacement profile for the whole annulus
 
 Apply the rule once to every originally positive active atom of `A_N`.
 Let `B_N` be the resulting residual. Its base part is `A_N` with positive
@@ -170,7 +222,7 @@ height is not a reduction of the entire source support. For all horizons,
 the nonpositive current gives `H_L(A_N)<=H_L(Z_N)`. The unknown positive
 residual remains in that inequality.
 
-## 4. Exactly 21N/4 of unavoidable positive mass is already visible
+### 4. Exactly 21N/4 of unavoidable positive mass is already visible
 
 Every multiple of 3 is inactive and has no incoming Syracuse arrow. The
 original annulus vanishes there. Thus a positive arrival at such a vertex
@@ -225,7 +277,7 @@ The normalization therefore cannot finish a certificate at any annular
 cutoff. It necessarily leaves linear positive mass at an identified set
 of actual integers.
 
-### A necessary cost for the continuation, not the final summed current
+#### A necessary cost for the continuation, not the final summed current
 
 Suppose a further current `L` satisfies
 `Z_N=(I-P)L+W` with `W<=0`. At `3|x`, there is no incoming arrow, hence
@@ -241,7 +293,7 @@ gives `J_N(x)=-Z_N(x)`. The required positive continuation can cancel
 these negative prefix rows. Confusing continuation cost with summed cost
 would give an incorrect obstruction.
 
-### Failure of a literal half-scale closure
+#### Failure of a literal half-scale closure
 
 For every `q=15 modulo 24` in `(32N,64N)`, the top source
 `y=(9q+5)/4` is an actual positive annular atom with coefficient 2. Therefore
@@ -254,7 +306,7 @@ is impossible. This rules out that literal residual recursion. It does not
 rule out a recursion using additional signed currents, affine lifts,
 different auxiliary families, or larger transport depths.
 
-## 5. Why increasing the inverse depth is a new obligation
+### 5. Why increasing the inverse depth is a new obligation
 
 There is no fixed inverse depth guaranteeing a smaller ancestor for every
 inactive positive state. More precisely, if `y>1` is odd and
@@ -278,7 +330,7 @@ sufficiently large cutoffs, including on each required dyadic ray.
 Auxiliary composition may use growing depth, but its termination requires
 a further argument beyond the normalization proved here.
 
-## 6. Executable construction and verification
+### 6. Executable construction and verification
 
 `check_auxiliary_normal_form.py` provides:
 
@@ -311,3 +363,19 @@ Use `--write-receipt` only to intentionally refresh it. Selected results are:
 These experiments validate the implementation. The universal claims rest
 on the explicit chain, potential, flow, and floor-count arguments above.
 The positive remainder and its required continuation are still open.
+
+## Certificates
+
+- [`check_normal_form_recompute.py`](check_normal_form_recompute.py) (written at the B09 migration, under 1 s, standard library). Rebuilds `A_N` from the six-band table and checks: the short-ancestor lemma and the exact rule paths for every odd `y ≤ 4097`; for every multiple of 8 through 512 and 768, the first-pass mass `21N/4` at multiples of 3 with nonnegative coefficients, positive first-pass coefficients below `64N` and negative current rows below `96N`; full normalization at `N = 8, 96, 168, 384` with the masses of the table in §6 below (initial, terminal, terminal at multiples of 3), terminal residues and the divergence identity.
+- [`batch_r15_r18_r21_r29_check.py`](batch_r15_r18_r21_r29_check.py) (side lane, about 3 s): the short-ancestor classification and moves for odd `y < 10⁶`, and the finite arithmetic of [`signed-path-collapse-capacity`](../signed-path-collapse-capacity/README.md) (R18), [`bounded-source-cluster-local-bound`](../bounded-source-cluster-local-bound/README.md) (R21) and the legacy R29 (`experiments/residual_progress/known_saturation/`, not yet migrated). It rewrites its receipt on every run; the run at the migration reproduced it byte for byte.
+- The legacy checker is evidence only. The command in the legacy text names `experiments/residual_progress/auxiliary/`.
+
+## Remarks
+
+- The positive remainder is the obstruction to **all** strictly height-decreasing predecessor substitutions of length at most two. Using intermediate negative capacity, instead of the two-edge shortcut, gives the smaller residual of [`signed-path-collapse-capacity`](../signed-path-collapse-capacity/README.md).
+- The open obligation is the continuation of the positive remainder ([`annular-component-progress-lemma`](../../questions/annular-component-progress-lemma.md)).
+
+## History
+
+- Migrated from `experiments/residual_progress/auxiliary/AUXILIARY_NORMAL_FORM.md` (legacy ID R15) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, checker and receipt moved byte-identical, with the side-lane probe `reviews/side_lane/batch_r15_r18_r21_r29_check.*`; `check_normal_form_recompute.py` was added at the migration. Legacy status: "written partial construction, order-independence proof, exact lower bound, and finite checks".
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `a7b7b47`. Its "independent reviews" of the auxiliary bounds were the main lane's own agents. The side lane's finite check (2026-10-18) is recorded under `reviewed_by` with its scope.
