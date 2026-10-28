@@ -81,3 +81,4 @@ The claim is a finite computation. Completeness of the enumeration is proved in 
 ## History
 
 - Written 2026-10-28 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, while following the "separate the algebraic part" attack of the half-cancellation question.
+- 2026-10-28, later: the `e = 2` case is tested adversarially in [`near-doubled-words-primitive-factor-test`](../near-doubled-words-primitive-factor-test/README.md).
