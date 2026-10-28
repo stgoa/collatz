@@ -42,7 +42,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MAP = ROOT / "tools" / "legacy_paths.json"
-LEGACY_COMMIT = "be73a66"
+# The last pre-migration commit, cited throughout the repository as be73a66: that was its hash before the
+# 2026-10-28 author-email rewrite (archive/commit-map.md). Its tree is unchanged.
+LEGACY_COMMIT = "aebeaf055d48d70ea60fe145390a5fd588ffe48a"
 TIMEOUT = 1800
 
 

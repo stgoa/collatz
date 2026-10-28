@@ -15,6 +15,8 @@ How this repository came to be, and who (or what) did the work. All research her
 | Oct 18–19 | The owner activates the **cycle-spectrum** goal: reduced denominators of rational cycles across `3x+d`. The main lane produces C001–C013. |
 | Oct 19 | The main lane pauses (ChatGPT quota), leaving C014 uncommitted. The side lane becomes the producer (S1–S13) and the Lean lane formalises its results. Highlights: `ρ ≥ 4`, the Denjoy–Koksma height bound and the rise lemma. The owner merges the Lean lane as PR #3. |
 | Oct 19 (evening) | The owner stops all research lanes and asks for one clean layout on `main`, open to outside contributors. Every lane is merged with full history, C014 is committed as work in progress, the repository is restructured, and the MIT license is added. |
+| Oct 20 | The repository is migrated into the knowledge-graph layout of nodes, in eighteen reviewed batches (below). |
+| Oct 28 | The history is rewritten to replace the owner's work email with a personal one, before the repository is made public. Files, messages and dates are unchanged, but commit hashes changed; [`commit-map.md`](commit-map.md) maps every old hash to its new one. |
 
 ## Lanes and agents
 
