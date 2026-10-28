@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**219 results, 28 attempts, 37 questions, 27 sources.**
+**221 results, 29 attempts, 37 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -218,6 +218,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | Result | Title | Status | Chain | Rests on | Lean |
 |---|---|---|---|---|---|
 | [`actual-cycles-3x-d-corpus`](areas/cycles/results/actual-cycles-3x-d-corpus/README.md) | Corpus of actual 3x+d cycles: every d ≤ 999 coprime to 6, odd seeds ≤ 5000 | reviewed | reviewed | — |  |
+| [`algebraic-and-primitive-cancellation-census`](areas/cycles/results/algebraic-and-primitive-cancellation-census/README.md) | Cancellation splits into an algebraic part and a small primitive part: census of few-arc… | written | written | — |  |
 | [`band-one-three-forced-positions`](areas/cycles/results/band-one-three-forced-positions.md) | In the Collatz range, an ordered cycle in band 1 has at least three forced positions | formal | reviewed | — | yes |
 | [`compatible-arcs-common-partition-limits`](areas/cycles/results/compatible-arcs-common-partition-limits/README.md) | Unreviewed draft: a rotation-invariant partition or a shared background cannot cover spar… | proposed | proposed | — |  |
 | [`complete-gap-lattice-equivalence`](areas/cycles/results/complete-gap-lattice-equivalence.md) | The complete dyadic gaps of a cycle carry exactly the same lattice, gcd and denominator a… | formal | formal | — | yes |
@@ -273,6 +274,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`three-band-collatz-cycles-are-ordered`](areas/cycles/results/three-band-collatz-cycles-are-ordered.md) | A 3x+1 cycle with H < 8L is dyadically ordered with mechanical normalised word and gcd(A,… | formal | reviewed | — | yes |
 | [`three-defect-arbitrary-background`](areas/cycles/results/three-defect-arbitrary-background.md) | Words at rotation distance three can carry an arbitrary shared background, beyond any fix… | reviewed | reviewed | — |  |
 | [`three-mismatch-exclusion`](areas/cycles/results/three-mismatch-exclusion/README.md) | No rotation of a nontrivial 3x+1 cycle differs from it in exactly three positions, so ρ ≥… | formal | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `musson-collatz-gap-all` | yes |
+| [`two-arc-word-rotation-structure`](areas/cycles/results/two-arc-word-rotation-structure/README.md) | Two-arc words: their rotation spectrum, and the Sturmian case is exactly the adjacent-def… | written | written | — |  |
 | [`two-block-uniform-denominator-growth`](areas/cycles/results/two-block-uniform-denominator-growth/README.md) | Two-block words u^k v^ℓ with k, ℓ ≥ 2 have denominators growing uniformly in the total, i… | written | written | `corvaja-2005-s-unit-height` |  |
 | [`two-defect-bounded-denominator-finiteness`](areas/cycles/results/two-defect-bounded-denominator-finiteness.md) | Each bounded-denominator layer of the two-defect class is finite, effectively in principle | reviewed | reviewed | `bugeaud-2022-two-logarithms` |  |
 | [`two-defect-cancellation-bound`](areas/cycles/results/two-defect-cancellation-bound.md) | A two-defect rotation bounds the cancellation by both mismatch arcs, so q > (1 − 3^m/2^A)… | reviewed | reviewed | — | yes |
@@ -303,6 +305,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`primewise-height-residue-matching`](areas/cycles/attempts/primewise-height-residue-matching.md) | Proving height-residue matching one prime factor of q at a time | reviewed |
 | [`scaling-transfer-to-3x-plus-d`](areas/cycles/attempts/scaling-transfer-to-3x-plus-d/README.md) | Scaling covariance S_d(dy) = d S_1(y) transports identities to 3x+d, but not the integer lattice | written |
 | [`termwise-plateau-divisibility`](areas/cycles/attempts/termwise-plateau-divisibility.md) | Extending the two-defect bound to more mismatches by dividing each prefix plateau separately | reviewed |
+| [`three-arc-intercept-elimination`](areas/cycles/attempts/three-arc-intercept-elimination/README.md) | Three arcs: the rotation difference is a two-term relation between arc intercepts, and eliminating across the… | written |
 
 ## Area: invariants
 
@@ -600,8 +603,11 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 ## Recent activity
 
+- 2026-10-28: [`algebraic-and-primitive-cancellation-census`](areas/cycles/results/algebraic-and-primitive-cancellation-census/README.md) added (result)
 - 2026-10-28: [`few-arc-codings-denominator-census`](areas/cycles/results/few-arc-codings-denominator-census/README.md) added (result)
+- 2026-10-28: [`two-arc-word-rotation-structure`](areas/cycles/results/two-arc-word-rotation-structure/README.md) added (result)
 - 2026-10-28: [`two-marker-constant-background-exact-denominator`](areas/cycles/results/two-marker-constant-background-exact-denominator/README.md) added (result)
+- 2026-10-28: [`three-arc-intercept-elimination`](areas/cycles/attempts/three-arc-intercept-elimination/README.md) added (attempt)
 - 2026-10-28: [`half-cancellation-for-few-mismatch-words`](areas/cycles/questions/half-cancellation-for-few-mismatch-words.md) added (question)
 - 2026-10-19: [`actual-cycles-3x-d-corpus`](areas/cycles/results/actual-cycles-3x-d-corpus/README.md) added (result)
 - 2026-10-19: [`actual-cycles-3x-d-corpus`](areas/cycles/results/actual-cycles-3x-d-corpus/README.md) reviewed by Claude side lane (Opus)
@@ -622,9 +628,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-19: [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) added (result)
 - 2026-10-19: [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) reviewed by Claude Lean lane (Fable)
 - 2026-10-19: [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) added (result)
-- 2026-10-19: [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) reviewed by Claude Lean lane (Fable)
-- 2026-10-19: [`distance-three-height-family`](areas/cycles/results/distance-three-height-family.md) added (result)
-- 2026-10-19: [`distance-three-height-family`](areas/cycles/results/distance-three-height-family.md) reviewed by Claude Lean lane (Fable)
 
 ## Contributors
 
@@ -632,13 +635,13 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 67.0% | 201 | 9 |
-| Claude side lane | 20.8% | 34 | 132 |
+| ChatGPT main lane | 66.6% | 201 | 9 |
+| Claude side lane | 20.6% | 34 | 132 |
 | Claude Lean lane | 7.0% | 3 | 69 |
 | Claude PR1 lane | 2.9% | 6 | 9 |
+| Claude cycles lane | 1.0% | 5 | 0 |
 | Claude explicit-Tao lane | 0.9% | 5 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
-| Claude cycles lane | 0.4% | 2 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 
 **By accountable person** (agents are credited to the person who directed them; [`conventions/CREDIT.md`](conventions/CREDIT.md) §4):

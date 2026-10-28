@@ -1,0 +1,1189 @@
+{
+ "censuses": {
+  "s2_gcd": {
+   "const_letters": 4,
+   "g_prim_equals_1": 11434,
+   "gcd": [
+    2,
+    3
+   ],
+   "gcd_A_m_equals_1_words": 5265,
+   "letters": 4,
+   "max_G_among_gcd1_word": {
+    "A": 76,
+    "m": 27,
+    "w": [
+     4,
+     1,
+     4,
+     4,
+     1,
+     4,
+     4,
+     1,
+     4,
+     4,
+     1,
+     4,
+     3,
+     1,
+     4,
+     3,
+     1,
+     4,
+     3,
+     1,
+     4,
+     3,
+     1,
+     4,
+     3,
+     1,
+     4
+    ]
+   },
+   "max_G_among_gcd1_words": 517,
+   "max_g_prim": 931,
+   "max_g_prim_among_them": 931,
+   "max_g_prim_word": {
+    "A": 48,
+    "G": 931,
+    "e": 6,
+    "m": 30,
+    "w": [
+     4,
+     1,
+     4,
+     1,
+     4,
+     1,
+     4,
+     1,
+     4,
+     1,
+     4,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   },
+   "max_log2_G_among_gcd1_words": 9.01,
+   "max_log2_g_prim": 9.86,
+   "max_log2_g_prim_over_A": 0.3266,
+   "max_log2_g_prim_over_A_word": {
+    "A": 25,
+    "G": 287,
+    "e": 1,
+    "m": 14,
+    "w": [
+     3,
+     2,
+     3,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2
+    ]
+   },
+   "mmax": 30,
+   "of_which_gcd_A_m_gt_1": 140,
+   "per_m": {
+    "10": {
+     "max_g_prim": 7,
+     "max_log2_g_prim": 2.81
+    },
+    "12": {
+     "max_g_prim": 31,
+     "max_log2_g_prim": 4.95
+    },
+    "14": {
+     "max_g_prim": 287,
+     "max_log2_g_prim": 8.16
+    },
+    "15": {
+     "max_g_prim": 47,
+     "max_log2_g_prim": 5.55
+    },
+    "16": {
+     "max_g_prim": 65,
+     "max_log2_g_prim": 6.02
+    },
+    "18": {
+     "max_g_prim": 55,
+     "max_log2_g_prim": 5.78
+    },
+    "20": {
+     "max_g_prim": 73,
+     "max_log2_g_prim": 6.19
+    },
+    "21": {
+     "max_g_prim": 253,
+     "max_log2_g_prim": 7.98
+    },
+    "22": {
+     "max_g_prim": 97,
+     "max_log2_g_prim": 6.6
+    },
+    "24": {
+     "max_g_prim": 89,
+     "max_log2_g_prim": 6.48
+    },
+    "26": {
+     "max_g_prim": 287,
+     "max_log2_g_prim": 8.16
+    },
+    "27": {
+     "max_g_prim": 517,
+     "max_log2_g_prim": 9.01
+    },
+    "28": {
+     "max_g_prim": 199,
+     "max_log2_g_prim": 7.64
+    },
+    "30": {
+     "max_g_prim": 931,
+     "max_log2_g_prim": 9.86
+    },
+    "6": {
+     "max_g_prim": 7,
+     "max_log2_g_prim": 2.81
+    },
+    "8": {
+     "max_g_prim": 7,
+     "max_log2_g_prim": 2.81
+    },
+    "9": {
+     "max_g_prim": 121,
+     "max_log2_g_prim": 6.92
+    }
+   },
+   "s": 2,
+   "tail_counts": {
+    "10": 0,
+    "12": 0,
+    "14": 0,
+    "16": 0,
+    "2": 1773,
+    "4": 299,
+    "6": 54,
+    "8": 11
+   },
+   "tail_ratio_to_N_over_x": {
+    "10": 0.0,
+    "12": 0.0,
+    "14": 0.0,
+    "16": 0.0,
+    "2": 0.537,
+    "4": 0.362,
+    "6": 0.262,
+    "8": 0.213
+   },
+   "words": 13207,
+   "words_with_log2G_ge_A_over_4": 146
+  },
+  "s2_v4": {
+   "const_letters": 0,
+   "g_prim_equals_1": 26953,
+   "gcd": [
+    1
+   ],
+   "gcd_A_m_equals_1_words": 17793,
+   "letters": 4,
+   "max_G_among_gcd1_word": {
+    "A": 57,
+    "m": 35,
+    "w": [
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ]
+   },
+   "max_G_among_gcd1_words": 6553,
+   "max_g_prim": 6553,
+   "max_g_prim_among_them": 97,
+   "max_g_prim_word": {
+    "A": 57,
+    "G": 6553,
+    "e": 1,
+    "m": 35,
+    "w": [
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ]
+   },
+   "max_log2_G_among_gcd1_words": 12.68,
+   "max_log2_g_prim": 12.68,
+   "max_log2_g_prim_over_A": 0.3862,
+   "max_log2_g_prim_over_A_word": {
+    "A": 11,
+    "G": 19,
+    "e": 1,
+    "m": 5,
+    "w": [
+     4,
+     4,
+     1,
+     1,
+     1
+    ]
+   },
+   "mmax": 40,
+   "of_which_gcd_A_m_gt_1": 76,
+   "per_m": {
+    "10": {
+     "max_g_prim": 7,
+     "max_log2_g_prim": 2.81
+    },
+    "11": {
+     "max_g_prim": 19,
+     "max_log2_g_prim": 4.25
+    },
+    "12": {
+     "max_g_prim": 19,
+     "max_log2_g_prim": 4.25
+    },
+    "13": {
+     "max_g_prim": 19,
+     "max_log2_g_prim": 4.25
+    },
+    "14": {
+     "max_g_prim": 97,
+     "max_log2_g_prim": 6.6
+    },
+    "15": {
+     "max_g_prim": 19,
+     "max_log2_g_prim": 4.25
+    },
+    "16": {
+     "max_g_prim": 65,
+     "max_log2_g_prim": 6.02
+    },
+    "17": {
+     "max_g_prim": 97,
+     "max_log2_g_prim": 6.6
+    },
+    "18": {
+     "max_g_prim": 19,
+     "max_log2_g_prim": 4.25
+    },
+    "19": {
+     "max_g_prim": 97,
+     "max_log2_g_prim": 6.6
+    },
+    "20": {
+     "max_g_prim": 1261,
+     "max_log2_g_prim": 10.3
+    },
+    "21": {
+     "max_g_prim": 71,
+     "max_log2_g_prim": 6.15
+    },
+    "22": {
+     "max_g_prim": 97,
+     "max_log2_g_prim": 6.6
+    },
+    "23": {
+     "max_g_prim": 485,
+     "max_log2_g_prim": 8.92
+    },
+    "24": {
+     "max_g_prim": 19,
+     "max_log2_g_prim": 4.25
+    },
+    "25": {
+     "max_g_prim": 1843,
+     "max_log2_g_prim": 10.85
+    },
+    "26": {
+     "max_g_prim": 307,
+     "max_log2_g_prim": 8.26
+    },
+    "27": {
+     "max_g_prim": 115,
+     "max_log2_g_prim": 6.85
+    },
+    "28": {
+     "max_g_prim": 1049,
+     "max_log2_g_prim": 10.03
+    },
+    "29": {
+     "max_g_prim": 499,
+     "max_log2_g_prim": 8.96
+    },
+    "3": {
+     "max_g_prim": 1,
+     "max_log2_g_prim": 0.0
+    },
+    "30": {
+     "max_g_prim": 1705,
+     "max_log2_g_prim": 10.74
+    },
+    "31": {
+     "max_g_prim": 887,
+     "max_log2_g_prim": 9.79
+    },
+    "32": {
+     "max_g_prim": 313,
+     "max_log2_g_prim": 8.29
+    },
+    "33": {
+     "max_g_prim": 71,
+     "max_log2_g_prim": 6.15
+    },
+    "34": {
+     "max_g_prim": 203,
+     "max_log2_g_prim": 7.67
+    },
+    "35": {
+     "max_g_prim": 6553,
+     "max_log2_g_prim": 12.68
+    },
+    "36": {
+     "max_g_prim": 1261,
+     "max_log2_g_prim": 10.3
+    },
+    "37": {
+     "max_g_prim": 1933,
+     "max_log2_g_prim": 10.92
+    },
+    "38": {
+     "max_g_prim": 2191,
+     "max_log2_g_prim": 11.1
+    },
+    "39": {
+     "max_g_prim": 191,
+     "max_log2_g_prim": 7.58
+    },
+    "4": {
+     "max_g_prim": 1,
+     "max_log2_g_prim": 0.0
+    },
+    "40": {
+     "max_g_prim": 97,
+     "max_log2_g_prim": 6.6
+    },
+    "5": {
+     "max_g_prim": 19,
+     "max_log2_g_prim": 4.25
+    },
+    "6": {
+     "max_g_prim": 7,
+     "max_log2_g_prim": 2.81
+    },
+    "7": {
+     "max_g_prim": 19,
+     "max_log2_g_prim": 4.25
+    },
+    "8": {
+     "max_g_prim": 19,
+     "max_log2_g_prim": 4.25
+    },
+    "9": {
+     "max_g_prim": 19,
+     "max_log2_g_prim": 4.25
+    }
+   },
+   "s": 2,
+   "tail_counts": {
+    "10": 9,
+    "12": 1,
+    "14": 0,
+    "16": 0,
+    "2": 2387,
+    "4": 710,
+    "6": 143,
+    "8": 28
+   },
+   "tail_ratio_to_N_over_x": {
+    "10": 0.314,
+    "12": 0.14,
+    "14": 0.0,
+    "16": 0.0,
+    "2": 0.325,
+    "4": 0.387,
+    "6": 0.312,
+    "8": 0.244
+   },
+   "words": 29340,
+   "words_with_log2G_ge_A_over_4": 77
+  },
+  "s2_v8": {
+   "const_letters": 0,
+   "g_prim_equals_1": 100615,
+   "gcd": [
+    1
+   ],
+   "gcd_A_m_equals_1_words": 64428,
+   "letters": 8,
+   "max_G_among_gcd1_word": {
+    "A": 141,
+    "m": 25,
+    "w": [
+     3,
+     6,
+     6,
+     6,
+     3,
+     6,
+     6,
+     6,
+     3,
+     6,
+     6,
+     6,
+     6,
+     6,
+     6,
+     6,
+     6,
+     6,
+     6,
+     6,
+     6,
+     6,
+     6,
+     6,
+     6
+    ]
+   },
+   "max_G_among_gcd1_words": 6553,
+   "max_g_prim": 18631,
+   "max_g_prim_among_them": 4505,
+   "max_g_prim_word": {
+    "A": 135,
+    "G": 18631,
+    "e": 15,
+    "m": 30,
+    "w": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7
+    ]
+   },
+   "max_log2_G_among_gcd1_words": 12.68,
+   "max_log2_g_prim": 14.19,
+   "max_log2_g_prim_over_A": 0.3862,
+   "max_log2_g_prim_over_A_word": {
+    "A": 11,
+    "G": 19,
+    "e": 1,
+    "m": 5,
+    "w": [
+     4,
+     4,
+     1,
+     1,
+     1
+    ]
+   },
+   "mmax": 36,
+   "of_which_gcd_A_m_gt_1": 345,
+   "per_m": {
+    "10": {
+     "max_g_prim": 97,
+     "max_log2_g_prim": 6.6
+    },
+    "11": {
+     "max_g_prim": 211,
+     "max_log2_g_prim": 7.72
+    },
+    "12": {
+     "max_g_prim": 481,
+     "max_log2_g_prim": 8.91
+    },
+    "13": {
+     "max_g_prim": 97,
+     "max_log2_g_prim": 6.6
+    },
+    "14": {
+     "max_g_prim": 259,
+     "max_log2_g_prim": 8.02
+    },
+    "15": {
+     "max_g_prim": 131,
+     "max_log2_g_prim": 7.03
+    },
+    "16": {
+     "max_g_prim": 1565,
+     "max_log2_g_prim": 10.61
+    },
+    "17": {
+     "max_g_prim": 407,
+     "max_log2_g_prim": 8.67
+    },
+    "18": {
+     "max_g_prim": 679,
+     "max_log2_g_prim": 9.41
+    },
+    "19": {
+     "max_g_prim": 485,
+     "max_log2_g_prim": 8.92
+    },
+    "20": {
+     "max_g_prim": 1261,
+     "max_log2_g_prim": 10.3
+    },
+    "21": {
+     "max_g_prim": 673,
+     "max_log2_g_prim": 9.39
+    },
+    "22": {
+     "max_g_prim": 313,
+     "max_log2_g_prim": 8.29
+    },
+    "23": {
+     "max_g_prim": 485,
+     "max_log2_g_prim": 8.92
+    },
+    "24": {
+     "max_g_prim": 4505,
+     "max_log2_g_prim": 12.14
+    },
+    "25": {
+     "max_g_prim": 6553,
+     "max_log2_g_prim": 12.68
+    },
+    "26": {
+     "max_g_prim": 2743,
+     "max_log2_g_prim": 11.42
+    },
+    "27": {
+     "max_g_prim": 211,
+     "max_log2_g_prim": 7.72
+    },
+    "28": {
+     "max_g_prim": 1261,
+     "max_log2_g_prim": 10.3
+    },
+    "29": {
+     "max_g_prim": 499,
+     "max_log2_g_prim": 8.96
+    },
+    "3": {
+     "max_g_prim": 1,
+     "max_log2_g_prim": 0.0
+    },
+    "30": {
+     "max_g_prim": 18631,
+     "max_log2_g_prim": 14.19
+    },
+    "31": {
+     "max_g_prim": 6553,
+     "max_log2_g_prim": 12.68
+    },
+    "32": {
+     "max_g_prim": 737,
+     "max_log2_g_prim": 9.53
+    },
+    "33": {
+     "max_g_prim": 811,
+     "max_log2_g_prim": 9.66
+    },
+    "34": {
+     "max_g_prim": 1813,
+     "max_log2_g_prim": 10.82
+    },
+    "35": {
+     "max_g_prim": 6553,
+     "max_log2_g_prim": 12.68
+    },
+    "36": {
+     "max_g_prim": 1261,
+     "max_log2_g_prim": 10.3
+    },
+    "4": {
+     "max_g_prim": 7,
+     "max_log2_g_prim": 2.81
+    },
+    "5": {
+     "max_g_prim": 37,
+     "max_log2_g_prim": 5.21
+    },
+    "6": {
+     "max_g_prim": 49,
+     "max_log2_g_prim": 5.61
+    },
+    "7": {
+     "max_g_prim": 97,
+     "max_log2_g_prim": 6.6
+    },
+    "8": {
+     "max_g_prim": 37,
+     "max_log2_g_prim": 5.21
+    },
+    "9": {
+     "max_g_prim": 37,
+     "max_log2_g_prim": 5.21
+    }
+   },
+   "s": 2,
+   "tail_counts": {
+    "10": 41,
+    "12": 8,
+    "14": 1,
+    "16": 0,
+    "2": 12550,
+    "4": 2932,
+    "6": 666,
+    "8": 148
+   },
+   "tail_ratio_to_N_over_x": {
+    "10": 0.371,
+    "12": 0.29,
+    "14": 0.145,
+    "16": 0.0,
+    "2": 0.444,
+    "4": 0.415,
+    "6": 0.377,
+    "8": 0.335
+   },
+   "words": 113165,
+   "words_with_log2G_ge_A_over_4": 347
+  },
+  "s3_v4": {
+   "const_letters": 0,
+   "g_prim_equals_1": 192812,
+   "gcd": [
+    1
+   ],
+   "gcd_A_m_equals_1_words": 143902,
+   "letters": 4,
+   "max_G_among_gcd1_word": {
+    "A": 71,
+    "m": 27,
+    "w": [
+     1,
+     4,
+     4,
+     4,
+     2,
+     2,
+     2,
+     1,
+     4,
+     4,
+     2,
+     2,
+     2,
+     2,
+     1,
+     4,
+     4,
+     2,
+     2,
+     2,
+     2,
+     4,
+     4,
+     4,
+     2,
+     2,
+     2
+    ]
+   },
+   "max_G_among_gcd1_words": 13127,
+   "max_g_prim": 19909,
+   "max_g_prim_among_them": 5209,
+   "max_g_prim_word": {
+    "A": 96,
+    "G": 19909,
+    "e": 6,
+    "m": 30,
+    "w": [
+     1,
+     4,
+     4,
+     3,
+     3,
+     4,
+     4,
+     3,
+     3,
+     4,
+     4,
+     3,
+     3,
+     1,
+     4,
+     3,
+     3,
+     3,
+     4,
+     4,
+     3,
+     3,
+     4,
+     4,
+     3,
+     3,
+     1,
+     4,
+     3,
+     3
+    ]
+   },
+   "max_log2_G_among_gcd1_words": 13.68,
+   "max_log2_g_prim": 14.28,
+   "max_log2_g_prim_over_A": 0.4247,
+   "max_log2_g_prim_over_A_word": {
+    "A": 17,
+    "G": 149,
+    "e": 1,
+    "m": 7,
+    "w": [
+     2,
+     4,
+     4,
+     4,
+     1,
+     1,
+     1
+    ]
+   },
+   "mmax": 30,
+   "of_which_gcd_A_m_gt_1": 30,
+   "per_m": {
+    "10": {
+     "max_g_prim": 151,
+     "max_log2_g_prim": 7.24
+    },
+    "11": {
+     "max_g_prim": 139,
+     "max_log2_g_prim": 7.12
+    },
+    "12": {
+     "max_g_prim": 601,
+     "max_log2_g_prim": 9.23
+    },
+    "13": {
+     "max_g_prim": 719,
+     "max_log2_g_prim": 9.49
+    },
+    "14": {
+     "max_g_prim": 79,
+     "max_log2_g_prim": 6.3
+    },
+    "15": {
+     "max_g_prim": 349,
+     "max_log2_g_prim": 8.45
+    },
+    "16": {
+     "max_g_prim": 353,
+     "max_log2_g_prim": 8.46
+    },
+    "17": {
+     "max_g_prim": 3385,
+     "max_log2_g_prim": 11.72
+    },
+    "18": {
+     "max_g_prim": 2749,
+     "max_log2_g_prim": 11.42
+    },
+    "19": {
+     "max_g_prim": 2269,
+     "max_log2_g_prim": 11.15
+    },
+    "20": {
+     "max_g_prim": 161,
+     "max_log2_g_prim": 7.33
+    },
+    "21": {
+     "max_g_prim": 9073,
+     "max_log2_g_prim": 13.15
+    },
+    "22": {
+     "max_g_prim": 823,
+     "max_log2_g_prim": 9.68
+    },
+    "23": {
+     "max_g_prim": 3743,
+     "max_log2_g_prim": 11.87
+    },
+    "24": {
+     "max_g_prim": 979,
+     "max_log2_g_prim": 9.94
+    },
+    "25": {
+     "max_g_prim": 2087,
+     "max_log2_g_prim": 11.03
+    },
+    "26": {
+     "max_g_prim": 2287,
+     "max_log2_g_prim": 11.16
+    },
+    "27": {
+     "max_g_prim": 13127,
+     "max_log2_g_prim": 13.68
+    },
+    "28": {
+     "max_g_prim": 1049,
+     "max_log2_g_prim": 10.03
+    },
+    "29": {
+     "max_g_prim": 6553,
+     "max_log2_g_prim": 12.68
+    },
+    "30": {
+     "max_g_prim": 19909,
+     "max_log2_g_prim": 14.28
+    },
+    "4": {
+     "max_g_prim": 1,
+     "max_log2_g_prim": 0.0
+    },
+    "5": {
+     "max_g_prim": 11,
+     "max_log2_g_prim": 3.46
+    },
+    "6": {
+     "max_g_prim": 31,
+     "max_log2_g_prim": 4.95
+    },
+    "7": {
+     "max_g_prim": 149,
+     "max_log2_g_prim": 7.22
+    },
+    "8": {
+     "max_g_prim": 71,
+     "max_log2_g_prim": 6.15
+    },
+    "9": {
+     "max_g_prim": 317,
+     "max_log2_g_prim": 8.31
+    }
+   },
+   "s": 3,
+   "tail_counts": {
+    "10": 36,
+    "12": 7,
+    "14": 1,
+    "16": 0,
+    "2": 12828,
+    "4": 2804,
+    "6": 572,
+    "8": 171
+   },
+   "tail_ratio_to_N_over_x": {
+    "10": 0.179,
+    "12": 0.139,
+    "14": 0.08,
+    "16": 0.0,
+    "2": 0.25,
+    "4": 0.218,
+    "6": 0.178,
+    "8": 0.213
+   },
+   "words": 205640,
+   "words_with_log2G_ge_A_over_4": 52
+  },
+  "s4_v3": {
+   "const_letters": 0,
+   "g_prim_equals_1": 123066,
+   "gcd": [
+    1
+   ],
+   "gcd_A_m_equals_1_words": 83139,
+   "letters": 3,
+   "max_G_among_gcd1_word": {
+    "A": 45,
+    "m": 22,
+    "w": [
+     1,
+     1,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ]
+   },
+   "max_G_among_gcd1_words": 71791,
+   "max_g_prim": 71791,
+   "max_g_prim_among_them": 71791,
+   "max_g_prim_word": {
+    "A": 45,
+    "G": 71791,
+    "e": 1,
+    "m": 22,
+    "w": [
+     1,
+     1,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ]
+   },
+   "max_log2_G_among_gcd1_words": 16.13,
+   "max_log2_g_prim": 16.13,
+   "max_log2_g_prim_over_A": 0.446,
+   "max_log2_g_prim_over_A_word": {
+    "A": 24,
+    "G": 1669,
+    "e": 1,
+    "m": 13,
+    "w": [
+     3,
+     2,
+     1,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     2
+    ]
+   },
+   "mmax": 22,
+   "of_which_gcd_A_m_gt_1": 209,
+   "per_m": {
+    "10": {
+     "max_g_prim": 49,
+     "max_log2_g_prim": 5.61
+    },
+    "11": {
+     "max_g_prim": 955,
+     "max_log2_g_prim": 9.9
+    },
+    "12": {
+     "max_g_prim": 191,
+     "max_log2_g_prim": 7.58
+    },
+    "13": {
+     "max_g_prim": 1669,
+     "max_log2_g_prim": 10.7
+    },
+    "14": {
+     "max_g_prim": 2653,
+     "max_log2_g_prim": 11.37
+    },
+    "15": {
+     "max_g_prim": 241,
+     "max_log2_g_prim": 7.91
+    },
+    "16": {
+     "max_g_prim": 257,
+     "max_log2_g_prim": 8.01
+    },
+    "17": {
+     "max_g_prim": 677,
+     "max_log2_g_prim": 9.4
+    },
+    "18": {
+     "max_g_prim": 13657,
+     "max_log2_g_prim": 13.74
+    },
+    "19": {
+     "max_g_prim": 21859,
+     "max_log2_g_prim": 14.42
+    },
+    "20": {
+     "max_g_prim": 63889,
+     "max_log2_g_prim": 15.96
+    },
+    "21": {
+     "max_g_prim": 4027,
+     "max_log2_g_prim": 11.98
+    },
+    "22": {
+     "max_g_prim": 71791,
+     "max_log2_g_prim": 16.13
+    },
+    "5": {
+     "max_g_prim": 1,
+     "max_log2_g_prim": 0.0
+    },
+    "6": {
+     "max_g_prim": 1,
+     "max_log2_g_prim": 0.0
+    },
+    "7": {
+     "max_g_prim": 23,
+     "max_log2_g_prim": 4.52
+    },
+    "8": {
+     "max_g_prim": 89,
+     "max_log2_g_prim": 6.48
+    },
+    "9": {
+     "max_g_prim": 215,
+     "max_log2_g_prim": 7.75
+    }
+   },
+   "s": 4,
+   "tail_counts": {
+    "10": 20,
+    "12": 5,
+    "14": 3,
+    "16": 1,
+    "2": 9065,
+    "4": 1914,
+    "6": 429,
+    "8": 137
+   },
+   "tail_ratio_to_N_over_x": {
+    "10": 0.155,
+    "12": 0.155,
+    "14": 0.372,
+    "16": 0.496,
+    "2": 0.274,
+    "4": 0.232,
+    "6": 0.208,
+    "8": 0.265
+   },
+   "words": 132131,
+   "words_with_log2G_ge_A_over_4": 285
+  }
+ },
+ "schema": 1
+}
