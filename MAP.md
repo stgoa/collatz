@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**217 results, 28 attempts, 36 questions, 27 sources.**
+**219 results, 28 attempts, 37 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -31,6 +31,7 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 | [`universal-w5-tripling-currents`](areas/convergence/questions/universal-w5-tripling-currents.md) | convergence | Odd-only 3x+1 map S on positive odd integers, absorbing at 1, killed atom [1] = 0; P(w) = [3w] - [w]; W5 = {w = 5 mod 8}. Prove or refute: for every w in W5 th… | 0 |
 | [`canonical-quotient-cycle-exclusion`](areas/cycles/questions/canonical-quotient-cycle-exclusion.md) | cycles | Odd-only 3x+1 map S, absorbing at 1; T = nu S the canonical quotient of elementary-bridge-quotient-normal-form on its positive canonical roots. Show that T has… | 0 |
 | [`cycle-height-bound`](areas/cycles/questions/cycle-height-bound.md) | cycles | Prove or refute: every hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map, of period m, minimum L and maximum H, has height B = floor… | 0 |
+| [`half-cancellation-for-few-mismatch-words`](areas/cycles/questions/half-cancellation-for-few-mismatch-words.md) | cycles | Prove or refute: every primitive positive valuation word w of length m ≥ 9 with total A, D = 2^A − 3^m > 0, that has a nonidentity rotation differing from it i… | 0 |
 | [`height-denominator-candidate`](areas/cycles/questions/height-denominator-candidate/README.md) | cycles | Prove or refute: every primitive positive rational cycle of the raw odd-only 3x+1 map (written as a reduced odd numerator cycle 3n_i + q = 2^(a_i)·n_(i+1), q o… | 0 |
 | [`height-residue-hall-matching`](areas/cycles/questions/height-residue-hall-matching.md) | cycles | Prove or refute, for every primitive positive ordered cycle of the raw odd-only map (q ≤ L, m > 1, circular normalised successor order) with reduced odd denomi… | 0 |
 | [`largest-letter-sublinear`](areas/cycles/questions/largest-letter-sublinear.md) | cycles | Prove or refute: every hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map, of period m, has all valuations a_i = v₂(3n_i + 1) ≤ f(m)… | 0 |
@@ -230,6 +231,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) | Dyadic normalisation of a cycle, the exact inversion formula and the order lemma | reviewed | reviewed | — | yes |
 | [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) | Two different equal-total blocks repeated at least three times never give an integer cycle | formal | formal | — | yes |
 | [`excursion-cut-lemma`](areas/cycles/results/excursion-cut-lemma.md) | An exact endpoint relation forces every intermediate odd state, and closing two blocks gi… | formal | formal | — | yes |
+| [`few-arc-codings-denominator-census`](areas/cycles/results/few-arc-codings-denominator-census/README.md) | Few-arc rotation codings: an exact census of cancellation and reduced denominators | written | written | — |  |
 | [`fixed-defect-unbounded-cancellation`](areas/cycles/results/fixed-defect-unbounded-cancellation.md) | Two unit rotation defects allow arbitrarily large cancellation: the family 1^t 2^(2t) | reviewed | reviewed | — |  |
 | [`four-mismatch-sign-dichotomy`](areas/cycles/results/four-mismatch-sign-dichotomy.md) | A rotation with four mismatches has one sign change of each kind, or two of each in alter… | formal | formal | — | yes |
 | [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines.md) | Order-free baselines for cycle minima and denominators (extremal, packing, product) | written | written | — |  |
@@ -276,6 +278,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`two-defect-cancellation-bound`](areas/cycles/results/two-defect-cancellation-bound.md) | A two-defect rotation bounds the cancellation by both mismatch arcs, so q > (1 − 3^m/2^A)… | reviewed | reviewed | — | yes |
 | [`two-defect-marker-family`](areas/cycles/results/two-defect-marker-family.md) | The words (3, b_n, 4, b_n) are never integer 3x+1 cycles, with growing minimum and local-… | reviewed | reviewed | — |  |
 | [`two-defect-rotation-exclusion`](areas/cycles/results/two-defect-rotation-exclusion/README.md) | No nontrivial 3x+1 cycle has a rotation differing from it in exactly two positions (ρ ≥ 3) | reviewed | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `languasco-2025-two-primes`, `matveev-2000-linear-forms` | yes |
+| [`two-marker-constant-background-exact-denominator`](areas/cycles/results/two-marker-constant-background-exact-denominator/README.md) | Two markers on a constant background: cancellation exactly 4^n − 3^n and denominator 4^n… | written | written | — |  |
 | [`two-mismatch-exclusion-via-gap`](areas/cycles/results/two-mismatch-exclusion-via-gap/README.md) | C011's two-mismatch exclusion without Matveev: from the trade-off, the replayed gap and t… | formal | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `musson-collatz-gap-all` | yes |
 | [`two-three-mismatch-denominator-laws`](areas/cycles/results/two-three-mismatch-denominator-laws/README.md) | Two- and three-mismatch words have exponentially large denominators unless their drift is… | formal | reviewed | — | yes |
 | [`unequal-slope-two-block-growth`](areas/cycles/results/unequal-slope-two-block-growth/README.md) | Unequal-slope two-block words have denominator 2^((1−o(1))·A), ineffectively | reviewed | reviewed | `corvaja-2005-s-unit-height` |  |
@@ -597,6 +600,9 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 ## Recent activity
 
+- 2026-10-28: [`few-arc-codings-denominator-census`](areas/cycles/results/few-arc-codings-denominator-census/README.md) added (result)
+- 2026-10-28: [`two-marker-constant-background-exact-denominator`](areas/cycles/results/two-marker-constant-background-exact-denominator/README.md) added (result)
+- 2026-10-28: [`half-cancellation-for-few-mismatch-words`](areas/cycles/questions/half-cancellation-for-few-mismatch-words.md) added (question)
 - 2026-10-19: [`actual-cycles-3x-d-corpus`](areas/cycles/results/actual-cycles-3x-d-corpus/README.md) added (result)
 - 2026-10-19: [`actual-cycles-3x-d-corpus`](areas/cycles/results/actual-cycles-3x-d-corpus/README.md) reviewed by Claude side lane (Opus)
 - 2026-10-19: [`band-one-three-forced-positions`](areas/cycles/results/band-one-three-forced-positions.md) added (result)
@@ -619,9 +625,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-19: [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) reviewed by Claude Lean lane (Fable)
 - 2026-10-19: [`distance-three-height-family`](areas/cycles/results/distance-three-height-family.md) added (result)
 - 2026-10-19: [`distance-three-height-family`](areas/cycles/results/distance-three-height-family.md) reviewed by Claude Lean lane (Fable)
-- 2026-10-19: [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) added (result)
-- 2026-10-19: [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) reviewed by Claude Lean lane (Fable)
-- 2026-10-19: [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) reviewed by Claude side lane (Opus)
 
 ## Contributors
 
@@ -629,12 +632,13 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 67.2% | 201 | 9 |
-| Claude side lane | 20.9% | 34 | 132 |
+| ChatGPT main lane | 67.0% | 201 | 9 |
+| Claude side lane | 20.8% | 34 | 132 |
 | Claude Lean lane | 7.0% | 3 | 69 |
 | Claude PR1 lane | 2.9% | 6 | 9 |
 | Claude explicit-Tao lane | 0.9% | 5 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
+| Claude cycles lane | 0.4% | 2 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 
 **By accountable person** (agents are credited to the person who directed them; [`conventions/CREDIT.md`](conventions/CREDIT.md) §4):

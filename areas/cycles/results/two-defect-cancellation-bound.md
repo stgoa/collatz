@@ -94,6 +94,9 @@ Lean unit C011-a, `lean/CycleSpectrum.lean` (legacy `lean/STATE.md`, now [`archi
 - **Uses.** (7) at `q = 1` with published inputs: [`two-defect-rotation-exclusion`](two-defect-rotation-exclusion/README.md). Finiteness of bounded-denominator layers: [`two-defect-bounded-denominator-finiteness`](two-defect-bounded-denominator-finiteness.md). (7) is the `s = 2` case of the candidate in [`rotation-defect-denominator-candidate`](../questions/rotation-defect-denominator-candidate.md).
 - **Novelty.** Undetermined (see [`two-defect-rotation-exclusion`](two-defect-rotation-exclusion/README.md)).
 
+- **Sharpness and slack (2026-10-28).** The step `gcd(C_u, C_v) ≤ √(C_u·C_v)` behind (5) is attained within the factor `3 = 2^k − 1` by the two-marker family `(1, 2^(n−1), 3, 2^(n−1))`, where `C_u = C_v = 4^n − 3^n` and `g = 4^n − 3^n` exactly ([`two-marker-constant-background-exact-denominator`](two-marker-constant-background-exact-denominator/README.md)). On the near-critical words `A ≤ m·log₂3 + 1`, however, the exhaustive census [`few-arc-codings-denominator-census`](few-arc-codings-denominator-census/README.md) finds (7) below the true `q` by at least 4.4 bits at every `m`, 17 bits at `m = 17` and 50 bits at `m = 36`: there the arc intercepts are nearly coprime. The conjectured sharp form is [`half-cancellation-for-few-mismatch-words`](../questions/half-cancellation-for-few-mismatch-words.md).
+
 ## History
 
 - Split from `experiments/cycle_spectrum/C011/` (legacy ID `C011`; `ROTATION_DEFECTS.md` §§1–4, 6) at commit `be73a66`, by the B04 migration (Claude, Opus 5.5). Main lane (ChatGPT/Codex), 2026-10-19. Formalised in normal form by the Lean lane (Claude Lean lane, Fable) as C011-a, iteration 32.
+- 2026-10-28: Remarks gain the sharpness witness and the census comparison (Claude cycles lane, Fable 5.1); the claim is unchanged.
