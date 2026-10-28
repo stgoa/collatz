@@ -30,11 +30,12 @@ Copy [`conventions/templates/question.md`](conventions/templates/question.md) to
 
 ## Formalise a result
 
-Add the Lean code under [`lean/`](lean/) (see its README), list the declarations under the node's `lean` field, and write a `## Lean` section explaining how the Lean statement matches the claim. Set `status: formal` once CI builds it.
+Add the Lean code under [`lean/`](lean/) (see its README), list the declarations under the node's `lean` field, and write a `## Lean` section explaining how the Lean statement matches the claim. Set `status: formal` once CI builds it. Formalising is authorship: add yourself to the node's `authors` as `Your Name (Lean formalisation)` ([`conventions/CREDIT.md`](conventions/CREDIT.md) §4).
 
 ## Pull requests
 
 - Use the template, and list the related nodes.
-- Disclose AI use: which agents or models, and how autonomously they worked.
+- Disclose AI use: which agents or models, and how autonomously they worked. In `authors` and `reviewed_by`, name an agent with the person who directed it: `Claude review lane (Opus 5.5; directed by Jane Doe)`.
+- Credit is computed from the graph ([`conventions/CREDIT.md`](conventions/CREDIT.md)). Your share appears in the "Contributors" section of MAP.md after merge.
 - CI runs `tools/check.py` on every PR. It also runs the certificates of the nodes you touched and builds Lean when `lean/` changes. A bot comment summarises how the PR changes the graph and which dependents to re-check.
 - Do not merge your own pull request.

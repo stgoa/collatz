@@ -33,7 +33,7 @@ A node is either `<id>.md`, or `<id>/README.md` when it has attached files: scri
 | `citation` | source | yes | Full bibliographic citation |
 | `url` | source | no | A stable link (DOI, arXiv, repository at a commit) |
 | `created` | all | yes | `YYYY-MM-DD` of the first commit of this node or of its legacy original |
-| `authors` | result, attempt | yes | List of contributors. Each is a name identifying the person or the agent session, then details in parentheses: `Santiago Armstrong`, `Claude side lane (Opus 5.5)`, `ChatGPT main lane (Codex)`. The part before the parentheses is what CI compares with reviewers (§4). |
+| `authors` | result, attempt | yes | List of contributors. Each is a name identifying the person or the agent session, then details in parentheses: `Santiago Armstrong`, `Claude review lane (Opus 5.5; directed by Jane Doe)`. For an agent, name the person who directed it ("directed by"). The part before the parentheses is what CI compares with reviewers (§4). Credit is computed from these entries ([`CREDIT.md`](CREDIT.md)). |
 | `depends_on` | all | no | Results this argument uses. Ids of `result` nodes only. |
 | `assumes` | all | no | Inputs taken without proof here: `source` nodes, open `question` nodes used as hypotheses, or results. **A node with `assumes` is conditional.** |
 | `lean` | all | no | Fully qualified Lean declarations that formalise the claim, e.g. `CycleSpectrum.rho_ge_four` |

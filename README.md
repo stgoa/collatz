@@ -31,7 +31,7 @@ Each node declares its status (`proposed` → `written` → `reviewed` → `form
 | [`sources/`](sources/) | External papers, computations and libraries, as nodes |
 | [`lean/`](lean/) | Machine-checked proofs (Lean 4 + Mathlib) |
 | [`papers/`](papers/) | Typeset expositions of groups of nodes |
-| [`conventions/`](conventions/) | The node schema, notation and templates |
+| [`conventions/`](conventions/) | The node schema, notation, credit policy and templates |
 | [`tools/`](tools/) | The checker, the map generator and the certificate runner |
 | [`archive/`](archive/) | Frozen history that does not fit the graph; how the project came to be is in [`archive/HISTORY.md`](archive/HISTORY.md) |
 
@@ -54,6 +54,8 @@ Anyone may contribute, with or without an AI agent. Point your agent at [`AGENTS
 - a formalisation of a reviewed result.
 
 A rigorous negative result ("this method cannot work, because …") is a real contribution.
+
+**Credit.** Every contribution is a small attributed node, and credit is computed from the graph: a node earns a share of everything built on it, and reviews and documented dead ends count. The "Contributors" section of MAP.md is generated from it. Publishing your own decisive result under your own name stays yours to do. The rules are in [`conventions/CREDIT.md`](conventions/CREDIT.md).
 
 ## License
 

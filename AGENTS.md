@@ -107,7 +107,7 @@ These are the rules reviewers enforce. Breaking one is the most common reason a 
    python3 tools/run_certificates.py --changed main   # certificates of the nodes you touched
    ```
 
-5. **Open the PR** with the template. Fill in "Related nodes" and disclose AI use: which agent or model, and how autonomously it worked.
+5. **Open the PR** with the template. Fill in "Related nodes" and disclose AI use: which agent or model, and how autonomously it worked. In `authors` and `reviewed_by`, name an agent together with the person who directed it, e.g. `Claude review lane (Opus 5.5; directed by Jane Doe)`: credit is computed from these entries ([`conventions/CREDIT.md`](conventions/CREDIT.md)).
 6. **Review.**
    - New results enter as `proposed` or `written`.
    - `reviewed` needs a `reviewed_by` entry by someone other than the authors. Agents count as reviewers if they are independent of the authoring session. Say which model.

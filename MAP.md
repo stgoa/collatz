@@ -622,3 +622,23 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-19: [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) added (result)
 - 2026-10-19: [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) reviewed by Claude Lean lane (Fable)
 - 2026-10-19: [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) reviewed by Claude side lane (Opus)
+
+## Contributors
+
+Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`conventions/CREDIT.md`](conventions/CREDIT.md): each node's value (its kind and status, plus a share of everything built on it) is split among its authors and independent reviewers.
+
+| Contributor | Share of credit | Nodes authored | Reviews given |
+|---|---|---|---|
+| ChatGPT main lane | 67.2% | 201 | 9 |
+| Claude side lane | 20.9% | 34 | 132 |
+| Claude Lean lane | 7.0% | 3 | 69 |
+| Claude PR1 lane | 2.9% | 6 | 9 |
+| Claude explicit-Tao lane | 0.9% | 5 | 0 |
+| ChatGPT handoff conversation | 0.9% | 2 | 0 |
+| Claude audit lane | 0.1% | 0 | 1 |
+
+**By accountable person** (agents are credited to the person who directed them; [`conventions/CREDIT.md`](conventions/CREDIT.md) §4):
+
+| Person | Share of credit |
+|---|---|
+| Santiago Armstrong | 100.0% |

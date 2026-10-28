@@ -15,6 +15,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import credit  # noqa: E402
 import nodes  # noqa: E402
 import schema as S  # noqa: E402
 
@@ -149,6 +150,7 @@ def render(g: nodes.Graph) -> str:
         for d, e in sorted(events, key=lambda x: x[0], reverse=True)[:25]:
             out.append(f"- {d}: {e}")
         out.append("")
+    out.append(credit.render(g))
     return "\n".join(out).rstrip() + "\n"
 
 

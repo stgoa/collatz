@@ -16,6 +16,7 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import credit  # noqa: E402
 import nodes  # noqa: E402
 
 ROOT = nodes.ROOT
@@ -80,6 +81,16 @@ def main(base: str) -> int:
         lines += ["", "**Dependents to re-check:**"]
         for k, v in sorted(affected.items()):
             lines.append(f"- `{k}` → {', '.join(f'`{d}`' for d in sorted(v))}")
+    before = {name: share for name, share, _, _ in credit.table(old)[0]} if old.nodes else {}
+    after = {name: share for name, share, _, _ in credit.table(new)[0]}
+    moved = sorted(((name, after.get(name, 0.0) - before.get(name, 0.0)) for name in set(before) | set(after)),
+                   key=lambda x: -abs(x[1]))
+    moved = [(name, d) for name, d in moved if abs(d) >= 0.0005]
+    if moved:
+        lines += ["", "**Credit changes** ([`conventions/CREDIT.md`](conventions/CREDIT.md)):"]
+        for name, d in moved[:10]:
+            lines.append(f"- {name}: {100 * before.get(name, 0.0):.1f}% → {100 * after.get(name, 0.0):.1f}% "
+                         f"({'+' if d > 0 else ''}{100 * d:.1f} points)")
     print("\n".join(lines))
     return 0
 

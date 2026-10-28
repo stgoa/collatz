@@ -18,6 +18,7 @@
 ## AI disclosure
 - Agents/models used: <!-- e.g. Claude Opus 5.5 via Claude Code; none -->
 - Autonomy: <!-- fully autonomous / human-directed / human-written -->
+- Directed by: <!-- the person accountable for the agents' work; also written as "directed by" in authors and reviewed_by (conventions/CREDIT.md §4) -->
 - What a human checked: <!-- … -->
 
 ## Checklist
