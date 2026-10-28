@@ -59,7 +59,8 @@ The log-height `B = log₂(H/L)` links the lines: by the mismatch–height trade
 - [`largest-letter-sublinear`](questions/largest-letter-sublinear.md): is the largest letter `o(m)`? Given EXT-1, enough for `ρ → ∞`; the tall tooth with one huge drop is the obstruction.
 - [`cycle-height-bound`](questions/cycle-height-bound.md): is the height `B = o(m)`? A stronger sufficient condition.
 - [`rotation-distance-at-least-5`](questions/rotation-distance-at-least-5.md): exclude four-mismatch rotations.
-- [`rotation-defect-denominator-candidate`](questions/rotation-defect-denominator-candidate.md): a uniform denominator estimate for many mismatches.
+- [`rotation-defect-denominator-candidate`](questions/rotation-defect-denominator-candidate.md): a uniform denominator estimate for many mismatches. An exhaustive census of all few-arc words up to `m = 40` finds it true with linearly growing slack ([`few-arc-codings-denominator-census`](results/few-arc-codings-denominator-census/README.md)).
+- [`half-cancellation-for-few-mismatch-words`](questions/half-cancellation-for-few-mismatch-words.md): the sharp form that census points at, `gcd(C_w, D)² < 2^A` for words with a rotation of at most four mismatches (`m ≥ 9`). It implies the candidate, is attained up to `1 − (3/4)^n` by the two-marker family ([`two-marker-constant-background-exact-denominator`](results/two-marker-constant-background-exact-denominator/README.md)), and with EXT-1 and the period bound would give `ρ ≥ 5`.
 - [`linear-form-gap-own-proof`](questions/linear-form-gap-own-proof.md): prove here the replayed gap EXT-1 that the strongest mismatch results assume.
 - Ordered cycles: [`ordered-cycle-denominator-one`](questions/ordered-cycle-denominator-one.md), [`height-denominator-candidate`](questions/height-denominator-candidate/README.md), [`height-residue-hall-matching`](questions/height-residue-hall-matching.md), [`one-height-defect-ordered-cycles`](questions/one-height-defect-ordered-cycles.md).
 
