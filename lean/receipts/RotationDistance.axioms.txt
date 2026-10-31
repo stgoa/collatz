@@ -1,0 +1,4 @@
+source sha256: 27489e30c181b2ec9927c045d604f4daf17e4091ae6395660f04fb01aa7b2e23
+'LeanLane.RotationDistance.sum_diff' depends on axioms: [propext, Quot.sound]
+'LeanLane.RotationDistance.mismatches_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RotationDistance.two_le_mismatches_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
