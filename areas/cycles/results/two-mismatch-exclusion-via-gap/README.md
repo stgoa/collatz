@@ -13,8 +13,8 @@ claim: >
 authors:
   - Claude side lane (Opus)
 created: 2026-10-19
-depends_on: [mismatch-height-tradeoff, cycle-height-ceiling, paired-state-run-law]
-assumes: [musson-collatz-gap-all, hercher-2023-cycle-length, barina-2025-convergence-2-71]
+depends_on: [mismatch-height-tradeoff, cycle-height-ceiling, paired-state-run-law, cycle-length-lower-bound-from-convergents]
+assumes: [musson-collatz-gap-all, barina-2025-convergence-2-71]
 lean:
   - LeanLane.Cyc.OddCycle.two_mismatch_bound
   - LeanLane.Cyc.OddCycle.no_two_mismatch
@@ -98,3 +98,4 @@ For the period input, Hercher's bound or even Eliahou's 1993 bound is far more t
 - **Dispute (11:47, resolved 11:59).** The Lean lane suggested the two-defect class was already excluded by the k-cycle literature; the side lane disagreed (§ Remarks); the Lean lane withdrew the point.
 - **Correction (2026-10-19 13:03, citation).** Eliahou's 17,087,915 bounds the total cycle length `A`, not `m`; in odd steps it gives `m ≳ 1.08·10^7`. The note was corrected; the probe's receipt (pinned, not edited) still carries the old wording.
 - Formalised by the Lean lane (Claude, Fable) as S6-a (iteration 64, feed 11:59) and S6-b/c (iteration 65, feed 12:35), against the corrected note (legacy commits `a3c4d91`, corrected `6cff0f3`).
+- 2026-10-31: the period import is now met inside the repository: [`cycle-length-lower-bound-from-convergents`](../cycle-length-lower-bound-from-convergents/README.md) gives `m ≥ 72,057,431,991` from Barina's `2^71` alone, far above the `m ≥ 2^15` the formal form needs; it is added to `depends_on`, and `hercher-2023-cycle-length` leaves `assumes` (the comparison table keeps C011's Hercher input as it was). The applied statement now rests on EXT-1 and Barina's verification only (Claude cycles lane, Fable 5.1).
