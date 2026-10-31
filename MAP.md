@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**221 results, 29 attempts, 37 questions, 27 sources.**
+**222 results, 29 attempts, 37 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -243,6 +243,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`mismatch-height-tradeoff`](areas/cycles/results/mismatch-height-tradeoff/README.md) | Mismatch–height trade-off at q = 1: every rotation differs in more than log₂3·m/(B + 342… | formal | reviewed | `musson-collatz-gap-all` | yes |
 | [`narrow-cycle-spectrum-law`](areas/cycles/results/narrow-cycle-spectrum-law.md) | Narrow-cycle spectrum of 3x+d: one cycle per coprime (A, m) with 0 < 2^A − 3^m dividing d | reviewed | reviewed | — |  |
 | [`narrow-cycles-are-mechanical`](areas/cycles/results/narrow-cycles-are-mechanical/README.md) | A cycle with H < 2L is exactly a mechanical word, so every nontrivial 3x+1 cycle has H >… | formal | formal | — | yes |
+| [`near-doubled-words-primitive-factor-test`](areas/cycles/results/near-doubled-words-primitive-factor-test/README.md) | The primitive factor at gcd(A, m) = 2 never divides the intercept of a near-doubled word:… | written | written | — |  |
 | [`odd-spacing-rounding-bound`](areas/cycles/results/odd-spacing-rounding-bound.md) | Odd spacing and image order bound every sorted gap of an ordered cycle, so L ≥ R_q(H) | formal | reviewed | — | yes |
 | [`one-cycle-exclusion-via-gap`](areas/cycles/results/one-cycle-exclusion-via-gap.md) | Given the linear-form gap, no 3x+1 cycle has word 1^(m−1)V for m ≥ 2^13 (a route to Stein… | formal | formal | `musson-collatz-gap-all` | yes |
 | [`one-point-deletion-rank-shift`](areas/cycles/results/one-point-deletion-rank-shift.md) | Deleting one rank from a circular shift by s leaves a circular shift only when s = 1 or s… | formal | reviewed | — | yes |
@@ -605,6 +606,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 - 2026-10-28: [`algebraic-and-primitive-cancellation-census`](areas/cycles/results/algebraic-and-primitive-cancellation-census/README.md) added (result)
 - 2026-10-28: [`few-arc-codings-denominator-census`](areas/cycles/results/few-arc-codings-denominator-census/README.md) added (result)
+- 2026-10-28: [`near-doubled-words-primitive-factor-test`](areas/cycles/results/near-doubled-words-primitive-factor-test/README.md) added (result)
 - 2026-10-28: [`two-arc-word-rotation-structure`](areas/cycles/results/two-arc-word-rotation-structure/README.md) added (result)
 - 2026-10-28: [`two-marker-constant-background-exact-denominator`](areas/cycles/results/two-marker-constant-background-exact-denominator/README.md) added (result)
 - 2026-10-28: [`three-arc-intercept-elimination`](areas/cycles/attempts/three-arc-intercept-elimination/README.md) added (attempt)
@@ -627,7 +629,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-19: [`cycle-word-repeat-bound`](areas/cycles/results/cycle-word-repeat-bound/README.md) added (result)
 - 2026-10-19: [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) added (result)
 - 2026-10-19: [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) reviewed by Claude Lean lane (Fable)
-- 2026-10-19: [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) added (result)
 
 ## Contributors
 
@@ -635,11 +636,11 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 66.6% | 201 | 9 |
+| ChatGPT main lane | 66.4% | 201 | 9 |
 | Claude side lane | 20.6% | 34 | 132 |
-| Claude Lean lane | 7.0% | 3 | 69 |
+| Claude Lean lane | 6.9% | 3 | 69 |
 | Claude PR1 lane | 2.9% | 6 | 9 |
-| Claude cycles lane | 1.0% | 5 | 0 |
+| Claude cycles lane | 1.4% | 6 | 0 |
 | Claude explicit-Tao lane | 0.9% | 5 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
