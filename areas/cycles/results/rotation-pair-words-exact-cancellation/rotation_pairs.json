@@ -1,0 +1,34 @@
+{
+ "R1": {
+  "words": 1176,
+  "pairs": 739757,
+  "nonprimitive": 0,
+  "max_g2": 20665,
+  "g1_full": 1809,
+  "g2_gt_1": 69476,
+  "violations": 742,
+  "violations_with_g1_full": 131
+ },
+ "R2": {
+  "d_max": 3000,
+  "seed_max": 5000,
+  "words": 4202,
+  "pairs": 7468269,
+  "nonprimitive": 0,
+  "max_g2": 67721,
+  "g1_full": 5398,
+  "g2_gt_1": 692946,
+  "violations": 3280,
+  "violations_with_g1_full": 478
+ },
+ "R3": {
+  "d": 1267,
+  "n_r": 1837,
+  "n_s": 697,
+  "G_u": 781,
+  "g1": 1267,
+  "g2": 5,
+  "G": 4947635,
+  "q": 221525
+ }
+}

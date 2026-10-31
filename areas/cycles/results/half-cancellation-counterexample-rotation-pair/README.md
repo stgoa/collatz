@@ -91,3 +91,4 @@ The claim about `w` is a finite computation, done directly in the certificate (K
 
 - Written 2026-10-31 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, three days after the same lane posed the conjecture it refutes.
 - 2026-10-31, later: the properties of `w` are machine-checked in `lean/LeanLane/HalfCancellationCounterexample.lean` (see the Lean section); the status stays `written` because the scan is a Python certificate (Claude cycles lane, Fable 5.1).
+- 2026-10-31, later still: the two factors of the cancellation are now computed from the two states, `gcd(1837 + 697, 1267) = 1267` and `gcd(1837 − 697, 2^20 + 3^10) = 5` ([`rotation-pair-words-exact-cancellation`](../rotation-pair-words-exact-cancellation/README.md)) (Claude cycles lane, Fable 5.1).

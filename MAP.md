@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**225 results, 29 attempts, 38 questions, 27 sources.**
+**227 results, 29 attempts, 38 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -229,6 +229,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) | A denominator law for any number of mismatches, from the Denjoy–Koksma height bound | formal | reviewed | — | yes |
 | [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) | A Denjoy–Koksma height bound: B ≤ (K(h/m) − 1)·(V_h + 2δ) for every rotation coprime to t… | formal | formal | — | yes |
 | [`distance-three-height-family`](areas/cycles/results/distance-three-height-family.md) | Rotation distance three, q ≤ L and vanishing drift do not bound the height of a cycle | reviewed | reviewed | — |  |
+| [`doubled-word-cancellation-formula`](areas/cycles/results/doubled-word-cancellation-formula/README.md) | The cancellation of a doubled word from a common factor of the half-intercepts, machine-c… | formal | formal | — | yes |
 | [`doubled-word-factor-gcd-identities`](areas/cycles/results/doubled-word-factor-gcd-identities/README.md) | Doubled words: gcd identities for the two factors of D, machine-checked | formal | formal | — | yes |
 | [`doubled-words-periodic-and-antiperiodic-points`](areas/cycles/results/doubled-words-periodic-and-antiperiodic-points/README.md) | Doubled words: the two factors of D test the half-words' periodic and antiperiodic points | written | written | — |  |
 | [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) | Dyadic normalisation of a cycle, the exact inversion formula and the order lemma | reviewed | reviewed | — | yes |
@@ -269,6 +270,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`rotating-mechanical-two-block-family`](areas/cycles/results/rotating-mechanical-two-block-family.md) | Mechanical block and its rotation: u_m^k v_m^ℓ has growing minima and no denominator 1 | reviewed | reviewed | — |  |
 | [`rotation-block-exclusion`](areas/cycles/results/rotation-block-exclusion/README.md) | Concatenations of rotations of one mechanical word are never integer 3x+1 cycles | formal | reviewed | — | yes |
 | [`rotation-lattice-single-divisibility`](areas/cycles/results/rotation-lattice-single-divisibility.md) | Integrality of all rotated cycle states is a single divisibility condition | reviewed | reviewed | — | yes |
+| [`rotation-pair-words-exact-cancellation`](areas/cycles/results/rotation-pair-words-exact-cancellation/README.md) | Concatenating two rotations of an actual 3x+d cycle word: the cancellation is G_u·gcd(n_r… | written | written | — |  |
 | [`run-start-gap-recursion`](areas/cycles/results/run-start-gap-recursion.md) | The run starts of an ordered cycle's gap system form a J-state generalised Collatz cycle,… | formal | reviewed | — | yes |
 | [`shared-background-copies-via-gap`](areas/cycles/results/shared-background-copies-via-gap/README.md) | C013's q = 1 restriction with the replayed gap instead of Matveev: tens of thousands of b… | reviewed | reviewed | `hercher-2023-cycle-length`, `languasco-2025-two-primes`, `matveev-2000-linear-forms`, `musson-collatz-gap-all` |  |
 | [`shared-background-denominator-law`](areas/cycles/results/shared-background-denominator-law/README.md) | A word built from one repeated background between nonconstant markers has denominator gro… | reviewed | reviewed | `languasco-2025-two-primes`, `matveev-2000-linear-forms` | yes |
@@ -614,10 +616,12 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 ## Recent activity
 
 - 2026-10-31: [`cycle-word-repeat-bound`](areas/cycles/results/cycle-word-repeat-bound/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`doubled-word-cancellation-formula`](areas/cycles/results/doubled-word-cancellation-formula/README.md) added (result)
 - 2026-10-31: [`doubled-word-factor-gcd-identities`](areas/cycles/results/doubled-word-factor-gcd-identities/README.md) added (result)
 - 2026-10-31: [`doubled-words-periodic-and-antiperiodic-points`](areas/cycles/results/doubled-words-periodic-and-antiperiodic-points/README.md) added (result)
 - 2026-10-31: [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) added (result)
+- 2026-10-31: [`rotation-pair-words-exact-cancellation`](areas/cycles/results/rotation-pair-words-exact-cancellation/README.md) added (result)
 - 2026-10-31: [`shared-background-copies-via-gap`](areas/cycles/results/shared-background-copies-via-gap/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`small-band-height-residue-matching`](areas/cycles/results/small-band-height-residue-matching/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`two-block-uniform-denominator-growth`](areas/cycles/results/two-block-uniform-denominator-growth/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
@@ -636,8 +640,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-31: [`quantitative-rigidity-programme`](areas/invariants/attempts/quantitative-rigidity-programme/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-28: [`algebraic-and-primitive-cancellation-census`](areas/cycles/results/algebraic-and-primitive-cancellation-census/README.md) added (result)
 - 2026-10-28: [`few-arc-codings-denominator-census`](areas/cycles/results/few-arc-codings-denominator-census/README.md) added (result)
-- 2026-10-28: [`near-doubled-words-primitive-factor-test`](areas/cycles/results/near-doubled-words-primitive-factor-test/README.md) added (result)
-- 2026-10-28: [`two-arc-word-rotation-structure`](areas/cycles/results/two-arc-word-rotation-structure/README.md) added (result)
 
 ## Contributors
 
@@ -645,12 +647,12 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 64.9% | 201 | 9 |
-| Claude side lane | 20.1% | 34 | 132 |
+| ChatGPT main lane | 64.4% | 201 | 9 |
+| Claude side lane | 20.0% | 34 | 132 |
 | Claude Lean lane | 6.8% | 3 | 69 |
+| Claude cycles lane | 3.3% | 11 | 0 |
 | Claude PR1 lane | 2.8% | 6 | 9 |
-| Claude cycles lane | 2.5% | 9 | 0 |
-| Claude review lane | 1.1% | 0 | 17 |
+| Claude review lane | 1.0% | 0 | 17 |
 | Claude explicit-Tao lane | 0.9% | 5 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |

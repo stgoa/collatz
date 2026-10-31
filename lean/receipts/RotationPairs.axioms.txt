@@ -1,0 +1,5 @@
+source sha256: e7eac11ba9a7aa3faecc8664740c1d0962244666f959b8574a20e5fd334598a6
+'LeanLane.RotationPairs.gcd_Phi1_of_common_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RotationPairs.gcd_Phi2_of_common_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RotationPairs.gcd_D_of_common_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RotationPairs.D_eq_gcd_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
