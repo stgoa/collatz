@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**229 results, 29 attempts, 38 questions, 27 sources.**
+**230 results, 29 attempts, 38 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -345,6 +345,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`positive-offset-kernel-ternary-closure`](areas/invariants/results/positive-offset-kernel-ternary-closure.md) | The positive-offset binary sections of a 3x+1 invariant are closed under binary and terna… | formal | formal | — | yes |
 | [`quadratic-separation-digit-count-sections`](areas/invariants/results/quadratic-separation-digit-count-sections/README.md) | Mixed sections of a non-eventually-periodic digit-count sequence are pairwise distinct, g… | formal | formal | — | yes |
 | [`reverse-closure-two-base-automaticity`](areas/invariants/results/reverse-closure-two-base-automaticity.md) | For the odd-value sequence of a 3x+1 invariant, 2-automatic and 3-automatic are equivalent | formal | formal | `cobham-recognizability-theorem` | yes |
+| [`saturated-sets-meet-residue-classes-small-moduli`](areas/invariants/results/saturated-sets-meet-residue-classes-small-moduli/README.md) | Every saturated set of the 3x+1 map meets every residue class modulo every M ≤ 100 | written | written | — |  |
 | [`scalar-interface-three-identities`](areas/invariants/results/scalar-interface-three-identities.md) | Three identities on the odd values are equivalent to 3x+1 invariance of a colouring | formal | formal | — | yes |
 | [`scaling-invariant-character-not-eventually-periodic`](areas/invariants/results/scaling-invariant-character-not-eventually-periodic/README.md) | A binary-automatic character invariant under doubling and tripling need not be eventually… | reviewed | reviewed | — |  |
 | [`singleton-exit-separator-exclusion`](areas/invariants/results/singleton-exit-separator-exclusion/README.md) | The joint section graph of a nonconstant 3x+1 invariant has no finite forward interior wi… | reviewed | reviewed | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
@@ -649,12 +650,12 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 63.3% | 201 | 9 |
+| ChatGPT main lane | 63.2% | 201 | 9 |
 | Claude side lane | 17.0% | 34 | 132 |
 | Claude Lean lane | 6.2% | 3 | 69 |
 | Claude review lane | 5.7% | 0 | 61 |
-| Claude cycles lane | 3.7% | 13 | 0 |
-| Claude PR1 lane | 2.4% | 6 | 9 |
+| Claude cycles lane | 3.9% | 14 | 0 |
+| Claude PR1 lane | 2.3% | 6 | 9 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.8% | 5 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |

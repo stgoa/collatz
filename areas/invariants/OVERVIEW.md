@@ -64,7 +64,7 @@ The next target asks a nonconstant invariant to have more binary sections than a
 
 - **The quantitative target:** [`section-count-depth-ratio-unbounded`](questions/section-count-depth-ratio-unbounded/README.md). Its side-lane calibration says it looks `d`-uniform: the actual `3x+5` and `3x+13` cycle labellings already have at least 242 and 259 binary sections by depth 9.
 - **Card targets kept by the survey:** [`occupation-measure-tightness`](questions/occupation-measure-tightness.md) (V11) and [`capped-first-passage-power-bounds`](questions/capped-first-passage-power-bounds.md) (V12).
-- **The side lane's ×2×3-rigidity milestone:** [`invariant-sets-meet-every-residue-class`](questions/invariant-sets-meet-every-residue-class.md) (S2).
+- **The side lane's ×2×3-rigidity milestone:** [`invariant-sets-meet-every-residue-class`](questions/invariant-sets-meet-every-residue-class.md) (S2). Proved for every modulus `M ≤ 100` by a finite closure search over residues ([`saturated-sets-meet-residue-classes-small-moduli`](results/saturated-sets-meet-residue-classes-small-moduli/README.md)); the budgets grow with the 2-adic part of `M`, so the general case is open.
 - **The analytic analogue on the canonical quotient** lives in the convergence area: [`canonical-rigidity-bounded-invariants`](../convergence/questions/canonical-rigidity-bounded-invariants.md).
 
 ## Dead ends
