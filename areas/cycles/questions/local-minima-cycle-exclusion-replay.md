@@ -30,7 +30,7 @@ Phase 6's cycle route Y treated these exclusions as published benchmarks, not re
 ## Known progress
 
 - None on the `m`-cycle exclusions themselves (Simons–de Weger, Hercher Theorem 23) in Phase 6; the side lane did not check the reference to Hercher's corrigendum (feed 2026-10-18 15:38).
-- **A neighbouring published bound is replayed** (2026-10-31): [`cycle-length-lower-bound-from-convergents`](../results/cycle-length-lower-bound-from-convergents/README.md) proves, with certified continued-fraction constants and the verified range `2^71` as its only external input, that a nontrivial cycle has at least `65,470,613,321` odd states (Eliahou's method in its coarse form, about half of Hercher's cited Corollary 29 bound). Hercher's and Simons–de Weger's exclusions of cycles with few local minima remain unreplayed.
+- **A neighbouring published bound is replayed** (2026-10-31): [`cycle-length-lower-bound-from-convergents`](../results/cycle-length-lower-bound-from-convergents/README.md) replays Eliahou's continued-fraction argument with certified constants and the verified range `2^71` as its only external input: a nontrivial cycle has at least `72,057,431,991` odd states and `114,208,327,604` halvings (about half of Hercher's cited Corollary 29 bound), and at `L = 2^40` the enumeration returns Eliahou's own constants `17,087,915` and `301,994`. Hercher's and Simons–de Weger's exclusions of cycles with few local minima remain unreplayed.
 
 ## Suggested attacks
 

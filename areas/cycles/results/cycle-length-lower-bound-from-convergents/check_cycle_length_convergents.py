@@ -2,23 +2,27 @@
 """Certificate for cycle-length-lower-bound-from-convergents.
 
 Setting: raw odd-only 3x+1 map n -> (3n+1)/2^(v_2(3n+1)) on positive odd integers; a nontrivial cycle has m odd
-states n_1..n_m, A = sum of the valuations, minimum L >= 3 and satisfies 2^A = prod (3 + 1/n_i), hence
-    0 < A - m*theta < m / (3 L ln 2) < 0.481 m / L,          theta = log_2 3.
-With the convergents p_k/q_k of theta, and k defined by q_k <= m < q_{k+1}, the best-approximation inequalities
-|m theta - A| >= |q_k theta - p_k| > 1/(q_k + q_{k+1}) give m > L / (0.481 (q_k + q_{k+1})); so k >= k1(L), the least
-k with q_{k+1} (q_k + q_{k+1}) > L/0.481, and m >= B(L) = max(q_{k1}, floor(L/(0.481 (q_{k1} + q_{k1+1}))) + 1).
-V1  the continued fraction of theta from a two-sided enclosure (decimal ln is correctly rounded; two precisions),
-    the convergents, and an exact integer cross-check 2^p_k > 3^q_k (k odd) / < (k even) for q_k <= 3000;
+states n_1..n_m, A = sum of the valuations and minimum L >= 3, and satisfies 2^A = prod (3 + 1/n_i), hence
+    (1)   0 < A - m*theta < m / (3 L ln 2) < 0.481 m / L,          theta = log_2 3.
+Call a pair (m, A) of positive integers admissible for L if it satisfies (1). With the convergents p_k/q_k of theta,
+e_k = |q_k theta - p_k|, and for q_k <= m < q_{k+1} the integers x, y with m = x q_k + y q_{k+1}, A = x p_k + y p_{k+1}
+(determinant +-1), one has A - m theta = (-1)^(k+1) (x e_k - y e_{k+1}); admissibility forces y >= 1, x <= -1 when k
+is even and x >= 1, y <= 0 when k is odd, with |x| e_k < 0.481 q_{k+1}/L and |y| e_{k+1} < 0.481 q_{k+1}/L. So the
+admissible pairs below any q_K are a finite, exactly computable set, and its least m is a lower bound for the period.
+V1  the continued fraction of theta from a two-sided enclosure (decimal ln is correctly rounded; two precisions), the
+    convergents, and an exact integer cross-check 2^p_k > 3^q_k (k odd) / < (k even) for q_k <= 3000;
 V2  0.481 > 1/(3 ln 2), checked against the decimal enclosure of ln 2;
-V3  B(L) for L = 2^40, 2^60, 2^68, 2^71 (the last is the external input barina-2025-convergence-2-71), and the
-    total-length bound m + floor(m theta) + 1 at m = B(L);
+V3  for L = 2^40, 2^60, 2^68, 2^71 (the last is the external input barina-2025-convergence-2-71): the admissible pairs
+    with m < q_K (K large enough that at least three admissible m appear), each decided by interval arithmetic with the
+    enclosure (an undecided pair fails the certificate), the least admissible m = M(L), and the least total length
+    m + A over the admissible pairs;
 V4  controls: on every cycle of actual-cycles-3x-d-corpus (3x+d, d <= 999), the exact identity 2^A prod n_i =
     prod (3 n_i + d) and the exact inequalities 3^m < 2^A <= (3 + d/L)^m, cleared of denominators;
 V5  receipt comparison. Exit 1 on failure; --write-receipt regenerates cycle_length_convergents.json.
 Standard library only; deterministic."""
 import json
 import sys
-from decimal import Decimal, getcontext, ROUND_FLOOR, ROUND_CEILING
+from decimal import Decimal, getcontext
 from fractions import Fraction
 from pathlib import Path
 
@@ -67,74 +71,116 @@ def convergents(terms):
     return out
 
 
+def error_interval(k, conv, lo, hi):
+    """Enclosure [e_lo, e_hi] of e_k = |q_k theta - p_k|."""
+    p, q = conv[k]
+    s_lo, s_hi = q * lo - p, q * hi - p
+    if k % 2 == 0:            # p_k/q_k < theta
+        return s_lo, s_hi
+    return -s_hi, -s_lo
+
+
+def admissible_pairs(L, conv, lo, hi, K):
+    """All admissible (m, A) with m < q_K, as a sorted list, with the k and (x, y) that produced them."""
+    out = []
+    for k in range(K):
+        pk, qk = conv[k]
+        pk1, qk1 = conv[k + 1]
+        if qk1 <= qk:            # empty range [q_k, q_{k+1})
+            continue
+        ek_lo, ek_hi = error_interval(k, conv, lo, hi)
+        ek1_lo, ek1_hi = error_interval(k + 1, conv, lo, hi)
+        if ek_lo <= 0 or ek1_lo <= 0:
+            fail(f"V3: error enclosure not positive at k={k}")
+            return out
+        eps = C_UP * qk1 / L                           # every admissible pair in the range has gap < eps
+        xmax = int(eps / ek_lo)                        # |x| e_k < eps
+        ymax = int(eps / ek1_lo)                       # |y| e_{k+1} < eps
+        if k % 2 == 0:
+            cands = ((-ax, y) for y in range(1, ymax + 1) for ax in range(1, xmax + 1))
+        else:
+            cands = ((x, -ay) for x in range(1, xmax + 1) for ay in range(0, ymax + 1))
+        for x, y in cands:
+            m = x * qk + y * qk1
+            if not (qk <= m < qk1):
+                continue
+            A = x * pk + y * pk1
+            gap_lo = abs(x) * ek_lo + abs(y) * ek1_lo    # A - m theta = |x| e_k + |y| e_{k+1} in both parities
+            gap_hi = abs(x) * ek_hi + abs(y) * ek1_hi
+            bound = C_UP * m / L
+            if gap_hi < bound:
+                out.append((m, A, k, x, y))
+            elif gap_lo >= bound:
+                continue
+            else:
+                fail(f"V3: undecided pair m={m} at k={k}")
+    out.sort()
+    return out
+
+
 def main():
     write = "--write-receipt" in sys.argv
     summary = {}
-    # V1: continued fraction from two enclosures
+    # V1
     lo1, hi1, ln2lo, ln2hi = theta_enclosure(160)
     lo2, hi2, _, _ = theta_enclosure(220)
-    t_lo1, t_hi1 = cf_terms(lo1, N_TERMS), cf_terms(hi1, N_TERMS)
-    t_lo2, t_hi2 = cf_terms(lo2, N_TERMS), cf_terms(hi2, N_TERMS)
+    t = [cf_terms(x, N_TERMS) for x in (lo1, hi1, lo2, hi2)]
     agree = 0
-    while (agree < N_TERMS and len({t_lo1[agree], t_hi1[agree], t_lo2[agree], t_hi2[agree]}) == 1):
+    while agree < N_TERMS and len({tt[agree] for tt in t}) == 1:
         agree += 1
-    terms = t_lo1[:agree]
+    terms = t[0][:agree]
     conv = convergents(terms)
     if agree < 60:
         fail(f"V1: only {agree} continued-fraction terms certified")
-    # exact cross-check for small convergents: p_k/q_k > theta iff 2^p_k > 3^q_k, and the parity pattern
     checked = 0
     for k, (p, q) in enumerate(conv):
         if q > 3000:
             break
-        above = 2 ** p > 3 ** q
-        if above != (k % 2 == 1):
+        if (2 ** p > 3 ** q) != (k % 2 == 1):
             fail(f"V1: convergent {p}/{q} (k={k}) on the wrong side of theta")
         checked += 1
-    # the enclosure itself, exactly: 3^q < 2^p iff p/q > theta; check lo < theta < hi via the last two small convergents
     summary["V1"] = {"terms_certified": agree, "terms": terms, "convergents_checked_exactly": checked,
                      "q_values": [str(q) for _, q in conv]}
     print(f"V1: {agree} terms of the continued fraction of log2(3) certified; {checked} convergents checked exactly")
     print("    terms:", terms[:40], "...")
-    # V2: C_UP > 1/(3 ln 2)  <=>  3 * ln2 * C_UP > 1, using the lower bound of ln 2
+    # V2
     ok2 = 3 * ln2lo * C_UP > 1
     if not ok2:
         fail("V2: 0.481 is not an upper bound for 1/(3 ln 2)")
-    summary["V2"] = {"c_up": "481/1000", "ln2_lower_bound_times_3_times_c_up_minus_1": str(float(3 * ln2lo * C_UP - 1))}
+    summary["V2"] = {"c_up": "481/1000", "three_ln2_c_up_minus_one": str(float(3 * ln2lo * C_UP - 1))}
     print(f"V2: 0.481 > 1/(3 ln 2): {ok2}")
-    # V3: the bound B(L)
-    def bound(L):
-        Lam = Fraction(L) / C_UP
-        for k in range(len(conv) - 1):
-            qk, qk1 = conv[k][1], conv[k + 1][1]
-            if qk1 * (qk + qk1) > Lam:
-                lower = Fraction(L) / (C_UP * (qk + qk1))
-                B = max(qk, lower.numerator // lower.denominator + 1)
-                return k, qk, qk1, B
-        raise RuntimeError("not enough convergents")
+    # V3
     summary["V3"] = {}
     for e in (40, 60, 68, 71):
         L = 2 ** e
-        k1, qk, qk1, B = bound(L)
-        # total length: m + floor(m theta) + 1 at m = B, floor determined by the enclosure
-        f_lo = (B * lo1).numerator // (B * lo1).denominator
-        f_hi = (B * hi1).numerator // (B * hi1).denominator
-        if f_lo != f_hi:
-            fail(f"V3: floor(B theta) undetermined for L = 2^{e}")
-        total = B + f_lo + 1
-        summary["V3"][f"2^{e}"] = {"k1": k1, "q_k1": str(qk), "q_k1_plus_1": str(qk1), "B": str(B), "total_length_bound": str(total)}
-        print(f"V3: L = 2^{e}: k1 = {k1}, q = {qk}, {qk1}; m >= B = {B} ({B:.3e}); total length >= {total} ({total:.3e})")
-    # V4: controls on the corpus
+        K = 1
+        pairs = []
+        while K < len(conv) - 1:
+            pairs = admissible_pairs(L, conv, lo1, hi1, K)
+            if len({m for m, *_ in pairs}) >= 3:
+                break
+            K += 1
+        if len(pairs) < 3:
+            fail(f"V3: fewer than three admissible pairs found for L = 2^{e}")
+            continue
+        M = pairs[0][0]
+        least_total = min(m + A for m, A, *_ in pairs)
+        first = [{"m": str(m), "A": str(A), "total": str(m + A), "k": k, "x": x, "y": y} for m, A, k, x, y in pairs[:6]]
+        summary["V3"][f"2^{e}"] = {"searched_below_q_K_with_K": K, "q_K": str(conv[K][1]), "admissible_pairs_found": len(pairs),
+                                   "least_m": str(M), "least_total_length": str(least_total), "first_pairs": first}
+        print(f"V3: L = 2^{e}: admissible pairs below q_{K} = {conv[K][1]}: {len(pairs)}; least m = {M} ({M:.4e}), "
+              f"least total length = {least_total} ({least_total:.4e})")
+        for d in first[:4]:
+            print(f"      m = {d['m']}, A = {d['A']}, total = {d['total']}  (k = {d['k']}, x = {d['x']}, y = {d['y']})")
+    # V4
     data = json.loads(CORPUS.read_text())
     n_cycles, n_d = 0, set()
     for cyc in data["cycles"]:
         d, states, A, m = cyc["d"], cyc["states"], cyc["A"], cyc["m"]
         L = min(states)
-        lhs = 2 ** A
+        lhs, rhs = 2 ** A, 1
         for n in states:
             lhs *= n
-        rhs = 1
-        for n in states:
             rhs *= 3 * n + d
         if lhs != rhs:
             fail(f"V4: identity fails for d={d} states={states[:5]}")
