@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**231 results, 29 attempts, 38 questions, 27 sources.**
+**232 results, 29 attempts, 38 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -225,6 +225,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`contracting-two-block-effective-exclusion`](areas/cycles/results/contracting-two-block-effective-exclusion/README.md) | Contracting two-block words with a block repeated three times have denominator above 2^M | formal | formal | — | yes |
 | [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) | The coupled mismatch-cut system has determinant ±D^(s−2)·Π(β'_i − β_i) and only two indep… | reviewed | reviewed | — |  |
 | [`cycle-height-ceiling`](areas/cycles/results/cycle-height-ceiling.md) | The height of a cycle is at most (log₂3 − 1)(m − 1) plus a term in q/L, by climbing from… | formal | formal | — | yes |
+| [`cycle-length-lower-bound-from-convergents`](areas/cycles/results/cycle-length-lower-bound-from-convergents/README.md) | A nontrivial 3x+1 cycle has at least 65,470,613,321 odd states: the continued-fraction pe… | written | written | `barina-2025-convergence-2-71` |  |
 | [`cycle-word-repeat-bound`](areas/cycles/results/cycle-word-repeat-bound/README.md) | No long factor repeats in a cycle word: the run bound as a factor-complexity statement | reviewed | reviewed | `musson-collatz-gap-all` |  |
 | [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) | A denominator law for any number of mismatches, from the Denjoy–Koksma height bound | formal | reviewed | — | yes |
 | [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) | A Denjoy–Koksma height bound: B ≤ (K(h/m) − 1)·(V_h + 2δ) for every rotation coprime to t… | formal | formal | — | yes |
@@ -367,7 +368,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 |---|---|---|---|
 | [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) | Adamczewski–Bell: a problem about Mahler functions | cited | 0 |
 | [`ansari-2025-recursive-sieve`](sources/ansari-2025-recursive-sieve.md) | Ansari (2025): recursively sufficient sets and a ternary-digit sieve | cited | 0 |
-| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 3 |
+| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 4 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
 | [`cobham-recognizability-theorem`](sources/cobham-recognizability-theorem.md) | Cobham's theorem: sets recognizable in two independent bases | cited | 3 |
@@ -651,11 +652,11 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 63.0% | 201 | 9 |
+| ChatGPT main lane | 62.9% | 201 | 9 |
 | Claude side lane | 16.9% | 34 | 132 |
 | Claude Lean lane | 6.2% | 3 | 69 |
 | Claude review lane | 5.7% | 0 | 61 |
-| Claude cycles lane | 4.2% | 15 | 0 |
+| Claude cycles lane | 4.4% | 16 | 0 |
 | Claude PR1 lane | 2.3% | 6 | 9 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.8% | 5 | 0 |
