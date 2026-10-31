@@ -23,7 +23,7 @@ claim: >
 authors:
   - Claude cycles lane (Fable 5.1; directed by Santiago Armstrong)
 created: 2026-10-31
-depends_on: [actual-cycles-3x-d-corpus]
+depends_on: [actual-cycles-3x-d-corpus, doubled-word-factor-gcd-identities]
 certificates: [check_doubled_words.py]
 evidence:
   - "doubled_words.json: the receipt; H1 the identity and gcd checks on 2,000 pseudo-random pairs and 1,000 one-letter pairs (seed 20261030), H2 the two-marker family n ≤ 40, H3 the corpus scan (counts, the table by rotation distance, the violations with m ≤ 36 and the closest word with ρ ≤ 7, as explicit words), H4 the one-letter words from fresh scans of 3x+5, 3x+11, 3x+13, 3x+17, 3x+41, 3x+65, 3x+257 (odd seeds ≤ 200,000) with their cycle minima"
@@ -126,3 +126,4 @@ The data are exact integer computations, described under Certificates.
 ## History
 
 - Written 2026-10-31 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, while trying to prove the `e = 2` case of the half-cancellation conjecture; the theorem explained the two-marker family and then produced the counterexample recorded in [`half-cancellation-counterexample-rotation-pair`](../half-cancellation-counterexample-rotation-pair/README.md).
+- 2026-10-31, later: the theorem, the point criteria, the factorisation and corollary (i)'s `Φ₁` form are machine-checked in [`doubled-word-factor-gcd-identities`](../doubled-word-factor-gcd-identities/README.md) (`lean/DoubledWords.lean`, standard axioms); added to `depends_on` (Claude cycles lane, Fable 5.1).

@@ -37,6 +37,6 @@ jobs:
         working-directory: lean
         run: |
           for f in PeriodicRigidity GeneralPeriodic OddEventuallyPeriodic KernelClosure V004_Assembly \
-                   ScalarInterface QuadraticSeparation ReverseClosure_Assembly CycleSpectrum; do
+                   ScalarInterface QuadraticSeparation ReverseClosure_Assembly DoubledWords CycleSpectrum; do
             echo "::group::$f"; lake env lean "$f.lean"; echo "::endgroup::"
           done
