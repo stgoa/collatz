@@ -75,9 +75,9 @@ Partly formal. `LeanLane.Cyc.inversion_formula` is (2) over ℚ; `no_inversion_o
 
 ## Remarks
 
-- **What order does not give.** A mechanical `c` can coexist with inversions and a non-rotation successor permutation, and a strictly ordered cycle with mechanical `c` can still have large cancellation; see [`mechanical-normalized-word-transfer`](../attempts/mechanical-normalized-word-transfer.md) and [`ordered-cycle-shortcuts`](../attempts/ordered-cycle-shortcuts.md). The `q = 11` cycle with minimum 13 has an inversion despite `q ≤ L` (`F(13) = 50 > 49 = F(29/2)`, `k = 1`, `r = 3`).
+- **What order does not give.** A mechanical `c` can coexist with inversions and a non-rotation successor permutation, and a strictly ordered cycle with mechanical `c` can still have large cancellation; see [`mechanical-normalized-word-transfer`](../attempts/mechanical-normalized-word-transfer.md) and [`ordered-cycle-shortcuts`](../attempts/ordered-cycle-shortcuts/README.md). The `q = 11` cycle with minimum 13 has an inversion despite `q ≤ L` (`F(13) = 50 > 49 = F(29/2)`, `k = 1`, `r = 3`).
 - **Weighted intercept.** Starting at `n_0 = L`, `(2^A − 3^m)·L = q·Σ_j 3^(m−1−j)·2^(P_j − h_j)` with `P_j = Σ_(i<j) c_i`; since `P_j = A_j + h_j` this sum is exactly the original intercept `C_w`. Normalisation is an invertible change of coordinates only when the height labels are retained.
-- **Generic baseline.** The order-free comparisons are in [`generic-cycle-minimum-baselines`](generic-cycle-minimum-baselines.md).
+- **Generic baseline.** The order-free comparisons are in [`generic-cycle-minimum-baselines`](generic-cycle-minimum-baselines/README.md).
 
 ## History
 

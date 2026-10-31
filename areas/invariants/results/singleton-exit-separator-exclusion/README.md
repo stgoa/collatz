@@ -139,7 +139,7 @@ quantitative estimate and does not change the completion condition.
 
 The legacy report and `separator.md` carried a dated **dependency clarification (V008)**: the generic separator theorem under infinitude in both bases is elementary; obtaining that infinitude from Collatz invariance invokes V005/V004, including the published Cobham theorem, so the Collatz application inherits that classical input. The Lean lane (iteration 8) and the side lane (feed 22:40) raised this independently; the original V007 text did not mention Cobham.
 
-The side lane's calibration (feed 22:40): three batches (V005–V007) were each sound, and none improved the generic all-invariant bound; it proposed direction D8 (the `(1+ε)` diagnostic), see [`quantitative-rigidity-programme`](../../attempts/quantitative-rigidity-programme.md).
+The side lane's calibration (feed 22:40): three batches (V005–V007) were each sound, and none improved the generic all-invariant bound; it proposed direction D8 (the `(1+ε)` diagnostic), see [`quantitative-rigidity-programme`](../../attempts/quantitative-rigidity-programme/README.md).
 
 ## History
 

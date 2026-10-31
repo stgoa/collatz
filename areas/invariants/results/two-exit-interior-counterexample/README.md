@@ -44,7 +44,7 @@ Both binary children of `s` equal `u(n) = p(⌊n/3⌋)`; all three ternary child
 
 ## Proof
 
-The written proof is [`two_exit.md`](two_exit.md) §§2–4. The legacy V008 report follows, lightly edited; its §2 is the node [`first-shell-three-state-rigidity`](../first-shell-three-state-rigidity.md) and its §3 the node [`linear-growth-uniform-future-cuts`](../linear-growth-uniform-future-cuts.md).
+The written proof is [`two_exit.md`](two_exit.md) §§2–4. The legacy V008 report follows, lightly edited; its §2 is the node [`first-shell-three-state-rigidity`](../first-shell-three-state-rigidity/README.md) and its §3 the node [`linear-growth-uniform-future-cuts`](../linear-growth-uniform-future-cuts.md).
 
 ### 1. The generic two-exit extension is refuted
 

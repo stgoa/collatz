@@ -38,7 +38,7 @@ It is an intermediate milestone under the all-cycle goal, not a replacement for 
 - Complexity restrictions on ordered cycles: [`ordered-cycle-sparse-forcing`](../results/ordered-cycle-sparse-forcing/README.md) (`L > 2^(ceil(m/J) − 1 − B)`, `J ≥ B + 1`) and [`ordered-cycle-height-change-growth`](../results/ordered-cycle-height-change-growth.md) (fixed `q, J` leave finitely many ordered cycles; `J ≥ √m − O_q(log m)`). These restrict, they do not exclude.
 - Exact arithmetic: [`ordered-cycle-residue-law`](../results/ordered-cycle-residue-law.md).
 - Finite evidence: in the 1,185 normalised cycles of [`ordered-cycle-height-census`](../results/ordered-cycle-height-census.md), 51 lie in the ordered domain (`q ≤ L`, circular order), and the receipt records no failure of the candidate `B ≤ q − 1` among them. Finite evidence does not bear on untested periods.
-- Failed routes: [`mechanical-normalized-word-transfer`](../attempts/mechanical-normalized-word-transfer.md), [`ordered-cycle-shortcuts`](../attempts/ordered-cycle-shortcuts.md), [`height-bound-via-residues-or-relaxation`](../attempts/height-bound-via-residues-or-relaxation.md).
+- Failed routes: [`mechanical-normalized-word-transfer`](../attempts/mechanical-normalized-word-transfer.md), [`ordered-cycle-shortcuts`](../attempts/ordered-cycle-shortcuts/README.md), [`height-bound-via-residues-or-relaxation`](../attempts/height-bound-via-residues-or-relaxation.md).
 - One candidate mechanism: the height–denominator bound `B ≤ q − 1` ([`height-denominator-candidate`](height-denominator-candidate/README.md)), whose `q = 1` case is exactly this question.
 
 ## Suggested attacks

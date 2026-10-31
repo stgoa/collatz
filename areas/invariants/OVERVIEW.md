@@ -15,16 +15,16 @@ Fourteen candidate languages (cards V1–V14) were compared, and a shortlist was
 ### 2. Finite-state rigidity (V003–V004)
 
 - **Partial classification (V003).** An invariant `F(s_2(n))` that depends only on the binary digit count is constant, for any `F` ([`digit-count-invariant-colourings-constant`](results/digit-count-invariant-colourings-constant/README.md), reviewed).
-- **Kernel reduction.** The first ternary image of a finite binary kernel adds at most the one function `h(3n)` ([`binary-kernel-first-ternary-image`](results/binary-kernel-first-ternary-image.md)).
-- **Guards are needed.** A binary-automatic character invariant under doubling and tripling need not be eventually periodic ([`scaling-invariant-character-not-eventually-periodic`](results/scaling-invariant-character-not-eventually-periodic.md)).
-- **A known result.** One monochromatic dyadic class forces constancy; at `d = 1` this already follows from Monks's progression sufficiency ([`monochromatic-cylinder-forces-constancy`](results/monochromatic-cylinder-forces-constancy.md)).
+- **Kernel reduction.** The first ternary image of a finite binary kernel adds at most the one function `h(3n)` ([`binary-kernel-first-ternary-image`](results/binary-kernel-first-ternary-image/README.md)).
+- **Guards are needed.** A binary-automatic character invariant under doubling and tripling need not be eventually periodic ([`scaling-invariant-character-not-eventually-periodic`](results/scaling-invariant-character-not-eventually-periodic/README.md)).
+- **A known result.** One monochromatic dyadic class forces constancy; at `d = 1` this already follows from Monks's progression sufficiency ([`monochromatic-cylinder-forces-constancy`](results/monochromatic-cylinder-forces-constancy/README.md)).
 - **The theorem (V004).** Keep the positive-offset sections `K_+`. They are closed under binary and ternary sections, and a ternary step costs at most 4 binary digits ([`positive-offset-kernel-ternary-closure`](results/positive-offset-kernel-ternary-closure.md), formal). Eventually periodic odd values force constancy ([`odd-eventually-periodic-invariants-constant`](results/odd-eventually-periodic-invariants-constant.md), formal). With Cobham's theorem these give: **every finite-valued binary-automatic invariant colouring of `3x+1` is constant** ([`binary-automatic-invariant-colourings-constant`](results/binary-automatic-invariant-colourings-constant/README.md), formal, conditional on Cobham).
-- **All `3x+d`.** For `gcd(d, 6) = 1` the automatic invariants are exactly the functions of `n mod d` that are constant on the ×2, ×3 orbits; `d = 1` matters only in a commutator step ([`d-uniform-automatic-invariant-colourings`](results/d-uniform-automatic-invariant-colourings.md), side lane, written).
+- **All `3x+d`.** For `gcd(d, 6) = 1` the automatic invariants are exactly the functions of `n mod d` that are constant on the ×2, ×3 orbits; `d = 1` matters only in a commutator step ([`d-uniform-automatic-invariant-colourings`](results/d-uniform-automatic-invariant-colourings/README.md), side lane, written).
 - **What it means.** The indicator of a nonempty nonabsorbing set would have an infinite binary kernel. "The bad set is automatic" is equivalent to convergence, so the theorem excludes one description class and nothing more.
 
 ### 3. Quantitative rigidity (V005–V009)
 
-The next target asks a nonconstant invariant to have more binary sections than any linear function of the depth ([`section-count-depth-ratio-unbounded`](questions/section-count-depth-ratio-unbounded/README.md), open). The five batches ([`quantitative-rigidity-programme`](attempts/quantitative-rigidity-programme.md)) produced the following.
+The next target asks a nonconstant invariant to have more binary sections than any linear function of the depth ([`section-count-depth-ratio-unbounded`](questions/section-count-depth-ratio-unbounded/README.md), open). The five batches ([`quantitative-rigidity-programme`](attempts/quantitative-rigidity-programme/README.md)) produced the following.
 
 **Interfaces**
 - Three identities on the odd values `b(n) = h(2n+1)` are equivalent to invariance ([`scalar-interface-three-identities`](results/scalar-interface-three-identities.md), formal).
@@ -34,7 +34,7 @@ The next target asks a nonconstant invariant to have more binary sections than a
 **Scoped gains**
 - The mixed sections of a non-eventually-periodic digit-count sequence are pairwise distinct ([`quadratic-separation-digit-count-sections`](results/quadratic-separation-digit-count-sections/README.md), formal). So one digit-count section of an invariant forces quadratic growth ([`digit-count-section-forces-quadratic-growth`](results/digit-count-section-forces-quadratic-growth.md), reviewed).
 - The joint section graph has no finite interior with a single exit ([`singleton-exit-separator-exclusion`](results/singleton-exit-separator-exclusion/README.md), reviewed); numerically this gives only `|J_D(b)| ≥ 2D + 1`.
-- At most three first-shell sections force constancy ([`first-shell-three-state-rigidity`](results/first-shell-three-state-rigidity.md)).
+- At most three first-shell sections force constancy ([`first-shell-three-state-rigidity`](results/first-shell-three-state-rigidity/README.md)).
 
 **Controls**
 - Separate linear growth in bases 2 and 3 does not force periodicity, contrary to Bell's Conjecture 3.4 as printed ([`sparse-indicator-linear-growth-in-both-bases`](results/sparse-indicator-linear-growth-in-both-bases/README.md), reviewed).
@@ -58,7 +58,7 @@ The next target asks a nonconstant invariant to have more binary sections than a
 | Quadratic separation of digit-count mixed sections ([`quadratic-separation-digit-count-sections`](results/quadratic-separation-digit-count-sections/README.md)) | formal / formal | nothing external |
 | Digit-count invariants are constant ([`digit-count-invariant-colourings-constant`](results/digit-count-invariant-colourings-constant/README.md)) | reviewed / reviewed | nothing external |
 | Unbounded additive section excess ([`additive-section-excess-unbounded`](results/additive-section-excess-unbounded/README.md)) | reviewed / written | Cobham, Eilenberg (through V004) |
-| Automatic invariants of `3x+d` are functions of `n mod d` ([`d-uniform-automatic-invariant-colourings`](results/d-uniform-automatic-invariant-colourings.md)) | written / written | Cobham, Eilenberg |
+| Automatic invariants of `3x+d` are functions of `n mod d` ([`d-uniform-automatic-invariant-colourings`](results/d-uniform-automatic-invariant-colourings/README.md)) | written / written | Cobham, Eilenberg |
 
 ## Open questions
 
@@ -70,7 +70,7 @@ The next target asks a nonconstant invariant to have more binary sections than a
 ## Dead ends
 
 - **The other languages.** V1–V12 relocate the obstacle ([`viewpoint-language-survey`](attempts/viewpoint-language-survey/README.md)). The relational-history and graph-geometry shortlists reproduced existing results (R81, R93, R7). The carry frontier redraws known arithmetic ([`binary-ternary-carry-frontier`](attempts/binary-ternary-carry-frontier/README.md)).
-- **Shortcuts to superlinear growth.** These are refuted by exact controls ([`quantitative-rigidity-programme`](attempts/quantitative-rigidity-programme.md)):
+- **Shortcuts to superlinear growth.** These are refuted by exact controls ([`quantitative-rigidity-programme`](attempts/quantitative-rigidity-programme/README.md)):
   - local nonautomaticity with the first return identity allows `kappa = D + 3`;
   - linear growth need not contain a digit-count section (the adjacent-11 control);
   - semigroup growth theorems count the wrong object;

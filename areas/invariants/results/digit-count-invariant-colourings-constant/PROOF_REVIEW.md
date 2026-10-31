@@ -15,9 +15,9 @@ checks remain separate evidence from the written proofs.
 
 | Note | Conclusion checked | What it does not supply |
 |---|---|---|
-| [Kernel probe](../binary-kernel-first-ternary-image.md) | Both nonzero ternary sections are binary sections; the first ternary image of the whole finite binary kernel adds at most one function; the pure-zero ternary orbit is finite | Full closure under arbitrary mixed ternary words, or automaticity of an actual bad set |
+| [Kernel probe](../binary-kernel-first-ternary-image/README.md) | Both nonzero ternary sections are binary sections; the first ternary image of the whole finite binary kernel adds at most one function; the pure-zero ternary orbit is finite | Full closure under arbitrary mixed ternary words, or automaticity of an actual bad set |
 | [Digit count](digit_sum.md) | Every invariant of the form F(s_2(n)) is constant, for an arbitrary color set and arbitrary F on positive digit counts | Classification of automata sensitive to bit positions, order or patterns |
-| [Cylinder rigidity](../monochromatic-cylinder-forces-constancy.md) | One eventually monochromatic dyadic residue class forces constancy, for fixed positive odd d coprime to3 | Existence of such a class for every automatic invariant; the stronger arbitrary-modulus d=1 statement for all d |
+| [Cylinder rigidity](../monochromatic-cylinder-forces-constancy/README.md) | One eventually monochromatic dyadic residue class forces constancy, for fixed positive odd d coprime to3 | Existence of such a class for every automatic invariant; the stronger arbitrary-modulus d=1 statement for all d |
 | [Literature L6](literature.md#l6-two-scaling-invariances-do-not-imply-periodicity) | Binary automaticity and invariance under doubling/tripling can coexist with infinitely many distinct mixed ternary sections | A counterexample satisfying the guarded Collatz identity or the kernel probe's full hypotheses |
 | [Carry boundary](../../attempts/binary-ternary-carry-frontier/README.md) | One complete integer conversion/carry patch, with exact tails, bootstrap and clocks | A new section relation, a finite bound on all frontier descriptions, or a generalized d=5 tile model |
 

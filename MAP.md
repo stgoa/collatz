@@ -225,7 +225,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`contracting-two-block-effective-exclusion`](areas/cycles/results/contracting-two-block-effective-exclusion/README.md) | Contracting two-block words with a block repeated three times have denominator above 2^M | formal | formal | — | yes |
 | [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) | The coupled mismatch-cut system has determinant ±D^(s−2)·Π(β'_i − β_i) and only two indep… | reviewed | reviewed | — |  |
 | [`cycle-height-ceiling`](areas/cycles/results/cycle-height-ceiling.md) | The height of a cycle is at most (log₂3 − 1)(m − 1) plus a term in q/L, by climbing from… | formal | formal | — | yes |
-| [`cycle-word-repeat-bound`](areas/cycles/results/cycle-word-repeat-bound/README.md) | No long factor repeats in a cycle word: the run bound as a factor-complexity statement | written | written | `musson-collatz-gap-all` |  |
+| [`cycle-word-repeat-bound`](areas/cycles/results/cycle-word-repeat-bound/README.md) | No long factor repeats in a cycle word: the run bound as a factor-complexity statement | reviewed | reviewed | `musson-collatz-gap-all` |  |
 | [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) | A denominator law for any number of mismatches, from the Denjoy–Koksma height bound | formal | reviewed | — | yes |
 | [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) | A Denjoy–Koksma height bound: B ≤ (K(h/m) − 1)·(V_h + 2δ) for every rotation coprime to t… | formal | formal | — | yes |
 | [`distance-three-height-family`](areas/cycles/results/distance-three-height-family.md) | Rotation distance three, q ≤ L and vanishing drift do not bound the height of a cycle | reviewed | reviewed | — |  |
@@ -236,7 +236,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`few-arc-codings-denominator-census`](areas/cycles/results/few-arc-codings-denominator-census/README.md) | Few-arc rotation codings: an exact census of cancellation and reduced denominators | written | written | — |  |
 | [`fixed-defect-unbounded-cancellation`](areas/cycles/results/fixed-defect-unbounded-cancellation.md) | Two unit rotation defects allow arbitrarily large cancellation: the family 1^t 2^(2t) | reviewed | reviewed | — |  |
 | [`four-mismatch-sign-dichotomy`](areas/cycles/results/four-mismatch-sign-dichotomy.md) | A rotation with four mismatches has one sign change of each kind, or two of each in alter… | formal | formal | — | yes |
-| [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines.md) | Order-free baselines for cycle minima and denominators (extremal, packing, product) | written | written | — |  |
+| [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines/README.md) | Order-free baselines for cycle minima and denominators (extremal, packing, product) | reviewed | reviewed | — |  |
 | [`global-drift-ceiling`](areas/cycles/results/global-drift-ceiling.md) | The global-drift ceiling: log₂(n_k/L) ≤ k·log₂(3/2) − X_k + δ at every q, with no hypothe… | formal | formal | — | yes |
 | [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) | The half-cancellation bound fails at four mismatches: a word of length 20 with G² ≈ 22·2^A | written | written | — |  |
 | [`largest-letter-rho-reduction`](areas/cycles/results/largest-letter-rho-reduction.md) | A low-mismatch rotation forces a letter of linear size, so ρ → ∞ follows from a largest l… | reviewed | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `musson-collatz-gap-all` | yes |
@@ -269,16 +269,16 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`rotation-block-exclusion`](areas/cycles/results/rotation-block-exclusion/README.md) | Concatenations of rotations of one mechanical word are never integer 3x+1 cycles | formal | reviewed | — | yes |
 | [`rotation-lattice-single-divisibility`](areas/cycles/results/rotation-lattice-single-divisibility.md) | Integrality of all rotated cycle states is a single divisibility condition | reviewed | reviewed | — | yes |
 | [`run-start-gap-recursion`](areas/cycles/results/run-start-gap-recursion.md) | The run starts of an ordered cycle's gap system form a J-state generalised Collatz cycle,… | formal | reviewed | — | yes |
-| [`shared-background-copies-via-gap`](areas/cycles/results/shared-background-copies-via-gap/README.md) | C013's q = 1 restriction with the replayed gap instead of Matveev: tens of thousands of b… | written | written | `hercher-2023-cycle-length`, `languasco-2025-two-primes`, `matveev-2000-linear-forms`, `musson-collatz-gap-all` |  |
+| [`shared-background-copies-via-gap`](areas/cycles/results/shared-background-copies-via-gap/README.md) | C013's q = 1 restriction with the replayed gap instead of Matveev: tens of thousands of b… | reviewed | reviewed | `hercher-2023-cycle-length`, `languasco-2025-two-primes`, `matveev-2000-linear-forms`, `musson-collatz-gap-all` |  |
 | [`shared-background-denominator-law`](areas/cycles/results/shared-background-denominator-law/README.md) | A word built from one repeated background between nonconstant markers has denominator gro… | reviewed | reviewed | `languasco-2025-two-primes`, `matveev-2000-linear-forms` | yes |
 | [`short-rotation-mismatch-growth`](areas/cycles/results/short-rotation-mismatch-growth/README.md) | Short rotations of a 3x+1 cycle have mismatch counts growing like log m, and the low mism… | reviewed | reviewed | `musson-collatz-gap-all` | yes |
 | [`single-forced-position-denominator`](areas/cycles/results/single-forced-position-denominator.md) | A reduced ordered cycle with a single forced position has D = q | formal | reviewed | — | yes |
-| [`small-band-height-residue-matching`](areas/cycles/results/small-band-height-residue-matching.md) | Height-residue matching holds for ordered cycles with q > 1 in at most three (normalised)… | written | written | — |  |
+| [`small-band-height-residue-matching`](areas/cycles/results/small-band-height-residue-matching/README.md) | Height-residue matching holds for ordered cycles with q > 1 in at most three (normalised)… | reviewed | reviewed | — |  |
 | [`three-band-collatz-cycles-are-ordered`](areas/cycles/results/three-band-collatz-cycles-are-ordered.md) | A 3x+1 cycle with H < 8L is dyadically ordered with mechanical normalised word and gcd(A,… | formal | reviewed | — | yes |
 | [`three-defect-arbitrary-background`](areas/cycles/results/three-defect-arbitrary-background.md) | Words at rotation distance three can carry an arbitrary shared background, beyond any fix… | reviewed | reviewed | — |  |
 | [`three-mismatch-exclusion`](areas/cycles/results/three-mismatch-exclusion/README.md) | No rotation of a nontrivial 3x+1 cycle differs from it in exactly three positions, so ρ ≥… | formal | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `musson-collatz-gap-all` | yes |
 | [`two-arc-word-rotation-structure`](areas/cycles/results/two-arc-word-rotation-structure/README.md) | Two-arc words: their rotation spectrum, and the Sturmian case is exactly the adjacent-def… | written | written | — |  |
-| [`two-block-uniform-denominator-growth`](areas/cycles/results/two-block-uniform-denominator-growth/README.md) | Two-block words u^k v^ℓ with k, ℓ ≥ 2 have denominators growing uniformly in the total, i… | written | written | `corvaja-2005-s-unit-height` |  |
+| [`two-block-uniform-denominator-growth`](areas/cycles/results/two-block-uniform-denominator-growth/README.md) | Two-block words u^k v^ℓ with k, ℓ ≥ 2 have denominators growing uniformly in the total, i… | reviewed | reviewed | `corvaja-2005-s-unit-height` |  |
 | [`two-defect-bounded-denominator-finiteness`](areas/cycles/results/two-defect-bounded-denominator-finiteness.md) | Each bounded-denominator layer of the two-defect class is finite, effectively in principle | reviewed | reviewed | `bugeaud-2022-two-logarithms` |  |
 | [`two-defect-cancellation-bound`](areas/cycles/results/two-defect-cancellation-bound.md) | A two-defect rotation bounds the cancellation by both mismatch arcs, so q > (1 − 3^m/2^A)… | reviewed | reviewed | — | yes |
 | [`two-defect-marker-family`](areas/cycles/results/two-defect-marker-family.md) | The words (3, b_n, 4, b_n) are never integer 3x+1 cycles, with growing minimum and local-… | reviewed | reviewed | — |  |
@@ -293,7 +293,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | Attempt | Title | Status |
 |---|---|---|
 | [`band-one-gcd-law-search`](areas/cycles/attempts/band-one-gcd-law-search/README.md) | Searching for a law for gcd(C, D) on ordered band-1 words | reviewed |
-| [`band-three-ordering-extension`](areas/cycles/attempts/band-three-ordering-extension/README.md) | Extending the dyadic ordering of q = 1 cycles from H < 8L to H < 16L by excluding the (n, 8n+1) pair | written |
+| [`band-three-ordering-extension`](areas/cycles/attempts/band-three-ordering-extension/README.md) | Extending the dyadic ordering of q = 1 cycles from H < 8L to H < 16L by excluding the (n, 8n+1) pair | reviewed |
 | [`close-pair-lattice-criterion`](areas/cycles/attempts/close-pair-lattice-criterion/README.md) | Excluding denominator 1 by a universal close pair: some two states less than 2 apart | reviewed |
 | [`constant-cancellation-two-growing-blocks`](areas/cycles/attempts/constant-cancellation-two-growing-blocks.md) | A constant cancellation bound for two growing repeated blocks | reviewed |
 | [`excursion-compression`](areas/cycles/attempts/excursion-compression/README.md) | Compressing an ordered cycle at its excursions above the minimum band | reviewed |
@@ -302,11 +302,11 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`interval-trapping-expanding-blocks`](areas/cycles/attempts/interval-trapping-expanding-blocks.md) | Interval trapping of block starts when one block expands | reviewed |
 | [`local-odd-rounding-exclusion`](areas/cycles/attempts/local-odd-rounding-exclusion/README.md) | Excluding ordered denominator-one cycles by integer rounding of the complete sorted gaps | reviewed |
 | [`mechanical-normalized-word-transfer`](areas/cycles/attempts/mechanical-normalized-word-transfer.md) | Transferring the mechanical-word denominator theorem to a mechanical normalised word | reviewed |
-| [`multi-rotation-four-mismatch-exclusion`](areas/cycles/attempts/multi-rotation-four-mismatch-exclusion/README.md) | Excluding four-mismatch rotations with the size inequalities of several rotations at once (paused) | written |
+| [`multi-rotation-four-mismatch-exclusion`](areas/cycles/attempts/multi-rotation-four-mismatch-exclusion/README.md) | Excluding four-mismatch rotations with the size inequalities of several rotations at once (paused) | reviewed |
 | [`ordered-cycle-run-renormalisation`](areas/cycles/attempts/ordered-cycle-run-renormalisation/README.md) | Renormalising ordered cycles by compressing the sorted-gap cycle to its run starts | reviewed |
-| [`ordered-cycle-shortcuts`](areas/cycles/attempts/ordered-cycle-shortcuts.md) | Four shortcuts toward excluding ordered denominator-one cycles, each refuted by an exact control | written |
+| [`ordered-cycle-shortcuts`](areas/cycles/attempts/ordered-cycle-shortcuts/README.md) | Four shortcuts toward excluding ordered denominator-one cycles, each refuted by an exact control | reviewed |
 | [`primewise-height-residue-matching`](areas/cycles/attempts/primewise-height-residue-matching.md) | Proving height-residue matching one prime factor of q at a time | reviewed |
-| [`scaling-transfer-to-3x-plus-d`](areas/cycles/attempts/scaling-transfer-to-3x-plus-d/README.md) | Scaling covariance S_d(dy) = d S_1(y) transports identities to 3x+d, but not the integer lattice | written |
+| [`scaling-transfer-to-3x-plus-d`](areas/cycles/attempts/scaling-transfer-to-3x-plus-d/README.md) | Scaling covariance S_d(dy) = d S_1(y) transports identities to 3x+d, but not the integer lattice | reviewed |
 | [`termwise-plateau-divisibility`](areas/cycles/attempts/termwise-plateau-divisibility.md) | Extending the two-defect bound to more mismatches by dividing each prefix plateau separately | reviewed |
 | [`three-arc-intercept-elimination`](areas/cycles/attempts/three-arc-intercept-elimination/README.md) | Three arcs: the rotation difference is a two-term relation between arc intercepts, and eliminating across the… | written |
 
@@ -324,25 +324,25 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 
 | Result | Title | Status | Chain | Rests on | Lean |
 |---|---|---|---|---|---|
-| [`additive-section-excess-unbounded`](areas/invariants/results/additive-section-excess-unbounded/README.md) | Every nonconstant 3x+1 invariant has binary section count exceeding D+1 by an unbounded a… | reviewed | written | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
-| [`automatic-section-forces-constancy`](areas/invariants/results/automatic-section-forces-constancy/README.md) | One automatic positive binary section of a 3x+1 invariant forces constancy, with a polyno… | written | written | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
+| [`additive-section-excess-unbounded`](areas/invariants/results/additive-section-excess-unbounded/README.md) | Every nonconstant 3x+1 invariant has binary section count exceeding D+1 by an unbounded a… | reviewed | reviewed | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
+| [`automatic-section-forces-constancy`](areas/invariants/results/automatic-section-forces-constancy/README.md) | One automatic positive binary section of a 3x+1 invariant forces constancy, with a polyno… | reviewed | reviewed | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
 | [`binary-automatic-invariant-colourings-constant`](areas/invariants/results/binary-automatic-invariant-colourings-constant/README.md) | Every finite-valued binary-automatic invariant colouring of 3x+1 is constant, given Cobha… | formal | formal | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` | yes |
-| [`binary-kernel-first-ternary-image`](areas/invariants/results/binary-kernel-first-ternary-image.md) | The first ternary image of a finite binary kernel of a 3x+1 invariant adds at most the on… | written | written | — |  |
-| [`d-uniform-automatic-invariant-colourings`](areas/invariants/results/d-uniform-automatic-invariant-colourings.md) | For gcd(d, 6) = 1 the binary-automatic invariant colourings of 3x+d are the functions of… | written | written | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
+| [`binary-kernel-first-ternary-image`](areas/invariants/results/binary-kernel-first-ternary-image/README.md) | The first ternary image of a finite binary kernel of a 3x+1 invariant adds at most the on… | reviewed | reviewed | — |  |
+| [`d-uniform-automatic-invariant-colourings`](areas/invariants/results/d-uniform-automatic-invariant-colourings/README.md) | For gcd(d, 6) = 1 the binary-automatic invariant colourings of 3x+d are the functions of… | reviewed | reviewed | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
 | [`digit-count-invariant-colourings-constant`](areas/invariants/results/digit-count-invariant-colourings-constant/README.md) | A 3x+1 invariant colouring that depends only on the binary digit count is constant | reviewed | reviewed | — |  |
-| [`digit-count-section-forces-quadratic-growth`](areas/invariants/results/digit-count-section-forces-quadratic-growth.md) | A nonconstant 3x+1 invariant with one digit-count section has quadratically many binary s… | reviewed | written | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
-| [`first-shell-three-state-rigidity`](areas/invariants/results/first-shell-three-state-rigidity.md) | A sequence with the three scalar identities and at most three distinct first-shell sectio… | written | written | — |  |
+| [`digit-count-section-forces-quadratic-growth`](areas/invariants/results/digit-count-section-forces-quadratic-growth.md) | A nonconstant 3x+1 invariant with one digit-count section has quadratically many binary s… | reviewed | reviewed | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
+| [`first-shell-three-state-rigidity`](areas/invariants/results/first-shell-three-state-rigidity/README.md) | A sequence with the three scalar identities and at most three distinct first-shell sectio… | reviewed | reviewed | — |  |
 | [`linear-growth-short-detection`](areas/invariants/results/linear-growth-short-detection.md) | Linear joint section growth forces every nonzero combination of depth-A sections to be de… | reviewed | reviewed | — |  |
 | [`linear-growth-uniform-future-cuts`](areas/invariants/results/linear-growth-uniform-future-cuts.md) | A linear cumulative bound on a rooted section graph gives arbitrarily late cuts with a un… | reviewed | reviewed | — |  |
-| [`monochromatic-cylinder-forces-constancy`](areas/invariants/results/monochromatic-cylinder-forces-constancy.md) | An invariant colouring of 3x+d that is eventually constant on one dyadic residue class is… | written | written | — |  |
+| [`monochromatic-cylinder-forces-constancy`](areas/invariants/results/monochromatic-cylinder-forces-constancy/README.md) | An invariant colouring of 3x+d that is eventually constant on one dyadic residue class is… | reviewed | reviewed | — |  |
 | [`odd-eventually-periodic-invariants-constant`](areas/invariants/results/odd-eventually-periodic-invariants-constant.md) | A 3x+1 invariant colouring whose odd values are eventually periodic is constant | formal | formal | — | yes |
 | [`periodic-invariant-colourings-classification`](areas/invariants/results/periodic-invariant-colourings-classification/README.md) | Periodic invariant colourings of 3x+d factor through gcd(M, d), so for 3x+1 they are cons… | formal | formal | — | yes |
 | [`positive-offset-kernel-ternary-closure`](areas/invariants/results/positive-offset-kernel-ternary-closure.md) | The positive-offset binary sections of a 3x+1 invariant are closed under binary and terna… | formal | formal | — | yes |
 | [`quadratic-separation-digit-count-sections`](areas/invariants/results/quadratic-separation-digit-count-sections/README.md) | Mixed sections of a non-eventually-periodic digit-count sequence are pairwise distinct, g… | formal | formal | — | yes |
 | [`reverse-closure-two-base-automaticity`](areas/invariants/results/reverse-closure-two-base-automaticity.md) | For the odd-value sequence of a 3x+1 invariant, 2-automatic and 3-automatic are equivalent | formal | formal | `cobham-recognizability-theorem` | yes |
 | [`scalar-interface-three-identities`](areas/invariants/results/scalar-interface-three-identities.md) | Three identities on the odd values are equivalent to 3x+1 invariance of a colouring | formal | formal | — | yes |
-| [`scaling-invariant-character-not-eventually-periodic`](areas/invariants/results/scaling-invariant-character-not-eventually-periodic.md) | A binary-automatic character invariant under doubling and tripling need not be eventually… | written | written | — |  |
-| [`singleton-exit-separator-exclusion`](areas/invariants/results/singleton-exit-separator-exclusion/README.md) | The joint section graph of a nonconstant 3x+1 invariant has no finite forward interior wi… | reviewed | written | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
+| [`scaling-invariant-character-not-eventually-periodic`](areas/invariants/results/scaling-invariant-character-not-eventually-periodic/README.md) | A binary-automatic character invariant under doubling and tripling need not be eventually… | reviewed | reviewed | — |  |
+| [`singleton-exit-separator-exclusion`](areas/invariants/results/singleton-exit-separator-exclusion/README.md) | The joint section graph of a nonconstant 3x+1 invariant has no finite forward interior wi… | reviewed | reviewed | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
 | [`sparse-indicator-linear-growth-in-both-bases`](areas/invariants/results/sparse-indicator-linear-growth-in-both-bases/README.md) | A non-eventually-periodic indicator with linear section growth in both bases 2 and 3 | reviewed | reviewed | — |  |
 | [`two-exit-interior-counterexample`](areas/invariants/results/two-exit-interior-counterexample/README.md) | An irrational-rotation sequence has a two-exit interior with infinite kernels in both bas… | reviewed | reviewed | — |  |
 
@@ -350,8 +350,8 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 
 | Attempt | Title | Status |
 |---|---|---|
-| [`binary-ternary-carry-frontier`](areas/invariants/attempts/binary-ternary-carry-frontier/README.md) | Binary/ternary carry diagrams (base conversion) as a language for invariant colourings | written |
-| [`quantitative-rigidity-programme`](areas/invariants/attempts/quantitative-rigidity-programme.md) | Five batches toward superlinear section growth of 3x+1 invariants, which reached only an additive gain | written |
+| [`binary-ternary-carry-frontier`](areas/invariants/attempts/binary-ternary-carry-frontier/README.md) | Binary/ternary carry diagrams (base conversion) as a language for invariant colourings | reviewed |
+| [`quantitative-rigidity-programme`](areas/invariants/attempts/quantitative-rigidity-programme/README.md) | Five batches toward superlinear section growth of 3x+1 invariants, which reached only an additive gain | reviewed |
 | [`viewpoint-language-survey`](areas/invariants/attempts/viewpoint-language-survey/README.md) | A breadth-first survey of fourteen candidate languages for Collatz, ending in the choice of invariant colouri… | reviewed |
 
 ## Sources (external inputs)
@@ -583,14 +583,14 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 | V002 | [`periodic-invariant-colourings-classification`](areas/invariants/results/periodic-invariant-colourings-classification/README.md) |
 | V002-b | [`viewpoint-language-survey`](areas/invariants/attempts/viewpoint-language-survey/README.md) |
 | V003 | [`digit-count-invariant-colourings-constant`](areas/invariants/results/digit-count-invariant-colourings-constant/README.md) |
-| V003-b | [`binary-kernel-first-ternary-image`](areas/invariants/results/binary-kernel-first-ternary-image.md) |
-| V003-c | [`scaling-invariant-character-not-eventually-periodic`](areas/invariants/results/scaling-invariant-character-not-eventually-periodic.md) |
-| V003-d | [`monochromatic-cylinder-forces-constancy`](areas/invariants/results/monochromatic-cylinder-forces-constancy.md) |
+| V003-b | [`binary-kernel-first-ternary-image`](areas/invariants/results/binary-kernel-first-ternary-image/README.md) |
+| V003-c | [`scaling-invariant-character-not-eventually-periodic`](areas/invariants/results/scaling-invariant-character-not-eventually-periodic/README.md) |
+| V003-d | [`monochromatic-cylinder-forces-constancy`](areas/invariants/results/monochromatic-cylinder-forces-constancy/README.md) |
 | V003-e | [`binary-ternary-carry-frontier`](areas/invariants/attempts/binary-ternary-carry-frontier/README.md) |
 | V004 | [`binary-automatic-invariant-colourings-constant`](areas/invariants/results/binary-automatic-invariant-colourings-constant/README.md) |
 | V004-b | [`positive-offset-kernel-ternary-closure`](areas/invariants/results/positive-offset-kernel-ternary-closure.md) |
 | V004-c | [`odd-eventually-periodic-invariants-constant`](areas/invariants/results/odd-eventually-periodic-invariants-constant.md) |
-| V004-d | [`d-uniform-automatic-invariant-colourings`](areas/invariants/results/d-uniform-automatic-invariant-colourings.md) |
+| V004-d | [`d-uniform-automatic-invariant-colourings`](areas/invariants/results/d-uniform-automatic-invariant-colourings/README.md) |
 | V005 | [`automatic-section-forces-constancy`](areas/invariants/results/automatic-section-forces-constancy/README.md) |
 | V005-a | [`scalar-interface-three-identities`](areas/invariants/results/scalar-interface-three-identities.md) |
 | V005-b | [`sparse-indicator-linear-growth-in-both-bases`](areas/invariants/results/sparse-indicator-linear-growth-in-both-bases/README.md) |
@@ -600,7 +600,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 | V007 | [`singleton-exit-separator-exclusion`](areas/invariants/results/singleton-exit-separator-exclusion/README.md) |
 | V007-a | [`reverse-closure-two-base-automaticity`](areas/invariants/results/reverse-closure-two-base-automaticity.md) |
 | V008 | [`two-exit-interior-counterexample`](areas/invariants/results/two-exit-interior-counterexample/README.md) |
-| V008-b | [`first-shell-three-state-rigidity`](areas/invariants/results/first-shell-three-state-rigidity.md) |
+| V008-b | [`first-shell-three-state-rigidity`](areas/invariants/results/first-shell-three-state-rigidity/README.md) |
 | V008-c | [`linear-growth-uniform-future-cuts`](areas/invariants/results/linear-growth-uniform-future-cuts.md) |
 | V009 | [`additive-section-excess-unbounded`](areas/invariants/results/additive-section-excess-unbounded/README.md) |
 | V009-b | [`linear-growth-short-detection`](areas/invariants/results/linear-growth-short-detection.md) |
@@ -612,31 +612,31 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 ## Recent activity
 
+- 2026-10-31: [`cycle-word-repeat-bound`](areas/cycles/results/cycle-word-repeat-bound/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`doubled-words-periodic-and-antiperiodic-points`](areas/cycles/results/doubled-words-periodic-and-antiperiodic-points/README.md) added (result)
+- 2026-10-31: [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) added (result)
+- 2026-10-31: [`shared-background-copies-via-gap`](areas/cycles/results/shared-background-copies-via-gap/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`small-band-height-residue-matching`](areas/cycles/results/small-band-height-residue-matching/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`two-block-uniform-denominator-growth`](areas/cycles/results/two-block-uniform-denominator-growth/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`band-three-ordering-extension`](areas/cycles/attempts/band-three-ordering-extension/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`multi-rotation-four-mismatch-exclusion`](areas/cycles/attempts/multi-rotation-four-mismatch-exclusion/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`ordered-cycle-shortcuts`](areas/cycles/attempts/ordered-cycle-shortcuts/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`scaling-transfer-to-3x-plus-d`](areas/cycles/attempts/scaling-transfer-to-3x-plus-d/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`primitive-cancellation-below-half`](areas/cycles/questions/primitive-cancellation-below-half.md) added (question)
+- 2026-10-31: [`automatic-section-forces-constancy`](areas/invariants/results/automatic-section-forces-constancy/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`binary-kernel-first-ternary-image`](areas/invariants/results/binary-kernel-first-ternary-image/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`d-uniform-automatic-invariant-colourings`](areas/invariants/results/d-uniform-automatic-invariant-colourings/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`first-shell-three-state-rigidity`](areas/invariants/results/first-shell-three-state-rigidity/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`monochromatic-cylinder-forces-constancy`](areas/invariants/results/monochromatic-cylinder-forces-constancy/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`scaling-invariant-character-not-eventually-periodic`](areas/invariants/results/scaling-invariant-character-not-eventually-periodic/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`binary-ternary-carry-frontier`](areas/invariants/attempts/binary-ternary-carry-frontier/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`quantitative-rigidity-programme`](areas/invariants/attempts/quantitative-rigidity-programme/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-28: [`algebraic-and-primitive-cancellation-census`](areas/cycles/results/algebraic-and-primitive-cancellation-census/README.md) added (result)
 - 2026-10-28: [`few-arc-codings-denominator-census`](areas/cycles/results/few-arc-codings-denominator-census/README.md) added (result)
 - 2026-10-28: [`near-doubled-words-primitive-factor-test`](areas/cycles/results/near-doubled-words-primitive-factor-test/README.md) added (result)
 - 2026-10-28: [`two-arc-word-rotation-structure`](areas/cycles/results/two-arc-word-rotation-structure/README.md) added (result)
 - 2026-10-28: [`two-marker-constant-background-exact-denominator`](areas/cycles/results/two-marker-constant-background-exact-denominator/README.md) added (result)
-- 2026-10-28: [`three-arc-intercept-elimination`](areas/cycles/attempts/three-arc-intercept-elimination/README.md) added (attempt)
-- 2026-10-28: [`half-cancellation-for-few-mismatch-words`](areas/cycles/questions/half-cancellation-for-few-mismatch-words.md) added (question)
-- 2026-10-19: [`actual-cycles-3x-d-corpus`](areas/cycles/results/actual-cycles-3x-d-corpus/README.md) added (result)
-- 2026-10-19: [`actual-cycles-3x-d-corpus`](areas/cycles/results/actual-cycles-3x-d-corpus/README.md) reviewed by Claude side lane (Opus)
-- 2026-10-19: [`band-one-three-forced-positions`](areas/cycles/results/band-one-three-forced-positions.md) added (result)
-- 2026-10-19: [`band-one-three-forced-positions`](areas/cycles/results/band-one-three-forced-positions.md) reviewed by Claude Lean lane (Fable)
-- 2026-10-19: [`compatible-arcs-common-partition-limits`](areas/cycles/results/compatible-arcs-common-partition-limits/README.md) added (result)
-- 2026-10-19: [`complete-gap-lattice-equivalence`](areas/cycles/results/complete-gap-lattice-equivalence.md) added (result)
-- 2026-10-19: [`complete-gap-lattice-equivalence`](areas/cycles/results/complete-gap-lattice-equivalence.md) reviewed by Claude side lane (Opus)
-- 2026-10-19: [`complete-gap-lattice-equivalence`](areas/cycles/results/complete-gap-lattice-equivalence.md) reviewed by Claude Lean lane (Fable)
-- 2026-10-19: [`contracting-two-block-effective-exclusion`](areas/cycles/results/contracting-two-block-effective-exclusion/README.md) added (result)
-- 2026-10-19: [`contracting-two-block-effective-exclusion`](areas/cycles/results/contracting-two-block-effective-exclusion/README.md) reviewed by Claude side lane (Opus)
-- 2026-10-19: [`contracting-two-block-effective-exclusion`](areas/cycles/results/contracting-two-block-effective-exclusion/README.md) reviewed by Claude Lean lane (Fable)
-- 2026-10-19: [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) added (result)
-- 2026-10-19: [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) reviewed by Claude Lean lane (Fable)
-- 2026-10-19: [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) reviewed by Claude side lane (Opus)
-- 2026-10-19: [`cycle-height-ceiling`](areas/cycles/results/cycle-height-ceiling.md) added (result)
 
 ## Contributors
 
@@ -644,11 +644,12 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 66.1% | 201 | 9 |
-| Claude side lane | 20.5% | 34 | 132 |
-| Claude Lean lane | 6.9% | 3 | 69 |
-| Claude PR1 lane | 2.9% | 6 | 9 |
-| Claude cycles lane | 1.9% | 8 | 0 |
+| ChatGPT main lane | 65.4% | 201 | 9 |
+| Claude side lane | 20.3% | 34 | 132 |
+| Claude Lean lane | 6.8% | 3 | 69 |
+| Claude PR1 lane | 2.8% | 6 | 9 |
+| Claude cycles lane | 1.8% | 8 | 0 |
+| Claude review lane | 1.1% | 0 | 17 |
 | Claude explicit-Tao lane | 0.9% | 5 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |

@@ -2,7 +2,7 @@
 id: monochromatic-cylinder-forces-constancy
 kind: result
 title: An invariant colouring of 3x+d that is eventually constant on one dyadic residue class is constant
-status: written
+status: reviewed
 claim: >
   Fix a positive odd d with 3 not dividing d. If h(2n) = h(n) for all n >= 1, h(3n+d) = h(n) for odd n > 1, and h is
   constant on all sufficiently large members of some residue class r mod 2^K (K >= 0), then h is constant. The proof
@@ -15,6 +15,11 @@ created: 2026-10-18
 evidence:
   - "../digit-count-invariant-colourings-constant/verify_examples.py: V003's bounded replay includes cylinder examples (key cylinders of its receipt)"
   - "../digit-count-invariant-colourings-constant/literature.md, section L5: the published precedent (Monks 2006, Theorem 1.1; Monks-Monks-Monks-Monks, Theorem 4.1)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Predecessor construction, primitive-root step, absorber bound and colour-representative step re-derived; 68,580 constructed predecessor paths for d in {1, 5, 7, 13, 61} and the 3x+5, 3x+61 controls checked with independent code; verdict HOLDS, status raised to reviewed"
 aliases: [V003-d]
 tags: [invariants, colourings, sufficiency, cylinders, known-result]
 ---
@@ -78,7 +83,7 @@ sufficiently-large version.
 
 ## Remarks
 
-**Status in the legacy note:** "elementary rederivation of a known consequence." At `d = 1` this is covered by the stronger published arithmetic-progression sufficiency theorem ([`monks-2006-sufficiency`](../../../sources/monks-2006-sufficiency.md), Theorem 1.1; see [literature.md](digit-count-invariant-colourings-constant/literature.md#l5-one-monochromatic-progression-is-already-covered-by-sufficiency)): an invariant colouring constant on **any one** infinite arithmetic progression is constant. It is not a new theorem; its use is to identify which automatic descriptions are already eliminated by established work. The written proof above covers every positive odd `d` coprime to 3, where the arbitrary-progression `d = 1` statement does not transfer unchanged (the multiples of `d` form a monochromatic progression of the nonconstant control `1_{d|n}`).
+**Status in the legacy note:** "elementary rederivation of a known consequence." At `d = 1` this is covered by the stronger published arithmetic-progression sufficiency theorem ([`monks-2006-sufficiency`](../../../../sources/monks-2006-sufficiency.md), Theorem 1.1; see [literature.md](../digit-count-invariant-colourings-constant/literature.md#l5-one-monochromatic-progression-is-already-covered-by-sufficiency)): an invariant colouring constant on **any one** infinite arithmetic progression is constant. It is not a new theorem; its use is to identify which automatic descriptions are already eliminated by established work. The written proof above covers every positive odd `d` coprime to 3, where the arbitrary-progression `d = 1` statement does not transfer unchanged (the multiples of `d` form a monochromatic progression of the nonconstant control `1_{d|n}`).
 
 ### Automatic interpretation and controls
 
@@ -104,7 +109,7 @@ binary section equal to t or its complement, so none is constant. It fails
 the Collatz identity at5 and is only a control on the insufficient
 automaticity hypothesis.
 
-The separate [scaling counterexample](digit-count-invariant-colourings-constant/literature.md#l6-two-scaling-invariances-do-not-imply-periodicity)
+The separate [scaling counterexample](../digit-count-invariant-colourings-constant/literature.md#l6-two-scaling-invariances-do-not-imply-periodicity)
 does have constant binary sections, such as g(8n+1)=+1. Its role is to
 refute inference of full ternary-kernel finiteness from binary automaticity
 and dilation invariances alone. It also fails actual Collatz invariance;
@@ -114,3 +119,4 @@ neither example is a nonconstant invariant under all the stated hypotheses.
 
 - Migrated from `experiments/viewpoints/V003/cylinder_rigidity.md` (legacy ID V003; report §4, "Monochromatic cylinders") at commit `be73a66`, by the B16 migration (Claude, Opus 5.5). Text kept; the opening status paragraph moved into Remarks.
 - Main lane (ChatGPT/Codex), 2026-10-18, main commit `2ac44ef`. Main-lane review only (`../digit-count-invariant-colourings-constant/PROOF_REVIEW.md`).
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Moved from `monochromatic-cylinder-forces-constancy.md` into this folder to hold the review; the three body links got one more `../`, no text changed (the evidence paths were already written relative to a folder).

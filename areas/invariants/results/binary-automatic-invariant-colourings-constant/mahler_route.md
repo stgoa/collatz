@@ -11,7 +11,7 @@ published sufficiency theorem is retained in §4 below. It does not assume that 
 actual Collatz component indicator is automatic. It is not a convergence
 proof, a formally verified proof, or a novelty claim.
 
-The key refinement of [V003's kernel probe](../binary-kernel-first-ternary-image.md) is to
+The key refinement of [V003's kernel probe](../binary-kernel-first-ternary-image/README.md) is to
 retain every **positive-offset** binary section. That finite family closes
 under both bases. The possible extra function arising from the zero-offset
 ray is unnecessary for the argument.

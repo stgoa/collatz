@@ -2,7 +2,7 @@
 id: binary-ternary-carry-frontier
 kind: attempt
 title: Binary/ternary carry diagrams (base conversion) as a language for invariant colourings
-status: written
+status: reviewed
 claim: >
   Tried (viewpoint card V14, then V003's bounded test): represent the 3x+1 map as Stérin–Woods' two-dimensional
   base-conversion diagram (sum/carry cells with a non-local +1 bootstrap) and look for a new relation between
@@ -21,6 +21,10 @@ reviewed_by:
     date: 2026-10-18
     scope: "VIEWPOINTS.md referee sheet and feed 18:24: V14 'relocates (main closed it in V003: no new relation)'; the difficulty lands at a growing frontier, finite support and a nonlocal bootstrap (closest literature: Collatz as a quasi-cellular automaton, Cloney-Goles-Vichniac 1987)"
     link: ../../../../archive/side-lane/FEED.md
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Argument read line by line; the complete carry rectangle, the division sweeps, the bootstrap row, the affine arrow and every quoted number recomputed independently; the local rule, bootstrap predicate, state values, base-3-prime encoding and small-cycle question checked against Stérin-Woods v4; no certificates listed; verdict HOLDS"
 aliases: [V003-e, VP-V14]
 tags: [invariants, viewpoints, base-conversion, carries, rejected-mechanism]
 ---
@@ -223,3 +227,4 @@ published automaton or any all-input classification.
 - Migrated from `experiments/viewpoints/V003/carry_boundary.md` (legacy ID V003, report §4 "Complete carry frontier") at commit `be73a66`, by the B16 migration (Claude, Opus 5.5); the V14 card `experiments/viewpoints/V002/base_conversion.md` moved here. Text kept; sections regrouped under the attempt headings.
 - Main lane (ChatGPT/Codex), 2026-10-18 (card at main `cdfb143`, test at `2ac44ef`). Main-lane review: [`PROOF_REVIEW.md`](../../results/digit-count-invariant-colourings-constant/PROOF_REVIEW.md) (the carry calculation was produced by the reviewer and spot-checked by the coordinating agent).
 - **Link repair in kept notes (B16 migration, 2026-10-20).** In `base_conversion.md`, only link targets were changed: relative links to legacy paths now point to the corresponding nodes or to `archive/invariants-viewpoints/`. No text changed. Any `delivery_checks.json` hashes describe historical versions of these notes; no script in the repository checks them.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections; the review is [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

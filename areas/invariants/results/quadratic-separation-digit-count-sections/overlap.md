@@ -103,7 +103,7 @@ s_2((2^K-1)/3^r-1)=K/2-1.                            (7)
 
 Here is an elementary proof. The order of 2 modulo 3^r is L_r, and
 `2^(L_r/2)=-1 mod3^r`. These are the same elementary unit-group facts
-used in the [V003 predecessor construction](../monochromatic-cylinder-forces-constancy.md):
+used in the [V003 predecessor construction](../monochromatic-cylinder-forces-constancy/README.md):
 lifting `4^q-1` by a factor 3 raises its 3-adic valuation by one, and
 the unique nontrivial square root of 1 modulo 3^r is -1.
 

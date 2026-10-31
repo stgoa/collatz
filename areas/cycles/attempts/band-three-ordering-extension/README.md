@@ -2,20 +2,25 @@
 id: band-three-ordering-extension
 kind: attempt
 title: Extending the dyadic ordering of q = 1 cycles from H < 8L to H < 16L by excluding the (n, 8n+1) pair
-status: written
+status: reviewed
 claim: >
   Tried, toward ordering every q = 1 cycle of the raw odd-only 3x+1 map with H < 16L: exclude directly the
   only possible inversion, a pair (n, 8n+1) at heights (0, 3). Verdict: the direct route is blocked. The pair's
   forced orbit 8n+1 → 6n+1 → 9n+2 → … adds only 2-adic congruences, so no finite-step contradiction exists; the
   general pair relation is a defect recursion of the rotation-overlap type, not easier than the general
   problem; and the same pair type occurs in actual 3x+q cycles (37 pairs at height gap exactly 3 among 719
-  cycles, odd q < 400), so the inversion lemma alone cannot exclude it. No cycle is excluded.
+  cycles, odd q < 400, 3 ∤ q), so the inversion lemma alone cannot exclude it. No cycle is excluded.
 authors:
   - Claude side lane (Opus)
 created: 2026-10-19
 depends_on: [q-one-inversion-pair-reduction, dyadic-order-lemma]
 evidence:
   - "s3_inversion_pairs.py, s3_inversion_pairs.json: side-lane exploration probe (about 37-47 s): every odd q < 400 with 3 ∤ q, cycles from odd starts ≤ 6001, all actual inversions with height gap k ≤ 11 (counts by k) and the 37 pairs (n, 8n+1) at gap exactly 3. Fails at its new path: it imports the side-lane helper s1a_integer_cycle_check from its own folder (now in ../../results/ordered-gap-closed-form/). Passed at be73a66 as reviews/side_lane/s3_inversion_pairs.py (archive/legacy-checker-run-be73a66.md)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Sections 1-3 re-derived by hand, the probe re-run and re-counted independently with exact arithmetic (719 cycles, 37 pairs, inversion formula on 133,155 pairs), the defect recursion verified on all 37 pairs, controls 3x+5, 7, 13, 61 tested; verdict HOLDS WITH CORRECTIONS (3 does not divide q added to the claim)"
 aliases: [S03]
 tags: [cycles, dyadic-order, inversion, rejected-mechanism]
 ---
@@ -62,3 +67,4 @@ The inversion lemma alone cannot exclude the pair, since it occurs at other `q`.
 
 - Migrated from `experiments/cycle_spectrum/S03/INVERSION_PAIRS.md` (legacy ID `S03`; side-lane producer batch S3, "a quick negative; no exclusion") at commit `be73a66`, by the B05 migration (Claude, Opus 5.5). The side-lane probe `reviews/side_lane/s3_inversion_pairs.{py,json}` moved here; §1 also became [`q-one-inversion-pair-reduction`](../../results/q-one-inversion-pair-reduction/README.md).
 - Side lane (Claude, Opus), feed 2026-10-19 10:58. The Lean lane checked §1 by hand (feed update 11:11: correct) and added the two precisions quoted above; it did not issue a verdict on §§2–4, so this attempt stays `written`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Correction: the claim's scan range now says `odd q < 400, 3 ∤ q`, as the body and the probe have it. Recorded there without changing the text: the probe caps `r < 14q`, so its receipt undercounts inversions for `k ≥ 6` (complete counts in the review); one of the 37 pairs lies in a cycle with `H < 16L` (`3x+229`, cycle `(29, 79, 233)`, `B = 3`), a genuine control for the band-3 pair configuration; the probe runs at its new path with `areas/cycles/results/ordered-gap-closed-form/` on `PYTHONPATH` and reproduces its receipt byte for byte. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
