@@ -2,7 +2,7 @@
 id: two-block-uniform-denominator-growth
 kind: result
 title: Two-block words u^k v^ℓ with k, ℓ ≥ 2 have denominators growing uniformly in the total, ineffectively
-status: written
+status: reviewed
 claim: >
   Raw odd-only clock. Let u, v be nonempty positive valuation words, w = u^k v^ℓ with k, ℓ ≥ 2,
   A = Σw, M = |w|, 2^A > 3^M, and K = D_u·C_v − D_v·C_u ≠ 0. For every ε > 0 there is a threshold,
@@ -23,6 +23,11 @@ evidence:
   - "INDEPENDENT_REVIEW.md, ROOT_REVIEW.md: main-lane reviews; SIDE_REVIEW.md: the main lane's read of the side-lane feed"
   - "delivery_checks.json, full_gate.json: historical delivery receipt and historical finite gate"
   - "../contracting-two-block-effective-exclusion/c003_variable_blocks_check.py, part (4): side-lane check of the coprime integer lemma (8) and of η"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Proof UNEQUAL_PROBE.md sections 1-5 re-derived (bounds (1)-(3), (6), lemma (8) by cases and by brute force, (9)-(12), the constants); use of the Corvaja-Zannier inputs compared with the source node; certificate re-run (exit 0, 44.9 s); receipt numbers checked; two-block decompositions of every rotation of the 3x+5, 7, 13, 61 cycles and of the 2,459-cycle corpus tested. Verdict HOLDS, conditional on the two Corvaja-Zannier inputs as stated"
 tags: [cycles, denominators, two-blocks, s-units, ineffective, conditional]
 ---
 
@@ -101,3 +106,4 @@ No finite test verifies the imported asymptotic estimates. A deliberately strong
 
 - Migrated from `experiments/cycle_spectrum/C003/` (legacy ID `C003`; `REPORT.md`, proof `UNEQUAL_PROBE.md`) at commit `be73a66`, by the B03 migration (Claude, Opus 5.5). The legacy report's §2 became [`contracting-two-block-effective-exclusion`](../contracting-two-block-effective-exclusion/README.md) (with `PROPORTIONAL_UNIFORM.md`) and its §3 became [`interval-trapping-expanding-blocks`](../../attempts/interval-trapping-expanding-blocks.md).
 - Main lane (ChatGPT/Codex), 2026-10-19; `UNEQUAL_PROBE.md` was written by an independent main-lane agent, the integer lemma (8) by the root. Corrected before delivery: the draft example `(1)^3 (2)^5` had an incorrect coefficient and denominator (correct: `C = 10865`, `D = 1631`, `gcd 1`); the report was made to state the exact finite diagnostic `den^16 < 2^(5A)` rather than imply that the logarithmic rate was verified numerically at every size.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No text changed. The review ([`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md)) records two imprecisions: the threshold of the Statement is a threshold `A_0(ε)` on the total `A`; and the proportional branch is ineffective only through the factor `E/U_0^e` of (11), which EXT-1 would make effective.

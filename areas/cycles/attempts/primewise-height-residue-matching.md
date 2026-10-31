@@ -29,7 +29,7 @@ tags: [cycles, dyadic-order, residues, hall-matching, counterexample]
 
 ## Idea
 
-The full matching proposal ([`height-residue-hall-matching`](../questions/height-residue-hall-matching.md)) asks for distinct representatives of the height-band residue sets modulo the reduced denominator `q`. Since the small-band theorem ([`small-band-height-residue-matching`](../results/small-band-height-residue-matching.md)) holds modulo every divisor `Q > 1`, a natural reduction is to prove matching modulo each prime factor of `q` separately.
+The full matching proposal ([`height-residue-hall-matching`](../questions/height-residue-hall-matching.md)) asks for distinct representatives of the height-band residue sets modulo the reduced denominator `q`. Since the small-band theorem ([`small-band-height-residue-matching`](../results/small-band-height-residue-matching/README.md)) holds modulo every divisor `Q > 1`, a natural reduction is to prove matching modulo each prime factor of `q` separately.
 
 ## What happened
 

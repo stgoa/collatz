@@ -49,7 +49,7 @@ So every ternary section raises the binary depth by at most 4. Examples, for all
 
 ## Proof
 
-The written proof is §3 of [`binary-automatic-invariant-colourings-constant`](binary-automatic-invariant-colourings-constant/README.md), using its identities (2) `h(3m+1) = h(4m+1)`, `h(3m+2) = h(2m+1)` and (3) `h(3u) = h(16u+1)` for positive odd `u`. Case A: for `x = 2^(a+v) n + t`, `3x + 1 = 2^v(3·2^a n + c)`, and (1) with doubling gives the identity (the colour equality at source 1 follows from `h(4) = h(1)`). Case B: doubling and (3) give `h(3·2^a n + c) = h(3(2^s n + u)) = h(2^(s+4) n + 16u + 1)`, with `2^s n + u` positive odd including at `n = 0`. The exceptional `c = 0` term, which introduced `h(3n)` in [`binary-kernel-first-ternary-image`](binary-kernel-first-ternary-image.md), is absent because `r > 0`.
+The written proof is §3 of [`binary-automatic-invariant-colourings-constant`](binary-automatic-invariant-colourings-constant/README.md), using its identities (2) `h(3m+1) = h(4m+1)`, `h(3m+2) = h(2m+1)` and (3) `h(3u) = h(16u+1)` for positive odd `u`. Case A: for `x = 2^(a+v) n + t`, `3x + 1 = 2^v(3·2^a n + c)`, and (1) with doubling gives the identity (the colour equality at source 1 follows from `h(4) = h(1)`). Case B: doubling and (3) give `h(3·2^a n + c) = h(3(2^s n + u)) = h(2^(s+4) n + 16u + 1)`, with `2^s n + u` positive odd including at `n = 0`. The exceptional `c = 0` term, which introduced `h(3n)` in [`binary-kernel-first-ternary-image`](binary-kernel-first-ternary-image/README.md), is absent because `r > 0`.
 
 ## Lean
 
@@ -58,7 +58,7 @@ Lean unit V004-ii, [`lean/KernelClosure.lean`](../../../lean/KernelClosure.lean)
 ## Remarks
 
 - The depth bound "at most 4 per ternary digit" is what V005–V009 use for their depth conversions (`J_D(b) ⊆ K^+_(1+4D)(h)`, [`automatic-section-forces-constancy`](automatic-section-forces-constancy/README.md)).
-- `3x+d`: the closure holds only up to bounded offset shifts ([`d-uniform-automatic-invariant-colourings`](d-uniform-automatic-invariant-colourings.md), Step 1); for `d = 1` the shift bound is 0.
+- `3x+d`: the closure holds only up to bounded offset shifts ([`d-uniform-automatic-invariant-colourings`](d-uniform-automatic-invariant-colourings/README.md), Step 1); for `d = 1` the shift bound is 0.
 
 ## History
 

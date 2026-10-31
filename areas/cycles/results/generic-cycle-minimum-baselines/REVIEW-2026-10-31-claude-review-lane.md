@@ -1,0 +1,30 @@
+# Review of generic-cycle-minimum-baselines
+
+## What I checked
+
+- Read `AGENTS.md`, `conventions/SCHEMA.md`, `conventions/NOTATION.md`, `CONTRIBUTING.md`, `areas/cycles/OVERVIEW.md`, the node ([`README.md`](README.md)), its proof source [`ORDER_RIGIDITY.md`](../ordered-cycle-sparse-forcing/ORDER_RIGIDITY.md) §5 (and §§1–2 for notation), and [`mechanical-word-exact-denominator`](../mechanical-word-exact-denominator/README.md) for the lower mechanical word `mech(A, m, 0)` with prefix sums `P_j = floor(jA/m)` and intercept `C_lower(A, m) = Σ_j 3^(m−1−j)·2^(P_j)`. The main-lane `INDEPENDENT_REVIEW.md` was read for context only.
+- **Re-derived (8).** With prefix sums `A_j` (`A_0 = 0`) put `b_j = A_j − jA/m`; `b_(j+m) = A_j + A − (j+m)A/m = b_j`, so `b` is periodic. Rotate to an index `k` where `b_k` is maximal; the rotated prefix sums obey `A'_j − jA/m = b_(k+j) − b_k ≤ 0`, so `A'_j ≤ floor(jA/m) = P_j`. The cycle identity `D·n_k = q·Σ_j 3^(m−1−j)·2^(A'_j)` (valid for every representation, reduced or not) and termwise comparison give `n_k ≤ q·C_lower/D`, with equality only if `A'_j = P_j` for all `j`, i.e. only if the word is a rotation of `mech(A, m, 0)`. Since `min n_i ≤ n_k`, (8) follows, strict otherwise. Only `D > 0` is used: no order, no reducedness, no primitivity.
+- **Re-derived (9)–(10).** The states of height `h` are odd integers in `[2^h·L, 2^(h+1)·L)`: `(L+1)/2` candidates at `h = 0` (`L` odd) and `2^(h−1)·L` at `h ≥ 1` (the interval has even length `2^h·L`). If the `m` states are distinct, `r_0 ≤ (L+1)/2` and `r_h ≤ 2^(h−1)·L`, i.e. `L ≥ 2r_0 − 1` and `L ≥ ceil(r_h/2^(h−1))`; so `L ≥ P`, and `L` odd gives `L ≥ P_odd`. With (8), `q ≥ L·D/C_lower ≥ P_odd·D/C_lower`, and `q` is an integer: (9). Summing the capacities, `m ≤ (L+1)/2 + L·(2^B − 1) = ((2^(B+1) − 1)·L + 1)/2`, hence `L ≥ (2m − 1)/(2^(B+1) − 1)` and (10).
+- **Re-derived (11).** Multiplying `2^(a_i)·n_(i+1) = 3n_i·(1 + q/(3n_i))` around the cycle gives the identity. For distinct odd states sorted increasingly, `n_(j) ≥ L + 2j`, and each factor decreases in `n`, which gives the product bound.
+- **Controls.** I enumerated from scratch the cycles of the odd-only `3x+d` map from odd seeds `≤ 5000` for all 333 `d ≤ 999` coprime to 6 (`3x+5`, `3x+7`, `3x+13`, `3x+61` included, with 6, 2, 10 and 3 cycles each counting the trivial one) and reduced each to lowest terms: 2,459 raw cycles, 1,184 distinct reduced cycles, which are the corpus counts. On every one of the 1,184, with exact rational arithmetic: (8) holds, strictly for the 1,165 non-mechanical words and with equality for the 19 mechanical ones; at the argmax rotation `A'_j ≤ floor(jA/m)` and `D·n_k = q·C_(w^(k))` hold; `L ≥ P_odd`; (9) holds (tight on 8 cycles); both parts of (10) hold; the identity and the inequality (11) hold. No control violates any inequality, as must be the case for actual cycles.
+- **The Remark's numbers.** For the `q = 233` cycle `1663, …, 4357` of [`ordered-cycle-sparse-forcing`](../ordered-cycle-sparse-forcing/README.md): word `(1,1,2,1,3,1,1,3)`, `(A, m) = (13, 8)`, `D = 1631`, `C_lower = 14501`, heights `(0,0,1,0,1,0,0,1)`, `r = (5, 3)`, `P = P_odd = 9`. (9) gives `q ≥ ceil(14679/14501) = 2`, (10) gives `q ≥ ceil(8155/14501) = 1`; so "the histogram bound gives only `q ≥ 2`" is right, and the order bound `1631·2^7/14501 = 14.40` gives `q ≥ 15` as quoted. For "(11) can dominate the packing restriction": replacing `L` by `P_odd` in (11), the least `q` compatible with it exceeds the bound (9) on 1,069 of the 1,176 nontrivial control cycles.
+- **Certificates.** None are listed, so there was nothing to run; the `evidence` entries are the legacy proof text and a main-lane review, not scripts.
+- My scripts (outside the repository): `controls.py` (enumeration, 0.7 s) and `check_baselines.py` (0.6 s), with their printed receipts.
+
+## What I did not check
+
+- The literature comparison (Halbeisen 1997, the Fernández–Ibáñez 2026 preprint) beyond the existence of the source node; the node claims no novelty.
+- The historical C006 receipts (`order_rigidity_audit.json` and the side-lane checks) belong to `ordered-cycle-sparse-forcing` and were not re-run here.
+
+## Findings
+
+1. **Omitted hypothesis in the statement (gap; corrected).** (9)–(11) need the `m` states to be distinct, i.e. a primitive cycle: the capacity counts `r_h ≤ …` and the product bound `n_(j) ≥ L + 2j` both use distinctness, and the proof of (11) says "distinct odd integers", but the claim said "any positive cycle". The hypothesis is not cosmetic: the word `(1,1,3)` of the `q = 5` cycle `(19, 31, 49)` repeated 8 times has `r_0 = 16`, so `P_odd = 31 > L = 19` and (9) would demand `q ≥ 7 > 5`; repeated 5 times, the inequality (11) fails. (8) does not need it. `ORDER_RIGIDITY.md` declares all its cycles primitive, so the correction restores the source's hypothesis. Applied: "For (9)–(11) the cycle is primitive (its m states are distinct)" in the claim, "Assume the cycle is primitive" in Statement item 2, "(primitive cycle)" in item 3.
+2. **Evidence paths (imprecision; resolved by the move).** Both `evidence` entries begin with `../ordered-cycle-sparse-forcing/`, which from the old single-file location pointed to a non-existent `areas/cycles/ordered-cycle-sparse-forcing/`; from the node folder they now resolve. Not changed.
+3. **Wording (imprecision; not changed).** Statement item 2 counts "normalised positions in `[L, 2L)`"; the objects counted are the odd integers in the raw band `[2^h·L, 2^(h+1)·L)` (the odd `n` with `n/2^h ∈ [L, 2L)`). The counts `(L+1)/2` and `2^(h−1)·L` are right.
+4. **Links (typo level; corrected).** After the move to a folder the three body links needed one more `../`.
+
+## Verdict
+
+HOLDS WITH CORRECTIONS: (i) the primitivity hypothesis for (9)–(11), used by the proof, added to the claim and statement; (ii) relative links repaired after the move to a folder. No certificates to run. Status raised to reviewed.
+
+Claude review lane (Fable 5.1; directed by Santiago Armstrong), 2026-10-31

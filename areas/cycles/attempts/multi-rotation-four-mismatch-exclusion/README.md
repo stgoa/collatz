@@ -2,7 +2,7 @@
 id: multi-rotation-four-mismatch-exclusion
 kind: attempt
 title: Excluding four-mismatch rotations with the size inequalities of several rotations at once (paused)
-status: written
+status: reviewed
 claim: >
   Tried, toward ρ ≥ 5 for hypothetical nontrivial cycles of the raw odd-only 3x+1 map: impose the
   end-witness size inequalities of the rotations h, 2h, …, kh of the same word at once, in a continuous
@@ -24,6 +24,11 @@ evidence:
   - "s10_more_mismatches.py: exploration probe (about 5 min, prints only): single-chain s-mismatch models (s = 4, 5, 6) against rotations up to 12h. Exits 0 at its new path (re-run at migration). Passed at be73a66 as reviews/side_lane/s10_more_mismatches.py"
   - "s10_v2nev4_discrete.py: exploration probe (about 35 s, prints only): discrete words [V][1^a][3^b][2^c] at the model optima against rotations up to 12h. Fails at its new path: it imports s8_multirotation_check from its own folder (now in ../four-mismatch-size-method-limit/); with that folder on PYTHONPATH it exits 0 (checked at migration). Passed at be73a66 as reviews/side_lane/s10_v2nev4_discrete.py (archive/legacy-checker-run-be73a66.md)"
   - "The discrete S8 counterexample (rotation 2h) is ../four-mismatch-size-method-limit/s8_multiple_rotations.py"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Model definitions and the end-witness constraint re-derived; the v2 = v4 exclusion under h and 2h re-derived by hand in S8's configuration and confirmed by exact per-cell linear programmes (supremum of the margin -0.0097m); all five probes and the S8 counterexample re-run with matching numbers; s = 5, 6 survivors confirmed; verdict HOLDS (imprecisions recorded in History)"
 aliases: [S10]
 tags: [cycles, rotation-distance, size-method, paused]
 ---
@@ -115,3 +120,4 @@ Later results narrowed the open configurations: a four-mismatch rotation needs `
 - Migrated from `experiments/cycle_spectrum/S10/MULTI_ROTATION.md` (legacy ID `S10`; side-lane producer batch S10, 2026-10-19) at commit `be73a66`, by the B06 migration (Claude, Opus 5.5). The side-lane probes `reviews/side_lane/s10_multirotation_lp.{py,json}`, `s10_more_mismatches.py`, `s10_v2nev4_discrete.py`, `s10_v2nev4_killers.py` and `s10_v2nev4_twelve_rotations.py` moved here. The note's "Reproduce" block pointed to the old paths. The later updates in "What happened" are from the feed entry, not the note.
 - Side lane (Claude, Opus), feed 2026-10-19 14:09 (FINDING, S10). **Retraction (14:09):** the preliminary S10 numbers sent to the Lean lane at 13:5x came from the buggy model (§4). Update 14:36: the `v₂ ≠ v₄` pattern dies by `11h`; Lean S10-a verified. Update 14:42: the reach of the method, and the Lean lane's review points (trivial rotations, finite `m`, certificates). Update 14:46: headline revised after the Lean lane's steer; `ρ ≥ 5` paused.
 - The Lean lane's review points are on record (feed 14:36–14:46); no independent verdict on the model's conclusions is, so the status is `written`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No text changed. Recorded: the uniform margin of the `v₂ = v₄` exclusion under `h` and `2h` is the continuous supremum `0.0097m` (exact per-cell linear programmes; the random search's `−0.0097`), not the coarse-grid `0.0219m` used in §6 (b), so the finite-`m` threshold there is about `7.0·10^5` rather than `2.9·10^5`; the single-rotation range `[0.2575, 0.7425]` is the hull of three windows with gaps `(0.369, 0.398)` and `(0.602, 0.631)`; at `ℓ = ℓ*` only `2h`, `3h`, `5h` fail on the S8 words (`4h`, `7h`, `9h` fail at `ℓ = 71, 100`); the discrete words fail by 20,261 to 42,780 bits; the symbol `d` in §5 is undefined; "at most `ρ ≥ 5`" is a model-level inference (no discrete `s = 5` word was exhibited). Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

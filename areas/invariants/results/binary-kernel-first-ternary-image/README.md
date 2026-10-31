@@ -2,7 +2,7 @@
 id: binary-kernel-first-ternary-image
 kind: result
 title: The first ternary image of a finite binary kernel of a 3x+1 invariant adds at most the one function h(3n)
-status: written
+status: reviewed
 claim: >
   Let h be finite-valued on the positive integers with h(2n) = h(n) (n >= 1) and h(3n+1) = h(n) (odd n > 1), set
   h(0) = h(1), and let K = {n -> h(2^a n + r) : a >= 0, 0 <= r < 2^a} be finite (binary automaticity). With
@@ -17,6 +17,11 @@ evidence:
   - "../digit-count-invariant-colourings-constant/verify_examples.py: V003's bounded replay includes the kernel arithmetic (key kernel_arithmetic of its receipt)"
   - "../digit-count-invariant-colourings-constant/PROOF_REVIEW.md: main-lane independent review (same lane)"
 aliases: [V003-b]
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-derived every identity (1)-(9) and the Proposition, checked their arithmetic for a <= 8 and the (7) chain for t <= 6, re-ran the V003 evidence certificate (PASS), and verified on the 3x+5 and 3x+13 which-cycle colourings that the d = 1 identities fail while the d-forms hold; verdict HOLDS"
 tags: [invariants, automatic, kernel, ternary-sections]
 ---
 
@@ -36,7 +41,7 @@ The unknown first ternary images are reduced to one function, and repeated zero 
 
 ## Proof
 
-The legacy note, kept with its numbering. Its status line read: "written elementary section identities and a finite-family consequence; full automatic-coloring classification remains open here. This is a bounded structural probe, with no automaton catalogue, trajectory scan, new current, convergence claim or novelty claim." It continues [V13](periodic-invariant-colourings-classification/README.md).
+The legacy note, kept with its numbering. Its status line read: "written elementary section identities and a finite-family consequence; full automatic-coloring classification remains open here. This is a bounded structural probe, with no automaton catalogue, trajectory scan, new current, convergence claim or novelty claim." It continues [V13](../periodic-invariant-colourings-classification/README.md).
 
 ### 1. Domain and section conventions
 
@@ -214,7 +219,7 @@ that dilation invariance and a finite kernel, but fails the Collatz
 identity at5, where its colors at5 and16 differ. It is a control on an
 insufficient hypothesis, not a counterexample to the proposed theorem.
 
-A sharper control supplied by the parallel [literature investigation](digit-count-invariant-colourings-constant/literature.md)
+A sharper control supplied by the parallel [literature investigation](../digit-count-invariant-colourings-constant/literature.md)
 is
 
 ```
@@ -261,9 +266,10 @@ sequences and Cobham's theorem but did not settle whether this particular
 invariant-coloring question or the displayed reduction has appeared before.
 No absence-of-prior-work or novelty claim is made.
 
-**After V003.** The closure gap of §5 was not closed directly: V004 changed the retained family to the positive-offset sections `K_+`, which avoids the zero-offset function `f_1` altogether and is closed under every ternary section ([`positive-offset-kernel-ternary-closure`](positive-offset-kernel-ternary-closure.md)); this completed the classification ([`binary-automatic-invariant-colourings-constant`](binary-automatic-invariant-colourings-constant/README.md)). The scaling control of §5 is the node [`scaling-invariant-character-not-eventually-periodic`](scaling-invariant-character-not-eventually-periodic.md).
+**After V003.** The closure gap of §5 was not closed directly: V004 changed the retained family to the positive-offset sections `K_+`, which avoids the zero-offset function `f_1` altogether and is closed under every ternary section ([`positive-offset-kernel-ternary-closure`](../positive-offset-kernel-ternary-closure.md)); this completed the classification ([`binary-automatic-invariant-colourings-constant`](../binary-automatic-invariant-colourings-constant/README.md)). The scaling control of §5 is the node [`scaling-invariant-character-not-eventually-periodic`](../scaling-invariant-character-not-eventually-periodic/README.md).
 
 ## History
 
 - Migrated from `experiments/viewpoints/V003/kernel_probe.md` (legacy ID V003, the kernel lemma of the V003 report §2) at commit `be73a66`, by the B16 migration (Claude, Opus 5.5). Text kept; sections regrouped under Proof and Remarks, links repointed.
 - Main lane (ChatGPT/Codex), 2026-10-18, main commit `2ac44ef`. No proof-level review by another lane is on record; the side lane's V003 referee (feed 18:46) checked the digit-count theorem and named the mixed ternary sections as the crux.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. The node was moved from `binary-kernel-first-ternary-image.md` to this folder (`README.md`) and each relative link gained one `../`; no text changed. Findings in [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md): the finiteness hypotheses are not used by the identities; the `3x+5` and `3x+13` which-cycle colourings fail the `d = 1` identities and satisfy their `d`-forms, as section 6 says.

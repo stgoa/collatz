@@ -2,7 +2,7 @@
 id: scaling-transfer-to-3x-plus-d
 kind: attempt
 title: "Scaling covariance S_d(dy) = d S_1(y) transports identities to 3x+d, but not the integer lattice"
-status: written
+status: reviewed
 claim: >
   Tried (side lane, 2026-10-18): use the covariance S_d(dy) = d S_1(y) of the odd-only maps S_d(x) = (3x+d)/2^v2(3x+d),
   gcd(d, 6) = 1, to transfer the convergence framework's valuation identities, normal-form steps and rank
@@ -22,6 +22,11 @@ certificates: [transfer_3xd.py]
 evidence:
   - "transfer_3xd.py, transfer_3xd.json: the side lane's probe (feed 2026-10-18 01:04, halving reference corrected to R23 at 01:52): R23 halving for d = 1, 5, 7, 13, 61 on 1000, 999, 998, 996, 984 inputs, 16 prescribed R54 families per d, and meeting of u and 18u + 5 for all 50,000 odd u < 100,000 (d = 1). Self-contained; it runs at this path and rewrites its receipt byte for byte (checked at migration); passed at be73a66 as reviews/side_lane/transfer_3xd.py (archive/legacy-checker-run-be73a66.md, exit 0)"
   - "side_lane_review_678e565.md, side_lane_review_678e565.json: the main lane's pinned review (2026-10-18) of side commit 678e565: both transfer and catalogue probes reproduced byte for byte, the covariance accepted with the domain retained, the finite-base-only inference rejected, the u <-> 18u + 5 reformulation confirmed. The catalogue probe it also reproduced is the archive/side-lane/frameworks/rational_cycles.py, legacy archive/side_lane/frameworks/rational_cycles.py (3,889 primitive positive rational cycles with k <= 9; the only integral one is {1}), archived with the side-lane archive at the B17 migration"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Covariance, lattice statement, W5 reformulation and halving identity re-derived; certificate re-run (PASS, exit 0, 1.47 s, receipt byte-identical); controls 3x+5, 7, 13, 61 and the archived catalogue (3,889 cycles) reproduced; verdict HOLDS WITH CORRECTIONS (the catalogue's bound on A added)"
 tags: [cycles, three-x-plus-d, controls, scaling, transfer, side-lane]
 ---
 
@@ -45,9 +50,10 @@ The covariance is an identity of maps on rationals; the hypothesis that matters 
 
 - **The covariance identities**, as a test: any statement proved from 2-adic, 3-adic and size identities alone also holds for every `3x+d` with `gcd(d, 6) = 1`, so it must be consistent with the actual `3x+d` cycles ([`conventions/NOTATION.md`](../../../../conventions/NOTATION.md) §3; the corpus [`actual-cycles-3x-d-corpus`](../../results/actual-cycles-3x-d-corpus/README.md)).
 - **A one-line form of the convergence target.** For `w = 4u + 1 ∈ W5`, `S(w) = S(u)` and `S(3w) = 18u + 5`, so with R40 ([`critical-nine-elimination`](../../../convergence/results/critical-nine-elimination/README.md)) Collatz is equivalent to: the orbits of `u` and `18u + 5` meet for every odd `u`. The reformulation is correct (main lane, 678e565); the 50,000 finite checks supply no universal meeting time.
-- **Rational cycle controls.** Every positive word with `2^A > 3^k` has the rational cycle point `B/(2^A − 3^k)`; scaling by its reduced denominator gives an integer `3x+d` cycle. The side lane's catalogue ([`archive/side-lane/frameworks/rational_cycles.py`](../../../../archive/side-lane/frameworks/rational_cycles.py), legacy `archive/side_lane/frameworks/rational_cycles.py`) lists 3,889 such cycles for `k ≤ 9`, the only integral one being `{1}`.
+- **Rational cycle controls.** Every positive word with `2^A > 3^k` has the rational cycle point `B/(2^A − 3^k)`; scaling by its reduced denominator gives an integer `3x+d` cycle. The side lane's catalogue ([`archive/side-lane/frameworks/rational_cycles.py`](../../../../archive/side-lane/frameworks/rational_cycles.py), legacy `archive/side_lane/frameworks/rational_cycles.py`) lists 3,889 such cycles for `k ≤ 9` with total `⌈k·log₂3⌉ ≤ A ≤ ⌈k·log₂3⌉ + 2` (a bounded catalogue), the only integral one being `{1}`.
 
 ## History
 
 - Created by the B12 migration (Claude, Opus 5.5) from the side-lane feed entries of 2026-10-18 01:04 (finding), 01:31 (correction) and 01:52 (acknowledgement), the legacy §0 of `experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md` (R71), and the main lane's review `experiments/residual_progress/side_lane_review_678e565.md`. The probe `reviews/side_lane/transfer_3xd.*` and the review `side_lane_review_678e565.*` moved here at commit `be73a66`. No legacy ID.
 - Side lane (Claude, Opus) proposed the transfer; the main lane (ChatGPT, Codex) scoped it in R71 §0 and in 678e565.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Correction: the catalogue sentence under "What survives" now states the bound `⌈k·log₂3⌉ ≤ A ≤ ⌈k·log₂3⌉ + 2` of the 3,889-cycle catalogue. Recorded without changing the text: `transfer_3xd.py` relies on `assert` (it passes vacuously under `python3 -O`, against `AGENTS.md` §6; the runner uses plain `python3`, so the check is real), and the W5 bullet rests on R40 ([`critical-nine-elimination`](../../../convergence/results/critical-nine-elimination/README.md), `written`), not listed under `depends_on`. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
