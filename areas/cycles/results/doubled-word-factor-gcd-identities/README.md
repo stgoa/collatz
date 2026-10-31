@@ -12,7 +12,7 @@ claim: >
   D_w = Φ₁·Φ₂ with gcd(Φ₁, Φ₂) = 1 and gcd(C_w, D_w) = gcd(C_w, Φ₁)·gcd(C_w, Φ₂); (4) for a one-letter change
   v = u + 2j·e_i and u' = u + j·e_i, 2^j·C_u + C_v = (2^j + 1)·C_(u') and gcd(C_w, D_(u')) = gcd((2^j + 1)·C_(u'), D_(u')).
   The case S_v < S_u is the same statement with u and v exchanged. Everything is proved in Lean
-  (lean/DoubledWords.lean) with the standard axioms only, for words with letters in ℕ (zero letters allowed).
+  (lean/LeanLane/Doubled.lean) with the standard axioms only, for words with letters in ℕ (zero letters allowed).
 authors:
   - Claude cycles lane (Fable 5.1; directed by Santiago Armstrong)
 created: 2026-10-31
@@ -32,7 +32,7 @@ lean:
   - LeanLane.Doubled.one_letter_identity
   - LeanLane.Doubled.one_letter_gcd_Phi1
 evidence:
-  - "../../../../lean/receipts/DoubledWords.build.txt, DoubledWords.axioms.txt, DoubledWords.sha256.txt: build status, the #print axioms lines (standard axioms only) and the source hash, produced on the pinned toolchain"
+  - "../../../../lean/receipts/Doubled.build.txt, Doubled.axioms.txt, Doubled.sha256.txt: build status, the #print axioms lines (standard axioms only) and the source hash, produced on the pinned toolchain"
 tags: [cycles, denominators, cancellation, cyclotomic-factors, doubled-words, lean]
 ---
 
@@ -61,7 +61,7 @@ By the concatenation identity `C_(u ++ v) = 3^|v|·C_u + 2^(S_u)·C_v`: modulo `
 
 ## Lean
 
-[`lean/DoubledWords.lean`](../../../../lean/DoubledWords.lean), namespace `LeanLane.Doubled`, standalone (`import Mathlib` only), compiled with `lake env lean DoubledWords.lean` on the pinned toolchain `leanprover/lean4:v4.35.0-rc2` with Mathlib `0653561`; receipts in [`lean/receipts/`](../../../../lean/receipts/). Axioms of every declaration: `propext`, `Classical.choice`, `Quot.sound` only. Words are `List ℕ` (letters may be 0; the claim's positive words are a special case), intercepts live in `ℤ`, `Int.gcd` is the nonnegative gcd.
+[`lean/LeanLane/Doubled.lean`](../../../../lean/LeanLane/Doubled.lean), namespace `LeanLane.Doubled`, a module of the `LeanLane` library (`import LeanLane.Words`, which holds the shared definitions), built with `lake build LeanLane` on the pinned toolchain `leanprover/lean4:v4.35.0-rc2` with Mathlib `0653561`; receipts in [`lean/receipts/`](../../../../lean/receipts/). Axioms of every declaration: `propext`, `Classical.choice`, `Quot.sound` only. Words are `List ℕ` (letters may be 0; the claim's positive words are a special case), intercepts live in `ℤ`, `Int.gcd` is the nonnegative gcd.
 
 | Claim | Declaration | Statement and hypotheses |
 |---|---|---|
@@ -73,7 +73,7 @@ By the concatenation identity `C_(u ++ v) = 3^|v|·C_u + 2^(S_u)·C_v`: modulo `
 | (3) | `D_eq_Phi1_mul_Phi2`, `gcd_Phi1_Phi2`, `gcd_D_eq_mul` | `D (u ++ v) = Phi1 S n * Phi2 S n` for `v.length = u.length`, `u.sum + v.sum = 2 * S`; `Int.gcd (Phi1 S n) (Phi2 S n) = 1` for `0 < S`, `0 < n`; `Int.gcd (C (u ++ v)) (D (u ++ v)) = Int.gcd (C (u ++ v)) Φ₁ * Int.gcd (C (u ++ v)) Φ₂` for `v.length = u.length`, `v.sum = u.sum + 2 * j`, `0 < u.sum + j`, `0 < u.length`. |
 | (4) | `one_letter_identity`, `one_letter_gcd_Phi1` | `2^j * C (p ++ a :: s) + C (p ++ (a + 2 * j) :: s) = (2^j + 1) * C (p ++ (a + j) :: s)` (no hypotheses); `Int.gcd (C ((p ++ a :: s) ++ (p ++ (a + 2 * j) :: s))) (D (p ++ (a + j) :: s)) = Int.gcd ((2^j + 1) * C (p ++ (a + j) :: s)) (D (p ++ (a + j) :: s))` for `0 < (p ++ a :: s).sum + j`. |
 
-Helper lemmas: `C_append` (the concatenation identity), `odd_Phi1`, `odd_Phi2`, `Phi2_pos`, `gcd_two_eq_one_of_odd`, `gcd_pow_mul_left`, `gcd_two_pow_mul_left`, `not_three_dvd_Phi1`, `not_three_dvd_Phi2`, `gcd_three_Phi1`, `Phi1_ne_zero`, `Phi1_cast_ne_zero`, `Phi2_cast_ne_zero`. What is **not** formalised: the case `S_v < S_u` (apply the theorems to `(v, u)`), and corollaries (ii) and (iii) of the prose node (the two-marker evaluation and the rotation pairs of actual cycles), whose data remain finite computations there.
+Shared helpers in `LeanLane.Words`: `C`, `D`, `Phi1`, `Phi2`, `C_append` (the concatenation identity), `odd_Phi1`, `odd_Phi2`, `Phi2_pos`, `gcd_two_eq_one_of_odd`, `gcd_pow_mul_left`, `gcd_two_pow_mul_left`, `not_three_dvd_Phi1`, `not_three_dvd_Phi2`, `gcd_three_Phi1`, `Phi1_ne_zero`, `Phi1_cast_ne_zero`, `Phi2_cast_ne_zero`. What is **not** formalised: the case `S_v < S_u` (apply the theorems to `(v, u)`), and corollaries (ii) and (iii) of the prose node (the two-marker evaluation and the rotation pairs of actual cycles), whose data remain finite computations there.
 
 ## Certificates
 

@@ -1,0 +1,13 @@
+source sha256: 9fbee963a0e0146fd3f3b6d30f72d65b337aefa5d77be498b21364b6d1303559
+'LeanLane.HalfCancellationCounterexample.w_C' depends on axioms: [propext]
+'LeanLane.HalfCancellationCounterexample.w_D' depends on axioms: [propext]
+'LeanLane.HalfCancellationCounterexample.w_D_factor' depends on axioms: [propext]
+'LeanLane.HalfCancellationCounterexample.w_gcd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.HalfCancellationCounterexample.w_gcd_factor' depends on axioms: [propext]
+'LeanLane.HalfCancellationCounterexample.w_violates_half_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'LeanLane.HalfCancellationCounterexample.w_mismatches_five' depends on axioms: [propext]
+'LeanLane.HalfCancellationCounterexample.w_rotation_distance' depends on axioms: [propext]
+'LeanLane.HalfCancellationCounterexample.w_primitive' depends on axioms: [propext]
+'LeanLane.HalfCancellationCounterexample.w_D_pos' depends on axioms: [propext, Classical.choice, Quot.sound]

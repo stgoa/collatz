@@ -1,9 +1,15 @@
-# Minimal Lake project pinning the toolchain (lean-toolchain) and Mathlib revision used for every
-# receipt in lean/receipts/. The .lean files here are standalone and are compiled one at a time:
+# Lake project pinning the toolchain (lean-toolchain) and Mathlib revision used for every receipt in
+# lean/receipts/. The legacy .lean files at this level are standalone and are compiled one at a time:
 #   cd lean && lake exe cache get && lake env lean CycleSpectrum.lean
+# Newer results are modules of the library LeanLane (lean/LeanLane/*.lean, shared definitions in
+# LeanLane/Words.lean), built with `lake build LeanLane`.
 name = "collatz"
 
 [[require]]
 name = "mathlib"
 git = "https://github.com/leanprover-community/mathlib4"
 rev = "065356127b1dc0016f66b7283ce0ce2c4055aa55"
+
+# Shared definitions that the result files may import (`import LeanLane.Words`); build with `lake build LeanLane`.
+[[lean_lib]]
+name = "LeanLane"
