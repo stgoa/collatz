@@ -31,7 +31,7 @@ The explicit-Tao lane split the work into lemmas L1–L7; this question carries 
 
 ## Known progress
 
-- **Explicit one-round statements**, every constant explicit: [`explicit-valuation-large-deviations`](../results/explicit-valuation-large-deviations/README.md) (legacy L1, L2, L2′) and [`explicit-one-round-descent`](../results/explicit-one-round-descent.md) (L3). They do not iterate.
+- **Explicit one-round statements**, every constant explicit: [`explicit-valuation-large-deviations`](../results/explicit-valuation-large-deviations/README.md) (legacy L1, L2, L2′) and [`explicit-one-round-descent`](../results/explicit-one-round-descent/README.md) (L3). They do not iterate.
 - **Method lower bounds, not upper-bound theorems.**
   - Tao's argument with its printed parameters is vacuous below `log x ≈ 6.27·10^13`, so it certifies no `C(δ)` below `exp(6.27·10^13)` for any `δ`: [`tao-printed-window-vacuity`](../results/tao-printed-window-vacuity/README.md).
   - The machine-checked explicit mixing constants need 3-adic levels `>= 2^80000`, so any `C(δ)` from them is at least of the order of `3^(2^80000)`; that route contributes only `C = 1` at natural density `1 − 2^(−2^(2^87640))`: [`explicit-tao-via-formal-mixing-constants`](../attempts/explicit-tao-via-formal-mixing-constants.md).

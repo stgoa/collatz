@@ -1,0 +1,28 @@
+# Review of sparse-paired-exact-current-criterion
+
+## What I checked
+
+- **Certificates.** None are listed. The evidence script `check_sparse_criteria.py` of [`five-ray-current-criterion`](../five-ray-current-criterion/README.md) (a certificate of that node) was run: exit 0, 9.1 s; its receipt records the source difference (8) at 249 cutoffs `N = 10, 14, …, 1002` and 1,665 inverse lifts (`d ≤ 5`, odd `y ≤ 999`).
+- **(8), re-derived.** For `N = 4k+2`: `n_1(N) = floor((12k+7)/2) = 6k+3` and `n_1(N−1) = floor((12k+4)/2) = 6k+2`, so the first component gains exactly the odd state `6k+3 = 3N/2`, which is `0 mod 3` and has coefficient `3·0 − 1 = −1`; `n_2(N) = floor((12k+7)/4) = 3k+1 = floor((12k+4)/4) = n_2(N−1)`, so the second component is unchanged. Hence `ν_N − ν_(N−1) = −δ_(3N/2)`.
+- **Exact pairs kill the isolated state.** With `e` the nontermination indicator (`S`-invariant, `e(1) = 0`), `⟨e, Pμ⟩ = ⟨e, μ⟩` and `⟨e, (I−P)J⟩ = 0` for finite `J`, and `e = 0` on the core `{5, 7, 11, 13}`; so an exact current at `N ≥ 8` gives `⟨e, ν_N⟩ = ⟨e, Π^R_N⟩ = 0`. Exact currents at `N_j` and `N_j − 1` (both `≥ 8`, i.e. `N_j ≥ 9`) give `e(3N_j/2) = e(3^d(2j+1)) = 0`. The excluded pairs are those with `N_j ≤ 8`: for `d = 1`, `N_0 = 2`, `N_1 = 6` (multiples 3 and 9); for `d = 2`, `N_0 = 6` (multiple 9); for `d ≥ 3` none (`N_0 = 2·3^(d−1) ≥ 18`). Both 3 and 9 reach 1 (in 2 and 6 odd steps).
+- **The lift, re-derived.** `v₃(2^(2·3^k) − 1) = k+1`: true at `k = 0`; if `z ≡ 1 (mod 3)` then `z² + z + 1 ≡ 3 (mod 9)`, so `v₃(z³ − 1) = v₃(z − 1) + 1`. The order of 2 modulo `3^(d+1)` divides `φ = 2·3^d` and is even (2 has order 2 modulo 3), so it is `2·3^j` with `j ≤ d`; for `j < d` the valuation `j+1 < d+1` shows `2^(2·3^j) ≢ 1`, so the order is `2·3^d` and 2 generates the units. For odd `y` coprime to 3 there is thus `1 ≤ a ≤ 2·3^d` with `2^a y ≡ 1 (mod 3^(d+1))`; `x = (2^a y − 1)/3` is an integer `≡ 0 (mod 3^d)`, odd (`2^a y − 1` is odd), `≥ 1` (an integer `≥ 1/3`), with `3x+1 = 2^a y` and `y` odd, so `S(x) = y` with valuation exactly `a`. Since `x` is an odd multiple of `3^d`, it terminates, hence `y` does. An odd multiple of 3 has `S(x) = (3x+1)/2^v ≢ 0 (mod 3)`, so it terminates as well. Every odd seed terminates, and stripping powers of 2 gives Collatz.
+- **Arithmetic by script** (`review_sparse.py` in my scratch folder, 2.7 s): (8) for the 1,499 pairs `N = 10, 14, …, 6002` by direct differences of `ν_N`; the order of 2 modulo `3^(d+1)` equals `2·3^d` for `d ≤ 12` and `v₃(2^(2·3^k) − 1) = k+1` for `k ≤ 12`; 60,006 inverse lifts (`d ≤ 6`, odd `y ≤ 30001` coprime to 3) with `x` odd, positive, `3^d | x`, `S(x) = y`, valuation `a`; `S(x)` coprime to 3 for every odd multiple of 3 up to `3·10^5`; the omitted small multiples per `d` as listed above; the density of the paired cutoffs up to `10^6` (`0.5`, `0.166666`, `0.055556`, `0.018518` for `d = 1..4`, i.e. `1/(2·3^(d−1))`).
+- **Control, `3x+5`** (conventions of [`locally-collatz-like-control-barrier`](../locally-collatz-like-control-barrier/README.md)). The analogue of (8) with the `T_5` cutoffs isolates the state `(3N+4)/2 ≡ 2 (mod 3)` with coefficient `−1`, and `⟨e_5, ν_N⟩ − ⟨e_5, ν_(N−1)⟩ = −e_5` of that state in every case computed (`N = 10, 14, …, 58`). At `N = 10` the isolated state 17 is exceptional and the pairings at `(10, 9)` are `(−1, 0)`; at `N = 14` the isolated state 23 lies on the 23-cycle and the pairings are `(1, 2)`. So the exact-pair hypothesis fails on `T_5` exactly where the argument says it must. The `3x+1`-specific inputs of the proof are the lift `(2^a y − 1)/3` and the base facts `3, 9 → 1` (under `3x+5` the seed 3 is exceptional).
+
+## What I did not check
+
+- Theorem 1 of [`right-aligned-fixed-core-remainder`](../right-aligned-fixed-core-remainder/README.md) (reviewed separately); used as stated.
+- Novelty.
+
+## Findings
+
+1. Proof, order of 2 (imprecision): "Euler's theorem and the even order modulo 3 then show that the order is exactly `2·3^d`" compresses the step: the order is `2·3^j` with `j ≤ d`, and the valuation identity gives `2^(2·3^j) ≢ 1 (mod 3^(d+1))` for `j < d`. Correct as a sketch; no change.
+2. Statement (imprecision): the theorem is an implication, but the converse (Collatz gives exact currents at every `N ≥ 8`) is step 1 ⇒ 3 of [`qualitative-current-criterion`](../qualitative-current-criterion.md), so the paired hypothesis is in fact equivalent to Collatz. No change.
+3. Evidence path (cross-reference, fixed by the move): `../five-ray-current-criterion/check_sparse_criteria.py` did not resolve from the single-file location and is correct from the new folder.
+4. Links (corrected): the node was a single file; moving it to `sparse-paired-exact-current-criterion/README.md` required one more `../` on its three relative links, and the incoming links in `five-ray-current-criterion/README.md` (three), `exact-current-prefix-criterion/README.md` and `questions/packet-current-supply.md` were repointed. `MAP.md` is regenerated by `tools/build_map.py`.
+
+## Verdict
+
+HOLDS.
+
+Claude review lane (Fable 5.1; directed by Santiago Armstrong), 2026-10-31

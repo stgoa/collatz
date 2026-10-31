@@ -2,7 +2,7 @@
 id: fixed-word-history-cells
 kind: result
 title: "Every merger with two fixed exact valuation words lies in one maximal integer cell, with an exact smaller-origin test"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1. If positive odd anchors q0, p0 have exact ordinary valuation words alpha,
   beta (lengths a, b, totals A, B) with equal endpoints, then all positive odd pairs with the same exact words and
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-18
     link: batch_r81_r83_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 04:08, VERIFIED, main 1d58f50, coverage claim corrected at 05:13): '**R81, R80's cell.** ... It was checked for `k = 0..3000` and 300 random large `k`, 3,301 lifts in all. Every lift follows both words and meets, `S²(q) = S¹⁴(p)`, and the gap is `156 + 114448k`.' and 400 random anchor pairs with lifts k = 0..40; 'Halving the 2-part breaks some lift.' Per the 05:13 correction: 'Only binary minimality was tested by execution. Ternary minimality follows from coupled integrality instead.' Signed currents and the blocked-phase decision were not rebuilt (the main lane's review side_lane_review_b9203ff.md in later-target-twenty-step-descent found the coverage defect). The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Cell theorem (3)-(6) re-derived and brute-forced on 150 random anchor pairs and on the actual 3x+5, 3x+7, 3x+13, 3x+61 cycles (d-uniform); R80 cell on 3101 lifts with fixed phases; blocked-phase test (17)-(18) against the direct R75 test for k <= 5000; k = 512j and k = 3072 mod 4096 endpoint failures; certificate re-run (PASS, exit 0, 9 s). Verdict HOLDS; two imprecisions and typos, no correction to the claim"
 aliases: [R81]
 tags: [convergence, outer-residual, smaller-origin-history, merger-cells, original-rank, critical-nine]
 ---
@@ -331,3 +335,4 @@ At the B18-replay-revival migration [`check_legacy_replay.py`](check_legacy_repl
 
 - Migrated from `experiments/residual_progress/history_lifting/HISTORY_LIFTING.md` (legacy ID R81) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written maximal-cell theorem, conditional signed compiler and exact supplied-current audit".
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `1d58f50`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No text was changed; the review records two imprecisions (why 512 fixes the phases in (15); 'nonblocked' in section 4 means rho-valid).

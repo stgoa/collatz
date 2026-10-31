@@ -2,7 +2,7 @@
 id: four-target-history-classification
 kind: result
 title: "On a whole remaining cell, only the original source reaches the direct target and its first three futures within their ternary precision"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1, canonical quotient T = nu S. For every m >= 0 let Q = 133704987 + 3 2^33 m,
   n = 385940463 + 64 3^19 m (the whole k = 85 + 16384m cell of the R84 progression after the R87 repair), and y_a
@@ -28,6 +28,10 @@ reviewed_by:
     date: 2026-10-18
     link: r88_anchor_exhaustive.c
     scope: "Finite only (side-lane feed entry 2026-10-18 05:52, VERIFIED (exhaustive), main 7a477ad): '**R88 anchor (`m = 0`), by exhaustive forward search.** This is independent of main's inverse-tree certificates. ... Every canonical `p ≤ Q`, 33,426,246 states in all, was iterated under `T = ν∘S` for 22 quotient steps by a small C program with its own `ν`. Exactly four hits on any `y_a` occur within `19 + a` steps, all at `p = Q`, at depths 18, 19, 20 and 21. That is precisely R88's claim at this anchor. The all-`m` lift rests on main's written argument and was not re-proved.' Also 'For m ∈ {0, 1, 2, 3} and 300 random m < 2⁴⁰ ... Q is canonical, T¹⁸(Q) = n > Q, and S²³(Q) = S⁵(n).' Reproduced by the main lane in side_lane_review_86ead16.md. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Cell arithmetic, exact word, affine normalisation of the quotient path over the whole cell, currents (3), targets (5), uniform cutoff (7)-(9), the four inverse trees (64/78/89/101, sole origin Q0) rebuilt independently, direct trees at m > 0, and an exhaustive C forward sweep of all 33,426,247 canonical p <= Q0 (four hits, all p = Q0); both certificates re-run (PASS, exit 0, 7 s + 5 s). Verdict HOLDS; three imprecision/typo findings, no correction to the claim"
 aliases: [R88]
 tags: [convergence, outer-residual, smaller-origin-history, anchor-certificate, inverse-barrier, fixed-word]
 ---
@@ -334,3 +338,4 @@ original-rank comparison as local descent.
 - Migrated from `experiments/residual_progress/history_cell_scope/HISTORY_CELL_SCOPE.md` (legacy ID R88) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written lifting proof with complete finite inverse-tree certificates; no terminal-current supply".
 - The side-lane C program `reviews/side_lane/r88_anchor_exhaustive.c` moved here.
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `7a477ad`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No text was changed; the review records that the ordinary and quotient paths of section 1 differ at steps 13-15 (selected halving at S^13(Q)), that only divisibility by 3 is used in section 3, and the p = 1 offset in the side-lane count.
