@@ -21,12 +21,13 @@ Each unit's statement match now lives in the `## Lean` section of its result nod
 | `QuadraticSeparation.lean` | Mathlib | V006-a: quadratic separation. `LeanLane.Quad`. |
 | `ReverseClosure_Final.lean` | none (a part) | V007-a assembly proper; concatenated into `ReverseClosure_Assembly.lean`. |
 | `ReverseClosure_Assembly.lean` | Mathlib | V007-a: reverse closure. **Generated** by `build_reverse_assembly.sh`. `LeanLane.RevClos`. |
+| `DoubledWords.lean` | Mathlib | Doubled words: the two factors `2^S ∓ 3^n` of `D` test the half-words' periodic and antiperiodic points (prose: [`doubled-word-factor-gcd-identities`](../areas/cycles/results/doubled-word-factor-gcd-identities/README.md)). `LeanLane.Doubled`. |
 | `Dichotomy.lean` | `Solution.Basic` | Queue item 3: the dichotomy corollary over the audited positive-density theorem (prose: [`nonabsorbing-set-linear-lower-density`](../areas/convergence/results/nonabsorbing-set-linear-lower-density/README.md)). `LeanLane.Dichotomy`. |
 | `PairObligation.lean` | `Solution.Basic` | Queue item 4 (partial): the W5 pair obligation and the `u ↔ 18u+5` reformulation. `LeanLane.Pair`. |
 | `build_assembly.sh`, `build_reverse_assembly.sh` | — | Regenerate the two assembly files from their parts. |
 | `lakefile.toml`, `lean-toolchain` | — | Pin the toolchain and Mathlib (below). |
 
-**Mathlib only:** `CycleSpectrum`, `PeriodicRigidity`, `GeneralPeriodic`, `OddEventuallyPeriodic`, `KernelClosure`, `V004_Assembly`, `ScalarInterface`, `QuadraticSeparation`, `ReverseClosure_Assembly`.
+**Mathlib only:** `CycleSpectrum`, `PeriodicRigidity`, `GeneralPeriodic`, `OddEventuallyPeriodic`, `KernelClosure`, `V004_Assembly`, `ScalarInterface`, `QuadraticSeparation`, `ReverseClosure_Assembly`, `DoubledWords`.
 
 **Other dependencies:** `Dichotomy` and `PairObligation` import `Solution.Basic` from the external, AI-generated `AxiomMath/CollatzPositiveDensity` library at commit `3a38bfbb70379e051b51155def1423846fab3a90` (see `audit/`). They compile only inside a checkout of that project, which is not a dependency of `lakefile.toml`, and the theorems they use are therefore an external input.
 

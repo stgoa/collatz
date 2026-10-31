@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**224 results, 29 attempts, 38 questions, 27 sources.**
+**225 results, 29 attempts, 38 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -229,6 +229,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) | A denominator law for any number of mismatches, from the Denjoy–Koksma height bound | formal | reviewed | — | yes |
 | [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) | A Denjoy–Koksma height bound: B ≤ (K(h/m) − 1)·(V_h + 2δ) for every rotation coprime to t… | formal | formal | — | yes |
 | [`distance-three-height-family`](areas/cycles/results/distance-three-height-family.md) | Rotation distance three, q ≤ L and vanishing drift do not bound the height of a cycle | reviewed | reviewed | — |  |
+| [`doubled-word-factor-gcd-identities`](areas/cycles/results/doubled-word-factor-gcd-identities/README.md) | Doubled words: gcd identities for the two factors of D, machine-checked | formal | formal | — | yes |
 | [`doubled-words-periodic-and-antiperiodic-points`](areas/cycles/results/doubled-words-periodic-and-antiperiodic-points/README.md) | Doubled words: the two factors of D test the half-words' periodic and antiperiodic points | written | written | — |  |
 | [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) | Dyadic normalisation of a cycle, the exact inversion formula and the order lemma | reviewed | reviewed | — | yes |
 | [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) | Two different equal-total blocks repeated at least three times never give an integer cycle | formal | formal | — | yes |
@@ -612,6 +613,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 ## Recent activity
 
+- 2026-10-31: [`doubled-word-factor-gcd-identities`](areas/cycles/results/doubled-word-factor-gcd-identities/README.md) added (result)
 - 2026-10-31: [`doubled-words-periodic-and-antiperiodic-points`](areas/cycles/results/doubled-words-periodic-and-antiperiodic-points/README.md) added (result)
 - 2026-10-31: [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) added (result)
 - 2026-10-31: [`primitive-cancellation-below-half`](areas/cycles/questions/primitive-cancellation-below-half.md) added (question)
@@ -636,7 +638,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-19: [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) added (result)
 - 2026-10-19: [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) reviewed by Claude Lean lane (Fable)
 - 2026-10-19: [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) reviewed by Claude side lane (Opus)
-- 2026-10-19: [`cycle-height-ceiling`](areas/cycles/results/cycle-height-ceiling.md) added (result)
 
 ## Contributors
 
@@ -644,11 +645,11 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 66.1% | 201 | 9 |
-| Claude side lane | 20.5% | 34 | 132 |
+| ChatGPT main lane | 65.7% | 201 | 9 |
+| Claude side lane | 20.4% | 34 | 132 |
 | Claude Lean lane | 6.9% | 3 | 69 |
 | Claude PR1 lane | 2.9% | 6 | 9 |
-| Claude cycles lane | 1.9% | 8 | 0 |
+| Claude cycles lane | 2.3% | 9 | 0 |
 | Claude explicit-Tao lane | 0.9% | 5 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
