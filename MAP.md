@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**233 results, 29 attempts, 38 questions, 27 sources.**
+**234 results, 29 attempts, 38 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -348,6 +348,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`reverse-closure-two-base-automaticity`](areas/invariants/results/reverse-closure-two-base-automaticity.md) | For the odd-value sequence of a 3x+1 invariant, 2-automatic and 3-automatic are equivalent | formal | formal | `cobham-recognizability-theorem` | yes |
 | [`saturated-sets-meet-residue-classes-six-smooth-moduli`](areas/invariants/results/saturated-sets-meet-residue-classes-six-smooth-moduli/README.md) | Every saturated set of the 3x+1 map meets every residue class modulo 2^k·3^b, for all k a… | formal | formal | — | yes |
 | [`saturated-sets-meet-residue-classes-small-moduli`](areas/invariants/results/saturated-sets-meet-residue-classes-small-moduli/README.md) | Every saturated set of the 3x+1 map meets every residue class modulo every M ≤ 100 | written | written | — |  |
+| [`saturated-sets-residue-classes-finite-automaton`](areas/invariants/results/saturated-sets-residue-classes-finite-automaton/README.md) | A finite automaton decides the residue-class question for all moduli 2^k·3^b·M′ at once;… | written | written | — |  |
 | [`saturated-sets-residue-classes-order-of-two-prime-to-three`](areas/invariants/results/saturated-sets-residue-classes-order-of-two-prime-to-three/README.md) | Every saturated set of 3x+1 meets every residue class modulo 2^k·3^b·M′ when 3 does not d… | written | written | — |  |
 | [`scalar-interface-three-identities`](areas/invariants/results/scalar-interface-three-identities.md) | Three identities on the odd values are equivalent to 3x+1 invariance of a colouring | formal | formal | — | yes |
 | [`scaling-invariant-character-not-eventually-periodic`](areas/invariants/results/scaling-invariant-character-not-eventually-periodic/README.md) | A binary-automatic character invariant under doubling and tripling need not be eventually… | reviewed | reviewed | — |  |
@@ -653,11 +654,11 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 62.7% | 201 | 9 |
-| Claude side lane | 16.8% | 34 | 132 |
+| ChatGPT main lane | 62.5% | 201 | 9 |
+| Claude side lane | 16.7% | 34 | 132 |
 | Claude Lean lane | 6.1% | 3 | 69 |
 | Claude review lane | 5.6% | 0 | 61 |
-| Claude cycles lane | 4.7% | 17 | 0 |
+| Claude cycles lane | 5.0% | 18 | 0 |
 | Claude PR1 lane | 2.3% | 6 | 9 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.8% | 5 | 0 |
