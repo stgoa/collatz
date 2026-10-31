@@ -23,8 +23,13 @@ authors:
   - Claude cycles lane (Fable 5.1; directed by Santiago Armstrong)
 created: 2026-10-31
 depends_on: [saturated-sets-meet-residue-classes-six-smooth-moduli, saturated-sets-residue-classes-order-of-two-prime-to-three]
+lean:
+  - LeanLane.SaturatedAutomaton.saturated_dense_of_automaton
+  - LeanLane.SaturatedAutomaton.exists_step
+  - LeanLane.SaturatedAutomaton.exists_free_exponent'
 certificates: [check_automaton.py]
 evidence:
+  - "../../../../lean/receipts/SaturatedAutomaton.build.txt, SaturatedAutomaton.axioms.txt, SaturatedAutomaton.sha256.txt: the Lean receipts for Theorem 1 (standard axioms only)"
   - "automaton.json: the receipt; for each M′ ≤ 1000 coprime to 6 the connectivity, the number of states, v*, and the orders of 2 and 4; the 3x+5 controls modulo 5 and 7"
 tags: [invariants, residues, saturated-sets, orbit-components, density, profinite, finite-automaton]
 ---
@@ -77,6 +82,17 @@ Notation and Lemmas 1–2 (legality of `σ_s` and `ι_j`, `3σ_s(z) + 1 = 4^s(3z
 
 **Proof of Theorem 2.** The certificate builds `A(M′)` for each `M′ ≤ 1000` coprime to 6 with the finitely many multipliers above and computes its strongly connected components (Kosaraju's algorithm); each has exactly one. The consequence for `M = 2^k·3^b·M′` with `M′ ≤ 1000` is Theorem 1. ∎
 
+## Lean
+
+[`lean/LeanLane/SaturatedAutomaton.lean`](../../../../lean/LeanLane/SaturatedAutomaton.lean), namespace `LeanLane.SaturatedAutomaton`, built by `lake build LeanLane` (receipts [`SaturatedAutomaton.build.txt`](../../../../lean/receipts/SaturatedAutomaton.build.txt), [`SaturatedAutomaton.axioms.txt`](../../../../lean/receipts/SaturatedAutomaton.axioms.txt): only `propext`, `Classical.choice`, `Quot.sound`). **Theorem 1 is formal; Theorem 2 is the certificate's computation**, so the status stays `written`.
+
+- States are pairs in `ZMod M' × ZMod (3 ^ v)` and `state M' v z = ((z : ZMod M'), (z : ZMod (3^v)))`: the Lean automaton uses the coordinates `(z mod M′, z mod 3^v)`, equivalent to `(W mod M′, W mod 3^(v+1))` of the text through `W = 3z + 1`.
+- `Step M' v` is the inductive relation with the two kinds of arrows: `scale s hs x η : Step (x, η) (4^s x + cst s, 4^s η + cst s)` with `cst s = (4^s − 1)/3`, and `inv j hj x x' η zc hzc hleg hx' : Step (x, η) (x', ((2^j zc − 1)/3 : ℕ))` where `zc` is a natural number with `(zc : ZMod (3^v)) = η` (a lift of the class `η`), `2^j zc % 3 = 1` (legality), and `3 x' = 2^j x − 1` in `ZMod M'`.
+- `exists_free_exponent' M' v u hu h3u hper z Bexp τ hB hτ hτv` is Lemma F: for `4 ^ (3^v u) ≡ 1 [MOD M']` with `3 ∤ u`, `v ≤ Bexp`, `τ ≡ 1 (mod 3)` and `τ ≡ 3z + 1 [MOD 3^(v+1)]`, some `s ≥ 1` has `4^s ≡ 1 [MOD M']` and `4^s (3z+1) ≡ τ [MOD 3^(Bexp+1)]`. Its new ingredient is `three_pow_dvd_of_four_pow_modEq`: `4^s ≡ 1 [MOD 3^(v+1)] → 3^v ∣ s`.
+- `exists_step` is Lemma A: every arrow from the state of an odd element of `B` is realised by an odd element of `B`.
+- `saturated_dense_of_automaton (hB : Saturated B) (hne : B.Nonempty) (M' v u : ℕ) (hM' : 0 < M') (hM6 : Nat.Coprime M' 6) (hv : 1 ≤ v) (hu : 0 < u) (h3u : ¬ 3 ∣ u) (hper : 4 ^ (3 ^ v * u) ≡ 1 [MOD M']) (hconn : ∀ σ σ', Relation.ReflTransGen (Step M' v) σ σ') (k b r : ℕ) : ∃ x ∈ B, x ≡ r [MOD 2 ^ k * 3 ^ b * M']` is Theorem 1. The hypotheses on `(v, u)` say that `3^v·u` is a period of 4 modulo `M′` with `3 ∤ u`; for `v = v*` of the text such a `u` exists (`u = o₄/3^(v₃(o₄))`, or `u = o₄` when `v₃(o₄) = 0`), and the strong-connectivity hypothesis is exactly what the certificate checks for each `M′ ≤ 1000`.
+- Not formalised: Theorem 2 (the connectivity of the 333 automata), the equivalence between the two coordinate systems (a change of variables), and the `3x+d` remark.
+
 ## Certificates
 
 [`check_automaton.py`](check_automaton.py) (standard library, about 4.5 minutes): **V1** for every `M′ ≤ 1000` coprime to 6, builds `A(M′)` (arrows (S) for `s` up to `lcm(o₄, 3^(v*))`, arrows (I) for `j` up to `lcm(ord_(M′)(2), 2·3^(v*))` of each parity and the three lifts) and checks that Kosaraju's algorithm finds one strongly connected component; the receipt records for each modulus the number of states, `v*`, `ord_(M′)(2)` and `o₄`; **V2** controls for the map `3x+5` (`W = 3z + 5`, inverse step legal iff `2^j z ≡ 5 ≡ 2 (mod 3)`, scaling `(4^s(3z + 5) − 5)/3`): the automaton modulo 5 has two components (the class `W ≡ 0`, i.e. the multiples of 5, is closed) and the automaton modulo 7 is strongly connected; **V3** the receipt [`automaton.json`](automaton.json) (`--write-receipt` regenerates it). Finite statements only; Theorem 1 is the text above.
@@ -91,3 +107,4 @@ Notation and Lemmas 1–2 (legality of `σ_s` and `ι_j`, `3σ_s(z) + 1 = 4^s(3z
 ## History
 
 - Written 2026-10-31 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, after the order-prime-to-three proof showed that the only obstacle to a uniform argument was the finite coupled part of the 3-adic information.
+- 2026-10-31, later: Theorem 1 formalised in Lean (`LeanLane.SaturatedAutomaton`, standard axioms only); the status stays `written` because Theorem 2 is the certificate's computation (Claude cycles lane, Fable 5.1).
