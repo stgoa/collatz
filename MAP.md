@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**232 results, 29 attempts, 38 questions, 27 sources.**
+**233 results, 29 attempts, 38 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -225,7 +225,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`contracting-two-block-effective-exclusion`](areas/cycles/results/contracting-two-block-effective-exclusion/README.md) | Contracting two-block words with a block repeated three times have denominator above 2^M | formal | formal | — | yes |
 | [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) | The coupled mismatch-cut system has determinant ±D^(s−2)·Π(β'_i − β_i) and only two indep… | reviewed | reviewed | — |  |
 | [`cycle-height-ceiling`](areas/cycles/results/cycle-height-ceiling.md) | The height of a cycle is at most (log₂3 − 1)(m − 1) plus a term in q/L, by climbing from… | formal | formal | — | yes |
-| [`cycle-length-lower-bound-from-convergents`](areas/cycles/results/cycle-length-lower-bound-from-convergents/README.md) | A nontrivial 3x+1 cycle has at least 72,057,431,991 odd states and 114,208,327,604 halvin… | written | written | `barina-2025-convergence-2-71` |  |
+| [`cycle-length-lower-bound-from-convergents`](areas/cycles/results/cycle-length-lower-bound-from-convergents/README.md) | A nontrivial 3x+1 cycle has at least 72,057,431,991 odd states and 114,208,327,604 halvin… | written | written | `barina-2025-convergence-2-71` | yes |
 | [`cycle-word-repeat-bound`](areas/cycles/results/cycle-word-repeat-bound/README.md) | No long factor repeats in a cycle word: the run bound as a factor-complexity statement | reviewed | reviewed | `musson-collatz-gap-all` |  |
 | [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) | A denominator law for any number of mismatches, from the Denjoy–Koksma height bound | formal | reviewed | — | yes |
 | [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) | A Denjoy–Koksma height bound: B ≤ (K(h/m) − 1)·(V_h + 2δ) for every rotation coprime to t… | formal | formal | — | yes |
@@ -242,7 +242,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines/README.md) | Order-free baselines for cycle minima and denominators (extremal, packing, product) | reviewed | reviewed | — |  |
 | [`global-drift-ceiling`](areas/cycles/results/global-drift-ceiling.md) | The global-drift ceiling: log₂(n_k/L) ≤ k·log₂(3/2) − X_k + δ at every q, with no hypothe… | formal | formal | — | yes |
 | [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) | The half-cancellation bound fails at four mismatches: a word of length 20 with G² ≈ 22·2^A | written | written | — | yes |
-| [`largest-letter-rho-reduction`](areas/cycles/results/largest-letter-rho-reduction.md) | A low-mismatch rotation forces a letter of linear size, so ρ → ∞ follows from a largest l… | reviewed | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `musson-collatz-gap-all` | yes |
+| [`largest-letter-rho-reduction`](areas/cycles/results/largest-letter-rho-reduction.md) | A low-mismatch rotation forces a letter of linear size, so ρ → ∞ follows from a largest l… | reviewed | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
 | [`mechanical-cycles-high-rational-controls`](areas/cycles/results/mechanical-cycles-high-rational-controls/README.md) | Mechanical cycles give rational 3x+1 cycles and integer 3x+d cycles arbitrarily far above… | formal | formal | — | yes |
 | [`mechanical-word-exact-denominator`](areas/cycles/results/mechanical-word-exact-denominator/README.md) | Mechanical valuation words have reduced denominator exactly 2^(A/g) − 3^(k/g), so none is… | formal | formal | — | yes |
 | [`mismatch-height-tradeoff`](areas/cycles/results/mismatch-height-tradeoff/README.md) | Mismatch–height trade-off at q = 1: every rotation differs in more than log₂3·m/(B + 342… | formal | reviewed | `musson-collatz-gap-all` | yes |
@@ -282,7 +282,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`small-band-height-residue-matching`](areas/cycles/results/small-band-height-residue-matching/README.md) | Height-residue matching holds for ordered cycles with q > 1 in at most three (normalised)… | reviewed | reviewed | — |  |
 | [`three-band-collatz-cycles-are-ordered`](areas/cycles/results/three-band-collatz-cycles-are-ordered.md) | A 3x+1 cycle with H < 8L is dyadically ordered with mechanical normalised word and gcd(A,… | formal | reviewed | — | yes |
 | [`three-defect-arbitrary-background`](areas/cycles/results/three-defect-arbitrary-background.md) | Words at rotation distance three can carry an arbitrary shared background, beyond any fix… | reviewed | reviewed | — |  |
-| [`three-mismatch-exclusion`](areas/cycles/results/three-mismatch-exclusion/README.md) | No rotation of a nontrivial 3x+1 cycle differs from it in exactly three positions, so ρ ≥… | formal | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `musson-collatz-gap-all` | yes |
+| [`three-mismatch-exclusion`](areas/cycles/results/three-mismatch-exclusion/README.md) | No rotation of a nontrivial 3x+1 cycle differs from it in exactly three positions, so ρ ≥… | formal | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
 | [`two-arc-word-rotation-structure`](areas/cycles/results/two-arc-word-rotation-structure/README.md) | Two-arc words: their rotation spectrum, and the Sturmian case is exactly the adjacent-def… | written | written | — |  |
 | [`two-block-uniform-denominator-growth`](areas/cycles/results/two-block-uniform-denominator-growth/README.md) | Two-block words u^k v^ℓ with k, ℓ ≥ 2 have denominators growing uniformly in the total, i… | reviewed | reviewed | `corvaja-2005-s-unit-height` |  |
 | [`two-defect-bounded-denominator-finiteness`](areas/cycles/results/two-defect-bounded-denominator-finiteness.md) | Each bounded-denominator layer of the two-defect class is finite, effectively in principle | reviewed | reviewed | `bugeaud-2022-two-logarithms` |  |
@@ -290,7 +290,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`two-defect-marker-family`](areas/cycles/results/two-defect-marker-family.md) | The words (3, b_n, 4, b_n) are never integer 3x+1 cycles, with growing minimum and local-… | reviewed | reviewed | — |  |
 | [`two-defect-rotation-exclusion`](areas/cycles/results/two-defect-rotation-exclusion/README.md) | No nontrivial 3x+1 cycle has a rotation differing from it in exactly two positions (ρ ≥ 3) | reviewed | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `languasco-2025-two-primes`, `matveev-2000-linear-forms` | yes |
 | [`two-marker-constant-background-exact-denominator`](areas/cycles/results/two-marker-constant-background-exact-denominator/README.md) | Two markers on a constant background: cancellation exactly 4^n − 3^n and denominator 4^n… | formal | reviewed | — | yes |
-| [`two-mismatch-exclusion-via-gap`](areas/cycles/results/two-mismatch-exclusion-via-gap/README.md) | C011's two-mismatch exclusion without Matveev: from the trade-off, the replayed gap and t… | formal | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `musson-collatz-gap-all` | yes |
+| [`two-mismatch-exclusion-via-gap`](areas/cycles/results/two-mismatch-exclusion-via-gap/README.md) | C011's two-mismatch exclusion without Matveev: from the trade-off, the replayed gap and t… | formal | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
 | [`two-three-mismatch-denominator-laws`](areas/cycles/results/two-three-mismatch-denominator-laws/README.md) | Two- and three-mismatch words have exponentially large denominators unless their drift is… | formal | reviewed | — | yes |
 | [`unequal-slope-two-block-growth`](areas/cycles/results/unequal-slope-two-block-growth/README.md) | Unequal-slope two-block words have denominator 2^((1−o(1))·A), ineffectively | reviewed | reviewed | `corvaja-2005-s-unit-height` |  |
 
@@ -348,6 +348,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`reverse-closure-two-base-automaticity`](areas/invariants/results/reverse-closure-two-base-automaticity.md) | For the odd-value sequence of a 3x+1 invariant, 2-automatic and 3-automatic are equivalent | formal | formal | `cobham-recognizability-theorem` | yes |
 | [`saturated-sets-meet-residue-classes-six-smooth-moduli`](areas/invariants/results/saturated-sets-meet-residue-classes-six-smooth-moduli/README.md) | Every saturated set of the 3x+1 map meets every residue class modulo 2^k·3^b, for all k a… | formal | formal | — | yes |
 | [`saturated-sets-meet-residue-classes-small-moduli`](areas/invariants/results/saturated-sets-meet-residue-classes-small-moduli/README.md) | Every saturated set of the 3x+1 map meets every residue class modulo every M ≤ 100 | written | written | — |  |
+| [`saturated-sets-residue-classes-order-of-two-prime-to-three`](areas/invariants/results/saturated-sets-residue-classes-order-of-two-prime-to-three/README.md) | Every saturated set of 3x+1 meets every residue class modulo 2^k·3^b·M′ when 3 does not d… | formal | formal | — | yes |
 | [`scalar-interface-three-identities`](areas/invariants/results/scalar-interface-three-identities.md) | Three identities on the odd values are equivalent to 3x+1 invariance of a colouring | formal | formal | — | yes |
 | [`scaling-invariant-character-not-eventually-periodic`](areas/invariants/results/scaling-invariant-character-not-eventually-periodic/README.md) | A binary-automatic character invariant under doubling and tripling need not be eventually… | reviewed | reviewed | — |  |
 | [`singleton-exit-separator-exclusion`](areas/invariants/results/singleton-exit-separator-exclusion/README.md) | The joint section graph of a nonconstant 3x+1 invariant has no finite forward interior wi… | reviewed | reviewed | `cobham-recognizability-theorem`, `eilenberg-finite-kernel` |  |
@@ -377,7 +378,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`eliahou-1993-cycle-length`](sources/eliahou-1993-cycle-length.md) | Eliahou (1993): lower bound on nontrivial cycle length | cited | 0 |
 | [`everett-1977-stopping-time`](sources/everett-1977-stopping-time.md) | Everett (1977): density one of integers with finite stopping time | cited | 0 |
 | [`halbeisen-1997-rational-cycles`](sources/halbeisen-1997-rational-cycles.md) | Halbeisen–Hungerbühler (1997): optimal bounds for rational Collatz cycles | cited | 0 |
-| [`hercher-2023-cycle-length`](sources/hercher-2023-cycle-length.md) | Hercher (2023): no Collatz m-cycles with m ≤ 91, and the period bound | cited | 4 |
+| [`hercher-2023-cycle-length`](sources/hercher-2023-cycle-length.md) | Hercher (2023): no Collatz m-cycles with m ≤ 91, and the period bound | cited | 2 |
 | [`knight-2026-high-cycles`](sources/knight-2026-high-cycles.md) | Knight: Collatz high cycles do not exist | cited | 0 |
 | [`krasikov-2003-predecessors`](sources/krasikov-2003-predecessors.md) | Krasikov–Lagarias: predecessor counts at least X^0.84 | cited | 1 |
 | [`lagarias-1985-survey`](sources/lagarias-1985-survey.md) | Lagarias (1985): survey of the 3x+1 problem | cited | 0 |
@@ -652,11 +653,11 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 62.9% | 201 | 9 |
-| Claude side lane | 16.9% | 34 | 132 |
-| Claude Lean lane | 6.2% | 3 | 69 |
-| Claude review lane | 5.7% | 0 | 61 |
-| Claude cycles lane | 4.4% | 16 | 0 |
+| ChatGPT main lane | 62.5% | 201 | 9 |
+| Claude side lane | 16.7% | 34 | 132 |
+| Claude Lean lane | 6.1% | 3 | 69 |
+| Claude review lane | 5.6% | 0 | 61 |
+| Claude cycles lane | 5.0% | 17 | 0 |
 | Claude PR1 lane | 2.3% | 6 | 9 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.8% | 5 | 0 |

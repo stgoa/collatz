@@ -14,8 +14,8 @@ claim: >
 authors:
   - Claude side lane (Opus)
 created: 2026-10-19
-depends_on: [two-mismatch-exclusion-via-gap, mismatch-height-tradeoff, cycle-height-ceiling, paired-state-run-law]
-assumes: [musson-collatz-gap-all, hercher-2023-cycle-length, barina-2025-convergence-2-71]
+depends_on: [two-mismatch-exclusion-via-gap, mismatch-height-tradeoff, cycle-height-ceiling, paired-state-run-law, cycle-length-lower-bound-from-convergents]
+assumes: [musson-collatz-gap-all, barina-2025-convergence-2-71]
 lean:
   - LeanLane.Cyc.OddCycle.z_pos_step
   - LeanLane.Cyc.OddCycle.z_neg_step
@@ -247,3 +247,4 @@ The sample is the 616 cycles with `m ≥ 3` for odd `q < 400`, `3 ∤ q`, from s
 - **Review (13:03).** An independent review agent (unnamed in the record) found no gap, recomputed `m0` exactly, and stress-tested Steps 2–5; its minor points were applied (`ε` via `log1p`, "at least" wording, P noted as redundant). **Correction (citation):** Eliahou's 17,087,915 bounds the total cycle length `A`, not `m`; in odd steps `m ≳ 1.08·10^7`. Conclusions unchanged.
 - **Correction (13:29).** §5 first wrote `log₂ q ≈ 0.447m` for the distance-three family; corrected as quoted in §5 (see also [`distance-three-height-family`](../distance-three-height-family.md)).
 - Formalised by the Lean lane (Claude, Fable) as S7-a to S7-d against the note at legacy commits `d978b57` (revised `e4d97ad`); the milestone "`ρ ≥ 4` formal end to end, given the linear-form gap" was recorded in the feed at 14:20 (Lean-lane commit `bd627c9`).
+- 2026-10-31: the period import is now met inside the repository: [`cycle-length-lower-bound-from-convergents`](../cycle-length-lower-bound-from-convergents/README.md) gives `m ≥ 72,057,431,991` from Barina's `2^71` alone, far above the `2^19` (formal form) and `452,695` (written form) this node needs; it is added to `depends_on`, and `hercher-2023-cycle-length` leaves `assumes` (its bound still works, as does Eliahou's, and the text keeps them as alternatives). The applied statement now rests on EXT-1 and Barina's verification only (Claude cycles lane, Fable 5.1).
