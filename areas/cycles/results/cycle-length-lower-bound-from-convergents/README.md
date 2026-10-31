@@ -25,8 +25,14 @@ authors:
 created: 2026-10-31
 depends_on: []
 assumes: [barina-2025-convergence-2-71]
+lean:
+  - LeanLane.CycleInequality.prod_identity
+  - LeanLane.CycleInequality.three_pow_lt
+  - LeanLane.CycleInequality.pow_le_bound
+  - LeanLane.CycleInequality.lattice_lemma
 certificates: [check_cycle_length_convergents.py]
 evidence:
+  - "../../../../lean/receipts/CycleInequality.build.txt, CycleInequality.axioms.txt, CycleInequality.sha256.txt: the Lean receipts for Theorems 1 and 2 (standard axioms only)"
   - "cycle_length_convergents.json: the receipt; the 80 certified partial quotients and convergent denominators of log₂3, the check 0.481 > 1/(3 ln 2), the admissible pairs for L = 2^40, 2^60, 2^68, 2^71 with their lattice coordinates, and the control count on the 3x+d corpus"
 tags: [cycles, period-bound, continued-fractions, replay, calibration, eliahou]
 ---
@@ -90,6 +96,15 @@ In both cases (1) gives `|x|·e_k + |y|·e_(k+1) = A − mθ < 0.481·m/L < 0.48
 
 **The corollary and the calibration** are the certificate's enumeration (V3), which decides each candidate pair by interval arithmetic on the enclosure of `θ` and fails if any candidate is undecided. ∎
 
+## Lean
+
+[`lean/LeanLane/CycleInequality.lean`](../../../../lean/LeanLane/CycleInequality.lean), namespace `LeanLane.CycleInequality`, built by `lake build LeanLane` (receipts [`CycleInequality.build.txt`](../../../../lean/receipts/CycleInequality.build.txt), [`CycleInequality.axioms.txt`](../../../../lean/receipts/CycleInequality.axioms.txt): only `propext`, `Classical.choice`, `Quot.sound`). The status stays `written`, not `formal`, because the Corollary's numbers come from the certificate's enumeration, not from Lean; what is machine-checked is the mathematics behind it:
+
+- `prod_identity (h : IsCycle q w x) (hm : 0 < w.length) : 2 ^ w.sum * ∏ i ∈ range w.length, x i = ∏ i ∈ range w.length, (3 * x i + q)` is the product identity of Theorem 1 for the cycle model `IsCycle` of [`LeanLane.CycleEquation`](../../../../lean/LeanLane/CycleEquation.lean) (states `x : ℕ → ℤ` following the word `w` cyclically, `2^(w_i) x_(i+1) = 3x_i + q`, with period `|w|`).
+- `three_pow_lt` and `pow_le_bound` are the integer forms of (1) for `q = 1`: `3 ^ w.length < 2 ^ w.sum` when all states are positive, and `2 ^ w.sum * L ^ w.length ≤ (3L + 1) ^ w.length` when all states are at least `L > 0`. Dividing by `L^m` and taking logarithms gives `0 < A − mθ < m·log₂(1 + 1/(3L))`; the elementary step `log(1 + t) < t` and the constant `0.481` are not formalised (the certificate's V2 checks the constant).
+- `lattice_lemma (θ : ℝ) (p q p' q' : ℤ) (hdet : p'q − pq' = 1 ∨ p'q − pq' = −1) (hq : 0 < q) (hqq : q < q') (hsign : (qθ − p)(q'θ − p') < 0) (m A : ℤ) (hm1 : q ≤ m) (hm2 : m < q') (hA : 0 < A − mθ)` concludes, for `d = p'q − pq'`, `x = d(mp' − Aq')`, `y = d(Aq − mp)`: `m = xq + yq'`, `A = xp + yp'`, the sign pattern (`0 < qθ − p → 1 ≤ y ∧ x ≤ −1`; `qθ − p < 0 → 1 ≤ x ∧ y ≤ 0`), and `A − mθ = |x|·|qθ − p| + |y|·|q'θ − p'|`. This is Theorem 2 with consecutive convergents `(p, q) = (p_k, q_k)`, `(p', q') = (p_(k+1), q_(k+1))` as the hypotheses: the determinant `(−1)^k`, `q_k < q_(k+1)`, and the opposite signs of `e_k`, `e_(k+1)`; these three facts about convergents are standard and are not re-proved in Lean (the certificate computes the convergents and checks the sign pattern of the nine smallest exactly).
+- Nothing about continued fractions or about the specific numbers is formal; the Lean part removes the possibility of an error in the algebra of Theorems 1 and 2, which is where the first draft of this node went wrong.
+
 ## Certificates
 
 [`check_cycle_length_convergents.py`](check_cycle_length_convergents.py) (standard library, about one second): **V1** the continued fraction of `θ` to 80 terms from a two-sided rational enclosure `lo < θ < hi` built from the correctly rounded `decimal` logarithms of 2 and 3 at precisions 160 and 220 (the four expansions agree on all 80 terms; the reals with a given initial expansion form an interval containing `lo` and `hi`, hence `θ`), the convergents by the recurrence, and the exact integer cross-check `2^(p_k) > 3^(q_k)` for odd `k` and `<` for even `k` on the nine convergents with `q_k ≤ 3000`; **V2** `3·0.481·ln 2 > 1` against the enclosure of `ln 2`; **V3** for `L = 2^40, 2^60, 2^68, 2^71`, the admissible pairs below `q_K` (with `K` the first index giving at least three admissible `m`), each candidate `(k, x, y)` of Theorem 2 decided by the enclosure of `e_k, e_(k+1)` (an undecided candidate fails the certificate), the least `m`, the least `m + A`, and the first pairs with their lattice coordinates; **V4** controls: on all 2,459 cycles of the `3x+d` corpus ([`actual-cycles-3x-d-corpus`](../actual-cycles-3x-d-corpus/README.md), 333 values of `d ≤ 999`), the exact identity `2^A·Π n_i = Π(3n_i + d)` and the exact inequalities `3^m < 2^A ≤ (3 + d/L)^m` (cleared of denominators), with equality exactly for the one-state cycles; **V5** the receipt [`cycle_length_convergents.json`](cycle_length_convergents.json) (`--write-receipt` regenerates it). Finite statements only; the theorems' proofs are the text above.
@@ -106,3 +121,4 @@ In both cases (1) gives `|x|·e_k + |y|·e_(k+1) = A − mθ < 0.481·m/L < 0.48
 ## History
 
 - Written 2026-10-31 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, as the first replayed period bound in the repository. A first draft of the same day used only the coarse step `|mθ − A| ≥ e_k` and stated `m ≥ q_22 = 65,470,613,321`; the certificate's sharpness check showed that `(q_22, p_22)` lies on the wrong side of `θ`, and the full lattice classification (Theorem 2) replaced it before the node was merged.
+- 2026-10-31, later: Theorems 1 and 2 formalised in Lean (`LeanLane.CycleInequality`: the product identity, the integer forms of (1), and the lattice lemma); status stays `written` because the Corollary's enumeration is the certificate's (Claude cycles lane, Fable 5.1).

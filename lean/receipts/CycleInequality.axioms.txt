@@ -1,0 +1,5 @@
+source sha256: 54e1cbd37fae21a4f9c9948ad39811b3c75df03e8525880348bdfa83fb8a59ce
+'LeanLane.CycleInequality.prod_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.CycleInequality.three_pow_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.CycleInequality.pow_le_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.CycleInequality.lattice_lemma' depends on axioms: [propext, Classical.choice, Quot.sound]
