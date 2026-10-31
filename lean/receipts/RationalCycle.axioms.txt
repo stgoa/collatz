@@ -1,0 +1,4 @@
+source sha256: 950e780818a0c7dc66b6b258ae2018afab7f41a7b6e337f63c9d7de1f5f623c1
+'LeanLane.RationalCycle.rotation_identity' depends on axioms: [propext]
+'LeanLane.RationalCycle.dvd_C_rotate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RationalCycle.reduced_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]

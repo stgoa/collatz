@@ -19,6 +19,8 @@ tags: [cycles, denominators, cancellation, cyclotomic-factors, rotation-distance
 
 ## Question
 
+**Correction 2026-10-31 (same day): part (A) as posed is false.** The complete census [`rho-four-census-letters-three`](../results/rho-four-census-letters-three/README.md) finds the word `(1,1,2,2,1,3,1,2,2,2,3,3)` (`m = 12`, `A = 23`, `gcd(A, m) = 1`, `ρ = 4`, the word of a `3x+1327` cycle) with `g_prim = G = 5921 > 2^(11.5)`, and another at `m = 20`. Both are far from critical (`2^A/3^m = 15.8` and `2.46`); no near-critical word (`2^A < 2·3^m`) violates either bound in that census. The open forms are therefore the **near-critical** ones: (A′) `g_prim < 2^(A/2)` and (B) `G² < 2^A` for near-critical primitive words with `ρ ≤ 4` and `m ≥ 9` (B implies A′), and (C). The text below is kept as posed.
+
 Notation of [`conventions/NOTATION.md`](../../../conventions/NOTATION.md) §2 and of [`algebraic-and-primitive-cancellation-census`](../results/algebraic-and-primitive-cancellation-census/README.md): `w` primitive positive, `m`, `A`, `D = 2^A − 3^m > 0`, `G = gcd(C_w, D)`, `ρ(w)` its rotation distance, `e = gcd(A, m)`,
 
 ```
@@ -47,6 +49,7 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
 - **The refutation of the plain form** and what it shows: the algebraic factor is realised in full by every rotation pair `(R_r u, R_s u)` of an actual `3x+d` cycle with `d | n_r + n_s`, so the plain bound rests on the primitive part being below `1/(1 − 3^(m/2)/2^(A/2))`; three cycle classes with `d ≤ 20,000` break it at `ρ = 4`, none of them near-critical ([`half-cancellation-counterexample-rotation-pair`](../results/half-cancellation-counterexample-rotation-pair/README.md)). Among 1,809 corpus pairs the plain bound also fails at `ρ = 8, 10, 12, …` with primitive parts up to 305.
 - **Three mismatches by elimination: vacuous** ([`three-arc-intercept-elimination`](../attempts/three-arc-intercept-elimination/README.md)). **Obstructions** to the known routes for `s ≥ 3`: [`coupled-defect-matrix-smith-form`](../results/coupled-defect-matrix-smith-form/README.md), [`three-defect-arbitrary-background`](../results/three-defect-arbitrary-background.md), [`termwise-plateau-divisibility`](../attempts/termwise-plateau-divisibility.md).
 - **Rotation pairs, exactly.** For `w = (R_r u, R_s u)` built from two rotations of an actual `3x+d` cycle word, `gcd(C_w, D_w) = G_u·gcd(n_r + n_s, d)·gcd(n_r − n_s, 2^S + 3^n)` ([`rotation-pair-words-exact-cancellation`](../results/rotation-pair-words-exact-cancellation/README.md), from the formal [`doubled-word-cancellation-formula`](../results/doubled-word-cancellation-formula/README.md)): the primitive-side factor is the gcd of a state difference with `2^S + 3^n`, at most 67,721 over 8.2 million pairs, so (A) holds throughout this family and says there that two states of a `3x+d` cycle never differ by a multiple of a divisor `≥ 2^S` of `2^S + 3^n`.
+- **(A) refuted; the near-critical forms remain.** [`rho-four-census-letters-three`](../results/rho-four-census-letters-three/README.md) enumerates every primitive word with letters `≤ 3`, `9 ≤ m ≤ 20`, `D > 0` and `ρ ≤ 4` over all shifts (979,497 words, 29,052 near-critical): eight violate the plain bound, two of them with `gcd(A, m) = 1` (so `g_prim = G > 2^(A/2)`), all eight far from critical, none near-critical; the closest near-critical word for `m ≤ 16` is 1.0 bits below the bound. A labelled random-divisor heuristic predicts exactly this pattern: a handful of far-from-critical violations and about `0.3·c` near-critical ones, with the expected number per `m` decreasing in `m`.
 
 ## Suggested attacks
 
@@ -61,3 +64,4 @@ Proposals, not results.
 
 - Posed 2026-10-31 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, as the surviving form of [`half-cancellation-for-few-mismatch-words`](half-cancellation-for-few-mismatch-words.md) after its refutation the same day.
 - 2026-10-31, later: Known progress gains the exact rotation-pair formula (Claude cycles lane, Fable 5.1).
+- 2026-10-31, later: part (A) refuted by [`rho-four-census-letters-three`](../results/rho-four-census-letters-three/README.md); the question continues in its near-critical forms (A′), (B) and (C) (Claude cycles lane, Fable 5.1).
