@@ -2,7 +2,7 @@
 id: lifted-inverse-ray-cycle
 kind: result
 title: "A lifted inverse ray with the rotated minus-twenty-five cycle: a complete threshold table and new descending subrows"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). On the R60 domain (w = 3445 mod 3456, v0 = (16w-13)/27 = 0 mod
   3, q = rho(w)) lift the base ray to b = 512 v0 + 113 (ordinary tail (2,7,1,4) to q), take the maximal number k of
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-18
     link: r64_lifted_cycle_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 05:36, VERIFIED; probe hardened at 06:27 to assert all 85 cells built), with the lane's own odd-only step: 85 CRT-built boundary cells k in {0, 1, 6, 7, 12, 13, 19, 20, ..., 75, 80, 81, 85} with j in {J-1, J, J+1}: the word from b to q is (2,7,1,4), the word from eta to q is exactly 1^j, C^k, 2,7,1,4 (up to about 600 arrows), and eta < q exactly when j >= J(k). Per the main lane's review (side_lane_review_cbe77bc.md): one seed per cell, remainders h - 7k only 0 or 1, no interior or large k, no full signed plans, W9 substitution, dispatcher priority or supply. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Sections 1-5 re-derived with independent code (own S, nu, rho and W5-only H): domain, lifted ray word, cycle inverses and words (3), feasibility table, height formulas (4)-(5) and the complete acceptance table by exact integers for k < 120, full signed plans on 40 cells including the special row's equality with R56's ray-4 depth-0 plan, CRT realisations (292 cells), the 18- and 24-arrow rows inside six R61 families and the witness 36641534965; certificate re-run (PASS, exit 0, 6 s); 3x+5 control. Verdict HOLDS; one wording imprecision (uniqueness is at the top rank eta), the fifteen-rule exclusion rests on the written node R63"
 aliases: [R64]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, inverse-rays, negative-cycle-shadow]
 ---
@@ -323,3 +327,4 @@ undos in the same receipt have their separate stated scope.
 
 - Migrated from `experiments/residual_progress/refined_obstruction/LIFTED_CYCLE.md` (legacy ID R64) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). The note moved byte-identical before editing; the joint constructor, checker and receipt went to [`exponent-eleven-fifteen-rule-classification`](../exponent-eleven-fifteen-rule-classification/README.md). The side-lane probe `reviews/side_lane/r64_lifted_cycle_check.*` and the main lane's review `experiments/residual_progress/side_lane_review_cbe77bc.md` and `.json` moved here; `check_legacy_replay.py` was added at the migration. Legacy status: "written conditional construction and full arithmetic classification for a specified inverse family".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `793e835`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that in a failed plan the unique request is the one of top rank `η` (further requests of rank between `q` and `η` can occur, as Proof §3 already allows), that the fifteen-rule exclusion of Statement 3 rests on [`exponent-eleven-fifteen-rule-classification`](../exponent-eleven-fifteen-rule-classification/README.md) (`written`), and that the node's own certificate replays only the side-lane probe. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

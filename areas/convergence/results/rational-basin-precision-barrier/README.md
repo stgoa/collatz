@@ -2,7 +2,7 @@
 id: rational-basin-precision-barrier
 kind: result
 title: "A finite rational basin bounds every inverse word at c0, so no smaller original source reaches the repeated target within 12r + 5 steps"
-status: written
+status: reviewed
 claim: >
   Computer-assisted. Odd-only 3x+1 map S, absorbing at 1, canonical quotient T = nu S, extended to the signed
   canonical quotient on rationals with reduced denominator D = 7153. At c0 = -899841/7153, every legal finite
@@ -31,6 +31,10 @@ reviewed_by:
     date: 2026-10-18
     link: c0_basin_classify.c
     scope: "Finite only (side-lane feed entry 2026-10-18 06:34, FINDING (exhaustive, independent C)): '**Validation on R91's universe** (`7153 < u < 7277133`). Every published figure matches exactly: 1,732,883 eligible origins; 19 in the c₀ basin; largest intermediate numerator 1,049,066,989,135; smallest weighted slope μ = 1.' and 'Neither the candidate's reduction (§§2–5) nor the R91 theorem is re-proved; this entry supplies only the exhaustive finite table the candidate requires.' Reproduced by the main lane in side_lane_review_8ed32bc.md, which notes that the minimum slope is a floating-point diagnostic. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (signed quotient, branch inequalities (5), shadow legality on 160 branches, reduction (6)-(7), centre identity (9), corollary (10)-(12), R90 identities re-confirmed with an independent integer quotient) and the 1,732,883-origin classification reproduced exactly by an independent implementation (19 hits, same table, largest numerator 1,049,066,989,135); both certificates re-run (PASS, exit 0, 19 s each); verdict HOLDS"
 aliases: [R91]
 tags: [convergence, outer-residual, computer-assisted, rational-shadow, inverse-barrier, ternary-precision]
 ---
@@ -380,3 +384,4 @@ not a nonmembership result.
 - Migrated from `experiments/residual_progress/shadow_precision/SHADOW_PRECISION.md` (legacy ID R91) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "computer-assisted inverse-word theorem with a written positive-source corollary".
 - The side-lane C program and wrapper `reviews/side_lane/c0_basin_classify.c`, `c0_basin_receipt.*` and the main lane's review `side_lane_review_8ed32bc.*` (`experiments/residual_progress/`) moved here.
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `a94533a`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections; the finite classification was reproduced by an independent implementation. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

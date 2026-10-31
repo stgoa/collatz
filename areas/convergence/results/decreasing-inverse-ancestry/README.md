@@ -2,7 +2,7 @@
 id: decreasing-inverse-ancestry
 kind: result
 title: Complete decreasing canonical inverse chains extend the run-bridge cutoff test to lower partners of unbounded-height returns
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; B, nu and the canonical predecessors are those of
   elementary-bridge-quotient-normal-form, and f is the return of complementary-run-bridges (R26). (Inverse
@@ -34,6 +34,10 @@ reviewed_by:
     date: 2026-10-17
     link: ../mixed-shrinking-pair-rules/batch_r33_r36_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 21:06, VERIFIED, main 1603bf3; the R34 part): eta(q) = 2^h(q+1)/3^h - 1 with h = v3(q+1) satisfies S^h(eta(q)) = q for every odd q < 20000; on the cylinder x = 19199 (mod 65536) the numerators of q and p are exact, and S^9(x) = S^2(p); root 84735 gives q = 67865 > N and p = 45243 < N at N = 65536. The written arguments were not re-derived; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived with independent code (own S, nu, canonical, R26 return and R_N): the inverse chain and the valuation-1 components for all canonical q < 2^18 with brute-force predecessors, formulas (6)-(8) on all 32,768 complementary roots below 2^18, the small cylinder (400 members, seven cutoffs), the families for h = 2..9 (parameters, (15)-(18), words, ray witnesses, own CRT counter validated by brute force), the profile counts at the eight receipt cutoffs by enumeration (1562/1563 at 65536) and the two stored currents; both certificates re-run (PASS, exit 0, 0.43 s and 6 s); the 3x+5 and 3x+13 analogues of the chain checked on the fixture cycles. Verdict HOLDS; one minor gap (the directed-path step of the finite component lemma) and two imprecisions, no correction"
 aliases: [R34]
 tags: [convergence, outer-residual, complementary-family, inverse-ancestry, normal-form, conditional, constructive]
 ---
@@ -488,3 +492,4 @@ construction still needs additional arithmetic information or mergers.
 
 - Migrated from `experiments/residual_progress/inverse_ancestry/INVERSE_ANCESTRY.md` (legacy ID R34) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts, receipt and the two stored currents moved byte-identical; `check_inverse_ancestry_recompute.py` was added at the migration. Legacy status: "written arithmetic extension, exact full-profile counting formula and finite currents" (the note itself opens "Written arithmetic proofs and finite certificates").
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `1603bf3`. The legacy index's "independent proof/code/count audits" were the main lane's own agents. The side lane's finite check is recorded under `reviewed_by`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review supplies the directed-path step of the finite component lemma used after (5) (every row has one out-edge, so the weak component of `x`, which contains the killed sink 1, is an in-tree to 1), notes the `q = 1` exception to Statement 1's "only smaller predecessor" (stated in the proof) and that the `O(log^5 N)` count of Statement 5 has no explicit constant and no certificate beyond the eight cutoffs. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

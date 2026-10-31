@@ -2,7 +2,7 @@
 id: whole-packet-historical-certificates
 kind: result
 title: Whole-packet historical searches give an exact current at N = 65536 and a one-sided current at N = 2053 that cancels unresolved futures
-status: written
+status: reviewed
 claim: >
   Finite statements, odd-only 3x+1 map absorbing at 1, right-aligned packets Π^R_N. (a) Stored, checked
   certificates: an exact current for Π^R_65536 with 53,621 nonzero rows and positive cost 74,725, and a current
@@ -21,6 +21,11 @@ certificates: [check_stored_currents.py, check_legacy_replay.py]
 evidence:
   - "whole_packet_demo.py, whole_packet_audit.json, and the four CSV tables: the legacy experiment that ran the searches, rebuilt each packet, checked every divergence, compared exact historical currents with synchronous ones, and checked the stored tables and its receipt. Fails at its new path: it imports verify_obstructions from its own folder (now ../orbit-component-current-criterion/) and loads experiments/packet_currents/right_aligned_packets.py relative to the repository root (now ../right-aligned-fixed-core-remainder/). Passed at be73a66 as experiments/current_construction/obstructions/whole_packet_demo.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "The depth table, the unlinked-source counts and the synchronous comparison rest on that legacy run and its receipt; check_stored_currents.py re-checks only the two stored tables (part (a))"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Own packets, own historical search and routing: both stored tables verified and reproduced row for row (the 65536 table equals the synchronous current), all twenty search depths, the synchronous depths and the unlinked-source counts at every cutoff recomputed; uniqueness lemma re-derived and tested against the cycle circulations of 3x+5; both certificates passed; verdict HOLDS WITH CORRECTIONS (statement (c) now says which cutoffs lie on the 30-ray grid)"
 aliases: [R7-c]
 tags: [convergence, packet-currents, right-aligned, finite-certificate, historical-search]
 ---
@@ -55,7 +60,7 @@ Odd-only clock, absorbing at 1; packets `Π^R_N` as in [`right-aligned-fixed-cor
 
 Depth means the maximum exposed prefix length from each original source; it is not a current-row count, a wall-clock measure, or the length of paths assembled by joining prefixes.
 
-**(c) Cancellation versus compressed halting.** At the deliberately chosen non-grid cutoff **2053**, the exact current is found while **27 sources have no path to 1 in the exposed graph**; they occupy two components of mass zero, with 18 and 9 sources, and their futures cancel without being followed to the absorber. The one-sided certificate stops earlier, with 32 sources unlinked to 1 across six components of masses `0, 0, −2, −1, −1, −1`. At all the sampled earlier 30-ray cutoffs, and at 65536 (also on the five-ray grid), the exposed graph at exact success already links every source to 1.
+**(c) Cancellation versus compressed halting.** At the deliberately chosen non-grid cutoff **2053**, the exact current is found while **27 sources have no path to 1 in the exposed graph**; they occupy two components of mass zero, with 18 and 9 sources, and their futures cancel without being followed to the absorber. The one-sided certificate stops earlier, with 32 sources unlinked to 1 across six components of masses `0, 0, −2, −1, −1, −1`. At all the sampled earlier 30-ray cutoffs, and at 65536 (also on the five-ray grid), the exposed graph at exact success already links every source to 1. (Of the ten cutoffs, 120, 236, 480, 1984, 3008, 15104 and 65536 lie on the 30-ray grid `{m·2^b : 30 ≤ m ≤ 59, b ≥ 2}` of [`mesh-maximum-principle-alternative-grids`](../mesh-maximum-principle-alternative-grids.md); 517, 2053 and 8197 are odd and lie on no dyadic grid. Every source is linked to 1 at exact success at all nine cutoffs other than 2053; clarification added at the review of 2026-10-31.)
 
 ## Proof
 
@@ -81,3 +86,4 @@ Exact finite computation. The searches, divergence checks and depth table come f
 
 - Migrated from `experiments/current_construction/obstructions/whole_packet_findings.md` (part of the legacy R7 round) at commit `be73a66`, by the B08 migration (Claude, Opus 5.5); the demo, receipt and four tables moved byte-identical. `check_stored_currents.py` was added at the migration because the demo no longer runs at its new path. Legacy status: "finite certificate results"; "these experiments do not prove universal existence, a uniform exposure depth, or Collatz convergence".
 - Main lane (ChatGPT, Codex), 2026-10-17. No review from another lane is on record.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Correction: Statement (c) now names which of the ten cutoffs lie on the 30-ray grid (517 and 8197 are odd and lie on no dyadic grid; the assertion holds for them too). Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
