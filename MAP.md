@@ -55,21 +55,21 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 
 | Result | Title | Status | Chain | Rests on | Lean |
 |---|---|---|---|---|---|
-| [`absorbed-fibre-uniform-counts`](areas/convergence/results/absorbed-fibre-uniform-counts/README.md) | A supplied current through N certifies the infinite elementary closure I_N, whose count i… | written | written | — |  |
-| [`absorption-defect-original-rank-resolution`](areas/convergence/results/absorption-defect-original-rank-resolution/README.md) | Sigma/rho compatibility and the original-rank resolution of the unique fifth-family absor… | written | written | — |  |
+| [`absorbed-fibre-uniform-counts`](areas/convergence/results/absorbed-fibre-uniform-counts/README.md) | A supplied current through N certifies the infinite elementary closure I_N, whose count i… | reviewed | written | — |  |
+| [`absorption-defect-original-rank-resolution`](areas/convergence/results/absorption-defect-original-rank-resolution/README.md) | Sigma/rho compatibility and the original-rank resolution of the unique fifth-family absor… | reviewed | written | — |  |
 | [`actual-graph-current-compiler`](areas/convergence/results/actual-graph-current-compiler/README.md) | Thirty actual one-sided packet certificates compile into a 95-row integer absorption curr… | written | written | — |  |
 | [`adjacent-source-defect-equivalence`](areas/convergence/results/adjacent-source-defect-equivalence/README.md) | The whole returning absorption defect is an adjacent-source comparison, modulo strictly s… | written | written | — |  |
-| [`affine-common-tail-tree-lifting`](areas/convergence/results/affine-common-tail-tree-lifting/README.md) | Finite common-tail Syracuse trees lift to affine families of exact currents, and one such… | written | written | — |  |
+| [`affine-common-tail-tree-lifting`](areas/convergence/results/affine-common-tail-tree-lifting/README.md) | Finite common-tail Syracuse trees lift to affine families of exact currents, and one such… | reviewed | reviewed | — |  |
 | [`annular-complement-outer-descent`](areas/convergence/results/annular-complement-outer-descent/README.md) | A capacity-checked annular block certifies its negative atoms and the outer roots whose e… | written | written | — |  |
 | [`annular-root-collapse-contraction`](areas/convergence/results/annular-root-collapse-contraction.md) | Collapsing 4x+1 chains to their roots contracts every annulus to 19/22 of its norm in one… | written | written | — |  |
 | [`ansari-sieve-step-counterexample`](areas/convergence/results/ansari-sieve-step-counterexample/README.md) | A displayed set identity in the proof of Ansari's recursive sieve lemma fails at n = 1 | written | written | — |  |
-| [`arbitrary-target-linear-transport-barrier`](areas/convergence/results/arbitrary-target-linear-transport-barrier/README.md) | No finite constant bounds first-half transport into arbitrary target sets with a uniform… | reviewed | written | — |  |
+| [`arbitrary-target-linear-transport-barrier`](areas/convergence/results/arbitrary-target-linear-transport-barrier/README.md) | No finite constant bounds first-half transport into arbitrary target sets with a uniform… | reviewed | reviewed | — |  |
 | [`auxiliary-normalisation-remainder`](areas/convergence/results/auxiliary-normalisation-remainder/README.md) | A terminating, order-independent auxiliary normalization of the annulus leaves at least 2… | written | written | — |  |
 | [`bad-set-transport-bootstrap`](areas/convergence/results/bad-set-transport-bootstrap.md) | What a half-descent transport inequality for the actual nonabsorbing set would give, and… | written | written | — |  |
-| [`base-inverse-phases-increasing-pairs`](areas/convergence/results/base-inverse-phases-increasing-pairs/README.md) | The two base inverse rays on the nonselected critical-five domain decrease rank on two te… | written | written | — |  |
-| [`baseline-obligation-transfer-controls`](areas/convergence/results/baseline-obligation-transfer-controls/README.md) | Exact 3x+d cycles refute the ordinary descent, absorption and no-cycle analogues of three… | written | written | — |  |
+| [`base-inverse-phases-increasing-pairs`](areas/convergence/results/base-inverse-phases-increasing-pairs/README.md) | The two base inverse rays on the nonselected critical-five domain decrease rank on two te… | reviewed | written | — |  |
+| [`baseline-obligation-transfer-controls`](areas/convergence/results/baseline-obligation-transfer-controls/README.md) | Exact 3x+d cycles refute the ordinary descent, absorption and no-cycle analogues of three… | reviewed | reviewed | — |  |
 | [`binary-residue-projection-information-loss`](areas/convergence/results/binary-residue-projection-information-loss.md) | Every fixed binary-residue view eventually sees each annular band as the zero measure | written | written | — |  |
-| [`binary-return-exit-control`](areas/convergence/results/binary-return-exit-control/README.md) | The guarded Phi return has an exact binary countdown and a complete nineteen-row exit tab… | written | written | — |  |
+| [`binary-return-exit-control`](areas/convergence/results/binary-return-exit-control/README.md) | The guarded Phi return has an exact binary countdown and a complete nineteen-row exit tab… | reviewed | written | — |  |
 | [`bounded-history-clock-exclusion`](areas/convergence/results/bounded-history-clock-exclusion/README.md) | No uniformly bounded pair of history clocks reaches every critical input, even over all i… | written | written | — |  |
 | [`bounded-packet-certificate-obstruction`](areas/convergence/results/bounded-packet-certificate-obstruction.md) | Some actual right-aligned packet needs more than H current rows, for every H | written | written | — |  |
 | [`bounded-runs-exclude-finite-label-potentials`](areas/convergence/results/bounded-runs-exclude-finite-label-potentials/README.md) | Repeating the eight-step word (1,2,1,1,1,1,2,2) gives arbitrarily many increasing run ret… | written | written | — |  |
@@ -113,10 +113,10 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`forward-blocks-low-exponent-tests`](areas/convergence/results/forward-blocks-low-exponent-tests/README.md) | Complete forward blocks on the nonselected critical-five domain, with exact low-exponent… | written | written | — |  |
 | [`four-target-history-classification`](areas/convergence/results/four-target-history-classification/README.md) | On a whole remaining cell, only the original source reaches the direct target and its fir… | written | written | — |  |
 | [`fourteen-step-window-original-source`](areas/convergence/results/fourteen-step-window-original-source/README.md) | Fourteen more inverse-history steps admit only the original source at the repeated target | written | written | — |  |
-| [`growing-prefix-unhandled-leading-input`](areas/convergence/results/growing-prefix-unhandled-leading-input/README.md) | Arbitrarily long growing prefixes keep an unhandled leading input for the seven direct ru… | written | written | — |  |
+| [`growing-prefix-unhandled-leading-input`](areas/convergence/results/growing-prefix-unhandled-leading-input/README.md) | Arbitrarily long growing prefixes keep an unhandled leading input for the seven direct ru… | reviewed | written | — |  |
 | [`growth-norm-transport-barrier`](areas/convergence/results/growth-norm-transport-barrier/README.md) | First-half transport cannot contract any power-growth norm on arbitrary targets, although… | written | written | — |  |
 | [`guarded-cycle-exit-phases`](areas/convergence/results/guarded-cycle-exit-phases/README.md) | Exact guarded cycles and all exit phases on the R54 entry phase, with a descending exit a… | written | written | — |  |
-| [`halving-coalescence-return`](areas/convergence/results/halving-coalescence-return/README.md) | A halving identity certifies the selected half of the outer residual from smaller seeds,… | written | written | — |  |
+| [`halving-coalescence-return`](areas/convergence/results/halving-coalescence-return/README.md) | A halving identity certifies the selected half of the outer residual from smaller seeds,… | reviewed | written | — |  |
 | [`high-smaller-origin-history`](areas/convergence/results/high-smaller-origin-history/README.md) | A smaller origin meeting the target above its height gives a decreasing plan on a blocked… | written | written | — |  |
 | [`history-beyond-prescribed-growth`](areas/convergence/results/history-beyond-prescribed-growth/README.md) | For every prescribed number of native returns, explicit cells have a smaller-origin histo… | written | written | — |  |
 | [`immediate-self-loop-lower-relations`](areas/convergence/results/immediate-self-loop-lower-relations/README.md) | The immediate blocked-W9 self-loop of R75 is zero except on u = 453 mod 576, where it reu… | written | written | — |  |
@@ -127,8 +127,8 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`lifted-inverse-ray-cycle`](areas/convergence/results/lifted-inverse-ray-cycle/README.md) | A lifted inverse ray with the rotated minus-twenty-five cycle: a complete threshold table… | written | written | — |  |
 | [`local-packet-calibration-extension`](areas/convergence/results/local-packet-calibration-extension/README.md) | Inner absorption gives an automatic one-sided packet input whose residual is exactly the… | written | written | — |  |
 | [`locally-collatz-like-control-barrier`](areas/convergence/results/locally-collatz-like-control-barrier/README.md) | The packet criterion fails on 3x+d maps with cycles, including 3x+61, which looks like Co… | reviewed | reviewed | — |  |
-| [`low-block-continuation-prescribed-growth`](areas/convergence/results/low-block-continuation-prescribed-growth/README.md) | Low-block forward continuation through unbounded prescribed growth, and the nine-family r… | written | written | — |  |
-| [`maximal-inverse-cycle-continuation`](areas/convergence/results/maximal-inverse-cycle-continuation/README.md) | Maximal inverse-cycle continuation on a failed selected row, with a complete descent table | written | written | — |  |
+| [`low-block-continuation-prescribed-growth`](areas/convergence/results/low-block-continuation-prescribed-growth/README.md) | Low-block forward continuation through unbounded prescribed growth, and the nine-family r… | reviewed | written | — |  |
+| [`maximal-inverse-cycle-continuation`](areas/convergence/results/maximal-inverse-cycle-continuation/README.md) | Maximal inverse-cycle continuation on a failed selected row, with a complete descent table | reviewed | written | — |  |
 | [`merger-catalogue-scope`](areas/convergence/results/merger-catalogue-scope/README.md) | Unrestricted common-tail certification equals the basin of 1, elementary closure obeys S(… | written | written | — |  |
 | [`mesh-maximum-principle-alternative-grids`](areas/convergence/results/mesh-maximum-principle-alternative-grids.md) | A mesh maximum principle reduces the current criterion to any grid of bounded ratio, with… | written | written | — |  |
 | [`missing-one-mod-8-pair-domain`](areas/convergence/results/missing-one-mod-8-pair-domain/README.md) | Two complete branches enter the paired recursion from the missing domain w = 1 mod 8 and… | written | written | — |  |
@@ -158,7 +158,7 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`ray-index-decision-count-obstruction`](areas/convergence/results/ray-index-decision-count-obstruction/README.md) | Every inverse-ray index of a two-rotation cycle/point procedure is decidable, and it acce… | written | written | — |  |
 | [`reflected-negative-annulus-control`](areas/convergence/results/reflected-negative-annulus-control.md) | A reflected annulus on the negative integers has zero work and zero band masses yet admit… | written | written | — |  |
 | [`release-source-packing`](areas/convergence/results/release-source-packing/README.md) | Two further disjoint cancellation families raise the universal partial current's removed… | written | written | — |  |
-| [`retained-graph-complement-constructor`](areas/convergence/results/retained-graph-complement-constructor/README.md) | Retaining every cutoff arrow absorbs all seeds up to N and 47/72 of the outer shell, leav… | written | written | — |  |
+| [`retained-graph-complement-constructor`](areas/convergence/results/retained-graph-complement-constructor/README.md) | Retaining every cutoff arrow absorbs all seeds up to N and 47/72 of the outer shell, leav… | reviewed | written | — |  |
 | [`retained-history-w9-reduction`](areas/convergence/results/retained-history-w9-reduction/README.md) | Retaining the strict lower history gives a sharp three-node critical-nine reduction on a… | written | written | — |  |
 | [`returning-forward-interface`](areas/convergence/results/returning-forward-interface/README.md) | A complete forward interface on the returning W5 row, with strict-rank subdomains and arb… | reviewed | written | — |  |
 | [`returning-second-forward-interface`](areas/convergence/results/returning-second-forward-interface/README.md) | A second complete forward run before requesting inputs on the returning W5 row | written | written | — |  |
@@ -167,7 +167,7 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`root-transport-normal-form`](areas/convergence/results/root-transport-normal-form/README.md) | Root collapse and transport reduce to four normal forms, and explicit top-band atoms surv… | written | written | — |  |
 | [`route-literature-transfer-audit`](areas/convergence/results/route-literature-transfer-audit.md) | Scope of the published benchmarks for the Phase 6 routes: what each theorem states, what… | written | written | — |  |
 | [`same-seed-factor-complexity-bound`](areas/convergence/results/same-seed-factor-complexity-bound/README.md) | A fixed positive survivor of the exit-18 return system has factor complexity above 18.28… | written | written | — |  |
-| [`selected-critical-five-forward-tables`](areas/convergence/results/selected-critical-five-forward-tables/README.md) | Complete forward tables for selected critical-five inputs, with infinite decreasing domai… | written | written | — |  |
+| [`selected-critical-five-forward-tables`](areas/convergence/results/selected-critical-five-forward-tables/README.md) | Complete forward tables for selected critical-five inputs, with infinite decreasing domai… | reviewed | written | — |  |
 | [`seventeen-family-rho-dispatcher`](areas/convergence/results/seventeen-family-rho-dispatcher/README.md) | Seventeen conditional strict-rank families with fixed inner resolvers | written | written | — |  |
 | [`short-delay-all-phase-obstruction`](areas/convergence/results/short-delay-all-phase-obstruction/README.md) | The three-source chain stays isolated in 17/18 and 53/54 of the ternary phases, refuting… | written | written | — |  |
 | [`shrinking-paired-return-recursion`](areas/convergence/results/shrinking-paired-return-recursion/README.md) | A decreasing paired recursion merges 3w with w on complete cylinders of every recursive d… | written | written | — |  |
@@ -175,10 +175,10 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`signed-pair-frontier-normalisation`](areas/convergence/results/signed-pair-frontier-normalisation/README.md) | Exact normalisation and cancellation of signed pair frontiers by two pair identities | written | written | — |  |
 | [`signed-path-collapse-capacity`](areas/convergence/results/signed-path-collapse-capacity/README.md) | The restricted graph E0 is a union of paths; signed collapse and intermediate capacity be… | written | written | — |  |
 | [`sparse-paired-exact-current-criterion`](areas/convergence/results/sparse-paired-exact-current-criterion.md) | Exact currents at arbitrarily sparse pairs of cutoffs N_j, N_j − 1 imply Collatz converge… | written | written | — |  |
-| [`supplied-path-saturation-core`](areas/convergence/results/supplied-path-saturation-core/README.md) | Supplied absorption paths through N saturate to an infinite target set whose first Syracu… | written | written | — |  |
+| [`supplied-path-saturation-core`](areas/convergence/results/supplied-path-saturation-core/README.md) | Supplied absorption paths through N saturate to an infinite target set whose first Syracu… | reviewed | written | — |  |
 | [`tao-printed-window-vacuity`](areas/convergence/results/tao-printed-window-vacuity/README.md) | With its printed parameters, Tao's first-passage window is empty below log x ≈ 6.27·10^13… | reviewed | reviewed | `tao-2019-almost-all` |  |
 | [`tripling-doubling-pair-decomposition`](areas/convergence/results/tripling-doubling-pair-decomposition/README.md) | After the run bridge, every complementary root reduces exactly to tripling and doubling p… | written | written | — |  |
-| [`twelve-family-rho-dispatcher`](areas/convergence/results/twelve-family-rho-dispatcher/README.md) | Twelve conditional strict-rank families under one fixed-priority dispatcher | written | written | — |  |
+| [`twelve-family-rho-dispatcher`](areas/convergence/results/twelve-family-rho-dispatcher/README.md) | Twelve conditional strict-rank families under one fixed-priority dispatcher | reviewed | written | — |  |
 | [`two-inverse-phases-intermediate-increase`](areas/convergence/results/two-inverse-phases-intermediate-increase/README.md) | Two inverse phases cross an intermediate increase and reach strict rank decrease | written | written | — |  |
 | [`two-selected-inverse-choices`](areas/convergence/results/two-selected-inverse-choices/README.md) | Two selected inverse choices give exact strict-rank domains and escape arbitrarily long f… | reviewed | written | — |  |
 | [`two-source-normalisation-first-departure`](areas/convergence/results/two-source-normalisation-first-departure/README.md) | Both original histories normalise the coupled pair to [864z - 257] - [z], with a complete… | written | written | — |  |
@@ -186,7 +186,7 @@ Overview: [`areas/convergence/OVERVIEW.md`](areas/convergence/OVERVIEW.md)
 | [`uniform-fixed-word-pair-exclusion`](areas/convergence/results/uniform-fixed-word-pair-exclusion/README.md) | No uniformly smaller affine W5 partner with four fixed valuation words on the whole mixed… | written | written | — |  |
 | [`universal-annular-partial-current`](areas/convergence/results/universal-annular-partial-current/README.md) | Every annulus A_N has an explicit partial current that removes positive mass 73N/48 + O(1… | written | written | — |  |
 | [`valuation-debt-reset-obstruction`](areas/convergence/results/valuation-debt-reset-obstruction/README.md) | Valuation debt decreases on the growing block but resets on a valid R44 family: no two-ph… | written | written | — |  |
-| [`variable-depth-inverse-escape-barrier`](areas/convergence/results/variable-depth-inverse-escape-barrier/README.md) | A variable-depth two-block inverse escape with smaller W5 inputs, and fixed-precision inv… | written | written | — |  |
+| [`variable-depth-inverse-escape-barrier`](areas/convergence/results/variable-depth-inverse-escape-barrier/README.md) | A variable-depth two-block inverse escape with smaller W5 inputs, and fixed-precision inv… | reviewed | written | — |  |
 | [`whole-packet-historical-certificates`](areas/convergence/results/whole-packet-historical-certificates/README.md) | Whole-packet historical searches give an exact current at N = 65536 and a one-sided curre… | written | written | — |  |
 
 ### Attempts (approaches that failed or stalled)
@@ -615,6 +615,12 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 ## Recent activity
 
+- 2026-10-31: [`absorbed-fibre-uniform-counts`](areas/convergence/results/absorbed-fibre-uniform-counts/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`absorption-defect-original-rank-resolution`](areas/convergence/results/absorption-defect-original-rank-resolution/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`affine-common-tail-tree-lifting`](areas/convergence/results/affine-common-tail-tree-lifting/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`base-inverse-phases-increasing-pairs`](areas/convergence/results/base-inverse-phases-increasing-pairs/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`baseline-obligation-transfer-controls`](areas/convergence/results/baseline-obligation-transfer-controls/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`binary-return-exit-control`](areas/convergence/results/binary-return-exit-control/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`common-critical-rank-basis`](areas/convergence/results/common-critical-rank-basis/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`complementary-run-bridges`](areas/convergence/results/complementary-run-bridges/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`critical-image-rank-composition`](areas/convergence/results/critical-image-rank-composition/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
@@ -624,22 +630,16 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-31: [`disjoint-annular-recursion`](areas/convergence/results/disjoint-annular-recursion/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`elementary-bridge-quotient-normal-form`](areas/convergence/results/elementary-bridge-quotient-normal-form/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`finite-current-certificate-identity`](areas/convergence/results/finite-current-certificate-identity/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`growing-prefix-unhandled-leading-input`](areas/convergence/results/growing-prefix-unhandled-leading-input/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`halving-coalescence-return`](areas/convergence/results/halving-coalescence-return/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`low-block-continuation-prescribed-growth`](areas/convergence/results/low-block-continuation-prescribed-growth/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`maximal-inverse-cycle-continuation`](areas/convergence/results/maximal-inverse-cycle-continuation/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`mixed-rank-growing-blocks`](areas/convergence/results/mixed-rank-growing-blocks/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`orbit-component-current-criterion`](areas/convergence/results/orbit-component-current-criterion/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`retained-graph-complement-constructor`](areas/convergence/results/retained-graph-complement-constructor/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`returning-forward-interface`](areas/convergence/results/returning-forward-interface/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+- 2026-10-31: [`selected-critical-five-forward-tables`](areas/convergence/results/selected-critical-five-forward-tables/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`sigma-rank-removes-absorption-overhead`](areas/convergence/results/sigma-rank-removes-absorption-overhead/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`two-selected-inverse-choices`](areas/convergence/results/two-selected-inverse-choices/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`cycle-word-repeat-bound`](areas/cycles/results/cycle-word-repeat-bound/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`doubled-word-cancellation-formula`](areas/cycles/results/doubled-word-cancellation-formula/README.md) added (result)
-- 2026-10-31: [`doubled-word-factor-gcd-identities`](areas/cycles/results/doubled-word-factor-gcd-identities/README.md) added (result)
-- 2026-10-31: [`doubled-words-periodic-and-antiperiodic-points`](areas/cycles/results/doubled-words-periodic-and-antiperiodic-points/README.md) added (result)
-- 2026-10-31: [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) added (result)
-- 2026-10-31: [`rotation-pair-words-exact-cancellation`](areas/cycles/results/rotation-pair-words-exact-cancellation/README.md) added (result)
-- 2026-10-31: [`shared-background-copies-via-gap`](areas/cycles/results/shared-background-copies-via-gap/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`small-band-height-residue-matching`](areas/cycles/results/small-band-height-residue-matching/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`two-block-uniform-denominator-growth`](areas/cycles/results/two-block-uniform-denominator-growth/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`band-three-ordering-extension`](areas/cycles/attempts/band-three-ordering-extension/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -647,14 +647,14 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 64.2% | 201 | 9 |
-| Claude side lane | 18.6% | 34 | 132 |
-| Claude Lean lane | 6.6% | 3 | 69 |
-| Claude cycles lane | 3.2% | 11 | 0 |
-| Claude review lane | 3.2% | 0 | 31 |
-| Claude PR1 lane | 2.5% | 6 | 9 |
+| ChatGPT main lane | 63.9% | 201 | 9 |
+| Claude side lane | 17.7% | 34 | 132 |
+| Claude Lean lane | 6.4% | 3 | 69 |
+| Claude review lane | 4.7% | 0 | 46 |
+| Claude cycles lane | 3.1% | 11 | 0 |
+| Claude PR1 lane | 2.4% | 6 | 9 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
-| Claude explicit-Tao lane | 0.9% | 5 | 0 |
+| Claude explicit-Tao lane | 0.8% | 5 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 
 **By accountable person** (agents are credited to the person who directed them; [`conventions/CREDIT.md`](conventions/CREDIT.md) §4):
