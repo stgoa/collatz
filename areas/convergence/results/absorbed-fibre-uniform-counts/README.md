@@ -2,7 +2,7 @@
 id: absorbed-fibre-uniform-counts
 kind: result
 title: A supplied current through N certifies the infinite elementary closure I_N, whose count in every band [X, 2X) is N/4 + O(log N) uniformly in X
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; nu and the canonical set B of elementary-bridge-quotient-normal-form. Let
   I_N = {x > 0 odd : nu(x) <= N} = union of the components {F^k(q), F^k(2q+1)} over canonical q <= N. (Certificates,
@@ -27,6 +27,10 @@ reviewed_by:
     date: 2026-10-17
     link: fibre_count_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 20:23, VERIFIED, main 541101a): the normal form rebuilt by descent from the two bridge moves without importing main's code; brute-force descent on every odd x in [X, 2X) agrees exactly with the count over the components {F^k(q), F^k(2q+1)}, q in B, q <= N, for N in {8, 13, 64, 100, 257, 1000} and X up to N 2^14; the component count stays within the stated bound for X = N 2^64, N 2^200 and N 2^512, the largest error used being 19% of the bound. The written telescoping proof was not re-derived; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (the finite-component lemma and bridge row count of section 1, the level formula, the telescope (8)-(11), the K bound and (12), the hitting-time statement of section 4) and checked with the lane's own nu on 5936 brute-force bands, 120 bands at X up to N 2^1000 and 9000 hitting times; both certificates re-run (PASS, exit 0, 12 s and 6 s); the 3x+d controls fail the hypothesis, as the conditional statement requires. Verdict HOLDS; three imprecision notes, no correction"
 aliases: [R27]
 tags: [convergence, outer-residual, normal-form, known-set, counting, conditional]
 ---
@@ -304,3 +308,4 @@ claim is used.
 
 - Migrated from `experiments/residual_progress/absorbed_fibers/ABSORBED_FIBERS.md` (legacy ID R27) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical, with the side-lane probe `reviews/side_lane/fibre_count_check.*`, which passes at its new path and is the certificate. Legacy status: "written counting theorem and conditional finite certificates".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `541101a`. The batch report (archive/convergence-residual-progress/REPORT.md) records "independent model" proof and code audits for this batch; they were the main lane's own agents, so they do not count as an independent review. The side lane first numbered the halving bridge R27 in its feed and corrected it to R23 on 2026-10-18; this node is main's R27.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction; the review notes that `fibre_count_check.py` checks by `assert` only and rewrites its receipt on every run, that the hypothesis `N >= 8` is not used by the proof, and supplies the missing short argument for "neither of which reaches 1 early" in section 4. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

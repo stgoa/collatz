@@ -2,10 +2,10 @@
 id: maximal-inverse-cycle-continuation
 kind: result
 title: "Maximal inverse-cycle continuation on a failed selected row, with a complete descent table"
-status: written
+status: reviewed
 claim: >
-  Odd-only 3x+1 map S, absorbing at 1; original rank rho(w) = nu(3w), no sigma rule. On selected w = 3445 mod
-  3456 put v = (16w-13)/27, assume 3 | v, and set b = 8v+1, q = rho(w), k = floor(v3(b+17)/7), p = (2048/2187)^k
+  Odd-only 3x+1 map S, absorbing at 1; original rank rho(w) = nu(3w), no sigma rule. On w = 3445 mod 3456 (in
+  W5, with 3w selected) put v = (16w-13)/27, assume 3 | v, and set b = 8v+1, q = rho(w), k = floor(v3(b+17)/7), p = (2048/2187)^k
   (b+17) - 17, j = v3(p+1), eta = 2^j (p+1)/3^j - 1. For k >= 1 the exact ordinary inverse comparison eta -> q
   has word 1^j, (1,1,1,2,1,1,4)^k, 2,1,1,4 and length j+7k+4 (maximal repetitions of that cycle word and maximal
   valuation-1 continuation, not maximality among all inverse choices). The full signed plan descends exactly for
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-18
     link: r60_cycle_inverse_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 04:59, VERIFIED), with the lane's own step and nu: 400 inputs built by CRT with prescribed k = 1..20 (h = 7k) and j = 0..4, four per cell: the ordinary word from eta to q = (81v+23)/32 is exactly 1^j, (1,1,1,2,1,1,4)^k, 2,1,1,4; the height formula eta = lambda q + beta holds exactly; eta < q holds in exactly the cells of the table, including the boundary cells at k = 5/6, 11/12, 17/18. Per the main lane's replay (side_lane_review_64a5981.md), not checked: k = 0, nonzero h - 7k remainders, j >= 5 or k >= 21, complete signed plans and current supply. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Sections 1-5 re-derived (domain, exact word and its maximality, canonicity, height formula (4)-(5), the complete table by exact integer thresholds and monotonicity, the signed plan and its leading request, the CRT families (7)-(10) and the R57 guard count); 3000 eligible seeds and 758 CRT instances checked with the lane's own nu, rho and divergence, the avoidance families to L = 100 against the legacy dispatchers; certificate re-run (PASS, exit 0, 17 s). Verdict HOLDS WITH CORRECTIONS: one wording correction in the claim's domain, meaning unchanged"
 aliases: [R60]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, selected-phase, inverse-rays, negative-cycle-shadow]
 ---
@@ -303,3 +307,4 @@ checks are retained. These are finite evidence counts, not coverage estimates.
 
 - Migrated from `experiments/residual_progress/cycle_inverse/CYCLE_INVERSE.md` (legacy ID R60) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/r60_cycle_inverse_check.*` and the main lane's review `experiments/residual_progress/side_lane_review_64a5981.md` and `.json` moved here. Legacy status: "written word-domain, maximality and complete conditional-plan classification".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `d265d94`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Correction: the claim's domain read "selected w = 3445 mod 3456"; `w` itself is in `W5` and never selected, the hypothesis is that `3w` is selected (automatic on this phase), so the claim now reads "w = 3445 mod 3456 (in W5, with 3w selected)". The review also records that the "every L" part of Statement 3 rests on the statements of R54 and R55 (both `written`), verified here at eighteen depths. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
