@@ -2,7 +2,7 @@
 id: automatic-section-forces-constancy
 kind: result
 title: One automatic positive binary section of a 3x+1 invariant forces constancy, with a polynomial reconstruction bound
-status: written
+status: reviewed
 claim: >
   Let h be a finite-valued colouring of the positive integers with h(2n) = h(n) (n >= 1) and h(3n+1) = h(n)
   (odd n > 1), h(0) = h(1), K_D(h) the binary sections of depth <= D and kappa_h(D) = |K_D(h)|. (a) If one section
@@ -22,6 +22,11 @@ evidence:
   - "INDEPENDENT_REVIEW.md: main-lane independent agent review (PASS for the named partial results); side_review.md: the main lane's read of the side-lane feed and the Lean V004 assembly at sidekick 3b95686 / lean-lane b980e52"
   - "delivery_checks.json: historical delivery receipt; no script in the repository regenerates it"
 aliases: [V005]
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-derived direct_sections.md sections 1-2 (reconstruction, closures, quantitative bound, depth comparison) and the section-graph control, re-ran verify_examples.py (PASS) and the V004 certificates, and tested the reconstruction and the inclusion (b) on the 3x+5 and 3x+13 which-cycle colourings; verdict HOLDS"
 tags: [invariants, automatic, section-growth, quantitative-rigidity, conditional]
 ---
 
@@ -221,3 +226,4 @@ The legacy report carried a dated **dependency clarification (V008)**: the autom
 - Migrated from `experiments/viewpoints/V005/REPORT.md` (legacy ID V005) at commit `be73a66`, by the B16 migration (Claude, Opus 5.5). Report text kept under Proof and Remarks; a Statement and Certificates were added. `scalar_interface.md` became [`scalar-interface-three-identities`](../scalar-interface-three-identities.md) (V005-a, formal); the sparse construction of `literature.md` §2 is [`sparse-indicator-linear-growth-in-both-bases`](../sparse-indicator-linear-growth-in-both-bases/README.md) (V005-b).
 - Main lane (ChatGPT/Codex), 2026-10-18, main commit `85a07c2`; the first batch of the quantitative-rigidity goal (`archive/invariants-viewpoints/briefs/QUANTITATIVE_RIGIDITY_BRIEF.md`). The side lane's referee (feed 22:10) called the batch "sound partial results" and checked the scalar interface and the sparse control; the Lean lane (iteration 6) found no error in the report. No proof-level review of the reconstruction lemma by another lane is on record, so the node stays `written`.
 - **Link repair in kept notes (B16 migration, 2026-10-20).** In `INDEPENDENT_REVIEW.md`, `direct_sections.md`, only link targets were changed: relative links to legacy paths now point to the corresponding nodes or to `archive/invariants-viewpoints/`. No text changed. Any `delivery_checks.json` hashes describe historical versions of these notes; no script in the repository checks them.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No text changed. Findings in [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md): `C_g` depends on the chosen exponents `s_a` as well as on the cylinder; the Lean statement of the closure dependency is existential and does not expose the depth bound `a' <= a + 4` used in (b), which was re-derived; the inclusion (b) is not contradicted by the `3x+5` and `3x+13` controls.

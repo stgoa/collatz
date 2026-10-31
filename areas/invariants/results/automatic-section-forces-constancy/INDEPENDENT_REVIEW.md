@@ -8,7 +8,7 @@ or human peer review. The full superlinear-complexity goal remains open.
 
 - [Direct-section note](direct_sections.md), Sections 1–4, including the
   quantitative reconstruction added to Section 2.
-- [V003 cylinder predecessor construction](../monochromatic-cylinder-forces-constancy.md).
+- [V003 cylinder predecessor construction](../monochromatic-cylinder-forces-constancy/README.md).
 - [V004 global finite-state rigidity](../binary-automatic-invariant-colourings-constant/README.md).
 
 No historical mathematical result is corrected or replaced by this review.

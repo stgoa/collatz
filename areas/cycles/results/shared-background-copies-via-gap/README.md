@@ -2,7 +2,7 @@
 id: shared-background-copies-via-gap
 kind: result
 title: "C013's q = 1 restriction with the replayed gap instead of Matveev: tens of thousands of background copies"
-status: written
+status: reviewed
 claim: >
   Raw odd-only 3x+1 map (q = 1). Let a nontrivial integer cycle have word (U, a_0, U, a_1, …, U, a_(r−1)) with
   one background U of length n repeated r ≥ 2 times between nonconstant markers of total T, m = r(n+1).
@@ -21,6 +21,11 @@ assumes: [musson-collatz-gap-all, hercher-2023-cycle-length]
 certificates: [s11_c013_gap.py]
 evidence:
   - "s11_c013_gap.py, s11_c013_gap.json: side-lane script (under 1 s) that computes the table of the Statement: for a few (m, H) the smallest r compatible with C013's (13) under each bound on log₂(1/η) (gap_all and Matveev), and writes its receipt. Exits 0 at its new path and leaves its receipt byte-identical (checked at migration). It recomputes the numbers; it does not check C013's algebra. Passed at be73a66 as reviews/side_lane/s11_c013_gap.py (archive/legacy-checker-run-be73a66.md)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "C013 (10) => (12) => (13) re-derived, eta enters only as log2(1/eta), so the EXT-1 substitution is exact; the table recomputed by bisection (exact thresholds within the disclosed 0.1 % of the receipt); EXT-1 and the period bound used as their source nodes record; certificate re-run (exit 0, 0.4 s); general-q form tested on every shared-background representation of the 3x+5, 7, 13, 61 cycles and of the corpus. Verdict HOLDS"
 aliases: [S11]
 tags: [cycles, shared-background, linear-forms, effective]
 ---
@@ -82,3 +87,4 @@ Legacy note `C013_GAP.md` (S11, side lane), lightly edited. Its status line read
 - Migrated from `experiments/cycle_spectrum/S11/C013_GAP.md` (legacy ID `S11`; side-lane producer batch S11, 2026-10-19) at commit `be73a66`, by the B06 migration (Claude, Opus 5.5). The probe `reviews/side_lane/s11_c013_gap.{py,json}` moved here. The note's "Reproduce" block pointed to the old path.
 - Side lane (Claude, Opus), feed 2026-10-19 14:57 (LEAD, S11). No independent review of the substitution is on record; the Lean lane checked only the C002 non-import point.
 - **Correction (2026-10-19, in the note).** An earlier sentence of "Bounded marker average" said every `q = 1` cycle has a letter of about `0.47–0.58m`. That holds only under S7's three-mismatch structure, which is now excluded ([`three-mismatch-exclusion`](../three-mismatch-exclusion/README.md)); the sentence was removed.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No text changed. The review ([`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md)) records the exact smallest admissible `r` (bisection): 60,961 / 58,005 / 53,171 / 46,254 at `m = 1.375·10^11` and 4,507,809 / 4,339,542 / 4,052,050 / 3,613,740 at `m = 10^15` for `H = 1, 2, 4, 8` (the receipt's stepped values are up to 0.1 % higher, as disclosed), and 31,884 (or 31,883 at `H = 8`) for the Matveev column at `m = 10^15`.

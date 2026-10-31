@@ -63,7 +63,7 @@ The lattice inequalities (1) give only **lower** bounds on separation and width.
 
 - Phase order equals size order for mechanical cycles, with one explicit monomial per adjacent increment; positive approximation errors tending to zero make every pair gap unbounded together with the minimum.
 - An integer-cycle obstruction must retain denominator-specific arithmetic or further structure. The ratio condition does: [`narrow-cycles-are-mechanical`](../../results/narrow-cycles-are-mechanical/README.md) (`H < 2L` forces a mechanical word, hence its exact denominator). The close-pair criterion cannot be reinstated as a consequence of narrowness, since mechanical cycles can have ratio below 2 and every pair gap arbitrarily large.
-- The related ordered-cycle variant "some normalised pair has primitive odd gap at most `q`" also fails: [`ordered-cycle-shortcuts`](../ordered-cycle-shortcuts.md).
+- The related ordered-cycle variant "some normalised pair has primitive odd gap at most `q`" also fails: [`ordered-cycle-shortcuts`](../ordered-cycle-shortcuts/README.md).
 
 ## History
 

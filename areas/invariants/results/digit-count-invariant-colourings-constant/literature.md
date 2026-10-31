@@ -175,7 +175,7 @@ Lambda_(3,1) F = Lambda_(4,1) F.
 ```
 
 Thus both nonzero ternary sections of h are binary-kernel sections.
-The subsequent [kernel probe](../binary-kernel-first-ternary-image.md), sections 3–4, strengthens
+The subsequent [kernel probe](../binary-kernel-first-ternary-image/README.md), sections 3–4, strengthens
 this further. Writing `K=K_2(h)` and `f_t(n)=h(3^t n)`, it proves
 
 ```

@@ -119,7 +119,7 @@ is reported as pending and was not inspected in this V003 review.
 
 The side's favorable rating of V13 is an independent judgment, not
 additional evidence for automatic rigidity. The actual V003 gains and
-remaining mixed-section obligation are in [kernel_probe.md](../binary-kernel-first-ternary-image.md).
+remaining mixed-section obligation are in [kernel_probe.md](../binary-kernel-first-ternary-image/README.md).
 The scaling-only shortcut has an exact negative control in
 [literature.md, L6](literature.md#l6-two-scaling-invariances-do-not-imply-periodicity).
 No novelty claim or universal convergence claim is made.

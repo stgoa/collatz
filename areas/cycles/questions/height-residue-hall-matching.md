@@ -19,7 +19,7 @@ tags: [cycles, dyadic-order, residues, hall-matching]
 
 ## Question
 
-In the notation of [`small-band-height-residue-matching`](../results/small-band-height-residue-matching.md), the **full Hall proposal** says that for every ordered primitive cycle both families `(R_h)` and `(Z_h)`, `h = 0, …, B`, admit distinct representatives modulo the reduced denominator `q`. For `q = 1`, take the sole residue class 0.
+In the notation of [`small-band-height-residue-matching`](../results/small-band-height-residue-matching/README.md), the **full Hall proposal** says that for every ordered primitive cycle both families `(R_h)` and `(Z_h)`, `h = 0, …, B`, admit distinct representatives modulo the reduced denominator `q`. For `q = 1`, take the sole residue class 0.
 
 ## Why it matters
 
@@ -27,7 +27,7 @@ At `q = 1` the proposal forces `B = 0`, i.e. `H < 2L`, and [`narrow-cycles-are-m
 
 ## Known progress
 
-- Small bands for `q > 1`: [`small-band-height-residue-matching`](../results/small-band-height-residue-matching.md) (normalised `B ≤ 2`, raw `B ≤ 1`, every divisor `Q > 1`), with the minimal-deficiency lemma.
+- Small bands for `q > 1`: [`small-band-height-residue-matching`](../results/small-band-height-residue-matching/README.md) (normalised `B ≤ 2`, raw `B ≤ 1`, every divisor `Q > 1`), with the minimal-deficiency lemma.
 - The sorted-rank law `z_[j] ≡ L·t^j (mod Q)` turns normalised matching into a matching of levels to rank classes modulo `T = ord_Q(t) ≥ 4` ([`ordered-cycle-sorted-rank-residues`](../results/ordered-cycle-sorted-rank-residues/README.md)); it does not remove the height shift from raw residues.
 - Refuted reduction: [`primewise-height-residue-matching`](../attempts/primewise-height-residue-matching.md).
 - Finite evidence: both full-`q` matchings pass on all 1,185 stored normalised cycles, including 51 nonfixed ordered cycles (receipt `height_matching_audit.json` in [`ordered-cycle-sorted-rank-residues`](../results/ordered-cycle-sorted-rank-residues/README.md)). Only 11 raw and 4 normalised ordered graphs have overlapping height sets; many passes follow from disjointness. A targeted screen of 946,001 profiles over 17 coprime totals through period 17 found only 13 with reduced `q ≤ 31`, all known: no new substantive evidence. The earlier matching receipt is in [`height-denominator-candidate`](height-denominator-candidate/README.md) (`RESIDUE_MATCHING.md`), where a universal matching theorem would imply `B + 1 ≤ φ(q)`.

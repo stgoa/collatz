@@ -34,7 +34,7 @@ It is the simplest wide ordered profile, and the bounded first probe of whether 
 
 ## Suggested attacks
 
-- Strengthen the gap law with exact height-jump locations, or find a legal-height congruence in the one-defect case, retaining all adjacent inequalities and excluding the `q = 1` zero-valuation relaxation (`4 → 13 → 5 → 4`, see [`ordered-cycle-shortcuts`](../attempts/ordered-cycle-shortcuts.md)). (Legacy C006 suggestion.)
+- Strengthen the gap law with exact height-jump locations, or find a legal-height congruence in the one-defect case, retaining all adjacent inequalities and excluding the `q = 1` zero-valuation relaxation (`4 → 13 → 5 → 4`, see [`ordered-cycle-shortcuts`](../attempts/ordered-cycle-shortcuts/README.md)). (Legacy C006 suggestion.)
 
 ## History
 

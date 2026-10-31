@@ -2,7 +2,7 @@
 id: cycle-word-repeat-bound
 kind: result
 title: "No long factor repeats in a cycle word: the run bound as a factor-complexity statement"
-status: written
+status: reviewed
 claim: >
   Let n_0, …, n_(m−1) be a primitive positive odd cycle of the odd-only 3x+q map (odd q), with word w,
   minimum L, drift δ(w) = A − m·log₂3 and Λ = log₂L + δ(w). If some factor of length t occurs twice in the
@@ -20,6 +20,11 @@ assumes: [musson-collatz-gap-all]
 certificates: [check_legacy_replay.py]
 evidence:
   - "s10_repeat_complexity.py, s10_repeat_complexity.json: side-lane probe (about 7 s): (i) checks the repeat inequality 2·3^t < H on every actual 3x+q cycle with q < 2,000; (ii) on random k-interval rotation codings (k = 2, 3, 4) measures the longest repeated factor against T(m, ℓ*). Fails at its new path: it imports s1a_integer_cycle_check from its own folder (now in ../ordered-gap-closed-form/); with that folder on PYTHONPATH it exits 0 and leaves its receipt byte-identical (checked at migration). Passed at be73a66 as reviews/side_lane/s10_repeat_complexity.py (archive/legacy-checker-run-be73a66.md). Despite its s10_ prefix it belongs to S9 §5. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Repeat law re-derived from the formal run law and global-drift ceiling; the q = 1 asymptotics made explicit (log2 L < 172 + 342 log2 m - log2 3 from the gap, drift O(log m), 2T + 1 < m for m >= 24,901); certificate re-run (exit 0, 24.3 s); probe part (i) reproduced exactly (3,918 cycles, 0 violations, ratio 0.970); repeat bound, complexity and run law tested on every 3x+5, 7, 13, 61 cycle. Verdict HOLDS"
 tags: [cycles, rotation-distance, factor-complexity, 3x+d]
 ---
 
@@ -54,3 +59,4 @@ Two occurrences of the same factor of length `t` at cyclic offset `h` form an ag
 
 - Split from `experiments/cycle_spectrum/S09/DENOMINATOR_LAW.md` §5 (legacy ID `S09`; side-lane producer batch S9, 2026-10-19) at commit `be73a66`, by the B06 migration (Claude, Opus 5.5). The rest of the note is [`two-three-mismatch-denominator-laws`](../two-three-mismatch-denominator-laws/README.md). The probe `reviews/side_lane/s10_repeat_complexity.{py,json}` moved here.
 - Side lane (Claude, Opus), feed 2026-10-19 13:27 (S9 entry, update "the repeat form"). No independent review of this section is on record: the Lean lane's 13:29 review of S9 concerned where `q` enters the laws.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No text changed. The review ([`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md)) makes the `q = 1` step explicit: `log₂L < 172 + 342·log₂m − log₂3` follows from `L < m/(3δ)` and EXT-1, the drift is `O(log m)` for distinct odd states, and `2T + 1 < m` holds for every `m ≥ 24,901`; it also notes that the 3,918 cycles of the data remark are those of period `≥ 3` reached from odd seeds `≤ 1,001`.
