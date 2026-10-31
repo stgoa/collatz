@@ -1,0 +1,6 @@
+source sha256: 5782b945454d52a876408c1b2f719308db7eb05e81f43db3a4cc4f6ec3e3f330
+command: lake build LeanLane; lake env lean LeanLane/CycleEquation.lean (from lean/, after lake exe cache get)
+toolchain: Lean (version 4.35.0-rc2, arm64-apple-darwin24.6.0, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)
+mathlib: 065356127b1dc0016f66b7283ce0ce2c4055aa55 (lakefile.toml)
+exit=0 (no diagnostics; output is the #print axioms lines)
+build time: 81 s on arm64-apple-darwin (macOS), 2026-10-31
