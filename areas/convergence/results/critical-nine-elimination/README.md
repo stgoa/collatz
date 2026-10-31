@@ -2,7 +2,7 @@
 id: critical-nine-elimination
 kind: result
 title: Complete critical-nine elimination leaves the W5 tripling pairs as the only sufficient pair class
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S on positive odd integers, absorbing at 1, killed atom [1] = 0; P(w) = [3w] - [w], W5 = {w
   = 5 mod 8}, W9 = {w = 9 mod 16}. For every w in W9 there is an explicitly computed finite integer current J_w
@@ -27,6 +27,10 @@ reviewed_by:
     date: 2026-10-17
     link: batch_r40_r41_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 21:53, VERIFIED, main 4a45eb0; the R40 part), rebuilt from the text of section 2 with the lane's own nu and Syracuse step: the R37 planner as restated in section 2 terminates for all 99,999 odd x < 200000, every request lies in W5 u W9, requests strictly decrease and u <= (2x+1)/3; the sharper tripling bound (every index in I(3z) u I(z) is at most (3z+1)/2) holds for all odd z < 60000. The entry says: The full R40 elimination compiler, with its per-d local identities, was not independently rebuilt here. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived line by line with independent code (identities (3) to (14), request bounds, sharper tripling bound, recursion, the w = 9 and w = 1561 examples), certificate re-run (exit 0), 3x+5 control; verdict HOLDS, status raised to reviewed"
 aliases: [R40]
 tags: [convergence, outer-residual, tripling-pairs, critical-domain, collatz-equivalent, conditional-compiler]
 ---
@@ -356,3 +360,4 @@ is supplied.
 - Migrated from `experiments/residual_progress/w9_closure/CRITICAL_NINE_ELIMINATION.md` (legacy ID R40) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/batch_r40_r41_check.*` moved here. Legacy status: "written proof and finite executable conditional compiler".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `4a45eb0`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
 - Before the commit, a main-lane model review caught a transcription error in the `d = 8` row of section 3: its intercept is 55, not 175 (archive/convergence-residual-progress/REPORT.md); the note was corrected and 2688 direct affine-row checks were added. The migrated text has 55.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections to the claim; the review notes three imprecisions (the planner tries its cases in order; the exceptional request exceeds `w` only at `d ∈ {4, 6, 8}`, as the claim field says; the `(4z+1)/3` step in section 3.2 belongs to the lower endpoint).

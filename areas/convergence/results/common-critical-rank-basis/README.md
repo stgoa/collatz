@@ -2,7 +2,7 @@
 id: common-critical-rank-basis
 kind: result
 title: "Keeping both critical pair types lets sigma rules and rho rules share one strict rank after translation"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; P(w) = [3w] - [w], W = W5 u W9, rho(w) = nu(3w). R37's unexpanded critical
   absorption plan [s] = div Jhat_s + sum Ahat_s(v) P(v) requests only ranks <= nu(s). For every returning u in E,
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-18
     link: batch_r75_r77_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 02:53, VERIFIED, main e9effe1), with the lane's own step and selected: 3,000 random returning inputs u = 5 (mod 8), u = 3 (mod 9) with 3u selected: n = (4u-3)/3 = sigma(u) is an integer, b = n/3 = 9 (mod 16) lies in W9, the ordinary path n -> q = (3u-1)/2 has valuations (1, 2), and rho(b) = 3b = n < q. The u = 453 example and the current C_u rest on main's plans and were not rebuilt; reproduced by the main lane in side_lane_review_fcc7e88.md (in divergent-orbit-itinerary-complexity). The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived with an independent implementation (basis bound on all 4096 plans, returning conversion on all 455 inputs below 2^16, bijection (11) below 2^17, the 453/201 fourteen-row current, the whole guard at the eight receipt moduli, translation of 340 sigma-valid plans) and compared row for row with the legacy module; certificate replayed (exit 0); 3x+d analogues tested. Verdict HOLDS; two notational imprecisions noted"
 aliases: [R75]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, sigma-rank, critical-basis]
 ---
@@ -354,3 +358,4 @@ the finite receipt checks the implementation and its exact examples.
 
 - Migrated from `experiments/residual_progress/critical_basis/CRITICAL_BASIS.md` (legacy ID R75) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/batch_r75_r77_check.*` (R75 and R77) moved here. Legacy status: "written source-basis and rule-translation theorem with an exact conditional compiler; terminal current supply remains open".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `e9effe1`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No text was changed; two notational imprecisions (D_(n,q) in the claim is G_n in the proof; the guard depths 26 to 159 are moduli exponents, the seeds have 26 to 160 bits) are recorded in the review.

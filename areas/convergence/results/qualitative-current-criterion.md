@@ -31,7 +31,7 @@ tags: [convergence, packet-currents, right-aligned, equivalence, maximum-princip
 
 ## Statement
 
-Notation of [`right-aligned-fixed-core-remainder`](right-aligned-fixed-core-remainder/README.md) (cutoffs `n_0, n_1, n_2`, source measure `ν_N`, packets `Π^R_N`) and of [`finite-current-certificate-identity`](finite-current-certificate-identity.md) (odd-only clock, `P` kills mass at 1, `H_L`). For functions `f` on nonnegative integers put
+Notation of [`right-aligned-fixed-core-remainder`](right-aligned-fixed-core-remainder/README.md) (cutoffs `n_0, n_1, n_2`, source measure `ν_N`, packets `Π^R_N`) and of [`finite-current-certificate-identity`](finite-current-certificate-identity/README.md) (odd-only clock, `P` kills mass at 1, `H_L`). For functions `f` on nonnegative integers put
 
 ```
 (𝓛f)(N) = f(n_0) + f(n_1)/3 + f(n_2)/3.
@@ -64,7 +64,7 @@ using `1/√2 < 5/7`. ∎
 
 **3 ⇒ 4.** Take `ζ_N = 0`.
 
-**4 ⇒ 2.** For a finite current, `H_L((I − P)J) = ⟨1, J − P^L J⟩ = Σ_y J(y)·1[τ(y) ≤ L] ≤ ‖J⁺‖₁` ([`finite-current-certificate-identity`](finite-current-certificate-identity.md)). Since `h_L ≥ 0`, a nonpositive residual contributes at most zero. No bound uniform in `N` is needed.
+**4 ⇒ 2.** For a finite current, `H_L((I − P)J) = ⟨1, J − P^L J⟩ = Σ_y J(y)·1[τ(y) ≤ L] ≤ ‖J⁺‖₁` ([`finite-current-certificate-identity`](finite-current-certificate-identity/README.md)). Since `h_L ≥ 0`, a nonpositive residual contributes at most zero. No bound uniform in `N` is needed.
 
 **2 ⇒ 1.** Let `e(x) = 1[τ(x) = ∞]`, `e(1) = 0`, and
 

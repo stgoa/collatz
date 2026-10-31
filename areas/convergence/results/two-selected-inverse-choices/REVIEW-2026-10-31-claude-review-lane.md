@@ -1,0 +1,28 @@
+# Review of two-selected-inverse-choices
+
+## What I checked
+
+- Certificate, from the repository root: `python3 tools/run_certificates.py --node two-selected-inverse-choices` gives `PASS check_legacy_replay.py (39s)`, exit code 0, 39.20 s wall (run twice, same result). [`check_legacy_replay.py`](check_legacy_replay.py) replays `check_selected_inverse.py` and the side-lane probe `r56_selected_inverse_check.py` unmodified in the pre-migration layout, requiring exit 0 and byte-identical receipts.
+- Dependencies read: R25 (inverse table), R37, R40, R41 (`H_s`), R43 (bound `(9s+5)/8`), R46 (two-block word), R54 (phase `w ≡ 3445 (mod 3456)` and `Ψ`).
+- Section 1 re-derived. `w ≡ 16 (mod 27)` gives `3w − 1 ≡ 47 (mod 81)` and `q ≡ 47·41 ≡ 64 ≡ −17 (mod 81)`; `16w − 13 ≡ 243 ≡ 0 (mod 27)`; `v ≡ 67·19 ≡ 121 ≡ −7 (mod 128)`; `81v + 23 = 16(3w−1)`, so `32q = 81v + 23`. `v3(q−1) = 2`, `u = (q−1)/9 ≡ −2 (mod 9)`, `16u + 2 ≡ 6 (mod 9)`, so R46 gives `j = 1`, `p = (32u+1)/3 = (32q−23)/27 = 3v`, and the word `1, 2, 2`: `S(p) = (16q−7)/9`, `S^2(p) = (4q−1)/3`, `S^3(p) = q`. `p ≡ 107 (mod 128)` is `11 (mod 16)` and canonical; `v ≡ 9 (mod 16)`. The bases `8v+1 ≡ 73` and `16v+1 ≡ 17 (mod 128)` are canonical `1 (mod 8)`; from `b = 2kv+1` the point steps `y → (2y−1)/3` are legal exactly `h = v3(kv+1)` times and land on `2^(i+1)(kv+1)/3^i − 1`, so `r = 2^(h+1)C − 1`. Words after `b`: `k = 4`: `8v+1 → 6v+1` (valuation 2), `→ 9v+2` (1), `→ (27v+7)/2` (1, as `27v+7 ≡ 74 (mod 128)`), `→ q` (4, as `81v+23 ≡ 96 (mod 128)`); `k = 8`: `16v+1 → 12v+1` (2), `→ (9v+1)/2` (3), `→ (27v+5)/8` (2), `→ q` (2).
+- Section 2 re-derived. Identity (2) by expanding `32·3^h r` and `32·3^h q`; the eight right sides of the table by substituting `h`; thresholds (3): `2^(h+8) < 3^(h+4)` iff `h ≥ 3` and `2^(h+9) < 3^(h+4)` iff `h ≥ 5`, with the constant `2^(h+6) − 55·3^h` negative there and every displayed right side positive for `v ≥ 121`. Domain (4): `4v+1 = (64w−25)/27` and `8v+1 = (128w−77)/27`; `h ≥ 3` iff `3^6 | 64w − 25` iff `w ≡ 25·64^(−1) ≡ 718 (mod 729)`; `h ≥ 5` iff `3^8 | 128w − 77` iff `w ≡ 77·128^(−1) ≡ 4255 (mod 6561)`; disjoint, both `≡ 16 (mod 27)`.
+- Section 3 re-derived. The boundary of (5). For `h ≥ 1` the point predecessors are canonical complementary (R25) with `v2(r+1) = h+1`, and `r ≢ 2 (mod 3)` by maximality; `h ≥ 2` gives a `W5` index (`r ≡ 7 (mod 8)`: `r/3 ≡ 5` and `(2r+1)/3 ≡ 5 (mod 8)`), `h = 1` with `r ≡ 0 (mod 3)` gives `W9` (`r ≡ 11 (mod 16)`); the bounds `(9a+5)/8 ≤ (3r+4)/4 < r` and `(9z+5)/8 ≤ (9w+11)/32 < q`. Returning rows: at `h = 0`, `S(b) = 2p+1` or `F(p)`, so `A_r = A_p`; `d = v2(9v−1) = 6` (as `9v − 1 ≡ −64 (mod 128)`), with endpoints `18C'+1 = q` and `6C'+1 = (27v+29)/32 = (q+2)/3`, giving (6); at `h = 1`, `r ≡ 0 (mod 3)`: `c = (4kv+1)/9`, `d = 2 + v2(k)`, endpoints `2p+1` and `2v+1` (`k = 4`; `2v+1 ≡ 115 (mod 128)` is selected) or `F(p)` and `F(v)` (`k = 8`), giving (7); the bounds `(3q+4)/4`, `(3q+11)/8`, `(9v+5)/8`, `(16v+6)/8` and `(12v+2)/8` are all below `q`, so the coefficient of `w` stays `+1`. `w ≡ 16 (mod 81)` gives `v ≡ 9 (mod 48)`, `3 | v`, `h = 0` for both `k`.
+- Section 4 re-derived. (8) forces `w ≡ 117 (mod 128)`, hence `w ≡ 3445 (mod 3456)`, and `3w` selected (`a = 5`, `t ≡ 3 (mod 4)`); (9) is `kv + 1 ≡ 3^h e (mod 3^(h+1))` for `v = 32·2^K s − 7`, and `q_0 = (81v+23)/32 = 81·2^K s − 17` is R54's seed.
+- Own script (standard library; own `ν`, `S` and my own implementation of the formal absorption plan `H_s`, R37 plan plus R40 elimination; `review-work/two-selected-inverse-choices/check_selected_review.py`, outside the repository, 0.5 s). All 300 eligible inputs below 131072 (the node's count): the congruences, `p > q`, the word `1, 2, 2`, both words `r → q` and the quotient length `h+4`, (2), (3), (4), `r` canonical with `v2(r+1) = h+1`, the boundary of (5), and the classification: 12 strict plans (all `k = 4`: `w` = 5821, 11653, 23317, 29149, 52477, 58309, 69973, 75805, 93301, 99133, 104965, 122461); 56 (`k = 4`) and 66 (`k = 8`) plans whose unique request of rank at least `q` is the `W5` index of `r`, coefficient `+1`, rank `r`; 232 (`k = 4`) and 234 (`k = 8`) plans returning `w` with coefficient `+1`; every other rank below `q`. Below `3·10^6`: 6944 eligible inputs, 259 accepted by `k = 4`, 29 by `k = 8` (first `w = 148597`), 6656 by neither; the accepted sets equal (4) exactly; every `w ≡ 16 (mod 81)` has `h = 0` for both `k`. CRT families (8) for `h = 1..9`, `e` in `{1, 2}`, two members each: `w ≡ 3445 (mod 3456)`, exact `h`, `C ≡ e (mod 3)`, full plan classification through `h = 7`. Families (9) for `L = 1, 2, 3` and `(k, h) = (4, 3), (8, 5)`, two members each: R54's `7L` quotient steps return through `Ψ(q) = (2187q + 2363)/2048` with every state above `q_0`, and the inverse plan at the same `w` is strict with the prescribed `h`.
+- Controls: not applicable. The words and plans use `ν` and the `3x+1` inverse table; nothing in the node excludes a `3x+d` cycle.
+
+## What I did not check
+
+- R46's two-block theorem and R54's growth theorem in general (confirmed numerically on the tested members only); the bounds of R43 used as inputs.
+- The four stored supplied-current conversions and the legacy checker's counts beyond the replay; the side-lane note [`side_lane_review_767af32.md`](side_lane_review_767af32.md).
+
+## Findings
+
+1. Section 5, "Twelve plans in that finite input interval are strict": all twelve are `k = 4`; the first `k = 8` acceptance is `w = 148597 > 131072` (one of the four stored conversions). Imprecision, informational.
+2. No error found in (1) to (9) or in the classification of the failed rows.
+
+## Verdict
+
+HOLDS.
+
+Claude review lane (Fable 5.1; directed by Santiago Armstrong), 2026-10-31

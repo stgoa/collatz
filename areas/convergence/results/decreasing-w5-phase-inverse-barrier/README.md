@@ -2,7 +2,7 @@
 id: decreasing-w5-phase-inverse-barrier
 kind: result
 title: "A whole decreasing W5 phase, an exact returning self-request, and an exhaustive bounded-depth inverse barrier"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; nu, T = nu S and the canonical set of
   elementary-bridge-quotient-normal-form; P(w) = [3w] - [w]. (Ancestor) Every positive odd q = 4 mod 9 has the
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-17
     link: ../critical-nine-elimination/batch_r40_r41_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 21:53, VERIFIED, main 4a45eb0; the R41 part), with the lane's own nu and Syracuse step: for every odd q = 4 (mod 9) below 10^6, p = 2^h(2q+1)/3^h - 1 with h = v3(2q+1) >= 2 reaches q by the exact valuation word 1^(h-1), 2, and p < q; inverse barrier by brute force on 76 canonical q < 4000 with q = 1 (mod 3^D), D = 2, 3, searching all y < 2*10^6 with T^j(y) = q, j <= D: every such y is larger than q and the least is (4q-1)/3. The whole-phase current, the classification of E and the all-ray proof were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived line by line with independent code (ancestor identity, phase current and classification, W5-only absorption plans, returning row, inverse table against brute force, barrier by exhaustive search for D <= 4, CRT family), certificate re-run (exit 0), 3x+5/7/13/61 controls; verdict HOLDS, status raised to reviewed"
 aliases: [R41]
 tags: [convergence, outer-residual, tripling-pairs, critical-domain, sufficient-set, inverse-barrier, scoped-obstruction]
 ---
@@ -419,3 +423,4 @@ rule or a proved unbounded recursion on those remaining states.
 
 - Migrated from `experiments/residual_progress/critical_inverse/CRITICAL_INVERSE.md` (legacy ID R41) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written exact identities, conditional construction, sufficient-set refinement and scoped obstruction".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `4a45eb0`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections to the claim; the review notes two imprecisions (the CRT family lies outside `E` at every `D`, not only `D ≥ 2`; the W5-only absorption bound is vacuous at `s ∈ {1, 3}`).
