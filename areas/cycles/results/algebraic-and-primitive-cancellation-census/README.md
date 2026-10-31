@@ -82,3 +82,4 @@ The claim is a finite computation. Completeness of the enumeration is proved in 
 
 - Written 2026-10-28 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, while following the "separate the algebraic part" attack of the half-cancellation question.
 - 2026-10-28, later: the `e = 2` case is tested adversarially in [`near-doubled-words-primitive-factor-test`](../near-doubled-words-primitive-factor-test/README.md).
+- 2026-10-31: the plain half bound `G² < 2^A` was refuted at `ρ = 4` by a word whose cancellation is the full algebraic factor times a primitive part 5 ([`half-cancellation-counterexample-rotation-pair`](../half-cancellation-counterexample-rotation-pair/README.md)), as the split recorded here suggests; the conjecture on `g_prim` continues as [`primitive-cancellation-below-half`](../../questions/primitive-cancellation-below-half.md) (Claude cycles lane, Fable 5.1).

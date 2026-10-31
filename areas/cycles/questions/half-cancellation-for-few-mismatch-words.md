@@ -2,7 +2,8 @@
 id: half-cancellation-for-few-mismatch-words
 kind: question
 title: Is the cancellation of a few-mismatch word at most half of 2^A?
-status: open
+status: answered
+answered_by: [half-cancellation-counterexample-rotation-pair]
 claim: >
   Prove or refute: every primitive positive valuation word w of length m ≥ 9 with total A,
   D = 2^A − 3^m > 0, that has a nonidentity rotation differing from it in at most four positions, satisfies
@@ -18,6 +19,8 @@ tags: [cycles, denominators, cancellation, rotation-distance, frontier]
 # Is the cancellation of a few-mismatch word at most half of `2^A`?
 
 ## Question
+
+**Answered 2026-10-31: refuted.** The word `(1,1,1,1,6,1,5,1,1,2,1,5,1,1,2,1,1,1,1,6)` (`m = 20`, `ρ = 4`) has `G = 5·(2^20 − 3^10)` and `G² ≈ 22·2^A` ([`half-cancellation-counterexample-rotation-pair`](../results/half-cancellation-counterexample-rotation-pair/README.md)). The surviving forms, the bound on the primitive part and the plain bound for near-critical words, are posed in [`primitive-cancellation-below-half`](primitive-cancellation-below-half.md). The text below is kept as posed.
 
 Notation of [`conventions/NOTATION.md`](../../../conventions/NOTATION.md) §2. For a primitive positive word `w` of length `m` and total `A` with `D = 2^A − 3^m > 0`, let `G = gcd(C_w, D)` and `q = D/G` be its cancellation and reduced denominator, and `ρ(w)` its rotation distance.
 
@@ -45,6 +48,7 @@ Also: find the correct dependence on `s`. For which function `c(s)` does every p
 - **Exact cases.** Mechanical words (letters `1, 2` with coprime shift) have `G = 1` ([`mechanical-word-exact-denominator`](../results/mechanical-word-exact-denominator/README.md)); adjacent defects give `G | 2^k − 1` (two-defect node, part 5); the two-marker family gives `G = 2^(A/2) − 3^(m/2)` exactly; `1^t 2^(2t)` gives `G = gcd(4^t − 1, 3^t − 2^t) ≤ 3^t < 2^(A/2) = 2^(2.5t)` ([`fixed-defect-unbounded-cancellation`](../results/fixed-defect-unbounded-cancellation.md)).
 - **Finite evidence** ([`few-arc-codings-denominator-census`](../results/few-arc-codings-denominator-census/README.md)): 493,483 census entries of primitive few-arc words (`s ≤ 4`, `m` up to 40, letters up to 8; a word is counted once per census), every one with `m ≥ 9` satisfies `G² < 2^A`; `log₂G − A/2 ≤ −2.81` for `s = 2`, `≤ −0.93` for `s = 3`, `≤ −0.06` for `s = 4`. The unique exception at `m ≤ 8` is the `3x+11` cycle `(1,1,2,2,1,1,3,3)`, `m = 8`, `G = 893`, `A = 14`. Finite evidence does not bear on large `m`.
 - **Obstructions to the known routes for `s ≥ 3`:** [`coupled-defect-matrix-smith-form`](../results/coupled-defect-matrix-smith-form/README.md) (adjugate elimination is vacuous), [`three-defect-arbitrary-background`](../results/three-defect-arbitrary-background.md) (no fixed S-unit description), [`termwise-plateau-divisibility`](../attempts/termwise-plateau-divisibility.md).
+- **Refuted (2026-10-31).** [`doubled-words-periodic-and-antiperiodic-points`](../results/doubled-words-periodic-and-antiperiodic-points/README.md) shows that for a doubled word `(u, v)` the algebraic factor `2^(A/2) − 3^(m/2)` divides `C_w` iff the half-words' periodic points satisfy `2^j x_u + x_v ∈ Z`, so every rotation pair `(R_r u, R_s u)` of an actual `3x+d` cycle with `d | n_r + n_s` realises the whole algebraic factor; a factor 5 of the other factor then breaks `G² < 2^A` on a word far from critical. The explicit counterexample, with `ρ = 4` and `m = 20`, and two more classes at `m = 28, 36`, are in [`half-cancellation-counterexample-rotation-pair`](../results/half-cancellation-counterexample-rotation-pair/README.md). The primitive part of every such word is tiny (5 there, at most 305 over 1,809 corpus pairs), so the sharper conjecture `g_prim < 2^(A/2)` stands and continues as [`primitive-cancellation-below-half`](primitive-cancellation-below-half.md), together with the plain bound restricted to near-critical words, which no word of the scan violates.
 
 ## Suggested attacks
 
@@ -60,3 +64,4 @@ Proposals, not results.
 - Posed 2026-10-28 by the Claude cycles lane (Fable 5.1).
 - 2026-10-28, later: the Sturmian two-arc case recorded as settled (it was already part 5 of the two-defect node), the algebraic/primitive decomposition and the sharper conjecture on `g_prim` added, the attack list corrected accordingly (Claude cycles lane, Fable 5.1).
 - 2026-10-28, later still: the `e = 2` adversarial test added to Known progress (Claude cycles lane, Fable 5.1).
+- 2026-10-31: refuted by [`half-cancellation-counterexample-rotation-pair`](../results/half-cancellation-counterexample-rotation-pair/README.md); status set to answered; the surviving forms are [`primitive-cancellation-below-half`](primitive-cancellation-below-half.md) (Claude cycles lane, Fable 5.1).

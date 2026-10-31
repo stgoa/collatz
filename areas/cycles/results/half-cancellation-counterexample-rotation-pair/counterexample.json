@@ -1,0 +1,284 @@
+{
+ "K1": {
+  "m": 20,
+  "A": 40,
+  "D": 1096024843375,
+  "C_w": 655517108785,
+  "G": 4947635,
+  "q": 221525,
+  "G_over_Phi1": 5,
+  "Phi1": 989527,
+  "Phi2": 1107625,
+  "Phi2_factorisation": "5^3 * 8861",
+  "rho": 4,
+  "witness_rotation": 5,
+  "mismatches_rotation_10": 8,
+  "block_a": [
+   1,
+   1,
+   1,
+   1,
+   6
+  ],
+  "block_b": [
+   1,
+   5,
+   1,
+   1,
+   2
+  ],
+  "log2_G_squared_over_2A": 4.4766,
+  "cycle_min_state": 28147,
+  "cycle_states": [
+   132491,
+   309499,
+   575011,
+   973279,
+   1570681,
+   77087,
+   226393,
+   28147,
+   152983,
+   340237,
+   310559,
+   576601,
+   60979,
+   202231,
+   414109,
+   365963,
+   659707,
+   1100323,
+   1761247,
+   2752633
+  ],
+  "e": 20,
+  "Phi_e": 44305,
+  "g_prim": 5,
+  "ratio_3n_over_2S": 0.056314
+ },
+ "K2": {
+  "d": 1267,
+  "cycle_word": [
+   1,
+   1,
+   2,
+   1,
+   1,
+   1,
+   1,
+   6,
+   1,
+   5
+  ],
+  "cycle_states": [
+   197,
+   929,
+   2027,
+   1837,
+   3389,
+   5717,
+   9209,
+   14447,
+   697,
+   1679
+  ],
+  "r": 3,
+  "s": 8,
+  "state_sum": 2534,
+  "state_sum_over_d": 2
+ },
+ "K3": {
+  "d_max": 20000,
+  "seed_max": 5000,
+  "cycle_words": 39413,
+  "pair_hits": 45974,
+  "rho_le_4_words": 71,
+  "violations": 12,
+  "violating_classes": [
+   [
+    1267,
+    197
+   ],
+   [
+    14833,
+    2903
+   ],
+   [
+    18571,
+    3341
+   ]
+  ],
+  "violating_m": [
+   20,
+   20,
+   28,
+   28,
+   28,
+   28,
+   36,
+   36,
+   36,
+   36,
+   36,
+   36
+  ],
+  "violating_g2": [
+   5
+  ],
+  "all_violating_pairs_at_distance_n_over_2": true,
+  "max_violating_ratio": 0.056314,
+  "max_violating_excess": 2.3138,
+  "g2_values_rho_le_4": [
+   1,
+   5
+  ],
+  "near_critical_rho_le_4_words": 28,
+  "near_critical_max_excess": -1.0147,
+  "violations_detail": [
+   {
+    "d": 1267,
+    "minimum": 197,
+    "r": 3,
+    "s": 8,
+    "m": 20,
+    "rho": 4,
+    "g2": 5,
+    "excess": 2.2383,
+    "ratio": 0.056314,
+    "violation": true
+   },
+   {
+    "d": 1267,
+    "minimum": 197,
+    "r": 4,
+    "s": 9,
+    "m": 20,
+    "rho": 4,
+    "g2": 5,
+    "excess": 2.2383,
+    "ratio": 0.056314,
+    "violation": true
+   },
+   {
+    "d": 14833,
+    "minimum": 2903,
+    "r": 3,
+    "s": 12,
+    "m": 36,
+    "rho": 4,
+    "g2": 5,
+    "excess": 2.3138,
+    "ratio": 0.005638,
+    "violation": true
+   },
+   {
+    "d": 14833,
+    "minimum": 2903,
+    "r": 4,
+    "s": 13,
+    "m": 36,
+    "rho": 4,
+    "g2": 5,
+    "excess": 2.3138,
+    "ratio": 0.005638,
+    "violation": true
+   },
+   {
+    "d": 14833,
+    "minimum": 2903,
+    "r": 5,
+    "s": 14,
+    "m": 36,
+    "rho": 4,
+    "g2": 5,
+    "excess": 2.3138,
+    "ratio": 0.005638,
+    "violation": true
+   },
+   {
+    "d": 14833,
+    "minimum": 2903,
+    "r": 6,
+    "s": 15,
+    "m": 36,
+    "rho": 4,
+    "g2": 5,
+    "excess": 2.3138,
+    "ratio": 0.005638,
+    "violation": true
+   },
+   {
+    "d": 14833,
+    "minimum": 2903,
+    "r": 7,
+    "s": 16,
+    "m": 36,
+    "rho": 4,
+    "g2": 5,
+    "excess": 2.3138,
+    "ratio": 0.005638,
+    "violation": true
+   },
+   {
+    "d": 14833,
+    "minimum": 2903,
+    "r": 8,
+    "s": 17,
+    "m": 36,
+    "rho": 4,
+    "g2": 5,
+    "excess": 2.3138,
+    "ratio": 0.005638,
+    "violation": true
+   },
+   {
+    "d": 18571,
+    "minimum": 3341,
+    "r": 3,
+    "s": 10,
+    "m": 28,
+    "rho": 4,
+    "g2": 5,
+    "excess": 2.296,
+    "ratio": 0.017818,
+    "violation": true
+   },
+   {
+    "d": 18571,
+    "minimum": 3341,
+    "r": 4,
+    "s": 11,
+    "m": 28,
+    "rho": 4,
+    "g2": 5,
+    "excess": 2.296,
+    "ratio": 0.017818,
+    "violation": true
+   },
+   {
+    "d": 18571,
+    "minimum": 3341,
+    "r": 5,
+    "s": 12,
+    "m": 28,
+    "rho": 4,
+    "g2": 5,
+    "excess": 2.296,
+    "ratio": 0.017818,
+    "violation": true
+   },
+   {
+    "d": 18571,
+    "minimum": 3341,
+    "r": 6,
+    "s": 13,
+    "m": 28,
+    "rho": 4,
+    "g2": 5,
+    "excess": 2.296,
+    "ratio": 0.017818,
+    "violation": true
+   }
+  ]
+ }
+}

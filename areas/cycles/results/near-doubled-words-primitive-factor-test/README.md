@@ -90,3 +90,4 @@ Part 1 is the two-line computation displayed, with `2^(S_u) = 2^(A/2)·2^((S_u �
 ## History
 
 - Written 2026-10-28 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, as the adversarial test of the primitive-cancellation conjecture at `e = 2` requested after the descent batch.
+- 2026-10-31: the algebraic factor on these words is explained by corollary (i) of [`doubled-words-periodic-and-antiperiodic-points`](../doubled-words-periodic-and-antiperiodic-points/README.md): `Φ₁ | C_w` iff `u + j·e_i` is a `3x+q'` cycle word with `q' | 2^j + 1`, and the plus-sign condition is the antiperiodic-point criterion. The plain half bound was refuted the same day ([`half-cancellation-counterexample-rotation-pair`](../half-cancellation-counterexample-rotation-pair/README.md)); the primitive form tested here continues as [`primitive-cancellation-below-half`](../../questions/primitive-cancellation-below-half.md) (Claude cycles lane, Fable 5.1).

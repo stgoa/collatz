@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**222 results, 29 attempts, 37 questions, 27 sources.**
+**224 results, 29 attempts, 38 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -31,7 +31,6 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 | [`universal-w5-tripling-currents`](areas/convergence/questions/universal-w5-tripling-currents.md) | convergence | Odd-only 3x+1 map S on positive odd integers, absorbing at 1, killed atom [1] = 0; P(w) = [3w] - [w]; W5 = {w = 5 mod 8}. Prove or refute: for every w in W5 th… | 0 |
 | [`canonical-quotient-cycle-exclusion`](areas/cycles/questions/canonical-quotient-cycle-exclusion.md) | cycles | Odd-only 3x+1 map S, absorbing at 1; T = nu S the canonical quotient of elementary-bridge-quotient-normal-form on its positive canonical roots. Show that T has… | 0 |
 | [`cycle-height-bound`](areas/cycles/questions/cycle-height-bound.md) | cycles | Prove or refute: every hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map, of period m, minimum L and maximum H, has height B = floor… | 0 |
-| [`half-cancellation-for-few-mismatch-words`](areas/cycles/questions/half-cancellation-for-few-mismatch-words.md) | cycles | Prove or refute: every primitive positive valuation word w of length m ≥ 9 with total A, D = 2^A − 3^m > 0, that has a nonidentity rotation differing from it i… | 0 |
 | [`height-denominator-candidate`](areas/cycles/questions/height-denominator-candidate/README.md) | cycles | Prove or refute: every primitive positive rational cycle of the raw odd-only 3x+1 map (written as a reduced odd numerator cycle 3n_i + q = 2^(a_i)·n_(i+1), q o… | 0 |
 | [`height-residue-hall-matching`](areas/cycles/questions/height-residue-hall-matching.md) | cycles | Prove or refute, for every primitive positive ordered cycle of the raw odd-only map (q ≤ L, m > 1, circular normalised successor order) with reduced odd denomi… | 0 |
 | [`largest-letter-sublinear`](areas/cycles/questions/largest-letter-sublinear.md) | cycles | Prove or refute: every hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map, of period m, has all valuations a_i = v₂(3n_i + 1) ≤ f(m)… | 0 |
@@ -39,6 +38,7 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 | [`local-minima-cycle-exclusion-replay`](areas/cycles/questions/local-minima-cycle-exclusion-replay.md) | cycles | Calibration target (Phase 6 route node Y.1): reproduce, in this repository, one published exclusion of nontrivial cycles of the 3x+1 shortcut map with a bounde… | 0 |
 | [`one-height-defect-ordered-cycles`](areas/cycles/questions/one-height-defect-ordered-cycles.md) | cycles | Ordered odd-only cycles at q = 1 with one chronological height h_t = 1 and all other heights 0: legality forces c_(t−1) = 2, and reduced denominator 1 would re… | 0 |
 | [`ordered-cycle-denominator-one`](areas/cycles/questions/ordered-cycle-denominator-one.md) | cycles | Prove or refute: every nontrivial primitive positive rational cycle of the raw odd-only 3x+1 map whose dyadically normalised successor preserves circular order… | 0 |
+| [`primitive-cancellation-below-half`](areas/cycles/questions/primitive-cancellation-below-half.md) | cycles | Prove or refute: every primitive positive valuation word w of length m ≥ 9 with total A, D = 2^A − 3^m > 0 and a nonidentity rotation differing from it in at m… | 0 |
 | [`rotation-defect-denominator-candidate`](areas/cycles/questions/rotation-defect-denominator-candidate.md) | cycles | Prove or refute: for every positive valuation word w of length m with total A, D = 2^A − 3^m > 0 and g = gcd(C_w, D), and every nonidentity rotation differing… | 0 |
 | [`rotation-distance-at-least-5`](areas/cycles/questions/rotation-distance-at-least-5.md) | cycles | Prove or refute: no nonidentity rotation of the valuation word of a hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map differs from i… | 0 |
 | [`rotation-distance-growth`](areas/cycles/questions/rotation-distance-growth.md) | cycles | Find an explicit F(m) → ∞ such that the primitive valuation word w of every hypothetical nontrivial integer cycle of the odd-only 3x+1 map (period m) satisfies… | 0 |
@@ -229,6 +229,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) | A denominator law for any number of mismatches, from the Denjoy–Koksma height bound | formal | reviewed | — | yes |
 | [`denjoy-koksma-height-bound`](areas/cycles/results/denjoy-koksma-height-bound/README.md) | A Denjoy–Koksma height bound: B ≤ (K(h/m) − 1)·(V_h + 2δ) for every rotation coprime to t… | formal | formal | — | yes |
 | [`distance-three-height-family`](areas/cycles/results/distance-three-height-family.md) | Rotation distance three, q ≤ L and vanishing drift do not bound the height of a cycle | reviewed | reviewed | — |  |
+| [`doubled-words-periodic-and-antiperiodic-points`](areas/cycles/results/doubled-words-periodic-and-antiperiodic-points/README.md) | Doubled words: the two factors of D test the half-words' periodic and antiperiodic points | written | written | — |  |
 | [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) | Dyadic normalisation of a cycle, the exact inversion formula and the order lemma | reviewed | reviewed | — | yes |
 | [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) | Two different equal-total blocks repeated at least three times never give an integer cycle | formal | formal | — | yes |
 | [`excursion-cut-lemma`](areas/cycles/results/excursion-cut-lemma.md) | An exact endpoint relation forces every intermediate odd state, and closing two blocks gi… | formal | formal | — | yes |
@@ -237,6 +238,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`four-mismatch-sign-dichotomy`](areas/cycles/results/four-mismatch-sign-dichotomy.md) | A rotation with four mismatches has one sign change of each kind, or two of each in alter… | formal | formal | — | yes |
 | [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines.md) | Order-free baselines for cycle minima and denominators (extremal, packing, product) | written | written | — |  |
 | [`global-drift-ceiling`](areas/cycles/results/global-drift-ceiling.md) | The global-drift ceiling: log₂(n_k/L) ≤ k·log₂(3/2) − X_k + δ at every q, with no hypothe… | formal | formal | — | yes |
+| [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) | The half-cancellation bound fails at four mismatches: a word of length 20 with G² ≈ 22·2^A | written | written | — |  |
 | [`largest-letter-rho-reduction`](areas/cycles/results/largest-letter-rho-reduction.md) | A low-mismatch rotation forces a letter of linear size, so ρ → ∞ follows from a largest l… | reviewed | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `musson-collatz-gap-all` | yes |
 | [`mechanical-cycles-high-rational-controls`](areas/cycles/results/mechanical-cycles-high-rational-controls/README.md) | Mechanical cycles give rational 3x+1 cycles and integer 3x+d cycles arbitrarily far above… | formal | formal | — | yes |
 | [`mechanical-word-exact-denominator`](areas/cycles/results/mechanical-word-exact-denominator/README.md) | Mechanical valuation words have reduced denominator exactly 2^(A/g) − 3^(k/g), so none is… | formal | formal | — | yes |
@@ -307,6 +309,12 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`scaling-transfer-to-3x-plus-d`](areas/cycles/attempts/scaling-transfer-to-3x-plus-d/README.md) | Scaling covariance S_d(dy) = d S_1(y) transports identities to 3x+d, but not the integer lattice | written |
 | [`termwise-plateau-divisibility`](areas/cycles/attempts/termwise-plateau-divisibility.md) | Extending the two-defect bound to more mismatches by dividing each prefix plateau separately | reviewed |
 | [`three-arc-intercept-elimination`](areas/cycles/attempts/three-arc-intercept-elimination/README.md) | Three arcs: the rotation difference is a two-term relation between arc intercepts, and eliminating across the… | written |
+
+### Closed questions
+
+| Question | Title | Status | Answered by |
+|---|---|---|---|
+| [`half-cancellation-for-few-mismatch-words`](areas/cycles/questions/half-cancellation-for-few-mismatch-words.md) | Is the cancellation of a few-mismatch word at most half of 2^A? | answered | `half-cancellation-counterexample-rotation-pair` |
 
 ## Area: invariants
 
@@ -604,6 +612,9 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 ## Recent activity
 
+- 2026-10-31: [`doubled-words-periodic-and-antiperiodic-points`](areas/cycles/results/doubled-words-periodic-and-antiperiodic-points/README.md) added (result)
+- 2026-10-31: [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) added (result)
+- 2026-10-31: [`primitive-cancellation-below-half`](areas/cycles/questions/primitive-cancellation-below-half.md) added (question)
 - 2026-10-28: [`algebraic-and-primitive-cancellation-census`](areas/cycles/results/algebraic-and-primitive-cancellation-census/README.md) added (result)
 - 2026-10-28: [`few-arc-codings-denominator-census`](areas/cycles/results/few-arc-codings-denominator-census/README.md) added (result)
 - 2026-10-28: [`near-doubled-words-primitive-factor-test`](areas/cycles/results/near-doubled-words-primitive-factor-test/README.md) added (result)
@@ -626,9 +637,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-19: [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) reviewed by Claude Lean lane (Fable)
 - 2026-10-19: [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) reviewed by Claude side lane (Opus)
 - 2026-10-19: [`cycle-height-ceiling`](areas/cycles/results/cycle-height-ceiling.md) added (result)
-- 2026-10-19: [`cycle-word-repeat-bound`](areas/cycles/results/cycle-word-repeat-bound/README.md) added (result)
-- 2026-10-19: [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) added (result)
-- 2026-10-19: [`denjoy-koksma-denominator-law`](areas/cycles/results/denjoy-koksma-denominator-law/README.md) reviewed by Claude Lean lane (Fable)
 
 ## Contributors
 
@@ -636,11 +644,11 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 66.4% | 201 | 9 |
-| Claude side lane | 20.6% | 34 | 132 |
+| ChatGPT main lane | 66.1% | 201 | 9 |
+| Claude side lane | 20.5% | 34 | 132 |
 | Claude Lean lane | 6.9% | 3 | 69 |
 | Claude PR1 lane | 2.9% | 6 | 9 |
-| Claude cycles lane | 1.4% | 6 | 0 |
+| Claude cycles lane | 1.9% | 8 | 0 |
 | Claude explicit-Tao lane | 0.9% | 5 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
