@@ -2,7 +2,7 @@
 id: twelve-family-rho-dispatcher
 kind: result
 title: Twelve conditional strict-rank families under one fixed-priority dispatcher
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; P(w) = [3w] - [w], rho(w) = nu(3w) on W5. The dispatcher tries, in order,
   the unchanged nine-family dispatcher (R41, R44, R45, R46, R47, R48, R50, R52, R53 with its internal priority),
@@ -22,6 +22,11 @@ certificates: [check_legacy_replay.py]
 evidence:
   - "check_selected_rules.py, selected_rules.py, selected_rules_audit.json: the legacy dispatcher and checker: all 1024 W5 candidates below 8192, every old accepted plan compared as a complete dictionary with the nine-family receipt (722 accepted versus 493 before, 229 new direct acceptances, all by R55, 302 unresolved), exact witnesses 221, 382205941 and 11324620789 for the R55, R56 and R57 branches, seven supplied-current demonstrations with 12 distinct supplied pairs (5821 closes with no input in 40 rows; 1105909 keeps four inputs, 142 rows) and five negative checks. Fails at its new path: selected_rules.py loads ../continued_rules/, ../selected_forward/, ../selected_inverse/ and ../selected_cycle_exit/ by their pre-migration folder names, and the checker reads ../continued_rules/continued_rules_audit.json (now ../low-block-continuation-prescribed-growth/); selected_rules.py is the fixed resolver of the later legacy deferred_rank/, cycle_inverse/ and refined_rules/ code. Passed at be73a66 as experiments/residual_progress/selected_rules/check_selected_rules.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
   - "selected_rules_meter.py, selected_rules_meter.json: side-lane measurement (2026-10-17 23:51) of this dispatcher: 1,000 random w = 5 (mod 8) per size from 10 to 64 bits, accepted share about 68 to 72% at every size, of which about 21 to 25% by R55; acceptance by class at 48 bits from 57% to 92%. It measures the dispatcher, does not check it, and gives no coverage theorem. Its receipt is nondeterministic (reviews/side_lane/README.md), so it can never be a certificate. Fails at its new path: it imports selected_rules from experiments/residual_progress/selected_rules/ by repository-relative path and fibre_count_check from its own folder (now ../absorbed-fibre-uniform-counts/). Passed at be73a66 as reviews/side_lane/selected_rules_meter.py (archive/legacy-checker-run-be73a66.md, exit 0)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Composition and termination argument re-derived from the code; every plan the dispatcher returns on the 1024 candidates below 8192 validated with an independent divergence and rank check (722 plans, 493 old ones unchanged, 229 new ones all R55 and all accepted by an independent R55 recogniser); the three branch witnesses and the two stored closed plans re-verified; certificate re-run (PASS, exit 0, 9 s). HOLDS; two imprecisions recorded, no correction"
 aliases: [R57-b]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, dispatcher, conditional-compiler]
 ---
@@ -163,3 +168,4 @@ with the separate sigma induction is drawn.
 
 - Migrated from `experiments/residual_progress/selected_rules/SELECTED_RULES.md` (legacy ID: part of R57; alias R57-b given at the migration) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). The plan attached this dispatcher to [`guarded-cycle-exit-phases`](../guarded-cycle-exit-phases/README.md) as evidence; it has its own note and is cited separately by R58–R60, so it became its own node. Note, scripts and receipt moved byte-identical, with the side-lane meter `reviews/side_lane/selected_rules_meter.*`; `check_legacy_replay.py` was added at the migration. Legacy status: "composition of written strict-rank rules, with finite exact substitutions".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `7206f9c`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction; the review validates every plan returned on the 1024-candidate window with an independent divergence and rank check and records two imprecisions (the actual internal priority of the nine old rules is R41, R45, R44, R46, R47, R48, R50, R52, R53; `one_step` raises on inputs outside `W5` instead of returning `None`). See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

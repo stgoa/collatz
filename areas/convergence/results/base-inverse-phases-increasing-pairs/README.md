@@ -2,7 +2,7 @@
 id: base-inverse-phases-increasing-pairs
 kind: result
 title: "The two base inverse rays on the nonselected critical-five domain decrease rank on two ternary phases, with increasing pair indices allowed"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). For w in B = {w = 5 mod 8, 3w not selected} and k in {4,
   8} put h = v3(kw+1), C = (kw+1)/3^h, p = 2^(h+1) C - 1; the base inverse bridge uses h valuation-1 arrows and
@@ -26,6 +26,10 @@ reviewed_by:
     date: 2026-10-17
     link: ../critical-image-rank-composition/batch_r43_r46_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 22:16, VERIFIED, main a06ef3c), with the lane's own nu and Syracuse step. Only the rank value rho(1613) = 4839 was checked. The entry says: The R43 composition theorem and the R44/R45 accepted-domain classifications were not rebuilt here. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (base-ray parameters, exact word and quotient bridge, rank and index thresholds, G and the 17 classes, boundary (7), the request-level classification of section 4 including the zero-current rows) with independent code on all 16,384 inputs of B below 2^18 and all 2,731 positive-h plans below 2^16; certificate re-run (PASS, exit 0, 9 s); 3x+5 and 3x+13 controls. Verdict HOLDS; three imprecisions, no correction"
 aliases: [R45]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, inverse-rays, sufficient-set]
 ---
@@ -293,3 +297,4 @@ verification is supplied.
 
 - Migrated from `experiments/residual_progress/nonselected_inverse/NONSELECTED_INVERSE_PHASES.md` (legacy ID R45) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written classification of both specified base rays and strict-rank sufficient-set reduction".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `a06ef3c`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections; three imprecisions (the reuse of the letter `B`, the wording `p ≥ 7`, and the closest case `(k, h) = (8, 4)` of the threshold proof) are recorded in [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

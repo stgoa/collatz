@@ -2,7 +2,7 @@
 id: retained-graph-complement-constructor
 kind: result
 title: Retaining every cutoff arrow absorbs all seeds up to N and 47/72 of the outer shell, leaving an explicit profile R_N of mass 25N/288 + O(1)
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; 8 | N, B = 3N/2; K_N the explicit current of local-packet-calibration-
   extension. Conditional on a supplied finite exact current H for I_N (inner absorption is an input):
@@ -23,6 +23,11 @@ depends_on: [local-packet-calibration-extension]
 certificates: [check_profile_recompute.py, check_legacy_replay.py]
 evidence:
   - "check_complement.py, complement_constructor.py, complement_audit.json, improved_packet_24_current.csv: the legacy constructor improve_packet(N, inner_current) and its checker (the entire cutoff graph against the classification at 131 cutoffs, the 36-phase mass formula, eight supplied-input conversions with capped input search, and a stored improved packet current at N = 24). Fails at its new path: complement_constructor.py loads ../closure/local_extension.py by its pre-migration path (now ../local-packet-calibration-extension/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/complement/check_complement.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy transfer of annular-complement-outer-descent loads complement_constructor.py by its old path. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument: the support lemma (with the predecessor-count lemma identifying the pushforward form of K_N with nu_N + 3(U_N - U_(N/4))), the lower-interval lift, the component classification, the improved input (2) and the mass formula with its period, bounds and ladder re-derived by hand and re-checked by independent code (classification by union-find for all 8 | N <= 4096; formula, 36 phases, period and bounds for N <= 40000; identity (2) with actual inner currents at ten cutoffs through 6144); both certificates re-run (PASS, exit 0, 7.96 s); the 3x+5 and 3x+13 controls fail the inner-absorption hypothesis at every tested cutoff and the F-lift step is specific to d = 1. Verdict HOLDS; two imprecisions (the in-tree step of the component argument, the K_N identity) and a hygiene note, no correction to the claim"
 aliases: [R17]
 tags: [convergence, packet-currents, outer-residual, conditional, partial-extension]
 ---
@@ -291,3 +296,4 @@ The finite examples supplement the written universal conditional proof.
 
 - Migrated from `experiments/residual_progress/complement/RETAINED_GRAPH_EXTENSION.md` (legacy ID R17) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical; `check_profile_recompute.py` was added at the migration. The note's code span `../closure/LOCAL_EXTENSION.md` is now [`local-packet-calibration-extension`](../local-packet-calibration-extension/README.md). Legacy status: "written conditional constructor, complete arithmetic graph classification, and finite current certificates. Inner absorption remains an input".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `2be37b7`. No review from another lane is on record; the main lane's later written proof of the support identity is in [`outer-residual-strong-induction-support`](../outer-residual-strong-induction-support/README.md).
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review supplies the in-tree argument behind "a finite functional graph component containing 1 supplies a directed path to 1" and the predecessor-count lemma identifying the pushforward form of `K_N` with `ν_N + 3(U_N − U_(N/4))`, and records the controls: the inner-absorption hypothesis fails for `3x+5` and `3x+13` at every tested cutoff, and the `F`-lift step of §2 is specific to `d = 1`.

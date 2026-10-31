@@ -2,7 +2,7 @@
 id: supplied-path-saturation-core
 kind: result
 title: Supplied absorption paths through N saturate to an infinite target set whose first Syracuse image is a finite closed graph of 2|Q_N| states
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; nu, B, T(q) = nu(S(q)) of elementary-bridge-quotient-normal-form. (Closure) For
   any seed set A, the smallest set closed under the elementary identities (F, selected halving, their inverses) and
@@ -31,6 +31,10 @@ reviewed_by:
     date: 2026-10-18
     link: ../auxiliary-normalisation-remainder/batch_r15_r18_r21_r29_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 11:32, VERIFIED, main 9190ccf; the R29 part of a probe that also checks R15, R18 and R21): with the lane's own S and nu, the T-closure Q of all canonical states below 3000 (1,269 states, maximum 252,233) has |W_Q| = 2|Q|, max W_Q = 3 max Q + 2 and S(W_Q) in W_Q; every odd x < 2 10^6 with nu(x) in Q has S(x) in W_Q (12,866 such x) and every element of W_Q is attained; sampled x reach 1 within 1 + 2|Q| arrows; S(x) <= 3 nu(x) + 2 for all odd x < 2 10^6; S^4(327) = 415 and S^9(327) = 1579. The written closure, origin and counting proofs were not re-derived; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument: the closure (1)-(2), the least origins (3)-(4), the finite core (5)-(7) with the distinctness argument, the bridge compiler, the examples at N = 384 and 96, the counts (9)-(12) and the ascent prefix re-derived by hand and re-checked by independent code (own nu and T; Q_N, origins, nested tables and W_Q at twelve cutoffs through 4096 agreeing with the receipt at its nine; S(nu^-1 Q) = W_Q on all odd x < 2^19 at five cutoffs; counts on 1500 random canonical sets with X up to 200 bits); both certificates re-run (PASS, exit 0, 7.95 s); the 3x+5 and 3x+13 analogues keep nu_d S_d = T_d nu_d and their actual cycles lie inside the analogue core, so nothing is excluded. Verdict HOLDS; three imprecisions (distinct bases, the 1/2 separation, the odd cutoff of item 6) and a hygiene note, no correction to the claim"
 aliases: [R29]
 tags: [convergence, outer-residual, saturation, known-set, finite-core, conditional, counting]
 ---
@@ -414,3 +418,4 @@ current as an input and claims no universal discovery algorithm.
 
 - Migrated from `experiments/residual_progress/known_saturation/KNOWN_SATURATION.md` (legacy ID R29) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical; `check_saturation_recompute.py` was added at the migration. Legacy status: "written closure theorem and finite compiler; universal entry remains open".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `64fff1d`. The batch report (archive/convergence-residual-progress/REPORT.md) records "independent model" proof and code audits for this batch; they were the main lane's own agents, so they do not count as an independent review. The side lane's later finite check (probe kept in [`auxiliary-normalisation-remainder`](../auxiliary-normalisation-remainder/README.md)) is recorded under `reviewed_by`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review supplies the distinctness argument for the `2|Q|` bases of §3 and the separation computation behind (10), notes that item 6 uses an odd cutoff `N = 2^a − 1`, and records the controls: the `3x+5` and `3x+13` analogues of `ν` and `T` satisfy `ν_d S_d = T_d ν_d`, the fixture cycles lie inside the analogue core `W_Q` and `T_d` has cycles, so the theorem excludes nothing; absorption is the `d = 1` input.

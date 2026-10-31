@@ -2,7 +2,7 @@
 id: baseline-obligation-transfer-controls
 kind: result
 title: Exact 3x+d cycles refute the ordinary descent, absorption and no-cycle analogues of three Phase 6 route nodes
-status: written
+status: reviewed
 claim: >
   For positive odd d coprime to 6, raw odd-only map T_d(x) = (3x+d)/2^v2(3x+d) (absorbed only at 1 where
   stated). (Fixtures) The eleven listed raw cycles are exact: for d = 5 minima 1, 19, 23, 187, 347 (odd-only
@@ -28,6 +28,10 @@ reviewed_by:
     date: 2026-10-18
     scope: "Finite only (side-lane feed 2026-10-18 15:38 on main's working copy and 15:52 on committed b901e11, CONFIRMED setup label none): all 11 cycles in cycle_fixtures.json re-verified with the side lane's own 3x+d step, every arrow, every exact valuation, distinctness before closure and the stated minimum; they agree with the side lane's own scan of starts below 20,000, which also lists further d = 13 five-cycles with minima 227, 251, 259, 283, 287 and 319. The feed's 15:39 entry agrees that almost-all arrival at 1 does not transfer to d > 1 because the multiples of d have positive density and never reach 1. The harness code was not separately reviewed; the status stays written"
     link: ../../../../archive/side-lane/FEED.md
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "All eleven fixtures re-verified by the lane's own 3x+d enumeration from odd seeds to 100,000 (arrows, valuations, distinctness, minima, cycle points; the only further cycles found are x = d and six more 3x+13 five-cycles, consistent with the node's non-completeness disclaimer); the three obligations re-evaluated on every control; the multiples-of-d invariant and count re-derived; certificate re-run (PASS, exit 0, 0.26 s). Verdict HOLDS; two hygiene notes, no correction"
 aliases: [P6-000]
 tags: [convergence, phase6, transfer-controls, 3x-plus-d, negative-controls, fixture]
 ---
@@ -103,3 +107,5 @@ No tested positive sample proves a universal statement. These cycle controls als
 ## History
 
 Migrated from `experiments/phase6/README.md` (the transfer-control harness specification, below the line the 2026-10-19 restructure added; that added line overview is retold in [`areas/convergence/OVERVIEW.md`](../../OVERVIEW.md)), with `transfer_controls.py`, `transfer_controls_audit.json`, `cycle_fixtures.json` and `setup_verification.json`, at commit `be73a66`. Legacy batch `P6-000`, ChatGPT main lane, 2026-10-18, pushed as `b901e11`; confirmed **none** by the side lane at `b1785fb` (feed 15:38, 15:52). The route map, ledger and programme report of Phase 6 are in [`archive/convergence-phase6/`](../../../../archive/convergence-phase6/).
+
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction; the review notes that `transfer_controls.py` refuses to run under `python3 -O` although it uses no `assert`, and that the receipt's `confirmation` text predates the side lane's confirmation. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

@@ -2,7 +2,7 @@
 id: affine-common-tail-tree-lifting
 kind: result
 title: Finite common-tail Syracuse trees lift to affine families of exact currents, and one such family packs into every large annulus
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map. (Compiler) For a finite directed tree of positive odd states with common sink w, exact
   edge valuations a_x, d_x edges and A_x total valuation from x to w, and D = max d_x, the states
@@ -23,6 +23,11 @@ certificates: [check_stored_annular_currents.py, check_legacy_replay.py]
 evidence:
   - "affine_template_compiler.py, affine_templates.json: the legacy compiler; checks both compiled identities at arbitrary-size integer parameters, the linear band bounds on selected scales through 64^20, all 45 progression-capacity checks, and every allowed cutoff from 8 through 4096 for the summed two-class family. Fails at its new path: it imports annular_components from its own folder, which loads experiments/current_construction/recursive/check_annular_recursion.py and experiments/current_construction/obstructions/verify_obstructions.py relative to the repository root (now ../disjoint-annular-recursion/ and ../orbit-component-current-criterion/). Passed at be73a66 as experiments/annular_construction/components/affine_template_compiler.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "annular_components.py, check_annular_components.py, annular_component_audit.json and the four annular_*.csv tables: the capped incremental constructor and its audit driver (the six component diagnostics, the finite work witnesses and the stored A_96 and A_168 currents). Fail at their new paths for the same reason; passed at be73a66 inside scripts/verify_all.py, as above. Later residual-progress scripts load annular_components.py and affine_template_compiler.py by their legacy paths. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (compiler theorem, tree data, coverage intervals, capacity, counting, work witnesses, two-row family) with independent code: the identity at 600 parameters and large t, admissibility over all t for every 8 | N <= 4096, the stored A_96 and A_168 currents, and the compiler on 3x+5 and 3x+13 trees (d-uniform); both certificates re-run (PASS, exit 0, under 1 s and 5 s). Verdict HOLDS; one gap-level imprecision (why only t = 0, 3 mod 9 are admissible) supplied in the review, no correction"
 aliases: [R8-b]
 tags: [convergence, packet-currents, annular, affine-lifting, partial-current, finite-certificate]
 ---
@@ -135,3 +140,4 @@ The positive current cost is 3.
 
 - Migrated from `experiments/annular_construction/components/AFFINE_COMPONENTS.md` (part of the legacy R8 round; alias `R8-b`) at commit `be73a66`, by the B08 migration (Claude, Opus 5.5). Its §4 capacity proof moved to [`universal-annular-partial-current`](../universal-annular-partial-current/README.md). Scripts, receipts and tables moved byte-identical; `check_stored_annular_currents.py` was added at the migration because the legacy scripts no longer run at their new paths. Legacy status: "written proofs and finite certificates".
 - Main lane (ChatGPT, Codex), 2026-10-17, commit `ce56699`. The round report records "independent model reviews" of both capacity arguments by the main lane's own agents; no review from another lane is on record.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections; the review supplies the omitted argument that only `t ≡ 0, 3 (mod 9)` can give admissible copies (so `C(N)` counts all of them) and records that the compiler theorem is `d`-uniform: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

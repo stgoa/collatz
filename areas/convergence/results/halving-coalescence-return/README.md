@@ -2,7 +2,7 @@
 id: halving-coalescence-return
 kind: result
 title: A halving identity certifies the selected half of the outer residual from smaller seeds, leaving a complementary profile of mass 25N/576 + O(log N)
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1. (Identity) Every odd x = 3 mod 4 is x = 2^a t - 1 with a = v2(x+1) >= 2,
   t odd; if t = 3^a mod 4 ("selected"), then S^a(x) = S^a((x-1)/2), with an exact finite bridge current of
@@ -30,6 +30,10 @@ reviewed_by:
     date: 2026-10-17
     link: coalescence_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 19:46, VERIFIED, main 8e2b5eb): the identity S^a(x) = S^a((x-1)/2) for every selected x < 2^21 and 2000 random selected 200-bit x; the remaining mass within 6A of 25N/576 at N = 96, 768, 6144, 49152, 98304 by explicit enumeration. The written proofs of the identity, the CRT count and the conversion were not re-derived; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument: the halving identity (1), the current (2), the classes (3), the application (4)-(6) with the nonnegativity and extraction arguments, the CRT formula (7), the bounds (8)-(9), the complementary branch (10), the counterexample and the excursions re-derived by hand and re-checked by independent code (identity on all selected x < 2^20 and 300-bit seeds; own formula (7) equals enumeration for all 8 | N <= 8192 and reproduces the 45 receipt rows; the conversion rebuilt with actual lower currents at the eight receipt cutoffs through 6144, 263 of 532); both certificates re-run (PASS, exit 0, 10.97 s); the identity is d-uniform and on the actual 3x+5 and 3x+13 cycles only merges the partner into the cycle. Verdict HOLDS; two imprecisions (the in-tree step of the extraction, slack in (8)-(9)) and a hygiene note, no correction to the claim"
 aliases: [R23]
 tags: [convergence, packet-currents, outer-residual, halving, coalescence, conditional, constructive]
 ---
@@ -356,3 +360,4 @@ The written proof is not formal verification or human peer review.
 
 - Migrated from `experiments/residual_progress/residual_return/SHRINKING_COALESCENCE.md` (legacy ID R23) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical, with the side-lane probe `reviews/side_lane/coalescence_check.*`; `check_halving_recompute.py` was added at the migration. Legacy status: "written conditional construction, exact count, and checked finite currents".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `46198fb`. Its "independent model audits" of the halving construction and count were the main lane's own agents. The side lane's finite check is recorded under `reviewed_by`. The side lane first numbered this bridge R27; it corrected the numbering to R23 on 2026-10-18.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review supplies the in-tree step of the component extraction in §2, notes the slack in the bounds (8)-(9) (deviation at most `0.61·A` for `N ≤ 8192` against `6A`), and records the controls: in the form `x = 2^a t − d`, selected iff `3^(a−1) t ≡ d + 2 (mod 4)`, partner `(x − d)/2`, the halving identity is `d`-uniform and on the actual `3x+5` and `3x+13` cycles only merges the partner into the cycle, while the profile and the count are specific to `d = 1`.
