@@ -2,7 +2,7 @@
 id: high-smaller-origin-history
 kind: result
 title: "A smaller origin meeting the target above its height gives a decreasing plan on a blocked critical-nine family"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; F(x) = 4x+1; quotient T = nu S; retained critical basis of R75. For D >=
   12, t >= 0 let q = 11547 + 2^17 3^D t, b = q/3, p = 11391 + 2^36 3^(D-12) t, y = (3q+1)/2. Then b < p < q < y,
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-18
     link: batch_r78_r80_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 03:31, VERIFIED, main 3b0c8a5): '**R80.** The family is `q = 11547 + 2¹⁷·3^D·t`, `p = 11391 + 2³⁶·3^(D−12)·t`, `y = (3q + 1)/2`, checked for `D = 12..16` and `t = 0..5` (30 cases)': b < p < q < y with p, q, y canonical, the thirteen valuations, every state after p above q with peak 32q + 17, and S²(q) = S¹⁴(p) = (9q + 5)/8 > q; '**R80 anchor.** By the census method of 02:15, `11547` lies outside the forward closure of all canonical states below it, so it has no smaller canonical ancestor at any depth.' The signed current tables and the all-depth lift were not rebuilt (side_lane_review_9849c53.md). The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived with an independent nu/T: family, blocked row, thirteen-arrow merger and its fixed phases, current (8), old W5-only bounds, anchor closure rebuilt (4892 states, identical to the stored table), lift (13) by inverse-tree search, R44/R52 endpoints; certificate re-run (PASS, exit 0, 16 s); 3x+d controls via the d-uniform cell arithmetic. Verdict HOLDS; three imprecision/typo findings, no correction to the claim"
 aliases: [R80]
 tags: [convergence, outer-residual, critical-nine, smaller-origin-history, inverse-barrier, anchor-certificate]
 ---
@@ -301,3 +305,4 @@ At the B18-replay-revival migration [`check_legacy_replay.py`](check_legacy_repl
 - Migrated from `experiments/residual_progress/native_history/HIGH_HISTORY.md` (legacy ID R80) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written conditional whole-family theorem, finite all-depth anchor certificate and exact supplied-current demonstrations".
 - The main lane's review `side_lane_review_9849c53.md` (`experiments/residual_progress/`, 2026-10-18) moved here with the side-lane probe it reproduces.
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `3b0c8a5`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No text was changed; the review records three imprecisions (nu(b) = b used silently in section 3; the lift of section 4 is re-proved there and does not rest on R49's text; the legacy 'X modulo M' notation).

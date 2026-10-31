@@ -2,7 +2,7 @@
 id: annular-complement-outer-descent
 kind: result
 title: A capacity-checked annular block certifies its negative atoms and the outer roots whose exits they are, with explicit unbounded-excursion descents
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; 8 | M, N = 64M; A_M the six-band annulus; R_N the residual profile of
   retained-graph-complement-constructor. Conditional on a supplied finite exact current H for U_N (known
@@ -24,6 +24,11 @@ depends_on: [retained-graph-complement-constructor, delayed-release-cancellation
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_transfer.py, transfer.py, transfer_audit.json, outer_9183_current.csv: the legacy constructor and checker (positive-source ancestor formulas and exact catalogue coverage at M = 8, 16, ..., 512, 768, 6144: 353280 positive atoms, 164 matched roots; five actual transfers at M = 8, 96, 168, 384, 768 with capped supplied lower absorption; 170 symbolic descent branches for qualifying 2 <= h <= 32 and both congruences, including the coefficient-2 example; about 3 s) and the stored 61-row current for delta_9183 that upgrades the N = 6144 packet residual by one unit. Fails at its new path: transfer.py loads ../complement/complement_constructor.py, ../release_packing/release_packing.py and ../release/check_release.py by their pre-migration paths (now ../retained-graph-complement-constructor/, ../release-source-packing/, ../delayed-release-cancellation/). Passed at be73a66 as experiments/residual_progress/complement_recursion/check_transfer.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy constructor of halving-coalescence-return loads transfer.py by its old path. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (ancestor lemma, the in-tree step, the transfer identity, the exits of R_N, exact catalogue coverage, the delayed-release descents, the coefficient-2 example, the stored current) with independent code at the receipt's 66 cutoffs (353280 positive atoms, 164 roots, 88 designated and 82 companion branches); certificate re-run (PASS, exit 0, 7 s); the supplied-H hypothesis fails for 3x+5 and 3x+13; verdict HOLDS"
 aliases: [R20]
 tags: [convergence, packet-currents, outer-residual, transfer, conditional, constructive]
 ---
@@ -330,3 +335,4 @@ No certificate ran at this path before the B18 replay revival; the legacy constr
 
 - Migrated from `experiments/residual_progress/complement_recursion/ANNULAR_COMPLEMENT_TRANSFER.md` (legacy ID R20) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical; the note's code span `../release/DELAYED_RELEASE.md` is now [`delayed-release-cancellation`](../delayed-release-cancellation/README.md). Legacy status: "written conditional transfer theorem, explicit infinite descent families, and finite current certificates. Full residual coverage remains open".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `65093c4`. Its "independent model review" of the transfer was the main lane's own agents; no review from another lane is on record.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections; the review supplies the in-tree argument behind the two uses of "an exact current with nonnegative source forces directed paths to 1". Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

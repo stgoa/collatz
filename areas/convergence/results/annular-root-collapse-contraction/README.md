@@ -2,7 +2,7 @@
 id: annular-root-collapse-contraction
 kind: result
 title: Collapsing 4x+1 chains to their roots contracts every annulus to 19/22 of its norm in one pass, but cannot be iterated
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1. Let R send each odd state to the root of its F-chain, F(x) = 4x + 1
   (replace x by (x−1)/4 while x ≡ 5 mod 8), discarding root 1. For every finite measure μ, PRμ = Pμ, so
@@ -22,8 +22,12 @@ evidence:
 reviewed_by:
   - by: Claude PR1 lane (Opus)
     date: 2026-10-17
-    link: progress-measures-control-3x-61.md
+    link: ../progress-measures-control-3x-61.md
     scope: "Finite only (ledger C1/C4, NOTE §11): with independent code, ‖P A_N‖₁ = ‖R A_N‖₁ = 171N/4 − |c_N| at 68 cutoffs N ≤ 4096, (R A_N)(p) = 2 at the 2N survivors p ≡ −1 mod 36 in (32Q, 64Q), and c_80000 = 0 by an independent point evaluator. The written entry-profile proof was not re-derived, so the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the algebra (PR = P, the root-successor bijection), the entry-profile table, the period sums and 171N/4, |c_N| <= 3 and the 2N survivors, with independent code at 131 cutoffs (8 | N <= 1024, 2048, 4096, 6144) and c_80000 = 0; evidence scripts re-run (check_duality.py, progress_measures_audit.py, the legacy check_arithmetic_reductions.py replay; all exit 0); the algebra checked d-uniform on 3x+5 and 3x+13; verdict HOLDS"
 aliases: [R9]
 tags: [convergence, packet-currents, annular, compression, norm-contraction]
 ---
@@ -32,7 +36,7 @@ tags: [convergence, packet-currents, annular, compression, norm-contraction]
 
 ## Statement
 
-Odd-only clock, absorbing at 1; `A_N`, `Q = 9N/4` and the six bands as in [`disjoint-annular-recursion`](disjoint-annular-recursion/README.md). Define `F(x) = 4x + 1`. Then `S(F(x)) = S(x)` on positive odd states. Every odd state belongs to a unique `F`-chain rooted at a state `ρ(x)` with first valuation 1 or 2: repeatedly replace `x` by `(x − 1)/4` while `x ≡ 5 (mod 8)`. Let `Rμ` sum the coefficients of `μ` at these roots, discarding root 1.
+Odd-only clock, absorbing at 1; `A_N`, `Q = 9N/4` and the six bands as in [`disjoint-annular-recursion`](../disjoint-annular-recursion/README.md). Define `F(x) = 4x + 1`. Then `S(F(x)) = S(x)` on positive odd states. Every odd state belongs to a unique `F`-chain rooted at a state `ρ(x)` with first valuation 1 or 2: repeatedly replace `x` by `(x − 1)/4` while `x ≡ 5 (mod 8)`. Let `Rμ` sum the coefficients of `μ` at these roots, discarding root 1.
 
 **Theorem.** For every finite measure `μ`, `PRμ = Pμ` and
 
@@ -52,7 +56,7 @@ where `c_N` is the signed mass of the unique `F`-chain rooted at 1, before absor
 
 ## Proof
 
-From §2 of the legacy note `ARITHMETIC_RESULTS.md` (now [`universal-annular-partial-current`](universal-annular-partial-current/README.md)), kept as written.
+From §2 of the legacy note `ARITHMETIC_RESULTS.md` (now [`universal-annular-partial-current`](../universal-annular-partial-current/README.md)), kept as written.
 
 Each replacement `x → (x − 1)/4` decreases the positive integer, so the root procedure terminates. Because `PRμ = Pμ`, the identity `μ = (I − P)(μ − Rμ) + Rμ` is an exact finite partial current. Different roots have different successors: a successor `y ≡ 2 (mod 3)` has root `(2y − 1)/3`, and one with `y ≡ 1 (mod 3)` has root `(4y − 1)/3`. Hence `‖Rμ‖₁ = ‖Pμ‖₁`.
 
@@ -79,12 +83,13 @@ The absolute sums in one period are 14 and 14 for bands 0 and 1. In bands 2 thro
 
 ## Remarks
 
-- **One pass only.** `R` is idempotent, so a second pass does nothing, and its residual is not another annulus. The contraction cannot be applied repeatedly as stated. The `4N` survivors rule out completing the construction with `F`-coalescence diamonds alone: such diamonds preserve `Pμ`, whereas a nonpositive residual would have nonpositive pushforward, and `P A_N` has the corresponding positive atoms. The obstruction allows combinations with further forward transport, larger affine identities, or cross-time intersections. Literal forward transport has its own closure obstruction: [`outer-profile-closure-obstruction`](outer-profile-closure-obstruction.md).
-- **Not evidence of progress.** On the false analogue `3x+61`, whose packet obligation fails, the same one-pass ratio is 0.849–0.863 ([`progress-measures-control-3x-61`](progress-measures-control-3x-61.md)). A one-pass contraction near `19/22` therefore says nothing about whether every positive plateau of `3x+1` ends.
-- The root-transport normal form [`root-transport-normal-form`](root-transport-normal-form/README.md) (legacy R12) builds on `R`: `R² = R`, `PR = P`, explicit top-band atoms survive any bounded number of transports, and at `N = 96` the contraction fails on the next step (`3533 → 3124`).
+- **One pass only.** `R` is idempotent, so a second pass does nothing, and its residual is not another annulus. The contraction cannot be applied repeatedly as stated. The `4N` survivors rule out completing the construction with `F`-coalescence diamonds alone: such diamonds preserve `Pμ`, whereas a nonpositive residual would have nonpositive pushforward, and `P A_N` has the corresponding positive atoms. The obstruction allows combinations with further forward transport, larger affine identities, or cross-time intersections. Literal forward transport has its own closure obstruction: [`outer-profile-closure-obstruction`](../outer-profile-closure-obstruction.md).
+- **Not evidence of progress.** On the false analogue `3x+61`, whose packet obligation fails, the same one-pass ratio is 0.849–0.863 ([`progress-measures-control-3x-61`](../progress-measures-control-3x-61.md)). A one-pass contraction near `19/22` therefore says nothing about whether every positive plateau of `3x+1` ends.
+- The root-transport normal form [`root-transport-normal-form`](../root-transport-normal-form/README.md) (legacy R12) builds on `R`: `R² = R`, `PR = P`, explicit top-band atoms survive any bounded number of transports, and at `N = 96` the contraction fails on the next step (`3533 → 3124`).
 - Novelty undetermined.
 
 ## History
 
 - Migrated from `experiments/annular_construction/arithmetic/ARITHMETIC_RESULTS.md` §2 (legacy ID R9) at commit `be73a66`, by the B08 migration (Claude, Opus 5.5). Legacy status: "written identity and finite arithmetic checks. No iterated contraction theorem".
 - Main lane (ChatGPT, Codex), 2026-10-17, commit `ce56699`. The round report records "independent model reviews" of the norm proof by the main lane's own agents (not counted as independent). Cross-checked on finite ranges by the PR1 lane the same day.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections. For the review the node was moved from the single file `annular-root-collapse-contraction.md` into this folder; every relative link in it gained one `../`, and the incoming links in `disjoint-annular-recursion`, `universal-annular-partial-current`, `exposure-potential-boundary-flux`, `root-transport-normal-form`, `outer-profile-closure-obstruction`, `progress-measures-control-3x-61`, `right-aligned-reduction-independent-checks`, the questions `packet-current-supply` and `five-ray-annular-current-supply`, the area `OVERVIEW.md` and `papers/right-aligned-reduction/README.md` were repointed; `MAP.md` is regenerated. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

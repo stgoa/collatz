@@ -55,7 +55,7 @@ with the minimum attained at `u* = θ/(2(θ−1))`. `I` is positive on `(1,2)`, 
 #{odd N <= X : A_n(N) <= t} <= (X/2) exp(−n I(t/n)) + C(⌊t⌋, n).        (4)
 ```
 
-The one-round descent that follows from L1 and L2' (legacy L3) is the separate node [`explicit-one-round-descent`](../explicit-one-round-descent.md).
+The one-round descent that follows from L1 and L2' (legacy L3) is the separate node [`explicit-one-round-descent`](../explicit-one-round-descent/README.md).
 
 ## Proof
 
@@ -76,7 +76,7 @@ The boundary term is exact bookkeeping, not an `O(1)`: it forces `C(⌊t⌋, n) 
 - [`check_L2.py`](check_L2.py) (about 6 s; exact rationals for probabilities and counts, floating point only for `I(θ)` with an explicit tolerance) rewrites [`receipts/L2_receipt.json`](receipts/L2_receipt.json) byte-identically and exits 0 iff every check passes. It verifies:
   1. (2) against the exact distribution `P(A_n = A) = C(A−1,n−1)/2^A` for `n <= 60` and `θ ∈ {1.3,…,1.95}` (480 cases, worst exact/bound ratio 0.61), and the hockey-stick word count;
   2. L1 on actual integers for `X = 2^16`, `d ∈ {1,5}`: each word is one odd class mod `2^(A+1)`, counts within `±1` of `X/2^(A+1)`;
-  3. the affine formula (1) and the descent bound of [`explicit-one-round-descent`](../explicit-one-round-descent.md), with the falsity of its discarded multiplicative form, for 20,000 random odd `N < 2^64` and `n <= 40`;
+  3. the affine formula (1) and the descent bound of [`explicit-one-round-descent`](../explicit-one-round-descent/README.md), with the falsity of its discarded multiplicative form, for 20,000 random odd `N < 2^64` and `n <= 40`;
   4. (4) and the descent inequality as integer counts for `X = 2^20`, `n ∈ {6,8,10}`, `θ ∈ {1.6,1.7,1.8}`, `d ∈ {1,5}`;
   5. the explicit trade-off table (rate, descent factor per step, admissible `κ`) used by the descent node.
 - [`fable_L2_check.py`](fable_L2_check.py) (about 3 s) is the side lane's independent probe (receipt [`fable_L2_check.json`](fable_L2_check.json)); see `reviewed_by`. Its checks are `assert`s: run it without `-O`, as its docstring says.
@@ -91,6 +91,6 @@ Both pass at their current paths, leaving their receipts unchanged.
 
 ## History
 
-- Migrated from `experiments/explicit_tao/lemmas/L2_valuation_tail.md` (legacy IDs `L2`, `L2'`; aliases `TAO-L2`, with `TAO-L1` for the recalled cylinder lemma) at commit `be73a66`, with `experiments/explicit_tao/check_L2.py`, `experiments/explicit_tao/receipts/L2_receipt.json` and the side-lane probe `reviews/side_lane/fable_L2_check.py` with its receipt. The L3 part of the legacy note moved to [`explicit-one-round-descent`](../explicit-one-round-descent.md).
+- Migrated from `experiments/explicit_tao/lemmas/L2_valuation_tail.md` (legacy IDs `L2`, `L2'`; aliases `TAO-L2`, with `TAO-L1` for the recalled cylinder lemma) at commit `be73a66`, with `experiments/explicit_tao/check_L2.py`, `experiments/explicit_tao/receipts/L2_receipt.json` and the side-lane probe `reviews/side_lane/fable_L2_check.py` with its receipt. The L3 part of the legacy note moved to [`explicit-one-round-descent`](../explicit-one-round-descent/README.md).
 - Written by the Claude explicit-Tao lane (branch `claude/explicit-tao`), iteration 1, 2026-10-18.
 - 2026-10-18: the hand-quoted `I(θ)` values were corrected from the receipt after the side-lane probe found them misprinted (feed 19:36: four of the quoted values were off beyond truncation, three of them overstated, which is the unsafe direction for an exceptional-set bound; the comparison is in `fable_L2_check.json`). No computed result changed.

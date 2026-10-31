@@ -2,7 +2,7 @@
 id: exponent-eleven-fifteen-rule-classification
 kind: result
 title: "The whole exponent-eleven family under the fifteen-rule dispatcher, and an exact zero-current self-request"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; T = nu S, P(w) = [3w] - [w], rho(w) = nu(3w); the fifteen rules are exactly
   the dispatcher at d265d94 (with R59's fixed old-twelve inner resolver). On the whole R61 CRT family (r >= 16, A
@@ -22,6 +22,11 @@ depends_on: [exponent-eleven-exit-continuation, fifteen-family-rho-dispatcher, d
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_refined_obstruction.py, refined_obstruction.py, refined_obstruction_audit.json: the legacy constructor and checker: the joint R63-R64 receipt: 3298 affine checks, 15 first-passing and 14 last-failing boundary inequalities, 43 complete signed plans (13 descending, 29 higher-leading failures, one exact self-return), nine old-cycle phase rows, 16 new CRT rows through r = 64, A = 32, K = 64, four complete dispatcher classifications, two exact leading-current undos, three supplied conversions (102, 215 and 1746 rows from 9, 15 and 42 supplied pairs) and 15 rejections. The constructor also serves lifted-inverse-ray-cycle (R64), which lists these files from this folder. Fails at its new path: refined_obstruction.py loads ../cycle_inverse/ (now ../maximal-inverse-cycle-continuation/), ../deferred_rank/ (now ../deferred-original-rank-testing/), ../exit_continuation/ (now ../exponent-eleven-exit-continuation/), ../refined_rules/ (now ../fifteen-family-rho-dispatcher/) and ../selected_inverse/ (now ../two-selected-inverse-choices/) by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/refined_obstruction/check_refined_obstruction.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Sections 1-5 re-derived (family arithmetic, the R58/R59/R60 exclusions at v, the four R59 candidates at w with their leading requests, the (h, k, j) parametrisation and CRT cells, the 7r+6 inverse word and the zero-current undo) and reproduced with independent code on members of five (r, A, K) families and 60 CRT cells; the fifteen-family dispatcher checked to accept exactly when R60 does; certificate re-run (PASS, exit 0, 83 s). Verdict HOLDS, two imprecisions, no correction"
 aliases: [R63]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, dispatcher, exact-undo]
 ---
@@ -273,3 +278,4 @@ coverage estimates or substitutes for the quantified CRT proofs.
 
 - Migrated from `experiments/residual_progress/refined_obstruction/REFINED_ELEVEN.md` (legacy ID R63) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). The note, the joint constructor, checker and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. The companion note `LIFTED_CYCLE.md` became [`lifted-inverse-ray-cycle`](../lifted-inverse-ray-cycle/README.md). Legacy status: "written classification of the whole R61 CRT family under the fixed fifteen rules".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `793e835`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; two imprecisions in section 3 (three bounds listed without saying which input each bounds; the R55 failure at w1 asserted without its computation) are recorded in the review ([`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md)).

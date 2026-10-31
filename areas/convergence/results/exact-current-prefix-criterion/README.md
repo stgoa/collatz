@@ -2,7 +2,7 @@
 id: exact-current-prefix-criterion
 kind: result
 title: Exact currents at all cutoffs up to M are equivalent to convergence of the odd seeds up to (3M+1)/2
-status: written
+status: reviewed
 claim: >
   Odd-only clock, absorbing at 1; Π^R_N the right-aligned packets. For each integer M ≥ 8 the following are
   equivalent: (1) every positive odd seed r ≤ floor((3M+1)/2) reaches 1; (2) Π^R_N has a finite exact current
@@ -16,6 +16,11 @@ created: 2026-10-17
 depends_on: [right-aligned-fixed-core-remainder, finite-current-certificate-identity]
 evidence:
   - "No script of its own. The base seeds through 15 are checked by ../right-aligned-fixed-core-remainder/right_aligned_packets.py (a certificate of that node)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-derived both directions and the exact cutoff arithmetic of the isolating cutoff N = ceil((2r−1)/3) (checked for every odd r ≤ 2·10^6), ran the base-seed evidence script, and tested the mechanism on the 3x+13 and 3x+61 controls; verdict HOLDS"
 aliases: [R6-b]
 tags: [convergence, packet-currents, right-aligned, exact-currents, finite-prefix]
 ---
@@ -24,7 +29,7 @@ tags: [convergence, packet-currents, right-aligned, exact-currents, finite-prefi
 
 ## Statement
 
-The packet definitions, source measure `ν_N`, fixed core and absorption convention are those of [`right-aligned-fixed-core-remainder`](right-aligned-fixed-core-remainder/README.md); odd-only clock, absorbing at 1.
+The packet definitions, source measure `ν_N`, fixed core and absorption convention are those of [`right-aligned-fixed-core-remainder`](../right-aligned-fixed-core-remainder/README.md); odd-only clock, absorbing at 1.
 
 **Theorem.** For each integer `M ≥ 8`, the following are equivalent:
 
@@ -56,11 +61,12 @@ It follows that `r = 12m + 3` or `r = 12m + 7`. Set `N = ceil((2r − 1)/3)`. Fo
 ## Remarks
 
 - **Scope.** This thins the exact-certificate target to one quarter of the cutoffs. It does not provide any of those currents.
-- **Exact currents only.** At the cutoff that first isolates a least exceptional seed, the packet's unknown component has coefficient `−1`. A finite exact current excludes that seed because the pairing must vanish; an everywhere nonpositive residual permits a negative pairing. So the same proof does **not** establish the sparse criterion for incomplete currents. This is the observation behind Lemma 3 of [`qualitative-current-criterion`](qualitative-current-criterion.md): for currents with nonpositive residual the maximum principle is load-bearing.
+- **Exact currents only.** At the cutoff that first isolates a least exceptional seed, the packet's unknown component has coefficient `−1`. A finite exact current excludes that seed because the pairing must vanish; an everywhere nonpositive residual permits a negative pairing. So the same proof does **not** establish the sparse criterion for incomplete currents. This is the observation behind Lemma 3 of [`qualitative-current-criterion`](../qualitative-current-criterion.md): for currents with nonpositive residual the maximum principle is load-bearing.
 - No trajectory scan is needed beyond the fixed base seeds through 15. The argument does not claim that finite exact currents at a single large cutoff imply all smaller seeds terminate.
-- Related: [`sparse-paired-exact-current-criterion`](sparse-paired-exact-current-criterion.md) (exact currents at sparse pairs). Novelty undetermined.
+- Related: [`sparse-paired-exact-current-criterion`](../sparse-paired-exact-current-criterion/README.md) (exact currents at sparse pairs). Novelty undetermined.
 
 ## History
 
 - Migrated from `experiments/current_construction/recursive/exact_current_prefix.md` (written in the legacy R5–R7 round; filed under the R6 folder, alias `R6-b` here) at commit `be73a66`, by the B08 migration (Claude, Opus 5.5). Legacy status: "written elementary proof, scoped to exact finite signed currents".
 - Main lane (ChatGPT, Codex), 2026-10-17. No review from another lane is on record.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No change to the claim or proof. For the review the node was moved from the single file `exact-current-prefix-criterion.md` into this folder; its three relative links gained one `../`, and the incoming links in `sparse-paired-exact-current-criterion` and `questions/packet-current-supply.md` were repointed; `MAP.md` is regenerated. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

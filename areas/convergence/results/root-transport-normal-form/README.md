@@ -31,7 +31,7 @@ tags: [convergence, packet-currents, annular, root-collapse, transport, obstruct
 
 ## Statement
 
-Finite integer signed measures live on positive odd states greater than 1; `P` is the Syracuse pushforward, discarding contributions whose successor is 1 (odd-only clock, absorbing at 1). `ρ(x)` is the root obtained by replacing `x` by `(x − 1)/4` while `x ≡ 5 (mod 8)`, and `R` collects coefficients at roots, discarding the class rooted at 1 (the operator of [`annular-root-collapse-contraction`](../annular-root-collapse-contraction.md)). `A_N`, `8 | N`, is the six-band annulus of [`disjoint-annular-recursion`](../disjoint-annular-recursion/README.md).
+Finite integer signed measures live on positive odd states greater than 1; `P` is the Syracuse pushforward, discarding contributions whose successor is 1 (odd-only clock, absorbing at 1). `ρ(x)` is the root obtained by replacing `x` by `(x − 1)/4` while `x ≡ 5 (mod 8)`, and `R` collects coefficients at roots, discarding the class rooted at 1 (the operator of [`annular-root-collapse-contraction`](../annular-root-collapse-contraction/README.md)). `A_N`, `8 | N`, is the six-band annulus of [`disjoint-annular-recursion`](../disjoint-annular-recursion/README.md).
 
 1. **Normal form.** `R² = R` and `PR = P`; every finite word in `P, R` is `I`, `R`, `P^k` or `RP^k`. Starting from `R μ` and iterating `RP`, `μ_t = RP^t μ`, `‖μ_t‖₁ = ‖P^(t+1) μ‖₁` and `‖μ_t⁺‖₁ = ‖(P^(t+1) μ)⁺‖₁`. On roots, `x ↦ ρ(S(x))` is conjugate through `φ = S` to killed Syracuse on odd states not divisible by 3. Interleaving the operators changes representatives and current tables, not the residual dynamics.
 2. **Surviving atoms.** For `8 | N` and `t ≥ 0`, the set `X_(N,t) = {72N < x < 144N : x ≡ −1 (mod 9·2^(t+2))}` has exactly `C_(N,t) = ⌊4N/2^t⌋ − ⌊2N/2^t⌋` elements, and for each and every `0 ≤ j ≤ t`, `y_j = 3^j(x+1)/2^j − 1` has `(P^j A_N)(y_j) = (RP^j A_N)(y_j) = 2`. Consequences: no fixed finite number of `P/R` operations completes every annulus, including on each of the five rays; for `N = a·2^b` the top source `144N − 1` survives `b + 2` transports at `324·a·3^b − 1`, so literal `P/R` evolution has no uniform closure `state ≤ K·N`.
@@ -310,7 +310,7 @@ No certificate ran at this path before the B18 replay revival; the legacy checke
 
 ## Remarks
 
-- **Relation to the one-pass contraction.** [`annular-root-collapse-contraction`](../annular-root-collapse-contraction.md) proves the single compression `‖R A_N‖₁ ≤ (19/22)‖A_N‖₁`; §3 here shows that it cannot be iterated literally, as that node already warns. The `2N` surviving states there (positive mass `4N`) are exactly the `t = 0` level of the family here.
+- **Relation to the one-pass contraction.** [`annular-root-collapse-contraction`](../annular-root-collapse-contraction/README.md) proves the single compression `‖R A_N‖₁ ≤ (19/22)‖A_N‖₁`; §3 here shows that it cannot be iterated literally, as that node already warns. The `2N` surviving states there (positive mass `4N`) are exactly the `t = 0` level of the family here.
 - **Reusable constructor.** `collapsed_transport_current(measure, steps)` returns the full pair `(J, Z)` with `μ = (I − P)J + Z`, `Z = RP^steps μ`; a finite cap is not a termination proof.
 - The remaining obligation is unchanged: an additional arithmetic mechanism forcing finite progress of every positive component ([`annular-component-progress-lemma`](../../questions/annular-component-progress-lemma.md)).
 - Novelty undetermined (none claimed in the legacy note).

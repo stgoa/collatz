@@ -2,7 +2,7 @@
 id: actual-graph-current-compiler
 kind: result
 title: Thirty actual one-sided packet certificates compile into a 95-row integer absorption current for U_112
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1. A finite computation, conditional only on its own explicit inputs: with
   the exact cone plan of finite-rational-cone-integer-certificate for target m = 97 (g = 112, B = 9), thirty
@@ -22,6 +22,11 @@ certificates: [check_legacy_replay.py]
 evidence:
   - "actual_graph_compiler.py, forcing_demo_audit.json: the legacy compiler compile_inputs(plan, provider) and its default run, which regenerates the thirty inputs deterministically, verifies the full rational identity and the strict bound, compares the receipt (hashes of the complete numerator tables, discovery depths, unlinked-source counts) and checks every row of the stored current. Fails at its new path: it loads ../duality/finite_cone.py and experiments/packet_currents/right_aligned_packets.py by their pre-migration paths (now ../finite-rational-cone-integer-certificate/finite_cone.py and ../right-aligned-fixed-core-remainder/right_aligned_packets.py). Passed at be73a66 as experiments/residual_progress/forcing/actual_graph_compiler.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy checker of local-packet-calibration-extension loads it by its old path ../forcing/. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "forced_U112_current.csv: the extracted 95-row nonnegative integer current for U_112, written by actual_graph_compiler.py --write-receipt"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-ran check_legacy_replay.py (exit 0, 5 s); re-derived the single-cutoff identity (6), the compile bookkeeping and the integer-component extraction; verified the stored 95-row current and identity (6) at the 30 cutoffs with independent code; 3x+61 control at the block cutoffs; verdict HOLDS"
 aliases: [R11-b]
 tags: [convergence, packet-currents, finite-cone, finite-certificate, constructive]
 ---
@@ -148,3 +153,4 @@ No certificate ran at this path before the B18 replay revival. The legacy compil
 
 - Migrated from `experiments/residual_progress/forcing/ACTUAL_COMPILER.md` (the ledger lists it under R11; alias R11-b here) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, script, receipt and stored current moved byte-identical.
 - Main lane (ChatGPT, Codex), 2026-10-17. The round report says an independent model review checked the proof and all signs in the compiler; that review was run by the main lane's own agents and is not counted as independent.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No change to the claim or text. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

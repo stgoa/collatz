@@ -2,7 +2,7 @@
 id: sparse-paired-exact-current-criterion
 kind: result
 title: Exact currents at arbitrarily sparse pairs of cutoffs N_j, N_j − 1 imply Collatz convergence
-status: written
+status: reviewed
 claim: >
   Odd-only clock, absorbing at 1; Π^R_N the right-aligned packets. Fix an integer d ≥ 1 and put
   N_j = 2·3^(d−1)·(2j+1) for j ≥ 0. If finite exact currents exist for Π^R_(N_j) and Π^R_(N_j − 1) whenever both
@@ -15,6 +15,11 @@ created: 2026-10-17
 depends_on: [right-aligned-fixed-core-remainder, qualitative-current-criterion]
 evidence:
   - "../five-ray-current-criterion/check_sparse_criteria.py, sparse_criteria_audit.json (a certificate of that node): the source difference (8) at the 249 cutoffs N = 10, 14, …, 1002, and 1665 inverse lifts for d = 1, …, 5 and odd y ≤ 999 coprime to 3"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-derived the source identity (8), the exact-pair cancellation, the order of 2 modulo 3^(d+1) and the inverse lift; checked (8) to N = 6002 and 60,006 lifts by independent code; tested the analogue on 3x+5; verdict HOLDS"
 aliases: [R5-c]
 tags: [convergence, packet-currents, right-aligned, exact-currents, sparse-cutoffs]
 ---
@@ -23,7 +28,7 @@ tags: [convergence, packet-currents, right-aligned, exact-currents, sparse-cutof
 
 ## Statement
 
-Odd-only Syracuse map `S`, absorbing at 1; `ν_N`, `Π_N = Π^R_N` as in [`right-aligned-fixed-core-remainder`](right-aligned-fixed-core-remainder/README.md), `e` the nontermination indicator. Fix any integer `d ≥ 1` and, for every integer `j ≥ 0`, set `N_j = 2·3^(d−1)·(2j+1)`.
+Odd-only Syracuse map `S`, absorbing at 1; `ν_N`, `Π_N = Π^R_N` as in [`right-aligned-fixed-core-remainder`](../right-aligned-fixed-core-remainder/README.md), `e` the nontermination indicator. Fix any integer `d ≥ 1` and, for every integer `j ≥ 0`, set `N_j = 2·3^(d−1)·(2j+1)`.
 
 **Theorem.** Suppose exact finite currents exist at both `N_j` and `N_j − 1` whenever both cutoffs are at least 8. Then Collatz follows. These selected pairs have asymptotic density `1/(2·3^(d−1))` among the integer cutoffs.
 
@@ -49,11 +54,12 @@ is positive, odd, divisible by `3^d`, and satisfies `S(x) = y` with exact valuat
 
 ## Remarks
 
-- **Exact currents only.** Subtracting two upper bounds, or two current identities with nonpositive residuals, does not retain a nonpositive residual. Equation (8) therefore does not justify this sparse criterion for one-sided currents. Compare [`five-ray-current-criterion`](five-ray-current-criterion/README.md), which allows nonpositive residuals.
-- **What it shows.** Exact paired certificates already encode convergence of an arithmetic progression of individual seeds; the sparsification alone supplies no constructor. A related exact-current thinning (cutoffs `N ≡ 2, 5 mod 8`) is [`exact-current-prefix-criterion`](exact-current-prefix-criterion.md).
+- **Exact currents only.** Subtracting two upper bounds, or two current identities with nonpositive residuals, does not retain a nonpositive residual. Equation (8) therefore does not justify this sparse criterion for one-sided currents. Compare [`five-ray-current-criterion`](../five-ray-current-criterion/README.md), which allows nonpositive residuals.
+- **What it shows.** Exact paired certificates already encode convergence of an arithmetic progression of individual seeds; the sparsification alone supplies no constructor. A related exact-current thinning (cutoffs `N ≡ 2, 5 mod 8`) is [`exact-current-prefix-criterion`](../exact-current-prefix-criterion/README.md).
 - The general claims rest on the written argument; the script checks the source identity and the inverse lifts on finite ranges. Novelty undetermined.
 
 ## History
 
 - Migrated from `experiments/current_construction/frontier/sparse_current_criteria.md` §7 (part of the legacy R5 round) at commit `be73a66`, by the B08 migration (Claude, Opus 5.5). Legacy status: "written conditional proofs with exact finite checks".
 - Main lane (ChatGPT, Codex), 2026-10-17. No review from another lane is on record.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No change to the claim or proof. For the review the node was moved from the single file `sparse-paired-exact-current-criterion.md` into this folder; its three relative links gained one `../`, and the incoming links in `five-ray-current-criterion`, `exact-current-prefix-criterion` and `questions/packet-current-supply.md` were repointed; `MAP.md` is regenerated. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
