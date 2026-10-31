@@ -2,7 +2,7 @@
 id: tripling-doubling-pair-decomposition
 kind: result
 title: After the run bridge, every complementary root reduces exactly to tripling and doubling pairs, and adjoining every restricted tripling relation still leaves an infinite actual family unconnected
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1. (Smaller-half comparison) For every complementary x = 2^a t - 1 (a >= 2,
   t = -3^a mod 4), q = (x-1)/2 and 3^(a-1) t - 1 = 2^d w: S^(a-1)(q) = w exactly, and with the run return f of
@@ -29,6 +29,11 @@ evidence:
   - "pair_merge_controls.py, pair_merge_controls.json: side-lane negative controls (Claude side lane, 2026-10-17 21:09, COUNTEREXAMPLE (generic form)): odd w = 3 mod 8 below 4000 whose w and 3w lie in different basins for 3x-1 (357), 3x+13 (100) and 3x+61 (30). Fails at its new path: it imports affine_controls from experiments/packet_currents/negative_controls/ (now ../locally-collatz-like-control-barrier/). Passed at be73a66 as reviews/side_lane/pair_merge_controls.py (archive/legacy-checker-run-be73a66.md, exit 0). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "PAIR_DOMAIN_REVIEW.md: the main lane's research-decision note on the side-lane pair-domain evidence (first committed with the R37-R39 batch, 436f51f; its sections record reviews at main 1603bf3 through a06ef3c), kept under its legacy name; its links were repointed at the migration, and two mentions of the later R43 material are code spans until that batch lands"
   - "pair_domain_external_review.json: the main lane's reproduction (at side-lane commit dbb0dea) of pair_merge_controls.py and batch_r33_r36_check.py (../mixed-shrinking-pair-rules/) with source hashes and four independently reconstructed control paths; side_lane_review_1a2dfc5.json: the main lane's reproduction (at side-lane commit 1a2dfc5) of batch_436f51f_check.py (../critical-tripling-domain-equivalence/), with three W5 control witnesses. Both are reviews of those side-lane probes, not of this result; check_pair_domain_external.py reads both"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (the smaller-half comparison and run return (1)-(4), the telescoping (5) and the D-equivalence, the quotient edge table and the forest argument for chi, the counterfamily (7)-(8)) and re-checked with independent code: (1)-(5) on all 32,768 complementary roots below 2^18, union-find on the 32,768 canonical vertices below 2^17 against chi, the counterfamily for all 49 exponents a = 3 mod 16 up to 787, the growth family to a = 293; all three certificates re-run (exit 0, 4.5 s); the 3x+5 and 3x+13 analogues of (1)-(5) hold and the D-equivalence analogue fails on them exactly where its hypothesis fails. HOLDS WITH CORRECTIONS: one garbled History sentence repaired, no change to the claim"
 aliases: [R35]
 tags: [convergence, outer-residual, pair-decomposition, tripling-pairs, doubling-pairs, scope, controls]
 ---
@@ -304,4 +309,5 @@ a smaller parameter for every rewrite.
 ## History
 
 - Migrated from `experiments/residual_progress/pair_scope/PAIR_SCOPE.md` (legacy ID R35) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical, with the side-lane probe `reviews/side_lane/pair_merge_controls.*` and the root files `experiments/residual_progress/PAIR_DOMAIN_REVIEW.md`, `check_pair_domain_external.py`, `pair_domain_external_review.json` and `side_lane_review_1a2dfc5.json`. The migration plan placed `side_lane_review_1a2dfc5.json` with R37; it sits here because `check_pair_domain_external.py` reads it from its own folder. `check_pair_scope_recompute.py` was added at the migration. Legacy status: "written identities, complete static component classification and scoped counterfamily".
-- Main lane (ChatGPT, Codex), 2026-10-17, from commit `1603bf3`; `PAIR_DOMAIN_REVIEW. The batch report (archive/convergence-residual-progress/REPORT.md) records "independent model" proof and code audits for this batch; they were the main lane's own agents, so they do not count as an independent review.md` and its checker from `436f51f` onward. No side-lane verification of R35's own identities is on record; the side lane's controls are evidence, not a review.
+- Main lane (ChatGPT, Codex), 2026-10-17, from commit `1603bf3`; `PAIR_DOMAIN_REVIEW.md` and its checker from `436f51f` onward. The batch report (archive/convergence-residual-progress/REPORT.md) records "independent model" proof and code audits for this batch; they were the main lane's own agents, so they do not count as an independent review. No side-lane verification of R35's own identities is on record; the side lane's controls are evidence, not a review.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Correction: the preceding History bullet had the batch-report sentence spliced into the file name `PAIR_DOMAIN_REVIEW.md`; reordered, no text removed. Two imprecisions are noted in the review (the growth example of Statement 2 also holds at `a = 5`; `check_pair_domain_external.py` checks by `assert` only); see [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

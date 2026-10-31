@@ -2,7 +2,7 @@
 id: mixed-shrinking-pair-rules
 kind: result
 title: Three recursive branches O, E1, E2 for the tripling pair P(w) = delta_(3w) - delta_w give complete cylinders for every finite mixed word and accept binary-cylinder measure 32/157
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; canonical set B of elementary-bridge-quotient-normal-form; P(w) = delta_(3w) -
   delta_w for w = 3 mod 8. With h = v2(3w-1) and C = (3w-1)/2^h: for even h = 2k+2, z = 3^k C, S^k(3w) = 4z+1 and
@@ -30,6 +30,10 @@ reviewed_by:
     date: 2026-10-17
     link: batch_r33_r36_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 21:06, VERIFIED, main 1603bf3; the R33 part): the mixed recognizer rebuilt from its rules (branches O, E1, E2 and the even terminal test 'z canonical') with the lane's own S and nu; its acceptance fraction among w = 3 mod 8 agrees with 32/157 ~ 0.203822: full enumeration 0.203766 on [2^21, 2^22) and 0.203888 on [2^19, 2^20); 2,000,000 random 60-bit 0.20366 (-0.6 sigma); 2,000,000 random 100-bit 0.20414 and 0.20423 (+1.1, +1.4 sigma). The committed receipt holds a smaller 100-bit sample (see evidence). The written grammar, cylinder and measure proofs were not re-derived; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (the paired-run identities for both parities, the three branches with their local currents, signs, bounds and clock increments, the cylinder construction (16)-(17), the Mersenne lift and bridge (18)-(20), the exact measure 32/157) and re-checked with independent code: recognizer, prefixes and every accepted merger for all w = 3 mod 8 below 2^20, the signed currents J_w below 2^16, a rigorous 2-adic bracket 0.20336 <= 32/157 <= 0.20516 at modulus 2^24, 3,600 cylinder members with their clocks and lifts, the four Mersenne mergers by direct iteration; both certificates re-run (exit 0, 11 s). The 3x+5 and 3x+13 analogues of every identity hold verbatim and are consistent with the actual cycles. Verdict HOLDS; one imprecision in the Remarks (the identities are not specific to 3x+1), no correction to the claim"
 aliases: [R33]
 tags: [convergence, outer-residual, pair-recursion, tripling-pairs, cylinders, measure, conditional, constructive]
 ---
@@ -448,3 +452,4 @@ used solely to discover that one finite demonstration input.
 
 - Migrated from `experiments/residual_progress/paired_completion/MIXED_SHRINKING_RULES.md` (legacy ID R33) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts, receipt and stored table moved byte-identical, with the side-lane probe `reviews/side_lane/batch_r33_r36_check.*`; `check_mixed_pairs_recompute.py` was added at the migration. Legacy status: "written partial recursion, exact binary-cylinder measure and finite certificates".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `1603bf3`. The batch report (archive/convergence-residual-progress/REPORT.md) records "independent model" proof and code audits for this batch; they were the main lane's own agents, so they do not count as an independent review. The side lane's finite check is recorded under `reviewed_by`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the text. The review records that the identities of Statements 1–3 have verbatim `3x+d` analogues (checked on `3x+5` and `3x+13`, where the analogue recognizer accepts the same measure `32/157` and every pair whose endpoints lie in different basins is unresolved), so the Remarks' phrase "specific valuation identities of `3x+1`" overstates what distinguishes `d = 1`; see [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

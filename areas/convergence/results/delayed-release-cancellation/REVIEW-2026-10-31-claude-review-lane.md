@@ -1,0 +1,36 @@
+# Review of delayed-release-cancellation
+
+Independent review (Claude review lane, Fable 5.1; directed by Santiago Armstrong). Every number below comes from scripts written for this review in the reviewer's scratch folder (an independent implementation of `A_N`, of the odd-only map, of a brute-force forward exposure graph from every source, and of an inverse oracle), or from the node's own proof. None of the node's scripts was imported.
+
+## What I checked
+
+- **Parameters (section 2).** For `2 <= h <= 200`: `r >= 1`, `9/4 < lambda <= 27/8` and `r <= h` (since `4 (8/9)^h <= 256/81 < 27/8` for `h >= 2`). The "two consecutive `h` cannot both fail" argument, re-derived: a failing `h` has `lambda` in `(9/4, 81/32]`, so at `h + 1` the same `r` gives `(4/3) lambda` in `(3, 27/8]` and `r` is still least because `(4/3) lambda_(r-1) > 27/8`; confirmed for every failing `h <= 200`. Qualifying `h <= 64` are the 45 values `2, 3, 5, 6, 7, 9, 10, 12, 13, 14, 16, ..., 64`; failing: `4, 8, 11, 15, 18, 22, 25, 28, 32, 35, 39, 42, 46, 49, 53, 56, 59, 63`.
+- **Congruences.** `U_0 = 1 mod 3` (the `3^r` term vanishes mod 3 and `4^(-h-1) (-2) = 1`), hence `v_3(X - 1) = h` exactly; `v = lambda X - c` with `c = lambda + 1 - 2 (2/3)^r`; `3^r | 4^(h+1) U + 2` and `v = V mod 81`; `U` odd so `v_2(4^(h+1) U + 2) = 1` and `v` is odd, `v = V mod 162`; the residue table (`v, t, u = 11, 13, 5` resp. `11, 13, 11 mod 18`), hence band-5 coefficients `-1, 0, -1` for `v, t, u`; `X = 1 mod 9` gives `-2, +2, +2` for `y_1, y_2, y_3`.
+- **Inequalities (7)-(8).** Lower bound of (7) is exactly the size condition (4); upper bound from `c > 1`, i.e. `2 (4/3)^h > 1`. Then `t > 72N = 27X/16` iff `v > 81X/32 + 1/2`; `t < y_2` iff `v < y_3`; `u > y_2` iff `v > 81X/32 - 1/4`; `u < v` trivially.
+- **The path (10), via its inverse description.** `w_j = 4 (4/3)^j (X - 1) + 1` are odd integers for `j <= h` because `3^h | X - 1`; `w_h = 4^(h+1) U + 1`; `z_l = 2^l (w_h + 1)/3^l - 1` are odd integers for `l <= r` by the congruence, with `z_r = v`; each inverse step has the stated exact forward valuation because the next state is odd. Interior states exceed `y_3`: `w_0 = 4X - 3 > 27X/8 - 1` and `z_(r-1) = (3v + 1)/2 > y_3` iff `v > y_2`, which (7) gives. So the path meets the annulus only at `v` and `y_1`, and misses `u, t, y_2, y_3`.
+- **Current (11).** Telescoping gives `(I - P)J = (-d_u + d_v) + (-2 d_v + 2 d_(y_1)) + (-4 d_(y_1) + 4 d_(y_2)) + (-2 d_(y_2) + 2 d_(y_3)) = mu`; `J <= 0`; `L + 4` rows, all distinct by (8) and the height of the interior states; `||J||_1 = 2L + 8`; `L <= 2h + 1`. Every arrow of `J` is in `G_L(N)`: `v` and `u` are sources, `t` is one step from `u`, `y_1, y_2` are sources.
+- **Refinement (section 5).** The written proof of `unbounded-exposure-depth-necessary` uses its ternary hypothesis only to transfer admissibility, `3 | u (X - 1)`, at a history of length `l <= D - 1`, where the denominator of `u = 3^(k-l) 2^(A-k)` is `3^max(l-k, 0) <= 3^(D-2)` (`k >= 1`). So `v_3(X - 1) >= h >= D - 1`, i.e. `D <= h + 1`, suffices, and `h >= 2` gives `X = 1 mod 9` for the coefficients; the binary condition `2^max(h+5, 10) | X` is the theorem's `2^max(D+4, 10) | X` at `D = h + 1`. Ladder (12): `v_3(64^(k+2) - 1) = v_3(63) + v_3(k + 2) = 2 + v_3(k + 2)` (lifting the exponent; checked numerically for `k < 300`), `6(k + 2) >= max(h + 5, 10)`, hence isolation through `h + 1` and `d*(96 * 64^k) >= h + 2 = v_3(k + 2) + 4`.
+- **Required ladder.** `ord(4) = 3^(M-1)` modulo `3^M` by the cubing recursion, `ord(2) = 2 * 3^(M-1)`, so `2` generates the units; `X = 1 mod 9` forces `6 | e`; `N = 3 * 2^e / 128 = 96 * 64^(e/6 - 2)`. For `h = r = 2`: residues `631` (`V = 47`) and `2818` (`V = 155`) modulo `6561`; `2^3462 = 631`, `2^546 = 2818 mod 6561`; `2^4374 = 1` and `2^2187, 2^1458 != 1`; ladder indices `k = 575` and `89 mod 729`; `v = (256X - 265)/81`, `u = (2048X - 2687)/729`.
+- **Families numerically.** All 66 members (every qualifying `h <= 16`, both `V`, the first three `X` of each progression) satisfy every identity above, including `(I - P)J = mu` computed as a divergence with my own `A_N`.
+- **Brute force from every source** (no inverse reasoning). Smallest members at `h = 2`: `V = 155`, `X = 409600`, `N = 9600`, and `V = 47`, `X = 4888576`, `N = 114576` (about `3.8` million sources): the chain is the complete component of `y_3` for `D = 1, 2, 3`; all nine rows of `J` are arrows of `G_5(N)`; and the full component of `y_3` at depth `L = 5` is exactly the five sources of `mu`, mass `0`. Refined isolation through `D = h + 1` for `h = 2, ..., 6` and both next ternary digits (10 cutoffs, `N` from `96` to `81312`): the chain is the complete component with mass `2` at every `D <= h + 1`; the first depth at which it is not ranges from `7` to beyond `h + 4`.
+- **Witnesses (section 6), my oracle.** `N = 60555264` (`X = 2583691264`, `v_3(X - 1) = 4`): `G_8` has 11 vertices, 3 sources, mass 2; `G_9` has 23 vertices, 6 sources, mass 2, the extra sources being `(4301295295, +2)`, `(5735060393, -1)`, `(6451942943, -1)`, with forward word `(1, 1, 1, 1, 2, 2, 2, 2, 3)` from `6451942943` to `y_1` and the stated valuation-1 and valuation-2 predecessor relations. `N = 340131840` (`X = 14512291840`, `v_3(X - 1) = 2`): `G_4` has 7 vertices, 3 sources, mass 2; `G_5` has 15 vertices and exactly the five sources `21768437759 (-2)`, `32652656639 (+2)`, `40769785577 (-1)`, `45866008775 (-1)`, `48978984959 (+2)`, mass 0, `1` absent; these equal `mu` of the `V = 155` family; the nine rows of `J` (norm 18) are arrows of `G_5`; `u` reaches `y_1` in 7 arrows.
+- **Certificate.** `python3 tools/run_certificates.py --node delayed-release-cancellation`: `check_legacy_replay.py` PASS, 23 s, exit 0 (replays `check_release.py` and `delayed_release_check.py` unmodified).
+- **Controls.** Not applicable as a cycle test: the result is a finite identity for one explicit signed measure on the `3x+1` graph and excludes no cycle of any `3x+d`. The map-specific inputs (coefficient table, valuations, exposure) were tested by the brute-force graphs above.
+
+## What I did not check
+
+- The side-lane probe `chain_cancellation_scan.py` and the main lane's reproduction receipt (finite data, evidence only).
+- Isolation through `h + 1` for `h > 6` with my own code; the legacy checker's oracle covers `2 <= h <= 16` and passed in replay.
+- Whether other annular sources join the component at depth `L` for larger members (not claimed; at the two smallest members none do).
+
+## Findings
+
+1. (typo, corrected) The YAML `claim` wrote "each choice `V in (47, 155)`", which reads as an interval; the Statement and proof use the two values `{47, 155}`. Replaced by `{47, 155}`.
+2. (imprecision) In (4) the condition `X >= 1024` is already implied by `2^10 | X`; harmless.
+3. (remark) At the smallest members (`N = 9600`, `114576`) and at `N = 340131840`, the five-source submeasure is the entire depth-`L` component; at `N = 60555264` the first release is neutral. The claim correctly asserts only the submeasure identity.
+
+## Verdict
+
+HOLDS WITH CORRECTIONS. Correction: the typo in the `claim` field (`(47, 155)` to `{47, 155}`), which does not change its meaning.
+
+Claude review lane (Fable 5.1; directed by Santiago Armstrong), 2026-10-31

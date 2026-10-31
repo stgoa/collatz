@@ -2,7 +2,7 @@
 id: adjacent-source-defect-equivalence
 kind: result
 title: "The whole returning absorption defect is an adjacent-source comparison, modulo strictly smaller helpers"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; P(u) = [3u] - [u], rho(u) = nu(3u). The R58 exceptional canonical seeds n,
   the returning inputs u in E and the positive canonical q = 31 mod 108 are in bijection (q = (9n+5)/8, u =
@@ -18,7 +18,7 @@ claim: >
 authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-18
-depends_on: [rank-excess-absorption-classification, decreasing-w5-phase-inverse-barrier, critical-image-rank-composition, sigma-rank-removes-absorption-overhead]
+depends_on: [rank-excess-absorption-classification, decreasing-w5-phase-inverse-barrier, critical-image-rank-composition, sigma-rank-removes-absorption-overhead, returning-forward-interface]
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_adjacent_defect.py, adjacent_defect.py, adjacent_defect_audit.json: the legacy constructor and checker: 512 complete defect plans, 1024 mixed absorption plans, 4096 W5 inverse-normalisation cases, both counterexamples (4629 and the kappa quotient), eight invalid or missing-supply rejections and three bidirectional supplied conversions at u = 21, 93, 4629 (pair outputs 40, 15, 94 rows; adjacent outputs 45, 14, 104 rows). Fails at its new path: adjacent_defect.py loads ../critical_rank/ (now ../critical-image-rank-composition/), ../exact_absorption_bound/ (now ../rank-excess-absorption-classification/) and ../returning_phase/ (now ../returning-forward-interface/) by their pre-migration folder names; it is loaded in turn by the later legacy adjacent_recursion/ code (native-height-inverse-obstruction). Passed at be73a66 as experiments/residual_progress/defect_normal_form/check_adjacent_defect.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
@@ -28,6 +28,10 @@ reviewed_by:
     date: 2026-10-18
     link: ../exponent-eleven-exit-continuation/batch_r61_r67_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 06:14, VERIFIED), with the lane's own step, nu and selected: all 10,000 canonical q = 31 (mod 108) below about 2.16e6 satisfy the triple bijection n = (8q-5)/9, u = (2q+1)/3, z = (q-1)/6 = (3n-1)/16 = (u-1)/4, with n = 27 (mod 96), z = 5 (mod 18), 3z noncanonical, n an R58 exceptional seed, u a returning input, and the two ordinary arrows n ->(1) 8z+1 ->(2) 6z+1 = q. The adjacent identity, helper bounds and conversions were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (the domain bijection and the two arrows, the adjacent identity (4) with the helper bound (5) in both branches of H_(q+2), the mixed-basis termination and height bound, the transported 4629 rule, the inverse-(1,2) normalisation (9) and the static functional) and re-checked with an independent implementation of nu, the R37 plans, the R40 elimination and H_s: 607 defect plans below 2^17 with exact divergence and bounds, the R58 classification on every odd seed below 2^14, the mixed basis on every odd seed below 2^11, the receipt's 4629 current and three conversion tables reproduced exactly; certificate replayed (exit 0, 6 s); the 3x+5 and 3x+13 analogues of the section-1 arithmetic hold. HOLDS WITH CORRECTIONS: returning-forward-interface added to depends_on (its rule is used at 4629), no change to the claim"
 aliases: [R65]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, adjacent-source, absorption-defect]
 ---
@@ -292,3 +296,4 @@ certificate theorem, or a novelty claim.
 
 - Migrated from `experiments/residual_progress/defect_normal_form/ADJACENT_DEFECT_INTERFACE.md` (legacy ID R65) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written triangular equivalence and checked conversion in both directions; no new accepted domain".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `793e835`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Correction: `returning-forward-interface` (R44) added to `depends_on`, since Statement 3 uses its forward rule at `u = 4629`; no change to the text. The review notes that the helper bound (5) also follows from R44's reviewed endpoint table, so it does not rest on R58, which the domain of Statement 1 and the height bound of Section 3 do use; see [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

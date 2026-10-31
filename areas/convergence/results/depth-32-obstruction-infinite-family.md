@@ -25,7 +25,7 @@ tags: [convergence, packet-currents, annular, exposure-depth, symbolic-lift, obs
 
 ## Statement
 
-Put `N_0 = 96·2^24 = 12·2^27` and `M = 3^22 = 31 381 059 609`. For every integer `q ≥ 1` with `q ≡ 1 (mod M)` and `N = N_0·q`, the component of `144N − 1` in the entire historical exposure graph `G_32(N)` (odd-only clock, absorbing at 1; the definitions of [`depth-32-aggregate-exposure-obstruction`](depth-32-aggregate-exposure-obstruction.md)) is exactly
+Put `N_0 = 96·2^24 = 12·2^27` and `M = 3^22 = 31 381 059 609`. For every integer `q ≥ 1` with `q ≡ 1 (mod M)` and `N = N_0·q`, the component of `144N − 1` in the entire historical exposure graph `G_32(N)` (odd-only clock, absorbing at 1; the definitions of [`depth-32-aggregate-exposure-obstruction`](depth-32-aggregate-exposure-obstruction/README.md)) is exactly
 
 ```
 C_N = { 3^j·64N/2^j − 1 : 0 ≤ j ≤ 34 },
@@ -53,7 +53,7 @@ is retained as independently checked evidence and as the route to that result.
 The source is the actual annular measure `A_N`, with `8|N`. The graph
 `G_D(N)` includes the first `D` arrows from **every** nonzero annular source,
 with absorption at 1. Definitions, the inverse oracle's completeness proof,
-and the original finite witness are in [AGGREGATE_EXPOSURE.md](depth-32-aggregate-exposure-obstruction.md).
+and the original finite witness are in [AGGREGATE_EXPOSURE.md](depth-32-aggregate-exposure-obstruction/README.md).
 All original witnesses and their checker remain unchanged.
 
 ### 1. The resulting theorem
