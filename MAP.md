@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**227 results, 29 attempts, 38 questions, 27 sources.**
+**228 results, 29 attempts, 38 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -264,6 +264,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`proportional-slope-two-block-bound`](areas/cycles/results/proportional-slope-two-block-bound.md) | Proportional-slope two-block words have an explicit exponential denominator bound | formal | formal | — | yes |
 | [`q-one-inversion-pair-reduction`](areas/cycles/results/q-one-inversion-pair-reduction/README.md) | At q = 1 an image inversion needs height gap at least 3, and at gap 3 it is a sorted-adja… | formal | reviewed | — | yes |
 | [`repeated-block-cancellation-bound`](areas/cycles/results/repeated-block-cancellation-bound/README.md) | A fixed defect bounds the denominator cancellation of repeated-block words | reviewed | reviewed | — | yes |
+| [`rho-four-census-letters-three`](areas/cycles/results/rho-four-census-letters-three/README.md) | Complete census of ρ ≤ 4 words with letters ≤ 3 and m ≤ 20: the near-critical half bound… | written | written | — |  |
 | [`rise-lemma`](areas/cycles/results/rise-lemma/README.md) | The rise lemma: each agreeing run of a rotation multiplies the log-height by at most log₂3 | formal | reviewed | — | yes |
 | [`rise-lemma-denominator-law`](areas/cycles/results/rise-lemma-denominator-law.md) | A denominator law exponential in the mismatch count, for every rotation (the rise lemma's… | reviewed | reviewed | — |  |
 | [`rotated-residual-resultant-invariance`](areas/cycles/results/rotated-residual-resultant-invariance.md) | Unreviewed draft: rotated residual resultants agree away from 2 and 3, and their size can… | proposed | proposed | — |  |
@@ -635,11 +636,11 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-31: [`doubled-words-periodic-and-antiperiodic-points`](areas/cycles/results/doubled-words-periodic-and-antiperiodic-points/README.md) added (result)
 - 2026-10-31: [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) added (result)
+- 2026-10-31: [`rho-four-census-letters-three`](areas/cycles/results/rho-four-census-letters-three/README.md) added (result)
 - 2026-10-31: [`rotation-pair-words-exact-cancellation`](areas/cycles/results/rotation-pair-words-exact-cancellation/README.md) added (result)
 - 2026-10-31: [`shared-background-copies-via-gap`](areas/cycles/results/shared-background-copies-via-gap/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`small-band-height-residue-matching`](areas/cycles/results/small-band-height-residue-matching/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`two-block-uniform-denominator-growth`](areas/cycles/results/two-block-uniform-denominator-growth/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`band-three-ordering-extension`](areas/cycles/attempts/band-three-ordering-extension/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -647,14 +648,14 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 64.2% | 201 | 9 |
-| Claude side lane | 18.6% | 34 | 132 |
+| ChatGPT main lane | 64.0% | 201 | 9 |
+| Claude side lane | 18.5% | 34 | 132 |
 | Claude Lean lane | 6.6% | 3 | 69 |
-| Claude cycles lane | 3.2% | 11 | 0 |
-| Claude review lane | 3.2% | 0 | 31 |
+| Claude cycles lane | 3.5% | 12 | 0 |
+| Claude review lane | 3.1% | 0 | 31 |
 | Claude PR1 lane | 2.5% | 6 | 9 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
-| Claude explicit-Tao lane | 0.9% | 5 | 0 |
+| Claude explicit-Tao lane | 0.8% | 5 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 
 **By accountable person** (agents are credited to the person who directed them; [`conventions/CREDIT.md`](conventions/CREDIT.md) §4):

@@ -14,8 +14,12 @@ claim: >
   3x+q map (2^(a_i)·x_(i+1) = 3·x_i + q, letters read cyclically) with period |w|, q > 0, gcd(x_0, q) = 1,
   |w| ≥ 1 and Σw ≥ 1, then x_0·D_w = q·C_w, q | D_w, C_(R_r w) = x_r·(D_w/q), and for the rotation pair
   w' = (R_r w, R_s w): gcd(C_(w'), D_(w')) = (D_w/q)·gcd(x_r + x_s, q)·gcd(x_r − x_s, 2^(Σw) + 3^|w|).
-  Proved in Lean (lean/LeanLane/RotationPairs.lean, lean/LeanLane/CycleEquation.lean) with the standard axioms
-  only, for words with letters in ℕ.
+  Converse: every nonempty word w with D_w > 0 is the valuation word of an actual 3x+den(w) cycle: with
+  G = gcd(C_w, D_w) and den(w) = D_w/G, the integers x_i = C_(R_i w)/G are positive, follow w under 3x+den(w)
+  with period |w|, x_0 = C_w/G and gcd(x_0, den(w)) = 1 (G divides every rotated intercept because
+  2^(a_0)·C_(R_1 w) = 3·C_w + D_w). Proved in Lean (lean/LeanLane/RotationPairs.lean,
+  lean/LeanLane/CycleEquation.lean, lean/LeanLane/RationalCycle.lean) with the standard axioms only, for words
+  with letters in ℕ.
 authors:
   - Claude cycles lane (Fable 5.1; directed by Santiago Armstrong)
 created: 2026-10-31
@@ -31,8 +35,11 @@ lean:
   - LeanLane.CycleEquation.IsCycle.q_dvd_D
   - LeanLane.CycleEquation.IsCycle.C_rotate_eq
   - LeanLane.CycleEquation.rotation_pair_gcd
+  - LeanLane.RationalCycle.rotation_identity
+  - LeanLane.RationalCycle.dvd_C_rotate
+  - LeanLane.RationalCycle.reduced_cycle
 evidence:
-  - "../../../../lean/receipts/RotationPairs.build.txt, RotationPairs.axioms.txt, RotationPairs.sha256.txt and the same three CycleEquation.* files: build status, the #print axioms lines (standard axioms only) and the source hashes, produced on the pinned toolchain"
+  - "../../../../lean/receipts/RotationPairs.build.txt, RotationPairs.axioms.txt, RotationPairs.sha256.txt and the same three CycleEquation.* and RationalCycle.* files: build status, the #print axioms lines (standard axioms only) and the source hashes, produced on the pinned toolchain"
 tags: [cycles, denominators, cancellation, doubled-words, lean]
 ---
 
@@ -60,11 +67,13 @@ gcd(C_(w'), D_(w')) = (D_w/q) · gcd(x_r + x_s, q) · gcd(x_r − x_s, 2^(Σw) +
 
 the theorem above with `K = D_w/q`, `L = q`, `A = x_r`, `B = x_s`, `j = 0`.
 
+**The converse (NOTATION §2 made formal).** Every nonempty `w` with `D_w > 0` is the valuation word of an actual `3x+den(w)` cycle: with `G = gcd(C_w, D_w)` and `den(w) = D_w/G`, the integers `x_i = C_(R_i w)/G` are positive, follow `w` under `3x+den(w)`, are `|w|`-periodic, and satisfy `x_0 = C_w/G`, `gcd(x_0, den(w)) = 1`. The key is the rotation identity `2^(a_0)·C_(R_1 w) = 3·C_w + D_w`, which makes every odd common divisor of `C_w` and `D_w` divide every rotated intercept.
+
 **Reading.** `C_u/Φ₁ = A/L` and `C_v/Φ₁ = B/L` are the periodic points `x_u`, `x_v` of the half-words written over the common denominator `L`; `K = Φ₁/L`. The sharpest choice is `K = gcd(C_u, C_v, Φ₁)`. The case that produced the counterexample to the half-cancellation conjecture is the rotation pair of an actual `3x+d` cycle: `K = gcd(C_u, D_u) = Φ₁/d`, `L = d`, `A = n_r`, `B = n_s` the two states, `j = 0`; see [`rotation-pair-words-exact-cancellation`](../rotation-pair-words-exact-cancellation/README.md).
 
 ## Proof
 
-From [`doubled-word-factor-gcd-identities`](../doubled-word-factor-gcd-identities/README.md), `gcd(C_w, Φ₁) = gcd(2^j·C_u + C_v, Φ₁) = gcd(K·(2^j·A + B), K·L) = |K|·gcd(2^j·A + B, L)`, and `gcd(C_w, Φ₂) = gcd(2^j·C_u − C_v, Φ₂) = gcd(K·(2^j·A − B), Φ₂) = gcd(2^j·A − B, Φ₂)`, because `K | Φ₁` and `gcd(Φ₁, Φ₂) = 1` make `K` a unit modulo `Φ₂`. The product formula `gcd(C_w, D_w) = gcd(C_w, Φ₁)·gcd(C_w, Φ₂)` is the same node's. For the denominator, `D_w = Φ₁·Φ₂ = L·K·Φ₂`, and `g₁ | L`, `g₂ | Φ₂` give `L·K·Φ₂ = K·g₁·g₂·(L/g₁)·(Φ₂/g₂)`. For the cycle equation, induction on the word: if `2^a·x_1 = 3·x_0 + q` and `2^(Σw')·x_(|w'|+1) = 3^|w'|·x_1 + q·C_(w')` then `2^(a+Σw')·x_(|w|) = 3^|w'|·(3·x_0 + q) + q·2^a·C_(w') = 3^|w|·x_0 + q·C_w`; periodicity gives `x_|w| = x_0`. The shifted states follow the rotated word (the letter at position `i` of `R_r w` is the letter at `i + r` of `w`), and `D` is rotation invariant, so the equation holds for every rotation; `gcd(x_0, q) = 1` and `x_0·D_w = q·C_w` give `q | D_w`, then `C_(R_r w) = x_r·(D_w/q)` by cancelling `q`. The rotation-pair formula is the theorem applied to `(R_r w, R_s w)`. All of this is the two Lean files.
+From [`doubled-word-factor-gcd-identities`](../doubled-word-factor-gcd-identities/README.md), `gcd(C_w, Φ₁) = gcd(2^j·C_u + C_v, Φ₁) = gcd(K·(2^j·A + B), K·L) = |K|·gcd(2^j·A + B, L)`, and `gcd(C_w, Φ₂) = gcd(2^j·C_u − C_v, Φ₂) = gcd(K·(2^j·A − B), Φ₂) = gcd(2^j·A − B, Φ₂)`, because `K | Φ₁` and `gcd(Φ₁, Φ₂) = 1` make `K` a unit modulo `Φ₂`. The product formula `gcd(C_w, D_w) = gcd(C_w, Φ₁)·gcd(C_w, Φ₂)` is the same node's. For the denominator, `D_w = Φ₁·Φ₂ = L·K·Φ₂`, and `g₁ | L`, `g₂ | Φ₂` give `L·K·Φ₂ = K·g₁·g₂·(L/g₁)·(Φ₂/g₂)`. For the cycle equation, induction on the word: if `2^a·x_1 = 3·x_0 + q` and `2^(Σw')·x_(|w'|+1) = 3^|w'|·x_1 + q·C_(w')` then `2^(a+Σw')·x_(|w|) = 3^|w'|·(3·x_0 + q) + q·2^a·C_(w') = 3^|w|·x_0 + q·C_w`; periodicity gives `x_|w| = x_0`. The shifted states follow the rotated word (the letter at position `i` of `R_r w` is the letter at `i + r` of `w`), and `D` is rotation invariant, so the equation holds for every rotation; `gcd(x_0, q) = 1` and `x_0·D_w = q·C_w` give `q | D_w`, then `C_(R_r w) = x_r·(D_w/q)` by cancelling `q`. The rotation-pair formula is the theorem applied to `(R_r w, R_s w)`. For the converse, `C_(w' ++ [a]) = 3·C_(w') + 2^(Σw')` and `C_(a :: w') = 3^|w'| + 2^a·C_(w')` give the rotation identity; `D_w` is odd for `Σw ≥ 1`, so `G` is odd and divides `2^(a_0)·C_(R_1 w)` hence `C_(R_1 w)`, and by induction every `C_(R_i w)`; the identity for `R_i w` then reads `2^(a_i)·(G x_(i+1)) = 3·(G x_i) + G·den(w)`, rotation by `|w|` is the identity, intercepts of nonempty words are positive, and `gcd(C_w/G, D_w/G) = 1`. All of this is the three Lean files.
 
 ## Lean
 
@@ -88,6 +97,8 @@ Helper: `gcd_K_Phi2` (`K | Φ₁ ⟹ gcd(K, Φ₂) = 1`).
 | every rotation | `IsCycle.rotate`, `D_rotate`, `IsCycle.cycle_eq_rotate` | the shifted states follow `w.rotate r`; `D (w.rotate r) = D w`; `x r * D w = q * C (w.rotate r)` |
 | `q | D_w`, `C_(R_r w) = x_r·(D_w/q)` | `IsCycle.q_dvd_D`, `IsCycle.C_rotate_eq` | with `Int.gcd (x 0) q = 1` (and `q ≠ 0` for the second) |
 | the rotation pair | `rotation_pair_gcd` | `IsCycle q w x → 0 < q → Int.gcd (x 0) q = 1 → 0 < w.sum → 0 < w.length → (Int.gcd (C (w.rotate r ++ w.rotate s)) (D (w.rotate r ++ w.rotate s)) : ℤ) = |D w / q| * Int.gcd (x r + x s) q * Int.gcd (x r - x s) (Phi2 w.sum w.length)` |
+
+[`lean/LeanLane/RationalCycle.lean`](../../../../lean/LeanLane/RationalCycle.lean), namespace `LeanLane.RationalCycle` (imports `LeanLane.CycleEquation`), the converse: `rotation_identity : 2 ^ a * C (w' ++ [a]) = 3 * C (a :: w') + D (a :: w')`; `dvd_C_rotate : w ≠ [] → Odd g → g ∣ C w → g ∣ D w → ∀ r, g ∣ C (w.rotate r)`; `reduced_cycle : w ≠ [] → 0 < D w → IsCycle (D w / Int.gcd (C w) (D w)) w (fun i => C (w.rotate i) / Int.gcd (C w) (D w)) ∧ x 0 = C w / G ∧ Int.gcd (C w / G) (D w / G) = 1 ∧ (∀ i, 0 < x i) ∧ (∀ i, G * x i = C (w.rotate i)) ∧ 0 < D w / G` (with `G`, `x` the displayed expressions).
 
 `|D w / q|` is `D_w/q` itself when the states are positive (`D_w = q·C_w/x_0 > 0`); the Lean statement does not assume positivity of the states, hence the absolute value. Everything in the claim is formalised.
 
