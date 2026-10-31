@@ -16,8 +16,8 @@ claim: >
   in the generators, realised by legal moves after free parity fixes. This gives odd elements of B in every joint
   class modulo 3^b·M′, and the 2-adic lift of saturated-sets-meet-residue-classes-six-smooth-moduli (one doubling and
   one inverse step per binary digit) gives every class modulo 2^k·3^b·M′. The hypothesis is used exactly once, in
-  the Chinese-remainder step of the free steering; moduli divisible by a prime p with 3 | ord_p(2) (p = 7, 19, 37,
-  73, 109, 163, …) are not covered by this proof, though every M ≤ 100 is covered by the finite search of
+  the Chinese-remainder step of the free steering; moduli divisible by a prime p with 3 | ord_p(2) (p = 7, 13, 19, 37, 61,
+  67, 73, 79, 97, 103, 109, …) are not covered by this proof, though every M ≤ 100 is covered by the finite search of
   saturated-sets-meet-residue-classes-small-moduli. The construction is certified for the seventeen M′ ≤ 100 that
   satisfy the hypothesis (5, 11, 17, 23, 25, 29, 31, 41, 43, 47, 53, 55, 59, 71, 83, 85, 89), from every odd start
   ≤ 21, for all classes modulo 2^k·3^b·M′ with k ≤ 2, b ≤ 1 (k ≤ 3, b ≤ 2 for M′ = 5, 11; k ≤ 2, b ≤ 2 for M′ = 25): 282,953 replayed paths,
