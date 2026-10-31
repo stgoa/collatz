@@ -2,7 +2,7 @@
 id: native-height-inverse-obstruction
 kind: result
 title: "Adjacent currents: an all-ray inverse barrier at the native height, with a fixed forward certificate on the same family"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; T = nu S; D(q) = [q+2] - [q] and native height n(q) = (8q-5)/9 on the R65
   adjacent domain (canonical q = 31 mod 108). For every D >= 3, t >= 1 put q = 31 + 2^57 3^D t, n = 27 + 2^60
@@ -26,6 +26,10 @@ reviewed_by:
     date: 2026-10-18
     link: batch_r68_r70_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 08:37, VERIFIED, main 9190ccf), with the lane's own S, nu and T, nothing imported from main: the six-state anchor {1, 7, 9, 11, 17, 25} with its T-edges and T^2(27) = 31 through 41; the 35-arrow word from 31 to 23 with cost 56 and nu(23) = 11; for D = 3..12 and six values of t (60 cases) q and n = (8q-5)/9 canonical, q = 31 (mod 108), an inverse-tree search over every branch and ray index (at most 28 nodes) finding n at d = 2 as the only canonical a < q with T^d(a) = q, 1 <= d <= D; the same word from q ending at y, and 8n - (9y+5) > 0. Finite D only; the all-ray proof and the conditional current were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the six-state anchor, the all-ray shadow and gap argument, the semiconjugacy step and the forward certificate (5)-(6); independent pruned exhaustive inverse search (validated against brute force) on 63 family instances through D = 20, request-level check of (6) and of the anchor q = 31 with this lane's own W5-only planner, 9,260 adjacent-domain binary runs; both certificates re-run (PASS, exit 0, 9.3 s in all); verdict HOLDS"
 aliases: [R68]
 tags: [convergence, outer-residual, tripling-pairs, adjacent-source, native-height, inverse-barrier]
 ---
@@ -252,3 +256,4 @@ returning pair does not by itself establish the required native descent.
 
 - Migrated from `experiments/residual_progress/adjacent_recursion/NATIVE_HEIGHT_SEPARATION.md` (legacy ID R68) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/batch_r68_r70_check.*` (R68 and R70) moved here. Legacy status: "written all-ray separation and conditional adjacent-current construction".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `a489973`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections; three imprecisions (the R58 step in section 4 needs `s` canonical, which holds since `s ≡ 25 (mod 2^55)`; the factor `2^57` serves only the forward cylinder; the legality of the shadow word at every depth) are recorded in [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

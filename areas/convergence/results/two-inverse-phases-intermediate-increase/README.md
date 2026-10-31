@@ -2,7 +2,7 @@
 id: two-inverse-phases-intermediate-increase
 kind: result
 title: Two inverse phases cross an intermediate increase and reach strict rank decrease
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). For W5 inputs with 3w nonselected and 3 not dividing w,
   choose k = 4 when w = 2 mod 3 and k = 8 otherwise; set h = v3(kw+1) >= 1, C = (kw+1)/3^h, r = 2^(h+1) C - 1, L
@@ -21,6 +21,11 @@ evidence:
   - "check_double_inverse.py, double_inverse.py, double_inverse_audit.json, w53_inputs.json, w53_current.csv: the legacy constructor and checker: 153 two-phase inputs, 65 strict plans, 408 exact CRT cases through h = 128 and L = 128, four actual substitutions; the w = 53 input and output are stored. Fails at its new path: double_inverse.py loads ../nonselected_inverse/inverse_phases.py (now ../base-inverse-phases-increasing-pairs/) by its pre-migration folder name; double_inverse/ is put on sys.path by the later legacy continued_rules/, phase_rank/, forward_continuation/ and rule_avoidance/ code. Passed at be73a66 as experiments/residual_progress/double_inverse/check_double_inverse.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
   - "check_expanded_union.py, expanded_union.py, expanded_union_audit.json: the seven-rule strict-rho dispatcher (the four rules of rules_union.py, then nonselected-multiples-inverse-interface, forward-blocks-low-exponent-tests and this rule) and its checker: all 1024 W5 candidates below 8192, 442 accepted (including all 195 accepted before), 258 mixed closures, eight actual substitutions, three full stored outputs including P1821, where all requests cancel. Fails at its new path: expanded_union.py loads ../critical_rank/ and further siblings by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/double_inverse/check_expanded_union.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
   - "expanded_union_meter.py, expanded_union_meter.json: side-lane measurement (2026-10-17 22:46) of expanded_union.py: random w = 5 (mod 8) at 10 to 64 bits, accepted share about 41 to 44% at every size, with the class w = 2 (mod 3), 3w selected 100% uncovered at 48 bits. It measures the dispatcher; it does not check it, and gives no coverage theorem. Fails at its new path: it imports expanded_union from experiments/residual_progress/double_inverse/ by repository-relative path and fibre_count_check from its own folder (now ../absorbed-fibre-uniform-counts/). Passed at be73a66 as reviews/side_lane/expanded_union_meter.py (archive/legacy-checker-run-be73a66.md, exit 0)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived with independent code (own S, nu, rho and W5-only H): both phases, identity (2), the exact test with its four below-threshold rows, the strict-rho plan on all domain inputs below 8192 and 60 CRT members, the CRT families (3) for h = 1..6, L = 3..9, the receipt counts (153 two-phase inputs, 65 strict plans, six parameter classes; 195 and 442 under the four- and seven-rule unions) and the stored w = 53 plan; certificate re-run (PASS, exit 0, 15 s); 3x+5 control. Verdict HOLDS; three imprecisions, no correction"
 aliases: [R50]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, inverse-rays, dispatcher]
 ---
@@ -219,3 +224,4 @@ and examples are not an asymptotic coverage or convergence theorem.
 
 - Migrated from `experiments/residual_progress/double_inverse/DOUBLE_INVERSE_PHASES.md` (legacy ID R50) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/expanded_union_meter.*` moved here (`expanded_union.py` lives here). Legacy status: "written complete endpoint test within the second-depth L>=3 domain and a strict-rank constructor".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `bcde58e`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records three imprecisions (`r ≡ 4 (mod 9)` follows from `L ≥ 3`; `p ≡ 7 (mod 8)` holds for every input with `L ≥ 3`, not only after the test; the listed domains are the additional ones beyond R45's `G`, which the rule also accepts). See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

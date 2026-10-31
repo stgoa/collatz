@@ -1,0 +1,35 @@
+# Review of lifted-inverse-ray-cycle
+
+Independent review (Claude review lane, Fable 5.1), a different lane from the main lane that wrote the node (R64) and from the side lane whose probe is stored here. Every number below comes from my own code or from the node's proof.
+
+## What I checked
+
+- **Certificate.** `python3 tools/run_certificates.py --node lifted-inverse-ray-cycle`: `check_legacy_replay.py` PASS, exit 0, 6 s (replays the side-lane probe `r64_lifted_cycle_check.py`, receipt unchanged). The joint legacy checker `check_refined_obstruction.py` is replayed by [`exponent-eleven-fifteen-rule-classification`](../exponent-eleven-fifteen-rule-classification/README.md), not here.
+- **Inputs.** [`two-selected-inverse-choices`](../two-selected-inverse-choices/README.md) (domain, `q = (81v0+23)/32`, base ray, ray-4 depth-0 plan), [`maximal-inverse-cycle-continuation`](../maximal-inverse-cycle-continuation/README.md) (maximal cycle inverse, failure discipline), [`exponent-eleven-exit-continuation`](../exponent-eleven-exit-continuation/README.md) (the `(r, A, K)` family), [`critical-image-rank-composition`](../critical-image-rank-composition/README.md) and [`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md), all `reviewed`; and `exponent-eleven-fifteen-rule-classification` (R63, `written`) for the fifteen-rule exclusions.
+- **Section 1, by hand and on 400 random domain members plus 292 CRT-built cells** (own `S`, `ν`, canonical, `ρ`). `w ≡ 3445 (mod 3456)` with `3 | v0` gives `v0 ≡ −7 (mod 2048)`, `v0 ≥ 2041`, `q = (81v0+23)/32 ≥ 5167` complementary canonical with `v2(q+1) = 4`, `q ≡ 1 (mod 3)`, `ρ(w) = q`. `b = 64(8v0+1) + 49 = 512v0 + 113`, `T(b) = 3v0`, word `(2, 7, 1, 4)` to `q` through `384v0+85 = F^3(6v0+1)`, `9v0+2`, `(27v0+7)/2`. The rotated cycle `C = (1,1,2,1,1,4,1)` has `Ψ_C(x) + 25 = (2187/2048)(x+25)` (the negative cycle `−25, −37, −55, −41, −61, −91, −17`); an inverse copy is legal iff `3^7 | x + 25`, gives `y ≡ −25 (mod 4096)`, `y ≥ 4071`, and lowers `v3(·+25)` by 7, so exactly `k = ⌊h/7⌋` copies. `v2(b+25) = 1` gives `v2(p+1) = 3` with unit `1 (mod 4)` for `k ≥ 1`; for `k = 0`, `p = b ≡ 1 (mod 8)`, `≡ 2 (mod 3)`. The point run gives canonical `η` with `v2(η+1) = 3+j` resp. `1+j`, `η ≢ 2 (mod 3)`, and the exact word `1^j, C^k, 2, 7, 1, 4` to `q`. The feasibility table (`d = 0 ⇒ j = 0`; `d = 1 ⇒ j ≥ 1`; `d = 2..6 ⇒ j = 1`; `k = 0`: `j ≥ 1`, `h ≥ 2 ⇒ j = 1`, `j ≥ 2 ⇒ h = 1`, terminal residue `0` resp. `1 (mod 3)`) re-derived from `p + 1 = 8(2^(11k−2)U − 3)` and `Z = 256v0 + 57`, and verified on every built cell.
+- **Section 2.** (4) re-derived from `b + 25 = (16384q − 598)/81`; (5) re-derived. Exact integers: `λ < 1` iff `j ≥ J(k)` for all `k < 120`, `j < 20`, with the transitions at `k = 7, 13, 20, 26, 32, 38, 44, 50, 57, 63, 69, 75, 81`; every failing cell in that range has `81D(η − q) > 0` already at `q = 5167`, so (slope `> 1`) for all `q ≥ 5167`; the 15 first-passing and 14 last-failing boundary pairs as stated. Tightest cell `(k, j) = (50, 5)`: `λ = 1 − 0.00107`. The monotonicity used for the remaining failed cells (smaller `k` or `j` raises `η` at fixed `q`, given `p + 1 > 0`) checked.
+- **Section 3.** The plan (6) built with my own currents and my own `W5`-only `H` for 40 cells (`k ≤ 2` and `k = 7`, both terminal residues, depths around `J(k)`): divergence `P(w) − Σ (A_η − A_z)(u) P(u)` exactly; passing cells have no request of rank `≥ q`; failing cells have a unique request of the top rank `η`, the critical index of `η`, with coefficient `+1`; the row `k = 0`, `j = 1`, `η ≡ 0 (mod 3)` keeps `{w: +1}` and its current and request vector equal, row for row, those of R56's ray-4 depth-0 plan (`r = 8v0 + 1`, word `(2,1,1,4)`). The displayed identities of that row hold: `S(η) = b`, `u = η/3 ≡ 9 (mod 16)`, `v2(9u−1) = 5`, `z1 = 32v0 + 7`, `S^2(3u) = F(3z1)`, `S^2(u) = F(z1)`, `S(u)` selected with half `≡ 1 (mod 8)` mapping to `z1`, `3z1 = F^2(6v0+1)`, `ν(6v0+1) = 3v0`.
+- **Section 4.** (7) and (8) re-derived (`v0 = (3^(7k)U − 69)/256`, `U ≡ 522565·3^(−7k) (mod 2^19)`, `522565 ≡ 69 (mod 256)`); members built for every remainder `d` and the stated point depths at `k ∈ {0, 1, 2, 3, 6, 7, 12, 13, 19, 20, 25, 26, 49, 50, 56, 57, 80, 81, 85}`, each with the prescribed `(k, d, j)`.
+- **Section 5.** For `(r, A, K) ∈ {(16,5,0), (16,5,1), (17,6,2), (20,5,0), (16,7,3), (31,9,1)}`, both `e`, 24 members of (9a) and (9) built together with R61's binary condition on `s`: `s` odd, `s ≡ 2^r (mod 3)`, `f = 3^(7r+10)s − 6 = 2^A t − 1` complementary canonical with block `(A, 2)` and R61's condition on `t`; `w ≡ 3445 (mod 3456)`, `3 | v0`; `Z = 2^(11r+24)s − 1735` of exact ternary order 14 for (9a) (`k = 0`, `j = 14`, 18 arrows), `v3(256v0 + 69) = 8` for (9) (`k = 1`, `j = 13`, 24 arrows); `η < q` in both; `v3(4v0+9) = 1` so R60 has zero cycle copies and R56 has depth 0 (`3 | v0`).
+- **Witness.** `w = 36641534965`: `v0 = 21713502201`, `q = 54962302447`, `h = 1`, `k = 0`, `j = 14`, `η = 38082215935 < q`.
+- **Controls.** The construction is a conditional current identity and excludes nothing. For `3x+5` the same word `C` has affine map `Ψ(x) + 125 = (2187/2048)(x + 125)` (checked on 200 members of `x ≡ −125 (mod 4096)`); the acceptance table is a slope comparison with no absorption content.
+
+Scratch work: `rederive_r64.py` in my review folder.
+
+## What I did not check
+
+- The joint legacy checker and constructor in the R63 folder (replayed there), the three stored supplied conversions and their hashes.
+- The fifteen-rule exclusion of Statement 3 beyond the R60 and R56 parts named above; it rests on R63 (`written`).
+- Full plans at `k ≥ 8` (the written argument is uniform in `k`; I checked the table and words there, not `H`).
+
+## Findings
+
+1. Statement 2, claim and §2 (imprecision). "Every other failure keeps a unique higher request `+1` of rank `η > q`": unique at the top rank `η`. A failing plan can carry further requests of rank in `[q, η)`: 14 of the 26 failing cells I built had one (e.g. `k = 0`, `j = 1`, `η ≡ 1 (mod 3)`, a second request of rank 22975 above `q`). Proof §3 says exactly "every other request from `H_η` is below `η`", which is what the argument needs; only the summary wording suggests a single request above `q`.
+2. Statement 3 (gap in the chain, not in the argument). "Miss all fifteen earlier direct rules, at `w` and at the leading `v`" rests on [`exponent-eleven-fifteen-rule-classification`](../exponent-eleven-fifteen-rule-classification/README.md), which is `written`; I verified the R60 (`k_60 = 0`) and R56 (`3 | v0`) parts directly on 24 members.
+3. Certificates (imprecision). The node's own certificate replays only the side-lane probe (85 boundary cells, one seed each, words and the height comparison). The full plans, remainders and CRT rows are checked by the joint checker in R63's folder; the Certificates section says so, but a reader of MAP.md sees only the probe.
+
+## Verdict
+
+HOLDS.
+
+Claude review lane (Fable 5.1; directed by Santiago Armstrong), 2026-10-31

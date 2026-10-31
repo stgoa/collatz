@@ -2,7 +2,7 @@
 id: ray-index-decision-count-obstruction
 kind: result
 title: "Every inverse-ray index of a two-rotation cycle/point procedure is decidable, and it accepts under 1/500 of its entry row"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). On the entry row v = 4089 + 6144n, w = 6901 + 10368n, q =
   10351 + 15552n, take the inverse ray b_L = 64^L (8v+1) + 49(64^L - 1)/63 (ordinary tail (2, 6L+1, 1, 4) to q), the
@@ -27,6 +27,10 @@ reviewed_by:
     date: 2026-10-18
     link: ../exponent-eleven-exit-continuation/batch_r61_r67_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 06:14, VERIFIED), with the lane's own step, nu and selected: the identity v3(b_L - b_M) = v3(L - M) on 2,990 random pairs. The acceptance criterion, the ray cutoff and the counting theorem were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the entry row and rays, the rotation words (the valuation word of the -17 cycle), the procedure and its acceptance classification, the ternary identity (8), the finite cutoff (9)-(10), the barrier (11)-(12) and the counting theorem (13)-(15) with the exact constant S; independent finite decision on every entry n < 60000 and request-level checks (96 plans at small n, the three accepted entries below 60000, both stored conversions, 24 CRT-built seeds with k >= 1 for both centres) with this lane's own W5-only planner; certificate re-run (PASS, exit 0, 7 s); verdict HOLDS"
 aliases: [R66]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, inverse-rays, counting-bound]
 ---
@@ -343,3 +347,4 @@ named frozen dependencies; no previous receipt or dispatcher is modified.
 
 - Migrated from `experiments/residual_progress/all_ray_continuation/ALL_RAY_CONTINUATION.md` (legacy ID R66) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written theorem, conditional constructor and finite replay".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `a489973`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections; two imprecisions (the criticality of `η` in case 3 of section 2, the reason why `k ≥ 1` is needed for success at `L = 0`) and one remark (the observed acceptance count on the first 60,000 entries) are recorded in [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

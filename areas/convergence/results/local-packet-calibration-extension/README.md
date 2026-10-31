@@ -2,7 +2,7 @@
 id: local-packet-calibration-extension
 kind: result
 title: Inner absorption gives an automatic one-sided packet input whose residual is exactly the unresolved complement
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; 8 | N; U_t counts odd 1 < x <= t; Pi_N the right-aligned packet, eta_N
   its fixed-core remainder, K_N = nu_N + 3(U_N - U_(N/4)). (Split) D_N = 3U_N - 3U_(N/4) - U_(3N/2) - U_(3N/4)
@@ -23,6 +23,11 @@ depends_on: [finite-rational-cone-integer-certificate, right-aligned-fixed-core-
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_local_extension.py, local_extension.py, local_extension_audit.json, outer_96_current.csv: the legacy implementation (source split, automatic input, local conversion, finite component count) and its checker (64 complete source identities at N = 8, 16, ..., 512; 16640 pointwise scale coefficients; the finite examples at N = 24, 96, 384; the stored 102-row outer current at N = 96; the no-progress feedback at N = 8, 24, 96). Fails at its new path: local_extension.py loads ../forcing/actual_graph_compiler.py by its pre-migration path (now ../actual-graph-current-compiler/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/closure/check_local_extension.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). The legacy constructor of retained-graph-complement-constructor loads local_extension.py by its old path ../closure/. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-derived the split identity (2) from the preimage structure, the automatic input, conversion, count identities (7)-(8), feedback and coverage barrier (9)-(11); own code checks (2)-(3) and (9) for every 8 | N <= 1024, rebuilds the N = 24, 96, 384 examples from scratch (same unabsorbed seeds, the stored 102-row outer current reproduced) and tests the component identity on 3x+5, 3x+13 graphs; legacy replay certificate passed; verdict HOLDS"
 aliases: [R14]
 tags: [convergence, packet-currents, local-extension, conditional, circularity, obstruction]
 ---
@@ -342,3 +347,4 @@ No certificate ran at this path before the B18 replay revival; the legacy checke
 
 - Migrated from `experiments/residual_progress/closure/LOCAL_EXTENSION.md` (legacy ID R14) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical. Legacy status: "written constructive identities and a scoped positive-cone obstruction; finite certificates".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `a7b7b47`. The round report's "independent reviews" of the local conversion were run by the main lane's own agents and are not counted as independent.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
