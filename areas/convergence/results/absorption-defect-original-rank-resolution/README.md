@@ -2,7 +2,7 @@
 id: absorption-defect-original-rank-resolution
 kind: result
 title: "Sigma/rho compatibility and the original-rank resolution of the unique fifth-family absorption defect"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; P(w) = [3w] - [w], rho(w) = nu(3w), E the returning class. (1) Compatibility:
   rho(u) = (9 sigma(u) + 5)/8 on E and rho = sigma off E; a finite exact sigma-valid plan with parent in E is
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-18
     link: r62_compatibility_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 00:53, VERIFIED, main 793e835): identity 8 rho(u) = 9 sigma(u) + 5 on 20,000 random E inputs; the theorem on 3,000 quotient-prefix sigma plans (1,000 each at 24, 40 and 64 bits): all 159 plans with an E parent are rho-valid, and for the 2,841 others the requests with rho(u) >= rho(w) are exactly the E-requests in window (2). Reproduced by the main lane in side_lane_review_33c3829.md. The defect interfaces, tables and the fixed-resolver family were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived with independent code (identity (1) on all returning u below 2^20 and the compatibility frontier on the whole candidate universe below 3000; the fifth-family failures, both interfaces as signed request vectors with the exact high-frontier identity, the a = 3 iff theorem, the A = 2, 3 table on 156 CRT cells plus large and arbitrary-A cells, bound (7), and the arithmetic of the 44981 family); certificate re-run (PASS, exit 0, 46 s). HOLDS WITH CORRECTIONS: three constant terms of the A = 3 even-d endpoint formulas in section 4 corrected (no decision changes); the fixed-resolver statements of claim (4) rest on the legacy replay"
 aliases: [R62]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, sigma-rank, absorption-defect]
 ---
@@ -224,7 +228,7 @@ initial exact formulas are
 
     A2,d2,d4,d6: (9r+5)/8, (27r+23)/32, (81r+101)/128;
     A3,d2,d4,d6,d8:
-      (27r+19)/16, (81r+61)/64, (243r+247)/256, (729r+997)/1024.
+      (27r+19)/16, (81r+73)/64, (243r+283)/256, (729r+1105)/1024.
 
 All even endpoints are3 mod4 and1 mod3. If canonical, they have a leading
 critical W5 request of rank y. In the indicated small-even rows y>Q;
@@ -341,3 +345,4 @@ hash are replayed by default.
 
 - Migrated from `experiments/residual_progress/defect_resolution/DEFECT_RESOLUTION.md` (legacy ID R62) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/r62_compatibility_check.*` moved here. Legacy status: "written compatibility theorem, exact whole-domain interfaces, complete local tables and a scoped surviving family".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `793e835`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Correction: in section 4 ("Proof of the table") the constant terms of the `A = 3` even-`d` endpoints for `d = 4, 6, 8` read 61, 247, 997 and now read 73, 283, 1105, the values given by the displayed `d = 2` endpoint `(27r+19)/16` and the recursion `f_(d+2) = 3(f_d − 1)/4 + 1` (and by direct computation); no decision of the table changes, since every comparison with `Q` is settled by the slopes for `r ≥ 73543`. The legacy `affine_checks` tested the displayed constants and so could not detect this. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

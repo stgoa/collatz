@@ -2,7 +2,7 @@
 id: selected-critical-five-forward-tables
 kind: result
 title: "Complete forward tables for selected critical-five inputs, with infinite decreasing domains"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; original rank rho(w) = nu(3w), no sigma rule. For selected 3w and w = 5
   mod 8, q = rho(w) = (3w-1)/2 = 2^A t - 1 is complementary canonical, A >= 2; applying the complete run-bridge
@@ -11,7 +11,7 @@ claim: >
   B(nu(f)) < q. The first-block table is exact for A = 2, 3, 4; after the failed first A = 2, d = 2 block a
   complete second-block table is exact for second exponents 2, 3, 4; all signed W5 requests and both clocks stay
   explicit. Every selected w = 2 mod 3 is outside the old nine direct predicates, and for each A >= 2 an exact
-  CRT progression with large odd d passes (e.g. 221 mod 384, 2813 mod 3072); inside the R54 phase the whole
+  CRT progression with large odd d passes (e.g. 221 mod 384; the second-block table adds 2813 mod 3072); inside the R54 phase the whole
   progression 10357 mod 13824 (A = 4, d = 3) decreases, while the proposed replacement 3445 mod 13824 is false
   (counterexamples 58741 and 86389). Recognition of all remaining inputs and universal pair currents are not
   proved.
@@ -22,6 +22,11 @@ depends_on: [complementary-run-bridges, returning-forward-interface, forward-blo
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_selected_forward.py, selected_forward.py, selected_forward_audit.json: the legacy constructor and checker: 2049 selected inputs below 32768, 256 second-block inputs, 683 old-rule exclusions, 78 CRT examples through A = 128, 128 progression points and four actual substitutions; two completed output currents and their supplied inputs are stored. The finite window has 905 new acceptances (no asymptotic coverage claim). Fails at its new path: selected_forward.py loads ../continued_rules/, ../critical_rank/ and ../nonselected_forward/ by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/selected_forward/check_selected_forward.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the domain parametrisation, the plan (2) and its clocks, both complete tables (every displayed affine difference verified symbolically; the tables re-checked as iff with an independent implementation on all selected inputs below 2^20, reproducing the receipt's categories), the nine-predicate exclusion, the CRT families (7)-(8), the four progressions and the refuted one; certificate re-run (PASS, exit 0, 18 s); stored currents re-verified. HOLDS WITH CORRECTIONS: the example 2813 mod 3072 is now attributed to the second-block table"
 aliases: [R55]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, selected-phase, forward-blocks]
 ---
@@ -34,7 +39,7 @@ Odd-only clock, 1 absorbing; the rank is always `ρ(w) = ν(3w)`. Domain: `w ≡
 
 1. **Interface.** Apply the complete run-bridge block of [`complementary-run-bridges`](../complementary-run-bridges/README.md), including its raw endpoint `f` and elementary normalisation, before requesting `H`. The exact plan `N_(3w) + D_q + N_f − N_w + H_ν(f) − H_ν(w)` strictly decreases `ρ` whenever the complete branchwise endpoint bound `B(ν(f)) < q` (the table of [`returning-forward-interface`](../returning-forward-interface/README.md)).
 2. **Tables.** The first-block table is exact for `A = 2, 3, 4`. After the failed first `A = 2`, `d = 2` block, a complete second-block table is exact for second exponents 2, 3, 4. All signed `W5` requests and the ordinary and quotient clocks stay explicit.
-3. **New domains.** Every selected `w ≡ 2 (mod 3)` is outside the old nine direct predicates (proved directly from them). For each `A ≥ 2` an exact CRT progression with sufficiently large odd depth `d` passes (examples `221 (mod 384)`, `2813 (mod 3072)`). Inside the phase of [`growing-prefix-unhandled-leading-input`](../growing-prefix-unhandled-leading-input/README.md), the whole progression `10357 (mod 13824)` has `A = 4`, `d = 3` and decreases.
+3. **New domains.** Every selected `w ≡ 2 (mod 3)` is outside the old nine direct predicates (proved directly from them). For each `A ≥ 2` an exact CRT progression with sufficiently large odd depth `d` passes (example `221 (mod 384)`; the second-block table of item 2 adds `2813 (mod 3072)`). Inside the phase of [`growing-prefix-unhandled-leading-input`](../growing-prefix-unhandled-leading-input/README.md), the whole progression `10357 (mod 13824)` has `A = 4`, `d = 3` and decreases.
 4. **A refuted replacement.** The proposed progression `3445 (mod 13824)` is false: 58741 and 86389 are stored counterexamples; 3445 itself passes a different `A = 4`, `d = 4` branch. The maximal inverse of the first failed `A = 2`, `d = 2` endpoint exactly undoes that block, motivating the second forward comparison.
 
 It does not prove that the remaining inputs are recognised or that every pair current exists.
@@ -367,3 +372,4 @@ integrating parent batch.
 
 - Migrated from `experiments/residual_progress/selected_forward/SELECTED_FORWARD.md` (legacy ID R55) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written full conditional interfaces, complete low-exponent tests and infinite decreasing arithmetic domains".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `7206f9c`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Correction: in the claim and in Statement 3 the example `2813 (mod 3072)` is now attributed to the second-block table (failed first block `(A, d) = (2, 2)`, second block `(B, e) = (2, 3)`, proof (10)) instead of to the odd-`d` one-block family (8); no other change. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

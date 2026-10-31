@@ -2,7 +2,7 @@
 id: low-block-continuation-prescribed-growth
 kind: result
 title: "Low-block forward continuation through unbounded prescribed growth, and the nine-family rho dispatcher"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; original rank rho(w) = nu(3w). After a failed first forward block of
   forward-blocks-low-exponent-tests with a = 3 or 4, the whole domain whose next canonical exponent is 2 has
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-17
     link: batch_r53_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 23:45, VERIFIED, main 8764158), with the lane's own nu and step: for r = 1..6, d = 4r+3 and the first three members of progression (12) (18 inputs), w = (2^(3r+8) s - 11)/9 is in W5 with w = 13 (mod 32), w = 45 (mod 81) and 3w non-selected; the prefix word from q = 3w is (1,1,2) then (1,2)^r to x_r = 16*9^(r+1) s - 5, every boundary = 1 (mod 3) and above q; at x_r, a = 2 and v2(3t - 1) = 4r+3; T^(a+b-1)(x_r) = nu(y) with (9y+5)/8 < q. For 4,000 consecutive x = 27 (mod 32), S^2 = (9x+5)/8 with valuations (1,2) and maximal run length floor((v2(x+5) - 2)/3). The eight-row table and the dispatcher were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived with an independent implementation: the eight-row table by brute force on 18,240 inputs below 2^21 and by my own rational algebra, the low-run law on 32,768 starts, the delayed family (identities, inequalities (9)-(10), clocks) and the CRT family (12) with the seven-rule exclusions, plan currents and the w = 4258701 fixture row for row, the dispatcher counts 442 + 10 + 41; certificate re-run (PASS, exit 0, 15.69 s); 3x+5 and 3x+13 analogues of the low-run law hold, including at actual cycle members. Verdict HOLDS; three imprecision-level findings, no correction to the claim"
 aliases: [R53]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, forward-blocks, dispatcher, negative-cycle-shadow]
 ---
@@ -303,3 +307,4 @@ proof, novelty claim, or human/formal verification is supplied.
 
 - Migrated from `experiments/residual_progress/forward_continuation/FORWARD_CONTINUATION.md` (legacy ID R53) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The legacy folder `experiments/residual_progress/continued_rules/` (no note; the nine-family dispatcher and its checker and receipt) and the side-lane probe `reviews/side_lane/batch_r53_check.*` moved here. Legacy status: "written complete phase table, maximal repeated-block interface and infinite decreasing-exit families".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `8764158`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that `d = 4r+3` is not the least odd `d` satisfying (10), spells out why exactly the eight rows of section 2 occur (R48's classification with `n ≡ 11 (mod 16)`), and notes the generic versus full endpoint test on the family with arbitrary `s`. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

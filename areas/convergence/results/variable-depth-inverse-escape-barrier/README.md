@@ -2,7 +2,7 @@
 id: variable-depth-inverse-escape-barrier
 kind: result
 title: "A variable-depth two-block inverse escape with smaller W5 inputs, and fixed-precision inverse barriers"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; nu, T = nu S as in elementary-bridge-quotient-normal-form; rho(w) =
   nu(3w). (Rule) For canonical q > 1, q = 1 mod 3, with D = v3(q-1), u = (q-1)/3^D, j = v3(4^D u + 2), p = 2^j
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-17
     link: ../critical-image-rank-composition/batch_r43_r46_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 22:16, VERIFIED, main a06ef3c), with the lane's own nu and Syracuse step. The two-block identity (the exact word 1^j, 2^D takes p to q, and p < q exactly when 2^(2D+j) < 3^(D+j)) for all 33,333 canonical q = 1 (mod 3) below 400000; the depth-4 law by complete brute force over quotient predecessors for all 1,112 canonical q = 1 (mod 18) below 40,000 (no ancestor y < q at depths 1-3; at depth 4 one exists exactly when q = 10 (mod 81), uniquely (64q-73)/81 with word 1, 1, 2, 2). The decreasing W5 rule, its CRT families and the fixed-precision barrier families were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the two-block rule (1)-(5), the decreasing W5 rule (6)-(7) with its rank bounds, the CRT family (9), the depth-4 law (10)-(11), the D+1 barrier and the fixed-phase barrier with k = 0, 1, 2; independent code (own nu, S, T, rho; ancestors by forward enumeration) on all canonical q = 1 mod 3 below 2^20, all selected W5 inputs below 2^20, all canonical p <= 40000 for the depth laws and exhaustive origin checks for D = 2..6; certificate re-run (PASS, exit 0, 6 s); 3x+5 and 3x+13 analogues of the word identity hold, their actual cycles appear as p = q. HOLDS; three imprecisions recorded, no correction"
 aliases: [R46]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, inverse-rays, inverse-barrier, scoped-obstruction]
 ---
@@ -401,3 +405,4 @@ quantifiers rest on the arguments above.
 
 - Migrated from `experiments/residual_progress/inverse_escape/INVERSE_ESCAPE.md` (legacy ID R46) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written exact two-block criterion, decreasing W5 rule and scoped complete-inverse obstructions".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `a06ef3c`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that `j` may be 0 (then the word is `2^D` alone and `p > q`; half of the domain), that the `D = 1` accepted inputs are exactly the selected `W5` inputs with `9 | w` (inside `E_good`), and that the certificate is an assert-only legacy checker replayed without `-O`. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

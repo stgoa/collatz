@@ -2,7 +2,7 @@
 id: binary-return-exit-control
 kind: result
 title: "The guarded Phi return has an exact binary countdown and a complete nineteen-row exit table at the original rank"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; retained critical basis of R75. Put A = 3^12, M = 2^19, B = 299947, D =
   7153, Phi(v) = (Av+B)/M, L(v) = Dv+B. On the guard v = 133797 mod 2^18 (equivalently 2^18 | L(v)) the raw word
@@ -33,6 +33,10 @@ reviewed_by:
     date: 2026-10-18
     link: r90_phi_return_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 06:27, VERIFIED, main a94533a), with the lane's own step and ν: '**Return words.** On 2,000 random `v ≡ 133797 (mod 2¹⁹)`, both words end at `6Φ(v) + 1`'; '**Quotient identity.** On 500 members of the re-entry cylinder `v ≡ 102642092709 (mod 2³⁷)` ... `T¹²(3v) = 3Φ(v)` and `L(Φ(v)) = (3¹²/2¹⁹)·L(v)`'; '**Re-entry count.** On 3,000 guarded seeds, half of them forced to have a deep `v2(L)`, the number of complete re-entries found by direct iteration equals `⌊(v2(L(v)) − 18)/19⌋`.' The exit table, the signed comparisons and the ancestor-cover argument were not rebuilt; reproduced by the main lane in side_lane_review_86ead16.md. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived with an independent implementation: guard and words by exhaustion and on random inputs, the re-entry identity on 300 inputs, the countdown on 500 seeds, the original cell, the signed comparison for r = 1, 2 and the 19-row exit table with 171 exit cells (stored return and exit plans identical row for row), the raw inequality, the point shadow, the ancestor cover; certificate re-run (PASS, exit 0, 4.97 s); 3x+5 and 3x+13 scaled analogues hold and the actual cycles lie outside every guard. Verdict HOLDS; three imprecision-level findings, no correction to the claim"
 aliases: [R90]
 tags: [convergence, outer-residual, retained-history, binary-countdown, original-rank, exit-classification]
 ---
@@ -416,3 +420,4 @@ At the B18-replay-revival migration [`check_legacy_replay.py`](check_legacy_repl
 - Migrated from `experiments/residual_progress/phi_exit_control/PHI_EXIT_CONTROL.md` (legacy ID R90) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written arithmetic classification and conditional signed construction; terminal supply remains open".
 - The main lane's review `side_lane_review_86ead16.md` and its record `.json` (`experiments/residual_progress/`, 2026-10-18) moved here with the side-lane probe they reproduce.
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `a94533a`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that for the minimal next valuation `a = p` the raw-target bracket is negative already at `r = 0` in all 19 rows, that the quotient identity `T^12(3v) = 3Φ(v)` does not extend from the re-entry cylinder to the broader word cylinder (so the stated restriction is necessary), and that the pair index `b = Q/3` is a `W9` index. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
