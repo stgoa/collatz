@@ -2,7 +2,7 @@
 id: later-target-twenty-step-descent
 kind: result
 title: "The thirteenth-target transition of the 11547 family has a complete original-rank decision, with first descent as late as step 20"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1, T = nu S; retained critical basis of R75. For every q = 11547 + 3 2^19 k, k
   >= 0, the first thirteen ordinary valuations are exactly (1,2,1,1,1,1,1,2,2,1,1,2,2), with canonical sources and
@@ -30,6 +30,10 @@ reviewed_by:
     date: 2026-10-18
     link: batch_r84_r85_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 04:36, VERIFIED, main 355c173), with the lane's own step and ν: '**R84, prefix.** On 3,000 random `k`, `q = 11547 + 3·2¹⁹·k` has first thirteen ordinary valuations exactly `(1,2,1,1,1,1,1,2,2,1,1,2,2)`. The raw endpoint is `R = 70237 + 2·3¹⁴·k`, and `4(R − 1) < 25(q − 1)`.' '**R84, sharp descent.** On 300 random `k ≡ 9954 (mod 16384)`, the first quotient step with `T^n(q) < q` is exactly `n = 20`.' 'R84's full decision procedure (the 14 templates and its success and failure classes) was not rebuilt.' The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument: the thirteen-step phase, the fourteen-template decision and its if-and-only-if, the clocks (10)-(11), the initial rows, the sharp family and the R44/R52 endpoint re-derived by hand and checked by independent code on all k < 8192 and 1500 random k < 2^60 (500 sharp cases, 800 endpoint cases); certificate re-run (PASS, exit 0, 11 s); 3x+5 and 3x+13 controls consistent. Verdict HOLDS; two imprecisions and legacy typos recorded, no correction"
 aliases: [R84]
 tags: [convergence, outer-residual, smaller-origin-history, original-rank, decision-procedure, quotient-clock]
 ---
@@ -326,3 +330,4 @@ At the B18-replay-revival migration [`check_legacy_replay.py`](check_legacy_repl
 - Migrated from `experiments/residual_progress/history_transition/HISTORY_TRANSITION.md` (legacy ID R84) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written complete decision for one conditional comparison; terminal currents remain supplied".
 - The main lane's review `side_lane_review_b9203ff.md` (`experiments/residual_progress/`, 2026-10-18) moved here with the side-lane probe it reproduces; it also records the correction to the R81 probe's coverage, cited from [`fixed-word-history-cells`](../fixed-word-history-cells/README.md).
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `355c173`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that a failed leaf may carry a second request of rank in [q, n) below the unique highest one (608 of 6403 sampled failures), that the rows k = 0 mod 8 and k = 4 mod 16 are decided by the table's explicit tests, and legacy spacing typos. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

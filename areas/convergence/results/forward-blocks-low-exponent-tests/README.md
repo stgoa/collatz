@@ -2,7 +2,7 @@
 id: forward-blocks-low-exponent-tests
 kind: result
 title: "Complete forward blocks on the nonselected critical-five domain, with exact low-exponent rank tests"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). For every w in W5 with 3w nonselected write q = 3w = 2^a
   t - 1, d = v2(3^(a-1) t - 1), u = (3^(a-1) t - 1)/2^d. The complete-run-bridge endpoint is f = 3^floor(d/2) u
@@ -10,8 +10,8 @@ claim: >
   comparison clocks a + (d-1)/2 versus 1; even d: an ordinary path of length a + d/2 - 1). The formal current
   D_q - N_w + H_f - H_nu(w) retains every signed W5 request, and the full canonical endpoint bound B(nu(f)) < q
   of returning-forward-interface gives a strict-rho rule. For a = 3 the test accepts exactly odd d, even d >= 6,
-  or a selected even endpoint f; for a = 4 exactly odd d, even d >= 10, selected even f with d >= 6, or d = 4
-  with nu(f) != 3 mod 8 (all intercepts included). The classes 45 mod 384 and 741 mod 768 of multiples of three
+  or a selected even endpoint f; for a = 4 exactly odd d, even d >= 10, selected even f with d >= 6, or selected even f with d = 4
+  and nu(f) != 3 mod 8 (all intercepts included). The classes 45 mod 384 and 741 mod 768 of multiples of three
   lie inside, and for each a >= 3 an explicit large odd d and CRT progression give further accepted multiples of
   3. For a canonical even endpoint the maximal inverse of variable-depth-inverse-escape-barrier (D = d/2, j =
   a-1) returns exactly to q and cancels the current. These classify this sufficient test, not all possible
@@ -23,6 +23,11 @@ depends_on: [complementary-run-bridges, critical-image-rank-composition, returni
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_nonselected_forward.py, nonselected_forward.py, nonselected_forward_audit.json: the legacy constructor and checker: 2047 inputs, 1536 a = 3/4 decisions, 687 undo identities, 75 CRT examples through a = 128, 32 multiple-of-3 phase examples and 12 actual substitutions; three current tables are retained. Fails at its new path: nonselected_forward.py loads ../complementary_bridge/, ../inverse_escape/ and ../returning_phase/ (now ../complementary-run-bridges/, ../variable-depth-inverse-escape-barrier/, ../returning-forward-interface/) by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/nonselected_forward/check_nonselected_forward.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the parameters, the run-bridge endpoint and clocks, the interface identity, the a = 3/4 classification with every displayed intercept, the stratum inequalities, the CRT families and the undo identity, with an independent implementation on all 8,191 nonselected W5 inputs below 2^17 reproducing the receipt's counts and all 65 low-exponent categories; certificate re-run (PASS, exit 0, 11.5 s); 3x+5 and 3x+13 analogues of the identities checked. HOLDS WITH CORRECTIONS: the omitted hypothesis 'selected' inserted in the a = 4, d = 4 clause of the claim and of Statement item 3"
 aliases: [R48]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, forward-blocks, sufficient-set]
 ---
@@ -35,7 +40,7 @@ Odd-only clock, 1 absorbing; `ρ(w) = ν(3w)`; `B = {w ∈ W5 : 3w nonselected}`
 
 1. **Whole-domain interface.** Write `q = ρ(w) = 3w = 2^a t − 1` (`a ≥ 3`), `d = v2(3^(a−1)t − 1) ≥ 2`, `u = (3^(a−1)t − 1)/2^d`. The endpoint of the complete run bridge of [`complementary-run-bridges`](../complementary-run-bridges/README.md) is `f = 3^⌊d/2⌋·u` (odd `d`) or `2·3^(d/2)·u + 1` (even `d`), with exact quotient return time `a + ⌊d/2⌋ − 1`; odd `d` has ordinary comparison clocks `a + (d−1)/2` versus 1, even `d` an ordinary path of length `a + d/2 − 1`. The formal current `D_q − N_w + H_f − H_ν(w)` retains every signed `W5` request.
 2. **Sufficient test.** The full canonical endpoint bound `B(ν(f)) < q` of [`returning-forward-interface`](../returning-forward-interface/README.md) gives a strict-`ρ` rule.
-3. **Exact low-exponent classification of the test.** `a = 3`: accepted exactly for odd `d`, even `d ≥ 6`, or a selected even endpoint `f`. `a = 4`: exactly odd `d`, even `d ≥ 10`, selected even `f` with `d ≥ 6`, or `d = 4` with `ν(f) ≢ 3 (mod 8)`. All intercepts are included.
+3. **Exact low-exponent classification of the test.** `a = 3`: accepted exactly for odd `d`, even `d ≥ 6`, or a selected even endpoint `f`. `a = 4`: exactly odd `d`, even `d ≥ 10`, selected even `f` with `d ≥ 6`, or selected even `f` with `d = 4` and `ν(f) ≢ 3 (mod 8)`. All intercepts are included.
 4. **New domains.** The complete multiples-of-three classes `45 (mod 384)` and `741 (mod 768)` lie inside; for each `a ≥ 3` an explicit large odd `d` and CRT progression give further accepted multiples of 3.
 5. **Undo.** For a canonical even endpoint the maximal inverse of [`variable-depth-inverse-escape-barrier`](../variable-depth-inverse-escape-barrier/README.md) has `D = d/2`, `j = a − 1`, and its predecessor is exactly `q`: it reverses the block and cancels the current literally.
 
@@ -322,3 +327,4 @@ the implementation; the written arguments give the universal quantifiers.
 
 - Migrated from `experiments/residual_progress/nonselected_forward/NONSELECTED_FORWARD.md` (legacy ID R48) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written whole-domain conditional interface and exact classification of its rank test for a3/a4".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `bcde58e`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Correction: the `a = 4`, `d = 4` clause of the claim field and of Statement item 3 now reads "selected even `f` with `d = 4` and `ν(f) ≢ 3 (mod 8)`", the hypothesis the proof's (6) uses; read literally, the old wording admitted nonselected endpoints `f ≡ 7 (mod 8)`, which the test rejects (65 inputs below `2^17`, the first `w = 1893`). See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

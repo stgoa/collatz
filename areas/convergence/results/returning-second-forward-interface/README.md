@@ -2,7 +2,7 @@
 id: returning-second-forward-interface
 kind: result
 title: A second complete forward run before requesting inputs on the returning W5 row
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; original rank rho(w) = nu(3w) throughout. On the whole returning row of
   returning-forward-interface, compose the full returning prefix q -> r, complete normalisation r -> nu(r) and a
@@ -21,6 +21,11 @@ depends_on: [returning-forward-interface, complementary-run-bridges, critical-im
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_returning_continuation.py, returning_continuation.py, returning_continuation_audit.json: the legacy constructor and checker: 910 returning inputs, 768 exact low-exponent cells, 132 long families through a = A = 64 and eight actual conversions; three complete outputs stored. The bounded scan has 184 new acceptances and 23 cases where the alternate path worsens the old test (finite counts). Fails at its new path: returning_continuation.py loads ../returning_phase/, ../complementary_bridge/ and further siblings (now ../returning-forward-interface/, ../complementary-run-bridges/, ...) by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/returning_continuation/check_returning_continuation.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the interface identity and clocks, the a = 3 first-failure bijection, the A = 2, 3, 4 table with all displayed intercepts, the CRT families with chain (10) and the R46 exclusion, with an independent implementation on all 910 returning inputs below 131072 (the receipt's seven categories, 184 and 23 reproduced), 1,152 CRT cell members and 96 family members; certificate re-run (PASS, exit 0, 13.3 s); 3x+5 and 3x+13 analogues of the identities checked. HOLDS; three imprecisions recorded, no correction"
 aliases: [R52]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, returning-row, forward-blocks]
 ---
@@ -308,3 +313,4 @@ Dependencies: [first returning run](../returning-forward-interface/README.md),
 
 - Migrated from `experiments/residual_progress/returning_continuation/RETURNING_SECOND_BLOCK.md` (legacy ID R52) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written conditional interface, exact low-exponent classification and complete CRT families".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `8764158`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that the least member of the first-failure image (3) is `r = 2587` (`w = 1533`), not 157, that the quotient step of the `n ≡ 1 (mod 8)` block reaches `ν(f)` rather than `f`, and that the certificate replays an assert-based legacy checker without `-O`. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

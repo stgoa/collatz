@@ -160,7 +160,7 @@ in the earlier delayed-release note.
 ### 3. Why the 70 finite symbolic traces prove infinite classes
 
 The checker imports the complete inverse oracle and the affine-decision
-verifier from [the templates directory](../depth-32-aggregate-exposure-obstruction.md).
+verifier from [the templates directory](../depth-32-aggregate-exposure-obstruction/README.md).
 Their correctness arguments are retained in
 [the fixed-depth lift note](../depth-32-obstruction-infinite-family.md).
 Here we specify the additional phase argument rather than infer an
