@@ -2,7 +2,7 @@
 id: rank-excess-absorption-classification
 kind: result
 title: "The unique rank excess in formal absorption, and a complete strict-rank domain in the fifth-exponent family"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w); H_s the unchanged formal absorption plan with full W9
   elimination, n = nu(s). Every requested W5 rank is at most n, except precisely when canonical n = 27 mod 48,
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-18
     link: r58_excess_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 00:16, VERIFIED, main working copy), tested against main's committed R43 plans, not this node's module: 112,000 seeds (every odd s in [3, 200001]; 3,000 random odd s at each of 40 and 64 bits; 3,000 random canonical exceptional n at each of those sizes) all match the classification: 103,773 ordinary cases, 8,227 exceptional cases with exactly the stated single u*, and 53,006 noncanonical seeds, all with requests below s. The fifth-family forward classification was not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the classification theorem (every case of the normalised seed, the W9 elimination bound and the v = 9 case), the fifth-family decision theorem with identities (8) and (11), and the progression (12) with the rule exclusions re-derived from the rules' stated domains; independent implementation on all 65,536 odd seeds below 2^17, all 16,384 W9 inputs below 2^18 and the fifth family through m < 4096, reproducing the receipt's counts; certificate re-run (PASS, exit 0, 134.5 s). HOLDS; imprecisions only, no correction"
 aliases: [R58]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, forward-blocks]
 ---
@@ -245,3 +249,4 @@ module/checker source hashes; these counts are finite evidence only.
 
 - Migrated from `experiments/residual_progress/exact_absorption_bound/EXACT_ABSORPTION_BOUND.md` (legacy ID R58) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/r58_excess_check.*` and the main lane's reproduction receipt `experiments/residual_progress/side_lane_review_c2319c9.json` moved here. Legacy status: "written classification and complete conditional forward domain".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `d265d94`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that inequality (5) holds for every `W9` value except 9 (not only for `v ≥ 25`), that the bound `ρ ≤ n` outside (2) is attained by the leading request of every `W5`-critical seed, and that the certificate replays assert-based legacy checkers without `-O`. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

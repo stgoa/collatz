@@ -2,7 +2,7 @@
 id: exponent-eleven-exit-continuation
 kind: result
 title: "The whole exponent-eleven exit row and an exact undo of a named full-block continuation"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; nu, T = nu S, P(w) = [3w] - [w], rho(w) = nu(3w) on W5. (1) For every r >= 0
   and positive odd s, q = 81*2^(11r+11) s - 17 has exactly r guarded R54 cycles before the R57 exit exponent 11, whose
@@ -30,6 +30,10 @@ reviewed_by:
     date: 2026-10-18
     link: batch_r61_r67_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 06:14, VERIFIED), with the lane's own step, nu and selected: 132 cases, r = 0..21, q = 81*2^(11r+11) s - 17 at exact binary order; the orbit runs r guarded copies of (1,1,1,2,1,1,4) to Q = 2^11 U - 17, U = 81*3^(7r) s; the exit gives nu(S^4(Q)) = 2592U - 21 with a = 2 and block depth 3; the endpoint is f = 3^(7r+10) s - 6, and f > q exactly when r >= 16. The CRT family, the twelve-rule exclusions and the current undo were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived with an independent implementation of nu, the run bridges, the currents, H and the R41 rule: the exit row (1)-(3) on 720 cases, the CRT family (4)-(9) on 375 families, the twelve-rule exclusions (arithmetic reasons and the fixed dispatcher), identities (11)-(15) and the complete undo on four families; certificate re-run (PASS, exit 0, 71 s). Verdict HOLDS; three imprecision-level findings, no correction"
 aliases: [R61]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, selected-phase, exact-undo]
 ---
@@ -298,3 +302,4 @@ on the remaining domain stays open.
 
 - Migrated from `experiments/residual_progress/exit_continuation/ELEVEN_EXIT_CONTINUATION.md` (legacy ID R61) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/batch_r61_r67_check.*` moved here. Legacy status: "written exit identity and infinite-family limitation of a specified continuation procedure".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `d265d94`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records three imprecisions ('at least K' (2,2) blocks where K+1 hold, the R56 domain condition in section 3, and the quotient clock being to nu(f) on the whole row). See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

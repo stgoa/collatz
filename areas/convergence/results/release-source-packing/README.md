@@ -2,7 +2,7 @@
 id: release-source-packing
 kind: result
 title: Two further disjoint cancellation families raise the universal partial current's removed mass to 1073N/432 + O(1)
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus, for every positive N divisible by 8. (Pair) For
   every q = 31 mod 54 with 36N < q < 54N and u = (4q-1)/3: S(u) = q with valuation 2, A_N(q) = 2, A_N(u) = -2,
@@ -28,6 +28,10 @@ reviewed_by:
     date: 2026-10-17
     link: release_families_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 19:05, VERIFIED, main 65093c4): both families rebuilt from the statement; arrows, valuations and coefficients, the floor counts P(N), T(N) (increments 72 and 32 under N -> N + 216) and removed mass 2P + 2T, and no reuse within or across the two families, for every multiple of 8 up to 1024 and at 40 random cutoffs up to about 8 10^9. 'Disjointness from the older catalogue was not checked here. Main's written disjointness argument was not re-derived.' The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-derived both families (arithmetic, valuations, residues, bands, coefficients, identities), the full capacity argument against the catalogue and the five-source packing (the part the side lane had not re-derived) and the floor counts and asymptotics; own annulus and own re-implementation of the old constructor check every statement for every 8 | N <= 1024 and N = 6144, 7200, 10008, 20000, plus boundary members at 20 random N up to 8e9; 3x+5, 3x+13 controls; legacy replay certificate passed; verdict HOLDS WITH CORRECTIONS (typographic only)"
 aliases: [R16-b]
 tags: [convergence, packet-currents, annular, partial-current, packing, constructive]
 ---
@@ -59,7 +63,7 @@ The legacy note "Two disjoint cancellation families exposed by the release analy
 
 2026-10-17. **Written elementary proof and executable universal partial
 constructor.** The source is the six-band annulus A_N, for every positive
-multiple of8. These currents do not certify the whole annulus. No novelty
+multiple of 8. These currents do not certify the whole annulus. No novelty
 or universal termination claim is made. All states are positive odd integers,
 and 1 is absorbing.
 
@@ -73,11 +77,11 @@ capacity, independently of the subsequent future of their states.
 
 For every q with
 
-    36N < q < 54N,    q = 31 modulo54,
+    36N < q < 54N,    q = 31 modulo 54,
 
-put u=(4q-1)/3. Then u is odd, 48N<u<72N, and u=5 modulo18.
+put u=(4q-1)/3. Then u is odd, 48N<u<72N, and u=5 modulo 18.
 The original source coefficients are A_N(q)=2 and A_N(u)=-2.
-Since 3u+1=4q, its exact Syracuse valuation is2 and S(u)=q. Thus
+Since 3u+1=4q, its exact Syracuse valuation is 2 and S(u)=q. Thus
 
     2 delta_q - 2 delta_u = (I-P)(-2 delta_u).
 
@@ -90,19 +94,19 @@ path-collapse construction explains it as part of an entire path.
 
 For every q with
 
-    64N < q < 72N,    q = 31 or103 modulo108,
+    64N < q < 72N,    q = 31 or 103 modulo 108,
 
 put u=(4q-1)/3 and v=(3q+1)/2. The exact arrows are
 
-    u --valuation2--> q --valuation1--> v.
+    u --valuation 2--> q --valuation 1--> v.
 
-Here q is13 modulo18 in band4, u is5 or11 modulo18 in band5,
-and v is11 modulo18 in band5. Explicitly A_N(u)=-1, A_N(q)=2,
+Here q is 13 modulo 18 in band 4, u is 5 or 11 modulo 18 in band 5,
+and v is 11 modulo 18 in band 5. Explicitly A_N(u)=-1, A_N(q)=2,
 and A_N(v)=-1, so
 
     -delta_u + 2 delta_q - delta_v = (I-P)(-delta_u + delta_q).
 
-The current has positive cost1. In units of N, u lies in (256/3,96)
+The current has positive cost 1. In units of N, u lies in (256/3,96)
 and v in (96,108). Integer parity resolves every affine endpoint offset:
 all interval boundaries in the q conditions are even, while q is odd.
 
@@ -111,29 +115,29 @@ all interval boundaries in the q conditions are even, while q is odd.
 Within each family, all affine maps are injective. The positive q sources
 cannot equal a negative source because their actual annular signs differ.
 The two kinds of negative triple sources occupy disjoint intervals.
-Pair negative sources lie below72N and triple negative sources above
+Pair negative sources lie below 72N and triple negative sources above
 256N/3. The positive q intervals of the two families are disjoint.
 Consequently all new source blocks are mutually disjoint.
 
 They are also disjoint from the five short families and the two-class
 five-source packing in the previous combined constructor:
 
-- Every new positive q has residue13 in band4. None of the old positive
+- Every new positive q has residue 13 in band 4. None of the old positive
   source columns has that band and residue.
-- Pair negative sources have residue5 in band4. None of the old negative
+- Pair negative sources have residue 5 in band 4. None of the old negative
   source columns has that band and residue.
-- Triple negative v sources have residue11 in (96N,108N). The old short
-  catalogue's only negative band5 sources are the A-family middle points
-  in (72N,96N). The five-source packing has only residue5 negative sources
-  in band5.
-- A triple negative u with residue5 cannot be an old short source in
-  band5. When u has residue11, write q=103+108t, so u=137+144t. If it were
+- Triple negative v sources have residue 11 in (96N,108N). The old short
+  catalogue's only negative band 5 sources are the A-family middle points
+  in (72N,96N). The five-source packing has only residue 5 negative sources
+  in band 5.
+- A triple negative u with residue 5 cannot be an old short source in
+  band 5. When u has residue 11, write q=103+108t, so u=137+144t. If it were
   an old A-family middle point, its predecessor would be
-  (2u-1)/3=91+96t. Modulo72 this is19,43,or67, whereas the old A-family
-  requires7 or55. Hence that collision is impossible.
-- The only remaining comparison is a residue5 triple u against the old
-  five-source negative top atom. The new u is41 modulo144; the old atom
-  is13775+1152t, always95 modulo144. They are disjoint.
+  (2u-1)/3=91+96t. Modulo 72 this is 19, 43, or 67, whereas the old A-family
+  requires 7 or 55. Hence that collision is impossible.
+- The only remaining comparison is a residue 5 triple u against the old
+  five-source negative top atom. The new u is 41 modulo 144; the old atom
+  is 13775+1152t, always 95 modulo 144. They are disjoint.
 
 This proves full coefficient capacity for every N, rather than only for
 the finite audit cutoffs. Current rows may overlap: linearity permits that,
@@ -153,7 +157,7 @@ The number of pairs and triples is respectively
 Therefore P(N)=N/3+O(1), T(N)=4N/27+O(1), and these two families remove
 exactly 2P(N)+2T(N)=26N/27+O(1) positive mass. Their positive current cost
 is exactly T(N). These are bounded floor corrections; no absorption
-assumption enters the counts. Under N→N+216 the counts increase by72 and32.
+assumption enters the counts. Under N→N+216 the counts increase by 72 and 32.
 
 Let D(N) be the old short-catalogue removed positive mass and C_old(N) the
 old five-source copy count. The extended constructor returns full integer
@@ -164,7 +168,7 @@ tables satisfying
     ||J_ext,N^+|| <= 3C_old(N) + T(N).
 
 The total removed positive mass is 1073N/432+O(1), versus the previous
-73N/48+O(1). The positive cost bound is73N/432+O(1). The remaining positive
+73N/48+O(1). The positive cost bound is 73N/432+O(1). The remaining positive
 mass is retained explicitly. The new constructor uses finite arithmetic
 loops and the stored old affine identities; it performs no absorption search.
 
@@ -178,9 +182,9 @@ python3 experiments/residual_progress/release_packing/release_packing.py
 
 The reusable entry point is `build_extended_partial_current(N)`, returning
 the full current, exact residual, and summary. The default audit checks
-every multiple of8 through1024, plus6144; it reconstructs every source,
+every multiple of 8 through 1024, plus 6144; it reconstructs every source,
 checks disjoint capacity against the old constructor, verifies the full
-divergence, and checks all27 boundary phases of the new floor counts.
+divergence, and checks all 27 boundary phases of the new floor counts.
 The adjacent receipt records the finite cases. `--write-receipt` explicitly
 regenerates it. The universal statements rely on the arithmetic and capacity
 proof above, not on the finite range of the audit.
@@ -202,3 +206,4 @@ No certificate ran at this path before the B18 replay revival; the legacy constr
 
 - Migrated from `experiments/residual_progress/release_packing/RELEASE_PACKING.md` (part of legacy R16; alias R16-b here) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, constructor and receipt moved byte-identical, with the side-lane probe `reviews/side_lane/release_families_check.*` and the main lane's reproduction receipt `experiments/residual_progress/side_lane_review.json`. Legacy status: as R16, "written universal partial-current families".
 - Main lane (ChatGPT, Codex), 2026-10-17. Its "independent model review" of the packing capacity was the main lane's own agents. The side lane's finite check is recorded under `reviewed_by`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Corrections: missing spaces restored in the legacy text of the proof on 27 lines (e.g. "multiple of8" → "multiple of 8"); no wording changed. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

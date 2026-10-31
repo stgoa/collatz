@@ -2,7 +2,7 @@
 id: two-source-normalisation-first-departure
 kind: result
 title: "Both original histories normalise the coupled pair to [864z - 257] - [z], with a complete first-departure interface for the lower path"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1. On the entire original coupled family put z = 471104208005 + 2^14 3^16 ell;
   then v0 = 144z - 43, Q = (2^31 z - 665034679)/3^15, and the actual ordinary paths satisfy S^18(Q) = 864z - 257
@@ -31,6 +31,10 @@ reviewed_by:
     date: 2026-10-18
     link: r93_r94_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 07:33, VERIFIED, main working copy on 61fd041, committed unchanged as 9190ccf), with the lane's own integer and rational Syracuse code: '**Cell identities.** `v = 144z − 43`, `Q = (2³¹z − 665034679)/3¹⁵` and `Y(z) = 864z − 257 = 6v + 1` hold as affine identities in `ℓ`'; the upper coordinate identities and the return criterion on exact orders n = 14..80; the lower shadow ('448 states: preperiod 71 (cost 146) and cycle 377 (cost 739)', largest numerator 819533 < 115·7153); the departures for every exact order n = 14..1000 and 1,584 long-branch cases; 209 joint cases. Finite instances; the all-n classification rests on the written argument. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (cell identities and words as affine identities, the divergence identity, the Psi/Phi identities and guards, the re-entry count and exit row, the 448-state shadow certificate and prefix slopes, the forced-prefix criterion and both departure branches with their cylinders, the 12-arrow window and its constants, the signed comparison (12)) and checked by independent code for every exact order n = 14..3000 plus 1188 prescribed long-branch cases; both certificates re-run (PASS, exit 0; 2 s and 8 s); controls not applicable. Verdict HOLDS; two imprecisions and one remark, no correction"
 aliases: [R93]
 tags: [convergence, outer-residual, retained-history, two-source, rational-shadow, original-rank]
 ---
@@ -322,3 +326,4 @@ result is modified by this package.
 - Migrated from `experiments/residual_progress/two_source_history/TWO_SOURCE_HISTORY.md` (legacy ID R93) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written arithmetic proof with a finite rational-orbit certificate; unfinished comparison currents".
 - The side-lane probe `reviews/side_lane/r93_r94_check.*` moved here.
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `9190ccf`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records two imprecisions (the whole-cell word identities also use the matching affine slopes; Psi(z) is an integer for n >= 19 and odd for n >= 20, the sentence in section 2 being about n >= 33) and legacy spacing typos. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

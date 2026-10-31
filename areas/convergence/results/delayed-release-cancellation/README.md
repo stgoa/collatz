@@ -2,12 +2,12 @@
 id: delayed-release-cancellation
 kind: result
 title: After an arbitrarily long isolation, two further negative sources cancel the three-source chain at zero positive cost
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus; G_D(N) the first D arrows exposed from every
   nonzero source. For every h >= 2 with lambda = 4(4/3)^h(2/3)^r in (81/32, 27/8] (r the least such that
   lambda <= 27/8; qualifying h are unbounded, and of any two consecutive h at least one qualifies), each choice
-  V in (47, 155) gives an arithmetic progression of X (with v_3(X-1) = h, 2^max(h+5,10) | X, and an explicit
+  V in {47, 155} gives an arithmetic progression of X (with v_3(X-1) = h, 2^max(h+5,10) | X, and an explicit
   size bound) such that, with N = 3X/128, the five actual sources u, v (coefficient -1 each, in the top band),
   y_1 = 64N-1 (-2), y_2 = 96N-1 (+2), y_3 = 144N-1 (+2) satisfy mu = (I - P)J for an explicit current J <= 0
   with L + 4 rows, L = h + r + 1 <= 2h + 1, ||J||_1 <= 4h + 10, all arrows in G_L(N), along the valuation word
@@ -31,6 +31,10 @@ reviewed_by:
     date: 2026-10-17
     link: delayed_release_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 19:13, VERIFIED, main 65093c4): for every qualifying h <= 12, both V and three members of each progression (16 families), the parameters, the six coefficients, the arrows u -> t -> v, the word (1^r, 2^h, 3) and (I - P)J = mu with J <= 0 and at most 2h + 5 rows; the ladder cutoff N = 96 64^89; the qualifying h <= 64; and, by full brute force, the sharpened isolation at depth h + 1 at six cutoffs. The written arguments were not re-derived, so the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-derived sections 2-5 (congruences, inequalities (7)-(8), the path word, (I - P)J = mu, the refinement to D <= h + 1 and the ladder bound); 66 family members, both witnesses and brute-force exposure graphs from every source at the smallest cutoffs checked with independent code; certificate passed; verdict HOLDS WITH CORRECTIONS (a typo in the claim field)"
 aliases: [R16]
 tags: [convergence, packet-currents, annular, exposure-depth, delayed-release, partial-current, constructive]
 ---
@@ -492,3 +496,4 @@ No certificate ran at this path before the B18 replay revival; the legacy checke
 
 - Migrated from `experiments/residual_progress/release/DELAYED_RELEASE.md` (legacy ID R16; the ledger's R16 also covers [`release-source-packing`](../release-source-packing/README.md), alias R16-b) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, checker and receipt moved byte-identical, with the side-lane probes `reviews/side_lane/delayed_release_check.*`, `chain_cancellation_scan.*` and the main lane's reproduction receipt `experiments/residual_progress/side_lane_review_20261017_2005.json`. Legacy status: "written universal partial-current families, with complete finite component examples. Full component resolution at every parameter and complete annular certificates remain open".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `2be37b7`. Its "independent model reviews" of the release theorem and precision refinement were the main lane's own agents. The side lane's finite check is recorded under `reviewed_by`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Correction: in the `claim` field, "V in (47, 155)" (which reads as an interval) became "V in {47, 155}", the two values used by the Statement and the proof. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

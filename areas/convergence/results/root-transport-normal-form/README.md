@@ -2,7 +2,7 @@
 id: root-transport-normal-form
 kind: result
 title: Root collapse and transport reduce to four normal forms, and explicit top-band atoms survive any bounded number of them
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map with killed pushforward P (absorbing at 1); R the root collapse along F(x) = 4x+1.
   (Normal form) R^2 = R and PR = P, so every finite word in P, R equals I, R, P^k or RP^k, and the iteration
@@ -23,6 +23,11 @@ depends_on: [disjoint-annular-recursion, annular-root-collapse-contraction]
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_root_transport.py, root_transport_audit.json: the legacy checker (conjugacy arithmetic on odd states through 4097; operator identities and surviving-atom formulas at N = 8, 96, 168, 384 through depth 12; the exact N = 96 counterexamples through depth 80, with all four plateau measures stored) and the reusable bounded constructor collapsed_transport_current(measure, steps). Fails at its new path: it loads experiments/annular_construction/arithmetic/check_arithmetic_reductions.py relative to the repository root (now ../universal-annular-partial-current/, which itself no longer runs). Passed at be73a66 as experiments/residual_progress/transport/check_root_transport.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (R^2 = R, PR = P, the four normal forms and norm identities, the conjugacy through phi = S, the surviving-atom family with its count and the no-cancellation bound, the top-source formula 324 a 3^b - 1, the N = 96 norms and plateau, the telescoping current) and checked by independent code at N in 8..1024 (11,315 surviving-atom instances), 74,999 roots and the full N = 96 transport; certificate re-run (PASS, exit 0, 6 s); 3x+5 and 3x+13 operator identities recorded for information. Verdict HOLDS; one imprecision and two remarks, no correction"
 aliases: [R12]
 tags: [convergence, packet-currents, annular, root-collapse, transport, obstruction]
 ---
@@ -319,3 +324,4 @@ No certificate ran at this path before the B18 replay revival; the legacy checke
 
 - Migrated from `experiments/residual_progress/transport/ROOT_TRANSPORT.md` (legacy ID R12) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, checker and receipt moved byte-identical. The note's code span `../../current_construction/recursive/annular_recursion.md` is the legacy path of the annulus definition, now [`disjoint-annular-recursion`](../disjoint-annular-recursion/README.md). Legacy status: "written operator identities and scoped obstructions; finite checks".
 - Main lane (ChatGPT, Codex), 2026-10-17. The round report says independent model reviews checked the root-1 convention, the survivor count and the height inequalities; they were run by the main lane's own agents and are not counted as independent.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records one imprecision ("each fixed mantissa a" means any N = a·2^b with 8 | N, the five-ray a_i being 12, 14, 16, 18, 21) and the finite remark that the positive mass of P^t A_96 is 4 for t = 77..83 and vanishes from t = 85. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

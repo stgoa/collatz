@@ -2,7 +2,7 @@
 id: unbounded-exposure-depth-necessary
 kind: result
 title: For every fixed exposure depth D, infinitely many required-ray annuli have a complete positive component in G_D(N)
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus (8 | N); G_D(N) the first D arrows exposed from
   every nonzero source of A_N, with all historical intersections. For every integer D >= 1 and every positive
@@ -32,6 +32,10 @@ reviewed_by:
     date: 2026-10-17
     link: depth_probe.py
     scope: "Finite only (side-lane feed entry 2026-10-17 19:03, VERIFIED, main 2be37b7): full forward union-find exposure graphs at the least admissible X for D = 1, 2, 3, 4 and at N = 6144 reproduce the chain y_1..y_(D+3), sources (-2, +2, +2), not linked to 1. 'These are finite checks; the theorem's quantifiers rest on its written proof.' The inverse-history argument was not re-derived, so the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the inverse-history invariant (sections 2-5) and of the ray and ladder claims; exhaustive bounded inverse histories, brute-force exposure graphs from every source at D <= 5 and an independent oracle at D <= 32 agree with the theorem; all three certificates passed; verdict HOLDS"
 aliases: [R13]
 tags: [convergence, packet-currents, annular, exposure-depth, obstruction, inverse-history]
 ---
@@ -40,7 +44,7 @@ tags: [convergence, packet-currents, annular, exposure-depth, obstruction, inver
 
 ## Statement
 
-`A_N` is the six-band annulus of [`disjoint-annular-recursion`](../disjoint-annular-recursion/README.md), `8 | N`, `Q = 9N/4`, support in `Q < x < 64Q = 144N`. `G_D(N)` contains the first `D` odd-only Syracuse arrows from every nonzero source of `A_N`, absorbing at 1 ([`depth-32-aggregate-exposure-obstruction`](../depth-32-aggregate-exposure-obstruction.md)).
+`A_N` is the six-band annulus of [`disjoint-annular-recursion`](../disjoint-annular-recursion/README.md), `8 | N`, `Q = 9N/4`, support in `Q < x < 64Q = 144N`. `G_D(N)` contains the first `D` odd-only Syracuse arrows from every nonzero source of `A_N`, absorbing at 1 ([`depth-32-aggregate-exposure-obstruction`](../depth-32-aggregate-exposure-obstruction/README.md)).
 
 **Theorem.** Fix any integer `D ≥ 1` and any positive integer `X` with `2^max(D+4,10) | X` and `X ≡ 1 (mod 3^(D+2))`. Put `N = 3X/128` (an integer divisible by 8) and `y_k = 3^k X/2^k − 1`, `1 ≤ k ≤ D + 3`. The entire component of `y_3 = 144N − 1` in `G_D(N)` is the path `y_1 → y_2 → ⋯ → y_(D+3)`; its only annular sources are `(64N − 1, −2)`, `(96N − 1, 2)`, `(144N − 1, 2)`; its mass is 2 and it does not contain 1. No finite current supported on the whole `G_D(N)` represents `A_N` with a nonpositive residual.
 
@@ -381,7 +385,7 @@ source-to-anchor depth grows with the cutoff.
 ## Certificates
 
 - [`check_unbounded_exposure.py`](check_unbounded_exposure.py) (under 1 s). Verifies the induction constants and the source formulas, checks the bounded inverse-history (shadow) words, compares the complete predicted component with the inverse oracle at CRT cutoffs for `D = 1, 2, 4, 8, 12, 16, 24, 32` and at the required-ray cutoffs for `D = 1..4`, and checks the modular ray condition `2^(2·3^(D+1)) ≡ 1 (mod 3^(D+2))` for `D` up to 128 without materialising the powers. It compares everything with `unbounded_exposure_audit.json`. The quantifier over all `D` comes from the written proof, not from these finite checks.
-- [`check_symbolic_lift.py`](check_symbolic_lift.py) (about 1 s). The certificate of the fixed-depth lift [`depth-32-obstruction-infinite-family`](../depth-32-obstruction-infinite-family.md) (and, at `q = 1`, of the depth-32 component of [`depth-32-aggregate-exposure-obstruction`](../depth-32-aggregate-exposure-obstruction.md)); it lives here because it imports the oracle from this folder.
+- [`check_symbolic_lift.py`](check_symbolic_lift.py) (about 1 s). The certificate of the fixed-depth lift [`depth-32-obstruction-infinite-family`](../depth-32-obstruction-infinite-family.md) (and, at `q = 1`, of the depth-32 component of [`depth-32-aggregate-exposure-obstruction`](../depth-32-aggregate-exposure-obstruction/README.md)); it lives here because it imports the oracle from this folder.
 - Both pass at their new paths with their receipts unchanged. They use `assert`; run them without `-O`. The commands in the legacy text name `experiments/residual_progress/templates/`.
 
 [`check_legacy_replay.py`](check_legacy_replay.py) (written at the B18-replay-revival migration; standard library) replays the unmodified legacy checks `check_inverse_exposure.py`, `depth_probe.py` in a temporary copy of the legacy layout built by `tools/legacy_replay.py`, requiring exit 0 and every file unchanged (about 46 s). It checks finite steps only; the status is unchanged.
@@ -396,5 +400,6 @@ source-to-anchor depth grows with the cutoff.
 
 ## History
 
-- Migrated from `experiments/residual_progress/templates/UNBOUNDED_EXPOSURE_DEPTH.md` (legacy ID R13; the ledger's R13 also covers [`depth-32-aggregate-exposure-obstruction`](../depth-32-aggregate-exposure-obstruction.md), alias R13-b, and [`depth-32-obstruction-infinite-family`](../depth-32-obstruction-infinite-family.md), alias R13-c) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). All eight script and receipt files of `templates/` moved here byte-identical, with the side-lane probes `depth_probe` and `q2_end_depth` from `reviews/side_lane/`. Legacy status: "written arbitrary-depth theorem, independently model-audited, with exact finite and symbolic checks. Complete current construction remains open".
+- Migrated from `experiments/residual_progress/templates/UNBOUNDED_EXPOSURE_DEPTH.md` (legacy ID R13; the ledger's R13 also covers [`depth-32-aggregate-exposure-obstruction`](../depth-32-aggregate-exposure-obstruction/README.md), alias R13-b, and [`depth-32-obstruction-infinite-family`](../depth-32-obstruction-infinite-family.md), alias R13-c) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). All eight script and receipt files of `templates/` moved here byte-identical, with the side-lane probes `depth_probe` and `q2_end_depth` from `reviews/side_lane/`. Legacy status: "written arbitrary-depth theorem, independently model-audited, with exact finite and symbolic checks. Complete current construction remains open".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `a7b7b47`. The legacy note says "two independent model audits found no gap"; they were run by the main lane's own agents and are not counted as independent. The side lane's finite brute-force check is recorded under `reviewed_by` with its scope.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections; the three links to `depth-32-aggregate-exposure-obstruction` were repointed to that node's new folder. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

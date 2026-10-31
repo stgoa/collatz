@@ -1,0 +1,6 @@
+source sha256: 0a2e1877f2d473e7c1124867145ba01286bcf083add949ca27de27d74437567b
+command: lake build LeanLane; lake env lean LeanLane/SaturatedDensity.lean (from lean/, after lake exe cache get)
+toolchain: Lean (version 4.35.0-rc2, arm64-apple-darwin24.6.0, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)
+mathlib: 065356127b1dc0016f66b7283ce0ce2c4055aa55 (lakefile.toml)
+exit=0 (no warnings; the #print axioms lines are below)
+build time: 192 s for lake build LeanLane on arm64-apple-darwin (macOS), 2026-10-31

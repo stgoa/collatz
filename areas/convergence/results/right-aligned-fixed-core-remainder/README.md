@@ -81,7 +81,7 @@ which proves (3). ∎
 
 - the core hitting times `τ(5), τ(7), τ(11), τ(13) = 1, 5, 4, 2`, and that all odd seeds below 16 reach 1;
 - (2) and the packet shape for every `8 ≤ N ≤ 2048` and for `N = 4096, 10001, 262144`, against a direct push of `ν_N`;
-- the dyadic table of [`dyadic-cutoff-core-remainder`](../dyadic-cutoff-core-remainder.md) for `3 ≤ b ≤ 1000`, and its all-horizon correction range `[−12, 1]`;
+- the dyadic table of [`dyadic-cutoff-core-remainder`](../dyadic-cutoff-core-remainder/README.md) for `3 ≤ b ≤ 1000`, and its all-horizon correction range `[−12, 1]`;
 - the sign witness `H_39(Π^R_32) = 57`;
 - the rational inequalities used in Lemma 2 of [`qualitative-current-criterion`](../qualitative-current-criterion.md).
 

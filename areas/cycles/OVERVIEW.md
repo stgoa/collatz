@@ -56,6 +56,7 @@ The log-height `B = log₂(H/L)` links the lines: by the mismatch–height trade
 | The cancellation formula, the cycle equation and the reduced cycle of a word ([`doubled-word-cancellation-formula`](results/doubled-word-cancellation-formula/README.md)) | formal | nothing external |
 | The two-marker family's exact denominator `4^n + 3^n` ([`two-marker-constant-background-exact-denominator`](results/two-marker-constant-background-exact-denominator/README.md)) | formal | nothing external |
 | No rotation has exactly one mismatch; `ρ ≥ 2` for primitive words ([`single-mismatch-rotation-impossible`](results/single-mismatch-rotation-impossible/README.md)) | formal | nothing external |
+| Every nontrivial cycle with minimum above `2^71` has at least `72,057,431,991` odd states and `114,208,327,604` halvings, from the convergents of `log₂3` ([`cycle-length-lower-bound-from-convergents`](results/cycle-length-lower-bound-from-convergents/README.md)) | written | the verified range `2^71` (Barina 2025); Eliahou's method replayed exactly (his `17,087,915` is returned at `2^40`); the first period bound checked in the repository |
 
 ## Open questions
 

@@ -33,7 +33,7 @@ tags: [convergence, packet-currents, annular, negative-integers, control, counte
 
 ## Statement
 
-This counterexample is deliberately outside the positive-integer Collatz domain. It tests the logic of methods based only on band balance, scalar work, or the coarse finite projections of [`binary-residue-projection-information-loss`](../binary-residue-projection-information-loss.md).
+This counterexample is deliberately outside the positive-integer Collatz domain. It tests the logic of methods based only on band balance, scalar work, or the coarse finite projections of [`binary-residue-projection-information-loss`](../binary-residue-projection-information-loss/README.md).
 
 Reflect the positive annulus `A_96` of [`disjoint-annular-recursion`](../disjoint-annular-recursion/README.md) onto negative states, `Ã_96(−y) = A_96(y)` for `y > 0`. Use the same exact odd Syracuse formula on negative odd integers; positive 1 remains the only absorber.
 
@@ -57,7 +57,7 @@ Consequently **no finite exact current and no finite current with an everywhere 
 
 From §5 of the legacy note `aggregate_duality.md` (now [`exposure-potential-boundary-flux`](../exposure-potential-boundary-flux/README.md)), kept as written.
 
-Negative odd states stay negative, so every source has infinite hitting time of 1; since the source has total mass zero, `H_L(Ã_96) = 0` at every horizon. Reflection permutes residue classes, so the projections vanish by [`binary-residue-projection-information-loss`](../binary-residue-projection-information-loss.md) at `N = 96`. Every path reaches its chosen cycle anchor within 86 steps; the 5868-row signed current routes each source to its anchor, and the residual is the three anchor masses. The indicator of the basin of the seven-state cycle is globally invariant, zero at the absorber, and pairs to 93 with the source, so by [`orbit-component-current-criterion`](../orbit-component-current-criterion/README.md) neither kind of current exists. ∎
+Negative odd states stay negative, so every source has infinite hitting time of 1; since the source has total mass zero, `H_L(Ã_96) = 0` at every horizon. Reflection permutes residue classes, so the projections vanish by [`binary-residue-projection-information-loss`](../binary-residue-projection-information-loss/README.md) at `N = 96`. Every path reaches its chosen cycle anchor within 86 steps; the 5868-row signed current routes each source to its anchor, and the residual is the three anchor masses. The indicator of the basin of the seven-state cycle is globally invariant, zero at the absorber, and pairs to 93 with the source, so by [`orbit-component-current-criterion`](../orbit-component-current-criterion/README.md) neither kind of current exists. ∎
 
 ## Remarks
 
