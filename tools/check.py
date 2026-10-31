@@ -208,6 +208,29 @@ def strip_lean_comments(src: str) -> str:
     return "".join(out)
 
 
+
+def check_certificate_asserts(g: nodes.Graph, warnings: list):
+    """Certificates must hold under `python3 -O` (AGENTS.md §6), so a bare `assert` is a vacuous check. Legacy
+    certificates (nodes created before the 2026-10-20 migration) are hash-pinned and are not reported."""
+    import re as _re
+    pattern = _re.compile(r"^\s*assert\b")
+    for n in g.nodes:
+        created = str(n.meta.get("created", ""))
+        if created < "2026-10-20":
+            continue
+        for c in n.list_field("certificates"):
+            path = n.path.parent / c
+            if not path.exists():
+                continue
+            try:
+                lines = path.read_text(encoding="utf-8").splitlines()
+            except OSError:
+                continue
+            hits = [i + 1 for i, line in enumerate(lines) if pattern.match(line)]
+            if hits:
+                warnings.append(f"{n.rel}: certificate `{c}` uses a bare `assert` at line(s) {hits[:5]}; checks must also hold under python3 -O")
+
+
 def check_lean(errors: list):
     for p in lean_files():
         code = strip_lean_comments(p.read_text(encoding="utf-8", errors="replace"))
@@ -267,6 +290,7 @@ def main(argv):
     warnings: list[str] = []
     g = nodes.load()
     check_nodes(g, errors, warnings)
+    check_certificate_asserts(g, warnings)
     check_references(g, errors, warnings)
     check_lean(errors)
     if (ROOT / "lean" / "receipts").is_dir() and check_lean_receipts.main() != 0:

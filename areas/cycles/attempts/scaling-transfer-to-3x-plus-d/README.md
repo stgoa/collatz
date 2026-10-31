@@ -17,7 +17,7 @@ authors:
   - Claude side lane (Opus)
   - ChatGPT main lane (Codex)
 created: 2026-10-18
-depends_on: [mechanical-word-exact-denominator, mechanical-cycles-high-rational-controls]
+depends_on: [mechanical-word-exact-denominator, mechanical-cycles-high-rational-controls, critical-nine-elimination]
 certificates: [transfer_3xd.py]
 evidence:
   - "transfer_3xd.py, transfer_3xd.json: the side lane's probe (feed 2026-10-18 01:04, halving reference corrected to R23 at 01:52): R23 halving for d = 1, 5, 7, 13, 61 on 1000, 999, 998, 996, 984 inputs, 16 prescribed R54 families per d, and meeting of u and 18u + 5 for all 50,000 odd u < 100,000 (d = 1). Self-contained; it runs at this path and rewrites its receipt byte for byte (checked at migration); passed at be73a66 as reviews/side_lane/transfer_3xd.py (archive/legacy-checker-run-be73a66.md, exit 0)"
@@ -57,3 +57,4 @@ The covariance is an identity of maps on rationals; the hypothesis that matters 
 - Created by the B12 migration (Claude, Opus 5.5) from the side-lane feed entries of 2026-10-18 01:04 (finding), 01:31 (correction) and 01:52 (acknowledgement), the legacy §0 of `experiments/residual_progress/lattice_cycles/BALANCED_DENOMINATORS.md` (R71), and the main lane's review `experiments/residual_progress/side_lane_review_678e565.md`. The probe `reviews/side_lane/transfer_3xd.*` and the review `side_lane_review_678e565.*` moved here at commit `be73a66`. No legacy ID.
 - Side lane (Claude, Opus) proposed the transfer; the main lane (ChatGPT, Codex) scoped it in R71 §0 and in 678e565.
 - 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Correction: the catalogue sentence under "What survives" now states the bound `⌈k·log₂3⌉ ≤ A ≤ ⌈k·log₂3⌉ + 2` of the 3,889-cycle catalogue. Recorded without changing the text: `transfer_3xd.py` relies on `assert` (it passes vacuously under `python3 -O`, against `AGENTS.md` §6; the runner uses plain `python3`, so the check is real), and the W5 bullet rests on R40 ([`critical-nine-elimination`](../../../convergence/results/critical-nine-elimination/README.md), `written`), not listed under `depends_on`. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
+- 2026-10-31: `depends_on` gains `critical-nine-elimination`, on which the W5 reformulation rests (found by the wave-1 review); no text changed (Claude cycles lane, Fable 5.1).
