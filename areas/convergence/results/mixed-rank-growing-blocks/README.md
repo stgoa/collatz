@@ -2,7 +2,7 @@
 id: mixed-rank-growing-blocks
 kind: result
 title: "Arbitrarily long growing blocks from two valid comparisons of different ranks, with an exact finite guard count"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; P(w) = [3w] - [w], rho(w) = nu(3w), sigma the separate rank. On the whole
   cylinder w = 40529845 mod 2^26, the accepted sigma fifth-exponent plan at w followed by the accepted rho R44
@@ -27,6 +27,10 @@ reviewed_by:
     date: 2026-10-18
     link: ../exponent-eleven-exit-continuation/batch_r61_r67_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 06:14, VERIFIED), with the lane's own step, nu and selected: on G = {w = 40529845 (mod 2^26)} the map V(w) = (531441 w + 311195)/524288 grows, and the maximal number of consecutive V-steps from G equals 1 + floor((v2(7153 w + 311195) - 26)/19) in all 3,000 cases. The combined current, its cancellation and the potential obstruction were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (phases (3), the cancellation (7), the combined current (5) and word (6), the bounds (8), the repetition (10) to (13) and the finite-label pigeonhole); certificate re-run (exit 0); (5) and (7) re-computed row for row with the lane's own absorption plan on 14 cylinder members, the f = 1371 counterexample, m copies through m = 6 and the guard count on 3000 members; verdict HOLDS"
 aliases: [R67]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, sigma-rank, mixed-rank, potential-obstruction]
 ---
@@ -309,3 +313,4 @@ and formal or human verification remain unestablished.
 
 - Migrated from `experiments/residual_progress/mixed_rank_recursion/MIXED_GROWING_BLOCK.md` (legacy ID R67) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written exact signed interface and scoped potential obstruction".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `a489973`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction ([`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md)).

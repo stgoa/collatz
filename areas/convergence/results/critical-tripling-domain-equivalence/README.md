@@ -2,7 +2,7 @@
 id: critical-tripling-domain-equivalence
 kind: result
 title: Tripling currents on the binary domain W = {5 mod 8} u {9 mod 16} biject onto the critical induction seeds and are already equivalent to Collatz convergence
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S on positive odd integers (state 1 killed); B, nu of elementary-bridge-quotient-normal-form;
   P(w) = [3w] - [w] a signed source. (Critical seeds) Every positive odd seed reduces to a smaller one by a proved
@@ -33,6 +33,10 @@ reviewed_by:
     date: 2026-10-17
     link: ../critical-nine-elimination/batch_r40_r41_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 21:53, VERIFIED, main 4a45eb0; the R37 part, the planner as restated in R40), rebuilt with the lane's own nu and Syracuse step: normalize q = nu(x); if q = 1 (mod 8) step to S(q) < q; if q = 2 (mod 3) go to (2q-1)/3 < q; otherwise request u = q/3 or (2q+1)/3 and continue from u. Checked for all 99,999 odd x < 200000: it terminates, every request lies in W5 u W9, requests strictly decrease, and u <= (2x+1)/3. The equivalence and the compiler were not re-derived; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (critical seeds, the bijection W to C, both directions of the Collatz equivalence including the finite-component lemma, the formal normaliser and its bound (5)); both certificates re-run (exit 0); bijection, counts and normaliser re-checked with the lane's own nu below 2^17 and the 3x+d control counts of the Remarks reproduced; verdict HOLDS (one imprecision noted: the claim's first sentence omits the seed 1)"
 aliases: [R37]
 tags: [convergence, outer-residual, tripling-pairs, critical-domain, collatz-equivalent, conditional-plans]
 ---
@@ -304,3 +308,4 @@ automatically covered by this theorem.
 
 - Migrated from `experiments/residual_progress/tripling_equivalence/TRIPLING_EQUIVALENCE.md` (legacy ID R37) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical, with the side-lane probe `reviews/side_lane/batch_436f51f_check.*`. The plan placed the main lane's reproduction receipt `side_lane_review_1a2dfc5.json` here; it is in [`tripling-doubling-pair-decomposition`](../tripling-doubling-pair-decomposition/README.md) because the checker there reads it. `check_tripling_recompute.py` was added at the migration. Legacy status: "written equivalence and explicit conditional compiler; finite checks".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `436f51f`. The batch's "independent model" proof and code reviews of R37–R39 (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents. The side lane's finite check is recorded under `reviewed_by`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the text; the review notes that the claim's first sentence should exclude the seed 1 (the absorbing state), as the body's Statement 1 does ([`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md)).

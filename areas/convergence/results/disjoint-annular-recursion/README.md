@@ -2,7 +2,7 @@
 id: disjoint-annular-recursion
 kind: result
 title: Multiplying the cutoff by 64 adds a disjoint six-band annulus A_N to the right-aligned packets
-status: written
+status: reviewed
 claim: >
   Odd-only clock, absorbing at 1; Π^R_N and η_N as in right-aligned-fixed-core-remainder. For every positive
   integer N divisible by 8, with Q = 9N/4: Π^R_(64N) = Π^R_N + A_N and η_(64N) = η_N, with
@@ -25,6 +25,10 @@ reviewed_by:
     date: 2026-10-17
     link: ../locally-collatz-like-control-barrier/NOTE.md
     scope: "Finite only (NOTE §10, ledger C1): independent code checks Π_(64N) − Π_N against the six-band table mod 18 at every odd endpoint of (Q, 64Q), η_(64N) = η_N, supp Π_N ⊂ (1, Q), zero band totals, Σ A_N = 0, Σ y·A_N(y) = 63Q, ‖A_N‖₁ = 99N/2, ‖A_N⁺‖₁ = 99N/4 and |supp A_N| = 267N/8 at 68 cutoffs N ∈ {8, 16, …, 512, 768, 1024, 2048, 4096}. The written proof was not re-derived, so the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the written proof (shift identities, floor lemma, new valuations and leftovers, band formula and table, moments, norms, disjointness, V_N, quotient identity), independent code at 67 cutoffs, the finite base of the thirty-sequence corollary, and 3x+5, 3x+13, 3x+61 controls for the d = 1 remark; legacy replay certificate passed; verdict HOLDS"
 aliases: [R6]
 tags: [convergence, packet-currents, right-aligned, annular, recursion]
 ---
@@ -118,3 +122,4 @@ Finally a packet endpoint at cutoff `N` is at most `(3·n_1(N) + 1)/2 = Q + 1/2`
 
 - Migrated from `experiments/current_construction/recursive/annular_recursion.md` (legacy ID R6) at commit `be73a66`, by the B08 migration (Claude, Opus 5.5); the checker and receipt moved byte-identical with it. The corollary on the 30 sequences is from the legacy ledger entry R6 (`archive/docs/RESULTS.md`, legacy path) and the round report (now [`archive/convergence-current-construction/REPORT.md`](../../../../archive/convergence-current-construction/REPORT.md)). Legacy status: "written identity and finite arithmetic checks; no universal current constructor".
 - Main lane (ChatGPT, Codex), 2026-10-17, commit `8d62dcc`. The round report records "independent model reviews" of the annular recursion; these were run by the main lane's own agents and are not counted as an independent review. Cross-checked on finite ranges by the PR1 lane the same day (ledger C1).
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

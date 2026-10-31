@@ -2,7 +2,7 @@
 id: two-selected-inverse-choices
 kind: result
 title: Two selected inverse choices give exact strict-rank domains and escape arbitrarily long forward growth
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). For selected 3w with w = 5 mod 8, w = 16 mod 27, put q =
   (3w-1)/2 and v = (16w-13)/27 = -7 mod 128; the inverse word 1, 2, 2 reaches q from 3v > q. From that state
@@ -30,6 +30,10 @@ reviewed_by:
     date: 2026-10-18
     link: r56_selected_inverse_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 04:30, VERIFIED), with the lane's own step and selected: on the domain w = 205 (mod 216) with 3w selected, 4,800 cases (prescribed h = 0..9 for each k by CRT on v, plus 2,000 random domain members): the ordinary word from r to q is exactly 1^h, 2, 1, 1, 4 (k = 4) and 1^h, 2, 3, 2, 2 (k = 8); identity (2), 32*3^h (r - q) = (k*2^(h+6) - 3^(h+4)) v + 2^(h+6) - 55*3^h, holds exactly; r < q iff h >= 3 (k = 4) and iff h >= 5 (k = 8). The signed plans, failure classification and forward-depth families were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (both words, identity (2), thresholds (3), the accepted domains (4), the signed plans (5) to (7) including the returning rows, and the CRT families (8) and (9)); certificate re-run (exit 0); all 300 eligible inputs below 131072 and the CRT families re-checked with the lane's own absorption plan (12 strict plans, every failure classified as stated); verdict HOLDS"
 aliases: [R56]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, selected-phase, inverse-rays]
 ---
@@ -294,3 +298,4 @@ arguments above. Universal completion on the remaining complement is open.
 
 - Migrated from `experiments/residual_progress/selected_inverse/SELECTED_INVERSE.md` (legacy ID R56) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/r56_selected_inverse_check.*` and the main lane's note `experiments/residual_progress/side_lane_review_767af32.md` moved here; the plan's other R56 item, `side_lane_review_bae3969.md` with the probe `backward_word_rule.*`, went to the new side-lane node [`negative-cycle-backward-word`](../negative-cycle-backward-word/README.md). The links in `side_lane_review_767af32.md` were repointed to node paths. Legacy status: "written exhaustive classification of two specified inverse plans, exact decreasing domains and conditional constructors".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `7206f9c`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction ([`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md)).

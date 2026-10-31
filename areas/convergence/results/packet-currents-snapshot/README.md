@@ -56,7 +56,7 @@ P^d ν_N = Π̂_(d,N) + η̂_(d,N),     ‖η̂_(d,N)‖₁ ≤ D*_(b,d) := 6·b
 
 **Corollary 2.2.** For `N ≥ 512` and `m = floor(2b/9)`: `‖η̂_(m,N)‖₁ ≤ 16·N^(7/9)`, and for every `T`, `|3E_T(N) − H_((T−m)+)(Π̂_(m,N))| ≤ T·D*_(b,m)`. On the programme's window `T ≤ ceil((b+1)·N^(1/5))` the error is at most `16(b+2)·N^(44/45) = o(N)`. This bounds the remainder, **not** the retained packet work.
 
-**Finite certificates (named cutoffs only).** For the ten dyadic cutoffs `2^9 … 2^18` and `N = 513, 999, 4097, 10001`, finite currents `J` with `(I − P)J = Π̂_(m,N)` were constructed and their identities checked. With the exit-profile bound of [`finite-current-certificate-identity`](../finite-current-certificate-identity.md), for **every** horizon `L ≥ 0`:
+**Finite certificates (named cutoffs only).** For the ten dyadic cutoffs `2^9 … 2^18` and `N = 513, 999, 4097, 10001`, finite currents `J` with `(I − P)J = Π̂_(m,N)` were constructed and their identities checked. With the exit-profile bound of [`finite-current-certificate-identity`](../finite-current-certificate-identity/README.md), for **every** horizon `L ≥ 0`:
 
 | N | anchor m | positive-current cost | exit-profile lower | exit-profile upper |
 |---:|---:|---:|---:|---:|
@@ -69,7 +69,7 @@ Complete tables are stored for `N = 4096` and `N = 262144` only. Combining them 
 
 ## Proof
 
-The written proofs are in [`collatz_packet_currents/research_note.md`](collatz_packet_currents/research_note.md) (§2 for Theorem 2.1 and Corollary 2.2; §§3–5 for the current identities, which are the node [`finite-current-certificate-identity`](../finite-current-certificate-identity.md); §6 for the finite tables). Summary of §2, kept as written:
+The written proofs are in [`collatz_packet_currents/research_note.md`](collatz_packet_currents/research_note.md) (§2 for Theorem 2.1 and Corollary 2.2; §§3–5 for the current identities, which are the node [`finite-current-certificate-identity`](../finite-current-certificate-identity/README.md); §6 for the finite tables). Summary of §2, kept as written:
 
 - **Cylinders.** A length-`d` word `w` with total `A` has exact positive sources `x_t = q_w + 2^(A+1)t` and endpoints `y_t = e_w + 2·3^d·t`, where `q_w` is the least positive residue with `3^d·q_w + C_w ≡ 2^A (mod 2^(A+1))`. Source 1 and endpoint 1 are excluded by starting at `t_0 ∈ {0, 1}`; an intermediate visit to 1 would force endpoint 1, so no absorbed source is silently kept.
 - **Triples.** `2^(A+1)` is a unit mod 3, so three consecutive lifts carry each source residue mod 3 once; the weights are a permutation of `(2, −1, −1)` and sum to zero. At most two lifts per word and component are left over, of absolute weight at most 3, so at most 6 per word.

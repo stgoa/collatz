@@ -2,7 +2,7 @@
 id: sigma-rank-removes-absorption-overhead
 kind: result
 title: A separate rank sigma removes the absorption-bound overhead and certifies a further forward domain
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w); E_return = {w in W5 : w = 3 mod 9, 3w selected}. Define
   sigma(w) = 4w/3 - 1 = (8 rho(w) - 5)/9 on E_return and sigma(w) = rho(w) otherwise. Every W5 request u in the
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-17
     link: batch_r51_r54_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 23:32, VERIFIED, main 8764158; the R51 part), with the lane's own nu and step: the rank values rho(44981) = 134943, rho(96069) = 144103, sigma(96069) = 128091, sigma(4629) = 6171 and rho(2197) = sigma(2197) = 6591. The uniform bound, the endpoint table and the a = 5 forward domain were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived with an independent implementation (sigma identities on all W5 below 2^20, the uniform bound on all 4096 plans, the d = 4/6/8 rows, the a = 5 forward domain below 2^22, the 44981 and 4629 request vectors, the composition step) and compared row for row with the legacy modules; certificate replayed (exit 0); 3x+d analogues tested. Verdict HOLDS; two wording imprecisions noted"
 aliases: [R51]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, sigma-rank, returning-row]
 ---
@@ -228,3 +232,4 @@ forward block to satisfy(4).
 
 - Migrated from `experiments/residual_progress/phase_rank/PHASE_RANK.md` (legacy ID R51) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probes `reviews/side_lane/batch_r51_r54_check.*` and `sigma_stopping_plans.*` moved here. Legacy status: "written uniform rank bound, complete forward domain and conditional compiler".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `8764158`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No text was changed; two wording imprecisions (section 1, the ancestor is 3b with b in W9, not itself in W9; section 4, the six old families are proved valid at parents outside E_return, which is where the dispatcher applies them) are recorded in the review.
