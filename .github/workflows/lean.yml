@@ -1,4 +1,4 @@
-# Compiles the Lean files that build against Mathlib alone.
+# Builds the LeanLane library (lean/LeanLane/*.lean) and compiles the standalone Lean files that build against Mathlib alone.
 # NOTE: this workflow has never been run. It is adapted from the legacy workflow of the same name;
 # expect to fix it on its first run.
 # Dichotomy.lean and PairObligation.lean are left out: they import Solution.Basic from the external
@@ -28,6 +28,9 @@ jobs:
       - name: fetch Mathlib (prebuilt cache for the pinned commit)
         working-directory: lean
         run: lake exe cache get
+      - name: build the LeanLane library (shared module and the result modules under lean/LeanLane/)
+        working-directory: lean
+        run: lake build LeanLane
       - name: assemblies are up to date
         working-directory: lean
         run: |
@@ -37,6 +40,6 @@ jobs:
         working-directory: lean
         run: |
           for f in PeriodicRigidity GeneralPeriodic OddEventuallyPeriodic KernelClosure V004_Assembly \
-                   ScalarInterface QuadraticSeparation ReverseClosure_Assembly DoubledWords CycleSpectrum; do
+                   ScalarInterface QuadraticSeparation ReverseClosure_Assembly CycleSpectrum; do
             echo "::group::$f"; lake env lean "$f.lean"; echo "::endgroup::"
           done

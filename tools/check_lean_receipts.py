@@ -4,9 +4,10 @@
     python3 tools/check_lean_receipts.py
 
 Checks:
-1. every line "<sha256>  <path>" of lean/receipts/<File>.sha256.txt matches the current hash of
-   lean/<basename of path> (receipts written before the 2026-10-19 restructure name the old directory
-   experiments/lean_lane/, so only the file name is used);
+1. every line "<sha256>  <path>" of lean/receipts/<File>.sha256.txt matches the current hash of the named
+   source: lean/<path> when it exists (library modules live in lean/LeanLane/), otherwise the unique file of
+   that name under lean/ (receipts written before the 2026-10-19 restructure name the old directory
+   experiments/lean_lane/);
 2. every "source sha256: <hash>" header in lean/receipts/<File>.build.txt and <File>.axioms.txt
    matches the current hash of lean/<File>.lean;
 3. every `#print axioms` line in lean/receipts/*.axioms.txt names only the standard axioms
@@ -34,6 +35,17 @@ def sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def resolve(rel: Path) -> Path:
+    """The source a receipt names: lean/<rel> if it exists (library modules live in lean/LeanLane/), else the
+    unique file of that name under lean/ outside .lake/ (receipts written before the 2026-10-19 restructure name
+    the old directory experiments/lean_lane/), else lean/<name>, which the caller reports as missing."""
+    direct = LEAN / rel
+    if direct.exists():
+        return direct
+    found = [q for q in LEAN.rglob(rel.name) if ".lake" not in q.parts]
+    return found[0] if len(found) == 1 else LEAN / rel.name
+
+
 def main() -> int:
     problems: list[str] = []
     hashes = headers = axiom_lines = 0
@@ -42,7 +54,7 @@ def main() -> int:
             if not line.strip():
                 continue
             expected, path = line.split(maxsplit=1)
-            source = LEAN / Path(path.strip().lstrip("*")).name
+            source = resolve(Path(path.strip().lstrip("*")))
             hashes += 1
             if not source.exists():
                 problems.append(f"{receipt.name}: {source.name} missing")
@@ -52,7 +64,7 @@ def main() -> int:
         stem = receipt.name.split(".")[0]
         text = receipt.read_text(encoding="utf-8")
         for m in HEADER.finditer(text):
-            source = LEAN / f"{stem}.lean"
+            source = resolve(Path(f"{stem}.lean"))
             headers += 1
             if not source.exists():
                 problems.append(f"{receipt.name}: {source.name} missing")

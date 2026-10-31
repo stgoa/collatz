@@ -1,4 +1,4 @@
-source sha256: 189f7453a70431f7c82a7c49a163cbe45e890c21722337d2d3050c460c4dc0c6
+source sha256: f8c2617bba14601c3b6a2b9526b50dc06b732903e74b046db096295cd00f1826
 'LeanLane.Doubled.gcd_Phi1' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Doubled.gcd_Phi2' depends on axioms: [propext, Classical.choice, Quot.sound]
 'LeanLane.Doubled.Phi1_dvd_iff' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -239,7 +239,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`four-mismatch-sign-dichotomy`](areas/cycles/results/four-mismatch-sign-dichotomy.md) | A rotation with four mismatches has one sign change of each kind, or two of each in alter… | formal | formal | — | yes |
 | [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines/README.md) | Order-free baselines for cycle minima and denominators (extremal, packing, product) | reviewed | reviewed | — |  |
 | [`global-drift-ceiling`](areas/cycles/results/global-drift-ceiling.md) | The global-drift ceiling: log₂(n_k/L) ≤ k·log₂(3/2) − X_k + δ at every q, with no hypothe… | formal | formal | — | yes |
-| [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) | The half-cancellation bound fails at four mismatches: a word of length 20 with G² ≈ 22·2^A | written | written | — |  |
+| [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) | The half-cancellation bound fails at four mismatches: a word of length 20 with G² ≈ 22·2^A | written | written | — | yes |
 | [`largest-letter-rho-reduction`](areas/cycles/results/largest-letter-rho-reduction.md) | A low-mismatch rotation forces a letter of linear size, so ρ → ∞ follows from a largest l… | reviewed | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `musson-collatz-gap-all` | yes |
 | [`mechanical-cycles-high-rational-controls`](areas/cycles/results/mechanical-cycles-high-rational-controls/README.md) | Mechanical cycles give rational 3x+1 cycles and integer 3x+d cycles arbitrarily far above… | formal | formal | — | yes |
 | [`mechanical-word-exact-denominator`](areas/cycles/results/mechanical-word-exact-denominator/README.md) | Mechanical valuation words have reduced denominator exactly 2^(A/g) − 3^(k/g), so none is… | formal | formal | — | yes |
@@ -284,7 +284,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`two-defect-cancellation-bound`](areas/cycles/results/two-defect-cancellation-bound.md) | A two-defect rotation bounds the cancellation by both mismatch arcs, so q > (1 − 3^m/2^A)… | reviewed | reviewed | — | yes |
 | [`two-defect-marker-family`](areas/cycles/results/two-defect-marker-family.md) | The words (3, b_n, 4, b_n) are never integer 3x+1 cycles, with growing minimum and local-… | reviewed | reviewed | — |  |
 | [`two-defect-rotation-exclusion`](areas/cycles/results/two-defect-rotation-exclusion/README.md) | No nontrivial 3x+1 cycle has a rotation differing from it in exactly two positions (ρ ≥ 3) | reviewed | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `languasco-2025-two-primes`, `matveev-2000-linear-forms` | yes |
-| [`two-marker-constant-background-exact-denominator`](areas/cycles/results/two-marker-constant-background-exact-denominator/README.md) | Two markers on a constant background: cancellation exactly 4^n − 3^n and denominator 4^n… | written | written | — |  |
+| [`two-marker-constant-background-exact-denominator`](areas/cycles/results/two-marker-constant-background-exact-denominator/README.md) | Two markers on a constant background: cancellation exactly 4^n − 3^n and denominator 4^n… | formal | reviewed | — | yes |
 | [`two-mismatch-exclusion-via-gap`](areas/cycles/results/two-mismatch-exclusion-via-gap/README.md) | C011's two-mismatch exclusion without Matveev: from the trade-off, the replayed gap and t… | formal | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `musson-collatz-gap-all` | yes |
 | [`two-three-mismatch-denominator-laws`](areas/cycles/results/two-three-mismatch-denominator-laws/README.md) | Two- and three-mismatch words have exponentially large denominators unless their drift is… | formal | reviewed | — | yes |
 | [`unequal-slope-two-block-growth`](areas/cycles/results/unequal-slope-two-block-growth/README.md) | Unequal-slope two-block words have denominator 2^((1−o(1))·A), ineffectively | reviewed | reviewed | `corvaja-2005-s-unit-height` |  |
@@ -645,11 +645,11 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 65.1% | 201 | 9 |
-| Claude side lane | 20.2% | 34 | 132 |
+| ChatGPT main lane | 64.9% | 201 | 9 |
+| Claude side lane | 20.1% | 34 | 132 |
 | Claude Lean lane | 6.8% | 3 | 69 |
 | Claude PR1 lane | 2.8% | 6 | 9 |
-| Claude cycles lane | 2.3% | 9 | 0 |
+| Claude cycles lane | 2.5% | 9 | 0 |
 | Claude review lane | 1.1% | 0 | 17 |
 | Claude explicit-Tao lane | 0.9% | 5 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |

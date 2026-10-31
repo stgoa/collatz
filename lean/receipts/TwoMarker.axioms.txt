@@ -1,0 +1,15 @@
+source sha256: 0d953ed22ee82311ac67b7cfdc3cdd8dea067565737ebaff2e622d32a275049a
+'LeanLane.TwoMarker.marker_C' depends on axioms: [propext, Quot.sound]
+'LeanLane.TwoMarker.marker_C_factor' depends on axioms: [propext, Quot.sound]
+'LeanLane.TwoMarker.marker_D' depends on axioms: [propext, Quot.sound]
+'LeanLane.TwoMarker.marker_gcd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.TwoMarker.marker_den' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.TwoMarker.marker_num' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.TwoMarker.marker_mism' depends on axioms: [propext, Quot.sound]
+'LeanLane.TwoMarker.marker_primitive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.TwoMarker.marker_rotate' depends on axioms: [propext, Quot.sound]
+'LeanLane.TwoMarker.arc_C' depends on axioms: [propext, Quot.sound]
+'LeanLane.TwoMarker.cycle_n2' does not depend on any axioms
+'LeanLane.TwoMarker.cycle_n3' does not depend on any axioms
+'LeanLane.TwoMarker.reduced_n2' depends on axioms: [propext]
+'LeanLane.TwoMarker.reduced_n3' depends on axioms: [propext]

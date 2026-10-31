@@ -2,7 +2,7 @@
 
 This folder holds machine-checked (Lean 4 + Mathlib) versions of results stated in prose in the result nodes under `areas/`. A declaration here counts only with its receipts: a build receipt and a `#print axioms` receipt showing only the standard axioms `propext`, `Classical.choice` and `Quot.sound`.
 
-**Current shape, honestly stated.** This is one Lake project in name only: the `.lean` files are standalone and are compiled **one at a time** with `lake env lean <File>.lean`; they are not Lake modules of a library, and nothing imports anything else here. The goal in [`AGENTS.md`](../AGENTS.md) is one module per formalised result. Getting there means splitting `CycleSpectrum.lean` (about 14,000 lines) into modules and re-running every receipt, which needs a working toolchain. That is future work.
+**Current shape, honestly stated.** Two layers. The legacy `.lean` files at this level are standalone and are compiled **one at a time** with `lake env lean <File>.lean`; they are not Lake modules, and nothing imports them. Since 2026-10-31 new results are modules of the library `LeanLane` (`lean/LeanLane/*.lean`, one module per formalised result, shared definitions in `LeanLane/Words.lean`), built with `lake build LeanLane`; this is the shape [`AGENTS.md`](../AGENTS.md) asks for. Splitting `CycleSpectrum.lean` (about 14,000 lines) into such modules and re-running its receipts is still future work.
 
 Each unit's statement match now lives in the `## Lean` section of its result node. The Lean lane's legacy unit table ([`archive/lean-lane/STATE.md`](../archive/lean-lane/STATE.md): for each unit, its prose source, the exact statement match, extra hypotheses, status, axioms and receipts, plus the queue of units never done) and its journal ([`archive/lean-lane/LOG.md`](../archive/lean-lane/LOG.md)) are archived, frozen as the lane left them on 2026-10-19 (legacy paths `lean/STATE.md` and `lean/LOG.md`).
 
@@ -21,13 +21,16 @@ Each unit's statement match now lives in the `## Lean` section of its result nod
 | `QuadraticSeparation.lean` | Mathlib | V006-a: quadratic separation. `LeanLane.Quad`. |
 | `ReverseClosure_Final.lean` | none (a part) | V007-a assembly proper; concatenated into `ReverseClosure_Assembly.lean`. |
 | `ReverseClosure_Assembly.lean` | Mathlib | V007-a: reverse closure. **Generated** by `build_reverse_assembly.sh`. `LeanLane.RevClos`. |
-| `DoubledWords.lean` | Mathlib | Doubled words: the two factors `2^S ∓ 3^n` of `D` test the half-words' periodic and antiperiodic points (prose: [`doubled-word-factor-gcd-identities`](../areas/cycles/results/doubled-word-factor-gcd-identities/README.md)). `LeanLane.Doubled`. |
+| `LeanLane.lean`, `LeanLane/Words.lean` | Mathlib | The library root and its shared module: `C`, `D`, `Φ₁ = 2^S − 3^n`, `Φ₂ = 2^S + 3^n`, `mismatches`, the concatenation identity and the parity and gcd facts about `Φ₁`, `Φ₂`. No result of its own. `LeanLane.Words`. |
+| `LeanLane/Doubled.lean` | `LeanLane.Words` | Doubled words: the two factors `2^S ∓ 3^n` of `D` test the half-words' periodic and antiperiodic points (prose: [`doubled-word-factor-gcd-identities`](../areas/cycles/results/doubled-word-factor-gcd-identities/README.md)). `LeanLane.Doubled`. |
+| `LeanLane/TwoMarker.lean` | `LeanLane.Words` | The two-marker family `(1, 2^(n−1), 3, 2^(n−1))`: closed-form intercept, `gcd(C, D) = 4^n − 3^n`, denominator `4^n + 3^n`, primitivity, the rotation by `n`, the two worked cycles (prose: [`two-marker-constant-background-exact-denominator`](../areas/cycles/results/two-marker-constant-background-exact-denominator/README.md)). `LeanLane.TwoMarker`. |
+| `LeanLane/HalfCancellationCounterexample.lean` | `LeanLane.Words` | The explicit word of length 20 with `ρ = 4` and `gcd(C, D)² > 2^A` (prose: [`half-cancellation-counterexample-rotation-pair`](../areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md)). `LeanLane.HalfCancellationCounterexample`. |
 | `Dichotomy.lean` | `Solution.Basic` | Queue item 3: the dichotomy corollary over the audited positive-density theorem (prose: [`nonabsorbing-set-linear-lower-density`](../areas/convergence/results/nonabsorbing-set-linear-lower-density/README.md)). `LeanLane.Dichotomy`. |
 | `PairObligation.lean` | `Solution.Basic` | Queue item 4 (partial): the W5 pair obligation and the `u ↔ 18u+5` reformulation. `LeanLane.Pair`. |
 | `build_assembly.sh`, `build_reverse_assembly.sh` | — | Regenerate the two assembly files from their parts. |
 | `lakefile.toml`, `lean-toolchain` | — | Pin the toolchain and Mathlib (below). |
 
-**Mathlib only:** `CycleSpectrum`, `PeriodicRigidity`, `GeneralPeriodic`, `OddEventuallyPeriodic`, `KernelClosure`, `V004_Assembly`, `ScalarInterface`, `QuadraticSeparation`, `ReverseClosure_Assembly`, `DoubledWords`.
+**Mathlib only:** `CycleSpectrum`, `PeriodicRigidity`, `GeneralPeriodic`, `OddEventuallyPeriodic`, `KernelClosure`, `V004_Assembly`, `ScalarInterface`, `QuadraticSeparation`, `ReverseClosure_Assembly`. **Library modules** (built by `lake build LeanLane`, Mathlib only through `LeanLane.Words`): `LeanLane.Words`, `LeanLane.Doubled`, `LeanLane.TwoMarker`, `LeanLane.HalfCancellationCounterexample`.
 
 **Other dependencies:** `Dichotomy` and `PairObligation` import `Solution.Basic` from the external, AI-generated `AxiomMath/CollatzPositiveDensity` library at commit `3a38bfbb70379e051b51155def1423846fab3a90` (see `audit/`). They compile only inside a checkout of that project, which is not a dependency of `lakefile.toml`, and the theorems they use are therefore an external input.
 
@@ -41,9 +44,13 @@ Toolchain `leanprover/lean4:v4.35.0-rc2` ([`lean-toolchain`](lean-toolchain)); M
 # install elan (https://github.com/leanprover/elan) once, then, from the repository root:
 cd lean
 lake exe cache get                      # fetch prebuilt Mathlib for the pinned commit
+lake build LeanLane                     # the library: LeanLane/Words.lean and the result modules
+lake env lean LeanLane/Doubled.lean     # re-check one module and print its #print axioms lines
 sh build_reverse_assembly.sh            # regenerates V004_Assembly.lean and ReverseClosure_Assembly.lean
-lake env lean CycleSpectrum.lean        # compile one file; repeat for each Mathlib-only file
+lake env lean CycleSpectrum.lean        # compile one standalone file; repeat for each Mathlib-only file
 ```
+
+A new formalisation goes in `lean/LeanLane/<Result>.lean` (`import LeanLane.Words`, namespace `LeanLane.<Result>`), is added to `LeanLane.lean`, and gets receipts named after the module (`receipts/<Result>.sha256.txt` names the path `LeanLane/<Result>.lean`).
 
 Regenerating the assemblies must leave them byte-identical to the committed ones; otherwise the receipts no longer match. For `Dichotomy.lean` and `PairObligation.lean`, copy the file into a checkout of `AxiomMath/CollatzPositiveDensity` at the pinned commit, run `lake build Solution` there, then `lake env lean <File>.lean`.
 
@@ -76,4 +83,4 @@ A result node names the declarations that formalise its claim in its `lean` fron
 
 - Standard axioms only; no `sorry`, `admit`, `native_decide`, new `axiom`s, `unsafe`, `implemented_by`, `extern` or `opaque` ([`AGENTS.md`](../AGENTS.md) §6).
 - Commit the receipts with the source.
-- Keep `CycleSpectrum.lean` append-only, or split it into modules in a dedicated PR.
+- Keep `CycleSpectrum.lean` append-only, or split it into modules in a dedicated PR; put new results in `lean/LeanLane/` as modules.

@@ -2,7 +2,7 @@
 id: two-marker-constant-background-exact-denominator
 kind: result
 title: "Two markers on a constant background: cancellation exactly 4^n − 3^n and denominator 4^n + 3^n"
-status: written
+status: formal
 claim: >
   Raw odd-only clock. For n ≥ 1 let w_n = (1, 2^(n−1), 3, 2^(n−1)) (a 1, then n − 1 twos, a 3, then n − 1
   twos), so m = 2n and A = 4n. Then w_n is primitive, its rotation by n differs from it in exactly the two
@@ -18,6 +18,21 @@ authors:
 created: 2026-10-28
 depends_on: [two-defect-cancellation-bound]
 certificates: [check_marker_family.py]
+lean:
+  - LeanLane.TwoMarker.marker_C
+  - LeanLane.TwoMarker.marker_C_factor
+  - LeanLane.TwoMarker.marker_D
+  - LeanLane.TwoMarker.marker_gcd
+  - LeanLane.TwoMarker.marker_den
+  - LeanLane.TwoMarker.marker_num
+  - LeanLane.TwoMarker.marker_rotate
+  - LeanLane.TwoMarker.marker_mism
+  - LeanLane.TwoMarker.marker_primitive
+  - LeanLane.TwoMarker.arc_C
+  - LeanLane.TwoMarker.cycle_n2
+  - LeanLane.TwoMarker.cycle_n3
+  - LeanLane.TwoMarker.reduced_n2
+  - LeanLane.TwoMarker.reduced_n3
 tags: [cycles, denominators, cancellation, two-mismatch, control-family]
 ---
 
@@ -70,6 +85,23 @@ Hence `gcd(C, D) = P·gcd(C/P, Q) = P` and `q = Q`. This is (3).
 
 [`check_marker_family.py`](check_marker_family.py) (standard library, exact integers, about a second) verifies (1)–(4) for `1 ≤ n ≤ 200`, including the closed form (2) against the definition of the intercept.
 
+## Lean
+
+[`lean/LeanLane/TwoMarker.lean`](../../../../lean/LeanLane/TwoMarker.lean), namespace `LeanLane.TwoMarker`, a module of the `LeanLane` library (`import LeanLane.Words`), standard axioms only (receipts `TwoMarker.*` in [`lean/receipts/`](../../../../lean/receipts/)); `C`, `D` from `LeanLane.Words`, as in `CycleSpectrum.lean`. The word is `marker k = (1 :: 2^k) ++ (3 :: 2^k)`, i.e. `w_n` with `n = k + 1` (so `n ≥ 1` is built in, and the claim's `n − 1` is `k`).
+
+| Claim | Declaration | Lean statement |
+|---|---|---|
+| primitive | `marker_primitive` | `0 < p → p < 2(k+1) → (marker k).rotate p ≠ marker k` |
+| rotation by `n` differs in exactly two positions | `marker_rotate`, `marker_mism` | `(marker k).rotate (k+1) = (3 :: 2^k) ++ (1 :: 2^k)`; `mism (marker k) (k+1) = 2`, where `mism z h` counts the positions in which `z` and `z.rotate h` differ (the two positions are the `1` and the `3`, read off `marker_rotate`) |
+| `C = 3^(2n−1) + 2·3^(n−1)(4^n − 3^n) + 4^(n+1)(4^(n−1) − 3^(n−1))` | `marker_C` | the same with `n = k + 1`; `marker_C_factor`: `C = (4^(k+1) − 3^(k+1))·(4^(k+1) + 3^k)` |
+| `D = 16^n − 9^n = (4^n − 3^n)(4^n + 3^n)` | `marker_D` | `D (marker k) = (4^(k+1) − 3^(k+1))·(4^(k+1) + 3^(k+1))` |
+| `gcd(C, D) = 4^n − 3^n` | `marker_gcd` | `(Int.gcd (C (marker k)) (D (marker k)) : ℤ) = 4^(k+1) − 3^(k+1)` |
+| `q = 4^n + 3^n` | `marker_den` | `D (marker k) / gcd = 4^(k+1) + 3^(k+1)`; `marker_num`: `C (marker k) / gcd = 4^(k+1) + 3^k` (the cycle minimum) |
+| both arcs have intercept `4^n − 3^n` | `arc_C` | `C (2^k ++ [x]) = 4^(k+1) − 3^(k+1)` for every last letter `x` |
+| the examples `n = 2, 3` | `cycle_n2`, `cycle_n3`, `reduced_n2`, `reduced_n3` | the odd-only `3x+25` trajectory from 19 is `19, 41, 37, 17` with valuation word `marker 1 = (1,2,3,2)` and returns to 19; the `3x+91` trajectory from 73 is `73, 155, 139, 127, 59, 67` with word `marker 2` and returns to 73; `4^2 + 3 = 19`, `4^2 + 3^2 = 25`, `4^3 + 3^2 = 73`, `4^3 + 3^3 = 91` |
+
+Not formalised, because they are rewritings of the formal statements: "attained within the factor `3`" (the two-defect bound reads `g ≤ 3·√(C_u·C_v) = 3·(4^n − 3^n)` against `g = 4^n − 3^n`), `G = 2^(A/2)(1 − (3/4)^n)` (`A = 4n`, so `2^(A/2) = 4^n`), and the general fact that a word with reduced denominator `q` is the valuation word of an integer `3x+q` cycle (NOTATION §2), of which `cycle_n2` and `cycle_n3` are the two instances named in the claim.
+
 ## Remarks
 
 - **Role.** It is the sharpness witness for two statements. For the proved two-defect bound (5), it shows the step `gcd(C_u, C_v) ≤ √(C_u·C_v)` cannot be improved in general (here `C_u = C_v`). For the conjectured half-cancellation bound `G² < 2^A` of [`half-cancellation-for-few-mismatch-words`](../../questions/half-cancellation-for-few-mismatch-words.md), it shows the exponent `A/2` is best possible: `log₂G − A/2 = log₂(1 − (3/4)^n) → 0⁻`. It is the family that attains the maximal half-cancellation excess in the four-arc census of [`few-arc-codings-denominator-census`](../few-arc-codings-denominator-census/README.md) (finding 2).
@@ -81,3 +113,4 @@ Hence `gcd(C, D) = P·gcd(C/P, Q) = P` and `q = Q`. This is (3).
 
 - Written 2026-10-28 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, after the family appeared as the extremal case of the few-arc census.
 - 2026-10-31: the exact denominator is re-derived in two lines as the trivial-cycle instance (`u' = (2)^n`, `j = 1`) of corollary (ii) of [`doubled-words-periodic-and-antiperiodic-points`](../doubled-words-periodic-and-antiperiodic-points/README.md) (Claude cycles lane, Fable 5.1).
+- 2026-10-31, later: formalised in `lean/LeanLane/TwoMarker.lean` (Claude cycles lane, Fable 5.1); status raised to formal.

@@ -22,6 +22,17 @@ authors:
 created: 2026-10-31
 depends_on: [doubled-words-periodic-and-antiperiodic-points]
 certificates: [check_counterexample.py]
+lean:
+  - LeanLane.HalfCancellationCounterexample.w_C
+  - LeanLane.HalfCancellationCounterexample.w_D
+  - LeanLane.HalfCancellationCounterexample.w_D_factor
+  - LeanLane.HalfCancellationCounterexample.w_gcd
+  - LeanLane.HalfCancellationCounterexample.w_gcd_factor
+  - LeanLane.HalfCancellationCounterexample.w_violates_half_bound
+  - LeanLane.HalfCancellationCounterexample.w_mismatches_five
+  - LeanLane.HalfCancellationCounterexample.w_rotation_distance
+  - LeanLane.HalfCancellationCounterexample.w_primitive
+  - LeanLane.HalfCancellationCounterexample.w_D_pos
 evidence:
   - "counterexample.json: the receipt; K1 every quantity of the word (C_w, D, G, q, the cycle states of 3x+221525, the factor Φ_20(4, 3) = 44,305 and the primitive part), K2 the 3x+1267 cycle and the two rotations, K3 the scan (counts, the twelve violating pair words with their d, minimum, rotations, ρ, gcd(C_w, Φ₂), excess and 3^n/2^S)"
 tags: [cycles, denominators, cancellation, counterexample, rotation-distance]
@@ -63,6 +74,11 @@ The claim about `w` is a finite computation, done directly in the certificate (K
 
 [`check_counterexample.py`](check_counterexample.py) (standard library, about 75 s, almost all of it the scan) performs K1–K3 and compares the summary with [`counterexample.json`](counterexample.json) (K4); `--write-receipt` regenerates the receipt. Finite statements only.
 
+## Lean
+
+[`lean/LeanLane/HalfCancellationCounterexample.lean`](../../../../lean/LeanLane/HalfCancellationCounterexample.lean), namespace `LeanLane.HalfCancellationCounterexample`, a module of the `LeanLane` library (`import LeanLane.Words`), standard axioms only (receipts `HalfCancellationCounterexample.*` in [`lean/receipts/`](../../../../lean/receipts/)). It machine-checks every property of the word `w` in the Statement, with `C`, `D` from `LeanLane.Words` (as in `CycleSpectrum.lean`) and `mismatches z h` the number of positions where `z` differs from its rotation by `h` (indices modulo the length):
+`w_C : C w = 655517108785`; `w_D : D w = 1096024843375`; `w_D_factor : D w = (2^20 − 3^10)(2^20 + 3^10)`; `w_gcd : Int.gcd (C w) (D w) = 4947635`; `w_gcd_factor : 4947635 = 5·(2^20 − 3^10)`; `w_violates_half_bound : 2^(w.sum) < (Int.gcd (C w) (D w))^2`; `w_mismatches_five : mismatches w 5 = 4`; `w_rotation_distance : ∀ h < 20, 0 < h → 4 ≤ mismatches w h` (so `ρ(w) = 4`); `w_primitive : ∀ p < 20, 0 < p → 20 % p = 0 → 0 < mismatches w p`; `w_D_pos : 0 < D w`. The status stays `written`: the construction from the `3x+1267` cycle, the identification of `w` as a `3x+221525` cycle word and the scan are Python certificates, not Lean.
+
 ## Remarks
 
 - **What is refuted and what is not.** The plain bound `G² < 2^A` for all primitive words with `ρ ≤ 4`, `m ≥ 9`, is false; so is any attempt to extend it to `ρ ≤ 8` or beyond ([`doubled-words-periodic-and-antiperiodic-points`](../doubled-words-periodic-and-antiperiodic-points/README.md) lists violations at `ρ = 8, 10, 12, …`). Two forms survive and are posed in [`primitive-cancellation-below-half`](../../questions/primitive-cancellation-below-half.md): the bound on the **primitive** part, `g_prim < 2^(A/2)` (here `g_prim = 5`), which carries the whole payoff for `q = 1` cycles, and the plain bound restricted to **near-critical** words `2^A < 2·3^m`, which no word of this scan violates. The denominator candidate of [`rotation-defect-denominator-candidate`](../../questions/rotation-defect-denominator-candidate.md) also stands: at `s = 4`, `G^4·4^20 = 2^(128.95) < 2^160·3^20 = 2^(191.70)`.
@@ -74,3 +90,4 @@ The claim about `w` is a finite computation, done directly in the certificate (K
 ## History
 
 - Written 2026-10-31 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, three days after the same lane posed the conjecture it refutes.
+- 2026-10-31, later: the properties of `w` are machine-checked in `lean/LeanLane/HalfCancellationCounterexample.lean` (see the Lean section); the status stays `written` because the scan is a Python certificate (Claude cycles lane, Fable 5.1).
