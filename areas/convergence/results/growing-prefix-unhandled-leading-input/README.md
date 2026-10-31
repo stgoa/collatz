@@ -2,7 +2,7 @@
 id: growing-prefix-unhandled-leading-input
 kind: result
 title: Arbitrarily long growing prefixes keep an unhandled leading input for the seven direct rules
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w); the seven direct rules are the fixed dispatcher of
   two-inverse-phases-intermediate-increase (R41, R45, R44, R46, R47, R48, R50). The whole phase w = 3445 mod
@@ -31,6 +31,10 @@ reviewed_by:
     date: 2026-10-17
     link: ../sigma-rank-removes-absorption-overhead/batch_r51_r54_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 23:32, VERIFIED, main 8764158; the R54 part), with the lane's own nu and step: for 400 consecutive w = 3445 (mod 3456), w is in W5, 3w is selected, w = 1 (mod 3) and nu(3w) = -17 (mod 5184); for q0 = 81*2^(11r+6) s - 17, r = 1..5, s in {1, 2, 3, 7}, each of the r seven-step T blocks ends at Psi(q) = (2187q + 2363)/2048 and every intermediate state exceeds q0. The leading-request argument and the W9 accounting were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived with an independent implementation: the phase on 4,000 members, the seven-row table on 300 random q (modulus 2^17 shown sharp), the families, the W9 frontier with its bounds, all 90 lookahead positions for r <= 3 with my own currents (the three stored unfinished currents identical), the whole-cycle comparison, the undo identity and the negative-cycle remark; certificate re-run (PASS, exit 0, 4.75 s); 3x+5 and 3x+13 analogues of the table hold. Verdict HOLDS; three imprecision-level findings, no correction to the claim"
 aliases: [R54]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, scoped-obstruction, negative-cycle-shadow]
 ---
@@ -340,3 +344,4 @@ The theorem's universal quantifiers come from (1)–(9), not the samples.
 - Migrated from `experiments/residual_progress/rule_avoidance/RULE_AVOIDANCE.md` (legacy ID R54) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/negative_cycle_shadows.*` moved here. Legacy status: "written arithmetic families and scoped obstruction to a specified lookahead/closure procedure".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `8764158`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
 - 2026-10-17, commit `7206f9c`: the main lane added the "Subsequent scope update (R55–R57)" paragraph near the top of the note.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that the 2-adic class of section 2 does not fix `q mod 3` (rows 0 and 7 are `W5` indices under the ternary condition of section 3, which the phase and the family satisfy), that the modulus `2^17` is sharp for the table, and that the R52/R53 exclusions are domain statements. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
