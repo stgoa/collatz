@@ -10,7 +10,7 @@ claim: >
   element and is closed under x → 2x, x → x/2 (x even), x → 3x+1 (x odd) and x → (x−1)/3 (x ≡ 4 mod 6); tracking
   residues modulo 2^(a_M+a)·3^(b_M+b)·M′ (M = 2^(a_M)3^(b_M)M′, a = halvings and b = inverse steps still allowed),
   a backward search shows that from every odd start class every class modulo M is reached, with at most 1 halving
-  and at most 6 inverse steps (6 only for M ∈ {56, 64, 80}; powers of two 2^k need exactly k − 1 inverse steps for
+  and at most 6 inverse steps (6 only for M ∈ {56, 64, 80}; powers of two 2^k need exactly k inverse steps for
   2 ≤ k ≤ 6, powers of three need one halving and one inverse step, odd M need one halving and at most 4 inverse
   steps). The same search run for the 3x+5 map fails at M = 5 for every budget, as it must (the multiples of 5 form
   a saturated set of 3x+5 that misses every other class). Nothing is claimed for M > 100, and no uniform bound on the number of inverse steps
@@ -41,7 +41,7 @@ Let `T` be the Collatz map on `Z_(>0)` and call `B ⊆ Z_(>0)` **saturated** if 
 
 | `M` | budget `(a, b)` |
 |---|---|
-| `2^k`, `k = 1..6` | `(0, k − 1)` for `k ≥ 2`, `(0, 0)` for `k = 1` |
+| `2^k`, `k = 1..6` | `(0, k)` for `k ≥ 2`, `(0, 0)` for `k = 1` |
 | `3^k`, `k = 1..4` | `(1, 1)` |
 | odd `M` (50 moduli) | one halving (except `M = 1`), at most 4 inverse steps |
 | even `M` (50 moduli) | no halving, at most 6 inverse steps (`56, 64, 80`) |
@@ -61,10 +61,11 @@ Fix `M ≤ 100` and a nonempty saturated `B`. Take an odd `x_0 ∈ B` and let `c
 
 ## Remarks
 
-- **What it says about the question.** [`invariant-sets-meet-every-residue-class`](../../questions/invariant-sets-meet-every-residue-class.md) asks the statement for all `M`; this is the first positive evidence beyond the periodic classification, and the method is a proof for each individual `M` it handles. It does not give the general case: the budgets grow with the 2-adic part of `M` (`2^k` needs `k − 1` inverse steps), because each inverse step with a small exponent fixes one more binary digit of the element reached, while large exponents all land in the single class `−1/3 (mod 2^k)`. A general proof would have to show that these digit-by-digit constructions never get stuck; the computation shows they do not for `k ≤ 6`.
+- **What it says about the question.** [`invariant-sets-meet-every-residue-class`](../../questions/invariant-sets-meet-every-residue-class.md) asks the statement for all `M`; this is the first positive evidence beyond the periodic classification, and the method is a proof for each individual `M` it handles. It does not give the general case: the budgets grow with the 2-adic part of `M` (`2^k` needs `k` inverse steps), because each inverse step with a small exponent fixes one more binary digit of the element reached, while large exponents all land in the single class `−1/3 (mod 2^k)`. A general proof would have to show that these digit-by-digit constructions never get stuck; the computation shows they do not for `k ≤ 6`, and [`saturated-sets-meet-residue-classes-six-smooth-moduli`](../saturated-sets-meet-residue-classes-six-smooth-moduli/README.md) proves it for every `2^k·3^b` (the same day).
 - **Heuristic reading (labelled).** The uniform `(1, 1)` budget for powers of three reflects that 2 is a primitive root modulo `3^k`: doubling an odd `3 ∤ x` reaches every unit class modulo `3^(k+1)`, and one inverse step `(2^t x − 1)/3` then reaches every class modulo `3^k`. The 2-adic side has no such generator (doubling kills 2-adic information), which is why inverse steps with small exponents are needed there. A proof for all `M` might combine the two mechanisms with the forward step `3x + 1`, which mixes 2-adically.
 - **Scope.** `3x+1` only; the `3x+d` controls fail the statement whenever `d > 1`, since the multiples of `d` are saturated for `3x+d`. The theorem is about every saturated set at once, so it holds for the component of 1 and for the component of any hypothetical divergent orbit or nontrivial cycle. Novelty undetermined; the question's card expected "a bounded computation plus a V13-style argument", and this is the bounded computation.
 
 ## History
 
 - Written 2026-10-31 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, as the first attack on the side lane's question S2.
+- 2026-10-31, later: correction. The powers of two need `k` inverse steps, not `k − 1` as first written (the receipt has `4: (0, 2)`, `8: (0, 3)`, …, `64: (0, 6)`); the claim field, the budget table and the first remark now say `k`. Found while writing the general proof for `2^k·3^b` ([`saturated-sets-meet-residue-classes-six-smooth-moduli`](../saturated-sets-meet-residue-classes-six-smooth-moduli/README.md)); Claude cycles lane (Fable 5.1).
