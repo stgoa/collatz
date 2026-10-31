@@ -2,7 +2,7 @@
 id: native-growth-original-rank-exit-obstruction
 kind: result
 title: "Guarded native critical-nine growth has exact return counts, and its exit fails the original rank for r >= 1"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; retained critical basis of R75. On G = {b = 905 mod 8192}, U(b) =
   (729b+223)/512 and Y(b) = 217b+223 satisfy Y(U(b)) = (729/512) Y(b); the integers with at least r complete
@@ -28,6 +28,10 @@ reviewed_by:
     date: 2026-10-18
     link: ../high-smaller-origin-history/batch_r78_r80_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 03:31, VERIFIED, main 3b0c8a5), with the lane's own step, ν and selected: '**R79.** Take 3,000 seeds, half of them forced to have a deep `v2(Y)`, with `Y(b) = 217b + 223`. In every case `Y(U(b)) = (729/512)·Y(b)`. The number of consecutive returns `U^s(b) ∈ G` equals `⌊(v2(Y(b)) − 13)/9⌋`. Membership in `G` is exactly `v2(Y) ≥ 13`.' The exit theorem, the signed currents and the inverse undos were not rebuilt. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of sections 1-7 (return identity and clocks, cylinders and exact count, the nine exit phases, the H17 exit inequality and clocks, identity (3) and the row-for-row collapse of the prescribed composition, both inverse undos, the local W9 bound (15)-(16), the higher-ray congruences and their least indices) with independent code and this lane's own retained-basis planner on 303 return seeds, 540 phase seeds and 125 H17 seeds; certificate re-run (PASS, exit 0, 7 s); verdict HOLDS"
 aliases: [R79]
 tags: [convergence, outer-residual, critical-nine, native-history, original-rank, growing-block]
 ---
@@ -322,3 +326,4 @@ At the B18-replay-revival migration [`check_legacy_replay.py`](check_legacy_repl
 
 - Migrated from `experiments/residual_progress/native_nine_growth/NATIVE_NINE_GROWTH.md` (legacy ID R79) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written scoped growth/exit theorem and exact-current audit; no new accepted pair domain".
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `3b0c8a5`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections; three imprecisions (the range `1 ≤ s ≤ r(b) + 1` of Statement 2, the wording of the row-for-row collapse in section 1, and the scope of the bound (15)) are recorded in [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

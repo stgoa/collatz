@@ -2,7 +2,7 @@
 id: auxiliary-normalisation-remainder
 kind: result
 title: A terminating, order-independent auxiliary normalization of the annulus leaves at least 21N/4 positive mass at multiples of 3
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus (8 | N). (Lemma) An odd y > 1 has an odd
   ancestor 1 < x < y at Syracuse distance one or two iff y = 5, 11, 13 or 17 mod 18; the moves
@@ -30,6 +30,10 @@ reviewed_by:
     date: 2026-10-18
     link: batch_r15_r18_r21_r29_check.py
     scope: "Finite arithmetic only (side-lane feed entry 2026-10-18 11:32, VERIFIED, main 9190ccf): for every odd y < 10^6 a strictly smaller ancestor within two steps exists exactly on 5, 11, 13, 17 mod 18 (222,221 such y), and each stated move is an exact path below 8y/9. 'Statements that need the annular measure A_N are not checked here': not the residual profiles or the 21N/4 bound. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (short-ancestor lemma, termination and order independence via the F-recursion, nine-profile first pass, exact 21N/4 remainder and continuation cost, half-scale impossibility, depth lemma) and checked by independent code for odd y < 300001, every multiple of 8 through 512 and N = 768, 1000, 1024, 6144, with normalisation in seven processing orders; all three certificates re-run (PASS, exit 0; 0 s, 3 s, 12 s); 3x+5 and 3x+13 analogues recorded for information. Verdict HOLDS; one imprecision and three remarks, no correction"
 aliases: [R15]
 tags: [convergence, packet-currents, annular, normal-form, partial-current, obstruction]
 ---
@@ -381,3 +385,4 @@ The positive remainder and its required continuation are still open.
 
 - Migrated from `experiments/residual_progress/auxiliary/AUXILIARY_NORMAL_FORM.md` (legacy ID R15) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, checker and receipt moved byte-identical, with the side-lane probe `reviews/side_lane/batch_r15_r18_r21_r29_check.*`; `check_normal_form_recompute.py` was added at the migration. Legacy status: "written partial construction, order-independence proof, exact lower bound, and finite checks".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `a7b7b47`. Its "independent reviews" of the auxiliary bounds were the main lane's own agents. The side lane's finite check (2026-10-18) is recorded under `reviewed_by` with its scope.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records one imprecision (the order-independence recursion needs the one-sentence observation that a vertex which ever departs ends at coefficient 0) and legacy spacing typos. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
