@@ -2,7 +2,7 @@
 id: returning-forward-interface
 kind: result
 title: "A complete forward interface on the returning W5 row, with strict-rank subdomains and arbitrarily long runs"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). On the whole returning row E_return = {w in W5 : w = 3
   mod 9, 3w selected}, 3w = 2^a t - 1 (a >= 3, t = 3^a mod 4, 2^a t = 10 mod 27), q = rho(w) = 2^(a-1) t - 1
@@ -28,6 +28,10 @@ reviewed_by:
     date: 2026-10-17
     link: ../critical-image-rank-composition/batch_r43_r46_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 22:16, VERIFIED, main a06ef3c), with the lane's own nu and Syracuse step. Only the rank values rho(6645) = 9967 and rho(4205) = 12615 of the index-versus-rank example were checked. The entry says: The R43 composition theorem and the R44/R45 accepted-domain classifications were not rebuilt here. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the parametrisation, the exact word, the interface identity, the endpoint table, the two complete subdomains, the stratum thresholds, the CRT families and both undo loops, with an independent implementation reproducing the receipt's 228 plans and 456 undo checks and extending the subdomain and family checks; certificate re-run (PASS, 6 s); 3x+d analogues of the identities checked. HOLDS"
 aliases: [R44]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, returning-row, conditional-compiler]
 ---
@@ -292,3 +296,4 @@ the remaining returning phase is open.
 
 - Migrated from `experiments/residual_progress/returning_phase/RETURNING_FORWARD_INTERFACE.md` (legacy ID R44) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written whole-domain conditional identity and strict-rank rules on specified subdomains".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `a06ef3c`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction needed; see [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

@@ -2,7 +2,7 @@
 id: complementary-run-bridges
 kind: result
 title: Complete run-block bridges on the complementary family certify about 55.28% of its leading mass after normalisation, leaving an explicit residual with unbounded returns
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1. (Bridges) Every complementary root x = 2^a t - 1 (a >= 2, t odd,
   t = -3^a mod 4) of halving-coalescence-return, with d = v2(3^(a-1) t - 1) >= 2 and w = (3^(a-1) t - 1)/2^d, has
@@ -33,6 +33,10 @@ reviewed_by:
     date: 2026-10-17
     link: run_bridge_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 20:26, VERIFIED, main 541101a): the return formulas rebuilt from the statement; for all 25,002 complementary roots below 200000, 25,000 share a state with f(x) before 1 (16,661 with f(x) on the orbit of x, 8,339 one step off; at most 19 steps on the x side) and the remaining two (x = 75, 184111) enter 1 through F-siblings of the absorbing class; with the lane's own nu, the certified complementary mass is 146 of 269 at N = 6144 (reproducing main's 146/123 exactly), 1184 of 2132 at 49152 and 2367 of 4269 at 98304, approaching main's ~0.01941 N remainder. The written proofs of the formulas, the counts and the series bounds were not re-derived; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument: run bridges (1)-(5), tests (6)-(7), cylinders (10), the CRT counts of Sections 3 and 5 (formula (15)), the series (11)-(12), (16)-(17), the error bound (14), the component lemma and Section 6 re-derived by hand and re-checked by independent code (bridges on all complementary x < 2^20 and 200-bit seeds; own CRT formulas equal brute force for all 8 | N <= 4096, resp. 3072, and at 6144, 49152, 98304; enclosures identical to the receipt); both certificates re-run (PASS, exit 0, 7.42 s); 3x+5 and 3x+13 analogues hold and their actual cycles survive (f_5(23) = 23). Verdict HOLDS; one minor gap (implicit constant in the O(log^4 N) term of (18)) and three imprecisions, no correction to the claim. Inputs R17 and R23 taken as given"
 aliases: [R26]
 tags: [convergence, outer-residual, run-bridges, normal-form, counting, conditional, constructive]
 ---
@@ -507,3 +511,4 @@ itself follows only the fixed prefixes specified by a,d and supplied paths.
 
 - Migrated from `experiments/residual_progress/complementary_bridge/RUN_BLOCK_BRIDGES.md` (legacy ID R26) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical, with the side-lane probes `reviews/side_lane/run_bridge_check.*` and `quotient_iteration_probe.*`; `check_run_bridge_recompute.py` was added at the migration. Legacy status: "written conditional constructor and uniform counting theorem; an explicit residual remains".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `541101a`. The batch report (archive/convergence-residual-progress/REPORT.md) records "independent model" proof and code audits for this batch; they were the main lane's own agents, so they do not count as an independent review. The side lane's finite check is recorded under `reviewed_by`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that the `O(log^4 N)` term of (18) has no explicit constant, supplies the in-tree argument behind the finite component lemma used for the signed normalised bridge, and adds the controls: the bridge identities are `d`-uniform (checked on `3x+5` and `3x+13`, whose cycle root 23 has `f_5(23) = 23`), while the tests (6)-(7), the profile and the counts are specific to `d = 1`.

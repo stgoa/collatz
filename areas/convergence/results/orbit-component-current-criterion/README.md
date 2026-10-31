@@ -2,7 +2,7 @@
 id: orbit-component-current-criterion
 kind: result
 title: A finite current exists exactly when every nonabsorbing orbit component has the right total mass
-status: written
+status: reviewed
 claim: >
   Any set X with a deterministic map S and an absorbing state o; finite measures on X \ {o}, P pushes along S
   and discards mass at o; two states are in the same orbit component if S^a(x) = S^b(y) for some a, b ≥ 0.
@@ -20,6 +20,11 @@ depends_on: []
 certificates: [verify_obstructions.py]
 evidence:
   - "audit.json: the legacy receipt of verify_obstructions.py (the script prints its report and writes no file; scripts/verify_all.py compared the two at be73a66)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-derived Theorem 1, the work formula and the semidecision theorem (soundness and completeness); exact linear-algebra decision of current existence on every functional graph with 3 and 4 vertices agrees with the criterion; work formula checked on 3x+5 and 3x+13 where tau = infinity occurs; depth search re-implemented and checked on 600 random graphs; certificate passed and matches its receipt; verdict HOLDS"
 aliases: [R7]
 tags: [convergence, packet-currents, currents, orbit-components, duality, semidecision]
 ---
@@ -82,3 +87,4 @@ The work formula follows by splitting the sources into those with finite and inf
 
 - Migrated from `experiments/current_construction/obstructions/functional_graph_currents.md` §§1–2 (legacy ID R7) at commit `be73a66`, by the B08 migration (Claude, Opus 5.5); its §§3–4 became [`bounded-packet-certificate-obstruction`](../bounded-packet-certificate-obstruction.md). The checker and receipt moved byte-identical. Legacy status: "written graph theorem, complete semidecision algorithm, and finite checks"; the note says "These elementary arguments have not been human-reviewed or formally verified".
 - Main lane (ChatGPT, Codex), 2026-10-17. The round report records "independent model reviews" of the component criterion by the main lane's own agents; no review from another lane is on record.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

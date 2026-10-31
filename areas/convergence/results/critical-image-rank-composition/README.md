@@ -2,15 +2,15 @@
 id: critical-image-rank-composition
 kind: result
 title: The critical-image rank rho(w) = nu(3w) bounds every formal request and composes strict-rank rules
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; P(w) = [3w] - [w]; rho(w) = nu(3w) on W5 u W9 (W5 = {5 mod 8}, W9 = {9
   mod 16}). (W9 bound) Every W5 request u of the fully expanded critical-nine-elimination plan for w in W9
   satisfies 8 rho(u) <= 27w + 5; the exceptional d = 4, 6, 8 ranks are (27w+5)/8, (81w+23)/32, (243w+101)/128,
   and only d = 4 can increase rank. (Absorption bound) Every request of the W5-only formal absorption plan H_s
   has rho(u) <= (9s+5)/8; for a critical root p with pair index v every H_v input has rank at most (3p+4)/4 < p
-  (p > 4). (Composition) If a rule on A in W5 supplies finite currents with div J_w = P(w) - sum c_w(u) P(u) and
-  all requested ranks strictly below rho(w), then universal currents on W5 minus A suffice for Collatz (and
+  (p > 4). (Composition) If a rule on A in W5 supplies finite currents with div J_w = P(w) - sum c_w(u) P(u) with
+  every requested u in W5 and all requested ranks strictly below rho(w), then universal currents on W5 minus A suffice for Collatz (and
   conversely); finite unions under one fixed priority compose, pair indices may increase, and formal recursive
   substitution terminates with unhandled leaves retained. Neither termination of the formal expansion nor any
   finite sample supplies a leaf; the returning self-request of decreasing-w5-phase-inverse-barrier is not
@@ -27,6 +27,11 @@ evidence:
   - "side_lane_review_3d69784.json: the main lane's reproduction (2026-10-17) of the unmodified probe batch_r43_r46_check.py at side-lane commit 3d69784, PASS, with scope 'Finite external identity/depth4/rank checks reproduced; R43 composition and R44/R45 domain proofs not independently rebuilt by this probe'. A main-lane review of a side-lane probe, not a review of this node"
   - "union_acceptance_meter.py, union_acceptance_meter.json: side-lane measurement (2026-10-17 22:21) of the fixed-priority union in rules_union.py: random w = 5 (mod 8) at 10 to 80 bits, accepted share about 17 to 19% at every size (R41 about 11.9%, R44 3.0%, R45 1.8%, R46 2.2% at 48 bits). It measures the dispatcher; it does not check it, and gives no asymptotic coverage statement. Fails at its new path: it imports rules_union from experiments/residual_progress/critical_rank/ by repository-relative path (now this folder, which itself loads moved siblings by their old names). Passed at be73a66 as reviews/side_lane/union_acceptance_meter.py (archive/legacy-checker-run-be73a66.md, exit 0)"
   - "union_gap_map.py, union_gap_map.json: side-lane measurement (2026-10-17 22:44) of where the uncovered 81.6% of W5 sits under the four-rule union, by w mod 3 and selection of 3w (20,000 random 48-bit inputs). Measurement of the dispatcher, not a check. Fails at its new path: it imports union_acceptance_meter from its own folder, which loads rules_union by its pre-migration path. Passed at be73a66 as reviews/side_lane/union_gap_map.py (archive/legacy-checker-run-be73a66.md, exit 0)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the W9 bound, the absorption bound, bound (3) and the composition theorem, with an independent implementation checked on 16,384 W9 inputs, 65,536 absorption seeds and 10,923 critical roots; certificate re-run (PASS, 12 s); 3x+d analogues of the identities checked. HOLDS WITH CORRECTIONS: the claim field now states the hypothesis that requested indices lie in W5"
 aliases: [R43]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, sufficient-set, conditional-compiler]
 ---
@@ -205,3 +210,4 @@ new annular mass fraction, or novelty claim is supplied.
 
 - Migrated from `experiments/residual_progress/critical_rank/CRITICAL_IMAGE_RANK.md` (legacy ID R43) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probes `reviews/side_lane/batch_r43_r46_check.*`, `union_acceptance_meter.*` and `union_gap_map.*`, and the main lane's reproduction receipt `experiments/residual_progress/side_lane_review_3d69784.json`, moved here (`rules_union.py` lives here). Legacy status: "written bounds, sufficient-set theorem and conditional compiler".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `a06ef3c`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Correction: the claim field's composition hypothesis now says that every requested index lies in `W5`, as the Statement (item 3), the proof (4) and the validator already require; without it the hypothesis is satisfiable by a W9 request of smaller rank that R40 expands back to the parent (`w = 21` requests `9` with `ρ(9) = 27 < 31`). See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
