@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**228 results, 29 attempts, 38 questions, 27 sources.**
+**229 results, 29 attempts, 38 questions, 27 sources.**
 
 ## Frontier: open questions
 
@@ -277,6 +277,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`shared-background-denominator-law`](areas/cycles/results/shared-background-denominator-law/README.md) | A word built from one repeated background between nonconstant markers has denominator gro… | reviewed | reviewed | `languasco-2025-two-primes`, `matveev-2000-linear-forms` | yes |
 | [`short-rotation-mismatch-growth`](areas/cycles/results/short-rotation-mismatch-growth/README.md) | Short rotations of a 3x+1 cycle have mismatch counts growing like log m, and the low mism… | reviewed | reviewed | `musson-collatz-gap-all` | yes |
 | [`single-forced-position-denominator`](areas/cycles/results/single-forced-position-denominator.md) | A reduced ordered cycle with a single forced position has D = q | formal | reviewed | — | yes |
+| [`single-mismatch-rotation-impossible`](areas/cycles/results/single-mismatch-rotation-impossible/README.md) | No rotation of a word differs from it in exactly one position; a primitive word has rotat… | formal | formal | — | yes |
 | [`small-band-height-residue-matching`](areas/cycles/results/small-band-height-residue-matching/README.md) | Height-residue matching holds for ordered cycles with q > 1 in at most three (normalised)… | reviewed | reviewed | — |  |
 | [`three-band-collatz-cycles-are-ordered`](areas/cycles/results/three-band-collatz-cycles-are-ordered.md) | A 3x+1 cycle with H < 8L is dyadically ordered with mechanical normalised word and gcd(A,… | formal | reviewed | — | yes |
 | [`three-defect-arbitrary-background`](areas/cycles/results/three-defect-arbitrary-background.md) | Words at rotation distance three can carry an arbitrary shared background, beyond any fix… | reviewed | reviewed | — |  |
@@ -648,11 +649,11 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 63.7% | 201 | 9 |
+| ChatGPT main lane | 63.5% | 201 | 9 |
 | Claude side lane | 17.6% | 34 | 132 |
 | Claude Lean lane | 6.4% | 3 | 69 |
-| Claude review lane | 4.7% | 0 | 46 |
-| Claude cycles lane | 3.4% | 12 | 0 |
+| Claude review lane | 4.6% | 0 | 46 |
+| Claude cycles lane | 3.8% | 13 | 0 |
 | Claude PR1 lane | 2.4% | 6 | 9 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.8% | 5 | 0 |
