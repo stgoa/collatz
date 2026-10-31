@@ -936,7 +936,7 @@
 "lean/audit/run_audit.sh": "lean/audit/run_audit.sh",
 "lean/build_assembly.sh": "lean/build_assembly.sh",
 "lean/build_reverse_assembly.sh": "lean/build_reverse_assembly.sh",
-"lean/lakefile.toml": "lean/lakefile.toml",
+"lean/lakefile.toml": null,
 "lean/lean-toolchain": "lean/lean-toolchain",
 "lean/receipts/CycleSpectrum.axioms.txt": "lean/receipts/CycleSpectrum.axioms.txt",
 "lean/receipts/CycleSpectrum.build.txt": "lean/receipts/CycleSpectrum.build.txt",
