@@ -2,7 +2,7 @@
 id: guarded-cycle-exit-phases
 kind: result
 title: "Exact guarded cycles and all exit phases on the R54 entry phase, with a descending exit after any number of repetitions"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). For q = -17 mod 5184 in the entry phase of
   growing-prefix-unhandled-leading-input write E = v2(q+17), u = (q+17)/2^E. Exactly r = floor((E-6)/11) guarded
@@ -28,6 +28,10 @@ reviewed_by:
     date: 2026-10-17
     link: batch_r57_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 23:51, VERIFIED, main 7206f9c), with the lane's own nu and step: r = 0..4, odd d in {2r+5, 2r+7, 2r+9} and the first three positive members of progression (7), 45 inputs: q = 81*2^(11r+12) s - 17, w = (2q+1)/3 = 3445 (mod 3456), nu(3w) = q and v2(q+17) = 11r+12; each of the r guarded copies is the ordinary word (1,1,1,2,1,1,4) ending at Psi(x), seven quotient steps reaching the same point; the exit V = nu(S^4(Q)) = 3^(7r+8)*64s - 21 with a(V) = 2 and v2(3t-1) = d, the endpoint f = 3^b (3t-1)/2^d; T^(7r+b+5)(q) = nu(f), S^(7r+b+6)(q) = S(f) and (9f+5)/8 < q; the 15 inputs in subprogression (16) have v = (32q-23)/81 = 0 (mod 3). The eleven-row exit table and the R55/R56 exclusions were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived with an independent implementation of nu, the run bridges, the currents and H: the phase (4,000 members), the guarded word and its current identity (1,500 inputs; cylinder 2^12 and guard 2^17 confirmed), the maximal-cycle count (444 cases), all eleven exit rows with their clocks (201 inputs each), the family (7)-(13) with both clocks and the dispatcher exclusions on 512 members, the plan (14)-(15) on 16 members; certificate re-run (PASS, exit 0, 74 s); 3x+5, 3x+7, 3x+13 and 3x+61 analogues of the cycle mechanism hold. Verdict HOLDS; three imprecision-level findings, no correction"
 aliases: [R57]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, selected-phase, negative-cycle-shadow]
 ---
@@ -337,3 +341,4 @@ failure to meet the cap would leave that demonstration unresolved.
 
 - Migrated from `experiments/residual_progress/selected_cycle_exit/SELECTED_CYCLE_EXIT.md` (legacy ID R57) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/batch_r57_check.*` moved here. The plan's companion dispatcher `selected_rules/` became its own node [`twelve-family-rho-dispatcher`](../twelve-family-rho-dispatcher/README.md) (alias R57-b). Legacy status: "written complete exit interface, infinite arithmetic families and conditional finite currents".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `7206f9c`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records three imprecisions (the "fourth ordinary state" is S^4(x), the e = 8 table row has no explicit formula, and "exactly r guarded cycles" counts the specified guarded procedure only). See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

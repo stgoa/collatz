@@ -2,7 +2,7 @@
 id: retained-history-w9-reduction
 kind: result
 title: "Retaining the strict lower history gives a sharp three-node critical-nine reduction on a larger window"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; retained critical basis of R75. For odd Q >= 11547 and C in W9 with Q <= 3C
   and 3C+1 < 4Q, keep the original lower history H_C and only the actual upper prefix U from 3C to F (F = 4(3z)+1
@@ -30,6 +30,10 @@ reviewed_by:
     date: 2026-10-18
     link: r89_retained_cell_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 09:07, VERIFIED, main 9190ccf): 'This uses this branch's own `S` and `ν`. The planner (`J_s`, `A_s`, the dispatcher) is not rebuilt, so statements about which plans pass are not checked here.' Checked: the window on 4,000 random W9 pairs, the three-node family for j = 4..399 (j = 4 chain 16969 → 9545 → 5369 at Q = 12729), the retained cell and its depth progressions, and on the subcell m = 2736 + 4096l (46 values of l) the 25-arrow path S²⁵(Q) = X and S²⁷(Q) = Z. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument: the window theorem of section 1 re-derived by hand and checked by independent code for every C in W9 below 400001 over its whole window and on 3000 random 64-bit pairs, the three-node family, the retained cell (composition retaining exactly +P(v), depths 2 to 60), the cancellation (12)-(14) and the inherited relations (22 rows), and the section 5 continuation reconstructed independently (leaves at l = 4 and l = 13 reproduced); both certificates re-run (PASS, exit 0, 0 s and 12 s); 3x+5 and 3x+13 controls consistent. Verdict HOLDS; three imprecision or typo findings, no correction"
 aliases: [R89]
 tags: [convergence, outer-residual, critical-nine, retained-history, original-rank, bounded-reduction]
 ---
@@ -419,3 +423,4 @@ compiler establish universal current supply.
 
 - Migrated from `experiments/residual_progress/retained_history/RETAINED_HISTORY.md` (legacy ID R89) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written conditional construction; complete bounded reduction with explicit terminal premises".
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `7a477ad`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records two imprecisions (the d = 2 leader is P(E) because E in W9 forces 3E complementary canonical; the odd-d bound is 8z < 3Q) and legacy spacing typos. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

@@ -2,7 +2,7 @@
 id: deferred-original-rank-testing
 kind: result
 title: "Deferring the original-rank test until exact signed expansion, with two complete new domains"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w) on W5; the fixed resolver is the
   twelve-family-rho-dispatcher, which never calls the new constructor. Start with any finite exact signed plan
@@ -25,6 +25,11 @@ depends_on: [twelve-family-rho-dispatcher, selected-critical-five-forward-tables
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_deferred_rank.py, deferred_rank.py, deferred_rank_audit.json: the legacy constructor and checker: 127 candidate plans from 1024 W5 roots, 23 new descending seeds and 101 protected-source cases, 68 examples per complete family, 72 new-domain examples through 2^128, negative multipliers, caps and seven rejections; four actual substitutions use 13 distinct supplied pairs, with full 245 and 1301 tables stored; the receipt pins the hash of the fixed resolver selected_rules.py. Fails at its new path: deferred_rank.py loads ../selected_rules/selected_rules.py (now ../twelve-family-rho-dispatcher/) by its pre-migration folder name. Passed at be73a66 as experiments/residual_progress/deferred_rank/check_deferred_rank.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived: the finite-composition theorem, both complete domains (identities (2)-(3), (5)-(12), the eight-letter word and the exact cancellation (7)-(8)) with an independent implementation of nu, the currents and H on 302 members of each progression, the 1024-candidate window of the receipt reproduced with an independent deferred expansion (127 plans, 23 new seeds, 101 protected cases), the twelve-rule exclusions checked against the fixed dispatcher; certificate re-run (PASS, exit 0, 12 s). Verdict HOLDS; three imprecision-level findings, no correction"
 aliases: [R59]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, selected-phase, conditional-compiler]
 ---
@@ -323,3 +328,4 @@ universal strict descent or the existence of all remaining input currents.
 
 - Migrated from `experiments/residual_progress/deferred_rank/DEFERRED_RANK.md` (legacy ID R59) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written finite-rewriting theorem and two complete conditional domains".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `d265d94`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records three imprecisions (the wording B(s) <= s for noncanonical s in section 2, the restriction of the new coverage to 245 mod 3072 inside the progression 245 mod 1024, and the crude vertex bound of Statement 1). See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

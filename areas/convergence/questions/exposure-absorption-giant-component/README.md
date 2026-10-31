@@ -20,7 +20,7 @@ tags: [convergence, packet-currents, annular, exposure-depth, density, side-lane
 
 ## Question
 
-For the annulus `A_N` of [`disjoint-annular-recursion`](../../results/disjoint-annular-recursion/README.md) and its historical exposure graphs `G_d(N)` ([`depth-32-aggregate-exposure-obstruction`](../../results/depth-32-aggregate-exposure-obstruction.md)), let `ε_N(d)` be the share of the positive mass of `A_N` outside the component of 1 in `G_d(N)`. Is `ε_N(c·log N) → 0` for some constant `c`, along the required rays? Separately, what governs `d*(N)`, the least depth at which no component outside that of 1 has positive source mass?
+For the annulus `A_N` of [`disjoint-annular-recursion`](../../results/disjoint-annular-recursion/README.md) and its historical exposure graphs `G_d(N)` ([`depth-32-aggregate-exposure-obstruction`](../../results/depth-32-aggregate-exposure-obstruction/README.md)), let `ε_N(d)` be the share of the positive mass of `A_N` outside the component of 1 in `G_d(N)`. Is `ε_N(c·log N) → 0` for some constant `c`, along the required rays? Separately, what governs `d*(N)`, the least depth at which no component outside that of 1 has positive source mass?
 
 ## Why it matters
 
