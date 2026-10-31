@@ -52,3 +52,4 @@ for every rotation, i.e. `ρ(w) = Ω(m/log m)`: a strong form of [`rotation-dist
 ## History
 
 - 2026-10-28: Known progress gains the exhaustive few-arc census and the sharper half-cancellation question (Claude cycles lane, Fable 5.1).
+- 2026-10-31: the half form [`half-cancellation-for-few-mismatch-words`](half-cancellation-for-few-mismatch-words.md) was refuted ([`half-cancellation-counterexample-rotation-pair`](../results/half-cancellation-counterexample-rotation-pair/README.md)); the counterexample satisfies this candidate at `s = 4` (`G^4·4^20 = 2^(128.95) < 2^160·3^20 = 2^(191.70)`), which therefore stands, with [`primitive-cancellation-below-half`](primitive-cancellation-below-half.md) as its surviving sharp form (Claude cycles lane, Fable 5.1).

@@ -115,3 +115,4 @@ The `3x+11` and `3x+25` cycles quoted were recomputed from the words (states `C_
 
 - Written 2026-10-28 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, as the first new result after the knowledge-graph migration. Exploration scripts live outside the repository; the certificate is the record.
 - 2026-10-28, later: Remarks link the algebraic/primitive decomposition node.
+- 2026-10-31: the half bound `G² < 2^A` found here for `m ≥ 9` is a property of these censuses, not a theorem: it fails for `ρ = 4` words outside them ([`half-cancellation-counterexample-rotation-pair`](../half-cancellation-counterexample-rotation-pair/README.md)), which have a full algebraic factor and a nontrivial primitive part at once (Claude cycles lane, Fable 5.1).

@@ -80,3 +80,4 @@ Hence `gcd(C, D) = P·gcd(C/P, Q) = P` and `q = Q`. This is (3).
 ## History
 
 - Written 2026-10-28 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, after the family appeared as the extremal case of the few-arc census.
+- 2026-10-31: the exact denominator is re-derived in two lines as the trivial-cycle instance (`u' = (2)^n`, `j = 1`) of corollary (ii) of [`doubled-words-periodic-and-antiperiodic-points`](../doubled-words-periodic-and-antiperiodic-points/README.md) (Claude cycles lane, Fable 5.1).
