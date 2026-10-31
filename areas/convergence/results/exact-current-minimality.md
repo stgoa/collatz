@@ -40,7 +40,7 @@ tags: [convergence, packet-currents, minimality, certificates]
 
 ## Statement
 
-Notation of [`locally-collatz-like-control-barrier`](locally-collatz-like-control-barrier/README.md): `T_d`, absorbing set `A_d`, `P_A` pushes forward and discards mass landing in `A_d`; at `d = 1` this is `P` of [`finite-current-certificate-identity`](finite-current-certificate-identity.md).
+Notation of [`locally-collatz-like-control-barrier`](locally-collatz-like-control-barrier/README.md): `T_d`, absorbing set `A_d`, `P_A` pushes forward and discards mass landing in `A_d`; at `d = 1` this is `P` of [`finite-current-certificate-identity`](finite-current-certificate-identity/README.md).
 
 **Lemma 4 (PR1 lane).** Let `μ` be a finite signed measure on odd states with a finite exact current `J_0`, `(I − P_A)J_0 = μ`. Let `(J, ζ)` be finite with `μ = (I − P_A)J + ζ` and `ζ ≤ 0`, and suppose `supp(J − J_0)` contains no cycle of `T_d` outside `A_d`. Then `J ≥ J_0` pointwise, so `‖J⁺‖₁ ≥ ‖J_0⁺‖₁`. In particular `J_0` is the unique exact current with that property. When every atom of `μ` terminates, `J_0 = Σ_j P^j μ` is the time-aggregated forward push; lagged cancellations at merge points are included, which is why `J_0` can stop at exits short of 1.
 

@@ -24,7 +24,7 @@ Let `b = ceil(log₂ N)`, `m = floor(2b/9)`, and `Π̂_(m,N)` the exact-source p
 Π̂_(m,N) = (I − P)J_N + ζ_N,     C_+(J_N) = O(N),     ‖ζ_N⁺‖₁ = O(N^(4/5)/log N),           (7.2)
 ```
 
-uniformly in `N`, where `C_+(J) = Σ_z max(0, max_u F_z(u))` is the exit-profile upper cost of [`finite-current-certificate-identity`](../results/finite-current-certificate-identity.md). The stronger exact form is `Π̂_(m,N) = (I − P)J_N` with `C_+(J_N) = O(N)` (7.1). No estimate on the negative residual is needed for the upper bound. The cost must be derived from the source-word arithmetic and the fixed interval cutoffs; a universal construction algorithm with no cost control would not suffice.
+uniformly in `N`, where `C_+(J) = Σ_z max(0, max_u F_z(u))` is the exit-profile upper cost of [`finite-current-certificate-identity`](../results/finite-current-certificate-identity/README.md). The stronger exact form is `Π̂_(m,N) = (I − P)J_N` with `C_+(J_N) = O(N)` (7.1). No estimate on the negative residual is needed for the upper bound. The cost must be derived from the source-word arithmetic and the fixed interval cutoffs; a universal construction algorithm with no cost control would not suffice.
 
 ## Why it matters
 

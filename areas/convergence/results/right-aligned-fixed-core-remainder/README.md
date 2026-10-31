@@ -32,7 +32,7 @@ tags: [convergence, packet-currents, right-aligned, reduction]
 
 ## Statement
 
-Odd-only clock, absorbing at 1, with `S`, `τ`, `h_L`, `H_L` and `P` as in [`finite-current-certificate-identity`](../finite-current-certificate-identity.md). For an integer `N ≥ 8` put
+Odd-only clock, absorbing at 1, with `S`, `τ`, `h_L`, `H_L` and `P` as in [`finite-current-certificate-identity`](../finite-current-certificate-identity/README.md). For an integer `N ≥ 8` put
 
 ```
 b = ceil(log₂ N),   n_0 = floor((N−1)/4),   n_1 = floor((3N+1)/2),   n_2 = floor((3N+1)/4),
