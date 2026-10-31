@@ -1,0 +1,9 @@
+source sha256: 5782b945454d52a876408c1b2f719308db7eb05e81f43db3a4cc4f6ec3e3f330
+'LeanLane.CycleEquation.follow_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.CycleEquation.D_rotate' depends on axioms: [propext, Quot.sound]
+'LeanLane.CycleEquation.IsCycle.rotate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.CycleEquation.IsCycle.cycle_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.CycleEquation.IsCycle.cycle_eq_rotate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.CycleEquation.IsCycle.q_dvd_D' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.CycleEquation.IsCycle.C_rotate_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.CycleEquation.rotation_pair_gcd' depends on axioms: [propext, Classical.choice, Quot.sound]

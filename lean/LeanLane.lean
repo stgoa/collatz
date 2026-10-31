@@ -3,3 +3,4 @@ import LeanLane.Doubled
 import LeanLane.TwoMarker
 import LeanLane.HalfCancellationCounterexample
 import LeanLane.RotationPairs
+import LeanLane.CycleEquation

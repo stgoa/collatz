@@ -50,6 +50,10 @@ By NOTATION §2 the rational cycle point of `R_r u` is `n_r/d = C_(R_r u)/D_u`, 
 
 [`check_rotation_pairs.py`](check_rotation_pairs.py) (standard library, about 35 s) checks, directly from the definitions of `C` and `D`: **R1** on every rotation pair of every distinct cycle word of the corpus, `C_(R_r u) = n_r·G_u`, both formulas, and the bound; **R2** the same on every pair of every cycle of `3x+d`, `d ≤ 3,000` coprime to 6, found from odd seeds `≤ 5,000`; **R3** the counterexample's numbers; **R4** the receipt [`rotation_pairs.json`](rotation_pairs.json) (`--write-receipt` regenerates it). Finite statements only; the formula itself is the formal node.
 
+## Lean
+
+The formula and the cycle equation behind it are machine-checked in [`doubled-word-cancellation-formula`](../doubled-word-cancellation-formula/README.md) (`LeanLane.CycleEquation.rotation_pair_gcd`: for states following `w` under `3x+q` with period `|w|`, `q > 0`, `gcd(x_0, q) = 1`, the rotation pair's cancellation is `(D_w/q)·gcd(x_r + x_s, q)·gcd(x_r − x_s, 2^(Σw) + 3^|w|)`). This node adds the reading through actual cycles (NOTATION §2), the consequences and the data, so its status stays `written`.
+
 ## Remarks
 
 - **What it explains.** Every word built from two rotations of an actual cycle has the whole algebraic factor `2^S − 3^n` in its cancellation exactly when the two states sum to a multiple of `d`, and its primitive-side factor is the gcd of the *difference* of the two states with `2^S + 3^n`: a number below the cycle's height, with no structural reason to be large. The counterexample to [`half-cancellation-for-few-mismatch-words`](../../questions/half-cancellation-for-few-mismatch-words.md) is the pair `(1837, 697)` of the `3x+1267` cycle, whose difference `1140 = 2²·3·5·19` shares the factor 5 with `2^20 + 3^10 = 5³·8861`.
