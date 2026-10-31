@@ -27,6 +27,8 @@ lean:
   - LeanLane.Cyc.two_defect_bound_sharp
   - LeanLane.Cyc.two_defect_bound
   - LeanLane.Cyc.two_defect_q_bound
+  - LeanLane.RotationIdentity.rotation_identity_general
+  - LeanLane.RotationIdentity.gcd_rotation_difference
 evidence:
   - "two-defect-rotation-exclusion/ROTATION_DEFECTS.md, sections 1-4 and 6: the written proofs and the q = 5, 7, 13, 359 controls"
   - "two-defect-rotation-exclusion/c011_two_defect_check.py: side-lane certificate of that node, checking (i), (iii) and (iv) on every primitive positive word of length ≤ 9 with letters 1-5"
@@ -81,11 +83,12 @@ g² < 2^(A−m+k)·3^m ≤ 2^(2A−2m)·3^m,   g < 2^A·(√3/2)^m,   q > (1 −
 
 ## Lean
 
-Lean unit C011-a, `lean/CycleSpectrum.lean` (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../archive/lean-lane/STATE.md), iteration 32), axioms `propext`, `Classical.choice`, `Quot.sound` (two helpers subsets); receipts `lean/receipts/CycleSpectrum.*`. Not `formal`: the Lean statements are in the two-defect **normal form** `w = a :: (u₀ ++ (a+k) :: v₀)`, `w' = (a+k) :: (u₀ ++ a :: v₀)` with `w'` a rotation of `w`, and the reduction of an arbitrary two-defect rotation to that form (part 1), identity (3), the real-analytic forms (6) and the adjacent classification (5) are not formalised.
+Lean unit C011-a, `lean/CycleSpectrum.lean` (legacy `lean/STATE.md`, now [`archive/lean-lane/STATE.md`](../../../archive/lean-lane/STATE.md), iteration 32), axioms `propext`, `Classical.choice`, `Quot.sound` (two helpers subsets); receipts `lean/receipts/CycleSpectrum.*`. Not `formal`: the Lean statements are in the two-defect **normal form** `w = a :: (u₀ ++ (a+k) :: v₀)`, `w' = (a+k) :: (u₀ ++ a :: v₀)` with `w'` a rotation of `w`, and the reduction of an arbitrary two-defect rotation to that form (part 1), the real-analytic forms (6) and the adjacent classification (5) are not formalised; identity (3) is (below).
 
 - `two_arc_identity`: `C_(w') − C_w = (2^k − 1)·2^a·3^|v₀|·C(u₀ ++ [a+k])`; `rotate_cut` gives the recut as a rotation, and `C_append_singleton` the last-letter remark.
 - `dvd_C_rotate_of_dvd` (a common divisor of `C_w, D_w` coprime to 2 divides every rotated intercept) and `two_arc_dvd`: (2).
 - `intercept_bound_last`: (4) in cleared form `2^(|z₀|)·C(z₀ ++ [b]) ≤ 2^(Σz₀)·(3^(|z₀|+1) − 2^(|z₀|+1))`.
+- Identity (3), formal since 2026-10-31 in the library module [`lean/LeanLane/RotationIdentity.lean`](../../../lean/LeanLane/RotationIdentity.lean): `rotation_identity_general : r ≤ w.length → 2 ^ (w.take r).sum * C (w.rotate r) = 3 ^ r * C w + D w * C (w.take r)` and `gcd_rotation_difference : r ≤ w.length → Odd (D w) → D w ≠ 0 → (Int.gcd (D w) (C (w.rotate r) - C w) : ℤ) = Int.gcd (C w) (D w) * Int.gcd (D w / Int.gcd (C w) (D w)) (2 ^ (w.take r).sum - 3 ^ r)`, i.e. `gcd(D, C_(R_r w) − C_w) = g·gcd(q, 2^(P_r) − 3^r)` (`D_w` is odd for every positive word).
 - `two_defect_bound_sharp`: (5), `g²·2^(|u₀|+|v₀|) < (2^k − 1)²·2^(Σu₀+Σv₀)·3^m`; `two_defect_bound`: (7), `g²·2^(2m) < 2^(2A)·3^m` (needs `a ≥ 1`); `two_defect_q_bound`: `D²·2^(2m) < q²·2^(2A)·3^m` for `D = g·q`, the cleared form of `q > (1 − 3^m/2^A)(2/√3)^m`.
 
 ## Remarks
@@ -100,3 +103,4 @@ Lean unit C011-a, `lean/CycleSpectrum.lean` (legacy `lean/STATE.md`, now [`archi
 
 - Split from `experiments/cycle_spectrum/C011/` (legacy ID `C011`; `ROTATION_DEFECTS.md` §§1–4, 6) at commit `be73a66`, by the B04 migration (Claude, Opus 5.5). Main lane (ChatGPT/Codex), 2026-10-19. Formalised in normal form by the Lean lane (Claude Lean lane, Fable) as C011-a, iteration 32.
 - 2026-10-28: Remarks gain the sharpness witness and the census comparison (Claude cycles lane, Fable 5.1); the claim is unchanged.
+- 2026-10-31: identity (3) formalised in `lean/LeanLane/RotationIdentity.lean` (Claude cycles lane, Fable 5.1); claim unchanged.

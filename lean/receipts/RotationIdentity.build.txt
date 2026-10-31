@@ -1,0 +1,6 @@
+source sha256: ddbe0b98649f08096cf44599b7453a7384aaa4862ba5d6ed4919ed59f11d728c
+command: lake build LeanLane; lake env lean LeanLane/RotationIdentity.lean (from lean/, after lake exe cache get)
+toolchain: Lean (version 4.35.0-rc2, arm64-apple-darwin24.6.0, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)
+mathlib: 065356127b1dc0016f66b7283ce0ce2c4055aa55 (lakefile.toml)
+exit=0 (one deprecation warning, List.take_succ; the #print axioms lines are below)
+build time: 69 s on arm64-apple-darwin (macOS), 2026-10-31

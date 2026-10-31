@@ -44,7 +44,7 @@ python3 tools/check.py                        # schema, references, links, Lean 
 python3 tools/run_certificates.py --node <id> # re-run the finite checks behind one node
 ```
 
-Lean proofs build with the toolchain pinned in [`lean/`](lean/).
+Lean proofs build with the toolchain pinned in [`lean/`](lean/): `cd lean && lake exe cache get && lake build LeanLane` builds the library of newer results; the legacy files compile one at a time (see [`lean/README.md`](lean/README.md)).
 
 ## Contribute
 

@@ -1,0 +1,3 @@
+source sha256: ddbe0b98649f08096cf44599b7453a7384aaa4862ba5d6ed4919ed59f11d728c
+'LeanLane.RotationIdentity.rotation_identity_general' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.RotationIdentity.gcd_rotation_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
