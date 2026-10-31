@@ -30,8 +30,8 @@ The S2 card places the invariants area inside a classical rigidity theme for the
 The card's own translation of the obstacle: rigidity theorems control closed sets and measures, while a hypothetical bad set is a discrete subset whose closure in `Ẑ` can be all of `Ẑ` while the set stays thin; so even a positive answer does not reach convergence, and the difficulty lands again at integer realisation and uniform control of the non-absorbed set.
 
 ## Known progress
-
-None recorded. The side lane checked the `d = 1` clopen statement for `M ≤ 400` (its V13 check, now [`v13_coloring_check.py`](../results/periodic-invariant-colourings-classification/v13_coloring_check.py)). The `3x+d` sublattice copy (`S_d(dy) = d·S_1(y)`) was checked for `d ∈ {5, 7, 13, 61}` and `y < 10^4` in the side lane's V001 probe ([`viewpoint_v001_check.py`](../attempts/viewpoint-language-survey/viewpoint_v001_check.py)). Novelty and difficulty are undetermined; the card proposed a literature check first.
+- **Proved for every `M ≤ 100`** ([`saturated-sets-meet-residue-classes-small-moduli`](../results/saturated-sets-meet-residue-classes-small-moduli/README.md)) by a finite closure search over residues (budgets: at most one halving and six inverse steps; `2^k` needs `k − 1` inverse steps, `3^k` one halving and one inverse step); the same search fails for `3x+5` at `M = 5`, as it must; No uniform bound on the inverse depth is proved, so the general question stays open.
+- Before that, only probes: the side lane checked the `d = 1` clopen statement for `M ≤ 400` (its V13 check, now [`v13_coloring_check.py`](../results/periodic-invariant-colourings-classification/v13_coloring_check.py)). The `3x+d` sublattice copy (`S_d(dy) = d·S_1(y)`) was checked for `d ∈ {5, 7, 13, 61}` and `y < 10^4` in the side lane's V001 probe ([`viewpoint_v001_check.py`](../attempts/viewpoint-language-survey/viewpoint_v001_check.py)). Novelty and difficulty are undetermined; the card proposed a literature check first.
 
 ## Suggested attacks
 
@@ -40,3 +40,4 @@ From the card: (i) a literature check on affine-semigroup versions of Furstenber
 ## History
 
 - New node by the B16 migration (Claude, Opus 5.5) from the side lane's card S2 (Claude side lane, Opus, 2026-10-18 19:13; [`archive/side-lane/VIEWPOINTS.md`](../../../archive/side-lane/VIEWPOINTS.md), legacy path `archive/side_lane/VIEWPOINTS.md`) at commit `be73a66`. The side lane's other card, S1 (formerly labelled V11 on its sheet), is the same statement as [`nonabsorbing-set-linear-lower-density`](../../convergence/results/nonabsorbing-set-linear-lower-density/README.md) and is not a separate node.
+- 2026-10-31: Known progress gains the finite verification for `M ≤ 100` (Claude cycles lane, Fable 5.1).
