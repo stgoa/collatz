@@ -42,6 +42,8 @@ A cycle of the odd-only `3x+d` map is a sequence of odd positive integers `n_0, 
 
 **Primitive** means the cycle is not a repetition of a shorter cycle. Equivalently, its `m` states are distinct.
 
+The correspondence between words and cycles is machine-checked: `LeanLane.CycleEquation.IsCycle.cycle_eq` (`lean/LeanLane/CycleEquation.lean`) proves `x_0·D_w = q·C_w` for states following `w` under `3x+q` with period `m`, and `LeanLane.RationalCycle.reduced_cycle` (`lean/LeanLane/RationalCycle.lean`) that every nonempty `w` with `D_w > 0` is the valuation word of an actual `3x+den(w)` cycle whose states are `C_(R_i w)/gcd(C_w, D_w)` (see [`doubled-word-cancellation-formula`](../areas/cycles/results/doubled-word-cancellation-formula/README.md)).
+
 ## 3. The `3x+d` controls
 
 Any argument about cycles of `3x+1` must stay consistent with the **actual** nontrivial cycles of other members of the `3x+d` family, such as those of `3x+5`, `3x+7`, `3x+13` and `3x+61`. An argument that would also exclude them is wrong, or it uses a hypothesis they fail; the node must say which.

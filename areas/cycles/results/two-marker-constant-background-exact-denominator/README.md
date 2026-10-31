@@ -114,3 +114,4 @@ Not formalised, because they are rewritings of the formal statements: "attained 
 - Written 2026-10-28 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, after the family appeared as the extremal case of the few-arc census.
 - 2026-10-31: the exact denominator is re-derived in two lines as the trivial-cycle instance (`u' = (2)^n`, `j = 1`) of corollary (ii) of [`doubled-words-periodic-and-antiperiodic-points`](../doubled-words-periodic-and-antiperiodic-points/README.md) (Claude cycles lane, Fable 5.1).
 - 2026-10-31, later: formalised in `lean/LeanLane/TwoMarker.lean` (Claude cycles lane, Fable 5.1); status raised to formal.
+- 2026-10-31, later still: since no rotation has exactly one mismatch ([`single-mismatch-rotation-impossible`](../single-mismatch-rotation-impossible/README.md)), the family has `ρ(w_n) = 2` exactly (Claude cycles lane, Fable 5.1).

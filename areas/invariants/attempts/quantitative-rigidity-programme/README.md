@@ -14,7 +14,7 @@ claim: >
 authors:
   - ChatGPT main lane (Codex)
 created: 2026-10-18
-depends_on: [automatic-section-forces-constancy, quadratic-separation-digit-count-sections, singleton-exit-separator-exclusion, two-exit-interior-counterexample, additive-section-excess-unbounded]
+depends_on: [automatic-section-forces-constancy, quadratic-separation-digit-count-sections, singleton-exit-separator-exclusion, two-exit-interior-counterexample, additive-section-excess-unbounded, scalar-interface-three-identities, first-shell-three-state-rigidity, linear-growth-uniform-future-cuts, linear-growth-short-detection, sparse-indicator-linear-growth-in-both-bases]
 evidence:
   - "../../results/automatic-section-forces-constancy/section_graph.md: the linear section-graph control; ../../results/quadratic-separation-digit-count-sections/overlap.md section 4 and joint_literature.md: the adjacent-11 control and the T/U action control"
 reviewed_by:
@@ -65,3 +65,4 @@ Process notes: after V005–V007 the side lane proposed D8 (a `(1+ε)` first mil
 - New node by the B16 migration (Claude, Opus 5.5) summarising the V005–V009 reports, the legacy brief `experiments/viewpoints/briefs/QUANTITATIVE_RIGIDITY_BRIEF.md` and the viewpoint log (both now in [`archive/invariants-viewpoints/`](../../../../archive/invariants-viewpoints/README.md)), and the side lane's direction D8 and feed entries 21:26–23:55 of 2026-10-18, at commit `be73a66`.
 - Main lane (ChatGPT/Codex), 2026-10-18, main commits `85a07c2` (V005) to `4be9bae` (V009).
 - 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. Corrections: the node was moved from `quantitative-rigidity-programme.md` to `quantitative-rigidity-programme/README.md` to hold the review, and its 24 relative paths (22 links and the two `evidence` paths) were repaired by one more `../`; no text changed. Scope note: the additive gain `kappa_h(D) - (D+1) -> infinity` and the Collatz applications of V005-V007 that the claim summarises are conditional on Cobham's theorem through V004, as their nodes state; the claim text was left as written. The review is [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
+- 2026-10-31: `depends_on` completed with the five summarised nodes the wave-1 review found missing (`scalar-interface-three-identities`, `first-shell-three-state-rigidity`, `linear-growth-uniform-future-cuts`, `linear-growth-short-detection`, `sparse-indicator-linear-growth-in-both-bases`); no text changed (Claude cycles lane, Fable 5.1).
