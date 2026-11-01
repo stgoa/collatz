@@ -2,7 +2,7 @@
 id: growth-norm-transport-barrier
 kind: result
 title: First-half transport cannot contract any power-growth norm on arbitrary targets, although its one-arrow part does
-status: written
+status: reviewed
 claim: >
   Fix positive odd d with gcd(d,6) = 1; S_d = (3n+d)/2^v2(3n+d) on positive odd n, absorbed at 1, odd-arrow
   clock; L_d(n) the first iterate <= n/2 (any finite time); G_d(A) = {odd n > 1 : L_d(n) in A}; ||A||_alpha =
@@ -30,6 +30,10 @@ reviewed_by:
     date: 2026-10-18
     link: p6_003_growth_norm_check.py
     scope: "Finite only (side-lane feed 2026-10-18 16:56, CONFIRMED label barrier at main 2e619a2; nothing imported from main): the four paths for d in {1, 5, 7, 13, 61} and every y = 5d (mod 18) below 10^5, 27,773 targets (exact words (3), (5), (2,3), (1,5), first-half descent to y at times 1, 1, 2, 2, all four distinct); the four integer inequalities (9) and 241/240, with K(alpha) on a grid (1.059 at 7/8, 1.023 at 0.9, 0.954 at 0.95, so Theorem 3 is needed near alpha = 1); the count formula (5) exactly for alpha in {1/2, 2/3, 7/8}, d in {1, 5}, every X <= 2*10^4, with integer roots; Theorem 3's mass bound by an exact dynamic program (p_90 = 0.99772, above 1 - delta_m - 2^(-L) for every split m = 9..15 of B = 90; for alpha = 0.9, p_B exceeds 2^(alpha-1) at B = 30) and the identity behind (15) termwise. The written proofs were not re-derived in the feed entry; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Theorems 1-3 re-derived line by line (constants, the four exact paths for d in {1, 5, 7, 13, 61} below 60000, first-crossing code masses p_48, p_80, p_90 by an independent DP, the inverse congruence (14) on 590 word/d cases, the count formulas); three certificates re-run (exit 0, 1.2 s). Verdict HOLDS; two imprecisions (Theorem 2 holds up to alpha about 0.9162, the exclusion of target 1 comes late in section 4), no correction to the claim"
 aliases: [P6-003]
 tags: [convergence, phase6, stopping-time, transport, growth-norm, barrier, 3x-plus-d]
 ---
@@ -481,3 +485,4 @@ The B-specific premise this points to is the open [`bad-set-half-descent-transpo
 ## History
 
 Migrated from `experiments/phase6/growth_norm_transport/GROWTH_NORM_TRANSPORT.md` (legacy batch `P6-003`, route node S.2), with `check_growth_norm.py`, `check_all_exponents.py`, both receipts, `verification.json`, `experiments/phase6/side_lane_review_e4f8231.json` and the side-lane probe `reviews/side_lane/p6_003_growth_norm_check.py` with its receipt, at commit `be73a66`. The folder's short index `README.md` is in [`archive/convergence-phase6/`](../../../../archive/convergence-phase6/). ChatGPT main lane, 2026-10-18, pushed as `2e619a2`; the batch read the side lane at `0ed286c5e92f739f610f4aad2d460d0afc63eab6`. One convention clarification came out of the main lane's review: parity cylinders use the raw map, and the finite target threshold then ensures the selected actual paths avoid 1 and follow the absorbed map. Programme label **barrier**, confirmed by the side lane at `e4f82311` (feed 16:56, [`archive/side-lane/FEED.md`](../../../../archive/side-lane/FEED.md)). The ledger then closed this uniform power-norm method: further exponent variants were not to be added.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records two imprecisions (Theorem 2's four-word witness expands for every `α` below `α_0 ≈ 0.9162`, where `K(α_0) = 1`, so `α ≤ 7/8` is a safe sub-range; in §4 the exclusion of the target 1 is stated after the two threshold bounds although it is needed, as `d = 1`, `w = (4)`, `n = 5 → 1` shows).

@@ -20,7 +20,7 @@ Terras, [*A stopping time problem on the positive integers*](https://www.impan.p
 ## What we use
 
 - **Parity-vector bijection** (Theorem 1.2): the first `k` shortcut parities of `n` are determined by `n mod 2^k`, and every parity vector occurs exactly once. In odd-only form (legacy explicit-Tao L1, recalled in [`explicit-valuation-large-deviations`](../areas/convergence/results/explicit-valuation-large-deviations/README.md)): the first `n` Syracuse valuations of `N` are determined by `N mod 2^(A+1)`, each word one odd class. This is classical background for the repository's cylinder facts, which are proved here directly.
-- **Density one of finite stopping time** (with [everett-1977-stopping-time](everett-1977-stopping-time.md)): the calibration benchmark for Phase 6 audit L1 / S.1 / P6-001 and explicit-Tao L2–L3 ([`explicit-valuation-large-deviations`](../areas/convergence/results/explicit-valuation-large-deviations/README.md), [`explicit-one-round-descent`](../areas/convergence/results/explicit-one-round-descent.md)), which prove their own explicit versions.
+- **Density one of finite stopping time** (with [everett-1977-stopping-time](everett-1977-stopping-time.md)): the calibration benchmark for Phase 6 audit L1 / S.1 / P6-001 and explicit-Tao L2–L3 ([`explicit-valuation-large-deviations`](../areas/convergence/results/explicit-valuation-large-deviations/README.md), [`explicit-one-round-descent`](../areas/convergence/results/explicit-one-round-descent/README.md)), which prove their own explicit versions.
 
 Transfer: the parity encoding extends to each fixed odd `d` (3 is invertible mod powers of 2), but a parity bijection alone is not an all-integer stopping theorem.
 

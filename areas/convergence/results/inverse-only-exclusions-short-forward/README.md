@@ -2,7 +2,7 @@
 id: inverse-only-exclusions-short-forward
 kind: result
 title: "Inverse-only descent cannot enlarge a forward-closed history, while short forward steps escape the same anchors"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; nu, T = nu S (quotient steps counted as such). (Scope theorem) If a set Q
   of canonical states is T-forward-closed and q is outside Q, no inverse ancestor of q (under T, or under S via
@@ -30,6 +30,10 @@ reviewed_by:
     date: 2026-10-18
     link: r49_ancestor_free.py
     scope: "Finite only (side-lane feed entry 2026-10-18 02:15, VERIFIED + FINDING), with the lane's own nu and step: 39 and 135 are canonical; neither lies in the T-forward closure of the canonical states below b, so neither has a smaller canonical ancestor at any depth; both have the stated three-arrow descents 39 -> 59 -> 89 -> 33 and 135 -> 203 -> 305 -> 57. The lifted families, the scope theorem and the infinitude argument were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived with independent code: the scope theorem, the two anchors (Q_<39 and Q_<135 rebuilt with my own nu and T, equal to the stored tables, 43 and 68 states), the three-arrow descents and stored currents, the infinite ray of 1, the lift theorem (affine table, shadow recursion (6)-(7) on 288 random inverse words at 48 family members, brute force over all odd p <= q for the small members), the forward cylinders on 1304 members with strict-rho plans from my own W5-only H below 20000, and the census (499,998 / 242,468 reproduced); certificate re-run (PASS, exit 0, 8 s); 3x+5 control. Verdict HOLDS; three imprecisions, no correction"
 aliases: [R49]
 tags: [convergence, outer-residual, inverse-barrier, scoped-obstruction, supplied-history]
 ---
@@ -308,3 +312,4 @@ beyond strict smaller-origin inverse search alone.
 
 - Migrated from `experiments/residual_progress/inverse_scope/INVERSE_SCOPE.md` (legacy ID R49) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/r49_ancestor_free.*` moved here. Legacy status: "finite all-depth exclusion certificates, a general operation-scope theorem and written all-ray lifts".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `bcde58e`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that the census counts canonical `q > 1` (with `q = 1`: 499,999 and 242,469), that the lifted families are depth-limited as stated (`q = 4647` of the `b = 39`, `D = 2` family has the smaller ancestor 2175 at depth 7), and that the R48 containment of the first cylinder uses R48's selected-endpoint clause. See [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

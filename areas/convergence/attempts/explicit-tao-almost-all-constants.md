@@ -35,7 +35,7 @@ tags: [convergence, explicit-tao, tao, mixing, barrier, explicit-constants, prog
 |---|---|---|---|
 | L1 | Exact valuation cylinders: the first `n` Syracuse valuations are determined by `N mod 2^(A+1)`, each word one odd class | recalled with proof in [`explicit-valuation-large-deviations`](../results/explicit-valuation-large-deviations/README.md) (frozen S.1; Terras 1976) | transfers |
 | L2 | Explicit large deviations for `A`: Chernoff with exact rate `I(θ)`; integer counts with boundary error `C(⌊θn⌋, n)` | [`explicit-valuation-large-deviations`](../results/explicit-valuation-large-deviations/README.md), written, with a finite certificate | transfers (checked for `d = 5`) |
-| L3 | One-round explicit descent: outside an explicit exceptional count, `S^n(N) < N(3/2^θ)^n + (3/2)^n` | [`explicit-one-round-descent`](../results/explicit-one-round-descent.md), written | transfers (additive term times `d`) |
+| L3 | One-round explicit descent: outside an explicit exceptional count, `S^n(N) < N(3/2^θ)^n + (3/2)^n` | [`explicit-one-round-descent`](../results/explicit-one-round-descent/README.md), written | transfers (additive term times `d`) |
 | L4 | Mixing of the Syracuse random variables `Syrac(Z/3^n)` (Tao Prop. 1.17, §§3–4) with explicit constants: the crux | part 0: [`explicit-tao-via-formal-mixing-constants`](explicit-tao-via-formal-mixing-constants.md); part 1: [`tao-printed-window-vacuity`](../results/tao-printed-window-vacuity/README.md) | model statement, `d`-blind |
 | L5 | Renewal / first-passage transfer from the random model to actual integers with explicit error (Tao §§5–6) | not started | transfers |
 | L6 | Iteration across scales in logarithmic density, summable explicit errors; assembly of `C(δ)` | not started | transfers |
@@ -67,7 +67,7 @@ Explicit one-round descent is cheap and exact; iteration is what fails, and it f
 
 ## What survives
 
-1. [`explicit-valuation-large-deviations`](../results/explicit-valuation-large-deviations/README.md) and [`explicit-one-round-descent`](../results/explicit-one-round-descent.md): explicit one-round statements at scale `X` with exceptional fraction `e^(−n I(θ)) + 2 C(⌊θn⌋,n)/X` and descent factor `(3/2^θ)^n`, every constant explicit, for every odd `d`.
+1. [`explicit-valuation-large-deviations`](../results/explicit-valuation-large-deviations/README.md) and [`explicit-one-round-descent`](../results/explicit-one-round-descent/README.md): explicit one-round statements at scale `X` with exceptional fraction `e^(−n I(θ)) + 2 C(⌊θn⌋,n)/X` and descent factor `(3/2^θ)^n`, every constant explicit, for every odd `d`.
 2. The reformulation: with the positive-density theorem machine-checked, Collatz ⇔ `B` has logarithmic density 0 ⇔ log-almost all orbits dip below the verified range ([`nonabsorbing-set-linear-lower-density`](../results/nonabsorbing-set-linear-lower-density/README.md); the target is [`explicit-almost-all-descent-threshold`](../questions/explicit-almost-all-descent-threshold.md)).
 3. The `d`-specific step of any such proof is the verified range itself (L7); everything else in the averaging toolbox is `d`-blind.
 4. [`tao-printed-window-vacuity`](../results/tao-printed-window-vacuity/README.md): the quantitative reason why an explicit version of the existing almost-all theorem does not meet the verified range.

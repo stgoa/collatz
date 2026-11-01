@@ -2,7 +2,7 @@
 id: predecessor-density-conditional-reconstruction
 kind: result
 title: Conditional on Tao's mixing theorem, every target not divisible by 3 has predecessors of positive lower density, for every 3x+d with gcd(d,6) = 1
-status: written
+status: reviewed
 claim: >
   Assume Tao's finite-distribution mixing estimate (Proposition 1.14 of the corrected v7, for all 1 <= m <= q,
   with unspecified finite constants C_A). Fix d > 0 with gcd(d,6) = 1, the ordinary map C_d (n/2 on even n,
@@ -23,6 +23,11 @@ evidence:
   - "audit_checks.json: the receipt of check_audit.py (three central histories, 64 histogram fibres, 10 marginal laws, eight signed transfer identities, 108 branch and tail checks, six density-mode cases for the C.2a attempt, four d-controls and six rejections). Finite arithmetic tests of the written ingredients; they neither check an infinite orbit nor run Lean"
   - "audit_notes.md: §§1-7, the seed-uniform weighted-history residue histogram (7)-(8), the explicit mixing transfer (10) and the summable variation majorant (13); transfer_scope.md: the corrected Tao v7 normalisation and the transfer to every d coprime to 6"
   - "verification.json: the main lane's P6-004 finite gate record (python3 scripts/verify_all.py --cpp --transfer-controls, exit 0, 119 report fields, pinned runner, checker and receipt bytes; an earlier run ended with exit 143 and an empty log, cause not established, not counted as PASS). Its 'independent model reviews' were the main lane's own agents, not independent"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full written chain re-derived step by step (single-block bounds, histogram lemma, mixing transfer (10)-(13), concentration exponents, scale inequalities (12)-(13), terminal and counting steps, root family) with exact finite laws and the Tao normalisation identity checked by independent code; certificate re-run (PASS, exit 0, 0.88 s); 3x+5, 3x+7, 3x+13, 3x+61 root families and controls consistent; Tao's Proposition 1.14 itself not checked; verdict HOLDS conditional on (T)"
 aliases: [P6-C.1a-b]
 tags: [convergence, phase6, predecessors, density, conditional, tao, 3x-plus-d]
 ---
@@ -526,3 +531,5 @@ Collatz result.
 ## History
 
 Migrated from `experiments/phase6/linear_density_audit/terminal_audit.md` (legacy batch `P6-004`, route node C.1a), with `audit_notes.md`, `transfer_scope.md`, `check_audit.py`, `audit_checks.json` and `verification.json`, at commit `be73a66`. ChatGPT main lane, 2026-10-18. One link in `transfer_scope.md` was repointed from `terminal_audit.md` to this README at the migration.
+
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections to the claim; the result stays conditional on `tao-2019-almost-all`, which the review did not check. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

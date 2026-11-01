@@ -67,7 +67,7 @@ so some predecessor `x` has `K(x) < 0`, i.e. `x ∈ F⁻`. Since `F⁻` is finit
 
 - **Scope after review.** The lemma is a cost **lower bound** relative to a finite exact current, under the no-cycle hypothesis on the difference support; that hypothesis must stay attached to the uniqueness statement. It does not make one-sided certificates unique, does not prescribe how a constructor must work, and does not eliminate structural certificate searches. A formal infinite forward sum is not automatically a finite certificate: the canonical exact current exists as a finite object only when every source terminates.
 - **Why the construction method stays open** (legacy `PR1_REVIEW.md` §3). For every state `x`, the source `δ_x − P δ_x` has the one-row exact current `δ_x`, with no assertion about the future of `Sx`. One-sided certificates, algebraic descriptions, modular lemmas and finite searches remain possible routes to the sufficient hypothesis of [`qualitative-current-criterion`](qualitative-current-criterion.md).
-- **Complement.** The main lane's per-packet row lower bound ([`bounded-packet-certificate-obstruction`](bounded-packet-certificate-obstruction.md), legacy R7) and Lemma 4 are complementary: every certificate dominates the forced current pointwise, and that forced current is itself large for individual packets.
+- **Complement.** The main lane's per-packet row lower bound ([`bounded-packet-certificate-obstruction`](bounded-packet-certificate-obstruction/README.md), legacy R7) and Lemma 4 are complementary: every certificate dominates the forced current pointwise, and that forced current is itself large for individual packets.
 - Novelty undetermined.
 
 ## History

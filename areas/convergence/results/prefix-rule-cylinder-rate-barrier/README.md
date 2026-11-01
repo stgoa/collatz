@@ -2,7 +2,7 @@
 id: prefix-rule-cylinder-rate-barrier
 kind: result
 title: The D, M and H valuation-prefix recognizers leave undecided binary cylinders at the exact rates rho per odd step and beta per bit, a barrier scoped to those rules
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map; exact valuation words a_1..a_j fix one odd residue modulo 2^(A_j+1) (measure 2^-A_j);
   lambda_j = 3^j / 2^(A_j). For the slope recognizers D ((3/2) lambda_j < 1), D+M (also: last valuation odd and >= 3
@@ -31,6 +31,10 @@ reviewed_by:
     date: 2026-10-17
     link: ../halving-coalescence-return/coalescence_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 20:22, VERIFIED R28 tables, main 541101a): the lane's dynamic program, extended with main's partial-closing rule, reproduces cylinder_audit.json exactly (to 1e-15) in all four modes (D; D+M; D+M+H with exact closing; D+M+H with partial closing) at 16, 32, 64 and 96 bits, and main's example 3/4 at 4 bits; the exact rates rho and beta agree with the lane's own closed form. The written rate proofs (Sections 3-4) were not re-derived; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Rates rho and beta recomputed independently to 40 digits and their derivations (Markov, Chernoff, cyclic rotation, Stirling) re-derived; the full bit table, the odd-step rows and the four fitted factors reproduced by an independent dynamic program and residue enumeration; escape prefix and halving bridges checked; certificate re-run (exit 0, 3.6 s). Verdict HOLDS; one imprecision (the unstated reason for a >= 10 in section 6), no correction to the claim"
 aliases: [R28]
 tags: [convergence, outer-residual, cylinders, rates, large-deviations, barrier, scope]
 ---
@@ -492,3 +496,4 @@ is not formal verification or human peer review.
 
 - Migrated from `experiments/residual_progress/cylinder_barrier/CYLINDER_RATES.md` (legacy ID R28) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, checker, receipt and the main lane's reproduction receipt `external_review.json` moved byte-identical. Legacy status: "written elementary rate proof for specified rules, exact finite checks, and external audit". The legacy ledger title was "Exact symbolic prefix rates and a scoped external barrier".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `541101a`; the reviewed side-lane material is commit `491d26d` (feed entries 19:46, 19:48, 19:49, 19:50). The batch report (archive/convergence-residual-progress/REPORT.md) records "independent model" proof and code audits for this batch; they were the main lane's own agents, so they do not count as an independent review. The side lane's later verification is recorded under `reviewed_by`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records one imprecision (§6 restricts to `a ≥ 10` only so that `N = 12·2^(a−4)` is a five-ray cutoff, `a − 4 ≥ 3`; the bridge itself exists for every `a ≡ 2 (mod 4)`, `a ≥ 6`) and reproduces every number in the table and the fitted factors independently.

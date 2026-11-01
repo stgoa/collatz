@@ -13,8 +13,8 @@
 
 ## What I did not check
 
-- The nodes cited in the remarks ([`reflected-negative-annulus-control`](../reflected-negative-annulus-control.md), [`whole-packet-historical-certificates`](../whole-packet-historical-certificates/README.md), [`exposure-potential-boundary-flux`](../exposure-potential-boundary-flux/README.md)).
-- The second half of `verify_obstructions.py` (the delayed-separation and coalescence checks that belong to [`bounded-packet-certificate-obstruction`](../bounded-packet-certificate-obstruction.md)) beyond running it.
+- The nodes cited in the remarks ([`reflected-negative-annulus-control`](../reflected-negative-annulus-control/README.md), [`whole-packet-historical-certificates`](../whole-packet-historical-certificates/README.md), [`exposure-potential-boundary-flux`](../exposure-potential-boundary-flux/README.md)).
+- The second half of `verify_obstructions.py` (the delayed-separation and coalescence checks that belong to [`bounded-packet-certificate-obstruction`](../bounded-packet-certificate-obstruction/README.md)) beyond running it.
 - Novelty.
 
 ## Findings

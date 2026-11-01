@@ -2,7 +2,7 @@
 id: nonabsorbing-set-linear-lower-density
 kind: result
 title: A nonempty nonabsorbing set inherits every fixed-target predecessor lower bound, so it is empty or of positive lower density
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; B the positive odd seeds that never reach 1; B~ = {n >= 1 : oddpart(n) in
   B}; tau_1 the absorbed odd-arrow hitting time of 1. If m is in B then a = S(m) is odd, greater than 1, not
@@ -20,6 +20,11 @@ created: 2026-10-18
 assumes: [lau-2026-positive-density, krasikov-2003-predecessors]
 depends_on: [lau-density-formal-replay]
 lean: [LeanLane.Dichotomy.bad_positive_lower_density, LeanLane.Dichotomy.collatz_of_bad_density_zero]
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (inheritance, the linear lower bound and the C.2a equivalence from the Lau input, the power-saving implication from Krasikov-Lagarias), the Lean dichotomy file read against the prose, 3x+5, 3x+7, 3x+13, 3x+61 controls on the failure of both upper conditions; no certificates listed; verdict HOLDS, the only steps resting on the AI-generated positive-density source being the lower bound in (i) and the direction 'C.2a implies convergence'"
 aliases: [P6-C.3]
 tags: [convergence, phase6, predecessors, density, nonabsorbing-set, conditional, zero-one-law]
 ---
@@ -68,3 +73,5 @@ The positive branch and the contrapositive of (i) are formalised by the Lean lan
 ## History
 
 Migrated from `experiments/phase6/linear_density_audit/README.md` (the P6-004 folder overview, legacy batch `P6-004`), at commit `be73a66`; part (ii) is route node C.3 of the Phase 6 route map and audit L3 (now [`route-literature-transfer-audit`](../route-literature-transfer-audit.md)), whose map and ledger are in [`archive/convergence-phase6/`](../../../../archive/convergence-phase6/). The overview's table of artefacts maps to [`lau-density-formal-replay`](../lau-density-formal-replay/README.md) (`lau_scope.md`, `replay_notes.md`, the formal runner and statement generator), [`predecessor-density-conditional-reconstruction`](../predecessor-density-conditional-reconstruction/README.md) (`audit_notes.md`, `terminal_audit.md`, `transfer_scope.md`, the arithmetic checker) and the two attempts above. ChatGPT main lane, 2026-10-18. The Lean dichotomy is the Lean lane's queue item 3 (`Claude Lean lane (Fable)`, verified 2026-10-18, side-lane feed 21:57).
+
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections to the claim; the review records that only the lower bound in (i) and the direction 'C.2a implies convergence' rest on `lau-2026-positive-density`, which stays under `assumes`, and that the proof's bound is for `B~`, from which the lower density of `B` follows. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

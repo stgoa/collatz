@@ -1,0 +1,4 @@
+source sha256: 578969793a83841d7393f88ed59ae39bf0e7980bbde1f2a852e092d4945108fa
+'LeanLane.SaturatedScaling.exists_free_exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.SaturatedScaling.exists_translate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.SaturatedScaling.saturated_dense_of_order_prime_to_three' depends on axioms: [propext,  Classical.choice,  Quot.sound]

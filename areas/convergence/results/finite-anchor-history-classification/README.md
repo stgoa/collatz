@@ -2,7 +2,7 @@
 id: finite-anchor-history-classification
 kind: result
 title: "A finite absorbing anchor table classifies every smaller canonical history within a ternary horizon"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1, canonical quotient T = nu S. Let Q be a checked finite absorbing canonical
   T-table containing every canonical origin c <= N. For canonical Y > 1, canonical y >= Y with y = Y mod 3^K and
@@ -28,6 +28,10 @@ reviewed_by:
     date: 2026-10-18
     link: r82_anchor_lift_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 08:07, VERIFIED, main 9190ccf), with the lane's own T = ν∘S and without reading main's code or anchor table: '**Anchor classification.** Every canonical `c < 11547` (2,887 origins) was followed forward with `T` to 1. Exactly one reaches `Y = 17321 = T(11547)`: `c = 11391`, at depth 13'; the lifted family by independent inverse-tree search for D = 1..14 with six values of t (84 cases); the contracting control (6); and the theorem on 300 random instances (random canonical anchor Y < 3000, horizon K ≤ 6, q < 4000). The general all-ray proof is the written argument. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Theorem 1 re-derived and tested by forward brute force on 300 random instances (with a control showing the ternary congruence is needed); affine cutoff, contracting control and n = b - 1; anchor table rebuilt, catalogue {(11391, 13)}, lifted family D = 1..14 by independent inverse trees and a C forward sweep; certificate re-run (PASS, exit 0, 1 s); 3x+5 control shows the absorbing hypothesis is essential. Verdict HOLDS; one hygiene gap (assert-only certificate) and two imprecisions, no correction to the claim"
 aliases: [R82]
 tags: [convergence, outer-residual, smaller-origin-history, anchor-certificate, inverse-barrier, ternary-precision]
 ---
@@ -250,3 +254,4 @@ No universal current supply, Collatz proof or novelty claim is made.
 
 - Migrated from `experiments/residual_progress/history_frontier/HISTORY_FRONTIER.md` (legacy ID R82) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written completeness theorem within a stated ternary horizon and exact finite-table classification".
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `1d58f50`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No text was changed; the review records that r82_anchor_lift_check.py checks by assert only (a corrupted expectation passes under python3 -O) and two imprecisions.
