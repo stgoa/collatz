@@ -22,7 +22,7 @@ Each node declares its status (`proposed` → `written` → `reviewed` → `form
 |---|---|---|
 | This page | 2 min | What the project is |
 | [`MAP.md`](MAP.md) | 5 min | Every node on one page: open questions first, then each area's results with their strength |
-| `areas/<area>/OVERVIEW.md` | 10 min | The story of one area: [`cycles`](areas/cycles/OVERVIEW.md), [`convergence`](areas/convergence/OVERVIEW.md), [`invariants`](areas/invariants/OVERVIEW.md) |
+| `areas/<area>/OVERVIEW.md` | 10 min | The story of one area: [`cycles`](areas/cycles/OVERVIEW.md), [`convergence`](areas/convergence/OVERVIEW.md), [`invariants`](areas/invariants/OVERVIEW.md), [`decidability`](areas/decidability/OVERVIEW.md) |
 | A node | as needed | One claim and its full argument |
 
 | Path | Contents |
