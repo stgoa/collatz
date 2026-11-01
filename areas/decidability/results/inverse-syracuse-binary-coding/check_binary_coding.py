@@ -88,7 +88,7 @@ def main():
     bands = (sorted(set(A[0].values())), sorted(set(A[1].values())))
     if not (max(bands[0]) <= 6 and min(bands[0]) >= 3 and min(bands[1]) >= 7 and max(bands[1]) <= 10):
         fail("V1: bands not [3,6] and [7,10]")
-    s["V1"] = {"table": {str(b): {str(r): a for r, a in A[b].items()} for b in (0, 1)}, "bands": bands}
+    s["V1"] = {"table": {str(b): {str(r): a for r, a in A[b].items()} for b in (0, 1)}, "bands": [list(x) for x in bands]}
     print("V1: table entries give 2^a r = 4 or 7 (mod 9); bands", bands)
     # V2
     count = 0
