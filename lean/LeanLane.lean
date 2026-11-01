@@ -10,3 +10,4 @@ import LeanLane.RotationDistance
 import LeanLane.SaturatedDensity
 import LeanLane.CycleInequality
 import LeanLane.SaturatedScaling
+import LeanLane.SaturatedAutomaton
