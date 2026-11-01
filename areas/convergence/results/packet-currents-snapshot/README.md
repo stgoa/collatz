@@ -2,7 +2,7 @@
 id: packet-currents-snapshot
 kind: result
 title: Exact-source ternary packets, with all-horizon current certificates at two named cutoffs (the inherited snapshot)
-status: written
+status: reviewed
 claim: >
   Odd-only (Syracuse) clock, absorbing at 1. Let ν_N be the programme's signed source measure and P the
   push-forward through S that kills mass reaching 1. (i) For every N ≥ 8 and 1 ≤ d ≤ b/2, b = ceil(log₂N),
@@ -32,6 +32,10 @@ reviewed_by:
     date: 2026-10-17
     link: ../locally-collatz-like-control-barrier/NOTE.md
     scope: "Partial and finite only: the stored currents at N = 4096 (2,736 rows) and N = 262144 (132,998 rows) equal the forward aggregates Σ_j P^j Π̂ row for row (NOTE §5, reduction_audit.py). Theorem 2.1 and Corollary 2.2 were not re-derived by another lane; the side lane's survey lists R1 as not touched"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-derived Theorem 2.1 and Corollary 2.2 and reproduced both stored packet tables by brute force; re-ran the four certificates (all exit 0) and re-verified both stored currents, their acyclicity and exit-profile bounds with independent code; bookkeeping checked on the 3x+5 and 3x+13 controls; verdict HOLDS"
 aliases: [R1]
 tags: [convergence, packet-currents, finite-certificates, snapshot]
 ---
@@ -104,3 +108,4 @@ Each of these exits 0 at its new path and leaves every manifest hash unchanged (
 - 2026-10-17: the PR1 lane (Claude, Opus) checked the stored currents against forward aggregates (see `reviewed_by`).
 - The main lane's packet-currents programme (R1–R94) was later declared frozen at R94; that is a history note, not a status.
 - Legacy scripts in other lines (current construction, annular construction, residual progress) load `experiments/packet_currents/right_aligned_packets.py` and this snapshot's `data/` by their old paths; see [`right-aligned-fixed-core-remainder`](../right-aligned-fixed-core-remainder/README.md).
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No change to the claim or text. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

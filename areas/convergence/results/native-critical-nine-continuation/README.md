@@ -2,7 +2,7 @@
 id: native-critical-nine-continuation
 kind: result
 title: "Native critical-nine continuation at the original rank: complete native and next-A2 decisions"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1, [1] = 0; P(w) = [3w] - [w], W5 = {w = 5 mod 8}, W9 = {w = 9 mod 16}, rho(w)
   = nu(3w), retained critical basis of R75 with formal plans [s] = div J_s + A_s.P. For every positive b = 905 mod
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-18
     link: ../high-smaller-origin-history/batch_r78_r80_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 03:31, VERIFIED, main 3b0c8a5), with the lane's own step, ν and selected: '**R78.** Take 2,000 random `b ≡ 905 (mod 8192)`. Then `t = (27b + 13)/128 ≡ 191 (mod 1728)`. From `3b` the six ordinary arrows have valuations `(1,2,1,1,1,2)` and end at `r = (81t − 1)/2`. This `r` is selected, with `ν(r) = 3c`, where `c = (27t − 1)/4 = U(b) = (729b + 223)/512`.' The signed plans and the decisions (6) and (18) were not rebuilt; reproduced by the main lane in side_lane_review_9849c53.md. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Sections 1-5 re-derived (lemma (2), the interface (3)-(4) and its converse, decision (6), the D6 inverses with the exact identities (13)-(15), the A = 2 decision (18)-(20), cells (21)-(22), the 4187017 example) and reproduced with independent code on 244 native and 179 D6 members; certificate re-run (PASS, exit 0, 21 s); 3x+5 and 3x+13 controls. Verdict HOLDS, three imprecision-level findings, no correction"
 aliases: [R78]
 tags: [convergence, outer-residual, critical-nine, critical-basis, original-rank, native-history]
 ---
@@ -458,3 +462,4 @@ correctly rejects this substitution for b.
 
 - Migrated from `experiments/residual_progress/native_nine/NATIVE_NINE_CONTINUATION.md` (legacy ID R78) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written conditional composition theorem and complete decisions on the stated domains; universal supply remains open".
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `3b0c8a5`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review notes that the bound Q >= 209935 of section 3 comes from the residue class alone (not attained in the guarded domain) and that section 1 leaves the odd-depth sibling step of R40 implicit ([`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md)).

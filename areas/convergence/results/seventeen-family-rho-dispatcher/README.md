@@ -2,7 +2,7 @@
 id: seventeen-family-rho-dispatcher
 kind: result
 title: Seventeen conditional strict-rank families with fixed inner resolvers
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; P(w) = [3w] - [w], rho(w) = nu(3w) on W5. The dispatcher tries, in order,
   the unchanged fifteen-family dispatcher (with its complete internal priority and returned plan), then R62's
@@ -21,6 +21,11 @@ depends_on: [fifteen-family-rho-dispatcher, absorption-defect-original-rank-reso
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_resolved_rules.py, resolved_rules.py, resolved_rules_audit.json: the legacy constructor and checker: all 1024 W5 inputs below 8192 (all 747 previously accepted plans preserved as full dictionaries, matching the fifteen-family hash; 747 accepted, 277 unresolved, no new input in the window), witnesses 53173 (R62) and 36641534965 (R64) outside the window, the R45-priority overlap at 20405, six supplied-current demonstrations with 14 distinct supplied pairs and five negative checks. Fails at its new path: resolved_rules.py loads ../refined_rules/ (now ../fifteen-family-rho-dispatcher/), ../defect_resolution/ (now ../absorption-defect-original-rank-resolution/) and ../refined_obstruction/ (now ../exponent-eleven-fifteen-rule-classification/) by their pre-migration folder names; it is the fixed resolver loaded by the later legacy native_history/, even_exit_history/ and later_target_probe/ code. Passed at be73a66 as experiments/residual_progress/resolved_rules/check_resolved_rules.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Dispatcher code checked against the claim (priority, fixed inner resolvers, R43 validation); all 1024 window plans, their closures, the two witnesses, the overlap, the six supplied conversions and 360 random inputs re-validated with the lane's own nu, rho and divergence; certificate re-run (PASS, exit 0, 10 s). Verdict HOLDS, two imprecision-level findings, no correction"
 aliases: [R64-b]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, dispatcher, conditional-compiler]
 ---
@@ -172,3 +177,4 @@ obligation.
 
 - Migrated from `experiments/residual_progress/resolved_rules/RESOLVED_RULES.md` (legacy ID R64, the companion dispatcher of the R62-R65 round) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "composition of written strict-rank rules, with finite exact substitutions".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `793e835`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that the R62 arm's code also carries R58's plan (dead under the stated priority) and that an arm failing the R43 validator would raise rather than return None ([`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md)).

@@ -2,7 +2,7 @@
 id: bounded-history-clock-exclusion
 kind: result
 title: "No uniformly bounded pair of history clocks reaches every critical input, even over all inverse rays"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1, canonical quotient T = nu S. Let canonical q > 0 satisfy 3^D | q, D >= 1,
   and let its first J ordinary arrows have valuation 1 with every state canonical; y_a = T^a(q) = S^a(q) = (3/2)^a
@@ -27,6 +27,10 @@ reviewed_by:
     date: 2026-10-18
     link: ../later-target-twenty-step-descent/batch_r84_r85_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 04:36, VERIFIED, main 355c173): '**R85.** These are brute-force finite instances of the all-ray statement. Each has canonical `q = 2^H·u − 1` with `3^D ∣ q`, a valuation-1 prefix of length `J` with canonical states, and `u ≡ −3^H (mod 4)`. There are two instances for each `D ∈ {1, 2, 3}` and `J ∈ {1, ..., 4}`, so 24 in all, with `q` from 39 to 100095. For every `a ≤ J`, every canonical `p ≤ q` was tested against `y_a = (3/2)^a·(q + 1) − 1`. The only one reaching `y_a` within `D + a` quotient steps is `q` itself, at depth `a`.' The all-ray quantifier rests on the written shadow argument. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Statements 1-4 re-derived line by line (shadow argument, negative-start lemma, CRT and H17 families) and brute-forced with independent code (q <= 4000 in both clocks, 0 violations; CRT members to q = 3519; H17 cells r = 0, D <= 2); certificate re-run (exit 0, 7.7 s); 3x+5/7/13/61 analogues consistent. Verdict HOLDS; three imprecision-level findings, no correction to the claim"
 aliases: [R85]
 tags: [convergence, outer-residual, smaller-origin-history, inverse-barrier, clock-bound, crt-construction]
 ---
@@ -289,3 +293,4 @@ At the B18-replay-revival migration [`check_legacy_replay.py`](check_legacy_repl
 
 - Migrated from `experiments/residual_progress/history_cover_scope/HISTORY_CLOCK_BARRIER.md` (legacy ID R85) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written clock-bound theorem, including exact positive critical families".
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `355c173`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records three imprecisions (the off-by-one wording of the ternary-precision sentence in §1, the compressed negative-start lemma in §2, and that `H ≥ 3` serves only the `W5` membership `q/3 ≡ 5 (mod 8)`), and notes that the ordinary-clock statement also holds for `3x+5`, `3x+7`, `3x+13`, `3x+61` by brute force.

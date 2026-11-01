@@ -34,7 +34,7 @@ tags: [convergence, packet-currents, negative-controls, progress-measures, 3x+61
 
 The legacy main-lane rounds R9 and R10 (commit `ce56699`) measure partial progress on the annular increments `A_N = Π_(64N) − Π_N` of `3x+1` in two ways:
 
-- **(R9, [`annular-root-collapse-contraction`](annular-root-collapse-contraction.md))** a one-pass root compression `R`, collapsing chains `F(x) = 4x + 1`, with exact norm `‖P A_N‖₁ = ‖R A_N‖₁ = 171N/4 − |c_N| ≤ (19/22)·‖A_N‖₁`, where `c_N` is the annular mass of the chain rooted at 1 and `|c_N| ≤ 3`;
+- **(R9, [`annular-root-collapse-contraction`](annular-root-collapse-contraction/README.md))** a one-pass root compression `R`, collapsing chains `F(x) = 4x + 1`, with exact norm `‖P A_N‖₁ = ‖R A_N‖₁ = 171N/4 − |c_N| ≤ (19/22)·‖A_N‖₁`, where `c_N` is the annular mass of the chain rooted at 1 and `|c_N| ≤ 3`;
 - **(R10, [`exposure-potential-boundary-flux`](exposure-potential-boundary-flux/README.md))** the exposure potential `Φ`, the positive mass of exposed components not containing 1.
 
 The legacy open obligation was to prove that every positive `Φ`-plateau ends ([`annular-component-progress-lemma`](../questions/annular-component-progress-lemma.md)).

@@ -1,0 +1,32 @@
+# Review of annular-complement-outer-descent
+
+## What I checked
+
+- Read the node and the parts of its dependencies that the argument uses: [`retained-graph-complement-constructor`](../retained-graph-complement-constructor/README.md) (the profile `R_N` and the supplied-current convention), [`delayed-release-cancellation`](../delayed-release-cancellation/README.md) (parameters `h, r, V, X`, the word `(1^r, 2^h, 3)`, inequalities (7)–(8)), [`universal-annular-partial-current`](../universal-annular-partial-current/README.md) and [`release-source-packing`](../release-source-packing/README.md) (the catalogue families), [`affine-common-tail-tree-lifting`](../affine-common-tail-tree-lifting/README.md) (the five-source family) and [`disjoint-annular-recursion`](../disjoint-annular-recursion/README.md) (the six-band table).
+- Certificate: `python3 tools/run_certificates.py --node annular-complement-outer-descent`: PASS, exit 0, 7 s (legacy replay of `check_transfer.py`, every file unchanged).
+- **Lemma (item 1), re-derived.** Positive atoms of `A_M` above `N = 64M` lie in band 4 within `(N, 9N/8)` with residues 11, 13, 17 mod 18, or in band 5 `(9N/8, 9N/4)` with residue 17 (coefficient 2). For `y ≡ 11, 17`: `2y − 1 ≡ 3, 15 (mod 18)`, so `x = (2y−1)/3` is odd, `x < 3N/4`, and `S(x) = y` with valuation 1. For `y ≡ 13`: `(4y−1)/3 ≡ 5 (mod 6)` is odd and `8y − 5 ≡ 9 (mod 18)`, so `(8y−5)/9` is odd and `< 8y/9 < N`. Band 5, `y ≡ 17`: `4y − 5 ≡ 9 (mod 18)` and `(4y−5)/9 < 4y/9 < N`. Independent code confirmed the three ancestor formulas on all 353280 positive atoms of the 66 cutoffs `M ∈ {8, …, 512, 768, 6144}` of the receipt, 125663 of them above `N` (receipt: 353280, 125663).
+- **Transfer (item 2).** `Q = P − μ = (I − Push)(H_P − J)` is immediate. The exits: every root of `R_N` is `≡ 3` or `7 (mod 12)`, hence `≡ 3 (mod 4)` with valuation 1; `t = (3x+1)/2` is odd, lies in `(3N/2 + 1/2, 9N/4 + 1/2)`, and `9N/4` is even, so `t ∈ (3N/2, 9N/4)`; `3x + 1 ≡ 10, 22 (mod 36)` gives `t ≡ 5, 11 (mod 18)`, where the band-5 row is `−1`. Code: every root at every `8 | M ≤ 512` (at `M = 96`: 490 roots, `|R_N| = 532`, equal to the ladder value `25N/288 − 4/3`). The in-tree step used in §§1–2 is supplied under Findings.
+- **Coverage (item 3).** `(2(13775 + 1152j) − 1)/3 = 9183 + 768j`; `9183 ≡ 3 (mod 12)`, `768 ≡ 0`; `t − 108M ≥ 815` at the largest admissible `M` of both classes gives `x > 9N/8`, and `t < 144M` gives `x < 3N/2`. Code: for every cutoff of the receipt I rebuilt the negative atoms of the whole extended catalogue (families E, D, B, C, A, the zero-cost pairs, the triples, every admissible five-source copy, each coefficient checked against `A_M`), took every valuation-one predecessor and evaluated `R_N`: exactly the five-source roots appear, 164 over the 66 cutoffs (receipt 164), `C_old(M) = 1, 1, 3, 6, 43` at `M = 96, 168, 384, 768, 6144`, and `M/144 − C_old(M) ∈ [−1.17, 1.11]` for `8 | M ≤ 512`. The triples' roots `q ≡ 31 (mod 36)` in `(N, 9N/8)` have `R_N(q) = 0`, as stated.
+- **Descents (item 4).** From (7) of the release node, `(81/32)X + 1/2 < v` gives `t = (2v−1)/3 > 27X/16 = 72M`, and `t < y_2 = 96M − 1`; `v ≡ 47 (mod 54)` in both classes gives `2v − 1 ≡ 93 (mod 108)`, so `t ≡ 31 (mod 36)`, class `7 (mod 12)` above `9N/8`, `R_N(t) = 1`. The path word `(1^(r+1), 2^h, 3)`, endpoint `N − 1`, intermediates `> N`, peak `w_h = 4(4/3)^h(X−1) + 1 > (4/3)^h N` for `X ≥ 2`, and `h + r + 2 ≤ 2h + 2` since `r ≤ h`. Code: the parameter families of §2 of the release node rebuilt for `2 ≤ h ≤ 32`, both `V`, the first two `X` of each progression: 88 designated branches, 82 companions with `R_N > 0`, 12 of weight 2 (receipt 88, 82, 12); of two consecutive `h` at least one qualifies on this range.
+- **Coefficient-2 example.** `40480795 ≡ 19 (mod 36)`, in `(N, 9N/8)`, `R_N = 2`; the ten listed states are its forward orbit, word `(1, 2, 1, 1, 1, 1, 2, 2, 2, 3)`, endpoint `36473855 = N − 1`, every intermediate state above `N`.
+- **Stored current.** The 61 rows of `outer_9183_current.csv` are exactly the forward orbit of 9183 to 1 (second state 13775; first state `≤ 6144` is 4541), all coefficients 1, divergence `δ_9183`; with `|R_6144| = 532` the receipt's remaining mass 531 is consistent.
+- **Controls.** The graph argument is `d`-uniform, but the hypothesis (an exact current `H` for `U_N`) fails on the controls: under `3x+5`, 221 of the 256 odd seeds `1 < n ≤ 512` never reach 1 (first 3, 5, 7, 11, 13, 15); under `3x+13`, 135 (first 13, 19, 21, 35). The result excludes nothing there; it is conditional exactly as stated.
+
+## What I did not check
+
+- The dependencies beyond what the argument uses: (7)–(8) and the congruence (2) of the release node were re-derived only as far as the position and residue of `t` and the integrality of `v, t, u`; the admissibility intervals of the five-source copies were tested by direct coefficient evaluation, not re-proved.
+- The legacy checker's five actual transfers (capped lower absorption search) beyond re-running them through the certificate; the receipt's hashes were not recomputed independently.
+- Nothing about termination or universal coverage: the node proves none, and I looked for none.
+
+## Findings
+
+1. (gap, supplied) §1 and §2 both use "in a finite functional graph, an exact current with nonnegative source forces actual directed paths from its sources to 1" without argument. It holds: rows are indexed by odd states `> 1`, so 1 has no outgoing arrow; in a weak component `C` of the nonzero-row graph not containing 1, every arrow from `C` lands in `C`, so the divergence sums to zero over `C`, and a nonnegative source puts no atom there; the component of 1 contains a vertex of out-degree 0, hence (out-degree `≤ 1` everywhere) it is an in-tree rooted at 1, and every forward path in it ends at 1. For `H_P − J` the same argument applies because its divergence `Q` is nonnegative.
+2. (imprecision) "distance at most two" is sharp: residue 13 in band 4 and residue 17 in band 5 need exactly two arrows, and the first ancestor lies below `N` only because the bands are open (`y < 9N/8`, resp. `y < 9N/4`).
+3. (imprecision) "far below `|R_N|`" is `N/9216` against `25N/288`: asymptotically one root in 800, with `|O(1)| ≤ 1.17` in `C_old(M)` on `8 | M ≤ 512`.
+4. (typo) The legacy text, kept as written, has lost spaces ("at1", "modulo18", "coefficient2"); harmless.
+
+## Verdict
+
+HOLDS
+
+Claude review lane (Fable 5.1; directed by Santiago Armstrong), 2026-10-31

@@ -2,7 +2,7 @@
 id: bounded-packet-certificate-obstruction
 kind: result
 title: Some actual right-aligned packet needs more than H current rows, for every H
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; right-aligned packets of right-aligned-fixed-core-remainder. For every
   integer H ≥ 0, with K = 2H + 7, y = 9·2^K − 1 and N = 4·2^K + 5, the measure μ_y = 2δ_y − δ_(y+6) − δ_(y+12) is
@@ -17,6 +17,11 @@ created: 2026-10-17
 depends_on: [right-aligned-fixed-core-remainder, orbit-component-current-criterion]
 evidence:
   - "../orbit-component-current-criterion/verify_obstructions.py (a certificate of that node): checks the delayed-separation formulas at H = 0, 1, 2, 4, 8, 16, 32, 64, 128, verifies packet membership arithmetically without materialising the cutoff, and checks the local coalescence identity for t = 0, …, 9999; legacy receipt audit.json there"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (packet membership from the R2 definitions and by independent materialisation of the whole right-aligned construction for H <= 3, delayed separation and the perturbation formula for H <= 80, the functional-graph path argument, the local identity for t < 20000); the evidence script re-run (exit 0); no certificates listed. Verdict HOLDS; two imprecisions and no correction to the claim; the node was converted from a single file to a folder for this review"
 aliases: [R7-b]
 tags: [convergence, packet-currents, right-aligned, obstruction, certificate-size]
 ---
@@ -25,7 +30,7 @@ tags: [convergence, packet-currents, right-aligned, obstruction, certificate-siz
 
 ## Statement
 
-Odd-only clock, absorbing at 1; packets as in [`right-aligned-fixed-core-remainder`](right-aligned-fixed-core-remainder/README.md). The conclusion concerns **individual triples**, even though those triples occur in the actual right-aligned family. It does not exclude cancellations across different triples in the aggregated measure `Π^R_N`.
+Odd-only clock, absorbing at 1; packets as in [`right-aligned-fixed-core-remainder`](../right-aligned-fixed-core-remainder/README.md). The conclusion concerns **individual triples**, even though those triples occur in the actual right-aligned family. It does not exclude cancellations across different triples in the aggregated measure `Π^R_N`.
 
 **Theorem 2.** For every integer `H ≥ 0`, let `K = 2H + 7`, `y = 9·2^K − 1` and `N = 4·2^K + 5`. The measure
 
@@ -61,12 +66,13 @@ This follows by induction: before each division the perturbation is divisible by
 
 ## Remarks
 
-- **Purpose and scope.** A finite catalogue of per-triple current templates whose expansions each have a uniformly bounded number of rows cannot certify every actual right packet. Recursive templates with unbounded expansion, templates using cancellations across packets, and constructions with unrestricted certificate size are not excluded. The logarithmic lower bound is small relative to the arbitrary per-cutoff cost permitted by [`qualitative-current-criterion`](qualitative-current-criterion.md); its purpose is to rule out an overly narrow local search strategy. Aggregated packets are studied in [`whole-packet-historical-certificates`](whole-packet-historical-certificates/README.md); whether a uniform aggregate exposure depth exists is [`uniform-aggregate-exposure-depth`](../questions/uniform-aggregate-exposure-depth.md).
+- **Purpose and scope.** A finite catalogue of per-triple current templates whose expansions each have a uniformly bounded number of rows cannot certify every actual right packet. Recursive templates with unbounded expansion, templates using cancellations across packets, and constructions with unrestricted certificate size are not excluded. The logarithmic lower bound is small relative to the arbitrary per-cutoff cost permitted by [`qualitative-current-criterion`](../qualitative-current-criterion.md); its purpose is to rule out an overly narrow local search strategy. Aggregated packets are studied in [`whole-packet-historical-certificates`](../whole-packet-historical-certificates/README.md); whether a uniform aggregate exposure depth exists is [`uniform-aggregate-exposure-depth`](../../questions/uniform-aggregate-exposure-depth.md).
 - **A useful local identity remains valid.** For every integer `t ≥ 0`, set `x = 69 + 256t`. Then `S^2(x) = 5 + 18t` and `S^2(x + 6) = 85 + 288t = 16·S^2(x) + 5`. Because `3(16u + 5) + 1 = 16(3u + 1)`, their odd parts agree, so `S^3(x) = S^3(x + 6)`. This yields an exact current for `δ_x − δ_(x+6)` with at most six rows. The valuation of the third step need not be bounded or fixed on the whole cylinder. This is compatible with Theorem 2: the single residue cylinder is useful, but a bounded-size per-packet catalogue cannot cover all packets.
-- **Complement.** Every certificate dominates the forced current pointwise ([`exact-current-minimality`](exact-current-minimality.md)), and Theorem 2 shows that forced current is itself large for individual packets (PR1 lane, NOTE §10 in [`locally-collatz-like-control-barrier`](locally-collatz-like-control-barrier/README.md)).
+- **Complement.** Every certificate dominates the forced current pointwise ([`exact-current-minimality`](../exact-current-minimality.md)), and Theorem 2 shows that forced current is itself large for individual packets (PR1 lane, NOTE §10 in [`locally-collatz-like-control-barrier`](../locally-collatz-like-control-barrier/README.md)).
 - Novelty undetermined.
 
 ## History
 
 - Migrated from `experiments/current_construction/obstructions/functional_graph_currents.md` §§3–4 (part of the legacy R7 round) at commit `be73a66`, by the B08 migration (Claude, Opus 5.5). Legacy status: "written graph theorem, complete semidecision algorithm, and finite checks"; the note says these arguments "have not been human-reviewed or formally verified".
 - Main lane (ChatGPT, Codex), 2026-10-17. The round report records an "independent model review" of the arbitrary-auxiliary-state version by the main lane's own agents; no review from another lane is on record.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof. The node was converted from the single file `bounded-packet-certificate-obstruction.md` to this folder (`README.md` plus the review), its six relative links gained one `../`, and the inbound links elsewhere were repointed; the `evidence` path `../orbit-component-current-criterion/verify_obstructions.py`, which did not resolve from the single file, now resolves. The review records one further imprecision (`A_j ≤ 2j + 2` is the bound the base orbits give; `A_j ≤ 2H + 2` is what the proof uses).

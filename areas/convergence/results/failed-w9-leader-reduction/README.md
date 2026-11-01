@@ -2,7 +2,7 @@
 id: failed-w9-leader-reduction
 kind: result
 title: "At the original threshold, two critical-nine substitutions reduce every failed R84 leader to at most one higher W5 input"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; retained critical basis of R75; the local R40 identity P(w) = div L_w + sum
   l_w(v) P(v). For odd Q >= 11547 and w in W9 with Q <= 3w and 32w < 33Q, the full vector l_w has at most one
@@ -22,6 +22,11 @@ depends_on: [critical-nine-elimination, common-critical-rank-basis, later-target
 certificates: [check_w9_history_repair_recompute.py, check_legacy_replay.py]
 evidence:
   - "check_w9_history_repair.py, w9_history_repair.py, w9_history_repair_audit.json: the legacy implementation, checker and receipt: 865 generic Q/w cases, 72 threshold cases, 72 exact-depth cells through depth 128, 72 R84 repairs among 517 examined indices, 51 full inverse undos with the nonzero w = 201 fixture, 37 rejections, three supplied outputs (k = 5, 38, 53) with 166/49/61 rows. Fails at its new path: w9_history_repair.py loads ../history_transition/ (now ../later-target-twenty-step-descent/) by its pre-migration folder name, and, through it, the B11-B12 modules; and Its receipt pins the SHA-256 of this node's legacy note W9_HISTORY_REPAIR.md, now an edited README, so it fails at its new path and in a legacy replay at earlier migrations (before rewritten notes were restored from git). Not reached at be73a66: the scripts/verify_all.py gate stopped earlier, at residual_progress/history_frontier (archive/legacy-checker-run-be73a66.md); it passed in full at 9dbc71a; A replay at this migration, before the note was edited, passed (exit 0, receipt unchanged). Its audit is recomputed by check_w9_history_repair_recompute.py. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Sections 2-5 re-derived (the five-row table, the two-substitution bound, the R84 window, the inverse undo) and reproduced with independent code on 1290 (w, Q) cases, all 72 failed R84 leaders among 517 indices and 340 undos including w = 201; both certificates re-run (PASS, exit 0, 18 s); 3x+5 and 3x+13 controls. Verdict HOLDS, two imprecisions, no correction"
 aliases: [R87]
 tags: [convergence, outer-residual, critical-nine, original-rank, bounded-reduction, inverse-undo]
 ---
@@ -330,3 +335,4 @@ uses the stored supplies and performs no absorption discovery.
 
 - Migrated from `experiments/residual_progress/w9_history_repair/W9_HISTORY_REPAIR.md` (legacy ID R87) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written complete local decision and bounded conditional reduction".
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `2a37f31`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review notes that the claim field omits the three comparisons with Q that the Statement's table uses, and that inequality (4) follows from (3) alone ([`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md)).
