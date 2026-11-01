@@ -2,7 +2,7 @@
 id: coupled-even-pair-recursion
 kind: result
 title: A coupled source C(v) = delta_(18v+3) - delta_v recurses where the split pair catalogue provably fails, closing two d = 4 entry domains of the even-return obligation
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; P(u) = delta_(3u) - delta_u, D(u) = delta_(2u+1) - delta_u. (Obligation) For
   a complementary root with even d = 2k, the remaining obligation after the run bridge is
@@ -31,6 +31,10 @@ reviewed_by:
     date: 2026-10-17
     link: ../critical-tripling-domain-equivalence/batch_436f51f_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 21:31, VERIFIED, main 436f51f; the R39 part): for all 6,250 v = 19 mod 32 below 200,000, with t = (3v-1)/8 < 3v/8, the pairs 18v+3 ~ 18t+3 and v ~ t each meet at a state other than 1 within 3 steps; the terminal cylinder v = 39 mod 8192 satisfies S^5(18v+3) = S^7(v). The split-catalogue proposition, the entry constructions and the counts were not re-derived; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (even-return obligation, split-catalogue proposition and descent, coupled rewrite and its current, both cylinder families, entries A and B with clocks (8) and (10), original cylinders (11), counts (13)) and recomputed with own R33/R36 recognisers on all odd w below 2^18, the entries below 2^20, random cylinder members and the 3x+d controls; both certificates pass; verdict HOLDS"
 aliases: [R39]
 tags: [convergence, outer-residual, pair-recursion, doubling-pairs, coupled-sources, cylinders, conditional, constructive]
 ---
@@ -434,3 +438,4 @@ both the current signs and a valid smaller supplied-input dependency.
 
 - Migrated from `experiments/residual_progress/even_pair_closure/EVEN_PAIR_CLOSURE.md` (legacy ID R39) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts, receipt and the two stored currents moved byte-identical; `check_even_pairs_recompute.py` was added at the migration. Legacy status: "written exact identities and partial constructor, complete cylinders and stored finite currents".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `436f51f`. The batch's "independent model audits" (R37–R39) were the main lane's own agents. The side lane's finite check is recorded under `reviewed_by`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections to the text; the review notes two missing cross-references (R34, the R_N source rows) and a typo.

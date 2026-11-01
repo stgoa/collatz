@@ -2,7 +2,7 @@
 id: nonselected-multiples-inverse-interface
 kind: result
 title: A complete two-block inverse interface for nonselected multiples of three in W5
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). For w = 5 mod 8 with 3 | w and 3w nonselected, put D =
   v3(w), u = w/3^D; for k in {4, 8} the base predecessor b = 2kw+1 has maximal inverse blocks of lengths D and j
@@ -22,6 +22,11 @@ depends_on: [base-inverse-phases-increasing-pairs, variable-depth-inverse-escape
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_multiple_escape.py, multiple_escape.py, nonselected_multiples_audit.json, w16653_inputs.json, w16653_current.csv: the legacy constructor and checker: 682 inputs, 1364 plans, 240 CRT cases, 24 farther families and four actual substitutions; the stored w = 16653 example requests 31189 while rank falls 49959 -> 46783. Fails at its new path: multiple_escape.py loads ../nonselected_inverse/inverse_phases.py and ../inverse_escape/inverse_escape.py (now ../base-inverse-phases-increasing-pairs/ and ../variable-depth-inverse-escape-barrier/) by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/nonselected_multiples/check_multiple_escape.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived ((1)-(15): inverse blocks, canonical states, both clocks, exact test (3)-(4), child domains, plan (8) with the R43 bounds, the failure classification 4.1-4.3 including the defect identity (13) and (14), CRT families); certificate re-run (exit 0, 9.64 s); own implementation of the R37/R40/R41 plans checks all 1364 full plans below 2^15, the w = 16653 vector, the families and the disjointness from R41/R44/R45/R46. Verdict HOLDS (two imprecision-level notes, no correction)"
 aliases: [R47]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, inverse-rays, sufficient-set]
 ---
@@ -313,3 +318,4 @@ dependencies.
 
 - Migrated from `experiments/residual_progress/nonselected_multiples/NONSELECTED_MULTIPLES.md` (legacy ID R47) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written exact two-block classification, decreasing subdomains and retained failure vectors".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `bcde58e`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction; the review notes that the equality p = q of test (3) is never attained (no solution for D <= 40, j <= 120) and that the whole domain, not only its accepted part, is disjoint from the four earlier direct rule domains.

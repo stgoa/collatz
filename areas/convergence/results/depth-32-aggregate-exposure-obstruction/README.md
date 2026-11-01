@@ -251,7 +251,7 @@ closed under recursive template packing has been proved here.
 
 #### Subsequent status
 
-The separate [infinite-family lift](../depth-32-obstruction-infinite-family.md) preserves
+The separate [infinite-family lift](../depth-32-obstruction-infinite-family/README.md) preserves
 the **whole** depth-32 component over an infinite congruence family. The
 later [unbounded-depth theorem](../unbounded-exposure-depth-necessary/README.md) answers the
 historical open question above: for every fixed `D`, there are infinitely
@@ -266,7 +266,7 @@ This node has no folder of its own (until the 2026-10-31 review, which moved it 
 
 ## Remarks
 
-- The open question in §5 of the legacy text ("does every fixed `D` admit a required-ray annulus with a positive component?") is answered by [`unbounded-exposure-depth-necessary`](../unbounded-exposure-depth-necessary/README.md), as the legacy "Subsequent status" paragraph says. The intermediate infinite family is [`depth-32-obstruction-infinite-family`](../depth-32-obstruction-infinite-family.md).
+- The open question in §5 of the legacy text ("does every fixed `D` admit a required-ray annulus with a positive component?") is answered by [`unbounded-exposure-depth-necessary`](../unbounded-exposure-depth-necessary/README.md), as the legacy "Subsequent status" paragraph says. The intermediate infinite family is [`depth-32-obstruction-infinite-family`](../depth-32-obstruction-infinite-family/README.md).
 - The annulus has `267N*/8 = 53 754 200 064` nonzero source atoms; the oracle does not enumerate them but uses the exact coefficient function at every potential inverse source.
 - Novelty undetermined.
 

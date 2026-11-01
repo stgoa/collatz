@@ -2,7 +2,7 @@
 id: shrinking-paired-return-recursion
 kind: result
 title: A decreasing paired recursion merges 3w with w on complete cylinders of every recursive depth, resolving infinite subfamilies of the unbounded run-bridge returns
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1. (Pair identity) For w = 3 mod 8 with h = v2(3w-1) = 2k+2 even (k >= 1) and
   z = 3^k (3w-1)/2^h: S^k(3w) = 4z+1 and S^(k+1)(w) = 2z+1. If z is canonical (elementary-bridge-quotient-normal-form),
@@ -31,6 +31,10 @@ reviewed_by:
     date: 2026-10-17
     link: batch_64fff1d_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 20:44, VERIFIED, main 64fff1d; the R30 part): S^k(3w) = 4z+1 and S^(k+1)(w) = 2z+1 for all 10,922 w = 3 mod 8 below 2^18 with h even; for z = 101 mod 128 the child w' = (3z+1)/16 is 3 mod 8 with 0 < w' < w/4; Mersenne mergers at a = 199 and 455 (205 and 461 steps) and a = 2887 (2896 steps); the a = 39 example merges at step 47 = a + 8. The lane's r labels are one above main's recursion depth and its merger times three steps later than main's prescribed clocks (corrected in the main lane's reproduction receipt). The written recursion and lifting proofs were not re-derived; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (pair identity with every valuation, terminal and recursive branches, cylinders (13), lifting (15), mergers (16), extraction in section 5) and recomputed with own code on w = 3 mod 8 below 2^19, cylinders r = 0..12, eleven Mersenne roots and the 3x+d controls; both certificates pass; verdict HOLDS"
 aliases: [R30]
 tags: [convergence, outer-residual, pair-recursion, shrinking, mergers, conditional, constructive]
 ---
@@ -414,3 +418,4 @@ finite bridge for them. The present written proof does neither.
 
 - Migrated from `experiments/residual_progress/second_return/SHRINKING_PAIRS.md` (legacy ID R30) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical, with the side-lane probe `reviews/side_lane/batch_64fff1d_check.*` and the main lane's reproduction receipt `experiments/residual_progress/side_lane_review_e3111d3.json`; `check_paired_return_recompute.py` was added at the migration. Legacy status: "written partial construction with decreasing parameter, complete infinite cylinders, and finite currents".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `64fff1d`. The batch report (archive/convergence-residual-progress/REPORT.md) records "independent model" proof and code audits for this batch; they were the main lane's own agents, so they do not count as an independent review. The side lane's finite check is recorded under `reviewed_by`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections to the text; see the review for three imprecision/typo notes.

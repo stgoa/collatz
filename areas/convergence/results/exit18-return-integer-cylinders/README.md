@@ -2,7 +2,7 @@
 id: exit18-return-integer-cylinders
 kind: result
 title: "Every finite mixed exit-18 return word has a complete integer cylinder; eventually periodic itineraries are negative"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w); G the R67 guard w = 40529845 mod 2^26, V(w) = (3^12 w +
   311195)/2^19, R(w) = (3^24 w + 328537586155)/2^37. Returning to G by V has complete domain 2218391138229 mod 2^45,
@@ -30,6 +30,10 @@ reviewed_by:
     date: 2026-10-18
     link: batch_r73_r74_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 02:19, VERIFIED, main aefdf60), with the lane's own odd-only step: 600 random words in V and R of length at most 12, three lifts each: the composition (3^ell w + c)/2^e with e = 19 #V + 37 #R and ell = 12 #V + 24 #R; every intermediate image an integer in G on the stated full domain; each point in the next symbol's stated domain; strict growth; every word's periodic fixed point a negative rational. Per the main lane's review (side_lane_review_d3a91fe.md): finite independent arithmetic, not a proof that the aperiodic survivor set is empty; the eventually periodic conclusion rests on the written pullback argument. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (return domains and their disjointness, the complete-cylinder theorem, the composition of common tails and clocks, the negative periodic points, the density and survivor bounds) and recomputed with own code on 303 random words up to length 256, random guard members, 200 periodic words and the counting bound for m = 1..6, with the eleven control cycles; the certificate passes; verdict HOLDS"
 aliases: [R74]
 tags: [convergence, outer-residual, mixed-rank, integer-cylinders, two-adic-coding, negative-cycle-shadow]
 ---
@@ -348,3 +352,4 @@ quantifiers rest on the proofs above, not the bounded examples.
 
 - Migrated from `experiments/residual_progress/integer_prefix/INTEGER_PREFIXES.md` (legacy ID R74) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/batch_r73_r74_check.*` and the main lane's review `experiments/residual_progress/side_lane_review_d3a91fe.md` moved here. The open aperiodic case became the question [`aperiodic-exit18-return-survivors`](../../questions/aperiodic-exit18-return-survivors.md). The legacy checker of R77 pinned this note's hash, so editing it makes that checker fail (see [`same-seed-factor-complexity-bound`](../same-seed-factor-complexity-bound/README.md)). Legacy status: "written complete prefix and counting theorem for the specified return subsystem; aperiodic integer survival remains open".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `aefdf60`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections to the text; the review notes that the warning above about R77's pinned hash no longer applies to this file (the replay restores the legacy note from the archive) and gives the numerical value of alpha.

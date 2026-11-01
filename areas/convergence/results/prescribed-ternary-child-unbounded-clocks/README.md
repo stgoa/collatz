@@ -2,7 +2,7 @@
 id: prescribed-ternary-child-unbounded-clocks
 kind: result
 title: "The prescribed ternary child of the coupled cell cannot be reached at uniformly bounded clocks"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; Q(ell) = 70506316836123 + 3 2^45 ell, the original coupled source. For
   every digit c in {0,1,2}, every ordinary clock bound K >= 0 and every prescribed return lower bound R >= 0,
@@ -30,6 +30,10 @@ reviewed_by:
     date: 2026-10-18
     link: ../two-source-normalisation-first-departure/r93_r94_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 07:33, VERIFIED): the centres q* and ℓ* with v2(ℓ*) = 1 and v2(q* − Q₀) = 46; the 18-prefix and 12-word from q* ('All 31 states are negative'); 'The 112-arrow orbit of `p*_2` ends at `1663/7153`. All its earlier states are negative, none equals an upper state, and none exceeds 80 bits.'; and 'I built main's plan independently: c ∈ {0,1,2} and K ∈ {0,1,2,4,…,128}, plus K = 16 with R ∈ {1,4,16,128}. That gives 39 cylinders and 156 replayed positive pairs.' The progression guarantee rests on the written affine-root argument. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (centres, the upper shadow, the 112-word certificate, the binary-cylinder transfer, affine-root exclusion and the return-count precision) and recomputed with an independent rational Syracuse map and cylinder constructor: all 39 cylinders of the receipt reproduced, 195 positive pairs and the re-entry counts checked by direct integer iteration; certificate re-run (exit 0, 7.71 s). Verdict HOLDS; one imprecision (the 18-arrow prefix enters the 12-cycle at step 16, so the shadow has 28 distinct states), no correction to the claim"
 aliases: [R94]
 tags: [convergence, outer-residual, clock-bound, rational-shadow, crt-construction, child-recursion]
 ---
@@ -277,3 +281,4 @@ At the B18-replay-revival migration [`check_legacy_replay.py`](check_legacy_repl
 
 - Migrated from `experiments/residual_progress/child_history_scope/CHILD_HISTORY_SCOPE.md` (legacy ID R94) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written scoped theorem with an exact finite rational-word certificate and complete cylinder constructor".
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `9190ccf`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that the upper shadow enters its 12-cycle at step 16, so the 18-arrow prefix overlaps the cycle and the shadow has 28 distinct states (every statement made about it remains true).

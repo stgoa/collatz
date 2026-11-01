@@ -2,7 +2,7 @@
 id: depth-32-obstruction-infinite-family
 kind: result
 title: The complete depth-32 obstruction lifts to every cutoff N = 96 2^24 q with q = 1 mod 3^22
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus; G_32(N) the first 32 arrows exposed from every
   nonzero source. For every integer q >= 1 with q = 1 mod 3^22 and N = 96 2^24 q, the component of 144N - 1 in
@@ -16,7 +16,12 @@ authors:
 created: 2026-10-17
 depends_on: [depth-32-aggregate-exposure-obstruction]
 evidence:
-  - "unbounded-exposure-depth-necessary/check_symbolic_lift.py, unbounded-exposure-depth-necessary/symbolic_component_lift.py, unbounded-exposure-depth-necessary/symbolic_lift_audit.json: the symbolic lift prove_chain_lift(96*2**24, 32) and its checker, which regenerates every affine inequality, compares the receipt (with SHA-256 digests of the query and comparison tables), reruns the integer oracle at q = 1, 1 + 3^22 and 1 + 2*3^22, checks 2^(2*3^21) = 1 mod 3^22 by modular exponentiation, and runs a depth-2 instance at N_0 = 384 with a numerical dyadic sample. It passes at its new path and is listed as a certificate of unbounded-exposure-depth-necessary, whose folder holds all the template scripts"
+  - "../unbounded-exposure-depth-necessary/check_symbolic_lift.py, ../unbounded-exposure-depth-necessary/symbolic_component_lift.py, ../unbounded-exposure-depth-necessary/symbolic_lift_audit.json: the symbolic lift prove_chain_lift(96*2**24, 32) and its checker, which regenerates every affine inequality, compares the receipt (with SHA-256 digests of the query and comparison tables), reruns the integer oracle at q = 1, 1 + 3^22 and 1 + 2*3^22, checks 2^(2*3^21) = 1 mod 3^22 by modular exponentiation, and runs a depth-2 instance at N_0 = 384 with a numerical dyadic sample. It passes at its new path and is listed as a certificate of unbounded-exposure-depth-necessary, whose folder holds all the template scripts"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-derived the affine lift, the congruence and the dual-test argument; ran check_symbolic_lift.py (exit 0, 1 s) and recomputed the depth-32 component at q = 1, 1 + 3^22 and 1 + 2*3^22 with independent code (35 vertices, sources -2/+2/+2, mass 2, 9171 decisions); verdict HOLDS WITH CORRECTIONS (folder move, link repairs and one appended parenthesis only)"
 aliases: [R13-c]
 tags: [convergence, packet-currents, annular, exposure-depth, symbolic-lift, obstruction]
 ---
@@ -25,7 +30,7 @@ tags: [convergence, packet-currents, annular, exposure-depth, symbolic-lift, obs
 
 ## Statement
 
-Put `N_0 = 96·2^24 = 12·2^27` and `M = 3^22 = 31 381 059 609`. For every integer `q ≥ 1` with `q ≡ 1 (mod M)` and `N = N_0·q`, the component of `144N − 1` in the entire historical exposure graph `G_32(N)` (odd-only clock, absorbing at 1; the definitions of [`depth-32-aggregate-exposure-obstruction`](depth-32-aggregate-exposure-obstruction/README.md)) is exactly
+Put `N_0 = 96·2^24 = 12·2^27` and `M = 3^22 = 31 381 059 609`. For every integer `q ≥ 1` with `q ≡ 1 (mod M)` and `N = N_0·q`, the component of `144N − 1` in the entire historical exposure graph `G_32(N)` (odd-only clock, absorbing at 1; the definitions of [`depth-32-aggregate-exposure-obstruction`](../depth-32-aggregate-exposure-obstruction/README.md)) is exactly
 
 ```
 C_N = { 3^j·64N/2^j − 1 : 0 ≤ j ≤ 34 },
@@ -45,7 +50,7 @@ the earlier single-cutoff obstruction to an infinite family. It does not
 establish obstructions at arbitrarily large depths, a Collatz counterexample,
 or a universal current construction. No novelty claim is made.
 
-**Subsequent result:** the separate [unbounded-depth theorem](unbounded-exposure-depth-necessary/README.md)
+**Subsequent result:** the separate [unbounded-depth theorem](../unbounded-exposure-depth-necessary/README.md)
 now proves an aggregate obstruction at every fixed depth, using a different
 ternary phase and an inverse-history invariant. The fixed-depth proof below
 is retained as independently checked evidence and as the route to that result.
@@ -53,7 +58,7 @@ is retained as independently checked evidence and as the route to that result.
 The source is the actual annular measure `A_N`, with `8|N`. The graph
 `G_D(N)` includes the first `D` arrows from **every** nonzero annular source,
 with absorption at 1. Definitions, the inverse oracle's completeness proof,
-and the original finite witness are in [AGGREGATE_EXPOSURE.md](depth-32-aggregate-exposure-obstruction/README.md).
+and the original finite witness are in [AGGREGATE_EXPOSURE.md](../depth-32-aggregate-exposure-obstruction/README.md).
 All original witnesses and their checker remain unchanged.
 
 ### 1. The resulting theorem
@@ -255,7 +260,7 @@ examples; it does not increase the proved depth. In particular, this
 does not exclude a universal catalogue of depth 33 or another larger
 fixed depth.
 
-The later [unbounded-depth theorem](unbounded-exposure-depth-necessary/README.md) supplies a
+The later [unbounded-depth theorem](../unbounded-exposure-depth-necessary/README.md) supplies a
 new argument showing a suitable complete positive component for each `D`.
 This does not follow merely from parameterizing the present symbolic
 verifier by depth. No residual family closed under recursive template
@@ -264,15 +269,16 @@ every required cutoff, with arbitrary finite complexity permitted.
 
 ## Certificates
 
-This node has no folder of its own. Its finite certificate is [`check_symbolic_lift.py`](unbounded-exposure-depth-necessary/check_symbolic_lift.py) (about 1 s), listed under [`unbounded-exposure-depth-necessary`](unbounded-exposure-depth-necessary/README.md), whose folder holds every template script because they import the oracle from their own folder. It passes at its new path with its receipt unchanged. The command in the legacy text names `experiments/residual_progress/templates/`.
+This node has no folder of its own (the folder was created on 2026-10-31 for the review; the certificate still lives in `unbounded-exposure-depth-necessary`). Its finite certificate is [`check_symbolic_lift.py`](../unbounded-exposure-depth-necessary/check_symbolic_lift.py) (about 1 s), listed under [`unbounded-exposure-depth-necessary`](../unbounded-exposure-depth-necessary/README.md), whose folder holds every template script because they import the oracle from their own folder. It passes at its new path with its receipt unchanged. The command in the legacy text names `experiments/residual_progress/templates/`.
 
 ## Remarks
 
-- Superseded in strength by [`unbounded-exposure-depth-necessary`](unbounded-exposure-depth-necessary/README.md), which proves an obstruction at every fixed depth with a different ternary phase; that theorem does not follow from parameterising this verifier by depth. This lift is kept as independently checked evidence and as the route to it.
-- The same affine-decision verifier, with an added translation argument, proves the phase classes of [`short-delay-all-phase-obstruction`](short-delay-all-phase-obstruction/README.md).
+- Superseded in strength by [`unbounded-exposure-depth-necessary`](../unbounded-exposure-depth-necessary/README.md), which proves an obstruction at every fixed depth with a different ternary phase; that theorem does not follow from parameterising this verifier by depth. This lift is kept as independently checked evidence and as the route to it.
+- The same affine-decision verifier, with an added translation argument, proves the phase classes of [`short-delay-all-phase-obstruction`](../short-delay-all-phase-obstruction/README.md).
 - Novelty undetermined.
 
 ## History
 
 - Migrated from `experiments/residual_progress/templates/INFINITE_COMPONENT_FAMILY.md` (legacy ID R13, its intermediate part; alias R13-c here) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Legacy status: "written finite-to-infinite argument, exact symbolic arithmetic certificate, and independent numeric comparisons".
 - Main lane (ChatGPT, Codex), 2026-10-17.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. For the review the node was moved from the single file `depth-32-obstruction-infinite-family.md` into this folder; every relative link and evidence path in it gained one `../`, the incoming links in `depth-32-aggregate-exposure-obstruction`, `short-delay-all-phase-obstruction`, `unbounded-exposure-depth-necessary` and `uniform-aggregate-exposure-depth` were repointed, and a parenthesis was appended to the first sentence of "Certificates". Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

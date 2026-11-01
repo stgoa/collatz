@@ -2,7 +2,7 @@
 id: missing-one-mod-8-pair-domain
 kind: result
 title: Two complete branches enter the paired recursion from the missing domain w = 1 mod 8 and give smaller-seed mergers on the a = 3 mod 16 Mersenne family
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; P(w) = delta_(3w) - delta_w; F(y) = 4y+1. (Branch A) For w = 17 mod 128,
   w = 16u+1, v = 3u: S(3w) = F(18u+1), S(w) = F(3u), 18u+1 is the selected partner of the canonical 9u = 3v, so an
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-17
     link: ../mixed-shrinking-pair-rules/batch_r33_r36_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 21:06, VERIFIED, main 1603bf3; the R36 part): S^t(2^a - 1) = S^t(2^(a-1) - 1) at a = 1699 with t = a+4 and at a = 659 with t = a+5. The written branch identities and cylinder constructions were not re-derived; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (prefixes of section 1, branches A and B with their currents, run lengths and clocks, cylinders (3)-(4), lift (5), mergers (6), identity (7)); both certificates re-run (exit 0, 6.92 s); own code checks the 4096 inputs, the local currents, the two cylinder mergers on 4096 members each with the R30 terminal reason, the lifts, the four Mersenne mergers and the a = 147 example; 3x+5 and 3x+13 controls show the identities are 3x+1-specific. Verdict HOLDS (two imprecision-level notes, no correction)"
 aliases: [R36]
 tags: [convergence, outer-residual, pair-recursion, tripling-pairs, mersenne, conditional, constructive]
 ---
@@ -265,3 +269,4 @@ for the present rule, despite entering parent branch B.
 
 - Migrated from `experiments/residual_progress/pair_one/MISSING_PAIR_DOMAIN.md` (legacy ID R36) at commit `be73a66`, by the B10 migration (Claude, Opus 5.5). Note, scripts, receipt and stored current moved byte-identical; `check_pair_one_recompute.py` was added at the migration. Legacy status: "written partial bridges, complete mixed cylinders and actual smaller-seed mergers".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `1603bf3`. The batch report (archive/convergence-residual-progress/REPORT.md) records "independent model" proof and code audits for this batch; they were the main lane's own agents, so they do not count as an independent review. The side lane's finite check is recorded under `reviewed_by`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction; the review records that the cylinder mergers of section 4 have a uniform clock but not fixed intermediate valuation words, and that the a = 147 child is unresolved for the rule although its pair merges at child clock 11.

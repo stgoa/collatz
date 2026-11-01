@@ -2,7 +2,7 @@
 id: joint-source-unbounded-frontier
 kind: result
 title: The complete joint-source interface of the R39 pair keeps an unbounded positive frontier on explicit families
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1, killed atom; C(v) = [18v+3] - [v] for positive v = 3 mod 4 (the joint
   source of coupled-even-pair-recursion). (Interface) A two-row table gives both exact two-arrow endpoints for
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-18
     link: r42_joint_frontier_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 09:40, VERIFIED, main 9190ccf), with the lane's own S and nu, nothing imported from main: the two-case interface on all v = 3 (mod 4) below 2*10^5 plus 5,000 random 122-bit v (55,000 cases); the 3 (mod 32) block on 15,500 cases, the parametrization (4) conversely for 8,443 pairs (h, u) with h <= 39, the two arrows (5) on 3,000 random cases; the expanding family for r = 0..12; the embedding for r in {9, 18, 27, 36, 54, 81, 108}, including the four-arrow certificate (9), (10) and the identity for 81(q_r - x), and for 27 | r the bounds N_r < x_r < 9N_r/8 and p < N_r. The entry says: The retained-graph residual weight R_N(x_r) = 1 in (12) uses the annular residual machinery and is not checked. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (interface table, the 3 mod 32 block and its parametrisation, the two shadow arrows, the expanding family, the d = 4 embedding and the required-ray roots) and recomputed with independent code: exhaustive below 2*10^6 for sections 1-2, r <= 40 and r <= 270 for sections 3-4, the stored r = 27 currents replayed, R_N(x_r) = 1 checked against the residual profile's definition; both certificates re-run (exit 0, 6.19 s). Verdict HOLDS; one hygiene finding (the side-lane certificate relies on assert), no correction to the claim"
 aliases: [R42]
 tags: [convergence, outer-residual, joint-source, even-pairs, scoped-obstruction, negative-cycle-shadow]
 ---
@@ -280,3 +284,4 @@ completion of the remaining complementary roots stay open.
 
 - Migrated from `experiments/residual_progress/joint_frontier/JOINT_FRONTIER.md` (legacy ID R42) at commit `be73a66`, by the B11 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; `check_legacy_replay.py` was added at the migration. The side-lane probe `reviews/side_lane/r42_joint_frontier_check.*` moved here. Legacy status: "written full arithmetic interfaces, explicit growing prefixes and actual required-ray examples; scoped failure of a proposed closure".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `4a45eb0`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that `R_(N_r)(x_r) = 1` follows from the residual profile's definition and support identity (left unchecked by the side lane), and that the certificate `r42_joint_frontier_check.py` relies on `assert` (`tools/run_certificates.py` runs it without `-O`).

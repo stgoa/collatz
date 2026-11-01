@@ -2,7 +2,7 @@
 id: exposure-potential-boundary-flux
 kind: result
 title: On an exposed graph, positive component masses are exact dual obstructions, and the scale argument misses an explicit boundary flux
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at positive 1. (Finite duality) For a finite integer source μ and a finite set
   E of exposed forward arrows, a current supported on E with everywhere nonpositive residual exists iff every
@@ -28,6 +28,10 @@ reviewed_by:
     date: 2026-10-17
     link: ../progress-measures-control-3x-61.md
     scope: "Finite only (ledger C1/C4, NOTE §11): with independent code, Φ(A_96) = 17 at exposure depths 20–27 and 0 at depth 28. The written duality, monotonicity and flux arguments were not re-derived, so the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of Theorems 1-3 and Proposition 2; independent code recomputes A_N = P(nu_64N - nu_N), identity (1) at nine cutoffs, the Phi(A_96) trace (2376 at depth 0, 17 at depths 20-27, 0 at depth 28), the depth-27 component with pairing 10 and flux -7 and all 11 flux rows; duality checked on 400 random graphs; 3x+5 and 3x+13 cycle controls; certificate passed (exit 0); verdict HOLDS"
 aliases: [R10]
 tags: [convergence, packet-currents, annular, duality, progress-potential, boundary-flux]
 ---
@@ -120,3 +124,4 @@ Subtracting this identity at `N` from the one at `64N`, `V_N = 3P(F_N − F_(N/4
 
 - Migrated from `experiments/annular_construction/duality/aggregate_duality.md` §§1–3 and 6 (legacy ID R10; the legacy folder README listed only R8–R9, but the ledger `archive/docs/RESULTS.md` (legacy path) links R10 to this note) at commit `be73a66`, by the B08 migration (Claude, Opus 5.5). Its §4 became [`binary-residue-projection-information-loss`](../binary-residue-projection-information-loss.md) and §5 [`reflected-negative-annulus-control`](../reflected-negative-annulus-control.md). Script, receipt and tables moved byte-identical. Legacy status: "written graph/arithmetic identities and exact scoped counterexamples. The progress lemma remains open".
 - Main lane (ChatGPT, Codex), 2026-10-17, commit `ce56699`. Cross-checked on finite ranges by the PR1 lane the same day.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections; three imprecisions recorded in [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

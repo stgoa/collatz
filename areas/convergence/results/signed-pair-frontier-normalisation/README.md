@@ -2,7 +2,7 @@
 id: signed-pair-frontier-normalisation
 kind: result
 title: Exact normalisation and cancellation of signed pair frontiers by two pair identities
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; P(w) = [3w] - [w], W5 = {w = 5 mod 8}. Identity I: for w = 93 mod 512 and u =
   (9w-5)/64 an explicit eight-row current has divergence P(w) - P(u), with ordinary clocks (3,1) at both endpoints.
@@ -28,6 +28,10 @@ reviewed_by:
     date: 2026-10-18
     link: ../exit18-return-integer-cylinders/batch_r73_r74_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 02:19, VERIFIED, main aefdf60), with the lane's own odd-only step: identity I on 4,000 random w = 93 (mod 512) (u in W5, 0 < u < w, S^3(3w) = S(3u), S^3(w) = S(u)); identity II on 4,000 random b = 1285 (mod 2048) (S^3(b) = S(a), S^4(3b) = S^2(3a)). Reproduced by the main lane in side_lane_review_d3a91fe.md, which notes that the probe does not rebuild the signed currents or test critical ranks. The normal form, kernel statement and R69 cancellation were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of identities I and II, the normal form, the kernel statement, the word cells, the R69 cancellation (20) and the R67 limit; independent code on all 4096 guard instances below 2^20 and 2^22, 300 signed vectors, 20 words, 30 reset members, and (20) against the legacy R44 current for 16 members; certificate passed (exit 0); verdict HOLDS"
 aliases: [R73]
 tags: [convergence, outer-residual, tripling-pairs, signed-frontier, normal-form]
 ---
@@ -325,3 +329,4 @@ Collatz orbit; it is only unresolved by these two identities.
 
 - Migrated from `experiments/residual_progress/frontier_progress/SIGNED_FRONTIER_NORMAL_FORM.md` (legacy ID R73) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written terminating algebraic compiler for two complete identities; terminal currents remain explicit premises".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `aefdf60`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections; three imprecisions and typos recorded in [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
