@@ -1,0 +1,5 @@
+source sha256: 653d0e5b30fbcd6ff2cf8229139891ec2e0baaca191136028afc65db60ba9250
+'LeanLane.SaturatedAutomaton.three_pow_dvd_of_four_pow_modEq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.SaturatedAutomaton.exists_free_exponent'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.SaturatedAutomaton.exists_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.SaturatedAutomaton.saturated_dense_of_automaton' depends on axioms: [propext, Classical.choice, Quot.sound]
