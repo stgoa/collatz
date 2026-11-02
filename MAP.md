@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**234 results, 29 attempts, 38 questions, 27 sources.**
+**237 results, 29 attempts, 39 questions, 30 sources.**
 
 ## Frontier: open questions
 
@@ -42,6 +42,7 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 | [`rotation-defect-denominator-candidate`](areas/cycles/questions/rotation-defect-denominator-candidate.md) | cycles | Prove or refute: for every positive valuation word w of length m with total A, D = 2^A − 3^m > 0 and g = gcd(C_w, D), and every nonidentity rotation differing… | 0 |
 | [`rotation-distance-at-least-5`](areas/cycles/questions/rotation-distance-at-least-5.md) | cycles | Prove or refute: no nonidentity rotation of the valuation word of a hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map differs from i… | 0 |
 | [`rotation-distance-growth`](areas/cycles/questions/rotation-distance-growth.md) | cycles | Find an explicit F(m) → ∞ such that the primitive valuation word w of every hypothetical nontrivial integer cycle of the odd-only 3x+1 map (period m) satisfies… | 0 |
+| [`undecidable-collatz-family-threshold`](areas/decidability/questions/undecidable-collatz-family-threshold.md) | decidability | Conway (1972) and Kurtz–Simon (2007) show that convergence questions are undecidable, respectively Π⁰₂-complete, for the class of generalized Collatz maps n ↦… | 0 |
 | [`capped-first-passage-power-bounds`](areas/invariants/questions/capped-first-passage-power-bounds.md) | invariants | Odd-only 3x+1 map S, time in odd arrows. Draw N logarithmically on the odd integers of [X, 2X]; follow its orbit until the first state <= X^(1/4), capped at ce… | 0 |
 | [`invariant-sets-meet-every-residue-class`](areas/invariants/questions/invariant-sets-meet-every-residue-class.md) | invariants | For the 3x+1 map on the positive integers, let B be a nonempty union of orbit components (closed under the forward map and under all inverse branches; 1 absorb… | 0 |
 | [`occupation-measure-tightness`](areas/invariants/questions/occupation-measure-tightness.md) | invariants | Odd-only 3x+1 map S on positive odd integers with S(1) = 1, time counted in odd arrows. For a seed n let m_(n,T) = T^(-1) sum_(j<T) delta_(S^j(n)) be its empir… | 0 |
@@ -322,6 +323,18 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 |---|---|---|---|
 | [`half-cancellation-for-few-mismatch-words`](areas/cycles/questions/half-cancellation-for-few-mismatch-words.md) | Is the cancellation of a few-mismatch word at most half of 2^A? | answered | `half-cancellation-counterexample-rotation-pair` |
 
+## Area: decidability
+
+Overview: [`areas/decidability/OVERVIEW.md`](areas/decidability/OVERVIEW.md)
+
+### Results
+
+| Result | Title | Status | Chain | Rests on | Lean |
+|---|---|---|---|---|---|
+| [`collatz-conjecture-logical-form`](areas/decidability/results/collatz-conjecture-logical-form/README.md) | The logical form of the Collatz conjecture: the cycle half is Π⁰₁, the whole is Π⁰₂, and… | written | written | — |  |
+| [`inverse-syracuse-binary-coding`](areas/decidability/results/inverse-syracuse-binary-coding/README.md) | Two inverse Syracuse branches give an injective, decodable coding of binary words by conv… | written | written | — |  |
+| [`synchronised-coding-pcp-reduction`](areas/decidability/results/synchronised-coding-pcp-reduction/README.md) | Deciding whether two synchronised inverse-Syracuse codings ever meet is undecidable (a PC… | written | written | `neary-2015-binary-pcp-five-pairs` |  |
+
 ## Area: invariants
 
 Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
@@ -374,6 +387,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
 | [`cobham-recognizability-theorem`](sources/cobham-recognizability-theorem.md) | Cobham's theorem: sets recognizable in two independent bases | cited | 3 |
+| [`conway-1972-unpredictable-iterations`](sources/conway-1972-unpredictable-iterations.md) | Conway (1972): generalized Collatz iterations are undecidable | cited | 0 |
 | [`corvaja-2005-s-unit-height`](sources/corvaja-2005-s-unit-height.md) | Corvaja–Zannier: height of a rational function at S-unit points | cited | 2 |
 | [`eilenberg-finite-kernel`](sources/eilenberg-finite-kernel.md) | Eilenberg's finite-kernel characterisation of automatic sequences | cited | 2 |
 | [`eliahou-1993-cycle-length`](sources/eliahou-1993-cycle-length.md) | Eliahou (1993): lower bound on nontrivial cycle length | cited | 0 |
@@ -382,6 +396,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`hercher-2023-cycle-length`](sources/hercher-2023-cycle-length.md) | Hercher (2023): no Collatz m-cycles with m ≤ 91, and the period bound | cited | 2 |
 | [`knight-2026-high-cycles`](sources/knight-2026-high-cycles.md) | Knight: Collatz high cycles do not exist | cited | 0 |
 | [`krasikov-2003-predecessors`](sources/krasikov-2003-predecessors.md) | Krasikov–Lagarias: predecessor counts at least X^0.84 | cited | 1 |
+| [`kurtz-simon-2007-generalized-collatz`](sources/kurtz-simon-2007-generalized-collatz.md) | Kurtz–Simon (2007): the generalized Collatz problem is Π⁰₂-complete | cited | 0 |
 | [`lagarias-1985-survey`](sources/lagarias-1985-survey.md) | Lagarias (1985): survey of the 3x+1 problem | cited | 0 |
 | [`languasco-2025-two-primes`](sources/languasco-2025-two-primes.md) | Languasco–Luca–Moree–Togbe: rational form of Matveev's bound | cited | 2 |
 | [`lau-2026-positive-density`](sources/lau-2026-positive-density.md) | Lau / AxiomMath: explicit positive lower density of predecessors (Lean) | replayed | 4 |
@@ -390,6 +405,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
 | [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 8 |
+| [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
 | [`steiner-1977-one-cycles`](sources/steiner-1977-one-cycles.md) | Steiner (1977): no nontrivial 1-cycles | cited | 0 |
@@ -622,6 +638,13 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 ## Recent activity
 
+- 2026-11-01: [`collatz-conjecture-logical-form`](areas/decidability/results/collatz-conjecture-logical-form/README.md) added (result)
+- 2026-11-01: [`inverse-syracuse-binary-coding`](areas/decidability/results/inverse-syracuse-binary-coding/README.md) added (result)
+- 2026-11-01: [`synchronised-coding-pcp-reduction`](areas/decidability/results/synchronised-coding-pcp-reduction/README.md) added (result)
+- 2026-11-01: [`undecidable-collatz-family-threshold`](areas/decidability/questions/undecidable-collatz-family-threshold.md) added (question)
+- 2026-11-01: [`conway-1972-unpredictable-iterations`](sources/conway-1972-unpredictable-iterations.md) added (source)
+- 2026-11-01: [`kurtz-simon-2007-generalized-collatz`](sources/kurtz-simon-2007-generalized-collatz.md) added (source)
+- 2026-11-01: [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) added (source)
 - 2026-10-31: [`absorbed-fibre-uniform-counts`](areas/convergence/results/absorbed-fibre-uniform-counts/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`absorption-defect-original-rank-resolution`](areas/convergence/results/absorption-defect-original-rank-resolution/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`actual-graph-current-compiler`](areas/convergence/results/actual-graph-current-compiler/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
@@ -640,13 +663,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-31: [`complementary-run-bridges`](areas/convergence/results/complementary-run-bridges/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`critical-image-rank-composition`](areas/convergence/results/critical-image-rank-composition/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`critical-nine-elimination`](areas/convergence/results/critical-nine-elimination/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`critical-tripling-domain-equivalence`](areas/convergence/results/critical-tripling-domain-equivalence/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`decreasing-inverse-ancestry`](areas/convergence/results/decreasing-inverse-ancestry/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`decreasing-w5-phase-inverse-barrier`](areas/convergence/results/decreasing-w5-phase-inverse-barrier/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`deferred-original-rank-testing`](areas/convergence/results/deferred-original-rank-testing/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`delayed-release-cancellation`](areas/convergence/results/delayed-release-cancellation/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`depth-32-aggregate-exposure-obstruction`](areas/convergence/results/depth-32-aggregate-exposure-obstruction/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`disjoint-annular-recursion`](areas/convergence/results/disjoint-annular-recursion/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -654,11 +670,11 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 61.8% | 201 | 9 |
-| Claude side lane | 15.6% | 34 | 132 |
-| Claude review lane | 7.8% | 0 | 101 |
+| ChatGPT main lane | 61.7% | 203 | 9 |
+| Claude side lane | 15.5% | 34 | 132 |
+| Claude review lane | 7.7% | 0 | 101 |
 | Claude Lean lane | 5.7% | 3 | 69 |
-| Claude cycles lane | 4.9% | 18 | 0 |
+| Claude cycles lane | 5.3% | 21 | 0 |
 | Claude PR1 lane | 2.3% | 6 | 9 |
 | ChatGPT handoff conversation | 1.0% | 2 | 0 |
 | Claude explicit-Tao lane | 0.8% | 5 | 0 |
