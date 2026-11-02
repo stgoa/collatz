@@ -2,7 +2,7 @@
 id: short-delay-all-phase-obstruction
 kind: result
 title: The three-source chain stays isolated in 17/18 and 53/54 of the ternary phases, refuting completion at exposure 2h + 1 in every phase
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus; G_D(N) the first D arrows exposed from every
   nonzero source; N = 3X/128, h = v_3(X-1), U = (X-1)/3^h, y_j = 3^j X/2^j - 1. (Classification) For h = 2,
@@ -23,6 +23,11 @@ depends_on: [delayed-release-cancellation, depth-32-aggregate-exposure-obstructi
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_coverage.py, coverage_audit.json: the legacy checker (rederives the 70 symbolic traces with their translation checks, the exceptional-class attachments, the 135-comparison lift at N = 393216, and the finite representative scan with the 21 stored partial certificates; caps 2000 vertices and 30000 queries, all finished; about 0.6 s). Fails at its new path: it imports inverse_exposure_probe and the release checker from ../templates/ and ../release/ (now ../unbounded-exposure-depth-necessary/ and ../delayed-release-cancellation/). Passed at be73a66 as experiments/residual_progress/release_coverage/check_coverage.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-derived the phase classification, the attachment argument, the translation argument, the ladder and the coverage fraction; certificate re-run (exit 0, 6.5 s); an independent oracle confirms all 70 isolated classes at four members each, both exceptional attachments and the ladder at t = 0, 1, 2; verdict HOLDS"
 aliases: [R19]
 tags: [convergence, packet-currents, annular, exposure-depth, delayed-release, obstruction, refutation]
 ---
@@ -162,7 +167,7 @@ in the earlier delayed-release note.
 The checker imports the complete inverse oracle and the affine-decision
 verifier from [the templates directory](../depth-32-aggregate-exposure-obstruction/README.md).
 Their correctness arguments are retained in
-[the fixed-depth lift note](../depth-32-obstruction-infinite-family.md).
+[the fixed-depth lift note](../depth-32-obstruction-infinite-family/README.md).
 Here we specify the additional phase argument rather than infer an
 infinite conclusion from numerical representatives.
 
@@ -412,3 +417,4 @@ No certificate ran at this path before the B18 replay revival; the legacy checke
 
 - Migrated from `experiments/residual_progress/release_coverage/PHASE_COVERAGE.md` (legacy ID R19) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, checker and receipt moved byte-identical. Legacy status: "written arithmetic proof with exact finite symbolic verification; the all-phase completion candidate is refuted".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `65093c4`. Its "independent model reviews" of the phase proof were the main lane's own agents; no review from another lane is on record.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

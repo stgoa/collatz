@@ -2,7 +2,7 @@
 id: mixed-exit-growing-reentry
 kind: result
 title: "Complete exits of the mixed growing block, and a natural continuation that re-enters at greater height"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; T = nu S, rho(w) = nu(3w), Y(w) = 7153 w + 311195. At the end of the maximal
   guarded block of R67 (exit valuation e = 7..25 of Y), the next R26 first exponent is always 5 and its second depth
@@ -28,6 +28,10 @@ reviewed_by:
     date: 2026-10-18
     link: ../native-height-inverse-obstruction/batch_r68_r70_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 08:37, VERIFIED, main 9190ccf), with the lane's own S, nu and T, nothing imported from main: the guard w = 40529845 (mod 2^26) = -B/7153 with w = 5 (mod 8) and nu(3w) = 3w (200 samples); for m = 1..4 and every e = 7..25, 228 inputs with exact H, m = 1 + floor((H-26)/19), exit valuation e, 3w = 31 (mod 128), first R26 exponent 5 and the second-depth table; the re-entry theorem on 23 members of w = 8515171531530858421 (mod 2^63) (v2(Y) = 37, the two twelve-arrow words, R(w) odd, T^24(3w) = 3R(w), S^30(3w) = S^6(3R(w)), R(w) > w back in the guard); repetitions r = 1..6 (18 cases) with counts 1 + floor((h-63)/37) and the clocks. The signed currents and the non-descent of the continuation were not rebuilt; the status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (guard arithmetic, exit table via (4), endpoints and clocks (8), the exit-18 word, the general re-entry congruence (12), the re-entry theorem with (17), (18), (20) and its clocks, the repetition count) and recomputed with own code on 152 exit cases, 100 exit-18 states, random members of (14) and (19) and the 3x+d controls; the certificate passes; verdict HOLDS"
 aliases: [R70]
 tags: [convergence, outer-residual, tripling-pairs, mixed-rank, exit-interface, negative-cycle-shadow]
 ---
@@ -450,3 +454,4 @@ implementation and recorded examples.
 
 - Migrated from `experiments/residual_progress/mixed_exit/MIXED_EXIT_REENTRY.md` (legacy ID R70) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written full exit interface and scoped failure of a natural continuation; no new accepted rule".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `ea3278e`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections to the text; the review notes two implicit hypotheses (3w complementary at every exit; rho(R(w)) = 3R(w) in (18)) and a typo.

@@ -2,7 +2,7 @@
 id: no-finite-affine-valuation-rank
 kind: result
 title: No finite affine-valuation rank for the two fixed mixed phases
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w); W5 split into the two fixed phases E (w = 3 mod 9, selected
   3w) and W (its complement). No potential Phi_p(x) = C_p h_p(x)^alpha_p 2^(sum_i beta_(p,i) v2(f_(p,i)(x))), with
@@ -21,6 +21,11 @@ depends_on: [mixed-rank-growing-blocks, returning-forward-interface, critical-im
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_finite_centres.py, finite_centres.py, finite_centres_audit.json: the legacy constructor and checker: 192 exact CRT cases (L = 1, 4, ..., 70; H = 26, 27, 64, 256), 48 complete signed R44 plans with independent divergence and both clocks, 24 distinct balanced parent poles through L = 211, three finite-list pole examples, four mixed-block stabilisation cases, twelve rejections and two supplied conversions stored in full (parent 189106655349: 3 supplied pairs, 158 rows; parent 3688333493785941: 13 pairs, 211 rows); 41 reachable local sources hashed. Fails at its new path: finite_centres.py loads ../arithmetic_progress/ (now ../valuation-debt-reset-obstruction/), ../critical_inverse/ (now ../decreasing-w5-phase-inverse-barrier/), ../critical_rank/ (now ../critical-image-rank-composition/), ../mixed_rank_recursion/ (now ../mixed-rank-growing-blocks/), ../phase_rank/ (now ../sigma-rank-removes-absorption-overhead/), ../returning_phase/ (now ../returning-forward-interface/), ../tripling_equivalence/ (now ../critical-tripling-domain-equivalence/) and ../w9_closure/ by their pre-migration folder names. Passed at be73a66 as experiments/residual_progress/finite_centres/check_finite_centres.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-derived sections 2-5, identities (4)-(25); certificate re-run (exit 0, 15 s); independent code checks the balanced families for L <= 22 and H = 26, 27, 40, and the 24 distinct poles through L = 211; verdict HOLDS"
 aliases: [R72]
 tags: [convergence, outer-residual, tripling-pairs, mixed-rank, potential-obstruction, valuation-debt]
 ---
@@ -381,3 +386,4 @@ quantifiers; finite checks audit implementation. The constructor is
 
 - Migrated from `experiments/residual_progress/finite_centres/FINITE_CENTRES.md` (legacy ID R72) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written scoped impossibility theorem, with complete accepted comparisons and exact finite checks".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `aefdf60`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

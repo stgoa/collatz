@@ -2,7 +2,7 @@
 id: even-exit-smaller-target-cone
 kind: result
 title: "After an even complementary exit, the raw smaller target lies below the source exactly on an explicit cone"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; retained critical basis of R75. Let H >= 3, b >= 1, q = 2^H t - 1 divisible
   by 3, and 3^(H-1) t - 1 = 4^b u with u positive odd and n = 3^b u = 1 mod 8. Then w = q/3 is in W5, f = 2n+1 is
@@ -28,6 +28,10 @@ reviewed_by:
     date: 2026-10-18
     link: r86_even_exit_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 05:13, VERIFIED, main 2a37f31), with the lane's own step, ν and selected: 'Inputs are built by CRT for every `H = 3..14` and `b = 1..8`, 1,152 cases in all': f = 2n + 1 selected with ν(f) = n, y = S(n) = (3n + 1)/4, S^(H+b+1)(q) = S(y), and 'y < q exactly when 3^(H+b) < 2^(H+2b+2), both inside the cone (396 cases) and outside it (756), with no small-source exception.' Per the main lane's review (side_lane_review_64a5981.md): no universal extrapolation, full current, old-seventeen exclusion or R87 repair. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the subtype arithmetic, the bridge, the exact inequality (7)-(8), the CRT cells, the family (11) and the phase (12), with the dispatcher exclusions re-derived from the rules' stated domains; independent code on 576 cell instances, every H = 4..40, the phase and the control q = 927; the frozen seventeen-family dispatcher run on 200 members of the subprogression (none recognised); certificate passed (exit 0); verdict HOLDS"
 aliases: [R86]
 tags: [convergence, outer-residual, smaller-origin-history, even-exit, original-rank, crt-construction]
 ---
@@ -256,3 +260,4 @@ At the B18-replay-revival migration [`check_legacy_replay.py`](check_legacy_repl
 
 - Migrated from `experiments/residual_progress/even_exit_history/EVEN_EXIT_HISTORY.md` (legacy ID R86) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written conditional construction and complete raw-target classification".
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `2a37f31`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections; four imprecisions and typos recorded in [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

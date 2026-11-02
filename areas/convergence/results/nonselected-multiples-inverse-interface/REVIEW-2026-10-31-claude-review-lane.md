@@ -1,0 +1,28 @@
+# Review of nonselected-multiples-inverse-interface
+
+Independent review (Claude review lane, Fable 5.1, directed by Santiago Armstrong) of the claim, Statement items 1–4 and the legacy proof (1)–(15), against the definitions of [`elementary-bridge-quotient-normal-form`](../elementary-bridge-quotient-normal-form/README.md) (`ν`, selected climbers, bridges), [`critical-tripling-domain-equivalence`](../critical-tripling-domain-equivalence/README.md) (critical set, critical inverse, the plan behind `H`), [`critical-nine-elimination`](../critical-nine-elimination/README.md) (local `W9` plan), [`decreasing-w5-phase-inverse-barrier`](../decreasing-w5-phase-inverse-barrier/README.md) (absorption plan `H`), [`critical-image-rank-composition`](../critical-image-rank-composition/README.md) (rank bounds) and the domains of [`base-inverse-phases-increasing-pairs`](../base-inverse-phases-increasing-pairs/README.md), [`variable-depth-inverse-escape-barrier`](../variable-depth-inverse-escape-barrier/README.md) and [`returning-forward-interface`](../returning-forward-interface/README.md).
+
+## What I checked
+
+- Certificate: `python3 tools/run_certificates.py --node nonselected-multiples-inverse-interface` exit 0, wall 9.64 s (`check_legacy_replay.py` PASS, 9 s).
+- Hand derivations. (1)–(2): with `y_0 = b`, the valuation-2 inverse chain has `y_i − 1 = (4/3)^i (b−1) = 2k·4^i·3^(D−i) u`, so `y_D = s`; the valuation-1 chain has `z_i + 1 = (2/3)^i (s+1)`, so `z_j = p`, and the runs are maximal (`s ≡ 2` or `0 (mod 3)`, `p ≢ 2 (mod 3)`). States: `y_i ≡ 1 (mod 8)`; `z_i = 2^(i+1) t_i − 1` with `t_i ≡ 3^i ≡ −3^(i+1) (mod 4)`, so complementary; `v₂(p+1) = j+1`. The unit table (`k·4^D u ≡ −1 (mod 3)`), `T(b) = q` (`S(b) = 2q+1` selected or `F(q)`), both ordinary clock equalities. (3)–(4): `λ = (2k/3)(4/3)^D (2/3)^j`, `256/243` at `(D, k, j) = (1, 4, 3)`, `2^(j+1)/3^j − 1 < 0` for `j ≥ 4`, the parity argument, `λ ≠ 1`. (5): `C ≡ 3 (mod 4)` gives `p ≡ 11 (mod 16)` and `v = p/3 ≡ 9 (mod 16)` when `j = 1`, `p ≡ 0 (mod 3)`; otherwise `v ≡ 5 (mod 8)`. (6)–(8) and the bounds `(9v+5)/8 ≤ (3p+4)/4 < p`, `(9z+5)/8 < q`. §4.1: `H_p` is the prefix `p → b`, the row at `b`, the bridge of `S(b)`, `N_w` and `H_z`, so the plan is literally `0` with request `{w: 1}`. §4.2 by the rank bounds. §4.3: `d = 2 + v₂(3C−1) = 2 + v₂(k·4^D u)`; R40's parameter is `3^D (9v−1)/2^d = 3^D u = w`; (11), (12); then the full substitution: the left prefix of `3v = p` is the prefix `p → b` plus the row at `b`, `H_v = e_v + H_C`, the right prefix of `v` minus `e_v` is `e_C` plus the forward rows of `H_(S(C))`, R40's lower plan is the tail of `H_(S(C))`, and `plan(z)` cancels `H_z` — this gives (13) for `k = 4` (even `d`) and, with the sibling term and `plan(3w) = {w} + plan(w)`, for `k = 8`. The leading request `r = (2C+1)/3 ≡ 13 (mod 16)` with `ρ(r) = C` and the other `H_C` ranks `≤ (3C+4)/4 < C`; `H_(S(C))` ranks `≤ (18w+14)/8 < 3w` or `< q` via `z`; (14) from `C/q = (k/9)(4/3)^D + 1/(3q)`. §5: the two congruences, `q ≡ 7 (mod 32)` complementary, `λ` at `j = 2D+6`.
+- Own code (scratch `plans_lib.py`, `r47_part1.py`, `r47_part2.py`): my own `ν`, bridges, R37 plan, R40 local plan and `W9` elimination, and `H`, each re-verifying its boundary. On the 682 inputs `w < 2^15` and both rays: words, canonical states, `T(b) = q`, both clock equalities, (3) and (4) as exact rationals, exactly one active ray, child domains, descending `⟹ j ≥ 4` and `W5`; all 1364 full plans (8) with exact boundaries, and the classification: 340 + 342 cases `j = 0` (zero current, request `{w: 1}`), 216 + 228 `W5` failures (`v` the unique largest rank, coefficient 1), 117 + 111 `W9` returns ((10), (12), `C ≡ 11 (mod 16)`, identity (13) as currents and request vectors, the leading request per (14)), 9 + 1 descending plans (all ranks `< 3w`). `w = 16653`, `k = 8`: requests `{31189: 1, 325: 1, 93: −1}`, ranks 46783, 487, 139 against 49959. CRT families for `D ≤ 6`, both `k`, both terminals, `j ∈ {1, 2, 3, 4, 2D+6}`, three members each, with (3) true at `j = 2D+6`. Every input has `3w` nonselected and `3 | w`, hence lies outside `E` of R41, `E_return` of R44 and the domain of R46 (all need selected `3w`) and outside `G` of R45 (`3 ∤ w`). The equality `p = q` has no solution of `(k·2^(2D+j+1) − 3^(D+j+1)) u = 3^j − 2^(j+1)` for `D ≤ 40`, `j ≤ 120`.
+- Controls: no cycle or `d`-uniform claim is made; the identities used are `3x+1`-specific (checked in the review of `odd-h-pair-interface-compiler`: the sibling and halving identities hold for 0 of 2000 cases under `3x+5` and `3x+13`).
+
+## What I did not check
+
+- The general theorems of R40, R41 and R43 beyond their reviewed statements and my re-implementation of their plans; the legacy receipt's hashes beyond the replay.
+- Rays or inverse words other than the two base rays with the maximal blocks (outside the claim).
+
+## Findings
+
+1. §2, "If λ>1, (4)>−1; as p−q is an even integer it is >=0" — **imprecision**: the case `p = q` (a self-rank request) is not excluded in words. It cannot occur (no solutions for `D ≤ 40`, `j ≤ 120`; for `j ≤ 3` the right side is `−1, −1, 1, 11` and the bracket never divides it), and §4.2 already states "rank `p ≥ q`", so nothing in the claim depends on it.
+2. Statement item 4, "the whole accepted domain is outside the earlier four direct rule domains" — **imprecision** in the direction of understatement: the whole R47 domain (not only the accepted part) is disjoint from the four, since all of them require selected `3w` or `3 ∤ w`.
+
+No error or gap found; the descending domain is sparse below `2^15` (10 of 1364 rays) but infinite at every `D` by (15).
+
+## Verdict
+
+HOLDS.
+
+Claude review lane (Fable 5.1; directed by Santiago Armstrong), 2026-10-31

@@ -2,7 +2,7 @@
 id: finite-rational-cone-integer-certificate
 kind: result
 title: A finite rational cone compiles supplied five-ray packet certificates into an exact integer absorption current
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; U_t counts the odd states 1 < x <= t. (Integer-component lemma) If a
   finite signed integer measure mu satisfies mu = (I - P)J + Z with a finite rational current J and
@@ -27,6 +27,11 @@ certificates: [check_cone_recompute.py, check_legacy_replay.py]
 evidence:
   - "check_finite_cone.py, finite_cone_audit.json: the legacy checker (rational comparison constants, seven integer tail bounds, every transpose equation, rounded and unrounded measure coefficients, four full single-cutoff boundary identities (6) at N = 96, 112, 192, 5376, the strict-gap implication on 216000 finite integer cases, and the four cone plans). Fails at its new path: it loads experiments/packet_currents/right_aligned_packets.py relative to the repository root (now ../right-aligned-fixed-core-remainder/right_aligned_packets.py). Passed at be73a66 as experiments/residual_progress/duality/check_finite_cone.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran these steps before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a). Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
   - "finite_cone.py: the legacy library finite_forcing_plan(m, B) returning the exact cone weights (runs without error but checks nothing on its own). check_cone_recompute.py imports it from this folder; the legacy compiler of actual-graph-current-compiler loads it by its old path ../duality/finite_cone.py"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full re-derivation of the integer-component lemma, the five-ray comparison, the positive inverse, identity (4), the maximum principle and the compiler theorem; an independent exact solve reproduces T for m = 97 (B = 8, 9, 10) and m = 1001, identity (4) as an identity of measures, identity (6) at six cutoffs and the lemma on 1285 random strict-gap instances; the 3x+5 cycle shows the threshold is sharp; both certificates passed (exit 0); verdict HOLDS"
 aliases: [R11]
 tags: [convergence, packet-currents, five-rays, finite-cone, integer-gap, conditional, constructive]
 ---
@@ -343,3 +348,4 @@ certificates. Neither finite demonstration proves the universal inputs exist.
 
 - Migrated from `experiments/residual_progress/duality/FINITE_CONE.md` (legacy ID R11; the ledger groups it with the `forcing/` demonstration, here [`actual-graph-current-compiler`](../actual-graph-current-compiler/README.md), alias R11-b) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_cone_recompute.py` was added at the migration. Legacy status: "written conditional constructive theorem; exact finite demonstration. Required packet inputs remain unproved universally".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `ce56699`. The round report says independent model reviews checked the root-1 convention, the integer gap and every boundary sign; those reviews were run by the main lane's own agents and are not counted as independent. No review from another lane is on record.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No corrections; four imprecisions and typos recorded in [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).

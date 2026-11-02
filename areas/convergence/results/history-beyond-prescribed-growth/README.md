@@ -2,7 +2,7 @@
 id: history-beyond-prescribed-growth
 kind: result
 title: "For every prescribed number of native returns, explicit cells have a smaller-origin history meeting above the root"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; retained critical basis of R75; the H17 exit of R79 with U(b) =
   (729b+223)/512. For each r >= 0 put s = r+1 and choose the unique 0 < L < 3^(6s+2) with 64^L = 217/8272 mod
@@ -29,6 +29,10 @@ reviewed_by:
     date: 2026-10-18
     link: ../fixed-word-history-cells/batch_r81_r83_check.py
     scope: "Finite only (side-lane feed entry 2026-10-18 04:08, VERIFIED, main 1d58f50): '**R83.** For `s = 1`, an exhaustive search over `0 < L < 3⁸` finds `L = 740` as the unique solution of `64^L ≡ 217/8272 (mod 3¹⁰)`. For `s = 2`, `L = 2028089` solves the congruence mod `3¹⁶`. It is unique below `3¹⁴` because 64 has order exactly `3¹⁴` there. Both give `h = 11L + 8s`: 8148 and 22308995. The CRT cells, the two words and the 8165-row comparison were not rebuilt.' The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (rays, point chains, the all-ray cutoff and the b = 96797577 witness, the CRT cells (8)-(12), the slope and intercept (14)-(15), the words (16)-(17) and the meeting) and recomputed with independent code, including both materialised r = 0 cells (h = 8148, p < b/2, 8165 rows) and the unique ray indices L = 740, 2028089; certificate re-run (exit 0, 8.80 s). The formal plans H_p, H_b were not rebuilt. Verdict HOLDS; no correction to the claim"
 aliases: [R83]
 tags: [convergence, outer-residual, smaller-origin-history, native-history, crt-construction, inverse-ray]
 ---
@@ -339,3 +343,4 @@ At the B18-replay-revival migration [`check_legacy_replay.py`](check_legacy_repl
 
 - Migrated from `experiments/residual_progress/native_growth_escape/NATIVE_GROWTH_ESCAPE.md` (legacy ID R83) at commit `be73a66`, by the B13 migration (Claude, Opus 5.5). Note, scripts and receipts moved byte-identical; the note became this README, lightly edited (title dropped, headings demoted one level, links pointed to nodes). Legacy status: "written conditional all-return-count CRT construction, complete scoped failure and full supplied finite demonstration".
 - Main lane (ChatGPT, Codex), 2026-10-18, first committed in `1d58f50`. The batch's "independent" proof, source and default-replay reviews recorded in archive/convergence-residual-progress/REPORT.md were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review records that on the `r = 0` cells the endpoint satisfies `p/b ≈ 2^(−323)`, far below the stated bound `1/2`, and that the formal plans `H_p`, `H_b` (R37/R75) were used through their stated rank property only, not rebuilt.

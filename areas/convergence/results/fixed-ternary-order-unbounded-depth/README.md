@@ -2,7 +2,7 @@
 id: fixed-ternary-order-unbounded-depth
 kind: result
 title: With the ternary order fixed at h = 2, every exposure depth still has complete positive components on the required ladder
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map, absorbing at 1; A_N the six-band annulus; G_D(N) the first D arrows exposed from every
   nonzero source. For every integer D >= 1 and every positive integer X with 2^max(D+4,10) | X and
@@ -27,6 +27,10 @@ reviewed_by:
     date: 2026-10-17
     link: fixed_h_check.py
     scope: "Finite only (side-lane feed entry 2026-10-17 19:44, VERIFIED, main 8e2b5eb): the 54-element orbit union of the odd integers 1..33, the 22-row (z0, u0, c0) table, every c0 > 1 in a 3x-1 basin cycling away from 1; the whole depth-D component by full brute force at the least admissible X for D = 1..4 (N = 528, 528, 2472, 8304); ladder exponents for D <= 12. The inverse-history propagation was not re-derived, and the main lane's review (../outer-residual-strong-induction-support/side_lane_review_20261017_latest.md §5) corrects the probe's narrative about the role of the 3x-1 cycles. The status stays written"
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (barrier lemma, the inverse-history invariant of section 3, the component closure of section 4, the ladder exponents) and confirmed with independent code: brute-force exposure graphs from every source at the least admissible X for D = 1..7, an own bounded inverse enumeration for D <= 12 and five ladder cutoffs, shadow bookkeeping on all 66 departure histories for D <= 8, e_D for D = 1..64; both certificates re-run (exit 0, 11.96 s). Verdict HOLDS; no correction to the claim"
 aliases: [R22]
 tags: [convergence, packet-currents, annular, exposure-depth, obstruction, negative-cycles]
 ---
@@ -432,3 +436,4 @@ infinite isolation for any individual positive integer cutoff.
 
 - Migrated from `experiments/residual_progress/phase_depth/FIXED_H_DEPTH.md` (legacy ID R22) at commit `be73a66`, by the B09 migration (Claude, Opus 5.5). Note, checker and receipt moved byte-identical, with the side-lane probe `reviews/side_lane/fixed_h_check.*`; `check_barrier_recompute.py` was added at the migration. Legacy status: "written complete-component proof with a finite arithmetic certificate".
 - Main lane (ChatGPT, Codex), 2026-10-17, from commit `46198fb`; the side feed reviewed for this batch was `f12da944`, and the note says the argument was derived independently of it. Its "independent model audits" were the main lane's own agents. The side lane's finite check is recorded under `reviewed_by`.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction to the claim or proof; the review adds independent brute-force exposure graphs for `D = 1..7` and an inverse-history enumeration through `D = 12` and five ladder cutoffs, all agreeing with the theorem.

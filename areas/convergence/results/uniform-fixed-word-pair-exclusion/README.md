@@ -2,7 +2,7 @@
 id: uniform-fixed-word-pair-exclusion
 kind: result
 title: No uniformly smaller affine W5 partner with four fixed valuation words on the whole mixed-growth guard
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S (S(1) = 1). On w(n) = 40529845 + 2^26 n, n >= 0 (the whole R67 guard), there is no affine u(n)
   = alpha n + beta such that for every n >= 0 u(n) is an integer with 0 < u(n) < w(n) and u(n) = 5 mod 8, and there
@@ -19,6 +19,11 @@ depends_on: [mixed-rank-growing-blocks]
 certificates: [check_uniform_pair_recompute.py, check_legacy_replay.py]
 evidence:
   - "check_uniform_pair.py, uniform_pair.py, uniform_pair_audit.json: the legacy constructor (standalone, no file writes), independent checker and full candidate receipt: 1110 constructor nodes, 3401 independent nodes and 450 complete inverse words, the same 43 candidates, no upper intersection, 215 direct integer instances, 256 small affine paths, 12 domain boundaries, 20 rejections. Fails at its new path and in a legacy replay at earlier migrations (before rewritten notes were restored from git): its receipt pins the SHA-256 of its note under the legacy name UNIFORM_PAIR_SCOPE.md, which is now this edited README. Passed at be73a66 as experiments/residual_progress/uniform_pair_scope/check_uniform_pair.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); the same finite result is recomputed by check_uniform_pair_recompute.py. Now replayed unmodified, with every file unchanged, by check_legacy_replay.py (B18-replay-revival migration)"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Full argument re-derived (affine domain, fixed-valuation criterion, ternary order bound (1), inverse arrows and cap (4), completeness of the upper comparison, budget (5)); both certificates re-run (exit 0, 6.07 s); a third independent enumeration reproduces the parent words, the 43 candidates, the 3401 node count and the absence of upper intersections, with a positive control of the search. Verdict HOLDS (two imprecision-level notes, no correction)"
 aliases: [R76]
 tags: [convergence, outer-residual, tripling-pairs, mixed-rank, exhaustive-search, fixed-word]
 ---
@@ -270,3 +275,4 @@ alternatives or all single-partner reasoning. No dispatcher has been changed.
 
 - Migrated from `experiments/residual_progress/uniform_pair_scope/UNIFORM_PAIR_SCOPE.md` (legacy ID R76) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical. Editing the note breaks the legacy checker's pinned hash; `check_uniform_pair_recompute.py` was added at the migration to recompute the receipt. Legacy status: "written exhaustive-search theorem with retained finite certificate and independent enumeration".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `e9effe1`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction; the review notes that the member-wise W5 hypothesis forces alpha = 0 mod 8 and that the receipt keeps one lower witness per candidate.

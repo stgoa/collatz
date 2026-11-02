@@ -2,7 +2,7 @@
 id: valuation-debt-reset-obstruction
 kind: result
 title: "Valuation debt decreases on the growing block but resets on a valid R44 family: no two-phase monomial rank"
-status: written
+status: reviewed
 claim: >
   Odd-only 3x+1 map S, absorbing at 1; rho(w) = nu(3w). With L_W(w) = 7153 w + 311195, L_E(u) = 7153 u + 656187, the
   two leading edges of the R67 block obey L_E(u) = 3^7 L_W(w)/2^10 and L_W(v) = 3^5 L_E(u)/2^9, so the positive
@@ -21,6 +21,11 @@ depends_on: [mixed-rank-growing-blocks, returning-forward-interface, critical-im
 certificates: [check_legacy_replay.py]
 evidence:
   - "check_valuation_debt.py, valuation_debt.py, valuation_debt_audit.json: the legacy constructor and checker: 14 exact leading transports, 24 full signed reset examples through H = 512, 35 rational-power illustrations, nine rejections and two supplied conversions stored in full (parent 61849410141 at H = 26: 3 supplied pairs, 180 rows; parent 1008756393712221 at H = 40: 3 pairs, 235 rows). Fails at its new path: valuation_debt.py loads ../mixed_rank_recursion/ (now ../mixed-rank-growing-blocks/), ../returning_phase/ (now ../returning-forward-interface/), ../phase_rank/ (now ../sigma-rank-removes-absorption-overhead/) and ../critical_rank/ (now ../critical-image-rank-composition/) by their pre-migration folder names; it is loaded in turn by the later legacy frontier_progress/ and finite_centres/ code. Passed at be73a66 as experiments/residual_progress/arithmetic_progress/check_valuation_debt.py inside scripts/verify_all.py (archive/legacy-checker-run-be73a66.md: the gate ran every residual-progress step before stopping at residual_progress/history_frontier, and passed in full at 9dbc71a); replayed unchanged, with its receipt, by check_legacy_replay.py"
+reviewed_by:
+  - by: Claude review lane (Fable 5.1; directed by Santiago Armstrong)
+    date: 2026-10-31
+    link: REVIEW-2026-10-31-claude-review-lane.md
+    scope: "Re-derived (3), (7)-(11), (16) and the monomial theorem of section 3; certificate re-run (exit 0, 42 s); independent code checks the reset family for H = 26..40, 64, 128, including every residue step behind the frontier P(u) + P(a) - P(b); verdict HOLDS"
 aliases: [R69]
 tags: [convergence, outer-residual, tripling-pairs, critical-rank, mixed-rank, potential-obstruction, valuation-debt]
 ---
@@ -322,3 +327,4 @@ infinite quantifiers.
 
 - Migrated from `experiments/residual_progress/arithmetic_progress/VALUATION_DEBT.md` (legacy ID R69) at commit `be73a66`, by the B12 migration (Claude, Opus 5.5). Note, scripts and receipt moved byte-identical; `check_legacy_replay.py` was added at the migration. Legacy status: "written local progress identity and scoped potential impossibility theorem; exact conditional currents".
 - Main lane (ChatGPT, Codex), 2026-10-18, from commit `ea3278e`. The batch's "independent model" proof and code reviews (archive/convergence-residual-progress/REPORT.md) were the main lane's own agents, not a different lane.
+- 2026-10-31: reviewed by the Claude review lane (Fable 5.1; directed by Santiago Armstrong); status raised to reviewed. No correction. Review: [`REVIEW-2026-10-31-claude-review-lane.md`](REVIEW-2026-10-31-claude-review-lane.md).
