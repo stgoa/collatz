@@ -17,9 +17,14 @@ claim: >
   these signed joins, not all half defects or general positive cycles.
 authors:
   - Codex cycle research lane (GPT-6 Astra; directed by Santiago Armstrong)
+  - Codex formalization lane (GPT-6; directed by Santiago Armstrong)
 created: 2026-11-08
 depends_on: [two-half-defect-mersenne-normal-form, baseline-obligation-transfer-controls]
 certificates: [check_odd_order_endpoints.py]
+lean:
+  - LeanLane.OddOrderObstruction.coprime_plus_factor
+  - LeanLane.OddOrderObstruction.dvd_of_signed_endpoint
+  - LeanLane.OddOrderObstruction.dvd_of_signed_trace
 evidence:
   - "check_odd_order_endpoints.json: exact residue orders, prime-power lifts, composition checks, signed controls, Mersenne reconstructions and eleven actual-cycle fixtures"
 tags: [cycles, signed-orbits, residues, prime-powers, half-defects, research-tool]
@@ -190,6 +195,41 @@ The script uses exact standard-library arithmetic and explicit
 failures active under `python3 -O`. The written proof, rather
 than any finite parameter check, establishes the unbounded claims.
 
+## Lean
+
+The module
+[`LeanLane/OddOrderObstruction.lean`](../../../../lean/LeanLane/OddOrderObstruction.lean)
+formalizes the composite-modulus endpoint-divisibility theorem in
+part 1 of the proof:
+
+- `coprime_plus_factor` assumes natural `Q,R` with `Odd Q`, `Odd R`,
+  and `Nat.ModEq Q (2^R) 1`, `Nat.ModEq Q (3^R) 1`. It proves
+  `Nat.Coprime Q (2^S+3^n)` for every natural `S,n`, exactly (5).
+- `dvd_of_signed_endpoint` proves `Q | h` from the weighted endpoint
+  equation and divisibility of every additive coefficient by `Q`.
+- `dvd_of_signed_trace` proves the same conclusion directly from
+  the exact integer arrows. It uses `WeightedCrossing.Trace`, whose
+  letters are pairs `(a_i,d_i)` and whose successive equations are
+  `2^a_i*x_(i+1)=3*x_i+d_i`. The helper `endpoint_of_trace` derives
+  the weighted endpoint equation, and `dvd_intercept` proves that
+  the common addend divisor divides its intercept.
+
+The Lean statements allow arbitrary integer coefficients and states,
+natural valuations including zero, any integer `h`, and `Q=1`.
+These are stronger algebraic versions of the stated signed odd-only
+theorem; its positive valuations, nonzero odd states, positive odd
+addends, positive odd endpoint and `Q>1` specialize them directly.
+The congruence hypotheses are precisely (1).
+
+The prime-power lifting argument, order calculations and Mersenne
+applications in parts 2 and 3 are not formalized by this module.
+The node therefore remains `written`. The
+[build receipt](../../../../lean/receipts/OddOrderObstruction.build.txt),
+[axiom receipt](../../../../lean/receipts/OddOrderObstruction.axioms.txt)
+and [source hash](../../../../lean/receipts/OddOrderObstruction.sha256.txt)
+record the pinned full-library build and direct module check.
+All seven declarations use only the permitted standard axioms.
+
 ## Remarks
 
 - **The residual target.** Even `J` is already impossible for
@@ -222,6 +262,10 @@ than any finite parameter check, establishes the unbounded claims.
 
 ## History
 
+- 2026-11-08: formalized the composite-modulus coprimality lemma and
+  endpoint divisibility for arbitrary exact integer arrow traces.
+  The prime-power and normal-form consequences remain written;
+  no independent-session review or status upgrade is claimed.
 - 2026-11-08: derived the common-addend endpoint obstruction while
   studying endpoint-one low-to-high Mersenne returns. The odd-order
   formulation avoids a quadratic-reciprocity input and retains

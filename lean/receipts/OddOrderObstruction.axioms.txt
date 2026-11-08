@@ -1,0 +1,8 @@
+source sha256: 5a35bc33d34085ec7be64590d010c52e10b9db4ddf33684c6e1c484d23f8e860
+'LeanLane.OddOrderObstruction.coprime_plus_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.OddOrderObstruction.dvd_nat_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.OddOrderObstruction.dvd_int_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.OddOrderObstruction.dvd_intercept' depends on axioms: [propext]
+'LeanLane.OddOrderObstruction.endpoint_of_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.OddOrderObstruction.dvd_of_signed_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.OddOrderObstruction.dvd_of_signed_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
