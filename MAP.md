@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**281 results, 30 attempts, 39 questions, 39 sources.**
+**282 results, 30 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -306,6 +306,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`signed-endpoint-order-depth`](areas/cycles/results/signed-endpoint-order-depth/README.md) | Residue order depths force complementary factors into signed endpoints | written | written | — |  |
 | [`single-forced-position-denominator`](areas/cycles/results/single-forced-position-denominator.md) | A reduced ordered cycle with a single forced position has D = q | formal | reviewed | — | yes |
 | [`single-mismatch-rotation-impossible`](areas/cycles/results/single-mismatch-rotation-impossible/README.md) | No rotation of a word differs from it in exactly one position; a primitive word has rotat… | formal | formal | — | yes |
+| [`single-sawtooth-multirotation-obstruction`](areas/cycles/results/single-sawtooth-multirotation-obstruction/README.md) | Eleven rotations force an error in the single-sawtooth witness model | written | written | — |  |
 | [`small-band-height-residue-matching`](areas/cycles/results/small-band-height-residue-matching/README.md) | Height-residue matching holds for ordered cycles with q > 1 in at most three (normalised)… | reviewed | reviewed | — |  |
 | [`small-mersenne-endpoint-exclusion`](areas/cycles/results/small-mersenne-endpoint-exclusion/README.md) | A small signed Mersenne endpoint excludes denominator one at every amplitude | written | written | — |  |
 | [`sparse-four-arc-near-critical-classification`](areas/cycles/results/sparse-four-arc-near-critical-classification/README.md) | A sparse four-arc family has exactly one near-critical full-plus cancellation | written | written | — |  |
@@ -729,18 +730,18 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 56.4% | 203 | 9 |
-| Claude side lane | 13.9% | 34 | 132 |
+| ChatGPT main lane | 56.3% | 203 | 9 |
+| Claude side lane | 13.8% | 34 | 132 |
 | Claude review lane | 7.8% | 0 | 121 |
 | Claude Lean lane | 5.1% | 3 | 69 |
-| Claude cycles lane | 5.0% | 21 | 0 |
-| Codex cycle research lane | 3.0% | 16 | 0 |
+| Claude cycles lane | 4.9% | 21 | 0 |
+| Codex cycle research lane | 2.9% | 16 | 0 |
 | Claude PR1 lane | 2.0% | 6 | 9 |
 | Codex four-arc research lane | 1.4% | 14 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
+| Codex signed-endpoint formalisation lane | 0.6% | 3 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
-| Codex signed-endpoint formalisation lane | 0.6% | 2 | 0 |
 | Codex root research lane | 0.4% | 7 | 0 |
 | Codex main research lane | 0.4% | 5 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
@@ -753,6 +754,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex formalization lane | 0.1% | 1 | 0 |
 | Codex formal research lane | 0.1% | 2 | 0 |
 | Codex arithmetic research lane | 0.1% | 1 | 0 |
+| Codex directing research lane | 0.1% | 1 | 0 |
 | Codex first-block research lane | 0.1% | 1 | 0 |
 | Codex formalisation research lane | 0.1% | 1 | 0 |
 | Claude audit lane | 0.0% | 0 | 1 |
