@@ -1,0 +1,508 @@
+{
+  "actual_controls": {
+    "arrows": 106,
+    "count": 11,
+    "cycles": [
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 1,
+        "reduced_denominator": 5
+      },
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 3,
+        "reduced_denominator": 5
+      },
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 3,
+        "reduced_denominator": 5
+      },
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 17,
+        "reduced_denominator": 5
+      },
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 17,
+        "reduced_denominator": 5
+      },
+      {
+        "addend": 7,
+        "failed_hypothesis": "q=1",
+        "odd_period": 2,
+        "reduced_denominator": 7
+      },
+      {
+        "addend": 13,
+        "failed_hypothesis": "q=1",
+        "odd_period": 1,
+        "reduced_denominator": 13
+      },
+      {
+        "addend": 13,
+        "failed_hypothesis": "q=1",
+        "odd_period": 15,
+        "reduced_denominator": 13
+      },
+      {
+        "addend": 13,
+        "failed_hypothesis": "q=1",
+        "odd_period": 5,
+        "reduced_denominator": 13
+      },
+      {
+        "addend": 61,
+        "failed_hypothesis": "q=1",
+        "odd_period": 1,
+        "reduced_denominator": 61
+      },
+      {
+        "addend": 61,
+        "failed_hypothesis": "q=1",
+        "odd_period": 41,
+        "reduced_denominator": 61
+      }
+    ],
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+  },
+  "constants": {
+    "H_at_cutoff": 56449,
+    "binary_gap_coefficient": 98,
+    "cutoff_margin": 525029,
+    "derivative_margin_times_cutoff": 3582784,
+    "half_length_cutoff": 4194304,
+    "length_bound_coefficients": [
+      65,
+      90
+    ],
+    "lmn_coefficient": "1217/25",
+    "lmn_logarithmic_heights": [
+      1,
+      2
+    ],
+    "local_minimum": 35,
+    "log_series_terms": 32,
+    "logarithm_enclosures": {
+      "ln2": [
+        "4885160137407771253400601118182930934216597868939146496/7047796304186638645984520552020312648059671845278255225",
+        "19540640549631085013602404472731818469789797150617764779/28191185216746554583938082208081250592238687381113020900"
+      ],
+      "ln3": [
+        "7199401304210215526106755742472789249575823/6553177475320551070897257303195092464435200",
+        "46796108477366400919741278787775967552832247/42595653589583581960832172470768101018828800"
+      ]
+    },
+    "product_margin": 63344224,
+    "small_seed_trajectories": [
+      {
+        "seed": 3,
+        "states": [
+          3,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 5,
+        "states": [
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 7,
+        "states": [
+          7,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 9,
+        "states": [
+          9,
+          7,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 11,
+        "states": [
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 13,
+        "states": [
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 15,
+        "states": [
+          15,
+          23,
+          35,
+          53,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 17,
+        "states": [
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 19,
+        "states": [
+          19,
+          29,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 21,
+        "states": [
+          21,
+          1
+        ]
+      },
+      {
+        "seed": 23,
+        "states": [
+          23,
+          35,
+          53,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 25,
+        "states": [
+          25,
+          19,
+          29,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 27,
+        "states": [
+          27,
+          41,
+          31,
+          47,
+          71,
+          107,
+          161,
+          121,
+          91,
+          137,
+          103,
+          155,
+          233,
+          175,
+          263,
+          395,
+          593,
+          445,
+          167,
+          251,
+          377,
+          283,
+          425,
+          319,
+          479,
+          719,
+          1079,
+          1619,
+          2429,
+          911,
+          1367,
+          2051,
+          3077,
+          577,
+          433,
+          325,
+          61,
+          23,
+          35,
+          53,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 29,
+        "states": [
+          29,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 31,
+        "states": [
+          31,
+          47,
+          71,
+          107,
+          161,
+          121,
+          91,
+          137,
+          103,
+          155,
+          233,
+          175,
+          263,
+          395,
+          593,
+          445,
+          167,
+          251,
+          377,
+          283,
+          425,
+          319,
+          479,
+          719,
+          1079,
+          1619,
+          2429,
+          911,
+          1367,
+          2051,
+          3077,
+          577,
+          433,
+          325,
+          61,
+          23,
+          35,
+          53,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 33,
+        "states": [
+          33,
+          25,
+          19,
+          29,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      }
+    ]
+  },
+  "finite_minimum": {
+    "checks": 1844,
+    "exact_gap_sha256": "7479e36ffb4f19d38939c51e10ca0b4875397a68af7b1233f62083e13fdc9ebd",
+    "exponents": [
+      1,
+      1844
+    ],
+    "local_limit_exclusive": 1048576,
+    "maximum_at": 1636,
+    "maximum_minimum_bound": "6089225480676960620243260956194074584392486561564165687362471308377200850394853659913605682655339793580843279696807391660962296288963916581892861540684581029079668410440672310480177413050001889106292458625080029282266718705875313803105317526973791720590414267053315872232528886835071653071458125193443176478678423397422932226176473290873093103290578600268942513758401668371695871812493613566554696345921369037601281216906144083929016796238583685461406762212153664687208595805149960966594077936625977018628250481520372551250091048597281029794772158378164229636930185163698604138840912392806807301397489099270545086100152549231781310947394150899883838686632241582578289749352979786485759618863046909121482938931301299538630496518641015688285729266205885747750695145869623676647046643712/10434617365981068892281394185749433041223238748955489005412495996468320745225212587519996113613206297237401558579992162152997837205501170031162710520581914577438136469503378122198591499987042623785171767091308974914241882422728943066032001479792065306067377047112524390921143237187761820362949226212376783132709558126100168299272319284273453971177394226731370968132183590561587319702808602444117693323883001791234772113935199606913539737909657679505656772642182315368974726116714738680342870015398952929445230081339794199830795704646256804119374227553412324147068081403099188898308728542515529072501780812119250106791597436072694264103855705192713131016884587203224531161221729737231362158200306007293669123775007779949683184316234551115793546004652095577963609564022727718608013",
+    "maximum_total": 2593,
+    "strict_integer_ceiling": 583561
+  },
+  "fractional_gaps": {
+    "alpha_lower_numerator": 125573666586150569315490533898,
+    "alpha_upper_numerator": 125573666586150569315490533899,
+    "checked_exponents": 4194303,
+    "dyadic_denominator_bits": 96,
+    "eta_bits": 27,
+    "exponents": [
+      1,
+      4194303
+    ],
+    "fractional_distance_bits": 25,
+    "minimum_complement_at": 190537,
+    "minimum_complement_numerator": 7373341559091880256221,
+    "natural_log_gap_bits": 26,
+    "series_terms": 80,
+    "threshold_numerator": 2361183241434822606848
+  },
+  "local_descent": {
+    "conclusion": "Every odd seed 3<=s<limit reaches a smaller positive odd seed",
+    "first_longest_seed": 1027431,
+    "limit_exclusive": 1048576,
+    "maximum_local_steps": 115,
+    "odd_seeds": 524287,
+    "odd_steps": 1825738,
+    "peak_odd_output": 30079718549,
+    "per_seed_guard": 100000
+  },
+  "polynomial": {
+    "identities": 2,
+    "variables": [
+      "N",
+      "3^a",
+      "2^P",
+      "3^b",
+      "2^T",
+      "h",
+      "g"
+    ]
+  },
+  "schema": "unit-low-level-mersenne-v1",
+  "signed_prefixes": {
+    "examples": {
+      "closed_expanding": {
+        "g": 1,
+        "h": 1,
+        "length": 1,
+        "total": 1,
+        "word": [
+          1
+        ]
+      },
+      "contracting_decrease": {
+        "g": 1,
+        "h": 3,
+        "length": 1,
+        "total": 3,
+        "word": [
+          3
+        ]
+      },
+      "expanding_decrease": {
+        "g": 1,
+        "h": 3,
+        "length": 4,
+        "total": 6,
+        "word": [
+          3,
+          1,
+          1,
+          1
+        ]
+      },
+      "expanding_increase": {
+        "g": 7,
+        "h": 5,
+        "length": 1,
+        "total": 1,
+        "word": [
+          1
+        ]
+      }
+    },
+    "first_lengths": [
+      1,
+      12
+    ],
+    "first_prefixes": 384,
+    "first_starts_odd": [
+      1,
+      63
+    ],
+    "modified_addends": [
+      1,
+      5,
+      61
+    ],
+    "modified_levels": [
+      2,
+      3,
+      7
+    ],
+    "modified_positive_trajectories": 3456,
+    "regimes": {
+      "closed_expanding": 30,
+      "contracting_decrease": 209,
+      "expanding_decrease": 36,
+      "expanding_increase": 109
+    },
+    "scope": "Genuine partial segments; no complete first/second join is asserted",
+    "second_segments": [
+      {
+        "J": 5,
+        "g": 3,
+        "h": 1,
+        "last_predecessor": 11,
+        "last_valuation": 6,
+        "length": 2,
+        "total": 7,
+        "word_sha256": "64df21ae627854b059b211cb36078ab832b88926363af3edc83adf753f85aba3"
+      },
+      {
+        "J": 17,
+        "g": 53399,
+        "h": 1,
+        "last_predecessor": 43691,
+        "last_valuation": 18,
+        "length": 3,
+        "total": 20,
+        "word_sha256": "10baa3677ec8684d99ef5c38bfe6d9a2fec42e2fd756bcde06f0641a969deef0"
+      }
+    ],
+    "starts_divisible_by_three": 132
+  },
+  "terminal_intercepts": {
+    "lengths": [
+      1,
+      6
+    ],
+    "levels": [
+      2,
+      7
+    ],
+    "preceding_letters": [
+      1,
+      3
+    ],
+    "sharp_bound_equalities": 108,
+    "terminal_excess": [
+      1,
+      2,
+      3
+    ],
+    "words": 6552
+  }
+}
