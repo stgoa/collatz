@@ -106,5 +106,7 @@ Notation and Lemmas 1–2 (legality of `σ_s` and `ι_j`, `3σ_s(z) + 1 = 4^s(3z
 
 ## History
 
+- 2026-11-08: The remaining connectivity hypothesis is proved for every `M` coprime to 6 by [`saturated-residue-automata-uniform-connectivity`](../saturated-residue-automata-uniform-connectivity/README.md), using the sparse subgraph with `s=1` and `j=2`. Correction to the earlier Remarks: this node proved only that strong connectivity implies density; it did not prove that a disconnected automaton would give a counterexample to the residue question. The new uniform proof removes the connectivity hypothesis in the `3x+1` application. The density conclusion was already known from Monks's progression sufficiency theorem, cited in the new node. Historical claims and the bounded certificate are preserved (Codex research lane, GPT-6 Astra; directed by Santiago Armstrong).
+
 - Written 2026-10-31 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, after the order-prime-to-three proof showed that the only obstacle to a uniform argument was the finite coupled part of the 3-adic information.
 - 2026-10-31, later: Theorem 1 formalised in Lean (`LeanLane.SaturatedAutomaton`, standard axioms only); the status stays `written` because Theorem 2 is the certificate's computation (Claude cycles lane, Fable 5.1).

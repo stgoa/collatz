@@ -44,7 +44,6 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 | [`rotation-distance-growth`](areas/cycles/questions/rotation-distance-growth.md) | cycles | Find an explicit F(m) → ∞ such that the primitive valuation word w of every hypothetical nontrivial integer cycle of the odd-only 3x+1 map (period m) satisfies… | 0 |
 | [`undecidable-collatz-family-threshold`](areas/decidability/questions/undecidable-collatz-family-threshold.md) | decidability | Conway (1972) and Kurtz–Simon (2007) show that convergence questions are undecidable, respectively Π⁰₂-complete, for the class of generalized Collatz maps n ↦… | 0 |
 | [`capped-first-passage-power-bounds`](areas/invariants/questions/capped-first-passage-power-bounds.md) | invariants | Odd-only 3x+1 map S, time in odd arrows. Draw N logarithmically on the odd integers of [X, 2X]; follow its orbit until the first state <= X^(1/4), capped at ce… | 0 |
-| [`invariant-sets-meet-every-residue-class`](areas/invariants/questions/invariant-sets-meet-every-residue-class.md) | invariants | For the 3x+1 map on the positive integers, let B be a nonempty union of orbit components (closed under the forward map and under all inverse branches; 1 absorb… | 0 |
 | [`occupation-measure-tightness`](areas/invariants/questions/occupation-measure-tightness.md) | invariants | Odd-only 3x+1 map S on positive odd integers with S(1) = 1, time counted in odd arrows. For a seed n let m_(n,T) = T^(-1) sum_(j<T) delta_(S^j(n)) be its empir… | 0 |
 | [`section-count-depth-ratio-unbounded`](areas/invariants/questions/section-count-depth-ratio-unbounded/README.md) | invariants | Let h be a finite-valued colouring of the positive integers with h(2n) = h(n) for n >= 1 and h(3n+1) = h(n) for positive odd n > 1 (1 absorbing), extended by h… | 0 |
 
@@ -377,6 +376,12 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`binary-ternary-carry-frontier`](areas/invariants/attempts/binary-ternary-carry-frontier/README.md) | Binary/ternary carry diagrams (base conversion) as a language for invariant colourings | reviewed |
 | [`quantitative-rigidity-programme`](areas/invariants/attempts/quantitative-rigidity-programme/README.md) | Five batches toward superlinear section growth of 3x+1 invariants, which reached only an additive gain | reviewed |
 | [`viewpoint-language-survey`](areas/invariants/attempts/viewpoint-language-survey/README.md) | A breadth-first survey of fourteen candidate languages for Collatz, ending in the choice of invariant colouri… | reviewed |
+
+### Closed questions
+
+| Question | Title | Status | Answered by |
+|---|---|---|---|
+| [`invariant-sets-meet-every-residue-class`](areas/invariants/questions/invariant-sets-meet-every-residue-class.md) | Does every nonempty union of 3x+1 orbit components meet every residue class modulo every… | answered | `saturated-residue-automata-uniform-connectivity` |
 
 ## Sources (external inputs)
 

@@ -2,7 +2,8 @@
 id: invariant-sets-meet-every-residue-class
 kind: question
 title: Does every nonempty union of 3x+1 orbit components meet every residue class modulo every M?
-status: open
+status: answered
+answered_by: [saturated-residue-automata-uniform-connectivity]
 claim: >
   For the 3x+1 map on the positive integers, let B be a nonempty union of orbit components (closed under the forward
   map and under all inverse branches; 1 absorbing). Prove or refute that B meets every residue class modulo every
@@ -30,6 +31,8 @@ The S2 card places the invariants area inside a classical rigidity theme for the
 The card's own translation of the obstacle: rigidity theorems control closed sets and measures, while a hypothetical bad set is a discrete subset whose closure in `Ẑ` can be all of `Ẑ` while the set stays thin; so even a positive answer does not reach convergence, and the difficulty lands again at integer realisation and uniform control of the non-absorbed set.
 
 ## Known progress
+
+- **Answered for every modulus (2026-11-08).** [`saturated-residue-automata-uniform-connectivity`](../results/saturated-residue-automata-uniform-connectivity/README.md) proves that the existing automaton is strongly connected for every modulus prime to 6, using only its `s=1` scaling and `j=2` inverse arrows. Its counting argument removes the bounded computation. The density conclusion was already known from [`monks-2006-sufficiency`](../../../sources/monks-2006-sufficiency.md): any member of a saturated set merges with a member of every infinite arithmetic progression, which must belong to the same set. Thus density was a missed connection to an existing source, rather than an unresolved literature question. The new automaton proof is `written`, not independently reviewed or formalised.
 - **Proved for every `M ≤ 100`** ([`saturated-sets-meet-residue-classes-small-moduli`](../results/saturated-sets-meet-residue-classes-small-moduli/README.md)) by a finite closure search over residues (budgets: at most one halving and six inverse steps; `2^k` needs `k` inverse steps, `3^k` one halving and one inverse step); the same search fails for `3x+5` at `M = 5`, as it must.
 - **Proved for every modulus `2^k·3^b`, machine-checked in Lean** ([`saturated-sets-meet-residue-classes-six-smooth-moduli`](../results/saturated-sets-meet-residue-classes-six-smooth-moduli/README.md), `formal`): every nonempty saturated set is dense in `Z_2 × Z_3`. The proof is an induction on `k` whose lift step (`j = v_2(3u+1)` doublings and one inverse step) works for any extra modulus `M′` prime to 6, so the question reduces to its base case: odd elements in every joint class modulo `3^b·M′`. - **Proved for every `M = 2^k·3^b·M′` with `3 ∤ ord_(M′)(2)`, machine-checked in Lean** ([`saturated-sets-residue-classes-order-of-two-prime-to-three`](../results/saturated-sets-residue-classes-order-of-two-prime-to-three/README.md)): the scaling move `z ↦ 4^s z + (4^s − 1)/3` steers the 3-adic class at no cost modulo `M′`, and scalings and inverse steps generate a transitive group on `Z/M′`. For a prime factor `p` with `3 | ord_p(2)` (`p = 7, 13, 19, 37, 61, 67, 73, 79, 97, 103, 109, …`, density `3/8` among primes) the steering and the action modulo `p` are coupled.
 - **Reduced to a finite automaton per `M′`, and settled for every `M′ ≤ 1000`** ([`saturated-sets-residue-classes-finite-automaton`](../results/saturated-sets-residue-classes-finite-automaton/README.md)): a graph with `M′·3^(v*)` vertices (`3^(v*)` the 3-part of `ord_(M′)(4)`, at least 3) is strongly connected iff the construction reaches every class modulo `2^k·3^b·M′` for all `k, b`; it is strongly connected for all 333 moduli `M′ ≤ 1000` coprime to 6, so the question holds for every `M` whose part prime to 6 is at most 1000 (in particular every `M ≤ 1000`). What remains is a proof that the automaton is strongly connected for every `M′`.
@@ -40,6 +43,8 @@ The card's own translation of the obstacle: rigidity theorems control closed set
 From the card: (i) a literature check on affine-semigroup versions of Furstenberg's theorem on `Ẑ` or on solenoids, and whether the Collatz affine pair appears there; (ii) the finite question modulo `6M`, combining residue-graph computation with the commutator argument of the periodic classification. Mark any extension beyond these as speculation.
 
 ## History
+
+- 2026-11-08: Marked answered by the uniform connectivity proof. The earlier progress description's "iff" was unsupported: the original automaton theorem established connectivity as a sufficient condition, not a necessary one. The new result proves connectivity universally, so no converse is needed. The original question and historical progress are retained; the literature priority of Monks (2006) is now explicit (Codex research lane, GPT-6 Astra; directed by Santiago Armstrong).
 
 - New node by the B16 migration (Claude, Opus 5.5) from the side lane's card S2 (Claude side lane, Opus, 2026-10-18 19:13; [`archive/side-lane/VIEWPOINTS.md`](../../../archive/side-lane/VIEWPOINTS.md), legacy path `archive/side_lane/VIEWPOINTS.md`) at commit `be73a66`. The side lane's other card, S1 (formerly labelled V11 on its sheet), is the same statement as [`nonabsorbing-set-linear-lower-density`](../../convergence/results/nonabsorbing-set-linear-lower-density/README.md) and is not a separate node.
 - 2026-10-31: Known progress gains the finite verification for `M ≤ 100` (Claude cycles lane, Fable 5.1).
