@@ -1,0 +1,93 @@
+{
+  "common_arithmetic": {
+    "arithmetic_scope": "Only local descent and the universal positive logarithm gap are reused; neither uses Barina or any geometric word restriction.",
+    "eta_power": 64,
+    "external_convergence_replayed": false,
+    "local_odd_seeds": 65535,
+    "nested_bootstrap_receipt_sha256": "11f2af760caf5ee16cce5ea693306added37f2bda5b059a085d28e039287d263",
+    "nested_bootstrap_source_sha256": "daf474215cac3782aea1990817c3fcbeaf05d65ad43cbe85156a2190b68c792d",
+    "receipt_sha256": "969da7512889e8ba6cfddbaa8c30438672f61e960a40b9dd2c1bee5e279f1b07",
+    "replay_status": "passed",
+    "source": "areas/cycles/results/clustered-two-maximum-arcs-exclusion/check_clustered_arcs.py",
+    "source_sha256": "710ceaea7ae8cfeadd63d3ff5dbd8561db25b109a8496a2619f5fcaaed7d1561",
+    "upper_convergent": {
+      "p": 683381996816440,
+      "q": 431166034846567
+    }
+  },
+  "constants": {
+    "EXT1_only_cutoff": 536870912,
+    "drift_error_upper": "1/393216",
+    "dyadic_polynomial": [
+      "797588427898880/122731",
+      "5296564647493632/613655",
+      "1758651381448704/613655"
+    ],
+    "exact_period_upper": "256910993915904/613655",
+    "gap_eta_power": 64,
+    "geometric_error_lower": "5/2384",
+    "induction_ratio": "2401/2304",
+    "integer_period_upper": 418657053,
+    "polynomial_at_48": "4310155828077002752/613655",
+    "post_gap_Y_upper": 112,
+    "post_gap_cf_digit_upper": 97,
+    "post_gap_numerator": "6577434/5",
+    "preliminary_period_upper_exclusive": 281474976710656,
+    "scale": "39059456/122731",
+    "separately_sourced_period_lower": 72057431991,
+    "source_scope": "EXT1 gives the finite bound; Barina is used only for the all-length contradiction."
+  },
+  "family_controls": {
+    "actual_reduced_cycles": 7648,
+    "agreement_subintervals": 73824,
+    "aligned_placements": {
+      "adjacent_minus": 2842,
+      "adjacent_plus": 998,
+      "opposite": 3840
+    },
+    "digest_sha256": "77104ff131551dc195f2b5a1206bb60534b6cef099f29a7fd02324c85fcf5651",
+    "exact_arrows": 74112,
+    "geometries_by_arrangement": {
+      "adjacent": 3840,
+      "opposite": 3840
+    },
+    "integral_ones_runs": 11552,
+    "label_sets": [
+      [
+        1,
+        2,
+        3,
+        5
+      ],
+      [
+        1,
+        3,
+        7,
+        16
+      ],
+      [
+        1,
+        7,
+        16,
+        31
+      ],
+      [
+        2,
+        3,
+        4,
+        7
+      ]
+    ],
+    "normalization": "Every positive-D word is replayed as a genuine 3x+q integer cycle. No normalized rational state is silently treated as integral.",
+    "proper_factors_covered_by_prefix_span": 676992,
+    "scope": "All m=4..12, positive b+d=m-2, all coprime h, both placements and both label orders for four listed label sets; D<=0 words retain geometry checks only.",
+    "word_geometries": 7680
+  },
+  "standard_controls": {
+    "addend_ones_runs": 25,
+    "cycles": 11,
+    "exact_arrows": 106,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "scope": "The true addend is retained; normalized states are not treated as integers."
+  }
+}
