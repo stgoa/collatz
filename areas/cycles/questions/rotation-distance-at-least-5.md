@@ -23,6 +23,16 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: one arbitrary change to a mechanical word is excluded.**
+  [`one-edit-mechanical-denominator-growth`](../results/one-edit-mechanical-denominator-growth/README.md)
+  proves an explicit denominator law for every primitive word differing
+  in at most one position from a positive mechanical word, with arbitrary
+  base total, phase and replacement. Under EXT-1, exact local finite
+  checks exclude denominator 1 at every length. This includes the
+  [prime four-mismatch family](../results/sparse-rotation-bounded-period-reduction-obstruction/README.md)
+  whose bounded-period decomposition obstruction remains valid.
+  General four-mismatch words need not have this form; the question
+  remains open.
 - **2026-11-08: a uniform endpoint-and-slope enclosure.**
   [`mersenne-join-state-enclosure`](../results/mersenne-join-state-enclosure/README.md)
   bounds the canonical normalized state for either interface sign
@@ -140,6 +150,10 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
+- 2026-11-08: added the one-edit mechanical denominator law and its
+  arithmetic exclusion of the prime four-mismatch coverage family,
+  conditional only on EXT-1. The general question remains `open`
+  (Codex four-arc research lane, GPT-6 Astra; directed by Santiago Armstrong).
 - 2026-11-08: added the uniform Mersenne state enclosure and the
   combined endpoint-and-slope target. The general question remains
   `open` (Codex cycle research lane, GPT-6 Astra; directed by
