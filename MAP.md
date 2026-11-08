@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**244 results, 29 attempts, 39 questions, 30 sources.**
+**245 results, 29 attempts, 39 questions, 30 sources.**
 
 ## Frontier: open questions
 
@@ -38,7 +38,7 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 | [`local-minima-cycle-exclusion-replay`](areas/cycles/questions/local-minima-cycle-exclusion-replay.md) | cycles | Calibration target (Phase 6 route node Y.1): reproduce, in this repository, one published exclusion of nontrivial cycles of the 3x+1 shortcut map with a bounde… | 0 |
 | [`one-height-defect-ordered-cycles`](areas/cycles/questions/one-height-defect-ordered-cycles.md) | cycles | Ordered odd-only cycles at q = 1 with one chronological height h_t = 1 and all other heights 0: legality forces c_(t−1) = 2, and reduced denominator 1 would re… | 0 |
 | [`ordered-cycle-denominator-one`](areas/cycles/questions/ordered-cycle-denominator-one.md) | cycles | Prove or refute: every nontrivial primitive positive rational cycle of the raw odd-only 3x+1 map whose dyadically normalised successor preserves circular order… | 0 |
-| [`primitive-cancellation-below-half`](areas/cycles/questions/primitive-cancellation-below-half.md) | cycles | Prove or refute: every primitive positive valuation word w of length m ≥ 9 with total A, D = 2^A − 3^m > 0 and a nonidentity rotation differing from it in at m… | 0 |
+| [`primitive-cancellation-below-half`](areas/cycles/questions/primitive-cancellation-below-half.md) | cycles | Remaining target (C), raw odd-only clock, any 3x+q: determine which exponents c(s) and length thresholds m_0(s) make every primitive positive valuation word wi… | 0 |
 | [`rotation-defect-denominator-candidate`](areas/cycles/questions/rotation-defect-denominator-candidate.md) | cycles | Prove or refute: for every positive valuation word w of length m with total A, D = 2^A − 3^m > 0 and g = gcd(C_w, D), and every nonidentity rotation differing… | 0 |
 | [`rotation-distance-at-least-5`](areas/cycles/questions/rotation-distance-at-least-5.md) | cycles | Prove or refute: no nonidentity rotation of the valuation word of a hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map differs from i… | 0 |
 | [`rotation-distance-growth`](areas/cycles/questions/rotation-distance-growth.md) | cycles | Find an explicit F(m) → ∞ such that the primitive valuation word w of every hypothetical nontrivial integer cycle of the odd-only 3x+1 map (period m) satisfies… | 0 |
@@ -250,6 +250,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`mismatch-height-tradeoff`](areas/cycles/results/mismatch-height-tradeoff/README.md) | Mismatch–height trade-off at q = 1: every rotation differs in more than log₂3·m/(B + 342… | formal | reviewed | `musson-collatz-gap-all` | yes |
 | [`narrow-cycle-spectrum-law`](areas/cycles/results/narrow-cycle-spectrum-law.md) | Narrow-cycle spectrum of 3x+d: one cycle per coprime (A, m) with 0 < 2^A − 3^m dividing d | reviewed | reviewed | — |  |
 | [`narrow-cycles-are-mechanical`](areas/cycles/results/narrow-cycles-are-mechanical/README.md) | A cycle with H < 2L is exactly a mechanical word, so every nontrivial 3x+1 cycle has H >… | formal | formal | — | yes |
+| [`near-critical-four-mismatch-corpus-counterexample`](areas/cycles/results/near-critical-four-mismatch-corpus-counterexample/README.md) | An existing 3x+295 cycle refutes both near-critical half-cancellation bounds | written | written | — |  |
 | [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) | Finite signed crossing orbits exclude near-doubled cancellation for gaps through twelve | written | written | — |  |
 | [`near-doubled-words-primitive-factor-test`](areas/cycles/results/near-doubled-words-primitive-factor-test/README.md) | The primitive factor at gcd(A, m) = 2 never divides the intercept of a near-doubled word:… | written | written | — |  |
 | [`odd-spacing-rounding-bound`](areas/cycles/results/odd-spacing-rounding-bound.md) | Odd spacing and image order bound every sorted gap of an ordered cycle, so L ≥ R_q(H) | formal | reviewed | — | yes |
@@ -652,6 +653,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 - 2026-11-08: [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) added (result)
 - 2026-11-08: [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) added (result)
+- 2026-11-08: [`near-critical-four-mismatch-corpus-counterexample`](areas/cycles/results/near-critical-four-mismatch-corpus-counterexample/README.md) added (result)
 - 2026-11-08: [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) added (result)
 - 2026-11-08: [`transposition-gap-fourteen-complete-classification`](areas/cycles/results/transposition-gap-fourteen-complete-classification/README.md) added (result)
 - 2026-11-08: [`transposition-gap-fourteen-full-plus-cancellation`](areas/cycles/results/transposition-gap-fourteen-full-plus-cancellation/README.md) added (result)
@@ -674,7 +676,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-31: [`auxiliary-normalisation-remainder`](areas/convergence/results/auxiliary-normalisation-remainder/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`base-inverse-phases-increasing-pairs`](areas/convergence/results/base-inverse-phases-increasing-pairs/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`baseline-obligation-transfer-controls`](areas/convergence/results/baseline-obligation-transfer-controls/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`binary-residue-projection-information-loss`](areas/convergence/results/binary-residue-projection-information-loss/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -682,15 +683,15 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 60.7% | 203 | 9 |
+| ChatGPT main lane | 60.6% | 203 | 9 |
 | Claude side lane | 14.8% | 34 | 132 |
 | Claude review lane | 8.5% | 0 | 121 |
 | Claude Lean lane | 5.4% | 3 | 69 |
 | Claude cycles lane | 5.1% | 21 | 0 |
 | Claude PR1 lane | 2.2% | 6 | 9 |
 | ChatGPT handoff conversation | 1.0% | 2 | 0 |
-| Claude explicit-Tao lane | 0.8% | 5 | 0 |
-| Codex cycle research lane | 0.6% | 4 | 0 |
+| Codex cycle research lane | 0.8% | 5 | 0 |
+| Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
 | Codex formalisation lane | 0.3% | 2 | 0 |
 | Codex research lane | 0.2% | 1 | 0 |
