@@ -300,6 +300,13 @@ rotations instead. These links credit context; the proof above is
 self-contained and uses neither result as an assumption. Novelty
 undetermined.
 
+The failed sixteen-rotation target and its strict shorter-horizon
+controls are recorded in
+[`free-four-cut-ramp-model`](../../attempts/free-four-cut-ramp-model/README.md).
+The present result retains the four free cuts and increases the horizon
+to eighteen. The countercontrol in (5) explains why seventeen still
+cannot prove the stated positive margin.
+
 This node supplies a geometric obstruction only. A cycle application
 must separately prove its height envelope, the relation between raw cuts
 and actual mismatches, agreement-subinterval witnesses at every raw cut,

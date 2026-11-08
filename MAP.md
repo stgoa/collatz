@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**288 results, 30 attempts, 39 questions, 39 sources.**
+**288 results, 31 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -354,6 +354,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`constant-cancellation-two-growing-blocks`](areas/cycles/attempts/constant-cancellation-two-growing-blocks.md) | A constant cancellation bound for two growing repeated blocks | reviewed |
 | [`excursion-compression`](areas/cycles/attempts/excursion-compression/README.md) | Compressing an ordered cycle at its excursions above the minimum band | reviewed |
 | [`four-mismatch-size-method-limit`](areas/cycles/attempts/four-mismatch-size-method-limit/README.md) | Excluding four-mismatch rotations by S7's size inequalities alone (headline withdrawn) | withdrawn |
+| [`free-four-cut-ramp-model`](areas/cycles/attempts/free-four-cut-ramp-model/README.md) | A free four-cut ramp model survives seventeen rotations | written |
 | [`height-bound-via-residues-or-relaxation`](areas/cycles/attempts/height-bound-via-residues-or-relaxation.md) | Proving B ≤ q − 1 from disjoint height residues or from real order inequalities | reviewed |
 | [`interval-trapping-expanding-blocks`](areas/cycles/attempts/interval-trapping-expanding-blocks.md) | Interval trapping of block starts when one block expands | reviewed |
 | [`local-odd-rounding-exclusion`](areas/cycles/attempts/local-odd-rounding-exclusion/README.md) | Excluding ordered denominator-one cycles by integer rounding of the complete sorted gaps | reviewed |
@@ -741,7 +742,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Claude review lane | 7.7% | 0 | 121 |
 | Claude cycles lane | 5.2% | 21 | 0 |
 | Claude Lean lane | 5.1% | 3 | 69 |
-| Codex cycle research lane | 2.9% | 17 | 0 |
+| Codex cycle research lane | 3.0% | 18 | 0 |
 | Claude PR1 lane | 1.9% | 6 | 9 |
 | Codex four-arc research lane | 1.5% | 16 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
@@ -749,15 +750,15 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex root research lane | 0.7% | 10 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
-| Codex residue research lane | 0.6% | 8 | 0 |
+| Codex residue research lane | 0.6% | 9 | 0 |
 | Codex main research lane | 0.4% | 5 | 0 |
 | Codex crossing research lane | 0.3% | 2 | 0 |
 | Codex formalisation lane | 0.3% | 2 | 0 |
+| Codex directing research lane | 0.1% | 3 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
 | Codex research lane | 0.1% | 1 | 0 |
-| Codex directing research lane | 0.1% | 2 | 0 |
 | Codex cycle-frontier lane | 0.1% | 1 | 0 |
 | Codex residue lane | 0.1% | 1 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
