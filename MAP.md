@@ -259,7 +259,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`near-critical-four-mismatch-corpus-counterexample`](areas/cycles/results/near-critical-four-mismatch-corpus-counterexample/README.md) | An existing 3x+295 cycle refutes both near-critical half-cancellation bounds | written | written | — |  |
 | [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) | Finite signed crossing orbits exclude near-doubled cancellation for gaps through twelve | written | written | — |  |
 | [`near-doubled-words-primitive-factor-test`](areas/cycles/results/near-doubled-words-primitive-factor-test/README.md) | The primitive factor at gcd(A, m) = 2 never divides the intercept of a near-doubled word:… | written | written | — |  |
-| [`odd-order-residue-signed-endpoint-divisibility`](areas/cycles/results/odd-order-residue-signed-endpoint-divisibility/README.md) | Odd-order residue groups force full divisibility of signed return endpoints | written | written | — |  |
+| [`odd-order-residue-signed-endpoint-divisibility`](areas/cycles/results/odd-order-residue-signed-endpoint-divisibility/README.md) | Odd-order residue groups force full divisibility of signed return endpoints | written | written | — | yes |
 | [`odd-spacing-rounding-bound`](areas/cycles/results/odd-spacing-rounding-bound.md) | Odd spacing and image order bound every sorted gap of an ordered cycle, so L ≥ R_q(H) | formal | reviewed | — | yes |
 | [`one-cycle-exclusion-via-gap`](areas/cycles/results/one-cycle-exclusion-via-gap.md) | Given the linear-form gap, no 3x+1 cycle has word 1^(m−1)V for m ≥ 2^13 (a route to Stein… | formal | formal | `musson-collatz-gap-all` | yes |
 | [`one-edit-mechanical-denominator-growth`](areas/cycles/results/one-edit-mechanical-denominator-growth/README.md) | One change to a mechanical word forces denominator growth | written | written | `musson-collatz-gap-all` |  |
@@ -708,8 +708,8 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Claude review lane | 8.3% | 0 | 121 |
 | Claude Lean lane | 5.3% | 3 | 69 |
 | Claude cycles lane | 5.1% | 21 | 0 |
-| Codex cycle research lane | 2.1% | 12 | 0 |
 | Claude PR1 lane | 2.1% | 6 | 9 |
+| Codex cycle research lane | 2.1% | 12 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Codex four-arc research lane | 0.9% | 6 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
@@ -717,6 +717,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex formalisation lane | 0.3% | 2 | 0 |
 | Codex proportional-block research lane | 0.2% | 1 | 0 |
 | Codex research lane | 0.2% | 1 | 0 |
+| Codex formalization lane | 0.1% | 1 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 
 **By accountable person** (agents are credited to the person who directed them; [`conventions/CREDIT.md`](conventions/CREDIT.md) §4):
