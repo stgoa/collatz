@@ -1,7 +1,7 @@
 ---
 id: four-mismatch-inverse-continued-fraction-bound
 kind: result
-title: Four mismatches bound inverse continued-fraction complexity
+title: Inverse continued fractions force rotation mismatch growth
 status: written
 claim: >
   Raw odd-only 3x+1 clock. Assume EXT-1. In a primitive positive integer
@@ -18,6 +18,11 @@ claim: >
   V,1^a,2^b,1^c, with a,b,c>=1, V>=3, m=1+a+b+c>=2^1536 and D_w>0,
   without a density or continued-fraction restriction.
   Other four-mismatch words remain outside that corollary.
+  More generally, for every coprime nonidentity rotation h of a
+  primitive positive integer cycle with m>=2^40, its mismatch count
+  s(h) satisfies K(h^(-1)/m)<2*s(h)*m/log_2(m), under EXT-1 alone.
+  This bound uses the actual mismatch count, with no fixed upper bound
+  on it. In particular K=O(s*m/log m), uniformly in the rotation.
 authors:
   - Codex signed-endpoint research lane (GPT-6 Astra; directed by Santiago Armstrong)
   - Codex main research lane (GPT-6 Astra; directed by Santiago Armstrong)
@@ -27,10 +32,11 @@ assumes: [musson-collatz-gap-all]
 certificates: [check_inverse_complexity.py]
 evidence:
   - "check_inverse_complexity.json: continuant identities and end coefficients, exact cutoff constants, local minimum verification and actual-cycle controls"
+  - "check_inverse_complexity.json: exact polynomial induction certificates for the general mismatch-growth bound at m>=2^40"
 tags: [cycles, rotation-distance, continued-fractions, rise-lemma, effective-bounds]
 ---
 
-# Four mismatches bound inverse continued-fraction complexity
+# Inverse continued fractions force rotation mismatch growth
 
 ## Statement
 
@@ -74,6 +80,23 @@ K(k/m)>=m/512
 ```
 
 No cycle hypothesis is used in (2).
+
+**General mismatch-growth bound.** Under the same EXT-1 input,
+let a primitive positive odd integer `3x+1` cycle have length
+`m>=2^40`. For every `0<h<m` coprime to `m`, put
+`s=s(h)` and let `k=h^(-1) mod m` lie in `(0,m)`. Then
+
+```
+K(k/m) < 2*s*m/log_2(m),
+s > K(k/m)*log_2(m)/(2m).                           (3a)
+```
+
+The mismatch count is positive, but need not be at most four.
+The conclusion is uniform in `h` and `s`. For a fixed mismatch
+bound it gives `K(k/m)=O(m/log m)`, strengthening a fixed
+linear-complexity restriction as the period grows. The earlier
+four-mismatch cutoff (1) is retained: its numerical bound can
+be stronger at particular lengths.
 
 **Two-level four-arc corollary.** Let `a,b,c>=1`, `V>=3`,
 `m=1+a+b+c`, and `gcd(h,m)=1`. Suppose a positive word `w`,
@@ -329,6 +352,90 @@ The inverse `k` is taken in the original track orientation
 in both arguments. No change of orientation or density
 hypothesis is inserted.
 
+### 6. The bound for every mismatch count
+
+Keep the primitive integer-cycle hypotheses and write
+`x=log_2(m)`, `s=s(h)>=1`, `K=K(k/m)`. Suppose, contrary
+to (3a), that `K>=2sm/x`. Let `n` be the number of continued-
+fraction coefficients and `C` their maximum. The continuant
+identities in sections 1--2 apply without change.
+
+First, `C>=K/2`. Otherwise `C>=K/n` and
+`K-C<=(n-1)m/C`, together with `K-C>K/2`, give
+
+```
+K^2<2n(n-1)m,
+m<n(n-1)x^2/(2s^2)<=2x^4+x^3.                     (12)
+```
+
+For a fully discrete contradiction, choose `d>=40` with
+`2^d<=m<2^(d+1)`. Then `n<=2d+2` and (12) would imply
+`2^d<(d+1)^3(2d+1)`. Put `P(d)=(d+1)^3(2d+1)`.
+At `d=40`, `2^40-P(40)=1099506045175>0`. The polynomial
+`2P(d)-P(d+1)`, expanded in `z=d-40`, has coefficients
+`[5015898,505238,19056,319,2]`, all positive. Thus the
+opposite inequality persists at every larger `d`.
+
+Take the split at a maximal coefficient. In the notation
+of section 2, `QR<=m/C<=2m/K<=x/s`. The sum of all the
+other coefficients is at most `Q+R<=QR+1<=x+1`. Also
+`K>=2m/x>=4(x+1)`: it suffices that
+`2^d>=2(d+1)(d+2)`, whose base at `d=40` and doubling
+induction are checked exactly. Consequently
+
+```
+C>=K-(x+1)>=3K/4,
+QR<=4m/(3K)<=2x/(3s).                              (13)
+```
+
+The exact inverse congruence again gives a nonidentity
+rotation `Rh` with cyclic distance `Q`: here `Q<=2x/3<m/2`.
+Its mismatch count `s'` obeys
+
+```
+1<=s'<=sR<=2x/3,       Q<=2x/3.                    (14)
+```
+
+Sections 3--4 used only a nonidentity rotation and its
+actual mismatch count in the rise and end-witness bounds.
+Apply them to this rotation. With `ell=log_2(L)` and
+`B=log_2(H/L)`, put `c=ell+1+(kappa-1)Q`. Then
+
+```
+ell+B+1 <= kappa^(s'+1)*c,
+m < (2s'/3)*(ell+B+1).
+```
+
+The same local descent gives `kappa<8/5<2^(7/10)`.
+EXT-1 still gives `ell<172+342x`. Hence
+
+```
+m < (4x/9)*2^(7x/15+7/10)*(173+(342+2/5)x)
+  < (8x/9)*2^(7x/15)*(173+343x).                    (15)
+```
+
+Finally, in the dyadic band above, let
+`F(d)=(d+1)(516+343d)`. Equation (15) would require
+
+```
+2^(8d-7) < [(8/9)F(d)]^15.                         (16)
+```
+
+At `d=40` the reverse inequality is checked by the integer
+comparison `2^313*9^15>4669408^15`. Further,
+`4F(d)-3F(d+1)`, expanded in `z=d-40`, has coefficients
+`[497750,26241,343]`, all positive. Thus the right side of
+(16) increases by less than `(4/3)^15<2^8` at each step,
+whereas its left side increases by exactly `2^8`.
+The contradiction holds throughout the unbounded range,
+proving (3a).
+
+The new quantitative restriction uses the same elementary
+continuant bridge, rise lemma and external gap as (1).
+It does not impose a hypothesis on the letter amplitudes
+or the arrangement of mismatches, and it does not exclude
+all coprime rotations or all four-mismatch words.
+
 ## Certificates
 
 Run from the repository root:
@@ -353,6 +460,12 @@ induction steps for the two unbounded thresholds, traces the
 standard actual `3x+5,7,13,61` cycles. On those controls it
 also checks mismatch subadditivity, inverse-rotation
 arithmetic, and exact agreeing-run witnesses.
+
+For (3a), the checker also verifies the integer base
+comparisons and polynomial identities for all three dyadic
+inductions. Positivity of the shifted polynomial coefficients
+certifies every later dyadic band; no finite-period sampling
+is substituted for those inductions.
 
 The deterministic [receipt](check_inverse_complexity.json)
 is generated with `--write-receipt` and compared byte for
@@ -393,3 +506,8 @@ claim for `m<2^1536`.
 - 2026-11-08: combined the generic bound with the merged
   all-density two-level four-arc theorem to remove its
   density and continued-fraction restrictions above `2^1536`.
+- 2026-11-08: retained the four-mismatch statements and added
+  the uniform bound `K(h^(-1)/m)<2s(h)m/log_2(m)` for
+  `m>=2^40`, with the same sole external input EXT-1.
+  This extends the inverse-continuant argument to every
+  mismatch count; novelty remains undetermined.

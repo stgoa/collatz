@@ -132,6 +132,68 @@
     "lists": 78124,
     "single_coefficient_cases": 4
   },
+  "general_mismatch_growth": {
+    "dominance_base_margin": 1099506045175,
+    "dominance_induction_polynomial": [
+      -22,
+      -42,
+      -24,
+      -1,
+      2
+    ],
+    "dominance_polynomial": [
+      1,
+      5,
+      9,
+      7,
+      2
+    ],
+    "dominance_shifted_coefficients": [
+      5015898,
+      505238,
+      19056,
+      319,
+      2
+    ],
+    "height_base": "4669408/9",
+    "height_fifteenth_power_base_margin": 3435787402853280953210959191324284687075691978399380518885948194682133765701945758369420701048997713360715776,
+    "height_polynomial": [
+      516,
+      859,
+      343
+    ],
+    "height_ratio_denominator": 14348907,
+    "height_ratio_difference": [
+      -3090,
+      -1199,
+      343
+    ],
+    "height_ratio_numerator": 1073741824,
+    "height_shifted_coefficients": [
+      497750,
+      26241,
+      343
+    ],
+    "left_side_dyadic_ratio": 256,
+    "minimum_K_base_margin": 1099511624332,
+    "minimum_K_induction_polynomial": [
+      -4,
+      2,
+      2
+    ],
+    "minimum_K_polynomial": [
+      4,
+      6,
+      2
+    ],
+    "minimum_K_shifted_coefficients": [
+      3276,
+      162,
+      2
+    ],
+    "period_cutoff_bits": 40,
+    "scope": "Uniform K(k/m)<2*s(h)*m/log2(m), using the actual mismatch count"
+  },
   "large_coefficients": {
     "edge_examples": [
       {
@@ -587,5 +649,5 @@
       }
     ]
   },
-  "schema": "inverse-cf-four-mismatch-v1"
+  "schema": "inverse-cf-four-mismatch-v2"
 }
