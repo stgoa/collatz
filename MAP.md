@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**275 results, 30 attempts, 39 questions, 39 sources.**
+**276 results, 30 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -226,6 +226,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`closed-negative-prefix-mersenne-denominator-law`](areas/cycles/results/closed-negative-prefix-mersenne-denominator-law/README.md) | Closed negative prefixes force a Mersenne denominator bound | written | written | `musson-collatz-gap-all` |  |
 | [`compatible-arcs-common-partition-limits`](areas/cycles/results/compatible-arcs-common-partition-limits/README.md) | Unreviewed draft: a rotation-invariant partition or a shared background cannot cover spar… | proposed | proposed | — |  |
 | [`complete-gap-lattice-equivalence`](areas/cycles/results/complete-gap-lattice-equivalence.md) | The complete dyadic gaps of a cycle carry exactly the same lattice, gcd and denominator a… | formal | formal | — | yes |
+| [`contiguous-maximum-four-arc-exclusion`](areas/cycles/results/contiguous-maximum-four-arc-exclusion/README.md) | A contiguous maximum arc excludes three-label four-arc words | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`contracting-two-block-effective-exclusion`](areas/cycles/results/contracting-two-block-effective-exclusion/README.md) | Contracting two-block words with a block repeated three times have denominator above 2^M | formal | formal | — | yes |
 | [`coupled-defect-matrix-smith-form`](areas/cycles/results/coupled-defect-matrix-smith-form/README.md) | The coupled mismatch-cut system has determinant ±D^(s−2)·Π(β'_i − β_i) and only two indep… | reviewed | reviewed | — |  |
 | [`cycle-height-ceiling`](areas/cycles/results/cycle-height-ceiling.md) | The height of a cycle is at most (log₂3 − 1)(m − 1) plus a term in q/L, by climbing from… | formal | formal | — | yes |
@@ -427,7 +428,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 |---|---|---|---|
 | [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) | Adamczewski–Bell: a problem about Mahler functions | cited | 0 |
 | [`ansari-2025-recursive-sieve`](sources/ansari-2025-recursive-sieve.md) | Ansari (2025): recursively sufficient sets and a ternary-digit sieve | cited | 0 |
-| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 10 |
+| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 11 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
 | [`cerda-bennassar-2026-periodic-perturbations`](sources/cerda-bennassar-2026-periodic-perturbations.md) | Cerdá Bennassar (2026): perturbations of the periodic word (1,2) | cited | 0 |
@@ -456,7 +457,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 21 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 22 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
@@ -695,6 +696,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`background-maximum-four-arc-exclusion`](areas/cycles/results/background-maximum-four-arc-exclusion/README.md) added (result)
 - 2026-11-08: [`bounded-unequal-half-defect-exclusion`](areas/cycles/results/bounded-unequal-half-defect-exclusion/README.md) added (result)
 - 2026-11-08: [`closed-negative-prefix-mersenne-denominator-law`](areas/cycles/results/closed-negative-prefix-mersenne-denominator-law/README.md) added (result)
+- 2026-11-08: [`contiguous-maximum-four-arc-exclusion`](areas/cycles/results/contiguous-maximum-four-arc-exclusion/README.md) added (result)
 - 2026-11-08: [`effective-proportional-two-block-exclusion`](areas/cycles/results/effective-proportional-two-block-exclusion/README.md) added (result)
 - 2026-11-08: [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) added (result)
 - 2026-11-08: [`expanding-background-defect-growth`](areas/cycles/results/expanding-background-defect-growth/README.md) added (result)
@@ -715,7 +717,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`positive-interface-mersenne-exclusion`](areas/cycles/results/positive-interface-mersenne-exclusion/README.md) added (result)
 - 2026-11-08: [`signed-endpoint-order-depth`](areas/cycles/results/signed-endpoint-order-depth/README.md) added (result)
 - 2026-11-08: [`small-mersenne-endpoint-exclusion`](areas/cycles/results/small-mersenne-endpoint-exclusion/README.md) added (result)
-- 2026-11-08: [`sparse-four-arc-near-critical-classification`](areas/cycles/results/sparse-four-arc-near-critical-classification/README.md) added (result)
 
 ## Contributors
 
@@ -723,14 +724,14 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 57.1% | 203 | 9 |
+| ChatGPT main lane | 57.0% | 203 | 9 |
 | Claude side lane | 14.0% | 34 | 132 |
 | Claude review lane | 7.9% | 0 | 121 |
 | Claude Lean lane | 5.1% | 3 | 69 |
 | Claude cycles lane | 5.0% | 21 | 0 |
 | Codex cycle research lane | 3.0% | 16 | 0 |
 | Claude PR1 lane | 2.0% | 6 | 9 |
-| Codex four-arc research lane | 1.1% | 10 | 0 |
+| Codex four-arc research lane | 1.2% | 11 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
@@ -738,7 +739,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex formalisation lane | 0.4% | 2 | 0 |
 | Codex main research lane | 0.3% | 5 | 0 |
 | Codex signed-endpoint formalisation lane | 0.3% | 1 | 0 |
-| Codex root research lane | 0.2% | 3 | 0 |
+| Codex root research lane | 0.3% | 4 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |

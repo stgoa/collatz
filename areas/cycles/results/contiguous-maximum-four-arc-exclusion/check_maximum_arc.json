@@ -1,0 +1,411 @@
+{
+  "constants": {
+    "absorbed_threshold": "6125/4980736",
+    "cutoff_base_margin": "8070553975633215488/30625",
+    "cutoff_base_upper": "549617186130624512/30625",
+    "cutoff_bits": 48,
+    "cutoff_polynomial": [
+      "20341181382656/1225",
+      "675400861089792/30625",
+      "224257558708224/30625"
+    ],
+    "drift_error_upper": "1/393216",
+    "dyadic_ratio_upper": "2401/2304",
+    "external_convergence_replayed": false,
+    "forcing_base_margin": "1437715/129",
+    "forcing_coefficient": "49/2064",
+    "imported_odd_period_lower": 72057431991,
+    "integer_full_period_upper": 1069729381,
+    "local_minimum_used": 131072,
+    "maximum_count_cutoff_bits": 22,
+    "maximum_letter_denominator": 64,
+    "maximum_multiplicity": 38,
+    "multiplicity_margin": "196413/5",
+    "period_receipt_sha256": "e48b19926ca0c155032a9d85d3c28f3f6fbe69ae404163638414a7c848c65f64",
+    "post_gap_digit_count_upper": 97,
+    "post_gap_full_period_upper": "32760462311424/30625",
+    "post_gap_height_upper": 112,
+    "spread_coefficient": "6103/16383",
+    "spread_margin": "325/196596",
+    "uniform_error_threshold": "1/1216"
+  },
+  "exact_gap": {
+    "atanh_terms": 80,
+    "continued_fraction_digits": [
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      1,
+      5,
+      2,
+      23,
+      2,
+      2,
+      1,
+      1,
+      55,
+      1,
+      4,
+      3,
+      1,
+      1,
+      15,
+      1,
+      9,
+      2,
+      5,
+      7,
+      1,
+      1,
+      4,
+      8
+    ],
+    "eta_power": 64,
+    "ln2_interval": [
+      "24553090145869607172412918483124184864289170814122579923404694986469653261608528681589949629750677407356463601998534945057511664951799678336/35422621391945757431676178435630229283255250779216421054188228659061954317501699707236864189383591478024245495110561124597124995986978302375",
+      "98212360583478428689651673932496739457156683256490319693618779945878613046434144938070740358478117004692777348148358152378891907458724080469/141690485567783029726704713742520917133021003116865684216752914636247817270006798828947456757534365912096981980442244498388499983947913209500"
+    ],
+    "ln3_interval": [
+      "369017335340917140706044240090243368728616279239227943871048759140274862131699550043150713059889196223917527172547/335894053932612728969975338549993764554481173661218585876475837409922537622385232776657791604345125227005476864000",
+      "184508667670458570353022120045121684364308139619614923604419047513612763386757847636433235252633223412981812650711/167947026966306364484987669274996882277240586830609292938237918704961268811192616388328895802172562613502738432000"
+    ],
+    "lower_convergent": {
+      "p": 83130157078217,
+      "q": 52449289519716
+    },
+    "positive_gap_lower": "32736706357818300020742016400582454614819282073230735586730922321249349841524776075519361299750580597553835285358701985078617924841869069439039018391568585836941101432569499/15699416884253238872406480391280993377474079636999421696084781041383163518546640992942514509779151835150987374915173324755313196281248015040484581022968742418046188253927137912273577705472",
+    "positive_gap_power": 62,
+    "scope": "Every integer full period 0<m<2^48; no m>=q restriction.",
+    "upper_convergent": {
+      "p": 683381996816440,
+      "q": 431166034846567
+    }
+  },
+  "family_controls": {
+    "actual_reduced_cycles": 8459,
+    "addend_ones_runs": 17818,
+    "all_positive_arc_lengths": true,
+    "clustered_words": 5964,
+    "control_sha256": "0574c007b039746c5160cfb5f617d6e173f84eeaa6b0fab04bd6a57c2e40f263",
+    "exact_cycle_arrows": 85963,
+    "geometry_words": 8556,
+    "lower_label_arrangements": "both",
+    "lower_labels": [
+      2,
+      3,
+      7
+    ],
+    "maximum_values": "t+1 and t+9",
+    "multiplicities": "every2..m-3",
+    "periods": [
+      5,
+      11
+    ],
+    "proper_profile_and_discrepancy_factors": 810000,
+    "scope": "Exact identities and actual 3x+q controls; finite absence is not used to prove the theorem.",
+    "spread_words": 2592,
+    "track_steps": "all coprime0<h<m/2"
+  },
+  "local_descent": {
+    "exact_odd_steps": 227689,
+    "first_descent_sha256": "bd9971133844197c6ee7cc99c5c54251c03b0ffdbaae4814de682590dc69ec93",
+    "maximum_output": 827370449,
+    "maximum_steps": 85,
+    "odd_seed_range": [
+      3,
+      131071
+    ],
+    "scope": "Every seed reaches a smaller positive odd integer; strong induction gives convergence to1 throughout the range.",
+    "seeds": 65535
+  },
+  "rank_cases": {
+    "maximum_multiplicities": [
+      2,
+      38
+    ],
+    "records": [
+      {
+        "d": 2,
+        "error": "1/64",
+        "rank1_margin": "627/1600",
+        "rank2_margin": "1779/5696",
+        "rank3_margin": "1131/5120"
+      },
+      {
+        "d": 3,
+        "error": "1/96",
+        "rank1_margin": "1093/1440",
+        "rank2_margin": "1991/3040",
+        "rank3_margin": "3833/9600"
+      },
+      {
+        "d": 4,
+        "error": "1/128",
+        "rank1_margin": "70229/73600",
+        "rank2_margin": "75581/88960",
+        "rank3_margin": "48341/102400"
+      },
+      {
+        "d": 5,
+        "error": "1/160",
+        "rank1_margin": "30117/28000",
+        "rank2_margin": "32031/32800",
+        "rank3_margin": "20421/40000"
+      },
+      {
+        "d": 6,
+        "error": "1/192",
+        "rank1_margin": "61169/52800",
+        "rank2_margin": "64489/60480",
+        "rank3_margin": "41009/76800"
+      },
+      {
+        "d": 7,
+        "error": "1/224",
+        "rank1_margin": "129673/106400",
+        "rank2_margin": "27161/23968",
+        "rank3_margin": "17237/31360"
+      },
+      {
+        "d": 8,
+        "error": "1/256",
+        "rank1_margin": "69597/55040",
+        "rank2_margin": "362553/305920",
+        "rank3_margin": "229713/409600"
+      },
+      {
+        "d": 9,
+        "error": "1/288",
+        "rank1_margin": "3121/2400",
+        "rank2_margin": "19429/15840",
+        "rank3_margin": "683/1200"
+      },
+      {
+        "d": 10,
+        "error": "1/320",
+        "rank1_margin": "563663/424000",
+        "rank2_margin": "582839/462400",
+        "rank3_margin": "368399/640000"
+      },
+      {
+        "d": 11,
+        "error": "1/352",
+        "rank1_margin": "345351/255200",
+        "rank2_margin": "356091/276320",
+        "rank3_margin": "224871/387200"
+      },
+      {
+        "d": 12,
+        "error": "1/384",
+        "rank1_margin": "276847/201600",
+        "rank2_margin": "18985/14464",
+        "rank3_margin": "35939/61440"
+      },
+      {
+        "d": 13,
+        "error": "1/416",
+        "rank1_margin": "49159/35360",
+        "rank2_margin": "1493/1120",
+        "rank3_margin": "12239/20800"
+      },
+      {
+        "d": 14,
+        "error": "1/448",
+        "rank1_margin": "1148619/817600",
+        "rank2_margin": "1177011/871360",
+        "rank3_margin": "741771/1254400"
+      },
+      {
+        "d": 15,
+        "error": "1/480",
+        "rank1_margin": "17011/12000",
+        "rank2_margin": "226259/165600",
+        "rank3_margin": "142519/240000"
+      },
+      {
+        "d": 16,
+        "error": "1/512",
+        "rank1_margin": "1517897/1062400",
+        "rank2_margin": "1550897/1123840",
+        "rank3_margin": "976457/1638400"
+      },
+      {
+        "d": 17,
+        "error": "1/544",
+        "rank1_margin": "215217/149600",
+        "rank2_margin": "21963/15776",
+        "rank3_margin": "5529/9248"
+      },
+      {
+        "d": 18,
+        "error": "1/576",
+        "rank1_margin": "8615/5952",
+        "rank2_margin": "658661/469440",
+        "rank3_margin": "138127/230400"
+      },
+      {
+        "d": 19,
+        "error": "1/608",
+        "rank1_margin": "1083907/744800",
+        "rank2_margin": "1103863/781280",
+        "rank3_margin": "694243/1155200"
+      },
+      {
+        "d": 20,
+        "error": "1/640",
+        "rank1_margin": "2410053/1648000",
+        "rank2_margin": "2452269/1724800",
+        "rank3_margin": "1541829/2560000"
+      },
+      {
+        "d": 21,
+        "error": "1/672",
+        "rank1_margin": "222091/151200",
+        "rank2_margin": "75267/52640",
+        "rank3_margin": "141931/235200"
+      },
+      {
+        "d": 22,
+        "error": "1/704",
+        "rank1_margin": "2932931/1988800",
+        "rank2_margin": "595951/414656",
+        "rank3_margin": "374503/619520"
+      },
+      {
+        "d": 23,
+        "error": "1/736",
+        "rank1_margin": "321357/217120",
+        "rank2_margin": "1631349/1129760",
+        "rank3_margin": "1024929/1692800"
+      },
+      {
+        "d": 24,
+        "error": "1/768",
+        "rank1_margin": "1169003/787200",
+        "rank2_margin": "1186147/817920",
+        "rank3_margin": "745067/1228800"
+      },
+      {
+        "d": 25,
+        "error": "1/800",
+        "rank1_margin": "29791/20000",
+        "rank2_margin": "483373/332000",
+        "rank3_margin": "18973/31250"
+      },
+      {
+        "d": 26,
+        "error": "1/832",
+        "rank1_margin": "4132287/2766400",
+        "rank2_margin": "24783/16960",
+        "rank3_margin": "202299/332800"
+      },
+      {
+        "d": 27,
+        "error": "1/864",
+        "rank1_margin": "82669/55200",
+        "rank2_margin": "150749/102816",
+        "rank3_margin": "31547/51840"
+      },
+      {
+        "d": 28,
+        "error": "1/896",
+        "rank1_margin": "73981/49280",
+        "rank2_margin": "4869413/3310720",
+        "rank3_margin": "3056573/5017600"
+      },
+      {
+        "d": 29,
+        "error": "1/928",
+        "rank1_margin": "1291551/858400",
+        "rank2_margin": "1307289/886240",
+        "rank3_margin": "820479/1345600"
+      },
+      {
+        "d": 30,
+        "error": "1/960",
+        "rank1_margin": "1845481/1224000",
+        "rank2_margin": "622411/420800",
+        "rank3_margin": "1171753/1920000"
+      },
+      {
+        "d": 31,
+        "error": "1/992",
+        "rank1_margin": "2959741/1959200",
+        "rank2_margin": "2993521/2018720",
+        "rank3_margin": "1878301/3075200"
+      },
+      {
+        "d": 32,
+        "error": "1/1024",
+        "rank1_margin": "6315321/4172800",
+        "rank2_margin": "1277037/859136",
+        "rank3_margin": "801189/1310720"
+      },
+      {
+        "d": 33,
+        "error": "1/1056",
+        "rank1_margin": "56033/36960",
+        "rank2_margin": "70793/47520",
+        "rank3_margin": "177637/290400"
+      },
+      {
+        "d": 34,
+        "error": "1/1088",
+        "rank1_margin": "7145399/4705600",
+        "rank2_margin": "7219871/4836160",
+        "rank3_margin": "4528631/7398400"
+      },
+      {
+        "d": 35,
+        "error": "1/1120",
+        "rank1_margin": "3789819/2492000",
+        "rank2_margin": "3828207/2559200",
+        "rank3_margin": "2400987/3920000"
+      },
+      {
+        "d": 36,
+        "error": "1/1152",
+        "rank1_margin": "891853/585600",
+        "rank2_margin": "2701919/1802880",
+        "rank3_margin": "62757/102400"
+      },
+      {
+        "d": 37,
+        "error": "1/1184",
+        "rank1_margin": "2121629/1391200",
+        "rank2_margin": "428395/285344",
+        "rank3_margin": "268633/438080"
+      },
+      {
+        "d": 38,
+        "error": "1/1216",
+        "rank1_margin": "1791831/1173440",
+        "rank2_margin": "9042843/6013120",
+        "rank3_margin": "5670003/9241600"
+      }
+    ],
+    "scope": "Exact monotone endpoint inequalities for all admissible multiplicities; the manuscript proves the rank argument."
+  },
+  "schema": "contiguous-maximum-four-arc-v1",
+  "spread_profiles": {
+    "complete_collision_endpoints": 2819,
+    "interior_convexity_controls": 8346,
+    "maximum_normalized_oscillation": "2/3",
+    "multiplicities": [
+      2,
+      38
+    ],
+    "profile_sha256": "352c5e1d90232d33825a95c03200a575e0a58c2f9d39a05baf6a9adb35f09295",
+    "scope": "Every ordering-cell endpoint in the bounded multiplicity range; unbounded-cell convexity is proved in the manuscript."
+  },
+  "standard_controls": {
+    "addend_ones_runs": 25,
+    "cycles": 11,
+    "exact_arrows": 106,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "scope": "The true addend is retained; normalized states are not treated as integers."
+  }
+}
