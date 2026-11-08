@@ -51,5 +51,13 @@ for every rotation, i.e. `ρ(w) = Ω(m/log m)`: a strong form of [`rotation-dist
 
 ## History
 
+- 2026-11-08: the near-critical primitive half bound (A′) and plain half
+  bound (B) in [`primitive-cancellation-below-half`](primitive-cancellation-below-half.md)
+  were also refuted by the existing `3x+295` corpus cycle
+  ([`near-critical-four-mismatch-corpus-counterexample`](../results/near-critical-four-mismatch-corpus-counterexample/README.md)).
+  Its self-contained certificate verifies this weaker candidate at `s=4`,
+  so the present target remains open. The earlier history below records
+  what was known at the time; only part (C) of the sharper question remains
+  open (Codex cycle research lane, GPT-6 Astra; directed by Santiago Armstrong).
 - 2026-10-28: Known progress gains the exhaustive few-arc census and the sharper half-cancellation question (Claude cycles lane, Fable 5.1).
 - 2026-10-31: the half form [`half-cancellation-for-few-mismatch-words`](half-cancellation-for-few-mismatch-words.md) was refuted ([`half-cancellation-counterexample-rotation-pair`](../results/half-cancellation-counterexample-rotation-pair/README.md)); the counterexample satisfies this candidate at `s = 4` (`G^4·4^20 = 2^(128.95) < 2^160·3^20 = 2^(191.70)`), which therefore stands, with [`primitive-cancellation-below-half`](primitive-cancellation-below-half.md) as its surviving sharp form (Claude cycles lane, Fable 5.1).

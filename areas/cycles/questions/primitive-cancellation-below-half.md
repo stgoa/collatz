@@ -4,13 +4,15 @@ kind: question
 title: Is the primitive cancellation of a few-mismatch word below 2^(A/2)?
 status: open
 claim: >
-  Prove or refute: every primitive positive valuation word w of length m ≥ 9 with total A, D = 2^A − 3^m > 0 and a
-  nonidentity rotation differing from it in at most four positions has primitive cancellation
-  g_prim = gcd(G, Φ_e(2^(A/e), 3^(m/e))) < 2^(A/2), where G = gcd(C_w, D), e = gcd(A, m) and Φ_e is the homogenised
-  e-th cyclotomic polynomial (so g_prim = G when gcd(A, m) = 1). Raw odd-only clock, any 3x+q. Also asked:
-  (B) whether the plain bound G² < 2^A holds for the near-critical such words, 2^A < 2·3^m; and (C) the right
-  dependence of either bound on the mismatch count s. The plain bound for all ρ ≤ 4 words is false
-  (half-cancellation-counterexample-rotation-pair).
+  Remaining target (C), raw odd-only clock, any 3x+q: determine which exponents
+  c(s) and length thresholds m_0(s) make every primitive positive valuation word
+  with m>=m_0(s), total A, D=2^A-3^m>0 and a rotation of exactly s mismatches
+  satisfy g_prim<=2^(c(s)*A), or make every near-critical such word satisfy
+  G<=2^(c(s)*A), where G=gcd(C_w,D), e=gcd(A,m) and
+  g_prim=gcd(G,Phi_e(2^(A/e),3^(m/e))). The original form (A) is false,
+  and the near-critical forms (A-prime) and (B) are also false: the existing
+  3x+295 cycle of length 12 has A=20, rotation distance 4, and
+  g_prim=G=1753>1024, as proved in near-critical-four-mismatch-corpus-counterexample.
 created: 2026-10-31
 tags: [cycles, denominators, cancellation, cyclotomic-factors, rotation-distance, frontier]
 ---
@@ -18,6 +20,17 @@ tags: [cycles, denominators, cancellation, cyclotomic-factors, rotation-distance
 # Is the primitive cancellation of a few-mismatch word below `2^(A/2)`?
 
 ## Question
+
+**Correction 2026-11-08: the near-critical forms (A′) and (B) are false.**
+[`near-critical-four-mismatch-corpus-counterexample`](../results/near-critical-four-mismatch-corpus-counterexample/README.md)
+rechecks the already recorded `3x+295` cycle with word
+`(1,1,3,1,2,1,1,1,1,2,1,5)`: `m=12`, `A=20`, `rho=4`,
+`3^12<2^20<2*3^12`, and `g_prim=G=1753>1024=2^(A/2)`.
+Thus neither proposed half bound holds throughout the near-critical
+class. **This node stays open only for part (C)**, which allows a
+different exponent and a length threshold. The earlier formulations
+and progress notes below are retained as history; statements there
+that the near-critical forms remain open are superseded by this note.
 
 **Correction 2026-10-31 (same day): part (A) as posed is false.** The complete census [`rho-four-census-letters-three`](../results/rho-four-census-letters-three/README.md) finds the word `(1,1,2,2,1,3,1,2,2,2,3,3)` (`m = 12`, `A = 23`, `gcd(A, m) = 1`, `ρ = 4`, the word of a `3x+1327` cycle) with `g_prim = G = 5921 > 2^(11.5)`, and another at `m = 20`. Both are far from critical (`2^A/3^m = 15.8` and `2.46`); no near-critical word (`2^A < 2·3^m`) violates either bound in that census. The open forms are therefore the **near-critical** ones: (A′) `g_prim < 2^(A/2)` and (B) `G² < 2^A` for near-critical primitive words with `ρ ≤ 4` and `m ≥ 9` (B implies A′), and (C). The text below is kept as posed.
 
@@ -43,6 +56,16 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
 
 ## Known progress
 
+- **2026-11-08: both near-critical half bounds refuted.**
+  The [exact corpus counterexample](../results/near-critical-four-mismatch-corpus-counterexample/README.md)
+  has primitive cyclotomic index 4, full primitive cancellation 1753,
+  and four-mismatch rotations at coprime shifts 5 and 7. It contains
+  a letter 5, outside the letters-at-most-3 census; its half-period
+  shift has 8 mismatches, outside the small half-defect exclusions.
+  The example does not refute an asymptotic bound with a larger
+  threshold, and satisfies the weaker
+  [`rotation-defect-denominator-candidate`](rotation-defect-denominator-candidate.md).
+
 - **2026-11-08: gap fourteen is completely classified.**
   [`transposition-gap-fourteen-complete-classification`](../results/transposition-gap-fourteen-complete-classification/README.md)
   proves that every gap-fourteen transposition which cancels the entire
@@ -54,7 +77,8 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
   plus factor, and none at index `e=2` does so even far from critical.
   This classifies arbitrary word lengths through a finite crossing
   closure and the complete forced signed orbit, rather than a bounded
-  word census. The general near-critical plain bound remains open.
+  word census. The general near-critical plain bound was subsequently
+  refuted by the corpus counterexample above.
 
 - **2026-11-08: equal-amplitude half defects reduce to balanced transfers.**
   [`equal-amplitude-half-defect-normal-form`](../results/equal-amplitude-half-defect-normal-form/README.md)
@@ -98,6 +122,14 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
 
 ## Suggested attacks
 
+**Current target after the 2026-11-08 refutation.** Part (C) must allow
+for the twelve-letter `3x+295` example. Investigate an asymptotic
+threshold, a weaker mismatch-dependent exponent, or hypotheses that
+use denominator 1 rather than the entire near-critical `3x+q` family.
+The weaker rotation-defect denominator candidate remains unrefuted.
+The family-specific signed-crossing results below still hold, but
+cannot imply the refuted universal near-critical half bound.
+
 **Updated target, 2026-11-08.** Equal-amplitude changes through 12 in
 half-period four-mismatch pairs are covered by the balanced normal form.
 The remaining half-pair targets have unequal absolute changes, or equal
@@ -133,6 +165,12 @@ Proposals, not results.
 - **Two arcs, non-Sturmian case.** Bound `gcd(C_u, C_v)` for the two arcs of a two-interval rotation coding whose interval length differs from the step, by a Rauzy-type induction on the arc, as suggested in [`half-cancellation-for-few-mismatch-words`](half-cancellation-for-few-mismatch-words.md).
 
 ## History
+
+- 2026-11-08: forms (A′) and (B) refuted by
+  [`near-critical-four-mismatch-corpus-counterexample`](../results/near-critical-four-mismatch-corpus-counterexample/README.md).
+  Updated the claim to the remaining part (C), kept status `open`,
+  and retained the original formulations under the dated correction.
+  Codex cycle research lane (GPT-6 Astra; directed by Santiago Armstrong).
 
 - 2026-11-08: added the complete gap-fourteen transposition
   classification, its near-critical and index-2 exclusions, and the
