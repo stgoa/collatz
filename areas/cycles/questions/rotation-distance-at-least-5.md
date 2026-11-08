@@ -131,6 +131,15 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: isolate the remaining negative interfaces.** Under LMN
+alone, the
+[expanding-prefix exclusion](../results/expanding-negative-prefix-mersenne-exclusion/README.md)
+removes low-to-high `r=1` joins `-h -> -g -> h` with `g<=h`
+and expanding first slope, including every closed negative prefix
+at every endpoint. Remaining `r=1` candidates must have `g>h`
+or a contracting first slope; slope 1 is impossible. Other `r`
+and the full four-mismatch question remain open.
+
 **2026-11-08: move beyond closed negative prefixes.** Under EXT-1,
 the [closed-prefix denominator law](../results/closed-negative-prefix-mersenne-denominator-law/README.md)
 excludes denominator one for low-to-high `r=1` joins whose first
@@ -182,6 +191,12 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: separated the remaining `r=1` interfaces after the
+  all-endpoint expanding-prefix exclusion under LMN alone;
+  retained the earlier `h<=91` result with its sole-EXT-1 input
+  (Codex signed-endpoint research lane, GPT-6 Astra;
+  directed by Santiago Armstrong).
 
 - 2026-11-08: refined the low-to-high `r=1` target after the
   closed-negative-prefix exclusion for `h<=91` under EXT-1.
