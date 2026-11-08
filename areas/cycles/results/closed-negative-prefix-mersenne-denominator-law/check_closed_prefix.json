@@ -1,0 +1,255 @@
+{
+  "abstract_affine": {
+    "cases": 810,
+    "scope": "Abstract second-block affine data, not asserted exact signed valuation words"
+  },
+  "finite_gap": {
+    "endpoint_limit": 91,
+    "half_lengths": 32767,
+    "maximum_half_length": 32767,
+    "minimum_half_length": 1,
+    "parameter_sha256": "088f67ad2e28dbc08e87af5cf4a4988bd80fc5cd932d9703d906ef5a8110cf44",
+    "state_ceiling": 7502313,
+    "state_factor": 82443,
+    "worst_endpoint_bound_floor": 7502298,
+    "worst_half_length": 15601,
+    "worst_minimum_total": 24727,
+    "worst_unit_endpoint_bound_floor": 82442
+  },
+  "local_descent": {
+    "conclusion": "Every odd seed3<=s<limit reaches a smaller positive odd seed",
+    "first_longest_seed": 8088063,
+    "limit_exclusive": 8388608,
+    "maximum_local_steps": 155,
+    "odd_seeds": 4194303,
+    "odd_steps": 14640676,
+    "peak_odd_output": 20114203639877,
+    "per_seed_guard": 10000
+  },
+  "negative_prefixes": {
+    "cycles": [
+      {
+        "states": [
+          -1
+        ],
+        "valuations": [
+          1
+        ]
+      },
+      {
+        "states": [
+          -5,
+          -7
+        ],
+        "valuations": [
+          1,
+          2
+        ]
+      },
+      {
+        "states": [
+          -17,
+          -25,
+          -37,
+          -55,
+          -41,
+          -61,
+          -91
+        ],
+        "valuations": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          4
+        ]
+      }
+    ],
+    "genuine_modified_prefix_checks": 450,
+    "origins": [
+      1,
+      5,
+      7,
+      17,
+      25,
+      37,
+      41,
+      55,
+      61,
+      91
+    ],
+    "repeated_rotated_prefixes": 30
+  },
+  "positive_controls": {
+    "arrows": 106,
+    "count": 11,
+    "cycles": [
+      {
+        "addend": 5,
+        "closed_prefix_matches": [],
+        "denominator": 5,
+        "length": 1,
+        "minimum": 1,
+        "normalized_minimum": "1/5"
+      },
+      {
+        "addend": 5,
+        "closed_prefix_matches": [],
+        "denominator": 5,
+        "length": 3,
+        "minimum": 19,
+        "normalized_minimum": "19/5"
+      },
+      {
+        "addend": 5,
+        "closed_prefix_matches": [],
+        "denominator": 5,
+        "length": 3,
+        "minimum": 23,
+        "normalized_minimum": "23/5"
+      },
+      {
+        "addend": 5,
+        "closed_prefix_matches": [],
+        "denominator": 5,
+        "length": 17,
+        "minimum": 187,
+        "normalized_minimum": "187/5"
+      },
+      {
+        "addend": 5,
+        "closed_prefix_matches": [],
+        "denominator": 5,
+        "length": 17,
+        "minimum": 347,
+        "normalized_minimum": "347/5"
+      },
+      {
+        "addend": 7,
+        "closed_prefix_matches": [],
+        "denominator": 7,
+        "length": 2,
+        "minimum": 5,
+        "normalized_minimum": "5/7"
+      },
+      {
+        "addend": 13,
+        "closed_prefix_matches": [],
+        "denominator": 13,
+        "length": 1,
+        "minimum": 1,
+        "normalized_minimum": "1/13"
+      },
+      {
+        "addend": 13,
+        "closed_prefix_matches": [],
+        "denominator": 13,
+        "length": 15,
+        "minimum": 131,
+        "normalized_minimum": "131/13"
+      },
+      {
+        "addend": 13,
+        "closed_prefix_matches": [],
+        "denominator": 13,
+        "length": 5,
+        "minimum": 211,
+        "normalized_minimum": "211/13"
+      },
+      {
+        "addend": 61,
+        "closed_prefix_matches": [],
+        "denominator": 61,
+        "length": 1,
+        "minimum": 1,
+        "normalized_minimum": "1/61"
+      },
+      {
+        "addend": 61,
+        "closed_prefix_matches": [],
+        "denominator": 61,
+        "length": 41,
+        "minimum": 235,
+        "normalized_minimum": "235/61"
+      }
+    ],
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "in_scope_rotations": 0
+  },
+  "schema": "closed-negative-prefix-v1",
+  "signed_controls": {
+    "immediate_plus7": {
+      "failed_hypothesis": "last(B)>J",
+      "states": [
+        -1,
+        1
+      ],
+      "valuations": [
+        2
+      ]
+    },
+    "level15": {
+      "congruence_witness": [
+        120,
+        75
+      ],
+      "cycle_entry": 98303,
+      "cycle_length": 150,
+      "cycle_maximum": 2342315,
+      "cycle_minimum": 1229,
+      "cycle_valuation_total": 315,
+      "endpoint_one_reached": false,
+      "transient": 75
+    },
+    "nonclosed_r3_join": {
+      "A_states": [
+        -1,
+        1,
+        5,
+        11
+      ],
+      "B_states": [
+        11,
+        1
+      ],
+      "canonical_state": "1/41",
+      "denominator": 41,
+      "failed_hypotheses": [
+        "r=1",
+        "A closes at-h"
+      ],
+      "u": [
+        2,
+        1,
+        3,
+        1
+      ],
+      "v": [
+        2,
+        1,
+        1,
+        9
+      ]
+    }
+  },
+  "symbolic": {
+    "cutoff": 32768,
+    "cutoff_value": "22707/5",
+    "derivative_lower_bound": "22871/81920",
+    "endpoint_cutoff_comparison": true,
+    "logarithmic_comparisons": {
+      "10000<128*81": true,
+      "9>8": true
+    },
+    "residual_polynomial_terms": 0,
+    "variables": [
+      "N",
+      "3^a",
+      "2^P",
+      "3^b",
+      "2^T"
+    ]
+  }
+}
