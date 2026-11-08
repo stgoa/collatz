@@ -23,6 +23,14 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: every remaining four-mismatch rotation has order at most eighteen.**
+  The [high-order exclusion](../results/high-order-four-mismatch-exclusion/README.md)
+  applies to every primitive cycle word, with no label, arc-placement
+  or coprimality restriction. For a shift H of order
+  `M=m/gcd(H,m)>18`, EXT-1 forces `m<2^26`; the separately declared
+  Barina period bound excludes all lengths. Thus, under these inputs,
+  all coprime shifts are settled and the remaining orders are
+  `2<=M<=18`. The general question stays open.
 - **2026-11-08: arbitrary mechanical edits have a uniform denominator law.**
   [`mechanical-edit-denominator-law`](../results/mechanical-edit-denominator-law/README.md)
   handles all mechanical totals and phases, with arbitrary signed
@@ -130,6 +138,20 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 - Conditional on EXT-1: a four-mismatch rotation needs `|h|_m ≥ 0.075m`, at most 156 such rotations exist at `m = 1.375·10^11` ([`short-rotation-mismatch-growth`](../results/short-rotation-mismatch-growth/README.md)), and it forces a letter `≥ 0.0220m`, so `ρ ≥ 5` holds for cycles with `m ≥ 1.375·10^11` whose letters are all below `0.022m` ([`largest-letter-rho-reduction`](../results/largest-letter-rho-reduction.md)).
 
 ## Suggested attacks
+
+**2026-11-08: current target is rotation orders two through eighteen.**
+The [high-order theorem](../results/high-order-four-mismatch-exclusion/README.md)
+supersedes the earlier coprime targets below under EXT-1 plus Barina.
+For `g=gcd(H,m)`, examine the `g` tracks of length `M=m/g` with
+`2<=M<=18`: four total mismatches allow only a small number of
+nonconstant tracks, while `g` and the letters remain unbounded.
+The balanced third-period branch is excluded by the existing
+[denominator law](../results/balanced-third-period-denominator-law/README.md).
+Unbalanced third-period changes, unrestricted half-period changes,
+and the remaining small orders need additional arithmetic. At a
+multiple of M the shift is the identity and the paired-state witness
+vanishes, so simply testing more multiples does not close these cases.
+Earlier dated directions below are retained as research history.
 
 **2026-11-08: two singleton high arcs and a third-period subcase.**
 The [two-singleton theorem](../results/two-singleton-high-arcs-exclusion/README.md)
@@ -383,6 +405,11 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
+- 2026-11-08: recorded the general high-order exclusion and replaced
+  the current coprime target by the finite list of rotation orders
+  two through eighteen, conditional on EXT-1 and Barina. Preserved
+  all earlier claims and dated directions; the question stays open
+  (Codex root research lane, GPT-6; directed by Santiago Armstrong).
 - 2026-11-08: recorded the all-placement two-singleton-high
   exclusion with its EXT-1-only `2^29` cutoff and separate Barina
   all-length corollary, plus the unconditional exclusion of every

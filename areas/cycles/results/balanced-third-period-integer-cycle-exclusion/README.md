@@ -2,7 +2,7 @@
 id: balanced-third-period-integer-cycle-exclusion
 kind: result
 title: Balanced third-period four-mismatch words exclude integer cycles
-status: written
+status: formal
 claim: >
   In the raw odd-only clock, let w be a finite word of positive integers
   of length 3g. Suppose w differs from its shift by g at exactly four
@@ -217,8 +217,10 @@ The pinned library build and direct axiom reports are recorded in
 and [the source hash](../../../../lean/receipts/BalancedThirdPeriod.sha256.txt).
 Only `propext`, `Classical.choice`, and `Quot.sound` are allowed.
 Mathlib dependencies use the pinned cache; this is not a claim that
-every dependency was rebuilt from source. The node remains `written`
-until the full Lean workflow passes in CI.
+every dependency was rebuilt from source. The complete Lean CI workflow
+passed at commit `f2cd7caa93446343066a604bcce1be5a0258bcce`
+(run `42535728956`), including the library and all Mathlib-only
+standalone files.
 
 ## Remarks
 
@@ -240,3 +242,6 @@ this claim.
   the signed defects, cyclic placement reconstruction, and both
   arithmetic branches. The earlier quantitative denominator law
   and the unaligned formal node retain their existing scope.
+- 2026-11-08: Promoted this scoped integer-cycle claim to `formal`
+  after the complete Lean CI pass. The proof source and axiom receipts
+  were unchanged by the status update.
