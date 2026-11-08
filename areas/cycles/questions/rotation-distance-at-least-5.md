@@ -131,7 +131,7 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
-**2026-11-08: restrict the Mersenne target to larger positive interfaces.**
+**2026-11-08: focus on positive interfaces with `r>=257`.**
 Under LMN, the [negative-interface theorem](../results/negative-interface-mersenne-exclusion/README.md)
 excludes both orders at every level. Together with the
 [positive-interface theorem](../results/positive-interface-mersenne-exclusion/README.md),
