@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**287 results, 30 attempts, 39 questions, 39 sources.**
+**288 results, 30 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -255,6 +255,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`fixed-defect-unbounded-cancellation`](areas/cycles/results/fixed-defect-unbounded-cancellation.md) | Two unit rotation defects allow arbitrarily large cancellation: the family 1^t 2^(2t) | reviewed | reviewed | — |  |
 | [`four-mismatch-inverse-continued-fraction-bound`](areas/cycles/results/four-mismatch-inverse-continued-fraction-bound/README.md) | Inverse continued fractions force rotation mismatch growth | written | written | `musson-collatz-gap-all` |  |
 | [`four-mismatch-sign-dichotomy`](areas/cycles/results/four-mismatch-sign-dichotomy.md) | A rotation with four mismatches has one sign change of each kind, or two of each in alter… | formal | formal | — | yes |
+| [`free-four-cut-eighteen-rotation-obstruction`](areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/README.md) | Eighteen rotations force an error for four arbitrary cuts | written | written | — |  |
 | [`general-three-label-four-arc-exclusion`](areas/cycles/results/general-three-label-four-arc-exclusion/README.md) | Integer repetition bounds exclude the three-label equal-outer four-arc family | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines/README.md) | Order-free baselines for cycle minima and denominators (extremal, packing, product) | reviewed | reviewed | — |  |
 | [`global-drift-ceiling`](areas/cycles/results/global-drift-ceiling.md) | The global-drift ceiling: log₂(n_k/L) ≤ k·log₂(3/2) − X_k + δ at every q, with no hypothe… | formal | formal | — | yes |
@@ -719,6 +720,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`expanding-third-block-minimum-bound`](areas/cycles/results/expanding-third-block-minimum-bound/README.md) added (result)
 - 2026-11-08: [`fibonacci-four-arc-spike-denominator-growth`](areas/cycles/results/fibonacci-four-arc-spike-denominator-growth/README.md) added (result)
 - 2026-11-08: [`four-mismatch-inverse-continued-fraction-bound`](areas/cycles/results/four-mismatch-inverse-continued-fraction-bound/README.md) added (result)
+- 2026-11-08: [`free-four-cut-eighteen-rotation-obstruction`](areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/README.md) added (result)
 - 2026-11-08: [`general-three-label-four-arc-exclusion`](areas/cycles/results/general-three-label-four-arc-exclusion/README.md) added (result)
 - 2026-11-08: [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) added (result)
 - 2026-11-08: [`mechanical-edit-denominator-law`](areas/cycles/results/mechanical-edit-denominator-law/README.md) added (result)
@@ -727,7 +729,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`near-critical-four-mismatch-corpus-counterexample`](areas/cycles/results/near-critical-four-mismatch-corpus-counterexample/README.md) added (result)
 - 2026-11-08: [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) added (result)
 - 2026-11-08: [`negative-interface-mersenne-exclusion`](areas/cycles/results/negative-interface-mersenne-exclusion/README.md) added (result)
-- 2026-11-08: [`odd-order-residue-signed-endpoint-divisibility`](areas/cycles/results/odd-order-residue-signed-endpoint-divisibility/README.md) added (result)
 
 ## Contributors
 
@@ -735,12 +736,12 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 55.6% | 203 | 9 |
+| ChatGPT main lane | 55.5% | 203 | 9 |
 | Claude side lane | 13.7% | 34 | 132 |
 | Claude review lane | 7.7% | 0 | 121 |
 | Claude cycles lane | 5.2% | 21 | 0 |
 | Claude Lean lane | 5.1% | 3 | 69 |
-| Codex cycle research lane | 2.9% | 16 | 0 |
+| Codex cycle research lane | 2.9% | 17 | 0 |
 | Claude PR1 lane | 1.9% | 6 | 9 |
 | Codex four-arc research lane | 1.5% | 16 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
@@ -748,19 +749,19 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex root research lane | 0.7% | 10 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
-| Codex residue research lane | 0.5% | 7 | 0 |
+| Codex residue research lane | 0.6% | 8 | 0 |
 | Codex main research lane | 0.4% | 5 | 0 |
-| Codex crossing research lane | 0.4% | 2 | 0 |
+| Codex crossing research lane | 0.3% | 2 | 0 |
 | Codex formalisation lane | 0.3% | 2 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
 | Codex research lane | 0.1% | 1 | 0 |
+| Codex directing research lane | 0.1% | 2 | 0 |
 | Codex cycle-frontier lane | 0.1% | 1 | 0 |
 | Codex residue lane | 0.1% | 1 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
 | Codex formal research lane | 0.1% | 2 | 0 |
-| Codex directing research lane | 0.1% | 1 | 0 |
 | Codex arithmetic research lane | 0.1% | 1 | 0 |
 | Codex first-block research lane | 0.1% | 1 | 0 |
 | Codex formalisation research lane | 0.1% | 1 | 0 |
