@@ -11,7 +11,8 @@ claim: >
   Phi = P^2+PZ+Z^2, and d0 = gcd(2^delta-1,Phi). If D_w > 0, then
   (den(w)*d0)^2*P^2 > 2^(2g+delta)*Z. Thus den(w)>1 whenever d0=1,
   in particular for delta=1 or 2; den(w)=1 would require
-  2^delta > (4/3)^g. No bound on length, background letters or delta,
+  2^delta > (4/3)^g. The retained-positive-terms corollary additionally
+  proves den(w)>1 for every delta>=1. No bound on length, background letters or delta,
   no primitivity hypothesis and no external input are used. This covers balanced
   third-period defects, not arbitrary four-mismatch words.
 authors:
@@ -70,6 +71,13 @@ The theorem has no length or letter bound. It applies to rational `3x+1`
 cycles and, after reduction, actual positive odd `3x+q` cycles. It does not
 exclude the latter for `q>1`. No primitivity assumption is needed, and no
 external gap, convergence or period input is used.
+
+**Retained-positive-terms corollary (added 2026-11-08).** Every word in the
+balanced third-period class above with `D_w>0` has `den(w)>1`, for every `delta>=1`.
+Thus this entire specified class is excluded for positive integer cycles
+of the raw odd-only `3x+1` map, unconditionally. The quantitative laws
+(1)--(3) are retained; the new corollary also uses the small-state
+restriction particular to `3x+1`.
 
 ## Proof
 
@@ -200,6 +208,65 @@ Combining (7) and (12) proves (1). Since `Z>P=3^g`, (2) follows.
 If `q=1`, then `d0<=2^delta-1<2^delta`; substituting this into (1)
 and again using `Z>P` proves (3).
 
+### 4. Retaining both positive terms excludes denominator one
+
+The aligned placement is already excluded by section 1. Suppose an
+unaligned word had `q=1`. Its rotated intercepts divided by `D_w` are
+positive integers by the rotation identity in section 1. They are odd
+because both intercepts and `D_w` are odd, so that identity gives a genuine
+positive odd-only `3x+1` cycle with exactly the displayed valuations.
+
+Now `d1=gcd(k-1,Phi)<k`. Retain both terms in the first identity of (10),
+using `t,s>=1`, instead of using one term at a time:
+
+```
+beta P+QZ <= d1 C_AB < k C_AB < ZP/2^g.              (13)
+```
+
+It follows simultaneously that
+
+```
+Q < P/2^g,          beta < Z/2^g.                   (14)
+```
+
+Write `l=len(A)`, `n=len(B)`, `T=sum(AB)`, and `a0=log2(3)`.
+Since `l+n=g`, `Q>=2^l`, and `beta=3^n`, (14) implies
+
+```
+l < (a0-1)g,       n > (2-a0)g,
+T > g+a0 n > (1+2a0-a0^2)g > 41g/25.               (15)
+```
+
+The last strict inequality is exact: `1<a0<8/5` follows from
+`2<3` and `3^5=243<256=2^8`, while
+
+```
+1+2a0-a0^2-41/25 = (8/5-a0)(a0-2/5) > 0.
+```
+
+On the other hand, this integer cycle has minimum at least `9`. A cycle
+containing `1` is the all-`2` word, inconsistent with four mismatches.
+The other smaller odd possibilities descend below themselves:
+
+```
+3 -> 5 -> 1,       5 -> 1,       7 -> 11 -> 17 -> 13 -> 5.
+```
+
+These are exact odd-only `3x+1` arrows, replayed by the certificate.
+Thus a cycle minimum cannot be `3`, `5` or `7`. Multiplying the genuine
+cycle equations, with all states `x_i>=9`, gives
+
+```
+2^(3T) = product_(i=0)^(3g-1) (3+1/x_i) <= (28/9)^(3g),
+T/g <= log2(28/9) < 41/25.                           (16)
+```
+
+The final comparison is the integer inequality
+`28^25 < 2^41*9^25`, verified exactly in the receipt. Equations (15) and
+(16) contradict one another. Repeated cycles cause no problem: the
+product uses the displayed `3g` odd arrows, and the exclusion of the
+all-`2` word does not require a least-period assumption.
+
 ## Certificates
 
 [`check_third_period.py`](check_third_period.py) reconstructs the majority
@@ -209,6 +276,12 @@ bound with its factor `2^delta`, including both signs of `h`. The receipt
 [`check_third_period.json`](check_third_period.json) records the finite
 ranges, counts and examples. These finite controls test the written
 identities; they are not a search-based proof of the unbounded claim.
+
+The retained-terms extension checks the `q`-scaled version of (13) on
+every generated positive unaligned word, the three exact local descents,
+the quadratic factorization in (15), and the integer power comparison
+in (16). The finite descent is the only orbit computation of the
+all-`delta` corollary; its three paths are displayed above.
 
 All eleven shared actual `3x+5`, `3x+7`, `3x+13` and `3x+61` fixtures
 are replayed with exact valuations. The certificate states which fixtures
@@ -239,8 +312,12 @@ The half-period [Mersenne normal form](../two-half-defect-mersenne-normal-form/R
 has a different quotient clock. Novelty is undetermined.
 
 The imbalance of the two exceptional entries remains outside the theorem.
-For balanced changes with `delta>=3`, the factor `d0` is retained:
-the argument does not exclude all third-period four-mismatch words.
+The original cubic bound retains the factor `d0` for balanced changes
+with `delta>=3`. The added retained-terms corollary removes this obstruction
+for denominator one throughout the balanced class. For general `3x+q`,
+the product has `3+q/x_i` in place of `3+1/x_i`, and the local descent
+restriction belongs specifically to `3x+1`; the actual `q>1` controls
+therefore survive.
 It does not resolve the general rotation-distance question.
 
 ## History
@@ -250,3 +327,8 @@ It does not resolve the general rotation-distance question.
   two-block theorem. The final-letter positivity strengthens the bound by
   `2^delta`. Same-session mathematical checks by the directing and formal
   lanes do not change the `written` status.
+- 2026-11-08: after the initial denominator law was merged, retained both
+  positive lattice terms to exclude denominator one for every balanced
+  change size. Added the exact small-state and slope comparisons; kept
+  the original quantitative claim and proof. No external input or
+  independent-session review status was added.
