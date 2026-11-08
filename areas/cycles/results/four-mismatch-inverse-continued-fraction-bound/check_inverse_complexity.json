@@ -1,0 +1,591 @@
+{
+  "actual_controls": {
+    "agreeing_runs": 1436,
+    "coprime_inverse_checks": 89,
+    "count": 11,
+    "empty_agreeing_runs": 842,
+    "exact_arrows": 106,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "mismatch_subadditivity_checks": 2534,
+    "records": [
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1; also below the period cutoff",
+        "minimum": 1,
+        "odd_period": 1
+      },
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1; also below the period cutoff",
+        "minimum": 19,
+        "odd_period": 3
+      },
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1; also below the period cutoff",
+        "minimum": 23,
+        "odd_period": 3
+      },
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1; also below the period cutoff",
+        "minimum": 187,
+        "odd_period": 17
+      },
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1; also below the period cutoff",
+        "minimum": 347,
+        "odd_period": 17
+      },
+      {
+        "addend": 7,
+        "failed_hypothesis": "q=1; also below the period cutoff",
+        "minimum": 5,
+        "odd_period": 2
+      },
+      {
+        "addend": 13,
+        "failed_hypothesis": "q=1; also below the period cutoff",
+        "minimum": 1,
+        "odd_period": 1
+      },
+      {
+        "addend": 13,
+        "failed_hypothesis": "q=1; also below the period cutoff",
+        "minimum": 131,
+        "odd_period": 15
+      },
+      {
+        "addend": 13,
+        "failed_hypothesis": "q=1; also below the period cutoff",
+        "minimum": 211,
+        "odd_period": 5
+      },
+      {
+        "addend": 61,
+        "failed_hypothesis": "q=1; also below the period cutoff",
+        "minimum": 1,
+        "odd_period": 1
+      },
+      {
+        "addend": 61,
+        "failed_hypothesis": "q=1; also below the period cutoff",
+        "minimum": 235,
+        "odd_period": 41
+      }
+    ]
+  },
+  "constants": {
+    "alpha_upper": "51/32",
+    "arithmetic_cutoff_bits": 34,
+    "combined_height_polynomial": [
+      481,
+      342
+    ],
+    "combined_upper_bits": 1446,
+    "final_dyadic_base_polynomial": 526135,
+    "final_dyadic_base_upper_bits": 1466,
+    "first_dyadic_base_margin": 14647558144,
+    "first_induction_polynomial": [
+      -8,
+      -2,
+      4
+    ],
+    "first_induction_shifted_coefficients": [
+      4548,
+      270,
+      4
+    ],
+    "maximum_final_product": 512,
+    "maximum_initial_product": 1024,
+    "maximum_short_rotation_mismatches": 2048,
+    "minimum_state": 129,
+    "period_cutoff_bits": 1536,
+    "rise_exponent": 2049,
+    "rise_factor_upper": "8/5",
+    "rise_power_upper_bits": 1435,
+    "second_induction_polynomial": [
+      481,
+      342
+    ],
+    "second_induction_shifted_coefficients": [
+      525793,
+      342
+    ],
+    "sharpened_product_contradiction_bound": 269222400
+  },
+  "continuants": {
+    "canonical_last_at_least": 2,
+    "coefficient_splits": 527344,
+    "coefficients": [
+      1,
+      5
+    ],
+    "exact_grid_sha256": "0790946621f7fe3287eee201754a97c2964349e9ece8d4585770ad57bdc4ac95",
+    "first_coefficient_cases": 78124,
+    "last_coefficient_cases": 78124,
+    "lengths": [
+      1,
+      7
+    ],
+    "lists": 78124,
+    "single_coefficient_cases": 4
+  },
+  "large_coefficients": {
+    "edge_examples": [
+      {
+        "coefficients": [
+          17179869184,
+          512
+        ],
+        "denominator": 8796093022209,
+        "inverse": 8778913153025,
+        "multiplier": 512,
+        "numerator": 512,
+        "product": 512,
+        "short_distance": 1
+      },
+      {
+        "coefficients": [
+          512,
+          17179869184
+        ],
+        "denominator": 8796093022209,
+        "inverse": 8796093021697,
+        "multiplier": 1,
+        "numerator": 17179869184,
+        "product": 512,
+        "short_distance": 512
+      },
+      {
+        "coefficients": [
+          17179869184,
+          2,
+          255
+        ],
+        "denominator": 8778913153279,
+        "inverse": 34359738369,
+        "multiplier": 511,
+        "numerator": 511,
+        "product": 511,
+        "short_distance": 1
+      },
+      {
+        "coefficients": [
+          2,
+          17179869184,
+          256
+        ],
+        "denominator": 8796093022466,
+        "inverse": 34359738369,
+        "multiplier": 256,
+        "numerator": 4398046511105,
+        "product": 512,
+        "short_distance": 2
+      }
+    ],
+    "exact_cases_sha256": "48e8fbc5142097354d0ff3eabb4292895e6aa6a7fefb8858c575c080e333d8e1",
+    "first_coefficient_cases": 87,
+    "last_coefficient_cases": 123,
+    "maximum_distance": 512,
+    "maximum_multiplier": 512,
+    "maximum_product": 512,
+    "outside_complexity_hypothesis": 66,
+    "qualifying_cases": 3186,
+    "scope": "Specified arithmetic examples, not a cycle census",
+    "single_coefficient_cases": 3,
+    "total_cases": 3252
+  },
+  "local_minimum": {
+    "conclusion": "Every listed odd seed reaches 1",
+    "count": 63,
+    "maximum_odd_steps": 43,
+    "maximum_peak_odd_state": 3077,
+    "odd_seeds": [
+      3,
+      127
+    ],
+    "records": [
+      {
+        "odd_steps": 2,
+        "peak_odd_state": 5,
+        "seed": 3,
+        "trajectory_sha256": "de79a599feac0a8ca0ee2288a65508aab3586a5f8a6a6a9a1f5b047953e9cb3c"
+      },
+      {
+        "odd_steps": 1,
+        "peak_odd_state": 5,
+        "seed": 5,
+        "trajectory_sha256": "f3b68ed9e5d9d2f161eee374203d58c26cf26442c81c59b76c4a06a93415fedf"
+      },
+      {
+        "odd_steps": 5,
+        "peak_odd_state": 17,
+        "seed": 7,
+        "trajectory_sha256": "c7d78f93e0d5881b5dfb1a724678e1643ce625e4c9e4376266908220a84e21a2"
+      },
+      {
+        "odd_steps": 6,
+        "peak_odd_state": 17,
+        "seed": 9,
+        "trajectory_sha256": "306ce0d389c0aeba8bc599ef460772e1dd8f18d900231cc4784f5b9878bcb5d7"
+      },
+      {
+        "odd_steps": 4,
+        "peak_odd_state": 17,
+        "seed": 11,
+        "trajectory_sha256": "08180a501ec8aaabe7a60c44038428030619ec16d0e151e01a92c59520aebc23"
+      },
+      {
+        "odd_steps": 2,
+        "peak_odd_state": 13,
+        "seed": 13,
+        "trajectory_sha256": "00e5cc3821c6778b85ba52daaca90f5d9a61bee194bdb56130b6137b53ce0c5e"
+      },
+      {
+        "odd_steps": 5,
+        "peak_odd_state": 53,
+        "seed": 15,
+        "trajectory_sha256": "04fb32f15e5cec4d3a0a582bb14c184d918350673efde6ac69bfdbee3c7aae0f"
+      },
+      {
+        "odd_steps": 3,
+        "peak_odd_state": 17,
+        "seed": 17,
+        "trajectory_sha256": "bceab81a1841672582819104654afad79b2b044235ae05ff867c3545ade78989"
+      },
+      {
+        "odd_steps": 6,
+        "peak_odd_state": 29,
+        "seed": 19,
+        "trajectory_sha256": "e2cd6d5ccf53debaeb6207de131c45395062ec0f131d6e5b259a1fff8af86c94"
+      },
+      {
+        "odd_steps": 1,
+        "peak_odd_state": 21,
+        "seed": 21,
+        "trajectory_sha256": "ad911ae41cd5c1d89700767a751eb542556c5893f91d7165b2513714772593b5"
+      },
+      {
+        "odd_steps": 4,
+        "peak_odd_state": 53,
+        "seed": 23,
+        "trajectory_sha256": "ff2bb5470d5fabecece55a44bb622ab7ca83548c577819193ae117cbe4be76b0"
+      },
+      {
+        "odd_steps": 7,
+        "peak_odd_state": 29,
+        "seed": 25,
+        "trajectory_sha256": "e994e118e81c6b6a5e7f3016580eae4321bff7d6aedc9ffc17460dcf38049215"
+      },
+      {
+        "odd_steps": 41,
+        "peak_odd_state": 3077,
+        "seed": 27,
+        "trajectory_sha256": "c27e9aa1363614ef915405193f7a3b8ac66ce0d389e8f2542fe6ad968438f9b4"
+      },
+      {
+        "odd_steps": 5,
+        "peak_odd_state": 29,
+        "seed": 29,
+        "trajectory_sha256": "8b06b1590e440a79419f4f6341139e51152271ce174352b46718317f7cd19aea"
+      },
+      {
+        "odd_steps": 39,
+        "peak_odd_state": 3077,
+        "seed": 31,
+        "trajectory_sha256": "6337c7a1893418cd3a734b068504310f2d8fd3c4cba16fb82064e283851172e4"
+      },
+      {
+        "odd_steps": 8,
+        "peak_odd_state": 33,
+        "seed": 33,
+        "trajectory_sha256": "fdb819450999aba029eb351c0ec52eac5dba922a6b52a729f384b160a824444d"
+      },
+      {
+        "odd_steps": 3,
+        "peak_odd_state": 53,
+        "seed": 35,
+        "trajectory_sha256": "cdc4f2b8affb5d7eba22ee904bb0f047f52304bb39e9c36e98c6373b80855221"
+      },
+      {
+        "odd_steps": 6,
+        "peak_odd_state": 37,
+        "seed": 37,
+        "trajectory_sha256": "a6fcb44ca15d83685a57ff4272b223a7f6031bbed05b16821b153f3fa9d6f2ff"
+      },
+      {
+        "odd_steps": 11,
+        "peak_odd_state": 101,
+        "seed": 39,
+        "trajectory_sha256": "cbe43c9bd7bf5f77b8ea478b2c5d982b8978e92ef2df85f0744a3ae31e45a893"
+      },
+      {
+        "odd_steps": 40,
+        "peak_odd_state": 3077,
+        "seed": 41,
+        "trajectory_sha256": "6a83d23c06fee3c7266cd192b75f7f4842c63efd6edf39bf3c3d00eec0a433cc"
+      },
+      {
+        "odd_steps": 9,
+        "peak_odd_state": 65,
+        "seed": 43,
+        "trajectory_sha256": "cf9b1549b9a2f1833fdf871dc0bb07425f1e9fe0d85ba1a7c43de866c03b2412"
+      },
+      {
+        "odd_steps": 4,
+        "peak_odd_state": 45,
+        "seed": 45,
+        "trajectory_sha256": "3c06f8f5d5427a98a589811bcdeab1b7382ad71b79c49ecc1372cd0ed654ab27"
+      },
+      {
+        "odd_steps": 38,
+        "peak_odd_state": 3077,
+        "seed": 47,
+        "trajectory_sha256": "fa7904fcaa67bb5951177eb0c6b44504be637f35a9da90a016c1d5125e616e8e"
+      },
+      {
+        "odd_steps": 7,
+        "peak_odd_state": 49,
+        "seed": 49,
+        "trajectory_sha256": "37c7b93fb5d3ef88eced8c2bdaabfb25f015808d19d9ec66e0fd788246c05b33"
+      },
+      {
+        "odd_steps": 7,
+        "peak_odd_state": 77,
+        "seed": 51,
+        "trajectory_sha256": "cc3f10e43bee00888ccdca03415c045dae7e0d952a15f744ab40aff515398839"
+      },
+      {
+        "odd_steps": 2,
+        "peak_odd_state": 53,
+        "seed": 53,
+        "trajectory_sha256": "f38e9d8b3f060c59e3fd129e639e83fda6c45442094f2b352830864e0862b7f0"
+      },
+      {
+        "odd_steps": 41,
+        "peak_odd_state": 3077,
+        "seed": 55,
+        "trajectory_sha256": "88121ace41b188127bed6e97ce5a53a6a3b931dcd6281ee62e5273ac058aa771"
+      },
+      {
+        "odd_steps": 10,
+        "peak_odd_state": 65,
+        "seed": 57,
+        "trajectory_sha256": "c7585d09435fc593ddfa21a041d9c216d74631ea4614ef4026b9ee8b8f17c06d"
+      },
+      {
+        "odd_steps": 10,
+        "peak_odd_state": 101,
+        "seed": 59,
+        "trajectory_sha256": "6818fcf2553444c382e36e3b79e13af4d58525c3dc2aeb06e7fb259127a58194"
+      },
+      {
+        "odd_steps": 5,
+        "peak_odd_state": 61,
+        "seed": 61,
+        "trajectory_sha256": "f7b825f9c1cdd0e5e04b3136f309f861e3431ced286596046e79931b93d44084"
+      },
+      {
+        "odd_steps": 39,
+        "peak_odd_state": 3077,
+        "seed": 63,
+        "trajectory_sha256": "9eafcf669abb57ed731b497f1017d6e924bf0f78aaca3e357339b19c415f2fb4"
+      },
+      {
+        "odd_steps": 8,
+        "peak_odd_state": 65,
+        "seed": 65,
+        "trajectory_sha256": "ef0adc2c8d34e3d33a6c0e618aedf5e7a608ed65e0a3dba65f7d791a3703253f"
+      },
+      {
+        "odd_steps": 8,
+        "peak_odd_state": 101,
+        "seed": 67,
+        "trajectory_sha256": "4034a1d00832b11d19e5891014fd95067f80457b252d05ae68f95f897070ad80"
+      },
+      {
+        "odd_steps": 3,
+        "peak_odd_state": 69,
+        "seed": 69,
+        "trajectory_sha256": "cb9132161f4ef0cdf99cd24268a21dd4a9236449d5726861bc74a0521da84068"
+      },
+      {
+        "odd_steps": 37,
+        "peak_odd_state": 3077,
+        "seed": 71,
+        "trajectory_sha256": "6653d3b42e9f23be390732689829d4aacd177ccaf9b7e2eafdcb907c748ad4fe"
+      },
+      {
+        "odd_steps": 42,
+        "peak_odd_state": 3077,
+        "seed": 73,
+        "trajectory_sha256": "267eeb886785b33e10b86d6de8ccde8627a4ab029a41488b71acd6cb76f3ec58"
+      },
+      {
+        "odd_steps": 3,
+        "peak_odd_state": 113,
+        "seed": 75,
+        "trajectory_sha256": "fb131872aa4c7e0c8fa4a02e0e12f92bc07d88676afaf120646833f942a53208"
+      },
+      {
+        "odd_steps": 6,
+        "peak_odd_state": 77,
+        "seed": 77,
+        "trajectory_sha256": "968326b389e65463325822bceca71193e18de485cdf9dd2d5222465a8046ea4c"
+      },
+      {
+        "odd_steps": 11,
+        "peak_odd_state": 269,
+        "seed": 79,
+        "trajectory_sha256": "728913bab7606cd0ef34957060345f2cd66f7e4c74cf5afa7baa62a1ed8c3ed2"
+      },
+      {
+        "odd_steps": 6,
+        "peak_odd_state": 81,
+        "seed": 81,
+        "trajectory_sha256": "703c72e8c3277cce78d2f2ba59baed2023a17a2276f758b4d2172ca08292c757"
+      },
+      {
+        "odd_steps": 40,
+        "peak_odd_state": 3077,
+        "seed": 83,
+        "trajectory_sha256": "b158810ca5eb92a554f441c28bb19730f362ef0870f95213c5b44f1d84489421"
+      },
+      {
+        "odd_steps": 1,
+        "peak_odd_state": 85,
+        "seed": 85,
+        "trajectory_sha256": "35862578fb38d1eded25a138be1f73bd3b3da47e639871cd96c39a5024400368"
+      },
+      {
+        "odd_steps": 9,
+        "peak_odd_state": 197,
+        "seed": 87,
+        "trajectory_sha256": "e38e3bd1584b09459e58beaff1024bc802f7f01c2c2b759d8237f9ed7c01d643"
+      },
+      {
+        "odd_steps": 9,
+        "peak_odd_state": 101,
+        "seed": 89,
+        "trajectory_sha256": "d74953a5def49692c0f724b07827e22582808ecc36257da48e7d7f0ac0171a29"
+      },
+      {
+        "odd_steps": 33,
+        "peak_odd_state": 3077,
+        "seed": 91,
+        "trajectory_sha256": "236d888ea0d9c8bf163bab39b94d6384a58825a9b835868940f1c99e3f208843"
+      },
+      {
+        "odd_steps": 4,
+        "peak_odd_state": 93,
+        "seed": 93,
+        "trajectory_sha256": "20f5e1e08adbdc8c9acb5100e6697971f691265d773f9373214a5990ff741fdc"
+      },
+      {
+        "odd_steps": 38,
+        "peak_odd_state": 3077,
+        "seed": 95,
+        "trajectory_sha256": "d3ac42a17d283799083a668d10544e71ddc448a235731d5f05e6e30763c8aa51"
+      },
+      {
+        "odd_steps": 43,
+        "peak_odd_state": 3077,
+        "seed": 97,
+        "trajectory_sha256": "1ad6d06253ad853ed0f944644de830b64567245ab0c3f7abb015440834220eb1"
+      },
+      {
+        "odd_steps": 7,
+        "peak_odd_state": 149,
+        "seed": 99,
+        "trajectory_sha256": "8a4478dc2a42922bbcb7ed202794d381e609c5957643cf5065076a7774517a32"
+      },
+      {
+        "odd_steps": 7,
+        "peak_odd_state": 101,
+        "seed": 101,
+        "trajectory_sha256": "c3600b5b34a82105374c1c93e152d1d253af6c93749acc4d9e1052fe327c76a0"
+      },
+      {
+        "odd_steps": 31,
+        "peak_odd_state": 3077,
+        "seed": 103,
+        "trajectory_sha256": "5c905d78d72a2aaaae11b310e93b79651219b9caeb746f8918692a8ea6dee0f8"
+      },
+      {
+        "odd_steps": 12,
+        "peak_odd_state": 269,
+        "seed": 105,
+        "trajectory_sha256": "d9b6cdd4a5831f91905691c1d13c37b1f7d37220c49d82146c954cd6c9aa8a14"
+      },
+      {
+        "odd_steps": 36,
+        "peak_odd_state": 3077,
+        "seed": 107,
+        "trajectory_sha256": "2c85aaf982d4e1f73cfdd8847a7345ba3bde5e69180d0e88a3e1578f8bc7efa6"
+      },
+      {
+        "odd_steps": 41,
+        "peak_odd_state": 3077,
+        "seed": 109,
+        "trajectory_sha256": "c21f6e684c7f7a4bff92241c877f06a7304cb95c02e387da427ca2567d9d25f7"
+      },
+      {
+        "odd_steps": 24,
+        "peak_odd_state": 3077,
+        "seed": 111,
+        "trajectory_sha256": "b46dc94b2c66c501cbc7da5f5c0ead3c30e6cfdfde20d1025507db27bb0e5a6c"
+      },
+      {
+        "odd_steps": 2,
+        "peak_odd_state": 113,
+        "seed": 113,
+        "trajectory_sha256": "f0cca5f9c41e78eea5bdc6473aeb2ed5d90c65d3d3426fe914873248d56cc1e2"
+      },
+      {
+        "odd_steps": 10,
+        "peak_odd_state": 173,
+        "seed": 115,
+        "trajectory_sha256": "86e680044e59766cbceb6209d3609ce7be17ffc96a38d740ee3add871c7141c2"
+      },
+      {
+        "odd_steps": 5,
+        "peak_odd_state": 117,
+        "seed": 117,
+        "trajectory_sha256": "9c7a46d674765414fd5b627e724e5e14f4df9b84c71373cd87675f9443501628"
+      },
+      {
+        "odd_steps": 10,
+        "peak_odd_state": 269,
+        "seed": 119,
+        "trajectory_sha256": "946536076038e098af67f166f8e399e04ce2e5532ea1440d484ad989ff56f076"
+      },
+      {
+        "odd_steps": 34,
+        "peak_odd_state": 3077,
+        "seed": 121,
+        "trajectory_sha256": "8f29f7b120b753eacf8478c48b85862be5017be848aa7b18e0f96e83fbec1469"
+      },
+      {
+        "odd_steps": 15,
+        "peak_odd_state": 209,
+        "seed": 123,
+        "trajectory_sha256": "0c8cba2aebba280103d7d3011d8143615d683506e38dedef8c9e6bf2751a23c9"
+      },
+      {
+        "odd_steps": 39,
+        "peak_odd_state": 3077,
+        "seed": 125,
+        "trajectory_sha256": "04c67da7701005d419a3993e24b7c2e545c5c960ab3e271ea9ac3583b2fa3c19"
+      },
+      {
+        "odd_steps": 15,
+        "peak_odd_state": 1457,
+        "seed": 127,
+        "trajectory_sha256": "4fc0a6ce503c705d7d9102a4b3a1b3dd46eed15fe78a80e1a122054cb27f46ba"
+      }
+    ]
+  },
+  "schema": "inverse-cf-four-mismatch-v1"
+}
