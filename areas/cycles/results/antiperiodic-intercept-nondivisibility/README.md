@@ -17,7 +17,12 @@ claim: >
   gcd(S,length(u))=1, the primitive cancellation of uv is less than 2^S.
 authors:
   - Codex cycle research lane (GPT-6 Astra; directed by Santiago Armstrong)
+  - Codex formalisation lane (GPT-6 Astra; directed by Santiago Armstrong)
 created: 2026-11-08
+lean:
+  - LeanLane.SignedIntercept.negative_endpoint
+  - LeanLane.SignedIntercept.not_dvd_intercept
+  - LeanLane.SignedIntercept.not_dvd_power_plus
 certificates: [check_antiperiodic.py]
 evidence:
   - "check_antiperiodic.json: deterministic finite checks of the nondivisibility, the signed cut argument, one-letter gcd identity and 3x+d controls"
@@ -199,6 +204,36 @@ The script compares its output with
 [`check_antiperiodic.json`](check_antiperiodic.json). Use `--write-receipt` to
 regenerate that receipt.
 
+## Lean
+
+The central signed endpoint and nondivisibility theorems are formalised in
+[`LeanLane/SignedIntercept.lean`](../../../../lean/LeanLane/SignedIntercept.lean),
+using the shared integer intercept `LeanLane.Words.C`.
+
+- `negative_endpoint` says that for any natural-number word `w` and integers
+  `x,y`, if `x<0` and `2^sum(w)*y=3^length(w)*x+C(w)`, then `y<0`.
+  Its induction obtains an integral cut by cancelling an odd power of 3
+  from divisibility by a power of 2, and propagates the negative sign.
+- `not_dvd_intercept` proves (1) for every nonempty `w` and positive
+  integers `s,t`, with no bound on length or entries.
+- `not_dvd_power_plus` is the stated clean-intercept corollary
+  `2^(sum(w)+j)+3^length(w)` does not divide `C(w)` for every natural `j`.
+
+The formal word entries may be zero, so these statements are stronger
+than their restriction to positive valuation words in this node. They
+use exactly the same `C(w)`, defined recursively by `C([])=0` and
+`C(a::w)=3^length(w)+2^a*C(w)`, and no assumption of orbit convergence.
+The one-letter and transposition gcd identities and their primitive-factor
+corollaries remain written proofs; the status of this whole node therefore
+remains `written`.
+
+Build and axiom evidence is in
+[`SignedIntercept.build.txt`](../../../../lean/receipts/SignedIntercept.build.txt),
+[`SignedIntercept.axioms.txt`](../../../../lean/receipts/SignedIntercept.axioms.txt),
+and [`SignedIntercept.sha256.txt`](../../../../lean/receipts/SignedIntercept.sha256.txt).
+Only `propext`, `Classical.choice` and `Quot.sound` occur. The module is
+included in `LeanLane.lean` and built by `lake build LeanLane`.
+
 ## Remarks
 
 - **What is settled.** The clean-intercept divisibility target is impossible
@@ -222,8 +257,9 @@ regenerate that receipt.
   The theorem excludes no actual positive cycle of any of these maps.
 - **Novelty.** Undetermined. The proof is elementary; its use here is to
   resolve a stated intercept subtarget and isolate the remaining factor.
-- **Status.** Written argument and deterministic computation only. No Lean
-  formalisation or independent-session review is claimed.
+- **Status.** The central theorem is formalised as described above; the
+  additional family corollaries remain written. No independent-session
+  review is claimed.
 
 ## History
 
@@ -231,3 +267,9 @@ regenerate that receipt.
   by Santiago Armstrong) while investigating the surviving near-critical
   cancellation question. The proof and certificate were prepared in the
   same authoring session.
+
+- 2026-11-08: the signed endpoint theorem, central nondivisibility theorem,
+  and clean-intercept corollary were formalised in Lean by the Codex
+  formalisation lane (GPT-6 Astra; directed by Santiago Armstrong).
+  The full node remains `written` because its family-specific gcd
+  identities and primitive-factor corollaries are not yet formalised.
