@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**245 results, 29 attempts, 39 questions, 30 sources.**
+**246 results, 29 attempts, 39 questions, 30 sources.**
 
 ## Frontier: open questions
 
@@ -284,6 +284,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`single-forced-position-denominator`](areas/cycles/results/single-forced-position-denominator.md) | A reduced ordered cycle with a single forced position has D = q | formal | reviewed | — | yes |
 | [`single-mismatch-rotation-impossible`](areas/cycles/results/single-mismatch-rotation-impossible/README.md) | No rotation of a word differs from it in exactly one position; a primitive word has rotat… | formal | formal | — | yes |
 | [`small-band-height-residue-matching`](areas/cycles/results/small-band-height-residue-matching/README.md) | Height-residue matching holds for ordered cycles with q > 1 in at most three (normalised)… | reviewed | reviewed | — |  |
+| [`sparse-four-arc-near-critical-classification`](areas/cycles/results/sparse-four-arc-near-critical-classification/README.md) | A sparse four-arc family has exactly one near-critical full-plus cancellation | written | written | — |  |
 | [`three-band-collatz-cycles-are-ordered`](areas/cycles/results/three-band-collatz-cycles-are-ordered.md) | A 3x+1 cycle with H < 8L is dyadically ordered with mechanical normalised word and gcd(A,… | formal | reviewed | — | yes |
 | [`three-defect-arbitrary-background`](areas/cycles/results/three-defect-arbitrary-background.md) | Words at rotation distance three can carry an arbitrary shared background, beyond any fix… | reviewed | reviewed | — |  |
 | [`three-mismatch-exclusion`](areas/cycles/results/three-mismatch-exclusion/README.md) | No rotation of a nontrivial 3x+1 cycle differs from it in exactly three positions, so ρ ≥… | formal | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
@@ -655,6 +656,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) added (result)
 - 2026-11-08: [`near-critical-four-mismatch-corpus-counterexample`](areas/cycles/results/near-critical-four-mismatch-corpus-counterexample/README.md) added (result)
 - 2026-11-08: [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) added (result)
+- 2026-11-08: [`sparse-four-arc-near-critical-classification`](areas/cycles/results/sparse-four-arc-near-critical-classification/README.md) added (result)
 - 2026-11-08: [`transposition-gap-fourteen-complete-classification`](areas/cycles/results/transposition-gap-fourteen-complete-classification/README.md) added (result)
 - 2026-11-08: [`transposition-gap-fourteen-full-plus-cancellation`](areas/cycles/results/transposition-gap-fourteen-full-plus-cancellation/README.md) added (result)
 - 2026-11-08: [`unequal-one-three-half-defect-exclusion`](areas/cycles/results/unequal-one-three-half-defect-exclusion/README.md) added (result)
@@ -675,7 +677,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-31: [`annular-root-collapse-contraction`](areas/convergence/results/annular-root-collapse-contraction/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`auxiliary-normalisation-remainder`](areas/convergence/results/auxiliary-normalisation-remainder/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`base-inverse-phases-increasing-pairs`](areas/convergence/results/base-inverse-phases-increasing-pairs/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`baseline-obligation-transfer-controls`](areas/convergence/results/baseline-obligation-transfer-controls/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -683,8 +684,8 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 60.6% | 203 | 9 |
-| Claude side lane | 14.8% | 34 | 132 |
+| ChatGPT main lane | 60.5% | 203 | 9 |
+| Claude side lane | 14.7% | 34 | 132 |
 | Claude review lane | 8.5% | 0 | 121 |
 | Claude Lean lane | 5.4% | 3 | 69 |
 | Claude cycles lane | 5.1% | 21 | 0 |
@@ -694,6 +695,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
 | Codex formalisation lane | 0.2% | 1 | 0 |
+| Codex four-arc research lane | 0.2% | 1 | 0 |
 | Codex research lane | 0.2% | 1 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 

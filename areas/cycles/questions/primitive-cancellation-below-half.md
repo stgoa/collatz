@@ -56,6 +56,19 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
 
 ## Known progress
 
+- **2026-11-08: the near-critical example is unique in one sparse four-arc family.**
+  [`sparse-four-arc-near-critical-classification`](../results/sparse-four-arc-near-critical-classification/README.md)
+  considers `(1^(2r-4),a,1,c,1^(2r-2),c,1,b)`, with `r>=2`,
+  `a,b>=1`, `c>=2`, even total, and near-critical drift. Under
+  the coprime shift `2r-1`, its prescribed arc lengths are
+  `(4r-4,1,2,1)`. A positive-letter residue bound reduces all
+  lengths to 11,697 finite cases and proves that full plus-factor
+  cancellation occurs only for the `3x+295` counterexample.
+  Its other denominator factor survives, so this near-critical
+  family contains no denominator-1 word. The result does not
+  bound partial cancellation or classify arbitrary four-arc words;
+  part (C) remains open and forms (A′), (B) remain refuted.
+
 - **2026-11-08: both near-critical half bounds refuted.**
   The [exact corpus counterexample](../results/near-critical-four-mismatch-corpus-counterexample/README.md)
   has primitive cyclotomic index 4, full primitive cancellation 1753,
@@ -165,6 +178,11 @@ Proposals, not results.
 - **Two arcs, non-Sturmian case.** Bound `gcd(C_u, C_v)` for the two arcs of a two-interval rotation coding whose interval length differs from the step, by a Rauzy-type induction on the arc, as suggested in [`half-cancellation-for-few-mismatch-words`](half-cancellation-for-few-mismatch-words.md).
 
 ## History
+
+- 2026-11-08: added the scoped sparse four-arc classification and
+  its near-critical denominator-1 exclusion (Codex four-arc research
+  lane, GPT-6 Astra; directed by Santiago Armstrong). The counterexample
+  and the remaining asymptotic question are unchanged.
 
 - 2026-11-08: forms (A′) and (B) refuted by
   [`near-critical-four-mismatch-corpus-counterexample`](../results/near-critical-four-mismatch-corpus-counterexample/README.md).
