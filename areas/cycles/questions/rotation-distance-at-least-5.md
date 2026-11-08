@@ -131,6 +131,23 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: two singleton high arcs and a third-period subcase.**
+The [two-singleton theorem](../results/two-singleton-high-arcs-exclusion/README.md)
+excludes four-distinct-label coprime tracks whose two largest
+labels each occur once, whether adjacent or opposite. Its
+EXT-1-only core gives `m<=418657053<2^29`; the separately declared
+Barina input closes every length. Binary words at every shift and
+three-label coprime words were already covered by the results below.
+The remaining coprime target therefore has a larger-label arc of
+length at least two; noncoprime words with at least three labels
+remain open.
+
+Separately, the [balanced third-period denominator law](../results/balanced-third-period-denominator-law/README.md)
+excludes denominator one unconditionally for balanced third-period
+changes of size one or two. Larger changes with nontrivial common
+factors and unbalanced third-period defects remain outside that
+subcase. These results do not settle the general question.
+
 **2026-11-08: move to four distinct labels or noncoprime tracks.**
 Under EXT-1 and the separately declared Barina convergence input,
 the [three-label theorem](../results/three-label-four-mismatch-exclusion/README.md)
@@ -366,6 +383,13 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: recorded the all-placement two-singleton-high
+  exclusion with its EXT-1-only `2^29` cutoff and separate Barina
+  all-length corollary, plus the unconditional balanced third-period
+  changes of size one or two. Retained the previous frontier as
+  history; the general question remains open (Codex four-arc
+  research lane, GPT-6 Astra; directed by Santiago Armstrong).
 
 - 2026-11-08: recorded the full three-label coprime four-mismatch
   exclusion under EXT-1 plus Barina, with an EXT-1-only `2^32`
