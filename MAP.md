@@ -719,7 +719,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
 | ChatGPT main lane | 57.5% | 203 | 9 |
-| Claude side lane | 14.0% | 34 | 132 |
+| Claude side lane | 14.1% | 34 | 132 |
 | Claude review lane | 8.0% | 0 | 121 |
 | Claude Lean lane | 5.2% | 3 | 69 |
 | Claude cycles lane | 4.9% | 21 | 0 |

@@ -7,18 +7,30 @@
     "paired_run_witnesses": 1436,
     "scope": "the addend is retained; q=1 minimum and growth estimates are not applied"
   },
+  "binary_discrepancy": {
+    "periods": [
+      3,
+      20
+    ],
+    "phases": "every start and every proper length",
+    "proper_factors": 385692,
+    "scope": "finite replay of the cited general rotation theorem",
+    "templates": 1616,
+    "twos_lengths": "every integer1..m-1"
+  },
   "constants": {
     "alpha_lower": "84/53",
+    "common_sparse_error_at_2_to_22": "56885/12582912",
     "cutoff": 17179869184,
     "cutoff_bits": 34,
-    "density_base_margin": 34296411053,
+    "density_base_margin": 34296408032,
     "density_coefficient": "335/1007",
     "density_dyadic_polynomial": [
-      4164051,
+      4167072,
       1740096
     ],
     "density_induction_polynomial": [
-      2423955,
+      2426976,
       1740096
     ],
     "minimum_state": 129,
@@ -31,6 +43,10 @@
     "phase_induction_polynomial": [
       1030,
       1026
+    ],
+    "retained_outer_one_density_polynomial": [
+      4164051,
+      1740096
     ],
     "separately_sourced_minimum_period": 72057431991,
     "short_product_bound": 512,
@@ -67,18 +83,28 @@
     ]
   },
   "family_controls": {
-    "addend_run_checks": 6054,
-    "coverage": "all positive arc lengths and coprime steps in this finite range, D>0",
-    "exact_arrows": 25776,
+    "addend_run_checks": 12584,
+    "additional_outer_two_controls": "m13,a=c1,b10,k6or7,V9or20",
+    "coverage": "both arrangements, all positive arcs and coprime steps in this finite range",
+    "exact_arrows": 61276,
     "failed_exclusion_hypothesis": "q=1; these are actual integer 3x+q cycles",
+    "geometry_words": 7396,
     "minimum_reduced_addend": 13,
-    "parameter_sha256": "bfea4560f43b1f038bfd29ba19c7853475eec0b2c204cb9fe6a09efd1843db87",
+    "parameter_sha256": "b3d72897570b3832d49be4344351009f354c797df1417e62c7d661996b19acc4",
     "periods": [
       4,
       12
     ],
-    "post_spike_envelopes": 1416,
-    "reduced_cycles": 2558,
+    "post_spike_envelopes": 1424,
+    "post_spike_envelopes_by_outer_label": {
+      "1": 1416,
+      "2": 8
+    },
+    "reduced_cycles": 6054,
+    "reduced_cycles_by_outer_label": {
+      "1": 2558,
+      "2": 3496
+    },
     "spike_values": [
       3,
       4,
@@ -772,12 +798,12 @@
     "twos_lengths": "1 and the largest integer satisfying 3(b+j)<m",
     "windows": 1629414
   },
-  "schema": "two-level-phase-runs-v1",
+  "schema": "two-level-phase-runs-v2",
   "small_step_runs": {
-    "consecutive_run_pairs": 254748,
+    "consecutive_run_pairs": 314836,
     "endpoint_spike_cases": 10894,
-    "one_surviving_run_cases": 576,
-    "parameter_sha256": "032c2261f92729cdcf7afbf92f20a5ac0766b2db3a63c993333950c1b5f14d11",
+    "one_surviving_run_cases": 2856,
+    "parameter_sha256": "da722c107e5e5460076696f4819f7d95f80c5cefc13fe48fd8402edfa365ac81",
     "periods": [
       8,
       81
@@ -786,8 +812,10 @@
       -1,
       1
     ],
-    "spike_positions": "every binary-one site",
-    "spiked_words": 51820,
+    "spike_positions": "every site, replacing either a one or a two",
+    "spiked_ones": 51820,
+    "spiked_twos": 13462,
+    "spiked_words": 65282,
     "steps": [
       1,
       8

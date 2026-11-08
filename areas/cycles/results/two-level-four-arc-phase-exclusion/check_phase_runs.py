@@ -27,19 +27,26 @@ def valuation(value):
 
 def constants():
     require(194**32 < (1 << 19)*129**32, "one-arrow logarithmic growth")
+    require(194**8 < 27*129**8, "label-independent geometric slope")
     require(3**53 > 1 << 84, "alpha lower bound")
     require(3**5 < 1 << 8 and 3**2 > 1 << 3, "alpha bounds")
     require(F(4, 3)**3 < 3, "residual binary contraction")
     require(F(1)-F(21, 53)/F(19, 32) == F(335, 1007), "density coefficient")
     require(F(1, 3)-F(335, 1007) == F(2, 3021), "density margin")
     require(3021*512+159*(32*(172+342)+13) == 4164051,
+            "retained outer-one density intercept")
+    require(3021*512+159*(32*(172+342)+32) == 4167072,
             "density dyadic intercept")
     require(159*32*342 == 1740096, "density dyadic slope")
-    density_margin = 2*CUTOFF-(4164051+1740096*34)
-    require(density_margin == 34296411053 > 0, "density base")
-    require(2*4164051-(4164051+1740096) == 2423955 > 0,
+    density_margin = 2*CUTOFF-(4167072+1740096*34)
+    require(density_margin == 34296408032 > 0, "density base")
+    require(2*4167072-(4167072+1740096) == 2426976 > 0,
             "density induction intercept")
     require(1740096 > 0, "density induction slope")
+    sparse_error = F(173+342*23, 1 << 22)+F(1, 384)
+    require(sparse_error == F(56885, 12582912) < F(1, 193), "shared sparse envelope")
+    require(515-342 > 0 and F(4, 3) < F(3, 2), "sparse induction and expanding mean")
+    require(F(2, 1)/(F(3, 2)*512) == F(1, 384), "shared low-complexity error")
     require(3*(173+342)+511 == 2056, "phase dyadic intercept")
     require(3*342 == 1026, "phase dyadic slope")
     phase_at_base = F(2056+1026*34, 3*CUTOFF)
@@ -59,9 +66,11 @@ def constants():
     return dict(cutoff_bits=34, cutoff=CUTOFF, minimum_state=129,
                 alpha_lower="84/53", one_arrow_log2_upper="19/32",
                 density_coefficient="335/1007", short_product_bound=512,
-                density_dyadic_polynomial=[4164051, 1740096],
+                retained_outer_one_density_polynomial=[4164051, 1740096],
+                density_dyadic_polynomial=[4167072, 1740096],
                 density_base_margin=density_margin,
-                density_induction_polynomial=[2423955, 1740096],
+                density_induction_polynomial=[2426976, 1740096],
+                common_sparse_error_at_2_to_22=str(sparse_error),
                 phase_dyadic_numerator=[2056, 1026],
                 phase_induction_polynomial=[1030, 1026],
                 phase_error_times_193_at_base=str(193*phase_at_base),
@@ -157,6 +166,7 @@ def positive_one_runs(word):
 
 def small_step_runs():
     templates = spikes = pairs = single = endpoint_spikes = 0
+    spiked_ones = spiked_twos = 0
     checksum = sha256()
     for m in range(8, 82):
         for j in range(1, min(9, m)):
@@ -174,27 +184,60 @@ def small_step_runs():
                             "floor/ceiling binary run lengths")
                     templates += 1
                     for spike in range(m):
-                        if base[spike] != 1:
-                            continue
                         word = base.copy()
                         word[spike] = 3
                         runs = positive_one_runs(word)
                         require(runs, "a positive run survives the spike")
+                        if base[spike] == 2:
+                            require(runs == base_runs, "spiking a two preserves every ones run")
+                            spiked_twos += 1
+                        else:
+                            spiked_ones += 1
                         for i, (_, length) in enumerate(runs):
                             require(length+runs[(i+1) % len(runs)][1] >= lower-1,
                                     "two consecutive positive runs include full length")
                             pairs += 1
                         single += len(runs) == 1
-                        endpoint_spikes += base[spike-1] == 2 or base[(spike+1) % m] == 2
+                        endpoint_spikes += (base[spike] == 1 and
+                                            (base[spike-1] == 2 or base[(spike+1) % m] == 2))
                         spikes += 1
                         checksum.update(f"{m}:{j}:{b}:{sign}:{spike}:{runs}\n".encode())
     require(single and endpoint_spikes, "zero split and one-run boundary controls")
     return dict(periods=[8, 81], steps=[1, 8], signs=[-1, 1],
                 twos_lengths="j+1 and floor(m/3)-1 when both intervals exceed j",
-                spike_positions="every binary-one site", templates=templates,
+                spike_positions="every site, replacing either a one or a two", templates=templates,
                 spiked_words=spikes, consecutive_run_pairs=pairs,
+                spiked_ones=spiked_ones, spiked_twos=spiked_twos,
                 one_surviving_run_cases=single, endpoint_spike_cases=endpoint_spikes,
                 parameter_sha256=checksum.hexdigest())
+
+
+def binary_discrepancy():
+    templates = factors = 0
+    for m in range(3, 21):
+        for k in range(1, m):
+            if gcd(k, m) != 1:
+                continue
+            numerator, denominator, K = k, m, 0
+            while numerator:
+                quotient, remainder = divmod(denominator, numerator)
+                K += quotient
+                denominator, numerator = numerator, remainder
+            for twos in range(1, m):
+                word = [1+int((k*i) % m < twos) for i in range(m)]
+                prefix = [0]
+                for letter in word+word:
+                    prefix.append(prefix[-1]+letter)
+                for start in range(m):
+                    for length in range(1, m):
+                        total = prefix[start+length]-prefix[start]
+                        require(abs(m*total-(m+twos)*length) <= 2*m*(K-1),
+                                "all-phase binary discrepancy")
+                        factors += 1
+                templates += 1
+    return dict(periods=[3, 20], twos_lengths="every integer1..m-1",
+                phases="every start and every proper length", templates=templates,
+                proper_factors=factors, scope="finite replay of the cited general rotation theorem")
 
 
 def integral_runs():
@@ -281,9 +324,12 @@ def check_addend_runs(word, states, q):
 
 
 def family_controls():
-    words = arrows = run_checks = envelopes = 0
+    words = arrows = run_checks = envelopes = geometry_words = 0
     q_min = None
+    arrangements = {1: 0, 2: 0}
+    arrangement_envelopes = {1: 0, 2: 0}
     checksum = sha256()
+    parameters = []
     for m in range(4, 13):
         for a in range(1, m-2):
             for b in range(1, m-a-1):
@@ -293,37 +339,64 @@ def family_controls():
                 for h in range(1, m):
                     if gcd(h, m) != 1:
                         continue
-                    k = pow(h, -1, m)
                     for V in (3, 4, 9, 20):
-                        track = [V]+[1]*a+[2]*b+[1]*c
-                        word = [0]*m
-                        for i, letter in enumerate(track):
-                            word[(i*h) % m] = letter
-                        cycle = reduced_cycle(word)
-                        if cycle is None:
-                            continue
-                        q, states = cycle
-                        require(q > 1, "finite family controls do not have denominator one")
-                        require(sum(word[i] != word[(i+h) % m] for i in range(m)) == 4,
-                                "exact four mismatches")
-                        words += 1
-                        arrows += m
-                        q_min = q if q_min is None else min(q_min, q)
-                        run_checks += check_addend_runs(word, states, q)
-                        for Q in range(2, m):
-                            p = (Q*k+m//2)//m
-                            j = abs(Q*k-p*m)
-                            if not j or gcd(p, Q) != 1 or 3*(b+j) >= m:
-                                continue
-                            require(states[1]*3**(Q-1) < min(states)*4**(Q-1),
-                                    "positive-addend post-spike envelope")
-                            envelopes += 1
-                        checksum.update(f"{m}:{a}:{b}:{c}:{h}:{V}:{q}\n".encode())
-    require(envelopes > 0 and words > 0, "genuine family controls with phase envelopes")
+                        for outer in (1, 2):
+                            parameters.append((m, a, b, c, h, V, outer))
+    for k in (6, 7):
+        for V in (9, 20):
+            parameters.append((13, 1, 10, 1, pow(k, -1, 13), V, 2))
+    for m, a, b, c, h, V, outer in parameters:
+        k = pow(h, -1, m)
+        track = [V]+[outer]*a+[3-outer]*b+[outer]*c
+        word = [0]*m
+        for i, letter in enumerate(track):
+            word[(i*h) % m] = letter
+        E1 = {0, (-h) % m, (a*h) % m, ((a+b)*h) % m}
+        E2 = {0, (-2*h) % m, (a*h) % m, ((a-1)*h) % m,
+              ((a+b)*h) % m, ((a+b-1)*h) % m}
+        mis1 = {i for i in range(m) if word[i] != word[(i+h) % m]}
+        mis2 = {i for i in range(m) if word[i] != word[(i+2*h) % m]}
+        require(mis1 == E1 and len(E1) == 4 and mis2 <= E2,
+                "both arrangements have the same two-rotation geometry")
+        require(word[-h % m] == word[h % m] == outer, "shared cancellation at x-h")
+        chi = int(outer == 2)
+        twos = b if outer == 1 else a+c+1
+        require(word.count(2) == twos-chi and word.count(1) == m-twos-1+chi,
+                "arrangement-aware density counts")
+        template = word.copy()
+        template[0] = outer
+        require(sum(template) == m+twos and all(u <= w for u, w in zip(template, word)),
+                "template total and positive edit")
+        geometry_words += 1
+        cycle = reduced_cycle(word)
+        if cycle is None:
+            continue
+        q, states = cycle
+        require(q > 1, "finite family controls do not have denominator one")
+        words += 1
+        arrangements[outer] += 1
+        arrows += m
+        q_min = q if q_min is None else min(q_min, q)
+        run_checks += check_addend_runs(word, states, q)
+        for Q in range(2, m):
+            p = (Q*k+m//2)//m
+            j = abs(Q*k-p*m)
+            if not j or gcd(p, Q) != 1 or 3*(twos+j) >= m:
+                continue
+            require(states[1]*3**(Q-1) < min(states)*4**(Q-1),
+                    "positive-addend post-spike envelope")
+            envelopes += 1
+            arrangement_envelopes[outer] += 1
+        checksum.update(f"{m}:{a}:{b}:{c}:{h}:{V}:{outer}:{q}\n".encode())
+    require(all(arrangements.values()) and all(arrangement_envelopes.values()),
+            "both arrangements have genuine family controls and phase envelopes")
     return dict(periods=[4, 12], spike_values=[3, 4, 9, 20],
-                coverage="all positive arc lengths and coprime steps in this finite range, D>0",
+                coverage="both arrangements, all positive arcs and coprime steps in this finite range",
+                additional_outer_two_controls="m13,a=c1,b10,k6or7,V9or20",
+                geometry_words=geometry_words, reduced_cycles_by_outer_label=arrangements,
                 reduced_cycles=words, exact_arrows=arrows, addend_run_checks=run_checks,
                 post_spike_envelopes=envelopes, minimum_reduced_addend=q_min,
+                post_spike_envelopes_by_outer_label=arrangement_envelopes,
                 parameter_sha256=checksum.hexdigest(),
                 failed_exclusion_hypothesis="q=1; these are actual integer 3x+q cycles")
 
@@ -391,9 +464,10 @@ def replay_dependencies():
 
 def main():
     require(sys.argv[1:] in ([], ["--write-receipt"]), "usage: script [--write-receipt]")
-    receipt = dict(schema="two-level-phase-runs-v1", constants=constants(),
+    receipt = dict(schema="two-level-phase-runs-v2", constants=constants(),
                    phase_windows=phase_windows(), large_phase_edges=large_phase_edges(),
-                   small_step_runs=small_step_runs(), integral_runs=integral_runs(),
+                   small_step_runs=small_step_runs(), binary_discrepancy=binary_discrepancy(),
+                   integral_runs=integral_runs(),
                    local_minimum=local_minimum(), family_controls=family_controls(),
                    actual_controls=actual_controls(), dependency_replays=replay_dependencies())
     encoded = json.dumps(receipt, sort_keys=True, indent=2)+"\n"
