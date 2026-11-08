@@ -1,0 +1,29 @@
+{
+  "branches_entered_by_rotation": {
+    "1": 1,
+    "10": 1,
+    "11": 2,
+    "2": 2,
+    "3": 3,
+    "4": 3,
+    "5": 3,
+    "6": 2,
+    "7": 2,
+    "8": 1,
+    "9": 1
+  },
+  "checker_sha256": "b8543ef89b37ab5cf6d7599b2dc01e5b4ed09a72f3678ee282b13cf888752cf2",
+  "constant_contradiction_prunes": 0,
+  "error_threshold": "1/1000",
+  "exact_dual_prunes": 3849,
+  "feasibility_calls": 8880,
+  "height_coefficient": "3/8",
+  "maximum_rotation": 11,
+  "proof_data_bytes": 578188,
+  "proof_data_sha256": "26d28d41857d67135590125dba5d5d8b4ff8cc7eb70563c89e89d00d3e26a547",
+  "row_hash_encoding": "compact-json-reduced-numerator-denominator-pairs",
+  "schema": "single-sawtooth-multirotation-obstruction-v1",
+  "scope": "Complete strict open-cell replay; the README proves pre-drop boundary transfer. No cycle exclusion.",
+  "survivors": 0,
+  "verified_exact_duals": 3849
+}
