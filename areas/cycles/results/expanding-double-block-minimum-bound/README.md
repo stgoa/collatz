@@ -7,7 +7,7 @@ claim: >
   Raw odd-only valuation words. Let U,V be nonempty positive words of
   equal length g, put a=sum(U), b=sum(V), P=3^g, Q=2^a, S=2^b,
   and suppose Q<P<S and D_(UUV)=Q^2*S-P^3>0. Every actual positive
-  odd 3x+q cycle with word UUV has minimum
+  odd 3x+q cycle with positive odd q and word UUV has minimum
   L>2^(g+1)*(P+Q)/(S-P). In particular, with q=den(UUV) and
   eta=1-P^3/(Q^2*S), q>eta*2^(g+1)*(P+Q)/(g*(S-P)), without
   external inputs. If q=1 and a>=11g/10, an internal finite descent
@@ -59,8 +59,8 @@ Q<P<S,             Q^2*S>P^3.                         (1)
 ```
 
 Thus `U` expands, `V` contracts, and the complete word has positive
-discriminant. Every actual positive odd `3x+q` cycle with this word
-has minimum
+discriminant. For every positive odd additive parameter `q`, every
+actual positive odd `3x+q` cycle with this word has minimum
 
 ```
 L > 2^(g+1)*(P+Q)/(S-P).                              (2)
