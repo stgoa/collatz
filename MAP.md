@@ -298,7 +298,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`two-marker-constant-background-exact-denominator`](areas/cycles/results/two-marker-constant-background-exact-denominator/README.md) | Two markers on a constant background: cancellation exactly 4^n − 3^n and denominator 4^n… | formal | reviewed | — | yes |
 | [`two-mismatch-exclusion-via-gap`](areas/cycles/results/two-mismatch-exclusion-via-gap/README.md) | C011's two-mismatch exclusion without Matveev: from the trade-off, the replayed gap and t… | formal | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
 | [`two-three-mismatch-denominator-laws`](areas/cycles/results/two-three-mismatch-denominator-laws/README.md) | Two- and three-mismatch words have exponentially large denominators unless their drift is… | formal | reviewed | — | yes |
-| [`unequal-one-three-half-defect-exclusion`](areas/cycles/results/unequal-one-three-half-defect-exclusion/README.md) | Half defects of amplitudes one and three cannot cancel the plus factor | written | written | — |  |
+| [`unequal-one-three-half-defect-exclusion`](areas/cycles/results/unequal-one-three-half-defect-exclusion/README.md) | Half defects of amplitudes one and three cannot cancel the plus factor | written | written | — | yes |
 | [`unequal-slope-two-block-growth`](areas/cycles/results/unequal-slope-two-block-growth/README.md) | Unequal-slope two-block words have denominator 2^((1−o(1))·A), ineffectively | reviewed | reviewed | `corvaja-2005-s-unit-height` |  |
 
 ### Attempts (approaches that failed or stalled)
@@ -690,10 +690,10 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Claude cycles lane | 5.1% | 21 | 0 |
 | Claude PR1 lane | 2.2% | 6 | 9 |
 | ChatGPT handoff conversation | 1.0% | 2 | 0 |
-| Codex cycle research lane | 0.9% | 5 | 0 |
+| Codex cycle research lane | 0.8% | 5 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
-| Codex formalisation lane | 0.2% | 1 | 0 |
+| Codex formalisation lane | 0.3% | 2 | 0 |
 | Codex research lane | 0.2% | 1 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 

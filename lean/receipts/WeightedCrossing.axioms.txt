@@ -1,0 +1,5 @@
+source sha256: 114a4d707d19a13b640dca0a7e06be27a8b772b9bcd9fffd798a55f0fa42a2ee
+'LeanLane.WeightedCrossing.trace_of_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.WeightedCrossing.no_crossing_two_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.WeightedCrossing.no_crossing_three_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.WeightedCrossing.zero_interface_control' depends on axioms: [propext, Quot.sound]
