@@ -23,6 +23,15 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: amplitudes 2 and 4 are excluded at every length.**
+  [`unequal-two-four-half-defect-classification`](../results/unequal-two-four-half-defect-classification/README.md)
+  excludes positive integer `3x+1` cycles whose halves differ at
+  exactly two positions with absolute changes 2 and 4, in any signs
+  or order. Full plus-factor cancellation occurs in two explicit
+  infinite families, but a uniform affine bound gives a rational
+  state strictly between 0 and 1 in each. The exclusion uses no
+  near-critical hypothesis or external bound. It covers only this
+  half-period four-mismatch class; the general question remains open.
 - **2026-11-08: an unconditional half-period subcase is excluded.**
   [`unequal-one-five-half-defect-classification`](../results/unequal-one-five-half-defect-classification/README.md)
   excludes positive integer `3x+1` cycles whose two halves differ at
@@ -44,6 +53,10 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
+- 2026-11-08: added the unconditional amplitudes-2-and-4 half-period
+  exclusion from [`unequal-two-four-half-defect-classification`](../results/unequal-two-four-half-defect-classification/README.md).
+  The arbitrary four-mismatch question remains `open`
+  (Codex cycle research lane, GPT-6 Astra; directed by Santiago Armstrong).
 - 2026-11-08: added the unconditional amplitudes-1-and-5 half-period
   exclusion from [`unequal-one-five-half-defect-classification`](../results/unequal-one-five-half-defect-classification/README.md).
   The arbitrary four-mismatch question remains `open`
