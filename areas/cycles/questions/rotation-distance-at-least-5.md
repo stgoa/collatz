@@ -138,6 +138,10 @@ excludes both orders at every level. Together with the
 this excludes all normal-form candidates with `r<=256`.
 Remaining candidates have positive interface, `r>=257`, and
 `8r>5J` in low-to-high order or `32r>J` in high-to-low order.
+Under the same LMN input, the
+[first-segment exclusion](../results/one-defect-first-block-mersenne-exclusion/README.md)
+also requires at least two letters greater than 1 in the first
+signed segment `A` of every remaining low-to-high candidate.
 These results supersede the narrower normal-form targets below;
 the earlier text is retained as history. They do not settle
 other defect classes or general four-mismatch rotations.
@@ -283,3 +287,7 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
   exclusion from [`unequal-one-five-half-defect-classification`](../results/unequal-one-five-half-defect-classification/README.md).
   The arbitrary four-mismatch question remains `open`
   (Codex cycle research lane, GPT-6 Astra; directed by Santiago Armstrong).
+- 2026-11-08: narrowed the remaining low-to-high positive-interface
+  target under LMN to first segments with at least two non-one
+  letters, using the first-segment exclusion above. The general
+  four-mismatch question remains `open`.
