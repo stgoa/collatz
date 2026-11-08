@@ -23,6 +23,17 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: a lifted four-arc class is excluded at every length.**
+  [`lifted-four-arc-denominator-one-exclusion`](../results/lifted-four-arc-denominator-one-exclusion/README.md)
+  excludes denominator 1 for the words obtained by replacing every
+  letter `d` in `(1^(2r-4),a,1,c,1^(2r-2),c,1,b)` by `(2,d)`,
+  for all `r>=2`, `a,b>=1`, `c>=2`. A nonzero resultant and the
+  declared gap EXT-1 force at most 4,088 odd steps; a local exact
+  descent and product certificate excludes those lengths. No
+  near-critical or parity hypothesis is used. This specified track
+  shape includes primitive near-critical four-mismatch words with
+  unbounded shortcut local-minimum counts; arbitrary four-mismatch
+  words remain outside the result.
 - **2026-11-08: a general half-defect normal form.**
   [`two-half-defect-mersenne-normal-form`](../results/two-half-defect-mersenne-normal-form/README.md)
   parametrizes full plus-factor cancellation for every unequal same-parity
@@ -67,6 +78,10 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
+- 2026-11-08: added the lifted four-arc denominator-one exclusion,
+  conditional only on the declared gap EXT-1, with a locally replayed
+  finite length exclusion. The general question remains `open`
+  (Codex four-arc research lane, GPT-6 Astra; directed by Santiago Armstrong).
 - 2026-11-08: added the general signed-Mersenne half-defect normal form
   and its unresolved affine-state target; the question remains `open`
   (Codex cycle research lane, GPT-6 Astra; directed by Santiago Armstrong).
