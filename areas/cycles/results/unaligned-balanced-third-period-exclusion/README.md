@@ -2,7 +2,7 @@
 id: unaligned-balanced-third-period-exclusion
 kind: result
 title: Unaligned balanced third-period words exclude denominator one
-status: written
+status: formal
 claim: >
   In the raw odd-only clock, let u,v be finite lists of positive
   integers, possibly empty, and let a,b,delta>=1. Put A=(u,a),
@@ -221,9 +221,10 @@ is not claimed formal by this node.
 
 The source is compiled on the repository's pinned Lean
 toolchain; cached Mathlib dependencies are reused, rather
-than claimed rebuilt from source. The node remains `written`
-until the Lean CI build passes. Build, source-hash and complete
-axiom receipts are listed in the frontmatter.
+than claimed rebuilt from source. The complete Lean CI build
+passed on `723bfb6` before this scoped node was promoted to
+`formal`. Build, source-hash and complete axiom receipts are
+listed in the frontmatter.
 
 ## Remarks
 
@@ -238,3 +239,6 @@ independent-session review.
 - 2026-11-08: Added the explicit six-block formalization,
   including the integral-cycle converse and minimum-nine
   argument. The broader written node is unchanged.
+- 2026-11-08: Promoted this explicit word-family claim to
+  `formal` after the complete Lean CI build passed on
+  `723bfb6`; the Lean source and its receipts are unchanged.

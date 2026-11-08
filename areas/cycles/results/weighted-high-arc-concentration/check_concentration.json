@@ -1,0 +1,339 @@
+{
+  "constants": {
+    "clock": "full primitive odd-only period",
+    "cone_integer_period_upper": 1069729381,
+    "cone_obstruction_margin": "325/196596",
+    "large_multiplicity_threshold": 6,
+    "localization_base_margin": "46609724897/937500",
+    "localization_cutoff_bits": 23,
+    "localization_linear_increment": "11206656/3125",
+    "minimum_coefficient": "32768/3125",
+    "rise_factor": "29643/3125",
+    "short_rotation_coefficient": "61511/3750000",
+    "surviving_high_multiplicity_upper": 5
+  },
+  "family_controls": {
+    "actual_cone_cycles": 972,
+    "actual_reduced_cycles": 3798,
+    "addend_ones_runs": 6030,
+    "additional_multiplicity_tuples": [
+      [
+        1,
+        1,
+        6,
+        6
+      ],
+      [
+        1,
+        2,
+        6,
+        7
+      ],
+      [
+        2,
+        3,
+        8,
+        6
+      ]
+    ],
+    "adjacent_high_words": 2532,
+    "both_high_multiplicities_at_least_six": 288,
+    "cone_words": 972,
+    "control_sha256": "381f688ae5eafcf18f7c1e50658288b2631a7cb5e2c84149860780201817917d",
+    "cyclic_orders_after_fixing_label_one": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        0,
+        1,
+        3,
+        2
+      ],
+      [
+        0,
+        2,
+        1,
+        3
+      ],
+      [
+        0,
+        2,
+        3,
+        1
+      ],
+      [
+        0,
+        3,
+        1,
+        2
+      ],
+      [
+        0,
+        3,
+        2,
+        1
+      ]
+    ],
+    "each_label_multiplicity": [
+      1,
+      3
+    ],
+    "exact_odd_arrows": 34146,
+    "genuine_examples": {
+      "adjacent": {
+        "h": 3,
+        "lengths": [
+          1,
+          1,
+          2,
+          3
+        ],
+        "minimum": 628097,
+        "normalized_minimum": "628097/16775029",
+        "q": 16775029,
+        "states": [
+          2332415,
+          11886137,
+          1638545,
+          2711333,
+          6227257,
+          1108025,
+          628097
+        ],
+        "track_order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "word": [
+          1,
+          5,
+          3,
+          2,
+          5,
+          5,
+          3
+        ]
+      },
+      "separated": {
+        "h": 3,
+        "lengths": [
+          1,
+          1,
+          2,
+          3
+        ],
+        "minimum": 609665,
+        "normalized_minimum": "609665/16775029",
+        "q": 16775029,
+        "states": [
+          2325503,
+          11875769,
+          1637573,
+          5421937,
+          4130105,
+          911417,
+          609665
+        ],
+        "track_order": [
+          0,
+          2,
+          1,
+          3
+        ],
+        "word": [
+          1,
+          5,
+          2,
+          3,
+          5,
+          5,
+          3
+        ]
+      }
+    },
+    "geometry_words": 3798,
+    "label_sets": [
+      [
+        1,
+        2,
+        3,
+        5
+      ],
+      [
+        1,
+        2,
+        5,
+        9
+      ],
+      [
+        1,
+        5,
+        6,
+        8
+      ]
+    ],
+    "proper_factor_checks": 304560,
+    "scope": "Actual positive odd 3x+q arrows retain q; these finite controls do not prove absence or the q=1-only minimum estimate.",
+    "separated_high_words": 1266,
+    "track_steps": "all coprime 0<h<m/2"
+  },
+  "pinned_arithmetic_replay": {
+    "constants": {
+      "absorbed_threshold": "6125/4980736",
+      "cutoff_base_margin": "8070553975633215488/30625",
+      "cutoff_base_upper": "549617186130624512/30625",
+      "cutoff_bits": 48,
+      "cutoff_polynomial": [
+        "20341181382656/1225",
+        "675400861089792/30625",
+        "224257558708224/30625"
+      ],
+      "drift_error_upper": "1/393216",
+      "dyadic_ratio_upper": "2401/2304",
+      "external_convergence_replayed": false,
+      "forcing_base_margin": "1437715/129",
+      "forcing_coefficient": "49/2064",
+      "imported_odd_period_lower": 72057431991,
+      "integer_full_period_upper": 1069729381,
+      "local_minimum_used": 131072,
+      "maximum_count_cutoff_bits": 22,
+      "maximum_letter_denominator": 64,
+      "maximum_multiplicity": 38,
+      "multiplicity_margin": "196413/5",
+      "period_receipt_sha256": "e48b19926ca0c155032a9d85d3c28f3f6fbe69ae404163638414a7c848c65f64",
+      "post_gap_digit_count_upper": 97,
+      "post_gap_full_period_upper": "32760462311424/30625",
+      "post_gap_height_upper": 112,
+      "spread_coefficient": "6103/16383",
+      "spread_margin": "325/196596",
+      "uniform_error_threshold": "1/1216"
+    },
+    "exact_gap": {
+      "atanh_terms": 80,
+      "continued_fraction_digits": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        1,
+        5,
+        2,
+        23,
+        2,
+        2,
+        1,
+        1,
+        55,
+        1,
+        4,
+        3,
+        1,
+        1,
+        15,
+        1,
+        9,
+        2,
+        5,
+        7,
+        1,
+        1,
+        4,
+        8
+      ],
+      "eta_power": 64,
+      "ln2_interval": [
+        "24553090145869607172412918483124184864289170814122579923404694986469653261608528681589949629750677407356463601998534945057511664951799678336/35422621391945757431676178435630229283255250779216421054188228659061954317501699707236864189383591478024245495110561124597124995986978302375",
+        "98212360583478428689651673932496739457156683256490319693618779945878613046434144938070740358478117004692777348148358152378891907458724080469/141690485567783029726704713742520917133021003116865684216752914636247817270006798828947456757534365912096981980442244498388499983947913209500"
+      ],
+      "ln3_interval": [
+        "369017335340917140706044240090243368728616279239227943871048759140274862131699550043150713059889196223917527172547/335894053932612728969975338549993764554481173661218585876475837409922537622385232776657791604345125227005476864000",
+        "184508667670458570353022120045121684364308139619614923604419047513612763386757847636433235252633223412981812650711/167947026966306364484987669274996882277240586830609292938237918704961268811192616388328895802172562613502738432000"
+      ],
+      "lower_convergent": {
+        "p": 83130157078217,
+        "q": 52449289519716
+      },
+      "positive_gap_lower": "32736706357818300020742016400582454614819282073230735586730922321249349841524776075519361299750580597553835285358701985078617924841869069439039018391568585836941101432569499/15699416884253238872406480391280993377474079636999421696084781041383163518546640992942514509779151835150987374915173324755313196281248015040484581022968742418046188253927137912273577705472",
+      "positive_gap_power": 62,
+      "scope": "Every integer full period 0<m<2^48; no m>=q restriction.",
+      "upper_convergent": {
+        "p": 683381996816440,
+        "q": 431166034846567
+      }
+    },
+    "local_descent": {
+      "exact_odd_steps": 227689,
+      "first_descent_sha256": "bd9971133844197c6ee7cc99c5c54251c03b0ffdbaae4814de682590dc69ec93",
+      "maximum_output": 827370449,
+      "maximum_steps": 85,
+      "odd_seed_range": [
+        3,
+        131071
+      ],
+      "scope": "Every seed reaches a smaller positive odd integer; strong induction gives convergence to1 throughout the range.",
+      "seeds": 65535
+    },
+    "receipt_sha256": "6648f377249a5ef745fd835c592d335f5345019cf4a13ac18e9415906a4d1391",
+    "scope": "Only constants, exact_gap, local_descent and standard_controls are rerun. The rational gap and local descent are independent of Barina; its external input supplies only the separately labelled period comparison.",
+    "source_sha256": "53c9c0c3576ccf8a1ffdf37d3ab1576aef265bf7f69ebf69387242f552c2052f",
+    "standard_controls": {
+      "addend_ones_runs": 25,
+      "cycles": 11,
+      "exact_arrows": 106,
+      "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+      "scope": "The true addend is retained; normalized states are not treated as integers."
+    }
+  },
+  "schema": "weighted-high-arc-concentration-v1",
+  "single_arc_profiles": {
+    "arc_lengths": [
+      2,
+      48
+    ],
+    "cluster_formula_endpoints": 94,
+    "complete_collision_and_cone_endpoints": 5700,
+    "cone_endpoints": 5700,
+    "interior_convexity_controls": 16959,
+    "profile_sha256": "c074791b47d7298db30480a42d197f355b552c1f7cb251d5b23cb6faf4d457b0",
+    "scope": "All ordering-cell endpoints in the stated bounded lengths; manuscript convexity proves the unbounded claim.",
+    "spread_endpoints": 5653
+  },
+  "weighted_cone_profiles": {
+    "arc_lengths": [
+      2,
+      8
+    ],
+    "positive_weight_pairs": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        17,
+        1
+      ]
+    ],
+    "profile_sha256": "029c136f13009cdf4393e66b9bd1e665b20be58d3096e133a12004d4f1ca3b61",
+    "profiles_with_shared_points": 7806,
+    "scope": "Continuous profile controls may overlap; actual word controls below keep all four arcs disjoint.",
+    "step_denominators_up_to": 20,
+    "translations": [
+      "1/7",
+      "3/5",
+      "1"
+    ],
+    "weighted_profiles": 19692
+  }
+}
