@@ -1,0 +1,120 @@
+{
+  "actual_controls": {
+    "agreeing_prefixes": 4042,
+    "cycles": [
+      {
+        "agreeing_prefixes": 0,
+        "d": 5,
+        "minimum": 1,
+        "odd_period": 1,
+        "paired_starts": 0
+      },
+      {
+        "agreeing_prefixes": 8,
+        "d": 5,
+        "minimum": 19,
+        "odd_period": 3,
+        "paired_starts": 6
+      },
+      {
+        "agreeing_prefixes": 8,
+        "d": 5,
+        "minimum": 23,
+        "odd_period": 3,
+        "paired_starts": 6
+      },
+      {
+        "agreeing_prefixes": 470,
+        "d": 5,
+        "minimum": 187,
+        "odd_period": 17,
+        "paired_starts": 272
+      },
+      {
+        "agreeing_prefixes": 438,
+        "d": 5,
+        "minimum": 347,
+        "odd_period": 17,
+        "paired_starts": 272
+      },
+      {
+        "agreeing_prefixes": 2,
+        "d": 7,
+        "minimum": 5,
+        "odd_period": 2,
+        "paired_starts": 2
+      },
+      {
+        "agreeing_prefixes": 0,
+        "d": 13,
+        "minimum": 1,
+        "odd_period": 1,
+        "paired_starts": 0
+      },
+      {
+        "agreeing_prefixes": 364,
+        "d": 13,
+        "minimum": 131,
+        "odd_period": 15,
+        "paired_starts": 210
+      },
+      {
+        "agreeing_prefixes": 40,
+        "d": 13,
+        "minimum": 211,
+        "odd_period": 5,
+        "paired_starts": 20
+      },
+      {
+        "agreeing_prefixes": 0,
+        "d": 61,
+        "minimum": 1,
+        "odd_period": 1,
+        "paired_starts": 0
+      },
+      {
+        "agreeing_prefixes": 2712,
+        "d": 61,
+        "minimum": 235,
+        "odd_period": 41,
+        "paired_starts": 1640
+      }
+    ],
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "paired_starts": 2428,
+    "scope": "Exact 3x+d arrows and addend-independent paired run bounds only."
+  },
+  "constants": {
+    "dyadic_error_ceiling": "56885/12582912",
+    "margin_below_1_over_193": "1604107/2428502016",
+    "maximum_twos_fraction": "1/128",
+    "minimum_length": 4194304,
+    "slope_power_left": 513634048041088516096,
+    "slope_power_right": 530055581331503192832
+  },
+  "exact_cells": {
+    "cells": 1440,
+    "dual_sha256": "5ea53b8428c4779c2ca0c624be1f6a5b05606d011df43d12a476c9feb455e641",
+    "maximum_support": 5,
+    "minimum_contradiction": "1/4824",
+    "rows_per_cell": 30
+  },
+  "finite_geometry": {
+    "agreeing_positions": 297009,
+    "artificial_intervals": 99120,
+    "length_max": 24,
+    "length_min": 4,
+    "positive_gap_equality_witnesses": 19824,
+    "reversal_checks": 9912,
+    "track_words": 9912,
+    "zero_length_ties": 3567
+  },
+  "local_descent": {
+    "guard_per_seed": 10000,
+    "maximum_first_descent_length": 37,
+    "odd_seeds": 63,
+    "odd_steps": 357,
+    "seed_max": 127
+  },
+  "schema": "sparse-two-level-four-arc-v1"
+}
