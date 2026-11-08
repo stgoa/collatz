@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**289 results, 31 attempts, 39 questions, 39 sources.**
+**290 results, 31 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -222,6 +222,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) | Positive valuation words have no integral antiperiodic starting point | written | written | — | yes |
 | [`background-maximum-four-arc-exclusion`](areas/cycles/results/background-maximum-four-arc-exclusion/README.md) | A larger background label excludes equal-outer four-arc words | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`balanced-third-period-denominator-law`](areas/cycles/results/balanced-third-period-denominator-law/README.md) | Balanced third-period defects force a cubic-factor denominator bound | written | written | — |  |
+| [`balanced-third-period-integer-cycle-exclusion`](areas/cycles/results/balanced-third-period-integer-cycle-exclusion/README.md) | Balanced third-period four-mismatch words exclude integer cycles | formal | formal | `mathlib-065356127b1d` | yes |
 | [`band-one-three-forced-positions`](areas/cycles/results/band-one-three-forced-positions.md) | In the Collatz range, an ordered cycle in band 1 has at least three forced positions | formal | reviewed | — | yes |
 | [`bounded-unequal-half-defect-exclusion`](areas/cycles/results/bounded-unequal-half-defect-exclusion/README.md) | Unequal same-parity half defects of combined magnitude at most 24 exclude denominator one | written | written | — |  |
 | [`closed-negative-prefix-mersenne-denominator-law`](areas/cycles/results/closed-negative-prefix-mersenne-denominator-law/README.md) | Closed negative prefixes force a Mersenne denominator bound | written | written | `musson-collatz-gap-all` |  |
@@ -466,7 +467,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`laurent-mignotte-nesterenko-1995-two-logarithms`](sources/laurent-mignotte-nesterenko-1995-two-logarithms.md) | Laurent, Mignotte and Nesterenko (1995): an explicit two-logarithm bound | cited | 6 |
 | [`lyapunov-weaver-2026-finite-mechanical-approximation`](sources/lyapunov-weaver-2026-finite-mechanical-approximation.md) | Lyapunov Weaver (2026): finite approximation bounds for mechanical itineraries | cited | 0 |
 | [`lyapunov-weaver-2026-periodic-dictionary-complexity`](sources/lyapunov-weaver-2026-periodic-dictionary-complexity.md) | lyapunov_weaver (2026): periodic-dictionary complexity claims | cited | 0 |
-| [`mathlib-065356127b1d`](sources/mathlib-065356127b1d.md) | Mathlib at the repository Lean toolchain pin | cited | 3 |
+| [`mathlib-065356127b1d`](sources/mathlib-065356127b1d.md) | Mathlib at the repository Lean toolchain pin | cited | 4 |
 | [`matveev-2000-linear-forms`](sources/matveev-2000-linear-forms.md) | Matveev (2000): explicit lower bound for linear forms in logarithms | cited | 2 |
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
@@ -709,6 +710,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) added (result)
 - 2026-11-08: [`background-maximum-four-arc-exclusion`](areas/cycles/results/background-maximum-four-arc-exclusion/README.md) added (result)
 - 2026-11-08: [`balanced-third-period-denominator-law`](areas/cycles/results/balanced-third-period-denominator-law/README.md) added (result)
+- 2026-11-08: [`balanced-third-period-integer-cycle-exclusion`](areas/cycles/results/balanced-third-period-integer-cycle-exclusion/README.md) added (result)
 - 2026-11-08: [`bounded-unequal-half-defect-exclusion`](areas/cycles/results/bounded-unequal-half-defect-exclusion/README.md) added (result)
 - 2026-11-08: [`closed-negative-prefix-mersenne-denominator-law`](areas/cycles/results/closed-negative-prefix-mersenne-denominator-law/README.md) added (result)
 - 2026-11-08: [`clustered-arc-three-order-inequality-obstruction`](areas/cycles/results/clustered-arc-three-order-inequality-obstruction/README.md) added (result)
@@ -730,7 +732,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`mersenne-boundary-exact-divisibility`](areas/cycles/results/mersenne-boundary-exact-divisibility/README.md) added (result)
 - 2026-11-08: [`mersenne-join-state-enclosure`](areas/cycles/results/mersenne-join-state-enclosure/README.md) added (result)
 - 2026-11-08: [`near-critical-four-mismatch-corpus-counterexample`](areas/cycles/results/near-critical-four-mismatch-corpus-counterexample/README.md) added (result)
-- 2026-11-08: [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) added (result)
 
 ## Contributors
 
@@ -738,17 +739,17 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 55.4% | 203 | 9 |
-| Claude side lane | 13.7% | 34 | 132 |
-| Claude review lane | 7.7% | 0 | 121 |
-| Claude cycles lane | 5.2% | 21 | 0 |
-| Claude Lean lane | 5.1% | 3 | 69 |
+| ChatGPT main lane | 55.1% | 203 | 9 |
+| Claude side lane | 13.6% | 34 | 132 |
+| Claude review lane | 7.6% | 0 | 121 |
+| Claude cycles lane | 5.3% | 21 | 0 |
+| Claude Lean lane | 5.0% | 3 | 69 |
 | Codex cycle research lane | 3.0% | 18 | 0 |
 | Claude PR1 lane | 1.9% | 6 | 9 |
 | Codex four-arc research lane | 1.5% | 16 | 0 |
+| Codex signed-endpoint formalisation lane | 1.0% | 5 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Codex root research lane | 0.8% | 11 | 0 |
-| Codex signed-endpoint formalisation lane | 0.7% | 4 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
 | Codex residue research lane | 0.6% | 9 | 0 |
@@ -757,10 +758,10 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex formalisation lane | 0.3% | 2 | 0 |
 | Codex directing research lane | 0.2% | 3 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
+| Codex cycle-frontier lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
 | Codex research lane | 0.1% | 1 | 0 |
-| Codex cycle-frontier lane | 0.1% | 1 | 0 |
 | Codex residue lane | 0.1% | 1 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
 | Codex formal research lane | 0.1% | 2 | 0 |
