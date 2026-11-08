@@ -287,6 +287,14 @@ the order of 3 and the odd-arrow length. Its existence converse
 states the precise limit of the common-addend congruence test;
 unresolved actual trajectories require further information.
 
+The existing [periodic invariant-colouring classification](../../../invariants/results/periodic-invariant-colourings-classification/README.md)
+already describes the joint multiplication-by-2 and
+multiplication-by-3 residue orbits. Here the order-depth calculation
+makes opposite-endpoint separation explicit when the order of 2
+at every relevant prime is odd, while retaining the arrow length
+and full prime powers. The proof above is self-contained and does
+not use the invariant-colouring theorem.
+
 The argument is elementary multiplicative-order arithmetic,
 with no external theorem or computation assumed. Novelty of the
 combined signed-endpoint application is undetermined. It does
