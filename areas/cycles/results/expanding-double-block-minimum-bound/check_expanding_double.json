@@ -1,0 +1,134 @@
+{
+  "arithmetic": {
+    "alpha_power_comparison": {
+      "binary_power": 127,
+      "ternary_power": 80
+    },
+    "block_length_strict_upper": 524288,
+    "coefficient_slack": "7987/13434880",
+    "displayed_word_length_upper": 1572861,
+    "drift_per_g_upper": "1/65536",
+    "dyadic_base_margin": "208752/41",
+    "dyadic_increment_at_base": "510266/41",
+    "dyadic_start": 19,
+    "external_scope": "The minimum coefficient is local; the block cutoff uses EXT1; only the final period comparison uses Barina.",
+    "imported_least_odd_period_lower": 72057431991,
+    "log_minimum_coefficient": "8187/327680",
+    "minimum_log2_simplification": "1/41",
+    "period_receipt_sha256": "e48b19926ca0c155032a9d85d3c28f3f6fbe69ae404163638414a7c848c65f64",
+    "threshold": "11/10"
+  },
+  "checker_sha256": "b78fc6683958481325cd93817d1189e2dfb906d40fd27c1d7bd9fd851c089ede",
+  "family_controls": {
+    "cases_sha256": "9ecb64acebd6c5a6908888ea40e6a82e963a9150cce5687cd7afdfc37c068398",
+    "counts": {
+      "actual_cycles": 4262,
+      "arrows": 86784,
+      "exhaustive_pairs": 3062,
+      "minimum_in_U": 2631,
+      "minimum_in_V": 1631,
+      "prefix_checks": 86784,
+      "seeded_pairs": 1200,
+      "threshold_controls": 3908
+    },
+    "examples": {
+      "below_threshold": {
+        "denominator_lower_bound": "5/8",
+        "minimum": 19,
+        "minimum_location": "U",
+        "minimum_lower_bound": "4",
+        "prefixes": 3,
+        "q": 5,
+        "states": [
+          19,
+          31,
+          49
+        ],
+        "t": 3,
+        "u": [
+          1
+        ],
+        "v": [
+          3
+        ],
+        "valuation_threshold": false
+      },
+      "threshold": {
+        "denominator_lower_bound": "5015/1792",
+        "minimum": 217,
+        "minimum_location": "U",
+        "minimum_lower_bound": "136/7",
+        "prefixes": 6,
+        "q": 59,
+        "states": [
+          217,
+          355,
+          281,
+          451,
+          353,
+          559
+        ],
+        "t": 4,
+        "u": [
+          1,
+          2
+        ],
+        "v": [
+          1,
+          3
+        ],
+        "valuation_threshold": true
+      }
+    },
+    "ranges": {
+      "exhaustive_lengths": [
+        1,
+        4
+      ],
+      "exhaustive_letters": [
+        1,
+        4
+      ],
+      "seed": 20261108,
+      "seeded_lengths": [
+        5,
+        24
+      ],
+      "seeded_pairs": 1200
+    },
+    "scope": "Actual 3x+q arithmetic with q retained; no bounded absence inference."
+  },
+  "local_descent": {
+    "cases_sha256": "2f6be21e2d5b21bac428ac8ed6cace105039be8b8c34b73da8a7c666ca90b74c",
+    "maximum_odd_steps_to_descent": 85,
+    "minimum_excluded_below": 131072,
+    "seeds": 65535
+  },
+  "schema": "expanding-double-block-minimum-v1",
+  "standard_controls": {
+    "arrows": 106,
+    "cycles": 11,
+    "explicit_expanding_U_control": {
+      "denominator_lower_bound": "5/8",
+      "minimum": 19,
+      "minimum_location": "U",
+      "minimum_lower_bound": "4",
+      "prefixes": 3,
+      "q": 5,
+      "states": [
+        19,
+        31,
+        49
+      ],
+      "t": 3,
+      "u": [
+        1
+      ],
+      "v": [
+        3
+      ],
+      "valuation_threshold": false
+    },
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+  }
+}
