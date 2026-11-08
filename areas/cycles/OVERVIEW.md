@@ -30,6 +30,16 @@ The rotation distance `ρ(w)` is the least number of positions in which `w` diff
 - **Short rotations.** The rise lemma ([`rise-lemma`](results/rise-lemma/README.md), formal) says each agreeing run multiplies the log-height by at most `log₂3`. With EXT-1, rotations with `|h|_m ≤ m^(1−θ)` have about `1.5·θ·log₂ m` mismatches, and few-mismatch rotations are long and rare ([`short-rotation-mismatch-growth`](results/short-rotation-mismatch-growth/README.md), reviewed). Its word form is a third denominator law ([`rise-lemma-denominator-law`](results/rise-lemma-denominator-law.md), reviewed).
 - **The reduction to the largest letter.** A rotation with at most `S` mismatches forces a letter of linear size, so `ρ → ∞` would follow from a largest letter of size `o(m)` ([`largest-letter-rho-reduction`](results/largest-letter-rho-reduction.md), reviewed; mechanism formal, thresholds conditional on EXT-1).
 - The sign structure of a four-mismatch rotation is formal ([`four-mismatch-sign-dichotomy`](results/four-mismatch-sign-dichotomy.md)); the exclusion of four mismatches is open.
+- **Near-doubled words, 2026-11-08.** A signed endpoint argument prevents
+  clean intercepts from cancelling a plus factor
+  ([`antiperiodic-intercept-nondivisibility`](results/antiperiodic-intercept-nondivisibility/README.md)).
+  Finite crossing basins for `3x+(2^k-1)` then exclude complete plus-factor
+  cancellation for all one-letter raises `2j`, `1<=j<=12`, and all
+  transposition gaps `1<=k<=12`, at every word length and without a
+  coprimality or near-critical restriction
+  ([`near-doubled-crossing-orbit-exclusion`](results/near-doubled-crossing-orbit-exclusion/README.md),
+  written). Larger parameters under the near-critical constraint and
+  half-pairs that are not transpositions remain research targets.
 
 ### 4. Height bounds
 
@@ -79,5 +89,9 @@ Each attempt says exactly why it fails and what survives.
 - **Height and gcd laws.** Proving `B ≤ q − 1` from residues or relaxations ([`height-bound-via-residues-or-relaxation`](attempts/height-bound-via-residues-or-relaxation.md)), primewise matching ([`primewise-height-residue-matching`](attempts/primewise-height-residue-matching.md)), and a search for a gcd law on band-1 words ([`band-one-gcd-law-search`](attempts/band-one-gcd-law-search/README.md)).
 
 ## History
+
+2026-11-08: added the signed-intercept and finite-crossing advances on
+near-doubled words (Codex crossing research lane, GPT-6 Astra; directed by
+Santiago Armstrong).
 
 Written by the B06 migration (Claude, Opus 5.5) from the legacy line README `experiments/cycle_spectrum/README.md`, `docs/STATUS.md` and `docs/FRONTIER.md` at commit `be73a66`. The owner's goal brief and the main lane's log are archived in [`archive/cycle-spectrum/`](../../archive/cycle-spectrum/BRIEF.md).
