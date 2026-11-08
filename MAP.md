@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**239 results, 29 attempts, 39 questions, 30 sources.**
+**240 results, 29 attempts, 39 questions, 30 sources.**
 
 ## Frontier: open questions
 
@@ -286,6 +286,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`three-band-collatz-cycles-are-ordered`](areas/cycles/results/three-band-collatz-cycles-are-ordered.md) | A 3x+1 cycle with H < 8L is dyadically ordered with mechanical normalised word and gcd(A,… | formal | reviewed | — | yes |
 | [`three-defect-arbitrary-background`](areas/cycles/results/three-defect-arbitrary-background.md) | Words at rotation distance three can carry an arbitrary shared background, beyond any fix… | reviewed | reviewed | — |  |
 | [`three-mismatch-exclusion`](areas/cycles/results/three-mismatch-exclusion/README.md) | No rotation of a nontrivial 3x+1 cycle differs from it in exactly three positions, so ρ ≥… | formal | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
+| [`transposition-gap-fourteen-full-plus-cancellation`](areas/cycles/results/transposition-gap-fourteen-full-plus-cancellation/README.md) | A transposition of gap fourteen cancels the entire plus factor | written | written | — |  |
 | [`two-arc-word-rotation-structure`](areas/cycles/results/two-arc-word-rotation-structure/README.md) | Two-arc words: their rotation spectrum, and the Sturmian case is exactly the adjacent-def… | written | written | — |  |
 | [`two-block-uniform-denominator-growth`](areas/cycles/results/two-block-uniform-denominator-growth/README.md) | Two-block words u^k v^ℓ with k, ℓ ≥ 2 have denominators growing uniformly in the total, i… | reviewed | reviewed | `corvaja-2005-s-unit-height` |  |
 | [`two-defect-bounded-denominator-finiteness`](areas/cycles/results/two-defect-bounded-denominator-finiteness.md) | Each bounded-denominator layer of the two-defect class is finite, effectively in principle | reviewed | reviewed | `bugeaud-2022-two-logarithms` |  |
@@ -642,6 +643,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 - 2026-11-08: [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) added (result)
 - 2026-11-08: [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) added (result)
+- 2026-11-08: [`transposition-gap-fourteen-full-plus-cancellation`](areas/cycles/results/transposition-gap-fourteen-full-plus-cancellation/README.md) added (result)
 - 2026-11-01: [`collatz-conjecture-logical-form`](areas/decidability/results/collatz-conjecture-logical-form/README.md) added (result)
 - 2026-11-01: [`inverse-syracuse-binary-coding`](areas/decidability/results/inverse-syracuse-binary-coding/README.md) added (result)
 - 2026-11-01: [`synchronised-coding-pcp-reduction`](areas/decidability/results/synchronised-coding-pcp-reduction/README.md) added (result)
@@ -664,7 +666,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-31: [`bounded-history-clock-exclusion`](areas/convergence/results/bounded-history-clock-exclusion/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`bounded-packet-certificate-obstruction`](areas/convergence/results/bounded-packet-certificate-obstruction/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`common-critical-rank-basis`](areas/convergence/results/common-critical-rank-basis/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`complementary-run-bridges`](areas/convergence/results/complementary-run-bridges/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -672,15 +673,15 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 61.4% | 203 | 9 |
-| Claude side lane | 15.0% | 34 | 132 |
+| ChatGPT main lane | 61.3% | 203 | 9 |
+| Claude side lane | 14.9% | 34 | 132 |
 | Claude review lane | 8.6% | 0 | 121 |
 | Claude Lean lane | 5.5% | 3 | 69 |
 | Claude cycles lane | 5.1% | 21 | 0 |
 | Claude PR1 lane | 2.2% | 6 | 9 |
 | ChatGPT handoff conversation | 1.0% | 2 | 0 |
 | Claude explicit-Tao lane | 0.8% | 5 | 0 |
-| Codex cycle research lane | 0.2% | 1 | 0 |
+| Codex cycle research lane | 0.4% | 2 | 0 |
 | Codex crossing research lane | 0.2% | 1 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 
