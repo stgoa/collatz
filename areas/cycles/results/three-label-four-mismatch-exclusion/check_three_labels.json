@@ -1,0 +1,123 @@
+{
+  "arithmetic": {
+    "EXT1_only_cutoff": 4294967296,
+    "common_error_threshold": "1/3952",
+    "contiguous_maximum_upper": "32760462311424/30625",
+    "gap_scope": "Every positive integer full period below2^48; no family restriction.",
+    "induction_ratio": "2401/2304",
+    "integer_period_upper": 3501056435,
+    "oscillation_margin": "325/196596",
+    "preliminary_dyadic_checks": [
+      {
+        "base_at_48": "7145023419698118656/121645",
+        "branch": "repeated_maximum",
+        "polynomial": [
+          "1322176789872640/24329",
+          "8780211194167296/121645",
+          "2915348263206912/121645"
+        ]
+      },
+      {
+        "base_at_48": "549617186130624512/30625",
+        "branch": "contiguous_maximum_at_least_two",
+        "polynomial": [
+          "20341181382656/1225",
+          "675400861089792/30625",
+          "224257558708224/30625"
+        ]
+      },
+      {
+        "base_at_48": "28249216922112/5",
+        "branch": "singleton_maximum",
+        "polynomial": [
+          "5227350528",
+          "34713833472/5",
+          "11526395904/5"
+        ]
+      }
+    ],
+    "profile_coefficient": "6103/16383",
+    "repeated_maximum_upper": "425886010048512/121645",
+    "residual_margins": [
+      "1/16",
+      "5/96"
+    ],
+    "singleton_maximum_upper": "1683677184/5",
+    "source_period_lower": 72057431991,
+    "source_scope": "EXT1 alone gives all three finite bounds; Barina is used only to contradict the unified bound at every length."
+  },
+  "dependency_replay": {
+    "arithmetic_scope": "The local descent and universal gap do not use Barina or a clustering condition; the new analytic geometry supplies the same error threshold.",
+    "eta_power": 64,
+    "external_convergence_replayed": false,
+    "local_odd_seeds": 65535,
+    "nested_bootstrap_receipt_sha256": "11f2af760caf5ee16cce5ea693306added37f2bda5b059a085d28e039287d263",
+    "nested_bootstrap_source_sha256": "daf474215cac3782aea1990817c3fcbeaf05d65ad43cbe85156a2190b68c792d",
+    "receipt_sha256": "969da7512889e8ba6cfddbaa8c30438672f61e960a40b9dd2c1bee5e279f1b07",
+    "replay_status": "passed",
+    "source": "areas/cycles/results/clustered-two-maximum-arcs-exclusion/check_clustered_arcs.py",
+    "source_sha256": "710ceaea7ae8cfeadd63d3ff5dbd8561db25b109a8496a2619f5fcaaed7d1561",
+    "upper_convergent": {
+      "p": 683381996816440,
+      "q": 431166034846567
+    }
+  },
+  "schema": "three-label-four-mismatch-transfer-v1",
+  "standard_controls": {
+    "addend_ones_runs": 25,
+    "cycles": 11,
+    "exact_arrows": 106,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "scope": "The true addend is retained; normalized states are not treated as integers."
+  },
+  "words": {
+    "actual_reduced_cycles": 29480,
+    "addend_ones_runs": 36464,
+    "all_coprime_track_steps": true,
+    "all_positive_run_lengths": true,
+    "branch_word_counts": {
+      "contiguous_maximum": 20288,
+      "repeated_maximum": 10144
+    },
+    "control_sha256": "e31cb657dea60bd1e1556fbb1c5cc199e67448dea6a83cf3771645db73a34000",
+    "exact_arrows": 241264,
+    "exact_proper_factors": 608256,
+    "geometry_words": 30432,
+    "label_sets": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        3,
+        7
+      ],
+      [
+        1,
+        7,
+        16
+      ],
+      [
+        2,
+        3,
+        4
+      ]
+    ],
+    "pattern_counts": {
+      "contiguous_maximum": 8,
+      "repeated_maximum": 4
+    },
+    "patterns": 12,
+    "periods": [
+      4,
+      9
+    ],
+    "repeated_maximum_regime_counts": {
+      "clustered": 5792,
+      "not_clustered": 4352
+    },
+    "scope": "Every listed word is reconstructed directly; actual states use their true3x+q addend. Finite absence at q1 is not the universal proof."
+  }
+}

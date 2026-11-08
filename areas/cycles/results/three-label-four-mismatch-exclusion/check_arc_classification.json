@@ -1,0 +1,126 @@
+{
+  "concentration_checks": {
+    "profile_sha256": "3adbb873f421033c8d352bfd405f83d54d11995bf280d7bfbff858fa48739010",
+    "records": [
+      {
+        "arc_lengths": [
+          2,
+          1
+        ],
+        "candidates": 6830,
+        "circular_blocks": 57654,
+        "denominators": [
+          6,
+          48
+        ],
+        "distinct_profiles": 6406,
+        "endpoints_included": true,
+        "maximum_oscillation": "2",
+        "normalized_upper": "2/3",
+        "overlapping_sets_rejected": 424,
+        "u_interval": [
+          "1/3",
+          "1/2"
+        ]
+      },
+      {
+        "arc_lengths": [
+          3,
+          2
+        ],
+        "candidates": 5367,
+        "circular_blocks": 117950,
+        "denominators": [
+          6,
+          48
+        ],
+        "distinct_profiles": 4718,
+        "endpoints_included": true,
+        "maximum_oscillation": "3",
+        "normalized_upper": "3/5",
+        "overlapping_sets_rejected": 649,
+        "u_interval": [
+          "1/5",
+          "1/3"
+        ]
+      }
+    ],
+    "scope": "Finite exact controls of the circular-block identity and span bounds. No coprimality, faithful-boundary, or integer-cycle conclusion is asserted for this grid; the manuscript proves the bounds for every distinct maximum set in the stated intervals."
+  },
+  "polynomial_checks": {
+    "both_cluster_difference": "(a-c)^2/(2(a+c))",
+    "both_cluster_safe_total_minimum": 6,
+    "even_mixed_polynomial": "(a-c)^2+5c^2-6c",
+    "exact_polynomial_identities": 10,
+    "height_margin": "325/196596",
+    "odd_c1_factorization": "(d-4)(d+1), d=a-1 even",
+    "odd_c2_factorization": "(d-1)(d-2), d=a-c odd>=1",
+    "odd_mixed_polynomial": "(a-c)^2+5c^2-3(a-c)-9c",
+    "only_mixed_exception": [
+      3,
+      1
+    ],
+    "scope": "Coefficient identities hold for all parameters. The manuscript supplies positivity from a>=c>=1, parity, and integer d, and the analytic order-cell argument."
+  },
+  "regime_checks": {
+    "maximum_total": 38,
+    "residual_intervals": [
+      {
+        "arc_lengths": [
+          2,
+          1
+        ],
+        "lower": "1/3",
+        "lower_included": true,
+        "upper": "1/2",
+        "upper_included": false
+      },
+      {
+        "arc_lengths": [
+          2,
+          2
+        ],
+        "lower": "1/4",
+        "lower_included": true,
+        "upper": "1/3",
+        "upper_included": false
+      },
+      {
+        "arc_lengths": [
+          3,
+          1
+        ],
+        "lower": "4/9",
+        "lower_included": false,
+        "upper": "1/2",
+        "upper_included": false
+      },
+      {
+        "arc_lengths": [
+          3,
+          2
+        ],
+        "lower": "1/5",
+        "lower_included": true,
+        "upper": "5/24",
+        "upper_included": false
+      }
+    ],
+    "scope": "Exact rational piecewise-linear classification in the needed bounded range. The preceding symbolic inequalities cover all larger arc lengths.",
+    "unordered_pairs": 361
+  },
+  "schema": "two-maximum-arc-classification-v1",
+  "single_arc_checks": {
+    "cluster_controls": 608,
+    "complete_collision_endpoints": 2819,
+    "interior_convexity_controls": 8346,
+    "largest_endpoint_normalized_oscillation": "2/3",
+    "multiplicities": [
+      1,
+      38
+    ],
+    "profile_sha256": "e1419b85ad26c9364f581ed8869cc8a4788c800712a52d5073cfb9901ed9b64f",
+    "scope": "Every collision-cell endpoint for 2<=d<=38 is checked. Interior and clustered grids are controls; the manuscript proves the formulas and convexity for unbounded d.",
+    "three_point_exact_controls": 97
+  }
+}

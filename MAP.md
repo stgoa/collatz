@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**277 results, 30 attempts, 39 questions, 39 sources.**
+**278 results, 30 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -311,6 +311,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`sparse-two-level-four-arc-exclusion`](areas/cycles/results/sparse-two-level-four-arc-exclusion/README.md) | Two rotations and discrepancy exclude two-level four-arc classes | written | written | `musson-collatz-gap-all` |  |
 | [`three-band-collatz-cycles-are-ordered`](areas/cycles/results/three-band-collatz-cycles-are-ordered.md) | A 3x+1 cycle with H < 8L is dyadically ordered with mechanical normalised word and gcd(A,… | formal | reviewed | — | yes |
 | [`three-defect-arbitrary-background`](areas/cycles/results/three-defect-arbitrary-background.md) | Words at rotation distance three can carry an arbitrary shared background, beyond any fix… | reviewed | reviewed | — |  |
+| [`three-label-four-mismatch-exclusion`](areas/cycles/results/three-label-four-mismatch-exclusion/README.md) | Three valuation labels cannot realize a coprime four-mismatch cycle | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`three-mismatch-exclusion`](areas/cycles/results/three-mismatch-exclusion/README.md) | No rotation of a nontrivial 3x+1 cycle differs from it in exactly three positions, so ρ ≥… | formal | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
 | [`transposition-gap-fourteen-complete-classification`](areas/cycles/results/transposition-gap-fourteen-complete-classification/README.md) | Gap-fourteen full plus cancellation has a unique transposition word | written | written | — |  |
 | [`transposition-gap-fourteen-full-plus-cancellation`](areas/cycles/results/transposition-gap-fourteen-full-plus-cancellation/README.md) | A transposition of gap fourteen cancels the entire plus factor | written | written | — |  |
@@ -429,7 +430,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 |---|---|---|---|
 | [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) | Adamczewski–Bell: a problem about Mahler functions | cited | 0 |
 | [`ansari-2025-recursive-sieve`](sources/ansari-2025-recursive-sieve.md) | Ansari (2025): recursively sufficient sets and a ternary-digit sieve | cited | 0 |
-| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 12 |
+| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 13 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
 | [`cerda-bennassar-2026-periodic-perturbations`](sources/cerda-bennassar-2026-periodic-perturbations.md) | Cerdá Bennassar (2026): perturbations of the periodic word (1,2) | cited | 0 |
@@ -458,7 +459,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 23 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 24 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
@@ -725,33 +726,33 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 56.8% | 203 | 9 |
-| Claude side lane | 14.0% | 34 | 132 |
+| ChatGPT main lane | 56.7% | 203 | 9 |
+| Claude side lane | 13.9% | 34 | 132 |
 | Claude review lane | 7.9% | 0 | 121 |
 | Claude Lean lane | 5.1% | 3 | 69 |
 | Claude cycles lane | 5.0% | 21 | 0 |
 | Codex cycle research lane | 3.0% | 16 | 0 |
 | Claude PR1 lane | 2.0% | 6 | 9 |
-| Codex four-arc research lane | 1.3% | 12 | 0 |
+| Codex four-arc research lane | 1.3% | 13 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
+| Codex root research lane | 0.4% | 6 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
-| Codex formalisation lane | 0.4% | 2 | 0 |
 | Codex main research lane | 0.4% | 5 | 0 |
-| Codex root research lane | 0.3% | 5 | 0 |
+| Codex formalisation lane | 0.4% | 2 | 0 |
 | Codex signed-endpoint formalisation lane | 0.3% | 1 | 0 |
+| Codex residue research lane | 0.2% | 4 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
 | Codex research lane | 0.1% | 1 | 0 |
-| Codex residue research lane | 0.1% | 3 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
+| Codex formal research lane | 0.1% | 2 | 0 |
 | Codex arithmetic research lane | 0.1% | 1 | 0 |
 | Codex first-block research lane | 0.1% | 1 | 0 |
 | Codex formalisation research lane | 0.1% | 1 | 0 |
 | Claude audit lane | 0.0% | 0 | 1 |
-| Codex formal research lane | 0.0% | 1 | 0 |
 
 **By accountable person** (agents are credited to the person who directed them; [`conventions/CREDIT.md`](conventions/CREDIT.md) §4):
 
