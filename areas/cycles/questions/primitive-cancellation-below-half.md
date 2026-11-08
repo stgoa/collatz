@@ -43,6 +43,16 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
 
 ## Known progress
 
+- **2026-11-08: modification parameters through twelve, at every length.**
+  [`near-doubled-crossing-orbit-exclusion`](../results/near-doubled-crossing-orbit-exclusion/README.md)
+  removes the coprimality restriction below for every one-letter raise
+  `2j`, `1<=j<=12`, and every transposition gap `1<=k<=12`. Finite
+  forward-closed sets for the auxiliary maps `3x+(2^k-1)` and their
+  exceptional signed endpoints prove the plus factor cannot cancel
+  completely, with no bound on the word length or the remaining letters.
+  At `e=2` this gives the primitive half bound without a near-critical
+  assumption. These two families do not cover all four-mismatch words.
+
 - **2026-11-08: clean-intercept target and coprime near-doubled cases proved.**
   [`antiperiodic-intercept-nondivisibility`](../results/antiperiodic-intercept-nondivisibility/README.md)
   proves `2^B t+3^n s` never divides the intercept of a positive word of length
@@ -67,11 +77,27 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
 Proposals, not results.
 
 - **Work modulo the primes of `Φ_e`.** `g_prim > 1` needs a prime `p | Φ_e(2^(A/e), 3^(m/e))`, i.e. `2^(A/e) ≡ ζ·3^(m/e) (mod p)` for a primitive `e`-th root of unity `ζ`, with `p | C_w`. The heuristic truth of (A) is that `C_w mod p` is equidistributed for such `p`; a proof needs the arithmetic of the few-arc intercepts modulo these primes, starting with `e = 1` (then `ζ = 1`, `2^A ≡ 3^m`, and `p | D`) and `e = 2` (`ζ = −1`).
-- **The antiperiodic formulation at `e = 2`.** By [`doubled-words-periodic-and-antiperiodic-points`](../results/doubled-words-periodic-and-antiperiodic-points/README.md), `Φ₂ | C_w` iff `2^j·y_u − y_v ∈ Z`. For near-doubled words this is a one-word statement about `u` (the twisted cycle condition); show that an intercept `C_z` (length `ℓ`, total `S`) is never divisible by `2^(S+j) + 3^ℓ` with `j ≥ 1` when `z` is a factor of a few-arc word, or find the structure that forces it.
+- **The remaining antiperiodic problem at `e = 2`.** The clean-intercept
+  subtarget is now proved by
+  [`antiperiodic-intercept-nondivisibility`](../results/antiperiodic-intercept-nondivisibility/README.md),
+  and the noncoprime factors are handled through parameter 12 by
+  [`near-doubled-crossing-orbit-exclusion`](../results/near-doubled-crossing-orbit-exclusion/README.md).
+  For larger parameters, classify the feasible signed segments of
+  `3x+(2^k-1)` subject to the near-critical inequality
+  `2^(2S)<2*3^(2n)` and the endpoint and word-fillability conditions.
+  Also study half-pairs with two unequal changes that are not a
+  transposition; those are not covered by the current argument.
 - **Test (B) adversarially** with the doubled-word constructions restricted to near-critical cycles: rotation pairs `(R_r u, R_(r+n/2) u)` of actual `3x+d` cycles with `d | n_r + n_(r+n/2)` and `2^(2S) < 2·3^(2n)`, and one-letter doublings of near-critical `3x+q'` cycles with `q' | 2^j + 1`; a violation would need a prime of `Φ₂` above `1/(1 − 3^n/2^S) ≥ 3.4` dividing `C_w`.
 - **Two arcs, non-Sturmian case.** Bound `gcd(C_u, C_v)` for the two arcs of a two-interval rotation coding whose interval length differs from the step, by a Rauzy-type induction on the arc, as suggested in [`half-cancellation-for-few-mismatch-words`](half-cancellation-for-few-mismatch-words.md).
 
 ## History
+
+- 2026-11-08: added the finite-crossing proof for all lengths with
+  modification parameters through 12 and replaced the now-solved
+  clean-intercept suggested attack with the remaining signed-segment
+  and nontransposition targets (Codex crossing research lane, GPT-6
+  Astra; directed by Santiago Armstrong). The near-critical question
+  and the general four-mismatch exclusion remain open.
 
 - 2026-11-08: added the signed-intercept theorem and its one-letter and
   transposition consequences (Codex cycle research lane, GPT-6 Astra;
