@@ -60,11 +60,14 @@ The next target asks a nonconstant invariant to have more binary sections than a
 | Unbounded additive section excess ([`additive-section-excess-unbounded`](results/additive-section-excess-unbounded/README.md)) | reviewed / written | Cobham, Eilenberg (through V004) |
 | Automatic invariants of `3x+d` are functions of `n mod d` ([`d-uniform-automatic-invariant-colourings`](results/d-uniform-automatic-invariant-colourings/README.md)) | written / written | Cobham, Eilenberg |
 
+## Resolved residue-class milestone
+
+Every nonempty saturated set meets every residue class modulo every positive integer. The [uniform connectivity proof](results/saturated-residue-automata-uniform-connectivity/README.md) (`written`, 2026-11-08) closes the [residue question](questions/invariant-sets-meet-every-residue-class.md): counting forces each closed set of the finite automaton to be invariant under its inverse affine map; iteration removes the power of 3, and a translation forces constancy. This removes the previous bound on the part of the modulus prime to 6. The density conclusion was already known from [Monks (2006)](../../sources/monks-2006-sufficiency.md); novelty of this automaton proof is undetermined. The next quantitative rigidity target below remains open.
+
 ## Open questions
 
 - **The quantitative target:** [`section-count-depth-ratio-unbounded`](questions/section-count-depth-ratio-unbounded/README.md). Its side-lane calibration says it looks `d`-uniform: the actual `3x+5` and `3x+13` cycle labellings already have at least 242 and 259 binary sections by depth 9.
 - **Card targets kept by the survey:** [`occupation-measure-tightness`](questions/occupation-measure-tightness.md) (V11) and [`capped-first-passage-power-bounds`](questions/capped-first-passage-power-bounds.md) (V12).
-- **The side lane's ×2×3-rigidity milestone:** [`invariant-sets-meet-every-residue-class`](questions/invariant-sets-meet-every-residue-class.md) (S2). Proved for every modulus `M ≤ 100` by a finite closure search over residues ([`saturated-sets-meet-residue-classes-small-moduli`](results/saturated-sets-meet-residue-classes-small-moduli/README.md)) and for every modulus `2^k·3^b` by a digit-by-digit induction, machine-checked in Lean ([`saturated-sets-meet-residue-classes-six-smooth-moduli`](results/saturated-sets-meet-residue-classes-six-smooth-moduli/README.md), `formal`: every saturated set is dense in `Z_2 × Z_3`); for moduli `2^k·3^b·M′` with `3 ∤ ord_(M′)(2)` the base case is settled by scalings and a transitive group modulo `M′`, machine-checked in Lean ([`saturated-sets-residue-classes-order-of-two-prime-to-three`](results/saturated-sets-residue-classes-order-of-two-prime-to-three/README.md)); for the primes `p` with `3 | ord_p(2)` (`7, 13, 19, 37, 61, 67, 73, …`) a finite automaton with `M′·3^(v*)` states decides all `2^k·3^b·M′` at once and is strongly connected for every `M′ ≤ 1000` ([`saturated-sets-residue-classes-finite-automaton`](results/saturated-sets-residue-classes-finite-automaton/README.md)), so the question is settled for every modulus whose part prime to 6 is at most 1000; a uniform connectivity proof is what remains.
 - **The analytic analogue on the canonical quotient** lives in the convergence area: [`canonical-rigidity-bounded-invariants`](../convergence/questions/canonical-rigidity-bounded-invariants.md).
 
 ## Dead ends
@@ -81,3 +84,5 @@ The next target asks a nonconstant invariant to have more binary sections than a
 ## History
 
 Written by the B16 migration (Claude, Opus 5.5) from the legacy viewpoints line (`experiments/viewpoints/`, V001–V009, 2026-10-18), its map, log and briefs, the side lane's referee sheet and feed, and the V-units of the legacy `lean/STATE.md`. Every claim was checked against its node at commit time. The line's index, map, log and briefs are archived in [`archive/invariants-viewpoints/`](../../archive/invariants-viewpoints/README.md).
+
+- 2026-11-08: The residue-class milestone is moved out of the open questions after the uniform automaton proof; Monks's prior density result is acknowledged.
