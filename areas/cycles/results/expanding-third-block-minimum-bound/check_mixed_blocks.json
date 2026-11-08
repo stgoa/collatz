@@ -1,0 +1,103 @@
+{
+  "arithmetic": {
+    "block_length_strict_upper": 16384,
+    "displayed_word_length_upper": 49149,
+    "dyadic_base_margin": "2838/5",
+    "dyadic_start": 14,
+    "external_scope": "Only the last comparison uses Barina through the declared period node.",
+    "imported_full_odd_period_lower": 72057431991,
+    "minimum_log2_coefficient": "2/5"
+  },
+  "family_controls": {
+    "case_sha256": "0c37d032775dee0582c067829c8f6546e824fcf0494edbf0a9f16f7415c1889b",
+    "counts": {
+      "actual_cycles": 4973,
+      "arrows": 96612,
+      "dominated_actual_controls": 1,
+      "exhaustive_pairs": 3773,
+      "prefix_checks": 96612,
+      "seeded_pairs": 1200
+    },
+    "examples": {
+      "dominated": {
+        "dominated_control": true,
+        "prefixes": 3,
+        "q": 5,
+        "states": [
+          37,
+          29,
+          23
+        ],
+        "t": 1,
+        "u": [
+          2
+        ],
+        "v": [
+          1
+        ]
+      },
+      "retained_addend": {
+        "dominated_control": false,
+        "prefixes": 3,
+        "q": 101,
+        "states": [
+          97,
+          49,
+          31
+        ],
+        "t": 3,
+        "u": [
+          3
+        ],
+        "v": [
+          1
+        ]
+      }
+    },
+    "ranges": {
+      "exhaustive_lengths": [
+        1,
+        4
+      ],
+      "exhaustive_letters": [
+        1,
+        4
+      ],
+      "seed": 20261108,
+      "seeded_lengths": [
+        5,
+        24
+      ]
+    },
+    "scope": "Exact actual 3x+q arrows; no finite absence inference."
+  },
+  "local_descent": {
+    "cases_sha256": "2f6be21e2d5b21bac428ac8ed6cace105039be8b8c34b73da8a7c666ca90b74c",
+    "maximum_odd_steps_to_descent": 85,
+    "minimum_excluded_below": 131072,
+    "seeds": 65535
+  },
+  "schema": "expanding-third-block-minimum-v1",
+  "standard_controls": {
+    "arrows": 106,
+    "cycles": 11,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "mixed_control": {
+      "dominated_control": true,
+      "prefixes": 3,
+      "q": 5,
+      "states": [
+        37,
+        29,
+        23
+      ],
+      "t": 1,
+      "u": [
+        2
+      ],
+      "v": [
+        1
+      ]
+    }
+  }
+}
