@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**241 results, 29 attempts, 39 questions, 30 sources.**
+**242 results, 29 attempts, 39 questions, 30 sources.**
 
 ## Frontier: open questions
 
@@ -44,7 +44,6 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 | [`rotation-distance-growth`](areas/cycles/questions/rotation-distance-growth.md) | cycles | Find an explicit F(m) → ∞ such that the primitive valuation word w of every hypothetical nontrivial integer cycle of the odd-only 3x+1 map (period m) satisfies… | 0 |
 | [`undecidable-collatz-family-threshold`](areas/decidability/questions/undecidable-collatz-family-threshold.md) | decidability | Conway (1972) and Kurtz–Simon (2007) show that convergence questions are undecidable, respectively Π⁰₂-complete, for the class of generalized Collatz maps n ↦… | 0 |
 | [`capped-first-passage-power-bounds`](areas/invariants/questions/capped-first-passage-power-bounds.md) | invariants | Odd-only 3x+1 map S, time in odd arrows. Draw N logarithmically on the odd integers of [X, 2X]; follow its orbit until the first state <= X^(1/4), capped at ce… | 0 |
-| [`invariant-sets-meet-every-residue-class`](areas/invariants/questions/invariant-sets-meet-every-residue-class.md) | invariants | For the 3x+1 map on the positive integers, let B be a nonempty union of orbit components (closed under the forward map and under all inverse branches; 1 absorb… | 0 |
 | [`occupation-measure-tightness`](areas/invariants/questions/occupation-measure-tightness.md) | invariants | Odd-only 3x+1 map S on positive odd integers with S(1) = 1, time counted in odd arrows. For a seed n let m_(n,T) = T^(-1) sum_(j<T) delta_(S^j(n)) be its empir… | 0 |
 | [`section-count-depth-ratio-unbounded`](areas/invariants/questions/section-count-depth-ratio-unbounded/README.md) | invariants | Let h be a finite-valued colouring of the positive integers with h(2n) = h(n) for n >= 1 and h(3n+1) = h(n) for positive odd n > 1 (1 absorbing), extended by h… | 0 |
 
@@ -363,6 +362,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`positive-offset-kernel-ternary-closure`](areas/invariants/results/positive-offset-kernel-ternary-closure.md) | The positive-offset binary sections of a 3x+1 invariant are closed under binary and terna… | formal | formal | — | yes |
 | [`quadratic-separation-digit-count-sections`](areas/invariants/results/quadratic-separation-digit-count-sections/README.md) | Mixed sections of a non-eventually-periodic digit-count sequence are pairwise distinct, g… | formal | formal | — | yes |
 | [`reverse-closure-two-base-automaticity`](areas/invariants/results/reverse-closure-two-base-automaticity.md) | For the odd-value sequence of a 3x+1 invariant, 2-automatic and 3-automatic are equivalent | formal | formal | `cobham-recognizability-theorem` | yes |
+| [`saturated-residue-automata-uniform-connectivity`](areas/invariants/results/saturated-residue-automata-uniform-connectivity/README.md) | Two families of arrows make every saturated residue automaton strongly connected | written | written | — |  |
 | [`saturated-sets-meet-residue-classes-six-smooth-moduli`](areas/invariants/results/saturated-sets-meet-residue-classes-six-smooth-moduli/README.md) | Every saturated set of the 3x+1 map meets every residue class modulo 2^k·3^b, for all k a… | formal | formal | — | yes |
 | [`saturated-sets-meet-residue-classes-small-moduli`](areas/invariants/results/saturated-sets-meet-residue-classes-small-moduli/README.md) | Every saturated set of the 3x+1 map meets every residue class modulo every M ≤ 100 | written | written | — |  |
 | [`saturated-sets-residue-classes-finite-automaton`](areas/invariants/results/saturated-sets-residue-classes-finite-automaton/README.md) | A finite automaton decides the residue-class question for all moduli 2^k·3^b·M′ at once;… | written | written | — | yes |
@@ -380,6 +380,12 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`binary-ternary-carry-frontier`](areas/invariants/attempts/binary-ternary-carry-frontier/README.md) | Binary/ternary carry diagrams (base conversion) as a language for invariant colourings | reviewed |
 | [`quantitative-rigidity-programme`](areas/invariants/attempts/quantitative-rigidity-programme/README.md) | Five batches toward superlinear section growth of 3x+1 invariants, which reached only an additive gain | reviewed |
 | [`viewpoint-language-survey`](areas/invariants/attempts/viewpoint-language-survey/README.md) | A breadth-first survey of fourteen candidate languages for Collatz, ending in the choice of invariant colouri… | reviewed |
+
+### Closed questions
+
+| Question | Title | Status | Answered by |
+|---|---|---|---|
+| [`invariant-sets-meet-every-residue-class`](areas/invariants/questions/invariant-sets-meet-every-residue-class.md) | Does every nonempty union of 3x+1 orbit components meet every residue class modulo every… | answered | `saturated-residue-automata-uniform-connectivity` |
 
 ## Sources (external inputs)
 
@@ -646,6 +652,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) added (result)
 - 2026-11-08: [`transposition-gap-fourteen-complete-classification`](areas/cycles/results/transposition-gap-fourteen-complete-classification/README.md) added (result)
 - 2026-11-08: [`transposition-gap-fourteen-full-plus-cancellation`](areas/cycles/results/transposition-gap-fourteen-full-plus-cancellation/README.md) added (result)
+- 2026-11-08: [`saturated-residue-automata-uniform-connectivity`](areas/invariants/results/saturated-residue-automata-uniform-connectivity/README.md) added (result)
 - 2026-11-01: [`collatz-conjecture-logical-form`](areas/decidability/results/collatz-conjecture-logical-form/README.md) added (result)
 - 2026-11-01: [`inverse-syracuse-binary-coding`](areas/decidability/results/inverse-syracuse-binary-coding/README.md) added (result)
 - 2026-11-01: [`synchronised-coding-pcp-reduction`](areas/decidability/results/synchronised-coding-pcp-reduction/README.md) added (result)
@@ -666,7 +673,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-31: [`binary-residue-projection-information-loss`](areas/convergence/results/binary-residue-projection-information-loss/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`binary-return-exit-control`](areas/convergence/results/binary-return-exit-control/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`bounded-history-clock-exclusion`](areas/convergence/results/bounded-history-clock-exclusion/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`bounded-packet-certificate-obstruction`](areas/convergence/results/bounded-packet-certificate-obstruction/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -674,16 +680,17 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 61.2% | 203 | 9 |
+| ChatGPT main lane | 61.0% | 203 | 9 |
 | Claude side lane | 14.9% | 34 | 132 |
 | Claude review lane | 8.6% | 0 | 121 |
 | Claude Lean lane | 5.5% | 3 | 69 |
-| Claude cycles lane | 5.1% | 21 | 0 |
+| Claude cycles lane | 5.2% | 21 | 0 |
 | Claude PR1 lane | 2.2% | 6 | 9 |
 | ChatGPT handoff conversation | 1.0% | 2 | 0 |
 | Claude explicit-Tao lane | 0.8% | 5 | 0 |
 | Codex cycle research lane | 0.5% | 2 | 0 |
 | Codex crossing research lane | 0.3% | 2 | 0 |
+| Codex research lane | 0.2% | 1 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 
 **By accountable person** (agents are credited to the person who directed them; [`conventions/CREDIT.md`](conventions/CREDIT.md) §4):
