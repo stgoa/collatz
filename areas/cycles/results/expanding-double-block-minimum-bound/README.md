@@ -18,7 +18,7 @@ claim: >
   remaining mixed case a<11g/10 is not excluded.
 authors:
   - Codex cycle research lane (GPT-6 Astra; directed by Santiago Armstrong)
-  - Codex root research lane (GPT-6 Astra; directed by Santiago Armstrong)
+  - Codex root research lane (GPT-6; directed by Santiago Armstrong)
 created: 2026-11-08
 depends_on: [cycle-length-lower-bound-from-convergents]
 assumes: [musson-collatz-gap-all, barina-2025-convergence-2-71]
