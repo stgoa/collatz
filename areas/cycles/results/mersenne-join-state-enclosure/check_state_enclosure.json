@@ -1,0 +1,408 @@
+{
+  "actual_fixtures": {
+    "records": [
+      {
+        "d": 5,
+        "minimum": 1,
+        "period": 1
+      },
+      {
+        "d": 5,
+        "minimum": 19,
+        "period": 3
+      },
+      {
+        "d": 5,
+        "minimum": 23,
+        "period": 3
+      },
+      {
+        "d": 5,
+        "minimum": 187,
+        "period": 17
+      },
+      {
+        "d": 5,
+        "minimum": 347,
+        "period": 17
+      },
+      {
+        "d": 7,
+        "minimum": 5,
+        "period": 2
+      },
+      {
+        "d": 13,
+        "minimum": 1,
+        "period": 1
+      },
+      {
+        "d": 13,
+        "minimum": 131,
+        "period": 15
+      },
+      {
+        "d": 13,
+        "minimum": 211,
+        "period": 5
+      },
+      {
+        "d": 61,
+        "minimum": 1,
+        "period": 1
+      },
+      {
+        "d": 61,
+        "minimum": 235,
+        "period": 41
+      }
+    ],
+    "scope": "outside two changed half positions: odd period or half-length one",
+    "sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+  },
+  "affine_controls": {
+    "M_N_values": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "cases": 432,
+    "h_values": [
+      1,
+      3,
+      9
+    ],
+    "interface_signs": {
+      "negative": 108,
+      "positive": 288,
+      "zero": 36
+    },
+    "lower_bound_checks": 648,
+    "scope": "positive rational affine data, not claimed to be signed valuation words",
+    "slopes": [
+      "1/9",
+      "1/2",
+      "8/9"
+    ],
+    "weights": [
+      "1/7",
+      "1/3",
+      "1/2",
+      "6/7"
+    ]
+  },
+  "signed_word_controls": [
+    {
+      "A": [
+        2,
+        1,
+        1,
+        3
+      ],
+      "B": [
+        4
+      ],
+      "J": 3,
+      "actual_minimum": 17,
+      "h": 1,
+      "inserted_cycle_count": 0,
+      "interface": 5,
+      "lower": "499/12635",
+      "name": "two_four",
+      "order": "HL",
+      "r": 1,
+      "reduced_denominator": 361,
+      "slope": "243/2048",
+      "state": "17/361",
+      "threshold": "7/10",
+      "upper": "1267/7220"
+    },
+    {
+      "A": [
+        1,
+        2,
+        1,
+        1,
+        3
+      ],
+      "B": [
+        1,
+        1,
+        4
+      ],
+      "J": 3,
+      "actual_minimum": 367,
+      "h": 3,
+      "inserted_cycle_count": 0,
+      "interface": 5,
+      "lower": "25827/68761",
+      "name": "one_five",
+      "order": "HL",
+      "r": 2,
+      "reduced_denominator": 893,
+      "slope": "6561/16384",
+      "state": "367/893",
+      "threshold": "7/12",
+      "upper": "10657/19646"
+    },
+    {
+      "A": [
+        2,
+        1,
+        1
+      ],
+      "B": [
+        6
+      ],
+      "J": 5,
+      "actual_minimum": 1,
+      "h": 1,
+      "inserted_cycle_count": 0,
+      "interface": 11,
+      "lower": "452/29233",
+      "name": "low_high",
+      "order": "LH",
+      "r": 3,
+      "reduced_denominator": 41,
+      "slope": "81/1024",
+      "state": "1/41",
+      "threshold": "55/64",
+      "upper": "209/6601"
+    },
+    {
+      "A": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        3
+      ],
+      "B": [
+        4
+      ],
+      "J": 3,
+      "actual_minimum": 1117,
+      "h": 1,
+      "inserted_cycle_count": 1,
+      "interface": 5,
+      "lower": "6283/214067",
+      "name": "two_four",
+      "order": "HL",
+      "r": 1,
+      "reduced_denominator": 30581,
+      "slope": "2187/32768",
+      "state": "1117/30581",
+      "threshold": "7/10",
+      "upper": "18571/122324"
+    },
+    {
+      "A": [
+        1,
+        2,
+        1,
+        1,
+        3,
+        1,
+        3
+      ],
+      "B": [
+        1,
+        1,
+        4
+      ],
+      "J": 3,
+      "actual_minimum": 44909,
+      "h": 3,
+      "inserted_cycle_count": 1,
+      "interface": 5,
+      "lower": "275451/1421665",
+      "name": "one_five",
+      "order": "HL",
+      "r": 2,
+      "reduced_denominator": 203095,
+      "slope": "59049/262144",
+      "state": "44909/203095",
+      "threshold": "7/12",
+      "upper": "24917/81238"
+    },
+    {
+      "A": [
+        2,
+        1,
+        1,
+        3,
+        1
+      ],
+      "B": [
+        6
+      ],
+      "J": 5,
+      "actual_minimum": 287,
+      "h": 1,
+      "inserted_cycle_count": 1,
+      "interface": 11,
+      "lower": "4964/485305",
+      "name": "low_high",
+      "order": "LH",
+      "r": 3,
+      "reduced_denominator": 15655,
+      "slope": "729/16384",
+      "state": "287/15655",
+      "threshold": "55/64",
+      "upper": "2777/109585"
+    },
+    {
+      "A": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3
+      ],
+      "B": [
+        4
+      ],
+      "J": 3,
+      "actual_minimum": 231277,
+      "h": 1,
+      "inserted_cycle_count": 3,
+      "interface": 5,
+      "lower": "1225723/57480227",
+      "name": "two_four",
+      "order": "HL",
+      "r": 1,
+      "reduced_denominator": 8211461,
+      "slope": "177147/8388608",
+      "state": "231277/8211461",
+      "threshold": "7/10",
+      "upper": "4371451/32845844"
+    },
+    {
+      "A": [
+        1,
+        2,
+        1,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3
+      ],
+      "B": [
+        1,
+        1,
+        4
+      ],
+      "J": 3,
+      "actual_minimum": 7068029,
+      "h": 3,
+      "inserted_cycle_count": 3,
+      "interface": 5,
+      "lower": "39514731/436281265",
+      "name": "one_five",
+      "order": "HL",
+      "r": 2,
+      "reduced_denominator": 62325895,
+      "slope": "4782969/67108864",
+      "state": "7068029/62325895",
+      "threshold": "7/12",
+      "upper": "4312037/24930358"
+    },
+    {
+      "A": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1
+      ],
+      "B": [
+        6
+      ],
+      "J": 5,
+      "actual_minimum": 55247,
+      "h": 1,
+      "inserted_cycle_count": 3,
+      "interface": 11,
+      "lower": "760484/128192905",
+      "name": "low_high",
+      "order": "LH",
+      "r": 3,
+      "reduced_denominator": 4135255,
+      "slope": "59049/4194304",
+      "state": "55247/4135255",
+      "threshold": "55/64",
+      "upper": "583337/28946785"
+    },
+    {
+      "A": [
+        4,
+        2,
+        2,
+        1,
+        5,
+        1,
+        1,
+        1,
+        1,
+        3,
+        3,
+        1,
+        2,
+        2,
+        6,
+        1,
+        2,
+        2,
+        1,
+        1,
+        3
+      ],
+      "B": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        7
+      ],
+      "J": 8,
+      "actual_minimum": 57753984507298171,
+      "h": 261,
+      "interface": 321,
+      "lower": "3295718097079975383/783829116416603537195",
+      "name": "large_endpoint",
+      "order": "HL",
+      "r": 6,
+      "reduced_denominator": 9221519016665923967,
+      "slope": "1853020188851841/9223372036854775808",
+      "state": "57753984507298171/9221519016665923967",
+      "threshold": "1763/3648",
+      "upper": "4233078039676523677/258202532466645871076"
+    }
+  ],
+  "symbolic": {
+    "identities": 4,
+    "method": "exact sparse polynomial coefficients"
+  },
+  "theorem_scope": "Unbounded levels and lengths; no finite census used in the proof"
+}

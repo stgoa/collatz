@@ -23,6 +23,15 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: a uniform endpoint-and-slope enclosure.**
+  [`mersenne-join-state-enclosure`](../results/mersenne-join-state-enclosure/README.md)
+  bounds the canonical normalized state for either interface sign
+  in every unequal same-parity Mersenne normal form. A state lower
+  bound gives an explicit necessary lower bound on the total
+  segment slope; failure excludes denominator 1. Positive cycle
+  insertions decrease the upper state bound. The result has no
+  level or length restriction, but does not assert that every
+  join lies in the excluded slope region.
 - **2026-11-08: small signed endpoints are excluded at every amplitude.**
   [`small-mersenne-endpoint-exclusion`](../results/small-mersenne-endpoint-exclusion/README.md)
   proves the linked-segment affine test whenever `M>=7h+1`, where
@@ -95,6 +104,14 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: retain both the endpoint and total slope.** The
+[state enclosure](../results/mersenne-join-state-enclosure/README.md)
+covers negative as well as positive interfaces. Combine its
+necessary slope threshold with the small-endpoint exclusion;
+the remaining normal-form candidates must satisfy both. Moving
+the cut to the other defect produces a mixed-sign auxiliary
+description, so a second positive-addend bound needs justification.
+
 **2026-11-08: the remaining endpoint region.** The
 [uniform endpoint bound](../results/small-mersenne-endpoint-exclusion/README.md)
 settles every normal-form join with `M>=7h+1`, independently of
@@ -123,6 +140,10 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
+- 2026-11-08: added the uniform Mersenne state enclosure and the
+  combined endpoint-and-slope target. The general question remains
+  `open` (Codex cycle research lane, GPT-6 Astra; directed by
+  Santiago Armstrong).
 - 2026-11-08: added the uniform small-endpoint criterion and its
   remaining larger-endpoint target. The general question remains
   `open` (Codex cycle research lane, GPT-6 Astra; directed by
