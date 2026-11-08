@@ -1,0 +1,233 @@
+{
+  "constants": {
+    "clustered_margins": [
+      {
+        "error_lower": "1/64",
+        "multiplicity": 2
+      },
+      {
+        "error_lower": "1/96",
+        "multiplicity": 3
+      },
+      {
+        "error_lower": "1/128",
+        "multiplicity": 4
+      },
+      {
+        "error_lower": "1/160",
+        "multiplicity": 5
+      },
+      {
+        "error_lower": "1/192",
+        "multiplicity": 6
+      },
+      {
+        "error_lower": "1/224",
+        "multiplicity": 7
+      },
+      {
+        "error_lower": "1/256",
+        "multiplicity": 8
+      },
+      {
+        "error_lower": "1/288",
+        "multiplicity": 9
+      },
+      {
+        "error_lower": "1/320",
+        "multiplicity": 10
+      },
+      {
+        "error_lower": "1/352",
+        "multiplicity": 11
+      },
+      {
+        "error_lower": "1/384",
+        "multiplicity": 12
+      },
+      {
+        "error_lower": "1/416",
+        "multiplicity": 13
+      },
+      {
+        "error_lower": "1/448",
+        "multiplicity": 14
+      },
+      {
+        "error_lower": "1/480",
+        "multiplicity": 15
+      },
+      {
+        "error_lower": "1/512",
+        "multiplicity": 16
+      },
+      {
+        "error_lower": "1/544",
+        "multiplicity": 17
+      },
+      {
+        "error_lower": "1/576",
+        "multiplicity": 18
+      },
+      {
+        "error_lower": "1/608",
+        "multiplicity": 19
+      },
+      {
+        "error_lower": "1/640",
+        "multiplicity": 20
+      },
+      {
+        "error_lower": "1/672",
+        "multiplicity": 21
+      },
+      {
+        "error_lower": "1/704",
+        "multiplicity": 22
+      },
+      {
+        "error_lower": "1/736",
+        "multiplicity": 23
+      },
+      {
+        "error_lower": "1/768",
+        "multiplicity": 24
+      },
+      {
+        "error_lower": "1/800",
+        "multiplicity": 25
+      },
+      {
+        "error_lower": "1/832",
+        "multiplicity": 26
+      },
+      {
+        "error_lower": "1/864",
+        "multiplicity": 27
+      },
+      {
+        "error_lower": "1/896",
+        "multiplicity": 28
+      },
+      {
+        "error_lower": "1/928",
+        "multiplicity": 29
+      },
+      {
+        "error_lower": "1/960",
+        "multiplicity": 30
+      },
+      {
+        "error_lower": "1/992",
+        "multiplicity": 31
+      },
+      {
+        "error_lower": "1/1024",
+        "multiplicity": 32
+      },
+      {
+        "error_lower": "1/1056",
+        "multiplicity": 33
+      },
+      {
+        "error_lower": "1/1088",
+        "multiplicity": 34
+      },
+      {
+        "error_lower": "1/1120",
+        "multiplicity": 35
+      },
+      {
+        "error_lower": "1/1152",
+        "multiplicity": 36
+      },
+      {
+        "error_lower": "1/1184",
+        "multiplicity": 37
+      },
+      {
+        "error_lower": "1/1216",
+        "multiplicity": 38
+      }
+    ],
+    "combined_high_count_log_coefficient": "402653184/5",
+    "common_error_threshold": "1/1216",
+    "drift_error_upper": "1/393216",
+    "exact_U_bound": {
+      "denominator": "43884*log2(m)+22196",
+      "numerator": "(6125/4980736)*m-175-342*log2(m)",
+      "period_lower": 4194304
+    },
+    "linear_coefficient": "6125/4980736",
+    "maximum_multiplicity_upper": 38,
+    "multiplicity_margin": "196413/5",
+    "rise_dyadic_margin": "1437715/129",
+    "scope": "Necessary conditions under EXT1 only; no period or convergence import and no global cycle exclusion.",
+    "simple_U_denominator_constant": 134217728,
+    "simple_dyadic_margin": "30225/19",
+    "simple_period_lower": 16777216,
+    "singleton_margin": "1/1000",
+    "spread_margin": "325/196596"
+  },
+  "local_descent": {
+    "bound_exclusive": 131072,
+    "maximum_odd_output": 827370449,
+    "maximum_steps": 85,
+    "odd_seeds": 65535,
+    "odd_steps": 227689,
+    "scope": "Every listed seed reaches a smaller positive odd value; no outside convergence computation."
+  },
+  "standard_controls": {
+    "addend_ones_runs": 25,
+    "cycles": 11,
+    "exact_arrows": 106,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "scope": "The true addend is retained; normalized states are not treated as integers."
+  },
+  "word_controls": {
+    "agreement_subintervals": 1346676,
+    "cyclic_orders": {
+      "(0, 1, 2)": 3324,
+      "(0, 2, 1)": 3324,
+      "(1, 0, 2)": 3324,
+      "(1, 2, 0)": 3324,
+      "(2, 0, 1)": 3324,
+      "(2, 1, 0)": 3324
+    },
+    "digest_sha256": "250b240f0ff9796be6336c69fde73a6ea0625b26ef42a79981cd02fdb42e6316",
+    "exact_arrows": 193634,
+    "exact_cycles": 19834,
+    "extra_patterns": "(1,1,1,m-3), (1,2,3,m-6), (2,1,2,m-5)",
+    "generic_denominator_singletons": 1656,
+    "integral_ones_runs": 31398,
+    "label_sets": [
+      [
+        1,
+        2,
+        3,
+        5
+      ],
+      [
+        1,
+        3,
+        7,
+        16
+      ],
+      [
+        1,
+        7,
+        16,
+        31
+      ]
+    ],
+    "maximum_cases": {
+      "clustered": 9252,
+      "singleton": 8568,
+      "spread": 2124
+    },
+    "normalization": "Each positive-D word is an actual reduced 3x+q cycle; none is silently normalized to an integer 3x+1 cycle.",
+    "proper_factors_covered": 1897128,
+    "scope": "All positive four-part compositions at m=4..10, plus three stated length patterns at m13,17,19; all coprime h, six cyclic orders and three label sets.",
+    "word_geometries": 19944
+  }
+}
