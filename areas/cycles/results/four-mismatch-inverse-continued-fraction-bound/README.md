@@ -23,14 +23,24 @@ claim: >
   s(h) satisfies K(h^(-1)/m)<2*s(h)*m/log_2(m), under EXT-1 alone.
   This bound uses the actual mismatch count, with no fixed upper bound
   on it. In particular K=O(s*m/log m), uniformly in the rotation.
+  A stronger four-mismatch estimate follows from exact integer block
+  repetition: without external inputs, K(k/m)<27*n+64*log_2(L+1),
+  where n is the number of continued-fraction digits and L the minimum
+  state. More precisely, every 1<=Q<m with gcd(p,Q)=1 and
+  Qk-pm=+j or -j, j>=1, satisfies m<16*j*log_2(L+1)+27*j*Q.
+  All four-arc label patterns and lengths are allowed. Under EXT-1
+  the resulting bound is K(k/m)<21942*log_2(m)+11099, at every
+  period admitting a primitive four-mismatch integer cycle.
 authors:
   - Codex signed-endpoint research lane (GPT-6 Astra; directed by Santiago Armstrong)
   - Codex main research lane (GPT-6 Astra; directed by Santiago Armstrong)
+  - Codex four-arc research lane (GPT-6 Astra; directed by Santiago Armstrong)
 created: 2026-11-08
 depends_on: [rise-lemma, paired-state-run-law, sparse-two-level-four-arc-exclusion]
 assumes: [musson-collatz-gap-all]
-certificates: [check_inverse_complexity.py]
+certificates: [check_inverse_complexity.py, check_phase_blocks.py]
 evidence:
+  - "check_phase_blocks.json: four-boundary rational phases, repeated integer blocks, continued-fraction sums and addend-aware actual-cycle controls"
   - "check_inverse_complexity.json: continuant identities and end coefficients, exact cutoff constants, local minimum verification and actual-cycle controls"
   - "check_inverse_complexity.json: exact polynomial induction certificates for the general mismatch-growth bound at m>=2^40"
 tags: [cycles, rotation-distance, continued-fractions, rise-lemma, effective-bounds]
@@ -39,6 +49,38 @@ tags: [cycles, rotation-distance, continued-fractions, rise-lemma, effective-bou
 # Inverse continued fractions force rotation mismatch growth
 
 ## Statement
+
+**Logarithmic inverse complexity for four mismatches.** Let a
+primitive positive integer cycle of the raw odd-only `3x+1` map
+have period `m`, minimum `L`, and exactly four valuation mismatches
+under a coprime rotation `h`. Put `k=h^(-1) mod m` in `(0,m)`,
+`Y=log_2(L+1)`, and write the canonical continued fraction as
+`k/m=[0;a1,...,an]`. The count `n` excludes the initial zero.
+Then, without external inputs,
+
+```
+K(k/m)<27*n+64*Y,       n<=2*log_2(m)+1.             (R0)
+```
+
+The proof covers every four-arc track pattern, arbitrary label
+sizes and arc lengths. It gives the stronger intermediate inequality
+`m<16*j*Y+27*j*Q` whenever `1<=Q<m`, `j>=1`, `gcd(p,Q)=1`
+and `Qk-pm=+j` or `-j`. It applies this inequality to every
+proper convergent, including the initial fraction `0/1`.
+
+With EXT-1 and the local minimum replay, `Y<173+342*log_2(m)`,
+so (R0) implies
+
+```
+K(k/m)<21942*log_2(m)+11099.                         (R0a)
+```
+
+The coefficients are `54+64*342=21942` and `27+64*173=11099`.
+
+This is `O(log m)` for four mismatches. Sections 7--9 give the
+new proof. The earlier results below remain unchanged, including
+the general estimate with no fixed upper bound on mismatch count.
+None of these statements excludes every four-mismatch word.
 
 Let `n_0,...,n_(m-1)` be distinct positive odd integers forming
 a raw odd-only `3x+1` cycle, with positive valuation word
@@ -436,7 +478,161 @@ It does not impose a hypothesis on the letter amplitudes
 or the arrangement of mismatches, and it does not exclude
 all coprime rotations or all four-mismatch words.
 
+### 7. Exact repetition bounds do not require expanding blocks
+
+For this new argument assume only a primitive positive integer cycle
+of the raw odd-only `3x+1` map and a coprime rotation with exactly
+four mismatches. No external input, minimum-state threshold or period
+bound is used in sections 7--9. Write `L` for the cycle minimum,
+`Y=log_2(L+1)`, `alpha=log_2(3)`, and `rho=3/2`.
+Along the `h`-track the word has exactly four constant arcs, with
+arbitrary positive lengths and labels; chronological steps advance
+by `k=h^(-1) mod m` on that track.
+
+Consider `N>=1` consecutive copies of a positive valuation
+block of length `Q<m` and total `S>=Q` inside the cycle.
+Let `x_i` be the state at its successive block cuts and
+put `d_i=x_(i+1)-x_i`. Since the same affine map applies
+at every copy,
+
+```
+d_(N-1)=3^(Q(N-1))d_0 / 2^(S(N-1)).
+```
+
+All states are integers. Primitivity and `Q<m` give
+`d_0!=0`, so `2^(S(N-1))` divides this nonzero integer.
+Each positive valuation arrow satisfies
+`x_next+1<=rho(x+1)`. Thus
+
+```
+2^(S(N-1)) <= |d_0| < rho^Q(x_0+1).
+```
+
+Writing `Y0=log_2(x_0+1)` and using `S>=Q` yields
+
+```
+NQ < Y0+alpha Q,
+log_2(x_N+1) < alpha Y0+alpha(alpha-1)Q.              (R1)
+```
+
+Equivalently, with `Z=log_2(x+1)+alpha Q`, such a
+segment has length less than its initial `Z`, and
+`Z_out<alpha Z_in`. This includes `N=1`.
+No sign of `2^S-3^Q` is assumed.
+
+### 8. Every proper rational phase gives a short-regime prefix
+
+The next estimate uses only primitivity and four track
+boundaries; it has no restriction on labels or arc lengths. Let `Q,p,j` be integers satisfying
+
+```
+1<=Q<m, j>=1, gcd(p,Q)=1, Qk-pm=+j or -j.            (R2)
+```
+
+We prove
+
+```
+m < 16jY+27jQ.                                     (R3)
+```
+
+If `jQ>=m`, this is immediate. Suppose `jQ<m` and start
+the chronological word at its minimum. Split its first
+`R=floor(m/Q)` complete blocks into blocks of length `Q`.
+On the track, their initial phases advance by `+j` or
+`-j`. An actual word block at phase `theta` is
+
+```
+(f(theta+ks))_(0<=s<Q),
+```
+
+where `f` is the actual four-interval track labelling.
+Its possible changes occur at four families of `Q`
+boundary points, one for each track boundary.
+Within each family, the cyclic spacing is at least
+
+```
+d=m/Q-j>0.                                         (R4)
+```
+
+Indeed `ks=pm*s/Q +/- js/Q`; the first terms form a
+uniform `Q`-grid because `gcd(p,Q)=1`, and the perturbation
+range is less than `j`. This also covers `Q=1`, where
+the sole point in each family has cyclic spacing `m`.
+
+Let `r1<...<r5` be the first five changes of the actual
+block pattern, if there are five before `R`.
+Each change crosses at least one of the boundary points.
+Choose one such event per change. Assign events in
+`(min(old,new),max(old,new)]` along the unwrapped phase
+coordinate; this convention works in both directions
+and prevents a boundary at a cut from being counted
+twice. Among the five chosen events two belong to
+the same family, so their separation is at least `d`.
+Both occur within the first `r5` steps of size `j`, hence
+`r5*j>=d` and `r5*Q>=m/j-Q`.
+
+The prefix ending just before the fifth change has at
+most five constant block regimes. If there
+are fewer changes, use all `R` blocks; they also have
+at most five regimes and total length `RQ>m-Q>=m/j-Q`.
+In either case we obtain a prefix of length at least
+`m/j-Q`, consisting of at most five segments, each a
+repetition of one positive `Q`-block. The argument uses the actual word throughout.
+
+Apply (R1) successively from `L`. Its length is less than
+
+```
+(1+alpha+alpha^2+alpha^3+alpha^4)(Y+alpha Q).
+```
+
+The exact bound `alpha<8/5` implies that the geometric
+sum is less than 16 and its product with `alpha`, plus
+one, is less than 27. Comparing with `m/j-Q` proves (R3).
+
+### 9. Sum the constraint over all convergents
+
+Write `k/m=[0;a1,...,an]`, with convergents `p_i/q_i`,
+`q_(-1)=0`, `q_0=1`. For digit `a_i`, take the preceding
+convergent `p/Q=p_(i-1)/q_(i-1)` and
+`j=|Qk-pm|`. These are proper convergents, so `Q<m`
+and `j>0`. The exact continuant split gives
+
+```
+m>=a_i Qj.
+```
+
+For example, this is the first term of
+`m=a_i Qj+q_(i-2)j+Qj_prev`, with the nonnegative
+remaining tail continuant `j_prev`; it includes both
+endpoint digits. Applying (R3) gives
+
+```
+a_i<27+16Y/q_(i-1).
+```
+
+The denominator recurrence gives `q_(i+2)>=2q_i`.
+Separating the even and odd indices therefore bounds
+the sum of the reciprocals of all preceding denominators
+by 4, including the possible two initial denominators 1.
+The same recurrence gives `n<=2log_2(m)+1`. Consequently
+
+```
+K<27n+64Y,
+n<=2log_2(m)+1.                                    (R5)
+```
+
+This uses every proper convergent, not a bounded search
+for a favourable partial quotient.
+
 ## Certificates
+
+The additional [phase-block checker](check_phase_blocks.py) and its
+[generated receipt](check_phase_blocks.json) verify the finite phase
+and repetition cases behind sections 7--9, including the boundary
+conventions, endpoint convergents and actual integer `3x+d` controls
+with their addends retained. Run it normally or with `python3 -O`;
+`--write-receipt` regenerates its deterministic receipt. It does not
+infer the unbounded theorem from the finite census.
 
 Run from the repository root:
 
@@ -498,6 +694,13 @@ rotations remain open. The corollary makes no new exclusion
 claim for `m<2^1536`.
 
 ## History
+
+- 2026-11-08: added the integer-repetition and four-boundary phase
+  argument in sections 7--9, yielding an unconditional minimum-state
+  bound on inverse complexity and an EXT-1-only logarithmic bound
+  for every coprime four-mismatch rotation. The previous fixed-cutoff
+  and arbitrary-mismatch estimates are retained. Same-session audits
+  do not promote the node beyond `written`.
 
 - 2026-11-08: proved the inverse-continuant bridge, sharpened
   the multiplier-distance product from 1024 to 512, and

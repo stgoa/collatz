@@ -1,0 +1,139 @@
+{
+  "actual_controls": {
+    "cycles": 11,
+    "exact_arrows": 106,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "repeated_segments": 2428,
+    "scope": "addendq retained in x+q; no q=1 minimum or period estimate applied"
+  },
+  "constants": {
+    "H5_upper": "9881/625",
+    "Q_coefficient_upper": "82173/3125",
+    "alpha_upper": "8/5",
+    "crossing_convention": "integer phases on[0,T): events in(min(old,new),max(old,new)]",
+    "inverse_CF_bound_coefficients": [
+      27,
+      64
+    ],
+    "maximum_regimes": 5,
+    "phase_bound_coefficients": [
+      16,
+      27
+    ],
+    "reciprocal_preceding_denominator_sum_upper": 4
+  },
+  "continued_fractions": {
+    "all_reduced_numerators": true,
+    "coefficient_splits": 94114,
+    "coverage_sha256": "b5d515b7c24e55ac2e14abd3b2e2355fe7e8f4b4d7f3a18d09f901642c6bc237",
+    "denominators": [
+      2,
+      256
+    ],
+    "duplicated_initial_denominators": 9973,
+    "final_proper_convergents": 19947,
+    "initial_zero_over_one": 19947,
+    "maximum_reciprocal_sum": "607326679/181741560",
+    "rationals": 19947
+  },
+  "four_arc_grid": {
+    "arc_lengths": "all four positive compositions",
+    "coverage_sha256": "5359c143caabbea4e350d73d89af7624ede7dde0ebe5fde57a2000069641b31b",
+    "crossed_events": 278400,
+    "denominator_one_cases": 97884,
+    "full_prefix_cases": 105972,
+    "labels": [
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        9,
+        1,
+        3,
+        1
+      ],
+      [
+        1,
+        7,
+        1,
+        7
+      ]
+    ],
+    "maximum_repeated_regimes": 5,
+    "negative_phase_cases": 64512,
+    "periods": [
+      4,
+      11
+    ],
+    "phase_starts": 161652,
+    "phases": "every start, every coprime step, every proper preceding convergent",
+    "track_words": 990
+  },
+  "integer_prefixes": {
+    "additional_blocks": [
+      [
+        1,
+        64
+      ],
+      [
+        17,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        32,
+        1
+      ],
+      [
+        64
+      ]
+    ],
+    "block_lengths": [
+      1,
+      4
+    ],
+    "coverage_sha256": "d2b88709d2632dfe59ad2ad259b7626da7fec6ac0a4c4f2a252c52c5b76edb97",
+    "cylinder_lifts": [
+      0,
+      1
+    ],
+    "exact_arrows": 31392,
+    "fixed_block_countercontrols": 32,
+    "nonzero_difference_prefixes": 1952,
+    "ordinary_letters": [
+      1,
+      3
+    ],
+    "repetition_counts": [
+      1,
+      8
+    ],
+    "scope": "genuine positive integer3x+1 prefixes; no nontrivial closed cycle is asserted"
+  },
+  "schema": "four-boundary-phase-blocks-v1",
+  "spike_grid": {
+    "chronological_steps": "coprime members of{1,m-1,floor(m/2),floor(m/2)+1}",
+    "coverage_sha256": "c4fe73f1c476420fb513afb71554b307ffd2cffb63d35bdc0ed5c2774ec9cd6b",
+    "high_counts": "1,floor(m/2),m-1",
+    "high_labels": [
+      3,
+      17
+    ],
+    "periods": [
+      4,
+      25
+    ],
+    "phase_starts": 37836,
+    "spike_label": "high+1",
+    "spike_positions": "every site",
+    "spikes_replacing_high": 946,
+    "spikes_replacing_ones": 968,
+    "starting_phases": "0,1,m-1",
+    "track_words": 1914
+  }
+}
