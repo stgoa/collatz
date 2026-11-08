@@ -23,6 +23,14 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: small signed endpoints are excluded at every amplitude.**
+  [`small-mersenne-endpoint-exclusion`](../results/small-mersenne-endpoint-exclusion/README.md)
+  proves the linked-segment affine test whenever `M>=7h+1`, where
+  `M-1` is the first Mersenne addend and the signed endpoints are
+  `-h,h`; a sharper quadratic condition is also proved. Both
+  segment orders and arbitrary lengths and levels are covered,
+  without external inputs. A denominator-one candidate must have
+  `h>(M-1)/7`. This leaves the larger-endpoint region unresolved.
 - **2026-11-08: bounded unequal half defects are excluded without external inputs.**
   [`bounded-unequal-half-defect-exclusion`](../results/bounded-unequal-half-defect-exclusion/README.md)
   excludes denominator 1 whenever the two half-defect magnitudes are
@@ -87,6 +95,13 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: the remaining endpoint region.** The
+[uniform endpoint bound](../results/small-mersenne-endpoint-exclusion/README.md)
+settles every normal-form join with `M>=7h+1`, independently of
+the Mersenne levels. Focus on larger signed endpoints, including
+paths whose first negative-to-positive crossing is delayed; the
+bound does not assert that these cases fail.
+
 **2026-11-08: separate transients from repeatable cycles.** The
 [bounded-amplitude theorem](../results/bounded-unequal-half-defect-exclusion/README.md)
 settles the linked-segment affine test for `2<=J<=12`, all `1<=r<J`,
@@ -108,6 +123,10 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
+- 2026-11-08: added the uniform small-endpoint criterion and its
+  remaining larger-endpoint target. The general question remains
+  `open` (Codex cycle research lane, GPT-6 Astra; directed by
+  Santiago Armstrong).
 - 2026-11-08: added the unconditional bounded unequal half-defect
   exclusion and the transient-versus-loop research target. The
   general question remains `open` (Codex cycle research lane,

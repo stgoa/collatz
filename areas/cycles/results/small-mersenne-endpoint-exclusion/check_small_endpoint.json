@@ -1,0 +1,500 @@
+{
+  "actual_fixtures": {
+    "replayed": [
+      {
+        "d": 5,
+        "minimum": 1,
+        "period": 1
+      },
+      {
+        "d": 5,
+        "minimum": 19,
+        "period": 3
+      },
+      {
+        "d": 5,
+        "minimum": 23,
+        "period": 3
+      },
+      {
+        "d": 5,
+        "minimum": 187,
+        "period": 17
+      },
+      {
+        "d": 5,
+        "minimum": 347,
+        "period": 17
+      },
+      {
+        "d": 7,
+        "minimum": 5,
+        "period": 2
+      },
+      {
+        "d": 13,
+        "minimum": 1,
+        "period": 1
+      },
+      {
+        "d": 13,
+        "minimum": 131,
+        "period": 15
+      },
+      {
+        "d": 13,
+        "minimum": 211,
+        "period": 5
+      },
+      {
+        "d": 61,
+        "minimum": 1,
+        "period": 1
+      },
+      {
+        "d": 61,
+        "minimum": 235,
+        "period": 41
+      }
+    ],
+    "scope": "outside two changed half positions: odd period or half-length one",
+    "sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+  },
+  "comparison": {
+    "arrows": 1584,
+    "cases_outside_simple_threshold": 1,
+    "levels": [
+      3,
+      12
+    ],
+    "odd_h_max": 31,
+    "positive_steps_per_start": 16,
+    "quadratic_condition_required": true,
+    "scope": "formula samples only; no exhaustive segment-join claim",
+    "starts": 99
+  },
+  "joins": [
+    {
+      "A": [
+        2,
+        1,
+        1,
+        3
+      ],
+      "B": [
+        4
+      ],
+      "F_u_one": "73/32",
+      "J": 3,
+      "M": 8,
+      "N": 2,
+      "actual_minimum": 17,
+      "condition_holds": true,
+      "delta": 4,
+      "h": 1,
+      "interface": 5,
+      "name": "high_low_repeated_cycle",
+      "normalized_state": "17/361",
+      "order": "HL",
+      "r": 1,
+      "reduced_denominator": 361,
+      "state_comparison_inputs": [
+        1,
+        3,
+        17
+      ],
+      "u": [
+        2,
+        1,
+        1,
+        1,
+        3
+      ],
+      "v": [
+        2,
+        1,
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "A": [
+        2,
+        1,
+        1
+      ],
+      "B": [
+        6
+      ],
+      "F_u_one": "29/16",
+      "J": 5,
+      "M": 8,
+      "N": 32,
+      "actual_minimum": 1,
+      "condition_holds": true,
+      "delta": 4,
+      "h": 1,
+      "interface": 11,
+      "name": "low_high_repeated_cycle",
+      "normalized_state": "1/41",
+      "order": "LH",
+      "r": 3,
+      "reduced_denominator": 41,
+      "state_comparison_inputs": [
+        1,
+        3,
+        17
+      ],
+      "u": [
+        2,
+        1,
+        3,
+        1
+      ],
+      "v": [
+        2,
+        1,
+        1,
+        9
+      ]
+    },
+    {
+      "A": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        3
+      ],
+      "B": [
+        4
+      ],
+      "F_u_one": "925/512",
+      "J": 3,
+      "M": 8,
+      "N": 2,
+      "actual_minimum": 1117,
+      "condition_holds": true,
+      "delta": 4,
+      "h": 1,
+      "interface": 5,
+      "name": "high_low_repeated_cycle",
+      "normalized_state": "1117/30581",
+      "order": "HL",
+      "r": 1,
+      "reduced_denominator": 30581,
+      "state_comparison_inputs": [
+        1,
+        3,
+        17
+      ],
+      "u": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        1,
+        3
+      ],
+      "v": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "A": [
+        2,
+        1,
+        1,
+        3,
+        1
+      ],
+      "B": [
+        6
+      ],
+      "F_u_one": "383/256",
+      "J": 5,
+      "M": 8,
+      "N": 32,
+      "actual_minimum": 287,
+      "condition_holds": true,
+      "delta": 4,
+      "h": 1,
+      "interface": 11,
+      "name": "low_high_repeated_cycle",
+      "normalized_state": "287/15655",
+      "order": "LH",
+      "r": 3,
+      "reduced_denominator": 15655,
+      "state_comparison_inputs": [
+        1,
+        3,
+        17
+      ],
+      "u": [
+        2,
+        1,
+        1,
+        3,
+        3,
+        1
+      ],
+      "v": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        9
+      ]
+    },
+    {
+      "A": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3
+      ],
+      "B": [
+        4
+      ],
+      "F_u_one": "182125/131072",
+      "J": 3,
+      "M": 8,
+      "N": 2,
+      "actual_minimum": 231277,
+      "condition_holds": true,
+      "delta": 4,
+      "h": 1,
+      "interface": 5,
+      "name": "high_low_repeated_cycle",
+      "normalized_state": "231277/8211461",
+      "order": "HL",
+      "r": 1,
+      "reduced_denominator": 8211461,
+      "state_comparison_inputs": [
+        1,
+        3,
+        17
+      ],
+      "u": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        1,
+        3
+      ],
+      "v": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "A": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1
+      ],
+      "B": [
+        6
+      ],
+      "F_u_one": "79823/65536",
+      "J": 5,
+      "M": 8,
+      "N": 32,
+      "actual_minimum": 55247,
+      "condition_holds": true,
+      "delta": 4,
+      "h": 1,
+      "interface": 11,
+      "name": "low_high_repeated_cycle",
+      "normalized_state": "55247/4135255",
+      "order": "LH",
+      "r": 3,
+      "reduced_denominator": 4135255,
+      "state_comparison_inputs": [
+        1,
+        3,
+        17
+      ],
+      "u": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        3,
+        1
+      ],
+      "v": [
+        2,
+        1,
+        1,
+        3,
+        1,
+        3,
+        1,
+        3,
+        1,
+        9
+      ]
+    },
+    {
+      "A": [
+        1,
+        6,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        2,
+        2
+      ],
+      "B": [
+        3,
+        5
+      ],
+      "F_u_one": "6832351/2097152",
+      "J": 5,
+      "M": 32,
+      "N": 16,
+      "actual_minimum": 550349,
+      "condition_holds": true,
+      "delta": 386,
+      "h": 3,
+      "interface": 67,
+      "name": "endpoint_three",
+      "normalized_state": "550349/133686287",
+      "order": "HL",
+      "r": 4,
+      "reduced_denominator": 133686287,
+      "state_comparison_inputs": [
+        1,
+        3,
+        17
+      ],
+      "u": [
+        1,
+        6,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        2,
+        1,
+        3,
+        1
+      ],
+      "v": [
+        1,
+        6,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        2,
+        2,
+        3,
+        10
+      ]
+    },
+    {
+      "A": [
+        1,
+        2,
+        1,
+        1,
+        3
+      ],
+      "B": [
+        1,
+        1,
+        4
+      ],
+      "F_u_one": "8371/1024",
+      "J": 3,
+      "M": 8,
+      "N": 4,
+      "actual_minimum": 367,
+      "condition_holds": false,
+      "delta": -118,
+      "h": 3,
+      "interface": 5,
+      "name": "outside_small_endpoint_region",
+      "normalized_state": "367/893",
+      "order": "HL",
+      "r": 2,
+      "reduced_denominator": 893,
+      "state_comparison_inputs": [],
+      "u": [
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "v": [
+        1,
+        2,
+        1,
+        1,
+        3,
+        1,
+        1,
+        7
+      ]
+    }
+  ],
+  "polynomials": {
+    "identities": 4,
+    "method": "exact sparse polynomial coefficient equality"
+  },
+  "theorem_scope": "unbounded Mersenne levels and lengths; mathematical proof in README"
+}
