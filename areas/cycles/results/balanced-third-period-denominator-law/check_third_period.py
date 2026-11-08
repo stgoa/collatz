@@ -137,6 +137,7 @@ def final_bound(word, template, delta):
         need(d0 == 1 and q > 1, "delta one/two corollary")
     if q == 1:
         need(2**delta * 3**g > 4**g, "necessary large change for denominator one")
+    need(q > 1, "retained-positive-terms all-delta corollary")
     return q, d0
 
 
@@ -264,6 +265,40 @@ def words(max_length, alphabet):
     return [word for length in range(1, max_length + 1) for word in product(alphabet, repeat=length)]
 
 
+def retained_term_constants():
+    """Exact finite comparisons and local descent used by the new corollary."""
+    # Coefficients are in increasing powers of a0=log2(3).
+    left = [Fraction(1) - Fraction(41, 25), Fraction(2), Fraction(-1)]
+    right = [Fraction(0) for _ in range(3)]
+    for i, coefficient in enumerate((Fraction(8, 5), Fraction(-1))):
+        for j, other in enumerate((Fraction(-2, 5), Fraction(1))):
+            right[i + j] += coefficient * other
+    need(left == right, "exact quadratic factorization")
+    need(2 < 3 and 3**5 < 2**8, "one < log2(3) < eight fifths")
+    slope_left, slope_right = 28**25, 2**41 * 9**25
+    need(slope_left < slope_right, "minimum-nine product slope")
+    traces = []
+    for initial in (3, 5, 7):
+        state = initial
+        states, valuations = [state], []
+        for _ in range(100):
+            raw = 3 * state + 1
+            valuation = (raw & -raw).bit_length() - 1
+            state = raw >> valuation
+            need(state > 0 and state % 2 == 1, "local descent stays positive odd")
+            states.append(state)
+            valuations.append(valuation)
+            if state < initial:
+                break
+        need(state < initial, "bounded local descent reaches a smaller state")
+        traces.append({"initial": initial, "states": states, "valuations": valuations})
+    return {"quadratic_coefficients": [str(value) for value in left],
+            "log3_upper_comparison": [3**5, 2**8],
+            "minimum_nine_slope_comparison": [slope_left, slope_right],
+            "slope_margin": slope_right - slope_left, "local_descents": traces,
+            "scope": "The product bound here uses addend one; generated q>1 cycles retain q."}
+
+
 def lattice_controls():
     identities = positives = arrows = 0
     signs = {"negative": 0, "zero": 0, "positive": 0}
@@ -309,6 +344,10 @@ def lattice_controls():
                 need(cab == intercept(a_word + lowered), "final-letter intercept invariance")
                 need(cab * 2**(g + delta) < z * p and cba * 2**g < z * p,
                      "sharpened and ordinary intercept bounds")
+                need(beta * p + q_power * z <= d1 * cab,
+                     "both positive integer lattice terms retained")
+                need(d1 < q * k and d1 * cab * 2**g < q * z * p,
+                     "strict q-scaled retained-term upper bound")
                 need(q_power * 2**(g + delta) < d1 * p and s_power * 2**g < d1 * p,
                      "two binary-clock bounds")
                 need(d1 <= q * d0 and d1**2 * p * p > 2**(2 * g + delta) * z,
@@ -363,8 +402,9 @@ def fixture_controls():
 
 
 def run():
-    return {"schema": "balanced-third-period-denominator-law-v1",
+    return {"schema": "balanced-third-period-denominator-law-v2",
             "symbolic": symbolic_identities(),
+            "retained_term_corollary": retained_term_constants(),
             "structure": structural_controls(),
             "lattice": lattice_controls(),
             "fixtures": fixture_controls(),

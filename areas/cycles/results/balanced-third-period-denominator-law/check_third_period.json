@@ -291,7 +291,64 @@
       ]
     }
   },
-  "schema": "balanced-third-period-denominator-law-v1",
+  "retained_term_corollary": {
+    "local_descents": [
+      {
+        "initial": 3,
+        "states": [
+          3,
+          5,
+          1
+        ],
+        "valuations": [
+          1,
+          4
+        ]
+      },
+      {
+        "initial": 5,
+        "states": [
+          5,
+          1
+        ],
+        "valuations": [
+          4
+        ]
+      },
+      {
+        "initial": 7,
+        "states": [
+          7,
+          11,
+          17,
+          13,
+          5
+        ],
+        "valuations": [
+          1,
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "log3_upper_comparison": [
+      243,
+      256
+    ],
+    "minimum_nine_slope_comparison": [
+      1509909033949224437981629384719597568,
+      1578674370048367305943632032141672448
+    ],
+    "quadratic_coefficients": [
+      "-16/25",
+      "2",
+      "-1"
+    ],
+    "scope": "The product bound here uses addend one; generated q>1 cycles retain q.",
+    "slope_margin": 68765336099142867962002647422074880
+  },
+  "schema": "balanced-third-period-denominator-law-v2",
   "scope": "Exact polynomial identities and finite controls; the README supplies the unbounded proof.",
   "structure": {
     "counts": {
