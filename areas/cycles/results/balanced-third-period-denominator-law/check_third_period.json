@@ -1,0 +1,333 @@
+{
+  "fixtures": {
+    "arrows": 106,
+    "cycles": [
+      {
+        "balanced_third_period": false,
+        "d": 5,
+        "denominator": 5,
+        "word": [
+          3
+        ]
+      },
+      {
+        "balanced_third_period": false,
+        "d": 5,
+        "denominator": 5,
+        "word": [
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "balanced_third_period": false,
+        "d": 5,
+        "denominator": 5,
+        "word": [
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "balanced_third_period": false,
+        "d": 5,
+        "denominator": 5,
+        "word": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          1,
+          5
+        ]
+      },
+      {
+        "balanced_third_period": false,
+        "d": 5,
+        "denominator": 5,
+        "word": [
+          1,
+          1,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4,
+          1,
+          2,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "balanced_third_period": false,
+        "d": 7,
+        "denominator": 7,
+        "word": [
+          1,
+          3
+        ]
+      },
+      {
+        "balanced_third_period": false,
+        "d": 13,
+        "denominator": 13,
+        "word": [
+          4
+        ]
+      },
+      {
+        "balanced_third_period": false,
+        "d": 13,
+        "denominator": 13,
+        "word": [
+          1,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          5
+        ]
+      },
+      {
+        "balanced_third_period": false,
+        "d": 13,
+        "denominator": 13,
+        "word": [
+          1,
+          1,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "balanced_third_period": false,
+        "d": 61,
+        "denominator": 61,
+        "word": [
+          6
+        ]
+      },
+      {
+        "balanced_third_period": false,
+        "d": 61,
+        "denominator": 61,
+        "word": [
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          3,
+          1,
+          2,
+          2,
+          2,
+          3,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          2,
+          1,
+          3,
+          2
+        ]
+      }
+    ],
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+  },
+  "lattice": {
+    "actual_arrows": 427662,
+    "cases_sha256": "8ae44b806b5493b5e019bf9cdabf557e6af9eaaa728f2b21a569994391de0745",
+    "examples": {
+      "negative": {
+        "A": [
+          1
+        ],
+        "B": [
+          3
+        ],
+        "d0": 1,
+        "delta": 1,
+        "h": -5,
+        "q": 3367,
+        "s": 49,
+        "t": 31,
+        "word": [
+          2,
+          3,
+          1,
+          2,
+          1,
+          3
+        ]
+      },
+      "positive": {
+        "A": [
+          1,
+          1
+        ],
+        "B": [
+          3
+        ],
+        "d0": 1,
+        "delta": 1,
+        "h": 277,
+        "q": 2617,
+        "s": 179,
+        "t": 331,
+        "word": [
+          1,
+          2,
+          3,
+          1,
+          1,
+          2,
+          1,
+          1,
+          3
+        ]
+      }
+    },
+    "identities": 26040,
+    "lattice_signs": {
+      "negative": 25832,
+      "positive": 137,
+      "zero": 0
+    },
+    "positive_words": 25969,
+    "ranges": {
+      "A_length": [
+        1,
+        3
+      ],
+      "A_letters": [
+        1,
+        4
+      ],
+      "B_length": [
+        1,
+        3
+      ],
+      "B_letters": [
+        1,
+        5
+      ],
+      "delta": "1 through last(B)-1"
+    },
+    "smallest_law_ratio": "670761/512",
+    "smallest_ratio_example": {
+      "A": [
+        2
+      ],
+      "B": [
+        2
+      ],
+      "d0": 1,
+      "delta": 1,
+      "h": -1,
+      "q": 91,
+      "s": 1,
+      "t": 1,
+      "word": [
+        3,
+        2,
+        2,
+        1,
+        2,
+        2
+      ]
+    }
+  },
+  "schema": "balanced-third-period-denominator-law-v1",
+  "scope": "Exact polynomial identities and finite controls; the README supplies the unbounded proof.",
+  "structure": {
+    "counts": {
+      "aligned": 2520,
+      "four_mismatch_words": 6120,
+      "positive_balanced_words": 3708,
+      "rotation_checks": 7236,
+      "unaligned": 1260,
+      "unbalanced_words": 2340,
+      "words": 23319
+    },
+    "exhaustive_words": 20439,
+    "positive_cases_sha256": "937d0570654e7252b838bb30a73fd31c326bf719cc8fd35c6861e2edf68d409a",
+    "ranges": {
+      "exhaustive_g": [
+        1,
+        3
+      ],
+      "exhaustive_letters": [
+        1,
+        3
+      ],
+      "generated_delta": [
+        1,
+        2
+      ],
+      "generated_g": [
+        4,
+        8
+      ],
+      "generated_positions": "all pairs in distinct columns",
+      "generated_template": "U_i=3+(i mod 3)"
+    }
+  },
+  "symbolic": {
+    "identities": 5,
+    "ring": "integer Laurent polynomials in alpha,beta,Q,S,C,E,k,h,t,s"
+  }
+}
