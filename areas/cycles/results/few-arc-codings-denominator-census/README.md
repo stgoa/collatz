@@ -55,8 +55,17 @@ A word can appear in several censuses (an `s`-arc coding for one `h` may be an `
 1. **The candidate holds throughout.** `log₂R ≤ −8.75` (`s = 2`, at `m = 3`), `≤ −17.55` (`s = 3`, at `m = 5`), `≤ −13.47` (`s = 4`, at `m = 8`). Per `m`, the maximum of `log₂R` falls about linearly: for `s = 3` it is `−25.6` at `m = 10` and `−99.3` at `m = 30`.
 2. **Cancellation is at most half of `2^A`, for `m ≥ 9`.** `log₂G − A/2 ≤ −2.81` in all three two-arc censuses, `≤ −0.93` for `s = 3` (at `m = 10`: `w = (3,2,1,3,2,1,1,2,2,1)`, `G = 269`), and `≤ −0.06` for `s = 4` (at `m = 22`, the two-marker word `(1, 2^10, 3, 2^10)`, `G = 2^22 − 3^11`). The **only** word with `G² ≥ 2^A` in any census is `(1,1,2,2,1,1,3,3)`, `m = 8`, `A = 14`, `G = 893 = 19·47`, `q = 11`: the actual `3x+11` cycle `13 → 25 → 43 → 35 → 29 → 49 → 79 → 31 → 13`.
 3. **Denominators grow like `2^(0.9m)`, not `2^(0.2m)`.** For `m ≥ 9`, `log₂q ≥ 0.896·m` in every census with `s ≤ 3` and `≥ 0.812·m` for `s = 4`. For `m ≥ 3`, `log₂q ≥ 0.740·m` everywhere except the `3x+11` word above (`0.432`). The floor `0.896` is attained at `m = 10` by the two-block word `1^4 2^6` (`q = 499`) and the floor `0.812` at `m = 17` by `(2,3,2,3,1,3,1,3,1^9)` (`q = 14,303`).
-4. **The proved two-arc bound is far off where it matters.** On the near-critical words `A ≤ m·log₂3 + 1` (the only regime a `q = 1` cycle can occupy), the bound (7) of [`two-defect-cancellation-bound`](../two-defect-cancellation-bound.md), `q > (1 − 3^m/2^A)(2/√3)^m`, is below the true `q` by at least 4.38 bits at every `m`, by at least 10.22 bits for `m ≥ 10`, by 17.3 bits at `m = 17` (`1^7 2^10`: bound `0.44`, `q = 71,515`) and by 50.5 bits at `m = 36`. The margin grows about like `0.7m − log₂(D/2^A)`.
+4. **The proved two-arc bound is far off where it matters.** On the near-critical words `A ≤ m·log₂3 + 1`, the bound (7) of [`two-defect-cancellation-bound`](../two-defect-cancellation-bound.md), `q > (1 − 3^m/2^A)(2/√3)^m`, is below the true `q` by at least 4.38 bits at every `m`, by at least 10.22 bits for `m ≥ 10`, by 17.3 bits at `m = 17` (`1^7 2^10`: bound `0.44`, `q = 71,515`) and by 50.5 bits at `m = 36`. The margin grows about like `0.7m − log₂(D/2^A)`.
 5. **Two exact patterns in the extremes**, both verified by the certificate for the stated ranges and unproved in general: the two-marker words `(1, 2^(n−1), 3, 2^(n−1))` have `G = 4^n − 3^n`, `q = 4^n + 3^n` (proved in [`two-marker-constant-background-exact-denominator`](../two-marker-constant-background-exact-denominator/README.md)); and the two-arc `(1,3)` words on two equal arcs along the track of `h = m/2 − 1` have `G = (2^m − 3^(m/2))/7` for `m = 12, 16, …, 40`, i.e. nearly the whole algebraic factor `2^(A/2) − 3^(m/2)` of `D = 2^(2m) − 3^m`.
+
+**Scope correction (2026-11-08).** Finding 4 concerns an explicitly
+near-critical subset. The former parenthetical claim that this is the
+only regime a `q = 1` cycle can occupy is not established here for
+unbounded minimal period. The [closing identity](../global-drift-ceiling.md)
+gives `δ ≤ m·log₂(1+1/(3L)) < m/(3L·ln 2)` at `q = 1`.
+Thus `m ≤ 3L·ln 2` suffices for near-criticality. This estimate does
+not establish near-criticality from a lower bound on `L` alone. The finite findings do not require the former
+universal assertion and are unchanged.
 
 Selected rows of the receipt (`min` and `max` are over the words of that `m`):
 
@@ -112,6 +121,8 @@ The `3x+11` and `3x+25` cycles quoted were recomputed from the words (states `C_
 - **Scope.** Finite ranges only: no statement about `m` beyond the tables, and nothing about `q = 1` cycles, which would need `m > 1.375·10^11`. Novelty undetermined; the enumeration method (words with `s(h) = s` as rotation codings) is elementary.
 
 ## History
+
+- 2026-11-08: qualified the parenthetical claim that near-criticality is the only possible regime at `q = 1`. Recorded the missing period condition without changing the finite claim, certificate or status (Codex research lane, GPT-6 Astra; directed by Santiago Armstrong).
 
 - Written 2026-10-28 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, as the first new result after the knowledge-graph migration. Exploration scripts live outside the repository; the certificate is the record.
 - 2026-10-28, later: Remarks link the algebraic/primitive decomposition node.

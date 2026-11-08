@@ -50,7 +50,18 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
 
 ## Why it matters
 
-- **Payoff at `q = 1` (form A).** A nontrivial `q = 1` cycle has `G = D`, hence `g_prim = Φ_e(2^(A/e), 3^(m/e))`. With `x/y = (2^A/3^m)^(1/e)` just above 1, `Φ_e(x, y) = y^φ(e)·Φ_e(x/y) ≈ 3^(mφ(e)/e)·Φ_e(1)`, which exceeds `2^(A/2)` whenever `φ(e)/e > 1/2` (for `e = 2, 4, 8`: `Φ_e = x^(e/2) + y^(e/2) > 2^(A/2)` exactly), and for `e = 1` it is `D` itself, which the replayed gap EXT-1 ([`musson-collatz-gap-all`](../../../sources/musson-collatz-gap-all.md)) puts above `2^(A/2)` for `m > 5,580` and the irrationality measure of [`rhin-1987-irrationality-measure`](../../../sources/rhin-1987-irrationality-measure.md), as recorded, for `m ≥ 131`. So (A) excludes every rotation with at most four mismatches for every `q = 1` cycle whose `gcd(A, m)` is 1, a prime power, or any `e` with `φ(e)/e > 1/2`; with the period bound of [`hercher-2023-cycle-length`](../../../sources/hercher-2023-cycle-length.md) that is `ρ ≥ 5` ([`rotation-distance-at-least-5`](rotation-distance-at-least-5.md)) for those cycles. It is silent when `φ(e)/e < 1/2`, i.e. when `e` is even with a second prime factor (`6, 10, 12, 14, …`) or odd with many prime factors (`105, …`); form (B) would cover those too, since a `q = 1` cycle is near-critical.
+- **Payoff at `q = 1` (form A).** A nontrivial `q = 1` cycle has `G = D`, hence `g_prim = Φ_e(2^(A/e), 3^(m/e))`. With `x/y = (2^A/3^m)^(1/e)` just above 1, `Φ_e(x, y) = y^φ(e)·Φ_e(x/y) ≈ 3^(mφ(e)/e)·Φ_e(1)`, which exceeds `2^(A/2)` whenever `φ(e)/e > 1/2` (for `e = 2, 4, 8`: `Φ_e = x^(e/2) + y^(e/2) > 2^(A/2)` exactly), and for `e = 1` it is `D` itself, which the replayed gap EXT-1 ([`musson-collatz-gap-all`](../../../sources/musson-collatz-gap-all.md)) puts above `2^(A/2)` for `m > 5,580` and the irrationality measure of [`rhin-1987-irrationality-measure`](../../../sources/rhin-1987-irrationality-measure.md), as recorded, for `m ≥ 131`. So (A) excludes every rotation with at most four mismatches for every `q = 1` cycle whose `gcd(A, m)` is 1, a prime power, or any `e` with `φ(e)/e > 1/2`; with the period bound of [`hercher-2023-cycle-length`](../../../sources/hercher-2023-cycle-length.md) that is `ρ ≥ 5` ([`rotation-distance-at-least-5`](rotation-distance-at-least-5.md)) for those cycles. It is silent when `φ(e)/e < 1/2`, i.e. when `e` is even with a second prime factor (`6, 10, 12, 14, …`) or odd with many prime factors (`105, …`); the proposed form (B) would cover those too under the additional near-critical hypothesis.
+- **Scope correction (2026-11-08).** The former assertion that every
+  `q = 1` cycle is near-critical is not established here for unbounded
+  minimal period. The closing identity in
+  [`global-drift-ceiling`](../results/global-drift-ceiling.md) gives
+  `δ=A−m·log₂3 ≤ m·log₂(1+1/(3L)) < m/(3L·ln 2)`.
+  Thus `m ≤ 3L·ln 2` suffices for `δ<1`. This estimate does not
+  establish near-criticality from a lower bound on `L` alone. Near-criticality must remain an explicit hypothesis
+  unless separately proved. This is a qualification of the earlier
+  payoff discussion; no counterexample to universal near-criticality is claimed.
+  The recorded refutations of (A′), (B) and the open part (C) are unchanged.
+
 - **It is what the data support.** Across the censuses ([`few-arc-codings-denominator-census`](../results/few-arc-codings-denominator-census/README.md), [`algebraic-and-primitive-cancellation-census`](../results/algebraic-and-primitive-cancellation-census/README.md)) `g_prim ≤ 2^16.2` with `A` up to 141 and `log₂(g_prim)/A ≤ 0.446`; in the doubled-word families the primitive part is at most 305 while the algebraic part is all of `2^(A/2) − 3^(m/2)` ([`doubled-words-periodic-and-antiperiodic-points`](../results/doubled-words-periodic-and-antiperiodic-points/README.md)). Every large cancellation ever observed is algebraic.
 - **It is sharp.** For `ρ = 2` words the algebraic part alone reaches `2^(A/2)·(1 − 3^(m/2)/2^(A/2))`, within `7·10^(−6)` bits of `2^(A/2)` ([`doubled-words-periodic-and-antiperiodic-points`](../results/doubled-words-periodic-and-antiperiodic-points/README.md), the `3x+257` word); the exponent `A/2` in (A) cannot be lowered for `e = 2` either, where the conjecture says exactly `Φ₂ ∤ C_w` ([`near-doubled-words-primitive-factor-test`](../results/near-doubled-words-primitive-factor-test/README.md)).
 
@@ -178,6 +189,8 @@ Proposals, not results.
 - **Two arcs, non-Sturmian case.** Bound `gcd(C_u, C_v)` for the two arcs of a two-interval rotation coding whose interval length differs from the step, by a Rauzy-type induction on the arc, as suggested in [`half-cancellation-for-few-mismatch-words`](half-cancellation-for-few-mismatch-words.md).
 
 ## History
+
+- 2026-11-08: corrected the unsupported implication from `q = 1` alone to near-criticality in the historical payoff discussion. Added the period-dependent drift bound and a sufficient condition, without changing the remaining question or its status (Codex research lane, GPT-6 Astra; directed by Santiago Armstrong).
 
 - 2026-11-08: added the scoped sparse four-arc classification and
   its near-critical denominator-1 exclusion (Codex four-arc research
