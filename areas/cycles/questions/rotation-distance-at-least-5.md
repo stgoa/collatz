@@ -131,6 +131,17 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: restrict the Mersenne target to larger positive interfaces.**
+Under LMN, the [negative-interface theorem](../results/negative-interface-mersenne-exclusion/README.md)
+excludes both orders at every level. Together with the
+[positive-interface theorem](../results/positive-interface-mersenne-exclusion/README.md),
+this excludes all normal-form candidates with `r<=256`.
+Remaining candidates have positive interface, `r>=257`, and
+`8r>5J` in low-to-high order or `32r>J` in high-to-low order.
+These results supersede the narrower normal-form targets below;
+the earlier text is retained as history. They do not settle
+other defect classes or general four-mismatch rotations.
+
 **2026-11-08: move to the other order or higher low levels.** The
 [unit-low-level theorem](../results/unit-low-level-mersenne-exclusion/README.md)
 settles all low-to-high `r=1` denominator-one candidates under
@@ -202,6 +213,12 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: combined the all-level negative-interface exclusion
+  with the positive-interface low-level and level-ratio exclusions,
+  leaving the stated larger positive-interface regions under LMN.
+  The general question remains open (Codex signed-endpoint research
+  lane, GPT-6 Astra; directed by Santiago Armstrong).
 
 - 2026-11-08: added the all-length
   [`unit-low-level-mersenne-exclusion`](../results/unit-low-level-mersenne-exclusion/README.md)
