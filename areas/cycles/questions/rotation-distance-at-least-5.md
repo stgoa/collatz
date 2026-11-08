@@ -131,6 +131,22 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: move beyond singleton nonrepeated-label arcs.**
+Under EXT-1 and the declared Barina convergence input, the
+[general three-label theorem](../results/general-three-label-four-arc-exclusion/README.md)
+excludes every coprime-track word `V,A^a,B^b,A^c` with positive
+arc lengths and pairwise distinct positive labels, at every length.
+This settles the `V>t>=3` target below; its earlier text is retained
+as history. For coprime tracks, the remaining four-arc shapes have
+four distinct labels, two alternating labels, or three labels with
+both nonrepeated-label arcs of length at least two. Noncoprime
+rotations also remain open. Every coprime four-mismatch candidate
+now satisfies the
+[logarithmic inverse-complexity bound](../results/four-mismatch-inverse-continued-fraction-bound/README.md),
+`K(h^(-1)/m)<21942log_2(m)+11099` under EXT-1. The next task is
+to combine that constraint with the arithmetic of these remaining
+arc patterns; their exclusion is not supplied by the new theorem.
+
 **2026-11-08: move beyond the two-level and background-maximum families.**
 For the coprime track shape `V,A^a,B^b,A^c`, with
 `a,b,c>=1` and pairwise distinct positive labels, the
@@ -266,6 +282,14 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: recorded the three-label singleton nonrepeated-label arc exclusion
+  under EXT-1 plus Barina and the logarithmic inverse-complexity
+  theorem for every coprime four-mismatch rotation. The remaining
+  arc patterns above replace the narrower `V>t>=3` target, whose
+  original statement is preserved. The general question remains
+  open (Codex main research lane, GPT-6 Astra; directed by Santiago
+  Armstrong).
 
 - 2026-11-08: recorded the all-length background-maximum and
   both-arrangement two-level exclusions under EXT-1 plus Barina,

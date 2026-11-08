@@ -1,0 +1,92 @@
+{
+  "constants": {
+    "contracting_base_margin": "1548442",
+    "cutoff_bits": 22,
+    "expanding_error_at_base": "56885/12582912",
+    "geometric_error_threshold": "1/193",
+    "minimum": 129,
+    "weighted_complexity_coefficient": 512
+  },
+  "dependency_replays": [
+    {
+      "node": "sparse-two-level-four-arc-exclusion",
+      "receipt_sha256": "3b15c43c604f9dc87e3b9bb6e4aefb65d19b6ea8934f9f1b79473f307d0aaaed",
+      "result": "passed",
+      "script_sha256": "efa444488f3687ea5c2f74e1b8014a2e22fafb256bea0f29077968cc1eb3c2fe"
+    },
+    {
+      "node": "cycle-length-lower-bound-from-convergents",
+      "receipt_sha256": "e48b19926ca0c155032a9d85d3c28f3f6fbe69ae404163638414a7c848c65f64",
+      "result": "passed",
+      "script_sha256": "fd303326cf159435a3b05fb9188cc3a870e62da04a5348b937778f91d008b6d2"
+    }
+  ],
+  "discrepancy": {
+    "high_labels": [
+      2,
+      3,
+      9,
+      100
+    ],
+    "periods": [
+      3,
+      18
+    ],
+    "proper_factors": 868496,
+    "scope": "Finite transfer checks; the general discrepancy theorem is a declared dependency.",
+    "templates": 4560
+  },
+  "family_controls": {
+    "addend_run_checks": 89284,
+    "branches": {
+      "background_maximum": 17110,
+      "both_backgrounds_above_one": 73920,
+      "singleton_maximum": 16250
+    },
+    "exact_arrows": 1091040,
+    "geometry_words": 110880,
+    "labels": [
+      1,
+      6
+    ],
+    "minimum_reduced_addend": 13,
+    "parameter_sha256": "afeb8e1ad6e94530286b4e447c7023f7f1bbcd4fd2a590fcc97a87978d8c4364",
+    "periods": [
+      4,
+      12
+    ],
+    "reduced_cycles": 107280,
+    "scope": "All ordered distinct labels in1..6, positive arc lengths and coprime steps in the stated finite period range; actual3x+q cycles keepq."
+  },
+  "local_descent": {
+    "maximum_steps": 43,
+    "odd_seed_range": [
+      3,
+      127
+    ],
+    "odd_steps": 960,
+    "seeds": 63
+  },
+  "minimum_runs": {
+    "exact_arrows": 35262,
+    "minimum_return_segments": 1909,
+    "odd_quotients": [
+      1,
+      127
+    ],
+    "ones_lengths": [
+      1,
+      32
+    ],
+    "parameter_sha256": "52601bd4098b1d828f526a1b91048ccc8fc2d247d412932c550e4da90179dbae",
+    "scope": "Exact integer orbit segments returning above their start; no cycle asserted."
+  },
+  "schema": "general-three-label-controls-v1",
+  "standard_controls": {
+    "addend_run_checks": 25,
+    "cycles": 11,
+    "exact_arrows": 106,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "scope": "q retained; q1 minimum and drift ceilings are not applied to these controls."
+  }
+}
