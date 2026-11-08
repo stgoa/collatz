@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**288 results, 31 attempts, 39 questions, 39 sources.**
+**289 results, 31 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -260,6 +260,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines/README.md) | Order-free baselines for cycle minima and denominators (extremal, packing, product) | reviewed | reviewed | — |  |
 | [`global-drift-ceiling`](areas/cycles/results/global-drift-ceiling.md) | The global-drift ceiling: log₂(n_k/L) ≤ k·log₂(3/2) − X_k + δ at every q, with no hypothe… | formal | formal | — | yes |
 | [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) | The half-cancellation bound fails at four mismatches: a word of length 20 with G² ≈ 22·2^A | written | written | — | yes |
+| [`high-order-four-mismatch-exclusion`](areas/cycles/results/high-order-four-mismatch-exclusion/README.md) | Four-mismatch rotations have order at most eighteen | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`largest-letter-rho-reduction`](areas/cycles/results/largest-letter-rho-reduction.md) | A low-mismatch rotation forces a letter of linear size, so ρ → ∞ follows from a largest l… | reviewed | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
 | [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) | A lifted four-arc family has no denominator-one word | written | written | `musson-collatz-gap-all` |  |
 | [`mechanical-cycles-high-rational-controls`](areas/cycles/results/mechanical-cycles-high-rational-controls/README.md) | Mechanical cycles give rational 3x+1 cycles and integer 3x+d cycles arbitrarily far above… | formal | formal | — | yes |
@@ -441,7 +442,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 |---|---|---|---|
 | [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) | Adamczewski–Bell: a problem about Mahler functions | cited | 0 |
 | [`ansari-2025-recursive-sieve`](sources/ansari-2025-recursive-sieve.md) | Ansari (2025): recursively sufficient sets and a ternary-digit sieve | cited | 0 |
-| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 16 |
+| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 17 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
 | [`cerda-bennassar-2026-periodic-perturbations`](sources/cerda-bennassar-2026-periodic-perturbations.md) | Cerdá Bennassar (2026): perturbations of the periodic word (1,2) | cited | 0 |
@@ -470,7 +471,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 29 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 30 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
@@ -723,13 +724,13 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`four-mismatch-inverse-continued-fraction-bound`](areas/cycles/results/four-mismatch-inverse-continued-fraction-bound/README.md) added (result)
 - 2026-11-08: [`free-four-cut-eighteen-rotation-obstruction`](areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/README.md) added (result)
 - 2026-11-08: [`general-three-label-four-arc-exclusion`](areas/cycles/results/general-three-label-four-arc-exclusion/README.md) added (result)
+- 2026-11-08: [`high-order-four-mismatch-exclusion`](areas/cycles/results/high-order-four-mismatch-exclusion/README.md) added (result)
 - 2026-11-08: [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) added (result)
 - 2026-11-08: [`mechanical-edit-denominator-law`](areas/cycles/results/mechanical-edit-denominator-law/README.md) added (result)
 - 2026-11-08: [`mersenne-boundary-exact-divisibility`](areas/cycles/results/mersenne-boundary-exact-divisibility/README.md) added (result)
 - 2026-11-08: [`mersenne-join-state-enclosure`](areas/cycles/results/mersenne-join-state-enclosure/README.md) added (result)
 - 2026-11-08: [`near-critical-four-mismatch-corpus-counterexample`](areas/cycles/results/near-critical-four-mismatch-corpus-counterexample/README.md) added (result)
 - 2026-11-08: [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) added (result)
-- 2026-11-08: [`negative-interface-mersenne-exclusion`](areas/cycles/results/negative-interface-mersenne-exclusion/README.md) added (result)
 
 ## Contributors
 
@@ -737,7 +738,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 55.5% | 203 | 9 |
+| ChatGPT main lane | 55.4% | 203 | 9 |
 | Claude side lane | 13.7% | 34 | 132 |
 | Claude review lane | 7.7% | 0 | 121 |
 | Claude cycles lane | 5.2% | 21 | 0 |
@@ -746,15 +747,15 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Claude PR1 lane | 1.9% | 6 | 9 |
 | Codex four-arc research lane | 1.5% | 16 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
+| Codex root research lane | 0.8% | 11 | 0 |
 | Codex signed-endpoint formalisation lane | 0.7% | 4 | 0 |
-| Codex root research lane | 0.7% | 10 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
 | Codex residue research lane | 0.6% | 9 | 0 |
 | Codex main research lane | 0.4% | 5 | 0 |
 | Codex crossing research lane | 0.3% | 2 | 0 |
 | Codex formalisation lane | 0.3% | 2 | 0 |
-| Codex directing research lane | 0.1% | 3 | 0 |
+| Codex directing research lane | 0.2% | 3 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
