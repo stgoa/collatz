@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**255 results, 29 attempts, 39 questions, 33 sources.**
+**256 results, 29 attempts, 39 questions, 34 sources.**
 
 ## Frontier: open questions
 
@@ -236,6 +236,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`doubled-word-factor-gcd-identities`](areas/cycles/results/doubled-word-factor-gcd-identities/README.md) | Doubled words: gcd identities for the two factors of D, machine-checked | formal | formal | — | yes |
 | [`doubled-words-periodic-and-antiperiodic-points`](areas/cycles/results/doubled-words-periodic-and-antiperiodic-points/README.md) | Doubled words: the two factors of D test the half-words' periodic and antiperiodic points | written | written | — |  |
 | [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) | Dyadic normalisation of a cycle, the exact inversion formula and the order lemma | reviewed | reviewed | — | yes |
+| [`effective-proportional-two-block-exclusion`](areas/cycles/results/effective-proportional-two-block-exclusion/README.md) | Effective denominator growth for two repeated blocks of proportional slope | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) | Equal-amplitude half defects reduce to a balanced transfer | written | written | — |  |
 | [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) | Two different equal-total blocks repeated at least three times never give an integer cycle | formal | formal | — | yes |
 | [`excursion-cut-lemma`](areas/cycles/results/excursion-cut-lemma.md) | An exact endpoint relation forces every intermediate odd state, and closing two blocks gi… | formal | formal | — | yes |
@@ -406,7 +407,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 |---|---|---|---|
 | [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) | Adamczewski–Bell: a problem about Mahler functions | cited | 0 |
 | [`ansari-2025-recursive-sieve`](sources/ansari-2025-recursive-sieve.md) | Ansari (2025): recursively sufficient sets and a ternary-digit sieve | cited | 0 |
-| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 4 |
+| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 5 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
 | [`cerda-bennassar-2026-periodic-perturbations`](sources/cerda-bennassar-2026-periodic-perturbations.md) | Cerdá Bennassar (2026): perturbations of the periodic word (1,2) | cited | 0 |
@@ -416,6 +417,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`eilenberg-finite-kernel`](sources/eilenberg-finite-kernel.md) | Eilenberg's finite-kernel characterisation of automatic sequences | cited | 2 |
 | [`eliahou-1993-cycle-length`](sources/eliahou-1993-cycle-length.md) | Eliahou (1993): lower bound on nontrivial cycle length | cited | 0 |
 | [`everett-1977-stopping-time`](sources/everett-1977-stopping-time.md) | Everett (1977): density one of integers with finite stopping time | cited | 0 |
+| [`fourier-wren-2026-two-periodic-stretches`](sources/fourier-wren-2026-two-periodic-stretches.md) | fourier_wren (2026): Collatz cycles with two periodic stretches | cited | 0 |
 | [`halbeisen-1997-rational-cycles`](sources/halbeisen-1997-rational-cycles.md) | Halbeisen–Hungerbühler (1997): optimal bounds for rational Collatz cycles | cited | 0 |
 | [`hercher-2023-cycle-length`](sources/hercher-2023-cycle-length.md) | Hercher (2023): no Collatz m-cycles with m ≤ 91, and the period bound | cited | 2 |
 | [`knight-2026-high-cycles`](sources/knight-2026-high-cycles.md) | Knight: Collatz high cycles do not exist | cited | 0 |
@@ -429,7 +431,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 10 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 11 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
@@ -666,6 +668,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 - 2026-11-08: [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) added (result)
 - 2026-11-08: [`bounded-unequal-half-defect-exclusion`](areas/cycles/results/bounded-unequal-half-defect-exclusion/README.md) added (result)
+- 2026-11-08: [`effective-proportional-two-block-exclusion`](areas/cycles/results/effective-proportional-two-block-exclusion/README.md) added (result)
 - 2026-11-08: [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) added (result)
 - 2026-11-08: [`expanding-background-defect-growth`](areas/cycles/results/expanding-background-defect-growth/README.md) added (result)
 - 2026-11-08: [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) added (result)
@@ -683,12 +686,11 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`unequal-two-four-half-defect-classification`](areas/cycles/results/unequal-two-four-half-defect-classification/README.md) added (result)
 - 2026-11-08: [`saturated-residue-automata-uniform-connectivity`](areas/invariants/results/saturated-residue-automata-uniform-connectivity/README.md) added (result)
 - 2026-11-08: [`cerda-bennassar-2026-periodic-perturbations`](sources/cerda-bennassar-2026-periodic-perturbations.md) added (source)
+- 2026-11-08: [`fourier-wren-2026-two-periodic-stretches`](sources/fourier-wren-2026-two-periodic-stretches.md) added (source)
 - 2026-11-08: [`lyapunov-weaver-2026-periodic-dictionary-complexity`](sources/lyapunov-weaver-2026-periodic-dictionary-complexity.md) added (source)
 - 2026-11-08: [`simons-2008-generalized-syracuse-cycles`](sources/simons-2008-generalized-syracuse-cycles.md) added (source)
 - 2026-11-01: [`collatz-conjecture-logical-form`](areas/decidability/results/collatz-conjecture-logical-form/README.md) added (result)
 - 2026-11-01: [`inverse-syracuse-binary-coding`](areas/decidability/results/inverse-syracuse-binary-coding/README.md) added (result)
-- 2026-11-01: [`synchronised-coding-pcp-reduction`](areas/decidability/results/synchronised-coding-pcp-reduction/README.md) added (result)
-- 2026-11-01: [`undecidable-collatz-family-threshold`](areas/decidability/questions/undecidable-collatz-family-threshold.md) added (question)
 
 ## Contributors
 
@@ -696,7 +698,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 59.5% | 203 | 9 |
+| ChatGPT main lane | 59.4% | 203 | 9 |
 | Claude side lane | 14.5% | 34 | 132 |
 | Claude review lane | 8.3% | 0 | 121 |
 | Claude Lean lane | 5.3% | 3 | 69 |
@@ -708,6 +710,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex four-arc research lane | 0.6% | 4 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
 | Codex formalisation lane | 0.3% | 2 | 0 |
+| Codex proportional-block research lane | 0.2% | 1 | 0 |
 | Codex research lane | 0.2% | 1 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 
