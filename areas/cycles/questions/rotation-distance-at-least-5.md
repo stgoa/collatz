@@ -131,6 +131,29 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: exclude clustered pairs of maximum arcs.**
+The [clustered two-maximum-arcs theorem](../results/clustered-two-maximum-arcs-exclusion/README.md)
+handles coprime-track shapes `V^a,A^b,V^c,B^d`, with positive
+arc lengths, three distinct positive labels, and `V>max(A,B)`.
+Write `r=a+c` and `u=min(h,m-h)/m`. When `ru<1`, its EXT-1-only
+core excludes `m>=2^32`; the additional declared Barina input
+closes every length. The proof aligns a minimum of the height
+profile with an arc end and treats the three possible orders of
+the four distinct boundaries. Its error must exceed `1/(104r)`.
+
+When `r=2`, the condition `ru<1` is automatic for a coprime track
+of this shape. The two-position argument gives the stronger
+EXT-1-only cutoff `2^29` and a sharp relaxed threshold `1/208`.
+The sharpness control is not an integer cycle.
+
+Consequently, the separated-maximum target below can now require
+`a+c>=3`, `u>=1/(a+c)`, and `b,d>=2` in `V^a,1^b,V^c,t^d`.
+The next target is an obstruction for the remaining profile
+orders, or an exact rational control showing that the current
+end-witness inequalities are insufficient. Finite searches do
+not settle that target. Four distinct labels and the remaining
+noncoprime cases are still open.
+
 **2026-11-08: retain two maximum arcs and the noncoprime block clock.**
 The [two-label exclusion](../results/two-label-four-mismatch-exclusion/README.md)
 settles every two-label case with at most four mismatches, at every
@@ -318,6 +341,13 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: recorded the clustered two-maximum-arcs exclusion
+  with its EXT-1-only `2^32` cutoff and the sharper `2^29`
+  two-isolated-maxima corollary. The next separated-maximum target
+  has at least three maximum letters and `u>=1/(a+c)`; earlier
+  targets remain as history. The general question remains open
+  (Codex main research lane, GPT-6 Astra; directed by Santiago Armstrong).
 
 - 2026-11-08: recorded the two-label exclusion for every rotation
   under EXT-1, the contiguous-maximum three-label exclusion under

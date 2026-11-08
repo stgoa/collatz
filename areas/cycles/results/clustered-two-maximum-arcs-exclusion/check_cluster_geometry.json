@@ -1,0 +1,186 @@
+{
+  "polynomial_checks": {
+    "case1_positive_coefficients_in_a_minus_1_c_minus_1": {
+      "(a-1)(c-1)": "1",
+      "(a-1)^2": "5/8",
+      "1": "3/5",
+      "a-1": "129/65",
+      "c-1": "8/13"
+    },
+    "case2_residual_at_error": "a-1",
+    "case3_minimum_residual_at_error": "25/104",
+    "exact_polynomial_identities": 4,
+    "finite_constant_sha256": "b165c2d3ac9591dcaf6df7837e104aed6be0720a9f589f4112a837b8c95dfae1",
+    "maximum_multiplicity_range": [
+      2,
+      38
+    ],
+    "parameter_pairs": 703,
+    "scope": "Coefficient identities and positive factors prove the elimination for every a,c>=1; the finite table only sets the uniform r<=38 constant.",
+    "uniform_error": "1/3952",
+    "variables": [
+      "a",
+      "c",
+      "u",
+      "epsilon",
+      "v"
+    ]
+  },
+  "profile_checks": {
+    "counts": {
+      "aligned_minima": 164504,
+      "candidates": 219337,
+      "case1": 109670,
+      "case2": 28500,
+      "case3": 26334,
+      "coincident_boundaries": 4218,
+      "faithful_profiles": 164503,
+      "minima_at_first_arc_end": 82252,
+      "minima_at_second_arc_end": 82252,
+      "original_second_arc_wraps": 25308,
+      "overlapping_maximum_sets": 50616,
+      "tied_minimum_profiles": 1
+    },
+    "examples": {
+      "case1": {
+        "M": 9,
+        "a": 1,
+        "boundaries": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "c": 1,
+        "gap_numerators": [
+          6,
+          1,
+          1,
+          1
+        ],
+        "h": 1,
+        "paired_height_numerators": [
+          42,
+          42,
+          27,
+          27
+        ],
+        "profile_denominator": 144,
+        "required_error": "3/8",
+        "v": 7
+      },
+      "case2": {
+        "M": 9,
+        "a": 1,
+        "boundaries": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "c": 1,
+        "gap_numerators": [
+          6,
+          1,
+          1,
+          1
+        ],
+        "h": 2,
+        "paired_height_numerators": [
+          48,
+          42,
+          48,
+          27
+        ],
+        "profile_denominator": 144,
+        "required_error": "1/3",
+        "v": 8
+      },
+      "case3": {
+        "M": 13,
+        "a": 2,
+        "boundaries": [
+          9,
+          10,
+          12,
+          13
+        ],
+        "c": 1,
+        "gap_numerators": [
+          9,
+          1,
+          2,
+          1
+        ],
+        "h": 2,
+        "paired_height_numerators": [
+          99,
+          90,
+          69,
+          39
+        ],
+        "profile_denominator": 312,
+        "required_error": "3/8",
+        "v": 12
+      }
+    },
+    "extra_tied_minimum_parameters": [
+      100,
+      1,
+      1,
+      1,
+      50
+    ],
+    "grid": "2<=r<=38; a=1,...,r-1; M=4r+1; h in{1,2,3}; v=1,...,M-1",
+    "profile_sha256": "c3f953e8a2821ca6a151593d4ad10875a6cb01e60d71da3f177560ff4585b05c",
+    "scope": "Exact profiles of two disjoint finite orbit segments with four distinct boundaries; no integer cycle or universal enumeration claimed."
+  },
+  "schema": "clustered-two-maximum-arcs-geometry-v1",
+  "singleton_checks": {
+    "R": "3/8",
+    "scope": "Exact rational continuous control, not a cycle; u=1/2 is outside the strict clustered regime.",
+    "sharp_relaxed_control": {
+      "boundaries": [
+        "0",
+        "4/13",
+        "1/2",
+        "21/26"
+      ],
+      "each_gap_minus_height": "1/208",
+      "gaps": [
+        "5/26",
+        "4/13",
+        "5/26",
+        "4/13"
+      ],
+      "paired_heights": [
+        "3/16",
+        "63/208",
+        "3/16",
+        "63/208"
+      ],
+      "u": "1/2",
+      "v": "21/26"
+    },
+    "thresholds": [
+      "1/16",
+      "1/208"
+    ],
+    "wrap_boundary_control": {
+      "endpoints": [
+        "0",
+        "1/5",
+        "3/5"
+      ],
+      "paired_heights": [
+        "3/16",
+        "9/40",
+        "9/40"
+      ],
+      "u": "2/5",
+      "v": "3/5",
+      "wrapped_partner_height": "3/16"
+    }
+  },
+  "source_sha256": "4de257808e85b59ec5cf063123e761eafbb3b8611ad48a16643a23976f456f6a"
+}
