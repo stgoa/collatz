@@ -43,6 +43,27 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
 
 ## Known progress
 
+- **2026-11-08: modification parameters through twelve, at every length.**
+  [`near-doubled-crossing-orbit-exclusion`](../results/near-doubled-crossing-orbit-exclusion/README.md)
+  removes the coprimality restriction below for every one-letter raise
+  `2j`, `1<=j<=12`, and every transposition gap `1<=k<=12`. Finite
+  forward-closed sets for the auxiliary maps `3x+(2^k-1)` and their
+  exceptional signed endpoints prove the plus factor cannot cancel
+  completely, with no bound on the word length or the remaining letters.
+  At `e=2` this gives the primitive half bound without a near-critical
+  assumption. These two families do not cover all four-mismatch words.
+
+- **2026-11-08: clean-intercept target and coprime near-doubled cases proved.**
+  [`antiperiodic-intercept-nondivisibility`](../results/antiperiodic-intercept-nondivisibility/README.md)
+  proves `2^B t+3^n s` never divides the intercept of a positive word of length
+  `n` and total `B`, for all positive integers `s,t`: otherwise its affine
+  word would take a negative integer to a positive integer through integral
+  cuts. This settles the one-letter family when
+  `gcd(2^j-1,2^(B+j)+3^n)=1` (always for `j=1,2`) and the transposition
+  family when `gcd(2^k-1,2^B+3^n)=1` (always for letter gaps `k=1,2`).
+  At `e=2` these give the primitive half bound without any near-critical
+  restriction. The nonunit cases and general four-mismatch problem remain.
+
 - **`s = 2`, proved forms.** [`two-defect-cancellation-bound`](../results/two-defect-cancellation-bound.md) (7): `G² < 2^(2A−2m)·3^m`, far above `2^A`; its proof loses the gcd of the two arc intercepts. The Sturmian two-arc case is exact: `G | 2^k − 1` ([`two-arc-word-rotation-structure`](../results/two-arc-word-rotation-structure/README.md)).
 - **Censuses.** 493,483 few-arc census entries (`s ≤ 4`, `m ≤ 40`): `g_prim < 2^17`, random-divisor-like tail ([`algebraic-and-primitive-cancellation-census`](../results/algebraic-and-primitive-cancellation-census/README.md)); the plain bound held throughout those censuses for `m ≥ 9` ([`few-arc-codings-denominator-census`](../results/few-arc-codings-denominator-census/README.md)), because none of their words has a full algebraic factor together with a nontrivial primitive one.
 - **`e = 2`.** The conjecture is `Φ₂ = 2^(A/2) + 3^(m/2) ∤ C_w`; adversarial search over near-doubled words finds no violation ([`near-doubled-words-primitive-factor-test`](../results/near-doubled-words-primitive-factor-test/README.md)). The condition is the antiperiodic-point criterion `2^j·y_u − y_v ∈ Z` of [`doubled-words-periodic-and-antiperiodic-points`](../results/doubled-words-periodic-and-antiperiodic-points/README.md); in the one-letter family it is the twisted cycle condition `2^S + 3^n | (2^j − 1)·C_(u°)`.
@@ -56,11 +77,31 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
 Proposals, not results.
 
 - **Work modulo the primes of `Φ_e`.** `g_prim > 1` needs a prime `p | Φ_e(2^(A/e), 3^(m/e))`, i.e. `2^(A/e) ≡ ζ·3^(m/e) (mod p)` for a primitive `e`-th root of unity `ζ`, with `p | C_w`. The heuristic truth of (A) is that `C_w mod p` is equidistributed for such `p`; a proof needs the arithmetic of the few-arc intercepts modulo these primes, starting with `e = 1` (then `ζ = 1`, `2^A ≡ 3^m`, and `p | D`) and `e = 2` (`ζ = −1`).
-- **The antiperiodic formulation at `e = 2`.** By [`doubled-words-periodic-and-antiperiodic-points`](../results/doubled-words-periodic-and-antiperiodic-points/README.md), `Φ₂ | C_w` iff `2^j·y_u − y_v ∈ Z`. For near-doubled words this is a one-word statement about `u` (the twisted cycle condition); show that an intercept `C_z` (length `ℓ`, total `S`) is never divisible by `2^(S+j) + 3^ℓ` with `j ≥ 1` when `z` is a factor of a few-arc word, or find the structure that forces it.
+- **The remaining antiperiodic problem at `e = 2`.** The clean-intercept
+  subtarget is now proved by
+  [`antiperiodic-intercept-nondivisibility`](../results/antiperiodic-intercept-nondivisibility/README.md),
+  and the noncoprime factors are handled through parameter 12 by
+  [`near-doubled-crossing-orbit-exclusion`](../results/near-doubled-crossing-orbit-exclusion/README.md).
+  For larger parameters, classify the feasible signed segments of
+  `3x+(2^k-1)` subject to the near-critical inequality
+  `2^(2S)<2*3^(2n)` and the endpoint and word-fillability conditions.
+  Also study half-pairs with two unequal changes that are not a
+  transposition; those are not covered by the current argument.
 - **Test (B) adversarially** with the doubled-word constructions restricted to near-critical cycles: rotation pairs `(R_r u, R_(r+n/2) u)` of actual `3x+d` cycles with `d | n_r + n_(r+n/2)` and `2^(2S) < 2·3^(2n)`, and one-letter doublings of near-critical `3x+q'` cycles with `q' | 2^j + 1`; a violation would need a prime of `Φ₂` above `1/(1 − 3^n/2^S) ≥ 3.4` dividing `C_w`.
 - **Two arcs, non-Sturmian case.** Bound `gcd(C_u, C_v)` for the two arcs of a two-interval rotation coding whose interval length differs from the step, by a Rauzy-type induction on the arc, as suggested in [`half-cancellation-for-few-mismatch-words`](half-cancellation-for-few-mismatch-words.md).
 
 ## History
+
+- 2026-11-08: added the finite-crossing proof for all lengths with
+  modification parameters through 12 and replaced the now-solved
+  clean-intercept suggested attack with the remaining signed-segment
+  and nontransposition targets (Codex crossing research lane, GPT-6
+  Astra; directed by Santiago Armstrong). The near-critical question
+  and the general four-mismatch exclusion remain open.
+
+- 2026-11-08: added the signed-intercept theorem and its one-letter and
+  transposition consequences (Codex cycle research lane, GPT-6 Astra;
+  directed by Santiago Armstrong). The question remains open.
 
 - Posed 2026-10-31 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, as the surviving form of [`half-cancellation-for-few-mismatch-words`](half-cancellation-for-few-mismatch-words.md) after its refutation the same day.
 - 2026-10-31, later: Known progress gains the exact rotation-pair formula (Claude cycles lane, Fable 5.1).
