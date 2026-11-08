@@ -1,0 +1,745 @@
+{
+  "actual_controls": {
+    "cases_sha256": "eb5f857b5a0a4ecc8493b6e1c58b67296ad26bddf6cf9e95e2f5d55d71e1f85a",
+    "counts": {
+      "actual_cycles": 788,
+      "arrows": 21008,
+      "artificial_cuts": 53960,
+      "raw_coincidences": 148832,
+      "refined_runs": 104208
+    },
+    "examples": {
+      "one_four": {
+        "gcd": 1,
+        "order": 4,
+        "q": 281,
+        "shift": 1,
+        "states": [
+          19,
+          169,
+          197,
+          109
+        ],
+        "word": [
+          1,
+          2,
+          3,
+          5
+        ]
+      },
+      "two_two": {
+        "gcd": 2,
+        "order": 3,
+        "q": 64807,
+        "shift": 2,
+        "states": [
+          4013,
+          38423,
+          45019,
+          24983,
+          34939,
+          21203
+        ],
+        "word": [
+          1,
+          2,
+          3,
+          2,
+          3,
+          5
+        ]
+      }
+    },
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "orders": {
+      "3": 4,
+      "4": 16,
+      "5": 32,
+      "6": 16,
+      "7": 48,
+      "8": 32,
+      "9": 48,
+      "10": 32,
+      "11": 80,
+      "12": 32,
+      "13": 96,
+      "14": 48,
+      "15": 64,
+      "16": 64,
+      "17": 128,
+      "18": 48
+    },
+    "scope": "Actual primitive positive 3x+q cycles, retaining q. No absence inferred from controls.",
+    "shift_gcds": {
+      "1": 196,
+      "2": 296,
+      "3": 296
+    },
+    "standard_arrows": 106,
+    "standard_cycles": 11,
+    "track_shapes": {
+      "one_four": 588,
+      "two_two": 200
+    }
+  },
+  "boundary_controls": {
+    "cases_sha256": "32b6fd7dafd4c3fa06c31623c2926fa4a97b6daf7aa4a2c74e65012089071844",
+    "counts": {
+      "cases": 198
+    },
+    "order_two_control": {
+      "cuts": [
+        "0",
+        "1/4",
+        "1/2",
+        "3/4"
+      ],
+      "deficits": [
+        [
+          "-1/8",
+          "-1/32",
+          "-1/8",
+          "-1/32"
+        ]
+      ],
+      "maximum_deficit": "-1/32"
+    },
+    "scope": "Finite transfer controls; order-two points are not asserted to be a cycle."
+  },
+  "cutoff_constants": {
+    "dyadic_error_upper": "9665/100663296",
+    "full_odd_period_strict_upper": 67108864,
+    "imported_full_odd_period_lower": 72057431991,
+    "scope": "Transfer and local descent are proved in the declared high-order predecessor; only the final period bound imports Barina.",
+    "strict_margin": "250831/62914560000"
+  },
+  "direct_rows": {
+    "cases_sha256": "00d03ebdd406b1bf61d04ac6356c6c47cbde0e05be7859f654885eae69206607",
+    "counts": {
+      "patterns": 1890,
+      "row_evaluations": 670140
+    }
+  },
+  "geometry": {
+    "cases": [
+      {
+        "checked_rows": 16,
+        "families": 9,
+        "last_needed_rotation": {
+          "1": 9
+        },
+        "numerator": 1,
+        "one_track_families": 0,
+        "order": 3,
+        "two_track_families": 9
+      },
+      {
+        "checked_rows": 50,
+        "families": 37,
+        "last_needed_rotation": {
+          "1": 37
+        },
+        "numerator": 1,
+        "one_track_families": 1,
+        "order": 4,
+        "two_track_families": 36
+      },
+      {
+        "checked_rows": 126,
+        "families": 105,
+        "last_needed_rotation": {
+          "1": 105
+        },
+        "numerator": 1,
+        "one_track_families": 5,
+        "order": 5,
+        "two_track_families": 100
+      },
+      {
+        "checked_rows": 220,
+        "families": 105,
+        "last_needed_rotation": {
+          "1": 100,
+          "2": 5
+        },
+        "numerator": 2,
+        "one_track_families": 5,
+        "order": 5,
+        "two_track_families": 100
+      },
+      {
+        "checked_rows": 271,
+        "families": 240,
+        "last_needed_rotation": {
+          "1": 240
+        },
+        "numerator": 1,
+        "one_track_families": 15,
+        "order": 6,
+        "two_track_families": 225
+      },
+      {
+        "checked_rows": 519,
+        "families": 476,
+        "last_needed_rotation": {
+          "1": 476
+        },
+        "numerator": 1,
+        "one_track_families": 35,
+        "order": 7,
+        "two_track_families": 441
+      },
+      {
+        "checked_rows": 694,
+        "families": 476,
+        "last_needed_rotation": {
+          "1": 475,
+          "2": 1
+        },
+        "numerator": 2,
+        "one_track_families": 35,
+        "order": 7,
+        "two_track_families": 441
+      },
+      {
+        "checked_rows": 812,
+        "families": 476,
+        "last_needed_rotation": {
+          "1": 465,
+          "2": 11
+        },
+        "numerator": 3,
+        "one_track_families": 35,
+        "order": 7,
+        "two_track_families": 441
+      },
+      {
+        "checked_rows": 911,
+        "families": 854,
+        "last_needed_rotation": {
+          "1": 854
+        },
+        "numerator": 1,
+        "one_track_families": 70,
+        "order": 8,
+        "two_track_families": 784
+      },
+      {
+        "checked_rows": 1353,
+        "families": 854,
+        "last_needed_rotation": {
+          "1": 834,
+          "2": 17,
+          "3": 3
+        },
+        "numerator": 3,
+        "one_track_families": 70,
+        "order": 8,
+        "two_track_families": 784
+      },
+      {
+        "checked_rows": 1495,
+        "families": 1422,
+        "last_needed_rotation": {
+          "1": 1422
+        },
+        "numerator": 1,
+        "one_track_families": 126,
+        "order": 9,
+        "two_track_families": 1296
+      },
+      {
+        "checked_rows": 1776,
+        "families": 1422,
+        "last_needed_rotation": {
+          "1": 1422
+        },
+        "numerator": 2,
+        "one_track_families": 126,
+        "order": 9,
+        "two_track_families": 1296
+      },
+      {
+        "checked_rows": 2384,
+        "families": 1422,
+        "last_needed_rotation": {
+          "1": 1375,
+          "2": 47
+        },
+        "numerator": 4,
+        "one_track_families": 126,
+        "order": 9,
+        "two_track_families": 1296
+      },
+      {
+        "checked_rows": 2326,
+        "families": 2235,
+        "last_needed_rotation": {
+          "1": 2235
+        },
+        "numerator": 1,
+        "one_track_families": 210,
+        "order": 10,
+        "two_track_families": 2025
+      },
+      {
+        "checked_rows": 2897,
+        "families": 2235,
+        "last_needed_rotation": {
+          "1": 2230,
+          "2": 4,
+          "3": 1
+        },
+        "numerator": 3,
+        "one_track_families": 210,
+        "order": 10,
+        "two_track_families": 2025
+      },
+      {
+        "checked_rows": 3466,
+        "families": 3355,
+        "last_needed_rotation": {
+          "1": 3355
+        },
+        "numerator": 1,
+        "one_track_families": 330,
+        "order": 11,
+        "two_track_families": 3025
+      },
+      {
+        "checked_rows": 3884,
+        "families": 3355,
+        "last_needed_rotation": {
+          "1": 3355
+        },
+        "numerator": 2,
+        "one_track_families": 330,
+        "order": 11,
+        "two_track_families": 3025
+      },
+      {
+        "checked_rows": 4120,
+        "families": 3355,
+        "last_needed_rotation": {
+          "1": 3353,
+          "2": 2
+        },
+        "numerator": 3,
+        "one_track_families": 330,
+        "order": 11,
+        "two_track_families": 3025
+      },
+      {
+        "checked_rows": 4920,
+        "families": 3355,
+        "last_needed_rotation": {
+          "1": 3301,
+          "2": 49,
+          "3": 5
+        },
+        "numerator": 4,
+        "one_track_families": 330,
+        "order": 11,
+        "two_track_families": 3025
+      },
+      {
+        "checked_rows": 5707,
+        "families": 3355,
+        "last_needed_rotation": {
+          "1": 3267,
+          "2": 88
+        },
+        "numerator": 5,
+        "one_track_families": 330,
+        "order": 11,
+        "two_track_families": 3025
+      },
+      {
+        "checked_rows": 4984,
+        "families": 4851,
+        "last_needed_rotation": {
+          "1": 4851
+        },
+        "numerator": 1,
+        "one_track_families": 495,
+        "order": 12,
+        "two_track_families": 4356
+      },
+      {
+        "checked_rows": 7911,
+        "families": 4851,
+        "last_needed_rotation": {
+          "1": 4744,
+          "2": 107
+        },
+        "numerator": 5,
+        "one_track_families": 495,
+        "order": 12,
+        "two_track_families": 4356
+      },
+      {
+        "checked_rows": 6956,
+        "families": 6799,
+        "last_needed_rotation": {
+          "1": 6799
+        },
+        "numerator": 1,
+        "one_track_families": 715,
+        "order": 13,
+        "two_track_families": 6084
+      },
+      {
+        "checked_rows": 7539,
+        "families": 6799,
+        "last_needed_rotation": {
+          "1": 6799
+        },
+        "numerator": 2,
+        "one_track_families": 715,
+        "order": 13,
+        "two_track_families": 6084
+      },
+      {
+        "checked_rows": 7829,
+        "families": 6799,
+        "last_needed_rotation": {
+          "1": 6799
+        },
+        "numerator": 3,
+        "one_track_families": 715,
+        "order": 13,
+        "two_track_families": 6084
+      },
+      {
+        "checked_rows": 8759,
+        "families": 6799,
+        "last_needed_rotation": {
+          "1": 6777,
+          "2": 19,
+          "3": 3
+        },
+        "numerator": 4,
+        "one_track_families": 715,
+        "order": 13,
+        "two_track_families": 6084
+      },
+      {
+        "checked_rows": 10397,
+        "families": 6799,
+        "last_needed_rotation": {
+          "1": 6728,
+          "2": 62,
+          "3": 7,
+          "5": 2
+        },
+        "numerator": 5,
+        "one_track_families": 715,
+        "order": 13,
+        "two_track_families": 6084
+      },
+      {
+        "checked_rows": 11127,
+        "families": 6799,
+        "last_needed_rotation": {
+          "1": 6690,
+          "2": 109
+        },
+        "numerator": 6,
+        "one_track_families": 715,
+        "order": 13,
+        "two_track_families": 6084
+      },
+      {
+        "checked_rows": 9465,
+        "families": 9282,
+        "last_needed_rotation": {
+          "1": 9282
+        },
+        "numerator": 1,
+        "one_track_families": 1001,
+        "order": 14,
+        "two_track_families": 8281
+      },
+      {
+        "checked_rows": 10466,
+        "families": 9282,
+        "last_needed_rotation": {
+          "1": 9282
+        },
+        "numerator": 3,
+        "one_track_families": 1001,
+        "order": 14,
+        "two_track_families": 8281
+      },
+      {
+        "checked_rows": 13503,
+        "families": 9282,
+        "last_needed_rotation": {
+          "1": 9181,
+          "2": 82,
+          "3": 19
+        },
+        "numerator": 5,
+        "one_track_families": 1001,
+        "order": 14,
+        "two_track_families": 8281
+      },
+      {
+        "checked_rows": 12601,
+        "families": 12390,
+        "last_needed_rotation": {
+          "1": 12390
+        },
+        "numerator": 1,
+        "one_track_families": 1365,
+        "order": 15,
+        "two_track_families": 11025
+      },
+      {
+        "checked_rows": 13377,
+        "families": 12390,
+        "last_needed_rotation": {
+          "1": 12390
+        },
+        "numerator": 2,
+        "one_track_families": 1365,
+        "order": 15,
+        "two_track_families": 11025
+      },
+      {
+        "checked_rows": 14883,
+        "families": 12390,
+        "last_needed_rotation": {
+          "1": 12375,
+          "2": 13,
+          "3": 2
+        },
+        "numerator": 4,
+        "one_track_families": 1365,
+        "order": 15,
+        "two_track_families": 11025
+      },
+      {
+        "checked_rows": 19993,
+        "families": 12390,
+        "last_needed_rotation": {
+          "1": 12226,
+          "2": 164
+        },
+        "numerator": 7,
+        "one_track_families": 1365,
+        "order": 15,
+        "two_track_families": 11025
+      },
+      {
+        "checked_rows": 16461,
+        "families": 16220,
+        "last_needed_rotation": {
+          "1": 16220
+        },
+        "numerator": 1,
+        "one_track_families": 1820,
+        "order": 16,
+        "two_track_families": 14400
+      },
+      {
+        "checked_rows": 17745,
+        "families": 16220,
+        "last_needed_rotation": {
+          "1": 16220
+        },
+        "numerator": 3,
+        "one_track_families": 1820,
+        "order": 16,
+        "two_track_families": 14400
+      },
+      {
+        "checked_rows": 21564,
+        "families": 16220,
+        "last_needed_rotation": {
+          "1": 16131,
+          "2": 71,
+          "3": 18
+        },
+        "numerator": 5,
+        "one_track_families": 1820,
+        "order": 16,
+        "two_track_families": 14400
+      },
+      {
+        "checked_rows": 25444,
+        "families": 16220,
+        "last_needed_rotation": {
+          "1": 15974,
+          "2": 246
+        },
+        "numerator": 7,
+        "one_track_families": 1820,
+        "order": 16,
+        "two_track_families": 14400
+      },
+      {
+        "checked_rows": 21149,
+        "families": 20876,
+        "last_needed_rotation": {
+          "1": 20876
+        },
+        "numerator": 1,
+        "one_track_families": 2380,
+        "order": 17,
+        "two_track_families": 18496
+      },
+      {
+        "checked_rows": 22146,
+        "families": 20876,
+        "last_needed_rotation": {
+          "1": 20876
+        },
+        "numerator": 2,
+        "one_track_families": 2380,
+        "order": 17,
+        "two_track_families": 18496
+      },
+      {
+        "checked_rows": 22588,
+        "families": 20876,
+        "last_needed_rotation": {
+          "1": 20876
+        },
+        "numerator": 3,
+        "one_track_families": 2380,
+        "order": 17,
+        "two_track_families": 18496
+      },
+      {
+        "checked_rows": 23923,
+        "families": 20876,
+        "last_needed_rotation": {
+          "1": 20874,
+          "3": 2
+        },
+        "numerator": 4,
+        "one_track_families": 2380,
+        "order": 17,
+        "two_track_families": 18496
+      },
+      {
+        "checked_rows": 26737,
+        "families": 20876,
+        "last_needed_rotation": {
+          "1": 20806,
+          "2": 59,
+          "3": 11
+        },
+        "numerator": 5,
+        "one_track_families": 2380,
+        "order": 17,
+        "two_track_families": 18496
+      },
+      {
+        "checked_rows": 28902,
+        "families": 20876,
+        "last_needed_rotation": {
+          "1": 20717,
+          "2": 139,
+          "3": 20
+        },
+        "numerator": 6,
+        "one_track_families": 2380,
+        "order": 17,
+        "two_track_families": 18496
+      },
+      {
+        "checked_rows": 31593,
+        "families": 20876,
+        "last_needed_rotation": {
+          "1": 20601,
+          "2": 275
+        },
+        "numerator": 7,
+        "one_track_families": 2380,
+        "order": 17,
+        "two_track_families": 18496
+      },
+      {
+        "checked_rows": 32862,
+        "families": 20876,
+        "last_needed_rotation": {
+          "1": 20579,
+          "2": 297
+        },
+        "numerator": 8,
+        "one_track_families": 2380,
+        "order": 17,
+        "two_track_families": 18496
+      },
+      {
+        "checked_rows": 26776,
+        "families": 26469,
+        "last_needed_rotation": {
+          "1": 26469
+        },
+        "numerator": 1,
+        "one_track_families": 3060,
+        "order": 18,
+        "two_track_families": 23409
+      },
+      {
+        "checked_rows": 32749,
+        "families": 26469,
+        "last_needed_rotation": {
+          "1": 26429,
+          "2": 39,
+          "3": 1
+        },
+        "numerator": 5,
+        "one_track_families": 3060,
+        "order": 18,
+        "two_track_families": 23409
+      },
+      {
+        "checked_rows": 38553,
+        "families": 26469,
+        "last_needed_rotation": {
+          "1": 26252,
+          "2": 196,
+          "3": 17,
+          "5": 4
+        },
+        "numerator": 7,
+        "one_track_families": 3060,
+        "order": 18,
+        "two_track_families": 23409
+      }
+    ],
+    "cases_sha256": "b9c654adf6f208623dcbcb27afd939fe360c451afbcb69e234dc3db0a131ba4b",
+    "coefficient": "3/8",
+    "counts": {
+      "families": 468340,
+      "rows": 586929,
+      "shifts": 50
+    },
+    "epsilon": "1/10000",
+    "orders": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "scope": "Complete exact strict-cell exclusion, not a sampled search.",
+    "survivors": 0
+  },
+  "schema": "non-half-period-four-mismatch-v1"
+}

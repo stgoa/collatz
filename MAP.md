@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**291 results, 31 attempts, 39 questions, 39 sources.**
+**292 results, 31 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -277,6 +277,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) | Finite signed crossing orbits exclude near-doubled cancellation for gaps through twelve | written | written | — |  |
 | [`near-doubled-words-primitive-factor-test`](areas/cycles/results/near-doubled-words-primitive-factor-test/README.md) | The primitive factor at gcd(A, m) = 2 never divides the intercept of a near-doubled word:… | written | written | — |  |
 | [`negative-interface-mersenne-exclusion`](areas/cycles/results/negative-interface-mersenne-exclusion/README.md) | Signed Mersenne joins with negative interface exclude denominator one | written | written | `laurent-mignotte-nesterenko-1995-two-logarithms` |  |
+| [`non-half-period-four-mismatch-exclusion`](areas/cycles/results/non-half-period-four-mismatch-exclusion/README.md) | A four-mismatch rotation must be the half-period shift | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`odd-order-residue-signed-endpoint-divisibility`](areas/cycles/results/odd-order-residue-signed-endpoint-divisibility/README.md) | Odd-order residue groups force full divisibility of signed return endpoints | written | written | — | yes |
 | [`odd-spacing-rounding-bound`](areas/cycles/results/odd-spacing-rounding-bound.md) | Odd spacing and image order bound every sorted gap of an ordered cycle, so L ≥ R_q(H) | formal | reviewed | — | yes |
 | [`one-cycle-exclusion-via-gap`](areas/cycles/results/one-cycle-exclusion-via-gap.md) | Given the linear-form gap, no 3x+1 cycle has word 1^(m−1)V for m ≥ 2^13 (a route to Stein… | formal | formal | `musson-collatz-gap-all` | yes |
@@ -444,7 +445,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 |---|---|---|---|
 | [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) | Adamczewski–Bell: a problem about Mahler functions | cited | 0 |
 | [`ansari-2025-recursive-sieve`](sources/ansari-2025-recursive-sieve.md) | Ansari (2025): recursively sufficient sets and a ternary-digit sieve | cited | 0 |
-| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 18 |
+| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 19 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
 | [`cerda-bennassar-2026-periodic-perturbations`](sources/cerda-bennassar-2026-periodic-perturbations.md) | Cerdá Bennassar (2026): perturbations of the periodic word (1,2) | cited | 0 |
@@ -473,7 +474,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 31 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 32 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
@@ -740,8 +741,8 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 55.0% | 203 | 9 |
-| Claude side lane | 13.6% | 34 | 132 |
+| ChatGPT main lane | 54.9% | 203 | 9 |
+| Claude side lane | 13.5% | 34 | 132 |
 | Claude review lane | 7.6% | 0 | 121 |
 | Claude cycles lane | 5.3% | 21 | 0 |
 | Claude Lean lane | 5.0% | 3 | 69 |
@@ -749,11 +750,11 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Claude PR1 lane | 1.9% | 6 | 9 |
 | Codex four-arc research lane | 1.5% | 16 | 0 |
 | Codex signed-endpoint formalisation lane | 1.0% | 5 | 0 |
-| Codex root research lane | 0.9% | 12 | 0 |
-| ChatGPT handoff conversation | 0.9% | 2 | 0 |
+| Codex root research lane | 1.0% | 13 | 0 |
+| ChatGPT handoff conversation | 0.8% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
+| Codex residue research lane | 0.7% | 10 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
-| Codex residue research lane | 0.6% | 9 | 0 |
 | Codex main research lane | 0.4% | 5 | 0 |
 | Codex crossing research lane | 0.3% | 2 | 0 |
 | Codex formalisation lane | 0.3% | 2 | 0 |

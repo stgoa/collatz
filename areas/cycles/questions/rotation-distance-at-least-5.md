@@ -23,6 +23,15 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: only the half-period shift remains.**
+  The [non-half-period exclusion](../results/non-half-period-four-mismatch-exclusion/README.md)
+  uses the necessary one-track or two-track structure of the four
+  mismatch positions to exclude every rotation order `3<=M<=18`.
+  Together with the high-order theorem, EXT-1 forces `m<2^26`
+  whenever a four-mismatch shift has order at least three.
+  The separately declared Barina input leaves only `M=2`, hence
+  `H=m/2` and even m. At most one four-mismatch shift can remain;
+  unrestricted half-word changes keep the general question open.
 - **2026-11-08: every remaining four-mismatch rotation has order at most eighteen.**
   The [high-order exclusion](../results/high-order-four-mismatch-exclusion/README.md)
   applies to every primitive cycle word, with no label, arc-placement
@@ -138,6 +147,17 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 - Conditional on EXT-1: a four-mismatch rotation needs `|h|_m ≥ 0.075m`, at most 156 such rotations exist at `m = 1.375·10^11` ([`short-rotation-mismatch-growth`](../results/short-rotation-mismatch-growth/README.md)), and it forces a letter `≥ 0.0220m`, so `ρ ≥ 5` holds for cycles with `m ≥ 1.375·10^11` whose letters are all below `0.022m` ([`largest-letter-rho-reduction`](../results/largest-letter-rho-reduction.md)).
 
 ## Suggested attacks
+
+**2026-11-08: current target is the unrestricted half-period case.**
+The [non-half-period theorem](../results/non-half-period-four-mismatch-exclusion/README.md)
+settles every other order under EXT-1 plus Barina. Write the
+remaining word as `U V`, with equally long positive half-words
+that differ at exactly two positions. Resolve the remaining
+signed-endpoint and unequal-change arithmetic without adding
+an unproved bound on the change sizes or normalizing away the
+actual additive parameter. The geometric model genuinely admits
+half-period controls, so the new certificate alone cannot close
+this last case. Earlier dated directions are retained below.
 
 **2026-11-08: current target is rotation orders two through eighteen.**
 The [high-order theorem](../results/high-order-four-mismatch-exclusion/README.md)
@@ -405,6 +425,11 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
+- 2026-11-08: recorded the complete exclusion of rotation orders
+  at least three for four mismatches, conditional on EXT-1 plus
+  Barina, and narrowed the current question to unrestricted
+  half-word changes. The half-period case and the question stay
+  open (Codex root research lane, GPT-6; directed by Santiago Armstrong).
 - 2026-11-08: recorded the general high-order exclusion and replaced
   the current coprime target by the finite list of rotation orders
   two through eighteen, conditional on EXT-1 and Barina. Preserved
