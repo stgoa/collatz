@@ -734,8 +734,8 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
-| Codex main research lane | 0.4% | 5 | 0 |
 | Codex formalisation lane | 0.4% | 2 | 0 |
+| Codex main research lane | 0.3% | 5 | 0 |
 | Codex signed-endpoint formalisation lane | 0.3% | 1 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
@@ -743,10 +743,10 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex research lane | 0.1% | 1 | 0 |
 | Codex root research lane | 0.1% | 2 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
+| Codex residue research lane | 0.1% | 2 | 0 |
 | Codex first-block research lane | 0.1% | 1 | 0 |
 | Codex formalisation research lane | 0.1% | 1 | 0 |
 | Claude audit lane | 0.0% | 0 | 1 |
-| Codex residue research lane | 0.0% | 1 | 0 |
 
 **By accountable person** (agents are credited to the person who directed them; [`conventions/CREDIT.md`](conventions/CREDIT.md) §4):
 
