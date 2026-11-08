@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**274 results, 30 attempts, 39 questions, 39 sources.**
+**275 results, 30 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -320,6 +320,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`two-defect-marker-family`](areas/cycles/results/two-defect-marker-family.md) | The words (3, b_n, 4, b_n) are never integer 3x+1 cycles, with growing minimum and local-… | reviewed | reviewed | — |  |
 | [`two-defect-rotation-exclusion`](areas/cycles/results/two-defect-rotation-exclusion/README.md) | No nontrivial 3x+1 cycle has a rotation differing from it in exactly two positions (ρ ≥ 3) | reviewed | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `languasco-2025-two-primes`, `matveev-2000-linear-forms` | yes |
 | [`two-half-defect-mersenne-normal-form`](areas/cycles/results/two-half-defect-mersenne-normal-form/README.md) | Unequal same-parity half defects have an exact two-segment Mersenne normal form | written | written | — |  |
+| [`two-label-four-mismatch-exclusion`](areas/cycles/results/two-label-four-mismatch-exclusion/README.md) | Two valuation labels exclude four mismatches at every rotation | written | written | `musson-collatz-gap-all` |  |
 | [`two-level-four-arc-phase-exclusion`](areas/cycles/results/two-level-four-arc-phase-exclusion/README.md) | Short rational phases exclude the two-level four-arc family | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`two-marker-constant-background-exact-denominator`](areas/cycles/results/two-marker-constant-background-exact-denominator/README.md) | Two markers on a constant background: cancellation exactly 4^n − 3^n and denominator 4^n… | formal | reviewed | — | yes |
 | [`two-mismatch-exclusion-via-gap`](areas/cycles/results/two-mismatch-exclusion-via-gap/README.md) | C011's two-mismatch exclusion without Matveev: from the trade-off, the replayed gap and t… | formal | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
@@ -455,7 +456,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 20 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 21 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
@@ -722,9 +723,9 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 57.2% | 203 | 9 |
+| ChatGPT main lane | 57.1% | 203 | 9 |
 | Claude side lane | 14.0% | 34 | 132 |
-| Claude review lane | 8.0% | 0 | 121 |
+| Claude review lane | 7.9% | 0 | 121 |
 | Claude Lean lane | 5.1% | 3 | 69 |
 | Claude cycles lane | 5.0% | 21 | 0 |
 | Codex cycle research lane | 3.0% | 16 | 0 |
@@ -737,13 +738,14 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex formalisation lane | 0.4% | 2 | 0 |
 | Codex main research lane | 0.3% | 5 | 0 |
 | Codex signed-endpoint formalisation lane | 0.3% | 1 | 0 |
+| Codex root research lane | 0.2% | 3 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
 | Codex research lane | 0.1% | 1 | 0 |
-| Codex root research lane | 0.1% | 2 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
 | Codex residue research lane | 0.1% | 2 | 0 |
+| Codex arithmetic research lane | 0.1% | 1 | 0 |
 | Codex first-block research lane | 0.1% | 1 | 0 |
 | Codex formalisation research lane | 0.1% | 1 | 0 |
 | Claude audit lane | 0.0% | 0 | 1 |
