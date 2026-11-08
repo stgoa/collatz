@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**269 results, 30 attempts, 39 questions, 38 sources.**
+**270 results, 30 attempts, 39 questions, 38 sources.**
 
 ## Frontier: open questions
 
@@ -246,6 +246,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`few-arc-codings-denominator-census`](areas/cycles/results/few-arc-codings-denominator-census/README.md) | Few-arc rotation codings: an exact census of cancellation and reduced denominators | written | written | — |  |
 | [`fibonacci-four-arc-spike-denominator-growth`](areas/cycles/results/fibonacci-four-arc-spike-denominator-growth/README.md) | A Fibonacci four-arc family far from mechanical words has growing denominators | written | written | `musson-collatz-gap-all` |  |
 | [`fixed-defect-unbounded-cancellation`](areas/cycles/results/fixed-defect-unbounded-cancellation.md) | Two unit rotation defects allow arbitrarily large cancellation: the family 1^t 2^(2t) | reviewed | reviewed | — |  |
+| [`four-mismatch-inverse-continued-fraction-bound`](areas/cycles/results/four-mismatch-inverse-continued-fraction-bound/README.md) | Four mismatches bound inverse continued-fraction complexity | written | written | `musson-collatz-gap-all` |  |
 | [`four-mismatch-sign-dichotomy`](areas/cycles/results/four-mismatch-sign-dichotomy.md) | A rotation with four mismatches has one sign change of each kind, or two of each in alter… | formal | formal | — | yes |
 | [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines/README.md) | Order-free baselines for cycle minima and denominators (extremal, packing, product) | reviewed | reviewed | — |  |
 | [`global-drift-ceiling`](areas/cycles/results/global-drift-ceiling.md) | The global-drift ceiling: log₂(n_k/L) ≤ k·log₂(3/2) − X_k + δ at every q, with no hypothe… | formal | formal | — | yes |
@@ -449,7 +450,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 16 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 17 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
@@ -692,6 +693,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`expanding-background-defect-growth`](areas/cycles/results/expanding-background-defect-growth/README.md) added (result)
 - 2026-11-08: [`expanding-negative-prefix-mersenne-exclusion`](areas/cycles/results/expanding-negative-prefix-mersenne-exclusion/README.md) added (result)
 - 2026-11-08: [`fibonacci-four-arc-spike-denominator-growth`](areas/cycles/results/fibonacci-four-arc-spike-denominator-growth/README.md) added (result)
+- 2026-11-08: [`four-mismatch-inverse-continued-fraction-bound`](areas/cycles/results/four-mismatch-inverse-continued-fraction-bound/README.md) added (result)
 - 2026-11-08: [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) added (result)
 - 2026-11-08: [`mechanical-edit-denominator-law`](areas/cycles/results/mechanical-edit-denominator-law/README.md) added (result)
 - 2026-11-08: [`mersenne-boundary-exact-divisibility`](areas/cycles/results/mersenne-boundary-exact-divisibility/README.md) added (result)
@@ -708,7 +710,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`sparse-four-arc-near-critical-classification`](areas/cycles/results/sparse-four-arc-near-critical-classification/README.md) added (result)
 - 2026-11-08: [`sparse-rotation-bounded-period-reduction-obstruction`](areas/cycles/results/sparse-rotation-bounded-period-reduction-obstruction/README.md) added (result)
 - 2026-11-08: [`sparse-two-level-four-arc-exclusion`](areas/cycles/results/sparse-two-level-four-arc-exclusion/README.md) added (result)
-- 2026-11-08: [`transposition-gap-fourteen-complete-classification`](areas/cycles/results/transposition-gap-fourteen-complete-classification/README.md) added (result)
 
 ## Contributors
 
@@ -716,9 +717,9 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 57.8% | 203 | 9 |
+| ChatGPT main lane | 57.7% | 203 | 9 |
 | Claude side lane | 14.1% | 34 | 132 |
-| Claude review lane | 8.1% | 0 | 121 |
+| Claude review lane | 8.0% | 0 | 121 |
 | Claude Lean lane | 5.2% | 3 | 69 |
 | Claude cycles lane | 4.9% | 21 | 0 |
 | Codex cycle research lane | 3.0% | 16 | 0 |
@@ -726,15 +727,15 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex four-arc research lane | 1.0% | 7 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
-| Codex signed-endpoint research lane | 0.4% | 3 | 0 |
+| Codex signed-endpoint research lane | 0.5% | 4 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
 | Codex formalisation lane | 0.4% | 2 | 0 |
 | Codex signed-endpoint formalisation lane | 0.3% | 1 | 0 |
+| Codex main research lane | 0.2% | 3 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
 | Codex research lane | 0.1% | 1 | 0 |
-| Codex main research lane | 0.1% | 2 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
 | Codex formalisation research lane | 0.1% | 1 | 0 |
 | Claude audit lane | 0.0% | 0 | 1 |

@@ -131,6 +131,20 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: couple short multiples with the two-rotation geometry.**
+For the specified coprime track pattern `V,1^a,2^b,1^c`,
+with `a,b,c>=1` and `V>=3`, the
+[inverse-complexity theorem and corollary](../results/four-mismatch-inverse-continued-fraction-bound/README.md)
+leave only `m<2^1536` under EXT-1. If `m>=2^22`, the
+[two-level four-arc theorem](../results/sparse-two-level-four-arc-exclusion/README.md)
+also requires `b>m/128` and `K(h^(-1)/m)>m/512`.
+For `m>=2^34`, the new arithmetic bridge supplies a multiple
+`jh` with cyclic distance `Q` and `jQ<=512`. The next target
+is a structural contradiction combining this short multiple
+with the two-rotation geometry; no exhaustive search through
+the enormous finite interval is proposed. Other track patterns
+and the general four-mismatch question remain open.
+
 **2026-11-08: focus on positive interfaces with `r>=257`.**
 Under LMN, the [negative-interface theorem](../results/negative-interface-mersenne-exclusion/README.md)
 excludes both orders at every level. Together with the
@@ -217,6 +231,12 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: recorded the inverse-continued-fraction bridge
+  and the specified two-level track family's cutoff `2^1536`
+  under EXT-1, with the short-multiple geometry target above.
+  The general question remains open (Codex signed-endpoint
+  research lane, GPT-6 Astra; directed by Santiago Armstrong).
 
 - 2026-11-08: combined the all-level negative-interface exclusion
   with the positive-interface low-level and level-ratio exclusions,
