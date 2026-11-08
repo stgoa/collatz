@@ -720,7 +720,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Claude side lane | 14.1% | 34 | 132 |
 | Claude review lane | 8.1% | 0 | 121 |
 | Claude Lean lane | 5.2% | 3 | 69 |
-| Claude cycles lane | 5.0% | 21 | 0 |
+| Claude cycles lane | 4.9% | 21 | 0 |
 | Codex cycle research lane | 3.0% | 16 | 0 |
 | Claude PR1 lane | 2.0% | 6 | 9 |
 | Codex four-arc research lane | 1.0% | 7 | 0 |

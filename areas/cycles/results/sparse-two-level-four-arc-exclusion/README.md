@@ -301,6 +301,10 @@ certificate (7). This contradiction proves (2).
 
 ### 5. Every density of twos with controlled continued fractions
 
+For this extension, first fix the original track orientation `h`
+from the Statement, before making the geometric reversal in
+section 1. Establish (15) using its original inverse `k`.
+
 Replace the single letter `V` by 1, obtaining the binary template
 `U`. Its total is `F=m+b`, with mean `beta=F/m`. On the track,
 the two outer 1-arcs merge, so the mean-zero function `U-beta`
