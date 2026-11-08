@@ -277,9 +277,138 @@ def verify_constants():
     margin = F(1, 193) - error
     require(error == F(56885, 12582912) and margin > 0, 'finite error ceiling')
     require(margin == F(1604107, 2428502016), 'finite margin')
+    require(3**2 > 2**3, 'alpha exceeds 3/2')
+    require(F(4, 3) * F(1, 512) == F(1, 384),
+            'expanding-template discrepancy uses the original error ceiling')
+    contracting_margin = F(95 * 2**k, 256) - (172 + 342 * (k + 1))
+    require(contracting_margin == 1548442 and contracting_margin > 0,
+            'contracting-template cutoff')
+    require(F(95 * 2**k, 256) > 342,
+            'contracting dyadic margin increases at every subsequent index')
     return {'minimum_length': 2**k, 'maximum_twos_fraction': '1/128',
             'slope_power_left': left, 'slope_power_right': right,
-            'dyadic_error_ceiling': str(error), 'margin_below_1_over_193': str(margin)}
+            'dyadic_error_ceiling': str(error), 'margin_below_1_over_193': str(margin),
+            'alternative_maximum_cf_sum_fraction': '1/512',
+            'contracting_dyadic_base_margin': int(contracting_margin)}
+
+
+def continued_fraction_sum(numerator, denominator):
+    """Canonical [0; d1,...,dl] for a reduced fraction in (0,1)."""
+    require(0 < numerator < denominator and gcd(numerator, denominator) == 1,
+            'continued-fraction input')
+    coefficients = []
+    left, right = denominator, numerator
+    while right:
+        quotient, remainder = divmod(left, right)
+        coefficients.append(quotient)
+        left, right = right, remainder
+    require(coefficients[-1] >= 2, 'canonical final coefficient')
+    rebuilt = F(coefficients[-1])
+    for coefficient in reversed(coefficients[:-1]):
+        rebuilt = coefficient + 1 / rebuilt
+    require(1 / rebuilt == F(numerator, denominator), 'continued-fraction reconstruction')
+    return sum(coefficients)
+
+
+def reduced_cycle(word):
+    """Return the actual reduced 3x+q cycle for a positive-D word."""
+    m = len(word)
+    total = sum(word)
+    denominator = 2**total - 3**m
+    require(denominator > 0, 'template control needs positive D')
+    intercept = prefix = 0
+    for j, letter in enumerate(word):
+        intercept += 3**(m - 1 - j) * 2**prefix
+        prefix += letter
+    common = gcd(intercept, denominator)
+    addend = denominator // common
+    state = intercept // common
+    states = []
+    for letter in word:
+        states.append(state)
+        raw = 3 * state + addend
+        require(valuation_two(raw) == letter, 'reduced-cycle exact valuation')
+        state = raw >> letter
+    require(state == states[0], 'reduced-cycle closure')
+    require(all(x > 0 and x % 2 == 1 for x in states), 'reduced odd states')
+    require(len(set(states)) == m, 'unique spike gives distinct states')
+    return addend, states
+
+
+def verify_template_envelopes():
+    templates = factors = inverse_checks = crossing_factors = 0
+    expanding = contracting = 0
+    expanding_cycles = contracting_cycles = 0
+    maximum_k = 0
+    for m in range(4, 25):
+        spike = m - 1
+        for step in range(1, m):
+            if gcd(step, m) != 1:
+                continue
+            inverse = pow(step, -1, m)
+            require(step * inverse % m == 1, 'chronological inverse')
+            complexity = continued_fraction_sum(inverse, m)
+            maximum_k = max(maximum_k, complexity)
+            delta = 2 * (complexity - 1)
+            inverse_checks += 1
+            for a in range(1, m - 2):
+                for b in range(1, m - a - 1):
+                    c = m - 1 - a - b
+                    track = [1] + [1] * a + [2] * b + [1] * c
+                    template = [0] * m
+                    for j, letter in enumerate(track):
+                        template[(spike + j * step) % m] = letter
+                    require(sum(abs(track[(j + 1) % m] - track[j])
+                                for j in range(m)) == 2, 'binary track variation')
+                    require(all(template[i] == track[((i - spike) * inverse) % m]
+                                for i in range(m)), 'chronological coding')
+                    template_total = m + b
+                    require(sum(template) == template_total, 'template total')
+                    for start in range(m):
+                        running = 0
+                        for length in range(1, m):
+                            running += template[(start + length - 1) % m]
+                            require(abs(m * running - template_total * length) <= m * delta,
+                                    'all-factor template discrepancy')
+                            factors += 1
+                            crossing_factors += int(start + length > m)
+                    is_expanding = 2**template_total < 3**m
+                    expanding += int(is_expanding)
+                    contracting += int(not is_expanding)
+                    # Two edit amplitudes per template: the least positive-gap
+                    # spike >=3, and two extra powers of two at that position.
+                    least_spike = max(3, (3**m).bit_length() - template_total + 1)
+                    for value in (least_spike, least_spike + 2):
+                        word = template[:]
+                        word[spike] = value
+                        addend, states = reduced_cycle(word)
+                        minimum, maximum = min(states), max(states)
+                        if is_expanding:
+                            require(states[0] <= 2**delta * minimum,
+                                    'post-spike to minimum envelope')
+                            expanding_cycles += 1
+                        else:
+                            require(3 * maximum <= 2**delta * (3 * minimum + m * addend),
+                                    'contracting affine envelope retains q')
+                            contracting_cycles += 1
+                    templates += 1
+    require((templates, factors, expanding, contracting)
+            == (19824, 7646880, 17352, 2472), 'template coverage')
+    require(expanding_cycles == 2 * expanding and contracting_cycles == 2 * contracting,
+            'two amplitudes in both mean regimes')
+    return {
+        'length_min': 4, 'length_max': 24,
+        'all_coprime_track_steps': True,
+        'inverse_and_continued_fraction_checks': inverse_checks,
+        'maximum_partial_quotient_sum': maximum_k,
+        'binary_templates': templates,
+        'proper_template_factors': factors,
+        'factors_crossing_chronological_cut': crossing_factors,
+        'expanding_templates': expanding, 'contracting_templates': contracting,
+        'expanding_reduced_cycles': expanding_cycles,
+        'contracting_reduced_cycles': contracting_cycles,
+        'scope': 'Discrepancy and q-scaled envelopes; no finite-grid cycle exclusion is inferred.',
+    }
 
 
 def verify_controls():
@@ -335,10 +464,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--write-receipt', action='store_true')
     args = parser.parse_args()
-    result = {'schema': 'sparse-two-level-four-arc-v1',
+    result = {'schema': 'sparse-two-level-four-arc-v2',
               'exact_cells': verify_duals(), 'finite_geometry': verify_geometry(),
               'local_descent': verify_descent(), 'constants': verify_constants(),
-              'actual_controls': verify_controls()}
+              'actual_controls': verify_controls(),
+              'binary_template_envelopes': verify_template_envelopes()}
     receipt = HERE / 'check_four_arcs.json'
     if args.write_receipt:
         receipt.write_text(json.dumps(result, indent=2, sort_keys=True) + '\n')
@@ -347,7 +477,8 @@ def main():
     print(json.dumps({'status': 'passed', 'exact_cells': result['exact_cells']['cells'],
                       'geometry_words': result['finite_geometry']['track_words'],
                       'local_descent_seeds': result['local_descent']['odd_seeds'],
-                      'actual_cycles': len(result['actual_controls']['cycles'])}, sort_keys=True))
+                      'actual_cycles': len(result['actual_controls']['cycles']),
+                      'binary_templates': result['binary_template_envelopes']['binary_templates']}, sort_keys=True))
 
 
 if __name__ == '__main__':

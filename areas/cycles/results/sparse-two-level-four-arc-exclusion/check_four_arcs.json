@@ -84,7 +84,24 @@
     "paired_starts": 2428,
     "scope": "Exact 3x+d arrows and addend-independent paired run bounds only."
   },
+  "binary_template_envelopes": {
+    "all_coprime_track_steps": true,
+    "binary_templates": 19824,
+    "contracting_reduced_cycles": 4944,
+    "contracting_templates": 2472,
+    "expanding_reduced_cycles": 34704,
+    "expanding_templates": 17352,
+    "factors_crossing_chronological_cut": 3450702,
+    "inverse_and_continued_fraction_checks": 176,
+    "length_max": 24,
+    "length_min": 4,
+    "maximum_partial_quotient_sum": 24,
+    "proper_template_factors": 7646880,
+    "scope": "Discrepancy and q-scaled envelopes; no finite-grid cycle exclusion is inferred."
+  },
   "constants": {
+    "alternative_maximum_cf_sum_fraction": "1/512",
+    "contracting_dyadic_base_margin": 1548442,
     "dyadic_error_ceiling": "56885/12582912",
     "margin_below_1_over_193": "1604107/2428502016",
     "maximum_twos_fraction": "1/128",
@@ -116,5 +133,5 @@
     "odd_steps": 357,
     "seed_max": 127
   },
-  "schema": "sparse-two-level-four-arc-v1"
+  "schema": "sparse-two-level-four-arc-v2"
 }

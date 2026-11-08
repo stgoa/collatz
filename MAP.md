@@ -302,7 +302,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`small-mersenne-endpoint-exclusion`](areas/cycles/results/small-mersenne-endpoint-exclusion/README.md) | A small signed Mersenne endpoint excludes denominator one at every amplitude | written | written | — |  |
 | [`sparse-four-arc-near-critical-classification`](areas/cycles/results/sparse-four-arc-near-critical-classification/README.md) | A sparse four-arc family has exactly one near-critical full-plus cancellation | written | written | — |  |
 | [`sparse-rotation-bounded-period-reduction-obstruction`](areas/cycles/results/sparse-rotation-bounded-period-reduction-obstruction/README.md) | Sparse rotations do not force a bounded number of short-period pieces | written | written | — |  |
-| [`sparse-two-level-four-arc-exclusion`](areas/cycles/results/sparse-two-level-four-arc-exclusion/README.md) | Two rotations exclude a sparse two-level four-arc class | written | written | `musson-collatz-gap-all` |  |
+| [`sparse-two-level-four-arc-exclusion`](areas/cycles/results/sparse-two-level-four-arc-exclusion/README.md) | Two rotations and discrepancy exclude two-level four-arc classes | written | written | `musson-collatz-gap-all` |  |
 | [`three-band-collatz-cycles-are-ordered`](areas/cycles/results/three-band-collatz-cycles-are-ordered.md) | A 3x+1 cycle with H < 8L is dyadically ordered with mechanical normalised word and gcd(A,… | formal | reviewed | — | yes |
 | [`three-defect-arbitrary-background`](areas/cycles/results/three-defect-arbitrary-background.md) | Words at rotation distance three can carry an arbitrary shared background, beyond any fix… | reviewed | reviewed | — |  |
 | [`three-mismatch-exclusion`](areas/cycles/results/three-mismatch-exclusion/README.md) | No rotation of a nontrivial 3x+1 cycle differs from it in exactly three positions, so ρ ≥… | formal | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
@@ -719,7 +719,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Claude side lane | 14.1% | 34 | 132 |
 | Claude review lane | 8.1% | 0 | 121 |
 | Claude Lean lane | 5.2% | 3 | 69 |
-| Claude cycles lane | 4.9% | 21 | 0 |
+| Claude cycles lane | 5.0% | 21 | 0 |
 | Codex cycle research lane | 3.0% | 16 | 0 |
 | Claude PR1 lane | 2.0% | 6 | 9 |
 | Codex four-arc research lane | 1.0% | 7 | 0 |
