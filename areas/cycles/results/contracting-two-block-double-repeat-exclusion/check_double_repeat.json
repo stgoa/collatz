@@ -1,0 +1,312 @@
+{
+  "aligned_third_period": {
+    "cases_sha256": "874467f896dd8022ddc9709eaf299cff118e515897cf0d66a9d3abe0edf62e27",
+    "counts": {
+      "actual_arrows": 37017,
+      "both_decreased": 310,
+      "both_increased": 1884,
+      "opposite_unequal": 1028
+    },
+    "examples": {
+      "both_decreased": {
+        "U": [
+          3,
+          3
+        ],
+        "V": [
+          2,
+          2
+        ],
+        "arrows": 6,
+        "budget_eligible": true,
+        "budget_u": 64,
+        "budget_v": 1,
+        "changes": [
+          -1,
+          -1
+        ],
+        "commutator_zero": false,
+        "ell": 1,
+        "equal_length": true,
+        "first_state": 35899,
+        "k": 2,
+        "q": 64807,
+        "unequal_totals": true
+      },
+      "both_increased": {
+        "U": [
+          1,
+          3
+        ],
+        "V": [
+          2,
+          4
+        ],
+        "arrows": 6,
+        "budget_eligible": true,
+        "budget_u": 16,
+        "budget_v": 1,
+        "changes": [
+          1,
+          1
+        ],
+        "commutator_zero": false,
+        "ell": 1,
+        "equal_length": true,
+        "first_state": 2917,
+        "k": 2,
+        "q": 15655,
+        "unequal_totals": true
+      },
+      "opposite_unequal": {
+        "U": [
+          1,
+          3
+        ],
+        "V": [
+          3,
+          2
+        ],
+        "arrows": 6,
+        "budget_eligible": true,
+        "budget_u": 16,
+        "budget_v": 1,
+        "changes": [
+          2,
+          -1
+        ],
+        "commutator_zero": false,
+        "ell": 1,
+        "equal_length": true,
+        "first_state": 3941,
+        "k": 2,
+        "q": 7463,
+        "unequal_totals": true
+      }
+    },
+    "ranges": {
+      "changes": [
+        -2,
+        -1,
+        1,
+        2
+      ],
+      "filter": "positive distinct blocks, both contracting",
+      "lengths": [
+        2,
+        4
+      ],
+      "net_change": "nonzero",
+      "template_letters": [
+        1,
+        3
+      ]
+    }
+  },
+  "controls": {
+    "common_fixed_point_fixtures": [
+      {
+        "addend": 5,
+        "denominator": 5,
+        "original_length": 1,
+        "repeated_arrows": 5
+      },
+      {
+        "addend": 5,
+        "denominator": 5,
+        "original_length": 3,
+        "repeated_arrows": 15
+      },
+      {
+        "addend": 5,
+        "denominator": 5,
+        "original_length": 3,
+        "repeated_arrows": 15
+      },
+      {
+        "addend": 5,
+        "denominator": 5,
+        "original_length": 17,
+        "repeated_arrows": 85
+      },
+      {
+        "addend": 5,
+        "denominator": 5,
+        "original_length": 17,
+        "repeated_arrows": 85
+      },
+      {
+        "addend": 7,
+        "denominator": 7,
+        "original_length": 2,
+        "repeated_arrows": 10
+      },
+      {
+        "addend": 13,
+        "denominator": 13,
+        "original_length": 1,
+        "repeated_arrows": 5
+      },
+      {
+        "addend": 13,
+        "denominator": 13,
+        "original_length": 15,
+        "repeated_arrows": 75
+      },
+      {
+        "addend": 13,
+        "denominator": 13,
+        "original_length": 5,
+        "repeated_arrows": 25
+      },
+      {
+        "addend": 61,
+        "denominator": 61,
+        "original_length": 1,
+        "repeated_arrows": 5
+      },
+      {
+        "addend": 61,
+        "denominator": 61,
+        "original_length": 41,
+        "repeated_arrows": 205
+      }
+    ],
+    "fixture_arrows": 106,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "mixed_direction_controls": [
+      {
+        "U": [
+          1
+        ],
+        "V": [
+          1,
+          3
+        ],
+        "actual_arrows": 10,
+        "ell": 3,
+        "first_state": 6605,
+        "fixed_points": [
+          "-1",
+          "5/7"
+        ],
+        "k": 4,
+        "q": 499
+      },
+      {
+        "U": [
+          2,
+          2
+        ],
+        "V": [
+          1,
+          1
+        ],
+        "actual_arrows": 6,
+        "ell": 1,
+        "first_state": 571,
+        "fixed_points": [
+          "-1",
+          "1"
+        ],
+        "k": 2,
+        "q": 59
+      }
+    ],
+    "trivial_control": {
+      "arrows": 4,
+      "commutator_zero": true,
+      "q": 1
+    }
+  },
+  "gap": {
+    "comparisons": 8191,
+    "comparisons_sha256": "78c49c7817df71ecbd42e02d7dc862ac41dbe5f59aed327a457193c0a383724c",
+    "dyadic_base_margin": 3247,
+    "dyadic_exponent": 13,
+    "dyadic_increment_formula": "2^j-341, positive for every j>=13",
+    "large_cutoff": 8192,
+    "lengths": [
+      1,
+      8191
+    ],
+    "minimum_length": 1,
+    "minimum_ratio": "1",
+    "minimum_total": 2,
+    "outside_input": "EXT-1 for all block lengths >=8192; not re-proved by this script"
+  },
+  "grid": {
+    "cases_sha256": "d115dd1f539bf34118249e5088af408ca3164f471b3ae0acf121a3ad35c5da1b",
+    "contracting_blocks": 76,
+    "counts": {
+      "actual_arrows": 571824,
+      "budget_eligible_cases": 44578,
+      "common_fixed_point_cases": 846,
+      "equal_length_unequal_total_cases": 28494,
+      "nonzero_commutator_cases": 51138,
+      "pairs_with_counts": 51984
+    },
+    "examples": {
+      "equal_length_unequal_totals": {
+        "U": [
+          2
+        ],
+        "V": [
+          3
+        ],
+        "arrows": 3,
+        "budget_eligible": true,
+        "budget_u": 4,
+        "budget_v": 1,
+        "commutator_zero": false,
+        "ell": 1,
+        "equal_length": true,
+        "first_state": 37,
+        "k": 2,
+        "q": 101,
+        "unequal_totals": true
+      },
+      "unequal_lengths_two_copies": {
+        "U": [
+          4
+        ],
+        "V": [
+          1,
+          3
+        ],
+        "arrows": 4,
+        "budget_eligible": true,
+        "budget_u": 16,
+        "budget_v": 1,
+        "commutator_zero": false,
+        "ell": 1,
+        "equal_length": false,
+        "first_state": 1451,
+        "k": 2,
+        "q": 4015,
+        "unequal_totals": false
+      }
+    },
+    "ranges": {
+      "block_lengths": [
+        1,
+        3
+      ],
+      "ell": [
+        1,
+        3
+      ],
+      "filter": "both blocks contract",
+      "k": [
+        1,
+        3
+      ],
+      "letters": [
+        1,
+        4
+      ]
+    }
+  },
+  "schema": "contracting-double-repeat-v1",
+  "scope": "Finite exact checks of the written argument; the large-length gap uses declared EXT-1."
+}
