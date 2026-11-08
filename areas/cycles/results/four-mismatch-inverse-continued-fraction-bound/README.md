@@ -31,15 +31,28 @@ claim: >
   All four-arc label patterns and lengths are allowed. Under EXT-1
   the resulting bound is K(k/m)<21942*log_2(m)+11099, at every
   period admitting a primitive four-mismatch integer cycle.
+  The integer-repetition estimate also holds at every nonidentity
+  rotation, with no coprimality restriction or external input, for
+  any primitive positive odd integer cycle of 3x+q with q positive
+  and odd. Put g=gcd(h,m), M=m/g, k=(h/g)^(-1) mod M,
+  Y=log_2(L+q), s=s(h), alpha=log_2(3), and
+  H_s=sum_(i=0)^s alpha^i. Every proper phase Qk-pM=+j or -j
+  satisfies m<H_s*j*Y+(alpha*H_s+1)*j*g*Q. Consequently
+  K(k/M)<(alpha*H_s+1)*n+4*H_s*Y/g, with
+  n<=2*log_2(M)+1. For s<=4 this gives K(k/M)<27*n+64*Y/g.
+  The repetition block has gQ actual odd arrows. These are
+  necessary complexity bounds, not an exclusion of all rotations.
 authors:
   - Codex signed-endpoint research lane (GPT-6 Astra; directed by Santiago Armstrong)
   - Codex main research lane (GPT-6 Astra; directed by Santiago Armstrong)
   - Codex four-arc research lane (GPT-6 Astra; directed by Santiago Armstrong)
+  - Codex residue research lane (GPT-6 Astra; directed by Santiago Armstrong)
 created: 2026-11-08
 depends_on: [rise-lemma, paired-state-run-law, sparse-two-level-four-arc-exclusion]
 assumes: [musson-collatz-gap-all]
-certificates: [check_inverse_complexity.py, check_phase_blocks.py]
+certificates: [check_inverse_complexity.py, check_phase_blocks.py, check_block_clock.py]
 evidence:
+  - "check_block_clock.json: arbitrary-gcd chronological blocks, variable mismatch counts, exact phase prefixes, integer repetitions and actual positive-addend controls"
   - "check_phase_blocks.json: four-boundary rational phases, repeated integer blocks, continued-fraction sums and addend-aware actual-cycle controls"
   - "check_inverse_complexity.json: continuant identities and end coefficients, exact cutoff constants, local minimum verification and actual-cycle controls"
   - "check_inverse_complexity.json: exact polynomial induction certificates for the general mismatch-growth bound at m>=2^40"
@@ -49,6 +62,43 @@ tags: [cycles, rotation-distance, continued-fractions, rise-lemma, effective-bou
 # Inverse continued fractions force rotation mismatch growth
 
 ## Statement
+
+**Every rotation, with the actual block clock retained.** Let a
+primitive positive odd integer cycle of `3x+q`, with positive odd
+`q`, have full odd period `m>=2`, minimum `L`, and valuation word
+`w`. Fix any `0<h<m`, and define
+
+```
+g=gcd(h,m), M=m/g>=2, d=h/g, k=d^(-1) mod M,
+s=#{i mod m:w_i!=w_(i+h)}, Y=log_2(L+q),
+alpha=log_2(3), H_s=1+alpha+...+alpha^s.
+```
+
+Write `k/M=[0;a1,...,an]` canonically, and let `K=sum a_i`.
+Without external inputs,
+
+```
+m < H_s*j*Y+(alpha*H_s+1)*j*g*Q,                    (B1)
+K < (alpha*H_s+1)*n+4*H_s*Y/g,
+n <= 2*log_2(M)+1,                                  (B2)
+```
+
+where (B1) holds for every `1<=Q<M`, integer `p`, and `j>=1`
+with `gcd(p,Q)=1` and `Qk-pM=+j` or `-j`. Here `Q` counts
+chronological blocks of `g` valuations: the integer repeated
+map has **`gQ` actual odd arrows**, not `Q` arrows.
+
+For `s<=4`, the convenient rational constants give
+
+```
+m < 16jY+27jgQ,       K(k/M)<27n+64Y/g.              (B3)
+```
+
+At `q=1`, EXT-1 further permits `Y<173+342log_2(m)`.
+The unconditional statements (B1)--(B3) make no restriction
+on the labels, their sizes, or which residue classes carry
+the mismatches. They do not assert denominator-one exclusion.
+Section 10 proves them; the earlier claims below are retained.
 
 **Logarithmic inverse complexity for four mismatches.** Let a
 primitive positive integer cycle of the raw odd-only `3x+1` map
@@ -624,7 +674,94 @@ n<=2log_2(m)+1.                                    (R5)
 This uses every proper convergent, not a bounded search
 for a favourable partial quotient.
 
+### 10. Arbitrary gcd and mismatch count
+
+Use the general `3x+q` notation in (B1). Cyclically shift the
+word so the global minimum is its first state. Form the
+chronological `g`-letter blocks
+
+```
+B_l=(w_(gl),...,w_(gl+g-1)),       l mod M.
+```
+
+Because `h=gd`, a mismatch between `B_l` and `B_(l+d)`
+contains at least one original valuation mismatch. Thus the
+block word, read along the coprime `d`-track, has a number
+`b` of boundaries with `2<=b<=s`. It is nonconstant:
+otherwise the original word would have period `g<m`,
+contradicting primitivity. More generally, a smaller period
+of the block word would give a smaller period of the full
+word. Different coordinates can change at the same block
+boundary; counting them only once is harmless.
+
+The exact repetition proof of section 7 applies to any
+positive addend. For a repeated raw block of length `R<m`
+and total `S>=R`, the differences still satisfy
+`2^(S(N-1)) | x_1-x_0`, with `x_1!=x_0`. The growth
+comparison is now
+
+```
+x_next+q <= (3/2)(x+q).
+```
+
+Consequently (R1) holds with `Q` replaced by `R` and
+`log_2(x+1)` replaced by `log_2(x+q)`. It uses actual
+integer states, without normalizing them by `q`.
+
+Fix a phase from (B1). If `jQ>=M`, (B1) is immediate
+from `jgQ>=m` and `alpha*H_s+1>1`. Otherwise repeat the
+phase argument of section 8 on the block circle of size
+`M`, with `b<=s` boundary families. Its family spacing
+is at least `M/Q-j`. Among the first `s+1` actual pattern
+changes, if they occur, two selected events share a
+family. Stop immediately before the last such change.
+If there are fewer changes, use all `floor(M/Q)` complete
+phase blocks. The same half-open boundary convention
+works for both signs of `Qk-pM`.
+
+In either case a prefix from the global minimum contains
+at most `s+1` constant regimes of `Q` blocks and has at
+least `M/j-Q` block positions. In actual odd arrows its
+length is at least `m/j-gQ`. Each regime repeats one
+raw `gQ`-letter word; since `Q<M`, this raw block is
+proper and has nonzero initial state difference.
+
+Set `Z=log_2(x+q)+alpha*gQ`. The repetition estimate
+bounds a regime's actual length by its starting `Z`
+and gives `Z_out<alpha Z_in`. Summing at most `s+1`
+regimes bounds the full prefix length strictly by
+
+```
+H_s*(Y+alpha*gQ).
+```
+
+Comparison with `m/j-gQ` proves (B1), with the block
+clock present in both terms where it is needed.
+
+For each continued-fraction digit use its preceding
+convergent. The same continuant identity as section 9
+gives `M>=a_i Qj`. Divide (B1) by `gjQ` to obtain
+
+```
+a_i < alpha*H_s+1+H_s*Y/(gQ).
+```
+
+Summing over all proper convergents, including `0/1`
+and the possible duplicated denominator 1, gives (B2)
+because their reciprocal denominator sum is below 4.
+The denominator recurrence again gives
+`n<=2log_2(M)+1`. For `s<=4`, `alpha<8/5` implies
+`H_s<16` and `alpha*H_s+1<27`, proving (B3).
+
 ## Certificates
+
+The [block-clock checker](check_block_clock.py) and its
+[receipt](check_block_clock.json) verify the grouping at
+all tested gcds, boundary collisions, arbitrary mismatch
+counts, both phase signs, and actual raw `gQ`-letter
+repetitions. The `3x+q` controls retain `q` in `L+q`.
+The finite grids test the general proof above; they are
+not used as an absence census for the unbounded claim.
 
 The additional [phase-block checker](check_phase_blocks.py) and its
 [generated receipt](check_phase_blocks.json) verify the finite phase
@@ -639,6 +776,8 @@ Run from the repository root:
 ```
 python3 areas/cycles/results/four-mismatch-inverse-continued-fraction-bound/check_inverse_complexity.py
 python3 -O areas/cycles/results/four-mismatch-inverse-continued-fraction-bound/check_inverse_complexity.py
+python3 areas/cycles/results/four-mismatch-inverse-continued-fraction-bound/check_block_clock.py
+python3 -O areas/cycles/results/four-mismatch-inverse-continued-fraction-bound/check_block_clock.py
 ```
 
 The [certificate](check_inverse_complexity.py) checks the
@@ -678,7 +817,7 @@ complexity of the inverse rotation supplies a short multiple
 with uniformly bounded multiplier. The final threshold is
 deliberately conservative. Novelty is undetermined.
 
-The argument is specific to `3x+1`: for a `3x+q` cycle,
+The earlier rise-and-gap argument is specific to `3x+1`: for a `3x+q` cycle,
 the rise constant is `alpha+q/(3L ln(2))`, and the minimum
 bound from the gap carries an extra factor `q`. The local
 descent also concerns only `3x+1`. The actual-cycle controls
@@ -686,14 +825,33 @@ are not excluded by substituting their normalized rational
 states for integer states.
 
 No assumption on the number of distinct letters or the
-arrangement of the four mismatches was made in the generic
-bound. That conclusion is broader than the track family
+arrangement of the mismatches was made in the earlier
+generic bound (3a). That conclusion is broader than the track family
 in the corollary, while still requiring a coprime rotation.
 Outside the stated track family, the lower-complexity
 rotations remain open. The corollary makes no new exclusion
 claim for `m<2^1536`.
 
+The block-clock extension (B1)--(B3) removes coprimality
+from the integer-repetition estimate, with no added source
+input. It still leaves short tracks unconstrained. For
+example, when `M<=27`, the continuant-sum bound gives
+`K<=M<=27<=27n`, so the four-mismatch bound (B3) is
+automatic. In particular, half-turn cases `M=2` are not
+excluded by this method. The earlier noncoprime caveat in
+the [height bound](../denjoy-koksma-height-bound/README.md)
+concerns offsets between state classes; the present estimate
+instead groups chronological letters before applying exact
+integer repetition. Novelty of this extension is undetermined.
+
 ## History
+
+- 2026-11-08: extended the exact phase estimate to every
+  nonidentity rotation, every mismatch count, and actual
+  positive odd `3x+q` cycles. Chronological blocks retain
+  their `gQ` raw length, giving the `Y/g` term. Earlier
+  coprime bounds and their assumptions are preserved.
+  Same-session scrutiny does not change `written` status.
 
 - 2026-11-08: added the integer-repetition and four-boundary phase
   argument in sections 7--9, yielding an unconditional minimum-state

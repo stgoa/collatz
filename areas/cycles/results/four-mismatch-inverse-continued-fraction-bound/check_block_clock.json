@@ -1,0 +1,275 @@
+{
+  "constants": {
+    "H4_upper": "9881/625",
+    "alpha_H4_plus_one_upper": "82173/3125"
+  },
+  "long_track_controls": {
+    "counts": {
+      "boundary_collisions": 0,
+      "contracting_regimes": 155,
+      "early_stops": 6,
+      "expanding_regimes": 31,
+      "four_mismatch_cycle_bounds": 54,
+      "half_turns": 0,
+      "initial_zero_over_one": 27,
+      "integer_repeated_regimes": 186,
+      "larger_mismatch_counts": 0,
+      "maximum_regimes": 5,
+      "negative_phases": 18,
+      "nonconvergent_phases": 0,
+      "noncoprime_rotations": 27,
+      "one_four_track": 27,
+      "phases": 54,
+      "positive_reduced_cycles": 27,
+      "rotations": 27,
+      "short_track_vacuity": 0,
+      "two_two_tracks": 0,
+      "words": 27
+    },
+    "parameter_sha256": "467b954e56cff4d08cdc12e128735aa1cf14ff836ae70dac2a7016dcc33fe3e2",
+    "records": [
+      {
+        "M": 37,
+        "g": 2,
+        "h_over_g": 1,
+        "minimum_plus_q_bits": 150
+      },
+      {
+        "M": 37,
+        "g": 2,
+        "h_over_g": 2,
+        "minimum_plus_q_bits": 150
+      },
+      {
+        "M": 37,
+        "g": 2,
+        "h_over_g": 36,
+        "minimum_plus_q_bits": 150
+      },
+      {
+        "M": 37,
+        "g": 3,
+        "h_over_g": 1,
+        "minimum_plus_q_bits": 224
+      },
+      {
+        "M": 37,
+        "g": 3,
+        "h_over_g": 2,
+        "minimum_plus_q_bits": 224
+      },
+      {
+        "M": 37,
+        "g": 3,
+        "h_over_g": 36,
+        "minimum_plus_q_bits": 224
+      },
+      {
+        "M": 37,
+        "g": 5,
+        "h_over_g": 1,
+        "minimum_plus_q_bits": 368
+      },
+      {
+        "M": 37,
+        "g": 5,
+        "h_over_g": 2,
+        "minimum_plus_q_bits": 368
+      },
+      {
+        "M": 37,
+        "g": 5,
+        "h_over_g": 36,
+        "minimum_plus_q_bits": 368
+      },
+      {
+        "M": 73,
+        "g": 2,
+        "h_over_g": 1,
+        "minimum_plus_q_bits": 294
+      },
+      {
+        "M": 73,
+        "g": 2,
+        "h_over_g": 2,
+        "minimum_plus_q_bits": 294
+      },
+      {
+        "M": 73,
+        "g": 2,
+        "h_over_g": 72,
+        "minimum_plus_q_bits": 294
+      },
+      {
+        "M": 73,
+        "g": 3,
+        "h_over_g": 1,
+        "minimum_plus_q_bits": 440
+      },
+      {
+        "M": 73,
+        "g": 3,
+        "h_over_g": 2,
+        "minimum_plus_q_bits": 440
+      },
+      {
+        "M": 73,
+        "g": 3,
+        "h_over_g": 72,
+        "minimum_plus_q_bits": 440
+      },
+      {
+        "M": 73,
+        "g": 5,
+        "h_over_g": 1,
+        "minimum_plus_q_bits": 732
+      },
+      {
+        "M": 73,
+        "g": 5,
+        "h_over_g": 2,
+        "minimum_plus_q_bits": 732
+      },
+      {
+        "M": 73,
+        "g": 5,
+        "h_over_g": 72,
+        "minimum_plus_q_bits": 732
+      },
+      {
+        "M": 131,
+        "g": 2,
+        "h_over_g": 1,
+        "minimum_plus_q_bits": 525
+      },
+      {
+        "M": 131,
+        "g": 2,
+        "h_over_g": 2,
+        "minimum_plus_q_bits": 525
+      },
+      {
+        "M": 131,
+        "g": 2,
+        "h_over_g": 130,
+        "minimum_plus_q_bits": 525
+      },
+      {
+        "M": 131,
+        "g": 3,
+        "h_over_g": 1,
+        "minimum_plus_q_bits": 790
+      },
+      {
+        "M": 131,
+        "g": 3,
+        "h_over_g": 2,
+        "minimum_plus_q_bits": 790
+      },
+      {
+        "M": 131,
+        "g": 3,
+        "h_over_g": 130,
+        "minimum_plus_q_bits": 790
+      },
+      {
+        "M": 131,
+        "g": 5,
+        "h_over_g": 1,
+        "minimum_plus_q_bits": 1314
+      },
+      {
+        "M": 131,
+        "g": 5,
+        "h_over_g": 2,
+        "minimum_plus_q_bits": 1308
+      },
+      {
+        "M": 131,
+        "g": 5,
+        "h_over_g": 130,
+        "minimum_plus_q_bits": 1314
+      }
+    ]
+  },
+  "schema": "arbitrary-gcd-phase-v1",
+  "shared_helper_sha256": "baac8ee5a5505e70939795b898a3a8888cf350c9a575fe2614681985706be01e",
+  "standard_cycles": {
+    "counts": {
+      "boundary_collisions": 6,
+      "contracting_regimes": 1669,
+      "early_stops": 24,
+      "expanding_regimes": 1342,
+      "four_mismatch_cycle_bounds": 28,
+      "half_turns": 1,
+      "initial_zero_over_one": 95,
+      "integer_repeated_regimes": 3011,
+      "larger_mismatch_counts": 86,
+      "maximum_regimes": 25,
+      "negative_phases": 133,
+      "nonconvergent_phases": 22,
+      "noncoprime_rotations": 6,
+      "one_four_track": 0,
+      "phases": 306,
+      "positive_reduced_cycles": 0,
+      "rotations": 95,
+      "short_track_vacuity": 55,
+      "two_two_tracks": 0,
+      "words": 11
+    },
+    "cycles": 11,
+    "exact_arrows": 106,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "parameter_sha256": "51d7753e26c8f526c7b6d541c93f1eb02b0bd2ee605df04b5c7f8459fcd59346",
+    "scope": "Actual3x+5,7,13,61 states retain q in every shifted growth bound."
+  },
+  "word_grids": {
+    "counts": {
+      "boundary_collisions": 32370,
+      "contracting_regimes": 43668,
+      "early_stops": 800,
+      "expanding_regimes": 34012,
+      "four_mismatch_cycle_bounds": 17714,
+      "half_turns": 5626,
+      "initial_zero_over_one": 38938,
+      "integer_repeated_regimes": 77680,
+      "larger_mismatch_counts": 24350,
+      "maximum_regimes": 7,
+      "negative_phases": 57652,
+      "nonconvergent_phases": 56602,
+      "noncoprime_rotations": 36894,
+      "one_four_track": 1368,
+      "phases": 115304,
+      "positive_reduced_cycles": 2835,
+      "rotations": 38938,
+      "short_track_vacuity": 38938,
+      "two_two_tracks": 9816,
+      "words": 9004
+    },
+    "grids": [
+      {
+        "alphabet": [
+          1,
+          2
+        ],
+        "periods": [
+          2,
+          12
+        ]
+      },
+      {
+        "alphabet": [
+          1,
+          3
+        ],
+        "periods": [
+          2,
+          9
+        ]
+      }
+    ],
+    "parameter_sha256": "b08a276c0e509dcac2a1df504533dbca80ae3e2cea4551dd135be227cf243270",
+    "rotations": "Every noncoprime rotation; also every coprime rotation through period7.",
+    "scope": "Primitive words only; D>0 words yield actual3x+q controls, with their true addend. No absence inference."
+  }
+}
