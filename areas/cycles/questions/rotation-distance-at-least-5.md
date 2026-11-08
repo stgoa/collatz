@@ -143,10 +143,9 @@ length at least two; noncoprime words with at least three labels
 remain open.
 
 Separately, the [balanced third-period denominator law](../results/balanced-third-period-denominator-law/README.md)
-excludes denominator one unconditionally for balanced third-period
-changes of size one or two. Larger changes with nontrivial common
-factors and unbalanced third-period defects remain outside that
-subcase. These results do not settle the general question.
+excludes denominator one unconditionally for every balanced
+third-period change size. Unbalanced third-period defects remain
+outside that subcase. These results do not settle the general question.
 
 **2026-11-08: move to four distinct labels or noncoprime tracks.**
 Under EXT-1 and the separately declared Barina convergence input,
@@ -386,8 +385,8 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 - 2026-11-08: recorded the all-placement two-singleton-high
   exclusion with its EXT-1-only `2^29` cutoff and separate Barina
-  all-length corollary, plus the unconditional balanced third-period
-  changes of size one or two. Retained the previous frontier as
+  all-length corollary, plus the unconditional exclusion of every
+  balanced third-period change size. Retained the previous frontier as
   history; the general question remains open (Codex four-arc
   research lane, GPT-6 Astra; directed by Santiago Armstrong).
 

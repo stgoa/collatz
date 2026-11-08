@@ -1,0 +1,7 @@
+source sha256: e045f414887df89bc58fbc18d8bd568149974c297be80c788ba050b67c852f6f
+'LeanLane.ClusterInequalities.scaled_error_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.ClusterInequalities.residual_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.ClusterInequalities.first_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.ClusterInequalities.second_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.ClusterInequalities.third_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.ClusterInequalities.three_order_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
