@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**271 results, 30 attempts, 39 questions, 38 sources.**
+**272 results, 30 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -315,6 +315,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`two-block-uniform-denominator-growth`](areas/cycles/results/two-block-uniform-denominator-growth/README.md) | Two-block words u^k v^ℓ with k, ℓ ≥ 2 have denominators growing uniformly in the total, i… | reviewed | reviewed | `corvaja-2005-s-unit-height` |  |
 | [`two-defect-bounded-denominator-finiteness`](areas/cycles/results/two-defect-bounded-denominator-finiteness.md) | Each bounded-denominator layer of the two-defect class is finite, effectively in principle | reviewed | reviewed | `bugeaud-2022-two-logarithms` |  |
 | [`two-defect-cancellation-bound`](areas/cycles/results/two-defect-cancellation-bound.md) | A two-defect rotation bounds the cancellation by both mismatch arcs, so q > (1 − 3^m/2^A)… | reviewed | reviewed | — | yes |
+| [`two-defect-first-block-mersenne-exclusion`](areas/cycles/results/two-defect-first-block-mersenne-exclusion/README.md) | Two non-one letters in the first low-to-high segment exclude denominator one | written | written | `barina-2025-convergence-2-71`, `chim-2025-padic-two-logarithms`, `laurent-mignotte-nesterenko-1995-two-logarithms` |  |
 | [`two-defect-marker-family`](areas/cycles/results/two-defect-marker-family.md) | The words (3, b_n, 4, b_n) are never integer 3x+1 cycles, with growing minimum and local-… | reviewed | reviewed | — |  |
 | [`two-defect-rotation-exclusion`](areas/cycles/results/two-defect-rotation-exclusion/README.md) | No nontrivial 3x+1 cycle has a rotation differing from it in exactly two positions (ρ ≥ 3) | reviewed | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `languasco-2025-two-primes`, `matveev-2000-linear-forms` | yes |
 | [`two-half-defect-mersenne-normal-form`](areas/cycles/results/two-half-defect-mersenne-normal-form/README.md) | Unequal same-parity half defects have an exact two-segment Mersenne normal form | written | written | — |  |
@@ -423,10 +424,11 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 |---|---|---|---|
 | [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) | Adamczewski–Bell: a problem about Mahler functions | cited | 0 |
 | [`ansari-2025-recursive-sieve`](sources/ansari-2025-recursive-sieve.md) | Ansari (2025): recursively sufficient sets and a ternary-digit sieve | cited | 0 |
-| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 7 |
+| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 8 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
 | [`cerda-bennassar-2026-periodic-perturbations`](sources/cerda-bennassar-2026-periodic-perturbations.md) | Cerdá Bennassar (2026): perturbations of the periodic word (1,2) | cited | 0 |
+| [`chim-2025-padic-two-logarithms`](sources/chim-2025-padic-two-logarithms.md) | Chim (2025): explicit bounds for two p-adic logarithms | cited | 1 |
 | [`cobham-recognizability-theorem`](sources/cobham-recognizability-theorem.md) | Cobham's theorem: sets recognizable in two independent bases | cited | 3 |
 | [`conway-1972-unpredictable-iterations`](sources/conway-1972-unpredictable-iterations.md) | Conway (1972): generalized Collatz iterations are undecidable | cited | 0 |
 | [`corvaja-2005-s-unit-height`](sources/corvaja-2005-s-unit-height.md) | Corvaja–Zannier: height of a rational function at S-unit points | cited | 2 |
@@ -443,7 +445,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`lagarias-1985-survey`](sources/lagarias-1985-survey.md) | Lagarias (1985): survey of the 3x+1 problem | cited | 0 |
 | [`languasco-2025-two-primes`](sources/languasco-2025-two-primes.md) | Languasco–Luca–Moree–Togbe: rational form of Matveev's bound | cited | 2 |
 | [`lau-2026-positive-density`](sources/lau-2026-positive-density.md) | Lau / AxiomMath: explicit positive lower density of predecessors (Lean) | replayed | 4 |
-| [`laurent-mignotte-nesterenko-1995-two-logarithms`](sources/laurent-mignotte-nesterenko-1995-two-logarithms.md) | Laurent, Mignotte and Nesterenko (1995): an explicit two-logarithm bound | cited | 5 |
+| [`laurent-mignotte-nesterenko-1995-two-logarithms`](sources/laurent-mignotte-nesterenko-1995-two-logarithms.md) | Laurent, Mignotte and Nesterenko (1995): an explicit two-logarithm bound | cited | 6 |
 | [`lyapunov-weaver-2026-finite-mechanical-approximation`](sources/lyapunov-weaver-2026-finite-mechanical-approximation.md) | Lyapunov Weaver (2026): finite approximation bounds for mechanical itineraries | cited | 0 |
 | [`lyapunov-weaver-2026-periodic-dictionary-complexity`](sources/lyapunov-weaver-2026-periodic-dictionary-complexity.md) | lyapunov_weaver (2026): periodic-dictionary complexity claims | cited | 0 |
 | [`mathlib-065356127b1d`](sources/mathlib-065356127b1d.md) | Mathlib at the repository Lean toolchain pin | cited | 1 |
@@ -718,11 +720,11 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 57.5% | 203 | 9 |
-| Claude side lane | 14.1% | 34 | 132 |
+| ChatGPT main lane | 57.4% | 203 | 9 |
+| Claude side lane | 14.0% | 34 | 132 |
 | Claude review lane | 8.0% | 0 | 121 |
 | Claude Lean lane | 5.2% | 3 | 69 |
-| Claude cycles lane | 4.9% | 21 | 0 |
+| Claude cycles lane | 5.0% | 21 | 0 |
 | Codex cycle research lane | 3.0% | 16 | 0 |
 | Claude PR1 lane | 2.0% | 6 | 9 |
 | Codex four-arc research lane | 1.0% | 8 | 0 |
@@ -732,12 +734,13 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex crossing research lane | 0.4% | 2 | 0 |
 | Codex formalisation lane | 0.4% | 2 | 0 |
 | Codex signed-endpoint formalisation lane | 0.3% | 1 | 0 |
-| Codex main research lane | 0.2% | 3 | 0 |
+| Codex main research lane | 0.3% | 4 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
 | Codex research lane | 0.1% | 1 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
+| Codex first-block research lane | 0.1% | 1 | 0 |
 | Codex root research lane | 0.1% | 1 | 0 |
 | Codex formalisation research lane | 0.1% | 1 | 0 |
 | Claude audit lane | 0.0% | 0 | 1 |

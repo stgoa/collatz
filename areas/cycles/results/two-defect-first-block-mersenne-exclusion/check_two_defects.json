@@ -1,0 +1,427 @@
+{
+  "arithmetic": {
+    "Chim_H_constant_upper": 1287,
+    "Chim_coefficient_upper": 90675,
+    "atanh_terms": 80,
+    "continued_fraction_terms": [
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      1,
+      5,
+      2,
+      23,
+      2,
+      2,
+      1,
+      1,
+      55,
+      1,
+      4,
+      3,
+      1,
+      1,
+      15,
+      1,
+      9,
+      2,
+      5,
+      7,
+      1,
+      1,
+      4,
+      8
+    ],
+    "cutoff_polynomial": [
+      288171523904,
+      191468515876,
+      32021502646,
+      24500000
+    ],
+    "dyadic_upper_at_48": 85965706382336,
+    "eta_bits": 64,
+    "external_inputs": [
+      "LMN",
+      "Chim Theorem 2.1",
+      "Barina through the replayed period theorem"
+    ],
+    "final_full_odd_length_upper": 45158003582,
+    "final_half_length_upper": 22579001791,
+    "gap_bits": 62,
+    "half_length_cutoff": 281474976710656,
+    "ln2_bounds": [
+      "24553090145869607172412918483124184864289170814122579923404694986469653261608528681589949629750677407356463601998534945057511664951799678336/35422621391945757431676178435630229283255250779216421054188228659061954317501699707236864189383591478024245495110561124597124995986978302375",
+      "98212360583478428689651673932496739457156683256490319693618779945878613046434144938070740358478117004692777348148358152378891907458724080469/141690485567783029726704713742520917133021003116865684216752914636247817270006798828947456757534365912096981980442244498388499983947913209500"
+    ],
+    "ln3_bounds": [
+      "369017335340917140706044240090243368728616279239227943871048759140274862131699550043150713059889196223917527172547/335894053932612728969975338549993764554481173661218585876475837409922537622385232776657791604345125227005476864000",
+      "184508667670458570353022120045121684364308139619614923604419047513612763386757847636433235252633223412981812650711/167947026966306364484987669274996882277240586830609292938237918704961268811192616388328895802172562613502738432000"
+    ],
+    "lower_convergent": {
+      "p": 83130157078217,
+      "q": 52449289519716
+    },
+    "period_receipt_sha256": "e48b19926ca0c155032a9d85d3c28f3f6fbe69ae404163638414a7c848c65f64",
+    "positive_gap_lower": "32736706357818300020742016400582454614819282073230735586730922321249349841524776075519361299750580597553835285358701985078617924841869069439039018391568585836941101432569499/15699416884253238872406480391280993377474079636999421696084781041383163518546640992942514509779151835150987374915173324755313196281248015040484581022968742418046188253927137912273577705472",
+    "replayed_period_lower_bound": 72057431991,
+    "upper_convergent": {
+      "p": 683381996816440,
+      "q": 431166034846567
+    }
+  },
+  "finite_prefixes": {
+    "U2_prefixes_with_padic_height_at_least_35": 17064,
+    "dominant_branches": {
+      "U1": 2340,
+      "U2": 17260,
+      "one": 650
+    },
+    "ell_range": [
+      1,
+      5
+    ],
+    "exact_modified_arrows": 206550,
+    "excesses": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      12,
+      27,
+      64
+    ],
+    "n_range": [
+      1,
+      5
+    ],
+    "prefixes": 24300,
+    "scope": "Actual finite integer prefixes with chosen local K; not complete signed joins.",
+    "terminal_raises": [
+      1,
+      3
+    ],
+    "terminal_reductions": 4050,
+    "w_range": [
+      0,
+      5
+    ]
+  },
+  "genuine_joins": {
+    "count": 6,
+    "records": [
+      {
+        "A": [
+          2,
+          1,
+          1
+        ],
+        "B": [
+          6
+        ],
+        "J": 5,
+        "actual_minimum": 1,
+        "defects_in_A": 1,
+        "denominator": 41,
+        "failed_hypothesis": "q=1",
+        "full_odd_length": 8,
+        "h": 1,
+        "half_length": 4,
+        "half_total": 10,
+        "interface": 11,
+        "normalized_state": "1/41",
+        "r": 3
+      },
+      {
+        "A": [
+          2
+        ],
+        "B": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          3,
+          3,
+          1,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          3,
+          10
+        ],
+        "J": 7,
+        "actual_minimum": 733283209,
+        "defects_in_A": 1,
+        "denominator": 548593552421,
+        "failed_hypothesis": "q=1",
+        "full_odd_length": 38,
+        "h": 1,
+        "half_length": 19,
+        "half_total": 39,
+        "interface": 1,
+        "normalized_state": "733283209/548593552421",
+        "r": 3
+      },
+      {
+        "A": [
+          2
+        ],
+        "B": [
+          3,
+          1,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          3,
+          10
+        ],
+        "J": 7,
+        "actual_minimum": 302071523,
+        "defects_in_A": 1,
+        "denominator": 549368393399,
+        "failed_hypothesis": "q=1",
+        "full_odd_length": 36,
+        "h": 1,
+        "half_length": 18,
+        "half_total": 39,
+        "interface": 3,
+        "normalized_state": "302071523/549368393399",
+        "r": 4
+      },
+      {
+        "A": [
+          2,
+          3
+        ],
+        "B": [
+          3,
+          1,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          3,
+          10
+        ],
+        "J": 7,
+        "actual_minimum": 2287432021,
+        "defects_in_A": 2,
+        "denominator": 4396884249637,
+        "failed_hypothesis": "q=1",
+        "full_odd_length": 38,
+        "h": 1,
+        "half_length": 19,
+        "half_total": 42,
+        "interface": 3,
+        "normalized_state": "2287432021/4396884249637",
+        "r": 4
+      },
+      {
+        "A": [
+          2
+        ],
+        "B": [
+          2,
+          8
+        ],
+        "J": 7,
+        "actual_minimum": 1,
+        "defects_in_A": 1,
+        "denominator": 4069,
+        "failed_hypothesis": "q=1",
+        "full_odd_length": 6,
+        "h": 1,
+        "half_length": 3,
+        "half_total": 12,
+        "interface": 15,
+        "normalized_state": "1/4069",
+        "r": 6
+      },
+      {
+        "A": [
+          2
+        ],
+        "B": [
+          2,
+          8,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          3,
+          3,
+          1,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          3,
+          10
+        ],
+        "J": 7,
+        "actual_minimum": 69452759945,
+        "defects_in_A": 1,
+        "denominator": 562939493068109,
+        "failed_hypothesis": "q=1",
+        "full_odd_length": 42,
+        "h": 1,
+        "half_length": 21,
+        "half_total": 49,
+        "interface": 15,
+        "normalized_state": "69452759945/562939493068109",
+        "r": 6
+      }
+    ],
+    "scope": "Complete genuine joins; normalized rational states are not treated as q=1 integers.",
+    "source_receipt_sha256": "3850bffd0f3174e1c65b858bbab2f8bd9f2e4223e60b585e33718c76c3c4e745"
+  },
+  "schema": "two-defect-first-block-v1",
+  "separate_prefix_control": {
+    "A": [
+      2,
+      1,
+      1,
+      3,
+      1,
+      1,
+      1,
+      1
+    ],
+    "h": 73,
+    "interface": 16421,
+    "local_K_threshold": "495616/16663",
+    "ordinary_even_terminal": 242,
+    "positive_modified_trace": [
+      73,
+      55,
+      83,
+      125,
+      47,
+      71,
+      107,
+      161,
+      121
+    ],
+    "r": 11,
+    "scope": "An exact positive prefix and first signed segment only; no B or complete join is claimed.",
+    "signed_addend": 2047,
+    "signed_first_trace": [
+      -73,
+      457,
+      1709,
+      3587,
+      1601,
+      3425,
+      6161,
+      10265,
+      16421
+    ]
+  },
+  "standard_cycles": {
+    "count": 11,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "records": [
+      {
+        "addend": 5,
+        "denominator": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 1
+      },
+      {
+        "addend": 5,
+        "denominator": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 3
+      },
+      {
+        "addend": 5,
+        "denominator": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 3
+      },
+      {
+        "addend": 5,
+        "denominator": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 17
+      },
+      {
+        "addend": 5,
+        "denominator": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 17
+      },
+      {
+        "addend": 7,
+        "denominator": 7,
+        "failed_hypothesis": "q=1",
+        "odd_period": 2
+      },
+      {
+        "addend": 13,
+        "denominator": 13,
+        "failed_hypothesis": "q=1",
+        "odd_period": 1
+      },
+      {
+        "addend": 13,
+        "denominator": 13,
+        "failed_hypothesis": "q=1",
+        "odd_period": 15
+      },
+      {
+        "addend": 13,
+        "denominator": 13,
+        "failed_hypothesis": "q=1",
+        "odd_period": 5
+      },
+      {
+        "addend": 61,
+        "denominator": 61,
+        "failed_hypothesis": "q=1",
+        "odd_period": 1
+      },
+      {
+        "addend": 61,
+        "denominator": 61,
+        "failed_hypothesis": "q=1",
+        "odd_period": 41
+      }
+    ]
+  }
+}
