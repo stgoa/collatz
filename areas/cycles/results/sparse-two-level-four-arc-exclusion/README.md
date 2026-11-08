@@ -1,7 +1,7 @@
 ---
 id: sparse-two-level-four-arc-exclusion
 kind: result
-title: Two rotations exclude a sparse two-level four-arc class
+title: Two rotations and discrepancy exclude two-level four-arc classes
 status: written
 claim: >
   Raw odd-only 3x+1 map. Let m=1+a+b+c, a,b,c>=1, V>=3,
@@ -17,20 +17,27 @@ claim: >
   for h and 2h need error greater than 1/193, whereas the stated
   integer-cycle hypotheses give a smaller error. This is a scoped
   four-mismatch exclusion, not the general rho>=5 claim.
+  The same m>=2^22 exclusion also holds at every b when
+  K(k/m)<=m/512, where k is the least positive inverse of h modulo m
+  and K is the sum of regular continued-fraction partial quotients.
+  This additional case uses the binary template obtained by replacing
+  V by 1 and its proper-factor discrepancy 2(K-1); no new external
+  assumption is needed.
 authors:
   - Codex four-arc research lane (GPT-6 Astra; directed by Santiago Armstrong)
   - Codex main research lane (GPT-6 Astra; directed by Santiago Armstrong)
 created: 2026-11-08
-depends_on: [paired-state-run-law]
+depends_on: [paired-state-run-law, denjoy-koksma-height-bound]
 assumes: [musson-collatz-gap-all]
 certificates: [check_four_arcs.py]
 evidence:
   - "check_four_arcs.json: exact dual replay for all 1440 cells, discrete mismatch and run checks, local descent, finite constants and eleven actual-cycle controls"
   - "explore_cells.py and explore_cells.json: discovery of sparse rational Farkas multipliers; only their standard-library exact verification is used in the proof"
+  - "check_four_arcs.json: binary-template continued fractions, all proper factors on the stated finite grid, both envelope regimes and the additional exact cutoff"
 tags: [cycles, rotation-distance, four-arcs, size-method, exact-certificates]
 ---
 
-# Two rotations exclude a sparse two-level four-arc class
+# Two rotations and discrepancy exclude two-level four-arc classes
 
 ## Statement
 
@@ -52,13 +59,25 @@ Then
 m>=2^22 and b<=m/128  imply  den(w)>1 whenever D_w>0.    (2)
 ```
 
+There is also an alternative that allows every positive `b`.
+Let `k` be the unique integer `1<=k<m` with `kh=1 (mod m)`.
+Write the regular continued fraction in its canonical finite form
+`k/m=[0;d_1,...,d_l]`, with every `d_i>=1` and `d_l>=2`, and put
+`K(k/m)=sum_i d_i`. Then
+
+```
+m>=2^22 and K(k/m)<=m/512  imply  den(w)>1
+whenever D_w>0, with no density restriction on the twos. (2a)
+```
+
 The unique occurrence of `V` makes the word primitive.
 Rotation by `h` has exactly four mismatches. We impose no
 lower bound on the three arc lengths beyond positivity,
 no upper bound on `V`, and no condition locating the cycle
 minimum relative to `V`. This result does not cover all
 four-mismatch words, other track-label patterns, or the
-finite lengths below `2^22`.
+finite lengths below `2^22`. In (2a), it is the chronological
+increment `k=h^(-1)` on the track whose continued fraction is used.
 
 The argument completes one part of the earlier
 [multi-rotation attempt](../../attempts/multi-rotation-four-mismatch-exclusion/README.md):
@@ -280,6 +299,95 @@ by 342 while its denominator doubles. At `k=22` it is
 Thus (11) supplies a solution forbidden by the exact
 certificate (7). This contradiction proves (2).
 
+### 5. Every density of twos with controlled continued fractions
+
+For this extension, first fix the original track orientation `h`
+from the Statement, before making the geometric reversal in
+section 1. Establish (15) using its original inverse `k`.
+
+Replace the single letter `V` by 1, obtaining the binary template
+`U`. Its total is `F=m+b`, with mean `beta=F/m`. On the track,
+the two outer 1-arcs merge, so the mean-zero function `U-beta`
+has cyclic total variation exactly 2. Consecutive chronological
+letters advance by `k=h^(-1) (mod m)` on this track.
+
+The discrete Denjoy--Koksma and Ostrowski core in
+[the height result](../denjoy-koksma-height-bound/README.md)
+applies to any mean-zero periodic function and every starting
+phase. Hence every proper chronological factor of `U`, of any
+length `j<m`, satisfies
+
+```
+|sum(factor)-beta*j| <= Delta,     Delta=2(K(k/m)-1).   (15)
+```
+
+This is a bound for all factors, including those crossing the
+chronological cut. It does not apply a cycle-height bound to
+the spiked word or charge the large letter `V` to the variation.
+Reversing the track in section 1 changes no word or factor in
+(15); the bound remains available without recomputing `K`.
+
+First suppose `beta<alpha=log_2(3)`. The chronological segment
+from the state `n0` just after the spike to the global minimum
+contains no spike. For its length `j`, (15) bounds its affine
+slope below by
+
+```
+3^j/2^(sum of its letters) >= 2^(-Delta)*(3/2^beta)^j
+                           >= 2^(-Delta).
+```
+
+Its additive term is nonnegative, so `n0<=2^Delta*L`; this also
+holds for the empty segment. Replace (9) by
+`log_3(n0)<=log_3(L)+Delta/alpha`. Sections 2--4 therefore apply
+with the new error
+
+```
+epsilon=[log_3(L)+Delta/alpha+1]/m.                   (16)
+```
+
+Since `alpha>3/2` and `K<=m/512`,
+`Delta/(alpha*m)<4K/(3m)<=1/384`. Thus (13)--(14) bound
+(16) by exactly the same ceiling below `1/193`, proving (2a)
+in this first case. This replaces the density term by discrepancy;
+no restriction on `b/m` was used beyond `beta<alpha`.
+
+Now suppose `beta>=alpha`. Increasing one letter cannot reduce
+any factor sum, so every proper factor of `w` has total at least
+`beta*j-Delta`, even if it contains the spike. Its slope and the
+slope of each of its suffixes are at most `2^Delta`, because
+`3/2^beta<=1`. The exact affine expansion of a segment of length
+`l<m` is
+
+```
+n_l=(3^l/2^E_l)*n_0
+    +(1/3)*sum_(j=1)^l 3^j/2^(total of the length-j suffix).
+```
+
+Apply it from the minimum to the maximum `H`. It gives
+
+```
+H <= 2^Delta*(L+m/3)
+  < (2/3)*2^Delta*m*G,       G=2^172*m^341,           (17)
+```
+
+using `L<mG/3` and `G>1`. The four mismatches for `h` leave
+an agreeing run of length at least `m/4-1`; the paired-state
+law therefore gives `H>(2/3)*3^(m/4)`. Combining with (17),
+
+```
+alpha*m/4 < Delta+172+342*log_2(m).                  (18)
+```
+
+But `Delta<m/256` and `alpha>3/2` would require
+`95m/256<172+342*log_2(m)`. For `2^j<=m<2^(j+1)`, `j>=22`,
+the left side is at least `95*2^j/256` and the right side
+is less than `172+342*(j+1)`. At `j=22` their difference is
+`1548442>0`; doubling the first bound and adding only 342
+to the second preserves the contradiction for every larger
+`j`. This proves (2a) in the second case, and completes the
+all-density extension.
+
 ## Certificates
 
 Run from the repository root:
@@ -299,6 +407,13 @@ the exact constants above, and all eleven shared actual
 `3x+5,7,13,61` fixtures and their paired-state run bounds.
 Its deterministic [receipt](check_four_arcs.json) records
 the finite coverage. Use `--write-receipt` to regenerate it.
+The same checker also constructs the binary templates for all
+coprime track steps and positive arc lengths in its stated small
+length range, verifies the chronological inverse and every proper
+factor discrepancy, and checks the two state envelopes on exact
+reduced `3x+q` cycles. Those envelope comparisons retain `q` in
+the additive term. The all-length argument and its `q=1` exclusion
+are proved above, not inferred from this finite grid.
 
 The discovery script [explore_cells.py](explore_cells.py)
 uses SciPy only to find small dual supports. It then solves
@@ -321,12 +436,23 @@ coprime step; it does not assume the old minimum alignment
 or replace a grid margin by an asserted uniform margin.
 
 Other outer labels, two sign changes of each kind,
-multiple tracks, and nonsparse twos remain outside this
-result. The general
+multiple tracks, and words satisfying neither the density nor
+the continued-fraction condition remain outside this result.
+The general
 [four-mismatch question](../../questions/rotation-distance-at-least-5.md)
 is still open. The minimum and slope estimates are
 specific to `3x+1`; actual `3x+d` controls retain their
 own addend and are not excluded.
+
+The added discrepancy argument uses the same formal rotation core
+and affine suffix expansion as the earlier
+[Fibonacci-spike template result](../fibonacci-four-arc-spike-denominator-growth/README.md).
+That result treats an expanding three-label template and an explicit
+Fibonacci family. Here the binary template has variation 2, and the
+two-rotation obstruction handles its expanding case even at very low
+twos density. The contracting case uses the existing repeated-run
+height method. No new discrepancy theorem or novelty for these tools
+is claimed; novelty of the scoped extension is undetermined.
 
 The multi-rotation mechanism and its proposed cell
 certification come from the earlier Claude side lane
@@ -341,3 +467,8 @@ review or a Lean formalisation.
 - 2026-11-08: completed the sparse equal-outer-label
   branch of the multi-rotation size method with exact
   rational certificates and explicit finite errors.
+- 2026-11-08: retained the original sparse-twos statement and
+  added the alternative `K(h^(-1)/m)<=m/512` for every twos
+  density, using the binary-template discrepancy and separate
+  expanding and contracting mean cases. The cutoff remains
+  `m>=2^22`, with EXT-1 still the sole external input.
