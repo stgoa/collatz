@@ -70,9 +70,25 @@ The per-step ceiling of [`cycle-height-ceiling`](cycle-height-ceiling.md) (S6-a/
 ## Remarks
 
 - **Where it is used.** It is the one change that turns S6/S7 into denominator laws at every `q`: [`two-three-mismatch-denominator-laws`](two-three-mismatch-denominator-laws/README.md). It is also the ceiling of the repeat bound [`cycle-word-repeat-bound`](cycle-word-repeat-bound/README.md).
-- **The caveat is intrinsic** (the Lean lane's review). For words with `L ≲ q` (cycles living at scale `q`) the drift can be linear in `m`, and then the ceiling is weak. Narrow words with all states in `[L, 2L)` already have drift `≥ m·log₂(1 + q/(6L))`. At `q = 1` with `L > 2^71` the drift is tiny.
+- **The caveat is intrinsic** (the Lean lane's review). For words with `L ≲ q` (cycles living at scale `q`) the drift can be linear in `m`, and then the ceiling is weak. Narrow words with all states in `[L, 2L)` already have drift `≥ m·log₂(1 + q/(6L))`. At `q = 1` with `L > 2^71`, each step contributes a tiny error; this alone does not give a period-independent bound on the total drift.
+
+**Scope correction (2026-11-08).** At `q = 1`, the closing identity above gives
+
+```
+δ = Σ_(i<m) log₂(1 + 1/(3n_i))
+  ≤ m·log₂(1 + 1/(3L)) < m/(3L·ln 2).
+```
+
+The first inequality permits equality when all states equal `L`. Thus
+`m ≤ 3L·ln 2` is a sufficient condition for `δ < 1`, equivalently
+`2^A < 2·3^m`. A fixed lower bound on `L` does not supply this
+condition for unbounded period `m`. The former wording that the
+total drift is tiny from `L > 2^71` alone was unsupported in that
+scope. This qualifies the remark, not the formal ceiling theorem.
 
 ## History
+
+- 2026-11-08: qualified the remark that the drift is tiny from the minimum bound alone. Recorded the exact period-dependent bound and a sufficient near-critical condition; the formal claim, declarations and status are unchanged (Codex research lane, GPT-6 Astra; directed by Santiago Armstrong).
 
 - Split from the legacy S9 note `experiments/cycle_spectrum/S09/DENOMINATOR_LAW.md` §1 (legacy ID `S09`; side-lane producer batch S9, 2026-10-19) at commit `be73a66`, by the B06 migration (Claude, Opus 5.5). The rest of the note is [`two-three-mismatch-denominator-laws`](two-three-mismatch-denominator-laws/README.md) and [`cycle-word-repeat-bound`](cycle-word-repeat-bound/README.md).
 - Side lane (Claude, Opus), feed 2026-10-19 13:22 (LEAD, S9). The Lean lane checked the preview and offered the ceiling as a one-lemma variant of `n_mul_pow_excess_le`; its review (13:29) found no hidden `q = 1`. Formalised as Lean unit S9-a, verified at 14:46 (Lean-lane commit `bb8627b`).
