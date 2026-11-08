@@ -149,14 +149,40 @@ def repeated_path_controls():
         require(states[-1] == 5 and min(states) > 0, "positive repeated path")
         require(len(word) == 4 + 2 * k and sum(word) == 7 + 3 * k, "family lengths and totals")
         require(word[-1] == 2 > 1 and states[0] == 3 ** 2, "isolated small-gap conditions")
+        A, r, J = [1, 1], k + 1, k + 2
+        B = changed_last(word, r)
+        require(changed_last(B, -r) == word and B[-1] > J, "formal B embedding")
+        u = changed_last(A, 1) + changed_last(B, -J)
+        v = A + changed_last(B, r)
+        require(u == changed_last(A, 1) + changed_last(word, -1)
+                and v == A + changed_last(word, 2 * r), "formal word reconstruction")
+        m, S = 6 + 2 * k, 10 + 4 * k
+        require(len(u) == len(v) == m and sum(u + v) == 2 * S, "formal embedding length and total")
+        slope = Fraction(3 ** m, 1 << S)
+        require(slope == Fraction(729, 1024) * Fraction(9, 16) ** k < 1,
+                "all-k slope formula in representative embedding")
+        D = (1 << sum(u + v)) - 3 ** len(u + v)
+        require(D > 0, "positive formal denominator")
+        M = 1 << r
+        if M >= 8:
+            require(M > 4, "positive integer X,h cannot have (M-1)X+h=4")
+        elif M == 4:
+            require(M * (M - 1) - 1 != 5, "only initial-coupling candidate fails endpoint")
+        else:
+            require(M == 2 and (M - 1) * 3 + 1 == 4 and M * (M - 1) * 3 - 1 == 5,
+                    "small coupling candidate")
+            require(trace(-1, M - 1, A)[-1] == -1, "small candidate has negative interface")
         samples.append({"k": k, "word": word, "states": states,
-                        "length": len(word), "valuation_total": sum(word)})
+                        "length": len(word), "valuation_total": sum(word),
+                        "formal_embedding": {"A": A, "B": B, "r": r, "J": J,
+                                             "u": u, "v": v, "half_length": m,
+                                             "average_half_total": S, "lambda": str(slope), "D": D}})
     return {
         "prefix": prefix, "loop": loop, "loop_affine_map": "(9w-5)/8",
         "loop_fixed_point": 5, "initial_power_of_three": 2,
         "representative_repeat_counts": [item["k"] for item in samples],
         "samples": samples,
-        "scope": "All-k statement follows by the displayed fixed loop. Coupled Mersenne endpoints and D>0 are not asserted.",
+        "scope": "All-k path and positive-D formal embedding follow from exact formulas. Coupled Mersenne endpoints are not supplied; the displayed path cannot be the q=1 positive-interface difference path.",
     }
 
 

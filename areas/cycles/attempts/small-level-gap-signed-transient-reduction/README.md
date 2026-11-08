@@ -12,8 +12,8 @@ claim: >
   give a uniform cycle exclusion: a genuine q=4069 join defeats the
   rational-state sign shortcut, and positive 3w-1 paths of unbounded
   length satisfy the isolated initial-divisibility and last-valuation
-  conditions. The latter paths are not asserted to retain the coupled
-  Mersenne endpoints or positive reconstructed denominator.
+  conditions, even with an embedding into positive formal words having
+  D_(uv)>0. That embedding does not supply the coupled Mersenne endpoints.
 authors:
   - Codex cycle research lane (GPT-6 Astra; directed by Santiago Armstrong)
 created: 2026-11-08
@@ -203,11 +203,34 @@ sends `9=3^2*1` to 5 through positive odd integers. It has length
 The displayed fixed cycle proves the all-`k` statement; finite
 representatives in the certificate only check the implementation.
 
-This family does **not** preserve the coupled Mersenne endpoint
-equations or the condition `D_(uv)>0`. It only refutes a length bound
-derived from initial `3^a` divisibility, positivity, and the last
-valuation condition alone. A useful exclusion must retain more of
-the original coupling.
+Even positive total denominator can be retained in a formal embedding.
+Write the displayed word as `E_k`, and set
+
+```
+A=(1,1),    r=k+1,    J=k+2,    B=E_k[r].
+```
+
+Then `B[-r]=E_k`, `last(B)=r+2>J`, and the formal reconstructed words
+`u=A[1]E_k[-1]`, `v=A E_k[2r]` have positive letters. Their common
+half length and average half total are
+
+```
+m=6+2k,    S=(sum(u)+sum(v))/2=10+4k,
+lambda=3^m/2^S=(729/1024)*(9/16)^k<1.
+```
+
+Thus `D_(uv)=2^(2S)-3^(2m)>0` for every `k>=0`. This is a formal
+word embedding, not a claim of signed Mersenne endpoint compatibility.
+In fact, coupling this particular `9 -> 5` path to a positive integer
+`3x+1` cycle would require both `(M-1)*X+h=4` and
+`M*(M-1)*X-h=5`. For `M>=4`, the first equation forces `M=4,X=h=1`
+or is impossible, and that case fails the second equation. For `M=2`,
+the equations force `X=3,h=1`, but `A=(1,1)` fixes `-1` under `3y+1`,
+so its interface is not positive.
+
+The family therefore refutes a length bound derived from initial
+`3^a` divisibility, positivity, the last valuation, and `D_(uv)>0`
+alone. A useful exclusion must retain the missing endpoint coupling.
 
 **A small gap does not bound the interface by the high level.** A
 second existing control has `J=9,r=8,p=1,h=1`, `len(A)=30`,
@@ -241,8 +264,9 @@ than the isolated negative-addend path, to force an exclusion.
 The [certificate](check_small_gap.py) verifies both reconstructed
 joins, their actual positive integer cycles, every signed transient
 and the identities above. It checks representative repeat counts
-for the explicit `3w-1` family and the loop's exact affine fixed
-point, and replays all eleven shared actual `3x+d` fixtures.
+for the explicit `3w-1` family, its formal positive-denominator
+embedding, and the loop's exact affine fixed point, and replays all
+eleven shared actual `3x+d` fixtures.
 There is no absence census or probabilistic claim. Run from the
 repository root:
 
@@ -259,5 +283,6 @@ negative-addend cycle is only an obstruction to the weakened route.
 
 - 2026-11-08: recorded the small-gap difference identity and the
   precise failures of sign transfer and transient-only length
-  bounds. Same-session scrutiny does not change `written` status
+  bounds, including a formal embedding with positive denominator.
+  Same-session scrutiny does not change `written` status
   (Codex cycle research lane, GPT-6 Astra; directed by Santiago Armstrong).
