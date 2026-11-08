@@ -1,0 +1,312 @@
+{
+  "controls": [
+    {
+      "d": 5,
+      "denominator": 5,
+      "failed_hypothesis": "length divisible by 4",
+      "length": 1,
+      "minimum": 1,
+      "total": 3
+    },
+    {
+      "d": 5,
+      "denominator": 5,
+      "failed_hypothesis": "length divisible by 4",
+      "length": 3,
+      "minimum": 19,
+      "total": 5
+    },
+    {
+      "d": 5,
+      "denominator": 5,
+      "failed_hypothesis": "length divisible by 4",
+      "length": 3,
+      "minimum": 23,
+      "total": 5
+    },
+    {
+      "d": 5,
+      "denominator": 5,
+      "failed_hypothesis": "length divisible by 4",
+      "length": 17,
+      "minimum": 187,
+      "total": 27
+    },
+    {
+      "d": 5,
+      "denominator": 5,
+      "failed_hypothesis": "length divisible by 4",
+      "length": 17,
+      "minimum": 347,
+      "total": 27
+    },
+    {
+      "d": 7,
+      "denominator": 7,
+      "failed_hypothesis": "length divisible by 4",
+      "length": 2,
+      "minimum": 5,
+      "total": 4
+    },
+    {
+      "d": 13,
+      "denominator": 13,
+      "failed_hypothesis": "length divisible by 4",
+      "length": 1,
+      "minimum": 1,
+      "total": 4
+    },
+    {
+      "d": 13,
+      "denominator": 13,
+      "failed_hypothesis": "length divisible by 4",
+      "length": 15,
+      "minimum": 131,
+      "total": 24
+    },
+    {
+      "d": 13,
+      "denominator": 13,
+      "failed_hypothesis": "length divisible by 4",
+      "length": 5,
+      "minimum": 211,
+      "total": 8
+    },
+    {
+      "d": 61,
+      "denominator": 61,
+      "failed_hypothesis": "length divisible by 4",
+      "length": 1,
+      "minimum": 1,
+      "total": 6
+    },
+    {
+      "d": 61,
+      "denominator": 61,
+      "failed_hypothesis": "length divisible by 4",
+      "length": 41,
+      "minimum": 235,
+      "total": 66
+    }
+  ],
+  "finite_remainder": {
+    "full_plus_cancellations": [
+      {
+        "D": 517135,
+        "H": 0,
+        "a": 3,
+        "b": 5,
+        "c": 2,
+        "denominator": 295,
+        "gcd": 1753,
+        "intercept": 1291961,
+        "length": 12,
+        "minus": 295,
+        "mismatches": [
+          8,
+          6,
+          7,
+          8,
+          4,
+          8,
+          4,
+          8,
+          7,
+          6,
+          8
+        ],
+        "plus": 1753,
+        "r": 3,
+        "reduced_numerator": 737,
+        "t": 4,
+        "total": 20,
+        "word": [
+          1,
+          1,
+          3,
+          1,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          5
+        ]
+      }
+    ],
+    "parameter_pairs": [
+      {
+        "r": 3,
+        "t": 4,
+        "tuples": 16
+      },
+      {
+        "r": 4,
+        "t": 5,
+        "tuples": 25
+      },
+      {
+        "r": 5,
+        "t": 6,
+        "tuples": 36
+      },
+      {
+        "r": 9,
+        "t": 11,
+        "tuples": 121
+      },
+      {
+        "r": 10,
+        "t": 12,
+        "tuples": 144
+      },
+      {
+        "r": 11,
+        "t": 13,
+        "tuples": 169
+      },
+      {
+        "r": 15,
+        "t": 18,
+        "tuples": 324
+      },
+      {
+        "r": 16,
+        "t": 19,
+        "tuples": 361
+      },
+      {
+        "r": 17,
+        "t": 20,
+        "tuples": 400
+      },
+      {
+        "r": 21,
+        "t": 25,
+        "tuples": 625
+      },
+      {
+        "r": 22,
+        "t": 26,
+        "tuples": 676
+      },
+      {
+        "r": 23,
+        "t": 27,
+        "tuples": 729
+      },
+      {
+        "r": 27,
+        "t": 32,
+        "tuples": 1024
+      },
+      {
+        "r": 28,
+        "t": 33,
+        "tuples": 1089
+      },
+      {
+        "r": 29,
+        "t": 34,
+        "tuples": 1156
+      },
+      {
+        "r": 33,
+        "t": 39,
+        "tuples": 1521
+      },
+      {
+        "r": 34,
+        "t": 40,
+        "tuples": 1600
+      },
+      {
+        "r": 35,
+        "t": 41,
+        "tuples": 1681
+      }
+    ],
+    "residue_branches": {
+      "a_le_b": 6051,
+      "large_R": 1725,
+      "small_R": 3921
+    },
+    "tuple_count": 11697
+  },
+  "large_r_cutoff": {
+    "fourth_power_left": 3545635722358490164662299815800763846782819121943782189779847137133914725399974826078144419558826880891141412928447304716790790876771803006408072255114431161123710360028488451150836306636958042096644128683953187437328588880533128,
+    "fourth_power_right": 6064523798049644277925701126806650606472211004362096137261922023539261533931159712229993784486900304494092698035668254711607734547323493716579247168129613825017402250081444943555723771998431425098683590600454956058175183022718976,
+    "r": 38,
+    "zero_family_base_power2": 16777216,
+    "zero_family_base_power3": 43046721,
+    "zero_family_exclusion_base_r": 4
+  },
+  "scope": "All even-total near-critical words in the specified sparse four-arc family; no general four-arc classification.",
+  "status": "PASS",
+  "symbolic_identity": {
+    "terms": [
+      {
+        "coefficient_in_32C": -4608,
+        "powers_V_Z_Q_R": [
+          0,
+          2,
+          1,
+          1
+        ]
+      },
+      {
+        "coefficient_in_32C": 1280,
+        "powers_V_Z_Q_R": [
+          0,
+          2,
+          1,
+          2
+        ]
+      },
+      {
+        "coefficient_in_32C": -139968,
+        "powers_V_Z_Q_R": [
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficient_in_32C": 38880,
+        "powers_V_Z_Q_R": [
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "coefficient_in_32C": 15552,
+        "powers_V_Z_Q_R": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "coefficient_in_32C": 209952,
+        "powers_V_Z_Q_R": [
+          2,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "variables": [
+      "V",
+      "Z",
+      "Q",
+      "R"
+    ]
+  }
+}
