@@ -1,0 +1,4 @@
+source sha256: 25d951db8db9d188121c645bf0482453c06f336beb4e65b096bae16d69ae9f3a
+'LeanLane.SignedIntercept.negative_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.SignedIntercept.not_dvd_intercept' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.SignedIntercept.not_dvd_power_plus' depends on axioms: [propext, Classical.choice, Quot.sound]
