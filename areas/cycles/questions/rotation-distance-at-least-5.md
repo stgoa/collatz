@@ -33,6 +33,16 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
   This gives an unconditional proof for this bounded-variation class,
   already excluded with the stronger imported mismatch bounds below.
   Larger amplitudes and the general four-mismatch question remain open.
+- **2026-11-08: changes to any fixed expanding background must grow.**
+  [`expanding-background-defect-growth`](../results/expanding-background-defect-growth/README.md)
+  proves an explicit bound, under EXT-1, for arbitrary positive
+  substitutions in repetitions of a fixed expanding word. It allows
+  every phase and both increases and decreases, and gives effective
+  finiteness at fixed substitution count. Its independently replayed
+  four-increase `(2,1)` corollary subsumes the earlier lifted family;
+  the node credits the stronger prior `(1,2)`-perturbation result.
+  Sparse rotations need not admit a fixed background of this kind,
+  so the general rotation-distance question remains open.
 - **2026-11-08: a lifted four-arc class is excluded at every length.**
   [`lifted-four-arc-denominator-one-exclusion`](../results/lifted-four-arc-denominator-one-exclusion/README.md)
   excludes denominator 1 for the words obtained by replacing every
@@ -102,6 +112,11 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
   exclusion and the transient-versus-loop research target. The
   general question remains `open` (Codex cycle research lane,
   GPT-6 Astra; directed by Santiago Armstrong).
+- 2026-11-08: added the fixed expanding-background substitution
+  bound and the independently checked weaker instance of the
+  known `(1,2)` perturbation exclusion. The general question stays
+  `open` (Codex four-arc research lane, GPT-6 Astra;
+  directed by Santiago Armstrong).
 - 2026-11-08: added the lifted four-arc denominator-one exclusion,
   conditional only on the declared gap EXT-1, with a locally replayed
   finite length exclusion. The general question remains `open`
