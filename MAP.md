@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**278 results, 30 attempts, 39 questions, 39 sources.**
+**279 results, 30 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -221,6 +221,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`algebraic-and-primitive-cancellation-census`](areas/cycles/results/algebraic-and-primitive-cancellation-census/README.md) | Cancellation splits into an algebraic part and a small primitive part: census of few-arc… | written | written | — |  |
 | [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) | Positive valuation words have no integral antiperiodic starting point | written | written | — | yes |
 | [`background-maximum-four-arc-exclusion`](areas/cycles/results/background-maximum-four-arc-exclusion/README.md) | A larger background label excludes equal-outer four-arc words | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
+| [`balanced-third-period-denominator-law`](areas/cycles/results/balanced-third-period-denominator-law/README.md) | Balanced third-period defects force a cubic-factor denominator bound | written | written | — |  |
 | [`band-one-three-forced-positions`](areas/cycles/results/band-one-three-forced-positions.md) | In the Collatz range, an ordered cycle in band 1 has at least three forced positions | formal | reviewed | — | yes |
 | [`bounded-unequal-half-defect-exclusion`](areas/cycles/results/bounded-unequal-half-defect-exclusion/README.md) | Unequal same-parity half defects of combined magnitude at most 24 exclude denominator one | written | written | — |  |
 | [`closed-negative-prefix-mersenne-denominator-law`](areas/cycles/results/closed-negative-prefix-mersenne-denominator-law/README.md) | Closed negative prefixes force a Mersenne denominator bound | written | written | `musson-collatz-gap-all` |  |
@@ -696,6 +697,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 - 2026-11-08: [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) added (result)
 - 2026-11-08: [`background-maximum-four-arc-exclusion`](areas/cycles/results/background-maximum-four-arc-exclusion/README.md) added (result)
+- 2026-11-08: [`balanced-third-period-denominator-law`](areas/cycles/results/balanced-third-period-denominator-law/README.md) added (result)
 - 2026-11-08: [`bounded-unequal-half-defect-exclusion`](areas/cycles/results/bounded-unequal-half-defect-exclusion/README.md) added (result)
 - 2026-11-08: [`closed-negative-prefix-mersenne-denominator-law`](areas/cycles/results/closed-negative-prefix-mersenne-denominator-law/README.md) added (result)
 - 2026-11-08: [`clustered-two-maximum-arcs-exclusion`](areas/cycles/results/clustered-two-maximum-arcs-exclusion/README.md) added (result)
@@ -718,7 +720,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`one-defect-first-block-mersenne-exclusion`](areas/cycles/results/one-defect-first-block-mersenne-exclusion/README.md) added (result)
 - 2026-11-08: [`one-edit-mechanical-denominator-growth`](areas/cycles/results/one-edit-mechanical-denominator-growth/README.md) added (result)
 - 2026-11-08: [`positive-interface-mersenne-exclusion`](areas/cycles/results/positive-interface-mersenne-exclusion/README.md) added (result)
-- 2026-11-08: [`signed-endpoint-order-depth`](areas/cycles/results/signed-endpoint-order-depth/README.md) added (result)
 
 ## Contributors
 
@@ -728,7 +729,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 |---|---|---|---|
 | ChatGPT main lane | 56.7% | 203 | 9 |
 | Claude side lane | 13.9% | 34 | 132 |
-| Claude review lane | 7.9% | 0 | 121 |
+| Claude review lane | 7.8% | 0 | 121 |
 | Claude Lean lane | 5.1% | 3 | 69 |
 | Claude cycles lane | 5.0% | 21 | 0 |
 | Codex cycle research lane | 3.0% | 16 | 0 |
@@ -741,8 +742,8 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex crossing research lane | 0.4% | 2 | 0 |
 | Codex main research lane | 0.4% | 5 | 0 |
 | Codex formalisation lane | 0.4% | 2 | 0 |
+| Codex residue research lane | 0.3% | 5 | 0 |
 | Codex signed-endpoint formalisation lane | 0.3% | 1 | 0 |
-| Codex residue research lane | 0.2% | 4 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
