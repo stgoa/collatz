@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**237 results, 29 attempts, 39 questions, 30 sources.**
+**238 results, 29 attempts, 39 questions, 30 sources.**
 
 ## Frontier: open questions
 
@@ -359,6 +359,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`positive-offset-kernel-ternary-closure`](areas/invariants/results/positive-offset-kernel-ternary-closure.md) | The positive-offset binary sections of a 3x+1 invariant are closed under binary and terna… | formal | formal | — | yes |
 | [`quadratic-separation-digit-count-sections`](areas/invariants/results/quadratic-separation-digit-count-sections/README.md) | Mixed sections of a non-eventually-periodic digit-count sequence are pairwise distinct, g… | formal | formal | — | yes |
 | [`reverse-closure-two-base-automaticity`](areas/invariants/results/reverse-closure-two-base-automaticity.md) | For the odd-value sequence of a 3x+1 invariant, 2-automatic and 3-automatic are equivalent | formal | formal | `cobham-recognizability-theorem` | yes |
+| [`saturated-residue-automata-uniform-connectivity`](areas/invariants/results/saturated-residue-automata-uniform-connectivity/README.md) | Two families of arrows make every saturated residue automaton strongly connected | written | written | — |  |
 | [`saturated-sets-meet-residue-classes-six-smooth-moduli`](areas/invariants/results/saturated-sets-meet-residue-classes-six-smooth-moduli/README.md) | Every saturated set of the 3x+1 map meets every residue class modulo 2^k·3^b, for all k a… | formal | formal | — | yes |
 | [`saturated-sets-meet-residue-classes-small-moduli`](areas/invariants/results/saturated-sets-meet-residue-classes-small-moduli/README.md) | Every saturated set of the 3x+1 map meets every residue class modulo every M ≤ 100 | written | written | — |  |
 | [`saturated-sets-residue-classes-finite-automaton`](areas/invariants/results/saturated-sets-residue-classes-finite-automaton/README.md) | A finite automaton decides the residue-class question for all moduli 2^k·3^b·M′ at once;… | written | written | — | yes |
@@ -638,6 +639,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 ## Recent activity
 
+- 2026-11-08: [`saturated-residue-automata-uniform-connectivity`](areas/invariants/results/saturated-residue-automata-uniform-connectivity/README.md) added (result)
 - 2026-11-01: [`collatz-conjecture-logical-form`](areas/decidability/results/collatz-conjecture-logical-form/README.md) added (result)
 - 2026-11-01: [`inverse-syracuse-binary-coding`](areas/decidability/results/inverse-syracuse-binary-coding/README.md) added (result)
 - 2026-11-01: [`synchronised-coding-pcp-reduction`](areas/decidability/results/synchronised-coding-pcp-reduction/README.md) added (result)
@@ -662,7 +664,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-31: [`common-critical-rank-basis`](areas/convergence/results/common-critical-rank-basis/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`complementary-run-bridges`](areas/convergence/results/complementary-run-bridges/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`coupled-even-pair-recursion`](areas/convergence/results/coupled-even-pair-recursion/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`critical-image-rank-composition`](areas/convergence/results/critical-image-rank-composition/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -670,14 +671,15 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 61.7% | 203 | 9 |
+| ChatGPT main lane | 61.5% | 203 | 9 |
 | Claude side lane | 15.0% | 34 | 132 |
-| Claude review lane | 8.7% | 0 | 121 |
+| Claude review lane | 8.6% | 0 | 121 |
 | Claude Lean lane | 5.5% | 3 | 69 |
-| Claude cycles lane | 5.1% | 21 | 0 |
+| Claude cycles lane | 5.2% | 21 | 0 |
 | Claude PR1 lane | 2.2% | 6 | 9 |
 | ChatGPT handoff conversation | 1.0% | 2 | 0 |
 | Claude explicit-Tao lane | 0.8% | 5 | 0 |
+| Codex research lane | 0.2% | 1 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 
 **By accountable person** (agents are credited to the person who directed them; [`conventions/CREDIT.md`](conventions/CREDIT.md) §4):

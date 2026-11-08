@@ -1,0 +1,1677 @@
+{
+  "cases": 167,
+  "vertices_checked": 197391,
+  "embedded_edge_instances": 394782,
+  "rows": [
+    {
+      "M": 1,
+      "v": 1,
+      "d": 1,
+      "vertices": 3,
+      "edge_instances": 6,
+      "strongly_connected": true,
+      "reachable_from_zero": 3,
+      "can_reach_zero": 3
+    },
+    {
+      "M": 1,
+      "v": 2,
+      "d": 1,
+      "vertices": 9,
+      "edge_instances": 18,
+      "strongly_connected": true,
+      "reachable_from_zero": 9,
+      "can_reach_zero": 9
+    },
+    {
+      "M": 1,
+      "v": 3,
+      "d": 1,
+      "vertices": 27,
+      "edge_instances": 54,
+      "strongly_connected": true,
+      "reachable_from_zero": 27,
+      "can_reach_zero": 27
+    },
+    {
+      "M": 5,
+      "v": 1,
+      "d": 1,
+      "vertices": 15,
+      "edge_instances": 30,
+      "strongly_connected": true,
+      "reachable_from_zero": 15,
+      "can_reach_zero": 15
+    },
+    {
+      "M": 5,
+      "v": 2,
+      "d": 1,
+      "vertices": 45,
+      "edge_instances": 90,
+      "strongly_connected": true,
+      "reachable_from_zero": 45,
+      "can_reach_zero": 45
+    },
+    {
+      "M": 5,
+      "v": 3,
+      "d": 1,
+      "vertices": 135,
+      "edge_instances": 270,
+      "strongly_connected": true,
+      "reachable_from_zero": 135,
+      "can_reach_zero": 135
+    },
+    {
+      "M": 7,
+      "v": 1,
+      "d": 1,
+      "vertices": 21,
+      "edge_instances": 42,
+      "strongly_connected": true,
+      "reachable_from_zero": 21,
+      "can_reach_zero": 21
+    },
+    {
+      "M": 7,
+      "v": 2,
+      "d": 1,
+      "vertices": 63,
+      "edge_instances": 126,
+      "strongly_connected": true,
+      "reachable_from_zero": 63,
+      "can_reach_zero": 63
+    },
+    {
+      "M": 7,
+      "v": 3,
+      "d": 1,
+      "vertices": 189,
+      "edge_instances": 378,
+      "strongly_connected": true,
+      "reachable_from_zero": 189,
+      "can_reach_zero": 189
+    },
+    {
+      "M": 11,
+      "v": 1,
+      "d": 1,
+      "vertices": 33,
+      "edge_instances": 66,
+      "strongly_connected": true,
+      "reachable_from_zero": 33,
+      "can_reach_zero": 33
+    },
+    {
+      "M": 11,
+      "v": 2,
+      "d": 1,
+      "vertices": 99,
+      "edge_instances": 198,
+      "strongly_connected": true,
+      "reachable_from_zero": 99,
+      "can_reach_zero": 99
+    },
+    {
+      "M": 11,
+      "v": 3,
+      "d": 1,
+      "vertices": 297,
+      "edge_instances": 594,
+      "strongly_connected": true,
+      "reachable_from_zero": 297,
+      "can_reach_zero": 297
+    },
+    {
+      "M": 13,
+      "v": 1,
+      "d": 1,
+      "vertices": 39,
+      "edge_instances": 78,
+      "strongly_connected": true,
+      "reachable_from_zero": 39,
+      "can_reach_zero": 39
+    },
+    {
+      "M": 13,
+      "v": 2,
+      "d": 1,
+      "vertices": 117,
+      "edge_instances": 234,
+      "strongly_connected": true,
+      "reachable_from_zero": 117,
+      "can_reach_zero": 117
+    },
+    {
+      "M": 13,
+      "v": 3,
+      "d": 1,
+      "vertices": 351,
+      "edge_instances": 702,
+      "strongly_connected": true,
+      "reachable_from_zero": 351,
+      "can_reach_zero": 351
+    },
+    {
+      "M": 17,
+      "v": 1,
+      "d": 1,
+      "vertices": 51,
+      "edge_instances": 102,
+      "strongly_connected": true,
+      "reachable_from_zero": 51,
+      "can_reach_zero": 51
+    },
+    {
+      "M": 17,
+      "v": 2,
+      "d": 1,
+      "vertices": 153,
+      "edge_instances": 306,
+      "strongly_connected": true,
+      "reachable_from_zero": 153,
+      "can_reach_zero": 153
+    },
+    {
+      "M": 17,
+      "v": 3,
+      "d": 1,
+      "vertices": 459,
+      "edge_instances": 918,
+      "strongly_connected": true,
+      "reachable_from_zero": 459,
+      "can_reach_zero": 459
+    },
+    {
+      "M": 19,
+      "v": 1,
+      "d": 1,
+      "vertices": 57,
+      "edge_instances": 114,
+      "strongly_connected": true,
+      "reachable_from_zero": 57,
+      "can_reach_zero": 57
+    },
+    {
+      "M": 19,
+      "v": 2,
+      "d": 1,
+      "vertices": 171,
+      "edge_instances": 342,
+      "strongly_connected": true,
+      "reachable_from_zero": 171,
+      "can_reach_zero": 171
+    },
+    {
+      "M": 19,
+      "v": 3,
+      "d": 1,
+      "vertices": 513,
+      "edge_instances": 1026,
+      "strongly_connected": true,
+      "reachable_from_zero": 513,
+      "can_reach_zero": 513
+    },
+    {
+      "M": 23,
+      "v": 1,
+      "d": 1,
+      "vertices": 69,
+      "edge_instances": 138,
+      "strongly_connected": true,
+      "reachable_from_zero": 69,
+      "can_reach_zero": 69
+    },
+    {
+      "M": 23,
+      "v": 2,
+      "d": 1,
+      "vertices": 207,
+      "edge_instances": 414,
+      "strongly_connected": true,
+      "reachable_from_zero": 207,
+      "can_reach_zero": 207
+    },
+    {
+      "M": 23,
+      "v": 3,
+      "d": 1,
+      "vertices": 621,
+      "edge_instances": 1242,
+      "strongly_connected": true,
+      "reachable_from_zero": 621,
+      "can_reach_zero": 621
+    },
+    {
+      "M": 25,
+      "v": 1,
+      "d": 1,
+      "vertices": 75,
+      "edge_instances": 150,
+      "strongly_connected": true,
+      "reachable_from_zero": 75,
+      "can_reach_zero": 75
+    },
+    {
+      "M": 25,
+      "v": 2,
+      "d": 1,
+      "vertices": 225,
+      "edge_instances": 450,
+      "strongly_connected": true,
+      "reachable_from_zero": 225,
+      "can_reach_zero": 225
+    },
+    {
+      "M": 25,
+      "v": 3,
+      "d": 1,
+      "vertices": 675,
+      "edge_instances": 1350,
+      "strongly_connected": true,
+      "reachable_from_zero": 675,
+      "can_reach_zero": 675
+    },
+    {
+      "M": 29,
+      "v": 1,
+      "d": 1,
+      "vertices": 87,
+      "edge_instances": 174,
+      "strongly_connected": true,
+      "reachable_from_zero": 87,
+      "can_reach_zero": 87
+    },
+    {
+      "M": 29,
+      "v": 2,
+      "d": 1,
+      "vertices": 261,
+      "edge_instances": 522,
+      "strongly_connected": true,
+      "reachable_from_zero": 261,
+      "can_reach_zero": 261
+    },
+    {
+      "M": 29,
+      "v": 3,
+      "d": 1,
+      "vertices": 783,
+      "edge_instances": 1566,
+      "strongly_connected": true,
+      "reachable_from_zero": 783,
+      "can_reach_zero": 783
+    },
+    {
+      "M": 31,
+      "v": 1,
+      "d": 1,
+      "vertices": 93,
+      "edge_instances": 186,
+      "strongly_connected": true,
+      "reachable_from_zero": 93,
+      "can_reach_zero": 93
+    },
+    {
+      "M": 31,
+      "v": 2,
+      "d": 1,
+      "vertices": 279,
+      "edge_instances": 558,
+      "strongly_connected": true,
+      "reachable_from_zero": 279,
+      "can_reach_zero": 279
+    },
+    {
+      "M": 31,
+      "v": 3,
+      "d": 1,
+      "vertices": 837,
+      "edge_instances": 1674,
+      "strongly_connected": true,
+      "reachable_from_zero": 837,
+      "can_reach_zero": 837
+    },
+    {
+      "M": 35,
+      "v": 1,
+      "d": 1,
+      "vertices": 105,
+      "edge_instances": 210,
+      "strongly_connected": true,
+      "reachable_from_zero": 105,
+      "can_reach_zero": 105
+    },
+    {
+      "M": 35,
+      "v": 2,
+      "d": 1,
+      "vertices": 315,
+      "edge_instances": 630,
+      "strongly_connected": true,
+      "reachable_from_zero": 315,
+      "can_reach_zero": 315
+    },
+    {
+      "M": 35,
+      "v": 3,
+      "d": 1,
+      "vertices": 945,
+      "edge_instances": 1890,
+      "strongly_connected": true,
+      "reachable_from_zero": 945,
+      "can_reach_zero": 945
+    },
+    {
+      "M": 37,
+      "v": 1,
+      "d": 1,
+      "vertices": 111,
+      "edge_instances": 222,
+      "strongly_connected": true,
+      "reachable_from_zero": 111,
+      "can_reach_zero": 111
+    },
+    {
+      "M": 37,
+      "v": 2,
+      "d": 1,
+      "vertices": 333,
+      "edge_instances": 666,
+      "strongly_connected": true,
+      "reachable_from_zero": 333,
+      "can_reach_zero": 333
+    },
+    {
+      "M": 37,
+      "v": 3,
+      "d": 1,
+      "vertices": 999,
+      "edge_instances": 1998,
+      "strongly_connected": true,
+      "reachable_from_zero": 999,
+      "can_reach_zero": 999
+    },
+    {
+      "M": 41,
+      "v": 1,
+      "d": 1,
+      "vertices": 123,
+      "edge_instances": 246,
+      "strongly_connected": true,
+      "reachable_from_zero": 123,
+      "can_reach_zero": 123
+    },
+    {
+      "M": 41,
+      "v": 2,
+      "d": 1,
+      "vertices": 369,
+      "edge_instances": 738,
+      "strongly_connected": true,
+      "reachable_from_zero": 369,
+      "can_reach_zero": 369
+    },
+    {
+      "M": 41,
+      "v": 3,
+      "d": 1,
+      "vertices": 1107,
+      "edge_instances": 2214,
+      "strongly_connected": true,
+      "reachable_from_zero": 1107,
+      "can_reach_zero": 1107
+    },
+    {
+      "M": 43,
+      "v": 1,
+      "d": 1,
+      "vertices": 129,
+      "edge_instances": 258,
+      "strongly_connected": true,
+      "reachable_from_zero": 129,
+      "can_reach_zero": 129
+    },
+    {
+      "M": 43,
+      "v": 2,
+      "d": 1,
+      "vertices": 387,
+      "edge_instances": 774,
+      "strongly_connected": true,
+      "reachable_from_zero": 387,
+      "can_reach_zero": 387
+    },
+    {
+      "M": 43,
+      "v": 3,
+      "d": 1,
+      "vertices": 1161,
+      "edge_instances": 2322,
+      "strongly_connected": true,
+      "reachable_from_zero": 1161,
+      "can_reach_zero": 1161
+    },
+    {
+      "M": 47,
+      "v": 1,
+      "d": 1,
+      "vertices": 141,
+      "edge_instances": 282,
+      "strongly_connected": true,
+      "reachable_from_zero": 141,
+      "can_reach_zero": 141
+    },
+    {
+      "M": 47,
+      "v": 2,
+      "d": 1,
+      "vertices": 423,
+      "edge_instances": 846,
+      "strongly_connected": true,
+      "reachable_from_zero": 423,
+      "can_reach_zero": 423
+    },
+    {
+      "M": 47,
+      "v": 3,
+      "d": 1,
+      "vertices": 1269,
+      "edge_instances": 2538,
+      "strongly_connected": true,
+      "reachable_from_zero": 1269,
+      "can_reach_zero": 1269
+    },
+    {
+      "M": 49,
+      "v": 1,
+      "d": 1,
+      "vertices": 147,
+      "edge_instances": 294,
+      "strongly_connected": true,
+      "reachable_from_zero": 147,
+      "can_reach_zero": 147
+    },
+    {
+      "M": 49,
+      "v": 2,
+      "d": 1,
+      "vertices": 441,
+      "edge_instances": 882,
+      "strongly_connected": true,
+      "reachable_from_zero": 441,
+      "can_reach_zero": 441
+    },
+    {
+      "M": 49,
+      "v": 3,
+      "d": 1,
+      "vertices": 1323,
+      "edge_instances": 2646,
+      "strongly_connected": true,
+      "reachable_from_zero": 1323,
+      "can_reach_zero": 1323
+    },
+    {
+      "M": 53,
+      "v": 1,
+      "d": 1,
+      "vertices": 159,
+      "edge_instances": 318,
+      "strongly_connected": true,
+      "reachable_from_zero": 159,
+      "can_reach_zero": 159
+    },
+    {
+      "M": 53,
+      "v": 2,
+      "d": 1,
+      "vertices": 477,
+      "edge_instances": 954,
+      "strongly_connected": true,
+      "reachable_from_zero": 477,
+      "can_reach_zero": 477
+    },
+    {
+      "M": 53,
+      "v": 3,
+      "d": 1,
+      "vertices": 1431,
+      "edge_instances": 2862,
+      "strongly_connected": true,
+      "reachable_from_zero": 1431,
+      "can_reach_zero": 1431
+    },
+    {
+      "M": 55,
+      "v": 1,
+      "d": 1,
+      "vertices": 165,
+      "edge_instances": 330,
+      "strongly_connected": true,
+      "reachable_from_zero": 165,
+      "can_reach_zero": 165
+    },
+    {
+      "M": 55,
+      "v": 2,
+      "d": 1,
+      "vertices": 495,
+      "edge_instances": 990,
+      "strongly_connected": true,
+      "reachable_from_zero": 495,
+      "can_reach_zero": 495
+    },
+    {
+      "M": 55,
+      "v": 3,
+      "d": 1,
+      "vertices": 1485,
+      "edge_instances": 2970,
+      "strongly_connected": true,
+      "reachable_from_zero": 1485,
+      "can_reach_zero": 1485
+    },
+    {
+      "M": 59,
+      "v": 1,
+      "d": 1,
+      "vertices": 177,
+      "edge_instances": 354,
+      "strongly_connected": true,
+      "reachable_from_zero": 177,
+      "can_reach_zero": 177
+    },
+    {
+      "M": 59,
+      "v": 2,
+      "d": 1,
+      "vertices": 531,
+      "edge_instances": 1062,
+      "strongly_connected": true,
+      "reachable_from_zero": 531,
+      "can_reach_zero": 531
+    },
+    {
+      "M": 59,
+      "v": 3,
+      "d": 1,
+      "vertices": 1593,
+      "edge_instances": 3186,
+      "strongly_connected": true,
+      "reachable_from_zero": 1593,
+      "can_reach_zero": 1593
+    },
+    {
+      "M": 61,
+      "v": 1,
+      "d": 1,
+      "vertices": 183,
+      "edge_instances": 366,
+      "strongly_connected": true,
+      "reachable_from_zero": 183,
+      "can_reach_zero": 183
+    },
+    {
+      "M": 61,
+      "v": 2,
+      "d": 1,
+      "vertices": 549,
+      "edge_instances": 1098,
+      "strongly_connected": true,
+      "reachable_from_zero": 549,
+      "can_reach_zero": 549
+    },
+    {
+      "M": 61,
+      "v": 3,
+      "d": 1,
+      "vertices": 1647,
+      "edge_instances": 3294,
+      "strongly_connected": true,
+      "reachable_from_zero": 1647,
+      "can_reach_zero": 1647
+    },
+    {
+      "M": 65,
+      "v": 1,
+      "d": 1,
+      "vertices": 195,
+      "edge_instances": 390,
+      "strongly_connected": true,
+      "reachable_from_zero": 195,
+      "can_reach_zero": 195
+    },
+    {
+      "M": 65,
+      "v": 2,
+      "d": 1,
+      "vertices": 585,
+      "edge_instances": 1170,
+      "strongly_connected": true,
+      "reachable_from_zero": 585,
+      "can_reach_zero": 585
+    },
+    {
+      "M": 65,
+      "v": 3,
+      "d": 1,
+      "vertices": 1755,
+      "edge_instances": 3510,
+      "strongly_connected": true,
+      "reachable_from_zero": 1755,
+      "can_reach_zero": 1755
+    },
+    {
+      "M": 67,
+      "v": 1,
+      "d": 1,
+      "vertices": 201,
+      "edge_instances": 402,
+      "strongly_connected": true,
+      "reachable_from_zero": 201,
+      "can_reach_zero": 201
+    },
+    {
+      "M": 67,
+      "v": 2,
+      "d": 1,
+      "vertices": 603,
+      "edge_instances": 1206,
+      "strongly_connected": true,
+      "reachable_from_zero": 603,
+      "can_reach_zero": 603
+    },
+    {
+      "M": 67,
+      "v": 3,
+      "d": 1,
+      "vertices": 1809,
+      "edge_instances": 3618,
+      "strongly_connected": true,
+      "reachable_from_zero": 1809,
+      "can_reach_zero": 1809
+    },
+    {
+      "M": 71,
+      "v": 1,
+      "d": 1,
+      "vertices": 213,
+      "edge_instances": 426,
+      "strongly_connected": true,
+      "reachable_from_zero": 213,
+      "can_reach_zero": 213
+    },
+    {
+      "M": 71,
+      "v": 2,
+      "d": 1,
+      "vertices": 639,
+      "edge_instances": 1278,
+      "strongly_connected": true,
+      "reachable_from_zero": 639,
+      "can_reach_zero": 639
+    },
+    {
+      "M": 71,
+      "v": 3,
+      "d": 1,
+      "vertices": 1917,
+      "edge_instances": 3834,
+      "strongly_connected": true,
+      "reachable_from_zero": 1917,
+      "can_reach_zero": 1917
+    },
+    {
+      "M": 73,
+      "v": 1,
+      "d": 1,
+      "vertices": 219,
+      "edge_instances": 438,
+      "strongly_connected": true,
+      "reachable_from_zero": 219,
+      "can_reach_zero": 219
+    },
+    {
+      "M": 73,
+      "v": 2,
+      "d": 1,
+      "vertices": 657,
+      "edge_instances": 1314,
+      "strongly_connected": true,
+      "reachable_from_zero": 657,
+      "can_reach_zero": 657
+    },
+    {
+      "M": 73,
+      "v": 3,
+      "d": 1,
+      "vertices": 1971,
+      "edge_instances": 3942,
+      "strongly_connected": true,
+      "reachable_from_zero": 1971,
+      "can_reach_zero": 1971
+    },
+    {
+      "M": 77,
+      "v": 1,
+      "d": 1,
+      "vertices": 231,
+      "edge_instances": 462,
+      "strongly_connected": true,
+      "reachable_from_zero": 231,
+      "can_reach_zero": 231
+    },
+    {
+      "M": 77,
+      "v": 2,
+      "d": 1,
+      "vertices": 693,
+      "edge_instances": 1386,
+      "strongly_connected": true,
+      "reachable_from_zero": 693,
+      "can_reach_zero": 693
+    },
+    {
+      "M": 77,
+      "v": 3,
+      "d": 1,
+      "vertices": 2079,
+      "edge_instances": 4158,
+      "strongly_connected": true,
+      "reachable_from_zero": 2079,
+      "can_reach_zero": 2079
+    },
+    {
+      "M": 79,
+      "v": 1,
+      "d": 1,
+      "vertices": 237,
+      "edge_instances": 474,
+      "strongly_connected": true,
+      "reachable_from_zero": 237,
+      "can_reach_zero": 237
+    },
+    {
+      "M": 79,
+      "v": 2,
+      "d": 1,
+      "vertices": 711,
+      "edge_instances": 1422,
+      "strongly_connected": true,
+      "reachable_from_zero": 711,
+      "can_reach_zero": 711
+    },
+    {
+      "M": 79,
+      "v": 3,
+      "d": 1,
+      "vertices": 2133,
+      "edge_instances": 4266,
+      "strongly_connected": true,
+      "reachable_from_zero": 2133,
+      "can_reach_zero": 2133
+    },
+    {
+      "M": 83,
+      "v": 1,
+      "d": 1,
+      "vertices": 249,
+      "edge_instances": 498,
+      "strongly_connected": true,
+      "reachable_from_zero": 249,
+      "can_reach_zero": 249
+    },
+    {
+      "M": 83,
+      "v": 2,
+      "d": 1,
+      "vertices": 747,
+      "edge_instances": 1494,
+      "strongly_connected": true,
+      "reachable_from_zero": 747,
+      "can_reach_zero": 747
+    },
+    {
+      "M": 83,
+      "v": 3,
+      "d": 1,
+      "vertices": 2241,
+      "edge_instances": 4482,
+      "strongly_connected": true,
+      "reachable_from_zero": 2241,
+      "can_reach_zero": 2241
+    },
+    {
+      "M": 85,
+      "v": 1,
+      "d": 1,
+      "vertices": 255,
+      "edge_instances": 510,
+      "strongly_connected": true,
+      "reachable_from_zero": 255,
+      "can_reach_zero": 255
+    },
+    {
+      "M": 85,
+      "v": 2,
+      "d": 1,
+      "vertices": 765,
+      "edge_instances": 1530,
+      "strongly_connected": true,
+      "reachable_from_zero": 765,
+      "can_reach_zero": 765
+    },
+    {
+      "M": 85,
+      "v": 3,
+      "d": 1,
+      "vertices": 2295,
+      "edge_instances": 4590,
+      "strongly_connected": true,
+      "reachable_from_zero": 2295,
+      "can_reach_zero": 2295
+    },
+    {
+      "M": 89,
+      "v": 1,
+      "d": 1,
+      "vertices": 267,
+      "edge_instances": 534,
+      "strongly_connected": true,
+      "reachable_from_zero": 267,
+      "can_reach_zero": 267
+    },
+    {
+      "M": 89,
+      "v": 2,
+      "d": 1,
+      "vertices": 801,
+      "edge_instances": 1602,
+      "strongly_connected": true,
+      "reachable_from_zero": 801,
+      "can_reach_zero": 801
+    },
+    {
+      "M": 89,
+      "v": 3,
+      "d": 1,
+      "vertices": 2403,
+      "edge_instances": 4806,
+      "strongly_connected": true,
+      "reachable_from_zero": 2403,
+      "can_reach_zero": 2403
+    },
+    {
+      "M": 91,
+      "v": 1,
+      "d": 1,
+      "vertices": 273,
+      "edge_instances": 546,
+      "strongly_connected": true,
+      "reachable_from_zero": 273,
+      "can_reach_zero": 273
+    },
+    {
+      "M": 91,
+      "v": 2,
+      "d": 1,
+      "vertices": 819,
+      "edge_instances": 1638,
+      "strongly_connected": true,
+      "reachable_from_zero": 819,
+      "can_reach_zero": 819
+    },
+    {
+      "M": 91,
+      "v": 3,
+      "d": 1,
+      "vertices": 2457,
+      "edge_instances": 4914,
+      "strongly_connected": true,
+      "reachable_from_zero": 2457,
+      "can_reach_zero": 2457
+    },
+    {
+      "M": 95,
+      "v": 1,
+      "d": 1,
+      "vertices": 285,
+      "edge_instances": 570,
+      "strongly_connected": true,
+      "reachable_from_zero": 285,
+      "can_reach_zero": 285
+    },
+    {
+      "M": 95,
+      "v": 2,
+      "d": 1,
+      "vertices": 855,
+      "edge_instances": 1710,
+      "strongly_connected": true,
+      "reachable_from_zero": 855,
+      "can_reach_zero": 855
+    },
+    {
+      "M": 95,
+      "v": 3,
+      "d": 1,
+      "vertices": 2565,
+      "edge_instances": 5130,
+      "strongly_connected": true,
+      "reachable_from_zero": 2565,
+      "can_reach_zero": 2565
+    },
+    {
+      "M": 97,
+      "v": 1,
+      "d": 1,
+      "vertices": 291,
+      "edge_instances": 582,
+      "strongly_connected": true,
+      "reachable_from_zero": 291,
+      "can_reach_zero": 291
+    },
+    {
+      "M": 97,
+      "v": 2,
+      "d": 1,
+      "vertices": 873,
+      "edge_instances": 1746,
+      "strongly_connected": true,
+      "reachable_from_zero": 873,
+      "can_reach_zero": 873
+    },
+    {
+      "M": 97,
+      "v": 3,
+      "d": 1,
+      "vertices": 2619,
+      "edge_instances": 5238,
+      "strongly_connected": true,
+      "reachable_from_zero": 2619,
+      "can_reach_zero": 2619
+    },
+    {
+      "M": 101,
+      "v": 1,
+      "d": 1,
+      "vertices": 303,
+      "edge_instances": 606,
+      "strongly_connected": true,
+      "reachable_from_zero": 303,
+      "can_reach_zero": 303
+    },
+    {
+      "M": 101,
+      "v": 2,
+      "d": 1,
+      "vertices": 909,
+      "edge_instances": 1818,
+      "strongly_connected": true,
+      "reachable_from_zero": 909,
+      "can_reach_zero": 909
+    },
+    {
+      "M": 101,
+      "v": 3,
+      "d": 1,
+      "vertices": 2727,
+      "edge_instances": 5454,
+      "strongly_connected": true,
+      "reachable_from_zero": 2727,
+      "can_reach_zero": 2727
+    },
+    {
+      "M": 487,
+      "v": 5,
+      "d": 1,
+      "vertices": 118341,
+      "edge_instances": 236682,
+      "strongly_connected": true,
+      "reachable_from_zero": 118341,
+      "can_reach_zero": 118341
+    },
+    {
+      "M": 1,
+      "v": 1,
+      "d": 5,
+      "vertices": 3,
+      "edge_instances": 6,
+      "strongly_connected": true,
+      "reachable_from_zero": 3,
+      "can_reach_zero": 3
+    },
+    {
+      "M": 1,
+      "v": 2,
+      "d": 5,
+      "vertices": 9,
+      "edge_instances": 18,
+      "strongly_connected": true,
+      "reachable_from_zero": 9,
+      "can_reach_zero": 9
+    },
+    {
+      "M": 5,
+      "v": 1,
+      "d": 5,
+      "vertices": 15,
+      "edge_instances": 30,
+      "strongly_connected": false,
+      "reachable_from_zero": 3,
+      "can_reach_zero": 3
+    },
+    {
+      "M": 5,
+      "v": 2,
+      "d": 5,
+      "vertices": 45,
+      "edge_instances": 90,
+      "strongly_connected": false,
+      "reachable_from_zero": 9,
+      "can_reach_zero": 9
+    },
+    {
+      "M": 7,
+      "v": 1,
+      "d": 5,
+      "vertices": 21,
+      "edge_instances": 42,
+      "strongly_connected": true,
+      "reachable_from_zero": 21,
+      "can_reach_zero": 21
+    },
+    {
+      "M": 7,
+      "v": 2,
+      "d": 5,
+      "vertices": 63,
+      "edge_instances": 126,
+      "strongly_connected": true,
+      "reachable_from_zero": 63,
+      "can_reach_zero": 63
+    },
+    {
+      "M": 13,
+      "v": 1,
+      "d": 5,
+      "vertices": 39,
+      "edge_instances": 78,
+      "strongly_connected": true,
+      "reachable_from_zero": 39,
+      "can_reach_zero": 39
+    },
+    {
+      "M": 13,
+      "v": 2,
+      "d": 5,
+      "vertices": 117,
+      "edge_instances": 234,
+      "strongly_connected": true,
+      "reachable_from_zero": 117,
+      "can_reach_zero": 117
+    },
+    {
+      "M": 25,
+      "v": 1,
+      "d": 5,
+      "vertices": 75,
+      "edge_instances": 150,
+      "strongly_connected": false,
+      "reachable_from_zero": 15,
+      "can_reach_zero": 15
+    },
+    {
+      "M": 25,
+      "v": 2,
+      "d": 5,
+      "vertices": 225,
+      "edge_instances": 450,
+      "strongly_connected": false,
+      "reachable_from_zero": 45,
+      "can_reach_zero": 45
+    },
+    {
+      "M": 35,
+      "v": 1,
+      "d": 5,
+      "vertices": 105,
+      "edge_instances": 210,
+      "strongly_connected": false,
+      "reachable_from_zero": 21,
+      "can_reach_zero": 21
+    },
+    {
+      "M": 35,
+      "v": 2,
+      "d": 5,
+      "vertices": 315,
+      "edge_instances": 630,
+      "strongly_connected": false,
+      "reachable_from_zero": 63,
+      "can_reach_zero": 63
+    },
+    {
+      "M": 61,
+      "v": 1,
+      "d": 5,
+      "vertices": 183,
+      "edge_instances": 366,
+      "strongly_connected": true,
+      "reachable_from_zero": 183,
+      "can_reach_zero": 183
+    },
+    {
+      "M": 61,
+      "v": 2,
+      "d": 5,
+      "vertices": 549,
+      "edge_instances": 1098,
+      "strongly_connected": true,
+      "reachable_from_zero": 549,
+      "can_reach_zero": 549
+    },
+    {
+      "M": 91,
+      "v": 1,
+      "d": 5,
+      "vertices": 273,
+      "edge_instances": 546,
+      "strongly_connected": true,
+      "reachable_from_zero": 273,
+      "can_reach_zero": 273
+    },
+    {
+      "M": 91,
+      "v": 2,
+      "d": 5,
+      "vertices": 819,
+      "edge_instances": 1638,
+      "strongly_connected": true,
+      "reachable_from_zero": 819,
+      "can_reach_zero": 819
+    },
+    {
+      "M": 1,
+      "v": 1,
+      "d": 7,
+      "vertices": 3,
+      "edge_instances": 6,
+      "strongly_connected": true,
+      "reachable_from_zero": 3,
+      "can_reach_zero": 3
+    },
+    {
+      "M": 1,
+      "v": 2,
+      "d": 7,
+      "vertices": 9,
+      "edge_instances": 18,
+      "strongly_connected": true,
+      "reachable_from_zero": 9,
+      "can_reach_zero": 9
+    },
+    {
+      "M": 5,
+      "v": 1,
+      "d": 7,
+      "vertices": 15,
+      "edge_instances": 30,
+      "strongly_connected": true,
+      "reachable_from_zero": 15,
+      "can_reach_zero": 15
+    },
+    {
+      "M": 5,
+      "v": 2,
+      "d": 7,
+      "vertices": 45,
+      "edge_instances": 90,
+      "strongly_connected": true,
+      "reachable_from_zero": 45,
+      "can_reach_zero": 45
+    },
+    {
+      "M": 7,
+      "v": 1,
+      "d": 7,
+      "vertices": 21,
+      "edge_instances": 42,
+      "strongly_connected": false,
+      "reachable_from_zero": 3,
+      "can_reach_zero": 3
+    },
+    {
+      "M": 7,
+      "v": 2,
+      "d": 7,
+      "vertices": 63,
+      "edge_instances": 126,
+      "strongly_connected": false,
+      "reachable_from_zero": 9,
+      "can_reach_zero": 9
+    },
+    {
+      "M": 13,
+      "v": 1,
+      "d": 7,
+      "vertices": 39,
+      "edge_instances": 78,
+      "strongly_connected": true,
+      "reachable_from_zero": 39,
+      "can_reach_zero": 39
+    },
+    {
+      "M": 13,
+      "v": 2,
+      "d": 7,
+      "vertices": 117,
+      "edge_instances": 234,
+      "strongly_connected": true,
+      "reachable_from_zero": 117,
+      "can_reach_zero": 117
+    },
+    {
+      "M": 25,
+      "v": 1,
+      "d": 7,
+      "vertices": 75,
+      "edge_instances": 150,
+      "strongly_connected": true,
+      "reachable_from_zero": 75,
+      "can_reach_zero": 75
+    },
+    {
+      "M": 25,
+      "v": 2,
+      "d": 7,
+      "vertices": 225,
+      "edge_instances": 450,
+      "strongly_connected": true,
+      "reachable_from_zero": 225,
+      "can_reach_zero": 225
+    },
+    {
+      "M": 35,
+      "v": 1,
+      "d": 7,
+      "vertices": 105,
+      "edge_instances": 210,
+      "strongly_connected": false,
+      "reachable_from_zero": 15,
+      "can_reach_zero": 15
+    },
+    {
+      "M": 35,
+      "v": 2,
+      "d": 7,
+      "vertices": 315,
+      "edge_instances": 630,
+      "strongly_connected": false,
+      "reachable_from_zero": 45,
+      "can_reach_zero": 45
+    },
+    {
+      "M": 61,
+      "v": 1,
+      "d": 7,
+      "vertices": 183,
+      "edge_instances": 366,
+      "strongly_connected": true,
+      "reachable_from_zero": 183,
+      "can_reach_zero": 183
+    },
+    {
+      "M": 61,
+      "v": 2,
+      "d": 7,
+      "vertices": 549,
+      "edge_instances": 1098,
+      "strongly_connected": true,
+      "reachable_from_zero": 549,
+      "can_reach_zero": 549
+    },
+    {
+      "M": 91,
+      "v": 1,
+      "d": 7,
+      "vertices": 273,
+      "edge_instances": 546,
+      "strongly_connected": false,
+      "reachable_from_zero": 39,
+      "can_reach_zero": 39
+    },
+    {
+      "M": 91,
+      "v": 2,
+      "d": 7,
+      "vertices": 819,
+      "edge_instances": 1638,
+      "strongly_connected": false,
+      "reachable_from_zero": 117,
+      "can_reach_zero": 117
+    },
+    {
+      "M": 1,
+      "v": 1,
+      "d": 13,
+      "vertices": 3,
+      "edge_instances": 6,
+      "strongly_connected": true,
+      "reachable_from_zero": 3,
+      "can_reach_zero": 3
+    },
+    {
+      "M": 1,
+      "v": 2,
+      "d": 13,
+      "vertices": 9,
+      "edge_instances": 18,
+      "strongly_connected": true,
+      "reachable_from_zero": 9,
+      "can_reach_zero": 9
+    },
+    {
+      "M": 5,
+      "v": 1,
+      "d": 13,
+      "vertices": 15,
+      "edge_instances": 30,
+      "strongly_connected": true,
+      "reachable_from_zero": 15,
+      "can_reach_zero": 15
+    },
+    {
+      "M": 5,
+      "v": 2,
+      "d": 13,
+      "vertices": 45,
+      "edge_instances": 90,
+      "strongly_connected": true,
+      "reachable_from_zero": 45,
+      "can_reach_zero": 45
+    },
+    {
+      "M": 7,
+      "v": 1,
+      "d": 13,
+      "vertices": 21,
+      "edge_instances": 42,
+      "strongly_connected": true,
+      "reachable_from_zero": 21,
+      "can_reach_zero": 21
+    },
+    {
+      "M": 7,
+      "v": 2,
+      "d": 13,
+      "vertices": 63,
+      "edge_instances": 126,
+      "strongly_connected": true,
+      "reachable_from_zero": 63,
+      "can_reach_zero": 63
+    },
+    {
+      "M": 13,
+      "v": 1,
+      "d": 13,
+      "vertices": 39,
+      "edge_instances": 78,
+      "strongly_connected": false,
+      "reachable_from_zero": 3,
+      "can_reach_zero": 3
+    },
+    {
+      "M": 13,
+      "v": 2,
+      "d": 13,
+      "vertices": 117,
+      "edge_instances": 234,
+      "strongly_connected": false,
+      "reachable_from_zero": 9,
+      "can_reach_zero": 9
+    },
+    {
+      "M": 25,
+      "v": 1,
+      "d": 13,
+      "vertices": 75,
+      "edge_instances": 150,
+      "strongly_connected": true,
+      "reachable_from_zero": 75,
+      "can_reach_zero": 75
+    },
+    {
+      "M": 25,
+      "v": 2,
+      "d": 13,
+      "vertices": 225,
+      "edge_instances": 450,
+      "strongly_connected": true,
+      "reachable_from_zero": 225,
+      "can_reach_zero": 225
+    },
+    {
+      "M": 35,
+      "v": 1,
+      "d": 13,
+      "vertices": 105,
+      "edge_instances": 210,
+      "strongly_connected": true,
+      "reachable_from_zero": 105,
+      "can_reach_zero": 105
+    },
+    {
+      "M": 35,
+      "v": 2,
+      "d": 13,
+      "vertices": 315,
+      "edge_instances": 630,
+      "strongly_connected": true,
+      "reachable_from_zero": 315,
+      "can_reach_zero": 315
+    },
+    {
+      "M": 61,
+      "v": 1,
+      "d": 13,
+      "vertices": 183,
+      "edge_instances": 366,
+      "strongly_connected": true,
+      "reachable_from_zero": 183,
+      "can_reach_zero": 183
+    },
+    {
+      "M": 61,
+      "v": 2,
+      "d": 13,
+      "vertices": 549,
+      "edge_instances": 1098,
+      "strongly_connected": true,
+      "reachable_from_zero": 549,
+      "can_reach_zero": 549
+    },
+    {
+      "M": 91,
+      "v": 1,
+      "d": 13,
+      "vertices": 273,
+      "edge_instances": 546,
+      "strongly_connected": false,
+      "reachable_from_zero": 21,
+      "can_reach_zero": 21
+    },
+    {
+      "M": 91,
+      "v": 2,
+      "d": 13,
+      "vertices": 819,
+      "edge_instances": 1638,
+      "strongly_connected": false,
+      "reachable_from_zero": 63,
+      "can_reach_zero": 63
+    },
+    {
+      "M": 1,
+      "v": 1,
+      "d": 61,
+      "vertices": 3,
+      "edge_instances": 6,
+      "strongly_connected": true,
+      "reachable_from_zero": 3,
+      "can_reach_zero": 3
+    },
+    {
+      "M": 1,
+      "v": 2,
+      "d": 61,
+      "vertices": 9,
+      "edge_instances": 18,
+      "strongly_connected": true,
+      "reachable_from_zero": 9,
+      "can_reach_zero": 9
+    },
+    {
+      "M": 5,
+      "v": 1,
+      "d": 61,
+      "vertices": 15,
+      "edge_instances": 30,
+      "strongly_connected": true,
+      "reachable_from_zero": 15,
+      "can_reach_zero": 15
+    },
+    {
+      "M": 5,
+      "v": 2,
+      "d": 61,
+      "vertices": 45,
+      "edge_instances": 90,
+      "strongly_connected": true,
+      "reachable_from_zero": 45,
+      "can_reach_zero": 45
+    },
+    {
+      "M": 7,
+      "v": 1,
+      "d": 61,
+      "vertices": 21,
+      "edge_instances": 42,
+      "strongly_connected": true,
+      "reachable_from_zero": 21,
+      "can_reach_zero": 21
+    },
+    {
+      "M": 7,
+      "v": 2,
+      "d": 61,
+      "vertices": 63,
+      "edge_instances": 126,
+      "strongly_connected": true,
+      "reachable_from_zero": 63,
+      "can_reach_zero": 63
+    },
+    {
+      "M": 13,
+      "v": 1,
+      "d": 61,
+      "vertices": 39,
+      "edge_instances": 78,
+      "strongly_connected": true,
+      "reachable_from_zero": 39,
+      "can_reach_zero": 39
+    },
+    {
+      "M": 13,
+      "v": 2,
+      "d": 61,
+      "vertices": 117,
+      "edge_instances": 234,
+      "strongly_connected": true,
+      "reachable_from_zero": 117,
+      "can_reach_zero": 117
+    },
+    {
+      "M": 25,
+      "v": 1,
+      "d": 61,
+      "vertices": 75,
+      "edge_instances": 150,
+      "strongly_connected": true,
+      "reachable_from_zero": 75,
+      "can_reach_zero": 75
+    },
+    {
+      "M": 25,
+      "v": 2,
+      "d": 61,
+      "vertices": 225,
+      "edge_instances": 450,
+      "strongly_connected": true,
+      "reachable_from_zero": 225,
+      "can_reach_zero": 225
+    },
+    {
+      "M": 35,
+      "v": 1,
+      "d": 61,
+      "vertices": 105,
+      "edge_instances": 210,
+      "strongly_connected": true,
+      "reachable_from_zero": 105,
+      "can_reach_zero": 105
+    },
+    {
+      "M": 35,
+      "v": 2,
+      "d": 61,
+      "vertices": 315,
+      "edge_instances": 630,
+      "strongly_connected": true,
+      "reachable_from_zero": 315,
+      "can_reach_zero": 315
+    },
+    {
+      "M": 61,
+      "v": 1,
+      "d": 61,
+      "vertices": 183,
+      "edge_instances": 366,
+      "strongly_connected": false,
+      "reachable_from_zero": 3,
+      "can_reach_zero": 3
+    },
+    {
+      "M": 61,
+      "v": 2,
+      "d": 61,
+      "vertices": 549,
+      "edge_instances": 1098,
+      "strongly_connected": false,
+      "reachable_from_zero": 9,
+      "can_reach_zero": 9
+    },
+    {
+      "M": 91,
+      "v": 1,
+      "d": 61,
+      "vertices": 273,
+      "edge_instances": 546,
+      "strongly_connected": true,
+      "reachable_from_zero": 273,
+      "can_reach_zero": 273
+    },
+    {
+      "M": 91,
+      "v": 2,
+      "d": 61,
+      "vertices": 819,
+      "edge_instances": 1638,
+      "strongly_connected": true,
+      "reachable_from_zero": 819,
+      "can_reach_zero": 819
+    }
+  ]
+}
