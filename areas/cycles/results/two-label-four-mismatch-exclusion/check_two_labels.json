@@ -1,0 +1,217 @@
+{
+  "binary_controls": {
+    "actual_addend_run_checks": 1599,
+    "control_sha256": "6f0965ae1bbf5ebfdf3167f33bb98349a77b0a823d50841835caf7cfa9805ff9",
+    "exact_arrows": 10302,
+    "label_pairs": [
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        17
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "noncoprime_examples": [
+      {
+        "mismatches": 4,
+        "q": 175,
+        "shift": 2,
+        "shift_gcd": 2,
+        "states": [
+          89,
+          221,
+          419,
+          179
+        ],
+        "word": [
+          1,
+          1,
+          3,
+          3
+        ]
+      },
+      {
+        "mismatches": 4,
+        "q": 65455,
+        "shift": 2,
+        "shift_gcd": 2,
+        "states": [
+          569,
+          33581,
+          83099,
+          2459
+        ],
+        "word": [
+          1,
+          1,
+          7,
+          7
+        ]
+      },
+      {
+        "mismatches": 4,
+        "q": 13743895331,
+        "shift": 2,
+        "shift_gcd": 2,
+        "states": [
+          104869,
+          6872104969,
+          17180105119,
+          498079
+        ],
+        "word": [
+          1,
+          1,
+          17,
+          17
+        ]
+      }
+    ],
+    "noncoprime_shifts_with_at_most_four_mismatches": 2152,
+    "noncoprime_shifts_with_exactly_four_mismatches": 1643,
+    "paired_run_checks": 83116,
+    "periods": [
+      2,
+      10
+    ],
+    "primitive_necklaces": 1344,
+    "q1_nontransfer_control": {
+      "comparison": "2^30 > 570^3",
+      "q": 65455,
+      "shift": 2,
+      "states": [
+        569,
+        33581,
+        83099,
+        2459
+      ],
+      "word": [
+        1,
+        1,
+        7,
+        7
+      ]
+    },
+    "reduced_cycles": 1173,
+    "rotations": 9129,
+    "scope": "Finite exact positive 3x+q cycles. No q1 minimum or drift bound is transferred to q>1.",
+    "shifts_with_at_most_four_mismatches": 5547
+  },
+  "constants": {
+    "cutoff": 524288,
+    "drift_denominator": 258,
+    "dyadic_base_exponent": 19,
+    "dyadic_base_margin": 40391,
+    "eliminated_coefficient": "347/1032",
+    "first_finite_maximum": 3242,
+    "induction_polynomial_in_nonnegative_r": [
+      6671,
+      342
+    ],
+    "kappa_ceiling": "8/5",
+    "length_constant": "23736/347",
+    "local_limit": 524288,
+    "minimum": 129,
+    "rise_factor_ceiling": 10,
+    "rounded_length_constant": 69,
+    "second_finite_maximum": 1517
+  },
+  "finite_gaps": [
+    {
+      "checks": 3242,
+      "comparison_sha256": "ceb60c497f59f630e7cb58e4c6e979217b84c3a25594e7ade9124d61774ee04f",
+      "lengths": [
+        1,
+        3242
+      ],
+      "maximum_at": 2966,
+      "maximum_ceiling": 1166894,
+      "strict_state_limit": 2097152
+    },
+    {
+      "checks": 1517,
+      "comparison_sha256": "ebd986c4a4d8bcb52b51f0abad0193d5e2655b19461b59c1aa030467593ec643",
+      "lengths": [
+        1,
+        1517
+      ],
+      "maximum_at": 971,
+      "maximum_ceiling": 330912,
+      "strict_state_limit": 524288
+    }
+  ],
+  "gap_intervals": {
+    "alpha_denominator": 79228162514264337593543950336,
+    "alpha_numerators": [
+      125573666586150569315490533898,
+      125573666586150569315490533899
+    ],
+    "checked_lengths": [
+      1,
+      524287
+    ],
+    "checks": 524287,
+    "eta_lower_bound": "2^-27",
+    "interval_sha256": "fccc9153a533daa8a9ce0fbdc82ae45c80b07e7001ddc767d0904d3b9710a910",
+    "minimum_at": 190537,
+    "minimum_complement_numerator": 7373341559091880256221,
+    "required_numerator": 2361183241434822606848,
+    "series_terms": 80,
+    "tail_exponent": 161
+  },
+  "local_descent": {
+    "argument": "Ascending induction reaches a previously verified smaller odd seed; 1 is the base case.",
+    "descent_sha256": "966f14793bec9a1679db9f09ecd9684fac3e65f542c825ca6c9f86a76a459e6e",
+    "maximum_at": 381727,
+    "maximum_steps": 109,
+    "odd_seed_range": [
+      3,
+      524287
+    ],
+    "odd_seeds": 262143,
+    "steps": 913635
+  },
+  "minimum_runs": {
+    "accepted_arrows": 35262,
+    "accepted_minimum_returns": 1909,
+    "below_minimum_floor": 32,
+    "below_start_returns": 107,
+    "grid_segments": 2048,
+    "odd_quotients": [
+      1,
+      127
+    ],
+    "ones_lengths": [
+      1,
+      32
+    ],
+    "scope": "Genuine integer prefixes returning above their start, not asserted cycles.",
+    "segment_sha256": "52601bd4098b1d828f526a1b91048ccc8fc2d247d412932c550e4da90179dbae"
+  },
+  "schema": "two-label-four-mismatch-v1",
+  "source_sha256": "7c36a597611ad56c2fda94980726123b479469abac592ce689067be0ea495eb4",
+  "standard_controls": {
+    "actual_addend_run_checks": 25,
+    "cycles": 11,
+    "exact_arrows": 106,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+  }
+}
