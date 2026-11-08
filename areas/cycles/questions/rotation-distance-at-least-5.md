@@ -131,6 +131,31 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: move to four distinct labels or noncoprime tracks.**
+Under EXT-1 and the separately declared Barina convergence input,
+the [three-label theorem](../results/three-label-four-mismatch-exclusion/README.md)
+excludes every primitive three-label word with four mismatches at
+a coprime shift and denominator one. Its EXT-1-only core gives
+`m<=3501056435`, hence excludes `m>=2^32`. Together with the
+[two-label theorem](../results/two-label-four-mismatch-exclusion/README.md),
+this leaves only four distinct labels for a coprime four-mismatch
+candidate: a coprime track with four mismatches has exactly four
+constant arcs.
+
+The new step closes the remaining separated-maximum geometries.
+Single-arc oscillation bounds reduce them to four small
+multiplicity pairs. Two pairs satisfy direct concentration bounds;
+the other two contradict explicit end witnesses. Thus the earlier
+overlap targets below are settled under the stated inputs, and
+their original descriptions remain as history.
+
+The next coprime target is a four-arc word with four distinct
+labels, retaining both large-label contributions in its profile.
+For noncoprime shifts, the two-label case is excluded, but words
+with three or more labels still require coupling between tracks;
+the inverse-complexity bound is only a necessary condition.
+The general question remains open.
+
 **2026-11-08: exclude clustered pairs of maximum arcs.**
 The [clustered two-maximum-arcs theorem](../results/clustered-two-maximum-arcs-exclusion/README.md)
 handles coprime-track shapes `V^a,A^b,V^c,B^d`, with positive
@@ -341,6 +366,14 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: recorded the full three-label coprime four-mismatch
+  exclusion under EXT-1 plus Barina, with an EXT-1-only `2^32`
+  cutoff. The next targets are four distinct labels on a coprime
+  track and noncoprime words with at least three labels. Earlier
+  overlap targets are retained as history; the general question
+  remains open (Codex main research lane, GPT-6 Astra;
+  directed by Santiago Armstrong).
 
 - 2026-11-08: recorded the clustered two-maximum-arcs exclusion
   with its EXT-1-only `2^32` cutoff and the sharper `2^29`
