@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**251 results, 29 attempts, 39 questions, 33 sources.**
+**252 results, 29 attempts, 39 questions, 33 sources.**
 
 ## Frontier: open questions
 
@@ -221,6 +221,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`algebraic-and-primitive-cancellation-census`](areas/cycles/results/algebraic-and-primitive-cancellation-census/README.md) | Cancellation splits into an algebraic part and a small primitive part: census of few-arc… | written | written | — |  |
 | [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) | Positive valuation words have no integral antiperiodic starting point | written | written | — | yes |
 | [`band-one-three-forced-positions`](areas/cycles/results/band-one-three-forced-positions.md) | In the Collatz range, an ordered cycle in band 1 has at least three forced positions | formal | reviewed | — | yes |
+| [`bounded-unequal-half-defect-exclusion`](areas/cycles/results/bounded-unequal-half-defect-exclusion/README.md) | Unequal same-parity half defects of combined magnitude at most 24 exclude denominator one | written | written | — |  |
 | [`compatible-arcs-common-partition-limits`](areas/cycles/results/compatible-arcs-common-partition-limits/README.md) | Unreviewed draft: a rotation-invariant partition or a shared background cannot cover spar… | proposed | proposed | — |  |
 | [`complete-gap-lattice-equivalence`](areas/cycles/results/complete-gap-lattice-equivalence.md) | The complete dyadic gaps of a cycle carry exactly the same lattice, gcd and denominator a… | formal | formal | — | yes |
 | [`contracting-two-block-effective-exclusion`](areas/cycles/results/contracting-two-block-effective-exclusion/README.md) | Contracting two-block words with a block repeated three times have denominator above 2^M | formal | formal | — | yes |
@@ -661,6 +662,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 ## Recent activity
 
 - 2026-11-08: [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) added (result)
+- 2026-11-08: [`bounded-unequal-half-defect-exclusion`](areas/cycles/results/bounded-unequal-half-defect-exclusion/README.md) added (result)
 - 2026-11-08: [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) added (result)
 - 2026-11-08: [`expanding-background-defect-growth`](areas/cycles/results/expanding-background-defect-growth/README.md) added (result)
 - 2026-11-08: [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) added (result)
@@ -684,7 +686,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-01: [`conway-1972-unpredictable-iterations`](sources/conway-1972-unpredictable-iterations.md) added (source)
 - 2026-11-01: [`kurtz-simon-2007-generalized-collatz`](sources/kurtz-simon-2007-generalized-collatz.md) added (source)
 - 2026-11-01: [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) added (source)
-- 2026-10-31: [`absorbed-fibre-uniform-counts`](areas/convergence/results/absorbed-fibre-uniform-counts/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -692,13 +693,13 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 60.0% | 203 | 9 |
+| ChatGPT main lane | 59.9% | 203 | 9 |
 | Claude side lane | 14.6% | 34 | 132 |
 | Claude review lane | 8.4% | 0 | 121 |
 | Claude Lean lane | 5.3% | 3 | 69 |
-| Claude cycles lane | 5.1% | 21 | 0 |
+| Claude cycles lane | 5.0% | 21 | 0 |
 | Claude PR1 lane | 2.1% | 6 | 9 |
-| Codex cycle research lane | 1.4% | 8 | 0 |
+| Codex cycle research lane | 1.6% | 9 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex four-arc research lane | 0.5% | 3 | 0 |

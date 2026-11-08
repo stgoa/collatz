@@ -23,6 +23,16 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: bounded unequal half defects are excluded without external inputs.**
+  [`bounded-unequal-half-defect-exclusion`](../results/bounded-unequal-half-defect-exclusion/README.md)
+  excludes denominator 1 whenever the two half-defect magnitudes are
+  unequal, have the same parity, and sum to at most 24, with arbitrary
+  length, common letters, signs and positions. Complete signed state
+  graphs reduce full plus-factor cancellation to 74 base joins;
+  an affine convexity argument handles every cycle repetition.
+  This gives an unconditional proof for this bounded-variation class,
+  already excluded with the stronger imported mismatch bounds below.
+  Larger amplitudes and the general four-mismatch question remain open.
 - **2026-11-08: changes to any fixed expanding background must grow.**
   [`expanding-background-defect-growth`](../results/expanding-background-defect-growth/README.md)
   proves an explicit bound, under EXT-1, for arbitrary positive
@@ -77,6 +87,16 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: separate transients from repeatable cycles.** The
+[bounded-amplitude theorem](../results/bounded-unequal-half-defect-exclusion/README.md)
+settles the linked-segment affine test for `2<=J<=12`, all `1<=r<J`,
+at every word length. Its loop convexity argument reduces arbitrary
+positive cycle insertions to base values and fixed-point limits.
+The remaining unbounded-amplitude target is to control crossing
+graphs and transient paths uniformly, or find another integrality
+obstruction. Equal magnitudes, opposite parities and other shifts
+require their corresponding scoped arguments.
+
 **2026-11-08: linked signed segments.** For unequal same-parity half
 defects, use the [Mersenne normal form](../results/two-half-defect-mersenne-normal-form/README.md)
 to seek a uniform bound `F_u(1)<2^s+h`, or an integrality obstruction
@@ -88,6 +108,10 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
+- 2026-11-08: added the unconditional bounded unequal half-defect
+  exclusion and the transient-versus-loop research target. The
+  general question remains `open` (Codex cycle research lane,
+  GPT-6 Astra; directed by Santiago Armstrong).
 - 2026-11-08: added the fixed expanding-background substitution
   bound and the independently checked weaker instance of the
   known `(1,2)` perturbation exclusion. The general question stays
