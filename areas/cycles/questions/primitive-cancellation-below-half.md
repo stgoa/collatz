@@ -43,6 +43,17 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
 
 ## Known progress
 
+- **2026-11-08: equal-amplitude half defects reduce to balanced transfers.**
+  [`equal-amplitude-half-defect-normal-form`](../results/equal-amplitude-half-defect-normal-form/README.md)
+  shows that two changes of the same absolute amplitude can be made
+  opposite in sign by changing the cyclic cut. The middle-intercept
+  identity and signed-crossing constraints require only a balanced
+  transfer, not a literal transposition. Consequently the full plus
+  factor is excluded for every amplitude through 12 in this enlarged
+  family, uniformly in word length and the other letters. At index 2
+  this gives the primitive half bound, including genuine near-critical
+  pairs with unequal half totals.
+
 - **2026-11-08: modification parameters through twelve, at every length.**
   [`near-doubled-crossing-orbit-exclusion`](../results/near-doubled-crossing-orbit-exclusion/README.md)
   removes the coprimality restriction below for every one-letter raise
@@ -74,6 +85,14 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
 
 ## Suggested attacks
 
+**Updated target, 2026-11-08.** Equal-amplitude changes through 12 in
+half-period four-mismatch pairs are covered by the balanced normal form.
+The remaining half-pair targets have unequal absolute changes, or equal
+amplitudes beyond the established range. For these, combine the exact
+endpoint equations with the near-critical condition; general rotations
+remain a separate target. Merely assuming that the two changed letters
+must be a transposition would miss the cases now covered.
+
 Proposals, not results.
 
 - **Work modulo the primes of `Φ_e`.** `g_prim > 1` needs a prime `p | Φ_e(2^(A/e), 3^(m/e))`, i.e. `2^(A/e) ≡ ζ·3^(m/e) (mod p)` for a primitive `e`-th root of unity `ζ`, with `p | C_w`. The heuristic truth of (A) is that `C_w mod p` is equidistributed for such `p`; a proof needs the arithmetic of the few-arc intercepts modulo these primes, starting with `e = 1` (then `ζ = 1`, `2^A ≡ 3^m`, and `p | D`) and `e = 2` (`ζ = −1`).
@@ -91,6 +110,10 @@ Proposals, not results.
 - **Two arcs, non-Sturmian case.** Bound `gcd(C_u, C_v)` for the two arcs of a two-interval rotation coding whose interval length differs from the step, by a Rauzy-type induction on the arc, as suggested in [`half-cancellation-for-few-mismatch-words`](half-cancellation-for-few-mismatch-words.md).
 
 ## History
+
+- 2026-11-08: added the equal-amplitude balanced normal form and refined
+  the suggested attacks to the remaining half-pair and rotation cases
+  (Codex cycle research lane, GPT-6 Astra; directed by Santiago Armstrong).
 
 - 2026-11-08: added the finite-crossing proof for all lengths with
   modification parameters through 12 and replaced the now-solved
