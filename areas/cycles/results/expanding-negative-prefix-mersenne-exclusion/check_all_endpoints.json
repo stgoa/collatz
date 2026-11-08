@@ -1,0 +1,530 @@
+{
+  "constants": {
+    "H_at_cutoff": 47433,
+    "alpha_bounds": [
+      "3/2",
+      "8/5"
+    ],
+    "binary_gap_coefficient": 98,
+    "cutoff_margin": 1627840,
+    "derivative_margin_times_cutoff": 2869760,
+    "full_word_length_upper_bound": 2097152,
+    "half_length_cutoff": 1048576,
+    "lmn_coefficient": "1217/25",
+    "lmn_field_degree": 1,
+    "lmn_logarithmic_heights": [
+      1,
+      2
+    ],
+    "log_series_terms": 32,
+    "logarithm_enclosures": {
+      "ln2": [
+        "4885160137407771253400601118182930934216597868939146496/7047796304186638645984520552020312648059671845278255225",
+        "19540640549631085013602404472731818469789797150617764779/28191185216746554583938082208081250592238687381113020900"
+      ],
+      "ln3": [
+        "7199401304210215526106755742472789249575823/6553177475320551070897257303195092464435200",
+        "46796108477366400919741278787775967552832247/42595653589583581960832172470768101018828800"
+      ]
+    }
+  },
+  "finite_powers": {
+    "endpoint_maximum": "68024448/7153",
+    "endpoint_maximum_at": [
+      12,
+      19
+    ],
+    "endpoint_parameter_pairs": 78,
+    "initial_a_max": 55,
+    "initial_m_max": 298,
+    "local_limit_exclusive": 2097152,
+    "stages": [
+      {
+        "epsilon_minimum": "40432553845953101497907/19383245667680019896796723",
+        "epsilon_minimum_at": 53,
+        "eta_minimum": "16038557020308558388142536981531040725380074231441914861140030487366628116406984037002960111771606508411323925165378029/5164499756173817179311838344006023748659411585658447025661318713081295244033682389259290706560275662871806343945494986752",
+        "eta_minimum_at": 253,
+        "input_a_max": 55,
+        "input_m_max": 298,
+        "output_a_max": 19,
+        "output_m_max": 106,
+        "strict_gap_bits": 9
+      },
+      {
+        "epsilon_minimum": "7153/531441",
+        "epsilon_minimum_at": 12,
+        "eta_minimum": "6658797337875234031939788887132653648015943/713623846352979940529142984724747568191373312",
+        "eta_minimum_at": 94,
+        "input_a_max": 19,
+        "input_m_max": 106,
+        "output_a_max": 15,
+        "output_m_max": 85,
+        "strict_gap_bits": 7
+      }
+    ],
+    "strict_endpoint_ceiling": 9510,
+    "strict_state_ceiling": 1825920
+  },
+  "fractional_gaps": {
+    "alpha_lower_numerator": 125573666586150569315490533898,
+    "alpha_upper_numerator": 125573666586150569315490533899,
+    "checked_exponents": 1048575,
+    "dyadic_denominator_bits": 96,
+    "eta_epsilon_bits": 27,
+    "exponent_maximum": 1048575,
+    "exponent_minimum": 1,
+    "fractional_distance_bits": 25,
+    "minimum_certified_complement_at": 190537,
+    "minimum_certified_complement_numerator": 7373341559091880256221,
+    "minimum_certified_fraction_at": 873350,
+    "minimum_certified_fraction_numerator": 382018477585096038068028,
+    "natural_log_gap_bits": 26,
+    "series_terms": 80,
+    "threshold_numerator": 2361183241434822606848
+  },
+  "intercepts": {
+    "lengths": [
+      1,
+      7
+    ],
+    "letters": [
+      1,
+      4
+    ],
+    "sharp_bound_equalities": 7,
+    "words": 21844
+  },
+  "local_descent": {
+    "conclusion": "Every odd seed 3<=s<limit reaches a smaller positive odd seed",
+    "first_longest_seed": 1126015,
+    "limit_exclusive": 2097152,
+    "maximum_local_steps": 141,
+    "odd_seeds": 1048575,
+    "odd_steps": 3651430,
+    "peak_odd_output": 52304792741,
+    "per_seed_guard": 10000
+  },
+  "negative_prefixes": {
+    "J_values": [
+      2,
+      3,
+      7
+    ],
+    "additive_parameters": [
+      1,
+      5,
+      61
+    ],
+    "modified_positive_trajectories": 477,
+    "nonclosed_prefixes": 23,
+    "prefixes": 53,
+    "rows": [
+      {
+        "g": 1,
+        "h": 1,
+        "length": 1,
+        "total": 1
+      },
+      {
+        "g": 1,
+        "h": 1,
+        "length": 2,
+        "total": 2
+      },
+      {
+        "g": 1,
+        "h": 1,
+        "length": 4,
+        "total": 4
+      },
+      {
+        "g": 5,
+        "h": 5,
+        "length": 2,
+        "total": 3
+      },
+      {
+        "g": 5,
+        "h": 5,
+        "length": 4,
+        "total": 6
+      },
+      {
+        "g": 5,
+        "h": 5,
+        "length": 8,
+        "total": 12
+      },
+      {
+        "g": 7,
+        "h": 7,
+        "length": 2,
+        "total": 3
+      },
+      {
+        "g": 7,
+        "h": 7,
+        "length": 4,
+        "total": 6
+      },
+      {
+        "g": 7,
+        "h": 7,
+        "length": 8,
+        "total": 12
+      },
+      {
+        "g": 5,
+        "h": 7,
+        "length": 7,
+        "total": 11
+      },
+      {
+        "g": 17,
+        "h": 17,
+        "length": 7,
+        "total": 11
+      },
+      {
+        "g": 17,
+        "h": 17,
+        "length": 14,
+        "total": 22
+      },
+      {
+        "g": 17,
+        "h": 17,
+        "length": 28,
+        "total": 44
+      },
+      {
+        "g": 25,
+        "h": 25,
+        "length": 7,
+        "total": 11
+      },
+      {
+        "g": 25,
+        "h": 25,
+        "length": 14,
+        "total": 22
+      },
+      {
+        "g": 25,
+        "h": 25,
+        "length": 28,
+        "total": 44
+      },
+      {
+        "g": 17,
+        "h": 25,
+        "length": 48,
+        "total": 76
+      },
+      {
+        "g": 37,
+        "h": 37,
+        "length": 7,
+        "total": 11
+      },
+      {
+        "g": 37,
+        "h": 37,
+        "length": 14,
+        "total": 22
+      },
+      {
+        "g": 37,
+        "h": 37,
+        "length": 28,
+        "total": 44
+      },
+      {
+        "g": 17,
+        "h": 37,
+        "length": 89,
+        "total": 141
+      },
+      {
+        "g": 25,
+        "h": 37,
+        "length": 48,
+        "total": 76
+      },
+      {
+        "g": 55,
+        "h": 55,
+        "length": 7,
+        "total": 11
+      },
+      {
+        "g": 55,
+        "h": 55,
+        "length": 14,
+        "total": 22
+      },
+      {
+        "g": 55,
+        "h": 55,
+        "length": 28,
+        "total": 44
+      },
+      {
+        "g": 41,
+        "h": 55,
+        "length": 36,
+        "total": 57
+      },
+      {
+        "g": 17,
+        "h": 55,
+        "length": 130,
+        "total": 206
+      },
+      {
+        "g": 25,
+        "h": 55,
+        "length": 89,
+        "total": 141
+      },
+      {
+        "g": 37,
+        "h": 55,
+        "length": 48,
+        "total": 76
+      },
+      {
+        "g": 41,
+        "h": 41,
+        "length": 7,
+        "total": 11
+      },
+      {
+        "g": 41,
+        "h": 41,
+        "length": 14,
+        "total": 22
+      },
+      {
+        "g": 41,
+        "h": 41,
+        "length": 28,
+        "total": 44
+      },
+      {
+        "g": 17,
+        "h": 41,
+        "length": 101,
+        "total": 160
+      },
+      {
+        "g": 25,
+        "h": 41,
+        "length": 53,
+        "total": 84
+      },
+      {
+        "g": 37,
+        "h": 41,
+        "length": 12,
+        "total": 19
+      },
+      {
+        "g": 61,
+        "h": 61,
+        "length": 7,
+        "total": 11
+      },
+      {
+        "g": 61,
+        "h": 61,
+        "length": 14,
+        "total": 22
+      },
+      {
+        "g": 61,
+        "h": 61,
+        "length": 28,
+        "total": 44
+      },
+      {
+        "g": 17,
+        "h": 61,
+        "length": 142,
+        "total": 225
+      },
+      {
+        "g": 25,
+        "h": 61,
+        "length": 101,
+        "total": 160
+      },
+      {
+        "g": 37,
+        "h": 61,
+        "length": 53,
+        "total": 84
+      },
+      {
+        "g": 55,
+        "h": 61,
+        "length": 12,
+        "total": 19
+      },
+      {
+        "g": 41,
+        "h": 61,
+        "length": 48,
+        "total": 76
+      },
+      {
+        "g": 91,
+        "h": 91,
+        "length": 7,
+        "total": 11
+      },
+      {
+        "g": 91,
+        "h": 91,
+        "length": 14,
+        "total": 22
+      },
+      {
+        "g": 91,
+        "h": 91,
+        "length": 28,
+        "total": 44
+      },
+      {
+        "g": 17,
+        "h": 91,
+        "length": 183,
+        "total": 290
+      },
+      {
+        "g": 25,
+        "h": 91,
+        "length": 142,
+        "total": 225
+      },
+      {
+        "g": 37,
+        "h": 91,
+        "length": 101,
+        "total": 160
+      },
+      {
+        "g": 55,
+        "h": 91,
+        "length": 53,
+        "total": 84
+      },
+      {
+        "g": 41,
+        "h": 91,
+        "length": 89,
+        "total": 141
+      },
+      {
+        "g": 61,
+        "h": 91,
+        "length": 48,
+        "total": 76
+      },
+      {
+        "g": 1,
+        "h": 3,
+        "length": 4,
+        "total": 6
+      }
+    ],
+    "scope": "Genuine prefixes only; no complete admissible second segment is asserted",
+    "starts_divisible_by_three": 1
+  },
+  "polynomial": {
+    "exact_polynomial_identities": 2,
+    "variables": [
+      "N",
+      "3^a",
+      "2^P",
+      "3^b",
+      "2^T",
+      "h",
+      "g"
+    ]
+  },
+  "positive_controls": {
+    "arrows": 106,
+    "count": 11,
+    "cycles": [
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1",
+        "length": 1,
+        "reduced_denominator": 5
+      },
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1",
+        "length": 3,
+        "reduced_denominator": 5
+      },
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1",
+        "length": 3,
+        "reduced_denominator": 5
+      },
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1",
+        "length": 17,
+        "reduced_denominator": 5
+      },
+      {
+        "addend": 5,
+        "failed_hypothesis": "q=1",
+        "length": 17,
+        "reduced_denominator": 5
+      },
+      {
+        "addend": 7,
+        "failed_hypothesis": "q=1",
+        "length": 2,
+        "reduced_denominator": 7
+      },
+      {
+        "addend": 13,
+        "failed_hypothesis": "q=1",
+        "length": 1,
+        "reduced_denominator": 13
+      },
+      {
+        "addend": 13,
+        "failed_hypothesis": "q=1",
+        "length": 15,
+        "reduced_denominator": 13
+      },
+      {
+        "addend": 13,
+        "failed_hypothesis": "q=1",
+        "length": 5,
+        "reduced_denominator": 13
+      },
+      {
+        "addend": 61,
+        "failed_hypothesis": "q=1",
+        "length": 1,
+        "reduced_denominator": 61
+      },
+      {
+        "addend": 61,
+        "failed_hypothesis": "q=1",
+        "length": 41,
+        "reduced_denominator": 61
+      }
+    ],
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+  },
+  "schema": "expanding-negative-prefix-v1"
+}
