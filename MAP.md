@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**254 results, 29 attempts, 39 questions, 33 sources.**
+**255 results, 29 attempts, 39 questions, 33 sources.**
 
 ## Frontier: open questions
 
@@ -250,6 +250,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) | A lifted four-arc family has no denominator-one word | written | written | `musson-collatz-gap-all` |  |
 | [`mechanical-cycles-high-rational-controls`](areas/cycles/results/mechanical-cycles-high-rational-controls/README.md) | Mechanical cycles give rational 3x+1 cycles and integer 3x+d cycles arbitrarily far above… | formal | formal | — | yes |
 | [`mechanical-word-exact-denominator`](areas/cycles/results/mechanical-word-exact-denominator/README.md) | Mechanical valuation words have reduced denominator exactly 2^(A/g) − 3^(k/g), so none is… | formal | formal | — | yes |
+| [`mersenne-join-state-enclosure`](areas/cycles/results/mersenne-join-state-enclosure/README.md) | Signed Mersenne joins have a uniform state enclosure in terms of endpoint and slope | written | written | — |  |
 | [`mismatch-height-tradeoff`](areas/cycles/results/mismatch-height-tradeoff/README.md) | Mismatch–height trade-off at q = 1: every rotation differs in more than log₂3·m/(B + 342… | formal | reviewed | `musson-collatz-gap-all` | yes |
 | [`narrow-cycle-spectrum-law`](areas/cycles/results/narrow-cycle-spectrum-law.md) | Narrow-cycle spectrum of 3x+d: one cycle per coprime (A, m) with 0 < 2^A − 3^m dividing d | reviewed | reviewed | — |  |
 | [`narrow-cycles-are-mechanical`](areas/cycles/results/narrow-cycles-are-mechanical/README.md) | A cycle with H < 2L is exactly a mechanical word, so every nontrivial 3x+1 cycle has H >… | formal | formal | — | yes |
@@ -668,6 +669,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) added (result)
 - 2026-11-08: [`expanding-background-defect-growth`](areas/cycles/results/expanding-background-defect-growth/README.md) added (result)
 - 2026-11-08: [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) added (result)
+- 2026-11-08: [`mersenne-join-state-enclosure`](areas/cycles/results/mersenne-join-state-enclosure/README.md) added (result)
 - 2026-11-08: [`near-critical-four-mismatch-corpus-counterexample`](areas/cycles/results/near-critical-four-mismatch-corpus-counterexample/README.md) added (result)
 - 2026-11-08: [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) added (result)
 - 2026-11-08: [`small-mersenne-endpoint-exclusion`](areas/cycles/results/small-mersenne-endpoint-exclusion/README.md) added (result)
@@ -687,7 +689,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-01: [`inverse-syracuse-binary-coding`](areas/decidability/results/inverse-syracuse-binary-coding/README.md) added (result)
 - 2026-11-01: [`synchronised-coding-pcp-reduction`](areas/decidability/results/synchronised-coding-pcp-reduction/README.md) added (result)
 - 2026-11-01: [`undecidable-collatz-family-threshold`](areas/decidability/questions/undecidable-collatz-family-threshold.md) added (question)
-- 2026-11-01: [`conway-1972-unpredictable-iterations`](sources/conway-1972-unpredictable-iterations.md) added (source)
 
 ## Contributors
 
@@ -695,13 +696,13 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 59.6% | 203 | 9 |
+| ChatGPT main lane | 59.5% | 203 | 9 |
 | Claude side lane | 14.5% | 34 | 132 |
-| Claude review lane | 8.4% | 0 | 121 |
+| Claude review lane | 8.3% | 0 | 121 |
 | Claude Lean lane | 5.3% | 3 | 69 |
 | Claude cycles lane | 5.1% | 21 | 0 |
 | Claude PR1 lane | 2.1% | 6 | 9 |
-| Codex cycle research lane | 1.8% | 10 | 0 |
+| Codex cycle research lane | 2.0% | 11 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex four-arc research lane | 0.6% | 4 | 0 |
