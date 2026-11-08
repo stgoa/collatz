@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**284 results, 30 attempts, 39 questions, 39 sources.**
+**285 results, 30 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -334,6 +334,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`two-mismatch-exclusion-via-gap`](areas/cycles/results/two-mismatch-exclusion-via-gap/README.md) | C011's two-mismatch exclusion without Matveev: from the trade-off, the replayed gap and t… | formal | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
 | [`two-singleton-high-arcs-exclusion`](areas/cycles/results/two-singleton-high-arcs-exclusion/README.md) | Two high singletons are excluded by two rotation witnesses | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`two-three-mismatch-denominator-laws`](areas/cycles/results/two-three-mismatch-denominator-laws/README.md) | Two- and three-mismatch words have exponentially large denominators unless their drift is… | formal | reviewed | — | yes |
+| [`unaligned-balanced-third-period-exclusion`](areas/cycles/results/unaligned-balanced-third-period-exclusion/README.md) | Unaligned balanced third-period words exclude denominator one | written | written | `mathlib-065356127b1d` | yes |
 | [`unequal-one-five-half-defect-classification`](areas/cycles/results/unequal-one-five-half-defect-classification/README.md) | Half defects of amplitudes one and five have one full-cancellation family | written | written | — |  |
 | [`unequal-one-three-half-defect-exclusion`](areas/cycles/results/unequal-one-three-half-defect-exclusion/README.md) | Half defects of amplitudes one and three cannot cancel the plus factor | written | written | — | yes |
 | [`unequal-slope-two-block-growth`](areas/cycles/results/unequal-slope-two-block-growth/README.md) | Unequal-slope two-block words have denominator 2^((1−o(1))·A), ineffectively | reviewed | reviewed | `corvaja-2005-s-unit-height` |  |
@@ -460,7 +461,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`laurent-mignotte-nesterenko-1995-two-logarithms`](sources/laurent-mignotte-nesterenko-1995-two-logarithms.md) | Laurent, Mignotte and Nesterenko (1995): an explicit two-logarithm bound | cited | 6 |
 | [`lyapunov-weaver-2026-finite-mechanical-approximation`](sources/lyapunov-weaver-2026-finite-mechanical-approximation.md) | Lyapunov Weaver (2026): finite approximation bounds for mechanical itineraries | cited | 0 |
 | [`lyapunov-weaver-2026-periodic-dictionary-complexity`](sources/lyapunov-weaver-2026-periodic-dictionary-complexity.md) | lyapunov_weaver (2026): periodic-dictionary complexity claims | cited | 0 |
-| [`mathlib-065356127b1d`](sources/mathlib-065356127b1d.md) | Mathlib at the repository Lean toolchain pin | cited | 2 |
+| [`mathlib-065356127b1d`](sources/mathlib-065356127b1d.md) | Mathlib at the repository Lean toolchain pin | cited | 3 |
 | [`matveev-2000-linear-forms`](sources/matveev-2000-linear-forms.md) | Matveev (2000): explicit lower bound for linear forms in logarithms | cited | 2 |
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
@@ -732,17 +733,17 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 56.1% | 203 | 9 |
+| ChatGPT main lane | 56.0% | 203 | 9 |
 | Claude side lane | 13.8% | 34 | 132 |
-| Claude review lane | 7.8% | 0 | 121 |
+| Claude review lane | 7.7% | 0 | 121 |
 | Claude Lean lane | 5.1% | 3 | 69 |
-| Claude cycles lane | 4.9% | 21 | 0 |
+| Claude cycles lane | 5.0% | 21 | 0 |
 | Codex cycle research lane | 2.9% | 16 | 0 |
 | Claude PR1 lane | 2.0% | 6 | 9 |
 | Codex four-arc research lane | 1.4% | 15 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
+| Codex signed-endpoint formalisation lane | 0.7% | 4 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
-| Codex signed-endpoint formalisation lane | 0.6% | 3 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
 | Codex root research lane | 0.5% | 8 | 0 |
 | Codex residue research lane | 0.5% | 6 | 0 |
@@ -759,6 +760,8 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex arithmetic research lane | 0.1% | 1 | 0 |
 | Codex first-block research lane | 0.1% | 1 | 0 |
 | Codex formalisation research lane | 0.1% | 1 | 0 |
+| Codex cycle-frontier lane | 0.0% | 1 | 0 |
+| Codex residue lane | 0.0% | 1 | 0 |
 | Claude audit lane | 0.0% | 0 | 1 |
 
 **By accountable person** (agents are credited to the person who directed them; [`conventions/CREDIT.md`](conventions/CREDIT.md) §4):
