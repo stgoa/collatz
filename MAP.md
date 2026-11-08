@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**250 results, 29 attempts, 39 questions, 30 sources.**
+**251 results, 29 attempts, 39 questions, 33 sources.**
 
 ## Frontier: open questions
 
@@ -238,6 +238,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) | Equal-amplitude half defects reduce to a balanced transfer | written | written | — |  |
 | [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) | Two different equal-total blocks repeated at least three times never give an integer cycle | formal | formal | — | yes |
 | [`excursion-cut-lemma`](areas/cycles/results/excursion-cut-lemma.md) | An exact endpoint relation forces every intermediate odd state, and closing two blocks gi… | formal | formal | — | yes |
+| [`expanding-background-defect-growth`](areas/cycles/results/expanding-background-defect-growth/README.md) | A fixed expanding background needs a growing number of changed letters | written | written | `musson-collatz-gap-all` |  |
 | [`few-arc-codings-denominator-census`](areas/cycles/results/few-arc-codings-denominator-census/README.md) | Few-arc rotation codings: an exact census of cancellation and reduced denominators | written | written | — |  |
 | [`fixed-defect-unbounded-cancellation`](areas/cycles/results/fixed-defect-unbounded-cancellation.md) | Two unit rotation defects allow arbitrarily large cancellation: the family 1^t 2^(2t) | reviewed | reviewed | — |  |
 | [`four-mismatch-sign-dichotomy`](areas/cycles/results/four-mismatch-sign-dichotomy.md) | A rotation with four mismatches has one sign change of each kind, or two of each in alter… | formal | formal | — | yes |
@@ -404,6 +405,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 4 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
+| [`cerda-bennassar-2026-periodic-perturbations`](sources/cerda-bennassar-2026-periodic-perturbations.md) | Cerdá Bennassar (2026): perturbations of the periodic word (1,2) | cited | 0 |
 | [`cobham-recognizability-theorem`](sources/cobham-recognizability-theorem.md) | Cobham's theorem: sets recognizable in two independent bases | cited | 3 |
 | [`conway-1972-unpredictable-iterations`](sources/conway-1972-unpredictable-iterations.md) | Conway (1972): generalized Collatz iterations are undecidable | cited | 0 |
 | [`corvaja-2005-s-unit-height`](sources/corvaja-2005-s-unit-height.md) | Corvaja–Zannier: height of a rational function at S-unit points | cited | 2 |
@@ -418,14 +420,16 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`lagarias-1985-survey`](sources/lagarias-1985-survey.md) | Lagarias (1985): survey of the 3x+1 problem | cited | 0 |
 | [`languasco-2025-two-primes`](sources/languasco-2025-two-primes.md) | Languasco–Luca–Moree–Togbe: rational form of Matveev's bound | cited | 2 |
 | [`lau-2026-positive-density`](sources/lau-2026-positive-density.md) | Lau / AxiomMath: explicit positive lower density of predecessors (Lean) | replayed | 4 |
+| [`lyapunov-weaver-2026-periodic-dictionary-complexity`](sources/lyapunov-weaver-2026-periodic-dictionary-complexity.md) | lyapunov_weaver (2026): periodic-dictionary complexity claims | cited | 0 |
 | [`matveev-2000-linear-forms`](sources/matveev-2000-linear-forms.md) | Matveev (2000): explicit lower bound for linear forms in logarithms | cited | 2 |
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 9 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 10 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
+| [`simons-2008-generalized-syracuse-cycles`](sources/simons-2008-generalized-syracuse-cycles.md) | Simons (2008): bounds for cycles of generalized Syracuse sequences | cited | 0 |
 | [`steiner-1977-one-cycles`](sources/steiner-1977-one-cycles.md) | Steiner (1977): no nontrivial 1-cycles | cited | 0 |
 | [`tao-2019-almost-all`](sources/tao-2019-almost-all.md) | Tao: almost all Collatz orbits attain almost bounded values | cited | 5 |
 | [`terras-1976-stopping-time`](sources/terras-1976-stopping-time.md) | Terras (1976): a stopping time problem on the positive integers | cited | 0 |
@@ -658,6 +662,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 - 2026-11-08: [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) added (result)
 - 2026-11-08: [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) added (result)
+- 2026-11-08: [`expanding-background-defect-growth`](areas/cycles/results/expanding-background-defect-growth/README.md) added (result)
 - 2026-11-08: [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) added (result)
 - 2026-11-08: [`near-critical-four-mismatch-corpus-counterexample`](areas/cycles/results/near-critical-four-mismatch-corpus-counterexample/README.md) added (result)
 - 2026-11-08: [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) added (result)
@@ -669,6 +674,9 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`unequal-one-three-half-defect-exclusion`](areas/cycles/results/unequal-one-three-half-defect-exclusion/README.md) added (result)
 - 2026-11-08: [`unequal-two-four-half-defect-classification`](areas/cycles/results/unequal-two-four-half-defect-classification/README.md) added (result)
 - 2026-11-08: [`saturated-residue-automata-uniform-connectivity`](areas/invariants/results/saturated-residue-automata-uniform-connectivity/README.md) added (result)
+- 2026-11-08: [`cerda-bennassar-2026-periodic-perturbations`](sources/cerda-bennassar-2026-periodic-perturbations.md) added (source)
+- 2026-11-08: [`lyapunov-weaver-2026-periodic-dictionary-complexity`](sources/lyapunov-weaver-2026-periodic-dictionary-complexity.md) added (source)
+- 2026-11-08: [`simons-2008-generalized-syracuse-cycles`](sources/simons-2008-generalized-syracuse-cycles.md) added (source)
 - 2026-11-01: [`collatz-conjecture-logical-form`](areas/decidability/results/collatz-conjecture-logical-form/README.md) added (result)
 - 2026-11-01: [`inverse-syracuse-binary-coding`](areas/decidability/results/inverse-syracuse-binary-coding/README.md) added (result)
 - 2026-11-01: [`synchronised-coding-pcp-reduction`](areas/decidability/results/synchronised-coding-pcp-reduction/README.md) added (result)
@@ -677,10 +685,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-01: [`kurtz-simon-2007-generalized-collatz`](sources/kurtz-simon-2007-generalized-collatz.md) added (source)
 - 2026-11-01: [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) added (source)
 - 2026-10-31: [`absorbed-fibre-uniform-counts`](areas/convergence/results/absorbed-fibre-uniform-counts/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`absorption-defect-original-rank-resolution`](areas/convergence/results/absorption-defect-original-rank-resolution/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`actual-graph-current-compiler`](areas/convergence/results/actual-graph-current-compiler/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`adjacent-source-defect-equivalence`](areas/convergence/results/adjacent-source-defect-equivalence/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`affine-common-tail-tree-lifting`](areas/convergence/results/affine-common-tail-tree-lifting/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -688,18 +692,18 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 60.1% | 203 | 9 |
+| ChatGPT main lane | 60.0% | 203 | 9 |
 | Claude side lane | 14.6% | 34 | 132 |
 | Claude review lane | 8.4% | 0 | 121 |
-| Claude Lean lane | 5.4% | 3 | 69 |
+| Claude Lean lane | 5.3% | 3 | 69 |
 | Claude cycles lane | 5.1% | 21 | 0 |
 | Claude PR1 lane | 2.1% | 6 | 9 |
 | Codex cycle research lane | 1.4% | 8 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
+| Codex four-arc research lane | 0.5% | 3 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
 | Codex formalisation lane | 0.3% | 2 | 0 |
-| Codex four-arc research lane | 0.3% | 2 | 0 |
 | Codex research lane | 0.2% | 1 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 

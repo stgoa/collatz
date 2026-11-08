@@ -1,0 +1,212 @@
+{
+  "arbitrary_substitutions": {
+    "backgrounds": 23,
+    "changed_positions": [
+      1,
+      2
+    ],
+    "copies_range": [
+      1,
+      3
+    ],
+    "decreased_positions_checked": 948,
+    "groups_checked": 21443,
+    "mixed_sign_words": 948,
+    "positive_denominator_words": 11069,
+    "replacement_letters": [
+      1,
+      4
+    ]
+  },
+  "controls": {
+    "direct_modified_block_controls": [
+      {
+        "q": 23,
+        "q1_exclusion_applied": false,
+        "states": [
+          7,
+          11
+        ],
+        "word": [
+          2,
+          3
+        ]
+      },
+      {
+        "q": 17,
+        "q1_exclusion_applied": false,
+        "states": [
+          1,
+          5
+        ],
+        "word": [
+          2,
+          5
+        ]
+      }
+    ],
+    "standard_fixtures": [
+      {
+        "denominator": 5,
+        "minimum": 1,
+        "odd_length": 1,
+        "q": 5
+      },
+      {
+        "denominator": 5,
+        "minimum": 19,
+        "odd_length": 3,
+        "q": 5
+      },
+      {
+        "denominator": 5,
+        "minimum": 23,
+        "odd_length": 3,
+        "q": 5
+      },
+      {
+        "denominator": 5,
+        "minimum": 187,
+        "odd_length": 17,
+        "q": 5
+      },
+      {
+        "denominator": 5,
+        "minimum": 347,
+        "odd_length": 17,
+        "q": 5
+      },
+      {
+        "denominator": 7,
+        "minimum": 5,
+        "odd_length": 2,
+        "q": 7
+      },
+      {
+        "denominator": 13,
+        "minimum": 1,
+        "odd_length": 1,
+        "q": 13
+      },
+      {
+        "denominator": 13,
+        "minimum": 131,
+        "odd_length": 15,
+        "q": 13
+      },
+      {
+        "denominator": 13,
+        "minimum": 211,
+        "odd_length": 5,
+        "q": 13
+      },
+      {
+        "denominator": 61,
+        "minimum": 1,
+        "odd_length": 1,
+        "q": 61
+      },
+      {
+        "denominator": 61,
+        "minimum": 235,
+        "odd_length": 41,
+        "q": 61
+      }
+    ]
+  },
+  "cutoff": {
+    "H4_upper_bound": "73240879/16777216",
+    "N0": 7120,
+    "coefficient": "50331648/73240879",
+    "gamma_upper_bound": "271/256",
+    "integer_power_comparisons": {
+      "7120^5<2^64": true,
+      "9^256<8^271": true
+    },
+    "maximum_blocks": 7119,
+    "maximum_odd_word_length": 14238,
+    "positive_margin": "3337644499/366204395"
+  },
+  "general_backgrounds": {
+    "background_length_range": [
+      1,
+      4
+    ],
+    "background_length_total_pairs": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        6
+      ]
+    ],
+    "background_letter_set": [
+      1,
+      2,
+      3
+    ],
+    "backgrounds": 23,
+    "block_count_range": [
+      1,
+      5
+    ],
+    "denominator_one_words_all_trivial": 10,
+    "groups_checked": 20849,
+    "groups_with_one_block": 14561,
+    "increase_set": [
+      0,
+      1,
+      3
+    ],
+    "positive_denominator_words": 6459
+  },
+  "local_exclusion": {
+    "L": 33554432,
+    "final_minimum_total": 22567,
+    "longest_descent_seed": 26716671,
+    "maximum_local_steps": 188,
+    "maximum_odd_state": 102098975067917,
+    "odd_seeds": 16777215,
+    "per_seed_step_guard": 10000,
+    "product_inequalities_checked": 14238,
+    "product_inequality_lengths": [
+      1,
+      14238
+    ],
+    "total_odd_steps": 58580426
+  },
+  "status": "PASS",
+  "symbolic": {
+    "both_polynomial_differences_zero": true,
+    "identities": [
+      "B(Px+C)+CQ=P(Bx+C), B=P-Q",
+      "BP^k*x+C(P^k-Q^k)+CQ^k*2^e=P^k(Bx+C)+CQ^k(2^e-1)"
+    ]
+  }
+}

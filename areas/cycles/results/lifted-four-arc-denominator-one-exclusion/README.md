@@ -407,6 +407,15 @@ external effective-gap input.
 
 ## History
 
+- 2026-11-08: the later
+  [`expanding-background-defect-growth`](../expanding-background-defect-growth/README.md)
+  includes a broader corollary for arbitrary placements and values
+  of at most four increased final letters in copies of `(2,1)`.
+  It subsumes this family's exclusion while retaining only EXT-1
+  as an external assumption. The original resultant proof, claim
+  and status remain unchanged. The new node also records a stronger
+  previously published `(1,2)`-perturbation exclusion by Cerdá Bennassar;
+  no novelty is claimed for this numerical family exclusion.
 - 2026-11-08: Codex four-arc research lane (GPT-6 Astra;
   directed by Santiago Armstrong) derived the lifted block
   intercept, proved the resultant nonzero for both parities,
