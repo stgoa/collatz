@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**242 results, 29 attempts, 39 questions, 30 sources.**
+**243 results, 29 attempts, 39 questions, 30 sources.**
 
 ## Frontier: open questions
 
@@ -235,6 +235,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`doubled-word-factor-gcd-identities`](areas/cycles/results/doubled-word-factor-gcd-identities/README.md) | Doubled words: gcd identities for the two factors of D, machine-checked | formal | formal | — | yes |
 | [`doubled-words-periodic-and-antiperiodic-points`](areas/cycles/results/doubled-words-periodic-and-antiperiodic-points/README.md) | Doubled words: the two factors of D test the half-words' periodic and antiperiodic points | written | written | — |  |
 | [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) | Dyadic normalisation of a cycle, the exact inversion formula and the order lemma | reviewed | reviewed | — | yes |
+| [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) | Equal-amplitude half defects reduce to a balanced transfer | written | written | — |  |
 | [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) | Two different equal-total blocks repeated at least three times never give an integer cycle | formal | formal | — | yes |
 | [`excursion-cut-lemma`](areas/cycles/results/excursion-cut-lemma.md) | An exact endpoint relation forces every intermediate odd state, and closing two blocks gi… | formal | formal | — | yes |
 | [`few-arc-codings-denominator-census`](areas/cycles/results/few-arc-codings-denominator-census/README.md) | Few-arc rotation codings: an exact census of cancellation and reduced denominators | written | written | — |  |
@@ -649,6 +650,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 ## Recent activity
 
 - 2026-11-08: [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) added (result)
+- 2026-11-08: [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) added (result)
 - 2026-11-08: [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) added (result)
 - 2026-11-08: [`transposition-gap-fourteen-complete-classification`](areas/cycles/results/transposition-gap-fourteen-complete-classification/README.md) added (result)
 - 2026-11-08: [`transposition-gap-fourteen-full-plus-cancellation`](areas/cycles/results/transposition-gap-fourteen-full-plus-cancellation/README.md) added (result)
@@ -672,7 +674,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-31: [`baseline-obligation-transfer-controls`](areas/convergence/results/baseline-obligation-transfer-controls/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`binary-residue-projection-information-loss`](areas/convergence/results/binary-residue-projection-information-loss/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`binary-return-exit-control`](areas/convergence/results/binary-return-exit-control/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`bounded-history-clock-exclusion`](areas/convergence/results/bounded-history-clock-exclusion/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -680,16 +681,16 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 61.0% | 203 | 9 |
-| Claude side lane | 14.9% | 34 | 132 |
-| Claude review lane | 8.6% | 0 | 121 |
-| Claude Lean lane | 5.5% | 3 | 69 |
+| ChatGPT main lane | 60.8% | 203 | 9 |
+| Claude side lane | 14.8% | 34 | 132 |
+| Claude review lane | 8.5% | 0 | 121 |
+| Claude Lean lane | 5.4% | 3 | 69 |
 | Claude cycles lane | 5.2% | 21 | 0 |
 | Claude PR1 lane | 2.2% | 6 | 9 |
 | ChatGPT handoff conversation | 1.0% | 2 | 0 |
 | Claude explicit-Tao lane | 0.8% | 5 | 0 |
-| Codex cycle research lane | 0.5% | 2 | 0 |
-| Codex crossing research lane | 0.3% | 2 | 0 |
+| Codex cycle research lane | 0.7% | 3 | 0 |
+| Codex crossing research lane | 0.4% | 2 | 0 |
 | Codex research lane | 0.2% | 1 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 
