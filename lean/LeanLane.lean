@@ -12,3 +12,4 @@ import LeanLane.CycleInequality
 import LeanLane.SaturatedScaling
 import LeanLane.SaturatedAutomaton
 import LeanLane.SignedIntercept
+import LeanLane.WeightedCrossing
