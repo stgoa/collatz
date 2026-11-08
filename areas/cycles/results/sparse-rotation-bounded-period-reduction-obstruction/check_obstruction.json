@@ -1,0 +1,107 @@
+{
+  "scope": "Finite checks only; the README proves the unbounded family and obstruction.",
+  "prime_range": [
+    61,
+    601
+  ],
+  "primes_checked": 93,
+  "period_range": [
+    1,
+    12
+  ],
+  "counts": {
+    "rotations": 29364,
+    "balance_checks": 11693349,
+    "factor_checks": 353484,
+    "marker_factor_checks": 7254,
+    "reduced_arrows": 29457
+  },
+  "maximal_periodic_factor_lengths": [
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    15,
+    17,
+    19,
+    32,
+    586
+  ],
+  "elementary_separation_pairs": 442,
+  "word_digest_sha256": "c6dc6578a661bcbd71774e15e9f390b3d5563866744c03c06b36401980cb0254",
+  "samples": [
+    {
+      "m": 61,
+      "A": 97,
+      "F": 66,
+      "twos": 5,
+      "h": 49,
+      "p": 24,
+      "marker": 33,
+      "denominator_bits": 95
+    },
+    {
+      "m": 67,
+      "A": 107,
+      "F": 72,
+      "twos": 5,
+      "h": 27,
+      "p": 13,
+      "marker": 37,
+      "denominator_bits": 106
+    },
+    {
+      "m": 71,
+      "A": 113,
+      "F": 77,
+      "twos": 6,
+      "h": 12,
+      "p": 11,
+      "marker": 38,
+      "denominator_bits": 112
+    },
+    {
+      "m": 73,
+      "A": 116,
+      "F": 79,
+      "twos": 6,
+      "h": 61,
+      "p": 24,
+      "marker": 39,
+      "denominator_bits": 114
+    },
+    {
+      "m": 79,
+      "A": 126,
+      "F": 85,
+      "twos": 6,
+      "h": 66,
+      "p": 26,
+      "marker": 43,
+      "denominator_bits": 125
+    },
+    {
+      "m": 601,
+      "A": 953,
+      "F": 652,
+      "twos": 51,
+      "h": 165,
+      "p": 11,
+      "marker": 303,
+      "denominator_bits": 952
+    }
+  ],
+  "controls": {
+    "cycles": 11,
+    "arrows": 106,
+    "parameters": [
+      5,
+      7,
+      13,
+      61
+    ]
+  }
+}
