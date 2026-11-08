@@ -224,7 +224,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`band-one-three-forced-positions`](areas/cycles/results/band-one-three-forced-positions.md) | In the Collatz range, an ordered cycle in band 1 has at least three forced positions | formal | reviewed | — | yes |
 | [`bounded-unequal-half-defect-exclusion`](areas/cycles/results/bounded-unequal-half-defect-exclusion/README.md) | Unequal same-parity half defects of combined magnitude at most 24 exclude denominator one | written | written | — |  |
 | [`closed-negative-prefix-mersenne-denominator-law`](areas/cycles/results/closed-negative-prefix-mersenne-denominator-law/README.md) | Closed negative prefixes force a Mersenne denominator bound | written | written | `musson-collatz-gap-all` |  |
-| [`clustered-arc-three-order-inequality-obstruction`](areas/cycles/results/clustered-arc-three-order-inequality-obstruction/README.md) | Three clustered-arc gap systems force a positive error margin | written | written | `mathlib-065356127b1d` | yes |
+| [`clustered-arc-three-order-inequality-obstruction`](areas/cycles/results/clustered-arc-three-order-inequality-obstruction/README.md) | Three clustered-arc gap systems force a positive error margin | formal | formal | `mathlib-065356127b1d` | yes |
 | [`clustered-two-maximum-arcs-exclusion`](areas/cycles/results/clustered-two-maximum-arcs-exclusion/README.md) | Clustered maximum arcs exclude three-label four-arc words | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`compatible-arcs-common-partition-limits`](areas/cycles/results/compatible-arcs-common-partition-limits/README.md) | Unreviewed draft: a rotation-invariant partition or a shared background cannot cover spar… | proposed | proposed | — |  |
 | [`complete-gap-lattice-equivalence`](areas/cycles/results/complete-gap-lattice-equivalence.md) | The complete dyadic gaps of a cycle carry exactly the same lattice, gcd and denominator a… | formal | formal | — | yes |
@@ -729,7 +729,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 |---|---|---|---|
 | ChatGPT main lane | 56.6% | 203 | 9 |
 | Claude side lane | 13.9% | 34 | 132 |
-| Claude review lane | 7.9% | 0 | 121 |
+| Claude review lane | 7.8% | 0 | 121 |
 | Claude Lean lane | 5.1% | 3 | 69 |
 | Claude cycles lane | 5.0% | 21 | 0 |
 | Codex cycle research lane | 3.0% | 16 | 0 |
@@ -738,7 +738,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
-| Codex signed-endpoint formalisation lane | 0.4% | 2 | 0 |
+| Codex signed-endpoint formalisation lane | 0.6% | 2 | 0 |
 | Codex root research lane | 0.4% | 6 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
 | Codex main research lane | 0.4% | 5 | 0 |

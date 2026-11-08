@@ -2,7 +2,7 @@
 id: clustered-arc-three-order-inequality-obstruction
 kind: result
 title: Three clustered-arc gap systems force a positive error margin
-status: written
+status: formal
 claim: >
   Pure real algebra, with no orbit, map or clock assumption. Let
   a,c,u,v,epsilon be real numbers, a>=1, c>=1, r=a+c, and r*u<1.
@@ -170,7 +170,8 @@ root to audit the recorded hashes and permitted axioms.
 
 The sole external input is the pinned
 [Mathlib library](../../../../sources/mathlib-065356127b1d.md).
-This node remains `written` until the Lean build passes CI.
+The complete Lean CI build passed on commit `93db1af`; the
+proof source and receipts are unchanged by the status promotion.
 
 ## Remarks
 
@@ -195,3 +196,5 @@ existing written algebraic argument.
 
 - 2026-11-08: isolated the complete three-order real
   inequality obstruction from the clustered-profile proof.
+- 2026-11-08: promoted this scoped algebraic claim to `formal`
+  after the complete Lean CI build passed on `93db1af`.
