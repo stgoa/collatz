@@ -1,0 +1,94 @@
+{
+  "actual_cycle_controls": [
+    {
+      "addend": 5,
+      "commutator": 0,
+      "denominator": 5,
+      "minimum": 1
+    },
+    {
+      "addend": 5,
+      "commutator": 0,
+      "denominator": 5,
+      "minimum": 19
+    },
+    {
+      "addend": 5,
+      "commutator": 0,
+      "denominator": 5,
+      "minimum": 23
+    },
+    {
+      "addend": 5,
+      "commutator": 0,
+      "denominator": 5,
+      "minimum": 187
+    },
+    {
+      "addend": 5,
+      "commutator": 0,
+      "denominator": 5,
+      "minimum": 347
+    },
+    {
+      "addend": 7,
+      "commutator": 0,
+      "denominator": 7,
+      "minimum": 5
+    },
+    {
+      "addend": 13,
+      "commutator": 0,
+      "denominator": 13,
+      "minimum": 1
+    },
+    {
+      "addend": 13,
+      "commutator": 0,
+      "denominator": 13,
+      "minimum": 131
+    },
+    {
+      "addend": 13,
+      "commutator": 0,
+      "denominator": 13,
+      "minimum": 211
+    },
+    {
+      "addend": 61,
+      "commutator": 0,
+      "denominator": 61,
+      "minimum": 1
+    },
+    {
+      "addend": 61,
+      "commutator": 0,
+      "denominator": 61,
+      "minimum": 235
+    }
+  ],
+  "cutoff": {
+    "declared_dependency_period_lower": 72057431991,
+    "logarithm_at_cutoff": "12811/3",
+    "positive_growth_coefficient": "26626/3",
+    "total_valuation_cutoff": 131072
+  },
+  "integer_lemma": {
+    "checks": 78287,
+    "r_s_max": 32,
+    "repetitions_max": 12,
+    "smallest_tested_exponent": "7/96",
+    "witness": [
+      2,
+      3,
+      3,
+      2
+    ]
+  },
+  "words": {
+    "commuting_pairs": 94,
+    "generated_words": 84,
+    "noncommuting_pairs": 696,
+    "repeated_word_checks": 6264
+  }
+}
