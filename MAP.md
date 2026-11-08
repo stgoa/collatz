@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**264 results, 29 attempts, 39 questions, 37 sources.**
+**265 results, 29 attempts, 39 questions, 37 sources.**
 
 ## Frontier: open questions
 
@@ -262,6 +262,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`near-critical-four-mismatch-corpus-counterexample`](areas/cycles/results/near-critical-four-mismatch-corpus-counterexample/README.md) | An existing 3x+295 cycle refutes both near-critical half-cancellation bounds | written | written | — |  |
 | [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) | Finite signed crossing orbits exclude near-doubled cancellation for gaps through twelve | written | written | — |  |
 | [`near-doubled-words-primitive-factor-test`](areas/cycles/results/near-doubled-words-primitive-factor-test/README.md) | The primitive factor at gcd(A, m) = 2 never divides the intercept of a near-doubled word:… | written | written | — |  |
+| [`negative-interface-mersenne-exclusion`](areas/cycles/results/negative-interface-mersenne-exclusion/README.md) | Signed Mersenne joins with negative interface exclude denominator one | written | written | `laurent-mignotte-nesterenko-1995-two-logarithms` |  |
 | [`odd-order-residue-signed-endpoint-divisibility`](areas/cycles/results/odd-order-residue-signed-endpoint-divisibility/README.md) | Odd-order residue groups force full divisibility of signed return endpoints | written | written | — | yes |
 | [`odd-spacing-rounding-bound`](areas/cycles/results/odd-spacing-rounding-bound.md) | Odd spacing and image order bound every sorted gap of an ordered cycle, so L ≥ R_q(H) | formal | reviewed | — | yes |
 | [`one-cycle-exclusion-via-gap`](areas/cycles/results/one-cycle-exclusion-via-gap.md) | Given the linear-form gap, no 3x+1 cycle has word 1^(m−1)V for m ≥ 2^13 (a route to Stein… | formal | formal | `musson-collatz-gap-all` | yes |
@@ -435,7 +436,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`lagarias-1985-survey`](sources/lagarias-1985-survey.md) | Lagarias (1985): survey of the 3x+1 problem | cited | 0 |
 | [`languasco-2025-two-primes`](sources/languasco-2025-two-primes.md) | Languasco–Luca–Moree–Togbe: rational form of Matveev's bound | cited | 2 |
 | [`lau-2026-positive-density`](sources/lau-2026-positive-density.md) | Lau / AxiomMath: explicit positive lower density of predecessors (Lean) | replayed | 4 |
-| [`laurent-mignotte-nesterenko-1995-two-logarithms`](sources/laurent-mignotte-nesterenko-1995-two-logarithms.md) | Laurent, Mignotte and Nesterenko (1995): an explicit two-logarithm bound | cited | 2 |
+| [`laurent-mignotte-nesterenko-1995-two-logarithms`](sources/laurent-mignotte-nesterenko-1995-two-logarithms.md) | Laurent, Mignotte and Nesterenko (1995): an explicit two-logarithm bound | cited | 3 |
 | [`lyapunov-weaver-2026-finite-mechanical-approximation`](sources/lyapunov-weaver-2026-finite-mechanical-approximation.md) | Lyapunov Weaver (2026): finite approximation bounds for mechanical itineraries | cited | 0 |
 | [`lyapunov-weaver-2026-periodic-dictionary-complexity`](sources/lyapunov-weaver-2026-periodic-dictionary-complexity.md) | lyapunov_weaver (2026): periodic-dictionary complexity claims | cited | 0 |
 | [`matveev-2000-linear-forms`](sources/matveev-2000-linear-forms.md) | Matveev (2000): explicit lower bound for linear forms in logarithms | cited | 2 |
@@ -690,6 +691,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`mersenne-join-state-enclosure`](areas/cycles/results/mersenne-join-state-enclosure/README.md) added (result)
 - 2026-11-08: [`near-critical-four-mismatch-corpus-counterexample`](areas/cycles/results/near-critical-four-mismatch-corpus-counterexample/README.md) added (result)
 - 2026-11-08: [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) added (result)
+- 2026-11-08: [`negative-interface-mersenne-exclusion`](areas/cycles/results/negative-interface-mersenne-exclusion/README.md) added (result)
 - 2026-11-08: [`odd-order-residue-signed-endpoint-divisibility`](areas/cycles/results/odd-order-residue-signed-endpoint-divisibility/README.md) added (result)
 - 2026-11-08: [`one-edit-mechanical-denominator-growth`](areas/cycles/results/one-edit-mechanical-denominator-growth/README.md) added (result)
 - 2026-11-08: [`signed-endpoint-order-depth`](areas/cycles/results/signed-endpoint-order-depth/README.md) added (result)
@@ -701,7 +703,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`two-half-defect-mersenne-normal-form`](areas/cycles/results/two-half-defect-mersenne-normal-form/README.md) added (result)
 - 2026-11-08: [`unequal-one-five-half-defect-classification`](areas/cycles/results/unequal-one-five-half-defect-classification/README.md) added (result)
 - 2026-11-08: [`unequal-one-three-half-defect-exclusion`](areas/cycles/results/unequal-one-three-half-defect-exclusion/README.md) added (result)
-- 2026-11-08: [`unequal-two-four-half-defect-classification`](areas/cycles/results/unequal-two-four-half-defect-classification/README.md) added (result)
 
 ## Contributors
 
@@ -709,12 +710,12 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 58.5% | 203 | 9 |
+| ChatGPT main lane | 58.4% | 203 | 9 |
 | Claude side lane | 14.2% | 34 | 132 |
-| Claude review lane | 8.2% | 0 | 121 |
+| Claude review lane | 8.1% | 0 | 121 |
 | Claude Lean lane | 5.2% | 3 | 69 |
 | Claude cycles lane | 5.0% | 21 | 0 |
-| Codex cycle research lane | 2.6% | 14 | 0 |
+| Codex cycle research lane | 2.7% | 14 | 0 |
 | Claude PR1 lane | 2.1% | 6 | 9 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Codex four-arc research lane | 0.9% | 6 | 0 |
@@ -723,6 +724,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex formalisation lane | 0.4% | 2 | 0 |
 | Codex signed-endpoint research lane | 0.3% | 2 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
+| Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
 | Codex research lane | 0.1% | 1 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
