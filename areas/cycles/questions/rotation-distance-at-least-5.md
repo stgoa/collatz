@@ -23,6 +23,15 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: an unconditional half-period subcase is excluded.**
+  [`unequal-one-five-half-defect-classification`](../results/unequal-one-five-half-defect-classification/README.md)
+  excludes positive integer `3x+1` cycles whose two halves differ at
+  exactly two positions with absolute changes 1 and 5, in any signs
+  or order, at every length. The proof classifies full plus-factor
+  cancellation and shows that every exceptional word still has
+  denominator greater than 1. It uses no near-critical assumption
+  or external bound. This settles only that half-period four-mismatch
+  class; the general question remains open.
 - `ρ ≥ 4`: [`three-mismatch-exclusion`](../results/three-mismatch-exclusion/README.md).
 - S8's claim that size arguments stop at three mismatches was withdrawn ([`four-mismatch-size-method-limit`](../attempts/four-mismatch-size-method-limit/README.md)): its words fail the rotation by `2h`.
 - S10 ([`multi-rotation-four-mismatch-exclusion`](../attempts/multi-rotation-four-mismatch-exclusion/README.md)): in a continuous model of the aligned single-drop structure, both four-mismatch patterns are excluded by several rotations (`v₂ = v₄` by `h`, `2h`; `v₂ ≠ v₄` by `h, …, 12h`), but five and six mismatches survive; no exclusion is claimed, and exact certificates, finite `m`, the 2–2 case, the small-rotation branch and short arcs are missing.
@@ -32,3 +41,10 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 ## Suggested attacks
 
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
+
+## History
+
+- 2026-11-08: added the unconditional amplitudes-1-and-5 half-period
+  exclusion from [`unequal-one-five-half-defect-classification`](../results/unequal-one-five-half-defect-classification/README.md).
+  The arbitrary four-mismatch question remains `open`
+  (Codex cycle research lane, GPT-6 Astra; directed by Santiago Armstrong).
