@@ -1,0 +1,826 @@
+{
+  "actual_controls": {
+    "addend_run_checks": 25,
+    "cycles": 11,
+    "exact_arrows": 106,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "paired_run_witnesses": 1436,
+    "scope": "the addend is retained; q=1 minimum and growth estimates are not applied"
+  },
+  "binary_discrepancy": {
+    "periods": [
+      3,
+      20
+    ],
+    "phases": "every start and every proper length",
+    "proper_factors": 385692,
+    "scope": "finite replay of the cited general rotation theorem",
+    "templates": 1616,
+    "twos_lengths": "every integer1..m-1"
+  },
+  "constants": {
+    "alpha_lower": "84/53",
+    "common_sparse_error_at_2_to_22": "56885/12582912",
+    "cutoff": 17179869184,
+    "cutoff_bits": 34,
+    "density_base_margin": 34296408032,
+    "density_coefficient": "335/1007",
+    "density_dyadic_polynomial": [
+      4167072,
+      1740096
+    ],
+    "density_induction_polynomial": [
+      2426976,
+      1740096
+    ],
+    "minimum_state": 129,
+    "one_arrow_log2_upper": "19/32",
+    "phase_dyadic_numerator": [
+      2056,
+      1026
+    ],
+    "phase_error_times_193_at_base": "1782355/12884901888",
+    "phase_induction_polynomial": [
+      1030,
+      1026
+    ],
+    "retained_outer_one_density_polynomial": [
+      4164051,
+      1740096
+    ],
+    "separately_sourced_minimum_period": 72057431991,
+    "short_product_bound": 512,
+    "two_run_base_margin": 17155000320,
+    "two_run_dyadic_polynomial": [
+      515,
+      342
+    ],
+    "two_run_induction_polynomial": [
+      173,
+      342
+    ],
+    "two_run_multiplier": "9984/5",
+    "two_run_relaxed_multiplier": 2048
+  },
+  "dependency_replays": {
+    "corollary_minimum_odd_period": 72057431991,
+    "external_convergence_computation_replayed": false,
+    "records": [
+      {
+        "outcome": "passed; stored receipt unchanged",
+        "receipt": "areas/cycles/results/sparse-two-level-four-arc-exclusion/check_four_arcs.json",
+        "receipt_sha256": "3b15c43c604f9dc87e3b9bb6e4aefb65d19b6ea8934f9f1b79473f307d0aaaed",
+        "script": "areas/cycles/results/sparse-two-level-four-arc-exclusion/check_four_arcs.py",
+        "script_sha256": "efa444488f3687ea5c2f74e1b8014a2e22fafb256bea0f29077968cc1eb3c2fe"
+      },
+      {
+        "outcome": "passed; stored receipt unchanged",
+        "receipt": "areas/cycles/results/cycle-length-lower-bound-from-convergents/cycle_length_convergents.json",
+        "receipt_sha256": "e48b19926ca0c155032a9d85d3c28f3f6fbe69ae404163638414a7c848c65f64",
+        "script": "areas/cycles/results/cycle-length-lower-bound-from-convergents/check_cycle_length_convergents.py",
+        "script_sha256": "fd303326cf159435a3b05fb9188cc3a870e62da04a5348b937778f91d008b6d2"
+      }
+    ]
+  },
+  "family_controls": {
+    "addend_run_checks": 12584,
+    "additional_outer_two_controls": "m13,a=c1,b10,k6or7,V9or20",
+    "coverage": "both arrangements, all positive arcs and coprime steps in this finite range",
+    "exact_arrows": 61276,
+    "failed_exclusion_hypothesis": "q=1; these are actual integer 3x+q cycles",
+    "geometry_words": 7396,
+    "minimum_reduced_addend": 13,
+    "parameter_sha256": "b3d72897570b3832d49be4344351009f354c797df1417e62c7d661996b19acc4",
+    "periods": [
+      4,
+      12
+    ],
+    "post_spike_envelopes": 1424,
+    "post_spike_envelopes_by_outer_label": {
+      "1": 1416,
+      "2": 8
+    },
+    "reduced_cycles": 6054,
+    "reduced_cycles_by_outer_label": {
+      "1": 2558,
+      "2": 3496
+    },
+    "spike_values": [
+      3,
+      4,
+      9,
+      20
+    ]
+  },
+  "integral_runs": {
+    "cases": 1024,
+    "maximum_terminal_valuation": 12,
+    "odd_quotients": [
+      1,
+      63
+    ],
+    "ones_lengths": [
+      1,
+      32
+    ],
+    "scope": "integer orbit segments; not asserted to be cycles"
+  },
+  "large_phase_edges": {
+    "cases": 64,
+    "endpoint_phase_checks": 22458,
+    "records": [
+      {
+        "Q": 2,
+        "b": 5726623060,
+        "boundary_phases": 8,
+        "k": 8589934592,
+        "m": 17179869185,
+        "maximum_twos": 1,
+        "p": 1,
+        "signed_j": -1
+      },
+      {
+        "Q": 2,
+        "b": 5726623060,
+        "boundary_phases": 8,
+        "k": 8589934593,
+        "m": 17179869185,
+        "maximum_twos": 1,
+        "p": 1,
+        "signed_j": 1
+      },
+      {
+        "Q": 2,
+        "b": 5726622805,
+        "boundary_phases": 8,
+        "k": 8589934465,
+        "m": 17179869186,
+        "maximum_twos": 1,
+        "p": 1,
+        "signed_j": -256
+      },
+      {
+        "Q": 2,
+        "b": 5726622805,
+        "boundary_phases": 8,
+        "k": 8589934721,
+        "m": 17179869186,
+        "maximum_twos": 1,
+        "p": 1,
+        "signed_j": 256
+      },
+      {
+        "Q": 3,
+        "b": 5726623060,
+        "boundary_phases": 10,
+        "k": 5726623061,
+        "m": 17179869184,
+        "maximum_twos": 1,
+        "p": 1,
+        "signed_j": -1
+      },
+      {
+        "Q": 3,
+        "b": 5726623060,
+        "boundary_phases": 11,
+        "k": 5726623062,
+        "m": 17179869185,
+        "maximum_twos": 1,
+        "p": 1,
+        "signed_j": 1
+      },
+      {
+        "Q": 3,
+        "b": 5726622893,
+        "boundary_phases": 12,
+        "k": 5726623007,
+        "m": 17179869191,
+        "maximum_twos": 1,
+        "p": 1,
+        "signed_j": -170
+      },
+      {
+        "Q": 3,
+        "b": 5726622892,
+        "boundary_phases": 12,
+        "k": 5726623119,
+        "m": 17179869187,
+        "maximum_twos": 1,
+        "p": 1,
+        "signed_j": 170
+      },
+      {
+        "Q": 3,
+        "b": 5726623060,
+        "boundary_phases": 11,
+        "k": 11453246123,
+        "m": 17179869185,
+        "maximum_twos": 1,
+        "p": 2,
+        "signed_j": -1
+      },
+      {
+        "Q": 3,
+        "b": 5726623060,
+        "boundary_phases": 10,
+        "k": 11453246123,
+        "m": 17179869184,
+        "maximum_twos": 1,
+        "p": 2,
+        "signed_j": 1
+      },
+      {
+        "Q": 3,
+        "b": 5726622892,
+        "boundary_phases": 12,
+        "k": 11453246068,
+        "m": 17179869187,
+        "maximum_twos": 1,
+        "p": 2,
+        "signed_j": -170
+      },
+      {
+        "Q": 3,
+        "b": 5726622893,
+        "boundary_phases": 12,
+        "k": 11453246184,
+        "m": 17179869191,
+        "maximum_twos": 1,
+        "p": 2,
+        "signed_j": 170
+      },
+      {
+        "Q": 4,
+        "b": 5726623060,
+        "boundary_phases": 16,
+        "k": 4294967296,
+        "m": 17179869185,
+        "maximum_twos": 2,
+        "p": 1,
+        "signed_j": -1
+      },
+      {
+        "Q": 4,
+        "b": 5726623061,
+        "boundary_phases": 16,
+        "k": 4294967297,
+        "m": 17179869187,
+        "maximum_twos": 2,
+        "p": 1,
+        "signed_j": 1
+      },
+      {
+        "Q": 4,
+        "b": 5726622934,
+        "boundary_phases": 16,
+        "k": 4294967265,
+        "m": 17179869188,
+        "maximum_twos": 2,
+        "p": 1,
+        "signed_j": -128
+      },
+      {
+        "Q": 4,
+        "b": 5726622934,
+        "boundary_phases": 16,
+        "k": 4294967329,
+        "m": 17179869188,
+        "maximum_twos": 2,
+        "p": 1,
+        "signed_j": 128
+      },
+      {
+        "Q": 4,
+        "b": 5726623061,
+        "boundary_phases": 16,
+        "k": 12884901890,
+        "m": 17179869187,
+        "maximum_twos": 2,
+        "p": 3,
+        "signed_j": -1
+      },
+      {
+        "Q": 4,
+        "b": 5726623060,
+        "boundary_phases": 16,
+        "k": 12884901889,
+        "m": 17179869185,
+        "maximum_twos": 2,
+        "p": 3,
+        "signed_j": 1
+      },
+      {
+        "Q": 4,
+        "b": 5726622934,
+        "boundary_phases": 16,
+        "k": 12884901859,
+        "m": 17179869188,
+        "maximum_twos": 2,
+        "p": 3,
+        "signed_j": -128
+      },
+      {
+        "Q": 4,
+        "b": 5726622934,
+        "boundary_phases": 16,
+        "k": 12884901923,
+        "m": 17179869188,
+        "maximum_twos": 2,
+        "p": 3,
+        "signed_j": 128
+      },
+      {
+        "Q": 7,
+        "b": 5726623062,
+        "boundary_phases": 28,
+        "k": 2454267027,
+        "m": 17179869190,
+        "maximum_twos": 3,
+        "p": 1,
+        "signed_j": -1
+      },
+      {
+        "Q": 7,
+        "b": 5726623061,
+        "boundary_phases": 28,
+        "k": 2454267027,
+        "m": 17179869188,
+        "maximum_twos": 3,
+        "p": 1,
+        "signed_j": 1
+      },
+      {
+        "Q": 7,
+        "b": 5726622988,
+        "boundary_phases": 28,
+        "k": 2454267016,
+        "m": 17179869185,
+        "maximum_twos": 3,
+        "p": 1,
+        "signed_j": -73
+      },
+      {
+        "Q": 7,
+        "b": 5726622988,
+        "boundary_phases": 28,
+        "k": 2454267037,
+        "m": 17179869186,
+        "maximum_twos": 3,
+        "p": 1,
+        "signed_j": 73
+      },
+      {
+        "Q": 7,
+        "b": 5726623061,
+        "boundary_phases": 28,
+        "k": 14725602161,
+        "m": 17179869188,
+        "maximum_twos": 3,
+        "p": 6,
+        "signed_j": -1
+      },
+      {
+        "Q": 7,
+        "b": 5726623062,
+        "boundary_phases": 28,
+        "k": 14725602163,
+        "m": 17179869190,
+        "maximum_twos": 3,
+        "p": 6,
+        "signed_j": 1
+      },
+      {
+        "Q": 7,
+        "b": 5726622988,
+        "boundary_phases": 28,
+        "k": 14725602149,
+        "m": 17179869186,
+        "maximum_twos": 3,
+        "p": 6,
+        "signed_j": -73
+      },
+      {
+        "Q": 7,
+        "b": 5726622988,
+        "boundary_phases": 28,
+        "k": 14725602169,
+        "m": 17179869185,
+        "maximum_twos": 3,
+        "p": 6,
+        "signed_j": 73
+      },
+      {
+        "Q": 16,
+        "b": 5726623060,
+        "boundary_phases": 64,
+        "k": 1073741824,
+        "m": 17179869185,
+        "maximum_twos": 6,
+        "p": 1,
+        "signed_j": -1
+      },
+      {
+        "Q": 16,
+        "b": 5726623065,
+        "boundary_phases": 64,
+        "k": 1073741825,
+        "m": 17179869199,
+        "maximum_twos": 6,
+        "p": 1,
+        "signed_j": 1
+      },
+      {
+        "Q": 16,
+        "b": 5726623034,
+        "boundary_phases": 64,
+        "k": 1073741823,
+        "m": 17179869200,
+        "maximum_twos": 6,
+        "p": 1,
+        "signed_j": -32
+      },
+      {
+        "Q": 16,
+        "b": 5726623034,
+        "boundary_phases": 64,
+        "k": 1073741827,
+        "m": 17179869200,
+        "maximum_twos": 6,
+        "p": 1,
+        "signed_j": 32
+      },
+      {
+        "Q": 16,
+        "b": 5726623065,
+        "boundary_phases": 64,
+        "k": 16106127374,
+        "m": 17179869199,
+        "maximum_twos": 6,
+        "p": 15,
+        "signed_j": -1
+      },
+      {
+        "Q": 16,
+        "b": 5726623060,
+        "boundary_phases": 64,
+        "k": 16106127361,
+        "m": 17179869185,
+        "maximum_twos": 6,
+        "p": 15,
+        "signed_j": 1
+      },
+      {
+        "Q": 16,
+        "b": 5726623034,
+        "boundary_phases": 64,
+        "k": 16106127373,
+        "m": 17179869200,
+        "maximum_twos": 6,
+        "p": 15,
+        "signed_j": -32
+      },
+      {
+        "Q": 16,
+        "b": 5726623034,
+        "boundary_phases": 64,
+        "k": 16106127377,
+        "m": 17179869200,
+        "maximum_twos": 6,
+        "p": 15,
+        "signed_j": 32
+      },
+      {
+        "Q": 31,
+        "b": 5726623065,
+        "boundary_phases": 124,
+        "k": 554189329,
+        "m": 17179869200,
+        "maximum_twos": 11,
+        "p": 1,
+        "signed_j": -1
+      },
+      {
+        "Q": 31,
+        "b": 5726623064,
+        "boundary_phases": 124,
+        "k": 554189329,
+        "m": 17179869198,
+        "maximum_twos": 11,
+        "p": 1,
+        "signed_j": 1
+      },
+      {
+        "Q": 31,
+        "b": 5726623055,
+        "boundary_phases": 124,
+        "k": 554189329,
+        "m": 17179869215,
+        "maximum_twos": 11,
+        "p": 1,
+        "signed_j": -16
+      },
+      {
+        "Q": 31,
+        "b": 5726623065,
+        "boundary_phases": 124,
+        "k": 554189331,
+        "m": 17179869245,
+        "maximum_twos": 11,
+        "p": 1,
+        "signed_j": 16
+      },
+      {
+        "Q": 31,
+        "b": 5726623064,
+        "boundary_phases": 124,
+        "k": 16625679869,
+        "m": 17179869198,
+        "maximum_twos": 11,
+        "p": 30,
+        "signed_j": -1
+      },
+      {
+        "Q": 31,
+        "b": 5726623065,
+        "boundary_phases": 124,
+        "k": 16625679871,
+        "m": 17179869200,
+        "maximum_twos": 11,
+        "p": 30,
+        "signed_j": 1
+      },
+      {
+        "Q": 31,
+        "b": 5726623065,
+        "boundary_phases": 124,
+        "k": 16625679914,
+        "m": 17179869245,
+        "maximum_twos": 11,
+        "p": 30,
+        "signed_j": -16
+      },
+      {
+        "Q": 31,
+        "b": 5726623055,
+        "boundary_phases": 124,
+        "k": 16625679886,
+        "m": 17179869215,
+        "maximum_twos": 11,
+        "p": 30,
+        "signed_j": 16
+      },
+      {
+        "Q": 128,
+        "b": 5726623060,
+        "boundary_phases": 512,
+        "k": 134217728,
+        "m": 17179869185,
+        "maximum_twos": 43,
+        "p": 1,
+        "signed_j": -1
+      },
+      {
+        "Q": 128,
+        "b": 5726623102,
+        "boundary_phases": 512,
+        "k": 134217729,
+        "m": 17179869311,
+        "maximum_twos": 43,
+        "p": 1,
+        "signed_j": 1
+      },
+      {
+        "Q": 128,
+        "b": 5726623101,
+        "boundary_phases": 512,
+        "k": 134217729,
+        "m": 17179869316,
+        "maximum_twos": 43,
+        "p": 1,
+        "signed_j": -4
+      },
+      {
+        "Q": 128,
+        "b": 5726623098,
+        "boundary_phases": 512,
+        "k": 134217729,
+        "m": 17179869308,
+        "maximum_twos": 43,
+        "p": 1,
+        "signed_j": 4
+      },
+      {
+        "Q": 128,
+        "b": 5726623102,
+        "boundary_phases": 512,
+        "k": 17045651582,
+        "m": 17179869311,
+        "maximum_twos": 43,
+        "p": 127,
+        "signed_j": -1
+      },
+      {
+        "Q": 128,
+        "b": 5726623060,
+        "boundary_phases": 512,
+        "k": 17045651457,
+        "m": 17179869185,
+        "maximum_twos": 43,
+        "p": 127,
+        "signed_j": 1
+      },
+      {
+        "Q": 128,
+        "b": 5726623098,
+        "boundary_phases": 512,
+        "k": 17045651579,
+        "m": 17179869308,
+        "maximum_twos": 43,
+        "p": 127,
+        "signed_j": -4
+      },
+      {
+        "Q": 128,
+        "b": 5726623101,
+        "boundary_phases": 512,
+        "k": 17045651587,
+        "m": 17179869316,
+        "maximum_twos": 43,
+        "p": 127,
+        "signed_j": 4
+      },
+      {
+        "Q": 256,
+        "b": 5726623060,
+        "boundary_phases": 1024,
+        "k": 67108864,
+        "m": 17179869185,
+        "maximum_twos": 86,
+        "p": 1,
+        "signed_j": -1
+      },
+      {
+        "Q": 256,
+        "b": 5726623145,
+        "boundary_phases": 1024,
+        "k": 67108865,
+        "m": 17179869439,
+        "maximum_twos": 86,
+        "p": 1,
+        "signed_j": 1
+      },
+      {
+        "Q": 256,
+        "b": 5726623145,
+        "boundary_phases": 1024,
+        "k": 67108865,
+        "m": 17179869442,
+        "maximum_twos": 86,
+        "p": 1,
+        "signed_j": -2
+      },
+      {
+        "Q": 256,
+        "b": 5726623143,
+        "boundary_phases": 1024,
+        "k": 67108865,
+        "m": 17179869438,
+        "maximum_twos": 86,
+        "p": 1,
+        "signed_j": 2
+      },
+      {
+        "Q": 256,
+        "b": 5726623145,
+        "boundary_phases": 1024,
+        "k": 17112760574,
+        "m": 17179869439,
+        "maximum_twos": 86,
+        "p": 255,
+        "signed_j": -1
+      },
+      {
+        "Q": 256,
+        "b": 5726623060,
+        "boundary_phases": 1024,
+        "k": 17112760321,
+        "m": 17179869185,
+        "maximum_twos": 86,
+        "p": 255,
+        "signed_j": 1
+      },
+      {
+        "Q": 256,
+        "b": 5726623143,
+        "boundary_phases": 1024,
+        "k": 17112760573,
+        "m": 17179869438,
+        "maximum_twos": 86,
+        "p": 255,
+        "signed_j": -2
+      },
+      {
+        "Q": 256,
+        "b": 5726623145,
+        "boundary_phases": 1024,
+        "k": 17112760577,
+        "m": 17179869442,
+        "maximum_twos": 86,
+        "p": 255,
+        "signed_j": 2
+      },
+      {
+        "Q": 512,
+        "b": 5726623060,
+        "boundary_phases": 2048,
+        "k": 33554432,
+        "m": 17179869185,
+        "maximum_twos": 171,
+        "p": 1,
+        "signed_j": -1
+      },
+      {
+        "Q": 512,
+        "b": 5726623230,
+        "boundary_phases": 2048,
+        "k": 33554433,
+        "m": 17179869695,
+        "maximum_twos": 171,
+        "p": 1,
+        "signed_j": 1
+      },
+      {
+        "Q": 512,
+        "b": 5726623230,
+        "boundary_phases": 2048,
+        "k": 17146315262,
+        "m": 17179869695,
+        "maximum_twos": 171,
+        "p": 511,
+        "signed_j": -1
+      },
+      {
+        "Q": 512,
+        "b": 5726623060,
+        "boundary_phases": 2048,
+        "k": 17146314753,
+        "m": 17179869185,
+        "maximum_twos": 171,
+        "p": 511,
+        "signed_j": 1
+      }
+    ]
+  },
+  "local_minimum": {
+    "count": 63,
+    "maximum_steps": 43,
+    "odd_seeds": [
+      3,
+      127
+    ],
+    "odd_steps": 960,
+    "trajectory_sha256": "9d5074e980e44637e0cff2b9fb87b6260cb0969abbc3cfc81457677a3f3c7a75"
+  },
+  "phase_windows": {
+    "cases": 23804,
+    "denominators": [
+      2,
+      12
+    ],
+    "negative_residue_cases": 11902,
+    "parameter_sha256": "937c9adf573593eb9b9eb4d75f90759f73010ff033079f1a8f19d24fb8129619",
+    "periods": [
+      8,
+      100
+    ],
+    "phases": "every chronological start; coprimality covers every track phase",
+    "positive_residue_cases": 11902,
+    "twos_lengths": "1 and the largest integer satisfying 3(b+j)<m",
+    "windows": 1629414
+  },
+  "schema": "two-level-phase-runs-v2",
+  "small_step_runs": {
+    "consecutive_run_pairs": 314836,
+    "endpoint_spike_cases": 10894,
+    "one_surviving_run_cases": 2856,
+    "parameter_sha256": "da722c107e5e5460076696f4819f7d95f80c5cefc13fe48fd8402edfa365ac81",
+    "periods": [
+      8,
+      81
+    ],
+    "signs": [
+      -1,
+      1
+    ],
+    "spike_positions": "every site, replacing either a one or a two",
+    "spiked_ones": 51820,
+    "spiked_twos": 13462,
+    "spiked_words": 65282,
+    "steps": [
+      1,
+      8
+    ],
+    "templates": 1348,
+    "twos_lengths": "j+1 and floor(m/3)-1 when both intervals exceed j"
+  }
+}
