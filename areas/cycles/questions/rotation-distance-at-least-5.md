@@ -131,6 +131,42 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: retain two maximum arcs and the noncoprime block clock.**
+The [two-label exclusion](../results/two-label-four-mismatch-exclusion/README.md)
+settles every two-label case with at most four mismatches, at every
+rotation and with EXT-1 as its sole external input. With EXT-1 and
+the separately declared Barina input, the
+[contiguous-maximum theorem](../results/contiguous-maximum-four-arc-exclusion/README.md)
+also excludes all coprime-track shapes `V^d,A^a,B^b,A^c` with
+positive arc lengths, three distinct positive labels, and
+`V>max(A,B)`. Its large-period core
+uses only EXT-1. These results narrow the previous targets below;
+their original statements are retained as history.
+
+For coprime four-mismatch tracks, the remaining shapes have four
+distinct labels, or three labels with the maximum on the two
+separate arcs of the repeated label. The earlier singleton theorem
+already handles the latter shape when either nonrepeated-label
+arc has length one. A concrete next target is therefore
+`V^a,1^b,V^c,t^d`, with `V>t>=2`, `a,c>=1`, and `b,d>=2`.
+The minimum's ones run bounds `t-1` logarithmically, and the
+large-letter argument bounds `a+c` by 38 at the relevant periods.
+Replacing the maximum letters by `t` leaves a binary track template
+with discrepancy bounded by a quadratic in `log_2(m)`.
+The missing step is an obstruction
+for its maximum profile, now formed by two finite rotation segments.
+The one-segment geometric proof does not supply that step.
+
+For a noncoprime shift, put `g=gcd(h,m)`, `M=m/g`, and
+`k=(h/g)^(-1) mod M`. The extended
+[inverse-complexity theorem](../results/four-mismatch-inverse-continued-fraction-bound/README.md)
+now gives `K(k/M)<27n+64log_2(L+1)/g` when `s(h)<=4`,
+where `n<=2log_2(M)+1`. This is a necessary constraint, not an
+exclusion; it can be automatic on short tracks. Beyond the
+two-label case, the one-track four-boundary and two-track
+two-boundary patterns still need arithmetic coupling between
+tracks. Four distinct labels remain a separate coprime target.
+
 **2026-11-08: move beyond singleton nonrepeated-label arcs.**
 Under EXT-1 and the declared Barina convergence input, the
 [general three-label theorem](../results/general-three-label-four-arc-exclusion/README.md)
@@ -282,6 +318,15 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: recorded the two-label exclusion for every rotation
+  under EXT-1, the contiguous-maximum three-label exclusion under
+  EXT-1 plus Barina, and the inverse-complexity bound with the
+  noncoprime block clock. Identified two separated maximum arcs,
+  four distinct labels, and the remaining noncoprime patterns as
+  the next targets. Earlier targets remain as history; the general
+  question remains open (Codex main research lane, GPT-6 Astra;
+  directed by Santiago Armstrong).
 
 - 2026-11-08: recorded the three-label singleton nonrepeated-label arc exclusion
   under EXT-1 plus Barina and the logarithmic inverse-complexity
