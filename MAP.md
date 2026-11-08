@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**279 results, 30 attempts, 39 questions, 39 sources.**
+**280 results, 30 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -225,6 +225,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`band-one-three-forced-positions`](areas/cycles/results/band-one-three-forced-positions.md) | In the Collatz range, an ordered cycle in band 1 has at least three forced positions | formal | reviewed | — | yes |
 | [`bounded-unequal-half-defect-exclusion`](areas/cycles/results/bounded-unequal-half-defect-exclusion/README.md) | Unequal same-parity half defects of combined magnitude at most 24 exclude denominator one | written | written | — |  |
 | [`closed-negative-prefix-mersenne-denominator-law`](areas/cycles/results/closed-negative-prefix-mersenne-denominator-law/README.md) | Closed negative prefixes force a Mersenne denominator bound | written | written | `musson-collatz-gap-all` |  |
+| [`clustered-arc-three-order-inequality-obstruction`](areas/cycles/results/clustered-arc-three-order-inequality-obstruction/README.md) | Three clustered-arc gap systems force a positive error margin | formal | formal | `mathlib-065356127b1d` | yes |
 | [`clustered-two-maximum-arcs-exclusion`](areas/cycles/results/clustered-two-maximum-arcs-exclusion/README.md) | Clustered maximum arcs exclude three-label four-arc words | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`compatible-arcs-common-partition-limits`](areas/cycles/results/compatible-arcs-common-partition-limits/README.md) | Unreviewed draft: a rotation-invariant partition or a shared background cannot cover spar… | proposed | proposed | — |  |
 | [`complete-gap-lattice-equivalence`](areas/cycles/results/complete-gap-lattice-equivalence.md) | The complete dyadic gaps of a cycle carry exactly the same lattice, gcd and denominator a… | formal | formal | — | yes |
@@ -455,7 +456,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`laurent-mignotte-nesterenko-1995-two-logarithms`](sources/laurent-mignotte-nesterenko-1995-two-logarithms.md) | Laurent, Mignotte and Nesterenko (1995): an explicit two-logarithm bound | cited | 6 |
 | [`lyapunov-weaver-2026-finite-mechanical-approximation`](sources/lyapunov-weaver-2026-finite-mechanical-approximation.md) | Lyapunov Weaver (2026): finite approximation bounds for mechanical itineraries | cited | 0 |
 | [`lyapunov-weaver-2026-periodic-dictionary-complexity`](sources/lyapunov-weaver-2026-periodic-dictionary-complexity.md) | lyapunov_weaver (2026): periodic-dictionary complexity claims | cited | 0 |
-| [`mathlib-065356127b1d`](sources/mathlib-065356127b1d.md) | Mathlib at the repository Lean toolchain pin | cited | 1 |
+| [`mathlib-065356127b1d`](sources/mathlib-065356127b1d.md) | Mathlib at the repository Lean toolchain pin | cited | 2 |
 | [`matveev-2000-linear-forms`](sources/matveev-2000-linear-forms.md) | Matveev (2000): explicit lower bound for linear forms in logarithms | cited | 2 |
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
@@ -700,6 +701,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`balanced-third-period-denominator-law`](areas/cycles/results/balanced-third-period-denominator-law/README.md) added (result)
 - 2026-11-08: [`bounded-unequal-half-defect-exclusion`](areas/cycles/results/bounded-unequal-half-defect-exclusion/README.md) added (result)
 - 2026-11-08: [`closed-negative-prefix-mersenne-denominator-law`](areas/cycles/results/closed-negative-prefix-mersenne-denominator-law/README.md) added (result)
+- 2026-11-08: [`clustered-arc-three-order-inequality-obstruction`](areas/cycles/results/clustered-arc-three-order-inequality-obstruction/README.md) added (result)
 - 2026-11-08: [`clustered-two-maximum-arcs-exclusion`](areas/cycles/results/clustered-two-maximum-arcs-exclusion/README.md) added (result)
 - 2026-11-08: [`contiguous-maximum-four-arc-exclusion`](areas/cycles/results/contiguous-maximum-four-arc-exclusion/README.md) added (result)
 - 2026-11-08: [`effective-proportional-two-block-exclusion`](areas/cycles/results/effective-proportional-two-block-exclusion/README.md) added (result)
@@ -719,7 +721,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`odd-order-residue-signed-endpoint-divisibility`](areas/cycles/results/odd-order-residue-signed-endpoint-divisibility/README.md) added (result)
 - 2026-11-08: [`one-defect-first-block-mersenne-exclusion`](areas/cycles/results/one-defect-first-block-mersenne-exclusion/README.md) added (result)
 - 2026-11-08: [`one-edit-mechanical-denominator-growth`](areas/cycles/results/one-edit-mechanical-denominator-growth/README.md) added (result)
-- 2026-11-08: [`positive-interface-mersenne-exclusion`](areas/cycles/results/positive-interface-mersenne-exclusion/README.md) added (result)
 
 ## Contributors
 
@@ -727,7 +728,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 56.7% | 203 | 9 |
+| ChatGPT main lane | 56.5% | 203 | 9 |
 | Claude side lane | 13.9% | 34 | 132 |
 | Claude review lane | 7.8% | 0 | 121 |
 | Claude Lean lane | 5.1% | 3 | 69 |
@@ -738,12 +739,12 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
+| Codex signed-endpoint formalisation lane | 0.6% | 2 | 0 |
 | Codex root research lane | 0.4% | 6 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
 | Codex main research lane | 0.4% | 5 | 0 |
 | Codex formalisation lane | 0.4% | 2 | 0 |
 | Codex residue research lane | 0.3% | 5 | 0 |
-| Codex signed-endpoint formalisation lane | 0.3% | 1 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
