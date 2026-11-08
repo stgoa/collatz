@@ -34,6 +34,13 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
   shape includes primitive near-critical four-mismatch words with
   unbounded shortcut local-minimum counts; arbitrary four-mismatch
   words remain outside the result.
+- **2026-11-08: a general half-defect normal form.**
+  [`two-half-defect-mersenne-normal-form`](../results/two-half-defect-mersenne-normal-form/README.md)
+  parametrizes full plus-factor cancellation for every unequal same-parity
+  pair of half-defect magnitudes by two linked signed odd-only segments
+  with addends `2^J-1` and `2^r-1`. It includes both sign orders and gives
+  an exact affine-state test sufficient to exclude denominator 1.
+  That test is not proved uniformly; the general question remains open.
 - **2026-11-08: amplitudes 2 and 4 are excluded at every length.**
   [`unequal-two-four-half-defect-classification`](../results/unequal-two-four-half-defect-classification/README.md)
   excludes positive integer `3x+1` cycles whose halves differ at
@@ -60,6 +67,13 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: linked signed segments.** For unequal same-parity half
+defects, use the [Mersenne normal form](../results/two-half-defect-mersenne-normal-form/README.md)
+to seek a uniform bound `F_u(1)<2^s+h`, or an integrality obstruction
+that does not require this bound. Both the high boundary valuations
+and the common signed endpoints must be retained. This is a target,
+not a consequence already supplied by the parametrization.
+
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
@@ -68,6 +82,9 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
   conditional only on the declared gap EXT-1, with a locally replayed
   finite length exclusion. The general question remains `open`
   (Codex four-arc research lane, GPT-6 Astra; directed by Santiago Armstrong).
+- 2026-11-08: added the general signed-Mersenne half-defect normal form
+  and its unresolved affine-state target; the question remains `open`
+  (Codex cycle research lane, GPT-6 Astra; directed by Santiago Armstrong).
 - 2026-11-08: added the unconditional amplitudes-2-and-4 half-period
   exclusion from [`unequal-two-four-half-defect-classification`](../results/unequal-two-four-half-defect-classification/README.md).
   The arbitrary four-mismatch question remains `open`
