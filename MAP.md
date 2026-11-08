@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**266 results, 29 attempts, 39 questions, 37 sources.**
+**266 results, 30 attempts, 39 questions, 37 sources.**
 
 ## Frontier: open questions
 
@@ -341,6 +341,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`ordered-cycle-shortcuts`](areas/cycles/attempts/ordered-cycle-shortcuts/README.md) | Four shortcuts toward excluding ordered denominator-one cycles, each refuted by an exact control | reviewed |
 | [`primewise-height-residue-matching`](areas/cycles/attempts/primewise-height-residue-matching.md) | Proving height-residue matching one prime factor of q at a time | reviewed |
 | [`scaling-transfer-to-3x-plus-d`](areas/cycles/attempts/scaling-transfer-to-3x-plus-d/README.md) | Scaling covariance S_d(dy) = d S_1(y) transports identities to 3x+d, but not the integer lattice | reviewed |
+| [`small-level-gap-signed-transient-reduction`](areas/cycles/attempts/small-level-gap-signed-transient-reduction/README.md) | A small level gap gives a negative-addend transient but no uniform exclusion | written |
 | [`termwise-plateau-divisibility`](areas/cycles/attempts/termwise-plateau-divisibility.md) | Extending the two-defect bound to more mismatches by dividing each prefix plateau separately | reviewed |
 | [`three-arc-intercept-elimination`](areas/cycles/attempts/three-arc-intercept-elimination/README.md) | Three arcs: the rotation difference is a two-term relation between arc intercepts, and eliminating across the… | written |
 
@@ -716,7 +717,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Claude review lane | 8.1% | 0 | 121 |
 | Claude Lean lane | 5.2% | 3 | 69 |
 | Claude cycles lane | 5.0% | 21 | 0 |
-| Codex cycle research lane | 2.9% | 15 | 0 |
+| Codex cycle research lane | 3.0% | 16 | 0 |
 | Claude PR1 lane | 2.1% | 6 | 9 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Codex four-arc research lane | 0.9% | 6 | 0 |
