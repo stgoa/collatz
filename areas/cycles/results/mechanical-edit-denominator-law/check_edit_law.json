@@ -1,0 +1,117 @@
+{
+  "controls": {
+    "actual_arrows": 106,
+    "actual_cycles": 11,
+    "addends": [
+      5,
+      7,
+      13,
+      61
+    ],
+    "mixed_sign_two_edit": {
+      "A": 5,
+      "B": 1,
+      "F": 5,
+      "chunk_checks": {
+        "chunks": 2,
+        "empty_runs": 1,
+        "minimum_at_end": 0,
+        "minimum_at_start": 1,
+        "mode": "contracting",
+        "raised_uniform_checks": 1
+      },
+      "factor_checks": 6,
+      "m": 3,
+      "maximum": 49,
+      "minimum": 19,
+      "q": 5,
+      "repeat_length": 0,
+      "s": 2
+    },
+    "nonprimitive_countercontrol": {
+      "q": 1,
+      "unscoped_law_fails": true,
+      "word": "(2)^64"
+    },
+    "same_total_mechanical_comparisons": 103
+  },
+  "finite_closure": {
+    "declared_period_lower_bound": 72057431991,
+    "denominator_comparisons": 261584,
+    "denominator_length_range": [
+      560,
+      262143
+    ],
+    "small_length_range": [
+      2,
+      559
+    ],
+    "small_product_comparisons": 558,
+    "square_root_base_left": 11118,
+    "square_root_base_right": 16384,
+    "square_root_length_cutoff": 4294967296,
+    "ten_edit_K": 1747625,
+    "ten_edit_cutoff_right": 21228400875,
+    "ten_edit_derivative_numerator": 1195375500,
+    "ten_edit_extra_external_input": "barina-2025-convergence-2-71",
+    "ten_edit_length_cutoff": 34359738368,
+    "two_edit_cutoff_denominator": 25,
+    "two_edit_cutoff_numerator": 103819,
+    "two_edit_length_cutoff": 262144
+  },
+  "local_descent": {
+    "first_seed_at_maximum": 35655,
+    "maximum_local_steps": 85,
+    "odd_seed_range": [
+      3,
+      262143
+    ],
+    "odd_seeds": 131071,
+    "odd_steps": 455919,
+    "peak_odd": 5734125917,
+    "peak_raw": 17202377752,
+    "per_seed_guard": 10000
+  },
+  "samples": {
+    "counts": {
+      "arrows": 488376,
+      "bases": 1452,
+      "chunks": 119302,
+      "contracting_cuts": 41369,
+      "cyclic_factor_checks": 4357860,
+      "edit_recipes": 70572,
+      "eligible": 52273,
+      "empty_runs": 40258,
+      "expanding_cuts": 9694,
+      "minimum_at_end": 14676,
+      "minimum_at_start": 36484,
+      "mixed_signs": 12485,
+      "nonpositive_D": 12642,
+      "nonprimitive": 5657,
+      "raised_uniform_checks": 51063,
+      "two_edit_class": 29888,
+      "unedited": 1210,
+      "with_decreases": 25952,
+      "with_increases": 37596
+    },
+    "denominator_sha256": "3c1658072fff98ceb3a7b2a0f4b974ea9b3445f474289a51facf0ea8e2ed4df3",
+    "scope": {
+      "F": "m through 3m, and 5m-1",
+      "edited_positions": "0 through min(4,m), cyclic consecutive or evenly spaced",
+      "m": [
+        2,
+        12
+      ],
+      "phase": "all 0 through m-1",
+      "replacement_recipes": [
+        "+1",
+        "+17",
+        "max(1,x-1)",
+        "1",
+        "alternate +9 and 1",
+        "alternate 1 and 7"
+      ]
+    }
+  },
+  "schema": "mechanical-edit-denominator-law-v1"
+}

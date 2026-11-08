@@ -23,6 +23,15 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: arbitrary mechanical edits have a uniform denominator law.**
+  [`mechanical-edit-denominator-law`](../results/mechanical-edit-denominator-law/README.md)
+  handles all mechanical totals and phases, with arbitrary signed
+  replacements. It excludes at most two edits using only EXT-1,
+  and at most ten with the separately declared convergence input.
+  Under EXT-1, a hypothetical cycle of length `m>=2^32` also differs
+  in more than `sqrt(m)` positions from every contracting mechanical
+  word. Mechanical edit distance is not rotation distance; the
+  general four-mismatch question remains open.
 - **2026-11-08: common additive factors constrain signed endpoints.**
   [`odd-order-residue-signed-endpoint-divisibility`](../results/odd-order-residue-signed-endpoint-divisibility/README.md)
   proves that every prime-power component of a common addend whose
@@ -166,6 +175,11 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
+- 2026-11-08: added the uniform mechanical-edit denominator bounds,
+  with distinct inputs for the two-edit and ten-edit exclusions and
+  the contracting-background square-root restriction. The general
+  question remains `open` (Codex four-arc research lane, GPT-6 Astra;
+  directed by Santiago Armstrong).
 - 2026-11-08: added the all-length residue constraint on signed
   endpoints and its infinite level exclusions for the endpoint-one
   subclass. The general question remains `open` (Codex cycle
