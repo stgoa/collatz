@@ -23,6 +23,14 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: common additive factors constrain signed endpoints.**
+  [`odd-order-residue-signed-endpoint-divisibility`](../results/odd-order-residue-signed-endpoint-divisibility/README.md)
+  proves that every prime-power component of a common addend whose
+  residue orders of 2 and 3 are odd must divide the endpoint `h`
+  of a signed `-h -> h` join. This applies to both Mersenne orders
+  at arbitrary levels and lengths. In the endpoint-one,
+  low-to-high `r=1` subclass, it excludes every level divisible
+  by 11 or 25. Other endpoints and levels remain open here.
 - **2026-11-08: one arbitrary change to a mechanical word is excluded.**
   [`one-edit-mechanical-denominator-growth`](../results/one-edit-mechanical-denominator-growth/README.md)
   proves an explicit denominator law for every primitive word differing
@@ -114,6 +122,14 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: retain residue restrictions on the endpoint.** Apply
+the [common-addend divisibility condition](../results/odd-order-residue-signed-endpoint-divisibility/README.md)
+before estimating a Mersenne join. For endpoint-one low-to-high
+`r=1`, the first segment fixes `-1`; the remaining return under
+`3x+(2^J-1)` is still unresolved at odd levels not removed by
+the odd-order residue obstruction. A finite return search does
+not settle those unbounded levels.
+
 **2026-11-08: retain both the endpoint and total slope.** The
 [state enclosure](../results/mersenne-join-state-enclosure/README.md)
 covers negative as well as positive interfaces. Combine its
@@ -150,6 +166,10 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
+- 2026-11-08: added the all-length residue constraint on signed
+  endpoints and its infinite level exclusions for the endpoint-one
+  subclass. The general question remains `open` (Codex cycle
+  research lane, GPT-6 Astra; directed by Santiago Armstrong).
 - 2026-11-08: added the one-edit mechanical denominator law and its
   arithmetic exclusion of the prime four-mismatch coverage family,
   conditional only on EXT-1. The general question remains `open`

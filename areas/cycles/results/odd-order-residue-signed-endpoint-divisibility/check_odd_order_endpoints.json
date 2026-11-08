@@ -1,0 +1,539 @@
+{
+  "actual_cycles": {
+    "cycles": [
+      {
+        "d": 5,
+        "minimum": 1,
+        "period": 1
+      },
+      {
+        "d": 5,
+        "minimum": 19,
+        "period": 3
+      },
+      {
+        "d": 5,
+        "minimum": 23,
+        "period": 3
+      },
+      {
+        "d": 5,
+        "minimum": 187,
+        "period": 17
+      },
+      {
+        "d": 5,
+        "minimum": 347,
+        "period": 17
+      },
+      {
+        "d": 7,
+        "minimum": 5,
+        "period": 2
+      },
+      {
+        "d": 13,
+        "minimum": 1,
+        "period": 1
+      },
+      {
+        "d": 13,
+        "minimum": 131,
+        "period": 15
+      },
+      {
+        "d": 13,
+        "minimum": 211,
+        "period": 5
+      },
+      {
+        "d": 61,
+        "minimum": 1,
+        "period": 1
+      },
+      {
+        "d": 61,
+        "minimum": 235,
+        "period": 41
+      }
+    ],
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "scope": "positive closed cycles have equal, not opposite, endpoints"
+  },
+  "compositions": {
+    "addend_multipliers": [
+      5,
+      13
+    ],
+    "compositions": 18648,
+    "integral_odd_paths": 228,
+    "lengths": "1..4",
+    "letters": [
+      1,
+      2,
+      3
+    ],
+    "moduli": [
+      23,
+      601
+    ],
+    "opposite_returns": 20,
+    "start_multipliers": [
+      -5,
+      -3,
+      -1,
+      1,
+      3,
+      5
+    ]
+  },
+  "mersenne": {
+    "exact_reconstructions": [
+      {
+        "A": [
+          1,
+          2,
+          1,
+          1,
+          3
+        ],
+        "B": [
+          1,
+          1,
+          4
+        ],
+        "J": 3,
+        "h": 3,
+        "order": "HL",
+        "r": 2,
+        "states_A": [
+          -3,
+          -1,
+          1,
+          5,
+          11,
+          5
+        ],
+        "states_B": [
+          5,
+          9,
+          15,
+          3
+        ],
+        "u": [
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2
+        ],
+        "v": [
+          1,
+          2,
+          1,
+          1,
+          3,
+          1,
+          1,
+          7
+        ]
+      },
+      {
+        "A": [
+          2,
+          1,
+          1,
+          3
+        ],
+        "B": [
+          4
+        ],
+        "J": 3,
+        "h": 1,
+        "order": "HL",
+        "r": 1,
+        "states_A": [
+          -1,
+          1,
+          5,
+          11,
+          5
+        ],
+        "states_B": [
+          5,
+          1
+        ],
+        "u": [
+          2,
+          1,
+          1,
+          1,
+          3
+        ],
+        "v": [
+          2,
+          1,
+          1,
+          3,
+          7
+        ]
+      },
+      {
+        "A": [
+          2,
+          1,
+          1
+        ],
+        "B": [
+          6
+        ],
+        "J": 5,
+        "h": 1,
+        "order": "LH",
+        "r": 3,
+        "states_A": [
+          -1,
+          1,
+          5,
+          11
+        ],
+        "states_B": [
+          11,
+          1
+        ],
+        "u": [
+          2,
+          1,
+          3,
+          1
+        ],
+        "v": [
+          2,
+          1,
+          1,
+          9
+        ]
+      }
+    ],
+    "gcd_cases": 3160,
+    "gcd_grid": "2<=J<=80, 1<=r<J",
+    "prime_valuation_tests": 6320
+  },
+  "residues": {
+    "complete_residue_tables": [
+      {
+        "modulus": 23,
+        "order_2": 11,
+        "order_3": 11,
+        "power_sum_pairs": 121
+      },
+      {
+        "modulus": 601,
+        "order_2": 25,
+        "order_3": 75,
+        "power_sum_pairs": 1875
+      },
+      {
+        "modulus": 13823,
+        "order_2": 275,
+        "order_3": 825,
+        "power_sum_pairs": 226875
+      },
+      {
+        "modulus": 529,
+        "order_2": 253,
+        "order_3": 253,
+        "power_sum_pairs": 64009
+      }
+    ],
+    "lift_sample_exponents": "0<=S,m<=32",
+    "prime_power_lifts": [
+      {
+        "modulus": 23,
+        "odd_exponent": 11,
+        "power": 1,
+        "prime": 23,
+        "sum_samples": 1089
+      },
+      {
+        "modulus": 529,
+        "odd_exponent": 253,
+        "power": 2,
+        "prime": 23,
+        "sum_samples": 1089
+      },
+      {
+        "modulus": 12167,
+        "odd_exponent": 5819,
+        "power": 3,
+        "prime": 23,
+        "sum_samples": 1089
+      },
+      {
+        "modulus": 279841,
+        "odd_exponent": 133837,
+        "power": 4,
+        "prime": 23,
+        "sum_samples": 1089
+      },
+      {
+        "modulus": 601,
+        "odd_exponent": 75,
+        "power": 1,
+        "prime": 601,
+        "sum_samples": 1089
+      },
+      {
+        "modulus": 361201,
+        "odd_exponent": 45075,
+        "power": 2,
+        "prime": 601,
+        "sum_samples": 1089
+      },
+      {
+        "modulus": 217081801,
+        "odd_exponent": 27090075,
+        "power": 3,
+        "prime": 601,
+        "sum_samples": 1089
+      },
+      {
+        "modulus": 130466162401,
+        "odd_exponent": 16281135075,
+        "power": 4,
+        "prime": 601,
+        "sum_samples": 1089
+      }
+    ],
+    "primes": [
+      {
+        "odd_common_exponent": 11,
+        "order_2": 11,
+        "order_3": 11,
+        "prime": 23
+      },
+      {
+        "odd_common_exponent": 75,
+        "order_2": 25,
+        "order_3": 75,
+        "prime": 601
+      }
+    ],
+    "total_complete_pairs": 292880
+  },
+  "signed_controls": {
+    "allowed_returns": [
+      {
+        "addends": [
+          115
+        ],
+        "h": 23,
+        "modulus": 23,
+        "states": [
+          -23,
+          23
+        ],
+        "valuations": [
+          1
+        ]
+      },
+      {
+        "addends": [
+          115,
+          299
+        ],
+        "h": 23,
+        "modulus": 23,
+        "states": [
+          -23,
+          23,
+          23
+        ],
+        "valuations": [
+          1,
+          4
+        ]
+      },
+      {
+        "addends": [
+          2645
+        ],
+        "h": 529,
+        "modulus": 529,
+        "states": [
+          -529,
+          529
+        ],
+        "valuations": [
+          1
+        ]
+      },
+      {
+        "addends": [
+          2645,
+          6877
+        ],
+        "h": 529,
+        "modulus": 529,
+        "states": [
+          -529,
+          529,
+          529
+        ],
+        "valuations": [
+          1,
+          4
+        ]
+      },
+      {
+        "addends": [
+          60835
+        ],
+        "h": 12167,
+        "modulus": 12167,
+        "states": [
+          -12167,
+          12167
+        ],
+        "valuations": [
+          1
+        ]
+      },
+      {
+        "addends": [
+          60835,
+          158171
+        ],
+        "h": 12167,
+        "modulus": 12167,
+        "states": [
+          -12167,
+          12167,
+          12167
+        ],
+        "valuations": [
+          1,
+          4
+        ]
+      },
+      {
+        "addends": [
+          3005
+        ],
+        "h": 601,
+        "modulus": 601,
+        "states": [
+          -601,
+          601
+        ],
+        "valuations": [
+          1
+        ]
+      },
+      {
+        "addends": [
+          3005,
+          7813
+        ],
+        "h": 601,
+        "modulus": 601,
+        "states": [
+          -601,
+          601,
+          601
+        ],
+        "valuations": [
+          1,
+          4
+        ]
+      },
+      {
+        "addends": [
+          1806005
+        ],
+        "h": 361201,
+        "modulus": 361201,
+        "states": [
+          -361201,
+          361201
+        ],
+        "valuations": [
+          1
+        ]
+      },
+      {
+        "addends": [
+          1806005,
+          4695613
+        ],
+        "h": 361201,
+        "modulus": 361201,
+        "states": [
+          -361201,
+          361201,
+          361201
+        ],
+        "valuations": [
+          1,
+          4
+        ]
+      },
+      {
+        "addends": [
+          69115
+        ],
+        "h": 13823,
+        "modulus": 13823,
+        "states": [
+          -13823,
+          13823
+        ],
+        "valuations": [
+          1
+        ]
+      },
+      {
+        "addends": [
+          69115,
+          179699
+        ],
+        "h": 13823,
+        "modulus": 13823,
+        "states": [
+          -13823,
+          13823,
+          13823
+        ],
+        "valuations": [
+          1,
+          4
+        ]
+      }
+    ],
+    "odd_order_hypothesis_failures": [
+      {
+        "addend": 5,
+        "order_2": 4,
+        "order_3": 4,
+        "states": [
+          -1,
+          1
+        ],
+        "valuation": 1
+      },
+      {
+        "addend": 7,
+        "order_2": 3,
+        "order_3": 6,
+        "states": [
+          -1,
+          1
+        ],
+        "valuation": 2
+      }
+    ]
+  }
+}
