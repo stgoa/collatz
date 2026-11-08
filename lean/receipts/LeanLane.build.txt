@@ -1,8 +1,8 @@
-source sha256: d3ed4e936b5618f74913cbec0231ae0ba01db1e6021220c4a086a3c33a485d0d
+source sha256: d26b4c6a237b89e4e32a8d2a773d4805145a30b592b6c6821d3e7b1f5cf73989
 command: lake build LeanLane (from lean/)
 toolchain: Lean (version 4.35.0-rc2, arm64-apple-darwin24.6.0, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)
 mathlib: 065356127b1dc0016f66b7283ce0ce2c4055aa55
 exit=0
 selected build output (elapsed durations omitted):
-✔ [8950/8951] Built LeanLane
-Build completed successfully (8951 jobs).
+✔ [8951/8952] Built LeanLane
+Build completed successfully (8952 jobs).
