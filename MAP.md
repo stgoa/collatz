@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**248 results, 29 attempts, 39 questions, 30 sources.**
+**249 results, 29 attempts, 39 questions, 30 sources.**
 
 ## Frontier: open questions
 
@@ -296,6 +296,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`two-defect-cancellation-bound`](areas/cycles/results/two-defect-cancellation-bound.md) | A two-defect rotation bounds the cancellation by both mismatch arcs, so q > (1 − 3^m/2^A)… | reviewed | reviewed | — | yes |
 | [`two-defect-marker-family`](areas/cycles/results/two-defect-marker-family.md) | The words (3, b_n, 4, b_n) are never integer 3x+1 cycles, with growing minimum and local-… | reviewed | reviewed | — |  |
 | [`two-defect-rotation-exclusion`](areas/cycles/results/two-defect-rotation-exclusion/README.md) | No nontrivial 3x+1 cycle has a rotation differing from it in exactly two positions (ρ ≥ 3) | reviewed | reviewed | `barina-2025-convergence-2-71`, `hercher-2023-cycle-length`, `languasco-2025-two-primes`, `matveev-2000-linear-forms` | yes |
+| [`two-half-defect-mersenne-normal-form`](areas/cycles/results/two-half-defect-mersenne-normal-form/README.md) | Unequal same-parity half defects have an exact two-segment Mersenne normal form | written | written | — |  |
 | [`two-marker-constant-background-exact-denominator`](areas/cycles/results/two-marker-constant-background-exact-denominator/README.md) | Two markers on a constant background: cancellation exactly 4^n − 3^n and denominator 4^n… | formal | reviewed | — | yes |
 | [`two-mismatch-exclusion-via-gap`](areas/cycles/results/two-mismatch-exclusion-via-gap/README.md) | C011's two-mismatch exclusion without Matveev: from the trade-off, the replayed gap and t… | formal | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
 | [`two-three-mismatch-denominator-laws`](areas/cycles/results/two-three-mismatch-denominator-laws/README.md) | Two- and three-mismatch words have exponentially large denominators unless their drift is… | formal | reviewed | — | yes |
@@ -661,6 +662,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`sparse-four-arc-near-critical-classification`](areas/cycles/results/sparse-four-arc-near-critical-classification/README.md) added (result)
 - 2026-11-08: [`transposition-gap-fourteen-complete-classification`](areas/cycles/results/transposition-gap-fourteen-complete-classification/README.md) added (result)
 - 2026-11-08: [`transposition-gap-fourteen-full-plus-cancellation`](areas/cycles/results/transposition-gap-fourteen-full-plus-cancellation/README.md) added (result)
+- 2026-11-08: [`two-half-defect-mersenne-normal-form`](areas/cycles/results/two-half-defect-mersenne-normal-form/README.md) added (result)
 - 2026-11-08: [`unequal-one-five-half-defect-classification`](areas/cycles/results/unequal-one-five-half-defect-classification/README.md) added (result)
 - 2026-11-08: [`unequal-one-three-half-defect-exclusion`](areas/cycles/results/unequal-one-three-half-defect-exclusion/README.md) added (result)
 - 2026-11-08: [`unequal-two-four-half-defect-classification`](areas/cycles/results/unequal-two-four-half-defect-classification/README.md) added (result)
@@ -678,7 +680,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-31: [`adjacent-source-defect-equivalence`](areas/convergence/results/adjacent-source-defect-equivalence/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`affine-common-tail-tree-lifting`](areas/convergence/results/affine-common-tail-tree-lifting/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`annular-complement-outer-descent`](areas/convergence/results/annular-complement-outer-descent/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`annular-root-collapse-contraction`](areas/convergence/results/annular-root-collapse-contraction/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -686,13 +687,13 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 60.3% | 203 | 9 |
+| ChatGPT main lane | 60.1% | 203 | 9 |
 | Claude side lane | 14.7% | 34 | 132 |
 | Claude review lane | 8.4% | 0 | 121 |
 | Claude Lean lane | 5.4% | 3 | 69 |
 | Claude cycles lane | 5.1% | 21 | 0 |
 | Claude PR1 lane | 2.2% | 6 | 9 |
-| Codex cycle research lane | 1.2% | 7 | 0 |
+| Codex cycle research lane | 1.4% | 8 | 0 |
 | ChatGPT handoff conversation | 1.0% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
