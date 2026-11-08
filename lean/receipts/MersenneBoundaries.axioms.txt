@@ -1,0 +1,9 @@
+source sha256: 4469685c89419e6fec7a454a4c9df4395c5a2393d1d34358963301658ae78482
+'LeanLane.MersenneBoundaries.ExactTwoPower.ne_zero' depends on axioms: [propext]
+'LeanLane.MersenneBoundaries.ExactTwoPower.le_abs' depends on axioms: [propext, Quot.sound]
+'LeanLane.MersenneBoundaries.exact_two_power_of_ternary_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.MersenneBoundaries.even_two_power' depends on axioms: [propext]
+'LeanLane.MersenneBoundaries.odd_mersenne' depends on axioms: [propext]
+'LeanLane.MersenneBoundaries.high_low_boundaries' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.MersenneBoundaries.low_high_boundaries' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.MersenneBoundaries.negative_difference_control' depends on axioms: [propext, Classical.choice, Quot.sound]

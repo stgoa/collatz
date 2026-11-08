@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**266 results, 29 attempts, 39 questions, 37 sources.**
+**267 results, 29 attempts, 39 questions, 38 sources.**
 
 ## Frontier: open questions
 
@@ -255,6 +255,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`mechanical-cycles-high-rational-controls`](areas/cycles/results/mechanical-cycles-high-rational-controls/README.md) | Mechanical cycles give rational 3x+1 cycles and integer 3x+d cycles arbitrarily far above… | formal | formal | — | yes |
 | [`mechanical-edit-denominator-law`](areas/cycles/results/mechanical-edit-denominator-law/README.md) | Few changes to a mechanical word force denominator growth | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`mechanical-word-exact-denominator`](areas/cycles/results/mechanical-word-exact-denominator/README.md) | Mechanical valuation words have reduced denominator exactly 2^(A/g) − 3^(k/g), so none is… | formal | formal | — | yes |
+| [`mersenne-boundary-exact-divisibility`](areas/cycles/results/mersenne-boundary-exact-divisibility/README.md) | Mersenne block endpoint equations force two exact powers of two | written | written | `mathlib-065356127b1d` | yes |
 | [`mersenne-join-state-enclosure`](areas/cycles/results/mersenne-join-state-enclosure/README.md) | Signed Mersenne joins have a uniform state enclosure in terms of endpoint and slope | written | written | — |  |
 | [`mismatch-height-tradeoff`](areas/cycles/results/mismatch-height-tradeoff/README.md) | Mismatch–height trade-off at q = 1: every rotation differs in more than log₂3·m/(B + 342… | formal | reviewed | `musson-collatz-gap-all` | yes |
 | [`narrow-cycle-spectrum-law`](areas/cycles/results/narrow-cycle-spectrum-law.md) | Narrow-cycle spectrum of 3x+d: one cycle per coprime (A, m) with 0 < 2^A − 3^m dividing d | reviewed | reviewed | — |  |
@@ -440,6 +441,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`laurent-mignotte-nesterenko-1995-two-logarithms`](sources/laurent-mignotte-nesterenko-1995-two-logarithms.md) | Laurent, Mignotte and Nesterenko (1995): an explicit two-logarithm bound | cited | 4 |
 | [`lyapunov-weaver-2026-finite-mechanical-approximation`](sources/lyapunov-weaver-2026-finite-mechanical-approximation.md) | Lyapunov Weaver (2026): finite approximation bounds for mechanical itineraries | cited | 0 |
 | [`lyapunov-weaver-2026-periodic-dictionary-complexity`](sources/lyapunov-weaver-2026-periodic-dictionary-complexity.md) | lyapunov_weaver (2026): periodic-dictionary complexity claims | cited | 0 |
+| [`mathlib-065356127b1d`](sources/mathlib-065356127b1d.md) | Mathlib at the repository Lean toolchain pin | cited | 1 |
 | [`matveev-2000-linear-forms`](sources/matveev-2000-linear-forms.md) | Matveev (2000): explicit lower bound for linear forms in logarithms | cited | 2 |
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
@@ -689,6 +691,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`fibonacci-four-arc-spike-denominator-growth`](areas/cycles/results/fibonacci-four-arc-spike-denominator-growth/README.md) added (result)
 - 2026-11-08: [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) added (result)
 - 2026-11-08: [`mechanical-edit-denominator-law`](areas/cycles/results/mechanical-edit-denominator-law/README.md) added (result)
+- 2026-11-08: [`mersenne-boundary-exact-divisibility`](areas/cycles/results/mersenne-boundary-exact-divisibility/README.md) added (result)
 - 2026-11-08: [`mersenne-join-state-enclosure`](areas/cycles/results/mersenne-join-state-enclosure/README.md) added (result)
 - 2026-11-08: [`near-critical-four-mismatch-corpus-counterexample`](areas/cycles/results/near-critical-four-mismatch-corpus-counterexample/README.md) added (result)
 - 2026-11-08: [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) added (result)
@@ -703,7 +706,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`transposition-gap-fourteen-complete-classification`](areas/cycles/results/transposition-gap-fourteen-complete-classification/README.md) added (result)
 - 2026-11-08: [`transposition-gap-fourteen-full-plus-cancellation`](areas/cycles/results/transposition-gap-fourteen-full-plus-cancellation/README.md) added (result)
 - 2026-11-08: [`two-half-defect-mersenne-normal-form`](areas/cycles/results/two-half-defect-mersenne-normal-form/README.md) added (result)
-- 2026-11-08: [`unequal-one-five-half-defect-classification`](areas/cycles/results/unequal-one-five-half-defect-classification/README.md) added (result)
 
 ## Contributors
 
@@ -711,8 +713,8 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 58.2% | 203 | 9 |
-| Claude side lane | 14.2% | 34 | 132 |
+| ChatGPT main lane | 58.1% | 203 | 9 |
+| Claude side lane | 14.1% | 34 | 132 |
 | Claude review lane | 8.1% | 0 | 121 |
 | Claude Lean lane | 5.2% | 3 | 69 |
 | Claude cycles lane | 5.0% | 21 | 0 |
@@ -728,6 +730,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
 | Codex research lane | 0.1% | 1 | 0 |
+| Codex signed-endpoint formalisation lane | 0.1% | 1 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
 | Codex formalisation research lane | 0.0% | 1 | 0 |
 | Codex main research lane | 0.0% | 1 | 0 |
