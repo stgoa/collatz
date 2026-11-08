@@ -131,6 +131,26 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: move beyond the two-level and background-maximum families.**
+For the coprime track shape `V,A^a,B^b,A^c`, with
+`a,b,c>=1` and pairwise distinct positive labels, the
+[background-maximum theorem](../results/background-maximum-four-arc-exclusion/README.md)
+excludes `max(A,B)>V`, and the
+[rational-phase theorem](../results/two-level-four-arc-phase-exclusion/README.md)
+excludes both arrangements with `{A,B}={1,2}` and `V>=3`.
+These are all-length exclusions under EXT-1 plus the declared
+Barina convergence input; their large-period cores use only EXT-1.
+Within this shape, the product bound `E<8m/5` forces
+`min(A,B)=1`: otherwise `E>=2m-1` contradicts that bound
+at the imported minimum period. Thus the remaining target is
+`V>t>=3` over background `{1,t}`, with either outer label.
+Retain the full inverse rational phase and the exact integer
+ones-run divisibility when treating its expanding and contracting
+short blocks; no uniform contradiction for those blocks is proved
+here. Other four-mismatch patterns and noncoprime tracks remain
+open. This supersedes the finite-interval target immediately below,
+whose earlier text is retained as history.
+
 **2026-11-08: couple short multiples with the two-rotation geometry.**
 For the specified coprime track pattern `V,1^a,2^b,1^c`,
 with `a,b,c>=1` and `V>=3`, the
@@ -159,6 +179,21 @@ signed segment `A` of every remaining low-to-high candidate.
 These results supersede the narrower normal-form targets below;
 the earlier text is retained as history. They do not settle
 other defect classes or general four-mismatch rotations.
+
+**2026-11-08: retain at least three exceptions in the low-to-high first segment.**
+With the additional declared Chim estimate for two `3`-adic
+logarithms and Barina convergence input, the
+[two-exception theorem](../results/two-defect-first-block-mersenne-exclusion/README.md)
+excludes denominator-one candidates arising from positive-interface
+low-to-high Mersenne joins whose first segment `A` has at most
+two letters greater than 1, with arbitrary positions, sizes,
+endpoints, levels and second segment.
+Remaining candidates under these three inputs therefore need
+at least three such letters. The sole-LMN statement above still
+requires only two; the stronger conclusion uses the additional
+sources. An iteration must retain the exact congruences at each
+exception, since controlling the final short state alone does
+not bound all earlier intermediate states.
 
 **2026-11-08: move to the other order or higher low levels.** The
 [unit-low-level theorem](../results/unit-low-level-mersenne-exclusion/README.md)
@@ -231,6 +266,15 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: recorded the all-length background-maximum and
+  both-arrangement two-level exclusions under EXT-1 plus Barina,
+  and the remaining `V>t>=3` target within that specific track
+  shape. Also recorded the two-exception first-segment exclusion
+  under LMN, Chim and Barina without strengthening the sole-LMN
+  claim. Earlier targets are retained above; the general question
+  remains open (Codex main research lane, GPT-6 Astra; directed
+  by Santiago Armstrong).
 
 - 2026-11-08: recorded the inverse-continued-fraction bridge
   and the specified two-level track family's cutoff `2^1536`
