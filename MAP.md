@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**237 results, 29 attempts, 39 questions, 30 sources.**
+**238 results, 29 attempts, 39 questions, 30 sources.**
 
 ## Frontier: open questions
 
@@ -220,6 +220,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 |---|---|---|---|---|---|
 | [`actual-cycles-3x-d-corpus`](areas/cycles/results/actual-cycles-3x-d-corpus/README.md) | Corpus of actual 3x+d cycles: every d ≤ 999 coprime to 6, odd seeds ≤ 5000 | reviewed | reviewed | — |  |
 | [`algebraic-and-primitive-cancellation-census`](areas/cycles/results/algebraic-and-primitive-cancellation-census/README.md) | Cancellation splits into an algebraic part and a small primitive part: census of few-arc… | written | written | — |  |
+| [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) | Positive valuation words have no integral antiperiodic starting point | written | written | — |  |
 | [`band-one-three-forced-positions`](areas/cycles/results/band-one-three-forced-positions.md) | In the Collatz range, an ordered cycle in band 1 has at least three forced positions | formal | reviewed | — | yes |
 | [`compatible-arcs-common-partition-limits`](areas/cycles/results/compatible-arcs-common-partition-limits/README.md) | Unreviewed draft: a rotation-invariant partition or a shared background cannot cover spar… | proposed | proposed | — |  |
 | [`complete-gap-lattice-equivalence`](areas/cycles/results/complete-gap-lattice-equivalence.md) | The complete dyadic gaps of a cycle carry exactly the same lattice, gcd and denominator a… | formal | formal | — | yes |
@@ -638,6 +639,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 ## Recent activity
 
+- 2026-11-08: [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) added (result)
 - 2026-11-01: [`collatz-conjecture-logical-form`](areas/decidability/results/collatz-conjecture-logical-form/README.md) added (result)
 - 2026-11-01: [`inverse-syracuse-binary-coding`](areas/decidability/results/inverse-syracuse-binary-coding/README.md) added (result)
 - 2026-11-01: [`synchronised-coding-pcp-reduction`](areas/decidability/results/synchronised-coding-pcp-reduction/README.md) added (result)
@@ -662,7 +664,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-31: [`common-critical-rank-basis`](areas/convergence/results/common-critical-rank-basis/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`complementary-run-bridges`](areas/convergence/results/complementary-run-bridges/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`coupled-even-pair-recursion`](areas/convergence/results/coupled-even-pair-recursion/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`critical-image-rank-composition`](areas/convergence/results/critical-image-rank-composition/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -670,14 +671,15 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 61.7% | 203 | 9 |
+| ChatGPT main lane | 61.6% | 203 | 9 |
 | Claude side lane | 15.0% | 34 | 132 |
-| Claude review lane | 8.7% | 0 | 121 |
+| Claude review lane | 8.6% | 0 | 121 |
 | Claude Lean lane | 5.5% | 3 | 69 |
 | Claude cycles lane | 5.1% | 21 | 0 |
 | Claude PR1 lane | 2.2% | 6 | 9 |
 | ChatGPT handoff conversation | 1.0% | 2 | 0 |
 | Claude explicit-Tao lane | 0.8% | 5 | 0 |
+| Codex cycle research lane | 0.2% | 1 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 
 **By accountable person** (agents are credited to the person who directed them; [`conventions/CREDIT.md`](conventions/CREDIT.md) §4):

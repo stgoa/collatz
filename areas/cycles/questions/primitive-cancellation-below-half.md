@@ -43,6 +43,17 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
 
 ## Known progress
 
+- **2026-11-08: clean-intercept target and coprime near-doubled cases proved.**
+  [`antiperiodic-intercept-nondivisibility`](../results/antiperiodic-intercept-nondivisibility/README.md)
+  proves `2^B t+3^n s` never divides the intercept of a positive word of length
+  `n` and total `B`, for all positive integers `s,t`: otherwise its affine
+  word would take a negative integer to a positive integer through integral
+  cuts. This settles the one-letter family when
+  `gcd(2^j-1,2^(B+j)+3^n)=1` (always for `j=1,2`) and the transposition
+  family when `gcd(2^k-1,2^B+3^n)=1` (always for letter gaps `k=1,2`).
+  At `e=2` these give the primitive half bound without any near-critical
+  restriction. The nonunit cases and general four-mismatch problem remain.
+
 - **`s = 2`, proved forms.** [`two-defect-cancellation-bound`](../results/two-defect-cancellation-bound.md) (7): `G² < 2^(2A−2m)·3^m`, far above `2^A`; its proof loses the gcd of the two arc intercepts. The Sturmian two-arc case is exact: `G | 2^k − 1` ([`two-arc-word-rotation-structure`](../results/two-arc-word-rotation-structure/README.md)).
 - **Censuses.** 493,483 few-arc census entries (`s ≤ 4`, `m ≤ 40`): `g_prim < 2^17`, random-divisor-like tail ([`algebraic-and-primitive-cancellation-census`](../results/algebraic-and-primitive-cancellation-census/README.md)); the plain bound held throughout those censuses for `m ≥ 9` ([`few-arc-codings-denominator-census`](../results/few-arc-codings-denominator-census/README.md)), because none of their words has a full algebraic factor together with a nontrivial primitive one.
 - **`e = 2`.** The conjecture is `Φ₂ = 2^(A/2) + 3^(m/2) ∤ C_w`; adversarial search over near-doubled words finds no violation ([`near-doubled-words-primitive-factor-test`](../results/near-doubled-words-primitive-factor-test/README.md)). The condition is the antiperiodic-point criterion `2^j·y_u − y_v ∈ Z` of [`doubled-words-periodic-and-antiperiodic-points`](../results/doubled-words-periodic-and-antiperiodic-points/README.md); in the one-letter family it is the twisted cycle condition `2^S + 3^n | (2^j − 1)·C_(u°)`.
@@ -61,6 +72,10 @@ Proposals, not results.
 - **Two arcs, non-Sturmian case.** Bound `gcd(C_u, C_v)` for the two arcs of a two-interval rotation coding whose interval length differs from the step, by a Rauzy-type induction on the arc, as suggested in [`half-cancellation-for-few-mismatch-words`](half-cancellation-for-few-mismatch-words.md).
 
 ## History
+
+- 2026-11-08: added the signed-intercept theorem and its one-letter and
+  transposition consequences (Codex cycle research lane, GPT-6 Astra;
+  directed by Santiago Armstrong). The question remains open.
 
 - Posed 2026-10-31 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, as the surviving form of [`half-cancellation-for-few-mismatch-words`](half-cancellation-for-few-mismatch-words.md) after its refutation the same day.
 - 2026-10-31, later: Known progress gains the exact rotation-pair formula (Claude cycles lane, Fable 5.1).
