@@ -16,8 +16,14 @@ claim: >
   by 2; its endpoint and last-valuation conditions are impossible.
 authors:
   - Codex cycle research lane (GPT-6 Astra; directed by Santiago Armstrong)
+  - Codex formalisation lane (GPT-6 Astra; directed by Santiago Armstrong)
 created: 2026-11-08
 depends_on: [antiperiodic-intercept-nondivisibility]
+lean:
+  - LeanLane.WeightedCrossing.trace_of_endpoint
+  - LeanLane.WeightedCrossing.no_crossing_two_three
+  - LeanLane.WeightedCrossing.no_crossing_three_two
+  - LeanLane.WeightedCrossing.zero_interface_control
 certificates: [check_one_three.py]
 evidence:
   - "check_one_three.json: sign/order normalization, weighted-intercept identities, signed cuts, zero-interface control and near-critical examples"
@@ -189,6 +195,54 @@ The deterministic receipt is [`check_one_three.json`](check_one_three.json).
 Use `--write-receipt` to regenerate it. The script uses the standard
 library and explicit exceptions that remain active under `python3 -O`.
 
+## Lean
+
+The integer-cut lemma and the two weighted endpoint obstructions in
+proof step 3 are formalised in
+[`LeanLane/WeightedCrossing.lean`](../../../../lean/LeanLane/WeightedCrossing.lean).
+A weighted letter is a pair `(a,c)` of a natural valuation and an
+integer additive coefficient. The module defines the total valuation
+and the weighted intercept recursively:
+
+```
+intercept([]) = 0;
+intercept((a,c)::w) = 3^length(w)*c + 2^a*intercept(w).
+```
+
+This is the intercept `M` in step 2, with the same prefix weights.
+`Endpoint w x y` means the integer equation
+`2^total(w)*y = 3^length(w)*x + intercept(w)`.
+`Trace w x y` supplies an integer at every cut satisfying
+`2^a*x_next = 3*x+c`. A block assigns one constant coefficient to
+every valuation in a list.
+
+- `trace_of_endpoint` proves that every such integer endpoint equation
+  supplies an integral trace, for arbitrary integer coefficients and
+  natural valuations, including zero valuations.
+- `no_crossing_two_three` excludes an endpoint with `x<0<y` for
+  a block of coefficient 2 followed by a block of coefficient 3.
+  It requires positive valuations in the coefficient-3 block;
+  the coefficient-2 block may even have zero valuations.
+- `no_crossing_three_two` excludes an endpoint with `x<0<y` for
+  a block of coefficient 3 followed by a nonempty block of
+  coefficient 2, all valuations positive and the final valuation
+  at least 2. The application above supplies the stronger final
+  bound of 3. Neither theorem assumes odd intermediate values.
+- `zero_interface_control` verifies the trace `-1 -> 0 -> 1`
+  and its endpoint equation for coefficients `(3,2)` and valuations
+  `(1,1)`, showing why the final bound cannot be dropped.
+
+The sign/order normalization, weighted-intercept and gcd identities,
+and passage to the primitive half-cancellation bound remain written
+proofs. The full node therefore remains `written`.
+
+Build and axiom evidence is in
+[`WeightedCrossing.build.txt`](../../../../lean/receipts/WeightedCrossing.build.txt),
+[`WeightedCrossing.axioms.txt`](../../../../lean/receipts/WeightedCrossing.axioms.txt),
+and [`WeightedCrossing.sha256.txt`](../../../../lean/receipts/WeightedCrossing.sha256.txt).
+Only `propext`, `Classical.choice` and `Quot.sound` occur. The module is
+included in `LeanLane.lean` and built by `lake build LeanLane`.
+
 ## Remarks
 
 - **New scope.** The unequal amplitudes 1 and 3 lie outside
@@ -205,9 +259,9 @@ library and explicit exceptions that remain active under `python3 -O`.
   general `3x+d` maps preserve sign or that their positive cycles
   are excluded; the certificate verifies crossings for
   `d=5,7,13,61`.
-- **Novelty and status.** Novelty undetermined. Written proof
-  and deterministic checks only; no independent-session review
-  or Lean formalisation is claimed.
+- **Novelty and status.** Novelty undetermined. The weighted endpoint
+  obstruction is formalised as described above; the full family
+  reduction remains written. No independent-session review is claimed.
 
 ## History
 
@@ -216,3 +270,8 @@ library and explicit exceptions that remain active under `python3 -O`.
   reduce to coefficient blocks `(2,3)` or `(3,2)`; their only
   possible exit from zero violates the required endpoint or
   last valuation.
+- 2026-11-08: The integer-cut lemma, the two weighted block endpoint
+  obstructions and the zero-interface control were formalised in Lean
+  by the Codex formalisation lane (GPT-6 Astra; directed by Santiago
+  Armstrong). The full node remains `written` because its normalization,
+  weighted-intercept identities and gcd consequences are not formalised.
