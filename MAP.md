@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**259 results, 29 attempts, 39 questions, 36 sources.**
+**260 results, 29 attempts, 39 questions, 36 sources.**
 
 ## Frontier: open questions
 
@@ -289,6 +289,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`shared-background-copies-via-gap`](areas/cycles/results/shared-background-copies-via-gap/README.md) | C013's q = 1 restriction with the replayed gap instead of Matveev: tens of thousands of b… | reviewed | reviewed | `hercher-2023-cycle-length`, `languasco-2025-two-primes`, `matveev-2000-linear-forms`, `musson-collatz-gap-all` |  |
 | [`shared-background-denominator-law`](areas/cycles/results/shared-background-denominator-law/README.md) | A word built from one repeated background between nonconstant markers has denominator gro… | reviewed | reviewed | `languasco-2025-two-primes`, `matveev-2000-linear-forms` | yes |
 | [`short-rotation-mismatch-growth`](areas/cycles/results/short-rotation-mismatch-growth/README.md) | Short rotations of a 3x+1 cycle have mismatch counts growing like log m, and the low mism… | reviewed | reviewed | `musson-collatz-gap-all` | yes |
+| [`signed-endpoint-order-depth`](areas/cycles/results/signed-endpoint-order-depth/README.md) | Residue order depths force complementary factors into signed endpoints | written | written | — |  |
 | [`single-forced-position-denominator`](areas/cycles/results/single-forced-position-denominator.md) | A reduced ordered cycle with a single forced position has D = q | formal | reviewed | — | yes |
 | [`single-mismatch-rotation-impossible`](areas/cycles/results/single-mismatch-rotation-impossible/README.md) | No rotation of a word differs from it in exactly one position; a primitive word has rotat… | formal | formal | — | yes |
 | [`small-band-height-residue-matching`](areas/cycles/results/small-band-height-residue-matching/README.md) | Height-residue matching holds for ordered cycles with q > 1 in at most three (normalised)… | reviewed | reviewed | — |  |
@@ -683,6 +684,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) added (result)
 - 2026-11-08: [`odd-order-residue-signed-endpoint-divisibility`](areas/cycles/results/odd-order-residue-signed-endpoint-divisibility/README.md) added (result)
 - 2026-11-08: [`one-edit-mechanical-denominator-growth`](areas/cycles/results/one-edit-mechanical-denominator-growth/README.md) added (result)
+- 2026-11-08: [`signed-endpoint-order-depth`](areas/cycles/results/signed-endpoint-order-depth/README.md) added (result)
 - 2026-11-08: [`small-mersenne-endpoint-exclusion`](areas/cycles/results/small-mersenne-endpoint-exclusion/README.md) added (result)
 - 2026-11-08: [`sparse-four-arc-near-critical-classification`](areas/cycles/results/sparse-four-arc-near-critical-classification/README.md) added (result)
 - 2026-11-08: [`sparse-rotation-bounded-period-reduction-obstruction`](areas/cycles/results/sparse-rotation-bounded-period-reduction-obstruction/README.md) added (result)
@@ -695,7 +697,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`saturated-residue-automata-uniform-connectivity`](areas/invariants/results/saturated-residue-automata-uniform-connectivity/README.md) added (result)
 - 2026-11-08: [`cerda-bennassar-2026-periodic-perturbations`](sources/cerda-bennassar-2026-periodic-perturbations.md) added (source)
 - 2026-11-08: [`dubickas-2009-linear-map-complexity`](sources/dubickas-2009-linear-map-complexity.md) added (source)
-- 2026-11-08: [`fourier-wren-2026-two-periodic-stretches`](sources/fourier-wren-2026-two-periodic-stretches.md) added (source)
 
 ## Contributors
 
@@ -703,13 +704,13 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 59.1% | 203 | 9 |
-| Claude side lane | 14.4% | 34 | 132 |
-| Claude review lane | 8.3% | 0 | 121 |
+| ChatGPT main lane | 59.0% | 203 | 9 |
+| Claude side lane | 14.3% | 34 | 132 |
+| Claude review lane | 8.2% | 0 | 121 |
 | Claude Lean lane | 5.3% | 3 | 69 |
 | Claude cycles lane | 5.1% | 21 | 0 |
-| Claude PR1 lane | 2.1% | 6 | 9 |
 | Codex cycle research lane | 2.1% | 12 | 0 |
+| Claude PR1 lane | 2.1% | 6 | 9 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Codex four-arc research lane | 0.9% | 6 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
@@ -717,6 +718,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex formalisation lane | 0.3% | 2 | 0 |
 | Codex proportional-block research lane | 0.2% | 1 | 0 |
 | Codex research lane | 0.2% | 1 | 0 |
+| Codex signed-endpoint research lane | 0.2% | 1 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
 | Claude audit lane | 0.1% | 0 | 1 |
 
