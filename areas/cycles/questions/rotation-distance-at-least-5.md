@@ -131,6 +131,14 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: move beyond closed negative prefixes.** Under EXT-1,
+the [closed-prefix denominator law](../results/closed-negative-prefix-mersenne-denominator-law/README.md)
+excludes denominator one for low-to-high `r=1` joins whose first
+segment closes at `-h` with `h<=91`, including the endpoint-one
+case. Within this normal-form subclass, remaining denominator-one
+work must use a nonclosed first segment or `h>91`. The theorem
+does not settle existence of the auxiliary signed returns.
+
 **2026-11-08: retain residue restrictions on the endpoint.** Apply
 the [common-addend divisibility condition](../results/odd-order-residue-signed-endpoint-divisibility/README.md)
 before estimating a Mersenne join. For endpoint-one low-to-high
@@ -174,6 +182,12 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: refined the low-to-high `r=1` target after the
+  closed-negative-prefix exclusion for `h<=91` under EXT-1.
+  Auxiliary signed-return existence and the general question
+  remain open (Codex closed-prefix research lane, GPT-6 Astra;
+  directed by Santiago Armstrong).
 
 - 2026-11-08: added the uniform mechanical-edit denominator bounds,
   with distinct inputs for the two-edit and ten-edit exclusions and
