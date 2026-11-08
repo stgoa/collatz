@@ -1,0 +1,587 @@
+{
+  "constants": {
+    "H_at_cutoff": 47433,
+    "binary_gap_coefficient": 98,
+    "conservative_length_coefficients": [
+      15,
+      27
+    ],
+    "cutoff_margin": 337054,
+    "derivative_margin_times_cutoff": 919216,
+    "half_length_after_fractional_gaps": 431,
+    "half_length_cutoff": 1048576,
+    "length_coefficients": [
+      "29/2",
+      "53/2"
+    ],
+    "lmn_coefficient": "1217/25",
+    "ln2_bounds": [
+      "4885160137407771253400601118182930934216597868939146496/7047796304186638645984520552020312648059671845278255225",
+      "19540640549631085013602404472731818469789797150617764779/28191185216746554583938082208081250592238687381113020900"
+    ],
+    "ln3_bounds": [
+      "7199401304210215526106755742472789249575823/6553177475320551070897257303195092464435200",
+      "46796108477366400919741278787775967552832247/42595653589583581960832172470768101018828800"
+    ],
+    "logarithm_series_terms": 32,
+    "logarithmic_heights": [
+      1,
+      2
+    ],
+    "minimum_product_margin": 63344224,
+    "minimum_state": 35,
+    "small_seed_trajectories": [
+      {
+        "seed": 3,
+        "states": [
+          3,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 5,
+        "states": [
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 7,
+        "states": [
+          7,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 9,
+        "states": [
+          9,
+          7,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 11,
+        "states": [
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 13,
+        "states": [
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 15,
+        "states": [
+          15,
+          23,
+          35,
+          53,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 17,
+        "states": [
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 19,
+        "states": [
+          19,
+          29,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 21,
+        "states": [
+          21,
+          1
+        ]
+      },
+      {
+        "seed": 23,
+        "states": [
+          23,
+          35,
+          53,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 25,
+        "states": [
+          25,
+          19,
+          29,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 27,
+        "states": [
+          27,
+          41,
+          31,
+          47,
+          71,
+          107,
+          161,
+          121,
+          91,
+          137,
+          103,
+          155,
+          233,
+          175,
+          263,
+          395,
+          593,
+          445,
+          167,
+          251,
+          377,
+          283,
+          425,
+          319,
+          479,
+          719,
+          1079,
+          1619,
+          2429,
+          911,
+          1367,
+          2051,
+          3077,
+          577,
+          433,
+          325,
+          61,
+          23,
+          35,
+          53,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 29,
+        "states": [
+          29,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 31,
+        "states": [
+          31,
+          47,
+          71,
+          107,
+          161,
+          121,
+          91,
+          137,
+          103,
+          155,
+          233,
+          175,
+          263,
+          395,
+          593,
+          445,
+          167,
+          251,
+          377,
+          283,
+          425,
+          319,
+          479,
+          719,
+          1079,
+          1619,
+          2429,
+          911,
+          1367,
+          2051,
+          3077,
+          577,
+          433,
+          325,
+          61,
+          23,
+          35,
+          53,
+          5,
+          1
+        ]
+      },
+      {
+        "seed": 33,
+        "states": [
+          33,
+          25,
+          19,
+          29,
+          11,
+          17,
+          13,
+          5,
+          1
+        ]
+      }
+    ],
+    "upper_at_cutoff": 711522
+  },
+  "finite_minimum": {
+    "comparisons": 431,
+    "exact_gap_sha256": "96c596e8ff60ce5b5d16404228c5c41f0f82596df87afa3b2b5bdd06cb754c98",
+    "exponents": [
+      1,
+      431
+    ],
+    "local_limit_exclusive": 131072,
+    "maximum_at": 306,
+    "maximum_bound": "10189387268231398643229533358044894821963424337658465836404288316217213355507714984072679120399237793865675103180271217130742192617196963239731134464/102065376400825306534437391838939444403106454408085639783964140880896699835673006969445010534504805079858638689074275443284439551032910142670903",
+    "maximum_bound_ceiling": 99832,
+    "maximum_total": 485
+  },
+  "finite_prefixes": {
+    "all_ones_prefixes": 24,
+    "branches": {
+      "large_n": 1,
+      "small_n": 1077
+    },
+    "defect_excesses": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      16,
+      27,
+      64
+    ],
+    "exact_arrows": 7702,
+    "first_position_defects": 154,
+    "last_position_defects": 154,
+    "one_defect_prefixes": 1078,
+    "scope": "Finite exact 3x+1 prefixes with a chosen enclosure constant; not signed joins",
+    "single_letter_defects": 22,
+    "terminal_raises": [
+      1,
+      3
+    ],
+    "u_range": [
+      0,
+      6
+    ],
+    "w_range": [
+      0,
+      6
+    ]
+  },
+  "fractional_gaps": {
+    "alpha_lower_numerator": 125573666586150569315490533898,
+    "alpha_upper_numerator": 125573666586150569315490533899,
+    "checked_exponents": 1048575,
+    "dyadic_denominator_bits": 96,
+    "eta_bits": 27,
+    "exponents": [
+      1,
+      1048575
+    ],
+    "fractional_distance_bits": 25,
+    "minimum_complement_at": 190537,
+    "minimum_complement_numerator": 7373341559091880256221,
+    "natural_log_gap_bits": 26,
+    "series_terms": 80,
+    "threshold_numerator": 2361183241434822606848
+  },
+  "genuine_joins": {
+    "arrows": 130,
+    "count": 5,
+    "records": [
+      {
+        "A": [
+          2,
+          1,
+          1
+        ],
+        "B": [
+          6
+        ],
+        "J": 5,
+        "actual_minimum": 1,
+        "actual_start": 1,
+        "arrows": 8,
+        "denominator": 41,
+        "failed_hypothesis": "q=1",
+        "h": 1,
+        "half_length": 4,
+        "half_total": 10,
+        "interface": 11,
+        "normalized_state": "1/41",
+        "r": 3
+      },
+      {
+        "A": [
+          2
+        ],
+        "B": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          3,
+          3,
+          1,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          3,
+          10
+        ],
+        "J": 7,
+        "actual_minimum": 733283209,
+        "actual_start": 733283209,
+        "arrows": 38,
+        "denominator": 548593552421,
+        "failed_hypothesis": "q=1",
+        "h": 1,
+        "half_length": 19,
+        "half_total": 39,
+        "interface": 1,
+        "normalized_state": "733283209/548593552421",
+        "r": 3
+      },
+      {
+        "A": [
+          2
+        ],
+        "B": [
+          3,
+          1,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          3,
+          10
+        ],
+        "J": 7,
+        "actual_minimum": 302071523,
+        "actual_start": 302071523,
+        "arrows": 36,
+        "denominator": 549368393399,
+        "failed_hypothesis": "q=1",
+        "h": 1,
+        "half_length": 18,
+        "half_total": 39,
+        "interface": 3,
+        "normalized_state": "302071523/549368393399",
+        "r": 4
+      },
+      {
+        "A": [
+          2
+        ],
+        "B": [
+          2,
+          8
+        ],
+        "J": 7,
+        "actual_minimum": 1,
+        "actual_start": 1,
+        "arrows": 6,
+        "denominator": 4069,
+        "failed_hypothesis": "q=1",
+        "h": 1,
+        "half_length": 3,
+        "half_total": 12,
+        "interface": 15,
+        "normalized_state": "1/4069",
+        "r": 6
+      },
+      {
+        "A": [
+          2
+        ],
+        "B": [
+          2,
+          8,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          3,
+          3,
+          1,
+          1,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          3,
+          10
+        ],
+        "J": 7,
+        "actual_minimum": 69452759945,
+        "actual_start": 69452759945,
+        "arrows": 42,
+        "denominator": 562939493068109,
+        "failed_hypothesis": "q=1",
+        "h": 1,
+        "half_length": 21,
+        "half_total": 49,
+        "interface": 15,
+        "normalized_state": "69452759945/562939493068109",
+        "r": 6
+      }
+    ],
+    "scope": "Specified genuine signed joins, not an absence census",
+    "source_receipt_sha256": "3850bffd0f3174e1c65b858bbab2f8bd9f2e4223e60b585e33718c76c3c4e745"
+  },
+  "local_descent": {
+    "conclusion": "Each odd seed 3<=s<limit reaches a smaller positive odd seed",
+    "first_longest_seed": 35655,
+    "limit_exclusive": 131072,
+    "maximum_local_steps": 85,
+    "odd_seeds": 65535,
+    "odd_steps": 227689,
+    "peak_odd_output": 827370449,
+    "per_seed_guard": 100000
+  },
+  "schema": "one-defect-first-block-v1",
+  "standard_controls": {
+    "arrows": 106,
+    "count": 11,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "records": [
+      {
+        "addend": 5,
+        "denominator": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 1
+      },
+      {
+        "addend": 5,
+        "denominator": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 3
+      },
+      {
+        "addend": 5,
+        "denominator": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 3
+      },
+      {
+        "addend": 5,
+        "denominator": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 17
+      },
+      {
+        "addend": 5,
+        "denominator": 5,
+        "failed_hypothesis": "q=1",
+        "odd_period": 17
+      },
+      {
+        "addend": 7,
+        "denominator": 7,
+        "failed_hypothesis": "q=1",
+        "odd_period": 2
+      },
+      {
+        "addend": 13,
+        "denominator": 13,
+        "failed_hypothesis": "q=1",
+        "odd_period": 1
+      },
+      {
+        "addend": 13,
+        "denominator": 13,
+        "failed_hypothesis": "q=1",
+        "odd_period": 15
+      },
+      {
+        "addend": 13,
+        "denominator": 13,
+        "failed_hypothesis": "q=1",
+        "odd_period": 5
+      },
+      {
+        "addend": 61,
+        "denominator": 61,
+        "failed_hypothesis": "q=1",
+        "odd_period": 1
+      },
+      {
+        "addend": 61,
+        "denominator": 61,
+        "failed_hypothesis": "q=1",
+        "odd_period": 41
+      }
+    ]
+  }
+}
