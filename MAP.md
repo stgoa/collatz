@@ -220,7 +220,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`actual-cycles-3x-d-corpus`](areas/cycles/results/actual-cycles-3x-d-corpus/README.md) | Corpus of actual 3x+d cycles: every d ≤ 999 coprime to 6, odd seeds ≤ 5000 | reviewed | reviewed | — |  |
 | [`algebraic-and-primitive-cancellation-census`](areas/cycles/results/algebraic-and-primitive-cancellation-census/README.md) | Cancellation splits into an algebraic part and a small primitive part: census of few-arc… | written | written | — |  |
 | [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) | Positive valuation words have no integral antiperiodic starting point | written | written | — | yes |
-| [`background-maximum-four-arc-exclusion`](areas/cycles/results/background-maximum-four-arc-exclusion/README.md) | A larger background label excludes long equal-outer four-arc words | written | written | `musson-collatz-gap-all` |  |
+| [`background-maximum-four-arc-exclusion`](areas/cycles/results/background-maximum-four-arc-exclusion/README.md) | A larger background label excludes equal-outer four-arc words | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`band-one-three-forced-positions`](areas/cycles/results/band-one-three-forced-positions.md) | In the Collatz range, an ordered cycle in band 1 has at least three forced positions | formal | reviewed | — | yes |
 | [`bounded-unequal-half-defect-exclusion`](areas/cycles/results/bounded-unequal-half-defect-exclusion/README.md) | Unequal same-parity half defects of combined magnitude at most 24 exclude denominator one | written | written | — |  |
 | [`closed-negative-prefix-mersenne-denominator-law`](areas/cycles/results/closed-negative-prefix-mersenne-denominator-law/README.md) | Closed negative prefixes force a Mersenne denominator bound | written | written | `musson-collatz-gap-all` |  |
@@ -423,7 +423,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 |---|---|---|---|
 | [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) | Adamczewski–Bell: a problem about Mahler functions | cited | 0 |
 | [`ansari-2025-recursive-sieve`](sources/ansari-2025-recursive-sieve.md) | Ansari (2025): recursively sufficient sets and a ternary-digit sieve | cited | 0 |
-| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 6 |
+| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 7 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
 | [`cerda-bennassar-2026-periodic-perturbations`](sources/cerda-bennassar-2026-periodic-perturbations.md) | Cerdá Bennassar (2026): perturbations of the periodic word (1,2) | cited | 0 |
@@ -718,14 +718,14 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 57.6% | 203 | 9 |
+| ChatGPT main lane | 57.5% | 203 | 9 |
 | Claude side lane | 14.1% | 34 | 132 |
 | Claude review lane | 8.0% | 0 | 121 |
 | Claude Lean lane | 5.2% | 3 | 69 |
 | Claude cycles lane | 4.9% | 21 | 0 |
 | Codex cycle research lane | 3.0% | 16 | 0 |
 | Claude PR1 lane | 2.0% | 6 | 9 |
-| Codex four-arc research lane | 1.1% | 8 | 0 |
+| Codex four-arc research lane | 1.0% | 8 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex signed-endpoint research lane | 0.5% | 4 | 0 |
@@ -738,6 +738,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
 | Codex research lane | 0.1% | 1 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
+| Codex root research lane | 0.1% | 1 | 0 |
 | Codex formalisation research lane | 0.1% | 1 | 0 |
 | Claude audit lane | 0.0% | 0 | 1 |
 

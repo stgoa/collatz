@@ -572,7 +572,38 @@
       127
     ]
   },
-  "schema": "background-maximum-four-arc-v1",
+  "schema": "background-maximum-four-arc-v2",
+  "sourced_corollary": {
+    "additional_source": "barina-2025-convergence-2-71",
+    "alpha_lower": "84/53",
+    "alpha_upper": "127/80",
+    "drift_denominator": 2097152,
+    "final_cutoff_bits": 36,
+    "final_dyadic_margin": 3557,
+    "final_dyadic_numerator": 12827,
+    "final_induction_shifted_coefficients": [
+      12485,
+      342
+    ],
+    "first_dyadic_margin": "472170009203/636",
+    "first_increment_margin": "236125699459/318",
+    "imported_odd_period_lower_bound": 72057431991,
+    "large_letter_coefficient": "14412037/1333788672",
+    "large_letter_cutoff_bits": 36,
+    "large_letter_denominator": 48,
+    "length_coefficient_bits": 22,
+    "maximum_label_count": 28,
+    "minimum_used": 1048576,
+    "multiplicity_margin": "4294966861/15",
+    "non_one_count": 29,
+    "ones_run_power_bits": 21,
+    "period_cutoff_margin": 3337955255,
+    "period_receipt_sha256": "e48b19926ca0c155032a9d85d3c28f3f6fbe69ae404163638414a7c848c65f64",
+    "rise_power_margin": "878495201/10000000000",
+    "rise_upper": "159/100",
+    "scope": "Arithmetic use of a declared minimum input and an existing period theorem; not a replay of external convergence verification.",
+    "source_recomputed": false
+  },
   "track_geometry": {
     "all_coprime_steps": true,
     "all_positive_arc_lengths": true,

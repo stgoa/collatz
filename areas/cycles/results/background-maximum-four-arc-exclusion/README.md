@@ -1,7 +1,7 @@
 ---
 id: background-maximum-four-arc-exclusion
 kind: result
-title: A larger background label excludes long equal-outer four-arc words
+title: A larger background label excludes equal-outer four-arc words
 status: written
 claim: >
   Raw odd-only 3x+1 clock. Let a,b,c>=1, m=1+a+b+c,
@@ -16,22 +16,27 @@ claim: >
   forces {A,B}={1,t}, the rise and end witnesses force t>m/64,
   and t occurs at most 38 times. The resulting at most 39
   non-one letters contradict an elementary ones-run length
-  bound at m>=2^43. The only external input is EXT-1;
+  bound at m>=2^43. That conclusion uses only EXT-1;
   the minimum 129 is established by local computation.
-  The branch V>max(A,B), other track patterns and smaller
-  lengths are not excluded by this result.
+  With the additional declared Barina convergence input,
+  denominator one is excluded at every length in this family:
+  a minimum at least 2^20 strengthens the length cutoff to 2^36,
+  below the replayed odd-period lower bound 72057431991.
+  The branch V>max(A,B) and other track patterns are not excluded.
 authors:
   - Codex four-arc research lane (GPT-6 Astra; directed by Santiago Armstrong)
+  - Codex root research lane (GPT-6 Astra; directed by Santiago Armstrong)
 created: 2026-11-08
-depends_on: [rise-lemma, denjoy-koksma-height-bound, paired-state-run-law]
-assumes: [musson-collatz-gap-all]
+depends_on: [rise-lemma, denjoy-koksma-height-bound, paired-state-run-law, cycle-length-lower-bound-from-convergents]
+assumes: [musson-collatz-gap-all, barina-2025-convergence-2-71]
 certificates: [check_background_maximum.py]
 evidence:
   - "check_background_maximum.json: exact constants and dyadic inductions, track geometry, local descent, integral ones-run identities and actual 3x+d controls"
+  - "check_background_maximum.json: separately sourced minimum-2^20 constants, cutoff 2^36 and comparison with the replayed odd-period receipt"
 tags: [cycles, four-arcs, rotation-distance, largest-letter, few-runs, effective-bounds]
 ---
 
-# A larger background label excludes long equal-outer four-arc words
+# A larger background label excludes equal-outer four-arc words
 
 ## Statement
 
@@ -58,16 +63,28 @@ Then, under the effective gap
 m>=2^43 and D_w>0  imply  den(w)>1.                   (2)
 ```
 
-Thus the maximum label lies in a background arc, rather
+For (2), the maximum label lies in a background arc, rather
 than at the distinguished singleton. It may be the outer
 label `A` or the middle label `B`; the latter is allowed
 even when `b=1`. No minimum alignment, bound on label
 sizes, density restriction, imported period bound or
 global convergence verification is assumed.
 
+**Separately sourced all-length corollary.** Assume also
+[Barina's declared convergence input below `2^71`](../../../../sources/barina-2025-convergence-2-71.md).
+Then `D_w>0` implies `den(w)>1` for every word in (1)
+with `t>V`, without a length restriction. This input
+gives `L>=2^20` and, through the
+[replayed odd-period theorem](../cycle-length-lower-bound-from-convergents/README.md),
+`m>=72057431991>2^36` for a nontrivial integer cycle.
+Section 4 proves that those two bounds are incompatible
+with this family. They are not used in (2).
+
 The result does not cover the opposite branch
-`V>max(A,B)` or arbitrary four-mismatch words. It makes
-no exclusion claim for `m<2^43`.
+`V>max(A,B)` or arbitrary four-mismatch words. The
+EXT-1-only conclusion (2) makes no exclusion claim for
+`m<2^43`; the all-length corollary uses both declared
+external inputs.
 
 ## Proof
 
@@ -128,7 +145,7 @@ eta >= 2^-172*m^-341,
 L<2^172*m^342/3,       ell<172+342log_2(m).            (6)
 ```
 
-This is the only external-input step.
+For (2), this is the only external-input step.
 
 ### 2. The maximum background label is linear in the period
 
@@ -280,6 +297,82 @@ at every larger index, because
 `2(515+342d)-(515+342(d+1))=173+342d>0`.
 This proves (2).
 
+### 4. A stronger minimum closes every length with the period input
+
+For this section only, assume the declared Barina input.
+It gives `L>2^71`; we use just `L>=2^20` in the elementary
+inequalities. The original label reduction (5), variation
+(7), mean bound (4), and EXT-1 minimum ceiling (6) remain
+valid. With `ln(2)>2/3`, now
+
+```
+delta<m/2^21,
+kappa<127/80+1/400=159/100,
+kappa^5-1<37/4.                                     (17)
+```
+
+The exact comparisons are `3^80<2^127`,
+`2^-21<1/400`, and `(159/100)^5<41/4`.
+Also `3^53>2^84` gives `alpha>84/53`, so the
+same four-run end witness yields
+
+```
+ell+height>21m/53-1.
+```
+
+If `t<=m/48`, the rise bound and (17) would imply
+
+```
+c*m < (41/4)(ell+1),
+c=21/53-37/96-37/2^23
+ =14412037/1333788672>0.                             (18)
+```
+
+For `2^d<=m<2^(d+1)`, `d>=36`, the upper bound on
+`ell` in (6) contradicts (18). The exact base margin is
+
+```
+c*2^36-(41/4)(173+342*37)
+ =472170009203/636>0.
+```
+
+The first term doubles at each subsequent dyadic index,
+while the second increases by `(41/4)*342`, less than
+the initial first term. Thus
+
+```
+m>=2^36 and L>=2^20  imply  t>m/48.                 (19)
+```
+
+If there were at least 29 occurrences of `t`, the total
+excess would be greater than `29(m/48-1)>3m/5`, since
+the final difference is `m/240-29>0` at and above
+`m=2^36`. Consequently there are at most 28 such
+occurrences, and at most 29 non-one letters in all.
+
+The exact ones-run proof (13)--(15) has not changed.
+Using `alpha^29<(8/5)^29<2^21`, it now gives
+
+```
+m<2^22(173+342log_2(m)).                             (20)
+```
+
+For `m>=2^36`, dyadic comparison contradicts (20):
+at `d=36`, `515+342d=12827<16384=2^(36-22)`, and
+the same doubling induction as in section 3 applies.
+
+Finally, under Barina's input the replayed period theorem
+requires at least `72057431991>2^36=68719476736` odd
+states in any nontrivial integer cycle. Our word is
+primitive because `V` is unique. Hence its period
+meets the threshold contradicted above. This proves
+the all-length corollary.
+
+This last comparison uses the raw odd-only period, not
+the number of halvings or full Collatz steps. The graph
+records both sources because this corollary is included;
+sections 1--3, proving (2), use only EXT-1.
+
 ## Certificates
 
 Run from the repository root:
@@ -300,6 +393,10 @@ paired-state witnesses. Its deterministic
 [receipt](check_background_maximum.json) records all
 finite ranges. Use `--write-receipt` to regenerate it.
 No general exclusion is inferred from a word census.
+The checker also verifies the stronger constants and
+dyadic inductions in section 4 and compares their cutoff
+with the existing period receipt. It does not rerun
+Barina's external convergence computation.
 
 ## Remarks
 
@@ -320,8 +417,9 @@ The all-slope law in
 offers another closure after (12), by comparing with
 the constant-one mechanical word. The direct proof
 (13)--(16) avoids importing that node's separate
-convergence-dependent consequences. It uses neither
-an external minimum bound nor an external period bound.
+convergence-dependent consequences. The proof of (2)
+uses neither an external minimum bound nor an external
+period bound; section 4 declares both uses explicitly.
 
 For `3x+d`, the product, drift and run formulas retain
 `d`. In particular (13) involves `x_i+d`, whose quotient
@@ -343,3 +441,8 @@ covered by that corollary or by the present theorem.
   forcing with the repeated background's valuation
   budget and an explicit ones-run closure. Same-session
   scrutiny does not confer independent-review status.
+- 2026-11-08: retained the EXT-1-only `2^43` theorem and
+  added a separately sourced all-length corollary. The
+  stronger minimum reduces the non-one count to 29 and
+  the cutoff to `2^36`, below the replayed period bound
+  supplied by the declared Barina input.

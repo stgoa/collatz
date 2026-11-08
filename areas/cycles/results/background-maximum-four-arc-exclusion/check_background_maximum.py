@@ -71,6 +71,63 @@ def constants():
                 final_cutoff_bits=43)
 
 
+def sourced_corollary_constants():
+    # The minimum and period inputs here are separate from the EXT-1-only
+    # theorem above. This verifies their use, not the external convergence run.
+    minimum = 2**20
+    require(2**71 > minimum, "declared convergence input implies the minimum used")
+    require(3 * minimum * F(2, 3) == 2**21, "stronger drift denominator")
+    require(3**80 < 2**127 and 3**53 > 2**84, "stronger alpha bounds")
+    require(F(1, 2**21) < F(1, 400), "stronger rise drift")
+    require(F(127, 80) + F(1, 400) == F(159, 100), "stronger rise factor")
+    rise_margin = F(41, 4) - F(159, 100)**5
+    require(rise_margin > 0, "stronger four-mismatch rise power")
+    require(F(84, 53) / 4 == F(21, 53), "stronger end witness")
+    coefficient = F(21, 53) - F(37, 96) - F(37, 2**23)
+    require(coefficient == F(14412037, 1333788672) and coefficient > 0,
+            "stronger large-letter coefficient")
+    first_base = coefficient * 2**36 - F(41, 4) * (173 + 342 * 37)
+    first_increment = coefficient * 2**36 - F(41, 4) * 342
+    require(first_base == F(472170009203, 636) and first_base > 0,
+            "stronger large-letter dyadic base")
+    require(first_increment > 0, "stronger dyadic margin increases at all larger indices")
+    multiplicity_slope = F(29, 48) - F(3, 5)
+    multiplicity_margin = multiplicity_slope * 2**36 - 29
+    require(multiplicity_slope == F(1, 240)
+            and multiplicity_margin == F(4294966861, 15) and multiplicity_margin > 0,
+            "29 maximum letters exceed the total budget")
+    require(28 + 1 == 29, "stronger non-one count includes the singleton")
+    require(2**23 < 5**10 and 7 * 29 < 10 * 21,
+            "alpha to the29 below2to21")
+    require(21 + 1 == 22 and 22 + 14 == 36, "stronger ones-run cutoff bits")
+    final_numerator = 515 + 342 * 36
+    require(final_numerator == 12827 < 2**14, "stronger final dyadic base")
+    require(2 * 515 - (515 + 342) == 173 and 2 * 342 - 342 == 342,
+            "stronger final induction identity")
+    require(173 + 342 * 36 > 0 and 342 > 0,
+            "stronger final induction positive for every d>=36")
+    path = ROOT / "areas/cycles/results/cycle-length-lower-bound-from-convergents/cycle_length_convergents.json"
+    period = int(json.loads(path.read_text())["V3"]["2^71"]["least_m"])
+    require(period == 72057431991 > 2**36,
+            "declared odd-period theorem exceeds the stronger cutoff")
+    return dict(additional_source="barina-2025-convergence-2-71",
+                source_recomputed=False, minimum_used=minimum,
+                drift_denominator=2**21, alpha_upper="127/80", alpha_lower="84/53",
+                rise_upper="159/100", rise_power_margin=str(rise_margin),
+                large_letter_cutoff_bits=36, large_letter_denominator=48,
+                large_letter_coefficient=str(coefficient), first_dyadic_margin=str(first_base),
+                first_increment_margin=str(first_increment), maximum_label_count=28,
+                non_one_count=29, multiplicity_margin=str(multiplicity_margin),
+                ones_run_power_bits=21, length_coefficient_bits=22,
+                final_dyadic_numerator=final_numerator,
+                final_dyadic_margin=2**14-final_numerator,
+                final_induction_shifted_coefficients=[173+342*36, 342],
+                final_cutoff_bits=36, imported_odd_period_lower_bound=period,
+                period_cutoff_margin=period-2**36,
+                period_receipt_sha256=sha256(path.read_bytes()).hexdigest(),
+                scope="Arithmetic use of a declared minimum input and an existing period theorem; not a replay of external convergence verification.")
+
+
 def local_descent():
     rows = []
     for seed in range(3, 129, 2):
@@ -282,7 +339,8 @@ def actual_controls():
 
 def main():
     require(sys.argv[1:] in ([], ["--write-receipt"]), "usage: script [--write-receipt]")
-    result = dict(schema="background-maximum-four-arc-v1", constants=constants(),
+    result = dict(schema="background-maximum-four-arc-v2", constants=constants(),
+                  sourced_corollary=sourced_corollary_constants(),
                   local_descent=local_descent(), integral_ones_runs=integral_ones_runs(),
                   track_geometry=track_grid(), actual_controls=actual_controls())
     encoded = json.dumps(result, indent=2, sort_keys=True)+"\n"
