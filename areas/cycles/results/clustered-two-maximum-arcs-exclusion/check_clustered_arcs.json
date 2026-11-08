@@ -1,0 +1,130 @@
+{
+  "bootstrap": {
+    "eta_power": 64,
+    "exact_gap_scope": "Every integer0<m<2^48 with E-m*log2(3)>0; independent of the valuation word and Barina.",
+    "external_convergence_replayed": false,
+    "imported_odd_period_lower": 72057431991,
+    "lower_convergent": {
+      "p": 83130157078217,
+      "q": 52449289519716
+    },
+    "receipt_sha256": "11f2af760caf5ee16cce5ea693306added37f2bda5b059a085d28e039287d263",
+    "replay_status": "passed",
+    "source": "areas/cycles/results/general-three-label-four-arc-exclusion/check_bootstrap.py",
+    "source_scope": "The dependency's separate Barina comparison is replayed, but only its universal arithmetic gap is used for the EXT1-only bound.",
+    "source_sha256": "daf474215cac3782aea1990817c3fcbeaf05d65ad43cbe85156a2190b68c792d",
+    "upper_convergent": {
+      "p": 683381996816440,
+      "q": 431166034846567
+    }
+  },
+  "constants": {
+    "cases": [
+      {
+        "EXT1_only_cutoff_bits": 32,
+        "case": "clustered",
+        "common_B": "6577434/5",
+        "drift_upper": "1/393216",
+        "final_dyadic_margin": "96575286673408/121645",
+        "full_period_upper": "425886010048512/121645",
+        "geometry_margin": "1/3952",
+        "induction_ratio": "2401/2304",
+        "initial_margin": "27095000122269630464/121645",
+        "initial_upper": "7145023419698118656/121645",
+        "integer_period_upper": 3501056435,
+        "polynomial": [
+          "1322176789872640/24329",
+          "8780211194167296/121645",
+          "2915348263206912/121645"
+        ],
+        "post_gap_Y_upper": 112,
+        "post_gap_n_upper": 97,
+        "preliminary_cutoff_bits": 48,
+        "scale": "64749568/24329"
+      },
+      {
+        "EXT1_only_cutoff_bits": 29,
+        "case": "isolated",
+        "common_B": "6577434/5",
+        "drift_upper": "1/387",
+        "final_dyadic_margin": "127528048064/895",
+        "full_period_upper": "352971418176/895",
+        "geometry_margin": "1/208",
+        "induction_ratio": "2401/2304",
+        "initial_margin": "245998357515276832/895",
+        "initial_upper": "5921746640760288/895",
+        "integer_period_upper": 394381472,
+        "polynomial": [
+          "1095811098720/179",
+          "7276979107008/895",
+          "2416220741376/895"
+        ],
+        "post_gap_Y_upper": 112,
+        "post_gap_n_upper": 97,
+        "preliminary_cutoff_bits": 48,
+        "scale": "53664/179"
+      }
+    ],
+    "maximum_count": 38,
+    "maximum_count_margin": "196413/5",
+    "maximum_count_minimum_period": 4194304,
+    "maximum_forcing_base_margin": "1437715/129",
+    "maximum_forcing_coefficient": "49/2064"
+  },
+  "family_controls": {
+    "actual_reduced_cycles": 16132,
+    "addend_ones_runs": 23884,
+    "all_positive_arc_lengths": true,
+    "control_sha256": "d8071b09253fe10b371e7c5941991f58b9f6b96dde74f3953eb4472fff16bd89",
+    "exact_arrows": 166460,
+    "exact_proper_factors": 1603152,
+    "geometry_words": 16224,
+    "isolated_words": 2880,
+    "lower_arrangements": "both",
+    "lower_labels": [
+      2,
+      3,
+      7
+    ],
+    "maximum_values": "t+1 and t+9",
+    "orientation_counts": [
+      8112,
+      8112
+    ],
+    "periods": [
+      4,
+      12
+    ],
+    "scope": "Actual3x+q cycles verify transfer identities. Finite absence at q1 is not the proof.",
+    "track_steps": "Every coprime h with(a+c)*min(h,m-h)<m; both orientations."
+  },
+  "local_descent": {
+    "descent_sha256": "bd9971133844197c6ee7cc99c5c54251c03b0ffdbaae4814de682590dc69ec93",
+    "exact_steps": 227689,
+    "isolated_subrange": {
+      "exact_steps": 357,
+      "maximum_steps": 37,
+      "odd_seeds": 63,
+      "seed_range": [
+        3,
+        127
+      ]
+    },
+    "maximum_output": 827370449,
+    "maximum_steps": 85,
+    "odd_seeds": 65535,
+    "scope": "Every seed descends below itself; strong induction gives convergence throughout the finite range.",
+    "seed_range": [
+      3,
+      131071
+    ]
+  },
+  "schema": "clustered-two-arcs-arithmetic-v1",
+  "standard_controls": {
+    "addend_ones_runs": 25,
+    "cycles": 11,
+    "exact_arrows": 106,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "scope": "The true addend is retained; normalized states are not treated as integers."
+  }
+}
