@@ -43,6 +43,19 @@ This replaces [`half-cancellation-for-few-mismatch-words`](half-cancellation-for
 
 ## Known progress
 
+- **2026-11-08: gap fourteen is completely classified.**
+  [`transposition-gap-fourteen-complete-classification`](../results/transposition-gap-fourteen-complete-classification/README.md)
+  proves that every gap-fourteen transposition which cancels the entire
+  plus factor is the pair `(1,z,15),(15,z,1)` of the
+  [counterexample node](../results/transposition-gap-fourteen-full-plus-cancellation/README.md),
+  up to exchanging halves. Its half-length and total are forced to
+  `n=189`, `B=336`, with `gcd(B,n)=21`, and it is far from critical.
+  Thus no near-critical gap-fourteen transposition cancels the full
+  plus factor, and none at index `e=2` does so even far from critical.
+  This classifies arbitrary word lengths through a finite crossing
+  closure and the complete forced signed orbit, rather than a bounded
+  word census. The general near-critical plain bound remains open.
+
 - **2026-11-08: modification parameters through twelve, at every length.**
   [`near-doubled-crossing-orbit-exclusion`](../results/near-doubled-crossing-orbit-exclusion/README.md)
   removes the coprimality restriction below for every one-letter raise
@@ -87,10 +100,26 @@ Proposals, not results.
   `2^(2S)<2*3^(2n)` and the endpoint and word-fillability conditions.
   Also study half-pairs with two unequal changes that are not a
   transposition; those are not covered by the current argument.
+- **Classify the signed endpoints, including repeated hits.** The
+  [gap-fourteen classification](../results/transposition-gap-fourteen-complete-classification/README.md)
+  demonstrates a finite reduction: a closed crossing basin gives
+  finitely many last arrows and forced signed starts. A complete orbit
+  then distinguishes transient hits from periodic families. Positive
+  cycle repetitions increase `2^S/3^n`, so each periodic family has
+  a finite exact test for the near-critical interval. Seek structural
+  restrictions on these candidate orbits and their repeat ratios;
+  the method requires supplied finite closures and does not assume
+  them for every auxiliary parameter.
 - **Test (B) adversarially** with the doubled-word constructions restricted to near-critical cycles: rotation pairs `(R_r u, R_(r+n/2) u)` of actual `3x+d` cycles with `d | n_r + n_(r+n/2)` and `2^(2S) < 2·3^(2n)`, and one-letter doublings of near-critical `3x+q'` cycles with `q' | 2^j + 1`; a violation would need a prime of `Φ₂` above `1/(1 − 3^n/2^S) ≥ 3.4` dividing `C_w`.
 - **Two arcs, non-Sturmian case.** Bound `gcd(C_u, C_v)` for the two arcs of a two-interval rotation coding whose interval length differs from the step, by a Rauzy-type induction on the arc, as suggested in [`half-cancellation-for-few-mismatch-words`](half-cancellation-for-few-mismatch-words.md).
 
 ## History
+
+- 2026-11-08: added the complete gap-fourteen transposition
+  classification, its near-critical and index-2 exclusions, and the
+  finite signed-endpoint research direction (Codex crossing research
+  lane, GPT-6 Astra; directed by Santiago Armstrong). No general
+  near-critical half bound is claimed.
 
 - 2026-11-08: added the finite-crossing proof for all lengths with
   modification parameters through 12 and replaced the now-solved
