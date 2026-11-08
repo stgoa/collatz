@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**267 results, 30 attempts, 39 questions, 38 sources.**
+**268 results, 30 attempts, 39 questions, 38 sources.**
 
 ## Frontier: open questions
 
@@ -302,6 +302,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`small-mersenne-endpoint-exclusion`](areas/cycles/results/small-mersenne-endpoint-exclusion/README.md) | A small signed Mersenne endpoint excludes denominator one at every amplitude | written | written | — |  |
 | [`sparse-four-arc-near-critical-classification`](areas/cycles/results/sparse-four-arc-near-critical-classification/README.md) | A sparse four-arc family has exactly one near-critical full-plus cancellation | written | written | — |  |
 | [`sparse-rotation-bounded-period-reduction-obstruction`](areas/cycles/results/sparse-rotation-bounded-period-reduction-obstruction/README.md) | Sparse rotations do not force a bounded number of short-period pieces | written | written | — |  |
+| [`sparse-two-level-four-arc-exclusion`](areas/cycles/results/sparse-two-level-four-arc-exclusion/README.md) | Two rotations exclude a sparse two-level four-arc class | written | written | `musson-collatz-gap-all` |  |
 | [`three-band-collatz-cycles-are-ordered`](areas/cycles/results/three-band-collatz-cycles-are-ordered.md) | A 3x+1 cycle with H < 8L is dyadically ordered with mechanical normalised word and gcd(A,… | formal | reviewed | — | yes |
 | [`three-defect-arbitrary-background`](areas/cycles/results/three-defect-arbitrary-background.md) | Words at rotation distance three can carry an arbitrary shared background, beyond any fix… | reviewed | reviewed | — |  |
 | [`three-mismatch-exclusion`](areas/cycles/results/three-mismatch-exclusion/README.md) | No rotation of a nontrivial 3x+1 cycle differs from it in exactly three positions, so ρ ≥… | formal | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
@@ -447,7 +448,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 15 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 16 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
@@ -704,9 +705,9 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`small-mersenne-endpoint-exclusion`](areas/cycles/results/small-mersenne-endpoint-exclusion/README.md) added (result)
 - 2026-11-08: [`sparse-four-arc-near-critical-classification`](areas/cycles/results/sparse-four-arc-near-critical-classification/README.md) added (result)
 - 2026-11-08: [`sparse-rotation-bounded-period-reduction-obstruction`](areas/cycles/results/sparse-rotation-bounded-period-reduction-obstruction/README.md) added (result)
+- 2026-11-08: [`sparse-two-level-four-arc-exclusion`](areas/cycles/results/sparse-two-level-four-arc-exclusion/README.md) added (result)
 - 2026-11-08: [`transposition-gap-fourteen-complete-classification`](areas/cycles/results/transposition-gap-fourteen-complete-classification/README.md) added (result)
 - 2026-11-08: [`transposition-gap-fourteen-full-plus-cancellation`](areas/cycles/results/transposition-gap-fourteen-full-plus-cancellation/README.md) added (result)
-- 2026-11-08: [`two-half-defect-mersenne-normal-form`](areas/cycles/results/two-half-defect-mersenne-normal-form/README.md) added (result)
 
 ## Contributors
 
@@ -714,15 +715,15 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 58.0% | 203 | 9 |
+| ChatGPT main lane | 57.9% | 203 | 9 |
 | Claude side lane | 14.1% | 34 | 132 |
 | Claude review lane | 8.1% | 0 | 121 |
 | Claude Lean lane | 5.2% | 3 | 69 |
-| Claude cycles lane | 5.0% | 21 | 0 |
+| Claude cycles lane | 4.9% | 21 | 0 |
 | Codex cycle research lane | 3.0% | 16 | 0 |
-| Claude PR1 lane | 2.1% | 6 | 9 |
+| Claude PR1 lane | 2.0% | 6 | 9 |
+| Codex four-arc research lane | 1.0% | 7 | 0 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
-| Codex four-arc research lane | 0.9% | 6 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
 | Codex formalisation lane | 0.4% | 2 | 0 |
@@ -732,9 +733,9 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
 | Codex research lane | 0.1% | 1 | 0 |
+| Codex main research lane | 0.1% | 2 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
 | Codex formalisation research lane | 0.0% | 1 | 0 |
-| Codex main research lane | 0.0% | 1 | 0 |
 | Claude audit lane | 0.0% | 0 | 1 |
 
 **By accountable person** (agents are credited to the person who directed them; [`conventions/CREDIT.md`](conventions/CREDIT.md) §4):
