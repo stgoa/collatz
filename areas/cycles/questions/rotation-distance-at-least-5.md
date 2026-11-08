@@ -131,7 +131,7 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
-**2026-11-08: move beyond three-label tracks with a singleton arc.**
+**2026-11-08: move beyond singleton nonrepeated-label arcs.**
 Under EXT-1 and the declared Barina convergence input, the
 [general three-label theorem](../results/general-three-label-four-arc-exclusion/README.md)
 excludes every coprime-track word `V,A^a,B^b,A^c` with positive
@@ -283,7 +283,7 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
-- 2026-11-08: recorded the full three-label singleton-arc exclusion
+- 2026-11-08: recorded the three-label singleton nonrepeated-label arc exclusion
   under EXT-1 plus Barina and the logarithmic inverse-complexity
   theorem for every coprime four-mismatch rotation. The remaining
   arc patterns above replace the narrower `V>t>=3` target, whose
