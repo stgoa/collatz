@@ -255,7 +255,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`mechanical-cycles-high-rational-controls`](areas/cycles/results/mechanical-cycles-high-rational-controls/README.md) | Mechanical cycles give rational 3x+1 cycles and integer 3x+d cycles arbitrarily far above… | formal | formal | — | yes |
 | [`mechanical-edit-denominator-law`](areas/cycles/results/mechanical-edit-denominator-law/README.md) | Few changes to a mechanical word force denominator growth | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`mechanical-word-exact-denominator`](areas/cycles/results/mechanical-word-exact-denominator/README.md) | Mechanical valuation words have reduced denominator exactly 2^(A/g) − 3^(k/g), so none is… | formal | formal | — | yes |
-| [`mersenne-boundary-exact-divisibility`](areas/cycles/results/mersenne-boundary-exact-divisibility/README.md) | Mersenne block endpoint equations force two exact powers of two | written | written | `mathlib-065356127b1d` | yes |
+| [`mersenne-boundary-exact-divisibility`](areas/cycles/results/mersenne-boundary-exact-divisibility/README.md) | Mersenne block endpoint equations force two exact powers of two | formal | formal | `mathlib-065356127b1d` | yes |
 | [`mersenne-join-state-enclosure`](areas/cycles/results/mersenne-join-state-enclosure/README.md) | Signed Mersenne joins have a uniform state enclosure in terms of endpoint and slope | written | written | — |  |
 | [`mismatch-height-tradeoff`](areas/cycles/results/mismatch-height-tradeoff/README.md) | Mismatch–height trade-off at q = 1: every rotation differs in more than log₂3·m/(B + 342… | formal | reviewed | `musson-collatz-gap-all` | yes |
 | [`narrow-cycle-spectrum-law`](areas/cycles/results/narrow-cycle-spectrum-law.md) | Narrow-cycle spectrum of 3x+d: one cycle per coprime (A, m) with 0 < 2^A − 3^m dividing d | reviewed | reviewed | — |  |
@@ -725,12 +725,12 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
 | Codex formalisation lane | 0.4% | 2 | 0 |
+| Codex signed-endpoint formalisation lane | 0.3% | 1 | 0 |
 | Codex signed-endpoint research lane | 0.3% | 2 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
 | Codex research lane | 0.1% | 1 | 0 |
-| Codex signed-endpoint formalisation lane | 0.1% | 1 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
 | Codex formalisation research lane | 0.0% | 1 | 0 |
 | Codex main research lane | 0.0% | 1 | 0 |

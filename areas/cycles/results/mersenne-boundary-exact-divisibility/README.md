@@ -2,7 +2,7 @@
 id: mersenne-boundary-exact-divisibility
 kind: result
 title: Mersenne block endpoint equations force two exact powers of two
-status: written
+status: formal
 claim: >
   Integer affine equations for raw odd-only 3x+d valuation words.
   Let A,B be lists of natural exponents, a=len(A), b=len(B),
@@ -223,3 +223,7 @@ appears in the formal statements. Novelty undetermined.
 - 2026-11-08: isolated the two derived boundary identities
   and their exact binary divisibility as a scoped Lean
   statement, separate from the written Mersenne exclusions.
+- 2026-11-08: promoted this scoped claim to `formal` after
+  the pinned Lean library and standalone files passed CI,
+  in addition to the local library build and separate module
+  replay. The broader cycle exclusions retain their status.
