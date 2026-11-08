@@ -136,9 +136,10 @@ alone, the
 [expanding-prefix exclusion](../results/expanding-negative-prefix-mersenne-exclusion/README.md)
 removes low-to-high `r=1` joins `-h -> -g -> h` with `g<=h`
 and expanding first slope, including every closed negative prefix
-at every endpoint. Remaining `r=1` candidates must have `g>h`
-or a contracting first slope; slope 1 is impossible. Other `r`
-and the full four-mismatch question remain open.
+at every endpoint. Remaining low-to-high `r=1` candidates must
+have `g>h` or a contracting first slope; slope 1 is impossible.
+The other segment order, other `r` and the full four-mismatch
+question remain outside this result.
 
 **2026-11-08: move beyond closed negative prefixes.** Under EXT-1,
 the [closed-prefix denominator law](../results/closed-negative-prefix-mersenne-denominator-law/README.md)
