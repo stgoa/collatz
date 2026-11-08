@@ -243,6 +243,67 @@ def valuation(value):
     return (value & -value).bit_length()-1
 
 
+def general_growth_constants():
+    cutoff_bits = 40
+    # All inequalities below are exact; the shifted coefficient signs
+    # certify every subsequent dyadic band, not just sampled lengths.
+    dominance = poly_mul(poly_mul(poly_mul([1, 1], [1, 1]), [1, 1]), [1, 2])
+    dominance_difference = poly_add(poly_scale(2, dominance),
+                                    poly_scale(-1, poly_shift(dominance, 1)))
+    dominance_shift = poly_shift(dominance_difference, cutoff_bits)
+    require(dominance == [1, 5, 9, 7, 2], "coefficient dominance polynomial")
+    require(dominance_shift == [5015898, 505238, 19056, 319, 2]
+            and all(x > 0 for x in dominance_shift), "all-band dominance induction")
+    dominance_margin = (1 << cutoff_bits)-41**3*81
+    require(dominance_margin == 1099506045175 > 0, "coefficient dominance base")
+
+    minimum_k = poly_scale(2, poly_mul([1, 1], [2, 1]))
+    minimum_k_difference = poly_add(poly_scale(2, minimum_k),
+                                    poly_scale(-1, poly_shift(minimum_k, 1)))
+    minimum_k_shift = poly_shift(minimum_k_difference, cutoff_bits)
+    require(minimum_k_shift == [3276, 162, 2] and all(x > 0 for x in minimum_k_shift),
+            "all-band K>=4(x+1) induction")
+    minimum_k_margin = (1 << cutoff_bits)-2*41*42
+    require(minimum_k_margin == 1099511624332 > 0, "K>=4(x+1) base")
+    require(Fraction(3, 5)*Fraction(2, 3) == Fraction(2, 5), "short-offset slope")
+    require(Fraction(7, 10)*Fraction(2, 3) == Fraction(7, 15), "rise exponent")
+    require(342+Fraction(2, 5) < 343 and Fraction(7, 10) < 1,
+            "general height envelope")
+
+    height = poly_mul([1, 1], [516, 343])
+    height_difference = poly_add(poly_scale(4, height),
+                                 poly_scale(-3, poly_shift(height, 1)))
+    height_shift = poly_shift(height_difference, cutoff_bits)
+    require(height == [516, 859, 343], "height polynomial")
+    require(height_shift == [497750, 26241, 343] and all(x > 0 for x in height_shift),
+            "all-band height ratio below 4/3")
+    height_base = Fraction(8, 9)*41*(516+343*40)
+    require(height_base == Fraction(4669408, 9), "general height base")
+    base_margin = 2**313*9**15-4669408**15
+    require(base_margin > 0, "exact fifteenth-power base comparison")
+    require(4**15 < 2**8*3**15, "height induction ratio")
+    return dict(
+        scope="Uniform K(k/m)<2*s(h)*m/log2(m), using the actual mismatch count",
+        period_cutoff_bits=cutoff_bits,
+        dominance_polynomial=dominance,
+        dominance_induction_polynomial=dominance_difference,
+        dominance_shifted_coefficients=dominance_shift,
+        dominance_base_margin=dominance_margin,
+        minimum_K_polynomial=minimum_k,
+        minimum_K_induction_polynomial=minimum_k_difference,
+        minimum_K_shifted_coefficients=minimum_k_shift,
+        minimum_K_base_margin=minimum_k_margin,
+        height_polynomial=height,
+        height_ratio_difference=height_difference,
+        height_shifted_coefficients=height_shift,
+        height_base=str(height_base),
+        height_fifteenth_power_base_margin=base_margin,
+        height_ratio_numerator=4**15,
+        height_ratio_denominator=3**15,
+        left_side_dyadic_ratio=2**8,
+    )
+
+
 def local_minimum():
     rows, maximum_steps, maximum_peak = [], 0, 0
     for seed in range(3, 129, 2):
@@ -324,9 +385,10 @@ def actual_controls():
 
 def main():
     require(sys.argv[1:] in ([], ["--write-receipt"]), "usage: script [--write-receipt]")
-    receipt = dict(schema="inverse-cf-four-mismatch-v1", continuants=continuant_grid(),
+    receipt = dict(schema="inverse-cf-four-mismatch-v2", continuants=continuant_grid(),
                    large_coefficients=large_coefficient_cases(), constants=constants(),
-                   local_minimum=local_minimum(), actual_controls=actual_controls())
+                   local_minimum=local_minimum(), actual_controls=actual_controls(),
+                   general_mismatch_growth=general_growth_constants())
     encoded = json.dumps(receipt, sort_keys=True, indent=2)+"\n"
     target = HERE / "check_inverse_complexity.json"
     if sys.argv[1:]:
