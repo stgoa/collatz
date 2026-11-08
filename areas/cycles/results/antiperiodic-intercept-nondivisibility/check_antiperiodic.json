@@ -1,0 +1,74 @@
+{
+  "controls": [
+    {
+      "d": 5,
+      "divisor": 5,
+      "end": 1,
+      "start": -1,
+      "word": [
+        1
+      ]
+    },
+    {
+      "d": 7,
+      "divisor": 7,
+      "end": 2,
+      "start": -1,
+      "word": [
+        1
+      ]
+    },
+    {
+      "d": 13,
+      "divisor": 13,
+      "end": 5,
+      "start": -1,
+      "word": [
+        1
+      ]
+    },
+    {
+      "d": 61,
+      "divisor": 61,
+      "end": 29,
+      "start": -1,
+      "word": [
+        1
+      ]
+    }
+  ],
+  "counts": {
+    "coprime_exclusions": 185299,
+    "integral_segments": 107,
+    "nondivisibility_checks": 1657600,
+    "one_letter_identities": 199920,
+    "primitive_half_bounds": 89779,
+    "transposition_coprime_exclusions": 52910,
+    "transposition_identities": 55090,
+    "words": 6475
+  },
+  "dropped_factor_diagnostic": {
+    "actual_gcd": 5,
+    "dropped_factor_gcd": 1,
+    "j": 4,
+    "modulus": 35,
+    "u": [
+      1
+    ],
+    "v": [
+      9
+    ]
+  },
+  "scope": {
+    "j_max": 6,
+    "j_min": 1,
+    "max_length": 6,
+    "max_total": 14,
+    "s_max": 16,
+    "s_min": 1,
+    "start_max": 9,
+    "start_min": -9,
+    "t_max": 16,
+    "t_min": 1
+  }
+}

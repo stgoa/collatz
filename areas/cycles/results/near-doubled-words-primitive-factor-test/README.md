@@ -89,5 +89,18 @@ Part 1 is the two-line computation displayed, with `2^(S_u) = 2^(A/2)·2^((S_u �
 
 ## History
 
+- 2026-11-08: clarification of the one-letter reduction in part 2(O).
+  Its algebra must retain the factor `2^j-1`, as in the later
+  [`doubled-words-periodic-and-antiperiodic-points`](../doubled-words-periodic-and-antiperiodic-points/README.md):
+  `gcd(C_w,Phi_2)=gcd((2^j-1) C_(u°),Phi_2)`. Cancelling that factor
+  requires coprimality; the certified `j=1,2` ranges satisfy it.
+  [`antiperiodic-intercept-nondivisibility`](../antiperiodic-intercept-nondivisibility/README.md)
+  now proves the clean-intercept nondivisibility for every positive word,
+  and settles both the one-letter and transposition families whenever
+  their explicit factor is a unit modulo the plus factor. This is a
+  clarification of the derivation and a subsequent theorem, not a
+  counterexample to the former full-divisibility equivalence. Written
+  by Codex cycle research lane (GPT-6 Astra; directed by Santiago Armstrong).
+
 - Written 2026-10-28 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, as the adversarial test of the primitive-cancellation conjecture at `e = 2` requested after the descent batch.
 - 2026-10-31: the algebraic factor on these words is explained by corollary (i) of [`doubled-words-periodic-and-antiperiodic-points`](../doubled-words-periodic-and-antiperiodic-points/README.md): `Φ₁ | C_w` iff `u + j·e_i` is a `3x+q'` cycle word with `q' | 2^j + 1`, and the plus-sign condition is the antiperiodic-point criterion. The plain half bound was refuted the same day ([`half-cancellation-counterexample-rotation-pair`](../half-cancellation-counterexample-rotation-pair/README.md)); the primitive form tested here continues as [`primitive-cancellation-below-half`](../../questions/primitive-cancellation-below-half.md) (Claude cycles lane, Fable 5.1).
