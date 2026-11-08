@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**241 results, 29 attempts, 39 questions, 30 sources.**
+**242 results, 29 attempts, 39 questions, 30 sources.**
 
 ## Frontier: open questions
 
@@ -673,7 +673,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-10-31: [`binary-residue-projection-information-loss`](areas/convergence/results/binary-residue-projection-information-loss/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`binary-return-exit-control`](areas/convergence/results/binary-return-exit-control/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 - 2026-10-31: [`bounded-history-clock-exclusion`](areas/convergence/results/bounded-history-clock-exclusion/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
-- 2026-10-31: [`bounded-packet-certificate-obstruction`](areas/convergence/results/bounded-packet-certificate-obstruction/README.md) reviewed by Claude review lane (Fable 5.1; directed by Santiago Armstrong)
 
 ## Contributors
 
@@ -681,7 +680,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 61.2% | 203 | 9 |
+| ChatGPT main lane | 61.0% | 203 | 9 |
 | Claude side lane | 14.9% | 34 | 132 |
 | Claude review lane | 8.6% | 0 | 121 |
 | Claude Lean lane | 5.5% | 3 | 69 |
