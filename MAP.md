@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**263 results, 29 attempts, 39 questions, 37 sources.**
+**264 results, 29 attempts, 39 questions, 37 sources.**
 
 ## Frontier: open questions
 
@@ -318,6 +318,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`unequal-one-three-half-defect-exclusion`](areas/cycles/results/unequal-one-three-half-defect-exclusion/README.md) | Half defects of amplitudes one and three cannot cancel the plus factor | written | written | — | yes |
 | [`unequal-slope-two-block-growth`](areas/cycles/results/unequal-slope-two-block-growth/README.md) | Unequal-slope two-block words have denominator 2^((1−o(1))·A), ineffectively | reviewed | reviewed | `corvaja-2005-s-unit-height` |  |
 | [`unequal-two-four-half-defect-classification`](areas/cycles/results/unequal-two-four-half-defect-classification/README.md) | Half defects of amplitudes two and four have two full-cancellation families | written | written | — |  |
+| [`unit-low-level-mersenne-exclusion`](areas/cycles/results/unit-low-level-mersenne-exclusion/README.md) | Low-to-high Mersenne joins with unit low addend exclude denominator one | written | written | `laurent-mignotte-nesterenko-1995-two-logarithms` |  |
 
 ### Attempts (approaches that failed or stalled)
 
@@ -434,7 +435,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`lagarias-1985-survey`](sources/lagarias-1985-survey.md) | Lagarias (1985): survey of the 3x+1 problem | cited | 0 |
 | [`languasco-2025-two-primes`](sources/languasco-2025-two-primes.md) | Languasco–Luca–Moree–Togbe: rational form of Matveev's bound | cited | 2 |
 | [`lau-2026-positive-density`](sources/lau-2026-positive-density.md) | Lau / AxiomMath: explicit positive lower density of predecessors (Lean) | replayed | 4 |
-| [`laurent-mignotte-nesterenko-1995-two-logarithms`](sources/laurent-mignotte-nesterenko-1995-two-logarithms.md) | Laurent, Mignotte and Nesterenko (1995): an explicit two-logarithm bound | cited | 1 |
+| [`laurent-mignotte-nesterenko-1995-two-logarithms`](sources/laurent-mignotte-nesterenko-1995-two-logarithms.md) | Laurent, Mignotte and Nesterenko (1995): an explicit two-logarithm bound | cited | 2 |
 | [`lyapunov-weaver-2026-finite-mechanical-approximation`](sources/lyapunov-weaver-2026-finite-mechanical-approximation.md) | Lyapunov Weaver (2026): finite approximation bounds for mechanical itineraries | cited | 0 |
 | [`lyapunov-weaver-2026-periodic-dictionary-complexity`](sources/lyapunov-weaver-2026-periodic-dictionary-complexity.md) | lyapunov_weaver (2026): periodic-dictionary complexity claims | cited | 0 |
 | [`matveev-2000-linear-forms`](sources/matveev-2000-linear-forms.md) | Matveev (2000): explicit lower bound for linear forms in logarithms | cited | 2 |
@@ -708,18 +709,18 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 58.7% | 203 | 9 |
-| Claude side lane | 14.3% | 34 | 132 |
+| ChatGPT main lane | 58.5% | 203 | 9 |
+| Claude side lane | 14.2% | 34 | 132 |
 | Claude review lane | 8.2% | 0 | 121 |
 | Claude Lean lane | 5.2% | 3 | 69 |
 | Claude cycles lane | 5.0% | 21 | 0 |
-| Codex cycle research lane | 2.4% | 13 | 0 |
+| Codex cycle research lane | 2.6% | 14 | 0 |
 | Claude PR1 lane | 2.1% | 6 | 9 |
 | ChatGPT handoff conversation | 0.9% | 2 | 0 |
 | Codex four-arc research lane | 0.9% | 6 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex crossing research lane | 0.4% | 2 | 0 |
-| Codex formalisation lane | 0.3% | 2 | 0 |
+| Codex formalisation lane | 0.4% | 2 | 0 |
 | Codex signed-endpoint research lane | 0.3% | 2 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |

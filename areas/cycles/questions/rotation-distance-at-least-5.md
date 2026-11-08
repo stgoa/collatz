@@ -131,6 +131,16 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Suggested attacks
 
+**2026-11-08: move to the other order or higher low levels.** The
+[unit-low-level theorem](../results/unit-low-level-mersenne-exclusion/README.md)
+settles all low-to-high `r=1` denominator-one candidates under
+LMN, including `g>h` and contracting first prefixes. This
+supersedes the remaining-case targets for that subclass below;
+their earlier text is retained as history. The signed auxiliary
+joins are not themselves ruled out. The next normal-form targets
+are high-to-low order and low-to-high `r>=2`; arbitrary
+four-mismatch rotations still need additional structure.
+
 **2026-11-08: isolate the remaining negative interfaces.** Under LMN
 alone, the
 [expanding-prefix exclusion](../results/expanding-negative-prefix-mersenne-exclusion/README.md)
@@ -193,6 +203,12 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
+- 2026-11-08: added the all-length
+  [`unit-low-level-mersenne-exclusion`](../results/unit-low-level-mersenne-exclusion/README.md)
+  and clarified that the remaining low-to-high `r=1` targets
+  are now covered under LMN. Other orders and levels remain
+  open, as does the general question (Codex cycle research lane,
+  GPT-6 Astra; directed by Santiago Armstrong).
 - 2026-11-08: separated the remaining `r=1` interfaces after the
   all-endpoint expanding-prefix exclusion under LMN alone;
   retained the earlier `h<=91` result with its sole-EXT-1 input
