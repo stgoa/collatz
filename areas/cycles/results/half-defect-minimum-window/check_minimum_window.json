@@ -1,0 +1,532 @@
+{
+  "actual_controls": {
+    "actual_control_digest": "7f2c2872bafae3e44fcd0c6c0100e256e771ff374d745e6ddd1dd09f48d1090e",
+    "block_lengths": [
+      1,
+      3
+    ],
+    "block_letters": [
+      1,
+      3
+    ],
+    "counts": {
+      "A": 2024,
+      "D": 11370,
+      "arrows": 139634,
+      "fixed_K_applicable": 0,
+      "interior_minima": 530,
+      "opposite_parity": 7138,
+      "positive_other_excess": 12642,
+      "positive_suffix_excess": 11690
+    },
+    "examples": {
+      "A": {
+        "A": [
+          1
+        ],
+        "B": [
+          1
+        ],
+        "addend": 47,
+        "boundaries": [
+          73,
+          133,
+          223,
+          179
+        ],
+        "case": "A",
+        "full_word": [
+          1,
+          1,
+          2,
+          3
+        ],
+        "gamma": "133/73",
+        "minimum": 73,
+        "normalized_minimum": "73/47",
+        "offset": 0,
+        "other_excess": 0,
+        "p": 1,
+        "paired_H": 75,
+        "paired_J": -23,
+        "prefix_excess": 0,
+        "q": 2,
+        "r": "179/133",
+        "r0": "223/73",
+        "smaller_defect": 1,
+        "states": [
+          73,
+          133,
+          223,
+          179
+        ],
+        "suffix_base_word": [
+          1
+        ],
+        "suffix_excess": 0,
+        "suffix_extra_defect": 0
+      },
+      "A_interior": {
+        "A": [
+          2,
+          1
+        ],
+        "B": [
+          1
+        ],
+        "addend": 1319,
+        "boundaries": [
+          1375,
+          2701,
+          4711,
+          3227
+        ],
+        "case": "A",
+        "full_word": [
+          2,
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        "gamma": "2701/1361",
+        "minimum": 1361,
+        "normalized_minimum": "1361/1319",
+        "offset": 1,
+        "other_excess": 0,
+        "p": 1,
+        "paired_H": 417,
+        "paired_J": -263,
+        "prefix_excess": 1,
+        "q": 2,
+        "r": "3227/2701",
+        "r0": "4711/1375",
+        "smaller_defect": 1,
+        "states": [
+          1375,
+          1361,
+          2701,
+          4711,
+          3863,
+          3227
+        ],
+        "suffix_base_word": [
+          1
+        ],
+        "suffix_excess": 0,
+        "suffix_extra_defect": 0
+      },
+      "D": {
+        "A": [
+          1
+        ],
+        "B": [
+          1
+        ],
+        "addend": 175,
+        "boundaries": [
+          121,
+          269,
+          491,
+          103
+        ],
+        "case": "D",
+        "changed_B_slope": "3/4",
+        "full_word": [
+          1,
+          1,
+          4,
+          2
+        ],
+        "gamma": "242/103",
+        "minimum": 103,
+        "normalized_minimum": "103/175",
+        "offset": 0,
+        "other_excess": 0,
+        "p": 3,
+        "paired_H": 185,
+        "paired_J": 83,
+        "prefix_excess": 0,
+        "q": 1,
+        "r": "269/103",
+        "r0": "491/121",
+        "smaller_defect": 1,
+        "states": [
+          121,
+          269,
+          491,
+          103
+        ],
+        "suffix_base_word": [
+          1
+        ],
+        "suffix_excess": 0,
+        "suffix_extra_defect": 1
+      },
+      "D_interior": {
+        "A": [
+          1
+        ],
+        "B": [
+          3,
+          1
+        ],
+        "addend": 7463,
+        "boundaries": [
+          3941,
+          9643,
+          10555,
+          4891
+        ],
+        "case": "D",
+        "changed_B_slope": "9/32",
+        "full_word": [
+          1,
+          3,
+          1,
+          3,
+          3,
+          2
+        ],
+        "gamma": "7882/2767",
+        "minimum": 2767,
+        "normalized_minimum": "2767/7463",
+        "offset": 1,
+        "other_excess": 0,
+        "p": 2,
+        "paired_H": 3307,
+        "paired_J": 297,
+        "prefix_excess": 2,
+        "q": 1,
+        "r": "9643/4891",
+        "r0": "10555/3941",
+        "smaller_defect": 1,
+        "states": [
+          3941,
+          9643,
+          4549,
+          10555,
+          4891,
+          2767
+        ],
+        "suffix_base_word": [
+          1
+        ],
+        "suffix_excess": 0,
+        "suffix_extra_defect": 1
+      }
+    },
+    "interior_B_controls": [
+      {
+        "A": [
+          1
+        ],
+        "B": [
+          3,
+          1,
+          1,
+          1
+        ],
+        "addend": 989527,
+        "boundaries": [
+          1583413,
+          2869883,
+          6399779,
+          315451
+        ],
+        "case": "D",
+        "changed_B_slope": "81/128",
+        "full_word": [
+          1,
+          3,
+          1,
+          1,
+          1,
+          6,
+          3,
+          1,
+          1,
+          2
+        ],
+        "gamma": "857741/241985",
+        "minimum": 241985,
+        "normalized_minimum": "241985/989527",
+        "offset": 1,
+        "other_excess": 0,
+        "p": 5,
+        "paired_H": 2408183,
+        "paired_J": 39913,
+        "prefix_excess": 2,
+        "q": 1,
+        "r": "2869883/315451",
+        "r0": "6399779/1583413",
+        "smaller_defect": 1,
+        "states": [
+          1583413,
+          2869883,
+          1199897,
+          2294609,
+          3936677,
+          6399779,
+          315451,
+          241985,
+          857741,
+          1781375
+        ],
+        "suffix_base_word": [
+          1,
+          1,
+          1
+        ],
+        "suffix_excess": 0,
+        "suffix_extra_defect": 1
+      },
+      {
+        "A": [
+          1
+        ],
+        "B": [
+          3,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "addend": 62325895,
+        "boundaries": [
+          263513797,
+          426433643,
+          1684458707,
+          19983211
+        ],
+        "case": "D",
+        "changed_B_slope": "729/512",
+        "full_word": [
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          8,
+          3,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "gamma": "54089609/15284441",
+        "minimum": 15284441,
+        "normalized_minimum": "15284441/62325895",
+        "offset": 1,
+        "other_excess": 0,
+        "p": 7,
+        "paired_H": 710472455,
+        "paired_J": 1587697,
+        "prefix_excess": 2,
+        "q": 1,
+        "r": "426433643/19983211",
+        "r0": "1684458707/263513797",
+        "smaller_defect": 1,
+        "states": [
+          263513797,
+          426433643,
+          167703353,
+          282717977,
+          455239913,
+          714022817,
+          1102197173,
+          1684458707,
+          19983211,
+          15284441,
+          54089609,
+          112297361,
+          199608989,
+          330576431
+        ],
+        "suffix_base_word": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "suffix_excess": 0,
+        "suffix_extra_defect": 1
+      }
+    ],
+    "other_addend_window_countercontrol": {
+      "A": [
+        1,
+        1
+      ],
+      "B": [
+        2,
+        1,
+        1
+      ],
+      "addend": 499,
+      "boundaries": [
+        9925,
+        22955,
+        39641,
+        11227
+      ],
+      "case": "D",
+      "changed_B_slope": "27/32",
+      "full_word": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        4,
+        2,
+        1,
+        2
+      ],
+      "gamma": "13067/8545",
+      "minimum": 8545,
+      "normalized_minimum": "8545/499",
+      "offset": 1,
+      "other_excess": 0,
+      "p": 3,
+      "paired_H": 7429,
+      "paired_J": 733,
+      "prefix_excess": 1,
+      "q": 1,
+      "r": "22955/11227",
+      "r0": "39641/9925",
+      "smaller_defect": 1,
+      "states": [
+        9925,
+        15137,
+        22955,
+        17341,
+        26261,
+        39641,
+        59711,
+        11227,
+        8545,
+        13067
+      ],
+      "suffix_base_word": [
+        1,
+        1
+      ],
+      "suffix_excess": 0,
+      "suffix_extra_defect": 1
+    },
+    "scaled_window_control": {
+      "A": [
+        1,
+        1
+      ],
+      "B": [
+        2,
+        1,
+        1
+      ],
+      "addend": 1497,
+      "boundaries": [
+        29775,
+        68865,
+        118923,
+        33681
+      ],
+      "case": "D",
+      "changed_B_slope": "27/32",
+      "full_word": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        4,
+        2,
+        1,
+        2
+      ],
+      "gamma": "13067/8545",
+      "minimum": 25635,
+      "normalized_minimum": "8545/499",
+      "offset": 1,
+      "other_excess": 0,
+      "p": 3,
+      "paired_H": 22287,
+      "paired_J": 2199,
+      "prefix_excess": 1,
+      "q": 1,
+      "r": "22955/11227",
+      "r0": "39641/9925",
+      "smaller_defect": 1,
+      "states": [
+        29775,
+        45411,
+        68865,
+        52023,
+        78783,
+        118923,
+        179133,
+        33681,
+        25635,
+        39201
+      ],
+      "suffix_base_word": [
+        1,
+        1
+      ],
+      "suffix_excess": 0,
+      "suffix_extra_defect": 1
+    },
+    "scope": "Exact raw inequalities at genuine minima; no finite absence or q1 cutoff is inferred from the grid.",
+    "unequal_defects": [
+      1,
+      5
+    ]
+  },
+  "constants": {
+    "A0": "15849/10000",
+    "B0": "1024967/2000000",
+    "D0": "3024133/2000000",
+    "I0": "3024033/1000000",
+    "K": "317/200",
+    "after_generic_closure_rhs": "270636453/518000000",
+    "cA": "145033/2000000",
+    "cD": "1999483/2000000",
+    "common_weights": {
+      "other_excess": "717/200",
+      "prefix_excess": "517/200",
+      "smaller_defect_case_A": "1",
+      "smaller_defect_case_D": "517/200",
+      "suffix_excess": "517/100"
+    },
+    "excess_slack_to_203_over_1000": "1186637/1339030000",
+    "generic_closure_coefficient": 259,
+    "minimum_offset_coefficient": "90212151/522149698",
+    "offset_slack_to_173_over_1000": "59873377/261074849000",
+    "suffix_excess_coefficient": "270636453/2678060000",
+    "total_excess_coefficient": "270636453/1339030000"
+  },
+  "dependency_id": "half-defect-imbalance-growth",
+  "dependency_statement_sha256": "357dddcc76e408827c0e6a8be83d632912d0a9b5d7d6db60154b0cd913c0fa50",
+  "schema": "half-defect-minimum-window-v1",
+  "shared_fixtures": {
+    "addends": [
+      5,
+      7,
+      13,
+      61
+    ],
+    "arrows": 106,
+    "cycles": 11,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+  },
+  "source_sha256": "9dcbd9853264e0f0212a29e681e0a77ab656bc45f9e46104dd791d52c9def043"
+}
