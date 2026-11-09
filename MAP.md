@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**295 results, 31 attempts, 39 questions, 39 sources.**
+**296 results, 31 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -265,6 +265,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) | The half-cancellation bound fails at four mismatches: a word of length 20 with G² ≈ 22·2^A | written | written | — | yes |
 | [`half-defect-imbalance-growth`](areas/cycles/results/half-defect-imbalance-growth/README.md) | Half-period defect magnitudes must have a linear imbalance | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`half-defect-positive-order-exclusion`](areas/cycles/results/half-defect-positive-order-exclusion/README.md) | A forbidden paired-state order in two-defect half-period words | written | written | — |  |
+| [`half-defect-terminal-intercept-exclusion`](areas/cycles/results/half-defect-terminal-intercept-exclusion/README.md) | A substantial terminal intercept excludes high-to-low half defects | written | written | `musson-collatz-gap-all` |  |
 | [`high-order-four-mismatch-exclusion`](areas/cycles/results/high-order-four-mismatch-exclusion/README.md) | Four-mismatch rotations have order at most eighteen | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`largest-letter-rho-reduction`](areas/cycles/results/largest-letter-rho-reduction.md) | A low-mismatch rotation forces a letter of linear size, so ρ → ∞ follows from a largest l… | reviewed | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
 | [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) | A lifted four-arc family has no denominator-one word | written | written | `musson-collatz-gap-all` |  |
@@ -477,7 +478,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 34 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 35 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
@@ -735,8 +736,8 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`general-three-label-four-arc-exclusion`](areas/cycles/results/general-three-label-four-arc-exclusion/README.md) added (result)
 - 2026-11-08: [`half-defect-imbalance-growth`](areas/cycles/results/half-defect-imbalance-growth/README.md) added (result)
 - 2026-11-08: [`half-defect-positive-order-exclusion`](areas/cycles/results/half-defect-positive-order-exclusion/README.md) added (result)
+- 2026-11-08: [`half-defect-terminal-intercept-exclusion`](areas/cycles/results/half-defect-terminal-intercept-exclusion/README.md) added (result)
 - 2026-11-08: [`high-order-four-mismatch-exclusion`](areas/cycles/results/high-order-four-mismatch-exclusion/README.md) added (result)
-- 2026-11-08: [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) added (result)
 
 ## Contributors
 
@@ -744,23 +745,23 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 54.6% | 203 | 9 |
-| Claude side lane | 13.5% | 34 | 132 |
+| ChatGPT main lane | 54.5% | 203 | 9 |
+| Claude side lane | 13.4% | 34 | 132 |
 | Claude review lane | 7.5% | 0 | 121 |
 | Claude cycles lane | 5.3% | 21 | 0 |
 | Claude Lean lane | 5.0% | 3 | 69 |
-| Codex cycle research lane | 3.1% | 20 | 0 |
+| Codex cycle research lane | 3.2% | 21 | 0 |
 | Claude PR1 lane | 1.9% | 6 | 9 |
 | Codex four-arc research lane | 1.5% | 16 | 0 |
-| Codex root research lane | 1.2% | 16 | 0 |
+| Codex root research lane | 1.3% | 16 | 0 |
 | Codex signed-endpoint formalisation lane | 1.0% | 5 | 0 |
 | ChatGPT handoff conversation | 0.8% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
 | Codex residue research lane | 0.6% | 10 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
-| Codex main research lane | 0.4% | 5 | 0 |
-| Codex crossing research lane | 0.3% | 2 | 0 |
+| Codex main research lane | 0.4% | 6 | 0 |
 | Codex formalisation lane | 0.3% | 2 | 0 |
+| Codex crossing research lane | 0.3% | 2 | 0 |
 | Codex arithmetic research lane | 0.2% | 3 | 0 |
 | Codex directing research lane | 0.2% | 3 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
