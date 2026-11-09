@@ -10,20 +10,26 @@ claim: >
   any four distinct points modulo 1. Put f(0)=1, f(x)=x for 0<x<1, and
   C_j=union(C-i*h:0<=i<j), with coincident cuts removed. If every circular
   gap ending at e in C_j satisfies gap_j(e)<=3/8*max(f(e),f(e+j*h))+epsilon
-  for all 1<=j<=18, then epsilon>=1/10000. An exact rational certificate
+  for all 1<=j<=18, then epsilon>=1/10000. A second parameter theorem
+  replaces 3/8 by 37/100 and forces epsilon>=1/750, with the same cuts,
+  order hypothesis and horizon. The original parameter theorem is retained.
+  An exact rational certificate
   exhausts the generic five-variable branch tree; a one-sided cut
   perturbation at fixed h covers all boundary configurations. An exact
   rational control of rotation order 14751 satisfies all seventeen-rotation
-  inequalities with strictly negative error. No cycle exclusion is claimed.
+  inequalities at coefficient 3/8 with strictly negative error. No cycle
+  exclusion is claimed.
 authors:
   - Codex residue research lane (GPT-6 Astra; directed by Santiago Armstrong)
   - Codex cycle research lane (GPT-6 Astra; directed by Santiago Armstrong)
   - Codex directing research lane (GPT-6 Astra; directed by Santiago Armstrong)
+  - Codex root research lane (GPT-6; directed by Santiago Armstrong)
 created: 2026-11-08
-certificates: [check_free_cuts.py]
+certificates: [check_free_cuts.py, check_stronger_margin.py]
 evidence:
   - "free_cut_duals.json: exact nonnegative rational combinations of affine inequalities"
   - "check_free_cuts.json: complete standard-library replay, hashes and exact controls"
+  - "stronger_margin_duals.json and check_stronger_margin.json: exact replay at coefficient 37/100 and error 1/750"
 tags: [cycles, circle-geometry, multirotation, exact-certificates, four-cuts]
 ---
 
@@ -78,6 +84,26 @@ C = {3283/14751, 2347/4917, 932/1341, 0}.                (5)
 
 Its maximum deficit over `j=1,...,17` is `-11/10728`. At `j=18` its maximum
 deficit is `235/14751>0`. This is a geometric configuration, not a cycle.
+
+A second parameter theorem holds under exactly the same hypotheses.
+Define
+
+```
+D*_j(e) = gap_j(e)-(37/100)*max(f(e),f({e+j*h})).
+```
+
+Then
+
+```
+max { D*_j(e): 1<=j<=18, e in C_j } >= 1/750.          (4*)
+```
+
+Thus reducing the allowed paired-height coefficient permits a larger
+certified error margin. Statements (4) and (4*) are separate parameter
+theorems; neither is used as a replacement for the other. The control
+(5) has maximum `D*` equal to `43/491700<1/750` through rotation 17,
+and `659/40975>1/750` at rotation 18. It therefore also shows that
+seventeen tests cannot establish (4*).
 
 ## Proof
 
@@ -255,6 +281,46 @@ The reduced denominator of `h` is 14751. Hence this control satisfies
 (1) and proves that replacing eighteen by seventeen in (4) is false,
 even with zero in place of the positive right side.
 
+### 6. The lower-coefficient, larger-margin variant
+
+For (4*), use `R=37/100` and `eta=1/750`. Sections 1--2 describe
+the same complete generic branch tree. On every branch, the paired
+height `H` is either `e` or `e+delta`; in both cases it is strictly
+positive. The new certificate adds the exact integer row
+
+```
+6000*gap-2220*H < 8.                                  (14)
+```
+
+It also retains the weaker consequence
+
+```
+6000*gap-2250*H < 8,                                  (15)
+```
+
+because subtracting the positive quantity `30*H` from the left side
+of (14) preserves its strict inequality. These additional rows permit
+reuse of exact combinations found for the larger height coefficient.
+They are justified by the new premise itself; the old parameter theorem
+is not assumed.
+
+The mathematical data in `stronger_margin_duals.json` contain 4,273
+rational combinations supported on 1,071 integer rows. The independent
+standard-library replay validates every combination by (12), then
+reconstructs all wrap, insertion and paired-height branches. It makes
+29,114 extension queries and closes 27,318 with verified combinations,
+with no surviving branch at rotation 18. Every pruning again requires
+all rows of its combination to be present in the current branch.
+Unneeded discovered combinations and rows are omitted from the artifact;
+its discovery history has no role in the replay.
+
+Section 4 applies unchanged to this positive coefficient and positive
+margin: old positive gaps and their heights have the stated one-sided
+limits, while new gaps within a split cluster have nonpositive limiting
+deficits. Thus a nongeneric violation of (4*) would produce a generic
+violation, already excluded by the new replay. This proves (4*), including
+all the rational-order and wrap boundaries allowed by (1).
+
 ## Certificates
 
 [`check_free_cuts.py`](check_free_cuts.py) is self-contained and uses only
@@ -278,6 +344,20 @@ Run from the repository root with Python 3.10 or later:
 ```
 python3 areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/check_free_cuts.py
 python3 -O areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/check_free_cuts.py
+```
+
+The second self-contained checker
+[`check_stronger_margin.py`](check_stronger_margin.py) reads
+[`stronger_margin_duals.json`](stronger_margin_duals.json) and verifies
+(4*) separately. Its generated receipt
+[`check_stronger_margin.json`](check_stronger_margin.json) records the
+checker and data hashes, complete branch counts, and both geometric
+controls evaluated at the new coefficient. It also replays the fixed-h
+order-30 boundary control. This proof-data file is also below 1 MB.
+
+```
+python3 areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/check_stronger_margin.py
+python3 -O areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/check_stronger_margin.py
 ```
 
 Numerical linear programming was used only to discover useful supports.
@@ -318,6 +398,12 @@ additional hypotheses.
 
 ## History
 
+- 2026-11-08: added the separate parameter theorem `R=37/100`,
+  `epsilon>=1/750`, with its own exact data and complete replay.
+  The original `R=3/8`, `epsilon>=1/10000` statement, proof, data and
+  checker are preserved. Weaker `3/8` rows in the new replay follow
+  explicitly from its positive-height premise. This is still pure
+  geometry, not a cycle exclusion, and remains `written`.
 - 2026-11-08: an exact rational countercontrol invalidated the proposed
   sixteen-rotation obstruction. Retaining eighteen rotations instead
   produced a complete rational branch certificate for four free cuts.
