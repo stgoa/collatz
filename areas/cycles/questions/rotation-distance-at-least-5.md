@@ -23,6 +23,17 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: equal half-defect magnitudes are excluded at every size.**
+  The [equal-amplitude exclusion](../results/equal-amplitude-half-defect-exclusion/README.md)
+  rules out denominator one for every pair of positive equal-length
+  half-words differing at exactly two positions by the same absolute
+  amount, with either sign pattern. It uses EXT-1 and a local exact
+  descent replay, with no external convergence computation or bound
+  on the amplitude. Combined with the non-half-period theorem, the
+  remaining four-mismatch targets have unequal defect magnitudes.
+  The [paired-state order theorem](../results/half-defect-positive-order-exclusion/README.md)
+  independently excludes one ordering of those unequal defects
+  without external inputs.
 - **2026-11-08: only the half-period shift remains.**
   The [non-half-period exclusion](../results/non-half-period-four-mismatch-exclusion/README.md)
   uses the necessary one-track or two-track structure of the four
@@ -147,6 +158,20 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 - Conditional on EXT-1: a four-mismatch rotation needs `|h|_m ≥ 0.075m`, at most 156 such rotations exist at `m = 1.375·10^11` ([`short-rotation-mismatch-growth`](../results/short-rotation-mismatch-growth/README.md)), and it forces a letter `≥ 0.0220m`, so `ρ ≥ 5` holds for cycles with `m ≥ 1.375·10^11` whose letters are all below `0.022m` ([`largest-letter-rho-reduction`](../results/largest-letter-rho-reduction.md)).
 
 ## Suggested attacks
+
+**2026-11-08: current target is unequal half-period defect magnitudes.**
+The [all-amplitude theorem](../results/equal-amplitude-half-defect-exclusion/README.md)
+settles equal magnitudes under EXT-1; the non-half-period reduction
+uses EXT-1 plus Barina. For the remaining half-words, keep both
+integer paired-difference equations. In the canonical double-increase
+form, the [order constraint](../results/half-defect-positive-order-exclusion/README.md)
+  forces the sign of the intermediate paired difference to follow
+  the ordering of the two unequal magnitudes. The remaining cancellation
+  cases need a new argument. The signed Mersenne normal form applies
+to same-parity magnitudes; opposite-parity changes require a separate
+integer analysis. Taking a quadratic norm alone adds no independent
+congruence, as the order theorem explains. Earlier targets stay below
+as research history.
 
 **2026-11-08: current target is the unrestricted half-period case.**
 The [non-half-period theorem](../results/non-half-period-four-mismatch-exclusion/README.md)
@@ -425,6 +450,11 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
+- 2026-11-08: excluded equal half-defect magnitudes at every amplitude
+  under EXT-1 and added the unconditional paired-state order constraint
+  for unequal changes. The current target is unequal half-period
+  changes; the general question remains open (Codex root research
+  lane, GPT-6; directed by Santiago Armstrong).
 - 2026-11-08: recorded the complete exclusion of rotation orders
   at least three for four mismatches, conditional on EXT-1 plus
   Barina, and narrowed the current question to unrestricted
