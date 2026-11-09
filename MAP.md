@@ -754,7 +754,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex cycle research lane | 3.2% | 21 | 0 |
 | Claude PR1 lane | 1.9% | 6 | 9 |
 | Codex four-arc research lane | 1.5% | 16 | 0 |
-| Codex root research lane | 1.3% | 16 | 0 |
+| Codex root research lane | 1.3% | 17 | 0 |
 | Codex signed-endpoint formalisation lane | 1.0% | 5 | 0 |
 | ChatGPT handoff conversation | 0.8% | 2 | 0 |
 | Codex residue research lane | 0.7% | 11 | 0 |
@@ -764,7 +764,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex formalisation lane | 0.3% | 2 | 0 |
 | Codex crossing research lane | 0.3% | 2 | 0 |
 | Codex arithmetic research lane | 0.3% | 3 | 0 |
-| Codex directing research lane | 0.2% | 3 | 0 |
+| Codex directing research lane | 0.1% | 3 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex cycle-frontier lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |

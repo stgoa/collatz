@@ -1,0 +1,319 @@
+{
+  "checker_sha256": "9e54a90f72e1b6dd97f62bb049eaf8fc53b1679725a3e547169fd1b40f15dde6",
+  "finite_controls": {
+    "order14751": {
+      "cuts": [
+        "0",
+        "3283/14751",
+        "2347/4917",
+        "932/1341"
+      ],
+      "eighteenth_is_identity": false,
+      "first_failure": 18,
+      "h": "5734/14751",
+      "rotation_order": 14751,
+      "rotations": [
+        {
+          "distinct_cuts": 4,
+          "j": 1,
+          "maximum_deficit": "-5329/1475100",
+          "raw_cuts": 4
+        },
+        {
+          "distinct_cuts": 8,
+          "j": 2,
+          "maximum_deficit": "-83/14900",
+          "raw_cuts": 8
+        },
+        {
+          "distinct_cuts": 11,
+          "j": 3,
+          "maximum_deficit": "-1391/245850",
+          "raw_cuts": 12
+        },
+        {
+          "distinct_cuts": 14,
+          "j": 4,
+          "maximum_deficit": "-212029/1475100",
+          "raw_cuts": 16
+        },
+        {
+          "distinct_cuts": 17,
+          "j": 5,
+          "maximum_deficit": "43/491700",
+          "raw_cuts": 20
+        },
+        {
+          "distinct_cuts": 20,
+          "j": 6,
+          "maximum_deficit": "-21493/245850",
+          "raw_cuts": 24
+        },
+        {
+          "distinct_cuts": 23,
+          "j": 7,
+          "maximum_deficit": "-60671/737550",
+          "raw_cuts": 28
+        },
+        {
+          "distinct_cuts": 26,
+          "j": 8,
+          "maximum_deficit": "-7487/1475100",
+          "raw_cuts": 32
+        },
+        {
+          "distinct_cuts": 29,
+          "j": 9,
+          "maximum_deficit": "-4881/32780",
+          "raw_cuts": 36
+        },
+        {
+          "distinct_cuts": 32,
+          "j": 10,
+          "maximum_deficit": "-10421/491700",
+          "raw_cuts": 40
+        },
+        {
+          "distinct_cuts": 35,
+          "j": 11,
+          "maximum_deficit": "-49087/737550",
+          "raw_cuts": 44
+        },
+        {
+          "distinct_cuts": 38,
+          "j": 12,
+          "maximum_deficit": "-76367/737550",
+          "raw_cuts": 48
+        },
+        {
+          "distinct_cuts": 41,
+          "j": 13,
+          "maximum_deficit": "-179/295020",
+          "raw_cuts": 52
+        },
+        {
+          "distinct_cuts": 44,
+          "j": 14,
+          "maximum_deficit": "-213053/1475100",
+          "raw_cuts": 56
+        },
+        {
+          "distinct_cuts": 47,
+          "j": 15,
+          "maximum_deficit": "-22321/491700",
+          "raw_cuts": 60
+        },
+        {
+          "distinct_cuts": 50,
+          "j": 16,
+          "maximum_deficit": "-45791/737550",
+          "raw_cuts": 64
+        },
+        {
+          "distinct_cuts": 53,
+          "j": 17,
+          "maximum_deficit": "-94217/737550",
+          "raw_cuts": 68
+        },
+        {
+          "distinct_cuts": 56,
+          "j": 18,
+          "maximum_deficit": "659/40975",
+          "raw_cuts": 72
+        }
+      ]
+    },
+    "order18": {
+      "cuts": [
+        "2/9",
+        "61/128",
+        "799/1152",
+        "383/384"
+      ],
+      "eighteenth_is_identity": true,
+      "first_failure": 18,
+      "h": "7/18",
+      "rotation_order": 18,
+      "rotations": [
+        {
+          "distinct_cuts": 4,
+          "j": 1,
+          "maximum_deficit": "-37/28800",
+          "raw_cuts": 4
+        },
+        {
+          "distinct_cuts": 8,
+          "j": 2,
+          "maximum_deficit": "-57/12800",
+          "raw_cuts": 8
+        },
+        {
+          "distinct_cuts": 12,
+          "j": 3,
+          "maximum_deficit": "-49/12800",
+          "raw_cuts": 12
+        },
+        {
+          "distinct_cuts": 16,
+          "j": 4,
+          "maximum_deficit": "-16537/115200",
+          "raw_cuts": 16
+        },
+        {
+          "distinct_cuts": 20,
+          "j": 5,
+          "maximum_deficit": "13/38400",
+          "raw_cuts": 20
+        },
+        {
+          "distinct_cuts": 24,
+          "j": 6,
+          "maximum_deficit": "-671/7680",
+          "raw_cuts": 24
+        },
+        {
+          "distinct_cuts": 28,
+          "j": 7,
+          "maximum_deficit": "-9433/115200",
+          "raw_cuts": 28
+        },
+        {
+          "distinct_cuts": 32,
+          "j": 8,
+          "maximum_deficit": "-593/115200",
+          "raw_cuts": 32
+        },
+        {
+          "distinct_cuts": 36,
+          "j": 9,
+          "maximum_deficit": "-5723/38400",
+          "raw_cuts": 36
+        },
+        {
+          "distinct_cuts": 40,
+          "j": 10,
+          "maximum_deficit": "-817/38400",
+          "raw_cuts": 40
+        },
+        {
+          "distinct_cuts": 44,
+          "j": 11,
+          "maximum_deficit": "-7697/115200",
+          "raw_cuts": 44
+        },
+        {
+          "distinct_cuts": 48,
+          "j": 12,
+          "maximum_deficit": "-11923/115200",
+          "raw_cuts": 48
+        },
+        {
+          "distinct_cuts": 52,
+          "j": 13,
+          "maximum_deficit": "-23/23040",
+          "raw_cuts": 52
+        },
+        {
+          "distinct_cuts": 56,
+          "j": 14,
+          "maximum_deficit": "-16691/115200",
+          "raw_cuts": 56
+        },
+        {
+          "distinct_cuts": 60,
+          "j": 15,
+          "maximum_deficit": "-1717/38400",
+          "raw_cuts": 60
+        },
+        {
+          "distinct_cuts": 64,
+          "j": 16,
+          "maximum_deficit": "-7219/115200",
+          "raw_cuts": 64
+        },
+        {
+          "distinct_cuts": 68,
+          "j": 17,
+          "maximum_deficit": "-14623/115200",
+          "raw_cuts": 68
+        },
+        {
+          "distinct_cuts": 72,
+          "j": 18,
+          "maximum_deficit": "217/12800",
+          "raw_cuts": 72
+        }
+      ]
+    }
+  },
+  "fixed_h_boundary_control": {
+    "error_allowance": "21/50000000",
+    "h": "11/30",
+    "horizons_checked": 18,
+    "largest_observed_increase": "3937/10000000000",
+    "original_collision_rotations": 17,
+    "original_cuts": [
+      "0",
+      "2/15",
+      "5/12",
+      "19/30"
+    ],
+    "rotation_order": 30,
+    "scope": "Finite control of the fixed-h boundary argument; the manuscript proves the general transfer.",
+    "shifted_cuts": [
+      "999999/1000000",
+      "39999697/300000000",
+      "62499847/150000000",
+      "189999691/300000000"
+    ]
+  },
+  "proof_bytes": 595652,
+  "proof_rows": 1071,
+  "proof_sha256": "e8b2e11cfa9883e1dde41eaccafe368dd7e69f894346bd2a6afa5cbafa6d055a",
+  "replay": {
+    "checked_duals": 4273,
+    "coefficient": "37/100",
+    "dimension": 5,
+    "dual_rhs_range": [
+      "-1031213/1044928",
+      "0"
+    ],
+    "epsilon": "1/750",
+    "horizon": 18,
+    "rotations": {
+      "1": 1,
+      "2": 27,
+      "3": 35,
+      "4": 40,
+      "5": 37,
+      "6": 10,
+      "7": 22,
+      "8": 13,
+      "9": 6,
+      "10": 8,
+      "11": 14,
+      "12": 5,
+      "13": 5,
+      "14": 2,
+      "15": 2,
+      "16": 2,
+      "17": 8,
+      "18": 10
+    },
+    "scope": "Complete generic free-cut tree; every pruning uses a verified exact contradiction.",
+    "stats": {
+      "exact_core_prunes": 27318,
+      "extensions": 29114
+    },
+    "support_sizes": {
+      "2": 28,
+      "3": 83,
+      "4": 586,
+      "5": 1871,
+      "6": 1705
+    },
+    "unique_supports": 4273,
+    "unpruned_horizon_branches": 0
+  },
+  "schema": "free-four-cut-stronger-margin-v1"
+}
