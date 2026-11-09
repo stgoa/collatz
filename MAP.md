@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**293 results, 31 attempts, 39 questions, 39 sources.**
+**294 results, 31 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -245,6 +245,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`doubled-words-periodic-and-antiperiodic-points`](areas/cycles/results/doubled-words-periodic-and-antiperiodic-points/README.md) | Doubled words: the two factors of D test the half-words' periodic and antiperiodic points | written | written | — |  |
 | [`dyadic-order-lemma`](areas/cycles/results/dyadic-order-lemma.md) | Dyadic normalisation of a cycle, the exact inversion formula and the order lemma | reviewed | reviewed | — | yes |
 | [`effective-proportional-two-block-exclusion`](areas/cycles/results/effective-proportional-two-block-exclusion/README.md) | Effective denominator growth for two repeated blocks of proportional slope | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
+| [`equal-amplitude-half-defect-exclusion`](areas/cycles/results/equal-amplitude-half-defect-exclusion/README.md) | Equal-amplitude half defects exclude denominator one at every amplitude | written | written | `musson-collatz-gap-all` |  |
 | [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) | Equal-amplitude half defects reduce to a balanced transfer | written | written | — |  |
 | [`equal-total-two-block-exclusion`](areas/cycles/results/equal-total-two-block-exclusion/README.md) | Two different equal-total blocks repeated at least three times never give an integer cycle | formal | formal | — | yes |
 | [`excursion-cut-lemma`](areas/cycles/results/excursion-cut-lemma.md) | An exact endpoint relation forces every intermediate odd state, and closing two blocks gi… | formal | formal | — | yes |
@@ -475,7 +476,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 32 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 33 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
@@ -721,6 +722,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`contiguous-maximum-four-arc-exclusion`](areas/cycles/results/contiguous-maximum-four-arc-exclusion/README.md) added (result)
 - 2026-11-08: [`contracting-two-block-double-repeat-exclusion`](areas/cycles/results/contracting-two-block-double-repeat-exclusion/README.md) added (result)
 - 2026-11-08: [`effective-proportional-two-block-exclusion`](areas/cycles/results/effective-proportional-two-block-exclusion/README.md) added (result)
+- 2026-11-08: [`equal-amplitude-half-defect-exclusion`](areas/cycles/results/equal-amplitude-half-defect-exclusion/README.md) added (result)
 - 2026-11-08: [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) added (result)
 - 2026-11-08: [`expanding-background-defect-growth`](areas/cycles/results/expanding-background-defect-growth/README.md) added (result)
 - 2026-11-08: [`expanding-double-block-minimum-bound`](areas/cycles/results/expanding-double-block-minimum-bound/README.md) added (result)
@@ -734,7 +736,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`high-order-four-mismatch-exclusion`](areas/cycles/results/high-order-four-mismatch-exclusion/README.md) added (result)
 - 2026-11-08: [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) added (result)
 - 2026-11-08: [`mechanical-edit-denominator-law`](areas/cycles/results/mechanical-edit-denominator-law/README.md) added (result)
-- 2026-11-08: [`mersenne-boundary-exact-divisibility`](areas/cycles/results/mersenne-boundary-exact-divisibility/README.md) added (result)
 
 ## Contributors
 
@@ -742,15 +743,15 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 54.8% | 203 | 9 |
+| ChatGPT main lane | 54.7% | 203 | 9 |
 | Claude side lane | 13.5% | 34 | 132 |
 | Claude review lane | 7.6% | 0 | 121 |
 | Claude cycles lane | 5.3% | 21 | 0 |
 | Claude Lean lane | 5.0% | 3 | 69 |
-| Codex cycle research lane | 3.0% | 19 | 0 |
+| Codex cycle research lane | 3.1% | 20 | 0 |
 | Claude PR1 lane | 1.9% | 6 | 9 |
 | Codex four-arc research lane | 1.5% | 16 | 0 |
-| Codex root research lane | 1.1% | 14 | 0 |
+| Codex root research lane | 1.2% | 15 | 0 |
 | Codex signed-endpoint formalisation lane | 1.0% | 5 | 0 |
 | ChatGPT handoff conversation | 0.8% | 2 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
