@@ -41,8 +41,10 @@ The rotation distance `ρ(w)` is the least number of positions in which `w` diff
   ([`half-defect-positive-order-exclusion`](results/half-defect-positive-order-exclusion/README.md)).
   Keeping the smaller state in each paired block yields
   `N < 36 log_2(minimum) + 7|p-q|`, with half-length `N` and change
-  sizes `p,q`. Under EXT-1 plus Barina, the remaining changes must
-  satisfy `|p-q|>N/8`, including opposite-parity changes
+  sizes `p,q`. Under EXT-1 alone, the remaining changes must
+  satisfy `|p-q|>N/8`, including opposite-parity changes.
+  The minimum lies in the common arc after the larger defect;
+  in canonical order `p>q` the stronger `p-q>3N/4` is necessary
   ([`half-defect-imbalance-growth`](results/half-defect-imbalance-growth/README.md)).
   These results narrow the four-mismatch question; they do not
   exclude all cycles.

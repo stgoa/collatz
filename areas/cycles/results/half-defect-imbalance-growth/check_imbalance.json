@@ -194,9 +194,16 @@
   "exact_constants": {
     "A0": "15849/10000",
     "K0": "317/200",
+    "bootstrap_half_endpoints": [
+      12690,
+      7251,
+      6733
+    ],
     "c0": "5851/10000",
-    "dyadic_margin_at_22": 1780864,
-    "dyadic_next_increment_lower": 4095808,
+    "case_B_after_total_budget": "145233/2000000",
+    "common_finite_closure_coefficient": 259,
+    "dyadic_margin_at_22": 2023884,
+    "dyadic_next_increment_lower": 4105726,
     "e0": "1/10000",
     "four_case_eliminations": {
       "A": {
@@ -233,17 +240,59 @@
       "three_base": 3,
       "three_exponent": 10000,
       "two_exponent_lower": 15849
-    }
+    },
+    "near_equal_cone_slacks": {
+      "A": "18547/2000000",
+      "B": "230716761/1000000",
+      "C": "32445347/2000000",
+      "D": "214503361/1000000"
+    },
+    "reverse_cone_86_slack": "26519/1000000",
+    "reverse_cone_reduced_coefficient": "60733/2000000"
+  },
+  "finite_even_bootstrap": {
+    "cases_sha256": "d6af4552cf0aab0ef9e94415853981208bef38544d8fe0fedc5377359747002d",
+    "counts": {
+      "eta_fourteen_comparisons": 12690,
+      "eta_thirteen_comparisons": 7251,
+      "minimum_comparisons": 6733
+    },
+    "local_descent_limit": 18000000,
+    "maximum_at_half_length": 6138,
+    "maximum_full_total_valuation": 19457,
+    "maximum_minimum_bound_ceiling": 17306923,
+    "maximum_ratio_hex_sha256": "c90984569198744d4627dcbb85c0c718e1b065c163cc421628c196d321fbfe9f",
+    "power": "9^N=3^(2N)",
+    "scope": "minimal positive full gap at each even odd-period length; all larger valuations have larger gaps"
+  },
+  "full_even_gap_intervals": {
+    "alpha_lower_numerator": 125573666586150569315490533898,
+    "alpha_upper_numerator": 125573666586150569315490533899,
+    "atanh_terms": 80,
+    "cases_sha256": "544b730d1ce8b2f95f3674084a652e7ad007f63e576892c4e71ec2002d32a6d2",
+    "comparisons": 4194303,
+    "dyadic_denominator_exponent": 96,
+    "eta_lower_bits": 27,
+    "fractional_distance_lower_bits": 25,
+    "half_length_range": [
+      1,
+      4194303
+    ],
+    "largest_full_even_length": 8388606,
+    "minimum_at_half_length": 190537,
+    "minimum_complement_numerator": 14746683118183760512442,
+    "scope": "exact intervals at full exponent 2N; no same-parity or integral half-total assumption",
+    "tail_first_exponent": 161
   },
   "local_descent": {
     "base_state": 1,
-    "cases_sha256": "4eb0dc81198a3969b592a6725afa81dceb940e22edc396c40f6eff42278ac5ec",
-    "maximum_steps": 85,
+    "cases_sha256": "866dbde59a6a7d954686352dd0296b28e498d5d5828ad300f0be3287246dbba3",
+    "maximum_steps": 181,
     "meaning": "ascending odd-seed induction proves convergence below the limit; even starts reduce automatically",
-    "odd_seeds": 65535,
-    "steps": 227689,
-    "strict_upper_limit": 131072,
-    "worst_seed": 35655
+    "odd_seeds": 8999999,
+    "steps": 31421072,
+    "strict_upper_limit": 18000000,
+    "worst_seed": 13421671
   },
   "normalization": {
     "cases_sha256": "0a91a95ce188ac14a8ce0c69e97de866ff97f3ee8c4bd761031d7976acf825f2",
@@ -265,16 +314,6 @@
     ],
     "scope": "finite reconstruction and primitivity controls; the README proves both generally"
   },
-  "period_dependency": {
-    "artifact_hashes": {
-      "receipt": "e48b19926ca0c155032a9d85d3c28f3f6fbe69ae404163638414a7c848c65f64",
-      "script": "fd303326cf159435a3b05fb9188cc3a870e62da04a5348b937778f91d008b6d2"
-    },
-    "displayed_odd_period_strict_upper": 8388608,
-    "imported_odd_period_lower": 72057431991,
-    "replay_exit_code": 0,
-    "scope": "only the convergent consequence is replayed; the external Barina convergence computation is not rerun"
-  },
-  "schema": "half-defect-imbalance-v1",
-  "script_sha256": "8b3375e79f2185f9ea9e503de9331117e3b0a86f450a0eea1da757bad4e09c30"
+  "schema": "half-defect-imbalance-v2",
+  "script_sha256": "915ca0b96b7939f897858ee409b705e011001ff963089a8e154d1a242476f92c"
 }
