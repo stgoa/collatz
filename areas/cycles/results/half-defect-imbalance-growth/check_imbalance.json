@@ -1,0 +1,280 @@
+{
+  "actual_cycle_controls": {
+    "block_lengths": [
+      1,
+      3
+    ],
+    "block_letters": [
+      1,
+      3
+    ],
+    "case_digest_sha256": "3d2589833a7361f4ff19d9ca074b6710f61851fdda215dd017222cbaec76ebb5",
+    "counts": {
+      "case_A_minimum_locations": 2024,
+      "case_B_minimum_locations": 83,
+      "case_C_minimum_locations": 9051,
+      "case_D_minimum_locations": 13614,
+      "eligible_arrows": 258122,
+      "eligible_cycles": 24772,
+      "equal_magnitudes": 7534,
+      "nonpositive_gap_skipped": 229,
+      "opposite_parity": 10038,
+      "opposite_state_order_skipped": 13024,
+      "same_parity_unequal": 7200,
+      "tied_minimum_cycles": 0
+    },
+    "defects": [
+      1,
+      5
+    ],
+    "examples": {
+      "A": {
+        "A": [
+          1
+        ],
+        "B": [
+          1
+        ],
+        "addend": 47,
+        "boundaries": [
+          73,
+          133,
+          223,
+          179
+        ],
+        "cases": [
+          "A"
+        ],
+        "gamma": "133/73",
+        "minimum": 73,
+        "normalized_minimum": "73/47",
+        "p": 1,
+        "paired_h": 75,
+        "paired_j": -23,
+        "q": 2,
+        "r": "179/133",
+        "r0": "223/73",
+        "word": [
+          1,
+          1,
+          2,
+          3
+        ]
+      },
+      "B": {
+        "A": [
+          1
+        ],
+        "B": [
+          3,
+          1,
+          1
+        ],
+        "addend": 26207,
+        "boundaries": [
+          24397,
+          49699,
+          82063,
+          68099
+        ],
+        "cases": [
+          "B"
+        ],
+        "gamma": "45973/21913",
+        "minimum": 21913,
+        "normalized_minimum": "21913/26207",
+        "p": 1,
+        "paired_h": 28833,
+        "paired_j": -575,
+        "q": 2,
+        "r": "68099/49699",
+        "r0": "82063/24397",
+        "word": [
+          1,
+          3,
+          1,
+          1,
+          2,
+          3,
+          1,
+          3
+        ]
+      },
+      "C": {
+        "A": [
+          1
+        ],
+        "B": [
+          1
+        ],
+        "addend": 47,
+        "boundaries": [
+          89,
+          157,
+          259,
+          103
+        ],
+        "cases": [
+          "C"
+        ],
+        "gamma": "157/89",
+        "minimum": 89,
+        "normalized_minimum": "89/47",
+        "p": 2,
+        "paired_h": 85,
+        "paired_j": 27,
+        "q": 1,
+        "r": "157/103",
+        "r0": "259/89",
+        "word": [
+          1,
+          1,
+          3,
+          2
+        ]
+      },
+      "D": {
+        "A": [
+          1
+        ],
+        "B": [
+          1
+        ],
+        "addend": 175,
+        "boundaries": [
+          121,
+          269,
+          491,
+          103
+        ],
+        "cases": [
+          "D"
+        ],
+        "gamma": "242/103",
+        "minimum": 103,
+        "normalized_minimum": "103/175",
+        "p": 3,
+        "paired_h": 185,
+        "paired_j": 83,
+        "q": 1,
+        "r": "269/103",
+        "r0": "491/121",
+        "word": [
+          1,
+          1,
+          4,
+          2
+        ]
+      }
+    },
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "scaled_control": {
+      "addend": 141,
+      "boundaries": [
+        219,
+        399,
+        669,
+        537
+      ],
+      "cases": [
+        "A"
+      ],
+      "gamma": "133/73",
+      "minimum": 219,
+      "normalized_minimum": "73/47",
+      "paired_h": 225,
+      "paired_j": -69,
+      "r": "179/133",
+      "r0": "223/73"
+    },
+    "scope": "raw rational inequalities keep actual d; no q1 minimum cutoff is imposed on general-d controls",
+    "shared_fixture_arrows": 106,
+    "shared_fixture_count": 11
+  },
+  "exact_constants": {
+    "A0": "15849/10000",
+    "K0": "317/200",
+    "c0": "5851/10000",
+    "dyadic_margin_at_22": 1780864,
+    "dyadic_next_increment_lower": 4095808,
+    "e0": "1/10000",
+    "four_case_eliminations": {
+      "A": {
+        "coefficient": "145033/2000000",
+        "delta_coefficient": "1/2",
+        "delta_slack": "15231/2000000",
+        "ell_slack": "12797/500000"
+      },
+      "B": {
+        "coefficient": "1999683/2000000",
+        "delta_coefficient": "317/400",
+        "delta_slack": "12412781/2000000",
+        "ell_slack": "16704647/500000"
+      },
+      "C": {
+        "coefficient": "145233/2000000",
+        "delta_coefficient": "0",
+        "delta_slack": "1016631/2000000",
+        "ell_slack": "14597/500000"
+      },
+      "D": {
+        "coefficient": "1999483/2000000",
+        "delta_coefficient": "517/400",
+        "delta_slack": "11411381/2000000",
+        "ell_slack": "16702847/500000"
+      }
+    },
+    "full_period_cutoff": 8388608,
+    "half_period_cutoff": 4194304,
+    "integer_comparisons": {
+      "kappa_numerator": 393217,
+      "kappa_power": 200,
+      "kappa_two_exponent": 3717,
+      "three_base": 3,
+      "three_exponent": 10000,
+      "two_exponent_lower": 15849
+    }
+  },
+  "local_descent": {
+    "base_state": 1,
+    "cases_sha256": "4eb0dc81198a3969b592a6725afa81dceb940e22edc396c40f6eff42278ac5ec",
+    "maximum_steps": 85,
+    "meaning": "ascending odd-seed induction proves convergence below the limit; even starts reduce automatically",
+    "odd_seeds": 65535,
+    "steps": 227689,
+    "strict_upper_limit": 131072,
+    "worst_seed": 35655
+  },
+  "normalization": {
+    "cases_sha256": "0a91a95ce188ac14a8ce0c69e97de866ff97f3ee8c4bd761031d7976acf825f2",
+    "counts": {
+      "equal_magnitudes": 6680,
+      "four_mismatch_words": 12024,
+      "opposite_sign_input": 6012,
+      "same_sign_input": 6012,
+      "unequal_magnitudes": 5344,
+      "words_examined": 66420
+    },
+    "half_lengths": [
+      2,
+      5
+    ],
+    "letters": [
+      1,
+      3
+    ],
+    "scope": "finite reconstruction and primitivity controls; the README proves both generally"
+  },
+  "period_dependency": {
+    "artifact_hashes": {
+      "receipt": "e48b19926ca0c155032a9d85d3c28f3f6fbe69ae404163638414a7c848c65f64",
+      "script": "fd303326cf159435a3b05fb9188cc3a870e62da04a5348b937778f91d008b6d2"
+    },
+    "displayed_odd_period_strict_upper": 8388608,
+    "imported_odd_period_lower": 72057431991,
+    "replay_exit_code": 0,
+    "scope": "only the convergent consequence is replayed; the external Barina convergence computation is not rerun"
+  },
+  "schema": "half-defect-imbalance-v1",
+  "script_sha256": "8b3375e79f2185f9ea9e503de9331117e3b0a86f450a0eea1da757bad4e09c30"
+}
