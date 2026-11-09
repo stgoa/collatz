@@ -48,6 +48,10 @@ The rotation distance `ρ(w)` is the least number of positions in which `w` diff
   The minimum lies in the common arc after the larger defect;
   in canonical order `p>q` the stronger `p-q>3N/4` is necessary
   ([`half-defect-imbalance-growth`](results/half-defect-imbalance-growth/README.md)).
+  Retaining the minimum's position and the valuations in the remaining
+  suffix further places every minimum fewer than `173N/1000` odd steps
+  from the state immediately after the larger defect, in either order
+  ([`half-defect-minimum-window`](results/half-defect-minimum-window/README.md)).
   These results narrow the four-mismatch question; they do not
   exclude all cycles.
 - **Near-doubled words, 2026-11-08.** A signed endpoint argument prevents

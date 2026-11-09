@@ -23,6 +23,15 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: the minimum is close to the larger half defect.**
+  The [minimum-window result](../results/half-defect-minimum-window/README.md)
+  keeps the offset and the prefix/suffix valuation excesses in both
+  remaining chronological orders. Under EXT-1, every minimum occurs
+  fewer than `173N/1000` odd steps from the state immediately after
+  the larger defect, with `N` the half-length. Its weighted inequality
+  also restricts the remaining suffix; no half-period case is excluded
+  by this additional necessary condition.
+
 - **2026-11-08: the entire reduction to a half-period now needs only EXT-1.**
   The strengthened [non-half-period theorem](../results/non-half-period-four-mismatch-exclusion/README.md)
   excludes every four-mismatch shift of order at least three,
@@ -195,6 +204,17 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 - Conditional on EXT-1: a four-mismatch rotation needs `|h|_m ≥ 0.075m`, at most 156 such rotations exist at `m = 1.375·10^11` ([`short-rotation-mismatch-growth`](../results/short-rotation-mismatch-growth/README.md)), and it forces a letter `≥ 0.0220m`, so `ρ ≥ 5` holds for cycles with `m ≥ 1.375·10^11` whose letters are all below `0.022m` ([`largest-letter-rho-reduction`](../results/largest-letter-rho-reduction.md)).
 
 ## Suggested attacks
+
+**2026-11-08: use the minimum window together with its suffix budget.**
+The [weighted minimum-window inequality](../results/half-defect-minimum-window/README.md)
+places the minimum near the start of the common arc after the larger
+defect and charges twice for valuation excess after that minimum.
+Retain those prefix/suffix quantities in the two exact block identities;
+discarding them returns to the earlier coarse imbalance estimates.
+A useful next result must exploit their integer structure or prove
+that the weighted region still admits an exact obstruction. The
+smaller defect, both chronological orders and opposite parity remain
+unbounded targets.
 
 **2026-11-08: combine the EXT-1-only reduction with the forced minimum arc.**
 Every remaining four-mismatch shift is the half-period, under EXT-1
@@ -522,6 +542,13 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: added the shared weighted minimum-window inequality
+  and its `173N/1000` location consequence under EXT-1. Kept the
+  already recoverable total-excess corollary subordinate to the new
+  offset/suffix information. This is a further necessary condition;
+  the half-period case and general question remain `open`
+  (Codex root research lane, GPT-6; directed by Santiago Armstrong).
 
 - 2026-11-08: strengthened the complete non-half-period exclusion
   to EXT-1 alone, with sharper exact geometry, a full-period gap
