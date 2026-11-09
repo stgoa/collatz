@@ -281,7 +281,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) | Finite signed crossing orbits exclude near-doubled cancellation for gaps through twelve | written | written | — |  |
 | [`near-doubled-words-primitive-factor-test`](areas/cycles/results/near-doubled-words-primitive-factor-test/README.md) | The primitive factor at gcd(A, m) = 2 never divides the intercept of a near-doubled word:… | written | written | — |  |
 | [`negative-interface-mersenne-exclusion`](areas/cycles/results/negative-interface-mersenne-exclusion/README.md) | Signed Mersenne joins with negative interface exclude denominator one | written | written | `laurent-mignotte-nesterenko-1995-two-logarithms` |  |
-| [`non-half-period-four-mismatch-exclusion`](areas/cycles/results/non-half-period-four-mismatch-exclusion/README.md) | A four-mismatch rotation must be the half-period shift | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
+| [`non-half-period-four-mismatch-exclusion`](areas/cycles/results/non-half-period-four-mismatch-exclusion/README.md) | A four-mismatch rotation must be the half-period shift | written | written | `musson-collatz-gap-all` |  |
 | [`odd-order-residue-signed-endpoint-divisibility`](areas/cycles/results/odd-order-residue-signed-endpoint-divisibility/README.md) | Odd-order residue groups force full divisibility of signed return endpoints | written | written | — | yes |
 | [`odd-spacing-rounding-bound`](areas/cycles/results/odd-spacing-rounding-bound.md) | Odd spacing and image order bound every sorted gap of an ordered cycle, so L ≥ R_q(H) | formal | reviewed | — | yes |
 | [`one-cycle-exclusion-via-gap`](areas/cycles/results/one-cycle-exclusion-via-gap.md) | Given the linear-form gap, no 3x+1 cycle has word 1^(m−1)V for m ≥ 2^13 (a route to Stein… | formal | formal | `musson-collatz-gap-all` | yes |
@@ -450,7 +450,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 |---|---|---|---|
 | [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) | Adamczewski–Bell: a problem about Mahler functions | cited | 0 |
 | [`ansari-2025-recursive-sieve`](sources/ansari-2025-recursive-sieve.md) | Ansari (2025): recursively sufficient sets and a ternary-digit sieve | cited | 0 |
-| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 19 |
+| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 18 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
 | [`cerda-bennassar-2026-periodic-perturbations`](sources/cerda-bennassar-2026-periodic-perturbations.md) | Cerdá Bennassar (2026): perturbations of the periodic word (1,2) | cited | 0 |
@@ -754,7 +754,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex cycle research lane | 3.2% | 21 | 0 |
 | Claude PR1 lane | 1.9% | 6 | 9 |
 | Codex four-arc research lane | 1.5% | 16 | 0 |
-| Codex root research lane | 1.3% | 17 | 0 |
+| Codex root research lane | 1.2% | 17 | 0 |
 | Codex signed-endpoint formalisation lane | 1.0% | 5 | 0 |
 | ChatGPT handoff conversation | 0.8% | 2 | 0 |
 | Codex residue research lane | 0.7% | 11 | 0 |
@@ -764,15 +764,15 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex formalisation lane | 0.3% | 2 | 0 |
 | Codex crossing research lane | 0.3% | 2 | 0 |
 | Codex arithmetic research lane | 0.3% | 3 | 0 |
-| Codex directing research lane | 0.1% | 3 | 0 |
+| Codex directing research lane | 0.2% | 3 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex cycle-frontier lane | 0.1% | 1 | 0 |
 | Codex negative-interface research lane | 0.1% | 1 | 0 |
 | Codex proportional-block research lane | 0.1% | 1 | 0 |
 | Codex research lane | 0.1% | 1 | 0 |
 | Codex residue lane | 0.1% | 1 | 0 |
+| Codex formal research lane | 0.1% | 3 | 0 |
 | Codex formalization lane | 0.1% | 1 | 0 |
-| Codex formal research lane | 0.1% | 2 | 0 |
 | Codex first-block research lane | 0.1% | 1 | 0 |
 | Codex formalisation research lane | 0.1% | 1 | 0 |
 | Claude audit lane | 0.0% | 0 | 1 |

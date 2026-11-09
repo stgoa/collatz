@@ -23,6 +23,18 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: the entire reduction to a half-period now needs only EXT-1.**
+  The strengthened [non-half-period theorem](../results/non-half-period-four-mismatch-exclusion/README.md)
+  excludes every four-mismatch shift of order at least three,
+  using the coefficient `37/100` and margin `1/750` in both
+  geometric order ranges. EXT-1 reduces the full odd period
+  below `2^22`; exact gap bounds reduce it below `24000`.
+  Complete local descent below `18000000` and five final geometric
+  comparisons close every remaining period. No external convergence
+  computation or period bound is imported. The half-period case
+  remains open; the earlier two-input conclusions are retained below
+  as research history.
+
 - **2026-11-08: the minimum location and imbalance bounds now need only EXT-1.**
   The strengthened [imbalance result](../results/half-defect-imbalance-growth/README.md)
   replaces its original external period closure by a complete local
@@ -30,8 +42,9 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
   lies in first `A` when `p<q`, and in second `B[q]` when `p>q`.
   All cases require `|p-q|>N/8`; the latter order further requires
   `p-q>3N/4`. These statements include opposite-parity changes.
-  The reduction from arbitrary shifts to the half-period still has
-  its separately declared Barina input.
+  When this refinement was first proved, the reduction from arbitrary
+  shifts to the half-period still used Barina; the later strengthening
+  above removes that separate input.
 
 - **2026-11-08: a high-to-low terminal intercept must be small.**
   The [terminal-intercept exclusion](../results/half-defect-terminal-intercept-exclusion/README.md)
@@ -182,6 +195,16 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 - Conditional on EXT-1: a four-mismatch rotation needs `|h|_m ≥ 0.075m`, at most 156 such rotations exist at `m = 1.375·10^11` ([`short-rotation-mismatch-growth`](../results/short-rotation-mismatch-growth/README.md)), and it forces a letter `≥ 0.0220m`, so `ρ ≥ 5` holds for cycles with `m ≥ 1.375·10^11` whose letters are all below `0.022m` ([`largest-letter-rho-reduction`](../results/largest-letter-rho-reduction.md)).
 
 ## Suggested attacks
+
+**2026-11-08: combine the EXT-1-only reduction with the forced minimum arc.**
+Every remaining four-mismatch shift is the half-period, under EXT-1
+alone. In canonical form `A B A[p] B[q]`, retain the actual minimum
+in first `A` for `p<q`, and in second `B[q]` for `p>q`.
+The latter order requires `p-q>3N/4`; both require `|p-q|>N/8`.
+The next target is a contradiction between that large terminal
+division, the two retained affine block identities, and the positive
+integer minimum. Keep opposite parity separate from signed Mersenne
+joins. This is an open target, not a further exclusion.
 
 **2026-11-08: retain the forced minimum arc and asymmetric imbalance.**
 The [refined half-defect result](../results/half-defect-imbalance-growth/README.md)
@@ -499,6 +522,13 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: strengthened the complete non-half-period exclusion
+  to EXT-1 alone, with sharper exact geometry, a full-period gap
+  bootstrap, and internally checked finite descent. Updated the
+  current research target without deleting the earlier two-input
+  conclusions. The general four-mismatch question remains `open`
+  (Codex root research lane, GPT-6; directed by Santiago Armstrong).
 
 - 2026-11-08: strengthened the half-defect imbalance result with
   the forced minimum arc and the `p>q` cone. Its all-length closure
