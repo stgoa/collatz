@@ -37,9 +37,13 @@ The rotation distance `ρ(w)` is the least number of positions in which `w` diff
   Equal-magnitude changes between the two halves are excluded at
   every amplitude under EXT-1 alone
   ([`equal-amplitude-half-defect-exclusion`](results/equal-amplitude-half-defect-exclusion/README.md)).
-  The remaining target is two unequal half-word changes. A further
-  unconditional result constrains the order of their paired states
+  A further unconditional result constrains the order of their paired states
   ([`half-defect-positive-order-exclusion`](results/half-defect-positive-order-exclusion/README.md)).
+  Keeping the smaller state in each paired block yields
+  `N < 36 log_2(minimum) + 7|p-q|`, with half-length `N` and change
+  sizes `p,q`. Under EXT-1 plus Barina, the remaining changes must
+  satisfy `|p-q|>N/8`, including opposite-parity changes
+  ([`half-defect-imbalance-growth`](results/half-defect-imbalance-growth/README.md)).
   These results narrow the four-mismatch question; they do not
   exclude all cycles.
 - **Near-doubled words, 2026-11-08.** A signed endpoint argument prevents

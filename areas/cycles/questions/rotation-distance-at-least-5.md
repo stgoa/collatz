@@ -23,6 +23,14 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: half-defect magnitudes must differ by more than one eighth of the half length.**
+  The [imbalance law](../results/half-defect-imbalance-growth/README.md)
+  proves `N<36 log_2(minimum)+7|p-q|` without external inputs,
+  for half length `N` and defect magnitudes `p,q`. Under EXT-1,
+  `|p-q|<=N/8` forces `N<2^22`; the separately declared Barina
+  period input excludes that regime at every length. Both signs,
+  both magnitude orders and opposite parity are covered, with no
+  bound on the smaller magnitude. The larger-imbalance case remains open.
 - **2026-11-08: equal half-defect magnitudes are excluded at every size.**
   The [equal-amplitude exclusion](../results/equal-amplitude-half-defect-exclusion/README.md)
   rules out denominator one for every pair of positive equal-length
@@ -158,6 +166,16 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 - Conditional on EXT-1: a four-mismatch rotation needs `|h|_m ≥ 0.075m`, at most 156 such rotations exist at `m = 1.375·10^11` ([`short-rotation-mismatch-growth`](../results/short-rotation-mismatch-growth/README.md)), and it forces a letter `≥ 0.0220m`, so `ρ ≥ 5` holds for cycles with `m ≥ 1.375·10^11` whose letters are all below `0.022m` ([`largest-letter-rho-reduction`](../results/largest-letter-rho-reduction.md)).
 
 ## Suggested attacks
+
+**2026-11-08: the remaining half defects have a large imbalance.**
+Under the declared gap and period inputs, the
+[new necessary bound](../results/half-defect-imbalance-growth/README.md)
+leaves only `|p-q|>N/8`. Keep the state order from the
+[paired-state result](../results/half-defect-positive-order-exclusion/README.md)
+and the terminal division in the smaller copy of the second block.
+The next target is to exploit the resulting large valuation jump,
+without discarding the cancellation terms or assuming a preferred
+ordering of the two positive defect magnitudes.
 
 **2026-11-08: current target is unequal half-period defect magnitudes.**
 The [all-amplitude theorem](../results/equal-amplitude-half-defect-exclusion/README.md)
@@ -450,6 +468,10 @@ From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certific
 
 ## History
 
+- 2026-11-08: added the unconditional minimum-versus-imbalance law
+  and its all-length `|p-q|<=N/8` exclusion under EXT-1 plus Barina.
+  The remaining target has larger imbalance; earlier dated scope
+  statements are retained and the general question remains `open`.
 - 2026-11-08: excluded equal half-defect magnitudes at every amplitude
   under EXT-1 and added the unconditional paired-state order constraint
   for unequal changes. The current target is unequal half-period
