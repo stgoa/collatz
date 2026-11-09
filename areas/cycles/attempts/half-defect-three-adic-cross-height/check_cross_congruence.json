@@ -1,0 +1,611 @@
+{
+  "actual_half_defect_arrows": 72,
+  "actual_half_defect_controls": 10,
+  "controls": [
+    {
+      "A": [
+        1
+      ],
+      "B": [
+        1
+      ],
+      "C_A": 1,
+      "C_B": 1,
+      "C_W": 73,
+      "D_W": 47,
+      "H": 75,
+      "J": -23,
+      "addend": 47,
+      "amplitude_normalized_cross_if_applicable": {
+        "coefficients": [
+          2,
+          3
+        ],
+        "common_length_floor": 5,
+        "elementary_floor": 5,
+        "g0": 1,
+        "value": 219
+      },
+      "bare_cross": 438,
+      "bare_residue": 0,
+      "clipped_3adic_orders_if_addend_unit": {
+        "H": 1,
+        "J": 0
+      },
+      "corrected_cross": 438,
+      "corrected_residue": 0,
+      "modulus": 3,
+      "p": 1,
+      "q": 2,
+      "reduced_addend": 47,
+      "scale": 1,
+      "states": [
+        73,
+        133,
+        223,
+        179
+      ],
+      "word": [
+        1,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "A": [
+        1
+      ],
+      "B": [
+        1
+      ],
+      "C_A": 1,
+      "C_B": 1,
+      "C_W": 73,
+      "D_W": 47,
+      "H": 225,
+      "J": -69,
+      "addend": 141,
+      "amplitude_normalized_cross_if_applicable": {
+        "coefficients": [
+          2,
+          3
+        ],
+        "common_length_floor": 5,
+        "elementary_floor": 5,
+        "g0": 1,
+        "value": 657
+      },
+      "bare_cross": 1314,
+      "bare_residue": 0,
+      "clipped_3adic_orders_if_addend_unit": null,
+      "corrected_cross": 1314,
+      "corrected_residue": 0,
+      "modulus": 3,
+      "p": 1,
+      "q": 2,
+      "reduced_addend": 47,
+      "scale": 3,
+      "states": [
+        219,
+        399,
+        669,
+        537
+      ],
+      "word": [
+        1,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "A": [
+        1,
+        1
+      ],
+      "B": [
+        2,
+        1
+      ],
+      "C_A": 5,
+      "C_B": 7,
+      "C_W": 9145,
+      "D_W": 1631,
+      "H": 4431,
+      "J": -1079,
+      "addend": 1631,
+      "amplitude_normalized_cross_if_applicable": {
+        "coefficients": [
+          2,
+          3
+        ],
+        "common_length_floor": 15,
+        "elementary_floor": 15,
+        "g0": 1,
+        "value": 66969
+      },
+      "bare_cross": 24198,
+      "bare_residue": 6,
+      "clipped_3adic_orders_if_addend_unit": {
+        "H": 1,
+        "J": 0
+      },
+      "corrected_cross": 133938,
+      "corrected_residue": 0,
+      "modulus": 9,
+      "p": 1,
+      "q": 2,
+      "reduced_addend": 1631,
+      "scale": 1,
+      "states": [
+        9145,
+        14533,
+        22615,
+        17369,
+        26869,
+        41119,
+        31247,
+        23843
+      ],
+      "word": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2,
+        3
+      ]
+    },
+    {
+      "A": [
+        1,
+        1
+      ],
+      "B": [
+        2,
+        1
+      ],
+      "C_A": 5,
+      "C_B": 7,
+      "C_W": 9145,
+      "D_W": 1631,
+      "H": 13293,
+      "J": -3237,
+      "addend": 4893,
+      "amplitude_normalized_cross_if_applicable": {
+        "coefficients": [
+          2,
+          3
+        ],
+        "common_length_floor": 15,
+        "elementary_floor": 15,
+        "g0": 1,
+        "value": 200907
+      },
+      "bare_cross": 72594,
+      "bare_residue": 0,
+      "clipped_3adic_orders_if_addend_unit": null,
+      "corrected_cross": 401814,
+      "corrected_residue": 0,
+      "modulus": 9,
+      "p": 1,
+      "q": 2,
+      "reduced_addend": 1631,
+      "scale": 3,
+      "states": [
+        27435,
+        43599,
+        67845,
+        52107,
+        80607,
+        123357,
+        93741,
+        71529
+      ],
+      "word": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2,
+        3
+      ]
+    },
+    {
+      "A": [
+        1
+      ],
+      "B": [
+        1,
+        1,
+        1
+      ],
+      "C_A": 1,
+      "C_B": 19,
+      "C_W": 10561,
+      "D_W": 124511,
+      "H": 274365,
+      "J": -4319,
+      "addend": 124511,
+      "amplitude_normalized_cross_if_applicable": {
+        "coefficients": [
+          8,
+          9
+        ],
+        "common_length_floor": 5,
+        "elementary_floor": 29,
+        "g0": 7,
+        "value": 2933469
+      },
+      "bare_cross": 125092296,
+      "bare_residue": 0,
+      "clipped_3adic_orders_if_addend_unit": {
+        "H": 2,
+        "J": 0
+      },
+      "corrected_cross": 164274264,
+      "corrected_residue": 0,
+      "modulus": 3,
+      "p": 3,
+      "q": 6,
+      "reduced_addend": 124511,
+      "scale": 1,
+      "states": [
+        10561,
+        78097,
+        179401,
+        331357,
+        559291,
+        112649,
+        231229,
+        409099
+      ],
+      "word": [
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        7
+      ]
+    },
+    {
+      "A": [
+        1
+      ],
+      "B": [
+        1,
+        1,
+        1
+      ],
+      "C_A": 1,
+      "C_B": 19,
+      "C_W": 10561,
+      "D_W": 124511,
+      "H": 823095,
+      "J": -12957,
+      "addend": 373533,
+      "amplitude_normalized_cross_if_applicable": {
+        "coefficients": [
+          8,
+          9
+        ],
+        "common_length_floor": 5,
+        "elementary_floor": 29,
+        "g0": 7,
+        "value": 8800407
+      },
+      "bare_cross": 375276888,
+      "bare_residue": 0,
+      "clipped_3adic_orders_if_addend_unit": null,
+      "corrected_cross": 492822792,
+      "corrected_residue": 0,
+      "modulus": 3,
+      "p": 3,
+      "q": 6,
+      "reduced_addend": 124511,
+      "scale": 3,
+      "states": [
+        31683,
+        234291,
+        538203,
+        994071,
+        1677873,
+        337947,
+        693687,
+        1227297
+      ],
+      "word": [
+        1,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        7
+      ]
+    },
+    {
+      "A": [
+        2,
+        1
+      ],
+      "B": [
+        1,
+        2
+      ],
+      "C_A": 7,
+      "C_B": 5,
+      "C_W": 22615,
+      "D_W": 124511,
+      "H": 25799,
+      "J": 5343,
+      "addend": 124511,
+      "amplitude_normalized_cross_if_applicable": null,
+      "bare_cross": 469572,
+      "bare_residue": 6,
+      "clipped_3adic_orders_if_addend_unit": {
+        "H": 0,
+        "J": 1
+      },
+      "corrected_cross": 3586212,
+      "corrected_residue": 0,
+      "modulus": 9,
+      "p": 2,
+      "q": 3,
+      "reduced_addend": 124511,
+      "scale": 1,
+      "states": [
+        22615,
+        48089,
+        134389,
+        263839,
+        229007,
+        202883,
+        91645,
+        199723
+      ],
+      "word": [
+        2,
+        1,
+        1,
+        2,
+        2,
+        3,
+        1,
+        5
+      ]
+    },
+    {
+      "A": [
+        2,
+        1
+      ],
+      "B": [
+        1,
+        2
+      ],
+      "C_A": 7,
+      "C_B": 5,
+      "C_W": 22615,
+      "D_W": 124511,
+      "H": 77397,
+      "J": 16029,
+      "addend": 373533,
+      "amplitude_normalized_cross_if_applicable": null,
+      "bare_cross": 1408716,
+      "bare_residue": 0,
+      "clipped_3adic_orders_if_addend_unit": null,
+      "corrected_cross": 10758636,
+      "corrected_residue": 0,
+      "modulus": 9,
+      "p": 2,
+      "q": 3,
+      "reduced_addend": 124511,
+      "scale": 3,
+      "states": [
+        67845,
+        144267,
+        403167,
+        791517,
+        687021,
+        608649,
+        274935,
+        599169
+      ],
+      "word": [
+        2,
+        1,
+        1,
+        2,
+        2,
+        3,
+        1,
+        5
+      ]
+    },
+    {
+      "A": [
+        1,
+        2
+      ],
+      "B": [
+        2,
+        1
+      ],
+      "C_A": 5,
+      "C_B": 7,
+      "C_W": 25397,
+      "D_W": 255583,
+      "H": 51261,
+      "J": 3237,
+      "addend": 255583,
+      "amplitude_normalized_cross_if_applicable": null,
+      "bare_cross": 2266308,
+      "bare_residue": 0,
+      "clipped_3adic_orders_if_addend_unit": {
+        "H": 1,
+        "J": 1
+      },
+      "corrected_cross": 10943100,
+      "corrected_residue": 0,
+      "modulus": 9,
+      "p": 2,
+      "q": 4,
+      "reduced_addend": 255583,
+      "scale": 1,
+      "states": [
+        25397,
+        165887,
+        188311,
+        205129,
+        435485,
+        781019,
+        162415,
+        185707
+      ],
+      "word": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        4,
+        2,
+        5
+      ]
+    },
+    {
+      "A": [
+        1,
+        2
+      ],
+      "B": [
+        2,
+        1
+      ],
+      "C_A": 5,
+      "C_B": 7,
+      "C_W": 25397,
+      "D_W": 255583,
+      "H": 153783,
+      "J": 9711,
+      "addend": 766749,
+      "amplitude_normalized_cross_if_applicable": null,
+      "bare_cross": 6798924,
+      "bare_residue": 0,
+      "clipped_3adic_orders_if_addend_unit": null,
+      "corrected_cross": 32829300,
+      "corrected_residue": 0,
+      "modulus": 9,
+      "p": 2,
+      "q": 4,
+      "reduced_addend": 255583,
+      "scale": 3,
+      "states": [
+        76191,
+        497661,
+        564933,
+        615387,
+        1306455,
+        2343057,
+        487245,
+        557121
+      ],
+      "word": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        4,
+        2,
+        5
+      ]
+    }
+  ],
+  "result": "PASS",
+  "scope": "failed height route; no denominator-one counterexample",
+  "source_sha256": "212419dae351777bb75707a150ecb96e49c05f15f9591c760ddb3f6a95468270",
+  "standard_controls": {
+    "cycles": [
+      {
+        "addend": 5,
+        "exact_arrows": 1,
+        "minimum": 1,
+        "odd_period": 1
+      },
+      {
+        "addend": 5,
+        "exact_arrows": 3,
+        "minimum": 19,
+        "odd_period": 3
+      },
+      {
+        "addend": 5,
+        "exact_arrows": 3,
+        "minimum": 23,
+        "odd_period": 3
+      },
+      {
+        "addend": 5,
+        "exact_arrows": 17,
+        "minimum": 187,
+        "odd_period": 17
+      },
+      {
+        "addend": 5,
+        "exact_arrows": 17,
+        "minimum": 347,
+        "odd_period": 17
+      },
+      {
+        "addend": 7,
+        "exact_arrows": 2,
+        "minimum": 5,
+        "odd_period": 2
+      },
+      {
+        "addend": 13,
+        "exact_arrows": 1,
+        "minimum": 1,
+        "odd_period": 1
+      },
+      {
+        "addend": 13,
+        "exact_arrows": 15,
+        "minimum": 131,
+        "odd_period": 15
+      },
+      {
+        "addend": 13,
+        "exact_arrows": 5,
+        "minimum": 211,
+        "odd_period": 5
+      },
+      {
+        "addend": 61,
+        "exact_arrows": 1,
+        "minimum": 1,
+        "odd_period": 1
+      },
+      {
+        "addend": 61,
+        "exact_arrows": 41,
+        "minimum": 235,
+        "odd_period": 41
+      }
+    ],
+    "exact_arrows": 106,
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2",
+    "scope": "actual-map controls, not asserted to lie in the half-defect branch"
+  }
+}
