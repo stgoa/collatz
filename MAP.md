@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**296 results, 31 attempts, 39 questions, 39 sources.**
+**296 results, 32 attempts, 39 questions, 39 sources.**
 
 ## Frontier: open questions
 
@@ -363,6 +363,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`excursion-compression`](areas/cycles/attempts/excursion-compression/README.md) | Compressing an ordered cycle at its excursions above the minimum band | reviewed |
 | [`four-mismatch-size-method-limit`](areas/cycles/attempts/four-mismatch-size-method-limit/README.md) | Excluding four-mismatch rotations by S7's size inequalities alone (headline withdrawn) | withdrawn |
 | [`free-four-cut-ramp-model`](areas/cycles/attempts/free-four-cut-ramp-model/README.md) | A free four-cut ramp model survives seventeen rotations | written |
+| [`half-defect-three-adic-cross-height`](areas/cycles/attempts/half-defect-three-adic-cross-height/README.md) | The basic 3-adic cross-height bound loses the block intercepts | written |
 | [`height-bound-via-residues-or-relaxation`](areas/cycles/attempts/height-bound-via-residues-or-relaxation.md) | Proving B ≤ q − 1 from disjoint height residues or from real order inequalities | reviewed |
 | [`interval-trapping-expanding-blocks`](areas/cycles/attempts/interval-trapping-expanding-blocks.md) | Interval trapping of block starts when one block expands | reviewed |
 | [`local-odd-rounding-exclusion`](areas/cycles/attempts/local-odd-rounding-exclusion/README.md) | Excluding ordered denominator-one cycles by integer rounding of the complete sorted gaps | reviewed |
@@ -756,8 +757,8 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex root research lane | 1.3% | 16 | 0 |
 | Codex signed-endpoint formalisation lane | 1.0% | 5 | 0 |
 | ChatGPT handoff conversation | 0.8% | 2 | 0 |
+| Codex residue research lane | 0.7% | 11 | 0 |
 | Claude explicit-Tao lane | 0.7% | 5 | 0 |
-| Codex residue research lane | 0.6% | 10 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
 | Codex main research lane | 0.4% | 6 | 0 |
 | Codex formalisation lane | 0.3% | 2 | 0 |
