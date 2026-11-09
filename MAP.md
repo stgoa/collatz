@@ -263,7 +263,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines/README.md) | Order-free baselines for cycle minima and denominators (extremal, packing, product) | reviewed | reviewed | — |  |
 | [`global-drift-ceiling`](areas/cycles/results/global-drift-ceiling.md) | The global-drift ceiling: log₂(n_k/L) ≤ k·log₂(3/2) − X_k + δ at every q, with no hypothe… | formal | formal | — | yes |
 | [`half-cancellation-counterexample-rotation-pair`](areas/cycles/results/half-cancellation-counterexample-rotation-pair/README.md) | The half-cancellation bound fails at four mismatches: a word of length 20 with G² ≈ 22·2^A | written | written | — | yes |
-| [`half-defect-imbalance-growth`](areas/cycles/results/half-defect-imbalance-growth/README.md) | Half-period defect magnitudes must have a linear imbalance | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
+| [`half-defect-imbalance-growth`](areas/cycles/results/half-defect-imbalance-growth/README.md) | Half-period defect magnitudes must have a linear imbalance | written | written | `musson-collatz-gap-all` |  |
 | [`half-defect-positive-order-exclusion`](areas/cycles/results/half-defect-positive-order-exclusion/README.md) | A forbidden paired-state order in two-defect half-period words | written | written | — |  |
 | [`half-defect-terminal-intercept-exclusion`](areas/cycles/results/half-defect-terminal-intercept-exclusion/README.md) | A substantial terminal intercept excludes high-to-low half defects | written | written | `musson-collatz-gap-all` |  |
 | [`high-order-four-mismatch-exclusion`](areas/cycles/results/high-order-four-mismatch-exclusion/README.md) | Four-mismatch rotations have order at most eighteen | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
@@ -450,7 +450,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 |---|---|---|---|
 | [`adamczewski-2013-mahler-functions`](sources/adamczewski-2013-mahler-functions.md) | Adamczewski–Bell: a problem about Mahler functions | cited | 0 |
 | [`ansari-2025-recursive-sieve`](sources/ansari-2025-recursive-sieve.md) | Ansari (2025): recursively sufficient sets and a ternary-digit sieve | cited | 0 |
-| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 20 |
+| [`barina-2025-convergence-2-71`](sources/barina-2025-convergence-2-71.md) | Barina (2025): convergence verified below 2^71 | cited | 19 |
 | [`berg-1994-analytic-encoding`](sources/berg-1994-analytic-encoding.md) | Berg–Meinardus (1994): analytic formulations of the Collatz problem | cited | 0 |
 | [`bugeaud-2022-two-logarithms`](sources/bugeaud-2022-two-logarithms.md) | Bugeaud: effective lower bound for two logarithms | cited | 2 |
 | [`cerda-bennassar-2026-periodic-perturbations`](sources/cerda-bennassar-2026-periodic-perturbations.md) | Cerdá Bennassar (2026): perturbations of the periodic word (1,2) | cited | 0 |
@@ -763,7 +763,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | Codex main research lane | 0.4% | 6 | 0 |
 | Codex formalisation lane | 0.3% | 2 | 0 |
 | Codex crossing research lane | 0.3% | 2 | 0 |
-| Codex arithmetic research lane | 0.2% | 3 | 0 |
+| Codex arithmetic research lane | 0.3% | 3 | 0 |
 | Codex directing research lane | 0.2% | 3 | 0 |
 | Codex closed-prefix research lane | 0.1% | 1 | 0 |
 | Codex cycle-frontier lane | 0.1% | 1 | 0 |

@@ -23,6 +23,16 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: the minimum location and imbalance bounds now need only EXT-1.**
+  The strengthened [imbalance result](../results/half-defect-imbalance-growth/README.md)
+  replaces its original external period closure by a complete local
+  computation. In canonical form `A B A[p] B[q]`, every minimum
+  lies in first `A` when `p<q`, and in second `B[q]` when `p>q`.
+  All cases require `|p-q|>N/8`; the latter order further requires
+  `p-q>3N/4`. These statements include opposite-parity changes.
+  The reduction from arbitrary shifts to the half-period still has
+  its separately declared Barina input.
+
 - **2026-11-08: a high-to-low terminal intercept must be small.**
   The [terminal-intercept exclusion](../results/half-defect-terminal-intercept-exclusion/README.md)
   uses EXT-1 alone to exclude every high-to-low Mersenne join with
@@ -172,6 +182,15 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 - Conditional on EXT-1: a four-mismatch rotation needs `|h|_m ≥ 0.075m`, at most 156 such rotations exist at `m = 1.375·10^11` ([`short-rotation-mismatch-growth`](../results/short-rotation-mismatch-growth/README.md)), and it forces a letter `≥ 0.0220m`, so `ρ ≥ 5` holds for cycles with `m ≥ 1.375·10^11` whose letters are all below `0.022m` ([`largest-letter-rho-reduction`](../results/largest-letter-rho-reduction.md)).
 
 ## Suggested attacks
+
+**2026-11-08: retain the forced minimum arc and asymmetric imbalance.**
+The [refined half-defect result](../results/half-defect-imbalance-growth/README.md)
+leaves the minimum in the common arc immediately after the larger
+defect. For `p>q` the imbalance exceeds `3N/4`; for `p<q` it
+exceeds `N/8`, under EXT-1 alone. Use that placement together with
+the full valuation budget, preserving the terminal division and
+actual state order. The two chronological orders cannot be exchanged
+by assuming a new double-increase normalization.
 
 **2026-11-08: the remaining half defects have a large imbalance.**
 Under the declared gap and period inputs, the
@@ -480,6 +499,12 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: strengthened the half-defect imbalance result with
+  the forced minimum arc and the `p>q` cone. Its all-length closure
+  now uses EXT-1 and complete internal finite checks, without Barina.
+  The original weaker two-input statement is retained below as
+  dated history; the general question remains `open`.
 
 - 2026-11-08: added the high-to-low terminal-intercept restriction under
   EXT-1, preserving the larger-imbalance target and separate low-to-high

@@ -2,7 +2,7 @@
 
 The README gives the unbounded four-case proof. This certificate checks
 intrinsic normalization, its rational inequalities on actual 3x+d cycles,
-the local descent and exact cutoff constants, and the pinned period replay.
+the full-even-clock gap bootstrap, local descent and exact cutoff constants.
 No finite absence is promoted to a universal claim. Standard library only;
 default execution compares its receipt, --write-receipt regenerates it.
 """
@@ -14,15 +14,14 @@ from itertools import product
 from math import gcd
 from pathlib import Path
 import json
-import subprocess
 import sys
 
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 FIXTURES = ROOT / "areas/convergence/results/baseline-obligation-transfer-controls/cycle_fixtures.json"
-PERIOD = ROOT / "areas/cycles/results/cycle-length-lower-bound-from-convergents"
-LOCAL_LIMIT = 2**17
+LOCAL_LIMIT = 18_000_000
+MEAN_LIMIT = 2**17
 A0 = F(15849, 10000)
 K0 = F(317, 200)
 
@@ -176,7 +175,7 @@ def check_case(A, B, p, q, d, states):
             require(M > F(2**b, 1) / r and M > F(2**a, 1) / (r * gamma**b), "case D bounds")
             require(l * x <= gamma**(2 * N - i) * M, "retained terminal-q factor")
         case_names.append(case)
-    if M >= d * LOCAL_LIMIT:
+    if M >= d * MEAN_LIMIT:
         require(2**N < M**36 * 2**(7 * abs(p - q)), "combined bound only at sufficient normalized minimum")
     return {"cases": case_names, "minimum": M, "addend": d,
             "boundaries": [x, z, y, t], "paired_h": h, "paired_j": j,
@@ -256,17 +255,112 @@ def exact_constants():
         require(c > 0 and ell_slack > 0 and delta_slack > 0, "uniform 36/7 coefficient bounds")
         coefficients[name] = {"coefficient": str(c), "delta_coefficient": str(combined[3]),
                               "ell_slack": str(ell_slack), "delta_slack": str(delta_slack)}
-    margin = 2**22 - (148032 + 98496 * 23)
-    require(margin == 1780864 and 2**22 > 98496, "dyadic base and increasing increment")
-    require(148032 == 288 * 514 and 98496 == 288 * 342, "EXT1 full-clock transfer")
+    # Reuse the four rows for placement and the two asymmetric cones.
+    cA, cB, cC, cD = expected
+    require(cB - K0 * (K0 - 1) == cC, "case B total-valuation reduction")
+    require(36 * cC > K0 + 1, "both excluded minimum cases give N<36ell")
+    cone_slacks = {}
+    for name, c in zip(rows, expected):
+        delta_coefficient = F(coefficients[name]["delta_coefficient"])
+        reduced = c - delta_coefficient / 8
+        require(reduced > 0 and 259 * reduced > K0 + 1, "near-equal N<259ell")
+        cone_slacks[name] = str(259 * reduced - (K0 + 1))
+    reverse_reduced = cD - 3 * (K0 + 1) / 8
+    require(reverse_reduced > 0 and 86 * reverse_reduced > K0 + 1, "reverse-order N<86ell")
+    require(36 < 259 and 86 < 259, "one common finite closure suffices")
+    margin = 2**22 - (133126 + 88578 * 23)
+    require(margin == 2023884 and 2**22 > 88578, "dyadic base and increasing increment")
+    require(133126 == 259 * 514 and 88578 == 259 * 342, "EXT1 full-clock transfer")
+    require(259 * 49 - 1 == 12690 and 259 * 28 - 1 == 7251 and 259 * 26 - 1 == 6733,
+            "strict bootstrap integer endpoints")
+    require(12690 < 2**14 and 7251 < 2**13, "bootstrap logarithm ranges")
     require(36 * 10 <= 2**9 and 2**10 > 144, "optional logarithm absorption base and derivative criterion")
     return {"A0": str(A0), "K0": str(K0), "c0": str(c0), "e0": str(e0),
             "integer_comparisons": {"three_base": 3, "three_exponent": 10000,
                                     "two_exponent_lower": 15849, "kappa_numerator": 393217,
                                     "kappa_power": 200, "kappa_two_exponent": 3717},
             "four_case_eliminations": coefficients,
+            "case_B_after_total_budget": str(cC),
+            "near_equal_cone_slacks": cone_slacks,
+            "reverse_cone_reduced_coefficient": str(reverse_reduced),
+            "reverse_cone_86_slack": str(86 * reverse_reduced - (K0 + 1)),
+            "common_finite_closure_coefficient": 259,
+            "bootstrap_half_endpoints": [12690, 7251, 6733],
             "half_period_cutoff": 2**22, "full_period_cutoff": 2**23,
-            "dyadic_margin_at_22": margin, "dyadic_next_increment_lower": 2**22 - 98496}
+            "dyadic_margin_at_22": margin, "dyadic_next_increment_lower": 2**22 - 88578}
+
+
+def logarithm_bounds(value):
+    z = F(value - 1, value + 1)
+    lower = 2 * sum((z**(2 * i + 1) / (2 * i + 1) for i in range(80)), F(0))
+    upper = lower + 2 * z**161 / (161 * (1 - z * z))
+    return lower, upper
+
+
+def full_even_gap_intervals():
+    ln2lo, ln2hi = logarithm_bounds(2)
+    ln3lo, ln3hi = logarithm_bounds(3)
+    require(ln2lo > F(1, 2), "natural-log gap conversion")
+    denominator = 1 << 96
+    low_ratio, high_ratio = ln3lo / ln2hi * denominator, ln3hi / ln2lo * denominator
+    lo = low_ratio.numerator // low_ratio.denominator
+    hi = -(-high_ratio.numerator // high_ratio.denominator)
+    require(lo == 125573666586150569315490533898 and hi == lo + 1, "certified dyadic alpha interval")
+    low = high = 0
+    minimum, minimum_at = denominator, 0
+    digest = sha256()
+    for N in range(1, 2**22):
+        low += 2 * lo
+        high += 2 * hi
+        floor = low >> 96
+        require(high >> 96 == floor, "full-even interval crosses an integer")
+        complement = ((floor + 1) << 96) - high
+        require(complement > 1 << 71, "positive fractional distance exceeds 2^-25")
+        if complement < minimum:
+            minimum, minimum_at = complement, N
+        digest.update(f"{N}:{floor}:{complement}\n".encode())
+    require(minimum == 14746683118183760512442 and minimum_at == 190537, "minimum full-even complement")
+    return {"atanh_terms": 80, "tail_first_exponent": 161,
+            "alpha_lower_numerator": lo, "alpha_upper_numerator": hi,
+            "dyadic_denominator_exponent": 96, "half_length_range": [1, 2**22 - 1],
+            "largest_full_even_length": 2**23 - 2, "comparisons": 2**22 - 1,
+            "minimum_complement_numerator": minimum, "minimum_at_half_length": minimum_at,
+            "fractional_distance_lower_bits": 25, "eta_lower_bits": 27,
+            "cases_sha256": digest.hexdigest(),
+            "scope": "exact intervals at full exponent 2N; no same-parity or integral half-total assumption"}
+
+
+def finite_even_bootstrap():
+    power = 1
+    counts = Counter()
+    digest = sha256()
+    worst_num, worst_den, worst_at, worst_total = 0, 1, 0, 0
+    for N in range(1, 12691):
+        power *= 9
+        total = power.bit_length()
+        binary = 1 << total
+        gap = binary - power
+        require(gap > 0 and (gap << 14) > binary, "full gap through N12690 exceeds 2^-14")
+        counts["eta_fourteen_comparisons"] += 1
+        if N <= 7251:
+            require((gap << 13) > binary, "full gap through N7251 exceeds 2^-13")
+            counts["eta_thirteen_comparisons"] += 1
+        if N <= 6733:
+            numerator, denominator = 2 * N * binary, 3 * gap
+            require(numerator < LOCAL_LIMIT * denominator, "local minimum ceiling for all remaining N")
+            counts["minimum_comparisons"] += 1
+            if numerator * worst_den > worst_num * denominator:
+                worst_num, worst_den, worst_at, worst_total = numerator, denominator, N, total
+        digest.update(f"{N}:{total}:{gap.bit_length()}\n".encode())
+    ceiling = -(-worst_num // worst_den)
+    require(ceiling == 17306923 and worst_at == 6138 and worst_total == 19457, "exact maximum minimum bound")
+    require(ceiling < LOCAL_LIMIT, "strict local descent margin")
+    return {"counts": dict(sorted(counts.items())), "power": "9^N=3^(2N)",
+            "maximum_minimum_bound_ceiling": ceiling, "maximum_at_half_length": worst_at,
+            "maximum_full_total_valuation": worst_total,
+            "maximum_ratio_hex_sha256": sha256(f"{worst_num:x}/{worst_den:x}".encode()).hexdigest(),
+            "cases_sha256": digest.hexdigest(), "local_descent_limit": LOCAL_LIMIT,
+            "scope": "minimal positive full gap at each even odd-period length; all larger valuations have larger gaps"}
 
 
 def local_descent():
@@ -283,37 +377,21 @@ def local_descent():
         if steps > maximum_steps:
             maximum_steps, worst_seed = steps, seed
         total_steps += steps
-        digest_record(digest, [seed, state, steps])
+        digest.update(f"{seed}:{state}:{steps}\n".encode())
+    require(total_steps == 31421072 and maximum_steps == 181 and worst_seed == 13421671,
+            "independent complete descent counts")
     return {"strict_upper_limit": LOCAL_LIMIT, "odd_seeds": LOCAL_LIMIT // 2 - 1,
             "steps": total_steps, "maximum_steps": maximum_steps, "worst_seed": worst_seed,
             "cases_sha256": digest.hexdigest(), "base_state": 1,
             "meaning": "ascending odd-seed induction proves convergence below the limit; even starts reduce automatically"}
 
-
-def period_replay():
-    script = PERIOD / "check_cycle_length_convergents.py"
-    receipt = PERIOD / "cycle_length_convergents.json"
-    hashes = {"script": sha256(script.read_bytes()).hexdigest(), "receipt": sha256(receipt.read_bytes()).hexdigest()}
-    require(hashes == {"script": "fd303326cf159435a3b05fb9188cc3a870e62da04a5348b937778f91d008b6d2",
-                       "receipt": "e48b19926ca0c155032a9d85d3c28f3f6fbe69ae404163638414a7c848c65f64"},
-            "pinned period artifact hashes")
-    command = [sys.executable] + (["-O"] if sys.flags.optimize else []) + [str(script)]
-    result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, check=False)
-    require(result.returncode == 0, "period replay failed: " + result.stdout + result.stderr)
-    data = json.loads(receipt.read_text())
-    least = int(data["V3"]["2^71"]["least_m"])
-    require(least == 72057431991 and least > 2**23, "declared odd-period comparison")
-    return {"artifact_hashes": hashes, "replay_exit_code": result.returncode,
-            "imported_odd_period_lower": least, "displayed_odd_period_strict_upper": 2**23,
-            "scope": "only the convergent consequence is replayed; the external Barina convergence computation is not rerun"}
-
-
 def main():
     require(sys.argv[1:] in ([], ["--write-receipt"]), "usage: check_imbalance.py [--write-receipt]")
-    receipt = {"schema": "half-defect-imbalance-v1", "script_sha256": sha256(Path(__file__).read_bytes()).hexdigest(),
+    receipt = {"schema": "half-defect-imbalance-v2", "script_sha256": sha256(Path(__file__).read_bytes()).hexdigest(),
                "normalization": normalization_controls(), "exact_constants": exact_constants(),
-               "actual_cycle_controls": actual_controls(), "local_descent": local_descent(),
-               "period_dependency": period_replay()}
+               "actual_cycle_controls": actual_controls(),
+               "full_even_gap_intervals": full_even_gap_intervals(),
+               "finite_even_bootstrap": finite_even_bootstrap(), "local_descent": local_descent()}
     encoded = json.dumps(receipt, indent=2, sort_keys=True) + "\n"
     output = HERE / "check_imbalance.json"
     if sys.argv[1:] == ["--write-receipt"]:
@@ -323,7 +401,8 @@ def main():
     print(json.dumps({"status": "pass", "normalization": receipt["normalization"]["counts"],
                       "actual_cycles": receipt["actual_cycle_controls"]["counts"],
                       "local_odd_seeds": receipt["local_descent"]["odd_seeds"],
-                      "period_replay": receipt["period_dependency"]["replay_exit_code"]}, sort_keys=True))
+                      "even_gap_intervals": receipt["full_even_gap_intervals"]["comparisons"],
+                      "finite_even_bootstrap": receipt["finite_even_bootstrap"]["counts"]}, sort_keys=True))
 
 
 if __name__ == "__main__":
