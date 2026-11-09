@@ -31,9 +31,11 @@ The rotation distance `ρ(w)` is the least number of positions in which `w` diff
 - **Short rotations.** The rise lemma ([`rise-lemma`](results/rise-lemma/README.md), formal) says each agreeing run multiplies the log-height by at most `log₂3`. With EXT-1, rotations with `|h|_m ≤ m^(1−θ)` have about `1.5·θ·log₂ m` mismatches, and few-mismatch rotations are long and rare ([`short-rotation-mismatch-growth`](results/short-rotation-mismatch-growth/README.md), reviewed). Its word form is a third denominator law ([`rise-lemma-denominator-law`](results/rise-lemma-denominator-law.md), reviewed).
 - **The reduction to the largest letter.** A rotation with at most `S` mismatches forces a letter of linear size, so `ρ → ∞` would follow from a largest letter of size `o(m)` ([`largest-letter-rho-reduction`](results/largest-letter-rho-reduction.md), reviewed; mechanism formal, thresholds conditional on EXT-1).
 - The sign structure of a four-mismatch rotation is formal ([`four-mismatch-sign-dichotomy`](results/four-mismatch-sign-dichotomy.md)); the exclusion of four mismatches is open.
-- **Four mismatches, 2026-11-08.** Under EXT-1 plus the declared
-  Barina input, a four-mismatch shift must be the half-period
+- **Four mismatches, 2026-11-08.** Under EXT-1 alone,
+  a four-mismatch shift must be the half-period
   ([`non-half-period-four-mismatch-exclusion`](results/non-half-period-four-mismatch-exclusion/README.md)).
+  Sharper exact geometry and a complete local descent replay
+  replace the earlier Barina-dependent closure.
   Equal-magnitude changes between the two halves are excluded at
   every amplitude under EXT-1 alone
   ([`equal-amplitude-half-defect-exclusion`](results/equal-amplitude-half-defect-exclusion/README.md)).

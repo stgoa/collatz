@@ -1,9 +1,11 @@
-"""Exact two-track geometry and addend-aware cycle controls.
+"""Exact two-track geometry, local descent and full-clock cycle closure.
 
 The complete geometric proof clips rational polygons, with no numerical solver,
 discovery artifact, variable input path, or resource guard. Finite cycle controls
 check the separate track and paired-state transfers; they are not an absence
-search. All coordinates use the raw odd-only clock.
+search. All coordinates use the raw odd-only clock. The large-period
+reduction uses the declared EXT-1 theorem; every remaining finite step is
+recomputed here without importing a period bound or a predecessor checker.
 """
 from collections import Counter, defaultdict
 from fractions import Fraction as F
@@ -18,8 +20,12 @@ import sys
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 ORDERS = tuple(range(3, 19))
-R = F(3, 8)
-EPSILON = F(1, 10000)
+R = F(37, 100)
+EPSILON = F(1, 750)
+ROW_SCALE = 3000
+LOCAL_LIMIT = 18000000
+FULL_PERIOD_LIMIT = 1 << 22
+FINAL_PERIOD_LIMIT = 24000
 
 
 def require(condition, message):
@@ -59,7 +65,7 @@ def twice_area(polygon):
 def geometric_rows(order, numerator, first_levels, second_levels):
     """Enumerate all rows for 0<x<y<1, cut coordinates (level+phase)/M.
 
-    Each row is exactly 10000*M times gap-R*paired_height-EPSILON.
+    Each row is exactly 3000*M times gap-R*paired_height-EPSILON.
     Distinct phases make the endpoint order lexicographic (level, track).
     The nonidentity partner has the same phase, so its larger level determines
     the paired maximum. Repeated cuts within a track are deduplicated exactly.
@@ -72,10 +78,10 @@ def geometric_rows(order, numerator, first_levels, second_levels):
         for index, (level, track) in enumerate(chain):
             prior, prior_track = chain[index-1]
             coefficients = [0, 0]
-            coefficients[track] += 6250
-            coefficients[prior_track] -= 10000
-            constant = (10000*(level-prior+(order if index == 0 else 0))
-                        -3750*max(level, (level+j*numerator) % order)-order)
+            coefficients[track] += 1890
+            coefficients[prior_track] -= 3000
+            constant = (3000*(level-prior+(order if index == 0 else 0))
+                        -1110*max(level, (level+j*numerator) % order)-4*order)
             yield j, (coefficients[0], coefficients[1], constant)
 
 
@@ -118,7 +124,7 @@ def complete_geometry():
                           "two_track_families": len(two_tracks),
                           "families": expected, "checked_rows": used,
                           "last_needed_rotation": dict(sorted(stop_rotations.items()))})
-    require(counts == {"shifts": 50, "families": 468340, "rows": 586929},
+    require(counts == {"shifts": 50, "families": 468340, "rows": 571465},
             "complete expected geometry counts")
     return {"orders": list(ORDERS), "coefficient": str(R), "epsilon": str(EPSILON),
             "counts": dict(sorted(counts.items())), "cases": cases,
@@ -126,7 +132,7 @@ def complete_geometry():
             "scope": "Complete exact strict-cell exclusion, not a sampled search."}
 
 
-def direct_deficits(order, numerator, cuts):
+def direct_deficits(order, numerator, cuts, coefficient=R):
     """Independent modular evaluation, retaining the pre-drop value f(0)=1."""
     h = F(numerator, order)
     result = []
@@ -137,7 +143,7 @@ def direct_deficits(order, numerator, cuts):
             previous = refined[index-1]
             gap = end-previous+(1 if index == 0 else 0)
             partner = (end+j*h) % 1
-            values.append(gap-R*max(end or F(1), partner or F(1)))
+            values.append(gap-coefficient*max(end or F(1), partner or F(1)))
         result.append(values)
     return result
 
@@ -175,7 +181,7 @@ def direct_row_controls():
                     cuts = [F(k, order)+phase[0]/order for k in first]
                     cuts += [F(k, order)+phase[1]/order for k in second]
                     direct = direct_deficits(order, numerator, cuts)
-                    expected = [10000*order*(v-EPSILON) for group in direct for v in group]
+                    expected = [ROW_SCALE*order*(v-EPSILON) for group in direct for v in group]
                     actual = [evaluate(row, phase) for _, row in rows]
                     require(expected == actual, "direct modular gap versus generated affine row")
                     counts["row_evaluations"] += len(actual)
@@ -218,7 +224,8 @@ def boundary_controls():
     require(counts["cases"] == 198, "all reduced orientation and boundary controls")
     quarter = [F(0), F(1, 4), F(1, 2), F(3, 4)]
     values = direct_deficits(2, 1, quarter)
-    require(values == [[F(-1, 8), F(-1, 32), F(-1, 8), F(-1, 32)]], "exact order-two control")
+    require(values == [[F(-3, 25), F(-11, 400), F(-3, 25), F(-11, 400)]],
+            "exact order-two control")
     phase = phase_representation(2, quarter)
     require(phase[2:] == ((0, 1), (0, 1)), "two tracks at order two")
     return {"counts": dict(counts), "cases_sha256": digest.hexdigest(),
@@ -226,6 +233,30 @@ def boundary_controls():
                                   "deficits": [[str(v) for v in row] for row in values],
                                   "maximum_deficit": str(max(values[0]))},
             "scope": "Finite transfer controls; order-two points are not asserted to be a cycle."}
+
+
+def coefficient_regression_control():
+    """The larger margin needs the sharper coefficient, not just a new EPSILON."""
+    order, numerator = 18, 7
+    x, y = F(3457, 5625), F(8933, 9000)
+    cuts = sorted([F(k, order)+x/order for k in (8, 12)]
+                  +[F(k, order)+y/order for k in (3, 17)])
+    old = [max(group) for group in direct_deficits(order, numerator, cuts, F(3, 8))]
+    current = [max(group) for group in direct_deficits(order, numerator, cuts)]
+    require(max(old) == F(293, 270000) < EPSILON,
+            "the old coefficient admits this structured strict control at the new margin")
+    require(max(current) >= EPSILON, "sharper coefficient removes the control")
+    require(phase_representation(order, cuts) == (x, y, (8, 12), (3, 17)),
+            "regression control has precisely two tracks")
+    return {"order": order, "numerator": numerator,
+            "phases": [str(x), str(y)], "track_levels": [[8, 12], [3, 17]],
+            "cuts": list(map(str, cuts)), "old_coefficient": "3/8",
+            "old_maximum_by_rotation": list(map(str, old)),
+            "old_maximum_deficit": str(max(old)),
+            "old_margin_to_new_epsilon": str(EPSILON-max(old)),
+            "current_maximum_by_rotation": list(map(str, current)),
+            "current_maximum_deficit": str(max(current)),
+            "scope": "An exact geometric control only, not a word or cycle construction."}
 
 
 def actual_cycle(word):
@@ -378,24 +409,176 @@ def actual_controls():
 
 
 def cutoff_constants():
-    require(3**2 > 2**3 and 3**5 < 2**8, "3/2<alpha<8/5")
-    base = F(2*(175+342*27), 3*2**26)+F(1, 393216)
-    margin = EPSILON-base
-    require(base == F(9665, 100663296), "inherited dyadic base")
-    require(margin == F(250831, 62914560000) > 0, "strict geometry margin")
-    require(2*517-(517+342) == 175 and 2*342-342 == 342, "dyadic decrease coefficients")
-    require(72057431991 > 2**26, "declared full odd-period comparison")
-    return {"full_odd_period_strict_upper": 2**26, "dyadic_error_upper": str(base),
-            "strict_margin": str(margin), "imported_full_odd_period_lower": 72057431991,
-            "scope": "Transfer and local descent are proved in the declared high-order predecessor; only the final period bound imports Barina."}
+    """Exact rational constants for both dyadic and final full-period cuts."""
+    require(3**12 > 2**19 and 3**63 < 2**100, "19/12<alpha<100/63")
+    require(F(1)-F(63, 100) == R, "the actual ramp coefficient is below R")
+    require(LOCAL_LIMIT > 2**17, "local replay supplies the weaker drift floor")
+    base = (F(12, 19)*(172+342*23)+1)/FULL_PERIOD_LIMIT+F(1, 393216)
+    coarse_margin = EPSILON-base
+    require(coarse_margin == F(3591763, 29884416000) > 0,
+            "dyadic m>=2^22 geometric contradiction")
+    # For 2^d<=m<2^(d+1), the nonconstant error term is
+    # N_d/(19*2^d), N_d=4104*d+6187. Its dyadic decrease holds
+    # for every d>=22 because 2*N_d-N_(d+1)=4104*d+2083>0.
+    require(12*342 == 4104 and 12*(172+342)+19 == 6187,
+            "dyadic numerator coefficients")
+    require(2*4104-4104 == 4104 and 2*6187-(4104+6187) == 2083,
+            "dyadic difference identity")
+    require(4104*22+2083 > 0, "positive and increasing dyadic difference")
+    require(2**49 < 3*2**48, "eta bootstrap gives minimum below 2^48")
+    final_base = F(595, 19*FINAL_PERIOD_LIMIT)+F(1, 393216)
+    final_margin = EPSILON-final_base
+    require(12*48+19 == 595, "ell<48 transfer numerator")
+    require(final_margin == F(8083, 311296000) > 0,
+            "all full periods m>=24000 excluded after bootstrap")
+    return {"ramp_coefficient_strict_upper": str(R),
+            "local_drift_error_upper": "1/393216",
+            "EXT1_gap_constants": [172, 341],
+            "EXT1_log_minimum_upper": "172+342*log2(m)",
+            "initial_full_odd_period_strict_upper": FULL_PERIOD_LIMIT,
+            "dyadic_numerator": [4104, 6187],
+            "dyadic_difference": [4104, 2083],
+            "dyadic_error_upper": str(base), "dyadic_strict_margin": str(coarse_margin),
+            "bootstrap_log_minimum_strict_upper": 48,
+            "final_full_odd_period_strict_upper": FINAL_PERIOD_LIMIT,
+            "final_error_upper": str(final_base), "final_strict_margin": str(final_margin),
+            "scope": "Full odd-period clock throughout; no imported period or convergence bound."}
+
+
+def logarithm_bounds(value, terms=80):
+    """Positive atanh series with an exact geometric upper bound on its tail."""
+    require(value > 1 and terms >= 1, "positive logarithm series input")
+    z = F(value-1, value+1)
+    lower = 2*sum((z**(2*j+1)/(2*j+1) for j in range(terms)), F(0))
+    tail = 2*z**(2*terms+1)/((2*terms+1)*(1-z*z))
+    require(tail > 0, "positive geometric logarithm tail")
+    return lower, lower+tail
+
+
+def full_exponent_gap():
+    """Check every full odd period below 2^22, using outward rational logs."""
+    ln2low, ln2high = logarithm_bounds(2)
+    ln3low, ln3high = logarithm_bounds(3)
+    alpha_low, alpha_high = ln3low/ln2high, ln3high/ln2low
+    scale = 1 << 96
+    low_scaled, high_scaled = alpha_low*scale, alpha_high*scale
+    low_num = low_scaled.numerator//low_scaled.denominator
+    high_num = -(-high_scaled.numerator//high_scaled.denominator)
+    require(F(low_num, scale) <= alpha_low < alpha_high <= F(high_num, scale),
+            "outward dyadic logarithm rounding")
+    require(high_num == low_num+1, "adjacent dyadic alpha endpoints")
+    require(ln2low > F(1, 2) and ln2high < 1, "elementary gap-to-eta conversion")
+    require(ln3low > 1, "rational series also certifies the drift comparison")
+    low = high = 0
+    minimum_complement, minimum_at = scale, 0
+    threshold = 1 << 71
+    for exponent in range(1, FULL_PERIOD_LIMIT):
+        low += low_num
+        high += high_num
+        integer_part = low >> 96
+        require(high >> 96 == integer_part, "alpha interval crosses an integer")
+        complement = ((integer_part+1) << 96)-high
+        require(complement > threshold, "full-exponent complementary gap exceeds 2^-25")
+        if complement < minimum_complement:
+            minimum_complement, minimum_at = complement, exponent
+    require(minimum_complement == 7373341559091880256221 and minimum_at == 190537,
+            "exact exhaustive complementary-gap minimum")
+    # For gamma=ceil(alpha*m)-alpha*m, the scan gives gamma>2^-25.
+    # Since 0<gamma<1 and 1/2<ln2<1, t=gamma*ln2 lies in(0,1),
+    # and 1-exp(-t)>=t/(1+t)>t/2>gamma/4>2^-27.
+    return {"series_terms": 80, "dyadic_denominator_bits": 96,
+            "alpha_lower_numerator": low_num, "alpha_upper_numerator": high_num,
+            "full_period_range": [1, FULL_PERIOD_LIMIT-1],
+            "full_periods_checked": FULL_PERIOD_LIMIT-1,
+            "complement_threshold_numerator": threshold,
+            "minimum_complement_numerator": minimum_complement,
+            "minimum_complement_at_full_period": minimum_at,
+            "complement_strict_lower": "2^-25", "eta_strict_lower": "2^-27",
+            "scope": "All ordinary integer exponents in the stated full-period range."}
+
+
+def final_periods():
+    """Exact powers close all remaining periods, including five large minima."""
+    power = 1
+    local_closed = 0
+    candidates = []
+    worst_error, worst_at = F(0), 0
+    for period in range(1, FINAL_PERIOD_LIMIT):
+        power *= 3
+        total = power.bit_length()
+        beta = 1 << total
+        gap = beta-power
+        require(gap > 0, "least positive full gap")
+        numerator, denominator = period*beta, 3*gap
+        # L<m/(3*eta), eta increases with the full valuation total, so
+        # this least-total rational bound applies to every possible total.
+        if numerator < LOCAL_LIMIT*denominator:
+            local_closed += 1
+            continue
+        ceiling = -(-numerator//denominator)
+        log_ceiling = ceiling.bit_length()
+        require(numerator < (1 << log_ceiling)*denominator,
+                "strict power-of-two upper bound for the cycle minimum")
+        error = (F(12*log_ceiling, 19)+1)/period+F(1, 393216)
+        require(error < EPSILON, "residual full-period geometric exclusion")
+        candidates.append({"full_period": period, "least_full_total": total,
+                           "minimum_upper_ceiling": ceiling,
+                           "log_minimum_strict_upper": log_ceiling,
+                           "geometric_error_strict_upper": str(error)})
+        if error > worst_error:
+            worst_error, worst_at = error, period
+    require([row["full_period"] for row in candidates] == [12941, 13606, 14271, 14936, 15601],
+            "exact residual full-period list")
+    require(local_closed+len(candidates) == FINAL_PERIOD_LIMIT-1,
+            "no gaps in final full-period coverage")
+    require(worst_error == F(125681783, 96683556864) and worst_at == 12941,
+            "worst residual geometric error")
+    return {"full_period_range": [1, FINAL_PERIOD_LIMIT-1],
+            "full_periods_checked": FINAL_PERIOD_LIMIT-1,
+            "closed_by_local_minimum": local_closed,
+            "residual_geometric_cases": candidates,
+            "worst_error_strict_upper": str(worst_error), "worst_at_full_period": worst_at,
+            "margin_at_worst_case": str(EPSILON-worst_error),
+            "local_minimum_lower": LOCAL_LIMIT,
+            "scope": "Every valuation total is covered by monotonicity of the positive gap."}
+
+
+def local_descent():
+    """Every positive odd seed below 18 million reaches a smaller odd seed."""
+    steps = maximum = maximum_seed = peak = 0
+    digest = sha256()
+    require((3*1+1) >> 2 == 1, "induction base at the true 3x+1 fixed point")
+    for seed in range(3, LOCAL_LIMIT, 2):
+        state, count = seed, 0
+        while state >= seed:
+            raw = 3*state+1
+            valuation = (raw & -raw).bit_length()-1
+            state = raw >> valuation
+            count += 1
+            require(count <= 10000, "bounded local descent guard")
+            peak = max(peak, state)
+        require(state > 0 and state % 2 == 1 and state < seed, "strict lower odd output")
+        steps += count
+        if count > maximum:
+            maximum, maximum_seed = count, seed
+        digest.update(f"{seed}:{state}:{count}\n".encode())
+    return {"map": "raw odd-only 3x+1", "odd_seed_range": [3, LOCAL_LIMIT-1],
+            "odd_seeds": (LOCAL_LIMIT-2)//2, "odd_steps": steps,
+            "maximum_descent_steps": maximum, "maximum_descent_seed": maximum_seed,
+            "peak_odd_output": peak, "per_seed_guard": 10000,
+            "descent_sha256": digest.hexdigest(), "nontrivial_cycle_minimum_lower": LOCAL_LIMIT,
+            "scope": "Exact first descents; strong induction gives convergence to 1 below the stated bound."}
 
 
 def main():
     require(sys.argv[1:] in ([], ["--write-receipt"]), "usage: checker [--write-receipt]")
-    result = {"schema": "non-half-period-four-mismatch-v1",
+    result = {"schema": "non-half-period-four-mismatch-v2",
               "geometry": complete_geometry(), "direct_rows": direct_row_controls(),
-              "boundary_controls": boundary_controls(), "actual_controls": actual_controls(),
-              "cutoff_constants": cutoff_constants()}
+              "boundary_controls": boundary_controls(),
+              "coefficient_regression_control": coefficient_regression_control(),
+              "actual_controls": actual_controls(), "cutoff_constants": cutoff_constants(),
+              "full_exponent_gap": full_exponent_gap(), "final_periods": final_periods(),
+              "local_descent": local_descent()}
     encoded = json.dumps(result, sort_keys=True, indent=2)+"\n"
     receipt = HERE/"check_non_half_period.json"
     if sys.argv[1:]:
@@ -403,7 +586,10 @@ def main():
     else:
         require(receipt.read_text() == encoded, "receipt mismatch; inspect before regenerating")
     print(json.dumps({"status": "passed", **result["geometry"]["counts"], "survivors": 0,
-                      **result["actual_controls"]["counts"], "standard_cycles": 11}, sort_keys=True))
+                      **result["actual_controls"]["counts"], "standard_cycles": 11,
+                      "full_exponents_checked": result["full_exponent_gap"]["full_periods_checked"],
+                      "final_periods_checked": result["final_periods"]["full_periods_checked"],
+                      "local_odd_seeds": result["local_descent"]["odd_seeds"]}, sort_keys=True))
 
 
 if __name__ == "__main__":
