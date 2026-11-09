@@ -1,0 +1,772 @@
+{
+  "checker_sha256": "29c5b372d5948693cca4fe3f25c18d67e455a914b3089f60299f736931d21c64",
+  "gap_closure": {
+    "dyadic_first_margin": 69653,
+    "dyadic_increment_subtrahend": 22165,
+    "eta_lower_bound": "2^-24 (strict)",
+    "final_half_lengths_checked": 1714,
+    "half_lengths_checked": 524287,
+    "local_limit": 1048576,
+    "minimum_ceiling": 583561,
+    "minimum_extremizer_half_length": 1636,
+    "minimum_extremizer_half_total": 2593,
+    "worst_binary_gap_depth": 24,
+    "worst_depth_indices": [
+      190537
+    ]
+  },
+  "local_descent": {
+    "descent_sha256": "45c1e6640b6f6edf2ae4da8b57ac6208472a3155b6835065728a5c7db54bcc19",
+    "maximum_steps": 115,
+    "maximum_steps_seed": 1027431,
+    "odd_range": [
+      3,
+      1048575
+    ],
+    "odd_steps": 1825738,
+    "peak_odd_output": 30079718549,
+    "scope": "Every seed descends below itself; induction gives convergence to 1.",
+    "seeds": 524287
+  },
+  "scope": "High-to-low terminal-intercept cone; no finite join-absence inference",
+  "signed_controls": {
+    "B_loop_representatives": [
+      {
+        "A": [
+          2,
+          1,
+          1,
+          3
+        ],
+        "B": [
+          4,
+          2
+        ],
+        "J": 3,
+        "actual_states": [
+          511,
+          2249,
+          7105,
+          14389,
+          25315,
+          5213,
+          11551,
+          10529,
+          19525,
+          33019,
+          13315,
+          2963
+        ],
+        "addend": 7463,
+        "arrows": 12,
+        "canonical_normalized_state": "511/7463",
+        "chi": "19/64",
+        "cone": false,
+        "h": 1,
+        "positive_second_difference": false,
+        "r": 1,
+        "signed_A": [
+          -1,
+          1,
+          5,
+          11,
+          5
+        ],
+        "signed_B": [
+          5,
+          1,
+          1
+        ],
+        "u": [
+          2,
+          1,
+          1,
+          1,
+          4,
+          1
+        ],
+        "v": [
+          2,
+          1,
+          1,
+          3,
+          4,
+          5
+        ],
+        "z": 5
+      },
+      {
+        "A": [
+          2,
+          1,
+          1,
+          3
+        ],
+        "B": [
+          4,
+          2,
+          2
+        ],
+        "J": 3,
+        "actual_states": [
+          2557,
+          9563,
+          29635,
+          59743,
+          104905,
+          21581,
+          23831,
+          51037,
+          45923,
+          84175,
+          141553,
+          56905,
+          12581,
+          17081
+        ],
+        "addend": 30581,
+        "arrows": 14,
+        "canonical_normalized_state": "2557/30581",
+        "chi": "121/256",
+        "cone": false,
+        "h": 1,
+        "positive_second_difference": false,
+        "r": 1,
+        "signed_A": [
+          -1,
+          1,
+          5,
+          11,
+          5
+        ],
+        "signed_B": [
+          5,
+          1,
+          1,
+          1
+        ],
+        "u": [
+          2,
+          1,
+          1,
+          1,
+          4,
+          2,
+          1
+        ],
+        "v": [
+          2,
+          1,
+          1,
+          3,
+          4,
+          2,
+          5
+        ],
+        "z": 5
+      },
+      {
+        "A": [
+          2,
+          1,
+          1,
+          3
+        ],
+        "B": [
+          4,
+          2,
+          2,
+          2
+        ],
+        "J": 3,
+        "actual_states": [
+          11767,
+          39953,
+          122185,
+          245533,
+          430555,
+          88511,
+          97511,
+          104261,
+          218647,
+          195113,
+          354925,
+          594643,
+          238555,
+          52511,
+          70511,
+          84011
+        ],
+        "addend": 124511,
+        "arrows": 16,
+        "canonical_normalized_state": "11767/124511",
+        "chi": "619/1024",
+        "cone": true,
+        "h": 1,
+        "positive_second_difference": false,
+        "r": 1,
+        "signed_A": [
+          -1,
+          1,
+          5,
+          11,
+          5
+        ],
+        "signed_B": [
+          5,
+          1,
+          1,
+          1,
+          1
+        ],
+        "u": [
+          2,
+          1,
+          1,
+          1,
+          4,
+          2,
+          2,
+          1
+        ],
+        "v": [
+          2,
+          1,
+          1,
+          3,
+          4,
+          2,
+          2,
+          5
+        ],
+        "z": 5
+      },
+      {
+        "A": [
+          2,
+          1,
+          1,
+          3
+        ],
+        "B": [
+          4,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "J": 3,
+        "actual_states": [
+          3131057,
+          8979463,
+          26731535,
+          53359643,
+          93301805,
+          19151881,
+          20995081,
+          22377481,
+          23414281,
+          24191881,
+          24775081,
+          25212481,
+          25540531,
+          51573137,
+          45311023,
+          81228875,
+          135105653,
+          53980205,
+          11779081,
+          15465481,
+          18230281,
+          20303881,
+          21859081,
+          23025481,
+          23900281,
+          24556381
+        ],
+        "addend": 26524681,
+        "arrows": 26,
+        "canonical_normalized_state": "3131057/26524681",
+        "chi": "950161/1048576",
+        "cone": true,
+        "h": 1,
+        "positive_second_difference": false,
+        "r": 1,
+        "signed_A": [
+          -1,
+          1,
+          5,
+          11,
+          5
+        ],
+        "signed_B": [
+          5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "u": [
+          2,
+          1,
+          1,
+          1,
+          4,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "v": [
+          2,
+          1,
+          1,
+          3,
+          4,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5
+        ],
+        "z": 5
+      }
+    ],
+    "genuine_join_controls": [
+      {
+        "A": [
+          2,
+          1,
+          1,
+          3
+        ],
+        "B": [
+          4
+        ],
+        "J": 3,
+        "actual_states": [
+          17,
+          103,
+          335,
+          683,
+          1205,
+          497,
+          463,
+          875,
+          1493,
+          605
+        ],
+        "addend": 361,
+        "arrows": 10,
+        "canonical_normalized_state": "17/361",
+        "chi": "1/16",
+        "cone": false,
+        "h": 1,
+        "positive_second_difference": false,
+        "r": 1,
+        "signed_A": [
+          -1,
+          1,
+          5,
+          11,
+          5
+        ],
+        "signed_B": [
+          5,
+          1
+        ],
+        "u": [
+          2,
+          1,
+          1,
+          1,
+          3
+        ],
+        "v": [
+          2,
+          1,
+          1,
+          3,
+          7
+        ],
+        "z": 5
+      },
+      {
+        "A": [
+          1,
+          2,
+          1,
+          1,
+          3
+        ],
+        "B": [
+          1,
+          1,
+          4
+        ],
+        "J": 3,
+        "actual_states": [
+          367,
+          997,
+          971,
+          1903,
+          3301,
+          2699,
+          4495,
+          7189,
+          5615,
+          8869,
+          6875,
+          10759,
+          16585,
+          6331,
+          9943,
+          15361
+        ],
+        "addend": 893,
+        "arrows": 16,
+        "canonical_normalized_state": "367/893",
+        "chi": "19/64",
+        "cone": false,
+        "h": 3,
+        "positive_second_difference": true,
+        "r": 2,
+        "signed_A": [
+          -3,
+          -1,
+          1,
+          5,
+          11,
+          5
+        ],
+        "signed_B": [
+          5,
+          9,
+          15,
+          3
+        ],
+        "u": [
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2
+        ],
+        "v": [
+          1,
+          2,
+          1,
+          1,
+          3,
+          1,
+          1,
+          7
+        ],
+        "z": 5
+      },
+      {
+        "A": [
+          2
+        ],
+        "B": [
+          4
+        ],
+        "J": 4,
+        "actual_states": [
+          1,
+          29,
+          71,
+          67
+        ],
+        "addend": 55,
+        "arrows": 4,
+        "canonical_normalized_state": "1/55",
+        "chi": "7/16",
+        "cone": false,
+        "h": 1,
+        "positive_second_difference": true,
+        "r": 3,
+        "signed_A": [
+          -1,
+          3
+        ],
+        "signed_B": [
+          3,
+          1
+        ],
+        "u": [
+          1,
+          1
+        ],
+        "v": [
+          2,
+          8
+        ],
+        "z": 3
+      },
+      {
+        "A": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          2,
+          3,
+          1,
+          4
+        ],
+        "B": [
+          1,
+          1,
+          1,
+          2,
+          3
+        ],
+        "J": 5,
+        "actual_states": [
+          26217809,
+          84912217,
+          172953829,
+          305016247,
+          251554937,
+          422917909,
+          679962367,
+          532764527,
+          422366147,
+          169783681,
+          300261025,
+          495977041,
+          789551065,
+          1229912101,
+          1890453655,
+          1440632993,
+          2206534993,
+          3355387993,
+          5078667493,
+          7663586743,
+          5770482809,
+          8701309717,
+          13097550079,
+          9845955311,
+          7407259235,
+          2789118589,
+          4229263387,
+          798685073,
+          1243613113,
+          1911005173,
+          2912093263,
+          2206862699
+        ],
+        "addend": 91171007,
+        "arrows": 32,
+        "canonical_normalized_state": "26217809/91171007",
+        "chi": "227/1280",
+        "cone": false,
+        "h": 15,
+        "positive_second_difference": true,
+        "r": 2,
+        "signed_A": [
+          -15,
+          -7,
+          5,
+          23,
+          25,
+          53,
+          95,
+          79,
+          67,
+          29,
+          59,
+          13
+        ],
+        "signed_B": [
+          13,
+          21,
+          33,
+          51,
+          39,
+          15
+        ],
+        "u": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          2,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1
+        ],
+        "v": [
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          2,
+          3,
+          1,
+          4,
+          1,
+          1,
+          1,
+          2,
+          8
+        ],
+        "z": 13
+      },
+      {
+        "A": [
+          2
+        ],
+        "B": [
+          2,
+          3,
+          6
+        ],
+        "J": 6,
+        "actual_states": [
+          5,
+          4063,
+          5075,
+          2917,
+          8431,
+          8351,
+          8291,
+          4123
+        ],
+        "addend": 8111,
+        "arrows": 8,
+        "canonical_normalized_state": "5/8111",
+        "chi": "1643/2048",
+        "cone": true,
+        "h": 1,
+        "positive_second_difference": true,
+        "r": 5,
+        "signed_A": [
+          -1,
+          15
+        ],
+        "signed_B": [
+          15,
+          19,
+          11,
+          1
+        ],
+        "u": [
+          1,
+          2,
+          3,
+          1
+        ],
+        "v": [
+          2,
+          2,
+          3,
+          12
+        ],
+        "z": 15
+      }
+    ],
+    "loop_map": "(3*x+1)/4 fixes 1; slope 3/4",
+    "scope": "These exact joins have positive interfaces. They test identities and both state-order signs, not absence of other joins."
+  },
+  "standard_controls": {
+    "arrows": 106,
+    "cycles": [
+      {
+        "addend": 5,
+        "minimum": 1,
+        "period": 1
+      },
+      {
+        "addend": 5,
+        "minimum": 19,
+        "period": 3
+      },
+      {
+        "addend": 5,
+        "minimum": 23,
+        "period": 3
+      },
+      {
+        "addend": 5,
+        "minimum": 187,
+        "period": 17
+      },
+      {
+        "addend": 5,
+        "minimum": 347,
+        "period": 17
+      },
+      {
+        "addend": 7,
+        "minimum": 5,
+        "period": 2
+      },
+      {
+        "addend": 13,
+        "minimum": 1,
+        "period": 1
+      },
+      {
+        "addend": 13,
+        "minimum": 131,
+        "period": 15
+      },
+      {
+        "addend": 13,
+        "minimum": 211,
+        "period": 5
+      },
+      {
+        "addend": 61,
+        "minimum": 1,
+        "period": 1
+      },
+      {
+        "addend": 61,
+        "minimum": 235,
+        "period": 41
+      }
+    ],
+    "fixture_sha256": "3aeddd6c3eb2f9b4be54aa239b1ebd197fcabd3a215880e4a853470921e01fe2"
+  },
+  "symbolic": {
+    "abstract_affine_cases": 336,
+    "abstract_scope": "Both signs of c*z/h; no exact signed word or cycle is asserted for abstract data.",
+    "factorization_residual_terms": 0
+  }
+}

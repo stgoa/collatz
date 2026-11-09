@@ -23,6 +23,12 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-08: a high-to-low terminal intercept must be small.**
+  The [terminal-intercept exclusion](../results/half-defect-terminal-intercept-exclusion/README.md)
+  uses EXT-1 alone to exclude every high-to-low Mersenne join with
+  `chi=1-3^len(B)*z/(2^sum(B)*h)>=1/2`, at arbitrary levels and
+  lengths. The remaining same-parity high-to-low branch has
+  `0<chi<1/2`; the low-to-high order and opposite parity are separate.
 - **2026-11-08: half-defect magnitudes must differ by more than one eighth of the half length.**
   The [imbalance law](../results/half-defect-imbalance-growth/README.md)
   proves `N<36 log_2(minimum)+7|p-q|` without external inputs,
@@ -176,6 +182,13 @@ and the terminal division in the smaller copy of the second block.
 The next target is to exploit the resulting large valuation jump,
 without discarding the cancellation terms or assuming a preferred
 ordering of the two positive defect magnitudes.
+
+Within the same-parity high-to-low branch, retain the
+[terminal intercept fraction](../results/half-defect-terminal-intercept-exclusion/README.md)
+as well: `chi<1/2`, and the necessary length law is
+`m<65*log2(1/(eta*chi))+90` for half length m and half-gap eta.
+The next endpoint estimate must address this small-intercept region;
+neither the low-to-high branch nor opposite parity follows from this law.
 
 **2026-11-08: current target is unequal half-period defect magnitudes.**
 The [all-amplitude theorem](../results/equal-amplitude-half-defect-exclusion/README.md)
@@ -467,6 +480,11 @@ not a consequence already supplied by the parametrization.
 From the legacy S10 §6 and frontier, marked as proposals: exact Farkas certificates per linear cell (one rotation with a uniform margin per region), the finite-`m` threshold against `ℓ* ≈ 342·log₂ m + 172`, the `(1, 1, 2)` window theorem (queued in the Lean lane), the `(2, 2, 0)` case and the small-rotation branch, and the `v₂ ≠ v₄` pattern with the slope cost of its letters `≥ 3`. Alternatively, a letter bound below `0.022m` ([`largest-letter-sublinear`](largest-letter-sublinear.md)).
 
 ## History
+
+- 2026-11-08: added the high-to-low terminal-intercept restriction under
+  EXT-1, preserving the larger-imbalance target and separate low-to-high
+  and opposite-parity branches. The general question remains `open`
+  (Codex cycle research lane, GPT-6 Astra; directed by Santiago Armstrong).
 
 - 2026-11-08: added the unconditional minimum-versus-imbalance law
   and its all-length `|p-q|<=N/8` exclusion under EXT-1 plus Barina.
