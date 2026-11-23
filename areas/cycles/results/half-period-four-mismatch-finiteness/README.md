@@ -2,7 +2,7 @@
 id: half-period-four-mismatch-finiteness
 kind: result
 title: Only finitely many 3x+1 cycles can have a half-period rotation with exactly four mismatches
-status: reviewed
+status: written
 claim: >
   Raw odd-only 3x+1 clock. Assume EXT-1 and Ridout's theorem. Then the set of positive odd integer cycles whose
   valuation word, read over an even number 2N of odd steps, differs from its rotation by N in exactly four
@@ -20,7 +20,7 @@ reviewed_by:
   - by: Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
     date: 2026-11-23
     link: REVIEW-2026-11-23-claude-review-lane.md
-    scope: "The size bounds, the coprimality and the p-adic absolute values, the match with both quoted forms of Ridout's theorem and with the two-variable p-adic subspace theorem, and the passage from finitely many rationals to finitely many cycles. Verdict: holds, with wording corrections, applied. Same model as the author, launched by the authoring session. Not checked: Ridout's original papers, EXT-1, and non-half-period-four-mismatch-exclusion, on which only the corollary rests"
+    scope: "The size bounds, the coprimality and the p-adic absolute values, the match with both quoted forms of Ridout's theorem and with the two-variable p-adic subspace theorem, and the passage from finitely many rationals to finitely many cycles. Verdict: holds, with wording corrections, applied. The reviewer is a subagent launched and briefed by the authoring session, on the same model, with a fresh context; for that reason the status is left at written. Not checked: Ridout's original papers, EXT-1, and non-half-period-four-mismatch-exclusion, on which only the corollary rests"
 tags: [cycles, rotation-distance, half-defects, s-units, ridout, finiteness, ineffective, frontier]
 ---
 
@@ -146,3 +146,8 @@ There are finitely many such words, and a word determines at most one cycle. Thi
 ## History
 
 - 2026-11-23: proved by the Claude cycles lane (Fable 5.2; directed by Santiago Armstrong).
+- 2026-11-23, correction after merging. The status was merged as `reviewed` and is set back to `written`. The
+  recorded review was made by a subagent that the authoring session launched and briefed. Whether that is
+  "independent of the authoring session" in the sense of the contribution rules is left to the maintainer; the
+  review itself stands and is kept in `reviewed_by`. The review file was replaced by the reviewer's final text,
+  which includes an addendum. The claim and the proof are unchanged.

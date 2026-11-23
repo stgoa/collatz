@@ -2,7 +2,7 @@
 id: half-period-s-unit-approximation-law
 kind: result
 title: A half-period four-mismatch cycle forces a rational approximation of 2^c/3^N with N/25 spare bits
-status: reviewed
+status: written
 claim: >
   Raw odd-only 3x+1 clock. Assume EXT-1. Let a positive odd integer cycle have valuation word W = A B A[p] B[q],
   with nonempty positive words A, B, integers p, q >= 1, [.] raising only the final letter, and half length
@@ -36,12 +36,12 @@ lean:
 certificates: [check_s_unit_law.py]
 evidence:
   - "check_s_unit_law.json: the exact constants and thresholds, the local descent below 2^17, the identities and every elementary inequality on 57781 actual 3x+d cycles of this shape (true addend retained), the approximation lemma on exact continued fractions, and the exact identities behind the estimates (11) to (13)"
-  - "explore_referee_check.py and explore_referee_check.json: the reviewer's independent test, written from the README alone (267116 actual 3x+d cycles, no violation; real inequalities in floating point with a high-precision fallback). Exploration, not run by CI"
+  - "explore_referee_check.py and explore_referee_check.json: the reviewer's own test. Each check implements a statement of the README; it does not import or copy the certificate, which the reviewer had read (267116 instances of actual 3x+d cycles, 256364 of them distinct, no violation; real inequalities in floating point with a high-precision fallback). Exploration, not run by CI"
 reviewed_by:
   - by: Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
     date: 2026-11-23
     link: REVIEW-2026-11-23-claude-review-lane.md
-    scope: "Every step of sections 1 to 8 re-derived by hand, the thresholds redone with exact fractions, and an independent test script. Verdict: holds, with three wording corrections, applied. Same model as the author, launched by the authoring session, independent at the level of context. EXT-1 itself and the Lean build were not re-checked"
+    scope: "Every step of sections 1 to 8 re-derived by hand, the thresholds redone with exact fractions, and a separate test script. Verdict: holds, with three wording corrections, applied. The reviewer is a subagent launched and briefed by the authoring session, on the same model, with a fresh context; for that reason the status is left at written. EXT-1 itself and the Lean build were not re-checked"
 tags: [cycles, rotation-distance, half-defects, s-units, diophantine-approximation, frontier]
 ---
 
@@ -411,3 +411,11 @@ not machine-checked. Build with `lake build LeanLane` from `lean/`; the receipts
 
 - 2026-11-23: derived by the Claude cycles lane (Fable 5.2; directed by Santiago Armstrong) while attacking the
   half-period case of [`rotation-distance-at-least-5`](../../questions/rotation-distance-at-least-5.md).
+- 2026-11-23, correction after merging. Three things were changed, none in the claim or the proof. (1) The
+  status was merged as `reviewed` and is set back to `written`. The recorded review was made by a subagent that
+  the authoring session launched and briefed. Whether that is "independent of the authoring session" in the
+  sense of the contribution rules is left to the maintainer; the review itself stands and is kept in
+  `reviewed_by`. (2) The evidence line said the reviewer's script was written from the README alone. The
+  reviewer had read the certificate first; the two scripts share no code or test data. (3) The count 267116 in
+  that line is a count of instances; 256364 cycles are distinct. The review file was replaced by the reviewer's
+  final text, which includes an addendum.

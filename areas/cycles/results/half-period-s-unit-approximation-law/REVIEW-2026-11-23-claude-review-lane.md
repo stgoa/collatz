@@ -1,10 +1,11 @@
 # Review of half-period-s-unit-approximation-law, 2026-11-23
 
-**Filing note (added by the authoring lane when the review was committed).** The three corrections below were
-applied in the same pull request, and the suggested exact checks were added to the certificate as V5 and to V3.
-The reviewer's script is committed in this folder as `explore_referee_check.py`, with its receipt
-`explore_referee_check.json`. Where the text says `referee_check.py`, read that file. The reviewer's lane is
-recorded as `Claude review lane` in `reviewed_by`.
+**Filing note (added by the authoring lane).** This is the reviewer's final text, including its addendum. An
+earlier version was committed with pull request 104 before the reviewer had finished; it described the
+reviewer's script as written from the README alone, which the reviewer corrected. The reviewer's script is
+committed in this folder as `explore_referee_check.py`, with its receipt `explore_referee_check.json`. Where the
+text says `referee_check.py`, read that file. The reviewer's lane is recorded as `Claude review lane` in
+`reviewed_by`.
 
 - **Reviewer.** Claude referee lane (Fable 5.2; fresh-context subagent with an adversarial brief, launched by the
   authoring session, directed by Santiago Armstrong). Independence is at the level of context: I saw only the
@@ -17,7 +18,8 @@ recorded as `Claude review lane` in `reviewed_by`.
 
 ## What I checked
 
-I re-derived every step by hand, then tested it with a script written from the README alone.
+I re-derived every step by hand, then tested it with my own script. Each of its checks implements a statement
+of the README.
 
 1. **Section 1 (normal form).** The position and sign rules for a rotation by `k <= N`, the two rotation choices
    and the half exchange. Also that a word with exactly four half-period mismatches is primitive: for `W = w^k`,
@@ -55,7 +57,9 @@ I re-derived every step by hand, then tested it with a script written from the R
 ## How
 
 `referee_check.py` (kept outside the repository, with its receipt `referee_check.json`) uses the standard library
-only. It does not import or copy the author's certificate. Integer checks are exact. Real inequalities use
+only. It does not import or copy the author's certificate. I had read that certificate first, since it is part
+of what I reviewed, so the two scripts are independent in code and in test data, not in ignorance of each other.
+The receipt is byte-identical under Python 3.10, 3.12 and 3.13 on the review machine. Integer checks are exact. Real inequalities use
 floats, with an 80-digit `decimal` re-evaluation whenever a margin is below `1e-6`.
 
 | Part | Content | Count |
@@ -122,3 +126,21 @@ certificate. They turn (11), (12), (13) into exact checks.
   and through the exact identities above.
 - **Lean.** Not rebuilt. The receipts report the three standard axioms.
 - **Novelty.** Not assessed.
+
+## Addendum, 2026-11-23: the corrected text at commit `7289b04`
+
+The authoring lane applied the corrections while this review was being finished. I checked the result.
+
+- Corrections 1 to 3 are applied as proposed (Statement, Controls remark, V4).
+- The certificate gained three checks, which I read and re-ran. V1 now checks
+  `20 (2^(k-16) + 514 + 342 (k+1)) < 2^k` at `k = 22` and the step `20 (2^(k-16) + 342) < 2^k`; the step is
+  checked at `k = 22` and stays true for larger `k`, because `2^k - 20 * 2^(k-16)` increases. V3 now checks
+  identity (3) with `d C_A`. V5 checks the four identities behind (11), (12), (13) on 5000 rational samples with
+  rational `alpha`, `kappa` in `(1, 2)`. The script passes under Python 3.10 and 3.12, also with `-O`, and
+  matches its receipt. `tools/check.py` reports 410 nodes, 0 errors, 0 warnings.
+- Two notes on how this review is quoted. The count 267116 is a count of instances; the families overlap and
+  the number of distinct cycles is 256364. And my script is independent in code, as said above; "written from
+  the README alone" should not be read as "written without having seen the certificate".
+- Whether a fresh-context subagent launched by the authoring session, on the same model, is "independent of the
+  authoring session" in the sense required for `reviewed` is for the maintainers to decide. The `scope` field
+  discloses it.
