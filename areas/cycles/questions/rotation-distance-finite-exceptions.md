@@ -47,6 +47,13 @@ size of the minimum.
   only finitely many cycles have such a rotation. With the line above this gives `s = 4`, under the union of
   the inputs. Whether the exceptional set is empty is
   [`rotation-distance-at-least-5`](rotation-distance-at-least-5.md).
+- 2026-11-23, six mismatches, half-period rotations only: finitely many cycles, under EXT-1 and Evertse's
+  theorem on vanishing sums with small parts outside 2 and 3
+  ([`half-period-six-mismatch-finiteness`](../results/half-period-six-mismatch-finiteness.md), resting on
+  [`half-period-six-mismatch-local-law`](../results/half-period-six-mismatch-local-law/README.md)). The law uses
+  the relations between consecutive paired quotients, in three- and four-term form, and an exact
+  linear-programming certificate. It does not treat rotations with five mismatches, nor rotations with six
+  mismatches other than the rotation by half the period, so `s = 5` and `s = 6` stay open.
 - A general tool: [`mismatch-chain-ridout-criterion`](../results/mismatch-chain-ridout-criterion/README.md).
   For any rotation, any mismatched start position after a common run of `a - 1` positions and any later end
   position, an exact identity relates `3^(a+n) g` to `2^c U`. Under Ridout's theorem, for each fixed
@@ -69,7 +76,14 @@ These are proposals, not results.
   this is the computation that produces the constant `1 - log_2 3 + 1/log_2 3`.
 - **First targets.** Half-period words whose halves differ in three positions (six mismatches), where the sign
   pattern of the three changes can no longer be normalised; and rotations with exactly five mismatches, which
-  cannot be half-period rotations.
+  cannot be half-period rotations. *Update 2026-11-23:* the first of these is done (see "Known progress"). The
+  second needs, before any S-unit argument, the list of rotation structures with five mismatches that survive
+  the size constraints, as was done for four mismatches by
+  [`non-half-period-four-mismatch-exclusion`](../results/non-half-period-four-mismatch-exclusion/README.md).
+- **Eight half-period mismatches.** In a normalised model, the relations used for six mismatches and longer
+  ones of the same kind do not force a small product for four changed positions (exploration in
+  [`half-period-six-mismatch-local-law`](../results/half-period-six-mismatch-local-law/README.md)). Relations
+  with more than four terms were not tried.
 - **Several error terms.** When no single chain is good, a sum of more than two terms of the form
   `(power of 2)(power of 3)(small cofactor)` vanishes. The subspace theorem handles such sums when the
   cofactors are small compared with the powers. The accounting of exponents would have to be done with the same

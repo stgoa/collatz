@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**301 results, 32 attempts, 40 questions, 40 sources.**
+**303 results, 32 attempts, 40 questions, 41 sources.**
 
 ## Frontier: open questions
 
@@ -270,6 +270,8 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`half-defect-terminal-intercept-exclusion`](areas/cycles/results/half-defect-terminal-intercept-exclusion/README.md) | A substantial terminal intercept excludes high-to-low half defects | written | written | `musson-collatz-gap-all` |  |
 | [`half-period-four-mismatch-finiteness`](areas/cycles/results/half-period-four-mismatch-finiteness/README.md) | Only finitely many 3x+1 cycles can have a half-period rotation with exactly four mismatch… | written | written | `musson-collatz-gap-all`, `ridout-1958-p-adic-roth` |  |
 | [`half-period-s-unit-approximation-law`](areas/cycles/results/half-period-s-unit-approximation-law/README.md) | A half-period four-mismatch cycle forces a rational approximation of 2^c/3^N with N/25 sp… | written | written | `musson-collatz-gap-all` | yes |
+| [`half-period-six-mismatch-finiteness`](areas/cycles/results/half-period-six-mismatch-finiteness.md) | Only finitely many 3x+1 cycles can have a half-period rotation with at most six mismatches | written | written | `evertse-1984-sums-of-s-units`, `musson-collatz-gap-all` |  |
+| [`half-period-six-mismatch-local-law`](areas/cycles/results/half-period-six-mismatch-local-law/README.md) | At most six half-period mismatches force a three- or four-term relation with N/50 spare b… | written | written | `musson-collatz-gap-all` |  |
 | [`high-order-four-mismatch-exclusion`](areas/cycles/results/high-order-four-mismatch-exclusion/README.md) | Four-mismatch rotations have order at most eighteen | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`largest-letter-rho-reduction`](areas/cycles/results/largest-letter-rho-reduction.md) | A low-mismatch rotation forces a letter of linear size, so ρ → ∞ follows from a largest l… | reviewed | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
 | [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) | A lifted four-arc family has no denominator-one word | written | written | `musson-collatz-gap-all` |  |
@@ -468,6 +470,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`eilenberg-finite-kernel`](sources/eilenberg-finite-kernel.md) | Eilenberg's finite-kernel characterisation of automatic sequences | cited | 2 |
 | [`eliahou-1993-cycle-length`](sources/eliahou-1993-cycle-length.md) | Eliahou (1993): lower bound on nontrivial cycle length | cited | 0 |
 | [`everett-1977-stopping-time`](sources/everett-1977-stopping-time.md) | Everett (1977): density one of integers with finite stopping time | cited | 0 |
+| [`evertse-1984-sums-of-s-units`](sources/evertse-1984-sums-of-s-units.md) | Evertse: vanishing sums of integers with small parts outside a fixed set of primes | cited | 1 |
 | [`fourier-wren-2026-two-periodic-stretches`](sources/fourier-wren-2026-two-periodic-stretches.md) | fourier_wren (2026): Collatz cycles with two periodic stretches | cited | 0 |
 | [`halbeisen-1997-rational-cycles`](sources/halbeisen-1997-rational-cycles.md) | Halbeisen–Hungerbühler (1997): optimal bounds for rational Collatz cycles | cited | 0 |
 | [`hercher-2023-cycle-length`](sources/hercher-2023-cycle-length.md) | Hercher (2023): no Collatz m-cycles with m ≤ 91, and the period bound | cited | 2 |
@@ -485,7 +488,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 38 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 40 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
 | [`ridout-1958-p-adic-roth`](sources/ridout-1958-p-adic-roth.md) | Ridout: the p-adic generalization of the Thue–Siegel–Roth theorem | cited | 2 |
@@ -725,10 +728,13 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-23: [`half-period-four-mismatch-finiteness`](areas/cycles/results/half-period-four-mismatch-finiteness/README.md) reviewed by Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
 - 2026-11-23: [`half-period-s-unit-approximation-law`](areas/cycles/results/half-period-s-unit-approximation-law/README.md) added (result)
 - 2026-11-23: [`half-period-s-unit-approximation-law`](areas/cycles/results/half-period-s-unit-approximation-law/README.md) reviewed by Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
+- 2026-11-23: [`half-period-six-mismatch-finiteness`](areas/cycles/results/half-period-six-mismatch-finiteness.md) added (result)
+- 2026-11-23: [`half-period-six-mismatch-local-law`](areas/cycles/results/half-period-six-mismatch-local-law/README.md) added (result)
 - 2026-11-23: [`mismatch-chain-ridout-criterion`](areas/cycles/results/mismatch-chain-ridout-criterion/README.md) added (result)
 - 2026-11-23: [`mismatch-chain-ridout-criterion`](areas/cycles/results/mismatch-chain-ridout-criterion/README.md) reviewed by Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
 - 2026-11-23: [`rotation-distance-finite-exceptions`](areas/cycles/questions/rotation-distance-finite-exceptions.md) added (question)
 - 2026-11-23: [`saturated-sets-meet-every-residue-class-formal`](areas/invariants/results/saturated-sets-meet-every-residue-class-formal.md) added (result)
+- 2026-11-23: [`evertse-1984-sums-of-s-units`](sources/evertse-1984-sums-of-s-units.md) added (source)
 - 2026-11-23: [`ridout-1958-p-adic-roth`](sources/ridout-1958-p-adic-roth.md) added (source)
 - 2026-11-08: [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) added (result)
 - 2026-11-08: [`background-maximum-four-arc-exclusion`](areas/cycles/results/background-maximum-four-arc-exclusion/README.md) added (result)
@@ -743,9 +749,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`effective-proportional-two-block-exclusion`](areas/cycles/results/effective-proportional-two-block-exclusion/README.md) added (result)
 - 2026-11-08: [`equal-amplitude-half-defect-exclusion`](areas/cycles/results/equal-amplitude-half-defect-exclusion/README.md) added (result)
 - 2026-11-08: [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) added (result)
-- 2026-11-08: [`expanding-background-defect-growth`](areas/cycles/results/expanding-background-defect-growth/README.md) added (result)
-- 2026-11-08: [`expanding-double-block-minimum-bound`](areas/cycles/results/expanding-double-block-minimum-bound/README.md) added (result)
-- 2026-11-08: [`expanding-negative-prefix-mersenne-exclusion`](areas/cycles/results/expanding-negative-prefix-mersenne-exclusion/README.md) added (result)
 
 ## Contributors
 
@@ -753,10 +756,10 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 53.8% | 203 | 9 |
-| Claude side lane | 13.3% | 34 | 132 |
-| Claude review lane | 7.6% | 0 | 124 |
-| Claude cycles lane | 6.1% | 25 | 0 |
+| ChatGPT main lane | 53.6% | 203 | 9 |
+| Claude side lane | 13.2% | 34 | 132 |
+| Claude review lane | 7.5% | 0 | 124 |
+| Claude cycles lane | 6.4% | 27 | 0 |
 | Claude Lean lane | 4.9% | 3 | 69 |
 | Codex cycle research lane | 3.2% | 22 | 0 |
 | Claude PR1 lane | 1.9% | 6 | 9 |

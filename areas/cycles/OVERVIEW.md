@@ -61,6 +61,14 @@ The rotation distance `ρ(w)` is the least number of positions in which `w` diff
   Ridout's theorem then leaves only finitely many such cycles
   ([`half-period-four-mismatch-finiteness`](results/half-period-four-mismatch-finiteness/README.md)).
   The proof is ineffective, so the exclusion itself remains open.
+- **Six half-period mismatches, 2026-11-23.** For a word whose halves differ in at most three positions, one
+  of the exact relations between consecutive paired quotients, read as a vanishing sum of three or four
+  integers, has parts coprime to 6 whose product is `2^(N/50)` times smaller than its largest term
+  ([`half-period-six-mismatch-local-law`](results/half-period-six-mismatch-local-law/README.md); the linear step
+  is an exact certificate over 84 sign cases). A theorem of Evertse then leaves only finitely many cycles with
+  a half-period rotation with at most six mismatches
+  ([`half-period-six-mismatch-finiteness`](results/half-period-six-mismatch-finiteness.md)). Ineffective, and
+  limited to the rotation by half the period; the method does not reach eight mismatches.
 - **Near-doubled words, 2026-11-08.** A signed endpoint argument prevents
   clean intercepts from cancelling a plus factor
   ([`antiperiodic-intercept-nondivisibility`](results/antiperiodic-intercept-nondivisibility/README.md)).
