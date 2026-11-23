@@ -24,9 +24,13 @@ product, with that many bits per unit of m to spare.
     python3 areas/cycles/results/few-mismatch-rotation-orders-sweep/explore_large_order_model.py [--write-receipt]
     python3 areas/cycles/results/few-mismatch-rotation-orders-sweep/explore_large_order_model.py --orders 3 30 [--write-receipt]
 
+    python3 areas/cycles/results/few-mismatch-rotation-orders-sweep/explore_large_order_model.py --rotation-only [--write-receipt]
+
 The second form runs the same explicit model with an exact rational rotation a/M for every order in the range
 (indices read modulo M, rows for every nonzero multiple), for the one family that is feasible, and merges its
 entries into the receipt. It assumes a bulk of constant density, which Model 1 does not.
+The third form scans the seven families with the rows and the relations of the rotation alone (no multiples),
+for the densities 0, 0.1 and 0.25, and merges its entries into the receipt.
 """
 import json
 import math
@@ -165,7 +169,7 @@ def families(limit):
                                                                              comb(dr * (a + b + 1), c, "u", dr)))], {}))
 
 
-def scan(nh, nq, limit, betas, J):
+def scan(nh, nq, limit, betas, J, Jcrit=3):
     out = {}
     for beta in betas:
         gamma = A1 - beta
@@ -176,7 +180,7 @@ def scan(nh, nq, limit, betas, J):
                 h = 0.5 * ih / nh
                 for iq in (range(nq) if uses_q else range(1)):
                     cols, amps = build((iq + 0.37) / nq, gamma)
-                    ok, best = analyse(h, cols, amps, beta=beta, J=J)
+                    ok, best = analyse(h, cols, amps, beta=beta, J=J, Jcrit=Jcrit)
                     r["tested"] += 1
                     if ok:
                         r["feasible"] += 1
@@ -241,6 +245,17 @@ def exact_orders(lo, hi, nq):
 
 
 def main():
+    if "--rotation-only" in sys.argv:
+        res = scan(80, 80, 7, [0.0, 0.1, 0.25], 1, Jcrit=1)
+        for k, v in res.items():
+            print(k, v)
+        if "--write-receipt" in sys.argv:
+            path = HERE / "explore_large_order_model.json"
+            data = json.loads(path.read_text()) if path.exists() else {}
+            data["five_mismatch_families_rotation_only"] = res
+            path.write_text(json.dumps(data, indent=1) + "\n")
+            print("receipt updated")
+        return
     if "--orders" in sys.argv:
         i = sys.argv.index("--orders")
         res = exact_orders(int(sys.argv[i + 1]), int(sys.argv[i + 2]), 300)
@@ -265,8 +280,9 @@ def main():
     if "--write-receipt" in sys.argv:
         path = HERE / "explore_large_order_model.json"
         old = json.loads(path.read_text()) if path.exists() else {}
-        if "family_A_exact_orders" in old:
-            receipt["family_A_exact_orders"] = old["family_A_exact_orders"]
+        for kept in ("family_A_exact_orders", "five_mismatch_families_rotation_only"):
+            if kept in old:
+                receipt[kept] = old[kept]
         path.write_text(json.dumps(receipt, indent=1) + "\n")
         print("receipt written")
 

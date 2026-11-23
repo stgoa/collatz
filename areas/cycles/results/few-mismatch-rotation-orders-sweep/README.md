@@ -185,6 +185,25 @@ multiples nothing survives on the second grid: for a rotation number whose first
 distinct, the model has no five-mismatch configuration with runs of at most 8 small defects. Survivors would
 then exist only at small orders, where the multiples wrap around.
 
+**The rotation alone in Model 2.** The seven families were scanned again with the rows and the relations of
+the rotation only, no multiple, on an 80 by 80 grid, for the densities 0, 0.1 and 0.25
+(entry `five_mismatch_families_rotation_only` of the receipt):
+
+| Family | Feasible at `beta = 0` | at `0.1` | at `0.25` | Weakest best margin (per unit of `m`) |
+|---|---|---|---|---|
+| giant with adjacent small run, separate small run | 32638 | 1966 | 0 | 0.1208 |
+| giant alone, separate run with two small letters | 15236 | 915 | 0 | 0.1218 |
+| two adjacent visible letters, separate small run | 867 | 11 | 0 | 0.1588 |
+| giant with adjacent small run, separate run of visible letters | 5407 | 225 | 0 | 0.1276 |
+| run of equal visible letters, separate run with two small letters | 0 | 0 | 0 |  |
+| one orbit: giant, small run, gap, small run | 2998 | 185 | 0 | 0.1245 |
+| one orbit: giant followed by three different small runs | 597 | 37 | 0 | 0.1245 |
+
+With fewer rows many more configurations are feasible, in six of the seven families, including structures
+with two visible letters. At every feasible grid point a relation is forced, with at least 0.12 spare bits
+per unit of `m`. Nothing is feasible at density 0.25. So in this model a rotation with five mismatches forces
+a relation by itself, whatever the structure; the multiples only decide which structures exist.
+
 **Exact small orders in Model 2.** The same explicit model, with the rotation number `a/M` exact and indices
 read modulo `M`, was run for the feasible family at every order from 3 to 32, with rows for every nonzero
 multiple and runs of at most 8 defects:
@@ -262,6 +281,7 @@ reach of these relations.
 ## History
 
 - 2026-11-23, later: added the runs with the rotation alone, and the pointer to the near-circuit node.
+- 2026-11-23, later still: added the scan of the seven large-order families with the rotation alone.
 
 - 2026-11-23: explored by the Claude cycles lane (Fable 5.2; directed by Santiago Armstrong), right after the
   proof for six half-period mismatches. Recorded as `proposed` at the request of the director to move fast and
