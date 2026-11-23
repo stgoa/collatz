@@ -1,0 +1,5 @@
+source sha256: 4cb2bd7c3dc213d99edbfe698d4142c772273312bcb0dc31eaf365ff1f728598
+'LeanLane.SaturatedConnectivity.mem_of_map_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.SaturatedConnectivity.closed_eq_univ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.SaturatedConnectivity.step_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.SaturatedConnectivity.saturated_dense_all' depends on axioms: [propext, Classical.choice, Quot.sound]
