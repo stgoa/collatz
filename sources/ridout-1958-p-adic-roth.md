@@ -43,9 +43,9 @@ has finitely many solutions `xi` in the rationals. Bilu adds that the theorem "i
 the targets `alpha_p` are rational", and that infinite targets are allowed, with the convention
 `infinity - xi = 1/xi`.
 
-**Waldschmidt's form.** Let `alpha, beta` be algebraic numbers, not both zero. For `1 <= i <= s` let `p_i` be a
-prime and `alpha_i, beta_i` rational numbers, not both zero. Let `epsilon > 0`. Then the set of rational numbers
-`p/q` with
+**Waldschmidt's form.** Let `alpha, beta` be algebraic numbers, not both zero. Let `S = {p_1, ..., p_s}` be a
+finite set of primes, so the `p_i` are distinct. For `1 <= i <= s` let `alpha_i, beta_i` be rational numbers,
+not both zero. Let `epsilon > 0`. Then the set of rational numbers `p/q` with
 
 ```
 q * |q alpha - p beta| * product over i of |q alpha_i - p beta_i|_(p_i)  <  1 / max(|p|, q)^epsilon

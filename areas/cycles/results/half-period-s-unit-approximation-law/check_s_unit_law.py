@@ -8,18 +8,21 @@ cycle forces 0 < 2^c U - 3^N V < 2^(c - N/25) / V for explicit (c, U, V). This s
 
 V1  the exact rational constants of the proof: 15849/10000 < log2(3) < 317/200, log2(3 + 2^-17) < 317/200,
     1 - a + 1/a >= 2911/63400 at a = 317/200, and the two threshold inequalities for every N >= 2^22
-    (checked on each dyadic block [2^k, 2^(k+1)) by a base case at k = 22 and a monotone step);
+    (checked on each dyadic block [2^k, 2^(k+1)) by a base case at k = 22 and a monotone step), together with
+    2 tau + ell < N/20 on the same blocks;
 V2  local descent: every odd n with 3 <= n < 2^17 reaches a smaller odd number, so a nontrivial cycle of the
     odd-only 3x+1 map has minimum at least 2^17;
 V3  on a deterministic family of actual 3x+d cycles with word A B A[p] B[q] (exhaustive small blocks plus a fixed
     pseudo-random sample, the true addend d retained): the four boundary equations, the integrality and signs of
-    h and j, the two exact identities of the node (with C replaced by d*C), the four slope inequalities, the
+    h and j, identity (3) and the two exact identities (4), (5) (with C replaced by d*C), the four slopes, the
     placement of every minimum among the smaller copies, and each elementary inequality used in the four cases
     (I, II, B, C) of the proof, all in exact integer arithmetic; the known 3x+47 and 3x+1631 cycles are replayed;
 V4  the elementary approximation lemma on exact continued fractions: for convergents P/Q of 2^c/3^N from below
     and multiples (U, V) = (gQ, gP) with Theta (2UV + 1) < 2^c U, Theta = 2^c U - 3^N V, the next partial quotient
     exceeds 2^c/(Theta V) - 3, and no other fraction with denominator below 3^N/(2 Theta) is as close;
-V5  receipt comparison.
+V5  the algebra of the estimates (11), (12), (13): each is an exact identity between the difference of its two
+    sides and a sum of slacks of the elementary inequalities, checked with rational numbers;
+V6  receipt comparison.
 
 Exit 1 on failure; --write-receipt regenerates check_s_unit_law.json. Standard library only; no floating point;
 no assert statements (valid under python3 -O)."""
@@ -69,6 +72,10 @@ def v1():
     base2 = slope2 * 2 ** k0 - (1 + kap) * (514 + 342 * (k0 + 1))
     need(base2 > 0, "V1: exclusion threshold at k = 22")
     need(slope2 * 2 ** k0 > 342 * (1 + kap), "V1: exclusion threshold step")
+    # used by the finiteness node: 2 tau + ell < 2^(k-16) + 514 + 342 (k+1) < 2^k / 20 on the block k >= 22
+    need(20 * (2 ** (k0 - 16) + 514 + 342 * (k0 + 1)) < 2 ** k0, "V1: 2 tau + ell < N/20 at k = 22")
+    need(20 * (2 ** (k0 - 16) + 342) < 2 ** k0, "V1: 2 tau + ell < N/20 step")
+    out["two_tau_plus_ell_bound_at_first_block"] = 2 ** (k0 - 16) + 514 + 342 * (k0 + 1)
     out["c0"] = str(c0)
     out["c_ell_upper"] = str(c_ell)
     out["c_tau_upper"] = str(c_tau)
@@ -152,6 +159,8 @@ def check_word(A, B, p, q, stats):
     ok &= need(2 ** p * t - z == 3 ** a * h and y - 2 ** q * x == 3 ** b * j, f"V3 three-adic pair {tag}")
     if j < 0:
         ok &= need(p < q, f"V3 j < 0 forces p < q {tag}")
+    ok &= need((2 ** p - 1) * (2 ** q - 1) * d * CA == 3 ** a * 2 ** sA * (2 ** q - 2 ** p) * h
+               + (2 ** (sA + sB + p) * (2 ** q - 1) + 3 ** N * (2 ** p - 1)) * j, f"V3 identity (3) {tag}")
     # the two exact identities (with the true addend d)
     th1 = 2 ** (sB + p + q) * x - 3 ** N * h
     th2 = 2 ** (sA + p) * t - 3 ** N * j
@@ -284,16 +293,50 @@ def v4():
             "largest_2^c_over_Theta_V_floor": int(largest_ratio)}
 
 
+# ---------------------------------------------------------------- V5
+def v5():
+    """The three estimates as exact identities in rational numbers (alpha, kappa arbitrary rationals)."""
+    rng = Lcg(5)
+
+    def rat():
+        return Fraction(rng.below(4001) - 2000, 1 + rng.below(97))
+
+    samples = 5000
+    for _ in range(samples):
+        al = 1 + Fraction(1 + rng.below(996), 997)
+        ka = 1 + Fraction(1 + rng.below(996), 997)
+        N, a, X, T, ell, tau, pp, qq, sA, sB = (rat() for _ in range(10))
+        b = N - a
+        inv = 1 / al
+        rhs12 = (1 - al + inv) * N + (1 - inv) * (qq - pp) / 2 - (1 + inv) * tau - (2 + inv) * ell
+        slack12 = ((sA - (a + X - ell)) + ((X + qq) / al - b)
+                   + (1 + inv) * ((al - 1) * N + tau + ell - (pp + qq) / 2 - X))
+        need((sA - 2 * X - pp) - rhs12 == slack12, "V5 identity behind (12)")
+        rhs13 = (1 - al + inv) * N + (1 - inv) * pp / 2 + (1 + inv) * qq / 2 - (1 + inv) * tau - (2 + inv) * ell
+        slack13 = ((sB - (b + T - ell)) + ((T + pp) / al - a)
+                   + (1 + inv) * ((al - 1) * N + tau + ell - (pp + qq) / 2 - T))
+        need((sB - 2 * T) - rhs13 == slack13, "V5 identity behind (13)")
+        rhs11 = (1 + ka) * ell + ka * (al - 1) * N + 2 * ka * tau
+        slack_b = ((ell + (ka - 1) * b - a) + ka * (ell + (qq - pp) / 2 + tau - b)
+                   + ka * ((al - 1) * N + tau - (pp + qq) / 2) + ka * pp)
+        slack_c = ((ell + (ka - 1) * a - b) + ka * (ell + (pp + qq) / 2 + tau - a)
+                   + ka * ((al - 1) * N + tau - (pp + qq) / 2))
+        need(rhs11 - N == slack_b, "V5 identity behind (11), case B")
+        need(rhs11 - N == slack_c, "V5 identity behind (11), case C")
+    print(f"V5: the identities behind (11), (12), (13) hold on {samples} rational samples")
+    return {"samples": samples}
+
+
 def main():
     write = "--write-receipt" in sys.argv
-    summary = {"V1": v1(), "V2": v2(), "V3": v3(), "V4": v4()}
+    summary = {"V1": v1(), "V2": v2(), "V3": v3(), "V4": v4(), "V5": v5()}
     if write:
         RECEIPT.write_text(json.dumps(summary, indent=1, sort_keys=True) + "\n")
         print("receipt written")
     elif not RECEIPT.exists():
-        fail("V5 receipt missing")
+        fail("V6 receipt missing")
     elif json.loads(RECEIPT.read_text()) != summary:
-        fail("V5 summary differs from the receipt")
+        fail("V6 summary differs from the receipt")
     if failures:
         print(f"{len(failures)} failure(s)")
         sys.exit(1)

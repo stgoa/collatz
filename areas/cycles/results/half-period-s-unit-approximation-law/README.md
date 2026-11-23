@@ -2,7 +2,7 @@
 id: half-period-s-unit-approximation-law
 kind: result
 title: A half-period four-mismatch cycle forces a rational approximation of 2^c/3^N with N/25 spare bits
-status: written
+status: reviewed
 claim: >
   Raw odd-only 3x+1 clock. Assume EXT-1. Let a positive odd integer cycle have valuation word W = A B A[p] B[q],
   with nonempty positive words A, B, integers p, q >= 1, [.] raising only the final letter, and half length
@@ -35,7 +35,13 @@ lean:
   - LeanLane.HalfPeriodSUnit.isolated
 certificates: [check_s_unit_law.py]
 evidence:
-  - "check_s_unit_law.json: the exact constants and thresholds, the local descent below 2^17, the identities and every elementary inequality on 57781 actual 3x+d cycles of this shape (true addend retained), and the approximation lemma on exact continued fractions"
+  - "check_s_unit_law.json: the exact constants and thresholds, the local descent below 2^17, the identities and every elementary inequality on 57781 actual 3x+d cycles of this shape (true addend retained), the approximation lemma on exact continued fractions, and the exact identities behind the estimates (11) to (13)"
+  - "explore_referee_check.py and explore_referee_check.json: the reviewer's independent test, written from the README alone (267116 actual 3x+d cycles, no violation; real inequalities in floating point with a high-precision fallback). Exploration, not run by CI"
+reviewed_by:
+  - by: Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
+    date: 2026-11-23
+    link: REVIEW-2026-11-23-claude-review-lane.md
+    scope: "Every step of sections 1 to 8 re-derived by hand, the thresholds redone with exact fractions, and an independent test script. Verdict: holds, with three wording corrections, applied. Same model as the author, launched by the authoring session, independent at the level of context. EXT-1 itself and the Lean build were not re-checked"
 tags: [cycles, rotation-distance, half-defects, s-units, diophantine-approximation, frontier]
 ---
 
@@ -81,7 +87,8 @@ positive integer, `j` is a nonzero integer, and exactly one of the following hol
 | II | `j > 0` | in the copy `B[q]` | `2^(sA+p) t - 3^N j = 3^a 2^q x + C_A` | `j * (left side) < 2^(sA+p-N/25)` |
 
 "In a copy" means: every minimum of the cycle is the state before one of the letters of that copy. Both
-identities hold for every such cycle, of any length; only the gap needs EXT-1 and `N >= 2^22`.
+identities, `h > 0`, `j != 0` and `j < 0 => p < q` hold for every such cycle, of any length and without EXT-1.
+The placement of the minimum and the gap are proved here under EXT-1 for `N >= 2^22`.
 
 **Corollary (isolated approximation).** Put `(c, U, V) = (sB+p+q, x, h)` in Case I and `(sA+p, t, j)` in Case II,
 and `Theta = 2^c U - 3^N V`. Then `0 < Theta`, `Theta * V < 2^(c - N/25)`, and every fraction `P'/Q'` different
@@ -331,13 +338,17 @@ From `3^N V = 2^c U - Theta`,
 
 - **V1.** The bounds on `alpha` and `kappa`, the value `2911/63400`, and the two threshold inequalities for every
   `N >= 2^22`. Each is checked on the block `2^k <= N < 2^(k+1)` at `k = 22`, with a monotone step for larger `k`.
+  The same block argument gives `2 tau + ell < N/20`, used by the finiteness node.
 - **V2.** Every odd `3 <= n < 2^17` reaches a smaller odd number.
 - **V3.** 57781 actual `3x+d` cycles with word `A B A[p] B[q]`, the true addend retained: all blocks of length at
   most 3 over the letters 1 to 3 with `p, q <= 5`, and a fixed pseudo-random sample with longer blocks. It checks
-  (1), (2), the sign facts, the identities (4) and (5) with `C` replaced by `d C`, the slopes (8), the placement
+  (1), (2), the sign facts, the identities (3), (4) and (5) with `C` replaced by `d C`, the slopes (8), the placement
   of every minimum, and each elementary inequality of Cases I, II, B and C. The `3x+47` cycle with word
   `(1,1,2,3)` and the `3x+1631` cycle through `9145` are replayed explicitly.
-- **V4.** The approximation step of section 8, and its continued-fraction form, on 11513 exact convergents.
+- **V4.** The approximation step of section 8, and its continued-fraction form, on 11513 multiples `(gQ, gP)`,
+  `g` in `{1, 5, 7}`, of exact convergents.
+- **V5.** The algebra behind (11), (12) and (13): each is an exact identity between its two sides and a sum of
+  the slacks of the elementary inequalities, checked with rational numbers.
 
 ```
 python3 areas/cycles/results/half-period-s-unit-approximation-law/check_s_unit_law.py
@@ -349,7 +360,7 @@ argument.
 
 ## Lean
 
-Only the algebraic core is formalised. The node stays `written`.
+Only the algebraic core is formalised. The gap estimate has no Lean proof.
 
 [`LeanLane/HalfPeriodSUnit.lean`](../../../../lean/LeanLane/HalfPeriodSUnit.lean) takes the four block equations
 (1), with a general addend `d` and integer intercepts, as the structure `Blocks`. From them it proves:
@@ -388,8 +399,9 @@ not machine-checked. Build with `lake build LeanLane` from `lean/`; the receipts
   a finite closure for small `N`. They are not used here. Section 5 re-proves what is needed, with the weaker
   threshold `N >= 2^22`.
 - **Controls.** Actual cycles of this shape exist for other addends, for example `3x+47` and `3x+1631`. They are
-  not contradicted. The identities hold for them with `d C` in place of `C`. The gap needs (10), which bounds the
-  minimum of a `3x+1` cycle by a power of its length. Short cycles of `3x+d` have `N` far below `2^22`.
+  not contradicted. The identities hold for them with `d C` in place of `C`. The placement and the gap need two
+  facts special to `d = 1`: the minimum is at least `2^17` (V2), and (10), which bounds the minimum of a `3x+1`
+  cycle by a power of its length. Short cycles of `3x+d` have `N` far below `2^22`.
 - **What it does not do.** The inequality is an Archimedean statement about one pair `(U, V)`. No effective
   lower bound for `|2^c U - 3^N V|` of this strength is known, so no cycle is excluded here.
 - **Novelty.** Undetermined. The identities are elementary. No search of the literature for this use of the
