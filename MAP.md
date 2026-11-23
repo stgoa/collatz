@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**299 results, 32 attempts, 39 questions, 40 sources.**
+**300 results, 32 attempts, 40 questions, 40 sources.**
 
 ## Frontier: open questions
 
@@ -41,6 +41,7 @@ The whole knowledge graph on one page. Each row links to its node file; read the
 | [`primitive-cancellation-below-half`](areas/cycles/questions/primitive-cancellation-below-half.md) | cycles | Remaining target (C), raw odd-only clock, any 3x+q: determine which exponents c(s) and length thresholds m_0(s) make every primitive positive valuation word wi… | 0 |
 | [`rotation-defect-denominator-candidate`](areas/cycles/questions/rotation-defect-denominator-candidate.md) | cycles | Prove or refute: for every positive valuation word w of length m with total A, D = 2^A − 3^m > 0 and g = gcd(C_w, D), and every nonidentity rotation differing… | 0 |
 | [`rotation-distance-at-least-5`](areas/cycles/questions/rotation-distance-at-least-5.md) | cycles | Prove or refute: no nonidentity rotation of the valuation word of a hypothetical nontrivial primitive integer cycle of the raw odd-only 3x+1 map differs from i… | 0 |
+| [`rotation-distance-finite-exceptions`](areas/cycles/questions/rotation-distance-finite-exceptions.md) | cycles | Raw odd-only 3x+1 clock. Prove or refute, for every integer s >= 1: only finitely many nontrivial primitive positive integer cycles have a nonidentity rotation… | 0 |
 | [`rotation-distance-growth`](areas/cycles/questions/rotation-distance-growth.md) | cycles | Find an explicit F(m) → ∞ such that the primitive valuation word w of every hypothetical nontrivial integer cycle of the odd-only 3x+1 map (period m) satisfies… | 0 |
 | [`undecidable-collatz-family-threshold`](areas/decidability/questions/undecidable-collatz-family-threshold.md) | decidability | Conway (1972) and Kurtz–Simon (2007) show that convergence questions are undecidable, respectively Π⁰₂-complete, for the class of generalized Collatz maps n ↦… | 0 |
 | [`capped-first-passage-power-bounds`](areas/invariants/questions/capped-first-passage-power-bounds.md) | invariants | Odd-only 3x+1 map S, time in odd arrows. Draw N logarithmically on the odd integers of [X, 2X]; follow its orbit until the first state <= X^(1/4), capped at ce… | 0 |
@@ -277,6 +278,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`mechanical-word-exact-denominator`](areas/cycles/results/mechanical-word-exact-denominator/README.md) | Mechanical valuation words have reduced denominator exactly 2^(A/g) − 3^(k/g), so none is… | formal | formal | — | yes |
 | [`mersenne-boundary-exact-divisibility`](areas/cycles/results/mersenne-boundary-exact-divisibility/README.md) | Mersenne block endpoint equations force two exact powers of two | formal | formal | `mathlib-065356127b1d` | yes |
 | [`mersenne-join-state-enclosure`](areas/cycles/results/mersenne-join-state-enclosure/README.md) | Signed Mersenne joins have a uniform state enclosure in terms of endpoint and slope | written | written | — |  |
+| [`mismatch-chain-ridout-criterion`](areas/cycles/results/mismatch-chain-ridout-criterion/README.md) | A Ridout criterion along a chain of positions of a rotated 3x+1 cycle | written | written | `musson-collatz-gap-all`, `ridout-1958-p-adic-roth` |  |
 | [`mismatch-height-tradeoff`](areas/cycles/results/mismatch-height-tradeoff/README.md) | Mismatch–height trade-off at q = 1: every rotation differs in more than log₂3·m/(B + 342… | formal | reviewed | `musson-collatz-gap-all` | yes |
 | [`narrow-cycle-spectrum-law`](areas/cycles/results/narrow-cycle-spectrum-law.md) | Narrow-cycle spectrum of 3x+d: one cycle per coprime (A, m) with 0 < 2^A − 3^m dividing d | reviewed | reviewed | — |  |
 | [`narrow-cycles-are-mechanical`](areas/cycles/results/narrow-cycles-are-mechanical/README.md) | A cycle with H < 2L is exactly a mechanical word, so every nontrivial 3x+1 cycle has H >… | formal | formal | — | yes |
@@ -485,7 +487,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 38 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
-| [`ridout-1958-p-adic-roth`](sources/ridout-1958-p-adic-roth.md) | Ridout: the p-adic generalization of the Thue–Siegel–Roth theorem | cited | 1 |
+| [`ridout-1958-p-adic-roth`](sources/ridout-1958-p-adic-roth.md) | Ridout: the p-adic generalization of the Thue–Siegel–Roth theorem | cited | 2 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
 | [`simons-2008-generalized-syracuse-cycles`](sources/simons-2008-generalized-syracuse-cycles.md) | Simons (2008): bounds for cycles of generalized Syracuse sequences | cited | 0 |
 | [`steiner-1977-one-cycles`](sources/steiner-1977-one-cycles.md) | Steiner (1977): no nontrivial 1-cycles | cited | 0 |
@@ -722,6 +724,8 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-23: [`half-period-four-mismatch-finiteness`](areas/cycles/results/half-period-four-mismatch-finiteness/README.md) reviewed by Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
 - 2026-11-23: [`half-period-s-unit-approximation-law`](areas/cycles/results/half-period-s-unit-approximation-law/README.md) added (result)
 - 2026-11-23: [`half-period-s-unit-approximation-law`](areas/cycles/results/half-period-s-unit-approximation-law/README.md) reviewed by Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
+- 2026-11-23: [`mismatch-chain-ridout-criterion`](areas/cycles/results/mismatch-chain-ridout-criterion/README.md) added (result)
+- 2026-11-23: [`rotation-distance-finite-exceptions`](areas/cycles/questions/rotation-distance-finite-exceptions.md) added (question)
 - 2026-11-23: [`ridout-1958-p-adic-roth`](sources/ridout-1958-p-adic-roth.md) added (source)
 - 2026-11-08: [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) added (result)
 - 2026-11-08: [`background-maximum-four-arc-exclusion`](areas/cycles/results/background-maximum-four-arc-exclusion/README.md) added (result)
@@ -741,8 +745,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`expanding-negative-prefix-mersenne-exclusion`](areas/cycles/results/expanding-negative-prefix-mersenne-exclusion/README.md) added (result)
 - 2026-11-08: [`expanding-third-block-minimum-bound`](areas/cycles/results/expanding-third-block-minimum-bound/README.md) added (result)
 - 2026-11-08: [`fibonacci-four-arc-spike-denominator-growth`](areas/cycles/results/fibonacci-four-arc-spike-denominator-growth/README.md) added (result)
-- 2026-11-08: [`four-mismatch-inverse-continued-fraction-bound`](areas/cycles/results/four-mismatch-inverse-continued-fraction-bound/README.md) added (result)
-- 2026-11-08: [`free-four-cut-eighteen-rotation-obstruction`](areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/README.md) added (result)
 
 ## Contributors
 
@@ -750,14 +752,14 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 54.2% | 203 | 9 |
+| ChatGPT main lane | 54.0% | 203 | 9 |
 | Claude side lane | 13.3% | 34 | 132 |
 | Claude review lane | 7.6% | 0 | 123 |
-| Claude cycles lane | 5.5% | 23 | 0 |
+| Claude cycles lane | 5.6% | 24 | 0 |
 | Claude Lean lane | 4.9% | 3 | 69 |
 | Codex cycle research lane | 3.2% | 22 | 0 |
 | Claude PR1 lane | 1.9% | 6 | 9 |
-| Codex four-arc research lane | 1.5% | 16 | 0 |
+| Codex four-arc research lane | 1.4% | 16 | 0 |
 | Codex root research lane | 1.3% | 18 | 0 |
 | Codex signed-endpoint formalisation lane | 1.0% | 5 | 0 |
 | ChatGPT handoff conversation | 0.8% | 2 | 0 |

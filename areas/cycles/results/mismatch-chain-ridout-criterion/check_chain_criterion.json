@@ -1,0 +1,12 @@
+{
+ "V1": {
+  "cycles": 2363,
+  "identities": 1480990,
+  "pattern_i": 201722,
+  "pattern_ii": 173073,
+  "skipped_words": 226
+ },
+ "V2": {
+  "cycles": 13486
+ }
+}

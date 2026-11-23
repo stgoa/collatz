@@ -1,0 +1,26 @@
+{
+ "defects=1, margin=0.0": {
+  "cases": 4,
+  "feasible": 0
+ },
+ "defects=1, margin=0.03": {
+  "cases": 4,
+  "feasible": 0
+ },
+ "defects=2, margin=0.0": {
+  "cases": 32,
+  "feasible": 0
+ },
+ "defects=2, margin=0.03": {
+  "cases": 32,
+  "feasible": 0
+ },
+ "defects=3, margin=0.0": {
+  "cases": 192,
+  "feasible": 54
+ },
+ "defects=3, margin=0.03": {
+  "cases": 192,
+  "feasible": 54
+ }
+}

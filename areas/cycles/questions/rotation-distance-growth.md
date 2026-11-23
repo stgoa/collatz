@@ -25,6 +25,13 @@ It is a uniform structural restriction on every hypothetical cycle, specific to 
 
 ## Known progress
 
+- **2026-11-23: a qualitative step for four mismatches.** Under EXT-1 and Ridout's theorem only finitely many
+  cycles have a rotation with exactly four mismatches
+  ([`half-period-four-mismatch-finiteness`](../results/half-period-four-mismatch-finiteness/README.md)). With the
+  inputs of `ρ ≥ 4` this gives `ρ(w) ≥ 5` for all but finitely many cycles. The statement is ineffective and
+  supplies no function `F(m)`, so it does not answer this question. The qualitative version for every bound is
+  [`rotation-distance-finite-exceptions`](rotation-distance-finite-exceptions.md), with the tool
+  [`mismatch-chain-ridout-criterion`](../results/mismatch-chain-ridout-criterion/README.md).
 - `ρ ≥ 3`, conditional on published inputs: [`two-defect-rotation-exclusion`](../results/two-defect-rotation-exclusion/README.md).
 - Later side-lane results: S05 ([`mismatch-height-tradeoff`](../results/mismatch-height-tradeoff/README.md)) reduces the question to a height bound, see [`cycle-height-bound`](cycle-height-bound.md); S06 ([`two-mismatch-exclusion-via-gap`](../results/two-mismatch-exclusion-via-gap/README.md)) re-derives `ρ ≥ 3` from the replayed gap EXT-1 ([`musson-collatz-gap-all`](../../../sources/musson-collatz-gap-all.md)); S07 ([`three-mismatch-exclusion`](../results/three-mismatch-exclusion/README.md)) excludes exactly three mismatches for `m ≥ 452,695`, so `ρ ≥ 4` with the period input, formal given the gap (feed 2026-10-19 14:20); S08's claim that size arguments stop at three mismatches was withdrawn the same day ([`four-mismatch-size-method-limit`](../attempts/four-mismatch-size-method-limit/README.md)); whether they reach `ρ ≥ 5` is open ([`rotation-distance-at-least-5`](rotation-distance-at-least-5.md); S10, [`multi-rotation-four-mismatch-exclusion`](../attempts/multi-rotation-four-mismatch-exclusion/README.md), shows that size inequalities over several rotations can reach at most `ρ ≥ 5`).
 - The rise lemma (S13, [`rise-lemma`](../results/rise-lemma/README.md), formal) gives, conditional on EXT-1, a growing bound on a class of rotations: every rotation with `|h|_m ≤ m^(1−θ)` has about `1.5·θ·log₂ m` mismatches, and a rotation with at most four has `|h|_m ≥ 0.075m` ([`short-rotation-mismatch-growth`](../results/short-rotation-mismatch-growth/README.md)). A low-mismatch rotation forces a letter of linear size, so `ρ → ∞` follows from a largest letter of size `o(m)` ([`largest-letter-rho-reduction`](../results/largest-letter-rho-reduction.md)), a weaker requirement than a height bound: see [`largest-letter-sublinear`](largest-letter-sublinear.md).
