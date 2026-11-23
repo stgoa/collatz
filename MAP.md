@@ -726,6 +726,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-23: [`half-period-s-unit-approximation-law`](areas/cycles/results/half-period-s-unit-approximation-law/README.md) added (result)
 - 2026-11-23: [`half-period-s-unit-approximation-law`](areas/cycles/results/half-period-s-unit-approximation-law/README.md) reviewed by Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
 - 2026-11-23: [`mismatch-chain-ridout-criterion`](areas/cycles/results/mismatch-chain-ridout-criterion/README.md) added (result)
+- 2026-11-23: [`mismatch-chain-ridout-criterion`](areas/cycles/results/mismatch-chain-ridout-criterion/README.md) reviewed by Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
 - 2026-11-23: [`rotation-distance-finite-exceptions`](areas/cycles/questions/rotation-distance-finite-exceptions.md) added (question)
 - 2026-11-23: [`saturated-sets-meet-every-residue-class-formal`](areas/invariants/results/saturated-sets-meet-every-residue-class-formal.md) added (result)
 - 2026-11-23: [`ridout-1958-p-adic-roth`](sources/ridout-1958-p-adic-roth.md) added (source)
@@ -745,7 +746,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`expanding-background-defect-growth`](areas/cycles/results/expanding-background-defect-growth/README.md) added (result)
 - 2026-11-08: [`expanding-double-block-minimum-bound`](areas/cycles/results/expanding-double-block-minimum-bound/README.md) added (result)
 - 2026-11-08: [`expanding-negative-prefix-mersenne-exclusion`](areas/cycles/results/expanding-negative-prefix-mersenne-exclusion/README.md) added (result)
-- 2026-11-08: [`expanding-third-block-minimum-bound`](areas/cycles/results/expanding-third-block-minimum-bound/README.md) added (result)
 
 ## Contributors
 
@@ -755,7 +755,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 |---|---|---|---|
 | ChatGPT main lane | 53.8% | 203 | 9 |
 | Claude side lane | 13.3% | 34 | 132 |
-| Claude review lane | 7.5% | 0 | 123 |
+| Claude review lane | 7.6% | 0 | 124 |
 | Claude cycles lane | 6.1% | 25 | 0 |
 | Claude Lean lane | 4.9% | 3 | 69 |
 | Codex cycle research lane | 3.2% | 22 | 0 |

@@ -11,10 +11,13 @@ positions before i_0, the node's chain identity reads
 Checks, in exact integer arithmetic:
 V1  on a deterministic family of actual 3x+d cycles with distinct states (all words of length 2..6 over the
     letters 1..3 with positive denominator, and a fixed pseudo-random sample of longer words), for every shift,
-    start, admissible run length and end: the divisibility by 3^a, the chain identity, the oddness of G/2^e at a
-    mismatch, and, when every position strictly between i_0 and i_r has w' >= w, the intercept comparison
-    C <= C' <= 2^(D') C and the two estimates of the node's section 3 (with d C in place of C);
-V2  on actual 3x+d cycles with word A B A[p] B[q] and H = N: the two dictionaries of the node's section 4;
+    start, admissible run length a-1 and every end with n <= m: the divisibility by 3^a, the chain identity,
+    and at a mismatched start the oddness of g = G/2^e, the reduced identity 2^c U - 3^(a+n) g = Theta and the
+    closed form Theta = 2^(w-e) 3^n xi + 2^(w'-e) d C' > 0; when every position strictly between i_0 and i_r has
+    w' >= w, the intercept comparison C <= C' <= 2^(D') C and the two estimates of the node's section 3 (with
+    d C in place of C);
+V2  on actual 3x+d cycles with word A B A[p] B[q] and H = N: the two configurations of the node's section 4
+    are recomputed from the general definitions and compared with the quantities of the approximation law;
 V3  receipt comparison.
 
 Exit 1 on failure; --write-receipt regenerates check_chain_criterion.json. Standard library only; no floating
@@ -69,58 +72,73 @@ def cycle(word):
     return d, st
 
 
+def configuration(w, x, d, H, i0, a, n):
+    """The quantities of the node for the shift H, start i0, run length a-1 and end i0+n (positions mod m)."""
+    m = len(w)
+    wi, wpi = w[i0 % m], w[(i0 + H) % m]
+    xi, xip = x[(i0 + 1) % m], x[(i0 + 1 + H) % m]
+    base = 2 ** wpi * xip - 2 ** wi * xi
+    lw = [w[(i0 + 1 + k) % m] for k in range(n)]
+    hw = [w[(i0 + 1 + k + H) % m] for k in range(n)]
+    C, Cp = (intercept(lw), intercept(hw)) if n else (0, 0)
+    out = {"wi": wi, "wpi": wpi, "xi": xi, "xip": xip, "base": base, "lw": lw, "hw": hw, "C": C, "Cp": Cp,
+           "s": sum(lw), "sp": sum(hw), "zeta": x[(i0 + 1 + n) % m], "U": x[(i0 + 1 + n + H) % m]}
+    if base % 3 ** a == 0:
+        G = base // 3 ** a
+        out["G"] = G
+        if wi != wpi:
+            e = min(wi, wpi)
+            out["e"] = e
+            out["g_ok"] = G % 2 ** e == 0 and (G >> e) % 2 == 1
+            out["g"] = G >> e
+            out["c"] = wpi - e + out["sp"]
+            out["theta"] = 2 ** (wi - e + out["s"]) * out["zeta"] + d * (2 ** (wpi - e) * Cp - 2 ** (wi - e) * C)
+    return out
+
+
 def check_cycle(w, d, x, stats):
     m = len(w)
     for H in range(1, m):
-        wp = [w[(i + H) % m] for i in range(m)]
-        xp = [x[(i + H) % m] for i in range(m)]
         for i0 in range(m):
             run = 0
-            while run < m - 1 and w[(i0 - 1 - run) % m] == wp[(i0 - 1 - run) % m]:
+            while run < m - 1 and w[(i0 - 1 - run) % m] == w[(i0 - 1 - run + H) % m]:
                 run += 1
-            xi, xip = x[(i0 + 1) % m], xp[(i0 + 1) % m]
-            base = 2 ** wp[i0] * xip - 2 ** w[i0] * xi
             for a in range(1, run + 2):
-                if not need(base % 3 ** a == 0, f"V1 divisibility {w} H={H} i0={i0} a={a}"):
-                    continue
-                G = base // 3 ** a
-                mism = w[i0] != wp[i0]
-                if mism:
-                    e = min(w[i0], wp[i0])
-                    need(G % 2 ** e == 0 and (G >> e) % 2 == 1, f"V1 odd quotient {w} H={H} i0={i0} a={a}")
-                for n in range(0, m - a + 1):
-                    lw = [w[(i0 + 1 + k) % m] for k in range(n)]
-                    hw = [wp[(i0 + 1 + k) % m] for k in range(n)]
-                    C, Cp = (intercept(lw), intercept(hw)) if n else (0, 0)
-                    s, sp = sum(lw), sum(hw)
-                    zeta, U = x[(i0 + 1 + n) % m], xp[(i0 + 1 + n) % m]
-                    need(2 ** s * zeta == 3 ** n * xi + d * C and 2 ** sp * U == 3 ** n * xip + d * Cp,
-                         f"V1 track equations {w} H={H} i0={i0} n={n}")
-                    need(3 ** (a + n) * G == 2 ** (wp[i0] + sp) * U - 2 ** (w[i0] + s) * zeta
-                         - d * (2 ** wp[i0] * Cp - 2 ** w[i0] * C), f"V1 chain identity {w} H={H} i0={i0} a={a} n={n}")
-                    stats["identities"] += 1
-                    if not mism:
+                for n in range(0, m + 1):
+                    q = configuration(w, x, d, H, i0, a, n)
+                    tag = f"{w} H={H} i0={i0} a={a} n={n}"
+                    if not need("G" in q, f"V1 divisibility {tag}"):
                         continue
-                    inner = [hw[k] - lw[k] for k in range(n - 1)] if n >= 1 else []
+                    xi, xip, zeta, U, C, Cp, s, sp = (q[k] for k in ("xi", "xip", "zeta", "U", "C", "Cp", "s", "sp"))
+                    need(2 ** s * zeta == 3 ** n * xi + d * C and 2 ** sp * U == 3 ** n * xip + d * Cp,
+                         f"V1 track equations {tag}")
+                    need(3 ** (a + n) * q["G"] == 2 ** (q["wpi"] + sp) * U - 2 ** (q["wi"] + s) * zeta
+                         - d * (2 ** q["wpi"] * Cp - 2 ** q["wi"] * C), f"V1 chain identity {tag}")
+                    stats["identities"] += 1
+                    if q["wi"] == q["wpi"]:
+                        continue
+                    e, theta, c = q["e"], q["theta"], q["c"]
+                    need(q["g_ok"], f"V1 odd quotient {tag}")
+                    need(2 ** c * U - 3 ** (a + n) * q["g"] == theta, f"V1 reduced identity {tag}")
+                    need(theta == 2 ** (q["wi"] - e) * 3 ** n * xi + 2 ** (q["wpi"] - e) * d * Cp and theta > 0,
+                         f"V1 closed form of Theta {tag}")
+                    stats["mismatched_starts"] += 1
+                    inner = [q["hw"][k] - q["lw"][k] for k in range(n - 1)] if n >= 1 else []
                     if any(v < 0 for v in inner):
                         continue
                     Dp = sum(inner)
-                    need(C <= Cp <= 2 ** Dp * C, f"V1 intercept comparison {w} H={H} i0={i0} n={n}")
-                    e = min(w[i0], wp[i0])
-                    delta = abs(wp[i0] - w[i0])
-                    theta = (2 ** (w[i0] - e + s) * zeta + d * (2 ** (wp[i0] - e) * Cp - 2 ** (w[i0] - e) * C))
-                    c = wp[i0] - e + sp
-                    need(2 ** c * U - 3 ** (a + n) * (G >> e) == theta, f"V1 reduced identity {w} H={H} i0={i0}")
-                    if wp[i0] > w[i0]:
+                    need(C <= Cp <= 2 ** Dp * C, f"V1 intercept comparison {tag}")
+                    delta = abs(q["wpi"] - q["wi"])
+                    if q["wpi"] > q["wi"]:
                         stats["pattern_i"] += 1
-                        # Theta < 2^sigma zeta (1 + 2^(delta + D')), and 2^sigma zeta = 3^n xi + d C
-                        need(0 < theta < 2 ** s * zeta * (1 + 2 ** (delta + Dp)), f"V1 pattern (i) {w} H={H} i0={i0}")
+                        # Theta = 3^n xi + 2^delta d C' <= 3^n xi + 2^(delta + D') d C
+                        need(theta == 3 ** n * xi + 2 ** delta * d * Cp
+                             and theta <= 3 ** n * xi + 2 ** (delta + Dp) * d * C, f"V1 pattern (i) {tag}")
                     elif n >= 1:
                         stats["pattern_ii"] += 1
                         # Theta = 2^delta 3^n xi + d C' <= 2^delta 3^n xi + 2^(D') d C
                         need(theta == 2 ** delta * 3 ** n * xi + d * Cp
-                             and 0 < theta <= 2 ** delta * 3 ** n * xi + 2 ** Dp * d * C,
-                             f"V1 pattern (ii) {w} H={H} i0={i0}")
+                             and theta <= 2 ** delta * 3 ** n * xi + 2 ** Dp * d * C, f"V1 pattern (ii) {tag}")
     stats["cycles"] += 1
 
 
@@ -141,7 +159,8 @@ class Lcg:
 
 
 def v1():
-    stats = {"cycles": 0, "identities": 0, "pattern_i": 0, "pattern_ii": 0, "skipped_words": 0}
+    stats = {"cycles": 0, "identities": 0, "mismatched_starts": 0, "pattern_i": 0, "pattern_ii": 0,
+             "skipped_words": 0}
     for length in range(2, 7):
         for w in words(length, 3):
             r = cycle(w)
@@ -159,7 +178,8 @@ def v1():
             continue
         check_cycle(w, r[0], r[1], stats)
     print(f"V1: chain identity checked on {stats['identities']} configurations of {stats['cycles']} actual 3x+d "
-          f"cycles (pattern (i): {stats['pattern_i']}, pattern (ii): {stats['pattern_ii']})")
+          f"cycles ({stats['mismatched_starts']} with a mismatched start; pattern (i): {stats['pattern_i']}, "
+          f"pattern (ii): {stats['pattern_ii']})")
     return stats
 
 
@@ -181,16 +201,19 @@ def v2():
                     sA, sB = sum(A), sum(B)
                     CA, CB = intercept(A), intercept(B)
                     h, j = (y - x) // 2 ** sA, (z - t) // 2 ** sB
-                    # Case I dictionary: i_0 = a-1, i_r = N-1, H = N
-                    need(2 ** (sB + p + q) * x - 3 ** N * h == 2 ** sB * y + (2 ** p - 1) * d * CB,
-                         f"V2 case I {A} {B} {p} {q}")
-                    need(2 ** p * t - z == 3 ** a * h, f"V2 case I quotient {A} {B} {p} {q}")
-                    # Case II dictionary: i_0 = 2N-1, i_r = 2N-1+a, H = N
-                    need(2 ** (sA + p) * t - 3 ** N * j == 3 ** a * 2 ** q * x + d * CA,
-                         f"V2 case II {A} {B} {p} {q}")
-                    need(y - 2 ** q * x == 3 ** b * j, f"V2 case II quotient {A} {B} {p} {q}")
+                    tag = f"{A} {B} {p} {q}"
+                    # Case I: H = N, i_0 = a-1, run length a-1, end N-1 (n = b); pattern (i)
+                    c1 = configuration(W, st, d, N, a - 1, a, b)
+                    need(c1.get("g") == h and c1.get("c") == sB + p + q and c1["U"] == x and c1["xi"] == z
+                         and c1["xip"] == t and c1["zeta"] == y
+                         and c1.get("theta") == 2 ** sB * y + (2 ** p - 1) * d * CB, f"V2 case I {tag}")
+                    # Case II: H = N, i_0 = 2N-1, run length b-1, end 2N-1+a (n = a); pattern (ii)
+                    c2 = configuration(W, st, d, N, 2 * N - 1, b, a)
+                    need(c2.get("g") == j and c2.get("c") == sA + p and c2["U"] == t and c2["xi"] == x
+                         and c2["xip"] == y and c2["zeta"] == z
+                         and c2.get("theta") == 3 ** a * 2 ** q * x + d * CA, f"V2 case II {tag}")
                     count += 1
-    print(f"V2: both half-period dictionaries checked on {count} actual 3x+d cycles with word A B A[p] B[q]")
+    print(f"V2: both half-period configurations recomputed on {count} actual 3x+d cycles with word A B A[p] B[q]")
     return {"cycles": count}
 
 

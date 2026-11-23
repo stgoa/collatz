@@ -1,9 +1,10 @@
 {
  "V1": {
   "cycles": 2363,
-  "identities": 1480990,
+  "identities": 1716206,
+  "mismatched_starts": 1286388,
   "pattern_i": 201722,
-  "pattern_ii": 173073,
+  "pattern_ii": 179009,
   "skipped_words": 226
  },
  "V2": {
