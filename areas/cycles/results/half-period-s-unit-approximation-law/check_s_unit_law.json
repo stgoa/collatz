@@ -1,0 +1,63 @@
+{
+ "V1": {
+  "c0": "2911/63400",
+  "c_ell_upper": "41698/15849",
+  "c_tau_upper": "57547/15849",
+  "exclusion_base_margin_floor": 283527,
+  "exclusion_slope": "47685899/655360000",
+  "main_base_margin_floor": 2703,
+  "main_slope": "7771858081/1317046321152",
+  "threshold_log2_N": 22,
+  "two_tau_plus_ell_bound_at_first_block": 8444
+ },
+ "V2": {
+  "limit": 131072,
+  "max_odd_steps_to_descend": 85
+ },
+ "V3": {
+  "all": {
+   "case_B": 109,
+   "case_C": 31863,
+   "case_I": 2416,
+   "case_II": 23393,
+   "cycles": 57781,
+   "nonpositive_D": 244,
+   "not_an_odd_only_word": 0
+  },
+  "exhaustive_blocks_up_to_length_3_letters_up_to_3_p_q_up_to_5": {
+   "case_B": 83,
+   "case_C": 21534,
+   "case_I": 2024,
+   "case_II": 14155,
+   "cycles": 37796,
+   "nonpositive_D": 229,
+   "not_an_odd_only_word": 0
+  },
+  "fixtures": {
+   "3x+1631": [
+    1,
+    1,
+    2,
+    1,
+    1,
+    2,
+    2,
+    3
+   ],
+   "3x+47": [
+    1,
+    1,
+    2,
+    3
+   ]
+  }
+ },
+ "V4": {
+  "competing_fractions": 8395865,
+  "convergent_multiples": 11513,
+  "largest_2^c_over_Theta_V_floor": 15695
+ },
+ "V5": {
+  "samples": 5000
+ }
+}

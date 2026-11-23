@@ -1,0 +1,803 @@
+{
+ "P0": {
+  "main_margin_k22": 2703.085331538795,
+  "excl_margin_k22": 283527.4536,
+  "main_first_block_ok": 22,
+  "excl_first_block_ok": 18,
+  "descent_max_steps": 85
+ },
+ "P1": {
+  "recipe_words": 48096,
+  "converse_words": 2304,
+  "power_words": 540
+ },
+ "P2": {
+  "F1a exhaustive letters<=3 len<=3 p,q<=8": 97113,
+  "F1b exhaustive letters<=5 len<=2 p,q<=10": 89983,
+  "F2 random medium": 36588,
+  "F3 random long (N up to 400)": 520,
+  "F4 very long (N up to 2400)": 18,
+  "F5 adversarial shapes": 2732,
+  "F6 spiked blocks (interior minima)": 39968
+ },
+ "P3": {
+  "half_period_four_mismatch_cycles_found_by_iteration": 192,
+  "examples (d, min, length, case)": [
+   [
+    11,
+    13,
+    8,
+    "C"
+   ],
+   [
+    41,
+    1,
+    8,
+    "II"
+   ],
+   [
+    47,
+    89,
+    4,
+    "C"
+   ],
+   [
+    47,
+    73,
+    4,
+    "I"
+   ],
+   [
+    55,
+    1,
+    4,
+    "I"
+   ],
+   [
+    55,
+    65,
+    8,
+    "C"
+   ]
+  ],
+  "3x+47": [
+   [
+    73,
+    133,
+    223,
+    179
+   ],
+   "I"
+  ],
+  "3x+1631": [
+   [
+    9145,
+    14533,
+    22615,
+    17369,
+    26869,
+    41119,
+    31247,
+    23843
+   ],
+   "I"
+  ]
+ },
+ "P4": {
+  "isolation_competitors": 25791670,
+  "legendre_cases": 3645
+ },
+ "P6": {
+  "identity_samples": 20000,
+  "synthetic_ridout_solutions": 214,
+  "synthetic_skipped_parity": 601
+ },
+ "cycles_tested": 267116,
+ "distinct_cycles_tested": 256364,
+ "distinct_cases": {
+  "I": 8083,
+  "C": 135724,
+  "II": 111694,
+  "B": 863
+ },
+ "cases": {
+  "I": 8772,
+  "II": 115702,
+  "B": 876,
+  "C": 141766
+ },
+ "extra": {
+  "p_eq_q": 40603,
+  "p_gt_q_and_j_neg": 0,
+  "p_lt_q_and_j_pos": 103672,
+  "min_at_block_start": 226155,
+  "gap_exponent_G_positive": 0,
+  "N_over_25_gap_holds": 0,
+  "N_over_25_gap_fails": 124474,
+  "d_equals_1": 0,
+  "max_N": 2221,
+  "nonpositive_D": 3854,
+  "decimal_fallbacks": 14686,
+  "interior_min_II": 18980,
+  "interior_min_B": 704,
+  "interior_min_C": 20911,
+  "interior_min_I": 366,
+  "P3_case_C": 102,
+  "P3_max_N": 8,
+  "P3_case_II": 41,
+  "P3_case_I": 47,
+  "P3_case_B": 2
+ },
+ "checks": {
+  "(1) block equations": {
+   "n": 267116,
+   "violations": 0
+  },
+  "(11) in case B": {
+   "n": 876,
+   "violations": 0,
+   "min_slack": 34.532000624531406
+  },
+  "(11) in case C": {
+   "n": 141766,
+   "violations": 0,
+   "min_slack": 14.005131011707618
+  },
+  "(12) combined": {
+   "n": 8772,
+   "violations": 0,
+   "min_slack": 3.4165082750002025
+  },
+  "(12) line 1 (>=)": {
+   "n": 8772,
+   "violations": 0,
+   "min_slack": -2e-77
+  },
+  "(12) line 2 (>)": {
+   "n": 8772,
+   "violations": 0,
+   "min_slack": 1.7664148825226533
+  },
+  "(12) line 3 (>=)": {
+   "n": 8772,
+   "violations": 0,
+   "min_slack": -2e-77
+  },
+  "(13) combined": {
+   "n": 115702,
+   "violations": 0,
+   "min_slack": 5.084595809293143
+  },
+  "(13) line 1 (>=)": {
+   "n": 115702,
+   "violations": 0,
+   "min_slack": -4e-77
+  },
+  "(13) line 2 (>)": {
+   "n": 115702,
+   "violations": 0,
+   "min_slack": 2.94200336638929
+  },
+  "(13) line 3 (>=)": {
+   "n": 115702,
+   "violations": 0,
+   "min_slack": -1e-77
+  },
+  "(2) 2^p t - z = 3^a h, y - 2^q x = 3^b j": {
+   "n": 267116,
+   "violations": 0
+  },
+  "(2) 2^sA | y-x and 2^sB | z-t": {
+   "n": 267116,
+   "violations": 0
+  },
+  "(3) auxiliary": {
+   "n": 267116,
+   "violations": 0
+  },
+  "(3) identity": {
+   "n": 267116,
+   "violations": 0
+  },
+  "(4) identity I": {
+   "n": 267116,
+   "violations": 0
+  },
+  "(5) identity II": {
+   "n": 267116,
+   "violations": 0
+  },
+  "(6) 0 < Theta1 < 2^(sB+p) y": {
+   "n": 267116,
+   "violations": 0
+  },
+  "(6) 0 < Theta2 < 2^(sA+q) z": {
+   "n": 267116,
+   "violations": 0
+  },
+  "(7) tau < N d/(2M)": {
+   "n": 267116,
+   "violations": 0,
+   "min_slack": 0.0375742004372584
+  },
+  "(7) tau <= N log2(1+d/(3M))": {
+   "n": 267116,
+   "violations": 0,
+   "min_slack": 0.03245911585121597
+  },
+  "(7) tau > 0": {
+   "n": 267116,
+   "violations": 0,
+   "min_slack": 0.045862483413408484
+  },
+  "(8) 3^N/Theta = U(2^c/(Theta V) - 1/(UV))": {
+   "n": 124474,
+   "violations": 0
+  },
+  "(8) t/z": {
+   "n": 267116,
+   "violations": 0
+  },
+  "(8) x/y": {
+   "n": 267116,
+   "violations": 0
+  },
+  "(8) y/x": {
+   "n": 267116,
+   "violations": 0
+  },
+  "(8) z/t": {
+   "n": 267116,
+   "violations": 0
+  },
+  "(9) sA+sB >= N": {
+   "n": 267116,
+   "violations": 0
+  },
+  "B: M 2^sB >= 3^i 2^(b-i) z": {
+   "n": 876,
+   "violations": 0
+  },
+  "B: a < ell+(kappa-1)b": {
+   "n": 876,
+   "violations": 0,
+   "min_slack": 8.264193020597768
+  },
+  "B: b < ell+(q-p)/2+tau": {
+   "n": 876,
+   "violations": 0,
+   "min_slack": 6.799701349514169
+  },
+  "B: t > 2^sB": {
+   "n": 876,
+   "violations": 0
+  },
+  "B: y > 2^sA": {
+   "n": 876,
+   "violations": 0
+  },
+  "C of A[p] equals C of A": {
+   "n": 267116,
+   "violations": 0
+  },
+  "C: M 2^sA >= 3^i 2^(a-i) x": {
+   "n": 141766,
+   "violations": 0
+  },
+  "C: a < ell+(p+q)/2+tau": {
+   "n": 141766,
+   "violations": 0,
+   "min_slack": 2.3605897152564683
+  },
+  "C: b < ell+(kappa-1)a": {
+   "n": 141766,
+   "violations": 0,
+   "min_slack": 5.530689133041989
+  },
+  "C: y > 2^sA": {
+   "n": 141766,
+   "violations": 0
+  },
+  "C: z > 2^sB": {
+   "n": 141766,
+   "violations": 0
+  },
+  "I: 2^pre M >= 3^i x": {
+   "n": 8772,
+   "violations": 0
+  },
+  "I: 2^q x > 3^b": {
+   "n": 8772,
+   "violations": 0
+  },
+  "I: 2^sA M >= 2^a x": {
+   "n": 8772,
+   "violations": 0
+  },
+  "I: Theta1 h 2^sA < 2^(sB+p) y^2": {
+   "n": 8772,
+   "violations": 0
+  },
+  "I: Theta1*h < 2^(c+2tau-(sA-2X-p))": {
+   "n": 8772,
+   "violations": 0,
+   "min_slack": 0.10890573406879867
+  },
+  "I: Theta1*h < 2^(c-G) (d-agnostic gap)": {
+   "n": 8772,
+   "violations": 0,
+   "min_slack": 5.325323435714237
+  },
+  "I: X <= (alpha-1)N+tau+ell-(p+q)/2": {
+   "n": 8772,
+   "violations": 0,
+   "min_slack": -4e-77
+  },
+  "I: b < (X+q)/alpha": {
+   "n": 8772,
+   "violations": 0,
+   "min_slack": 1.7664148825226516
+  },
+  "I: h 2^sA < y": {
+   "n": 8772,
+   "violations": 0
+  },
+  "I: sA+sB >= N + X - ell (exact form)": {
+   "n": 8772,
+   "violations": 0
+  },
+  "II: 2^p t > 3^a": {
+   "n": 115702,
+   "violations": 0
+  },
+  "II: 2^pre M >= 3^i t": {
+   "n": 115702,
+   "violations": 0
+  },
+  "II: 2^sB M >= 2^b t": {
+   "n": 115702,
+   "violations": 0
+  },
+  "II: T <= (alpha-1)N+tau+ell-(p+q)/2": {
+   "n": 115702,
+   "violations": 0,
+   "min_slack": -5e-78
+  },
+  "II: Theta2 j 2^sB < 2^(sA+q) z^2": {
+   "n": 115702,
+   "violations": 0
+  },
+  "II: Theta2*j < 2^(c'+2tau-(sB-2T))": {
+   "n": 115702,
+   "violations": 0,
+   "min_slack": 5.171435144084228e-34
+  },
+  "II: Theta2*j < 2^(c'-G) (d-agnostic gap)": {
+   "n": 115702,
+   "violations": 0,
+   "min_slack": 6.42185863817552
+  },
+  "II: a < (T+p)/alpha": {
+   "n": 115702,
+   "violations": 0,
+   "min_slack": 2.94200336638929
+  },
+  "II: j 2^sB < z": {
+   "n": 115702,
+   "violations": 0
+  },
+  "II: sA+sB >= N + T - ell (exact form)": {
+   "n": 115702,
+   "violations": 0
+  },
+  "P0 alpha < 317/200": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 alpha > 15849/10000": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 c0 = 2911/63400": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 descent below 2^17": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 exclusion threshold monotone step": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 exclusion threshold on every block k=22..600": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 file2: (2-alpha) - 1/20 > 1/3": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 file2: (alpha-1) + 1/20 < 1": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 file2: 2tau+ell < N/20 on blocks k=22..600": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 file2: eps=1/250: 5N/250 = N/50": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 file2: step": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 kappa < 317/200": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 kappa(alpha-1) bound < 0.928": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 main threshold monotone step": {
+   "n": 1,
+   "violations": 0
+  },
+  "P0 main threshold on every block k=22..600": {
+   "n": 1,
+   "violations": 0
+  },
+  "P1 every 4-mismatch word normalises": {
+   "n": 2304,
+   "violations": 0
+  },
+  "P1 four mismatches at half rotation": {
+   "n": 48096,
+   "violations": 0
+  },
+  "P1 normal form recipe": {
+   "n": 48096,
+   "violations": 0
+  },
+  "P1 proper powers never have 4 half-mismatches": {
+   "n": 540,
+   "violations": 0
+  },
+  "P3 control normalises": {
+   "n": 192,
+   "violations": 0
+  },
+  "P4 Legendre: V/U is a convergent": {
+   "n": 3645,
+   "violations": 0
+  },
+  "P4 isolation": {
+   "n": 25791670,
+   "violations": 0
+  },
+  "P4 next partial quotient > R - 3": {
+   "n": 3645,
+   "violations": 0
+  },
+  "P5 Q - P = Theta/g > 0": {
+   "n": 124474,
+   "violations": 0
+  },
+  "P5 c <= E": {
+   "n": 124474,
+   "violations": 0
+  },
+  "P5 gcd(P,Q) = 1": {
+   "n": 124474,
+   "violations": 0
+  },
+  "P5 gcd(U,6) = 1 and V odd": {
+   "n": 124474,
+   "violations": 0
+  },
+  "P5 product <= U Theta/(g^2 3^N)": {
+   "n": 124474,
+   "violations": 0
+  },
+  "P5 v2(Q) = c exactly": {
+   "n": 124474,
+   "violations": 0
+  },
+  "P5 v3(P) >= N": {
+   "n": 124474,
+   "violations": 0
+  },
+  "P6 (11) case B decomposition": {
+   "n": 20000,
+   "violations": 0
+  },
+  "P6 (11) case C decomposition": {
+   "n": 20000,
+   "violations": 0
+  },
+  "P6 (12) = slack(i) + slack(ii) + (1+1/alpha) slack(iii), exact identity": {
+   "n": 20000,
+   "violations": 0
+  },
+  "P6 (13) = slack(i') + slack(ii') + (1+1/alpha) slack(iii'), exact identity": {
+   "n": 20000,
+   "violations": 0
+  },
+  "P6 Ridout: (3) with eps = 1/250": {
+   "n": 214,
+   "violations": 0
+  },
+  "P6 Ridout: Bilu product * H^2 = Waldschmidt left side": {
+   "n": 214,
+   "violations": 0
+  },
+  "P6 Ridout: Q < 2^(5N)": {
+   "n": 214,
+   "violations": 0
+  },
+  "P6 Ridout: Q/2 < P < Q": {
+   "n": 214,
+   "violations": 0
+  },
+  "P6 Ridout: chain (2) < 2^(1-N/25)": {
+   "n": 214,
+   "violations": 0
+  },
+  "P6 Ridout: gcd(P,Q)=1": {
+   "n": 214,
+   "violations": 0
+  },
+  "P6 exponent bookkeeping I": {
+   "n": 20000,
+   "violations": 0
+  },
+  "P6 exponent bookkeeping II": {
+   "n": 20000,
+   "violations": 0
+  },
+  "built word has exactly 4 half-mismatches": {
+   "n": 266922,
+   "violations": 0
+  },
+  "control 3x+1631 word": {
+   "n": 1,
+   "violations": 0
+  },
+  "control 3x+47 word (1,1,2,3)": {
+   "n": 1,
+   "violations": 0
+  },
+  "eta < 2N d/(3M) (step of (10))": {
+   "n": 267116,
+   "violations": 0
+  },
+  "file2 I: b > (2-alpha)N-2tau-ell": {
+   "n": 8772,
+   "violations": 0,
+   "min_slack": 5.830074998557688
+  },
+  "file2 I: log2 U <= (alpha-1)N+tau+ell-(p+q)/2": {
+   "n": 8772,
+   "violations": 0,
+   "min_slack": -4e-77
+  },
+  "file2 I: sA < (alpha-1)N+2tau+ell": {
+   "n": 8772,
+   "violations": 0,
+   "min_slack": 5.830074998557688
+  },
+  "file2 I: sA < X+(p+q)/2+tau": {
+   "n": 8772,
+   "violations": 0,
+   "min_slack": 4.245112497836532
+  },
+  "file2 I: y > 2^sA": {
+   "n": 8772,
+   "violations": 0
+  },
+  "file2 II: a > (2-alpha)N-2tau-ell": {
+   "n": 115702,
+   "violations": 0,
+   "min_slack": 6.660149997115376
+  },
+  "file2 II: sB < (alpha-1)N+2tau+ell": {
+   "n": 115702,
+   "violations": 0,
+   "min_slack": 5.660149997115376
+  },
+  "file2 II: sB < T+(p-q)/2+tau": {
+   "n": 115702,
+   "violations": 0,
+   "min_slack": 2.6601499971153757
+  },
+  "file2 II: z > 2^sB": {
+   "n": 115702,
+   "violations": 0
+  },
+  "h > 0": {
+   "n": 267116,
+   "violations": 0
+  },
+  "h odd and j odd (file 2)": {
+   "n": 267116,
+   "violations": 0
+  },
+  "j != 0": {
+   "n": 267116,
+   "violations": 0
+  },
+  "j < 0 implies p < q": {
+   "n": 267116,
+   "violations": 0
+  },
+  "j<0: minimum in the first half": {
+   "n": 9648,
+   "violations": 0
+  },
+  "j>0: minimum in first A or in B[q]": {
+   "n": 257468,
+   "violations": 0
+  },
+  "p = q implies j > 0": {
+   "n": 40603,
+   "violations": 0
+  },
+  "remark I: Theta1 > 2^(sA+sB)": {
+   "n": 8772,
+   "violations": 0
+  },
+  "remark II: 3^a x >= 2^(sA-2tau) z": {
+   "n": 115702,
+   "violations": 0,
+   "min_slack": 0.057784922144634265
+  },
+  "remark II: Theta2 > 3^a 2^q x": {
+   "n": 115702,
+   "violations": 0
+  },
+  "remark II: Theta2*j > 2^(q+sA-2tau) z": {
+   "n": 115702,
+   "violations": 0,
+   "min_slack": 2.0284436791625637
+  },
+  "section 5 paired formula": {
+   "n": 267116,
+   "violations": 0
+  },
+  "section 5 paired signs": {
+   "n": 267116,
+   "violations": 0
+  },
+  "states = C(rotations)/g": {
+   "n": 113023,
+   "violations": 0
+  },
+  "states distinct (primitive)": {
+   "n": 267116,
+   "violations": 0
+  },
+  "states odd, coprime to 3": {
+   "n": 267116,
+   "violations": 0
+  },
+  "step bound x' <= x (3+d/M)/2": {
+   "n": 267116,
+   "violations": 0
+  },
+  "unique minimum": {
+   "n": 267116,
+   "violations": 0
+  }
+ },
+ "violations_total": 0,
+ "mutants (name: [evaluated, detected])": {
+  "placement: j<0 forces first A (wrong without large N)": [
+   267116,
+   876
+  ],
+  "placement: j>0 forces B[q] (wrong without large N)": [
+   267116,
+   141766
+  ],
+  "sign: p<q forces j<0 (wrong for d>1)": [
+   267116,
+   103672
+  ],
+  "(12) with (q-p) instead of (q-p)/2": [
+   8772,
+   0
+  ],
+  "(12) with (1+1/alpha) ell instead of (2+1/alpha) ell": [
+   8772,
+   3603
+  ],
+  "(12) with the tau term dropped": [
+   8772,
+   49
+  ],
+  "(12) with c0 + 0.02": [
+   8772,
+   0
+  ],
+  "I gap with 2 tau forgotten": [
+   8772,
+   8092
+  ],
+  "I: X bound with ell dropped": [
+   8772,
+   8766
+  ],
+  "I: b < (X+p)/alpha instead of (X+q)/alpha": [
+   8772,
+   6
+  ],
+  "I: N/25 gap as if d-agnostic": [
+   8772,
+   8772
+  ],
+  "I gap with c-1": [
+   8772,
+   0
+  ],
+  "C: a bound with |p-q|/2 instead of (p+q)/2": [
+   141766,
+   0
+  ],
+  "C: b bound with ell dropped": [
+   141766,
+   1486
+  ],
+  "(11) C with kappa factor dropped on (alpha-1)N": [
+   141766,
+   0
+  ],
+  "(13) with p and q coefficients swapped": [
+   115702,
+   1
+  ],
+  "(13) with (1+1/alpha) ell instead of (2+1/alpha) ell": [
+   115702,
+   16608
+  ],
+  "(13) with the tau term dropped": [
+   115702,
+   334
+  ],
+  "II gap with c'-1": [
+   115702,
+   0
+  ],
+  "II gap with 2 tau forgotten": [
+   115702,
+   109874
+  ],
+  "II: a < (T+q)/alpha instead of (T+p)/alpha": [
+   115702,
+   1
+  ],
+  "II: slope z/t with (q-p)/2": [
+   115702,
+   38888
+  ],
+  "II: N/25 gap as if d-agnostic": [
+   115702,
+   115702
+  ],
+  "B: b bound with tau dropped": [
+   876,
+   0
+  ],
+  "B: a bound with ell dropped": [
+   876,
+   17
+  ],
+  "(11) B with kappa factor dropped on (alpha-1)N": [
+   876,
+   0
+  ]
+ },
+ "violation_examples": {}
+}

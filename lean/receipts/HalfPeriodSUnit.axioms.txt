@@ -1,0 +1,11 @@
+source sha256: 6989d80e3bbabc449f7674ee47e47a4dc3910bf675a6fbb3a20fa0ad994e6457
+'LeanLane.HalfPeriodSUnit.exists_h' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.HalfPeriodSUnit.exists_j' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.HalfPeriodSUnit.h_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.HalfPeriodSUnit.intercept_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.HalfPeriodSUnit.p_lt_q_of_j_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.HalfPeriodSUnit.identity_I' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.HalfPeriodSUnit.identity_II' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.HalfPeriodSUnit.theta_I_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.HalfPeriodSUnit.theta_II_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LeanLane.HalfPeriodSUnit.isolated' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,5 @@
+source sha256: 6989d80e3bbabc449f7674ee47e47a4dc3910bf675a6fbb3a20fa0ad994e6457
+command: lake build LeanLane (from lean/, after lake exe cache get)
+toolchain: Lean (version 4.35.0-rc2, arm64-apple-darwin24.6.0, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)
+mathlib: 065356127b1dc0016f66b7283ce0ce2c4055aa55 (lakefile.toml)
+exit=0 (the library build completed; the module's #print axioms lines are in HalfPeriodSUnit.axioms.txt)

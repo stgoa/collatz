@@ -54,6 +54,13 @@ The rotation distance `ρ(w)` is the least number of positions in which `w` diff
   ([`half-defect-minimum-window`](results/half-defect-minimum-window/README.md)).
   These results narrow the four-mismatch question; they do not
   exclude all cycles.
+- **Four mismatches, 2026-11-23.** The half-period case is finite, without a bound.
+  Under EXT-1 a half-period four-mismatch cycle forces `0 < 2^c U - 3^N V < 2^(c - N/25)/V`
+  for the state `U` after the larger defect and its paired quotient `V`
+  ([`half-period-s-unit-approximation-law`](results/half-period-s-unit-approximation-law/README.md)).
+  Ridout's theorem then leaves only finitely many such cycles
+  ([`half-period-four-mismatch-finiteness`](results/half-period-four-mismatch-finiteness/README.md)).
+  The proof is ineffective, so the exclusion itself remains open.
 - **Near-doubled words, 2026-11-08.** A signed endpoint argument prevents
   clean intercepts from cancelling a plus factor
   ([`antiperiodic-intercept-nondivisibility`](results/antiperiodic-intercept-nondivisibility/README.md)).
