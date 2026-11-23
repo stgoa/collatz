@@ -23,6 +23,18 @@ It is the next constant after `ρ ≥ 4` ([`three-mismatch-exclusion`](../result
 
 ## Known progress
 
+- **2026-11-23: the half-period case is a finite set, without a bound.**
+  The [approximation law](../results/half-period-s-unit-approximation-law/README.md)
+  shows, under EXT-1, that a half-period four-mismatch cycle with half length
+  `N >= 2^22` yields integers `c, U, V` with
+  `0 < 2^c U - 3^N V < 2^(c - N/25)/V`. Here `U` is the state after the larger
+  defect and `V` is its paired quotient. Both parities and both orders are
+  covered, with no bound on the defects. Ridout's p-adic form of Roth's theorem
+  then allows only [finitely many such cycles](../results/half-period-four-mismatch-finiteness/README.md).
+  The argument is ineffective: it gives no bound on `N`, so no cycle length is
+  excluded and this question stays open. An effective version would need a lower
+  bound for `|2^c U - 3^N V|` of the same strength.
+
 - **2026-11-08: the minimum is close to the larger half defect.**
   The [minimum-window result](../results/half-defect-minimum-window/README.md)
   keeps the offset and the prefix/suffix valuation excesses in both

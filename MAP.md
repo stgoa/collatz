@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**297 results, 32 attempts, 39 questions, 39 sources.**
+**299 results, 32 attempts, 39 questions, 40 sources.**
 
 ## Frontier: open questions
 
@@ -267,6 +267,8 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`half-defect-minimum-window`](areas/cycles/results/half-defect-minimum-window/README.md) | Half-defect minima obey a weighted short-window bound | written | written | `musson-collatz-gap-all` |  |
 | [`half-defect-positive-order-exclusion`](areas/cycles/results/half-defect-positive-order-exclusion/README.md) | A forbidden paired-state order in two-defect half-period words | written | written | — |  |
 | [`half-defect-terminal-intercept-exclusion`](areas/cycles/results/half-defect-terminal-intercept-exclusion/README.md) | A substantial terminal intercept excludes high-to-low half defects | written | written | `musson-collatz-gap-all` |  |
+| [`half-period-four-mismatch-finiteness`](areas/cycles/results/half-period-four-mismatch-finiteness/README.md) | Only finitely many 3x+1 cycles can have a half-period rotation with exactly four mismatch… | written | written | `musson-collatz-gap-all`, `ridout-1958-p-adic-roth` |  |
+| [`half-period-s-unit-approximation-law`](areas/cycles/results/half-period-s-unit-approximation-law/README.md) | A half-period four-mismatch cycle forces a rational approximation of 2^c/3^N with N/25 sp… | written | written | `musson-collatz-gap-all` |  |
 | [`high-order-four-mismatch-exclusion`](areas/cycles/results/high-order-four-mismatch-exclusion/README.md) | Four-mismatch rotations have order at most eighteen | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`largest-letter-rho-reduction`](areas/cycles/results/largest-letter-rho-reduction.md) | A low-mismatch rotation forces a letter of linear size, so ρ → ∞ follows from a largest l… | reviewed | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` | yes |
 | [`lifted-four-arc-denominator-one-exclusion`](areas/cycles/results/lifted-four-arc-denominator-one-exclusion/README.md) | A lifted four-arc family has no denominator-one word | written | written | `musson-collatz-gap-all` |  |
@@ -480,9 +482,10 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`mazur-2026-predecessor-density`](sources/mazur-2026-predecessor-density.md) | Mazur: positive lower density of Collatz predecessors (manuscript) | cited | 0 |
 | [`monks-2006-sufficiency`](sources/monks-2006-sufficiency.md) | Monks (2006): sufficiency of arithmetic progressions | cited | 0 |
 | [`monks-2013-strongly-sufficient`](sources/monks-2013-strongly-sufficient.md) | Monks–Monks–Monks–Monks (2013): strongly sufficient sets | cited | 0 |
-| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 36 |
+| [`musson-collatz-gap-all`](sources/musson-collatz-gap-all.md) | mmusson/collatz: the effective gap Collatz.gap_all (Lean 4) | replayed | 38 |
 | [`neary-2015-binary-pcp-five-pairs`](sources/neary-2015-binary-pcp-five-pairs.md) | Neary (2015): the Post correspondence problem is undecidable for five pairs of binary words | cited | 1 |
 | [`rhin-1987-irrationality-measure`](sources/rhin-1987-irrationality-measure.md) | Rhin (1987): effective irrationality measure for linear forms in log 2, log 3 | cited | 0 |
+| [`ridout-1958-p-adic-roth`](sources/ridout-1958-p-adic-roth.md) | Ridout: the p-adic generalization of the Thue–Siegel–Roth theorem | cited | 1 |
 | [`simons-2005-m-cycles`](sources/simons-2005-m-cycles.md) | Simons–de Weger (2005): no m-cycles for small m | cited | 0 |
 | [`simons-2008-generalized-syracuse-cycles`](sources/simons-2008-generalized-syracuse-cycles.md) | Simons (2008): bounds for cycles of generalized Syracuse sequences | cited | 0 |
 | [`steiner-1977-one-cycles`](sources/steiner-1977-one-cycles.md) | Steiner (1977): no nontrivial 1-cycles | cited | 0 |
@@ -715,6 +718,9 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 ## Recent activity
 
+- 2026-11-23: [`half-period-four-mismatch-finiteness`](areas/cycles/results/half-period-four-mismatch-finiteness/README.md) added (result)
+- 2026-11-23: [`half-period-s-unit-approximation-law`](areas/cycles/results/half-period-s-unit-approximation-law/README.md) added (result)
+- 2026-11-23: [`ridout-1958-p-adic-roth`](sources/ridout-1958-p-adic-roth.md) added (source)
 - 2026-11-08: [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) added (result)
 - 2026-11-08: [`background-maximum-four-arc-exclusion`](areas/cycles/results/background-maximum-four-arc-exclusion/README.md) added (result)
 - 2026-11-08: [`balanced-third-period-denominator-law`](areas/cycles/results/balanced-third-period-denominator-law/README.md) added (result)
@@ -737,9 +743,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`free-four-cut-eighteen-rotation-obstruction`](areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/README.md) added (result)
 - 2026-11-08: [`general-three-label-four-arc-exclusion`](areas/cycles/results/general-three-label-four-arc-exclusion/README.md) added (result)
 - 2026-11-08: [`half-defect-imbalance-growth`](areas/cycles/results/half-defect-imbalance-growth/README.md) added (result)
-- 2026-11-08: [`half-defect-minimum-window`](areas/cycles/results/half-defect-minimum-window/README.md) added (result)
-- 2026-11-08: [`half-defect-positive-order-exclusion`](areas/cycles/results/half-defect-positive-order-exclusion/README.md) added (result)
-- 2026-11-08: [`half-defect-terminal-intercept-exclusion`](areas/cycles/results/half-defect-terminal-intercept-exclusion/README.md) added (result)
 
 ## Contributors
 
@@ -747,11 +750,11 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 54.3% | 203 | 9 |
-| Claude side lane | 13.4% | 34 | 132 |
+| ChatGPT main lane | 54.2% | 203 | 9 |
+| Claude side lane | 13.3% | 34 | 132 |
 | Claude review lane | 7.5% | 0 | 121 |
-| Claude cycles lane | 5.2% | 21 | 0 |
-| Claude Lean lane | 5.0% | 3 | 69 |
+| Claude cycles lane | 5.5% | 23 | 0 |
+| Claude Lean lane | 4.9% | 3 | 69 |
 | Codex cycle research lane | 3.2% | 22 | 0 |
 | Claude PR1 lane | 1.9% | 6 | 9 |
 | Codex four-arc research lane | 1.5% | 16 | 0 |
