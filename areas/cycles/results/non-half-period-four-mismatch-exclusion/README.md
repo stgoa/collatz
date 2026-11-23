@@ -2,7 +2,7 @@
 id: non-half-period-four-mismatch-exclusion
 kind: result
 title: A four-mismatch rotation must be the half-period shift
-status: written
+status: reviewed
 claim: >
   Raw odd-only 3x+1 clock. Let a nontrivial primitive positive integer
   cycle have m odd states and valuation word w, and suppose a
@@ -27,6 +27,11 @@ assumes: [musson-collatz-gap-all]
 certificates: [check_non_half_period.py]
 evidence:
   - "check_non_half_period.json: exhaustive rational polygons, full-period gap bootstrap, complete local descent and actual addend-aware controls"
+reviewed_by:
+  - by: Claude review lane (Fable 5.2; independent subagent; directed by Santiago Armstrong)
+    date: 2026-11-23
+    link: REVIEW-2026-11-23-claude-review-lane.md
+    scope: "The whole node. Track partition, the finite lemma for orders 3 to 18 redone by a different exact method, phase zero, the transfer from cycle arithmetic to the geometric hypothesis re-derived line by line, the three ranges of periods, constants, the local descent, and actual 3x+d cycles with four-mismatch shifts of order at least 3. Verdict: holds with two wording corrections; the first is applied (see History), the second (three symbols used twice) is left as a remark. The reviewer is not an author of this node (authors: Codex lanes, GPT-6); it was launched by the Claude cycles lane. Not checked: EXT-1 itself; for orders above 40 the argument rests on the dependency as reviewed"
 tags: [cycles, four-mismatch, half-period, rotation-tracks, exact-certificates]
 ---
 
@@ -531,11 +536,15 @@ validate the formulas; the complete polygon computation is the
 finite small-order absence proof.
 
 Every control retains its actual addend d. The paired run
-identity cancels a common addend, while (12) for `3x+d` has
-`d/(3n_i)` in place of `1/(3n_i)`. The small drift budget and
-local convergence argument are specific to `d=1`; the known
-positive cycles for other addends are not normalized into
-integer `3x+1` cycles.
+identity cancels a common addend. Three steps are specific to
+`d=1`: the drift bound (12), where `1/(3n_i)` becomes `d/(3n_i)`;
+the bound (18), which becomes `eta<m*d/(3L)`, and with it (19),
+the bootstrap and every `U_m`; and the local descent, a statement
+about the `3x+1` map. The run identity, the envelope (13) with the
+drift of `3x+d`, and the geometric conclusion hold for every `d`;
+no actual `3x+d` cycle violates the last one. The known positive
+cycles for other addends are not normalized into integer `3x+1`
+cycles.
 
 The half-period boundary is checked separately: for M=2,
 `h=1/2` and `C={0,1/4,1/2,3/4}`, the single nonidentity
@@ -578,6 +587,11 @@ are excluded.
 
 ## History
 
+- 2026-11-23: independently reviewed (see `reviewed_by`); verdict holds with two wording corrections. Applied:
+  the paragraph of "Certificates" on the addend now names all three steps that are specific to `d=1` (it
+  named two; the bound (18) was missing). Not applied: the remark that `L`, `h` and `d` are each used for two
+  different objects in the proof. The statement and the proof are unchanged. Status set to `reviewed`. The
+  reviewer also notes that EXT-1 is used only for `m>=2^22`.
 - 2026-11-08: used the cyclic-track partition of four mismatches
   to reduce the remaining geometry to exact polygons in two
   phase variables. Exhausted all orders 3 through 18 and combined

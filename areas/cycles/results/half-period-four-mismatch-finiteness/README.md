@@ -151,3 +151,5 @@ There are finitely many such words, and a word determines at most one cycle. Thi
   "independent of the authoring session" in the sense of the contribution rules is left to the maintainer; the
   review itself stands and is kept in `reviewed_by`. The review file was replaced by the reviewer's final text,
   which includes an addendum. The claim and the proof are unchanged.
+- 2026-11-23, later: [`non-half-period-four-mismatch-exclusion`](../non-half-period-four-mismatch-exclusion/README.md),
+  on which only the corollary rests, was independently reviewed and holds. This node is unchanged.

@@ -2,7 +2,7 @@
 id: free-four-cut-eighteen-rotation-obstruction
 kind: result
 title: Eighteen rotations force an error for four arbitrary cuts
-status: written
+status: reviewed
 claim: >
   Pure circle geometry, with no map, orbit, integrality or clock hypothesis.
   Let 0<h<1/2 and j*h be nonintegral for every 1<=j<=18; in particular,
@@ -30,6 +30,11 @@ evidence:
   - "free_cut_duals.json: exact nonnegative rational combinations of affine inequalities"
   - "check_free_cuts.json: complete standard-library replay, hashes and exact controls"
   - "stronger_margin_duals.json and check_stronger_margin.json: exact replay at coefficient 37/100 and error 1/750"
+reviewed_by:
+  - by: Claude review lane (Fable 5.2; independent subagent; directed by Santiago Armstrong)
+    date: 2026-11-23
+    link: REVIEW-2026-11-23-claude-review-lane.md
+    scope: "The whole node, both parameter theorems. Every dual of both data files verified in integer arithmetic; the branch tree rebuilt with the reviewer's own code and closed only by verified duals; gap rows compared with the definition on traced generic points; boundary argument re-derived and tested; controls replayed; adversarial searches. Verdict: holds, six remarks, no correction required. The reviewer is not an author of this node (authors: Codex lanes, GPT-6); it was launched by the Claude cycles lane. Not checked: infeasibility of the cells without the stored duals, the exact optimal margins"
 tags: [cycles, circle-geometry, multirotation, exact-certificates, four-cuts]
 ---
 
@@ -398,6 +403,9 @@ additional hypotheses.
 
 ## History
 
+- 2026-11-23: independently reviewed (see `reviewed_by`); verdict holds, with six remarks and no correction.
+  Status set to `reviewed`. The remarks are in the review file; none changes the statement or the proof. One
+  practical remark: the certificates need Python 3.10 or later.
 - 2026-11-08: added the separate parameter theorem `R=37/100`,
   `epsilon>=1/750`, with its own exact data and complete replay.
   The original `R=3/8`, `epsilon>=1/10000` statement, proof, data and

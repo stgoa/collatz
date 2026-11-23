@@ -259,7 +259,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`fixed-defect-unbounded-cancellation`](areas/cycles/results/fixed-defect-unbounded-cancellation.md) | Two unit rotation defects allow arbitrarily large cancellation: the family 1^t 2^(2t) | reviewed | reviewed | — |  |
 | [`four-mismatch-inverse-continued-fraction-bound`](areas/cycles/results/four-mismatch-inverse-continued-fraction-bound/README.md) | Inverse continued fractions force rotation mismatch growth | written | written | `musson-collatz-gap-all` |  |
 | [`four-mismatch-sign-dichotomy`](areas/cycles/results/four-mismatch-sign-dichotomy.md) | A rotation with four mismatches has one sign change of each kind, or two of each in alter… | formal | formal | — | yes |
-| [`free-four-cut-eighteen-rotation-obstruction`](areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/README.md) | Eighteen rotations force an error for four arbitrary cuts | written | written | — |  |
+| [`free-four-cut-eighteen-rotation-obstruction`](areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/README.md) | Eighteen rotations force an error for four arbitrary cuts | reviewed | reviewed | — |  |
 | [`general-three-label-four-arc-exclusion`](areas/cycles/results/general-three-label-four-arc-exclusion/README.md) | Integer repetition bounds exclude the three-label equal-outer four-arc family | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`generic-cycle-minimum-baselines`](areas/cycles/results/generic-cycle-minimum-baselines/README.md) | Order-free baselines for cycle minima and denominators (extremal, packing, product) | reviewed | reviewed | — |  |
 | [`global-drift-ceiling`](areas/cycles/results/global-drift-ceiling.md) | The global-drift ceiling: log₂(n_k/L) ≤ k·log₂(3/2) − X_k + δ at every q, with no hypothe… | formal | formal | — | yes |
@@ -288,7 +288,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) | Finite signed crossing orbits exclude near-doubled cancellation for gaps through twelve | written | written | — |  |
 | [`near-doubled-words-primitive-factor-test`](areas/cycles/results/near-doubled-words-primitive-factor-test/README.md) | The primitive factor at gcd(A, m) = 2 never divides the intercept of a near-doubled word:… | written | written | — |  |
 | [`negative-interface-mersenne-exclusion`](areas/cycles/results/negative-interface-mersenne-exclusion/README.md) | Signed Mersenne joins with negative interface exclude denominator one | written | written | `laurent-mignotte-nesterenko-1995-two-logarithms` |  |
-| [`non-half-period-four-mismatch-exclusion`](areas/cycles/results/non-half-period-four-mismatch-exclusion/README.md) | A four-mismatch rotation must be the half-period shift | written | written | `musson-collatz-gap-all` |  |
+| [`non-half-period-four-mismatch-exclusion`](areas/cycles/results/non-half-period-four-mismatch-exclusion/README.md) | A four-mismatch rotation must be the half-period shift | reviewed | reviewed | `musson-collatz-gap-all` |  |
 | [`odd-order-residue-signed-endpoint-divisibility`](areas/cycles/results/odd-order-residue-signed-endpoint-divisibility/README.md) | Odd-order residue groups force full divisibility of signed return endpoints | written | written | — | yes |
 | [`odd-spacing-rounding-bound`](areas/cycles/results/odd-spacing-rounding-bound.md) | Odd spacing and image order bound every sorted gap of an ordered cycle, so L ≥ R_q(H) | formal | reviewed | — | yes |
 | [`one-cycle-exclusion-via-gap`](areas/cycles/results/one-cycle-exclusion-via-gap.md) | Given the linear-form gap, no 3x+1 cycle has word 1^(m−1)V for m ≥ 2^13 (a route to Stein… | formal | formal | `musson-collatz-gap-all` | yes |
@@ -724,6 +724,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 ## Recent activity
 
+- 2026-11-23: [`free-four-cut-eighteen-rotation-obstruction`](areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/README.md) reviewed by Claude review lane (Fable 5.2; independent subagent; directed by Santiago Armstrong)
 - 2026-11-23: [`half-period-four-mismatch-finiteness`](areas/cycles/results/half-period-four-mismatch-finiteness/README.md) added (result)
 - 2026-11-23: [`half-period-four-mismatch-finiteness`](areas/cycles/results/half-period-four-mismatch-finiteness/README.md) reviewed by Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
 - 2026-11-23: [`half-period-s-unit-approximation-law`](areas/cycles/results/half-period-s-unit-approximation-law/README.md) added (result)
@@ -732,6 +733,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-23: [`half-period-six-mismatch-local-law`](areas/cycles/results/half-period-six-mismatch-local-law/README.md) added (result)
 - 2026-11-23: [`mismatch-chain-ridout-criterion`](areas/cycles/results/mismatch-chain-ridout-criterion/README.md) added (result)
 - 2026-11-23: [`mismatch-chain-ridout-criterion`](areas/cycles/results/mismatch-chain-ridout-criterion/README.md) reviewed by Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
+- 2026-11-23: [`non-half-period-four-mismatch-exclusion`](areas/cycles/results/non-half-period-four-mismatch-exclusion/README.md) reviewed by Claude review lane (Fable 5.2; independent subagent; directed by Santiago Armstrong)
 - 2026-11-23: [`rotation-distance-finite-exceptions`](areas/cycles/questions/rotation-distance-finite-exceptions.md) added (question)
 - 2026-11-23: [`saturated-sets-meet-every-residue-class-formal`](areas/invariants/results/saturated-sets-meet-every-residue-class-formal.md) added (result)
 - 2026-11-23: [`evertse-1984-sums-of-s-units`](sources/evertse-1984-sums-of-s-units.md) added (source)
@@ -747,8 +749,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`contiguous-maximum-four-arc-exclusion`](areas/cycles/results/contiguous-maximum-four-arc-exclusion/README.md) added (result)
 - 2026-11-08: [`contracting-two-block-double-repeat-exclusion`](areas/cycles/results/contracting-two-block-double-repeat-exclusion/README.md) added (result)
 - 2026-11-08: [`effective-proportional-two-block-exclusion`](areas/cycles/results/effective-proportional-two-block-exclusion/README.md) added (result)
-- 2026-11-08: [`equal-amplitude-half-defect-exclusion`](areas/cycles/results/equal-amplitude-half-defect-exclusion/README.md) added (result)
-- 2026-11-08: [`equal-amplitude-half-defect-normal-form`](areas/cycles/results/equal-amplitude-half-defect-normal-form/README.md) added (result)
 
 ## Contributors
 
@@ -756,9 +756,9 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 53.6% | 203 | 9 |
+| ChatGPT main lane | 53.5% | 203 | 9 |
 | Claude side lane | 13.2% | 34 | 132 |
-| Claude review lane | 7.5% | 0 | 124 |
+| Claude review lane | 7.7% | 0 | 126 |
 | Claude cycles lane | 6.4% | 27 | 0 |
 | Claude Lean lane | 4.9% | 3 | 69 |
 | Codex cycle research lane | 3.2% | 22 | 0 |
