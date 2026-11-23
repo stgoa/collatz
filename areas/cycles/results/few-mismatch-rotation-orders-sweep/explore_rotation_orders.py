@@ -30,6 +30,8 @@ term) + t. Outcomes for a pattern:
     python3 areas/cycles/results/few-mismatch-rotation-orders-sweep/explore_rotation_orders.py --run M s [h] --write-receipt
 
 With --write-receipt the entries are merged into explore_rotation_orders.json.
+With --rotation-only the rows and the relations are those of the hypothesised rotation alone, not of its
+multiples; such entries are stored with the suffix "rotation only".
 """
 import itertools
 import json
@@ -76,10 +78,10 @@ def compositions(s, parts_min=2):
             yield [first] + rest
 
 
-def solve(M, ranks, time_limit=60):
+def solve(M, ranks, time_limit=60, only_shift=None):
     d = len(ranks)
     n_k = M * d
-    shifts = list(range(1, M // 2 + 1))
+    shifts = list(range(1, M // 2 + 1)) if only_shift is None else [only_shift]
     idx = {}
 
     def new(name):
@@ -208,7 +210,7 @@ def solve(M, ranks, time_limit=60):
     return "unsolved", None
 
 
-def sweep(M, s, only_h=None):
+def sweep(M, s, only_h=None, rotation_only=False):
     out = {}
     orderings = weak_orderings(M)
     for h in range(1, M // 2 + 1):
@@ -228,7 +230,7 @@ def sweep(M, s, only_h=None):
                 continue
             for ranks in itertools.product(*pools):
                 cases += 1
-                status, t = solve(M, list(ranks))
+                status, t = solve(M, list(ranks), only_shift=h if rotation_only else None)
                 counts[status] += 1
                 if status == "forced":
                     weakest = t if weakest is None else max(weakest, t)
@@ -237,8 +239,9 @@ def sweep(M, s, only_h=None):
         entry = dict(counts, patterns=cases,
                      weakest_forced=None if weakest is None else round(weakest, 3),
                      largest_free=None if largest is None else round(largest, 3))
-        out[f"M={M} h={h} s={s}"] = entry
-        print(f"M={M} h={h} s={s}: {entry}", flush=True)
+        name = f"M={M} h={h} s={s}" + (" rotation only" if rotation_only else "")
+        out[name] = entry
+        print(f"{name}: {entry}", flush=True)
     return out
 
 
@@ -250,13 +253,13 @@ def main():
     args = [a for a in sys.argv[i + 1:] if not a.startswith("--")]
     M, s = int(args[0]), int(args[1])
     only_h = int(args[2]) if len(args) > 2 else None
-    out = sweep(M, s, only_h)
+    out = sweep(M, s, only_h, rotation_only="--rotation-only" in sys.argv)
     if "--write-receipt" in sys.argv:
         path = HERE / "explore_rotation_orders.json"
         data = json.loads(path.read_text()) if path.exists() else {}
         data.update(out)
-        key = lambda k: [int(part.split("=")[1]) for part in k.split()]
-        ordered = {k: data[k] for k in sorted(data, key=lambda k: (key(k)[2], key(k)[0], key(k)[1]))}
+        key = lambda k: [int(part.split("=")[1]) for part in k.split()[:3]]
+        ordered = {k: data[k] for k in sorted(data, key=lambda k: ("rotation only" in k, key(k)[2], key(k)[0], key(k)[1]))}
         path.write_text(json.dumps(ordered, indent=1) + "\n")
         print("receipt updated")
 
