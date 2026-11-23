@@ -1,0 +1,28 @@
+{
+ "random_points": 150000,
+ "pass_first_4_multiples_within_0.01": 352,
+ "rows_of_12_multiples_hold_after_local_search": 163,
+ "confirmed_by_explicit_model_with_12_multiples": 157,
+ "smallest_best_margin": 0.202,
+ "largest_best_margin": 0.5315,
+ "rotation_numbers_rounded": {
+  "0.21": 9,
+  "0.23": 5,
+  "0.26": 2,
+  "0.27": 5,
+  "0.28": 5,
+  "0.29": 1,
+  "0.3": 3,
+  "0.31": 6,
+  "0.36": 14,
+  "0.37": 4,
+  "0.38": 25,
+  "0.39": 21,
+  "0.41": 6,
+  "0.42": 35,
+  "0.43": 1,
+  "0.44": 15
+ },
+ "of_these_rows_of_24_multiples_hold": 19,
+ "smallest_best_margin_with_24_multiples": 0.3006
+}

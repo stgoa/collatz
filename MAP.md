@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**304 results, 32 attempts, 40 questions, 41 sources.**
+**305 results, 32 attempts, 40 questions, 41 sources.**
 
 ## Frontier: open questions
 
@@ -285,6 +285,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`mismatch-height-tradeoff`](areas/cycles/results/mismatch-height-tradeoff/README.md) | Mismatch–height trade-off at q = 1: every rotation differs in more than log₂3·m/(B + 342… | formal | reviewed | `musson-collatz-gap-all` | yes |
 | [`narrow-cycle-spectrum-law`](areas/cycles/results/narrow-cycle-spectrum-law.md) | Narrow-cycle spectrum of 3x+d: one cycle per coprime (A, m) with 0 < 2^A − 3^m dividing d | reviewed | reviewed | — |  |
 | [`narrow-cycles-are-mechanical`](areas/cycles/results/narrow-cycles-are-mechanical/README.md) | A cycle with H < 2L is exactly a mechanical word, so every nontrivial 3x+1 cycle has H >… | formal | formal | — | yes |
+| [`near-circuit-rotation-forced-relation`](areas/cycles/results/near-circuit-rotation-forced-relation/README.md) | Heuristic: a near-circuit with a rotation of four or five mismatches is forced into a sma… | proposed | proposed | `musson-collatz-gap-all` |  |
 | [`near-critical-four-mismatch-corpus-counterexample`](areas/cycles/results/near-critical-four-mismatch-corpus-counterexample/README.md) | An existing 3x+295 cycle refutes both near-critical half-cancellation bounds | written | written | — |  |
 | [`near-doubled-crossing-orbit-exclusion`](areas/cycles/results/near-doubled-crossing-orbit-exclusion/README.md) | Finite signed crossing orbits exclude near-doubled cancellation for gaps through twelve | written | written | — |  |
 | [`near-doubled-words-primitive-factor-test`](areas/cycles/results/near-doubled-words-primitive-factor-test/README.md) | The primitive factor at gcd(A, m) = 2 never divides the intercept of a near-doubled word:… | written | written | — |  |
@@ -735,6 +736,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-23: [`half-period-six-mismatch-local-law`](areas/cycles/results/half-period-six-mismatch-local-law/README.md) added (result)
 - 2026-11-23: [`mismatch-chain-ridout-criterion`](areas/cycles/results/mismatch-chain-ridout-criterion/README.md) added (result)
 - 2026-11-23: [`mismatch-chain-ridout-criterion`](areas/cycles/results/mismatch-chain-ridout-criterion/README.md) reviewed by Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
+- 2026-11-23: [`near-circuit-rotation-forced-relation`](areas/cycles/results/near-circuit-rotation-forced-relation/README.md) added (result)
 - 2026-11-23: [`non-half-period-four-mismatch-exclusion`](areas/cycles/results/non-half-period-four-mismatch-exclusion/README.md) reviewed by Claude review lane (Fable 5.2; independent subagent; directed by Santiago Armstrong)
 - 2026-11-23: [`rotation-distance-finite-exceptions`](areas/cycles/questions/rotation-distance-finite-exceptions.md) added (question)
 - 2026-11-23: [`saturated-sets-meet-every-residue-class-formal`](areas/invariants/results/saturated-sets-meet-every-residue-class-formal.md) added (result)
@@ -749,7 +751,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`clustered-arc-three-order-inequality-obstruction`](areas/cycles/results/clustered-arc-three-order-inequality-obstruction/README.md) added (result)
 - 2026-11-08: [`clustered-two-maximum-arcs-exclusion`](areas/cycles/results/clustered-two-maximum-arcs-exclusion/README.md) added (result)
 - 2026-11-08: [`contiguous-maximum-four-arc-exclusion`](areas/cycles/results/contiguous-maximum-four-arc-exclusion/README.md) added (result)
-- 2026-11-08: [`contracting-two-block-double-repeat-exclusion`](areas/cycles/results/contracting-two-block-double-repeat-exclusion/README.md) added (result)
 
 ## Contributors
 
@@ -760,7 +761,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | ChatGPT main lane | 53.5% | 203 | 9 |
 | Claude side lane | 13.2% | 34 | 132 |
 | Claude review lane | 7.7% | 0 | 126 |
-| Claude cycles lane | 6.4% | 28 | 0 |
+| Claude cycles lane | 6.5% | 29 | 0 |
 | Claude Lean lane | 4.9% | 3 | 69 |
 | Codex cycle research lane | 3.2% | 22 | 0 |
 | Claude PR1 lane | 1.9% | 6 | 9 |

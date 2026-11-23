@@ -1,0 +1,472 @@
+{
+ "s=3": {
+  "verdict": "empty",
+  "largest_t": null,
+  "order_types": {
+   "small mismatches before 1-h: 0": null,
+   "small mismatches before 1-h: 1": null
+  }
+ },
+ "s=4": {
+  "verdict": "forced",
+  "largest_t": -0.3289,
+  "order_types": {
+   "small mismatches before 1-h: 0": null,
+   "small mismatches before 1-h: 1": {
+    "largest_t": -0.3289,
+    "h_and_times": [
+     0.5,
+     0.2925,
+     0.7925
+    ]
+   },
+   "small mismatches before 1-h: 2": {
+    "largest_t": -0.3981,
+    "h_and_times": [
+     0.2512,
+     0.1469,
+     0.3798
+    ]
+   }
+  }
+ },
+ "s=5": {
+  "verdict": "forced",
+  "largest_t": -0.1072,
+  "order_types": {
+   "small mismatches before 1-h: 0": null,
+   "small mismatches before 1-h: 1": {
+    "largest_t": -0.1197,
+    "h_and_times": [
+     0.5,
+     0.2925,
+     0.5833,
+     0.9245
+    ]
+   },
+   "small mismatches before 1-h: 2": {
+    "largest_t": -0.1072,
+    "h_and_times": [
+     0.4811,
+     0.1072,
+     0.4513,
+     0.8224
+    ]
+   },
+   "small mismatches before 1-h: 3": {
+    "largest_t": -0.2512,
+    "h_and_times": [
+     0.1585,
+     0.0927,
+     0.2396,
+     0.4725
+    ]
+   }
+  }
+ },
+ "s=6": {
+  "verdict": "not forced",
+  "largest_t": 0.0234,
+  "order_types": {
+   "small mismatches before 1-h: 0": null,
+   "small mismatches before 1-h: 1": {
+    "largest_t": -0.0364,
+    "h_and_times": [
+     0.5,
+     0.2925,
+     0.5,
+     0.7532,
+     0.977
+    ]
+   },
+   "small mismatches before 1-h: 2": {
+    "largest_t": -0.0145,
+    "h_and_times": [
+     0.5,
+     0.0145,
+     0.3155,
+     0.5145,
+     0.8155
+    ]
+   },
+   "small mismatches before 1-h: 3": {
+    "largest_t": 0.0234,
+    "h_and_times": [
+     0.3543,
+     0.1838,
+     0.2914,
+     0.6457,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 4": {
+    "largest_t": -0.1585,
+    "h_and_times": [
+     0.1,
+     0.0585,
+     0.1512,
+     0.2981,
+     0.531
+    ]
+   }
+  }
+ },
+ "s=7": {
+  "verdict": "not forced",
+  "largest_t": 0.0779,
+  "order_types": {
+   "small mismatches before 1-h: 0": null,
+   "small mismatches before 1-h: 1": {
+    "largest_t": -0.0364,
+    "h_and_times": [
+     0.5,
+     0.2925,
+     0.5,
+     0.5505,
+     0.6164,
+     0.977
+    ]
+   },
+   "small mismatches before 1-h: 2": {
+    "largest_t": 0.0498,
+    "h_and_times": [
+     0.5,
+     0.2427,
+     0.3846,
+     0.5599,
+     0.7777,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 3": {
+    "largest_t": 0.0779,
+    "h_and_times": [
+     0.417,
+     0.166,
+     0.2631,
+     0.583,
+     0.8461,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 4": {
+    "largest_t": 0.0692,
+    "h_and_times": [
+     0.3254,
+     0.1212,
+     0.1921,
+     0.4256,
+     0.6746,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 5": {
+    "largest_t": -0.1,
+    "h_and_times": [
+     0.0631,
+     0.0369,
+     0.0954,
+     0.1881,
+     0.335,
+     0.5679
+    ]
+   }
+  }
+ },
+ "s=8": {
+  "verdict": "not forced",
+  "largest_t": 0.1501,
+  "order_types": {
+   "small mismatches before 1-h: 0": null,
+   "small mismatches before 1-h: 1": {
+    "largest_t": -0.0364,
+    "h_and_times": [
+     0.5,
+     0.2925,
+     0.5,
+     0.5,
+     0.5505,
+     0.6164,
+     0.977
+    ]
+   },
+   "small mismatches before 1-h: 2": {
+    "largest_t": 0.0668,
+    "h_and_times": [
+     0.5,
+     0.2256,
+     0.3576,
+     0.5,
+     0.6248,
+     0.6309,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 3": {
+    "largest_t": 0.1501,
+    "h_and_times": [
+     0.5,
+     0.1424,
+     0.2256,
+     0.5,
+     0.6424,
+     0.7256,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 4": {
+    "largest_t": 0.1155,
+    "h_and_times": [
+     0.3861,
+     0.1103,
+     0.1748,
+     0.3873,
+     0.6139,
+     0.8575,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 5": {
+    "largest_t": 0.1058,
+    "h_and_times": [
+     0.3023,
+     0.071,
+     0.1126,
+     0.2495,
+     0.3954,
+     0.6977,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 6": {
+    "largest_t": -0.0631,
+    "h_and_times": [
+     0.0398,
+     0.0233,
+     0.0602,
+     0.1187,
+     0.2114,
+     0.3583,
+     0.5911
+    ]
+   }
+  }
+ },
+ "s=9": {
+  "verdict": "not forced",
+  "largest_t": 0.1781,
+  "order_types": {
+   "small mismatches before 1-h: 0": null,
+   "small mismatches before 1-h: 1": {
+    "largest_t": -0.0364,
+    "h_and_times": [
+     0.5,
+     0.2925,
+     0.5,
+     0.5,
+     0.5,
+     0.5505,
+     0.6164,
+     0.977
+    ]
+   },
+   "small mismatches before 1-h: 2": {
+    "largest_t": 0.0668,
+    "h_and_times": [
+     0.5,
+     0.2256,
+     0.3576,
+     0.5,
+     0.5,
+     0.6248,
+     0.6309,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 3": {
+    "largest_t": 0.1673,
+    "h_and_times": [
+     0.5,
+     0.1252,
+     0.1984,
+     0.4396,
+     0.5294,
+     0.6424,
+     0.755,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 4": {
+    "largest_t": 0.1781,
+    "h_and_times": [
+     0.4679,
+     0.0956,
+     0.1515,
+     0.3357,
+     0.5321,
+     0.6654,
+     0.7433,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 5": {
+    "largest_t": 0.1461,
+    "h_and_times": [
+     0.361,
+     0.0651,
+     0.1031,
+     0.2285,
+     0.3621,
+     0.639,
+     0.8668,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 6": {
+    "largest_t": 0.1244,
+    "h_and_times": [
+     0.2906,
+     0.0456,
+     0.0722,
+     0.16,
+     0.2537,
+     0.4476,
+     0.7094,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 7": {
+    "largest_t": -0.0398,
+    "h_and_times": [
+     0.0251,
+     0.0147,
+     0.038,
+     0.0749,
+     0.1334,
+     0.226,
+     0.373,
+     0.6058
+    ]
+   }
+  }
+ },
+ "s=10": {
+  "verdict": "not forced",
+  "largest_t": 0.2027,
+  "order_types": {
+   "small mismatches before 1-h: 0": null,
+   "small mismatches before 1-h: 1": {
+    "largest_t": -0.0364,
+    "h_and_times": [
+     0.5,
+     0.2925,
+     0.5,
+     0.5,
+     0.5,
+     0.5,
+     0.5505,
+     0.6164,
+     0.977
+    ]
+   },
+   "small mismatches before 1-h: 2": {
+    "largest_t": 0.0668,
+    "h_and_times": [
+     0.5,
+     0.2256,
+     0.3576,
+     0.5,
+     0.5,
+     0.5,
+     0.6248,
+     0.6309,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 3": {
+    "largest_t": 0.1718,
+    "h_and_times": [
+     0.5,
+     0.1207,
+     0.1913,
+     0.4239,
+     0.5,
+     0.5371,
+     0.6424,
+     0.7627,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 4": {
+    "largest_t": 0.2027,
+    "h_and_times": [
+     0.5,
+     0.0898,
+     0.1424,
+     0.3155,
+     0.5,
+     0.5898,
+     0.6424,
+     0.8155,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 5": {
+    "largest_t": 0.2012,
+    "h_and_times": [
+     0.4412,
+     0.0569,
+     0.0902,
+     0.1998,
+     0.3167,
+     0.5588,
+     0.6844,
+     0.7579,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 6": {
+    "largest_t": 0.1617,
+    "h_and_times": [
+     0.3481,
+     0.0419,
+     0.0664,
+     0.1471,
+     0.2331,
+     0.4113,
+     0.6519,
+     0.8715,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 7": {
+    "largest_t": 0.1373,
+    "h_and_times": [
+     0.2825,
+     0.0279,
+     0.0443,
+     0.0982,
+     0.1556,
+     0.2745,
+     0.4351,
+     0.7175,
+     1.0
+    ]
+   },
+   "small mismatches before 1-h: 8": {
+    "largest_t": -0.0251,
+    "h_and_times": [
+     0.0158,
+     0.0093,
+     0.024,
+     0.0472,
+     0.0841,
+     0.1426,
+     0.2353,
+     0.3822,
+     0.6151
+    ]
+   }
+  }
+ }
+}
