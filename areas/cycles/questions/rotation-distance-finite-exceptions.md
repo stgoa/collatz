@@ -63,6 +63,13 @@ size of the minimum.
   defects along the rotation), and they are forced as well. The node lists what is missing for a theorem:
   error terms, exact certificates, the orders in between, long runs of defects, completeness of the pattern
   families.
+- 2026-11-23, heuristic, not a proof: for near-circuits the question reduces to seven small linear programmes
+  ([`near-circuit-rotation-forced-relation`](../results/near-circuit-rotation-forced-relation/README.md),
+  status `proposed`). With the rows and relations of the rotation alone, four and five mismatches are forced
+  with `0.33 m` and `0.107 m` spare bits, at every rotation order and for any placement of the small defects;
+  six are not. Long runs of defects do survive the size rows of 24 multiples at large orders, and are forced
+  there too. A proof for five mismatches would then need two things: this statement with error terms and exact
+  certificates, and a size lemma saying that a rotation with five mismatches forces a near-circuit.
 - A general tool: [`mismatch-chain-ridout-criterion`](../results/mismatch-chain-ridout-criterion/README.md).
   For any rotation, any mismatched start position after a common run of `a - 1` positions and any later end
   position, an exact identity relates `3^(a+n) g` to `2^c U`. Under Ridout's theorem, for each fixed
