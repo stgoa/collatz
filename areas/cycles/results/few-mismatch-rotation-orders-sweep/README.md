@@ -118,7 +118,27 @@ forced patterns, in units of `P`.
 For `M = 4` and `M = 6` a few patterns are fixed by a rotation of smaller order ("invariant"); they belong to
 that smaller order and are not counted above.
 
-For five mismatches, all survivors found have the same shape: no excess in the bulk, heights rising at the
+**The rotation alone.** The same programmes were rerun with the rows and the relations of the hypothesised
+rotation only, without its multiples (entries "rotation only" of the receipt):
+
+| Mismatches | Order `M` | Shift `h` | Patterns | Empty | Forced | Free | Weakest |
+|---|---|---|---|---|---|---|---|
+| 5 | 3 | 1 | 72 | 64 | 8 | 0 | -0.731 |
+| 5 | 4 | 1 | 576 | 572 | 4 | 0 | -1.543 |
+| 5 | 5 | 1 | 2670 | 2670 | 0 | 0 |  |
+| 5 | 5 | 2 | 2670 | 2527 | 143 | 0 | -0.698 |
+| 5 | 6 | 1 | 8820 | 8820 | 0 | 0 |  |
+| 5 | 7 | 3 | 23310 | 22836 | 474 | 0 | -0.991 |
+| 6 | 3 | 1 | 252 | 200 | 52 | 0 | -0.299 |
+| 6 | 4 | 1 | 3216 | 3080 | 136 | 0 | -0.587 |
+| 7 | 3 | 1 | 648 | 442 | 206 | 0 | -0.03 |
+
+Fewer patterns are excluded by the rows, since there are fewer rows, and still none is free. So at these
+orders the multiples of the rotation are not needed to force a relation, for five, six and seven mismatches.
+This is not so at every order: for near-circuits with six mismatches the rotation alone forces nothing
+([`near-circuit-rotation-forced-relation`](../near-circuit-rotation-forced-relation/README.md)).
+
+For five mismatches, all survivors found with all shifts have the same shape: no excess in the bulk, heights rising at the
 maximal rate over the whole cycle, one giant last letter, and small defects (excess negligible on the scale
 of `P`) at one offset in a run of copies next to the giant in the order of the rotation, plus one more run of
 small defects at another offset. They are close to the circuits of Steiner, with a few extra letters.
@@ -240,6 +260,8 @@ reach of these relations.
   the model for the first part.
 
 ## History
+
+- 2026-11-23, later: added the runs with the rotation alone, and the pointer to the near-circuit node.
 
 - 2026-11-23: explored by the Claude cycles lane (Fable 5.2; directed by Santiago Armstrong), right after the
   proof for six half-period mismatches. Recorded as `proposed` at the request of the director to move fast and
