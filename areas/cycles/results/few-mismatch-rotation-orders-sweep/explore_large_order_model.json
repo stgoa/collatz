@@ -1,0 +1,328 @@
+{
+ "validation_order_7": {
+  "note": "the order-7 survivor of explore_rotation_orders.py, with indices read modulo 7; its margin there is 2.354 per period, that is 0.3363 per unit of m",
+  "result": [
+   true,
+   0.3362964283653839
+  ]
+ },
+ "five_mismatch_families": {
+  "A giant with adjacent small run, separate small run; beta=0.0; J=10": {
+   "tested": 1499400,
+   "feasible": 15,
+   "weakest_best_margin": 0.2184
+  },
+  "B giant alone, separate run with two small letters; beta=0.0; J=10": {
+   "tested": 699720,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "C two adjacent visible letters, separate small run; beta=0.0; J=10": {
+   "tested": 1199520,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "C2 giant with adjacent small run, separate run of visible letters; beta=0.0; J=10": {
+   "tested": 2056320,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "D run of equal visible letters, separate run with two small letters; beta=0.0; J=10": {
+   "tested": 685440,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "E one orbit: giant, small run, gap, small run; beta=0.0; J=10": {
+   "tested": 81634,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "E3 one orbit: giant followed by three different small runs; beta=0.0; J=10": {
+   "tested": 15232,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "A giant with adjacent small run, separate small run; beta=0.05; J=10": {
+   "tested": 1499400,
+   "feasible": 2,
+   "weakest_best_margin": 0.3501
+  },
+  "B giant alone, separate run with two small letters; beta=0.05; J=10": {
+   "tested": 699720,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "C two adjacent visible letters, separate small run; beta=0.05; J=10": {
+   "tested": 1199520,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "C2 giant with adjacent small run, separate run of visible letters; beta=0.05; J=10": {
+   "tested": 2056320,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "D run of equal visible letters, separate run with two small letters; beta=0.05; J=10": {
+   "tested": 685440,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "E one orbit: giant, small run, gap, small run; beta=0.05; J=10": {
+   "tested": 81634,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "E3 one orbit: giant followed by three different small runs; beta=0.05; J=10": {
+   "tested": 15232,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "A giant with adjacent small run, separate small run; beta=0.15; J=10": {
+   "tested": 1499400,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "B giant alone, separate run with two small letters; beta=0.15; J=10": {
+   "tested": 699720,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "C two adjacent visible letters, separate small run; beta=0.15; J=10": {
+   "tested": 1199520,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "C2 giant with adjacent small run, separate run of visible letters; beta=0.15; J=10": {
+   "tested": 2056320,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "D run of equal visible letters, separate run with two small letters; beta=0.15; J=10": {
+   "tested": 685440,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "E one orbit: giant, small run, gap, small run; beta=0.15; J=10": {
+   "tested": 81634,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "E3 one orbit: giant followed by three different small runs; beta=0.15; J=10": {
+   "tested": 15232,
+   "feasible": 0,
+   "weakest_best_margin": null
+  }
+ },
+ "family_A_with_more_multiples": {
+  "J=8": {
+   "feasible": 143,
+   "weakest_best_margin": 0.1868
+  },
+  "J=12": {
+   "feasible": 24,
+   "weakest_best_margin": 0.2683,
+   "rotation_numbers": [
+    0.265,
+    0.355,
+    0.3825,
+    0.385
+   ]
+  },
+  "J=16": {
+   "feasible": 0,
+   "weakest_best_margin": null,
+   "rotation_numbers": []
+  },
+  "J=24": {
+   "feasible": 0,
+   "weakest_best_margin": null,
+   "rotation_numbers": []
+  },
+  "J=32": {
+   "feasible": 0,
+   "weakest_best_margin": null,
+   "rotation_numbers": []
+  },
+  "J=48": {
+   "feasible": 0,
+   "weakest_best_margin": null,
+   "rotation_numbers": []
+  }
+ },
+ "family_A_exact_orders": {
+  "M=3": {
+   "feasible": 132,
+   "numerators": [
+    1
+   ],
+   "weakest_best_margin": 0.2624
+  },
+  "M=4": {
+   "feasible": 10,
+   "numerators": [
+    1
+   ],
+   "weakest_best_margin": 0.3879
+  },
+  "M=5": {
+   "feasible": 76,
+   "numerators": [
+    2
+   ],
+   "weakest_best_margin": 0.3014
+  },
+  "M=6": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=7": {
+   "feasible": 22,
+   "numerators": [
+    3
+   ],
+   "weakest_best_margin": 0.3365
+  },
+  "M=8": {
+   "feasible": 64,
+   "numerators": [
+    3
+   ],
+   "weakest_best_margin": 0.3111
+  },
+  "M=9": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=10": {
+   "feasible": 8,
+   "numerators": [
+    3
+   ],
+   "weakest_best_margin": 0.4546
+  },
+  "M=11": {
+   "feasible": 14,
+   "numerators": [
+    3,
+    4
+   ],
+   "weakest_best_margin": 0.217
+  },
+  "M=12": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=13": {
+   "feasible": 30,
+   "numerators": [
+    5
+   ],
+   "weakest_best_margin": 0.3023
+  },
+  "M=14": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=15": {
+   "feasible": 2,
+   "numerators": [
+    4
+   ],
+   "weakest_best_margin": 0.3712
+  },
+  "M=16": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=17": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=18": {
+   "feasible": 1,
+   "numerators": [
+    7
+   ],
+   "weakest_best_margin": 0.3748
+  },
+  "M=19": {
+   "feasible": 5,
+   "numerators": [
+    4,
+    8
+   ],
+   "weakest_best_margin": 0.2933
+  },
+  "M=20": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=21": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=22": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=23": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=24": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=25": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=26": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=27": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=28": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=29": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=30": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=31": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  },
+  "M=32": {
+   "feasible": 0,
+   "numerators": [],
+   "weakest_best_margin": null
+  }
+ }
+}
