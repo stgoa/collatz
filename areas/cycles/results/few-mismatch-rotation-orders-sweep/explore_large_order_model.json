@@ -324,5 +324,112 @@
    "numerators": [],
    "weakest_best_margin": null
   }
+ },
+ "five_mismatch_families_rotation_only": {
+  "A giant with adjacent small run, separate small run; beta=0.0; J=1": {
+   "tested": 663600,
+   "feasible": 32638,
+   "weakest_best_margin": 0.1208
+  },
+  "B giant alone, separate run with two small letters; beta=0.0; J=1": {
+   "tested": 309680,
+   "feasible": 15236,
+   "weakest_best_margin": 0.1218
+  },
+  "C two adjacent visible letters, separate small run; beta=0.0; J=1": {
+   "tested": 530880,
+   "feasible": 867,
+   "weakest_best_margin": 0.1588
+  },
+  "C2 giant with adjacent small run, separate run of visible letters; beta=0.0; J=1": {
+   "tested": 910080,
+   "feasible": 5407,
+   "weakest_best_margin": 0.1276
+  },
+  "D run of equal visible letters, separate run with two small letters; beta=0.0; J=1": {
+   "tested": 303360,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "E one orbit: giant, small run, gap, small run; beta=0.0; J=1": {
+   "tested": 54194,
+   "feasible": 2998,
+   "weakest_best_margin": 0.1245
+  },
+  "E3 one orbit: giant followed by three different small runs; beta=0.0; J=1": {
+   "tested": 10112,
+   "feasible": 597,
+   "weakest_best_margin": 0.1245
+  },
+  "A giant with adjacent small run, separate small run; beta=0.1; J=1": {
+   "tested": 663600,
+   "feasible": 1966,
+   "weakest_best_margin": 0.2452
+  },
+  "B giant alone, separate run with two small letters; beta=0.1; J=1": {
+   "tested": 309680,
+   "feasible": 915,
+   "weakest_best_margin": 0.2676
+  },
+  "C two adjacent visible letters, separate small run; beta=0.1; J=1": {
+   "tested": 530880,
+   "feasible": 11,
+   "weakest_best_margin": 0.3219
+  },
+  "C2 giant with adjacent small run, separate run of visible letters; beta=0.1; J=1": {
+   "tested": 910080,
+   "feasible": 225,
+   "weakest_best_margin": 0.2454
+  },
+  "D run of equal visible letters, separate run with two small letters; beta=0.1; J=1": {
+   "tested": 303360,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "E one orbit: giant, small run, gap, small run; beta=0.1; J=1": {
+   "tested": 54194,
+   "feasible": 185,
+   "weakest_best_margin": 0.2965
+  },
+  "E3 one orbit: giant followed by three different small runs; beta=0.1; J=1": {
+   "tested": 10112,
+   "feasible": 37,
+   "weakest_best_margin": 0.3109
+  },
+  "A giant with adjacent small run, separate small run; beta=0.25; J=1": {
+   "tested": 663600,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "B giant alone, separate run with two small letters; beta=0.25; J=1": {
+   "tested": 309680,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "C two adjacent visible letters, separate small run; beta=0.25; J=1": {
+   "tested": 530880,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "C2 giant with adjacent small run, separate run of visible letters; beta=0.25; J=1": {
+   "tested": 910080,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "D run of equal visible letters, separate run with two small letters; beta=0.25; J=1": {
+   "tested": 303360,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "E one orbit: giant, small run, gap, small run; beta=0.25; J=1": {
+   "tested": 54194,
+   "feasible": 0,
+   "weakest_best_margin": null
+  },
+  "E3 one orbit: giant followed by three different small runs; beta=0.25; J=1": {
+   "tested": 10112,
+   "feasible": 0,
+   "weakest_best_margin": null
+  }
  }
 }
