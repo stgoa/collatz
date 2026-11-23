@@ -1,0 +1,110 @@
+{
+ "V1_constants": {
+  "alpha_bounds": [
+   "15849/10000",
+   "158497/100000"
+  ],
+  "descent_below_2^17_max_odd_steps": 85,
+  "lambda_at_2^22": "4019/2097152",
+  "mu": "1/50"
+ },
+ "V2_linear_programmes": {
+  "d=1": {
+   "cases_certified": 4,
+   "largest_support": 6,
+   "rows_used": {
+    "F3V": 1,
+    "F4V": 1,
+    "L1-": 4,
+    "L2-": 1,
+    "L3hi": 2,
+    "L5": 4,
+    "L6": 4
+   },
+   "weakest_case": [
+    [
+     1
+    ],
+    [
+     1
+    ]
+   ],
+   "weakest_value": "-977695691/4675567616"
+  },
+  "d=1 size rows only": {
+   "cases_certified": 4
+  },
+  "d=2": {
+   "cases_certified": 16,
+   "largest_support": 9,
+   "rows_used": {
+    "F3U": 8,
+    "F3V": 4,
+    "F4V": 4,
+    "L1-": 16,
+    "L2-": 1,
+    "L3hi": 24,
+    "L3lo": 4,
+    "L5": 16,
+    "L6": 26,
+    "rho": 1
+   },
+   "weakest_case": [
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     1
+    ]
+   ],
+   "weakest_value": "-41748972461927/809073424433152"
+  },
+  "d=2 three-term relations only": {
+   "cases_certified": 16
+  },
+  "d=3": {
+   "cases_certified": 64,
+   "largest_support": 13,
+   "rows_used": {
+    "F3U": 56,
+    "F3V": 18,
+    "F4U": 8,
+    "F4V": 14,
+    "L1-": 63,
+    "L2-": 2,
+    "L3hi": 173,
+    "L3lo": 25,
+    "L5": 64,
+    "L6": 158,
+    "rho": 17
+   },
+   "weakest_case": [
+    [
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1
+    ]
+   ],
+   "weakest_value": "-2647347785579/5275199731968000"
+  }
+ },
+ "V3_actual_cycles": {
+  "actual_cycles": {
+   "1": 4000,
+   "2": 4000,
+   "3": 4000
+  },
+  "addend_free_rows_checked": 120000,
+  "smallest_log2_minimum_over_N": 2.321928
+ },
+ "V4_normal_form": {
+  "words_tested": 3000
+ }
+}

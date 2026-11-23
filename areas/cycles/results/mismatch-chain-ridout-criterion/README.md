@@ -266,3 +266,9 @@ The finite checks support the identities. Part (b) rests on Ridout's theorem and
   of the two identities of the half-period approximation law. Corrected before merging after the review
   recorded in `reviewed_by`: strict hypotheses in (c), the sharper factor in pattern (i), and the removal of
   conditions in (2) that are automatic.
+- 2026-11-23, later the same day: a note on the exploration `explore_lp_half_period.py`. Its finding that no
+  chain criterion is forced for three changed positions is specific to the chains of this node, which relate
+  one quotient to one state. The relations between two consecutive quotients, in three- and four-term form,
+  are forced there:
+  [`half-period-six-mismatch-local-law`](../half-period-six-mismatch-local-law/README.md). The statement and
+  the proof of this node are unchanged.

@@ -1,0 +1,58 @@
+{
+ "d=2: basic3": {
+  "cases_with_a_point": 2,
+  "forced": true,
+  "largest_t": -0.0729,
+  "sign_cases": 16,
+  "unsolved": 0
+ },
+ "d=2: basic3+basic4": {
+  "cases_with_a_point": 2,
+  "forced": true,
+  "largest_t": -0.5756,
+  "sign_cases": 16,
+  "unsolved": 0
+ },
+ "d=3: basic3": {
+  "cases_with_a_point": 13,
+  "forced": false,
+  "largest_t": 0.4137,
+  "sign_cases": 64,
+  "unsolved": 0
+ },
+ "d=3: basic3+basic4": {
+  "cases_with_a_point": 13,
+  "forced": true,
+  "largest_t": -0.029,
+  "sign_cases": 64,
+  "unsolved": 0
+ },
+ "d=3: basic3+basic4+chain3+chain4+gg": {
+  "cases_with_a_point": 13,
+  "forced": true,
+  "largest_t": -0.0641,
+  "sign_cases": 64,
+  "unsolved": 0
+ },
+ "d=3: basic3+chain3+gg": {
+  "cases_with_a_point": 13,
+  "forced": false,
+  "largest_t": 0.0225,
+  "sign_cases": 64,
+  "unsolved": 0
+ },
+ "d=4: basic3+basic4": {
+  "cases_with_a_point": 56,
+  "forced": false,
+  "largest_t": 0.3113,
+  "sign_cases": 256,
+  "unsolved": 0
+ },
+ "d=4: basic3+basic4+chain3+chain4+gg": {
+  "cases_with_a_point": 56,
+  "forced": false,
+  "largest_t": 0.1155,
+  "sign_cases": 256,
+  "unsolved": 0
+ }
+}
