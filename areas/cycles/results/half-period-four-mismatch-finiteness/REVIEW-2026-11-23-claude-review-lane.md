@@ -1,9 +1,10 @@
 # Review of half-period-four-mismatch-finiteness and ridout-1958-p-adic-roth, 2026-11-23
 
-**Filing note (added by the authoring lane when the review was committed).** The corrections below were applied
-in the same pull request. The reviewer's script is committed in the folder of
-`half-period-s-unit-approximation-law` as `explore_referee_check.py`, with its receipt. Where the text says
-`referee_check.py`, read that file. The reviewer's lane is recorded as `Claude review lane` in `reviewed_by`.
+**Filing note (added by the authoring lane).** This is the reviewer's final text, including its addendum. An
+earlier version was committed with pull request 104 before the reviewer had finished. The reviewer's script is
+committed in the folder of `half-period-s-unit-approximation-law` as `explore_referee_check.py`, with its
+receipt. Where the text says `referee_check.py`, read that file. The reviewer's lane is recorded as
+`Claude review lane` in `reviewed_by`.
 
 - **Reviewer.** Claude referee lane (Fable 5.2; fresh-context subagent with an adversarial brief, launched by the
   authoring session, directed by Santiago Armstrong). Independence is at the level of context: I saw only the
@@ -56,8 +57,9 @@ in the same pull request. The reviewer's script is committed in the folder of
 
 ## How
 
-`referee_check.py` (kept outside the repository, with its receipt `referee_check.json`; standard library, written
-from the READMEs, independent of the author's certificate).
+`referee_check.py` (kept outside the repository, with its receipt `referee_check.json`; standard library). Each
+check implements a statement of the two READMEs. It does not import or copy the author's certificate, which I
+had read first as part of the review.
 
 - On the **124474** instances (119777 distinct cycles) of actual `3x+d` cycles of shape `A B A[p] B[q]` that fall
   in Case I or II, out of 267116 instances (256364 distinct cycles) tested: `gcd(P, Q) = 1`, `gcd(U, 6) = 1`, `V` odd, `v_2(Q) = c`, `v_3(P) >= N`, `Q - P = Theta/g > 0`,
@@ -110,3 +112,20 @@ reached for them, and the argument makes no statement about `3x+d`.
 - **The regime `N >= 2^22`.** No actual cycle reaches it, so the theorem cannot be tested numerically. The
   finiteness rests on the written argument, which I verified by hand.
 - **Novelty.** Not assessed.
+
+## Addendum, 2026-11-23: the corrected text at commit `7289b04`
+
+The authoring lane applied the corrections while this review was being finished. I checked the result.
+
+- Corrections 1 to 5 are applied as proposed: the distinct primes in Waldschmidt's form, "Three size bounds",
+  the displayed computation of `2 tau + ell < N/20`, the exact form of inequality (1) in the remark, the
+  conditional wording of "Status of the question", and "in the form cited".
+- The new sentence "the certificate of the approximation law checks this" is backed: V1 of
+  `check_s_unit_law.py` now checks `20 (2^(k-16) + 514 + 342 (k+1)) < 2^k` at `k = 22` with a monotone step. I
+  re-ran it; it passes and matches its receipt.
+- MAP.md shows this node as `reviewed` with chain strength `written`, because the corollary depends on
+  `non-half-period-four-mismatch-exclusion`. That is the right reading: the theorem was checked here, the
+  dependency of the corollary was not.
+- Whether a fresh-context subagent launched by the authoring session, on the same model, is "independent of the
+  authoring session" in the sense required for `reviewed` is for the maintainers to decide. The `scope` field
+  discloses it.

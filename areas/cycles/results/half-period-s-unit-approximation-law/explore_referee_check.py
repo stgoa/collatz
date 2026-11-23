@@ -2,8 +2,9 @@
 """Independent referee test for
   half-period-s-unit-approximation-law  and  half-period-four-mismatch-finiteness.
 
-Written from the README statements only.  It does not import, copy or read the
-author's certificate.  Standard library only.
+Every check implements a statement of the two READMEs.  The script does not
+import or copy the author's certificate; the reviewer had read that certificate
+before writing this file, because it was part of the review.  Standard library only.
 
 Parts
   P0  exact constants and the threshold arithmetic (Fractions, integers)
