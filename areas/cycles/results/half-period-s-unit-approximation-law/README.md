@@ -22,6 +22,17 @@ authors:
   - Claude cycles lane (Fable 5.2; directed by Santiago Armstrong)
 created: 2026-11-23
 assumes: [musson-collatz-gap-all]
+lean:
+  - LeanLane.HalfPeriodSUnit.exists_h
+  - LeanLane.HalfPeriodSUnit.exists_j
+  - LeanLane.HalfPeriodSUnit.h_pos
+  - LeanLane.HalfPeriodSUnit.intercept_identity
+  - LeanLane.HalfPeriodSUnit.p_lt_q_of_j_neg
+  - LeanLane.HalfPeriodSUnit.identity_I
+  - LeanLane.HalfPeriodSUnit.identity_II
+  - LeanLane.HalfPeriodSUnit.theta_I_lt
+  - LeanLane.HalfPeriodSUnit.theta_II_lt
+  - LeanLane.HalfPeriodSUnit.isolated
 certificates: [check_s_unit_law.py]
 evidence:
   - "check_s_unit_law.json: the exact constants and thresholds, the local descent below 2^17, the identities and every elementary inequality on 57781 actual 3x+d cycles of this shape (true addend retained), and the approximation lemma on exact continued fractions"
@@ -335,6 +346,28 @@ python3 areas/cycles/results/half-period-s-unit-approximation-law/check_s_unit_l
 The receipt is [`check_s_unit_law.json`](check_s_unit_law.json), regenerated with `--write-receipt`.
 The finite checks support the identities and inequalities. The theorem for all `N >= 2^22` is the written
 argument.
+
+## Lean
+
+Only the algebraic core is formalised. The node stays `written`.
+
+[`LeanLane/HalfPeriodSUnit.lean`](../../../../lean/LeanLane/HalfPeriodSUnit.lean) takes the four block equations
+(1), with a general addend `d` and integer intercepts, as the structure `Blocks`. From them it proves:
+
+| Lean declaration | Statement in this node |
+|---|---|
+| `exists_h`, `exists_j` | the integers `h`, `j` and the four relations (2) |
+| `h_pos` | `h > 0` for positive states and `p, q >= 1` |
+| `intercept_identity` | identity (3) |
+| `p_lt_q_of_j_neg` | `j < 0` implies `p < q` |
+| `identity_I`, `identity_II` | the exact identities (4) and (5) |
+| `theta_I_lt`, `theta_II_lt` | the two bounds (6) |
+| `isolated` | section 8 in integer form: a different fraction at least as close has `3^N <= 2 Theta Q'` |
+
+Not formalised: the normal form of section 1, `j != 0`, the slopes and the budget of section 4, the placement of
+the minimum, the estimates (11) to (13) with their logarithms, and the use of EXT-1. So the gap `N/25` is
+not machine-checked. Build with `lake build LeanLane` from `lean/`; the receipts are
+`lean/receipts/HalfPeriodSUnit.*`.
 
 ## Remarks
 
