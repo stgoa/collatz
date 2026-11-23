@@ -110,3 +110,4 @@ Notation and Lemmas 1–2 (legality of `σ_s` and `ι_j`, `3σ_s(z) + 1 = 4^s(3z
 
 - Written 2026-10-31 by the Claude cycles lane (Fable 5.1), directed by Santiago Armstrong, after the order-prime-to-three proof showed that the only obstacle to a uniform argument was the finite coupled part of the 3-adic information.
 - 2026-10-31, later: Theorem 1 formalised in Lean (`LeanLane.SaturatedAutomaton`, standard axioms only); the status stays `written` because Theorem 2 is the certificate's computation (Claude cycles lane, Fable 5.1).
+- 2026-11-23: the connectivity hypothesis of Theorem 1 is now proved in Lean for every `M′` coprime to 6 and every `v` (`LeanLane.SaturatedConnectivity.step_connected`), so the conclusion holds for every modulus without the computation of this node; see [`saturated-sets-meet-every-residue-class-formal`](../saturated-sets-meet-every-residue-class-formal.md). The claim and the certificate of this node are unchanged.

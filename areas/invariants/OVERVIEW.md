@@ -62,7 +62,7 @@ The next target asks a nonconstant invariant to have more binary sections than a
 
 ## Resolved residue-class milestone
 
-Every nonempty saturated set meets every residue class modulo every positive integer. The [uniform connectivity proof](results/saturated-residue-automata-uniform-connectivity/README.md) (`written`, 2026-11-08) closes the [residue question](questions/invariant-sets-meet-every-residue-class.md): counting forces each closed set of the finite automaton to be invariant under its inverse affine map; iteration removes the power of 3, and a translation forces constancy. This removes the previous bound on the part of the modulus prime to 6. The density conclusion was already known from [Monks (2006)](../../sources/monks-2006-sufficiency.md); novelty of this automaton proof is undetermined. The next quantitative rigidity target below remains open.
+Every nonempty saturated set meets every residue class modulo every positive integer. The [uniform connectivity proof](results/saturated-residue-automata-uniform-connectivity/README.md) (`written`, 2026-11-08) closes the [residue question](questions/invariant-sets-meet-every-residue-class.md): counting forces each closed set of the finite automaton to be invariant under its inverse affine map; iteration removes the power of 3, and a translation forces constancy. This removes the previous bound on the part of the modulus prime to 6. The density conclusion was already known from [Monks (2006)](../../sources/monks-2006-sufficiency.md); novelty of this automaton proof is undetermined. Since 2026-11-23 the statement is machine-checked for every modulus: [`saturated-sets-meet-every-residue-class-formal`](results/saturated-sets-meet-every-residue-class-formal.md) gives a second proof of the connectivity, without counting, and its Lean formalisation (`formal`). The next quantitative rigidity target below remains open.
 
 ## Open questions
 
@@ -86,3 +86,4 @@ Every nonempty saturated set meets every residue class modulo every positive int
 Written by the B16 migration (Claude, Opus 5.5) from the legacy viewpoints line (`experiments/viewpoints/`, V001–V009, 2026-10-18), its map, log and briefs, the side lane's referee sheet and feed, and the V-units of the legacy `lean/STATE.md`. Every claim was checked against its node at commit time. The line's index, map, log and briefs are archived in [`archive/invariants-viewpoints/`](../../archive/invariants-viewpoints/README.md).
 
 - 2026-11-08: The residue-class milestone is moved out of the open questions after the uniform automaton proof; Monks's prior density result is acknowledged.
+- 2026-11-23: The residue-class milestone is recorded as machine-checked for every modulus.

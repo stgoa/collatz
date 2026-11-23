@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**299 results, 32 attempts, 39 questions, 40 sources.**
+**300 results, 32 attempts, 39 questions, 40 sources.**
 
 ## Frontier: open questions
 
@@ -423,6 +423,7 @@ Overview: [`areas/invariants/OVERVIEW.md`](areas/invariants/OVERVIEW.md)
 | [`quadratic-separation-digit-count-sections`](areas/invariants/results/quadratic-separation-digit-count-sections/README.md) | Mixed sections of a non-eventually-periodic digit-count sequence are pairwise distinct, g… | formal | formal | — | yes |
 | [`reverse-closure-two-base-automaticity`](areas/invariants/results/reverse-closure-two-base-automaticity.md) | For the odd-value sequence of a 3x+1 invariant, 2-automatic and 3-automatic are equivalent | formal | formal | `cobham-recognizability-theorem` | yes |
 | [`saturated-residue-automata-uniform-connectivity`](areas/invariants/results/saturated-residue-automata-uniform-connectivity/README.md) | Two families of arrows make every saturated residue automaton strongly connected | written | written | — |  |
+| [`saturated-sets-meet-every-residue-class-formal`](areas/invariants/results/saturated-sets-meet-every-residue-class-formal.md) | Every union of 3x+1 components meets every residue class: a counting-free proof, machine-… | formal | written | — | yes |
 | [`saturated-sets-meet-residue-classes-six-smooth-moduli`](areas/invariants/results/saturated-sets-meet-residue-classes-six-smooth-moduli/README.md) | Every saturated set of the 3x+1 map meets every residue class modulo 2^k·3^b, for all k a… | formal | formal | — | yes |
 | [`saturated-sets-meet-residue-classes-small-moduli`](areas/invariants/results/saturated-sets-meet-residue-classes-small-moduli/README.md) | Every saturated set of the 3x+1 map meets every residue class modulo every M ≤ 100 | written | written | — |  |
 | [`saturated-sets-residue-classes-finite-automaton`](areas/invariants/results/saturated-sets-residue-classes-finite-automaton/README.md) | A finite automaton decides the residue-class question for all moduli 2^k·3^b·M′ at once;… | written | written | — | yes |
@@ -722,6 +723,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-23: [`half-period-four-mismatch-finiteness`](areas/cycles/results/half-period-four-mismatch-finiteness/README.md) reviewed by Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
 - 2026-11-23: [`half-period-s-unit-approximation-law`](areas/cycles/results/half-period-s-unit-approximation-law/README.md) added (result)
 - 2026-11-23: [`half-period-s-unit-approximation-law`](areas/cycles/results/half-period-s-unit-approximation-law/README.md) reviewed by Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
+- 2026-11-23: [`saturated-sets-meet-every-residue-class-formal`](areas/invariants/results/saturated-sets-meet-every-residue-class-formal.md) added (result)
 - 2026-11-23: [`ridout-1958-p-adic-roth`](sources/ridout-1958-p-adic-roth.md) added (source)
 - 2026-11-08: [`antiperiodic-intercept-nondivisibility`](areas/cycles/results/antiperiodic-intercept-nondivisibility/README.md) added (result)
 - 2026-11-08: [`background-maximum-four-arc-exclusion`](areas/cycles/results/background-maximum-four-arc-exclusion/README.md) added (result)
@@ -742,7 +744,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`expanding-third-block-minimum-bound`](areas/cycles/results/expanding-third-block-minimum-bound/README.md) added (result)
 - 2026-11-08: [`fibonacci-four-arc-spike-denominator-growth`](areas/cycles/results/fibonacci-four-arc-spike-denominator-growth/README.md) added (result)
 - 2026-11-08: [`four-mismatch-inverse-continued-fraction-bound`](areas/cycles/results/four-mismatch-inverse-continued-fraction-bound/README.md) added (result)
-- 2026-11-08: [`free-four-cut-eighteen-rotation-obstruction`](areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/README.md) added (result)
 
 ## Contributors
 
@@ -750,19 +751,19 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 
 | Contributor | Share of credit | Nodes authored | Reviews given |
 |---|---|---|---|
-| ChatGPT main lane | 54.2% | 203 | 9 |
+| ChatGPT main lane | 53.9% | 203 | 9 |
 | Claude side lane | 13.3% | 34 | 132 |
-| Claude review lane | 7.6% | 0 | 123 |
-| Claude cycles lane | 5.5% | 23 | 0 |
+| Claude review lane | 7.5% | 0 | 123 |
+| Claude cycles lane | 5.9% | 24 | 0 |
 | Claude Lean lane | 4.9% | 3 | 69 |
 | Codex cycle research lane | 3.2% | 22 | 0 |
 | Claude PR1 lane | 1.9% | 6 | 9 |
-| Codex four-arc research lane | 1.5% | 16 | 0 |
+| Codex four-arc research lane | 1.4% | 16 | 0 |
 | Codex root research lane | 1.3% | 18 | 0 |
 | Codex signed-endpoint formalisation lane | 1.0% | 5 | 0 |
 | ChatGPT handoff conversation | 0.8% | 2 | 0 |
 | Codex residue research lane | 0.7% | 12 | 0 |
-| Claude explicit-Tao lane | 0.7% | 5 | 0 |
+| Claude explicit-Tao lane | 0.6% | 5 | 0 |
 | Codex signed-endpoint research lane | 0.6% | 6 | 0 |
 | Codex main research lane | 0.4% | 6 | 0 |
 | Codex formalisation lane | 0.3% | 2 | 0 |
