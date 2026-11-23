@@ -4,7 +4,7 @@
 
 The whole knowledge graph on one page. Each row links to its node file; read the area overviews for the narrative. Statuses are defined in [`conventions/SCHEMA.md`](conventions/SCHEMA.md).
 
-**303 results, 32 attempts, 40 questions, 41 sources.**
+**304 results, 32 attempts, 40 questions, 41 sources.**
 
 ## Frontier: open questions
 
@@ -255,6 +255,7 @@ Overview: [`areas/cycles/OVERVIEW.md`](areas/cycles/OVERVIEW.md)
 | [`expanding-negative-prefix-mersenne-exclusion`](areas/cycles/results/expanding-negative-prefix-mersenne-exclusion/README.md) | Expanding negative Mersenne prefixes with smaller endpoints exclude denominator one | written | written | `laurent-mignotte-nesterenko-1995-two-logarithms` |  |
 | [`expanding-third-block-minimum-bound`](areas/cycles/results/expanding-third-block-minimum-bound/README.md) | An expanding third block forces an exponential cycle minimum | written | written | `barina-2025-convergence-2-71`, `musson-collatz-gap-all` |  |
 | [`few-arc-codings-denominator-census`](areas/cycles/results/few-arc-codings-denominator-census/README.md) | Few-arc rotation codings: an exact census of cancellation and reduced denominators | written | written | — |  |
+| [`few-mismatch-rotation-orders-sweep`](areas/cycles/results/few-mismatch-rotation-orders-sweep/README.md) | Heuristic sweep: every rotation structure tested with five to seven mismatches is impossi… | proposed | proposed | `musson-collatz-gap-all` |  |
 | [`fibonacci-four-arc-spike-denominator-growth`](areas/cycles/results/fibonacci-four-arc-spike-denominator-growth/README.md) | A Fibonacci four-arc family far from mechanical words has growing denominators | written | written | `musson-collatz-gap-all` |  |
 | [`fixed-defect-unbounded-cancellation`](areas/cycles/results/fixed-defect-unbounded-cancellation.md) | Two unit rotation defects allow arbitrarily large cancellation: the family 1^t 2^(2t) | reviewed | reviewed | — |  |
 | [`four-mismatch-inverse-continued-fraction-bound`](areas/cycles/results/four-mismatch-inverse-continued-fraction-bound/README.md) | Inverse continued fractions force rotation mismatch growth | written | written | `musson-collatz-gap-all` |  |
@@ -724,6 +725,7 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 
 ## Recent activity
 
+- 2026-11-23: [`few-mismatch-rotation-orders-sweep`](areas/cycles/results/few-mismatch-rotation-orders-sweep/README.md) added (result)
 - 2026-11-23: [`free-four-cut-eighteen-rotation-obstruction`](areas/cycles/results/free-four-cut-eighteen-rotation-obstruction/README.md) reviewed by Claude review lane (Fable 5.2; independent subagent; directed by Santiago Armstrong)
 - 2026-11-23: [`half-period-four-mismatch-finiteness`](areas/cycles/results/half-period-four-mismatch-finiteness/README.md) added (result)
 - 2026-11-23: [`half-period-four-mismatch-finiteness`](areas/cycles/results/half-period-four-mismatch-finiteness/README.md) reviewed by Claude review lane (Fable 5.2; fresh-context subagent with an adversarial brief; directed by Santiago Armstrong)
@@ -748,7 +750,6 @@ Older documents cite results by series numbers (C011, S13, R71, V004, …). This
 - 2026-11-08: [`clustered-two-maximum-arcs-exclusion`](areas/cycles/results/clustered-two-maximum-arcs-exclusion/README.md) added (result)
 - 2026-11-08: [`contiguous-maximum-four-arc-exclusion`](areas/cycles/results/contiguous-maximum-four-arc-exclusion/README.md) added (result)
 - 2026-11-08: [`contracting-two-block-double-repeat-exclusion`](areas/cycles/results/contracting-two-block-double-repeat-exclusion/README.md) added (result)
-- 2026-11-08: [`effective-proportional-two-block-exclusion`](areas/cycles/results/effective-proportional-two-block-exclusion/README.md) added (result)
 
 ## Contributors
 
@@ -759,7 +760,7 @@ Credit computed by [`tools/credit.py`](tools/credit.py) (formula v1) under [`con
 | ChatGPT main lane | 53.5% | 203 | 9 |
 | Claude side lane | 13.2% | 34 | 132 |
 | Claude review lane | 7.7% | 0 | 126 |
-| Claude cycles lane | 6.4% | 27 | 0 |
+| Claude cycles lane | 6.4% | 28 | 0 |
 | Claude Lean lane | 4.9% | 3 | 69 |
 | Codex cycle research lane | 3.2% | 22 | 0 |
 | Claude PR1 lane | 1.9% | 6 | 9 |

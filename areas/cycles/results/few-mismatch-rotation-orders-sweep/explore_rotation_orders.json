@@ -1,0 +1,292 @@
+{
+ "M=2 h=1 s=4": {
+  "empty": 2,
+  "forced": 2,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 4,
+  "weakest_forced": -0.576,
+  "largest_free": null
+ },
+ "M=3 h=1 s=4": {
+  "empty": 36,
+  "forced": 0,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 36,
+  "weakest_forced": null,
+  "largest_free": null
+ },
+ "M=4 h=1 s=4": {
+  "empty": 180,
+  "forced": 0,
+  "free": 0,
+  "invariant": 2,
+  "unsolved": 0,
+  "patterns": 182,
+  "weakest_forced": null,
+  "largest_free": null
+ },
+ "M=5 h=1 s=4": {
+  "empty": 590,
+  "forced": 0,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 590,
+  "weakest_forced": null,
+  "largest_free": null
+ },
+ "M=5 h=2 s=4": {
+  "empty": 590,
+  "forced": 0,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 590,
+  "weakest_forced": null,
+  "largest_free": null
+ },
+ "M=6 h=1 s=4": {
+  "empty": 1464,
+  "forced": 0,
+  "free": 0,
+  "invariant": 6,
+  "unsolved": 0,
+  "patterns": 1470,
+  "weakest_forced": null,
+  "largest_free": null
+ },
+ "M=7 h=1 s=4": {
+  "empty": 3094,
+  "forced": 0,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 3094,
+  "weakest_forced": null,
+  "largest_free": null
+ },
+ "M=7 h=2 s=4": {
+  "empty": 3094,
+  "forced": 0,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 3094,
+  "weakest_forced": null,
+  "largest_free": null
+ },
+ "M=7 h=3 s=4": {
+  "empty": 3094,
+  "forced": 0,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 3094,
+  "weakest_forced": null,
+  "largest_free": null
+ },
+ "M=3 h=1 s=5": {
+  "empty": 64,
+  "forced": 8,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 72,
+  "weakest_forced": -0.731,
+  "largest_free": null
+ },
+ "M=4 h=1 s=5": {
+  "empty": 572,
+  "forced": 4,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 576,
+  "weakest_forced": -1.543,
+  "largest_free": null
+ },
+ "M=5 h=1 s=5": {
+  "empty": 2670,
+  "forced": 0,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 2670,
+  "weakest_forced": null,
+  "largest_free": null
+ },
+ "M=5 h=2 s=5": {
+  "empty": 2666,
+  "forced": 4,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 2670,
+  "weakest_forced": -1.488,
+  "largest_free": null
+ },
+ "M=6 h=1 s=5": {
+  "empty": 8820,
+  "forced": 0,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 8820,
+  "weakest_forced": null,
+  "largest_free": null
+ },
+ "M=7 h=1 s=5": {
+  "empty": 23310,
+  "forced": 0,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 23310,
+  "weakest_forced": null,
+  "largest_free": null
+ },
+ "M=7 h=2 s=5": {
+  "empty": 23310,
+  "forced": 0,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 23310,
+  "weakest_forced": null,
+  "largest_free": null
+ },
+ "M=7 h=3 s=5": {
+  "empty": 23298,
+  "forced": 12,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 23310,
+  "weakest_forced": -2.354,
+  "largest_free": null
+ },
+ "M=8 h=1 s=5": {
+  "empty": 52752,
+  "forced": 0,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 52752,
+  "weakest_forced": null,
+  "largest_free": null
+ },
+ "M=8 h=3 s=5": {
+  "empty": 52744,
+  "forced": 8,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 52752,
+  "weakest_forced": -2.488,
+  "largest_free": null
+ },
+ "M=2 h=1 s=6": {
+  "empty": 2,
+  "forced": 6,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 8,
+  "weakest_forced": -0.029,
+  "largest_free": null
+ },
+ "M=3 h=1 s=6": {
+  "empty": 200,
+  "forced": 52,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 252,
+  "weakest_forced": -0.299,
+  "largest_free": null
+ },
+ "M=4 h=1 s=6": {
+  "empty": 3092,
+  "forced": 124,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 3216,
+  "weakest_forced": -0.638,
+  "largest_free": null
+ },
+ "M=5 h=1 s=6": {
+  "empty": 19092,
+  "forced": 108,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 19200,
+  "weakest_forced": -0.773,
+  "largest_free": null
+ },
+ "M=5 h=2 s=6": {
+  "empty": 18892,
+  "forced": 308,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 19200,
+  "weakest_forced": -0.46,
+  "largest_free": null
+ },
+ "M=6 h=1 s=6": {
+  "empty": 77870,
+  "forced": 64,
+  "free": 0,
+  "invariant": 8,
+  "unsolved": 0,
+  "patterns": 77942,
+  "weakest_forced": -1.231,
+  "largest_free": null
+ },
+ "M=3 h=1 s=7": {
+  "empty": 442,
+  "forced": 206,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 648,
+  "weakest_forced": -0.03,
+  "largest_free": null
+ },
+ "M=4 h=1 s=7": {
+  "empty": 11016,
+  "forced": 1176,
+  "free": 0,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 12192,
+  "weakest_forced": -0.041,
+  "largest_free": null
+ },
+ "M=2 h=1 s=8": {
+  "empty": 2,
+  "forced": 2,
+  "free": 12,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 16,
+  "weakest_forced": -0.068,
+  "largest_free": 0.311
+ },
+ "M=3 h=1 s=8": {
+  "empty": 1174,
+  "forced": 706,
+  "free": 64,
+  "invariant": 0,
+  "unsolved": 0,
+  "patterns": 1944,
+  "weakest_forced": -0.029,
+  "largest_free": 0.195
+ }
+}

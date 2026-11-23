@@ -54,6 +54,15 @@ size of the minimum.
   the relations between consecutive paired quotients, in three- and four-term form, and an exact
   linear-programming certificate. It does not treat rotations with five mismatches, nor rotations with six
   mismatches other than the rotation by half the period, so `s = 5` and `s = 6` stay open.
+- 2026-11-23, heuristic, not a proof: a sweep of two floating-point models
+  ([`few-mismatch-rotation-orders-sweep`](../results/few-mismatch-rotation-orders-sweep/README.md), status
+  `proposed`). For rotation orders 3 to 8 every structure with five mismatches is either excluded by size rows
+  or has a forced three- or four-term relation; the same holds for six mismatches at orders 2 to 6 and seven
+  at orders 3 and 4; free structures first appear at eight mismatches. In a large-order model the only
+  five-mismatch structures that survive the sizes are near-circuits (one giant letter, short runs of small
+  defects along the rotation), and they are forced as well. The node lists what is missing for a theorem:
+  error terms, exact certificates, the orders in between, long runs of defects, completeness of the pattern
+  families.
 - A general tool: [`mismatch-chain-ridout-criterion`](../results/mismatch-chain-ridout-criterion/README.md).
   For any rotation, any mismatched start position after a common run of `a - 1` positions and any later end
   position, an exact identity relates `3^(a+n) g` to `2^c U`. Under Ridout's theorem, for each fixed
